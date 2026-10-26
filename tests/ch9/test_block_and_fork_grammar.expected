@@ -1,0 +1,10 @@
+seq y=2
+fork a z=2
+fork b
+joined
+any1
+any3
+after any
+wf1
+wf2
+waitfork 9

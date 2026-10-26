@@ -1,0 +1,6 @@
+t0 a=0
+active a=0
+inactive1 a=0 t=0
+inactive2 a=0 t=0
+strobe a=1 t=0
+next a=1 t=1

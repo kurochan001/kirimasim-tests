@@ -1,0 +1,6 @@
+fn_ok=1 e=1
+fn_bad=0 e=1
+fn_two=1 e=5
+task_ok e=3
+coerced e=7
+task_result=9

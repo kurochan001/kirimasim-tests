@@ -1,0 +1,11 @@
+argc PLI_INT32 1
+argv PLI_BYTE8 ** 1
+product PLI_BYTE8 * 1
+version PLI_BYTE8 * 1
+field order argc argv product version 1
+vpi_get_vlog_info returns 1, argc at least 3 1
+every argv entry is a string 1
+product is a nonempty string 1
+version is a nonempty string 1
+argv[0] is a nonempty tool name, not a plusarg 1
+last two entries are the plusargs in order 1

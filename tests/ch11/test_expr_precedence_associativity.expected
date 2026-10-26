@@ -1,0 +1,14 @@
+sub=12
+mul=14 add=20
+pow=64
+cond=0
+shift=8
+rel=1
+bitcmp=0
+bitxor=14
+logiccond=5
+unary=2 unary2=10
+shiftadd=2
+assign=3,4
+rep=1010 concat=1
+compound=10

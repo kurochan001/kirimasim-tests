@@ -1,0 +1,13 @@
+type PLI_INT32 1
+sysfunctype PLI_INT32 1
+calltf PLI_INT32 (*)(PLI_BYTE8 *) 1
+compiletf PLI_INT32 (*)(PLI_BYTE8 *) 1
+sizetf PLI_INT32 (*)(PLI_BYTE8 *) 1
+user_data PLI_BYTE8 * 1
+field order type sysfunctype tfname calltf compiletf sizetf user_data 1
+$vt_task: task, none, name starts $ 1, calltf 1, compiletf 1, sizetf 0, user data task
+$vt_int: function, vpiIntFunc, name starts $ 1, calltf 1, compiletf 0, sizetf 0, user data (NULL)
+$vt_real: function, vpiRealFunc, name starts $ 1, calltf 1, compiletf 0, sizetf 0, user data (NULL)
+$vt_time: function, vpiTimeFunc, name starts $ 1, calltf 1, compiletf 0, sizetf 0, user data (NULL)
+$vt_sized: function, vpiSizedFunc, name starts $ 1, calltf 1, compiletf 0, sizetf 1, user data (NULL)
+$vt_signed: function, vpiSizedSignedFunc, name starts $ 1, calltf 1, compiletf 0, sizetf 1, user data (NULL)

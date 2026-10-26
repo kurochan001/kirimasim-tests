@@ -1,0 +1,428 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch11/test_expr_conditional_ambiguous": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'neq=f0', expected 'neq=xx'",
+   "inputs_sha256": "7f60eef977bdc7eb0a90c419951a0a04b9dac02fd8cbf958dabe45d80d51ded2"
+  },
+  "ch11/test_expr_inside_set_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch11/test_expr_inside_set_forms.sv:41:38: Unsupported: +/- range",
+   "inputs_sha256": "6a7f5c152390695c4f05e0e9d1c30a3a3af1ddeb75cd654554c16760d9836ea7"
+  },
+  "ch11/test_expr_operand_categories": {
+   "status": "pass",
+   "inputs_sha256": "bb2b8cb836ce1be8b83c1e358af82571aed6b441c24bac5e73b6456f0b90587a"
+  },
+  "ch11/test_expr_precedence_associativity": {
+   "status": "pass",
+   "inputs_sha256": "1370572c8737006d7cea93f1c34a0e1dc3888f9f3b80bd8fbd7bffc67ab49812"
+  },
+  "ch11/test_expr_selects_and_prefixes": {
+   "status": "pass",
+   "inputs_sha256": "e72fc61b2e633523edf16da4b1e1d6c95a34a8f8119d1dac503e0c6cc686c9c7"
+  },
+  "ch11/test_expr_string_literal_ops": {
+   "status": "pass",
+   "inputs_sha256": "fb0abd6882a351217c81b25c4421843e036a94c781bf3977b33cb8baa582e3c9"
+  },
+  "ch11/test_expr_tagged_union_access": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch11/test_expr_tagged_union_access.sv:34:9: Unsupported: tagged union",
+   "inputs_sha256": "9cfa40c266600ec080a0e4a4d65c2afa7bccdcf048620bcdf88ceba6025c2388"
+  },
+  "ch11/test_expr_timescale_constants": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch11/test_expr_timescale_constants.sv:27:23: Expecting expression to be constant, but can't convert a TIMEPRECISION to constant.",
+   "inputs_sha256": "1b065e37b9b25f7a9fe2ece1e2e8640bd15beca7a76cdda7c3872776aa14202f"
+  },
+  "ch11/test_expr_unary_plus": {
+   "status": "pass",
+   "inputs_sha256": "5b5b5c26ef5985b079c2d8afe4971ba397067ce453d798661356c08c5b74803b"
+  },
+  "ch20/test_pla_sync_array_and_plane": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch20/test_pla_sync_array_and_plane.sv:40:5: Unsupported or unknown PLI call: '$sync$and$array'",
+   "inputs_sha256": "cac03998b6c02d7faeb0c4071c41c8b280863cb879d59ff10f9c10d8463a7f5d"
+  },
+  "ch20/test_queue_statistics_wait_codes": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch20/test_queue_statistics_wait_codes.sv:34:5: Unsupported: IEEE 1364-1995 reserved word not implemented: '$q_initialize'",
+   "inputs_sha256": "61024620ad254aded93ff53b2779e311b1656bdcc7cf4e940f4e9826c9eb6c8d"
+  },
+  "ch20/test_typename_enum_encoded_values": {
+   "status": "pass",
+   "inputs_sha256": "3c231ddea6c4c541cffbe12ba83d1043f1150db2ba71fcae5bbc4595a6b9455f"
+  },
+  "ch31/test_timing_check_condition_x": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'en=x plain=0 inverted=0 case_equal=0 case_not_equal=0 equ...', expected 'en=x plain=0 inverted=0 case_equal=0 case_not_equal=0 equ...'",
+   "inputs_sha256": "e49bc30767f49193c0c299b19aec2be671f937a9699305b13c9dd709e92c500a"
+  },
+  "ch32/test_sdf_default_mtm_member": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'change time is a member: 0', expected 'change time is a member: 1'",
+   "inputs_sha256": "3eac110a8ab17764c3638cef2bab25918dac0a9ffbc0fb5f4efa3660d0abbd8b"
+  },
+  "ch32/test_sdf_mtm_and_scale_factors": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'change at 61: 0', expected 'change at 61: 1'",
+   "inputs_sha256": "afa6b14e46a0001fc7f043b199e16734b8126da820e1c2918a1f4d830b6a95ba"
+  },
+  "ch35/test_dpi_declaration_site_types": {
+   "status": "pass",
+   "inputs_sha256": "2e775485e29e353d60a099c3d9577565bc10366ff2a376279af2c723d8af0741"
+  },
+  "ch35/test_dpi_export_task_and_result": {
+   "status": "pass",
+   "inputs_sha256": "867c75daa3898559ed7cc708aca15c5109a9356fbe94c88dd99c45498b04e09a"
+  },
+  "ch35/test_dpi_identical_signature_two_scopes": {
+   "status": "pass",
+   "inputs_sha256": "a1438dd85e172d960130a418dd3732739eb3ec0a71e25b5197405951b994b368"
+  },
+  "ch35/test_dpi_import_names_and_export_scope": {
+   "status": "pass",
+   "inputs_sha256": "5efa0c59dc38588f054179b14404e67c52f22e93b1872ec2a86834fd619d4117"
+  },
+  "ch35/test_dpi_input_actual_and_output_values": {
+   "status": "pass",
+   "inputs_sha256": "64f476c9d61f810b5143d4203b49cae6a915bb3fe9b667a39ae7400c39ac5b51"
+  },
+  "ch35/test_dpi_native_types_and_passing": {
+   "status": "pass",
+   "inputs_sha256": "2af04904d984b49559d6f6639423ec1b87f3064f245459b81ef764384eff6087"
+  },
+  "ch38/test_vpi_callback_memory_index": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_callback_memory_index.sv:35:8: Unsupported or unknown PLI call: '$vt_watch'",
+   "inputs_sha256": "0b36df0f273279f2c1318e68ccd6db2084f3e399a20ae48b276a50770c3c848a"
+  },
+  "ch38/test_vpi_callback_suppress_value": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_callback_suppress_value.sv:30:8: Unsupported or unknown PLI call: '$vt_watch'",
+   "inputs_sha256": "92ec3e45caa8eafbdafec9f7b06319313b6da69fabf3d3ad50fd8b02843307ce"
+  },
+  "ch38/test_vpi_get_array_static": {
+   "status": "pass",
+   "inputs_sha256": "0d07e6fa3bed3d83497f7e6c7de170a50ce9859c6f1b3ad3b16723217cbcf7a6"
+  },
+  "ch38/test_vpi_get_value_preserve": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_get_value_preserve.sv:40:8: Unsupported or unknown PLI call: '$vt_read'",
+   "inputs_sha256": "6e92428a330aa0d450a68d7e645283f3875d9311b1c0e2408424c2402ee290cc"
+  },
+  "ch38/test_vpi_path_delay_counts": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_path_delay_counts.sv:75:8: Unsupported or unknown PLI call: '$vt_read'",
+   "inputs_sha256": "38f3575337578f4e3980360bc02bda9461b73c5338e023d31bea903e5f3bb5a8"
+  },
+  "ch38/test_vpi_put_array_raw": {
+   "status": "pass",
+   "inputs_sha256": "2e63b84078e99b7e10cf7683e1179b0e83286a9095adcabf336a54718a9af2bd"
+  },
+  "ch38/test_vpi_put_array_target": {
+   "status": "pass",
+   "inputs_sha256": "6e8c89aa41a41fb886835754431ae4efac9c0c72a0dcfb98c9c317e40b8db97b"
+  },
+  "ch38/test_vpi_put_value_formats": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_put_value_formats.sv:40:8: Unsupported or unknown PLI call: '$vt_put'",
+   "inputs_sha256": "04f61c557d694d275bf501170c0a86a0fb378fd9cb18507e0f8584ef5d962271"
+  },
+  "ch38/test_vpi_put_value_targets": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_put_value_targets.sv:46:8: Unsupported or unknown PLI call: '$vt_put'",
+   "inputs_sha256": "1bcdbad3815c67a0fcbd18c0050af7a1220d1a071066f9a2c83966689e7fed83"
+  },
+  "ch38/test_vpi_release_remove_signatures": {
+   "status": "known",
+   "reason": "output differs: line 1 is '0: r changed to 3', expected '1: r changed to 3'",
+   "inputs_sha256": "b1273c709a82d6a8d2d51c9cdec63297174edb4f22496b706df3ae51c1b729c7"
+  },
+  "ch38/test_vpi_systf_info_fields": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: /opt/homebrew/Cellar/verilator/5.052/share/verila...', expected 'type PLI_INT32 1'",
+   "inputs_sha256": "923d6169ed8808a06a68cbbd15f2c4f438a203a71b15c1cb0608f5b4c3b36528"
+  },
+  "ch38/test_vpi_time_callback_reentrant": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_time_callback_reentrant.sv:31:5: Unsupported or unknown PLI call: '$vt_setup'",
+   "inputs_sha256": "fe5d46f18fc7ecc5c66909858f9c1c2040a6ba3dcd5b5d51f385d29b73e0cd91"
+  },
+  "ch38/test_vpi_vlog_info_structure": {
+   "status": "pass",
+   "inputs_sha256": "ea6693ece303e4c69ee778eb8a2a3f17f28057e0d3a0787232f138c5a64479f7"
+  },
+  "ch4/test_sched_initial_values": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'l=0111 w=1', expected 'l=xxxx w=z'",
+   "inputs_sha256": "a906c776167c46ee8a1468b5e0cb17c767d7e5336c08ebfdd59164b455fe3422"
+  },
+  "ch4/test_sched_region_iteration": {
+   "status": "pass",
+   "inputs_sha256": "8f21e334abe8388cd1b9edef1d8f7d0c82ba1715e51e6e3e61ed2a019051b0aa"
+  },
+  "ch40/test_coverage_get_status_and_relations": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch40/test_coverage_get_status_and_relations.sv:60:15: Unsupported: IEEE 1800-2005 reserved word not implemented: '$coverage_get_max'",
+   "inputs_sha256": "470fdd254da636e86ffea26f0ec597020e976ac61cf035a77739cd07dfeaec87"
+  },
+  "ch6/test_aggregate_whole_copy_and_subroutine": {
+   "status": "pass",
+   "inputs_sha256": "d98783d8fbdd633a834308f1acabf8ee38987cfb6fb0ee5998560cdca9172041"
+  },
+  "ch6/test_cast_function_and_static_enum_coercion": {
+   "status": "pass",
+   "inputs_sha256": "daadc519cfdf3e63c14745f39b922426454a986cb3c997621664ccc800a43a38"
+  },
+  "ch6/test_class_cast_compatibility_dynamic": {
+   "status": "pass",
+   "inputs_sha256": "ae1ad01839acc1e2afe9d1d0eb0971a2d4777de46c852931f6b1545cc6d8e715"
+  },
+  "ch6/test_enum_reuse_next_prev_encoding": {
+   "status": "pass",
+   "inputs_sha256": "a680260ebbe35c5e75871d2f8ba6b1d5493b38a412ffe2c82b94e0d0b20b134c"
+  },
+  "ch6/test_illegal_interconnect_explicit_type": {
+   "status": "pass",
+   "inputs_sha256": "5f117a04ba7a53a729e657de3853a2ec07a72a373e4be65df476ce7f677bd80e"
+  },
+  "ch6/test_illegal_interconnect_initializer": {
+   "status": "pass",
+   "inputs_sha256": "f1cf5fea595fb20396cd0f8cc99bd5d3a78fd8a8b3a17609b236ddcff4c61972"
+  },
+  "ch6/test_illegal_interconnect_strength": {
+   "status": "pass",
+   "inputs_sha256": "79d0a350c0d234d42bbe960e9e2243e274abbdbe0cb208098c57d3e8c2a6823b"
+  },
+  "ch6/test_illegal_procedural_checker_implicit_net": {
+   "status": "pass",
+   "inputs_sha256": "27ae80b66c63c11a44129827b266939f3ba6fcec355ab5e47b65435167392d5c"
+  },
+  "ch6/test_illegal_type_reference_without_var": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "2bbacdb36e5163aa028ac39cfc0e32f28681f9c9f76aca675cd9c4244fb505a4"
+  },
+  "ch6/test_packed_union_size_and_implicit_conversion": {
+   "status": "pass",
+   "inputs_sha256": "defffb9b4b7372abbcdf13121f869b0e6490cc58cce83fc4b694ab2884f80370"
+  },
+  "ch6/test_variable_categories_and_modifiers": {
+   "status": "pass",
+   "inputs_sha256": "fbfec1863957fafed51e4d4d946096de028eaeb6a5d521045006ab81b126c9d0"
+  },
+  "ch6/test_void_return_and_tagged_union_void_member": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch6/test_void_return_and_tagged_union_void_member.sv:30:35: syntax error, unexpected int, expecting ')'",
+   "inputs_sha256": "65a95363287b4e31efef005712d5f4f53f69ac52661da59eac542ba649e9fa62"
+  },
+  "ch7/test_array_ordering_methods_and_index_queries": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch7/test_array_ordering_methods_and_index_queries.sv:45:31: Unknown built-in array method 'index'",
+   "inputs_sha256": "ae22052d15991db1711aa601540fa0f6d9f343546c095378c1b18b1960a784f1"
+  },
+  "ch7/test_array_ranges_and_invalid_indices": {
+   "status": "known",
+   "reason": "output differs: line 7 is 'packed_x=1', expected 'packed_x=x'",
+   "inputs_sha256": "2dc25b5ce0e7debab76da0c30013ded6c8775b8ff090c8821f7ba55a44d08fab"
+  },
+  "ch7/test_associative_array_copy_order_and_delete": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'first=0', expected 'first=-1'",
+   "inputs_sha256": "627ee2df1db1cdac43a3945a891e39d3740d22dfd6d680bd0744212f243d41a6"
+  },
+  "ch7/test_dynamic_array_and_queue_operations": {
+   "status": "pass",
+   "inputs_sha256": "8e6f860e08799021dba03f8f39ce341e2cf56a612b2691c2fc4a188d7a58e4db"
+  },
+  "ch7/test_illegal_sort_iterator_without_with": {
+   "status": "pass",
+   "inputs_sha256": "7e2b164b5ddf5325d4589d301a01c20b624b602099db0e41b0dce84b805eac36"
+  },
+  "ch7/test_illegal_unpacked_struct_signed": {
+   "status": "pass",
+   "inputs_sha256": "1aba28d46aac93d02b921f63655090b3cf9d56eaa1271cb3c4071d11b5ae0e8c"
+  },
+  "ch7/test_illegal_wildcard_find_index": {
+   "status": "pass",
+   "inputs_sha256": "bec5596691630ffae0fb8f9264b574b5a2262fe335c89e5b1c7c6045c51e9b39"
+  },
+  "ch7/test_illegal_wildcard_index_method": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "cf3b99ec9a7a7b3ff72acd326d2baa786959374d5ebcdc7e5d2fc7b52bd65296"
+  },
+  "ch7/test_packed_struct_state_and_whole_operations": {
+   "status": "known",
+   "reason": "output differs: line 2 is 't_x=00010', expected 't_x=00000'",
+   "inputs_sha256": "f2ffd60ee9b5679cfee75d23245f966bc5449bfbb55fa7709211d2ea7b25618e"
+  },
+  "ch7/test_unpacked_struct_defaults_and_net_initializer": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'c1 a=3 b_unknown=0 s=', expected 'c1 a=3 b_unknown=1 s=hi'",
+   "inputs_sha256": "3edd993940b876227f679c1af1640ba0e58c190331a6fbbf9d5895e8c52c104d"
+  },
+  "ch7/test_unpacked_union_default_and_common_initial_sequence": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'default_unknown=0', expected 'default_unknown=1'",
+   "inputs_sha256": "fffacafe44f326ce3bdc7a68d51faf892162c873e73ebbad8c6ab9e7e606da85"
+  },
+  "ch8/test_class_constructor_this_and_super_order": {
+   "status": "pass",
+   "inputs_sha256": "dc925a2be9b87fda151d050f4d3d3c8de9b2b50800ddfc5bba616af069cd6b04"
+  },
+  "ch8/test_class_objects_handles_and_polymorphism": {
+   "status": "pass",
+   "inputs_sha256": "ced12b2f57941a1ee925bd01b6ede44235c2d0aac7b569729505aea2360c4713"
+  },
+  "ch8/test_class_virtual_dispatch_and_initial": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch8/test_class_virtual_dispatch_and_initial.sv:40:25: Member 'g' is marked ':initial' but is being extended (IEEE 1800-2023 8.20)",
+   "inputs_sha256": "e049ab5db0a3cb3dea3df058b3d65e32574fe81ac0260cb621814057bee77e64"
+  },
+  "ch8/test_forward_class_typedef_parameterized": {
+   "status": "pass",
+   "inputs_sha256": "57f3bd8d35a3619a540f8dea80287655d908153d1512791039266d181f04bc30"
+  },
+  "ch8/test_illegal_chandle_dereference": {
+   "status": "pass",
+   "inputs_sha256": "032e7daeea62d985d8d1b54e2119f4f421e3fe2e93b8ba8093aec07ea2b6454c"
+  },
+  "ch8/test_illegal_const_property_assigned_twice": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "1fe490e276a8dc4e5382a30b487810bd11f674ad7813dd74de90682eeb4748ee"
+  },
+  "ch8/test_illegal_constructor_default_name_conflict": {
+   "status": "pass",
+   "inputs_sha256": "41b108927a24bb45afc47582fb21235bcad41330923fc6eb2abeef0a30880031"
+  },
+  "ch8/test_illegal_constructor_default_outside_subclass": {
+   "status": "pass",
+   "inputs_sha256": "c622941d484144866f6d42bc11eca6ce22ac34184c23929f9b69faf71b09edc4"
+  },
+  "ch8/test_illegal_constructor_default_repeated": {
+   "status": "pass",
+   "inputs_sha256": "a7c5be6c1a3065122df221190c7cca2b255be59a435b6db0a6c4112f50b7cd01"
+  },
+  "ch8/test_illegal_default_depends_on_local_member": {
+   "status": "pass",
+   "inputs_sha256": "55d8a32c5905b880b3de5deaa5d1c11c4c780f5399f803532dfde930b55ea1b0"
+  },
+  "ch8/test_illegal_extends_default_without_default_argument": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_extends_default_without_default_argument\\\\.sv:25:'; the first is: %Error-UNSUPPORTED: tests/ch8/test_illegal_extends_default_without_default_argument.sv:24:29: Unsupported: 'extends' with 'default'",
+   "inputs_sha256": "9d29b752f6b85fb49e3fee25ea1028c5b0570a378864dd9fc43434b972ed01b9"
+  },
+  "ch8/test_illegal_extends_nonvirtual_method": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "ff47b375ac2a7c704967a0656a747e2386986738e7ef5734fcc0c0e2dbffa804"
+  },
+  "ch8/test_illegal_extern_header_mismatch": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "7f5e4681755cff97106f252bfadbfb42429f2b6408934dc5a37424dfd123900b"
+  },
+  "ch8/test_illegal_final_class_extends": {
+   "status": "pass",
+   "inputs_sha256": "29158620ea435256fcde1f314c4b1121062cc1438370384ffa742337bfe7e80b"
+  },
+  "ch8/test_illegal_handle_arithmetic": {
+   "status": "pass",
+   "inputs_sha256": "39765404506de89ba2152bae92860580a9841d6425420ca88c3daa1a24274d4d"
+  },
+  "ch8/test_illegal_handle_cast_to_chandle": {
+   "status": "pass",
+   "inputs_sha256": "feb7e1746e994da3a090701af61fe91b53a5a19cd62fd87937f997c2a44279fa"
+  },
+  "ch8/test_illegal_implements_type_parameter": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "9577413ad2f1225d891c51ff56a4788cdce5e7b3ff5e8599a21c275a4d7c9f74"
+  },
+  "ch8/test_illegal_local_protected_member": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "376c716248061890e44bb0f5049065e8bd4b014bcdf8ab02bbe8daaabdd075f5"
+  },
+  "ch8/test_illegal_override_argument_type_mismatch": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "b1f462f61cbc77fb9795346194cc9d419f1d7cfe3991d10a1ce1352824859521"
+  },
+  "ch8/test_illegal_override_default_presence": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "50a23f0156199e603b1b8b26c47f88ed454c0974118f2296f0867713c14808eb"
+  },
+  "ch8/test_illegal_override_return_type_mismatch": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "d8d37d946eeb44ae2a693489012f4b64659205935b68b27206c4090aeb1ed376"
+  },
+  "ch8/test_illegal_pure_virtual_final": {
+   "status": "pass",
+   "inputs_sha256": "809024348460f4a810f7b1bedd5ede3f282ad1dfa10d133bd998370da3f35397"
+  },
+  "ch8/test_illegal_static_instance_const_member": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "275169237d3014ee583d8f5c5d627424102d843bfdced7c72242008f9265b3f5"
+  },
+  "ch8/test_illegal_super_default_without_expansion": {
+   "status": "pass",
+   "inputs_sha256": "607860ee8a37179f1f2f072efe9f2fbee738aeacab7267a8d710df8b9f2ff26f"
+  },
+  "ch8/test_illegal_unrelated_handle_compare": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_unrelated_handle_compare\\\\.sv:32:'; the first is: /opt/homebrew/Cellar/verilator/5.052/share/verilator/include/verilated_types.h:2245:23: error: comparison of distinct pointer types ('Vt___024unit__03a__03ahandle_a *' and 'Vt___024unit__03a__03ahandle_b *')",
+   "inputs_sha256": "f2b014e885aa8343e22dc30ac15c5cac908f35529cf7ef85779f2a7d8699e7dc"
+  },
+  "ch8/test_illegal_weak_reference_scalar_type": {
+   "status": "pass",
+   "inputs_sha256": "50ddd356549ef5c815dacc9118aa1d9ff80e6b2005ff1e668aabd2f991b20023"
+  },
+  "ch8/test_weak_reference_std_scope_and_strong_reachability": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch8/test_weak_reference_std_scope_and_strong_reachability.sv:32:8: Can't find typedef/interface: 'weak_reference'",
+   "inputs_sha256": "9990669e38bbad4ea2128b25924aee99aa3daa064596a66077942081ba3b1ec4"
+  },
+  "ch9/test_always_comb_time_zero": {
+   "status": "known",
+   "reason": "output differs: line 1 is 't1 y=1 z=1', expected 't1 y=1 z=0'",
+   "inputs_sha256": "1ef14817cb400412a9d82963d582439c59a995c994f6005953c40cb87ccfc8a3"
+  },
+  "ch9/test_always_forms_repeat": {
+   "status": "pass",
+   "inputs_sha256": "0c130721b53a44d260f75633cbec750e2aafc5983af12eea0fe51f6f6a7e7962"
+  },
+  "ch9/test_assertion_label": {
+   "status": "pass",
+   "inputs_sha256": "66efb8048c6cb5e25ffcef8a05f01bf5d56509278558d74e16b37c6c8db26565"
+  },
+  "ch9/test_block_and_fork_grammar": {
+   "status": "pass",
+   "inputs_sha256": "10fb40e81629f095bd09c42316258047f599e90a56825282ce2086c09171c25b"
+  },
+  "ch9/test_final_blocks_sequential": {
+   "status": "pass",
+   "inputs_sha256": "29c722e73d92bb70e3e244223ffcd4a44416a5d17704ce6a2bea73bb91d33455"
+  },
+  "ch9/test_timing_controls_forms": {
+   "status": "pass",
+   "inputs_sha256": "d11de6a4688ef93930ed101a30902b59fdd57e33904445dae5d00bf7de94e772"
+  }
+ },
+ "generated_at": "2026-10-26T12:54:05.657427+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

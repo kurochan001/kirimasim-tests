@@ -1,0 +1,5 @@
+struct s1=1 s2=5
+union u1=44 u2=33
+array a1=10 a2=20
+after s1=1 arr1=10 out=99
+returned a=4 b=7

@@ -1,6 +1,6 @@
 # Clause 7: Aggregate data types
 
-[All chapters](README.md). 463 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 474 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -44,15 +44,18 @@
 | [`test_structs`](../../tests/ch7/test_structs.sv) | Chapter 7: Aggregate data types | 7.2 7.2.1 | Verilator 5.052 |  |
 | [`test_structs_edge_cases`](../../tests/ch7/test_structs_edge_cases.sv) | Test: Structs edge cases | 7.2 7.2.1 10.9.2 | Verilator 5.052 |  |
 | [`test_unpacked_struct`](../../tests/ch7/test_unpacked_struct.sv) | Unpacked Struct Tests | 7.2 10.9.2 | Verilator 5.052 |  |
+| [`test_unpacked_struct_defaults_and_net_initializer`](../../tests/ch7/test_unpacked_struct_defaults_and_net_initializer.sv) | an unpacked structure keeps member initializers, an explicit initializer overrides them, and a net of the type ignores them | 7.2 7.2.2 | standard only | x/z |
 | [`test_cast_struct`](../../tests/ch7/test_cast_struct.sv) | Test for struct casts | 7.2.1 6.24.1 | Icarus Verilog 13.0 |  |
 | [`test_illegal_packed_struct_real_member`](../../tests/ch7/test_illegal_packed_struct_real_member.sv) | A packed structure cannot have a real member | 7.2.1 6.12 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_packed_struct_unpacked_member`](../../tests/ch7/test_illegal_packed_struct_unpacked_member.sv) | A packed structure cannot have a member that is an unpacked array | 7.2.1 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_unpacked_struct_signed`](../../tests/ch7/test_illegal_unpacked_struct_signed.sv) | an unpacked structure cannot have a signing qualifier | 7.2.1 7.2 | Verilator 5.052 | illegal design |
 | [`test_packed_array_member_access`](../../tests/ch7/test_packed_array_member_access.sv) | Member access of packed structs in an unpacked array | 7.2.1 7.4 | Verilator 5.052 |  |
 | [`test_packed_struct`](../../tests/ch7/test_packed_struct.sv) | A packed struct assigned to and from a flat vector | 7.2.1 | Icarus Verilog 13.0 |  |
 | [`test_packed_struct_assign`](../../tests/ch7/test_packed_struct_assign.sv) | Packed Structures | 7.2.1 10.9.2 | Icarus Verilog 13.0 |  |
 | [`test_packed_struct_deep_select`](../../tests/ch7/test_packed_struct_deep_select.sv) | Test: 4-level deep packed struct member + bit-range/bit-select write-back | 7.2.1 11.5.1 | Icarus Verilog 13.0 |  |
 | [`test_packed_struct_edge_cases`](../../tests/ch7/test_packed_struct_edge_cases.sv) | Test: Packed struct edge cases | 7.2.1 10.9.2 | Icarus Verilog 13.0 |  |
 | [`test_packed_struct_member_range_sign`](../../tests/ch7/test_packed_struct_member_range_sign.sv) | A member of a packed structure keeps its declared range and signedness when it is selected | 7.2.1 6.9.1 6.24.1 | Icarus Verilog 13.0 |  |
+| [`test_packed_struct_state_and_whole_operations`](../../tests/ch7/test_packed_struct_state_and_whole_operations.sv) | a packed structure is a two-state vector only when all members are two-state, converts two-state members on read and write, and takes part in whole operations as unsigned | 7.2.1 | standard only | x/z |
 | [`test_packed_structs`](../../tests/ch7/test_packed_structs.sv) | Test packed structures | 7.2.1 | Icarus Verilog 13.0 |  |
 | [`test_struct_packed`](../../tests/ch7/test_struct_packed.sv) | Test packed structs | 7.2.1 10.9.2 | Icarus Verilog 13.0 |  |
 | [`test_struct_packed_2`](../../tests/ch7/test_struct_packed_2.sv) | Packed struct bit operations | 7.2.1 | Icarus Verilog 13.0 |  |
@@ -62,6 +65,7 @@
 | [`test_illegal_union_holding_struct_member_default`](../../tests/ch7/test_illegal_union_holding_struct_member_default.sv) | a member of an unpacked structure that contains a union cannot have an individual default member value | 7.2.2 | standard only | illegal design |
 | [`test_illegal_string_in_untagged_union`](../../tests/ch7/test_illegal_string_in_untagged_union.sv) | a dynamic type such as string can be a member of a tagged union only, not of an untagged union | 7.3 | standard only | illegal design |
 | [`test_tagged_union_keywords_and_members`](../../tests/ch7/test_tagged_union_keywords_and_members.sv) | The four struct and union keyword forms, a tagged union with a void member and a value member that is read only through its tag, a soft union, a packed struct inside a struct, and structure members with an attribute, a random qualifier and packed and unpacked types | 7.3 7.3.2 7.2 A.2.2.1 | standard only |  |
+| [`test_unpacked_union_default_and_common_initial_sequence`](../../tests/ch7/test_unpacked_union_default_and_common_initial_sequence.sv) | an unpacked union takes the default of its first member and lets the common initial sequence of two member structures be inspected | 7.3 | standard only | x/z |
 | [`test_illegal_hard_packed_union_sizes`](../../tests/ch7/test_illegal_hard_packed_union_sizes.sv) | The members of a packed union without soft have to be of the same size | 7.3.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_packed_union_real_member`](../../tests/ch7/test_illegal_packed_union_real_member.sv) | a packed union cannot have a member of a non-integral type such as real | 7.3.1 6.11.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_packed_nested_member_write`](../../tests/ch7/test_packed_nested_member_write.sv) | 7.3 Packed Nested Member Write Test | 7.3.1 7.2.1 | Icarus Verilog 13.0 |  |
@@ -100,6 +104,7 @@
 | [`test_memory_edge_cases`](../../tests/ch7/test_memory_edge_cases.sv) | Memory and array edge cases: initialization, bounds, dynamic arrays, queues and associative arrays | 7.4 7.5 7.8 7.10 | Verilator 5.052 |  |
 | [`test_unpacked_types_edge_cases`](../../tests/ch7/test_unpacked_types_edge_cases.sv) | Test: Unpacked types edge cases | 7.4 7.4.2 7.2 | Verilator 5.052 |  |
 | [`test_value_unpacked`](../../tests/ch7/test_value_unpacked.sv) | Test for unpacked array value operations | 7.4 7.6 11.2.2 | Verilator 5.052 |  |
+| [`test_array_ranges_and_invalid_indices`](../../tests/ch7/test_array_ranges_and_invalid_indices.sv) | packed ranges accept descending, ascending and negative endpoints, an unpacked size means [0:size-1], and an invalid index reads the table value and writes nothing | 7.4.1 7.4.2 7.4.5 | standard only | x/z |
 | [`test_bit_select`](../../tests/ch7/test_bit_select.sv) | Bit-select and part-select | 7.4.1 11.5.1 | Icarus Verilog 13.0 |  |
 | [`test_illegal_int_packed_dimension`](../../tests/ch7/test_illegal_int_packed_dimension.sv) | an integer type with a predefined width, here int, cannot be declared with packed array dimensions | 7.4.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_packed_array_of_real`](../../tests/ch7/test_illegal_packed_array_of_real.sv) | A packed array cannot have real elements | 7.4.1 6.12 | Icarus Verilog 13.0 | illegal design |
@@ -183,6 +188,7 @@
 | [`test_illegal_dynamic_new_to_fixed_array`](../../tests/ch7/test_illegal_dynamic_new_to_fixed_array.sv) | the dynamic array new constructor can be assigned only to a dynamic array, not to a fixed-size array | 7.5.1 | Verilator 5.052 | illegal design |
 | [`test_illegal_dynamic_new_to_slice`](../../tests/ch7/test_illegal_dynamic_new_to_slice.sv) | the target of a dynamic array new constructor is a dynamic array named without a range select; a slice of dynamic arrays is not allowed | 7.5.1 | Verilator 5.052 | illegal design |
 | [`test_syntax_dynamic_array_new_assignment`](../../tests/ch7/test_syntax_dynamic_array_new_assignment.sv) | blocking assignments of new[size] and new[size](init) to a dynamic array variable and to elements of arrays of dynamic arrays set the size and the elements | 7.5.1 A.6.2 | Verilator 5.052 |  |
+| [`test_dynamic_array_and_queue_operations`](../../tests/ch7/test_dynamic_array_and_queue_operations.sv) | a dynamic array resizes with new and clears with delete, and a queue resizes to the assigned queue while a bounded queue discards elements above its bound | 7.5.2 7.5.3 7.10.1 7.10.2 7.10.2.2 7.10.2.3 7.10.2.6 7.10.2.7 | Icarus Verilog 13.0 |  |
 | [`test_dynamic_array_size_edge`](../../tests/ch7/test_dynamic_array_size_edge.sv) | Test dynamic array size() edge cases | 7.5.2 | Verilator 5.052 |  |
 | [`test_dyn_array_delete`](../../tests/ch7/test_dyn_array_delete.sv) | Test dynamic array delete | 7.5.3 | Icarus Verilog 13.0 |  |
 | [`test_array_assign_2`](../../tests/ch7/test_array_assign_2.sv) | Test array assignments | 7.6 7.5 10.9.1 | Verilator 5.052 |  |
@@ -220,6 +226,7 @@
 | [`test_assoc_key`](../../tests/ch7/test_assoc_key.sv) | Associative Array Key Tests | 7.8 | Verilator 5.052 |  |
 | [`test_assoc_ops`](../../tests/ch7/test_assoc_ops.sv) | Associative Array Operations Tests | 7.8 7.9 | Verilator 5.052 |  |
 | [`test_associative_array`](../../tests/ch7/test_associative_array.sv) | Associative Arrays (§7.8) | 7.8 7.9 | Verilator 5.052 |  |
+| [`test_associative_array_copy_order_and_delete`](../../tests/ch7/test_associative_array_copy_order_and_delete.sv) | an associative array copies and compares as a whole, enumerates its indices in signed int order, returns the Table 7-1 value for a missing entry, and deletes one entry or all | 7.8 7.8.5 7.9.2 | standard only | x/z |
 | [`test_associative_array_corner`](../../tests/ch7/test_associative_array_corner.sv) | Tests associative array operations with various index types | 7.8 7.9 7.8.1 7.8.3 | Verilator 5.052 |  |
 | [`test_illegal_assoc_index_declares_enum`](../../tests/ch7/test_illegal_assoc_index_declares_enum.sv) | the index type of an associative array cannot itself declare a type, such as an enumerated type | 7.8 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_assoc_index_declares_struct`](../../tests/ch7/test_illegal_assoc_index_declares_struct.sv) | the index type of an associative array cannot itself declare a type, such as a packed structure type | 7.8 | Icarus Verilog 13.0 | illegal design |
@@ -229,6 +236,7 @@
 | [`test_assoc_wildcard_width_and_sign_aliases`](../../tests/ch7/test_assoc_wildcard_width_and_sign_aliases.sv) | Wildcard keys normalize leading zeros and preserve arbitrary-width unsigned values | 7.8.1 7.8 | Verilator 5.052 | exit code |
 | [`test_illegal_wildcard_array_find`](../../tests/ch7/test_illegal_wildcard_array_find.sv) | an array manipulation method that returns an array of values, such as find(), is not allowed on an associative array with a wildcard index type | 7.8.1 7.12.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_wildcard_array_foreach`](../../tests/ch7/test_illegal_wildcard_array_foreach.sv) | an associative array with a wildcard index type cannot be used in a foreach loop | 7.8.1 12.7.3 | Verilator 5.052 | illegal design |
+| [`test_illegal_wildcard_find_index`](../../tests/ch7/test_illegal_wildcard_find_index.sv) | a wildcard associative array cannot use an array method that returns index values | 7.8.1 7.12 | Verilator 5.052 | illegal design |
 | [`test_illegal_wildcard_index_real`](../../tests/ch7/test_illegal_wildcard_index_real.sv) | the index of an associative array with a wildcard index type has to be integral; a real index is an error | 7.8.1 | Verilator 5.052 | illegal design |
 | [`test_assoc_string_empty_and_reverse_order`](../../tests/ch7/test_assoc_string_empty_and_reverse_order.sv) | String associative keys include the empty string and prev follows reverse lexical order | 7.8.2 7.9.7 7.9.11 | Verilator 5.052 |  |
 | [`test_illegal_string_index_with_int`](../../tests/ch7/test_illegal_string_index_with_int.sv) | an associative array with a string index takes strings and string literals as indices; an int index is a type check error | 7.8.2 | standard only | illegal design |
@@ -371,6 +379,7 @@
 | [`test_ieee1800_2023_array_method_corner`](../../tests/ch7/test_ieee1800_2023_array_method_corner.sv) | Array Manipulation Methods Corner Cases | 7.12 7.12.1 7.12.2 7.12.3 7.10.2 7.9 | Verilator 5.052 |  |
 | [`test_illegal_array_method_with_braces`](../../tests/ch7/test_illegal_array_method_with_braces.sv) | the with clause of an array manipulation method encloses its expression in parentheses; braces, as used by randomize() with, are illegal there | 7.12 | Verilator 5.052 | illegal design |
 | [`test_illegal_iterator_argument_without_with`](../../tests/ch7/test_illegal_iterator_argument_without_with.sv) | An array method cannot name its iterator without a with clause | 7.12 7.12.3 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_sort_iterator_without_with`](../../tests/ch7/test_illegal_sort_iterator_without_with.sv) | an array method iterator argument requires a with clause | 7.12 | Icarus Verilog 13.0 | illegal design |
 | [`test_member_access_deep`](../../tests/ch7/test_member_access_deep.sv) | array methods, §8.5 class member access | 7.12 8.5 | Verilator 5.052 |  |
 | [`test_array_find`](../../tests/ch7/test_array_find.sv) | Array Locator Methods (§7.12.1) | 7.12.1 | Verilator 5.052 |  |
 | [`test_array_find_2`](../../tests/ch7/test_array_find_2.sv) | Test: Array find method | 7.12.1 | Verilator 5.052 |  |
@@ -412,6 +421,7 @@
 | [`test_member_array`](../../tests/ch7/test_member_array.sv) | Test array method member access (.size, .find, etc.) | 7.12.1 7.12.3 7.5 7.10 | Verilator 5.052 |  |
 | [`test_array_ordering`](../../tests/ch7/test_array_ordering.sv) | Test array ordering methods | 7.12.2 | Verilator 5.052 |  |
 | [`test_array_ordering_methods`](../../tests/ch7/test_array_ordering_methods.sv) | Array manipulation methods | 7.12.2 | Verilator 5.052 |  |
+| [`test_array_ordering_methods_and_index_queries`](../../tests/ch7/test_array_ordering_methods_and_index_queries.sv) | sort, rsort and reverse reorder an unpacked array as declared, and the iterator index numbers the slowest-varying dimension first | 7.12.2 7.12.4 | standard only |  |
 | [`test_array_ordering_methods_with_and_iterator`](../../tests/ch7/test_array_ordering_methods_with_and_iterator.sv) | sort() and rsort() order a dynamic array, a fixed array and a queue by the element value or by a with expression using item or a named iterator, reverse() reverses, and shuffle() leaves a permutation of the elements | 7.12.2 | standard only |  |
 | [`test_array_reverse`](../../tests/ch7/test_array_reverse.sv) | Array ordering method - reverse() | 7.12.2 | Verilator 5.052 |  |
 | [`test_array_reverse_2`](../../tests/ch7/test_array_reverse_2.sv) | Test for array reverse method | 7.12.2 | Verilator 5.052 |  |
@@ -449,6 +459,7 @@
 | [`test_array_sum`](../../tests/ch7/test_array_sum.sv) | Test for array sum method | 7.12.3 | Verilator 5.052 |  |
 | [`test_array_xor`](../../tests/ch7/test_array_xor.sv) | Test for array xor reduction method | 7.12.3 | Verilator 5.052 |  |
 | [`test_illegal_reduction_and_with_real_expression`](../../tests/ch7/test_illegal_reduction_and_with_real_expression.sv) | with a with clause, a reduction method needs its operation to be defined for the type of the with expression, so and() with a real expression is illegal | 7.12.3 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_wildcard_index_method`](../../tests/ch7/test_illegal_wildcard_index_method.sv) | the iterator index method cannot be used with a wildcard-index associative array | 7.12.4 7.8.1 | standard only | illegal design |
 | [`test_array_map_method`](../../tests/ch7/test_array_map_method.sv) | The map() array method returns an array with the same range or keys whose elements are the with expression for each element, using item or a named iterator and its index, with the self-determined type of the expression | 7.12.5 7.12 | standard only |  |
 | [`test_illegal_map_without_with`](../../tests/ch7/test_illegal_map_without_with.sv) | the array method map() needs a with clause that gives the value of each element of its result | 7.12.5 | Verilator 5.052 | illegal design |
 | [`test_map_result_to_same_array`](../../tests/ch7/test_map_result_to_same_array.sv) | The result of map() can be assigned back to the array it is called on, a dynamic array or a queue | 7.12.5 | Verilator 5.052 |  |

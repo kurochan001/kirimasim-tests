@@ -1,0 +1,12 @@
+reuse c1=1 c2=1
+next=2
+next2=3
+prev=3
+prev2=2
+wrap_next=1
+wrap_prev=3
+nonmember_next=0
+nonmember_prev=0
+post_cast=-1 after=0
+count3=1
+count3_prev=1

@@ -1,9 +1,10 @@
 # Clause 9: Processes
 
-[All chapters](README.md). 185 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 191 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
+| [`test_always_forms_repeat`](../../tests/ch9/test_always_forms_repeat.sv) | always, always_comb, always_latch and always_ff repeat with their own triggers, and the language sets no limit on the number of procedures | 9.2 9.2.2 | Icarus Verilog 13.0 |  |
 | [`test_illegal_override_specifier_in_interface_class`](../../tests/ch9/test_illegal_override_specifier_in_interface_class.sv) | a dynamic override specifier cannot be used on a method of an interface class | 9.2 8.26 8.20 | standard only | illegal design |
 | [`test_illegal_override_specifier_on_module_function`](../../tests/ch9/test_illegal_override_specifier_on_module_function.sv) | a dynamic override specifier is allowed only on a method of a class that is not an interface class | 9.2 8.20 | Icarus Verilog 13.0 | illegal design |
 | [`test_structured_procedure_kinds_each_run`](../../tests/ch9/test_structured_procedure_kinds_each_run.sv) | a procedure of each kind, initial, always, always_comb, always_latch, always_ff, final, task and function, runs and gives its result | 9.2 9.2.2.2 9.2.2.3 9.2.2.4 | Icarus Verilog 13.0 |  |
@@ -33,6 +34,7 @@
 | [`test_always_comb_perf`](../../tests/ch9/test_always_comb_perf.sv) | always_comb performance optimization test | 9.2.2.2 | Icarus Verilog 13.0 |  |
 | [`test_always_comb_reads_writes`](../../tests/ch9/test_always_comb_reads_writes.sv) | always_comb with several reads and writes, including a conditional operator | 9.2.2.2 | Icarus Verilog 13.0 |  |
 | [`test_always_comb_sens`](../../tests/ch9/test_always_comb_sens.sv) | always_comb sensitivity | 9.2.2.2 | Icarus Verilog 13.0 |  |
+| [`test_always_comb_time_zero`](../../tests/ch9/test_always_comb_time_zero.sv) | always_comb runs once at time zero after all initial and always procedures have started, while always @* waits for a change | 9.2.2.2 9.2.2.2.2 | Icarus Verilog 13.0 |  |
 | [`test_barrel_shifter_edge_cases`](../../tests/ch9/test_barrel_shifter_edge_cases.sv) | Barrel shifter edge cases | 9.2.2.2 11.4.10 11.7 | Icarus Verilog 13.0 |  |
 | [`test_bcd_edge_cases`](../../tests/ch9/test_bcd_edge_cases.sv) | BCD edge cases | 9.2.2.2 11.4.3 | Icarus Verilog 13.0 |  |
 | [`test_decoder4_edge_cases`](../../tests/ch9/test_decoder4_edge_cases.sv) | 2-to-4 Decoder edge cases | 9.2.2.2 12.5 | Icarus Verilog 13.0 |  |
@@ -72,6 +74,7 @@
 | [`test_illegal_always_ff_written_via_function`](../../tests/ch9/test_illegal_always_ff_written_via_function.sv) | A variable assigned by a function that an always_ff procedure calls cannot be written by another process | 9.2.2.4 | standard only | illegal design |
 | [`test_final`](../../tests/ch9/test_final.sv) | A final procedure runs after $finish; generate loop with continuous assignments | 9.2.3 27.4 | Icarus Verilog 13.0 |  |
 | [`test_final_block_2`](../../tests/ch9/test_final_block_2.sv) | Final block execution | 9.2.3 | Icarus Verilog 13.0 |  |
+| [`test_final_blocks_sequential`](../../tests/ch9/test_final_blocks_sequential.sv) | final procedures run after the last time step, in one sequential process and in an arbitrary but deterministic order, so their updates are ordered without fixing which block runs first | 9.2.3 9.5 | Icarus Verilog 13.0 |  |
 | [`test_final_edge_cases`](../../tests/ch9/test_final_edge_cases.sv) | Final block edge cases | 9.2.3 | Icarus Verilog 13.0 |  |
 | [`test_final_finish_inside_final_ends_at_once`](../../tests/ch9/test_final_finish_inside_final_ends_at_once.sv) | $finish called inside a final procedure ends the simulation at once, so the rest of that final procedure does not run, and the final procedure does not run a second time | 9.2.3 | Icarus Verilog 13.0 |  |
 | [`test_final_vpi_control_finish_inside_final`](../../tests/ch9/test_final_vpi_control_finish_inside_final.sv) | vpi_control(vpiFinish, 0) called from a system task inside a final procedure ends the simulation at once, so the rest of the final procedure does not run and it does not run again | 9.2.3 38.4 | Icarus Verilog 13.0 | VPI |
@@ -80,6 +83,7 @@
 | [`test_syntax_sequential_and_parallel_block_forms`](../../tests/ch9/test_syntax_sequential_and_parallel_block_forms.sv) | Named and unnamed sequential blocks with declarations and null statements, and parallel blocks that end with join, join_any or join_none and carry labels, order their statements as A.6.3 says | 9.3 9.3.1 9.3.2 9.3.3 A.6.3 A.6.4 | Icarus Verilog 13.0 |  |
 | [`test_begin_end`](../../tests/ch9/test_begin_end.sv) | Sequential blocks | 9.3.1 | Icarus Verilog 13.0 |  |
 | [`test_begin_end_2`](../../tests/ch9/test_begin_end_2.sv) | Test begin-end block | 9.3.1 9.3.5 | Icarus Verilog 13.0 |  |
+| [`test_block_and_fork_grammar`](../../tests/ch9/test_block_and_fork_grammar.sv) | a sequential block takes declarations before statements and a closing name, and named and unnamed fork blocks take join, join_any and join_none with their termination rules | 9.3.1 9.3.2 9.3.4 | Icarus Verilog 13.0 |  |
 | [`test_block_begin`](../../tests/ch9/test_block_begin.sv) | Begin Block Tests | 9.3.1 12.4 | Icarus Verilog 13.0 |  |
 | [`test_block_item_declaration_kinds`](../../tests/ch9/test_block_item_declaration_kinds.sv) | A sequential block and a parallel block accept block item declarations: a data declaration, a localparam, a parameter and a let declaration, each with any number of attribute instances before it | 9.3.1 9.3.2 11.12 A.2.8 | Verilator 5.052 |  |
 | [`test_block_scope_shadowing`](../../tests/ch9/test_block_scope_shadowing.sv) | Variables with the same name in different and nested begin-end blocks | 9.3.1 6.21 23.9 | Icarus Verilog 13.0 |  |
@@ -102,6 +106,7 @@
 | [`test_named_block_hier_write`](../../tests/ch9/test_named_block_hier_write.sv) | Hierarchical writes to variables of a named block, and a force on such a variable | 9.3.4 23.6 10.4.2 10.6.2 | Icarus Verilog 13.0 |  |
 | [`test_named_block_scope_hierarchical`](../../tests/ch9/test_named_block_scope_hierarchical.sv) | Named block scope hierarchical access | 9.3.4 23.6 6.21 | Icarus Verilog 13.0 | x/z |
 | [`test_named_blocks_scope_items_and_disable`](../../tests/ch9/test_named_blocks_scope_items_and_disable.sv) | a named begin block and a named fork block each create a scope whose variable, local parameter and named event are reached through the block name from another process, and the named fork block can be disabled by name | 9.3.4 9.6.2 | Icarus Verilog 13.0 |  |
+| [`test_assertion_label`](../../tests/ch9/test_assertion_label.sv) | a concurrent assertion may carry a preceding label, and the labelled assertion elaborates and runs beside the design | 9.3.5 | Verilator 5.052 |  |
 | [`test_generate_block_label_before_begin`](../../tests/ch9/test_generate_block_label_before_begin.sv) | a label written before the begin of a generate block names the block, so the items declared in it are reached through that name, also with the matching name after end | 9.3.5 27.3 | Verilator 5.052 |  |
 | [`test_illegal_statement_label_and_block_name`](../../tests/ch9/test_illegal_statement_label_and_block_name.sv) | a begin block cannot have both a statement label before it and a block name after begin | 9.3.5 9.3.4 | Verilator 5.052 | illegal design |
 | [`test_illegal_statement_label_and_fork_name`](../../tests/ch9/test_illegal_statement_label_and_fork_name.sv) | a fork block cannot have both a statement label before fork and a block name after it | 9.3.5 9.3.4 | Verilator 5.052 | illegal design |
@@ -113,6 +118,7 @@
 | [`test_illegal_comma_event_expression_positional_actual`](../../tests/ch9/test_illegal_comma_event_expression_positional_actual.sv) | an event expression with comma-separated parts passed as a positional actual argument needs parentheses around it | 9.4 16.8.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_syntax_star_event_controls`](../../tests/ch9/test_syntax_star_event_controls.sv) | "@*" and "@(*)" wait for every signal their statement reads and run the statement when one of them changes, with the value it reads | 9.4 9.4.2 A.6.5 | Icarus Verilog 13.0 |  |
 | [`test_syntax_timing_control_and_event_expressions`](../../tests/ch9/test_syntax_timing_control_and_event_expressions.sv) | Delay, event and repeated event controls of A.6.5 precede a statement, and the event expression forms with edges, iff, or, comma, parentheses and a package or hierarchical identifier each wake at their own event | 9.4 9.4.1 9.4.2 9.4.3 A.6.5 A.6.4 | Verilator 5.052 |  |
+| [`test_timing_controls_forms`](../../tests/ch9/test_timing_controls_forms.sv) | delay, event and level-sensitive wait controls defer a statement, with repeat, edge, named-event, or/comma and parenthesized forms, and each resumes at the time the clause fixes | 9.4 9.4.2 9.4.3 | Icarus Verilog 13.0 |  |
 | [`test_assign_delay_edge_cases`](../../tests/ch9/test_assign_delay_edge_cases.sv) | Test: Assignment delay edge cases | 9.4.1 9.4.2 9.4.5 | Icarus Verilog 13.0 |  |
 | [`test_delay_negative_value_is_unsigned_time`](../../tests/ch9/test_delay_negative_value_is_unsigned_time.sv) | a delay control whose expression is a negative int waits for that value read as a 64-bit unsigned time, so #(-10) resumes at 2**64-10 | 9.4.1 | Icarus Verilog 13.0 |  |
 | [`test_delay_x_z_value_is_zero_delay`](../../tests/ch9/test_delay_x_z_value_is_zero_delay.sv) | a delay control whose expression is all x or all z waits as #0 does, without advancing time | 9.4.1 4.4.2.2 | Icarus Verilog 13.0 | x/z |

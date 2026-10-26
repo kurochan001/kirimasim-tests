@@ -1,0 +1,5 @@
+down_fail=0 unchanged=7
+down_ok=1 value=7
+iface_ok=1
+iface_fail=0
+same=1

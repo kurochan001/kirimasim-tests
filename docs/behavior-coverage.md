@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 81.67%、実行 45.08%。**
+**全規格の要求台帳ベース（暫定）: 設計 82.87%、実行 45.77%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10061/12319 (81.67%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5553/12319 (45.08%)。
-- 登録済みだがテスト未対応: 2258 動作。
+- 登録済み動作に対するテスト設計網羅率: 10209/12319 (82.87%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5639/12319 (45.77%)。
+- 登録済みだがテスト未対応: 2110 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -47,10 +47,10 @@
 - `associative-wildcard-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:00:52.942221+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.310380+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.305806+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2849/12319 動作確認、古い入力との対応 305 件。
-- `audit-oracle-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T22:23:59.392020+00:00 / 133/12319 動作確認、古い入力との対応 1 件。
-- `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 16/12319 動作確認、古い入力との対応 291 件。
-- `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 291 件。
+- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2849/12319 動作確認、古い入力との対応 306 件。
+- `audit-oracle-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T22:23:59.392020+00:00 / 134/12319 動作確認、古い入力との対応 1 件。
+- `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 16/12319 動作確認、古い入力との対応 292 件。
+- `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 292 件。
 - `ch19-depth-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:12:42.328492+00:00 / 0/12319 動作確認、古い入力との対応 14 件。
 - `ch19-depth-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.443253+00:00 / 0/12319 動作確認、古い入力との対応 14 件。
 - `ch19-depth-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.556516+00:00 / 0/12319 動作確認、古い入力との対応 14 件。
@@ -80,9 +80,9 @@
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 204/12319 動作確認、古い入力との対応 207 件。
-- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 340/12319 動作確認、古い入力との対応 207 件。
-- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 340/12319 動作確認、古い入力との対応 207 件。
+- `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 204/12319 動作確認、古い入力との対応 208 件。
+- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 340/12319 動作確認、古い入力との対応 208 件。
+- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 340/12319 動作確認、古い入力との対応 208 件。
 - `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 634/12319 動作確認、古い入力との対応 25 件。
 - `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 372/12319 動作確認、古い入力との対応 25 件。
 - `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 372/12319 動作確認、古い入力との対応 25 件。
@@ -137,6 +137,9 @@
 - `wave3-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T09:49:06.565835+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
 - `wave3-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T09:49:42.819680+00:00 / 42/12319 動作確認、古い入力との対応 0 件。
 - `wave3-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T09:49:42.864761+00:00 / 42/12319 動作確認、古い入力との対応 0 件。
+- `wave4-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T12:53:22.275773+00:00 / 37/12319 動作確認、古い入力との対応 0 件。
+- `wave4-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T12:54:05.657427+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
+- `wave4-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T12:54:05.657424+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
 
 ## 章・附属書別の調査状態
 
@@ -145,14 +148,14 @@
 - 1 Overview: 解釈保留なし 12/12、登録 0、テスト対応 0。
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 117。
-- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 76。
+- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 80。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 133。
-- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 632。
-- 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 294。
-- 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 187。
-- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 137。
+- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 651。
+- 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 316。
+- 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 218。
+- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 147。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 130。
-- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 418。
+- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 430。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 83。
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 90。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 59。
@@ -161,7 +164,7 @@
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 39。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 282。
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 205。
-- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 262。
+- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 275。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 311。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 328。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 217。
@@ -172,16 +175,16 @@
 - 28 Gate-level and switch-level modeling: 解釈保留なし 33/34、登録 384、テスト対応 363。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 49。
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 131。
-- 31 Timing checks: 解釈保留なし 25/26、登録 180、テスト対応 140。
-- 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 117。
+- 31 Timing checks: 解釈保留なし 25/26、登録 180、テスト対応 141。
+- 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 119。
 - 33 Configuring the contents of a design: 解釈保留なし 34/36、登録 63、テスト対応 30。
 - 34 Protected envelopes: 解釈保留なし 103/104、登録 215、テスト対応 0。
-- 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 83。
+- 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 97。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 137。
 - 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1596。
-- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 217。
+- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 236。
 - 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 82。
-- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 81。
+- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 82。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
 - A Formal syntax: 解釈保留なし 86/87、登録 811、テスト対応 730。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
@@ -1999,7 +2002,7 @@ A simulator must produce user-visible effects consistent with the standard discr
 
 ### SV2023-4.3-EXTRACT-REGION-ORDERING
 
-4.3 / normal / テスト未対応
+4.3 / normal / 実行確認あり
 
 Events in one simulation time slot are ordered by their prescribed scheduling regions so sampling, checking and testbench reaction can coexist with zero/nonzero delays.
 
@@ -2007,6 +2010,7 @@ Events in one simulation time slot are ordered by their prescribed scheduling re
 
 規定の性質: `mandatory`。
 
+- [test_sched_region_iteration.sv](../tests/ch4/test_sched_region_iteration.sv): The blocking write and the nonblocking update of a are separated by the regions: Active prints a=0 twice, both Inactive resumptions print a=0, the postponed $strobe prints a=1, and only then does time reach 1. 区別: A scheduler that applies the NBA update before Inactive, or reaches Postponed before the update, prints another value on the inactive or strobe line.
 
 ### SV2023-4.3-EXTRACT-SENSITIVITY-EVALUATION
 
@@ -2561,7 +2565,7 @@ Before entering Reactive, repeatedly process the earliest nonempty eligible regi
 
 ### SV2023-4.4.3.10-EXTRACT-POSTPONED-EXIT
 
-4.4.3.10 / normal / テスト未対応
+4.4.3.10 / normal / 実行確認あり
 
 Postponed is reached only after iterative work stabilizes, and the next time slot is entered after Postponed is processed.
 
@@ -2569,6 +2573,7 @@ Postponed is reached only after iterative work stabilizes, and the next time slo
 
 規定の性質: `mandatory`。
 
+- [test_sched_region_iteration.sv](../tests/ch4/test_sched_region_iteration.sv): The $strobe registered in Active prints the settled value a=1 at time 0, after both Inactive resumptions and the NBA update, and the next slot starts only afterwards and prints next a=1 t=1. 区別: A scheduler that enters the next time slot before Postponed, or runs the postponed event before the iterative work settles, prints the strobe at another time or with a=0.
 
 ### SV2023-4.4.3.10-EXTRACT-POSTPONED-READONLY-CALLBACK
 
@@ -2643,7 +2648,7 @@ Simulation starts with time equal to zero.
 
 ### SV2023-4.5-EXTRACT-INITIAL-VALUES
 
-4.5 / normal / テスト未対応
+4.5 / normal / 実行確認あり
 
 Initial net and variable values are established under their prescribed initialization rules before time-slot event processing begins.
 
@@ -2651,6 +2656,7 @@ Initial net and variable values are established under their prescribed initializ
 
 規定の性質: `mandatory`。
 
+- [test_sched_initial_values.sv](../tests/ch4/test_sched_initial_values.sv): Before any assignment the initial process reads int 0, bit 0, logic x, wire z, real 0.0 and the empty string, while the declared initializers 4'hA and 5 are already visible. 区別: A simulator that starts event processing before initialization prints another value for i, l, w or r, or loses the declared initializers.
 
 ### SV2023-4.5-EXTRACT-NEXT-NONEMPTY-SLOT
 
@@ -2678,7 +2684,7 @@ An event is removed from its region before it is processed.
 
 ### SV2023-4.5-EXTRACT-TIMEZERO-INITIALIZATION
 
-4.5 / normal / テスト未対応
+4.5 / normal / 実行確認あり
 
 Initialization events are scheduled in the time-zero slot.
 
@@ -2686,6 +2692,7 @@ Initialization events are scheduled in the time-zero slot.
 
 規定の性質: `mandatory`。
 
+- [test_sched_initial_values.sv](../tests/ch4/test_sched_initial_values.sv): The initialization is visible in the first initial process at $time 0, and the #0 resumption also prints zero t=0 i=0, so the initialization events are in the time-zero slot. 区別: A simulator that schedules initialization in a later slot prints a nonzero time or a default value at the first print.
 
 ### SV2023-4.5-EXTRACT-UPDATE-SENSITIVITY
 
@@ -5356,7 +5363,7 @@ A net declaration containing a continuous assignment may specify its drive stren
 
 ### SV2023-6.4-EXTRACT-AGGREGATE-TYPES
 
-6.4 / normal / テスト未対応
+6.4 / normal / 実行確認あり
 
 Unpacked structures, unpacked unions and unpacked arrays are aggregate types.
 
@@ -5364,6 +5371,7 @@ Unpacked structures, unpacked unions and unpacked arrays are aggregate types.
 
 規定の性質: `definition`。
 
+- [test_aggregate_whole_copy_and_subroutine.sv](../tests/ch6/test_aggregate_whole_copy_and_subroutine.sv): unpacked struct の s1→s2、unpacked union の u1→u2、unpacked array の arr1→arr2 の全体コピーを作り、コピー側の変更が元に及ばないことを表示する。 区別: aggregate の代入を参照共有にする実装は s1.a を 5 にし、struct s1=1 s2=5 と一致しない。
 
 ### SV2023-6.4-EXTRACT-CLASS-HANDLE-SINGULAR
 
@@ -7509,7 +7517,7 @@ An omitted net data type, including a declaration specifying only range/signing,
 
 ### SV2023-6.7.1-EXTRACT-INTERCONNECT-NO-EXPLICIT-TYPE
 
-6.7.1 / error / テスト未対応
+6.7.1 / error / テスト対応あり・実行未確認
 
 An interconnect declaration has no explicit data type, although packed/unpacked dimensions are permitted.
 
@@ -7517,10 +7525,11 @@ An interconnect declaration has no explicit data type, although packed/unpacked 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interconnect_explicit_type.sv](../tests/ch6/test_illegal_interconnect_explicit_type.sv): interconnect 宣言に logic[3:0] の明示型を付けた行を刺激し、その行の診断を要求する。 区別: interconnect にデータ型を許す実装はこの設計を受け入れ、規格は明示型を禁止するので拒否が必要。
 
 ### SV2023-6.7.1-EXTRACT-INTERCONNECT-NO-INITIAL-ASSIGNMENT
 
-6.7.1 / error / テスト未対応
+6.7.1 / error / テスト対応あり・実行未確認
 
 An interconnect declaration cannot contain an assignment expression.
 
@@ -7528,10 +7537,11 @@ An interconnect declaration cannot contain an assignment expression.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interconnect_initializer.sv](../tests/ch6/test_illegal_interconnect_initializer.sv): interconnect 宣言に = 1'b0 の代入式を付けた行を刺激する。 区別: 宣言代入を許す実装はこの行を受け入れ、6.7.1 は interconnect の代入式を禁止する。
 
 ### SV2023-6.7.1-EXTRACT-INTERCONNECT-NO-STRENGTH
 
-6.7.1 / error / テスト未対応
+6.7.1 / error / テスト対応あり・実行未確認
 
 An interconnect declaration cannot specify drive or charge strength.
 
@@ -7539,6 +7549,7 @@ An interconnect declaration cannot specify drive or charge strength.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interconnect_strength.sv](../tests/ch6/test_illegal_interconnect_strength.sv): interconnect 宣言に (strong1, pull0) の駆動強度を付けた行を刺激する。 区別: 強度を許す実装はこの宣言を受け入れるが、6.7.1 は interconnect の drive/charge strength を禁止する。
 
 ### SV2023-6.7.1-EXTRACT-INTERCONNECT-SINGLE-DELAY
 
@@ -7950,7 +7961,7 @@ Static variable declaration initializers, including static class members, are ap
 
 ### SV2023-6.8-EXTRACT-TYPE-REFERENCE-PREFIX
 
-6.8 / error / テスト未対応
+6.8 / error / テスト対応あり・実行未確認
 
 A type-reference net declaration requires a net-type keyword, and a type-reference variable declaration requires var.
 
@@ -7958,6 +7969,7 @@ A type-reference net declaration requires a net-type keyword, and a type-referen
 
 規定の性質: `mandatory`。
 
+- [test_illegal_type_reference_without_var.sv](../tests/ch6/test_illegal_type_reference_without_var.sv): type(logic[3:0]) を var なしの変数宣言に使った行を刺激する。 区別: type_reference の変数宣言に var を要求しない実装はこの行を受け入れ、脚注 18 に反する。
 
 ### SV2023-6.8-EXTRACT-VAR-OPTIONAL-TYPE
 
@@ -7973,7 +7985,7 @@ A var declaration may omit its explicit type; an absent type or only signing/ran
 
 ### SV2023-6.8-EXTRACT-VARIABLE-DATA-CATEGORIES
 
-6.8 / normal / テスト未対応
+6.8 / normal / 実行確認あり
 
 Variable data types include integer vectors/atoms, real families, struct/union, enum, string, chandle, virtual interface, scoped/user types, class handles, event, covergroup and type-reference forms under their defining type rules.
 
@@ -7981,6 +7993,7 @@ Variable data types include integer vectors/atoms, real families, struct/union, 
 
 規定の性質: `definition`。
 
+- [test_variable_categories_and_modifiers.sv](../tests/ch6/test_variable_categories_and_modifiers.sv): 整数 atom/vector、real 系、struct、union、enum、string、chandle、virtual interface、class handle、event、covergroup、type-reference を宣言し、それぞれの値を表示する。 区別: カテゴリのいずれかを宣言できない実装はコンパイルに失敗し、vif_sig=1 obj=7 などの行が欠ける。
 
 ### SV2023-6.8-EXTRACT-VARIABLE-DECLARATOR-FORMS
 
@@ -8008,7 +8021,7 @@ A variable declaration may supply an initializer under its type/lifetime rules.
 
 ### SV2023-6.8-EXTRACT-VARIABLE-MODIFIERS
 
-6.8 / normal / テスト未対応
+6.8 / normal / 実行確認あり
 
 The shown variable declaration form permits the specified const, var and lifetime modifiers followed by a type/implicit type and declaration list, subject to context restrictions.
 
@@ -8016,6 +8029,7 @@ The shown variable declaration form permits the specified const, var and lifetim
 
 規定の性質: `definition`。
 
+- [test_variable_categories_and_modifiers.sv](../tests/ch6/test_variable_categories_and_modifiers.sv): var 付き type-reference、var の暗黙型、const、static/automatic lifetime を使い、tref=3 と static の持ち越し 6→7 を表示する。 区別: var や lifetime 修飾を無視する実装は tref=3 を出せず、static を自動変数にする実装は 2 回目を static=6 にする。
 
 ### SV2023-6.8-EXTRACT-VARIABLE-STORAGE
 
@@ -8278,7 +8292,7 @@ An eligible undeclared identifier in a port-expression declaration creates a def
 
 ### SV2023-6.10-EXTRACT-NO-PROCEDURAL-CHECKER-IMPLICIT-NET
 
-6.10 / error / テスト未対応
+6.10 / error / テスト対応あり・実行未確認
 
 The static-checker implicit-net permission does not extend to a procedural checker instance.
 
@@ -8286,6 +8300,7 @@ The static-checker implicit-net permission does not extend to a procedural check
 
 規定の性質: `mandatory`。
 
+- [test_illegal_procedural_checker_implicit_net.sv](../tests/ch6/test_illegal_procedural_checker_implicit_net.sv): initial 内の checker インスタンスに未宣言の識別子 undeclared_sig を実引数として渡した行を刺激する。 区別: procedural checker でも暗黙 net を作る実装はこの設計を受け入れ、6.10 はその暗黙 net を認めない。
 
 ### SV2023-6.11-EXTRACT-BIT-SIGN
 
@@ -8623,7 +8638,7 @@ The integer atom types have their prescribed fixed widths.
 
 ### SV2023-6.11.1-EXTRACT-INTEGRAL-CATEGORIES
 
-6.11.1 / normal / テスト未対応
+6.11.1 / normal / 実行確認あり
 
 Integral types include basic integer types, packed arrays, packed structures, packed unions and enums.
 
@@ -8631,6 +8646,7 @@ Integral types include basic integer types, packed arrays, packed structures, pa
 
 規定の性質: `definition`。
 
+- [test_variable_categories_and_modifiers.sv](../tests/ch6/test_variable_categories_and_modifiers.sv): logic[3:0] の packed array、packed struct、packed union、enum、int を一体として扱い、ps=10 pu=01 を表示する。 区別: packed struct/union を integral として扱わない実装は %b 出力を x にし、ps=10 pu=01 と一致しない。
 
 ### SV2023-6.11.1-EXTRACT-PACKED-AGGREGATE-EQUIVALENCE
 
@@ -8863,7 +8879,7 @@ Operations on real operands are limited to the operators permitted by 11.3.1.
 
 ### SV2023-6.12-EXTRACT-REAL-VARIABLE-CATEGORY
 
-6.12 / normal / テスト未対応
+6.12 / normal / 実行確認あり
 
 real, shortreal and realtime variables collectively belong to the real-variable category.
 
@@ -8871,6 +8887,7 @@ real, shortreal and realtime variables collectively belong to the real-variable 
 
 規定の性質: `definition`。
 
+- [test_variable_categories_and_modifiers.sv](../tests/ch6/test_variable_categories_and_modifiers.sv): real/shortreal/realtime に 1.5/2.25/3.75 を入れ、合計 7.50 を小数付きで表示する。 区別: shortreal や realtime を整数扱いする実装は sum=7.50 を出さず、real の加算を切り捨てる実装は 7.00 になる。
 
 ### SV2023-6.12-EXTRACT-REALTIME-SYNONYM
 
@@ -9000,7 +9017,7 @@ void represents the absence of a data value.
 
 ### SV2023-6.13-EXTRACT-VOID-TAGGED-UNION
 
-6.13 / normal / テスト未対応
+6.13 / normal / テスト対応あり・実行未確認
 
 A tagged-union member may have type void subject to the tagged-union rules.
 
@@ -9008,6 +9025,7 @@ A tagged-union member may have type void subject to the tagged-union rules.
 
 規定の性質: `permission`。
 
+- [test_void_return_and_tagged_union_void_member.sv](../tests/ch6/test_void_return_and_tagged_union_void_member.sv): tagged union の void メンバ Invalid を tagged Invalid で構成し、tag=invalid と、続く Valid(7) の tag=valid n=7 を pattern matching で読む。 区別: void メンバを許さない実装は tag=invalid を出せず、タグと値の整合を検査しない実装は n=7 を別値にする。
 
 ### SV2023-6.14-EXTRACT-ARGUMENT-USE
 
@@ -11035,7 +11053,7 @@ For an unsigned enum base, an encoding cast that truncates any nonzero bits is a
 
 ### SV2023-6.19.1-EXTRACT-NAMED-ENUM-REUSE
 
-6.19.1 / normal / テスト未対応
+6.19.1 / normal / 実行確認あり
 
 A type name can be assigned to an enum so the same enum type is reusable at multiple declarations.
 
@@ -11043,6 +11061,7 @@ A type name can be assigned to an enum so the same enum type is reusable at mult
 
 規定の性質: `permission`。
 
+- [test_enum_reuse_next_prev_encoding.sv](../tests/ch6/test_enum_reuse_next_prev_encoding.sv): 同じ名前付き enum 型 color_t で c1 と c2 を宣言し、c2 = c1 の後も c1=1 c2=1 と読めることを観測する。 区別: 名前付き enum を型として再利用できない実装は 2 個目の宣言か代入を拒否し、reuse c1=1 c2=1 が出力されない。
 
 ### SV2023-6.19.2-DESCENDING-NAMES
 
@@ -13266,7 +13285,7 @@ A const cast preserves operand type and treats its value as used to initialize a
 
 ### SV2023-6.24.1-EXTRACT-LOGIC-BIT-SIZE
 
-6.24.1 / normal / テスト未対応
+6.24.1 / normal / 実行確認あり
 
 The scalar logic type occupies one bit.
 
@@ -13274,6 +13293,7 @@ The scalar logic type occupies one bit.
 
 規定の性質: `mandatory`。
 
+- [test_packed_union_size_and_implicit_conversion.sv](../tests/ch6/test_packed_union_size_and_implicit_conversion.sv): $bits(logic) が 1 であることを表示する。 区別: logic を 4 状態の 1 ビットとして扱わない実装は logic_bits を 1 以外にする。
 
 ### SV2023-6.24.1-EXTRACT-NONEQUIVALENT-CAST-DISPATCH
 
@@ -13301,7 +13321,7 @@ Casting an unpacked structure/array requires every element type to be valid for 
 
 ### SV2023-6.24.1-EXTRACT-PACKED-IMPLICIT-CONVERSION
 
-6.24.1 / normal / テスト未対応
+6.24.1 / normal / 実行確認あり
 
 Packed types implicitly convert as integral values; an explicit cast is permitted but not required.
 
@@ -13309,6 +13329,7 @@ Packed types implicitly convert as integral values; an explicit cast is permitte
 
 規定の性質: `permission`。
 
+- [test_packed_union_size_and_implicit_conversion.sv](../tests/ch6/test_packed_union_size_and_implicit_conversion.sv): packed struct へ 8'h5A を明示キャストなしで代入し、hi=5 lo=a、さらに 8'(s) の明示キャストも 5a となることを表示する。 区別: packed 型を整数として暗黙変換しない実装は s_hi/s_lo を x にし、ビット順を逆にする実装は hi=a lo=5 を出す。
 
 ### SV2023-6.24.1-EXTRACT-SHORTREAL-BIT-CONVERSION
 
@@ -13475,7 +13496,7 @@ A predefined type cast uses its type keyword and a user-defined type cast uses i
 
 ### SV2023-6.24.1-EXTRACT-UNION-BIT-SIZE
 
-6.24.1 / normal / テスト未対応
+6.24.1 / normal / 実行確認あり
 
 An ordinary union bit size equals that of its largest member, subject to the distinct tagged union representation rules.
 
@@ -13483,6 +13504,7 @@ An ordinary union bit size equals that of its largest member, subject to the dis
 
 規定の性質: `mandatory`。
 
+- [test_packed_union_size_and_implicit_conversion.sv](../tests/ch6/test_packed_union_size_and_implicit_conversion.sv): $bits で 8 ビットと 16 ビットのメンバを持つ unpacked union の大きさが最大メンバの 16 になることを表示する。 区別: 最初のメンバや合計で union の大きさを決める実装は union_bits を 8 や 24 にし、16 と一致しない。
 
 ### SV2023-6.24.1-EXTRACT-UNPACKED-PACK-ORDER
 
@@ -13522,7 +13544,7 @@ A dynamic cast to an enum checks that the source value belongs to the enum set b
 
 ### SV2023-6.24.2-EXTRACT-DYNAMIC-SIGNATURE
 
-6.24.2 / normal / テスト未対応
+6.24.2 / normal / 実行確認あり
 
 $cast takes a destination variable first and source expression second; the function form returns int and the task form has no return value.
 
@@ -13530,6 +13552,7 @@ $cast takes a destination variable first and source expression second; the funct
 
 規定の性質: `definition`。
 
+- [test_cast_function_and_static_enum_coercion.sv](../tests/ch6/test_cast_function_and_static_enum_coercion.sv): $cast(e, 3'd1) を関数として呼び int の 1 を受け取り、宛先 e が 1 になり、失敗時は 0 で e が変わらないことを表示する。 区別: 宛先と元の順序を逆にする実装は e を壊し、関数形が int を返さない実装は fn_ok=1 e=1 を出せない。
 
 ### SV2023-6.24.2-EXTRACT-DYNAMIC-TASK-OR-FUNCTION
 
@@ -13584,7 +13607,7 @@ A successful $cast function updates the destination and returns one.
 
 ### SV2023-6.24.2-EXTRACT-SINGULAR-CAST-COMPATIBILITY
 
-6.24.2 / normal / テスト未対応
+6.24.2 / normal / 実行確認あり
 
 For singular arguments, a dynamic cast assignment is invalid if the argument types are not cast compatible.
 
@@ -13592,10 +13615,11 @@ For singular arguments, a dynamic cast assignment is invalid if the argument typ
 
 規定の性質: `mandatory`。
 
+- [test_class_cast_compatibility_dynamic.sv](../tests/ch6/test_class_cast_compatibility_dynamic.sv): base ハンドルが base オブジェクトを指すとき derived への $cast が 0 で宛先が 7 のまま、derived オブジェクトでは 1 になり、無関係な interface class への $cast も 0 になることを表示する。 区別: 実行時の型を検査しない実装は down_fail=1 や iface_fail=1 を出し、失敗時に宛先を書く実装は unchanged=7 を別値にする。
 
 ### SV2023-6.24.2-EXTRACT-STATIC-NO-RUNTIME-CHECK
 
-6.24.2 / normal / テスト未対応
+6.24.2 / normal / 実行確認あり
 
 An enum static cast is a coercion without runtime membership validation or an out-of-enum warning requirement.
 
@@ -13603,6 +13627,7 @@ An enum static cast is a coercion without runtime membership validation or an ou
 
 規定の性質: `mandatory`。
 
+- [test_cast_function_and_static_enum_coercion.sv](../tests/ch6/test_cast_function_and_static_enum_coercion.sv): enum のメンバでない 3'd7 を静的キャストし、実行時検査なしに 7 が入ることを表示する。 区別: 静的キャストで範囲検査や警告を行う実装は coerced e=7 を出さない。
 
 ### SV2023-6.24.2-EXTRACT-TASK-FAILURE
 
@@ -13740,7 +13765,7 @@ All dynamically sized source data are included in the stream, wherever positione
 
 ### SV2023-6.24.3-EXTRACT-FIXED-SIZE-MISMATCH
 
-6.24.3 / error / テスト未対応
+6.24.3 / error / 実行確認あり
 
 Different fixed source/destination sizes are a compile-time error when either type is unpacked.
 
@@ -13748,6 +13773,7 @@ Different fixed source/destination sizes are a compile-time error when either ty
 
 規定の性質: `mandatory`。
 
+- [test_illegal_bitstream_cast_fixed_size_mismatch.sv](../tests/ch6/test_illegal_bitstream_cast_fixed_size_mismatch.sv): 24 ビットの unpacked 配列 t3 を 32 ビットの int へ bit-stream cast した行を刺激し、コンパイル時の拒否を要求する。 区別: 固定サイズの不一致（24 対 32）を実行時まで遅らせる実装や受理する実装は、この行で規格どおりに拒否しない。
 
 ### SV2023-6.24.3-EXTRACT-GREEDY-FIRST-DYNAMIC
 
@@ -13856,7 +13882,7 @@ The class containing parameterized typedefs may be virtual to prevent object con
 
 ### SV2023-7.2-EXTRACT-DEFAULT-UNPACKED
 
-7.2 / normal / テスト未対応
+7.2 / normal / テスト対応あり・実行未確認
 
 A structure is unpacked unless qualified packed; unpacked layout is implementation dependent.
 
@@ -13864,6 +13890,7 @@ A structure is unpacked unless qualified packed; unpacked layout is implementati
 
 規定の性質: `definition`。
 
+- [test_unpacked_struct_defaults_and_net_initializer.sv](../tests/ch7/test_unpacked_struct_defaults_and_net_initializer.sv): packed を付けない struct に string メンバとメンバ初期化子を持たせ、c1 が a=3 b=x s=hi になることを表示する。 区別: 既定で packed にする実装は string メンバを持てず、c1 a=3 b_unknown=1 s=hi が出ない。
 
 ### SV2023-7.2-EXTRACT-NO-C-TAG
 
@@ -13904,7 +13931,7 @@ A structure with a following packed dimension must include packed.
 
 ### SV2023-7.2-EXTRACT-STRUCT-GRAMMAR
 
-7.2 / normal / テスト未対応
+7.2 / normal / テスト対応あり・実行未確認
 
 A structure declaration contains one or more semicolon-terminated typed member declarators, with permitted attributes/qualifiers and optional packed signing/dimensions.
 
@@ -13912,6 +13939,7 @@ A structure declaration contains one or more semicolon-terminated typed member d
 
 規定の性質: `definition`。
 
+- [test_unpacked_struct_defaults_and_net_initializer.sv](../tests/ch7/test_unpacked_struct_defaults_and_net_initializer.sv): 属性付きメンバ、複数宣言子 int c, d、string メンバをセミコロン区切りで並べ、c3 の明示初期化 a=1 b=f c=3 d=4 s=yo を表示する。 区別: 属性や複数宣言子を受ける実装でないとこの struct 宣言が通らず、c3 a=1 b=f s=yo が出力されない。
 
 ### SV2023-7.2-EXTRACT-STRUCTURE-ACCESS
 
@@ -13939,7 +13967,7 @@ A union with a following packed dimension must include soft or packed or both.
 
 ### SV2023-7.2-EXTRACT-UNPACKED-MEMBER-TYPES
 
-7.2 / normal / テスト未対応
+7.2 / normal / テスト対応あり・実行未確認
 
 An unpacked structure can contain any data type under the specific member/default rules.
 
@@ -13947,6 +13975,7 @@ An unpacked structure can contain any data type under the specific member/defaul
 
 規定の性質: `permission`。
 
+- [test_unpacked_struct_defaults_and_net_initializer.sv](../tests/ch7/test_unpacked_struct_defaults_and_net_initializer.sv): 同じ unpacked struct に int、logic[3:0]、string の異なる型のメンバを入れ、c1 a=3 b_unknown=1 s=hi を表示する。 区別: string や 4 状態 logic をメンバにできない実装は宣言を拒否し、b_unknown=1 s=hi が欠ける。
 
 ### SV2023-7.2-EXTRACT-VOID-ONLY-TAGGED
 
@@ -13963,7 +13992,7 @@ A void member is permitted only in a tagged union.
 
 ### SV2023-7.2.1-EXTRACT-ALL-TWO-STATE
 
-7.2.1 / normal / テスト未対応
+7.2.1 / normal / テスト対応あり・実行未確認
 
 A packed structure whose members are all two-state is treated as a two-state vector.
 
@@ -13971,10 +14000,11 @@ A packed structure whose members are all two-state is treated as a two-state vec
 
 規定の性質: `mandatory`。
 
+- [test_packed_struct_state_and_whole_operations.sv](../tests/ch7/test_packed_struct_state_and_whole_operations.sv): 全メンバが bit の packed struct に 'x を代入し、2 状態ベクトルとして 00000 になることを表示する。 区別: 2 状態に変換せず x を保持する実装は t_x=xxxxx や不定値を出し、00000 と一致しない。
 
 ### SV2023-7.2.1-EXTRACT-ANY-FOUR-STATE
 
-7.2.1 / normal / テスト未対応
+7.2.1 / normal / テスト対応あり・実行未確認
 
 A packed structure with any four-state member is treated as a four-state vector.
 
@@ -13982,6 +14012,7 @@ A packed structure with any four-state member is treated as a four-state vector.
 
 規定の性質: `mandatory`。
 
+- [test_packed_struct_state_and_whole_operations.sv](../tests/ch7/test_packed_struct_state_and_whole_operations.sv): logic メンバを 1 つ含む packed struct に 'x を代入し、4 状態ベクトルとして xxxxx になることを表示する。 区別: 4 状態メンバがあっても全体を 2 状態にする実装は f_x=00000 を出し、xxxxx と一致しない。
 
 ### SV2023-7.2.1-EXTRACT-CONTIGUOUS-FIELDS
 
@@ -14009,7 +14040,7 @@ Packed structure members occupy decreasing significance in declaration order, wi
 
 ### SV2023-7.2.1-EXTRACT-NO-UNPACKED-SIGN
 
-7.2.1 / error / テスト未対応
+7.2.1 / error / 実行確認あり
 
 An unpacked structure cannot have an overall signing qualifier.
 
@@ -14017,6 +14048,7 @@ An unpacked structure cannot have an overall signing qualifier.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_struct_signed.sv](../tests/ch7/test_illegal_unpacked_struct_signed.sv): packed を付けない struct に signed を付けた宣言行を刺激する。 区別: unpacked struct の signed を受理する実装はこの設計を受け入れ、7.2.1 はそれを禁止する。
 
 ### SV2023-7.2.1-EXTRACT-PACKED-MEMBER-RESTRICTION
 
@@ -14057,7 +14089,7 @@ Packed structure bits can be selected like a packed [n-1:0] array of the structu
 
 ### SV2023-7.2.1-EXTRACT-TWO-STATE-MEMBER-CONVERSION
 
-7.2.1 / normal / テスト未対応
+7.2.1 / normal / テスト対応あり・実行未確認
 
 For a two-state member in a four-state packed structure, reads convert four-state to two-state and writes convert two-state to four-state.
 
@@ -14065,10 +14097,11 @@ For a two-state member in a four-state packed structure, reads convert four-stat
 
 規定の性質: `mandatory`。
 
+- [test_packed_struct_state_and_whole_operations.sv](../tests/ch7/test_packed_struct_state_and_whole_operations.sv): 4 状態 packed struct の bit メンバ b に 1 を書き、全体が xxxx1 になること、'x の b 読み出しが 0 になることを表示する。 区別: 2 状態メンバの読み書きで 4 状態/2 状態変換をしない実装は f_write=xxxxx や f_read_b=x を出す。
 
 ### SV2023-7.2.1-EXTRACT-WHOLE-OPERATIONS
 
-7.2.1 / normal / テスト未対応
+7.2.1 / normal / テスト対応あり・実行未確認
 
 A packed structure supports whole-value arithmetic/logical operations with its signedness; it defaults to unsigned.
 
@@ -14076,6 +14109,7 @@ A packed structure supports whole-value arithmetic/logical operations with its s
 
 規定の性質: `mandatory`。
 
+- [test_packed_struct_state_and_whole_operations.sv](../tests/ch7/test_packed_struct_state_and_whole_operations.sv): 5 ビットの packed struct t=31 に t+1 を代入して 00000 に wrap し、$signed(t)=-1、t<0 が 0 であることを表示する。 区別: packed struct を全体の算術に使えない実装は wrap を出せず、既定符号を signed にする実装は cmp_lt=1 を出す。
 
 ### SV2023-7.2.2-EXTRACT-DEFAULT-MEMBER
 
@@ -14091,7 +14125,7 @@ Eligible structure members may declare default values; their initializer express
 
 ### SV2023-7.2.2-EXTRACT-EXPLICIT-OVERRIDES-DEFAULTS
 
-7.2.2 / normal / テスト未対応
+7.2.2 / normal / テスト対応あり・実行未確認
 
 An explicit variable declaration initializer suppresses initial assignments specified in its structure type.
 
@@ -14099,10 +14133,11 @@ An explicit variable declaration initializer suppresses initial assignments spec
 
 規定の性質: `mandatory`。
 
+- [test_unpacked_struct_defaults_and_net_initializer.sv](../tests/ch7/test_unpacked_struct_defaults_and_net_initializer.sv): 型のメンバ初期化子 a=3 s=hi を持つ cfg_t に全メンバを明示した assignment pattern を与え、c2 が a=9 s=ex になることを表示する。 区別: 明示初期化子より型のメンバ初期化子を優先する実装は c2 a=3 s=hi を出し、c2 a=9 b=2 s=ex と一致しない。
 
 ### SV2023-7.2.2-EXTRACT-NET-IGNORES-TYPE-INITIALIZER
 
-7.2.2 / normal / テスト未対応
+7.2.2 / normal / テスト対応あり・実行未確認
 
 A type member initializer is ignored when the type declares a net without a user-defined nettype.
 
@@ -14110,6 +14145,7 @@ A type member initializer is ignored when the type declares a net without a user
 
 規定の性質: `mandatory`。
 
+- [test_unpacked_struct_defaults_and_net_initializer.sv](../tests/ch7/test_unpacked_struct_defaults_and_net_initializer.sv): メンバ初期化子 integer a=3 と logic[7:0] b=5A を持つ型で wire の net を宣言し、a_unknown=1 と b=zzzzzzzz を表示する。 区別: net にも型のメンバ初期化子を適用する実装は a_unknown=0 b=00000101... を出し、zzzzzzzz と一致しない。
 
 ### SV2023-7.2.2-EXTRACT-NO-PACKED-UNION-DEFAULTS
 
@@ -14138,7 +14174,7 @@ A structure may be assigned as a whole.
 
 ### SV2023-7.2.2-EXTRACT-WHOLE-SUBROUTINE
 
-7.2.2 / normal / テスト未対応
+7.2.2 / normal / 実行確認あり
 
 A structure may be passed into or returned from a subroutine as a whole.
 
@@ -14146,6 +14182,7 @@ A structure may be passed into or returned from a subroutine as a whole.
 
 規定の性質: `permission`。
 
+- [test_aggregate_whole_copy_and_subroutine.sv](../tests/ch6/test_aggregate_whole_copy_and_subroutine.sv): unpacked struct と unpacked array を task に値渡しし、仮引数の変更が実引数に及ばず、関数が struct を全体として返すことを out=99 と returned a=4 b=7 で表示する。 区別: struct を全体で渡せない実装はコンパイルできず、参照渡しにする実装は after s1=1 arr1=10 を壊す。
 
 ### SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES
 
@@ -14160,7 +14197,7 @@ The repeated syntax footnotes require packed for structure dimensions, soft/pack
 
 ### SV2023-7.3-EXTRACT-COMMON-INITIAL-SEQUENCE
 
-7.3 / normal / テスト未対応
+7.3 / normal / テスト対応あり・実行未確認
 
 When an unpacked union contains structures with an initial sequence of equivalently typed members and currently holds one such structure, the common initial sequence of another may be inspected wherever the complete union declaration is visible.
 
@@ -14168,10 +14205,11 @@ When an unpacked union contains structures with an initial sequence of equivalen
 
 規定の性質: `permission`。
 
+- [test_unpacked_union_default_and_common_initial_sequence.sv](../tests/ch7/test_unpacked_union_default_and_common_initial_sequence.sv): rec_a_t と rec_b_t の先頭メンバを同じ integer tag にし、union が a を持つとき b.tag から 7 を読めることを表示する。 区別: 共通初期列の検査を許さない実装は u.b.tag を x にし、common_tag=7 と一致しない。
 
 ### SV2023-7.3-EXTRACT-DEFAULT-UNPACKED-UNION
 
-7.3 / normal / テスト未対応
+7.3 / normal / テスト対応あり・実行未確認
 
 An unqualified union is unpacked and has no required member storage representation.
 
@@ -14179,6 +14217,7 @@ An unqualified union is unpacked and has no required member storage representati
 
 規定の性質: `definition`。
 
+- [test_unpacked_union_default_and_common_initial_sequence.sv](../tests/ch7/test_unpacked_union_default_and_common_initial_sequence.sv): packed を付けない union を宣言し、メンバ a の tag を書いて共通初期列の b.tag から 7 を読む。 区別: 既定で packed にする実装は unpacked struct メンバを持てず、common_tag=7 を出せない。
 
 ### SV2023-7.3-EXTRACT-DYNAMIC-CHANDLE-TAGGED
 
@@ -14218,7 +14257,7 @@ A union provides one storage area accessed through named member types; only one 
 
 ### SV2023-7.3-EXTRACT-UNPACKED-UNION-DEFAULT
 
-7.3 / normal / テスト未対応
+7.3 / normal / テスト対応あり・実行未確認
 
 Without an explicit initializer, an unpacked union variable takes the default value of its first member type in declaration order.
 
@@ -14226,6 +14265,7 @@ Without an explicit initializer, an unpacked union variable takes the default va
 
 規定の性質: `mandatory`。
 
+- [test_unpacked_union_default_and_common_initial_sequence.sv](../tests/ch7/test_unpacked_union_default_and_common_initial_sequence.sv): 初期化しない unpacked union の最初のメンバ rec_a_t の integer tag を読み、$isunknown が 1 であることを表示する。 区別: 最初のメンバの既定値で初期化しない実装は default_unknown=0 を出し、1 と一致しない。
 
 ### SV2023-7.3.1-EXTRACT-HARD-EQUAL-SIZE
 
@@ -14913,7 +14953,7 @@ Selections apply to packed arrays and integer types, with predefined-width integ
 
 ### SV2023-7.4.5-EXTRACT-INVALID-INDEX
 
-7.4.5 / normal / テスト未対応
+7.4.5 / normal / テスト対応あり・実行未確認
 
 An out-of-bounds index or an index containing x/z is invalid.
 
@@ -14921,6 +14961,7 @@ An out-of-bounds index or an index containing x/z is invalid.
 
 規定の性質: `definition`。
 
+- [test_array_ranges_and_invalid_indices.sv](../tests/ch7/test_array_ranges_and_invalid_indices.sv): int の固定配列に範囲外 index 5 と x を含む index を与え、2 状態要素の Table 7-1 値 0 が返ることを表示する。 区別: 範囲外や x の index で x を返す実装は oob_read=1 を出し、2 状態 int の 0 と一致しない。
 
 ### SV2023-7.4.5-EXTRACT-INVALID-WARNING-OPTIONAL
 
@@ -14935,7 +14976,7 @@ A tool may warn about an invalid array-index read/write but the warning is optio
 
 ### SV2023-7.4.5-EXTRACT-INVALID-WRITE-NOOP
 
-7.4.5 / normal / テスト未対応
+7.4.5 / normal / テスト対応あり・実行未確認
 
 An invalid array-index write does nothing except the specified queue append at last-plus-one and associative element creation cases.
 
@@ -14943,6 +14984,7 @@ An invalid array-index write does nothing except the specified queue append at l
 
 規定の性質: `mandatory`。
 
+- [test_array_ranges_and_invalid_indices.sv](../tests/ch7/test_array_ranges_and_invalid_indices.sv): 範囲外 index 5 と x index で固定配列へ書き、size が 3 のまま、fixed[2]=12、fixed[0]=10 のままであることを表示する。 区別: 無効 index の書き込みを隣接要素へ行う実装は after_bad_writes の値を変え、3 12 10 と一致しない。
 
 ### SV2023-7.4.5-EXTRACT-NONEXISTENT-CHANDLE
 
@@ -15985,7 +16027,7 @@ A wildcard-index associative array cannot be iterated with foreach.
 
 ### SV2023-7.8.1-EXTRACT-NO-WILDCARD-RETURNING-METHOD
 
-7.8.1 / error / テスト未対応
+7.8.1 / error / 実行確認あり
 
 A wildcard-index associative array cannot use the specified array manipulation methods returning an index value or an array of values.
 
@@ -15993,6 +16035,7 @@ A wildcard-index associative array cannot use the specified array manipulation m
 
 規定の性質: `mandatory`。
 
+- [test_illegal_wildcard_find_index.sv](../tests/ch7/test_illegal_wildcard_find_index.sv): wildcard 索引の associative array に find_index() を適用した行を刺激する。 区別: wildcard 配列で index を返すメソッドを許す実装はこの設計を受け入れ、7.8.1 はそれを禁止する。
 
 ### SV2023-7.8.1-EXTRACT-WILDCARD-NUMERIC-ORDER
 
@@ -16227,7 +16270,7 @@ An index value containing x/z in any element is invalid.
 
 ### SV2023-7.8.5-EXTRACT-RELATIONAL-ORDER
 
-7.8.5 / normal / テスト未対応
+7.8.5 / normal / テスト対応あり・実行未確認
 
 When the index type defines relational comparison, associative ordering follows its specified index-type order.
 
@@ -16235,6 +16278,7 @@ When the index type defines relational comparison, associative ordering follows 
 
 規定の性質: `mandatory`。
 
+- [test_associative_array_copy_order_and_delete.sv](../tests/ch7/test_associative_array_copy_order_and_delete.sv): signed int 索引に -1,0,3 を入れ、first/next/last が -1,0,3 の順に列挙することを表示する。 区別: 索引を unsigned として扱う実装は first=0 になり、first=-1 と一致しない。
 
 ### SV2023-7.8.5-NO-REAL-MEMBER
 
@@ -16950,7 +16994,7 @@ Writing queue index last-plus-one is legal and appends an element under bounded-
 
 ### SV2023-7.10.1-EXTRACT-AUTOMATIC-RESIZE
 
-7.10.1 / normal / テスト未対応
+7.10.1 / normal / 実行確認あり
 
 Queue writes resize the queue to accommodate the assigned queue value subject to the declared bound.
 
@@ -16958,6 +17002,7 @@ Queue writes resize the queue to accommodate the assigned queue value subject to
 
 規定の性質: `mandatory`。
 
+- [test_dynamic_array_and_queue_operations.sv](../tests/ch7/test_dynamic_array_and_queue_operations.sv): 境界 [ $:3 ] の queue に 5 個の queue 値を代入し、size=4 で先頭 1・末尾 4 に切り詰められることを表示する。 区別: 境界を超えて保持する実装は qb_size=5 を出し、代入で resize しない実装は qb_size=0 のままになる。
 
 ### SV2023-7.10.1-EXTRACT-BOUND-MAXIMUM
 
@@ -17535,7 +17580,7 @@ The optional iterator argument names the current element only within the with ex
 
 ### SV2023-7.12-EXTRACT-ITERATOR-REQUIRES-WITH
 
-7.12 / error / テスト未対応
+7.12 / error / 実行確認あり
 
 Specifying an iterator argument without a with clause is illegal.
 
@@ -17543,6 +17588,7 @@ Specifying an iterator argument without a with clause is illegal.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sort_iterator_without_with.sv](../tests/ch7/test_illegal_sort_iterator_without_with.sv): sort に iterator x だけを与え with を付けない行を刺激する。 区別: iterator だけの指定を受理する実装はこの設計を受け入れ、7.12 は with を要求する。
 
 ### SV2023-7.12-EXTRACT-METHOD-CALL-GRAMMAR
 
@@ -18147,7 +18193,7 @@ xor() returns the bitwise XOR of all element values or all per-element with-expr
 
 ### SV2023-7.12.4-EXTRACT-DIMENSION-NUMBERING
 
-7.12.4 / normal / テスト未対応
+7.12.4 / normal / テスト対応あり・実行未確認
 
 Index query dimensions start with the slowest-varying at one and increase toward faster-varying dimensions; omitted dimension means one.
 
@@ -18155,6 +18201,7 @@ Index query dimensions start with the slowest-varying at one and increase toward
 
 規定の性質: `mandatory`。
 
+- [test_array_ordering_methods_and_index_queries.sv](../tests/ch7/test_array_ordering_methods_and_index_queries.sv): int m[2][3] の sum with (item.index(1)) が 3、index(2) が 6、index() が 3 になることを表示する。 区別: 次元番号を速い変化から振る実装は dim1=6 dim2=3 を出し、既定次元を最内にする実装は default=6 になる。
 
 ### SV2023-7.12.4-EXTRACT-INDEX-QUERY
 
@@ -18194,7 +18241,7 @@ The iterator index method takes int dimension defaulting to one and returns int 
 
 ### SV2023-7.12.4-EXTRACT-INDEX-TYPE
 
-7.12.4 / error / テスト未対応
+7.12.4 / error / テスト対応あり・実行未確認
 
 Index query returns int except for associative arrays where it returns that array index type; wildcard-index associative arrays are forbidden.
 
@@ -18202,6 +18249,7 @@ Index query returns int except for associative arrays where it returns that arra
 
 規定の性質: `mandatory`。
 
+- [test_illegal_wildcard_index_method.sv](../tests/ch7/test_illegal_wildcard_index_method.sv): wildcard 索引の配列に対する with 式で item.index を使った行を刺激する。 区別: wildcard 配列で index メソッドを許す実装はこの設計を受け入れ、7.12.4 は wildcard 索引を除外する。
 
 ### SV2023-7.12.5-EXTRACT-MAP-REQUIRED-WITH
 
@@ -18253,7 +18301,7 @@ A class is a type containing data properties and task/function methods, collecti
 
 ### SV2023-8.2-EXTRACT-DYNAMIC-OBJECTS
 
-8.2 / normal / テスト未対応
+8.2 / normal / 実行確認あり
 
 Class instances can be created and destroyed dynamically and are referenced through object handles.
 
@@ -18261,6 +18309,7 @@ Class instances can be created and destroyed dynamically and are referenced thro
 
 規定の性質: `definition`。
 
+- [test_class_objects_handles_and_polymorphism.sv](../tests/ch8/test_class_objects_handles_and_polymorphism.sv): base/derived の 2 個のオブジェクトを new で動的に作り、b=3 d=9 h=9 とハンドル経由で値を表示する。 区別: new による動的生成やハンドル経由の参照を実装しないツールはこの出力を出せず、b=3 d=9 h=9 と一致しない。
 
 ### SV2023-8.2-EXTRACT-HANDLE-ARGUMENT
 
@@ -18461,7 +18510,7 @@ An object handle can receive a handle of an assignment-compatible class type or 
 
 ### SV2023-8.4-EXTRACT-HANDLE-COMPARE-COMPATIBILITY
 
-8.4 / error / テスト未対応
+8.4 / error / テスト対応あり・実行未確認
 
 Object equality/inequality operands must be another object or null, with one object type assignment compatible with the other.
 
@@ -18469,6 +18518,7 @@ Object equality/inequality operands must be another object or null, with one obj
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unrelated_handle_compare.sv](../tests/ch8/test_illegal_unrelated_handle_compare.sv): 互いに関係のない 2 クラスのオブジェクトハンドルを == で比較した行を刺激する。 区別: assignment compatible でないハンドル同士の比較を許す実装はこの設計を受け入れ、8.4 は比較可能な型を制限する。
 
 ### SV2023-8.4-EXTRACT-HANDLE-DEFAULTS
 
@@ -18499,7 +18549,7 @@ Object handle operations are limited to the listed equality/case-equality compar
 
 ### SV2023-8.4-EXTRACT-NO-ARBITRARY-POINTER
 
-8.4 / error / テスト未対応
+8.4 / error / 実行確認あり
 
 Object handles/chandles do not act as unrestricted typed pointers to arbitrary SV data.
 
@@ -18507,6 +18557,7 @@ Object handles/chandles do not act as unrestricted typed pointers to arbitrary S
 
 規定の性質: `mandatory`。
 
+- [test_illegal_handle_arithmetic.sv](../tests/ch8/test_illegal_handle_arithmetic.sv): クラスオブジェクトハンドルに ++ を適用した行を刺激する。 区別: ハンドルを C ポインタのように増分できる実装はこの設計を受け入れ、8.4 は算術演算を許さない。
 
 ### SV2023-8.4-EXTRACT-NO-DATA-ADDRESS-ASSIGNMENT
 
@@ -18534,7 +18585,7 @@ Object handles and chandles do not support pointer arithmetic, including increme
 
 ### SV2023-8.4-EXTRACT-NO-NULL-CHANDLE-DEREFERENCE
 
-8.4 / error / テスト未対応
+8.4 / error / テスト対応あり・実行未確認
 
 A chandle cannot be dereferenced in SV, including null; object null-member access follows its explicit illegal/indeterminate rule.
 
@@ -18542,6 +18593,7 @@ A chandle cannot be dereferenced in SV, including null; object null-member acces
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_dereference.sv](../tests/ch8/test_illegal_chandle_dereference.sv): null を入れた chandle のメンバ h.value を読む行を刺激する。 区別: chandle のメンバ参照を許す実装はこの設計を受け入れ、8.4 は chandle を不透明として扱う。
 
 ### SV2023-8.4-EXTRACT-NULL-INSTANCE-ACCESS
 
@@ -18590,7 +18642,7 @@ A class variable holds an object handle; declaring it does not construct an obje
 
 ### SV2023-8.4-EXTRACT-RESTRICTED-HANDLE-CAST
 
-8.4 / error / テスト未対応
+8.4 / error / テスト対応あり・実行未確認
 
 Object-handle casts follow the class conversion rules, while chandle casts are not generally allowed.
 
@@ -18598,6 +18650,7 @@ Object-handle casts follow the class conversion rules, while chandle casts are n
 
 規定の性質: `mandatory`。
 
+- [test_illegal_handle_cast_to_chandle.sv](../tests/ch8/test_illegal_handle_cast_to_chandle.sv): class オブジェクトハンドルを chandle'(c) で chandle にキャストした行を刺激する。 区別: object handle から chandle へのキャストを許す実装はこの設計を受け入れ、8.4 は chandle キャストを制限する。
 
 ### SV2023-8.5-EXTRACT-ENUM-HANDLE-QUALIFICATION
 
@@ -19030,7 +19083,7 @@ this is permitted only as type(this), or within nonstatic class methods, constra
 
 ### SV2023-8.11-EXTRACT-THIS-CURRENT-OBJECT
 
-8.11 / normal / テスト未対応
+8.11 / normal / 実行確認あり
 
 this is the predefined handle to the object used to invoke the current method and disambiguates its properties, value parameters/localparams and methods.
 
@@ -19038,6 +19091,7 @@ this is the predefined handle to the object used to invoke the current method an
 
 規定の性質: `definition`。
 
+- [test_class_constructor_this_and_super_order.sv](../tests/ch8/test_class_constructor_this_and_super_order.sv): base と child が同名の id を持ち、this.id=id と super.new(base_id) で child_id=2 base_id=1 を表示する。 区別: this を現在のオブジェクトに束縛しない実装は両方の id を同じ値にし、child_id=2 base_id=1 と一致しない。
 
 ### SV2023-8.12-EXTRACT-CHAINED-QUALIFICATION
 
@@ -19152,7 +19206,7 @@ A shallow copy creates a distinct object and copies property values; nested obje
 
 ### SV2023-8.13-EXTRACT-FINAL-CLASS
 
-8.13 / error / テスト未対応
+8.13 / error / 実行確認あり
 
 A class declared with colon final cannot be extended; attempting to derive from it is an error.
 
@@ -19160,6 +19214,7 @@ A class declared with colon final cannot be extended; attempting to derive from 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_final_class_extends.sv](../tests/ch8/test_illegal_final_class_extends.sv): class :final で宣言した sealed_class を extends した行を刺激する。 区別: final クラスの継承を許す実装はこの設計を受け入れ、8.13 は継承をエラーにする。
 
 ### SV2023-8.13-EXTRACT-INHERIT-MEMBERS
 
@@ -19286,7 +19341,7 @@ Within a derived class, super selects base members/value parameters/localparams,
 
 ### SV2023-8.15-EXTRACT-SUPER-NEW-FIRST
 
-8.15 / normal / テスト未対応
+8.15 / normal / 実行確認あり
 
 A super.new call must be the first statement executed by a constructor.
 
@@ -19294,6 +19349,7 @@ A super.new call must be the first statement executed by a constructor.
 
 規定の性質: `mandatory`。
 
+- [test_class_constructor_this_and_super_order.sv](../tests/ch8/test_class_constructor_this_and_super_order.sv): child のコンストラクタが super.new(base_id) を最初に実行し、base が order=B、child が BC に伸ばすことを表示する。 区別: super.new を後で呼ぶ実装や自動挿入の順序を誤る実装は order を CB や C にし、BC と一致しない。
 
 ### SV2023-8.15-EXTRACT-SUPER-PARAMETER-NONCONSTANT
 
@@ -19458,7 +19514,7 @@ default in a subclass constructor argument list expands the complete superclass 
 
 ### SV2023-8.17-EXTRACT-DEFAULT-NAME-CONFLICT
 
-8.17 / error / テスト未対応
+8.17 / error / テスト対応あり・実行未確認
 
 Explicit arguments alongside default cannot duplicate any superclass argument name.
 
@@ -19466,10 +19522,11 @@ Explicit arguments alongside default cannot duplicate any superclass argument na
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constructor_default_name_conflict.sv](../tests/ch8/test_illegal_constructor_default_name_conflict.sv): superclass の引数 x と同じ名前の引数 x を default の後ろに置いた行を刺激する。 区別: default 展開と明示引数の名前重複を許す実装はこの設計を受け入れ、8.17 は同名を禁止する。
 
 ### SV2023-8.17-EXTRACT-DEFAULT-ONCE
 
-8.17 / error / テスト未対応
+8.17 / error / テスト対応あり・実行未確認
 
 The constructor argument default keyword may appear at most once.
 
@@ -19477,10 +19534,11 @@ The constructor argument default keyword may appear at most once.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constructor_default_repeated.sv](../tests/ch8/test_illegal_constructor_default_repeated.sv): subclass のコンストラクタ引数に default を 2 回置いた行を刺激する。 区別: default の重複を許す実装はこの設計を受け入れ、8.17 は 1 回までとする。
 
 ### SV2023-8.17-EXTRACT-DEFAULT-REQUIRES-SUBCLASS
 
-8.17 / error / テスト未対応
+8.17 / error / テスト対応あり・実行未確認
 
 Constructor argument default expansion is legal only in a subclass.
 
@@ -19488,6 +19546,7 @@ Constructor argument default expansion is legal only in a subclass.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constructor_default_outside_subclass.sv](../tests/ch8/test_illegal_constructor_default_outside_subclass.sv): superclass を持たないクラスのコンストラクタ引数に default を置いた行を刺激する。 区別: default を任意のクラスで許す実装はこの設計を受け入れ、8.17 は subclass に限る。
 
 ### SV2023-8.17-EXTRACT-EXTENDS-ARGUMENTS
 
@@ -19503,7 +19562,7 @@ Superclass constructor arguments may be specified in the class extends clause.
 
 ### SV2023-8.17-EXTRACT-EXTENDS-DEFAULT-EXPLICIT
 
-8.17 / error / テスト未対応
+8.17 / error / テスト対応あり・実行未確認
 
 With extends(default) and a user constructor, its argument list must contain default.
 
@@ -19511,6 +19570,7 @@ With extends(default) and a user constructor, its argument list must contain def
 
 規定の性質: `mandatory`。
 
+- [test_illegal_extends_default_without_default_argument.sv](../tests/ch8/test_illegal_extends_default_without_default_argument.sv): extends base_d(default) を持つのに、ユーザー定義 new(int y) に default を置かない行を刺激する。 区別: extends(default) と引数リストの不一致を許す実装はこの設計を受け入れ、8.17 は default を要求する。
 
 ### SV2023-8.17-EXTRACT-EXTENDS-DEFAULT-IMPLICIT
 
@@ -19550,7 +19610,7 @@ When extends specifies constructor arguments, the subclass constructor must not 
 
 ### SV2023-8.17-EXTRACT-NO-LOCAL-DEFAULT-DEPENDENCY
 
-8.17 / error / テスト未対応
+8.17 / error / テスト対応あり・実行未確認
 
 default expansion is illegal if a superclass constructor argument default expression references a local member.
 
@@ -19558,6 +19618,7 @@ default expansion is illegal if a superclass constructor argument default expres
 
 規定の性質: `mandatory`。
 
+- [test_illegal_default_depends_on_local_member.sv](../tests/ch8/test_illegal_default_depends_on_local_member.sv): superclass の引数既定値が local メンバ m を参照する状態で、subclass が default を使う行を刺激する。 区別: local メンバに依存する default 展開を許す実装はこの設計を受け入れ、8.17 はそれを禁止する。
 
 ### SV2023-8.17-EXTRACT-SUPER-DEFAULT-FORWARD
 
@@ -19573,7 +19634,7 @@ super.new(default) forwards every argument expanded by default in the subclass c
 
 ### SV2023-8.17-EXTRACT-SUPER-DEFAULT-REQUIRES-EXPANSION
 
-8.17 / error / テスト未対応
+8.17 / error / テスト対応あり・実行未確認
 
 super.new(default) is illegal if the subclass constructor argument list did not contain default.
 
@@ -19581,10 +19642,11 @@ super.new(default) is illegal if the subclass constructor argument list did not 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_super_default_without_expansion.sv](../tests/ch8/test_illegal_super_default_without_expansion.sv): コンストラクタ引数リストに default がないのに super.new(default) を呼ぶ行を刺激する。 区別: 引数リストで default を使っていない super.new(default) を許す実装はこの設計を受け入れ、8.17 はそれをエラーにする。
 
 ### SV2023-8.17-EXTRACT-SUPER-FIRST-EXECUTABLE
 
-8.17 / normal / テスト未対応
+8.17 / normal / 実行確認あり
 
 An explicit super.new must be the first executable constructor statement.
 
@@ -19592,6 +19654,7 @@ An explicit super.new must be the first executable constructor statement.
 
 規定の性質: `mandatory`。
 
+- [test_class_constructor_this_and_super_order.sv](../tests/ch8/test_class_constructor_this_and_super_order.sv): 同じ super.new(base_id) を最初の実行文に置き、base の本体が child の本体より先に走ることを order=BC で表示する。 区別: super.new を最初以外の位置で実行する実装は base の代入が child の後になり、order=BC を出せない。
 
 ### SV2023-8.18-EXTRACT-DEFAULT-PUBLIC
 
@@ -19642,7 +19705,7 @@ Permitted access/const/virtual member modifiers have no predefined relative orde
 
 ### SV2023-8.18-EXTRACT-MODIFIER-UNIQUENESS
 
-8.18 / error / テスト未対応
+8.18 / error / テスト対応あり・実行未確認
 
 A member cannot be both local and protected or repeat any other permitted member modifier.
 
@@ -19650,6 +19713,7 @@ A member cannot be both local and protected or repeat any other permitted member
 
 規定の性質: `mandatory`。
 
+- [test_illegal_local_protected_member.sv](../tests/ch8/test_illegal_local_protected_member.sv): class プロパティを local protected の両方で修飾した行を刺激する。 区別: local と protected の併用を許す実装はこの宣言を受け入れ、8.18 は修飾の重複を禁止する。
 
 ### SV2023-8.18-EXTRACT-PARAMETERS-PUBLIC
 
@@ -19688,7 +19752,7 @@ A const class property with a declaration initializer cannot be assigned anywher
 
 ### SV2023-8.19-EXTRACT-INSTANCE-CONSTRUCTOR-ONCE
 
-8.19 / error / テスト未対応
+8.19 / error / テスト対応あり・実行未確認
 
 A const class property without a declaration initializer may be assigned at runtime only once in its corresponding class constructor.
 
@@ -19696,10 +19760,11 @@ A const class property without a declaration initializer may be assigned at runt
 
 規定の性質: `mandatory`。
 
+- [test_illegal_const_property_assigned_twice.sv](../tests/ch8/test_illegal_const_property_assigned_twice.sv): コンストラクタ内で const プロパティ size に 1 の後 2 を代入した 2 行目を刺激する。 区別: instance constant への 2 回目の代入を許す実装はこの設計を受け入れ、8.19 は 1 回に限る。
 
 ### SV2023-8.19-EXTRACT-NO-STATIC-INSTANCE-CONST
 
-8.19 / error / テスト未対応
+8.19 / error / テスト対応あり・実行未確認
 
 An instance constant cannot be static; global constants may be static.
 
@@ -19707,6 +19772,7 @@ An instance constant cannot be static; global constants may be static.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_static_instance_const_member.sv](../tests/ch8/test_illegal_static_instance_const_member.sv): 初期化子のない const クラスプロパティを static で宣言した行を刺激する。 区別: instance constant の static 宣言を許す実装はこの宣言を受け入れ、8.19 は instance constant を static にできない。
 
 ### SV2023-8.19-EXTRACT-READONLY-FORMS
 
@@ -19734,7 +19800,7 @@ The method extends specifier implies virtual, making an explicit virtual keyword
 
 ### SV2023-8.20-EXTRACT-EXTENDS-REQUIRES-VIRTUAL-OVERRIDE
 
-8.20 / error / テスト未対応
+8.20 / error / テスト対応あり・実行未確認
 
 A method specified colon extends must override a virtual base method; otherwise it is an error.
 
@@ -19742,6 +19808,7 @@ A method specified colon extends must override a virtual base method; otherwise 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_extends_nonvirtual_method.sv](../tests/ch8/test_illegal_extends_nonvirtual_method.sv): 非 virtual な base の f を subclass で :extends 指定して override した行を刺激する。 区別: 非 virtual メソッドへの extends を許す実装はこの設計を受け入れ、8.20 はそれをエラーにする。
 
 ### SV2023-8.20-EXTRACT-FINAL-NO-IMPLIED-VIRTUAL
 
@@ -19780,7 +19847,7 @@ A method cannot specify both initial and extends; final may accompany either.
 
 ### SV2023-8.20-EXTRACT-INITIAL-NO-IMPLIED-VIRTUAL
 
-8.20 / normal / テスト未対応
+8.20 / normal / テスト対応あり・実行未確認
 
 initial does not itself make a method virtual and permits overriding a nonvirtual base method.
 
@@ -19788,6 +19855,7 @@ initial does not itself make a method virtual and permits overriding a nonvirtua
 
 規定の性質: `mandatory`。
 
+- [test_class_virtual_dispatch_and_initial.sv](../tests/ch8/test_class_virtual_dispatch_and_initial.sv): mid の g を :initial で宣言して base の非 virtual g を override し、base 型 h からは 3、mid 型からは 21 になることを表示する。 区別: initial を virtual と解釈する実装は h.g(1)=21 を出し、base_g=3 mid_g=21 と一致しない。
 
 ### SV2023-8.20-EXTRACT-INITIAL-NO-VIRTUAL-OVERRIDE
 
@@ -19816,7 +19884,7 @@ A virtual method may override a nonvirtual method, but after becoming virtual ev
 
 ### SV2023-8.20-EXTRACT-OVERRIDE-ARGUMENT-TYPES
 
-8.20 / error / テスト未対応
+8.20 / error / テスト対応あり・実行未確認
 
 A virtual override must have matching argument types and identical names, qualifiers and directions to the base prototype.
 
@@ -19824,10 +19892,11 @@ A virtual override must have matching argument types and identical names, qualif
 
 規定の性質: `mandatory`。
 
+- [test_illegal_override_argument_type_mismatch.sv](../tests/ch8/test_illegal_override_argument_type_mismatch.sv): base の virtual f(int) を byte 引数で override した行を刺激する。 区別: 引数型の不一致を許す実装はこの設計を受け入れ、8.20 は一致を要求する。
 
 ### SV2023-8.20-EXTRACT-OVERRIDE-DEFAULT-PRESENCE
 
-8.20 / error / テスト未対応
+8.20 / error / テスト対応あり・実行未確認
 
 Virtual override formal default expressions may differ, but presence/absence of a default for each argument must match.
 
@@ -19835,10 +19904,11 @@ Virtual override formal default expressions may differ, but presence/absence of 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_override_default_presence.sv](../tests/ch8/test_illegal_override_default_presence.sv): base の virtual f(int a = 3) を既定値なしの f(int a) で override した行を刺激する。 区別: 既定値の有無の不一致を許す実装はこの設計を受け入れ、8.20 は有無の一致を要求する。
 
 ### SV2023-8.20-EXTRACT-OVERRIDE-RETURN
 
-8.20 / error / テスト未対応
+8.20 / error / テスト対応あり・実行未確認
 
 A virtual function override return type must match the superclass return type or be a derived class type of that return type.
 
@@ -19846,10 +19916,11 @@ A virtual function override return type must match the superclass return type or
 
 規定の性質: `mandatory`。
 
+- [test_illegal_override_return_type_mismatch.sv](../tests/ch8/test_illegal_override_return_type_mismatch.sv): int を返す virtual f を longint 返しで override した行を刺激する。 区別: 戻り型の不一致を許す実装はこの設計を受け入れ、8.20 は matching 型か派生クラス型を要求する。
 
 ### SV2023-8.20-EXTRACT-PURE-NOT-FINAL
 
-8.20 / error / テスト未対応
+8.20 / error / テスト対応あり・実行未確認
 
 A pure virtual method cannot be final.
 
@@ -19857,6 +19928,7 @@ A pure virtual method cannot be final.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_pure_virtual_final.sv](../tests/ch8/test_illegal_pure_virtual_final.sv): pure virtual メソッドに :final を付けた行を刺激する。 区別: pure virtual と final の併用を許す実装はこの宣言を受け入れ、8.20 はそれをエラーにする。
 
 ### SV2023-8.20-EXTRACT-VIRTUAL-KEYWORD-OPTIONAL
 
@@ -20134,7 +20206,7 @@ A default expression repeated on the external header must be syntactically ident
 
 ### SV2023-8.24-EXTRACT-EXTERN-HEADER-MATCH
 
-8.24 / error / テスト未対応
+8.24 / error / テスト対応あり・実行未確認
 
 An external method header must exactly match its prototype except required method/return type scope qualification and permitted omission of default expressions.
 
@@ -20142,6 +20214,7 @@ An external method header must exactly match its prototype except required metho
 
 規定の性質: `mandatory`。
 
+- [test_illegal_extern_header_mismatch.sv](../tests/ch8/test_illegal_extern_header_mismatch.sv): extern プロトタイプが int 引数の f を、class 外定義で byte 引数に変えた行を刺激する。 区別: 外部定義のヘッダ不一致を許す実装はこの設計を受け入れ、8.24 はプロトタイプとの一致を要求する。
 
 ### SV2023-8.24-EXTRACT-EXTERN-PROTOTYPE
 
@@ -20660,7 +20733,7 @@ An interface must be fully declared before being implemented/extended; a forward
 
 ### SV2023-8.26.4-EXTRACT-NO-IMPLEMENTS-TYPE-PARAMETER
 
-8.26.4 / error / テスト未対応
+8.26.4 / error / テスト対応あり・実行未確認
 
 A class cannot implement a type parameter even if that parameter resolves to an interface class.
 
@@ -20668,6 +20741,7 @@ A class cannot implement a type parameter even if that parameter resolves to an 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_implements_type_parameter.sv](../tests/ch8/test_illegal_implements_type_parameter.sv): implements の対象に interface class へ解決される type parameter I を置いた行を刺激する。 区別: type parameter の implements を許す実装はこの設計を受け入れ、8.26.4 はそれを禁止する。
 
 ### SV2023-8.26.4-EXTRACT-NO-INTERFACE-EXTENDS-PARAMETER
 
@@ -20995,7 +21069,7 @@ A forward class definition must resolve in the same local scope or generate bloc
 
 ### SV2023-8.27-EXTRACT-FORWARD-PARAMETERIZED
 
-8.27 / normal / テスト未対応
+8.27 / normal / 実行確認あり
 
 A forward class typedef may refer to a class with a parameter port list.
 
@@ -21003,6 +21077,7 @@ A forward class typedef may refer to a class with a parameter port list.
 
 規定の性質: `permission`。
 
+- [test_forward_class_typedef_parameterized.sv](../tests/ch8/test_forward_class_typedef_parameterized.sv): typedef class Cp で前方宣言したパラメータ付きクラスを、定義前に Cp#(1, real) と Cp#(.p(2), .T(int)) で 2 通りに特殊化し、p=1 2 と value=3.0 3 を表示する。 区別: パラメータ付きクラスの前方宣言を許さない実装はこの宣言を受け付けず、p=1 2 を出せない。
 
 ### SV2023-8.28-EXTRACT-CLASS-POLYMORPHISM
 
@@ -21029,7 +21104,7 @@ Class handles cannot be cast into arbitrary other data categories outside the de
 
 ### SV2023-8.28-EXTRACT-STRUCT-CLASS-ALLOCATION
 
-8.28 / normal / テスト未対応
+8.28 / normal / 実行確認あり
 
 A structure variable occupies storage according to its static/automatic context; a class variable is a handle and an object is dynamically created by new.
 
@@ -21037,6 +21112,7 @@ A structure variable occupies storage according to its static/automatic context;
 
 規定の性質: `definition`。
 
+- [test_class_objects_handles_and_polymorphism.sv](../tests/ch8/test_class_objects_handles_and_polymorphism.sv): 自動 struct 変数 s1,s2 をコピーして s2 だけ変更し、1 と 2 を表示する一方、クラスはハンドル共有で d.w の変更が h.get() にも見えることを表示する。 区別: struct をハンドルとして共有する実装は struct=1 1 を出し、クラスを値コピーする実装は shared=54 9 になる。
 
 ### SV2023-8.29-EXTRACT-AUTOMATIC-DYNAMIC-MEMORY
 
@@ -21062,7 +21138,7 @@ Garbage collection transitions an object from strong reachability toward unreach
 
 ### SV2023-8.29-EXTRACT-STRONGLY-REACHABLE
 
-8.29 / normal / テスト未対応
+8.29 / normal / テスト対応あり・実行未確認
 
 An object is strongly reachable through class handles in active scopes or pending nonblocking assignments to its nonstatic members; a newly created object is strongly reachable from its creating process.
 
@@ -21070,6 +21146,7 @@ An object is strongly reachable through class handles in active scopes or pendin
 
 規定の性質: `definition`。
 
+- [test_weak_reference_std_scope_and_strong_reachability.sv](../tests/ch8/test_weak_reference_std_scope_and_strong_reachability.sv): target への有効なハンドル o がスコープにある間、その std::weak_reference の get() が null でないことを referent_alive=1 と still_alive=1 で表示する。 区別: 強く到達可能なオブジェクトの weak reference を消す実装は referent_alive=0 を出し、1 と一致しない。
 
 ### SV2023-8.29-EXTRACT-UNREACHABLE
 
@@ -21117,7 +21194,7 @@ When GC determines a referent is weakly reachable, all weak references to it mus
 
 ### SV2023-8.30.1-EXTRACT-STD-WEAK-REFERENCE
 
-8.30.1 / normal / テスト未対応
+8.30.1 / normal / テスト対応あり・実行未確認
 
 weak_reference is declared in std and may be shadowed by user declarations in another scope.
 
@@ -21125,10 +21202,11 @@ weak_reference is declared in std and may be shadowed by user declarations in an
 
 規定の性質: `mandatory`。
 
+- [test_weak_reference_std_scope_and_strong_reachability.sv](../tests/ch8/test_weak_reference_std_scope_and_strong_reachability.sv): std::weak_reference#(target) と、別スコープの user_scope が宣言した同名クラス weak_reference を同時に使い、shadow 側の marker=42 を表示する。 区別: weak_reference を std に置かない実装は std::weak_reference を解決できず、別スコープの同名宣言を許さない実装は marker=42 を出せない。
 
 ### SV2023-8.30.1-EXTRACT-WEAK-CLASS-TYPE
 
-8.30.1 / error / テスト未対応
+8.30.1 / error / テスト対応あり・実行未確認
 
 weak_reference is a built-in parameterized class whose T must be a class type; any other T is a compilation error.
 
@@ -21136,6 +21214,7 @@ weak_reference is a built-in parameterized class whose T must be a class type; a
 
 規定の性質: `mandatory`。
 
+- [test_illegal_weak_reference_scalar_type.sv](../tests/ch8/test_illegal_weak_reference_scalar_type.sv): weak_reference を int で特殊化した行を刺激する。 区別: class 以外の T を許す実装はこの宣言を受け入れ、8.30.1 は class 型を要求する。
 
 ### SV2023-8.30.1-EXTRACT-WEAK-REFERENCE-NONRETAINING
 
@@ -21506,7 +21585,7 @@ An always_comb assignment target, including writes in called functions but exclu
 
 ### SV2023-9.2.2.2-EXTRACT-TIME-ZERO-EXECUTION
 
-9.2.2.2 / normal / テスト未対応
+9.2.2.2 / normal / 実行確認あり
 
 always_comb triggers once at time zero after all initial/always procedures have started.
 
@@ -21514,6 +21593,7 @@ always_comb triggers once at time zero after all initial/always procedures have 
 
 規定の性質: `mandatory`。
 
+- [test_always_comb_time_zero.sv](../tests/ch9/test_always_comb_time_zero.sv): With a = 1 from its declaration and no later change before 1 ns, always_comb computes y = 1 while always @* leaves z at 0; after a becomes 0 both are 0. 区別: An implementation that waits for an input change before the first always_comb execution prints y=0 at 1 ns.
 
 ### SV2023-9.2.2.2.1-EXTRACT-ANALYZE-QUALIFIED-FUNCTIONS
 
@@ -21786,7 +21866,7 @@ Only function-legal statements are allowed in final; final blocks execute sequen
 
 ### SV2023-9.2.3-EXTRACT-FINAL-ORDER
 
-9.2.3 / normal / テスト未対応
+9.2.3 / normal / 実行確認あり
 
 Final procedures execute in an arbitrary but deterministic sequential order; no particular source-order sequence is specified.
 
@@ -21794,6 +21874,7 @@ Final procedures execute in an arbitrary but deterministic sequential order; no 
 
 規定の性質: `mandatory`。
 
+- [test_final_blocks_sequential.sv](../tests/ch9/test_final_blocks_sequential.sv): Two final blocks each increment count and print it after the last initial sets state = 2; the output is count=1 then count=2 with state=2 in both lines, whichever block ran first. 区別: Final blocks that ran as independent concurrent processes could both read 0 and print count=1, and a block that ran before the last time step would print another state.
 
 ### SV2023-9.2.3-EXTRACT-FINISH-IN-FINAL
 
@@ -21871,7 +21952,7 @@ begin/end delimit sequential statements executed in given order.
 
 ### SV2023-9.3.1-EXTRACT-SEQUENTIAL-GRAMMAR
 
-9.3.1 / normal / テスト未対応
+9.3.1 / normal / 実行確認あり
 
 A sequential block permits optional opening/closing names, then block item declarations before statement-or-null items; declarations include attributes, data, parameters/localparams and lets.
 
@@ -21879,6 +21960,7 @@ A sequential block permits optional opening/closing names, then block item decla
 
 規定の性質: `definition`。
 
+- [test_block_and_fork_grammar.sv](../tests/ch9/test_block_and_fork_grammar.sv): The named sequential block outer declares the data variable x and the localparam K before its statements and ends with end : outer; the inner block seq declares y and ends with its name; the run prints seq y=2. 区別: An implementation that does not allow declarations in the block, or the closing name, cannot build the design or uses another value for y.
 
 ### SV2023-9.3.1-EXTRACT-SEQUENTIAL-ORDER
 
@@ -21993,7 +22075,7 @@ A return in a fork-join child context is a compilation error.
 
 ### SV2023-9.3.2-EXTRACT-PARALLEL-GRAMMAR
 
-9.3.2 / normal / テスト未対応
+9.3.2 / normal / 実行確認あり
 
 A fork block permits optional names, declarations before parallel statement-or-null items and a join/join_any/join_none terminator; block declaration forms include data/parameter/localparam/let.
 
@@ -22001,6 +22083,7 @@ A fork block permits optional names, declarations before parallel statement-or-n
 
 規定の性質: `definition`。
 
+- [test_block_and_fork_grammar.sv](../tests/ch9/test_block_and_fork_grammar.sv): The named fork par declares z before its two parallel statements and ends with join : par; the two branches print fork a z=2 and fork b, and join resumes after both with joined. 区別: An implementation that does not allow the declaration or the join terminator cannot build the fork, and one that resumes before both branches prints joined too early.
 
 ### SV2023-9.3.2-EXTRACT-PARALLEL-STATEMENTS
 
@@ -22091,7 +22174,7 @@ A begin/fork colon-name creates a hierarchy scope, allowing local variables/para
 
 ### SV2023-9.3.4-EXTRACT-OTHER-CLOSING-NAMES
 
-9.3.4 / normal / テスト未対応
+9.3.4 / normal / 実行確認あり
 
 Optional matching colon names may follow the listed design/subroutine/assertion/coverage block end keywords under their declaration grammar.
 
@@ -22099,6 +22182,7 @@ Optional matching colon names may follow the listed design/subroutine/assertion/
 
 規定の性質: `permission`。
 
+- [test_block_and_fork_grammar.sv](../tests/ch9/test_block_and_fork_grammar.sv): The sequential blocks close with end : seq and end : outer and the fork closes with join : par; the matching names are accepted and the run reaches joined and waitfork 9. 区別: An implementation that rejects the name after the closing keyword fails to build the design, and one that does not match it cannot complete the block.
 
 ### SV2023-9.3.4-EXTRACT-STATIC-TEXT-CONFLICT
 
@@ -22126,7 +22210,7 @@ An unnamed block creates an unnamed hierarchy scope only when directly containin
 
 ### SV2023-9.3.5-EXTRACT-ASSERTION-LABEL
 
-9.3.5 / normal / テスト未対応
+9.3.5 / normal / 実行確認あり
 
 A concurrent assertion may have a preceding label.
 
@@ -22134,6 +22218,7 @@ A concurrent assertion may have a preceding label.
 
 規定の性質: `permission`。
 
+- [test_assertion_label.sv](../tests/ch9/test_assertion_label.sv): The labelled concurrent assertion a1: assert property (@(posedge clk) n >= 0); elaborates beside the clock and the counter, and the run reaches 6 ns with n=3. 区別: A tool that does not allow a label before a concurrent assertion does not build the design, so the expected line is not printed.
 
 ### SV2023-9.3.5-EXTRACT-BLOCK-LABEL-EQUIVALENT
 
@@ -22237,7 +22322,7 @@ An event expression with comma-separated components used as a positional actual 
 
 ### SV2023-9.4-EXTRACT-DELAY-CONTROL-DEFINITION
 
-9.4 / normal / テスト未対応
+9.4 / normal / 実行確認あり
 
 Delay controls defer statement execution by a numeric or dynamically evaluated duration under delay conversion rules.
 
@@ -22245,10 +22330,11 @@ Delay controls defer statement execution by a numeric or dynamically evaluated d
 
 規定の性質: `definition`。
 
+- [test_timing_controls_forms.sv](../tests/ch9/test_timing_controls_forms.sv): The delay control #(1 + 2) evaluates its constant expression from time 9 and resumes at 12, printing delay 12, and the delay #d with the variable d = 3 resumes at 15, printing vardelay 15. 区別: An implementation that delays by another value, or treats the variable as a constant, prints another time on the delay or vardelay line.
 
 ### SV2023-9.4-EXTRACT-EVENT-CONTROL-DEFINITION
 
-9.4 / normal / テスト未対応
+9.4 / normal / 実行確認あり
 
 Event controls defer execution until an expression change or named/clocking/sequence event under their rules.
 
@@ -22256,10 +22342,11 @@ Event controls defer execution until an expression change or named/clocking/sequ
 
 規定の性質: `definition`。
 
+- [test_timing_controls_forms.sv](../tests/ch9/test_timing_controls_forms.sv): The named event control @ev resumes when -> ev runs at 5 ns and prints ev 5; the posedge and negedge controls resume at 2 and 4 ns. 区別: An implementation that does not wake on the named event, or wakes on the wrong edge, prints another time or hangs.
 
 ### SV2023-9.4-EXTRACT-PROCEDURAL-TIMING-KINDS
 
-9.4 / normal / テスト未対応
+9.4 / normal / 実行確認あり
 
 Procedural time advancement uses # delay, @ event or level-sensitive wait controls.
 
@@ -22267,6 +22354,7 @@ Procedural time advancement uses # delay, @ event or level-sensitive wait contro
 
 規定の性質: `definition`。
 
+- [test_timing_controls_forms.sv](../tests/ch9/test_timing_controls_forms.sv): The test advances time with #, with @ event controls and with wait (sig == 1'b0), which resumes at 9 ns and prints wait 9. 区別: An implementation that does not implement one of the three kinds of time advancement prints another line or does not reach the later events.
 
 ### SV2023-9.4-EXTRACT-TIMING-CONTROL-GRAMMAR
 
@@ -22568,7 +22656,7 @@ edge triggers whenever posedge or negedge would trigger.
 
 ### SV2023-9.4.2-EXTRACT-EVENT-SYNCHRONIZATION
 
-9.4.2 / normal / テスト未対応
+9.4.2 / normal / 実行確認あり
 
 A procedural event control may synchronize to expression value change or a named event, clocking event or sequence instance match.
 
@@ -22576,6 +22664,7 @@ A procedural event control may synchronize to expression value change or a named
 
 規定の性質: `definition`。
 
+- [test_timing_controls_forms.sv](../tests/ch9/test_timing_controls_forms.sv): The event expression @(s2 or dummy) resumes on the change of s2 at 20 ns and prints or 20, and the comma form @(s2, dummy) resumes on the next change at 22 and prints comma 22. 区別: An implementation that treats the or and comma forms differently, or does not honor the named event dummy, resumes at another time or not at all.
 
 ### SV2023-9.4.2-EXTRACT-EXTRA-REEVALUATION-LATITUDE
 
@@ -25540,7 +25629,7 @@ An individual signal cannot be aliased to itself and a specific alias relation c
 
 ### SV2023-11.2-EXTRACT-EXPRESSION-DEFINITION
 
-11.2 / normal / テスト未対応
+11.2 / normal / 実行確認あり
 
 An expression combines operands/operators according to their semantics; a legal operand by itself is also an expression usable where its value/type is permitted.
 
@@ -25548,6 +25637,7 @@ An expression combines operands/operators according to their semantics; a legal 
 
 規定の性質: `definition`。
 
+- [test_expr_operand_categories.sv](../tests/ch11/test_expr_operand_categories.sv): A lone variable, a conditional of three operands and a call of twice are used as expressions; the run prints cond=11 and func=6, so each expression yields the value its operators define. 区別: An implementation that did not accept a bare operand or combined the conditional operands differently would print another cond or func value.
 
 ### SV2023-11.2-EXTRACT-OPERAND-CATEGORIES
 
@@ -25635,7 +25725,7 @@ A constant system function is pure: its return depends only on its inputs and it
 
 ### SV2023-11.2.1-EXTRACT-CONSTANT-TIMESCALE-NAME
 
-11.2.1 / normal / テスト未対応
+11.2.1 / normal / テスト対応あり・実行未確認
 
 Calls to the timescale system functions listed in 20.4, $timeunit and $timeprecision, are constant system function calls when their arguments are constant expressions, and are evaluated at elaboration time; the $timescale spelling in the 11.2.1 parenthetical denotes $timeunit rather than a separate system function.
 
@@ -25643,6 +25733,7 @@ Calls to the timescale system functions listed in 20.4, $timeunit and $timepreci
 
 規定の性質: `mandatory`。
 
+- [test_expr_timescale_constants.sv](../tests/ch11/test_expr_timescale_constants.sv): Under `timescale 1ns/1ps the localparams TU = $timeunit and TP = $timeprecision elaborate to -9 and -12, and -TU sizes a 9-bit vector; the run prints tu=-9 tp=-12 w=9 bits=9. 区別: An implementation that does not evaluate these calls as constant functions fails to elaborate the localparams or the vector range, so the test cannot run.
 
 ### SV2023-11.2.2-EXTRACT-AGGREGATE-COMPARE-EQUIVALENCE
 
@@ -25658,7 +25749,7 @@ Aggregate comparison operands must have equivalent types; assignment uses the se
 
 ### SV2023-11.2.2-EXTRACT-AGGREGATE-EXPRESSIONS
 
-11.2.2 / normal / テスト未対応
+11.2.2 / normal / 実行確認あり
 
 Unpacked structures/arrays, their constructors and multielement unpacked slices can be aggregate expressions.
 
@@ -25666,6 +25757,7 @@ Unpacked structures/arrays, their constructors and multielement unpacked slices 
 
 規定の性質: `definition`。
 
+- [test_expr_operand_categories.sv](../tests/ch11/test_expr_operand_categories.sv): The unpacked array slice arr[1:2] is assigned to the unpacked array slice and prints 2 and 3, and the unpacked struct ps is copied to pt and prints 4 and 6. 区別: An implementation that does not treat an unpacked array slice or struct as an aggregate expression cannot build the test, or fills the slice in another element order.
 
 ### SV2023-11.2.2-EXTRACT-AGGREGATE-OPERATIONS
 
@@ -25716,7 +25808,7 @@ Table 11-1 permits >>> <<< with integral operands, subject to more specific type
 
 ### SV2023-11.3-EXTRACT-ASSIGN-OPERANDS
 
-11.3 / normal / テスト未対応
+11.3 / normal / 実行確認あり
 
 Table 11-1 permits = with all types allowed by their assignment rules operands, subject to more specific type/context rules.
 
@@ -25724,6 +25816,7 @@ Table 11-1 permits = with all types allowed by their assignment rules operands, 
 
 規定の性質: `definition`。
 
+- [test_expr_operand_categories.sv](../tests/ch11/test_expr_operand_categories.sv): The assignment pt = ps copies the unpacked struct, and the later field read prints 4 and 6; the array slice assignment copies two elements. 区別: If the assignment does not accept a struct or aggregate operand, the design does not elaborate or the copied fields differ.
 
 ### SV2023-11.3-EXTRACT-BINARY-ARITH-OPERANDS
 
@@ -26212,7 +26305,7 @@ Table 11-2 precedence level 16 from highest to lowest contains = += -= *= /= %= 
 
 ### SV2023-11.3.2-EXTRACT-PRECEDENCE-17
 
-11.3.2 / normal / テスト未対応
+11.3.2 / normal / 実行確認あり
 
 Table 11-2 precedence level 17 from highest to lowest contains concatenation and replication braces; within-group associativity is concatenation syntax. Operators in a group have equal precedence.
 
@@ -26220,6 +26313,7 @@ Table 11-2 precedence level 17 from highest to lowest contains concatenation and
 
 規定の性質: `definition`。
 
+- [test_expr_precedence_associativity.sv](../tests/ch11/test_expr_precedence_associativity.sv): The replication {2{2'b10}} prints 1010 and the concatenation compared with 4'b1001 prints 1, so the lowest-precedence braces build the shown values. 区別: An implementation that gives the braces another precedence or repeats the wrong operand prints another rep or concat value.
 
 ### SV2023-11.3.2-EXTRACT-PRECEDENCE-2
 
@@ -27056,7 +27150,7 @@ Unary minus negates its operand under expression width and signedness rules.
 
 ### SV2023-11.4.3-EXTRACT-UNARY-PLUS
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 Unary plus returns its operand value under expression typing.
 
@@ -27064,6 +27158,7 @@ Unary plus returns its operand value under expression typing.
 
 規定の性質: `mandatory`。
 
+- [test_expr_unary_plus.sv](../tests/ch11/test_expr_unary_plus.sv): Unary plus on the byte -3 prints -3, on the unsigned 8'h80 prints 128, on the int -7 prints -7, on the real 1.5 prints 1.5, and on $signed(8'h80) prints -128. 区別: An implementation that negates, drops the sign, or truncates the operand prints a different value on one of these lines.
 
 ### SV2023-11.4.3-EXTRACT-UNARY-PRECEDENCE
 
@@ -29045,7 +29140,7 @@ The shift count is treated as unsigned and does not determine result signedness.
 
 ### SV2023-11.4.11-EXTRACT-AMBIGUOUS-ARRAY-ELEMENTS
 
-11.4.11 / normal / テスト未対応
+11.4.11 / normal / テスト対応あり・実行未確認
 
 For an ambiguous predicate and nonequivalent-valued equal-length nonassociative aggregate arrays, combine corresponding elements: keep a matching element, otherwise use its Table 7-1 nonexistent value.
 
@@ -29053,6 +29148,7 @@ For an ambiguous predicate and nonequivalent-valued equal-length nonassociative 
 
 規定の性質: `mandatory`。
 
+- [test_expr_conditional_ambiguous.sv](../tests/ch11/test_expr_conditional_ambiguous.sv): The int arrays {1,2} and {1,3} combine to 1,0 (the matching element 1 and the Table 7-1 default 0 for int), and the logic arrays {1,2} and {1,3} combine to 0001,xxxx (element 1 and the Table 7-1 default for the differing 4-state element). 区別: An implementation that picks one array, or combines the differing element bitwise for int, prints 1,3 or 1,0 differently.
 
 ### SV2023-11.4.11-EXTRACT-AMBIGUOUS-BOTH
 
@@ -29658,7 +29754,7 @@ Nonintegral membership uses logical ==; integral membership uses wildcard ==?, w
 
 ### SV2023-11.4.13-EXTRACT-INSIDE-GRAMMAR
 
-11.4.13 / normal / テスト未対応
+11.4.13 / normal / テスト対応あり・実行未確認
 
 inside uses a nonempty comma-separated list of values or ranges; ranges support colon bounds, unbounded dollar endpoints and absolute/relative tolerance forms.
 
@@ -29666,6 +29762,7 @@ inside uses a nonempty comma-separated list of values or ranges; ranges support 
 
 規定の性質: `definition`。
 
+- [test_expr_inside_set_forms.sv](../tests/ch11/test_expr_inside_set_forms.sv): The test uses a value list, colon ranges, [$:3], [3:$], [7 +/- 2], [7 +%- 25] and a reversed [9:5], and prints 1/0 for each; the integral 25 percent tolerance is truncated to [6:8], the real one stays [5.25:8.75], the unpacked array members 3,4,5 match, and 4'b10x1 inside {4'b1?11} prints x. 区別: A wrong bound order, a rounded instead of truncated integral tolerance, or a missing x result prints another line, for example rel_low=1 or wild_x=0.
 
 ### SV2023-11.4.13-EXTRACT-INSIDE-MATCH-RESULT
 
@@ -30375,7 +30472,7 @@ A bit-select index of an eligible vector/packed object/parameter/concatenation i
 
 ### SV2023-11.5.1-EXTRACT-CONSTANT-SELECT-DEFINITION
 
-11.5.1 / normal / テスト未対応
+11.5.1 / normal / 実行確認あり
 
 A bit-select is constant if its position is constant; a part-select is constant if position and width are constant, including an indexed selection with a constant base.
 
@@ -30383,6 +30480,7 @@ A bit-select is constant if its position is constant; a part-select is constant 
 
 規定の性質: `definition`。
 
+- [test_expr_selects_and_prefixes.sv](../tests/ch11/test_expr_selects_and_prefixes.sv): The localparam initializers C[3], C[7:4] and C[4 +: 4] are constant selects of the constant C and print cb=0 cp=a ip=a; the runtime v[i +: 3] prints 1. 区別: If a constant position or width were not folded, the localparams would not elaborate; a wrong bit order prints another cp or ip.
 
 ### SV2023-11.5.1-EXTRACT-DECLARED-INDEX-LABELS
 
@@ -30553,7 +30651,7 @@ A field select ends in a struct/union field after its last dot; its field-select
 
 ### SV2023-11.5.3-EXTRACT-INDEX-PREFIX
 
-11.5.3 / normal / テスト未対応
+11.5.3 / normal / 実行確認あり
 
 An indexing select is one array/bit/part/indexed-part indexing operation whose prefix is its identifier or prior indexing select.
 
@@ -30561,6 +30659,7 @@ An indexing select is one array/bit/part/indexed-part indexing operation whose p
 
 規定の性質: `definition`。
 
+- [test_expr_selects_and_prefixes.sv](../tests/ch11/test_expr_selects_and_prefixes.sv): The select m[1][2] is an indexing select whose prefix m[1] is another indexing select, and it prints 11 after the write; v[i +: 3] has the identifier v as its prefix and prints 1. 区別: An implementation that treats the two-index select as one operation over the flattened array, or resolves the prefix elsewhere, reads or writes another element.
 
 ### SV2023-11.5.3-EXTRACT-LONGEST-STATIC-PREFIX
 
@@ -30576,7 +30675,7 @@ The longest static prefix is the identifier/field/index select that cannot exten
 
 ### SV2023-11.5.3-EXTRACT-STATIC-BASE-PREFIX
 
-11.5.3 / normal / テスト未対応
+11.5.3 / normal / 実行確認あり
 
 Identifiers, hierarchical object references and package net/variable references are static prefixes.
 
@@ -30584,6 +30683,7 @@ Identifiers, hierarchical object references and package net/variable references 
 
 規定の性質: `definition`。
 
+- [test_expr_selects_and_prefixes.sv](../tests/ch11/test_expr_selects_and_prefixes.sv): The package reference pkg::pv prints 3 and the hierarchical reference u.hv prints 4, both static prefixes; the identifier v is the prefix of v[3] and prints 0. 区別: An implementation that does not resolve a package or hierarchical reference as a static prefix cannot read these variables or reads another one.
 
 ### SV2023-11.5.3-EXTRACT-STATIC-FIELD-PREFIX
 
@@ -31295,7 +31395,7 @@ Packed string literal values use assignment to copy, concatenation to append and
 
 ### SV2023-11.10.1-EXTRACT-PRESERVE-CHARACTER-WIDTH
 
-11.10.1 / normal / テスト未対応
+11.10.1 / normal / 実行確認あり
 
 Packed literal storage should provide at least eight bits per character to preserve complete ASCII codes; this is guidance rather than a ban on legal truncation.
 
@@ -31303,6 +31403,7 @@ Packed literal storage should provide at least eight bits per character to prese
 
 規定の性質: `recommendation`。
 
+- [test_expr_string_literal_ops.sv](../tests/ch11/test_expr_string_literal_ops.sv): The 16-bit vector holds the two characters of "AB" as 4142, the 8-bit vector holds "A" as 41, the vector and a concatenation compare equal to the literals (eq=1, cat=1), and $bits("AB") is 16. 区別: A vector narrower than 8*n bits loses a character and prints another v value, and a comparison that ignores the stored characters prints eq=0 or cat=0.
 
 ### SV2023-11.10.2-EXTRACT-PADDING-IS-DATA
 
@@ -51849,7 +51950,7 @@ $typename construction: An anonymous unpacked-array name uses $ as placeholder.
 
 ### SV2023-20.6.1-EXTRACT-TYPENAME-ENUM-ENCODINGS
 
-20.6.1 / normal / テスト未対応
+20.6.1 / normal / 実行確認あり
 
 $typename construction: Enum named constants include their actual encoded values.
 
@@ -51857,6 +51958,7 @@ $typename construction: Enum named constants include their actual encoded values
 
 規定の性質: `definition`。
 
+- [test_typename_enum_encoded_values.sv](../tests/ch20/test_typename_enum_encoded_values.sv): Takes the part of $typename between the braces for the same enumeration declared with GREEN=3 in two packages and with GREEN=4 in a third. 区別: A tool that left the encoded values out of the string would make the first and the second package equal, so the second comparison would print 1.
 
 ### SV2023-20.6.1-EXTRACT-TYPENAME-NAMESPACE
 
@@ -54316,7 +54418,7 @@ q_stat_code 1 requests current queue length.
 
 ### SV2023-20.15.5-EXTRACT-STAT-2
 
-20.15.5 / normal / テスト未対応
+20.15.5 / normal / 実行確認あり
 
 q_stat_code 2 requests mean interarrival time.
 
@@ -54324,6 +54426,7 @@ q_stat_code 2 requests mean interarrival time.
 
 規定の性質: `definition`。
 
+- [test_queue_statistics_wait_codes.sv](../tests/ch20/test_queue_statistics_wait_codes.sv): Adds jobs to queue 1 at 0, 10 and 20 ns and calls $q_exam(1, 2, value, status) at 20 ns. 区別: A tool that reported another statistic would not print 10 with status 0.
 
 ### SV2023-20.15.5-EXTRACT-STAT-3
 
@@ -54339,7 +54442,7 @@ q_stat_code 3 requests maximum queue length.
 
 ### SV2023-20.15.5-EXTRACT-STAT-4
 
-20.15.5 / normal / テスト未対応
+20.15.5 / normal / 実行確認あり
 
 q_stat_code 4 requests shortest wait time ever.
 
@@ -54347,6 +54450,7 @@ q_stat_code 4 requests shortest wait time ever.
 
 規定の性質: `definition`。
 
+- [test_queue_statistics_wait_codes.sv](../tests/ch20/test_queue_statistics_wait_codes.sv): Removes one job of queue 2 after 20 ns and one after 5 ns, then calls $q_exam(2, 4, value, status). 区別: A tool that reported the last wait, 5 vs 20, or the average would not print the shortest 5.
 
 ### SV2023-20.15.5-EXTRACT-STAT-5
 
@@ -54361,7 +54465,7 @@ q_stat_code 5 requests longest wait among jobs still queued.
 
 ### SV2023-20.15.5-EXTRACT-STAT-6
 
-20.15.5 / normal / テスト未対応
+20.15.5 / normal / 実行確認あり
 
 q_stat_code 6 requests average wait time in queue.
 
@@ -54369,6 +54473,7 @@ q_stat_code 6 requests average wait time in queue.
 
 規定の性質: `definition`。
 
+- [test_queue_statistics_wait_codes.sv](../tests/ch20/test_queue_statistics_wait_codes.sv): Removes the only job of queue 4 after 5 ns and calls $q_exam(4, 6, value, status). 区別: A tool that averaged over no job, or used the current length, would not print 5.
 
 ### SV2023-20.15.6-EXTRACT-QUEUE-STATUS
 
@@ -54591,7 +54696,7 @@ PLA tasks use $array_type$logic$format(memory_identifier,input_terms,output_term
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-AND-ARRAY
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $sync$and$array(memory,input_terms,output_terms).
 
@@ -54599,10 +54704,11 @@ Table 20-12 provides $sync$and$array(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_sync_array_and_plane.sv](../tests/ch20/test_pla_sync_array_and_plane.sv): Calls $sync$and$array(mem, v, a_and) with mem[1]=110, mem[2]=011, mem[3]=101 and prints a_and after each of four values of v. 区別: A task that took the wrong personality bits or evaluated at another time would print other bits than the 111, 000, 010 and 001 rows.
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-AND-PLANE
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $sync$and$plane(memory,input_terms,output_terms).
 
@@ -54610,10 +54716,11 @@ Table 20-12 provides $sync$and$plane(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_sync_array_and_plane.sv](../tests/ch20/test_pla_sync_array_and_plane.sv): Calls $sync$and$plane(pmem, v, p_and) with pmem[1]=10?, pmem[2]=??1, pmem[3]=0?0 and prints p_and for four inputs. 区別: Reading 0 as the input instead of its complement would give other bits than the printed 010, 100, 010 and 110.
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-NAND-ARRAY
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $sync$nand$array(memory,input_terms,output_terms).
 
@@ -54621,10 +54728,11 @@ Table 20-12 provides $sync$nand$array(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_sync_array_and_plane.sv](../tests/ch20/test_pla_sync_array_and_plane.sv): Calls $sync$nand$array with the same personality and prints the negated and outputs. 区別: An implementation that forgets the negation would print the and row 010 where 101 is expected.
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-NAND-PLANE
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $sync$nand$plane(memory,input_terms,output_terms).
 
@@ -54632,10 +54740,11 @@ Table 20-12 provides $sync$nand$plane(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_sync_array_and_plane.sv](../tests/ch20/test_pla_sync_array_and_plane.sv): Calls $sync$nand$plane with the same plane personality and prints the negated and outputs. 区別: Without the negation the plane nand row would equal the plane and row 010 instead of 101.
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-NOR-ARRAY
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $sync$nor$array(memory,input_terms,output_terms).
 
@@ -54643,10 +54752,11 @@ Table 20-12 provides $sync$nor$array(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_sync_array_and_plane.sv](../tests/ch20/test_pla_sync_array_and_plane.sv): Calls $sync$nor$array with the same personality and prints the negated or outputs. 区別: An implementation that returns the or value would print 111 where the nor row is 000.
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-NOR-PLANE
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $sync$nor$plane(memory,input_terms,output_terms).
 
@@ -54654,10 +54764,11 @@ Table 20-12 provides $sync$nor$plane(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_sync_array_and_plane.sv](../tests/ch20/test_pla_sync_array_and_plane.sv): Calls $sync$nor$plane with the same plane personality and prints the negated or outputs. 区別: Without the negation the plane nor row would equal the plane or row 110 instead of 001.
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-OR-ARRAY
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $sync$or$array(memory,input_terms,output_terms).
 
@@ -54665,10 +54776,11 @@ Table 20-12 provides $sync$or$array(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_sync_array_and_plane.sv](../tests/ch20/test_pla_sync_array_and_plane.sv): Calls $sync$or$array with the same personality memory and prints the or outputs for four inputs. 区別: An implementation that computes and instead of or would print 000 where the expected row is 101.
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-OR-PLANE
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $sync$or$plane(memory,input_terms,output_terms).
 
@@ -54676,6 +54788,7 @@ Table 20-12 provides $sync$or$plane(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_sync_array_and_plane.sv](../tests/ch20/test_pla_sync_array_and_plane.sv): Calls $sync$or$plane with the same plane personality and prints the or outputs. 区別: An implementation that ands the literals would print 010 where the or row is 110.
 
 ### SV2023-20.16.1-EXTRACT-ASYNC-EVALUATION
 
@@ -54702,7 +54815,7 @@ Both synchronous/asynchronous PLA forms update outputs without delay.
 
 ### SV2023-20.16.1-EXTRACT-SYNC-EVALUATION
 
-20.16.1 / normal / テスト未対応
+20.16.1 / normal / テスト対応あり・実行未確認
 
 Synchronous PLA tasks evaluate/update outputs at the time the task is executed.
 
@@ -54710,6 +54823,7 @@ Synchronous PLA tasks evaluate/update outputs at the time the task is executed.
 
 規定の性質: `mandatory`。
 
+- [test_pla_sync_array_and_plane.sv](../tests/ch20/test_pla_sync_array_and_plane.sv): Changes v to 100 and prints the outputs before the next call, then calls the tasks and prints the new outputs. 区別: An asynchronous implementation would update the outputs on the input change, so the unchanged row would already show the new values.
 
 ### SV2023-20.16.2-EXTRACT-LOGIC-PLANES
 
@@ -78304,7 +78418,7 @@ A timing event permits a triple-ampersand scalar condition after its terminal; c
 
 ### SV2023-31.7-EXTRACT-DETERMINISTIC-CONDITION-X
 
-31.7 / normal / テスト未対応
+31.7 / normal / テスト対応あり・実行未確認
 
 Condition forms using case equality/inequality, inversion or no operator do not enable a timing check when the conditioning signal is x.
 
@@ -78312,6 +78426,7 @@ Condition forms using case equality/inequality, inversion or no operator do not 
 
 規定の性質: `mandatory`。
 
+- [test_timing_check_condition_x.sv](../tests/ch31/test_timing_check_condition_x.sv): Drives the conditioning signal to x, 1 and 0 and compares six conditions that differ only in the operator, each with its own notifier. 区別: A tool that enabled the deterministic forms with x would toggle plain, inverted, case_equal or case_not_equal in the first row, and one that disabled == or != would not toggle equal and not_equal.
 
 ### SV2023-31.7-EXTRACT-NONDETERMINISTIC-CONDITION-X
 
@@ -79949,7 +80064,7 @@ MINIMUM selects minimum.
 
 ### SV2023-32.9-EXTRACT-MTM-TOOL-CONTROL
 
-32.9 / normal / テスト未対応
+32.9 / normal / 実行確認あり
 
 TOOL_CONTROL defaults to simulator-selected member.
 
@@ -79957,6 +80072,7 @@ TOOL_CONTROL defaults to simulator-selected member.
 
 規定の性質: `definition`。
 
+- [test_sdf_default_mtm_member.sv](../tests/ch32/test_sdf_default_mtm_member.sv): Annotates a path whose SDF triple is 10:20:30 without an mtm_spec argument and checks that the time the output changes is 11, 21 or 31 ns. 区別: A tool that ignored the annotation would change the output at 2 ns, and one that scaled it would miss all three members.
 
 ### SV2023-32.9-EXTRACT-MTM-TYPICAL
 
@@ -80078,7 +80194,7 @@ Optional log-file character string selects a file receiving an entry for every i
 
 ### SV2023-32.9-EXTRACT-SDF-MTM-OVERRIDE
 
-32.9 / normal / テスト未対応
+32.9 / normal / テスト対応あり・実行未確認
 
 The optional MTM selection string chooses the triple member and overrides configuration-file MTM_SPEC.
 
@@ -80086,6 +80202,7 @@ The optional MTM selection string chooses the triple member and overrides config
 
 規定の性質: `mandatory`。
 
+- [test_sdf_mtm_and_scale_factors.sv](../tests/ch32/test_sdf_mtm_and_scale_factors.sv): Passes MAXIMUM as the mtm_spec argument and prints whether the annotated delay selects the 30 ns maximum. 区別: A tool that ignored the argument and kept the typical value would change the output at 21 ns, not 61.
 
 ### SV2023-32.9-EXTRACT-SDF-SCALE-FACTORS
 
@@ -83236,7 +83353,7 @@ DPI separates SystemVerilog and foreign-language layers; neither compiler is req
 
 ### SV2023-35.2.1-EXTRACT-EXPORT-DECLARATION
 
-35.2.1 / normal / テスト未対応
+35.2.1 / normal / 実行確認あり
 
 SystemVerilog functions callable from foreign code require export declarations; DPI exchanges SV data through arguments/results.
 
@@ -83244,6 +83361,7 @@ SystemVerilog functions callable from foreign code require export declarations; 
 
 規定の性質: `mandatory`。
 
+- [test_dpi_import_names_and_export_scope.sv](../tests/ch35/test_dpi_import_names_and_export_scope.sv): Exports sv_times and calls it from the C function call_export through a context import. 区別: A tool that did not define the global symbol of the export would fail to link call_export or return another value than 20.
 
 ### SV2023-35.2.1-EXTRACT-FUNCTION-TIME
 
@@ -83402,7 +83520,7 @@ SV DPI source and semantics are independent of the foreign language and its call
 
 ### SV2023-35.3.2-EXTRACT-EQUIVALENT-FOREIGN-TYPES
 
-35.3.2 / normal / テスト未対応
+35.3.2 / normal / 実行確認あり
 
 Foreign declarations must use native types equivalent to the DPI SV declarations; compiler-generated headers may facilitate this mapping.
 
@@ -83410,10 +83528,11 @@ Foreign declarations must use native types equivalent to the DPI SV declarations
 
 規定の性質: `mandatory`。
 
+- [test_dpi_native_types_and_passing.sv](../tests/ch35/test_dpi_native_types_and_passing.sv): Declares the C formals as int, short, signed char, svBitVecVal, svLogicVecVal, double, char pointer and svBit for the SV formals, and prints the sum the C function reads. 区別: A C declaration whose types did not match the SV formals would read different bytes and print another sum than 693.
 
 ### SV2023-35.3.2-EXTRACT-FOREIGN-LAYER-CONTRACT
 
-35.3.2 / normal / テスト未対応
+35.3.2 / normal / 実行確認あり
 
 The foreign layer defines argument passing/access, SV logic/packed representations and conversions to predefined C-like types.
 
@@ -83421,10 +83540,11 @@ The foreign layer defines argument passing/access, SV logic/packed representatio
 
 規定の性質: `mandatory`。
 
+- [test_dpi_native_types_and_passing.sv](../tests/ch35/test_dpi_native_types_and_passing.sv): Reads a 4-bit logic vector through aval and bval and a 64-bit bit vector through two chunks, and adds a term that is 1000 times the x and z bits. 区別: A layer that put the value in bval or ordered the 64-bit chunks the other way would print a sum other than 693.
 
 ### SV2023-35.3.2-EXTRACT-FOREIGN-PROTOCOL
 
-35.3.2 / normal / テスト未対応
+35.3.2 / normal / 実行確認あり
 
 The compiler/simulator generates or uses the intended foreign layer calling and argument protocols; correspondingly compiled SV source remains usable across layers.
 
@@ -83432,6 +83552,7 @@ The compiler/simulator generates or uses the intended foreign layer calling and 
 
 規定の性質: `mandatory`。
 
+- [test_dpi_native_types_and_passing.sv](../tests/ch35/test_dpi_native_types_and_passing.sv): Calls the imported functions and receives their results, and passes an output and an inout that the C function writes. 区別: A simulator whose calling protocol differed would not deliver the arguments or the written values, and the sums 693, 30 and 7 would differ.
 
 ### SV2023-35.4-EXTRACT-C-IDENTIFIER
 
@@ -83446,7 +83567,7 @@ Linkage names start with a letter or underscore followed by alphanumerics/unders
 
 ### SV2023-35.4-EXTRACT-GLOBAL-LINKAGE
 
-35.4 / normal / テスト未対応
+35.4 / normal / 実行確認あり
 
 Every import resolves to a global symbol and every export defines one, in a linkage namespace distinct from compilation-unit scope; linkage names are unique without overloading, subject to explicit equivalent-signature multi-declaration allowances.
 
@@ -83454,6 +83575,7 @@ Every import resolves to a global symbol and every export defines one, in a link
 
 規定の性質: `mandatory`。
 
+- [test_dpi_import_names_and_export_scope.sv](../tests/ch35/test_dpi_import_names_and_export_scope.sv): Imports c_shared in the top module and in the child module and calls both. 区別: A tool that linked the import at a compilation-unit scope rather than a global symbol would not resolve the child's call to the same C function and print 24.
 
 ### SV2023-35.4-EXTRACT-LOCAL-GLOBAL-NAMES
 
@@ -83551,7 +83673,7 @@ Imported functions may read initial inout values and changes must become visible
 
 ### SV2023-35.5.1.2-EXTRACT-INPUT-PROTECTION
 
-35.5.1.2 / normal / テスト未対応
+35.5.1.2 / normal / 実行確認あり
 
 Do not modify imported-function input formals; even if changed internally their actual arguments must remain unchanged outside.
 
@@ -83559,6 +83681,7 @@ Do not modify imported-function input formals; even if changed internally their 
 
 規定の性質: `mandatory`。
 
+- [test_dpi_input_actual_and_output_values.sv](../tests/ch35/test_dpi_input_actual_and_output_values.sv): Writes through the pointers of an int, a bit vector and a logic vector input formal and prints the actual arguments after the call. 区別: A tool that passed the actuals by reference would show the written 99 or the changed vector bytes instead of 11, 5a and 1001.
 
 ### SV2023-35.5.1.2-EXTRACT-OUTPUT-INITIAL
 
@@ -83585,7 +83708,7 @@ An imported subroutine may specify pure or context subject to their respective r
 
 ### SV2023-35.5.1.3-EXTRACT-CONTEXT-REQUIRED
 
-35.5.1.3 / normal / テスト未対応
+35.5.1.3 / normal / 実行確認あり
 
 An import intending to call exports or access SV data beyond actual arguments requires context; a noncontext import must not read/write such data.
 
@@ -83593,6 +83716,7 @@ An import intending to call exports or access SV data beyond actual arguments re
 
 規定の性質: `mandatory`。
 
+- [test_dpi_import_names_and_export_scope.sv](../tests/ch35/test_dpi_import_names_and_export_scope.sv): Declares call_export context because its C function calls the exported sv_times, and calls it. 区別: A tool that did not set up the context of the export call would return another value than 20 or abort the run.
 
 ### SV2023-35.5.1.3-EXTRACT-DEFAULT-ATTRIBUTES
 
@@ -83965,7 +84089,7 @@ Equivalent-signature import/export declarations in different scopes may use diff
 
 ### SV2023-35.5.4-EXTRACT-IDENTICAL-SIGNATURE
 
-35.5.4 / normal / テスト未対応
+35.5.4 / normal / 実行確認あり
 
 All declarations of one linkage identifier across scopes must have the same return type, argument number/order/directions/types including array dimensions/bounds, pure/context qualifiers and DPI version string.
 
@@ -83973,6 +84097,7 @@ All declarations of one linkage identifier across scopes must have the same retu
 
 規定の性質: `mandatory`。
 
+- [test_dpi_identical_signature_two_scopes.sv](../tests/ch35/test_dpi_identical_signature_two_scopes.sv): Declares the same c_identifier with the same two int formals and int result in two modules and calls both. 区別: A tool that treated the two declarations as different symbols would fail to link one of them, and one that allowed a mismatch would pass other arguments.
 
 ### SV2023-35.5.4-EXTRACT-IMPORT-GRAMMAR
 
@@ -84046,7 +84171,7 @@ Imported functions must explicitly declare their result data type or void.
 
 ### SV2023-35.5.5-EXTRACT-EXPORT-RESULT
 
-35.5.5 / normal / テスト未対応
+35.5.5 / normal / 実行確認あり
 
 Exported function results obey the same exhaustive small-value restrictions as imported functions.
 
@@ -84054,6 +84179,7 @@ Exported function results obey the same exhaustive small-value restrictions as i
 
 規定の性質: `mandatory`。
 
+- [test_dpi_export_task_and_result.sv](../tests/ch35/test_dpi_export_task_and_result.sv): Exports an int and a shortint function and has the C code call both and print their results. 区別: A tool that truncated or zero-extended the shortint result would print another value than 6.
 
 ### SV2023-35.5.5-EXTRACT-RESULT-BYTE
 
@@ -84250,7 +84376,7 @@ chandle is listed as a permitted DPI import/export formal type, subject to the o
 
 ### SV2023-35.5.6-EXTRACT-FORMAL-INDUCTION
 
-35.5.6 / normal / テスト未対応
+35.5.6 / normal / 実行確認あり
 
 DPI formal types are the inductively constructed supported SV types; no foreign native type syntax is introduced.
 
@@ -84258,6 +84384,7 @@ DPI formal types are the inductively constructed supported SV types; no foreign 
 
 規定の性質: `definition`。
 
+- [test_dpi_native_types_and_passing.sv](../tests/ch35/test_dpi_native_types_and_passing.sv): Uses int, shortint, byte, bit [7:0], logic [3:0], bit [63:0], real, string and bit formals of SV types in one import. 区別: A tool that accepted a foreign type spelling, or rejected one of the supported SV types, would not compile or would pass another value.
 
 ### SV2023-35.5.6-EXTRACT-FORMAL-INT
 
@@ -84496,7 +84623,7 @@ Use native argument compatibility/coercion. Needed coercion creates a temporary 
 
 ### SV2023-35.6.1-EXTRACT-ARG-EVALUATION
 
-35.6.1 / normal / テスト未対応
+35.6.1 / normal / 実行確認あり
 
 Imported function argument evaluation follows general SV ordering and declaration-site WYSIWYG type guarantees.
 
@@ -84504,6 +84631,7 @@ Imported function argument evaluation follows general SV ordering and declaratio
 
 規定の性質: `mandatory`。
 
+- [test_dpi_declaration_site_types.sv](../tests/ch35/test_dpi_declaration_site_types.sv): Passes a 4-bit unsigned to an int formal, a 32-bit value to a bit [15:0] formal, a signed byte to an int formal and writes 9 to an inout int actual of 4 bits. 区別: A tool that passed the actual's own type, rather than converting to the formal's type, would make the C checks fail and print a nonzero seen.
 
 ### SV2023-35.6.1-EXTRACT-COPY-SEMANTICS
 
@@ -84519,7 +84647,7 @@ SV-visible passing behaves as input copy-in, output copy-out, inout copy-in/copy
 
 ### SV2023-35.6.1-EXTRACT-FOREIGN-PASSING
 
-35.6.1 / normal / テスト未対応
+35.6.1 / normal / 実行確認あり
 
 Physical value/reference passing is specified by the foreign layer and must be transparent to SV.
 
@@ -84527,10 +84655,11 @@ Physical value/reference passing is specified by the foreign layer and must be t
 
 規定の性質: `mandatory`。
 
+- [test_dpi_native_types_and_passing.sv](../tests/ch35/test_dpi_native_types_and_passing.sv): Passes eight values of different SV types and checks that the C function reads them in the canonical representation. 区別: A passing that were not transparent would change the sum, for example by sign-extending the logic vector differently.
 
 ### SV2023-35.6.1-EXTRACT-INPUT-OUTPUT-VALUES
 
-35.6.1 / normal / テスト未対応
+35.6.1 / normal / 実行確認あり
 
 Callees cannot modify input actuals and must not modify input formals; output formal initial values are unspecified/possibly implementation-dependent.
 
@@ -84538,6 +84667,7 @@ Callees cannot modify input actuals and must not modify input formals; output fo
 
 規定の性質: `mandatory`。
 
+- [test_dpi_input_actual_and_output_values.sv](../tests/ch35/test_dpi_input_actual_and_output_values.sv): Prints the input actuals after the foreign function wrote to the formals and the output after it wrote 99 there. 区別: A tool that let the foreign writes reach the actuals would print another int or vector value than 11, 5a and 1001.
 
 ### SV2023-35.6.1.1-EXTRACT-CROSS-LANGUAGE-MATCH
 
@@ -84744,7 +84874,7 @@ An exported task is an SV task callable from foreign code.
 
 ### SV2023-35.8-EXTRACT-TASK-EXPORT-RULES
 
-35.8 / normal / テスト未対応
+35.8 / normal / 実行確認あり
 
 Exported tasks obey the exported-function declaration scope, linkage-name and other applicable 35.7 rules.
 
@@ -84752,6 +84882,7 @@ Exported tasks obey the exported-function declaration scope, linkage-name and ot
 
 規定の性質: `mandatory`。
 
+- [test_dpi_export_task_and_result.sv](../tests/ch35/test_dpi_export_task_and_result.sv): Exports the task sv_task without a c_identifier and calls it from the C function call_exports. 区別: A tool that did not give the task its SV name as the linkage name would fail to link, and one that did not run the task would not print task=10.
 
 ### SV2023-35.9-EXTRACT-DISABLE-CLEANUP
 
@@ -108039,7 +108170,7 @@ vpi_get64(PLI_INT32 prop,vpiHandle obj) returns PLI_INT64 for the requested 64-b
 
 ### SV2023-38.8-EXTRACT-CALLBACK-DATA-STRUCTURE
 
-38.8 / normal / テスト未対応
+38.8 / normal / 実行確認あり
 
 s_cb_data has PLI_INT32 reason, PLI_INT32-returning cb_rtn(struct t_cb_data*), vpiHandle obj, p_vpi_time time, p_vpi_value value, PLI_INT32 index and PLI_BYTE8* user_data; index identifies the changed memory word/variable select.
 
@@ -108047,6 +108178,7 @@ s_cb_data has PLI_INT32 reason, PLI_INT32-returning cb_rtn(struct t_cb_data*), v
 
 規定の性質: `mandatory`。
 
+- [test_vpi_callback_memory_index.sv](../tests/ch38/test_vpi_callback_memory_index.sv): A cbValueChange callback on the memory mem fires for mem[2]=55 at time 2 and mem[0]=aa at time 3; the callback receives index 2 and 0, the value of that word (55, aa), the time 2 and 3, and obj mem. 区別: If the index field named another word or were not set, the printed index would not be 2 and 0; if the value did not belong to the changed word, the printed value would not be 55 and aa.
 
 ### SV2023-38.8-EXTRACT-CALLBACK-INFO-MEMORY
 
@@ -108243,7 +108375,7 @@ Intermodule-path no_of_delays must be 2 or 3.
 
 ### SV2023-38.10-EXTRACT-PATH-DELAY-COUNT
 
-38.10 / normal / テスト未対応
+38.10 / normal / 実行確認あり
 
 Path-delay no_of_delays must be 1, 2, 3, 6 or 12.
 
@@ -108251,10 +108383,11 @@ Path-delay no_of_delays must be 1, 2, 3, 6 or 12.
 
 規定の性質: `mandatory`。
 
+- [test_vpi_path_delay_counts.sv](../tests/ch38/test_vpi_path_delay_counts.sv): Five module paths have 1, 2, 3, 6 and 12 delay expressions; vpi_get_delays reads each path with exactly that no_of_delays and returns the values in source order (1; 2 3; 4 5 6; 7 8 9 10 11 12; 13 through 24). 区別: A path read with the wrong number would return fewer values or a duplicated or missing transition; a wrong order changes the printed sequence.
 
 ### SV2023-38.10-EXTRACT-PREALLOCATE-DELAYS
 
-38.10 / normal / テスト未対応
+38.10 / normal / 実行確認あり
 
 Allocate the delay structure and its array before passing them to vpi_get_delays.
 
@@ -108262,6 +108395,7 @@ Allocate the delay structure and its array before passing them to vpi_get_delays
 
 規定の性質: `mandatory`。
 
+- [test_vpi_path_delay_counts.sv](../tests/ch38/test_vpi_path_delay_counts.sv): Before every vpi_get_delays call the application allocates a twelve-element s_vpi_time array and an s_vpi_delay structure and sets da to the array; the reads of the paths with 1 to 12 delays fill that application storage with the expected values. 区別: If the application passed no allocated array, the routine would have nowhere to write and the read lines could not show the source delays.
 
 ### SV2023-38.10-EXTRACT-PRIMITIVE-DELAY-COUNT
 
@@ -108336,7 +108470,7 @@ Unless explicitly permitted, protected-object vpi_get_str is an error.
 
 ### SV2023-38.12-EXTRACT-SYSTF-DATA-STRUCTURE
 
-38.12 / normal / テスト未対応
+38.12 / normal / 実行確認あり
 
 s_vpi_systf_data contains PLI_INT32 type/sysfunctype, PLI_BYTE8* tfname, PLI_INT32-returning calltf/compiletf/sizetf functions each taking PLI_BYTE8*, and PLI_BYTE8* user_data. type distinguishes system task/function, sysfunctype int/real/time/sized/sized-signed, tfname starts $, and sizetf applies only to sized callbacks.
 
@@ -108344,6 +108478,7 @@ s_vpi_systf_data contains PLI_INT32 type/sysfunctype, PLI_BYTE8* tfname, PLI_INT
 
 規定の性質: `mandatory`。
 
+- [test_vpi_systf_info_fields.sv](../tests/ch38/test_vpi_systf_info_fields.sv): Registers a task with calltf and compiletf and functions of type vpiIntFunc, vpiRealFunc, vpiTimeFunc, vpiSizedFunc and vpiSizedSignedFunc, then reads them back with vpi_get_systf_info; every tfname starts with $, each type and sysfunctype is reported apart, sizetf is non-NULL only for the sized functions, and the task's user data comes back. 区別: A wrong field type or order changes a layout line; a missing or swapped sysfunctype prints another type name; a sizetf on a non-sized function or a missing one changes the sizetf flag.
 
 ### SV2023-38.12-EXTRACT-SYSTF-INFO-ALLOCATION
 
@@ -108670,7 +108805,7 @@ For vpiObjTypeVal on a vector, fill the value and replace format with vpiVectorV
 
 ### SV2023-38.15-EXTRACT-PRESERVE-VALUE
 
-38.15 / normal / テスト未対応
+38.15 / normal / 実行確認あり
 
 To preserve a retrieved logic value, allocate independent application storage and copy its content, including pointed-to members.
 
@@ -108678,6 +108813,7 @@ To preserve a retrieved logic value, allocate independent application storage an
 
 規定の性質: `mandatory`。
 
+- [test_vpi_get_value_preserve.sv](../tests/ch38/test_vpi_get_value_preserve.sv): The application copies the two s_vpi_vecval words of w and the two characters of st into its own storage, then calls vpi_get_value on r, x and w again; the copied vector 1122334455667788 and string AB are unchanged. 区別: If the copy kept only the union pointer, later get_value calls could overwrite the pointed-to words or characters and the second line would differ.
 
 ### SV2023-38.15-EXTRACT-REAL-CONVERSION
 
@@ -108894,7 +109030,7 @@ vpi_get_value_array(vpiHandle obj,p_vpi_arrayvalue arrayvalue_p,PLI_INT32* index
 
 ### SV2023-38.16-EXTRACT-ARRAY-RAW-BUFFER-SIZE
 
-38.16 / normal / テスト未対応
+38.16 / normal / 実行確認あり
 
 Raw two/four-state user buffers must follow their byte-group allocation formulas.
 
@@ -108902,6 +109038,7 @@ Raw two/four-state user buffers must follow their byte-group allocation formulas
 
 規定の性質: `mandatory`。
 
+- [test_vpi_get_array_static.sv](../tests/ch38/test_vpi_get_array_static.sv): The raw four-state read of two 9-bit elements copies 8 bytes, 2 aval bytes then 2 bval bytes for each element, and the raw two-state read of the same two elements copies 4 bytes; the 10-bit elements use 2 groups in the same formulas. 区別: If the group count or the A/B interleaving were wrong, the byte count or the printed byte sequence would differ.
 
 ### SV2023-38.16-EXTRACT-ARRAY-START-INDICES
 
@@ -108950,7 +109087,7 @@ With vpiUserAllocFlag the application supplies a sufficient result buffer; scala
 
 ### SV2023-38.16-EXTRACT-ARRAY-VALUE-STRUCTURE
 
-38.16 / normal / テスト未対応
+38.16 / normal / 実行確認あり
 
 s_vpi_arrayvalue has PLI_UINT32 format/flags and a union of pointers: PLI_INT32 integers, PLI_INT16 shortints, PLI_INT64 longints, PLI_BYTE8 rawvals, t_vpi_vecval vectors, t_vpi_time times, double reals and float shortreals.
 
@@ -108958,6 +109095,7 @@ s_vpi_arrayvalue has PLI_UINT32 format/flags and a union of pointers: PLI_INT32 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_get_array_static.sv](../tests/ch38/test_vpi_get_array_static.sv): Compile-time checks print 1 for PLI_UINT32 format and flags and for the union members PLI_INT32*, PLI_INT16*, PLI_INT64*, PLI_BYTE8*, s_vpi_vecval*, s_vpi_time*, double* and float*, and for the void return of vpi_get_value_array. 区別: The lines come from _Generic and decltype comparisons of the declared members, so any wrong member type or missing union field changes the output.
 
 ### SV2023-38.16-EXTRACT-ARRAY-VPI-STORAGE
 
@@ -108983,7 +109121,7 @@ Bulk vpiIntVal/vpiTimeVal/vpiVectorVal/vpiRealVal use integers/times/vectors/rea
 
 ### SV2023-38.16-EXTRACT-LONGINT-ARRAY-FORMAT
 
-38.16 / normal / テスト未対応
+38.16 / normal / 実行確認あり
 
 vpiLongIntVal uses num PLI_INT64 longints and is listed as appropriate for longint/shortint/byte variable arrays.
 
@@ -108991,10 +109129,11 @@ vpiLongIntVal uses num PLI_INT64 longints and is listed as appropriate for longi
 
 規定の性質: `mandatory`。
 
+- [test_vpi_get_array_static.sv](../tests/ch38/test_vpi_get_array_static.sv): vpiLongIntVal on longint la[0:2] returns one PLI_INT64 per element as 42, -5 and 1000000. 区別: A 32-bit or differently sized element changes the printed values; another format would not match the longint array.
 
 ### SV2023-38.16-EXTRACT-RAW-ARRAY-COMPATIBILITY
 
-38.16 / normal / テスト未対応
+38.16 / normal / 実行確認あり
 
 Raw four-state/vector formats apply to four-state net arrays and variable arrays of logic/integer/time/four-state packed structs/unions. Raw two-state applies to bit/byte/shortint/int/longint/two-state packed structs/unions. Four-state/vector may also read two-state types and raw two-state may read four-state types.
 
@@ -109002,10 +109141,11 @@ Raw four-state/vector formats apply to four-state net arrays and variable arrays
 
 規定の性質: `mandatory`。
 
+- [test_vpi_get_array_static.sv](../tests/ch38/test_vpi_get_array_static.sv): Raw four-state is requested of the 2-state bit array b and raw two-state of the 4-state logic array l; the bval bytes of b are zero and the missing bval of l is zero, giving b 2a5 and 15a and l 0ff and 300. 区別: If the compatibility allowance were not implemented, one request would fail; if bval handling were wrong, the values would contain x or differ.
 
 ### SV2023-38.16-EXTRACT-RAW-BIT-SIGNIFICANCE
 
-38.16 / normal / テスト未対応
+38.16 / normal / 実行確認あり
 
 Raw byte groups and vector words use significance order: first element bit 0 is the LSB of its first A/B group, bit 8 the LSB of the second byte, with analogous 32-bit vector-word order.
 
@@ -109013,10 +109153,11 @@ Raw byte groups and vector words use significance order: first element bit 0 is 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_get_array_static.sv](../tests/ch38/test_vpi_get_array_static.sv): Element 0x0fe prints as aval bytes fe 00, 0x101 prints 01 01 and 0x2a5 prints a5 02, so bit n of an element is bit n modulo 8 of rawvals[n/8]. 区別: A big-endian or word-swapped layout would print 00 fe, put 01 01 in another place, or print 02 a5.
 
 ### SV2023-38.16-EXTRACT-RAW-FOUR-STATE
 
-38.16 / normal / テスト未対応
+38.16 / normal / 実行確認あり
 
 vpiRawFourStateVal uses rawvals with ngroups=ceil(element_bits/8); store each element as ngroups aval bytes followed by ngroups bval bytes. Total storage is 2*ngroups*num bytes, with element k A at 2*k*ngroups and B at (2*k+1)*ngroups.
 
@@ -109024,10 +109165,11 @@ vpiRawFourStateVal uses rawvals with ngroups=ceil(element_bits/8); store each el
 
 規定の性質: `mandatory`。
 
+- [test_vpi_get_array_static.sv](../tests/ch38/test_vpi_get_array_static.sv): The raw four-state read of two 9-bit elements gives 2 aval bytes then 2 bval bytes for each element, and of the 2-state b array gives 2 aval bytes then 2 zero bval bytes for each element. 区別: A different A/B grouping would change the 8-byte sequence or put the bval bits elsewhere.
 
 ### SV2023-38.16-EXTRACT-RAW-TWO-STATE
 
-38.16 / normal / テスト未対応
+38.16 / normal / 実行確認あり
 
 vpiRawTwoStateVal uses rawvals with the same byte groups but omits bval, requiring ngroups*num bytes.
 
@@ -109035,10 +109177,11 @@ vpiRawTwoStateVal uses rawvals with the same byte groups but omits bval, requiri
 
 規定の性質: `mandatory`。
 
+- [test_vpi_get_array_static.sv](../tests/ch38/test_vpi_get_array_static.sv): The raw two-state read of the 4-state logic array l gives only the 4 aval bytes ff 00 00 03, with no bval bytes and no x. 区別: If bval were still supplied, the byte count would be 8; if B were not assumed zero, the values would contain x.
 
 ### SV2023-38.16-EXTRACT-SHORTINT-ARRAY-FORMAT
 
-38.16 / normal / テスト未対応
+38.16 / normal / 実行確認あり
 
 vpiShortIntVal uses num PLI_INT16 shortints and is appropriate only for shortint/byte variable arrays.
 
@@ -109046,6 +109189,7 @@ vpiShortIntVal uses num PLI_INT16 shortints and is appropriate only for shortint
 
 規定の性質: `mandatory`。
 
+- [test_vpi_get_array_static.sv](../tests/ch38/test_vpi_get_array_static.sv): vpiShortIntVal on shortint sa[0:2] returns one PLI_INT16 per element as -5, 7 and 300. 区別: A 32-bit element or a different sign extension changes the printed values.
 
 ### SV2023-38.16-EXTRACT-SHORTREAL-ARRAY-FIELD-TEXT
 
@@ -109095,7 +109239,7 @@ vpi_get_vlog_info(p_vpi_vlog_info vlog_info_p) returns PLI_INT32 1 on success an
 
 ### SV2023-38.17-EXTRACT-VLOG-INFO-STRUCTURE
 
-38.17 / normal / テスト未対応
+38.17 / normal / 実行確認あり
 
 s_vpi_vlog_info contains PLI_INT32 argc, PLI_BYTE8** argv, PLI_BYTE8* product and PLI_BYTE8* version in that order.
 
@@ -109103,6 +109247,7 @@ s_vpi_vlog_info contains PLI_INT32 argc, PLI_BYTE8** argv, PLI_BYTE8* product an
 
 規定の性質: `mandatory`。
 
+- [test_vpi_vlog_info_structure.sv](../tests/ch38/test_vpi_vlog_info_structure.sv): vpi_get_vlog_info returns 1 and fills argc, argv, product and version; argc is at least 3, every argv entry is a NUL-terminated string, product and version are nonempty strings, argv[0] is a nonempty tool name that is not a plusarg, and the last two entries are +vt_alpha and +vt_count=3 in order. 区別: A swapped field changes the field-order line; a missing string or a different argc/argv order changes one of the checks; the compile-time types catch a changed field type.
 
 ### SV2023-38.17-EXTRACT-VLOG-OPTION-FILES
 
@@ -109709,7 +109854,7 @@ With mtm_flag=True, pulsere_flag=True, provide 9*no_of_delays elements, each del
 
 ### SV2023-38.32-EXTRACT-PUT-PATH-DELAY-COUNT
 
-38.32 / normal / テスト未対応
+38.32 / normal / 実行確認あり
 
 Path-delay no_of_delays must be 1, 2, 3, 6 or 12.
 
@@ -109717,6 +109862,7 @@ Path-delay no_of_delays must be 1, 2, 3, 6 or 12.
 
 規定の性質: `mandatory`。
 
+- [test_vpi_path_delay_counts.sv](../tests/ch38/test_vpi_path_delay_counts.sv): vpi_put_delays writes 100, 101, ... to paths that have 1, 2, 3, 6 and 12 delays, using that same no_of_delays, and vpi_get_delays reads the new values back in the same order. 区別: A rejected or wrongly sized put changes the written line; a wrong element order prints the new delays in another sequence.
 
 ### SV2023-38.32-EXTRACT-PUT-PRIMITIVE-DELAY-COUNT
 
@@ -109789,7 +109935,7 @@ Cancel with its scheduled-event handle and vpiCancelEvent; value_p/time_p are un
 
 ### SV2023-38.34-EXTRACT-CANCEL-EVENT-EFFECT
 
-38.34 / normal / テスト未対応
+38.34 / normal / テスト対応あり・実行未確認
 
 Cancellation removes only that event, preserves effects of its prior scheduling such as inertial cancellations, and frees the event handle.
 
@@ -109797,6 +109943,7 @@ Cancellation removes only that event, preserves effects of its prior scheduling 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_put_value_sched_event.sv](../tests/ch38/test_vpi_put_value_sched_event.sv): The application schedules a value on c with vpiPureTransportDelay and vpiReturnEvent, cancels that event with vpiCancelEvent and NULL value and time, and vpi_get(vpiScheduled) is 0 at 17; c still gets 7 at 15 and the events that inertial scheduling removed on e stay removed. 区別: If cancellation removed more than the event or kept the handle scheduled, the 17 line or the later value lines would differ.
 
 ### SV2023-38.34-EXTRACT-CANCEL-MODE
 
@@ -110166,7 +110313,7 @@ vpi_put_value_array(vpiHandle obj,p_vpi_arrayvalue arrayvalue_p,PLI_INT32* index
 
 ### SV2023-38.35-EXTRACT-PUT-ARRAY-STRUCTURE
 
-38.35 / normal / テスト未対応
+38.35 / normal / 実行確認あり
 
 s_vpi_arrayvalue has PLI_UINT32 format/flags and union pointer members integers (PLI_INT32), shortints (PLI_INT16), longints (PLI_INT64), rawvals (PLI_BYTE8), vectors (t_vpi_vecval), times (t_vpi_time), reals (double) and shortreals (float).
 
@@ -110174,6 +110321,7 @@ s_vpi_arrayvalue has PLI_UINT32 format/flags and union pointer members integers 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_put_array_raw.sv](../tests/ch38/test_vpi_put_array_raw.sv): Compile-time checks print 1 for PLI_UINT32 format and flags, for the eight union pointer types and for the void return of vpi_put_value_array. 区別: A changed field type, union member or return type changes the corresponding line.
 
 ### SV2023-38.35-EXTRACT-PUT-ARRAY-TARGET
 
@@ -110233,7 +110381,7 @@ Updated array-net elements override resolved values independently until a driver
 
 ### SV2023-38.35-EXTRACT-PUT-RAW-COMPATIBILITY
 
-38.35 / normal / テスト未対応
+38.35 / normal / 実行確認あり
 
 Raw four-state applies to four-state net/variable arrays and raw two-state to two-state variable arrays. For four-state raw input to a two-state array ignore B bytes; for two-state raw input to a four-state array assume B=0.
 
@@ -110241,6 +110389,7 @@ Raw four-state applies to four-state net/variable arrays and raw two-state to tw
 
 規定の性質: `mandatory`。
 
+- [test_vpi_put_array_raw.sv](../tests/ch38/test_vpi_put_array_raw.sv): Raw four-state bytes with nonzero bval write the 2-state bit array b as 2a5 and 15a, so bval is ignored; raw two-state bytes write the 4-state logic array l as 0ff and 300, so bval is zero. 区別: If bval were applied to b, bits would become x; if raw two-state did not assume bval zero, l would show x.
 
 ### SV2023-38.35-EXTRACT-PUT-RAW-FOUR
 
@@ -111227,7 +111376,7 @@ A zero-delay cbAtStartOfSimTime after entering a time slice is an error with no 
 
 ### SV2023-38.36.2-EXTRACT-START-ZERO-DELAY-REENTRANT
 
-38.36.2 / normal / テスト未対応
+38.36.2 / normal / 実行確認あり
 
 Registering zero-delay cbAtStartOfSimTime from such a callback invokes another start-of-time callback in the same time slice.
 
@@ -111235,6 +111384,7 @@ Registering zero-delay cbAtStartOfSimTime from such a callback invokes another s
 
 規定の性質: `mandatory`。
 
+- [test_vpi_time_callback_reentrant.sv](../tests/ch38/test_vpi_time_callback_reentrant.sv): The cbAtStartOfSimTime callback at time 5 registers another cbAtStartOfSimTime with a time of 5, a delay of zero; the second callback also runs at time 5 in the same time slice. 区別: If the registration were rejected or deferred to a later time, the register line would be 0 or the second callback would print another time.
 
 ### SV2023-38.36.2-EXTRACT-TIME-CALLBACK-DELIVERY
 
@@ -113610,7 +113760,7 @@ $coverage_get_max takes coverage_type,scope_def,modules_or_instance and returns 
 
 ### SV2023-40.3.2.2-EXTRACT-GET-MAX-STABILITY
 
-40.3.2.2 / normal / テスト未対応
+40.3.2.2 / normal / テスト対応あり・実行未確認
 
 The maximum coverable count remains constant during simulation; identical design structure/support options also require stable totals across builds/runs.
 
@@ -113618,6 +113768,7 @@ The maximum coverable count remains constant during simulation; identical design
 
 規定の性質: `mandatory`。
 
+- [test_coverage_get_status_and_relations.sv](../tests/ch40/test_coverage_get_status_and_relations.sv): Calls $coverage_get_max twice at 1 ns with the same arguments and compares the two numbers. 区別: A tool whose maximum changed between the calls would print 0.
 
 ### SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE
 

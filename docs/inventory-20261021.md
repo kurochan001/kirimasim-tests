@@ -1083,8 +1083,12 @@ A second wave covered the 16, 19 and 21 chapters: 98 links accepted and
 57 tests kept after review.
 
 A third wave finished the draft tests for the 18, 23 and 37 chapters:
-181 links accepted and 65 tests kept. The ledger maps 10061 of 12319
-rows (81.67%), with 5553 executed (45.08%).
+181 links accepted and 65 tests kept.
+
+A fourth wave covered the 38, 6/7/8, 11/9/4 and 20/31/32/33/35/40
+chapters: 157 links accepted, 51 observations held and 93 tests kept.
+The ledger maps 10209 of 12319 rows (82.87%), with 5639 executed
+(45.77%).
 
 ### Current state
 
@@ -1093,7 +1097,7 @@ generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-10061 of 12319 rows (81.67%), with 5553 executed (45.08%).
+10209 of 12319 rows (82.87%), with 5639 executed (45.77%).
 
 ### Tests added in this work
 

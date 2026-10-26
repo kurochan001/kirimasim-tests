@@ -1,0 +1,8 @@
+t_all=11111
+t_x=00000
+f_x=xxxxx
+f_write=xxxx1
+f_read_b=0
+wrap=00000
+signed_t=-1
+cmp_lt=0 cmp_ne=1

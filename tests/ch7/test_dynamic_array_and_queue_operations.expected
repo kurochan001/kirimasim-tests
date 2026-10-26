@@ -1,0 +1,8 @@
+dyn_size=3
+dyn_after=0
+q=0 5 1 2 size=4
+q_del=0 1 2 size=3
+q_assign=7 8 size=2
+qb_size=4 first=1 last=4
+qb_after_push=4 last=4
+qb_empty=0

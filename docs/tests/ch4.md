@@ -1,12 +1,13 @@
 # Clause 4: Scheduling semantics
 
-[All chapters](README.md). 410 tests, 325 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 412 tests, 325 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
 | [`test_nba_cross_module`](../../tests/ch4/test_nba_cross_module.sv) | Test: NBA cross-module visibility | 4.3 10.4.2 4.6 | Icarus Verilog 13.0 |  |
 | [`test_nba_cross_module_timing`](../../tests/ch4/test_nba_cross_module_timing.sv) | Track exact NBA timing between parent and child modules | 4.3 | Icarus Verilog 13.0 |  |
 | [`test_nba_port_propagation`](../../tests/ch4/test_nba_port_propagation.sv) | NBA write should propagate through port connections | 4.3 10.4.2 4.9.6 10.3 | Icarus Verilog 13.0 |  |
+| [`test_sched_region_iteration`](../../tests/ch4/test_sched_region_iteration.sv) | a time slot runs Active, then Inactive, then NBA, and reaches Postponed only after the iterative work settles, with the next slot after Postponed | 4.3 4.4 4.4.1 4.4.2 4.4.3.10 | Icarus Verilog 13.0 |  |
 | [`test_update_event_wakes_sensitive_processes`](../../tests/ch4/test_update_event_wakes_sensitive_processes.sv) | Only a change of the value of a variable or net is an update event, and an update event wakes every process sensitive to it, as its event control filters it | 4.3 4.5 9.4.2 | Icarus Verilog 13.0 |  |
 | [`test_time_slots_advance_in_order`](../../tests/ch4/test_time_slots_advance_in_order.sv) | Simulation time moves to the earliest nonempty time slot, in increasing order, after all the events of the current slot are processed, and the simulation ends when no slot has events left | 4.4 4.5 9.2.3 | Icarus Verilog 13.0 |  |
 | [`test_one_step_sample_before_time_slot`](../../tests/ch4/test_one_step_sample_before_time_slot.sv) | A #1step input of a clocking block samples the value that the signal had immediately before the time slot of the clock edge, not a value written in the Active or NBA region of that slot | 4.4.2.1 14.4 14.3 | Verilator 5.052 |  |
@@ -60,6 +61,7 @@
 | [`test_region_set_iteration_order`](../../tests/ch4/test_region_set_iteration_order.sv) | A time step repeats the regions of the active set until they are all empty before it enters the reactive set, and once in the reactive set it empties the Reactive, Re-Inactive and Re-NBA regions before it returns to active work that the reactive code created | 4.4.3.10 4.5 24.3.1 | standard only |  |
 | [`test_ieee1800_2023_delta_convergence`](../../tests/ch4/test_ieee1800_2023_delta_convergence.sv) | Delta Cycle Convergence Tests | 4.5 4.4.2.3 10.3 | Icarus Verilog 13.0 |  |
 | [`test_sched_inactive_resume_before_nba_wake`](../../tests/ch4/test_sched_inactive_resume_before_nba_wake.sv) | A process resumed from #0 runs before a process woken by the nonblocking update of the same time step | 4.5 4.4.2.3 4.4.2.4 9.4.2 | Icarus Verilog 13.0 |  |
+| [`test_sched_initial_values`](../../tests/ch4/test_sched_initial_values.sv) | variables and nets have their default or declared initial values before the first time-slot event processing, and initialization events are in the time-zero slot | 4.5 | Icarus Verilog 13.0 | x/z |
 | [`test_sched_nba_chain_within_time_step`](../../tests/ch4/test_sched_nba_chain_within_time_step.sv) | Nonblocking updates that wake processes making further nonblocking assignments all settle within the same time step | 4.5 4.4.2.4 4.4.2.9 21.2.2 | Icarus Verilog 13.0 |  |
 | [`test_sched_zero_delay_chain_defers_nba`](../../tests/ch4/test_sched_zero_delay_chain_defers_nba.sv) | A process that keeps resuming from #0 runs before the nonblocking update of its time step, however many times it does so | 4.5 4.4.2.3 4.4.2.4 10.4.2 | Icarus Verilog 13.0 |  |
 | [`test_array_element_noop_nba_keeps_override_order`](../../tests/ch4/test_array_element_noop_nba_keeps_override_order.sv) | Nonblocking assignments to one array element keep their order, also when one assigns the current value | 4.6 10.4.2 | Icarus Verilog 13.0 |  |

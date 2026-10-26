@@ -1,0 +1,4 @@
+1: r changed to 3
+vpi_remove_cb returns PLI_INT32 1, result 1
+vpi_release_handle returns PLI_INT32 1, result 1
+callbacks after the removal: 1

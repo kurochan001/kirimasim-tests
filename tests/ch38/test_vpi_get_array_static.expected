@@ -1,0 +1,20 @@
+format PLI_UINT32 1
+flags PLI_UINT32 1
+integers PLI_INT32 * 1
+shortints PLI_INT16 * 1
+longints PLI_INT64 * 1
+rawvals PLI_BYTE8 * 1
+vectors s_vpi_vecval * 1
+times s_vpi_time * 1
+reals double * 1
+shortreals float * 1
+vpi_get_value_array returns void 1
+a[1:2] raw four-state: fe 00 00 00 01 01 00 00
+a[1:2] raw two-state: fe 00 01 01
+b[0:1] raw four-state of a 2-state array: a5 02 00 00 5a 01 00 00
+l[0:1] raw two-state of a 4-state array: ff 00 00 03
+a[3] raw four-state: ff 01 00 00
+ia[3:4] as integers: 34 56
+sa[0:2] as shortints: -5 7 300
+la[0:2] as longints: 42 -5 1000000
+lv[0:1] as vectors: abcdef12 00000000 00000089 00000000 00000013 00000000 00000000 00000000

@@ -1,0 +1,9 @@
+bits=4 4 4
+up_edge=1 0 neg_edge=1 0
+sizes=3 3
+alt_default=0 0
+oob_read=0
+xz_read=0
+packed_x=x
+after_bad_writes=3 12 10
+down=1010

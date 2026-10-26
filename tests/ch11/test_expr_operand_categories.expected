@@ -1,0 +1,10 @@
+lit=42 param=5
+elem=3 sel=1
+field=4,6 arg=10
+slice=2,3
+eq=1 arr_eq=1
+caseeq=1 casediff=0
+cond=11
+func=6 sys=4
+compound=3
+incdec=4

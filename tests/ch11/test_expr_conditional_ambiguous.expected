@@ -1,0 +1,11 @@
+eq=0f
+neq=xx
+zero=00
+ones=ff
+zneq=xx
+wide=0f
+packed=0f
+packedneq=xx
+arr=1,0
+larr=0001,xxxx
+real=0.0

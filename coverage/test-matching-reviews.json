@@ -11045,6 +11045,48 @@
               "contains": "place(cbEndOfObject, f, \"frame\");"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.36.1-EXTRACT-CLASS-VARIABLE-CALLBACK"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarus Verilog 13.0's vpi_user.h has no class object types or class callback reasons, and Verilator does not support these VPI callbacks. A cbValueChange callback on a class variable therefore cannot be registered, so its firing on a reference change, its NULL value, and the vpiObjId of the referred object cannot be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_frames_threads_alloc.sv",
+              "contains": "module test_vpi_frames_threads_alloc;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-OBJECT",
+            "SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-TIME",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBCREATEOBJ",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBENDOFFRAME",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBENDOFOBJECT",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBENDOFTHREAD",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBENTERTHREAD",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBRECLAIMOBJ",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBSIZECHANGE",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBSTARTOFFRAME",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBSTARTOFTHREAD",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBVALUECHANGE",
+            "SV2023-38.36.1-EXTRACT-RECLAIM-ACCESS"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarus Verilog 13.0 has no callback reasons for class creation, reclamation, object end, frame or thread start and end, entering a thread, or size change, and does not model class objects, frames or threads through VPI; it also crashes when a value-change callback is registered on a dynamic array and has no handle for a string. Verilator 5.052 does not support these VPI user callbacks. The lifecycle callbacks and their object and time fields, the exclusion of class objects, dynamic arrays, strings, queues and associative arrays from cbValueChange, and access to a reclaiming object cannot be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_frames_threads_alloc.sv",
+              "contains": "module test_vpi_frames_threads_alloc;"
+            }
+          ]
         }
       ]
     },
@@ -21985,6 +22027,21 @@
               "contains": "catch entry symbols 1 f ? 1"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarus Verilog 13.0 returns no vpiUdpDefn iterator for a design and its parser rejects some symbols of the existing UDP table test; Verilator 5.052 has no UDP VPI. A table entry of five or more symbols therefore cannot be read, so the ceil(symbols/4) count of s_vpi_vecval elements, the two bytes per symbol, the A/B byte order and the ASCII NUL second byte of a one-character symbol cannot be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_udp_defn_entries.sv",
+              "contains": "module test_vpi_udp_defn_entries;"
+            }
+          ]
         }
       ]
     },
@@ -22671,6 +22728,21 @@
               "contains": "4: design running"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.1-EXTRACT-ROUTINE-CONVENTIONS"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The clause is a convention for the syntax of every VPI routine (exact name and argument order, with all arguments mandatory unless stated). A test can only compile calls against Annex K, and the available headers differ from it in qualifiers (Icarus declares tfname and some format strings as const char*), so the convention as a whole has no runtime observation; the individual routines the new tests call are compiled against the header prototypes.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_control_finish_on_return.sv",
+              "contains": "module test_vpi_control_finish_on_return;"
+            }
+          ]
         }
       ]
     },
@@ -22718,6 +22790,21 @@
               "contains": "parts: 12 and 12 characters, vpi_flush returned 0"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.30-EXTRACT-PRINTF-OUTPUT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test observes vpi_printf's output-channel text and its character count, but the runner opens no tool log file, so the second destination (the current log) cannot be read, and no output error can be induced to make vpi_printf return EOF. The log-file half of the requirement and the error return are therefore unobserved.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_printf_return_counts.sv",
+              "contains": "module test_vpi_printf_return_counts;"
+            }
+          ]
         }
       ]
     },
@@ -22744,6 +22831,31 @@
             {
               "file": "tests/ch38/test_vpi_register_cb_structure.expected",
               "contains": "index PLI_INT32 1"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.9-EXTRACT-GET-DATA-CALLBACK-SCOPE",
+            "SV2023-38.9-EXTRACT-GET-DATA-FAILURE",
+            "SV2023-38.9-EXTRACT-GET-DATA-ID-TRANSPORT",
+            "SV2023-38.9-EXTRACT-GET-DATA-SEQUENTIAL",
+            "SV2023-38.9-EXTRACT-GET-DATA-SIGNATURE",
+            "SV2023-38.31-EXTRACT-PUT-DATA-COUNT",
+            "SV2023-38.31-EXTRACT-PUT-DATA-ORDER",
+            "SV2023-38.31-EXTRACT-PUT-DATA-PHASE",
+            "SV2023-38.31-EXTRACT-PUT-DATA-SIGNATURE",
+            "SV2023-38.31-EXTRACT-PUT-DATA-STREAM",
+            "SV2023-38.36.3-EXTRACT-RESTART-CALLBACK-SURVIVAL"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarus Verilog 13.0 has no vpi_put_data or vpi_get_data declarations and no save or restart control, so it cannot run cbStartOfSave, cbEndOfSave, cbStartOfRestart or cbEndOfRestart; Verilator 5.052 has no user systf or VPI save. The saved byte stream, the chunk sizes and resume point, the count returned on success, zero-byte and read-beyond behaviour with its zero fill and warning, the id passed through user_data, vpiSaveRestartLocation, and the removal of all callbacks except the two restart callbacks cannot be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_register_cb_structure.sv",
+              "contains": "module test_vpi_register_cb_structure;"
             }
           ]
         }
@@ -22975,6 +23087,22 @@
               "contains": "static const PLI_INT32 formats[8] = {vpiBinStrVal, vpiOctStrVal, vpiHexStrVal, vpiDecStrVal,"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.15-EXTRACT-FORMAT-VPISCALARVAL",
+            "SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPISCALARVAL"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarus Verilog 13.0 returns vpi1 or vpi0 for supply1, supply0, tri1, tri0, pullup, pulldown and weak nets, and never vpiH or vpiL; Verilator is two-state for these values. No stimulus in the available simulators returns the H and L codes, so four of the six scalar values are observed but vpiH and vpiL are not.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_value_change_callback_formats.sv",
+              "contains": "module test_vpi_value_change_callback_formats;"
+            }
+          ]
         }
       ]
     },
@@ -23187,6 +23315,40 @@
               "contains": "/* VPI application of test_vpi_scan_iterators (IEEE 1800-2023 38.40). */"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.23-EXTRACT-ITERATE-SIGNATURE",
+            "SV2023-38.23-EXTRACT-ITERATOR-EMPTY",
+            "SV2023-38.38-EXTRACT-ITERATOR-COMPLETION-RELEASE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The existing test observes vpi_iterate returning NULL when there is nothing to iterate and vpi_scan returning each object and then NULL, but Icarus Verilog 13.0 lacks vpiUse and crashes on vpi_get(vpiType, iterator), and Verilator does not build its user systf. The vpiIterator type, vpi_handle(vpiUse, iterator), and the automatic release of the iterator when vpi_scan returns NULL cannot be observed; release after abandoning an iteration is a memory-management effect with no output.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_scan_iterators.sv",
+              "contains": "module test_vpi_scan_iterators;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.38-EXTRACT-VALID-HANDLE-ONLY",
+            "SV2023-38.39-EXTRACT-REMOVED-CB-HANDLE",
+            "SV2023-38.40-EXTRACT-SCAN-NULL-INVALID"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "These requirements state usage rules and undefined behavior: do not release an invalid handle, a handle is invalid after vpi_remove_cb, and an iterator is invalid after vpi_scan returns NULL. Using an invalid handle to observe what happens is itself forbidden or undefined, so the requirements cannot be verified by an output; resource sharing is also implementation-dependent.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_scan_iterators.sv",
+              "contains": "module test_vpi_scan_iterators;"
+            }
+          ]
         }
       ]
     },
@@ -23241,6 +23403,21 @@
             {
               "file": "tests/ch38/test_vpi_mcd_name_flush_fopen.expected",
               "contains": "name of the $fopen mcd: test_vpi_mcd_name_flush_fopen_a.txt"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.26-EXTRACT-MCD-NAME-BUFFER"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarus Verilog 13.0 returns a different buffer for each vpi_mcd_name call, so a later call does not overwrite the pointer returned earlier; a test cannot force a tool to reuse one buffer, and reading an old pointer after a later call is safe in this tool. The overwrite that the clause allows therefore does not occur, and only NULL on an unused or closed channel and the immediate name can be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_mcd_name_flush_fopen.sv",
+              "contains": "module test_vpi_mcd_name_flush_fopen;"
             }
           ]
         }
@@ -23455,6 +23632,22 @@
               "contains": "loop A: run 1 of this call, user_data \"ticks\""
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.14-EXTRACT-USERDATA-RESTART",
+            "SV2023-38.33-EXTRACT-PUT-USERDATA-RESET"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The test observes vpi_put_userdata and vpi_get_userdata for each call, but it never resets or restarts the simulation. Icarus Verilog 13.0 supports neither $reset nor save/restart through VPI, so the required NULL result of vpi_get_userdata after a reset or restart, the clearing of the stored association, and setting it up again during or after cbEndOfReset or cbEndOfRestart cannot be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_userdata_per_call.sv",
+              "contains": "module test_vpi_userdata_per_call;"
+            }
+          ]
         }
       ]
     },
@@ -23519,6 +23712,36 @@
             {
               "file": "tests/ch38/test_vpi_gate_delays.expected",
               "contains": "8: old delays 3 5"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.10-EXTRACT-DELAY-ARRAY-MEMORY",
+            "SV2023-38.10-EXTRACT-DELAY-LAYOUT-0-1",
+            "SV2023-38.10-EXTRACT-DELAY-LAYOUT-1-0",
+            "SV2023-38.10-EXTRACT-DELAY-LAYOUT-1-1",
+            "SV2023-38.10-EXTRACT-DELAY-SOURCE-ORDER",
+            "SV2023-38.10-EXTRACT-DELAYS-SIGNATURE",
+            "SV2023-38.10-EXTRACT-TIMING-DELAY-COUNT",
+            "SV2023-38.32-EXTRACT-PUT-DELAY-ALLOCATION",
+            "SV2023-38.32-EXTRACT-PUT-DELAY-ORDER",
+            "SV2023-38.32-EXTRACT-PUT-DELAY-PULSE-PRESERVE",
+            "SV2023-38.32-EXTRACT-PUT-INTERMODULE-COUNT",
+            "SV2023-38.32-EXTRACT-PUT-LAYOUT-0-1",
+            "SV2023-38.32-EXTRACT-PUT-LAYOUT-1-0",
+            "SV2023-38.32-EXTRACT-PUT-LAYOUT-1-1",
+            "SV2023-38.32-EXTRACT-PUT-PRIMITIVE-DELAY-COUNT",
+            "SV2023-38.32-EXTRACT-PUT-TIMING-DELAY-COUNT"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarus Verilog 13.0 flattens a min:typ:max path delay to the typ value and returns zeros for the reject and error elements when mtm_flag or pulsere_flag is set; it does not expose primitive gate instances by name and does not implement timing checks. Verilator has no VPI delay access. So the 3-times and 9-times element layouts and their per-delay order, pulse-limit values and preservation, array allocation for 9 elements, timing-check limit counts, primitive 2/3 delay counts, intermodule 2/3 count enforcement, and the effect of put_delays under those flags cannot be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.sv",
+              "contains": "module test_vpi_gate_delays;"
             }
           ]
         }
@@ -23683,6 +23906,21 @@
             {
               "file": "tests/ch38/test_vpi_put_value_force_release.c",
               "contains": "s_vpi_value v;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.34-EXTRACT-PROCEDURAL-FORCE-RELEASE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The existing tests force and release a variable and a net and show that the driver value returns, which matches procedural force and release. They do not stimulate the whole set of procedural-force targets (part-selects, memory words, nets of a user-defined nettype and others), nor the exclusion of subelements of a user-defined-nettype net, so 'the same object types and behavior as 10.6.2' is only partly observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_force_release.sv",
+              "contains": "module test_vpi_put_value_force_release;"
             }
           ]
         }
@@ -24147,6 +24385,38 @@
             {
               "file": "tests/ch38/test_vpi_time_callbacks.expected",
               "contains": "10: read-only synch, r = 2"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.36.2-EXTRACT-READWRITE-READONLY-ERROR",
+            "SV2023-38.36.2-EXTRACT-START-ZERO-DELAY-ERROR",
+            "SV2023-38.36.2-EXTRACT-TIME-CALLBACK-STRUCTURE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "These are runtime VPI errors: a zero-delay cbReadWriteSynch registered during read-only synchronization, a zero-delay cbAtStartOfSimTime after a time slice has begun, and a suppressed or NULL time structure for a time callback. No SystemVerilog design is illegal, so the error kind cannot use :should_fail_because:. Icarus Verilog 13.0 does not report every case and Verilator has no vpi_control, so a clean NULL return and vpi_chk_error result is not observable.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_time_callbacks.sv",
+              "contains": "module test_vpi_time_callbacks;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.36.2-EXTRACT-TIME-CBREADONLYSYNCH"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The existing test observes the cbReadOnlySynch callback after nonblocking assignments, but the clause's prohibition on writing values or scheduling events before the next scheduled event has no defined result when violated. The test does not write in the callback, and a violation cannot be turned into a fixed expected output.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_time_callbacks.sv",
+              "contains": "module test_vpi_time_callbacks;"
             }
           ]
         }
@@ -44795,6 +45065,66 @@
               "contains": ":lrm: 1800-2023 31.3.3 31.9.2 31.9.1 31.6"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-31.3.3-EXTRACT-TIMECHECK-CONDITION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test uses the timecheck condition with positive limits, where its role follows the event order; the requirement speaks of the negative checks of 31.9, and no stimulus with a negative limit or an invocation option exists.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_setuphold_all_arguments.sv",
+              "contains": "$setuphold(posedge clk, d, 3, 5, n, es, en, dclk, dd);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-31.3.3-EXTRACT-TIMESTAMP-CONDITION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The timestamp condition is exercised with positive limits only, so the test cannot show that it applies to the negative checks that the requirement names.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_setuphold_all_arguments.sv",
+              "contains": "$setuphold(posedge clk, d, 3, 5, n, es, en, dclk, dd);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-31.3.3-EXTRACT-DELAYED-DATA"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The delayed data signal is shown to be a copy with positive limits; the requirement is about the delayed data that a negative check uses, and no negative limit is driven.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_setuphold_all_arguments.sv",
+              "contains": "$setuphold(posedge clk, d, 3, 5, n, es, en, dclk, dd);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-31.3.3-EXTRACT-DELAYED-REFERENCE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The delayed reference signal is shown to be a copy with positive limits; no negative limit drives a delayed reference for a negative check.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_setuphold_all_arguments.sv",
+              "contains": "$setuphold(posedge clk, d, 3, 5, n, es, en, dclk, dd);"
+            }
+          ]
         }
       ]
     },
@@ -44907,6 +45237,66 @@
             {
               "file": "tests/ch31/test_timing_recrem_all_arguments.sv",
               "contains": ":lrm: 1800-2023 31.3.6 31.9.2 31.9.1 31.6"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-31.3.6-EXTRACT-TIMECHECK-CONDITION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The timecheck condition is used with positive recovery and removal limits; the requirement is about negative checks, which no stimulus here drives.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_recrem_all_arguments.sv",
+              "contains": "$recrem(posedge rst_n, posedge clk, 3, 5, n, cs, cc, drst, dclk);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-31.3.6-EXTRACT-TIMESTAMP-CONDITION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The timestamp condition is used with positive limits only, so the test does not show its role for the negative checks of the requirement.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_recrem_all_arguments.sv",
+              "contains": "$recrem(posedge rst_n, posedge clk, 3, 5, n, cs, cc, drst, dclk);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-31.3.6-EXTRACT-DELAYED-DATA"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The delayed data signal is a copy of the clock with positive limits; the negative-check use that the requirement describes is not stimulated.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_recrem_all_arguments.sv",
+              "contains": "$recrem(posedge rst_n, posedge clk, 3, 5, n, cs, cc, drst, dclk);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-31.3.6-EXTRACT-DELAYED-REFERENCE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The delayed reference signal is a copy of rst_n with positive limits; no negative limit shows it supplying a negative check.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_recrem_all_arguments.sv",
+              "contains": "$recrem(posedge rst_n, posedge clk, 3, 5, n, cs, cc, drst, dclk);"
             }
           ]
         }
@@ -45072,6 +45462,36 @@
             {
               "file": "tests/ch31/test_timing_delayed_signals_shared_recrem.sv",
               "contains": ":lrm: 1800-2023 31.9.1 31.3.6 31.3.3"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-31.9.4-EXTRACT-NEGATIVE-OPTION-DISABLED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test shows delayed signals that are copies with positive limits, but it neither enables nor shows the absence of the negative-timing-check option, so the rule of 31.9.4 for a run without the option is not distinguished from the rule of 31.9.1 for positive limits.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_delayed_signals_shared_recrem.sv",
+              "contains": "$setuphold(posedge clk, d1, 2, 1, n, , , dclk, dd1);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-31.9.1-EXTRACT-DELAYED-PROPAGATION-FLOOR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test shows that no delay is applied with positive limits, but the second half of the requirement, where a negative-limit delay exceeds the output propagation delay, has no stimulus.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_delayed_signals_shared_recrem.sv",
+              "contains": "$setuphold(posedge clk, d1, 2, 1, n, , , dclk, dd1);"
             }
           ]
         }
@@ -45558,6 +45978,21 @@
               "contains": "string value to a real variable reports an error: 1"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.34-EXTRACT-PUT-FORMAT-ERROR"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "vpiStringVal on a real variable or a vpiRealFunc call and vpiStrengthVal on a vector are runtime VPI errors, not illegal SystemVerilog designs, so the requirement's error kind cannot be represented by a :should_fail_because: test. Icarus Verilog 13.0 also crashes in vpi_put_value for vpiStrengthVal instead of reporting an error, so the required error state is not observable as a clean vpi_chk_error result.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_illegal_formats.sv",
+              "contains": "module test_vpi_put_value_illegal_formats;"
+            }
+          ]
         }
       ]
     },
@@ -45642,6 +46077,52 @@
             {
               "file": "tests/ch38/test_vpi_put_value_udp_array_errors.expected",
               "contains": "an unsupported format on the bulk put reports an error: 1"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.34-EXTRACT-UDP-NO-DELAY"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The requirement is an error kind for a sequential UDP update with a delay mode other than vpiNoDelay. The design is not illegal in SystemVerilog: the error is a runtime VPI error, so it cannot use :should_fail_because:, and Icarus Verilog 13.0 does not expose the UDP instance handle for the put.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
+              "contains": "module test_vpi_put_value_udp_array_errors;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.35-EXTRACT-PROPAGATE-OFF"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Verilator 5.052 rejects vpiPropagateOff (flags 0x8000) on vpi_put_value_array, and Icarus Verilog 13.0 has no array VPI in its vpi_user.h. The inhibition of array-fanout value-change notification and the later update that restores correct propagation cannot be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
+              "contains": "module test_vpi_put_value_udp_array_errors;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.35-EXTRACT-PUT-ARRAY-NO-DELAY",
+            "SV2023-38.35-EXTRACT-PUT-ARRAY-UNSUPPORTED-FORMAT"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "Both requirements are runtime VPI errors: a scheduling flag other than vpiPropagateOff, vpiOneValue or vpiNoDelay, and a format outside the bulk-put list. A design that calls vpi_put_value_array is legal SystemVerilog, so the error kind cannot be represented by :should_fail_because:; Verilator rejects the allowed flags themselves and aborts on unsupported formats, and Icarus has no array VPI, so no clean vpi_chk_error result is observable.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
+              "contains": "module test_vpi_put_value_udp_array_errors;"
             }
           ]
         }
@@ -45743,6 +46224,21 @@
             {
               "file": "tests/ch38/test_vpi_callback_registration_errors.expected",
               "contains": "cbNextSimTime with a NULL time was refused: yes"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.36.1-EXTRACT-BITSELECT-CALLBACK-ERROR"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "Registering cbForce, cbRelease or cbDisable on a variable bit-select is a runtime VPI error, not an illegal design, so the error kind cannot use :should_fail_because:. Icarus Verilog 13.0 rejects any value-change callback on a reg bit with a tool error rather than a VPI error result, and Verilator does not model the object, so the required registration failure is not observable as a return of NULL.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.sv",
+              "contains": "module test_vpi_callback_registration_errors;"
             }
           ]
         }
@@ -47727,6 +48223,684 @@
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
               "contains": "  input logic signed [7:0] din,"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch4/test_sched_region_iteration.sv",
+      "inputs_sha256": "8f21e334abe8388cd1b9edef1d8f7d0c82ba1715e51e6e3e61ed2a019051b0aa",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-4.4-EXTRACT-ORDERED-REGIONS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test shows the order of Active, Inactive, NBA and Postponed and the next time slot. Preponed, Pre-Active, Pre-NBA, Post-NBA, Observed and the reactive regions have no SystemVerilog-visible event, so the full 17-region sequence is not observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_sched_region_iteration.sv",
+              "contains": "    a <= 1;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-4.4.1-EXTRACT-ACTIVE-SET"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test places work in Active, Inactive and NBA. Pre-NBA and Post-NBA are PLI control points and have no SystemVerilog observation, so the five-member set is only partly shown.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_sched_region_iteration.sv",
+              "contains": "    #0 $display(\"inactive1 a=%0d t=%0d\", a, $time);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-4.4.1-EXTRACT-ITERATIVE-SET"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test repeats the Inactive iteration twice before NBA and so shows the loop, but it does not exercise the other eleven iterative regions of the list.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_sched_region_iteration.sv",
+              "contains": "    #0 $display(\"inactive2 a=%0d t=%0d\", a, $time);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-4.4.2-EXTRACT-SIMULATION-REGION-SET"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test shows Active, Inactive, NBA and Postponed; the reactive set is shown by another test of this batch. Observed and the pre/post PLI points are not observable in pure SystemVerilog, so the nine-region set is not demonstrated as a whole.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_sched_region_iteration.sv",
+              "contains": "$strobe(\"strobe a=%0d t=%0d\", a, $time);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-4.4.3.10-EXTRACT-SLOT-ENTRY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test shows that time zero is a time slot and that the next slot follows Postponed, but Preponed and Pre-Active are PLI control points that a SystemVerilog process cannot observe.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_sched_region_iteration.sv",
+              "contains": "    #1 $display(\"next a=%0d t=%0d\", a, $time);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_always_forms_repeat.sv",
+      "inputs_sha256": "0c130721b53a44d260f75633cbec750e2aafc5983af12eea0fe51f6f6a7e7962",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.2-EXTRACT-PROCEDURE-GRAMMAR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test exercises initial and the four always statements with statements. It does not exercise an initial with a null statement because Icarus Verilog 13.0 rejects initial;, and the final function-statement form is covered by another test of this batch.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_always_forms_repeat.sv",
+              "contains": "  always_latch if (en) ql = dl;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_timing_controls_forms.sv",
+      "inputs_sha256": "d11de6a4688ef93930ed101a30902b59fdd57e33904445dae5d00bf7de94e772",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.4-EXTRACT-TIMING-CONTROL-GRAMMAR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test uses a delay with an expression, posedge and negedge, a named event, repeat, or and comma lists and wait with an expression. The iff, sequence-instance and wait_order alternatives are not exercised, so the whole Syntax 9-4 inventory is not covered.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_timing_controls_forms.sv",
+              "contains": "    repeat (2) @(posedge sig);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-9.4.3-EXTRACT-WAIT-GRAMMAR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test uses wait (expression) with a statement. wait fork is exercised by another test of this batch and wait_order is supported by neither release, so this test alone does not cover the wait grammar.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_timing_controls_forms.sv",
+              "contains": "    wait (sig == 1'b0) $display(\"wait %0d\", $time);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch11/test_expr_conditional_ambiguous.sv",
+      "inputs_sha256": "7f60eef977bdc7eb0a90c419951a0a04b9dac02fd8cbf958dabe45d80d51ded2",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-11.4.11-EXTRACT-CONDITIONAL-GRAMMAR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test uses the conditional with a single expression predicate. It does not use the &&& combination of cond_pattern terms or a matches pattern, so the full cond_predicate grammar is not exercised.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_expr_conditional_ambiguous.sv",
+              "contains": "    r = sel ? a : b;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-11.4.11-EXTRACT-IMPLICIT-INTEGRAL-BRANCH"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The packed struct used as a branch is itself an integral type, so the case of an integral branch paired with a nonintegral type that is implicitly convertible to integral is not exercised.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_expr_conditional_ambiguous.sv",
+              "contains": "    r = sel ? nib : b;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch11/test_expr_tagged_union_access.sv",
+      "inputs_sha256": "9cfa40c266600ec080a0e4a4d65c2afa7bccdcf048620bcdf88ceba6025c2388",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-11.9-EXTRACT-TAGGED-DOT-READ-WRITE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test reads and writes the member that matches the current tag, which shows the consistent side of the rule. The run-time error of a read or write whose type does not match the tag is not observed, and neither release supports tagged unions to reject such an access.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_expr_tagged_union_access.sv",
+              "contains": "    t.Byte = 8'h3C;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_illegal_pla_output_net.sv",
+      "inputs_sha256": "e6d7d7c57db6a7d6de2e9aea35002fd0036c1a51a3499453136c442d95328d3b",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.16-EXTRACT-PLA-OUTPUT-VARIABLE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Verilator 5.052 rejects the task because it does not implement any PLA task, not because the output terms are nets; Icarus Verilog 13.0 accepts the design, so neither release shows the rule of 20.16 B006 being enforced.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_pla_output_net.sv",
+              "contains": "$async$and$array(mem, {a1, a2}, {b1, b2});"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_illegal_bits_function_dynamic_return.sv",
+      "inputs_sha256": "104364cb5c0826a0d49b2c2a228dc2614888d311ed5e7afcbc82927756cd6eeb",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.6.2-EXTRACT-BITS-NO-EVAL"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Both releases reject the function that returns int[] at its declaration as a syntax error they do not support, not the $bits call of line 22, so neither reports the rule of 20.6.2 and the expected place of the error is not reached.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_bits_function_dynamic_return.sv",
+              "contains": "localparam int W = $bits(f());"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_illegal_isunbounded_variable.sv",
+      "inputs_sha256": "486f97df2f42f31e83ac1936407066c4efbdf6722145859ad3a392686722cab3",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.6.3-EXTRACT-ISUNBOUNDED"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarus Verilog 13.0 does not implement $isunbounded at all and Verilator 5.052 accepts the variable argument, so no release rejects the design for the rule that the argument must be a parameter name.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_isunbounded_variable.sv",
+              "contains": "$isunbounded(x)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_get_property_values.sv",
+      "inputs_sha256": "f34c925310c1b953b7d9192e733e8d009ecc7726e4d8bb57abd6d75e5b8b2260",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.6-EXTRACT-GET-PROTECTED-ERROR",
+            "SV2023-38.7-EXTRACT-GET64-PROTECTED-ERROR",
+            "SV2023-38.11-EXTRACT-STRING-PROTECTED",
+            "SV2023-38.18-EXTRACT-HANDLE-PROTECTED",
+            "SV2023-38.19-EXTRACT-INDEX-PROTECTED",
+            "SV2023-38.20-EXTRACT-MULTI-INDEX-PROTECTED",
+            "SV2023-38.21-EXTRACT-NAME-PROTECTION",
+            "SV2023-38.23-EXTRACT-ITERATOR-PROTECTED",
+            "SV2023-38.36.1.1-EXTRACT-PROTECTED-STATEMENT-CALLBACK",
+            "SV2023-38.36.1.3-EXTRACT-MODULE-PROTECTED-EXCLUSION"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "A protected object exists only inside a protected envelope (clause 34), and no test or available simulator supplies one. Without it, vpi_get, vpi_get64, vpi_get_str, vpi_handle, vpi_handle_by_index, vpi_handle_by_multi_index, vpi_handle_by_name and vpi_iterate on a protected object, a callback on a protected statement, and the exclusion of protected statements from a module-wide registration cannot be made to occur, so their required errors and NULL results are not observable.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_get_property_values.sv",
+              "contains": "module test_vpi_get_property_values;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_control_finish.sv",
+      "inputs_sha256": "b8f1af3a43260dbf4a9d45c5a7d02e367f9b59d7389ed5a374af89a26c1fcd52",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.4-EXTRACT-CONTROL-RESET",
+            "SV2023-38.4-EXTRACT-CONTROL-SCOPE",
+            "SV2023-38.4-EXTRACT-CONTROL-STOP",
+            "SV2023-38.5-EXTRACT-FLUSH-BUFFERS",
+            "SV2023-38.36.3-EXTRACT-RESET-CALLBACK-ORDER"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarus Verilog 13.0 rejects vpiReset, vpiStop and vpiSetInteractiveScope (vpi_control returns 0 with an unsupported operation message), and vpi_register_cb rejects cbStartOfReset, cbEndOfReset and cbInteractiveScopeChange; its output buffers cannot be made observably flushed, and Verilator has no vpi_control. Therefore the three reset arguments and the reset that follows the routine, the immediate scope change, $stop after return, vpi_flush of the output and log buffers, and the order of the reset callbacks around time being reset and variables restored cannot be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_control_finish.sv",
+              "contains": "module test_vpi_control_finish;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.36.3-EXTRACT-ACTIONS-VERSUS-FEATURES"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The distinction between action callbacks, which every VPI-compliant tool must provide, and feature callbacks, which a tool may omit, is a statement about tools, not a behavior of one design. One simulator's output cannot show which callbacks another tool would provide, so no standard-derived expected output exists for the comparison.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_control_finish.sv",
+              "contains": "module test_vpi_control_finish;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_get_value_obj_type_real_vector.sv",
+      "inputs_sha256": "b4deaf5a285dc9d43568152df11ade6bed90edfab8cc79cb26eca6a1507bcf31",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.15-EXTRACT-MISC-FORMAT-EXTENSIONS"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The misc member and its format identifiers are implementation-defined: the clause requires a tool that uses the member to provide corresponding format constants, but it defines no such value or identifier that a portable test could request and compare. No standard-derived expected output exists for an implementation-defined misc type, so the requirement cannot be tested without naming one tool's private extension.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_get_value_obj_type_real_vector.sv",
+              "contains": "module test_vpi_get_value_obj_type_real_vector;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_get_value_preserve.sv",
+      "inputs_sha256": "6e92428a330aa0d450a68d7e645283f3875d9311b1c0e2408424c2402ee290cc",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.15-EXTRACT-VALUE-STORAGE-LIFETIME"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test shows that a copied vector and string survive later vpi_get_value calls, but the clause's invalidation of the returned storage on the next call cannot be exercised without reading overwritten memory, vpiTimeVal and vpiStrengthVal puts crash Icarus Verilog 13.0 instead of showing the application-allocation obligation, and the vector memory created for a value-change callback and freed on return cannot be observed after return.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_get_value_preserve.sv",
+              "contains": "module test_vpi_get_value_preserve;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_get_array_static.sv",
+      "inputs_sha256": "0d07e6fa3bed3d83497f7e6c7de170a50ce9859c6f1b3ad3b16723217cbcf7a6",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.16-EXTRACT-ARRAY-ERROR-POINTER",
+            "SV2023-38.16-EXTRACT-ARRAY-FORMAT-ERROR",
+            "SV2023-38.16-EXTRACT-ARRAY-GET-ELIGIBILITY",
+            "SV2023-38.16-EXTRACT-ARRAY-USER-STORAGE",
+            "SV2023-38.16-EXTRACT-COMMON-ARRAY-FORMATS",
+            "SV2023-38.16-EXTRACT-SHORTREAL-ARRAY-FIELD-TEXT"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Verilator 5.052 aborts on vpiUserAllocFlag and on the vpiTimeVal, vpiRealVal and vpiShortRealVal array formats, and rejects dynamic array objects before returning an error; Icarus Verilog 13.0's vpi_user.h has no s_vpi_arrayvalue so it cannot build an array test. A NULL value pointer after a retrieval error, the unsupported-format and inconsistent-format errors, the exclusion of dynamic and unpacked-element arrays, application-supplied buffers, the time, real and shortreal plural members, and the shortreal field are therefore not observable.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_get_array_static.sv",
+              "contains": "module test_vpi_get_array_static;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_vlog_info_structure.sv",
+      "inputs_sha256": "ea6693ece303e4c69ee778eb8a2a3f17f28057e0d3a0787232f138c5a64479f7",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.17-EXTRACT-VLOG-ARGUMENTS",
+            "SV2023-38.17-EXTRACT-VLOG-OPTION-FILES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test checks that argv[0] is a nonempty string that is not a plusarg and that argv holds argc terminated strings, but nothing in VPI independently names the tool executable, so 'argv[0] is the tool name' cannot be compared without assuming one simulator's name. The nested representation of a vendor option file is also not produced: neither simulator reports a parsed option-file array through vpi_get_vlog_info.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_vlog_info_structure.sv",
+              "contains": "module test_vpi_vlog_info_structure;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_put_value_formats.sv",
+      "inputs_sha256": "04f61c557d694d275bf501170c0a86a0fb378fd9cb18507e0f8584ef5d962271",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.34-EXTRACT-PUT-VALUE-ALLOCATION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test covers nine Table 38-3 formats (binary, octal, decimal, hexadecimal, scalar, integer, real, string and vector) with application-allocated s_vpi_value, pointed-to storage and s_vpi_time. vpiTimeVal and vpiStrengthVal puts crash Icarus Verilog 13.0, and Verilator cannot run the user systf, so the time and strength formats and the put-specific exceptions cannot be completed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_formats.sv",
+              "contains": "module test_vpi_put_value_formats;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_put_value_targets.sv",
+      "inputs_sha256": "1bcdbad3815c67a0fcbd18c0050af7a1220d1a071066f9a2c83966689e7fed83",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.34-EXTRACT-PUT-VALUE-TARGETS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test covers a variable, a memory word, a named event, a net, a net bit and a system function call. A sequential UDP instance is not reachable by name in Icarus Verilog 13.0 and Verilator has no UDP VPI, and the exclusion of subelements of a user-defined-nettype net is not stimulated, so the full target list is not observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_targets.sv",
+              "contains": "module test_vpi_put_value_targets;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_put_array_raw.sv",
+      "inputs_sha256": "2e63b84078e99b7e10cf7683e1179b0e83286a9095adcabf336a54718a9af2bd",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.35-EXTRACT-PUT-ARRAY-FORMAT",
+            "SV2023-38.35-EXTRACT-PUT-COMMON-ARRAY-FORMAT",
+            "SV2023-38.35-EXTRACT-PUT-SHORTREAL-FIELD-TEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test writes raw two-state, raw four-state, shortint, longint and vector array values. Verilator 5.052 rejects vpiTimeVal, vpiRealVal and vpiShortRealVal on vpi_put_value_array, and Icarus Verilog 13.0 has no array VPI, so the time, real and shortreal formats, their plural union members and the shortreal field cannot be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_array_raw.sv",
+              "contains": "module test_vpi_put_array_raw;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_put_array_target.sv",
+      "inputs_sha256": "6e8c89aa41a41fb886835754431ae4efac9c0c72a0dcfb98c9c317e40b8db97b",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.35-EXTRACT-PUT-NET-ARRAY-DEPOSIT"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarus Verilog 13.0 has no array VPI. Verilator 5.052 accepts vpi_put_value_array on a net array but the net value does not change, so the override of a resolved element value until a driver for that element changes, and the return to normal net resolution when it does, cannot be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_array_target.sv",
+              "contains": "module test_vpi_put_array_target;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_callback_memory_index.sv",
+      "inputs_sha256": "0b36df0f273279f2c1318e68ccd6db2084f3e399a20ae48b276a50770c3c848a",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.36.1-EXTRACT-ARRAY-MEMBER-CALLBACK"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The cbValueChange callback on a one-dimensional memory gives the member value and index, but Icarus Verilog 13.0 does not model vpi_iterate(vpiIndex) on the array object, so all indices of a changed member and the rightmost declaration index of a multidimensional array cannot be observed; for a two-dimensional memory the index it gives is a flattened word number, not the rightmost declaration index.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_callback_memory_index.sv",
+              "contains": "module test_vpi_callback_memory_index;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_callback_suppress_value.sv",
+      "inputs_sha256": "92ec3e45caa8eafbdafec9f7b06319313b6da69fabf3d3ad50fd8b02843307ce",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-FORMAT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test observes that a cbValueChange registered with vpiSuppressVal delivers no value, but Icarus Verilog 13.0 rejects cbStmt registration (callback reason 2) and does not model statement objects, so the clause's statement that cbStmt ignores the value format cannot be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_callback_suppress_value.sv",
+              "contains": "module test_vpi_callback_suppress_value;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_error_callback_runtime_errors.sv",
+      "inputs_sha256": "201a0d5562af2b7bda6d2725d2b087b4c01f7c015bd64a7038c5cd87490758f6",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.36.3-EXTRACT-ACTION-CALLBACK-FIELDS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "cbError with vpi_chk_error and cbTchkViolation's obj are covered by existing tests, but vpi_control(vpiSetInteractiveScope) and cbInteractiveScopeChange are unsupported by Icarus Verilog 13.0, cbUnresolvedSystf is not produced, and timing checks are not implemented. The new interactive-scope object and the unresolved routine name in user_data cannot be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_error_callback_runtime_errors.sv",
+              "contains": "module test_vpi_error_callback_runtime_errors;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_startup_routines_null_end.sv",
+      "inputs_sha256": "b28b29d558575d908e6242730e62cdea1627029f46e497f749469af7a8de8642",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.37.2-EXTRACT-VENDOR-STARTUP-FILE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test defines its own vlog_startup_routines array, so it observes that the tool calls the routines up to the first NULL, but it cannot observe the vendor's separate file that is supposed to contain the array or the user procedure of adding a registration function name to that file. That part is a tool-supplied artifact, not a behavior of the design.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_startup_routines_null_end.sv",
+              "contains": "module test_vpi_startup_routines_null_end;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_release_remove_signatures.sv",
+      "inputs_sha256": "b1273c709a82d6a8d2d51c9cdec63297174edb4f22496b706df3ae51c1b729c7",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.38-EXTRACT-RELEASE-HANDLE-RESULT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test observes that vpi_release_handle returns 1 for a valid handle, and the signature is checked at compile time. A failure return of 0 cannot be produced without calling the routine on an invalid handle, which 38.38 itself forbids, so the second condition of the requirement is not observable.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_release_remove_signatures.sv",
+              "contains": "module test_vpi_release_remove_signatures;"
             }
           ]
         }

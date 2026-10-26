@@ -1,0 +1,7 @@
+maximum is not an error: 1
+current is not an error: 1
+maximum constant: 1
+current below maximum or none: 1
+current does not decrease: 1
+invalid type in get_max: 1
+invalid type in get: 1

@@ -1,0 +1,5 @@
+c1 a=3 b_unknown=1 s=hi
+c2 a=9 b=2 s=ex
+c3 a=1 b=f s=yo
+net a_unknown=1 b=zzzzzzzz
+task a=6 b_unknown=1 s=hi

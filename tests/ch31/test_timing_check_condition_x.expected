@@ -1,0 +1,3 @@
+en=x plain=0 inverted=0 case_equal=0 case_not_equal=0 equal=1 not_equal=1
+en=1 plain=1 inverted=0 case_equal=1 case_not_equal=0 equal=0 not_equal=0
+en=0 plain=1 inverted=1 case_equal=1 case_not_equal=1 equal=0 not_equal=0

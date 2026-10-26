@@ -1,0 +1,9 @@
+v=111 array and=111 or=111 nand=000 nor=000
+v=111 plane and=010 or=110 nand=101 nor=001
+v=100 unchanged array=111 plane=010
+v=100 array and=000 or=101 nand=111 nor=010
+v=100 plane and=100 or=101 nand=011 nor=010
+v=011 array and=010 or=111 nand=101 nor=000
+v=011 plane and=010 or=011 nand=101 nor=100
+v=101 array and=001 or=111 nand=110 nor=000
+v=101 plane and=110 or=110 nand=001 nor=001

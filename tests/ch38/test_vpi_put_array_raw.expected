@@ -1,0 +1,16 @@
+format PLI_UINT32 1
+flags PLI_UINT32 1
+integers PLI_INT32 * 1
+shortints PLI_INT16 * 1
+longints PLI_INT64 * 1
+rawvals PLI_BYTE8 * 1
+vectors s_vpi_vecval * 1
+times s_vpi_time * 1
+reals double * 1
+shortreals float * 1
+vpi_put_value_array returns void 1
+b: 2a5 15a
+l: 0ff 300
+lv: 89abcdef12 0000000013
+si: -5 7 300
+la: 1234567890123 42
