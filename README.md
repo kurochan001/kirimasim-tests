@@ -255,24 +255,28 @@ each simulator's newest development commit and eleven designs, and gave these
 times: the median of five runs at the stated count less the median of five
 runs with `+n=1`.
 
-| Design | `+n=` | kirimasim | Icarus Verilog 14.0 devel | Verilator 5.053 devel | Lyra (C++ backend, default) | Lyra (LLVM backend) |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `comb_chain` | 3,000,000 | 9.249 s | 9.796 s | 0.223 s | 31.915 s | 2.878 s |
-| `nba_shift` | 1,000,000 | 25.486 s | 26.585 s | 0.196 s | 140.711 s | 5.900 s |
-| `proc_wait` | 1,000,000 | 6.786 s | 5.688 s | 2.283 s | 73.445 s | 6.164 s |
-| `fork_join` | 4,000,000 | 4.837 s | 5.023 s | 1.190 s | 15.826 s | 4.860 s |
-| `wide_arith` | 1,500,000 | 4.944 s | 2.036 s | 0.086 s | 6.236 s | 0.380 s |
-| `mem_rw` | 4,000,000 | 4.937 s | 3.645 s | 0.696 s | 23.079 s | 2.705 s |
-| `func_call` | 1,500,000 | 4.917 s | 7.511 s | 0.005 s | 7.887 s | 0.395 s |
-| `string_fmt` | 500,000 | 5.003 s | 8.080 s | 0.135 s | 18.770 s | 0.279 s |
-| `dyn_queue` | 4,000,000 | 4.112 s | 6.686 s | 0.083 s | 16.275 s | 0.412 s |
-| `gate_udp` | 400,000 | 5.378 s | 3.517 s | 0.046 s | not supported | not supported |
-| `casez_struct` | 5,000,000 | 3.976 s | 4.117 s | 0.018 s | 22.159 s | 0.466 s |
+| Design | `+n=` | kirimasim | Icarus Verilog 14.0 devel | Verilator 5.053 devel | Lyra (LLVM backend) |
+| --- | --- | --- | --- | --- | --- |
+| `comb_chain` | 3,000,000 | 9.249 s | 9.796 s | 0.223 s | 2.878 s |
+| `nba_shift` | 1,000,000 | 25.486 s | 26.585 s | 0.196 s | 5.900 s |
+| `proc_wait` | 1,000,000 | 6.786 s | 5.688 s | 2.283 s | 6.164 s |
+| `fork_join` | 4,000,000 | 4.837 s | 5.023 s | 1.190 s | 4.860 s |
+| `wide_arith` | 1,500,000 | 4.944 s | 2.036 s | 0.086 s | 0.380 s |
+| `mem_rw` | 4,000,000 | 4.937 s | 3.645 s | 0.696 s | 2.705 s |
+| `func_call` | 1,500,000 | 4.917 s | 7.511 s | 0.005 s | 0.395 s |
+| `string_fmt` | 500,000 | 5.003 s | 8.080 s | 0.135 s | 0.279 s |
+| `dyn_queue` | 4,000,000 | 4.112 s | 6.686 s | 0.083 s | 0.412 s |
+| `gate_udp` | 400,000 | 5.378 s | 3.517 s | 0.046 s | not supported |
+| `casez_struct` | 5,000,000 | 3.976 s | 4.117 s | 0.018 s | 0.466 s |
 
 - kirimasim was at commit `b66834254c65`, Icarus Verilog at 14.0 devel
   `2b8d42dc088f`, Verilator at 5.053 devel `1838b6ed035c` and Lyra at
   `63922502ff0a`, built with `bazel build -c opt`, which is not the commit the
-  nightly workflow pins; both of Lyra's backends ran at its default `-O 0`.
+  nightly workflow pins. The Lyra column is its LLVM backend, which Lyra's
+  README calls its main one, at Lyra's default `-O 0`. Lyra's default
+  backend, used when `--backend` is not given, is its C++ backend: on these
+  designs it was 3.3 to 67 times slower than the LLVM backend, and its times
+  are in kirimasim's benchmark details linked below.
   Every measured run gave the expected result; Lyra does not support gates or
   UDPs yet, so it built no program for `gate_udp`. The times do not include
   building a design (Verilator's C++, Lyra's program).
