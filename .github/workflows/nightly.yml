@@ -313,12 +313,18 @@ jobs:
           path: ~/lyra
           key: lyra-${{ env.LYRA_COMMIT }}-ubuntu-24.04
 
+      # As in the Verilator job, every process of the run gets at most 6 GB of
+      # address space: on 2026-10-26 a test took all the memory of the runner
+      # in Lyra's run, which stopped the job. The log is shown as the run
+      # goes, so a run that stops still shows how far it got; the exit status
+      # of the step is that of tee, as a test that does not match is not an
+      # error of the job.
       - name: Run the suite
         run: |
           mkdir -p results
+          ulimit -v 6291456
           python3 tools/run_lyra.py --lyra "$HOME/lyra/lyra" --commit "$LYRA_COMMIT" \
-            -j "$(nproc)" --json results/lyra.json > results/lyra.log || true
-          cat results/lyra.log
+            -j "$(nproc)" --json results/lyra.json | tee results/lyra.log
           tail -n 1 results/lyra.log >> "$GITHUB_STEP_SUMMARY"
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
