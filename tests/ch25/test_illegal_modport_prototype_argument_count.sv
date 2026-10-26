@@ -4,12 +4,12 @@
 :tags: ch25
 :type: elaboration
 :lrm: 1800-2023 25.7
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the modport bad imports sum with a prototype of one argument, while the function sum of mpc_bus is declared with two
-:expected_stderr_regex: test_illegal_modport_prototype_argument_count\.sv:30:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_modport_prototype_argument_count\.sv:(?:26|30):(?:\d+:)?[^\n]*(?i:(?:number|count)[^\n]*arguments?|arguments?[^\n]*(?:number|count|too few|too many))
 */
 // IEEE 1800-2023 §25.7: the number and types of the arguments of a prototype
 // shall match those of the subroutine declaration. The function sum of mpc_bus

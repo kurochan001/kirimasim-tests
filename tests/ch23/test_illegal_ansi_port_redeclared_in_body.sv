@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the port q, declared in the ANSI list of port declarations of ansi_redeclared, is declared again as a variable in the module body
-:expected_stderr_regex: test_illegal_ansi_port_redeclared_in_body\.sv:21:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_ansi_port_redeclared_in_body\.sv:(?:20|21):(?:\d+:)?[^\n]*(?i:redefinition|duplicate|already[^\n]*declared)
 */
 // IEEE 1800-2023 §23.2.2.2: each declaration in an ANSI list of port
 // declarations gives the complete information about the port, and the port

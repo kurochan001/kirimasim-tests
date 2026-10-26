@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the port a, declared as input [3:0] in the ANSI list of port declarations of ansi_net_added, is declared again in the module body by the net declaration wire [3:0] a
-:expected_stderr_regex: test_illegal_ansi_port_net_type_added_in_body\.sv:32:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_ansi_port_net_type_added_in_body\.sv:(?:31|32):(?:\d+:)?[^\n]*(?i:redefinition|duplicate|already[^\n]*declared)
 */
 // IEEE 1800-2023 §23.2.2.2: each declaration of an ANSI list of port
 // declarations gives the complete information about the port, and the port

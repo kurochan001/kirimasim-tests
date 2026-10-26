@@ -42,11 +42,11 @@ The suite has **7292 tests** in 37 chapters. 1308 of them are generated (`tests/
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4174 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4163 |
 | Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 1442 |
-| The standard only, where neither simulator follows it | 1676 |
+| The standard only, where neither simulator follows it | 1687 |
 
-888 tests depend on x or z values (`:fourstate: yes`). 601 tests come with C code: 118 DPI tests (`:dpi_c:`) and 483 VPI tests (`:vpi_c:`). 1878 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 21 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 5 name include directories (`:incdirs:`), 19 name the top-level module (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+888 tests depend on x or z values (`:fourstate: yes`). 601 tests come with C code: 118 DPI tests (`:dpi_c:`) and 483 VPI tests (`:vpi_c:`). 1878 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 21 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 5 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -63,7 +63,7 @@ The suite has **7292 tests** in 37 chapters. 1308 of them are generated (`tests/
 | 13 | Tasks and functions (subroutines) | 194 | 105 | 78 | 11 |
 | 14 | Clocking blocks | 78 | 4 | 61 | 13 |
 | 15 | Interprocess synchronization and communication | 56 | 2 | 36 | 18 |
-| 16 | Assertions | 371 | 113 | 60 | 198 |
+| 16 | Assertions | 371 | 104 | 60 | 207 |
 | 17 | Checkers | 68 |  | 22 | 46 |
 | 18 | Constrained random value generation | 200 | 26 | 95 | 79 |
 | 19 | Functional coverage | 139 | 2 | 16 | 121 |
@@ -72,7 +72,7 @@ The suite has **7292 tests** in 37 chapters. 1308 of them are generated (`tests/
 | 22 | Compiler directives | 348 | 327 | 11 | 10 |
 | 23 | Modules and hierarchy | 230 | 137 | 34 | 59 |
 | 24 | Programs | 43 | 21 | 5 | 17 |
-| 25 | Interfaces | 119 | 33 | 57 | 29 |
+| 25 | Interfaces | 119 | 31 | 57 | 31 |
 | 26 | Packages | 83 | 53 | 16 | 14 |
 | 27 | Generate constructs | 103 | 93 | 8 | 2 |
 | 28 | Gate-level and switch-level modeling | 245 | 194 | 3 | 48 |
@@ -178,9 +178,10 @@ the K.2, I.3 and N.2 headers and algorithms, assertion control, coverage,
 checkers and 1364 VPI compatibility, Icarus Verilog 13.0 was recorded as the
 oracle of 277 standard-only tests that it reproduces, and a further pass over
 the existing tests in twelve ranges linked 341 more requirements.
-Provisional design coverage is **77.80664% (9,585/12,319)**, past the 75%
-goal; provisional execution coverage is **44.029548% (5,424/12,319)**.
-Clauses 1 to 40 alone are at 77.46% (7,348/9,486).
+Provisional design coverage is **84.698433% (10,434/12,319)**;
+provisional execution coverage is **46.448575% (5,722/12,319)** after the
+[Nightly test corrections and oracle review](docs/nightly-suite-corrections-20261027.md).
+Clauses 1 to 40 alone are at 84.52% (8,018/9,486) design coverage.
 Confirmed values remain undefined. The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.
@@ -429,7 +430,7 @@ it does not know.
 | `:files:` | Other files next to the test, separated by spaces: sources (`.sv`, `.v`), compiled before the test in the order written, and files that the design includes with `` `include ``, whose directory becomes an include directory. Their names do not start with `test_`. Whether the files form one compilation unit or several is left to the tool (3.12.1), and the tests do not depend on it |
 | `:defines:` | Macros that the simulator defines before the first source file, separated by spaces: `NAME` or `NAME=VALUE` (the `-D` or `+define+` option of a tool). The standard leaves such options to the tool; the tests use them only to set macros that `` `ifdef `` and macro uses then see as if `` `define `` had set them (22.5.1) |
 | `:incdirs:` | Include directories, relative to the directory of the test, separated by spaces, where `` `include "<file>" `` looks after the current working directory (22.4); a runner gives them to the simulator after the directories of the include files in `:files:` |
-| `:top_module:` | The top-level module of the design. Without it, every module that nothing instantiates is a top-level module (23.3.1); with it, only the named module and what it instantiates are elaborated (the tool is told the top-level module, 33.5.3) |
+| `:top_module:` | The top-level module or configuration to elaborate. Without it, every module that nothing instantiates is a top-level module (23.3.1). A module selects it and its hierarchy; a configuration selects the design and binding rules it declares (33.4, 33.5.3) |
 
 ### How a test is judged
 
@@ -587,7 +588,7 @@ form the simulator takes:
 | `:files:` (sources) | before the test | before the test | before the test | before the test |
 | `:files:` (include files) and `:incdirs:` | `-I` | `-I` | `+incdir+` | `-I` |
 | `:defines:` | `-D` | `-D` | `+define+` | `-D` |
-| `:top_module:` | `-s` | `--top-module` | `--top=` | `--top` |
+| `:top_module:` | The top-level module or configuration to elaborate. Without it, every module that nothing instantiates is a top-level module (23.3.1). A module selects it and its hierarchy; a configuration selects the design and binding rules it declares (33.4, 33.5.3) |
 | `:args:` | to `vvp` | to the model | after the test | after `--` |
 
 A runner prints one line for each test that does not match (`FAIL`, or

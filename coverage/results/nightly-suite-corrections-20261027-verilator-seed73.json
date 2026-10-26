@@ -1,0 +1,150 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch16/test_illegal_final_deferred_postponed_call": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "0da5b25c3145440001e040e952135f6859639ea2840169ccd07ea6d2a2f464d0"
+  },
+  "ch16/test_illegal_inferred_clock_missing": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_inferred_clock_missing\\\\.sv:(?:25|26|29):(?:\\\\d+:)?[^\\\\n]*(?i:(?:no|missing|unresolved)[^\\\\n]*clock|clock[^\\\\n]*(?:missing|unresolved|not resolved|cannot be resolved))'; the first is: %Error-UNSUPPORTED: tests/ch16/test_illegal_inferred_clock_missing.sv:25:24: Unsupported: IEEE 1800-2005 reserved word not implemented: '$inferred_clock'",
+   "inputs_sha256": "4b3967cbeadf8b86c6476258b7baa5efe9f632eaa94ea3e1dd8f96af8ace9bae"
+  },
+  "ch16/test_illegal_negated_property_reaching_recursion": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_negated_property_reaching_recursion\\\\.sv:(?:31|38):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: %Error-UNSUPPORTED: tests/ch16/test_illegal_negated_property_reaching_recursion.sv:30:12: Unsupported: Recursive property call: 'p_hold'",
+   "inputs_sha256": "f772485db296cf8b777bf3af2ade8fc2389c734330d7174e44ae026e825c305a"
+  },
+  "ch16/test_illegal_property_instance_flattened_not_legal": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_property_instance_flattened_not_legal\\\\.sv:(?:27|30):(?:\\\\d+:)?[^\\\\n]*(?i:(?:cannot|not allowed|illegal)[^\\\\n]*property[^\\\\n]*sequence|property[^\\\\n]*(?:cannot|not allowed|illegal)[^\\\\n]*sequence)'; the first is: %Error: tests/ch16/test_illegal_property_instance_flattened_not_legal.sv:29:49: syntax error, unexpected ##, expecting ')'",
+   "inputs_sha256": "7ace9710232e04ce91ce9acb3610d7c6aa4762a77b95c094afdad554fc7ecead"
+  },
+  "ch16/test_illegal_recursive_property_negated": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_negated\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: %Error-UNSUPPORTED: tests/ch16/test_illegal_recursive_property_negated.sv:28:12: Unsupported: Recursive property call: 'ack_each'",
+   "inputs_sha256": "ff02604e0a74f68536beae1c875963e8aed9d6e1a0bc28cef0d9ea8e90935b26"
+  },
+  "ch16/test_illegal_recursive_property_s_always": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_s_always\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: %Error-UNSUPPORTED: tests/ch16/test_illegal_recursive_property_s_always.sv:28:12: Unsupported: Recursive property call: 'p_hold'",
+   "inputs_sha256": "abfd0be5b652c4c7d02235ce5577ac0f10418e4d99da85ea362e58066a30bc1a"
+  },
+  "ch16/test_illegal_recursive_property_s_eventually": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_s_eventually\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: %Error-UNSUPPORTED: tests/ch16/test_illegal_recursive_property_s_eventually.sv:28:12: Unsupported: Recursive property call: 'p_hold'",
+   "inputs_sha256": "4e92e55782ae3631769057d8008820be4af8cb98c7eb0ac9386db9cc39218c79"
+  },
+  "ch16/test_illegal_recursive_property_s_nexttime": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_s_nexttime\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: %Error-UNSUPPORTED: tests/ch16/test_illegal_recursive_property_s_nexttime.sv:32:52: Unsupported: s_nexttime (in property expression)",
+   "inputs_sha256": "fa3ac5193c6b34e1386836529a91ede8526766607c5f0fc5761e98fb3b52ce28"
+  },
+  "ch16/test_illegal_recursive_property_s_until": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_s_until\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: %Error-UNSUPPORTED: tests/ch16/test_illegal_recursive_property_s_until.sv:28:12: Unsupported: Recursive property call: 'p_hold'",
+   "inputs_sha256": "18b592b5f9919ca1351cab75b6bcd64e92cd8b60e66137d70255dd9c5f82d243"
+  },
+  "ch16/test_illegal_recursive_property_s_until_with": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_s_until_with\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: %Error-UNSUPPORTED: tests/ch16/test_illegal_recursive_property_s_until_with.sv:28:12: Unsupported: Recursive property call: 'p_hold'",
+   "inputs_sha256": "ad5eb517fd2ebdff9209c2e4533674a89ffce1ce066c878cb532ceb8cbed2467"
+  },
+  "ch16/test_illegal_sequence_local_output_unassigned": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_sequence_local_output_unassigned\\\\.sv:(?:28|29|34):(?:\\\\d+:)?[^\\\\n]*(?i:(?:output|inout)[^\\\\n]*(?:unassigned|not[^\\\\n]*assigned)|(?:unassigned|not[^\\\\n]*assigned)[^\\\\n]*(?:output|inout))'; the first is: %Error-UNSUPPORTED: tests/ch16/test_illegal_sequence_local_output_unassigned.sv:28:20: Unsupported: property port 'local'",
+   "inputs_sha256": "59fa1c18bea487978b2f911cbe368ff954e82371f3fd31c2262ea3e252c764c6"
+  },
+  "ch20/test_illegal_bits_function_dynamic_return": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "addb0ea69b39341be3d4ee568bed3dddf915fcb08c0c6779d8618d7c04d7e9a3"
+  },
+  "ch20/test_illegal_pla_descending_memory": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_pla_descending_memory\\\\.sv:(?:18|22):(?:\\\\d+:)?[^\\\\n]*(?i:ascending|descending)'; the first is: %Error: tests/ch20/test_illegal_pla_descending_memory.sv:22:5: Unsupported or unknown PLI call: '$async$and$array'",
+   "inputs_sha256": "5919088e22eab2da07bc2a410616ed4b82418cefd8283e6fff88d89a027c5242"
+  },
+  "ch23/test_illegal_ansi_port_net_type_added_in_body": {
+   "status": "pass",
+   "inputs_sha256": "0db63759c7159aa17440d331a4cb5923367b45bc71173a907684e0eaea42a516"
+  },
+  "ch23/test_illegal_ansi_port_redeclared_in_body": {
+   "status": "pass",
+   "inputs_sha256": "c3b698292501ab2c75fbee1da121f5e9e99a3bfe79250290eb1e4b011e96d348"
+  },
+  "ch23/test_illegal_nonansi_net_port_redeclared": {
+   "status": "pass",
+   "inputs_sha256": "efd0c5575ded4669410b719e715c65f5b2fecdc0905acaa995ffad9bbafc31b0"
+  },
+  "ch23/test_illegal_nonansi_variable_port_redeclared": {
+   "status": "pass",
+   "inputs_sha256": "6280cbd2fadf68e0d1d37e5d4d9a7619dc9daa8029ee122a96c9bef40b0627a1"
+  },
+  "ch25/test_illegal_modport_prototype_argument_count": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "1f81c973f3bf8f24a08c5307fcea7fea507c51257836a72739d2dba66c28b59d"
+  },
+  "ch25/test_illegal_modport_prototype_type_not_matching": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "e53950991b0f141ed66cd4fbbf2b80f3f36d36997401b250d2f65cdff2162a67"
+  },
+  "ch26/test_illegal_local_declaration_after_import": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "bc71e94dc9518539db33e59f88bc274dcfd5d381edca8a551709b7b0bad5a47e"
+  },
+  "ch26/test_illegal_search_order_explicit_after_wildcard_reference": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "e30fdd56c069861ffaa1a0ad0c76c7abd0d816b67d471af95225ccf499158af4"
+  },
+  "ch26/test_illegal_search_order_local_after_wildcard_reference": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "4bc43233daf91021ced8599f59725caa92e73292798f69c0dc45c44ea5b3edcc"
+  },
+  "ch29/test_illegal_udp_table_without_endtable": {
+   "status": "pass",
+   "inputs_sha256": "e32605a952f8b85fa432c24813602f921096f66478f4e585fa861b2766365da8"
+  },
+  "ch33/test_illegal_config_design_is_config": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|second config))[^\\\\n]*test_illegal_config_design_is_config\\\\.sv:32:(?:\\\\d+:)?[^\\\\n]*(?i:(?:not|invalid)[^\\\\n]*(?:valid[^\\\\n]*)?(?:top.level|module)|design[^\\\\n]*config)'; the first is: %Error: Specified --top-module 'cfgdc' was not found in design.",
+   "inputs_sha256": "31149da517bd801b96392862a2398848f10b6a8699c3ee8211fa7149c3c438cf"
+  },
+  "ch33/test_illegal_config_instance_inside_other_config": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|second config))[^\\\\n]*test_illegal_config_instance_inside_other_config\\\\.sv:42:(?:\\\\d+:)?[^\\\\n]*(?i:instance[^\\\\n]*(?:within|inside)[^\\\\n]*(?:hierarchy|config)|hierarchy[^\\\\n]*(?:another|other)[^\\\\n]*config)'; the first is: %Error-UNSUPPORTED: tests/ch33/test_illegal_config_instance_inside_other_config.sv:41:24: Unsupported: hierarchical config rule",
+   "inputs_sha256": "e887e33d390c474241ed05e57113584ab5ed4b340c5952306bcdafe64687318a"
+  },
+  "ch7/test_illegal_hard_packed_union_sizes": {
+   "status": "pass",
+   "inputs_sha256": "ff13c307881a36268a691d05d54d2bd3eb8e8c9c54d9d99d58e955b1b887edd8"
+  },
+  "ch7/test_packed_struct_union_dimensions_and_rand_member": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_packed_struct_union_dimensions_and_rand_member.sv:38:26: Unsupported: void (for tagged unions)",
+   "inputs_sha256": "e33993eb59b6af92151c2950fba378232b2d78cb5673521acc0de02f5c81b4c6"
+  },
+  "ch9/test_illegal_function_contains_fork_join": {
+   "status": "pass",
+   "inputs_sha256": "6e60276031ee21b1a102ebe0c7a5c4eff48a5ca5cdbdafce31b5ec528e49771f"
+  },
+  "ch9/test_illegal_function_contains_fork_join_any": {
+   "status": "pass",
+   "inputs_sha256": "b88c728b9e82aa065044cebdd2f2371aee2df5d30500ead1bc49899c2b2d8d40"
+  }
+ },
+ "generated_at": "2026-10-26T15:06:47.554081+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

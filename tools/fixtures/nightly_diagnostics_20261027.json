@@ -1,0 +1,271 @@
+[
+  {
+    "test": "tests/ch16/test_illegal_final_deferred_postponed_call.sv",
+    "diagnostic": "tests/ch16/test_illegal_final_deferred_postponed_call.sv:25: error: a write or an event in the Postponed region [test_illegal_final_deferred_postponed_call @ 0ns]",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch16/test_illegal_final_deferred_postponed_call.sv:29: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch16/test_illegal_inferred_clock_missing.sv",
+    "diagnostic": "tests/ch16/test_illegal_inferred_clock_missing.sv:26:6: error: no inferred clock in this context",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch16/test_illegal_inferred_clock_missing.sv:25: syntax error\ntests/ch16/test_illegal_inferred_clock_missing.sv:25: error: Invalid module item.\ntests/ch16/test_illegal_inferred_clock_missing.sv:26: syntax error\ntests/ch16/test_illegal_inferred_clock_missing.sv:26: error: Invalid module item.\ntests/ch16/test_illegal_inferred_clock_missing.sv:27: syntax error\ntests/ch16/test_illegal_inferred_clock_missing.sv:29: error: Invalid module item.\n"
+      },
+      {
+        "source": "Pinned verilator diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "%Error-UNSUPPORTED: tests/ch16/test_illegal_inferred_clock_missing.sv:25:24: Unsupported: IEEE 1800-2005 reserved word not implemented: '$inferred_clock'\n   25 |   property p_bad(clk = $inferred_clock);\n      |                        ^~~~~~~~~~~~~~~\n                    ... For error description see https://verilator.org/warn/UNSUPPORTED?v=5.052\n%Error-UNSUPPORTED: tests/ch16/test_illegal_inferred_clock_missing.sv:25:22: Unsupported: property variable default value\n   25 |   property p_bad(clk = $inferred_clock);\n      |                      ^\n%Error: Exiting due to 2 error(s)\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch16/test_illegal_negated_property_reaching_recursion.sv",
+    "diagnostic": "tests/ch16/test_illegal_negated_property_reaching_recursion.sv:31:21: error: recursive property instance cannot have the operators 'not', 's_nexttime', 's_eventually', 's_always', 's_until', or 's_until_with' applied to it",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch16/test_illegal_negated_property_reaching_recursion.sv:30: syntax error\ntests/ch16/test_illegal_negated_property_reaching_recursion.sv:30: error: Invalid module item.\ntests/ch16/test_illegal_negated_property_reaching_recursion.sv:31: syntax error\ntests/ch16/test_illegal_negated_property_reaching_recursion.sv:31: error: Invalid module instantiation\ntests/ch16/test_illegal_negated_property_reaching_recursion.sv:34: error: Invalid module item.\ntests/ch16/test_illegal_negated_property_reaching_recursion.sv:35: syntax error\ntests/ch16/test_illegal_negated_property_reaching_recursion.sv:35: error: Invalid module instantiation\ntests/ch16/test_illegal_negated_property_reaching_recursion.sv:38: error: Invalid module item.\n"
+      },
+      {
+        "source": "Pinned verilator diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "%Error-UNSUPPORTED: tests/ch16/test_illegal_negated_property_reaching_recursion.sv:30:12: Unsupported: Recursive property call: 'p_hold'\n                                                                                        : ... note: In instance 'test_illegal_negated_property_reaching_recursion'\n   30 |   property p_hold(p);\n      |            ^~~~~~\n                    ... For error description see https://verilator.org/warn/UNSUPPORTED?v=5.052\n%Error: Exiting due to 1 error(s)\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch16/test_illegal_property_instance_flattened_not_legal.sv",
+    "diagnostic": "tests/ch16/test_illegal_property_instance_flattened_not_legal.sv:27:5: error: cannot use property expression within a sequence",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch16/test_illegal_property_instance_flattened_not_legal.sv:26: syntax error\ntests/ch16/test_illegal_property_instance_flattened_not_legal.sv:26: error: Invalid module item.\ntests/ch16/test_illegal_property_instance_flattened_not_legal.sv:27: syntax error\ntests/ch16/test_illegal_property_instance_flattened_not_legal.sv:27: error: Syntax error in parameter value assignment list.\ntests/ch16/test_illegal_property_instance_flattened_not_legal.sv:27: error: Invalid module instantiation\ntests/ch16/test_illegal_property_instance_flattened_not_legal.sv:29: error: Invalid module item.\ntests/ch16/test_illegal_property_instance_flattened_not_legal.sv:30: syntax error\ntests/ch16/test_illegal_property_instance_flattened_not_legal.sv:30: error: Malformed statement\ntests/ch16/test_illegal_property_instance_flattened_not_legal.sv:30: error: Error in property_spec of concurrent assertion item.\n"
+      },
+      {
+        "source": "Pinned verilator diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "%Error: tests/ch16/test_illegal_property_instance_flattened_not_legal.sv:29:49: syntax error, unexpected ##, expecting ')'\n   29 |   a_ok: assert property (@(posedge clk) p_seq(a ##1 c));\n      |                                                 ^~\n        ... See the manual at https://verilator.org/verilator_doc.html?v=5.052 for more assistance.\n%Error: tests/ch16/test_illegal_property_instance_flattened_not_legal.sv:30:50: syntax error, unexpected |->, expecting ')'\n   30 |   a_bad: assert property (@(posedge clk) p_seq(a |-> c));    \n      |                                                  ^~~\n%Error: Exiting due to 2 error(s)\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch16/test_illegal_recursive_property_negated.sv",
+    "diagnostic": "tests/ch16/test_illegal_recursive_property_negated.sv:29:33: error: recursive property instance cannot have the operators 'not', 's_nexttime', 's_eventually', 's_always', 's_until', or 's_until_with' applied to it",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch16/test_illegal_recursive_property_negated.sv:28: syntax error\ntests/ch16/test_illegal_recursive_property_negated.sv:28: error: Invalid module item.\ntests/ch16/test_illegal_recursive_property_negated.sv:29: syntax error\ntests/ch16/test_illegal_recursive_property_negated.sv:29: error: Invalid module item.\ntests/ch16/test_illegal_recursive_property_negated.sv:30: syntax error\ntests/ch16/test_illegal_recursive_property_negated.sv:32: error: Invalid module item.\n"
+      },
+      {
+        "source": "Pinned verilator diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "%Error-UNSUPPORTED: tests/ch16/test_illegal_recursive_property_negated.sv:28:12: Unsupported: Recursive property call: 'ack_each'\n                                                                               : ... note: In instance 'test_illegal_recursive_property_negated'\n   28 |   property ack_each(req, ack);\n      |            ^~~~~~~~\n                    ... For error description see https://verilator.org/warn/UNSUPPORTED?v=5.052\n%Error: Exiting due to 1 error(s)\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch16/test_illegal_recursive_property_s_always.sv",
+    "diagnostic": "tests/ch16/test_illegal_recursive_property_s_always.sv:29:21: error: recursive property instance cannot have the operators 'not', 's_nexttime', 's_eventually', 's_always', 's_until', or 's_until_with' applied to it",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch16/test_illegal_recursive_property_s_always.sv:28: syntax error\ntests/ch16/test_illegal_recursive_property_s_always.sv:28: error: Invalid module item.\ntests/ch16/test_illegal_recursive_property_s_always.sv:29: syntax error\ntests/ch16/test_illegal_recursive_property_s_always.sv:29: error: Invalid module instantiation\ntests/ch16/test_illegal_recursive_property_s_always.sv:32: error: Invalid module item.\n"
+      },
+      {
+        "source": "Pinned verilator diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "%Error-UNSUPPORTED: tests/ch16/test_illegal_recursive_property_s_always.sv:28:12: Unsupported: Recursive property call: 'p_hold'\n                                                                                : ... note: In instance 'test_illegal_recursive_property_s_always'\n   28 |   property p_hold(p);\n      |            ^~~~~~\n                    ... For error description see https://verilator.org/warn/UNSUPPORTED?v=5.052\n%Error: Exiting due to 1 error(s)\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch16/test_illegal_recursive_property_s_eventually.sv",
+    "diagnostic": "tests/ch16/test_illegal_recursive_property_s_eventually.sv:29:21: error: recursive property instance cannot have the operators 'not', 's_nexttime', 's_eventually', 's_always', 's_until', or 's_until_with' applied to it",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch16/test_illegal_recursive_property_s_eventually.sv:28: syntax error\ntests/ch16/test_illegal_recursive_property_s_eventually.sv:28: error: Invalid module item.\ntests/ch16/test_illegal_recursive_property_s_eventually.sv:29: syntax error\ntests/ch16/test_illegal_recursive_property_s_eventually.sv:29: error: Invalid module instantiation\ntests/ch16/test_illegal_recursive_property_s_eventually.sv:32: error: Invalid module item.\n"
+      },
+      {
+        "source": "Pinned verilator diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "%Error-UNSUPPORTED: tests/ch16/test_illegal_recursive_property_s_eventually.sv:28:12: Unsupported: Recursive property call: 'p_hold'\n                                                                                    : ... note: In instance 'test_illegal_recursive_property_s_eventually'\n   28 |   property p_hold(p);\n      |            ^~~~~~\n                    ... For error description see https://verilator.org/warn/UNSUPPORTED?v=5.052\n%Error: Exiting due to 1 error(s)\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch16/test_illegal_recursive_property_s_nexttime.sv",
+    "diagnostic": "tests/ch16/test_illegal_recursive_property_s_nexttime.sv:29:21: error: recursive property instance cannot have the operators 'not', 's_nexttime', 's_eventually', 's_always', 's_until', or 's_until_with' applied to it",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch16/test_illegal_recursive_property_s_nexttime.sv:28: syntax error\ntests/ch16/test_illegal_recursive_property_s_nexttime.sv:28: error: Invalid module item.\ntests/ch16/test_illegal_recursive_property_s_nexttime.sv:29: syntax error\ntests/ch16/test_illegal_recursive_property_s_nexttime.sv:29: error: Invalid module instantiation\ntests/ch16/test_illegal_recursive_property_s_nexttime.sv:32: error: Invalid module item.\n"
+      },
+      {
+        "source": "Pinned verilator diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "%Error-UNSUPPORTED: tests/ch16/test_illegal_recursive_property_s_nexttime.sv:32:52: Unsupported: s_nexttime (in property expression)\n   32 |   a_strong: assert property (@(posedge clk) go |-> s_nexttime p_hold(x));   \n      |                                                    ^~~~~~~~~~\n                    ... For error description see https://verilator.org/warn/UNSUPPORTED?v=5.052\n%Error: Exiting due to 1 error(s)\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch16/test_illegal_recursive_property_s_until.sv",
+    "diagnostic": "tests/ch16/test_illegal_recursive_property_s_until.sv:29:21: error: recursive property instance cannot have the operators 'not', 's_nexttime', 's_eventually', 's_always', 's_until', or 's_until_with' applied to it",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch16/test_illegal_recursive_property_s_until.sv:28: syntax error\ntests/ch16/test_illegal_recursive_property_s_until.sv:28: error: Invalid module item.\ntests/ch16/test_illegal_recursive_property_s_until.sv:29: syntax error\ntests/ch16/test_illegal_recursive_property_s_until.sv:29: error: Invalid module instantiation\ntests/ch16/test_illegal_recursive_property_s_until.sv:32: error: Invalid module item.\n"
+      },
+      {
+        "source": "Pinned verilator diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "%Error-UNSUPPORTED: tests/ch16/test_illegal_recursive_property_s_until.sv:28:12: Unsupported: Recursive property call: 'p_hold'\n                                                                               : ... note: In instance 'test_illegal_recursive_property_s_until'\n   28 |   property p_hold(p);\n      |            ^~~~~~\n                    ... For error description see https://verilator.org/warn/UNSUPPORTED?v=5.052\n%Error: Exiting due to 1 error(s)\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch16/test_illegal_recursive_property_s_until_with.sv",
+    "diagnostic": "tests/ch16/test_illegal_recursive_property_s_until_with.sv:29:21: error: recursive property instance cannot have the operators 'not', 's_nexttime', 's_eventually', 's_always', 's_until', or 's_until_with' applied to it",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch16/test_illegal_recursive_property_s_until_with.sv:28: syntax error\ntests/ch16/test_illegal_recursive_property_s_until_with.sv:28: error: Invalid module item.\ntests/ch16/test_illegal_recursive_property_s_until_with.sv:29: syntax error\ntests/ch16/test_illegal_recursive_property_s_until_with.sv:29: error: Invalid module instantiation\ntests/ch16/test_illegal_recursive_property_s_until_with.sv:32: error: Invalid module item.\n"
+      },
+      {
+        "source": "Pinned verilator diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "%Error-UNSUPPORTED: tests/ch16/test_illegal_recursive_property_s_until_with.sv:28:12: Unsupported: Recursive property call: 'p_hold'\n                                                                                    : ... note: In instance 'test_illegal_recursive_property_s_until_with'\n   28 |   property p_hold(p);\n      |            ^~~~~~\n                    ... For error description see https://verilator.org/warn/UNSUPPORTED?v=5.052\n%Error: Exiting due to 1 error(s)\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch16/test_illegal_sequence_local_output_unassigned.sv",
+    "diagnostic": "tests/ch16/test_illegal_sequence_local_output_unassigned.sv:28:37: error: output formal argument 'v' is not definitely assigned at the end of the sequence",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch16/test_illegal_sequence_local_output_unassigned.sv:28: syntax error\ntests/ch16/test_illegal_sequence_local_output_unassigned.sv:28: error: Invalid module item.\ntests/ch16/test_illegal_sequence_local_output_unassigned.sv:29: syntax error\ntests/ch16/test_illegal_sequence_local_output_unassigned.sv:29: error: Invalid module item.\ntests/ch16/test_illegal_sequence_local_output_unassigned.sv:30: syntax error\ntests/ch16/test_illegal_sequence_local_output_unassigned.sv:32: error: Invalid module item.\ntests/ch16/test_illegal_sequence_local_output_unassigned.sv:34: syntax error\ntests/ch16/test_illegal_sequence_local_output_unassigned.sv:34: error: Invalid module instantiation\ntests/ch16/test_illegal_sequence_local_output_unassigned.sv:37: error: Invalid module item.\n"
+      },
+      {
+        "source": "Pinned verilator diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "%Error-UNSUPPORTED: tests/ch16/test_illegal_sequence_local_output_unassigned.sv:28:20: Unsupported: property port 'local'\n   28 |   sequence s_maybe(local output int v);\n      |                    ^~~~~\n                    ... For error description see https://verilator.org/warn/UNSUPPORTED?v=5.052\n%Error: tests/ch16/test_illegal_sequence_local_output_unassigned.sv:28:26: syntax error, unexpected output, expecting IDENTIFIER or IDENTIFIER-for-pathpulse or randomize\n   28 |   sequence s_maybe(local output int v);\n      |                          ^~~~~~\n        ... See the manual at https://verilator.org/verilator_doc.html?v=5.052 for more assistance.\n%Error: tests/ch16/test_illegal_sequence_local_output_unassigned.sv:34:16: syntax error, unexpected ##, expecting ';'\n   34 |     s_maybe(y) ##1 c;    \n      |                ^~\n%Error: Exiting due to 3 error(s)\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch20/test_illegal_pla_descending_memory.sv",
+    "diagnostic": "tests/ch20/test_illegal_pla_descending_memory.sv:22:22: error: must specify dimensions in ascending order for PLA input type 'logic[1:2]$[2:1]'",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned verilator diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "%Error: tests/ch20/test_illegal_pla_descending_memory.sv:22:5: Unsupported or unknown PLI call: '$async$and$array'\n   22 |     $async$and$array(mem, {a1, a2}, {b1, b2});\n      |     ^~~~~~~~~~~~~~~~\n        ... See the manual at https://verilator.org/verilator_doc.html?v=5.052 for more assistance.\n%Error: Exiting due to 1 error(s)\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch23/test_illegal_ansi_port_net_type_added_in_body.sv",
+    "diagnostic": "tests/ch23/test_illegal_ansi_port_net_type_added_in_body.sv:31:35: error: redefinition of 'a' [-Wredefinition]",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository"
+  },
+  {
+    "test": "tests/ch23/test_illegal_ansi_port_redeclared_in_body.sv",
+    "diagnostic": "tests/ch23/test_illegal_ansi_port_redeclared_in_body.sv:20:64: error: redefinition of 'q' [-Wredefinition]",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository"
+  },
+  {
+    "test": "tests/ch23/test_illegal_nonansi_net_port_redeclared.sv",
+    "diagnostic": "tests/ch23/test_illegal_nonansi_net_port_redeclared.sv:23:20: error: redefinition of 'a' with a different type: 'logic[3:0]' vs 'logic signed[3:0]' [-Wredefinition-different-type]",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository"
+  },
+  {
+    "test": "tests/ch23/test_illegal_nonansi_variable_port_redeclared.sv",
+    "diagnostic": "tests/ch23/test_illegal_nonansi_variable_port_redeclared.sv:24:14: error: redefinition of 'q' with a different type: 'reg' vs 'reg[3:0]' [-Wredefinition-different-type]",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository"
+  },
+  {
+    "test": "tests/ch25/test_illegal_modport_prototype_argument_count.sv",
+    "diagnostic": "tests/ch25/test_illegal_modport_prototype_argument_count.sv:26:16: error: definition of method 'sum' has different number of arguments from its prototype",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch25/test_illegal_modport_prototype_argument_count.sv:29: sorry: modport task/function ports are not yet supported.\ntests/ch25/test_illegal_modport_prototype_argument_count.sv:30: error: 'a' has already been declared in this scope.\ntests/ch25/test_illegal_modport_prototype_argument_count.sv:29:      : It was declared here as a variable.\ntests/ch25/test_illegal_modport_prototype_argument_count.sv:30: sorry: modport task/function ports are not yet supported.\ntests/ch25/test_illegal_modport_prototype_argument_count.sv:33: syntax error\ntests/ch25/test_illegal_modport_prototype_argument_count.sv:33: Errors in port declarations.\ntests/ch25/test_illegal_modport_prototype_argument_count.sv:37: syntax error\ntests/ch25/test_illegal_modport_prototype_argument_count.sv:37: Errors in port declarations.\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch25/test_illegal_modport_prototype_type_not_matching.sv",
+    "diagnostic": "tests/ch25/test_illegal_modport_prototype_type_not_matching.sv:27:32: error: method argument 'v' is of type 'int' which differs from 'bit signed[0:31]' given in its prototype",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch25/test_illegal_modport_prototype_type_not_matching.sv:30: sorry: modport task/function ports are not yet supported.\ntests/ch25/test_illegal_modport_prototype_type_not_matching.sv:31: error: 'v' has already been declared in this scope.\ntests/ch25/test_illegal_modport_prototype_type_not_matching.sv:30:      : It was declared here as a variable.\ntests/ch25/test_illegal_modport_prototype_type_not_matching.sv:31: sorry: modport task/function ports are not yet supported.\ntests/ch25/test_illegal_modport_prototype_type_not_matching.sv:34: syntax error\ntests/ch25/test_illegal_modport_prototype_type_not_matching.sv:34: Errors in port declarations.\ntests/ch25/test_illegal_modport_prototype_type_not_matching.sv:38: syntax error\ntests/ch25/test_illegal_modport_prototype_type_not_matching.sv:38: Errors in port declarations.\n"
+      }
+    ]
+  },
+  {
+    "test": "tests/ch26/test_illegal_local_declaration_after_import.sv",
+    "diagnostic": "tests/ch26/test_illegal_local_declaration_after_import.sv:25:14: error: import of 'limit' collides with an existing declaration",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository"
+  },
+  {
+    "test": "tests/ch26/test_illegal_search_order_explicit_after_wildcard_reference.sv",
+    "diagnostic": "tests/ch26/test_illegal_search_order_explicit_after_wildcard_reference.sv:35:25: error: import of 'limit' collides with an existing declaration",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository"
+  },
+  {
+    "test": "tests/ch26/test_illegal_search_order_local_after_wildcard_reference.sv",
+    "diagnostic": "tests/ch26/test_illegal_search_order_local_after_wildcard_reference.sv:30:30: error: import of 'base' collides with an existing declaration",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository"
+  },
+  {
+    "test": "tests/ch29/test_illegal_udp_table_without_endtable.sv",
+    "diagnostic": "tests/ch29/test_illegal_udp_table_without_endtable.sv:23:11: error: expected 'endtable'",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository"
+  },
+  {
+    "test": "tests/ch9/test_illegal_function_contains_fork_join.sv",
+    "diagnostic": "tests/ch9/test_illegal_function_contains_fork_join.sv:27:5: error: statements that pass time are not allowed in this context",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository"
+  },
+  {
+    "test": "tests/ch9/test_illegal_function_contains_fork_join_any.sv",
+    "diagnostic": "tests/ch9/test_illegal_function_contains_fork_join_any.sv:27:5: error: statements that pass time are not allowed in this context",
+    "source": "Nightly run 40333187203; kirimasim 5563871fcd96; path normalized relative to repository"
+  },
+  {
+    "test": "tests/ch33/test_illegal_config_design_is_config.sv",
+    "diagnostic": "tests/ch33/test_illegal_config_design_is_config.sv:32:10: error: 'work.cfgdc_inner' is not a valid top-level module",
+    "source": "Local kirimasim a2aa75737147 with --top=cfgdc"
+  },
+  {
+    "test": "tests/ch33/test_illegal_config_instance_inside_other_config.sv",
+    "diagnostic": "tests/ch33/test_illegal_config_instance_inside_other_config.sv:42:3: error: config instance rule applies to an instance that is within a hierarchy specified by another config",
+    "source": "Local kirimasim a2aa75737147 with --top=cfgio"
+  },
+  {
+    "test": "tests/ch20/test_illegal_bits_function_dynamic_return.sv",
+    "diagnostic": "tests/ch20/test_illegal_bits_function_dynamic_return.sv:23: error: $bits cannot enclose a function returning a dynamically sized type",
+    "source": "Synthetic diagnostic for the intended IEEE 1800-2023 20.6.2 violation; not simulator evidence",
+    "rejected_diagnostics": [
+      {
+        "source": "Pinned icarus diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "tests/ch20/test_illegal_bits_function_dynamic_return.sv:19: syntax error\ntests/ch20/test_illegal_bits_function_dynamic_return.sv:19: error: I give up on this function definition.\n"
+      },
+      {
+        "source": "Pinned verilator diagnostic before correction; unsupported/syntax failure is not the intended rule",
+        "message": "%Error: tests/ch20/test_illegal_bits_function_dynamic_return.sv:19:15: syntax error, unexpected '['\n   19 |   function int[] f();\n      |               ^\n        ... See the manual at https://verilator.org/verilator_doc.html?v=5.052 for more assistance.\n%Error: Exiting due to 1 error(s)\n"
+      }
+    ]
+  }
+]

@@ -4,12 +4,12 @@
 :tags: ch25
 :type: elaboration
 :lrm: 1800-2023 25.7 6.22.1
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the prototype of twice in the modport bad has an argument of type bit signed [0:31], which is equivalent to int but does not match it
-:expected_stderr_regex: test_illegal_modport_prototype_type_not_matching\.sv:31:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_modport_prototype_type_not_matching\.sv:(?:27|31):(?:\d+:)?[^\n]*(?i:(?:argument|parameter)[^\n]*type[^\n]*(?:differ|match|mismatch)|type[^\n]*(?:differ|match|mismatch)[^\n]*(?:argument|parameter))
 */
 // IEEE 1800-2023 §25.7: the types of the arguments of a prototype shall match
 // the argument types of the declaration, by the rules of type matching of

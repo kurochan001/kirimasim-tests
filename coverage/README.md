@@ -141,6 +141,10 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
   Icarus 13.0とVerilator 5.052（seed 1/73）とも3 knownです。
 - `results/sva-m3-corrections-20261026-*.json`: 独立SVA参照評価器で見つかった期待値・説明の誤り2本を、ユーザー承認後に修正した再実行。
   Icarus 13.0とVerilator 5.052のseed 1/73とも2 knownです。参照評価器との一致は実行確認率に含めません。
+- `results/nightly-suite-corrections-20261027-*.json`: Nightlyの診断不一致等から修正した28本と既存のpacked union負例1本の再実行。
+  Icarus 13.0は9 pass・20 known、Verilator 5.052はseed 1/73とも8 pass・21 knownです。
+  ローカルkirimasimは27 pass・1 unsupported・1 failで、違法系の固定版oracleとして認定していません。
+  [修正根拠・11本のoracle取り消し・残件](../docs/nightly-suite-corrections-20261027.md)を参照してください。
 - `behavior-summary.json`: 現在の暫定値・確定値、章別の割合、分母SHA-256、
   シミュレータごとの失敗・既知不一致・未対応・未実行・古い証跡などの内訳。
   `--update`で概要Markdownとともに再生成し、`--check`で両方の鮮度を検査します。

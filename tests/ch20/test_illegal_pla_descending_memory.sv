@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the personality memory mem of $async$and$array is declared [2:1]
-:expected_stderr_regex: test_illegal_pla_descending_memory\.sv:18:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_pla_descending_memory\.sv:(?:18|22):(?:\d+:)?[^\n]*(?i:ascending|descending)
 */
 // PLA input terms, output terms and the personality memory shall be
 // specified in ascending order. The memory here is declared [2:1].

@@ -13,16 +13,18 @@
 // IEEE 1800-2023 footnote 17 of A.10: a packed dimension with struct needs
 // the packed keyword, and one with union needs soft and/or packed. §7.3.1:
 // the members of a packed union share the same bits, and a packed dimension
-// after the type makes an array of the type. Footnote 20 of A.10: a void
-// member is allowed only in a tagged union, and a rand qualifier only in an
+// after the type makes an array of the type. Both hard union members have
+// six bits (7.3.1). Footnote 20 of A.10: a void member is allowed only in a
+// tagged union, and a rand qualifier only in an
 // unpacked structure. §7.3.2: a tagged union member with void has no value.
 //
 // sp is a two-element packed array of a packed struct of 4 + 2 bits, so it is
 // 12 bits: sp[0] is 6'b101001 and sp[1] is 6'b010110, and sp is 12'h5A9. up is
 // a two-element packed array of a packed union of 6 bits, so it is 12 bits:
 // up[0] is 6'h2A and up[1] is 6'h15, and up is 12'h56A. tu = tagged None takes
-// the void member, so tu matches None. Randomizing the unpacked struct us with
-// us.ra == 3 returns 1 and gives ra the value 3.
+// the void member, so an if pattern match sets is_none (12.6.2).
+// Randomizing the unpacked struct us with us.ra == 3 returns 1 and gives ra
+// the value 3.
 //
 // Neither Icarus Verilog 13.0 nor Verilator 5.052 supports tagged unions, and
 // neither supports every declaration here, so this expected output follows
@@ -32,11 +34,12 @@
 
 module test_packed_struct_union_dimensions_and_rand_member;
   struct packed { logic [3:0] a; logic [1:0] b; } [1:0] sp;
-  union packed { logic [5:0] all; logic [2:0] part; } [1:0] up;
+  union packed { logic [5:0] all; logic [5:0] part; } [1:0] up;
   typedef union tagged { void None; int Some; } tu_t;
   tu_t tu;
   struct { rand int ra; } us;
   int ok;
+  bit is_none;
 
   initial begin
     sp[0].a = 4'hA;
@@ -46,8 +49,10 @@ module test_packed_struct_union_dimensions_and_rand_member;
     up[0].all = 6'h2A;
     up[1].all = 6'h15;
     tu = tagged None;
+    if (tu matches tagged None) is_none = 1;
+    else is_none = 0;
     ok = std::randomize(us) with { us.ra == 3; };
     $display("packed %0d %0d %h %h", $bits(sp), $bits(up), sp, up);
-    $display("tag %0d rand %0d %0d", tu matches tagged None, ok, us.ra);
+    $display("tag %0d rand %0d %0d", is_none, ok, us.ra);
   end
 endmodule

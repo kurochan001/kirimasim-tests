@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: limit is resolved through the wildcard import of se_q and then explicitly imported from se_p
-:expected_stderr_regex: test_illegal_search_order_explicit_after_wildcard_reference\.sv:37:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_search_order_explicit_after_wildcard_reference\.sv:(?:35|37):(?:\d+:)?[^\n]*(?i:import[^\n]*(?:collid|conflict)|already[^\n]*import)
 */
 // IEEE 1800-2023 §26.5: a reference to an identifier that is found only
 // through a wildcard import imports it into the scope of the import; a later

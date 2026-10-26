@@ -4,12 +4,12 @@
 :tags: ch16
 :type: elaboration
 :lrm: 1800-2023 16.12.17 16.12.12
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the strong operator s_until is applied to an instance of the recursive property p_hold
-:expected_stderr_regex: test_illegal_recursive_property_s_until\.sv:32:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_recursive_property_s_until\.sv:(?:29|32):(?:\d+:)?[^\n]*(?i:recursive[^\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\n]*recursive)
 */
 // IEEE 1800-2023 §16.12.17, restriction 1: the strong operators, among them
 // s_until (§16.12.12), shall not be applied to a property expression that

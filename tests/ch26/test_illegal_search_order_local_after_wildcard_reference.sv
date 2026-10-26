@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the package sw_user declares base after its wildcard import of sw_q was used to resolve base
-:expected_stderr_regex: test_illegal_search_order_local_after_wildcard_reference\.sv:32:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_search_order_local_after_wildcard_reference\.sv:(?:30|32):(?:\d+:)?[^\n]*(?i:import[^\n]*(?:collid|conflict)|already[^\n]*import)
 */
 // IEEE 1800-2023 §26.5: when a scope has a wildcard import, a reference to an
 // identifier that is not otherwise defined and that the package declares

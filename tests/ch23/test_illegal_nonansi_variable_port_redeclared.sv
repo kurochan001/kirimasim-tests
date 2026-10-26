@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the port q is declared as output reg, which includes a variable type, and is declared again by the variable declaration reg [3:0] q
-:expected_stderr_regex: test_illegal_nonansi_variable_port_redeclared\.sv:26:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_nonansi_variable_port_redeclared\.sv:(?:24|26):(?:\d+:)?[^\n]*(?i:redefinition|duplicate|already[^\n]*declared)
 */
 // IEEE 1800-2023 §23.2.2.1: if a port declaration includes a net or
 // variable type, the port is completely declared, and declaring it again

@@ -4,12 +4,12 @@
 :tags: ch16
 :type: elaboration
 :lrm: 1800-2023 16.8.2
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the match of s_maybe through b completes with the local output formal v unassigned
-:expected_stderr_regex: test_illegal_sequence_local_output_unassigned\.sv:(29|34):
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_sequence_local_output_unassigned\.sv:(?:28|29|34):(?:\d+:)?[^\n]*(?i:(?:output|inout)[^\n]*(?:unassigned|not[^\n]*assigned)|(?:unassigned|not[^\n]*assigned)[^\n]*(?:output|inout))
 */
 // IEEE 1800-2023 §16.8.2: a local output formal starts each attempt
 // unassigned, and it is an error if some match of the named sequence

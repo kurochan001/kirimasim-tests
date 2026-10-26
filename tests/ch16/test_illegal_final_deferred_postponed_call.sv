@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the final deferred action of a1 calls set_flag, which assigns flag, and no value may be written in the Postponed region
-:expected_stderr_regex: test_illegal_final_deferred_postponed_call\.sv:29:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_final_deferred_postponed_call\.sv:(?:25|29):(?:\d+:)?[^\n]*(?i:(?:write|assign|event)[^\n]*postponed|postponed[^\n]*(?:write|assign|event))
 */
 // IEEE 1800-2023 §16.4, §16.4.1 and §4.4.2.9: the subroutine of a final
 // deferred assertion runs in the Postponed region, so it shall be one that

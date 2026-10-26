@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "9d4c0e255366f1e2f06a6fd045532168d0a91db33a7f15a2c7a5669593f0f09c",
+  "registry_sha256": "043febc0826e175c8ed18efcad32227adc08779028faa3b1e693ef8064c0f2e7",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -46,14 +46,14 @@
   "denominator_reviewed": false,
   "extraction_progress_percent": 98.825601879037,
   "unmapped": 1885,
-  "executed": 5727,
+  "executed": 5722,
   "whole_standard_percent": null,
   "whole_standard_executed_percent": null,
   "registered_percent": 84.6984333143924,
   "metric_policy_version": 3,
   "whole_standard_status": "provisional",
   "provisional_design_percent": 84.6984333143924,
-  "provisional_execution_percent": 46.489163081418944,
+  "provisional_execution_percent": 46.448575371377544,
   "denominator": {
     "count": 12319,
     "unit": "registered_requirement_condition_or_observation",
@@ -69,8 +69,8 @@
   },
   "collective_requirement_count": 647,
   "requirement_status_counts": {
-    "pass": 5727,
-    "mapped_without_pass": 4707,
+    "pass": 5722,
+    "mapped_without_pass": 4712,
     "unmapped": 1864,
     "interpretation_pending": 21
   },
@@ -230,9 +230,9 @@
       "title": "Assertions",
       "registered": 555,
       "mapped": 480,
-      "executed": 107,
+      "executed": 103,
       "design_percent": 86.48648648648648,
-      "execution_percent": 19.27927927927928,
+      "execution_percent": 18.55855855855856,
       "interpretation_pending": 1
     },
     {
@@ -360,9 +360,9 @@
       "title": "User-defined primitives",
       "registered": 52,
       "mapped": 49,
-      "executed": 38,
+      "executed": 37,
       "design_percent": 94.23076923076923,
-      "execution_percent": 73.07692307692308,
+      "execution_percent": 71.15384615384616,
       "interpretation_pending": 0
     },
     {
@@ -1907,9 +1907,7 @@
           "SV2023-23.2.1-EXTRACT-HEADER-STYLES",
           "SV2023-23.2.1-EXTRACT-MODULE-HEADER-FIELDS",
           "SV2023-23.2.2.1-EXTRACT-NONANSI-BODY-DECLARATION",
-          "SV2023-23.2.2.1-EXTRACT-NONANSI-COMPLETE-DECLARATION",
           "SV2023-23.2.2.1-EXTRACT-NONANSI-IMPLICIT-EXPLICIT",
-          "SV2023-23.2.2.2-EXTRACT-ANSI-NO-REDECLARE",
           "SV2023-23.2.2.2-EXTRACT-NO-MIXED-HEADER",
           "SV2023-23.2.2.3-EXTRACT-FIRST-DIRECTION",
           "SV2023-23.2.2.3-EXTRACT-HEADER-INFERENCE",
@@ -1966,7 +1964,6 @@
           "SV2023-26.2-EXTRACT-PACKAGE-TIMEUNIT-FOOTNOTE",
           "SV2023-26.3-EXTRACT-EXPLICIT-IMPORT-COLLISION",
           "SV2023-26.3-EXTRACT-EXPLICIT-IMPORT-ONLY",
-          "SV2023-26.3-EXTRACT-LATE-DECLARATION-COLLISION",
           "SV2023-26.3-EXTRACT-LEXICAL-SEARCH-END",
           "SV2023-26.3-EXTRACT-NO-CLASS-IMPORT",
           "SV2023-26.3-EXTRACT-PACKAGE-COMPILE-ORDER",
@@ -1978,7 +1975,6 @@
           "SV2023-26.5-EXTRACT-EXPLICIT-NONE",
           "SV2023-26.5-EXTRACT-QUALIFIED-EXPLICIT-Q",
           "SV2023-26.5-EXTRACT-QUALIFIED-WILDCARD-Q",
-          "SV2023-26.5-EXTRACT-REFERENCED-WILDCARD-CONFLICT",
           "SV2023-26.5-EXTRACT-WILDCARD-EXPLICIT-Q",
           "SV2023-26.5-EXTRACT-WILDCARD-LOCAL",
           "SV2023-26.5-EXTRACT-WILDCARD-NONE",
@@ -2285,7 +2281,6 @@
           "SV2023-29.3.2-EXTRACT-UDP-TERMINALS",
           "SV2023-29.3.3-EXTRACT-UDP-INITIAL-ASSIGNMENT",
           "SV2023-29.3.4-EXTRACT-COMBINATIONAL-FIELDS",
-          "SV2023-29.3.4-EXTRACT-UDP-TABLE-DELIMITERS",
           "SV2023-29.3.4-EXTRACT-UDP-UNSPECIFIED-X",
           "SV2023-29.3.6-EXTRACT-SYMBOL-0",
           "SV2023-29.3.6-EXTRACT-SYMBOL-1",
@@ -3782,14 +3777,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 314,
+        "stale_links": 327,
         "status_counts": {
-          "pass": 2849,
+          "pass": 2844,
           "fail": 0,
-          "known": 6560,
+          "known": 6556,
           "unsupported": 0,
           "unreviewed_oracle": 75,
-          "stale": 182,
+          "stale": 191,
           "not_run": 768,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -3833,9 +3828,6 @@
           "SV2023-16.11-EXTRACT-LOCAL-CALL-ARGUMENT",
           "SV2023-16.11-EXTRACT-NO-EMPTY-CALL",
           "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
-          "SV2023-16.12.1-EXTRACT-INSTANCE-LEGALITY",
-          "SV2023-16.12.17-EXTRACT-NO-DEPENDENT-NEGATION",
-          "SV2023-16.12.17-EXTRACT-NO-NEGATION-STRONG",
           "SV2023-16.12.17-EXTRACT-NO-RECURSIVE-DISABLE",
           "SV2023-16.12.17-EXTRACT-POSITIVE-TIME",
           "SV2023-16.12.17-EXTRACT-RECURSIVE-ACTUALS",
@@ -3864,7 +3856,6 @@
           "SV2023-16.8.2-EXTRACT-METHOD-INPUT-RESTRICTION",
           "SV2023-16.8.2-EXTRACT-NO-EMPTY-OUTPUT",
           "SV2023-16.8.2-EXTRACT-NO-OUTPUT-ALIAS",
-          "SV2023-16.8.2-EXTRACT-OUTPUT-DEFINITE-ASSIGNMENT",
           "SV2023-16.9.11-EXTRACT-TRIGGERED-CLOCK",
           "SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS",
           "SV2023-16.9.3-EXTRACT-DISABLE-CLOCK-EXPLICIT",
@@ -3937,15 +3928,15 @@
           "SV2023-9.4.1-EXTRACT-NEGATIVE-DELAY-UNSIGNED",
           "SV2023-9.7-EXTRACT-NO-PROCESS-EXTENSION"
         ],
-        "stale_links": 2,
+        "stale_links": 13,
         "status_counts": {
-          "pass": 135,
+          "pass": 131,
           "fail": 0,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 2,
-          "not_run": 10297,
+          "stale": 7,
+          "not_run": 10296,
           "unmapped": 1864,
           "interpretation_pending": 21
         }
@@ -3973,14 +3964,14 @@
           "SV2023-8.13-EXTRACT-OVERRIDE-METHOD",
           "SV2023-8.22-EXTRACT-RUNTIME-DISPATCH"
         ],
-        "stale_links": 300,
+        "stale_links": 303,
         "status_counts": {
           "pass": 16,
           "fail": 0,
-          "known": 4110,
+          "known": 4107,
           "unsupported": 0,
           "unreviewed_oracle": 21,
-          "stale": 198,
+          "stale": 201,
           "not_run": 6089,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -4004,14 +3995,14 @@
           "SV2023-8.13-EXTRACT-OVERRIDE-METHOD",
           "SV2023-8.22-EXTRACT-RUNTIME-DISPATCH"
         ],
-        "stale_links": 300,
+        "stale_links": 303,
         "status_counts": {
           "pass": 11,
           "fail": 0,
-          "known": 4115,
+          "known": 4112,
           "unsupported": 0,
           "unreviewed_oracle": 21,
-          "stale": 198,
+          "stale": 201,
           "not_run": 6089,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -4893,9 +4884,7 @@
           "SV2023-23.10.2.2-EXTRACT-NO-MIXED-PARAMETER-INSTANCE",
           "SV2023-23.2-EXTRACT-MODULE-DELIMITERS",
           "SV2023-23.2.2.1-EXTRACT-NONANSI-BODY-DECLARATION",
-          "SV2023-23.2.2.1-EXTRACT-NONANSI-COMPLETE-DECLARATION",
           "SV2023-23.2.2.1-EXTRACT-NONANSI-IMPLICIT-EXPLICIT",
-          "SV2023-23.2.2.2-EXTRACT-ANSI-NO-REDECLARE",
           "SV2023-23.2.2.2-EXTRACT-NO-MIXED-HEADER",
           "SV2023-23.2.4-EXTRACT-REPEATED-TIMEUNIT-ITEM",
           "SV2023-23.3.2-EXTRACT-INSTANCE-PARENTHESES",
@@ -4909,7 +4898,6 @@
           "SV2023-26.2-EXTRACT-PACKAGE-TIMEUNIT-FOOTNOTE",
           "SV2023-26.5-EXTRACT-EXPLICIT-EXPLICIT-Q",
           "SV2023-26.5-EXTRACT-EXPLICIT-LOCAL",
-          "SV2023-26.5-EXTRACT-REFERENCED-WILDCARD-CONFLICT",
           "SV2023-27.3-EXTRACT-GENERATE-CONSTANT-ELABORATION",
           "SV2023-27.3-EXTRACT-GENERATE-OPTIONAL-REGION",
           "SV2023-27.5-EXTRACT-CONDITIONAL-NAME-REUSE",
@@ -5048,14 +5036,14 @@
           "SV2023-9.6-EXTRACT-PROCESS-CONTROL-RELATIONS",
           "SV2023-9.6.2-EXTRACT-SELF-DISABLE"
         ],
-        "stale_links": 212,
+        "stale_links": 218,
         "status_counts": {
-          "pass": 204,
+          "pass": 201,
           "fail": 0,
           "known": 583,
           "unsupported": 0,
           "unreviewed_oracle": 47,
-          "stale": 107,
+          "stale": 110,
           "not_run": 9493,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -5158,8 +5146,6 @@
           "SV2023-23.10.3-EXTRACT-PARAMETER-TYPE-DEPENDENCE",
           "SV2023-23.2-EXTRACT-MODULE-DELIMITERS",
           "SV2023-23.2.2.1-EXTRACT-NONANSI-BODY-DECLARATION",
-          "SV2023-23.2.2.1-EXTRACT-NONANSI-COMPLETE-DECLARATION",
-          "SV2023-23.2.2.2-EXTRACT-ANSI-NO-REDECLARE",
           "SV2023-23.3.2-EXTRACT-INSTANCE-PARENTHESES",
           "SV2023-23.3.2-EXTRACT-ONE-WILDCARD",
           "SV2023-23.3.2.3-EXTRACT-IMPLICIT-NO-NET",
@@ -5408,14 +5394,14 @@
           "SV2023-H.9.3-EXTRACT-SET-SCOPE",
           "SV2023-H.9.3-EXTRACT-USER-DATA"
         ],
-        "stale_links": 212,
+        "stale_links": 218,
         "status_counts": {
-          "pass": 340,
+          "pass": 338,
           "fail": 0,
-          "known": 452,
+          "known": 451,
           "unsupported": 0,
           "unreviewed_oracle": 26,
-          "stale": 121,
+          "stale": 124,
           "not_run": 9495,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -5518,8 +5504,6 @@
           "SV2023-23.10.3-EXTRACT-PARAMETER-TYPE-DEPENDENCE",
           "SV2023-23.2-EXTRACT-MODULE-DELIMITERS",
           "SV2023-23.2.2.1-EXTRACT-NONANSI-BODY-DECLARATION",
-          "SV2023-23.2.2.1-EXTRACT-NONANSI-COMPLETE-DECLARATION",
-          "SV2023-23.2.2.2-EXTRACT-ANSI-NO-REDECLARE",
           "SV2023-23.3.2-EXTRACT-INSTANCE-PARENTHESES",
           "SV2023-23.3.2-EXTRACT-ONE-WILDCARD",
           "SV2023-23.3.2.3-EXTRACT-IMPLICIT-NO-NET",
@@ -5768,14 +5752,14 @@
           "SV2023-H.9.3-EXTRACT-SET-SCOPE",
           "SV2023-H.9.3-EXTRACT-USER-DATA"
         ],
-        "stale_links": 212,
+        "stale_links": 218,
         "status_counts": {
-          "pass": 340,
+          "pass": 338,
           "fail": 0,
-          "known": 452,
+          "known": 451,
           "unsupported": 0,
           "unreviewed_oracle": 26,
-          "stale": 121,
+          "stale": 124,
           "not_run": 9495,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -6058,7 +6042,6 @@
           "SV2023-29.3-EXTRACT-UDP-INITIAL-LITERALS",
           "SV2023-29.3.2-EXTRACT-UDP-TERMINALS",
           "SV2023-29.3.3-EXTRACT-UDP-INITIAL-ASSIGNMENT",
-          "SV2023-29.3.4-EXTRACT-UDP-TABLE-DELIMITERS",
           "SV2023-29.3.6-EXTRACT-SYMBOL-0",
           "SV2023-29.3.6-EXTRACT-SYMBOL-1",
           "SV2023-29.3.6-EXTRACT-SYMBOL-ANY",
@@ -6422,14 +6405,14 @@
           "SV2023-8.15-EXTRACT-NO-SUPER-SUPER",
           "SV2023-8.7-EXTRACT-PROPERTY-INITIALIZATION"
         ],
-        "stale_links": 25,
+        "stale_links": 26,
         "status_counts": {
-          "pass": 634,
+          "pass": 633,
           "fail": 0,
           "known": 1396,
           "unsupported": 0,
           "unreviewed_oracle": 7,
-          "stale": 22,
+          "stale": 23,
           "not_run": 8375,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -6567,7 +6550,6 @@
           "SV2023-29.3-EXTRACT-UDP-PORT-GRAMMAR",
           "SV2023-29.3.1-EXTRACT-UDP-HEADER-FORMS",
           "SV2023-29.3.4-EXTRACT-UDP-INPUT-FIELD-ORDER",
-          "SV2023-29.3.4-EXTRACT-UDP-TABLE-DELIMITERS",
           "SV2023-29.3.6-EXTRACT-SYMBOL-ANY",
           "SV2023-29.3.6-EXTRACT-SYMBOL-BINARY",
           "SV2023-29.7-EXTRACT-UDP-INITIAL-TARGET",
@@ -6814,14 +6796,14 @@
           "SV2023-8.8-EXTRACT-CLASS-NEW-FORMS",
           "SV2023-8.8-EXTRACT-TYPED-NEW-SPECIALIZATION"
         ],
-        "stale_links": 25,
+        "stale_links": 26,
         "status_counts": {
-          "pass": 372,
+          "pass": 371,
           "fail": 0,
           "known": 1656,
           "unsupported": 0,
           "unreviewed_oracle": 5,
-          "stale": 24,
+          "stale": 25,
           "not_run": 8377,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -6959,7 +6941,6 @@
           "SV2023-29.3-EXTRACT-UDP-PORT-GRAMMAR",
           "SV2023-29.3.1-EXTRACT-UDP-HEADER-FORMS",
           "SV2023-29.3.4-EXTRACT-UDP-INPUT-FIELD-ORDER",
-          "SV2023-29.3.4-EXTRACT-UDP-TABLE-DELIMITERS",
           "SV2023-29.3.6-EXTRACT-SYMBOL-ANY",
           "SV2023-29.3.6-EXTRACT-SYMBOL-BINARY",
           "SV2023-29.7-EXTRACT-UDP-INITIAL-TARGET",
@@ -7206,14 +7187,14 @@
           "SV2023-8.8-EXTRACT-CLASS-NEW-FORMS",
           "SV2023-8.8-EXTRACT-TYPED-NEW-SPECIALIZATION"
         ],
-        "stale_links": 25,
+        "stale_links": 26,
         "status_counts": {
-          "pass": 372,
+          "pass": 371,
           "fail": 0,
           "known": 1656,
           "unsupported": 0,
           "unreviewed_oracle": 5,
-          "stale": 24,
+          "stale": 25,
           "not_run": 8377,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -7428,14 +7409,14 @@
           "SV2023-A.9.3-EXTRACT-SYSTEM",
           "SV2023-A.9.4-EXTRACT-WHITESPACE"
         ],
-        "stale_links": 8,
+        "stale_links": 10,
         "status_counts": {
           "pass": 202,
           "fail": 0,
-          "known": 182,
+          "known": 181,
           "unsupported": 0,
           "unreviewed_oracle": 2,
-          "stale": 7,
+          "stale": 8,
           "not_run": 10041,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -7577,7 +7558,6 @@
           "SV2023-8.26.2-EXTRACT-EXTENDS-VERSUS-IMPLEMENTS",
           "SV2023-9.2.2.2-EXTRACT-INDEPENDENT-ELEMENT-WRITERS",
           "SV2023-9.2.2.2.1-EXTRACT-ANALYZE-QUALIFIED-FUNCTIONS",
-          "SV2023-9.3.2-EXTRACT-FUNCTION-FORK-RESTRICTIONS",
           "SV2023-9.3.2-EXTRACT-NO-RETURN-FROM-FORK",
           "SV2023-9.3.4-EXTRACT-NAMED-SCOPE",
           "SV2023-9.3.5-EXTRACT-GENERATE-LABEL",
@@ -7595,14 +7575,14 @@
           "SV2023-A.9.3-EXTRACT-SYSTEM",
           "SV2023-A.9.4-EXTRACT-WHITESPACE"
         ],
-        "stale_links": 8,
+        "stale_links": 10,
         "status_counts": {
-          "pass": 147,
+          "pass": 146,
           "fail": 0,
           "known": 239,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 8,
+          "stale": 9,
           "not_run": 10040,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -7744,7 +7724,6 @@
           "SV2023-8.26.2-EXTRACT-EXTENDS-VERSUS-IMPLEMENTS",
           "SV2023-9.2.2.2-EXTRACT-INDEPENDENT-ELEMENT-WRITERS",
           "SV2023-9.2.2.2.1-EXTRACT-ANALYZE-QUALIFIED-FUNCTIONS",
-          "SV2023-9.3.2-EXTRACT-FUNCTION-FORK-RESTRICTIONS",
           "SV2023-9.3.2-EXTRACT-NO-RETURN-FROM-FORK",
           "SV2023-9.3.4-EXTRACT-NAMED-SCOPE",
           "SV2023-9.3.5-EXTRACT-GENERATE-LABEL",
@@ -7762,14 +7741,14 @@
           "SV2023-A.9.3-EXTRACT-SYSTEM",
           "SV2023-A.9.4-EXTRACT-WHITESPACE"
         ],
-        "stale_links": 8,
+        "stale_links": 10,
         "status_counts": {
-          "pass": 147,
+          "pass": 146,
           "fail": 0,
           "known": 239,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 8,
+          "stale": 9,
           "not_run": 10040,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -9100,14 +9079,14 @@
           "SV2023-A.9.3-EXTRACT-ALIAS-UDP-IDENTIFIER",
           "SV2023-A.9.3-EXTRACT-PARAMETER-SCOPE"
         ],
-        "stale_links": 19,
+        "stale_links": 21,
         "status_counts": {
           "pass": 67,
           "fail": 0,
-          "known": 321,
+          "known": 319,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 19,
+          "stale": 21,
           "not_run": 10027,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -9322,14 +9301,14 @@
           "SV2023-A.9.3-EXTRACT-PACKAGE-SCOPE",
           "SV2023-A.9.3-EXTRACT-TYPE-SCOPE"
         ],
-        "stale_links": 19,
+        "stale_links": 21,
         "status_counts": {
           "pass": 202,
           "fail": 0,
-          "known": 185,
+          "known": 183,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 19,
+          "stale": 21,
           "not_run": 10028,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -9544,14 +9523,14 @@
           "SV2023-A.9.3-EXTRACT-PACKAGE-SCOPE",
           "SV2023-A.9.3-EXTRACT-TYPE-SCOPE"
         ],
-        "stale_links": 19,
+        "stale_links": 21,
         "status_counts": {
           "pass": 202,
           "fail": 0,
-          "known": 185,
+          "known": 183,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 19,
+          "stale": 21,
           "not_run": 10028,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -12037,7 +12016,6 @@
           "SV2023-23.3.2.4-EXTRACT-PER-INSTANCE-STYLES",
           "SV2023-23.3.3.8-PORT-SIGNEDNESS",
           "SV2023-24.3-EXTRACT-PROGRAM-PORTS",
-          "SV2023-26.3-EXTRACT-LATE-DECLARATION-COLLISION",
           "SV2023-26.3-EXTRACT-WILDCARD-AMBIGUITY",
           "SV2023-26.4-EXTRACT-HEADER-PACKAGE-IMPORT",
           "SV2023-27.4-EXTRACT-GENVAR-ELABORATION-ONLY",
@@ -12552,14 +12530,14 @@
           "SV2023-9.6.2-EXTRACT-DISABLE-RESUME",
           "SV2023-9.6.3-EXTRACT-DISABLE-FORK-SYNTAX"
         ],
-        "stale_links": 96,
+        "stale_links": 98,
         "status_counts": {
-          "pass": 937,
+          "pass": 936,
           "fail": 0,
-          "known": 1894,
+          "known": 1893,
           "unsupported": 0,
           "unreviewed_oracle": 11,
-          "stale": 55,
+          "stale": 57,
           "not_run": 7537,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -13116,6 +13094,98 @@
           "unreviewed_oracle": 493,
           "stale": 0,
           "not_run": 9937,
+          "unmapped": 1864,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "nightly-suite-corrections-20261027-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-10-26T15:06:37.287782+00:00",
+        "executed": [
+          "SV2023-23.2.2.1-EXTRACT-NONANSI-COMPLETE-DECLARATION",
+          "SV2023-23.2.2.2-EXTRACT-ANSI-NO-REDECLARE",
+          "SV2023-26.3-EXTRACT-LATE-DECLARATION-COLLISION",
+          "SV2023-26.5-EXTRACT-REFERENCED-WILDCARD-CONFLICT",
+          "SV2023-7.3.1-EXTRACT-HARD-EQUAL-SIZE"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 5,
+          "fail": 0,
+          "known": 11,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10418,
+          "unmapped": 1864,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "nightly-suite-corrections-20261027-kirimasim.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.0.0 (commit a2aa75737147), built with AppleClang 21.0.0.21000334",
+        "generated_at": "2026-10-26T15:06:37.257360+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 2,
+          "unreviewed_oracle": 15,
+          "stale": 0,
+          "not_run": 10417,
+          "unmapped": 1864,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "nightly-suite-corrections-20261027-verilator-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-26T15:06:47.554094+00:00",
+        "executed": [
+          "SV2023-23.2.2.1-EXTRACT-NONANSI-COMPLETE-DECLARATION",
+          "SV2023-23.2.2.2-EXTRACT-ANSI-NO-REDECLARE",
+          "SV2023-7.3.1-EXTRACT-HARD-EQUAL-SIZE",
+          "SV2023-9.3.2-EXTRACT-FUNCTION-FORK-RESTRICTIONS"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 4,
+          "fail": 0,
+          "known": 12,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10418,
+          "unmapped": 1864,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "nightly-suite-corrections-20261027-verilator-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-26T15:06:47.554081+00:00",
+        "executed": [
+          "SV2023-23.2.2.1-EXTRACT-NONANSI-COMPLETE-DECLARATION",
+          "SV2023-23.2.2.2-EXTRACT-ANSI-NO-REDECLARE",
+          "SV2023-7.3.1-EXTRACT-HARD-EQUAL-SIZE",
+          "SV2023-9.3.2-EXTRACT-FUNCTION-FORK-RESTRICTIONS"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 4,
+          "fail": 0,
+          "known": 12,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10418,
           "unmapped": 1864,
           "interpretation_pending": 21
         }
@@ -14409,14 +14479,14 @@
           "SV2023-H.8.10-EXTRACT-TERMINATION",
           "SV2023-H.9.3-EXTRACT-NAME"
         ],
-        "stale_links": 96,
+        "stale_links": 98,
         "status_counts": {
           "pass": 953,
           "fail": 0,
-          "known": 1856,
+          "known": 1854,
           "unsupported": 0,
           "unreviewed_oracle": 16,
-          "stale": 62,
+          "stale": 64,
           "not_run": 7547,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -14446,14 +14516,14 @@
           "SV2023-21.7.5-EXTRACT-TYPE-SHORTREAL",
           "SV2023-21.7.5-EXTRACT-TYPED-ENUM-MAPPING"
         ],
-        "stale_links": 18,
+        "stale_links": 20,
         "status_counts": {
           "pass": 17,
           "fail": 0,
-          "known": 47,
+          "known": 46,
           "unsupported": 0,
-          "unreviewed_oracle": 22,
-          "stale": 18,
+          "unreviewed_oracle": 21,
+          "stale": 20,
           "not_run": 10330,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -14474,14 +14544,14 @@
           "SV2023-21.2.1.6-EXTRACT-PATTERN-ENUM",
           "SV2023-21.3.1-EXTRACT-FD-NO-BROADCAST"
         ],
-        "stale_links": 18,
+        "stale_links": 20,
         "status_counts": {
           "pass": 8,
           "fail": 0,
-          "known": 66,
+          "known": 65,
           "unsupported": 0,
-          "unreviewed_oracle": 12,
-          "stale": 18,
+          "unreviewed_oracle": 11,
+          "stale": 20,
           "not_run": 10330,
           "unmapped": 1864,
           "interpretation_pending": 21
@@ -14504,14 +14574,14 @@
           "SV2023-21.2.1.6-EXTRACT-PATTERN-ENUM",
           "SV2023-21.3.1-EXTRACT-FD-NO-BROADCAST"
         ],
-        "stale_links": 18,
+        "stale_links": 20,
         "status_counts": {
           "pass": 10,
           "fail": 0,
-          "known": 64,
+          "known": 63,
           "unsupported": 0,
-          "unreviewed_oracle": 12,
-          "stale": 18,
+          "unreviewed_oracle": 11,
+          "stale": 20,
           "not_run": 10330,
           "unmapped": 1864,
           "interpretation_pending": 21

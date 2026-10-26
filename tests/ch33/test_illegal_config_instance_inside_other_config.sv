@@ -9,7 +9,8 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the top config names an instance below one that a sub-config configures
-:expected_stderr_regex: test_illegal_config_instance_inside_other_config\.sv:41:
+:top_module: cfgio
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|second config))[^\n]*test_illegal_config_instance_inside_other_config\.sv:42:(?:\d+:)?[^\n]*(?i:instance[^\n]*(?:within|inside)[^\n]*(?:hierarchy|config)|hierarchy[^\n]*(?:another|other)[^\n]*config)
 */
 // IEEE 1800-2023 §33.4.2: an instance can be configured by another config
 // with use ...:config, which then decides its whole subhierarchy. It shall be

@@ -62904,7 +62904,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_final_deferred_postponed_call.sv",
-      "inputs_sha256": "7cc8a86be932b5151d508a5d2eb00d34db154b9d7e09fe872d3d0464dd032913",
+      "inputs_sha256": "0da5b25c3145440001e040e952135f6859639ea2840169ccd07ea6d2a2f464d0",
       "cited_clauses": [
         "16.4"
       ],
@@ -63245,7 +63245,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_inferred_clock_missing.sv",
-      "inputs_sha256": "77b9c8f54041529e74a17cd7c2c36cd29263adb7263d131b4b7edf7a26d59814",
+      "inputs_sha256": "4b3967cbeadf8b86c6476258b7baa5efe9f632eaa94ea3e1dd8f96af8ace9bae",
       "cited_clauses": [
         "16.14.7"
       ],
@@ -64167,7 +64167,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_negated_property_reaching_recursion.sv",
-      "inputs_sha256": "36ae235ef0f62242fde404f773bba1e1f9f89c0a28eb9ba5c956f363a2b7733a",
+      "inputs_sha256": "f772485db296cf8b777bf3af2ade8fc2389c734330d7174e44ae026e825c305a",
       "cited_clauses": [
         "16.12.17",
         "16.12.3",
@@ -64942,7 +64942,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_property_instance_flattened_not_legal.sv",
-      "inputs_sha256": "b03e8c40a2e37cdf2176eaea4a5d3217c60c49816d01e4c423247ca7dfee5f5e",
+      "inputs_sha256": "7ace9710232e04ce91ce9acb3610d7c6aa4762a77b95c094afdad554fc7ecead",
       "cited_clauses": [
         "16.12.1"
       ],
@@ -65123,7 +65123,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_negated.sv",
-      "inputs_sha256": "aa49a6ffd6f2e31e25e2224c6c11e191b2b98362d52abe88952d32c35c1c990b",
+      "inputs_sha256": "ff02604e0a74f68536beae1c875963e8aed9d6e1a0bc28cef0d9ea8e90935b26",
       "cited_clauses": [
         "16.12.17",
         "16.12.3"
@@ -65151,9 +65151,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch16/test_illegal_recursive_property_negated.sv",
-        "inputs_sha256": "aa49a6ffd6f2e31e25e2224c6c11e191b2b98362d52abe88952d32c35c1c990b",
-        "reviewed_on": "2026-10-25",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "ff02604e0a74f68536beae1c875963e8aed9d6e1a0bc28cef0d9ea8e90935b26",
+        "reviewed_on": "2026-10-27",
+        "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -65162,8 +65162,8 @@
             ],
             "disposition": "partial_observation",
             "explanation": "not の対象は再帰 property ack_each 自身のインスタンスで、再帰 property に依存する非再帰 property を否定する形ではない。F.7 の依存関係を通じた否定の禁止は刺激していない。",
-            "reviewed_on": "2026-10-25",
-            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "reviewed_on": "2026-10-27",
+            "reviewer": "Codex (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch16/test_illegal_recursive_property_negated.sv",
@@ -65177,8 +65177,8 @@
             ],
             "disposition": "partial_observation",
             "explanation": "ack_each の宣言に disable iff がなく、再帰 property の宣言で disable iff を使う違反を作っていない。32行目のエラーは not の適用によるもので、disable iff の制限を観測しない。",
-            "reviewed_on": "2026-10-25",
-            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "reviewed_on": "2026-10-27",
+            "reviewer": "Codex (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch16/test_illegal_recursive_property_negated.sv",
@@ -65192,8 +65192,8 @@
             ],
             "disposition": "partial_observation",
             "explanation": "ack_each の再帰インスタンスは 1'b1 |=> で1クロック進む合法な形で、|-> で同一時刻に再帰する違反がない。32行目のエラーが正の時間前進の検査に由来するかは区別できない。",
-            "reviewed_on": "2026-10-25",
-            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "reviewed_on": "2026-10-27",
+            "reviewer": "Codex (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch16/test_illegal_recursive_property_negated.sv",
@@ -65207,8 +65207,8 @@
             ],
             "disposition": "partial_observation",
             "explanation": "再帰呼び出しの実引数は仮引数 req, ack そのもので、条件を満たす形だけを刺激している。別の式を渡す場合や、局所変数仮引数へ束縛する場合の違反がない。",
-            "reviewed_on": "2026-10-25",
-            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "reviewed_on": "2026-10-27",
+            "reviewer": "Codex (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch16/test_illegal_recursive_property_negated.sv",
@@ -65255,7 +65255,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_s_always.sv",
-      "inputs_sha256": "a13fbdb37a1d252de017f346dcd2d9d45e5433fe55009c0ab248c8b6e75a9157",
+      "inputs_sha256": "abfd0be5b652c4c7d02235ce5577ac0f10418e4d99da85ea362e58066a30bc1a",
       "cited_clauses": [
         "16.12.17",
         "16.12.11"
@@ -65288,7 +65288,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_s_eventually.sv",
-      "inputs_sha256": "0ea4a48dfbb8a7410d530b51b4b06bd857633336dde714708c99ddcb34c74adc",
+      "inputs_sha256": "4e92e55782ae3631769057d8008820be4af8cb98c7eb0ac9386db9cc39218c79",
       "cited_clauses": [
         "16.12.17",
         "16.12.13"
@@ -65319,7 +65319,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_s_nexttime.sv",
-      "inputs_sha256": "759c0bedffcb47a979b6aace5cda81a1ce56ce453ee3a6cdd4ca72c539303d2d",
+      "inputs_sha256": "fa3ac5193c6b34e1386836529a91ede8526766607c5f0fc5761e98fb3b52ce28",
       "cited_clauses": [
         "16.12.17",
         "16.12.10"
@@ -65352,7 +65352,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_s_until.sv",
-      "inputs_sha256": "ed831073fa8bf8284d47cc463e6da071e72a0c8f1979f6be070e29c3a8511698",
+      "inputs_sha256": "18b592b5f9919ca1351cab75b6bcd64e92cd8b60e66137d70255dd9c5f82d243",
       "cited_clauses": [
         "16.12.17",
         "16.12.12"
@@ -65383,7 +65383,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_s_until_with.sv",
-      "inputs_sha256": "a42e8b272f0774adf871bbdd210f21fd0984e62b578ef7264ed19fa3ca896f7c",
+      "inputs_sha256": "ad5eb517fd2ebdff9209c2e4533674a89ffce1ce066c878cb532ceb8cbed2467",
       "cited_clauses": [
         "16.12.17",
         "16.12.12"
@@ -66794,7 +66794,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_local_output_unassigned.sv",
-      "inputs_sha256": "c1fadf49266d124080bddc268d419cf7e85723df414c5132c732b7ff58ef04ec",
+      "inputs_sha256": "59fa1c18bea487978b2f911cbe368ff954e82371f3fd31c2262ea3e252c764c6",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -109094,7 +109094,7 @@
     },
     {
       "test": "tests/ch20/test_illegal_bits_function_dynamic_return.sv",
-      "inputs_sha256": "104364cb5c0826a0d49b2c2a228dc2614888d311ed5e7afcbc82927756cd6eeb",
+      "inputs_sha256": "addb0ea69b39341be3d4ee568bed3dddf915fcb08c0c6779d8618d7c04d7e9a3",
       "cited_clauses": [
         "20.6.2"
       ],
@@ -109115,9 +109115,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch20/test_illegal_bits_function_dynamic_return.sv",
-        "inputs_sha256": "104364cb5c0826a0d49b2c2a228dc2614888d311ed5e7afcbc82927756cd6eeb",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "addb0ea69b39341be3d4ee568bed3dddf915fcb08c0c6779d8618d7c04d7e9a3",
+        "reviewed_on": "2026-10-27",
+        "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -109125,9 +109125,9 @@
               "SV2023-20.6.2-EXTRACT-BITS-NO-EVAL"
             ],
             "disposition": "oracle_issue",
-            "explanation": "Both releases reject the function that returns int[] at its declaration as a syntax error they do not support, not the $bits call of line 22, so neither reports the rule of 20.6.2 and the expected place of the error is not reached.",
-            "reviewed_on": "2026-10-26",
-            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "explanation": "The return type is now legally declared through typedef int result_t[]. The intended 20.6.2 violation is $bits(f()) at line 23. Icarus 13.0 and Verilator 5.052 both accept this illegal call rather than diagnose it; neither is approved as an oracle. The mapping remains withheld.",
+            "reviewed_on": "2026-10-27",
+            "reviewer": "Codex (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch20/test_illegal_bits_function_dynamic_return.sv",
@@ -109322,7 +109322,7 @@
     },
     {
       "test": "tests/ch20/test_illegal_pla_descending_memory.sv",
-      "inputs_sha256": "3f73131239954cc047ecf67ea0c085e9a34ac176ae09fbc91bc5ff8c8d60142a",
+      "inputs_sha256": "5919088e22eab2da07bc2a410616ed4b82418cefd8283e6fff88d89a027c5242",
       "cited_clauses": [
         "20.16.3"
       ],
@@ -134482,7 +134482,7 @@
     },
     {
       "test": "tests/ch23/test_illegal_ansi_port_net_type_added_in_body.sv",
-      "inputs_sha256": "b3aad3621c6b4084b328b5bdaed78ca1eb30a85a8d2f6c4e828d57feefabae23",
+      "inputs_sha256": "0db63759c7159aa17440d331a4cb5923367b45bc71173a907684e0eaea42a516",
       "cited_clauses": [
         "23.2.2.2"
       ],
@@ -134510,7 +134510,7 @@
     },
     {
       "test": "tests/ch23/test_illegal_ansi_port_redeclared_in_body.sv",
-      "inputs_sha256": "d095ea5f7c50ee220bfd62996aa18b1ef1d658ab670500287858f0ef9f9528bd",
+      "inputs_sha256": "c3b698292501ab2c75fbee1da121f5e9e99a3bfe79250290eb1e4b011e96d348",
       "cited_clauses": [
         "23.2.2.2"
       ],
@@ -134537,9 +134537,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch23/test_illegal_ansi_port_redeclared_in_body.sv",
-        "inputs_sha256": "d095ea5f7c50ee220bfd62996aa18b1ef1d658ab670500287858f0ef9f9528bd",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "c3b698292501ab2c75fbee1da121f5e9e99a3bfe79250290eb1e4b011e96d348",
+        "reviewed_on": "2026-10-27",
+        "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -134548,8 +134548,8 @@
             ],
             "disposition": "compound_requirement",
             "explanation": "ANSI ポート名の本体での重複定義は診断するが、ポートリストごとの名前空間、単純ポート項目がインターフェース項目も参照すること、外部ポート名の重複禁止を同じテストで観測していない。",
-            "reviewed_on": "2026-10-26",
-            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "reviewed_on": "2026-10-27",
+            "reviewer": "Codex (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch23/test_illegal_ansi_port_redeclared_in_body.sv",
@@ -136283,7 +136283,7 @@
     },
     {
       "test": "tests/ch23/test_illegal_nonansi_net_port_redeclared.sv",
-      "inputs_sha256": "c6d5f3f179d0c48bd91af4f0b50dc4c1876fee0b978d73af41aa96f048d92791",
+      "inputs_sha256": "efd0c5575ded4669410b719e715c65f5b2fecdc0905acaa995ffad9bbafc31b0",
       "cited_clauses": [
         "23.2.2.1"
       ],
@@ -136311,9 +136311,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch23/test_illegal_nonansi_net_port_redeclared.sv",
-        "inputs_sha256": "c6d5f3f179d0c48bd91af4f0b50dc4c1876fee0b978d73af41aa96f048d92791",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "efd0c5575ded4669410b719e715c65f5b2fecdc0905acaa995ffad9bbafc31b0",
+        "reviewed_on": "2026-10-27",
+        "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -136322,8 +136322,8 @@
             ],
             "disposition": "compound_requirement",
             "explanation": "この負テストは、signed を別の net 宣言で加えようとする宣言を再宣言として診断するだけで、ポート側と対応する net/変数宣言のどちらか一方の signed が両方を signed にすること、および interconnect ポートで signed が違法であることを観測していない。",
-            "reviewed_on": "2026-10-26",
-            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "reviewed_on": "2026-10-27",
+            "reviewer": "Codex (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch23/test_illegal_nonansi_net_port_redeclared.sv",
@@ -136390,7 +136390,7 @@
     },
     {
       "test": "tests/ch23/test_illegal_nonansi_variable_port_redeclared.sv",
-      "inputs_sha256": "a4cf9ca0298a2486daa3d51ec37c5c7c1cd7b8d52bab122495af369abbc6a5b7",
+      "inputs_sha256": "6280cbd2fadf68e0d1d37e5d4d9a7619dc9daa8029ee122a96c9bef40b0627a1",
       "cited_clauses": [
         "23.2.2.1"
       ],
@@ -148665,7 +148665,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_prototype_argument_count.sv",
-      "inputs_sha256": "94017dfb9a648db4d56863e4671ea69f45124df1abf7b9f343900e70b5337d73",
+      "inputs_sha256": "1f81c973f3bf8f24a08c5307fcea7fea507c51257836a72739d2dba66c28b59d",
       "cited_clauses": [
         "25.7"
       ],
@@ -148758,7 +148758,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_prototype_type_not_matching.sv",
-      "inputs_sha256": "38b4607bef9fdc1e01df2287a63829fb1937226cd26313c2fd6e674f7cf5d882",
+      "inputs_sha256": "e53950991b0f141ed66cd4fbbf2b80f3f36d36997401b250d2f65cdff2162a67",
       "cited_clauses": [
         "25.7",
         "6.22.1"
@@ -152894,7 +152894,7 @@
     },
     {
       "test": "tests/ch26/test_illegal_local_declaration_after_import.sv",
-      "inputs_sha256": "49267fef54734a90fba7750795e0f7b2ef00f2dd61024267f89a5f3326496a74",
+      "inputs_sha256": "bc71e94dc9518539db33e59f88bc274dcfd5d381edca8a551709b7b0bad5a47e",
       "cited_clauses": [
         "26.3"
       ],
@@ -153379,7 +153379,7 @@
     },
     {
       "test": "tests/ch26/test_illegal_search_order_explicit_after_wildcard_reference.sv",
-      "inputs_sha256": "da9581eb4c044287f0fee38d2d6d0f31e042eda93e22ef02e89363177d5d4d5a",
+      "inputs_sha256": "e30fdd56c069861ffaa1a0ad0c76c7abd0d816b67d471af95225ccf499158af4",
       "cited_clauses": [
         "26.5"
       ],
@@ -153411,9 +153411,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch26/test_illegal_search_order_explicit_after_wildcard_reference.sv",
-        "inputs_sha256": "da9581eb4c044287f0fee38d2d6d0f31e042eda93e22ef02e89363177d5d4d5a",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "e30fdd56c069861ffaa1a0ad0c76c7abd0d816b67d471af95225ccf499158af4",
+        "reviewed_on": "2026-10-27",
+        "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -153422,8 +153422,8 @@
             ],
             "disposition": "partial_observation",
             "explanation": "先に wildcard 参照で import 済みの名前を別パッケージから明示 import すると競合する（要求の後半）ことは診断するが、未使用の wildcard 候補を明示 p::c が上書きする前半を観測しない。step の明示 import は合法な対照で、出力も比較されない。",
-            "reviewed_on": "2026-10-26",
-            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "reviewed_on": "2026-10-27",
+            "reviewer": "Codex (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch26/test_illegal_search_order_explicit_after_wildcard_reference.sv",
@@ -153437,8 +153437,8 @@
             ],
             "disposition": "partial_observation",
             "explanation": "候補4本は wildcard import 1つと明示 import/参照の競合だけを扱い、p::* と q::* を同時に import した共存状態を作らない。両パッケージの異なる c を非修飾で参照したときの曖昧エラー（要求の後半）を刺激しない。",
-            "reviewed_on": "2026-10-26",
-            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "reviewed_on": "2026-10-27",
+            "reviewer": "Codex (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch26/test_illegal_search_order_explicit_after_wildcard_reference.sv",
@@ -153513,7 +153513,7 @@
     },
     {
       "test": "tests/ch26/test_illegal_search_order_local_after_wildcard_reference.sv",
-      "inputs_sha256": "d0df2aedbaf3240082de06047acf52a14ef30be0f1712f4bfe1bbcd53aaf822f",
+      "inputs_sha256": "4bc43233daf91021ced8599f59725caa92e73292798f69c0dc45c44ea5b3edcc",
       "cited_clauses": [
         "26.5"
       ],
@@ -169553,7 +169553,7 @@
     },
     {
       "test": "tests/ch29/test_illegal_udp_table_without_endtable.sv",
-      "inputs_sha256": "4d408c005b82006171b34886f0ebd1db45eb83cbf5b0b1ec73ae8511cfc56c92",
+      "inputs_sha256": "e32605a952f8b85fa432c24813602f921096f66478f4e585fa861b2766365da8",
       "cited_clauses": [
         "29.3.4"
       ],
@@ -187974,7 +187974,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_design_is_config.sv",
-      "inputs_sha256": "7bdc3e5ed5f00820f5a50ab85bac46e9db294b568290b45d8ba7fe114f34590a",
+      "inputs_sha256": "31149da517bd801b96392862a2398848f10b6a8699c3ee8211fa7149c3c438cf",
       "cited_clauses": [
         "33.4.1.1"
       ],
@@ -188130,7 +188130,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_instance_inside_other_config.sv",
-      "inputs_sha256": "7b66ffd2525ea1e8d4d150f960fd8ee01ae73b10b28556d80fd6d261b61f4c72",
+      "inputs_sha256": "e887e33d390c474241ed05e57113584ab5ed4b340c5952306bcdafe64687318a",
       "cited_clauses": [
         "33.4.2",
         "33.4.1.3",
@@ -337213,7 +337213,7 @@
     },
     {
       "test": "tests/ch7/test_packed_struct_union_dimensions_and_rand_member.sv",
-      "inputs_sha256": "e1b7c8148492f74f1a7fc9cb82e333d6e863a947bd38db60d8d159fb7426a402",
+      "inputs_sha256": "e33993eb59b6af92151c2950fba378232b2d78cb5673521acc0de02f5c81b4c6",
       "cited_clauses": [
         "7.3.1",
         "7.3.2",
@@ -337314,9 +337314,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch7/test_packed_struct_union_dimensions_and_rand_member.sv",
-        "inputs_sha256": "e1b7c8148492f74f1a7fc9cb82e333d6e863a947bd38db60d8d159fb7426a402",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "e33993eb59b6af92151c2950fba378232b2d78cb5673521acc0de02f5c81b4c6",
+        "reviewed_on": "2026-10-27",
+        "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -337325,8 +337325,8 @@
             ],
             "disposition": "compound_requirement",
             "explanation": "packed 次元に packed が必要なこと、void が tagged union だけ、rand が unpacked struct だけという各制約の違反側は error 種別のテストに分かれており、normal の本要求1本では footnote 全体を観測できない。",
-            "reviewed_on": "2026-10-26",
-            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "reviewed_on": "2026-10-27",
+            "reviewer": "Codex (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch7/test_packed_struct_union_dimensions_and_rand_member.sv",
@@ -362210,7 +362210,7 @@
     },
     {
       "test": "tests/ch9/test_illegal_function_contains_fork_join.sv",
-      "inputs_sha256": "142ccbc373e2605a6717482fe39e289f2d42d67a75218a687d35f1d4d8ef4d4c",
+      "inputs_sha256": "6e60276031ee21b1a102ebe0c7a5c4eff48a5ca5cdbdafce31b5ec528e49771f",
       "cited_clauses": [
         "9.3.2",
         "13.4"
@@ -362259,7 +362259,7 @@
     },
     {
       "test": "tests/ch9/test_illegal_function_contains_fork_join_any.sv",
-      "inputs_sha256": "eafb6b27f7cbbf6824b34e28e0ce363606c89896ce9ceee511d63f2f389a0749",
+      "inputs_sha256": "b88c728b9e82aa065044cebdd2f2371aee2df5d30500ead1bc49899c2b2d8d40",
       "cited_clauses": [
         "9.3.2",
         "13.4"
@@ -526172,7 +526172,7 @@
     "oracle_issue": 250,
     "partial_observation": 2106
   },
-  "registry_sha256": "9d4c0e255366f1e2f06a6fd045532168d0a91db33a7f15a2c7a5669593f0f09c",
+  "registry_sha256": "043febc0826e175c8ed18efcad32227adc08779028faa3b1e693ef8064c0f2e7",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
-  "review_ledger_sha256": "fbf6fa02c1b27dd5bed8d3f81832b4bf30207b693133d69b746228ec1088df2c"
+  "review_ledger_sha256": "26d7226f32431decbb442c5c12d5f34a5ab3c36a571912b5baf672cd8c2236a8"
 }

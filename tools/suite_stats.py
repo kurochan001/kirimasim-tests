@@ -124,7 +124,8 @@ def run_setup(t: dict) -> str:
         (t["files"], "has more than one source file", "have more than one source file"),
         (t["defines"], "defines macros", "define macros"),
         (t["incdirs"], "names include directories", "name include directories"),
-        (t["top_module"], "names the top-level module", "name the top-level module"),
+        (t["top_module"], "names the top-level module or configuration",
+         "name the top-level module or configuration"),
         (t["args"], "passes arguments to the simulation", "pass arguments to the simulation"))
         if n]
     fields = [f for n, f in ((t["files"], "files"), (t["defines"], "defines"),

@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the function body contains a fork-join block
-:expected_stderr_regex: test_illegal_function_contains_fork_join\.sv:24:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_function_contains_fork_join\.sv:(?:24|27):(?:\d+:)?[^\n]*(?i:(?:time|timing)[^\n]*(?:not allowed|cannot|shall not)|(?:cannot|shall not|not allowed)[^\n]*(?:time|timing))
 */
 // IEEE 1800-2023 §9.3.2: parallel blocks have restricted use inside
 // functions (13.4): a function shall not contain time-controlling

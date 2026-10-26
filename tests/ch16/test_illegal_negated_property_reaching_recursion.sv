@@ -4,12 +4,12 @@
 :tags: ch16
 :type: elaboration
 :lrm: 1800-2023 16.12.17 16.12.3 F.7
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: not is applied to an instance of p_after, from which the recursive property p_hold is reached
-:expected_stderr_regex: test_illegal_negated_property_reaching_recursion\.sv:38:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_negated_property_reaching_recursion\.sv:(?:31|38):(?:\d+:)?[^\n]*(?i:recursive[^\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\n]*recursive)
 */
 // IEEE 1800-2023 §16.12.17, restriction 1: not (§16.12.3) shall not be
 // applied to a property expression that instantiates a property depending on

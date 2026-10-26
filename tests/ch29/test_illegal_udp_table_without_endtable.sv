@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the UDP table has no endtable
-:expected_stderr_regex: test_illegal_udp_table_without_endtable\.sv:24:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented))[^\n]*test_illegal_udp_table_without_endtable\.sv:(?:24:|23:(?:\d+:)?[^\n]*(?i:expected[^\n]*endtable))
 */
 // IEEE 1800-2023 §29.3.4: a UDP table begins with the keyword table and
 // ends with the keyword endtable. Here endprimitive follows the last

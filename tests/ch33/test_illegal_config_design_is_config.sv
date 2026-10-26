@@ -9,7 +9,8 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the design statement of a config names another config
-:expected_stderr_regex: test_illegal_config_design_is_config\.sv:31:
+:top_module: cfgdc
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|second config))[^\n]*test_illegal_config_design_is_config\.sv:32:(?:\d+:)?[^\n]*(?i:(?:not|invalid)[^\n]*(?:valid[^\n]*)?(?:top.level|module)|design[^\n]*config)
 */
 // IEEE 1800-2023 §33.4.1.1: the design statement names the library and cell
 // of the top-level modules of the configured hierarchy, and these cells

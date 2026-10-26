@@ -29,7 +29,7 @@ without ".sv". The rules:
                         :should_fail_because:
     file                a file or directory that :files:, :incdirs:, :dpi_c:
                         or :vpi_c: names does not exist
-    top-module          :top_module: names a module that the test and its
+    top-module          :top_module: names a module or config that the test and its
                         :files: do not declare
     width               a comment line is longer than 80 columns, or a line
                         of code longer than 100 (the metadata comment is not
@@ -97,7 +97,7 @@ def modules_of(paths: list[Path]) -> set[str]:
     names = set()
     for p in paths:
         if p.is_file():
-            names |= set(re.findall(r"^\s*(?:module|program|interface)\s+(?:automatic\s+|static\s+)?"
+            names |= set(re.findall(r"^\s*(?:module|program|interface|config)\s+(?:automatic\s+|static\s+)?"
                                     r"(\w+)", code_of(p.read_text(encoding="utf-8",
                                                                   errors="replace").splitlines()),
                                     re.MULTILINE))

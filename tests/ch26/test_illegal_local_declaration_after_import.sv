@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: a local declaration conflicts with a name imported from a package and already referenced
-:expected_stderr_regex: test_illegal_local_declaration_after_import\.sv:26:
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_local_declaration_after_import\.sv:(?:25|26):(?:\d+:)?[^\n]*(?i:import[^\n]*(?:collid|conflict)|already[^\n]*import)
 */
 // IEEE 1800-2023 §26.3: a wildcard import makes a name of the package locally
 // visible when it is first referenced; a later local declaration of the same

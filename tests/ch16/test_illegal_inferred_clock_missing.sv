@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: p_bad takes $inferred_clock as the default actual of its formal clk, and the assertion in the initial block has no enclosing clock to resolve
-:expected_stderr_regex: test_illegal_inferred_clock_missing\.sv:(25|29):
+:expected_stderr_regex: ^(?![^\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\n]*test_illegal_inferred_clock_missing\.sv:(?:25|26|29):(?:\d+:)?[^\n]*(?i:(?:no|missing|unresolved)[^\n]*clock|clock[^\n]*(?:missing|unresolved|not resolved|cannot be resolved))
 */
 // IEEE 1800-2023 §16.14.7: $inferred_clock is an elaboration-time query that
 // returns the clocking event resolved by clock flow at the instance location,
