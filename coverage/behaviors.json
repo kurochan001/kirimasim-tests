@@ -188188,7 +188188,25 @@
       "acceptance": "Automatic bins are named auto[value] or auto[low:high]; enum bins use their named constant.",
       "source_note": "IEEE 1800-2023 19.5.3; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_merge_auto_bin_names.sv",
+          "observation": "Verilatorで 19.5.3-EXTRACT-AUTO-NAMESを観測する。Instances with auto_bin_max 8 have auto[0] to auto[7], and the instance with auto_bin_max 4 has auto[0:1] to auto[6:7]. Under merge_instances the equal names of the two auto_bin_max 8 instances share bins and the four different names add four bins, giving 12 b 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "935a350db33d160ad1b23eb7fcb3268f5b9137b9b278ab3f0119cfb00dcc8852",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_merge_auto_bin_names.sv",
+              "contains": ":name: test_cg_merge_auto_bin_names"
+            },
+            {
+              "file": "tests/ch19/test_cg_merge_auto_bin_names.expected",
+              "contains": "g8a samples 0 and 1, g4 samples 0: type 25.00"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.3",
@@ -189369,7 +189387,29 @@
       "acceptance": "A cross has at least two items; an integral variable creates an implicit coverpoint, expressions need explicit coverpoints first, and real variables must be wrapped in explicit real coverpoints.",
       "source_note": "IEEE 1800-2023 19.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_19_extra_cross_expr_item.sv",
+          "observation": "違法系の設計を拒否 19.6-EXTRACT-CROSS-ITEMSを観測する。The second cross item is a + 1, an expression with no explicit coverpoint. Verilator 5.052 rejects the design with a syntax error at the + on line 26, where an expression stands where a cross item is required; the clause requires an expression to be named thro 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0f0d389eaa1dbc28aeffc1bd7c9690b1c3ebba675d26087a5f9a894d9ca9e00b",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_19_extra_cross_expr_item.sv",
+              "contains": ":name: test_19_extra_cross_expr_item"
+            },
+            {
+              "file": "tests/ch19/test_19_extra_cross_expr_item.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch19/test_19_extra_cross_expr_item.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.6",
@@ -191632,7 +191672,25 @@
       "acceptance": "Instance option comment defaults to the empty string and is saved with its group/point/cross in the database and report.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_19_extra_option_comment.sv",
+          "observation": "Verilatorで 19.7-EXTRACT-OPTION-COMMENTを観測する。A new covergroup reads option.comment as the empty string, and after assigning \"note\" reads it back as \"note\". This observes the default and the string value held by the instance option. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a7c16e3f7affd6662309abcba7e4a5e370d0299e5e75fdd82f2b3e2046cc7aa6",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_19_extra_option_comment.sv",
+              "contains": ":name: test_19_extra_option_comment"
+            },
+            {
+              "file": "tests/ch19/test_19_extra_option_comment.expected",
+              "contains": "default comment: []"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -191650,7 +191708,25 @@
       "acceptance": "Instance option cross_num_print_missing defaults to 0 and specifies the missing cross-bin count to save and print.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_19_extra_option_cross_num_print_missing.sv",
+          "observation": "Verilatorで 19.7-EXTRACT-OPTION-CROSS-NUM-PRINT-MISSINGを観測する。A new covergroup reads option.cross_num_print_missing as 0, and after assigning 5 reads it back as 5. This observes the default and the stored count. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1a4825349f24f66e667c2abc9394ad112b9483b09f024fb31fa52231eed97580",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_19_extra_option_cross_num_print_missing.sv",
+              "contains": ":name: test_19_extra_option_cross_num_print_missing"
+            },
+            {
+              "file": "tests/ch19/test_19_extra_option_cross_num_print_missing.expected",
+              "contains": "default cross_num_print_missing: 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -191708,7 +191784,25 @@
       "acceptance": "Instance option detect_overlap defaults to false; true requires a warning on overlapping state ranges or transition lists between point bins.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_19_extra_option_detect_overlap.sv",
+          "observation": "Verilatorで 19.7-EXTRACT-OPTION-DETECT-OVERLAPを観測する。A new covergroup reads option.detect_overlap as 0, the default false. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5d81ffc034f27512a82c90f84eabc9ca4eab0b9adb263196f08601d136c88dfb",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_19_extra_option_detect_overlap.sv",
+              "contains": ":name: test_19_extra_option_detect_overlap"
+            },
+            {
+              "file": "tests/ch19/test_19_extra_option_detect_overlap.expected",
+              "contains": "default detect_overlap: 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -191870,7 +191964,25 @@
       "acceptance": "Instance option per_instance defaults to false; true requires saving/reporting the instance data, false does not require retaining that data while the instance still contributes to type coverage.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_19_extra_option_per_instance.sv",
+          "observation": "Verilatorで 19.7-EXTRACT-OPTION-PER-INSTANCEを観測する。A new covergroup reads option.per_instance as 0, the default false. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b376169b90a4fdbfe92a4a4f50263a9779f709d83e4f64c5205fc57a65065968",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_19_extra_option_per_instance.sv",
+              "contains": ":name: test_19_extra_option_per_instance"
+            },
+            {
+              "file": "tests/ch19/test_19_extra_option_per_instance.expected",
+              "contains": "default per_instance: 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -192656,7 +192768,25 @@
       "acceptance": "Type option comment defaults to the empty string and is saved/reported with the type or type-item.",
       "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_19_extra_type_option_comment.sv",
+          "observation": "Verilatorで 19.7.1-EXTRACT-TYPE-OPTION-COMMENTを観測する。A new covergroup reads type_option.comment through its instance as the empty string, and after assigning \"note\" reads it back as \"note\". 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "376024522ad40561b378c567ef614501ca343c59c0b0039ea29380c35aac54c5",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_19_extra_type_option_comment.sv",
+              "contains": ":name: test_19_extra_type_option_comment"
+            },
+            {
+              "file": "tests/ch19/test_19_extra_type_option_comment.expected",
+              "contains": "default comment: []"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7.1",
@@ -192764,7 +192894,25 @@
       "acceptance": "strobe/real_interval may be set only in the covergroup definition; other type options may be assigned procedurally during simulation.",
       "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B026. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_19_extra_type_option_mutation.sv",
+          "observation": "Verilatorで 19.7.1-EXTRACT-TYPE-OPTION-MUTATIONを観測する。type_option.strobe is set in the covergroup definition, which the clause allows. During simulation the initial block assigns type_option.weight, goal and comment and reads back 5, 70 and \"set during simulation\", and sampling then leaves the coverage below 100 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4587ad926131a0e7a413ed2a61b32a3c5921299d83752d24038e0d99e21d7477",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_19_extra_type_option_mutation.sv",
+              "contains": ":name: test_19_extra_type_option_mutation"
+            },
+            {
+              "file": "tests/ch19/test_19_extra_type_option_mutation.expected",
+              "contains": "weight 5, goal 70, comment [set during simulation]"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7.1",
@@ -193185,7 +193333,25 @@
       "acceptance": "void sample() triggers group sampling and is callable only on a covergroup, not a coverpoint/cross.",
       "source_note": "IEEE 1800-2023 19.8; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_19_extra_sample_method.sv",
+          "observation": "Verilatorで 19.8-EXTRACT-SAMPLE-METHODを観測する。The built-in sample() is called three times. Before the first call no bin is covered (0.00); a call with a = 0 covers one of the two bins and leaves the coverage below 100, and a call with a = 1 covers the other bin and reaches 100.00, so sample() takes one sa 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4c0a3b71aa590e4f7ea0687b076ca6b3bfa2e57b06bbad174e5e9c0673e3501e",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_19_extra_sample_method.sv",
+              "contains": ":name: test_19_extra_sample_method"
+            },
+            {
+              "file": "tests/ch19/test_19_extra_sample_method.expected",
+              "contains": "before sample: 0.00"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.8",

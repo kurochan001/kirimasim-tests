@@ -149,6 +149,7 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/ch6-extra-20261028-*.json`・`results/ch9-extra-20261028-*.json`・`results/ch21-extra-20261028-*.json`: 6章・9章・21章の追加シミュレーションテストの実行結果。
 - `results/ch37-extra-20261028-*.json`・`results/ch38-extra-20261028-*.json`・`results/ch38-reuse-20261028-*.json`: 37章・38章VPIの追加・再利用テストの実行結果。
 - `results/ch22-extra-20261028-*.json`・`results/ch23-extra-20261028-*.json`・`results/ch31-extra-20261028-*.json`: 22章・23章・31章の追加・再利用テストの実行結果。
+- `results/ch19-extra-20261028-*.json`: 19章covergroupのVerilator実行とIcarusのknown記録。
 - `results/ghost-local-20261028.json`: Ghostのローカル全件実行。対象はスイート`23b4c542`の7,629本、
   ビルド識別子は`d59b7c7f8feb`で、5,823 pass・1,806 fail（76.3%一致）です。
   実行時間は約3分25秒。同名の`.log`に不一致の一覧を保存しています。

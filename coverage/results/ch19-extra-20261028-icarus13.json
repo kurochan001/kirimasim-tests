@@ -1,0 +1,59 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch19/test_19_extra_cross_expr_item": {
+   "status": "pass",
+   "inputs_sha256": "0f0d389eaa1dbc28aeffc1bd7c9690b1c3ebba675d26087a5f9a894d9ca9e00b"
+  },
+  "ch19/test_19_extra_cross_items": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_19_extra_cross_items.sv:26: syntax error",
+   "inputs_sha256": "1b1865956c8955a8eac9c7d82008cd092aaf1344c4e721a0984371ebc0914372"
+  },
+  "ch19/test_19_extra_option_comment": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_19_extra_option_comment.sv:24: syntax error",
+   "inputs_sha256": "a7c16e3f7affd6662309abcba7e4a5e370d0299e5e75fdd82f2b3e2046cc7aa6"
+  },
+  "ch19/test_19_extra_option_cross_num_print_missing": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_19_extra_option_cross_num_print_missing.sv:22: syntax error",
+   "inputs_sha256": "1a4825349f24f66e667c2abc9394ad112b9483b09f024fb31fa52231eed97580"
+  },
+  "ch19/test_19_extra_option_detect_overlap": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_19_extra_option_detect_overlap.sv:25: syntax error",
+   "inputs_sha256": "5d81ffc034f27512a82c90f84eabc9ca4eab0b9adb263196f08601d136c88dfb"
+  },
+  "ch19/test_19_extra_option_per_instance": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_19_extra_option_per_instance.sv:24: syntax error",
+   "inputs_sha256": "b376169b90a4fdbfe92a4a4f50263a9779f709d83e4f64c5205fc57a65065968"
+  },
+  "ch19/test_19_extra_sample_method": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_19_extra_sample_method.sv:24: syntax error",
+   "inputs_sha256": "4c0a3b71aa590e4f7ea0687b076ca6b3bfa2e57b06bbad174e5e9c0673e3501e"
+  },
+  "ch19/test_19_extra_set_visibility": {
+   "status": "pass",
+   "inputs_sha256": "fff748780b070f4a24217bb8a570827ecf446f283326122e00ec35c2ecce351b"
+  },
+  "ch19/test_19_extra_type_option_comment": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_19_extra_type_option_comment.sv:24: syntax error",
+   "inputs_sha256": "376024522ad40561b378c567ef614501ca343c59c0b0039ea29380c35aac54c5"
+  },
+  "ch19/test_19_extra_type_option_mutation": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_19_extra_type_option_mutation.sv:26: syntax error",
+   "inputs_sha256": "4587ad926131a0e7a413ed2a61b32a3c5921299d83752d24038e0d99e21d7477"
+  }
+ },
+ "generated_at": "2026-10-27T21:20:25.211852+00:00",
+ "runner_sha256": "9a0d77f74ee935d59b413652bbe6cc3133179c84c2a2130f2c0cd4e51a71ab13",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,3 @@
+weight 5, goal 70, comment [set during simulation]
+after sample 0, below 100: 1
+after sample 1: 100.00

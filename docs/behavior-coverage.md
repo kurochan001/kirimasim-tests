@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 88.51%、実行 58.88%。**
+**全規格の要求台帳ベース（暫定）: 設計 88.59%、実行 58.95%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10904/12319 (88.51%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7254/12319 (58.88%)。
-- 登録済みだがテスト未対応: 1415 動作。
+- 登録済み動作に対するテスト設計網羅率: 10913/12319 (88.59%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7262/12319 (58.95%)。
+- 登録済みだがテスト未対応: 1406 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -40,6 +40,8 @@
 - `ch16-edge-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:15.726452+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `ch16-sim-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T15:42:14.965527+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch16-sim-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:04.031900+00:00 / 9/12319 動作確認、古い入力との対応 0 件。
+- `ch19-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T21:20:25.211852+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `ch19-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T21:20:35.736196+00:00 / 8/12319 動作確認、古い入力との対応 0 件。
 - `ch21-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:30:07.226181+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `ch21-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:30:10.339072+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `ch22-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:08:32.360779+00:00 / 13/12319 動作確認、古い入力との対応 0 件。
@@ -221,7 +223,7 @@
 - 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 539。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 59。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 300。
-- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 215。
+- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 224。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 285。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 348。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 346。
@@ -49278,7 +49280,7 @@ For other integral points with M bits, automatic bin count is min(2**M, auto_bin
 
 ### SV2023-19.5.3-EXTRACT-AUTO-NAMES
 
-19.5.3 / normal / テスト未対応
+19.5.3 / normal / テスト対応あり・実行未確認
 
 Automatic bins are named auto\[value\] or auto\[low:high\]; enum bins use their named constant.
 
@@ -49286,6 +49288,7 @@ Automatic bins are named auto\[value\] or auto\[low:high\]; enum bins use their 
 
 規定の性質: `definition`。
 
+- [test_cg_merge_auto_bin_names.sv](../tests/ch19/test_cg_merge_auto_bin_names.sv): Verilatorで 19.5.3-EXTRACT-AUTO-NAMESを観測する。Instances with auto_bin_max 8 have auto\[0\] to auto\[7\], and the instance with auto_bin_max 4 has auto\[0:1\] to auto\[6:7\]. Under merge_instances the equal names of the two auto_bin_max 8 instances share bins and the four different names add four bins, giving 12 b 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。
 
 ### SV2023-19.5.3-EXTRACT-AUTO-PARTITION
 
@@ -49625,7 +49628,7 @@ A false cross iff ignores that cross for the sample; a false cross-bin iff ignor
 
 ### SV2023-19.6-EXTRACT-CROSS-ITEMS
 
-19.6 / error / テスト未対応
+19.6 / error / 実行確認あり
 
 A cross has at least two items; an integral variable creates an implicit coverpoint, expressions need explicit coverpoints first, and real variables must be wrapped in explicit real coverpoints.
 
@@ -49633,6 +49636,7 @@ A cross has at least two items; an integral variable creates an implicit coverpo
 
 規定の性質: `mandatory`。
 
+- [test_19_extra_cross_expr_item.sv](../tests/ch19/test_19_extra_cross_expr_item.sv): 違法系の設計を拒否 19.6-EXTRACT-CROSS-ITEMSを観測する。The second cross item is a + 1, an expression with no explicit coverpoint. Verilator 5.052 rejects the design with a syntax error at the + on line 26, where an expression stands where a cross item is required; the clause requires an expression to be named thro 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。
 
 ### SV2023-19.6-EXTRACT-CROSS-LABEL-SCOPE
 
@@ -50399,7 +50403,7 @@ Instance option auto_bin_max defaults to 64 and limits automatic point bins when
 
 ### SV2023-19.7-EXTRACT-OPTION-COMMENT
 
-19.7 / normal / テスト未対応
+19.7 / normal / 実行確認あり
 
 Instance option comment defaults to the empty string and is saved with its group/point/cross in the database and report.
 
@@ -50407,10 +50411,11 @@ Instance option comment defaults to the empty string and is saved with its group
 
 規定の性質: `definition`。
 
+- [test_19_extra_option_comment.sv](../tests/ch19/test_19_extra_option_comment.sv): Verilatorで 19.7-EXTRACT-OPTION-COMMENTを観測する。A new covergroup reads option.comment as the empty string, and after assigning "note" reads it back as "note". This observes the default and the string value held by the instance option. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。
 
 ### SV2023-19.7-EXTRACT-OPTION-CROSS-NUM-PRINT-MISSING
 
-19.7 / normal / テスト未対応
+19.7 / normal / 実行確認あり
 
 Instance option cross_num_print_missing defaults to 0 and specifies the missing cross-bin count to save and print.
 
@@ -50418,6 +50423,7 @@ Instance option cross_num_print_missing defaults to 0 and specifies the missing 
 
 規定の性質: `definition`。
 
+- [test_19_extra_option_cross_num_print_missing.sv](../tests/ch19/test_19_extra_option_cross_num_print_missing.sv): Verilatorで 19.7-EXTRACT-OPTION-CROSS-NUM-PRINT-MISSINGを観測する。A new covergroup reads option.cross_num_print_missing as 0, and after assigning 5 reads it back as 5. This observes the default and the stored count. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。
 
 ### SV2023-19.7-EXTRACT-OPTION-CROSS-RETAIN-AUTO-BINS
 
@@ -50433,7 +50439,7 @@ Instance option cross_retain_auto_bins defaults to true; true retains automatic 
 
 ### SV2023-19.7-EXTRACT-OPTION-DETECT-OVERLAP
 
-19.7 / normal / テスト未対応
+19.7 / normal / 実行確認あり
 
 Instance option detect_overlap defaults to false; true requires a warning on overlapping state ranges or transition lists between point bins.
 
@@ -50441,6 +50447,7 @@ Instance option detect_overlap defaults to false; true requires a warning on ove
 
 規定の性質: `definition`。
 
+- [test_19_extra_option_detect_overlap.sv](../tests/ch19/test_19_extra_option_detect_overlap.sv): Verilatorで 19.7-EXTRACT-OPTION-DETECT-OVERLAPを観測する。A new covergroup reads option.detect_overlap as 0, the default false. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。
 
 ### SV2023-19.7-EXTRACT-OPTION-GET-INST-COVERAGE
 
@@ -50491,7 +50498,7 @@ Instance option name is a string defaulting to a unique tool-generated instance 
 
 ### SV2023-19.7-EXTRACT-OPTION-PER-INSTANCE
 
-19.7 / normal / テスト未対応
+19.7 / normal / 実行確認あり
 
 Instance option per_instance defaults to false; true requires saving/reporting the instance data, false does not require retaining that data while the instance still contributes to type coverage.
 
@@ -50499,6 +50506,7 @@ Instance option per_instance defaults to false; true requires saving/reporting t
 
 規定の性質: `definition`。
 
+- [test_19_extra_option_per_instance.sv](../tests/ch19/test_19_extra_option_per_instance.sv): Verilatorで 19.7-EXTRACT-OPTION-PER-INSTANCEを観測する。A new covergroup reads option.per_instance as 0, the default false. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。
 
 ### SV2023-19.7-EXTRACT-OPTION-WEIGHT
 
@@ -50782,7 +50790,7 @@ Table 19-4 permits type_option.weight at the cross syntactic level.
 
 ### SV2023-19.7.1-EXTRACT-TYPE-OPTION-COMMENT
 
-19.7.1 / normal / テスト未対応
+19.7.1 / normal / 実行確認あり
 
 Type option comment defaults to the empty string and is saved/reported with the type or type-item.
 
@@ -50790,6 +50798,7 @@ Type option comment defaults to the empty string and is saved/reported with the 
 
 規定の性質: `definition`。
 
+- [test_19_extra_type_option_comment.sv](../tests/ch19/test_19_extra_type_option_comment.sv): Verilatorで 19.7.1-EXTRACT-TYPE-OPTION-COMMENTを観測する。A new covergroup reads type_option.comment through its instance as the empty string, and after assigning "note" reads it back as "note". 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-OPTION-DISTRIBUTE-FIRST
 
@@ -50828,7 +50837,7 @@ Type option merge_instances defaults to false; true computes type coverage from 
 
 ### SV2023-19.7.1-EXTRACT-TYPE-OPTION-MUTATION
 
-19.7.1 / normal / テスト未対応
+19.7.1 / normal / 実行確認あり
 
 strobe/real_interval may be set only in the covergroup definition; other type options may be assigned procedurally during simulation.
 
@@ -50836,6 +50845,7 @@ strobe/real_interval may be set only in the covergroup definition; other type op
 
 規定の性質: `mandatory`。
 
+- [test_19_extra_type_option_mutation.sv](../tests/ch19/test_19_extra_type_option_mutation.sv): Verilatorで 19.7.1-EXTRACT-TYPE-OPTION-MUTATIONを観測する。type_option.strobe is set in the covergroup definition, which the clause allows. During simulation the initial block assigns type_option.weight, goal and comment and reads back 5, 70 and "set during simulation", and sampling then leaves the coverage below 100 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-OPTION-REAL-INTERVAL
 
@@ -50957,7 +50967,7 @@ Built-in coverage methods may be invoked procedurally at any time.
 
 ### SV2023-19.8-EXTRACT-SAMPLE-METHOD
 
-19.8 / normal / テスト未対応
+19.8 / normal / 実行確認あり
 
 void sample() triggers group sampling and is callable only on a covergroup, not a coverpoint/cross.
 
@@ -50965,6 +50975,7 @@ void sample() triggers group sampling and is callable only on a covergroup, not 
 
 規定の性質: `mandatory`。
 
+- [test_19_extra_sample_method.sv](../tests/ch19/test_19_extra_sample_method.sv): Verilatorで 19.8-EXTRACT-SAMPLE-METHODを観測する。The built-in sample() is called three times. Before the first call no bin is covered (0.00); a call with a = 0 covers one of the two bins and leaves the coverage below 100, and a call with a = 1 covers the other bin and reaches 100.00, so sample() takes one sa 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。Verilator 5.052のみがcovergroupを実行できる。
 
 ### SV2023-19.8-EXTRACT-START
 

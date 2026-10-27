@@ -257,3 +257,19 @@ not_testable とした。
 
 公式値は **設計10,904 / 12,319（88.51%）**、実行 **7,254（58.88%、Ghost含む）**、
 Ghostを除くIcarus/Verilator/SymbiYosysのみでは **6,192（50.26%）**。
+
+## 追補: 19章・40章カバレッジ（2026-10-28）
+
+covergroupとcoverage APIを最小例でプローブした。
+
+- **Icarus 13.0はcovergroup構文を拒否**する（covergroup/coverpointが構文エラー）。
+- **Verilator 5.052はcovergroupを実行**でき、`get_inst_coverage()` が動く。
+- **第40章のcoverage APIは両ツールとも未実装**。`$coverage_control` 等は
+  "reserved word not implemented"、VPI coverage extensionはNULLを返す。
+
+19章は9リンク（新規8・再利用1）を統合し、43件を not_testable とした。
+40章は46件すべて not_testable である。カバレッジ率の丸め・自動ビン数・
+レポート形式は実装定義なので、0/100が規格から一意な場合だけ期待値にした。
+
+公式値は **設計10,913 / 12,319（88.59%）**、実行 **7,262（58.95%、Ghost含む）**、
+Ghostを除くIcarus/Verilator/SymbiYosysのみでは **6,200（50.33%）**。
