@@ -5,7 +5,7 @@
  "tests": {
   "ch38/test_38_extra_control_stop": {
    "status": "pass",
-   "inputs_sha256": "ca7e57650832695d7a399a5229af764e3cf61440b5e4e95d47776d7dc796d1f2"
+   "inputs_sha256": "bdd811532b3e5bd8dfc9e0a765e1355b57be7c602e1db4cdb5e70f48beed2d8f"
   },
   "ch38/test_38_extra_intermod_delays": {
    "status": "pass",
@@ -16,7 +16,7 @@
    "inputs_sha256": "d54ce74a555d6a9cd6bd0d4012be6c44ff2768ea7cea7666035090f6a473a772"
   }
  },
- "generated_at": "2026-10-27T17:00:48.294843+00:00",
+ "generated_at": "2026-10-27T17:20:48.267440+00:00",
  "runner_sha256": "9a0d77f74ee935d59b413652bbe6cc3133179c84c2a2130f2c0cd4e51a71ab13",
  "runner_changed": false,
  "configuration": {}

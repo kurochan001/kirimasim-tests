@@ -43,7 +43,7 @@
 - `ch21-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:30:07.226181+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `ch21-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:30:10.339072+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `ch37-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:11:52.776966+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `ch38-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:00:48.294843+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
+- `ch38-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:20:48.267440+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `ch38-reuse-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:00:25.077411+00:00 / 40/12319 動作確認、古い入力との対応 0 件。
 - `ch6-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:33:35.549914+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `ch6-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:33:40.336655+00:00 / 3/12319 動作確認、古い入力との対応 0 件。

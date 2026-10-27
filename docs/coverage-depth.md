@@ -19,9 +19,9 @@
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 640 |
-| Icarus Verilog 13.0 only | 3553 |
+| Icarus Verilog 13.0 only | 3552 |
 | Verilator 5.052 only | 1471 |
-| standard only | 1997 |
+| standard only | 1998 |
 
 ## By chapter
 
@@ -61,7 +61,7 @@
 | 35 | Direct programming interface | 123 | 20 | 6.2 | 0 | 42 |
 | 36 | Programming language interface (PLI/VPI) overview | 84 | 19 | 4.4 | 0 | 36 |
 | 37 | VPI object model diagrams | 227 | 94 | 2.4 | 0 | 208 |
-| 38 | VPI routine definitions | 109 | 46 | 2.4 | 0 | 43 |
+| 38 | VPI routine definitions | 109 | 46 | 2.4 | 0 | 44 |
 | 39 | Assertion API | 39 | 7 | 5.6 | 0 | 38 |
 | 40 | Code coverage control and API | 31 | 18 | 1.7 | 0 | 28 |
 

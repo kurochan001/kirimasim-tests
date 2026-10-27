@@ -403478,7 +403478,7 @@
           "observation": "VPIアプリケーションで38.4-EXTRACT-CONTROL-STOPを観測する。$vt_stop calls vpi_control(vpiStop, 0) and prints its return of 1 plus one more line; the tool's built-in $stop report appears only after those lines and before the design statement that follows the call, so $stop runs after the routine returns, not inside it. 区別: 新規VPIテストで要求の条件を刺激し、規格が定めるハンドル・プロパティ・戻り値を検査する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "ca7e57650832695d7a399a5229af764e3cf61440b5e4e95d47776d7dc796d1f2",
+          "inputs_sha256": "bdd811532b3e5bd8dfc9e0a765e1355b57be7c602e1db4cdb5e70f48beed2d8f",
           "evidence": [
             {
               "file": "tests/ch38/test_38_extra_control_stop.sv",

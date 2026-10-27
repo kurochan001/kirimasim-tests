@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "d85315636575d6ecdbb03a4250e91190321c8262d450cb0b157ae1228cdd2713",
+  "registry_sha256": "d09a344756344d85a6a328f1485fd3d825fcce81649e94147695bcef2dbcc33e",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -814,7 +814,7 @@
         "file": "ch38-extra-20261028-icarus13.json",
         "simulator": "icarus",
         "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
-        "generated_at": "2026-10-27T17:00:48.294843+00:00",
+        "generated_at": "2026-10-27T17:20:48.267440+00:00",
         "executed": [
           "SV2023-38.15-EXTRACT-FORMAT-VPISCALARVAL",
           "SV2023-38.32-EXTRACT-PUT-INTERMODULE-COUNT",

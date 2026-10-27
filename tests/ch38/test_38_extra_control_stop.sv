@@ -4,7 +4,7 @@
 :tags: ch38
 :type: simulation
 :lrm: 1800-2023 38.4 20.4
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -20,7 +20,9 @@
 // tool's $stop message appears between the routine's last line and the design
 // line that follows the call, so the stop is executed after the return and not
 // inside the routine. vvp in batch mode treats $stop as a stop that the user
-// continues; its message is the tool's report of the built-in $stop.
+// continues; its message is the tool's report of the built-in $stop and its
+// exact text and prompt differ between builds, so no simulator-specific
+// oracle asserts that text.
 
 `timescale 1ns/1ns
 
