@@ -1146,8 +1146,8 @@ generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-10982 of 12319 rows (89.15%), with 7325 executed (59.46%) including the
-concurrent Ghost evidence (6264, 50.85%, without it).
+11000 of 12319 rows (89.29%), with 7333 executed (59.53%) including the
+concurrent Ghost evidence (6271, 50.90%, without it).
 
 ### Tests added in this work
 

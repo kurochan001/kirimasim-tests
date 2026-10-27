@@ -22,7 +22,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 16 | [Assertions](ch16.md) | 661 |  |
 | 17 | [Checkers](ch17.md) | 81 |  |
 | 18 | [Constrained random value generation](ch18.md) | 200 |  |
-| 19 | [Functional coverage](ch19.md) | 156 |  |
+| 19 | [Functional coverage](ch19.md) | 157 |  |
 | 20 | [Utility system tasks and system functions](ch20.md) | 270 |  |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 211 |  |
 | 22 | [Compiler directives](ch22.md) | 358 | 248 |
@@ -37,8 +37,8 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 31 | [Timing checks](ch31.md) | 66 |  |
 | 32 | [Backannotation using the standard delay format](ch32.md) | 50 |  |
 | 33 | [Configuring the contents of a design](ch33.md) | 43 |  |
-| 34 | Protected envelopes | — | |
-| 35 | [Direct programming interface](ch35.md) | 128 |  |
+| 34 | [Protected envelopes](ch34.md) | 4 |  |
+| 35 | [Direct programming interface](ch35.md) | 131 |  |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 89 |  |
 | 37 | [VPI object model diagrams](ch37.md) | 227 |  |
 | 38 | [VPI routine definitions](ch38.md) | 109 |  |

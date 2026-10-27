@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 89.15%、実行 59.43%。**
+**全規格の要求台帳ベース（暫定）: 設計 89.29%、実行 59.53%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10982/12319 (89.15%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7321/12319 (59.43%)。
-- 登録済みだがテスト未対応: 1337 動作。
+- 登録済み動作に対するテスト設計網羅率: 11000/12319 (89.29%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7333/12319 (59.53%)。
+- 登録済みだがテスト未対応: 1319 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -42,6 +42,8 @@
 - `ch16-sim-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:04.031900+00:00 / 9/12319 動作確認、古い入力との対応 0 件。
 - `ch19-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T21:20:25.211852+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch19-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T21:20:35.736196+00:00 / 8/12319 動作確認、古い入力との対応 0 件。
+- `ch19-rest-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:55:13.337642+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
+- `ch19-rest-reuse-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:51:40.361212+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch21-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:30:07.226181+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `ch21-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:30:10.339072+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `ch22-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:08:32.360779+00:00 / 13/12319 動作確認、古い入力との対応 0 件。
@@ -50,6 +52,9 @@
 - `ch23-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:10:14.224099+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
 - `ch31-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:05:22.468557+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
 - `ch31-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:05:39.429957+00:00 / 7/12319 動作確認、古い入力との対応 0 件。
+- `ch34-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T23:01:55.389805+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
+- `ch34-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T23:02:01.862164+00:00 / 5/12319 動作確認、古い入力との対応 0 件。
+- `ch35-rest-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:51:49.121474+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `ch36-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T21:59:06.732473+00:00 / 55/12319 動作確認、古い入力との対応 0 件。
 - `ch36-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T21:59:09.623661+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `ch37-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:11:52.776966+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
@@ -61,14 +66,14 @@
 - `ch9-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:32:53.445594+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
 - `chA-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T22:16:15.354614+00:00 / 24/12319 動作確認、古い入力との対応 0 件。
 - `chA-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:16:45.126049+00:00 / 45/12319 動作確認、古い入力との対応 0 件。
-- `chH-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:00:40.482405+00:00 / 184/12319 動作確認、古い入力との対応 2 件。
+- `chH-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:00:40.482405+00:00 / 183/12319 動作確認、古い入力との対応 5 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12319 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4746/12319 動作確認、古い入力との対応 166 件。
+- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4751/12319 動作確認、古い入力との対応 161 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12319 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12319 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12319 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3148/12319 動作確認、古い入力との対応 166 件。
-- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2705/12319 動作確認、古い入力との対応 145 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3149/12319 動作確認、古い入力との対応 161 件。
+- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2705/12319 動作確認、古い入力との対応 143 件。
 - 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
@@ -228,7 +233,7 @@
 - 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 539。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 59。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 300。
-- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 224。
+- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 233。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 285。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 348。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 346。
@@ -243,8 +248,8 @@
 - 31 Timing checks: 解釈保留なし 25/26、登録 180、テスト対応 154。
 - 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 119。
 - 33 Configuring the contents of a design: 解釈保留なし 34/36、登録 63、テスト対応 30。
-- 34 Protected envelopes: 解釈保留なし 103/104、登録 215、テスト対応 0。
-- 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 111。
+- 34 Protected envelopes: 解釈保留なし 103/104、登録 215、テスト対応 5。
+- 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 115。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 148。
 - 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1658。
 - 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 260。
@@ -10257,7 +10262,7 @@ atohex is a no-argument string method returning integer.
 
 ### SV2023-6.16.9-EXTRACT-ATOI-BASE
 
-6.16.9 / normal / テスト対応あり・実行未確認
+6.16.9 / normal / 実行確認あり
 
 atoi() parses the leading decimal digit/underscore sequence into an integer under the stated scan rules.
 
@@ -10265,7 +10270,7 @@ atoi() parses the leading decimal digit/underscore sequence into an integer unde
 
 規定の性質: `mandatory`。
 
-- [test_string_atoi_2.sv](../tests/ch6/test_string_atoi_2.sv): decimal ASCII12345/0/2147483647を十進期待値と比較し、leading spaceを読まない対照も持つ。leading signは、6.16.9のsignの読み方が定まらないため、読む結果と読まない結果の両方を受け入れる。
+- [test_string_atoi_2.sv](../tests/ch6/test_string_atoi_2.sv): decimal ASCII12345/0/2147483647を十進期待値と比較し、leading sign/spaceを読まない対照も持つ。
 
 ### SV2023-6.16.9-EXTRACT-ATOI-SIGNATURE
 
@@ -10305,7 +10310,7 @@ atooct is a no-argument string method returning integer.
 
 ### SV2023-6.16.9-EXTRACT-NO-DIGITS-ZERO
 
-6.16.9 / boundary / テスト対応あり・実行未確認
+6.16.9 / boundary / 実行確認あり
 
 Integer string conversion returns zero if the scan encounters no digits.
 
@@ -10317,7 +10322,7 @@ Integer string conversion returns zero if the scan encounters no digits.
 
 ### SV2023-6.16.9-EXTRACT-NO-LITERAL-GRAMMAR
 
-6.16.9 / normal / テスト対応あり・実行未確認
+6.16.9 / normal / 実行確認あり
 
 atoi/atohex/atooct/atobin do not parse an integer literal sign, size, apostrophe or base specifier.
 
@@ -10325,11 +10330,11 @@ atoi/atohex/atooct/atobin do not parse an integer literal sign, size, apostrophe
 
 規定の性質: `mandatory`。
 
-- [test_string_ato_integer_scan_rules.sv](../tests/ch6/test_string_ato_integer_scan_rules.sv): 整数リテラルの数字以外の部分を含む文字列で、プラス "+12"（atoi）が 0、サイズ・アポストロフィ・基数の "8'hff" が atohex で 8（アポストロフィで停止）、"'hff"/"hff"/"'d12" が 0、"12'o17" が atooct で 10、"4'b1010" が atobin で 0 になることを比較している。先頭のマイナス "-12"/"-ff"/"-7" は、6.16.9 の sign の読み方が定まらないため、0 と負の値の両方を受け入れ、どちらかは確かめない。 区別: プラスを解釈する誤実装（Verilator 5.052 のように strtol を使う）なら "+12" が 12 になる。サイズと基数を解釈する誤実装なら "8'hff" が 255、"12'o17" が 15、"4'b1010" が 10 になり、基数文字を読み飛ばすなら "hff" が 255 になる。
+- [test_string_ato_integer_scan_rules.sv](../tests/ch6/test_string_ato_integer_scan_rules.sv): 整数リテラルの数字以外の部分を含む文字列で、符号 "-12"/"+12"（atoi）、"-ff"（atohex）、"-7"（atooct）が 0、サイズ・アポストロフィ・基数の "8'hff" が atohex で 8（アポストロフィで停止）、"'hff"/"hff"/"'d12" が 0、"12'o17" が atooct で 10、"4'b1010" が atobin で 0 になることを比較している。 区別: 符号を解釈する誤実装（Verilator 5.052 のように strtol を使う）なら -12/12/-255/-7 が出る。サイズと基数を解釈する誤実装なら "8'hff" が 255、"12'o17" が 15、"4'b1010" が 10 になり、基数文字を読み飛ばすなら "hff" が 255 になる。
 
 ### SV2023-6.16.9-EXTRACT-SCAN-STOP
 
-6.16.9 / normal / テスト対応あり・実行未確認
+6.16.9 / normal / 実行確認あり
 
 Integer string conversion scans digits and underscores from the start and stops at the first other character or the end.
 
@@ -48641,7 +48646,7 @@ Coverpoints cover integral or real expressions; real-expression coverage permits
 
 ### SV2023-19.5-EXTRACT-DEFAULT-EXCLUDED
 
-19.5 / error / テスト未対応
+19.5 / error / テスト対応あり・実行未確認
 
 Default bins contribute neither to point coverage calculation nor cross coverage and shall not be explicitly ignored.
 
@@ -48649,6 +48654,7 @@ Default bins contribute neither to point coverage calculation nor cross coverage
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_ignore_default_bin.sv](../tests/ch19/test_illegal_cg_ignore_default_bin.sv): 違法系の設計を拒否で19.5-EXTRACT-DEFAULT-EXCLUDEDを観測する。ignore_bins ig = default explicitly ignores the default bin, which the clause forbids; the test requires rejection at that line. This is the direct negative case for the 'shall not be explicitly ignored' sentence. Verilator 5.052 accepts the design. The other 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-19.5-EXTRACT-DEFAULT-VALUES
 
@@ -48686,7 +48692,7 @@ Functions in covergroup_expression shall not have output/inout/ref arguments; co
 
 ### SV2023-19.5-EXTRACT-GROUP-FUNCTION-PURITY
 
-19.5 / error / テスト未対応
+19.5 / error / テスト対応あり・実行未確認
 
 Such functions shall be automatic or preserve no state, have no side effects and reference no nonconstant outside-scope variables.
 
@@ -48694,6 +48700,7 @@ Such functions shall be automatic or preserve no state, have no side effects and
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_function_side_effect.sv](../tests/ch19/test_illegal_cg_function_side_effect.sv): 違法系の設計を拒否で19.5-EXTRACT-GROUP-FUNCTION-PURITYを観測する。The static function f increments the class member calls and is used as a coverpoint expression; the test requires rejection because a function in a covergroup expression shall preserve no state and have no side effects. This is the direct negative case for the 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-19.5-EXTRACT-GROUP-SYSTEM-FUNCTIONS
 
@@ -49045,7 +49052,7 @@ with acts as evaluation for every candidate at covergroup construction; by defau
 
 ### SV2023-19.5.1.1-EXTRACT-WITH-FILTER
 
-19.5.1.1 / error / テスト未対応
+19.5.1.1 / error / テスト対応あり・実行未確認
 
 A bin with clause includes only candidate values making its expression true; item denotes a candidate of the coverpoint type. with is illegal for real bins.
 
@@ -49053,6 +49060,7 @@ A bin with clause includes only candidate values making its expression true; ite
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_real_bins_with.sv](../tests/ch19/test_illegal_cg_real_bins_with.sv): 違法系の設計を拒否で19.5.1.1-EXTRACT-WITH-FILTERを観測する。bins b = {\[0.0:1.0\]} with (item > 0.5) on a real coverpoint is required to be rejected because with is illegal for real bins; the test is the direct negative case for that sentence. Verilator 5.052 accepts the declaration and then fails in generated C++ for an 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-19.5.1.1-EXTRACT-WITH-PRESERVE
 
@@ -49092,7 +49100,7 @@ A bin set expression shall yield a non-associative array whose element type is a
 
 ### SV2023-19.5.1.2-EXTRACT-SET-VISIBILITY-TIME
 
-19.5.1.2 / normal / テスト未対応
+19.5.1.2 / normal / 実行確認あり
 
 Coverpoint/bin and other within-covergroup identifiers are not visible in the set expression, which evaluates at covergroup construction.
 
@@ -49100,6 +49108,7 @@ Coverpoint/bin and other within-covergroup identifiers are not visible in the se
 
 規定の性質: `mandatory`。
 
+- [test_19_rest_set_visibility.sv](../tests/ch19/test_19_rest_set_visibility.sv): 実行で19.5.1.2-EXTRACT-SET-VISIBILITY-TIMEを観測する。The set expression of bins v\[\] is \[0:cp\], where the module parameter cp = 2 and the coverpoint are both named cp. Within-covergroup identifiers are not visible in the set expression, so cp resolves to the enclosing parameter and the range creates the three bin 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-19.5.2-EXTRACT-CONSECUTIVE-TRANSITION
 
@@ -49345,7 +49354,7 @@ The default explicit integral value/transition-bin matching described in 19.5.4 
 
 ### SV2023-19.5.4-EXTRACT-WILDCARD-SAMPLES
 
-19.5.4 / error / テスト未対応
+19.5.4 / error / テスト対応あり・実行未確認
 
 Wildcard bins exclude sampled values containing x/z; real coverpoint bins shall not use wildcard.
 
@@ -49353,6 +49362,7 @@ Wildcard bins exclude sampled values containing x/z; real coverpoint bins shall 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_real_wildcard.sv](../tests/ch19/test_illegal_cg_real_wildcard.sv): 違法系の設計を拒否で19.5.4-EXTRACT-WILDCARD-SAMPLESを観測する。wildcard bins b = {1.0} on a real coverpoint is required to be rejected because real coverpoint bins shall not use wildcard; the test is the direct negative case for that sentence. Verilator 5.052 accepts the declaration, so the test is spec oracle only. The x 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-19.5.5-EXTRACT-IGNORE-BOUNDED
 
@@ -49939,7 +49949,7 @@ illegal_bins excludes selected products from coverage and issues runtime errors 
 
 ### SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT
 
-19.7 / normal / テスト未対応
+19.7 / normal / テスト対応あり・実行未確認
 
 cross_retain_auto_bins is a definition-only instance option: it can be set only by an option assignment in the covergroup definition, either at the covergroup level (as the default for its crosses) or within a cross, and not within a coverpoint or by procedural assignment after the covergroup is instantiated.
 
@@ -49947,6 +49957,7 @@ cross_retain_auto_bins is a definition-only instance option: it can be set only 
 
 規定の性質: `definition`。
 
+- [test_cg_option_name_unique_and_retain_scope.sv](../tests/ch19/test_cg_option_name_unique_and_retain_scope.sv): 実行で19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXTを観測する。option.cross_retain_auto_bins = 0 is set at the covergroup level as the default of its crosses, cross w overrides it with 1, cg2 keeps the default 1 while cross v sets 0, and get_inst_coverage(c,t) shows 1/3 for a cross that retains the automatic bins and 1/1 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS
 
@@ -50468,7 +50479,7 @@ Instance option get_inst_coverage defaults to false and applies with merge_insta
 
 ### SV2023-19.7-EXTRACT-OPTION-GOAL
 
-19.7 / normal / テスト未対応
+19.7 / normal / テスト対応あり・実行未確認
 
 Instance option goal defaults to 100 and specifies the target for the instance or its point/cross.
 
@@ -50476,6 +50487,7 @@ Instance option goal defaults to 100 and specifies the target for the instance o
 
 規定の性質: `definition`。
 
+- [test_option_member_defaults.sv](../tests/ch19/test_option_member_defaults.sv): 実行で19.7-EXTRACT-OPTION-GOALを観測する。test_option_member_defaults creates cg_plain and reads option.goal through the group, its coverpoint cp and its cross X; all three print 100. In cg_set the group sets option.goal = 90, and the point and cross still print 100 because goal is not inherited. This 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-19.7-EXTRACT-OPTION-MEMBER
 
@@ -50515,7 +50527,7 @@ Instance option per_instance defaults to false; true requires saving/reporting t
 
 ### SV2023-19.7-EXTRACT-OPTION-WEIGHT
 
-19.7 / normal / テスト未対応
+19.7 / normal / 実行確認あり
 
 Instance option weight defaults to 1 and shall be a nonnegative integral value, weighting the group in simulation instance coverage or a point/cross in enclosing group instance coverage.
 
@@ -50523,6 +50535,7 @@ Instance option weight defaults to 1 and shall be a nonnegative integral value, 
 
 規定の性質: `definition`。
 
+- [test_cg_item_weighted_average.sv](../tests/ch19/test_cg_item_weighted_average.sv): 実行で19.7-EXTRACT-OPTION-WEIGHTを観測する。test_cg_item_weighted_average samples identical values into cg_equal (weights 1 and 1) and cg_weighted (weights 3 and 1); the instance coverage is 37.50 and 43.75, the weighted average of the two coverpoints, not the 33.33 share of all bins. This directly exer 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-19.7.1-EXTRACT-NO-PER-INSTANCE-TYPE-VALUES
 
@@ -50878,7 +50891,7 @@ Type option strobe defaults to false; true samples clock events at the end of th
 
 ### SV2023-19.7.1-EXTRACT-TYPE-OPTION-WEIGHT
 
-19.7.1 / normal / テスト未対応
+19.7.1 / normal / テスト対応あり・実行未確認
 
 Type option weight defaults to 1, shall be a nonnegative integral value, and weights the group in cumulative database coverage or its points/crosses in group type coverage.
 
@@ -50886,6 +50899,7 @@ Type option weight defaults to 1, shall be a nonnegative integral value, and wei
 
 規定の性質: `definition`。
 
+- [test_cg_option_levels_readback.sv](../tests/ch19/test_cg_option_levels_readback.sv): 実行で19.7.1-EXTRACT-TYPE-OPTION-WEIGHTを観測する。test_cg_option_levels_readback sets type_option.weight = 3 on cp and leaves the default on cq of cg_m with merge_instances, and prints the merged type coverage 62.50 = (3 x 50 + 100) / 4, which is the weighting of the points in group type coverage. test_option 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-STATIC
 
@@ -81367,7 +81381,7 @@ Compliant tools shall provide a library-name-only invocation search-order overri
 
 ### SV2023-34.2-EXTRACT-DECRYPTION-ENVELOPE
 
-34.2 / boundary / テスト未対応
+34.2 / boundary / 実行確認あり
 
 Begin_protected/end_protected delimit decryption envelopes with unmatched-most-recent closure; encrypted data may contain nested envelopes and implementations shall support at least eight nesting levels.
 
@@ -81375,6 +81389,7 @@ Begin_protected/end_protected delimit decryption envelopes with unmatched-most-r
 
 規定の性質: `mandatory`。
 
+- [test_34_extra_nested_envelopes.sv](../tests/ch34/test_34_extra_nested_envelopes.sv): 実行で34.2-EXTRACT-DECRYPTION-ENVELOPEを観測する。Eight nested begin_protected/end_protected pairs are accepted by both tools and the design after them runs, which is the minimum nesting depth 34.2 requires. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-34.2-EXTRACT-ENCRYPTION-ENVELOPE
 
@@ -81873,7 +81888,7 @@ Protect directives delimit lexical envelopes and their expressions define proces
 
 ### SV2023-34.4-EXTRACT-PROTECT-LEXICAL-SCOPE
 
-34.4 / normal / テスト未対応
+34.4 / normal / 実行確認あり
 
 Protect directive scope is lexical rather than tied to source declarations and may cross file/include boundaries.
 
@@ -81881,6 +81896,7 @@ Protect directive scope is lexical rather than tied to source declarations and m
 
 規定の性質: `mandatory`。
 
+- [test_34_extra_include_envelope.sv](../tests/ch34/test_34_extra_include_envelope.sv): 実行で34.4-EXTRACT-PROTECT-LEXICAL-SCOPEを観測する。Verilator opens an envelope in an included file (begin_protected, encoding, 24-byte data_block) and closes it with end_protected in the including file; its base64 counter and state cross the file boundary, and the module after the include runs. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-34.4-EXTRACT-PROTECT-SELF-CONTAINMENT
 
@@ -81994,7 +82010,7 @@ End closes the cleartext encryption region and becomes end_protected in its encr
 
 ### SV2023-34.5.3.1-EXTRACT-KEYWORD-SYNTAX
 
-34.5.3.1 / normal / テスト未対応
+34.5.3.1 / normal / 実行確認あり
 
 Protect begin_protected is a bare keyword.
 
@@ -82002,6 +82018,7 @@ Protect begin_protected is a bare keyword.
 
 規定の性質: `definition`。
 
+- [test_34_extra_envelope_keywords.sv](../tests/ch34/test_34_extra_envelope_keywords.sv): 実行で34.5.3.1-EXTRACT-KEYWORD-SYNTAXを観測する。An empty begin_protected/end_protected pair is accepted as a directive pair and the declarations on either side elaborate; Verilator rejects `pragma protect begin_protected foo as unknown, so the bare spelling is what it recognizes. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-34.5.3.2-EXTRACT-DECRYPT-BEGIN
 
@@ -82027,7 +82044,7 @@ While encrypting a containing region, an existing begin_protected block and all 
 
 ### SV2023-34.5.4.1-EXTRACT-KEYWORD-SYNTAX
 
-34.5.4.1 / normal / テスト未対応
+34.5.4.1 / normal / 実行確認あり
 
 Protect end_protected is a bare keyword.
 
@@ -82035,6 +82052,7 @@ Protect end_protected is a bare keyword.
 
 規定の性質: `definition`。
 
+- [test_34_extra_envelope_keywords.sv](../tests/ch34/test_34_extra_envelope_keywords.sv): 実行で34.5.4.1-EXTRACT-KEYWORD-SYNTAXを観測する。An empty begin_protected/end_protected pair is accepted as a directive pair and the declarations on either side elaborate; Verilator rejects `pragma protect begin_protected foo as unknown, so the bare spelling is what it recognizes. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-34.5.4.2-EXTRACT-DECRYPT-END
 
@@ -82808,7 +82826,7 @@ Decode data_block before decryption; for CBC requiring an IV, remove the first d
 
 ### SV2023-34.5.15.2-EXTRACT-DATA-OUTPUT
 
-34.5.15.2 / normal / テスト未対応
+34.5.15.2 / normal / 実行確認あり
 
 data_block begins on the next line; encrypt each begin-end content with the selected method, encode it, and output it.
 
@@ -82816,6 +82834,7 @@ data_block begins on the next line; encrypt each begin-end content with the sele
 
 規定の性質: `mandatory`。
 
+- [test_34_extra_data_block_skipped.sv](../tests/ch34/test_34_extra_data_block_skipped.sv): 実行で34.5.15.2-EXTRACT-DATA-OUTPUTを観測する。The data_block body is 32 base64 characters (encoding bytes=24) on the line after the directive, and Verilator consumes exactly those bytes and elaborates the module that follows, so the body was not read as source text (the bare 32-character token would be a 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-34.5.15.2-EXTRACT-INPUT-BLOCK-ERROR
 
@@ -84144,7 +84163,7 @@ An import with neither attribute cannot access SV data beyond its actual argumen
 
 ### SV2023-35.5.1.3-EXTRACT-NONCONTEXT-API
 
-35.5.1.3 / normal / テスト未対応
+35.5.1.3 / normal / テスト対応あり・実行未確認
 
 For a noncontext import, calls requiring context through VPI or SV exports have unpredictable effects, subject to expressly safe H.9.5 APIs.
 
@@ -84152,6 +84171,7 @@ For a noncontext import, calls requiring context through VPI or SV exports have 
 
 規定の性質: `definition`。
 
+- [test_35_extra_H_9_5_vpi_printf.sv](../tests/ch35/test_35_extra_H_9_5_vpi_printf.sv): 実行で35.5.1.3-EXTRACT-NONCONTEXT-APIを観測する。A noncontext import calls vpi_printf and vpi_flush, which H.9.5 lists as the VPI routines that may safely be called without DPI context, and the expected output shows the text. This observes the expressly safe exception to the rule that noncontext VPI calls ar 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-35.5.1.3-EXTRACT-PURE-ELIGIBILITY
 
@@ -84319,7 +84339,7 @@ Circumventing ordinary return/unwinding across an export call, such as by setjmp
 
 ### SV2023-35.5.3-EXTRACT-CONTEXT-INSTRUMENT
 
-35.5.3 / normal / テスト未対応
+35.5.3 / normal / 実行確認あり
 
 Only imports declared context receive call-context instrumentation.
 
@@ -84327,6 +84347,7 @@ Only imports declared context receive call-context instrumentation.
 
 規定の性質: `mandatory`。
 
+- [test_dpi_context_scope.sv](../tests/ch35/test_dpi_context_scope.sv): 実行で35.5.3-EXTRACT-CONTEXT-INSTRUMENTを観測する。Context imports of two instances receive the scope of their declaration, svGetNameFromScope names it, and user data is kept per scope, so the call-context instrumentation of context imports is observed directly. The noncontext half of "only" is observed by tes 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-35.5.3-EXTRACT-CONTEXT-NONTRANSITIVE
 
@@ -84423,7 +84444,7 @@ Scope APIs/export calls from non-DPI foreign interfaces require scope setup and 
 
 ### SV2023-35.5.3-EXTRACT-SAFE-CONTEXT-APIS
 
-35.5.3 / normal / 実行確認あり
+35.5.3 / normal / テスト対応あり・実行未確認
 
 Only context imports are generally instrumented for arbitrary VPI/export calls; noncontext imports can safely use the specifically permitted H.9.5 subset.
 
@@ -84458,7 +84479,7 @@ Every import requires a declaration with zero or more input/output/inout argumen
 
 ### SV2023-35.5.4-EXTRACT-DEPRECATED-DIAGNOSTIC
 
-35.5.4 / error / テスト未対応
+35.5.4 / error / 実行確認あり
 
 Using DPI must generate a compile-time warning or error explaining its deprecation/replacement by DPI-C and that C application changes may be required.
 
@@ -84466,6 +84487,7 @@ Using DPI must generate a compile-time warning or error explaining its deprecati
 
 規定の性質: `mandatory`。
 
+- [test_35_rest_deprecated_dpi_diagnostic.sv](../tests/ch35/test_35_rest_deprecated_dpi_diagnostic.sv): 違法系の設計を拒否で35.5.4-EXTRACT-DEPRECATED-DIAGNOSTICを観測する。The import declaration uses the deprecated version string "DPI". Verilator 5.052 rejects it at compile time with an error whose text names "DPI-C" as the replacement, so the required warning-or-error for the deprecated string is observed at the place of the de 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-35.5.4-EXTRACT-DPI-VERSION-FORMAT
 
@@ -84565,7 +84587,7 @@ Import declarations cannot use ref; actual foreign passing mechanics remain tran
 
 ### SV2023-35.5.4-EXTRACT-PROTOTYPE-RESTRICTIONS
 
-35.5.4 / error / テスト未対応
+35.5.4 / error / 実行確認あり
 
 Prototype dynamic_override_specifiers are legal only for methods in a non-interface class; function results obey 35.5.5, and DPI formals cannot use ref or class types.
 
@@ -84573,6 +84595,7 @@ Prototype dynamic_override_specifiers are legal only for methods in a non-interf
 
 規定の性質: `mandatory`。
 
+- [test_35_rest_dpi_class_formal.sv](../tests/ch35/test_35_rest_dpi_class_formal.sv): 違法系の設計を拒否で35.5.4-EXTRACT-PROTOTYPE-RESTRICTIONSを観測する。The import declaration gives its formal argument the class type c_payload. Verilator 5.052 rejects the declaration at elaboration with "Unsupported: DPI argument of type CLASSREFDTYPE", so the rule that class types cannot be passed as DPI formals is observed w 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-35.5.5-EXTRACT-EXPLICIT-RESULT
 
@@ -132744,7 +132767,7 @@ User data storage supports shared or unique keys within a scope; key selects sha
 
 ### SV2023-H.9.5-EXTRACT-CONTEXT-EXCEPTIONS
 
-H.9.5 / normal / 実行確認あり
+H.9.5 / normal / テスト対応あり・実行未確認
 
 VPI calls from imports require context except printf/vprintf/flush,mcd_open/close/name/printf/vprintf/flush,and get_vlog_info routines, which do not access model.
 

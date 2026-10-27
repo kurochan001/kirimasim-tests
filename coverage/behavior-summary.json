@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "ff8e4debd3ad2a54d770f68a701f3d3f2e5a956675cfe6e8f48ff2199de0699a",
+  "registry_sha256": "608503eb5ee6a2cfda5d200582f3986fa8d4d9e1ebe1c524ff55a30d9c289be4",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -42,18 +42,18 @@
   "normative_sections": 1703,
   "audited_sections": 1683,
   "registered": 12319,
-  "mapped": 10982,
+  "mapped": 11000,
   "denominator_reviewed": false,
   "extraction_progress_percent": 98.825601879037,
-  "unmapped": 1337,
-  "executed": 7321,
+  "unmapped": 1319,
+  "executed": 7333,
   "whole_standard_percent": null,
   "whole_standard_executed_percent": null,
-  "registered_percent": 89.14684633492978,
+  "registered_percent": 89.29296209107882,
   "metric_policy_version": 3,
   "whole_standard_status": "provisional",
-  "provisional_design_percent": 89.14684633492978,
-  "provisional_execution_percent": 59.428525042617096,
+  "provisional_design_percent": 89.29296209107882,
+  "provisional_execution_percent": 59.525935546716454,
   "denominator": {
     "count": 12319,
     "unit": "registered_requirement_condition_or_observation",
@@ -63,15 +63,15 @@
     "interpretation_pending": 21
   },
   "test_mapping": {
-    "suite_test_files": 7732,
-    "linked_test_files": 5297,
-    "unlinked_test_files": 2435
+    "suite_test_files": 7740,
+    "linked_test_files": 5308,
+    "unlinked_test_files": 2432
   },
   "collective_requirement_count": 652,
   "requirement_status_counts": {
-    "pass": 7321,
-    "mapped_without_pass": 3661,
-    "unmapped": 1316,
+    "pass": 7333,
+    "mapped_without_pass": 3667,
+    "unmapped": 1298,
     "interpretation_pending": 21
   },
   "chapters": [
@@ -130,9 +130,9 @@
       "title": "Data types",
       "registered": 726,
       "mapped": 687,
-      "executed": 596,
+      "executed": 600,
       "design_percent": 94.62809917355372,
-      "execution_percent": 82.09366391184572,
+      "execution_percent": 82.64462809917356,
       "interpretation_pending": 0
     },
     {
@@ -259,10 +259,10 @@
       "clause": "19",
       "title": "Functional coverage",
       "registered": 272,
-      "mapped": 224,
-      "executed": 45,
-      "design_percent": 82.3529411764706,
-      "execution_percent": 16.544117647058822,
+      "mapped": 233,
+      "executed": 47,
+      "design_percent": 85.66176470588235,
+      "execution_percent": 17.279411764705884,
       "interpretation_pending": 2
     },
     {
@@ -409,20 +409,20 @@
       "clause": "34",
       "title": "Protected envelopes",
       "registered": 215,
-      "mapped": 0,
-      "executed": 0,
-      "design_percent": 0.0,
-      "execution_percent": 0.0,
+      "mapped": 5,
+      "executed": 5,
+      "design_percent": 2.3255813953488373,
+      "execution_percent": 2.3255813953488373,
       "interpretation_pending": 1
     },
     {
       "clause": "35",
       "title": "Direct programming interface",
       "registered": 142,
-      "mapped": 111,
-      "executed": 89,
-      "design_percent": 78.16901408450704,
-      "execution_percent": 62.67605633802817,
+      "mapped": 115,
+      "executed": 91,
+      "design_percent": 80.98591549295774,
+      "execution_percent": 64.08450704225352,
       "interpretation_pending": 0
     },
     {
@@ -560,9 +560,9 @@
       "title": "DPI C layer",
       "registered": 223,
       "mapped": 190,
-      "executed": 153,
+      "executed": 152,
       "design_percent": 85.20179372197309,
-      "execution_percent": 68.60986547085201,
+      "execution_percent": 68.16143497757848,
       "interpretation_pending": 1
     },
     {
@@ -672,8 +672,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10981,
-          "unmapped": 1316,
+          "not_run": 10999,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -693,8 +693,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10981,
-          "unmapped": 1316,
+          "not_run": 10999,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -712,8 +712,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10967,
-          "unmapped": 1316,
+          "not_run": 10985,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -741,8 +741,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10967,
-          "unmapped": 1316,
+          "not_run": 10985,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -760,8 +760,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 0,
-          "not_run": 10974,
-          "unmapped": 1316,
+          "not_run": 10992,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -788,8 +788,48 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10974,
-          "unmapped": 1316,
+          "not_run": 10992,
+          "unmapped": 1298,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "ch19-rest-20261028-verilator.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-27T22:55:13.337642+00:00",
+        "executed": [
+          "SV2023-19.5.1.2-EXTRACT-SET-VISIBILITY-TIME"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10999,
+          "unmapped": 1298,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "ch19-rest-reuse-20261028-verilator.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-27T22:51:40.361212+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 44,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10956,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -809,8 +849,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10980,
-          "unmapped": 1316,
+          "not_run": 10998,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -831,8 +871,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10980,
-          "unmapped": 1316,
+          "not_run": 10998,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -864,8 +904,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10967,
-          "unmapped": 1316,
+          "not_run": 10985,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -899,8 +939,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10967,
-          "unmapped": 1316,
+          "not_run": 10985,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -924,8 +964,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 3,
           "stale": 0,
-          "not_run": 10965,
-          "unmapped": 1316,
+          "not_run": 10983,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -954,8 +994,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 3,
           "stale": 0,
-          "not_run": 10965,
-          "unmapped": 1316,
+          "not_run": 10983,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -984,8 +1024,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10972,
-          "unmapped": 1316,
+          "not_run": 10990,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1011,8 +1051,78 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10972,
-          "unmapped": 1316,
+          "not_run": 10990,
+          "unmapped": 1298,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "ch34-extra-20261028-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-10-27T23:01:55.389805+00:00",
+        "executed": [
+          "SV2023-34.2-EXTRACT-DECRYPTION-ENVELOPE",
+          "SV2023-34.5.3.1-EXTRACT-KEYWORD-SYNTAX",
+          "SV2023-34.5.4.1-EXTRACT-KEYWORD-SYNTAX"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 3,
+          "fail": 0,
+          "known": 2,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10995,
+          "unmapped": 1298,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "ch34-extra-20261028-verilator.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-27T23:02:01.862164+00:00",
+        "executed": [
+          "SV2023-34.2-EXTRACT-DECRYPTION-ENVELOPE",
+          "SV2023-34.4-EXTRACT-PROTECT-LEXICAL-SCOPE",
+          "SV2023-34.5.15.2-EXTRACT-DATA-OUTPUT",
+          "SV2023-34.5.3.1-EXTRACT-KEYWORD-SYNTAX",
+          "SV2023-34.5.4.1-EXTRACT-KEYWORD-SYNTAX"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 5,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10995,
+          "unmapped": 1298,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "ch35-rest-20261028-verilator.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-27T22:51:49.121474+00:00",
+        "executed": [
+          "SV2023-35.5.4-EXTRACT-DEPRECATED-DIAGNOSTIC",
+          "SV2023-35.5.4-EXTRACT-PROTOTYPE-RESTRICTIONS"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 2,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10998,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1086,8 +1196,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9776,
-          "unmapped": 1316,
+          "not_run": 9794,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1107,8 +1217,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 3,
           "stale": 0,
-          "not_run": 10977,
-          "unmapped": 1316,
+          "not_run": 10995,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1128,8 +1238,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10981,
-          "unmapped": 1316,
+          "not_run": 10999,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1151,8 +1261,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10979,
-          "unmapped": 1316,
+          "not_run": 10997,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1211,8 +1321,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10942,
-          "unmapped": 1316,
+          "not_run": 10960,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1232,8 +1342,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10979,
-          "unmapped": 1316,
+          "not_run": 10997,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1255,8 +1365,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10979,
-          "unmapped": 1316,
+          "not_run": 10997,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1281,8 +1391,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10976,
-          "unmapped": 1316,
+          "not_run": 10994,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1307,8 +1417,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10976,
-          "unmapped": 1316,
+          "not_run": 10994,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1351,8 +1461,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10936,
-          "unmapped": 1316,
+          "not_run": 10954,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1416,8 +1526,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10935,
-          "unmapped": 1316,
+          "not_run": 10953,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1431,7 +1541,7 @@
           "SV2023-35.2.2-EXTRACT-OPEN-ARRAY-FORMAL",
           "SV2023-35.4-EXTRACT-MULTIPLE-EXPORTS",
           "SV2023-35.5.3-EXTRACT-CHAIN-ATTRIBUTE",
-          "SV2023-35.5.3-EXTRACT-SAFE-CONTEXT-APIS",
+          "SV2023-35.5.3-EXTRACT-CONTEXT-INSTRUMENT",
           "SV2023-35.5.4-EXTRACT-DECLARE-IMPORT",
           "SV2023-35.5.4-EXTRACT-FORMAL-DECLARATION",
           "SV2023-35.5.4-EXTRACT-FORMAL-NAME-DEFAULT-VARIATION",
@@ -1512,7 +1622,6 @@
           "SV2023-H.9.1-EXTRACT-EXPORT",
           "SV2023-H.9.3-EXTRACT-CHAIN",
           "SV2023-H.9.3-EXTRACT-NAME",
-          "SV2023-H.9.5-EXTRACT-CONTEXT-EXCEPTIONS",
           "SV2023-I.2-EXTRACT-INTEGER-TYPES",
           "SV2023-I.2-EXTRACT-REQUIRED",
           "SV2023-I.3-EXTRACT-API-SVACKDISABLEDSTATE",
@@ -1612,16 +1721,16 @@
           "SV2023-I.3-EXTRACT-TIME-CONSTANTS",
           "SV2023-I.3-EXTRACT-VERSION"
         ],
-        "stale_links": 2,
+        "stale_links": 5,
         "status_counts": {
-          "pass": 184,
+          "pass": 183,
           "fail": 0,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 2,
-          "not_run": 10796,
-          "unmapped": 1316,
+          "stale": 5,
+          "not_run": 10812,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -1930,8 +2039,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10692,
-          "unmapped": 1316,
+          "not_run": 10710,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -2764,6 +2873,7 @@
           "SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERGROUP",
           "SV2023-19.7-EXTRACT-LEVEL-WEIGHT-COVERPOINT",
           "SV2023-19.7-EXTRACT-OPTION-GET-INST-COVERAGE",
+          "SV2023-19.7-EXTRACT-OPTION-WEIGHT",
           "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-COVERGROUP",
           "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-WEIGHT-COVERGROUP",
           "SV2023-19.7.1-EXTRACT-TYPE-OPTION-MERGE-INSTANCES",
@@ -4530,7 +4640,11 @@
           "SV2023-6.16.8-EXTRACT-SIGNATURE",
           "SV2023-6.16.9-EXTRACT-ATOBIN-BASE",
           "SV2023-6.16.9-EXTRACT-ATOHEX-BASE",
+          "SV2023-6.16.9-EXTRACT-ATOI-BASE",
           "SV2023-6.16.9-EXTRACT-ATOOCT-BASE",
+          "SV2023-6.16.9-EXTRACT-NO-DIGITS-ZERO",
+          "SV2023-6.16.9-EXTRACT-NO-LITERAL-GRAMMAR",
+          "SV2023-6.16.9-EXTRACT-SCAN-STOP",
           "SV2023-6.17-EXTRACT-DEFAULT-NEW-OBJECT",
           "SV2023-6.17-EXTRACT-EVENT-COMPARISON",
           "SV2023-6.17-EXTRACT-EVENT-COPY",
@@ -6688,16 +6802,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 166,
+        "stale_links": 161,
         "status_counts": {
-          "pass": 4746,
-          "fail": 4835,
+          "pass": 4751,
+          "fail": 4839,
           "known": 0,
           "unsupported": 0,
-          "unreviewed_oracle": 1153,
-          "stale": 155,
-          "not_run": 93,
-          "unmapped": 1316,
+          "unreviewed_oracle": 1156,
+          "stale": 152,
+          "not_run": 102,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -6737,8 +6851,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 10925,
-          "unmapped": 1316,
+          "not_run": 10943,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -6776,8 +6890,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 2,
-          "not_run": 10929,
-          "unmapped": 1316,
+          "not_run": 10947,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -6815,8 +6929,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 2,
-          "not_run": 10929,
-          "unmapped": 1316,
+          "not_run": 10947,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -9047,6 +9161,7 @@
           "SV2023-6.16.8-EXTRACT-INCLUSIVE-SUBSTRING",
           "SV2023-6.16.8-EXTRACT-REVERSED",
           "SV2023-6.16.9-EXTRACT-ATOHEX-BASE",
+          "SV2023-6.16.9-EXTRACT-ATOI-BASE",
           "SV2023-6.18-EXTRACT-COMPLEX-CAST-TYPENAME",
           "SV2023-6.18-EXTRACT-TYPEDEF-ALIAS",
           "SV2023-6.19-EXTRACT-AUTO-INCREMENT",
@@ -9975,16 +10090,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 166,
+        "stale_links": 161,
         "status_counts": {
-          "pass": 3148,
+          "pass": 3149,
           "fail": 0,
-          "known": 7411,
+          "known": 7418,
           "unsupported": 0,
-          "unreviewed_oracle": 160,
-          "stale": 154,
-          "not_run": 109,
-          "unmapped": 1316,
+          "unreviewed_oracle": 164,
+          "stale": 151,
+          "not_run": 118,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       },
@@ -12700,16 +12815,16 @@
           "SV2023-M.2-EXTRACT-GUARD",
           "SV2023-M.2-EXTRACT-REGISTER"
         ],
-        "stale_links": 145,
+        "stale_links": 143,
         "status_counts": {
           "pass": 2705,
           "fail": 0,
-          "known": 4929,
+          "known": 4936,
           "unsupported": 0,
           "unreviewed_oracle": 85,
-          "stale": 141,
-          "not_run": 3122,
-          "unmapped": 1316,
+          "stale": 139,
+          "not_run": 3135,
+          "unmapped": 1298,
           "interpretation_pending": 21
         }
       }

@@ -6,21 +6,21 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 7732 |
-| Clauses in scope | 1002 |
-| Clauses out of scope | 157 |
-| Clauses with a direct test | 1002/1002 |
-| Clauses with at least two direct tests | 1002/1002 |
+| Tests | 7740 |
+| Clauses in scope | 1010 |
+| Clauses out of scope | 149 |
+| Clauses with a direct test | 1010/1010 |
+| Clauses with at least two direct tests | 1010/1010 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 115 |
+| Clauses with two tests or fewer | 120 |
 | Clauses with only standard-only tests | 201 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 661 |
+| both releases | 663 |
 | Icarus Verilog 13.0 only | 3563 |
-| Verilator 5.052 only | 1503 |
+| Verilator 5.052 only | 1509 |
 | standard only | 2005 |
 
 ## By chapter
@@ -43,7 +43,7 @@
 | 16 | Assertions | 661 | 69 | 9.6 | 0 | 482 |
 | 17 | Checkers | 81 | 10 | 8.1 | 0 | 59 |
 | 18 | Constrained random value generation | 200 | 44 | 4.5 | 0 | 79 |
-| 19 | Functional coverage | 156 | 24 | 6.5 | 0 | 126 |
+| 19 | Functional coverage | 157 | 24 | 6.5 | 0 | 126 |
 | 20 | Utility system tasks and system functions | 270 | 31 | 8.7 | 0 | 46 |
 | 21 | Input/output system tasks and system functions | 211 | 47 | 4.5 | 0 | 52 |
 | 22 | Compiler directives | 358 | 21 | 17.0 | 0 | 10 |
@@ -58,7 +58,8 @@
 | 31 | Timing checks | 66 | 20 | 3.3 | 0 | 48 |
 | 32 | Backannotation using the standard delay format | 50 | 11 | 4.5 | 0 | 34 |
 | 33 | Configuring the contents of a design | 43 | 13 | 3.3 | 0 | 22 |
-| 35 | Direct programming interface | 128 | 21 | 6.1 | 0 | 42 |
+| 34 | Protected envelopes | 4 | 8 | 0.5 | 0 | 0 |
+| 35 | Direct programming interface | 131 | 21 | 6.2 | 0 | 42 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 19 | 4.7 | 0 | 36 |
 | 37 | VPI object model diagrams | 227 | 94 | 2.4 | 0 | 208 |
 | 38 | VPI routine definitions | 109 | 46 | 2.4 | 0 | 44 |
@@ -144,6 +145,14 @@ These clauses are cited by tests but carry a tag in `tools/clauses.txt` that say
 - `33.3.1.1`: tag `tool`
 - `33.3.3`: tag `tool`
 - `33.5.4`: tag `tool`
+- `34.2`: tag `excluded`
+- `34.4`: tag `excluded`
+- `34.5.3.1`: tag `excluded`
+- `34.5.3.2`: tag `excluded`
+- `34.5.4.1`: tag `excluded`
+- `34.5.4.2`: tag `excluded`
+- `34.5.9.2`: tag `excluded`
+- `34.5.15.2`: tag `excluded`
 - `35.2.2.1`: tag `none`
 - `35.3.1`: tag `none`
 - `35.3.2`: tag `none`

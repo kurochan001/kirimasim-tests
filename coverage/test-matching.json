@@ -2,9 +2,9 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 7732,
-  "linked_test_files": 5297,
-  "unlinked_test_files": 2435,
+  "test_files": 7740,
+  "linked_test_files": 5308,
+  "unlinked_test_files": 2432,
   "chapters": [
     {
       "chapter": "ch3",
@@ -104,9 +104,9 @@
     },
     {
       "chapter": "ch19",
-      "test_files": 156,
-      "linked_test_files": 126,
-      "unlinked_test_files": 30
+      "test_files": 157,
+      "linked_test_files": 131,
+      "unlinked_test_files": 26
     },
     {
       "chapter": "ch20",
@@ -193,10 +193,16 @@
       "unlinked_test_files": 14
     },
     {
+      "chapter": "ch34",
+      "test_files": 4,
+      "linked_test_files": 4,
+      "unlinked_test_files": 0
+    },
+    {
       "chapter": "ch35",
-      "test_files": 128,
-      "linked_test_files": 120,
-      "unlinked_test_files": 8
+      "test_files": 131,
+      "linked_test_files": 122,
+      "unlinked_test_files": 9
     },
     {
       "chapter": "ch36",
@@ -110559,6 +110565,24 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch19/test_19_rest_set_visibility.sv",
+      "inputs_sha256": "190d9e49f0b0b29c4acb6c2844557a631e5022f0f23d0feeabb344c71affdbf1",
+      "cited_clauses": [
+        "19.5.1.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-19.5.1.2-EXTRACT-SET-VISIBILITY-TIME"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.5.1.2-EXTRACT-SET-ARRAY"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch19/test_A_extra_spec_option.sv",
       "inputs_sha256": "2a3620bc196a3b5cd97fcb1c04d24ad0206608be5920b3e844b9954a6ea73b5f",
       "cited_clauses": [
@@ -114154,7 +114178,8 @@
       "negative_test": false,
       "registered_requirement_ids": [
         "SV2023-19.11-EXTRACT-GROUP-WEIGHTED",
-        "SV2023-19.7-EXTRACT-LEVEL-WEIGHT-COVERPOINT"
+        "SV2023-19.7-EXTRACT-LEVEL-WEIGHT-COVERPOINT",
+        "SV2023-19.7-EXTRACT-OPTION-WEIGHT"
       ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
@@ -114216,8 +114241,7 @@
         "SV2023-19.7-EXTRACT-OPTION-GOAL",
         "SV2023-19.7-EXTRACT-OPTION-MEMBER",
         "SV2023-19.7-EXTRACT-OPTION-NAME",
-        "SV2023-19.7-EXTRACT-OPTION-PER-INSTANCE",
-        "SV2023-19.7-EXTRACT-OPTION-WEIGHT"
+        "SV2023-19.7-EXTRACT-OPTION-PER-INSTANCE"
       ],
       "interpretation_pending_ids": [
         "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT"
@@ -114823,6 +114847,7 @@
         "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-GOAL-CROSS",
         "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-WEIGHT-COVERPOINT",
         "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-WEIGHT-CROSS",
+        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-WEIGHT",
         "SV2023-19.7.1-EXTRACT-TYPE-STATIC"
       ],
       "collective_requirement_ids": [
@@ -114912,8 +114937,7 @@
         "SV2023-19.7.1-EXTRACT-TYPE-OPTION-MERGE-INSTANCES",
         "SV2023-19.7.1-EXTRACT-TYPE-OPTION-MUTATION",
         "SV2023-19.7.1-EXTRACT-TYPE-OPTION-REAL-INTERVAL",
-        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-STROBE",
-        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-WEIGHT"
+        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-STROBE"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -115087,6 +115111,7 @@
       "negative_test": false,
       "registered_requirement_ids": [
         "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
+        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
         "SV2023-19.7-EXTRACT-OPTION-NAME"
       ],
       "collective_requirement_ids": [],
@@ -115094,7 +115119,6 @@
         "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-RESULT",
-        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
         "SV2023-19.7-EXTRACT-INSTANCE-DEFAULTS",
         "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE",
         "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP",
@@ -118488,7 +118512,9 @@
         "19.5"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-19.5-EXTRACT-GROUP-FUNCTION-PURITY"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-19.5-EXTRACT-CONSTANT-INITIALIZATION",
@@ -118496,7 +118522,6 @@
         "SV2023-19.5-EXTRACT-DEFAULT-EXCLUDED",
         "SV2023-19.5-EXTRACT-GROUP-EXPRESSION-VARIABLES",
         "SV2023-19.5-EXTRACT-GROUP-FUNCTION-ARGS",
-        "SV2023-19.5-EXTRACT-GROUP-FUNCTION-PURITY",
         "SV2023-19.5-EXTRACT-GROUP-SYSTEM-FUNCTIONS",
         "SV2023-19.5-EXTRACT-POINT-TYPE-NAME",
         "SV2023-19.5-EXTRACT-POINT-VISIBILITY",
@@ -118530,12 +118555,13 @@
         "19.5.5"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-19.5-EXTRACT-DEFAULT-EXCLUDED"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-19.5-EXTRACT-CONSTANT-INITIALIZATION",
         "SV2023-19.5-EXTRACT-COVERPOINT-DOMAIN",
-        "SV2023-19.5-EXTRACT-DEFAULT-EXCLUDED",
         "SV2023-19.5-EXTRACT-GROUP-EXPRESSION-VARIABLES",
         "SV2023-19.5-EXTRACT-GROUP-FUNCTION-ARGS",
         "SV2023-19.5-EXTRACT-GROUP-FUNCTION-PURITY",
@@ -118951,11 +118977,12 @@
         "19.5.1.1"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-19.5.1.1-EXTRACT-WITH-FILTER"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-19.5.1.1-EXTRACT-SELF-POINT-RANGE",
-        "SV2023-19.5.1.1-EXTRACT-WITH-FILTER"
+        "SV2023-19.5.1.1-EXTRACT-SELF-POINT-RANGE"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -119188,11 +119215,11 @@
         "19.5.4"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
+      "registered_requirement_ids": [
         "SV2023-19.5.4-EXTRACT-WILDCARD-SAMPLES"
       ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.5.4-EXTRACT-EXPLICIT-FOUR-STATE"
@@ -119825,6 +119852,7 @@
         "SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-COVERGROUP",
         "SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-COVERGROUP",
         "SV2023-19.7-EXTRACT-LEVEL-DETECT-OVERLAP-COVERGROUP",
+        "SV2023-19.7-EXTRACT-OPTION-GOAL",
         "SV2023-19.7.1-EXTRACT-TYPE-DEFAULTS"
       ],
       "collective_requirement_ids": [],
@@ -119875,7 +119903,6 @@
         "SV2023-19.7-EXTRACT-OPTION-CROSS-RETAIN-AUTO-BINS",
         "SV2023-19.7-EXTRACT-OPTION-DETECT-OVERLAP",
         "SV2023-19.7-EXTRACT-OPTION-GET-INST-COVERAGE",
-        "SV2023-19.7-EXTRACT-OPTION-GOAL",
         "SV2023-19.7-EXTRACT-OPTION-MEMBER",
         "SV2023-19.7-EXTRACT-OPTION-NAME",
         "SV2023-19.7-EXTRACT-OPTION-PER-INSTANCE",
@@ -210296,6 +210323,232 @@
       }
     },
     {
+      "test": "tests/ch34/test_34_extra_data_block_skipped.sv",
+      "inputs_sha256": "04abd896a1b8cfa46eceb6e153afbe603aeae4d789d99868b0fd7b0e737e70c8",
+      "cited_clauses": [
+        "34.5.15.2",
+        "34.5.9.2",
+        "34.2",
+        "34.5.3.1",
+        "34.5.4.1",
+        "34.5.4.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-34.5.15.2-EXTRACT-DATA-OUTPUT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-34.2-EXTRACT-DECRYPTION-ENVELOPE",
+        "SV2023-34.2-EXTRACT-ENCRYPTION-ENVELOPE",
+        "SV2023-34.2-EXTRACT-ENVELOPE-CONTENT-KEYWORDS",
+        "SV2023-34.2-EXTRACT-ENVELOPE-TRANSFORMATION",
+        "SV2023-34.2-EXTRACT-PROTECT-SEQUENCE",
+        "SV2023-34.5.15.2-EXTRACT-CBC-IV-PREFIX",
+        "SV2023-34.5.15.2-EXTRACT-DATA-DECRYPT",
+        "SV2023-34.5.3.1-EXTRACT-KEYWORD-SYNTAX",
+        "SV2023-34.5.4.1-EXTRACT-KEYWORD-SYNTAX",
+        "SV2023-34.5.4.2-EXTRACT-DECRYPT-END",
+        "SV2023-34.5.4.2-EXTRACT-PREEXISTING-PROTECTED-END",
+        "SV2023-34.5.4.2-EXTRACT-REENCRYPT-PROTECTED-END",
+        "SV2023-34.5.9.2-EXTRACT-BASE64-REQUIRED",
+        "SV2023-34.5.9.2-EXTRACT-DECODING-DESCRIPTOR",
+        "SV2023-34.5.9.2-EXTRACT-ENCODING-BYTES",
+        "SV2023-34.5.9.2-EXTRACT-ENCODING-EXTENSIONS",
+        "SV2023-34.5.9.2-EXTRACT-ENCODING-INPUT",
+        "SV2023-34.5.9.2-EXTRACT-ENCODING-LINE-LENGTH",
+        "SV2023-34.5.9.2-EXTRACT-ENCODING-OUTPUT",
+        "SV2023-34.5.9.2-EXTRACT-ENCODING-PER-FIELD",
+        "SV2023-34.5.9.2-EXTRACT-QUOTED-PRINTABLE-OPTION",
+        "SV2023-34.5.9.2-EXTRACT-RAW-ENCODING-OPTION",
+        "SV2023-34.5.9.2-EXTRACT-UUENCODE-REQUIRED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-34.5.15.2-EXTRACT-INPUT-BLOCK-ERROR"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch34/test_34_extra_envelope_keywords.sv",
+      "inputs_sha256": "15420cdb45ca93c0838797b57824862f35e5f5576a1c07cd5598daed4e609eba",
+      "cited_clauses": [
+        "34.5.3.1",
+        "34.5.4.1",
+        "34.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-34.5.3.1-EXTRACT-KEYWORD-SYNTAX",
+        "SV2023-34.5.4.1-EXTRACT-KEYWORD-SYNTAX"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-34.2-EXTRACT-DECRYPTION-ENVELOPE",
+        "SV2023-34.2-EXTRACT-ENCRYPTION-ENVELOPE",
+        "SV2023-34.2-EXTRACT-ENVELOPE-CONTENT-KEYWORDS",
+        "SV2023-34.2-EXTRACT-ENVELOPE-TRANSFORMATION",
+        "SV2023-34.2-EXTRACT-PROTECT-SEQUENCE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch34/test_34_extra_include_envelope.sv",
+      "inputs_sha256": "1fa3a0383604fd2dfca39b04236aa51489199d44e053593729c4286af5770782",
+      "cited_clauses": [
+        "34.4",
+        "22.4",
+        "34.5.3.2",
+        "34.5.15.2",
+        "34.5.3.1",
+        "34.5.4.1",
+        "34.5.9.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-34.4-EXTRACT-PROTECT-LEXICAL-SCOPE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-22.4-EXTRACT-INCLUDE-ANGLE-SEARCH",
+        "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
+        "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
+        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
+        "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX",
+        "SV2023-34.4-EXTRACT-KEYWORD-AUTHOR",
+        "SV2023-34.4-EXTRACT-KEYWORD-AUTHOR-INFO",
+        "SV2023-34.4-EXTRACT-KEYWORD-BEGIN",
+        "SV2023-34.4-EXTRACT-KEYWORD-BEGIN-PROTECTED",
+        "SV2023-34.4-EXTRACT-KEYWORD-COMMENT",
+        "SV2023-34.4-EXTRACT-KEYWORD-DATA-BLOCK",
+        "SV2023-34.4-EXTRACT-KEYWORD-DATA-DECRYPT-KEY",
+        "SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYNAME",
+        "SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYOWNER",
+        "SV2023-34.4-EXTRACT-KEYWORD-DATA-METHOD",
+        "SV2023-34.4-EXTRACT-KEYWORD-DATA-PUBLIC-KEY",
+        "SV2023-34.4-EXTRACT-KEYWORD-DECRYPT-LICENSE",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-BLOCK",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-DECRYPT-KEY",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEY-METHOD",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEYNAME",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEYOWNER",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-METHOD",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-PUBLIC-KEY",
+        "SV2023-34.4-EXTRACT-KEYWORD-ENCODING",
+        "SV2023-34.4-EXTRACT-KEYWORD-ENCRYPT-AGENT",
+        "SV2023-34.4-EXTRACT-KEYWORD-ENCRYPT-AGENT-INFO",
+        "SV2023-34.4-EXTRACT-KEYWORD-END",
+        "SV2023-34.4-EXTRACT-KEYWORD-END-PROTECTED",
+        "SV2023-34.4-EXTRACT-KEYWORD-KEY-BLOCK",
+        "SV2023-34.4-EXTRACT-KEYWORD-KEY-KEYNAME",
+        "SV2023-34.4-EXTRACT-KEYWORD-KEY-KEYOWNER",
+        "SV2023-34.4-EXTRACT-KEYWORD-KEY-METHOD",
+        "SV2023-34.4-EXTRACT-KEYWORD-KEY-PUBLIC-KEY",
+        "SV2023-34.4-EXTRACT-KEYWORD-RESET",
+        "SV2023-34.4-EXTRACT-KEYWORD-RUNTIME-LICENSE",
+        "SV2023-34.4-EXTRACT-KEYWORD-VIEWPORT",
+        "SV2023-34.4-EXTRACT-PROTECT-DEFAULTS",
+        "SV2023-34.4-EXTRACT-PROTECT-LEXICAL-REGION",
+        "SV2023-34.4-EXTRACT-PROTECT-SELF-CONTAINMENT",
+        "SV2023-34.5.15.2-EXTRACT-CBC-IV-PREFIX",
+        "SV2023-34.5.15.2-EXTRACT-DATA-DECRYPT",
+        "SV2023-34.5.15.2-EXTRACT-DATA-OUTPUT",
+        "SV2023-34.5.3.1-EXTRACT-KEYWORD-SYNTAX",
+        "SV2023-34.5.3.2-EXTRACT-DECRYPT-BEGIN",
+        "SV2023-34.5.3.2-EXTRACT-REENCRYPT-PROTECTED",
+        "SV2023-34.5.4.1-EXTRACT-KEYWORD-SYNTAX",
+        "SV2023-34.5.9.2-EXTRACT-BASE64-REQUIRED",
+        "SV2023-34.5.9.2-EXTRACT-DECODING-DESCRIPTOR",
+        "SV2023-34.5.9.2-EXTRACT-ENCODING-BYTES",
+        "SV2023-34.5.9.2-EXTRACT-ENCODING-EXTENSIONS",
+        "SV2023-34.5.9.2-EXTRACT-ENCODING-INPUT",
+        "SV2023-34.5.9.2-EXTRACT-ENCODING-LINE-LENGTH",
+        "SV2023-34.5.9.2-EXTRACT-ENCODING-OUTPUT",
+        "SV2023-34.5.9.2-EXTRACT-ENCODING-PER-FIELD",
+        "SV2023-34.5.9.2-EXTRACT-QUOTED-PRINTABLE-OPTION",
+        "SV2023-34.5.9.2-EXTRACT-RAW-ENCODING-OPTION",
+        "SV2023-34.5.9.2-EXTRACT-UUENCODE-REQUIRED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-22.4-EXTRACT-INCLUDE-ABSOLUTE",
+        "SV2023-22.4-EXTRACT-INCLUDE-LINE",
+        "SV2023-34.5.15.2-EXTRACT-INPUT-BLOCK-ERROR"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch34/test_34_extra_nested_envelopes.sv",
+      "inputs_sha256": "800e35373bd70c68c4cb40c05b3b8c65ae09a7d61d109c4602f37f6b24ea1d11",
+      "cited_clauses": [
+        "34.2",
+        "34.4",
+        "34.5.3.1",
+        "34.5.4.1",
+        "34.5.3.2",
+        "34.5.4.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-34.2-EXTRACT-DECRYPTION-ENVELOPE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-34.2-EXTRACT-ENCRYPTION-ENVELOPE",
+        "SV2023-34.2-EXTRACT-ENVELOPE-CONTENT-KEYWORDS",
+        "SV2023-34.2-EXTRACT-ENVELOPE-TRANSFORMATION",
+        "SV2023-34.2-EXTRACT-PROTECT-SEQUENCE",
+        "SV2023-34.4-EXTRACT-KEYWORD-AUTHOR",
+        "SV2023-34.4-EXTRACT-KEYWORD-AUTHOR-INFO",
+        "SV2023-34.4-EXTRACT-KEYWORD-BEGIN",
+        "SV2023-34.4-EXTRACT-KEYWORD-BEGIN-PROTECTED",
+        "SV2023-34.4-EXTRACT-KEYWORD-COMMENT",
+        "SV2023-34.4-EXTRACT-KEYWORD-DATA-BLOCK",
+        "SV2023-34.4-EXTRACT-KEYWORD-DATA-DECRYPT-KEY",
+        "SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYNAME",
+        "SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYOWNER",
+        "SV2023-34.4-EXTRACT-KEYWORD-DATA-METHOD",
+        "SV2023-34.4-EXTRACT-KEYWORD-DATA-PUBLIC-KEY",
+        "SV2023-34.4-EXTRACT-KEYWORD-DECRYPT-LICENSE",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-BLOCK",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-DECRYPT-KEY",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEY-METHOD",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEYNAME",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEYOWNER",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-METHOD",
+        "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-PUBLIC-KEY",
+        "SV2023-34.4-EXTRACT-KEYWORD-ENCODING",
+        "SV2023-34.4-EXTRACT-KEYWORD-ENCRYPT-AGENT",
+        "SV2023-34.4-EXTRACT-KEYWORD-ENCRYPT-AGENT-INFO",
+        "SV2023-34.4-EXTRACT-KEYWORD-END",
+        "SV2023-34.4-EXTRACT-KEYWORD-END-PROTECTED",
+        "SV2023-34.4-EXTRACT-KEYWORD-KEY-BLOCK",
+        "SV2023-34.4-EXTRACT-KEYWORD-KEY-KEYNAME",
+        "SV2023-34.4-EXTRACT-KEYWORD-KEY-KEYOWNER",
+        "SV2023-34.4-EXTRACT-KEYWORD-KEY-METHOD",
+        "SV2023-34.4-EXTRACT-KEYWORD-KEY-PUBLIC-KEY",
+        "SV2023-34.4-EXTRACT-KEYWORD-RESET",
+        "SV2023-34.4-EXTRACT-KEYWORD-RUNTIME-LICENSE",
+        "SV2023-34.4-EXTRACT-KEYWORD-VIEWPORT",
+        "SV2023-34.4-EXTRACT-PROTECT-DEFAULTS",
+        "SV2023-34.4-EXTRACT-PROTECT-LEXICAL-REGION",
+        "SV2023-34.4-EXTRACT-PROTECT-LEXICAL-SCOPE",
+        "SV2023-34.4-EXTRACT-PROTECT-SELF-CONTAINMENT",
+        "SV2023-34.5.3.1-EXTRACT-KEYWORD-SYNTAX",
+        "SV2023-34.5.3.2-EXTRACT-DECRYPT-BEGIN",
+        "SV2023-34.5.3.2-EXTRACT-REENCRYPT-PROTECTED",
+        "SV2023-34.5.4.1-EXTRACT-KEYWORD-SYNTAX",
+        "SV2023-34.5.4.2-EXTRACT-DECRYPT-END",
+        "SV2023-34.5.4.2-EXTRACT-PREEXISTING-PROTECTED-END",
+        "SV2023-34.5.4.2-EXTRACT-REENCRYPT-PROTECTED-END"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch35/test_35_extra_35_5_1_6_cxx_linkage.sv",
       "inputs_sha256": "26b252fd451ff84b117b8fc7a1b531b247e4ede9577be1758dff0ea8146568a8",
       "cited_clauses": [
@@ -210449,15 +210702,17 @@
     },
     {
       "test": "tests/ch35/test_35_extra_H_9_5_vpi_printf.sv",
-      "inputs_sha256": "a68cac2e5389a8d2f5d3e523af497b8fec8b2b1b508140d4a488ba24bd255049",
+      "inputs_sha256": "6398fd35c89ae09f2b52c3603411e9b1836292a149b6aa298b9053938d13d2b1",
       "cited_clauses": [
         "35.3.2",
         "H.9.5",
         "H.6.5",
-        "35.5.3"
+        "35.5.3",
+        "35.5.1.3"
       ],
       "negative_test": false,
       "registered_requirement_ids": [
+        "SV2023-35.5.1.3-EXTRACT-NONCONTEXT-API",
         "SV2023-35.5.3-EXTRACT-SAFE-CONTEXT-APIS",
         "SV2023-H.9.5-EXTRACT-CONTEXT-EXCEPTIONS"
       ],
@@ -210466,6 +210721,9 @@
         "SV2023-35.3.2-EXTRACT-EQUIVALENT-FOREIGN-TYPES",
         "SV2023-35.3.2-EXTRACT-FOREIGN-LAYER-CONTRACT",
         "SV2023-35.3.2-EXTRACT-FOREIGN-PROTOCOL",
+        "SV2023-35.5.1.3-EXTRACT-ATTRIBUTES",
+        "SV2023-35.5.1.3-EXTRACT-CONTEXT-REQUIRED",
+        "SV2023-35.5.1.3-EXTRACT-DEFAULT-ATTRIBUTES",
         "SV2023-35.5.3-EXTRACT-CHAIN-ATTRIBUTE",
         "SV2023-35.5.3-EXTRACT-CHAIN-CREATE",
         "SV2023-35.5.3-EXTRACT-CHAIN-RESTORE",
@@ -210490,7 +210748,143 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
+        "SV2023-35.5.1.3-EXTRACT-PURE-ELIGIBILITY",
         "SV2023-35.5.3-EXTRACT-CONTEXT-NONTRANSITIVE"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch35/test_35_rest_deprecated_dpi_diagnostic.sv",
+      "inputs_sha256": "d0f9525d1aac7f3536afe86fdcd4239a2190301656db23ae7f36ecbdb68c70f5",
+      "cited_clauses": [
+        "35.5.4",
+        "35.4"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-35.5.4-EXTRACT-DEPRECATED-DIAGNOSTIC"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-35.4-EXTRACT-C-IDENTIFIER",
+        "SV2023-35.4-EXTRACT-MULTIPLE-EXPORTS",
+        "SV2023-35.5.4-EXTRACT-LINKAGE-NAME-ERROR",
+        "SV2023-35.5.4-EXTRACT-LOCAL-IMPORT-UNIQUE",
+        "SV2023-35.5.4-EXTRACT-NO-REF",
+        "SV2023-35.5.4-EXTRACT-PROTOTYPE-RESTRICTIONS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-35.4-EXTRACT-GLOBAL-LINKAGE",
+        "SV2023-35.4-EXTRACT-LOCAL-GLOBAL-NAMES",
+        "SV2023-35.4-EXTRACT-MULTIPLE-IMPORTS",
+        "SV2023-35.4-EXTRACT-VERSION-CONSISTENCY",
+        "SV2023-35.5.4-EXTRACT-ARRAY-FORMAL-NAME",
+        "SV2023-35.5.4-EXTRACT-DECLARE-IMPORT",
+        "SV2023-35.5.4-EXTRACT-DPI-VERSION-FORMAT",
+        "SV2023-35.5.4-EXTRACT-FORMAL-DECLARATION",
+        "SV2023-35.5.4-EXTRACT-FORMAL-NAME-DEFAULT-VARIATION",
+        "SV2023-35.5.4-EXTRACT-IDENTICAL-SIGNATURE",
+        "SV2023-35.5.4-EXTRACT-IMPORT-GRAMMAR"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch35/test_35_rest_dpi_class_formal.sv",
+      "inputs_sha256": "da7c8a2b12a79d4f2e57de72067c69b82c9a4e230f02ab614157183a2920b5fd",
+      "cited_clauses": [
+        "35.5.4",
+        "35.5.6"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-35.5.4-EXTRACT-PROTOTYPE-RESTRICTIONS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-35.5.4-EXTRACT-DEPRECATED-DIAGNOSTIC",
+        "SV2023-35.5.4-EXTRACT-LINKAGE-NAME-ERROR",
+        "SV2023-35.5.4-EXTRACT-LOCAL-IMPORT-UNIQUE",
+        "SV2023-35.5.4-EXTRACT-NO-REF",
+        "SV2023-35.5.6-EXTRACT-EXPORT-DYNAMIC-ERROR"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-35.5.4-EXTRACT-ARRAY-FORMAL-NAME",
+        "SV2023-35.5.4-EXTRACT-DECLARE-IMPORT",
+        "SV2023-35.5.4-EXTRACT-DPI-VERSION-FORMAT",
+        "SV2023-35.5.4-EXTRACT-FORMAL-DECLARATION",
+        "SV2023-35.5.4-EXTRACT-FORMAL-NAME-DEFAULT-VARIATION",
+        "SV2023-35.5.4-EXTRACT-IDENTICAL-SIGNATURE",
+        "SV2023-35.5.4-EXTRACT-IMPORT-GRAMMAR",
+        "SV2023-35.5.6-EXTRACT-CONSTRUCTED-FORMAL",
+        "SV2023-35.5.6-EXTRACT-ENUM-FORMAL",
+        "SV2023-35.5.6-EXTRACT-FORMAL-BYTE",
+        "SV2023-35.5.6-EXTRACT-FORMAL-CHANDLE",
+        "SV2023-35.5.6-EXTRACT-FORMAL-INDUCTION",
+        "SV2023-35.5.6-EXTRACT-FORMAL-INT",
+        "SV2023-35.5.6-EXTRACT-FORMAL-INTEGER",
+        "SV2023-35.5.6-EXTRACT-FORMAL-LONGINT",
+        "SV2023-35.5.6-EXTRACT-FORMAL-REAL",
+        "SV2023-35.5.6-EXTRACT-FORMAL-SCALAR-BIT",
+        "SV2023-35.5.6-EXTRACT-FORMAL-SCALAR-LOGIC",
+        "SV2023-35.5.6-EXTRACT-FORMAL-SHORTINT",
+        "SV2023-35.5.6-EXTRACT-FORMAL-SHORTREAL",
+        "SV2023-35.5.6-EXTRACT-FORMAL-STRING",
+        "SV2023-35.5.6-EXTRACT-FORMAL-TIME",
+        "SV2023-35.5.6-EXTRACT-FORMAL-VOID",
+        "SV2023-35.5.6-EXTRACT-PACKED-FORMAL",
+        "SV2023-35.5.6-EXTRACT-SIZED-UNPACKED-LIMIT",
+        "SV2023-35.5.6-EXTRACT-UNPACKED-STRUCT-LAYOUT"
+      ],
+      "broader_citations": [
+        {
+          "clause": "35.5.6",
+          "descendant_requirement_count": 4
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_35_rest_noncontext_export_error.sv",
+      "inputs_sha256": "ac0eace7b51385fc091fce536709bb87024e376adc71f3d96c5acf098e673617",
+      "cited_clauses": [
+        "35.5.3",
+        "35.5.1.3",
+        "35.7"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-35.5.1.3-EXTRACT-ATTRIBUTES",
+        "SV2023-35.5.1.3-EXTRACT-CONTEXT-REQUIRED",
+        "SV2023-35.5.1.3-EXTRACT-DEFAULT-ATTRIBUTES",
+        "SV2023-35.5.1.3-EXTRACT-NONCONTEXT-API",
+        "SV2023-35.5.3-EXTRACT-CHAIN-ATTRIBUTE",
+        "SV2023-35.5.3-EXTRACT-CHAIN-CREATE",
+        "SV2023-35.5.3-EXTRACT-CHAIN-RESTORE",
+        "SV2023-35.5.3-EXTRACT-CHAIN-SET",
+        "SV2023-35.5.3-EXTRACT-CHAIN-UNWIND",
+        "SV2023-35.5.3-EXTRACT-CONTEXT-INSTRUMENT",
+        "SV2023-35.5.3-EXTRACT-DIRECT-EXPORT-SCOPE",
+        "SV2023-35.5.3-EXTRACT-EXPORT-SCOPE",
+        "SV2023-35.5.3-EXTRACT-IMPORT-CHAIN",
+        "SV2023-35.5.3-EXTRACT-LANGUAGE-CALL-KINDS",
+        "SV2023-35.5.3-EXTRACT-OPTIMIZATION-BARRIER",
+        "SV2023-35.5.3-EXTRACT-OTHER-INTERFACE-ENABLE",
+        "SV2023-35.5.3-EXTRACT-OTHER-INTERFACE-SCOPE",
+        "SV2023-35.5.3-EXTRACT-SAFE-CONTEXT-APIS",
+        "SV2023-35.7-EXTRACT-EXPORT-C-NAME",
+        "SV2023-35.7-EXTRACT-EXPORT-GRAMMAR",
+        "SV2023-35.7-EXTRACT-EXPORT-NAME-ORDER"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-35.5.1.3-EXTRACT-PURE-ELIGIBILITY",
+        "SV2023-35.5.3-EXTRACT-CONTEXT-NONTRANSITIVE",
+        "SV2023-35.7-EXTRACT-EXPORT-SCOPE",
+        "SV2023-35.7-EXTRACT-EXPORT-TYPES",
+        "SV2023-35.7-EXTRACT-NO-CLASS-EXPORT"
       ],
       "broader_citations": []
     },
@@ -211495,6 +211889,7 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
+        "SV2023-35.5.3-EXTRACT-CONTEXT-INSTRUMENT",
         "SV2023-H.9.1-EXTRACT-DECLARATION",
         "SV2023-H.9.3-EXTRACT-CHAIN",
         "SV2023-H.9.3-EXTRACT-GET-SCOPE",
@@ -211509,7 +211904,6 @@
         "SV2023-35.5.3-EXTRACT-CHAIN-RESTORE",
         "SV2023-35.5.3-EXTRACT-CHAIN-SET",
         "SV2023-35.5.3-EXTRACT-CHAIN-UNWIND",
-        "SV2023-35.5.3-EXTRACT-CONTEXT-INSTRUMENT",
         "SV2023-35.5.3-EXTRACT-DIRECT-EXPORT-SCOPE",
         "SV2023-35.5.3-EXTRACT-EXPORT-SCOPE",
         "SV2023-35.5.3-EXTRACT-IMPORT-CHAIN",
@@ -336482,7 +336876,7 @@
     },
     {
       "test": "tests/ch6/test_string_ato_integer_scan_rules.sv",
-      "inputs_sha256": "428f5cb7b744ac00b799034f87b5444e2bff1cfba06b7edf5a435c0a48e357f9",
+      "inputs_sha256": "628c4daab5eaeac610689083c543dc1d489561c06b51a133f26ab1d5ce5653ce",
       "cited_clauses": [
         "6.16.9"
       ],
@@ -336660,7 +337054,7 @@
     },
     {
       "test": "tests/ch6/test_string_atoi.sv",
-      "inputs_sha256": "c48501ef19278820fb36defbcc176c24a55e59d449954c39a7e63132fcb6ed2e",
+      "inputs_sha256": "e7efae24193dd771921f88aa219e059f202a93ffdea71597e0198559d49a15c4",
       "cited_clauses": [
         "6.16.9"
       ],
@@ -336686,7 +337080,7 @@
     },
     {
       "test": "tests/ch6/test_string_atoi_2.sv",
-      "inputs_sha256": "508a47a0c73c279f38ede1d6b6c60c5519e38b22e64e5c6d30954643e111dcbd",
+      "inputs_sha256": "99554cb0465a27014c83292e1912cbbcb99a8a68fc84fc59628151673d4022cc",
       "cited_clauses": [
         "6.16.9"
       ],
@@ -337316,7 +337710,7 @@
     },
     {
       "test": "tests/ch6/test_string_conversion.sv",
-      "inputs_sha256": "3a6aae2e76045648fabe87ca76ebb074c207fd1287be0a1885b4c13f683d3f73",
+      "inputs_sha256": "94b6e16fae2e6599152a7e48b92e4f0cf42b90eda8658733ad1e8a17cfa212da",
       "cited_clauses": [
         "6.16.9",
         "6.16.10",
@@ -337369,9 +337763,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch6/test_string_conversion.sv",
-        "inputs_sha256": "3a6aae2e76045648fabe87ca76ebb074c207fd1287be0a1885b4c13f683d3f73",
-        "reviewed_on": "2026-10-28",
-        "reviewer": "Claude Code (AI); not an independent human review",
+        "inputs_sha256": "94b6e16fae2e6599152a7e48b92e4f0cf42b90eda8658733ad1e8a17cfa212da",
+        "reviewed_on": "2026-10-26",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -337547,7 +337941,7 @@
     },
     {
       "test": "tests/ch6/test_string_edge.sv",
-      "inputs_sha256": "798b1fb899b4e1437cd7ccdfc55d8a1edc1ff73157c5900496bb35c3cc04da4f",
+      "inputs_sha256": "040268c0aec31967a296edbee83d5cfc6b370d43df265fa46c325b9d8762b44c",
       "cited_clauses": [
         "6.16",
         "6.16.9",
@@ -337753,7 +338147,7 @@
     },
     {
       "test": "tests/ch6/test_string_functions_comprehensive.sv",
-      "inputs_sha256": "b6e05161bbb4ff3958a73854579eb850ae2433283e4abe534a6b8d80d6f702f4",
+      "inputs_sha256": "ac4ce2094e05be544635a650e294f9eac33f9725370a3e3da92015073ad9935d",
       "cited_clauses": [
         "6.16"
       ],
@@ -339247,7 +339641,7 @@
     },
     {
       "test": "tests/ch6/test_string_ops_edge_cases.sv",
-      "inputs_sha256": "d4d2e5964be13017543407021fa8c1d6a4cb4a777224a6f640255a1e6aca6f55",
+      "inputs_sha256": "df0b9c6774a7c024538fbe767d7ed12e43566b44ecb86aec61609683a8ae0f2e",
       "cited_clauses": [
         "6.16"
       ],
@@ -550939,7 +551333,7 @@
     "oracle_issue": 257,
     "partial_observation": 2129
   },
-  "registry_sha256": "ff8e4debd3ad2a54d770f68a701f3d3f2e5a956675cfe6e8f48ff2199de0699a",
+  "registry_sha256": "608503eb5ee6a2cfda5d200582f3986fa8d4d9e1ebe1c524ff55a30d9c289be4",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
-  "review_ledger_sha256": "f40a7f61df157fb14e8e77dd2d1dc1220d7ecfa6a6d0d6229e8eafda479f06d8"
+  "review_ledger_sha256": "44b030e5899d7a019bc7db9630dff138d1691dac4a9ad77475e2e51ea04b3f83"
 }

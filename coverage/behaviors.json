@@ -186002,7 +186002,29 @@
       "acceptance": "Default bins contribute neither to point coverage calculation nor cross coverage and shall not be explicitly ignored.",
       "source_note": "IEEE 1800-2023 19.5; complete own-body source review, blocks B028. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_ignore_default_bin.sv",
+          "observation": "違法系の設計を拒否で19.5-EXTRACT-DEFAULT-EXCLUDEDを観測する。ignore_bins ig = default explicitly ignores the default bin, which the clause forbids; the test requires rejection at that line. This is the direct negative case for the 'shall not be explicitly ignored' sentence. Verilator 5.052 accepts the design. The other 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "95f70f4cfe72847446ee1f9cdaac594c5728c4b7d5818168aca1da40cb29b8fb",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_ignore_default_bin.sv",
+              "contains": ":name: test_illegal_cg_ignore_default_bin"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_ignore_default_bin.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_ignore_default_bin.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5",
@@ -186092,7 +186114,29 @@
       "acceptance": "Such functions shall be automatic or preserve no state, have no side effects and reference no nonconstant outside-scope variables.",
       "source_note": "IEEE 1800-2023 19.5; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_function_side_effect.sv",
+          "observation": "違法系の設計を拒否で19.5-EXTRACT-GROUP-FUNCTION-PURITYを観測する。The static function f increments the class member calls and is used as a coverpoint expression; the test requires rejection because a function in a covergroup expression shall preserve no state and have no side effects. This is the direct negative case for the 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "db06ef74efe263d0ecd5af2d0927913b18782af49930e636be4f1a1933646d60",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_function_side_effect.sv",
+              "contains": ":name: test_illegal_cg_function_side_effect"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_function_side_effect.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_function_side_effect.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5",
@@ -187380,7 +187424,29 @@
       "acceptance": "A bin with clause includes only candidate values making its expression true; item denotes a candidate of the coverpoint type. with is illegal for real bins.",
       "source_note": "IEEE 1800-2023 19.5.1.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_real_bins_with.sv",
+          "observation": "違法系の設計を拒否で19.5.1.1-EXTRACT-WITH-FILTERを観測する。bins b = {[0.0:1.0]} with (item > 0.5) on a real coverpoint is required to be rejected because with is illegal for real bins; the test is the direct negative case for that sentence. Verilator 5.052 accepts the declaration and then fails in generated C++ for an 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f71881230c9eeef3090cb501f765356a09e91c9b002787fdf087d9b266cf5f6c",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_real_bins_with.sv",
+              "contains": ":name: test_illegal_cg_real_bins_with"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_real_bins_with.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_real_bins_with.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.1.1",
@@ -187517,7 +187583,25 @@
       "acceptance": "Coverpoint/bin and other within-covergroup identifiers are not visible in the set expression, which evaluates at covergroup construction.",
       "source_note": "IEEE 1800-2023 19.5.1.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_19_rest_set_visibility.sv",
+          "observation": "実行で19.5.1.2-EXTRACT-SET-VISIBILITY-TIMEを観測する。The set expression of bins v[] is [0:cp], where the module parameter cp = 2 and the coverpoint are both named cp. Within-covergroup identifiers are not visible in the set expression, so cp resolves to the enclosing parameter and the range creates the three bin 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "190d9e49f0b0b29c4acb6c2844557a631e5022f0f23d0feeabb344c71affdbf1",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_19_rest_set_visibility.sv",
+              "contains": ":name: test_19_rest_set_visibility"
+            },
+            {
+              "file": "tests/ch19/test_19_rest_set_visibility.expected",
+              "contains": "after 0, below 100: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.1.2",
@@ -188396,7 +188480,29 @@
       "acceptance": "Wildcard bins exclude sampled values containing x/z; real coverpoint bins shall not use wildcard.",
       "source_note": "IEEE 1800-2023 19.5.4; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_real_wildcard.sv",
+          "observation": "違法系の設計を拒否で19.5.4-EXTRACT-WILDCARD-SAMPLESを観測する。wildcard bins b = {1.0} on a real coverpoint is required to be rejected because real coverpoint bins shall not use wildcard; the test is the direct negative case for that sentence. Verilator 5.052 accepts the declaration, so the test is spec oracle only. The x 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f65d0cd0ef05cd3f1fb08edefd657b6cce3ed8f195fab51aeb00ce382812ae22",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_real_wildcard.sv",
+              "contains": ":name: test_illegal_cg_real_wildcard"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_real_wildcard.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_real_wildcard.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.4",
@@ -190313,7 +190419,25 @@
       "acceptance": "option.cross_retain_auto_bins assigned in a covergroup body, as the default for its crosses, or in a cross body is accepted and takes effect on the cross bins of instances created afterwards; setting it within a coverpoint or by procedural assignment after construction is the error requirement SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B025, B038. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue CROSS-RETAIN-OPTION-SCOPE resolved on 2026-10-24: All 11 instance option rows/defaults and 33 level cells reviewed. cross_retain_auto_bins is read as a definition-only option set at the covergroup or cross level, because Table 19-2 (B038) and the 19.10 option structures place it in covergroup/cross options and not in the coverpoint option, so B025's coverpoint wording applies only to auto_bin_max and detect_overlap.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_option_name_unique_and_retain_scope.sv",
+          "observation": "実行で19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXTを観測する。option.cross_retain_auto_bins = 0 is set at the covergroup level as the default of its crosses, cross w overrides it with 1, cg2 keeps the default 1 while cross v sets 0, and get_inst_coverage(c,t) shows 1/3 for a cross that retains the automatic bins and 1/1 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "42eb3648b18cb17bbc0d87279b22e2b936edc4f03d0da9301dd8725c4f2f4705",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_option_name_unique_and_retain_scope.sv",
+              "contains": ":name: test_cg_option_name_unique_and_retain_scope"
+            },
+            {
+              "file": "tests/ch19/test_cg_option_name_unique_and_retain_scope.expected",
+              "contains": "retain x 0 w 1 y 1 v 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -191856,7 +191980,25 @@
       "acceptance": "Instance option goal defaults to 100 and specifies the target for the instance or its point/cross.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_option_member_defaults.sv",
+          "observation": "実行で19.7-EXTRACT-OPTION-GOALを観測する。test_option_member_defaults creates cg_plain and reads option.goal through the group, its coverpoint cp and its cross X; all three print 100. In cg_set the group sets option.goal = 90, and the point and cross still print 100 because goal is not inherited. This 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c098bf02935d6766c2a1f6cd8f89f714950add19ffc586571a1340b9ad9187dc",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_option_member_defaults.sv",
+              "contains": ":name: test_option_member_defaults"
+            },
+            {
+              "file": "tests/ch19/test_option_member_defaults.expected",
+              "contains": "covergroup option: weight 1, goal 100, comment \"\", at_least 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -192000,7 +192142,25 @@
       "acceptance": "Instance option weight defaults to 1 and shall be a nonnegative integral value, weighting the group in simulation instance coverage or a point/cross in enclosing group instance coverage.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_item_weighted_average.sv",
+          "observation": "実行で19.7-EXTRACT-OPTION-WEIGHTを観測する。test_cg_item_weighted_average samples identical values into cg_equal (weights 1 and 1) and cg_weighted (weights 3 and 1); the instance coverage is 37.50 and 43.75, the weighted average of the two coverpoints, not the 33.33 share of all bins. This directly exer 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "41d27a261699a486e1cfccd0dba201e52a1100f12c044553ad8efdc456358a5f",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_item_weighted_average.sv",
+              "contains": ":name: test_cg_item_weighted_average"
+            },
+            {
+              "file": "tests/ch19/test_cg_item_weighted_average.expected",
+              "contains": "equal weights: 37.50"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -193018,7 +193178,25 @@
       "acceptance": "Type option weight defaults to 1, shall be a nonnegative integral value, and weights the group in cumulative database coverage or its points/crosses in group type coverage.",
       "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_option_levels_readback.sv",
+          "observation": "実行で19.7.1-EXTRACT-TYPE-OPTION-WEIGHTを観測する。test_cg_option_levels_readback sets type_option.weight = 3 on cp and leaves the default on cq of cg_m with merge_instances, and prints the merged type coverage 62.50 = (3 x 50 + 100) / 4, which is the weighting of the points in group type coverage. test_option 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "15a9a879b6bc479ed5e0aa33cbfbe4002daf26dba32b749aa4ada6c0cc5660d2",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_option_levels_readback.sv",
+              "contains": ":name: test_cg_option_levels_readback"
+            },
+            {
+              "file": "tests/ch19/test_cg_option_levels_readback.expected",
+              "contains": "type, covergroup: \"type note\" goal 80"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7.1",
@@ -306634,7 +306812,25 @@
       "acceptance": "Begin_protected/end_protected delimit decryption envelopes with unmatched-most-recent closure; encrypted data may contain nested envelopes and implementations shall support at least eight nesting levels.",
       "source_note": "IEEE 1800-2023 34.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch34/test_34_extra_nested_envelopes.sv",
+          "observation": "実行で34.2-EXTRACT-DECRYPTION-ENVELOPEを観測する。Eight nested begin_protected/end_protected pairs are accepted by both tools and the design after them runs, which is the minimum nesting depth 34.2 requires. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "800e35373bd70c68c4cb40c05b3b8c65ae09a7d61d109c4602f37f6b24ea1d11",
+          "evidence": [
+            {
+              "file": "tests/ch34/test_34_extra_nested_envelopes.sv",
+              "contains": ":name: test_34_extra_nested_envelopes"
+            },
+            {
+              "file": "tests/ch34/test_34_extra_nested_envelopes.expected",
+              "contains": "nested envelope levels: 8"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "34.2",
@@ -307462,7 +307658,25 @@
       "acceptance": "Protect directive scope is lexical rather than tied to source declarations and may cross file/include boundaries.",
       "source_note": "IEEE 1800-2023 34.4; complete own-body source review, blocks B036. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch34/test_34_extra_include_envelope.sv",
+          "observation": "実行で34.4-EXTRACT-PROTECT-LEXICAL-SCOPEを観測する。Verilator opens an envelope in an included file (begin_protected, encoding, 24-byte data_block) and closes it with end_protected in the including file; its base64 counter and state cross the file boundary, and the module after the include runs. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1fa3a0383604fd2dfca39b04236aa51489199d44e053593729c4286af5770782",
+          "evidence": [
+            {
+              "file": "tests/ch34/test_34_extra_include_envelope.sv",
+              "contains": ":name: test_34_extra_include_envelope"
+            },
+            {
+              "file": "tests/ch34/test_34_extra_include_envelope.expected",
+              "contains": "cross-file envelope, bytes=24"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "34.4",
@@ -307661,7 +307875,25 @@
       "acceptance": "Protect begin_protected is a bare keyword.",
       "source_note": "IEEE 1800-2023 34.5.3.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch34/test_34_extra_envelope_keywords.sv",
+          "observation": "実行で34.5.3.1-EXTRACT-KEYWORD-SYNTAXを観測する。An empty begin_protected/end_protected pair is accepted as a directive pair and the declarations on either side elaborate; Verilator rejects `pragma protect begin_protected foo as unknown, so the bare spelling is what it recognizes. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "15420cdb45ca93c0838797b57824862f35e5f5576a1c07cd5598daed4e609eba",
+          "evidence": [
+            {
+              "file": "tests/ch34/test_34_extra_envelope_keywords.sv",
+              "contains": ":name: test_34_extra_envelope_keywords"
+            },
+            {
+              "file": "tests/ch34/test_34_extra_envelope_keywords.expected",
+              "contains": "envelope keywords: 13"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "34.5.3.1",
@@ -307716,7 +307948,25 @@
       "acceptance": "Protect end_protected is a bare keyword.",
       "source_note": "IEEE 1800-2023 34.5.4.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch34/test_34_extra_envelope_keywords.sv",
+          "observation": "実行で34.5.4.1-EXTRACT-KEYWORD-SYNTAXを観測する。An empty begin_protected/end_protected pair is accepted as a directive pair and the declarations on either side elaborate; Verilator rejects `pragma protect begin_protected foo as unknown, so the bare spelling is what it recognizes. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "15420cdb45ca93c0838797b57824862f35e5f5576a1c07cd5598daed4e609eba",
+          "evidence": [
+            {
+              "file": "tests/ch34/test_34_extra_envelope_keywords.sv",
+              "contains": ":name: test_34_extra_envelope_keywords"
+            },
+            {
+              "file": "tests/ch34/test_34_extra_envelope_keywords.expected",
+              "contains": "envelope keywords: 13"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "34.5.4.1",
@@ -308995,7 +309245,25 @@
       "acceptance": "data_block begins on the next line; encrypt each begin-end content with the selected method, encode it, and output it.",
       "source_note": "IEEE 1800-2023 34.5.15.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch34/test_34_extra_data_block_skipped.sv",
+          "observation": "実行で34.5.15.2-EXTRACT-DATA-OUTPUTを観測する。The data_block body is 32 base64 characters (encoding bytes=24) on the line after the directive, and Verilator consumes exactly those bytes and elaborates the module that follows, so the body was not read as source text (the bare 32-character token would be a 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "04abd896a1b8cfa46eceb6e153afbe603aeae4d789d99868b0fd7b0e737e70c8",
+          "evidence": [
+            {
+              "file": "tests/ch34/test_34_extra_data_block_skipped.sv",
+              "contains": ":name: test_34_extra_data_block_skipped"
+            },
+            {
+              "file": "tests/ch34/test_34_extra_data_block_skipped.expected",
+              "contains": "data_block skipped, bytes=24"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "34.5.15.2",
@@ -311895,7 +312163,25 @@
       "acceptance": "For a noncontext import, calls requiring context through VPI or SV exports have unpredictable effects, subject to expressly safe H.9.5 APIs.",
       "source_note": "IEEE 1800-2023 35.5.1.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_35_extra_H_9_5_vpi_printf.sv",
+          "observation": "実行で35.5.1.3-EXTRACT-NONCONTEXT-APIを観測する。A noncontext import calls vpi_printf and vpi_flush, which H.9.5 lists as the VPI routines that may safely be called without DPI context, and the expected output shows the text. This observes the expressly safe exception to the rule that noncontext VPI calls ar 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6398fd35c89ae09f2b52c3603411e9b1836292a149b6aa298b9053938d13d2b1",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_35_extra_H_9_5_vpi_printf.sv",
+              "contains": ":name: test_35_extra_H_9_5_vpi_printf"
+            },
+            {
+              "file": "tests/ch35/test_35_extra_H_9_5_vpi_printf.expected",
+              "contains": "vpi printf from a noncontext import"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.5.1.3",
@@ -312407,7 +312693,25 @@
       "acceptance": "Only imports declared context receive call-context instrumentation.",
       "source_note": "IEEE 1800-2023 35.5.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_context_scope.sv",
+          "observation": "実行で35.5.3-EXTRACT-CONTEXT-INSTRUMENTを観測する。Context imports of two instances receive the scope of their declaration, svGetNameFromScope names it, and user data is kept per scope, so the call-context instrumentation of context imports is observed directly. The noncontext half of \"only\" is observed by tes 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6aa851f32ac59a3d0f1c66e1b162440f78a18ec017f1abe3c0dd9ecb52b5bfe5",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_context_scope.sv",
+              "contains": ":name: test_dpi_context_scope"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_scope.expected",
+              "contains": "unit 1: test_dpi_context_scope.u1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.5.3",
@@ -312699,7 +313003,7 @@
           "observation": "実行で35.5.3-EXTRACT-SAFE-CONTEXT-APISを観測する。A noncontext import calls vpi_printf and vpi_flush, two of the H.9.5 routines that do not access the model, and the text reaches standard output. The same call shows the safe H.9.5 subset that 35.5.3 permits a noncontext import to use. The model is built with 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a68cac2e5389a8d2f5d3e523af497b8fec8b2b1b508140d4a488ba24bd255049",
+          "inputs_sha256": "6398fd35c89ae09f2b52c3603411e9b1836292a149b6aa298b9053938d13d2b1",
           "evidence": [
             {
               "file": "tests/ch35/test_35_extra_H_9_5_vpi_printf.sv",
@@ -312815,7 +313119,29 @@
       "acceptance": "Using DPI must generate a compile-time warning or error explaining its deprecation/replacement by DPI-C and that C application changes may be required.",
       "source_note": "IEEE 1800-2023 35.5.4; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_35_rest_deprecated_dpi_diagnostic.sv",
+          "observation": "違法系の設計を拒否で35.5.4-EXTRACT-DEPRECATED-DIAGNOSTICを観測する。The import declaration uses the deprecated version string \"DPI\". Verilator 5.052 rejects it at compile time with an error whose text names \"DPI-C\" as the replacement, so the required warning-or-error for the deprecated string is observed at the place of the de 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d0f9525d1aac7f3536afe86fdcd4239a2190301656db23ae7f36ecbdb68c70f5",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_35_rest_deprecated_dpi_diagnostic.sv",
+              "contains": ":name: test_35_rest_deprecated_dpi_diagnostic"
+            },
+            {
+              "file": "tests/ch35/test_35_rest_deprecated_dpi_diagnostic.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch35/test_35_rest_deprecated_dpi_diagnostic.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.5.4",
@@ -313136,7 +313462,29 @@
       "acceptance": "Prototype dynamic_override_specifiers are legal only for methods in a non-interface class; function results obey 35.5.5, and DPI formals cannot use ref or class types.",
       "source_note": "IEEE 1800-2023 35.5.4; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_35_rest_dpi_class_formal.sv",
+          "observation": "違法系の設計を拒否で35.5.4-EXTRACT-PROTOTYPE-RESTRICTIONSを観測する。The import declaration gives its formal argument the class type c_payload. Verilator 5.052 rejects the declaration at elaboration with \"Unsupported: DPI argument of type CLASSREFDTYPE\", so the rule that class types cannot be passed as DPI formals is observed w 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "da7c8a2b12a79d4f2e57de72067c69b82c9a4e230f02ab614157183a2920b5fd",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_35_rest_dpi_class_formal.sv",
+              "contains": ":name: test_35_rest_dpi_class_formal"
+            },
+            {
+              "file": "tests/ch35/test_35_rest_dpi_class_formal.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch35/test_35_rest_dpi_class_formal.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.5.4",
@@ -490839,7 +491187,7 @@
           "observation": "実行でH.9.5-EXTRACT-CONTEXT-EXCEPTIONSを観測する。A noncontext import calls vpi_printf and vpi_flush, two of the H.9.5 routines that do not access the model, and the text reaches standard output. The same call shows the safe H.9.5 subset that 35.5.3 permits a noncontext import to use. The model is built with 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a68cac2e5389a8d2f5d3e523af497b8fec8b2b1b508140d4a488ba24bd255049",
+          "inputs_sha256": "6398fd35c89ae09f2b52c3603411e9b1836292a149b6aa298b9053938d13d2b1",
           "evidence": [
             {
               "file": "tests/ch35/test_35_extra_H_9_5_vpi_printf.sv",

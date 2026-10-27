@@ -1,0 +1,25 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch35/test_35_rest_deprecated_dpi_diagnostic": {
+   "status": "pass",
+   "inputs_sha256": "d0f9525d1aac7f3536afe86fdcd4239a2190301656db23ae7f36ecbdb68c70f5"
+  },
+  "ch35/test_35_rest_dpi_class_formal": {
+   "status": "pass",
+   "inputs_sha256": "da7c8a2b12a79d4f2e57de72067c69b82c9a4e230f02ab614157183a2920b5fd"
+  },
+  "ch35/test_35_rest_noncontext_export_error": {
+   "status": "pass",
+   "inputs_sha256": "ac0eace7b51385fc091fce536709bb87024e376adc71f3d96c5acf098e673617"
+  }
+ },
+ "generated_at": "2026-10-27T22:51:49.121474+00:00",
+ "runner_sha256": "22308c0f537530ce2225f1c70638ae6e8c9c725559b0e9fdeee7a9aa34918dc7",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

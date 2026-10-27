@@ -1,0 +1,91 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch19/test_cg_bins_with_distribution_order": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'x=3: filtered first 100.00, distributed first 100.00', expected 'x=3: filtered first 50.00, distributed first 0.00'",
+   "inputs_sha256": "e7a1b56d7c8995d20d2ec1951fee25b827eaa60a6d3e6fd58ec23a87ac609573"
+  },
+  "ch19/test_cg_cross_set_expression": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_cross_set_expression.sv:26:20: syntax error, unexpected \"'{\"",
+   "inputs_sha256": "00dd12dd42c11bde016cf4653fff5957f818a7b3686dfb22ad17b84dd3f01edd"
+  },
+  "ch19/test_cg_cross_set_function_matches": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_cross_set_function_matches.sv:41:31: syntax error, unexpected matches, expecting ';'",
+   "inputs_sha256": "94deb1d13dd9c2b6f7f08d53faa2b9bbcfe30928b54f4dd87b7e03b6c4199a17"
+  },
+  "ch19/test_cg_item_weighted_average": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'equal weights: 33.33', expected 'equal weights: 37.50'",
+   "inputs_sha256": "41d27a261699a486e1cfccd0dba201e52a1100f12c044553ad8efdc456358a5f"
+  },
+  "ch19/test_cg_option_levels_readback": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_option_levels_readback.sv:68:66: Package/class for ':: reference' not found: 'cp'",
+   "inputs_sha256": "15a9a879b6bc479ed5e0aa33cbfbe4002daf26dba32b749aa4ada6c0cc5660d2"
+  },
+  "ch19/test_cg_option_name_unique_and_retain_scope": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_option_name_unique_and_retain_scope.sv:65:51: Member 'x' not found in covergroup 'cg'",
+   "inputs_sha256": "42eb3648b18cb17bbc0d87279b22e2b936edc4f03d0da9301dd8725c4f2f4705"
+  },
+  "ch19/test_cg_real_bins_fixed_and_dollar": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_real_bins_fixed_and_dollar.sv:46:13: Member 'fx' not found in covergroup 'cg'",
+   "inputs_sha256": "dcca12d6827e6da1bfdd20753fe9b26d3a4771c0364e62fdc848a55f9e6345ec"
+  },
+  "ch19/test_cg_value_bins_default": {
+   "status": "pass",
+   "inputs_sha256": "beff8ea72daf0f66ce8fbefaab318ca69c0abf89d922017a5f821196de3eae57"
+  },
+  "ch19/test_illegal_cg_function_side_effect": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "db06ef74efe263d0ecd5af2d0927913b18782af49930e636be4f1a1933646d60"
+  },
+  "ch19/test_illegal_cg_ignore_default_bin": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "95f70f4cfe72847446ee1f9cdaac594c5728c4b7d5818168aca1da40cb29b8fb"
+  },
+  "ch19/test_illegal_cg_matches_zero": {
+   "status": "pass",
+   "inputs_sha256": "818948a8f7a4a9ce4914c25af56173d7e0bd55a9bb544a0d61c03eae8b785aa9"
+  },
+  "ch19/test_illegal_cg_outer_constant": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "e4d7b129e4fdeca538ddb7334f2ff462a8eb007a57552704b40d4b5c914153f8"
+  },
+  "ch19/test_illegal_cg_per_instance_procedural": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "70f58d7d3a8c0dfc6a1bbe7103154aa7a7b91d022fd0fa9140fef375e2f95780"
+  },
+  "ch19/test_illegal_cg_real_bins_with": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_cg_real_bins_with\\\\.sv:26:'; the first is: ./Vt_test_illegal_cg_real_bins_with__03a__03acg__Vclpkg__0.cpp:29:10: error: use of undeclared identifier 'VL_LTES_IDD'",
+   "inputs_sha256": "f71881230c9eeef3090cb501f765356a09e91c9b002787fdf087d9b266cf5f6c"
+  },
+  "ch19/test_illegal_cg_real_wildcard": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "f65d0cd0ef05cd3f1fb08edefd657b6cce3ed8f195fab51aeb00ce382812ae22"
+  },
+  "ch19/test_option_member_defaults": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_option_member_defaults.sv:78:24: Package/class for ':: reference' not found: 'cp'",
+   "inputs_sha256": "c098bf02935d6766c2a1f6cd8f89f714950add19ffc586571a1340b9ad9187dc"
+  }
+ },
+ "generated_at": "2026-10-27T22:51:40.361212+00:00",
+ "runner_sha256": "22308c0f537530ce2225f1c70638ae6e8c9c725559b0e9fdeee7a9aa34918dc7",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}
