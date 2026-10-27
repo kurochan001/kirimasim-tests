@@ -474873,7 +474873,25 @@
       "acceptance": "Auxiliary item(e) preserves expression behavior while allowing operations valid on a same-typed named item; for sequence/property/top-level property expressions it permits corresponding named-instance operations.",
       "source_note": "IEEE 1800-2023 F.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f4_item.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf4_itemを実行し、独立RTL参照と比較する。item(e) has the value of e for every input word (first result bit) and permits exactly the operations of a same-typed named item: value read for an integral expression, named-instance use and sequence method for a sequence, named-instance use and assertion-statement use for a pro 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "539883496db027fb777313a0f963ef36317c3ae49f6ccc5cf103f84b8f13b27c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f4_item.sv",
+              "contains": ":formal_case: f4_item"
+            },
+            {
+              "file": "tests/ch16/test_formal_f4_item.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4",
@@ -474891,7 +474909,25 @@
       "acceptance": "item is only formal rewriting machinery, not a SystemVerilog function; it adds no operations when expression type is undefined.",
       "source_note": "IEEE 1800-2023 F.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f4_item.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf4_itemを実行し、独立RTL参照と比較する。item(e) has the value of e for every input word (first result bit) and permits exactly the operations of a same-typed named item: value read for an integral expression, named-instance use and sequence method for a sequence, named-instance use and assertion-statement use for a pro 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "539883496db027fb777313a0f963ef36317c3ae49f6ccc5cf103f84b8f13b27c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f4_item.sv",
+              "contains": ":formal_case: f4_item"
+            },
+            {
+              "file": "tests/ch16/test_formal_f4_item.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4",
@@ -474909,7 +474945,25 @@
       "acceptance": "Named sequence/nonrecursive-property semantics equals flattened semantics after prior name resolution; if flattening yields an illegal expression the original is illegal, including a top-level property.",
       "source_note": "IEEE 1800-2023 F.4.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_flatten_equiv.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_flatten_equivを実行し、独立RTL参照と比較する。The first variant flattens the property actual s_flat(a) to a ##1 b and then applies the implication; the second puts a nonconstant variable into a cycle delay, so the flattened and therefore the original top-level property is illegal; the third binds the declaration default befo 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a954ce72cbb240988f04e24621bddf4392b29e62aea25e913e6b7e8785a463d2",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_flatten_equiv.sv",
+              "contains": ":formal_case: f41_flatten_equiv"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_flatten_equiv.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1",
@@ -474927,7 +474981,25 @@
       "acceptance": "For an instance whose distinct inout/output local formals are bound to distinct local-variable actuals (as 16.8.2 requires), the actual-argument values after a match are the same for any order of the 6(b)/6(c) copy-out assignments; F.4.1.1 is not used to reject an instance that binds the same actual expression to two input local formals.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue SEQUENCE-COPYOUT-DIRECTION resolved on 2026-10-24: All own-body definitions, quantified conditions, equations and boundaries reviewed; the B008 remark is read as restating 16.8.2 B012 (distinct actuals for inout or output local formals), the only reading that supports its conclusion about the 6(b)/6(c) copy-out assignments, and no restriction is added for input formals.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_actual_distinct.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_actual_distinctを実行し、独立RTL参照と比較する。The sequence declares two output formals v and w, assigns them inside the body, and copies them out to the distinct actuals b and c at the end.  Both orders of the 6(b)/6(c) copy-out assignments produce b=a0 and c=a0, so the packed result has the same byte twice. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "234957ff1458da95b7367cd374a68166789b98bbb54f70b9583b6dce950aa26a",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_actual_distinct.sv",
+              "contains": ":formal_case: f41_actual_distinct"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_actual_distinct.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -474945,7 +475017,25 @@
       "acceptance": "Event/sequence/property typed property formals substitute item(actual) in sequence-method operands and parenthesized actual otherwise; redundant parentheses can be omitted.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_property_assertion_type.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_property_assertion_typeを実行し、独立RTL参照と比較する。A property-typed formal used as the consequent receives item(actual); with actual b ##1 c the flattened form is a |-> (b ##1 c).  A one-letter actual b is used as a parenthesised expression.  The status codes expose the different match endpoints. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f249eddf461c8ebc1499efcae0afa88858c72cce6439458943d6c83f3595fbc1",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_property_assertion_type.sv",
+              "contains": ":formal_case: f41_property_assertion_type"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_property_assertion_type.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -474963,7 +475053,25 @@
       "acceptance": "Flattening a property copies its declaration and binds explicit actual expressions or declaration defaults before substitution.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_property_bind.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_property_bindを実行し、独立RTL参照と比較する。The property p_bind(x, y = c) binds the omitted y to the declaration default c.  With an explicit y=b the flattened body reads b instead.  Binding happens before substitution, so the body never sees the formal names. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c674abbf91368d4fdf9710ced303e4bf7ff575ee6407ef2496f2220b48cca676",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_property_bind.sv",
+              "contains": ":formal_case: f41_property_bind"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_property_bind.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -474981,7 +475089,25 @@
       "acceptance": "Property local formals become initialized local declarations at the body beginning in arbitrary order; return the parenthesized local declarations and property specification.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_property_local.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_property_localを実行し、独立RTL参照と比較する。The two local input formals v and w are initialized from a and b at the body beginning.  Both declaration orders yield the same implication (!a0 or b0).  The packed result requires both orders to agree. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c48170058a169a8d0e2188f21727e61e3a746917222f08eba6d3bd60fca29cd0",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_property_local.sv",
+              "contains": ":formal_case: f41_property_local"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_property_local.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -474999,7 +475125,25 @@
       "acceptance": "Repeatedly select and flatten arbitrary property instances until none remain.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_property_loop.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_property_loopを実行し、独立RTL参照と比較する。p_loop1 calls p_loop2 which calls p_loop3.  Three successive property flattenings remove every instance, giving (z or b) and a.  Bit 3 records that no call remains; the low code is the truth of the expanded property. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "de98b14a0606e49024ccb2cc463b0ceecc5423289bb7c54d166fd5edfb58395d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_property_loop.sv",
+              "contains": ":formal_case: f41_property_loop"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_property_loop.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -475017,7 +475161,25 @@
       "acceptance": "Typed nonlocal ordinary property formals substitute item(cast actual to formal type), using type(formal type) if the type is not itself a casting type; those references cannot be sequence-match assignment or increment/decrement lvalues.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_property_typed.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_property_typedを実行し、独立RTL参照と比較する。The actual is the two-bit concatenation {b,c}.  A one-bit logic formal casts it to c and compares with a; a two-bit logic formal keeps both bits and compares with the zero-extended a; a bit formal also truncates to c and makes the value two-state. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "68cdc42ec4eb9826591cc3f32447893dcc74b826077dc8008a9449fa7ae27353",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_property_typed.sv",
+              "contains": ":formal_case: f41_property_typed"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_property_typed.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -475035,7 +475197,25 @@
       "acceptance": "Untyped property formals substitute dollar or variable lvalue directly; other actuals substitute item(type(actual) cast of actual).",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_property_untyped.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_property_untypedを実行し、独立RTL参照と比較する。An a actual is a variable lvalue and substitutes directly, so the reference remains assignable (high bit 1).  Concatenation actuals are not lvalues and are wrapped in type(actual)'; the two- and three-bit comparisons demonstrate the resulting widths. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d839863a1fff17ff6683ddcf4591733e27559bad685612993c532f40d66f7886",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_property_untyped.sv",
+              "contains": ":formal_case: f41_property_untyped"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_property_untyped.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -475053,7 +475233,25 @@
       "acceptance": "Event/sequence typed sequence formals substitute item(actual) in sequence-method operands and parenthesized actual otherwise; redundant parentheses can be omitted.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_sequence_assertion_type.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_sequence_assertion_typeを実行し、独立RTL参照と比較する。The sequence formal x is the operand of first_match.  The actual b ##1 a matches at the first endpoint and b ##2 c at the third; item(actual) is used rather than a parenthesised Boolean expression. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "53039191096fcb4a82fca5751b6a6da2fbd4fce29237462585e9b5ffd348e192",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_assertion_type.sv",
+              "contains": ":formal_case: f41_sequence_assertion_type"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_assertion_type.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -475072,7 +475270,25 @@
       "acceptance": "Flattening a sequence copies its declaration and binds explicit actual expressions or declaration defaults before substitution.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_sequence_bind.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_sequence_bindを実行し、独立RTL参照と比較する。The sequence s_bind(x, y = c) binds y to c when the actual is omitted and to b for explicit and named actuals.  The flattened concatenation reads the bound actual, not the formal names. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e5ecc10d5d54248f2d8c353b441c8f1911cfb35d82ba07f75a82c0cb2fa6b761",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_bind.sv",
+              "contains": ":formal_case: f41_sequence_bind"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_bind.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -475091,7 +475307,25 @@
       "acceptance": "Sequence local inout formals become initialized local declarations and an actual = formal match assignment at sequence end.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_sequence_inout.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_sequence_inoutを実行し、独立RTL参照と比較する。The inout formal v starts with the actual c, is read at tick 0, assigned a at tick 1, and then copied back to c.  The match therefore requires c0 and the copied value is a1, showing both the initializer and the copy-out. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9a1c4409712297cf0e9d24d329dfdc711ee1327281517196e22777c84b335cdb",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_inout.sv",
+              "contains": ":formal_case: f41_sequence_inout"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_inout.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -475109,7 +475343,25 @@
       "acceptance": "Sequence local input formals become initialized body-local declarations.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_sequence_input.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_sequence_inputを実行し、独立RTL参照と比較する。The local input v is initialized from the actual at the body beginning and read by the body; x is the sequence-typed actual.  The initializer does not consume an extra letter, so the v test and the x test are on ticks 0 and 1. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2fb150909b15201a311eeaa375c1f845a6ebfda0e624843e721c27db98a1f996",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_input.sv",
+              "contains": ":formal_case: f41_sequence_input"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_input.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -475127,7 +475379,25 @@
       "acceptance": "After property flattening, repeatedly flatten sequences; in event expressions and sequence-method operands wrap result in item(sequence cast), otherwise use flattened sequence directly.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_sequence_loop.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_sequence_loopを実行し、独立RTL参照と比較する。s_loop1 calls s_loop2; the second sequence flattening leaves a ##1 c.  Bit 1 records that no sequence instance remains and bit 0 is the two-letter match, so an unresolved call could not silently pass. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7dc46c6dfbcd96254f03882cc975541d6728b151ea06d2d4bfdcb1ede466975f",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_loop.sv",
+              "contains": ":formal_case: f41_sequence_loop"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_loop.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -475145,7 +475415,25 @@
       "acceptance": "Sequence local output formals become uninitialized local declarations and an actual = formal match assignment at sequence end; added declarations can be in arbitrary order; return parenthesized declarations and sequence body.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_sequence_output.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_sequence_outputを実行し、独立RTL参照と比較する。The local output v is uninitialized, assigned a at tick 1, and copied out to the distinct actual c with an actual = formal match assignment at the sequence end.  The packed result records the match and the copied value. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c85c716a908f51c2965208f57fb7986c232d60f6bacbba22cb3462e54e1648ff",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_output.sv",
+              "contains": ":formal_case: f41_sequence_output"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_output.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -475163,7 +475451,25 @@
       "acceptance": "Typed nonlocal ordinary sequence formals substitute item(cast actual to formal type), using type(formal type) if the type is not itself a casting type; those references cannot be sequence-match assignment or increment/decrement lvalues.",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_sequence_typed.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_sequence_typedを実行し、独立RTL参照と比較する。The two-bit actual {b,c} is cast to the one-bit formal in variants 0 and 2, keeping only c, and to a two-bit formal in variant 1, keeping both bits.  The comparison with 1 exposes the cast width. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2be6dd3874c1523fbd089a0a70837253bf45898ce3b10e4dc91a1953f752d6f6",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_typed.sv",
+              "contains": ":formal_case: f41_sequence_typed"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_typed.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -475182,7 +475488,25 @@
       "acceptance": "Untyped sequence formals substitute dollar or variable lvalue directly; other actuals substitute item(type(actual) cast of actual).",
       "source_note": "IEEE 1800-2023 F.4.1.1; complete own-body source review, blocks B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_sequence_untyped.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf41_sequence_untypedを実行し、独立RTL参照と比較する。A variable actual is substituted directly and remains an lvalue; the concatenation actuals are wrapped in type(actual)'.  The high bit records the lvalue/non-lvalue distinction while the low bit checks the value. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "54046fd712d7e98bc3560e006ef99a3943c78b5dfb9ae28e457aa1ec65375070",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_untyped.sv",
+              "contains": ":formal_case: f41_sequence_untyped"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_untyped.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.1.1",
@@ -475201,7 +475525,25 @@
       "acceptance": "Checker flattening assumes prior name resolution and applies to formal inputs, not outputs handled by 17.2; nested/top-level original checker is illegal if flattened checker is illegal.",
       "source_note": "IEEE 1800-2023 F.4.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f42_checker_flatten.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf42_checker_flattenを実行し、独立RTL参照と比較する。c_nest(y) contains an instance of c_flat(y); repeated replacement gives a ##1 b.  A formal used as a cycle delay makes the flattened checker illegal, and the top-level original is then illegal as well (sentinel EE). 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0e6d66749c203aed72bea25e52cfe6b78f88b912320f7f70bc0be118f6ac356c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f42_checker_flatten.sv",
+              "contains": ":formal_case: f42_checker_flatten"
+            },
+            {
+              "file": "tests/ch16/test_formal_f42_checker_flatten.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.2",
@@ -475219,7 +475561,25 @@
       "acceptance": "Event/sequence/property typed inputs use item(actual) for sequence-method operands or parenthesized actual otherwise; return checker body.",
       "source_note": "IEEE 1800-2023 F.4.2.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f42_assertion_types.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf42_assertion_typesを実行し、独立RTL参照と比較する。The checker input x is sequence/property typed and receives the actual a ##1 b.  In the sequence variant it is the operand of first_match; in the property variant it is the checker body directly.  The two encodings expose the match and the property status separately. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "bb49f8989fc0ca0c2f287947e1d823b0a6f4ddb00fb46c95dae6538ffa1877eb",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f42_assertion_types.sv",
+              "contains": ":formal_case: f42_assertion_types"
+            },
+            {
+              "file": "tests/ch16/test_formal_f42_assertion_types.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.2.1",
@@ -475237,7 +475597,25 @@
       "acceptance": "Copy checker declaration and bind each input to explicit actual or default; untyped dollar/lvalue actuals substitute directly, other untyped actuals substitute item(type(actual) cast actual).",
       "source_note": "IEEE 1800-2023 F.4.2.1; complete own-body source review, blocks B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f42_copy_bind.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf42_copy_bindを実行し、独立RTL参照と比較する。The checker c_copy(x, y = b) copies its declaration.  Variant 0 binds y to the default b, variant 1 to the explicit actual c, and variant 2 passes a non-lvalue concatenation for x, which is type-cast and read as a Boolean. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cca2da1197e6aa281be6bb5ca2e70b3d2a1866033a7be157419f047793d4805b",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f42_copy_bind.sv",
+              "contains": ":formal_case: f42_copy_bind"
+            },
+            {
+              "file": "tests/ch16/test_formal_f42_copy_bind.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.2.1",
@@ -475256,7 +475634,25 @@
       "acceptance": "Repeatedly replace arbitrary checker instances by their flattened bodies until no instances remain.",
       "source_note": "IEEE 1800-2023 F.4.2.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f42_loop.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf42_loopを実行し、独立RTL参照と比較する。c_loop1 instantiates c_loop2, which instantiates c_loop3.  Two replacements give (z and a) or b with no checker left; bit 3 records the absence of any remaining instance and the low code is the Boolean result. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b121e44f46bea734d0f5bc4c0f6f72da8f83a006ab0201102b42274906836478",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f42_loop.sv",
+              "contains": ":formal_case: f42_loop"
+            },
+            {
+              "file": "tests/ch16/test_formal_f42_loop.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.2.1",
@@ -475274,7 +475670,25 @@
       "acceptance": "Typed input actuals of ordinary types use item(formal-type cast actual), using type(type) where needed; substituted references cannot be variable lvalues anywhere in the checker.",
       "source_note": "IEEE 1800-2023 F.4.2.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f42_typed.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf42_typedを実行し、独立RTL参照と比較する。The two-bit actual {b,c} is cast to the one-bit checker input in variant 0 and to a two-bit input in variant 1, so only the compared width changes.  Variant 2 is the illegal use of that cast reference as a variable lvalue; the flattened checker and therefore the original are ille 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f123bd73b4436dadee4e3bb0efa44e6d537f721e6beb1c2e038666e6cab10428",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f42_typed.sv",
+              "contains": ":formal_case: f42_typed"
+            },
+            {
+              "file": "tests/ch16/test_formal_f42_typed.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.2.1",
@@ -475292,7 +475706,25 @@
       "acceptance": "Boolean and local sampling assignment do not admit empty matches; null repetition does.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_empty_atoms.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_empty_atomsを実行し、独立RTL参照と比較する。A Boolean and a local sampling assignment never admit an empty match but always match one letter; a positive repetition matches a letter iff its operand does; a null or optional repetition admits empty and matches no letter. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d2a040f165ebaab066b9b960378203df1143f2c127d227ef6f2647a0296a007a",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_empty_atoms.sv",
+              "contains": ":formal_case: f43_empty_atoms"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_empty_atoms.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475346,7 +475778,25 @@
       "acceptance": "Local declarations, parentheses,first_match,positive unbounded repetition and explicit clock preserve admits_empty of operand.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_empty_wrappers.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_empty_wrappersを実行し、独立RTL参照と比較する。A local declaration, parentheses, first_match, a positive unbounded repetition and an explicit leading clock all preserve admits_empty of the operand; the clock bit makes the clocked variants visible, and the unclocked first_match(a) and a[*1:$] keep the operand's false. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "089d26d344f3b6103a7feeb728abb3ed7795b80323f1e188ba5573d6b6e59296",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_empty_wrappers.sv",
+              "contains": ":formal_case: f43_empty_wrappers"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_empty_wrappers.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475364,7 +475814,25 @@
       "acceptance": "admits_empty(r) holds exactly when empty word tightly satisfies the sequence after declaration-assignment and clock rewriting.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_empty_meaning.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_empty_meaningを実行し、独立RTL参照と比較する。The left half of the result is the structural admits_empty of five variants and the right half is their tight satisfaction of the empty word after the declaration-assignment and clock rewriting; both halves are 0b11101, so the two readings agree on null repetition, assignment, de 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b69c342d4e515df86d96e8d249ece09f3b817aa5f9e42019ea1895ed35bf887d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_empty_meaning.sv",
+              "contains": ":formal_case: f43_empty_meaning"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_empty_meaning.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475382,7 +475850,25 @@
       "acceptance": "or admits empty iff either operand does; intersect iff both do.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_empty_or_intersect.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_empty_or_intersectを実行し、独立RTL参照と比較する。or admits empty exactly when one operand does and intersect exactly when both do; the third and fourth variants exercise the nullable side of each operator. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f4957b5fbb64e6ad6a2e357c7436fc6ca304ca6809f054d91d904f0cbffb9ace",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_empty_or_intersect.sv",
+              "contains": ":formal_case: f43_empty_or_intersect"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_empty_or_intersect.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475400,7 +475886,25 @@
       "acceptance": "kappa(r) is empty syntax for inherited semantic leading clock, otherwise explicit control of the unique semantic leading clock.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_kappa.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_kappaを実行し、独立RTL参照と比較する。kappa(r) is the empty syntax when r has no leading clock control, so the semantic leading clock is inherited from the enclosing property (1) or absent when there is nothing to inherit (0); an explicit clock control selects that clock (2).  kappa does not change admits_empty, whic 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "323300074f77a7001482827d4e931e43e2b0bd9a21df9a2bea14b6f437e40572",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_kappa.sv",
+              "contains": ":formal_case: f43_kappa"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_kappa.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475418,7 +475922,25 @@
       "acceptance": "Eliminate declaration assignments after instance flattening and before clock rewrites.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_order.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_orderを実行し、独立RTL参照と比較する。Of the four stages source, flattened, declaration-eliminated and clock-rewritten, the elimination runs only immediately after flattening and therefore before the clock rewrites.  The last bit observes the initialization value that the eliminated assignment makes visible at the fi 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6fc4fbab891a117e05f4a8a07551caa12da20a3ac5772b7b862771507cdc052e",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_order.sv",
+              "contains": ":formal_case: f43_order"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_order.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475436,7 +475958,25 @@
       "acceptance": "push distributes pending assignments into both operands of property or/and.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_push_boolean.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_push_booleanを実行し、独立RTL参照と比較する。The pending v=a is pushed into both operands, so either branch can match only with v already assigned (variant 1 would lose v if the push went to one branch only).  The or keeps only the names in both branch flows, which is why variant 1 drops w and x while variant 0 keeps w; and 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "069b2e4819ff8642f61c136d1ef5ebc83677e876d985d3490369b57d91f6e48a",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_push_boolean.sv",
+              "contains": ":formal_case: f43_push_boolean"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_push_boolean.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475454,7 +475994,25 @@
       "acceptance": "push into if/else recursively empties assignment lists in arms; a nonempty pending list is first executed by (1,assignments) |-> conditional.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_push_cond.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_push_condを実行し、独立RTL参照と比較する。The arms are pushed with empty lists, and a nonempty pending list is executed by (1,assignments) |-> conditional before the condition: variant 0 reads v=a0 while variant 1, with an empty list, reads the letter v0.  Variant 2 nests the conditional and variant 3 shows a two-element 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7b985c58c1a64907e1ec0b498f2776471d01655237bb677794d99a18d89a621d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_push_cond.sv",
+              "contains": ":formal_case: f43_push_cond"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_push_cond.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475472,7 +476030,25 @@
       "acceptance": "push preserves uninitialized local declaration and adds initialized declaration assignment at end of pending ordered list while removing its initializer.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_push_decl.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_push_declを実行し、独立RTL参照と比較する。A declaration is preserved and its initializer becomes the last element of the pending ordered list with the initializer removed from the declaration.  In variant 0 the pending v=a therefore executes before w=v, so w receives a0 rather than the letter v0 (variant 1, with an empty 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fb616c66eadf351a5ed5b27f3a9c462cb67ff207f67e3fcd64b5bbd46fc21299",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_push_decl.sv",
+              "contains": ":formal_case: f43_push_decl"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_push_decl.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475490,7 +476066,25 @@
       "acceptance": "push into nonoverlapping implication does likewise for nonempty antecedent; if antecedent admits empty also conjoin push of pending assignments into consequent.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_push_nonoverlap.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_push_nonoverlapを実行し、独立RTL参照と比較する。The pending list is pushed into the antecedent, so the aligned initialization runs before it and its context reaches the shifted consequent (variants 0 and 1 differ only by the empty list).  When the antecedent admits empty (variants 2 and 3, a[*0]) the pushed antecedent cannot m 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "135ed083a6ab3ab584f0b39328c27e0d2ba07bd0cac862a200244b0b1c86cef8",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_push_nonoverlap.sv",
+              "contains": ":formal_case: f43_push_nonoverlap"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_push_nonoverlap.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475508,7 +476102,25 @@
       "acceptance": "push into overlapping implication initializes before aligned antecedent when pending list is nonempty, and recurses into consequent with empty list.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_push_overlap.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_push_overlapを実行し、独立RTL参照と比較する。With a nonempty pending list the initialization is aligned before the antecedent and the consequent recurses with an empty list.  Variant 0 reads v=a0 in the consequent; variant 1 would succeed if the list were pushed again into the consequent, because that would restore v=a0 aft 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d262e28691cdab5ffce121e68924a31d00d20bcf21f7e5a028442a9025b7b43f",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_push_overlap.sv",
+              "contains": ":formal_case: f43_push_overlap"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_push_overlap.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475526,7 +476138,25 @@
       "acceptance": "Push remaining property-local declaration assignments downward so they execute after appropriate clock alignment; start each top-level property with an empty ordered assignment list.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_push_procedure.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_push_procedureを実行し、独立RTL参照と比較する。Every top-level property starts with an empty ordered list, and the remaining declaration assignment is pushed down to the property it belongs to: the overlap consequent's first tick (variant 0 and the clocked variant 1), through not (variant 2) and to the second tick when the en 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e39c01caebffde18af4f20998eb5d01c2356e73f7bfe59dcc2d40a7190ba19a6",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_push_procedure.sv",
+              "contains": ":formal_case: f43_push_procedure"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_push_procedure.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475545,7 +476175,25 @@
       "acceptance": "push of an empty list into a sequence property leaves it unchanged; nonempty list becomes aligned (1,assignments) fused with r, which cannot admit empty.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_push_sequence.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_push_sequenceを実行し、独立RTL参照と比較する。An empty list leaves the sequence unchanged (variant 1 keeps no v).  A nonempty list is fused as an aligned (1,assignments) prefix, so the assignment executes on the sequence's first letter (variant 0 keeps v=a0 and w=b0) and the result cannot admit empty: variant 3 fuses a one-l 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "eb88ef930440b764cb863ee46aff1bc187acc7f04cd1bed0210cab77e4e6cab9",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_push_sequence.sv",
+              "contains": ":formal_case: f43_push_sequence"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_push_sequence.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475563,7 +476211,25 @@
       "acceptance": "push preserves pending list through disable iff,explicit clock,parentheses and not.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_push_wrappers.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_push_wrappersを実行し、独立RTL参照と比較する。Each wrapper keeps the pending list: not inverts the pushed body, parentheses leave it unchanged, disable iff applies to the pushed body while the disable expression still reads the incoming context (variant 3 has no pending list and reads the letter v), and the explicit clock st 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3f9c2dfdcf1d5cd5e32cad1e3e7e6e12e91c614e48545ef20fbd9a5cbf669bab",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_push_wrappers.sv",
+              "contains": ":formal_case: f43_push_wrappers"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_push_wrappers.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475581,7 +476247,25 @@
       "acceptance": "If r can match empty, its empty alternative can simplify to null repetition; do not execute initialization solely for an empty match.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_sequence_empty.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_sequence_emptyを実行し、独立RTL参照と比較する。When r admits empty, r intersect the null repetition matches the empty word with the unchanged context (bit 0), matches no letter (bit 1) and therefore simplifies to the null repetition, whose empty match is reported by bit 3; no initializer value is produced by that match.  The 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "00db2e1e8edb9cf0032eb332b80a56216bcd0d2fba4f415af01dc017745889b1",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_sequence_empty.sv",
+              "contains": ":formal_case: f43_sequence_empty"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_sequence_empty.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475599,7 +476283,25 @@
       "acceptance": "Replace initialized local sequence declaration by uninitialized declaration, kappa alignment, and alternative of initializer assignment fused with r or r intersect null repetition.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_sequence_init.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_sequence_initを実行し、独立RTL参照と比較する。The initialized declaration becomes an uninitialized declaration whose body is the aligned initializer fused with r, or r intersect the null repetition.  On a nonempty word the initializer executes on r's first letter, so variant 0 matches when a0 holds (the assignment w=b always 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a80068805c4ce70dd34667cdd79fced9f55d1e847462f387862e423f90559eeb",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_sequence_init.sv",
+              "contains": ":formal_case: f43_sequence_init"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_sequence_init.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",
@@ -475617,7 +476319,25 @@
       "acceptance": "If r cannot match empty, the empty alternative can be removed from declaration-assignment rewriting.",
       "source_note": "IEEE 1800-2023 F.4.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f43_sequence_nonempty.sv",
+          "observation": "SymbiYosysでF.4系のformalケースf43_sequence_nonemptyを実行し、独立RTL参照と比較する。For a sequence that cannot match empty, r intersect the null repetition matches nothing (bit 1 clear), so adding it as an alternative leaves the empty-word behaviour unchanged (bit 2 clear) and the empty alternative can be removed.  The fifth variant is the control: a null repeti 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2cfe4d5789df57ca51717aa2e1521bceaf906147bab5af979b8414cf63bd136f",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f43_sequence_nonempty.sv",
+              "contains": ":formal_case: f43_sequence_nonempty"
+            },
+            {
+              "file": "tests/ch16/test_formal_f43_sequence_nonempty.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.4.3",

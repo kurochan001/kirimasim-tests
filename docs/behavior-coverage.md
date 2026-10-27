@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 86.83%、実行 48.18%。**
+**全規格の要求台帳ベース（暫定）: 設計 87.16%、実行 48.50%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10697/12319 (86.83%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5935/12319 (48.18%)。
-- 登録済みだがテスト未対応: 1622 動作。
+- 登録済み動作に対するテスト設計網羅率: 10737/12319 (87.16%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5975/12319 (48.50%)。
+- 登録済みだがテスト未対応: 1582 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -89,7 +89,7 @@
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
-- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T08:26:34.899009+00:00 / 194/12319 動作確認、古い入力との対応 0 件。
+- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T09:00:05.309789+00:00 / 234/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -220,7 +220,7 @@
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 9。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
-- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 194。
+- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 234。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 25。
 - H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 175。
 - I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 134。
@@ -128944,7 +128944,7 @@ Free checker rand-variable declaration initializer becomes initial assume proper
 
 ### SV2023-F.4-EXTRACT-ITEM
 
-F.4 / normal / テスト未対応
+F.4 / normal / 実行確認あり
 
 Auxiliary item(e) preserves expression behavior while allowing operations valid on a same-typed named item; for sequence/property/top-level property expressions it permits corresponding named-instance operations.
 
@@ -128952,10 +128952,11 @@ Auxiliary item(e) preserves expression behavior while allowing operations valid 
 
 規定の性質: `definition`。
 
+- [test_formal_f4_item.sv](../tests/ch16/test_formal_f4_item.sv): SymbiYosysでF.4系のformalケースf4_itemを実行し、独立RTL参照と比較する。item(e) has the value of e for every input word (first result bit) and permits exactly the operations of a same-typed named item: value read for an integral expression, named-instance use and sequence method for a sequence, named-instance use and assertion-statement use for a pro 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4-EXTRACT-ITEM-RESTRICTIONS
 
-F.4 / normal / テスト未対応
+F.4 / normal / 実行確認あり
 
 item is only formal rewriting machinery, not a SystemVerilog function; it adds no operations when expression type is undefined.
 
@@ -128963,10 +128964,11 @@ item is only formal rewriting machinery, not a SystemVerilog function; it adds n
 
 規定の性質: `definition`。
 
+- [test_formal_f4_item.sv](../tests/ch16/test_formal_f4_item.sv): SymbiYosysでF.4系のformalケースf4_itemを実行し、独立RTL参照と比較する。item(e) has the value of e for every input word (first result bit) and permits exactly the operations of a same-typed named item: value read for an integral expression, named-instance use and sequence method for a sequence, named-instance use and assertion-statement use for a pro 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1-EXTRACT-FLATTEN
 
-F.4.1 / normal / テスト未対応
+F.4.1 / normal / 実行確認あり
 
 Named sequence/nonrecursive-property semantics equals flattened semantics after prior name resolution; if flattening yields an illegal expression the original is illegal, including a top-level property.
 
@@ -128974,10 +128976,11 @@ Named sequence/nonrecursive-property semantics equals flattened semantics after 
 
 規定の性質: `definition`。
 
+- [test_formal_f41_flatten_equiv.sv](../tests/ch16/test_formal_f41_flatten_equiv.sv): SymbiYosysでF.4系のformalケースf41_flatten_equivを実行し、独立RTL参照と比較する。The first variant flattens the property actual s_flat(a) to a ##1 b and then applies the implication; the second puts a nonconstant variable into a cycle delay, so the flattened and therefore the original top-level property is illegal; the third binds the declaration default befo 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-ACTUAL-DISTINCT-TEXT
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 The explanatory paragraph restates 16.8.2: distinct local variable formal arguments of direction inout or output have distinct actual arguments (af != af'), so the overall result of the copy-out assignments added in steps 6(b) and 6(c) does not depend on their order; the printed 'input' is read as 'output'.
 
@@ -128985,10 +128988,11 @@ The explanatory paragraph restates 16.8.2: distinct local variable formal argume
 
 規定の性質: `definition`。
 
+- [test_formal_f41_actual_distinct.sv](../tests/ch16/test_formal_f41_actual_distinct.sv): SymbiYosysでF.4系のformalケースf41_actual_distinctを実行し、独立RTL参照と比較する。The sequence declares two output formals v and w, assigns them inside the body, and copies them out to the distinct actuals b and c at the end.  Both orders of the 6(b)/6(c) copy-out assignments produce b=a0 and c=a0, so the packed result has the same byte twice. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-PROPERTY-ASSERTION-TYPE
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Event/sequence/property typed property formals substitute item(actual) in sequence-method operands and parenthesized actual otherwise; redundant parentheses can be omitted.
 
@@ -128996,10 +129000,11 @@ Event/sequence/property typed property formals substitute item(actual) in sequen
 
 規定の性質: `definition`。
 
+- [test_formal_f41_property_assertion_type.sv](../tests/ch16/test_formal_f41_property_assertion_type.sv): SymbiYosysでF.4系のformalケースf41_property_assertion_typeを実行し、独立RTL参照と比較する。A property-typed formal used as the consequent receives item(actual); with actual b ##1 c the flattened form is a |-> (b ##1 c).  A one-letter actual b is used as a parenthesised expression.  The status codes expose the different match endpoints. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-PROPERTY-BIND
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Flattening a property copies its declaration and binds explicit actual expressions or declaration defaults before substitution.
 
@@ -129007,10 +129012,11 @@ Flattening a property copies its declaration and binds explicit actual expressio
 
 規定の性質: `definition`。
 
+- [test_formal_f41_property_bind.sv](../tests/ch16/test_formal_f41_property_bind.sv): SymbiYosysでF.4系のformalケースf41_property_bindを実行し、独立RTL参照と比較する。The property p_bind(x, y = c) binds the omitted y to the declaration default c.  With an explicit y=b the flattened body reads b instead.  Binding happens before substitution, so the body never sees the formal names. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-PROPERTY-LOCAL
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Property local formals become initialized local declarations at the body beginning in arbitrary order; return the parenthesized local declarations and property specification.
 
@@ -129018,10 +129024,11 @@ Property local formals become initialized local declarations at the body beginni
 
 規定の性質: `definition`。
 
+- [test_formal_f41_property_local.sv](../tests/ch16/test_formal_f41_property_local.sv): SymbiYosysでF.4系のformalケースf41_property_localを実行し、独立RTL参照と比較する。The two local input formals v and w are initialized from a and b at the body beginning.  Both declaration orders yield the same implication (!a0 or b0).  The packed result requires both orders to agree. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-PROPERTY-LOOP
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Repeatedly select and flatten arbitrary property instances until none remain.
 
@@ -129029,10 +129036,11 @@ Repeatedly select and flatten arbitrary property instances until none remain.
 
 規定の性質: `definition`。
 
+- [test_formal_f41_property_loop.sv](../tests/ch16/test_formal_f41_property_loop.sv): SymbiYosysでF.4系のformalケースf41_property_loopを実行し、独立RTL参照と比較する。p_loop1 calls p_loop2 which calls p_loop3.  Three successive property flattenings remove every instance, giving (z or b) and a.  Bit 3 records that no call remains; the low code is the truth of the expanded property. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-PROPERTY-TYPED
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Typed nonlocal ordinary property formals substitute item(cast actual to formal type), using type(formal type) if the type is not itself a casting type; those references cannot be sequence-match assignment or increment/decrement lvalues.
 
@@ -129040,10 +129048,11 @@ Typed nonlocal ordinary property formals substitute item(cast actual to formal t
 
 規定の性質: `definition`。
 
+- [test_formal_f41_property_typed.sv](../tests/ch16/test_formal_f41_property_typed.sv): SymbiYosysでF.4系のformalケースf41_property_typedを実行し、独立RTL参照と比較する。The actual is the two-bit concatenation {b,c}.  A one-bit logic formal casts it to c and compares with a; a two-bit logic formal keeps both bits and compares with the zero-extended a; a bit formal also truncates to c and makes the value two-state. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-PROPERTY-UNTYPED
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Untyped property formals substitute dollar or variable lvalue directly; other actuals substitute item(type(actual) cast of actual).
 
@@ -129051,10 +129060,11 @@ Untyped property formals substitute dollar or variable lvalue directly; other ac
 
 規定の性質: `definition`。
 
+- [test_formal_f41_property_untyped.sv](../tests/ch16/test_formal_f41_property_untyped.sv): SymbiYosysでF.4系のformalケースf41_property_untypedを実行し、独立RTL参照と比較する。An a actual is a variable lvalue and substitutes directly, so the reference remains assignable (high bit 1).  Concatenation actuals are not lvalues and are wrapped in type(actual)'; the two- and three-bit comparisons demonstrate the resulting widths. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-SEQUENCE-ASSERTION-TYPE
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Event/sequence typed sequence formals substitute item(actual) in sequence-method operands and parenthesized actual otherwise; redundant parentheses can be omitted.
 
@@ -129062,10 +129072,11 @@ Event/sequence typed sequence formals substitute item(actual) in sequence-method
 
 規定の性質: `definition`。
 
+- [test_formal_f41_sequence_assertion_type.sv](../tests/ch16/test_formal_f41_sequence_assertion_type.sv): SymbiYosysでF.4系のformalケースf41_sequence_assertion_typeを実行し、独立RTL参照と比較する。The sequence formal x is the operand of first_match.  The actual b ##1 a matches at the first endpoint and b ##2 c at the third; item(actual) is used rather than a parenthesised Boolean expression. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-SEQUENCE-BIND
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Flattening a sequence copies its declaration and binds explicit actual expressions or declaration defaults before substitution.
 
@@ -129073,10 +129084,11 @@ Flattening a sequence copies its declaration and binds explicit actual expressio
 
 規定の性質: `definition`。
 
+- [test_formal_f41_sequence_bind.sv](../tests/ch16/test_formal_f41_sequence_bind.sv): SymbiYosysでF.4系のformalケースf41_sequence_bindを実行し、独立RTL参照と比較する。The sequence s_bind(x, y = c) binds y to c when the actual is omitted and to b for explicit and named actuals.  The flattened concatenation reads the bound actual, not the formal names. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-SEQUENCE-INOUT
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Sequence local inout formals become initialized local declarations and an actual = formal match assignment at sequence end.
 
@@ -129084,10 +129096,11 @@ Sequence local inout formals become initialized local declarations and an actual
 
 規定の性質: `definition`。
 
+- [test_formal_f41_sequence_inout.sv](../tests/ch16/test_formal_f41_sequence_inout.sv): SymbiYosysでF.4系のformalケースf41_sequence_inoutを実行し、独立RTL参照と比較する。The inout formal v starts with the actual c, is read at tick 0, assigned a at tick 1, and then copied back to c.  The match therefore requires c0 and the copied value is a1, showing both the initializer and the copy-out. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-SEQUENCE-INPUT
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Sequence local input formals become initialized body-local declarations.
 
@@ -129095,10 +129108,11 @@ Sequence local input formals become initialized body-local declarations.
 
 規定の性質: `definition`。
 
+- [test_formal_f41_sequence_input.sv](../tests/ch16/test_formal_f41_sequence_input.sv): SymbiYosysでF.4系のformalケースf41_sequence_inputを実行し、独立RTL参照と比較する。The local input v is initialized from the actual at the body beginning and read by the body; x is the sequence-typed actual.  The initializer does not consume an extra letter, so the v test and the x test are on ticks 0 and 1. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-SEQUENCE-LOOP
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 After property flattening, repeatedly flatten sequences; in event expressions and sequence-method operands wrap result in item(sequence cast), otherwise use flattened sequence directly.
 
@@ -129106,10 +129120,11 @@ After property flattening, repeatedly flatten sequences; in event expressions an
 
 規定の性質: `definition`。
 
+- [test_formal_f41_sequence_loop.sv](../tests/ch16/test_formal_f41_sequence_loop.sv): SymbiYosysでF.4系のformalケースf41_sequence_loopを実行し、独立RTL参照と比較する。s_loop1 calls s_loop2; the second sequence flattening leaves a ##1 c.  Bit 1 records that no sequence instance remains and bit 0 is the two-letter match, so an unresolved call could not silently pass. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-SEQUENCE-OUTPUT
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Sequence local output formals become uninitialized local declarations and an actual = formal match assignment at sequence end; added declarations can be in arbitrary order; return parenthesized declarations and sequence body.
 
@@ -129117,10 +129132,11 @@ Sequence local output formals become uninitialized local declarations and an act
 
 規定の性質: `definition`。
 
+- [test_formal_f41_sequence_output.sv](../tests/ch16/test_formal_f41_sequence_output.sv): SymbiYosysでF.4系のformalケースf41_sequence_outputを実行し、独立RTL参照と比較する。The local output v is uninitialized, assigned a at tick 1, and copied out to the distinct actual c with an actual = formal match assignment at the sequence end.  The packed result records the match and the copied value. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-SEQUENCE-TYPED
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Typed nonlocal ordinary sequence formals substitute item(cast actual to formal type), using type(formal type) if the type is not itself a casting type; those references cannot be sequence-match assignment or increment/decrement lvalues.
 
@@ -129128,10 +129144,11 @@ Typed nonlocal ordinary sequence formals substitute item(cast actual to formal t
 
 規定の性質: `definition`。
 
+- [test_formal_f41_sequence_typed.sv](../tests/ch16/test_formal_f41_sequence_typed.sv): SymbiYosysでF.4系のformalケースf41_sequence_typedを実行し、独立RTL参照と比較する。The two-bit actual {b,c} is cast to the one-bit formal in variants 0 and 2, keeping only c, and to a two-bit formal in variant 1, keeping both bits.  The comparison with 1 exposes the cast width. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.1.1-EXTRACT-SEQUENCE-UNTYPED
 
-F.4.1.1 / normal / テスト未対応
+F.4.1.1 / normal / 実行確認あり
 
 Untyped sequence formals substitute dollar or variable lvalue directly; other actuals substitute item(type(actual) cast of actual).
 
@@ -129139,10 +129156,11 @@ Untyped sequence formals substitute dollar or variable lvalue directly; other ac
 
 規定の性質: `definition`。
 
+- [test_formal_f41_sequence_untyped.sv](../tests/ch16/test_formal_f41_sequence_untyped.sv): SymbiYosysでF.4系のformalケースf41_sequence_untypedを実行し、独立RTL参照と比較する。A variable actual is substituted directly and remains an lvalue; the concatenation actuals are wrapped in type(actual)'.  The high bit records the lvalue/non-lvalue distinction while the low bit checks the value. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.2-EXTRACT-CHECKER-FLATTEN
 
-F.4.2 / normal / テスト未対応
+F.4.2 / normal / 実行確認あり
 
 Checker flattening assumes prior name resolution and applies to formal inputs, not outputs handled by 17.2; nested/top-level original checker is illegal if flattened checker is illegal.
 
@@ -129150,10 +129168,11 @@ Checker flattening assumes prior name resolution and applies to formal inputs, n
 
 規定の性質: `definition`。
 
+- [test_formal_f42_checker_flatten.sv](../tests/ch16/test_formal_f42_checker_flatten.sv): SymbiYosysでF.4系のformalケースf42_checker_flattenを実行し、独立RTL参照と比較する。c_nest(y) contains an instance of c_flat(y); repeated replacement gives a ##1 b.  A formal used as a cycle delay makes the flattened checker illegal, and the top-level original is then illegal as well (sentinel EE). 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.2.1-EXTRACT-ASSERTION-TYPES
 
-F.4.2.1 / normal / テスト未対応
+F.4.2.1 / normal / 実行確認あり
 
 Event/sequence/property typed inputs use item(actual) for sequence-method operands or parenthesized actual otherwise; return checker body.
 
@@ -129161,10 +129180,11 @@ Event/sequence/property typed inputs use item(actual) for sequence-method operan
 
 規定の性質: `definition`。
 
+- [test_formal_f42_assertion_types.sv](../tests/ch16/test_formal_f42_assertion_types.sv): SymbiYosysでF.4系のformalケースf42_assertion_typesを実行し、独立RTL参照と比較する。The checker input x is sequence/property typed and receives the actual a ##1 b.  In the sequence variant it is the operand of first_match; in the property variant it is the checker body directly.  The two encodings expose the match and the property status separately. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.2.1-EXTRACT-COPY-BIND
 
-F.4.2.1 / normal / テスト未対応
+F.4.2.1 / normal / 実行確認あり
 
 Copy checker declaration and bind each input to explicit actual or default; untyped dollar/lvalue actuals substitute directly, other untyped actuals substitute item(type(actual) cast actual).
 
@@ -129172,10 +129192,11 @@ Copy checker declaration and bind each input to explicit actual or default; unty
 
 規定の性質: `definition`。
 
+- [test_formal_f42_copy_bind.sv](../tests/ch16/test_formal_f42_copy_bind.sv): SymbiYosysでF.4系のformalケースf42_copy_bindを実行し、独立RTL参照と比較する。The checker c_copy(x, y = b) copies its declaration.  Variant 0 binds y to the default b, variant 1 to the explicit actual c, and variant 2 passes a non-lvalue concatenation for x, which is type-cast and read as a Boolean. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.2.1-EXTRACT-LOOP
 
-F.4.2.1 / normal / テスト未対応
+F.4.2.1 / normal / 実行確認あり
 
 Repeatedly replace arbitrary checker instances by their flattened bodies until no instances remain.
 
@@ -129183,10 +129204,11 @@ Repeatedly replace arbitrary checker instances by their flattened bodies until n
 
 規定の性質: `definition`。
 
+- [test_formal_f42_loop.sv](../tests/ch16/test_formal_f42_loop.sv): SymbiYosysでF.4系のformalケースf42_loopを実行し、独立RTL参照と比較する。c_loop1 instantiates c_loop2, which instantiates c_loop3.  Two replacements give (z and a) or b with no checker left; bit 3 records the absence of any remaining instance and the low code is the Boolean result. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.2.1-EXTRACT-TYPED
 
-F.4.2.1 / normal / テスト未対応
+F.4.2.1 / normal / 実行確認あり
 
 Typed input actuals of ordinary types use item(formal-type cast actual), using type(type) where needed; substituted references cannot be variable lvalues anywhere in the checker.
 
@@ -129194,10 +129216,11 @@ Typed input actuals of ordinary types use item(formal-type cast actual), using t
 
 規定の性質: `definition`。
 
+- [test_formal_f42_typed.sv](../tests/ch16/test_formal_f42_typed.sv): SymbiYosysでF.4系のformalケースf42_typedを実行し、独立RTL参照と比較する。The two-bit actual {b,c} is cast to the one-bit checker input in variant 0 and to a two-bit input in variant 1, so only the compared width changes.  Variant 2 is the illegal use of that cast reference as a variable lvalue; the flattened checker and therefore the original are ille 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-EMPTY-ATOMS
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 Boolean and local sampling assignment do not admit empty matches; null repetition does.
 
@@ -129205,6 +129228,7 @@ Boolean and local sampling assignment do not admit empty matches; null repetitio
 
 規定の性質: `definition`。
 
+- [test_formal_f43_empty_atoms.sv](../tests/ch16/test_formal_f43_empty_atoms.sv): SymbiYosysでF.4系のformalケースf43_empty_atomsを実行し、独立RTL参照と比較する。A Boolean and a local sampling assignment never admit an empty match but always match one letter; a positive repetition matches a letter iff its operand does; a null or optional repetition admits empty and matches no letter. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-EMPTY-CONCAT
 
@@ -129220,7 +129244,7 @@ Concatenation admits empty iff both operands do; fusion never admits empty.
 
 ### SV2023-F.4.3-EXTRACT-EMPTY-DECL-PAREN
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 Local declarations, parentheses,first_match,positive unbounded repetition and explicit clock preserve admits_empty of operand.
 
@@ -129228,10 +129252,11 @@ Local declarations, parentheses,first_match,positive unbounded repetition and ex
 
 規定の性質: `definition`。
 
+- [test_formal_f43_empty_wrappers.sv](../tests/ch16/test_formal_f43_empty_wrappers.sv): SymbiYosysでF.4系のformalケースf43_empty_wrappersを実行し、独立RTL参照と比較する。A local declaration, parentheses, first_match, a positive unbounded repetition and an explicit leading clock all preserve admits_empty of the operand; the clock bit makes the clocked variants visible, and the unclocked first_match(a) and a\[*1:$\] keep the operand's false. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-EMPTY-MEANING
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 admits_empty(r) holds exactly when empty word tightly satisfies the sequence after declaration-assignment and clock rewriting.
 
@@ -129239,10 +129264,11 @@ admits_empty(r) holds exactly when empty word tightly satisfies the sequence aft
 
 規定の性質: `definition`。
 
+- [test_formal_f43_empty_meaning.sv](../tests/ch16/test_formal_f43_empty_meaning.sv): SymbiYosysでF.4系のformalケースf43_empty_meaningを実行し、独立RTL参照と比較する。The left half of the result is the structural admits_empty of five variants and the right half is their tight satisfaction of the empty word after the declaration-assignment and clock rewriting; both halves are 0b11101, so the two readings agree on null repetition, assignment, de 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-EMPTY-OR-INTERSECT
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 or admits empty iff either operand does; intersect iff both do.
 
@@ -129250,10 +129276,11 @@ or admits empty iff either operand does; intersect iff both do.
 
 規定の性質: `definition`。
 
+- [test_formal_f43_empty_or_intersect.sv](../tests/ch16/test_formal_f43_empty_or_intersect.sv): SymbiYosysでF.4系のformalケースf43_empty_or_intersectを実行し、独立RTL参照と比較する。or admits empty exactly when one operand does and intersect exactly when both do; the third and fourth variants exercise the nullable side of each operator. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-KAPPA
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 kappa(r) is empty syntax for inherited semantic leading clock, otherwise explicit control of the unique semantic leading clock.
 
@@ -129261,10 +129288,11 @@ kappa(r) is empty syntax for inherited semantic leading clock, otherwise explici
 
 規定の性質: `definition`。
 
+- [test_formal_f43_kappa.sv](../tests/ch16/test_formal_f43_kappa.sv): SymbiYosysでF.4系のformalケースf43_kappaを実行し、独立RTL参照と比較する。kappa(r) is the empty syntax when r has no leading clock control, so the semantic leading clock is inherited from the enclosing property (1) or absent when there is nothing to inherit (0); an explicit clock control selects that clock (2).  kappa does not change admits_empty, whic 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-ORDER
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 Eliminate declaration assignments after instance flattening and before clock rewrites.
 
@@ -129272,10 +129300,11 @@ Eliminate declaration assignments after instance flattening and before clock rew
 
 規定の性質: `definition`。
 
+- [test_formal_f43_order.sv](../tests/ch16/test_formal_f43_order.sv): SymbiYosysでF.4系のformalケースf43_orderを実行し、独立RTL参照と比較する。Of the four stages source, flattened, declaration-eliminated and clock-rewritten, the elimination runs only immediately after flattening and therefore before the clock rewrites.  The last bit observes the initialization value that the eliminated assignment makes visible at the fi 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-PUSH-BOOLEAN
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 push distributes pending assignments into both operands of property or/and.
 
@@ -129283,10 +129312,11 @@ push distributes pending assignments into both operands of property or/and.
 
 規定の性質: `definition`。
 
+- [test_formal_f43_push_boolean.sv](../tests/ch16/test_formal_f43_push_boolean.sv): SymbiYosysでF.4系のformalケースf43_push_booleanを実行し、独立RTL参照と比較する。The pending v=a is pushed into both operands, so either branch can match only with v already assigned (variant 1 would lose v if the push went to one branch only).  The or keeps only the names in both branch flows, which is why variant 1 drops w and x while variant 0 keeps w; and 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-PUSH-CONDITIONAL
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 push into if/else recursively empties assignment lists in arms; a nonempty pending list is first executed by (1,assignments) |-> conditional.
 
@@ -129294,10 +129324,11 @@ push into if/else recursively empties assignment lists in arms; a nonempty pendi
 
 規定の性質: `definition`。
 
+- [test_formal_f43_push_cond.sv](../tests/ch16/test_formal_f43_push_cond.sv): SymbiYosysでF.4系のformalケースf43_push_condを実行し、独立RTL参照と比較する。The arms are pushed with empty lists, and a nonempty pending list is executed by (1,assignments) |-> conditional before the condition: variant 0 reads v=a0 while variant 1, with an empty list, reads the letter v0.  Variant 2 nests the conditional and variant 3 shows a two-element 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-PUSH-DECL
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 push preserves uninitialized local declaration and adds initialized declaration assignment at end of pending ordered list while removing its initializer.
 
@@ -129305,10 +129336,11 @@ push preserves uninitialized local declaration and adds initialized declaration 
 
 規定の性質: `definition`。
 
+- [test_formal_f43_push_decl.sv](../tests/ch16/test_formal_f43_push_decl.sv): SymbiYosysでF.4系のformalケースf43_push_declを実行し、独立RTL参照と比較する。A declaration is preserved and its initializer becomes the last element of the pending ordered list with the initializer removed from the declaration.  In variant 0 the pending v=a therefore executes before w=v, so w receives a0 rather than the letter v0 (variant 1, with an empty 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-PUSH-NONOVERLAP
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 push into nonoverlapping implication does likewise for nonempty antecedent; if antecedent admits empty also conjoin push of pending assignments into consequent.
 
@@ -129316,10 +129348,11 @@ push into nonoverlapping implication does likewise for nonempty antecedent; if a
 
 規定の性質: `definition`。
 
+- [test_formal_f43_push_nonoverlap.sv](../tests/ch16/test_formal_f43_push_nonoverlap.sv): SymbiYosysでF.4系のformalケースf43_push_nonoverlapを実行し、独立RTL参照と比較する。The pending list is pushed into the antecedent, so the aligned initialization runs before it and its context reaches the shifted consequent (variants 0 and 1 differ only by the empty list).  When the antecedent admits empty (variants 2 and 3, a\[*0\]) the pushed antecedent cannot m 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-PUSH-OVERLAP
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 push into overlapping implication initializes before aligned antecedent when pending list is nonempty, and recurses into consequent with empty list.
 
@@ -129327,10 +129360,11 @@ push into overlapping implication initializes before aligned antecedent when pen
 
 規定の性質: `definition`。
 
+- [test_formal_f43_push_overlap.sv](../tests/ch16/test_formal_f43_push_overlap.sv): SymbiYosysでF.4系のformalケースf43_push_overlapを実行し、独立RTL参照と比較する。With a nonempty pending list the initialization is aligned before the antecedent and the consequent recurses with an empty list.  Variant 0 reads v=a0 in the consequent; variant 1 would succeed if the list were pushed again into the consequent, because that would restore v=a0 aft 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-PUSH-PROCEDURE
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 Push remaining property-local declaration assignments downward so they execute after appropriate clock alignment; start each top-level property with an empty ordered assignment list.
 
@@ -129338,10 +129372,11 @@ Push remaining property-local declaration assignments downward so they execute a
 
 規定の性質: `definition`。
 
+- [test_formal_f43_push_procedure.sv](../tests/ch16/test_formal_f43_push_procedure.sv): SymbiYosysでF.4系のformalケースf43_push_procedureを実行し、独立RTL参照と比較する。Every top-level property starts with an empty ordered list, and the remaining declaration assignment is pushed down to the property it belongs to: the overlap consequent's first tick (variant 0 and the clocked variant 1), through not (variant 2) and to the second tick when the en 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-PUSH-SEQUENCE
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 push of an empty list into a sequence property leaves it unchanged; nonempty list becomes aligned (1,assignments) fused with r, which cannot admit empty.
 
@@ -129349,10 +129384,11 @@ push of an empty list into a sequence property leaves it unchanged; nonempty lis
 
 規定の性質: `definition`。
 
+- [test_formal_f43_push_sequence.sv](../tests/ch16/test_formal_f43_push_sequence.sv): SymbiYosysでF.4系のformalケースf43_push_sequenceを実行し、独立RTL参照と比較する。An empty list leaves the sequence unchanged (variant 1 keeps no v).  A nonempty list is fused as an aligned (1,assignments) prefix, so the assignment executes on the sequence's first letter (variant 0 keeps v=a0 and w=b0) and the result cannot admit empty: variant 3 fuses a one-l 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-PUSH-WRAPPERS
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 push preserves pending list through disable iff,explicit clock,parentheses and not.
 
@@ -129360,10 +129396,11 @@ push preserves pending list through disable iff,explicit clock,parentheses and n
 
 規定の性質: `definition`。
 
+- [test_formal_f43_push_wrappers.sv](../tests/ch16/test_formal_f43_push_wrappers.sv): SymbiYosysでF.4系のformalケースf43_push_wrappersを実行し、独立RTL参照と比較する。Each wrapper keeps the pending list: not inverts the pushed body, parentheses leave it unchanged, disable iff applies to the pushed body while the disable expression still reads the incoming context (variant 3 has no pending list and reads the letter v), and the explicit clock st 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-SEQUENCE-EMPTY
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 If r can match empty, its empty alternative can simplify to null repetition; do not execute initialization solely for an empty match.
 
@@ -129371,10 +129408,11 @@ If r can match empty, its empty alternative can simplify to null repetition; do 
 
 規定の性質: `definition`。
 
+- [test_formal_f43_sequence_empty.sv](../tests/ch16/test_formal_f43_sequence_empty.sv): SymbiYosysでF.4系のformalケースf43_sequence_emptyを実行し、独立RTL参照と比較する。When r admits empty, r intersect the null repetition matches the empty word with the unchanged context (bit 0), matches no letter (bit 1) and therefore simplifies to the null repetition, whose empty match is reported by bit 3; no initializer value is produced by that match.  The 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-SEQUENCE-INIT
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 Replace initialized local sequence declaration by uninitialized declaration, kappa alignment, and alternative of initializer assignment fused with r or r intersect null repetition.
 
@@ -129382,10 +129420,11 @@ Replace initialized local sequence declaration by uninitialized declaration, kap
 
 規定の性質: `definition`。
 
+- [test_formal_f43_sequence_init.sv](../tests/ch16/test_formal_f43_sequence_init.sv): SymbiYosysでF.4系のformalケースf43_sequence_initを実行し、独立RTL参照と比較する。The initialized declaration becomes an uninitialized declaration whose body is the aligned initializer fused with r, or r intersect the null repetition.  On a nonempty word the initializer executes on r's first letter, so variant 0 matches when a0 holds (the assignment w=b always 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4.3-EXTRACT-SEQUENCE-NONEMPTY
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 If r cannot match empty, the empty alternative can be removed from declaration-assignment rewriting.
 
@@ -129393,6 +129432,7 @@ If r cannot match empty, the empty alternative can be removed from declaration-a
 
 規定の性質: `definition`。
 
+- [test_formal_f43_sequence_nonempty.sv](../tests/ch16/test_formal_f43_sequence_nonempty.sv): SymbiYosysでF.4系のformalケースf43_sequence_nonemptyを実行し、独立RTL参照と比較する。For a sequence that cannot match empty, r intersect the null repetition matches nothing (bit 1 clear), so adding it as an alternative leaves the empty-word behaviour unchanged (bit 2 clear) and the empty alternative can be removed.  The fifth variant is the control: a null repeti 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5-EXTRACT-ALPHABET
 

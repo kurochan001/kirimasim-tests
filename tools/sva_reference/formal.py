@@ -24,6 +24,7 @@ if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from sva_reference import automata as rx, formal_cases as specs
     from sva_reference import f56_cases as f56
+    from sva_reference import f4_common, f41_flat_cases, f4_rewrite_cases
     from sva_reference import nonvacuity as nonvac
     from sva_reference.engine import Current, Engine
     from sva_reference.parser import Parser, Unsupported, parse_sequence
@@ -32,6 +33,7 @@ if __package__ in {None, ""}:
 else:
     from . import automata as rx, formal_cases as specs
     from . import f56_cases as f56
+    from . import f4_common, f41_flat_cases, f4_rewrite_cases
     from . import nonvacuity as nonvac
     from .engine import Current, Engine
     from .parser import Parser, Unsupported, parse_sequence
@@ -216,9 +218,12 @@ def property_model(name, *, mutation=False):
         "symbolic_bits": size, "input_words": 1 << size, "bmc_depth": 2}
 
 
+LOCAL_TABLES = {**f56.TABLES, **f4_common.TABLES}
+
+
 def table_model(name):
-    """Exhaustive combinational model for the F.5.4-F.7 finite tables."""
-    spec = f56.TABLES[name]
+    """Exhaustive combinational model for the F.4/F.5.4-F.7 finite tables."""
+    spec = LOCAL_TABLES[name]
     signals, horizon = spec["signals"], spec["horizon"]
     context, inputs = spec["context"], spec["inputs"]
     selectors = spec["selectors"]
@@ -403,7 +408,7 @@ def gated_past_model(*, mutation=False):
 
 
 def export(name, *, mutation=False):
-    if name in f56.TABLES:
+    if name in LOCAL_TABLES:
         if mutation:
             raise Unsupported("no mutation registered for this F.5.4-F.7 case")
         return table_model(name)
@@ -425,7 +430,7 @@ def export(name, *, mutation=False):
 
 
 def catalogue():
-    return [*f56.TABLES, *specs.TABLES, *specs.SEQUENCES, *specs.STREAMS,
+    return [*LOCAL_TABLES, *specs.TABLES, *specs.SEQUENCES, *specs.STREAMS,
             *specs.PROPERTIES, *specs.NONVACUITY, "four_state_sampled", "gated_past"]
 
 
