@@ -15,6 +15,7 @@ IEEE 1800-2023 の本文1–41章と附属書A–Q、1,740見出しを調査台�
 
 `main`の`docs/behavior-coverage-summary.md`は、`coverage/results/`に保存した証跡を使います。
 固定版Icarus 13.0／Verilator 5.052の全件実行と、その後の部分再実行を含みます。
+Ghostのローカル全件実行も保存しています。
 各実行回を分けて保持し、現在の入力ハッシュと一致する成功だけを採用します。
 
 Nightlyは各シミュレータの開発版で実行し、`publish`が**その回の結果だけ**を使って
@@ -145,6 +146,11 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/refresh-20261027-icarus13.json`: ランナー刷新後のIcarus Verilog 13.0全件実行（VPIビルド修正済み）。
 - `results/refresh-20261027-verilator-seed1.json`: ランナー刷新後に未実行リンク先2,706本をVerilator 5.052 seed 1で再実行。
 - `results/ch16-sim-20261028-*.json`と`results/ch16-edge-20261028-*.json`: ch16の残り16要求を検証するシミュレーションテストの実行結果。
+- `results/ghost-local-20261028.json`: Ghostのローカル全件実行。対象はスイート`23b4c542`の7,629本、
+  ビルド識別子は`d59b7c7f8feb`で、5,823 pass・1,806 fail（76.3%一致）です。
+  実行時間は約3分25秒。同名の`.log`に不一致の一覧を保存しています。
+  実行前後の入力一致とランナーのハッシュを検証済みです。非公開の実行プロファイルや内部診断は含めません。
+  違法系の要求は従来どおり固定版oracleの証跡だけを採用し、Ghostのpassでは実行確認を増やしません。
 - `results/quality-persim-20261027-*.json`: シミュレータ別期待値のパイロット実行（19本）。
 - `results/audit-oracle-20261026-icarus13.json`: spec-onlyのうちIcarus 13.0で一致した277本へ`iverilog@13.0`を追加した後の再実行（277/277 pass）。
 - `results/regex-refinement-20261025-*.json`: 判定の正規表現をメッセージの書式に依存しない形に直した`ch16`の2本の再実行。

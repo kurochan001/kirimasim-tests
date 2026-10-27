@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 87.74%、実行 49.74%。**
+**全規格の要求台帳ベース（暫定）: 設計 87.74%、実行 58.32%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -16,7 +16,7 @@
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対するテスト設計網羅率: 10809/12319 (87.74%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 6127/12319 (49.74%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7185/12319 (58.32%)。
 - 登録済みだがテスト未対応: 1510 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
@@ -41,6 +41,7 @@
 - `ch16-sim-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T15:42:14.965527+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch16-sim-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:04.031900+00:00 / 9/12319 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12319 動作確認、古い入力との対応 0 件。
+- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4730/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
@@ -612,7 +613,7 @@ A program supplies an entry point for testbench execution.
 
 ### SV2023-3.4-EXTRACT-PROGRAM-REACTIVE
 
-3.4 / normal / テスト対応あり・実行未確認
+3.4 / normal / 実行確認あり
 
 Program procedural execution uses the reactive region set as specified for each construct.
 
@@ -1399,7 +1400,7 @@ If a declaration is incomplete at a file boundary, its compilation unit continue
 
 ### SV2023-3.12.1-EXTRACT-NAME-SEARCH-ORDER
 
-3.12.1 / normal / テスト対応あり・実行未確認
+3.12.1 / normal / 実行確認あり
 
 Unqualified lookup searches nested lexical scopes and their imports, then earlier compilation-unit declarations/imports, then applicable instance hierarchy lookup.
 
@@ -1597,7 +1598,7 @@ Each module, interface, package, program, checker or primitive introduces its ow
 
 ### SV2023-3.13-EXTRACT-MACRO-NAME-SEPARATION
 
-3.13 / normal / テスト対応あり・実行未確認
+3.13 / normal / 実行確認あり
 
 Macro names are distinguished from ordinary identifier namespaces by their macro introducer.
 
@@ -2738,7 +2739,7 @@ Initialization events are scheduled in the time-zero slot.
 
 ### SV2023-4.5-EXTRACT-UPDATE-SENSITIVITY
 
-4.5 / normal / テスト対応あり・実行未確認
+4.5 / normal / 実行確認あり
 
 Applying an update event modifies its object and schedules evaluation for each process sensitive to that update under its sensitivity rules.
 
@@ -2845,7 +2846,7 @@ Implicit continuous assignments arising from port connections also receive the p
 
 ### SV2023-4.9.2-EXTRACT-PROCEDURAL-CONTINUOUS-SENSITIVITY
 
-4.9.2 / normal / テスト対応あり・実行未確認
+4.9.2 / normal / 実行確認あり
 
 While an assign/force procedural continuous assignment is active, its process is sensitive to source elements of its expression.
 
@@ -2869,7 +2870,7 @@ A value change in an active assign/force expression schedules an active target u
 
 ### SV2023-4.9.2-EXTRACT-PROCEDURAL-DEACTIVATION
 
-4.9.2 / normal / テスト対応あり・実行未確認
+4.9.2 / normal / 実行確認あり
 
 deassign or release deactivates the corresponding procedural assign or force operation under its defining rules.
 
@@ -3121,7 +3122,7 @@ A port bidirectional connection preserves signal strength, including the supply-
 
 ### SV2023-4.9.6-EXTRACT-PRIMITIVE-EXPRESSION-INPUT
 
-4.9.6 / normal / テスト対応あり・実行未確認
+4.9.6 / normal / 実行確認あり
 
 A primitive input supplied by another kind of expression uses an implicit continuous assignment to an implicit input net.
 
@@ -3133,7 +3134,7 @@ A primitive input supplied by another kind of expression uses an implicit contin
 
 ### SV2023-4.9.6-EXTRACT-PRIMITIVE-NET-INPUT-DIRECT
 
-4.9.6 / normal / テスト対応あり・実行未確認
+4.9.6 / normal / 実行確認あり
 
 A primitive input attached to a one-bit net or one-bit structural net expression has a direct strength-preserving connection.
 
@@ -3145,7 +3146,7 @@ A primitive input attached to a one-bit net or one-bit structural net expression
 
 ### SV2023-4.9.6-EXTRACT-PRIMITIVE-OUTPUT-DIRECT
 
-4.9.6 / normal / テスト対応あり・実行未確認
+4.9.6 / normal / 実行確認あり
 
 A primitive output/inout terminal connects directly to a one-bit net or one-bit structural net expression, without an intervening strength-altering process.
 
@@ -3157,7 +3158,7 @@ A primitive output/inout terminal connects directly to a one-bit net or one-bit 
 
 ### SV2023-4.9.6-EXTRACT-PRIMITIVE-OUTPUT-EVENT
 
-4.9.6 / normal / テスト対応あり・実行未確認
+4.9.6 / normal / 実行確認あり
 
 Primitive evaluation changes are scheduled as active updates on the directly connected nets.
 
@@ -3260,7 +3261,7 @@ cbAtStartOfSimTime is assigned to Pre-Active by the standard callback-region map
 
 ### SV2023-4.10-EXTRACT-CBNBASYNCH
 
-4.10 / normal / テスト対応あり・実行未確認
+4.10 / normal / 実行確認あり
 
 cbNBASynch is assigned to Pre-NBA by the standard callback-region mapping.
 
@@ -3296,7 +3297,7 @@ cbReadOnlySynch is assigned to Postponed by the standard callback-region mapping
 
 ### SV2023-4.10-EXTRACT-CBREADWRITESYNCH
 
-4.10 / normal / テスト対応あり・実行未確認
+4.10 / normal / 実行確認あり
 
 cbReadWriteSynch is assigned to Pre-NBA or Post-NBA by the standard callback-region mapping.
 
@@ -4274,7 +4275,7 @@ Real literals permit decimal fixed-point and scientific exponent notation.
 
 ### SV2023-5.7.2-EXTRACT-SHORTREAL-EXPLICIT-CAST
 
-5.7.2 / normal / テスト対応あり・実行未確認
+5.7.2 / normal / 実行確認あり
 
 A real literal may be explicitly cast to shortreal using the casting rules.
 
@@ -5346,7 +5347,7 @@ Net bit strength information is additional to its data value and is not part of 
 
 ### SV2023-6.3.2.1-EXTRACT-CHARGE-DECAY-DELAY
 
-6.3.2.1 / normal / テスト対応あり・実行未確認
+6.3.2.1 / normal / 実行確認あり
 
 The trireg delay specification may set a simulation-time charge-decay interval under 28.16.2.
 
@@ -5358,7 +5359,7 @@ The trireg delay specification may set a simulation-time charge-decay interval u
 
 ### SV2023-6.3.2.1-EXTRACT-CHARGE-DEFAULT
 
-6.3.2.1 / normal / テスト対応あり・実行未確認
+6.3.2.1 / normal / 実行確認あり
 
 A trireg with no explicit charge strength has medium charge strength.
 
@@ -5370,7 +5371,7 @@ A trireg with no explicit charge strength has medium charge strength.
 
 ### SV2023-6.3.2.1-EXTRACT-CHARGE-SIZE-VALUES
 
-6.3.2.1 / normal / テスト対応あり・実行未確認
+6.3.2.1 / normal / 実行確認あり
 
 trireg charge strengths are small, medium or large and model relative capacitance.
 
@@ -5504,7 +5505,7 @@ An assignment in a variable declaration is initialization, not an implicit conti
 
 ### SV2023-6.5-EXTRACT-DISJOINT-WRITER-KINDS
 
-6.5 / normal / テスト対応あり・実行未確認
+6.5 / normal / 実行確認あり
 
 Different independent elements may have different procedural/continuous writers when each satisfies its own single-continuous-driver restriction.
 
@@ -5528,7 +5529,7 @@ A force statement is neither an ordinary procedural assignment nor a continuous 
 
 ### SV2023-6.5-EXTRACT-INDEPENDENT-VARIABLE-ELEMENTS
 
-6.5 / normal / テスト対応あり・実行未確認
+6.5 / normal / 実行確認あり
 
 Different struct members, array elements and individual packed bits are independent variable elements for driver analysis, subject to longest-static-prefix expansion.
 
@@ -5719,7 +5720,7 @@ A compiler may warn when a variable's continuous driver could supply strengths o
 
 ### SV2023-6.6-EXTRACT-BUILTIN-NET-TYPES
 
-6.6 / normal / テスト対応あり・実行未確認
+6.6 / normal / 実行確認あり
 
 Built-in net types comprise wire, tri, tri0, supply0, wand, triand, tri1, supply1, wor, trior, trireg and uwire.
 
@@ -6453,7 +6454,7 @@ With two equal-strength drivers, wor/trior drivers z and z resolve to z.
 
 ### SV2023-6.6.4-EXTRACT-TRIREG-CAPACITIVE-STATE
 
-6.6.4 / normal / テスト対応あり・実行未確認
+6.6.4 / normal / 実行確認あり
 
 When all drivers become z, a trireg enters its capacitive state and retains its last driven value rather than propagating z.
 
@@ -6465,7 +6466,7 @@ When all drivers become z, a trireg enters its capacitive state and retains its 
 
 ### SV2023-6.6.4-EXTRACT-TRIREG-CAPACITIVE-STRENGTH
 
-6.6.4 / normal / テスト対応あり・実行未確認
+6.6.4 / normal / 実行確認あり
 
 A capacitive trireg uses its declared small/medium/large charge strength.
 
@@ -6477,7 +6478,7 @@ A capacitive trireg uses its declared small/medium/large charge strength.
 
 ### SV2023-6.6.4-EXTRACT-TRIREG-DRIVEN-STATE
 
-6.6.4 / normal / テスト対応あり・実行未確認
+6.6.4 / normal / 実行確認あり
 
 If at least one driver supplies 0,1 or x, a trireg is driven and takes the resolved driven value.
 
@@ -6489,7 +6490,7 @@ If at least one driver supplies 0,1 or x, a trireg is driven and takes the resol
 
 ### SV2023-6.6.4-EXTRACT-TRIREG-DRIVEN-STRENGTH
 
-6.6.4 / normal / テスト対応あり・実行未確認
+6.6.4 / normal / 実行確認あり
 
 A driven trireg uses the strength supplied by its driver, such as supply/strong/pull/weak, under the resolution rules.
 
@@ -6525,7 +6526,7 @@ Within a capacitive network, charge strength can propagate from a larger-charge 
 
 ### SV2023-6.6.4.2-EXTRACT-DECAY-INTERVAL-SPECIFICATION
 
-6.6.4.2 / normal / テスト対応あり・実行未確認
+6.6.4.2 / normal / 実行確認あり
 
 The trireg delay specification supplies its simulation-time charge-decay interval; apply the detailed decay behavior in 28.16.2.
 
@@ -6537,7 +6538,7 @@ The trireg delay specification supplies its simulation-time charge-decay interva
 
 ### SV2023-6.6.4.2-EXTRACT-IDEAL-CAPACITIVE-RETENTION
 
-6.6.4.2 / normal / テスト対応あり・実行未確認
+6.6.4.2 / normal / 実行確認あり
 
 A trireg may model indefinite capacitive retention or a specified decay interval under its delay declaration.
 
@@ -7320,7 +7321,7 @@ force may override a user-defined-nettype net; on release the value returns to i
 
 ### SV2023-6.6.8-EXTRACT-INTERCONNECT-ALIAS
 
-6.6.8 / normal / テスト対応あり・実行未確認
+6.6.8 / normal / 実行確認あり
 
 A net_alias statement may use an interconnect net-lvalue under the connection/alias rules.
 
@@ -7346,7 +7347,7 @@ An interconnect may express prescribed net port/terminal connections, not ordina
 
 ### SV2023-6.6.8-EXTRACT-INTERCONNECT-HETEROGENEOUS-ARRAY
 
-6.6.8 / normal / テスト対応あり・実行未確認
+6.6.8 / normal / 実行確認あり
 
 Different elements of one interconnect array may resolve to different actual net types under their connections.
 
@@ -7407,7 +7408,7 @@ The charge-strength option in net declarations is restricted to trireg.
 
 ### SV2023-6.7-EXTRACT-CHARGE-STRENGTH-DOMAIN
 
-6.7 / normal / テスト対応あり・実行未確認
+6.7 / normal / 実行確認あり
 
 A charge-strength syntax is one of the parenthesized small, medium or large categories.
 
@@ -7551,7 +7552,7 @@ Nets sharing declaration characteristics may appear in one declaration statement
 
 ### SV2023-6.7.1-EXTRACT-IMPLICIT-NET-LOGIC
 
-6.7.1 / normal / テスト対応あり・実行未確認
+6.7.1 / normal / 実行確認あり
 
 An omitted net data type, including a declaration specifying only range/signing, implies logic.
 
@@ -7672,7 +7673,7 @@ reg may occur in a net/port declaration when another syntactic token separates i
 
 ### SV2023-6.7.1-EXTRACT-TRIREG-INITIAL-X
 
-6.7.1 / normal / テスト対応あり・実行未確認
+6.7.1 / normal / 実行確認あり
 
 A trireg starts at x with its declared or default charge strength.
 
@@ -7790,7 +7791,7 @@ Without an explicit initializer, a class handle variable starts with null.
 
 ### SV2023-6.8-EXTRACT-DEFAULT-ENUM
 
-6.8 / normal / テスト対応あり・実行未確認
+6.8 / normal / 実行確認あり
 
 Without an explicit initializer, an enum variable starts with its base type default, not necessarily its first declared member.
 
@@ -7984,7 +7985,7 @@ A variable initializer may use runtime expressions, including dynamic allocation
 
 ### SV2023-6.8-EXTRACT-SIGNED-ATOM-DEFAULTS
 
-6.8 / normal / テスト対応あり・実行未確認
+6.8 / normal / 実行確認あり
 
 byte, shortint, int, integer and longint default to signed.
 
@@ -8328,7 +8329,7 @@ An implicit net belongs to the scope containing its qualifying reference.
 
 ### SV2023-6.10-EXTRACT-IMPLICIT-PORT-EXPRESSION
 
-6.10 / normal / テスト対応あり・実行未確認
+6.10 / normal / 実行確認あり
 
 An eligible undeclared identifier in a port-expression declaration creates a default-nettype net with the width prescribed by that port-expression declaration.
 
@@ -8352,7 +8353,7 @@ The static-checker implicit-net permission does not extend to a procedural check
 
 ### SV2023-6.11-EXTRACT-BIT-SIGN
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type bit defaults to unsigned interpretation.
 
@@ -8376,7 +8377,7 @@ The integer type bit has a two-state value domain.
 
 ### SV2023-6.11-EXTRACT-BIT-WIDTH
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type bit has declared vector bit width under its declaration rules.
 
@@ -8388,7 +8389,7 @@ The integer type bit has declared vector bit width under its declaration rules.
 
 ### SV2023-6.11-EXTRACT-BYTE-SIGN
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type byte defaults to signed interpretation.
 
@@ -8412,7 +8413,7 @@ The integer type byte has a two-state value domain.
 
 ### SV2023-6.11-EXTRACT-BYTE-WIDTH
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type byte has 8 bit width under its declaration rules.
 
@@ -8424,7 +8425,7 @@ The integer type byte has 8 bit width under its declaration rules.
 
 ### SV2023-6.11-EXTRACT-INT-SIGN
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type int defaults to signed interpretation.
 
@@ -8448,7 +8449,7 @@ The integer type int has a two-state value domain.
 
 ### SV2023-6.11-EXTRACT-INT-WIDTH
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type int has 32 bit width under its declaration rules.
 
@@ -8460,7 +8461,7 @@ The integer type int has 32 bit width under its declaration rules.
 
 ### SV2023-6.11-EXTRACT-INTEGER-SIGN
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type integer defaults to signed interpretation.
 
@@ -8484,7 +8485,7 @@ The integer type integer has a four-state value domain.
 
 ### SV2023-6.11-EXTRACT-INTEGER-WIDTH
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type integer has 32 bit width under its declaration rules.
 
@@ -8496,7 +8497,7 @@ The integer type integer has 32 bit width under its declaration rules.
 
 ### SV2023-6.11-EXTRACT-LOGIC-SIGN
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type logic defaults to unsigned interpretation.
 
@@ -8520,7 +8521,7 @@ The integer type logic has a four-state value domain.
 
 ### SV2023-6.11-EXTRACT-LOGIC-WIDTH
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type logic has declared vector bit width under its declaration rules.
 
@@ -8532,7 +8533,7 @@ The integer type logic has declared vector bit width under its declaration rules
 
 ### SV2023-6.11-EXTRACT-LONGINT-SIGN
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type longint defaults to signed interpretation.
 
@@ -8556,7 +8557,7 @@ The integer type longint has a two-state value domain.
 
 ### SV2023-6.11-EXTRACT-LONGINT-WIDTH
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type longint has 64 bit width under its declaration rules.
 
@@ -8604,7 +8605,7 @@ The integer type reg has declared vector bit width under its declaration rules.
 
 ### SV2023-6.11-EXTRACT-SHORTINT-SIGN
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type shortint defaults to signed interpretation.
 
@@ -8628,7 +8629,7 @@ The integer type shortint has a two-state value domain.
 
 ### SV2023-6.11-EXTRACT-SHORTINT-WIDTH
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type shortint has 16 bit width under its declaration rules.
 
@@ -8640,7 +8641,7 @@ The integer type shortint has 16 bit width under its declaration rules.
 
 ### SV2023-6.11-EXTRACT-TIME-SIGN
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type time defaults to unsigned interpretation.
 
@@ -8664,7 +8665,7 @@ The integer type time has a four-state value domain.
 
 ### SV2023-6.11-EXTRACT-TIME-WIDTH
 
-6.11 / normal / テスト対応あり・実行未確認
+6.11 / normal / 実行確認あり
 
 The integer type time has 64 bit width under its declaration rules.
 
@@ -8951,7 +8952,7 @@ realtime declarations and real declarations denote the same interchangeable type
 
 ### SV2023-6.12-EXTRACT-SHORTREAL-C-FLOAT
 
-6.12 / normal / テスト対応あり・実行未確認
+6.12 / normal / 実行確認あり
 
 The shortreal data type has the representation of a C float.
 
@@ -9029,7 +9030,7 @@ When a net/variable value converts to real, each x or z bit contributes a zero b
 
 ### SV2023-6.13-EXTRACT-IEEE754-REAL-REPRESENTATION
 
-6.13 / normal / テスト対応あり・実行未確認
+6.13 / normal / 実行確認あり
 
 real and shortreal representations follow IEEE Std 754 as required by footnote 19 anchored in 6.12.
 
@@ -10280,7 +10281,7 @@ atooct is a no-argument string method returning integer.
 
 ### SV2023-6.16.9-EXTRACT-NO-DIGITS-ZERO
 
-6.16.9 / boundary / テスト対応あり・実行未確認
+6.16.9 / boundary / 実行確認あり
 
 Integer string conversion returns zero if the scan encounters no digits.
 
@@ -10292,7 +10293,7 @@ Integer string conversion returns zero if the scan encounters no digits.
 
 ### SV2023-6.16.9-EXTRACT-NO-LITERAL-GRAMMAR
 
-6.16.9 / normal / テスト対応あり・実行未確認
+6.16.9 / normal / 実行確認あり
 
 atoi/atohex/atooct/atobin do not parse an integer literal sign, size, apostrophe or base specifier.
 
@@ -10304,7 +10305,7 @@ atoi/atohex/atooct/atobin do not parse an integer literal sign, size, apostrophe
 
 ### SV2023-6.16.9-EXTRACT-SCAN-STOP
 
-6.16.9 / normal / テスト対応あり・実行未確認
+6.16.9 / normal / 実行確認あり
 
 Integer string conversion scans digits and underscores from the start and stops at the first other character or the end.
 
@@ -10559,7 +10560,7 @@ realtoa replaces the receiver with the ASCII real-number representation of its a
 
 ### SV2023-6.17-EXTRACT-DEFAULT-NEW-OBJECT
 
-6.17 / normal / テスト対応あり・実行未確認
+6.17 / normal / 実行確認あり
 
 An event variable without an initializer is initialized with a new synchronization object.
 
@@ -10571,7 +10572,7 @@ An event variable without an initializer is initialized with a new synchronizati
 
 ### SV2023-6.17-EXTRACT-EVENT-COMPARISON
 
-6.17 / normal / テスト対応あり・実行未確認
+6.17 / normal / 実行確認あり
 
 Event variables can be compared with other event variables under the event comparison rules.
 
@@ -10583,7 +10584,7 @@ Event variables can be compared with other event variables under the event compa
 
 ### SV2023-6.17-EXTRACT-EVENT-COPY
 
-6.17 / normal / テスト対応あり・実行未確認
+6.17 / normal / 実行確認あり
 
 Assigning one event variable to another makes them refer to the same synchronization object.
 
@@ -10596,7 +10597,7 @@ Assigning one event variable to another makes them refer to the same synchroniza
 
 ### SV2023-6.17-EXTRACT-EVENT-HANDLE
 
-6.17 / normal / テスト対応あり・実行未確認
+6.17 / normal / 実行確認あり
 
 An event variable holds a handle to a synchronization object.
 
@@ -10608,7 +10609,7 @@ An event variable holds a handle to a synchronization object.
 
 ### SV2023-6.17-EXTRACT-NULL-DISASSOCIATES
 
-6.17 / normal / テスト対応あり・実行未確認
+6.17 / normal / 実行確認あり
 
 Assigning null to an event variable disconnects that variable from its synchronization object.
 
@@ -10632,7 +10633,7 @@ An event triggered state remains observable throughout the current time step.
 
 ### SV2023-6.17-EXTRACT-TRIGGER-AND-WAIT
 
-6.17 / normal / テスト対応あり・実行未確認
+6.17 / normal / 実行確認あり
 
 The referenced event object supports explicit triggering and waiting under the event-control rules.
 
@@ -11536,7 +11537,7 @@ num() returns the number of members declared in the enum.
 
 ### SV2023-6.19.5.5-EXTRACT-SIGNATURE
 
-6.19.5.5 / normal / テスト対応あり・実行未確認
+6.19.5.5 / normal / 実行確認あり
 
 num is a no-argument enum method returning int.
 
@@ -11558,7 +11559,7 @@ Enum num() counts members rather than the numeric value span.
 
 ### SV2023-6.19.5.6-EXTRACT-INVALID-EMPTY
 
-6.19.5.6 / boundary / テスト対応あり・実行未確認
+6.19.5.6 / boundary / 実行確認あり
 
 name() returns the empty string for an encoding outside the enum member set.
 
@@ -11587,7 +11588,7 @@ name() returns the member identifier string for a valid enum encoding.
 
 ### SV2023-6.19.5.6-EXTRACT-SIGNATURE
 
-6.19.5.6 / normal / テスト対応あり・実行未確認
+6.19.5.6 / normal / 実行確認あり
 
 name is a no-argument enum method returning string.
 
@@ -11777,7 +11778,7 @@ A value/type parameter assignment may omit its value/type only in a parameter po
 
 ### SV2023-6.20.1-EXTRACT-NO-DEFAULT-MEANS-NONE
 
-6.20.1 / normal / テスト対応あり・実行未確認
+6.20.1 / normal / 実行確認あり
 
 Omitting a permitted parameter default supplies no default value; a tool must not invent one.
 
@@ -12399,7 +12400,7 @@ A static const initializer may use literals, parameters/localparams, genvars, en
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-ACTUAL-ARGUMENT
 
-6.20.7 / normal / テスト対応あり・実行未確認
+6.20.7 / normal / 実行確認あり
 
 A dollar actual argument to a sequence/property/checker is permitted when forwarded to such an instance or used as a cycle-delay range upper bound.
 
@@ -12446,7 +12447,7 @@ In the specified cross-coverage bin selection expression, dollar requires all va
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-CYCLE-UPPER
 
-6.20.7 / normal / テスト対応あり・実行未確認
+6.20.7 / normal / 実行確認あり
 
 A dollar cycle-delay upper bound denotes a finite but unbounded maximum.
 
@@ -12869,7 +12870,7 @@ Matching/equivalent class, enum, unpacked struct/union types across instances re
 
 ### SV2023-6.22.1-EXTRACT-ALIAS-MATCH
 
-6.22.1 / normal / テスト対応あり・実行未確認
+6.22.1 / normal / 実行確認あり
 
 A simple typedef or type-parameter override renaming an existing type preserves matching to that type within the type identifier scope.
 
@@ -12881,7 +12882,7 @@ A simple typedef or type-parameter override renaming an existing type preserves 
 
 ### SV2023-6.22.1-EXTRACT-ANONYMOUS-SAME-DECLARATION
 
-6.22.1 / normal / テスト対応あり・実行未確認
+6.22.1 / normal / 実行確認あり
 
 An anonymous enum/struct/union matches itself for objects in the same declaration statement and no separate declaration.
 
@@ -12893,7 +12894,7 @@ An anonymous enum/struct/union matches itself for objects in the same declaratio
 
 ### SV2023-6.22.1-EXTRACT-ARRAY-MATCH
 
-6.22.1 / normal / テスト対応あり・実行未確認
+6.22.1 / normal / 実行確認あり
 
 Array types match when both are packed or both unpacked, have the same array kind, matching associative index types where relevant and recursively matching element types; fixed arrays additionally need identical left/right bounds.
 
@@ -12905,7 +12906,7 @@ Array types match when both are packed or both unpacked, have the same array kin
 
 ### SV2023-6.22.1-EXTRACT-ATOM-VECTOR-MATCH
 
-6.22.1 / normal / テスト対応あり・実行未確認
+6.22.1 / normal / 実行確認あり
 
 A predefined-width simple vector type and a user-width simple vector type match only if state domain, signedness and width agree and the user-width range is \[width-1:0\].
 
@@ -12929,7 +12930,7 @@ Every occurrence of a built-in type matches that same built-in type in any scope
 
 ### SV2023-6.22.1-EXTRACT-CLOSED-MATCH-DEFINITION
 
-6.22.1 / normal / テスト対応あり・実行未確認
+6.22.1 / normal / 実行確認あり
 
 Types match only when established by the inductive matching rules; otherwise they are nonmatching.
 
@@ -12941,7 +12942,7 @@ Types match only when established by the inductive matching rules; otherwise the
 
 ### SV2023-6.22.1-EXTRACT-PACKAGE-MATCH
 
-6.22.1 / normal / テスト対応あり・実行未確認
+6.22.1 / normal / 実行確認あり
 
 A package-declared typedef of enum/struct/union/class matches itself regardless of where it is imported.
 
@@ -12953,7 +12954,7 @@ A package-declared typedef of enum/struct/union/class matches itself regardless 
 
 ### SV2023-6.22.1-EXTRACT-REDUNDANT-SIGN-MATCH
 
-6.22.1 / normal / テスト対応あり・実行未確認
+6.22.1 / normal / 実行確認あり
 
 Explicit signed/unsigned that agrees with a type default preserves type matching.
 
@@ -12965,7 +12966,7 @@ Explicit signed/unsigned that agrees with a type default preserves type matching
 
 ### SV2023-6.22.1-EXTRACT-TYPEDEF-NOMINAL-MATCH
 
-6.22.1 / normal / テスト対応あり・実行未確認
+6.22.1 / normal / 実行確認あり
 
 A typedef of enum/struct/union/class matches itself and objects declared using it within the type identifier scope.
 
@@ -13134,7 +13135,7 @@ A class handle cannot be converted to an incompatible real type.
 
 ### SV2023-6.22.6-EXTRACT-NETTYPE-ALIAS
 
-6.22.6 / normal / テスト対応あり・実行未確認
+6.22.6 / normal / 実行確認あり
 
 A simple nettype alias of an existing user nettype matches that nettype within the alias scope.
 
@@ -13207,7 +13208,7 @@ Equality/inequality and case equality/inequality comparisons between type refere
 
 ### SV2023-6.23-EXTRACT-TYPE-COMPARISON-MATCH
 
-6.23 / normal / テスト対応あり・実行未確認
+6.23 / normal / 実行確認あり
 
 Two type references compare equal exactly when their referred types match under 6.22.1; mere equivalence is insufficient.
 
@@ -13267,7 +13268,7 @@ A type operator reference can be used as a type name/local type parameter, inclu
 
 ### SV2023-6.23-EXTRACT-TYPE-THIS
 
-6.23 / normal / テスト対応あり・実行未確認
+6.23 / normal / 実行確認あり
 
 type(this) denotes the type of the enclosing class.
 
@@ -13444,7 +13445,7 @@ A signing cast produces the signedness explicitly requested by the cast.
 
 ### SV2023-6.24.1-EXTRACT-SIGN-CAST-STATE
 
-6.24.1 / normal / テスト対応あり・実行未確認
+6.24.1 / normal / 実行確認あり
 
 A signing cast preserves the operand two-state/four-state domain through bit/logic elements.
 
@@ -13510,7 +13511,7 @@ A size cast retains the operand self-determined signedness.
 
 ### SV2023-6.24.1-EXTRACT-SIZE-CAST-STATE
 
-6.24.1 / normal / テスト対応あり・実行未確認
+6.24.1 / normal / 実行確認あり
 
 A size cast has bit elements for a two-state operand and logic elements for a four-state operand.
 
@@ -13718,7 +13719,7 @@ The $cast task assigns the source to the destination when the assignment is vali
 
 ### SV2023-6.24.3-ARRAY-TO-BITS
 
-6.24.3 / normal / テスト対応あり・実行未確認
+6.24.3 / normal / 実行確認あり
 
 Bit-stream casting a fixed unpacked array puts its leftmost element in the most significant bits.
 
@@ -13728,7 +13729,7 @@ Bit-stream casting a fixed unpacked array puts its leftmost element in the most 
 
 ### SV2023-6.24.3-BITS-TO-ARRAY
 
-6.24.3 / normal / テスト対応あり・実行未確認
+6.24.3 / normal / 実行確認あり
 
 Bit-stream casting to a fixed unpacked array fills elements in declared left-to-right order.
 
@@ -13738,7 +13739,7 @@ Bit-stream casting to a fixed unpacked array fills elements in declared left-to-
 
 ### SV2023-6.24.3-EXTRACT-AGGREGATE-CROSS-CONVERSION
 
-6.24.3 / normal / テスト対応あり・実行未確認
+6.24.3 / normal / 実行確認あり
 
 Bit-stream casts can convert between eligible different aggregate types, including structure/array/queue combinations, under their packing and size rules.
 
@@ -13762,7 +13763,7 @@ Packing an associative array follows sorted-index order with the first indexed e
 
 ### SV2023-6.24.3-EXTRACT-BITSTREAM-EXPLICIT-CAST
 
-6.24.3 / normal / テスト対応あり・実行未確認
+6.24.3 / normal / 実行確認あり
 
 A source bit-stream value may be explicitly cast to an eligible destination bit-stream type under source-access and size restrictions.
 
@@ -13882,7 +13883,7 @@ The generic bit-stream is four-state if any source component is four-state, othe
 
 ### SV2023-6.24.3-EXTRACT-PACK-SOURCE-WIDTH
 
-6.24.3 / normal / テスト対応あり・実行未確認
+6.24.3 / normal / 実行確認あり
 
 A bit-stream cast first packs exactly the source bit count into a generic packed value.
 
@@ -14269,7 +14270,7 @@ The repeated syntax footnotes require packed for structure dimensions, soft/pack
 
 ### SV2023-7.3-EXTRACT-COMMON-INITIAL-SEQUENCE
 
-7.3 / normal / テスト対応あり・実行未確認
+7.3 / normal / 実行確認あり
 
 When an unpacked union contains structures with an initial sequence of equivalently typed members and currently holds one such structure, the common initial sequence of another may be inspected wherever the complete union declaration is visible.
 
@@ -14281,7 +14282,7 @@ When an unpacked union contains structures with an initial sequence of equivalen
 
 ### SV2023-7.3-EXTRACT-DEFAULT-UNPACKED-UNION
 
-7.3 / normal / テスト対応あり・実行未確認
+7.3 / normal / 実行確認あり
 
 An unqualified union is unpacked and has no required member storage representation.
 
@@ -14330,7 +14331,7 @@ A union provides one storage area accessed through named member types; only one 
 
 ### SV2023-7.3-EXTRACT-UNPACKED-UNION-DEFAULT
 
-7.3 / normal / テスト対応あり・実行未確認
+7.3 / normal / 実行確認あり
 
 Without an explicit initializer, an unpacked union variable takes the default value of its first member type in declaration order.
 
@@ -14509,7 +14510,7 @@ Unpacked unions of unpacked structures use C-compatible ascending-address member
 
 ### SV2023-7.3.2-EXTRACT-MINIMUM-TAG-WIDTH
 
-7.3.2 / normal / テスト対応あり・実行未確認
+7.3.2 / normal / 実行確認あり
 
 The tag uses the minimum bit count sufficient to distinguish all member names.
 
@@ -14521,7 +14522,7 @@ The tag uses the minimum bit count sufficient to distinguish all member names.
 
 ### SV2023-7.3.2-EXTRACT-NESTED-TAGGED-REPRESENTATION
 
-7.3.2 / normal / テスト対応あり・実行未確認
+7.3.2 / normal / 実行確認あり
 
 Tagged packed representation rules apply recursively to nested tagged unions.
 
@@ -14545,7 +14546,7 @@ Packed tagged union members must have packed types, but their sizes may differ.
 
 ### SV2023-7.3.2-EXTRACT-PACKED-TAGGED-SIZE
 
-7.3.2 / normal / テスト対応あり・実行未確認
+7.3.2 / normal / 実行確認あり
 
 A packed tagged union size is its tag width plus its largest member width.
 
@@ -14557,7 +14558,7 @@ A packed tagged union size is its tag width plus its largest member width.
 
 ### SV2023-7.3.2-EXTRACT-TAG-AND-VALUE
 
-7.3.2 / normal / テスト対応あり・実行未確認
+7.3.2 / normal / 実行確認あり
 
 A tagged union stores its current member value and a tag identifying that member.
 
@@ -14569,7 +14570,7 @@ A tagged union stores its current member value and a tag identifying that member
 
 ### SV2023-7.3.2-EXTRACT-TAG-HIGH-MEMBER-LOW
 
-7.3.2 / normal / テスト対応あり・実行未確認
+7.3.2 / normal / 実行確認あり
 
 The packed tag occupies the most significant end and each member value occupies the least significant end.
 
@@ -14593,7 +14594,7 @@ Tagged unions may contain dynamic types and chandles, whereas untagged unions ma
 
 ### SV2023-7.3.2-EXTRACT-TAGGED-EXPRESSION
 
-7.3.2 / normal / テスト対応あり・実行未確認
+7.3.2 / normal / 実行確認あり
 
 Tagged union members can be referenced using tagged expressions under 11.9.
 
@@ -14605,7 +14606,7 @@ Tagged union members can be referenced using tagged expressions under 11.9.
 
 ### SV2023-7.3.2-EXTRACT-TAGGED-PATTERN
 
-7.3.2 / normal / テスト対応あり・実行未確認
+7.3.2 / normal / 実行確認あり
 
 Tagged unions can be used with pattern matching under 12.6.
 
@@ -14639,7 +14640,7 @@ Packed bits between tag and selected member are undefined; selecting a void memb
 
 ### SV2023-7.3.2-EXTRACT-TAGGED-WRITE-TOGETHER
 
-7.3.2 / normal / テスト対応あり・実行未確認
+7.3.2 / normal / 実行確認あり
 
 The tag and member value must be updated consistently together through a statically type-checked tagged union expression.
 
@@ -14651,7 +14652,7 @@ The tag and member value must be updated consistently together through a statica
 
 ### SV2023-7.3.2-EXTRACT-VOID-TAG
 
-7.3.2 / normal / テスト対応あり・実行未確認
+7.3.2 / normal / 実行確認あり
 
 A tagged union may contain a void member whose tag carries all its information.
 
@@ -14711,7 +14712,7 @@ Packed arrays support integer arithmetic at their declared arbitrary bit width, 
 
 ### SV2023-7.4.1-EXTRACT-ATOM-VECTOR-SELECTION
 
-7.4.1 / normal / テスト対応あり・実行未確認
+7.4.1 / normal / 実行確認あり
 
 A predefined-width integer type of width n matches its corresponding \[n-1:0\] vector type and supports selection as if it were that vector.
 
@@ -15026,7 +15027,7 @@ Selections apply to packed arrays and integer types, with predefined-width integ
 
 ### SV2023-7.4.5-EXTRACT-INVALID-INDEX
 
-7.4.5 / normal / テスト対応あり・実行未確認
+7.4.5 / normal / 実行確認あり
 
 An out-of-bounds index or an index containing x/z is invalid.
 
@@ -15050,7 +15051,7 @@ A tool may warn about an invalid array-index read/write but the warning is optio
 
 ### SV2023-7.4.5-EXTRACT-INVALID-WRITE-NOOP
 
-7.4.5 / normal / テスト対応あり・実行未確認
+7.4.5 / normal / 実行確認あり
 
 An invalid array-index write does nothing except the specified queue append at last-plus-one and associative element creation cases.
 
@@ -15086,7 +15087,7 @@ An invalid unpacked-array index read for a class handle element returns null.
 
 ### SV2023-7.4.5-EXTRACT-NONEXISTENT-ENUM
 
-7.4.5 / boundary / テスト対応あり・実行未確認
+7.4.5 / boundary / 実行確認あり
 
 An invalid unpacked-array index read for a enum element returns the table value for its base type.
 
@@ -15182,7 +15183,7 @@ An invalid unpacked-array index read for a unpacked structure element returns a 
 
 ### SV2023-7.4.5-EXTRACT-NONEXISTENT-TWO-STATE
 
-7.4.5 / boundary / テスト対応あり・実行未確認
+7.4.5 / boundary / 実行確認あり
 
 An invalid unpacked-array index read for a two-state integral element returns all zero bits.
 
@@ -15421,7 +15422,7 @@ A dynamic array is an unpacked variable array whose size can change at runtime t
 
 ### SV2023-7.5-EXTRACT-DYNAMIC-DIMENSION
 
-7.5 / normal / テスト対応あり・実行未確認
+7.5 / normal / 実行確認あり
 
 Empty brackets denote a dynamic unpacked dimension; any unpacked dimension may be dynamic.
 
@@ -15724,7 +15725,7 @@ Associative arrays are assignment compatible only with suitable associative arra
 
 ### SV2023-7.6-EXTRACT-COMPLEX-ARRAY-SOURCE
 
-7.6 / normal / テスト対応あり・実行未確認
+7.6 / normal / 実行確認あり
 
 A compatible array assignment source may be an expression involving slices or unpacked array concatenations.
 
@@ -15821,7 +15822,7 @@ A packed array assignment follows vector expression assignment irrespective of t
 
 ### SV2023-7.6-EXTRACT-RESIZE-DYNAMIC-TARGET
 
-7.6 / normal / テスト対応あり・実行未確認
+7.6 / normal / 実行確認あり
 
 Assigning to a dynamic array or queue resizes it to the source count before applying left-to-right correspondence, subject to bounded-queue rules.
 
@@ -15833,7 +15834,7 @@ Assigning to a dynamic array or queue resizes it to the source count before appl
 
 ### SV2023-7.6-EXTRACT-SLICE-SINGLE-ASSIGNMENT
 
-7.6 / normal / テスト対応あり・実行未確認
+7.6 / normal / 実行確認あり
 
 A slice LHS assignment is one assignment to the entire slice.
 
@@ -16280,7 +16281,7 @@ A four-state integral index containing x/z is invalid.
 
 ### SV2023-7.8.4-SIGNED-ORDER
 
-7.8.4 / normal / テスト対応あり・実行未確認
+7.8.4 / normal / 実行確認あり
 
 Signed integral associative indices are ordered by signed value.
 
@@ -16349,7 +16350,7 @@ An index value containing x/z in any element is invalid.
 
 ### SV2023-7.8.5-EXTRACT-RELATIONAL-ORDER
 
-7.8.5 / normal / テスト対応あり・実行未確認
+7.8.5 / normal / 実行確認あり
 
 When the index type defines relational comparison, associative ordering follows its specified index-type order.
 
@@ -16383,7 +16384,7 @@ A user-specified associative default yields its specified value for the relevant
 
 ### SV2023-7.8.6-EXTRACT-INVALID-WRITE-WARNING
 
-7.8.6 / normal / テスト対応あり・実行未確認
+7.8.6 / normal / 実行確認あり
 
 An invalid associative index write is ignored and issues a warning.
 
@@ -16395,7 +16396,7 @@ An invalid associative index write is ignored and issues a warning.
 
 ### SV2023-7.8.6-EXTRACT-MISSING-READ-WARNING
 
-7.8.6 / normal / テスト対応あり・実行未確認
+7.8.6 / normal / 実行確認あり
 
 Reading a missing associative entry or a four-state x/z index returns the Table 7-1 nonexistent value and issues a warning unless a user-specified default applies.
 
@@ -16408,7 +16409,7 @@ Reading a missing associative entry or a four-state x/z index returns the Table 
 
 ### SV2023-7.8.6-IGNORE-UNKNOWN-WRITE
 
-7.8.6 / boundary / テスト対応あり・実行未確認
+7.8.6 / boundary / 実行確認あり
 
 An associative write with an x or z in the index does not create or overwrite a valid entry.
 
@@ -16418,7 +16419,7 @@ An associative write with an x or z in the index does not create or overwrite a 
 
 ### SV2023-7.8.6-INVALID-WRITE-WARNING
 
-7.8.6 / boundary / テスト対応あり・実行未確認
+7.8.6 / boundary / 実行確認あり
 
 An invalid associative-array write issues a warning.
 
@@ -16428,7 +16429,7 @@ An invalid associative-array write issues a warning.
 
 ### SV2023-7.8.6-MISSING-READ-WARNING
 
-7.8.6 / boundary / テスト対応あり・実行未確認
+7.8.6 / boundary / 実行確認あり
 
 A missing associative-array read without a user default issues a warning and returns the type default.
 
@@ -16721,7 +16722,7 @@ Associative next takes an index variable by ref and returns int.
 
 ### SV2023-7.9.6-EXTRACT-STRICT-SUCCESSOR
 
-7.9.6 / normal / テスト対応あり・実行未確認
+7.9.6 / normal / 実行確認あり
 
 next(index) finds the smallest present key strictly greater than the input key, whether or not the input key itself exists.
 
@@ -16967,7 +16968,7 @@ Associative array literals use apostrophe-braced index:value mappings with optio
 
 ### SV2023-7.9.11-EXTRACT-USER-DEFAULT-READ
 
-7.9.11 / normal / テスト対応あり・実行未確認
+7.9.11 / normal / 実行確認あり
 
 Reading a nonexistent entry returns its user-specified default without a warning, or the Table 7-1 value when no user default exists.
 
@@ -17099,7 +17100,7 @@ A queue declared with upper bound N cannot retain an index above N or size above
 
 ### SV2023-7.10.1-EXTRACT-CLAMP-HIGH
 
-7.10.1 / normal / テスト対応あり・実行未確認
+7.10.1 / normal / 実行確認あり
 
 A queue slice upper endpoint beyond the last element is clipped to the last element.
 
@@ -17111,7 +17112,7 @@ A queue slice upper endpoint beyond the last element is clipped to the last elem
 
 ### SV2023-7.10.1-EXTRACT-CLAMP-LOW
 
-7.10.1 / normal / テスト対応あり・実行未確認
+7.10.1 / normal / 実行確認あり
 
 A queue slice lower endpoint below zero is clipped to zero.
 
@@ -17195,7 +17196,7 @@ Queues support the methods defined in 7.10.2.
 
 ### SV2023-7.10.1-EXTRACT-REVERSED-SLICE-EMPTY
 
-7.10.1 / boundary / テスト対応あり・実行未確認
+7.10.1 / boundary / 実行確認あり
 
 A queue slice with lower endpoint greater than upper endpoint yields the empty queue.
 
@@ -17207,7 +17208,7 @@ A queue slice with lower endpoint greater than upper endpoint yields the empty q
 
 ### SV2023-7.10.1-EXTRACT-SINGLE-SLICE
 
-7.10.1 / boundary / テスト対応あり・実行未確認
+7.10.1 / boundary / 実行確認あり
 
 An in-range slice n:n is a one-element queue containing the nth element; if n is out of range it is empty.
 
@@ -17219,7 +17220,7 @@ An in-range slice n:n is a one-element queue containing the nth element; if n is
 
 ### SV2023-7.10.1-EXTRACT-UNKNOWN-SLICE-EMPTY
 
-7.10.1 / boundary / テスト対応あり・実行未確認
+7.10.1 / boundary / 実行確認あり
 
 A queue slice with x/z in either endpoint yields the empty queue.
 
@@ -17231,7 +17232,7 @@ A queue slice with x/z in either endpoint yields the empty queue.
 
 ### SV2023-7.10.1-EXTRACT-VARIABLE-SLICE-BOUNDS
 
-7.10.1 / normal / テスト対応あり・実行未確認
+7.10.1 / normal / 実行確認あり
 
 Queue slice endpoints may be arbitrary integral expressions rather than constants.
 
@@ -17352,7 +17353,7 @@ Queue delete is void and accepts an optional input integer index.
 
 ### SV2023-7.10.2.4-EXTRACT-EMPTY-POP
 
-7.10.2.4 / boundary / テスト対応あり・実行未確認
+7.10.2.4 / boundary / 実行確認あり
 
 pop_front() on an empty queue returns the Table 7-1 nonexistent value for its element type, leaves the queue unchanged and may issue a warning.
 
@@ -17388,7 +17389,7 @@ Queue pop_front has no arguments and returns the element type.
 
 ### SV2023-7.10.2.5-EXTRACT-EMPTY-POP
 
-7.10.2.5 / boundary / テスト対応あり・実行未確認
+7.10.2.5 / boundary / 実行確認あり
 
 pop_back() on an empty queue returns the Table 7-1 nonexistent value for its element type, leaves the queue unchanged and may issue a warning.
 
@@ -17424,7 +17425,7 @@ Queue pop_back has no arguments and returns the element type.
 
 ### SV2023-7.10.2.6-EXTRACT-PUSH
 
-7.10.2.6 / normal / テスト対応あり・実行未確認
+7.10.2.6 / normal / 実行確認あり
 
 push_front(item) inserts the item at the queue front, subject to queue bound rules.
 
@@ -17863,7 +17864,7 @@ find returns a queue containing all matching elements under the locator order ru
 
 ### SV2023-7.12.1-EXTRACT-FIRST-LAST-DEFINITION
 
-7.12.1 / normal / テスト対応あり・実行未確認
+7.12.1 / normal / 実行確認あり
 
 Locator first/last means closest to leftmost/rightmost index, or to the associative first()/last() key for associative arrays.
 
@@ -17940,7 +17941,7 @@ max() returns one source element whose with expression is maximum, even when mul
 
 ### SV2023-7.12.1-EXTRACT-MINIMUM
 
-7.12.1 / normal / テスト対応あり・実行未確認
+7.12.1 / normal / 実行確認あり
 
 min() returns one source element whose with expression is minimum, even when multiple elements tie.
 
@@ -19561,7 +19562,7 @@ An argument immediately following the default expansion starts with default dire
 
 ### SV2023-8.17-EXTRACT-BASE-ARGUMENT-LOCATIONS
 
-8.17 / normal / テスト対応あり・実行未確認
+8.17 / normal / 実行確認あり
 
 Required superclass constructor arguments can be supplied by an explicit super.new call or by the extends specification.
 
@@ -19633,7 +19634,7 @@ Constructor argument default expansion is legal only in a subclass.
 
 ### SV2023-8.17-EXTRACT-EXTENDS-ARGUMENTS
 
-8.17 / normal / テスト対応あり・実行未確認
+8.17 / normal / 実行確認あり
 
 Superclass constructor arguments may be specified in the class extends clause.
 
@@ -19657,7 +19658,7 @@ With extends(default) and a user constructor, its argument list must contain def
 
 ### SV2023-8.17-EXTRACT-EXTENDS-DEFAULT-IMPLICIT
 
-8.17 / normal / テスト対応あり・実行未確認
+8.17 / normal / 実行確認あり
 
 With sole extends(default) and no user constructor, the implicit constructor has the full superclass argument list.
 
@@ -19705,7 +19706,7 @@ default expansion is illegal if a superclass constructor argument default expres
 
 ### SV2023-8.17-EXTRACT-SUPER-DEFAULT-FORWARD
 
-8.17 / normal / テスト対応あり・実行未確認
+8.17 / normal / 実行確認あり
 
 super.new(default) forwards every argument expanded by default in the subclass constructor argument list.
 
@@ -19930,7 +19931,7 @@ A method cannot specify both initial and extends; final may accompany either.
 
 ### SV2023-8.20-EXTRACT-INITIAL-NO-IMPLIED-VIRTUAL
 
-8.20 / normal / テスト対応あり・実行未確認
+8.20 / normal / 実行確認あり
 
 initial does not itself make a method virtual and permits overriding a nonvirtual base method.
 
@@ -20536,7 +20537,7 @@ Outside the class/current external declaration context, :: requires an explicit 
 
 ### SV2023-8.26-EXTRACT-ABSTRACT-INTERFACE-PROTOTYPES
 
-8.26 / normal / テスト対応あり・実行未確認
+8.26 / normal / 実行確認あり
 
 An abstract implementing class must define or inherit a matching pure virtual prototype or virtual implementation for every interface method.
 
@@ -20571,7 +20572,7 @@ An implementing method must explicitly say virtual unless virtualness is inherit
 
 ### SV2023-8.26-EXTRACT-IMPLEMENTS-NO-TYPE-INHERITANCE
 
-8.26 / normal / テスト対応あり・実行未確認
+8.26 / normal / 実行確認あり
 
 implements does not inherit member types or parameters into the implementing class.
 
@@ -20694,7 +20695,7 @@ An interface class declaration supports parameter ports and an optional comma-se
 
 ### SV2023-8.26.2-EXTRACT-ABSTRACT-PARTIAL
 
-8.26.2 / normal / テスト対応あり・実行未確認
+8.26.2 / normal / 実行確認あり
 
 An abstract class may leave interface methods without bodies only under the required pure-prototype/partial-implementation rules.
 
@@ -20730,7 +20731,7 @@ An inherited nonvirtual method does not fulfill an interface method implementati
 
 ### SV2023-8.26.2-EXTRACT-INHERITED-VIRTUAL-IMPLEMENTS
 
-8.26.2 / normal / テスト対応あり・実行未確認
+8.26.2 / normal / 実行確認あり
 
 An inherited virtual method can fulfill an interface method implementation.
 
@@ -20793,7 +20794,7 @@ Interface class parameters and typedefs are static and accessible with ::.
 
 ### SV2023-8.26.3-EXTRACT-INTERFACE-TYPE-PARAMETER-INHERITANCE
 
-8.26.3 / normal / テスト対応あり・実行未確認
+8.26.3 / normal / 実行確認あり
 
 Interface extends inherits its parameters/typedefs; implements does not inherit them into the implementing class.
 
@@ -20842,7 +20843,7 @@ An interface class cannot extend a type parameter even if it resolves to an inte
 
 ### SV2023-8.26.5-EXTRACT-INTERFACE-CROSS-CAST
 
-8.26.5 / normal / テスト対応あり・実行未確認
+8.26.5 / normal / 実行確認あり
 
 Dynamic casting between interface-class variables is permitted when the actual referenced object is assignment compatible with the destination.
 
@@ -20878,7 +20879,7 @@ An interface class cannot be constructed as an object.
 
 ### SV2023-8.26.5-EXTRACT-OBJECT-INTERFACE-CAST
 
-8.26.5 / normal / テスト対応あり・実行未確認
+8.26.5 / normal / 実行確認あり
 
 Casting between an object handle and an interface-class handle is permitted when the actual object implements the required interface and meets destination compatibility.
 
@@ -20890,7 +20891,7 @@ Casting between an object handle and an interface-class handle is permitted when
 
 ### SV2023-8.26.5-EXTRACT-OBJECT-TO-INTERFACE
 
-8.26.5 / normal / テスト対応あり・実行未確認
+8.26.5 / normal / 実行確認あり
 
 An object handle can be assigned to an interface-class handle for an interface implemented by that object.
 
@@ -20912,7 +20913,7 @@ An interface class cannot be constructed.
 
 ### SV2023-8.26.6-EXTRACT-MERGED-NAME-CONFLICT
 
-8.26.6 / normal / テスト対応あり・実行未確認
+8.26.6 / normal / 実行確認あり
 
 Multiple implements/extends relationships can merge same-named identifiers into one namespace; conflicts must be resolved by the following method/type/parameter and diamond rules.
 
@@ -21044,7 +21045,7 @@ An interface method default constant value must be the same in every class imple
 
 ### SV2023-8.26.9-EXTRACT-CALLBACK-NO-CONFLICT
 
-8.26.9 / normal / テスト対応あり・実行未確認
+8.26.9 / normal / 実行確認あり
 
 Built-in pre_randomize/post_randomize are specially exempt from interface method name conflicts.
 
@@ -21094,7 +21095,7 @@ rand_mode and constraint_mode cannot be used through interface classes under the
 
 ### SV2023-8.26.9-EXTRACT-RANDOMIZATION-CALLBACKS
 
-8.26.9 / normal / テスト対応あり・実行未確認
+8.26.9 / normal / 実行確認あり
 
 Interface classes provide empty virtual pre_randomize/post_randomize callbacks invoked before/after randomization and permitted to be overridden.
 
@@ -21224,7 +21225,7 @@ Garbage collection transitions an object from strong reachability toward unreach
 
 ### SV2023-8.29-EXTRACT-STRONGLY-REACHABLE
 
-8.29 / normal / テスト対応あり・実行未確認
+8.29 / normal / 実行確認あり
 
 An object is strongly reachable through class handles in active scopes or pending nonblocking assignments to its nonstatic members; a newly created object is strongly reachable from its creating process.
 
@@ -21280,7 +21281,7 @@ When GC determines a referent is weakly reachable, all weak references to it mus
 
 ### SV2023-8.30.1-EXTRACT-STD-WEAK-REFERENCE
 
-8.30.1 / normal / テスト対応あり・実行未確認
+8.30.1 / normal / 実行確認あり
 
 weak_reference is declared in std and may be shadowed by user declarations in another scope.
 
@@ -21337,7 +21338,7 @@ Constructing a weak reference with a null referent issues no warning.
 
 ### SV2023-8.30.2-EXTRACT-SIGNATURE
 
-8.30.2 / normal / テスト対応あり・実行未確認
+8.30.2 / normal / 実行確認あり
 
 weak_reference new constructs a distinct wrapper using one T-typed referent argument.
 
@@ -21349,7 +21350,7 @@ weak_reference new constructs a distinct wrapper using one T-typed referent argu
 
 ### SV2023-8.30.2-EXTRACT-WRAPPER-IDENTITY
 
-8.30.2 / normal / テスト対応あり・実行未確認
+8.30.2 / normal / 実行確認あり
 
 Two separately constructed weak reference instances are distinct objects even when their referents are identical; wrapper equality compares wrappers, not referents.
 
@@ -21361,7 +21362,7 @@ Two separately constructed weak reference instances are distinct objects even wh
 
 ### SV2023-8.30.3-EXTRACT-GET-EVENT-CONTROL
 
-8.30.3 / normal / テスト対応あり・実行未確認
+8.30.3 / normal / 実行確認あり
 
 get() may be used in an event-control expression to detect user/GC clearing.
 
@@ -21373,7 +21374,7 @@ get() may be used in an event-control expression to detect user/GC clearing.
 
 ### SV2023-8.30.3-EXTRACT-GET-REFERENT
 
-8.30.3 / normal / テスト対応あり・実行未確認
+8.30.3 / normal / 実行確認あり
 
 get() returns the original referent while uncleared and null after clearing.
 
@@ -21385,7 +21386,7 @@ get() returns the original referent while uncleared and null after clearing.
 
 ### SV2023-8.30.3-EXTRACT-SIGNATURE
 
-8.30.3 / normal / テスト対応あり・実行未確認
+8.30.3 / normal / 実行確認あり
 
 Weak get takes no arguments and returns T.
 
@@ -21397,7 +21398,7 @@ Weak get takes no arguments and returns T.
 
 ### SV2023-8.30.4-EXTRACT-CLEAR-NULL
 
-8.30.4 / normal / テスト対応あり・実行未確認
+8.30.4 / normal / 実行確認あり
 
 clear() makes subsequent get() return null.
 
@@ -21431,7 +21432,7 @@ An object ID differs from every other object ID regardless of type throughout it
 
 ### SV2023-8.30.5-EXTRACT-NULL-ZERO
 
-8.30.5 / boundary / テスト対応あり・実行未確認
+8.30.5 / boundary / 実行確認あり
 
 get_id(null) returns zero and every live nonnull object has a nonzero identification value.
 
@@ -21465,7 +21466,7 @@ Weak get_id is static, takes T obj and returns longint.
 
 ### SV2023-8.30.5-EXTRACT-STABLE-POLYMORPHIC-ID
 
-8.30.5 / normal / テスト対応あり・実行未確認
+8.30.5 / normal / 実行確認あり
 
 Repeated get_id for one object returns the same ID regardless of the class handle position in the inheritance tree.
 
@@ -21935,7 +21936,7 @@ Final procedures execute before PLI end-of-simulation callbacks.
 
 ### SV2023-9.2.3-EXTRACT-FINAL-END-NO-DELAY
 
-9.2.3 / normal / テスト対応あり・実行未確認
+9.2.3 / normal / 実行確認あり
 
 A final procedure executes at simulation end without consuming time.
 
@@ -21996,7 +21997,7 @@ An explicit or implicit $finish ending simulation causes final execution.
 
 ### SV2023-9.2.3-EXTRACT-NO-POSTFINAL-EVENTS
 
-9.2.3 / normal / テスト対応あり・実行未確認
+9.2.3 / normal / 実行確認あり
 
 After all final procedures finish, no remaining scheduled simulation events execute.
 
@@ -23127,7 +23128,7 @@ Intra-assignment timing evaluates the RHS before its delay/event wait but update
 
 ### SV2023-9.4.5-EXTRACT-NONPOSITIVE-UNKNOWN-REPEAT
 
-9.4.5 / boundary / テスト対応あり・実行未確認
+9.4.5 / boundary / 実行確認あり
 
 A repeat count at/below zero or containing x/z at evaluation produces assignment behavior without the repeat event-wait construct.
 
@@ -23210,7 +23211,7 @@ Simulation automatically ends when no activity remains.
 
 ### SV2023-9.6.1-EXTRACT-PROGRAM-END
 
-9.6.1 / normal / テスト対応あり・実行未確認
+9.6.1 / normal / 実行確認あり
 
 Simulation also ends when all program blocks finish their execution, regardless of remaining child processes, under 24.7.
 
@@ -23426,7 +23427,7 @@ await() waits for the target normal or forced termination; awaiting the current 
 
 ### SV2023-9.7-EXTRACT-AWAIT-SIGNATURE
 
-9.7 / normal / テスト対応あり・実行未確認
+9.7 / normal / 実行確認あり
 
 The process API declares task await().
 
@@ -23475,7 +23476,7 @@ The process API declares function string get_randstate().
 
 ### SV2023-9.7-EXTRACT-KILL-FINISHED-CHILDREN
 
-9.7 / normal / テスト対応あり・実行未確認
+9.7 / normal / 実行確認あり
 
 Calling kill on a finished/killed target still terminates its not-yet-ended descendants.
 
@@ -23498,7 +23499,7 @@ The process API declares function void kill().
 
 ### SV2023-9.7-EXTRACT-KILL-TREE
 
-9.7 / normal / テスト対応あり・実行未確認
+9.7 / normal / 実行確認あり
 
 kill() terminates its target and all descendants before returning, allowing a racing process to finish normally during the call.
 
@@ -23616,7 +23617,7 @@ The process API declares function void resume().
 
 ### SV2023-9.7-EXTRACT-RESUME-WAITING
 
-9.7 / normal / テスト対応あり・実行未確認
+9.7 / normal / 実行確認あり
 
 Resuming a formerly waiting suspended process restores its event/condition/delay sensitivity; an already true condition or expired original delay schedules continuation in Active/Reactive now.
 
@@ -23686,7 +23687,7 @@ The process API declares function void srandom(int seed).
 
 ### SV2023-9.7-EXTRACT-STATUS-SIGNATURE
 
-9.7 / normal / テスト対応あり・実行未確認
+9.7 / normal / 実行確認あり
 
 The process API declares function state status().
 
@@ -23711,7 +23712,7 @@ suspend() suspends the target before returning unless it ends during the call; i
 
 ### SV2023-9.7-EXTRACT-SUSPEND-DESENSITIZE
 
-9.7 / normal / テスト対応あり・実行未確認
+9.7 / normal / 実行確認あり
 
 Suspending a waiting process removes its sensitivity to its event, condition or delay expiration.
 
@@ -23746,7 +23747,7 @@ The process API declares function void suspend().
 
 ### SV2023-9.7-EXTRACT-SUSPENDED-STATE
 
-9.7 / normal / テスト対応あり・実行未確認
+9.7 / normal / 実行確認あり
 
 status() returns SUSPENDED when the process is stopped awaiting resume.
 
@@ -24083,7 +24084,7 @@ If a continuous RHS changes during pending propagation, reevaluate its RHS.
 
 ### SV2023-10.3.3-EXTRACT-INERTIAL-RESCHEDULE
 
-10.3.3 / normal / テスト対応あり・実行未確認
+10.3.3 / normal / 実行確認あり
 
 If the reevaluated RHS differs from current LHS, compute delay from current LHS/new RHS/statement delays and schedule the new value after that delay.
 
@@ -24095,7 +24096,7 @@ If the reevaluated RHS differs from current LHS, compute delay from current LHS/
 
 ### SV2023-10.3.3-EXTRACT-NET-DELAY-ALL-DRIVERS
 
-10.3.3 / normal / テスト対応あり・実行未確認
+10.3.3 / normal / 実行確認あり
 
 A net declaration delay without an assignment delays value changes driven by other statements before they take effect.
 
@@ -24120,7 +24121,7 @@ Only one delay is allowed on assignment to a user-nettype net or array of such n
 
 ### SV2023-10.3.3-EXTRACT-VECTOR-FALL-DELAY
 
-10.3.3 / normal / テスト対応あり・実行未確認
+10.3.3 / normal / 実行確認あり
 
 A vector RHS transition from nonzero to zero uses the falling delay.
 
@@ -24132,7 +24133,7 @@ A vector RHS transition from nonzero to zero uses the falling delay.
 
 ### SV2023-10.3.3-EXTRACT-VECTOR-OTHER-RISE-DELAY
 
-10.3.3 / normal / テスト対応あり・実行未確認
+10.3.3 / normal / 実行確認あり
 
 Other vector value transitions use the rising delay.
 
@@ -24144,7 +24145,7 @@ Other vector value transitions use the rising delay.
 
 ### SV2023-10.3.3-EXTRACT-VECTOR-TURNOFF-DELAY
 
-10.3.3 / normal / テスト対応あり・実行未確認
+10.3.3 / normal / 実行確認あり
 
 A vector transition to z uses the turn-off delay.
 
@@ -24194,7 +24195,7 @@ The one-value strengths are supply1/strong1/pull1/weak1/highz1.
 
 ### SV2023-10.3.4-EXTRACT-STRENGTH-ORDER
 
-10.3.4 / normal / テスト対応あり・実行未確認
+10.3.4 / normal / 実行確認あり
 
 The one/zero strength pair may appear in either order.
 
@@ -24593,7 +24594,7 @@ A declaration initializer is a one-time procedural initialization.
 
 ### SV2023-10.6-EXTRACT-PROCEDURAL-CONTINUOUS-DEFINITION
 
-10.6 / normal / テスト対応あり・実行未確認
+10.6 / normal / 実行確認あり
 
 Procedural assign/force establish continuously driven expressions on permitted variable/net targets.
 
@@ -24617,7 +24618,7 @@ The grammar permits variable assign/deassign, net/variable force/release and the
 
 ### SV2023-10.6-EXTRACT-PROCEDURAL-CONTINUOUS-REEVALUATION
 
-10.6 / normal / テスト対応あり・実行未確認
+10.6 / normal / 実行確認あり
 
 While procedural assign/force remains active, changes to RHS input expressions cause reevaluation as for continuous assignment.
 
@@ -24629,7 +24630,7 @@ While procedural assign/force remains active, changes to RHS input expressions c
 
 ### SV2023-10.6.1-EXTRACT-ASSIGN-OVERRIDE
 
-10.6.1 / normal / テスト対応あり・実行未確認
+10.6.1 / normal / 実行確認あり
 
 Procedural assign overrides ordinary procedural assignments to its variable until deassign.
 
@@ -24900,7 +24901,7 @@ Module/interface/program input or output port connection is an assignment-like c
 
 ### SV2023-10.8-EXTRACT-PATTERN-NONDEFAULT-CONTEXT
 
-10.8 / normal / テスト対応あり・実行未確認
+10.8 / normal / 実行確認あり
 
 Nondefault assignment-pattern expression correspondence is an assignment-like context.
 
@@ -24923,7 +24924,7 @@ Within a RHS assignment-like context, assignment context propagates through pare
 
 ### SV2023-10.8-EXTRACT-RETURN-CONTEXT
 
-10.8 / normal / テスト対応あり・実行未確認
+10.8 / normal / 実行確認あり
 
 Function return statement is an assignment-like context.
 
@@ -24935,7 +24936,7 @@ Function return statement is an assignment-like context.
 
 ### SV2023-10.8-EXTRACT-STATIC-CAST-CONTEXT
 
-10.8 / normal / テスト対応あり・実行未確認
+10.8 / normal / 実行確認あり
 
 Static cast as assignment to the cast target type is an assignment-like context.
 
@@ -25015,7 +25016,7 @@ An assignment pattern expression cannot be used in a module/interface/program de
 
 ### SV2023-10.9-EXTRACT-PATTERN-CORRESPONDENCE
 
-10.9 / normal / テスト対応あり・実行未確認
+10.9 / normal / 実行確認あり
 
 An apostrophe-braced assignment pattern maps expressions to structure fields/array elements, has no self-determined type and needs an assignment-like opposite side with a self-determined type.
 
@@ -25038,7 +25039,7 @@ Pattern grammar supports positional, member-keyed, index-keyed and constant-repl
 
 ### SV2023-10.9-EXTRACT-POSITIONAL-PATTERN
 
-10.9 / normal / テスト対応あり・実行未確認
+10.9 / normal / 実行確認あり
 
 A pattern may use positional values without keys.
 
@@ -25134,7 +25135,7 @@ An array pattern must match element-by-element and brace-by-dimension, evaluatin
 
 ### SV2023-10.9.1-EXTRACT-ARRAY-STRUCT-TYPE-KEY
 
-10.9.1 / normal / テスト対応あり・実行未確認
+10.9.1 / normal / 実行確認あり
 
 Patterns for arrays of structures may use matching-type keys under the structure pattern rules.
 
@@ -25146,7 +25147,7 @@ Patterns for arrays of structures may use matching-type keys under the structure
 
 ### SV2023-10.9.1-EXTRACT-DEFAULT-AGGREGATE-RECURSION
 
-10.9.1 / normal / テスト対応あり・実行未確認
+10.9.1 / normal / 実行確認あり
 
 Unmatched subarrays/structure elements receive type/default processing recursively according to their respective pattern rules.
 
@@ -25158,7 +25159,7 @@ Unmatched subarrays/structure elements receive type/default processing recursive
 
 ### SV2023-10.9.1-EXTRACT-DEFAULT-PRIORITY
 
-10.9.1 / normal / テスト対応あり・実行未確認
+10.9.1 / normal / 実行確認あり
 
 An array default key applies only where neither an index nor type key supplied the value.
 
@@ -25229,7 +25230,7 @@ Each replication in an array pattern represents exactly one full array dimension
 
 ### SV2023-10.9.1-EXTRACT-TYPE-KEY-PRIORITY
 
-10.9.1 / normal / テスト対応あり・実行未確認
+10.9.1 / normal / 実行確認あり
 
 A matching type key fills not-index-keyed elements/subarrays with a castable value; index keys take priority and the last matching type value wins.
 
@@ -25241,7 +25242,7 @@ A matching type key fills not-index-keyed elements/subarrays with a castable val
 
 ### SV2023-10.9.1-EXTRACT-TYPE-KEY-RECURSION
 
-10.9.1 / normal / テスト対応あり・実行未確認
+10.9.1 / normal / 実行確認あり
 
 When an array/subarray type does not match a type key, matching descends recursively through multidimensional subarrays or structure elements using type/default rules.
 
@@ -25265,7 +25266,7 @@ Every structure member must be covered by the assignment pattern rules.
 
 ### SV2023-10.9.2-EXTRACT-DEFAULT-UNMATCHED
 
-10.9.2 / normal / テスト対応あり・実行未確認
+10.9.2 / normal / 実行確認あり
 
 A default key applies only to members not covered by name or matching type keys.
 
@@ -25277,7 +25278,7 @@ A default key applies only to members not covered by name or matching type keys.
 
 ### SV2023-10.9.2-EXTRACT-MATCHING-TYPE-KEY
 
-10.9.2 / normal / テスト対応あり・実行未確認
+10.9.2 / normal / 実行確認あり
 
 A type key uses matching types under 6.22.1, fills only not-name-keyed fields and evaluates in the matching assignment context; a repeated type key uses its last value.
 
@@ -25289,7 +25290,7 @@ A type key uses matching types under 6.22.1, fills only not-name-keyed fields an
 
 ### SV2023-10.9.2-EXTRACT-MEMBER-OVER-TYPE
 
-10.9.2 / normal / テスト対応あり・実行未確認
+10.9.2 / normal / 実行確認あり
 
 An explicit member key overrides matching type and generic default values.
 
@@ -25301,7 +25302,7 @@ An explicit member key overrides matching type and generic default values.
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-DEFAULT-RECURSION
 
-10.9.2 / normal / テスト対応あり・実行未確認
+10.9.2 / normal / 実行確認あり
 
 A default key can fill structure members including nested structure members and unpacked array elements according to recursive matching rules.
 
@@ -25325,7 +25326,7 @@ For simple-vector, self-type-matching or nonarray/nonstruct members, default eva
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-NAMED-TYPED
 
-10.9.2 / normal / テスト対応あり・実行未確認
+10.9.2 / normal / 実行確認あり
 
 Structure patterns may use member names or data types as keys.
 
@@ -25337,7 +25338,7 @@ Structure patterns may use member names or data types as keys.
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-NESTED-PROCESSING
 
-10.9.2 / normal / テスト対応あり・実行未確認
+10.9.2 / normal / 実行確認あり
 
 Unmatched nested structures and arrays recursively apply their respective type/default matching rules.
 
@@ -25410,7 +25411,7 @@ A named member key selects only a top-level member of that structure, not same-n
 
 ### SV2023-10.9.2-EXTRACT-TYPE-OVER-DEFAULT
 
-10.9.2 / normal / テスト対応あり・実行未確認
+10.9.2 / normal / 実行確認あり
 
 A matching structure type key overrides the generic default for members of that type.
 
@@ -25583,7 +25584,7 @@ An unpacked concatenation cannot directly contain another unpacked concatenation
 
 ### SV2023-10.10.3-EXTRACT-TYPED-PATTERN-AS-CONCAT-ITEM
 
-10.10.3 / normal / テスト対応あり・実行未確認
+10.10.3 / normal / 実行確認あり
 
 A self-determined typed array pattern expression can be a concatenation item and contributes its array elements under the flattening rules.
 
@@ -25607,7 +25608,7 @@ Aliased bits are the same bidirectional physical connection rather than a direct
 
 ### SV2023-10.11-EXTRACT-ALIAS-CUMULATIVE
 
-10.11 / normal / テスト対応あり・実行未確認
+10.11 / normal / 実行確認あり
 
 Multiple alias statements involving the same nets accumulate connectivity under no-duplicate/no-self constraints.
 
@@ -25642,7 +25643,7 @@ alias connects two or more net lvalues with equals and a semicolon; eligible lva
 
 ### SV2023-10.11-EXTRACT-ALIAS-IMPLICIT-NET
 
-10.11 / normal / テスト対応あり・実行未確認
+10.11 / normal / 実行確認あり
 
 An eligible otherwise undeclared alias identifier creates an implicit net under module-instance implicit-net rules.
 
@@ -25978,7 +25979,7 @@ Table 11-1 permits === !== with eligible types other than real/shortreal operand
 
 ### SV2023-11.3-EXTRACT-CONDITIONAL-OPERANDS
 
-11.3 / normal / テスト対応あり・実行未確認
+11.3 / normal / 実行確認あり
 
 Table 11-1 permits ?: with all types allowed by conditional rules operands, subject to more specific type/context rules.
 
@@ -26001,7 +26002,7 @@ Table 11-1 permits dist with integral operands, subject to more specific type/co
 
 ### SV2023-11.3-EXTRACT-EQUALITY-OPERANDS
 
-11.3 / normal / テスト対応あり・実行未確認
+11.3 / normal / 実行確認あり
 
 Table 11-1 permits == != with all types allowed by their equality rules operands, subject to more specific type/context rules.
 
@@ -26109,7 +26110,7 @@ Table 11-1 permits % with integral operands, subject to more specific type/conte
 
 ### SV2023-11.3-EXTRACT-OPERATOR-GRAMMAR
 
-11.3 / normal / テスト対応あり・実行未確認
+11.3 / normal / 実行確認あり
 
 Operator grammar includes the listed simple/compound assignments, conditional expression, unary/binary arithmetic/logical/bitwise/comparison/shift/implication/equivalence, increment/decrement and streaming directions under their context-specific syntax.
 
@@ -26251,7 +26252,7 @@ For other permitted operators, a real operand yields a real result, except that 
 
 ### SV2023-11.3.1-EXTRACT-SHORTREAL-PROMOTION
 
-11.3.1 / normal / テスト対応あり・実行未確認
+11.3.1 / normal / 実行確認あり
 
 Absent a relevant real operand, a shortreal operand yields shortreal for the other permitted operators, excluding conditional first operand from promotion.
 
@@ -26712,7 +26713,7 @@ Logical OR skips RHS evaluation when the LHS is true.
 
 ### SV2023-11.3.5-UNKNOWN-CONDITION
 
-11.3.5 / boundary / テスト対応あり・実行未確認
+11.3.5 / boundary / 実行確認あり
 
 With an unknown LHS, logical AND evaluates a needed RHS; a false RHS determines a false result.
 
@@ -27606,7 +27607,7 @@ Class/interface handle or null equality is legal when one operand is assignment 
 
 ### SV2023-11.4.5-EXTRACT-EQUALITY-ONE-BIT
 
-11.4.5 / normal / テスト対応あり・実行未確認
+11.4.5 / normal / 実行確認あり
 
 All four equality forms have the same precedence, compare corresponding bits and return one-bit true/false unless logical equality is ambiguous.
 
@@ -27801,7 +27802,7 @@ Wildcard equality/inequality share equality operator precedence.
 
 ### SV2023-11.4.7-EXTRACT-EQUIVALENCE
 
-11.4.7 / normal / テスト対応あり・実行未確認
+11.4.7 / normal / 実行確認あり
 
 A <-> B has truth semantics of both directional implications conjoined; each operand is evaluated exactly once.
 
@@ -27837,7 +27838,7 @@ A -> B has truth semantics !A || B.
 
 ### SV2023-11.4.7-EXTRACT-LEFT-EVALUATED
 
-11.4.7 / normal / テスト対応あり・実行未確認
+11.4.7 / normal / 実行確認あり
 
 Logical &&, || and -> always evaluate their first operand.
 
@@ -27876,7 +27877,7 @@ Logical &&, || and -> always evaluate their first operand.
 
 ### SV2023-11.4.7-EXTRACT-LOGICAL-RESULT
 
-11.4.7 / normal / テスト対応あり・実行未確認
+11.4.7 / normal / 実行確認あり
 
 Logical connectives yield one-bit one/zero/x for true/false/ambiguous results.
 
@@ -29551,7 +29552,7 @@ For ambiguous predicate and branch bits z and x requiring Table 11-20 combinatio
 
 ### SV2023-11.4.11-EXTRACT-MERGE-Z-Z
 
-11.4.11 / boundary / テスト対応あり・実行未確認
+11.4.11 / boundary / 実行確認あり
 
 For ambiguous predicate and branch bits z and z requiring Table 11-20 combination, the result bit is x.
 
@@ -29977,7 +29978,7 @@ Converting a real tolerance to integral truncates instead of using ordinary near
 
 ### SV2023-11.4.13-EXTRACT-UNPACKED-SET-RECURSION
 
-11.4.13 / normal / テスト対応あり・実行未確認
+11.4.13 / normal / 実行確認あり
 
 An unpacked array set member is recursively traversed down to singular elements.
 
@@ -31438,7 +31439,7 @@ Tagged members may be read/written using dot notation only consistently with the
 
 ### SV2023-11.9-EXTRACT-TAGGED-EXPRESSION
 
-11.9 / normal / テスト対応あり・実行未確認
+11.9 / normal / 実行確認あり
 
 A tagged expression uses tagged and a valid member name followed by a primary value; void members omit the primary.
 
@@ -31671,7 +31672,7 @@ Typed let formals must be event or a type permitted by 16.6; optional formal def
 
 ### SV2023-11.12-EXTRACT-LET-GRAMMAR
 
-11.12 / normal / テスト対応あり・実行未確認
+11.12 / normal / 実行確認あり
 
 let declares an expression template with optional typed/untyped/dimensioned/defaulted formals; instances permit ordered/named optional actuals and optional package scope.
 
@@ -31840,7 +31841,7 @@ If the predicate is not true and else exists, execute the else statement; otherw
 
 ### SV2023-12.4-EXTRACT-IF-GRAMMAR
 
-12.4 / normal / テスト対応あり・実行未確認
+12.4 / normal / 実行確認あり
 
 if has a conditional predicate and statement-or-null, optional else-if chain and final else, with optional unique/unique0/priority and expression/matches terms joined by &&&.
 
@@ -32441,7 +32442,7 @@ Case violations from different calling processes remain independent exactly as i
 
 ### SV2023-12.5.4-EXTRACT-CASE-INSIDE-DIRECTION
 
-12.5.4 / normal / テスト対応あり・実行未確認
+12.5.4 / normal / 実行確認あり
 
 case inside compares its controlling expression as left operand against each item range-list as right operand of inside, preserving asymmetric wildcards.
 
@@ -32465,7 +32466,7 @@ case inside uses its normal/unique/priority case expression/item evaluation orde
 
 ### SV2023-12.5.4-EXTRACT-CASE-INSIDE-TRUE-ONLY
 
-12.5.4 / normal / テスト対応あり・実行未確認
+12.5.4 / normal / 実行確認あり
 
 A case inside item matches only when inside yields one; zero/x do not match, and default executes if every item fails.
 
@@ -32477,7 +32478,7 @@ A case inside item matches only when inside yields one; zero/x do not match, and
 
 ### SV2023-12.6-EXTRACT-CONSTANT-MATCH
 
-12.6 / normal / テスト対応あり・実行未確認
+12.6 / normal / 実行確認あり
 
 A constant pattern succeeds exactly when the matched value equals its constant under the enclosing construct matching rules.
 
@@ -32489,7 +32490,7 @@ A constant pattern succeeds exactly when the matched value equals its constant u
 
 ### SV2023-12.6-EXTRACT-IDENTIFIER-WILDCARD-MATCH
 
-12.6 / normal / テスト対応あり・実行未確認
+12.6 / normal / 実行確認あり
 
 An identifier pattern always succeeds and binds its value; .* always succeeds without binding.
 
@@ -32501,7 +32502,7 @@ An identifier pattern always succeeds and binds its value; .* always succeeds wi
 
 ### SV2023-12.6-EXTRACT-PATTERN-CONTEXTS
 
-12.6 / normal / テスト対応あり・実行未確認
+12.6 / normal / 実行確認あり
 
 Pattern matching may select structure/tagged-union/constant data in case, if/else and conditional expressions.
 
@@ -32513,7 +32514,7 @@ Pattern matching may select structure/tagged-union/constant data in case, if/els
 
 ### SV2023-12.6-EXTRACT-PATTERN-GRAMMAR
 
-12.6 / normal / テスト対応あり・実行未確認
+12.6 / normal / 実行確認あり
 
 Patterns may parenthesize/nest identifiers, wildcard .*, integral constants, tagged members or positional/named structure patterns; void tagged members omit a nested pattern.
 
@@ -32562,7 +32563,7 @@ Each pattern introduces a scope with implicit position-typed variables whose ide
 
 ### SV2023-12.6-EXTRACT-STRUCT-PATTERN-MATCH
 
-12.6 / normal / テスト対応あり・実行未確認
+12.6 / normal / 実行確認あり
 
 A structure pattern recursively matches corresponding members; named pattern member order is irrelevant and omitted members are ignored.
 
@@ -32574,7 +32575,7 @@ A structure pattern recursively matches corresponding members; named pattern mem
 
 ### SV2023-12.6-EXTRACT-TAGGED-PATTERN-MATCH
 
-12.6 / normal / テスト対応あり・実行未確認
+12.6 / normal / 実行確認あり
 
 A tagged pattern requires the same tag plus a recursive match of its selected member value.
 
@@ -32586,7 +32587,7 @@ A tagged pattern requires the same tag plus a recursive match of its selected me
 
 ### SV2023-12.6.1-EXTRACT-MATCHES-CASE-SCOPE
 
-12.6.1 / normal / テスト対応あり・実行未確認
+12.6.1 / normal / 実行確認あり
 
 case matches items contain a pattern with optional &&& Boolean filter; bound identifiers scope over that item filter and statement, allowing reuse in other items.
 
@@ -32599,7 +32600,7 @@ case matches items contain a pattern with optional &&& Boolean filter; bound ide
 
 ### SV2023-12.6.1-EXTRACT-MATCHES-CASE-SEARCH
 
-12.6.1 / normal / テスト対応あり・実行未確認
+12.6.1 / normal / 実行確認あり
 
 The controller evaluates once, patterns are tested in exact source order ignoring default, and the first selected item executes; otherwise default or no statement executes.
 
@@ -32646,7 +32647,7 @@ Pattern case priority requires some item selected, and unique requires exactly o
 
 ### SV2023-12.6.1-EXTRACT-PATTERN-THEN-FILTER
 
-12.6.1 / normal / テスト対応あり・実行未確認
+12.6.1 / normal / 実行確認あり
 
 An item selects only after successful pattern binding and then a true Boolean filter when present.
 
@@ -32827,7 +32828,7 @@ for executes optional initialization once, then tests before each body, executes
 
 ### SV2023-12.7.1-EXTRACT-FOR-LOCAL-AUTOMATIC
 
-12.7.1 / normal / テスト対応あり・実行未確認
+12.7.1 / normal / 実行確認あり
 
 A declaration in for initialization creates an implicit local scope containing automatic loop variables; a statement label can name that scope.
 
@@ -32851,7 +32852,7 @@ For initialization/step can contain multiple comma-separated allowed items; step
 
 ### SV2023-12.7.1-EXTRACT-FOR-SCOPE-ONLY-DECLARATIONS
 
-12.7.1 / normal / テスト対応あり・実行未確認
+12.7.1 / normal / 実行確認あり
 
 Only a for initializer containing declarations creates the loop implicit begin/end block.
 
@@ -32887,7 +32888,7 @@ repeat evaluates its count once before entry and executes that many iterations; 
 
 ### SV2023-12.7.2-EXTRACT-REPEAT-NONPOSITIVE-UNKNOWN
 
-12.7.2 / boundary / テスト対応あり・実行未確認
+12.7.2 / boundary / 実行確認あり
 
 A zero/negative/x/z repeat count performs no body iterations.
 
@@ -32899,7 +32900,7 @@ A zero/negative/x/z repeat count performs no body iterations.
 
 ### SV2023-12.7.3-EXTRACT-FOREACH-AUTOMATIC-SCOPE
 
-12.7.3 / normal / テスト対応あり・実行未確認
+12.7.3 / normal / 実行確認あり
 
 foreach creates an implicit automatic local loop-variable scope, optionally named with a statement label.
 
@@ -33383,7 +33384,7 @@ The language imposes no limit on the number of nested enabled tasks.
 
 ### SV2023-13.3-EXTRACT-TASK-PORT-GRAMMAR
 
-13.3 / normal / テスト対応あり・実行未確認
+13.3 / normal / 実行確認あり
 
 Task ports support attributes, direction, var/type/implicit signing/dimensions, defaults and const ref static forms under the argument rules.
 
@@ -33685,7 +33686,7 @@ Return type grammar includes integer/real/struct/union/enum/string/chandle/virtu
 
 ### SV2023-13.4-EXTRACT-FUNCTION-TYPE-DEFAULT
 
-13.4 / normal / テスト対応あり・実行未確認
+13.4 / normal / 実行確認あり
 
 Omitted function argument type defaults to logic for first/explicitly directed arguments and otherwise inherits the preceding type; array formals are allowed.
 
@@ -35014,7 +35015,7 @@ A clocking block has static lifetime and a scope local to its enclosing design e
 
 ### SV2023-14.9-EXTRACT-TESTBENCH-DIRECTION
 
-14.9 / normal / テスト対応あり・実行未確認
+14.9 / normal / 実行確認あり
 
 Clocking directions are relative to the testbench; suitable interface modports describe testbench/DUT views and program interface ports may carry those signals.
 
@@ -35296,7 +35297,7 @@ Global clocking may appear in module/interface/checker/program, at most once per
 
 ### SV2023-14.14-EXTRACT-GLOBAL-CLOCK-REFERENCE
 
-14.14 / normal / テスト対応あり・実行未確認
+14.14 / normal / 実行確認あり
 
 $global_clock denotes the effective global clock event at its reference point.
 
@@ -35341,7 +35342,7 @@ Global clocking may omit its name because $global_clock can identify it.
 
 ### SV2023-14.14-EXTRACT-GLOBAL-NEAREST-INSTANCE
 
-14.14 / normal / テスト対応あり・実行未確認
+14.14 / normal / 実行確認あり
 
 Global lookup first checks its enclosing design instance, then ancestor design instance scopes until the closest declaration is found; at most one is effective at a reference.
 
@@ -35353,7 +35354,7 @@ Global lookup first checks its enclosing design instance, then ancestor design i
 
 ### SV2023-14.14-EXTRACT-HIERARCHICAL-GLOBAL-CLOCKING
 
-14.14 / normal / テスト対応あり・実行未確認
+14.14 / normal / 実行確認あり
 
 Different portions of a design hierarchy may declare their own global clocking events.
 
@@ -35516,7 +35517,7 @@ Each net-target clocking output creates a strong1/strong0 driver behaving as con
 
 ### SV2023-14.16-EXTRACT-NET-OUTPUT-INITIAL-Z
 
-14.16 / normal / テスト対応あり・実行未確認
+14.16 / normal / 実行確認あり
 
 The clocking net driver initializes to all z and does not influence the net before its first synchronous drive.
 
@@ -35659,7 +35660,7 @@ A variable associated with a clocking output cannot also be written by continuou
 
 ### SV2023-14.16.2-EXTRACT-SAME-RE-NBA-LAST-DRIVE
 
-14.16.2 / normal / テスト対応あり・実行未確認
+14.16.2 / normal / 実行確認あり
 
 Several drives to one clockvar maturing in the same Re-NBA iteration/time step drive only the last scheduled value, including off-event executions in the same cycle.
 
@@ -36428,7 +36429,7 @@ Changing an event-array index in a waiting expression does not itself trigger a 
 
 ### SV2023-15.5.1-EXTRACT-EVENT-TRIGGER-GRAMMAR
 
-15.5.1 / normal / テスト対応あり・実行未確認
+15.5.1 / normal / 実行確認あり
 
 Event triggering uses -> followed by an event reference/nonrange select, or ->> with optional delay/event control and event reference/nonrange select.
 
@@ -36453,7 +36454,7 @@ Event triggering uses -> followed by an event reference/nonrange select, or ->> 
 
 ### SV2023-15.5.1-EXTRACT-NONBLOCKING-TRIGGER
 
-15.5.1 / normal / テスト対応あり・実行未確認
+15.5.1 / normal / 実行確認あり
 
 ->> returns without blocking and schedules event triggering in the NBA region when its delay expires or event control occurs.
 
@@ -36569,7 +36570,7 @@ Only the first wait_order event may use its persistent triggered state.
 
 ### SV2023-15.5.4-EXTRACT-ORDERED-EVENT-WAIT
 
-15.5.4 / normal / テスト対応あり・実行未確認
+15.5.4 / normal / 実行確認あり
 
 wait_order suspends until every listed event occurs left-to-right, or fails if a still-unseen later event occurs early.
 
@@ -36581,7 +36582,7 @@ wait_order suspends until every listed event occurs left-to-right, or fails if a
 
 ### SV2023-15.5.4-EXTRACT-REPEATED-PAST-EVENT-ALLOWED
 
-15.5.4 / normal / テスト対応あり・実行未確認
+15.5.4 / normal / 実行確認あり
 
 After an event has been accepted in order, retriggering it does not fail wait_order; remaining new events must still arrive in order.
 
@@ -36604,7 +36605,7 @@ An out-of-order failure executes its explicit else action, or calls $error by de
 
 ### SV2023-15.5.4-EXTRACT-WAIT-ORDER-GRAMMAR
 
-15.5.4 / normal / テスト対応あり・実行未確認
+15.5.4 / normal / 実行確認あり
 
 wait_order takes a nonempty comma-separated event identifier list and an action block with optional success statement and else failure statement.
 
@@ -36616,7 +36617,7 @@ wait_order takes a nonempty comma-separated event identifier list and an action 
 
 ### SV2023-15.5.5-EXTRACT-EVENT-ASSIGNMENT-QUEUE
 
-15.5.5 / normal / テスト対応あり・実行未確認
+15.5.5 / normal / 実行確認あり
 
 Assigning one event to another shares the source synchronization object/queue between source and destination rather than copying pending synchronization activity.
 
@@ -36628,7 +36629,7 @@ Assigning one event to another shares the source synchronization object/queue be
 
 ### SV2023-15.5.5.1-EXTRACT-MERGED-TRIGGER
 
-15.5.5.1 / normal / テスト対応あり・実行未確認
+15.5.5.1 / normal / 実行確認あり
 
 After an event assignment merges two handles, triggering either handle affects processes waiting on the shared object through either handle.
 
@@ -36640,7 +36641,7 @@ After an event assignment merges two handles, triggering either handle affects p
 
 ### SV2023-15.5.5.1-EXTRACT-NO-RETARGET-EXISTING-WAIT
 
-15.5.5.1 / normal / テスト対応あり・実行未確認
+15.5.5.1 / normal / 実行確認あり
 
 An event merger affects subsequent wait/event operations; an already blocked destination-event wait does not transfer to the newly assigned synchronization queue and is not released by triggering the newly merged handles.
 
@@ -36830,7 +36831,7 @@ An action can record the failure time before a delayed severity call to report t
 
 ### SV2023-16.3-EXTRACT-COVER-ACTION
 
-16.3 / normal / テスト対応あり・実行未確認
+16.3 / normal / 実行確認あり
 
 The optional pass statement of a simple immediate cover executes immediately after a successful evaluation.
 
@@ -36915,7 +36916,7 @@ For immediate assert/assume the optional first statement is the pass action and 
 
 ### SV2023-16.3-EXTRACT-PROCEDURAL-PLACEMENT
 
-16.3 / normal / テスト対応あり・実行未確認
+16.3 / normal / 実行確認あり
 
 Immediate assertions are permitted wherever a procedural statement is permitted and are subject to assertion control in 20.11.
 
@@ -37267,7 +37268,7 @@ Disabling a task or another non-outermost scope does not flush the process defer
 
 ### SV2023-16.4.5-EXTRACT-PROCESS-INDEPENDENCE
 
-16.4.5 / normal / テスト対応あり・実行未確認
+16.4.5 / normal / 実行確認あり
 
 A deferred immediate assertion in a function called from different processes has independent executions and pending-report queues for those processes.
 
@@ -37926,7 +37927,7 @@ Concatenating with an always-true Boolean expression may unconditionally extend 
 
 ### SV2023-16.8-EXTRACT-ACTUAL-BINDING
 
-16.8 / normal / テスト対応あり・実行未確認
+16.8 / normal / 実行確認あり
 
 An instance shall provide actuals for all formals without defaults; supplied actuals override defaults and may bind by name or position.
 
@@ -37975,7 +37976,7 @@ A named sequence declaration uses sequence/endsequence, an optional formal port 
 
 ### SV2023-16.8-EXTRACT-DEFAULT-ACTUAL
 
-16.8 / normal / テスト対応あり・実行未確認
+16.8 / normal / 実行確認あり
 
 A sequence formal may have a default actual resolved in the declaration scope; an untyped default may have any type if substitution yields a legal sequence.
 
@@ -38012,7 +38013,7 @@ A sequence instance has the matching behavior of the flattened F.4.1 rewriting a
 
 ### SV2023-16.8-EXTRACT-FORMAL-REFERENCES
 
-16.8 / normal / テスト対応あり・実行未確認
+16.8 / normal / 実行確認あり
 
 Sequence formals may stand for identifiers, expressions, sequence expressions, event expressions and the terminal $ in a delay upper bound, subject to substitution validity.
 
@@ -38048,7 +38049,7 @@ A named sequence may be instantiated by name or hierarchical name wherever a seq
 
 ### SV2023-16.8-EXTRACT-LEXICAL-NAMES
 
-16.8 / normal / テスト対応あり・実行未確認
+16.8 / normal / 実行確認あり
 
 Non-formal names and defaults resolve at the sequence declaration scope; supplied actual argument names resolve at the instance scope.
 
@@ -38060,7 +38061,7 @@ Non-formal names and defaults resolve at the sequence declaration scope; supplie
 
 ### SV2023-16.8-EXTRACT-LOCAL-ACTUAL
 
-16.8 / normal / テスト対応あり・実行未確認
+16.8 / normal / 実行確認あり
 
 A sequence actual may reference a local variable in scope at the instance.
 
@@ -38086,7 +38087,7 @@ A cycle in named-sequence dependencies is an error; edges include instantiation 
 
 ### SV2023-16.8-EXTRACT-NO-DEFAULT-TYPE
 
-16.8 / normal / テスト対応あり・実行未確認
+16.8 / normal / 実行確認あり
 
 A formal with no preceding specified type is untyped; sequence formals have no default data type.
 
@@ -38098,7 +38099,7 @@ A formal with no preceding specified type is untyped; sequence formals have no d
 
 ### SV2023-16.8-EXTRACT-TYPE-INHERITANCE
 
-16.8 / normal / テスト対応あり・実行未確認
+16.8 / normal / 実行確認あり
 
 A formal argument type applies to following formal identifiers until another type is specified.
 
@@ -38159,7 +38160,7 @@ An event formal requires an event_expression actual and may be referenced only w
 
 ### SV2023-16.8.1-EXTRACT-EXPLICIT-UNTYPED
 
-16.8.1 / normal / テスト対応あり・実行未確認
+16.8.1 / normal / 実行確認あり
 
 A formal typed untyped has untyped binding semantics; untyped shall be written to restore an untyped formal after a data type in the list.
 
@@ -38183,7 +38184,7 @@ A variable_lvalue actual is viewed through the formal type, and assignment to th
 
 ### SV2023-16.8.1-EXTRACT-NO-VALUE-MODE
 
-16.8.1 / normal / テスト対応あり・実行未確認
+16.8.1 / normal / 実行確認あり
 
 Pass by value is not a supported sequence argument-passing mode; a local variable can capture an argument value instead.
 
@@ -38473,7 +38474,7 @@ Table 16-1 precedence level 6 (highest first) contains and; associativity is lef
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-CONCAT
 
-16.9.1 / normal / テスト対応あり・実行未確認
+16.9.1 / normal / 実行確認あり
 
 Table 16-1 precedence level 2 (highest first) contains ##; associativity is left.
 
@@ -38498,7 +38499,7 @@ Table 16-1 precedence level 5 (highest first) contains intersect; associativity 
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-OR
 
-16.9.1 / normal / テスト対応あり・実行未確認
+16.9.1 / normal / 実行確認あり
 
 Table 16-1 precedence level 7 (highest first) contains or; associativity is left.
 
@@ -38510,7 +38511,7 @@ Table 16-1 precedence level 7 (highest first) contains or; associativity is left
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-REPETITION
 
-16.9.1 / normal / テスト対応あり・実行未確認
+16.9.1 / normal / 実行確認あり
 
 Table 16-1 precedence level 1 (highest first) contains \[*\], \[=\] and \[->\]; no associativity is specified.
 
@@ -38610,7 +38611,7 @@ seq\[*n\] is equivalent to seq\[*n:n\].
 
 ### SV2023-16.9.2-EXTRACT-GOTO
 
-16.9.2 / normal / テスト対応あり・実行未確認
+16.9.2 / normal / 実行確認あり
 
 Goto repetition matches a Boolean operand a finite specified number of times, at least one tick apart with no intervening true operand occurrence, and ends at the final occurrence.
 
@@ -38622,7 +38623,7 @@ Goto repetition matches a Boolean operand a finite specified number of times, at
 
 ### SV2023-16.9.2-EXTRACT-NONCONSECUTIVE
 
-16.9.2 / normal / テスト対応あり・実行未確認
+16.9.2 / normal / 実行確認あり
 
 Nonconsecutive repetition has the same occurrence-count condition as goto but can end at or after the final occurrence, strictly before any subsequent true occurrence.
 
@@ -38660,7 +38661,7 @@ Consecutive repetition permits general sequences; goto and nonconsecutive repeti
 
 ### SV2023-16.9.2-EXTRACT-REPETITION-SYNTAX
 
-16.9.2 / normal / テスト対応あり・実行未確認
+16.9.2 / normal / 実行確認あり
 
 Boolean abbreviation supports consecutive \[*\], nonconsecutive \[=\] and goto \[->\] repetition; sequence abbreviation supports consecutive repetition only, under Syntax 16-6.
 
@@ -38768,7 +38769,7 @@ A sampled-value function in an assertion action block infers the leading clock o
 
 ### SV2023-16.9.3-EXTRACT-CHANGED
 
-16.9.3 / normal / テスト対応あり・実行未確認
+16.9.3 / normal / 実行確認あり
 
 With that comparison, $changed returns 1 exactly when the whole expression value changed; otherwise it returns 0.
 
@@ -38834,7 +38835,7 @@ A sampled-value function in a disable condition or clock expression shall be exp
 
 ### SV2023-16.9.3-EXTRACT-FELL
 
-16.9.3 / normal / テスト対応あり・実行未確認
+16.9.3 / normal / 実行確認あり
 
 With that comparison, $fell returns 1 exactly when the expression LSB changed to 0, including from 1, x or z; otherwise it returns 0.
 
@@ -38846,7 +38847,7 @@ With that comparison, $fell returns 1 exactly when the expression LSB changed to
 
 ### SV2023-16.9.3-EXTRACT-FIRST-CLOCK-DEFAULT
 
-16.9.3 / normal / テスト対応あり・実行未確認
+16.9.3 / normal / 実行確認あり
 
 At or before the first clock-event time step, value-change functions compare against the expression default sampled value.
 
@@ -38858,7 +38859,7 @@ At or before the first clock-event time step, value-change functions compare aga
 
 ### SV2023-16.9.3-EXTRACT-GATED-SAMPLING
 
-16.9.3 / normal / テスト対応あり・実行未確認
+16.9.3 / normal / 実行確認あり
 
 When a $past gating expression is supplied, the first expression history is sampled on the clock event qualified by that gate.
 
@@ -38932,7 +38933,7 @@ The $past tick count shall be an elaboration-time constant at least 1 and defaul
 
 ### SV2023-16.9.3-EXTRACT-PAST-GATE
 
-16.9.3 / normal / テスト対応あり・実行未確認
+16.9.3 / normal / 実行確認あり
 
 The optional second expression in $past gates the clocking event, is an assertion-permitted expression, and defaults to 1; its first expression also must be assertion-permitted.
 
@@ -38944,7 +38945,7 @@ The optional second expression in $past gates the clocking event, is an assertio
 
 ### SV2023-16.9.3-EXTRACT-PAST-HISTORY
 
-16.9.3 / normal / テスト対応あり・実行未確認
+16.9.3 / normal / 実行確認あり
 
 For tick count k, $past returns the expression sampled at the kth strictly prior time step with the gated clock event; insufficient history yields the default sampled value.
 
@@ -38992,7 +38993,7 @@ Sampled-value functions may be used in procedural expressions as well as asserti
 
 ### SV2023-16.9.3-EXTRACT-ROSE
 
-16.9.3 / normal / テスト対応あり・実行未確認
+16.9.3 / normal / 実行確認あり
 
 With that comparison, $rose returns 1 exactly when the expression LSB changed to 1, including from 0, x or z; otherwise it returns 0.
 
@@ -39028,7 +39029,7 @@ $sampled accepts an expression; $rose/$fell/$stable/$changed accept an expressio
 
 ### SV2023-16.9.3-EXTRACT-STABLE
 
-16.9.3 / normal / テスト対応あり・実行未確認
+16.9.3 / normal / 実行確認あり
 
 With that comparison, $stable returns 1 exactly when the whole expression value did not change; otherwise it returns 0.
 
@@ -39041,7 +39042,7 @@ With that comparison, $stable returns 1 exactly when the whole expression value 
 
 ### SV2023-16.9.3-EXTRACT-STRICT-PRIOR
 
-16.9.3 / normal / テスト対応あり・実行未確認
+16.9.3 / normal / 実行確認あり
 
 Value-change functions compare the current time-step sampled value with the sampled value at the most recent strictly prior time step containing their clock event and return a one-bit true/false result.
 
@@ -39309,7 +39310,7 @@ Sequence and takes two sequence operands, starts both together and matches only 
 
 ### SV2023-16.9.5-EXTRACT-BOOLEAN-AND
 
-16.9.5 / normal / テスト対応あり・実行未確認
+16.9.5 / normal / 実行確認あり
 
 For two sampled Boolean expressions, sequence and matches when both are true at that clock tick.
 
@@ -39477,7 +39478,7 @@ within matches an interval of seq2 if seq1 matches a contained subinterval: seq1
 
 ### SV2023-16.9.11-EXTRACT-INSTANCE-START
 
-16.9.11 / normal / テスト対応あり・実行未確認
+16.9.11 / normal / 実行確認あり
 
 A sequence instance embedded in a sequence requires a match starting at the clock tick where the reference is reached.
 
@@ -39489,7 +39490,7 @@ A sequence instance embedded in a sequence requires a match starting at the cloc
 
 ### SV2023-16.9.11-EXTRACT-NO-EMPTY-TRIGGER
 
-16.9.11 / normal / テスト対応あり・実行未確認
+16.9.11 / normal / 実行確認あり
 
 Empty matches shall not activate sequence.triggered.
 
@@ -39977,7 +39978,7 @@ Disable expressions may use sequence.triggered but shall not reference assertion
 
 ### SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT
 
-16.12 / normal / テスト対応あり・実行未確認
+16.12 / normal / 実行確認あり
 
 Disable conditions are tested independently for separate property evaluation attempts using current, unsampled variable values.
 
@@ -39989,7 +39990,7 @@ Disable conditions are tested independently for separate property evaluation att
 
 ### SV2023-16.12-EXTRACT-DISABLE-INTERVAL
 
-16.12 / normal / テスト対応あり・実行未確認
+16.12 / normal / 実行確認あり
 
 If the disable condition is true at any time from the attempt start in Observed through its end, inclusive, that attempt is disabled and produces neither success nor failure; otherwise it has the underlying property result.
 
@@ -40074,7 +40075,7 @@ Table 16-3 precedence level 12 (highest first) is always, s_always, eventually, 
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-AND
 
-16.12 / normal / テスト対応あり・実行未確認
+16.12 / normal / 実行確認あり
 
 Table 16-3 precedence level 7 (highest first) is sequence/property and; associativity is left.
 
@@ -40098,7 +40099,7 @@ Table 16-3 precedence level 2 (highest first) is ##; associativity is left.
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-IFF
 
-16.12 / normal / テスト対応あり・実行未確認
+16.12 / normal / 実行確認あり
 
 Table 16-3 precedence level 9 (highest first) is iff; associativity is right.
 
@@ -40111,7 +40112,7 @@ Table 16-3 precedence level 9 (highest first) is iff; associativity is right.
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED
 
-16.12 / normal / テスト対応あり・実行未確認
+16.12 / normal / 実行確認あり
 
 Table 16-3 precedence level 11 (highest first) is |->, |=>, #-#, #=#; associativity is right.
 
@@ -40124,7 +40125,7 @@ Table 16-3 precedence level 11 (highest first) is |->, |=>, #-#, #=#; associativ
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT
 
-16.12 / normal / テスト対応あり・実行未確認
+16.12 / normal / 実行確認あり
 
 Table 16-3 precedence level 5 (highest first) is intersect; associativity is left.
 
@@ -40136,7 +40137,7 @@ Table 16-3 precedence level 5 (highest first) is intersect; associativity is lef
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT
 
-16.12 / normal / テスト対応あり・実行未確認
+16.12 / normal / 実行確認あり
 
 Table 16-3 precedence level 6 (highest first) is not, nexttime, s_nexttime; no associativity is assigned.
 
@@ -40149,7 +40150,7 @@ Table 16-3 precedence level 6 (highest first) is not, nexttime, s_nexttime; no a
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-OR
 
-16.12 / normal / テスト対応あり・実行未確認
+16.12 / normal / 実行確認あり
 
 Table 16-3 precedence level 8 (highest first) is sequence/property or; associativity is left.
 
@@ -40162,7 +40163,7 @@ Table 16-3 precedence level 8 (highest first) is sequence/property or; associati
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION
 
-16.12 / normal / テスト対応あり・実行未確認
+16.12 / normal / 実行確認あり
 
 Table 16-3 precedence level 1 (highest first) is \[*\], \[=\], \[->\]; no associativity is assigned.
 
@@ -40174,7 +40175,7 @@ Table 16-3 precedence level 1 (highest first) is \[*\], \[=\], \[->\]; no associ
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT
 
-16.12 / normal / テスト対応あり・実行未確認
+16.12 / normal / 実行確認あり
 
 Table 16-3 precedence level 3 (highest first) is throughout; associativity is right.
 
@@ -40198,7 +40199,7 @@ Table 16-3 precedence level 10 (highest first) is until, s_until, until_with, s_
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN
 
-16.12 / normal / テスト対応あり・実行未確認
+16.12 / normal / 実行確認あり
 
 Table 16-3 precedence level 4 (highest first) is within; associativity is left.
 
@@ -40380,7 +40381,7 @@ weak(seq) and weak(first_match(seq)) have equivalent truth values.
 
 ### SV2023-16.12.3-EXTRACT-NEGATION
 
-16.12.3 / normal / テスト対応あり・実行未確認
+16.12.3 / normal / 実行確認あり
 
 not property_expr evaluates to the Boolean complement of the operand evaluation.
 
@@ -40404,7 +40405,7 @@ Property negation switches strength, including when its operand is an implicitly
 
 ### SV2023-16.12.4-EXTRACT-DISJUNCTION
 
-16.12.4 / normal / テスト対応あり・実行未確認
+16.12.4 / normal / 実行確認あり
 
 property_expr1 or property_expr2 is true exactly when at least one of its operands evaluate to true.
 
@@ -40416,7 +40417,7 @@ property_expr1 or property_expr2 is true exactly when at least one of its operan
 
 ### SV2023-16.12.5-EXTRACT-CONJUNCTION
 
-16.12.5 / normal / テスト対応あり・実行未確認
+16.12.5 / normal / 実行確認あり
 
 property_expr1 and property_expr2 is true exactly when both of its operands evaluate to true.
 
@@ -40524,7 +40525,7 @@ For |-> the consequent starts at the antecedent match end point.
 
 ### SV2023-16.12.7-EXTRACT-VACUOUS-TRUE
 
-16.12.7 / normal / テスト対応あり・実行未確認
+16.12.7 / normal / 実行確認あり
 
 If an antecedent has no match from the attempt start, implication succeeds.
 
@@ -40549,7 +40550,7 @@ p iff q is true if and only if p and q have the same Boolean result.
 
 ### SV2023-16.12.8-EXTRACT-IMPLIES
 
-16.12.8 / normal / テスト対応あり・実行未確認
+16.12.8 / normal / 実行確認あり
 
 p implies q is true if and only if p is false or q is true.
 
@@ -40598,7 +40599,7 @@ For #=# with an empty antecedent match, the consequent starts at its nearest clo
 
 ### SV2023-16.12.9-EXTRACT-NONOVERLAPPED-NONEMPTY
 
-16.12.9 / normal / テスト対応あり・実行未確認
+16.12.9 / normal / 実行確認あり
 
 For #=# with a nonempty antecedent match, the consequent starts at the clock tick after its end point.
 
@@ -40610,7 +40611,7 @@ For #=# with a nonempty antecedent match, the consequent starts at the clock tic
 
 ### SV2023-16.12.9-EXTRACT-OVERLAPPED
 
-16.12.9 / normal / テスト対応あり・実行未確認
+16.12.9 / normal / 実行確認あり
 
 For #-#, the selected antecedent match end point is the consequent start point.
 
@@ -41379,7 +41380,7 @@ Every maximal singly-clocked subsequence of a differently-clocked concatenation 
 
 ### SV2023-16.13.1-EXTRACT-MULTICLOCK-DELAY
 
-16.13.1 / normal / テスト対応あり・実行未確認
+16.13.1 / normal / 実行確認あり
 
 Differently clocked sequences concatenate using ##1 to the nearest strictly subsequent second-clock tick or ##0 to the nearest possibly simultaneous second-clock tick.
 
@@ -41440,7 +41441,7 @@ A multiclocked property evaluation yields true or false, and multiclocked sequen
 
 ### SV2023-16.13.2-EXTRACT-MULTICLOCKED
 
-16.13.2 / normal / テスト対応あり・実行未確認
+16.13.2 / normal / 実行確認あり
 
 A property is multiclocked when a subproperty has a different clock or is a multiclocked sequence; an explicit clock may be specified with any property.
 
@@ -41668,7 +41669,7 @@ matched may be used only in sequence expressions.
 
 ### SV2023-16.13.6-EXTRACT-MATCHED-STATUS
 
-16.13.6 / normal / テスト対応あり・実行未確認
+16.13.6 / normal / 実行確認あり
 
 matched is set in Observed on a source match and persists until Observed following the first destination clock tick after that match, synchronizing the source result.
 
@@ -41799,7 +41800,7 @@ With multiple distinct semantic leading clocks, create a separate local copy for
 
 ### SV2023-16.13.7-EXTRACT-SINGLE-INIT
 
-16.13.7 / normal / テスト対応あり・実行未確認
+16.13.7 / normal / 実行確認あり
 
 A singly-clocked sequence/property local initialization occurs when the instance attempt starts, at a tick of its governing clock.
 
@@ -42267,7 +42268,7 @@ A process flush point clears its pending procedural assertion queue; those insta
 
 ### SV2023-16.14.6-EXTRACT-PROCEDURAL-QUEUE
 
-16.14.6 / normal / テスト対応あり・実行未確認
+16.14.6 / normal / 実行確認あり
 
 Reaching a procedural concurrent assertion queues a pending instance with current constant/automatic argument values in the executing process; it is not immediately evaluated and repeated statement executions can queue multiple instances per step.
 
@@ -42291,7 +42292,7 @@ The same capture rules apply to procedural concurrent assertion action blocks; c
 
 ### SV2023-16.14.6.1-EXTRACT-CAPTURE-QUEUE-TIME
 
-16.14.6.1 / normal / テスト対応あり・実行未確認
+16.14.6.1 / normal / 実行確認あり
 
 A procedural concurrent assertion saves const-expression and automatic-variable values when queued and uses those values, while static variables use assertion sampled values.
 
@@ -42376,7 +42377,7 @@ Procedural assertion flushing removes pending transient procedural-order instanc
 
 ### SV2023-16.14.6.4-EXTRACT-DISABLE-PROCESS
 
-16.14.6.4 / normal / テスト対応あり・実行未確認
+16.14.6.4 / normal / 実行確認あり
 
 Disabling the outermost procedure scope flushes every pending assertion instance in its process queue, in addition to normal disable effects.
 
@@ -42437,7 +42438,7 @@ $inferred_clock is an elaboration-time query returning the clock event resolved 
 
 ### SV2023-16.14.7-EXTRACT-INFERRED-DISABLE
 
-16.14.7 / normal / テスト対応あり・実行未確認
+16.14.7 / normal / 実行確認あり
 
 $inferred_disable returns the applicable in-scope default disable condition, or 1'b0 if none exists.
 
@@ -42473,7 +42474,7 @@ Inferred defaults substitute expressions resolved at the property/sequence/check
 
 ### SV2023-16.14.8-EXTRACT-NONVACUOUS-A
 
-16.14.8 / normal / テスト対応あり・実行未確認
+16.14.8 / normal / 実行確認あり
 
 A sequence property attempt is always nonvacuous.
 
@@ -42569,7 +42570,7 @@ disable iff(c) p is nonvacuous exactly when p is nonvacuous and c never holds in
 
 ### SV2023-16.14.8-EXTRACT-NONVACUOUS-B
 
-16.14.8 / normal / テスト対応あり・実行未確認
+16.14.8 / normal / 実行確認あり
 
 A strong(sequence) property attempt is always nonvacuous.
 
@@ -42581,7 +42582,7 @@ A strong(sequence) property attempt is always nonvacuous.
 
 ### SV2023-16.14.8-EXTRACT-NONVACUOUS-C
 
-16.14.8 / normal / テスト対応あり・実行未確認
+16.14.8 / normal / 実行確認あり
 
 A weak(sequence) property attempt is always nonvacuous.
 
@@ -43373,7 +43374,7 @@ Parenthesizing a sequence preserves its semantic leading clock.
 
 ### SV2023-16.16.1-EXTRACT-SEQ-UNIQUE
 
-16.16.1 / normal / テスト対応あり・実行未確認
+16.16.1 / normal / 実行確認あり
 
 A multiclocked sequence has a unique semantic leading clock.
 
@@ -43410,7 +43411,7 @@ expect blocks its executing process until success or failure, schedules continua
 
 ### SV2023-16.17-EXTRACT-EXPECT-NEXT-CLOCK
 
-16.17 / normal / テスト対応あり・実行未確認
+16.17 / normal / 実行確認あり
 
 Execution of expect starts a single property evaluation thread at the subsequent clocking event, with first evaluation on the next event.
 
@@ -43508,7 +43509,7 @@ A checker body may contain let/sequence/property/function/checker declarations, 
 
 ### SV2023-17.2-EXTRACT-DECLARATION-GRAMMAR
 
-17.2 / normal / テスト対応あり・実行未確認
+17.2 / normal / 実行確認あり
 
 checker/endchecker encloses an optional port list and permitted declarations, procedures, assertions, continuous assignments and generate items, with optional closing label under Syntax 17-1.
 
@@ -43568,7 +43569,7 @@ A checker generate item shall not contain constructs that would be illegal outsi
 
 ### SV2023-17.2-EXTRACT-INFERRED-TYPE
 
-17.2 / normal / テスト対応あり・実行未確認
+17.2 / normal / 実行確認あり
 
 A direction/type-omitted first port is input untyped; otherwise the prior type is inherited by sequence/property rules.
 
@@ -43615,7 +43616,7 @@ Modules, interfaces, programs and packages shall not be declared in checkers; mo
 
 ### SV2023-17.2-EXTRACT-PORT-DEFAULTS
 
-17.2 / normal / テスト対応あり・実行未確認
+17.2 / normal / 実行確認あり
 
 Each singular input may have a sequence-style default actual; each singular output may have an initialization expression with ordinary variable initialization semantics.
 
@@ -43627,7 +43628,7 @@ Each singular input may have a sequence-style default actual; each singular outp
 
 ### SV2023-17.2-EXTRACT-PORT-DIRECTION
 
-17.2 / normal / テスト対応あり・実行未確認
+17.2 / normal / 実行確認あり
 
 Checker ports may be input or output; omitted direction inherits the previous direction, with input for the first port.
 
@@ -44019,7 +44020,7 @@ Formal tools shall consider all assumption-consistent constant-free-variable val
 
 ### SV2023-17.7-EXTRACT-CONST-FREE
 
-17.7 / normal / テスト対応あり・実行未確認
+17.7 / normal / 実行確認あり
 
 A const free variable retains its explicit initializer forever, or an arbitrary initial value forever when uninitialized.
 
@@ -44053,7 +44054,7 @@ rand checker variables are free variables and may behave nondeterministically.
 
 ### SV2023-17.7-EXTRACT-NONCONST-FREE
 
-17.7 / normal / テスト対応あり・実行未確認
+17.7 / normal / 実行確認あり
 
 A nonconstant free variable may change in subsequent steps; if explicitly initialized but never assigned, only its first-step value is fixed by its initializer.
 
@@ -44089,7 +44090,7 @@ Checker always_ff procedures permit only nonblocking assignments.
 
 ### SV2023-17.7.1-EXTRACT-FREE-NBA-LHS
 
-17.7.1 / normal / テスト対応あり・実行未確認
+17.7.1 / normal / 実行確認あり
 
 A checker nonblocking assignment left side may contain a free checker variable.
 
@@ -44207,7 +44208,7 @@ The checker assume set includes its and child assumptions referencing its active
 
 ### SV2023-17.7.2-EXTRACT-EMPTY-SET-CLOCK
 
-17.7.2 / normal / テスト対応あり・実行未確認
+17.7.2 / normal / 実行確認あり
 
 An empty assume set has an implicit event each step before Observed; its implicitly clocked active variables may randomize unconstrained each step and then remain constant through step end.
 
@@ -44535,7 +44536,7 @@ Constraints support only two-state values; x/z literals and four-state operators
 
 ### SV2023-18.4-EXTRACT-ARRAY-INDICES
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 Individual element constraints may use iterative loop variables, constants and state variables in indices.
 
@@ -44669,7 +44670,7 @@ A rand object handle causes its object variables/constraints to be solved concur
 
 ### SV2023-18.4-EXTRACT-RANDOM-ARRAYS
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 Arrays, including dynamic/associative arrays and queues, may be rand/randc; all elements inherit the qualifier and their old data is overwritten by randomization.
 
@@ -44681,7 +44682,7 @@ Arrays, including dynamic/associative arrays and queues, may be rand/randc; all 
 
 ### SV2023-18.4-EXTRACT-RANDOM-QUALIFIERS
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 Class properties may be declared rand or randc under Syntax 18-1.
 
@@ -44717,7 +44718,7 @@ The solver supports singular integral and real random variables, but real variab
 
 ### SV2023-18.4-EXTRACT-SIZE-BEFORE-ELEMENTS
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 A rand/randc dynamic-array/queue size may be constrained via size; resize according to that constraint before randomizing all elements.
 
@@ -45268,7 +45269,7 @@ inside provides set-membership restriction with uniform values absent other cons
 
 ### SV2023-18.5.3-EXTRACT-INTEGRAL-RANGE-WEIGHT
 
-18.5.3 / normal / テスト対応あり・実行未確認
+18.5.3 / normal / 実行確認あり
 
 := on an integral range sets its total weight to full range cardinality times the stated weight, including values excluded by other constraints.
 
@@ -45292,7 +45293,7 @@ dist shall not be applied to randc variables.
 
 ### SV2023-18.5.3-EXTRACT-NONZERO-NO-FAILURE
 
-18.5.3 / normal / テスト対応あり・実行未確認
+18.5.3 / normal / 実行確認あり
 
 Nonzero weights shall not change the solution space or cause solving failure; conflicting constraints need only satisfy the hard constraints rather than incompatible weights.
 
@@ -45364,7 +45365,7 @@ Distribution weights are integral expressions interpreted unsigned; an integral 
 
 ### SV2023-18.5.3-EXTRACT-WHOLE-RANGE-WEIGHT
 
-18.5.3 / normal / テスト対応あり・実行未確認
+18.5.3 / normal / 実行確認あり
 
 :/ applies its stated total weight to the entire range; range weights apply as a whole even when other constraints remove some values.
 
@@ -45473,7 +45474,7 @@ The condition and selected constraint-set variables constrain each other bidirec
 
 ### SV2023-18.5.6-EXTRACT-IF-FORM
 
-18.5.6 / normal / テスト対応あり・実行未確認
+18.5.6 / normal / 実行確認あり
 
 An if constraint has an integral/real condition and constraint_set, with an optional else constraint_set.
 
@@ -45640,7 +45641,7 @@ A constrained array reduction is an iteration joined by the method operator over
 
 ### SV2023-18.5.7.2-EXTRACT-REDUCTION-SIZE-FIRST
 
-18.5.7.2 / normal / テスト対応あり・実行未確認
+18.5.7.2 / normal / 実行確認あり
 
 With both array size and reduction constraints, solve size first and the iterative reduction constraints afterward.
 
@@ -45748,7 +45749,7 @@ Explicit ordering shall have no circular dependencies.
 
 ### SV2023-18.5.9-EXTRACT-ORDER-NO-SPACE-CHANGE
 
-18.5.9 / normal / テスト対応あり・実行未確認
+18.5.9 / normal / 実行確認あり
 
 Explicit solve-before ordering changes probabilities but not the solution space and shall not by itself cause solving failure.
 
@@ -45797,7 +45798,7 @@ solve before specifies a partial ordering with comma-separated lists of constrai
 
 ### SV2023-18.5.9-EXTRACT-UNIFORM-JOINT
 
-18.5.9 / normal / テスト対応あり・実行未確認
+18.5.9 / normal / 実行確認あり
 
 Subject to specified weighting/ordering exceptions, legal value combinations have equal selection probability; illegal combinations are excluded from the distribution.
 
@@ -46508,7 +46509,7 @@ A final R result requires collecting all R conditional guards by traversing the 
 
 ### SV2023-18.5.13-EXTRACT-DISCARDED-TRUE
 
-18.5.13 / normal / テスト対応あり・実行未確認
+18.5.13 / normal / 実行確認あり
 
 A discarded soft constraint acts as true, need not hold and has no effect on the solution distribution.
 
@@ -46747,7 +46748,7 @@ randomize() returns 1 when all random variables/objects receive valid values and
 
 ### SV2023-18.6.1-EXTRACT-VIRTUAL-RANDOMIZE
 
-18.6.1 / normal / テスト対応あり・実行未確認
+18.6.1 / normal / 実行確認あり
 
 Every class has built-in virtual function int randomize(), which randomizes active random variables under active constraints.
 
@@ -46856,7 +46857,7 @@ pre_randomize/post_randomize are functions and shall not block.
 
 ### SV2023-18.6.3-EXTRACT-FAILURE-NO-POST
 
-18.6.3 / normal / テスト対応あり・実行未確認
+18.6.3 / normal / 実行確認あり
 
 post_randomize is not called when randomize fails.
 
@@ -46868,7 +46869,7 @@ post_randomize is not called when randomize fails.
 
 ### SV2023-18.6.3-EXTRACT-FAILURE-RETAINS
 
-18.6.3 / normal / テスト対応あり・実行未確認
+18.6.3 / normal / 実行確認あり
 
 On randomization solving failure, random variables retain their previous values.
 
@@ -46928,7 +46929,7 @@ randomize with supplies unnamed inline constraints applied together with object 
 
 ### SV2023-18.7-EXTRACT-DOTTED-LOOKUP
 
-18.7 / normal / テスト対応あり・実行未確認
+18.7 / normal / 実行確認あり
 
 Other dotted inline names first resolve downwards from the receiver class, and fall back to normal lookup from the inline constraint scope if unresolved.
 
@@ -47003,7 +47004,7 @@ An unrestricted inline block searches the receiver handle class first, then the 
 
 ### SV2023-18.7-EXTRACT-WITH-EXPRESSION
 
-18.7 / normal / テスト対応あり・実行未確認
+18.7 / normal / 実行確認あり
 
 randomize with may occur wherever an expression is allowed and supports the same constraint forms as a class constraint block.
 
@@ -47099,7 +47100,7 @@ Omitting the random-variable name is allowed only for the setter and affects eve
 
 ### SV2023-18.8-EXTRACT-ARRAY-MODES
 
-18.8 / normal / テスト対応あり・実行未確認
+18.8 / normal / 実行確認あり
 
 An unpacked-array index targets one element; omitting it targets every element.
 
@@ -47147,7 +47148,7 @@ The no-argument getter returns 1 for active, 0 for inactive, and accepts only si
 
 ### SV2023-18.8-EXTRACT-MODE-ONE
 
-18.8 / normal / テスト対応あり・実行未確認
+18.8 / normal / 実行確認あり
 
 rand_mode(1) makes the specified variables active for subsequent randomization.
 
@@ -47195,7 +47196,7 @@ rand_mode is a void(bit on_off) setter on an object or its random variable, or i
 
 ### SV2023-18.8-EXTRACT-STATIC-MODE
 
-18.8 / normal / テスト対応あり・実行未確認
+18.8 / normal / 実行確認あり
 
 A static random variable has static rand_mode state shared by all base-class instances.
 
@@ -47278,7 +47279,7 @@ Any constraint in the class hierarchy may be named; omission of a name is allowe
 
 ### SV2023-18.9-EXTRACT-CONSTRAINT-OFF
 
-18.9 / normal / テスト対応あり・実行未確認
+18.9 / normal / 実行確認あり
 
 constraint_mode(0) deactivates the specified block so subsequent randomizations do not enforce it.
 
@@ -47338,7 +47339,7 @@ Distribution weights may change dynamically to change selection probabilities.
 
 ### SV2023-18.10-EXTRACT-PREDICATED-DYNAMIC
 
-18.10 / normal / テスト対応あり・実行未確認
+18.10 / normal / 実行確認あり
 
 Implication and if/else may predicate constraints for dynamic control.
 
@@ -47389,7 +47390,7 @@ The property-list override lasts only for that call and can include non-rand pro
 
 ### SV2023-18.11.1-EXTRACT-NO-RANDOM-CHECK
 
-18.11.1 / normal / テスト対応あり・実行未確認
+18.11.1 / normal / 実行確認あり
 
 randomize on an object without random variables assigns no values and returns 1 if all constraints hold, otherwise 0.
 
@@ -47413,7 +47414,7 @@ randomize(null) temporarily treats every object property as state, assigns no ra
 
 ### SV2023-18.12-EXTRACT-SCOPE-CHECK
 
-18.12 / normal / テスト対応あり・実行未確認
+18.12 / normal / 実行確認あり
 
 Scope randomize with no arguments changes no variable and evaluates every constraint, returning 0 if any constraint is false and 1 otherwise.
 
@@ -47891,7 +47892,7 @@ randsequence and each anonymous code block create automatic scopes; production i
 
 ### SV2023-18.17-EXTRACT-PRODUCTION-CODE
 
-18.17 / normal / テスト対応あり・実行未確認
+18.17 / normal / 実行確認あり
 
 Producing the grammar stream executes the selected code-block side effects; randsequence itself does not create a loop but recursive productions do.
 
@@ -48298,7 +48299,7 @@ Without strobe, each clocking event samples immediately as though the triggering
 
 ### SV2023-19.3-EXTRACT-CONSTRUCTOR-ARGS
 
-19.3 / normal / テスト対応あり・実行未確認
+19.3 / normal / 実行確認あり
 
 Covergroup new requires every nondefaulted formal actual, evaluates actuals at construction, tracks ref actual changes and captures input actual values at construction.
 
@@ -48774,7 +48775,7 @@ Real coverpoints shall have at least one explicit bins construct and receive no 
 
 ### SV2023-19.5-EXTRACT-SAMPLE-EVALUATION
 
-19.5 / normal / テスト対応あり・実行未確認
+19.5 / normal / 実行確認あり
 
 Coverpoint expression and iff condition evaluate when the covergroup is sampled, in procedural context; virtual-interface access is legal.
 
@@ -48786,7 +48787,7 @@ Coverpoint expression and iff condition evaluate when the covergroup is sampled,
 
 ### SV2023-19.5.1-EXTRACT-BIN-IFF
 
-19.5.1 / normal / テスト対応あり・実行未確認
+19.5.1 / normal / 実行確認あり
 
 A false per-bin iff guard at a sampling point prevents incrementing that bin count.
 
@@ -49206,7 +49207,7 @@ Transition bins shall use integral values; real transitions are prohibited.
 
 ### SV2023-19.5.3-EXTRACT-AUTO-ENUM-COUNT
 
-19.5.3 / normal / テスト対応あり・実行未確認
+19.5.3 / normal / 実行確認あり
 
 An enum coverpoint automatically creates one bin per enum value.
 
@@ -49264,7 +49265,7 @@ When automatic bin count is smaller than the value count, values distribute unif
 
 ### SV2023-19.5.3-EXTRACT-AUTO-TWO-STATE
 
-19.5.3 / normal / テスト対応あり・実行未確認
+19.5.3 / normal / 実行確認あり
 
 Automatic bins consider only two-state values and exclude samples containing x/z.
 
@@ -49276,7 +49277,7 @@ Automatic bins consider only two-state values and exclude samples containing x/z
 
 ### SV2023-19.5.3-EXTRACT-AUTO-WHEN-NO-NORMAL
 
-19.5.3 / normal / テスト対応あり・実行未確認
+19.5.3 / normal / 実行確認あり
 
 An integral coverpoint with no bins other than ignored/illegal bins receives automatic state bins; real coverpoints never receive automatic bins.
 
@@ -49323,7 +49324,7 @@ Ignored transitions shall not have unbounded or undetermined varying lengths.
 
 ### SV2023-19.5.5-EXTRACT-IGNORE-EMPTY
 
-19.5.5 / normal / テスト対応あり・実行未確認
+19.5.5 / normal / 実行確認あり
 
 Bins emptied by ignore exclusion are excluded from coverage computation.
 
@@ -49371,7 +49372,7 @@ Illegal transition bins shall not specify unbounded or undetermined varying leng
 
 ### SV2023-19.5.6-EXTRACT-ILLEGAL-EMPTY
 
-19.5.6 / normal / テスト対応あり・実行未確認
+19.5.6 / normal / 実行確認あり
 
 Bins emptied by illegal exclusion are excluded from coverage computation.
 
@@ -49481,7 +49482,7 @@ A bin value changed under normal == comparison by assignment conversion to the p
 
 ### SV2023-19.5.7-EXTRACT-WARNED-RANGE-INTERSECTION
 
-19.5.7 / normal / テスト対応あり・実行未確認
+19.5.7 / normal / 実行確認あり
 
 A range containing some nonwarning representable values is reduced to its intersection with values expressible by the effective point type.
 
@@ -49529,7 +49530,7 @@ Expand wildcard bin x/z positions to all 0/1 possibilities before applying value
 
 ### SV2023-19.6-EXTRACT-CARTESIAN-BINS
 
-19.6 / normal / テスト対応あり・実行未確認
+19.6 / normal / 実行確認あり
 
 Cross coverage is the Cartesian product of the participating coverpoint bin sets.
 
@@ -49646,7 +49647,7 @@ Crossed coverpoints shall belong to the containing covergroup; crossing another 
 
 ### SV2023-19.6.1-EXTRACT-BINSOF-INTERSECT
 
-19.6.1 / normal / テスト対応あり・実行未確認
+19.6.1 / normal / 実行確認あり
 
 binsof yields bins of a point or specified point bin; intersect selects those whose associated values overlap a specified range set.
 
@@ -49658,7 +49659,7 @@ binsof yields bins of a point or specified point bin; intersect selects those wh
 
 ### SV2023-19.6.1-EXTRACT-BINSOF-NEGATION
 
-19.6.1 / normal / テスト対応あり・実行未確認
+19.6.1 / normal / 実行確認あり
 
 Negated binsof/intersect selects bins whose values do not intersect the specified range set.
 
@@ -49694,7 +49695,7 @@ User cross bins coexist with automatic bins; by default automatic bins remain fo
 
 ### SV2023-19.6.1-EXTRACT-SELECT-EXPRESSIONS
 
-19.6.1 / normal / テスト対応あり・実行未確認
+19.6.1 / normal / 実行確認あり
 
 User-defined cross bins use Syntax 19-4 bin selection expressions.
 
@@ -49706,7 +49707,7 @@ User-defined cross bins use Syntax 19-4 bin selection expressions.
 
 ### SV2023-19.6.1-EXTRACT-SELECT-LOGICAL
 
-19.6.1 / normal / テスト対応あり・実行未確認
+19.6.1 / normal / 実行確認あり
 
 Selected bin sets may combine with && and ||.
 
@@ -49869,7 +49870,7 @@ A cross set expression shall produce the enclosing cross CrossQueueType, whose e
 
 ### SV2023-19.6.2-EXTRACT-IGNORE-CROSS
 
-19.6.2 / normal / テスト対応あり・実行未確認
+19.6.2 / normal / 実行確認あり
 
 ignore_bins excludes every selected cross product from coverage even if included in another bin of the same cross.
 
@@ -49940,7 +49941,7 @@ Instance options affect only their initialized covergroup instance, while type o
 
 ### SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP
 
-19.7 / normal / テスト対応あり・実行未確認
+19.7 / normal / 実行確認あり
 
 Table 19-2 permits option.at_least at the covergroup syntactic level.
 
@@ -50152,7 +50153,7 @@ Table 19-2 prohibits option.detect_overlap at the cross syntactic level.
 
 ### SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERGROUP
 
-19.7 / normal / テスト対応あり・実行未確認
+19.7 / normal / 実行確認あり
 
 Table 19-2 permits option.get_inst_coverage at the covergroup syntactic level.
 
@@ -50302,7 +50303,7 @@ Table 19-2 permits option.weight at the covergroup syntactic level.
 
 ### SV2023-19.7-EXTRACT-LEVEL-WEIGHT-COVERPOINT
 
-19.7 / normal / テスト対応あり・実行未確認
+19.7 / normal / 実行確認あり
 
 Table 19-2 permits option.weight at the coverpoint syntactic level.
 
@@ -50407,7 +50408,7 @@ Instance option detect_overlap defaults to false; true requires a warning on ove
 
 ### SV2023-19.7-EXTRACT-OPTION-GET-INST-COVERAGE
 
-19.7 / normal / テスト対応あり・実行未確認
+19.7 / normal / 実行確認あり
 
 Instance option get_inst_coverage defaults to false and applies with merge_instances; false makes get_inst_coverage return the type get_coverage value, true enables per-instance tracking.
 
@@ -50606,7 +50607,7 @@ Table 19-4 permits type_option.goal at the cross syntactic level.
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-COVERGROUP
 
-19.7.1 / normal / テスト対応あり・実行未確認
+19.7.1 / normal / 実行確認あり
 
 Table 19-4 permits type_option.merge_instances at the covergroup syntactic level.
 
@@ -50709,7 +50710,7 @@ Table 19-4 prohibits type_option.strobe at the cross syntactic level.
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-WEIGHT-COVERGROUP
 
-19.7.1 / normal / テスト対応あり・実行未確認
+19.7.1 / normal / 実行確認あり
 
 Table 19-4 permits type_option.weight at the covergroup syntactic level.
 
@@ -50779,7 +50780,7 @@ Type option goal defaults to 100 and supplies the type or type-item coverage tar
 
 ### SV2023-19.7.1-EXTRACT-TYPE-OPTION-MERGE-INSTANCES
 
-19.7.1 / normal / テスト対応あり・実行未確認
+19.7.1 / normal / 実行確認あり
 
 Type option merge_instances defaults to false; true computes type coverage from instance-bin unions, while false uses the weighted average of instances.
 
@@ -51134,7 +51135,7 @@ An item excluded from coverage contributes to neither weighted numerator nor den
 
 ### SV2023-19.11-EXTRACT-GROUP-WEIGHTED
 
-19.11 / normal / テスト対応あり・実行未確認
+19.11 / normal / 実行確認あり
 
 Group coverage equals sum(item_weight * item_coverage) / sum(item_weight), over contributing points/crosses.
 
@@ -51315,7 +51316,7 @@ In the 19.11.2 cross coverage equation, Bc is the number of automatic cross bins
 
 ### SV2023-19.11.2-EXTRACT-CROSS-FRACTION
 
-19.11.2 / normal / テスト対応あり・実行未確認
+19.11.2 / normal / 実行確認あり
 
 Cross coverage equals covered contributing bins / (actual automatic cross bins + significant user cross bins), excluding ignore/illegal user bins.
 
@@ -51387,7 +51388,7 @@ With merge enabled, union bins by name; overlapping bin counts sum across all in
 
 ### SV2023-19.11.3-EXTRACT-MERGE-MODES
 
-19.11.3 / normal / テスト対応あり・実行未確認
+19.11.3 / normal / 実行確認あり
 
 merge_instances false computes weighted instance average; true merges as a union of instance-bin coverage.
 
@@ -51482,7 +51483,7 @@ The optional $stop/$finish diagnostic argument is 0, 1 or 2 and defaults to 1.
 
 ### SV2023-20.2-EXTRACT-CONTROL-SYNTAX
 
-20.2 / normal / テスト対応あり・実行未確認
+20.2 / normal / 実行確認あり
 
 $stop/$finish accept an optional parenthesized diagnostic expression; $exit permits an optional empty argument list.
 
@@ -51528,7 +51529,7 @@ Diagnostic level 0 prints nothing.
 
 ### SV2023-20.2-EXTRACT-EXIT
 
-20.2 / normal / テスト対応あり・実行未確認
+20.2 / normal / 実行確認あり
 
 $exit waits for all program blocks to complete, then implicitly calls $finish under 24.7.
 
@@ -51631,7 +51632,7 @@ $realtime returns real time scaled to the invoking module time unit.
 
 ### SV2023-20.4.1-EXTRACT-COMPILATION-SCOPE
 
-20.4.1 / normal / テスト対応あり・実行未確認
+20.4.1 / normal / 実行確認あり
 
 With $unit, timescale queries use the compilation-unit unit/precision.
 
@@ -51643,7 +51644,7 @@ With $unit, timescale queries use the compilation-unit unit/precision.
 
 ### SV2023-20.4.1-EXTRACT-CURRENT-SCOPE
 
-20.4.1 / normal / テスト対応あり・実行未確認
+20.4.1 / normal / 実行確認あり
 
 Without an argument, timescale queries use the current design-element scope.
 
@@ -51727,7 +51728,7 @@ Table 20-2 timescale exponent -11 denotes 10 ps.
 
 ### SV2023-20.4.1-EXTRACT-EXPONENT-NEG12
 
-20.4.1 / normal / テスト対応あり・実行未確認
+20.4.1 / normal / 実行確認あり
 
 Table 20-2 timescale exponent -12 denotes 1 ps.
 
@@ -51823,7 +51824,7 @@ Table 20-2 timescale exponent -5 denotes 10 us.
 
 ### SV2023-20.4.1-EXTRACT-EXPONENT-NEG6
 
-20.4.1 / normal / テスト対応あり・実行未確認
+20.4.1 / normal / 実行確認あり
 
 Table 20-2 timescale exponent -6 denotes 1 us.
 
@@ -51847,7 +51848,7 @@ Table 20-2 timescale exponent -7 denotes 100 ns.
 
 ### SV2023-20.4.1-EXTRACT-EXPONENT-NEG8
 
-20.4.1 / normal / テスト対応あり・実行未確認
+20.4.1 / normal / 実行確認あり
 
 Table 20-2 timescale exponent -8 denotes 10 ns.
 
@@ -51859,7 +51860,7 @@ Table 20-2 timescale exponent -8 denotes 10 ns.
 
 ### SV2023-20.4.1-EXTRACT-EXPONENT-NEG9
 
-20.4.1 / normal / テスト対応あり・実行未確認
+20.4.1 / normal / 実行確認あり
 
 Table 20-2 timescale exponent -9 denotes 1 ns.
 
@@ -51883,7 +51884,7 @@ Timescale query results are integers from -15 through 2.
 
 ### SV2023-20.4.1-EXTRACT-NAMED-SCOPE
 
-20.4.1 / normal / テスト対応あり・実行未確認
+20.4.1 / normal / 実行確認あり
 
 With a design-element argument, timescale queries use that element.
 
@@ -51895,7 +51896,7 @@ With a design-element argument, timescale queries use that element.
 
 ### SV2023-20.4.1-EXTRACT-ROOT-SCOPE
 
-20.4.1 / normal / テスト対応あり・実行未確認
+20.4.1 / normal / 実行確認あり
 
 With $root, both timescale queries return the simulation time unit exponent.
 
@@ -51907,7 +51908,7 @@ With $root, both timescale queries return the simulation time unit exponent.
 
 ### SV2023-20.4.1-EXTRACT-TIMESCALE-QUERIES
 
-20.4.1 / normal / テスト対応あり・実行未確認
+20.4.1 / normal / 実行確認あり
 
 $timeunit/$timeprecision return integer time-unit/time-precision exponents for a design element and accept an optional hierarchical scope identifier.
 
@@ -51943,7 +51944,7 @@ $printtimescale output has the format Time scale of (<design_element_name>) is <
 
 ### SV2023-20.4.2-EXTRACT-PRINT-SPECIAL-NAMES
 
-20.4.2 / normal / テスト対応あり・実行未確認
+20.4.2 / normal / 実行確認あり
 
 $printtimescale labels $unit/$root arguments literally as $unit/$root in output.
 
@@ -51967,7 +51968,7 @@ $printtimescale optionally accepts a hierarchical design-element identifier and 
 
 ### SV2023-20.4.2-EXTRACT-PRINT-UNIT-ROOT
 
-20.4.2 / normal / テスト対応あり・実行未確認
+20.4.2 / normal / 実行確認あり
 
 With $unit it prints compilation-unit scales, and with $root it prints the simulation time unit for both unit and precision.
 
@@ -52147,7 +52148,7 @@ $shortrealtobits returns the shortreal number 32-bit representation.
 
 ### SV2023-20.5-EXTRACT-SIGNED-UNSIGNED
 
-20.5 / normal / テスト対応あり・実行未確認
+20.5 / normal / 実行確認あり
 
 $signed/$unsigned preserve expression width and bits while returning signed/unsigned interpretation respectively; they change signedness rather than the underlying type category.
 
@@ -52160,7 +52161,7 @@ $signed/$unsigned preserve expression width and bits while returning signed/unsi
 
 ### SV2023-20.6.1-EXTRACT-PREDEFINED-WIDTH-DISTINCT
 
-20.6.1 / normal / テスト対応あり・実行未確認
+20.6.1 / normal / 実行確認あり
 
 $typename distinguishes predefined-width simple bit-vector types from user-defined-width forms, unlike looser type matching.
 
@@ -52385,7 +52386,7 @@ Array queries accept an array/integral data expression or type; $left/$right/$lo
 
 ### SV2023-20.7-EXTRACT-ASSOCIATIVE-BOUNDS
 
-20.7 / normal / テスト対応あり・実行未確認
+20.7 / normal / 実行確認あり
 
 For integral-index associative dimensions, left is 0 and right is the highest possible index value.
 
@@ -52397,7 +52398,7 @@ For integral-index associative dimensions, left is 0 and right is the highest po
 
 ### SV2023-20.7-EXTRACT-ASSOCIATIVE-COUNT
 
-20.7 / normal / テスト対応あり・実行未確認
+20.7 / normal / 実行確認あり
 
 Associative increment is -1 and size is the allocated-element count.
 
@@ -52409,7 +52410,7 @@ Associative increment is -1 and size is the allocated-element count.
 
 ### SV2023-20.7-EXTRACT-ASSOCIATIVE-EXTREMA
 
-20.7 / normal / テスト対応あり・実行未確認
+20.7 / normal / 実行確認あり
 
 Associative low/high are the lowest/highest allocated indices or all x when no elements exist.
 
@@ -52913,7 +52914,7 @@ Bit-vector functions may be constant expressions when all arguments are constant
 
 ### SV2023-20.9-EXTRACT-CONTROL-LSB
 
-20.9 / normal / テスト対応あり・実行未確認
+20.9 / normal / 実行確認あり
 
 Control arguments have 1-bit logic type; only the LSB of a wider value is used, and duplicate requested values are counted once.
 
@@ -52997,7 +52998,7 @@ $onehot0(e) returns true exactly when its count of 1 bits is at most 1.
 
 ### SV2023-20.9-EXTRACT-VARIABLE-CONTROLS
 
-20.9 / normal / テスト対応あり・実行未確認
+20.9 / normal / 実行確認あり
 
 $countbits control-bit arguments may be variables.
 
@@ -53222,7 +53223,7 @@ assertion_type bitwise-OR combines selected assertion/expect/violation types and
 
 ### SV2023-20.11-EXTRACT-ASSERTION-MASK-1
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 assertion_type mask bit 1 selects Concurrent.
 
@@ -53258,7 +53259,7 @@ assertion_type mask bit 16 selects Expect.
 
 ### SV2023-20.11-EXTRACT-ASSERTION-MASK-2
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 assertion_type mask bit 2 selects Simple Immediate.
 
@@ -53498,7 +53499,7 @@ Table 20-8 maps assertnonvacuouson with selection arguments to cbAssertionEnable
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTOFF
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 Table 20-8 maps assertoff with selection arguments to cbAssertionDisable.
 
@@ -53510,7 +53511,7 @@ Table 20-8 maps assertoff with selection arguments to cbAssertionDisable.
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTON
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 Table 20-8 maps asserton with selection arguments to cbAssertionEnable.
 
@@ -53798,7 +53799,7 @@ Table 20-8 maps assertvacuousoff without explicit selection arguments to cbAsser
 
 ### SV2023-20.11-EXTRACT-CONTROL-CODE-FAILOFF
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 Assertion control_type 9 selects FailOff.
 
@@ -53810,7 +53811,7 @@ Assertion control_type 9 selects FailOff.
 
 ### SV2023-20.11-EXTRACT-CONTROL-CODE-FAILON
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 Assertion control_type 8 selects FailOn.
 
@@ -53834,7 +53835,7 @@ Assertion control_type 5 selects Kill.
 
 ### SV2023-20.11-EXTRACT-CONTROL-CODE-LOCK
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 Assertion control_type 1 selects Lock.
 
@@ -53858,7 +53859,7 @@ Assertion control_type 10 selects NonvacuousOn.
 
 ### SV2023-20.11-EXTRACT-CONTROL-CODE-OFF
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 Assertion control_type 4 selects Off.
 
@@ -53870,7 +53871,7 @@ Assertion control_type 4 selects Off.
 
 ### SV2023-20.11-EXTRACT-CONTROL-CODE-ON
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 Assertion control_type 3 selects On.
 
@@ -53941,7 +53942,7 @@ Action-control tasks and control types 6 through 11 do not affect assertion stat
 
 ### SV2023-20.11-EXTRACT-DEFAULT-ACTIONS
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 Pass/fail actions and vacuous-success pass actions are enabled by default.
 
@@ -53966,7 +53967,7 @@ directive_type bitwise-OR combines assert/cover/assume masks, is checked only fo
 
 ### SV2023-20.11-EXTRACT-DIRECTIVE-MASK-1
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 directive_type mask bit 1 selects Assert.
 
@@ -54028,7 +54029,7 @@ FailOn enables selected assertion/expect fail actions, including the implicit de
 
 ### SV2023-20.11-EXTRACT-HIERARCHY-SELECTION
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 levels defaults to 0 with dumpvars-consistent hierarchy-depth semantics; selector arguments may name scopes or individual assertions.
 
@@ -54089,7 +54090,7 @@ NonvacuousOn enables pass actions on selected nonvacuous assertion/expect succes
 
 ### SV2023-20.11-EXTRACT-OFF-ATTEMPTS
 
-20.11 / normal / テスト対応あり・実行未確認
+20.11 / normal / 実行確認あり
 
 Off prevents new selected assertion attempts until On while leaving ongoing attempts and their actions unaffected.
 
@@ -54829,7 +54830,7 @@ Queue status 7 denotes insufficient memory; creation fails.
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-AND-ARRAY
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $async$and$array(memory,input_terms,output_terms).
 
@@ -54841,7 +54842,7 @@ Table 20-12 provides $async$and$array(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-AND-PLANE
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $async$and$plane(memory,input_terms,output_terms).
 
@@ -54853,7 +54854,7 @@ Table 20-12 provides $async$and$plane(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-NAND-ARRAY
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $async$nand$array(memory,input_terms,output_terms).
 
@@ -54865,7 +54866,7 @@ Table 20-12 provides $async$nand$array(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-NAND-PLANE
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $async$nand$plane(memory,input_terms,output_terms).
 
@@ -54877,7 +54878,7 @@ Table 20-12 provides $async$nand$plane(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-NOR-ARRAY
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $async$nor$array(memory,input_terms,output_terms).
 
@@ -54889,7 +54890,7 @@ Table 20-12 provides $async$nor$array(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-NOR-PLANE
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $async$nor$plane(memory,input_terms,output_terms).
 
@@ -54901,7 +54902,7 @@ Table 20-12 provides $async$nor$plane(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-OR-ARRAY
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $async$or$array(memory,input_terms,output_terms).
 
@@ -54913,7 +54914,7 @@ Table 20-12 provides $async$or$array(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-OR-PLANE
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $async$or$plane(memory,input_terms,output_terms).
 
@@ -54936,7 +54937,7 @@ PLA inputs may be nets or variables; output terms shall be variable lvalues.
 
 ### SV2023-20.16-EXTRACT-PLA-SIGNATURE
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 PLA tasks use $array_type$logic$format(memory_identifier,input_terms,output_terms), with sync/async, and/or/nand/nor and array/plane components.
 
@@ -54948,7 +54949,7 @@ PLA tasks use $array_type$logic$format(memory_identifier,input_terms,output_term
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-AND-ARRAY
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $sync$and$array(memory,input_terms,output_terms).
 
@@ -54960,7 +54961,7 @@ Table 20-12 provides $sync$and$array(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-AND-PLANE
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $sync$and$plane(memory,input_terms,output_terms).
 
@@ -54972,7 +54973,7 @@ Table 20-12 provides $sync$and$plane(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-NAND-ARRAY
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $sync$nand$array(memory,input_terms,output_terms).
 
@@ -54984,7 +54985,7 @@ Table 20-12 provides $sync$nand$array(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-NAND-PLANE
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $sync$nand$plane(memory,input_terms,output_terms).
 
@@ -54996,7 +54997,7 @@ Table 20-12 provides $sync$nand$plane(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-NOR-ARRAY
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $sync$nor$array(memory,input_terms,output_terms).
 
@@ -55008,7 +55009,7 @@ Table 20-12 provides $sync$nor$array(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-NOR-PLANE
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $sync$nor$plane(memory,input_terms,output_terms).
 
@@ -55020,7 +55021,7 @@ Table 20-12 provides $sync$nor$plane(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-OR-ARRAY
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $sync$or$array(memory,input_terms,output_terms).
 
@@ -55032,7 +55033,7 @@ Table 20-12 provides $sync$or$array(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-OR-PLANE
 
-20.16 / normal / テスト対応あり・実行未確認
+20.16 / normal / 実行確認あり
 
 Table 20-12 provides $sync$or$plane(memory,input_terms,output_terms).
 
@@ -55044,7 +55045,7 @@ Table 20-12 provides $sync$or$plane(memory,input_terms,output_terms).
 
 ### SV2023-20.16.1-EXTRACT-ASYNC-EVALUATION
 
-20.16.1 / normal / テスト対応あり・実行未確認
+20.16.1 / normal / 実行確認あり
 
 Asynchronous PLA evaluation recurs whenever an input term or any personality-memory word changes.
 
@@ -55056,7 +55057,7 @@ Asynchronous PLA evaluation recurs whenever an input term or any personality-mem
 
 ### SV2023-20.16.1-EXTRACT-PLA-NO-DELAY
 
-20.16.1 / normal / テスト対応あり・実行未確認
+20.16.1 / normal / 実行確認あり
 
 Both synchronous/asynchronous PLA forms update outputs without delay.
 
@@ -55068,7 +55069,7 @@ Both synchronous/asynchronous PLA forms update outputs without delay.
 
 ### SV2023-20.16.1-EXTRACT-SYNC-EVALUATION
 
-20.16.1 / normal / テスト対応あり・実行未確認
+20.16.1 / normal / 実行確認あり
 
 Synchronous PLA tasks evaluate/update outputs at the time the task is executed.
 
@@ -55080,7 +55081,7 @@ Synchronous PLA tasks evaluate/update outputs at the time the task is executed.
 
 ### SV2023-20.16.2-EXTRACT-LOGIC-PLANES
 
-20.16.2 / normal / テスト対応あり・実行未確認
+20.16.2 / normal / 実行確認あり
 
 All PLA timing/format forms support and, or, nand and nor logic planes.
 
@@ -55103,7 +55104,7 @@ PLA input terms, output terms and personality memory shall be specified in ascen
 
 ### SV2023-20.16.3-EXTRACT-PERSONALITY-LOADING
 
-20.16.3 / normal / テスト対応あり・実行未確認
+20.16.3 / normal / 実行確認あり
 
 Personality data may be loaded by readmemb/readmemh or procedural writes and may change dynamically; outputs reflect it at the next evaluation.
 
@@ -55115,7 +55116,7 @@ Personality data may be loaded by readmemb/readmemh or procedural writes and may
 
 ### SV2023-20.16.3-EXTRACT-PERSONALITY-SHAPE
 
-20.16.3 / normal / テスト対応あり・実行未確認
+20.16.3 / normal / 実行確認あり
 
 PLA personality memory has input-term-count width and output-term-count depth.
 
@@ -55127,7 +55128,7 @@ PLA personality memory has input-term-count width and output-term-count depth.
 
 ### SV2023-20.16.4-EXTRACT-ARRAY-ONE
 
-20.16.4 / normal / テスト対応あり・実行未確認
+20.16.4 / normal / 実行確認あり
 
 In array personality format, memory 1 selects the true input value.
 
@@ -55139,7 +55140,7 @@ In array personality format, memory 1 selects the true input value.
 
 ### SV2023-20.16.4-EXTRACT-ARRAY-ZERO
 
-20.16.4 / normal / テスト対応あり・実行未確認
+20.16.4 / normal / 実行確認あり
 
 In array personality format, memory 0 omits that input.
 
@@ -55151,7 +55152,7 @@ In array personality format, memory 0 omits that input.
 
 ### SV2023-20.16.4-EXTRACT-PLANE-HIGHZ
 
-20.16.4 / normal / テスト対応あり・実行未確認
+20.16.4 / normal / 実行確認あり
 
 In plane personality format, z marks the input irrelevant as do-not-care.
 
@@ -55163,7 +55164,7 @@ In plane personality format, z marks the input irrelevant as do-not-care.
 
 ### SV2023-20.16.4-EXTRACT-PLANE-ONE
 
-20.16.4 / normal / テスト対応あり・実行未確認
+20.16.4 / normal / 実行確認あり
 
 In plane personality format, 1 selects the true input.
 
@@ -55175,7 +55176,7 @@ In plane personality format, 1 selects the true input.
 
 ### SV2023-20.16.4-EXTRACT-PLANE-QUESTION
 
-20.16.4 / normal / テスト対応あり・実行未確認
+20.16.4 / normal / 実行確認あり
 
 In plane personality format, ? has the same do-not-care meaning as z.
 
@@ -55198,7 +55199,7 @@ In plane personality format, x takes the worst-case input value.
 
 ### SV2023-20.16.4-EXTRACT-PLANE-ZERO
 
-20.16.4 / normal / テスト対応あり・実行未確認
+20.16.4 / normal / 実行確認あり
 
 In plane personality format, 0 selects the complemented input.
 
@@ -55210,7 +55211,7 @@ In plane personality format, 0 selects the complemented input.
 
 ### SV2023-20.17.1-EXTRACT-SYSTEM-CALL
 
-20.17.1 / normal / テスト対応あり・実行未確認
+20.17.1 / normal / 実行確認あり
 
 $system optionally accepts a terminal command string, invokes C system(), can be used as task/function, and returns the C result as int when used as a function.
 
@@ -55223,7 +55224,7 @@ $system optionally accepts a terminal command string, invokes C system(), can be
 
 ### SV2023-20.17.1-EXTRACT-SYSTEM-NULL
 
-20.17.1 / normal / テスト対応あり・実行未確認
+20.17.1 / normal / 実行確認あり
 
 Without a string argument, $system passes NULL to C system().
 
@@ -55438,7 +55439,7 @@ Unformatted string and unpacked byte-array expressions print as character string
 
 ### SV2023-21.2.1.1-EXTRACT-FORMAT-HIERARCHY
 
-21.2.1.1 / normal / テスト対応あり・実行未確認
+21.2.1.1 / normal / 実行確認あり
 
 %m/%M selects hierarchical name output.
 
@@ -55450,7 +55451,7 @@ Unformatted string and unpacked byte-array expressions print as character string
 
 ### SV2023-21.2.1.1-EXTRACT-FORMAT-LIBRARY
 
-21.2.1.1 / normal / テスト対応あり・実行未確認
+21.2.1.1 / normal / 実行確認あり
 
 %l/%L selects library binding output.
 
@@ -55570,7 +55571,7 @@ Integer format specifiers support all integral types, enums, packed aggregates a
 
 ### SV2023-21.2.1.1-EXTRACT-LIBRARY-FORMAT
 
-21.2.1.1 / normal / テスト対応あり・実行未確認
+21.2.1.1 / normal / 実行確認あり
 
 %l/%L prints library.cell for the library and cell binding of the invoking module.
 
@@ -55930,7 +55931,7 @@ Strength mnemonic Hi denotes level 0, high impedance.
 
 ### SV2023-21.2.1.4-EXTRACT-STRENGTH-LEVEL-1
 
-21.2.1.4 / normal / テスト対応あり・実行未確認
+21.2.1.4 / normal / 実行確認あり
 
 Strength mnemonic Sm denotes level 1, small capacitor.
 
@@ -55942,7 +55943,7 @@ Strength mnemonic Sm denotes level 1, small capacitor.
 
 ### SV2023-21.2.1.4-EXTRACT-STRENGTH-LEVEL-2
 
-21.2.1.4 / normal / テスト対応あり・実行未確認
+21.2.1.4 / normal / 実行確認あり
 
 Strength mnemonic Me denotes level 2, medium capacitor.
 
@@ -55966,7 +55967,7 @@ Strength mnemonic We denotes level 3, weak drive.
 
 ### SV2023-21.2.1.4-EXTRACT-STRENGTH-LEVEL-4
 
-21.2.1.4 / normal / テスト対応あり・実行未確認
+21.2.1.4 / normal / 実行確認あり
 
 Strength mnemonic La denotes level 4, large capacitor.
 
@@ -56204,7 +56205,7 @@ An implementation may compress %p with default elements and impose an output lim
 
 ### SV2023-21.2.1.6-EXTRACT-PATTERN-OTHER
 
-21.2.1.6 / normal / テスト対応あり・実行未確認
+21.2.1.6 / normal / 実行確認あり
 
 Other singular values print as they would without an explicit format.
 
@@ -56250,7 +56251,7 @@ Pattern output puts string values/literals in quotes.
 
 ### SV2023-21.2.1.6-EXTRACT-SINGULAR-PATTERN
 
-21.2.1.6 / normal / テスト対応あり・実行未確認
+21.2.1.6 / normal / 実行確認あり
 
 %p/%0p may format a singular expression using the same element-format rules.
 
@@ -57278,7 +57279,7 @@ Binary fread fills the most significant byte positions first and returns bytes r
 
 ### SV2023-21.3.5-EXTRACT-APPEND-IGNORES-POSITION
 
-21.3.5 / normal / テスト対応あり・実行未確認
+21.3.5 / normal / 実行確認あり
 
 Append-mode writes always occur at EOF regardless of fseek position and leave the pointer at the end of the new output.
 
@@ -57338,7 +57339,7 @@ rewind(fd) equals fseek(fd,0,0).
 
 ### SV2023-21.3.5-EXTRACT-SEEK-BEYOND-EOF
 
-21.3.5 / normal / テスト対応あり・実行未確認
+21.3.5 / normal / 実行確認あり
 
 fseek may set a position past EOF without itself extending the file; later writes extend it, and subsequent reads of unwritten gap bytes return zero.
 
@@ -57363,7 +57364,7 @@ Repositioning cancels prior ungetc pushback.
 
 ### SV2023-21.3.5-EXTRACT-SEEK-RESULT
 
-21.3.5 / normal / テスト対応あり・実行未確認
+21.3.5 / normal / 実行確認あり
 
 Repositioning returns -1 on error and 0 otherwise, with ferror available for cause.
 
@@ -58066,7 +58067,7 @@ VCD system tasks may create and control the dump file.
 
 ### SV2023-21.7.1.1-EXTRACT-DUMP-FILENAME
 
-21.7.1.1 / normal / テスト対応あり・実行未確認
+21.7.1.1 / normal / 実行確認あり
 
 dumpfile specifies the VCD output filename.
 
@@ -58101,7 +58102,7 @@ An argumentless dumpvars includes every variable in the model.
 
 ### SV2023-21.7.1.2-EXTRACT-DUMPVARS-DEPTH
 
-21.7.1.2 / normal / テスト対応あり・実行未確認
+21.7.1.2 / normal / 実行確認あり
 
 With arguments, the first gives hierarchy depth below each selected module instance and later arguments select entire modules or individual module variables.
 
@@ -58150,7 +58151,7 @@ A depth of zero includes each selected module and all its descendants; depth sel
 
 ### SV2023-21.7.1.3-EXTRACT-DUMP-ENABLE
 
-21.7.1.3 / normal / テスト対応あり・実行未確認
+21.7.1.3 / normal / 実行確認あり
 
 Argumentless dumpoff and dumpon suspend and resume dumping.
 
@@ -58162,7 +58163,7 @@ Argumentless dumpoff and dumpon suspend and resume dumping.
 
 ### SV2023-21.7.1.3-EXTRACT-DUMP-OFF-ON-CHECKPOINT
 
-21.7.1.3 / normal / テスト対応あり・実行未確認
+21.7.1.3 / normal / 実行確認あり
 
 dumpoff writes an all-x checkpoint for selected variables; dumpon writes their then-current values, and no value changes are dumped in between.
 
@@ -58186,7 +58187,7 @@ dumpvars starts dumping at the end of its current simulation time unit.
 
 ### SV2023-21.7.1.4-EXTRACT-DUMPALL
 
-21.7.1.4 / normal / テスト対応あり・実行未確認
+21.7.1.4 / normal / 実行確認あり
 
 Argumentless dumpall writes current values of all selected variables.
 
@@ -58198,7 +58199,7 @@ Argumentless dumpall writes current values of all selected variables.
 
 ### SV2023-21.7.1.4-EXTRACT-ONLY-CHANGES
 
-21.7.1.4 / normal / テスト対応あり・実行未確認
+21.7.1.4 / normal / 実行確認あり
 
 While enabled, ordinary dumping records variables changing in each time increment and omits unchanged variables.
 
@@ -58247,7 +58248,7 @@ Four-state VCD is free format, with whitespace separating commands.
 
 ### SV2023-21.7.2.1-EXTRACT-VCD-ABSOLUTE-TIME
 
-21.7.2.1 / normal / テスト対応あり・実行未確認
+21.7.2.1 / normal / 実行確認あり
 
 A VCD timestamp is absolute simulation time for the following changes.
 
@@ -58399,7 +58400,7 @@ Events use scalar VCD syntax; their value character is irrelevant and the identi
 
 ### SV2023-21.7.2.2-EXTRACT-SCALAR-ADJACENCY
 
-21.7.2.2 / normal / テスト対応あり・実行未確認
+21.7.2.2 / normal / 実行確認あり
 
 A scalar VCD value is immediately followed by its identifier without whitespace.
 
@@ -58423,7 +58424,7 @@ VCD vector reconstruction extends a leading 0 with 0.
 
 ### SV2023-21.7.2.2-EXTRACT-VECTOR-EXTEND-1
 
-21.7.2.2 / normal / テスト対応あり・実行未確認
+21.7.2.2 / normal / 実行確認あり
 
 VCD vector reconstruction extends a leading 1 with 0.
 
@@ -58435,7 +58436,7 @@ VCD vector reconstruction extends a leading 1 with 0.
 
 ### SV2023-21.7.2.2-EXTRACT-VECTOR-EXTEND-X
 
-21.7.2.2 / normal / テスト対応あり・実行未確認
+21.7.2.2 / normal / 実行確認あり
 
 VCD vector reconstruction extends a leading x with x.
 
@@ -58459,7 +58460,7 @@ VCD vector reconstruction extends a leading z with z.
 
 ### SV2023-21.7.2.2-EXTRACT-VECTOR-SHORTEST
 
-21.7.2.2 / normal / テスト対応あり・実行未確認
+21.7.2.2 / normal / 実行確認あり
 
 VCD values are right-justified and vector values omit redundant leading extension bits to use their shortest form.
 
@@ -58506,7 +58507,7 @@ The VCD date section identifies when the file was generated.
 
 ### SV2023-21.7.2.3-EXTRACT-DUMPALL-COMMAND
 
-21.7.2.3 / normal / テスト対応あり・実行未確認
+21.7.2.3 / normal / 実行確認あり
 
 The dumpall keyword lists current values of every dumped variable.
 
@@ -58518,7 +58519,7 @@ The dumpall keyword lists current values of every dumped variable.
 
 ### SV2023-21.7.2.3-EXTRACT-DUMPOFF-COMMAND
 
-21.7.2.3 / normal / テスト対応あり・実行未確認
+21.7.2.3 / normal / 実行確認あり
 
 The dumpoff keyword lists dumped variables with x values.
 
@@ -58530,7 +58531,7 @@ The dumpoff keyword lists dumped variables with x values.
 
 ### SV2023-21.7.2.3-EXTRACT-DUMPON-COMMAND
 
-21.7.2.3 / normal / テスト対応あり・実行未確認
+21.7.2.3 / normal / 実行確認あり
 
 The dumpon keyword marks resumption and lists current values of every dumped variable.
 
@@ -58542,7 +58543,7 @@ The dumpon keyword marks resumption and lists current values of every dumped var
 
 ### SV2023-21.7.2.3-EXTRACT-DUMPVARS-COMMAND
 
-21.7.2.3 / normal / テスト対応あり・実行未確認
+21.7.2.3 / normal / 実行確認あり
 
 The dumpvars section lists initial values of all dumped variables.
 
@@ -59742,7 +59743,7 @@ VCD maps default enum to integer using 32 bits.
 
 ### SV2023-21.7.5-EXTRACT-TYPE-INT
 
-21.7.5 / normal / テスト対応あり・実行未確認
+21.7.5 / normal / 実行確認あり
 
 VCD maps int to integer using 32 bits.
 
@@ -59754,7 +59755,7 @@ VCD maps int to integer using 32 bits.
 
 ### SV2023-21.7.5-EXTRACT-TYPE-LOGIC
 
-21.7.5 / normal / テスト対応あり・実行未確認
+21.7.5 / normal / 実行確認あり
 
 VCD maps logic to reg using total packed-dimension size.
 
@@ -60259,7 +60260,7 @@ An actual expression is substituted literally in its entirety for each formal oc
 
 ### SV2023-22.5.1-EXTRACT-MACRO-MIXED-QUOTES
 
-22.5.1 / normal / テスト対応あり・実行未確認
+22.5.1 / normal / 実行確認あり
 
 Ordinary quote/triple-quote delimiters within mixed macro text start complete string literals; their contents, including grave accents, remain literal.
 
@@ -60404,7 +60405,7 @@ Double grave accent delimits lexical tokens without adding whitespace, permittin
 
 ### SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-QUOTE
 
-22.5.1 / normal / テスト対応あり・実行未確認
+22.5.1 / normal / 実行確認あり
 
 Grave-accent triple quote similarly permits substitution; its unescaped newlines terminate the definition, whereas backslash-newline drops only the backslash and retains the newline.
 
@@ -60487,7 +60488,7 @@ Conditional expressions permit identifiers/logical operators/parentheses; each i
 
 ### SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR
 
-22.6 / normal / テスト対応あり・実行未確認
+22.6 / normal / 実行確認あり
 
 A conditional has ifdef/ifndef, optional elsif branches and optional else followed by endif; blocks may be absent; conditions are macro identifiers or parenthesized expressions using identifiers, !, &&, ||, -> and <->.
 
@@ -64361,7 +64362,7 @@ Non-ANSI headers end after their port-list semicolon and use local body declarat
 
 ### SV2023-23.2.1-EXTRACT-MODULE-GRAMMAR
 
-23.2.1 / normal / テスト対応あり・実行未確認
+23.2.1 / normal / 実行確認あり
 
 Module syntax permits attributes, module/macromodule, optional static/automatic lifetime, imports, parameter and port lists, optional initial timeunits, a body and optional end label; extern headers and wildcard-form definitions are alternatives.
 
@@ -64459,7 +64460,7 @@ A port declaration specifying a net/variable type shall include every needed ran
 
 ### SV2023-23.2.2.1-EXTRACT-NONANSI-DIRECTION-KINDS
 
-23.2.2.1 / normal / テスト対応あり・実行未確認
+23.2.2.1 / normal / 実行確認あり
 
 Non-ANSI inout ports have net port types, ref ports variable port types, input/output may have either, and named interfaces optionally select a modport.
 
@@ -64728,7 +64729,7 @@ Omission of direction/kind/type on the first port selects non-ANSI style with de
 
 ### SV2023-23.2.2.3-EXTRACT-INPUT-INOUT-KIND
 
-23.2.2.3 / normal / テスト対応あり・実行未確認
+23.2.2.3 / normal / 実行確認あり
 
 With omitted kind, input/inout ports default to the current default net type.
 
@@ -64740,7 +64741,7 @@ With omitted kind, input/inout ports default to the current default net type.
 
 ### SV2023-23.2.2.3-EXTRACT-OUTPUT-EXPLICIT-KIND
 
-23.2.2.3 / normal / テスト対応あり・実行未確認
+23.2.2.3 / normal / 実行確認あり
 
 An output lacking kind is a variable if its data type is explicitly specified.
 
@@ -64752,7 +64753,7 @@ An output lacking kind is a variable if its data type is explicitly specified.
 
 ### SV2023-23.2.2.3-EXTRACT-OUTPUT-IMPLICIT-KIND
 
-23.2.2.3 / normal / テスト対応あり・実行未確認
+23.2.2.3 / normal / 実行確認あり
 
 An output lacking kind uses the default net type if its data type is omitted or implicit.
 
@@ -64776,7 +64777,7 @@ Port data type includes explicit data_type or implicit signedness/packed dimensi
 
 ### SV2023-23.2.2.3-EXTRACT-PORT-KIND-TERM
 
-23.2.2.3 / normal / テスト対応あり・実行未確認
+23.2.2.3 / normal / 実行確認あり
 
 Port kind denotes a net-type keyword or var, with default inference when omitted.
 
@@ -64864,7 +64865,7 @@ A singular input port may have a constant-expression default evaluated in its de
 
 ### SV2023-23.2.2.4-EXTRACT-INPUT-OMISSION
 
-23.2.2.4 / normal / テスト対応あり・実行未確認
+23.2.2.4 / normal / 実行確認あり
 
 An omitted input connection uses its declared default; without a default it is unconnected or an error according to the selected connection style.
 
@@ -65046,7 +65047,7 @@ A port-connection list shall contain at most one wildcard token pair.
 
 ### SV2023-23.3.2.1-EXTRACT-POSITIONAL-EXPRESSION
 
-23.3.2.1 / normal / テスト対応あり・実行未確認
+23.3.2.1 / normal / 実行確認あり
 
 A positional connection may be a variable/net reference, compatible input expression or blank; a blank leaves the port unconnected except that an omitted input with a default uses that default.
 
@@ -65058,7 +65059,7 @@ A positional connection may be a variable/net reference, compatible input expres
 
 ### SV2023-23.3.2.1-EXTRACT-POSITIONAL-ORDER
 
-23.3.2.1 / normal / テスト対応あり・実行未確認
+23.3.2.1 / normal / 実行確認あり
 
 Positional connection expressions correspond in declaration port order.
 
@@ -65070,7 +65071,7 @@ Positional connection expressions correspond in declaration port order.
 
 ### SV2023-23.3.2.2-EXTRACT-NAMED-EMPTY
 
-23.3.2.2 / boundary / テスト対応あり・実行未確認
+23.3.2.2 / boundary / 実行確認あり
 
 An explicit empty named connection leaves even a defaulted input unconnected; omission also leaves a port without a default unconnected.
 
@@ -65094,7 +65095,7 @@ Named port connection order is irrelevant.
 
 ### SV2023-23.3.2.2-EXTRACT-NAMED-PARENTHESES
 
-23.3.2.2 / normal / テスト対応あり・実行未確認
+23.3.2.2 / normal / 実行確認あり
 
 Explicit named connections require parentheses enclosing an optional valid expression.
 
@@ -65202,7 +65203,7 @@ Separate legal instances in the same parent may use different connection styles.
 
 ### SV2023-23.3.2.4-EXTRACT-WILDCARD-DEFAULT
 
-23.3.2.4 / normal / テスト対応あり・実行未確認
+23.3.2.4 / normal / 実行確認あり
 
 Wildcard has .name semantics except an absent matching name uses an input default when provided; explicit .name() overrides this with an open port.
 
@@ -65214,7 +65215,7 @@ Wildcard has .name semantics except an absent matching name uses an input defaul
 
 ### SV2023-23.3.2.4-EXTRACT-WILDCARD-NAMES
 
-23.3.2.4 / normal / テスト対応あり・実行未確認
+23.3.2.4 / normal / 実行確認あり
 
 Wildcard connections match same-named equivalent-type declarations; explicit named connections may override an expression or leave a port open.
 
@@ -65226,7 +65227,7 @@ Wildcard connections match same-named equivalent-type declarations; explicit nam
 
 ### SV2023-23.3.2.4-EXTRACT-WILDCARD-NO-IMPORT-REFERENCE
 
-23.3.2.4 / normal / テスト対応あり・実行未確認
+23.3.2.4 / normal / 実行確認あり
 
 Wildcard alone does not trigger a package wildcard import; an explicit or implicit named connection may supply the required reference.
 
@@ -66530,7 +66531,7 @@ The simulated net uses the table-selected type and that net delay; a selected tr
 
 ### SV2023-23.3.3.7.1-EXTRACT-INTERCONNECT-MERGE
 
-23.3.3.7.1 / normal / テスト対応あり・実行未確認
+23.3.3.7.1 / normal / 実行確認あり
 
 Any port connection involving interconnect shall merge its connected nets.
 
@@ -66623,7 +66624,7 @@ A nested module can use unhidden outer names if declared and instantiated in tha
 
 ### SV2023-23.5-EXTRACT-EXTERN-HEADER
 
-23.5 / normal / テスト対応あり・実行未確認
+23.5 / normal / 実行確認あり
 
 extern module declares a module name and ANSI or non-ANSI ports, optionally parameters, without a body.
 
@@ -66646,7 +66647,7 @@ Extern module declarations are visible only at their declaring hierarchy level a
 
 ### SV2023-23.5-EXTRACT-EXTERN-WILDCARD-HEADER
 
-23.5 / normal / テスト対応あり・実行未確認
+23.5 / normal / 実行確認あり
 
 With an extern declaration, a module definition using wildcard ports inherits the extern ports and any parameters.
 
@@ -66683,7 +66684,7 @@ Automatic task/function objects cannot be accessed hierarchically; unnamed-gener
 
 ### SV2023-23.6-EXTRACT-HIERARCHICAL-ROOT-LOCAL
 
-23.6 / normal / テスト対応あり・実行未確認
+23.6 / normal / 実行確認あり
 
 A complete path starts at a top-level module and can be used across hierarchies; a path may alternatively start locally for downward access.
 
@@ -66865,7 +66866,7 @@ An upper module or instance name can identify its objects; unqualified task/func
 
 ### SV2023-23.8-EXTRACT-UPWARD-PARENT-ITERATION
 
-23.8 / normal / テスト対応あり・実行未確認
+23.8 / normal / 実行確認あり
 
 If absent locally, search instantiation-parent scopes up to each design-element boundary, attempt downward item matching and repeat upward in hierarchy until a complete match.
 
@@ -66877,7 +66878,7 @@ If absent locally, search instantiation-parent scopes up to each design-element 
 
 ### SV2023-23.8.1-EXTRACT-SUBROUTINE-UNIT-SEARCH
 
-23.8.1 / normal / テスト対応あり・実行未確認
+23.8.1 / normal / 実行確認あり
 
 Task/function lookup first performs local upward step a, then searches the entire reference compilation unit before hierarchical parent step b; the unit search occurs only on the first iteration and never searches another unit.
 
@@ -67265,7 +67266,7 @@ A defparam hierarchy name resolved before complete elaboration shall not resolve
 
 ### SV2023-23.11-EXTRACT-BIND-ACTUAL-SCOPE
 
-23.11 / normal / テスト対応あり・実行未確認
+23.11 / normal / 実行確認あり
 
 Bind instantiations support full port/parameter association syntax; all actuals refer from the target-instance viewpoint.
 
@@ -67443,7 +67444,7 @@ A bind cannot insert an instantiation underneath another bound instantiation sco
 
 ### SV2023-23.11-SELECTIVE-BIND
 
-23.11 / normal / テスト対応あり・実行未確認
+23.11 / normal / 実行確認あり
 
 Binding to a selected instance does not bind to its sibling instances.
 
@@ -67453,7 +67454,7 @@ Binding to a selected instance does not bind to its sibling instances.
 
 ### SV2023-24.2-EXTRACT-PROGRAM-REACTIVE-CONTEXT
 
-24.2 / normal / テスト対応あり・実行未確認
+24.2 / normal / 実行確認あり
 
 A program provides a testbench entry point, program-wide data/subroutine scope and a reactive-region scheduling context.
 
@@ -67466,7 +67467,7 @@ A program provides a testbench entry point, program-wide data/subroutine scope a
 
 ### SV2023-24.3-EXTRACT-ANONYMOUS-GRAMMAR
 
-24.3 / normal / テスト対応あり・実行未確認
+24.3 / normal / 実行確認あり
 
 An anonymous program has program followed by semicolon and task/function/class/interface-class/covergroup/constructor declarations or empty items, terminated by endprogram.
 
@@ -67500,7 +67501,7 @@ Programs may contain data/classes/subroutines/object instances and initial/final
 
 ### SV2023-24.3-EXTRACT-PROGRAM-DESCENDANT-TERMINATION
 
-24.3 / normal / テスト対応あり・実行未確認
+24.3 / normal / 実行確認あり
 
 When all initial procedures of a program end, it immediately terminates their descendant threads.
 
@@ -67600,7 +67601,7 @@ Program-scope types/data have static lifetime; program variables include ports, 
 
 ### SV2023-24.3-EXTRACT-PROGRAM-SIMULATION-FINISH
 
-24.3 / normal / テスト対応あり・実行未確認
+24.3 / normal / 実行確認あり
 
 If any program has an initial procedure, simulation implicitly finishes immediately when all programs initial threads and descendants have ended.
 
@@ -67670,7 +67671,7 @@ Program constructs sensitive to design-signal changes, continuous assignments, i
 
 ### SV2023-24.3.1-EXTRACT-PROGRAM-THREAD-INHERITANCE
 
-24.3.1 / normal / テスト対応あり・実行未確認
+24.3.1 / normal / 実行確認あり
 
 Blocking statements in a program-origin thread retain Reactive scheduling, including called module/package/interface subroutines; their declaration scope alone does not fix active versus reactive execution.
 
@@ -67682,7 +67683,7 @@ Blocking statements in a program-origin thread retain Reactive scheduling, inclu
 
 ### SV2023-24.3.2-EXTRACT-PROGRAM-PORT-DESIGN-CONNECTION
 
-24.3.2 / normal / テスト対応あり・実行未確認
+24.3.2 / normal / 実行確認あり
 
 Program ports are program-scope objects connected to design nets/variables because programs instantiate only in design scopes.
 
@@ -67694,7 +67695,7 @@ Program ports are program-scope objects connected to design nets/variables becau
 
 ### SV2023-24.3.2-EXTRACT-PROGRAM-PORT-PROPAGATION
 
-24.3.2 / normal / テスト対応あり・実行未確認
+24.3.2 / normal / 実行確認あり
 
 Program port updates and immediate net driving/resolution across the connection occur in the reactive region set; sensitive design processes wake in the active region set.
 
@@ -67706,7 +67707,7 @@ Program port updates and immediate net driving/resolution across the connection 
 
 ### SV2023-24.3.2-PROGRAM-CA-REGION
 
-24.3.2 / normal / テスト対応あり・実行未確認
+24.3.2 / normal / 実行確認あり
 
 A program continuous assignment evaluates after the module active-region set settles.
 
@@ -67771,7 +67772,7 @@ Program definitions/instances form program-wide data/subroutine space accessible
 
 ### SV2023-24.7-EXTRACT-PROGRAM-EXIT
 
-24.7 / normal / テスト対応あり・実行未確認
+24.7 / normal / 実行確認あり
 
 A program-origin initial thread or descendant may call exit() to terminate all initial procedures and their descendants in that originating program; other-origin calls are ignored.
 
@@ -68121,7 +68122,7 @@ Each modport list has its own port-identifier namespace; a simple item names bot
 
 ### SV2023-25.5.5-EXTRACT-MODPORT-CLOCKING
 
-25.5.5 / normal / テスト対応あり・実行未確認
+25.5.5 / normal / 実行確認あり
 
 A modport may name a clocking block using clocking plus its identifier; clocking signal directions are viewed from the connected module.
 
@@ -68563,7 +68564,7 @@ A selected modport restricts accessible listable objects through its port/virtua
 
 ### SV2023-26.2-EXTRACT-PACKAGE-GRAMMAR
 
-26.2 / normal / テスト対応あり・実行未確認
+26.2 / normal / 実行確認あり
 
 Package syntax permits attributes/lifetime/name, initial timeunits, declarations, anonymous programs and exports, ending with endpackage and optional label.
 
@@ -68641,7 +68642,7 @@ A later package-item timeunits declaration must repeat and match a prior declara
 
 ### SV2023-26.3-EXTRACT-CURRENT-SCOPE-LOOKUP
 
-26.3 / normal / テスト対応あり・実行未確認
+26.3 / normal / 実行確認あり
 
 Lookup first searches locally visible names, through the scope end for task/function calls and only to the reference point otherwise; then preceding wildcard candidates are imported on a matching reference.
 
@@ -68715,7 +68716,7 @@ Lexical lookup continues through unit scope; unresolved ordinary names are illeg
 
 ### SV2023-26.3-EXTRACT-LOCAL-VISIBILITY
 
-26.3 / normal / テスト対応あり・実行未確認
+26.3 / normal / 実行確認あり
 
 Local visibility includes nested scope names and identifiers explicitly declared or explicitly imported before the reference point.
 
@@ -68774,7 +68775,7 @@ Package declarations may be referenced by package scope resolution or imported t
 
 ### SV2023-26.3-EXTRACT-POTENTIAL-VISIBILITY
 
-26.3 / normal / テスト対応あり・実行未確認
+26.3 / normal / 実行確認あり
 
 A preceding wildcard import makes undeclared package identifiers potential local candidates at that point, rather than immediately importing all names.
 
@@ -69164,7 +69165,7 @@ Generate syntax provides genvar for initialization/test/update, constant if/else
 
 ### SV2023-27.3-EXTRACT-GENERATE-HIERARCHY
 
-27.3 / normal / テスト対応あり・実行未確認
+27.3 / normal / 実行確認あり
 
 Each instantiated generate block creates hierarchy with its contained objects/processes/instances; enclosing scope declarations remain directly visible and named blocks support hierarchical references.
 
@@ -69225,7 +69226,7 @@ A named generate loop declares a block-instance array indexed by actual genvar v
 
 ### SV2023-27.4-EXTRACT-GENERATE-INDEXED-NAME
 
-27.4 / normal / テスト対応あり・実行未確認
+27.4 / normal / 実行確認あり
 
 A generated loop block instance name appends its genvar value in square brackets; multilevel blocks compose these indexed names hierarchically.
 
@@ -69310,7 +69311,7 @@ A genvar is an elaboration integer, does not exist in simulation and may only be
 
 ### SV2023-27.4-EXTRACT-GENVAR-LOCALPARAM
 
-27.4 / normal / テスト対応あり・実行未確認
+27.4 / normal / 実行確認あり
 
 Each loop block has an implicit integer localparam with the genvar name/type and that iteration value, usable as a normal integer parameter and by hierarchical reference.
 
@@ -70172,7 +70173,7 @@ Omitting an instance range creates one scalar instance.
 
 ### SV2023-28.3.6-EXTRACT-ARRAY-INSTANCE-REFERENCE
 
-28.3.6 / normal / テスト対応あり・実行未確認
+28.3.6 / normal / 実行確認あり
 
 An individual primitive instance in an array is referenced using ordinary indexed array-element syntax.
 
@@ -72838,7 +72839,7 @@ pmos/rpmos with data z and control z has Table 28-6 result z, retaining H/L ambi
 
 ### SV2023-28.8-EXTRACT-PASS-CONTROL-DELAYS
 
-28.8 / normal / テスト対応あり・実行未確認
+28.8 / normal / 実行確認あり
 
 Enabled pass switches permit zero/one/two control delays: none zero, one both, two turn-on/turn-off respectively; built-in-net x/z control transitions use the smaller.
 
@@ -73393,7 +73394,7 @@ A drive-strength pair containing both highz0 and highz1 is illegal in either ord
 
 ### SV2023-28.11-EXTRACT-STORAGE-STRENGTHS
 
-28.11 / normal / テスト対応あり・実行未確認
+28.11 / normal / 実行確認あり
 
 Large/medium/small charge-storage strengths originate in trireg nets.
 
@@ -73650,7 +73651,7 @@ Ambiguous wired-logic resolution considers every combination of individual stren
 
 ### SV2023-28.12.4-EXTRACT-WIRED-EQUAL-STRENGTH
 
-28.12.4 / normal / テスト対応あり・実行未確認
+28.12.4 / normal / 実行確認あり
 
 Equal-strength wired-AND/OR drivers use the corresponding and/or truth function and retain that common strength.
 
@@ -73662,7 +73663,7 @@ Equal-strength wired-AND/OR drivers use the corresponding and/or truth function 
 
 ### SV2023-28.12.4-EXTRACT-WIRED-LOGIC-CONFLICT
 
-28.12.4 / normal / テスト対応あり・実行未確認
+28.12.4 / normal / 実行確認あり
 
 Triand/wand and trior/wor resolve equal-strength driver conflicts using their respective logical functions.
 
@@ -73807,7 +73808,7 @@ Rnmos/rpmos/rcmos/rtran/rtranif0/rtranif1 transform every traversing signal stre
 
 ### SV2023-28.15-EXTRACT-NET-STRENGTH-CATEGORIES
 
-28.15 / normal / テスト対応あり・実行未確認
+28.15 / normal / 実行確認あり
 
 Tri0/tri1/supply0/supply1 generate specific-strength signals; trireg supports its default or two alternative storage strengths.
 
@@ -73844,7 +73845,7 @@ Without an overriding source, tri1 resolves to logic 1 at pull strength.
 
 ### SV2023-28.15.2-EXTRACT-TRIREG-STORAGE-STRENGTH
 
-28.15.2 / normal / テスト対応あり・実行未確認
+28.15.2 / normal / 実行確認あり
 
 A charged trireg whose drivers become high impedance stores charge at declared large/medium/small strength; omitted storage strength defaults to medium.
 
@@ -74215,7 +74216,7 @@ Three delays specify transitions to 1, 0 and z respectively; transitions to x us
 
 ### SV2023-28.16.1-EXTRACT-MINTYPMAX-DELAYS
 
-28.16.1 / normal / テスト対応あり・実行未確認
+28.16.1 / normal / 実行確認あり
 
 Gate/UDP/net/continuous-assignment delay components each permit colon-separated minimum/typical/maximum expressions; no ordering relation among their numeric values is required.
 
@@ -74264,7 +74265,7 @@ Drivers changing from 0/1/x to off leave the previous value stored; driver z nev
 
 ### SV2023-28.16.2.1-EXTRACT-DECAY-EXPIRES
 
-28.16.2.1 / normal / テスト対応あり・実行未確認
+28.16.2.1 / normal / 実行確認あり
 
 At specified charge-decay expiry a stored 0/1 becomes x and the decay process ends.
 
@@ -74288,7 +74289,7 @@ A driver returning to propagate 0/1/x into the trireg ends the decay process.
 
 ### SV2023-28.16.2.1-EXTRACT-DECAY-START
 
-28.16.2.1 / normal / テスト対応あり・実行未確認
+28.16.2.1 / normal / 実行確認あり
 
 Charge decay starts when drivers turn off and the trireg begins retaining charge.
 
@@ -74346,7 +74347,7 @@ A UDP has exactly one output with value 0/1/x, not z; a sequential UDP output eq
 
 ### SV2023-29.3-EXTRACT-UDP-DECLARATION-GRAMMAR
 
-29.3 / normal / テスト対応あり・実行未確認
+29.3 / normal / 実行確認あり
 
 UDP syntax permits attributed ANSI/non-ANSI primitive headers, bodies/end labels, extern declarations and wildcard-header definitions; outputs precede one or more inputs.
 
@@ -74411,7 +74412,7 @@ UDP output may be output alone or output reg with optional constant initializati
 
 ### SV2023-29.3-EXTRACT-UDP-SYMBOL-CASE
 
-29.3 / normal / テスト対応あり・実行未確認
+29.3 / normal / 実行確認あり
 
 UDP symbols x/b/r/f/p/n accept uppercase counterparts; literal edge pairs and wildcard/change symbols use the specified level/edge alphabets.
 
@@ -74897,7 +74898,7 @@ UDP initial values are binary one-bit 0/1/x or decimal 0/1 in the permitted spel
 
 ### SV2023-29.8-EXTRACT-UDP-INSTANCE-GRAMMAR
 
-29.8 / normal / テスト対応あり・実行未確認
+29.8 / normal / 実行確認あり
 
 UDP instances use an optional strength, at most two delays, optional names/ranges and output-first terminals in UDP declaration order; array connections follow 28.3.6.
 
@@ -75119,7 +75120,7 @@ State-dependent paths associate a condition with a simple/edge path and delay; i
 
 ### SV2023-30.4.4.1-EXTRACT-STATE-CONDITION-LSB
 
-30.4.4.1 / normal / テスト対応あり・実行未確認
+30.4.4.1 / normal / 実行確認あり
 
 A state-dependent path condition uses its LSB if multibit; 1, x or z enables the path and 0 does not, with no bound on operand/operator count.
 
@@ -75584,7 +75585,7 @@ Prefixing - before either full/parallel path operator selects negative polarity.
 
 ### SV2023-30.5-EXTRACT-PATH-DELAY-GRAMMAR
 
-30.5 / normal / テスト対応あり・実行未確認
+30.5 / normal / 実行確認あり
 
 A path delay assignment permits one/two/three/six/twelve constant expressions using literals/specparams and optional min:typ:max forms; its list may optionally be parenthesized.
 
@@ -75608,7 +75609,7 @@ The six-delay order is 01,10,0z,z1,1z,z0; twelve delays append 0x,x1,1x,x0,xz,zx
 
 ### SV2023-30.5.1-EXTRACT-NEGATIVE-PATH-DELAY
 
-30.5.1 / boundary / テスト対応あり・実行未確認
+30.5.1 / boundary / 実行確認あり
 
 A negative path delay expression is treated as zero.
 
@@ -76485,7 +76486,7 @@ With distributed primitive delays and module path delays, each path uses the lar
 
 ### SV2023-30.7-EXTRACT-INERTIAL-PULSE
 
-30.7 / normal / テスト対応あり・実行未確認
+30.7 / normal / 実行確認あり
 
 Consecutive output transitions scheduled closer than the module path delay form a pulse rejected by default inertial behavior.
 
@@ -76719,7 +76720,7 @@ On-detect instead moves the transition to x to immediate pulse detection while r
 
 ### SV2023-30.7.4.1-EXTRACT-PULSE-ONEVENT
 
-30.7.4.1 / normal / テスト対応あり・実行未確認
+30.7.4.1 / normal / 実行確認あり
 
 On-event is the default x-filtering style; it replaces the pulse leading edge with transition to x and trailing edge with transition from x at their scheduled times.
 
@@ -76767,7 +76768,7 @@ Showcancelled invocation options override specify-block declarations.
 
 ### SV2023-30.7.4.2-EXTRACT-NEGATIVE-PULSE-DEFAULT
 
-30.7.4.2 / normal / テスト対応あり・実行未確認
+30.7.4.2 / normal / 実行確認あり
 
 A pulse is negative-width if its trailing edge schedules earlier than its leading edge; by default the pending leading edge is cancelled, with no output transition if initial/final states agree.
 
@@ -76815,7 +76816,7 @@ Showcancelled represents a cancelled negative pulse with x; on-event uses the sc
 
 ### SV2023-31.2-EXTRACT-CONDITIONED-EVENT-DETECTION
 
-31.2 / normal / テスト対応あり・実行未確認
+31.2 / normal / 実行確認あり
 
 Timing checks detect reference/data events only when their associated Boolean conditions are true.
 
@@ -76839,7 +76840,7 @@ Embedded spaces within a timing edge descriptor are illegal.
 
 ### SV2023-31.2-EXTRACT-TIMESTAMP-TIMECHECK
 
-31.2 / normal / テスト対応あり・実行未確認
+31.2 / normal / 実行確認あり
 
 A timestamp event records transition time and a timecheck event evaluates violation using stored times.
 
@@ -76911,7 +76912,7 @@ Timing check limits are constant expressions and may contain specparams.
 
 ### SV2023-31.2-EXTRACT-TIMING-NOTIFIER
 
-31.2 / normal / テスト対応あり・実行未確認
+31.2 / normal / 実行確認あり
 
 An optional variable notifier changes according to violation rules and may affect modeled behavior.
 
@@ -76923,7 +76924,7 @@ An optional variable notifier changes according to violation rules and may affec
 
 ### SV2023-31.3-EXTRACT-STABILITY-WINDOW
 
-31.3 / normal / テスト対応あり・実行未確認
+31.3 / normal / 実行確認あり
 
 Stability checks derive a window from reference/limits, compare data transition times to that window and report transitions within the check-specific violation region.
 
@@ -76935,7 +76936,7 @@ Stability checks derive a window from reference/limits, compare data transition 
 
 ### SV2023-31.3.1-EXTRACT-BOUNDARIES
 
-31.3.1 / boundary / テスト対応あり・実行未確認
+31.3.1 / boundary / 実行確認あり
 
 For setup, both endpoints are excluded and a zero limit never reports a violation.
 
@@ -76947,7 +76948,7 @@ For setup, both endpoints are excluded and a zero limit never reports a violatio
 
 ### SV2023-31.3.1-EXTRACT-CHECK-SYNTAX
 
-31.3.1 / normal / テスト対応あり・実行未確認
+31.3.1 / normal / 実行確認あり
 
 The setup check accepts data event, reference event, nonnegative constant limit and optional notifier in that order.
 
@@ -76959,7 +76960,7 @@ The setup check accepts data event, reference event, nonnegative constant limit 
 
 ### SV2023-31.3.1-EXTRACT-EVENT-ONE
 
-31.3.1 / normal / テスト対応あり・実行未確認
+31.3.1 / normal / 実行確認あり
 
 For setup, Data is the timestamp event.
 
@@ -76971,7 +76972,7 @@ For setup, Data is the timestamp event.
 
 ### SV2023-31.3.1-EXTRACT-EVENT-TWO
 
-31.3.1 / normal / テスト対応あり・実行未確認
+31.3.1 / normal / 実行確認あり
 
 For setup, Reference is the timecheck event.
 
@@ -76996,7 +76997,7 @@ For setup, The limit shall be a nonnegative constant expression.
 
 ### SV2023-31.3.1-EXTRACT-NOTIFIER
 
-31.3.1 / normal / テスト対応あり・実行未確認
+31.3.1 / normal / 実行確認あり
 
 For setup, The optional notifier is a variable subject to 31.6.
 
@@ -77008,7 +77009,7 @@ For setup, The optional notifier is a variable subject to 31.6.
 
 ### SV2023-31.3.1-EXTRACT-WINDOW
 
-31.3.1 / normal / テスト対応あり・実行未確認
+31.3.1 / normal / 実行確認あり
 
 For setup, the window begins at timecheck minus limit and ends at timecheck; violation occurs only when beginning < timestamp < end.
 
@@ -77020,7 +77021,7 @@ For setup, the window begins at timecheck minus limit and ends at timecheck; vio
 
 ### SV2023-31.3.2-EXTRACT-BOUNDARIES
 
-31.3.2 / boundary / テスト対応あり・実行未確認
+31.3.2 / boundary / 実行確認あり
 
 For hold, the beginning is included, the end excluded and zero limit never reports a violation.
 
@@ -77032,7 +77033,7 @@ For hold, the beginning is included, the end excluded and zero limit never repor
 
 ### SV2023-31.3.2-EXTRACT-CHECK-SYNTAX
 
-31.3.2 / normal / テスト対応あり・実行未確認
+31.3.2 / normal / 実行確認あり
 
 The hold check accepts reference event, data event, nonnegative constant limit and optional notifier in that order.
 
@@ -77044,7 +77045,7 @@ The hold check accepts reference event, data event, nonnegative constant limit a
 
 ### SV2023-31.3.2-EXTRACT-EVENT-ONE
 
-31.3.2 / normal / テスト対応あり・実行未確認
+31.3.2 / normal / 実行確認あり
 
 For hold, Reference is the timestamp event.
 
@@ -77056,7 +77057,7 @@ For hold, Reference is the timestamp event.
 
 ### SV2023-31.3.2-EXTRACT-EVENT-TWO
 
-31.3.2 / normal / テスト対応あり・実行未確認
+31.3.2 / normal / 実行確認あり
 
 For hold, Data is the timecheck event.
 
@@ -77081,7 +77082,7 @@ For hold, The limit shall be a nonnegative constant expression.
 
 ### SV2023-31.3.2-EXTRACT-NOTIFIER
 
-31.3.2 / normal / テスト対応あり・実行未確認
+31.3.2 / normal / 実行確認あり
 
 For hold, The optional notifier is a variable subject to 31.6.
 
@@ -77093,7 +77094,7 @@ For hold, The optional notifier is a variable subject to 31.6.
 
 ### SV2023-31.3.2-EXTRACT-WINDOW
 
-31.3.2 / normal / テスト対応あり・実行未確認
+31.3.2 / normal / 実行確認あり
 
 For hold, the window begins at timestamp and ends at timestamp plus limit; violation occurs when beginning <= timecheck < end.
 
@@ -77105,7 +77106,7 @@ For hold, the window begins at timestamp and ends at timestamp plus limit; viola
 
 ### SV2023-31.3.3-EXTRACT-BOTH-ZERO
 
-31.3.3 / boundary / テスト対応あり・実行未確認
+31.3.3 / boundary / 実行確認あり
 
 With both limits zero, setuphold never reports a violation.
 
@@ -77129,7 +77130,7 @@ setuphold takes reference/data events, setup/hold limits and optional notifier, 
 
 ### SV2023-31.3.3-EXTRACT-DATA-FIRST
 
-31.3.3 / normal / テスト対応あり・実行未確認
+31.3.3 / normal / 実行確認あり
 
 With both setuphold limits positive and data first, use the setup limit in a window (timecheck-limit,timecheck\]; violation includes coincident events and excludes only the lower endpoint.
 
@@ -77152,7 +77153,7 @@ In setuphold, data can timecheck or timestamp for positive hold limit and timest
 
 ### SV2023-31.3.3-EXTRACT-DATA-SECOND
 
-31.3.3 / normal / テスト対応あり・実行未確認
+31.3.3 / normal / 実行確認あり
 
 With both setuphold limits positive and data second, use the hold limit in \[timestamp,timestamp+limit); violation includes coincident events and excludes only the upper endpoint.
 
@@ -77186,7 +77187,7 @@ For setuphold, the optional delayed reference supplies the negative-check delaye
 
 ### SV2023-31.3.3-EXTRACT-FIRST-LIMIT
 
-31.3.3 / normal / テスト対応あり・実行未確認
+31.3.3 / normal / 実行確認あり
 
 For setuphold, the setup limit is a constant expression.
 
@@ -77232,7 +77233,7 @@ With nonnegative limits, setuphold combines the corresponding setup and hold che
 
 ### SV2023-31.3.3-EXTRACT-NOTIFIER
 
-31.3.3 / normal / テスト対応あり・実行未確認
+31.3.3 / normal / 実行確認あり
 
 For setuphold, the optional notifier is a variable.
 
@@ -77244,7 +77245,7 @@ For setuphold, the optional notifier is a variable.
 
 ### SV2023-31.3.3-EXTRACT-POSITIVE-EVENT-ORDER
 
-31.3.3 / normal / テスト対応あり・実行未確認
+31.3.3 / normal / 実行確認あり
 
 With positive setup and hold limits, timestamp versus timecheck roles depend on which event occurs first.
 
@@ -77267,7 +77268,7 @@ In setuphold, reference can timecheck or timestamp for positive setup limit and 
 
 ### SV2023-31.3.3-EXTRACT-SECOND-LIMIT
 
-31.3.3 / normal / テスト対応あり・実行未確認
+31.3.3 / normal / 実行確認あり
 
 For setuphold, the hold limit is a constant expression.
 
@@ -77301,7 +77302,7 @@ For setuphold, the optional timestamp condition applies to negative checks.
 
 ### SV2023-31.3.4-EXTRACT-BOUNDARIES
 
-31.3.4 / boundary / テスト対応あり・実行未確認
+31.3.4 / boundary / 実行確認あり
 
 For removal, both endpoints are excluded and a zero limit never reports a violation.
 
@@ -77314,7 +77315,7 @@ For removal, both endpoints are excluded and a zero limit never reports a violat
 
 ### SV2023-31.3.4-EXTRACT-CHECK-SYNTAX
 
-31.3.4 / normal / テスト対応あり・実行未確認
+31.3.4 / normal / 実行確認あり
 
 The removal check accepts reference event, data event, nonnegative constant limit and optional notifier in that order.
 
@@ -77326,7 +77327,7 @@ The removal check accepts reference event, data event, nonnegative constant limi
 
 ### SV2023-31.3.4-EXTRACT-EVENT-ONE
 
-31.3.4 / normal / テスト対応あり・実行未確認
+31.3.4 / normal / 実行確認あり
 
 For removal, Reference is the timecheck event.
 
@@ -77338,7 +77339,7 @@ For removal, Reference is the timecheck event.
 
 ### SV2023-31.3.4-EXTRACT-EVENT-TWO
 
-31.3.4 / normal / テスト対応あり・実行未確認
+31.3.4 / normal / 実行確認あり
 
 For removal, Data is the timestamp event.
 
@@ -77363,7 +77364,7 @@ For removal, The limit shall be a nonnegative constant expression.
 
 ### SV2023-31.3.4-EXTRACT-NOTIFIER
 
-31.3.4 / normal / テスト対応あり・実行未確認
+31.3.4 / normal / 実行確認あり
 
 For removal, The optional notifier is a variable subject to 31.6.
 
@@ -77375,7 +77376,7 @@ For removal, The optional notifier is a variable subject to 31.6.
 
 ### SV2023-31.3.4-EXTRACT-WINDOW
 
-31.3.4 / normal / テスト対応あり・実行未確認
+31.3.4 / normal / 実行確認あり
 
 For removal, the window begins at timecheck minus limit and ends at timecheck; violation occurs only when beginning < timestamp < end.
 
@@ -77387,7 +77388,7 @@ For removal, the window begins at timecheck minus limit and ends at timecheck; v
 
 ### SV2023-31.3.5-EXTRACT-BOUNDARIES
 
-31.3.5 / boundary / テスト対応あり・実行未確認
+31.3.5 / boundary / 実行確認あり
 
 For recovery, the beginning is included, the end excluded and zero limit never reports a violation.
 
@@ -77399,7 +77400,7 @@ For recovery, the beginning is included, the end excluded and zero limit never r
 
 ### SV2023-31.3.5-EXTRACT-CHECK-SYNTAX
 
-31.3.5 / normal / テスト対応あり・実行未確認
+31.3.5 / normal / 実行確認あり
 
 The recovery check accepts reference event, data event, nonnegative constant limit and optional notifier in that order.
 
@@ -77411,7 +77412,7 @@ The recovery check accepts reference event, data event, nonnegative constant lim
 
 ### SV2023-31.3.5-EXTRACT-EVENT-ONE
 
-31.3.5 / normal / テスト対応あり・実行未確認
+31.3.5 / normal / 実行確認あり
 
 For recovery, Reference is the timestamp event.
 
@@ -77423,7 +77424,7 @@ For recovery, Reference is the timestamp event.
 
 ### SV2023-31.3.5-EXTRACT-EVENT-TWO
 
-31.3.5 / normal / テスト対応あり・実行未確認
+31.3.5 / normal / 実行確認あり
 
 For recovery, Data is the timecheck event.
 
@@ -77448,7 +77449,7 @@ For recovery, The limit shall be a nonnegative constant expression.
 
 ### SV2023-31.3.5-EXTRACT-NOTIFIER
 
-31.3.5 / normal / テスト対応あり・実行未確認
+31.3.5 / normal / 実行確認あり
 
 For recovery, The optional notifier is a variable subject to 31.6.
 
@@ -77460,7 +77461,7 @@ For recovery, The optional notifier is a variable subject to 31.6.
 
 ### SV2023-31.3.5-EXTRACT-WINDOW
 
-31.3.5 / normal / テスト対応あり・実行未確認
+31.3.5 / normal / 実行確認あり
 
 For recovery, the window begins at timestamp and ends at timestamp plus limit; violation occurs when beginning <= timecheck < end.
 
@@ -77496,7 +77497,7 @@ recrem takes reference/data events, recovery/removal limits and optional notifie
 
 ### SV2023-31.3.6-EXTRACT-DATA-FIRST
 
-31.3.6 / normal / テスト対応あり・実行未確認
+31.3.6 / normal / 実行確認あり
 
 With both recrem limits positive and data first, use the removal limit in a window (timecheck-limit,timecheck\]; violation includes coincident events and excludes only the lower endpoint.
 
@@ -77519,7 +77520,7 @@ In recrem, data can timecheck or timestamp for positive recovery limit and times
 
 ### SV2023-31.3.6-EXTRACT-DATA-SECOND
 
-31.3.6 / normal / テスト対応あり・実行未確認
+31.3.6 / normal / 実行確認あり
 
 With both recrem limits positive and data second, use the recovery limit in \[timestamp,timestamp+limit); violation includes coincident events and excludes only the upper endpoint.
 
@@ -77553,7 +77554,7 @@ For recrem, the optional delayed reference supplies the negative-check delayed r
 
 ### SV2023-31.3.6-EXTRACT-FIRST-LIMIT
 
-31.3.6 / normal / テスト対応あり・実行未確認
+31.3.6 / normal / 実行確認あり
 
 For recrem, the recovery limit is a constant expression.
 
@@ -77587,7 +77588,7 @@ If either recrem limit is negative, recovery_limit plus removal_limit shall exce
 
 ### SV2023-31.3.6-EXTRACT-NONNEGATIVE-EQUIVALENCE
 
-31.3.6 / normal / テスト対応あり・実行未確認
+31.3.6 / normal / 実行確認あり
 
 With nonnegative limits, recrem combines the corresponding removal and recovery checks.
 
@@ -77599,7 +77600,7 @@ With nonnegative limits, recrem combines the corresponding removal and recovery 
 
 ### SV2023-31.3.6-EXTRACT-NOTIFIER
 
-31.3.6 / normal / テスト対応あり・実行未確認
+31.3.6 / normal / 実行確認あり
 
 For recrem, the optional notifier is a variable.
 
@@ -77611,7 +77612,7 @@ For recrem, the optional notifier is a variable.
 
 ### SV2023-31.3.6-EXTRACT-POSITIVE-EVENT-ORDER
 
-31.3.6 / normal / テスト対応あり・実行未確認
+31.3.6 / normal / 実行確認あり
 
 With positive recovery and removal limits, timestamp versus timecheck roles depend on which event occurs first.
 
@@ -77634,7 +77635,7 @@ In recrem, reference can timecheck or timestamp for positive removal limit and t
 
 ### SV2023-31.3.6-EXTRACT-SECOND-LIMIT
 
-31.3.6 / normal / テスト対応あり・実行未確認
+31.3.6 / normal / 実行確認あり
 
 For recrem, the removal limit is a constant expression.
 
@@ -77682,7 +77683,7 @@ Clock/control checks compare elapsed event times with their check-specific limit
 
 ### SV2023-31.4-EXTRACT-NOCHANGE-THREE-EVENTS
 
-31.4 / normal / テスト対応あり・実行未確認
+31.4 / normal / 実行確認あり
 
 Nochange uses three transitions rather than two.
 
@@ -77958,7 +77959,7 @@ With both flags set, timeskew behaves as skew, continuing late-data checks.
 
 ### SV2023-31.4.2-EXTRACT-TIMESKEW-FALSE-CONDITION
 
-31.4.2 / normal / テスト対応あり・実行未確認
+31.4.2 / normal / 実行確認あり
 
 In timer mode, a false-conditioned reference makes the active check dormant unless remain-active is set.
 
@@ -77994,7 +77995,7 @@ By default timeskew reports at limit expiration without timely data, then become
 
 ### SV2023-31.4.2-EXTRACT-TIMESKEW-TIMER-REMAIN
 
-31.4.2 / normal / テスト対応あり・実行未確認
+31.4.2 / normal / 実行確認あり
 
 In timer mode with remain-active, a false-conditioned reference leaves the original window active and does not cancel its pending timeout.
 
@@ -78222,7 +78223,7 @@ The prose states width reference/data opposite transitions never occur at the sa
 
 ### SV2023-31.4.4-EXTRACT-WIDTH-EVENT-ROLES
 
-31.4.4 / normal / テスト対応あり・実行未確認
+31.4.4 / normal / 実行確認あり
 
 Width reference timestamps and the implicit data event timechecks; the limit is a nonnegative constant expression.
 
@@ -78234,7 +78235,7 @@ Width reference timestamps and the implicit data event timechecks; the limit is 
 
 ### SV2023-31.4.4-EXTRACT-WIDTH-NOTIFIER
 
-31.4.4 / normal / テスト対応あり・実行未確認
+31.4.4 / normal / 実行確認あり
 
 The optional width notifier is a variable.
 
@@ -78270,7 +78271,7 @@ Omitting threshold and notifier defaults threshold to zero; a supplied notifier 
 
 ### SV2023-31.4.4-EXTRACT-WIDTH-STRICT-WINDOW
 
-31.4.4 / boundary / テスト対応あり・実行未確認
+31.4.4 / boundary / 実行確認あり
 
 Width reports exactly when threshold < timecheck-timestamp < limit; widths equal to threshold or limit do not violate.
 
@@ -78282,7 +78283,7 @@ Width reports exactly when threshold < timecheck-timestamp < limit; widths equal
 
 ### SV2023-31.4.4-EXTRACT-WIDTH-SYNTAX
 
-31.4.4 / normal / テスト対応あり・実行未確認
+31.4.4 / normal / 実行確認あり
 
 Width takes an edge-controlled reference, limit, optional threshold under its prose rules, then optional notifier.
 
@@ -78294,7 +78295,7 @@ Width takes an edge-controlled reference, limit, optional threshold under its pr
 
 ### SV2023-31.4.4-EXTRACT-WIDTH-THRESHOLD
 
-31.4.4 / normal / テスト対応あり・実行未確認
+31.4.4 / normal / 実行確認あり
 
 Width threshold is an optional nonnegative constant expression.
 
@@ -78306,7 +78307,7 @@ Width threshold is an optional nonnegative constant expression.
 
 ### SV2023-31.4.5-EXTRACT-PERIOD-ARGUMENTS
 
-31.4.5 / normal / テスト対応あり・実行未確認
+31.4.5 / normal / 実行確認あり
 
 Period takes an edge-controlled timestamp reference, nonnegative constant limit and optional variable notifier; its implicit data event timechecks.
 
@@ -78330,7 +78331,7 @@ Period derives the data event from the same signal and same edge; missing edge c
 
 ### SV2023-31.4.5-EXTRACT-PERIOD-VIOLATION
 
-31.4.5 / boundary / テスト対応あり・実行未確認
+31.4.5 / boundary / 実行確認あり
 
 Period reports when timecheck minus timestamp is strictly less than limit, so equality does not violate.
 
@@ -78342,7 +78343,7 @@ Period reports when timecheck minus timestamp is strictly less than limit, so eq
 
 ### SV2023-31.4.6-EXTRACT-DATA
 
-31.4.6 / normal / テスト対応あり・実行未確認
+31.4.6 / normal / 実行確認あり
 
 For nochange, data timestamps or timechecks.
 
@@ -78354,7 +78355,7 @@ For nochange, data timestamps or timechecks.
 
 ### SV2023-31.4.6-EXTRACT-END
 
-31.4.6 / normal / テスト対応あり・実行未確認
+31.4.6 / normal / 実行確認あり
 
 For nochange, end offset is constant.
 
@@ -78366,7 +78367,7 @@ For nochange, end offset is constant.
 
 ### SV2023-31.4.6-EXTRACT-NOCHANGE-BOUNDARIES
 
-31.4.6 / boundary / テスト対応あり・実行未確認
+31.4.6 / boundary / 実行確認あり
 
 Nochange reports only for beginning < data time < end; both endpoints are excluded and offsets determine timestamp/timecheck roles.
 
@@ -78390,7 +78391,7 @@ Nochange reference permits posedge or negedge but not explicit edge-control list
 
 ### SV2023-31.4.6-EXTRACT-NOCHANGE-OFFSETS
 
-31.4.6 / normal / テスト対応あり・実行未確認
+31.4.6 / normal / 実行確認あり
 
 Positive start/end offsets expand the violation window earlier/later respectively; negative offsets shrink it and both zero retain the reference active-level interval.
 
@@ -78402,7 +78403,7 @@ Positive start/end offsets expand the violation window earlier/later respectivel
 
 ### SV2023-31.4.6-EXTRACT-NOCHANGE-SYNTAX
 
-31.4.6 / normal / テスト対応あり・実行未確認
+31.4.6 / normal / 実行確認あり
 
 Nochange takes reference, data, start offset, end offset and optional notifier.
 
@@ -78414,7 +78415,7 @@ Nochange takes reference, data, start offset, end offset and optional notifier.
 
 ### SV2023-31.4.6-EXTRACT-NOCHANGE-WINDOW
 
-31.4.6 / normal / テスト対応あり・実行未確認
+31.4.6 / normal / 実行確認あり
 
 Nochange uses leading and trailing reference edges plus a data transition; its window is leading reference time minus start offset through trailing reference time plus end offset.
 
@@ -78426,7 +78427,7 @@ Nochange uses leading and trailing reference edges plus a data transition; its w
 
 ### SV2023-31.4.6-EXTRACT-NOTIFIER
 
-31.4.6 / normal / テスト対応あり・実行未確認
+31.4.6 / normal / 実行確認あり
 
 For nochange, optional notifier is a variable.
 
@@ -78438,7 +78439,7 @@ For nochange, optional notifier is a variable.
 
 ### SV2023-31.4.6-EXTRACT-REFERENCE
 
-31.4.6 / normal / テスト対応あり・実行未確認
+31.4.6 / normal / 実行確認あり
 
 For nochange, reference is an edge-triggered timestamp/timecheck.
 
@@ -78450,7 +78451,7 @@ For nochange, reference is an edge-triggered timestamp/timecheck.
 
 ### SV2023-31.4.6-EXTRACT-START
 
-31.4.6 / normal / テスト対応あり・実行未確認
+31.4.6 / normal / 実行確認あり
 
 For nochange, start offset is constant.
 
@@ -78462,7 +78463,7 @@ For nochange, start offset is constant.
 
 ### SV2023-31.5-EXTRACT-EDGE-01
 
-31.5 / normal / テスト対応あり・実行未確認
+31.5 / normal / 実行確認あり
 
 Timing edge descriptor 01 matches the transition from 0 to 1.
 
@@ -78594,7 +78595,7 @@ Posedge timing control is equivalent to edge\[01,0x,x1\], including the correspo
 
 ### SV2023-31.6-EXTRACT-NOTIFIER-FROM-0
 
-31.6 / normal / テスト対応あり・実行未確認
+31.6 / normal / 実行確認あり
 
 A timing violation changes notifier value 0 to 1.
 
@@ -78606,7 +78607,7 @@ A timing violation changes notifier value 0 to 1.
 
 ### SV2023-31.6-EXTRACT-NOTIFIER-FROM-1
 
-31.6 / normal / テスト対応あり・実行未確認
+31.6 / normal / 実行確認あり
 
 A timing violation changes notifier value 1 to 0.
 
@@ -78618,7 +78619,7 @@ A timing violation changes notifier value 1 to 0.
 
 ### SV2023-31.6-EXTRACT-NOTIFIER-FROM-X
 
-31.6 / normal / テスト対応あり・実行未確認
+31.6 / normal / 実行確認あり
 
 A timing violation changes notifier value x to either 0 or 1.
 
@@ -78630,7 +78631,7 @@ A timing violation changes notifier value x to either 0 or 1.
 
 ### SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z
 
-31.6 / normal / テスト対応あり・実行未確認
+31.6 / normal / 実行確認あり
 
 A timing violation changes notifier value z to z.
 
@@ -78744,7 +78745,7 @@ An optional simulator mode may expand a one-signal N-bit timing check into N che
 
 ### SV2023-31.8-EXTRACT-VECTOR-SINGLE-CHECK
 
-31.8 / normal / テスト対応あり・実行未確認
+31.8 / normal / 実行確認あり
 
 By default a vector timing signal forms one check, with one or more changing bits counted as a single vector transition.
 
@@ -78966,7 +78967,7 @@ SDF backannotation updates specify path delays, specparams, timing constraints a
 
 ### SV2023-32.3-EXTRACT-NONTIMING-IGNORE
 
-32.3 / normal / テスト対応あり・実行未確認
+32.3 / normal / 実行確認あり
 
 SDF constructs unrelated to SystemVerilog timing, including TIMINGENV, are ignored without warnings.
 
@@ -79074,7 +79075,7 @@ A conditional IOPATH annotates only same-endpoint specify paths with the same co
 
 ### SV2023-32.4.1-EXTRACT-DEVICE-ALL
 
-32.4.1 / normal / テスト対応あり・実行未確認
+32.4.1 / normal / 実行確認あり
 
 DEVICE annotates every specify path to module outputs or, when none exists, every primitive driving those outputs.
 
@@ -79208,7 +79209,7 @@ NOCHANGE v1/v2 annotates both nochange offsets.
 
 ### SV2023-32.4.2-EXTRACT-MAP-PERIOD
 
-32.4.2 / normal / テスト対応あり・実行未確認
+32.4.2 / normal / 実行確認あり
 
 PERIOD v1 annotates period limit.
 
@@ -79524,7 +79525,7 @@ Empty SDF pulse-limit parentheses preserve the existing pulse-limit values.
 
 ### SV2023-32.5-EXTRACT-SDF-ORDER
 
-32.5 / normal / テスト対応あり・実行未確認
+32.5 / normal / 実行確認あり
 
 SDF constructs apply in file order; later INCREMENT modifies and ABSOLUTE overwrites earlier annotations, even from a different construct.
 
@@ -79537,7 +79538,7 @@ SDF constructs apply in file order; later INCREMENT modifies and ABSOLUTE overwr
 
 ### SV2023-32.6-EXTRACT-MULTIPLE-SDF
 
-32.6 / normal / テスト対応あり・実行未確認
+32.6 / normal / 実行確認あり
 
 Multiple sdf_annotate calls/files may modify or overwrite earlier file values; the optional second argument selects distinct design hierarchy regions.
 
@@ -80331,7 +80332,7 @@ For constructs limited to three delays, fewer values expand under Table 28-9, ex
 
 ### SV2023-32.9-EXTRACT-MTM-MAXIMUM
 
-32.9 / normal / テスト対応あり・実行未確認
+32.9 / normal / 実行確認あり
 
 MAXIMUM selects maximum.
 
@@ -80343,7 +80344,7 @@ MAXIMUM selects maximum.
 
 ### SV2023-32.9-EXTRACT-MTM-MINIMUM
 
-32.9 / normal / テスト対応あり・実行未確認
+32.9 / normal / 実行確認あり
 
 MINIMUM selects minimum.
 
@@ -80462,7 +80463,7 @@ SDF filename accepts a string literal, string expression or integral character s
 
 ### SV2023-32.9-EXTRACT-SDF-INSTANCE-DEFAULT
 
-32.9 / normal / テスト対応あり・実行未確認
+32.9 / normal / 実行確認あり
 
 Optional annotation scope permits array indices and defaults to the module containing the call.
 
@@ -80531,7 +80532,7 @@ A configuration is a named design element whose rules select source representati
 
 ### SV2023-33.2-EXTRACT-RECURSIVE-BINDING
 
-33.2 / normal / テスト対応あり・実行未確認
+33.2 / normal / 実行確認あり
 
 Binding starts at top-level modules and recursively locates source descriptions for every instantiated child.
 
@@ -80805,7 +80806,7 @@ The design statement precedes every configuration rule.
 
 ### SV2023-33.4.1.1-EXTRACT-DESIGN-DEFAULT-LIBRARY
 
-33.4.1.1 / normal / テスト対応あり・実行未確認
+33.4.1.1 / normal / 実行確認あり
 
 An omitted design cell library means the library containing the configuration.
 
@@ -80841,7 +80842,7 @@ Default selects instances lacking a more specific clause, cannot use a use expan
 
 ### SV2023-33.4.1.3-EXTRACT-CONFIG-INSTANCE-PATH
 
-33.4.1.3 / normal / テスト対応あり・実行未確認
+33.4.1.3 / normal / 実行確認あり
 
 Instance selection names an exact hierarchical instance starting at the configuration design statement top module.
 
@@ -80910,7 +80911,7 @@ A same-name module/primitive/config ambiguity may be resolved by the config suff
 
 ### SV2023-33.4.1.6-EXTRACT-USE-DEFAULT-LIBRARY
 
-33.4.1.6 / normal / テスト対応あり・実行未確認
+33.4.1.6 / normal / 実行確認あり
 
 Use without a library qualifier inherits the parent cell library; selected instance module spelling need not equal bound cell name.
 
@@ -80957,7 +80958,7 @@ An instance clause cannot address a descendant inside a hierarchy configured by 
 
 ### SV2023-33.4.3-EXTRACT-CONFIG-ALL-RESET
 
-33.4.3 / normal / テスト対応あり・実行未確認
+33.4.3 / normal / 実行確認あり
 
 The described configuration facility can restore all instance parameters to their pre-override defaults.
 
@@ -80969,7 +80970,7 @@ The described configuration facility can restore all instance parameters to thei
 
 ### SV2023-33.4.3-EXTRACT-CONFIG-NAMED-EMPTY-RESET
 
-33.4.3 / normal / テスト対応あり・実行未確認
+33.4.3 / normal / 実行確認あり
 
 A named empty-parentheses override restores that parameter to its module-declared default.
 
@@ -80981,7 +80982,7 @@ A named empty-parentheses override restores that parameter to its module-declare
 
 ### SV2023-33.4.3-EXTRACT-CONFIG-OVER-DEFPARAM
 
-33.4.3 / normal / テスト対応あり・実行未確認
+33.4.3 / normal / 実行確認あり
 
 A configuration override takes precedence over a defparam targeting the same parameter at the same hierarchy level; other defparam behavior is unchanged.
 
@@ -80993,7 +80994,7 @@ A configuration override takes precedence over a defparam targeting the same par
 
 ### SV2023-33.4.3-EXTRACT-CONFIG-PARAMETER-FACILITY
 
-33.4.3 / normal / テスト対応あり・実行未確認
+33.4.3 / normal / 実行確認あり
 
 Configurations may override design/instance parameters and declare localparams for shared override values.
 
@@ -83763,7 +83764,7 @@ DPI imposes no additional internal SV representation constraints; packed two/fou
 
 ### SV2023-35.2.2.1-EXTRACT-SEMANTIC-INDEPENDENCE
 
-35.2.2.1 / normal / テスト対応あり・実行未確認
+35.2.2.1 / normal / 実行確認あり
 
 Four-state, structure and array internal layouts must not change SV semantics; they affect only the foreign layer.
 
@@ -84151,7 +84152,7 @@ Each import call retains its declaration context attribute, which cannot be chan
 
 ### SV2023-35.5.3-EXTRACT-CHAIN-CREATE
 
-35.5.3 / normal / テスト対応あり・実行未確認
+35.5.3 / normal / 実行確認あり
 
 Calling a context import creates context equal to its declaration instantiated scope.
 
@@ -84163,7 +84164,7 @@ Calling a context import creates context equal to its declaration instantiated s
 
 ### SV2023-35.5.3-EXTRACT-CHAIN-RESTORE
 
-35.5.3 / normal / テスト対応あり・実行未確認
+35.5.3 / normal / 実行確認あり
 
 Returning from an export restores the import chain context to its value at that export call.
 
@@ -84175,7 +84176,7 @@ Returning from an export restores the import chain context to its value at that 
 
 ### SV2023-35.5.3-EXTRACT-CHAIN-SET
 
-35.5.3 / normal / テスト対応あり・実行未確認
+35.5.3 / normal / 実行確認あり
 
 A legal svSetScope sets the import chain context to the specified scope.
 
@@ -84220,7 +84221,7 @@ Context applies separately to each import call and does not propagate to subsequ
 
 ### SV2023-35.5.3-EXTRACT-DIRECT-EXPORT-SCOPE
 
-35.5.3 / normal / テスト対応あり・実行未確認
+35.5.3 / normal / 実行確認あり
 
 A context import receives its declaration fully qualified instantiated scope and may directly call only exports defined/exported there; it must change current scope before calling an export elsewhere.
 
@@ -84232,7 +84233,7 @@ A context import receives its declaration fully qualified instantiated scope and
 
 ### SV2023-35.5.3-EXTRACT-EXPORT-SCOPE
 
-35.5.3 / normal / テスト対応あり・実行未確認
+35.5.3 / normal / 実行確認あり
 
 An export call uses an explicit svSetScope selection or, absent it, the instantiated scope of the import declaration; different elaborated import scopes may select different export instances.
 
@@ -84245,7 +84246,7 @@ An export call uses an explicit svSetScope selection or, absent it, the instanti
 
 ### SV2023-35.5.3-EXTRACT-IMPORT-CHAIN
 
-35.5.3 / normal / テスト対応あり・実行未確認
+35.5.3 / normal / 実行確認あり
 
 An import call chain begins with an SV-to-foreign import root and includes nested intra/inter-language calls until returning to that root caller.
 
@@ -84257,7 +84258,7 @@ An import call chain begins with an SV-to-foreign import root and includes neste
 
 ### SV2023-35.5.3-EXTRACT-LANGUAGE-CALL-KINDS
 
-35.5.3 / normal / テスト対応あり・実行未確認
+35.5.3 / normal / 実行確認あり
 
 An inter-language call crosses SV/foreign boundary; intra-language calls stay in SV or in the foreign language.
 
@@ -84547,7 +84548,7 @@ scalar bit is a permitted imported-function result type; result types outside th
 
 ### SV2023-35.5.5-EXTRACT-RESULT-SCALAR-LOGIC
 
-35.5.5 / normal / テスト対応あり・実行未確認
+35.5.5 / normal / 実行確認あり
 
 scalar logic is a permitted imported-function result type; result types outside the exhaustive small-value list are forbidden.
 
@@ -84571,7 +84572,7 @@ shortint is a permitted imported-function result type; result types outside the 
 
 ### SV2023-35.5.5-EXTRACT-RESULT-SHORTREAL
 
-35.5.5 / normal / テスト対応あり・実行未確認
+35.5.5 / normal / 実行確認あり
 
 shortreal is a permitted imported-function result type; result types outside the exhaustive small-value list are forbidden.
 
@@ -84595,7 +84596,7 @@ string is a permitted imported-function result type; result types outside the ex
 
 ### SV2023-35.5.5-EXTRACT-RESULT-VOID
 
-35.5.5 / normal / テスト対応あり・実行未確認
+35.5.5 / normal / 実行確認あり
 
 void is a permitted imported-function result type; result types outside the exhaustive small-value list are forbidden.
 
@@ -84607,7 +84608,7 @@ void is a permitted imported-function result type; result types outside the exha
 
 ### SV2023-35.5.6-EXTRACT-CONSTRUCTED-FORMAL
 
-35.5.6 / normal / テスト対応あり・実行未確認
+35.5.6 / normal / 実行確認あり
 
 Supported types may be composed through struct, packed union, unpacked array and typedef; the formal type set is exhaustive.
 
@@ -84764,7 +84765,7 @@ shortint is listed as a permitted DPI import/export formal type, subject to the 
 
 ### SV2023-35.5.6-EXTRACT-FORMAL-SHORTREAL
 
-35.5.6 / normal / テスト対応あり・実行未確認
+35.5.6 / normal / 実行確認あり
 
 shortreal is listed as a permitted DPI import/export formal type, subject to the other DPI formal constraints.
 
@@ -84974,7 +84975,7 @@ Compilers cannot coerce mismatched SV-declared versus foreign-declared formals; 
 
 ### SV2023-35.6.1.1-EXTRACT-DYNAMIC-ACTUAL
 
-35.6.1.1 / normal / テスト対応あり・実行未確認
+35.6.1.1 / normal / 実行確認あり
 
 Passing dynamic-array actuals to imported DPI subroutines follows the same native rules in 7.7.
 
@@ -85487,7 +85488,7 @@ VPI system-task/function callbacks sizetf, compiletf and calltf execute during t
 
 ### SV2023-36.8.1-EXTRACT-SIZETF-EXCLUSIONS
 
-36.8.1 / normal / テスト対応あり・実行未確認
+36.8.1 / normal / 実行確認あり
 
 Do not call sizetf for a user system task or a function with sysfunctype vpiRealFunc.
 
@@ -85511,7 +85512,7 @@ Call an associated sizetf at most once, and call it when its associated system f
 
 ### SV2023-36.8.1-EXTRACT-SIZETF-WIDTH
 
-36.8.1 / normal / テスト対応あり・実行未確認
+36.8.1 / normal / 実行確認あり
 
 sizetf returns the number of bits supplied by calltf for the function result; absent sizetf the result is 32 bits.
 
@@ -85917,7 +85918,7 @@ Tables 36-1 through 36-9 assign vpi_put_value to write logic/strength value; exa
 
 ### SV2023-36.11-EXTRACT-ROUTINE-38
 
-36.11 / normal / テスト対応あり・実行未確認
+36.11 / normal / 実行確認あり
 
 Tables 36-1 through 36-9 assign vpi_get_time to retrieve simulation time or scheduled event time; exact arguments, return values and restrictions follow Clause 38.
 
@@ -86129,7 +86130,7 @@ Tables 36-1 through 36-9 assign vpi_control to control simulation execution; exa
 
 ### SV2023-36.11-EXTRACT-ROUTINE-6
 
-36.11 / normal / テスト対応あり・実行未確認
+36.11 / normal / 実行確認あり
 
 Tables 36-1 through 36-9 assign vpi_register_cb to register a simulation callback; exact arguments, return values and restrictions follow Clause 38.
 
@@ -86141,7 +86142,7 @@ Tables 36-1 through 36-9 assign vpi_register_cb to register a simulation callbac
 
 ### SV2023-36.11-EXTRACT-ROUTINE-7
 
-36.11 / normal / テスト対応あり・実行未確認
+36.11 / normal / 実行確認あり
 
 Tables 36-1 through 36-9 assign vpi_remove_cb to remove a simulation callback; exact arguments, return values and restrictions follow Clause 38.
 
@@ -86153,7 +86154,7 @@ Tables 36-1 through 36-9 assign vpi_remove_cb to remove a simulation callback; e
 
 ### SV2023-36.11-EXTRACT-ROUTINE-8
 
-36.11 / normal / テスト対応あり・実行未確認
+36.11 / normal / 実行確認あり
 
 Tables 36-1 through 36-9 assign vpi_get_cb_info to retrieve callback information; exact arguments, return values and restrictions follow Clause 38.
 
@@ -87592,7 +87593,7 @@ For applicable objects, vpiDelayType/vpiNetType/vpiOpType/vpiPrimType/vpiResolve
 
 ### SV2023-37.3.2-EXTRACT-TYPE-INTEGER
 
-37.3.2 / normal / テスト対応あり・実行未確認
+37.3.2 / normal / 実行確認あり
 
 Every object has vpiType even if omitted in diagrams; vpi_get(vpiType,handle) returns its integer type constant.
 
@@ -87604,7 +87605,7 @@ Every object has vpiType even if omitted in diagrams; vpi_get(vpiType,handle) re
 
 ### SV2023-37.3.2-EXTRACT-TYPE-STRING
 
-37.3.2 / normal / テスト対応あり・実行未確認
+37.3.2 / normal / 実行確認あり
 
 vpi_get_str(vpiType,handle) returns the object type constant name derived from diagram naming.
 
@@ -87616,7 +87617,7 @@ vpi_get_str(vpiType,handle) returns the object type constant name derived from d
 
 ### SV2023-37.3.3-EXTRACT-LOCATION
 
-37.3.3 / normal / テスト対応あり・実行未確認
+37.3.3 / normal / 実行確認あり
 
 Source-corresponding objects expose vpiLineNo and vpiFile, affected by `line; exceptions are vpiCallback, vpiDelayTerm, vpiDelayDevice, vpiInterModPath, vpiIterator, vpiTimeQueue, vpiGenScopeArray and vpiGenScope.
 
@@ -87964,7 +87965,7 @@ An untagged relation type is vpi followed by each target-label word initially ca
 
 ### SV2023-37.5-EXTRACT-DIAGRAM-002
 
-37.5 / normal / テスト対応あり・実行未確認
+37.5 / normal / 実行確認あり
 
 37.5 defines a one-to-one relation from module to expression, using tag vpiIndex; traverse with vpi_handle and the stated special-case constraints.
 
@@ -87976,7 +87977,7 @@ An untagged relation type is vpi followed by each target-label word initially ca
 
 ### SV2023-37.5-EXTRACT-DIAGRAM-003
 
-37.5 / normal / テスト対応あり・実行未確認
+37.5 / normal / 実行確認あり
 
 37.5 defines a one-to-one relation from module to clocking block, using tag vpiGlobalClocking; traverse with vpi_handle and the stated special-case constraints.
 
@@ -87988,7 +87989,7 @@ An untagged relation type is vpi followed by each target-label word initially ca
 
 ### SV2023-37.5-EXTRACT-DIAGRAM-004
 
-37.5 / normal / テスト対応あり・実行未確認
+37.5 / normal / 実行確認あり
 
 37.5 defines a one-to-one relation from module to clocking block, using tag vpiDefaultClocking; traverse with vpi_handle and the stated special-case constraints.
 
@@ -88000,7 +88001,7 @@ An untagged relation type is vpi followed by each target-label word initially ca
 
 ### SV2023-37.5-EXTRACT-DIAGRAM-005
 
-37.5 / normal / テスト対応あり・実行未確認
+37.5 / normal / 実行確認あり
 
 37.5 defines a one-to-one relation from module to expression/distribution, using tag vpiDefaultDisableIff; traverse with vpi_handle and the stated special-case constraints.
 
@@ -88384,7 +88385,7 @@ An untagged relation type is vpi followed by each target-label word initially ca
 
 ### SV2023-37.5-EXTRACT-DIAGRAM-037
 
-37.5 / normal / テスト対応あり・実行未確認
+37.5 / normal / 実行確認あり
 
 37.5 defines a one-to-many relation from module to alias statement, using the untagged alias statement access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -88444,7 +88445,7 @@ module exposes vpiTopModule as Boolean, representing top-module status; access i
 
 ### SV2023-37.5-EXTRACT-DIAGRAM-042
 
-37.5 / normal / テスト対応あり・実行未確認
+37.5 / normal / 実行確認あり
 
 module exposes vpiDefDecayTime as integer, representing default decay time; access it with the appropriate property routine under 37.3.1.
 
@@ -88456,7 +88457,7 @@ module exposes vpiDefDecayTime as integer, representing default decay time; acce
 
 ### SV2023-37.5-EXTRACT-MODULE-INDEX
 
-37.5 / normal / テスト対応あり・実行未確認
+37.5 / normal / 実行確認あり
 
 vpiIndex returns the module array index when the module is an array element, otherwise NULL.
 
@@ -89795,7 +89796,7 @@ instance exposes vpiDefNetType as integer, representing default net type; access
 
 ### SV2023-37.10-EXTRACT-DIAGRAM-061
 
-37.10 / normal / テスト対応あり・実行未確認
+37.10 / normal / 実行確認あり
 
 instance exposes vpiDefLineNo as integer, representing definition source line; access it with the appropriate property routine under 37.3.1.
 
@@ -89807,7 +89808,7 @@ instance exposes vpiDefLineNo as integer, representing definition source line; a
 
 ### SV2023-37.10-EXTRACT-DIAGRAM-062
 
-37.10 / normal / テスト対応あり・実行未確認
+37.10 / normal / 実行確認あり
 
 instance exposes vpiDefFile as string, representing definition source file; access it with the appropriate property routine under 37.3.1.
 
@@ -90186,7 +90187,7 @@ The 37.11 VPI model includes UDP array in the primitive array group; group prope
 
 ### SV2023-37.11-EXTRACT-DIAGRAM-010
 
-37.11 / normal / テスト対応あり・実行未確認
+37.11 / normal / 実行確認あり
 
 37.11 defines a one-to-one relation from instance array to expression, using tag vpiLeftRange; traverse with vpi_handle and the stated special-case constraints.
 
@@ -90198,7 +90199,7 @@ The 37.11 VPI model includes UDP array in the primitive array group; group prope
 
 ### SV2023-37.11-EXTRACT-DIAGRAM-011
 
-37.11 / normal / テスト対応あり・実行未確認
+37.11 / normal / 実行確認あり
 
 37.11 defines a one-to-one relation from instance array to expression, using tag vpiRightRange; traverse with vpi_handle and the stated special-case constraints.
 
@@ -90318,7 +90319,7 @@ instance array exposes vpiName as string, representing local array name; access 
 
 ### SV2023-37.11-EXTRACT-DIAGRAM-021
 
-37.11 / normal / テスト対応あり・実行未確認
+37.11 / normal / 実行確認あり
 
 instance array exposes vpiFullName as string, representing hierarchical array name; access it with the appropriate property routine under 37.3.1.
 
@@ -90330,7 +90331,7 @@ instance array exposes vpiFullName as string, representing hierarchical array na
 
 ### SV2023-37.11-EXTRACT-DIAGRAM-022
 
-37.11 / normal / テスト対応あり・実行未確認
+37.11 / normal / 実行確認あり
 
 instance array exposes vpiSize as integer, representing array size; access it with the appropriate property routine under 37.3.1.
 
@@ -90643,7 +90644,7 @@ The 37.12 VPI model includes foreach statement in the scope group; group propert
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-024
 
-37.12 / normal / テスト対応あり・実行未確認
+37.12 / normal / 実行確認あり
 
 37.12 defines a one-to-many relation from scope to property declaration, using the untagged property declaration access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -90667,7 +90668,7 @@ The 37.12 VPI model includes foreach statement in the scope group; group propert
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-026
 
-37.12 / normal / テスト対応あり・実行未確認
+37.12 / normal / 実行確認あり
 
 37.12 defines a one-to-many relation from scope to sequence declaration, using the untagged sequence declaration access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -91375,7 +91376,7 @@ vpiDirection returns vpiRef for pass-by-reference ports/arguments. vpiExpr retur
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-001
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 The 37.14 VPI model includes port in the ports group; group properties and relationships apply to this member.
 
@@ -91399,7 +91400,7 @@ The 37.14 VPI model includes port bit in the ports group; group properties and r
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-003
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 37.14 defines a one-to-many relation from instance to port, using the untagged port access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -91423,7 +91424,7 @@ The 37.14 VPI model includes port bit in the ports group; group properties and r
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-005
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 37.14 defines a one-to-many relation from module to port, using the untagged port access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -91471,7 +91472,7 @@ The 37.14 VPI model includes port bit in the ports group; group properties and r
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-009
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 37.14 defines a one-to-one relation from ports to expression/reference object, using tag vpiHighConn; traverse with vpi_handle and the stated special-case constraints.
 
@@ -91483,7 +91484,7 @@ The 37.14 VPI model includes port bit in the ports group; group properties and r
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-010
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 37.14 defines a one-to-one relation from ports to expression/reference object, using tag vpiLowConn; traverse with vpi_handle and the stated special-case constraints.
 
@@ -91519,7 +91520,7 @@ ports exposes vpiConnByName as Boolean, representing named connection; access it
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-013
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 ports exposes vpiDirection as integer, representing direction; access it with the appropriate property routine under 37.3.1.
 
@@ -91543,7 +91544,7 @@ ports exposes vpiExplicitName as Boolean, representing explicit port name; acces
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-015
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 ports exposes vpiPortIndex as integer, representing port order; access it with the appropriate property routine under 37.3.1.
 
@@ -91555,7 +91556,7 @@ ports exposes vpiPortIndex as integer, representing port order; access it with t
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-016
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 ports exposes vpiName as string, representing port name; access it with the appropriate property routine under 37.3.1.
 
@@ -91579,7 +91580,7 @@ ports exposes vpiPortType as integer, representing formal port type; access it w
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-018
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 ports exposes vpiScalar as Boolean, representing scalar port status; access it with the appropriate property routine under 37.3.1.
 
@@ -91591,7 +91592,7 @@ ports exposes vpiScalar as Boolean, representing scalar port status; access it w
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-019
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 ports exposes vpiSize as integer, representing port size; access it with the appropriate property routine under 37.3.1.
 
@@ -91603,7 +91604,7 @@ ports exposes vpiSize as integer, representing port size; access it with the app
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-020
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 ports exposes vpiVector as Boolean, representing vector port status; access it with the appropriate property routine under 37.3.1.
 
@@ -91637,7 +91638,7 @@ vpi_get_delays/vpi_put_delays do not apply to vpiInterfacePort.
 
 ### SV2023-37.14-EXTRACT-NULL-PORT
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 A null formal port has NULL vpiLowConn and size 0; an instance with no connection to a port has NULL vpiHighConn.
 
@@ -91684,7 +91685,7 @@ vpiPortType depends on the formal and is vpiPort, vpiInterfacePort or vpiModport
 
 ### SV2023-37.14-EXTRACT-PORT-NAME
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 Return an explicit port name if present, otherwise its available implicit name, otherwise NULL.
 
@@ -91696,7 +91697,7 @@ Return an explicit port name if present, otherwise its available implicit name, 
 
 ### SV2023-37.14-EXTRACT-PORT-ORDER
 
-37.14 / normal / テスト対応あり・実行未確認
+37.14 / normal / 実行確認あり
 
 vpiPortIndex starts at zero in port order.
 
@@ -91720,7 +91721,7 @@ vpiScalar/vpiVector describe whether the port has one or more bits, independentl
 
 ### SV2023-37.15-EXTRACT-DIAGRAM-001
 
-37.15 / normal / テスト対応あり・実行未確認
+37.15 / normal / 実行確認あり
 
 37.15 defines a one-to-one relation from ports to reference object, using tag vpiLowConn; traverse with vpi_handle and the stated special-case constraints.
 
@@ -91817,7 +91818,7 @@ vpiScalar/vpiVector describe whether the port has one or more bits, independentl
 
 ### SV2023-37.15-EXTRACT-DIAGRAM-009
 
-37.15 / normal / テスト対応あり・実行未確認
+37.15 / normal / 実行確認あり
 
 37.15 defines a one-to-one relation from reference object to interface/interface array/modport/net/variable/named event/named event array/part-select, using tag vpiActual; traverse with vpi_handle and the stated special-case constraints.
 
@@ -91829,7 +91830,7 @@ vpiScalar/vpiVector describe whether the port has one or more bits, independentl
 
 ### SV2023-37.15-EXTRACT-DIAGRAM-010
 
-37.15 / normal / テスト対応あり・実行未確認
+37.15 / normal / 実行確認あり
 
 reference object exposes vpiName as string, representing local reference name; access it with the appropriate property routine under 37.3.1.
 
@@ -91889,7 +91890,7 @@ Reference objects can be obtained through port connections, expressions using th
 
 ### SV2023-37.15-EXTRACT-REF-ACTUAL
 
-37.15 / normal / テスト対応あり・実行未確認
+37.15 / normal / 実行確認あり
 
 Reference names may differ at each hierarchy level; vpiActual returns the instantiated actual whenever bound at query time.
 
@@ -91983,7 +91984,7 @@ Global load/driver sets may differ with legal collapsing; local load/driver sets
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-001
 
-37.16 / normal / テスト対応あり・実行未確認
+37.16 / normal / 実行確認あり
 
 The 37.16 VPI model includes net in the nets group; group properties and relationships apply to this member.
 
@@ -92091,7 +92092,7 @@ The 37.16 VPI model includes time net in the net group; group properties and rel
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-010
 
-37.16 / normal / テスト対応あり・実行未確認
+37.16 / normal / 実行確認あり
 
 The 37.16 VPI model includes logic net in the net group; group properties and relationships apply to this member.
 
@@ -93382,7 +93383,7 @@ For integral vector nets, load/driver iterators return each loading/driving obje
 
 ### SV2023-37.17-EXTRACT-ARRAY-SIZE
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 Variable-array vpiSize is its number of variables.
 
@@ -93442,7 +93443,7 @@ The 37.17 VPI model includes shortreal variable in the variables group; group pr
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-002
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes real variable in the variables group; group properties and relationships apply to this member.
 
@@ -93454,7 +93455,7 @@ The 37.17 VPI model includes real variable in the variables group; group propert
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-003
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes byte variable in the variables group; group properties and relationships apply to this member.
 
@@ -93466,7 +93467,7 @@ The 37.17 VPI model includes byte variable in the variables group; group propert
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-004
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes shortint variable in the variables group; group properties and relationships apply to this member.
 
@@ -93478,7 +93479,7 @@ The 37.17 VPI model includes shortint variable in the variables group; group pro
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-005
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes int variable in the variables group; group properties and relationships apply to this member.
 
@@ -93490,7 +93491,7 @@ The 37.17 VPI model includes int variable in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-006
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes longint variable in the variables group; group properties and relationships apply to this member.
 
@@ -93502,7 +93503,7 @@ The 37.17 VPI model includes longint variable in the variables group; group prop
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-007
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes integer variable in the variables group; group properties and relationships apply to this member.
 
@@ -93514,7 +93515,7 @@ The 37.17 VPI model includes integer variable in the variables group; group prop
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-008
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes time variable in the variables group; group properties and relationships apply to this member.
 
@@ -93526,7 +93527,7 @@ The 37.17 VPI model includes time variable in the variables group; group propert
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-009
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes array variable in the variables group; group properties and relationships apply to this member.
 
@@ -93538,7 +93539,7 @@ The 37.17 VPI model includes array variable in the variables group; group proper
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-010
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes packed-array variable in the variables group; group properties and relationships apply to this member.
 
@@ -93550,7 +93551,7 @@ The 37.17 VPI model includes packed-array variable in the variables group; group
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-011
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes bit variable in the variables group; group properties and relationships apply to this member.
 
@@ -93562,7 +93563,7 @@ The 37.17 VPI model includes bit variable in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-012
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes logic variable in the variables group; group properties and relationships apply to this member.
 
@@ -93574,7 +93575,7 @@ The 37.17 VPI model includes logic variable in the variables group; group proper
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-013
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes struct variable in the variables group; group properties and relationships apply to this member.
 
@@ -93586,7 +93587,7 @@ The 37.17 VPI model includes struct variable in the variables group; group prope
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-014
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes union variable in the variables group; group properties and relationships apply to this member.
 
@@ -93658,7 +93659,7 @@ The 37.17 VPI model includes virtual-interface variable in the variables group; 
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-020
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 The 37.17 VPI model includes variable bit in the variables group; group properties and relationships apply to this member.
 
@@ -93790,7 +93791,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-031
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-one relation from variables to expression, using the untagged expression access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93802,7 +93803,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-032
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-one relation from variables to typespec, using the untagged typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93884,7 +93885,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-039
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-many relation from array variable to variables, using tag vpiReg; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -93896,7 +93897,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-040
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-one relation from array element to array variable, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93908,7 +93909,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-041
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-many relation from array element to expression, using tag vpiIndex; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -93956,7 +93957,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-045
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-one relation from array variable to expression, using tag vpiLeftRange; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93968,7 +93969,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-046
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-one relation from array variable to expression, using tag vpiRightRange; traverse with vpi_handle and the stated special-case constraints.
 
@@ -94028,7 +94029,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-051
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-one relation from bit variable to expression, using tag vpiLeftRange; traverse with vpi_handle and the stated special-case constraints.
 
@@ -94040,7 +94041,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-052
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-one relation from bit variable to expression, using tag vpiRightRange; traverse with vpi_handle and the stated special-case constraints.
 
@@ -94064,7 +94065,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-054
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-one relation from logic variable to expression, using tag vpiLeftRange; traverse with vpi_handle and the stated special-case constraints.
 
@@ -94076,7 +94077,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-055
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-one relation from logic variable to expression, using tag vpiRightRange; traverse with vpi_handle and the stated special-case constraints.
 
@@ -94148,7 +94149,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-061
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-one relation from variable bit to logic variable, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -94208,7 +94209,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-066
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-many relation from struct variable to variables, using tag vpiMember; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -94232,7 +94233,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-068
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-many relation from union variable to variables, using tag vpiMember; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -94256,7 +94257,7 @@ The 37.17 VPI model includes variable bit in the variables group; group properti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-070
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 37.17 defines a one-to-one relation from variable bit to expression, using tag vpiIndex; traverse with vpi_handle and the stated special-case constraints.
 
@@ -94303,7 +94304,7 @@ variables exposes vpiArray as Boolean, representing deprecated array membership;
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-074
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 variables exposes vpiArrayMember as Boolean, representing array membership; access it with the appropriate property routine under 37.3.1.
 
@@ -94315,7 +94316,7 @@ variables exposes vpiArrayMember as Boolean, representing array membership; acce
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-075
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 variables exposes vpiName as string, representing local variable name; access it with the appropriate property routine under 37.3.1.
 
@@ -94327,7 +94328,7 @@ variables exposes vpiName as string, representing local variable name; access it
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-076
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 variables exposes vpiFullName as string, representing hierarchical name where defined; access it with the appropriate property routine under 37.3.1.
 
@@ -94339,7 +94340,7 @@ variables exposes vpiFullName as string, representing hierarchical name where de
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-077
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 variables exposes vpiSigned as Boolean, representing signedness; access it with the appropriate property routine under 37.3.1.
 
@@ -94351,7 +94352,7 @@ variables exposes vpiSigned as Boolean, representing signedness; access it with 
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-078
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 variables exposes vpiSize as integer, representing kind-specific size; access it with the appropriate property routine under 37.3.1.
 
@@ -94435,7 +94436,7 @@ variables exposes vpiStructUnionMember as Boolean, representing direct struct/un
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-085
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 variables exposes vpiScalar as Boolean, representing scalar status; access it with the appropriate property routine under 37.3.1.
 
@@ -94459,7 +94460,7 @@ variables exposes vpiVisibility as integer, representing class member visibility
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-087
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 variables exposes vpiVector as Boolean, representing vector status; access it with the appropriate property routine under 37.3.1.
 
@@ -94483,7 +94484,7 @@ variable bit exposes vpiConstantSelect as Boolean, representing constant selecti
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-089
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 Variables support indexed/multi-indexed access and value get/put operations only where the kind-specific value property is defined.
 
@@ -94578,7 +94579,7 @@ A variable with one or more unpacked ranges is an array var. vpiArrayMember is t
 
 ### SV2023-37.17-EXTRACT-VARIABLE-ARRAY-INDICES
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 For array elements vpiIndex iteration returns indexing expressions selecting that variable; packed-array element details follow 37.18.
 
@@ -94638,7 +94639,7 @@ vpiConstantSelect is true for a static-lifetime variable with no parent, or when
 
 ### SV2023-37.17-EXTRACT-VARIABLE-INITIALIZER
 
-37.17 / normal / テスト対応あり・実行未確認
+37.17 / normal / 実行確認あり
 
 If a variable has an initialization expression, obtain it through vpi_handle(vpiExpr,var).
 
@@ -94757,7 +94758,7 @@ Class-member vpiVisibility denotes local/protected/default; return vpiPublicVis 
 
 ### SV2023-37.18-EXTRACT-DIAGRAM-001
 
-37.18 / normal / テスト対応あり・実行未確認
+37.18 / normal / 実行確認あり
 
 37.18 defines a one-to-many relation from packed-array variable to enum/struct/union/packed-array variable, using tag vpiElement; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -94769,7 +94770,7 @@ Class-member vpiVisibility denotes local/protected/default; return vpiPublicVis 
 
 ### SV2023-37.18-EXTRACT-DIAGRAM-002
 
-37.18 / normal / テスト対応あり・実行未確認
+37.18 / normal / 実行確認あり
 
 37.18 defines a one-to-one relation from packed-array variable subelement to packed-array variable, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -94781,7 +94782,7 @@ Class-member vpiVisibility denotes local/protected/default; return vpiPublicVis 
 
 ### SV2023-37.18-EXTRACT-DIAGRAM-003
 
-37.18 / normal / テスト対応あり・実行未確認
+37.18 / normal / 実行確認あり
 
 37.18 defines a one-to-many relation from packed-array variable subelement to expression, using tag vpiIndex; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -94793,7 +94794,7 @@ Class-member vpiVisibility denotes local/protected/default; return vpiPublicVis 
 
 ### SV2023-37.18-EXTRACT-DIAGRAM-004
 
-37.18 / normal / テスト対応あり・実行未確認
+37.18 / normal / 実行確認あり
 
 packed-array variable exposes vpiPacked as Boolean, representing packed status; access it with the appropriate property routine under 37.3.1.
 
@@ -94805,7 +94806,7 @@ packed-array variable exposes vpiPacked as Boolean, representing packed status; 
 
 ### SV2023-37.18-EXTRACT-DIAGRAM-005
 
-37.18 / normal / テスト対応あり・実行未確認
+37.18 / normal / 実行確認あり
 
 packed-array variable subelement exposes vpiPackedArrayMember as Boolean, representing packed-array membership; access it with the appropriate property routine under 37.3.1.
 
@@ -95442,7 +95443,7 @@ An empty range returns vpiSize=0 and NULL for both left/right bound relations.
 
 ### SV2023-37.23-EXTRACT-DIAGRAM-003
 
-37.23 / normal / テスト対応あり・実行未確認
+37.23 / normal / 実行確認あり
 
 37.23 defines a one-to-one relation from nettype declaration to function, using tag vpiWith; traverse with vpi_handle and the stated special-case constraints.
 
@@ -95741,7 +95742,7 @@ The 37.25 VPI model includes time typespec in the typespec group; group properti
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-010
 
-37.25 / normal / テスト対応あり・実行未確認
+37.25 / normal / 実行確認あり
 
 The 37.25 VPI model includes enum typespec in the typespec group; group properties and relationships apply to this member.
 
@@ -95765,7 +95766,7 @@ The 37.25 VPI model includes string typespec in the typespec group; group proper
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-012
 
-37.25 / normal / テスト対応あり・実行未確認
+37.25 / normal / 実行確認あり
 
 The 37.25 VPI model includes struct typespec in the typespec group; group properties and relationships apply to this member.
 
@@ -95957,7 +95958,7 @@ The 37.25 VPI model includes type parameter in the typespec group; group propert
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-028
 
-37.25 / normal / テスト対応あり・実行未確認
+37.25 / normal / 実行確認あり
 
 37.25 defines a one-to-many relation from enum typespec to enum constant, using the untagged enum constant access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -95981,7 +95982,7 @@ The 37.25 VPI model includes type parameter in the typespec group; group propert
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-030
 
-37.25 / normal / テスト対応あり・実行未確認
+37.25 / normal / 実行確認あり
 
 enum constant exposes vpiName as string, representing enum literal name; access it with the appropriate property routine under 37.3.1.
 
@@ -95993,7 +95994,7 @@ enum constant exposes vpiName as string, representing enum literal name; access 
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-031
 
-37.25 / normal / テスト対応あり・実行未確認
+37.25 / normal / 実行確認あり
 
 Enum constants expose their value through vpi_get_value.
 
@@ -96005,7 +96006,7 @@ Enum constants expose their value through vpi_get_value.
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-032
 
-37.25 / normal / テスト対応あり・実行未確認
+37.25 / normal / 実行確認あり
 
 37.25 defines a one-to-many relation from struct typespec to typespec member, using the untagged typespec member access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96030,7 +96031,7 @@ Enum constants expose their value through vpi_get_value.
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-034
 
-37.25 / normal / テスト対応あり・実行未確認
+37.25 / normal / 実行確認あり
 
 37.25 defines a one-to-one relation from typespec member to typespec, using the untagged typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -96054,7 +96055,7 @@ Enum constants expose their value through vpi_get_value.
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-036
 
-37.25 / normal / テスト対応あり・実行未確認
+37.25 / normal / 実行確認あり
 
 typespec member exposes vpiName as string, representing declared member name; access it with the appropriate property routine under 37.3.1.
 
@@ -96510,7 +96511,7 @@ An unresolved type parameter itself acts as a typespec in lexical contexts such 
 
 ### SV2023-37.26-EXTRACT-DIAGRAM-001
 
-37.26 / normal / テスト対応あり・実行未確認
+37.26 / normal / 実行確認あり
 
 37.26 defines a one-to-many relation from struct variable to variables, using tag vpiMember; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96558,7 +96559,7 @@ struct variable exposes vpiSoft as Boolean, representing soft-union status; acce
 
 ### SV2023-37.26-EXTRACT-DIAGRAM-005
 
-37.26 / normal / テスト対応あり・実行未確認
+37.26 / normal / 実行確認あり
 
 struct variable exposes vpiPacked as Boolean, representing packed status; access it with the appropriate property routine under 37.3.1.
 
@@ -96570,7 +96571,7 @@ struct variable exposes vpiPacked as Boolean, representing packed status; access
 
 ### SV2023-37.26-EXTRACT-DIAGRAM-006
 
-37.26 / normal / テスト対応あり・実行未確認
+37.26 / normal / 実行確認あり
 
 37.26 defines a one-to-many relation from union variable to variables, using tag vpiMember; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96618,7 +96619,7 @@ union variable exposes vpiSoft as Boolean, representing soft-union status; acces
 
 ### SV2023-37.26-EXTRACT-DIAGRAM-010
 
-37.26 / normal / テスト対応あり・実行未確認
+37.26 / normal / 実行確認あり
 
 union variable exposes vpiPacked as Boolean, representing packed status; access it with the appropriate property routine under 37.3.1.
 
@@ -96761,7 +96762,7 @@ vpi_get_value/vpi_put_value cannot access an entire unpacked structure or union.
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-001
 
-37.27 / normal / テスト対応あり・実行未確認
+37.27 / normal / 実行確認あり
 
 37.27 defines a one-to-many relation from instance to named event, using the untagged named event access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96809,7 +96810,7 @@ vpi_get_value/vpi_put_value cannot access an entire unpacked structure or union.
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-005
 
-37.27 / normal / テスト対応あり・実行未確認
+37.27 / normal / 実行確認あり
 
 37.27 defines a one-to-many relation from module to named event, using the untagged named event access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96857,7 +96858,7 @@ vpi_get_value/vpi_put_value cannot access an entire unpacked structure or union.
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-009
 
-37.27 / normal / テスト対応あり・実行未確認
+37.27 / normal / 実行確認あり
 
 37.27 defines a one-to-many relation from instance to named event array, using the untagged named event array access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96881,7 +96882,7 @@ vpi_get_value/vpi_put_value cannot access an entire unpacked structure or union.
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-011
 
-37.27 / normal / テスト対応あり・実行未確認
+37.27 / normal / 実行確認あり
 
 37.27 defines a one-to-many relation from module to named event array, using the untagged named event array access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96965,7 +96966,7 @@ vpi_get_value/vpi_put_value cannot access an entire unpacked structure or union.
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-018
 
-37.27 / normal / テスト対応あり・実行未確認
+37.27 / normal / 実行確認あり
 
 named event exposes vpiName as string, representing name; access it with the appropriate property routine under 37.3.1.
 
@@ -97013,7 +97014,7 @@ named event exposes vpiAllocScheme as integer, representing allocation scheme; a
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-022
 
-37.27 / normal / テスト対応あり・実行未確認
+37.27 / normal / 実行確認あり
 
 named event array exposes vpiName as string, representing name; access it with the appropriate property routine under 37.3.1.
 
@@ -97072,7 +97073,7 @@ named event exposes vpiArray as Boolean, representing deprecated array membershi
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-027
 
-37.27 / normal / テスト対応あり・実行未確認
+37.27 / normal / 実行確認あり
 
 named event exposes vpiArrayMember as Boolean, representing array membership; access it with the appropriate property routine under 37.3.1.
 
@@ -97611,7 +97612,7 @@ The 37.29 VPI model includes constant in the interface expression group; group p
 
 ### SV2023-37.29-EXTRACT-DIAGRAM-007
 
-37.29 / normal / テスト対応あり・実行未確認
+37.29 / normal / 実行確認あり
 
 37.29 defines a one-to-one relation from virtual-interface variable to interface expression, using tag vpiExpr; traverse with vpi_handle and the stated special-case constraints.
 
@@ -97623,7 +97624,7 @@ The 37.29 VPI model includes constant in the interface expression group; group p
 
 ### SV2023-37.29-EXTRACT-DIAGRAM-008
 
-37.29 / normal / テスト対応あり・実行未確認
+37.29 / normal / 実行確認あり
 
 37.29 defines a one-to-one relation from virtual-interface variable to interface/modport, using tag vpiActual; traverse with vpi_handle and the stated special-case constraints.
 
@@ -97635,7 +97636,7 @@ The 37.29 VPI model includes constant in the interface expression group; group p
 
 ### SV2023-37.29-EXTRACT-DIAGRAM-009
 
-37.29 / normal / テスト対応あり・実行未確認
+37.29 / normal / 実行確認あり
 
 virtual-interface variable exposes vpiName as string, representing variable name; access it with the appropriate property routine under 37.3.1.
 
@@ -97659,7 +97660,7 @@ virtual-interface variable exposes vpiFullName as string, representing full vari
 
 ### SV2023-37.29-EXTRACT-DIAGRAM-011
 
-37.29 / normal / テスト対応あり・実行未確認
+37.29 / normal / 実行確認あり
 
 virtual-interface variable exposes vpiIsModPort as Boolean, representing modport restriction; access it with the appropriate property routine under 37.3.1.
 
@@ -97826,7 +97827,7 @@ A derived class has an extends object leading to the base class typespec; its vp
 
 ### SV2023-37.31-EXTRACT-CLASS-PARAMETERS
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 Class-definition parameters include parameter-port-list and body declarations; body parameters have vpiLocalParam=true.
 
@@ -97838,7 +97839,7 @@ Class-definition parameters include parameter-port-list and body declarations; b
 
 ### SV2023-37.31-EXTRACT-DERIVED-CLASSES
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 vpiDerivedClasses returns all class definitions derived from the given class definition.
 
@@ -97862,7 +97863,7 @@ vpiDerivedClasses returns all class definitions derived from the given class def
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-002
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 37.31 defines a one-to-many relation from class definition to derived class definitions, using tag vpiDerivedClasses; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -97874,7 +97875,7 @@ vpiDerivedClasses returns all class definitions derived from the given class def
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-003
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 37.31 defines a one-to-one relation from class definition to extends, using the untagged extends access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -97886,7 +97887,7 @@ vpiDerivedClasses returns all class definitions derived from the given class def
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-004
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 37.31 defines a one-to-one relation from extends to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -97910,7 +97911,7 @@ vpiDerivedClasses returns all class definitions derived from the given class def
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-006
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 37.31 defines a one-to-many relation from instance to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -97934,7 +97935,7 @@ vpiDerivedClasses returns all class definitions derived from the given class def
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-008
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 37.31 defines a one-to-many relation from scope to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -97958,7 +97959,7 @@ vpiDerivedClasses returns all class definitions derived from the given class def
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-010
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 37.31 defines a one-to-many relation from class definition to variables, using the untagged variables access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -97982,7 +97983,7 @@ vpiDerivedClasses returns all class definitions derived from the given class def
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-012
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 37.31 defines a one-to-many relation from class definition to task/function, using tag vpiMethods; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -98006,7 +98007,7 @@ vpiDerivedClasses returns all class definitions derived from the given class def
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-014
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 37.31 defines a one-to-many relation from class definition to constraint, using the untagged constraint access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -98030,7 +98031,7 @@ vpiDerivedClasses returns all class definitions derived from the given class def
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-016
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 37.31 defines a one-to-many relation from class definition to parameters, using tag vpiParameter; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -98149,7 +98150,7 @@ vpiDerivedClasses returns all class definitions derived from the given class def
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-026
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 class definition exposes vpiName as string, representing class name; access it with the appropriate property routine under 37.3.1.
 
@@ -98161,7 +98162,7 @@ class definition exposes vpiName as string, representing class name; access it w
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-027
 
-37.31 / normal / テスト対応あり・実行未確認
+37.31 / normal / 実行確認あり
 
 class definition exposes vpiVirtual as Boolean, representing virtual class; access it with the appropriate property routine under 37.3.1.
 
@@ -98483,7 +98484,7 @@ vpiVirtualInterfaceVar returns specialization virtual-interface declarations and
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-021
 
-37.32 / normal / テスト対応あり・実行未確認
+37.32 / normal / 実行確認あり
 
 class typespec exposes vpiName as string, representing class type name; access it with the appropriate property routine under 37.3.1.
 
@@ -98650,7 +98651,7 @@ Class-variable vpiClassTypespec returns its declared type, while class-object vp
 
 ### SV2023-37.33-EXTRACT-DIAGRAM-002
 
-37.33 / normal / テスト対応あり・実行未確認
+37.33 / normal / 実行確認あり
 
 37.33 defines a one-to-one relation from class variable to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -98927,7 +98928,7 @@ vpiConstraint iterates syntactic declaration order, using extern prototype posit
 
 ### SV2023-37.34-EXTRACT-CONSTRAINT-STATIC
 
-37.34 / normal / テスト対応あり・実行未確認
+37.34 / normal / 実行確認あり
 
 Constraint vpiAutomatic reflects its declaration keyword rather than object lifetime; zero means declared static.
 
@@ -99022,7 +99023,7 @@ constraint exposes vpiVirtual as Boolean, representing virtual constraint; acces
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-008
 
-37.34 / normal / テスト対応あり・実行未確認
+37.34 / normal / 実行確認あり
 
 constraint exposes vpiAutomatic as Boolean, representing static keyword declaration status, not lifetime; access it with the appropriate property routine under 37.3.1.
 
@@ -99046,7 +99047,7 @@ constraint exposes vpiAllocScheme as integer, representing allocation scheme; ac
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-010
 
-37.34 / normal / テスト対応あり・実行未確認
+37.34 / normal / 実行確認あり
 
 constraint exposes vpiAccessType as integer, representing extern declaration access; access it with the appropriate property routine under 37.3.1.
 
@@ -99058,7 +99059,7 @@ constraint exposes vpiAccessType as integer, representing extern declaration acc
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-011
 
-37.34 / normal / テスト対応あり・実行未確認
+37.34 / normal / 実行確認あり
 
 constraint exposes vpiName as string, representing name; access it with the appropriate property routine under 37.3.1.
 
@@ -99777,7 +99778,7 @@ The 37.38 VPI model includes constraint if in the constraint expression group; g
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-003
 
-37.38 / normal / テスト対応あり・実行未確認
+37.38 / normal / 実行確認あり
 
 The 37.38 VPI model includes constraint if-else in the constraint expression group; group properties and relationships apply to this member.
 
@@ -99789,7 +99790,7 @@ The 37.38 VPI model includes constraint if-else in the constraint expression gro
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-004
 
-37.38 / normal / テスト対応あり・実行未確認
+37.38 / normal / 実行確認あり
 
 The 37.38 VPI model includes constraint foreach in the constraint expression group; group properties and relationships apply to this member.
 
@@ -99945,7 +99946,7 @@ distribution/expression constraint exposes vpiSoft as Boolean, representing soft
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-017
 
-37.38 / normal / テスト対応あり・実行未確認
+37.38 / normal / 実行確認あり
 
 37.38 defines a one-to-one relation from constraint foreach to variables, using the untagged variables access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -99957,7 +99958,7 @@ distribution/expression constraint exposes vpiSoft as Boolean, representing soft
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-018
 
-37.38 / normal / テスト対応あり・実行未確認
+37.38 / normal / 実行確認あり
 
 37.38 defines a one-to-many relation from constraint foreach to variables/operation, using tag vpiLoopVars; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -99981,7 +99982,7 @@ distribution/expression constraint exposes vpiSoft as Boolean, representing soft
 
 ### SV2023-37.38-EXTRACT-FOREACH-ARRAY
 
-37.38 / normal / テスト対応あり・実行未確認
+37.38 / normal / 実行確認あり
 
 vpiVariables from vpiConstrForeach returns the indexed array.
 
@@ -99993,7 +99994,7 @@ vpiVariables from vpiConstrForeach returns the indexed array.
 
 ### SV2023-37.38-EXTRACT-FOREACH-LOOP-VARS
 
-37.38 / normal / テスト対応あり・実行未確認
+37.38 / normal / 実行確認あり
 
 vpiLoopVars returns index variables left-to-right, representing skipped indices by vpiOperation/vpiNullOp.
 
@@ -100005,7 +100006,7 @@ vpiLoopVars returns index variables left-to-right, representing skipped indices 
 
 ### SV2023-37.39-EXTRACT-DIAGRAM-001
 
-37.39 / normal / テスト対応あり・実行未確認
+37.39 / normal / 実行確認あり
 
 37.39 defines a one-to-many relation from module to module path, using the untagged module path access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100041,7 +100042,7 @@ vpiLoopVars returns index variables left-to-right, representing skipped indices 
 
 ### SV2023-37.39-EXTRACT-DIAGRAM-004
 
-37.39 / normal / テスト対応あり・実行未確認
+37.39 / normal / 実行確認あり
 
 37.39 defines a one-to-many relation from interface/module to module path, using the untagged module path access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100053,7 +100054,7 @@ vpiLoopVars returns index variables left-to-right, representing skipped indices 
 
 ### SV2023-37.39-EXTRACT-DIAGRAM-005
 
-37.39 / normal / テスト対応あり・実行未確認
+37.39 / normal / 実行確認あり
 
 37.39 defines a one-to-one relation from module path to expression, using tag vpiCondition; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100089,7 +100090,7 @@ vpiLoopVars returns index variables left-to-right, representing skipped indices 
 
 ### SV2023-37.39-EXTRACT-DIAGRAM-008
 
-37.39 / normal / テスト対応あり・実行未確認
+37.39 / normal / 実行確認あり
 
 37.39 defines a one-to-many relation from module path to path terminal, using tag vpiModPathOut; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100101,7 +100102,7 @@ vpiLoopVars returns index variables left-to-right, representing skipped indices 
 
 ### SV2023-37.39-EXTRACT-DIAGRAM-009
 
-37.39 / normal / テスト対応あり・実行未確認
+37.39 / normal / 実行確認あり
 
 37.39 defines a one-to-many relation from module path to path terminal, using tag vpiModPathIn; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100125,7 +100126,7 @@ vpiLoopVars returns index variables left-to-right, representing skipped indices 
 
 ### SV2023-37.39-EXTRACT-DIAGRAM-011
 
-37.39 / normal / テスト対応あり・実行未確認
+37.39 / normal / 実行確認あり
 
 37.39 defines a one-to-one relation from path terminal to expression, using the untagged expression access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100161,7 +100162,7 @@ path terminal exposes vpiEdge as integer, representing edge kind; access it with
 
 ### SV2023-37.39-EXTRACT-DIAGRAM-014
 
-37.39 / normal / テスト対応あり・実行未確認
+37.39 / normal / 実行確認あり
 
 module path exposes vpiPathType as integer, representing path type; access it with the appropriate property routine under 37.3.1.
 
@@ -100173,7 +100174,7 @@ module path exposes vpiPathType as integer, representing path type; access it wi
 
 ### SV2023-37.39-EXTRACT-DIAGRAM-015
 
-37.39 / normal / テスト対応あり・実行未確認
+37.39 / normal / 実行確認あり
 
 module path exposes vpiPolarity as integer, representing path polarity; access it with the appropriate property routine under 37.3.1.
 
@@ -100197,7 +100198,7 @@ module path exposes vpiDataPolarity as integer, representing data polarity; acce
 
 ### SV2023-37.39-EXTRACT-DIAGRAM-017
 
-37.39 / normal / テスト対応あり・実行未確認
+37.39 / normal / 実行確認あり
 
 module path exposes vpiModPathHasIfNone as Boolean, representing ifnone status; access it with the appropriate property routine under 37.3.1.
 
@@ -100351,7 +100352,7 @@ New VPI applications should use vpiInstance for specify-block ownership.
 
 ### SV2023-37.40-EXTRACT-DIAGRAM-010
 
-37.40 / normal / テスト対応あり・実行未確認
+37.40 / normal / 実行確認あり
 
 37.40 defines a one-to-one relation from timing check to reg, using tag vpiTchkNotifier; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101094,7 +101095,7 @@ system task call exposes vpiDecompile as string, representing equivalent call te
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-027
 
-37.42 / normal / テスト対応あり・実行未確認
+37.42 / normal / 実行確認あり
 
 task/function call exposes vpiName as string, representing called routine name; access it with the appropriate property routine under 37.3.1.
 
@@ -101286,7 +101287,7 @@ At most one frame per thread is active; vpi_handle(vpiFrame,NULL) returns the cu
 
 ### SV2023-37.43-EXTRACT-DIAGRAM-001
 
-37.43 / normal / テスト対応あり・実行未確認
+37.43 / normal / 実行確認あり
 
 37.43 defines a one-to-one relation from frame to scope/task call/function call/method task call/method function call/nets, using tag vpiOrigin; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101310,7 +101311,7 @@ At most one frame per thread is active; vpi_handle(vpiFrame,NULL) returns the cu
 
 ### SV2023-37.43-EXTRACT-DIAGRAM-003
 
-37.43 / normal / テスト対応あり・実行未確認
+37.43 / normal / 実行確認あり
 
 37.43 defines a one-to-one relation from frame to frame, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101322,7 +101323,7 @@ At most one frame per thread is active; vpi_handle(vpiFrame,NULL) returns the cu
 
 ### SV2023-37.43-EXTRACT-DIAGRAM-004
 
-37.43 / normal / テスト対応あり・実行未確認
+37.43 / normal / 実行確認あり
 
 37.43 defines a one-to-one relation from frame to statement, using the untagged statement access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101429,7 +101430,7 @@ This frame model differs incompatibly from 1800-2017 and earlier versions.
 
 ### SV2023-37.43-EXTRACT-PARENT-FRAME
 
-37.43 / normal / テスト対応あり・実行未確認
+37.43 / normal / 実行確認あり
 
 vpiParent identifies the activating frame; that parent statement relation identifies the atomic statement or scope activating its child.
 
@@ -101742,7 +101743,7 @@ The 37.46 VPI model includes continuous assignment bit in the net drivers group;
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-008
 
-37.46 / normal / テスト対応あり・実行未確認
+37.46 / normal / 実行確認あり
 
 The 37.46 VPI model includes primitive terminal in the net drivers group; group properties and relationships apply to this member.
 
@@ -101789,7 +101790,7 @@ The 37.46 VPI model includes force in the net loads group; group properties and 
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-012
 
-37.46 / normal / テスト対応あり・実行未確認
+37.46 / normal / 実行確認あり
 
 The 37.46 VPI model includes continuous assignment in the net loads group; group properties and relationships apply to this member.
 
@@ -101813,7 +101814,7 @@ The 37.46 VPI model includes continuous assignment bit in the net loads group; g
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-014
 
-37.46 / normal / テスト対応あり・実行未確認
+37.46 / normal / 実行確認あり
 
 The 37.46 VPI model includes primitive terminal in the net loads group; group properties and relationships apply to this member.
 
@@ -101969,7 +101970,7 @@ continuous assignment bit exposes vpiOffset as integer, representing offset from
 
 ### SV2023-37.47-EXTRACT-DIAGRAM-009
 
-37.47 / normal / テスト対応あり・実行未確認
+37.47 / normal / 実行確認あり
 
 continuous assignment/bit exposes vpiNetDeclAssign as Boolean, representing net declaration assignment; access it with the appropriate property routine under 37.3.1.
 
@@ -101981,7 +101982,7 @@ continuous assignment/bit exposes vpiNetDeclAssign as Boolean, representing net 
 
 ### SV2023-37.47-EXTRACT-DIAGRAM-010
 
-37.47 / normal / テスト対応あり・実行未確認
+37.47 / normal / 実行確認あり
 
 continuous assignment/bit exposes vpiStrength0 as integer, representing zero strength; access it with the appropriate property routine under 37.3.1.
 
@@ -101993,7 +101994,7 @@ continuous assignment/bit exposes vpiStrength0 as integer, representing zero str
 
 ### SV2023-37.47-EXTRACT-DIAGRAM-011
 
-37.47 / normal / テスト対応あり・実行未確認
+37.47 / normal / 実行確認あり
 
 continuous assignment/bit exposes vpiStrength1 as integer, representing one strength; access it with the appropriate property routine under 37.3.1.
 
@@ -102030,7 +102031,7 @@ Block input/output skew relations and edge properties describe defaults; on a cl
 
 ### SV2023-37.48-EXTRACT-CLOCKING-IO-EXPRESSION
 
-37.48 / normal / テスト対応あり・実行未確認
+37.48 / normal / 実行確認あり
 
 Clocking IO vpiExpr returns its referenced expression or reference object.
 
@@ -102054,7 +102055,7 @@ vpiPrefix is non-NULL for a source clocking-block expression immediately prefixe
 
 ### SV2023-37.48-EXTRACT-DIAGRAM-001
 
-37.48 / normal / テスト対応あり・実行未確認
+37.48 / normal / 実行確認あり
 
 37.48 defines a one-to-one relation from clocking block to delay control, using tag vpiInputSkew; traverse with vpi_handle and the stated special-case constraints.
 
@@ -102066,7 +102067,7 @@ vpiPrefix is non-NULL for a source clocking-block expression immediately prefixe
 
 ### SV2023-37.48-EXTRACT-DIAGRAM-002
 
-37.48 / normal / テスト対応あり・実行未確認
+37.48 / normal / 実行確認あり
 
 37.48 defines a one-to-one relation from clocking block to delay control, using tag vpiOutputSkew; traverse with vpi_handle and the stated special-case constraints.
 
@@ -102078,7 +102079,7 @@ vpiPrefix is non-NULL for a source clocking-block expression immediately prefixe
 
 ### SV2023-37.48-EXTRACT-DIAGRAM-003
 
-37.48 / normal / テスト対応あり・実行未確認
+37.48 / normal / 実行確認あり
 
 37.48 defines a one-to-one relation from clocking block to event control, using tag vpiClockingEvent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -102090,7 +102091,7 @@ vpiPrefix is non-NULL for a source clocking-block expression immediately prefixe
 
 ### SV2023-37.48-EXTRACT-DIAGRAM-004
 
-37.48 / normal / テスト対応あり・実行未確認
+37.48 / normal / 実行確認あり
 
 37.48 defines a one-to-many relation from instance to clocking block, using the untagged clocking block access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -102114,7 +102115,7 @@ vpiPrefix is non-NULL for a source clocking-block expression immediately prefixe
 
 ### SV2023-37.48-EXTRACT-DIAGRAM-006
 
-37.48 / normal / テスト対応あり・実行未確認
+37.48 / normal / 実行確認あり
 
 37.48 defines a one-to-many relation from clocking block to clocking IO declaration, using the untagged clocking IO declaration access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -102234,7 +102235,7 @@ vpiPrefix is non-NULL for a source clocking-block expression immediately prefixe
 
 ### SV2023-37.48-EXTRACT-DIAGRAM-016
 
-37.48 / normal / テスト対応あり・実行未確認
+37.48 / normal / 実行確認あり
 
 37.48 defines a one-to-one relation from clocking IO declaration to net/variable/reference object, using tag vpiExpr; traverse with vpi_handle and the stated special-case constraints.
 
@@ -102246,7 +102247,7 @@ vpiPrefix is non-NULL for a source clocking-block expression immediately prefixe
 
 ### SV2023-37.48-EXTRACT-DIAGRAM-017
 
-37.48 / normal / テスト対応あり・実行未確認
+37.48 / normal / 実行確認あり
 
 clocking block exposes vpiName as string, representing name; access it with the appropriate property routine under 37.3.1.
 
@@ -102282,7 +102283,7 @@ clocking block exposes vpiOutputEdge as integer, representing output skew edge; 
 
 ### SV2023-37.48-EXTRACT-DIAGRAM-020
 
-37.48 / normal / テスト対応あり・実行未確認
+37.48 / normal / 実行確認あり
 
 clocking IO declaration exposes vpiName as string, representing name; access it with the appropriate property routine under 37.3.1.
 
@@ -102330,7 +102331,7 @@ clocking block exposes vpiFullName as string, representing full name; access it 
 
 ### SV2023-37.48-EXTRACT-DIAGRAM-024
 
-37.48 / normal / テスト対応あり・実行未確認
+37.48 / normal / 実行確認あり
 
 clocking IO declaration exposes vpiDirection as integer, representing IO direction; access it with the appropriate property routine under 37.3.1.
 
@@ -102414,7 +102415,7 @@ The 37.49 VPI model includes property instance in the assertion group; group pro
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-007
 
-37.49 / normal / テスト対応あり・実行未確認
+37.49 / normal / 実行確認あり
 
 The 37.49 VPI model includes immediate assert in the assertion group; group properties and relationships apply to this member.
 
@@ -102426,7 +102427,7 @@ The 37.49 VPI model includes immediate assert in the assertion group; group prop
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-008
 
-37.49 / normal / テスト対応あり・実行未確認
+37.49 / normal / 実行確認あり
 
 The 37.49 VPI model includes immediate assume in the assertion group; group properties and relationships apply to this member.
 
@@ -102438,7 +102439,7 @@ The 37.49 VPI model includes immediate assume in the assertion group; group prop
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-009
 
-37.49 / normal / テスト対応あり・実行未確認
+37.49 / normal / 実行確認あり
 
 The 37.49 VPI model includes immediate cover in the assertion group; group properties and relationships apply to this member.
 
@@ -102450,7 +102451,7 @@ The 37.49 VPI model includes immediate cover in the assertion group; group prope
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-010
 
-37.49 / normal / テスト対応あり・実行未確認
+37.49 / normal / 実行確認あり
 
 37.49 defines a one-to-many relation from NULL design root to assertion, using the untagged assertion access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -102486,7 +102487,7 @@ The 37.49 VPI model includes immediate cover in the assertion group; group prope
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-013
 
-37.49 / normal / テスト対応あり・実行未確認
+37.49 / normal / 実行確認あり
 
 assertion exposes vpiFile as string, representing source file; access it with the appropriate property routine under 37.3.1.
 
@@ -102498,7 +102499,7 @@ assertion exposes vpiFile as string, representing source file; access it with th
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-014
 
-37.49 / normal / テスト対応あり・実行未確認
+37.49 / normal / 実行確認あり
 
 assertion exposes vpiStartLine as integer, representing starting source line; access it with the appropriate property routine under 37.3.1.
 
@@ -102544,7 +102545,7 @@ assertion exposes vpiEndColumn as integer, representing ending column; access it
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-018
 
-37.49 / normal / テスト対応あり・実行未確認
+37.49 / normal / 実行確認あり
 
 assertion exposes vpiName as string, representing assertion name; access it with the appropriate property routine under 37.3.1.
 
@@ -102760,7 +102761,7 @@ restrict has no pass/fail action, is not simulated and produces no runtime infor
 
 ### SV2023-37.51-EXTRACT-DIAGRAM-002
 
-37.51 / normal / テスト対応あり・実行未確認
+37.51 / normal / 実行確認あり
 
 37.51 defines a one-to-many relation from property declaration to property formal declaration, using the untagged property formal declaration access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -102820,7 +102821,7 @@ restrict has no pass/fail action, is not simulated and produces no runtime infor
 
 ### SV2023-37.51-EXTRACT-DIAGRAM-007
 
-37.51 / normal / テスト対応あり・実行未確認
+37.51 / normal / 実行確認あり
 
 37.51 defines a one-to-one relation from property formal declaration to named event/property expression, using tag vpiExpr; traverse with vpi_handle and the stated special-case constraints.
 
@@ -102868,7 +102869,7 @@ property declaration exposes vpiFullName as string, representing full name; acce
 
 ### SV2023-37.51-EXTRACT-DIAGRAM-011
 
-37.51 / normal / テスト対応あり・実行未確認
+37.51 / normal / 実行確認あり
 
 property formal declaration exposes vpiName as string, representing formal name; access it with the appropriate property routine under 37.3.1.
 
@@ -102880,7 +102881,7 @@ property formal declaration exposes vpiName as string, representing formal name;
 
 ### SV2023-37.51-EXTRACT-DIAGRAM-012
 
-37.51 / normal / テスト対応あり・実行未確認
+37.51 / normal / 実行確認あり
 
 property formal declaration exposes vpiDirection as integer, representing formal direction; access it with the appropriate property routine under 37.3.1.
 
@@ -102916,7 +102917,7 @@ vpiPropFormalDecl returns property formals in declaration order; vpiArgument ret
 
 ### SV2023-37.51-EXTRACT-PROPERTY-FORMAL-TYPE
 
-37.51 / normal / テスト対応あり・実行未確認
+37.51 / normal / 実行確認あり
 
 An untyped property formal has NULL vpiTypespec; vpiExpr exposes its initializer if present.
 
@@ -103216,7 +103217,7 @@ vpiCompOrOp is a permitted vpiOpType within a property expression.
 
 ### SV2023-37.52-EXTRACT-PROPERTY-OP-VPIEVENTUALLYOP
 
-37.52 / normal / テスト対応あり・実行未確認
+37.52 / normal / 実行確認あり
 
 vpiEventuallyOp is a permitted vpiOpType within a property expression.
 
@@ -103431,7 +103432,7 @@ Property variable declarations are accessible but their values cannot be accesse
 
 ### SV2023-37.53-EXTRACT-DIAGRAM-001
 
-37.53 / normal / テスト対応あり・実行未確認
+37.53 / normal / 実行確認あり
 
 37.53 defines a one-to-one relation from sequence instance to sequence declaration, using the untagged sequence declaration access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103455,7 +103456,7 @@ Property variable declarations are accessible but their values cannot be accesse
 
 ### SV2023-37.53-EXTRACT-DIAGRAM-003
 
-37.53 / normal / テスト対応あり・実行未確認
+37.53 / normal / 実行確認あり
 
 37.53 defines a one-to-many relation from sequence declaration to sequence formal declaration, using the untagged sequence formal declaration access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -103503,7 +103504,7 @@ sequence declaration exposes vpiFullName as string, representing full name; acce
 
 ### SV2023-37.53-EXTRACT-DIAGRAM-007
 
-37.53 / normal / テスト対応あり・実行未確認
+37.53 / normal / 実行確認あり
 
 sequence formal declaration exposes vpiName as string, representing formal name; access it with the appropriate property routine under 37.3.1.
 
@@ -103515,7 +103516,7 @@ sequence formal declaration exposes vpiName as string, representing formal name;
 
 ### SV2023-37.53-EXTRACT-DIAGRAM-008
 
-37.53 / normal / テスト対応あり・実行未確認
+37.53 / normal / 実行確認あり
 
 sequence formal declaration exposes vpiDirection as integer, representing formal direction; access it with the appropriate property routine under 37.3.1.
 
@@ -103527,7 +103528,7 @@ sequence formal declaration exposes vpiDirection as integer, representing formal
 
 ### SV2023-37.53-EXTRACT-DIAGRAM-009
 
-37.53 / normal / テスト対応あり・実行未確認
+37.53 / normal / 実行確認あり
 
 37.53 defines a one-to-one relation from sequence formal declaration to named event/sequence expression, using tag vpiExpr; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103563,7 +103564,7 @@ A nonlocal sequence formal has vpiNoDirection; a local-variable formal has its v
 
 ### SV2023-37.53-EXTRACT-SEQUENCE-FORMAL-ORDER
 
-37.53 / normal / テスト対応あり・実行未確認
+37.53 / normal / 実行確認あり
 
 vpiSeqFormalDecl returns formals in their source declaration order.
 
@@ -103575,7 +103576,7 @@ vpiSeqFormalDecl returns formals in their source declaration order.
 
 ### SV2023-37.53-EXTRACT-SEQUENCE-FORMAL-TYPE
 
-37.53 / normal / テスト対応あり・実行未確認
+37.53 / normal / 実行確認あり
 
 An untyped sequence formal has NULL vpiTypespec; vpiExpr exposes its initializer if present.
 
@@ -103659,7 +103660,7 @@ sequence operation exposes vpiOpType as integer, representing sequence operator;
 
 ### SV2023-37.54-EXTRACT-DIAGRAM-007
 
-37.54 / normal / テスト対応あり・実行未確認
+37.54 / normal / 実行確認あり
 
 37.54 defines a one-to-one relation from sequence instance to sequence declaration, using the untagged sequence declaration access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103671,7 +103672,7 @@ sequence operation exposes vpiOpType as integer, representing sequence operator;
 
 ### SV2023-37.54-EXTRACT-DIAGRAM-008
 
-37.54 / normal / テスト対応あり・実行未確認
+37.54 / normal / 実行確認あり
 
 37.54 defines a one-to-many relation from sequence instance to named event/sequence expression, using tag vpiArgument; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -103695,7 +103696,7 @@ sequence operation exposes vpiOpType as integer, representing sequence operator;
 
 ### SV2023-37.54-EXTRACT-SEQUENCE-ACTUAL-ORDER
 
-37.54 / normal / テスト対応あり・実行未確認
+37.54 / normal / 実行確認あり
 
 Sequence-instance argument iteration follows formal declaration order, inserting default values for omitted actuals.
 
@@ -103731,7 +103732,7 @@ vpiCompOrOp is a permitted sequence-expression vpiOpType.
 
 ### SV2023-37.54-EXTRACT-SEQUENCE-OP-VPICONSECUTIVEREPEATOP
 
-37.54 / normal / テスト対応あり・実行未確認
+37.54 / normal / 実行確認あり
 
 vpiConsecutiveRepeatOp is a permitted sequence-expression vpiOpType.
 
@@ -103743,7 +103744,7 @@ vpiConsecutiveRepeatOp is a permitted sequence-expression vpiOpType.
 
 ### SV2023-37.54-EXTRACT-SEQUENCE-OP-VPICYCLEDELAYOP
 
-37.54 / normal / テスト対応あり・実行未確認
+37.54 / normal / 実行確認あり
 
 vpiCycleDelayOp is a permitted sequence-expression vpiOpType.
 
@@ -106356,7 +106357,7 @@ vpiLoopVars iterates index variables left-to-right, using vpiOperation/vpiNullOp
 
 ### SV2023-37.76-EXTRACT-DIAGRAM-001
 
-37.76 / normal / テスト対応あり・実行未確認
+37.76 / normal / 実行確認あり
 
 37.76 defines a one-to-many relation from instance to alias statement, using the untagged alias statement access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -106380,7 +106381,7 @@ vpiLoopVars iterates index variables left-to-right, using vpiOperation/vpiNullOp
 
 ### SV2023-37.76-EXTRACT-DIAGRAM-003
 
-37.76 / normal / テスト対応あり・実行未確認
+37.76 / normal / 実行確認あり
 
 37.76 defines a one-to-one relation from alias statement to expression, using tag vpiLhs; traverse with vpi_handle and the stated special-case constraints.
 
@@ -106392,7 +106393,7 @@ vpiLoopVars iterates index variables left-to-right, using vpiOperation/vpiNullOp
 
 ### SV2023-37.76-EXTRACT-DIAGRAM-004
 
-37.76 / normal / テスト対応あり・実行未確認
+37.76 / normal / 実行確認あり
 
 37.76 defines a one-to-one relation from alias statement to expression, using tag vpiRhs; traverse with vpi_handle and the stated special-case constraints.
 
@@ -106537,7 +106538,7 @@ The 37.80 diagram draws a single-arrow relation from primitive terminal/expressi
 
 ### SV2023-37.80-EXTRACT-CALLBACK-INFO
 
-37.80 / normal / テスト対応あり・実行未確認
+37.80 / normal / 実行確認あり
 
 Use vpi_get_cb_info to retrieve callback information; for callbacks unrelated to the listed reference object kinds, vpi_iterate requires NULL as second argument.
 
@@ -106549,7 +106550,7 @@ Use vpi_get_cb_info to retrieve callback information; for callbacks unrelated to
 
 ### SV2023-37.80-EXTRACT-DIAGRAM-001
 
-37.80 / normal / テスト対応あり・実行未確認
+37.80 / normal / 実行確認あり
 
 37.80 defines a one-to-many relation from NULL design root to callback, using the untagged callback access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -106561,7 +106562,7 @@ Use vpi_get_cb_info to retrieve callback information; for callbacks unrelated to
 
 ### SV2023-37.80-EXTRACT-DIAGRAM-003
 
-37.80 / normal / テスト対応あり・実行未確認
+37.80 / normal / 実行確認あり
 
 Callback metadata is accessed through vpi_get_cb_info and p_cb_data.
 
@@ -106597,7 +106598,7 @@ Time-queue simulation time is read through vpi_get_time.
 
 ### SV2023-37.81-EXTRACT-QUEUE-TIME-ORDER
 
-37.81 / normal / テスト対応あり・実行未確認
+37.81 / normal / 実行確認あり
 
 Time queues iterate in increasing simulation time; vpi_iterate returns NULL when nothing remains. Include the current queue only if events remain before read-only synchronization.
 
@@ -106609,7 +106610,7 @@ Time queues iterate in increasing simulation time; vpi_iterate returns NULL when
 
 ### SV2023-37.82-EXTRACT-ACTIVE-FORMAT-NAME-TEXT
 
-37.82 / normal / テスト対応あり・実行未確認
+37.82 / normal / 実行確認あり
 
 If $timeformat() has not been called, vpi_handle(vpiActiveTimeFormat, NULL) returns NULL; the detail's vpiActiveFormat denotes the vpiActiveTimeFormat relation of the diagram and vpi_user.h.
 
@@ -106621,7 +106622,7 @@ If $timeformat() has not been called, vpi_handle(vpiActiveTimeFormat, NULL) retu
 
 ### SV2023-37.82-EXTRACT-DIAGRAM-001
 
-37.82 / normal / テスト対応あり・実行未確認
+37.82 / normal / 実行確認あり
 
 37.82 defines a one-to-one relation from NULL simulation context to task/function call, using tag vpiActiveTimeFormat; traverse with vpi_handle and the stated special-case constraints.
 
@@ -107259,7 +107260,7 @@ Attribute values are read with vpi_get_value.
 
 ### SV2023-37.84-EXTRACT-DIAGRAM-001
 
-37.84 / normal / テスト対応あり・実行未確認
+37.84 / normal / 実行確認あり
 
 iterator exposes vpiIteratorType as integer, representing iteration type; access it with the appropriate property routine under 37.3.1.
 
@@ -107271,7 +107272,7 @@ iterator exposes vpiIteratorType as integer, representing iteration type; access
 
 ### SV2023-37.84-EXTRACT-DIAGRAM-002
 
-37.84 / normal / テスト対応あり・実行未確認
+37.84 / normal / 実行確認あり
 
 37.84 defines a one-to-one relation from iterator to instance array/scope/UDP definition/ports/nets/net array/regs/reg array/variables/named event array/primitive/primitive terminal/module path/parameter assignment/intermodule path/path terminal/delay terminal/timing check/task-function call/process/expression/statement/case item/frame/time queue, using tag vpiUse; traverse with vpi_handle and the stated special-case constraints.
 
@@ -107283,7 +107284,7 @@ iterator exposes vpiIteratorType as integer, representing iteration type; access
 
 ### SV2023-37.84-EXTRACT-ITERATOR-REFERENCE
 
-37.84 / normal / テスト対応あり・実行未確認
+37.84 / normal / 実行確認あり
 
 vpi_handle(vpiUse,iterator) returns the reference used to create it, including NULL if the original reference was NULL.
 
@@ -107511,7 +107512,7 @@ generate scope exposes vpiFullName as string, representing full scope name; acce
 
 ### SV2023-37.85-EXTRACT-DIAGRAM-019
 
-37.85 / normal / テスト対応あり・実行未確認
+37.85 / normal / 実行確認あり
 
 generate scope exposes vpiProtected as Boolean, representing protected scope; access it with the appropriate property routine under 37.3.1.
 
@@ -108536,7 +108537,7 @@ s_cb_data has PLI_INT32 reason, PLI_INT32-returning cb_rtn(struct t_cb_data*), v
 
 ### SV2023-38.8-EXTRACT-CALLBACK-INFO-MEMORY
 
-38.8 / normal / テスト対応あり・実行未確認
+38.8 / normal / 実行確認あり
 
 The application allocates s_cb_data memory used for callback information.
 
@@ -108548,7 +108549,7 @@ The application allocates s_cb_data memory used for callback information.
 
 ### SV2023-38.8-EXTRACT-CALLBACK-INFO-SIGNATURE
 
-38.8 / normal / テスト対応あり・実行未確認
+38.8 / normal / 実行確認あり
 
 vpi_get_cb_info(vpiHandle obj,p_cb_data cb_data_p) returns void and writes simulation-callback metadata to the supplied structure.
 
@@ -108694,7 +108695,7 @@ s_vpi_delay contains t_vpi_time* da followed by PLI_INT32 no_of_delays, time_typ
 
 ### SV2023-38.10-EXTRACT-DELAYS-FORMAT
 
-38.10 / normal / テスト対応あり・実行未確認
+38.10 / normal / 実行確認あり
 
 The application allocates s_vpi_delay; its time_type controls format, ignoring individual s_vpi_time.type fields.
 
@@ -109052,7 +109053,7 @@ Table 38-3 maps vpiStrengthVal to union member strength, returning value plus st
 
 ### SV2023-38.15-EXTRACT-FORMAT-VPISTRINGVAL
 
-38.15 / normal / テスト対応あり・実行未確認
+38.15 / normal / 実行確認あり
 
 Table 38-3 maps vpiStringVal to union member str, returning ASCII string interpreting each eight-bit group as a character.
 
@@ -109220,7 +109221,7 @@ s_vpi_strengthval has PLI_INT32 logic, s0 and s1; logic uses vpi0/1/X/Z and stre
 
 ### SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS
 
-38.15 / normal / テスト対応あり・実行未確認
+38.15 / normal / 実行確認あり
 
 A vpiStringConst constant must be read using vpiStringVal or vpiVectorVal.
 
@@ -110735,7 +110736,7 @@ vpiLongIntVal uses num longints values and is appropriate for longint-variable a
 
 ### SV2023-38.35-EXTRACT-PUT-NET-ARRAY-DEPOSIT
 
-38.35 / normal / テスト対応あり・実行未確認
+38.35 / normal / 実行確認あり
 
 Updated array-net elements override resolved values independently until a driver for that element changes, when normal resolution resumes.
 
@@ -111841,7 +111842,7 @@ cbAtStartOfSimTime invokes its callback before events in the specified time queu
 
 ### SV2023-38.36.2-EXTRACT-TIME-CBNBASYNCH
 
-38.36.2 / normal / テスト対応あり・実行未確認
+38.36.2 / normal / 実行確認あり
 
 cbNBASynch invokes its callback immediately before nonblocking assignment events are processed.
 
@@ -112335,7 +112336,7 @@ vpi_vprintf(PLI_BYTE8* format,va_list ap) takes an already started argument list
 
 ### SV2023-39.3.1-EXTRACT-ALL-ASSERTIONS
 
-39.3.1 / normal / テスト対応あり・実行未確認
+39.3.1 / normal / 実行確認あり
 
 vpi_iterate(vpiAssertion,NULL) iterates all design assertions.
 
@@ -112359,7 +112360,7 @@ An assertion handle denotes one assertion in one instance; unnamed assertions ca
 
 ### SV2023-39.3.1-EXTRACT-ASSERTION-NAME-LOOKUP
 
-39.3.1 / normal / テスト対応あり・実行未確認
+39.3.1 / normal / 実行確認あり
 
 vpi_handle_by_name searches named assertions within the requested scope.
 
@@ -112382,7 +112383,7 @@ VPI navigation and instance iteration expose assertions, properties and sequence
 
 ### SV2023-39.3.1-EXTRACT-ASSERTION-TYPE-FILTER
 
-39.3.1 / normal / テスト対応あり・実行未確認
+39.3.1 / normal / 実行確認あり
 
 Filter vpiAssertion iteration by each handle vpiType to obtain a specific assertion kind.
 
@@ -112394,7 +112395,7 @@ Filter vpiAssertion iteration by each handle vpiType to obtain a specific assert
 
 ### SV2023-39.3.1-EXTRACT-INSTANCE-ASSERTIONS
 
-39.3.1 / normal / テスト対応あり・実行未確認
+39.3.1 / normal / 実行確認あり
 
 vpi_iterate(vpiAssertion,instance) iterates assertions within that instance.
 
@@ -112420,7 +112421,7 @@ Static assertion kinds include sequence/property instances, assert/assume/cover/
 
 ### SV2023-39.3.2-EXTRACT-STATIC-ASSERTION-NAME
 
-39.3.2 / normal / テスト対応あり・実行未確認
+39.3.2 / normal / 実行確認あり
 
 Assertion static information includes assertion name.
 
@@ -112432,7 +112433,7 @@ Assertion static information includes assertion name.
 
 ### SV2023-39.3.2-EXTRACT-STATIC-ASSERTION-TYPE
 
-39.3.2 / normal / テスト対応あり・実行未確認
+39.3.2 / normal / 実行確認あり
 
 Assertion static information includes assertion type.
 
@@ -112456,7 +112457,7 @@ Assertion static information includes clocking block/expression.
 
 ### SV2023-39.3.2-EXTRACT-STATIC-CONTAINING-INSTANCE
 
-39.3.2 / normal / テスト対応あり・実行未確認
+39.3.2 / normal / 実行確認あり
 
 Assertion static information includes containing instance.
 
@@ -112468,7 +112469,7 @@ Assertion static information includes containing instance.
 
 ### SV2023-39.3.2-EXTRACT-STATIC-CONTAINING-MODULE-DEFINITION
 
-39.3.2 / normal / テスト対応あり・実行未確認
+39.3.2 / normal / 実行確認あり
 
 Assertion static information includes containing module definition.
 
@@ -112491,7 +112492,7 @@ Assertion static information includes definition source file/line/column.
 
 ### SV2023-39.4.1-EXTRACT-ASSERTION-SYSTEM-REGISTER
 
-39.4.1 / normal / テスト対応あり・実行未確認
+39.4.1 / normal / 実行確認あり
 
 Use vpi_register_cb with the chosen assertion-system reason and cb_rtn application function.
 
@@ -112503,7 +112504,7 @@ Use vpi_register_cb with the chosen assertion-system reason and cb_rtn applicati
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-CALLBACK-DATA
 
-39.4.1 / normal / テスト対応あり・実行未確認
+39.4.1 / normal / 実行確認あり
 
 System callbacks use the ordinary VPI prototype and receive s_cb_data containing reason and registered user_data.
 
@@ -112516,7 +112517,7 @@ System callbacks use the ordinary VPI prototype and receive s_cb_data containing
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSDISABLEPASSACTION
 
-39.4.1 / normal / テスト対応あり・実行未確認
+39.4.1 / normal / 実行確認あり
 
 cbAssertionSysDisablePassAction fires when pass action is disabled for vacuous and nonvacuous successes.
 
@@ -112528,7 +112529,7 @@ cbAssertionSysDisablePassAction fires when pass action is disabled for vacuous a
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSDISABLEVACUOUSACTION
 
-39.4.1 / normal / テスト対応あり・実行未確認
+39.4.1 / normal / 実行確認あり
 
 cbAssertionSysDisableVacuousAction fires when pass action is disabled for vacuous success.
 
@@ -112540,7 +112541,7 @@ cbAssertionSysDisableVacuousAction fires when pass action is disabled for vacuou
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSENABLENONVACUOUSACTION
 
-39.4.1 / normal / テスト対応あり・実行未確認
+39.4.1 / normal / 実行確認あり
 
 cbAssertionSysEnableNonvacuousAction fires when pass action is enabled for nonvacuous success.
 
@@ -112552,7 +112553,7 @@ cbAssertionSysEnableNonvacuousAction fires when pass action is enabled for nonva
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSENABLEPASSACTION
 
-39.4.1 / normal / テスト対応あり・実行未確認
+39.4.1 / normal / 実行確認あり
 
 cbAssertionSysEnablePassAction fires when pass action is enabled for vacuous and nonvacuous successes.
 
@@ -112564,7 +112565,7 @@ cbAssertionSysEnablePassAction fires when pass action is enabled for vacuous and
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSLOCK
 
-39.4.1 / normal / テスト対応あり・実行未確認
+39.4.1 / normal / 実行確認あり
 
 cbAssertionSysLock fires when the system is locked.
 
@@ -112576,7 +112577,7 @@ cbAssertionSysLock fires when the system is locked.
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSUNLOCK
 
-39.4.1 / normal / テスト対応あり・実行未確認
+39.4.1 / normal / 実行確認あり
 
 cbAssertionSysUnlock fires when the system is unlocked.
 
@@ -112668,7 +112669,7 @@ cbAssertionSysOn occurs after initialization when the system becomes active and 
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-RESET
 
-39.4.1 / normal / テスト対応あり・実行未確認
+39.4.1 / normal / 実行確認あり
 
 cbAssertionSysReset fires when assertion-system reset occurs.
 
@@ -112680,7 +112681,7 @@ cbAssertionSysReset fires when assertion-system reset occurs.
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CALLBACK-ARGUMENTS
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 Pass reason, callback-event time pointer, assertion handle, attempt-info pointer and original user-data reference.
 
@@ -112704,7 +112705,7 @@ Registration is specific to its assertion; return a removable callback handle on
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CALLBACK-PERSISTENCE
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 Invoke the callback each time the requested event occurs on that assertion until removal.
 
@@ -112716,7 +112717,7 @@ Invoke the callback each time the requested event occurs on that assertion until
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CALLBACK-PROTOTYPE
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 Assertion callback returns PLI_INT32 and takes reason, p_vpi_time cb_time, assertion handle, p_vpi_attempt_info info and registered PLI_BYTE8* user_data in that order.
 
@@ -112740,7 +112741,7 @@ All listed callbacks may register on immediate/concurrent assertions; start/succ
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CALLBACK-TIME
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cb_time identifies the relevant start/nonvacuous-success/failure/vacuous-success/disabled-evaluation/step-success/step-failure/disable/enable/reset/kill event time, according to callback reason.
 
@@ -112752,7 +112753,7 @@ cb_time identifies the relevant start/nonvacuous-success/failure/vacuous-success
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONDISABLE
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionDisable requests a callback when new assertion attempts are disabled.
 
@@ -112764,7 +112765,7 @@ cbAssertionDisable requests a callback when new assertion attempts are disabled.
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONDISABLEDEVALUATION
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionDisabledEvaluation requests a callback when an attempt reaches disabled state, including start under true disable iff.
 
@@ -112776,7 +112777,7 @@ cbAssertionDisabledEvaluation requests a callback when an attempt reaches disabl
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONDISABLEFAILACTION
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionDisableFailAction requests a callback when fail action is disabled.
 
@@ -112788,7 +112789,7 @@ cbAssertionDisableFailAction requests a callback when fail action is disabled.
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONDISABLEPASSACTION
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionDisablePassAction requests a callback when pass actions for vacuous/nonvacuous successes are disabled.
 
@@ -112800,7 +112801,7 @@ cbAssertionDisablePassAction requests a callback when pass actions for vacuous/n
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONDISABLEVACUOUSACTION
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionDisableVacuousAction requests a callback when pass action on vacuous success is disabled.
 
@@ -112812,7 +112813,7 @@ cbAssertionDisableVacuousAction requests a callback when pass action on vacuous 
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONENABLE
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionEnable requests a callback when new assertion attempts are enabled.
 
@@ -112824,7 +112825,7 @@ cbAssertionEnable requests a callback when new assertion attempts are enabled.
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONENABLEFAILACTION
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionEnableFailAction requests a callback when fail action is enabled.
 
@@ -112836,7 +112837,7 @@ cbAssertionEnableFailAction requests a callback when fail action is enabled.
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONENABLENONVACUOUSACTION
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionEnableNonvacuousAction requests a callback when pass action on nonvacuous success is enabled.
 
@@ -112848,7 +112849,7 @@ cbAssertionEnableNonvacuousAction requests a callback when pass action on nonvac
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONENABLEPASSACTION
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionEnablePassAction requests a callback when pass actions for vacuous/nonvacuous successes are enabled.
 
@@ -112860,7 +112861,7 @@ cbAssertionEnablePassAction requests a callback when pass actions for vacuous/no
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONFAILURE
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionFailure requests a callback when an assertion/property fails or sequence fails to match.
 
@@ -112872,7 +112873,7 @@ cbAssertionFailure requests a callback when an assertion/property fails or seque
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONKILL
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionKill requests a callback when an attempt is killed.
 
@@ -112884,7 +112885,7 @@ cbAssertionKill requests a callback when an attempt is killed.
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONLOCK
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionLock requests a callback when the assertion is locked.
 
@@ -112896,7 +112897,7 @@ cbAssertionLock requests a callback when the assertion is locked.
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONRESET
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionReset requests a callback when the assertion is reset.
 
@@ -112919,7 +112920,7 @@ cbAssertionStart requests a callback when an attempt/evaluation starts; an unins
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONSTEPFAILURE
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionStepFailure requests a callback when an enabled attempt fails to progress one flattened-assertion step.
 
@@ -112931,7 +112932,7 @@ cbAssertionStepFailure requests a callback when an enabled attempt fails to prog
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONSTEPSUCCESS
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionStepSuccess requests a callback when an enabled attempt progresses one flattened-assertion step.
 
@@ -112943,7 +112944,7 @@ cbAssertionStepSuccess requests a callback when an enabled attempt progresses on
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONSUCCESS
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionSuccess requests a callback when an assertion/property succeeds or sequence instance matches.
 
@@ -112955,7 +112956,7 @@ cbAssertionSuccess requests a callback when an assertion/property succeeds or se
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONUNLOCK
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionUnlock requests a callback when the assertion is unlocked.
 
@@ -112967,7 +112968,7 @@ cbAssertionUnlock requests a callback when the assertion is unlocked.
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONVACUOUSSUCCESS
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 cbAssertionVacuousSuccess requests a callback when an attempt succeeds vacuously.
 
@@ -112979,7 +112980,7 @@ cbAssertionVacuousSuccess requests a callback when an attempt succeeds vacuously
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-REGISTER-SIGNATURE
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 vpi_register_assertion_cb takes assertion handle, PLI_INT32 reason, vpi_assertion_callback_func* routine and PLI_BYTE8* user_data, returning its callback handle.
 
@@ -112991,7 +112992,7 @@ vpi_register_assertion_cb takes assertion handle, PLI_INT32 reason, vpi_assertio
 
 ### SV2023-39.4.2-EXTRACT-ATTEMPT-ID-TIME
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 attemptStartTime always identifies that actual attempt start, independently of callback time, and distinguishes attempts of the same assertion.
 
@@ -113003,7 +113004,7 @@ attemptStartTime always identifies that actual attempt start, independently of c
 
 ### SV2023-39.4.2-EXTRACT-ATTEMPT-INFO-FIELDS
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 Start/success callbacks have only valid attemptStartTime; failure has attemptStartTime and detail.failExpr; step callbacks have attemptStartTime and detail.step.
 
@@ -113027,7 +113028,7 @@ s_vpi_attempt_info contains a detail union of vpiHandle failExpr or p_vpi_assert
 
 ### SV2023-39.4.2-EXTRACT-CONTROL-CALLBACK-NO-ATTEMPT
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 Lock/unlock/disable/enable/reset/kill and pass/fail/vacuous/nonvacuous action callbacks receive NULL attempt-info.
 
@@ -113040,7 +113041,7 @@ Lock/unlock/disable/enable/reset/kill and pass/fail/vacuous/nonvacuous action ca
 
 ### SV2023-39.4.2-EXTRACT-FAILING-STEP-COUNT
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 A failing transition expression array must have at least one element; registering either step callback invokes the same function for success and failure steps.
 
@@ -113052,7 +113053,7 @@ A failing transition expression array must have at least one element; registerin
 
 ### SV2023-39.4.2-EXTRACT-STEP-DEFAULT
 
-39.4.2 / normal / テスト対応あり・実行未確認
+39.4.2 / normal / 実行確認あり
 
 Step callbacks are disabled by default and enabled separately per assertion/attempt, not simply for all attempts of one assertion.
 
@@ -113088,7 +113089,7 @@ Step details identify matched expressions/source references and transition state
 
 ### SV2023-39.4.2.1-EXTRACT-FUTURE-GLOBAL-CALLBACK
 
-39.4.2.1 / normal / テスト対応あり・実行未確認
+39.4.2.1 / normal / 実行確認あり
 
 For assertions referencing global-clock future-sampled functions, invoke the callback at the nearest global tick strictly after the event; cb_time remains the actual callback-event time.
 
@@ -113174,7 +113175,7 @@ vpiAssertionSysEnablePassAction: enable pass actions for vacuous/nonvacuous succ
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSEND
 
-39.5.1 / normal / テスト対応あり・実行未確認
+39.5.1 / normal / 実行確認あり
 
 vpiAssertionSysEnd: discard attempts, prevent new attempts, remove all assertion callbacks and prohibit further assertion-related actions.
 
@@ -113198,7 +113199,7 @@ vpiAssertionSysKill: discard all active attempts and prevent new ones, preservin
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSLOCK
 
-39.5.1 / normal / テスト対応あり・実行未確認
+39.5.1 / normal / 実行確認あり
 
 vpiAssertionSysLock: lock assertion status against changes until unlocked.
 
@@ -113247,7 +113248,7 @@ vpiAssertionSysReset: discard all active attempts and restore initial assertion-
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSUNLOCK
 
-39.5.1 / normal / テスト対応あり・実行未確認
+39.5.1 / normal / 実行確認あり
 
 vpiAssertionSysUnlock: allow assertion status changes again.
 
@@ -113281,7 +113282,7 @@ Per-assertion controls require assertion statement handles, not sequence/propert
 
 ### SV2023-39.5.2-EXTRACT-CLOCK-STEPS
 
-39.5.2 / normal / テスト対応あり・実行未確認
+39.5.2 / normal / 実行確認あり
 
 vpiAssertionClockSteps causes enabled stepping callbacks at every assertion-declaration clocking event as evaluation advances.
 
@@ -113293,7 +113294,7 @@ vpiAssertionClockSteps causes enabled stepping callbacks at every assertion-decl
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONDISABLE
 
-39.5.2 / normal / テスト対応あり・実行未確認
+39.5.2 / normal / 実行確認あり
 
 vpiAssertionDisable takes a valid assertion handle and must disable new attempts, without affecting existing attempts and with no effect if already in that state. Assertions and pass/fail/vacuous actions are enabled by default.
 
@@ -113342,7 +113343,7 @@ vpiAssertionDisableVacuousAction takes a valid assertion handle and must disable
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONENABLE
 
-39.5.2 / normal / テスト対応あり・実行未確認
+39.5.2 / normal / 実行確認あり
 
 vpiAssertionEnable takes a valid assertion handle and must enable new attempts, without affecting existing attempts and with no effect if already in that state. Assertions and pass/fail/vacuous actions are enabled by default.
 
@@ -113391,7 +113392,7 @@ vpiAssertionEnablePassAction takes a valid assertion handle and must enable pass
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONLOCK
 
-39.5.2 / normal / テスト対応あり・実行未確認
+39.5.2 / normal / 実行確認あり
 
 vpiAssertionLock takes a valid assertion handle and must lock status changes until unlock.
 
@@ -113416,7 +113417,7 @@ vpiAssertionReset takes a valid assertion handle and must discard current attemp
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONUNLOCK
 
-39.5.2 / normal / テスト対応あり・実行未確認
+39.5.2 / normal / 実行確認あり
 
 vpiAssertionUnlock takes a valid assertion handle and must allow status changes again.
 
@@ -113451,7 +113452,7 @@ vpiAssertionEnableStep takes assertion handle, initialized attempt-start pointer
 
 ### SV2023-39.5.2-EXTRACT-KILL-ONE-ATTEMPT
 
-39.5.2 / normal / テスト対応あり・実行未確認
+39.5.2 / normal / 実行確認あり
 
 vpiAssertionKill takes assertion handle and initialized s_vpi_time* attempt start, discards that attempt, keeps assertion enabled and preserves state such as past sampling.
 
@@ -113777,7 +113778,7 @@ The predefined coverage macro SV_COV_TOGGLE has integer value 23.
 
 ### SV2023-40.3.2.1-EXTRACT-CONTROL-IDEMPOTENCE
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 Starting already started coverage has no effect; repeated stop/reset with no intervening change is idempotent.
 
@@ -113800,7 +113801,7 @@ SV_COV_OK means full availability for check or complete success for other action
 
 ### SV2023-40.3.2.1-EXTRACT-COVERAGE-CHECK
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 SV_COV_CHECK reports availability, independently of whether collection is currently stopped.
 
@@ -113812,7 +113813,7 @@ SV_COV_CHECK reports availability, independently of whether collection is curren
 
 ### SV2023-40.3.2.1-EXTRACT-COVERAGE-CONTROL-SIGNATURE
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 $coverage_control takes control constant, coverage type, scope definition and module-string or instance-path selector in that order.
 
@@ -113824,7 +113825,7 @@ $coverage_control takes control constant, coverage type, scope definition and mo
 
 ### SV2023-40.3.2.1-EXTRACT-COVERAGE-RESET
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 SV_COV_RESET clears available coverage in the selected hierarchy and has no effect where coverage is unavailable.
 
@@ -113836,7 +113837,7 @@ SV_COV_RESET clears available coverage in the selected hierarchy and has no effe
 
 ### SV2023-40.3.2.1-EXTRACT-COVERAGE-START
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 SV_COV_START starts collection where possible, has no effect if already collecting, and collection starts automatically at simulation start for enabled hierarchy portions.
 
@@ -113848,7 +113849,7 @@ SV_COV_START starts collection where possible, has no effect if already collecti
 
 ### SV2023-40.3.2.1-EXTRACT-COVERAGE-STOP
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 SV_COV_STOP stops collection and has no effect when not collecting.
 
@@ -113860,7 +113861,7 @@ SV_COV_STOP stops collection and has no effect when not collecting.
 
 ### SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 With SV_COV_HIER, a quoted module definition name selects every instance of that module and descendants; an instance path selects that instance and descendants.
 
@@ -113872,7 +113873,7 @@ With SV_COV_HIER, a quoted module definition name selects every instance of that
 
 ### SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 With SV_COV_HIER, a definition string sums all module instances plus their descendants; an instance path includes that instance and all descendants.
 
@@ -113884,7 +113885,7 @@ With SV_COV_HIER, a definition string sums all module instances plus their desce
 
 ### SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 With SV_COV_MODULE, a definition string sums all instances of the module excluding their child hierarchy; an instance path selects only that instance without children.
 
@@ -113896,7 +113897,7 @@ With SV_COV_MODULE, a definition string sums all instances of the module excludi
 
 ### SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 The module-local scope_def named SV_MODULE_COV in the 40.3.2.1 prose is the predefined macro `SV_COV_MODULE (40.3.1, value 10), as used by Table 40-2 and the Figure 40-1 examples; SV_MODULE_COV is not an additional predefined macro.
 
@@ -113908,7 +113909,7 @@ The module-local scope_def named SV_MODULE_COV in the 40.3.2.1 prose is the pred
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 Table 40-1 maps SV_COV_CHECK / SV_COV_ERROR to bad arguments; not-applicable cells do not prescribe that return for the action.
 
@@ -113954,7 +113955,7 @@ Table 40-1 maps SV_COV_CHECK / SV_COV_PARTIAL to partial coverage; not-applicabl
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-RESET-SV-COV-ERROR
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 Table 40-1 maps SV_COV_RESET / SV_COV_ERROR to bad arguments; not-applicable cells do not prescribe that return for the action.
 
@@ -113966,7 +113967,7 @@ Table 40-1 maps SV_COV_RESET / SV_COV_ERROR to bad arguments; not-applicable cel
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-RESET-SV-COV-NOCOV
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 Table 40-1 maps SV_COV_RESET / SV_COV_NOCOV to not applicable; not-applicable cells do not prescribe that return for the action.
 
@@ -113978,7 +113979,7 @@ Table 40-1 maps SV_COV_RESET / SV_COV_NOCOV to not applicable; not-applicable ce
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-RESET-SV-COV-OK
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 Table 40-1 maps SV_COV_RESET / SV_COV_OK to success; not-applicable cells do not prescribe that return for the action.
 
@@ -113990,7 +113991,7 @@ Table 40-1 maps SV_COV_RESET / SV_COV_OK to success; not-applicable cells do not
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-RESET-SV-COV-PARTIAL
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 Table 40-1 maps SV_COV_RESET / SV_COV_PARTIAL to not applicable; not-applicable cells do not prescribe that return for the action.
 
@@ -114002,7 +114003,7 @@ Table 40-1 maps SV_COV_RESET / SV_COV_PARTIAL to not applicable; not-applicable 
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-START-SV-COV-ERROR
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 Table 40-1 maps SV_COV_START / SV_COV_ERROR to bad arguments; not-applicable cells do not prescribe that return for the action.
 
@@ -114025,7 +114026,7 @@ Table 40-1 maps SV_COV_START / SV_COV_NOCOV to no coverage; not-applicable cells
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-START-SV-COV-OK
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 Table 40-1 maps SV_COV_START / SV_COV_OK to success; not-applicable cells do not prescribe that return for the action.
 
@@ -114048,7 +114049,7 @@ Table 40-1 maps SV_COV_START / SV_COV_PARTIAL to partial coverage; not-applicabl
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-ERROR
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 Table 40-1 maps SV_COV_STOP / SV_COV_ERROR to bad arguments; not-applicable cells do not prescribe that return for the action.
 
@@ -114060,7 +114061,7 @@ Table 40-1 maps SV_COV_STOP / SV_COV_ERROR to bad arguments; not-applicable cell
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-NOCOV
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 Table 40-1 maps SV_COV_STOP / SV_COV_NOCOV to not applicable; not-applicable cells do not prescribe that return for the action.
 
@@ -114072,7 +114073,7 @@ Table 40-1 maps SV_COV_STOP / SV_COV_NOCOV to not applicable; not-applicable cel
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-OK
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 Table 40-1 maps SV_COV_STOP / SV_COV_OK to success; not-applicable cells do not prescribe that return for the action.
 
@@ -114084,7 +114085,7 @@ Table 40-1 maps SV_COV_STOP / SV_COV_OK to success; not-applicable cells do not 
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-PARTIAL
 
-40.3.2.1 / normal / テスト対応あり・実行未確認
+40.3.2.1 / normal / 実行確認あり
 
 Table 40-1 maps SV_COV_STOP / SV_COV_PARTIAL to not applicable; not-applicable cells do not prescribe that return for the action.
 
@@ -114118,7 +114119,7 @@ Maximum-coverage scope selection follows $coverage_control.
 
 ### SV2023-40.3.2.2-EXTRACT-GET-MAX-SIGNATURE
 
-40.3.2.2 / normal / テスト対応あり・実行未確認
+40.3.2.2 / normal / 実行確認あり
 
 $coverage_get_max takes coverage_type,scope_def,modules_or_instance and returns the coverage total corresponding to 100%.
 
@@ -114186,7 +114187,7 @@ Current-coverage scope selection follows $coverage_control.
 
 ### SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE
 
-40.3.2.3 / normal / テスト対応あり・実行未確認
+40.3.2.3 / normal / 実行確認あり
 
 $coverage_get takes coverage_type,scope_def,modules_or_instance.
 
@@ -114209,7 +114210,7 @@ Load/merge the specified coverage database by arbitrary implementation-mapped na
 
 ### SV2023-40.3.2.4-EXTRACT-MERGE-SIGNATURE
 
-40.3.2.4 / normal / テスト対応あり・実行未確認
+40.3.2.4 / normal / 実行確認あり
 
 $coverage_merge takes coverage type and a saved coverage name string.
 
@@ -114254,7 +114255,7 @@ Save current coverage under the name using implementation-specific storage, make
 
 ### SV2023-40.3.2.5-EXTRACT-SAVE-SIGNATURE
 
-40.3.2.5 / normal / テスト対応あり・実行未確認
+40.3.2.5 / normal / 実行確認あり
 
 $coverage_save takes coverage type and saved name string.
 
@@ -114288,7 +114289,7 @@ Standard FSM-description annotations override default extraction; no particular 
 
 ### SV2023-40.4-EXTRACT-FSM-IDENTIFICATION
 
-40.4 / normal / テスト対応あり・実行未確認
+40.4 / normal / 実行確認あり
 
 Identify current state register/expression, optional next-state register and legal states.
 
@@ -114300,7 +114301,7 @@ Identify current state register/expression, optional next-state register and leg
 
 ### SV2023-40.4.1-EXTRACT-FSM-ENUM-INLINE
 
-40.4.1 / normal / テスト対応あり・実行未確認
+40.4.1 / normal / 実行確認あり
 
 An enumeration name is required to associate current state,next state and legal states; it may appear as enum enumeration_name in the state_vector pragma.
 
@@ -114323,7 +114324,7 @@ Alternatively place tool enum enumeration_name immediately after the signal bit 
 
 ### SV2023-40.4.1-EXTRACT-FSM-STATE-VECTOR
 
-40.4.1 / normal / テスト対応あり・実行未確認
+40.4.1 / normal / 実行確認あり
 
 Use tool state_vector signal_name in a comment pragma to identify the current-state vector, within the declaring module; tool and state_vector are required keywords.
 
@@ -114423,7 +114424,7 @@ Place the enum pragma immediately after parameter, or immediately after its expl
 
 ### SV2023-40.4.6-EXTRACT-FSM-STATE-ENUMERATION
 
-40.4.6 / normal / テスト対応あり・実行未確認
+40.4.6 / normal / 実行確認あり
 
 Specify legal FSM states using parameter declarations annotated tool enum enumeration_name.
 
@@ -114626,7 +114627,7 @@ The VPI coverage extension defines vpiCoveredCount in the status category; its b
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPICOVEREDMAX
 
-40.5.1 / normal / テスト対応あり・実行未確認
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiCoveredMax in the status category; its behavior is specified in the following query/control sections.
 
@@ -114638,7 +114639,7 @@ The VPI coverage extension defines vpiCoveredMax in the status category; its beh
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIFSM
 
-40.5.1 / normal / テスト対応あり・実行未確認
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiFsm in the FSM handle type category; its behavior is specified in the following query/control sections.
 
@@ -114674,7 +114675,7 @@ The VPI coverage extension defines vpiFsmStateCoverage in the coverage type cate
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIFSMSTATEEXPRESSION
 
-40.5.1 / normal / テスト対応あり・実行未確認
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiFsmStateExpression in the FSM method category; its behavior is specified in the following query/control sections.
 
@@ -114686,7 +114687,7 @@ The VPI coverage extension defines vpiFsmStateExpression in the FSM method categ
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIFSMSTATES
 
-40.5.1 / normal / テスト対応あり・実行未確認
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiFsmStates in the FSM method category; its behavior is specified in the following query/control sections.
 
@@ -114733,7 +114734,7 @@ For assertion vpiCovered, it must have been attempted, succeeded at least once a
 
 ### SV2023-40.5.2-EXTRACT-ASSERTION-IN-PROGRESS
 
-40.5.2 / normal / テスト対応あり・実行未確認
+40.5.2 / normal / 実行確認あり
 
 For applicable assertions, in-progress attempts equal attempts minus nonvacuous successes,vacuous successes,disabled,killed and failures.
 
@@ -114791,7 +114792,7 @@ vpiCoveredMax returns the number of coverable entities for assertion/statement/s
 
 ### SV2023-40.5.2-EXTRACT-FSM-ITERATOR
 
-40.5.2 / normal / テスト対応あり・実行未確認
+40.5.2 / normal / 実行確認あり
 
 vpi_iterate(vpiFsm,instance_handle) returns all FSMs in that instance.
 
@@ -114803,7 +114804,7 @@ vpi_iterate(vpiFsm,instance_handle) returns all FSMs in that instance.
 
 ### SV2023-40.5.2-EXTRACT-FSM-STATE-EXPRESSION
 
-40.5.2 / normal / テスト対応あり・実行未確認
+40.5.2 / normal / 実行確認あり
 
 vpi_handle(vpiFsmStateExpression,fsm_handle) returns the signal/expression encoding that FSM state.
 
@@ -114827,7 +114828,7 @@ The FSM-state value is retrieved with vpi_get_value(fsm_state_handle, value_p): 
 
 ### SV2023-40.5.2-EXTRACT-FSM-STATES-ITERATOR
 
-40.5.2 / normal / テスト対応あり・実行未確認
+40.5.2 / normal / 実行確認あり
 
 vpi_iterate(vpiFsmStates,fsm_handle) returns all states of the FSM.
 
@@ -114850,7 +114851,7 @@ vpi_get(coverageType,instance_handle) returns the count of covered items of that
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTATTEMPTCOVERED
 
-40.5.2 / normal / テスト対応あり・実行未確認
+40.5.2 / normal / 実行確認あり
 
 vpi_get(vpiAssertAttemptCovered,assertion_handle) returns the number of attempts.
 
@@ -114862,7 +114863,7 @@ vpi_get(vpiAssertAttemptCovered,assertion_handle) returns the number of attempts
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTDISABLECOVERED
 
-40.5.2 / normal / テスト対応あり・実行未確認
+40.5.2 / normal / 実行確認あり
 
 vpi_get(vpiAssertDisableCovered,assertion_handle) returns the number of attempts reaching disabled state, including start under true disable iff.
 
@@ -114874,7 +114875,7 @@ vpi_get(vpiAssertDisableCovered,assertion_handle) returns the number of attempts
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTFAILURECOVERED
 
-40.5.2 / normal / テスト対応あり・実行未確認
+40.5.2 / normal / 実行確認あり
 
 vpi_get(vpiAssertFailureCovered,assertion_handle) returns the number of failures.
 
@@ -114886,7 +114887,7 @@ vpi_get(vpiAssertFailureCovered,assertion_handle) returns the number of failures
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTKILLCOVERED
 
-40.5.2 / normal / テスト対応あり・実行未確認
+40.5.2 / normal / 実行確認あり
 
 vpi_get(vpiAssertKillCovered,assertion_handle) returns the number of killed attempts.
 
@@ -114898,7 +114899,7 @@ vpi_get(vpiAssertKillCovered,assertion_handle) returns the number of killed atte
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTSUCCESSCOVERED
 
-40.5.2 / normal / テスト対応あり・実行未確認
+40.5.2 / normal / 実行確認あり
 
 vpi_get(vpiAssertSuccessCovered,assertion_handle) returns the number of nonvacuous successes, or matches for a cover sequence.
 
@@ -114910,7 +114911,7 @@ vpi_get(vpiAssertSuccessCovered,assertion_handle) returns the number of nonvacuo
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTVACUOUSSUCCESSCOVERED
 
-40.5.2 / normal / テスト対応あり・実行未確認
+40.5.2 / normal / 実行確認あり
 
 vpi_get(vpiAssertVacuousSuccessCovered,assertion_handle) returns the number of vacuous successes.
 
@@ -115118,7 +115119,7 @@ A non-ANSI module declaration uses its header, optional initial timeunits declar
 
 ### SV2023-A.1.2-EXTRACT-DECL-MODULE-WILDCARD
 
-A.1.2 / normal / テスト対応あり・実行未確認
+A.1.2 / normal / 実行確認あり
 
 A wildcard-port module declaration has attributes, module/macromodule keyword, optional lifetime, identifier, literal (.*) and semicolon, optional timeunits and repeated module items, endmodule and optional colon end-name.
 
@@ -115286,7 +115287,7 @@ An extern interface declaration is extern followed by its non-ANSI header, with 
 
 ### SV2023-A.1.2-EXTRACT-EXTERN-MODULE-ANSI
 
-A.1.2 / normal / テスト対応あり・実行未確認
+A.1.2 / normal / 実行確認あり
 
 An extern module declaration is extern followed by its ANSI header, with no body/end keyword.
 
@@ -115298,7 +115299,7 @@ An extern module declaration is extern followed by its ANSI header, with no body
 
 ### SV2023-A.1.2-EXTRACT-EXTERN-MODULE-NON-ANSI
 
-A.1.2 / normal / テスト対応あり・実行未確認
+A.1.2 / normal / 実行確認あり
 
 An extern module declaration is extern followed by its non-ANSI header, with no body/end keyword.
 
@@ -115780,7 +115781,7 @@ module_common_item permits a interface instantiation.
 
 ### SV2023-A.1.4-EXTRACT-COMMON-ITEM-70
 
-A.1.4 / normal / テスト対応あり・実行未確認
+A.1.4 / normal / 実行確認あり
 
 module_common_item permits a program instantiation.
 
@@ -115792,7 +115793,7 @@ module_common_item permits a program instantiation.
 
 ### SV2023-A.1.4-EXTRACT-COMMON-ITEM-71
 
-A.1.4 / normal / テスト対応あり・実行未確認
+A.1.4 / normal / 実行確認あり
 
 module_common_item permits a assertion item.
 
@@ -116011,7 +116012,7 @@ A module/generate item permits zero or more attributes before a module common it
 
 ### SV2023-A.1.4-EXTRACT-MODULE-DECLARATION-ITEMS
 
-A.1.4 / normal / テスト対応あり・実行未確認
+A.1.4 / normal / 実行確認あり
 
 module_or_generate_item_declaration permits package/generate item declarations, genvar/clocking declarations, default clocking identifier semicolon, or default disable iff expression_or_dist semicolon.
 
@@ -116023,7 +116024,7 @@ module_or_generate_item_declaration permits package/generate item declarations, 
 
 ### SV2023-A.1.4-EXTRACT-MODULE-ITEM
 
-A.1.4 / normal / テスト対応あり・実行未確認
+A.1.4 / normal / 実行確認あり
 
 A module item is a semicolon-terminated port declaration or non-port module item.
 
@@ -116035,7 +116036,7 @@ A module item is a semicolon-terminated port declaration or non-port module item
 
 ### SV2023-A.1.4-EXTRACT-NONPORT-ITEM-88
 
-A.1.4 / normal / テスト対応あり・実行未確認
+A.1.4 / normal / 実行確認あり
 
 non_port_module_item permits generate region.
 
@@ -116059,7 +116060,7 @@ non_port_module_item permits module/generate item.
 
 ### SV2023-A.1.4-EXTRACT-NONPORT-ITEM-90
 
-A.1.4 / normal / テスト対応あり・実行未確認
+A.1.4 / normal / 実行確認あり
 
 non_port_module_item permits specify block.
 
@@ -116071,7 +116072,7 @@ non_port_module_item permits specify block.
 
 ### SV2023-A.1.4-EXTRACT-NONPORT-ITEM-91
 
-A.1.4 / normal / テスト対応あり・実行未確認
+A.1.4 / normal / 実行確認あり
 
 non_port_module_item permits attributed specparam declaration.
 
@@ -116083,7 +116084,7 @@ non_port_module_item permits attributed specparam declaration.
 
 ### SV2023-A.1.4-EXTRACT-NONPORT-ITEM-92
 
-A.1.4 / normal / テスト対応あり・実行未確認
+A.1.4 / normal / 実行確認あり
 
 non_port_module_item permits program declaration.
 
@@ -116095,7 +116096,7 @@ non_port_module_item permits program declaration.
 
 ### SV2023-A.1.4-EXTRACT-NONPORT-ITEM-93
 
-A.1.4 / normal / テスト対応あり・実行未確認
+A.1.4 / normal / 実行確認あり
 
 non_port_module_item permits module declaration.
 
@@ -116107,7 +116108,7 @@ non_port_module_item permits module declaration.
 
 ### SV2023-A.1.4-EXTRACT-NONPORT-ITEM-94
 
-A.1.4 / normal / テスト対応あり・実行未確認
+A.1.4 / normal / 実行確認あり
 
 non_port_module_item permits interface declaration.
 
@@ -116897,7 +116898,7 @@ A class method may be pure virtual followed by repeated class-item qualifiers,me
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-BLOCK
 
-A.1.10 / normal / テスト対応あり・実行未確認
+A.1.10 / normal / 実行確認あり
 
 A constraint block is a brace-delimited zero-or-more list of constraint-block items; each item is solve-before or constraint expression.
 
@@ -116921,7 +116922,7 @@ A constraint declaration has optional static,constraint,optional dynamic-overrid
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-EXPR-DISABLE-SOFT
 
-A.1.10 / normal / テスト対応あり・実行未確認
+A.1.10 / normal / 実行確認あり
 
 A constraint expression permits disable soft constraint_primary and semicolon.
 
@@ -116933,7 +116934,7 @@ A constraint expression permits disable soft constraint_primary and semicolon.
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-EXPR-FOREACH
 
-A.1.10 / normal / テスト対応あり・実行未確認
+A.1.10 / normal / 実行確認あり
 
 A constraint expression permits foreach with parenthesized array identifier and bracketed loop variables,then constraint_set.
 
@@ -116945,7 +116946,7 @@ A constraint expression permits foreach with parenthesized array identifier and 
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-EXPR-IF
 
-A.1.10 / normal / テスト対応あり・実行未確認
+A.1.10 / normal / 実行確認あり
 
 A constraint expression permits if with parenthesized expression,constraint_set,and optional else constraint_set.
 
@@ -116957,7 +116958,7 @@ A constraint expression permits if with parenthesized expression,constraint_set,
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-EXPR-IMPLICATION
 
-A.1.10 / normal / テスト対応あり・実行未確認
+A.1.10 / normal / 実行確認あり
 
 A constraint expression permits expression followed by implication arrow and constraint_set.
 
@@ -116969,7 +116970,7 @@ A constraint expression permits expression followed by implication arrow and con
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-EXPR-SOFT-EXPRESSION
 
-A.1.10 / normal / テスト対応あり・実行未確認
+A.1.10 / normal / 実行確認あり
 
 A constraint expression permits optional soft followed by expression_or_dist and semicolon.
 
@@ -116981,7 +116982,7 @@ A constraint expression permits optional soft followed by expression_or_dist and
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-EXPR-UNIQUE
 
-A.1.10 / normal / テスト対応あり・実行未確認
+A.1.10 / normal / 実行確認あり
 
 A constraint expression permits uniqueness_constraint and semicolon.
 
@@ -117017,7 +117018,7 @@ A prototype has optional extern/pure qualifier,optional static,constraint,option
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-SET
 
-A.1.10 / normal / テスト対応あり・実行未確認
+A.1.10 / normal / 実行確認あり
 
 A constraint set is one constraint expression or braces containing zero or more constraint expressions.
 
@@ -117029,7 +117030,7 @@ A constraint set is one constraint expression or braces containing zero or more 
 
 ### SV2023-A.1.10-EXTRACT-DISTRIBUTION-ITEMS
 
-A.1.10 / normal / テスト対応あり・実行未確認
+A.1.10 / normal / 実行確認あり
 
 A distribution item is a value range with optional weight or default :/ expression; items are comma-separated. Weights are := expression or :/ expression.
 
@@ -117041,7 +117042,7 @@ A distribution item is a value range with optional weight or default :/ expressi
 
 ### SV2023-A.1.10-EXTRACT-EXPRESSION-DISTRIBUTION
 
-A.1.10 / normal / テスト対応あり・実行未確認
+A.1.10 / normal / 実行確認あり
 
 expression_or_dist is an expression optionally followed by dist and a brace-delimited nonempty distribution list.
 
@@ -117065,7 +117066,7 @@ An extern constraint definition has optional static,constraint,optional dynamic-
 
 ### SV2023-A.1.10-EXTRACT-SOLVE-BEFORE
 
-A.1.10 / normal / テスト対応あり・実行未確認
+A.1.10 / normal / 実行確認あり
 
 A solve-before item has solve,comma-separated one-or-more constraint primaries,before,another such list,and semicolon.
 
@@ -117077,7 +117078,7 @@ A solve-before item has solve,comma-separated one-or-more constraint primaries,b
 
 ### SV2023-A.1.10-EXTRACT-UNIQUENESS
 
-A.1.10 / normal / テスト対応あり・実行未確認
+A.1.10 / normal / 実行確認あり
 
 A uniqueness constraint is unique followed by a brace-delimited range list subject to clarification 13.
 
@@ -117161,7 +117162,7 @@ An anonymous-program item may be class constructor declaration.
 
 ### SV2023-A.1.11-EXTRACT-ANONYMOUS-ITEM-98
 
-A.1.11 / normal / テスト対応あり・実行未確認
+A.1.11 / normal / 実行確認あり
 
 An anonymous-program item may be empty semicolon.
 
@@ -117449,7 +117450,7 @@ The input port declaration permits input net-port type and port-identifier list,
 
 ### SV2023-A.2.1.2-EXTRACT-INTERFACE
 
-A.2.1.2 / normal / テスト対応あり・実行未確認
+A.2.1.2 / normal / 実行確認あり
 
 The interface port declaration permits interface identifier, optional dot modport identifier, and interface-identifier list.
 
@@ -117497,7 +117498,7 @@ A built-in net declaration has net type, optional drive/charge strength, optiona
 
 ### SV2023-A.2.1.3-EXTRACT-DATA-VARIABLE
 
-A.2.1.3 / normal / テスト対応あり・実行未確認
+A.2.1.3 / normal / 実行確認あり
 
 A variable data declaration has optional const, var and lifetime, data type or implicit type, variable-declaration assignments and semicolon, subject to A.10(14).
 
@@ -117569,7 +117570,7 @@ An interconnect declaration has implicit data type, optional # delay value, firs
 
 ### SV2023-A.2.1.3-EXTRACT-LIFETIME
 
-A.2.1.3 / normal / テスト対応あり・実行未確認
+A.2.1.3 / normal / 実行確認あり
 
 Lifetime is static or automatic.
 
@@ -117630,7 +117631,7 @@ A user-defined net declaration has nettype identifier, optional delay control, n
 
 ### SV2023-A.2.2.1-EXTRACT-CASTING-TYPE
 
-A.2.2.1 / normal / テスト対応あり・実行未確認
+A.2.2.1 / normal / 実行確認あり
 
 A casting type is simple type, constant primary, signing, string or const.
 
@@ -117642,7 +117643,7 @@ A casting type is simple type, constant primary, signing, string or const.
 
 ### SV2023-A.2.2.1-EXTRACT-CLASS-SCOPE
 
-A.2.2.1 / normal / テスト対応あり・実行未確認
+A.2.2.1 / normal / 実行確認あり
 
 A class scope is class type followed by ::; class type starts package-scoped class identifier with optional parameter assignment and permits repeated :: class identifiers each optionally parameterized; interface-class type permits only the initial such form.
 
@@ -117666,7 +117667,7 @@ A data type permits chandle.
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-CLASS
 
-A.2.2.1 / normal / テスト対応あり・実行未確認
+A.2.2.1 / normal / 実行確認あり
 
 A data type permits class type.
 
@@ -117738,7 +117739,7 @@ A data type permits integer-vector type, optional signing and repeated packed di
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-NAMED
 
-A.2.2.1 / normal / テスト対応あり・実行未確認
+A.2.2.1 / normal / 実行確認あり
 
 A data type permits optionally class/package-scoped type identifier with repeated packed dimensions.
 
@@ -117786,7 +117787,7 @@ A data type permits struct/union keyword form, optional packed with optional sig
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-TYPE-REFERENCE
 
-A.2.2.1 / normal / テスト対応あり・実行未確認
+A.2.2.1 / normal / 実行確認あり
 
 A data type permits type reference subject to clarification 18.
 
@@ -117846,7 +117847,7 @@ A data-type-or-implicit is a data type or implicit type; implicit type consists 
 
 ### SV2023-A.2.2.1-EXTRACT-INCOMPLETE-SCOPED
 
-A.2.2.1 / normal / テスト対応あり・実行未確認
+A.2.2.1 / normal / 実行確認あり
 
 An incomplete class-scoped type starts type identifier :: type identifier or class type and recursively appends :: type identifier or class type; data-or-incomplete permits it or data type.
 
@@ -117870,7 +117871,7 @@ Integer type is integer-vector or integer-atom type.
 
 ### SV2023-A.2.2.1-EXTRACT-MEMBER
 
-A.2.2.1 / normal / テスト対応あり・実行未確認
+A.2.2.1 / normal / 実行確認あり
 
 A structure/union member has repeated attributes, optional random qualifier, data type or void, variable-assignment list and semicolon, subject to clarification 20.
 
@@ -117894,7 +117895,7 @@ A net-port type is optional built-in net type plus data type/implicit type, nett
 
 ### SV2023-A.2.2.1-EXTRACT-SIMPLE-TYPE
 
-A.2.2.1 / normal / テスト対応あり・実行未確認
+A.2.2.1 / normal / 実行確認あり
 
 Simple type is integer type, noninteger type, package-scoped type identifier or package-scoped parameter identifier.
 
@@ -117906,7 +117907,7 @@ Simple type is integer type, noninteger type, package-scoped type identifier or 
 
 ### SV2023-A.2.2.1-EXTRACT-STRUCT-UNION-KEYWORDS
 
-A.2.2.1 / normal / テスト対応あり・実行未確認
+A.2.2.1 / normal / 実行確認あり
 
 A struct/union keyword form is struct, or union optionally followed by soft or tagged.
 
@@ -117918,7 +117919,7 @@ A struct/union keyword form is struct, or union optionally followed by soft or t
 
 ### SV2023-A.2.2.1-EXTRACT-TYPE-REFERENCE
 
-A.2.2.1 / normal / テスト対応あり・実行未確認
+A.2.2.1 / normal / 実行確認あり
 
 A type reference is type with parenthesized expression subject to clarification 21, or parenthesized data/incomplete-class-scoped type.
 
@@ -117942,7 +117943,7 @@ ATOM type/qualifier alternatives are byte, shortint, int, longint, integer, time
 
 ### SV2023-A.2.2.1-EXTRACT-TYPE-SET-NET
 
-A.2.2.1 / normal / テスト対応あり・実行未確認
+A.2.2.1 / normal / 実行確認あり
 
 NET type/qualifier alternatives are supply0, supply1, tri, triand, trior, trireg, tri0, tri1, uwire, wire, wand, wor.
 
@@ -118123,7 +118124,7 @@ delay3 is # delay value or # parenthesized one to three comma-separated mintypma
 
 ### SV2023-A.2.3-EXTRACT-DIM-LIST-70
 
-A.2.3 / normal / テスト対応あり・実行未確認
+A.2.3 / normal / 実行確認あり
 
 The list of interface identifiers is nonempty and comma-separated; each entry has a interface identifier, zero or more unpacked dimensions.
 
@@ -118182,7 +118183,7 @@ The list of variable port identifiers is nonempty and comma-separated; each entr
 
 ### SV2023-A.2.3-EXTRACT-LIST-62
 
-A.2.3 / normal / テスト対応あり・実行未確認
+A.2.3 / normal / 実行確認あり
 
 The list of defparam assignments is one or more comma-separated defparam assignment entries.
 
@@ -118302,7 +118303,7 @@ Class new is optionally class-scoped new with optional parenthesized argument li
 
 ### SV2023-A.2.4-EXTRACT-DEFPARAM
 
-A.2.4 / normal / テスト対応あり・実行未確認
+A.2.4 / normal / 実行確認あり
 
 A defparam assignment is hierarchical parameter identifier = constant mintypmax expression.
 
@@ -118338,7 +118339,7 @@ A parameter assignment has identifier, repeated variable dimensions and optional
 
 ### SV2023-A.2.4-EXTRACT-PULSE
 
-A.2.4 / normal / テスト対応あり・実行未確認
+A.2.4 / normal / 実行確認あり
 
 PATHPULSE$ optionally followed by specify input/output descriptors separated by dollar signs is assigned parenthesized reject limit and optional comma error limit; both limits are constant mintypmax expressions.
 
@@ -118350,7 +118351,7 @@ PATHPULSE$ optionally followed by specify input/output descriptors separated by 
 
 ### SV2023-A.2.4-EXTRACT-SPECPARAM
 
-A.2.4 / normal / テスト対応あり・実行未確認
+A.2.4 / normal / 実行確認あり
 
 A specparam assignment is identifier = constant mintypmax expression, or pulse-control specparam.
 
@@ -118611,7 +118612,7 @@ Override specifiers permit optional :initial or :extends, followed by optional :
 
 ### SV2023-A.2.7-EXTRACT-PROTOTYPE
 
-A.2.7 / normal / テスト対応あり・実行未確認
+A.2.7 / normal / 実行確認あり
 
 A task prototype is task, optional override specifiers subject to clarification 25, identifier and optional parentheses with optional tf-port list.
 
@@ -118787,7 +118788,7 @@ sync_reject_on requires parenthesized expression_or_dist followed by property ex
 
 ### SV2023-A.2.10-EXTRACT-ALWAYS
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 always permits a property with optional bracketed cycle-delay range; s_always requires bracketed constant range.
 
@@ -118799,7 +118800,7 @@ always permits a property with optional bracketed cycle-delay range; s_always re
 
 ### SV2023-A.2.10-EXTRACT-ASSERT
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 assert property uses parenthesized property specification followed by action block.
 
@@ -118835,7 +118836,7 @@ Assertion-variable declarations are variable data type, variable-declaration-ass
 
 ### SV2023-A.2.10-EXTRACT-ASSUME
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 assume property uses parenthesized property specification followed by action block.
 
@@ -118860,7 +118861,7 @@ A concurrent assertion item is optionally labeled concurrent assertion statement
 
 ### SV2023-A.2.10-EXTRACT-COVER
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 cover property uses parenthesized property specification followed by statement or null.
 
@@ -118872,7 +118873,7 @@ cover property uses parenthesized property specification followed by statement o
 
 ### SV2023-A.2.10-EXTRACT-COVER-SEQUENCE
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 cover sequence uses parentheses with optional clocking event, optional disable iff(expression_or_dist), and sequence expression, followed by statement/null; concurrent statement alternatives include this and assert/assume/cover/restrict property.
 
@@ -118896,7 +118897,7 @@ Cycle delay is ## constant primary, ## bracketed cycle-delay range, ##\[*\] or #
 
 ### SV2023-A.2.10-EXTRACT-EVENTUALLY
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 s_eventually permits property with optional bracketed cycle-delay range; eventually requires bracketed constant range.
 
@@ -118908,7 +118909,7 @@ s_eventually permits property with optional bracketed cycle-delay range; eventua
 
 ### SV2023-A.2.10-EXTRACT-EXPECT
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 expect uses parenthesized property specification followed by action block.
 
@@ -118932,7 +118933,7 @@ first_match takes a parenthesized sequence and zero or more comma match items.
 
 ### SV2023-A.2.10-EXTRACT-IF-CASE
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 Property expressions permit if(expression_or_dist) property with optional else property, or case(expression_or_dist), one or more property-case items and endcase; each case item is expression-or-dist list colon property semicolon, or default optional colon property semicolon.
 
@@ -118944,7 +118945,7 @@ Property expressions permit if(expression_or_dist) property with optional else p
 
 ### SV2023-A.2.10-EXTRACT-IMPLICATION-31
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 A property expression permits sequence expression |-> property expression.
 
@@ -118956,7 +118957,7 @@ A property expression permits sequence expression |-> property expression.
 
 ### SV2023-A.2.10-EXTRACT-IMPLICATION-32
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 A property expression permits sequence expression |=> property expression.
 
@@ -118968,7 +118969,7 @@ A property expression permits sequence expression |=> property expression.
 
 ### SV2023-A.2.10-EXTRACT-IMPLICATION-33
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 A property expression permits sequence expression #-# property expression.
 
@@ -118980,7 +118981,7 @@ A property expression permits sequence expression #-# property expression.
 
 ### SV2023-A.2.10-EXTRACT-IMPLICATION-34
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 A property expression permits sequence expression #=# property expression.
 
@@ -119003,7 +119004,7 @@ A sequence-method call is sequence instance dot method identifier; a match item 
 
 ### SV2023-A.2.10-EXTRACT-NOT
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 Property expression permits not followed by property expression.
 
@@ -119051,7 +119052,7 @@ Property instance is package-scoped or hierarchical property identifier optional
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-AND
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 A property expression permits binary property and property.
 
@@ -119063,7 +119064,7 @@ A property expression permits binary property and property.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-IFF
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 A property expression permits binary property iff property.
 
@@ -119075,7 +119076,7 @@ A property expression permits binary property iff property.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-IMPLIES
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 A property expression permits binary property implies property.
 
@@ -119087,7 +119088,7 @@ A property expression permits binary property implies property.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-OR
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 A property expression permits binary property or property.
 
@@ -119099,7 +119100,7 @@ A property expression permits binary property or property.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-S-UNTIL
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 A property expression permits binary property s_until property.
 
@@ -119111,7 +119112,7 @@ A property expression permits binary property s_until property.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-S-UNTIL-WITH
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 A property expression permits binary property s_until_with property.
 
@@ -119123,7 +119124,7 @@ A property expression permits binary property s_until_with property.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-UNTIL
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 A property expression permits binary property until property.
 
@@ -119135,7 +119136,7 @@ A property expression permits binary property until property.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-UNTIL-WITH
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 A property expression permits binary property until_with property.
 
@@ -119194,7 +119195,7 @@ Property expression permits sequence expression.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-SPEC
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 Property specification has optional clocking event, optional disable iff(expression_or_dist), then property expression.
 
@@ -119253,7 +119254,7 @@ Boolean abbreviations allow consecutive, nonconsecutive and goto repetition; seq
 
 ### SV2023-A.2.10-EXTRACT-RESTRICT
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 restrict property uses parenthesized property specification followed by semicolon.
 
@@ -119372,7 +119373,7 @@ Sequence expression permits binary sequence within sequence.
 
 ### SV2023-A.2.10-EXTRACT-TEMP-NEXTTIME
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 nexttime permits a property expression with or without preceding bracketed constant-expression delay.
 
@@ -119384,7 +119385,7 @@ nexttime permits a property expression with or without preceding bracketed const
 
 ### SV2023-A.2.10-EXTRACT-TEMP-S-NEXTTIME
 
-A.2.10 / normal / テスト対応あり・実行未確認
+A.2.10 / normal / 実行確認あり
 
 s_nexttime permits a property expression with or without preceding bracketed constant-expression delay.
 
@@ -119779,7 +119780,7 @@ A let expression is optionally package-scoped identifier and optional parenthese
 
 ### SV2023-A.2.12-EXTRACT-LET-PORTS
 
-A.2.12 / normal / テスト対応あり・実行未確認
+A.2.12 / normal / 実行確認あり
 
 Let ports form a nonempty comma-separated list of attributed data/implicit/untyped formals, identifiers, variable dimensions and optional expression defaults.
 
@@ -120031,7 +120032,7 @@ Enable, input, ncontrol and pcontrol terminals are expressions; output and inout
 
 ### SV2023-A.3.4-EXTRACT-TYPES-CMOS
 
-A.3.4 / normal / テスト対応あり・実行未確認
+A.3.4 / normal / 実行確認あり
 
 CMOS primitive types are cmos, rcmos.
 
@@ -120056,7 +120057,7 @@ ENABLE primitive types are bufif0, bufif1, notif0, notif1.
 
 ### SV2023-A.3.4-EXTRACT-TYPES-MOS
 
-A.3.4 / normal / テスト対応あり・実行未確認
+A.3.4 / normal / 実行確認あり
 
 MOS primitive types are nmos, pmos, rnmos, rpmos.
 
@@ -120129,7 +120130,7 @@ Hierarchical instance is instance name and parentheses with optional port connec
 
 ### SV2023-A.4.1.1-EXTRACT-MODULE
 
-A.4.1.1 / normal / テスト対応あり・実行未確認
+A.4.1.1 / normal / 実行確認あり
 
 A module instantiation has module identifier, optional parameter-value assignment, nonempty comma-separated hierarchical instances and semicolon.
 
@@ -120141,7 +120142,7 @@ A module instantiation has module identifier, optional parameter-value assignmen
 
 ### SV2023-A.4.1.1-EXTRACT-PARAMETERS
 
-A.4.1.1 / normal / テスト対応あり・実行未確認
+A.4.1.1 / normal / 実行確認あり
 
 Parameter-value assignment is # with parentheses containing optional parameter assignments; a nonempty list uses either ordered parameter expressions or named .parameter(optional parameter expression), without mixing the two forms.
 
@@ -120153,7 +120154,7 @@ Parameter-value assignment is # with parentheses containing optional parameter a
 
 ### SV2023-A.4.1.1-EXTRACT-PORTS
 
-A.4.1.1 / normal / テスト対応あり・実行未確認
+A.4.1.1 / normal / 実行確認あり
 
 Port connections form a nonempty comma-separated list of either ordered or named connections, with at most one wildcard under clarification 34; ordered entries allow attributes and optional expression, named entries allow attributes and .identifier with optional parentheses containing optional expression, or .*.
 
@@ -120297,7 +120298,7 @@ A UDP declaration uses non-ANSI header with one or more port declarations or ANS
 
 ### SV2023-A.5.1-EXTRACT-UDP-EXTERN
 
-A.5.1 / normal / テスト対応あり・実行未確認
+A.5.1 / normal / 実行確認あり
 
 UDP extern declarations allow extern followed by ANSI or non-ANSI header.
 
@@ -120321,7 +120322,7 @@ UDP headers permit repeated attributes then primitive identifier, parenthesized 
 
 ### SV2023-A.5.1-EXTRACT-UDP-WILDCARD
 
-A.5.1 / normal / テスト対応あり・実行未確認
+A.5.1 / normal / 実行確認あり
 
 Wildcard UDP declaration uses attributed primitive identifier(.*);, zero or more UDP port declarations, body, endprimitive and optional identifier label.
 
@@ -120429,7 +120430,7 @@ Output symbols are 0,1,x,X; level symbols add ?,b,B; edge symbols are r,R,f,F,p,
 
 ### SV2023-A.5.4-EXTRACT-INSTANTIATION
 
-A.5.4 / normal / テスト対応あり・実行未確認
+A.5.4 / normal / 実行確認あり
 
 UDP instantiation uses identifier, optional drive strength, optional delay2, nonempty comma-separated UDP instances and semicolon; each instance has optional name and parentheses containing output then one or more inputs.
 
@@ -120849,7 +120850,7 @@ Statement items permit randcase statement.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-34
 
-A.6.4 / normal / テスト対応あり・実行未確認
+A.6.4 / normal / 実行確認あり
 
 Statement items permit expect-property statement.
 
@@ -120945,7 +120946,7 @@ Jump statements are return with optional expression, break or continue, each wit
 
 ### SV2023-A.6.5-EXTRACT-TRIGGER
 
-A.6.5 / normal / テスト対応あり・実行未確認
+A.6.5 / normal / 実行確認あり
 
 An event trigger is -> selected hierarchical event identifier semicolon, or ->> with optional delay/event control before selected hierarchical event identifier semicolon; selection is nonrange.
 
@@ -120957,7 +120958,7 @@ An event trigger is -> selected hierarchical event identifier semicolon, or ->> 
 
 ### SV2023-A.6.5-EXTRACT-WAIT
 
-A.6.5 / normal / テスト対応あり・実行未確認
+A.6.5 / normal / 実行確認あり
 
 Wait statements permit wait(expression) statement/null, wait fork semicolon, or wait_order(nonempty comma-separated hierarchical identifiers) action block.
 
@@ -120982,7 +120983,7 @@ Conditional statement has optional unique/unique0/priority, if(predicate) statem
 
 ### SV2023-A.6.6-EXTRACT-PREDICATE
 
-A.6.6 / normal / テスト対応あり・実行未確認
+A.6.6 / normal / 実行確認あり
 
 A conditional predicate has one or more expression-or-pattern terms joined by &&&; pattern term is expression matches pattern.
 
@@ -121068,7 +121069,7 @@ Structure keys are member identifier or assignment-pattern key; array keys are c
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-CONSTANT
 
-A.6.7.1 / normal / テスト対応あり・実行未確認
+A.6.7.1 / normal / 実行確認あり
 
 A matching pattern permits constant expression.
 
@@ -121092,7 +121093,7 @@ Assignment-pattern net/variable lvalues use apostrophe braces containing nonempt
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-NAMED
 
-A.6.7.1 / normal / テスト対応あり・実行未確認
+A.6.7.1 / normal / 実行確認あり
 
 A matching pattern permits apostrophe braces containing nonempty comma-separated member identifier colon pattern entries.
 
@@ -121104,7 +121105,7 @@ A matching pattern permits apostrophe braces containing nonempty comma-separated
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-PAREN
 
-A.6.7.1 / normal / テスト対応あり・実行未確認
+A.6.7.1 / normal / 実行確認あり
 
 A matching pattern permits parenthesized pattern.
 
@@ -121116,7 +121117,7 @@ A matching pattern permits parenthesized pattern.
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-POSITIONAL
 
-A.6.7.1 / normal / テスト対応あり・実行未確認
+A.6.7.1 / normal / 実行確認あり
 
 A matching pattern permits apostrophe braces containing nonempty comma-separated patterns.
 
@@ -121128,7 +121129,7 @@ A matching pattern permits apostrophe braces containing nonempty comma-separated
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-TAGGED
 
-A.6.7.1 / normal / テスト対応あり・実行未確認
+A.6.7.1 / normal / 実行確認あり
 
 A matching pattern permits tagged member identifier with optional nested pattern.
 
@@ -121152,7 +121153,7 @@ Assignment-pattern expression has optional package-scoped type identifier, packa
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-VARIABLE
 
-A.6.7.1 / normal / テスト対応あり・実行未確認
+A.6.7.1 / normal / 実行確認あり
 
 A matching pattern permits dot variable identifier.
 
@@ -121164,7 +121165,7 @@ A matching pattern permits dot variable identifier.
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-WILDCARD
 
-A.6.7.1 / normal / テスト対応あり・実行未確認
+A.6.7.1 / normal / 実行確認あり
 
 A matching pattern permits .*.
 
@@ -122035,7 +122036,7 @@ Controlled reference event is controlled timing-check event; data/reference even
 
 ### SV2023-A.7.5.3-EXTRACT-CONDITION
 
-A.7.5.3 / normal / テスト対応あり・実行未確認
+A.7.5.3 / normal / 実行確認あり
 
 Timing-check condition optionally parenthesizes scalar condition; scalar condition is expression, ~expression,or expression followed by ==,===,!=,!== and scalar constant.
 
@@ -122071,7 +122072,7 @@ Timing-check event is optional event control then specify terminal descriptor wi
 
 ### SV2023-A.7.5.3-EXTRACT-SCALAR-CONSTANT
 
-A.7.5.3 / normal / テスト対応あり・実行未確認
+A.7.5.3 / normal / 実行確認あり
 
 Scalar timing constants permit 0/1, sized one-bit binary 0/1 and unsized binary 0/1, with either case for B.
 
@@ -122416,7 +122417,7 @@ Module-path expression permits module-path primary, unary module-path operator w
 
 ### SV2023-A.8.3-EXTRACT-PARAMETER
 
-A.8.3 / normal / テスト対応あり・実行未確認
+A.8.3 / normal / 実行確認あり
 
 Constant parameter expression is constant mintypmax, data type or dollar; parameter expression is ordinary mintypmax, data type or dollar.
 
@@ -122617,7 +122618,7 @@ A constant primary may be constant assignment pattern expression.
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-43
 
-A.8.4 / normal / テスト対応あり・実行未確認
+A.8.4 / normal / 実行確認あり
 
 A constant primary may be type reference subject to clarification 45.
 
@@ -122772,7 +122773,7 @@ A primary may be parenthesized mintypmax expression.
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-54
 
-A.8.4 / normal / テスト対応あり・実行未確認
+A.8.4 / normal / 実行確認あり
 
 A primary may be cast.
 
@@ -123064,7 +123065,7 @@ Unbased unsized literal is apostrophe followed by 0,1,x/X or z/Z with no interve
 
 ### SV2023-A.8.8-EXTRACT-ITEMS
 
-A.8.8 / normal / テスト対応あり・実行未確認
+A.8.8 / normal / 実行確認あり
 
 Ordinary quoted items exclude backslash,newline and double quote; triple-quoted items exclude backslash. Escapes are backslash ASCII character, one-to-three-digit octal, or x followed by one-to-two-digit hexadecimal.
 
@@ -123653,7 +123654,7 @@ The identifier category net_identifier uses identifier grammar.
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-NETTYPE-IDENTIFIER
 
-A.9.3 / normal / テスト対応あり・実行未確認
+A.9.3 / normal / 実行確認あり
 
 The identifier category nettype_identifier uses identifier grammar.
 
@@ -124099,7 +124100,7 @@ An import statement cannot appear directly in class scope.
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-16
 
-A.10 / normal / テスト対応あり・実行未確認
+A.10 / normal / 実行確認あり
 
 Charge strength requires trireg; vectored/scalared requires at least one packed dimension.
 
@@ -124123,7 +124124,7 @@ A struct with packed dimensions requires packed; a union with packed dimensions 
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-18
 
-A.10 / normal / テスト対応あり・実行未確認
+A.10 / normal / 実行確認あり
 
 A type-reference net declaration requires an explicit net-type keyword; a type-reference variable declaration requires var.
 
@@ -124171,7 +124172,7 @@ A void struct/union member is permitted only in a tagged union; a random qualifi
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-21
 
-A.10 / normal / テスト対応あり・実行未確認
+A.10 / normal / 実行確認あり
 
 A type-reference argument expression cannot contain hierarchical references or references to dynamic-object elements.
 
@@ -124231,7 +124232,7 @@ Dynamic override specifiers are legal only on method declarations inside non-int
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-26
 
-A.10 / normal / テスト対応あり・実行未確認
+A.10 / normal / 実行確認あり
 
 A DPI function prototype return type must be a small value under 35.5.5.
 
@@ -124254,7 +124255,7 @@ DPI function/task formal arguments cannot use ref or class types and must meet 3
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-28
 
-A.10 / normal / テスト対応あり・実行未確認
+A.10 / normal / 実行確認あり
 
 Omitting an explicit tf-port identifier is allowed only in a function or task prototype.
 
@@ -124396,7 +124397,7 @@ Embedded spaces are illegal at the grammar sites marked by footnote 38.
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-39
 
-A.10 / normal / テスト対応あり・実行未確認
+A.10 / normal / 実行確認あり
 
 A multiple-concatenation multiplier must be constant unless the concatenation type is string.
 
@@ -124480,7 +124481,7 @@ A genvar identifier is permitted as a constant primary only inside loop generate
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-45
 
-A.10 / normal / テスト対応あり・実行未確認
+A.10 / normal / 実行確認あり
 
 A type-reference constant primary can be a static-cast casting type; its only allowed operators are equality/inequality and case equality/inequality.
 
@@ -127660,7 +127661,7 @@ Under the IEEE 1800-2023 keyword set, xor is a reserved keyword: it cannot be us
 
 ### SV2023-C.2.2-EXTRACT-SAMPLED-CLOCKLESS
 
-C.2.2 / normal / テスト対応あり・実行未確認
+C.2.2 / normal / 実行確認あり
 
 The current $sampled semantics do not depend on a clocking event; the former clocking-event argument is removed from current standard syntax.
 
@@ -130937,7 +130938,7 @@ Every graph cycle must have strictly positive total edge weight.
 
 ### SV2023-G.1-EXTRACT-CONTENTS
 
-G.1 / normal / テスト対応あり・実行未確認
+G.1 / normal / 実行確認あり
 
 The standard built-in package includes semaphore,mailbox,randomize,process and weak-reference facilities.
 
@@ -130949,7 +130950,7 @@ The standard built-in package includes semaphore,mailbox,randomize,process and w
 
 ### SV2023-G.2-EXTRACT-SYSTEM-TYPES
 
-G.2 / normal / テスト対応あり・実行未確認
+G.2 / normal / 実行確認あり
 
 The std built-in package provides system types with semantics in the referenced clauses.
 
@@ -131256,7 +131257,7 @@ std process exposes function void suspend().
 
 ### SV2023-G.7-EXTRACT-CLEAR
 
-G.7 / normal / テスト対応あり・実行未確認
+G.7 / normal / 実行確認あり
 
 std weak_reference exposes function void clear().
 
@@ -131268,7 +131269,7 @@ std weak_reference exposes function void clear().
 
 ### SV2023-G.7-EXTRACT-GET
 
-G.7 / normal / テスト対応あり・実行未確認
+G.7 / normal / 実行確認あり
 
 std weak_reference exposes function T get().
 
@@ -131291,7 +131292,7 @@ std weak_reference exposes static function longint get_id(T obj).
 
 ### SV2023-G.7-EXTRACT-NEW
 
-G.7 / normal / テスト対応あり・実行未確認
+G.7 / normal / 実行確認あり
 
 std weak_reference exposes constructor new(T referent).
 
@@ -131371,7 +131372,7 @@ Normative svdpi.h defines basic types,canonical representations and interface fu
 
 ### SV2023-H.2-EXTRACT-MATCHING-TYPES
 
-H.2 / normal / テスト対応あり・実行未確認
+H.2 / normal / 実行確認あり
 
 Cross-boundary values are SV types on SV side and matching C types on C side; user must supply matching definitions, optionally generated by tools.
 
@@ -131394,7 +131395,7 @@ Only imports can have open-array formals; all actual packed dimensions collectiv
 
 ### SV2023-H.2-EXTRACT-PASSING
 
-H.2 / normal / テスト対応あり・実行未確認
+H.2 / normal / 実行確認あり
 
 Only small input values pass by value; other nonopen formals use direct reference/value as specified; open arrays pass opaque svOpenArrayHandle accessed through utilities.
 
@@ -131796,7 +131797,7 @@ DPI maps real to C double, with scalar bit/logic encodings from svdpi.h.
 
 ### SV2023-H.7.4-EXTRACT-TYPE-12
 
-H.7.4 / normal / テスト対応あり・実行未確認
+H.7.4 / normal / 実行確認あり
 
 DPI maps shortreal to C float, with scalar bit/logic encodings from svdpi.h.
 
@@ -131844,7 +131845,7 @@ DPI maps scalar bit to C unsigned char, with scalar bit/logic encodings from svd
 
 ### SV2023-H.7.4-EXTRACT-TYPE-16
 
-H.7.4 / normal / テスト対応あり・実行未確認
+H.7.4 / normal / 実行確認あり
 
 DPI maps scalar logic/reg to C unsigned char, with scalar bit/logic encodings from svdpi.h.
 
@@ -132037,7 +132038,7 @@ Nonopen arguments directly accessible by reference/value; open arguments use svO
 
 ### SV2023-H.8.1-EXTRACT-VALUE
 
-H.8.1 / normal / テスト対応あり・実行未確認
+H.8.1 / normal / 実行確認あり
 
 Small input arguments and restricted small function results pass by value; others generally by reference.
 
@@ -132084,7 +132085,7 @@ Exported task returns C int for disable protocol under 35.9, unlike ordinary fun
 
 ### SV2023-H.8.3-EXTRACT-VALUE
 
-H.8.3 / normal / テスト対応あり・実行未確認
+H.8.3 / normal / 実行確認あり
 
 Only small formal inputs and function results pass by value; caller supplies equivalent C type.
 
@@ -132154,7 +132155,7 @@ Imported C input arguments always carry const qualification.
 
 ### SV2023-H.8.7-EXTRACT-OTHER
 
-H.8.7 / normal / テスト対応あり・実行未確認
+H.8.7 / normal / 実行確認あり
 
 Other nonopen input types pass by reference.
 
@@ -132167,7 +132168,7 @@ Other nonopen input types pass by reference.
 
 ### SV2023-H.8.7-EXTRACT-SMALL
 
-H.8.7 / normal / テスト対応あり・実行未確認
+H.8.7 / normal / 実行確認あり
 
 Nonopen inputs of byte,shortint,int,longint,real,shortreal,scalar bit/logic,chandle,string are small and pass by value.
 
@@ -132194,7 +132195,7 @@ Nonopen inout/output always pass by reference; packed data uses canonical pointe
 
 ### SV2023-H.8.9-EXTRACT-RETURN
 
-H.8.9 / normal / テスト対応あり・実行未確認
+H.8.9 / normal / 実行確認あり
 
 Nonvoid function results are restricted to byte,shortint,int,longint,real,shortreal,chandle,string,scalar bit/logic and corresponding H.7.4 C types, with svdpi.h scalar encodings.
 
@@ -132442,7 +132443,7 @@ svGetUserData(scope,key) returns stored non-NULL pointer,or NULL on error or abs
 
 ### SV2023-H.9.3-EXTRACT-GET-SCOPE
 
-H.9.3 / normal / テスト対応あり・実行未確認
+H.9.3 / normal / 実行確認あり
 
 svGetScope returns current active scope, defaulting to import declaration site unless svSetScope changed it; result undefined for noncontext import.
 
@@ -132617,7 +132618,7 @@ All simulators use the same platform-independent standard svdpi.h for canonical 
 
 ### SV2023-H.10.1.1-EXTRACT-SCALAR-0
 
-H.10.1.1 / normal / テスト対応あり・実行未確認
+H.10.1.1 / normal / 実行確認あり
 
 sv_0 scalar encoding is 0.
 
@@ -132629,7 +132630,7 @@ sv_0 scalar encoding is 0.
 
 ### SV2023-H.10.1.1-EXTRACT-SCALAR-1
 
-H.10.1.1 / normal / テスト対応あり・実行未確認
+H.10.1.1 / normal / 実行確認あり
 
 sv_1 scalar encoding is 1.
 
@@ -132653,7 +132654,7 @@ svScalar is unsigned char; svBit and svLogic alias svScalar.
 
 ### SV2023-H.10.1.1-EXTRACT-SCALAR-X
 
-H.10.1.1 / normal / テスト対応あり・実行未確認
+H.10.1.1 / normal / 実行確認あり
 
 sv_x scalar encoding is 3.
 
@@ -132665,7 +132666,7 @@ sv_x scalar encoding is 3.
 
 ### SV2023-H.10.1.1-EXTRACT-SCALAR-Z
 
-H.10.1.1 / normal / テスト対応あり・実行未確認
+H.10.1.1 / normal / 実行確認あり
 
 sv_z scalar encoding is 2.
 
@@ -133301,7 +133302,7 @@ void svGetBitArrElemVecVal copies const handle source into svBitVecVal* destinat
 
 ### SV2023-H.12.5-EXTRACT-SVGETLOGICARRELEM1VECVAL
 
-H.12.5 / normal / テスト対応あり・実行未確認
+H.12.5 / normal / 実行確認あり
 
 void svGetLogicArrElem1VecVal copies const handle source into svLogicVecVal* destination, using 1 indices.
 
@@ -133313,7 +133314,7 @@ void svGetLogicArrElem1VecVal copies const handle source into svLogicVecVal* des
 
 ### SV2023-H.12.5-EXTRACT-SVGETLOGICARRELEM2VECVAL
 
-H.12.5 / normal / テスト対応あり・実行未確認
+H.12.5 / normal / 実行確認あり
 
 void svGetLogicArrElem2VecVal copies const handle source into svLogicVecVal* destination, using 2 indices.
 
@@ -133325,7 +133326,7 @@ void svGetLogicArrElem2VecVal copies const handle source into svLogicVecVal* des
 
 ### SV2023-H.12.5-EXTRACT-SVGETLOGICARRELEM3VECVAL
 
-H.12.5 / normal / テスト対応あり・実行未確認
+H.12.5 / normal / 実行確認あり
 
 void svGetLogicArrElem3VecVal copies const handle source into svLogicVecVal* destination, using 3 indices.
 
@@ -133337,7 +133338,7 @@ void svGetLogicArrElem3VecVal copies const handle source into svLogicVecVal* des
 
 ### SV2023-H.12.5-EXTRACT-SVGETLOGICARRELEMVECVAL
 
-H.12.5 / normal / テスト対応あり・実行未確認
+H.12.5 / normal / 実行確認あり
 
 void svGetLogicArrElemVecVal copies const handle source into svLogicVecVal* destination, using one required index and varargs.
 
@@ -133397,7 +133398,7 @@ void svPutBitArrElemVecVal copies const svBitVecVal* source into const handle de
 
 ### SV2023-H.12.5-EXTRACT-SVPUTLOGICARRELEM1VECVAL
 
-H.12.5 / normal / テスト対応あり・実行未確認
+H.12.5 / normal / 実行確認あり
 
 void svPutLogicArrElem1VecVal copies const svLogicVecVal* source into const handle destination, using 1 indices.
 
@@ -133409,7 +133410,7 @@ void svPutLogicArrElem1VecVal copies const svLogicVecVal* source into const hand
 
 ### SV2023-H.12.5-EXTRACT-SVPUTLOGICARRELEM2VECVAL
 
-H.12.5 / normal / テスト対応あり・実行未確認
+H.12.5 / normal / 実行確認あり
 
 void svPutLogicArrElem2VecVal copies const svLogicVecVal* source into const handle destination, using 2 indices.
 
@@ -133421,7 +133422,7 @@ void svPutLogicArrElem2VecVal copies const svLogicVecVal* source into const hand
 
 ### SV2023-H.12.5-EXTRACT-SVPUTLOGICARRELEM3VECVAL
 
-H.12.5 / normal / テスト対応あり・実行未確認
+H.12.5 / normal / 実行確認あり
 
 void svPutLogicArrElem3VecVal copies const svLogicVecVal* source into const handle destination, using 3 indices.
 
@@ -133433,7 +133434,7 @@ void svPutLogicArrElem3VecVal copies const svLogicVecVal* source into const hand
 
 ### SV2023-H.12.5-EXTRACT-SVPUTLOGICARRELEMVECVAL
 
-H.12.5 / normal / テスト対応あり・実行未確認
+H.12.5 / normal / 実行確認あり
 
 void svPutLogicArrElemVecVal copies const svLogicVecVal* source into const handle destination, using one required index and varargs.
 
@@ -133506,7 +133507,7 @@ svGetBitArrElem3 returns svBit from const source handle using 3 indices.
 
 ### SV2023-H.12.6-EXTRACT-SVGETLOGICARRELEM
 
-H.12.6 / normal / テスト対応あり・実行未確認
+H.12.6 / normal / 実行確認あり
 
 svGetLogicArrElem returns svLogic from const source handle using one required index and varargs.
 
@@ -133518,7 +133519,7 @@ svGetLogicArrElem returns svLogic from const source handle using one required in
 
 ### SV2023-H.12.6-EXTRACT-SVGETLOGICARRELEM1
 
-H.12.6 / normal / テスト対応あり・実行未確認
+H.12.6 / normal / 実行確認あり
 
 svGetLogicArrElem1 returns svLogic from const source handle using 1 indices.
 
@@ -133530,7 +133531,7 @@ svGetLogicArrElem1 returns svLogic from const source handle using 1 indices.
 
 ### SV2023-H.12.6-EXTRACT-SVGETLOGICARRELEM2
 
-H.12.6 / normal / テスト対応あり・実行未確認
+H.12.6 / normal / 実行確認あり
 
 svGetLogicArrElem2 returns svLogic from const source handle using 2 indices.
 
@@ -133542,7 +133543,7 @@ svGetLogicArrElem2 returns svLogic from const source handle using 2 indices.
 
 ### SV2023-H.12.6-EXTRACT-SVGETLOGICARRELEM3
 
-H.12.6 / normal / テスト対応あり・実行未確認
+H.12.6 / normal / 実行確認あり
 
 svGetLogicArrElem3 returns svLogic from const source handle using 3 indices.
 
@@ -133602,7 +133603,7 @@ svPutBitArrElem3 returns void,writing svBit value to const destination handle us
 
 ### SV2023-H.12.6-EXTRACT-SVPUTLOGICARRELEM
 
-H.12.6 / normal / テスト対応あり・実行未確認
+H.12.6 / normal / 実行確認あり
 
 svPutLogicArrElem returns void,writing svLogic value to const destination handle using one required index and varargs.
 
@@ -133614,7 +133615,7 @@ svPutLogicArrElem returns void,writing svLogic value to const destination handle
 
 ### SV2023-H.12.6-EXTRACT-SVPUTLOGICARRELEM1
 
-H.12.6 / normal / テスト対応あり・実行未確認
+H.12.6 / normal / 実行確認あり
 
 svPutLogicArrElem1 returns void,writing svLogic value to const destination handle using 1 indices.
 
@@ -133626,7 +133627,7 @@ svPutLogicArrElem1 returns void,writing svLogic value to const destination handl
 
 ### SV2023-H.12.6-EXTRACT-SVPUTLOGICARRELEM2
 
-H.12.6 / normal / テスト対応あり・実行未確認
+H.12.6 / normal / 実行確認あり
 
 svPutLogicArrElem2 returns void,writing svLogic value to const destination handle using 2 indices.
 
@@ -133638,7 +133639,7 @@ svPutLogicArrElem2 returns void,writing svLogic value to const destination handl
 
 ### SV2023-H.12.6-EXTRACT-SVPUTLOGICARRELEM3
 
-H.12.6 / normal / テスト対応あり・実行未確認
+H.12.6 / normal / 実行確認あり
 
 svPutLogicArrElem3 returns void,writing svLogic value to const destination handle using 3 indices.
 

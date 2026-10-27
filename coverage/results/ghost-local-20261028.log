@@ -1,0 +1,1807 @@
+FAIL ch10/test_alias_bidirectional_shared_drivers: output differs
+FAIL ch10/test_assignment_delays_with_time_units: output differs
+FAIL ch10/test_assignment_pattern_variable_and_net_lvalues: output differs
+FAIL ch10/test_force_part_select_of_net: output differs
+FAIL ch10/test_force_release_target_forms: output differs
+FAIL ch10/test_illegal_continuous_assign_nonconstant_bit_select: the design was accepted, but it is illegal
+FAIL ch10/test_illegal_continuously_assigned_variable_with_initializer: the design was accepted, but it is illegal
+FAIL ch10/test_illegal_force_mixed_driven_variable: the design was accepted, but it is illegal
+FAIL ch10/test_illegal_force_variable_bit_select: the design was accepted, but it is illegal
+FAIL ch10/test_illegal_lhs_assignment_pattern_member_width: the design was accepted, but it is illegal
+FAIL ch10/test_illegal_typed_lhs_assignment_pattern_member_width: the design was accepted, but it is illegal
+FAIL ch10/test_illegal_user_nettype_assignment_two_delays: the design was accepted, but it is illegal
+FAIL ch10/test_illegal_variable_driven_by_gate_and_module_output: the design was accepted, but it is illegal
+FAIL ch10/test_less_equal_token_by_context: output differs (exit 1)
+FAIL ch10/test_syntax_assignment_pattern_forms: output differs (exit 1)
+FAIL ch10/test_unpacked_array_concat_rules: output differs
+FAIL ch10/test_unpacked_concat_bounded_queue_overflow: output differs
+FAIL ch11/test_assignment_expression_concat_target_unsigned_sum_width: output differs
+FAIL ch11/test_compound_assignment_index_evaluated_once: output differs
+FAIL ch11/test_concatenation_pattern_string_operand_and_replication_once: output differs
+FAIL ch11/test_conditional_predicate_and_integral_branch: output differs (exit 1)
+FAIL ch11/test_conditional_real_shortreal_branch_promotion: output differs
+FAIL ch11/test_constant_builtin_method_calls_at_elaboration: output differs
+FAIL ch11/test_equality_class_interface_chandle_handles: output differs
+FAIL ch11/test_expr_conditional_ambiguous: output differs
+FAIL ch11/test_expr_inside_set_forms: output differs
+FAIL ch11/test_expr_tagged_union_access: output differs
+FAIL ch11/test_expr_timescale_constants: output differs (exit 1)
+FAIL ch11/test_expression_alternatives_with_operator_attributes: output differs
+FAIL ch11/test_illegal_assignment_operator_in_continuous_assign: the design was accepted, but it is illegal
+FAIL ch11/test_illegal_assignment_operator_in_procedural_assign: the design was accepted, but it is illegal
+FAIL ch11/test_illegal_bit_select_of_scalar_variable: the design was accepted, but it is illegal
+FAIL ch11/test_illegal_let_sampled_value_without_clock: the design was accepted, but it is illegal
+FAIL ch11/test_illegal_part_select_reversed_bounds: the design was accepted, but it is illegal
+FAIL ch11/test_illegal_recursive_let: the design was accepted, but it is illegal
+FAIL ch11/test_illegal_replication_multiplier_with_x: the design was accepted, but it is illegal
+FAIL ch11/test_illegal_replication_multiplier_with_z: the design was accepted, but it is illegal
+FAIL ch11/test_illegal_stream_into_narrower_fixed_target: no error matches 'test_illegal_stream_into_narrower_fixed_target\\.sv:32:'
+FAIL ch11/test_illegal_stream_with_on_two_dimensional_array: the design was accepted, but it is illegal
+FAIL ch11/test_illegal_unpack_source_too_short: the design was accepted, but it is illegal
+FAIL ch11/test_illegal_unsized_constant_in_concatenation: the design was accepted, but it is illegal
+FAIL ch11/test_inside_ranges_tolerance_unknown_and_types: output differs
+FAIL ch11/test_inside_tolerance_ranges: output differs
+FAIL ch11/test_let_binds_in_declaration_scope_local_and_package: output differs
+FAIL ch11/test_let_declared_in_each_kind_of_scope: output differs
+FAIL ch11/test_let_parameterized: output differs
+FAIL ch11/test_precedence_distinguishing_values: output differs
+FAIL ch11/test_precedence_logical_conditional_implication_levels: output differs
+FAIL ch11/test_stream_dynamic_target_resize_and_bitstream_types: output differs
+FAIL ch11/test_stream_expression_with_range_forms: output differs
+FAIL ch11/test_stream_item_order_struct_union_object_assoc: output differs (exit 1)
+FAIL ch11/test_stream_unpack_consumes_left_converts_state_keeps_objects: output differs (exit 1)
+FAIL ch11/test_stream_with_range_extent_timing_and_partial: output differs
+FAIL ch11/test_tagged_union_expression_and_matches_precedence: output differs (exit 1)
+FAIL ch11/test_vector_select_declared_bounds_direction_and_invalid: output differs
+FAIL ch12/test_case_inside_evaluation_order_by_qualifier: output differs
+FAIL ch12/test_for_shared_outer_control_variable: output differs
+FAIL ch12/test_foreach_index_auto_cast_types: output differs
+FAIL ch12/test_illegal_for_type_reference_without_var: the design was accepted, but it is illegal
+FAIL ch12/test_illegal_pattern_constant_of_real_type: the design was accepted, but it is illegal
+FAIL ch12/test_pattern_casez_casex_ignored_bits: output differs
+FAIL ch12/test_pattern_conditional_predicate: output differs (exit 1)
+FAIL ch12/test_pattern_if_clause_order_scope_and_filter: output differs
+FAIL ch12/test_pattern_match_known_result: output differs (exit 1)
+FAIL ch12/test_statement_item_forms: output differs (exit 1)
+FAIL ch12/test_syntax_case_matches_and_inside_forms: output differs
+FAIL ch12/test_syntax_loop_statement_forms: output differs
+FAIL ch12/test_unique_violation_in_function_comb_callers: output differs
+FAIL ch12/test_unique_violation_in_function_per_calling_process: output differs
+FAIL ch13/test_a2_7_dynamic_override_specifiers: output differs
+FAIL ch13/test_call_without_parentheses_subroutine_kinds: output differs
+FAIL ch13/test_class_methods_always_automatic: output differs
+FAIL ch13/test_constant_function_call_fresh_initial_values: output differs
+FAIL ch13/test_default_argument_only_when_omitted: output differs
+FAIL ch13/test_function_body_order_and_empty_body: output differs
+FAIL ch13/test_function_directions_both_formal_styles: output differs
+FAIL ch13/test_function_nonblocking_statements_no_delay: output differs
+FAIL ch13/test_function_struct_return_member_or_scope: output differs
+FAIL ch13/test_illegal_automatic_task_variable_force_target: the design was accepted, but it is illegal
+FAIL ch13/test_illegal_automatic_task_variable_in_assign_expression: the design was accepted, but it is illegal
+FAIL ch13/test_illegal_automatic_task_variable_in_force_expression: the design was accepted, but it is illegal
+FAIL ch13/test_illegal_constant_function_call_in_constant_context: the design was accepted, but it is illegal
+FAIL ch13/test_illegal_ref_in_static_function: the design was accepted, but it is illegal
+FAIL ch13/test_illegal_ref_in_static_task: the design was accepted, but it is illegal
+FAIL ch13/test_optional_parentheses_every_subroutine_kind: output differs
+FAIL ch13/test_recursive_class_task_ref_argument: output differs
+FAIL ch13/test_ref_and_inout_object_handle_replacement: output differs
+FAIL ch13/test_ref_array_element_outdated_by_resize_or_delete: output differs
+FAIL ch13/test_static_task_shared_activation: output differs
+FAIL ch13/test_task_storage_per_call_and_per_instance: output differs
+FAIL ch14/test_clocking_block_event_after_nba_before_reactive: output differs
+FAIL ch14/test_clocking_block_per_instance_local_scope: output differs
+FAIL ch14/test_clocking_default_input_skew: output differs
+FAIL ch14/test_clocking_drive_prefix_default_cycles_rhs_target_cycles: output differs
+FAIL ch14/test_clocking_future_drive_in_re_nba: output differs
+FAIL ch14/test_clocking_input_expression_skew: output differs
+FAIL ch14/test_clocking_multiple_blocks: output differs
+FAIL ch14/test_clocking_net_outputs_strong_drivers_resolved: output differs
+FAIL ch14/test_clocking_output_part_select_skew: output differs
+FAIL ch14/test_clocking_scope_names: output differs
+FAIL ch14/test_clocking_signal_hierarchical_slice_concat_inout_var: output differs
+FAIL ch14/test_clocking_synchronous_events: output differs
+FAIL ch14/test_clocking_zero_skew_drive_in_re_nba: output differs
+FAIL ch14/test_cycle_delay_forms_and_zero_drive_delay: output differs
+FAIL ch14/test_illegal_clocking_output_variable_continuous_assign: the design was accepted, but it is illegal
+FAIL ch14/test_illegal_clocking_output_variable_force: the design was accepted, but it is illegal
+FAIL ch14/test_illegal_clocking_output_variable_primitive_output: the design was accepted, but it is illegal
+FAIL ch14/test_illegal_clocking_output_variable_procedural_assign: the design was accepted, but it is illegal
+FAIL ch14/test_illegal_clocking_skew_variable: the design was accepted, but it is illegal
+FAIL ch14/test_syntax_clocking_drive_forms: output differs
+FAIL ch15/test_event_compare_arguments: output differs
+FAIL ch15/test_event_null_waiter_queue: output differs
+FAIL ch15/test_illegal_mailbox_peek_unpacked_array: the design was accepted, but it is illegal
+FAIL ch15/test_illegal_mailbox_put_unpacked_array: the design was accepted, but it is illegal
+FAIL ch15/test_illegal_mailbox_try_get_unpacked_array: the design was accepted, but it is illegal
+FAIL ch15/test_illegal_mailbox_try_peek_unpacked_array: the design was accepted, but it is illegal
+FAIL ch15/test_illegal_mailbox_try_put_unpacked_array: the design was accepted, but it is illegal
+FAIL ch15/test_ipc_classes_extended_shadowed_and_created: output differs (exit 2)
+FAIL ch15/test_mailbox_get_peek_task_ref_destination: output differs
+FAIL ch15/test_mailbox_typeless_try_type_check: output differs
+FAIL ch15/test_semaphore_get_try_get_int_count_default_one: output differs
+FAIL ch15/test_std_mailbox_default_type_parameter: output differs
+FAIL ch15/test_wait_order_first_triggered: output differs (exit 2)
+FAIL ch16/test_abort_condition_sampling: output differs
+FAIL ch16/test_abort_nested_sync_forms: output differs
+FAIL ch16/test_assertion_clock_expressions_global_clock: output differs
+FAIL ch16/test_assertion_dist_as_inside: output differs
+FAIL ch16/test_assertion_gated_clock_current_value: output differs
+FAIL ch16/test_assertion_observed_region_values: output differs
+FAIL ch16/test_assertion_sequence_clock_delay: output differs
+FAIL ch16/test_assume_property_actions: output differs (exit 1)
+FAIL ch16/test_ch16_sim_bias_no_relaxation: no :expected_stdout:
+FAIL ch16/test_ch16_sim_checker_history: output differs (exit 1)
+FAIL ch16/test_ch16_sim_checker_inference: output differs (exit 1)
+FAIL ch16/test_ch16_sim_clocking_single: no error matches 'test_ch16_sim_clocking_single\\.sv:42: .*[Mm]ulticlock'
+FAIL ch16/test_ch16_sim_cover_counters: no :expected_stdout:
+FAIL ch16/test_ch16_sim_declaration_inert: no :expected_stdout:
+FAIL ch16/test_ch16_sim_glitch_free: no :expected_stdout:
+FAIL ch16/test_ch16_sim_multiclock_init: output differs
+FAIL ch16/test_ch16_sim_prop_async_abort: no :expected_stdout:
+FAIL ch16/test_ch16_sim_prop_inherited_always: no :expected_stdout:
+FAIL ch16/test_ch16_sim_prop_inherited_case: no :expected_stdout:
+FAIL ch16/test_ch16_sim_prop_inherited_conditional: no :expected_stdout:
+FAIL ch16/test_ch16_sim_prop_inherited_eventually: output differs
+FAIL ch16/test_ch16_sim_reported_interval: no :expected_stdout:
+FAIL ch16/test_clocking_block_other_clock_assertion: output differs
+FAIL ch16/test_concurrent_assert_actions: output differs (exit 1)
+FAIL ch16/test_concurrent_assertion_names_and_control: output differs (exit 2)
+FAIL ch16/test_concurrent_assertion_places_and_kinds: output differs
+FAIL ch16/test_concurrent_boolean_truth_array_samples: output differs
+FAIL ch16/test_cover_pass_statements: output differs
+FAIL ch16/test_cover_property_sequence_counters: output differs
+FAIL ch16/test_default_clocking_assertion_clocks: output differs
+FAIL ch16/test_default_disable_iff: output differs
+FAIL ch16/test_default_disable_iff_nested_module: output differs
+FAIL ch16/test_default_disable_iff_scopes: output differs
+FAIL ch16/test_deferred_assertion_action_arguments: output differs
+FAIL ch16/test_deferred_assertion_default_error: output differs (exit 2)
+FAIL ch16/test_deferred_assertion_disable_inner_scope: output differs
+FAIL ch16/test_deferred_assertion_flush: output differs
+FAIL ch16/test_deferred_assertion_forked_processes: output differs
+FAIL ch16/test_deferred_flush_points: output differs
+FAIL ch16/test_deferred_immediate_syntax_placement: output differs
+FAIL ch16/test_expect_action_control: no message matches '(?i)\\A(?=[\\s\\S]*error[^\\n]*test_expect_action_control\\.sv:40:)(?![\\s\\S]*test_expect_action_control\\.sv:44:)'
+FAIL ch16/test_expect_vacuous_and_nonblocking: output differs
+FAIL ch16/test_first_match_antecedent: output differs
+FAIL ch16/test_first_match_items_and_boolean_or: output differs
+FAIL ch16/test_followed_by_dual_forms: output differs
+FAIL ch16/test_followed_by_existential: output differs
+FAIL ch16/test_formal_always_end: no :expected_stdout:
+FAIL ch16/test_formal_and_endpoint_pairs: no :expected_stdout:
+FAIL ch16/test_formal_ch16_adjoint_one: no :expected_stdout:
+FAIL ch16/test_formal_ch16_adjoint_zero: no :expected_stdout:
+FAIL ch16/test_formal_ch16_always_range: no :expected_stdout:
+FAIL ch16/test_formal_ch16_lead_outer_clock: no :expected_stdout:
+FAIL ch16/test_formal_ch16_lead_prefix: no :expected_stdout:
+FAIL ch16/test_formal_ch16_lead_seq_delay: no :expected_stdout:
+FAIL ch16/test_formal_ch16_local_lost_flow: no :expected_stdout:
+FAIL ch16/test_formal_ch16_precedence_right: no :expected_stdout:
+FAIL ch16/test_formal_delay_range: no :expected_stdout:
+FAIL ch16/test_formal_empty: no :expected_stdout:
+FAIL ch16/test_formal_empty_antecedent: no :expected_stdout:
+FAIL ch16/test_formal_empty_consequent: no :expected_stdout:
+FAIL ch16/test_formal_empty_fusion: no :expected_stdout:
+FAIL ch16/test_formal_empty_left: no :expected_stdout:
+FAIL ch16/test_formal_empty_right: no :expected_stdout:
+FAIL ch16/test_formal_eventually_end: no :expected_stdout:
+FAIL ch16/test_formal_f2_attempts: no :expected_stdout:
+FAIL ch16/test_formal_f2_model: no :expected_stdout:
+FAIL ch16/test_formal_f2_transform: no :expected_stdout:
+FAIL ch16/test_formal_f32_symbols: no :expected_stdout:
+FAIL ch16/test_formal_f33_notation: no :expected_stdout:
+FAIL ch16/test_formal_f342_assign_fusion: no :expected_stdout:
+FAIL ch16/test_formal_f342_concat_fixed: no :expected_stdout:
+FAIL ch16/test_formal_f342_concat_zero: no :expected_stdout:
+FAIL ch16/test_formal_f342_goto_finite: no :expected_stdout:
+FAIL ch16/test_formal_f342_goto_unbounded: no :expected_stdout:
+FAIL ch16/test_formal_f342_nonconsecutive_finite: no :expected_stdout:
+FAIL ch16/test_formal_f342_nonconsecutive_unbounded: no :expected_stdout:
+FAIL ch16/test_formal_f342_plus: no :expected_stdout:
+FAIL ch16/test_formal_f342_positive_unbounded: no :expected_stdout:
+FAIL ch16/test_formal_f342_prefix_finite: no :expected_stdout:
+FAIL ch16/test_formal_f342_prefix_fixed: no :expected_stdout:
+FAIL ch16/test_formal_f342_prefix_plus: no :expected_stdout:
+FAIL ch16/test_formal_f342_prefix_star: no :expected_stdout:
+FAIL ch16/test_formal_f342_prefix_unbounded: no :expected_stdout:
+FAIL ch16/test_formal_f342_single_range: no :expected_stdout:
+FAIL ch16/test_formal_f342_star: no :expected_stdout:
+FAIL ch16/test_formal_f342_zero_finite: no :expected_stdout:
+FAIL ch16/test_formal_f342_zero_unbounded: no :expected_stdout:
+FAIL ch16/test_formal_f343_always_infinite: no :expected_stdout:
+FAIL ch16/test_formal_f343_always_point: no :expected_stdout:
+FAIL ch16/test_formal_f343_always_until: no :expected_stdout:
+FAIL ch16/test_formal_f343_case_default: no :expected_stdout:
+FAIL ch16/test_formal_f343_case_single: no :expected_stdout:
+FAIL ch16/test_formal_f343_case_specify: no :expected_stdout:
+FAIL ch16/test_formal_f343_clocked_nonoverlap: no :expected_stdout:
+FAIL ch16/test_formal_f343_default_strength: no :expected_stdout:
+FAIL ch16/test_formal_f343_eventually_not_always: no :expected_stdout:
+FAIL ch16/test_formal_f343_eventually_point: no :expected_stdout:
+FAIL ch16/test_formal_f343_if: no :expected_stdout:
+FAIL ch16/test_formal_f343_if_else: no :expected_stdout:
+FAIL ch16/test_formal_f343_iff: no :expected_stdout:
+FAIL ch16/test_formal_f343_implies: no :expected_stdout:
+FAIL ch16/test_formal_f343_next_positive: no :expected_stdout:
+FAIL ch16/test_formal_f343_next_zero: no :expected_stdout:
+FAIL ch16/test_formal_f343_strong_eventually_infinite: no :expected_stdout:
+FAIL ch16/test_formal_f343_strong_next: no :expected_stdout:
+FAIL ch16/test_formal_f343_strong_until: no :expected_stdout:
+FAIL ch16/test_formal_f343_strong_until_with: no :expected_stdout:
+FAIL ch16/test_formal_f343_until_with: no :expected_stdout:
+FAIL ch16/test_formal_f345_declaration_nest: no :expected_stdout:
+FAIL ch16/test_formal_f346_enable: no :expected_stdout:
+FAIL ch16/test_formal_f346_nonblocking: no :expected_stdout:
+FAIL ch16/test_formal_f346_rand_init: no :expected_stdout:
+FAIL ch16/test_formal_f3_assoc_concat: no :expected_stdout:
+FAIL ch16/test_formal_f3_assoc_or: no :expected_stdout:
+FAIL ch16/test_formal_f3_future_global: no :expected_stdout:
+FAIL ch16/test_formal_f3_g_assertion: no :expected_stdout:
+FAIL ch16/test_formal_f3_g_nondeg_r: no :expected_stdout:
+FAIL ch16/test_formal_f3_g_nondeg_s: no :expected_stdout:
+FAIL ch16/test_formal_f3_g_prop: no :expected_stdout:
+FAIL ch16/test_formal_f3_g_prop_clocked: no :expected_stdout:
+FAIL ch16/test_formal_f3_g_seq: no :expected_stdout:
+FAIL ch16/test_formal_f3_g_seq_clocked: no :expected_stdout:
+FAIL ch16/test_formal_f3_g_top: no :expected_stdout:
+FAIL ch16/test_formal_f3_g_top_clocked: no :expected_stdout:
+FAIL ch16/test_formal_f3_past_global: no :expected_stdout:
+FAIL ch16/test_formal_f3_reject: no :expected_stdout:
+FAIL ch16/test_formal_f3_restrict: no :expected_stdout:
+FAIL ch16/test_formal_f3_sync_accept: no :expected_stdout:
+FAIL ch16/test_formal_f3_sync_reject: no :expected_stdout:
+FAIL ch16/test_formal_f3_tau_boolean_clocks: no :expected_stdout:
+FAIL ch16/test_formal_f3_tau_change: no :expected_stdout:
+FAIL ch16/test_formal_f3_tau_edge: no :expected_stdout:
+FAIL ch16/test_formal_f3_tau_global: no :expected_stdout:
+FAIL ch16/test_formal_f3_tau_iff: no :expected_stdout:
+FAIL ch16/test_formal_f3_tau_named: no :expected_stdout:
+FAIL ch16/test_formal_f3_tau_neg: no :expected_stdout:
+FAIL ch16/test_formal_f3_tau_or: no :expected_stdout:
+FAIL ch16/test_formal_f3_tau_pos: no :expected_stdout:
+FAIL ch16/test_formal_f41_actual_distinct: no :expected_stdout:
+FAIL ch16/test_formal_f41_flatten_equiv: no :expected_stdout:
+FAIL ch16/test_formal_f41_property_assertion_type: no :expected_stdout:
+FAIL ch16/test_formal_f41_property_bind: no :expected_stdout:
+FAIL ch16/test_formal_f41_property_local: no :expected_stdout:
+FAIL ch16/test_formal_f41_property_loop: no :expected_stdout:
+FAIL ch16/test_formal_f41_property_typed: no :expected_stdout:
+FAIL ch16/test_formal_f41_property_untyped: no :expected_stdout:
+FAIL ch16/test_formal_f41_sequence_assertion_type: no :expected_stdout:
+FAIL ch16/test_formal_f41_sequence_bind: no :expected_stdout:
+FAIL ch16/test_formal_f41_sequence_inout: no :expected_stdout:
+FAIL ch16/test_formal_f41_sequence_input: no :expected_stdout:
+FAIL ch16/test_formal_f41_sequence_loop: no :expected_stdout:
+FAIL ch16/test_formal_f41_sequence_output: no :expected_stdout:
+FAIL ch16/test_formal_f41_sequence_typed: no :expected_stdout:
+FAIL ch16/test_formal_f41_sequence_untyped: no :expected_stdout:
+FAIL ch16/test_formal_f42_assertion_types: no :expected_stdout:
+FAIL ch16/test_formal_f42_checker_flatten: no :expected_stdout:
+FAIL ch16/test_formal_f42_copy_bind: no :expected_stdout:
+FAIL ch16/test_formal_f42_loop: no :expected_stdout:
+FAIL ch16/test_formal_f42_typed: no :expected_stdout:
+FAIL ch16/test_formal_f43_empty_atoms: no :expected_stdout:
+FAIL ch16/test_formal_f43_empty_concat: no :expected_stdout:
+FAIL ch16/test_formal_f43_empty_meaning: no :expected_stdout:
+FAIL ch16/test_formal_f43_empty_or_intersect: no :expected_stdout:
+FAIL ch16/test_formal_f43_empty_wrappers: no :expected_stdout:
+FAIL ch16/test_formal_f43_kappa: no :expected_stdout:
+FAIL ch16/test_formal_f43_order: no :expected_stdout:
+FAIL ch16/test_formal_f43_push_boolean: no :expected_stdout:
+FAIL ch16/test_formal_f43_push_cond: no :expected_stdout:
+FAIL ch16/test_formal_f43_push_decl: no :expected_stdout:
+FAIL ch16/test_formal_f43_push_nonoverlap: no :expected_stdout:
+FAIL ch16/test_formal_f43_push_overlap: no :expected_stdout:
+FAIL ch16/test_formal_f43_push_procedure: no :expected_stdout:
+FAIL ch16/test_formal_f43_push_sequence: no :expected_stdout:
+FAIL ch16/test_formal_f43_push_wrappers: no :expected_stdout:
+FAIL ch16/test_formal_f43_sequence_empty: no :expected_stdout:
+FAIL ch16/test_formal_f43_sequence_init: no :expected_stdout:
+FAIL ch16/test_formal_f43_sequence_nonempty: no :expected_stdout:
+FAIL ch16/test_formal_f4_item: no :expected_stdout:
+FAIL ch16/test_formal_f511_sampling_assign: no :expected_stdout:
+FAIL ch16/test_formal_f51_async: no :expected_stdout:
+FAIL ch16/test_formal_f51_clock_independence: no :expected_stdout:
+FAIL ch16/test_formal_f51_impl_boolean: no :expected_stdout:
+FAIL ch16/test_formal_f51_next: no :expected_stdout:
+FAIL ch16/test_formal_f51_sequence: no :expected_stdout:
+FAIL ch16/test_formal_f51_sync: no :expected_stdout:
+FAIL ch16/test_formal_f51_ts_boolean: no :expected_stdout:
+FAIL ch16/test_formal_f51_ts_choice: no :expected_stdout:
+FAIL ch16/test_formal_f51_ts_clock: no :expected_stdout:
+FAIL ch16/test_formal_f51_ts_concat: no :expected_stdout:
+FAIL ch16/test_formal_f51_ts_first: no :expected_stdout:
+FAIL ch16/test_formal_f51_ts_repeat: no :expected_stdout:
+FAIL ch16/test_formal_f51_ts_repeat_plus: no :expected_stdout:
+FAIL ch16/test_formal_f51_until: no :expected_stdout:
+FAIL ch16/test_formal_f52_boolean: no :expected_stdout:
+FAIL ch16/test_formal_f52_clocked: no :expected_stdout:
+FAIL ch16/test_formal_f52_nonempty_word: no :expected_stdout:
+FAIL ch16/test_formal_f531_accept_extension: no :expected_stdout:
+FAIL ch16/test_formal_f531_always: no :expected_stdout:
+FAIL ch16/test_formal_f531_assume: no :expected_stdout:
+FAIL ch16/test_formal_f531_boolean_and: no :expected_stdout:
+FAIL ch16/test_formal_f531_boolean_or: no :expected_stdout:
+FAIL ch16/test_formal_f531_clock_paren: no :expected_stdout:
+FAIL ch16/test_formal_f531_cover: no :expected_stdout:
+FAIL ch16/test_formal_f531_disabled: no :expected_stdout:
+FAIL ch16/test_formal_f531_domain: no :expected_stdout:
+FAIL ch16/test_formal_f531_enable: no :expected_stdout:
+FAIL ch16/test_formal_f531_feasible: no :expected_stdout:
+FAIL ch16/test_formal_f531_global: no :expected_stdout:
+FAIL ch16/test_formal_f531_initial_clock: no :expected_stdout:
+FAIL ch16/test_formal_f531_not: no :expected_stdout:
+FAIL ch16/test_formal_f531_status: no :expected_stdout:
+FAIL ch16/test_formal_f531_strong: no :expected_stdout:
+FAIL ch16/test_formal_f531_top_pass: no :expected_stdout:
+FAIL ch16/test_formal_f531_weak: no :expected_stdout:
+FAIL ch16/test_formal_f532_finite_extension: no :expected_stdout:
+FAIL ch16/test_formal_f533_abort_disable_iff: no :expected_stdout:
+FAIL ch16/test_formal_f533_always_guard: no :expected_stdout:
+FAIL ch16/test_formal_f533_base_strong_weak_not: no :expected_stdout:
+FAIL ch16/test_formal_f533_booleans_implies: no :expected_stdout:
+FAIL ch16/test_formal_f533_eventually_guard: no :expected_stdout:
+FAIL ch16/test_formal_f533_nexttime_index: no :expected_stdout:
+FAIL ch16/test_formal_f533_nonvacuity_separate: no :expected_stdout:
+FAIL ch16/test_formal_f533_nonvacuous_satisfaction: no :expected_stdout:
+FAIL ch16/test_formal_f533_until_operands: no :expected_stdout:
+FAIL ch16/test_formal_f54_block_base: no :expected_stdout:
+FAIL ch16/test_formal_f54_block_concat: no :expected_stdout:
+FAIL ch16/test_formal_f54_block_intersect: no :expected_stdout:
+FAIL ch16/test_formal_f54_block_or: no :expected_stdout:
+FAIL ch16/test_formal_f54_flow_base: no :expected_stdout:
+FAIL ch16/test_formal_f54_flow_concat: no :expected_stdout:
+FAIL ch16/test_formal_f54_flow_intersect: no :expected_stdout:
+FAIL ch16/test_formal_f54_flow_or: no :expected_stdout:
+FAIL ch16/test_formal_f54_flow_scope: no :expected_stdout:
+FAIL ch16/test_formal_f54_sample_base: no :expected_stdout:
+FAIL ch16/test_formal_f54_sample_binary: no :expected_stdout:
+FAIL ch16/test_formal_f54_sample_scope: no :expected_stdout:
+FAIL ch16/test_formal_f54_sets: no :expected_stdout:
+FAIL ch16/test_formal_f55_assign: no :expected_stdout:
+FAIL ch16/test_formal_f55_boolean: no :expected_stdout:
+FAIL ch16/test_formal_f55_clocked: no :expected_stdout:
+FAIL ch16/test_formal_f55_concat: no :expected_stdout:
+FAIL ch16/test_formal_f55_context: no :expected_stdout:
+FAIL ch16/test_formal_f55_decl: no :expected_stdout:
+FAIL ch16/test_formal_f55_first: no :expected_stdout:
+FAIL ch16/test_formal_f55_intersect: no :expected_stdout:
+FAIL ch16/test_formal_f55_non_degenerate: no :expected_stdout:
+FAIL ch16/test_formal_f55_null: no :expected_stdout:
+FAIL ch16/test_formal_f55_or: no :expected_stdout:
+FAIL ch16/test_formal_f55_repeat: no :expected_stdout:
+FAIL ch16/test_formal_f55_tight_context: no :expected_stdout:
+FAIL ch16/test_formal_f561_accept_context: no :expected_stdout:
+FAIL ch16/test_formal_f561_assertions: no :expected_stdout:
+FAIL ch16/test_formal_f561_boolean: no :expected_stdout:
+FAIL ch16/test_formal_f561_disabled: no :expected_stdout:
+FAIL ch16/test_formal_f561_empty_context: no :expected_stdout:
+FAIL ch16/test_formal_f561_implication: no :expected_stdout:
+FAIL ch16/test_formal_f561_local_declaration: no :expected_stdout:
+FAIL ch16/test_formal_f561_not: no :expected_stdout:
+FAIL ch16/test_formal_f561_status: no :expected_stdout:
+FAIL ch16/test_formal_f561_strong: no :expected_stdout:
+FAIL ch16/test_formal_f561_top: no :expected_stdout:
+FAIL ch16/test_formal_f561_weak: no :expected_stdout:
+FAIL ch16/test_formal_f562_finite: no :expected_stdout:
+FAIL ch16/test_formal_f563_vacuity: no :expected_stdout:
+FAIL ch16/test_formal_f5_alphabet: no :expected_stdout:
+FAIL ch16/test_formal_f5_dual: no :expected_stdout:
+FAIL ch16/test_formal_f5_fusion: no :expected_stdout:
+FAIL ch16/test_formal_f5_index: no :expected_stdout:
+FAIL ch16/test_formal_f5_placeholders: no :expected_stdout:
+FAIL ch16/test_formal_f5_subword: no :expected_stdout:
+FAIL ch16/test_formal_f61_matched: no :expected_stdout:
+FAIL ch16/test_formal_f61_triggered: no :expected_stdout:
+FAIL ch16/test_formal_f62_past_global: no :expected_stdout:
+FAIL ch16/test_formal_f63_future: no :expected_stdout:
+FAIL ch16/test_formal_f6_extended: no :expected_stdout:
+FAIL ch16/test_formal_f7_all_approx: no :expected_stdout:
+FAIL ch16/test_formal_f7_approx_base: no :expected_stdout:
+FAIL ch16/test_formal_f7_approx_step: no :expected_stdout:
+FAIL ch16/test_formal_f7_dependency: no :expected_stdout:
+FAIL ch16/test_formal_f7_recursive: no :expected_stdout:
+FAIL ch16/test_formal_f7_restriction_argument: no :expected_stdout:
+FAIL ch16/test_formal_f7_restriction_disable: no :expected_stdout:
+FAIL ch16/test_formal_f7_restriction_not: no :expected_stdout:
+FAIL ch16/test_formal_f7_restriction_time: no :expected_stdout:
+FAIL ch16/test_formal_first_match: no :expected_stdout:
+FAIL ch16/test_formal_first_match_tie: no :expected_stdout:
+FAIL ch16/test_formal_first_unbounded: no :expected_stdout:
+FAIL ch16/test_formal_followed_nonoverlap: no :expected_stdout:
+FAIL ch16/test_formal_followed_overlap: no :expected_stdout:
+FAIL ch16/test_formal_four_state_sampled: no :expected_stdout:
+FAIL ch16/test_formal_fusion: no :expected_stdout:
+FAIL ch16/test_formal_gated_past: no :expected_stdout:
+FAIL ch16/test_formal_goto_two_then: no :expected_stdout:
+FAIL ch16/test_formal_implication_nonoverlap: no :expected_stdout:
+FAIL ch16/test_formal_implication_overlap: no :expected_stdout:
+FAIL ch16/test_formal_intersect: no :expected_stdout:
+FAIL ch16/test_formal_nexttime_end: no :expected_stdout:
+FAIL ch16/test_formal_nonconsecutive_two: no :expected_stdout:
+FAIL ch16/test_formal_optional_empty: no :expected_stdout:
+FAIL ch16/test_formal_repetition: no :expected_stdout:
+FAIL ch16/test_formal_s_always_end: no :expected_stdout:
+FAIL ch16/test_formal_s_eventually_end: no :expected_stdout:
+FAIL ch16/test_formal_s_nexttime_end: no :expected_stdout:
+FAIL ch16/test_formal_s_until: no :expected_stdout:
+FAIL ch16/test_formal_s_until_with: no :expected_stdout:
+FAIL ch16/test_formal_sequence_and: no :expected_stdout:
+FAIL ch16/test_formal_sequence_or_multiplicity: no :expected_stdout:
+FAIL ch16/test_formal_sequence_repetition: no :expected_stdout:
+FAIL ch16/test_formal_throughout: no :expected_stdout:
+FAIL ch16/test_formal_unbounded_empty_repetition: no :expected_stdout:
+FAIL ch16/test_formal_unbounded_repetition: no :expected_stdout:
+FAIL ch16/test_formal_until: no :expected_stdout:
+FAIL ch16/test_formal_until_with: no :expected_stdout:
+FAIL ch16/test_formal_within_endpoints: no :expected_stdout:
+FAIL ch16/test_global_clock_future_action_delay: output differs
+FAIL ch16/test_global_clock_future_functions_action_delay: output differs
+FAIL ch16/test_global_clock_past_functions_procedural_action: output differs
+FAIL ch16/test_global_clocking_sampled_functions: output differs
+FAIL ch16/test_illegal_abort_condition_triggered: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_assertion_clocking_input_not_1step: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_assertion_function_keeps_state: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_assertion_function_side_effect: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_attached_call_chandle_input: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_attached_call_local_variable_before_assignment: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_clocking_block_external_clock: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_cycle_delay_mintypmax: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_deferred_assertion_const_ref_dynamic_actual: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_disable_iff_nested_in_declaration: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_disable_iff_nested_through_instance: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_disable_iff_sampled_function_no_clock: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_final_deferred_postponed_call: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_global_clock_future_function_in_action_block: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_global_clock_future_function_in_procedure: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_global_clock_future_function_with_call_match_item: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_global_clock_future_function_with_local_assignment: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_global_clock_future_function_without_global_clocking: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_global_clock_future_functions_nested: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_global_clock_past_function_without_global_clocking: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_inferred_clock_missing: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_local_initializer_uninitialized: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_local_variable_hierarchical_reference: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_local_variable_implicit_type: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_local_variable_initializer_uses_uninitialized: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_local_variable_sibling_thread: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_local_variable_unassigned_compound_assignment: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_local_variable_unassigned_increment: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_local_variable_unassigned_reference: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_multiclock_empty_subsequence: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_multiclock_operator: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_past_without_clock: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_property_formal_class_handle: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_property_instance_disable_iff_as_operand: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sampled_changed_without_clock: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sampled_fell_without_clock: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sampled_function_in_clock_expression_unclocked: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sampled_function_in_disable_condition_unclocked: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sampled_rose_without_clock: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sampled_stable_without_clock: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sequence_event_formal_as_boolean: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sequence_formal_chandle_type: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sequence_formal_goto_operand: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sequence_local_formals_share_actual: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sequence_local_input_actual_unassigned: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sequence_local_output_unassigned: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_sequence_property_no_match: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_triggered_ending_clock: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_triggered_ending_clock_differs: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_triggered_local_variable_formal_read_first: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_triggered_no_clock: the design was accepted, but it is illegal
+FAIL ch16/test_illegal_triggered_outside_local_formal: no error matches 'test_illegal_triggered_outside_local_formal\\.sv:35:'
+FAIL ch16/test_immediate_assert_syntax_actions: output differs (exit 2)
+FAIL ch16/test_immediate_assertion_default_error: output differs (exit 2)
+FAIL ch16/test_immediate_assertion_truth_and_actions: output differs (exit 2)
+FAIL ch16/test_implicit_always_attempts: output differs
+FAIL ch16/test_local_variable_init_two_leading_clocks: output differs
+FAIL ch16/test_matched_local_threads: output differs
+FAIL ch16/test_multiclock_clock_flow_operands: output differs
+FAIL ch16/test_multiclock_implication_if_sync: output differs
+FAIL ch16/test_named_property_scopes_formals_instances: output differs
+FAIL ch16/test_named_sequence_scopes_and_instances: output differs (exit 1)
+FAIL ch16/test_nexttime_always_eventually_alignment: output differs (exit 1)
+FAIL ch16/test_nonoverlapped_implication_expansion: output differs
+FAIL ch16/test_nonvacuous_always_eventually: output differs
+FAIL ch16/test_nonvacuous_evaluation_forms: output differs
+FAIL ch16/test_nonvacuous_followed_by_nexttime: output differs
+FAIL ch16/test_nonvacuous_if_nonoverlap_instance_disable: output differs
+FAIL ch16/test_nonvacuous_not_and_abort: output differs
+FAIL ch16/test_nonvacuous_property_case: output differs
+FAIL ch16/test_nonvacuous_until_forms: output differs
+FAIL ch16/test_procedural_assertion_clock_inference: output differs
+FAIL ch16/test_procedural_assertion_disable_label: output differs
+FAIL ch16/test_procedural_assertion_flush_points: output differs
+FAIL ch16/test_procedural_assertion_no_glitch: output differs
+FAIL ch16/test_procedural_assertion_queue_rules: output differs
+FAIL ch16/test_property_abort_nesting: output differs
+FAIL ch16/test_property_declaration_and_argument_forms: output differs
+FAIL ch16/test_property_declaration_names_and_clock: output differs
+FAIL ch16/test_property_expression_operands_bind_first: output differs
+FAIL ch16/test_property_mutual_recursion: output differs
+FAIL ch16/test_property_nested_if_case: output differs
+FAIL ch16/test_property_strong_unbounded_operators: output differs
+FAIL ch16/test_property_until_strong_forms: output differs
+FAIL ch16/test_recursive_properties: output differs
+FAIL ch16/test_recursive_property_abort_operators: output differs
+FAIL ch16/test_recursive_property_time_advance: output differs (exit 1)
+FAIL ch16/test_sampled_automatic_and_const_current: output differs (exit 1)
+FAIL ch16/test_sampled_automatic_const_current: output differs
+FAIL ch16/test_sampled_defaults_and_methods: output differs
+FAIL ch16/test_sampled_function_arguments: output differs
+FAIL ch16/test_sampled_function_clock_inference: output differs
+FAIL ch16/test_sampled_value_functions_with_clocking_event: output differs
+FAIL ch16/test_sampled_value_time_zero_defaults: output differs
+FAIL ch16/test_sequence_and_or_intersect: output differs
+FAIL ch16/test_sequence_attached_call_kinds_order_region: output differs
+FAIL ch16/test_sequence_consecutive_repetition: output differs
+FAIL ch16/test_sequence_empty_match_concatenation: output differs
+FAIL ch16/test_sequence_empty_match_fusion: output differs
+FAIL ch16/test_sequence_expression_forms_and_match_items: output differs
+FAIL ch16/test_sequence_first_match: output differs
+FAIL ch16/test_sequence_formal_arguments: output differs
+FAIL ch16/test_sequence_formal_arguments_substitution: output differs (exit 1)
+FAIL ch16/test_sequence_intersect_within_precedence: output differs
+FAIL ch16/test_sequence_local_formal_arguments: output differs
+FAIL ch16/test_sequence_local_formal_assignment: output differs (exit 1)
+FAIL ch16/test_sequence_local_formal_copies_and_casts: output differs
+FAIL ch16/test_sequence_local_variable_threads_and_merge: output differs
+FAIL ch16/test_sequence_local_variables: output differs
+FAIL ch16/test_sequence_match_item_and_triggered_method: output differs (exit 1)
+FAIL ch16/test_sequence_method_empty_matches: output differs
+FAIL ch16/test_sequence_operator_and_delay_forms: output differs (exit 1)
+FAIL ch16/test_sequence_or_and_local_flow: output differs
+FAIL ch16/test_sequence_repetition_and_delay_shorthands: output differs
+FAIL ch16/test_sequence_subroutine_call_arguments: output differs
+FAIL ch16/test_sequence_throughout_within: output differs
+FAIL ch16/test_sequence_throughout_within_expansions: output differs
+FAIL ch16/test_sequence_triggered: output differs
+FAIL ch16/test_static_assertions_start_every_tick: output differs
+FAIL ch16/test_static_deferred_assertion_always_comb: output differs
+FAIL ch16/test_strong_weak_first_match_same_truth: output differs
+FAIL ch16/test_sva_typed_formal_assignment: output differs
+FAIL ch16/test_syntax_deferred_immediate_assertions: output differs
+FAIL ch16/test_triggered_local_variable_threads: output differs
+FAIL ch16/test_triggered_matched_multiclock: output differs
+FAIL ch16/test_zero_repetition_no_sample: output differs
+FAIL ch17/test_checker_always_comb_latch_ff: output differs
+FAIL ch17/test_checker_always_latch: output differs
+FAIL ch17/test_checker_always_procedures: output differs
+FAIL ch17/test_checker_always_statement_kinds: output differs (exit 1)
+FAIL ch17/test_checker_assertion_placement: output differs (exit 1)
+FAIL ch17/test_checker_assertion_sampling_as_module: output differs
+FAIL ch17/test_checker_assume_stability: output differs
+FAIL ch17/test_checker_assume_violation: output differs
+FAIL ch17/test_checker_body_declaration_kinds: output differs (exit 1)
+FAIL ch17/test_checker_body_items: output differs (exit 1)
+FAIL ch17/test_checker_body_procedural_and_generate_items: output differs (exit 1)
+FAIL ch17/test_checker_concurrent_assertion: output differs
+FAIL ch17/test_checker_context_inference: output differs
+FAIL ch17/test_checker_covergroup: output differs
+FAIL ch17/test_checker_covergroup_sample: output differs (exit 1)
+FAIL ch17/test_checker_declaration_and_port_forms: output differs (exit 1)
+FAIL ch17/test_checker_declaration_scope_kinds: output differs (exit 1)
+FAIL ch17/test_checker_free_activity: output differs
+FAIL ch17/test_checker_generate_instance: output differs
+FAIL ch17/test_checker_generate_state: output differs
+FAIL ch17/test_checker_in_package: output differs
+FAIL ch17/test_checker_instantiation_connection_forms: output differs (exit 1)
+FAIL ch17/test_checker_output_actual: output differs
+FAIL ch17/test_checker_package_context: output differs
+FAIL ch17/test_checker_procedural_deferred_assertion: output differs (exit 1)
+FAIL ch17/test_checker_procedural_instance: output differs
+FAIL ch17/test_checker_procedures_reactive_renba: output differs (exit 1)
+FAIL ch17/test_checker_rand_and_nested_checker: output differs (exit 1)
+FAIL ch17/test_checker_reactive_triggered: output differs
+FAIL ch17/test_checker_static_scope: output differs
+FAIL ch17/test_checker_triggered_assignment: output differs
+FAIL ch17/test_illegal_checker_covergroup_constant_actual: the design was accepted, but it is illegal
+FAIL ch17/test_illegal_checker_variable_initial_assignment: no error matches 'test_illegal_checker_variable_initial_assignment\\.sv:23:'
+FAIL ch17/test_illegal_checker_writes_input: the design was accepted, but it is illegal
+FAIL ch18/test_array_reduction_element_type: output differs
+FAIL ch18/test_constraint_bidirectional_solver: output differs
+FAIL ch18/test_constraint_foreach_scope_dimensions: output differs (exit 2)
+FAIL ch18/test_constraint_guard_and_table: output differs (exit 1)
+FAIL ch18/test_constraint_guard_error_sifting: output differs
+FAIL ch18/test_constraint_guard_not_nested: output differs (exit 1)
+FAIL ch18/test_constraint_guard_or_table: output differs (exit 1)
+FAIL ch18/test_constraint_if_else_equivalence: output differs
+FAIL ch18/test_constraint_mode_hierarchy: output differs
+FAIL ch18/test_disable_soft_direct_reference: output differs
+FAIL ch18/test_dist_default_complement: output differs
+FAIL ch18/test_foreach_dynamic_multidim_constraint: output differs (exit 2)
+FAIL ch18/test_global_constraints_nested_inactive: output differs (exit 2)
+FAIL ch18/test_illegal_constraint_foreach_dimensions: the design was accepted, but it is illegal
+FAIL ch18/test_illegal_constraint_function_cycle: the design was accepted, but it is illegal
+FAIL ch18/test_illegal_constraint_function_mode: the design was accepted, but it is illegal
+FAIL ch18/test_illegal_constraint_function_state: the design was accepted, but it is illegal
+FAIL ch18/test_illegal_constraint_mode_redefined: no error matches 'test_illegal_constraint_mode_redefined\\.sv:25:'
+FAIL ch18/test_illegal_pure_constraint_not_implemented: no error matches 'test_illegal_pure_constraint_not_implemented\\.sv:(25|32):'
+FAIL ch18/test_illegal_rand_join_parameter: the design was accepted, but it is illegal
+FAIL ch18/test_illegal_rand_mode_non_random: no error matches 'test_illegal_rand_mode_non_random\\.sv:28:'
+FAIL ch18/test_illegal_rand_mode_override: no error matches 'test_illegal_rand_mode_override\\.sv:23:'
+FAIL ch18/test_illegal_randomize_method_redefined: no error matches 'test_illegal_randomize_method_redefined\\.sv:29:'
+FAIL ch18/test_illegal_randsequence_negative_weight: the design was accepted, but it is illegal
+FAIL ch18/test_illegal_solve_before_circular: the design was accepted, but it is illegal
+FAIL ch18/test_illegal_solve_before_parentheses: the design was accepted, but it is illegal
+FAIL ch18/test_illegal_solve_before_unpacked_array: the design was accepted, but it is illegal
+FAIL ch18/test_illegal_solve_parentheses: the design was accepted, but it is illegal
+FAIL ch18/test_inline_constraint_local_qualifier_binding: output differs
+FAIL ch18/test_inline_constraint_this_super: output differs
+FAIL ch18/test_inline_local_scope_binding: output differs (exit 1)
+FAIL ch18/test_mode_method_signatures: output differs
+FAIL ch18/test_rand_join_length_bias: output differs
+FAIL ch18/test_rand_mode_inactive_handle: output differs (exit 1)
+FAIL ch18/test_rand_mode_struct_members: output differs
+FAIL ch18/test_rand_packed_enum_member: output differs
+FAIL ch18/test_rand_real_uniform_and_dist: output differs (exit 2)
+FAIL ch18/test_randc_permutation_recomputed: output differs
+FAIL ch18/test_randc_solved_first_distribution: output differs
+FAIL ch18/test_randc_static_shared_cycle: output differs
+FAIL ch18/test_randcase_weight_precision: output differs
+FAIL ch18/test_random_array_resize_modes: output differs
+FAIL ch18/test_random_array_size_handles: output differs
+FAIL ch18/test_random_stability_seeding: output differs
+FAIL ch18/test_randomize_call_argument_lists_and_with_forms: output differs
+FAIL ch18/test_randomize_callback_override: output differs
+FAIL ch18/test_randomize_with_local_this: output differs
+FAIL ch18/test_randsequence_break_in_loop: output differs
+FAIL ch18/test_randsequence_if_case: output differs
+FAIL ch18/test_randsequence_production_arguments: output differs
+FAIL ch18/test_randsequence_production_heads_rules_and_weights: output differs
+FAIL ch18/test_randsequence_result_syntactic_order: output differs
+FAIL ch18/test_randsequence_return_aborts_production: output differs
+FAIL ch18/test_randsequence_return_values: output differs
+FAIL ch18/test_randsequence_statement_and_production_list_elements: output differs
+FAIL ch18/test_soft_priority_layers: output differs
+FAIL ch18/test_solve_before_changes_distribution: output differs
+FAIL ch18/test_solve_before_partial_order: output differs
+FAIL ch18/test_std_randomize_task_locals: output differs
+FAIL ch18/test_thread_order_independence: output differs
+FAIL ch18/test_thread_stability_fork: output differs
+FAIL ch18/test_unique_array_slice_single: output differs
+FAIL ch18/test_uniqueness_constraint_forms: output differs (exit 1)
+FAIL ch19/test_cg_auto_bins_illegal_ignore: output differs
+FAIL ch19/test_cg_bin_hit_counts: output differs
+FAIL ch19/test_cg_bin_syntax_all_forms: output differs (exit 1)
+FAIL ch19/test_cg_bins_set_expr_array_kinds: output differs
+FAIL ch19/test_cg_bins_with_distribution_order: output differs
+FAIL ch19/test_cg_bins_with_set_expr: output differs
+FAIL ch19/test_cg_block_event_begin_end: output differs
+FAIL ch19/test_cg_class_two_covergroups: output differs
+FAIL ch19/test_cg_clocking_block_coverpoint: output differs
+FAIL ch19/test_cg_coverage_event_kinds: output differs
+FAIL ch19/test_cg_coverage_query_methods: output differs
+FAIL ch19/test_cg_coverpoint_and_cross_items: output differs (exit 1)
+FAIL ch19/test_cg_coverpoint_name_and_type: output differs (exit 1)
+FAIL ch19/test_cg_coverpoint_type_resolution: output differs
+FAIL ch19/test_cg_cross_bin_counts_retain_auto: output differs
+FAIL ch19/test_cg_cross_excluded_point_bins: output differs
+FAIL ch19/test_cg_cross_iff_guards: output differs
+FAIL ch19/test_cg_cross_illegal_per_instance: output differs
+FAIL ch19/test_cg_cross_set_function_matches: output differs (exit 1)
+FAIL ch19/test_cg_cross_with_policy: output differs
+FAIL ch19/test_cg_declaration_contexts: output differs
+FAIL ch19/test_cg_derived_option_override: output differs
+FAIL ch19/test_cg_embedded_inheritance: output differs
+FAIL ch19/test_cg_excluded_transitions: output differs
+FAIL ch19/test_cg_four_state_literal_wildcard_enum: output differs
+FAIL ch19/test_cg_illegal_cross_error: no message matches 'test_cg_illegal_cross_error\\.sv:68:'
+FAIL ch19/test_cg_illegal_transition_error: output differs
+FAIL ch19/test_cg_illegal_value_error: no message matches 'test_cg_illegal_value_error\\.sv:44:'
+FAIL ch19/test_cg_illegal_value_keeps_transition: output differs
+FAIL ch19/test_cg_inheritance_args_and_cross: output differs (exit 1)
+FAIL ch19/test_cg_integral_bin_forms: output differs
+FAIL ch19/test_cg_item_start_stop: output differs
+FAIL ch19/test_cg_merge_auto_and_transition_names: output differs (exit 1)
+FAIL ch19/test_cg_merge_auto_bin_names: output differs
+FAIL ch19/test_cg_merge_state_bin_names: output differs
+FAIL ch19/test_cg_option_evaluated_at_new: output differs
+FAIL ch19/test_cg_option_group_defaults: output differs
+FAIL ch19/test_cg_option_levels_readback: output differs
+FAIL ch19/test_cg_option_name_unique_and_retain_scope: output differs
+FAIL ch19/test_cg_real_bin_intervals: output differs
+FAIL ch19/test_cg_real_bins_fixed_and_dollar: output differs
+FAIL ch19/test_cg_real_bins_tolerance_and_merge: output differs
+FAIL ch19/test_cg_sample_from_contexts: output differs
+FAIL ch19/test_cg_sampling_instant_and_strobe: output differs
+FAIL ch19/test_cg_transition_binsof_last_value: output differs
+FAIL ch19/test_cg_transition_range_product: output differs
+FAIL ch19/test_cg_transition_repetition: output differs
+FAIL ch19/test_cg_transition_syntax_all_forms: output differs
+FAIL ch19/test_cg_type_and_instance_coverage: output differs
+FAIL ch19/test_cg_type_coverage_item_weights: output differs
+FAIL ch19/test_cg_warn_negative_unsigned: output differs
+FAIL ch19/test_cg_warn_nonrepresentable: output differs
+FAIL ch19/test_cg_warned_bin_elements_removed: output differs
+FAIL ch19/test_cg_wildcard_array_and_transition: output differs
+FAIL ch19/test_cg_zero_denominator_groups: output differs
+FAIL ch19/test_cg_zero_denominator_items: output differs
+FAIL ch19/test_covergroup_bins_and_range_forms: output differs
+FAIL ch19/test_covergroup_block_event_forms: output differs
+FAIL ch19/test_covergroup_cross_and_select_forms: output differs (exit 1)
+FAIL ch19/test_covergroup_declaration_and_option_forms: output differs
+FAIL ch19/test_covergroup_identifiers_and_bins_with: output differs
+FAIL ch19/test_get_coverage_no_contributing_groups: output differs
+FAIL ch19/test_get_coverage_two_types: output differs
+FAIL ch19/test_illegal_cg_function_side_effect: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_ignore_unbounded_transition: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_illegal_unbounded_transition: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_matches_zero: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_outer_constant: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_ref_formal_expression: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_ref_formal_variable: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_system_function: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_transition_array_unbounded: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_transition_length_zero: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_transition_repeat_one: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_transition_sole_range: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_transition_sole_range_new: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_type_option_formal: the design was accepted, but it is illegal
+FAIL ch19/test_illegal_cg_type_option_nonconstant: the design was accepted, but it is illegal
+FAIL ch19/test_option_member_defaults: output differs
+FAIL ch19/test_option_struct_member_types: output differs
+FAIL ch19/test_option_struct_members: output differs
+FAIL ch20/test_array_query_default_dimension_integer_result: output differs (exit 1)
+FAIL ch20/test_array_query_dimension_counts: output differs (exit 1)
+FAIL ch20/test_array_query_functions: output differs (exit 1)
+FAIL ch20/test_array_query_invalid_dimension_all_x: output differs (exit 1)
+FAIL ch20/test_array_query_types_and_invalid: output differs (exit 1)
+FAIL ch20/test_assertcontrol_action_codes_assert_expect: output differs
+FAIL ch20/test_assertcontrol_action_controls_ongoing: output differs
+FAIL ch20/test_assertcontrol_callbacks_selected: output differs
+FAIL ch20/test_assertcontrol_callbacks_system: output differs
+FAIL ch20/test_assertcontrol_directive_type_ignored_for_expect_and_violations: output differs
+FAIL ch20/test_assertcontrol_lock_expect_and_violation_reports: output differs
+FAIL ch20/test_assertcontrol_off_kill_on_pending: output differs
+FAIL ch20/test_assertcontrol_violation_and_expect_types: output differs
+FAIL ch20/test_assertion_default_error_failoff_failon: output differs (exit 2)
+FAIL ch20/test_bit_vector_functions_types_and_arguments: output differs
+FAIL ch20/test_bits_empty_dynamic_is_zero: output differs
+FAIL ch20/test_conversion_functions_constant_expressions: output differs
+FAIL ch20/test_expect_wait_order_default_error_failoff: no message matches '\\A(?=[\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:48:)(?=[\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:49:)(?![\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:50:)(?=[\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:51:)(?=[\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:52:)(?![\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:53:)(?![\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:56:)(?![\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:57:)(?![\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:58:)(?=[\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:59:)(?=[\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:60:)(?![\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:61:)(?=[\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:64:)(?=[\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:65:)(?![\\s\\S]*test_expect_wait_order_default_error_failoff\\.sv:66:)'
+FAIL ch20/test_fatal_form_finish_number_and_arguments: no message matches '(?i)\\A(?=[\\s\\S]*fatal[^\\n]*test_fatal_form_finish_number_and_arguments\\.sv:35:[^\\n]*ff-msg n=42 end)'
+FAIL ch20/test_fatal_form_finish_number_only: output differs (exit 2)
+FAIL ch20/test_fatal_form_without_parentheses: output differs (exit 2)
+FAIL ch20/test_illegal_bits_function_dynamic_return: the design was accepted, but it is illegal
+FAIL ch20/test_illegal_countbits_non_bitstream: the design was accepted, but it is illegal
+FAIL ch20/test_illegal_dist_exponential_zero_mean: the design was accepted, but it is illegal
+FAIL ch20/test_illegal_isunbounded_variable: the design was accepted, but it is illegal
+FAIL ch20/test_illegal_pla_descending_memory: the design was accepted, but it is illegal
+FAIL ch20/test_illegal_pla_output_net: the design was accepted, but it is illegal
+FAIL ch20/test_illegal_random_seed_real: the design was accepted, but it is illegal
+FAIL ch20/test_illegal_timeformat_unit_out_of_range: the design was accepted, but it is illegal
+FAIL ch20/test_queue_statistics_wait_codes: output differs
+FAIL ch20/test_severity_task_argument_forms: no message matches '(?i)\\A(?=[\\s\\S]*info[^\\n]*test_severity_task_argument_forms\\.sv:64:)(?=[\\s\\S]*info[^\\n]*test_severity_task_argument_forms\\.sv:65:)(?=[\\s\\S]*info[^\\n]*test_severity_task_argument_forms\\.sv:66:[^\\n]*sv-info n=7)(?=[\\s\\S]*warn[^\\n]*test_severity_task_argument_forms\\.sv:67:)(?=[\\s\\S]*warn[^\\n]*test_severity_task_argument_forms\\.sv:68:)(?=[\\s\\S]*warn[^\\n]*test_severity_task_argument_forms\\.sv:69:[^\\n]*sv-warn n=8 w)(?=[\\s\\S]*error[^\\n]*test_severity_task_argument_forms\\.sv:70:)(?=[\\s\\S]*error[^\\n]*test_severity_task_argument_forms\\.sv:71:)(?=[\\s\\S]*error[^\\n]*test_severity_task_argument_forms\\.sv:72:[^\\n]*sv-error n=9)(?=[\\s\\S]*fatal[^\\n]*test_severity_task_argument_forms\\.sv:74:[^\\n]*sv-fatal n=10)'
+FAIL ch20/test_severity_tasks_report_contents: no message matches '(?i)\\A(?=[\\s\\S]*info[^\\n]*test_severity_tasks_report_contents\\.sv:42:[^\\n]*msg-one 42 abc)(?=[\\s\\S]*warn[^\\n]*test_severity_tasks_report_contents\\.sv:46:[^\\n]*msg-two ab 10)(?=[\\s\\S]*error[^\\n]*test_severity_tasks_report_contents\\.sv:50:[^\\n]*msg-three 1\\+2=3)(?=[\\s\\S]*fatal[^\\n]*test_severity_tasks_report_contents\\.sv:62:[^\\n]*msg-four end)(?=[\\s\\S]*scope_one)(?=[\\s\\S]*scope_two)(?=[\\s\\S]*scope_three)(?=[\\s\\S]*scope_four)(?=[\\s\\S]*1111)(?=[\\s\\S]*2222)(?=[\\s\\S]*3333)(?=[\\s\\S]*4444)'
+FAIL ch20/test_stochastic_queue_capacity_one_reuse: output differs
+FAIL ch20/test_stochastic_queues: output differs
+FAIL ch20/test_timeformat_applies_to_all_modules: output differs
+FAIL ch20/test_timeformat_default_arguments: output differs
+FAIL ch20/test_typename_signing_ranges_scopes: output differs
+FAIL ch21/test_display_arguments_without_format: output differs
+FAIL ch21/test_display_format: output differs
+FAIL ch21/test_display_format_edge_cases: output differs
+FAIL ch21/test_evcd_dumpports_files_defaults_and_control_scope: output differs
+FAIL ch21/test_evcd_dumpportslimit_all_files: output differs
+FAIL ch21/test_evcd_dumpportslimit_named_by_variables: output differs
+FAIL ch21/test_evcd_dumpportslimit_stops_named_file: output differs
+FAIL ch21/test_evcd_inout_output_strong_and_unknown_direction: output differs
+FAIL ch21/test_evcd_inout_same_value_conflicts: output differs
+FAIL ch21/test_evcd_inout_unknown_and_three_state: output differs
+FAIL ch21/test_evcd_port_node_declarations: output differs
+FAIL ch21/test_evcd_port_states_strengths_and_controls: output differs
+FAIL ch21/test_fclose_cancels_fmonitor_fstrobe: output differs
+FAIL ch21/test_fd_no_broadcast: output differs
+FAIL ch21/test_fgetc_byte_ff_and_eof: output differs
+FAIL ch21/test_fgets_fill_newline_eof: output differs
+FAIL ch21/test_fopen_name_and_type_forms: output differs (exit 1)
+FAIL ch21/test_format_advanced: output differs
+FAIL ch21/test_format_hierarchical_name_scopes: output differs
+FAIL ch21/test_format_precision: output differs
+FAIL ch21/test_format_specifiers_edge: output differs
+FAIL ch21/test_format_string_unpacked_byte_array_order: output differs
+FAIL ch21/test_format_unformatted_u_z_word_order: output differs
+FAIL ch21/test_fread_unpacked_struct_union: output differs (exit 1)
+FAIL ch21/test_fread_word_widths_and_result: output differs
+FAIL ch21/test_fscanf_unformatted_u_z: output differs
+FAIL ch21/test_fwrite_unformatted_aggregates: output differs
+FAIL ch21/test_illegal_display_strength_vector_net: the design was accepted, but it is illegal
+FAIL ch21/test_illegal_display_unpacked_int_array_no_format: the design was accepted, but it is illegal
+FAIL ch21/test_illegal_display_unpacked_shortint_array_no_format: the design was accepted, but it is illegal
+FAIL ch21/test_illegal_display_unpacked_struct_no_format: the design was accepted, but it is illegal
+FAIL ch21/test_illegal_dumpports_string_scope: the design was accepted, but it is illegal
+FAIL ch21/test_illegal_readmem_address_outside_slice: the design was accepted, but it is illegal
+FAIL ch21/test_illegal_readmem_higher_range: the design was accepted, but it is illegal
+FAIL ch21/test_illegal_sscanf_decimal_into_unpacked_array: the design was accepted, but it is illegal
+FAIL ch21/test_illegal_sscanf_hex_into_unpacked_struct: the design was accepted, but it is illegal
+FAIL ch21/test_illegal_value_plusargs_bad_format: the design was accepted, but it is illegal
+FAIL ch21/test_pattern_print_array_and_packed_struct: output differs
+FAIL ch21/test_readmem_dynamic_array_not_resized: output differs
+FAIL ch21/test_readmem_multidim_packed: output differs
+FAIL ch21/test_readmemh_address_range: output differs
+FAIL ch21/test_readmemh_directions_and_addresses: output differs
+FAIL ch21/test_readmemh_word_count_warning: no message matches '(?i:\\bwarn(?:ing)?\\b|%Warning-)'
+FAIL ch21/test_sformat_assignment_rules: output differs
+FAIL ch21/test_sformat_format_expression_forms: output differs
+FAIL ch21/test_sformat_only_second_argument_is_format: output differs
+FAIL ch21/test_sformat_too_few_arguments_warns: no message matches '(?i:\\bwarn(?:ing)?\\b|%Warning-)'
+FAIL ch21/test_sformat_too_many_arguments_warns: no message matches '(?i:\\bwarn(?:ing)?\\b|%Warning-)'
+FAIL ch21/test_sscanf_digit_sets_xz: output differs
+FAIL ch21/test_sscanf_eof_input_failure: output differs
+FAIL ch21/test_sscanf_fields_whitespace_percent: output differs
+FAIL ch21/test_sscanf_format_from_variables: output differs
+FAIL ch21/test_sscanf_m_hierarchical_path: output differs
+FAIL ch21/test_sscanf_real_conversions: output differs
+FAIL ch21/test_sscanf_sources_and_string_targets: output differs
+FAIL ch21/test_sscanf_t_uses_timeformat: output differs
+FAIL ch21/test_sscanf_truncation_and_infinity: output differs
+FAIL ch21/test_sscanf_unknown_bits_return_eof: output differs
+FAIL ch21/test_sscanf_v_strength_values: output differs
+FAIL ch21/test_strobe_variants_after_all_events: output differs
+FAIL ch21/test_swrite_radix_forms_and_targets: output differs
+FAIL ch21/test_swrite_unpacked_byte_array_order: output differs
+FAIL ch21/test_ungetc_pushback_and_failed_descriptor: output differs
+FAIL ch21/test_value_plusargs_hex_real_empty_width: output differs
+FAIL ch21/test_value_plusargs_illegal_characters: output differs
+FAIL ch21/test_vcd_checkpoint_and_dump_control_protocol: output differs
+FAIL ch21/test_vcd_dumplimit_not_reached_keeps_dumping: output differs
+FAIL ch21/test_vcd_dumplimit_stops_dump_with_comment: output differs
+FAIL ch21/test_vcd_dumpvars_all_filename_start: output differs (exit 1)
+FAIL ch21/test_vcd_dumpvars_no_arguments: output differs
+FAIL ch21/test_vcd_dumpvars_selection_forms: output differs
+FAIL ch21/test_vcd_filename_string_and_depth_zero: output differs
+FAIL ch21/test_vcd_four_state_values_without_strength: output differs
+FAIL ch21/test_vcd_scope_commands_begin_fork_task: output differs
+FAIL ch21/test_vcd_type_mappings: output differs
+FAIL ch21/test_vcd_unpacked_struct_and_undumped: output differs
+FAIL ch21/test_vcd_version_records_dumpfile_call: output differs
+FAIL ch21/test_write_fmt: output differs
+FAIL ch21/test_write_format: output differs
+FAIL ch21/test_writemem_dynamic_array_no_addresses: output differs
+FAIL ch21/test_writemem_overwrite_and_multidim: output differs
+FAIL ch21/test_writemem_packed_data: output differs
+FAIL ch22/test_begin_keywords_1800_2009_additions: output differs (exit 1)
+FAIL ch22/test_file_line_across_include: output differs
+FAIL ch22/test_ifdef_directive_names_not_defined: output differs (exit 1)
+FAIL ch22/test_illegal_begin_keywords_spans_include_boundary: no error matches 'test_illegal_begin_keywords_spans_include_boundary\\.sv:31:'
+FAIL ch22/test_illegal_begin_keywords_without_end: the design was accepted, but it is illegal
+FAIL ch22/test_illegal_directive_split_across_lines: the design was accepted, but it is illegal
+FAIL ch22/test_illegal_include_absolute_path_in_angle_brackets: the design was accepted, but it is illegal
+FAIL ch22/test_illegal_include_line_trailing_code: the design was accepted, but it is illegal
+FAIL ch22/test_illegal_line_directive_trailing_comment: the design was accepted, but it is illegal
+FAIL ch23/test_ansi_explicit_named_ports: output differs
+FAIL ch23/test_bind_instantiation_kinds: output differs
+FAIL ch23/test_bind_scope_and_interface_target: output differs
+FAIL ch23/test_defparam_block_task_function_parameters: output differs (exit 1)
+FAIL ch23/test_defparam_last_in_source_text_wins: output differs
+FAIL ch23/test_dotted_name_resolution_all_rules: output differs
+FAIL ch23/test_elaboration_order_roots_and_deferral: output differs
+FAIL ch23/test_hierarchy_branches_syntax_and_uses: output differs
+FAIL ch23/test_illegal_defparam_array_sibling_instance: the design was accepted, but it is illegal
+FAIL ch23/test_illegal_implicit_name_port_dissimilar_net_types: the design was accepted, but it is illegal
+FAIL ch23/test_illegal_inout_port_nettype_one_side: the design was accepted, but it is illegal
+FAIL ch23/test_illegal_interconnect_left_after_elaboration: the design was accepted, but it is illegal
+FAIL ch23/test_illegal_no_top_level_module: the design was accepted, but it is illegal
+FAIL ch23/test_illegal_output_port_concat_continuous_write: the design was accepted, but it is illegal
+FAIL ch23/test_illegal_output_port_variable_procedural_write: the design was accepted, but it is illegal
+FAIL ch23/test_illegal_port_connection_different_nettypes: the design was accepted, but it is illegal
+FAIL ch23/test_illegal_port_connection_nettype_data_type_mismatch: the design was accepted, but it is illegal
+FAIL ch23/test_illegal_scope_duplicate_in_unselected_generate: the design was accepted, but it is illegal
+FAIL ch23/test_instance_before_definition_connection_kinds: output differs
+FAIL ch23/test_interconnect_merge_net_types: output differs
+FAIL ch23/test_interconnect_port_inheritance_typeless: output differs
+FAIL ch23/test_interconnect_primitive_broadcast_input: output differs (exit 1)
+FAIL ch23/test_interconnect_primitive_terminal: output differs (exit 1)
+FAIL ch23/test_interconnect_terminal_wire_resolution: output differs (exit 1)
+FAIL ch23/test_nested_module_implicit_instance: output differs
+FAIL ch23/test_nonansi_port_references_and_implicit_unsigned: output differs
+FAIL ch23/test_nonansi_renamed_concatenated_ports: output differs
+FAIL ch23/test_port_collapse_internal_supply: output differs
+FAIL ch23/test_port_collapse_internal_tri0_tri1: output differs
+FAIL ch23/test_port_collapse_net_delay: output differs
+FAIL ch23/test_port_collapse_supply_cells: no message matches '(?i)warning'
+FAIL ch23/test_port_collapse_trireg: output differs
+FAIL ch23/test_port_collapse_trireg_and_uwire_cells: output differs (exit 1)
+FAIL ch23/test_port_collapse_trireg_charge_strength: output differs
+FAIL ch23/test_port_collapse_trireg_external_charge: output differs
+FAIL ch23/test_port_collapse_uwire_external_delay: output differs (exit 1)
+FAIL ch23/test_port_collapse_uwire_supply: output differs (exit 1)
+FAIL ch23/test_port_collapse_value_external_cells: output differs
+FAIL ch23/test_port_collapse_wand_external_delay: output differs
+FAIL ch23/test_port_collapse_wand_uwire_warning: output differs (exit 1)
+FAIL ch23/test_port_collapse_wire_external_delay: output differs (exit 2)
+FAIL ch23/test_port_collapse_wired_opposite_supply: output differs
+FAIL ch23/test_port_collapse_wor_external_delay: output differs
+FAIL ch23/test_port_collapse_wor_uwire_warning: output differs (exit 1)
+FAIL ch23/test_port_inout: output differs
+FAIL ch23/test_port_limit_and_port_type_kinds: output differs
+FAIL ch23/test_root_and_array_scope_hierarchical_names: output differs
+FAIL ch23/test_scope_creators_all_kinds: output differs (exit 1)
+FAIL ch23/test_syntax_instance_names_with_dimensions: output differs
+FAIL ch23/test_syntax_port_expression_and_explicit_ports: output differs (exit 1)
+FAIL ch23/test_upward_name_resolution_order: output differs
+FAIL ch23/test_vpi_ansi_port_inheritance: output differs
+FAIL ch24/test_program_and_checker_generate_items: output differs
+FAIL ch24/test_program_declaration_all_header_elements: output differs (exit 2)
+FAIL ch24/test_program_port_connection: output differs
+FAIL ch25/test_extern_forkjoin_disable_interface_and_module: output differs
+FAIL ch25/test_extern_interface_program_headers_wildcard: output differs
+FAIL ch25/test_illegal_generic_interface_port_dot_name: the design was accepted, but it is illegal
+FAIL ch25/test_illegal_interface_port_actual_through_generate_block: the design was accepted, but it is illegal
+FAIL ch25/test_illegal_interface_port_actual_through_instance_array: the design was accepted, but it is illegal
+FAIL ch25/test_illegal_modport_import_default_argument_without_prototype: the design was accepted, but it is illegal
+FAIL ch25/test_illegal_modport_import_from_module_without_prototype: the design was accepted, but it is illegal
+FAIL ch25/test_illegal_modport_import_named_binding_without_prototype: the design was accepted, but it is illegal
+FAIL ch25/test_illegal_modport_prototype_type_not_matching: no error matches '^(?![^\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\n]*test_illegal_modport_prototype_type_not_matching\\.sv:(?:27|31):(?:\\d+:)?[^\\n]*(?i:(?:argument|parameter)[^\\n]*type[^\\n]*(?:differ|match|mismatch)|type[^\\n]*(?:differ|match|mismatch)[^\\n]*(?:argument|parameter))'
+FAIL ch25/test_illegal_modport_prototype_unnamed_named_binding: the design was accepted, but it is illegal
+FAIL ch25/test_illegal_virtual_interface_component_in_continuous_assign: the design was accepted, but it is illegal
+FAIL ch25/test_interface_abstract_methods_and_broadcast: output differs (exit 1)
+FAIL ch25/test_interface_declaration_all_header_elements: output differs
+FAIL ch25/test_interface_extern_and_generate_items: output differs (exit 1)
+FAIL ch25/test_interface_named_bundle_ports_share_variable_and_net: output differs
+FAIL ch25/test_interface_nested_program_and_interface: output differs
+FAIL ch25/test_interface_port_default_ref_and_inout_access: output differs
+FAIL ch25/test_interface_port_parameter_per_instance: output differs
+FAIL ch25/test_interface_task_export: output differs
+FAIL ch25/test_syntax_interface_instantiation_forms: output differs
+FAIL ch26/test_illegal_package_import_in_class: the design was accepted, but it is illegal
+FAIL ch26/test_illegal_package_imported_before_compiled: the design was accepted, but it is illegal
+FAIL ch26/test_illegal_std_package_declaration: the design was accepted, but it is illegal
+FAIL ch26/test_package_checker_and_covergroup_items: output differs
+FAIL ch26/test_package_declaration_all_elements: output differs
+FAIL ch26/test_package_edge_cases_2: output differs
+FAIL ch26/test_package_export_wildcard_forms: output differs
+FAIL ch26/test_package_items_anonymous_program_export_timeunit: output differs
+FAIL ch27/test_class_in_generate_block: output differs
+FAIL ch27/test_generate_dangling_else: output differs
+FAIL ch27/test_generate_direct_nesting: output differs
+FAIL ch27/test_interface_generate_items: output differs
+FAIL ch28/test_ambiguous_strength_ranges_and_levels: output differs
+FAIL ch28/test_ambiguous_strengths: output differs
+FAIL ch28/test_bidirectional_switch_category: output differs
+FAIL ch28/test_bufif_gate_truth_table_all_inputs: output differs
+FAIL ch28/test_cmos_switch_nmos_pmos_equivalence: output differs
+FAIL ch28/test_drive_strength_components_on_gates_and_assigns: output differs
+FAIL ch28/test_gate_delay_forms: output differs (exit 1)
+FAIL ch28/test_gate_instance_array: output differs
+FAIL ch28/test_large_charge_strength_level_in_ranges: output differs
+FAIL ch28/test_mos_cmos_switch_delay_forms: output differs
+FAIL ch28/test_mos_switch_truth_tables: output differs
+FAIL ch28/test_nonresistive_switch_strength_each_level: output differs
+FAIL ch28/test_notif_gate_truth_table_all_inputs: output differs
+FAIL ch28/test_pass_switch_direction_and_control_kinds: output differs
+FAIL ch28/test_primitive_terminal_lists: output differs
+FAIL ch28/test_rcmos_reduction: output differs
+FAIL ch28/test_rcmos_switch_rnmos_rpmos_equivalence: output differs
+FAIL ch28/test_resistive_mos_switch_reduction_each_level: output differs
+FAIL ch28/test_resistive_pass_switch_reduction_each_level: output differs
+FAIL ch28/test_rtran_reduction_table: output differs
+FAIL ch28/test_rtranif_control_and_reduction: output differs
+FAIL ch28/test_syntax_pass_switches: output differs
+FAIL ch28/test_syntax_primitive_terminal_expressions: output differs
+FAIL ch28/test_three_state_gate_unknown_output_delay: output differs
+FAIL ch28/test_trireg_decay_redrive_and_no_z: output differs (exit 2)
+FAIL ch28/test_user_nettype_switch_and_driver_strength: output differs
+FAIL ch28/test_wired_logic_ambiguous_strength_combinations: output differs
+FAIL ch29/test_illegal_udp_table_without_endtable: no error matches '^(?![^\\n]*(?i:unsupported|not supported|not implemented))[^\\n]*test_illegal_udp_table_without_endtable\\.sv:(?:24:|23:(?:\\d+:)?[^\\n]*(?i:expected[^\\n]*endtable))'
+FAIL ch29/test_syntax_udp_initial_values: output differs
+FAIL ch29/test_udp_current_state_x_entry: output differs
+FAIL ch29/test_udp_delay_rise_fall: output differs
+FAIL ch29/test_udp_delay_sequential_latch: output differs
+FAIL ch29/test_udp_delay_single_value: output differs
+FAIL ch29/test_udp_initial_value_literal_forms: output differs
+FAIL ch29/test_udp_instance_rise_fall_delay: output differs
+FAIL ch3/test_checker_assertion_with_auxiliary_model: output differs
+FAIL ch3/test_declaration_across_file_boundary: output differs (exit 1)
+FAIL ch3/test_delay_scaled_by_unit_rounded_by_precision: output differs
+FAIL ch3/test_element_and_block_name_spaces: output differs (exit 1)
+FAIL ch3/test_function_kinds_argument_directions_and_fork: output differs
+FAIL ch3/test_illegal_time_unit_specified_only_in_some_elements: the design was accepted, but it is illegal
+FAIL ch3/test_illegal_unit_prefix_forward_reference: the design was accepted, but it is illegal
+FAIL ch3/test_illegal_unit_scope_forward_reference: the design was accepted, but it is illegal
+FAIL ch3/test_include_text_joins_compilation_unit: output differs
+FAIL ch3/test_interface_instantiates_interface_program_and_checker: output differs
+FAIL ch3/test_interface_ports_of_module_program_and_interface: output differs
+FAIL ch3/test_module_instantiates_each_block_kind: output differs
+FAIL ch3/test_nested_module_inherits_time_unit_and_precision: output differs
+FAIL ch3/test_program_and_checker_instantiate_checkers: output differs
+FAIL ch3/test_program_instances_connected_separately: output differs
+FAIL ch3/test_same_names_in_module_interface_program_checker_scopes: output differs
+FAIL ch3/test_task_argument_directions_and_blocking: output differs
+FAIL ch3/test_time_unit_strings_scale_by_1000: output differs
+FAIL ch3/test_timescale_before_unit_timeunit_precedence: output differs
+FAIL ch3/test_timeunit_interface_clock: output differs
+FAIL ch3/test_timeunit_interface_task: output differs
+FAIL ch3/test_timeunit_package_class: output differs
+FAIL ch3/test_timeunit_program: output differs
+FAIL ch3/test_timeunit_repeated_as_later_item: output differs
+FAIL ch3/test_timeunit_scope_task: output differs
+FAIL ch3/test_timeunits_repeated_as_later_items: output differs
+FAIL ch3/test_unit_hierarchical_reference_from_root: output differs
+FAIL ch30/test_illegal_edge_parallel_path_part_select_destination: the design was accepted, but it is illegal
+FAIL ch30/test_illegal_edge_parallel_path_vector_destination: the design was accepted, but it is illegal
+FAIL ch30/test_illegal_pathpulse_error_below_reject: the design was accepted, but it is illegal
+FAIL ch30/test_illegal_pulsestyle_ondetect_after_path: the design was accepted, but it is illegal
+FAIL ch30/test_illegal_pulsestyle_onevent_after_path: the design was accepted, but it is illegal
+FAIL ch30/test_illegal_showcancelled_after_path: no error matches 'test_illegal_showcancelled_after_path\\.sv:22:'
+FAIL ch30/test_illegal_specify_edge_path_part_and_bit_select: the design was accepted, but it is illegal
+FAIL ch30/test_illegal_specify_edge_path_same_edge_and_condition: the design was accepted, but it is illegal
+FAIL ch30/test_illegal_specify_ifnone_with_unconditional_path: the design was accepted, but it is illegal
+FAIL ch30/test_illegal_specify_path_source_variable_port: the design was accepted, but it is illegal
+FAIL ch30/test_illegal_state_path_hierarchical_operand: the design was accepted, but it is illegal
+FAIL ch30/test_module_path_delay_input_inout_ports: output differs
+FAIL ch30/test_showcancelled_negative_pulse_x: output differs
+FAIL ch30/test_specify_condition_operators_each: output differs
+FAIL ch30/test_specify_edge_sensitive_path_declarations: output differs
+FAIL ch30/test_specify_inout_paths: output differs
+FAIL ch30/test_specify_path_delay_six_and_twelve_expressions: output differs
+FAIL ch30/test_specify_path_vs_distributed_delay: output differs
+FAIL ch30/test_specify_pulse_limit_boundaries: output differs
+FAIL ch30/test_specify_pulse_trailing_edge_limits: output differs
+FAIL ch30/test_specify_pulsestyle_ondetect: output differs
+FAIL ch30/test_specify_simple_path_declarations_and_terminals: output differs
+FAIL ch30/test_syntax_specify_block_items: output differs
+FAIL ch31/test_illegal_hold_limit_negative: the design was accepted, but it is illegal
+FAIL ch31/test_illegal_hold_limit_not_constant: the design was accepted, but it is illegal
+FAIL ch31/test_illegal_recovery_limit_negative: the design was accepted, but it is illegal
+FAIL ch31/test_illegal_recovery_limit_not_constant: the design was accepted, but it is illegal
+FAIL ch31/test_illegal_removal_limit_negative: the design was accepted, but it is illegal
+FAIL ch31/test_illegal_removal_limit_not_constant: the design was accepted, but it is illegal
+FAIL ch31/test_illegal_setup_limit_negative: the design was accepted, but it is illegal
+FAIL ch31/test_illegal_setup_limit_not_constant: the design was accepted, but it is illegal
+FAIL ch31/test_illegal_setuphold_negative_sum: the design was accepted, but it is illegal
+FAIL ch31/test_illegal_timing_condition_two_signals: the design was accepted, but it is illegal
+FAIL ch31/test_illegal_timing_limit_from_net: the design was accepted, but it is illegal
+FAIL ch31/test_timing_check_condition_x: output differs
+FAIL ch31/test_timing_check_event_controls_and_terminals: output differs
+FAIL ch31/test_timing_check_flags_threshold_and_limits: output differs
+FAIL ch31/test_timing_check_setup_hold_recovery_removal_skew: output differs
+FAIL ch31/test_timing_check_setuphold_recrem_period_width_nochange: output differs
+FAIL ch31/test_timing_condition_forms_x_lsb: output differs
+FAIL ch31/test_timing_edge_descriptors_all: output differs
+FAIL ch31/test_timing_fullskew_event_based: output differs
+FAIL ch31/test_timing_recrem_all_arguments: output differs
+FAIL ch31/test_timing_setuphold_all_arguments: output differs
+FAIL ch31/test_timing_setuphold_as_setup_and_hold: output differs
+FAIL ch31/test_timing_skew_checks: output differs
+FAIL ch31/test_timing_skew_dormant_and_restart: output differs
+FAIL ch31/test_timing_skew_simultaneous_and_expiry: output differs
+FAIL ch31/test_timing_timeskew_flags: output differs
+FAIL ch32/test_sdf_backannotates_all_timing_values: output differs
+FAIL ch32/test_sdf_cond_iopath: output differs
+FAIL ch32/test_sdf_device_gate_three_delays: output differs
+FAIL ch32/test_sdf_device_port_instance: output differs
+FAIL ch32/test_sdf_filename_types: output differs
+FAIL ch32/test_sdf_interconnect_pair_warning: output differs
+FAIL ch32/test_sdf_interconnect_port_order_multisource: output differs
+FAIL ch32/test_sdf_interconnect_transition_values: output differs
+FAIL ch32/test_sdf_iopath_cond_pulse_limits: output differs
+FAIL ch32/test_sdf_iopath_one_two_three_values: output differs
+FAIL ch32/test_sdf_iopath_retain_forms: output differs
+FAIL ch32/test_sdf_iopath_six_twelve_values: output differs
+FAIL ch32/test_sdf_label_recomputes_delay_expression: output differs
+FAIL ch32/test_sdf_label_specparam: output differs
+FAIL ch32/test_sdf_mtm_and_scale_factors: output differs
+FAIL ch32/test_sdf_netdelay_port_interconnect: output differs
+FAIL ch32/test_sdf_pathpulse_constructs: output differs
+FAIL ch32/test_sdf_port_delay: output differs
+FAIL ch32/test_sdf_pulse_limit_defaults_and_preserve: output differs
+FAIL ch32/test_sdf_recrem_limits: output differs
+FAIL ch32/test_sdf_scale_factors: output differs
+FAIL ch32/test_sdf_scale_type_members: output differs
+FAIL ch32/test_sdf_tchk_edge_condition_match: output differs
+FAIL ch32/test_sdf_tchk_setup_recovery_family: output differs
+FAIL ch32/test_sdf_tchk_skew_width_nochange: output differs
+FAIL ch32/test_sdf_timing_check_limits: output differs
+FAIL ch32/test_sdf_two_values_turnoff: output differs
+FAIL ch32/test_sdf_unannotatable_entry_warning: output differs
+FAIL ch33/test_config_declaration_grammar_forms: output differs (exit 1)
+FAIL ch33/test_config_hierarchical: output differs
+FAIL ch33/test_config_name_disambiguation_config_suffix: output differs
+FAIL ch33/test_config_use_config_suffix: output differs
+FAIL ch33/test_duplicate_cell_last_definition_wins: no message matches '(?i)warn'
+FAIL ch33/test_illegal_config_constant_function: the design was accepted, but it is illegal
+FAIL ch33/test_illegal_config_generate_scope_path: the design was accepted, but it is illegal
+FAIL ch33/test_illegal_config_hierarchical_name_in_expression: no error matches 'test_illegal_config_hierarchical_name_in_expression\\.sv:32:'
+FAIL ch33/test_illegal_config_index_not_literal: no error matches 'test_illegal_config_index_not_literal\\.sv:36:'
+FAIL ch33/test_illegal_config_instance_array_path: no error matches 'test_illegal_config_instance_array_path\\.sv:36:'
+FAIL ch33/test_illegal_config_package_binding: the design was accepted, but it is illegal
+FAIL ch33/test_vpi_module_binding_properties: output differs
+FAIL ch33/test_vpi_module_config_name: output differs
+FAIL ch35/test_a2_5_dpi_open_array_packed_dimension: output differs
+FAIL ch35/test_dpi_bit_elem_vecval_index_forms: output differs
+FAIL ch35/test_dpi_black_box_native_equivalence: output differs
+FAIL ch35/test_dpi_call_directions_and_context_chain: output differs
+FAIL ch35/test_dpi_caller_info: C build failed
+FAIL ch35/test_dpi_canonical_aval_bval_packed_kinds: C build failed
+FAIL ch35/test_dpi_canonical_partsel_get_keeps_bits: output differs
+FAIL ch35/test_dpi_context_scope_of_declaration: output differs
+FAIL ch35/test_dpi_disable_import_task: output differs (exit 2)
+FAIL ch35/test_dpi_enum_base_type_representation: output differs (exit 1)
+FAIL ch35/test_dpi_export_caller_allocated_arguments: output differs (exit 139)
+FAIL ch35/test_dpi_export_string_directions: output differs (exit 139)
+FAIL ch35/test_dpi_export_task_disable_status: output differs
+FAIL ch35/test_dpi_export_task_result: output differs
+FAIL ch35/test_dpi_export_task_time: output differs (exit 2)
+FAIL ch35/test_dpi_formal_integer_logic_time: output differs (exit 139)
+FAIL ch35/test_dpi_import_task_consumes_time: output differs (exit 2)
+FAIL ch35/test_dpi_import_task_reentrant: output differs (exit 2)
+FAIL ch35/test_dpi_import_task_reentrant_wait: output differs (exit 2)
+FAIL ch35/test_dpi_import_unit_interface_program: output differs
+FAIL ch35/test_dpi_open_array_elem_ptr_bounds: C build failed
+FAIL ch35/test_dpi_open_array_layout_and_element_representation: output differs
+FAIL ch35/test_dpi_open_array_query_functions: output differs
+FAIL ch35/test_dpi_open_array_unsized_ranges_per_call: output differs
+FAIL ch35/test_dpi_open_array_variadic_indexing: C build failed
+FAIL ch35/test_dpi_open_array_whole_ptr_elem_repr: output differs
+FAIL ch35/test_dpi_open_packed_dimension: output differs
+FAIL ch35/test_dpi_output_value_change_events: output differs
+FAIL ch35/test_dpi_packed_dims_linearized_row_major: output differs
+FAIL ch35/test_dpi_packed_tagged_union_tag_bits: output differs (exit 139)
+FAIL ch35/test_dpi_put_user_data_error_result: output differs
+FAIL ch35/test_dpi_range_mapping_import_export: output differs (exit 139)
+FAIL ch35/test_dpi_reference_arguments_forwarded: output differs (exit 139)
+FAIL ch35/test_dpi_scope_time_unit_precision: C build failed
+FAIL ch35/test_dpi_scope_user_data_and_lookup: output differs
+FAIL ch35/test_dpi_sized_formal_normalized_ranges: output differs
+FAIL ch35/test_dpi_svdpi_scalar_and_chunk_types: C build failed
+FAIL ch35/test_dpi_unpacked_aggregate_arguments: output differs (exit 139)
+FAIL ch35/test_dpi_unpacked_types_c_layout_and_embedded_arrays: C build failed
+FAIL ch35/test_dpi_wysiwyg_formal_types: output differs
+FAIL ch35/test_illegal_dpi_pure_import_task: no error matches 'test_illegal_dpi_pure_import_task\\.sv:23:'
+FAIL ch35/test_svdpi_h_after_vpi_user_h: output differs
+FAIL ch35/test_svdpi_h_caller_info: C build failed
+FAIL ch35/test_svdpi_h_canonical_types_and_version: C build failed
+FAIL ch35/test_svdpi_h_declarations: C build failed
+FAIL ch35/test_svdpi_h_deprecated_get_declarations: C build failed
+FAIL ch35/test_svdpi_h_deprecated_portion_types: C build failed
+FAIL ch35/test_svdpi_h_deprecated_put_declarations: C build failed
+FAIL ch35/test_svdpi_h_deprecated_size_and_types: C build failed
+FAIL ch35/test_svdpi_h_disabled_state_ack: output differs (exit 2)
+FAIL ch35/test_svdpi_h_macros_and_c_linkage: output differs
+FAIL ch35/test_svdpi_h_open_array_queries_and_whole_pointer: output differs
+FAIL ch35/test_svdpi_h_packed_bit_and_part_select: C build failed
+FAIL ch35/test_svdpi_h_packed_element_copy: C build failed
+FAIL ch35/test_svdpi_h_scope_time: C build failed
+FAIL ch35/test_svdpi_h_sv_mask: C build failed
+FAIL ch35/test_svdpi_h_user_data: output differs
+FAIL ch35/test_svdpi_names_and_signed_bits_macro: C build failed
+FAIL ch36/test_vpi_chk_error_pli_error_callback: output differs
+FAIL ch36/test_vpi_chk_error_status: output differs
+FAIL ch36/test_vpi_compat_1364v1995_iterations: output differs
+FAIL ch36/test_vpi_compatibility_1364v1995_memory_objects: output differs
+FAIL ch36/test_vpi_compatibility_1364v2005_variable_objects: output differs
+FAIL ch36/test_vpi_compatibility_1800v2012_routine_calls: output differs
+FAIL ch36/test_vpi_compatibility_1800v2017_mode: output differs
+FAIL ch36/test_vpi_compatibility_1800v2023_mode: output differs
+FAIL ch36/test_vpi_compatibility_h_1364v1995: output differs
+FAIL ch36/test_vpi_compatibility_h_1364v2001: output differs
+FAIL ch36/test_vpi_compatibility_h_1364v2005: output differs
+FAIL ch36/test_vpi_compatibility_h_1800v2005: output differs
+FAIL ch36/test_vpi_compatibility_h_1800v2009: output differs
+FAIL ch36/test_vpi_compatibility_h_1800v2012: output differs
+FAIL ch36/test_vpi_compiletf_sizetf: output differs
+FAIL ch36/test_vpi_expression_operands: output differs
+FAIL ch36/test_vpi_expression_traversal_operators: output differs
+FAIL ch36/test_vpi_interface_decl_class_current_mode: output differs
+FAIL ch36/test_vpi_routines_chk_error: output differs
+FAIL ch36/test_vpi_routines_logic_strength_values: output differs
+FAIL ch36/test_vpi_routines_object_properties: C build failed
+FAIL ch36/test_vpi_routines_objects_by_name_index: output differs
+FAIL ch36/test_vpi_routines_path_delays: output differs
+FAIL ch36/test_vpi_systf_argument_kinds: output differs
+FAIL ch36/test_vpi_systf_argument_on_demand: output differs
+FAIL ch36/test_vpi_systf_calltf_writes_arguments: output differs
+FAIL ch36/test_vpi_systf_compiletf_arguments: output differs
+FAIL ch36/test_vpi_systf_function_types: output differs
+FAIL ch36/test_vpi_systf_in_class_method: output differs
+FAIL ch36/test_vpi_systf_override_display: output differs
+FAIL ch36/test_vpi_systf_override_signed_width: output differs
+FAIL ch36/test_vpi_systf_phases_and_object_identity: output differs
+FAIL ch36/test_vpi_systf_registration_fields: output differs
+FAIL ch36/test_vpi_systf_shared_routine_user_data: output differs
+FAIL ch36/test_vpi_systf_task_arguments: output differs
+FAIL ch36/test_vpi_systf_task_function_places: output differs
+FAIL ch36/test_vpi_user_h_macro_cleanup: output differs
+FAIL ch36/test_vpi_user_h_macro_linkage_types: C build failed
+FAIL ch36/test_vpi_user_h_record_members: output differs
+FAIL ch36/test_vpi_user_h_routine_declarations: C build failed
+FAIL ch36/test_vpi_user_h_type_declarations: C build failed
+FAIL ch36/test_vpi_user_h_type_guards: C build failed
+FAIL ch36/test_vpi_variable_arrays_1364v1995_mode: output differs
+FAIL ch36/test_vpi_variable_arrays_1364v2001_mode: output differs
+FAIL ch36/test_vpi_variable_arrays_1364v2005_mode: output differs
+FAIL ch36/test_vpi_variable_arrays_1800v2005_mode: output differs
+FAIL ch36/test_vpi_variable_arrays_1800v2009_mode: output differs
+FAIL ch36/test_vpi_variable_arrays_current_mode: output differs
+FAIL ch37/test_vpi_array_objects_and_array_member: output differs
+FAIL ch37/test_vpi_array_var_ranges_kinds: output differs
+FAIL ch37/test_vpi_assertion_objects: output differs
+FAIL ch37/test_vpi_atomic_statement_labels: output differs
+FAIL ch37/test_vpi_atomic_task_call_label: output differs
+FAIL ch37/test_vpi_attribute_object: output differs
+FAIL ch37/test_vpi_attribute_parents: output differs
+FAIL ch37/test_vpi_attribute_ports_params: output differs
+FAIL ch37/test_vpi_attribute_value_types: output differs
+FAIL ch37/test_vpi_block_scope_chain: output differs
+FAIL ch37/test_vpi_case_items_patterns: output differs
+FAIL ch37/test_vpi_case_loop_force_stmts: output differs
+FAIL ch37/test_vpi_cast_pattern_constants: output differs
+FAIL ch37/test_vpi_class_internal_scopes: output differs
+FAIL ch37/test_vpi_class_object_members: C build failed
+FAIL ch37/test_vpi_class_relations_scope_typespec: output differs (exit 139)
+FAIL ch37/test_vpi_class_specialization_members: output differs
+FAIL ch37/test_vpi_class_specialization_types: output differs
+FAIL ch37/test_vpi_clocking_decl_relations: output differs
+FAIL ch37/test_vpi_clocking_edges_prefix: output differs
+FAIL ch37/test_vpi_clocking_scope_group: output differs
+FAIL ch37/test_vpi_concurrent_assertion_actions: output differs
+FAIL ch37/test_vpi_constant_select: output differs
+FAIL ch37/test_vpi_constraint_expr_contents: output differs
+FAIL ch37/test_vpi_constraint_iteration: output differs
+FAIL ch37/test_vpi_constraint_orderings_dists: output differs
+FAIL ch37/test_vpi_constraint_properties: output differs
+FAIL ch37/test_vpi_cont_assign_bits_delays: output differs
+FAIL ch37/test_vpi_cont_assign_module_delays: output differs
+FAIL ch37/test_vpi_cont_assign_rhs_and_load: output differs
+FAIL ch37/test_vpi_control_statement_child_relations: output differs
+FAIL ch37/test_vpi_delay_expressions: output differs
+FAIL ch37/test_vpi_delay_source_and_effective: output differs
+FAIL ch37/test_vpi_dpi_import_access_props: output differs
+FAIL ch37/test_vpi_drivers_loads_ports_force: output differs
+FAIL ch37/test_vpi_expression_decompile_calls: output differs
+FAIL ch37/test_vpi_expression_typespec: output differs
+FAIL ch37/test_vpi_for_expect_children: output differs
+FAIL ch37/test_vpi_fork_join_type_stmts: output differs
+FAIL ch37/test_vpi_frame_automatics_thread: output differs
+FAIL ch37/test_vpi_frames_threads_alloc: output differs
+FAIL ch37/test_vpi_function_decl_type_range: output differs
+FAIL ch37/test_vpi_gen_scope_array_relations: output differs
+FAIL ch37/test_vpi_gen_scope_data_items: output differs
+FAIL ch37/test_vpi_gen_scope_instance_items: output differs
+FAIL ch37/test_vpi_generate_nettype_typedef: output differs
+FAIL ch37/test_vpi_generate_scope_contents: output differs
+FAIL ch37/test_vpi_generate_scopes: output differs
+FAIL ch37/test_vpi_get_value_side_effects: output differs
+FAIL ch37/test_vpi_handle_by_multi_index: output differs (exit 2)
+FAIL ch37/test_vpi_handle_creating_routines: output differs
+FAIL ch37/test_vpi_handle_release_independence: C build failed
+FAIL ch37/test_vpi_immediate_assertion_parts: output differs
+FAIL ch37/test_vpi_import_referenced_items: output differs
+FAIL ch37/test_vpi_instance_array_kinds: output differs
+FAIL ch37/test_vpi_instance_array_relations: output differs
+FAIL ch37/test_vpi_instance_assertion_members: output differs
+FAIL ch37/test_vpi_instance_directive_properties: output differs
+FAIL ch37/test_vpi_instance_enclosure_names: output differs
+FAIL ch37/test_vpi_instance_item_relations: output differs
+FAIL ch37/test_vpi_interconnect_array_ranges: output differs
+FAIL ch37/test_vpi_interconnect_elements: output differs
+FAIL ch37/test_vpi_interconnect_net_type_size: output differs (exit 1)
+FAIL ch37/test_vpi_interconnect_net_typespec: output differs
+FAIL ch37/test_vpi_interface_modport_links: output differs
+FAIL ch37/test_vpi_interface_program: output differs
+FAIL ch37/test_vpi_interface_relations: output differs
+FAIL ch37/test_vpi_interface_tf_decl_relations: output differs
+FAIL ch37/test_vpi_interface_typespecs: output differs
+FAIL ch37/test_vpi_io_decl_ref_objs: output differs
+FAIL ch37/test_vpi_io_decl_scope_typespec_ports: output differs
+FAIL ch37/test_vpi_io_direction_undefined: output differs
+FAIL ch37/test_vpi_iterators_time_queue_events: output differs
+FAIL ch37/test_vpi_let_decl_body: output differs
+FAIL ch37/test_vpi_let_expr_arguments: output differs
+FAIL ch37/test_vpi_lifetime_properties: output differs
+FAIL ch37/test_vpi_local_connectivity_ports: output differs
+FAIL ch37/test_vpi_loop_branch_children: output differs
+FAIL ch37/test_vpi_loop_var_scopes: output differs
+FAIL ch37/test_vpi_mailbox_semaphore_waiters: output differs
+FAIL ch37/test_vpi_memory_word_objects: output differs
+FAIL ch37/test_vpi_mod_path_relations_delays: output differs
+FAIL ch37/test_vpi_module_defparam_alias_clocking_relations: output differs
+FAIL ch37/test_vpi_module_hierarchy: output differs (exit 139)
+FAIL ch37/test_vpi_module_instance_relations: output differs
+FAIL ch37/test_vpi_module_port_io_decl_relations: output differs
+FAIL ch37/test_vpi_module_process_assign_primitive_relations: output differs
+FAIL ch37/test_vpi_module_specify_relations: output differs
+FAIL ch37/test_vpi_named_event_array_prefix: output differs
+FAIL ch37/test_vpi_named_event_relations: output differs
+FAIL ch37/test_vpi_named_event_waiters_lifetime: output differs
+FAIL ch37/test_vpi_net_array_elements_indices: output differs
+FAIL ch37/test_vpi_net_array_members_parents: output differs
+FAIL ch37/test_vpi_net_bits_constant_select: output differs
+FAIL ch37/test_vpi_net_decl_flags_select: output differs
+FAIL ch37/test_vpi_net_driver_objects: output differs
+FAIL ch37/test_vpi_net_kinds_ranges_sizes: output differs
+FAIL ch37/test_vpi_net_local_active_connectivity: output differs
+FAIL ch37/test_vpi_net_members_elements_parents: output differs
+FAIL ch37/test_vpi_net_ports_portinst_bits: output differs
+FAIL ch37/test_vpi_net_properties: output differs
+FAIL ch37/test_vpi_net_terminals_module_typespec: output differs
+FAIL ch37/test_vpi_net_variable_bit_select_drivers: output differs
+FAIL ch37/test_vpi_nettype_alias_chain_relations: output differs
+FAIL ch37/test_vpi_nettype_net_parts: output differs
+FAIL ch37/test_vpi_nettype_relations: output differs
+FAIL ch37/test_vpi_null_reference_relations: output differs
+FAIL ch37/test_vpi_null_stmt_wait_fork: output differs
+FAIL ch37/test_vpi_object_access_basics: output differs
+FAIL ch37/test_vpi_packed_array_levels: output differs
+FAIL ch37/test_vpi_packed_array_var_kinds: output differs
+FAIL ch37/test_vpi_param_assign_defparam: output differs
+FAIL ch37/test_vpi_parameter_defaults_types: output differs
+FAIL ch37/test_vpi_parameters: output differs
+FAIL ch37/test_vpi_part_select_parts: output differs
+FAIL ch37/test_vpi_path_terms_tchk_args: output differs
+FAIL ch37/test_vpi_port_kinds_connections: output differs
+FAIL ch37/test_vpi_prefix_allocation: output differs
+FAIL ch37/test_vpi_prefix_has_actual: output differs
+FAIL ch37/test_vpi_prefix_kinds_actual: output differs
+FAIL ch37/test_vpi_primitive_kinds_properties: output differs
+FAIL ch37/test_vpi_process_kinds_relations: output differs
+FAIL ch37/test_vpi_process_statements: output differs
+FAIL ch37/test_vpi_program_interface_relations: output differs
+FAIL ch37/test_vpi_program_relations: output differs
+FAIL ch37/test_vpi_property_decl_formals_args: output differs
+FAIL ch37/test_vpi_property_instance_links: output differs
+FAIL ch37/test_vpi_property_operator_kinds: output differs
+FAIL ch37/test_vpi_property_sequence_operators: output differs
+FAIL ch37/test_vpi_property_types_iterator: C build failed
+FAIL ch37/test_vpi_put_value_side_effect: output differs
+FAIL ch37/test_vpi_ref_obj_actual_port_insts: output differs
+FAIL ch37/test_vpi_ref_obj_kinds_relations: output differs
+FAIL ch37/test_vpi_reg_array_scope_index: output differs
+FAIL ch37/test_vpi_relationships_and_tags: output differs
+FAIL ch37/test_vpi_root_lookup_restrictions: output differs
+FAIL ch37/test_vpi_scope_item_back_relations: output differs
+FAIL ch37/test_vpi_scope_lifetimes: output differs
+FAIL ch37/test_vpi_scopes: output differs
+FAIL ch37/test_vpi_select_objects_event_arrays: output differs
+FAIL ch37/test_vpi_sequence_decl_operands: output differs
+FAIL ch37/test_vpi_simple_expr_uses: output differs
+FAIL ch37/test_vpi_size_change_callback: output differs
+FAIL ch37/test_vpi_statement_control_kinds: output differs
+FAIL ch37/test_vpi_statement_kinds: output differs
+FAIL ch37/test_vpi_struct_and_tagged_patterns: output differs
+FAIL ch37/test_vpi_struct_union_flags_members: output differs
+FAIL ch37/test_vpi_struct_union_net_flags: output differs
+FAIL ch37/test_vpi_subroutine_body_stmt: output differs
+FAIL ch37/test_vpi_sys_func_call_value_info: output differs
+FAIL ch37/test_vpi_system_call_decompile: output differs
+FAIL ch37/test_vpi_systf_argument_expressions: output differs
+FAIL ch37/test_vpi_tagged_relation_access: output differs
+FAIL ch37/test_vpi_task_function_properties: output differs
+FAIL ch37/test_vpi_tchk_relations_path_delays: output differs
+FAIL ch37/test_vpi_tf_call_kinds_relations: output differs
+FAIL ch37/test_vpi_thread_parent_children_frame: output differs
+FAIL ch37/test_vpi_type_constants_more: output differs
+FAIL ch37/test_vpi_typespec_elem_unwind: output differs
+FAIL ch37/test_vpi_typespec_instance_ranges: output differs
+FAIL ch37/test_vpi_typespec_kinds_more: output differs
+FAIL ch37/test_vpi_typespec_relations: output differs
+FAIL ch37/test_vpi_udp_definitions: output differs
+FAIL ch37/test_vpi_udp_defn_entries: output differs
+FAIL ch37/test_vpi_udp_iodecl_initial: output differs
+FAIL ch37/test_vpi_udp_table_primitive: output differs
+FAIL ch37/test_vpi_unbounded_const_ranges: output differs
+FAIL ch37/test_vpi_union_net_tagged: output differs
+FAIL ch37/test_vpi_user_defined_net_kinds: output differs
+FAIL ch37/test_vpi_value_parameter_props: output differs
+FAIL ch37/test_vpi_var_bit_parents: output differs
+FAIL ch37/test_vpi_var_select_iteration: output differs
+FAIL ch37/test_vpi_variable_class_member_props: output differs
+FAIL ch37/test_vpi_variable_driver_load_arrays: output differs (exit 2)
+FAIL ch37/test_vpi_variable_driver_load_kinds: output differs
+FAIL ch37/test_vpi_variable_drivers_loads: output differs
+FAIL ch37/test_vpi_variable_kinds_flags_sizes: output differs
+FAIL ch37/test_vpi_variable_parent_prefixes: output differs
+FAIL ch37/test_vpi_variable_port_relations: output differs
+FAIL ch37/test_vpi_variable_scope_relations: output differs
+FAIL ch37/test_vpi_virtual_interface_expr: output differs
+FAIL ch37/test_vpi_virtual_interface_init_parent: output differs
+FAIL ch37/test_vpi_virtual_interface_var_iteration: output differs
+FAIL ch37/test_vpi_wait_delay_event_stmts: output differs
+FAIL ch38/test_vpi_array_get_errors: output differs
+FAIL ch38/test_vpi_array_get_formats: output differs
+FAIL ch38/test_vpi_array_put_formats: output differs
+FAIL ch38/test_vpi_assign_force_disable_callbacks: output differs
+FAIL ch38/test_vpi_callback_memory_index: output differs
+FAIL ch38/test_vpi_callback_registration_errors: output differs
+FAIL ch38/test_vpi_callback_suppress_value: output differs
+FAIL ch38/test_vpi_compare_objects_current_object: output differs
+FAIL ch38/test_vpi_compare_objects_variable_select: output differs
+FAIL ch38/test_vpi_error_callback_runtime_errors: output differs (exit 2)
+FAIL ch38/test_vpi_gate_delays: output differs
+FAIL ch38/test_vpi_get64_class_object_id: C build failed
+FAIL ch38/test_vpi_get_array_static: output differs
+FAIL ch38/test_vpi_get_time_scaled: output differs
+FAIL ch38/test_vpi_get_value_array: crashed (signal 6)
+FAIL ch38/test_vpi_get_value_integer_time: output differs (exit 139)
+FAIL ch38/test_vpi_get_value_obj_type_real_vector: output differs
+FAIL ch38/test_vpi_get_value_real_conversion: output differs
+FAIL ch38/test_vpi_get_value_string_formats: output differs
+FAIL ch38/test_vpi_handle_by_multi_index: output differs
+FAIL ch38/test_vpi_handle_by_multi_index_ranges: output differs (exit 2)
+FAIL ch38/test_vpi_handle_by_name_scope_index: output differs
+FAIL ch38/test_vpi_intermod_path_levels: output differs
+FAIL ch38/test_vpi_mcd_close_channels: output differs
+FAIL ch38/test_vpi_mcd_name_buffer: output differs
+FAIL ch38/test_vpi_mcd_name_flush_fopen: output differs
+FAIL ch38/test_vpi_mcd_open_reuse: output differs
+FAIL ch38/test_vpi_mcd_printf_channels: output differs
+FAIL ch38/test_vpi_path_delay_counts: output differs
+FAIL ch38/test_vpi_pli_error_callback_counts_failed_calls: output differs
+FAIL ch38/test_vpi_put_array_raw: output differs
+FAIL ch38/test_vpi_put_array_target: output differs
+FAIL ch38/test_vpi_put_delays_layout_flags: output differs
+FAIL ch38/test_vpi_put_value_array: output differs
+FAIL ch38/test_vpi_put_value_array_formats: output differs
+FAIL ch38/test_vpi_put_value_array_order: output differs
+FAIL ch38/test_vpi_put_value_delay_modes: output differs
+FAIL ch38/test_vpi_put_value_delay_modes_queue: output differs
+FAIL ch38/test_vpi_put_value_force_net_bit: output differs
+FAIL ch38/test_vpi_put_value_force_release: output differs
+FAIL ch38/test_vpi_put_value_illegal_formats: output differs
+FAIL ch38/test_vpi_put_value_sched_event: output differs
+FAIL ch38/test_vpi_put_value_udp_array_errors: output differs
+FAIL ch38/test_vpi_register_systf_methods: output differs
+FAIL ch38/test_vpi_routine_signature_types: C build failed
+FAIL ch38/test_vpi_signal_callback: crashed (signal 15)
+FAIL ch38/test_vpi_statement_callbacks: output differs
+FAIL ch38/test_vpi_stmt_callback_data: output differs
+FAIL ch38/test_vpi_stmt_callback_instance: output differs
+FAIL ch38/test_vpi_stmt_callback_kinds: output differs
+FAIL ch38/test_vpi_stmt_callback_loops: output differs
+FAIL ch38/test_vpi_stmt_callback_module_wide: output differs
+FAIL ch38/test_vpi_string_buffers: output differs
+FAIL ch38/test_vpi_systf_compile_and_call_phases: output differs
+FAIL ch38/test_vpi_systf_function_result_kinds: output differs
+FAIL ch38/test_vpi_tchk_violation_callback: output differs
+FAIL ch38/test_vpi_time_callback_scaled_real: output differs
+FAIL ch38/test_vpi_time_callbacks: output differs
+FAIL ch38/test_vpi_time_callbacks_without_events: output differs
+FAIL ch38/test_vpi_userdata_compiletf: output differs
+FAIL ch38/test_vpi_userdata_failures: output differs
+FAIL ch38/test_vpi_value_change_callback: output differs
+FAIL ch38/test_vpi_value_change_event: output differs
+FAIL ch38/test_vpi_value_change_strength_time_objtype: output differs (exit 139)
+FAIL ch38/test_vpi_value_time_delay_structures: output differs
+FAIL ch39/test_vpi_assertion_action_controls_running_attempts: output differs
+FAIL ch39/test_vpi_assertion_callback_handle_placement: output differs
+FAIL ch39/test_vpi_assertion_callback_targets: output differs
+FAIL ch39/test_vpi_assertion_cover_success: output differs
+FAIL ch39/test_vpi_assertion_deferred_queue: output differs
+FAIL ch39/test_vpi_assertion_disable_step_without_effect: output differs
+FAIL ch39/test_vpi_assertion_immediate_callbacks: output differs
+FAIL ch39/test_vpi_assertion_per_instance_control: output differs
+FAIL ch39/test_vpi_assertion_procedural_queue: output differs
+FAIL ch39/test_vpi_assertion_reset_restores_initial_state: output differs
+FAIL ch39/test_vpi_assertion_step_states_and_failing_expression: output differs
+FAIL ch39/test_vpi_assertion_sys_action_controls_running_attempts: output differs
+FAIL ch39/test_vpi_assertion_sys_reset_drops_step_callbacks: output differs
+FAIL ch39/test_vpi_assertion_sys_reset_restores_actions: output differs
+FAIL ch39/test_vpi_assertion_sys_vacuous_action_controls_running_attempts: output differs
+FAIL ch39/test_vpi_assertion_system_off_kill_on: output differs
+FAIL ch39/test_vpi_assertion_vacuous_action_controls_running_attempts: output differs
+FAIL ch39/test_vpi_future_success_callback_time: output differs (exit 2)
+FAIL ch4/test_assertion_action_block_in_reactive: output differs
+FAIL ch4/test_bidirectional_switch_kinds_and_network: output differs
+FAIL ch4/test_blocking_zero_delay_resumes_in_inactive: output differs
+FAIL ch4/test_force_and_assign_follow_expression: output differs
+FAIL ch4/test_inout_port_keeps_strength: output differs
+FAIL ch4/test_one_step_sample_before_time_slot: output differs
+FAIL ch4/test_pli_end_of_time_after_reactive_set: output differs
+FAIL ch4/test_pli_end_of_time_write: output differs
+FAIL ch4/test_pli_nba_synch_write_before_nba: output differs
+FAIL ch4/test_pli_phase_chain_after_nba_and_end_write: output differs
+FAIL ch4/test_pli_pre_active_next_and_start_time: output differs
+FAIL ch4/test_preponed_sample_observed_before_action: output differs
+FAIL ch4/test_program_nonblocking_delay_re_nba_slot: output differs
+FAIL ch4/test_program_nonblocking_update_in_re_nba: output differs
+FAIL ch4/test_program_zero_delay_resumes_in_reinactive: output differs
+FAIL ch4/test_region_set_iteration_order: output differs
+FAIL ch4/test_sched_deferred_action_arguments: output differs
+FAIL ch4/test_sched_fork_join_none_in_function: output differs
+FAIL ch4/test_sched_subroutine_copy_out: output differs
+FAIL ch4/test_switch_unknown_control_same_value_resolution: output differs
+FAIL ch4/test_switch_x_gate_resolution: output differs
+FAIL ch40/test_coverage_control_interface_scope: output differs
+FAIL ch40/test_coverage_control_package_scope: output differs
+FAIL ch40/test_coverage_get_status_and_relations: output differs
+FAIL ch40/test_coverage_uninstantiated_module: output differs
+FAIL ch40/test_vpi_coverage_control: output differs
+FAIL ch40/test_vpi_coverage_cover_sequence: output differs
+FAIL ch40/test_vpi_coverage_instance_control: output differs
+FAIL ch40/test_vpi_coverage_max_entities: output differs
+FAIL ch5/test_attribute_prefix_positions: output differs (exit 1)
+FAIL ch5/test_escaped_identifier_character_domain: output differs
+FAIL ch5/test_illegal_decimal_literal_digit_and_x: the design was accepted, but it is illegal
+FAIL ch5/test_illegal_method_implicit_variable_without_parentheses: the design was accepted, but it is illegal
+FAIL ch5/test_illegal_string_hex_escape_z_digit: the design was accepted, but it is illegal
+FAIL ch5/test_illegal_string_octal_escape_z_digit: the design was accepted, but it is illegal
+FAIL ch5/test_literal_xz_digit_widths_and_padding: output differs
+FAIL ch5/test_number_grammar_every_base_digit_and_real_form: output differs
+FAIL ch5/test_string_literal_cast_justification: output differs (exit 1)
+FAIL ch5/test_string_literal_to_unpacked_byte_array: output differs
+FAIL ch5/test_system_function_names_cell_reset_and_attributes: output differs
+FAIL ch6/test_a2_1_3_interconnect_declaration_identifiers: output differs (exit 1)
+FAIL ch6/test_aggregate_dynamic_cast_incompatible: output differs
+FAIL ch6/test_automatic_data_declarations_in_static_procedural_scopes: output differs
+FAIL ch6/test_bitstream_cast_destination_layout: output differs
+FAIL ch6/test_bitstream_cast_source_domain: output differs
+FAIL ch6/test_bitstream_cast_source_orders: output differs
+FAIL ch6/test_builtin_net_declaration_forms: output differs
+FAIL ch6/test_cast_unpacked_struct_bits_round_trip: output differs
+FAIL ch6/test_chandle_null_boolean_and_uses: output differs
+FAIL ch6/test_continuous_assign_to_variable_converts_and_drops_strength: output differs
+FAIL ch6/test_design_element_static_lifetime: output differs (exit 1)
+FAIL ch6/test_enum_declaration_syntax_forms: output differs
+FAIL ch6/test_enum_four_state_base_x_z_values: output differs
+FAIL ch6/test_enum_next_prev_from_non_member: output differs
+FAIL ch6/test_enum_reuse_next_prev_encoding: output differs
+FAIL ch6/test_four_state_two_state_and_real_storage: output differs
+FAIL ch6/test_illegal_chandle_event_control: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_continuous_assign_reads_class_member: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_continuous_assign_reads_dynamic_element: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_continuous_assign_to_class_property: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_continuous_assign_to_dynamic_element: no error matches 'test_illegal_continuous_assign_to_dynamic_element\\.sv:23:'
+FAIL ch6/test_illegal_declaration_after_statement_in_block: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_drive_strength_without_assignment: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_dynamic_array_element_continuous: no error matches 'test_illegal_dynamic_array_element_continuous\\.sv:25:'
+FAIL ch6/test_illegal_force_automatic_variable: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_force_class_property: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_force_dynamic_array_element: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_initial_block_variable_initializer_no_keyword: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_interconnect_drive_strength: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_interconnect_strength: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_net_type_reg_in_port_declaration: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_nettype_resolver_resizes_driver_array: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_nettype_resolver_side_effect: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_nettype_resolver_writes_driver_array: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_nettype_unresolved_two_drivers: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_output_port_variable_also_assigned: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_static_task_variable_initializer_no_keyword: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_string_replication_int_operand: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_string_replication_x_multiplier: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_string_replication_z_multiplier: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_type_operator_dynamic_array_element: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_type_parameter_scope_prefix_in_variable: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_uwire_overlapping_bit_drivers: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_variable_index_prefix_mixed_writers: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_vector_range_x_bound: the design was accepted, but it is illegal
+FAIL ch6/test_illegal_vector_range_z_bound: the design was accepted, but it is illegal
+FAIL ch6/test_interconnect_and_net_port_types: output differs (exit 1)
+FAIL ch6/test_isunbounded_package_and_hierarchical: output differs
+FAIL ch6/test_lifetime_automatic_calls_blocks_static_locals: output differs
+FAIL ch6/test_lifetime_fork_keeps_automatic_scope: output differs
+FAIL ch6/test_net_declaration_drive_strength_pairs: output differs
+FAIL ch6/test_net_delay_value_forms: output differs
+FAIL ch6/test_net_driver_kinds_resolution_force: output differs
+FAIL ch6/test_net_unpacked_struct_union_data_types: output differs
+FAIL ch6/test_nettype_alias_resolution_and_empty_drivers: output differs
+FAIL ch6/test_nettype_declarations_and_user_nets: output differs
+FAIL ch6/test_nettype_initial_value_resolution: output differs
+FAIL ch6/test_nettype_matches_itself_across_ports: output differs
+FAIL ch6/test_nettype_resolution: output differs
+FAIL ch6/test_packed_union_size_and_implicit_conversion: output differs
+FAIL ch6/test_param_declaration_forms_aggregates_selects: output differs
+FAIL ch6/test_parameter_declaration_forms: output differs
+FAIL ch6/test_parameter_port_list_without_defaults: output differs
+FAIL ch6/test_simple_bit_vector_types_and_packed_equivalents: output differs
+FAIL ch6/test_singular_values_in_inside_sets: output differs
+FAIL ch6/test_string_ato_method_result_types: output differs
+FAIL ch6/test_string_atoreal_scan_rules: output differs
+FAIL ch6/test_string_comparison_operators_and_literals: output differs
+FAIL ch6/test_string_concat_replication_typing: output differs
+FAIL ch6/test_string_getc_index_rules: output differs
+FAIL ch6/test_string_literal_and_integral_conversions: output differs
+FAIL ch6/test_string_putc_index_rules: output differs
+FAIL ch6/test_trireg_capacitive_network_sharing: output differs
+FAIL ch6/test_type_param_restricted_kinds: output differs
+FAIL ch6/test_typedef_advanced: output differs
+FAIL ch6/test_user_nettype_resolution_forms: output differs (exit 1)
+FAIL ch6/test_user_types_built_from_other_types: output differs
+FAIL ch6/test_variable_declaration_forms_and_modifiers: output differs
+FAIL ch6/test_void_return_and_tagged_union_void_member: output differs (exit 1)
+FAIL ch7/test_array_argument_fixed_dynamic_queue_compatibility: output differs
+FAIL ch7/test_array_index_wider_than_64_bits: output differs
+FAIL ch7/test_array_invalid_index_read_aggregates: output differs
+FAIL ch7/test_array_invalid_index_read_chandle: output differs
+FAIL ch7/test_array_invalid_index_read_handles_real_string: output differs
+FAIL ch7/test_array_map_method: output differs (exit 1)
+FAIL ch7/test_array_method_index_argument: output differs
+FAIL ch7/test_array_method_iterator_index_names_and_selects: output differs (exit 1)
+FAIL ch7/test_array_ordering_methods_and_index_queries: output differs
+FAIL ch7/test_array_ordering_methods_with_and_iterator: output differs
+FAIL ch7/test_array_reduction_result_type_and_with_width: output differs
+FAIL ch7/test_array_whole_slice_equality_operations: output differs
+FAIL ch7/test_assoc_allocate_on_write_types: output differs
+FAIL ch7/test_assoc_count_expression_types: output differs
+FAIL ch7/test_assoc_integral_index_cast_context: output differs
+FAIL ch7/test_assoc_method_expression_types: output differs
+FAIL ch7/test_assoc_narrow_prev_next_overflow: output differs (exit 1)
+FAIL ch7/test_assoc_ref_allocates_before_callee_write: output differs
+FAIL ch7/test_assoc_signed_and_unsigned_key_order: output differs
+FAIL ch7/test_assoc_traversal_narrow_index: output differs (exit 1)
+FAIL ch7/test_assoc_wildcard_string_literal_bits: output differs
+FAIL ch7/test_assoc_wildcard_width_and_sign_aliases: output differs
+FAIL ch7/test_bounded_queue_assign_discards_beyond_bound: output differs
+FAIL ch7/test_bounded_queue_methods_discard_beyond_bound: no message matches '(?i:\\bwarn(?:ing)?\\b|%Warning-)'
+FAIL ch7/test_dpi_open_and_unsized_packed: output differs
+FAIL ch7/test_dynamic_array_new_discards_data_and_references: output differs
+FAIL ch7/test_illegal_array_method_with_braces: no error matches 'test_illegal_array_method_with_braces\\.sv:27:'
+FAIL ch7/test_illegal_assoc_array_reverse: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_assoc_array_rsort: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_assoc_array_shuffle: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_assoc_array_sort: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_dynamic_array_to_dpi_open_output: no error matches 'test_illegal_dynamic_array_to_dpi_open_output\\.sv:37:'
+FAIL ch7/test_illegal_dynamic_new_nonblocking_assignment: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_find_first_index_without_with: no error matches 'test_illegal_find_first_index_without_with\\.sv:30:'
+FAIL ch7/test_illegal_find_first_without_with: no error matches 'test_illegal_find_first_without_with\\.sv:30:'
+FAIL ch7/test_illegal_find_index_without_with: no error matches 'test_illegal_find_index_without_with\\.sv:30:'
+FAIL ch7/test_illegal_find_last_index_without_with: no error matches 'test_illegal_find_last_index_without_with\\.sv:30:'
+FAIL ch7/test_illegal_find_last_without_with: no error matches 'test_illegal_find_last_without_with\\.sv:30:'
+FAIL ch7/test_illegal_find_without_with: no error matches 'test_illegal_find_without_with\\.sv:30:'
+FAIL ch7/test_illegal_integral_index_with_real: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_integral_index_with_shortreal: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_map_without_with: no error matches 'test_illegal_map_without_with\\.sv:28:'
+FAIL ch7/test_illegal_reduction_and_with_real_expression: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_string_in_untagged_union: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_struct_member_default_not_constant: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_union_holding_struct_member_default: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_unique_index_without_with_struct_elements: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_unique_without_with_struct_elements: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_unpacked_range_x_bound: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_unpacked_range_z_bound: the design was accepted, but it is illegal
+FAIL ch7/test_illegal_wildcard_array_find: no error matches 'test_illegal_wildcard_array_find\\.sv:37:'
+FAIL ch7/test_illegal_wildcard_array_find_first_index: no error matches 'test_illegal_wildcard_array_find_first_index\\.sv:36:'
+FAIL ch7/test_illegal_wildcard_array_find_index: no error matches 'test_illegal_wildcard_array_find_index\\.sv:36:'
+FAIL ch7/test_illegal_wildcard_array_find_last_index: no error matches 'test_illegal_wildcard_array_find_last_index\\.sv:36:'
+FAIL ch7/test_illegal_wildcard_index_method: no error matches 'test_illegal_wildcard_index_method\\.sv:25:'
+FAIL ch7/test_map_result_type_range_and_keys: output differs (exit 1)
+FAIL ch7/test_net_array_elements_and_whole_array_assign: output differs
+FAIL ch7/test_packed_array: output differs
+FAIL ch7/test_packed_array_member_access: output differs
+FAIL ch7/test_packed_array_whole_element_part_sign: output differs
+FAIL ch7/test_packed_struct_state_and_whole_operations: output differs
+FAIL ch7/test_packed_struct_union_dimensions_and_rand_member: output differs
+FAIL ch7/test_packed_union_mixed_two_four_state: output differs
+FAIL ch7/test_packed_union_whole_vector_sign_select: output differs
+FAIL ch7/test_queue_dimension_and_array_operations: output differs
+FAIL ch7/test_queue_invalid_index_write_ignored_warning: output differs
+FAIL ch7/test_queue_method_prototypes_and_invalid_indices: output differs
+FAIL ch7/test_queue_ref_survives_unrelated_pop: output differs
+FAIL ch7/test_queue_reference_persistence: output differs
+FAIL ch7/test_queue_refs_outdated_by_bounded_push_and_assignment: output differs
+FAIL ch7/test_tagged_union_dynamic_and_chandle_members: output differs
+FAIL ch7/test_union_grammar_forms: output differs (exit 1)
+FAIL ch7/test_unpacked_struct_defaults_and_net_initializer: output differs
+FAIL ch8/test_class_cast_forms_null_and_failures: output differs
+FAIL ch8/test_class_cast_task_failure_reports_error: no message matches '(?i:\\berror\\b)'
+FAIL ch8/test_class_constructor_default_argument_expansion: output differs
+FAIL ch8/test_class_declaration_grammar_forms: output differs (exit 1)
+FAIL ch8/test_class_handle_default_null_and_case_equality: output differs
+FAIL ch8/test_class_item_qualifiers_and_constraints: output differs
+FAIL ch8/test_class_objects_in_array_of_handles: output differs
+FAIL ch8/test_class_property_init_after_base_constructor: output differs
+FAIL ch8/test_class_scope_base_members_from_derived: output differs
+FAIL ch8/test_class_shallow_copy_covergroup_handles: output differs
+FAIL ch8/test_class_shallow_copy_members_type_no_constructor: output differs
+FAIL ch8/test_class_shallow_copy_random_state: output differs
+FAIL ch8/test_class_super_hidden_members_and_implicit_super_new: output differs
+FAIL ch8/test_class_this_selects_invoking_object_members: output differs
+FAIL ch8/test_constructor_default_argument: output differs
+FAIL ch8/test_extern_method_class_scope_current_specialization: output differs
+FAIL ch8/test_illegal_chandle_dereference: the design was accepted, but it is illegal
+FAIL ch8/test_illegal_concrete_class_missing_pure_method: the design was accepted, but it is illegal
+FAIL ch8/test_illegal_const_property_assigned_twice: the design was accepted, but it is illegal
+FAIL ch8/test_illegal_constraint_mode_via_interface_handle: the design was accepted, but it is illegal
+FAIL ch8/test_illegal_instance_constant_assigned_twice: the design was accepted, but it is illegal
+FAIL ch8/test_illegal_interface_class_method_with_body: no error matches 'test_illegal_interface_class_method_with_body\\.sv:(26|28):'
+FAIL ch8/test_illegal_interface_method_default_not_constant: the design was accepted, but it is illegal
+FAIL ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration: the design was accepted, but it is illegal
+FAIL ch8/test_illegal_rand_mode_via_interface_handle: the design was accepted, but it is illegal
+FAIL ch8/test_illegal_type_parameter_scope_prefix_in_variable_declaration: the design was accepted, but it is illegal
+FAIL ch8/test_illegal_type_parameter_through_class_handle: no error matches 'test_illegal_type_parameter_through_class_handle\\.sv:32:'
+FAIL ch8/test_interface_class_implemented_by_subclass: output differs (exit 1)
+FAIL ch8/test_interface_class_multiple_extends_hiding_conflicts: output differs
+FAIL ch8/test_interface_class_null_handle_cast: output differs
+FAIL ch8/test_interface_handle_randomize_inline_state: output differs
+FAIL ch8/test_param_class_extends_param_class: output differs
+FAIL ch8/test_param_class_package_vs_module_instance_specializations: output differs
+FAIL ch8/test_syntax_class_and_interface_class_headers: output differs
+FAIL ch8/test_syntax_class_new_assignment_targets: output differs
+FAIL ch8/test_this_and_super_in_out_of_block_methods: output differs
+FAIL ch9/test_always_comb_class_object_args_only: output differs
+FAIL ch9/test_always_comb_longest_static_prefix_and_locals: output differs
+FAIL ch9/test_always_comb_qualified_function_calls: output differs
+FAIL ch9/test_always_comb_sensitivity_exceptions: output differs
+FAIL ch9/test_always_comb_vs_star_assertion_in_function: output differs
+FAIL ch9/test_clocking_sampled_event: output differs
+FAIL ch9/test_delay_negative_value_is_unsigned_time: output differs
+FAIL ch9/test_disable_automatic_task_all_executions: output differs
+FAIL ch9/test_edge_event_vector_lsb_only: output differs
+FAIL ch9/test_edge_table_all_scalar_transitions: output differs
+FAIL ch9/test_illegal_always_comb_other_writer: the design was accepted, but it is illegal
+FAIL ch9/test_illegal_always_ff_other_writer: the design was accepted, but it is illegal
+FAIL ch9/test_illegal_always_ff_written_via_function: the design was accepted, but it is illegal
+FAIL ch9/test_illegal_always_latch_other_writer: the design was accepted, but it is illegal
+FAIL ch9/test_illegal_automatic_variable_as_sequence_event_argument: no error matches 'test_illegal_automatic_variable_as_sequence_event_argument\\.sv:32:'
+FAIL ch9/test_illegal_fork_join_any_reads_ref_formal: the design was accepted, but it is illegal
+FAIL ch9/test_illegal_fork_join_none_reads_ref_formal: the design was accepted, but it is illegal
+FAIL ch9/test_join_none_children_start_after_parent_blocks: output differs
+FAIL ch9/test_process_control_statement_forms: output differs
+FAIL ch9/test_process_control_wait_disable_parentage: output differs
+FAIL ch9/test_process_self_suspend_and_noop_controls: output differs
+FAIL ch9/test_process_threads_distinct: output differs
+FAIL ch9/test_star_sensitivity_contexts_and_exclusions: output differs
+FAIL ch9/test_star_timing_control_identifiers_excluded: output differs (exit 2)
+FAIL ch9/test_statement_labels_name_blocks: output differs
+FAIL ch9/test_syntax_timing_control_and_event_expressions: output differs
+FAIL ch9/test_wait_sequence_same_slot_twice: output differs (exit 2)
+FAIL ch9/test_wait_sequence_triggered: output differs (exit 2)
+FAIL gen/ch28/test_gen_strength_bufif0_01: output differs
+FAIL gen/ch28/test_gen_strength_bufif0_02: output differs
+FAIL gen/ch28/test_gen_strength_bufif0_03: output differs
+FAIL gen/ch28/test_gen_strength_bufif0_04: output differs
+FAIL gen/ch28/test_gen_strength_bufif0_05: output differs
+FAIL gen/ch28/test_gen_strength_bufif0_06: output differs
+FAIL gen/ch28/test_gen_strength_bufif0_07: output differs
+FAIL gen/ch28/test_gen_strength_bufif0_08: output differs
+FAIL gen/ch28/test_gen_strength_bufif1_01: output differs
+FAIL gen/ch28/test_gen_strength_bufif1_02: output differs
+FAIL gen/ch28/test_gen_strength_bufif1_03: output differs
+FAIL gen/ch28/test_gen_strength_bufif1_04: output differs
+FAIL gen/ch28/test_gen_strength_bufif1_05: output differs
+FAIL gen/ch28/test_gen_strength_bufif1_06: output differs
+FAIL gen/ch28/test_gen_strength_bufif1_07: output differs
+FAIL gen/ch28/test_gen_strength_bufif1_08: output differs
+FAIL gen/ch28/test_gen_strength_tri_01: output differs
+FAIL gen/ch28/test_gen_strength_tri_04: output differs
+FAIL gen/ch28/test_gen_strength_tri_07: output differs
+FAIL gen/ch28/test_gen_strength_tri_10: output differs
+FAIL gen/ch28/test_gen_strength_tri_12: output differs
+FAIL gen/ch28/test_gen_strength_tri_15: output differs
+FAIL gen/ch28/test_gen_strength_tri_18: output differs
+FAIL gen/ch28/test_gen_strength_tri_19: output differs
+FAIL gen/ch28/test_gen_strength_triand_02: output differs
+FAIL gen/ch28/test_gen_strength_triand_03: output differs
+FAIL gen/ch28/test_gen_strength_triand_04: output differs
+FAIL gen/ch28/test_gen_strength_triand_05: output differs
+FAIL gen/ch28/test_gen_strength_triand_07: output differs
+FAIL gen/ch28/test_gen_strength_trior_05: output differs
+FAIL gen/ch28/test_gen_strength_trior_06: output differs
+FAIL gen/ch28/test_gen_strength_trior_07: output differs
+FAIL gen/ch28/test_gen_strength_wand_02: output differs
+FAIL gen/ch28/test_gen_strength_wand_03: output differs
+FAIL gen/ch28/test_gen_strength_wand_04: output differs
+FAIL gen/ch28/test_gen_strength_wand_05: output differs
+FAIL gen/ch28/test_gen_strength_wand_06: output differs
+FAIL gen/ch28/test_gen_strength_wire_02: output differs
+FAIL gen/ch28/test_gen_strength_wire_06: output differs
+FAIL gen/ch28/test_gen_strength_wire_07: output differs
+FAIL gen/ch28/test_gen_strength_wire_09: output differs
+FAIL gen/ch28/test_gen_strength_wire_11: output differs
+FAIL gen/ch28/test_gen_strength_wire_14: output differs
+FAIL gen/ch28/test_gen_strength_wire_16: output differs
+FAIL gen/ch28/test_gen_strength_wire_17: output differs
+FAIL gen/ch28/test_gen_strength_wire_19: output differs
+FAIL gen/ch28/test_gen_strength_wire_20: output differs
+FAIL gen/ch28/test_gen_strength_wor_03: output differs
+FAIL gen/ch28/test_gen_strength_wor_04: output differs
+FAIL gen/ch28/test_gen_strength_wor_05: output differs
+FAIL gen/ch28/test_gen_strength_wor_06: output differs
+FAIL gen/ch28/test_gen_strength_wor_07: output differs
+FAIL gen/ch4/test_gen_sched_assign_wait_interface_delay1: output differs
+FAIL imported/ch10/test_procedural_continuous_assign: output differs
+FAIL imported/ch21/test_display_radix_forms: output differs
+FAIL imported/ch21/test_empty_argument_matrix: output differs
+FAIL imported/ch21/test_file_close_fd: output differs
+FAIL imported/ch21/test_file_output_initial: output differs
+FAIL imported/ch21/test_time_format_matrix: output differs
+FAIL imported/ch23/test_instance_arrays: output differs
+FAIL imported/ch23/test_net_port_merge_kinds: output differs
+FAIL imported/ch3/test_delay_negative_real_to_minus_one_const: output differs
+FAIL imported/ch3/test_delay_value_matrix: output differs
+FAIL imported/ch9/test_edge_matrix: output differs
+FAIL imported/ch9/test_intra_assignment_timing: output differs
+5823/7629 tests match
