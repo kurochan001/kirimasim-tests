@@ -14012,8 +14012,8 @@
     },
     {
       "test": "tests/ch35/test_dpi_context_scope.sv",
-      "inputs_sha256": "e11fde046d112c530f130c7b9c302bf47ca0386e889887b3f0dfd615dcf0dff5",
-      "reviewed_on": "2026-10-23",
+      "inputs_sha256": "6aa851f32ac59a3d0f1c66e1b162440f78a18ec017f1abe3c0dd9ecb52b5bfe5",
+      "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
@@ -48782,7 +48782,7 @@
     },
     {
       "test": "tests/ch31/test_timing_check_forms_and_arguments.sv",
-      "inputs_sha256": "ec3e39e67463907178cbef14a125ee3bf829730b447684831d6eb854270904d2",
+      "inputs_sha256": "080794071feeb88f437f841595d7160021fd5fde13ef2e0941c7c45ea3a8462c",
       "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -51336,8 +51336,8 @@
     },
     {
       "test": "tests/ch35/test_svdpi_h_deprecated_portion_types.sv",
-      "inputs_sha256": "af4cf9a133c97e2cade6a0c31a9811fbce18ba8de5da4de316135f01799ea459",
-      "reviewed_on": "2026-10-26",
+      "inputs_sha256": "088120ab09b4bf2b42213086eb960d99a5a000462c3b3ac9d03b5b9bd6490a27",
+      "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
@@ -51423,8 +51423,8 @@
     },
     {
       "test": "tests/ch35/test_svdpi_h_declarations.sv",
-      "inputs_sha256": "a08ba105258a7ff9c90b97634248ba03e5ed30ac63e36300c31df366eed31e2f",
-      "reviewed_on": "2026-10-26",
+      "inputs_sha256": "22f70318da9f104482a6907de2ecc251e0c27d684afc46336efa8e881299e12d",
+      "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
@@ -51487,8 +51487,8 @@
     },
     {
       "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
-      "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
-      "reviewed_on": "2026-10-26",
+      "inputs_sha256": "ca8e28b03a2a333e82dead0b49454895e5c59e6cdcfcaae0018b544fbb6a8131",
+      "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
@@ -54682,8 +54682,8 @@
     },
     {
       "test": "tests/ch35/test_dpi_call_directions_and_context_chain.sv",
-      "inputs_sha256": "9cfd0da0b6fa9c6da0a73518ed4f7cd380eb814d3881d1835d7f68440aeb3f09",
-      "reviewed_on": "2026-10-26",
+      "inputs_sha256": "2d86c46a3e2b04985c5b8e6cd4d1781f10fbd8db164b90cd6e1861769c659943",
+      "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [

@@ -1,0 +1,135 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch11/test_A_extra_concat_replication": {
+   "status": "pass",
+   "inputs_sha256": "6b2fd9e75034064e4fb89eb81169331ab915a323a99a0a07e6b561affce567bf"
+  },
+  "ch11/test_A_extra_specparam_range": {
+   "status": "pass",
+   "inputs_sha256": "93adde5de814fe1ae885f3d1f06f2d51f8c2f837ebfeb52f417d693866591bc0"
+  },
+  "ch11/test_a8_3_a8_4_constant_primaries": {
+   "status": "pass",
+   "inputs_sha256": "a0a60612b55939a14e264908a98dcecc2949ec2a1913c9a5ae3532e2f781332f"
+  },
+  "ch11/test_a8_3_a8_4_mintypmax_expressions": {
+   "status": "pass",
+   "inputs_sha256": "6d9f64d4a14af4e135de11aa3d3fa488b00dcbead01f3b02404b9dfa409619a0"
+  },
+  "ch13/test_A_extra_task_forms": {
+   "status": "pass",
+   "inputs_sha256": "1d19a2992172e0de2b5a87adb9962746aa502b44f22d593921d4c61bb9d311ce"
+  },
+  "ch13/test_A_extra_tf_dims": {
+   "status": "known",
+   "reason": "compile failed: tests/ch13/test_A_extra_tf_dims.sv:27: syntax error",
+   "inputs_sha256": "bc1b36aa16cdf6e04bd74a8f6219857d3a1d568cc73ba8ece4121a43015b97ec"
+  },
+  "ch13/test_A_extra_tf_direction": {
+   "status": "known",
+   "reason": "compile failed: tests/ch13/test_A_extra_tf_direction.sv:23: syntax error",
+   "inputs_sha256": "fee2e48b61e97db8ddc783a1b2f15c9483b9668b538b3b98f4a0248f2564bdd7"
+  },
+  "ch13/test_A_extra_tf_port": {
+   "status": "known",
+   "reason": "compile failed: tests/ch13/test_A_extra_tf_port.sv:30: syntax error",
+   "inputs_sha256": "1bf6f15a76fffa2109b7e15ca157133bf1661f2974412ce89838c84cdd176a9a"
+  },
+  "ch13/test_a2_7_dynamic_override_specifiers": {
+   "status": "known",
+   "reason": "compile failed: tests/ch13/test_a2_7_dynamic_override_specifiers.sv:40: syntax error",
+   "inputs_sha256": "c5bbb86d669f19bf40dadedf300cb7a2dae069c2c88cb7d8166c6a46bcd9150d"
+  },
+  "ch14/test_clocking_declaration_items_and_skews": {
+   "status": "known",
+   "reason": "compile failed: tests/ch14/test_clocking_declaration_items_and_skews.sv:38: syntax error",
+   "inputs_sha256": "b3f6eeb531687f379d999127dde596cc1f64bc2a234925ec66726d22965056b0"
+  },
+  "ch16/test_A_extra_assertion_items": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_A_extra_assertion_items.sv:37: sorry: concurrent_assertion_item not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+   "inputs_sha256": "d116b2f8e51a3614cecf217723448fde34b1186744560b393a5dff09cb6bfca7"
+  },
+  "ch16/test_A_extra_repetitions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_A_extra_repetitions.sv:28: syntax error",
+   "inputs_sha256": "0926801c7dda61de8244540906d205ca51a55c784549120d9b4ed546a8290606"
+  },
+  "ch16/test_A_extra_throughout": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_A_extra_throughout.sv:31: syntax error",
+   "inputs_sha256": "8de40debefa4191bfd7c8b37d7c5a627f1c3cc6614630bc71c3912f46a6e7d06"
+  },
+  "ch16/test_a2_10_assertion_variable_and_sequence_atom": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_a2_10_assertion_variable_and_sequence_atom.sv:37: syntax error",
+   "inputs_sha256": "a0fe82e2f3530b282dc1db32ce153dca38be2b34805f41beb5f979e8c417a76c"
+  },
+  "ch16/test_sva_property_grammar_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_sva_property_grammar_forms.sv:39: syntax error",
+   "inputs_sha256": "39dde34f47085f0639fd056b4db277bad8398f9967d03065cbee2b07b7c1e075"
+  },
+  "ch19/test_A_extra_spec_option": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_A_extra_spec_option.sv:35: syntax error",
+   "inputs_sha256": "2a3620bc196a3b5cd97fcb1c04d24ad0206608be5920b3e844b9954a6ea73b5f"
+  },
+  "ch23/test_23_extra_bind_placement": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_23_extra_bind_placement.sv:43: syntax error",
+   "inputs_sha256": "11295fd24a7b94126296c35146136cc972bc6e6b64833b408b4422a6e738667c"
+  },
+  "ch30/test_A_extra_module_path": {
+   "status": "pass",
+   "inputs_sha256": "6a8305ec524a64d3bcd98c0168b7600de1ec50676b9d02a15e83e762213ec16c"
+  },
+  "ch30/test_module_path_delay_input_inout_ports": {
+   "status": "pass",
+   "inputs_sha256": "5716f7362d0b4a2b6c1e91abbbcdf100d3652a13226274d42922bb64af60ab4e"
+  },
+  "ch31/test_A_extra_nochange_offsets": {
+   "status": "pass",
+   "inputs_sha256": "d0ec000031f511e327d01f675431327e3e3579361cfc99e31ff7b44eab79c297"
+  },
+  "ch31/test_A_extra_setuphold_conditions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch31/test_A_extra_setuphold_conditions.sv:39: warning: Choosing typ expression.",
+   "inputs_sha256": "fc24730e11ca15184c8bb4be2d065b02dcca7cde67f81b9779245a63c0d0f799"
+  },
+  "ch31/test_timing_check_forms_and_arguments": {
+   "status": "pass",
+   "inputs_sha256": "080794071feeb88f437f841595d7160021fd5fde13ef2e0941c7c45ea3a8462c"
+  },
+  "ch33/test_A_extra_config_forms": {
+   "status": "pass",
+   "inputs_sha256": "36ab626d9cd83cb7943626d4db788763800cf7a9eb35b51892c02199e84ccfd1"
+  },
+  "ch35/test_dpi_unsigned_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_unsigned_types.sv:24: syntax error",
+   "inputs_sha256": "a6cae74816e4fc715595ccd6b3ef0a88403f02ce5c629afcf5691a8c877bb76e"
+  },
+  "ch5/test_A_extra_lexical_spaces": {
+   "status": "pass",
+   "inputs_sha256": "3289316195270bb3b09a6e0f73b432832a0e6555ecf709753965a6844a7f5bdf"
+  },
+  "ch8/test_a1_9_constructor_arguments_and_parameter_class_item": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_a1_9_constructor_arguments_and_parameter_class_item.sv:63: syntax error",
+   "inputs_sha256": "f65d2d670895c836010536a10de2b71d15b3df32856bc1a3d4e88556612dcef1"
+  },
+  "ch9/test_A_extra_event_expressions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch9/test_A_extra_event_expressions.sv:35: syntax error",
+   "inputs_sha256": "bf23591ae86f8a5a0785a2457d23e96460842345a1e044b58888ebeadb8d9a9a"
+  }
+ },
+ "generated_at": "2026-10-27T22:16:15.354614+00:00",
+ "runner_sha256": "9a0d77f74ee935d59b413652bbe6cc3133179c84c2a2130f2c0cd4e51a71ab13",
+ "runner_changed": false,
+ "configuration": {}
+}

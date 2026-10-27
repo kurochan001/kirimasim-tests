@@ -1,6 +1,6 @@
 # Clause 9: Processes
 
-[All chapters](README.md). 209 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 210 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -133,6 +133,7 @@
 | [`test_delay_negative_value_is_unsigned_time`](../../tests/ch9/test_delay_negative_value_is_unsigned_time.sv) | a delay control whose expression is a negative int waits for that value read as a 64-bit unsigned time, so #(-10) resumes at 2**64-10 | 9.4.1 | Icarus Verilog 13.0 |  |
 | [`test_delay_x_z_value_is_zero_delay`](../../tests/ch9/test_delay_x_z_value_is_zero_delay.sv) | a delay control whose expression is all x or all z waits as #0 does, without advancing time | 9.4.1 4.4.2.2 | Icarus Verilog 13.0 | x/z |
 | [`test_timing_edge_cases`](../../tests/ch9/test_timing_edge_cases.sv) | Timing edge cases test | 9.4.1 9.4.5 9.4.2 | Icarus Verilog 13.0 |  |
+| [`test_A_extra_event_expressions`](../../tests/ch9/test_A_extra_event_expressions.sv) | An event expression has an optional edge with an expression and an optional iff condition, a sequence instance with an iff condition, or and comma compositions and parentheses, and each form resumes its process at its own event | 9.4.2 9.4.3 16.8 A.6.5 | Verilator 5.052 |  |
 | [`test_clocked_value_timing`](../../tests/ch9/test_clocked_value_timing.sv) | A variable updated by a clocked always procedure, read one time unit after each edge | 9.4.2 10.4.2 | Icarus Verilog 13.0 |  |
 | [`test_clocking_sampled_event`](../../tests/ch9/test_clocking_sampled_event.sv) | an event control on a clocking block input or inout uses the value sampled by the clocking event, not the unsampled signal | 9.4.2 | Verilator 5.052 |  |
 | [`test_edge_detection`](../../tests/ch9/test_edge_detection.sv) | Edge Detection Tests | 9.4.2 10.4.2 | Icarus Verilog 13.0 |  |

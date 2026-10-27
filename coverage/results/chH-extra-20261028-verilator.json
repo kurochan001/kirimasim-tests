@@ -1,0 +1,129 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch35/test_35_extra_35_5_1_6_cxx_linkage": {
+   "status": "pass",
+   "inputs_sha256": "26b252fd451ff84b117b8fc7a1b531b247e4ede9577be1758dff0ea8146568a8"
+  },
+  "ch35/test_35_extra_35_5_3_chain_attribute": {
+   "status": "pass",
+   "inputs_sha256": "2b36277c6bbfd4252620f3d4655e2fa431751d6e8721dc7132519950bd316096"
+  },
+  "ch35/test_35_extra_35_5_4_array_formal_name": {
+   "status": "pass",
+   "inputs_sha256": "f866eff4b167de5f8f5978cbc593a563f2bc4d44048d007b21ac091318c11926"
+  },
+  "ch35/test_35_extra_H_8_10_1_string_arrays": {
+   "status": "pass",
+   "inputs_sha256": "fb6f55e7d6dcdeb7aeba739b4ad8c6db87b7285302730ae13538f94a40e9518b"
+  },
+  "ch35/test_35_extra_H_9_5_vpi_printf": {
+   "status": "pass",
+   "inputs_sha256": "a68cac2e5389a8d2f5d3e523af497b8fec8b2b1b508140d4a488ba24bd255049"
+  },
+  "ch35/test_dpi_call_directions_and_context_chain": {
+   "status": "pass",
+   "inputs_sha256": "9cfd0da0b6fa9c6da0a73518ed4f7cd380eb814d3881d1835d7f68440aeb3f09"
+  },
+  "ch35/test_dpi_context_scope": {
+   "status": "pass",
+   "inputs_sha256": "6aa851f32ac59a3d0f1c66e1b162440f78a18ec017f1abe3c0dd9ecb52b5bfe5"
+  },
+  "ch35/test_dpi_context_scope_switch": {
+   "status": "pass",
+   "inputs_sha256": "d4c9678518848b9b9de1a7e129421d244c2fe031701fd0fcb0375fe353d72471"
+  },
+  "ch35/test_dpi_declaration_site_types": {
+   "status": "pass",
+   "inputs_sha256": "b9567ed7dd0b1a77e60223a22d0880b1de0730ee6987e7fb73553cf55a1b8f5a"
+  },
+  "ch35/test_dpi_export_task_and_result": {
+   "status": "pass",
+   "inputs_sha256": "867c75daa3898559ed7cc708aca15c5109a9356fbe94c88dd99c45498b04e09a"
+  },
+  "ch35/test_dpi_import_declaration_forms": {
+   "status": "pass",
+   "inputs_sha256": "93129a91ca8784cc34e3223aa07013bc9fc9546e72ca4cf57a7123c1984d6a7c"
+  },
+  "ch35/test_dpi_import_export_forms": {
+   "status": "pass",
+   "inputs_sha256": "bfc6823b635500a7ab972999b5e676cc53f4863a4e4e9de1bae88e45827898e6"
+  },
+  "ch35/test_dpi_import_formal_names_defaults": {
+   "status": "pass",
+   "inputs_sha256": "14c739536cd4830246e56748139b3d33200a2664f41d34cbfdb57f9674f1eb3e"
+  },
+  "ch35/test_dpi_import_small_types": {
+   "status": "pass",
+   "inputs_sha256": "580163c22555e155c5e866f67933ebe0ea263abc2d72151cb6fb2d9d51ac9cfd"
+  },
+  "ch35/test_dpi_input_copy_const_and_lifetime": {
+   "status": "pass",
+   "inputs_sha256": "939158b478c8607a3d1dc2774ad98b563032a46444a6c29b47f6951b1f696520"
+  },
+  "ch35/test_dpi_one_function_two_imports": {
+   "status": "pass",
+   "inputs_sha256": "ac19ac899c230e503dcf1677a4dc2beac5444d6a7658b063c0512377da4cb169"
+  },
+  "ch35/test_dpi_open_array": {
+   "status": "pass",
+   "inputs_sha256": "cf2d53617ef6e339942675b3fd602addb51ba7315b9314f753de275f1f317515"
+  },
+  "ch35/test_dpi_open_array_2d": {
+   "status": "pass",
+   "inputs_sha256": "015ffcb6358fc20bd79a986d6846ef6033516ad9a57804840a489a6720280a96"
+  },
+  "ch35/test_dpi_open_array_actual_sizes": {
+   "status": "pass",
+   "inputs_sha256": "10974980f5a7a02ad590ca8ba3e8223b97d567b219debfb6e6c74ecfd4a8225b"
+  },
+  "ch35/test_dpi_open_array_layout_and_element_representation": {
+   "status": "pass",
+   "inputs_sha256": "114c69f8e4940ff913ef57ebcc501a2815c4aafdc5e8f9521e58caa67d17e4b1"
+  },
+  "ch35/test_dpi_packed_dims_linearized_row_major": {
+   "status": "pass",
+   "inputs_sha256": "e4fa4999482123d23bc3d26855ca54f988ceb934e956ed3f9db46a5eba538115"
+  },
+  "ch35/test_illegal_dpi_export_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "6d3950eaa8b9a045bd0e2140f8b0a0634fa95aa800e83b1b4cc1b0c790c833ae"
+  },
+  "ch35/test_illegal_dpi_import_same_name_twice": {
+   "status": "pass",
+   "inputs_sha256": "befa77ce84b9d9339aef66e09d49013c8a6a64aacabd0f9ef16973847764eb5d"
+  },
+  "ch35/test_svdpi_h_canonical_types_and_version": {
+   "status": "pass",
+   "inputs_sha256": "e2b4c724fd03fd09489819f734b1badbd9eeb6a2e54aed9a6b9a099ab1ef2c61"
+  },
+  "ch35/test_svdpi_h_declarations": {
+   "status": "pass",
+   "inputs_sha256": "22f70318da9f104482a6907de2ecc251e0c27d684afc46336efa8e881299e12d"
+  },
+  "ch35/test_svdpi_h_deprecated_get_declarations": {
+   "status": "pass",
+   "inputs_sha256": "ca8e28b03a2a333e82dead0b49454895e5c59e6cdcfcaae0018b544fbb6a8131"
+  },
+  "ch35/test_svdpi_h_deprecated_portion_types": {
+   "status": "pass",
+   "inputs_sha256": "088120ab09b4bf2b42213086eb960d99a5a000462c3b3ac9d03b5b9bd6490a27"
+  },
+  "ch35/test_svdpi_h_open_array_queries_and_whole_pointer": {
+   "status": "pass",
+   "inputs_sha256": "d600ee7fbe9228a8506fc01f081ced69a83f70a467c130f6320ac5609ab2d1f2"
+  },
+  "ch35/test_svdpi_names_and_signed_bits_macro": {
+   "status": "pass",
+   "inputs_sha256": "aaede1af4bddb92f10545dae3bbbea44e768e9ed111dd1fba17b7309c5f4392c"
+  }
+ },
+ "generated_at": "2026-10-27T22:00:40.482405+00:00",
+ "runner_sha256": "22308c0f537530ce2225f1c70638ae6e8c9c725559b0e9fdeee7a9aa34918dc7",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

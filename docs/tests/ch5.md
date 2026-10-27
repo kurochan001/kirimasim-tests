@@ -1,6 +1,6 @@
 # Clause 5: Lexical conventions
 
-[All chapters](README.md). 345 tests, 248 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 346 tests, 248 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -13,6 +13,7 @@
 | [`test_comment_text_and_end_forms`](../../tests/ch5/test_comment_text_and_end_forms.sv) | A block comment holds any characters, none or several lines of them, up to its first closing delimiter, and a one-line comment, empty or not, ends at the newline so that the next line is source text again | 5.4 A.9.2 | Verilator 5.052 |  |
 | [`test_operator_token_lengths`](../../tests/ch5/test_operator_token_lengths.sv) | Operators are tokens of one, two or three characters; unary operators come before their operand, binary ones between their operands, and the conditional operator uses two operator characters between three operands | 5.5 11.3 11.4.10 11.4.5 11.4.6 | Icarus Verilog 13.0 |  |
 | [`test_operator_unary_binary_token_boundaries`](../../tests/ch5/test_operator_unary_binary_token_boundaries.sv) | Adjacent unary and binary operators retain their separate roles | 5.5 | Icarus Verilog 13.0 |  |
+| [`test_A_extra_lexical_spaces`](../../tests/ch5/test_A_extra_lexical_spaces.sv) | A simple identifier, a system task identifier, an unbased unsized literal and a time literal are written without embedded white space, so a$b, $display, '0 and 10ns are each one token | 5.6 5.7 5.9 A.10 | Icarus Verilog 13.0 |  |
 | [`test_identifier_1024_characters`](../../tests/ch5/test_identifier_1024_characters.sv) | An implementation that limits the length of identifiers accepts names of 1024 characters and keeps them apart when only their last character differs | 5.6 21.2.1.5 | Icarus Verilog 13.0 | several files |
 | [`test_identifier_categories_in_declarations`](../../tests/ch5/test_identifier_categories_in_declarations.sv) | The names a design gives to its module, instances, nets, variables, ports in all three directions, tasks, functions, named blocks, generate blocks, genvars, parameters, types, enumeration values, structure members, interfaces, arrays, dynamic arrays, index variables and formal arguments are identifiers, and each names an object whose value or effect the test prints | 5.6 5.6.1 6.18 27.4 A.9.3 A.10 | Icarus Verilog 13.0 |  |
 | [`test_identifier_forms`](../../tests/ch5/test_identifier_forms.sv) | Identifiers with underscores and mixed case, and generate block names | 5.6 27.4 | Icarus Verilog 13.0 |  |

@@ -1,0 +1,422 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch36/test_36_extra_builtin_systf_names": {
+   "status": "pass",
+   "inputs_sha256": "e848e39d5a997f6b8e2c736fcd4cfe18e3f505b26fb704184bba1b5cc60a996a"
+  },
+  "ch36/test_36_extra_startup_apis": {
+   "status": "pass",
+   "inputs_sha256": "331ca183a2c70063cef9890944b35eb303412fffcbdfc402669e5b5175e53504"
+  },
+  "ch36/test_36_extra_systf_name_characters": {
+   "status": "pass",
+   "inputs_sha256": "232ee09c75f1b89e318b1384c37fffd5d0ae682880a645dbd465447b2a55b9d7"
+  },
+  "ch36/test_36_extra_systf_name_dollar": {
+   "status": "pass",
+   "inputs_sha256": "44b230a754f2b05007d4d636321b2cab85fcfefb9ea089f52c7f13300f3120de"
+  },
+  "ch36/test_36_extra_timing_check_not_systf": {
+   "status": "pass",
+   "inputs_sha256": "cc472c40a892331642db46d47e28ffb751a647675f51673476b51c7d38c3a73d"
+  },
+  "ch36/test_sv_vpi_user_h_assertion_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 'cbAssertionStart 606'",
+   "inputs_sha256": "492122af5c65b0a20fdfa98433f4ab9bc4a78458a48796e4c79ca3ef1529d50d"
+  },
+  "ch36/test_sv_vpi_user_h_coverage_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 'vpiCoverageStart 750'",
+   "inputs_sha256": "7eba03712a6269f20dc4b365b9cef9c0cf0720de24ce2a9879ab8cf7359dc160"
+  },
+  "ch36/test_sv_vpi_user_h_declarations": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "7a75ccece3b372f18c47794779e0553aa8abafd4a82bb018a9946bb0a1678f47"
+  },
+  "ch36/test_sv_vpi_user_h_method_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiBaseTypespec 703', expected 'vpiActual 700'",
+   "inputs_sha256": "39a9acd74225f7c351b3a7a02c0d8dc3d9e9c6eaed597be2c75f9e307cea4803"
+  },
+  "ch36/test_sv_vpi_user_h_object_type_constants": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'vpiLongIntVar 610', expected 'vpiInterfaceArray 603'",
+   "inputs_sha256": "505e26c16509df7cec6bc7818d3610fb7579be8853229bf18d15de7f6f5fa44a"
+  },
+  "ch36/test_sv_vpi_user_h_operator_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiOtherFunc 6', expected 'vpiImplyOp 50'",
+   "inputs_sha256": "725cc37943b5dc2852852a6acd3685a52538439bc52f2a4c82c1238b214845ae"
+  },
+  "ch36/test_sv_vpi_user_h_property_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiArrayType 606', expected 'vpiTop 600'",
+   "inputs_sha256": "ba2414576683c7d2c6c2e0d339cc2ab340aef6513fa776df16e1f4ab02045550"
+  },
+  "ch36/test_vpi_chk_error_callbacks": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'cbReadWriteSynch without a time: not registered, error: n...', expected 'cbReadWriteSynch without a time: not registered, error: y...'",
+   "inputs_sha256": "47e8e88716461a0c252e8fb280fa7c0195032dff007daa7f19a41e9ec62b941a"
+  },
+  "ch36/test_vpi_chk_error_pli_error_callback": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "2cd8687ae4d7ecd51d87b64cb094e7dcea5e81764672087f2519099215068dbe"
+  },
+  "ch36/test_vpi_chk_error_status": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiSuppressTime: error no, a level of Table 38-1: no, the...', expected 'vpiSuppressTime: error yes, a level of Table 38-1: yes, t...'",
+   "inputs_sha256": "2fad9c6363e0df98cd4147329207187ca9cf695e8f4ce104f362d00697053a9b"
+  },
+  "ch36/test_vpi_compat_1364v1995_iterations": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'types: mem vpiMemory, ia vpiMemory, ta vpiMemory, rg vpiR...', expected 'types: mem vpiMemory, ia vpiIntegerVar, ta vpiTimeVar, rg...'",
+   "inputs_sha256": "925269fc37d73000786361d7afab2477f9e4822afd4f89a0e9008cf86cc576de"
+  },
+  "ch36/test_vpi_compatibility_1364v1995_memory_objects": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpi_handle_by_name calls vpi_handle_by_name', expected 'vpi_handle_by_name calls vpi_handle_by_name_1364v1995'",
+   "inputs_sha256": "56d2597d172c041a3d841ef8c5bc2f8427445875367a03ef4b578b2e40b3f036"
+  },
+  "ch36/test_vpi_compatibility_1364v2005_variable_objects": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpi_iterate calls vpi_iterate', expected 'vpi_iterate calls vpi_iterate_1364v2005'",
+   "inputs_sha256": "8e6de8fe811084e7bdef34f76b909665f85bfe012b118e6ac88f161a226f2079"
+  },
+  "ch36/test_vpi_compatibility_1800v2012_routine_calls": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "bce42a7af967514b53ad80d83e8881b4e97a9af307212f7c615cd7a3344b3167"
+  },
+  "ch36/test_vpi_compatibility_1800v2017_mode": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "a7d5300c8ef8119d44984ff6b78d5c6155883defe585c8ecf1228e6088af8097"
+  },
+  "ch36/test_vpi_compatibility_1800v2023_mode": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "8e008e3de77f681781b655aa9cbaec18ff726fc88ddb7ee0ba0671673ee25def"
+  },
+  "ch36/test_vpi_compatibility_h_1364v1995": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "47886358431c6e65cc7efb84c86c75dda2115e55c7758084720bdd90fb832422"
+  },
+  "ch36/test_vpi_compatibility_h_1364v2001": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "830c51dc609a1e7f316548a8805307291f461a72afd289195329287fa5d9e2b6"
+  },
+  "ch36/test_vpi_compatibility_h_1364v2005": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "35a4841e1f6375565f5dcebd59fdbb0da443e8fea191c1dc4404686f0b98eebc"
+  },
+  "ch36/test_vpi_compatibility_h_1800v2005": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "0fbc2cd0bde893f3c1956a58009f0571a6c6d5829f8cb3e116542b8cc5f76551"
+  },
+  "ch36/test_vpi_compatibility_h_1800v2009": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "cb47e6f862e9da762a6f21d33f8bd3d9ba03b049314c9e675f1ff21271feafd9"
+  },
+  "ch36/test_vpi_compatibility_h_1800v2012": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "3ef15b9df99e61610d5b55c34158b188766b9429783c0288cb0ca0985c47a9a0"
+  },
+  "ch36/test_vpi_compiletf_sizetf": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'w = 00000000ffffffff, w2 = 00000000ffffffff, n = 7', expected 'w = 000000ffffffffff, w2 = 000000ffffffffff, n = 7'",
+   "inputs_sha256": "1ab19aba00c9dda657f9403763ac85ec27daa3945848b13e068b134dc2e2728f"
+  },
+  "ch36/test_vpi_end_of_simulation_after_final": {
+   "status": "pass",
+   "inputs_sha256": "157f6eb64dcfddc10e98942f1bdd3f8bcf263c7ebc41710578ac952628dfb700"
+  },
+  "ch36/test_vpi_expression_operands": {
+   "status": "known",
+   "reason": "VPI build failed: 12 errors generated.",
+   "inputs_sha256": "b83de4a131455318abcbc70ae6581f6d51732bc506ead60ff75f024d6ea6b290"
+  },
+  "ch36/test_vpi_expression_traversal_operators": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "8797a6aeaaf28911ef4635523e0225906bbac37576e2543a2bcc2d1f59f2a258"
+  },
+  "ch36/test_vpi_interface_decl_class_current_mode": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "65ca3464cfbcd6064ffc3561df6a3c1797ce2c4396fb7357092571121c99caf9"
+  },
+  "ch36/test_vpi_routines_chk_error": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'after the failed registration: error 0, a level of Table ...', expected 'after the failed registration: error 1, a level of Table ...'",
+   "inputs_sha256": "32bb9ac81f54507fe6bd110ce51e2ed235803b7bb6bad828a27509cbf30ade34"
+  },
+  "ch36/test_vpi_routines_logic_strength_values": {
+   "status": "known",
+   "reason": "output differs: line 5 is missing, expected 'vpi_put_value of pull 1 to fl, then vpi_get_value: logic ...'",
+   "inputs_sha256": "0fee303856a16b99911ee872420a9faf449fef102c17a6aad9562389f4d45af5"
+  },
+  "ch36/test_vpi_routines_mcd_files": {
+   "status": "pass",
+   "inputs_sha256": "401c4c162eb00e789cb00fa4126c4dfafa4d150d3248c2bbca9543795dc7a20a"
+  },
+  "ch36/test_vpi_routines_misc_utilities": {
+   "status": "pass",
+   "inputs_sha256": "3c81d291a94c29907abc74c5cd4d6b7b50e29e1432c6e416afb71b79c38d2a74"
+  },
+  "ch36/test_vpi_routines_object_properties": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "3d319f0bffad358d6143f4401a17c89c18a8c812e3424cb77f118ade2b3ee98c"
+  },
+  "ch36/test_vpi_routines_objects_by_name_index": {
+   "status": "known",
+   "reason": "VPI build failed: 8 errors generated.",
+   "inputs_sha256": "e4c890a9c8fdcd5c7a330163576bec92973036adb72d304154b0a9966a877d5a"
+  },
+  "ch36/test_vpi_routines_path_delays": {
+   "status": "pass",
+   "inputs_sha256": "b13d4f38d33696770f6051e8bfd10f0c548e6b5e1c9e29c1ca26258e3fb7cb7f"
+  },
+  "ch36/test_vpi_routines_print_and_flush": {
+   "status": "pass",
+   "inputs_sha256": "e0fe0f25a7d5886f1ceeeaf303800be8b0ea5fa709cde6796d8e9318e4416671"
+  },
+  "ch36/test_vpi_routines_simulation_callbacks": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "ffed1c33f6289ae42ca80773e15eae0db93395e8c1edc1ce970bcf94957e0938"
+  },
+  "ch36/test_vpi_routines_simulation_time": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "9e535799fc07ac9ad28b2a048bbadb84c761b151fd6b45fc31f052eeb3a18ac7"
+  },
+  "ch36/test_vpi_routines_systf_and_userdata": {
+   "status": "pass",
+   "inputs_sha256": "703ddbc4fccc3d43780603de48a36d16d3f6745367d7dd818cda5e6986ac2d1d"
+  },
+  "ch36/test_vpi_routines_traverse_hierarchy": {
+   "status": "pass",
+   "inputs_sha256": "207c6c208d82ba0b7331fae6079d0fdceaecb057aa6c8e80f2cf217d8cabcdf9"
+  },
+  "ch36/test_vpi_simulation_action_callbacks": {
+   "status": "pass",
+   "inputs_sha256": "b6756fa453a9af7c008b7c6061fe190bdaeb3af5f54512b1a75a0dd9ef04868b"
+  },
+  "ch36/test_vpi_simulation_callbacks_dynamic": {
+   "status": "pass",
+   "inputs_sha256": "dddbfaa6c402e2629c64b200b7f9fbd266e49a79b3b29eda33286089bb6c8747"
+  },
+  "ch36/test_vpi_sizetf_exclusions_default_width": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected '$vt_real: 2.5'",
+   "inputs_sha256": "162c5523c5aad48a9fc8ed5e04253e665d5f527ab25ded31ed98e44ae2b6b6c4"
+  },
+  "ch36/test_vpi_systf_argument_kinds": {
+   "status": "pass",
+   "inputs_sha256": "10b4ae988c39e0521d845afc015666a0d1847f683ed503427fed6de22c9a74fc"
+  },
+  "ch36/test_vpi_systf_argument_on_demand": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'after $vt_ignore: calls=1', expected 'after $vt_ignore: calls=0'",
+   "inputs_sha256": "8d1e6912aa20f5cf1f1853c8386ac0c61c65bd8d02d4084696cc79b1609af85f"
+  },
+  "ch36/test_vpi_systf_calltf_writes_arguments": {
+   "status": "pass",
+   "inputs_sha256": "91c2468100ec40c4226aa54e51c78115b557ad854dc13b6e06b56ed50ce2677d"
+  },
+  "ch36/test_vpi_systf_compiletf_arguments": {
+   "status": "pass",
+   "inputs_sha256": "7c3080cc87a27bc448839a443ef3fad8cb1a3df621a642f7c14cc3fc91dfe50a"
+  },
+  "ch36/test_vpi_systf_function_in_continuous_assign": {
+   "status": "known",
+   "reason": "compile failed: tests/ch36/test_vpi_systf_function_in_continuous_assign.sv:30: error: System function $vt_twice not defined in system table or SFT file(s).",
+   "inputs_sha256": "697e44f8cc6e08fc1e440c96365db09062f5d01afe8928ab6cdf46f6b451d3bc"
+  },
+  "ch36/test_vpi_systf_function_in_expressions": {
+   "status": "pass",
+   "inputs_sha256": "d924167f65553208ea635a6f30f934b6021c325984bf04bb2f07ec39e953abee"
+  },
+  "ch36/test_vpi_systf_function_types": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 'sum8: 44'",
+   "inputs_sha256": "40f573c84b26ef937c314ab370ff2125787c06d5199dcae78b55d0669afd1d66"
+  },
+  "ch36/test_vpi_systf_in_always": {
+   "status": "pass",
+   "inputs_sha256": "ee937dd1d59fd105c7de2a9f9098162a184e8a9d2810edea14b98bd23a940c42"
+  },
+  "ch36/test_vpi_systf_in_class_method": {
+   "status": "pass",
+   "inputs_sha256": "801a346a3e0df8afcad17a9e40b8dd423ade754040d4a88d783fb5bca5cef81a"
+  },
+  "ch36/test_vpi_systf_in_fork": {
+   "status": "pass",
+   "inputs_sha256": "8280fdbf724f78b12290c46f0633d9248999b86bbe82a3f2ba4e51e4f13e8134"
+  },
+  "ch36/test_vpi_systf_in_generate": {
+   "status": "pass",
+   "inputs_sha256": "cd5182b9bf6c815208325d2848d39d3f7c2825a703a02a68da45b0f4c3decdb7"
+  },
+  "ch36/test_vpi_systf_in_program_and_final": {
+   "status": "pass",
+   "inputs_sha256": "68908285b337c2ff89ce025c69a47a48e90ed0d3e41bd1c7ba5fa11e51c73f82"
+  },
+  "ch36/test_vpi_systf_in_task": {
+   "status": "pass",
+   "inputs_sha256": "a3ea4194069e31c4991d19c84dcbaefe68e3a307f05d576db2baa3757bfcbd68"
+  },
+  "ch36/test_vpi_systf_names": {
+   "status": "pass",
+   "inputs_sha256": "b9ca0190a68836d90fada4ad6bdf98c574487c11c9c923f3e518f161ba38df1a"
+  },
+  "ch36/test_vpi_systf_no_arguments": {
+   "status": "pass",
+   "inputs_sha256": "ee2bbeda3b7ae5d7842cf4ad581315b3d43c41dd071a766c19e55641014535fd"
+  },
+  "ch36/test_vpi_systf_override_builtin": {
+   "status": "pass",
+   "inputs_sha256": "e75c1daac22e167cb6597f3b7aa6b960ebec70af863fb1d599a786d0c2b63017"
+  },
+  "ch36/test_vpi_systf_override_display": {
+   "status": "pass",
+   "inputs_sha256": "73736334a3a9c225413e87b4f1fd7eb79c38d92891ecdd4e014dc3d94020ab7c"
+  },
+  "ch36/test_vpi_systf_override_signed_width": {
+   "status": "known",
+   "reason": "output differs: line 1 is '$unsigned of a 4-bit value: f', expected '$unsigned of a 4-bit value: 010'",
+   "inputs_sha256": "12abf8448731e1a4442cabf15da88bf4d11fb8e977331be305190795fd980677"
+  },
+  "ch36/test_vpi_systf_phases_and_object_identity": {
+   "status": "pass",
+   "inputs_sha256": "a060f765a739fd51e7c1d821c2f1c896bad73b32bca40ee7c50ec024bc759363"
+  },
+  "ch36/test_vpi_systf_registration_fields": {
+   "status": "pass",
+   "inputs_sha256": "c74f531eac923ff40b56111ce3bef91a6dcc80c6264248253984031be96b89c2"
+  },
+  "ch36/test_vpi_systf_registry_iteration": {
+   "status": "pass",
+   "inputs_sha256": "12e9f9b64c9272e41b84f952d9f6eccf0129bdcfce461677e2185749b18bd778"
+  },
+  "ch36/test_vpi_systf_shared_routine_user_data": {
+   "status": "pass",
+   "inputs_sha256": "3e481c992fb148cc7a0675e9bf4a311f678105474aa1d7fdd2b3ccf5c869a4d9"
+  },
+  "ch36/test_vpi_systf_startup_routines": {
+   "status": "pass",
+   "inputs_sha256": "9a869ee7e60572a372ac4d15db324bc6cc30a21b4005feeddd6b895f8d556a11"
+  },
+  "ch36/test_vpi_systf_task_arguments": {
+   "status": "pass",
+   "inputs_sha256": "fb16dac25a5628e1aaf45190b843a7f5e3446473a05e030818afe62c8a791fd4"
+  },
+  "ch36/test_vpi_systf_task_function_places": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'function result: 00000f01', expected 'function result: f01'",
+   "inputs_sha256": "f4c123317a832d85fc3b8173acac9a1cbbbb70deb5a3be75c85917ef4d7b0d5d"
+  },
+  "ch36/test_vpi_user_h_callback_reason_constants": {
+   "status": "known",
+   "reason": "output differs: line 25 is 'cbAtEndOfSimTime 31', expected 'cbAssign 25'",
+   "inputs_sha256": "5435bb082a07a3b1a4e737f77be88254c3d5d74e2c77b4723c05cd8611a88de9"
+  },
+  "ch36/test_vpi_user_h_macro_cleanup": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'PLI_EXTERN removed after the header 0', expected 'PLI_EXTERN removed after the header 1'",
+   "inputs_sha256": "327e41a4a6c668a9e8e646717190f431b14dfde6a3698ed14429a116cf65b849"
+  },
+  "ch36/test_vpi_user_h_macro_linkage_types": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'vpi_handle_multi has the three-parameter variadic prototy...', expected 'vpi_handle_multi has the three-parameter variadic prototy...'",
+   "inputs_sha256": "1130e6d714f570f6eb0193d5a16ce9a93cb2531d1c19dab28ba881ae79984d05"
+  },
+  "ch36/test_vpi_user_h_method_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiIndex 78', expected 'vpiCondition 71'",
+   "inputs_sha256": "19d73bd63546829604e0916c6bf3870a30608bd58f9aab0f398d0704d8de0e37"
+  },
+  "ch36/test_vpi_user_h_object_type_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiConstant 7', expected 'vpiAlways 1'",
+   "inputs_sha256": "0aab646ef522a8ba6197625ebfa1507d6f9a4292c758b91202bcd170e8ec75a3"
+  },
+  "ch36/test_vpi_user_h_property_constants": {
+   "status": "known",
+   "reason": "output differs: line 11 is 'vpiTimeUnit 11', expected 'vpiProtected 10'",
+   "inputs_sha256": "14f844620913918d565f4755134137b100d00dfdca3aec81bcf7df056fcba16d"
+  },
+  "ch36/test_vpi_user_h_record_members": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130"
+  },
+  "ch36/test_vpi_user_h_routine_declarations": {
+   "status": "known",
+   "reason": "VPI build failed: 8 errors generated.",
+   "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e"
+  },
+  "ch36/test_vpi_user_h_structure_constants": {
+   "status": "known",
+   "reason": "output differs: line 22 is 'vpiNoDelay 1', expected 'vpiShortIntVal 14'",
+   "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400"
+  },
+  "ch36/test_vpi_user_h_type_declarations": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "f7448c8d404812323a5670b08cb565c17e3b0a65860e1cadf2447b0bdda61be6"
+  },
+  "ch36/test_vpi_user_h_type_guards": {
+   "status": "known",
+   "reason": "VPI build failed: 8 errors generated.",
+   "inputs_sha256": "b9d04e8d4210dcbb7f32cd8f65fe6842edb0b6055e7cdc1c6f89c073020f6a9d"
+  },
+  "ch36/test_vpi_variable_arrays_1364v1995_mode": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'types: mem vpiMemory, ia vpiMemory, ta vpiMemory, rg vpiR...', expected 'types: mem vpiMemory, ia vpiIntegerVar, ta vpiTimeVar, rg...'",
+   "inputs_sha256": "7ee17602e9c622b7f630eee4f643ef156d960fc11ec692e26cc288339999f9ba"
+  },
+  "ch36/test_vpi_variable_arrays_1364v2001_mode": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'types: ia vpiMemory, ta vpiMemory, ra vpiMemory, rg vpiRe...', expected 'types: ia vpiIntegerVar, ta vpiTimeVar, ra vpiRealVar, rg...'",
+   "inputs_sha256": "e798731310faddb05afa1b34a48a90be2558d4c9c8af33cff5967f63091085be"
+  },
+  "ch36/test_vpi_variable_arrays_1364v2005_mode": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'types: mem vpiMemory, ia vpiMemory, ta vpiMemory, ra vpiM...', expected 'types: mem vpiRegArray, ia vpiIntegerVar, ta vpiTimeVar, ...'",
+   "inputs_sha256": "02de2f9b265c93eeb0d32bd6959a7fb64d978d3aff72ea3f5704a494016f45da"
+  },
+  "ch36/test_vpi_variable_arrays_1800v2005_mode": {
+   "status": "known",
+   "reason": "VPI build failed: 3 errors generated.",
+   "inputs_sha256": "52917389c8521812167a176ff25e7a0ed4058004ba54e72d961b3a569264606a"
+  },
+  "ch36/test_vpi_variable_arrays_1800v2009_mode": {
+   "status": "known",
+   "reason": "VPI build failed: 3 errors generated.",
+   "inputs_sha256": "01734c151b4bc65f815ca626bf44144911e49f121d8cf26fc844b33554b14d80"
+  },
+  "ch36/test_vpi_variable_arrays_current_mode": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'types: mem vpiMemory, ia vpiMemory, ta vpiMemory, ra vpiM...', expected 'types: mem vpiRegArray, ia vpiRegArray, ta vpiRegArray, r...'",
+   "inputs_sha256": "fa19aa47ad2b319dfef6aa41c8eb8475461066ed92716f4a32f97141882f230a"
+  }
+ },
+ "generated_at": "2026-10-27T21:59:06.732473+00:00",
+ "runner_sha256": "9a0d77f74ee935d59b413652bbe6cc3133179c84c2a2130f2c0cd4e51a71ab13",
+ "runner_changed": false,
+ "configuration": {}
+}
