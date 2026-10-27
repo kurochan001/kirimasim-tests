@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 85.59%、実行 46.94%。**
+**全規格の要求台帳ベース（暫定）: 設計 85.74%、実行 47.08%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10544/12319 (85.59%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5782/12319 (46.94%)。
-- 登録済みだがテスト未対応: 1775 動作。
+- 登録済み動作に対するテスト設計網羅率: 10562/12319 (85.74%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5800/12319 (47.08%)。
+- 登録済みだがテスト未対応: 1757 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -89,7 +89,7 @@
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
-- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T00:55:02.014787+00:00 / 41/12319 動作確認、古い入力との対応 0 件。
+- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T02:00:23.658218+00:00 / 59/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -220,7 +220,7 @@
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 9。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
-- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 41。
+- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 59。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 25。
 - H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 175。
 - I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 134。
@@ -128406,7 +128406,7 @@ R1 within R2 expands to (1\[*0:$\] ##1 R1 ##1 1\[*0:$\]) intersect R2.
 
 ### SV2023-F.3.4.3.1-EXTRACT-DEFAULT-STRENGTH
 
-F.3.4.3.1 / normal / テスト未対応
+F.3.4.3.1 / normal / 実行確認あり
 
 A sequence used as property means strong(sequence) in cover property/expect and weak(sequence) in assert property/assume property.
 
@@ -128414,10 +128414,11 @@ A sequence used as property means strong(sequence) in cover property/expect and 
 
 規定の性質: `definition`。
 
+- [test_formal_f343_default_strength.sv](../tests/ch16/test_formal_f343_default_strength.sv): SymbiYosysでF.3.4.3のformalケースf343_default_strengthを実行し、書換前後の意味論が全入力語で一致することを確認する。assert property の裸のシーケンス `a ##[1:$] b` が弱既定になることを、参照RTLの独立走査（a\[0\] 無し=tick0 failure 16、b\[1\] 有り=成功1、a\[0\] 有りでb未完=holds 3f）で比較。強既定なら pending 4f になる語を含む。BMC深さ2、有限語 h=2 の ab 16語、全2値入力、top/bottom/4状態・x/zなし。cover property/expect 側の強既定は harness が assert property 固定のため未検証（部分対応）。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.2-EXTRACT-IFF
 
-F.3.4.3.2 / normal / テスト未対応
+F.3.4.3.2 / normal / 実行確認あり
 
 p iff q is conjunction of the two directional implications.
 
@@ -128425,10 +128426,11 @@ p iff q is conjunction of the two directional implications.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_iff.sv](../tests/ch16/test_formal_f343_iff.sv): SymbiYosysでF.3.4.3のformalケースf343_iffを実行し、書換前後の意味論が全入力語で一致することを確認する。`(a ##1 b) iff (c ##1 b)` を `(p implies q) and (q implies p)` の真理表として参照RTLで独立に実装。両辺が同tickで真ならtick1成功、両辺が偽ならmax(at)成功、真偽が異なればb\[1\]に応じ成功1/failure 17になることを比較。BMC深さ2、有限語 h=2 の abc 64語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.2-EXTRACT-IMPLIES
 
-F.3.4.3.2 / normal / テスト未対応
+F.3.4.3.2 / normal / 実行確認あり
 
 p implies q is not p or q.
 
@@ -128436,10 +128438,11 @@ p implies q is not p or q.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_implies.sv](../tests/ch16/test_formal_f343_implies.sv): SymbiYosysでF.3.4.3のformalケースf343_impliesを実行し、書換前後の意味論が全入力語で一致することを確認する。`(a ##1 b) implies c` を `not p or q` の真理表として参照RTLで独立に実装。a\[0\]=0 は成功0、a\[0\]=1かつc\[0\]=1も成功0、a\[0\]=1かつc\[0\]=0はb\[1\]により成功1/failure 17。BMC深さ2、有限語 h=2 の abc 64語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.3-EXTRACT-CLOCKED
 
-F.3.4.3.3 / normal / テスト未対応
+F.3.4.3.3 / normal / 実行確認あり
 
 S |=> Q expands to (S ##1 @(1) 1) |-> Q.
 
@@ -128447,6 +128450,7 @@ S |=> Q expands to (S ##1 @(1) 1) |-> Q.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_clocked_nonoverlap.sv](../tests/ch16/test_formal_f343_clocked_nonoverlap.sv): SymbiYosysでF.3.4.3のformalケースf343_clocked_nonoverlapを実行し、書換前後の意味論が全入力語で一致することを確認する。`(a ##[1:2] b) |=> c` を `(S ##1 @(1) 1) |-> c` の単一クロック展開で参照。@(1) を1tickとして、長さ1/2の各antecedent一致の終了+1でcを検査する。a\[0\]=0 は vacuous@0(32)、一致なしは vacuous@closed(34)、複数一致は最初の失敗tickを返す。BMC深さ2、有限語 h=4 の abc 4096語、全2値入力、top/bottom/4状態・x/zなし。マルチクロックは基盤に無いため単一クロックに限定（clocked/unclocked は同値になる）。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.3-EXTRACT-UNCLOCKED
 
@@ -128462,7 +128466,7 @@ R |=> P expands to (R ##1 1) |-> P.
 
 ### SV2023-F.3.4.3.4-EXTRACT-IF
 
-F.3.4.3.4 / normal / テスト未対応
+F.3.4.3.4 / normal / 実行確認あり
 
 if(b) P means b |-> P.
 
@@ -128470,10 +128474,11 @@ if(b) P means b |-> P.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_if.sv](../tests/ch16/test_formal_f343_if.sv): SymbiYosysでF.3.4.3のformalケースf343_ifを実行し、書換前後の意味論が全入力語で一致することを確認する。`if (a) (b ##1 c)` を `a |-> (b ##1 c)` の真理表で参照。a\[0\]=0 は vacuous@0(32)、a\[0\]=1 は !b\[0\] で failure@0(16)、b\[0\] ならc\[1\]により成功1/failure 17。BMC深さ2、有限語 h=2 の abc 64語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.4-EXTRACT-IF-ELSE
 
-F.3.4.3.4 / normal / テスト未対応
+F.3.4.3.4 / normal / 実行確認あり
 
 if(b) P1 else P2 means (b |-> P1) and (weak(b) or P2).
 
@@ -128481,10 +128486,11 @@ if(b) P1 else P2 means (b |-> P1) and (weak(b) or P2).
 
 規定の性質: `definition`。
 
+- [test_formal_f343_if_else.sv](../tests/ch16/test_formal_f343_if_else.sv): SymbiYosysでF.3.4.3のformalケースf343_if_elseを実行し、書換前後の意味論が全入力語で一致することを確認する。`if (a) P1 else P2` を `(a |-> P1) and (weak(a) or P2)` の真理表で参照。a\[0\]=1 ではP1、a\[0\]=0 では第1合項がvacuousかつweak(a)がfailureになるためP2へ縮約されることを、P1=(b##1c), P2=(c##1b) で比較。BMC深さ2、有限語 h=2 の abc 64語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.5-EXTRACT-CASE-DEFAULT
 
-F.3.4.3.5 / normal / テスト未対応
+F.3.4.3.5 / normal / 実行確認あり
 
 A single label plus default is corresponding if-else; multiple labels recursively test in source order using specified case equality, with or without default.
 
@@ -128492,10 +128498,11 @@ A single label plus default is corresponding if-else; multiple labels recursivel
 
 規定の性質: `definition`。
 
+- [test_formal_f343_case_default.sv](../tests/ch16/test_formal_f343_case_default.sv): SymbiYosysでF.3.4.3のformalケースf343_case_defaultを実行し、書換前後の意味論が全入力語で一致することを確認する。3bit selector `{a,b,c}` のcaseで、第1項目が000/001の2ラベル、第2項目が001/010（001は第1項目がshadow）、defaultが011..111。source orderで001が第1項目の`c##1a`になり、非一致はdefaultの`a##1b`へ落ちることを参照RTLの条件分岐で独立実装。BMC深さ2、有限語 h=2 の abc 64語、全2値入力、top/bottom/4状態・x/zなし。単一ラベル+defaultのif-else対応はf343_if_elseが同型の分岐で代表。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.5-EXTRACT-CASE-SINGLE
 
-F.3.4.3.5 / normal / テスト未対応
+F.3.4.3.5 / normal / 実行確認あり
 
 A single-case property is conditional on case equality of specified selector/label; default-only case is its default property.
 
@@ -128503,10 +128510,11 @@ A single-case property is conditional on case equality of specified selector/lab
 
 規定の性質: `definition`。
 
+- [test_formal_f343_case_single.sv](../tests/ch16/test_formal_f343_case_single.sv): SymbiYosysでF.3.4.3のformalケースf343_case_singleを実行し、書換前後の意味論が全入力語で一致することを確認する。`case (a) 1'b0: (b ##1 c); endcase` をcase equalityと暗黙defaultで参照。a\[0\]=0 のときP=(b##1c)（!b\[0\] でfailure@0、c\[1\] で成功1/failure 17）、a\[0\]≠0 のときdefault propertyでvacuous@0(32)。BMC深さ2、有限語 h=2 の abc 64語、全2値入力、top/bottom/4状態・x/zなし。default-only case自体は本ケースの暗黙defaultで代表。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.5-EXTRACT-SPECIFY
 
-F.3.4.3.5 / normal / テスト未対応
+F.3.4.3.5 / normal / 実行確認あり
 
 Formal specify(Boolean) expands and signs/unsigns comparisons according to 12.5 case rules.
 
@@ -128514,6 +128522,7 @@ Formal specify(Boolean) expands and signs/unsigns comparisons according to 12.5 
 
 規定の性質: `definition`。
 
+- [test_formal_f343_case_specify.sv](../tests/ch16/test_formal_f343_case_specify.sv): SymbiYosysでF.3.4.3のformalケースf343_case_specifyを実行し、書換前後の意味論が全入力語で一致することを確認する。`case ({a,b}) 2'sb10: (c ##1 a); default: (b ##1 c); endcase` で、signedラベル2'sb10が12.5のcase equalityではbit pattern 10としてunsigned selectorと比較され（signed数値-2として比較されない）、pattern 10のとき第1項目が選ばれることをbitwise条件で参照。BMC深さ2、有限語 h=2 の abc 64語、全2値入力、top/bottom/4状態・x/zなし。符号・幅のsizingは2bit同士の1点のみで、一般の符号拡張は未検証。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.6-EXTRACT-NONOVERLAPPED
 
@@ -128574,7 +128583,7 @@ sync_reject_on(b) P is not sync_accept_on(b) not P.
 
 ### SV2023-F.3.4.3.8-EXTRACT-ALWAYS
 
-F.3.4.3.8 / normal / テスト未対応
+F.3.4.3.8 / normal / 実行確認あり
 
 always p is p until 0.
 
@@ -128582,10 +128591,11 @@ always p is p until 0.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_always_until.sv](../tests/ch16/test_formal_f343_always_until.sv): SymbiYosysでF.3.4.3のformalケースf343_always_untilを実行し、書換前後の意味論が全入力語で一致することを確認する。`always a` を `a until 0` の弱until走査で参照。最初のa=0 tickでfailure(16+t)、全tickでa=1ならholds(3f)。BMC深さ2、有限語 h=3 の a 8語、全2値入力、top/bottom/4状態・x/zなし。無限の`$`は有限語上では弱untilのholdとして打ち切る。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.8-EXTRACT-EVENTUALLY
 
-F.3.4.3.8 / normal / テスト未対応
+F.3.4.3.8 / normal / 実行確認あり
 
 s_eventually p is not always(not p).
 
@@ -128593,6 +128603,7 @@ s_eventually p is not always(not p).
 
 規定の性質: `definition`。
 
+- [test_formal_f343_eventually_not_always.sv](../tests/ch16/test_formal_f343_eventually_not_always.sv): SymbiYosysでF.3.4.3のformalケースf343_eventually_not_alwaysを実行し、書換前後の意味論が全入力語で一致することを確認する。`s_eventually a` を `not always(not p)` の参照で独立実装。最初のwitness tickで成功、witness無しはpending(4f)。BMC深さ2、有限語 h=3 の a 8語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.8-EXTRACT-STRONG-UNTIL
 
@@ -128632,7 +128643,7 @@ p until_with q is p until (p and q).
 
 ### SV2023-F.3.4.3.9-EXTRACT-ALWAYS-INFINITE
 
-F.3.4.3.9 / normal / テスト未対応
+F.3.4.3.9 / normal / 実行確認あり
 
 For m>=0, always\[m:$\] p is nexttime\[m\] always p.
 
@@ -128640,10 +128651,11 @@ For m>=0, always\[m:$\] p is nexttime\[m\] always p.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_always_infinite.sv](../tests/ch16/test_formal_f343_always_infinite.sv): SymbiYosysでF.3.4.3のformalケースf343_always_infiniteを実行し、書換前後の意味論が全入力語で一致することを確認する。`always[1:$] a` を `nexttime[1] always a` の参照で独立実装。tick1以降の最初のa=0でfailure、無ければholds(3f)、a\[0\]は無関係。BMC深さ2、有限語 h=3 の a 8語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.9-EXTRACT-ALWAYS-POINT
 
-F.3.4.3.9 / normal / テスト未対応
+F.3.4.3.9 / normal / 実行確認あり
 
 For m>=0, always\[m:m\] p is nexttime\[m\] p.
 
@@ -128651,6 +128663,7 @@ For m>=0, always\[m:m\] p is nexttime\[m\] p.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_always_point.sv](../tests/ch16/test_formal_f343_always_point.sv): SymbiYosysでF.3.4.3のformalケースf343_always_pointを実行し、書換前後の意味論が全入力語で一致することを確認する。`always[1:1] a` を `nexttime[1] a` の参照で独立実装。tick1のaが真なら成功1、偽ならfailure 17。BMC深さ2、有限語 h=3 の a 8語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.9-EXTRACT-ALWAYS-RANGE
 
@@ -128666,7 +128679,7 @@ For m<n, always\[m:n\] p is always\[m:n-1\] p and nexttime\[n\] p.
 
 ### SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-POINT
 
-F.3.4.3.9 / normal / テスト未対応
+F.3.4.3.9 / normal / 実行確認あり
 
 For m>=0, eventually\[m:m\] p is nexttime\[m\] p.
 
@@ -128674,6 +128687,7 @@ For m>=0, eventually\[m:m\] p is nexttime\[m\] p.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_eventually_point.sv](../tests/ch16/test_formal_f343_eventually_point.sv): SymbiYosysでF.3.4.3のformalケースf343_eventually_pointを実行し、書換前後の意味論が全入力語で一致することを確認する。`eventually[1:1] a` を `nexttime[1] a` の参照で独立実装。tick1のaが真なら成功1、偽ならfailure 17（点区間ではeventuallyとnexttimeが一致）。BMC深さ2、有限語 h=3 の a 8語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-RANGE
 
@@ -128689,7 +128703,7 @@ For m<n, eventually\[m:n\] p is eventually\[m:n-1\] p or nexttime\[n\] p.
 
 ### SV2023-F.3.4.3.9-EXTRACT-NEXT-POSITIVE
 
-F.3.4.3.9 / normal / テスト未対応
+F.3.4.3.9 / normal / 実行確認あり
 
 For m>0, nexttime\[m\] p nests nexttime with nexttime\[m-1\] p.
 
@@ -128697,10 +128711,11 @@ For m>0, nexttime\[m\] p nests nexttime with nexttime\[m-1\] p.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_next_positive.sv](../tests/ch16/test_formal_f343_next_positive.sv): SymbiYosysでF.3.4.3のformalケースf343_next_positiveを実行し、書換前後の意味論が全入力語で一致することを確認する。`nexttime[2] a` を `nexttime nexttime[1] a` の参照で独立実装。tick2のaが真なら成功2、偽ならfailure 18。BMC深さ2、有限語 h=3 の a 8語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.9-EXTRACT-NEXT-ZERO
 
-F.3.4.3.9 / normal / テスト未対応
+F.3.4.3.9 / normal / 実行確認あり
 
 nexttime\[0\] p is 1 |-> p.
 
@@ -128708,6 +128723,7 @@ nexttime\[0\] p is 1 |-> p.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_next_zero.sv](../tests/ch16/test_formal_f343_next_zero.sv): SymbiYosysでF.3.4.3のformalケースf343_next_zeroを実行し、書換前後の意味論が全入力語で一致することを確認する。`nexttime[0] a` を `1 |-> a` の参照で独立実装。a\[0\]が真なら成功0、偽ならfailure 16。BMC深さ2、有限語 h=2 の a 4語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.9-EXTRACT-STRONG-ALWAYS-RANGE
 
@@ -128723,7 +128739,7 @@ For m<=n, s_always\[m:n\] p is not eventually\[m:n\] not p.
 
 ### SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-INFINITE
 
-F.3.4.3.9 / normal / テスト未対応
+F.3.4.3.9 / normal / 実行確認あり
 
 For m>=0, s_eventually\[m:$\] p is s_nexttime\[m\] s_eventually p.
 
@@ -128731,6 +128747,7 @@ For m>=0, s_eventually\[m:$\] p is s_nexttime\[m\] s_eventually p.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_strong_eventually_infinite.sv](../tests/ch16/test_formal_f343_strong_eventually_infinite.sv): SymbiYosysでF.3.4.3のformalケースf343_strong_eventually_infiniteを実行し、書換前後の意味論が全入力語で一致することを確認する。`s_eventually[1:$] a` を `s_nexttime[1] s_eventually a` の参照で独立実装。tick1/2の最初のwitnessで成功1/2、witness無しはpending(4f)。BMC深さ2、有限語 h=3 の a 8語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-RANGE
 
@@ -128746,7 +128763,7 @@ For m<=n, s_eventually\[m:n\] p is not always\[m:n\] not p.
 
 ### SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT
 
-F.3.4.3.9 / normal / テスト未対応
+F.3.4.3.9 / normal / 実行確認あり
 
 s_nexttime p is not nexttime not p.
 
@@ -128754,6 +128771,7 @@ s_nexttime p is not nexttime not p.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_strong_next.sv](../tests/ch16/test_formal_f343_strong_next.sv): SymbiYosysでF.3.4.3のformalケースf343_strong_nextを実行し、書換前後の意味論が全入力語で一致することを確認する。`s_nexttime (a ##1 b)` を `not nexttime not (a ##1 b)` の参照で独立実装。a\[1\]=0ならfailure@1(17)、a\[1\]=1ならb\[2\]で成功2/failure 18。BMC深さ2、有限語 h=3 の ab 64語、全2値入力、top/bottom/4状態・x/zなし。target範囲外のstrong pendingは既存s_nexttime_end（.9-STRONG-NEXT-COUNT）が代表。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT-COUNT
 

@@ -43,6 +43,90 @@
    "status": "pass",
    "inputs_sha256": "59a15dac60291ccb2c941767de9156db533b067852dcfae5ba648d216e6bdd0c"
   },
+  "ch16/test_formal_f343_always_infinite": {
+   "status": "pass",
+   "inputs_sha256": "7ace51bd0e98819df751447f9b18be7fd5c29226e82c43cbe7b068cba47488ab"
+  },
+  "ch16/test_formal_f343_always_point": {
+   "status": "pass",
+   "inputs_sha256": "ed632286a2a980ddc534694ef8b38bf938caaa2ee38c011e0b90e7fb5fadec0a"
+  },
+  "ch16/test_formal_f343_always_until": {
+   "status": "pass",
+   "inputs_sha256": "a855be63c6d52017beee02318dbd7289344c0f35c967ea8d1b1003f22568b230"
+  },
+  "ch16/test_formal_f343_case_default": {
+   "status": "pass",
+   "inputs_sha256": "110f7bf38783e676218371a1509299fbf5edbea81e055da600909fcf3a4296ff"
+  },
+  "ch16/test_formal_f343_case_single": {
+   "status": "pass",
+   "inputs_sha256": "75648891f0a8151cc5225d36740ad0ece2deafb6ab8ac960d01cf2f5043c3f01"
+  },
+  "ch16/test_formal_f343_case_specify": {
+   "status": "pass",
+   "inputs_sha256": "7961d73b2528ec81435ff0a940ad2efe8ff3c190c1434a10d53934e099a78966"
+  },
+  "ch16/test_formal_f343_clocked_nonoverlap": {
+   "status": "pass",
+   "inputs_sha256": "150a0502da97a8fc99763ec989b1a2505e7ec391888f9214a12e9cf6de6dcdb7"
+  },
+  "ch16/test_formal_f343_default_strength": {
+   "status": "pass",
+   "inputs_sha256": "fc6fba06d8622c620a53649a37f0d187e30996a04e4ba027e7c8d9cfd6f1df6d"
+  },
+  "ch16/test_formal_f343_eventually_not_always": {
+   "status": "pass",
+   "inputs_sha256": "0cb1ad9d3e9bd1f12456dee2311c1f949257f44e94dc409037d46d252dbcdd91"
+  },
+  "ch16/test_formal_f343_eventually_point": {
+   "status": "pass",
+   "inputs_sha256": "cb087cf7d6046a6b21df19ba9035c12c9fd5e72d0b5132fc4031aa5f67cc63d9"
+  },
+  "ch16/test_formal_f343_if": {
+   "status": "pass",
+   "inputs_sha256": "cc198f4fb5826825c293407fa27995a4cd934b5d3f99b07a1c56228644409f78"
+  },
+  "ch16/test_formal_f343_if_else": {
+   "status": "pass",
+   "inputs_sha256": "628f69f04c21040457b0447d6716027c0d008a39c1a6cacf67be414854ad3d21"
+  },
+  "ch16/test_formal_f343_iff": {
+   "status": "pass",
+   "inputs_sha256": "c37df226b28ab8a90627c95151c42d06dd6f767a38983ccc83fdfea94e7ec7c3"
+  },
+  "ch16/test_formal_f343_implies": {
+   "status": "pass",
+   "inputs_sha256": "2feb86110dea986031d358b9a0f9be56f35787f91cecef17ca45f04b34e7cc51"
+  },
+  "ch16/test_formal_f343_next_positive": {
+   "status": "pass",
+   "inputs_sha256": "828ed1e2a2c56a6f67fcb09cf8f75918355959d53bc5256dfd55880be4aeef0a"
+  },
+  "ch16/test_formal_f343_next_zero": {
+   "status": "pass",
+   "inputs_sha256": "83deb7076bb601fa1ac2f9e852d2980fbfdf58a06cb6785ca354f9fe88428528"
+  },
+  "ch16/test_formal_f343_strong_eventually_infinite": {
+   "status": "pass",
+   "inputs_sha256": "40eada9ea3020aedb08b94994e0276046fce1b0ead9312cf3692770f561f3126"
+  },
+  "ch16/test_formal_f343_strong_next": {
+   "status": "pass",
+   "inputs_sha256": "83f5e21cdb029a9c7cb16a6f80bd9f896d7f2aa9a5edefa014b9bce28c7af4d2"
+  },
+  "ch16/test_formal_f343_strong_until": {
+   "status": "pass",
+   "inputs_sha256": "3d2a6049c231bf15db04a4a131fa2078dc0da4f3ccfa6eb2b53cb160be65771b"
+  },
+  "ch16/test_formal_f343_strong_until_with": {
+   "status": "pass",
+   "inputs_sha256": "1c446762512a00d83ab69a25709346a4d781d131b5003afcb013d935a4851b4d"
+  },
+  "ch16/test_formal_f343_until_with": {
+   "status": "pass",
+   "inputs_sha256": "8c982e5236ffc99a1e67bea05f8476f7dbac6040a9cf820fc10e8ed93d7da726"
+  },
   "ch16/test_formal_f5_fusion": {
    "status": "pass",
    "inputs_sha256": "d0bf9d056e2fbc8e4c0daa8ade9d8fe0389ba928adc88983287ace789e9434be"
@@ -168,7 +252,7 @@
    "inputs_sha256": "74d445167ae87d08ac5095edeebd9feded27ad081dffb5bbdc0948c51801b4fa"
   }
  },
- "generated_at": "2026-10-27T00:55:02.014787+00:00",
+ "generated_at": "2026-10-27T02:00:23.658218+00:00",
  "runner_sha256": "098266f83e119e304a0e1a8f7cc1c6da8146fb72e6a9aa19a104e1a2d3823fa2",
  "runner_changed": false,
  "configuration": {

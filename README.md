@@ -45,13 +45,13 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **7386 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **7407 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4169 |
 | Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1453 |
-| The standard only, with no fixed-release simulator oracle recorded | 1764 |
+| The standard only, with no fixed-release simulator oracle recorded | 1785 |
 
 893 tests depend on x or z values (`:fourstate: yes`). 603 tests come with C code: 118 DPI tests (`:dpi_c:`) and 485 VPI tests (`:vpi_c:`). 1893 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 21 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 5 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -70,7 +70,7 @@ The suite has **7386 tests** in 37 chapters. 1308 of them are generated (`tests/
 | 13 | Tasks and functions (subroutines) | 197 | 106 | 78 | 13 |
 | 14 | Clocking blocks | 78 | 4 | 61 | 13 |
 | 15 | Interprocess synchronization and communication | 56 | 2 | 36 | 18 |
-| 16 | Assertions | 415 | 104 | 62 | 249 |
+| 16 | Assertions | 436 | 104 | 62 | 270 |
 | 17 | Checkers | 81 |  | 22 | 59 |
 | 18 | Constrained random value generation | 200 | 26 | 95 | 79 |
 | 19 | Functional coverage | 145 | 2 | 17 | 126 |
