@@ -143131,7 +143131,25 @@
       "acceptance": "Tools collect and report immediate cover evaluations and successes at simulation end or on demand through the assertion API.",
       "source_note": "IEEE 1800-2023 16.3; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_cover_counters.sv",
+          "observation": "シミュレーションで16.3-EXTRACT-COVER-COUNTERSを観測する。One immediate cover statement is reached three times; cond() counts the evaluations and the pass statement counts the successes, giving 3 and 2 as 16.3 requires the results to contain. The numbers are printed at the end of the run. 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "76cc33340a393bedee097173028d32383ac3d0f3db0f015f01ed33040012f708",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_cover_counters.sv",
+              "contains": ":name: test_ch16_sim_cover_counters"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_cover_counters.expected",
+              "contains": "evaluations=3 successes=2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.3",
@@ -144802,7 +144820,25 @@
       "acceptance": "A concurrent assertion clocking event should be glitch-free and transition only once in a time step.",
       "source_note": "IEEE 1800-2023 16.5; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "recommendation",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_glitch_free.sv",
+          "observation": "シミュレーションで16.5-EXTRACT-GLITCH-FREEを観測する。A clean divide-by-two clock rises once in each time step at 5, 15, 25 and 35, and the assertion is evaluated exactly once at each rise, so the pass action counts 4 evaluations. 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c4e0ddfb6f56dbb2b25584e2a80a655baeec36134e9f20de540c8b298238c557",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_glitch_free.sv",
+              "contains": ":name: test_ch16_sim_glitch_free"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_glitch_free.expected",
+              "contains": "clean clock evaluations=4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.5",
@@ -144930,7 +144966,25 @@
       "acceptance": "Past/future sampled-value references to active free checker variables use their values in Postponed of the corresponding past/future clock tick.",
       "source_note": "IEEE 1800-2023 16.5.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_checker_history.sv",
+          "observation": "シミュレーションで16.5.1-EXTRACT-CHECKER-HISTORYを観測する。A checker free variable v (rand, kept active by an assume statement that references it) is observed at every tick. The checker records the current value of v at each tick and checks at the next tick that $past(v) equals the recorded value, and records $future_ 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "240c316cb6636bbc51af40f0bfc97748a4b026acad16ab6fc2cb12b1a4b36844",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_checker_history.sv",
+              "contains": ":name: test_ch16_sim_checker_history"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_checker_history.expected",
+              "contains": "ticks=4 mismatches=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.5.1",
@@ -145793,7 +145847,29 @@
       "acceptance": "Concurrent assertion expressions shall not reference automatic variables except in the procedural concurrent assertion cases permitted by 16.14.6.1.",
       "source_note": "IEEE 1800-2023 16.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_automatic_restriction.sv",
+          "observation": "シミュレーションで16.6-EXTRACT-AUTOMATIC-RESTRICTIONを観測する。a_ok is a static concurrent assertion over a static variable and is legal; a_bad is a static concurrent assertion that references blk.av, a variable declared automatic in a named block, which 16.6 forbids outside the procedural cases of 16.14.6.1. The negative 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d59a194ae38eb52647579d753785e42c5ecb63c05b4eb168821bd67d3ab5e830",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_automatic_restriction.sv",
+              "contains": ":name: test_ch16_sim_automatic_restriction"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_automatic_restriction.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_automatic_restriction.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.6",
@@ -152772,7 +152848,25 @@
       "acceptance": "Tool messages reporting an attempt start/end shall use its defined interval, although they may additionally report the later message-execution time.",
       "source_note": "IEEE 1800-2023 16.9.4; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_reported_interval.sv",
+          "observation": "シミュレーションで16.9.4-EXTRACT-REPORTED-INTERVALを観測する。a is sampled true at the tick at 5 and b is sampled false two ticks later, so the failing attempt of a ##2 b covers 5 to 25. A cover statement records the start tick and the fail action prints the start and end with %t, so the test observes the defined interva 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2d9165e119632f5498ec3a3a8e9dca3f083f3022b837fbb4d8f0510629bc1eff",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_reported_interval.sv",
+              "contains": ":name: test_ch16_sim_reported_interval"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_reported_interval.expected",
+              "contains": "attempt 5 to 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.9.4",
@@ -155364,7 +155458,25 @@
       "acceptance": "A property declaration defines behavior but produces no verification result by itself; an assert/assume/cover statement uses it for checking or coverage.",
       "source_note": "IEEE 1800-2023 16.12; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_declaration_inert.sv",
+          "observation": "シミュレーションで16.12-EXTRACT-DECLARATION-INERTを観測する。p_decl and p_used have the same always-false body. p_decl is only declared and contributes no result; p_used is asserted and fails once per tick, so the four ticks give exactly four failures and not eight. 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b6084fdc7c81c40a49721dfdf00661c46b0923051d8b83724936a14ac2b9c463",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_declaration_inert.sv",
+              "contains": ":name: test_ch16_sim_declaration_inert"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_declaration_inert.expected",
+              "contains": "declared-only failures=0, asserted failures=4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12",
@@ -161137,7 +161249,25 @@
       "acceptance": "Clock scope flows into and across named sequence/property instances, including triggered/matched operands; clocks declared inside an instance do not flow out.",
       "source_note": "IEEE 1800-2023 16.13.3; complete own-body source review, blocks B025. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_edge_instance_flow.sv",
+          "observation": "シミュレーションで16.13.3-EXTRACT-INSTANCE-FLOWを観測する。クロックを持たない名前付き sequence `middle = b ##1 c` を `start ##1 around`（around = middle ##1 d）の途中に置き、同じ3信号を b,d,c の順にした対照と並べる。5 tick のトレースで、5 tick すべてが各アサーションの試行を開始する。T=0 の試行だけが start を持つので、正しい順序では b@T+1, c@T+2, d@T+3 が揃って 35 でマッチし、対照は一度もマッチしない。instance の後ろの ##1 が外側クロッ 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'verilator': 'pass', 'verilator_detail': '1/1 tests match (seed 1, Verilator 5.052)', 'icarus': 'known', 'icarus_detail': \"compile failed: test_ch16_edge_instance_flow.sv:65: syntax error (line 65 is 'sequence middle;'); Icarus 13.0 has no named sequence declarations and no concurrent assertion code generation\", 'lint': 'ok'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "964af7be5eeefd6542972eae7a07135aba2f84c8a5e457f862b6f13cf8c521a4",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_edge_instance_flow.sv",
+              "contains": ":name: test_ch16_edge_instance_flow"
+            },
+            {
+              "file": "tests/ch16/test_ch16_edge_instance_flow.expected",
+              "contains": "sequence instance: 1 pass, 4 fail, first at 35"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.3",
@@ -161515,7 +161645,25 @@
       "acceptance": "A method-bearing sequence actual passed to a checker is substituted for its formal and clocked as though instantiated inside the checker.",
       "source_note": "IEEE 1800-2023 16.13.6; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_checker_inference.sv",
+          "observation": "シミュレーションで16.13.6-EXTRACT-CHECKER-INFERENCEを観測する。The clock-free sequence e4 is passed only as e4.triggered to a checker whose default clocking is its formal c. e4.triggered is true at the c ticks at 10 and 50 where b samples as 1, so the checker clock, not any outer clock, clocks the method-bearing actual. 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e1adff08d31f32399fadc1f96e508f14ce3e855ffba3c9bca1a417c03cb8a522",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_checker_inference.sv",
+              "contains": ":name: test_ch16_sim_checker_inference"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_checker_inference.expected",
+              "contains": "triggered at 10"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.6",
@@ -161990,7 +162138,25 @@
       "acceptance": "For an instance with one semantic leading clock, local initialization occurs at the earliest tick of that clock at or after attempt start.",
       "source_note": "IEEE 1800-2023 16.13.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_multiclock_init.sv",
+          "observation": "シミュレーションで16.13.7-EXTRACT-MULTICLOCK-INITを観測する。The attempt of p starts at the sclk tick at 30, which is not a c1 tick; p has the single semantic leading clock c1, so v = e is evaluated at the c1 tick at 75, where e is 1, and the attempt passes there. A tool that initialized v at the attempt start would tak 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a3d06884387170d905797cac0ce36edfa5e4b1557f34e476af93a29160015ca5",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_multiclock_init.sv",
+              "contains": ":name: test_ch16_sim_multiclock_init"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_multiclock_init.expected",
+              "contains": "pass at 75"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.7",
@@ -162656,7 +162822,25 @@
       "acceptance": "Assumed properties shall hold with or without biasing; random-simulation weights only select free-variable values when a choice exists.",
       "source_note": "IEEE 1800-2023 16.14.2; complete own-body source review, blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_bias_no_relaxation.sv",
+          "observation": "シミュレーションで16.14.2-EXTRACT-BIAS-NO-RELAXATIONを観測する。Two assumed properties constrain the same set {0, 1}, one with dist and weights and one with inside. v is 0, 1, 2 and 3 at the ticks at 5, 15, 25 and 35, so both fail at 25 and 35 and at no other tick; equal failure queues show that the weights neither widen t 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c58d0175ad526217eaf76d7ce799976148a13e85f6c2a04a0722d60168fa8b11",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_bias_no_relaxation.sv",
+              "contains": ":name: test_ch16_sim_bias_no_relaxation"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_bias_no_relaxation.expected",
+              "contains": "dist fails at: 25 35"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.14.2",
@@ -166360,7 +166544,29 @@
       "acceptance": "Multiclocked sequences/properties are prohibited inside clocking blocks.",
       "source_note": "IEEE 1800-2023 16.16; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_clocking_single.sv",
+          "observation": "シミュレーションで16.16-EXTRACT-CLOCKING-SINGLEを観測する。A property declared in clocking block cb with two clocking events of its own is multiclocked and is illegal under 16.16 rule b; p_ok, which has no clock of its own, is the legal single-clock form treated as though the clocking block's event were its leading cl 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c210d7db449ce758e5e02b9622993708c9c4ac0b72a4dc2580956f3e2c14db17",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_clocking_single.sv",
+              "contains": ":name: test_ch16_sim_clocking_single"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_clocking_single.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_clocking_single.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16",
@@ -166829,7 +167035,25 @@
       "acceptance": "accept_on/reject_on preserve the operand property semantic-leading-clock set.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_prop_async_abort.sv",
+          "observation": "シミュレーションで16.16.1-EXTRACT-PROP-ASYNC-ABORTを観測する。accept_on around the clock-free operand a ##1 b preserves the operand's {inherited} leading clock, so the attempt that starts at the tick at 5 is still evaluated on the outer clock and is accepted at the tick at 15 where the abort condition is sampled true, be 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "51a1d81222e22678f6d68c3510d62600fd8b6a138745e33cf39a945178ad3e2d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_prop_async_abort.sv",
+              "contains": ":name: test_ch16_sim_prop_async_abort"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_prop_async_abort.expected",
+              "contains": "accepted at 15"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166901,7 +167125,25 @@
       "acceptance": "The always forms listed in 16.16.1 have semantic-leading-clock set {inherited}.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_prop_inherited_always.sv",
+          "observation": "シミュレーションで16.16.1-EXTRACT-PROP-INHERITED-ALWAYSを観測する。always a under the explicit clock c has the leading clock set {inherited}, so it is evaluated at the c ticks only. a drops to 0 between ticks at 7 and is restored before the tick at 15, which is not seen; the drop that is still 0 at the tick at 25 fails the at 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "348b5ac6bdcc23700d2c0f0284d3e3b72e2b13d8f4d1b6991b995eff3b5c9576",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_prop_inherited_always.sv",
+              "contains": ":name: test_ch16_sim_prop_inherited_always"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_prop_inherited_always.expected",
+              "contains": "always a fails at: 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166919,7 +167161,25 @@
       "acceptance": "The case forms listed in 16.16.1 have semantic-leading-clock set {inherited}.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_prop_inherited_case.sv",
+          "observation": "シミュレーションで16.16.1-EXTRACT-PROP-INHERITED-CASEを観測する。case (s) under the explicit clock c has the leading clock set {inherited}, so the branch is chosen from the value of s at the c ticks. s is 1 only between ticks at 7, where the branch would fail, and is 2 at the tick at 15 where b is 0, so the failure queue ho 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c3833b1db99e4ce1f6effaa2c1df1d9acef2b18189940aec74913eb28a6b3955",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_prop_inherited_case.sv",
+              "contains": ":name: test_ch16_sim_prop_inherited_case"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_prop_inherited_case.expected",
+              "contains": "case fails at: 15"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166937,7 +167197,25 @@
       "acceptance": "The if/if-else forms listed in 16.16.1 have semantic-leading-clock set {inherited}.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_prop_inherited_conditional.sv",
+          "observation": "シミュレーションで16.16.1-EXTRACT-PROP-INHERITED-CONDITIONALを観測する。if (g) a else b under the explicit clock c has the leading clock set {inherited}, so g and the operands are sampled at the c ticks. The g and a values that exist only between ticks at 7 and 27 are not used; the tick at 15 fails on the else branch with b = 0 an 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "81e715bc35bedd304351280f15ebd0521ebf96acd4523fdeff7eda199eedd8ef",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_prop_inherited_conditional.sv",
+              "contains": ":name: test_ch16_sim_prop_inherited_conditional"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_prop_inherited_conditional.expected",
+              "contains": "if fails at: 15 35"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166955,7 +167233,25 @@
       "acceptance": "The s_eventually forms listed in 16.16.1 have semantic-leading-clock set {inherited}.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_ch16_sim_prop_inherited_eventually.sv",
+          "observation": "シミュレーションで16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLYを観測する。s_eventually[0:2] a under the explicit clock c has the leading clock set {inherited}, so its range is counted in c ticks. The first attempt covers 10, 30 and 50; a is true only at 50, so it passes at 50, which counting two time units could not do. The second a 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c58f2887c66a59ea750da7036feacf70d805675ef5e194c510fd7af15cfbea4e",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_ch16_sim_prop_inherited_eventually.sv",
+              "contains": ":name: test_ch16_sim_prop_inherited_eventually"
+            },
+            {
+              "file": "tests/ch16/test_ch16_sim_prop_inherited_eventually.expected",
+              "contains": "pass at 50"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",

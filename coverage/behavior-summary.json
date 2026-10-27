@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "48604e927356d44d95ff05b4b8a5b08aebd8a0afcd4f3e70f6937fce9222b2f7",
+  "registry_sha256": "15a61e601de1ce98b380ae0e13146213a7716b84c3726446212e4ae4047dfbdf",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -42,18 +42,18 @@
   "normative_sections": 1703,
   "audited_sections": 1683,
   "registered": 12319,
-  "mapped": 10793,
+  "mapped": 10809,
   "denominator_reviewed": false,
   "extraction_progress_percent": 98.825601879037,
-  "unmapped": 1526,
-  "executed": 6117,
+  "unmapped": 1510,
+  "executed": 6127,
   "whole_standard_percent": null,
   "whole_standard_executed_percent": null,
-  "registered_percent": 87.61263089536489,
+  "registered_percent": 87.74251156749736,
   "metric_policy_version": 3,
   "whole_standard_status": "provisional",
-  "provisional_design_percent": 87.61263089536489,
-  "provisional_execution_percent": 49.6550044646481,
+  "provisional_design_percent": 87.74251156749736,
+  "provisional_execution_percent": 49.7361798847309,
   "denominator": {
     "count": 12319,
     "unit": "registered_requirement_condition_or_observation",
@@ -63,15 +63,15 @@
     "interpretation_pending": 21
   },
   "test_mapping": {
-    "suite_test_files": 7613,
-    "linked_test_files": 5199,
+    "suite_test_files": 7629,
+    "linked_test_files": 5215,
     "unlinked_test_files": 2414
   },
   "collective_requirement_count": 652,
   "requirement_status_counts": {
-    "pass": 6117,
-    "mapped_without_pass": 4676,
-    "unmapped": 1505,
+    "pass": 6127,
+    "mapped_without_pass": 4682,
+    "unmapped": 1489,
     "interpretation_pending": 21
   },
   "chapters": [
@@ -229,10 +229,10 @@
       "clause": "16",
       "title": "Assertions",
       "registered": 555,
-      "mapped": 523,
-      "executed": 143,
-      "design_percent": 94.23423423423424,
-      "execution_percent": 25.765765765765767,
+      "mapped": 539,
+      "executed": 153,
+      "design_percent": 97.11711711711712,
+      "execution_percent": 27.56756756756757,
       "interpretation_pending": 1
     },
     {
@@ -659,6 +659,94 @@
   "execution": {
     "snapshots": [
       {
+        "file": "ch16-edge-20261028-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-10-27T15:43:04.210115+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 1,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10808,
+          "unmapped": 1489,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "ch16-edge-20261028-verilator.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-27T15:43:15.726452+00:00",
+        "executed": [
+          "SV2023-16.13.3-EXTRACT-INSTANCE-FLOW"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10808,
+          "unmapped": 1489,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "ch16-sim-20261028-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-10-27T15:42:14.965527+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 15,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10794,
+          "unmapped": 1489,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "ch16-sim-20261028-verilator.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-27T15:43:04.031900+00:00",
+        "executed": [
+          "SV2023-16.12-EXTRACT-DECLARATION-INERT",
+          "SV2023-16.14.2-EXTRACT-BIAS-NO-RELAXATION",
+          "SV2023-16.16.1-EXTRACT-PROP-ASYNC-ABORT",
+          "SV2023-16.16.1-EXTRACT-PROP-INHERITED-ALWAYS",
+          "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CASE",
+          "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CONDITIONAL",
+          "SV2023-16.3-EXTRACT-COVER-COUNTERS",
+          "SV2023-16.5-EXTRACT-GLITCH-FREE",
+          "SV2023-16.9.4-EXTRACT-REPORTED-INTERVAL"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 9,
+          "fail": 0,
+          "known": 6,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10794,
+          "unmapped": 1489,
+          "interpretation_pending": 21
+        }
+      },
+      {
         "file": "formal-20261027-sby.json",
         "simulator": "sby",
         "version": "unknown SBY version",
@@ -963,8 +1051,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10503,
-          "unmapped": 1505,
+          "not_run": 10519,
+          "unmapped": 1489,
           "interpretation_pending": 21
         }
       },
@@ -1004,8 +1092,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10737,
-          "unmapped": 1505,
+          "not_run": 10753,
+          "unmapped": 1489,
           "interpretation_pending": 21
         }
       },
@@ -1043,8 +1131,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10741,
-          "unmapped": 1505,
+          "not_run": 10757,
+          "unmapped": 1489,
           "interpretation_pending": 21
         }
       },
@@ -1082,8 +1170,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10741,
-          "unmapped": 1505,
+          "not_run": 10757,
+          "unmapped": 1489,
           "interpretation_pending": 21
         }
       },
@@ -4235,8 +4323,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 158,
           "stale": 0,
-          "not_run": 0,
-          "unmapped": 1505,
+          "not_run": 16,
+          "unmapped": 1489,
           "interpretation_pending": 21
         }
       },
@@ -7054,8 +7142,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 85,
           "stale": 0,
-          "not_run": 2983,
-          "unmapped": 1505,
+          "not_run": 2999,
+          "unmapped": 1489,
           "interpretation_pending": 21
         }
       }

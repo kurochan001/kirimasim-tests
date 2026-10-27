@@ -46,16 +46,21 @@ SIMULATORS = {
     "verilator": ("#8250df", "#ab7df8"),
     "kirimasim": ("#1a7f37", "#3fb950"),
     "lyra": ("#bf3989", "#db61a2"),
+    "ghost": ("#bc4c00", "#f0883e"),
 }
 OTHER_COLORS = [("#1b7c83", "#39c5cf"), ("#953800", "#db6d28"), ("#6e7781", "#8c959f")]
 # The shape of each simulator's markers in the line charts. They are drawn as
 # outlines, so that markers of equal or close values stay visible together.
 MARKERS = {"icarus": "circle", "verilator": "square", "kirimasim": "diamond",
-           "lyra": "triangle-down"}
+           "lyra": "triangle-down", "ghost": "triangle"}
 OTHER_MARKERS = ["triangle", "circle", "square", "diamond"]
 # Shown in the report under the table of the latest run, for the simulators in
 # that run.
-NOTES: dict[str, str] = {}
+NOTES = {
+    "ghost": "Ghost is an unidentified simulator taking part before its "
+             "public debut. For now, only its test results step out from behind the curtain. "
+             "Its name, source and build logs remain private; build IDs are executable hashes.",
+}
 STATUS_COLORS = {
     "pass": ("#1a7f37", "#3fb950"),
     "fail": ("#cf222e", "#f85149"),

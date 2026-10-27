@@ -1,0 +1,3 @@
+sequence instance: 1 pass, 4 fail, first at 35
+wrong order: 0 pass, 5 fail
+property instance: 1 pass, 4 fail, first at 25

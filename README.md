@@ -20,7 +20,8 @@ rejected with the required diagnostic (see [how a test is judged](#how-a-test-is
 The tests are written for the
 [kirimasim](https://github.com/kurochan001/kirimasim) simulator, but nothing in
 them is specific to it: runners for Icarus Verilog, Verilator, kirimasim and
-[Lyra](https://github.com/hankhsu1996/lyra) are included, and the metadata
+[Lyra](https://github.com/hankhsu1996/lyra) are included. An unreleased guest,
+**Ghost**, is also taking part under an alias for now. The metadata
 format is that of
 [sv-tests](https://github.com/chipsalliance/sv-tests).
 
@@ -46,15 +47,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **7613 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **7629 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4169 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1453 |
-| The standard only, with no fixed-release simulator oracle recorded | 1991 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1463 |
+| The standard only, with no fixed-release simulator oracle recorded | 1997 |
 
-893 tests depend on x or z values (`:fourstate: yes`). 603 tests come with C code: 118 DPI tests (`:dpi_c:`) and 485 VPI tests (`:vpi_c:`). 1893 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 21 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 5 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+893 tests depend on x or z values (`:fourstate: yes`). 603 tests come with C code: 118 DPI tests (`:dpi_c:`) and 485 VPI tests (`:vpi_c:`). 1895 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 21 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 5 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -71,7 +72,7 @@ The suite has **7613 tests** in 37 chapters. 1308 of them are generated (`tests/
 | 13 | Tasks and functions (subroutines) | 197 | 106 | 78 | 13 |
 | 14 | Clocking blocks | 78 | 4 | 61 | 13 |
 | 15 | Interprocess synchronization and communication | 56 | 2 | 36 | 18 |
-| 16 | Assertions | 642 | 104 | 62 | 476 |
+| 16 | Assertions | 658 | 104 | 72 | 482 |
 | 17 | Checkers | 81 |  | 22 | 59 |
 | 18 | Constrained random value generation | 200 | 26 | 95 | 79 |
 | 19 | Functional coverage | 145 | 2 | 17 | 126 |
@@ -215,7 +216,7 @@ Every night, a [GitHub Actions workflow](.github/workflows/nightly.yml) runs
 every test of `main` with the latest development version of each simulator:
 the `master` branches of Icarus Verilog and Verilator and the `main` branch
 of kirimasim, built that night, and Lyra, which has no releases, at the
-commit that the workflow pins. It adds the results to the
+commit that the workflow pins. Ghost joins from a private build. It adds the results to the
 history on the
 [`results`](https://github.com/kurochan001/kirimasim-tests/tree/results)
 branch. The chart below is redrawn after each run; the
@@ -223,6 +224,11 @@ branch. The chart below is redrawn after each run; the
 also shows the share of tests that match, the results by chapter, each
 simulator's results over time, and the tests whose result changed since the
 previous night.
+
+**Ghost** is an unidentified simulator appearing in the nightly tests before
+its public debut. For now, only its results step out from behind the curtain:
+its real name, source and build logs remain private. It runs the same tests
+against the same standard-derived expectations as the other participants.
 
 The scheduled start is **04:23 Japan Standard Time (JST, UTC+09:00)** every
 day, or 19:23 UTC on the preceding date. Results are published after the
@@ -243,7 +249,8 @@ with the current suite.
 ![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
 
 Each simulator has its own marker: a circle for Icarus Verilog, a square for
-Verilator, a diamond for kirimasim and a downward triangle for Lyra. The
+Verilator, a diamond for kirimasim, a downward triangle for Lyra and an orange
+upward triangle for Ghost. The
 markers
 are drawn as outlines that fit inside each other, so simulators with the same
 or close counts stay visible together, and the legend gives each one's count
@@ -368,6 +375,7 @@ tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the suite with Verilator
 tools/run_kirimasim.py          runs the suite with kirimasim
 tools/run_lyra.py               runs the suite with Lyra
+tools/run_ghost.py              runs the unreleased guest under its public alias
 tools/normalize_output.py       normalizes a simulator's output before it is compared
 tools/suite_results.py          the JSON form of a runner's results (--json)
 tools/results_history.py        keeps the nightly history and draws its charts
@@ -743,6 +751,33 @@ is checked with `lyra check`. Lyra has no VPI, so the tests with `:vpi_c:`
 are unsupported. No expected output was recorded with Lyra, so every test
 counts.
 
+### Ghost
+
+```sh
+python3 tools/run_ghost.py --simulator /path/to/private/simulator \
+  --profile /path/to/private-profile.json --include /path/to/include -j 8 \
+  --json out/ghost.json
+```
+
+Ghost is a temporary alias for an unreleased simulator. The private runtime
+profile supplies `arguments`, `environment`, `include_subdirs`, `trailer`,
+`banner_pattern` and `severity_pattern`; it stays outside this repository.
+The runner uses the common `:expected_stdout:`, checks exit codes and required
+diagnostics, and compiles DPI/VPI C sources into shared libraries. Every test
+counts; there are no known-difference exclusions. Tool banners and severity
+messages are removed as the profile specifies, while test output is kept.
+Only generic failure reasons and a hash identifying the executable enter
+public results. The executable's version and private diagnostics stay private.
+If the executable or profile changes during a run, its results are discarded.
+
+The nightly job reads `GHOST_REPOSITORY`, `GHOST_DEPLOY_KEY`,
+`GHOST_PARSER_REPOSITORY`, `GHOST_PARSER_REF`, `GHOST_PARSER_PATH`,
+`GHOST_BUILD_TARGET`, `GHOST_EXECUTABLE` (relative to the private checkout)
+and `GHOST_PROFILE` from repository secrets. It runs only in this repository;
+forks can still run the public simulators. To end the guest appearance, remove
+the job and its entry in `publish.needs`, and remove the runner. Its history
+will remain saved, following the same rules as other retired participants.
+
 ### Other simulators
 
 A runner for another simulator needs to do four things for each test: run it
@@ -806,7 +841,7 @@ suite has a problem:
 started by hand as well; GitHub can start a scheduled run hours late when it
 is busy. Runs do not overlap: one that starts while another is running waits
 for it, and a newer one replaces a run that is still waiting. Its results are
-only reported, except for the ratchet of the kirimasim job. It has five jobs:
+only reported, except for the ratchet of the kirimasim job. It has six jobs:
 
 - **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
   by its commit) and runs every test.
@@ -831,12 +866,16 @@ only reported, except for the ratchet of the kirimasim job. It has five jobs:
   the cache by that commit and only a change of the pin builds it again. It
   runs every test, which took 35 to 70 minutes and makes it the longest job
   of the night, and records the commit in the results.
+- **ghost** privately builds the unreleased guest and runs every test. Its
+  checkout locations and runtime profile come from secrets. Only the public
+  alias, build hash and test verdicts are uploaded; source and build output
+  stay on the runner.
 - **publish** collects the `--json` results of the jobs that finished, adds
   them to the history on the `results` branch with
   `tools/results_history.py update`, measures behavioral coverage using only
   that run's result files, and pushes the branch. The summary of the run
   lists each simulator's counts, tests whose result changed and behavioral
-  coverage. Publishing waits for all four simulator jobs to finish, including
+  coverage. Publishing waits for all five simulator jobs to finish, including
   failed jobs; a successful publish is what updates the chart and report.
   Only a run of `main` publishes: a run started by hand on another branch
   runs the simulators and uploads their results without publishing them.

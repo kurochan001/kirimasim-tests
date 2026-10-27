@@ -54,6 +54,14 @@ class BehaviorCoverageTests(unittest.TestCase):
             path.write_text(json.dumps(result))
             return coverage.execution(rows or self.validated()[1], [path])
 
+    def test_ghost_results_with_fresh_provenance_count(self):
+        result = self.result(simulator="ghost")
+        result["name"] = "Ghost"
+        result["version"] = "private build 123456789abc"
+        execution, ignored = self.execute(result)
+        self.assertEqual(ignored, [])
+        self.assertIn(self.reg["requirements"][0]["id"], execution["executed"])
+
     def test_no_requirement_inferred_from_thousands_of_citations(self):
         self.reg["requirements"] = []
         sections, rows = self.validated()

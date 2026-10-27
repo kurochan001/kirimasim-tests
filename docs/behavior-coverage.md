@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 87.61%、実行 49.66%。**
+**全規格の要求台帳ベース（暫定）: 設計 87.74%、実行 49.74%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10793/12319 (87.61%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 6117/12319 (49.66%)。
-- 登録済みだがテスト未対応: 1526 動作。
+- 登録済み動作に対するテスト設計網羅率: 10809/12319 (87.74%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 6127/12319 (49.74%)。
+- 登録済みだがテスト未対応: 1510 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -36,6 +36,10 @@
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で
 グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
+- `ch16-edge-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T15:43:04.210115+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `ch16-edge-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:15.726452+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
+- `ch16-sim-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T15:42:14.965527+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `ch16-sim-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:04.031900+00:00 / 9/12319 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
@@ -198,7 +202,7 @@
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 94。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 59。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 68。
-- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 523。
+- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 539。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 59。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 300。
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 215。
@@ -36838,7 +36842,7 @@ The optional pass statement of a simple immediate cover executes immediately aft
 
 ### SV2023-16.3-EXTRACT-COVER-COUNTERS
 
-16.3 / normal / テスト未対応
+16.3 / normal / 実行確認あり
 
 Tools collect and report immediate cover evaluations and successes at simulation end or on demand through the assertion API.
 
@@ -36846,6 +36850,7 @@ Tools collect and report immediate cover evaluations and successes at simulation
 
 規定の性質: `mandatory`。
 
+- [test_ch16_sim_cover_counters.sv](../tests/ch16/test_ch16_sim_cover_counters.sv): シミュレーションで16.3-EXTRACT-COVER-COUNTERSを観測する。One immediate cover statement is reached three times; cond() counts the evaluations and the pass statement counts the successes, giving 3 and 2 as 16.3 requires the results to contain. The numbers are printed at the end of the run. 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}
 
 ### SV2023-16.3-EXTRACT-DEFAULT-ERROR
 
@@ -37286,7 +37291,7 @@ A concurrent assertion evaluates only at a clock tick: a time step in which its 
 
 ### SV2023-16.5-EXTRACT-GLITCH-FREE
 
-16.5 / normal / テスト未対応
+16.5 / normal / 実行確認あり
 
 A concurrent assertion clocking event should be glitch-free and transition only once in a time step.
 
@@ -37294,6 +37299,7 @@ A concurrent assertion clocking event should be glitch-free and transition only 
 
 規定の性質: `recommendation`。
 
+- [test_ch16_sim_glitch_free.sv](../tests/ch16/test_ch16_sim_glitch_free.sv): シミュレーションで16.5-EXTRACT-GLITCH-FREEを観測する。A clean divide-by-two clock rises once in each time step at 5, 15, 25 and 35, and the assertion is evaluated exactly once at each rise, so the pass action counts 4 evaluations. 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}
 
 ### SV2023-16.5-EXTRACT-MULTIPLE-TRANSITIONS
 
@@ -37332,7 +37338,7 @@ Past/future sampled-value references to an automatic variable use its current va
 
 ### SV2023-16.5.1-EXTRACT-CHECKER-HISTORY
 
-16.5.1 / normal / テスト未対応
+16.5.1 / normal / テスト対応あり・実行未確認
 
 Past/future sampled-value references to active free checker variables use their values in Postponed of the corresponding past/future clock tick.
 
@@ -37340,6 +37346,7 @@ Past/future sampled-value references to active free checker variables use their 
 
 規定の性質: `mandatory`。
 
+- [test_ch16_sim_checker_history.sv](../tests/ch16/test_ch16_sim_checker_history.sv): シミュレーションで16.5.1-EXTRACT-CHECKER-HISTORYを観測する。A checker free variable v (rand, kept active by an assume statement that references it) is observed at every tick. The checker records the current value of v at each tick and checks at the next tick that $past(v) equals the recorded value, and records $future_ 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}
 
 ### SV2023-16.5.1-EXTRACT-CLOCKING-INPUT
 
@@ -37583,7 +37590,7 @@ Sampled dynamic-array, queue and associative-array elements shall remain availab
 
 ### SV2023-16.6-EXTRACT-AUTOMATIC-RESTRICTION
 
-16.6 / error / テスト未対応
+16.6 / error / テスト対応あり・実行未確認
 
 Concurrent assertion expressions shall not reference automatic variables except in the procedural concurrent assertion cases permitted by 16.14.6.1.
 
@@ -37591,6 +37598,7 @@ Concurrent assertion expressions shall not reference automatic variables except 
 
 規定の性質: `mandatory`。
 
+- [test_ch16_sim_automatic_restriction.sv](../tests/ch16/test_ch16_sim_automatic_restriction.sv): シミュレーションで16.6-EXTRACT-AUTOMATIC-RESTRICTIONを観測する。a_ok is a static concurrent assertion over a static variable and is legal; a_bad is a static concurrent assertion that references blk.av, a variable declared automatic in a named block, which 16.6 forbids outside the procedural cases of 16.14.6.1. The negative 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}
 
 ### SV2023-16.6-EXTRACT-BOOLEAN-TRUTH
 
@@ -39217,7 +39225,7 @@ Past global-clock functions obey ordinary sampled-value function and argument re
 
 ### SV2023-16.9.4-EXTRACT-REPORTED-INTERVAL
 
-16.9.4 / normal / テスト未対応
+16.9.4 / normal / 実行確認あり
 
 Tool messages reporting an attempt start/end shall use its defined interval, although they may additionally report the later message-execution time.
 
@@ -39225,6 +39233,7 @@ Tool messages reporting an attempt start/end shall use its defined interval, alt
 
 規定の性質: `mandatory`。
 
+- [test_ch16_sim_reported_interval.sv](../tests/ch16/test_ch16_sim_reported_interval.sv): シミュレーションで16.9.4-EXTRACT-REPORTED-INTERVALを観測する。a is sampled true at the tick at 5 and b is sampled false two ticks later, so the failing attempt of a ##2 b covers 5 to 25. A cover statement records the start tick and the fail action prints the start and end with %t, so the test observes the defined interva 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}
 
 ### SV2023-16.9.4-EXTRACT-RISING-GCLK
 
@@ -39942,7 +39951,7 @@ Attached subroutine calls are scheduled in Reactive, like an assertion action bl
 
 ### SV2023-16.12-EXTRACT-DECLARATION-INERT
 
-16.12 / normal / テスト未対応
+16.12 / normal / 実行確認あり
 
 A property declaration defines behavior but produces no verification result by itself; an assert/assume/cover statement uses it for checking or coverage.
 
@@ -39950,6 +39959,7 @@ A property declaration defines behavior but produces no verification result by i
 
 規定の性質: `definition`。
 
+- [test_ch16_sim_declaration_inert.sv](../tests/ch16/test_ch16_sim_declaration_inert.sv): シミュレーションで16.12-EXTRACT-DECLARATION-INERTを観測する。p_decl and p_used have the same always-false body. p_decl is only declared and contributes no result; p_used is asserted and fails once per tick, so the four ticks give exactly four failures and not eight. 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}
 
 ### SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS
 
@@ -41490,7 +41500,7 @@ For clock-free x,y,z: @(c) x ##0 y |=> @(d) z equals @(c) x |-> y |=> @(d) z.
 
 ### SV2023-16.13.3-EXTRACT-INSTANCE-FLOW
 
-16.13.3 / normal / テスト未対応
+16.13.3 / normal / 実行確認あり
 
 Clock scope flows into and across named sequence/property instances, including triggered/matched operands; clocks declared inside an instance do not flow out.
 
@@ -41498,6 +41508,7 @@ Clock scope flows into and across named sequence/property instances, including t
 
 規定の性質: `mandatory`。
 
+- [test_ch16_edge_instance_flow.sv](../tests/ch16/test_ch16_edge_instance_flow.sv): シミュレーションで16.13.3-EXTRACT-INSTANCE-FLOWを観測する。クロックを持たない名前付き sequence `middle = b ##1 c` を `start ##1 around`（around = middle ##1 d）の途中に置き、同じ3信号を b,d,c の順にした対照と並べる。5 tick のトレースで、5 tick すべてが各アサーションの試行を開始する。T=0 の試行だけが start を持つので、正しい順序では b@T+1, c@T+2, d@T+3 が揃って 35 でマッチし、対照は一度もマッチしない。instance の後ろの ##1 が外側クロッ 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'verilator': 'pass', 'verilator_detail': '1/1 tests match (seed 1, Verilator 5.052)', 'icarus': 'known', 'icarus_detail': "compile failed: test_ch16_edge_instance_flow.sv:65: syntax error (line 65 is 'sequence middle;'); Icarus 13.0 has no named sequence declarations and no concurrent assertion code generation", 'lint': 'ok'}
 
 ### SV2023-16.13.3-EXTRACT-JUXTAPOSED-CLOCKS
 
@@ -41598,7 +41609,7 @@ triggered may detect multiclock end points only when the operand ending clock eq
 
 ### SV2023-16.13.6-EXTRACT-CHECKER-INFERENCE
 
-16.13.6 / normal / テスト未対応
+16.13.6 / normal / テスト対応あり・実行未確認
 
 A method-bearing sequence actual passed to a checker is substituted for its formal and clocked as though instantiated inside the checker.
 
@@ -41606,6 +41617,7 @@ A method-bearing sequence actual passed to a checker is substituted for its form
 
 規定の性質: `mandatory`。
 
+- [test_ch16_sim_checker_inference.sv](../tests/ch16/test_ch16_sim_checker_inference.sv): シミュレーションで16.13.6-EXTRACT-CHECKER-INFERENCEを観測する。The clock-free sequence e4 is passed only as e4.triggered to a checker whose default clocking is its formal c. e4.triggered is true at the c ticks at 10 and 50 where b samples as 1, so the checker clock, not any outer clock, clocks the method-bearing actual. 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}
 
 ### SV2023-16.13.6-EXTRACT-EMPTY-NO-METHOD
 
@@ -41763,7 +41775,7 @@ triggered becomes true in Observed at an operand end point and persists for the 
 
 ### SV2023-16.13.7-EXTRACT-MULTICLOCK-INIT
 
-16.13.7 / normal / テスト未対応
+16.13.7 / normal / テスト対応あり・実行未確認
 
 For an instance with one semantic leading clock, local initialization occurs at the earliest tick of that clock at or after attempt start.
 
@@ -41771,6 +41783,7 @@ For an instance with one semantic leading clock, local initialization occurs at 
 
 規定の性質: `mandatory`。
 
+- [test_ch16_sim_multiclock_init.sv](../tests/ch16/test_ch16_sim_multiclock_init.sv): シミュレーションで16.13.7-EXTRACT-MULTICLOCK-INITを観測する。The attempt of p starts at the sclk tick at 30, which is not a c1 tick; p has the single semantic leading clock c1, so v = e is evaluated at the c1 tick at 75, where e is 1, and the attempt passes there. A tool that initialized v at the attempt start would tak 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}
 
 ### SV2023-16.13.7-EXTRACT-MULTIPLE-LEADING-COPIES
 
@@ -41954,7 +41967,7 @@ A disabled assume evaluation executes neither action; action-control tasks may c
 
 ### SV2023-16.14.2-EXTRACT-BIAS-NO-RELAXATION
 
-16.14.2 / normal / テスト未対応
+16.14.2 / normal / 実行確認あり
 
 Assumed properties shall hold with or without biasing; random-simulation weights only select free-variable values when a choice exists.
 
@@ -41962,6 +41975,7 @@ Assumed properties shall hold with or without biasing; random-simulation weights
 
 規定の性質: `mandatory`。
 
+- [test_ch16_sim_bias_no_relaxation.sv](../tests/ch16/test_ch16_sim_bias_no_relaxation.sv): シミュレーションで16.14.2-EXTRACT-BIAS-NO-RELAXATIONを観測する。Two assumed properties constrain the same set {0, 1}, one with dist and weights and one with inside. v is 0, 1, 2 and 3 at the ticks at 5, 15, 25 and 35, so both fail at 25 and 35 and at no other tick; equal failure queues show that the weights neither widen t 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}
 
 ### SV2023-16.14.2-EXTRACT-BIAS-SYNTAX
 
@@ -42992,7 +43006,7 @@ Sequence/property declarations in a clocking block shall have no explicit clock 
 
 ### SV2023-16.16-EXTRACT-CLOCKING-SINGLE
 
-16.16 / error / テスト未対応
+16.16 / error / テスト対応あり・実行未確認
 
 Multiclocked sequences/properties are prohibited inside clocking blocks.
 
@@ -43000,6 +43014,7 @@ Multiclocked sequences/properties are prohibited inside clocking blocks.
 
 規定の性質: `mandatory`。
 
+- [test_ch16_sim_clocking_single.sv](../tests/ch16/test_ch16_sim_clocking_single.sv): シミュレーションで16.16-EXTRACT-CLOCKING-SINGLEを観測する。A property declared in clocking block cb with two clocking events of its own is multiclocked and is illegal under 16.16 rule b; p_ok, which has no clock of its own, is the legal single-clock form treated as though the clocking block's event were its leading cl 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}
 
 ### SV2023-16.16-EXTRACT-CONTEXT-OVERRIDES
 
@@ -43146,7 +43161,7 @@ Property and/or have the union of their operand semantic-leading-clock sets.
 
 ### SV2023-16.16.1-EXTRACT-PROP-ASYNC-ABORT
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 accept_on/reject_on preserve the operand property semantic-leading-clock set.
 
@@ -43154,6 +43169,7 @@ accept_on/reject_on preserve the operand property semantic-leading-clock set.
 
 規定の性質: `definition`。
 
+- [test_ch16_sim_prop_async_abort.sv](../tests/ch16/test_ch16_sim_prop_async_abort.sv): シミュレーションで16.16.1-EXTRACT-PROP-ASYNC-ABORTを観測する。accept_on around the clock-free operand a ##1 b preserves the operand's {inherited} leading clock, so the attempt that starts at the tick at 5 is still evaluated on the outer clock and is accepted at the tick at 15 where the abort condition is sampled true, be 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}
 
 ### SV2023-16.16.1-EXTRACT-PROP-CLOCK-FREE
 
@@ -43180,7 +43196,7 @@ m |-> p and m |=> p inherit their semantic-leading-clock set from m.
 
 ### SV2023-16.16.1-EXTRACT-PROP-INHERITED-ALWAYS
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 The always forms listed in 16.16.1 have semantic-leading-clock set {inherited}.
 
@@ -43188,10 +43204,11 @@ The always forms listed in 16.16.1 have semantic-leading-clock set {inherited}.
 
 規定の性質: `definition`。
 
+- [test_ch16_sim_prop_inherited_always.sv](../tests/ch16/test_ch16_sim_prop_inherited_always.sv): シミュレーションで16.16.1-EXTRACT-PROP-INHERITED-ALWAYSを観測する。always a under the explicit clock c has the leading clock set {inherited}, so it is evaluated at the c ticks only. a drops to 0 between ticks at 7 and is restored before the tick at 15, which is not seen; the drop that is still 0 at the tick at 25 fails the at 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}
 
 ### SV2023-16.16.1-EXTRACT-PROP-INHERITED-CASE
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 The case forms listed in 16.16.1 have semantic-leading-clock set {inherited}.
 
@@ -43199,10 +43216,11 @@ The case forms listed in 16.16.1 have semantic-leading-clock set {inherited}.
 
 規定の性質: `definition`。
 
+- [test_ch16_sim_prop_inherited_case.sv](../tests/ch16/test_ch16_sim_prop_inherited_case.sv): シミュレーションで16.16.1-EXTRACT-PROP-INHERITED-CASEを観測する。case (s) under the explicit clock c has the leading clock set {inherited}, so the branch is chosen from the value of s at the c ticks. s is 1 only between ticks at 7, where the branch would fail, and is 2 at the tick at 15 where b is 0, so the failure queue ho 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}
 
 ### SV2023-16.16.1-EXTRACT-PROP-INHERITED-CONDITIONAL
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 The if/if-else forms listed in 16.16.1 have semantic-leading-clock set {inherited}.
 
@@ -43210,10 +43228,11 @@ The if/if-else forms listed in 16.16.1 have semantic-leading-clock set {inherite
 
 規定の性質: `definition`。
 
+- [test_ch16_sim_prop_inherited_conditional.sv](../tests/ch16/test_ch16_sim_prop_inherited_conditional.sv): シミュレーションで16.16.1-EXTRACT-PROP-INHERITED-CONDITIONALを観測する。if (g) a else b under the explicit clock c has the leading clock set {inherited}, so g and the operands are sampled at the c ticks. The g and a values that exist only between ticks at 7 and 27 are not used; the tick at 15 fails on the else branch with b = 0 an 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'pass'}
 
 ### SV2023-16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLY
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / テスト対応あり・実行未確認
 
 The s_eventually forms listed in 16.16.1 have semantic-leading-clock set {inherited}.
 
@@ -43221,6 +43240,7 @@ The s_eventually forms listed in 16.16.1 have semantic-leading-clock set {inheri
 
 規定の性質: `definition`。
 
+- [test_ch16_sim_prop_inherited_eventually.sv](../tests/ch16/test_ch16_sim_prop_inherited_eventually.sv): シミュレーションで16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLYを観測する。s_eventually\[0:2\] a under the explicit clock c has the leading clock set {inherited}, so its range is counted in c ticks. The first attempt covers 10, 30 and 50; a is true only at 50, so it passes at 50, which counting two time units could not do. The second a 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}
 
 ### SV2023-16.16.1-EXTRACT-PROP-INHERITED-NEXTTIME
 

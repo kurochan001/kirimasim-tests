@@ -144,6 +144,7 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/quality-vpi-20261027-verilator-*.json`: 両ヘッダincludeに直したVPIヘッダ2本の再実行。
 - `results/refresh-20261027-icarus13.json`: ランナー刷新後のIcarus Verilog 13.0全件実行（VPIビルド修正済み）。
 - `results/refresh-20261027-verilator-seed1.json`: ランナー刷新後に未実行リンク先2,706本をVerilator 5.052 seed 1で再実行。
+- `results/ch16-sim-20261028-*.json`と`results/ch16-edge-20261028-*.json`: ch16の残り16要求を検証するシミュレーションテストの実行結果。
 - `results/quality-persim-20261027-*.json`: シミュレータ別期待値のパイロット実行（19本）。
 - `results/audit-oracle-20261026-icarus13.json`: spec-onlyのうちIcarus 13.0で一致した277本へ`iverilog@13.0`を追加した後の再実行（277/277 pass）。
 - `results/regex-refinement-20261025-*.json`: 判定の正規表現をメッセージの書式に依存しない形に直した`ch16`の2本の再実行。

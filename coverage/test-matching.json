@@ -2,8 +2,8 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 7613,
-  "linked_test_files": 5199,
+  "test_files": 7629,
+  "linked_test_files": 5215,
   "unlinked_test_files": 2414,
   "chapters": [
     {
@@ -86,8 +86,8 @@
     },
     {
       "chapter": "ch16",
-      "test_files": 642,
-      "linked_test_files": 588,
+      "test_files": 658,
+      "linked_test_files": 604,
       "unlinked_test_files": 54
     },
     {
@@ -58605,6 +58605,729 @@
           }
         ]
       }
+    },
+    {
+      "test": "tests/ch16/test_ch16_edge_instance_flow.sv",
+      "inputs_sha256": "964af7be5eeefd6542972eae7a07135aba2f84c8a5e457f862b6f13cf8c521a4",
+      "cited_clauses": [
+        "16.13.3",
+        "16.16.1",
+        "16.9"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.13.3-EXTRACT-INSTANCE-FLOW"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.13.3-EXTRACT-ADJOINT-ONE",
+        "SV2023-16.13.3-EXTRACT-ADJOINT-ZERO",
+        "SV2023-16.13.3-EXTRACT-JUXTAPOSED-CLOCKS",
+        "SV2023-16.13.3-EXTRACT-LINEAR-BRANCH-FLOW",
+        "SV2023-16.13.3-EXTRACT-NO-DISABLE-FLOW",
+        "SV2023-16.13.3-EXTRACT-PARENTHESES",
+        "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
+        "SV2023-16.16.1-EXTRACT-INHERITED",
+        "SV2023-16.16.1-EXTRACT-OUTER-CLOCK",
+        "SV2023-16.16.1-EXTRACT-PROP-AND-OR",
+        "SV2023-16.16.1-EXTRACT-PROP-ASYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-PROP-IMPLICATION",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-ALWAYS",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CASE",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CONDITIONAL",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLY",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-NEXTTIME",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-SYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-UNTIL",
+        "SV2023-16.16.1-EXTRACT-PROP-INSTANCE",
+        "SV2023-16.16.1-EXTRACT-PROP-PARENS-NOT",
+        "SV2023-16.16.1-EXTRACT-PROP-PREFIX",
+        "SV2023-16.16.1-EXTRACT-PROP-STRENGTH",
+        "SV2023-16.16.1-EXTRACT-SEQ-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-SEQ-DELAY-LEADING",
+        "SV2023-16.16.1-EXTRACT-SEQ-PARENTHESES",
+        "SV2023-16.16.1-EXTRACT-SEQ-PREFIX",
+        "SV2023-16.16.1-EXTRACT-SEQ-UNIQUE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_automatic_restriction.sv",
+      "inputs_sha256": "d59a194ae38eb52647579d753785e42c5ecb63c05b4eb168821bd67d3ab5e830",
+      "cited_clauses": [
+        "16.6"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.6-EXTRACT-AUTOMATIC-RESTRICTION"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.6-EXTRACT-DISABLE-CURRENT",
+        "SV2023-16.6-EXTRACT-FUNCTION-ARGS",
+        "SV2023-16.6-EXTRACT-FUNCTION-STATE",
+        "SV2023-16.6-EXTRACT-NO-CHANDLE",
+        "SV2023-16.6-EXTRACT-NO-NONSTATIC-CLASS",
+        "SV2023-16.6-EXTRACT-RESULT-TYPE",
+        "SV2023-16.6-EXTRACT-SIDE-EFFECTS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.6-EXTRACT-ARRAY-SAMPLE-LIFETIME",
+        "SV2023-16.6-EXTRACT-BOOLEAN-TRUTH",
+        "SV2023-16.6-EXTRACT-CAPTURE-TIME-CONTEXT",
+        "SV2023-16.6-EXTRACT-SAMPLED-BOOLEAN"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_bias_no_relaxation.sv",
+      "inputs_sha256": "c58d0175ad526217eaf76d7ce799976148a13e85f6c2a04a0722d60168fa8b11",
+      "cited_clauses": [
+        "16.14.2",
+        "18.5.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.14.2-EXTRACT-BIAS-NO-RELAXATION"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.14.2-EXTRACT-ASSERT-COVER-DIST",
+        "SV2023-16.14.2-EXTRACT-ASSUME-DEFAULT",
+        "SV2023-16.14.2-EXTRACT-ASSUME-DISABLED",
+        "SV2023-16.14.2-EXTRACT-BIAS-SYNTAX",
+        "SV2023-16.14.2-EXTRACT-FORMAL-ASSUME",
+        "SV2023-16.14.2-EXTRACT-SIMULATION-ASSUME",
+        "SV2023-18.5.3-EXTRACT-DEFAULT-COMPLEMENT",
+        "SV2023-18.5.3-EXTRACT-DIST-MEMBERSHIP",
+        "SV2023-18.5.3-EXTRACT-EXCLUDED-VALUES",
+        "SV2023-18.5.3-EXTRACT-INSIDE-DIST",
+        "SV2023-18.5.3-EXTRACT-INTEGRAL-RANGE-WEIGHT",
+        "SV2023-18.5.3-EXTRACT-NONZERO-NO-FAILURE",
+        "SV2023-18.5.3-EXTRACT-OVERLAP-ADDITIVE",
+        "SV2023-18.5.3-EXTRACT-REAL-SINGLE-WEIGHT",
+        "SV2023-18.5.3-EXTRACT-SINGLE-VALUE-WEIGHTS",
+        "SV2023-18.5.3-EXTRACT-WEIGHT-PROBABILITY",
+        "SV2023-18.5.3-EXTRACT-WEIGHT-TYPE-DEFAULT",
+        "SV2023-18.5.3-EXTRACT-WHOLE-RANGE-WEIGHT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-18.5.3-EXTRACT-DEFAULT-DIVIDE-UNIQUE",
+        "SV2023-18.5.3-EXTRACT-DIST-ITEM-TYPES",
+        "SV2023-18.5.3-EXTRACT-DIST-RAND-REQUIRED",
+        "SV2023-18.5.3-EXTRACT-NO-DIST-RANDC"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_checker_history.sv",
+      "inputs_sha256": "240c316cb6636bbc51af40f0bfc97748a4b026acad16ab6fc2cb12b1a4b36844",
+      "cited_clauses": [
+        "16.5.1",
+        "17.7",
+        "16.9.4"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.5.1-EXTRACT-CHECKER-HISTORY"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.5.1-EXTRACT-AUTOMATIC-HISTORY",
+        "SV2023-16.5.1-EXTRACT-COMPOSE-AND-CALL",
+        "SV2023-16.5.1-EXTRACT-CONST-CURRENT",
+        "SV2023-16.5.1-EXTRACT-CURRENT-EXCEPTIONS",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-EXPRESSION",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-METHOD",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-OTHER",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-STATIC",
+        "SV2023-16.5.1-EXTRACT-METHOD-CURRENT",
+        "SV2023-16.5.1-EXTRACT-PREPONED",
+        "SV2023-16.5.1-EXTRACT-SINGLE-VARIABLE",
+        "SV2023-16.9.4-EXTRACT-ASYNCHRONOUS-CONTROLS",
+        "SV2023-16.9.4-EXTRACT-ATTEMPT-INTERVAL",
+        "SV2023-16.9.4-EXTRACT-CHANGED-GCLK",
+        "SV2023-16.9.4-EXTRACT-CHANGING-GCLK",
+        "SV2023-16.9.4-EXTRACT-DELAYED-ACTIONS",
+        "SV2023-16.9.4-EXTRACT-FALLING-GCLK",
+        "SV2023-16.9.4-EXTRACT-FELL-GCLK",
+        "SV2023-16.9.4-EXTRACT-FUTURE-GCLK",
+        "SV2023-16.9.4-EXTRACT-PAST-GCLK",
+        "SV2023-16.9.4-EXTRACT-PAST-RESTRICTIONS",
+        "SV2023-16.9.4-EXTRACT-REPORTED-INTERVAL",
+        "SV2023-16.9.4-EXTRACT-RISING-GCLK",
+        "SV2023-16.9.4-EXTRACT-ROSE-GCLK",
+        "SV2023-16.9.4-EXTRACT-STABLE-GCLK",
+        "SV2023-16.9.4-EXTRACT-STEADY-GCLK",
+        "SV2023-17.7-EXTRACT-CONST-FORMAL-SIM",
+        "SV2023-17.7-EXTRACT-CONST-FREE",
+        "SV2023-17.7-EXTRACT-FORMAL-FREE",
+        "SV2023-17.7-EXTRACT-FREE-VARIABLE",
+        "SV2023-17.7-EXTRACT-NONCONST-FREE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.5.1-EXTRACT-CLOCKING-INPUT",
+        "SV2023-16.9.4-EXTRACT-FUTURE-MATCH-ITEMS",
+        "SV2023-16.9.4-EXTRACT-FUTURE-NESTING",
+        "SV2023-16.9.4-EXTRACT-FUTURE-PLACEMENT",
+        "SV2023-16.9.4-EXTRACT-GLOBAL-REQUIRED",
+        "SV2023-17.7-EXTRACT-CHECKER-STATIC-NO-NETS"
+      ],
+      "broader_citations": [
+        {
+          "clause": "17.7",
+          "descendant_requirement_count": 24
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_checker_inference.sv",
+      "inputs_sha256": "e1adff08d31f32399fadc1f96e508f14ce3e855ffba3c9bca1a417c03cb8a522",
+      "cited_clauses": [
+        "16.13.6",
+        "16.16"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.13.6-EXTRACT-CHECKER-INFERENCE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.13.6-EXTRACT-EMPTY-NO-METHOD",
+        "SV2023-16.13.6-EXTRACT-EVENT-INFERENCE",
+        "SV2023-16.13.6-EXTRACT-INFERRED-CLOCK-DEFAULT",
+        "SV2023-16.13.6-EXTRACT-MATCHED-STATUS",
+        "SV2023-16.13.6-EXTRACT-METHOD-RESULT",
+        "SV2023-16.13.6-EXTRACT-PORT-CALL-INFERENCE",
+        "SV2023-16.13.6-EXTRACT-TRIGGERED-STATUS",
+        "SV2023-16.16-EXTRACT-CONTEXT-OVERRIDES",
+        "SV2023-16.16-EXTRACT-DEFAULT-ASSERTION",
+        "SV2023-16.16-EXTRACT-EXPLICIT-OVERRIDES",
+        "SV2023-16.16-EXTRACT-MAXIMAL-PROPERTY",
+        "SV2023-16.16-EXTRACT-NO-DECLARATION-DEFAULT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.13.6-EXTRACT-MATCHED-CONTEXT",
+        "SV2023-16.13.6-EXTRACT-METHOD-CLOCK",
+        "SV2023-16.13.6-EXTRACT-METHOD-OPERANDS",
+        "SV2023-16.13.6-EXTRACT-NO-MATCHED-SAMPLED-FUNCTION",
+        "SV2023-16.13.6-EXTRACT-NO-TRIGGERED-CYCLES",
+        "SV2023-16.13.6-EXTRACT-OUTSIDE-SEQUENCE",
+        "SV2023-16.16-EXTRACT-CLOCKING-NO-EXPLICIT",
+        "SV2023-16.16-EXTRACT-CLOCKING-SINGLE",
+        "SV2023-16.16-EXTRACT-EXTERNAL-INSTANCE-CLOCK",
+        "SV2023-16.16-EXTRACT-MULTICLOCK-LEADING",
+        "SV2023-16.16-EXTRACT-NO-CLOCK-FALLBACK"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.16",
+          "descendant_requirement_count": 23
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_clocking_single.sv",
+      "inputs_sha256": "c210d7db449ce758e5e02b9622993708c9c4ac0b72a4dc2580956f3e2c14db17",
+      "cited_clauses": [
+        "16.16",
+        "16.16.1"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.16-EXTRACT-CLOCKING-SINGLE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.16-EXTRACT-CLOCKING-NO-EXPLICIT",
+        "SV2023-16.16-EXTRACT-EXTERNAL-INSTANCE-CLOCK",
+        "SV2023-16.16-EXTRACT-MULTICLOCK-LEADING",
+        "SV2023-16.16-EXTRACT-NO-CLOCK-FALLBACK"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.16-EXTRACT-CONTEXT-OVERRIDES",
+        "SV2023-16.16-EXTRACT-DEFAULT-ASSERTION",
+        "SV2023-16.16-EXTRACT-EXPLICIT-OVERRIDES",
+        "SV2023-16.16-EXTRACT-MAXIMAL-PROPERTY",
+        "SV2023-16.16-EXTRACT-NO-DECLARATION-DEFAULT",
+        "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
+        "SV2023-16.16.1-EXTRACT-INHERITED",
+        "SV2023-16.16.1-EXTRACT-OUTER-CLOCK",
+        "SV2023-16.16.1-EXTRACT-PROP-AND-OR",
+        "SV2023-16.16.1-EXTRACT-PROP-ASYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-PROP-IMPLICATION",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-ALWAYS",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CASE",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CONDITIONAL",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLY",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-NEXTTIME",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-SYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-UNTIL",
+        "SV2023-16.16.1-EXTRACT-PROP-INSTANCE",
+        "SV2023-16.16.1-EXTRACT-PROP-PARENS-NOT",
+        "SV2023-16.16.1-EXTRACT-PROP-PREFIX",
+        "SV2023-16.16.1-EXTRACT-PROP-STRENGTH",
+        "SV2023-16.16.1-EXTRACT-SEQ-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-SEQ-DELAY-LEADING",
+        "SV2023-16.16.1-EXTRACT-SEQ-PARENTHESES",
+        "SV2023-16.16.1-EXTRACT-SEQ-PREFIX",
+        "SV2023-16.16.1-EXTRACT-SEQ-UNIQUE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.16",
+          "descendant_requirement_count": 23
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_cover_counters.sv",
+      "inputs_sha256": "76cc33340a393bedee097173028d32383ac3d0f3db0f015f01ed33040012f708",
+      "cited_clauses": [
+        "16.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.3-EXTRACT-COVER-COUNTERS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.3-EXTRACT-ARBITRARY-ACTION",
+        "SV2023-16.3-EXTRACT-ASSERT-CONDITION",
+        "SV2023-16.3-EXTRACT-ASSUME-SIMULATION",
+        "SV2023-16.3-EXTRACT-CAPTURE-FAILURE-TIME",
+        "SV2023-16.3-EXTRACT-COVER-ACTION",
+        "SV2023-16.3-EXTRACT-DEFAULT-ERROR",
+        "SV2023-16.3-EXTRACT-EVALUATE",
+        "SV2023-16.3-EXTRACT-LABEL-SCOPE",
+        "SV2023-16.3-EXTRACT-MULTIPLE-SEVERITY-CALLS",
+        "SV2023-16.3-EXTRACT-PASS-FAIL-ACTIONS",
+        "SV2023-16.3-EXTRACT-PROCEDURAL-PLACEMENT",
+        "SV2023-16.3-EXTRACT-SEVERITY-CALLS",
+        "SV2023-16.3-EXTRACT-SIMPLE-ACTIONS",
+        "SV2023-16.3-EXTRACT-SYNTAX",
+        "SV2023-16.3-EXTRACT-TRUTH"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_declaration_inert.sv",
+      "inputs_sha256": "b6084fdc7c81c40a49721dfdf00661c46b0923051d8b83724936a14ac2b9c463",
+      "cited_clauses": [
+        "16.12"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.12-EXTRACT-DECLARATION-INERT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT",
+        "SV2023-16.12-EXTRACT-DISABLE-INTERVAL",
+        "SV2023-16.12-EXTRACT-DISABLE-SYNTAX",
+        "SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-DELAY",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IFF",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-16.12-EXTRACT-PROPERTY-FORMAL-USE",
+        "SV2023-16.12-EXTRACT-PROPERTY-GRAMMAR",
+        "SV2023-16.12-EXTRACT-PROPERTY-INSTANCES",
+        "SV2023-16.12-EXTRACT-PROPERTY-RESULT",
+        "SV2023-16.12-EXTRACT-PROPERTY-SCOPES",
+        "SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY",
+        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS",
+        "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
+        "SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE",
+        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.12",
+          "descendant_requirement_count": 88
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_glitch_free.sv",
+      "inputs_sha256": "c4e0ddfb6f56dbb2b25584e2a80a655baeec36134e9f20de540c8b298238c557",
+      "cited_clauses": [
+        "16.5"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.5-EXTRACT-GLITCH-FREE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.5-EXTRACT-CLOCK-TICK",
+        "SV2023-16.5-EXTRACT-MULTIPLE-TRANSITIONS",
+        "SV2023-16.5-EXTRACT-SAMPLED-OBSERVED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.5",
+          "descendant_requirement_count": 21
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_multiclock_init.sv",
+      "inputs_sha256": "a3d06884387170d905797cac0ce36edfa5e4b1557f34e476af93a29160015ca5",
+      "cited_clauses": [
+        "16.13.7",
+        "16.16.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.13.7-EXTRACT-MULTICLOCK-INIT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.13.7-EXTRACT-MULTIPLE-LEADING-COPIES",
+        "SV2023-16.13.7-EXTRACT-SINGLE-INIT",
+        "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
+        "SV2023-16.16.1-EXTRACT-INHERITED",
+        "SV2023-16.16.1-EXTRACT-OUTER-CLOCK",
+        "SV2023-16.16.1-EXTRACT-PROP-AND-OR",
+        "SV2023-16.16.1-EXTRACT-PROP-ASYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-PROP-IMPLICATION",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-ALWAYS",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CASE",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CONDITIONAL",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLY",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-NEXTTIME",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-SYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-UNTIL",
+        "SV2023-16.16.1-EXTRACT-PROP-INSTANCE",
+        "SV2023-16.16.1-EXTRACT-PROP-PARENS-NOT",
+        "SV2023-16.16.1-EXTRACT-PROP-PREFIX",
+        "SV2023-16.16.1-EXTRACT-PROP-STRENGTH",
+        "SV2023-16.16.1-EXTRACT-SEQ-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-SEQ-DELAY-LEADING",
+        "SV2023-16.16.1-EXTRACT-SEQ-PARENTHESES",
+        "SV2023-16.16.1-EXTRACT-SEQ-PREFIX",
+        "SV2023-16.16.1-EXTRACT-SEQ-UNIQUE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_prop_async_abort.sv",
+      "inputs_sha256": "51a1d81222e22678f6d68c3510d62600fd8b6a138745e33cf39a945178ad3e2d",
+      "cited_clauses": [
+        "16.16.1",
+        "16.12.14"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.16.1-EXTRACT-PROP-ASYNC-ABORT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.14-EXTRACT-ABORT-FORMS",
+        "SV2023-16.12.14-EXTRACT-ABORT-NESTING",
+        "SV2023-16.12.14-EXTRACT-ABORT-PRECEDENCE",
+        "SV2023-16.12.14-EXTRACT-ACCEPT",
+        "SV2023-16.12.14-EXTRACT-ASYNCHRONOUS-SAMPLED",
+        "SV2023-16.12.14-EXTRACT-OUTER-PRECEDENCE",
+        "SV2023-16.12.14-EXTRACT-REJECT",
+        "SV2023-16.12.14-EXTRACT-REJECT-DUAL",
+        "SV2023-16.12.14-EXTRACT-SYNC-REJECT-DUAL",
+        "SV2023-16.12.14-EXTRACT-SYNCHRONOUS-SAMPLED",
+        "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
+        "SV2023-16.16.1-EXTRACT-INHERITED",
+        "SV2023-16.16.1-EXTRACT-OUTER-CLOCK",
+        "SV2023-16.16.1-EXTRACT-PROP-AND-OR",
+        "SV2023-16.16.1-EXTRACT-PROP-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-PROP-IMPLICATION",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-ALWAYS",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CASE",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CONDITIONAL",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLY",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-NEXTTIME",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-SYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-UNTIL",
+        "SV2023-16.16.1-EXTRACT-PROP-INSTANCE",
+        "SV2023-16.16.1-EXTRACT-PROP-PARENS-NOT",
+        "SV2023-16.16.1-EXTRACT-PROP-PREFIX",
+        "SV2023-16.16.1-EXTRACT-PROP-STRENGTH",
+        "SV2023-16.16.1-EXTRACT-SEQ-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-SEQ-DELAY-LEADING",
+        "SV2023-16.16.1-EXTRACT-SEQ-PARENTHESES",
+        "SV2023-16.16.1-EXTRACT-SEQ-PREFIX",
+        "SV2023-16.16.1-EXTRACT-SEQ-UNIQUE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12.14-EXTRACT-ABORT-ARGUMENTS"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_prop_inherited_always.sv",
+      "inputs_sha256": "348b5ac6bdcc23700d2c0f0284d3e3b72e2b13d8f4d1b6991b995eff3b5c9576",
+      "cited_clauses": [
+        "16.16.1",
+        "16.12.11"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-ALWAYS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.11-EXTRACT-ALWAYS",
+        "SV2023-16.12.11-EXTRACT-ALWAYS-ALIGN",
+        "SV2023-16.12.11-EXTRACT-IMPLICIT-ALWAYS",
+        "SV2023-16.12.11-EXTRACT-RANGED-ALWAYS",
+        "SV2023-16.12.11-EXTRACT-STRONG-ALWAYS",
+        "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
+        "SV2023-16.16.1-EXTRACT-INHERITED",
+        "SV2023-16.16.1-EXTRACT-OUTER-CLOCK",
+        "SV2023-16.16.1-EXTRACT-PROP-AND-OR",
+        "SV2023-16.16.1-EXTRACT-PROP-ASYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-PROP-IMPLICATION",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CASE",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CONDITIONAL",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLY",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-NEXTTIME",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-SYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-UNTIL",
+        "SV2023-16.16.1-EXTRACT-PROP-INSTANCE",
+        "SV2023-16.16.1-EXTRACT-PROP-PARENS-NOT",
+        "SV2023-16.16.1-EXTRACT-PROP-PREFIX",
+        "SV2023-16.16.1-EXTRACT-PROP-STRENGTH",
+        "SV2023-16.16.1-EXTRACT-SEQ-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-SEQ-DELAY-LEADING",
+        "SV2023-16.16.1-EXTRACT-SEQ-PARENTHESES",
+        "SV2023-16.16.1-EXTRACT-SEQ-PREFIX",
+        "SV2023-16.16.1-EXTRACT-SEQ-UNIQUE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12.11-EXTRACT-ALWAYS-BOUNDS"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_prop_inherited_case.sv",
+      "inputs_sha256": "c3833b1db99e4ce1f6effaa2c1df1d9acef2b18189940aec74913eb28a6b3955",
+      "cited_clauses": [
+        "16.16.1",
+        "16.12.9"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CASE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.9-EXTRACT-EXISTENTIAL-MATCH",
+        "SV2023-16.12.9-EXTRACT-NONOVERLAPPED-DUAL",
+        "SV2023-16.12.9-EXTRACT-NONOVERLAPPED-EMPTY",
+        "SV2023-16.12.9-EXTRACT-NONOVERLAPPED-NONEMPTY",
+        "SV2023-16.12.9-EXTRACT-OVERLAPPED",
+        "SV2023-16.12.9-EXTRACT-OVERLAPPED-DUAL",
+        "SV2023-16.12.9-EXTRACT-STRONG-CONCAT",
+        "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
+        "SV2023-16.16.1-EXTRACT-INHERITED",
+        "SV2023-16.16.1-EXTRACT-OUTER-CLOCK",
+        "SV2023-16.16.1-EXTRACT-PROP-AND-OR",
+        "SV2023-16.16.1-EXTRACT-PROP-ASYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-PROP-IMPLICATION",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-ALWAYS",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CONDITIONAL",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLY",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-NEXTTIME",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-SYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-UNTIL",
+        "SV2023-16.16.1-EXTRACT-PROP-INSTANCE",
+        "SV2023-16.16.1-EXTRACT-PROP-PARENS-NOT",
+        "SV2023-16.16.1-EXTRACT-PROP-PREFIX",
+        "SV2023-16.16.1-EXTRACT-PROP-STRENGTH",
+        "SV2023-16.16.1-EXTRACT-SEQ-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-SEQ-DELAY-LEADING",
+        "SV2023-16.16.1-EXTRACT-SEQ-PARENTHESES",
+        "SV2023-16.16.1-EXTRACT-SEQ-PREFIX",
+        "SV2023-16.16.1-EXTRACT-SEQ-UNIQUE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_prop_inherited_conditional.sv",
+      "inputs_sha256": "81e715bc35bedd304351280f15ebd0521ebf96acd4523fdeff7eda199eedd8ef",
+      "cited_clauses": [
+        "16.16.1",
+        "16.12.8"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CONDITIONAL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.8-EXTRACT-IFF",
+        "SV2023-16.12.8-EXTRACT-IMPLIES",
+        "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
+        "SV2023-16.16.1-EXTRACT-INHERITED",
+        "SV2023-16.16.1-EXTRACT-OUTER-CLOCK",
+        "SV2023-16.16.1-EXTRACT-PROP-AND-OR",
+        "SV2023-16.16.1-EXTRACT-PROP-ASYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-PROP-IMPLICATION",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-ALWAYS",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CASE",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLY",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-NEXTTIME",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-SYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-UNTIL",
+        "SV2023-16.16.1-EXTRACT-PROP-INSTANCE",
+        "SV2023-16.16.1-EXTRACT-PROP-PARENS-NOT",
+        "SV2023-16.16.1-EXTRACT-PROP-PREFIX",
+        "SV2023-16.16.1-EXTRACT-PROP-STRENGTH",
+        "SV2023-16.16.1-EXTRACT-SEQ-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-SEQ-DELAY-LEADING",
+        "SV2023-16.16.1-EXTRACT-SEQ-PARENTHESES",
+        "SV2023-16.16.1-EXTRACT-SEQ-PREFIX",
+        "SV2023-16.16.1-EXTRACT-SEQ-UNIQUE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_prop_inherited_eventually.sv",
+      "inputs_sha256": "c58f2887c66a59ea750da7036feacf70d805675ef5e194c510fd7af15cfbea4e",
+      "cited_clauses": [
+        "16.16.1",
+        "16.12.13"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLY"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.13-EXTRACT-EVENTUALLY-ALIGN",
+        "SV2023-16.12.13-EXTRACT-RANGED-STRONG-EVENTUALLY",
+        "SV2023-16.12.13-EXTRACT-STRONG-EVENTUALLY",
+        "SV2023-16.12.13-EXTRACT-WEAK-EVENTUALLY",
+        "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
+        "SV2023-16.16.1-EXTRACT-INHERITED",
+        "SV2023-16.16.1-EXTRACT-OUTER-CLOCK",
+        "SV2023-16.16.1-EXTRACT-PROP-AND-OR",
+        "SV2023-16.16.1-EXTRACT-PROP-ASYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-PROP-IMPLICATION",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-ALWAYS",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CASE",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-CONDITIONAL",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-NEXTTIME",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-SYNC-ABORT",
+        "SV2023-16.16.1-EXTRACT-PROP-INHERITED-UNTIL",
+        "SV2023-16.16.1-EXTRACT-PROP-INSTANCE",
+        "SV2023-16.16.1-EXTRACT-PROP-PARENS-NOT",
+        "SV2023-16.16.1-EXTRACT-PROP-PREFIX",
+        "SV2023-16.16.1-EXTRACT-PROP-STRENGTH",
+        "SV2023-16.16.1-EXTRACT-SEQ-CLOCK-FREE",
+        "SV2023-16.16.1-EXTRACT-SEQ-DELAY-LEADING",
+        "SV2023-16.16.1-EXTRACT-SEQ-PARENTHESES",
+        "SV2023-16.16.1-EXTRACT-SEQ-PREFIX",
+        "SV2023-16.16.1-EXTRACT-SEQ-UNIQUE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_ch16_sim_reported_interval.sv",
+      "inputs_sha256": "2d9165e119632f5498ec3a3a8e9dca3f083f3022b837fbb4d8f0510629bc1eff",
+      "cited_clauses": [
+        "16.9.4",
+        "16.9.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.9.4-EXTRACT-REPORTED-INTERVAL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2-EXTRACT-COMBINE-DELAY",
+        "SV2023-16.9.2-EXTRACT-CONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-EXACT-EQUIVALENCE",
+        "SV2023-16.9.2-EXTRACT-GOTO",
+        "SV2023-16.9.2-EXTRACT-NONCONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-RANGED-REPETITION",
+        "SV2023-16.9.2-EXTRACT-REPETITION-SYNTAX",
+        "SV2023-16.9.2-EXTRACT-STAR-PLUS",
+        "SV2023-16.9.4-EXTRACT-ASYNCHRONOUS-CONTROLS",
+        "SV2023-16.9.4-EXTRACT-ATTEMPT-INTERVAL",
+        "SV2023-16.9.4-EXTRACT-CHANGED-GCLK",
+        "SV2023-16.9.4-EXTRACT-CHANGING-GCLK",
+        "SV2023-16.9.4-EXTRACT-DELAYED-ACTIONS",
+        "SV2023-16.9.4-EXTRACT-FALLING-GCLK",
+        "SV2023-16.9.4-EXTRACT-FELL-GCLK",
+        "SV2023-16.9.4-EXTRACT-FUTURE-GCLK",
+        "SV2023-16.9.4-EXTRACT-PAST-GCLK",
+        "SV2023-16.9.4-EXTRACT-PAST-RESTRICTIONS",
+        "SV2023-16.9.4-EXTRACT-RISING-GCLK",
+        "SV2023-16.9.4-EXTRACT-ROSE-GCLK",
+        "SV2023-16.9.4-EXTRACT-STABLE-GCLK",
+        "SV2023-16.9.4-EXTRACT-STEADY-GCLK"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.9.2-EXTRACT-COUNT-BOUNDS",
+        "SV2023-16.9.2-EXTRACT-COUNT-ORDER",
+        "SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS",
+        "SV2023-16.9.4-EXTRACT-FUTURE-MATCH-ITEMS",
+        "SV2023-16.9.4-EXTRACT-FUTURE-NESTING",
+        "SV2023-16.9.4-EXTRACT-FUTURE-PLACEMENT",
+        "SV2023-16.9.4-EXTRACT-GLOBAL-REQUIRED"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.9.2",
+          "descendant_requirement_count": 6
+        }
+      ]
     },
     {
       "test": "tests/ch16/test_clocking_block_assertions.sv",
@@ -544623,7 +545346,7 @@
     "oracle_issue": 257,
     "partial_observation": 2129
   },
-  "registry_sha256": "48604e927356d44d95ff05b4b8a5b08aebd8a0afcd4f3e70f6937fce9222b2f7",
+  "registry_sha256": "15a61e601de1ce98b380ae0e13146213a7716b84c3726446212e4ae4047dfbdf",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "c1dac1a34f1f74e3f694f5ef6218659d24e12fac8b92f59725cdca236f737aec"
 }

@@ -17,6 +17,7 @@ import lint_metadata
 import run_icarus
 import run_kirimasim
 import run_lyra
+import run_ghost
 import run_verilator
 import suite_results
 
@@ -74,6 +75,7 @@ class PerSimulatorExpectedTests(unittest.TestCase):
         self.assertEqual(run_verilator.expected_output(self.test), "from verilator\n")
         self.assertEqual(run_kirimasim.expected_output(self.test), "generic\n")
         self.assertEqual(run_lyra.expected_output(self.test), "generic\n")
+        self.assertEqual(run_ghost.expected_output(self.test), "generic\n")
 
     def test_inline_values_work_and_keep_the_priority(self):
         self.test.write_text("/*\n:name: test_sample\n:expected_stdout: generic\n"

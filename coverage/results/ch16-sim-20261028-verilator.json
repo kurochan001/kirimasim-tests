@@ -1,0 +1,79 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch16/test_ch16_sim_automatic_restriction": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "d59a194ae38eb52647579d753785e42c5ecb63c05b4eb168821bd67d3ab5e830"
+  },
+  "ch16/test_ch16_sim_bias_no_relaxation": {
+   "status": "pass",
+   "inputs_sha256": "c58d0175ad526217eaf76d7ce799976148a13e85f6c2a04a0722d60168fa8b11"
+  },
+  "ch16/test_ch16_sim_checker_history": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_ch16_sim_checker_history.sv:36:3: Unsupported: checker rand",
+   "inputs_sha256": "240c316cb6636bbc51af40f0bfc97748a4b026acad16ab6fc2cb12b1a4b36844"
+  },
+  "ch16/test_ch16_sim_checker_inference": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_ch16_sim_checker_inference.sv:29:22: Unsupported: sequence argument data type",
+   "inputs_sha256": "e1adff08d31f32399fadc1f96e508f14ce3e855ffba3c9bca1a417c03cb8a522"
+  },
+  "ch16/test_ch16_sim_clocking_single": {
+   "status": "known",
+   "reason": "no error matches 'test_ch16_sim_clocking_single\\\\.sv:42: .*[Mm]ulticlock'; the first is: %Error-UNSUPPORTED: tests/ch16/test_ch16_sim_clocking_single.sv:37:14: Unsupported: assertion items in clocking blocks",
+   "inputs_sha256": "c210d7db449ce758e5e02b9622993708c9c4ac0b72a4dc2580956f3e2c14db17"
+  },
+  "ch16/test_ch16_sim_cover_counters": {
+   "status": "pass",
+   "inputs_sha256": "76cc33340a393bedee097173028d32383ac3d0f3db0f015f01ed33040012f708"
+  },
+  "ch16/test_ch16_sim_declaration_inert": {
+   "status": "pass",
+   "inputs_sha256": "b6084fdc7c81c40a49721dfdf00661c46b0923051d8b83724936a14ac2b9c463"
+  },
+  "ch16/test_ch16_sim_glitch_free": {
+   "status": "pass",
+   "inputs_sha256": "c4e0ddfb6f56dbb2b25584e2a80a655baeec36134e9f20de540c8b298238c557"
+  },
+  "ch16/test_ch16_sim_multiclock_init": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch16/test_ch16_sim_multiclock_init.sv:43:47: Can't find definition of task/function: 'p'",
+   "inputs_sha256": "a3d06884387170d905797cac0ce36edfa5e4b1557f34e476af93a29160015ca5"
+  },
+  "ch16/test_ch16_sim_prop_async_abort": {
+   "status": "pass",
+   "inputs_sha256": "51a1d81222e22678f6d68c3510d62600fd8b6a138745e33cf39a945178ad3e2d"
+  },
+  "ch16/test_ch16_sim_prop_inherited_always": {
+   "status": "pass",
+   "inputs_sha256": "348b5ac6bdcc23700d2c0f0284d3e3b72e2b13d8f4d1b6991b995eff3b5c9576"
+  },
+  "ch16/test_ch16_sim_prop_inherited_case": {
+   "status": "pass",
+   "inputs_sha256": "c3833b1db99e4ce1f6effaa2c1df1d9acef2b18189940aec74913eb28a6b3955"
+  },
+  "ch16/test_ch16_sim_prop_inherited_conditional": {
+   "status": "pass",
+   "inputs_sha256": "81e715bc35bedd304351280f15ebd0521ebf96acd4523fdeff7eda199eedd8ef"
+  },
+  "ch16/test_ch16_sim_prop_inherited_eventually": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_ch16_sim_prop_inherited_eventually.sv:38:46: Unsupported: s_eventually[] (in property expression)",
+   "inputs_sha256": "c58f2887c66a59ea750da7036feacf70d805675ef5e194c510fd7af15cfbea4e"
+  },
+  "ch16/test_ch16_sim_reported_interval": {
+   "status": "pass",
+   "inputs_sha256": "2d9165e119632f5498ec3a3a8e9dca3f083f3022b837fbb4d8f0510629bc1eff"
+  }
+ },
+ "generated_at": "2026-10-27T15:43:04.031900+00:00",
+ "runner_sha256": "22308c0f537530ce2225f1c70638ae6e8c9c725559b0e9fdeee7a9aa34918dc7",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

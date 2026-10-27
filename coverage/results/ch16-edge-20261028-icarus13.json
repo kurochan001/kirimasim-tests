@@ -1,0 +1,16 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch16/test_ch16_edge_instance_flow": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_ch16_edge_instance_flow.sv:65: syntax error",
+   "inputs_sha256": "964af7be5eeefd6542972eae7a07135aba2f84c8a5e457f862b6f13cf8c521a4"
+  }
+ },
+ "generated_at": "2026-10-27T15:43:04.210115+00:00",
+ "runner_sha256": "9a0d77f74ee935d59b413652bbe6cc3133179c84c2a2130f2c0cd4e51a71ab13",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -17,7 +17,8 @@ IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認す�
 （[合否の判定方法](#合否の判定方法)を参照）。
 このスイートは[kirimasim](https://github.com/kurochan001/kirimasim)向けに作っていますが、
 テスト自体は特定のシミュレータに依存しません。Icarus Verilog、Verilator、kirimasim、
-[Lyra](https://github.com/hankhsu1996/lyra)用の実行スクリプトがあり、メタデータは
+[Lyra](https://github.com/hankhsu1996/lyra)用の実行スクリプトがあります。
+当面は公開前のゲスト**Ghost**も仮名で参加します。メタデータは
 [sv-tests](https://github.com/chipsalliance/sv-tests)の形式に従っています。
 
 このスイートには、次の特徴があります。
@@ -37,15 +38,15 @@ IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認す�
 ## 収録内容
 
 <!-- suite-stats:begin -->
-スイートには37章にわたり**7613本のテスト**があります。 うち1308本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
+スイートには37章にわたり**7629本のテスト**があります。 うち1308本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
 | Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 4169 |
-| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1453 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 1991 |
+| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1463 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 1997 |
 
-893本はx/z値に依存します（`:fourstate: yes`）。603本にはCコードがあり、内訳はDPIが118本（`:dpi_c:`）、VPIが485本（`:vpi_c:`）です。1893本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。33本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル21本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定5本（`:incdirs:`）、トップレベルのモジュールまたは構成指定21本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+893本はx/z値に依存します（`:fourstate: yes`）。603本にはCコードがあり、内訳はDPIが118本（`:dpi_c:`）、VPIが485本（`:vpi_c:`）です。1895本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。33本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル21本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定5本（`:incdirs:`）、トップレベルのモジュールまたは構成指定21本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -62,7 +63,7 @@ IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認す�
 | 13 | タスクと関数（サブルーチン） | 197 | 106 | 78 | 13 |
 | 14 | クロッキングブロック | 78 | 4 | 61 | 13 |
 | 15 | プロセス間の同期と通信 | 56 | 2 | 36 | 18 |
-| 16 | アサーション | 642 | 104 | 62 | 476 |
+| 16 | アサーション | 658 | 104 | 72 | 482 |
 | 17 | チェッカー | 81 |  | 22 | 59 |
 | 18 | 制約付き乱数値の生成 | 200 | 26 | 95 | 79 |
 | 19 | 機能カバレッジ | 145 | 2 | 17 | 126 |
@@ -184,10 +185,15 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 毎晩、[GitHub Actionsワークフロー](.github/workflows/nightly.yml)が、各シミュレータで
 `main`の全テストを実行します。Icarus VerilogとVerilatorは`master`、kirimasimは`main`の
 最新開発版をその晩にビルドし、リリースのないLyraはワークフローで固定したコミットを使います。
+Ghostは非公開のビルドで参加します。
 結果は[`results`](https://github.com/kurochan001/kirimasim-tests/tree/results)ブランチの履歴に追加します。
 下のグラフは実行ごとに更新します。
 [同ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)には、
 一致率、章別の結果、シミュレータごとの推移、前夜から結果が変わったテストも載せています。
+
+**Ghost**は、公開前の正体不明なシミュレータです。毎晩のテストに姿を現し、
+今は結果だけを残していきます。正体・ソース・ビルドログは、まだ幕の向こう側です。
+他の参加者と同じテストを、同じ規格に基づく期待結果で判定します。
 
 開始予定は毎日**日本時間04:23（JST、UTC+09:00）**、UTCでは前日の19:23です。
 結果はシミュレータのジョブが終わってから公開します。GitHubのスケジュール遅延やビルド時間で、
@@ -203,7 +209,8 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 
 ![期待結果に一致するテスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
 
-シミュレータごとに、Icarus Verilogは丸、Verilatorは四角、kirimasimはひし形、Lyraは下向き三角を使います。
+シミュレータごとに、Icarus Verilogは丸、Verilatorは四角、kirimasimはひし形、
+Lyraは下向き三角、Ghostはオレンジの上向き三角を使います。
 一致数が同じ、または近い場合も見えるように、マーカーは互いに重ねて収まる輪郭で描きます。
 凡例には、最新の実行の件数も示します。
 
@@ -309,6 +316,7 @@ tools/run_icarus.py             Icarus Verilogでの実行
 tools/run_verilator.py          Verilatorでの実行
 tools/run_kirimasim.py          kirimasimでの実行
 tools/run_lyra.py               Lyraでの実行
+tools/run_ghost.py              公開前のゲストを仮名で実行
 tools/normalize_output.py       比較前の出力正規化
 tools/suite_results.py          実行結果のJSON形式（--json）
 tools/results_history.py        Nightlyの履歴とグラフ生成
@@ -618,6 +626,30 @@ Lyraは標準エラーに診断を出し、未対応の機能を"is not yet supp
 テストが出した行を残して比較します。不正な設計は`lyra check`で確認します。
 VPIがないため`:vpi_c:`は未対応です。Lyraを根拠に記録した期待出力はなく、全テストを集計対象にします。
 
+### Ghost
+
+```sh
+python3 tools/run_ghost.py --simulator /path/to/private/simulator \
+  --profile /path/to/private-profile.json --include /path/to/include -j 8 \
+  --json out/ghost.json
+```
+
+Ghostは、公開前のシミュレータが当面使う仮名です。非公開の実行プロファイルに
+`arguments`、`environment`、`include_subdirs`、`trailer`、`banner_pattern`、
+`severity_pattern`を指定し、このリポジトリの外に置きます。
+共通の`:expected_stdout:`を使い、終了コードと必要な診断も確認します。
+DPI/VPIのCコードは共有ライブラリにビルドします。全テストを集計対象とし、既知の差異として除外しません。
+プロファイルに従ってツール自身のバナーとseverityメッセージを除き、テストの出力は残します。
+公開結果に含めるのは、一般化した不一致理由と、実行ファイルを識別するハッシュです。
+実行ファイルの版表示と内部の診断は公開しません。実行中に実行ファイルやプロファイルが変わった場合、結果は破棄します。
+
+NightlyはリポジトリのSecretsから`GHOST_REPOSITORY`、`GHOST_DEPLOY_KEY`、
+`GHOST_PARSER_REPOSITORY`、`GHOST_PARSER_REF`、`GHOST_PARSER_PATH`、
+`GHOST_BUILD_TARGET`、`GHOST_EXECUTABLE`（非公開チェックアウト内の相対パス）、
+`GHOST_PROFILE`を読みます。このジョブは本リポジトリだけで動き、forkでは公開シミュレータを実行できます。
+ゲスト参加を終えるときは、ジョブと`publish.needs`の項目、実行スクリプトを外します。
+過去の履歴は、他の比較対象を外した場合と同じ仕組みで残ります。
+
 ### 他のシミュレータ
 
 別のシミュレータの実行スクリプトは、テストごとに次を行います。
@@ -664,7 +696,7 @@ Actionsタブから手動実行もできます（`workflow_dispatch`）。スイ
 `.github/workflows/nightly.yml`は毎日19:23 UTC（翌日の04:23 JST）に予定され、手動実行もできます。
 GitHubが混雑していると数時間遅れることがあります。実行は重複せず、実行中に始まったものは待機し、
 さらに新しいものが来ると待機中の古いものを置き換えます。kirimasimのratchetを除いて結果の報告のみです。
-次の5ジョブがあります。
+次の6ジョブがあります。
 
 - **icarus**：最新の`master`をビルドし、コミット別にキャッシュして全件を実行します。
 - **verilator**：最新の`master`をビルドしてコミット別にキャッシュし、`z3`とccacheを使って
@@ -679,10 +711,13 @@ GitHubが混雑していると数時間遅れることがあります。実行�
   実行ファイルとrunfilesをBazelのツリーからコピーし、そのツリーのパスを指すrunfilesマニフェストを
   除いてコミット別にキャッシュします。固定コミットを変えた場合だけ再ビルドします。
   全テストの実行には35〜70分かかり、Nightlyで最長のジョブです。結果にはコミットを記録します。
+- **ghost**：公開前のゲストを非公開でビルドし、全テストを実行します。
+  取得先と実行プロファイルはSecretsから読みます。公開するのは仮名・ビルドのハッシュ・テスト結果で、
+  ソースやビルド出力はランナー内に留めます。
 - **publish**：完了したジョブの`--json`結果を集め、`tools/results_history.py update`で
   `results`ブランチの履歴に追加し、その実行の結果ファイルだけで振る舞い網羅率を測定してpushします。
   実行の要約には、各シミュレータの件数、結果が変わったテスト、振る舞い網羅率を載せます。
-  失敗したものも含めて4シミュレータすべての完了を待ち、publish成功時にグラフとレポートが更新されます。
+  失敗したものも含めて5シミュレータすべての完了を待ち、publish成功時にグラフとレポートが更新されます。
   公開するのは`main`の実行だけです。別ブランチでの手動実行は、シミュレータを動かして結果を
   アップロードしますが、公開はしません。
 
