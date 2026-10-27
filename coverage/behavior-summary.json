@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "608503eb5ee6a2cfda5d200582f3986fa8d4d9e1ebe1c524ff55a30d9c289be4",
+  "registry_sha256": "4d7b1df93ec1c153b5e13ccd63499be25bac68c6c5b54be51b159bff82b268e8",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -46,14 +46,14 @@
   "denominator_reviewed": false,
   "extraction_progress_percent": 98.825601879037,
   "unmapped": 1319,
-  "executed": 7333,
+  "executed": 7332,
   "whole_standard_percent": null,
   "whole_standard_executed_percent": null,
   "registered_percent": 89.29296209107882,
   "metric_policy_version": 3,
   "whole_standard_status": "provisional",
   "provisional_design_percent": 89.29296209107882,
-  "provisional_execution_percent": 59.525935546716454,
+  "provisional_execution_percent": 59.517818004708175,
   "denominator": {
     "count": 12319,
     "unit": "registered_requirement_condition_or_observation",
@@ -69,8 +69,8 @@
   },
   "collective_requirement_count": 652,
   "requirement_status_counts": {
-    "pass": 7333,
-    "mapped_without_pass": 3667,
+    "pass": 7332,
+    "mapped_without_pass": 3668,
     "unmapped": 1298,
     "interpretation_pending": 21
   },
@@ -130,9 +130,9 @@
       "title": "Data types",
       "registered": 726,
       "mapped": 687,
-      "executed": 600,
+      "executed": 599,
       "design_percent": 94.62809917355372,
-      "execution_percent": 82.64462809917356,
+      "execution_percent": 82.5068870523416,
       "interpretation_pending": 0
     },
     {
@@ -4640,7 +4640,6 @@
           "SV2023-6.16.8-EXTRACT-SIGNATURE",
           "SV2023-6.16.9-EXTRACT-ATOBIN-BASE",
           "SV2023-6.16.9-EXTRACT-ATOHEX-BASE",
-          "SV2023-6.16.9-EXTRACT-ATOI-BASE",
           "SV2023-6.16.9-EXTRACT-ATOOCT-BASE",
           "SV2023-6.16.9-EXTRACT-NO-DIGITS-ZERO",
           "SV2023-6.16.9-EXTRACT-NO-LITERAL-GRAMMAR",
@@ -6802,14 +6801,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 161,
+        "stale_links": 164,
         "status_counts": {
-          "pass": 4751,
+          "pass": 4750,
           "fail": 4839,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1156,
-          "stale": 152,
+          "stale": 153,
           "not_run": 102,
           "unmapped": 1298,
           "interpretation_pending": 21
@@ -9161,7 +9160,6 @@
           "SV2023-6.16.8-EXTRACT-INCLUSIVE-SUBSTRING",
           "SV2023-6.16.8-EXTRACT-REVERSED",
           "SV2023-6.16.9-EXTRACT-ATOHEX-BASE",
-          "SV2023-6.16.9-EXTRACT-ATOI-BASE",
           "SV2023-6.18-EXTRACT-COMPLEX-CAST-TYPENAME",
           "SV2023-6.18-EXTRACT-TYPEDEF-ALIAS",
           "SV2023-6.19-EXTRACT-AUTO-INCREMENT",
@@ -10090,14 +10088,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 161,
+        "stale_links": 164,
         "status_counts": {
-          "pass": 3149,
+          "pass": 3148,
           "fail": 0,
           "known": 7418,
           "unsupported": 0,
           "unreviewed_oracle": 164,
-          "stale": 151,
+          "stale": 152,
           "not_run": 118,
           "unmapped": 1298,
           "interpretation_pending": 21

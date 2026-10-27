@@ -337054,7 +337054,7 @@
     },
     {
       "test": "tests/ch6/test_string_atoi.sv",
-      "inputs_sha256": "e7efae24193dd771921f88aa219e059f202a93ffdea71597e0198559d49a15c4",
+      "inputs_sha256": "c48501ef19278820fb36defbcc176c24a55e59d449954c39a7e63132fcb6ed2e",
       "cited_clauses": [
         "6.16.9"
       ],
@@ -337080,7 +337080,7 @@
     },
     {
       "test": "tests/ch6/test_string_atoi_2.sv",
-      "inputs_sha256": "99554cb0465a27014c83292e1912cbbcb99a8a68fc84fc59628151673d4022cc",
+      "inputs_sha256": "508a47a0c73c279f38ede1d6b6c60c5519e38b22e64e5c6d30954643e111dcbd",
       "cited_clauses": [
         "6.16.9"
       ],
@@ -337710,7 +337710,7 @@
     },
     {
       "test": "tests/ch6/test_string_conversion.sv",
-      "inputs_sha256": "94b6e16fae2e6599152a7e48b92e4f0cf42b90eda8658733ad1e8a17cfa212da",
+      "inputs_sha256": "3a6aae2e76045648fabe87ca76ebb074c207fd1287be0a1885b4c13f683d3f73",
       "cited_clauses": [
         "6.16.9",
         "6.16.10",
@@ -337763,9 +337763,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch6/test_string_conversion.sv",
-        "inputs_sha256": "94b6e16fae2e6599152a7e48b92e4f0cf42b90eda8658733ad1e8a17cfa212da",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "3a6aae2e76045648fabe87ca76ebb074c207fd1287be0a1885b4c13f683d3f73",
+        "reviewed_on": "2026-10-28",
+        "reviewer": "Claude Code (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -337941,7 +337941,7 @@
     },
     {
       "test": "tests/ch6/test_string_edge.sv",
-      "inputs_sha256": "040268c0aec31967a296edbee83d5cfc6b370d43df265fa46c325b9d8762b44c",
+      "inputs_sha256": "798b1fb899b4e1437cd7ccdfc55d8a1edc1ff73157c5900496bb35c3cc04da4f",
       "cited_clauses": [
         "6.16",
         "6.16.9",
@@ -338147,7 +338147,7 @@
     },
     {
       "test": "tests/ch6/test_string_functions_comprehensive.sv",
-      "inputs_sha256": "ac4ce2094e05be544635a650e294f9eac33f9725370a3e3da92015073ad9935d",
+      "inputs_sha256": "b6e05161bbb4ff3958a73854579eb850ae2433283e4abe534a6b8d80d6f702f4",
       "cited_clauses": [
         "6.16"
       ],
@@ -339641,7 +339641,7 @@
     },
     {
       "test": "tests/ch6/test_string_ops_edge_cases.sv",
-      "inputs_sha256": "df0b9c6774a7c024538fbe767d7ed12e43566b44ecb86aec61609683a8ae0f2e",
+      "inputs_sha256": "d4d2e5964be13017543407021fa8c1d6a4cb4a777224a6f640255a1e6aca6f55",
       "cited_clauses": [
         "6.16"
       ],
@@ -551333,7 +551333,7 @@
     "oracle_issue": 257,
     "partial_observation": 2129
   },
-  "registry_sha256": "608503eb5ee6a2cfda5d200582f3986fa8d4d9e1ebe1c524ff55a30d9c289be4",
+  "registry_sha256": "4d7b1df93ec1c153b5e13ccd63499be25bac68c6c5b54be51b159bff82b268e8",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
-  "review_ledger_sha256": "44b030e5899d7a019bc7db9630dff138d1691dac4a9ad77475e2e51ea04b3f83"
+  "review_ledger_sha256": "f40a7f61df157fb14e8e77dd2d1dc1220d7ecfa6a6d0d6229e8eafda479f06d8"
 }

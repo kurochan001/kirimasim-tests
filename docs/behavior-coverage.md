@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 89.29%、実行 59.53%。**
+**全規格の要求台帳ベース（暫定）: 設計 89.29%、実行 59.52%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -16,7 +16,7 @@
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対するテスト設計網羅率: 11000/12319 (89.29%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7333/12319 (59.53%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7332/12319 (59.52%)。
 - 登録済みだがテスト未対応: 1319 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
@@ -68,11 +68,11 @@
 - `chA-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:16:45.126049+00:00 / 45/12319 動作確認、古い入力との対応 0 件。
 - `chH-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:00:40.482405+00:00 / 183/12319 動作確認、古い入力との対応 5 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12319 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4751/12319 動作確認、古い入力との対応 161 件。
+- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4750/12319 動作確認、古い入力との対応 164 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12319 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12319 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12319 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3149/12319 動作確認、古い入力との対応 161 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3148/12319 動作確認、古い入力との対応 164 件。
 - `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2705/12319 動作確認、古い入力との対応 143 件。
 - 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
@@ -10262,7 +10262,7 @@ atohex is a no-argument string method returning integer.
 
 ### SV2023-6.16.9-EXTRACT-ATOI-BASE
 
-6.16.9 / normal / 実行確認あり
+6.16.9 / normal / テスト対応あり・実行未確認
 
 atoi() parses the leading decimal digit/underscore sequence into an integer under the stated scan rules.
 
@@ -10270,7 +10270,7 @@ atoi() parses the leading decimal digit/underscore sequence into an integer unde
 
 規定の性質: `mandatory`。
 
-- [test_string_atoi_2.sv](../tests/ch6/test_string_atoi_2.sv): decimal ASCII12345/0/2147483647を十進期待値と比較し、leading sign/spaceを読まない対照も持つ。
+- [test_string_atoi_2.sv](../tests/ch6/test_string_atoi_2.sv): decimal ASCII12345/0/2147483647を十進期待値と比較し、leading spaceを読まない対照も持つ。leading signは、6.16.9のsignの読み方が定まらないため、読む結果と読まない結果の両方を受け入れる。
 
 ### SV2023-6.16.9-EXTRACT-ATOI-SIGNATURE
 
