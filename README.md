@@ -246,7 +246,7 @@ results appear after a subsequent workflow runs that commit and publishes
 its results. Check `suite commit` and the test count before comparing a chart
 with the current suite.
 
-![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
+![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=ghost-20261028)
 
 Each simulator has its own marker: a circle for Icarus Verilog, a square for
 Verilator, a diamond for kirimasim, a downward triangle for Lyra and an orange
@@ -265,7 +265,7 @@ denominator. This table updates with the Nightly charts;
 its date and simulator versions are shown at the top. Click it to view the
 full-size image.
 
-[![Matching tests by chapter](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)
+[![Matching tests by chapter](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=ghost-20261028)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=ghost-20261028)
 
 ### Result statuses
 

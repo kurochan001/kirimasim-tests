@@ -207,7 +207,7 @@ Ghostは非公開のビルドで参加します。
 後続のワークフローが実行して公開するまで変わりません。現在のスイートと比較するときは、
 `suite commit`とテスト数を確認してください。
 
-![期待結果に一致するテスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
+![期待結果に一致するテスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=ghost-20261028)
 
 シミュレータごとに、Icarus Verilogは丸、Verilatorは四角、kirimasimはひし形、
 Lyraは下向き三角、Ghostはオレンジの上向き三角を使います。
@@ -221,7 +221,7 @@ Lyraは下向き三角、Ghostはオレンジの上向き三角を使います�
 表はNightlyのグラフとともに更新し、上部に日付とシミュレータの版を表示します。
 クリックすると原寸の画像を開けます。
 
-[![章別の一致テスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)
+[![章別の一致テスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=ghost-20261028)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=ghost-20261028)
 
 ### 結果の分類
 

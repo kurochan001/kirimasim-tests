@@ -3,7 +3,8 @@
 
 Usage:
     python3 tools/results_history.py update --history DIR [--suite-commit SHA]
-                                            [--run-url URL] [--time ISO] RESULT.json ...
+                                            [--run-url URL] [--time ISO]
+                                            [--source nightly|local] RESULT.json ...
     python3 tools/results_history.py render --history DIR
 
 update reads the --json files of the run_*.py scripts (one per simulator, in
@@ -142,7 +143,8 @@ def suite_commit() -> str:
     return r.stdout.strip()
 
 
-def update(directory: Path, results: list[Path], commit: str, run_url: str, time: str) -> dict:
+def update(directory: Path, results: list[Path], commit: str, run_url: str, time: str,
+           source: str = "nightly") -> dict:
     stats = suite_stats.collect()
     run = {
         "time": time,
@@ -151,6 +153,7 @@ def update(directory: Path, results: list[Path], commit: str, run_url: str, time
         "tests": stats["totals"]["tests"],
         "chapters": {str(c): row["tests"] for c, row in stats["chapters"].items()},
         "simulators": {},
+        **({"source": source} if source != "nightly" else {}),
     }
     for path in results:
         result = json.loads(path.read_text(encoding="utf-8"))
@@ -161,6 +164,7 @@ def update(directory: Path, results: list[Path], commit: str, run_url: str, time
         run["simulators"][sim] = summarize(result, before)
         save_json(latest, {"name": result["name"], "version": result["version"], "time": time,
                            "suite_commit": commit,
+                           **({"source": source} if source != "nightly" else {}),
                            "tests": {t: r["status"] for t, r in result["tests"].items()}})
     run["simulators"] = dict(sorted(run["simulators"].items(), key=lambda kv: sim_order(kv[0])))
     runs = load_history(directory) + [run]
@@ -447,27 +451,42 @@ def stacked_chart(title: str, subtitle: str, runs: list[dict], sim: str) -> str:
     return svg_document(width, height, STATUS_COLORS, body, f"{title}: {subtitle}")
 
 
-def heatmap(run: dict) -> str:
-    """The share of each chapter's tests that match, for each simulator of a run."""
-    sims = list(run["simulators"])
-    chapters = sorted(run["chapters"], key=int)
-    col, row, head, left = 150, 22, 92, 330
+def latest_snapshots(runs: list[dict]) -> dict[str, tuple[dict, dict]]:
+    """Each simulator's latest real run and result, retaining its provenance."""
+    latest = {}
+    for run in runs:
+        for sim, info in run["simulators"].items():
+            latest[sim] = (run, info)
+    return dict(sorted(latest.items(), key=lambda item: sim_order(item[0])))
+
+
+def heatmap(runs: list[dict]) -> str:
+    """The latest chapter results, with the actual date and suite of each column."""
+    latest = latest_snapshots(runs)
+    sims = list(latest)
+    chapters = sorted({c for _, info in latest.values() for c in info["chapters"]}, key=int)
+    col, row, head, left = 200, 22, 134, 330
     width = left + col * max(len(sims), 1) + 20
     height = head + row * len(chapters) + 20
     body = [text(20, 28, "Matching tests by chapter", "title"),
-            text(20, 48, f"Run of {parse_time(run['time']):%Y-%m-%d}: the share of each "
-                         "chapter's tests that match their expected results", "muted")]
+            text(20, 48, "Latest recorded result for each simulator; dates and suite commits "
+                         "can differ", "muted")]
     for i, sim in enumerate(sims):
-        info = run["simulators"][sim]
+        run, info = latest[sim]
         cx = left + col * i + col / 2
-        body.append(text(cx, head - 22, info["name"], "", "middle", ' font-weight="600"'))
-        body.append(text(cx, head - 8, short_version(info["version"]), "muted", "middle"))
+        body.append(text(cx, head - 64, info["name"], "", "middle", ' font-weight="600"'))
+        body.append(text(cx, head - 48, short_version(info["version"]), "muted", "middle"))
+        body.append(text(cx, head - 32, f"{parse_time(run['time']):%Y-%m-%d %H:%M} UTC",
+                         "muted", "middle"))
+        body.append(text(cx, head - 16,
+                         f"Suite {run['suite_commit'][:7]} / {run.get('source', 'nightly')}",
+                         "muted", "middle"))
     for j, chapter in enumerate(chapters):
         y = head + row * j
         title = suite_stats.CHAPTERS.get(int(chapter), "")
         body.append(text(20, y + 15, f"{chapter}  {title}"))
         for i, sim in enumerate(sims):
-            passed, total = run["simulators"][sim]["chapters"].get(chapter, [0, 0])
+            passed, total = latest[sim][1]["chapters"].get(chapter, [0, 0])
             x = left + col * i
             if total:
                 rate = passed / total
@@ -506,7 +525,7 @@ def render(directory: Path, runs: list[dict]) -> None:
     counts.append(("total", "tests in the suite", True, "dot", [r["tests"] for r in runs]))
     (charts / "overview.svg").write_text(line_chart(
         "Tests that match their expected results",
-        "Each night, every test of the suite's main branch, with each simulator",
+        "Recorded runs of the suite; local imports are identified in the report",
         runs, counts, colors, shown=lambda v: f"{v:.0f}"), encoding="utf-8")
 
     rates = [(sim, label(last[sim]), False, sim_marker(sim, sims),
@@ -518,7 +537,7 @@ def render(directory: Path, runs: list[dict]) -> None:
         runs, rates, colors, y_max=100, y_suffix="%", shown=lambda v: f"{v:.1f}%"),
         encoding="utf-8")
 
-    (charts / "chapters.svg").write_text(heatmap(runs[-1]), encoding="utf-8")
+    (charts / "chapters.svg").write_text(heatmap(runs), encoding="utf-8")
     for sim in sims:
         (charts / f"status-{sim}.svg").write_text(stacked_chart(
             f"{last[sim]['name']}: results by status",
@@ -564,6 +583,21 @@ def latest_table(run: dict) -> str:
     return "\n".join(lines)
 
 
+def latest_results_table(runs: list[dict]) -> str:
+    """Keep partial/local updates visible beside older, honestly dated results."""
+    lines = ["| Simulator | Version | Run (UTC) | Suite | Source | Match | Differ "
+             "| Known differences | Unsupported |",
+             "| --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |"]
+    for run, info in latest_snapshots(runs).values():
+        counts = info["counts"]
+        lines.append(
+            f"| {info['name']} | {info['version']} | {parse_time(run['time']):%Y-%m-%d %H:%M} "
+            f"| {commit_link(run['suite_commit'])} | {run.get('source', 'nightly')} "
+            f"| {counts['pass']} ({percent(counts['pass'], ran(info))}) | {counts['fail']} "
+            f"| {counts['known']} | {counts['unsupported']} |")
+    return "\n".join(lines)
+
+
 def changes_section(run: dict) -> str:
     out = []
     for sim, info in run["simulators"].items():
@@ -604,13 +638,16 @@ def report(runs: list[dict], sims: list[str]) -> str:
     run = runs[-1]
     when = parse_time(run["time"])
     workflow = f"{SERVER}/{REPOSITORY}/actions/workflows/nightly.yml"
-    run_link = f", [workflow run]({run['run_url']})" if run.get("run_url") else ""
+    chart = lambda name: f"charts/{name}?v={when:%Y%m%dT%H%M%S}"
+    link_label = "local result" if run.get("source") == "local" else "workflow run"
+    run_link = f", [{link_label}]({run['run_url']})" if run.get("run_url") else ""
     lines = [
         "# Nightly results of kirimasim-tests",
         "",
         f"The [nightly workflow]({workflow}) of [kirimasim-tests]({SERVER}/{REPOSITORY}) "
         "writes this branch. Each night it runs every test of the suite's main branch with "
         "each simulator, adds the results to `history.json` and draws the charts below. "
+        "Local runs can also be imported and are marked `local`. "
         "A test matches when its output and specified checks agree with the expected result, "
         "or an illegal design is rejected with the required diagnostic; see the suite's "
         "README for what each status means.",
@@ -618,12 +655,18 @@ def report(runs: list[dict], sims: list[str]) -> str:
         f"Latest run: {when:%Y-%m-%d %H:%M} UTC, suite commit {commit_link(run['suite_commit'])}, "
         f"{run['tests']} tests{run_link}.",
         "",
-        latest_table(run),
+        "## Latest results per simulator",
         "",
-        *[f"{NOTES[sim]}\n" for sim in sims if sim in NOTES and sim in run["simulators"]],
-        "![Tests that match their expected results](charts/overview.svg)",
+        "Each row and chapter-table column uses that simulator's most recent recorded run. "
+        "Dates, suite commits and test counts can differ; older results retain their own "
+        "dates and are not treated as part of the latest run.",
         "",
-        "![Share of the tests that match](charts/rate.svg)",
+        latest_results_table(runs),
+        "",
+        *[f"{NOTES[sim]}\n" for sim in sims if sim in NOTES],
+        f"![Tests that match their expected results]({chart('overview.svg')})",
+        "",
+        f"![Share of the tests that match]({chart('rate.svg')})",
         "",
         "## Changes in the latest run",
         "",
@@ -634,14 +677,14 @@ def report(runs: list[dict], sims: list[str]) -> str:
         changes_section(run),
         "## By chapter",
         "",
-        "![Matching tests by chapter](charts/chapters.svg)",
+        f"![Matching tests by chapter]({chart('chapters.svg')})",
         "",
         "## Each simulator over time",
         "",
     ]
     for sim in sims:
         name = next(r["simulators"][sim]["name"] for r in reversed(runs) if sim in r["simulators"])
-        lines += [f"![{name}: results by status](charts/status-{sim}.svg)", ""]
+        lines += [f"![{name}: results by status]({chart(f'status-{sim}.svg')})", ""]
     header = "| Run (UTC) | Suite | Tests | " + " | ".join(
         next(r["simulators"][s]["name"] for r in reversed(runs) if s in r["simulators"])
         for s in sims) + " |"
@@ -668,6 +711,8 @@ def report(runs: list[dict], sims: list[str]) -> str:
             cells.append(f"{matched(info)}{delta}{shown}")
         link = (f"[{parse_time(r['time']):%Y-%m-%d %H:%M}]({r['run_url']})" if r.get("run_url")
                 else f"{parse_time(r['time']):%Y-%m-%d %H:%M}")
+        if r.get("source") == "local":
+            link += " (local)"
         rows.append(f"| {link} | {commit_link(r['suite_commit'])} | {r['tests']} | "
                     + " | ".join(cells) + " |")
     lines += list(reversed(rows))[:RECENT_RUNS]
@@ -694,8 +739,10 @@ def main() -> int:
     up = sub.add_parser("update", help="add a run and render")
     up.add_argument("--history", type=Path, required=True, help="directory of the history")
     up.add_argument("--suite-commit", default=None, help="commit of the suite (default: HEAD)")
-    up.add_argument("--run-url", default="", help="URL of the workflow run")
+    up.add_argument("--run-url", default="", help="URL of the workflow or imported result")
     up.add_argument("--time", default=None, help="time of the run, ISO 8601 (default: now)")
+    up.add_argument("--source", choices=("nightly", "local"), default="nightly",
+                    help="origin of this run (default: nightly)")
     up.add_argument("results", nargs="+", type=Path, help="--json files of the runners")
     rd = sub.add_parser("render", help="draw the charts and the report again")
     rd.add_argument("--history", type=Path, required=True, help="directory of the history")
@@ -706,7 +753,7 @@ def main() -> int:
         return 0
     time = args.time or dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     run = update(args.history, args.results, args.suite_commit or suite_commit(),
-                 args.run_url, time)
+                 args.run_url, time, args.source)
     sys.stdout.write(summary(run))
     return 0
 
