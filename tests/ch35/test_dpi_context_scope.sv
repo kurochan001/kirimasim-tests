@@ -3,7 +3,7 @@
 :description: A context import runs in the scope of the instance whose import declaration it uses: svGetNameFromScope names it, user data is kept per scope, and svSetScope selects which instance an export runs in (IEEE 1800-2023 Section H.9.3)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 H.9.3 35.5.3 H.9.2
+:lrm: 1800-2023 H.9.3 35.5.3 H.9.1 H.9.2
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

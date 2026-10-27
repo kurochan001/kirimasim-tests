@@ -3,7 +3,7 @@
 :description: One imported function with an open-array formal takes actual arrays of different sizes and ranges, and C reads each actual's own bounds and elements (IEEE 1800-2023 Section 35.2.2, 35.5.6.1)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 35.2.2 35.5.6.1 H.12.1 H.12.2 H.12.3
+:lrm: 1800-2023 35.2.2 35.5.6 35.5.6.1 H.12.1 H.12.2 H.12.3
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

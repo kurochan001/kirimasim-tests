@@ -3,7 +3,7 @@
 :description: The unsigned forms of byte, shortint, int and longint, and an enumeration type, pass between SystemVerilog and C as the matching C types (IEEE 1800-2023 Section 35.5.6)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 35.5.6 35.5.5 H.7.4 H.8.9
+:lrm: 1800-2023 35.5.6 35.5.5 H.7.4 H.8.9 A.10
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

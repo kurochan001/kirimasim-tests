@@ -3,7 +3,7 @@
 :description: A module path delay is the time from a source port to a destination port, with an input or an inout port as the source and an output or an inout port as the destination, while the gates inside have no delay (IEEE 1800-2023 Section 30.2)
 :tags: ch30
 :type: simulation
-:lrm: 1800-2023 30.2
+:lrm: 1800-2023 30.2 A.7.3
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no

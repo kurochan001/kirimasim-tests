@@ -3,7 +3,7 @@
 :description: The deprecated portion of svdpi.h declares svSizeOfBitPackedArr and svSizeOfLogicPackedArr, the bit-select, part-select and whole-vector get routines of the canonical representation, and the whole-element get routines of svBitVec32 and svLogicVec32 with the return types and parameter lists that I.3 gives them (IEEE 1800-2023 Section 35.3.2, I.3)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 35.3.2 I.3
+:lrm: 1800-2023 35.3.2 H.5 H.14 I.3
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

@@ -3,7 +3,7 @@
 :description: the foreign side sees each argument with the type of the formal in the import declaration, so a 4-bit unsigned actual reaches an int formal as 15, a negative byte reaches an int as -1, a 32-bit actual reaches a bit [15:0] formal truncated, and a value written through an inout int is assigned back to a 4-bit actual (IEEE 1800-2023 Section 35.6.1)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 35.6.1 35.2.2
+:lrm: 1800-2023 35.6.1 35.6.1.1 35.2.2
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

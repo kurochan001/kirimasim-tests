@@ -3,7 +3,7 @@
 :description: svdpi.h has the include guard, macros, scalar values, types and routine declarations that Annex I gives, and svDpiVersion returns one of its two version strings (IEEE 1800-2023 Section 35.3.2, H.10.1, I.3)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 35.3.2 H.10.1 I.2 I.3
+:lrm: 1800-2023 35.3.2 H.10 H.10.1 I.2 I.3
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

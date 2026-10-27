@@ -3,7 +3,7 @@
 :description: Imported functions and tasks are declared with zero or more input, output and inout formals, imported functions return a value or are void, and an imported task, implemented by a C function that returns int, is called as a task enable (IEEE 1800-2023 Section 35.5.4)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 35.5.4 35.8 35.9 H.8.8
+:lrm: 1800-2023 35.5.4 35.5.6 35.8 35.9 H.8.8
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

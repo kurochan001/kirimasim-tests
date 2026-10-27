@@ -3,7 +3,7 @@
 :description: Formals with several packed dimensions reach C as one normalized packed dimension in row-major order, where the normalized element [l][m][n] of sizes (i, j, k) is bit n + m*k + l*j*k, for input and output, and a sized formal with three unpacked dimensions is a three-dimensional C array (IEEE 1800-2023 Section 35.5.6, H.7.5, H.7.1, H.11.2)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 35.5.6 H.7.5 H.7.1 H.11.2 H.7.6
+:lrm: 1800-2023 35.5.6 35.5.6.1 H.7.5 H.7.1 H.11.2 H.7.6
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

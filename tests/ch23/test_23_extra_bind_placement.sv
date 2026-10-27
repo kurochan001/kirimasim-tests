@@ -3,7 +3,7 @@
 :description: Bind directives may appear in a module, in an interface and in the compilation-unit scope, and each inserts its instance into the named target (IEEE 1800-2023 Section 23.11)
 :tags: ch23
 :type: simulation
-:lrm: 1800-2023 23.11
+:lrm: 1800-2023 23.11 A.1.4
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

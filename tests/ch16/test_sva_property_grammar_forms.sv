@@ -3,7 +3,7 @@
 :description: A named property takes formals, assertion local declarations, a property_spec with a clocking event and a disable condition and a closing label, and Syntax 16-16 admits sequence strength, Boolean, implication, temporal, abort, case and instance forms; the asserted instance and the covers report their times (IEEE 1800-2023 Section 16.12)
 :tags: ch16
 :type: simulation
-:lrm: 1800-2023 16.12 16.12.2 16.12.6 16.12.12 16.13.5 16.12.21
+:lrm: 1800-2023 16.12 16.12.2 16.12.6 16.12.12 16.13.5 16.12.21 A.2.10
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

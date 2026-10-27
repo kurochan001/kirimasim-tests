@@ -3,7 +3,7 @@
 :description: compiletf runs once for each call site, sizetf once for a sized system function and not for other types, both before the end of compilation, calltf once for each execution, and all three get the registered user_data (IEEE 1800-2023 Section 36.8)
 :tags: ch36
 :type: simulation
-:lrm: 1800-2023 36.8.1 36.8.2 36.8.3 36.8.4 36.10.2 38.37.1 38.36.3
+:lrm: 1800-2023 36.8 36.8.1 36.8.2 36.8.3 36.8.4 36.10.2 38.37.1 38.36.3
 :oracle: spec
 :spec_check: ai
 :fourstate: no

@@ -3,7 +3,7 @@
 :description: An open array argument takes arrays of any size and range, and C reads its bounds with svLeft, svRight and svSize and its elements with svGetArrElemPtr1 (IEEE 1800-2023 Section 35.5.6.1)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 35.5.6.1 35.6.1.1 H.12.1 H.12.2 H.12.3 H.12.7
+:lrm: 1800-2023 35.5.6.1 35.6.1.1 H.2 H.12.1 H.12.2 H.12.3 H.12.7
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

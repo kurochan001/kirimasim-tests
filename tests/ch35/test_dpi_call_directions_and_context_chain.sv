@@ -3,7 +3,7 @@
 :description: A C function imported as a function and one imported as a task are called from SystemVerilog, an exported SystemVerilog function is called from C, and a context import calls that export and reads its declaration scope through a C helper, so the call directions and the context call chain work (IEEE 1800-2023 Sections H.2, H.6.5 and H.9, A.2.6)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 35.5.4 H.2 H.6.5 H.9 H.9.3 A.2.6
+:lrm: 1800-2023 35.5.4 35.5.1.6 H.2 H.6.5 H.9 H.9.3 A.2.6
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

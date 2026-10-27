@@ -3,7 +3,7 @@
 :description: The deprecated portion of svdpi.h defines SV_CANONICAL_SIZE(WIDTH) as WIDTH+31 shifted right by 5, svBitVec32 as unsigned int, svLogicVec32 as a structure of two unsigned int members c and d in that order, and svBitPackedArrRef and svLogicPackedArrRef as aliases of void* (IEEE 1800-2023 Section 35.3.2, I.3)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 35.3.2 I.3
+:lrm: 1800-2023 35.3.2 H.5 H.14 I.3
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no
