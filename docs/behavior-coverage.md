@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 87.31%、実行 48.72%。**
+**全規格の要求台帳ベース（暫定）: 設計 87.61%、実行 49.66%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10756/12319 (87.31%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 6002/12319 (48.72%)。
-- 登録済みだがテスト未対応: 1563 動作。
+- 登録済み動作に対するテスト設計網羅率: 10793/12319 (87.61%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 6117/12319 (49.66%)。
+- 登録済みだがテスト未対応: 1526 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -36,143 +36,148 @@
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で
 グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
-- `associative-count-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:03:58.531565+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `associative-count-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:04:02.952792+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `associative-count-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:04:02.961719+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `associative-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T21:57:27.232690+00:00 / 0/12319 動作確認、古い入力との対応 4 件。
-- `associative-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T21:57:41.445007+00:00 / 8/12319 動作確認、古い入力との対応 4 件。
-- `associative-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T21:57:41.445004+00:00 / 8/12319 動作確認、古い入力との対応 4 件。
-- `associative-matching-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T21:44:20.971033+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `associative-matching-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T21:44:56.002490+00:00 / 28/12319 動作確認、古い入力との対応 0 件。
-- `associative-wildcard-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:00:52.942221+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `associative-wildcard-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.310380+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `associative-wildcard-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.305806+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2843/12319 動作確認、古い入力との対応 426 件。
-- `audit-oracle-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T22:23:59.392020+00:00 / 132/12319 動作確認、古い入力との対応 13 件。
-- `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 16/12319 動作確認、古い入力との対応 304 件。
-- `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 304 件。
-- `ch19-depth-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:12:42.328492+00:00 / 0/12319 動作確認、古い入力との対応 15 件。
-- `ch19-depth-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.443253+00:00 / 0/12319 動作確認、古い入力との対応 15 件。
-- `ch19-depth-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.556516+00:00 / 0/12319 動作確認、古い入力との対応 15 件。
-- `ch22-rehash-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:05:38.835073+00:00 / 0/12319 動作確認、古い入力との対応 11 件。
-- `ch22-rehash-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:05:47.728789+00:00 / 0/12319 動作確認、古い入力との対応 11 件。
-- `ch22-rehash-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:05:47.728454+00:00 / 0/12319 動作確認、古い入力との対応 11 件。
-- `ch22-rehash-20261026b-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T05:52:12.921099+00:00 / 5/12319 動作確認、古い入力との対応 0 件。
-- `ch22-rehash-20261026b-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T05:52:18.101877+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
-- `ch22-rehash-20261026b-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T05:52:23.007677+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
-- `ch37-depth-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:43:02.687407+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `ch37-depth-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:43:02.822987+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `ch37-depth-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:43:02.963097+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `ch5-rehash-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:09:39.229521+00:00 / 0/12319 動作確認、古い入力との対応 1 件。
-- `ch5-rehash-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:09:42.230539+00:00 / 0/12319 動作確認、古い入力との対応 1 件。
-- `ch5-rehash-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:09:45.032088+00:00 / 0/12319 動作確認、古い入力との対応 1 件。
-- `ch5-rehash-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-27T00:03:52.539190+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `ch5-rehash-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T00:03:55.682364+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `ch5-rehash-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T00:03:58.656387+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `citation-refinement-icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T14:29:24.878016+00:00 / 11/12319 動作確認、古い入力との対応 0 件。
-- `citation-refinement-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:29:34.097194+00:00 / 18/12319 動作確認、古い入力との対応 0 件。
-- `depthfix-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T05:54:55.670342+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
-- `depthfix-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T05:55:00.754706+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `depthfix-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T05:55:00.754811+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `depthfix2-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T07:53:58.809856+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `depthfix2-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:53:58.933818+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `depthfix2-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:53:59.056625+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `depthfix3-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T15:00:00.480399+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `depthfix3-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T15:00:04.953240+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `depthfix3-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T15:00:09.202257+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `depthfix4-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T16:29:54.414498+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `depthfix4-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T16:30:05.243400+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `depthfix4-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T16:30:15.666591+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `depthfix5-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T23:04:10.494231+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `depthfix5-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T23:04:14.547154+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `depthfix5-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T23:04:18.613151+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
-- `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
-- `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
-- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T12:15:06.437589+00:00 / 253/12319 動作確認、古い入力との対応 0 件。
-- `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 201/12319 動作確認、古い入力との対応 219 件。
-- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 338/12319 動作確認、古い入力との対応 219 件。
-- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 338/12319 動作確認、古い入力との対応 219 件。
-- `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 633/12319 動作確認、古い入力との対応 26 件。
-- `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 371/12319 動作確認、古い入力との対応 26 件。
-- `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 371/12319 動作確認、古い入力との対応 26 件。
-- `gap4-20261025-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T14:32:08.355598+00:00 / 202/12319 動作確認、古い入力との対応 10 件。
-- `gap4-20261025-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.687753+00:00 / 146/12319 動作確認、古い入力との対応 10 件。
-- `gap4-20261025-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.575982+00:00 / 146/12319 動作確認、古い入力との対応 10 件。
-- `gap5-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:06:15.714744+00:00 / 110/12319 動作確認、古い入力との対応 33 件。
-- `gap5-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.553737+00:00 / 76/12319 動作確認、古い入力との対応 33 件。
-- `gap5-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.656775+00:00 / 76/12319 動作確認、古い入力との対応 33 件。
-- `gap6-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:38:02.072405+00:00 / 136/12319 動作確認、古い入力との対応 3 件。
-- `gap6-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.634097+00:00 / 223/12319 動作確認、古い入力との対応 3 件。
-- `gap6-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.644312+00:00 / 223/12319 動作確認、古い入力との対応 3 件。
-- `gap7-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T17:06:51.310506+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
-- `gap7-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.035626+00:00 / 76/12319 動作確認、古い入力との対応 0 件。
-- `gap7-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.037049+00:00 / 76/12319 動作確認、古い入力との対応 0 件。
-- `gap8-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T18:02:58.641182+00:00 / 0/12319 動作確認、古い入力との対応 3 件。
-- `gap8-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T18:03:04.318717+00:00 / 3/12319 動作確認、古い入力との対応 3 件。
-- `gap8-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T18:03:04.318723+00:00 / 3/12319 動作確認、古い入力との対応 3 件。
-- `gap9-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:11:21.453322+00:00 / 67/12319 動作確認、古い入力との対応 21 件。
-- `gap9-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866738+00:00 / 202/12319 動作確認、古い入力との対応 21 件。
-- `gap9-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866731+00:00 / 202/12319 動作確認、古い入力との対応 21 件。
-- `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 97 件。
-- `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 899/12319 動作確認、古い入力との対応 97 件。
-- `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 899/12319 動作確認、古い入力との対応 97 件。
-- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 936/12319 動作確認、古い入力との対応 98 件。
-- `keyword-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T20:48:05.640625+00:00 / 497/12319 動作確認、古い入力との対応 0 件。
-- `keyword-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:11.194190+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `keyword-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:16.559292+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `nightly-suite-corrections-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-26T15:06:37.287782+00:00 / 5/12319 動作確認、古い入力との対応 0 件。
-- `nightly-suite-corrections-20261027-kirimasim.json`: kirimasim 0.0.0 (commit a2aa75737147), built with AppleClang 21.0.0.21000334 / 2026-10-26T15:06:37.257360+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `nightly-suite-corrections-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T15:06:47.554094+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
-- `nightly-suite-corrections-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T15:06:47.554081+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
-- `oracle-refinement-20261025-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T08:34:28.086983+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `oracle-refinement-20261025-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T08:34:28.290523+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `oracle-refinement-20261025-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T08:34:28.496835+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `p10-refinement-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:10:20.539124+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `p10-refinement-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:10:25.147557+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `p10-refinement-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:10:29.594580+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `quality-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T11:45:16.876642+00:00 / 23/12319 動作確認、古い入力との対応 0 件。
-- `quality-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T11:45:41.230196+00:00 / 23/12319 動作確認、古い入力との対応 0 件。
-- `quality-vpi-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T12:10:47.803286+00:00 / 95/12319 動作確認、古い入力との対応 0 件。
-- `quality-vpi-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T12:10:59.588073+00:00 / 95/12319 動作確認、古い入力との対応 0 件。
-- `regex-refinement-20261025-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T23:12:32.819720+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `regex-refinement-20261025-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T23:12:34.091987+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `regex-refinement-20261025-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T23:12:35.145250+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `subroutine-citation-refinement-20261023-icarus.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-22T16:11:50.000804+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
-- `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
-- `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 11/12319 動作確認、古い入力との対応 0 件。
-- `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
-- `sva-m3-corrections-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-26T11:49:21.588600+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `sva-m3-corrections-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T11:49:21.845350+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `sva-m3-corrections-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T11:49:27.252106+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 953/12319 動作確認、古い入力との対応 98 件。
-- `wave2-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T07:49:36.623500+00:00 / 17/12319 動作確認、古い入力との対応 21 件。
-- `wave2-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:49:55.030232+00:00 / 8/12319 動作確認、古い入力との対応 21 件。
-- `wave2-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:49:55.025139+00:00 / 10/12319 動作確認、古い入力との対応 21 件。
-- `wave2fix-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T07:50:25.250116+00:00 / 0/12319 動作確認、古い入力との対応 12 件。
-- `wave2fix-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:50:33.523423+00:00 / 0/12319 動作確認、古い入力との対応 12 件。
-- `wave2fix-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:50:41.827921+00:00 / 0/12319 動作確認、古い入力との対応 12 件。
-- `wave3-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T09:49:06.565835+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
-- `wave3-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T09:49:42.819680+00:00 / 42/12319 動作確認、古い入力との対応 0 件。
-- `wave3-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T09:49:42.864761+00:00 / 42/12319 動作確認、古い入力との対応 0 件。
-- `wave4-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T12:53:22.275773+00:00 / 40/12319 動作確認、古い入力との対応 1 件。
-- `wave4-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T12:54:05.657427+00:00 / 72/12319 動作確認、古い入力との対応 1 件。
-- `wave4-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T12:54:05.657424+00:00 / 72/12319 動作確認、古い入力との対応 1 件。
-- `wave5-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T14:56:52.749202+00:00 / 17/12319 動作確認、古い入力との対応 0 件。
-- `wave5-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T14:57:52.950035+00:00 / 48/12319 動作確認、古い入力との対応 0 件。
-- `wave5-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T14:57:52.924855+00:00 / 48/12319 動作確認、古い入力との対応 0 件。
-- `wave6-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T16:27:00.033635+00:00 / 17/12319 動作確認、古い入力との対応 0 件。
-- `wave6-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T16:27:18.416149+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
-- `wave6-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T16:27:18.416410+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
-- `wave7-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T23:01:47.236167+00:00 / 3/12319 動作確認、古い入力との対応 1 件。
-- `wave7-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T23:02:01.308709+00:00 / 8/12319 動作確認、古い入力との対応 1 件。
-- `wave7-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T23:02:01.308708+00:00 / 8/12319 動作確認、古い入力との対応 1 件。
-- `wave8-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-27T00:03:17.546118+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `wave8-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T00:03:27.937262+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
-- `wave8-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T00:03:37.993900+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
+- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12319 動作確認、古い入力との対応 0 件。
+- `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12319 動作確認、古い入力との対応 0 件。
+- `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
+- `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3133/12319 動作確認、古い入力との対応 0 件。
+- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2799/12319 動作確認、古い入力との対応 0 件。
+- 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: associative-count-refinement-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: associative-gaps-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: associative-gaps-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: associative-gaps-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: associative-matching-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: associative-matching-20261023-verilator.json: legacy, unknown, or stale runner provenance。
+- 不採用: associative-wildcard-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: associative-wildcard-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: associative-wildcard-refinement-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: audit-full-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: audit-oracle-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: audit-spec-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: audit-spec-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch19-depth-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch19-depth-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch19-depth-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch22-rehash-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch22-rehash-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch22-rehash-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch22-rehash-20261026b-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch22-rehash-20261026b-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch22-rehash-20261026b-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch37-depth-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch37-depth-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch37-depth-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch5-rehash-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch5-rehash-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch5-rehash-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch5-rehash-20261027-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch5-rehash-20261027-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: ch5-rehash-20261027-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: citation-refinement-icarus.json: legacy, unknown, or stale runner provenance。
+- 不採用: citation-refinement-verilator.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix2-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix2-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix2-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix3-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix3-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix3-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix4-20261027-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix4-20261027-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix4-20261027-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix5-20261027-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix5-20261027-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: depthfix5-20261027-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: expression-gaps-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: expression-gaps-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: expression-gaps-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap-refinement-20261024-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap-refinement-20261024-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap-refinement-20261024-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap-tests-2-20261024-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap-tests-2-20261024-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap-tests-2-20261024-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap-tests-20261024-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap-tests-20261024-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap-tests-20261024-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap4-20261025-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap4-20261025-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap4-20261025-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap5-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap5-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap5-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap6-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap6-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap6-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap7-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap7-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap7-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap8-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap8-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap8-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap9-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap9-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: gap9-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: header-vpi-tests-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: header-vpi-tests-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: header-vpi-tests-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: icarus.json: legacy, unknown, or stale runner provenance。
+- 不採用: keyword-tests-20261024-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: keyword-tests-20261024-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: keyword-tests-20261024-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: nightly-suite-corrections-20261027-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: nightly-suite-corrections-20261027-kirimasim.json: legacy, unknown, or stale runner provenance。
+- 不採用: nightly-suite-corrections-20261027-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: nightly-suite-corrections-20261027-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: oracle-refinement-20261025-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: oracle-refinement-20261025-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: oracle-refinement-20261025-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: p10-refinement-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: p10-refinement-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: p10-refinement-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: quality-20261027-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: quality-20261027-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: quality-vpi-20261027-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: quality-vpi-20261027-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: regex-refinement-20261025-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: regex-refinement-20261025-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: regex-refinement-20261025-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: subroutine-citation-refinement-20261023-icarus.json: legacy, unknown, or stale runner provenance。
+- 不採用: subroutine-citation-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: subroutine-citation-refinement-20261023-verilator.json: legacy, unknown, or stale runner provenance。
+- 不採用: subroutine-initialization-group-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: sva-m3-corrections-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: sva-m3-corrections-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: sva-m3-corrections-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: verilator.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave2-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave2-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave2-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave2fix-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave2fix-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave2fix-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave3-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave3-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave3-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave4-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave4-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave4-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave5-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave5-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave5-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave6-20261026-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave6-20261026-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave6-20261026-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave7-20261027-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave7-20261027-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave7-20261027-verilator-seed73.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave8-20261027-icarus13.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave8-20261027-verilator-seed1.json: legacy, unknown, or stale runner provenance。
+- 不採用: wave8-20261027-verilator-seed73.json: legacy, unknown, or stale runner provenance。
 
 ## 章・附属書別の調査状態
 
@@ -193,7 +198,7 @@
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 94。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 59。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 68。
-- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 486。
+- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 523。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 59。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 300。
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 215。
@@ -12848,7 +12853,7 @@ A user type declaration includes its hierarchical instance scope, so each instan
 
 ### SV2023-6.22-EXTRACT-SHARED-NOMINAL-TYPE
 
-6.22 / normal / テスト対応あり・実行未確認
+6.22 / normal / 実行確認あり
 
 Matching/equivalent class, enum, unpacked struct/union types across instances require a shared declaration imported from a package or an enclosing compilation-unit scope; packed structs/unions also require shared identity for matching.
 
@@ -21059,7 +21064,7 @@ An interface-class handle may invoke randomize with optional inline constraints;
 
 ### SV2023-8.26.9-EXTRACT-NO-INTERFACE-CONSTRAINT-COVERGROUP
 
-8.26.9 / error / テスト対応あり・実行未確認
+8.26.9 / error / 実行確認あり
 
 Interface classes cannot declare constraint blocks or covergroups.
 
@@ -21829,7 +21834,7 @@ always_comb has exclusive target-writing restrictions including called functions
 
 ### SV2023-9.2.2.2.2-EXTRACT-NO-COMB-BLOCKING
 
-9.2.2.2.2 / error / テスト対応あり・実行未確認
+9.2.2.2.2 / error / 実行確認あり
 
 always_comb cannot contain blocking statements, blocking timing/event controls or fork-join statements.
 
@@ -23999,7 +24004,7 @@ A continuous-assigned variable must be explicitly declared before the statement;
 
 ### SV2023-10.3.2-EXTRACT-VARIABLE-ONE-DRIVER
 
-10.3.2 / error / テスト対応あり・実行未確認
+10.3.2 / error / 実行確認あり
 
 A variable may have only one continuous/primitive-output/module-output driver and cannot also have a declaration initializer or procedural assignment.
 
@@ -24868,7 +24873,7 @@ Continuous/procedural assignment is an assignment-like context.
 
 ### SV2023-10.8-EXTRACT-CLOSED-CONTEXT-LIST
 
-10.8 / error / テスト対応あり・実行未確認
+10.8 / error / 実行確認あり
 
 No unlisted context is assignment-like, including pattern default correspondences, declaration port expressions, subroutine ref arguments and module/interface/program inout/ref port connections.
 
@@ -36917,7 +36922,7 @@ Immediate assertions are permitted wherever a procedural statement is permitted 
 
 ### SV2023-16.3-EXTRACT-SEVERITY-CALLS
 
-16.3 / normal / 実行確認あり
+16.3 / normal / テスト対応あり・実行未確認
 
 Severity system tasks are permitted in pass or fail actions and produce the same tool-specific message for the same task regardless of the action context.
 
@@ -36941,7 +36946,7 @@ A simple immediate assertion executes enabled actions immediately after evaluati
 
 ### SV2023-16.3-EXTRACT-SYNTAX
 
-16.3 / normal / 実行確認あり
+16.3 / normal / テスト対応あり・実行未確認
 
 Simple immediate assert and assume use a parenthesized expression and an action block; cover uses a parenthesized expression and statement_or_null. Deferred forms use #0 or final; optional labels and optional pass/fail actions follow Syntax 16-1.
 
@@ -38423,7 +38428,7 @@ It is an error if any sequence match completes with an inout/output local formal
 
 ### SV2023-16.8.2-EXTRACT-OUTPUT-UNASSIGNED
 
-16.8.2 / normal / テスト未対応
+16.8.2 / normal / 実行確認あり
 
 An output local formal starts each instance attempt unassigned.
 
@@ -38431,6 +38436,7 @@ An output local formal starts each instance attempt unassigned.
 
 規定の性質: `mandatory`。
 
+- [test_formal_f41_sequence_output.sv](../tests/ch16/test_formal_f41_sequence_output.sv): SymbiYosysでch16のformalケースf41_sequence_outputを実行し、独立RTL参照と比較する。The reference states that the sequence local output v is uninitialized and is assigned a at tick 1; the packed result requires the assignment to be the first value of v in the instance, with no incoming value. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.8.2-EXTRACT-UNTYPED-LOCAL-PASSING
 
@@ -39585,7 +39591,7 @@ An assertion-variable declaration requires an explicit assertion-permitted type 
 
 ### SV2023-16.10-EXTRACT-FLOW-OUT-STATIC
 
-16.10 / normal / テスト未対応
+16.10 / normal / 実行確認あり
 
 Local-variable flow is determined statically by F.5.4; a local lacking flow out becomes unassigned at composite completion.
 
@@ -39593,6 +39599,7 @@ Local-variable flow is determined statically by F.5.4; a local lacking flow out 
 
 規定の性質: `mandatory`。
 
+- [test_formal_f54_flow_concat.sv](../tests/ch16/test_formal_f54_flow_concat.sv): SymbiYosysでch16のformalケースf54_flow_concatを実行し、独立RTL参照と比較する。flow(concat) is composed from the operands (flow(flow(X,left),right)); the result is a set computed from the syntax, and variant 1 shows a left declaration removing the name before the right flow is taken, so the flow is static rather than sampled. The 'unassigned at composite co 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.10-EXTRACT-INIT-DEPENDENCY
 
@@ -39657,7 +39664,7 @@ Locals declared within a sequence/property are not visible in its instantiating 
 
 ### SV2023-16.10-EXTRACT-LOST-FLOW
 
-16.10 / normal / テスト未対応
+16.10 / normal / 実行確認あり
 
 A local that does not flow out of a subsequence becomes unassigned at its end, regardless of prior assignments, and cannot be referenced until assigned again.
 
@@ -39665,6 +39672,7 @@ A local that does not flow out of a subsequence becomes unassigned at its end, r
 
 規定の性質: `mandatory`。
 
+- [test_formal_ch16_local_lost_flow.sv](../tests/ch16/test_formal_ch16_local_lost_flow.sv): SymbiYosysでch16のformalケースch16_local_lost_flowを実行し、独立RTL参照と比較する。tight() outgoing context after `(v; ((v=b) ##1 d))`: the declaration ends with the outer value of v (or with v absent when there was no outer value), so the assignment inside the declaration does not flow out. The second variant `((v=b) ##1 d)` shows the assigned value flowing ou 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.10-EXTRACT-MATCH-ASSIGNMENTS
 
@@ -39680,7 +39688,7 @@ Locals may be assigned/reassigned by parenthesized sequence match items; at each
 
 ### SV2023-16.10-EXTRACT-NO-DEFAULT
 
-16.10 / normal / テスト未対応
+16.10 / normal / 実行確認あり
 
 Assertion locals have no default initial values; locals lacking initializers start unassigned.
 
@@ -39688,6 +39696,7 @@ Assertion locals have no default initial values; locals lacking initializers sta
 
 規定の性質: `definition`。
 
+- [test_formal_f561_empty_context.sv](../tests/ch16/test_formal_f561_empty_context.sv): SymbiYosysでch16のformalケースf561_empty_contextを実行し、独立RTL参照と比較する。An unqualified clocked property starts with the empty local context: the reference reads the letter v instead of the incoming context value, so a local has no default value before its first assignment. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.10-EXTRACT-NO-EMPTY-ASSIGNMENT
 
@@ -40167,7 +40176,7 @@ Table 16-3 precedence level 3 (highest first) is throughout; associativity is ri
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES
 
-16.12 / normal / テスト未対応
+16.12 / normal / 実行確認あり
 
 Table 16-3 precedence level 10 (highest first) is until, s_until, until_with, s_until_with, implies; associativity is right.
 
@@ -40175,6 +40184,7 @@ Table 16-3 precedence level 10 (highest first) is until, s_until, until_with, s_
 
 規定の性質: `definition`。
 
+- [test_formal_ch16_precedence_right.sv](../tests/ch16/test_formal_ch16_precedence_right.sv): SymbiYosysでch16のformalケースch16_precedence_rightを実行し、独立RTL参照と比較する。a until b until c is parsed as a until (b until c): the reference separates a real right-operand witness from an unfinished left operand, and a implies b implies c is read as a -> (b -> c), which differs from the left-associated reading when a and c are false. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN
 
@@ -40336,7 +40346,7 @@ strong(seq) and strong(first_match(seq)) have equivalent truth values.
 
 ### SV2023-16.12.2-EXTRACT-WEAK
 
-16.12.2 / normal / テスト未対応
+16.12.2 / normal / 実行確認あり
 
 weak(sequence_expr) is true if and only if there is no finite prefix witnessing inability to match.
 
@@ -40344,6 +40354,7 @@ weak(sequence_expr) is true if and only if there is no finite prefix witnessing 
 
 規定の性質: `definition`。
 
+- [test_formal_f531_weak.sv](../tests/ch16/test_formal_f531_weak.sv): SymbiYosysでch16のformalケースf531_weakを実行し、独立RTL参照と比較する。weak(a ##\[1:$\] b) is true exactly when no finite prefix is already dead: a true and b never present gives 0x3f (hold), while a false fails at that tick. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.2-EXTRACT-WEAK-FIRST-MATCH
 
@@ -40371,7 +40382,7 @@ not property_expr evaluates to the Boolean complement of the operand evaluation.
 
 ### SV2023-16.12.3-EXTRACT-NEGATION-STRENGTH
 
-16.12.3 / normal / テスト未対応
+16.12.3 / normal / 実行確認あり
 
 Property negation switches strength, including when its operand is an implicitly weak sequence property.
 
@@ -40379,6 +40390,7 @@ Property negation switches strength, including when its operand is an implicitly
 
 規定の性質: `definition`。
 
+- [test_formal_f531_not.sv](../tests/ch16/test_formal_f531_not.sv): SymbiYosysでch16のformalケースf531_notを実行し、独立RTL参照と比較する。not (a ##1 b) is decided (success at tick 1 for a0=1,b1=0, success at tick 0 for a0=0); the negation of the implicitly weak sequence property flips the strength instead of holding. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.4-EXTRACT-DISJUNCTION
 
@@ -40624,7 +40636,7 @@ seq #-# strong(s) equals strong(seq ##0 s), and seq #=# strong(s) equals strong(
 
 ### SV2023-16.12.10-EXTRACT-INDEXED-NEXTTIME
 
-16.12.10 / normal / テスト未対応
+16.12.10 / normal / 実行確認あり
 
 nexttime\[n\] p holds if fewer than n further ticks exist or p holds at the nth further tick, with alignment under the following rule.
 
@@ -40632,6 +40644,7 @@ nexttime\[n\] p holds if fewer than n further ticks exist or p holds at the nth 
 
 規定の性質: `definition`。
 
+- [test_formal_nexttime_end.sv](../tests/ch16/test_formal_nexttime_end.sv): SymbiYosysでch16のformalケースnexttime_endを実行し、独立RTL参照と比較する。nexttime\[2\] a on a two-tick word holds (0x3f) because fewer than two further ticks exist; f343_next_positive adds the p-at-the-nth-tick half (nexttime\[2\] a = success at tick 2 exactly when a\[2\]). 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.10-EXTRACT-INDEXED-STRONG-NEXTTIME
 
@@ -40647,7 +40660,7 @@ s_nexttime\[n\] p requires n further ticks and p to hold at the nth, with alignm
 
 ### SV2023-16.12.10-EXTRACT-NEXTTIME
 
-16.12.10 / normal / テスト未対応
+16.12.10 / normal / 実行確認あり
 
 nexttime p holds if p holds at the next tick or no next tick exists.
 
@@ -40655,6 +40668,7 @@ nexttime p holds if p holds at the next tick or no next tick exists.
 
 規定の性質: `definition`。
 
+- [test_formal_f343_next_zero.sv](../tests/ch16/test_formal_f343_next_zero.sv): SymbiYosysでch16のformalケースf343_next_zeroを実行し、独立RTL参照と比較する。Clocked nexttime: the attempt looks for the next clock tick after the first c tick; when no such tick exists the result is a hold (0x3f), and a false p at that tick fails at that tick. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.10-EXTRACT-NEXTTIME-ALIGN
 
@@ -40742,7 +40756,7 @@ A concurrent verification statement outside an initial procedure starts a top-le
 
 ### SV2023-16.12.11-EXTRACT-RANGED-ALWAYS
 
-16.12.11 / normal / テスト未対応
+16.12.11 / normal / 実行確認あり
 
 always\[n:m\] p requires p at all existing ticks in the inclusive range without requiring all range ticks to exist; its upper bound may be $.
 
@@ -40750,10 +40764,11 @@ always\[n:m\] p requires p at all existing ticks in the inclusive range without 
 
 規定の性質: `definition`。
 
+- [test_formal_ch16_always_range.sv](../tests/ch16/test_formal_ch16_always_range.sv): SymbiYosysでch16のformalケースch16_always_rangeを実行し、独立RTL参照と比較する。Four alignments of always: a complete bounded range decides at its last tick, a range whose upper ticks do not exist holds, an unbounded range ($) holds, and a point range checks only its one tick. The lower bound 0 is included in the checked ticks. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.11-EXTRACT-STRONG-ALWAYS
 
-16.12.11 / normal / テスト未対応
+16.12.11 / normal / 実行確認あり
 
 s_always\[n:m\] p requires all range ticks to exist and p at each; its range shall be bounded.
 
@@ -40761,6 +40776,7 @@ s_always\[n:m\] p requires all range ticks to exist and p at each; its range sha
 
 規定の性質: `definition`。
 
+- [test_formal_s_always_end.sv](../tests/ch16/test_formal_s_always_end.sv): SymbiYosysでch16のformalケースs_always_endを実行し、独立RTL参照と比較する。s_always\[1:2\] a on a two-tick word is pending (0x4f) because the upper bound tick 2 does not exist: the strong form requires every tick of the bounded range. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.12-EXTRACT-UNTIL-NONOVERLAP
 
@@ -40790,7 +40806,7 @@ p until_with q and p s_until_with q require p from attempt start through and inc
 
 ### SV2023-16.12.12-EXTRACT-UNTIL-STRONG
 
-16.12.12 / normal / テスト未対応
+16.12.12 / normal / 実行確認あり
 
 s_until and s_until_with additionally require a current or future tick where the right operand holds.
 
@@ -40798,10 +40814,11 @@ s_until and s_until_with additionally require a current or future tick where the
 
 規定の性質: `definition`。
 
+- [test_formal_f343_strong_until.sv](../tests/ch16/test_formal_f343_strong_until.sv): SymbiYosysでch16のformalケースf343_strong_untilを実行し、独立RTL参照と比較する。a s_until b = (a until b) and s_eventually b: a true on every tick with b never true gives pending 0x4f, i.e. the strong form additionally requires the right operand to occur. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.12-EXTRACT-UNTIL-WEAK
 
-16.12.12 / normal / テスト未対応
+16.12.12 / normal / 実行確認あり
 
 until and until_with do not require eventual right-operand satisfaction and hold if the left operand holds at every tick even when the right never holds.
 
@@ -40809,10 +40826,11 @@ until and until_with do not require eventual right-operand satisfaction and hold
 
 規定の性質: `definition`。
 
+- [test_formal_f343_until_with.sv](../tests/ch16/test_formal_f343_until_with.sv): SymbiYosysでch16のformalケースf343_until_withを実行し、独立RTL参照と比較する。a until_with b = a until (a and b): a true throughout with b never true is a hold (0x3f), so no eventual right-operand satisfaction is required. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.13-EXTRACT-EVENTUALLY-ALIGN
 
-16.12.13 / normal / テスト未対応
+16.12.13 / normal / 実行確認あり
 
 Eventually first aligns to its clock at or after evaluation time; s_eventually\[n:m\] requires p beginning at one of the n+1st through m+1st ticks counted from that alignment.
 
@@ -40820,6 +40838,7 @@ Eventually first aligns to its clock at or after evaluation time; s_eventually\[
 
 規定の性質: `definition`。
 
+- [test_formal_s_eventually_end.sv](../tests/ch16/test_formal_s_eventually_end.sv): SymbiYosysでch16のformalケースs_eventually_endを実行し、独立RTL参照と比較する。s_eventually\[1:2\] a begins its range at the tick after the evaluation tick (alignment) and requires a there; a missing upper tick leaves the strong form pending. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.13-EXTRACT-RANGED-STRONG-EVENTUALLY
 
@@ -40848,7 +40867,7 @@ s_eventually p requires a current or future tick where p holds.
 
 ### SV2023-16.12.13-EXTRACT-WEAK-EVENTUALLY
 
-16.12.13 / normal / テスト未対応
+16.12.13 / normal / 実行確認あり
 
 eventually\[n:m\] p holds if p holds at some existing tick in the range or not all ticks in the range exist; the range shall be bounded.
 
@@ -40856,6 +40875,7 @@ eventually\[n:m\] p holds if p holds at some existing tick in the range or not a
 
 規定の性質: `definition`。
 
+- [test_formal_eventually_end.sv](../tests/ch16/test_formal_eventually_end.sv): SymbiYosysでch16のformalケースeventually_endを実行し、独立RTL参照と比較する。eventually\[1:2\] a on a two-tick word: tick 1 exists and tick 2 does not, so a true at tick 1 is a success and a false at tick 1 is a hold (0x3f) because not all range ticks exist. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.14-EXTRACT-ABORT-ARGUMENTS
 
@@ -40993,7 +41013,7 @@ sync_accept_on/sync_reject_on use sampled values but evaluate their conditions o
 
 ### SV2023-16.12.15-EXTRACT-STRONG-OPERATORS
 
-16.12.15 / normal / テスト未対応
+16.12.15 / normal / 実行確認あり
 
 s_nexttime, s_always, s_eventually, s_until, s_until_with and strong require the applicable terminating condition and enough property-clock ticks for it.
 
@@ -41001,10 +41021,11 @@ s_nexttime, s_always, s_eventually, s_until, s_until_with and strong require the
 
 規定の性質: `definition`。
 
+- [test_formal_f343_strong_next.sv](../tests/ch16/test_formal_f343_strong_next.sv): SymbiYosysでch16のformalケースf343_strong_nextを実行し、独立RTL参照と比較する。s_nexttime\[2\] a on a two-tick word is pending (0x4f): the strong operator needs enough property-clock ticks for the terminating condition. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.15-EXTRACT-WEAK-OPERATORS
 
-16.12.15 / normal / テスト未対応
+16.12.15 / normal / 実行確認あり
 
 nexttime, always, until, eventually, until_with and weak impose no extra clock-existence or eventual terminating-condition requirement.
 
@@ -41012,6 +41033,7 @@ nexttime, always, until, eventually, until_with and weak impose no extra clock-e
 
 規定の性質: `definition`。
 
+- [test_formal_f531_weak.sv](../tests/ch16/test_formal_f531_weak.sv): SymbiYosysでch16のformalケースf531_weakを実行し、独立RTL参照と比較する。always\[1:$\] a holds (0x3f) with a true even though the $ range can never be completed, and fails at the first false tick; no extra clock-existence requirement is imposed. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.16-EXTRACT-CASE-FALLBACK
 
@@ -41249,7 +41271,7 @@ Holds without holding strongly means no bad states and all future obligations me
 
 ### SV2023-16.12.21-EXTRACT-PENDING
 
-16.12.21 / normal / テスト未対応
+16.12.21 / normal / 実行確認あり
 
 Pending means no bad state yet, future obligations unmet, and possible satisfaction or violation on an extension.
 
@@ -41257,6 +41279,7 @@ Pending means no bad state yet, future obligations unmet, and possible satisfact
 
 規定の性質: `definition`。
 
+- [test_formal_f343_eventually_not_always.sv](../tests/ch16/test_formal_f343_eventually_not_always.sv): SymbiYosysでch16のformalケースf343_eventually_not_alwaysを実行し、独立RTL参照と比較する。s_eventually a with a false on all three ticks gives 0x4f: no bad state yet, the future obligation is unmet, and an extension may satisfy it. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.12.21-EXTRACT-STRONGLY-HOLDS
 
@@ -41443,7 +41466,7 @@ Multiclocked |-> starts the consequent at the nearest consequent-clock tick at o
 
 ### SV2023-16.13.3-EXTRACT-ADJOINT-ONE
 
-16.13.3 / normal / テスト未対応
+16.13.3 / normal / 実行確認あり
 
 For clock-free x,y,z: @(c) x ##1 y |=> @(d) z equals @(c) x |=> y |=> @(d) z.
 
@@ -41451,10 +41474,11 @@ For clock-free x,y,z: @(c) x ##1 y |=> @(d) z equals @(c) x |=> y |=> @(d) z.
 
 規定の性質: `definition`。
 
+- [test_formal_ch16_adjoint_one.sv](../tests/ch16/test_formal_ch16_adjoint_one.sv): SymbiYosysでch16のformalケースch16_adjoint_oneを実行し、独立RTL参照と比較する。@(c) x ##1 y |=> @(d) z and @(c) x |=> y |=> @(d) z must give the same attempt: x on the c alignment, y on the next c tick, z on the first d tick after y. Both halves come from independent F.5.1.1 rewrites in clocking.py and are compared with one clause-derived loop. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.13.3-EXTRACT-ADJOINT-ZERO
 
-16.13.3 / normal / テスト未対応
+16.13.3 / normal / 実行確認あり
 
 For clock-free x,y,z: @(c) x ##0 y |=> @(d) z equals @(c) x |-> y |=> @(d) z.
 
@@ -41462,6 +41486,7 @@ For clock-free x,y,z: @(c) x ##0 y |=> @(d) z equals @(c) x |-> y |=> @(d) z.
 
 規定の性質: `definition`。
 
+- [test_formal_ch16_adjoint_zero.sv](../tests/ch16/test_formal_ch16_adjoint_zero.sv): SymbiYosysでch16のformalケースch16_adjoint_zeroを実行し、独立RTL参照と比較する。@(c) x ##0 y |=> @(d) z and @(c) x |-> y |=> @(d) z both test y on x's c tick and send z to the first d tick after x, so the fusion form and the overlapping-implication form are the same attempt. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.13.3-EXTRACT-INSTANCE-FLOW
 
@@ -41500,7 +41525,7 @@ Clock scope flows left-to-right through linear operators and distributes into br
 
 ### SV2023-16.13.3-EXTRACT-NO-DISABLE-FLOW
 
-16.13.3 / normal / テスト未対応
+16.13.3 / normal / 実行確認あり
 
 Clock scope does not flow into disable iff conditions.
 
@@ -41508,6 +41533,7 @@ Clock scope does not flow into disable iff conditions.
 
 規定の性質: `mandatory`。
 
+- [test_formal_f51_async.sv](../tests/ch16/test_formal_f51_async.sv): SymbiYosysでch16のformalケースf51_asyncを実行し、独立RTL参照と比較する。The clocked disable iff case tests d at every global tick up to the decision point, not only on c ticks, so the disable condition does not inherit the property clock. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.13.3-EXTRACT-PARENTHESES
 
@@ -41666,7 +41692,7 @@ triggered/matched operands shall be named sequence instances with optional argum
 
 ### SV2023-16.13.6-EXTRACT-METHOD-RESULT
 
-16.13.6 / normal / テスト未対応
+16.13.6 / normal / 実行確認あり
 
 triggered/matched return one-bit true/false independent of match start and their sampled values are their current values.
 
@@ -41674,6 +41700,7 @@ triggered/matched return one-bit true/false independent of match start and their
 
 規定の性質: `definition`。
 
+- [test_formal_f61_triggered.sv](../tests/ch16/test_formal_f61_triggered.sv): SymbiYosysでch16のformalケースf61_triggeredを実行し、独立RTL参照と比較する。T.triggered is a one-bit value per tick: the reference reports a0&b1 at j=1 and a1&b2 at j=2 regardless of where the match started; f61_matched covers the matched counterpart. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.13.6-EXTRACT-NO-MATCHED-SAMPLED-FUNCTION
 
@@ -41950,7 +41977,7 @@ An assumption expression may include dist {dist_list} for random-simulation bias
 
 ### SV2023-16.14.2-EXTRACT-FORMAL-ASSUME
 
-16.14.2 / normal / テスト未対応
+16.14.2 / normal / 実行確認あり
 
 Formal analysis may use assumed properties as environmental hypotheses without an obligation to prove them.
 
@@ -41958,6 +41985,7 @@ Formal analysis may use assumed properties as environmental hypotheses without a
 
 規定の性質: `definition`。
 
+- [test_formal_f531_feasible.sv](../tests/ch16/test_formal_f531_feasible.sv): SymbiYosysでch16のformalケースf531_feasibleを実行し、独立RTL参照と比較する。The assumed property g is used as an environmental hypothesis: when it is infeasible the attempt is not required to hold (0x1f), and the assumption itself is never turned into a proof obligation. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.14.2-EXTRACT-SIMULATION-ASSUME
 
@@ -42419,7 +42447,7 @@ Both inferred functions shall be the entire default expression of a property/seq
 
 ### SV2023-16.14.7-EXTRACT-INFERRED-SUBSTITUTION
 
-16.14.7 / normal / テスト未対応
+16.14.7 / normal / 実行確認あり
 
 Inferred defaults substitute expressions resolved at the property/sequence/checker instantiation: top-level assertions use the statement context, nested property/sequence instances use clock flow to that instance, and checker defaults use its instance location.
 
@@ -42427,6 +42455,7 @@ Inferred defaults substitute expressions resolved at the property/sequence/check
 
 規定の性質: `mandatory`。
 
+- [test_formal_f41_property_bind.sv](../tests/ch16/test_formal_f41_property_bind.sv): SymbiYosysでch16のformalケースf41_property_bindを実行し、独立RTL参照と比較する。The declaration default y = c is bound to the actual before substitution, so the inferred default is resolved at the instantiation boundary. Only the default-binding half of 16.14.7 is covered; the clock-flow half is listed as a limitation. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.14.8-EXTRACT-NONVACUOUS-A
 
@@ -43022,7 +43051,7 @@ An outside-declared sequence/property instantiated within a clocking block shall
 
 ### SV2023-16.16-EXTRACT-MAXIMAL-PROPERTY
 
-16.16 / normal / テスト未対応
+16.16 / normal / 実行確認あり
 
 Clock events apply throughout their scope until superseded; the maximal property is the unique flattened assertion property obtained by F.4.1 rewriting.
 
@@ -43030,6 +43059,7 @@ Clock events apply throughout their scope until superseded; the maximal property
 
 規定の性質: `definition`。
 
+- [test_formal_f41_flatten_equiv.sv](../tests/ch16/test_formal_f41_flatten_equiv.sv): SymbiYosysでch16のformalケースf41_flatten_equivを実行し、独立RTL参照と比較する。The finite status of the named instance equals the status of the F.4.1 flattened property, including the illegal-flattening branch, so the assertion is checked against the unique flattened property. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16-EXTRACT-MULTICLOCK-LEADING
 
@@ -43045,7 +43075,7 @@ A multiclocked sequence/property may inherit a default leading clock, but a maxi
 
 ### SV2023-16.16-EXTRACT-NO-CLOCK-FALLBACK
 
-16.16 / error / テスト対応あり・実行未確認
+16.16 / error / 実行確認あり
 
 With no explicit, default or context-inferred assertion clock, the maximal property shall be a sequence/property instance with a uniquely determined leading clock event.
 
@@ -43080,7 +43110,7 @@ A multiclocked property has a unique semantic leading clock when all its leading
 
 ### SV2023-16.16.1-EXTRACT-INHERITED
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 An implicit initial clock from outer clock flow is called inherited.
 
@@ -43088,10 +43118,11 @@ An implicit initial clock from outer clock flow is called inherited.
 
 規定の性質: `definition`。
 
+- [test_formal_f51_sequence.sv](../tests/ch16/test_formal_f51_sequence.sv): SymbiYosysでch16のformalケースf51_sequenceを実行し、独立RTL参照と比較する。A clocked sequence property with no explicit prefix uses the incoming clock c: the reference skips leading non-c ticks and starts at the first c tick, which is the inherited clock. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16.1-EXTRACT-OUTER-CLOCK
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 An inherited clock denotes the incoming outer clock; q under incoming c is clocked equivalently to @(c) q.
 
@@ -43099,10 +43130,11 @@ An inherited clock denotes the incoming outer clock; q under incoming c is clock
 
 規定の性質: `definition`。
 
+- [test_formal_ch16_lead_outer_clock.sv](../tests/ch16/test_formal_ch16_lead_outer_clock.sv): SymbiYosysでch16のformalケースch16_lead_outer_clockを実行し、独立RTL参照と比較する。The same rule is applied twice: skip to the first tick where the outer clock c is true and test a there. One half leaves the clock implicit (inherited) and the other spells out @(c); a difference between the inherited and explicit paths shows up as a half that disagrees with the 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16.1-EXTRACT-PROP-AND-OR
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 Property and/or have the union of their operand semantic-leading-clock sets.
 
@@ -43110,6 +43142,7 @@ Property and/or have the union of their operand semantic-leading-clock sets.
 
 規定の性質: `definition`。
 
+- [test_formal_ch16_lead_prefix.sv](../tests/ch16/test_formal_ch16_lead_prefix.sv): SymbiYosysでch16のformalケースch16_lead_prefixを実行し、独立RTL参照と比較する。Three leading-clock shapes: a clock-free sequence under @(c1) starts on c1; an inner @(c2) on a clock-free operand keeps c2 because the outer prefix finds no inherited clock to replace; and an operand that is half clock-free and half @(c2) ends up with both leading clocks, so the 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16.1-EXTRACT-PROP-ASYNC-ABORT
 
@@ -43124,7 +43157,7 @@ accept_on/reject_on preserve the operand property semantic-leading-clock set.
 
 ### SV2023-16.16.1-EXTRACT-PROP-CLOCK-FREE
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 A clock-free property has semantic-leading-clock set {inherited}.
 
@@ -43132,6 +43165,7 @@ A clock-free property has semantic-leading-clock set {inherited}.
 
 規定の性質: `definition`。
 
+- [test_formal_f51_impl_boolean.sv](../tests/ch16/test_formal_f51_impl_boolean.sv): SymbiYosysでch16のformalケースf51_impl_booleanを実行し、独立RTL参照と比較する。a |-> b is clock-free and is evaluated under the inherited clock c: the reference starts at the first c tick and decides there, so the clock-free property has the singleton set {inherited}. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16.1-EXTRACT-PROP-IMPLICATION
 
@@ -43190,7 +43224,7 @@ The s_eventually forms listed in 16.16.1 have semantic-leading-clock set {inheri
 
 ### SV2023-16.16.1-EXTRACT-PROP-INHERITED-NEXTTIME
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 The nexttime forms listed in 16.16.1 have semantic-leading-clock set {inherited}.
 
@@ -43198,10 +43232,11 @@ The nexttime forms listed in 16.16.1 have semantic-leading-clock set {inherited}
 
 規定の性質: `definition`。
 
+- [test_formal_f51_next.sv](../tests/ch16/test_formal_f51_next.sv): SymbiYosysでch16のformalケースf51_nextを実行し、独立RTL参照と比較する。nexttime under the inherited clock c consumes the next c tick and adds no clock of its own, so the nexttime forms keep the set {inherited}. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16.1-EXTRACT-PROP-INHERITED-SYNC-ABORT
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 The sync_accept_on/sync_reject_on forms listed in 16.16.1 have semantic-leading-clock set {inherited}.
 
@@ -43209,10 +43244,11 @@ The sync_accept_on/sync_reject_on forms listed in 16.16.1 have semantic-leading-
 
 規定の性質: `definition`。
 
+- [test_formal_f51_sync.sv](../tests/ch16/test_formal_f51_sync.sv): SymbiYosysでch16のformalケースf51_syncを実行し、独立RTL参照と比較する。Tp(sync_accept_on(g) p, c) = accept_on(g && c) Tp(p, c): the reference ANDs the condition with c and keeps p's clock, so the sync abort forms preserve the operand set. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16.1-EXTRACT-PROP-INHERITED-UNTIL
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 The until/until_with forms listed in 16.16.1 have semantic-leading-clock set {inherited}.
 
@@ -43220,6 +43256,7 @@ The until/until_with forms listed in 16.16.1 have semantic-leading-clock set {in
 
 規定の性質: `definition`。
 
+- [test_formal_f51_until.sv](../tests/ch16/test_formal_f51_until.sv): SymbiYosysでch16のformalケースf51_untilを実行し、独立RTL参照と比較する。until under the inherited clock c scans only c ticks (the reference iterates the clock and stops at the first q or !p), so the until forms have the inherited clock. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16.1-EXTRACT-PROP-INSTANCE
 
@@ -43245,7 +43282,7 @@ Property parentheses and not preserve the operand semantic-leading-clock set.
 
 ### SV2023-16.16.1-EXTRACT-PROP-PREFIX
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 @(c) q replaces inherited by c in q semantic-leading-clock set and otherwise leaves the set unchanged.
 
@@ -43253,6 +43290,7 @@ Property parentheses and not preserve the operand semantic-leading-clock set.
 
 規定の性質: `definition`。
 
+- [test_formal_f51_ts_clock.sv](../tests/ch16/test_formal_f51_ts_clock.sv): SymbiYosysでch16のformalケースf51_ts_clockを実行し、独立RTL参照と比較する。An inner @(c2) on one operand of an or replaces the inherited clock for that operand only (Ts distributes per operand), which is the prefix rule: replace inherited by c and leave the rest of the set alone. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16.1-EXTRACT-PROP-STRENGTH
 
@@ -43267,7 +43305,7 @@ strong(m) and weak(m) have the singleton semantic-leading-clock set containing m
 
 ### SV2023-16.16.1-EXTRACT-SEQ-CLOCK-FREE
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 A clock-free sequence has inherited semantic leading clock.
 
@@ -43275,10 +43313,11 @@ A clock-free sequence has inherited semantic leading clock.
 
 規定の性質: `definition`。
 
+- [test_formal_ch16_lead_prefix.sv](../tests/ch16/test_formal_ch16_lead_prefix.sv): SymbiYosysでch16のformalケースch16_lead_prefixを実行し、独立RTL参照と比較する。Three leading-clock shapes: a clock-free sequence under @(c1) starts on c1; an inner @(c2) on a clock-free operand keeps c2 because the outer prefix finds no inherited clock to replace; and an operand that is half clock-free and half @(c2) ends up with both leading clocks, so the 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16.1-EXTRACT-SEQ-DELAY-LEADING
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 Both m1 ##1 m2 and m1 ##0 m2 have the semantic leading clock of m1.
 
@@ -43286,10 +43325,11 @@ Both m1 ##1 m2 and m1 ##0 m2 have the semantic leading clock of m1.
 
 規定の性質: `definition`。
 
+- [test_formal_ch16_lead_seq_delay.sv](../tests/ch16/test_formal_ch16_lead_seq_delay.sv): SymbiYosysでch16のformalケースch16_lead_seq_delayを実行し、独立RTL参照と比較する。The leading clock of m1 ##1 m2 and of m1 ##0 m2 is the leading clock of m1: the attempt starts on the first c1 tick and only then does the right operand run on its own c2 alignment (after the left end for ##1, at the left end for ##0). The per-age counts make both alignments visi 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16.1-EXTRACT-SEQ-PARENTHESES
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 Parenthesizing a sequence preserves its semantic leading clock.
 
@@ -43297,10 +43337,11 @@ Parenthesizing a sequence preserves its semantic leading clock.
 
 規定の性質: `definition`。
 
+- [test_formal_f531_clock_paren.sv](../tests/ch16/test_formal_f531_clock_paren.sv): SymbiYosysでch16のformalケースf531_clock_parenを実行し、独立RTL参照と比較する。@(posedge clk) (((a) ##1 (b))) gives the same clocked result as the unparenthesized sequence, so parentheses preserve the leading clock. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16.1-EXTRACT-SEQ-PREFIX
 
-16.16.1 / normal / テスト未対応
+16.16.1 / normal / 実行確認あり
 
 @(c) on a clock-free sequence gives leading c; on a multiclocked sequence it replaces inherited with c and otherwise preserves the existing leading clock.
 
@@ -43308,6 +43349,7 @@ Parenthesizing a sequence preserves its semantic leading clock.
 
 規定の性質: `definition`。
 
+- [test_formal_ch16_lead_prefix.sv](../tests/ch16/test_formal_ch16_lead_prefix.sv): SymbiYosysでch16のformalケースch16_lead_prefixを実行し、独立RTL参照と比較する。Three leading-clock shapes: a clock-free sequence under @(c1) starts on c1; an inner @(c2) on a clock-free operand keeps c2 because the outer prefix finds no inherited clock to replace; and an operand that is half clock-free and half @(c2) ends up with both leading clocks, so the 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-16.16.1-EXTRACT-SEQ-UNIQUE
 
@@ -43410,7 +43452,7 @@ Checker variables may be deterministic or random for nondeterministic modeling.
 
 ### SV2023-17.1-EXTRACT-NO-NETS
 
-17.1 / error / テスト対応あり・実行未確認
+17.1 / error / 実行確認あり
 
 Nets shall not be declared or assigned in checker bodies.
 
@@ -45068,7 +45110,7 @@ A same-name derived prototype replaces an inherited constraint and is completed 
 
 ### SV2023-18.5.2-EXTRACT-PURE-CONSTRAINT
 
-18.5.2 / error / テスト対応あり・実行未確認
+18.5.2 / error / 実行確認あり
 
 Only abstract classes may declare pure constraints, and concrete derived classes shall implement every inherited pure constraint.
 
@@ -47061,7 +47103,7 @@ rand_mode on an object-handle variable changes only that handle variable mode an
 
 ### SV2023-18.8-EXTRACT-INVALID-MODE-VARIABLE
 
-18.8 / error / テスト対応あり・実行未確認
+18.8 / error / 実行確認あり
 
 A nonexistent variable or one not declared rand/randc in the class hierarchy causes a compile error.
 
@@ -47963,7 +48005,7 @@ Production case evaluates/compares items in declaration order and generates the 
 
 ### SV2023-18.17.3-EXTRACT-CASE-UNIQUE-DEFAULT
 
-18.17.3 / error / テスト対応あり・実行未確認
+18.17.3 / error / 実行確認あり
 
 More than one default in a production case is illegal.
 
@@ -48188,7 +48230,7 @@ Only already-generated productions to the left of the reading code block have re
 
 ### SV2023-19.2-EXTRACT-COVERAGE-METRIC
 
-19.2 / normal / テスト対応あり・実行未確認
+19.2 / normal / 実行確認あり
 
 Coverage measures the percentage of verification objectives met; functional coverage is the user-defined measurement of exercised specification features in the test plan.
 
@@ -48320,7 +48362,7 @@ Options may apply to the group or individual items; in general group options app
 
 ### SV2023-19.3-EXTRACT-READONLY-ARGS
 
-19.3 / error / テスト対応あり・実行未確認
+19.3 / error / 実行確認あり
 
 Covergroup constructor formals shall not be output/inout; ref is read-only as const ref and no formal may be accessed by hierarchical name.
 
@@ -52383,7 +52425,7 @@ An otherwise legal query is legal in a constant expression when type(first_argum
 
 ### SV2023-20.7-EXTRACT-DIMENSION-NUMBERING
 
-20.7 / normal / テスト対応あり・実行未確認
+20.7 / normal / 実行確認あり
 
 After expanding intermediate typedefs, array dimensions number from slowest varying as 1 through successively faster dimensions.
 
@@ -52395,7 +52437,7 @@ After expanding intermediate typedefs, array dimensions number from slowest vary
 
 ### SV2023-20.7-EXTRACT-DIMENSIONS
 
-20.7 / normal / テスト対応あり・実行未確認
+20.7 / normal / 実行確認あり
 
 $dimensions returns all packed/unpacked static/dynamic array dimensions, 1 for strings or nonarray simple-bit-vector-equivalent types, and 0 for other types.
 
@@ -52479,7 +52521,7 @@ Querying a dynamically sized type identifier directly is an error.
 
 ### SV2023-20.7-EXTRACT-PREDEFINED-INTEGER-DIMENSION
 
-20.7 / normal / テスト対応あり・実行未確認
+20.7 / normal / 実行確認あり
 
 Predefined-width integer types act as a single packed \[width-1:0\] dimension for querying.
 
@@ -52515,7 +52557,7 @@ $size returns the dimension element count, equal to high-low+1 for nonassociativ
 
 ### SV2023-20.7-EXTRACT-UNPACKED-DIMENSIONS
 
-20.7 / normal / テスト対応あり・実行未確認
+20.7 / normal / 実行確認あり
 
 $unpacked_dimensions returns the unpacked static/dynamic dimension count of an array, and 0 for other types.
 
@@ -57452,7 +57494,7 @@ A file address is @ immediately followed by hexadecimal digits of either case wi
 
 ### SV2023-21.4-EXTRACT-MEMORY-ARRAY-ARGUMENT
 
-21.4 / error / テスト対応あり・実行未確認
+21.4 / error / 実行確認あり
 
 The load target may be an unpacked array or partially indexed multidimensional unpacked array; higher selected dimensions require indices rather than ranges, and only the lowest selected dimension may use a slice.
 
@@ -58051,7 +58093,7 @@ With arguments, the first gives hierarchy depth below each selected module insta
 
 ### SV2023-21.7.1.2-EXTRACT-DUMPVARS-SYNTAX
 
-21.7.1.2 / normal / テスト対応あり・実行未確認
+21.7.1.2 / normal / 実行確認あり
 
 dumpvars accepts no arguments or a hierarchy depth followed optionally by module/variable selections.
 
@@ -59859,7 +59901,7 @@ resetall shall not occur within a design element.
 
 ### SV2023-22.4-EXTRACT-INCLUDE-ABSOLUTE
 
-22.4 / error / テスト対応あり・実行未確認
+22.4 / error / 実行確認あり
 
 An absolute include path uses only the quoted form and selects only that filename.
 
@@ -59950,7 +59992,7 @@ include accepts a quoted or angle-bracket filename and may occur anywhere in sou
 
 ### SV2023-22.5-EXTRACT-MACRO-NO-RESET
 
-22.5 / normal / テスト対応あり・実行未確認
+22.5 / normal / 実行確認あり
 
 resetall does not affect text macros.
 
@@ -67143,7 +67185,7 @@ Parameters may depend on other value/type parameters through types; changing tho
 
 ### SV2023-23.10.4-EXTRACT-ELABORATION
 
-23.10.4 / normal / テスト対応あり・実行未確認
+23.10.4 / normal / 実行確認あり
 
 Elaboration between parsing and simulation binds instances, constructs hierarchy, computes parameters, resolves hierarchy names and establishes net connectivity.
 
@@ -74535,7 +74577,7 @@ UDP input fields follow header port-list order, not body input-declaration order
 
 ### SV2023-29.3.4-EXTRACT-UDP-TABLE-DELIMITERS
 
-29.3.4 / error / テスト対応あり・実行未確認
+29.3.4 / error / 実行確認あり
 
 UDP behavior tables use table/endtable and semicolon-terminated rows with supported 0/1/x states; z is not a table state.
 
@@ -76578,7 +76620,7 @@ Unqualified PATHPULSE applies to every module path; path-specific limits overrid
 
 ### SV2023-30.7.2-EXTRACT-GLOBAL-PULSE-DEFAULT
 
-30.7.2 / normal / テスト対応あり・実行未確認
+30.7.2 / normal / 実行確認あり
 
 Both global percentages default to 100 percent of each transition delay.
 
@@ -80493,7 +80535,7 @@ A config sharing its library/name with a module or primitive requires the explic
 
 ### SV2023-33.2.1-EXTRACT-LIBRARY-CELL
 
-33.2.1 / normal / テスト対応あり・実行未確認
+33.2.1 / normal / 実行確認あり
 
 A library is a named collection of design-element cells; cell names match their design element and may be qualified by a library identifier.
 
@@ -80505,7 +80547,7 @@ A library is a named collection of design-element cells; cell names match their 
 
 ### SV2023-33.3-EXTRACT-SYMBOLIC-LIBRARY-NAMES
 
-33.3 / normal / テスト対応あり・実行未確認
+33.3 / normal / 実行確認あり
 
 Symbolic library.cell with optional config suffix refers to mapped source cells independently of filesystem location.
 
@@ -81164,7 +81206,7 @@ A vpiModule has string vpiLibrary giving its compilation library.
 
 ### SV2023-33.8-EXTRACT-CONFIG-OVER-DEFAULT-SEARCH
 
-33.8 / normal / テスト対応あり・実行未確認
+33.8 / normal / 実行確認あり
 
 Library search can be controlled without a config, but a selected config overrides the default search rules in this subclause.
 
@@ -83558,7 +83600,7 @@ viewport grants tool access to named objects in the current protected envelope; 
 
 ### SV2023-35.2-EXTRACT-BLACK-BOX-LINKAGE
 
-35.2 / normal / テスト対応あり・実行未確認
+35.2 / normal / 実行確認あり
 
 DPI uses subroutine encapsulation with implementation-language transparency and C linkage semantics.
 
@@ -83570,7 +83612,7 @@ DPI uses subroutine encapsulation with implementation-language transparency and 
 
 ### SV2023-35.2-EXTRACT-ISOLATED-LAYERS
 
-35.2 / normal / テスト対応あり・実行未確認
+35.2 / normal / 実行確認あり
 
 DPI separates SystemVerilog and foreign-language layers; neither compiler is required to analyze source in the other language, and the standardized foreign layer is C.
 
@@ -83667,7 +83709,7 @@ Cross-language task enables are supported; imported tasks return no value and ma
 
 ### SV2023-35.2.2-EXTRACT-OPEN-ARRAY-FORMAL
 
-35.2.2 / normal / テスト対応あり・実行未確認
+35.2.2 / normal / 実行確認あり
 
 Imported function formals may be declared as open arrays under 35.5.6.1.
 
@@ -83713,7 +83755,7 @@ Four-state, structure and array internal layouts must not change SV semantics; t
 
 ### SV2023-35.3-EXTRACT-C-REQUIRED
 
-35.3 / normal / テスト対応あり・実行未確認
+35.3 / normal / 実行確認あり
 
 The implementation must support C protocols and linkage; other foreign layers may be supported.
 
@@ -83725,7 +83767,7 @@ The implementation must support C protocols and linkage; other foreign layers ma
 
 ### SV2023-35.3-EXTRACT-LAYER-TRANSPARENCY
 
-35.3 / normal / テスト対応あり・実行未確認
+35.3 / normal / 実行確認あり
 
 SV source and semantics stay unchanged across supported foreign layers; foreign calling, argument and linkage protocols remain transparent to SV users.
 
@@ -83737,7 +83779,7 @@ SV source and semantics stay unchanged across supported foreign layers; foreign 
 
 ### SV2023-35.3.1-EXTRACT-SV-LAYER-INDEPENDENCE
 
-35.3.1 / normal / テスト対応あり・実行未確認
+35.3.1 / normal / 実行確認あり
 
 SV DPI source and semantics are independent of the foreign language and its call/argument protocol.
 
@@ -83856,7 +83898,7 @@ The deprecated DPI version string selects the packed-array convention of H.14; e
 
 ### SV2023-35.5-EXTRACT-IMPORT-USAGE
 
-35.5 / normal / テスト対応あり・実行未確認
+35.5 / normal / 実行確認あり
 
 Imported functions are used with the native SV function call semantics subject to DPI restrictions.
 
@@ -85009,7 +85051,7 @@ An omitted c_identifier defaults to function_identifier; no two same-scope funct
 
 ### SV2023-35.7-EXTRACT-EXPORT-SCOPE
 
-35.7 / error / テスト対応あり・実行未確認
+35.7 / error / 実行確認あり
 
 A foreign-callable SV function requires one export declaration in its definition scope; multiple exports of it in that scope are forbidden.
 
@@ -85234,7 +85276,7 @@ DPI task status values do not change SV task-enable syntax; native SV calls to i
 
 ### SV2023-36.2-EXTRACT-PLI-INTERFACE
 
-36.2 / normal / テスト対応あり・実行未確認
+36.2 / normal / 実行確認あり
 
 PLI/VPI is a C procedural interface for dynamic access/modification of the elaborated instantiated design and association of foreign routines with user system task/function names.
 
@@ -85387,7 +85429,7 @@ A user system task is allowed where an SV void function is allowed, may read/wri
 
 ### SV2023-36.6-EXTRACT-PLI-APPLICATION
 
-36.6 / normal / テスト対応あり・実行未確認
+36.6 / normal / 実行確認あり
 
 A PLI application is a foreign C function using PLI libraries linked into a tool, called at compilation/execution of the registered SV system task/function rather than an independent C program.
 
@@ -85399,7 +85441,7 @@ A PLI application is a foreign C function using PLI libraries linked into a tool
 
 ### SV2023-36.7-EXTRACT-INCLUDE-HEADERS
 
-36.7 / normal / テスト対応あり・実行未確認
+36.7 / normal / 実行確認あり
 
 A VPI application must include normative vpi_user.h and sv_vpi_user.h, which supply function declarations, constants, structures and interface data.
 
@@ -85592,7 +85634,7 @@ vpi_register_cb specifies reason, callback routine and system/user data; provide
 
 ### SV2023-36.10-EXTRACT-INSTANCE-IDENTITY
 
-36.10 / normal / テスト対応あり・実行未確認
+36.10 / normal / 実行確認あり
 
 VPI objects are uniquely accessible per elaborated instance; equal declarations in different instances have distinct related objects/properties.
 
@@ -85604,7 +85646,7 @@ VPI objects are uniquely accessible per elaborated instance; equal declarations 
 
 ### SV2023-36.10-EXTRACT-SIMULATION-OBJECTS
 
-36.10 / normal / テスト対応あり・実行未確認
+36.10 / normal / 実行確認あり
 
 VPI exposes both SV and simulation-specific objects rather than only source hierarchy.
 
@@ -87176,7 +87218,7 @@ Users/providers should verify the target design/partition has no constructs unsu
 
 ### SV2023-37.2-EXTRACT-OPAQUE-HANDLE
 
-37.2 / normal / テスト対応あり・実行未確認
+37.2 / normal / 実行確認あり
 
 vpiHandle is an opaque object reference with implementation-defined representation; legal operations depend on referred object type.
 
@@ -118605,7 +118647,7 @@ A tf-port item has repeated attributes, optional direction, optional var, data/i
 
 ### SV2023-A.2.8-EXTRACT-BLOCK-DECL
 
-A.2.8 / normal / テスト対応あり・実行未確認
+A.2.8 / normal / 実行確認あり
 
 Block-item declarations permit repeated attributes before data declarations, localparam/parameter declarations followed by semicolon, or let declarations.
 
@@ -121558,7 +121600,7 @@ Path declarations are simple, edge-sensitive or state-dependent declarations ter
 
 ### SV2023-A.7.2-EXTRACT-SIMPLE-DESCRIPTIONS
 
-A.7.2 / normal / テスト対応あり・実行未確認
+A.7.2 / normal / 実行確認あり
 
 Simple parallel path is parenthesized input terminal, optional polarity, =>, output terminal; full path uses input list, optional polarity, *>, output list.
 
@@ -121570,7 +121612,7 @@ Simple parallel path is parenthesized input terminal, optional polarity, =>, out
 
 ### SV2023-A.7.2-EXTRACT-STATE-DEPENDENT
 
-A.7.2 / normal / テスト対応あり・実行未確認
+A.7.2 / normal / 実行確認あり
 
 State-dependent path is if(module-path expression) simple/edge-sensitive path, or ifnone simple path; data source is expression; edges are posedge/negedge/edge and polarity is + or -.
 
@@ -121593,7 +121635,7 @@ Specify input identifiers are input/inout ports or interface identifier dot port
 
 ### SV2023-A.7.3-EXTRACT-TERMINAL-LISTS
 
-A.7.3 / normal / テスト対応あり・実行未確認
+A.7.3 / normal / 実行確認あり
 
 Input/output path lists contain one or more comma-separated corresponding terminal descriptors; each descriptor has identifier with optional bracketed constant-range expression.
 
@@ -121605,7 +121647,7 @@ Input/output path lists contain one or more comma-separated corresponding termin
 
 ### SV2023-A.7.4-EXTRACT-DELAY-EXPRESSION
 
-A.7.4 / normal / テスト対応あり・実行未確認
+A.7.4 / normal / 実行確認あり
 
 Every named path delay component aliases path-delay expression, which is a constant mintypmax expression.
 
@@ -121617,7 +121659,7 @@ Every named path delay component aliases path-delay expression, which is a const
 
 ### SV2023-A.7.4-EXTRACT-DELAY-LIST
 
-A.7.4 / normal / テスト対応あり・実行未確認
+A.7.4 / normal / 実行確認あり
 
 Path-delay values permit a path-delay-expression list with or without enclosing parentheses.
 
@@ -121629,7 +121671,7 @@ Path-delay values permit a path-delay-expression list with or without enclosing 
 
 ### SV2023-A.7.4-EXTRACT-DELAY-ONE
 
-A.7.4 / normal / テスト対応あり・実行未確認
+A.7.4 / normal / 実行確認あり
 
 The one-entry path-delay list has ordered components t.
 
@@ -121641,7 +121683,7 @@ The one-entry path-delay list has ordered components t.
 
 ### SV2023-A.7.4-EXTRACT-DELAY-SIX
 
-A.7.4 / normal / テスト対応あり・実行未確認
+A.7.4 / normal / 実行確認あり
 
 The six-entry path-delay list has ordered components 01,10,0z,z1,1z,z0.
 
@@ -121653,7 +121695,7 @@ The six-entry path-delay list has ordered components 01,10,0z,z1,1z,z0.
 
 ### SV2023-A.7.4-EXTRACT-DELAY-THREE
 
-A.7.4 / normal / テスト対応あり・実行未確認
+A.7.4 / normal / 実行確認あり
 
 The three-entry path-delay list has ordered components rise, fall, z.
 
@@ -121665,7 +121707,7 @@ The three-entry path-delay list has ordered components rise, fall, z.
 
 ### SV2023-A.7.4-EXTRACT-DELAY-TWELVE
 
-A.7.4 / normal / テスト対応あり・実行未確認
+A.7.4 / normal / 実行確認あり
 
 The twelve-entry path-delay list has ordered components 01,10,0z,z1,1z,z0,0x,x1,1x,x0,xz,zx.
 
@@ -121677,7 +121719,7 @@ The twelve-entry path-delay list has ordered components 01,10,0z,z1,1z,z0,0x,x1,
 
 ### SV2023-A.7.4-EXTRACT-DELAY-TWO
 
-A.7.4 / normal / テスト対応あり・実行未確認
+A.7.4 / normal / 実行確認あり
 
 The two-entry path-delay list has ordered components rise, fall.
 
@@ -127632,7 +127674,7 @@ The current VPI handle-release API is vpi_release_handle with clarified validity
 
 ### SV2023-C.2.7-EXTRACT-CHECKER-ALWAYS
 
-C.2.7 / normal / テスト対応あり・実行未確認
+C.2.7 / normal / 実行確認あり
 
 Checkers permit always_comb,always_latch,always_ff; general always procedure was removed from current standard checker semantics.
 
@@ -127677,7 +127719,7 @@ Two defparams may target the same parameter with undefined results; do not asser
 
 ### SV2023-C.4.1-EXTRACT-NAMED-PARAMETERS
 
-C.4.1 / normal / テスト対応あり・実行未確認
+C.4.1 / normal / 実行確認あり
 
 Named inline overrides provide parameter values by name in the instantiation.
 
@@ -127689,7 +127731,7 @@ Named inline overrides provide parameter values by name in the instantiation.
 
 ### SV2023-C.4.1-EXTRACT-ORDERED-PARAMETERS
 
-C.4.1 / normal / テスト対応あり・実行未確認
+C.4.1 / normal / 実行確認あり
 
 The described implicit inline override supplies ordered assignments through the parameter being overridden, applying the current parameter rules.
 
@@ -127712,7 +127754,7 @@ A defparam may precede/follow the target, be at file end or in another file, and
 
 ### SV2023-C.4.1-EXTRACT-REQUIRED
 
-C.4.1 / normal / テスト対応あり・実行未確認
+C.4.1 / normal / 実行確認あり
 
 Current tools must support defparam despite possible future removal.
 
@@ -127724,7 +127766,7 @@ Current tools must support defparam despite possible future removal.
 
 ### SV2023-C.4.2-EXTRACT-CONTINUOUS
 
-C.4.2 / normal / テスト対応あり・実行未確認
+C.4.2 / normal / 実行確認あり
 
 Continuous assign is outside procedures and forms a process active throughout simulation.
 
@@ -127747,7 +127789,7 @@ Users are encouraged to replace procedural assign/deassign with alternative assi
 
 ### SV2023-C.4.2-EXTRACT-PROCEDURAL
 
-C.4.2 / normal / テスト対応あり・実行未確認
+C.4.2 / normal / 実行確認あり
 
 Procedural continuous assignment becomes active when assign executes and can be deactivated by deassign; force/release can model the required behavior.
 
@@ -127759,7 +127801,7 @@ Procedural continuous assignment becomes active when assign executes and can be 
 
 ### SV2023-C.4.2-EXTRACT-REQUIRED
 
-C.4.2 / normal / テスト対応あり・実行未確認
+C.4.2 / normal / 実行確認あり
 
 Current tools must support procedural assign and deassign despite possible future removal.
 
@@ -131066,7 +131108,7 @@ std randomize returns int.
 
 ### SV2023-G.5-EXTRACT-SYNTAX
 
-G.5 / normal / テスト対応あり・実行未確認
+G.5 / normal / 実行確認あり
 
 std randomize supports attributes, optional parentheses containing optional variable list and optional with constraint block; use A.8.2 scope-call restrictions.
 
@@ -131100,7 +131142,7 @@ std process is a final class with state enum FINISHED,RUNNING,WAITING,SUSPENDED,
 
 ### SV2023-G.6-EXTRACT-GET-RANDSTATE
 
-G.6 / normal / テスト対応あり・実行未確認
+G.6 / normal / 実行確認あり
 
 std process exposes function string get_randstate().
 
@@ -131112,7 +131154,7 @@ std process exposes function string get_randstate().
 
 ### SV2023-G.6-EXTRACT-KILL
 
-G.6 / normal / テスト対応あり・実行未確認
+G.6 / normal / 実行確認あり
 
 std process exposes function void kill().
 
@@ -131135,7 +131177,7 @@ std process exposes function void resume().
 
 ### SV2023-G.6-EXTRACT-SELF
 
-G.6 / normal / テスト対応あり・実行未確認
+G.6 / normal / 実行確認あり
 
 std process exposes static function process self().
 
@@ -131147,7 +131189,7 @@ std process exposes static function process self().
 
 ### SV2023-G.6-EXTRACT-SET-RANDSTATE
 
-G.6 / normal / テスト対応あり・実行未確認
+G.6 / normal / 実行確認あり
 
 std process exposes function void set_randstate(string state).
 
@@ -131159,7 +131201,7 @@ std process exposes function void set_randstate(string state).
 
 ### SV2023-G.6-EXTRACT-SRANDOM
 
-G.6 / normal / テスト対応あり・実行未確認
+G.6 / normal / 実行確認あり
 
 std process exposes function void srandom(int seed).
 
@@ -131171,7 +131213,7 @@ std process exposes function void srandom(int seed).
 
 ### SV2023-G.6-EXTRACT-STATUS
 
-G.6 / normal / テスト対応あり・実行未確認
+G.6 / normal / 実行確認あり
 
 std process exposes function state status().
 
@@ -131390,7 +131432,7 @@ svdpi.h may include H.14 deprecated functions/data representations; svdpi_src.h 
 
 ### SV2023-H.5-EXTRACT-HEADER
 
-H.5 / normal / テスト対応あり・実行未確認
+H.5 / normal / 実行確認あり
 
 Every simulator uses the same implementation-independent svdpi.h defined in Annex I, with canonical types,object references,prototypes,helper macros and constants.
 
@@ -131508,7 +131550,7 @@ Simulator detects and processes output/inout value changes after control returns
 
 ### SV2023-H.6.5-EXTRACT-EXPORT-SCOPE
 
-H.6.5 / normal / テスト対応あり・実行未確認
+H.6.5 / normal / 実行確認あり
 
 Exports use scope explicitly set by svSetScope, otherwise instantiated scope of import declaration; elaboration can create multiple export instances with distinct contexts.
 
@@ -131531,7 +131573,7 @@ Only context imports safely invoke VPI/exported SV routines requiring context; s
 
 ### SV2023-H.6.5-EXTRACT-GETSCOPE
 
-H.6.5 / normal / テスト対応あり・実行未確認
+H.6.5 / normal / 実行確認あり
 
 svGetScope in import implementation retrieves instance scope of its import declaration.
 
@@ -131987,7 +132029,7 @@ Small input arguments and restricted small function results pass by value; other
 
 ### SV2023-H.8.2-EXTRACT-ALLOCATE
 
-H.8.2 / normal / テスト対応あり・実行未確認
+H.8.2 / normal / 実行確認あり
 
 C caller allocates by-reference actuals using same layout as corresponding SV type.
 
@@ -131999,7 +132041,7 @@ C caller allocates by-reference actuals using same layout as corresponding SV ty
 
 ### SV2023-H.8.2-EXTRACT-EXPORT-HEADER
 
-H.8.2 / normal / テスト対応あり・実行未確認
+H.8.2 / normal / 実行確認あり
 
 Import/export passing is symmetric except exports cannot have open formals; C header for an export matches an equivalent import result/formal list.
 
@@ -132057,7 +132099,7 @@ By-reference type T uses T* actual-object pointer; packed types use canonical sv
 
 ### SV2023-H.8.5-EXTRACT-ALLOCATION
 
-H.8.5 / normal / テスト対応あり・実行未確認
+H.8.5 / normal / 実行確認あり
 
 C caller of export owns allocation of by-reference actuals; packed data uses allocated and initialized canonical C arrays.
 
@@ -132275,7 +132317,7 @@ DPI context is instantiated declaration scope, not call-site scope; unqualified 
 
 ### SV2023-H.9.1-EXTRACT-EXPORT
 
-H.9.1 / normal / テスト対応あり・実行未確認
+H.9.1 / normal / 実行確認あり
 
 Exports use explicitly svSetScope-selected scope or default import-declaration instance scope; multiple elaborated instances may have different scopes.
 
@@ -132688,7 +132730,7 @@ SV_GET_UNSIGNED_BITS(VALUE,N) returns VALUE unchanged for N=32, otherwise VALUE 
 
 ### SV2023-H.10.1.3-EXTRACT-ARRAY-TYPE
 
-H.10.1.3 / normal / テスト対応あり・実行未確認
+H.10.1.3 / normal / 実行確認あり
 
 svOpenArrayHandle is void* handle for unsized array.
 
@@ -132700,7 +132742,7 @@ svOpenArrayHandle is void* handle for unsized array.
 
 ### SV2023-H.10.1.3-EXTRACT-SCOPE-TYPE
 
-H.10.1.3 / normal / テスト対応あり・実行未確認
+H.10.1.3 / normal / 実行確認あり
 
 svScope is void* handle to instance scope.
 
@@ -132712,7 +132754,7 @@ svScope is void* handle to instance scope.
 
 ### SV2023-H.10.1.3-EXTRACT-VERSION
 
-H.10.1.3 / normal / テスト対応あり・実行未確認
+H.10.1.3 / normal / 実行確認あり
 
 svDpiVersion returns const char* representation version: 1800-2005 for VPI-based canonical format or SV3.1a for prior svLogicVec32 format, following stated version choices.
 
@@ -133680,7 +133722,7 @@ If compatibility is supported, DPI specification selects SV3.1a semantics and DP
 
 ### SV2023-H.14.1-EXTRACT-VERSION
 
-H.14.1 / normal / テスト対応あり・実行未確認
+H.14.1 / normal / 実行確認あり
 
 svDpiVersion identifies supported representation; SV3.1a-only implementations use opaque handles for 2/4-state arguments.
 
@@ -133692,7 +133734,7 @@ svDpiVersion identifies supported representation; SV3.1a-only implementations us
 
 ### SV2023-H.14.2-EXTRACT-BIT-TYPE
 
-H.14.2 / normal / テスト対応あり・実行未確認
+H.14.2 / normal / 実行確認あり
 
 If deprecated SV3.1a functionality is implemented: svBitVec32 is uint32_t.
 
@@ -133759,7 +133801,7 @@ If deprecated SV3.1a functionality is implemented: svGetSelectBit/Logic return s
 
 ### SV2023-H.14.2-EXTRACT-HANDLES
 
-H.14.2 / normal / テスト対応あり・実行未確認
+H.14.2 / normal / 実行確認あり
 
 If deprecated SV3.1a functionality is implemented: svBitPackedArrRef and svLogicPackedArrRef are void* standalone packed-array references.
 
@@ -133771,7 +133813,7 @@ If deprecated SV3.1a functionality is implemented: svBitPackedArrRef and svLogic
 
 ### SV2023-H.14.2-EXTRACT-LOGIC-TYPE
 
-H.14.2 / normal / テスト対応あり・実行未確認
+H.14.2 / normal / 実行確認あり
 
 If deprecated SV3.1a functionality is implemented: svLogicVec32 has unsigned int c then d members for canonical 4-state chunks.
 
@@ -133849,7 +133891,7 @@ If deprecated SV3.1a functionality is implemented: Bit-select and part-select up
 
 ### SV2023-H.14.2-EXTRACT-SIZE
 
-H.14.2 / normal / テスト対応あり・実行未確認
+H.14.2 / normal / 実行確認あり
 
 If deprecated SV3.1a functionality is implemented: SV_CANONICAL_SIZE(width) computes (width+31)>>5.
 

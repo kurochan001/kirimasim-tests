@@ -1,0 +1,99 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch11/test_precedence_relational_equality_levels": {
+   "status": "pass",
+   "inputs_sha256": "6e475db3a439911b6b39b5e8dc8e7ee49efe76ff9dd910cf7f270b1e3742fba1"
+  },
+  "ch11/test_relational_equality_wildcard_one_bit_results_extension": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'relational: 1 0 1 1 x 1', expected 'relational: 1 0 x x x 1'",
+   "inputs_sha256": "4ff19d6ae05e75766dcf8d647e36baab59d9b48bed86a8fd9efb3909bf3cc79e"
+  },
+  "ch13/test_formal_type_default_and_inheritance": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch13/test_formal_type_default_and_inheritance.sv:48:20: Unsupported tristate construct: ARG",
+   "inputs_sha256": "439d6d2ea59e23256d60868c70372075a528edd7082d1ab66d3902790f52bccd"
+  },
+  "ch13/test_function_array_formals_inherit_type": {
+   "status": "pass",
+   "inputs_sha256": "a6f9c0bb8beac45a6c677bdd5830d3dd6c3686d5728d4c4a17bf705a4132441b"
+  },
+  "ch23/test_hierarchical_identifier_forms_through_instances": {
+   "status": "known",
+   "reason": "build failed: %Error: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch23/test_hierarchical_identifier_forms_through_instances.sv:105:24: Can't find definition of 'LP' in dotted signal: 'blk.LP'",
+   "inputs_sha256": "d8e8484f4d7189bacdb4f99267ef61ae408a0c2bf10b81b7fff40213cf50ec92"
+  },
+  "ch23/test_top_level_instances": {
+   "status": "pass",
+   "inputs_sha256": "3f5eb2c568b2c6d58c4cf4eeba7c3ba2c1c25bc85b4bbc09f834eb2fbf950936"
+  },
+  "ch30/test_distributed_gate_and_net_delays_add": {
+   "status": "pass",
+   "inputs_sha256": "4a18b01746313e6291976ab2c193a6594ccb24a20a514ed9f49be1daf4e24339"
+  },
+  "ch30/test_module_path_delay_input_inout_ports": {
+   "status": "known",
+   "reason": "output differs: line 1 is 't=13 y=1', expected 't=13 y=0'",
+   "inputs_sha256": "8e5f9b97a9329a27532459d4e9b671aaf8fb1dca94ef96e04817e1b90198ecb5"
+  },
+  "ch38/test_vpi_put_value_event_vector_scaled": {
+   "status": "known",
+   "reason": "output differs: line 1 is '6: pv=01100110 w[39:32]=00000001 w[31:0]=ffffffff', expected '5: ev triggered'",
+   "inputs_sha256": "8c339b6454dd3091618f69d30214c727bc023f9881037b54355ef7b10ad5ab4b"
+  },
+  "ch38/test_vpi_value_time_delay_structures": {
+   "status": "pass",
+   "inputs_sha256": "2c0362bbd553e0eaf5ed0b6cca4f6f8b50e3843aed3144a66dd2d3d1c349e7dc"
+  },
+  "ch6/test_automatic_data_declarations_in_static_procedural_scopes": {
+   "status": "pass",
+   "inputs_sha256": "4f4ddcd0d260d7ae25c84d490ae84cdd0e8588e1d6742a104c12e49ae431b7b6"
+  },
+  "ch6/test_net_declaration_delay_forms": {
+   "status": "known",
+   "reason": "output differs: line 7 is 't=63 one=0 two=0 three=0 mtm=0', expected 't=63 one=0 two=z three=0 mtm=0'",
+   "inputs_sha256": "18c0e9336c5b469fad8c8927b43a2624d669f1640fc1a3fa79c1c313ac11ab95"
+  },
+  "ch6/test_net_declaration_drive_strength_pairs": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch6/test_net_declaration_drive_strength_pairs.sv:30:18: Unsupported: highz strength",
+   "inputs_sha256": "f0e3c0007b161e0178330094e160cbace738660829755ccb897c3ab1e4d9f1f1"
+  },
+  "ch6/test_net_declaration_lists_and_reg_keyword": {
+   "status": "pass",
+   "inputs_sha256": "daf28457ef513f09f3fb78019f1eca360a93a37602f5b4d7185f819e00d90582"
+  },
+  "ch6/test_net_four_state_data_types": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch6/test_net_four_state_data_types.sv:41:12: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "6701ce07af56efdaa2e3eda17d8810f1e93287a41f2c4449f6ee84918ca37ed5"
+  },
+  "ch6/test_net_unpacked_struct_union_data_types": {
+   "status": "pass",
+   "inputs_sha256": "d16b8201c140c765bc768884dbf128dc20e0574fdae379cea2cf524604cbfbb9"
+  },
+  "ch6/test_var_keyword_without_data_type_is_logic": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'v1=0 bits=1', expected 'v1=x bits=1'",
+   "inputs_sha256": "1833d06ddfa0f88012af5378136acb3a1340f841a14c034d9802675b86e7d607"
+  },
+  "ch9/test_syntax_star_event_controls": {
+   "status": "known",
+   "reason": "output differs: line 1 is '0: star reads a=0', expected '1: star reads a=1'",
+   "inputs_sha256": "300f1ffc45620527ba2a8969cfd946e5c623d45df0665cce6ae847968ca3c75c"
+  },
+  "ch9/test_syntax_timing_control_and_event_expressions": {
+   "status": "pass",
+   "inputs_sha256": "083d70f9ef9cea4b7a8780f33a4862e7cf49296777289c953c0402c430deedda"
+  }
+ },
+ "generated_at": "2026-10-27T13:37:34.897897+00:00",
+ "runner_sha256": "22308c0f537530ce2225f1c70638ae6e8c9c725559b0e9fdeee7a9aa34918dc7",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

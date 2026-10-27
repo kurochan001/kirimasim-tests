@@ -65,12 +65,7 @@ def header_field(test: Path, name: str) -> str | None:
 
 
 def expected_output(test: Path) -> str | None:
-    value = header_field(test, "expected_stdout")
-    if value is None:
-        return None
-    if value.startswith("@"):
-        return (test.parent / value[1:]).read_text(encoding="utf-8")
-    return value + "\n"
+    return suite_results.expected_output(test, "icarus")
 
 
 def c_source(test: Path, name: str) -> Path | None:

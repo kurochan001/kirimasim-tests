@@ -112,6 +112,7 @@ not parse the modport in an interface port of a module.
 | 4.9.1, 4.4.2.3 | After a second `#0`, it still shows the old value of a continuous assignment. | `ch4/test_sched_contassign_zero_delay` |
 | 9.2.2.2.2 | `always @*` runs at time 0 and wakes for a change of a variable that it only reads in a called function. | `ch9/test_always_comb_vs_always_star` |
 | 9.4.2 | Event controls wake once at time 0 although nothing changed. | `ch9/test_event_nested_struct_member`, `ch12/test_foreach_index_shadows_outer`, `ch16/test_deferred_assertion_disable_inner_scope` |
+| 11.4.4 | A relational operator whose operand has an x or z bit gives 1 or 0 from the known bits instead of x: `4'b1x00 > 4'b0001` gives 1 and `4'b001z <= 4'b1111` gives 1. | `ch11/test_relational_equality_wildcard_one_bit_results_extension` |
 | 24.3.1 | A program's process sees the values from before the nonblocking updates of its time step (as Icarus Verilog 13.0). | `ch24/test_program_reactive_sees_nba`, `ch24/test_program_stimulus_after_clock_edge` |
 | 24.7 | `$exit` called from a process of a module ends the simulation; it has to be ignored. | `ch24/test_exit_outside_program_ignored` |
 | 24.7 | `$exit` called in a task of a program returns from the task, and the initial procedure goes on; it has to end every initial procedure of the program. | `ch24/test_program_exit_in_task` |

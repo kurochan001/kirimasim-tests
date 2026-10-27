@@ -78,6 +78,13 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
   解釈確定見出しと出典確認済み見出しの基準値。削除、対応解除、要求の緩和、
   調査の差し戻し、対象縮小をCIで検出します。
   複合証拠の定義と入力ハッシュも固定し、グループを削除して一部の成功で代替する変更を検出します。
+- テストの期待出力は、`:expected_stdout:`（共通）と`:expected_stdout_<simulator>:`（`icarus`、
+  `verilator`、`kirimasim`、`lyra`）を持てます。シミュレータ別のフィールドが優先され、
+  共通の`:expected_stdout:`は残りのシミュレータの期待値になります。どちらも`@<file>`を参照できます。
+  入力SHA-256は、実際に選ばれたファイルだけでなく、テストが参照する全期待値ファイルを含みます。
+  そのため、シミュレータ別ファイルだけを変えた場合も、以前の実行結果はstaleになり、
+  その結果を使った要求の実行確認は数えません。シミュレータ別の期待値を追加してよいのは、
+  差分が規格に由来する場合だけです。両方の出力を記録し、規格と矛盾しないことを確かめてください。
 - `test-matching.json`: 全既存テストの入力ハッシュ、引用節、対応登録済みID、未承認候補、
   解釈保留、正常／違法区分の相違、上位節の引用を記録する照合台帳。
   [照合状況](../docs/test-requirement-matching.md)は章別の登録済み／未登録本数を表示します。
@@ -135,6 +142,9 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/audit-full-20261026-icarus13.json`と`results/audit-spec-20261026-verilator-*.json`: 全6799本のIcarus実行と、spec-only 1645本のVerilator実行（seed 1/73）。
 - `results/quality-20261027-verilator-*.json`: 品質監査で未実行だったリンク先68本のVerilator再実行（seed 1/73）。
 - `results/quality-vpi-20261027-verilator-*.json`: 両ヘッダincludeに直したVPIヘッダ2本の再実行。
+- `results/refresh-20261027-icarus13.json`: ランナー刷新後のIcarus Verilog 13.0全件実行（VPIビルド修正済み）。
+- `results/refresh-20261027-verilator-seed1.json`: ランナー刷新後に未実行リンク先2,706本をVerilator 5.052 seed 1で再実行。
+- `results/quality-persim-20261027-*.json`: シミュレータ別期待値のパイロット実行（19本）。
 - `results/audit-oracle-20261026-icarus13.json`: spec-onlyのうちIcarus 13.0で一致した277本へ`iverilog@13.0`を追加した後の再実行（277/277 pass）。
 - `results/regex-refinement-20261025-*.json`: 判定の正規表現をメッセージの書式に依存しない形に直した`ch16`の2本の再実行。
   Icarus 13.0は2 known、Verilator 5.052はseed 1/73とも1 pass・1 knownです。

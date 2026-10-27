@@ -26,6 +26,7 @@ if __package__ in {None, ""}:
     from sva_reference import f56_cases as f56
     from sva_reference import f4_common, f41_flat_cases, f4_rewrite_cases
     from sva_reference import f_extra_common, f5_word_cases, f_assign_cases, f36_cases
+    from sva_reference import ch16_cases
     from sva_reference import nonvacuity as nonvac
     from sva_reference.engine import Current, Engine
     from sva_reference.parser import Parser, Unsupported, parse_sequence
@@ -36,6 +37,7 @@ else:
     from . import f56_cases as f56
     from . import f4_common, f41_flat_cases, f4_rewrite_cases
     from . import f_extra_common, f5_word_cases, f_assign_cases, f36_cases
+    from . import ch16_cases
     from . import nonvacuity as nonvac
     from .engine import Current, Engine
     from .parser import Parser, Unsupported, parse_sequence

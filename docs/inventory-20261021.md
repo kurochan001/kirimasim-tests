@@ -1131,8 +1131,13 @@ evidence and cross-chapter over-linking, sampled the annex, VPI and ch16
 links, and reviewed every formal case. Every formal case now carries a
 reachable cover witness; the formal catalogue reports 518 PASS and the
 five expected mutant failures. Two VPI header tests were extended to
-include both normative headers. The ledger maps 10756 of 12319 rows
-(87.31%), with 6002 executed (48.72%).
+include both normative headers. A ninth wave closed 37 of the 69 remaining Chapter 16 requirements, reusing
+31 existing formal cases and adding eight new ones. A denominator review
+found that the denominator cannot yet be approved: 21 interpretation rows,
+92 rows without source spans and 20 unaudited sections remain. Runners now
+accept simulator-specific expected outputs, and the execution evidence was
+refreshed with the pinned Icarus 13.0 and Verilator 5.052 releases.
+The ledger maps 10793 of 12319 rows (87.61%), with 6117 executed (49.66%).
 
 ### Current state
 
@@ -1141,7 +1146,7 @@ generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-10756 of 12319 rows (87.31%), with 6002 executed (48.72%).
+10793 of 12319 rows (87.61%), with 6117 executed (49.66%).
 
 ### Tests added in this work
 

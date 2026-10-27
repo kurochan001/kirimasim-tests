@@ -180,6 +180,7 @@ python3 tools/behavior_coverage.py --write-baseline --update --require-source-re
 READMEの「Test format」「Metadata」「How a test is judged」「Tests with C code」「Where the expected outputs come from」「Contributing」に従います。要点は次のとおりです。
 
 - `tools/new_test.py chNN test_<内容> --lrm "節 ..."`で雛形を作ります。置き場所は、先頭の引用節の章のディレクトリです。対応付ける要求の節は、必ず`:lrm:`に含めます。
+- 期待出力がシミュレータごとに正当に異なる場合は、`:expected_stdout_icarus:`・`:expected_stdout_verilator:`・`:expected_stdout_kirimasim:`・`:expected_stdout_lyra:`を追加し、共通の`:expected_stdout:`は残します。シミュレータ別のフィールドが優先されます。追加してよいのは、差分が規格に由来する場合（規格がツールに委ねた表示形式、規格が定めない順序など）だけです。両方の出力を実際に記録し、どちらも規格と矛盾しないことを確かめ、差分の理由をテストのコメントと作業ノートに書きます。規格が順序を定めない出力は、期待値を固定せず変換対象から外します。参照する全期待値ファイルは入力指紋に含まれ、どれを変えても実行証跡は無効になります。
 - 1本で、密接に関連する1〜数個の要求を完全に検証します。誤実装なら出力が変わるよう、対照となるケースを入れます（真と偽、境界の両側、x/zを扱う要求ではxとzの両方）。出力は規格が決める値だけにし、実際の値を表示します。
 - 期待値を先に書き、`runsim`で確かめます。一致しなければ、まず自分の期待値を規格で確かめ直します。シミュレータ側の誤りなら、`docs/simulator-differences.md`とテストのコメントに書きます（未対応の構文は記録しない）。
 - `:oracle:`の付け方：

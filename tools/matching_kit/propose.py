@@ -139,12 +139,21 @@ def check_member(state: State, rid: str, m: dict, standalone: bool) -> None:
     if not any(a.get("file") == name for a in anchors):
         reject("evidence must include a stimulus anchor in the test .sv itself")
     inputs = {p.relative_to(ROOT).as_posix() for p in suite_results.input_files(test)}
-    expected = fields.get("expected_stdout", "")
-    expected_name = ((test.parent / expected[1:]).resolve().relative_to(ROOT).as_posix()
-                     if expected.startswith("@") else name)
+    expected_names = []
+    for field in suite_results.EXPECTED_FIELDS:
+        value = fields.get(field)
+        if value is None:
+            continue
+        expected_name = ((test.parent / value[1:]).resolve().relative_to(ROOT).as_posix()
+                         if value.startswith("@") else name)
+        if expected_name not in expected_names:
+            expected_names.append(expected_name)
+    if not expected_names:
+        expected_names.append(name)
     if r["kind"] != "error":
-        if not any(a.get("file") == expected_name for a in anchors):
-            reject(f"evidence must include an anchor in the checked output {expected_name}")
+        if not any(a.get("file") in expected_names for a in anchors):
+            reject("evidence must include an anchor in the checked output "
+                   + " or ".join(expected_names))
     elif not any("expected_stderr_regex" in a.get("contains", "") for a in anchors):
         reject("an error-kind link needs an anchor with the :expected_stderr_regex: line")
     for a in anchors:

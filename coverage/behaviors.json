@@ -149602,7 +149602,25 @@
       "acceptance": "An output local formal starts each instance attempt unassigned.",
       "source_note": "IEEE 1800-2023 16.8.2; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_sequence_output.sv",
+          "observation": "SymbiYosysでch16のformalケースf41_sequence_outputを実行し、独立RTL参照と比較する。The reference states that the sequence local output v is uninitialized and is assigned a at tick 1; the packed result requires the assignment to be the first value of v in the instance, with no incoming value. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5b9b0d3d4488990bce82a81a1fef2746f6e3c24f2f72222b2493347857d89ba5",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_output.sv",
+              "contains": ":formal_case: f41_sequence_output"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_sequence_output.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.8.2",
@@ -154061,7 +154079,25 @@
       "acceptance": "Local-variable flow is determined statically by F.5.4; a local lacking flow out becomes unassigned at composite completion.",
       "source_note": "IEEE 1800-2023 16.10; complete own-body source review, blocks B062. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_flow_concat.sv",
+          "observation": "SymbiYosysでch16のformalケースf54_flow_concatを実行し、独立RTL参照と比較する。flow(concat) is composed from the operands (flow(flow(X,left),right)); the result is a set computed from the syntax, and variant 1 shows a left declaration removing the name before the right flow is taken, so the flow is static rather than sampled. The 'unassigned at composite co 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0eb4b5a9380606f4c46af5ca556b91c2fbf64899921d88ef76e9aeb9913ac5cd",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_flow_concat.sv",
+              "contains": ":formal_case: f54_flow_concat"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_flow_concat.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.10",
@@ -154306,7 +154342,25 @@
       "acceptance": "A local that does not flow out of a subsequence becomes unassigned at its end, regardless of prior assignments, and cannot be referenced until assigned again.",
       "source_note": "IEEE 1800-2023 16.10; complete own-body source review, blocks B027. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_ch16_local_lost_flow.sv",
+          "observation": "SymbiYosysでch16のformalケースch16_local_lost_flowを実行し、独立RTL参照と比較する。tight() outgoing context after `(v; ((v=b) ##1 d))`: the declaration ends with the outer value of v (or with v absent when there was no outer value), so the assignment inside the declaration does not flow out. The second variant `((v=b) ##1 d)` shows the assigned value flowing ou 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3037a5b8c9b58455db25360754fd794adac0ba7c20ec437caaee837df8229f36",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_ch16_local_lost_flow.sv",
+              "contains": ":formal_case: ch16_local_lost_flow"
+            },
+            {
+              "file": "tests/ch16/test_formal_ch16_local_lost_flow.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.10",
@@ -154366,7 +154420,25 @@
       "acceptance": "Assertion locals have no default initial values; locals lacking initializers start unassigned.",
       "source_note": "IEEE 1800-2023 16.10; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_empty_context.sv",
+          "observation": "SymbiYosysでch16のformalケースf561_empty_contextを実行し、独立RTL参照と比較する。An unqualified clocked property starts with the empty local context: the reference reads the letter v instead of the incoming context value, so a local has no default value before its first assignment. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cc10178445c4d20783c0af460b2c50c40c359512586f0be33060f6185ae776b2",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_empty_context.sv",
+              "contains": ":formal_case: f561_empty_context"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_empty_context.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.10",
@@ -156285,7 +156357,25 @@
       "acceptance": "Table 16-3 precedence level 10 (highest first) is until, s_until, until_with, s_until_with, implies; associativity is right.",
       "source_note": "IEEE 1800-2023 16.12; complete own-body source review, blocks B018, B030. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_ch16_precedence_right.sv",
+          "observation": "SymbiYosysでch16のformalケースch16_precedence_rightを実行し、独立RTL参照と比較する。a until b until c is parsed as a until (b until c): the reference separates a real right-operand witness from an unfinished left operand, and a implies b implies c is read as a -> (b -> c), which differs from the left-associated reading when a and c are false. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "739b646a7c7221f29fa1b19076d0bd969412ddb7d74411687be5615e7469df35",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_ch16_precedence_right.sv",
+              "contains": ":formal_case: ch16_precedence_right"
+            },
+            {
+              "file": "tests/ch16/test_formal_ch16_precedence_right.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12",
@@ -156973,7 +157063,25 @@
       "acceptance": "weak(sequence_expr) is true if and only if there is no finite prefix witnessing inability to match.",
       "source_note": "IEEE 1800-2023 16.12.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_weak.sv",
+          "observation": "SymbiYosysでch16のformalケースf531_weakを実行し、独立RTL参照と比較する。weak(a ##[1:$] b) is true exactly when no finite prefix is already dead: a true and b never present gives 0x3f (hold), while a false fails at that tick. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6bbac1c941198d7ca93bce47abaaeb3ca22de2637587821ecc616e909a711a02",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_weak.sv",
+              "contains": ":formal_case: f531_weak"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_weak.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.2",
@@ -157067,7 +157175,25 @@
       "acceptance": "Property negation switches strength, including when its operand is an implicitly weak sequence property.",
       "source_note": "IEEE 1800-2023 16.12.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_not.sv",
+          "observation": "SymbiYosysでch16のformalケースf531_notを実行し、独立RTL参照と比較する。not (a ##1 b) is decided (success at tick 1 for a0=1,b1=0, success at tick 0 for a0=0); the negation of the implicitly weak sequence property flips the strength instead of holding. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "844c24cc3d774586375edd6fbeaf3af88f6eb3e239a9daf51fd9933326b375ac",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_not.sv",
+              "contains": ":formal_case: f531_not"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_not.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.3",
@@ -157935,7 +158061,25 @@
       "acceptance": "nexttime[n] p holds if fewer than n further ticks exist or p holds at the nth further tick, with alignment under the following rule.",
       "source_note": "IEEE 1800-2023 16.12.10; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_nexttime_end.sv",
+          "observation": "SymbiYosysでch16のformalケースnexttime_endを実行し、独立RTL参照と比較する。nexttime[2] a on a two-tick word holds (0x3f) because fewer than two further ticks exist; f343_next_positive adds the p-at-the-nth-tick half (nexttime[2] a = success at tick 2 exactly when a[2]). 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d9e9124b9fdc4d232b64d9f5c4319220400bfa8e945c57788195026d2ff38dce",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_nexttime_end.sv",
+              "contains": ":formal_case: nexttime_end"
+            },
+            {
+              "file": "tests/ch16/test_formal_nexttime_end.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.10",
@@ -157989,7 +158133,25 @@
       "acceptance": "nexttime p holds if p holds at the next tick or no next tick exists.",
       "source_note": "IEEE 1800-2023 16.12.10; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f343_next_zero.sv",
+          "observation": "SymbiYosysでch16のformalケースf343_next_zeroを実行し、独立RTL参照と比較する。Clocked nexttime: the attempt looks for the next clock tick after the first c tick; when no such tick exists the result is a hold (0x3f), and a false p at that tick fails at that tick. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2517147ba2e157267877abcdd6d39ce0b2fbbca9df974cd75960e9dc19bb3f1e",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f343_next_zero.sv",
+              "contains": ":formal_case: f343_next_zero"
+            },
+            {
+              "file": "tests/ch16/test_formal_f343_next_zero.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.10",
@@ -158291,7 +158453,25 @@
       "acceptance": "always[n:m] p requires p at all existing ticks in the inclusive range without requiring all range ticks to exist; its upper bound may be $.",
       "source_note": "IEEE 1800-2023 16.12.11; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_ch16_always_range.sv",
+          "observation": "SymbiYosysでch16のformalケースch16_always_rangeを実行し、独立RTL参照と比較する。Four alignments of always: a complete bounded range decides at its last tick, a range whose upper ticks do not exist holds, an unbounded range ($) holds, and a point range checks only its one tick. The lower bound 0 is included in the checked ticks. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c734f9e763864f86bd3e391ba73dfc75d026ae710974388b7fa8047e6d2fddcc",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_ch16_always_range.sv",
+              "contains": ":formal_case: ch16_always_range"
+            },
+            {
+              "file": "tests/ch16/test_formal_ch16_always_range.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.11",
@@ -158309,7 +158489,25 @@
       "acceptance": "s_always[n:m] p requires all range ticks to exist and p at each; its range shall be bounded.",
       "source_note": "IEEE 1800-2023 16.12.11; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_s_always_end.sv",
+          "observation": "SymbiYosysでch16のformalケースs_always_endを実行し、独立RTL参照と比較する。s_always[1:2] a on a two-tick word is pending (0x4f) because the upper bound tick 2 does not exist: the strong form requires every tick of the bounded range. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "24105a9fd3c72c54c7bfa3538a9507636676097bdb950ce352722e3daa3d4f77",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_s_always_end.sv",
+              "contains": ":formal_case: s_always_end"
+            },
+            {
+              "file": "tests/ch16/test_formal_s_always_end.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.11",
@@ -158463,7 +158661,25 @@
       "acceptance": "s_until and s_until_with additionally require a current or future tick where the right operand holds.",
       "source_note": "IEEE 1800-2023 16.12.12; complete own-body source review, blocks B003, B005, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f343_strong_until.sv",
+          "observation": "SymbiYosysでch16のformalケースf343_strong_untilを実行し、独立RTL参照と比較する。a s_until b = (a until b) and s_eventually b: a true on every tick with b never true gives pending 0x4f, i.e. the strong form additionally requires the right operand to occur. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "324ffe369728205ac821177ff1e9d1c06b650586ba17bc40d8cbc1c21933d531",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f343_strong_until.sv",
+              "contains": ":formal_case: f343_strong_until"
+            },
+            {
+              "file": "tests/ch16/test_formal_f343_strong_until.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.12",
@@ -158483,7 +158699,25 @@
       "acceptance": "until and until_with do not require eventual right-operand satisfaction and hold if the left operand holds at every tick even when the right never holds.",
       "source_note": "IEEE 1800-2023 16.12.12; complete own-body source review, blocks B002, B004, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f343_until_with.sv",
+          "observation": "SymbiYosysでch16のformalケースf343_until_withを実行し、独立RTL参照と比較する。a until_with b = a until (a and b): a true throughout with b never true is a hold (0x3f), so no eventual right-operand satisfaction is required. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5834615f351ff4bcec143dcdb2a4e2696d93c0e49a2d62acac4c233572917312",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f343_until_with.sv",
+              "contains": ":formal_case: f343_until_with"
+            },
+            {
+              "file": "tests/ch16/test_formal_f343_until_with.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.12",
@@ -158503,7 +158737,25 @@
       "acceptance": "Eventually first aligns to its clock at or after evaluation time; s_eventually[n:m] requires p beginning at one of the n+1st through m+1st ticks counted from that alignment.",
       "source_note": "IEEE 1800-2023 16.12.13; complete own-body source review, blocks B015, B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_s_eventually_end.sv",
+          "observation": "SymbiYosysでch16のformalケースs_eventually_endを実行し、独立RTL参照と比較する。s_eventually[1:2] a begins its range at the tick after the evaluation tick (alignment) and requires a there; a missing upper tick leaves the strong form pending. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "457bdc21fbaf9a0babe9525226ad6226b0c2b538079bfb145c858c270ab80a3b",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_s_eventually_end.sv",
+              "contains": ":formal_case: s_eventually_end"
+            },
+            {
+              "file": "tests/ch16/test_formal_s_eventually_end.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.13",
@@ -158623,7 +158875,25 @@
       "acceptance": "eventually[n:m] p holds if p holds at some existing tick in the range or not all ticks in the range exist; the range shall be bounded.",
       "source_note": "IEEE 1800-2023 16.12.13; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_eventually_end.sv",
+          "observation": "SymbiYosysでch16のformalケースeventually_endを実行し、独立RTL参照と比較する。eventually[1:2] a on a two-tick word: tick 1 exists and tick 2 does not, so a true at tick 1 is a success and a false at tick 1 is a hold (0x3f) because not all range ticks exist. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "59a15dac60291ccb2c941767de9156db533b067852dcfae5ba648d216e6bdd0c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_eventually_end.sv",
+              "contains": ":formal_case: eventually_end"
+            },
+            {
+              "file": "tests/ch16/test_formal_eventually_end.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.13",
@@ -159215,7 +159485,25 @@
       "acceptance": "s_nexttime, s_always, s_eventually, s_until, s_until_with and strong require the applicable terminating condition and enough property-clock ticks for it.",
       "source_note": "IEEE 1800-2023 16.12.15; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f343_strong_next.sv",
+          "observation": "SymbiYosysでch16のformalケースf343_strong_nextを実行し、独立RTL参照と比較する。s_nexttime[2] a on a two-tick word is pending (0x4f): the strong operator needs enough property-clock ticks for the terminating condition. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "985390033378f1d2aa470c2a4c85e7c1f63e870569462e43abb10a0d2bd863e3",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f343_strong_next.sv",
+              "contains": ":formal_case: f343_strong_next"
+            },
+            {
+              "file": "tests/ch16/test_formal_f343_strong_next.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.15",
@@ -159233,7 +159521,25 @@
       "acceptance": "nexttime, always, until, eventually, until_with and weak impose no extra clock-existence or eventual terminating-condition requirement.",
       "source_note": "IEEE 1800-2023 16.12.15; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_weak.sv",
+          "observation": "SymbiYosysでch16のformalケースf531_weakを実行し、独立RTL参照と比較する。always[1:$] a holds (0x3f) with a true even though the $ range can never be completed, and fails at the first false tick; no extra clock-existence requirement is imposed. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6bbac1c941198d7ca93bce47abaaeb3ca22de2637587821ecc616e909a711a02",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_weak.sv",
+              "contains": ":formal_case: f531_weak"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_weak.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.15",
@@ -160103,7 +160409,25 @@
       "acceptance": "Pending means no bad state yet, future obligations unmet, and possible satisfaction or violation on an extension.",
       "source_note": "IEEE 1800-2023 16.12.21; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f343_eventually_not_always.sv",
+          "observation": "SymbiYosysでch16のformalケースf343_eventually_not_alwaysを実行し、独立RTL参照と比較する。s_eventually a with a false on all three ticks gives 0x4f: no bad state yet, the future obligation is unmet, and an extension may satisfy it. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "29141c8886ef68f20a7d05381f26e4e8c8c55ebd8a131b35f3028563a621456f",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f343_eventually_not_always.sv",
+              "contains": ":formal_case: f343_eventually_not_always"
+            },
+            {
+              "file": "tests/ch16/test_formal_f343_eventually_not_always.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.21",
@@ -160735,7 +161059,25 @@
       "acceptance": "For clock-free x,y,z: @(c) x ##1 y |=> @(d) z equals @(c) x |=> y |=> @(d) z.",
       "source_note": "IEEE 1800-2023 16.13.3; complete own-body source review, blocks B010, B011, B012, B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_ch16_adjoint_one.sv",
+          "observation": "SymbiYosysでch16のformalケースch16_adjoint_oneを実行し、独立RTL参照と比較する。@(c) x ##1 y |=> @(d) z and @(c) x |=> y |=> @(d) z must give the same attempt: x on the c alignment, y on the next c tick, z on the first d tick after y. Both halves come from independent F.5.1.1 rewrites in clocking.py and are compared with one clause-derived loop. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ccde0d37ee96bfca71af7ad92c00dc500a019c738eadc9a4880d8a5e5c06e0ce",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_ch16_adjoint_one.sv",
+              "contains": ":formal_case: ch16_adjoint_one"
+            },
+            {
+              "file": "tests/ch16/test_formal_ch16_adjoint_one.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.3",
@@ -160756,7 +161098,25 @@
       "acceptance": "For clock-free x,y,z: @(c) x ##0 y |=> @(d) z equals @(c) x |-> y |=> @(d) z.",
       "source_note": "IEEE 1800-2023 16.13.3; complete own-body source review, blocks B014, B015, B016, B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_ch16_adjoint_zero.sv",
+          "observation": "SymbiYosysでch16のformalケースch16_adjoint_zeroを実行し、独立RTL参照と比較する。@(c) x ##0 y |=> @(d) z and @(c) x |-> y |=> @(d) z both test y on x's c tick and send z to the first d tick after x, so the fusion form and the overlapping-implication form are the same attempt. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e360986c121901feb18b331dcca45ae23991d22f3d1917d79211dc1fb8631faa",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_ch16_adjoint_zero.sv",
+              "contains": ":formal_case: ch16_adjoint_zero"
+            },
+            {
+              "file": "tests/ch16/test_formal_ch16_adjoint_zero.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.3",
@@ -160895,7 +161255,25 @@
       "acceptance": "Clock scope does not flow into disable iff conditions.",
       "source_note": "IEEE 1800-2023 16.13.3; complete own-body source review, blocks B026. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_async.sv",
+          "observation": "SymbiYosysでch16のformalケースf51_asyncを実行し、独立RTL参照と比較する。The clocked disable iff case tests d at every global tick up to the decision point, not only on c ticks, so the disable condition does not inherit the property clock. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6951e10ce8df2bbc7ea201cdb284fb7a2ff202542e0d7c45789ab3741b31bade",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_async.sv",
+              "contains": ":formal_case: f51_async"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_async.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.3",
@@ -161402,7 +161780,25 @@
       "acceptance": "triggered/matched return one-bit true/false independent of match start and their sampled values are their current values.",
       "source_note": "IEEE 1800-2023 16.13.6; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f61_triggered.sv",
+          "observation": "SymbiYosysでch16のformalケースf61_triggeredを実行し、独立RTL参照と比較する。T.triggered is a one-bit value per tick: the reference reports a0&b1 at j=1 and a1&b2 at j=2 regardless of where the match started; f61_matched covers the matched counterpart. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5930c33cead1f55f69e26b27da9f6727ee47992f303debe5ce29d16676801399",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f61_triggered.sv",
+              "contains": ":formal_case: f61_triggered"
+            },
+            {
+              "file": "tests/ch16/test_formal_f61_triggered.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.6",
@@ -162315,7 +162711,25 @@
       "acceptance": "Formal analysis may use assumed properties as environmental hypotheses without an obligation to prove them.",
       "source_note": "IEEE 1800-2023 16.14.2; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_feasible.sv",
+          "observation": "SymbiYosysでch16のformalケースf531_feasibleを実行し、独立RTL参照と比較する。The assumed property g is used as an environmental hypothesis: when it is infeasible the attempt is not required to hold (0x1f), and the assumption itself is never turned into a proof obligation. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "93319217826045c2de89ffd11d8c65a047762b77255affe8b7915aae11885eda",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_feasible.sv",
+              "contains": ":formal_case: f531_feasible"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_feasible.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.14.2",
@@ -163955,7 +164369,25 @@
       "acceptance": "Inferred defaults substitute expressions resolved at the property/sequence/checker instantiation: top-level assertions use the statement context, nested property/sequence instances use clock flow to that instance, and checker defaults use its instance location.",
       "source_note": "IEEE 1800-2023 16.14.7; complete own-body source review, blocks B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_property_bind.sv",
+          "observation": "SymbiYosysでch16のformalケースf41_property_bindを実行し、独立RTL参照と比較する。The declaration default y = c is bound to the actual before substitution, so the inferred default is resolved at the instantiation boundary. Only the default-binding half of 16.14.7 is covered; the clock-flow half is listed as a limitation. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c04615bb1140d9ebda655591473e3cbc8206147889ef68c8594ec17789fd1172",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_property_bind.sv",
+              "contains": ":formal_case: f41_property_bind"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_property_bind.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.14.7",
@@ -166118,7 +166550,25 @@
       "acceptance": "Clock events apply throughout their scope until superseded; the maximal property is the unique flattened assertion property obtained by F.4.1 rewriting.",
       "source_note": "IEEE 1800-2023 16.16; complete own-body source review, blocks B012, B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f41_flatten_equiv.sv",
+          "observation": "SymbiYosysでch16のformalケースf41_flatten_equivを実行し、独立RTL参照と比較する。The finite status of the named instance equals the status of the F.4.1 flattened property, including the illegal-flattening branch, so the assertion is checked against the unique flattened property. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6e82edf454c87e6266a5693677838684a733cc96d1b150741f823ba4c8b11c66",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f41_flatten_equiv.sv",
+              "contains": ":formal_case: f41_flatten_equiv"
+            },
+            {
+              "file": "tests/ch16/test_formal_f41_flatten_equiv.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16",
@@ -166271,7 +166721,25 @@
       "acceptance": "An implicit initial clock from outer clock flow is called inherited.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_sequence.sv",
+          "observation": "SymbiYosysでch16のformalケースf51_sequenceを実行し、独立RTL参照と比較する。A clocked sequence property with no explicit prefix uses the incoming clock c: the reference skips leading non-c ticks and starts at the first c tick, which is the inherited clock. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e5887afd1292dd97347658268e66a13c0e34bb446a0dd069acb32539ed03356c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_sequence.sv",
+              "contains": ":formal_case: f51_sequence"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_sequence.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166289,7 +166757,25 @@
       "acceptance": "An inherited clock denotes the incoming outer clock; q under incoming c is clocked equivalently to @(c) q.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_ch16_lead_outer_clock.sv",
+          "observation": "SymbiYosysでch16のformalケースch16_lead_outer_clockを実行し、独立RTL参照と比較する。The same rule is applied twice: skip to the first tick where the outer clock c is true and test a there. One half leaves the clock implicit (inherited) and the other spells out @(c); a difference between the inherited and explicit paths shows up as a half that disagrees with the 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "07776eebc09982800c627ec82d68592bd456fc381a936adb6b2c05e4ad36720a",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_ch16_lead_outer_clock.sv",
+              "contains": ":formal_case: ch16_lead_outer_clock"
+            },
+            {
+              "file": "tests/ch16/test_formal_ch16_lead_outer_clock.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166307,7 +166793,25 @@
       "acceptance": "Property and/or have the union of their operand semantic-leading-clock sets.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_ch16_lead_prefix.sv",
+          "observation": "SymbiYosysでch16のformalケースch16_lead_prefixを実行し、独立RTL参照と比較する。Three leading-clock shapes: a clock-free sequence under @(c1) starts on c1; an inner @(c2) on a clock-free operand keeps c2 because the outer prefix finds no inherited clock to replace; and an operand that is half clock-free and half @(c2) ends up with both leading clocks, so the 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fcb071104cda90add8df706b79bf087878a2b8c98d19a76005e6fbddc96d8f52",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_ch16_lead_prefix.sv",
+              "contains": ":formal_case: ch16_lead_prefix"
+            },
+            {
+              "file": "tests/ch16/test_formal_ch16_lead_prefix.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166343,7 +166847,25 @@
       "acceptance": "A clock-free property has semantic-leading-clock set {inherited}.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_impl_boolean.sv",
+          "observation": "SymbiYosysでch16のformalケースf51_impl_booleanを実行し、独立RTL参照と比較する。a |-> b is clock-free and is evaluated under the inherited clock c: the reference starts at the first c tick and decides there, so the clock-free property has the singleton set {inherited}. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a02818a8e14cde931843360fddd9cb5cc16565dd41b92baeeafafedd8b9bf5ce",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_impl_boolean.sv",
+              "contains": ":formal_case: f51_impl_boolean"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_impl_boolean.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166451,7 +166973,25 @@
       "acceptance": "The nexttime forms listed in 16.16.1 have semantic-leading-clock set {inherited}.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_next.sv",
+          "observation": "SymbiYosysでch16のformalケースf51_nextを実行し、独立RTL参照と比較する。nexttime under the inherited clock c consumes the next c tick and adds no clock of its own, so the nexttime forms keep the set {inherited}. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d54e51581a6d139a73a8d263d11d1e7a0af383dce55c4bad59e657ce754714e7",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_next.sv",
+              "contains": ":formal_case: f51_next"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_next.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166469,7 +167009,25 @@
       "acceptance": "The sync_accept_on/sync_reject_on forms listed in 16.16.1 have semantic-leading-clock set {inherited}.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_sync.sv",
+          "observation": "SymbiYosysでch16のformalケースf51_syncを実行し、独立RTL参照と比較する。Tp(sync_accept_on(g) p, c) = accept_on(g && c) Tp(p, c): the reference ANDs the condition with c and keeps p's clock, so the sync abort forms preserve the operand set. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5fe0f2e729404cb2eab51755fe7d2e05b1bb5a87f20b4a301b54619622412eb3",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_sync.sv",
+              "contains": ":formal_case: f51_sync"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_sync.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166487,7 +167045,25 @@
       "acceptance": "The until/until_with forms listed in 16.16.1 have semantic-leading-clock set {inherited}.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_until.sv",
+          "observation": "SymbiYosysでch16のformalケースf51_untilを実行し、独立RTL参照と比較する。until under the inherited clock c scans only c ticks (the reference iterates the clock and stops at the first q or !p), so the until forms have the inherited clock. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e7ed0b99e720fe7df00bb8aa3867e39650535dc5f94d872004d9607f94433736",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_until.sv",
+              "contains": ":formal_case: f51_until"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_until.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166541,7 +167117,25 @@
       "acceptance": "@(c) q replaces inherited by c in q semantic-leading-clock set and otherwise leaves the set unchanged.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_ts_clock.sv",
+          "observation": "SymbiYosysでch16のformalケースf51_ts_clockを実行し、独立RTL参照と比較する。An inner @(c2) on one operand of an or replaces the inherited clock for that operand only (Ts distributes per operand), which is the prefix rule: replace inherited by c and leave the rest of the set alone. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "884b4de4884cf3f6e397d15631c3ed710ea1ea04269633ef0389f6499f6c35a1",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_ts_clock.sv",
+              "contains": ":formal_case: f51_ts_clock"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_ts_clock.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166577,7 +167171,25 @@
       "acceptance": "A clock-free sequence has inherited semantic leading clock.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_ch16_lead_prefix.sv",
+          "observation": "SymbiYosysでch16のformalケースch16_lead_prefixを実行し、独立RTL参照と比較する。Three leading-clock shapes: a clock-free sequence under @(c1) starts on c1; an inner @(c2) on a clock-free operand keeps c2 because the outer prefix finds no inherited clock to replace; and an operand that is half clock-free and half @(c2) ends up with both leading clocks, so the 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fcb071104cda90add8df706b79bf087878a2b8c98d19a76005e6fbddc96d8f52",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_ch16_lead_prefix.sv",
+              "contains": ":formal_case: ch16_lead_prefix"
+            },
+            {
+              "file": "tests/ch16/test_formal_ch16_lead_prefix.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166595,7 +167207,25 @@
       "acceptance": "Both m1 ##1 m2 and m1 ##0 m2 have the semantic leading clock of m1.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_ch16_lead_seq_delay.sv",
+          "observation": "SymbiYosysでch16のformalケースch16_lead_seq_delayを実行し、独立RTL参照と比較する。The leading clock of m1 ##1 m2 and of m1 ##0 m2 is the leading clock of m1: the attempt starts on the first c1 tick and only then does the right operand run on its own c2 alignment (after the left end for ##1, at the left end for ##0). The per-age counts make both alignments visi 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7d6516c6733301d40b1d05806dd4696a3d5617fd10501f75b2a0e580085185e3",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_ch16_lead_seq_delay.sv",
+              "contains": ":formal_case: ch16_lead_seq_delay"
+            },
+            {
+              "file": "tests/ch16/test_formal_ch16_lead_seq_delay.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166613,7 +167243,25 @@
       "acceptance": "Parenthesizing a sequence preserves its semantic leading clock.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_clock_paren.sv",
+          "observation": "SymbiYosysでch16のformalケースf531_clock_parenを実行し、独立RTL参照と比較する。@(posedge clk) (((a) ##1 (b))) gives the same clocked result as the unparenthesized sequence, so parentheses preserve the leading clock. 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "de41d61babe8415b82a9d33a69a53af167133b6b23e7cfaf9684e44c7aa046c8",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_clock_paren.sv",
+              "contains": ":formal_case: f531_clock_paren"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_clock_paren.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -166631,7 +167279,25 @@
       "acceptance": "@(c) on a clock-free sequence gives leading c; on a multiclocked sequence it replaces inherited with c and otherwise preserves the existing leading clock.",
       "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_ch16_lead_prefix.sv",
+          "observation": "SymbiYosysでch16のformalケースch16_lead_prefixを実行し、独立RTL参照と比較する。Three leading-clock shapes: a clock-free sequence under @(c1) starts on c1; an inner @(c2) on a clock-free operand keeps c2 because the outer prefix finds no inherited clock to replace; and an operand that is half clock-free and half @(c2) ends up with both leading clocks, so the 区別: 要求の意味論を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fcb071104cda90add8df706b79bf087878a2b8c98d19a76005e6fbddc96d8f52",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_ch16_lead_prefix.sv",
+              "contains": ":formal_case: ch16_lead_prefix"
+            },
+            {
+              "file": "tests/ch16/test_formal_ch16_lead_prefix.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16.1",
@@ -474123,7 +474789,7 @@
           "observation": "SymbiYosysでF.3.4.3のformalケースf343_eventually_not_alwaysを実行し、書換前後の意味論が全入力語で一致することを確認する。`s_eventually a` を `not always(not p)` の参照で独立実装。最初のwitness tickで成功、witness無しはpending(4f)。BMC深さ2、有限語 h=3 の a 8語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "0cb1ad9d3e9bd1f12456dee2311c1f949257f44e94dc409037d46d252dbcdd91",
+          "inputs_sha256": "29141c8886ef68f20a7d05381f26e4e8c8c55ebd8a131b35f3028563a621456f",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f343_eventually_not_always.sv",
@@ -474483,7 +475149,7 @@
           "observation": "SymbiYosysでF.3.4.3のformalケースf343_next_zeroを実行し、書換前後の意味論が全入力語で一致することを確認する。`nexttime[0] a` を `1 |-> a` の参照で独立実装。a[0]が真なら成功0、偽ならfailure 16。BMC深さ2、有限語 h=2 の a 4語、全2値入力、top/bottom/4状態・x/zなし。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "83deb7076bb601fa1ac2f9e852d2980fbfdf58a06cb6785ca354f9fe88428528",
+          "inputs_sha256": "2517147ba2e157267877abcdd6d39ce0b2fbbca9df974cd75960e9dc19bb3f1e",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f343_next_zero.sv",
@@ -474627,7 +475293,7 @@
           "observation": "SymbiYosysでF.3.4.3のformalケースf343_strong_nextを実行し、書換前後の意味論が全入力語で一致することを確認する。`s_nexttime (a ##1 b)` を `not nexttime not (a ##1 b)` の参照で独立実装。a[1]=0ならfailure@1(17)、a[1]=1ならb[2]で成功2/failure 18。BMC深さ2、有限語 h=3 の ab 64語、全2値入力、top/bottom/4状態・x/zなし。target範囲外のstrong pendingは既存s_nexttime_end（.9-STRONG-NEXT-COUNT）が代表。 区別: 書換の定義を独立RTL参照として実装し、参照評価器との全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "83f5e21cdb029a9c7cb16a6f80bd9f896d7f2aa9a5edefa014b9bce28c7af4d2",
+          "inputs_sha256": "985390033378f1d2aa470c2a4c85e7c1f63e870569462e43abb10a0d2bd863e3",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f343_strong_next.sv",
@@ -475131,7 +475797,7 @@
           "observation": "SymbiYosysでF.4系のformalケースf41_flatten_equivを実行し、独立RTL参照と比較する。The first variant flattens the property actual s_flat(a) to a ##1 b and then applies the implication; the second puts a nonconstant variable into a cycle delay, so the flattened and therefore the original top-level property is illegal; the third binds the declaration default befo 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a954ce72cbb240988f04e24621bddf4392b29e62aea25e913e6b7e8785a463d2",
+          "inputs_sha256": "6e82edf454c87e6266a5693677838684a733cc96d1b150741f823ba4c8b11c66",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f41_flatten_equiv.sv",
@@ -475239,7 +475905,7 @@
           "observation": "SymbiYosysでF.4系のformalケースf41_property_bindを実行し、独立RTL参照と比較する。The property p_bind(x, y = c) binds the omitted y to the declaration default c.  With an explicit y=b the flattened body reads b instead.  Binding happens before substitution, so the body never sees the formal names. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c674abbf91368d4fdf9710ced303e4bf7ff575ee6407ef2496f2220b48cca676",
+          "inputs_sha256": "c04615bb1140d9ebda655591473e3cbc8206147889ef68c8594ec17789fd1172",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f41_property_bind.sv",
@@ -475601,7 +476267,7 @@
           "observation": "SymbiYosysでF.4系のformalケースf41_sequence_outputを実行し、独立RTL参照と比較する。The local output v is uninitialized, assigned a at tick 1, and copied out to the distinct actual c with an actual = formal match assignment at the sequence end.  The packed result records the match and the copied value. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c85c716a908f51c2965208f57fb7986c232d60f6bacbba22cb3462e54e1648ff",
+          "inputs_sha256": "5b9b0d3d4488990bce82a81a1fef2746f6e3c24f2f72222b2493347857d89ba5",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f41_sequence_output.sv",
@@ -476867,7 +477533,7 @@
           "observation": "SymbiYosysでformalケースf51_ts_clockを実行し、SV2023-F.5.1.1-EXTRACT-CLOCKの意味論を独立RTL参照と比較する。clocked @(c1)(a or @(c2)b) の一致数と、Ts(a,c1) or Ts(b,c2) の独立年齢表を比較し、入れ子の明示clockが継承clockを置換することを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "713e4e6a36e33182a4265c0491de331e806a25efa8e746461cde9d116f7a9f7e",
+          "inputs_sha256": "884b4de4884cf3f6e397d15631c3ed710ea1ea04269633ef0389f6499f6c35a1",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f51_ts_clock.sv",
@@ -477028,7 +477694,7 @@
           "observation": "SymbiYosysでformalケースf51_asyncを実行し、SV2023-F.5.1.2-EXTRACT-ASYNCの意味論を独立RTL参照と比較する。clocked @(c) disable iff(d)(a##1b) のstatusと、disable iff(d) Ts(a##1b) の独立RTL参照を比較する。dはclockでgateせず全tickで検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "0ea72a78e9e7fc6baeafcb40c379b9d5106255ed7bcc6b0f9469419a364e7e5a",
+          "inputs_sha256": "6951e10ce8df2bbc7ea201cdb284fb7a2ff202542e0d7c45789ab3741b31bade",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f51_async.sv",
@@ -477064,7 +477730,7 @@
           "observation": "SymbiYosysでformalケースf51_impl_booleanを実行し、SV2023-F.5.1.2-EXTRACT-BOOLEAN-IMPLICATIONの意味論を独立RTL参照と比較する。clocked @(c)(a|->b) のstatusと、Ts(a,c)|->Tp(b,c) の独立RTL参照を比較し、not/or/andの保存とimplicationのantecedent/consequent変換を代表例で検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "22927dc291c4c946817ea699bd57cd95eebc4a7250bcc9072d3beacc554afb0f",
+          "inputs_sha256": "a02818a8e14cde931843360fddd9cb5cc16565dd41b92baeeafafedd8b9bf5ce",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f51_impl_boolean.sv",
@@ -477100,7 +477766,7 @@
           "observation": "SymbiYosysでformalケースf51_nextを実行し、SV2023-F.5.1.2-EXTRACT-NEXTの意味論を独立RTL参照と比較する。clocked @(c) nexttime p のstatusと、!c until(c && nexttime(!c until(c && Tp(p,c)))) の独立RTL参照を比較する。最初のc tickの次tick、その次のc tickでpを評価する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "94e5a90c086920542406ac7e5c85f57b3df806ca717bef2a6eacf85645a2c49c",
+          "inputs_sha256": "d54e51581a6d139a73a8d263d11d1e7a0af383dce55c4bad59e657ce754714e7",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f51_next.sv",
@@ -477136,7 +477802,7 @@
           "observation": "SymbiYosysでformalケースf51_sequenceを実行し、SV2023-F.5.1.2-EXTRACT-SEQUENCEの意味論を独立RTL参照と比較する。clocked @(c)(a##1b)（weak既定）のstatusと、weak(Ts(a,c)##1 Ts(b,c)) の独立RTL参照を比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b141569c04baac45cd7bf44b5083dffbeda2cf87df54798ee6a3ccfae6175ac3",
+          "inputs_sha256": "e5887afd1292dd97347658268e66a13c0e34bb446a0dd069acb32539ed03356c",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f51_sequence.sv",
@@ -477172,7 +477838,7 @@
           "observation": "SymbiYosysでformalケースf51_syncを実行し、SV2023-F.5.1.2-EXTRACT-SYNCの意味論を独立RTL参照と比較する。clocked @(c) sync_accept_on(g)(a##1b) のstatusと、accept_on(g&&c) Ts(a##1b) の独立RTL参照を比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a5817c7f9e7aedf572858c27a68a5aa9be1d00617afa48814ccfcfcfe68c04b4",
+          "inputs_sha256": "5fe0f2e729404cb2eab51755fe7d2e05b1bb5a87f20b4a301b54619622412eb3",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f51_sync.sv",
@@ -477208,7 +477874,7 @@
           "observation": "SymbiYosysでformalケースf51_untilを実行し、SV2023-F.5.1.2-EXTRACT-UNTILの意味論を独立RTL参照と比較する。clocked @(c)(p until q) のstatusと、(not(c && not p)) until(c && q) の独立RTL参照を比較する。非clock tickは左operandが真として読み飛ばされる。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "abcdfda7882fc4f624da93ad6ae454aaf86fcb1a46e7e21dace2c336d7235107",
+          "inputs_sha256": "e7ed0b99e720fe7df00bb8aa3867e39650535dc5f94d872004d9607f94433736",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f51_until.sv",
@@ -477812,7 +478478,7 @@
           "observation": "SymbiYosysでF.5.3.1のformalケースf531_clock_parenを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`@(posedge clk) (((a) ##1 (b)))` の全16語を、unclocked `a ##1 b` の真理表（!a[0]→failure@0、b[1]→success@1、else failure@1）と比較。入れ子括弧がsatisfactionを保つこと、単一サンプルclockではclocked propertyが同じTpになることを固定。horizon 2、2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "ee9a4c596d060198fbc81ac868cf92996e1c61b0520d9205389e6c97455c3b72",
+          "inputs_sha256": "de41d61babe8415b82a9d33a69a53af167133b6b23e7cfaf9684e44c7aa046c8",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f531_clock_paren.sv",
@@ -477994,7 +478660,7 @@
           "observation": "SymbiYosysでF.5.3.1のformalケースf531_feasibleを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。assumption `g` の下で `cover property (a)` を評価し、g=0の語はfeasible witnessが無いのでcover失敗1f、g=1の語はaのpass/failure（00/10）とする独立RTLと比較。cover on a setが少なくとも1つのfeasible pass witnessを要求することを固定。horizon 1、2値ag、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "358337a2b8f6a1614f1f8219c5ae1e6a91f8f88fdd6fe50f3defbca26ae379cd",
+          "inputs_sha256": "93319217826045c2de89ffd11d8c65a047762b77255affe8b7915aae11885eda",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f531_feasible.sv",
@@ -478174,7 +478840,7 @@
           "observation": "SymbiYosysでF.5.3.1のformalケースf531_notを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`not (a ##1 b)` の全16語を、内側 `a ##1 b` の成功tick（tick1）・失敗tick（a[0]なら1、else 0）を反転する独立RTL真理表と比較。not P が dual 語でPを満たさないときに成り立つ、というF.5.3.1-NOTの値を、決着可能なPで直接固定する。horizon 2、2値ab、BMC深さ2（組合せ全語列挙）。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "1c19de2bd3d6e9ee8312a724aac52c88183d2dc64e176d248de0e3a137ff5db6",
+          "inputs_sha256": "844c24cc3d774586375edd6fbeaf3af88f6eb3e239a9daf51fd9933326b375ac",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f531_not.sv",
@@ -478354,7 +479020,7 @@
           "observation": "SymbiYosysでF.5.3.1のformalケースf531_weakを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`weak(a ##[1:$] b)` の全64語で、strongと同じmatch条件（b[1]→01、b[2]→02、!a[0]→10）だが、witnessが無い有限語は無限top継続で後からmatchできるため中立hold 3fとする独立RTLと比較。strongとの差（4f vs 3f）を同じ語集合で固定。horizon 3、2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "99527b60b15d306f296a683d501a1bb3777329e283b3688dc28505fbcff19679",
+          "inputs_sha256": "6bbac1c941198d7ca93bce47abaaeb3ca22de2637587821ecc616e909a711a02",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f531_weak.sv",
@@ -479112,7 +479778,7 @@
           "observation": "SymbiYosysでformalケースf54_flow_concatを実行し、SV2023-F.5.4-EXTRACT-FLOW-CONCATの意味論を独立RTL参照と比較する。flow(concat) composes left then right: flow(flow(X,left),right).  Variant 1 shows that a left declaration removes the name before the right flow is taken. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b7cd0a1da170425ba07aca7cfde11845a528e7384ce4c7d1e8fee95e3abb418c",
+          "inputs_sha256": "0eb4b5a9380606f4c46af5ca556b91c2fbf64899921d88ef76e9aeb9913ac5cd",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f54_flow_concat.sv",
@@ -480020,7 +480686,7 @@
           "observation": "SymbiYosysでformalケースf561_empty_contextを実行し、SV2023-F.5.6.1-EXTRACT-EMPTY-CONTEXTの意味論を独立RTL参照と比較する。An unqualified clocked property starts with the empty local context, so the incoming context is not visible and the letter's v is read; the clock is inherited as true. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "006ae3bea753818f235faa8a5629403271da235151f3529bddfbb5369e67cfe3",
+          "inputs_sha256": "cc10178445c4d20783c0af460b2c50c40c359512586f0be33060f6185ae776b2",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f561_empty_context.sv",
@@ -480452,7 +481118,7 @@
           "observation": "SymbiYosysでformalケースf61_triggeredを実行し、SV2023-F.6.1-EXTRACT-TRIGGEREDの意味論を独立RTL参照と比較する。T.triggered at j holds iff some 0<=i<=j tightly matches T on i..j from the empty context.  For the two-letter sequence only i=j-1 can match, so j=1 reads a0&b1 and j=2 reads a1&b2. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "513f21f6c163f7a3360745a7379d2fa22c8db346135e79951b8f3c08b3fa8ea5",
+          "inputs_sha256": "5930c33cead1f55f69e26b27da9f6727ee47992f303debe5ce29d16676801399",
           "evidence": [
             {
               "file": "tests/ch16/test_formal_f61_triggered.sv",

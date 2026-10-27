@@ -46,13 +46,13 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **7605 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **7613 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4169 |
 | Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1453 |
-| The standard only, with no fixed-release simulator oracle recorded | 1983 |
+| The standard only, with no fixed-release simulator oracle recorded | 1991 |
 
 893 tests depend on x or z values (`:fourstate: yes`). 603 tests come with C code: 118 DPI tests (`:dpi_c:`) and 485 VPI tests (`:vpi_c:`). 1893 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 21 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 5 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -71,7 +71,7 @@ The suite has **7605 tests** in 37 chapters. 1308 of them are generated (`tests/
 | 13 | Tasks and functions (subroutines) | 197 | 106 | 78 | 13 |
 | 14 | Clocking blocks | 78 | 4 | 61 | 13 |
 | 15 | Interprocess synchronization and communication | 56 | 2 | 36 | 18 |
-| 16 | Assertions | 634 | 104 | 62 | 468 |
+| 16 | Assertions | 642 | 104 | 62 | 476 |
 | 17 | Checkers | 81 |  | 22 | 59 |
 | 18 | Constrained random value generation | 200 | 26 | 95 | 79 |
 | 19 | Functional coverage | 145 | 2 | 17 | 126 |
@@ -449,10 +449,11 @@ it does not know.
 | `:spec_check:` | Who checked a `spec` expectation against the standard: `ai` (an AI model read the cited clauses; no person has checked this test yet) or `human` (a person checked it) |
 | `:fourstate:` | Whether the result depends on x or z values (`yes` / `no`): the test has x or z literals, `$isunknown`, `casex`/`casez`, tri-state or strength constructs, or x or z in its expected output |
 | `:nondeterministic:` | Whether the result can depend on an ordering the standard leaves open |
-| `:expected_stdout:` | Expected standard output, or `@<file>` naming a file next to the test |
+| `:expected_stdout:` | Expected standard output, or `@<file>` naming a file next to the test. It is the fallback for every simulator that has no field of its own |
+| `:expected_stdout_<simulator>:` | Expected standard output for one simulator: `<simulator>` is `icarus`, `verilator`, `kirimasim` or `lyra`. It wins over `:expected_stdout:`, which may stay as the fallback for the other simulators. Add it only when the difference follows from the standard, such as a form the standard leaves to the tool, and say in the test comment why. Every referenced expectation file is part of the input fingerprint, so a change to any of them invalidates the stored execution evidence |
 | `:dpi_c:` | `@<file>`: C code next to the test that implements its DPI imports and calls its exports (chapter 35) |
 | `:vpi_c:` | `@<file>`: a VPI application next to the test, which registers its system tasks and callbacks from `vlog_startup_routines` (chapters 36 to 40) |
-| `:should_fail_because:` | The design is illegal, for the reason given, and a simulator has to reject it. Such a test has `:type: elaboration`, no `:expected_stdout:`, and an `:expected_stderr_regex:` that names the place of the error |
+| `:should_fail_because:` | The design is illegal, for the reason given, and a simulator has to reject it. Such a test has `:type: elaboration`, no expected output (`:expected_stdout:` or a simulator-specific field), and an `:expected_stderr_regex:` that names the place of the error |
 | `:expected_exit:` | The exit code that the simulation has to end with: `0`, `nonzero` (above 0) or a number. The standard fixes only that `$fatal` ends the run with an error code (20.10), so the tests use `nonzero` for it |
 | `:expected_stderr_regex:` | A Python regular expression for the diagnostic text passed by the runner (see "How a test is judged" below). For an illegal design, an error line must match the reviewed source locations, such as `test_x\.sv:12:`, and any required diagnostic concepts. Appropriate alternative locations can be accepted; unsupported syntax is not evidence of the intended violation. For other tests, the run's messages must match the pattern. The full diagnostic text is not fixed |
 | `:args:` | Arguments for the simulation, separated by spaces: plusargs such as `+count=3` |
@@ -528,6 +529,16 @@ The test is then run with Icarus Verilog 13.0:
    release lists both when both produce its expected output.
 3. If neither simulator follows the standard, `:oracle:` is `spec` alone, and
    the comment of the test says what the standard requires.
+
+A test may keep a separate expectation for one simulator with
+`:expected_stdout_icarus:`, `:expected_stdout_verilator:`,
+`:expected_stdout_kirimasim:` or `:expected_stdout_lyra:`. That field wins
+over `:expected_stdout:`, which stays the fallback for the other simulators.
+Add it only when both outputs follow the standard and differ in a form the
+standard leaves to the tool, such as the white space of `%p`; the test comment
+says why. Every expectation file that any of these fields names is part of the
+test's input fingerprint, so changing one invalidates the stored result even
+when another simulator uses a different file.
 
 For an illegal design (`:should_fail_because:`), the expected result is that
 the design is rejected with an error at the place the test names, and

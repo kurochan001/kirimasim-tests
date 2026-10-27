@@ -21,11 +21,13 @@ without ".sv". The rules:
                         directory (chNN)
     tags                :tags: is not the directory (chNN)
     fourstate           :fourstate: no, but the code has an x or z literal
-    expected            a test that is run has no :expected_stdout:, or its
-                        file is missing or empty
+    expected            a test that is run has no :expected_stdout: (or no
+                        :expected_stdout_<simulator>: and no
+                        :expected_stdout:), or its file is missing or empty
+    expected-key        a field :expected_stdout_<name>: names no simulator
     should-fail         :should_fail_because: without :type: elaboration or
-                        without :expected_stderr_regex:, or with
-                        :expected_stdout:; or :type: elaboration without
+                        without :expected_stderr_regex:, or with an expected
+                        output; or :type: elaboration without
                         :should_fail_because:
     file                a file or directory that :files:, :incdirs:, :dpi_c:
                         or :vpi_c: names does not exist
@@ -62,6 +64,9 @@ BASELINE = ROOT / "tools" / "lint_baseline.txt"
 REQUIRED = ("name", "description", "tags", "type", "lrm", "oracle", "spec_check",
             "fourstate", "nondeterministic")
 ORACLES = ("spec", "iverilog@13.0", "verilator@5.052")
+EXPECTED = suite_results.EXPECTED
+EXPECTED_SIMULATORS = suite_results.SIMULATORS
+EXPECTED_FIELDS = suite_results.EXPECTED_FIELDS
 CLAUSE = re.compile(r"^(?:\d+|[A-O])(?:\.\d+)*$")
 XZ_LITERAL = re.compile(r"\d*'[sS]?(?:[bB][01_xXzZ?]*[xXzZ?]|[hH][0-9a-fA-F_xXzZ?]*[xXzZ?]"
                         r"|[oO][0-7_xXzZ?]*[xXzZ?]|[dD]\s*[xXzZ?])|'[xXzZ]\b")
@@ -151,30 +156,38 @@ def check(test: Path) -> list[tuple[str, str]]:
             bad("fourstate", f"x or z literal {m.group(0)!r}")
 
     illegal = "should_fail_because" in fields
+    expected_names = [f for f in EXPECTED_FIELDS if f in fields]
+    for f in fields:
+        if f.startswith(EXPECTED + "_") and f not in EXPECTED_FIELDS:
+            bad("expected-key", f":{f}: is not one of "
+                + ", ".join(f":{n}:" for n in EXPECTED_FIELDS[1:]))
     if illegal:
         if fields.get("type") != "elaboration":
             bad("should-fail", ":should_fail_because: without :type: elaboration")
         if "expected_stderr_regex" not in fields:
             bad("should-fail", ":should_fail_because: without :expected_stderr_regex:")
-        if "expected_stdout" in fields:
-            bad("should-fail", ":should_fail_because: with :expected_stdout:")
+        if expected_names:
+            bad("should-fail", ":should_fail_because: with " + ", ".join(
+                f":{n}:" for n in expected_names))
     elif fields.get("type") == "elaboration":
         bad("should-fail", ":type: elaboration without :should_fail_because:")
     elif fields.get("type") == "formal":
         if not fields.get("formal_case"):
             bad("formal", ":type: formal without :formal_case:")
-        if "expected_stdout" in fields:
-            bad("formal", ":type: formal with :expected_stdout:")
+        if expected_names:
+            bad("formal", ":type: formal with " + ", ".join(
+                f":{n}:" for n in expected_names))
     else:
-        value = fields.get("expected_stdout")
-        if value is None:
-            bad("expected", "no :expected_stdout:")
-        elif value.startswith("@"):
-            path = test.parent / value[1:]
-            if not path.is_file():
-                bad("expected", f"{value[1:]} does not exist")
-            elif not path.read_text(encoding="utf-8", errors="replace").strip():
-                bad("expected", f"{value[1:]} is empty")
+        if not expected_names:
+            bad("expected", "no :expected_stdout: and no :expected_stdout_<simulator>:")
+        for name in expected_names:
+            value = fields[name]
+            if value.startswith("@"):
+                path = test.parent / value[1:]
+                if not path.is_file():
+                    bad("expected", f"{value[1:]} does not exist (:{name}:)")
+                elif not path.read_text(encoding="utf-8", errors="replace").strip():
+                    bad("expected", f"{value[1:]} is empty (:{name}:)")
 
     for f in ("files", "incdirs"):
         for name in fields.get(f, "").split():

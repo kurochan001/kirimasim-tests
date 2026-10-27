@@ -39,6 +39,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STATUSES = ("pass", "fail", "known", "unsupported")
+# The simulators that can have their own expected output. A test may name
+# :expected_stdout_<simulator>: next to :expected_stdout:, which stays the
+# expectation for every simulator without its own field (see README.md).
+SIMULATORS = ("icarus", "verilator", "kirimasim", "lyra")
+EXPECTED = "expected_stdout"
+EXPECTED_FIELDS = (EXPECTED, *(f"{EXPECTED}_{simulator}" for simulator in SIMULATORS))
 
 
 def test_id(test: Path) -> str:
@@ -96,6 +102,31 @@ def top_module(test: Path) -> str | None:
 def run_args(test: Path) -> list[str]:
     """The arguments that :args: gives the simulation, such as plusargs."""
     return header(test).get("args", "").split()
+
+
+def expected_fields(simulator: str | None = None) -> tuple[str, ...]:
+    """The metadata fields to try for an expected output, in order: the field
+    of the simulator, when it has one, then the generic :expected_stdout:.
+    A field of another simulator is never a substitute."""
+    if simulator is None:
+        return (EXPECTED,)
+    if simulator not in SIMULATORS:
+        raise ValueError(f"unknown simulator: {simulator}")
+    return (f"{EXPECTED}_{simulator}", EXPECTED)
+
+
+def expected_output(test: Path, simulator: str | None = None) -> str | None:
+    """The expected standard output for a simulator, as the test writes it or
+    as the file it names. The simulator's own field wins over the generic one;
+    without either the test has no expected output."""
+    fields = header(test)
+    for name in expected_fields(simulator):
+        value = fields.get(name)
+        if value is None:
+            continue
+        return (test.parent / value[1:]).read_text(encoding="utf-8") \
+            if value.startswith("@") else value + "\n"
+    return None
 
 
 def judge_illegal(test: Path, accepted: bool, messages: str) -> tuple[bool, str]:
@@ -175,9 +206,12 @@ def input_files(test: Path) -> list[Path]:
         value = fields.get(field, "")
         if value:
             paths.add((test.parent / value.removeprefix("@")).resolve())
-    expected = fields.get("expected_stdout", "")
-    if expected.startswith("@"):
-        paths.add((test.parent / expected[1:]).resolve())
+    # Every expectation that the test references, not only the one a particular
+    # simulator picks: changing any of them can change a verdict, so all of them
+    # must invalidate the stored execution evidence.
+    for name, expected in fields.items():
+        if (name == EXPECTED or name.startswith(EXPECTED + "_")) and expected.startswith("@"):
+            paths.add((test.parent / expected[1:]).resolve())
     _, include_dirs = files(test)
     for directory in include_dirs:
         if directory.is_dir():
