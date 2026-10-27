@@ -25,6 +25,7 @@ if __package__ in {None, ""}:
     from sva_reference import automata as rx, formal_cases as specs
     from sva_reference import f56_cases as f56
     from sva_reference import f4_common, f41_flat_cases, f4_rewrite_cases
+    from sva_reference import f_extra_common, f5_word_cases, f_assign_cases, f36_cases
     from sva_reference import nonvacuity as nonvac
     from sva_reference.engine import Current, Engine
     from sva_reference.parser import Parser, Unsupported, parse_sequence
@@ -34,6 +35,7 @@ else:
     from . import automata as rx, formal_cases as specs
     from . import f56_cases as f56
     from . import f4_common, f41_flat_cases, f4_rewrite_cases
+    from . import f_extra_common, f5_word_cases, f_assign_cases, f36_cases
     from . import nonvacuity as nonvac
     from .engine import Current, Engine
     from .parser import Parser, Unsupported, parse_sequence
@@ -218,7 +220,7 @@ def property_model(name, *, mutation=False):
         "symbolic_bits": size, "input_words": 1 << size, "bmc_depth": 2}
 
 
-LOCAL_TABLES = {**f56.TABLES, **f4_common.TABLES}
+LOCAL_TABLES = {**f56.TABLES, **f4_common.TABLES, **f_extra_common.TABLES}
 
 
 def table_model(name):

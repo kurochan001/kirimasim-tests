@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 87.16%、実行 48.50%。**
+**全規格の要求台帳ベース（暫定）: 設計 87.31%、実行 48.66%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10737/12319 (87.16%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5975/12319 (48.50%)。
-- 登録済みだがテスト未対応: 1582 動作。
+- 登録済み動作に対するテスト設計網羅率: 10756/12319 (87.31%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5994/12319 (48.66%)。
+- 登録済みだがテスト未対応: 1563 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -89,7 +89,7 @@
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
-- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T09:00:05.309789+00:00 / 234/12319 動作確認、古い入力との対応 0 件。
+- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T10:53:43.815410+00:00 / 253/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -220,7 +220,7 @@
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 9。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
-- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 234。
+- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 253。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 25。
 - H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 175。
 - I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 134。
@@ -127823,7 +127823,7 @@ Handles to objects whose lifetimes ended are not supported; the former vpiValid 
 
 ### SV2023-F.2-EXTRACT-ATTEMPTS
 
-F.2 / normal / テスト未対応
+F.2 / normal / 実行確認あり
 
 The equations model each matured procedural assertion attempt separately and each starting clock event of continuously monitored assertions; procedural queueing itself follows 16.14.6.
 
@@ -127831,10 +127831,11 @@ The equations model each matured procedural assertion attempt separately and eac
 
 規定の性質: `definition`。
 
+- [test_formal_f2_attempts.sv](../tests/ch16/test_formal_f2_attempts.sv): SymbiYosysでFのformalケースf2_attemptsを実行し、独立RTL参照と比較する。Each starting letter of the continuously monitored assertion begins a separate attempt of a ##1 a.  The four packed fields are the results of the attempts at ticks 0, 1, 2 and the empty start 3; they are computed independently and therefore differ across starts (for example a at 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.2-EXTRACT-MODEL
 
-F.2 / normal / テスト未対応
+F.2 / normal / 実行確認あり
 
 Formal satisfaction relates a finite/infinite trace to a concurrent assertion; letters are atomic-proposition sets or extension placeholders. Trace construction follows scheduling and is outside this formal model.
 
@@ -127842,10 +127843,11 @@ Formal satisfaction relates a finite/infinite trace to a concurrent assertion; l
 
 規定の性質: `definition`。
 
+- [test_formal_f2_model.sv](../tests/ch16/test_formal_f2_model.sv): SymbiYosysでFのformalケースf2_modelを実行し、独立RTL参照と比較する。A trace is a sequence of letters, each an atomic-proposition set or an extension placeholder.  The four packed results evaluate (0) a Boolean property, (1) a sequence property strongly (infinite bottom extension), (2) the same sequence weakly (infinite top extension) and (3) an o 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.2-EXTRACT-TRANSFORM
 
-F.2 / normal / テスト未対応
+F.2 / normal / 実行確認あり
 
 Before formal evaluation, flatten sequence/nonrecursive property instances, eliminate local declaration assignments, determine implicit/inferred clocks and remove redundant clock controls; recursive properties use F.7 approximations. Abstract syntax uses explicit clocks and integrated local declarations; formal variable semantics does not explicitly depend on types.
 
@@ -127853,6 +127855,7 @@ Before formal evaluation, flatten sequence/nonrecursive property instances, elim
 
 規定の性質: `definition`。
 
+- [test_formal_f2_transform.sv](../tests/ch16/test_formal_f2_transform.sv): SymbiYosysでFのformalケースf2_transformを実行し、独立RTL参照と比較する。The table evaluates a small finite syntax before and after the F.2 pipeline.  Form 0 is the named sequence instance S(a) with S(x)=a ##1 x, flattened to a ##1 a.  Form 1 is the initialized local declaration (bit v = !a; (v==1) ##1 a), whose declaration assignment is eliminated in 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.1-EXTRACT-BOOLEAN-CLOCKS
 
@@ -128072,7 +128075,7 @@ Clocked sequences embedded in property grammar must be nondegenerate; sequence-p
 
 ### SV2023-F.3.2-EXTRACT-SYMBOLS
 
-F.3.2 / normal / テスト未対応
+F.3.2 / normal / 実行確認あり
 
 Abstract grammar uses b for Boolean,t for type,v for local variable,e for expression.
 
@@ -128080,10 +128083,11 @@ Abstract grammar uses b for Boolean,t for type,v for local variable,e for expres
 
 規定の性質: `definition`。
 
+- [test_formal_f32_symbols.sv](../tests/ch16/test_formal_f32_symbols.sv): SymbiYosysでFのformalケースf32_symbolsを実行し、独立RTL参照と比較する。The abstract grammar uses b for Boolean, t for type, v for local variable and e for expression.  The eight forms classify as: bare/combined Boolean sequences use b; a bare type or a ranged type uses t; (int v; a) uses t, v and b; (v = a + 1) uses v and e; (v; a) uses v and b. The 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.3-EXTRACT-NOTATION
 
-F.3.3 / normal / テスト未対応
+F.3.3 / normal / 実行確認あり
 
 Notation distinguishes Boolean/type/local/free-checker-variable/expression; R,S unclocked/clocked sequences; P,Q ordinary properties; T,U top-level properties; lowercase r,s,p,q allow either clocking category; A is assertion and i,j,k,m,n are nonnegative integers.
 
@@ -128091,6 +128095,7 @@ Notation distinguishes Boolean/type/local/free-checker-variable/expression; R,S 
 
 規定の性質: `definition`。
 
+- [test_formal_f33_notation.sv](../tests/ch16/test_formal_f33_notation.sv): SymbiYosysでFのformalケースf33_notationを実行し、独立RTL参照と比較する。The notation distinguishes Boolean (b), type (t), local variable (v), free checker variable (c) and expression (e); R and S are unclocked and clocked sequences; P and Q ordinary properties; T and U top-level properties; r,s and p,q allow either clocking category; A is an assertio 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.4-EXTRACT-ASSOCIATIVITY
 
@@ -128409,7 +128414,7 @@ R1 and R2 expands to ((R1 ##1 1\[*0:$\]) intersect R2) or (R1 intersect (R2 ##1 
 
 ### SV2023-F.3.4.2.4-EXTRACT-ASSIGN
 
-F.3.4.2.4 / normal / テスト未対応
+F.3.4.2.4 / normal / 実行確認あり
 
 Sequence match assignment (R,v=e) is fusion with (1,v=e); multiple assignments are processed in listed order by successive fusion.
 
@@ -128417,6 +128422,7 @@ Sequence match assignment (R,v=e) is fusion with (1,v=e); multiple assignments a
 
 規定の性質: `definition`。
 
+- [test_formal_f342_assign_fusion.sv](../tests/ch16/test_formal_f342_assign_fusion.sv): SymbiYosysでFのformalケースf342_assign_fusionを実行し、独立RTL参照と比較する。F.3.4.2.4の等式 (R,v=e) = R ##0 (1,v=e) と、複数代入の逐次fusion（列挙順）を固定する。actual側はRの終端点で代入を順に適用し、後の代入が前の代入結果を見る。RTL側はfusion形を変種ごとに独立に列挙する。変種1 (v=a, w=v) はw=a1、変種2 (w=v, v=a) はw=旧vとなり、順序の効果が出る。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.4.2.4-EXTRACT-THROUGHOUT
 
@@ -128900,7 +128906,7 @@ $stable/$changed compare current e to $past(e,1,1,c) using case equality/inequal
 
 ### SV2023-F.3.4.5-EXTRACT-DECLARATION-NEST
 
-F.3.4.5 / normal / テスト未対応
+F.3.4.5 / normal / 実行確認あり
 
 Multiple local declarations in R/S/P/Q/T/U are equivalent to nesting each declaration in source order, preserving optional initializers.
 
@@ -128908,10 +128914,11 @@ Multiple local declarations in R/S/P/Q/T/U are equivalent to nesting each declar
 
 規定の性質: `definition`。
 
+- [test_formal_f345_declaration_nest.sv](../tests/ch16/test_formal_f345_declaration_nest.sv): SymbiYosysでFのformalケースf345_declaration_nestを実行し、独立RTL参照と比較する。複数のlocal declarationがsource順のnestingと等価で、initializerが保持されることを固定する。actual側は1個ずつnestし、後のinitializerが先の宣言の束縛を見る。RTL側は複数宣言形を列挙順に評価する。initializerあり/なし、順序反転の4変種を含む。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.4.6-EXTRACT-ENABLE
 
-F.3.4.6 / normal / テスト未対応
+F.3.4.6 / normal / 実行確認あり
 
 The equivalent assumption uses the same enclosing combined conditional enable as the free checker assignment.
 
@@ -128919,10 +128926,11 @@ The equivalent assumption uses the same enclosing combined conditional enable as
 
 規定の性質: `definition`。
 
+- [test_formal_f346_enable.sv](../tests/ch16/test_formal_f346_enable.sv): SymbiYosysでFのformalケースf346_enableを実行し、独立RTL参照と比較する。enclosing conditional enable を4形式（if c\[0\]、nested if c\[0\]&&c\[1\]、if/else-if c\[0\]||c\[1\]、case c==2'b01）で表し、sourceのforward代入（enable真ならe、偽ならhold）と、同じenableでguardしたfuture-global assumption `u' === enable?e:u` を比較した。enable偽でeが変わってもuが保持される語を含む。BMC深さ2、10 symbolic bits、1024語、全2値。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.4.6-EXTRACT-NONBLOCKING
 
-F.3.4.6 / normal / テスト未対応
+F.3.4.6 / normal / 実行確認あり
 
 Free checker always_ff @c u<=e becomes always_ff assumption that future-global u case-equals c?e:u.
 
@@ -128930,10 +128938,11 @@ Free checker always_ff @c u<=e becomes always_ff assumption that future-global u
 
 規定の性質: `definition`。
 
+- [test_formal_f346_nonblocking.sv](../tests/ch16/test_formal_f346_nonblocking.sv): SymbiYosysでFのformalケースf346_nonblockingを実行し、独立RTL参照と比較する。`always_ff @c u<=e` の代入を、各tickで `u' = c ? e : u` として有限トレース（u0,u1,u2、e0,e1、c0,c1、sel 0=plain/1=conditional RHS）で実行し、future-global u が `c?e:u` にcase-equalするというassumption述語と、最初に違反するtick（0=合法、1=tick0違反、2=tick1違反）で比較した。c=0のときuが保持される語を含む。BMC深さ2、10 symbolic bits、1024語、全2値。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.4.6-EXTRACT-RAND-INIT
 
-F.3.4.6 / normal / テスト未対応
+F.3.4.6 / normal / 実行確認あり
 
 Free checker rand-variable declaration initializer becomes initial assume property(@1 u===e).
 
@@ -128941,6 +128950,7 @@ Free checker rand-variable declaration initializer becomes initial assume proper
 
 規定の性質: `definition`。
 
+- [test_formal_f346_rand_init.sv](../tests/ch16/test_formal_f346_rand_init.sv): SymbiYosysでFのformalケースf346_rand_initを実行し、独立RTL参照と比較する。rand変数宣言初期化子 `u = e` / `u = ~e` / 初期化子なし / `u = 2` を、初期tickの値u0と初期化式e0の比較として実行し、`initial assume property(@1 u===e)` の初期tick制約と比較した。tick1のu1/e1はどちらも参照せず、初期のみの制約であることを示す語を含む。BMC深さ2、10 symbolic bits、1024語、全2値。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.4-EXTRACT-ITEM
 
@@ -129436,7 +129446,7 @@ If r cannot match empty, the empty alternative can be removed from declaration-a
 
 ### SV2023-F.5-EXTRACT-ALPHABET
 
-F.5 / normal / テスト未対応
+F.5 / normal / 実行確認あり
 
 Words use subsets of atomic propositions plus top and bottom placeholders; length may be any nonnegative integer or infinity.
 
@@ -129444,10 +129454,11 @@ Words use subsets of atomic propositions plus top and bottom placeholders; lengt
 
 規定の性質: `definition`。
 
+- [test_formal_f5_alphabet.sv](../tests/ch16/test_formal_f5_alphabet.sv): SymbiYosysでFのformalケースf5_alphabetを実行し、独立RTL参照と比較する。F.5 words are finite sequences of letters, each letter a subset of the atomic propositions or one of top/bottom.  With atoms {a,b} the alphabet has 2^2+2 = 6 letters; the three-bit encoding has eight codes, so codes 6 and 7 must be rejected.  Lengths 0..3 are enumerated and every 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5-EXTRACT-DUAL
 
-F.5 / normal / テスト未対応
+F.5 / normal / 実行確認あり
 
 Dual word swaps top and bottom placeholders while leaving proposition-set letters unchanged.
 
@@ -129455,10 +129466,11 @@ Dual word swaps top and bottom placeholders while leaving proposition-set letter
 
 規定の性質: `definition`。
 
+- [test_formal_f5_dual.sv](../tests/ch16/test_formal_f5_dual.sv): SymbiYosysでFのformalケースf5_dualを実行し、独立RTL参照と比較する。The dual word swaps top and bottom at every letter and leaves the two proposition-set letters {} and {a} unchanged.  The packed result shows the length, the three dual letters and the empty-word boundary L=0. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5-EXTRACT-INDEX
 
-F.5 / normal / テスト未対応
+F.5 / normal / 実行確認あり
 
 Letters are zero-indexed; suffix from i removes first i letters and is empty for i>=length.
 
@@ -129466,10 +129478,11 @@ Letters are zero-indexed; suffix from i removes first i letters and is empty for
 
 規定の性質: `definition`。
 
+- [test_formal_f5_index.sv](../tests/ch16/test_formal_f5_index.sv): SymbiYosysでFのformalケースf5_indexを実行し、独立RTL参照と比較する。Letters are zero-indexed and the suffix starting at i removes the first i letters.  For i=0 the whole word is returned, for i=length the suffix is empty, and for i>length (i is three bits, length at most three) the suffix is also empty.  The packed result carries both the suffix 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5-EXTRACT-PLACEHOLDERS
 
-F.5 / normal / テスト未対応
+F.5 / normal / 実行確認あり
 
 Boolean satisfaction of proposition-set letters is assumed; top satisfies every Boolean expression and bottom satisfies none.
 
@@ -129477,10 +129490,11 @@ Boolean satisfaction of proposition-set letters is assumed; top satisfies every 
 
 規定の性質: `definition`。
 
+- [test_formal_f5_placeholders.sv](../tests/ch16/test_formal_f5_placeholders.sv): SymbiYosysでFのformalケースf5_placeholdersを実行し、独立RTL参照と比較する。Boolean satisfaction of a proposition-set letter is the ordinary evaluation under its atomic propositions; top satisfies every Boolean expression, including a&&!a, and bottom satisfies none, including a||!a.  The four packed bits are the results for a, !a, a||!a and a&&!a, so the 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5-EXTRACT-SUBWORD
 
-F.5 / normal / テスト未対応
+F.5 / normal / 実行確認あり
 
 For i<=j, subword i..j deletes earlier and later letters; if i<=j<length it includes both endpoint letters.
 
@@ -129488,6 +129502,7 @@ For i<=j, subword i..j deletes earlier and later letters; if i<=j<length it incl
 
 規定の性質: `definition`。
 
+- [test_formal_f5_subword.sv](../tests/ch16/test_formal_f5_subword.sv): SymbiYosysでFのformalケースf5_subwordを実行し、独立RTL参照と比較する。For i<=j the subword deletes all letters before i and after j, and when i<=j<length it contains both endpoints.  The table covers i=j (one letter), i<j, j=length-1 (last letter included) and the out-of-range cases i>j and j>=length, where the subword is not defined. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1-EXTRACT-CLOCK-INDEPENDENCE
 
@@ -129503,7 +129518,7 @@ Clock elimination preserves satisfaction; conditions in event controls must not 
 
 ### SV2023-F.5.1.1-EXTRACT-ASSIGN
 
-F.5.1.1 / normal / テスト未対応
+F.5.1.1 / normal / 実行確認あり
 
 Ts of local sampling assignment is Ts(1,c) ##0 assignment.
 
@@ -129511,6 +129526,7 @@ Ts of local sampling assignment is Ts(1,c) ##0 assignment.
 
 規定の性質: `definition`。
 
+- [test_formal_f511_sampling_assign.sv](../tests/ch16/test_formal_f511_sampling_assign.sv): SymbiYosysでFのformalケースf511_sampling_assignを実行し、独立RTL参照と比較する。Ts(local sampling assignment) = Ts(1,c) ##0 assignment を固定する。Ts(1,c)は先頭の!cを読み飛ばして最初のc=1のletterで終わり、assignmentは同じletterに適用される。cが全tickで偽なら終端点がなく代入は寄与しない。actual側は最初のc位置で直接代入し、RTL側はfirst-c indexとfused assignmentを独立に実装する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.1-EXTRACT-BOOLEAN
 
@@ -129762,7 +129778,7 @@ Positive unbounded repetition tightly matches a concatenation of one or more fin
 
 ### SV2023-F.5.3.1-EXTRACT-ACCEPT
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 accept_on(b) P holds when P holds, or some b at 0<=i<|w| has its preceding prefix followed by infinite top satisfying P; prefix before position zero is empty.
 
@@ -129770,6 +129786,7 @@ accept_on(b) P holds when P holds, or some b at 0<=i<|w| has its preceding prefi
 
 規定の性質: `definition`。
 
+- [test_formal_f531_accept_extension.sv](../tests/ch16/test_formal_f531_accept_extension.sv): SymbiYosysでFのformalケースf531_accept_extensionを実行し、独立RTL参照と比較する。accept_on(b) P の定義「Pが成立」または「0<=i<|w|のb位置で、その直前prefixを無限topで拡張したものがPを満たす」を固定する。P=a##\[1:2\]b、3 letter。i=0の空prefixは全topで必ず満たし、i=1/i=2はtopがbを演じられるためa0に帰着する。結果コードは通過bit・経路bit・決定iを含む。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-ALWAYS
 
@@ -130014,7 +130031,7 @@ Report fails when finite word does not weakly satisfy assertion.
 
 ### SV2023-F.5.3.2-EXTRACT-FINITE-EXTENSIONS
 
-F.5.3.2 / normal / テスト未対応
+F.5.3.2 / normal / 実行確認あり
 
 Finite possibly empty word weakly satisfies A iff appending infinite top neutrally satisfies A; strongly satisfies A iff appending infinite bottom neutrally satisfies A.
 
@@ -130022,6 +130039,7 @@ Finite possibly empty word weakly satisfies A iff appending infinite top neutral
 
 規定の性質: `definition`。
 
+- [test_formal_f532_finite_extension.sv](../tests/ch16/test_formal_f532_finite_extension.sv): SymbiYosysでFのformalケースf532_finite_extensionを実行し、独立RTL参照と比較する。有限語（空語を含む）のweak充足=無限top付加後のneutral satisfaction、strong充足=無限bottom付加後のneutral satisfactionを固定する。長さ0..3をselectorで列挙し、P=a##\[1:2\]bについてtopが許されるdelay内でだけbを供給できること、bottomでは実bが必要なことをRTLで独立に表す。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.2-EXTRACT-HOLD
 
@@ -130493,7 +130511,7 @@ Tight local satisfaction relates finite word,input context,sequence and output c
 
 ### SV2023-F.5.6.1-EXTRACT-ACCEPT-CONTEXT-TEXT
 
-F.5.6.1 / normal / テスト未対応
+F.5.6.1 / normal / 実行確認あり
 
 Local accept_on passes if the operand passes under L0 with no abort, or b holds at some 0<=i<|w| and the prior prefix extended with top satisfies P under the same incoming context L0; the context omitted from the second branch's notation is L0.
 
@@ -130501,6 +130519,7 @@ Local accept_on passes if the operand passes under L0 with no abort, or b holds 
 
 規定の性質: `definition`。
 
+- [test_formal_f561_accept_context.sv](../tests/ch16/test_formal_f561_accept_context.sv): SymbiYosysでFのformalケースf561_accept_contextを実行し、独立RTL参照と比較する。local accept_onの2 branchを固定する。直接branchはL0でPが成立し、かつwのどのletterもabort条件を満たさないこと。abort branchは0<=i<|w|のd位置で、直前prefixを無限topで拡張したものを同じL0でPが満たすこと。P=(v==0)##1bでは、tick0のabortはL0がvを0に束縛する場合だけ救済し、空文脈ならtopのv=1で失敗する。これが「第2 branchの文脈はL0」の直接検査になる。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.1-EXTRACT-ASSERTIONS
 

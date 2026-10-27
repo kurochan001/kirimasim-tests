@@ -1119,8 +1119,13 @@ F.7; 91 new links were accepted.
 
 A seventh formal wave completed F.4 with 40 cases for the F.4.1/F.4.2
 flattening rules and the F.4/F.4.3 declaration-assignment rewriting; 40
-new links were accepted. The ledger maps 10737 of 12319 rows (87.16%),
-with 5975 executed (48.50%).
+new links were accepted.
+
+An eighth formal wave closed Annex F: 19 cases for the F.2 model, the
+F.3.2/F.3.3 notation, the F.5 word operations, the remaining assignment
+and declaration rules, accept_on and the F.3.4.6 free-checker rewrites.
+All 253 F requirements are now mapped. The ledger maps 10756 of 12319
+rows (87.31%), with 5994 executed (48.66%).
 
 ### Current state
 
@@ -1129,7 +1134,7 @@ generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-10737 of 12319 rows (87.16%), with 5975 executed (48.50%).
+10756 of 12319 rows (87.31%), with 5994 executed (48.66%).
 
 ### Tests added in this work
 

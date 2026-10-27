@@ -471613,7 +471613,25 @@
       "acceptance": "The equations model each matured procedural assertion attempt separately and each starting clock event of continuously monitored assertions; procedural queueing itself follows 16.14.6.",
       "source_note": "IEEE 1800-2023 F.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f2_attempts.sv",
+          "observation": "SymbiYosysでFのformalケースf2_attemptsを実行し、独立RTL参照と比較する。Each starting letter of the continuously monitored assertion begins a separate attempt of a ##1 a.  The four packed fields are the results of the attempts at ticks 0, 1, 2 and the empty start 3; they are computed independently and therefore differ across starts (for example a at 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3c95be2a4896aebe22ed7ed845362d64068e127223d54f3e6aea8eedc64a579f",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f2_attempts.sv",
+              "contains": ":formal_case: f2_attempts"
+            },
+            {
+              "file": "tests/ch16/test_formal_f2_attempts.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.2",
@@ -471631,7 +471649,25 @@
       "acceptance": "Formal satisfaction relates a finite/infinite trace to a concurrent assertion; letters are atomic-proposition sets or extension placeholders. Trace construction follows scheduling and is outside this formal model.",
       "source_note": "IEEE 1800-2023 F.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f2_model.sv",
+          "observation": "SymbiYosysでFのformalケースf2_modelを実行し、独立RTL参照と比較する。A trace is a sequence of letters, each an atomic-proposition set or an extension placeholder.  The four packed results evaluate (0) a Boolean property, (1) a sequence property strongly (infinite bottom extension), (2) the same sequence weakly (infinite top extension) and (3) an o 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c5538c58653f64bae12510aee4010a4f23e71cfff539d0b7584edf3b7121a688",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f2_model.sv",
+              "contains": ":formal_case: f2_model"
+            },
+            {
+              "file": "tests/ch16/test_formal_f2_model.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.2",
@@ -471649,7 +471685,25 @@
       "acceptance": "Before formal evaluation, flatten sequence/nonrecursive property instances, eliminate local declaration assignments, determine implicit/inferred clocks and remove redundant clock controls; recursive properties use F.7 approximations. Abstract syntax uses explicit clocks and integrated local declarations; formal variable semantics does not explicitly depend on types.",
       "source_note": "IEEE 1800-2023 F.2; complete own-body source review, blocks B004, B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f2_transform.sv",
+          "observation": "SymbiYosysでFのformalケースf2_transformを実行し、独立RTL参照と比較する。The table evaluates a small finite syntax before and after the F.2 pipeline.  Form 0 is the named sequence instance S(a) with S(x)=a ##1 x, flattened to a ##1 a.  Form 1 is the initialized local declaration (bit v = !a; (v==1) ##1 a), whose declaration assignment is eliminated in 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "98d97ef0df8b393c885d3fd05a38df6cf75cfeee363700fe95bda9ddb6c4d7a8",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f2_transform.sv",
+              "contains": ":formal_case: f2_transform"
+            },
+            {
+              "file": "tests/ch16/test_formal_f2_transform.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.2",
@@ -472319,7 +472373,25 @@
       "acceptance": "Abstract grammar uses b for Boolean,t for type,v for local variable,e for expression.",
       "source_note": "IEEE 1800-2023 F.3.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f32_symbols.sv",
+          "observation": "SymbiYosysでFのformalケースf32_symbolsを実行し、独立RTL参照と比較する。The abstract grammar uses b for Boolean, t for type, v for local variable and e for expression.  The eight forms classify as: bare/combined Boolean sequences use b; a bare type or a ranged type uses t; (int v; a) uses t, v and b; (v = a + 1) uses v and e; (v; a) uses v and b. The 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "00252cf5b0eba00a35be1ec55be7b8e2dd9856f02a036a6cedbab94ce075820e",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f32_symbols.sv",
+              "contains": ":formal_case: f32_symbols"
+            },
+            {
+              "file": "tests/ch16/test_formal_f32_symbols.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.2",
@@ -472337,7 +472409,25 @@
       "acceptance": "Notation distinguishes Boolean/type/local/free-checker-variable/expression; R,S unclocked/clocked sequences; P,Q ordinary properties; T,U top-level properties; lowercase r,s,p,q allow either clocking category; A is assertion and i,j,k,m,n are nonnegative integers.",
       "source_note": "IEEE 1800-2023 F.3.3; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f33_notation.sv",
+          "observation": "SymbiYosysでFのformalケースf33_notationを実行し、独立RTL参照と比較する。The notation distinguishes Boolean (b), type (t), local variable (v), free checker variable (c) and expression (e); R and S are unclocked and clocked sequences; P and Q ordinary properties; T and U top-level properties; r,s and p,q allow either clocking category; A is an assertio 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1e0da5f084126f678e500faeb16045e01b150b45c0ebd2c5000929877e542b70",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f33_notation.sv",
+              "contains": ":formal_case: f33_notation"
+            },
+            {
+              "file": "tests/ch16/test_formal_f33_notation.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.3",
@@ -473343,7 +473433,25 @@
       "acceptance": "Sequence match assignment (R,v=e) is fusion with (1,v=e); multiple assignments are processed in listed order by successive fusion.",
       "source_note": "IEEE 1800-2023 F.3.4.2.4; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_assign_fusion.sv",
+          "observation": "SymbiYosysでFのformalケースf342_assign_fusionを実行し、独立RTL参照と比較する。F.3.4.2.4の等式 (R,v=e) = R ##0 (1,v=e) と、複数代入の逐次fusion（列挙順）を固定する。actual側はRの終端点で代入を順に適用し、後の代入が前の代入結果を見る。RTL側はfusion形を変種ごとに独立に列挙する。変種1 (v=a, w=v) はw=a1、変種2 (w=v, v=a) はw=旧vとなり、順序の効果が出る。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "45c1de8c4938264ce387db0f004027ceaf07f0b11225c8325b7e8ae1de7c40fc",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_assign_fusion.sv",
+              "contains": ":formal_case: f342_assign_fusion"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_assign_fusion.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.4",
@@ -474801,7 +474909,25 @@
       "acceptance": "Multiple local declarations in R/S/P/Q/T/U are equivalent to nesting each declaration in source order, preserving optional initializers.",
       "source_note": "IEEE 1800-2023 F.3.4.5; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f345_declaration_nest.sv",
+          "observation": "SymbiYosysでFのformalケースf345_declaration_nestを実行し、独立RTL参照と比較する。複数のlocal declarationがsource順のnestingと等価で、initializerが保持されることを固定する。actual側は1個ずつnestし、後のinitializerが先の宣言の束縛を見る。RTL側は複数宣言形を列挙順に評価する。initializerあり/なし、順序反転の4変種を含む。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "09de64e3167f439ad1595169faa79d672b84e90dc1496ec3a9bc8ba578db1420",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f345_declaration_nest.sv",
+              "contains": ":formal_case: f345_declaration_nest"
+            },
+            {
+              "file": "tests/ch16/test_formal_f345_declaration_nest.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.5",
@@ -474819,7 +474945,25 @@
       "acceptance": "The equivalent assumption uses the same enclosing combined conditional enable as the free checker assignment.",
       "source_note": "IEEE 1800-2023 F.3.4.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f346_enable.sv",
+          "observation": "SymbiYosysでFのformalケースf346_enableを実行し、独立RTL参照と比較する。enclosing conditional enable を4形式（if c[0]、nested if c[0]&&c[1]、if/else-if c[0]||c[1]、case c==2'b01）で表し、sourceのforward代入（enable真ならe、偽ならhold）と、同じenableでguardしたfuture-global assumption `u' === enable?e:u` を比較した。enable偽でeが変わってもuが保持される語を含む。BMC深さ2、10 symbolic bits、1024語、全2値。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2c66f310c8902cfdcaa35aec4094f75ce55190ab435f85fcfcb2a0b8dca7a16e",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f346_enable.sv",
+              "contains": ":formal_case: f346_enable"
+            },
+            {
+              "file": "tests/ch16/test_formal_f346_enable.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.6",
@@ -474837,7 +474981,25 @@
       "acceptance": "Free checker always_ff @c u<=e becomes always_ff assumption that future-global u case-equals c?e:u.",
       "source_note": "IEEE 1800-2023 F.3.4.6; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f346_nonblocking.sv",
+          "observation": "SymbiYosysでFのformalケースf346_nonblockingを実行し、独立RTL参照と比較する。`always_ff @c u<=e` の代入を、各tickで `u' = c ? e : u` として有限トレース（u0,u1,u2、e0,e1、c0,c1、sel 0=plain/1=conditional RHS）で実行し、future-global u が `c?e:u` にcase-equalするというassumption述語と、最初に違反するtick（0=合法、1=tick0違反、2=tick1違反）で比較した。c=0のときuが保持される語を含む。BMC深さ2、10 symbolic bits、1024語、全2値。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8c308e31882b946ad40a225a860e8efdb8309b018e36766392c7b52a7cf86cf1",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f346_nonblocking.sv",
+              "contains": ":formal_case: f346_nonblocking"
+            },
+            {
+              "file": "tests/ch16/test_formal_f346_nonblocking.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.6",
@@ -474855,7 +475017,25 @@
       "acceptance": "Free checker rand-variable declaration initializer becomes initial assume property(@1 u===e).",
       "source_note": "IEEE 1800-2023 F.3.4.6; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f346_rand_init.sv",
+          "observation": "SymbiYosysでFのformalケースf346_rand_initを実行し、独立RTL参照と比較する。rand変数宣言初期化子 `u = e` / `u = ~e` / 初期化子なし / `u = 2` を、初期tickの値u0と初期化式e0の比較として実行し、`initial assume property(@1 u===e)` の初期tick制約と比較した。tick1のu1/e1はどちらも参照せず、初期のみの制約であることを示す語を含む。BMC深さ2、10 symbolic bits、1024語、全2値。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d456696fe92b9c9188099bd12c886403abe21504d3e2ca495b3a6110e23fbdd7",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f346_rand_init.sv",
+              "contains": ":formal_case: f346_rand_init"
+            },
+            {
+              "file": "tests/ch16/test_formal_f346_rand_init.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.6",
@@ -476355,7 +476535,25 @@
       "acceptance": "Words use subsets of atomic propositions plus top and bottom placeholders; length may be any nonnegative integer or infinity.",
       "source_note": "IEEE 1800-2023 F.5; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f5_alphabet.sv",
+          "observation": "SymbiYosysでFのformalケースf5_alphabetを実行し、独立RTL参照と比較する。F.5 words are finite sequences of letters, each letter a subset of the atomic propositions or one of top/bottom.  With atoms {a,b} the alphabet has 2^2+2 = 6 letters; the three-bit encoding has eight codes, so codes 6 and 7 must be rejected.  Lengths 0..3 are enumerated and every 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "06a2640b9ee263094ed45cd2a6e1c21243757c7f535a2f684e40a8e1c6793b5d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f5_alphabet.sv",
+              "contains": ":formal_case: f5_alphabet"
+            },
+            {
+              "file": "tests/ch16/test_formal_f5_alphabet.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5",
@@ -476374,7 +476572,25 @@
       "acceptance": "Dual word swaps top and bottom placeholders while leaving proposition-set letters unchanged.",
       "source_note": "IEEE 1800-2023 F.5; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f5_dual.sv",
+          "observation": "SymbiYosysでFのformalケースf5_dualを実行し、独立RTL参照と比較する。The dual word swaps top and bottom at every letter and leaves the two proposition-set letters {} and {a} unchanged.  The packed result shows the length, the three dual letters and the empty-word boundary L=0. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "daaa8955bf36920939af35d5f37798e5acf3ad0ffaebd6260836c5bf1c302659",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f5_dual.sv",
+              "contains": ":formal_case: f5_dual"
+            },
+            {
+              "file": "tests/ch16/test_formal_f5_dual.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5",
@@ -476392,7 +476608,25 @@
       "acceptance": "Letters are zero-indexed; suffix from i removes first i letters and is empty for i>=length.",
       "source_note": "IEEE 1800-2023 F.5; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f5_index.sv",
+          "observation": "SymbiYosysでFのformalケースf5_indexを実行し、独立RTL参照と比較する。Letters are zero-indexed and the suffix starting at i removes the first i letters.  For i=0 the whole word is returned, for i=length the suffix is empty, and for i>length (i is three bits, length at most three) the suffix is also empty.  The packed result carries both the suffix 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "be65ea009f66c32c0d2f139d114e49fb0a6dc45105801b9ca098f9471b8c71e0",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f5_index.sv",
+              "contains": ":formal_case: f5_index"
+            },
+            {
+              "file": "tests/ch16/test_formal_f5_index.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5",
@@ -476410,7 +476644,25 @@
       "acceptance": "Boolean satisfaction of proposition-set letters is assumed; top satisfies every Boolean expression and bottom satisfies none.",
       "source_note": "IEEE 1800-2023 F.5; complete own-body source review, blocks B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f5_placeholders.sv",
+          "observation": "SymbiYosysでFのformalケースf5_placeholdersを実行し、独立RTL参照と比較する。Boolean satisfaction of a proposition-set letter is the ordinary evaluation under its atomic propositions; top satisfies every Boolean expression, including a&&!a, and bottom satisfies none, including a||!a.  The four packed bits are the results for a, !a, a||!a and a&&!a, so the 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "11acb1fa38c03bb08fdece3da6950031b5696d1af1066649ce60e44e3697e78a",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f5_placeholders.sv",
+              "contains": ":formal_case: f5_placeholders"
+            },
+            {
+              "file": "tests/ch16/test_formal_f5_placeholders.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5",
@@ -476429,7 +476681,25 @@
       "acceptance": "For i<=j, subword i..j deletes earlier and later letters; if i<=j<length it includes both endpoint letters.",
       "source_note": "IEEE 1800-2023 F.5; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f5_subword.sv",
+          "observation": "SymbiYosysでFのformalケースf5_subwordを実行し、独立RTL参照と比較する。For i<=j the subword deletes all letters before i and after j, and when i<=j<length it contains both endpoints.  The table covers i=j (one letter), i<j, j=length-1 (last letter included) and the out-of-range cases i>j and j>=length, where the subword is not defined. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c21b240c60177ed311da69c20a0eafc8fb579f5fe8d58d26c4dbe84ce2fac47a",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f5_subword.sv",
+              "contains": ":formal_case: f5_subword"
+            },
+            {
+              "file": "tests/ch16/test_formal_f5_subword.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5",
@@ -476483,7 +476753,25 @@
       "acceptance": "Ts of local sampling assignment is Ts(1,c) ##0 assignment.",
       "source_note": "IEEE 1800-2023 F.5.1.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f511_sampling_assign.sv",
+          "observation": "SymbiYosysでFのformalケースf511_sampling_assignを実行し、独立RTL参照と比較する。Ts(local sampling assignment) = Ts(1,c) ##0 assignment を固定する。Ts(1,c)は先頭の!cを読み飛ばして最初のc=1のletterで終わり、assignmentは同じletterに適用される。cが全tickで偽なら終端点がなく代入は寄与しない。actual側は最初のc位置で直接代入し、RTL側はfirst-c indexとfused assignmentを独立に実装する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ca1db0eb915f2eb70055479b772186f6c1952e8e4403baba1180e61399508064",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f511_sampling_assign.sv",
+              "contains": ":formal_case: f511_sampling_assign"
+            },
+            {
+              "file": "tests/ch16/test_formal_f511_sampling_assign.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.1",
@@ -477357,7 +477645,25 @@
       "acceptance": "accept_on(b) P holds when P holds, or some b at 0<=i<|w| has its preceding prefix followed by infinite top satisfying P; prefix before position zero is empty.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_accept_extension.sv",
+          "observation": "SymbiYosysでFのformalケースf531_accept_extensionを実行し、独立RTL参照と比較する。accept_on(b) P の定義「Pが成立」または「0<=i<|w|のb位置で、その直前prefixを無限topで拡張したものがPを満たす」を固定する。P=a##[1:2]b、3 letter。i=0の空prefixは全topで必ず満たし、i=1/i=2はtopがbを演じられるためa0に帰着する。結果コードは通過bit・経路bit・決定iを含む。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4dc1b1228b6e0c564fa56d6bfac9b3f947dc9c9bac19dc596b44a2aab60a5115",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_accept_extension.sv",
+              "contains": ":formal_case: f531_accept_extension"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_accept_extension.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -478114,7 +478420,25 @@
       "acceptance": "Finite possibly empty word weakly satisfies A iff appending infinite top neutrally satisfies A; strongly satisfies A iff appending infinite bottom neutrally satisfies A.",
       "source_note": "IEEE 1800-2023 F.5.3.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f532_finite_extension.sv",
+          "observation": "SymbiYosysでFのformalケースf532_finite_extensionを実行し、独立RTL参照と比較する。有限語（空語を含む）のweak充足=無限top付加後のneutral satisfaction、strong充足=無限bottom付加後のneutral satisfactionを固定する。長さ0..3をselectorで列挙し、P=a##[1:2]bについてtopが許されるdelay内でだけbを供給できること、bottomでは実bが必要なことをRTLで独立に表す。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ae37758481df427191431fbb816b288f2ffe3899ddcb9d39a83ac68917170a74",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f532_finite_extension.sv",
+              "contains": ":formal_case: f532_finite_extension"
+            },
+            {
+              "file": "tests/ch16/test_formal_f532_finite_extension.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.2",
@@ -479545,7 +479869,25 @@
       "acceptance": "w, L0 satisfies accept_on(b) P iff either w, L0 satisfies P and no letter of w satisfies b, or for some 0<=i<|w| w^i satisfies b and w^{0,i-1} followed by infinite top satisfies P under L0; the abort branch evaluates P with the same local context L0, not an empty context.",
       "source_note": "IEEE 1800-2023 F.5.6.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue LOCAL-ACCEPT-CONTEXT resolved on 2026-10-24: All own-body definitions, quantified conditions, equations and boundaries reviewed; the second accept_on branch in B007 is read as w^{0,i-1}T^omega, L0 satisfying P, the only completion defined for unclocked P and consistent with the first branch and the disable iff rules in B004/B005.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_accept_context.sv",
+          "observation": "SymbiYosysでFのformalケースf561_accept_contextを実行し、独立RTL参照と比較する。local accept_onの2 branchを固定する。直接branchはL0でPが成立し、かつwのどのletterもabort条件を満たさないこと。abort branchは0<=i<|w|のd位置で、直前prefixを無限topで拡張したものを同じL0でPが満たすこと。P=(v==0)##1bでは、tick0のabortはL0がvを0に束縛する場合だけ救済し、空文脈ならtopのv=1で失敗する。これが「第2 branchの文脈はL0」の直接検査になる。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e4322063c9f5788a2560985a11526fba2442f9f4c7bd8fafc9d33d34128de812",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_accept_context.sv",
+              "contains": ":formal_case: f561_accept_context"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_accept_context.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.1",
