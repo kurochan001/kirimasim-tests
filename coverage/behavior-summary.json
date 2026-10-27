@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "038194362c89ae542f303a47c4dc632dd27956a8f0de7c76ba6f869d108d1db5",
+  "registry_sha256": "d85315636575d6ecdbb03a4250e91190321c8262d450cb0b157ae1228cdd2713",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -42,18 +42,18 @@
   "normative_sections": 1703,
   "audited_sections": 1683,
   "registered": 12319,
-  "mapped": 10844,
+  "mapped": 10853,
   "denominator_reviewed": false,
   "extraction_progress_percent": 98.825601879037,
-  "unmapped": 1475,
-  "executed": 7214,
+  "unmapped": 1466,
+  "executed": 7223,
   "whole_standard_percent": null,
   "whole_standard_executed_percent": null,
-  "registered_percent": 88.02662553778715,
+  "registered_percent": 88.09968341586168,
   "metric_policy_version": 3,
   "whole_standard_status": "provisional",
-  "provisional_design_percent": 88.02662553778715,
-  "provisional_execution_percent": 58.55994804773115,
+  "provisional_design_percent": 88.09968341586168,
+  "provisional_execution_percent": 58.63300592580567,
   "denominator": {
     "count": 12319,
     "unit": "registered_requirement_condition_or_observation",
@@ -63,15 +63,15 @@
     "interpretation_pending": 21
   },
   "test_mapping": {
-    "suite_test_files": 7655,
-    "linked_test_files": 5227,
+    "suite_test_files": 7661,
+    "linked_test_files": 5233,
     "unlinked_test_files": 2428
   },
   "collective_requirement_count": 652,
   "requirement_status_counts": {
-    "pass": 7214,
+    "pass": 7223,
     "mapped_without_pass": 3630,
-    "unmapped": 1454,
+    "unmapped": 1445,
     "interpretation_pending": 21
   },
   "chapters": [
@@ -439,20 +439,20 @@
       "clause": "37",
       "title": "VPI object model diagrams",
       "registered": 1757,
-      "mapped": 1656,
-      "executed": 271,
-      "design_percent": 94.25156516789983,
-      "execution_percent": 15.424018212862835,
+      "mapped": 1658,
+      "executed": 273,
+      "design_percent": 94.36539556061469,
+      "execution_percent": 15.53784860557769,
       "interpretation_pending": 1
     },
     {
       "clause": "38",
       "title": "VPI routine definitions",
       "registered": 348,
-      "mapped": 253,
-      "executed": 146,
-      "design_percent": 72.70114942528735,
-      "execution_percent": 41.95402298850575,
+      "mapped": 260,
+      "executed": 153,
+      "design_percent": 74.71264367816092,
+      "execution_percent": 43.96551724137931,
       "interpretation_pending": 0
     },
     {
@@ -672,8 +672,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10843,
-          "unmapped": 1454,
+          "not_run": 10852,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -693,8 +693,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10843,
-          "unmapped": 1454,
+          "not_run": 10852,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -712,8 +712,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10829,
-          "unmapped": 1454,
+          "not_run": 10838,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -741,8 +741,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10829,
-          "unmapped": 1454,
+          "not_run": 10838,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -762,8 +762,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10842,
-          "unmapped": 1454,
+          "not_run": 10851,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -784,8 +784,112 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10842,
-          "unmapped": 1454,
+          "not_run": 10851,
+          "unmapped": 1445,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "ch37-extra-20261028-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-10-27T17:11:52.776966+00:00",
+        "executed": [
+          "SV2023-37.16-EXTRACT-DIAGRAM-089"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10852,
+          "unmapped": 1445,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "ch38-extra-20261028-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-10-27T17:00:48.294843+00:00",
+        "executed": [
+          "SV2023-38.15-EXTRACT-FORMAT-VPISCALARVAL",
+          "SV2023-38.32-EXTRACT-PUT-INTERMODULE-COUNT",
+          "SV2023-38.4-EXTRACT-CONTROL-STOP"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 3,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10850,
+          "unmapped": 1445,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "ch38-reuse-20261028-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-10-27T17:00:25.077411+00:00",
+        "executed": [
+          "SV2023-38.10-EXTRACT-DELAY-SOURCE-ORDER",
+          "SV2023-38.10-EXTRACT-DELAYS-SIGNATURE",
+          "SV2023-38.10-EXTRACT-PATH-DELAY-COUNT",
+          "SV2023-38.10-EXTRACT-PREALLOCATE-DELAYS",
+          "SV2023-38.11-EXTRACT-STRING-BUFFER",
+          "SV2023-38.15-EXTRACT-VALUE-STRING-BUFFER",
+          "SV2023-38.17-EXTRACT-VLOG-INFO-CONTENTS",
+          "SV2023-38.17-EXTRACT-VLOG-INFO-SIGNATURE",
+          "SV2023-38.17-EXTRACT-VLOG-INFO-STRUCTURE",
+          "SV2023-38.23-EXTRACT-ITERATE-SIGNATURE",
+          "SV2023-38.23-EXTRACT-ITERATOR-EMPTY",
+          "SV2023-38.27-EXTRACT-MCD-RESERVED-BITS",
+          "SV2023-38.27-EXTRACT-MCD-SHARING",
+          "SV2023-38.28-EXTRACT-MCD-PRINTF-CHANNELS",
+          "SV2023-38.28-EXTRACT-MCD-PRINTF-RESULT",
+          "SV2023-38.29-EXTRACT-MCD-VPRINTF-BEHAVIOR",
+          "SV2023-38.30-EXTRACT-PRINTF-SIGNATURE",
+          "SV2023-38.32-EXTRACT-PUT-PATH-DELAY-COUNT",
+          "SV2023-38.34-EXTRACT-FORCE-MODE",
+          "SV2023-38.34-EXTRACT-NO-DELAY-MODE",
+          "SV2023-38.34-EXTRACT-RELEASE-MODE",
+          "SV2023-38.36-EXTRACT-CALLBACK-DATA-LIFETIME",
+          "SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPIBINSTRVAL",
+          "SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPIDECSTRVAL",
+          "SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPIHEXSTRVAL",
+          "SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPIOCTSTRVAL",
+          "SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPIREALVAL",
+          "SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPISTRINGVAL",
+          "SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPIVECTORVAL",
+          "SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-DELIVERY",
+          "SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-TIME",
+          "SV2023-38.36.2-EXTRACT-START-ZERO-DELAY-REENTRANT",
+          "SV2023-38.36.2-EXTRACT-TIME-CBAFTERDELAY",
+          "SV2023-38.36.2-EXTRACT-TIME-CBATSTARTOFSIMTIME",
+          "SV2023-38.36.2-EXTRACT-TIME-CBNEXTSIMTIME",
+          "SV2023-38.37.2-EXTRACT-STARTUP-ARRAY",
+          "SV2023-38.40-EXTRACT-SCAN-SIGNATURE",
+          "SV2023-38.41-EXTRACT-VPRINTF-BEHAVIOR",
+          "SV2023-38.41-EXTRACT-VPRINTF-SIGNATURE",
+          "SV2023-38.8-EXTRACT-CALLBACK-DATA-STRUCTURE"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 40,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10813,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -805,8 +909,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10841,
-          "unmapped": 1454,
+          "not_run": 10850,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -828,8 +932,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10841,
-          "unmapped": 1454,
+          "not_run": 10850,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -854,8 +958,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10838,
-          "unmapped": 1454,
+          "not_run": 10847,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -880,8 +984,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10838,
-          "unmapped": 1454,
+          "not_run": 10847,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -1190,8 +1294,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10554,
-          "unmapped": 1454,
+          "not_run": 10563,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -3199,6 +3303,7 @@
           "SV2023-37.3.2-EXTRACT-TYPE-INTEGER",
           "SV2023-37.3.2-EXTRACT-TYPE-STRING",
           "SV2023-37.3.3-EXTRACT-LOCATION",
+          "SV2023-37.3.7-EXTRACT-SOURCE-STATIC-LIFETIME",
           "SV2023-37.31-EXTRACT-CLASS-PARAMETERS",
           "SV2023-37.31-EXTRACT-DERIVED-CLASSES",
           "SV2023-37.31-EXTRACT-DIAGRAM-002",
@@ -3334,6 +3439,7 @@
           "SV2023-38.2-EXTRACT-SEVERITY-VPISYSTEM",
           "SV2023-38.2-EXTRACT-SEVERITY-VPIWARNING",
           "SV2023-38.23-EXTRACT-ITERATE-SIGNATURE",
+          "SV2023-38.23-EXTRACT-ITERATOR-EMPTY",
           "SV2023-38.27-EXTRACT-MCD-OPEN-SIGNATURE",
           "SV2023-38.3-EXTRACT-COMPARE-SIGNATURE",
           "SV2023-38.30-EXTRACT-PRINTF-SIGNATURE",
@@ -5951,14 +6057,14 @@
         ],
         "stale_links": 0,
         "status_counts": {
-          "pass": 4747,
-          "fail": 4938,
+          "pass": 4749,
+          "fail": 4941,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1148,
           "stale": 0,
-          "not_run": 11,
-          "unmapped": 1454,
+          "not_run": 15,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -5998,8 +6104,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10788,
-          "unmapped": 1454,
+          "not_run": 10797,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -6037,8 +6143,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10792,
-          "unmapped": 1454,
+          "not_run": 10801,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -6076,8 +6182,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10792,
-          "unmapped": 1454,
+          "not_run": 10801,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -7969,6 +8075,7 @@
           "SV2023-37.3-EXTRACT-TRANSITION-NAME",
           "SV2023-37.3.1-EXTRACT-HANDLE-ACCESS",
           "SV2023-37.3.1-EXTRACT-ONE-TO-ONE",
+          "SV2023-37.3.7-EXTRACT-SOURCE-STATIC-LIFETIME",
           "SV2023-37.37-EXTRACT-DIAGRAM-002",
           "SV2023-37.4.2-EXTRACT-COMPLEX-KEY",
           "SV2023-37.4.2-EXTRACT-INTEGER-KEY",
@@ -7993,6 +8100,8 @@
           "SV2023-37.85-EXTRACT-DIAGRAM-066",
           "SV2023-37.85-EXTRACT-DIAGRAM-070",
           "SV2023-37.85-EXTRACT-GENERATE-LOCALPARAMS",
+          "SV2023-38.10-EXTRACT-DELAY-SOURCE-ORDER",
+          "SV2023-38.10-EXTRACT-DELAYS-SIGNATURE",
           "SV2023-38.10-EXTRACT-INTERMODULE-DELAY-COUNT",
           "SV2023-38.10-EXTRACT-PATH-DELAY-COUNT",
           "SV2023-38.10-EXTRACT-PREALLOCATE-DELAYS",
@@ -8031,6 +8140,7 @@
           "SV2023-38.21-EXTRACT-NAME-SIGNATURE",
           "SV2023-38.22-EXTRACT-MULTI-HANDLE-SIGNATURE",
           "SV2023-38.23-EXTRACT-ITERATE-SIGNATURE",
+          "SV2023-38.23-EXTRACT-ITERATOR-EMPTY",
           "SV2023-38.24-EXTRACT-MCD-CLOSE-FILES",
           "SV2023-38.24-EXTRACT-MCD-CLOSE-SIGNATURE",
           "SV2023-38.24-EXTRACT-MCD-OUTPUT-RESERVED",
@@ -8068,6 +8178,7 @@
           "SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPISTRINGVAL",
           "SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPIVECTORVAL",
           "SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-DELIVERY",
+          "SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-TIME",
           "SV2023-38.36.2-EXTRACT-START-ZERO-DELAY-REENTRANT",
           "SV2023-38.36.2-EXTRACT-TIME-CALLBACK-SCALE",
           "SV2023-38.36.2-EXTRACT-TIME-CBAFTERDELAY",
@@ -9234,14 +9345,14 @@
         ],
         "stale_links": 0,
         "status_counts": {
-          "pass": 3144,
+          "pass": 3149,
           "fail": 0,
           "known": 7515,
           "unsupported": 0,
           "unreviewed_oracle": 158,
           "stale": 0,
-          "not_run": 27,
-          "unmapped": 1454,
+          "not_run": 31,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       },
@@ -12060,12 +12171,12 @@
         "status_counts": {
           "pass": 2804,
           "fail": 0,
-          "known": 4934,
+          "known": 4937,
           "unsupported": 0,
           "unreviewed_oracle": 85,
           "stale": 0,
-          "not_run": 3021,
-          "unmapped": 1454,
+          "not_run": 3027,
+          "unmapped": 1445,
           "interpretation_pending": 21
         }
       }

@@ -1,0 +1,8 @@
+imported item: test_37_extra_name_lookup_pkg::imported_item
+compilation-unit object: $unit::unit_item
+local variable test_37_extra_name_lookup.local_var: 1
+imported item in the importing scope test_37_extra_name_lookup.imported_item: 0
+imported item from the top imported_item: 0
+compilation-unit object by its name unit_item: 0
+compilation-unit object in the module test_37_extra_name_lookup.unit_item: 0
+compilation-unit object by its full name $unit::unit_item: 0

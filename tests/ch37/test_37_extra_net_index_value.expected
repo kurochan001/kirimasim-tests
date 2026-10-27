@@ -1,0 +1,8 @@
+net array size: 2
+element 1 size: 4
+element 1 value: 0101
+element 0 after put 0011: 0011
+bit 3 size: 1
+bit 3 value: 1
+bit 3 after put 0: 0
+delays of the vector net: 0

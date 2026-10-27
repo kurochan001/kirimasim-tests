@@ -1,0 +1,95 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch38/test_vpi_callback_memory_index": {
+   "status": "pass",
+   "inputs_sha256": "0b36df0f273279f2c1318e68ccd6db2084f3e399a20ae48b276a50770c3c848a"
+  },
+  "ch38/test_vpi_callback_suppress_value": {
+   "status": "pass",
+   "inputs_sha256": "92ec3e45caa8eafbdafec9f7b06319313b6da69fabf3d3ad50fd8b02843307ce"
+  },
+  "ch38/test_vpi_get_vlog_info": {
+   "status": "pass",
+   "inputs_sha256": "9631b3ee881bfa025faa7a0656413f0a0d22efb7d4a54802a73efd2c3ab0584c"
+  },
+  "ch38/test_vpi_iterate_contract": {
+   "status": "pass",
+   "inputs_sha256": "4e9c5e6537bef85362f08b20ef019feb2e93b8e4a99ac74c99c41ecf09682862"
+  },
+  "ch38/test_vpi_mcd_printf_channels": {
+   "status": "pass",
+   "inputs_sha256": "56269e670c4c607120b9d66d42329d9b3d87cae305c62d025a35c70e3fcef0d6"
+  },
+  "ch38/test_vpi_path_delay_counts": {
+   "status": "pass",
+   "inputs_sha256": "38f3575337578f4e3980360bc02bda9461b73c5338e023d31bea903e5f3bb5a8"
+  },
+  "ch38/test_vpi_printf_return_counts": {
+   "status": "pass",
+   "inputs_sha256": "84e0efb5be43f4251a2b2a425f388e7dc7bbe52f5f58b111891a1e25a047255e"
+  },
+  "ch38/test_vpi_put_value_force_release": {
+   "status": "pass",
+   "inputs_sha256": "688d35612cb16e9dd860de08595a8f33e1ada387029595cb1f8019d9202dc0a1"
+  },
+  "ch38/test_vpi_put_value_formats": {
+   "status": "pass",
+   "inputs_sha256": "04f61c557d694d275bf501170c0a86a0fb378fd9cb18507e0f8584ef5d962271"
+  },
+  "ch38/test_vpi_put_value_targets": {
+   "status": "pass",
+   "inputs_sha256": "1bcdbad3815c67a0fcbd18c0050af7a1220d1a071066f9a2c83966689e7fed83"
+  },
+  "ch38/test_vpi_release_handle_keeps_object": {
+   "status": "pass",
+   "inputs_sha256": "d33c9a97e2ffba0e6c78042eb7cd28e713de9332aaefcf4997921f8c72449d96"
+  },
+  "ch38/test_vpi_remove_cb": {
+   "status": "pass",
+   "inputs_sha256": "643a90421f2f1dd7ade663744b8cc8355c657618881683f850ece0767795d918"
+  },
+  "ch38/test_vpi_scan_iterators": {
+   "status": "pass",
+   "inputs_sha256": "30392236eaae407e01549a6aace4c84f15ed9add5d7cbff9c1d6b42e27060086"
+  },
+  "ch38/test_vpi_startup_routines_null_end": {
+   "status": "pass",
+   "inputs_sha256": "b28b29d558575d908e6242730e62cdea1627029f46e497f749469af7a8de8642"
+  },
+  "ch38/test_vpi_string_buffers": {
+   "status": "pass",
+   "inputs_sha256": "7cdaef9e19a24ec50e520fd3bf9420c6014ae061e887f4e7e43089c588215022"
+  },
+  "ch38/test_vpi_time_callback_reentrant": {
+   "status": "pass",
+   "inputs_sha256": "fe5d46f18fc7ecc5c66909858f9c1c2040a6ba3dcd5b5d51f385d29b73e0cd91"
+  },
+  "ch38/test_vpi_time_callbacks": {
+   "status": "pass",
+   "inputs_sha256": "2b57dbbbe4b102293f81ef2d4fd276d744d2777830f61523f91224118762cf87"
+  },
+  "ch38/test_vpi_time_callbacks_without_events": {
+   "status": "pass",
+   "inputs_sha256": "0a64302233c14975d388c5ad284c28082ec7b00914d3c3b34cef61cac8fd5a54"
+  },
+  "ch38/test_vpi_value_change_callback": {
+   "status": "pass",
+   "inputs_sha256": "d202480304c72be99b51977a2984767f39c6c77e1a7fbf520b7d9d24438639a4"
+  },
+  "ch38/test_vpi_value_change_callback_formats": {
+   "status": "pass",
+   "inputs_sha256": "db854fafd3efc52e57cc79084afa2fdfe856bad4acd88b0405b64acf484eaafc"
+  },
+  "ch38/test_vpi_vlog_info_structure": {
+   "status": "pass",
+   "inputs_sha256": "ea6693ece303e4c69ee778eb8a2a3f17f28057e0d3a0787232f138c5a64479f7"
+  }
+ },
+ "generated_at": "2026-10-27T17:00:25.077411+00:00",
+ "runner_sha256": "9a0d77f74ee935d59b413652bbe6cc3133179c84c2a2130f2c0cd4e51a71ab13",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -220,3 +220,24 @@ normal要求を違法系テストで観測する案は、品質ガードが一�
 並行してGhostシミュレータの証跡が追加された。公式値はGhostを含む
 **実行7,214 / 12,319（58.56%）**、Ghostを除くIcarus/Verilator/SymbiYosysのみでは
 **6,154 / 12,319（49.96%）**である。本監査の対象は後者である。
+
+## 追補: 37章・38章 VPI（2026-10-28）
+
+196件のVPI要求を、既存VPIテスト330本の再利用監査と新規VPIテストで検証した。
+Icarus 13.0が公開するVPIオブジェクトモデルは狭く、次の理由で165件を
+not_testable とした。
+
+- オブジェクト種別そのものがない: attribute、assertion/property/sequence、
+  typespec/nettype、modport/interface port、delay terminal、frame/thread。
+- 未実装のプロパティ/ルーチン: `vpiExpanded`、`vpiIsProtected`、`vpiSimNet`、
+  `vpiDelayType`、`vpiResolvedNetType`、`vpi_get_value_array`、
+  `vpi_put_value_array`、`vpi_get_data`、`vpi_put_data`。
+- 保護オブジェクト、save/restart、bulk array、reset、SV object callback、
+  cbStmt、timing check、primitive/UDP。
+
+品質ガードを通ったのは9リンク（37章4、38章5）だけである。VPIの再利用候補の
+多くは「要求の一部だけを観測」「エラー時の値が規格で未定義」「実装依存の
+反復順・ハンドル値に依存」として拒否された。
+
+この結果は、VPIの未対応を隠して数字を上げるより、ツールの実装境界を明示する
+方が正確だと判断した帰結である。

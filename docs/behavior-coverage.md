@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 88.03%、実行 58.56%。**
+**全規格の要求台帳ベース（暫定）: 設計 88.10%、実行 58.63%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10844/12319 (88.03%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7214/12319 (58.56%)。
-- 登録済みだがテスト未対応: 1475 動作。
+- 登録済み動作に対するテスト設計網羅率: 10853/12319 (88.10%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7223/12319 (58.63%)。
+- 登録済みだがテスト未対応: 1466 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -42,16 +42,19 @@
 - `ch16-sim-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:04.031900+00:00 / 9/12319 動作確認、古い入力との対応 0 件。
 - `ch21-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:30:07.226181+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `ch21-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:30:10.339072+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
+- `ch37-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:11:52.776966+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
+- `ch38-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:00:48.294843+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
+- `ch38-reuse-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:00:25.077411+00:00 / 40/12319 動作確認、古い入力との対応 0 件。
 - `ch6-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:33:35.549914+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `ch6-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:33:40.336655+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `ch9-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:32:44.231306+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
 - `ch9-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:32:53.445594+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12319 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4747/12319 動作確認、古い入力との対応 0 件。
+- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4749/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
-- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3144/12319 動作確認、古い入力との対応 0 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3149/12319 動作確認、古い入力との対応 0 件。
 - `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2804/12319 動作確認、古い入力との対応 0 件。
 - 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
@@ -230,8 +233,8 @@
 - 34 Protected envelopes: 解釈保留なし 103/104、登録 215、テスト対応 0。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 99。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 137。
-- 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1656。
-- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 253。
+- 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1658。
+- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 260。
 - 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 82。
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 82。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
@@ -87818,7 +87821,7 @@ Threads, obsolete/out-of-scope thread references, iterators, scheduled events an
 
 ### SV2023-37.3.7-EXTRACT-SOURCE-STATIC-LIFETIME
 
-37.3.7 / normal / テスト未対応
+37.3.7 / normal / 実行確認あり
 
 Source objects exist from analysis to tool termination independently of simulation/elaboration; static hierarchy objects exist from elaboration creation through simulation. Class objects and automatic variables are transient.
 
@@ -87826,6 +87829,7 @@ Source objects exist from analysis to tool termination independently of simulati
 
 規定の性質: `mandatory`。
 
+- [test_vpi_static_handle_lifetime.sv](../tests/ch37/test_vpi_static_handle_lifetime.sv): VPIアプリケーションで37.3.7-EXTRACT-SOURCE-STATIC-LIFETIMEを観測する。The test gets a handle to the static object count at time 0, reads it through that same handle at time 11, compares it with a new handle and releases it, so the static hierarchy object is alive and is the same object for the whole simulation (37.3.7 B002). The 区別: 既存VPIテストの再利用で要求の条件を刺激し、規格が定めるハンドル・プロパティ・戻り値を検査する。
 
 ### SV2023-37.3.8-EXTRACT-LIFETIME-CALLBACKS
 
@@ -93078,7 +93082,7 @@ packed-array net element exposes vpiPackedArrayMember as Boolean, representing p
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-089
 
-37.16 / normal / テスト未対応
+37.16 / normal / 実行確認あり
 
 Nets support indexed/multi-indexed access, vpi_get_delays and vpi_get_value/vpi_put_value subject to type-specific restrictions.
 
@@ -93086,6 +93090,7 @@ Nets support indexed/multi-indexed access, vpi_get_delays and vpi_get_value/vpi_
 
 規定の性質: `definition`。
 
+- [test_37_extra_net_index_value.sv](../tests/ch37/test_37_extra_net_index_value.sv): VPIアプリケーションで37.16-EXTRACT-DIAGRAM-089を観測する。An element of an array net is obtained with vpi_handle_by_index, its size and value are read with vpi_get and vpi_get_value, vpi_put_value writes a new value that reads back, and the same is done for a bit of a vector net; vpi_get_delays reports that the net h 区別: 新規VPIテストで要求の条件を刺激し、規格が定めるハンドル・プロパティ・戻り値を検査する。
 
 ### SV2023-37.16-EXTRACT-IMPLICIT-NET-LOCATION
 
@@ -108474,7 +108479,7 @@ vpi_control(PLI_INT32 operation, operation-specific varargs) returns PLI_INT32 1
 
 ### SV2023-38.4-EXTRACT-CONTROL-STOP
 
-38.4 / normal / テスト未対応
+38.4 / normal / 実行確認あり
 
 vpiStop takes one integer diagnostic level and executes built-in $stop after the application routine returns.
 
@@ -108482,6 +108487,7 @@ vpiStop takes one integer diagnostic level and executes built-in $stop after the
 
 規定の性質: `mandatory`。
 
+- [test_38_extra_control_stop.sv](../tests/ch38/test_38_extra_control_stop.sv): VPIアプリケーションで38.4-EXTRACT-CONTROL-STOPを観測する。$vt_stop calls vpi_control(vpiStop, 0) and prints its return of 1 plus one more line; the tool's built-in $stop report appears only after those lines and before the design statement that follows the call, so $stop runs after the routine returns, not inside it. 区別: 新規VPIテストで要求の条件を刺激し、規格が定めるハンドル・プロパティ・戻り値を検査する。
 
 ### SV2023-38.5-EXTRACT-FLUSH-BUFFERS
 
@@ -108713,7 +108719,7 @@ With mtm_flag=True and pulsere_flag=True, allocate 9 times no_of_delays elements
 
 ### SV2023-38.10-EXTRACT-DELAY-SOURCE-ORDER
 
-38.10 / normal / テスト未対応
+38.10 / normal / 実行確認あり
 
 Returned delays follow their source-description order, with per-delay element layout determined by mtm/pulsere flags.
 
@@ -108721,6 +108727,7 @@ Returned delays follow their source-description order, with per-delay element la
 
 規定の性質: `mandatory`。
 
+- [test_vpi_path_delay_counts.sv](../tests/ch38/test_vpi_path_delay_counts.sv): VPIアプリケーションで38.10-EXTRACT-DELAY-SOURCE-ORDERを観測する。The path written as (13,14,15,...,24) comes back as 13 14 15 ... 24 in that order, and the values written by vpi_put_delays are read back in the written order. 区別: 既存VPIテストの再利用で要求の条件を刺激し、規格が定めるハンドル・プロパティ・戻り値を検査する。
 
 ### SV2023-38.10-EXTRACT-DELAY-STRUCTURE
 
@@ -108748,7 +108755,7 @@ The application allocates s_vpi_delay; its time_type controls format, ignoring i
 
 ### SV2023-38.10-EXTRACT-DELAYS-SIGNATURE
 
-38.10 / normal / テスト未対応
+38.10 / normal / 実行確認あり
 
 vpi_get_delays(vpiHandle obj,p_vpi_delay delay_p) returns void and retrieves object delays/pulse limits into the supplied delay structure.
 
@@ -108756,6 +108763,7 @@ vpi_get_delays(vpiHandle obj,p_vpi_delay delay_p) returns void and retrieves obj
 
 規定の性質: `mandatory`。
 
+- [test_vpi_path_delay_counts.sv](../tests/ch38/test_vpi_path_delay_counts.sv): VPIアプリケーションで38.10-EXTRACT-DELAYS-SIGNATUREを観測する。vpi_get_delays is called on five module paths and the application reads the returned delays from its own s_vpi_time array; after vpi_put_delays of the same count the values are read back, so the routine fills the supplied s_vpi_delay (the void return is a C ty 区別: 既存VPIテストの再利用で要求の条件を刺激し、規格が定めるハンドル・プロパティ・戻り値を検査する。
 
 ### SV2023-38.10-EXTRACT-INTERMODULE-DELAY-COUNT
 
@@ -109071,7 +109079,7 @@ Table 38-3 maps vpiRealVal to union member real, returning double-precision valu
 
 ### SV2023-38.15-EXTRACT-FORMAT-VPISCALARVAL
 
-38.15 / normal / テスト未対応
+38.15 / normal / 実行確認あり
 
 Table 38-3 maps vpiScalarVal to union member scalar, returning vpi1,vpi0,vpiX,vpiZ,vpiH,vpiL.
 
@@ -109079,6 +109087,7 @@ Table 38-3 maps vpiScalarVal to union member scalar, returning vpi1,vpi0,vpiX,vp
 
 規定の性質: `definition`。
 
+- [test_38_extra_scalar_val.sv](../tests/ch38/test_38_extra_scalar_val.sv): VPIアプリケーションで38.15-EXTRACT-FORMAT-VPISCALARVALを観測する。vpi_get_value with vpiScalarVal fills value.scalar for four one-bit variables holding 0, 1, x and z, and the member equals vpi0, vpi1, vpiX and vpiZ respectively. 区別: 新規VPIテストで要求の条件を刺激し、規格が定めるハンドル・プロパティ・戻り値を検査する。
 
 ### SV2023-38.15-EXTRACT-FORMAT-VPISTRENGTHVAL
 
@@ -109824,7 +109833,7 @@ vpi_iterate(PLI_INT32 type,vpiHandle ref) returns a vpiIterator handle for the o
 
 ### SV2023-38.23-EXTRACT-ITERATOR-EMPTY
 
-38.23 / normal / テスト未対応
+38.23 / normal / 実行確認あり
 
 Return NULL when no requested associated object exists; traverse a returned iterator using vpi_scan and retrieve its original reference through vpi_handle(vpiUse,iterator).
 
@@ -109832,6 +109841,7 @@ Return NULL when no requested associated object exists; traverse a returned iter
 
 規定の性質: `mandatory`。
 
+- [test_vpi_iterate_contract.sv](../tests/ch38/test_vpi_iterate_contract.sv): VPIアプリケーションで38.23-EXTRACT-ITERATOR-EMPTYを観測する。vpi_iterate returns NULL for vpiUdpDefn and vpiModPath when the module has none, and returns a vpiIterator for vpiNet whose vpi_scan walk ends in NULL. 区別: 既存VPIテストの再利用で要求の条件を刺激し、規格が定めるハンドル・プロパティ・戻り値を検査する。
 
 ### SV2023-38.23-EXTRACT-ITERATOR-PROTECTED
 
@@ -110201,7 +110211,7 @@ vpi_put_delays(vpiHandle obj,p_vpi_delay delay_p) returns void and sets object d
 
 ### SV2023-38.32-EXTRACT-PUT-INTERMODULE-COUNT
 
-38.32 / normal / テスト未対応
+38.32 / normal / 実行確認あり
 
 Intermodule-path no_of_delays must be 2 or 3.
 
@@ -110209,6 +110219,7 @@ Intermodule-path no_of_delays must be 2 or 3.
 
 規定の性質: `mandatory`。
 
+- [test_38_extra_intermod_delays.sv](../tests/ch38/test_38_extra_intermod_delays.sv): VPIアプリケーションで38.32-EXTRACT-PUT-INTERMODULE-COUNTを観測する。vpi_put_delays on the intermodule path between a source output port and a destination input port is called with no_of_delays 2 (values 7,8) and then 3 (values 9,10,11); vpi_get_delays reads back 2 and 3 delays in the same order, so both legal counts are accept 区別: 新規VPIテストで要求の条件を刺激し、規格が定めるハンドル・プロパティ・戻り値を検査する。
 
 ### SV2023-38.32-EXTRACT-PUT-LAYOUT-0-0
 
@@ -111155,7 +111166,7 @@ Set obj to an eligible class typespec/frame/thread/variable/property/expression/
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-TIME
 
-38.36.1 / normal / テスト未対応
+38.36.1 / normal / 実行確認あり
 
 Set time.type to scaled-real/simulation time, or suppressed time if not needed. Reclaim/end-of-object callbacks receive no time and ignore this field.
 
@@ -111163,6 +111174,7 @@ Set time.type to scaled-real/simulation time, or suppressed time if not needed. 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_callback_suppress_value.sv](../tests/ch38/test_vpi_callback_suppress_value.sv): VPIアプリケーションで38.36.1-EXTRACT-EVENT-CALLBACK-TIMEを観測する。A cbValueChange registered with time.type = vpiSuppressTime receives suppressed time, the allowed choice when no time is needed; the scaled-real and simulation-time choices are covered by test_vpi_time_callback_scaled_real and test_vpi_time_callbacks. 区別: 既存VPIテストの再利用で要求の条件を刺激し、規格が定めるハンドル・プロパティ・戻り値を検査する。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBASSIGN
 

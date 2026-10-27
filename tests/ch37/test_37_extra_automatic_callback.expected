@@ -1,0 +1,5 @@
+automatic variable is automatic: 1
+callback handle on the automatic variable is NULL: 1
+callback handle on the static variable is NULL: 0
+callbacks for the automatic variable: 0
+callbacks for the static variable: 1, value 5
