@@ -113,9 +113,12 @@ class FormalRunnerTests(unittest.TestCase):
 
     def test_report_freshness_and_task_completeness_do_not_rerun_tools(self):
         report = {"schema": 1, "source_hashes": formal.source_hashes(), "selected": ["fusion"],
-                  "prove": False, "source_changed": False, "ok": True, "counts": {"PASS": 1},
+                  "prove": False, "source_changed": False, "ok": True, "counts": {"PASS": 2},
                   "jobs": [{"case": "fusion_bmc", "mutation": False, "mode": "bmc",
-                            "status": "PASS", "expected": "PASS", "ok": True, "rc": 0, "traces": []}]}
+                            "status": "PASS", "expected": "PASS", "ok": True, "rc": 0, "traces": []},
+                           {"case": "fusion_cover", "mutation": False, "mode": "cover",
+                            "status": "PASS", "expected": "PASS", "ok": True, "rc": 0,
+                            "traces": ["case/engine_0/trace.vcd"]}]}
         self.assertTrue(formal.validate_report(report))
         for change in [lambda x: x.update(source_hashes={}), lambda x: x.update(selected=[]),
                        lambda x: x.update(prove=True), lambda x: x.update(jobs=[]),
