@@ -8610,6 +8610,903 @@
      }
     }
    }
+  },
+  {
+   "time": "2026-10-27T00:11:54Z",
+   "suite_commit": "1ff999828c59ca24649bf722f6bfc46b70724520",
+   "run_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/40417919375",
+   "tests": 7327,
+   "chapters": {
+    "10": 204,
+    "11": 835,
+    "12": 181,
+    "13": 197,
+    "14": 78,
+    "15": 56,
+    "16": 374,
+    "17": 77,
+    "18": 200,
+    "19": 145,
+    "20": 269,
+    "21": 205,
+    "22": 348,
+    "23": 230,
+    "24": 43,
+    "25": 119,
+    "26": 83,
+    "27": 103,
+    "28": 245,
+    "29": 81,
+    "3": 86,
+    "30": 59,
+    "31": 58,
+    "32": 50,
+    "33": 42,
+    "35": 123,
+    "36": 84,
+    "37": 222,
+    "38": 106,
+    "39": 39,
+    "4": 412,
+    "40": 31,
+    "5": 343,
+    "6": 594,
+    "7": 482,
+    "8": 321,
+    "9": 202
+   },
+   "simulators": {
+    "icarus": {
+     "name": "Icarus Verilog",
+     "version": "Icarus Verilog version 14.0 (devel) (s20260301-724-g0accff4e)",
+     "counts": {
+      "pass": 4535,
+      "fail": 14,
+      "known": 2778,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       66,
+       86
+      ],
+      "4": [
+       391,
+       412
+      ],
+      "5": [
+       325,
+       343
+      ],
+      "6": [
+       386,
+       594
+      ],
+      "7": [
+       239,
+       482
+      ],
+      "8": [
+       102,
+       321
+      ],
+      "9": [
+       153,
+       202
+      ],
+      "10": [
+       151,
+       204
+      ],
+      "11": [
+       716,
+       835
+      ],
+      "12": [
+       136,
+       181
+      ],
+      "13": [
+       115,
+       197
+      ],
+      "14": [
+       18,
+       78
+      ],
+      "15": [
+       7,
+       56
+      ],
+      "16": [
+       144,
+       374
+      ],
+      "17": [
+       0,
+       77
+      ],
+      "18": [
+       56,
+       200
+      ],
+      "19": [
+       49,
+       145
+      ],
+      "20": [
+       202,
+       269
+      ],
+      "21": [
+       145,
+       205
+      ],
+      "22": [
+       328,
+       348
+      ],
+      "23": [
+       151,
+       230
+      ],
+      "24": [
+       21,
+       43
+      ],
+      "25": [
+       44,
+       119
+      ],
+      "26": [
+       57,
+       83
+      ],
+      "27": [
+       95,
+       103
+      ],
+      "28": [
+       197,
+       245
+      ],
+      "29": [
+       58,
+       81
+      ],
+      "30": [
+       35,
+       59
+      ],
+      "31": [
+       10,
+       58
+      ],
+      "32": [
+       17,
+       50
+      ],
+      "33": [
+       11,
+       42
+      ],
+      "35": [
+       11,
+       123
+      ],
+      "36": [
+       29,
+       84
+      ],
+      "37": [
+       15,
+       222
+      ],
+      "38": [
+       54,
+       106
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       1,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 0,
+      "failing": 12,
+      "passing_tests": [],
+      "failing_tests": [
+       [
+        "ch16/test_illegal_inferred_clock_missing",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_inferred_clock_missing\\\\.sv:(?:25|26|29):(?:\\\\d+:)?[^\\\\n]*(?i:(?:no|missing|unresolved)[^\\\\n]*clock|clock[^\\\\n]*(?:missing|unresolved|not resolved|cannot be resolved))'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_inferred_clock_missing.sv:25: syntax error"
+       ],
+       [
+        "ch16/test_illegal_negated_property_reaching_recursion",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_negated_property_reaching_recursion\\\\.sv:(?:31|38):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_negated_property_reaching_recursion.sv:30: syntax error"
+       ],
+       [
+        "ch16/test_illegal_property_instance_flattened_not_legal",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_property_instance_flattened_not_legal\\\\.sv:(?:27|30):(?:\\\\d+:)?[^\\\\n]*(?i:(?:cannot|not allowed|illegal)[^\\\\n]*property[^\\\\n]*sequence|property[^\\\\n]*(?:cannot|not allowed|illegal)[^\\\\n]*sequence)'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_property_instance_flattened_not_legal.sv:26: syntax error"
+       ],
+       [
+        "ch16/test_illegal_recursive_property_negated",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_negated\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_recursive_property_negated.sv:28: syntax error"
+       ],
+       [
+        "ch16/test_illegal_recursive_property_s_always",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_s_always\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_recursive_property_s_always.sv:28: syntax error"
+       ],
+       [
+        "ch16/test_illegal_recursive_property_s_eventually",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_s_eventually\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_recursive_property_s_eventually.sv:28: syntax error"
+       ],
+       [
+        "ch16/test_illegal_recursive_property_s_nexttime",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_s_nexttime\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_recursive_property_s_nexttime.sv:28: syntax error"
+       ],
+       [
+        "ch16/test_illegal_recursive_property_s_until",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_s_until\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_recursive_property_s_until.sv:28: syntax error"
+       ],
+       [
+        "ch16/test_illegal_recursive_property_s_until_with",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_s_until_with\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_recursive_property_s_until_with.sv:28: syntax error"
+       ],
+       [
+        "ch16/test_illegal_sequence_local_output_unassigned",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_sequence_local_output_unassigned\\\\.sv:(?:28|29|34):(?:\\\\d+:)?[^\\\\n]*(?i:(?:output|inout)[^\\\\n]*(?:unassigned|not[^\\\\n]*assigned)|(?:unassigned|not[^\\\\n]*assigned)[^\\\\n]*(?:output|inout))'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_sequence_local_output_unassigned.sv:28: syntax error"
+       ],
+       [
+        "ch25/test_illegal_modport_prototype_argument_count",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_modport_prototype_argument_count\\\\.sv:(?:26|30):(?:\\\\d+:)?[^\\\\n]*(?i:(?:number|count)[^\\\\n]*arguments?|arguments?[^\\\\n]*(?:number|count|too few|too many))'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch25/test_illegal_modport_prototype_argument_count.sv:30: error: 'a' has already been declared in this scope."
+       ],
+       [
+        "ch25/test_illegal_modport_prototype_type_not_matching",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_modport_prototype_type_not_matching\\\\.sv:(?:27|31):(?:\\\\d+:)?[^\\\\n]*(?i:(?:argument|parameter)[^\\\\n]*type[^\\\\n]*(?:differ|match|mismatch)|type[^\\\\n]*(?:differ|match|mismatch)[^\\\\n]*(?:argument|parameter))'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch25/test_illegal_modport_prototype_type_not_matching.sv:31: error: 'v' has already been declared in this scope."
+       ]
+      ],
+      "added": 183,
+      "added_passing": 39,
+      "removed": 0
+     }
+    },
+    "verilator": {
+     "name": "Verilator",
+     "version": "Verilator 5.053 devel rev v5.052-612-gbe33a0f6",
+     "counts": {
+      "pass": 4646,
+      "fail": 6,
+      "known": 2675,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       54,
+       86
+      ],
+      "4": [
+       349,
+       412
+      ],
+      "5": [
+       323,
+       343
+      ],
+      "6": [
+       419,
+       594
+      ],
+      "7": [
+       385,
+       482
+      ],
+      "8": [
+       243,
+       321
+      ],
+      "9": [
+       138,
+       202
+      ],
+      "10": [
+       156,
+       204
+      ],
+      "11": [
+       597,
+       835
+      ],
+      "12": [
+       144,
+       181
+      ],
+      "13": [
+       166,
+       197
+      ],
+      "14": [
+       62,
+       78
+      ],
+      "15": [
+       38,
+       56
+      ],
+      "16": [
+       162,
+       374
+      ],
+      "17": [
+       28,
+       77
+      ],
+      "18": [
+       122,
+       200
+      ],
+      "19": [
+       57,
+       145
+      ],
+      "20": [
+       178,
+       269
+      ],
+      "21": [
+       110,
+       205
+      ],
+      "22": [
+       324,
+       348
+      ],
+      "23": [
+       133,
+       230
+      ],
+      "24": [
+       20,
+       43
+      ],
+      "25": [
+       77,
+       119
+      ],
+      "26": [
+       52,
+       83
+      ],
+      "27": [
+       80,
+       103
+      ],
+      "28": [
+       38,
+       245
+      ],
+      "29": [
+       37,
+       81
+      ],
+      "30": [
+       3,
+       59
+      ],
+      "31": [
+       6,
+       58
+      ],
+      "32": [
+       0,
+       50
+      ],
+      "33": [
+       19,
+       42
+      ],
+      "35": [
+       80,
+       123
+      ],
+      "36": [
+       22,
+       84
+      ],
+      "37": [
+       1,
+       222
+      ],
+      "38": [
+       19,
+       106
+      ],
+      "39": [
+       1,
+       39
+      ],
+      "40": [
+       3,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 29,
+      "failing": 4,
+      "passing_tests": [
+       "ch21/test_monitor_end_of_step",
+       "ch21/test_monitor_new_call_replaces_list",
+       "ch21/test_monitor_time_functions_do_not_trigger",
+       "gen/ch4/test_gen_sched_assign_monitor_always_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_fork_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_function_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_generate_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_initial_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_interface_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_task_delay0",
+       "gen/ch4/test_gen_sched_blocking_monitor_always_delay0",
+       "gen/ch4/test_gen_sched_blocking_monitor_fork_delay0",
+       "gen/ch4/test_gen_sched_blocking_monitor_function_delay0",
+       "gen/ch4/test_gen_sched_blocking_monitor_generate_delay0",
+       "gen/ch4/test_gen_sched_blocking_monitor_initial_delay0",
+       "gen/ch4/test_gen_sched_blocking_monitor_interface_delay0",
+       "gen/ch4/test_gen_sched_blocking_monitor_task_delay0",
+       "gen/ch4/test_gen_sched_force_monitor_always_delay0",
+       "gen/ch4/test_gen_sched_force_monitor_fork_delay0",
+       "gen/ch4/test_gen_sched_force_monitor_generate_delay0",
+       "gen/ch4/test_gen_sched_force_monitor_initial_delay0",
+       "gen/ch4/test_gen_sched_force_monitor_interface_delay0",
+       "gen/ch4/test_gen_sched_force_monitor_task_delay0",
+       "gen/ch4/test_gen_sched_nba_monitor_always_nodelay",
+       "gen/ch4/test_gen_sched_nba_monitor_fork_nodelay",
+       "gen/ch4/test_gen_sched_nba_monitor_generate_nodelay",
+       "gen/ch4/test_gen_sched_nba_monitor_initial_nodelay",
+       "gen/ch4/test_gen_sched_nba_monitor_interface_nodelay",
+       "gen/ch4/test_gen_sched_nba_monitor_task_nodelay"
+      ],
+      "failing_tests": [
+       [
+        "ch16/test_illegal_inferred_clock_missing",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_inferred_clock_missing\\\\.sv:(?:25|26|29):(?:\\\\d+:)?[^\\\\n]*(?i:(?:no|missing|unresolved)[^\\\\n]*clock|clock[^\\\\n]*(?:missing|unresolved|not resolved|cannot be resolved))'; the first is: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_inferred_clock_missing.sv:25:24: Unsupported: IEEE 1800-2005 reserved word not implemented: '$inferred_clock'"
+       ],
+       [
+        "ch16/test_illegal_property_instance_flattened_not_legal",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_property_instance_flattened_not_legal\\\\.sv:(?:27|30):(?:\\\\d+:)?[^\\\\n]*(?i:(?:cannot|not allowed|illegal)[^\\\\n]*property[^\\\\n]*sequence|property[^\\\\n]*(?:cannot|not allowed|illegal)[^\\\\n]*sequence)'; the first is: %Error: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_property_instance_flattened_not_legal.sv:29:49: syntax error, unexpected ##, expecting ')'"
+       ],
+       [
+        "ch16/test_illegal_recursive_property_s_nexttime",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_recursive_property_s_nexttime\\\\.sv:(?:29|32):(?:\\\\d+:)?[^\\\\n]*(?i:recursive[^\\\\n]*(?:cannot|shall not|must not|not allowed|illegal)|(?:cannot|shall not|must not|not allowed|illegal)[^\\\\n]*recursive)'; the first is: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_recursive_property_s_nexttime.sv:32:52: Unsupported: s_nexttime (in property expression)"
+       ],
+       [
+        "ch16/test_illegal_sequence_local_output_unassigned",
+        "known",
+        "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|syntax error|invalid module))[^\\\\n]*test_illegal_sequence_local_output_unassigned\\\\.sv:(?:28|29|34):(?:\\\\d+:)?[^\\\\n]*(?i:(?:output|inout)[^\\\\n]*(?:unassigned|not[^\\\\n]*assigned)|(?:unassigned|not[^\\\\n]*assigned)[^\\\\n]*(?:output|inout))'; the first is: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_sequence_local_output_unassigned.sv:28:20: Unsupported: property port 'local'"
+       ]
+      ],
+      "added": 183,
+      "added_passing": 67,
+      "removed": 0
+     }
+    },
+    "kirimasim": {
+     "name": "kirimasim",
+     "version": "kirimasim 0.0.0 (commit 1650064d21c7), built with GNU 13.3.0",
+     "counts": {
+      "pass": 4969,
+      "fail": 169,
+      "known": 0,
+      "unsupported": 2189
+     },
+     "chapters": {
+      "3": [
+       69,
+       86
+      ],
+      "4": [
+       394,
+       412
+      ],
+      "5": [
+       331,
+       343
+      ],
+      "6": [
+       499,
+       594
+      ],
+      "7": [
+       316,
+       482
+      ],
+      "8": [
+       123,
+       321
+      ],
+      "9": [
+       172,
+       202
+      ],
+      "10": [
+       183,
+       204
+      ],
+      "11": [
+       786,
+       835
+      ],
+      "12": [
+       161,
+       181
+      ],
+      "13": [
+       177,
+       197
+      ],
+      "14": [
+       20,
+       78
+      ],
+      "15": [
+       9,
+       56
+      ],
+      "16": [
+       181,
+       374
+      ],
+      "17": [
+       31,
+       77
+      ],
+      "18": [
+       77,
+       200
+      ],
+      "19": [
+       36,
+       145
+      ],
+      "20": [
+       219,
+       269
+      ],
+      "21": [
+       163,
+       205
+      ],
+      "22": [
+       338,
+       348
+      ],
+      "23": [
+       188,
+       230
+      ],
+      "24": [
+       34,
+       43
+      ],
+      "25": [
+       85,
+       119
+      ],
+      "26": [
+       72,
+       83
+      ],
+      "27": [
+       100,
+       103
+      ],
+      "28": [
+       64,
+       245
+      ],
+      "29": [
+       79,
+       81
+      ],
+      "30": [
+       12,
+       59
+      ],
+      "31": [
+       12,
+       58
+      ],
+      "32": [
+       0,
+       50
+      ],
+      "33": [
+       24,
+       42
+      ],
+      "35": [
+       12,
+       123
+      ],
+      "36": [
+       0,
+       84
+      ],
+      "37": [
+       0,
+       222
+      ],
+      "38": [
+       0,
+       106
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       2,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 35,
+      "failing": 0,
+      "passing_tests": [
+       "ch13/test_constant_function_call_constant_argument_forms",
+       "ch13/test_parameterized_function_width_truncation",
+       "ch16/test_illegal_final_deferred_postponed_call",
+       "ch16/test_illegal_inferred_clock_missing",
+       "ch16/test_illegal_negated_property_reaching_recursion",
+       "ch16/test_illegal_property_instance_flattened_not_legal",
+       "ch16/test_illegal_recursive_property_negated",
+       "ch16/test_illegal_recursive_property_s_always",
+       "ch16/test_illegal_recursive_property_s_eventually",
+       "ch16/test_illegal_recursive_property_s_nexttime",
+       "ch16/test_illegal_recursive_property_s_until",
+       "ch16/test_illegal_recursive_property_s_until_with",
+       "ch16/test_illegal_sequence_local_output_unassigned",
+       "ch20/test_illegal_pla_descending_memory",
+       "ch23/test_illegal_ansi_port_net_type_added_in_body",
+       "ch23/test_illegal_ansi_port_redeclared_in_body",
+       "ch23/test_illegal_nonansi_net_port_redeclared",
+       "ch23/test_illegal_nonansi_variable_port_redeclared",
+       "ch23/test_scope_resolution_edge_cases_2",
+       "ch23/test_scope_resolution_prefix_downward",
+       "ch25/test_illegal_modport_prototype_argument_count",
+       "ch25/test_illegal_modport_prototype_type_not_matching",
+       "ch26/test_illegal_local_declaration_after_import",
+       "ch26/test_illegal_search_order_explicit_after_wildcard_reference",
+       "ch26/test_illegal_search_order_local_after_wildcard_reference",
+       "ch29/test_illegal_udp_table_without_endtable",
+       "ch33/test_illegal_config_design_is_config",
+       "ch33/test_illegal_config_instance_inside_other_config",
+       "ch6/test_parameterized_data_types",
+       "ch6/test_parameterized_typedef_specializations",
+       "ch8/test_extern_method_class_scope_current_specialization",
+       "ch8/test_interface_diamond_inherited_parameter",
+       "ch9/test_always_comb_qualified_function_calls",
+       "ch9/test_illegal_function_contains_fork_join",
+       "ch9/test_illegal_function_contains_fork_join_any"
+      ],
+      "failing_tests": [],
+      "added": 183,
+      "added_passing": 68,
+      "removed": 0
+     }
+    },
+    "lyra": {
+     "name": "Lyra",
+     "version": "Lyra (commit 7e2c604b9ab2)",
+     "counts": {
+      "pass": 5398,
+      "fail": 476,
+      "known": 0,
+      "unsupported": 1453
+     },
+     "chapters": {
+      "3": [
+       65,
+       86
+      ],
+      "4": [
+       294,
+       412
+      ],
+      "5": [
+       334,
+       343
+      ],
+      "6": [
+       517,
+       594
+      ],
+      "7": [
+       442,
+       482
+      ],
+      "8": [
+       296,
+       321
+      ],
+      "9": [
+       185,
+       202
+      ],
+      "10": [
+       186,
+       204
+      ],
+      "11": [
+       812,
+       835
+      ],
+      "12": [
+       173,
+       181
+      ],
+      "13": [
+       193,
+       197
+      ],
+      "14": [
+       20,
+       78
+      ],
+      "15": [
+       48,
+       56
+      ],
+      "16": [
+       226,
+       374
+      ],
+      "17": [
+       31,
+       77
+      ],
+      "18": [
+       139,
+       200
+      ],
+      "19": [
+       108,
+       145
+      ],
+      "20": [
+       218,
+       269
+      ],
+      "21": [
+       122,
+       205
+      ],
+      "22": [
+       335,
+       348
+      ],
+      "23": [
+       185,
+       230
+      ],
+      "24": [
+       38,
+       43
+      ],
+      "25": [
+       100,
+       119
+      ],
+      "26": [
+       78,
+       83
+      ],
+      "27": [
+       100,
+       103
+      ],
+      "28": [
+       15,
+       245
+      ],
+      "29": [
+       29,
+       81
+      ],
+      "30": [
+       13,
+       59
+      ],
+      "31": [
+       15,
+       58
+      ],
+      "32": [
+       0,
+       50
+      ],
+      "33": [
+       11,
+       42
+      ],
+      "35": [
+       68,
+       123
+      ],
+      "36": [
+       0,
+       84
+      ],
+      "37": [
+       0,
+       222
+      ],
+      "38": [
+       0,
+       106
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       2,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 25,
+      "failing": 0,
+      "passing_tests": [
+       "ch16/test_illegal_inferred_clock_missing",
+       "ch16/test_illegal_negated_property_reaching_recursion",
+       "ch16/test_illegal_property_instance_flattened_not_legal",
+       "ch16/test_illegal_recursive_property_negated",
+       "ch16/test_illegal_recursive_property_s_always",
+       "ch16/test_illegal_recursive_property_s_eventually",
+       "ch16/test_illegal_recursive_property_s_nexttime",
+       "ch16/test_illegal_recursive_property_s_until",
+       "ch16/test_illegal_recursive_property_s_until_with",
+       "ch16/test_illegal_sequence_local_output_unassigned",
+       "ch20/test_illegal_pla_descending_memory",
+       "ch23/test_illegal_ansi_port_net_type_added_in_body",
+       "ch23/test_illegal_ansi_port_redeclared_in_body",
+       "ch23/test_illegal_nonansi_net_port_redeclared",
+       "ch23/test_illegal_nonansi_variable_port_redeclared",
+       "ch25/test_illegal_modport_prototype_argument_count",
+       "ch25/test_illegal_modport_prototype_type_not_matching",
+       "ch26/test_illegal_local_declaration_after_import",
+       "ch26/test_illegal_search_order_explicit_after_wildcard_reference",
+       "ch26/test_illegal_search_order_local_after_wildcard_reference",
+       "ch29/test_illegal_udp_table_without_endtable",
+       "ch33/test_illegal_config_design_is_config",
+       "ch33/test_illegal_config_instance_inside_other_config",
+       "ch9/test_illegal_function_contains_fork_join",
+       "ch9/test_illegal_function_contains_fork_join_any"
+      ],
+      "failing_tests": [],
+      "added": 183,
+      "added_passing": 93,
+      "removed": 0
+     }
+    }
+   }
   }
  ]
 }
