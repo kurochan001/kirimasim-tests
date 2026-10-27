@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 85.26%、実行 46.60%。**
+**全規格の要求台帳ベース（暫定）: 設計 85.27%、実行 46.61%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10503/12319 (85.26%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5741/12319 (46.60%)。
-- 登録済みだがテスト未対応: 1816 動作。
+- 登録済み動作に対するテスト設計網羅率: 10504/12319 (85.27%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5742/12319 (46.61%)。
+- 登録済みだがテスト未対応: 1815 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -89,6 +89,7 @@
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
+- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T00:43:50.437117+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -219,7 +220,7 @@
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 9。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
-- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 0。
+- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 1。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 25。
 - H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 175。
 - I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 134。
@@ -129549,7 +129550,7 @@ Clocked-sequence tight satisfaction equals that of its unclocked rewrite.
 
 ### SV2023-F.5.2-EXTRACT-CONCAT
 
-F.5.2 / normal / テスト未対応
+F.5.2 / normal / 実行確認あり
 
 Concatenation tightly matches iff word splits into adjacent operand matches; fusion splits with exactly one shared letter.
 
@@ -129557,6 +129558,7 @@ Concatenation tightly matches iff word splits into adjacent operand matches; fus
 
 規定の性質: `definition`。
 
+- [test_formal_f5_fusion.sv](../tests/ch16/test_formal_f5_fusion.sv): 融合演算子の形式的意味を、参照評価器の微分エンジンと独立に書いたRTLモニタの全prefix一致としてSymbiYosysで検査する。入力語は制約せず、融合が1文字だけ共有する分割に一致することをBMCで証明する。 区別: 融合の共有文字数を0または2とする誤実装では、RTLモニタのprefix一致が反例を返しBMCがFAILする。シミュレータ出力ではなく形式的証明で要求全体を観測する。
 
 ### SV2023-F.5.2-EXTRACT-FIRST
 

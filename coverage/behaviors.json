@@ -474452,7 +474452,25 @@
       "acceptance": "Concatenation tightly matches iff word splits into adjacent operand matches; fusion splits with exactly one shared letter.",
       "source_note": "IEEE 1800-2023 F.5.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f5_fusion.sv",
+          "observation": "融合演算子の形式的意味を、参照評価器の微分エンジンと独立に書いたRTLモニタの全prefix一致としてSymbiYosysで検査する。入力語は制約せず、融合が1文字だけ共有する分割に一致することをBMCで証明する。 区別: 融合の共有文字数を0または2とする誤実装では、RTLモニタのprefix一致が反例を返しBMCがFAILする。シミュレータ出力ではなく形式的証明で要求全体を観測する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d0bf9d056e2fbc8e4c0daa8ade9d8fe0389ba928adc88983287ace789e9434be",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f5_fusion.sv",
+              "contains": ":formal_case: fusion"
+            },
+            {
+              "file": "tests/ch16/test_formal_f5_fusion.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.2",

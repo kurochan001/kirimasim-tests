@@ -2,8 +2,8 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 7345,
-  "linked_test_files": 4934,
+  "test_files": 7346,
+  "linked_test_files": 4935,
   "unlinked_test_files": 2411,
   "chapters": [
     {
@@ -86,8 +86,8 @@
     },
     {
       "chapter": "ch16",
-      "test_files": 374,
-      "linked_test_files": 323,
+      "test_files": 375,
+      "linked_test_files": 324,
       "unlinked_test_files": 51
     },
     {
@@ -61150,6 +61150,37 @@
         "SV2023-16.14.1-EXTRACT-ASSERT-ACTION-CONTENT",
         "SV2023-16.14.3-EXTRACT-COVER-ACTION-CONTENT"
       ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_f5_fusion.sv",
+      "inputs_sha256": "d0bf9d056e2fbc8e4c0daa8ade9d8fe0389ba928adc88983287ace789e9434be",
+      "cited_clauses": [
+        "16.9.2.1",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-CONCAT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-MIXED-EMPTY",
+        "SV2023-16.9.2.1-EXTRACT-ZERO-EMPTY",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-NULL",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
       "broader_citations": []
     },
     {
@@ -529996,7 +530027,7 @@
     "oracle_issue": 257,
     "partial_observation": 2129
   },
-  "registry_sha256": "7f8f43a0e80daee08a33dc752331cad6e93b9096422e29731c8550f1bf3c00ff",
+  "registry_sha256": "2f574c447a2e5c7431198702f1297159327753b570b7955ec34b300600a43d2d",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "c1dac1a34f1f74e3f694f5ef6218659d24e12fac8b92f59725cdca236f737aec"
 }

@@ -37852,6 +37852,7 @@
     "SV2023-C.4.2-EXTRACT-PROCEDURAL",
     "SV2023-C.4.2-EXTRACT-REQUIRED",
     "SV2023-C.4.3-EXTRACT-MEMORY",
+    "SV2023-F.5.2-EXTRACT-CONCAT",
     "SV2023-G.1-EXTRACT-CONTENTS",
     "SV2023-G.2-EXTRACT-SYSTEM-TYPES",
     "SV2023-G.3-EXTRACT-GET",
@@ -42714,5 +42715,5 @@
     "P",
     "Q"
   ],
-  "reason": "ch5の新規テスト追加で既存マッピングのincludeディレクトリ入力が変わったため再ハッシュ・再実行し、部分観測の補完テストを反映した。"
+  "reason": "Monotonic additions of requirements, mappings or completed investigations, recorded by --update"
 }

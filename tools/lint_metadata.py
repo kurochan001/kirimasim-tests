@@ -118,7 +118,7 @@ def check(test: Path) -> list[tuple[str, str]]:
     if fields.get("name", test.stem) != test.stem:
         bad("name", f":name: {fields['name']}")
 
-    allowed = {"type": ("simulation", "elaboration"), "spec_check": ("ai", "human"),
+    allowed = {"type": ("simulation", "elaboration", "formal"), "spec_check": ("ai", "human"),
                "fourstate": ("yes", "no"), "nondeterministic": ("yes", "no")}
     for f, values in allowed.items():
         if f in fields and fields[f] not in values:
@@ -160,6 +160,11 @@ def check(test: Path) -> list[tuple[str, str]]:
             bad("should-fail", ":should_fail_because: with :expected_stdout:")
     elif fields.get("type") == "elaboration":
         bad("should-fail", ":type: elaboration without :should_fail_because:")
+    elif fields.get("type") == "formal":
+        if not fields.get("formal_case"):
+            bad("formal", ":type: formal without :formal_case:")
+        if "expected_stdout" in fields:
+            bad("formal", ":type: formal with :expected_stdout:")
     else:
         value = fields.get("expected_stdout")
         if value is None:

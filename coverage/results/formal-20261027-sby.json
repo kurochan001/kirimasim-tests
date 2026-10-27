@@ -1,0 +1,18 @@
+{
+ "simulator": "sby",
+ "name": "SymbiYosys",
+ "version": "unknown SBY version",
+ "tests": {
+  "ch16/test_formal_f5_fusion": {
+   "status": "pass",
+   "inputs_sha256": "d0bf9d056e2fbc8e4c0daa8ade9d8fe0389ba928adc88983287ace789e9434be"
+  }
+ },
+ "generated_at": "2026-10-27T00:43:50.437117+00:00",
+ "runner_sha256": "098266f83e119e304a0e1a8f7cc1c6da8146fb72e6a9aa19a104e1a2d3823fa2",
+ "runner_changed": false,
+ "configuration": {
+  "prove": false,
+  "timeout": 30
+ }
+}
