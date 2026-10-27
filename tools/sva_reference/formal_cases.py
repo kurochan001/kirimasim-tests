@@ -527,3 +527,242 @@ F52_PROPERTIES = {
         """},
 }
 PROPERTIES.update(F52_PROPERTIES)
+
+
+# F.5.3.1 top-level property satisfaction.  a[k]/b[k]/c[k]/d[k] is the sample
+# at tick k.  Codes are status<<4 | deciding tick: success=0t, failure=1t,
+# vacuous=2t, holds=3f, pending=4f, disabled=5t.  Each reference is written
+# directly from the clause and never calls the parser, engine or evaluator.
+# Optional spec fields are handled in formal.property_model:
+#   kind       assert property (default), assume property or cover property
+#   starts     all (every enabled position) or any (some position)
+#   enable     signal that must be 1 for a start to be enabled
+#   assume     assumption expressions; a word is feasible when all pass
+#   infeasible pass/fail result when the word violates an assumption
+#   current    supply Observed snapshots so disable iff can be evaluated
+F531_PROPERTIES = {
+    # not P holds iff the dual word does not satisfy P.  For the decidable
+    # sequence a ##1 b the dual action is just value negation at the same tick.
+    "f531_not": {
+        "expression": "not (a ##1 b)", "signals": "ab", "horizon": 2,
+        "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (a[0] && b[1]) reference_result=8'h11;
+            else if (a[0]) reference_result=8'h01;
+            else reference_result=8'h00;
+          end
+        """},
+    # Property or: disjunction of the two operand satisfactions on this word.
+    # Each a ##1 b operand decides at tick 1 with a[0] as its guard; a missing
+    # operand fails at tick 0, so a disjunction of two failures decides at the
+    # later of the two failure ticks.
+    "f531_boolean_or": {
+        "expression": "(a ##1 b) or (c ##1 d)", "signals": "abcd", "horizon": 2,
+        "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if ((a[0] && b[1]) || (c[0] && d[1])) reference_result=8'h01;
+            else if (a[0] || c[0]) reference_result=8'h11;
+            else reference_result=8'h10;
+          end
+        """},
+    # Property and: conjunction on the same word.  A false operand decides at
+    # its own failure tick, so the first false tick wins; both true decide at 1.
+    "f531_boolean_and": {
+        "expression": "(a ##1 b) and (c ##1 d)", "signals": "abcd", "horizon": 2,
+        "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (a[0] && b[1] && c[0] && d[1]) reference_result=8'h01;
+            else if (!a[0] || !c[0]) reference_result=8'h10;
+            else reference_result=8'h11;
+          end
+        """},
+    # Parentheses preserve satisfaction and, with one sampled clock, the
+    # clocked property uses the same Tp as the unclocked rewrite.  This word
+    # model has a clock occurrence at every tick, so @(posedge clk) adds no
+    # extra guard here (documented limitation).
+    "f531_clock_paren": {
+        "expression": "@(posedge clk) (((a) ##1 (b)))", "signals": "ab", "horizon": 2,
+        "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (!a[0]) reference_result=8'h10;
+            else if (b[1]) reference_result=8'h01;
+            else reference_result=8'h11;
+          end
+        """},
+    # strong(R): some tightly matching prefix 0..j within the word.  With the
+    # unbounded tail a ##[1:$] b, no b by the last tick leaves no strong
+    # witness, so the finite word is pending (4f), not a weak hold.
+    "f531_strong": {
+        "expression": "strong(a ##[1:$] b)", "signals": "ab", "horizon": 3,
+        "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (!a[0]) reference_result=8'h10;
+            else if (b[1]) reference_result=8'h01;
+            else if (b[2]) reference_result=8'h02;
+            else reference_result=8'h4f;
+          end
+        """},
+    # weak(R): every prefix followed by infinite top satisfies strong(R).  On a
+    # finite word with no match the top continuation can still match later, so
+    # the result is a neutral hold (3f) rather than pending.
+    "f531_weak": {
+        "expression": "weak(a ##[1:$] b)", "signals": "ab", "horizon": 3,
+        "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (!a[0]) reference_result=8'h10;
+            else if (b[1]) reference_result=8'h01;
+            else if (b[2]) reference_result=8'h02;
+            else reference_result=8'h3f;
+          end
+        """},
+    # assume property uses the same word-satisfaction as the corresponding
+    # assert property form; only the directive kind differs.
+    "f531_assume": {
+        "expression": "a ##1 b", "signals": "ab", "horizon": 2,
+        "kind": "assume property", "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (!a[0]) reference_result=8'h10;
+            else if (b[1]) reference_result=8'h01;
+            else reference_result=8'h11;
+          end
+        """},
+    # always unqualified assert: pass (or disabled) at every enabled position.
+    # Declarative enable is true; every start 0..horizon-1 is checked.  The
+    # first failing position gives the failure tick, otherwise the last passing
+    # position gives the success tick.
+    "f531_always": {
+        "expression": "a", "signals": "a", "horizon": 3, "starts": "all",
+        "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (!a[0]) reference_result=8'h10;
+            else if (!a[1]) reference_result=8'h11;
+            else if (!a[2]) reference_result=8'h12;
+            else reference_result=8'h02;
+          end
+        """},
+    # initial-clocked assert checks the first c occurrence; with a single
+    # sampled clock that occurrence is position 0, so only start 0 is checked.
+    "f531_initial_clock": {
+        "expression": "@(posedge clk) (a ##1 b)", "signals": "ab", "horizon": 2,
+        "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (!a[0]) reference_result=8'h10;
+            else if (b[1]) reference_result=8'h01;
+            else reference_result=8'h11;
+          end
+        """},
+    # always cover: at least one enabled starting position has a pass witness.
+    # Disabled alone is insufficient, so no pass witness is a failure even if
+    # every attempt is unfinished or disabled.
+    "f531_cover": {
+        "expression": "a", "signals": "a", "horizon": 3,
+        "kind": "cover property", "starts": "any", "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (a[0]) reference_result=8'h00;
+            else if (a[1]) reference_result=8'h01;
+            else if (a[2]) reference_result=8'h02;
+            else reference_result=8'h12;
+          end
+        """},
+    # Procedural enable is outside this declarative harness; g models the
+    # enabled-position set.  Every enabled start must pass, and an empty
+    # enabled set is vacuously satisfied.
+    "f531_enable": {
+        "expression": "a", "signals": "ag", "horizon": 3, "starts": "all",
+        "enable": "g", "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (g[0] && !a[0]) reference_result=8'h10;
+            else if (g[1] && !a[1]) reference_result=8'h11;
+            else if (g[2] && !a[2]) reference_result=8'h12;
+            else if (g[2]) reference_result=8'h02;
+            else if (g[1]) reference_result=8'h01;
+            else if (g[0]) reference_result=8'h00;
+            else reference_result=8'h0f;
+          end
+        """},
+    # A word is feasible iff it satisfies every assumption.  An assertion must
+    # hold on every feasible word; a word violating g is vacuously pass.
+    "f531_global": {
+        "expression": "a", "signals": "ag", "horizon": 1,
+        "assume": ["g"], "infeasible": "pass", "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (!g[0]) reference_result=8'h0f;
+            else if (a[0]) reference_result=8'h00;
+            else reference_result=8'h10;
+          end
+        """},
+    # Cover on an assumption-constrained set needs a feasible pass witness; an
+    # empty feasible set (this word violates g) cannot supply one.
+    "f531_feasible": {
+        "expression": "a", "signals": "ag", "horizon": 1,
+        "assume": ["g"], "infeasible": "fail", "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (!g[0]) reference_result=8'h1f;
+            else if (a[0]) reference_result=8'h00;
+            else reference_result=8'h10;
+          end
+        """},
+    # Pass and disabled are mutually exclusive; fail means neither.  A disable
+    # at the first position disables the attempt before the boolean a decides,
+    # while a disable after the pass at position 0 cannot retract that pass.
+    "f531_status": {
+        "expression": "disable iff (d) (a)", "signals": "ad", "horizon": 2,
+        "current": True, "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (d[0]) reference_result=8'h50;
+            else if (a[0]) reference_result=8'h00;
+            else reference_result=8'h10;
+          end
+        """},
+    # disable iff is disabled when a disable occurs and the prefix before its
+    # first occurrence passes under infinite top but not under infinite bottom.
+    # For a ##[1:2] b each prefix at or before the last needed tick has that
+    # property, so the first disable before the deciding tick disables.  A
+    # failure that decided earlier is not retroactively disabled.  Parentheses
+    # around the property preserve the result.
+    "f531_disabled": {
+        "expression": "disable iff (d) (((a) ##[1:2] (b)))", "signals": "abd", "horizon": 3,
+        "current": True, "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (d[0]) reference_result=8'h50;
+            else if (!a[0]) reference_result=8'h10;
+            else if (d[1]) reference_result=8'h51;
+            else if (b[1]) reference_result=8'h01;
+            else if (d[2]) reference_result=8'h52;
+            else if (b[2]) reference_result=8'h02;
+            else reference_result=8'h12;
+          end
+        """},
+    # Plain top-level properties use the underlying property semantics and
+    # parentheses preserve them.  A pass before the first disable is retained;
+    # a disable before the deciding tick makes the attempt disabled rather than
+    # pass.  The pass-on-prefix-then-infinite-bottom branch is not modelled
+    # (see limitation in the note).
+    "f531_top_pass": {
+        "expression": "disable iff (d) (((a) ##1 (b)))", "signals": "abd", "horizon": 2,
+        "current": True, "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (d[0]) reference_result=8'h50;
+            else if (!a[0]) reference_result=8'h10;
+            else if (d[1]) reference_result=8'h51;
+            else if (b[1]) reference_result=8'h01;
+            else reference_result=8'h11;
+          end
+        """},
+    # Neutral satisfaction on a nonempty finite word without local variables:
+    # a until b with no b witness holds (3f) rather than failing or pending.
+    "f531_domain": {
+        "expression": "a until b", "signals": "ab", "horizon": 3,
+        "clause": "F.5.3.1", "reference": """
+          always @* begin
+            if (b[0]) reference_result=8'h00;
+            else if (!a[0]) reference_result=8'h10;
+            else if (b[1]) reference_result=8'h01;
+            else if (!a[1]) reference_result=8'h11;
+            else if (b[2]) reference_result=8'h02;
+            else if (!a[2]) reference_result=8'h12;
+            else reference_result=8'h3f;
+          end
+        """},
+}
+PROPERTIES.update(F531_PROPERTIES)

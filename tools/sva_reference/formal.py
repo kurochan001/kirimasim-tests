@@ -23,20 +23,20 @@ import time
 if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from sva_reference import automata as rx, formal_cases as specs
-    from sva_reference.engine import Engine
+    from sva_reference.engine import Current, Engine
     from sva_reference.parser import Parser, Unsupported, parse_sequence
     from sva_reference.sampled import History
     from sva_reference.values import Bits, evaluate
 else:
     from . import automata as rx, formal_cases as specs
-    from .engine import Engine
+    from .engine import Current, Engine
     from .parser import Parser, Unsupported, parse_sequence
     from .sampled import History
     from .values import Bits, evaluate
 
 
 HERE = Path(__file__).parent
-STATUS = {"success": 0, "failure": 1, "vacuous": 2, "holds": 3, "pending": 4}
+STATUS = {"success": 0, "failure": 1, "vacuous": 2, "holds": 3, "pending": 4, "disabled": 5}
 RC = {"PASS": 0, "FAIL": 2, "UNKNOWN": 4, "TIMEOUT": 8, "ERROR": 16}
 
 
@@ -129,6 +129,62 @@ def expression(text):
     return node
 
 
+def attempt_code(spec, samples):
+    """Encode one word's top-level directive result for the F.5.3.1 cases.
+
+    The default path is the historical single-attempt Engine.property() call.
+    Optional top-level fields add only quantifier/directive context:
+    kind (assert/assume/cover), starts=all|any, enable, assume+infeasible and
+    current (Observed snapshots needed by disable iff).
+    """
+    horizon = len(samples)
+    kind = spec.get("kind", "assert property")
+    current = ([Current(tick, samples[tick], "observed") for tick in range(horizon)]
+               if spec.get("current") else None)
+    engine = Engine(samples, current=current)
+
+    def tick_key(attempt):
+        return 99 if attempt.tick is None else attempt.tick
+
+    if spec.get("assume") is not None:
+        feasible = all(engine.property(condition).status in {"success", "vacuous"}
+                       for condition in spec["assume"])
+        if not feasible:
+            status = "success" if spec.get("infeasible") == "pass" else "failure"
+            return (STATUS[status] << 4) | 15
+        return encode(engine.property(spec["expression"], kind=kind))
+    if spec.get("starts") == "all":
+        starts = [tick for tick in range(horizon)
+                  if spec.get("enable") is None or samples[tick][spec["enable"]] == "1"]
+        if not starts:
+            return (STATUS["success"] << 4) | 15
+        attempts = [engine.property(spec["expression"], start=tick, kind=kind) for tick in starts]
+        failed = [attempt for attempt in attempts if attempt.status == "failure"]
+        if failed:
+            return encode(min(failed, key=tick_key))
+        passed = [attempt for attempt in attempts if attempt.status in {"success", "vacuous"}]
+        disabled = [attempt for attempt in attempts if attempt.status == "disabled"]
+        if passed and len(passed) + len(disabled) == len(attempts):
+            return encode(max(passed, key=tick_key))
+        if len(disabled) == len(attempts):
+            return encode(max(disabled, key=tick_key))
+        status = "holds" if any(attempt.status == "holds" for attempt in attempts) else "pending"
+        return (STATUS[status] << 4) | 15
+    if spec.get("starts") == "any":
+        attempts = [engine.property(spec["expression"], start=tick, kind=kind)
+                    for tick in range(horizon)]
+        passed = [attempt for attempt in attempts if attempt.status in {"success", "vacuous"}]
+        if passed:
+            return encode(min(passed, key=tick_key))
+        # cover needs a pass witness; disabled/holds/pending alone is not enough.
+        return (STATUS["failure"] << 4) | (horizon - 1)
+    return encode(engine.property(spec["expression"], kind=kind))
+
+
+def encode(attempt):
+    return (STATUS[attempt.status] << 4) | (15 if attempt.tick is None else attempt.tick)
+
+
 def property_model(name, *, mutation=False):
     spec = specs.PROPERTIES[name]
     names, horizon = spec["signals"], spec["horizon"]
@@ -137,9 +193,7 @@ def property_model(name, *, mutation=False):
               "reg [7:0] actual_result, reference_result;", "always @* begin actual_result=0; case(word)"]
     for word in range(1 << size):
         samples = [{name: str((word >> (tick * len(names) + i)) & 1) for i, name in enumerate(names)} for tick in range(horizon)]
-        result = Engine(samples).property(spec["expression"])
-        code = (STATUS[result.status] << 4) | (15 if result.tick is None else result.tick)
-        pieces.append(f"{size}'d{word}: actual_result=8'd{code};")
+        pieces.append(f"{size}'d{word}: actual_result=8'd{attempt_code(spec, samples)};")
     pieces.append("endcase end")
     pieces.extend(f"wire [{horizon-1}:0] {signal_name}={{{','.join(f'word[{tick*len(names)+i}]' for tick in reversed(range(horizon)))}}};"
                   for i, signal_name in enumerate(names))

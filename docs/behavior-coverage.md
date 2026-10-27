@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 85.89%、実行 47.24%。**
+**全規格の要求台帳ベース（暫定）: 設計 86.02%、実行 47.37%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10581/12319 (85.89%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5819/12319 (47.24%)。
-- 登録済みだがテスト未対応: 1738 動作。
+- 登録済み動作に対するテスト設計網羅率: 10597/12319 (86.02%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5835/12319 (47.37%)。
+- 登録済みだがテスト未対応: 1722 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -89,7 +89,7 @@
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
-- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T02:45:28.564057+00:00 / 78/12319 動作確認、古い入力との対応 0 件。
+- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T04:06:55.201237+00:00 / 94/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -220,7 +220,7 @@
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 9。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
-- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 78。
+- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 94。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 25。
 - H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 175。
 - I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 134。
@@ -129693,7 +129693,7 @@ accept_on(b) P holds when P holds, or some b at 0<=i<|w| has its preceding prefi
 
 ### SV2023-F.5.3.1-EXTRACT-ALWAYS
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 Always unqualified assert requires pass or disabled at every enabled zero-based position, using enable on dual word.
 
@@ -129701,10 +129701,11 @@ Always unqualified assert requires pass or disabled at every enabled zero-based 
 
 規定の性質: `definition`。
 
+- [test_formal_f531_always.sv](../tests/ch16/test_formal_f531_always.sv): SymbiYosysでF.5.3.1のformalケースf531_alwaysを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`starts:"all"` で `assert property (a)` を全start 0..2に適用。全enabled startでpassを要求し、最初のa\[t\]=0をfailure tick、全passを最後のstart tickのsuccess 02とする独立RTLと比較。always unqualified assertの全位置量化を直接固定。horizon 3、2値a、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-ASSUME
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 The four initial/always,clocked/unclocked assumption forms use the same word-satisfaction conditions as corresponding assert forms.
 
@@ -129712,10 +129713,11 @@ The four initial/always,clocked/unclocked assumption forms use the same word-sat
 
 規定の性質: `definition`。
 
+- [test_formal_f531_assume.sv](../tests/ch16/test_formal_f531_assume.sv): SymbiYosysでF.5.3.1のformalケースf531_assumeを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`assume property (a ##1 b)` を全16語で評価し、対応するassert formと同じ真理表（!a\[0\]→10、b\[1\]→01、else 11）と比較。assumeがassertと同じword-satisfactionを使うことをdirective kindの差だけにして固定。horizon 2、2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-BOOLEAN
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 Property or/and uses disjunction/conjunction of operand satisfaction on the same word.
 
@@ -129723,10 +129725,12 @@ Property or/and uses disjunction/conjunction of operand satisfaction on the same
 
 規定の性質: `definition`。
 
+- [test_formal_f531_boolean_or.sv](../tests/ch16/test_formal_f531_boolean_or.sv): SymbiYosysでF.5.3.1のformalケースf531_boolean_orを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。property `or` を `(a ##1 b) or (c ##1 d)` の全256語で、両operandのword-satisfactionの論理和として独立RTL真理表に実装。どちらか成立でsuccess@1、両方不成立はguardの有無でfailure tick 1/0になることを固定。horizon 2、2値abcd、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
+- [test_formal_f531_boolean_and.sv](../tests/ch16/test_formal_f531_boolean_and.sv): SymbiYosysでF.5.3.1のformalケースf531_boolean_andを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。property `and` を `(a ##1 b) and (c ##1 d)` の全256語で、両operandのword-satisfactionの論理積として独立RTL真理表に実装。両立でsuccess@1、どちらかのguardが0ならfailure@0、それ以外はfailure@1になることを固定。horizon 2、2値abcd、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-CLOCK-PAREN
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 Property parentheses preserve satisfaction; clocked properties use Tp with inherited clock true.
 
@@ -129734,10 +129738,11 @@ Property parentheses preserve satisfaction; clocked properties use Tp with inher
 
 規定の性質: `definition`。
 
+- [test_formal_f531_clock_paren.sv](../tests/ch16/test_formal_f531_clock_paren.sv): SymbiYosysでF.5.3.1のformalケースf531_clock_parenを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`@(posedge clk) (((a) ##1 (b)))` の全16語を、unclocked `a ##1 b` の真理表（!a\[0\]→failure@0、b\[1\]→success@1、else failure@1）と比較。入れ子括弧がsatisfactionを保つこと、単一サンプルclockではclocked propertyが同じTpになることを固定。horizon 2、2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-COVER
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 Always cover requires at least one enabled starting position with property pass, additionally clock occurrence for clocked form; initial cover requires pass at the first clock or position zero respectively. Disabled alone is insufficient.
 
@@ -129745,10 +129750,11 @@ Always cover requires at least one enabled starting position with property pass,
 
 規定の性質: `definition`。
 
+- [test_formal_f531_cover.sv](../tests/ch16/test_formal_f531_cover.sv): SymbiYosysでF.5.3.1のformalケースf531_coverを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`cover property (a)` を `starts:"any"` で全start 0..2に適用し、いずれかのstartでpassすればその最初のtickでsuccess、passが無ければfailure 12とする独立RTLと比較。always coverが少なくとも1つのenabled startのpassを要求することを直接固定。horizon 3、2値a、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-DISABLED
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 Plain top-level properties cannot be disabled; disable iff is disabled exactly when a disable occurs and the prefix before its first occurrence followed by infinite top passes while the same prefix followed by infinite bottom does not; parentheses preserve disabled status.
 
@@ -129756,10 +129762,11 @@ Plain top-level properties cannot be disabled; disable iff is disabled exactly w
 
 規定の性質: `definition`。
 
+- [test_formal_f531_disabled.sv](../tests/ch16/test_formal_f531_disabled.sv): SymbiYosysでF.5.3.1のformalケースf531_disabledを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`disable iff (d) (((a) ##[1:2] (b)))` の全512語で、最初のdisable occurrenceが決着tickより前ならdisabled（d\[0\]→50、d\[1\]→51、d\[2\]→52）、a\[0\]=0でtick0に決着したfailureは遡ってdisabledにしない、という独立RTLと比較。括弧がdisabled statusを保つことも同時に固定。horizon 3、2値abd、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-DOMAIN
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 Neutral satisfaction without locals evaluates nonempty finite/infinite words and expressions without local variables.
 
@@ -129767,10 +129774,11 @@ Neutral satisfaction without locals evaluates nonempty finite/infinite words and
 
 規定の性質: `definition`。
 
+- [test_formal_f531_domain.sv](../tests/ch16/test_formal_f531_domain.sv): SymbiYosysでF.5.3.1のformalケースf531_domainを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。local変数を含まない `a until b` を非空有限語（horizon 3）の全64語で評価し、b witnessが無いときに中立hold 3f、bがあればsuccess、aが先に崩れればfailureとする独立RTLと比較。localなしpropertyが非空有限語上でneutral satisfactionを持つことを直接固定。2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-ENABLE
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 Procedural assertion enable is derived from conditions queueing its attempt; declarative enable is true. At each zero-based enabled c-clock position, always-clocked assert requires property pass or disabled, testing enable/clock against the dual word.
 
@@ -129778,10 +129786,11 @@ Procedural assertion enable is derived from conditions queueing its attempt; dec
 
 規定の性質: `definition`。
 
+- [test_formal_f531_enable.sv](../tests/ch16/test_formal_f531_enable.sv): SymbiYosysでF.5.3.1のformalケースf531_enableを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`starts:"all"` と `enable:"g"` で、g\[t\]=1の位置だけをenabled startとして `assert property (a)` を適用。各enabled startのpassを要求し、enabled位置が無ければvacuous success 0f、失敗は最初のg\[t\]&&!a\[t\]、成功は最後のenabled tickとする独立RTLと比較。horizon 3、2値ag、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-FEASIBLE
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 A word is feasible iff it satisfies every assumption; assert on a set requires satisfaction on each feasible word, cover on a set on at least one feasible word.
 
@@ -129789,10 +129798,11 @@ A word is feasible iff it satisfies every assumption; assert on a set requires s
 
 規定の性質: `definition`。
 
+- [test_formal_f531_feasible.sv](../tests/ch16/test_formal_f531_feasible.sv): SymbiYosysでF.5.3.1のformalケースf531_feasibleを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。assumption `g` の下で `cover property (a)` を評価し、g=0の語はfeasible witnessが無いのでcover失敗1f、g=1の語はaのpass/failure（00/10）とする独立RTLと比較。cover on a setが少なくとも1つのfeasible pass witnessを要求することを固定。horizon 1、2値ag、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-GLOBAL
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 An assertion holds globally on an assumption-constrained word set iff satisfied on every feasible word.
 
@@ -129800,6 +129810,7 @@ An assertion holds globally on an assumption-constrained word set iff satisfied 
 
 規定の性質: `definition`。
 
+- [test_formal_f531_global.sv](../tests/ch16/test_formal_f531_global.sv): SymbiYosysでF.5.3.1のformalケースf531_globalを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。assumption `g` の下で `assert property (a)` を評価し、g=0の語はassumption違反なのでvacuous pass 0f、g=1の語はaのpass/failure（00/10）とする独立RTLと比較。assertionが全feasible語で成り立つことを、各語のfeasibility判定と共に固定。horizon 1、2値ag、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-IMPLICATION
 
@@ -129815,7 +129826,7 @@ Overlapping implication requires consequent on suffix j.. for every 0<=j<|w| who
 
 ### SV2023-F.5.3.1-EXTRACT-INITIAL-CLOCK
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 Initial-clocked assert checks first c occurrence selected by !c\[*0:$\] ##1 c on dual prefix, if enabled there; initial unclocked assert checks position zero if enabled. A checked property may pass or be disabled.
 
@@ -129823,6 +129834,7 @@ Initial-clocked assert checks first c occurrence selected by !c\[*0:$\] ##1 c on
 
 規定の性質: `definition`。
 
+- [test_formal_f531_initial_clock.sv](../tests/ch16/test_formal_f531_initial_clock.sv): SymbiYosysでF.5.3.1のformalケースf531_initial_clockを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`@(posedge clk) (a ##1 b)` をstart 0だけで評価し、!a\[0\]→10、b\[1\]→01、else 11の独立RTLと比較。単一clockでは最初のc occurrenceが位置0になるため、initial-clocked assertの「最初のc occurrenceで検査」をstart 0に落として固定。horizon 2、2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-NEXT
 
@@ -129838,7 +129850,7 @@ nexttime P holds on an empty word or when suffix starting at one satisfies P.
 
 ### SV2023-F.5.3.1-EXTRACT-NOT
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 not P holds iff the dual word does not satisfy P.
 
@@ -129846,10 +129858,11 @@ not P holds iff the dual word does not satisfy P.
 
 規定の性質: `definition`。
 
+- [test_formal_f531_not.sv](../tests/ch16/test_formal_f531_not.sv): SymbiYosysでF.5.3.1のformalケースf531_notを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`not (a ##1 b)` の全16語を、内側 `a ##1 b` の成功tick（tick1）・失敗tick（a\[0\]なら1、else 0）を反転する独立RTL真理表と比較。not P が dual 語でPを満たさないときに成り立つ、というF.5.3.1-NOTの値を、決着可能なPで直接固定する。horizon 2、2値ab、BMC深さ2（組合せ全語列挙）。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-STATUS
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 Pass and disabled are mutually exclusive; fail means neither pass nor disabled.
 
@@ -129857,10 +129870,11 @@ Pass and disabled are mutually exclusive; fail means neither pass nor disabled.
 
 規定の性質: `definition`。
 
+- [test_formal_f531_status.sv](../tests/ch16/test_formal_f531_status.sv): SymbiYosysでF.5.3.1のformalケースf531_statusを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`disable iff (d) (a)` の全16語で、d\[0\]=1ならaの値に関係なくdisabled 50、d\[0\]=0ならa\[0\]でsuccess 00/failure 10とし、tick 0で決着したpassをd\[1\]が撤回しない独立RTLと比較。passとdisabledが排他で、failがどちらでもないことを単一statusコードで固定。horizon 2、2値ad、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-STRONG
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 strong(R) requires a tightly matching prefix indexed 0..j for some 0<=j<=|w|, retaining the supplied inclusive upper bound.
 
@@ -129868,10 +129882,11 @@ strong(R) requires a tightly matching prefix indexed 0..j for some 0<=j<=|w|, re
 
 規定の性質: `definition`。
 
+- [test_formal_f531_strong.sv](../tests/ch16/test_formal_f531_strong.sv): SymbiYosysでF.5.3.1のformalケースf531_strongを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`strong(a ##[1:$] b)` の全64語で、0<=j<=|w|のtight matchが存在するか（b\[1\]→01、b\[2\]→02、!a\[0\]→10）を独立RTLで判定し、witnessが無い有限語をpending 4fとする。strong(R)が有限語内のwitnessを要求することを直接固定。horizon 3、2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-TOP-PASS
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 Plain top-level properties use underlying property semantics; parentheses preserve. For disable iff, pass requires underlying pass with no disable, or pass on prefix before first disable followed by infinite bottom.
 
@@ -129879,6 +129894,7 @@ Plain top-level properties use underlying property semantics; parentheses preser
 
 規定の性質: `definition`。
 
+- [test_formal_f531_top_pass.sv](../tests/ch16/test_formal_f531_top_pass.sv): SymbiYosysでF.5.3.1のformalケースf531_top_passを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`disable iff (d) (((a) ##1 (b)))` の全64語で、無disable時のpass（b\[1\]→01）、括弧保持、tick0でpassした後のdisableがpassを撤回しないこと、決着前disableがpassでなくdisabled（d\[0\]→50、d\[1\]→51）になることを独立RTLで固定。horizon 2、2値abd、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.1-EXTRACT-UNTIL
 
@@ -129894,7 +129910,7 @@ p until q holds if q holds at some 0<=j<|w| and p holds at every earlier suffix,
 
 ### SV2023-F.5.3.1-EXTRACT-WEAK
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 weak(R) requires every prefix ending 0<=j<|w| followed by infinite top to satisfy strong(R).
 
@@ -129902,6 +129918,7 @@ weak(R) requires every prefix ending 0<=j<|w| followed by infinite top to satisf
 
 規定の性質: `definition`。
 
+- [test_formal_f531_weak.sv](../tests/ch16/test_formal_f531_weak.sv): SymbiYosysでF.5.3.1のformalケースf531_weakを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`weak(a ##[1:$] b)` の全64語で、strongと同じmatch条件（b\[1\]→01、b\[2\]→02、!a\[0\]→10）だが、witnessが無い有限語は無限top継続で後からmatchできるため中立hold 3fとする独立RTLと比較。strongとの差（4f vs 3f）を同じ語集合で固定。horizon 3、2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.2-EXTRACT-FAIL
 

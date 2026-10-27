@@ -475937,7 +475937,25 @@
       "acceptance": "Always unqualified assert requires pass or disabled at every enabled zero-based position, using enable on dual word.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_always.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_alwaysを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`starts:\"all\"` で `assert property (a)` を全start 0..2に適用。全enabled startでpassを要求し、最初のa[t]=0をfailure tick、全passを最後のstart tickのsuccess 02とする独立RTLと比較。always unqualified assertの全位置量化を直接固定。horizon 3、2値a、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3b9c83223e98375931405a943496f347a0a05f15a70283de08e5fa02878515d7",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_always.sv",
+              "contains": ":formal_case: f531_always"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_always.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -475955,7 +475973,25 @@
       "acceptance": "The four initial/always,clocked/unclocked assumption forms use the same word-satisfaction conditions as corresponding assert forms.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_assume.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_assumeを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`assume property (a ##1 b)` を全16語で評価し、対応するassert formと同じ真理表（!a[0]→10、b[1]→01、else 11）と比較。assumeがassertと同じword-satisfactionを使うことをdirective kindの差だけにして固定。horizon 2、2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d9df3482ef3602691c8b26c4b2a0a8a7ec77a1a9fede7d561b52429b03eec4d0",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_assume.sv",
+              "contains": ":formal_case: f531_assume"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_assume.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -475973,7 +476009,42 @@
       "acceptance": "Property or/and uses disjunction/conjunction of operand satisfaction on the same word.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_boolean_or.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_boolean_orを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。property `or` を `(a ##1 b) or (c ##1 d)` の全256語で、両operandのword-satisfactionの論理和として独立RTL真理表に実装。どちらか成立でsuccess@1、両方不成立はguardの有無でfailure tick 1/0になることを固定。horizon 2、2値abcd、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c026adb53ae454df6d05b02ecb2d317425e22b39b1dbe4556c0fa62ab5c5f764",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_boolean_or.sv",
+              "contains": ":formal_case: f531_boolean_or"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_boolean_or.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch16/test_formal_f531_boolean_and.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_boolean_andを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。property `and` を `(a ##1 b) and (c ##1 d)` の全256語で、両operandのword-satisfactionの論理積として独立RTL真理表に実装。両立でsuccess@1、どちらかのguardが0ならfailure@0、それ以外はfailure@1になることを固定。horizon 2、2値abcd、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ee153c0284566a757c5f402690aae23ce6295ff5d70a73b92382168d86a012a9",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_boolean_and.sv",
+              "contains": ":formal_case: f531_boolean_and"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_boolean_and.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -475991,7 +476062,25 @@
       "acceptance": "Property parentheses preserve satisfaction; clocked properties use Tp with inherited clock true.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_clock_paren.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_clock_parenを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`@(posedge clk) (((a) ##1 (b)))` の全16語を、unclocked `a ##1 b` の真理表（!a[0]→failure@0、b[1]→success@1、else failure@1）と比較。入れ子括弧がsatisfactionを保つこと、単一サンプルclockではclocked propertyが同じTpになることを固定。horizon 2、2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ee9a4c596d060198fbc81ac868cf92996e1c61b0520d9205389e6c97455c3b72",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_clock_paren.sv",
+              "contains": ":formal_case: f531_clock_paren"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_clock_paren.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -476009,7 +476098,25 @@
       "acceptance": "Always cover requires at least one enabled starting position with property pass, additionally clock occurrence for clocked form; initial cover requires pass at the first clock or position zero respectively. Disabled alone is insufficient.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_cover.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_coverを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`cover property (a)` を `starts:\"any\"` で全start 0..2に適用し、いずれかのstartでpassすればその最初のtickでsuccess、passが無ければfailure 12とする独立RTLと比較。always coverが少なくとも1つのenabled startのpassを要求することを直接固定。horizon 3、2値a、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "87d641cc923dc8afb375c699526531e4611a4a0c849bac5abd31047892a0b5a4",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_cover.sv",
+              "contains": ":formal_case: f531_cover"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_cover.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -476027,7 +476134,25 @@
       "acceptance": "Plain top-level properties cannot be disabled; disable iff is disabled exactly when a disable occurs and the prefix before its first occurrence followed by infinite top passes while the same prefix followed by infinite bottom does not; parentheses preserve disabled status.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B009, B010, B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_disabled.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_disabledを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`disable iff (d) (((a) ##[1:2] (b)))` の全512語で、最初のdisable occurrenceが決着tickより前ならdisabled（d[0]→50、d[1]→51、d[2]→52）、a[0]=0でtick0に決着したfailureは遡ってdisabledにしない、という独立RTLと比較。括弧がdisabled statusを保つことも同時に固定。horizon 3、2値abd、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "548ffc24680064e67d38e17661e54d8b3dccea5fcdfc4a80cda9ebf01beaf7fb",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_disabled.sv",
+              "contains": ":formal_case: f531_disabled"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_disabled.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -476047,7 +476172,25 @@
       "acceptance": "Neutral satisfaction without locals evaluates nonempty finite/infinite words and expressions without local variables.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_domain.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_domainを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。local変数を含まない `a until b` を非空有限語（horizon 3）の全64語で評価し、b witnessが無いときに中立hold 3f、bがあればsuccess、aが先に崩れればfailureとする独立RTLと比較。localなしpropertyが非空有限語上でneutral satisfactionを持つことを直接固定。2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8e2513427aeb24020a56514e9e65d16ad3d95ba6fdd03a4e951fcf5379412ec2",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_domain.sv",
+              "contains": ":formal_case: f531_domain"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_domain.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -476065,7 +476208,25 @@
       "acceptance": "Procedural assertion enable is derived from conditions queueing its attempt; declarative enable is true. At each zero-based enabled c-clock position, always-clocked assert requires property pass or disabled, testing enable/clock against the dual word.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_enable.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_enableを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`starts:\"all\"` と `enable:\"g\"` で、g[t]=1の位置だけをenabled startとして `assert property (a)` を適用。各enabled startのpassを要求し、enabled位置が無ければvacuous success 0f、失敗は最初のg[t]&&!a[t]、成功は最後のenabled tickとする独立RTLと比較。horizon 3、2値ag、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2193a6909ea0106f6309f33bd526dd99765ca2c069d953d376c7618feb59ae8",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_enable.sv",
+              "contains": ":formal_case: f531_enable"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_enable.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -476083,7 +476244,25 @@
       "acceptance": "A word is feasible iff it satisfies every assumption; assert on a set requires satisfaction on each feasible word, cover on a set on at least one feasible word.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_feasible.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_feasibleを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。assumption `g` の下で `cover property (a)` を評価し、g=0の語はfeasible witnessが無いのでcover失敗1f、g=1の語はaのpass/failure（00/10）とする独立RTLと比較。cover on a setが少なくとも1つのfeasible pass witnessを要求することを固定。horizon 1、2値ag、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "358337a2b8f6a1614f1f8219c5ae1e6a91f8f88fdd6fe50f3defbca26ae379cd",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_feasible.sv",
+              "contains": ":formal_case: f531_feasible"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_feasible.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -476101,7 +476280,25 @@
       "acceptance": "An assertion holds globally on an assumption-constrained word set iff satisfied on every feasible word.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_global.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_globalを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。assumption `g` の下で `assert property (a)` を評価し、g=0の語はassumption違反なのでvacuous pass 0f、g=1の語はaのpass/failure（00/10）とする独立RTLと比較。assertionが全feasible語で成り立つことを、各語のfeasibility判定と共に固定。horizon 1、2値ag、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f548065bc31cbec8ae8c1fbca3854a6b8fe951220ebb9c9c3d217a8f86b264a7",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_global.sv",
+              "contains": ":formal_case: f531_global"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_global.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -476155,7 +476352,25 @@
       "acceptance": "Initial-clocked assert checks first c occurrence selected by !c[*0:$] ##1 c on dual prefix, if enabled there; initial unclocked assert checks position zero if enabled. A checked property may pass or be disabled.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_initial_clock.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_initial_clockを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`@(posedge clk) (a ##1 b)` をstart 0だけで評価し、!a[0]→10、b[1]→01、else 11の独立RTLと比較。単一clockでは最初のc occurrenceが位置0になるため、initial-clocked assertの「最初のc occurrenceで検査」をstart 0に落として固定。horizon 2、2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "71d679815239640bd451d77f3f0236e2fa9ca7372140f67b1e9b38caa3f2b293",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_initial_clock.sv",
+              "contains": ":formal_case: f531_initial_clock"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_initial_clock.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -476209,7 +476424,25 @@
       "acceptance": "not P holds iff the dual word does not satisfy P.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_not.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_notを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`not (a ##1 b)` の全16語を、内側 `a ##1 b` の成功tick（tick1）・失敗tick（a[0]なら1、else 0）を反転する独立RTL真理表と比較。not P が dual 語でPを満たさないときに成り立つ、というF.5.3.1-NOTの値を、決着可能なPで直接固定する。horizon 2、2値ab、BMC深さ2（組合せ全語列挙）。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1c19de2bd3d6e9ee8312a724aac52c88183d2dc64e176d248de0e3a137ff5db6",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_not.sv",
+              "contains": ":formal_case: f531_not"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_not.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -476227,7 +476460,25 @@
       "acceptance": "Pass and disabled are mutually exclusive; fail means neither pass nor disabled.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_status.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_statusを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`disable iff (d) (a)` の全16語で、d[0]=1ならaの値に関係なくdisabled 50、d[0]=0ならa[0]でsuccess 00/failure 10とし、tick 0で決着したpassをd[1]が撤回しない独立RTLと比較。passとdisabledが排他で、failがどちらでもないことを単一statusコードで固定。horizon 2、2値ad、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6e0cc1061ea6fca6da21d4bdd2575a38b5840e9ec28a303a0370586f45c128b3",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_status.sv",
+              "contains": ":formal_case: f531_status"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_status.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -476245,7 +476496,25 @@
       "acceptance": "strong(R) requires a tightly matching prefix indexed 0..j for some 0<=j<=|w|, retaining the supplied inclusive upper bound.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_strong.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_strongを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`strong(a ##[1:$] b)` の全64語で、0<=j<=|w|のtight matchが存在するか（b[1]→01、b[2]→02、!a[0]→10）を独立RTLで判定し、witnessが無い有限語をpending 4fとする。strong(R)が有限語内のwitnessを要求することを直接固定。horizon 3、2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "eb660b589596804db32422d1694354dd2424699caf0902935ed7995b40b839a7",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_strong.sv",
+              "contains": ":formal_case: f531_strong"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_strong.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -476263,7 +476532,25 @@
       "acceptance": "Plain top-level properties use underlying property semantics; parentheses preserve. For disable iff, pass requires underlying pass with no disable, or pass on prefix before first disable followed by infinite bottom.",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_top_pass.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_top_passを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`disable iff (d) (((a) ##1 (b)))` の全64語で、無disable時のpass（b[1]→01）、括弧保持、tick0でpassした後のdisableがpassを撤回しないこと、決着前disableがpassでなくdisabled（d[0]→50、d[1]→51）になることを独立RTLで固定。horizon 2、2値abd、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "97b09df309f431ca8c5f8a20bc77046f44e537a160d78a41f9003cbb2f3da739",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_top_pass.sv",
+              "contains": ":formal_case: f531_top_pass"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_top_pass.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
@@ -476317,7 +476604,25 @@
       "acceptance": "weak(R) requires every prefix ending 0<=j<|w| followed by infinite top to satisfy strong(R).",
       "source_note": "IEEE 1800-2023 F.5.3.1; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f531_weak.sv",
+          "observation": "SymbiYosysでF.5.3.1のformalケースf531_weakを実行し、トップレベルpropertyのsatisfactionを独立RTL参照と比較する。`weak(a ##[1:$] b)` の全64語で、strongと同じmatch条件（b[1]→01、b[2]→02、!a[0]→10）だが、witnessが無い有限語は無限top継続で後からmatchできるため中立hold 3fとする独立RTLと比較。strongとの差（4f vs 3f）を同じ語集合で固定。horizon 3、2値ab、BMC深さ2。 区別: トップレベル文脈の結果コードを独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "99527b60b15d306f296a683d501a1bb3777329e283b3688dc28505fbcff19679",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f531_weak.sv",
+              "contains": ":formal_case: f531_weak"
+            },
+            {
+              "file": "tests/ch16/test_formal_f531_weak.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.1",
