@@ -25479,7 +25479,29 @@
       "acceptance": "Do not mix typed nets with interconnect elements in that generic net-lvalue expression.",
       "source_note": "IEEE 1800-2023 6.6.8; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_illegal_interconnect_procedural_read.sv",
+          "observation": "シミュレーションで6.6.8-EXTRACT-INTERCONNECT-LVALUE-ONLYを観測する。6.6.8 は interconnect を『すべての net/port が interconnect である net_lvalue 式』以外で使えないとする。interconnect n を $display に渡す procedural 文だけを不正としており、規則の『procedural context で使えない』を直接観測する。lrm は 6.6.8。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8ece8ffef3fc13e5c3fa57604f2b39ebd4a4286601c30d4cfc643a4a0f83b2ab",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_illegal_interconnect_procedural_read.sv",
+              "contains": ":name: test_illegal_interconnect_procedural_read"
+            },
+            {
+              "file": "tests/ch6/test_illegal_interconnect_procedural_read.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch6/test_illegal_interconnect_procedural_read.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.6.8",
@@ -31645,7 +31667,25 @@
       "acceptance": "void represents the absence of a data value.",
       "source_note": "IEEE 1800-2023 6.13; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_void_function_and_cast.sv",
+          "observation": "シミュレーションで6.13-EXTRACT-VOID-NO-DATAを観測する。6.13 は void を『存在しないデータ』とし、値を返さない関数の戻り型にできるとする。void 関数を文として呼び、void'(...) で値付き関数の結果を捨てる例で、void がデータを持たないことを直接使う。lrm は 6.13。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "be17cb92939ac440a1108f8de85baddb148abe986cdc26694ac5c7f7073e04cf",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_void_function_and_cast.sv",
+              "contains": ":name: test_void_function_and_cast"
+            },
+            {
+              "file": "tests/ch6/test_void_function_and_cast.expected",
+              "contains": "count=15"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.13",
@@ -36552,7 +36592,25 @@
       "acceptance": "itoa is a void string method taking one integer argument.",
       "source_note": "IEEE 1800-2023 6.16.11; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_string_itoa_2.sv",
+          "observation": "シミュレーションで6.16.11-EXTRACT-SIGNATUREを観測する。6.16.11 の itoa(integer i) を int 引数で呼び、10 進表記の文字列になることを観測する。lrm は 6.16.11。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7b60da4d95b05126b0c3928c7554d20ec7ddda9e0bebc7d527feb9a51c35fd46",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_itoa_2.sv",
+              "contains": ":name: test_string_itoa_2"
+            },
+            {
+              "file": "tests/ch6/test_string_itoa_2.expected",
+              "contains": "String itoa tests: 3/3 passed"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.16.11",
@@ -36606,7 +36664,25 @@
       "acceptance": "hextoa is a void string method taking one integer argument.",
       "source_note": "IEEE 1800-2023 6.16.12; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_string_hextoa.sv",
+          "observation": "シミュレーションで6.16.12-EXTRACT-SIGNATUREを観測する。6.16.12 の hextoa(integer i) を int 引数で呼び、16 進表記（大小文字は規格が定めないため両方許容）を観測する。lrm は 6.16.12。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f1f60768d37af1c6a87c2b5ecf6b7d6704603e68525378658b65b247eabfdf3d",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_hextoa.sv",
+              "contains": ":name: test_string_hextoa"
+            },
+            {
+              "file": "tests/ch6/test_string_hextoa.expected",
+              "contains": "PASS: hextoa(0x1A)"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.16.12",
@@ -36660,7 +36736,25 @@
       "acceptance": "octtoa is a void string method taking one integer argument.",
       "source_note": "IEEE 1800-2023 6.16.13; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_string_octtoa_bintoa_negative_round_trip.sv",
+          "observation": "シミュレーションで6.16.13-EXTRACT-SIGNATUREを観測する。6.16.13 の octtoa(integer i) を符号付き integer 引数で呼び、負値も受け取り、atooct() で同じ値に戻ることを観測する。lrm は 6.16.13 6.16.14。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a80b59cdcf6c22d24710bf02ee099bca984bd07a5233a3df2497e27f58c481a0",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_octtoa_bintoa_negative_round_trip.sv",
+              "contains": ":name: test_string_octtoa_bintoa_negative_round_trip"
+            },
+            {
+              "file": "tests/ch6/test_string_octtoa_bintoa_negative_round_trip.expected",
+              "contains": "v=-1 replaced=1,1 atooct=-1 atobin=-1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.16.13",
@@ -36938,7 +37032,25 @@
       "acceptance": "bintoa is a void string method taking one integer argument.",
       "source_note": "IEEE 1800-2023 6.16.14; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_string_binary_octal_round_trip.sv",
+          "observation": "シミュレーションで6.16.14-EXTRACT-SIGNATUREを観測する。6.16.14 の bintoa(integer i) を int 引数で呼び、2 進表記になり atobin() で同じ値に戻ることを観測する。lrm は 6.16.13 6.16.14。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fb482644bd50a613e1497bdf89b0ecfbe3e6b534d2dc3d97c4c7baeaba7769a8",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.sv",
+              "contains": ":name: test_string_binary_octal_round_trip"
+            },
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.expected",
+              "contains": "value=0 roundtrip=1,1 format=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.16.14",
@@ -38028,7 +38140,29 @@
       "acceptance": "An unpacked-array type used as a type-parameter value requires a user-defined type name under 6.20.3.",
       "source_note": "IEEE 1800-2023 6.18; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_ch6_extra_unpacked_type_parameter.sv",
+          "observation": "シミュレーションで6.18-EXTRACT-UNPACKED-PARAMETER-TYPENAMEを観測する。6.18 は unpacked array 型を型パラメータ値に使うときユーザー定義型名を要求する（6.20.3）。typedef int arr_t[3]; を既定値に使う module は合法で、int [3] を直接書いた module の宣言行を両ツールが構文エラーとして拒否する。 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "70cae02b22fb52456a743ff07f78b8e3cf9ed09484b0879daf75c87c8330c05c",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_ch6_extra_unpacked_type_parameter.sv",
+              "contains": ":name: test_ch6_extra_unpacked_type_parameter"
+            },
+            {
+              "file": "tests/ch6/test_ch6_extra_unpacked_type_parameter.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch6/test_ch6_extra_unpacked_type_parameter.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.18",
@@ -40802,7 +40936,25 @@
       "acceptance": "A constant is a named data object whose value does not change during its applicable lifetime.",
       "source_note": "IEEE 1800-2023 6.20; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_parameter_and_const_lifetime.sv",
+          "observation": "シミュレーションで6.20-EXTRACT-CONSTANT-IMMUTABLEを観測する。6.20 は parameter/localparam/specparam を elaboration-time の定数、const を有効期間中に値が変わらない実行時定数とする。宣言幅に使う P・L・SP と、automatic 関数の呼び出しごとに初期化される const AC を対比し、『適用される lifetime の間不変』を直接観測する。lrm は 6.20。const への代入拒否は test_illegal_const_assigned（6.20.6）が扱う。 代入拒否そのものは test_ille 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ec7af8120d0158e1defe9f092b69ff5eadd1ebec2b91179edfc26a0297958516",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_parameter_and_const_lifetime.sv",
+              "contains": ":name: test_parameter_and_const_lifetime"
+            },
+            {
+              "file": "tests/ch6/test_parameter_and_const_lifetime.expected",
+              "contains": "bits=4 8 sp=3 sc=7"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.20",
@@ -42945,7 +43097,25 @@
       "acceptance": "An explicitly ranged specparam retains its declared range despite overrides.",
       "source_note": "IEEE 1800-2023 6.20.5; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_specparam_declared_and_inferred_range.sv",
+          "observation": "シミュレーションで6.20.5-EXTRACT-FIXED-SPECPARAM-RANGEを観測する。6.20.5 は範囲指定付き specparam が宣言の範囲を持ち、上書きに影響されないとする。specparam [7:0] fixed の $bits が 8、範囲なしの inferred が値の 4 bit になることを対比する。lrm は 6.20.5。 上書き後の保持は、SDF アノテーションを実行する手段がこのテストにないため観測していない（宣言範囲が $bits に現れる部分だけを直接確認する）。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2794589ba48c64a102ab112924c00693c80b179e1f6d1735f84772060c32a99d",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_specparam_declared_and_inferred_range.sv",
+              "contains": ":name: test_specparam_declared_and_inferred_range"
+            },
+            {
+              "file": "tests/ch6/test_specparam_declared_and_inferred_range.expected",
+              "contains": "fixed=15 bits=8"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.20.5",
@@ -44230,7 +44400,25 @@
       "acceptance": "Class methods and variables declared by for loops default to automatic regardless of their enclosing scope lifetime qualifier.",
       "source_note": "IEEE 1800-2023 6.21; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_ch6_extra_for_loop_automatic.sv",
+          "observation": "シミュレーションで6.21-EXTRACT-CLASS-LOOP-AUTOMATICを観測する。6.21 は class method と for ループが宣言する変数を、囲むスコープの lifetime 指定にかかわらず既定で automatic とする。static な module スコープの for (int i...) から fork した 3 プロセスが各自の i を保持し got=0 1 2 になること、class method の再帰が呼び出しごとの saved を保ち depth=6 になることを観測する。 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9aef05d40f7a60cef6bb5ba7aa4f4a9fd47fc1f64d410097eb2fc0f2f96859a9",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_ch6_extra_for_loop_automatic.sv",
+              "contains": ":name: test_ch6_extra_for_loop_automatic"
+            },
+            {
+              "file": "tests/ch6/test_ch6_extra_for_loop_automatic.expected",
+              "contains": "got=0 1 2 depth=6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.21",
@@ -45586,7 +45774,25 @@
       "acceptance": "Dynamic/associative/queue arrays are equivalent when their kind and element equivalence agree and associative index types are equivalent where relevant.",
       "source_note": "IEEE 1800-2023 6.22.2; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_ch6_extra_ref_dynamic_equiv.sv",
+          "observation": "シミュレーションで6.22.2-EXTRACT-DYNAMIC-EQUIVALENCEを観測する。6.22.2 規則 e で int[] と int[] は同じ種類・等価な要素型なので等価。13.5.2 の ref 引数は参照を渡すため、task が呼び出し側の動的配列を resize して埋め、size=3 sum=15 が観測できる。 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3bf8bdc174387cbee039c003c94ff106c91ea643e0be985366bf45f664696fdd",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_ch6_extra_ref_dynamic_equiv.sv",
+              "contains": ":name: test_ch6_extra_ref_dynamic_equiv"
+            },
+            {
+              "file": "tests/ch6/test_ch6_extra_ref_dynamic_equiv.expected",
+              "contains": "size=3 sum=15"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.22.2",
@@ -80567,7 +80773,25 @@
       "acceptance": "There is no implied execution order between initial and always procedures; tests cannot assume all initials execute first.",
       "source_note": "IEEE 1800-2023 9.2; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_ch9_extra_initial_always_no_order.sv",
+          "observation": "シミュレーションで9.2-EXTRACT-NO-INITIAL-ALWAYS-ORDERを観測する。Two initial procedures and one always procedure all start at time zero; the $0 observer sees both flags set, and the recorded order is accepted when it is either 12 or 21, so no output depends on initial-first or always-first. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5d6d8bbf2712ca9b1cd92667d54f7c7576fdfe19a563d36f39872780b47c65ef",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_ch9_extra_initial_always_no_order.sv",
+              "contains": ":name: test_ch9_extra_initial_always_no_order"
+            },
+            {
+              "file": "tests/ch9/test_ch9_extra_initial_always_no_order.expected",
+              "contains": "both_started=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.2",
@@ -80752,7 +80976,25 @@
       "acceptance": "The language imposes no count limit on module initial/always procedures.",
       "source_note": "IEEE 1800-2023 9.2; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_ch9_extra_procedure_count.sv",
+          "observation": "シミュレーションで9.2-EXTRACT-UNLIMITED-PROCEDURE-COUNTを観測する。128 initial and 128 always procedures are declared; at time 1 all 128 initial bodies have incremented init_count and all 128 always bodies have incremented always_count before blocking on the named event, so no small fixed limit is hit. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2a93681994b7fe3c69992a01950f725fcc379d7eb5a992022002fbd066e0a4e0",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_ch9_extra_procedure_count.sv",
+              "contains": ":name: test_ch9_extra_procedure_count"
+            },
+            {
+              "file": "tests/ch9/test_ch9_extra_procedure_count.expected",
+              "contains": "init=128 always=128"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.2",
@@ -81686,7 +81928,25 @@
       "acceptance": "always_comb has exclusive target-writing restrictions including called functions; ordinary always @* permits multiple process writers under general assignment rules.",
       "source_note": "IEEE 1800-2023 9.2.2.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_ch9_extra_star_multiple_writers.sv",
+          "observation": "シミュレーションで9.2.2.2.2-EXTRACT-COMB-WRITER-VS-STARを観測する。Two ordinary always @* blocks read the same input and write the same target v; the design elaborates and both marker variables become 1, while v is only reported to be 1 or 2, never which writer won. The always_comb exclusivity half is documented by test_illeg 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2011f775c59ffc537fb1f7eca6fd88c33fac3fabd1e85fe86245543b525fe7a3",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_ch9_extra_star_multiple_writers.sv",
+              "contains": ":name: test_ch9_extra_star_multiple_writers"
+            },
+            {
+              "file": "tests/ch9/test_ch9_extra_star_multiple_writers.expected",
+              "contains": "a=1 b=1 both_writers_ran=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.2.2.2.2",
@@ -84072,7 +84332,25 @@
       "acceptance": "A procedural delay may contain a specparam; an SDF override causes the delay expression to be reevaluated.",
       "source_note": "IEEE 1800-2023 9.4.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_ch9_extra_specparam_delay.sv",
+          "observation": "シミュレーションで9.4.1-EXTRACT-SPECPARAM-DELAY-SDFを観測する。The procedural delay #(D) takes its value from specparam D = 3; the delay suspends until time 3, so the captured $time is 3 and delay_honored prints 1. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f3a6e2462546c26f39325fd8599e6957f97d4efc6aa90c1039a534bed22e4946",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_ch9_extra_specparam_delay.sv",
+              "contains": ":name: test_ch9_extra_specparam_delay"
+            },
+            {
+              "file": "tests/ch9/test_ch9_extra_specparam_delay.expected",
+              "contains": "delay_honored=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.1",
@@ -85738,7 +86016,25 @@
       "acceptance": "Wait syntax permits expression plus statement-or-null, wait fork and wait_order with identifiers/action block under their separate semantics.",
       "source_note": "IEEE 1800-2023 9.4.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_ch9_extra_wait_forms.sv",
+          "observation": "シミュレーションで9.4.3-EXTRACT-WAIT-GRAMMARを観測する。One fork branch uses wait (flag) with a statement, a second uses wait (flag) with the null statement, and a third starts a fork-join_none child and runs wait fork; all three complete and the display reads 1 for each. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4040f4797a6582b17ddc06f3b701cf4db9c93ecdb1455a9c964c66303bca59d4",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_ch9_extra_wait_forms.sv",
+              "contains": ":name: test_ch9_extra_wait_forms"
+            },
+            {
+              "file": "tests/ch9/test_ch9_extra_wait_forms.expected",
+              "contains": "wait_stmt=1 wait_null=1 wait_fork=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.3",
@@ -86384,7 +86680,25 @@
       "acceptance": "Each continuous assignment may be viewed as its own execution thread under continuous scheduling rules.",
       "source_note": "IEEE 1800-2023 9.5; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_ch9_extra_continuous_thread.sv",
+          "observation": "シミュレーションで9.5-EXTRACT-CONTINUOUS-THREAD-MODELを観測する。Three continuous assignments (wa = a, wb = ~b, wsum = wa & wb) each follow their own sources; the values at times 1, 2 and 3 show every assignment reacting to its input change and the chain settling within the same time step. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43fd59a2fc9120e2b0612b5d4fb4e31654dc78c13fb5bf6c7828b0ea80eed246",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_ch9_extra_continuous_thread.sv",
+              "contains": ":name: test_ch9_extra_continuous_thread"
+            },
+            {
+              "file": "tests/ch9/test_ch9_extra_continuous_thread.expected",
+              "contains": "t=1 a=0 b=1 wa=0 wb=0 sum=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.5",
@@ -88195,7 +88509,25 @@
       "acceptance": "The process API declares function void resume().",
       "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_process_suspend_resume_await.sv",
+          "observation": "シミュレーションで9.7-EXTRACT-RESUME-SIGNATUREを観測する。resume() is called with no arguments as a statement on a process suspended during a delay, and the process continues in the current time step; the header cites 9.7. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a32459318575afcdbf2a15ffa047a6938c56c09e89166521f138f1ae8d15418c",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_suspend_resume_await.sv",
+              "contains": ":name: test_process_suspend_resume_await"
+            },
+            {
+              "file": "tests/ch9/test_process_suspend_resume_await.expected",
+              "contains": "3: await returned, finished=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.7",
@@ -88389,7 +88721,25 @@
       "acceptance": "The process API declares function void set_randstate(string state).",
       "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_process_randstate_signatures.sv",
+          "observation": "シミュレーションで9.7-EXTRACT-SET-RANDSTATE-SIGNATUREを観測する。get_randstate() returns a string, its length is queried with len(), and set_randstate(st) restores the saved state so the next $urandom equals the value drawn before the save; set_randstate therefore takes the string state. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a288f0cfe17d07959db9954fbf4eb09c8964d19ddaf110d27a6651495e082677",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_randstate_signatures.sv",
+              "contains": ":name: test_process_randstate_signatures"
+            },
+            {
+              "file": "tests/ch9/test_process_randstate_signatures.expected",
+              "contains": "nonempty=1 same=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.7",
@@ -88407,7 +88757,25 @@
       "acceptance": "The process API declares function void srandom(int seed).",
       "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_process_randstate_signatures.sv",
+          "observation": "シミュレーションで9.7-EXTRACT-SRANDOM-SIGNATUREを観測する。get_randstate() returns a string, its length is queried with len(), and set_randstate(st) restores the saved state so the next $urandom equals the value drawn before the save; set_randstate therefore takes the string state. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a288f0cfe17d07959db9954fbf4eb09c8964d19ddaf110d27a6651495e082677",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_randstate_signatures.sv",
+              "contains": ":name: test_process_randstate_signatures"
+            },
+            {
+              "file": "tests/ch9/test_process_randstate_signatures.expected",
+              "contains": "nonempty=1 same=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.7",
@@ -88614,7 +88982,25 @@
       "acceptance": "The process API declares function void suspend().",
       "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_process_suspend_resume_await.sv",
+          "observation": "シミュレーションで9.7-EXTRACT-SUSPEND-SIGNATUREを観測する。resume() is called with no arguments as a statement on a process suspended during a delay, and the process continues in the current time step; the header cites 9.7. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a32459318575afcdbf2a15ffa047a6938c56c09e89166521f138f1ae8d15418c",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_suspend_resume_await.sv",
+              "contains": ":name: test_process_suspend_resume_await"
+            },
+            {
+              "file": "tests/ch9/test_process_suspend_resume_await.expected",
+              "contains": "3: await returned, finished=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.7",
@@ -209378,7 +209764,25 @@
       "acceptance": "An aggregate %u/%z input item counts as 0 or 1 item, not one item per member.",
       "source_note": "IEEE 1800-2023 21.2.1.1; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_fwrite_unformatted_aggregates.sv",
+          "observation": "シミュレーションで21.2.1.1-EXTRACT-UNFORMATTED-COUNTを観測する。Each %u or %z of a packed structure, an unpacked structure and a union is followed by a %0d marker; the marker receives the next argument, so the aggregate consumed one data item, not one per member, and the unpacked union used its first member. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4e8120e0f16897937fa826b607f01e464a55a89a94dbad1efb606c6344408ea4",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_fwrite_unformatted_aggregates.sv",
+              "contains": ":name: test_fwrite_unformatted_aggregates"
+            },
+            {
+              "file": "tests/ch21/test_fwrite_unformatted_aggregates.expected",
+              "contains": "packed-u: 77 77 77 77 66 66 66 66"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.2.1.1",
@@ -211125,7 +211529,25 @@
       "acceptance": "Pattern output recursively traverses unpacked data and prints packed structure values as named-element assignment patterns.",
       "source_note": "IEEE 1800-2023 21.2.1.6; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_pattern_print_array_and_packed_struct.sv",
+          "observation": "シミュレーションで21.2.1.6-EXTRACT-PATTERN-PACKED-STRUCTを観測する。After white space is normalized, %p of a packed structure gives '{hi:10,lo:5}: an assignment pattern with the declared element names and each element in its unformatted form. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b9740c37875514e7244339e16933a722041890f051db1f3df07b1dfefc4ab7c2",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_pattern_print_array_and_packed_struct.sv",
+              "contains": ":name: test_pattern_print_array_and_packed_struct"
+            },
+            {
+              "file": "tests/ch21/test_pattern_print_array_and_packed_struct.expected",
+              "contains": "array '{1,2,3}"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.2.1.6",
@@ -211179,7 +211601,25 @@
       "acceptance": "%p prints unpacked structures as assignment patterns with named elements, unpacked unions by the first declared element and tagged unions with the valid tag:value.",
       "source_note": "IEEE 1800-2023 21.2.1.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_ch21_extra_pattern_unpacked_struct.sv",
+          "observation": "シミュレーションで21.2.1.6-EXTRACT-PATTERN-STRUCTを観測する。An unpacked structure with string members is formatted with %p; after white space is removed the result is '{name:\"alpha\",value:\"beta\"}, an assignment pattern whose elements carry their declared names and whose string values are quoted. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "abf47219e83eec1e460a903dc58bcfea5dcc6d7d3fa313418a92aa6f99f3d6b9",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_ch21_extra_pattern_unpacked_struct.sv",
+              "contains": ":name: test_ch21_extra_pattern_unpacked_struct"
+            },
+            {
+              "file": "tests/ch21/test_ch21_extra_pattern_unpacked_struct.expected",
+              "contains": "record='{name:\"alpha\",value:\"beta\"}"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.2.1.6",
@@ -212689,7 +213129,25 @@
       "acceptance": "STDIN=0x80000000 is preopened for reading; STDOUT=0x80000001 and STDERR=0x80000002 are preopened for append.",
       "source_note": "IEEE 1800-2023 21.3.1; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_ch21_extra_preopened_descriptors.sv",
+          "observation": "シミュレーションで21.3.1-EXTRACT-PREOPENED-FILESを観測する。$ferror is asked for 32'h8000_0000, 32'h8000_0001 and 32'h8000_0002; each reports no error, and output written through the STDOUT value reaches standard output in order while the line written through STDERR stays off it. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c6ac479fde8b3d71890c415357835a52da32e9473c658a172b965a667965dc29",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_ch21_extra_preopened_descriptors.sv",
+              "contains": ":name: test_ch21_extra_preopened_descriptors"
+            },
+            {
+              "file": "tests/ch21/test_ch21_extra_preopened_descriptors.expected",
+              "contains": "stdin=0 stdout=0 stderr=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.3.1",
@@ -212860,7 +213318,25 @@
       "acceptance": "Multiple fmonitor lists may be active simultaneously; they have no monitoron/off counterparts and fclose cancels active fmonitor/fstrobe operations.",
       "source_note": "IEEE 1800-2023 21.3.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_file_fmonitor_fstrobe.sv",
+          "observation": "シミュレーションで21.3.2-EXTRACT-MULTIPLE-FMONITORSを観測する。Two $fmonitor lists are active at the same time in two files; there is no monitoron or monitoroff call, and $fclose ends each file's monitor and pending strobe. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f28bc771f468a03f8550ce85e468e83801333cb7bad82aab01e5d048ddd42734",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_file_fmonitor_fstrobe.sv",
+              "contains": ":name: test_file_fmonitor_fstrobe"
+            },
+            {
+              "file": "tests/ch21/test_file_fmonitor_fstrobe.expected",
+              "contains": "test_file_fmonitor_fstrobe_a.txt: 0: v=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.3.2",
@@ -218216,7 +218692,25 @@
       "acceptance": "The dump filename may be a string literal, string expression or integral character string; omission selects dump.vcd.",
       "source_note": "IEEE 1800-2023 21.7.1.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_dumpvars_all_filename_start.sv",
+          "observation": "シミュレーションで21.7.1.1-EXTRACT-FILENAME-TYPE-DEFAULTを観測する。$dumpfile receives an integral variable holding a character string; the companion test_vcd_filename_string_and_depth_zero uses a string expression and most VCD tests use a string literal, so all three allowed filename forms are covered. The 'dump.vcd' default 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6fed57e730adc8ef7e2242f8f2b2d102d5eead578232edd0d04b0957e05ed4b3",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_all_filename_start.sv",
+              "contains": ":name: test_vcd_dumpvars_all_filename_start"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_all_filename_start.expected",
+              "contains": "the integral variable names the file: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.1.1",
@@ -218903,7 +219397,25 @@
       "acceptance": "Four-state VCD consists of declaration commands followed by simulation commands; each keyword command has the specified $end terminator and payload grammar.",
       "source_note": "IEEE 1800-2023 21.7.2.1; complete own-body source review, blocks B002, B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+          "observation": "シミュレーションで21.7.2.1-EXTRACT-VCD-COMMAND-GRAMMARを観測する。A token-by-token reader checks that the declaration commands come before the simulation commands, that each section ends with $end, that the header sections and $var payload follow Syntax 21-20, and that no token is outside that syntax. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": ":name: test_vcd_header_values_case_identifier"
+            },
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.expected",
+              "contains": "the date, version and timescale come before the scopes: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.1",
@@ -218923,7 +219435,25 @@
       "acceptance": "VCD declarations include comment, date, enddefinitions, scope, timescale, upscope, var and version; scopes are begin/fork/function/module/task.",
       "source_note": "IEEE 1800-2023 21.7.2.1; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+          "observation": "シミュレーションで21.7.2.1-EXTRACT-VCD-DECLARATIONSを観測する。The reader finds date, version, timescale and enddefinitions in the declaration part, one upscope for every scope, and the $var declarations; the companion test_vcd_scope_commands_begin_fork_task adds the begin, fork, function/task scope types. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": ":name: test_vcd_header_values_case_identifier"
+            },
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.expected",
+              "contains": "the date, version and timescale come before the scopes: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.1",
@@ -219162,7 +219692,25 @@
       "acceptance": "VCD scalar values use 0/1/x/X/z/Z; vectors use b/B binary or r/R real values and identifiers; references may include a bit index or msb:lsb range.",
       "source_note": "IEEE 1800-2023 21.7.2.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+          "observation": "シミュレーションで21.7.2.1-EXTRACT-VCD-VALUE-GRAMMARを観測する。Scalar changes use 0/1/x/z, vector changes use the b/B form with only those digits, the identifier follows with the specified spacing, and an event uses the scalar form; the header test adds the r/R real form with %.16g. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "90ada96e001c958592f902bedb5e7d054a6b1f3897cb4e904ca53f76ea27089a",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+              "contains": ":name: test_vcd_vector_extension_and_event"
+            },
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.expected",
+              "contains": "no redundant left-extension digits: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.1",
@@ -219180,7 +219728,25 @@
       "acceptance": "The vector-dump rule requires the entire vector rather than a partial range; arbitrary expressions cannot be dumped. The individual-net-bit provision in 21.7.2.3 is retained separately.",
       "source_note": "IEEE 1800-2023 21.7.2.1; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+          "observation": "シミュレーションで21.7.2.1-EXTRACT-VCD-VECTOR-PARTを観測する。The test's 'the whole vector is dumped' check reads the complete 8-bit value of each dumped vector, and the file declares the whole range rather than a part. The error side is not part of the output: Icarus rejects a part-select at run time and Verilator accep 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "90ada96e001c958592f902bedb5e7d054a6b1f3897cb4e904ca53f76ea27089a",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+              "contains": ":name: test_vcd_vector_extension_and_event"
+            },
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.expected",
+              "contains": "no redundant left-extension digits: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.1",
@@ -219800,7 +220366,25 @@
       "acceptance": "VCD declaration keywords include scope and version; dumpvars is a simulation keyword.",
       "source_note": "IEEE 1800-2023 21.7.2.3; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+          "observation": "シミュレーションで21.7.2.3-EXTRACT-KEYWORD-CLASSES-9を観測する。The reader treats $scope and $version as declaration keywords and $dumpvars as a simulation keyword, and the file has a version section and module scopes before enddefinitions and a $dumpvars section after it. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": ":name: test_vcd_header_values_case_identifier"
+            },
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.expected",
+              "contains": "the date, version and timescale come before the scopes: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.3",
@@ -219909,7 +220493,25 @@
       "acceptance": "upscope moves to the next higher design hierarchy level.",
       "source_note": "IEEE 1800-2023 21.7.2.3; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
+          "observation": "シミュレーションで21.7.2.3-EXTRACT-UPSCOPE-COMMANDを観測する。The reader counts one $upscope for every $scope and checks that the scopes nest and balance, so each upscope returns exactly one level in the design hierarchy. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5aa94ddeb7002743d4d608221f1a9821611f3d7838eb682db0d3ce9375467d96",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
+              "contains": ":name: test_vcd_scope_commands_begin_fork_task"
+            },
+            {
+              "file": "tests/ch21/test_vcd_scope_commands_begin_fork_task.expected",
+              "contains": "the module scope is named: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.3",
@@ -219963,7 +220565,25 @@
       "acceptance": "var records names, printable identifiers and bit sizes; msb/lsb are most/least significant indices and the identifier is the model variable name.",
       "source_note": "IEEE 1800-2023 21.7.2.3; complete own-body source review, blocks B022. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
+          "observation": "シミュレーションで21.7.2.3-EXTRACT-VAR-COMMANDを観測する。The $var entry for a 4-bit vector is checked field by field: the type, the size, a printable identifier code, the reference name and the [3:0] msb/lsb range; test_vcd_type_mappings adds the var_type mapping. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5aa94ddeb7002743d4d608221f1a9821611f3d7838eb682db0d3ce9375467d96",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
+              "contains": ":name: test_vcd_scope_commands_begin_fork_task"
+            },
+            {
+              "file": "tests/ch21/test_vcd_scope_commands_begin_fork_task.expected",
+              "contains": "the module scope is named: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.3",
@@ -223477,7 +224097,25 @@
       "acceptance": "Extended VCD driver classification considers primitives, continuous assignments and procedural continuous assignments; state 0/1 indicates both directions active with the same value.",
       "source_note": "IEEE 1800-2023 21.7.4.3.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_evcd_inout_same_value_conflicts.sv",
+          "observation": "シミュレーションで21.7.4.3.2-EXTRACT-PORT-DRIVERSを観測する。Drivers are a buf primitive and continuous assignments; the test checks the conflict states 0 and 1 when both directions drive the same value, and the d/u and l/h states and strengths when the strengths are in different ranges. Procedural continuous assignment 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1fdfb11c2c04b21d140a48f298e8e61a28f1374fb85f9a8282cebd150e6a3647",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_inout_same_value_conflicts.sv",
+              "contains": ":name: test_evcd_inout_same_value_conflicts"
+            },
+            {
+              "file": "tests/ch21/test_evcd_inout_same_value_conflicts.expected",
+              "contains": "var port 1 <0 s0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.4.3.2",

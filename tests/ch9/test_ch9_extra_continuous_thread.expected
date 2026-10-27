@@ -1,0 +1,3 @@
+t=1 a=0 b=1 wa=0 wb=0 sum=0
+t=2 a=1 b=1 wa=1 wb=0 sum=0
+t=3 a=1 b=0 wa=1 wb=1 sum=1

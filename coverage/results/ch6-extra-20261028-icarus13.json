@@ -1,0 +1,78 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch6/test_ch6_extra_body_parameter_local": {
+   "status": "pass",
+   "inputs_sha256": "458d9edc2ab972e30c5bf5eb63fc0fd42cc594e5ba69f7bcaae155ed6c28f2f6"
+  },
+  "ch6/test_ch6_extra_cast_task_runtime_error": {
+   "status": "known",
+   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp3ykyz...', expected 'before=1'",
+   "inputs_sha256": "1d5d2ac225f7557e45b1bc9e33748df521a80f3ef645af426b3fd5a4a621c3a8"
+  },
+  "ch6/test_ch6_extra_class_body_parameter_local": {
+   "status": "known",
+   "reason": "no error matches 'test_ch6_extra_class_body_parameter_local\\\\.sv:30:'; the first is: tests/ch6/test_ch6_extra_class_body_parameter_local.sv:22: syntax error",
+   "inputs_sha256": "332675d9ed53bac3b3de01109c1332ab5f884772e15f7b7ef0182bd95441708e"
+  },
+  "ch6/test_ch6_extra_const_handle_write": {
+   "status": "pass",
+   "inputs_sha256": "6a9766a2667a7540438fe85573eac39b2923277fdfcaad2434ed5e7c1079894c"
+  },
+  "ch6/test_ch6_extra_decl_init_mixed_writers": {
+   "status": "pass",
+   "inputs_sha256": "d06bd6ef49a9d84e7893eec7cd2d46b876a81b04a4389b9bff1a9fca1cabc890"
+  },
+  "ch6/test_ch6_extra_defparam_specparam": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "bfde4047f485eeca7b03a8f07a1cef2212b9c4250fe5fffca1f81cffff13af8a"
+  },
+  "ch6/test_ch6_extra_event_not_bit_storage": {
+   "status": "pass",
+   "inputs_sha256": "9c2dc3a8ee027f9a2ae7d9d4a30fc0c86f310e277f22e4f130444441984de675"
+  },
+  "ch6/test_ch6_extra_for_loop_automatic": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'got=0 0 0 depth=6', expected 'got=0 1 2 depth=6'",
+   "inputs_sha256": "9aef05d40f7a60cef6bb5ba7aa4f4a9fd47fc1f64d410097eb2fc0f2f96859a9"
+  },
+  "ch6/test_ch6_extra_instance_type_identity": {
+   "status": "pass",
+   "inputs_sha256": "d22a6c700f12cdeec667622ae7fa1dcf1e431278733ce8b8b9a6a01a590b7595"
+  },
+  "ch6/test_ch6_extra_localparam_sticky": {
+   "status": "pass",
+   "inputs_sha256": "e86862862cf61a16cd40c3641b3b7ac15c2035ffd786234693a73f5403dc2fe2"
+  },
+  "ch6/test_ch6_extra_procedural_assign_mixed_writers": {
+   "status": "pass",
+   "inputs_sha256": "309bf4be7a5090983ab5a17b80950ccbdf917cf02d9235f90360a47ab0264451"
+  },
+  "ch6/test_ch6_extra_ref_dynamic_equiv": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_ch6_extra_ref_dynamic_equiv.sv:23: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "3bf8bdc174387cbee039c003c94ff106c91ea643e0be985366bf45f664696fdd"
+  },
+  "ch6/test_ch6_extra_ref_dynamic_kind": {
+   "status": "known",
+   "reason": "no error matches 'test_ch6_extra_ref_dynamic_kind\\\\.sv:30:'",
+   "inputs_sha256": "d280125e553e1db48ad52a4c520fe1de022b1cccf6d481a6de6fbd6bcc5fe47e"
+  },
+  "ch6/test_ch6_extra_ref_equiv_closed": {
+   "status": "known",
+   "reason": "no error matches 'test_ch6_extra_ref_equiv_closed\\\\.sv:30:'; the first is: 1 error(s) during elaboration.",
+   "inputs_sha256": "b2ebc60c8f960b2eb62b5add2e7f270b3c0875cfc5d0d6ebcaa811cc7d54c571"
+  },
+  "ch6/test_ch6_extra_unpacked_type_parameter": {
+   "status": "pass",
+   "inputs_sha256": "70cae02b22fb52456a743ff07f78b8e3cf9ed09484b0879daf75c87c8330c05c"
+  }
+ },
+ "generated_at": "2026-10-27T16:33:35.549914+00:00",
+ "runner_sha256": "9a0d77f74ee935d59b413652bbe6cc3133179c84c2a2130f2c0cd4e51a71ab13",
+ "runner_changed": false,
+ "configuration": {}
+}

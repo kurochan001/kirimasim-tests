@@ -47,25 +47,25 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **7629 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **7655 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4169 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1463 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4187 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1471 |
 | The standard only, with no fixed-release simulator oracle recorded | 1997 |
 
-893 tests depend on x or z values (`:fourstate: yes`). 603 tests come with C code: 118 DPI tests (`:dpi_c:`) and 485 VPI tests (`:vpi_c:`). 1895 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 21 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 5 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+893 tests depend on x or z values (`:fourstate: yes`). 603 tests come with C code: 118 DPI tests (`:dpi_c:`) and 485 VPI tests (`:vpi_c:`). 1908 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 21 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 5 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 86 | 64 | 12 | 10 |
 | 4 | Scheduling semantics | 412 | 391 | 5 | 16 |
 | 5 | Lexical conventions | 345 | 324 | 14 | 7 |
-| 6 | Data types | 594 | 356 | 135 | 103 |
+| 6 | Data types | 609 | 364 | 142 | 103 |
 | 7 | Aggregate data types | 482 | 179 | 234 | 69 |
 | 8 | Classes | 321 | 67 | 182 | 72 |
-| 9 | Processes | 202 | 144 | 31 | 27 |
+| 9 | Processes | 209 | 151 | 31 | 27 |
 | 10 | Assignment statements | 204 | 133 | 43 | 28 |
 | 11 | Operators and expressions | 835 | 704 | 92 | 39 |
 | 12 | Procedural programming statements | 181 | 133 | 29 | 19 |
@@ -77,7 +77,7 @@ The suite has **7629 tests** in 37 chapters. 1308 of them are generated (`tests/
 | 18 | Constrained random value generation | 200 | 26 | 95 | 79 |
 | 19 | Functional coverage | 145 | 2 | 17 | 126 |
 | 20 | Utility system tasks and system functions | 270 | 200 | 24 | 46 |
-| 21 | Input/output system tasks and system functions | 207 | 141 | 14 | 52 |
+| 21 | Input/output system tasks and system functions | 211 | 144 | 15 | 52 |
 | 22 | Compiler directives | 348 | 327 | 11 | 10 |
 | 23 | Modules and hierarchy | 237 | 137 | 38 | 62 |
 | 24 | Programs | 43 | 21 | 5 | 17 |

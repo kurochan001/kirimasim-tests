@@ -1,0 +1,39 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch9/test_ch9_extra_continuous_thread": {
+   "status": "pass",
+   "inputs_sha256": "43fd59a2fc9120e2b0612b5d4fb4e31654dc78c13fb5bf6c7828b0ea80eed246"
+  },
+  "ch9/test_ch9_extra_initial_always_no_order": {
+   "status": "pass",
+   "inputs_sha256": "5d6d8bbf2712ca9b1cd92667d54f7c7576fdfe19a563d36f39872780b47c65ef"
+  },
+  "ch9/test_ch9_extra_procedure_count": {
+   "status": "pass",
+   "inputs_sha256": "2a93681994b7fe3c69992a01950f725fcc379d7eb5a992022002fbd066e0a4e0"
+  },
+  "ch9/test_ch9_extra_specparam_delay": {
+   "status": "pass",
+   "inputs_sha256": "f3a6e2462546c26f39325fd8599e6957f97d4efc6aa90c1039a534bed22e4946"
+  },
+  "ch9/test_ch9_extra_star_multiple_writers": {
+   "status": "pass",
+   "inputs_sha256": "2011f775c59ffc537fb1f7eca6fd88c33fac3fabd1e85fe86245543b525fe7a3"
+  },
+  "ch9/test_ch9_extra_unnamed_block_scope": {
+   "status": "pass",
+   "inputs_sha256": "fcfa261b1e32659599788f284ce3320e9568af0292ef3eeaa73800e83eb12f40"
+  },
+  "ch9/test_ch9_extra_wait_forms": {
+   "status": "pass",
+   "inputs_sha256": "4040f4797a6582b17ddc06f3b701cf4db9c93ecdb1455a9c964c66303bca59d4"
+  }
+ },
+ "generated_at": "2026-10-27T16:32:44.231306+00:00",
+ "runner_sha256": "9a0d77f74ee935d59b413652bbe6cc3133179c84c2a2130f2c0cd4e51a71ab13",
+ "runner_changed": false,
+ "configuration": {}
+}

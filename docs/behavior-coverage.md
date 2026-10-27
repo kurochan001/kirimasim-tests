@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 87.74%、実行 58.32%。**
+**全規格の要求台帳ベース（暫定）: 設計 88.03%、実行 58.56%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10809/12319 (87.74%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7185/12319 (58.32%)。
-- 登録済みだがテスト未対応: 1510 動作。
+- 登録済み動作に対するテスト設計網羅率: 10844/12319 (88.03%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7214/12319 (58.56%)。
+- 登録済みだがテスト未対応: 1475 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -40,13 +40,19 @@
 - `ch16-edge-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:15.726452+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `ch16-sim-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T15:42:14.965527+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch16-sim-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:04.031900+00:00 / 9/12319 動作確認、古い入力との対応 0 件。
+- `ch21-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:30:07.226181+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
+- `ch21-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:30:10.339072+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
+- `ch6-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:33:35.549914+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
+- `ch6-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:33:40.336655+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
+- `ch9-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:32:44.231306+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
+- `ch9-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:32:53.445594+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12319 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4730/12319 動作確認、古い入力との対応 0 件。
+- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4747/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
-- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3133/12319 動作確認、古い入力との対応 0 件。
-- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2799/12319 動作確認、古い入力との対応 0 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3144/12319 動作確認、古い入力との対応 0 件。
+- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2804/12319 動作確認、古い入力との対応 0 件。
 - 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
@@ -193,10 +199,10 @@
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 117。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 80。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 136。
-- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 676。
+- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 687。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 324。
 - 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 222。
-- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 156。
+- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 166。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 130。
 - 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 435。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 89。
@@ -208,7 +214,7 @@
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 300。
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 215。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 285。
-- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 334。
+- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 348。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 328。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 227。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 16。
@@ -7359,7 +7365,7 @@ Different elements of one interconnect array may resolve to different actual net
 
 ### SV2023-6.6.8-EXTRACT-INTERCONNECT-LVALUE-ONLY
 
-6.6.8 / error / テスト未対応
+6.6.8 / error / テスト対応あり・実行未確認
 
 An interconnect may appear only in an allowed net-lvalue expression whose nets/ports are all interconnect.
 
@@ -7367,6 +7373,7 @@ An interconnect may appear only in an allowed net-lvalue expression whose nets/p
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interconnect_procedural_read.sv](../tests/ch6/test_illegal_interconnect_procedural_read.sv): シミュレーションで6.6.8-EXTRACT-INTERCONNECT-LVALUE-ONLYを観測する。6.6.8 は interconnect を『すべての net/port が interconnect である net_lvalue 式』以外で使えないとする。interconnect n を $display に渡す procedural 文だけを不正としており、規則の『procedural context で使えない』を直接観測する。lrm は 6.6.8。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-6.6.8-EXTRACT-INTERCONNECT-TYPELESS
 
@@ -9055,7 +9062,7 @@ A function may use void as its return type to indicate no returned value.
 
 ### SV2023-6.13-EXTRACT-VOID-NO-DATA
 
-6.13 / normal / テスト未対応
+6.13 / normal / 実行確認あり
 
 void represents the absence of a data value.
 
@@ -9063,6 +9070,7 @@ void represents the absence of a data value.
 
 規定の性質: `definition`。
 
+- [test_void_function_and_cast.sv](../tests/ch6/test_void_function_and_cast.sv): シミュレーションで6.13-EXTRACT-VOID-NO-DATAを観測する。6.13 は void を『存在しないデータ』とし、値を返さない関数の戻り型にできるとする。void 関数を文として呼び、void'(...) で値付き関数の結果を捨てる例で、void がデータを持たないことを直接使う。lrm は 6.13。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-6.13-EXTRACT-VOID-TAGGED-UNION
 
@@ -10365,7 +10373,7 @@ atoreal is a no-argument string method returning real.
 
 ### SV2023-6.16.11-EXTRACT-SIGNATURE
 
-6.16.11 / normal / テスト未対応
+6.16.11 / normal / 実行確認あり
 
 itoa is a void string method taking one integer argument.
 
@@ -10373,6 +10381,7 @@ itoa is a void string method taking one integer argument.
 
 規定の性質: `definition`。
 
+- [test_string_itoa_2.sv](../tests/ch6/test_string_itoa_2.sv): シミュレーションで6.16.11-EXTRACT-SIGNATUREを観測する。6.16.11 の itoa(integer i) を int 引数で呼び、10 進表記の文字列になることを観測する。lrm は 6.16.11。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-6.16.11-EXTRACT-STORE-TEXT
 
@@ -10388,7 +10397,7 @@ itoa replaces the receiver with the ASCII decimal representation of its argument
 
 ### SV2023-6.16.12-EXTRACT-SIGNATURE
 
-6.16.12 / normal / テスト未対応
+6.16.12 / normal / 実行確認あり
 
 hextoa is a void string method taking one integer argument.
 
@@ -10396,6 +10405,7 @@ hextoa is a void string method taking one integer argument.
 
 規定の性質: `definition`。
 
+- [test_string_hextoa.sv](../tests/ch6/test_string_hextoa.sv): シミュレーションで6.16.12-EXTRACT-SIGNATUREを観測する。6.16.12 の hextoa(integer i) を int 引数で呼び、16 進表記（大小文字は規格が定めないため両方許容）を観測する。lrm は 6.16.12。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-6.16.12-EXTRACT-STORE-TEXT
 
@@ -10411,7 +10421,7 @@ hextoa replaces the receiver with the ASCII hexadecimal representation of its ar
 
 ### SV2023-6.16.13-EXTRACT-SIGNATURE
 
-6.16.13 / normal / テスト未対応
+6.16.13 / normal / 実行確認あり
 
 octtoa is a void string method taking one integer argument.
 
@@ -10419,6 +10429,7 @@ octtoa is a void string method taking one integer argument.
 
 規定の性質: `definition`。
 
+- [test_string_octtoa_bintoa_negative_round_trip.sv](../tests/ch6/test_string_octtoa_bintoa_negative_round_trip.sv): シミュレーションで6.16.13-EXTRACT-SIGNATUREを観測する。6.16.13 の octtoa(integer i) を符号付き integer 引数で呼び、負値も受け取り、atooct() で同じ値に戻ることを観測する。lrm は 6.16.13 6.16.14。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-6.16.13-EXTRACT-STORE-TEXT
 
@@ -10514,7 +10525,7 @@ bintoa overwrites the receiver with an ASCII representation of zero.
 
 ### SV2023-6.16.14-EXTRACT-SIGNATURE
 
-6.16.14 / normal / テスト未対応
+6.16.14 / normal / 実行確認あり
 
 bintoa is a void string method taking one integer argument.
 
@@ -10522,6 +10533,7 @@ bintoa is a void string method taking one integer argument.
 
 規定の性質: `definition`。
 
+- [test_string_binary_octal_round_trip.sv](../tests/ch6/test_string_binary_octal_round_trip.sv): シミュレーションで6.16.14-EXTRACT-SIGNATUREを観測する。6.16.14 の bintoa(integer i) を int 引数で呼び、2 進表記になり atobin() で同じ値に戻ることを観測する。lrm は 6.16.13 6.16.14。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-6.16.14-EXTRACT-STORE-TEXT
 
@@ -10826,7 +10838,7 @@ typedef can give an existing data type a user-defined type identifier, with opti
 
 ### SV2023-6.18-EXTRACT-UNPACKED-PARAMETER-TYPENAME
 
-6.18 / error / テスト未対応
+6.18 / error / 実行確認あり
 
 An unpacked-array type used as a type-parameter value requires a user-defined type name under 6.20.3.
 
@@ -10834,6 +10846,7 @@ An unpacked-array type used as a type-parameter value requires a user-defined ty
 
 規定の性質: `mandatory`。
 
+- [test_ch6_extra_unpacked_type_parameter.sv](../tests/ch6/test_ch6_extra_unpacked_type_parameter.sv): シミュレーションで6.18-EXTRACT-UNPACKED-PARAMETER-TYPENAMEを観測する。6.18 は unpacked array 型を型パラメータ値に使うときユーザー定義型名を要求する（6.20.3）。typedef int arr_t\[3\]; を既定値に使う module は合法で、int \[3\] を直接書いた module の宣言行を両ツールが構文エラーとして拒否する。 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-6.19-EXTRACT-AUTO-INCREMENT
 
@@ -11600,7 +11613,7 @@ name is a no-argument enum method returning string.
 
 ### SV2023-6.20-EXTRACT-CONSTANT-IMMUTABLE
 
-6.20 / normal / テスト未対応
+6.20 / normal / 実行確認あり
 
 A constant is a named data object whose value does not change during its applicable lifetime.
 
@@ -11608,6 +11621,7 @@ A constant is a named data object whose value does not change during its applica
 
 規定の性質: `definition`。
 
+- [test_parameter_and_const_lifetime.sv](../tests/ch6/test_parameter_and_const_lifetime.sv): シミュレーションで6.20-EXTRACT-CONSTANT-IMMUTABLEを観測する。6.20 は parameter/localparam/specparam を elaboration-time の定数、const を有効期間中に値が変わらない実行時定数とする。宣言幅に使う P・L・SP と、automatic 関数の呼び出しごとに初期化される const AC を対比し、『適用される lifetime の間不変』を直接観測する。lrm は 6.20。const への代入拒否は test_illegal_const_assigned（6.20.6）が扱う。 代入拒否そのものは test_ille 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-6.20-EXTRACT-DEFAULT-VALUE
 
@@ -12221,7 +12235,7 @@ Specify parameters use specparam and ordinary parameters use parameter under the
 
 ### SV2023-6.20.5-EXTRACT-FIXED-SPECPARAM-RANGE
 
-6.20.5 / normal / テスト未対応
+6.20.5 / normal / 実行確認あり
 
 An explicitly ranged specparam retains its declared range despite overrides.
 
@@ -12229,6 +12243,7 @@ An explicitly ranged specparam retains its declared range despite overrides.
 
 規定の性質: `mandatory`。
 
+- [test_specparam_declared_and_inferred_range.sv](../tests/ch6/test_specparam_declared_and_inferred_range.sv): シミュレーションで6.20.5-EXTRACT-FIXED-SPECPARAM-RANGEを観測する。6.20.5 は範囲指定付き specparam が宣言の範囲を持ち、上書きに影響されないとする。specparam \[7:0\] fixed の $bits が 8、範囲なしの inferred が値の 4 bit になることを対比する。lrm は 6.20.5。 上書き後の保持は、SDF アノテーションを実行する手段がこのテストにないため観測していない（宣言範囲が $bits に現れる部分だけを直接確認する）。 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-6.20.5-EXTRACT-INFER-SPECPARAM-RANGE
 
@@ -12612,7 +12627,7 @@ Tasks/functions can be declared automatic; their variables default to call/block
 
 ### SV2023-6.21-EXTRACT-CLASS-LOOP-AUTOMATIC
 
-6.21 / normal / テスト未対応
+6.21 / normal / 実行確認あり
 
 Class methods and variables declared by for loops default to automatic regardless of their enclosing scope lifetime qualifier.
 
@@ -12620,6 +12635,7 @@ Class methods and variables declared by for loops default to automatic regardles
 
 規定の性質: `mandatory`。
 
+- [test_ch6_extra_for_loop_automatic.sv](../tests/ch6/test_ch6_extra_for_loop_automatic.sv): シミュレーションで6.21-EXTRACT-CLASS-LOOP-AUTOMATICを観測する。6.21 は class method と for ループが宣言する変数を、囲むスコープの lifetime 指定にかかわらず既定で automatic とする。static な module スコープの for (int i...) から fork した 3 プロセスが各自の i を保持し got=0 1 2 になること、class method の再帰が呼び出しごとの saved を保ち depth=6 になることを観測する。 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-6.21-EXTRACT-DECLARATION-BEFORE-SIMPLE-REFERENCE
 
@@ -13000,7 +13016,7 @@ Types are equivalent only when established by the inductive equivalence rules, o
 
 ### SV2023-6.22.2-EXTRACT-DYNAMIC-EQUIVALENCE
 
-6.22.2 / normal / テスト未対応
+6.22.2 / normal / 実行確認あり
 
 Dynamic/associative/queue arrays are equivalent when their kind and element equivalence agree and associative index types are equivalent where relevant.
 
@@ -13008,6 +13024,7 @@ Dynamic/associative/queue arrays are equivalent when their kind and element equi
 
 規定の性質: `definition`。
 
+- [test_ch6_extra_ref_dynamic_equiv.sv](../tests/ch6/test_ch6_extra_ref_dynamic_equiv.sv): シミュレーションで6.22.2-EXTRACT-DYNAMIC-EQUIVALENCEを観測する。6.22.2 規則 e で int\[\] と int\[\] は同じ種類・等価な要素型なので等価。13.5.2 の ref 引数は参照を渡すため、task が呼び出し側の動的配列を resize して埋め、size=3 sum=15 が観測できる。 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-6.22.2-EXTRACT-FIXED-UNPACKED-EQUIVALENCE
 
@@ -21514,7 +21531,7 @@ Initial and always procedures are enabled at simulation start; initial executes 
 
 ### SV2023-9.2-EXTRACT-NO-INITIAL-ALWAYS-ORDER
 
-9.2 / normal / テスト未対応
+9.2 / normal / 実行確認あり
 
 There is no implied execution order between initial and always procedures; tests cannot assume all initials execute first.
 
@@ -21522,6 +21539,7 @@ There is no implied execution order between initial and always procedures; tests
 
 規定の性質: `mandatory`。
 
+- [test_ch9_extra_initial_always_no_order.sv](../tests/ch9/test_ch9_extra_initial_always_no_order.sv): シミュレーションで9.2-EXTRACT-NO-INITIAL-ALWAYS-ORDERを観測する。Two initial procedures and one always procedure all start at time zero; the $0 observer sees both flags set, and the recorded order is accepted when it is either 12 or 21, so no output depends on initial-first or always-first. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-9.2-EXTRACT-OVERRIDE-CLASS-ONLY
 
@@ -21561,7 +21579,7 @@ Structured procedures use initial, the four always keywords, final, tasks or fun
 
 ### SV2023-9.2-EXTRACT-UNLIMITED-PROCEDURE-COUNT
 
-9.2 / normal / テスト未対応
+9.2 / normal / 実行確認あり
 
 The language imposes no count limit on module initial/always procedures.
 
@@ -21569,6 +21587,7 @@ The language imposes no count limit on module initial/always procedures.
 
 規定の性質: `mandatory`。
 
+- [test_ch9_extra_procedure_count.sv](../tests/ch9/test_ch9_extra_procedure_count.sv): シミュレーションで9.2-EXTRACT-UNLIMITED-PROCEDURE-COUNTを観測する。128 initial and 128 always procedures are declared; at time 1 all 128 initial bodies have incremented init_count and all 128 always bodies have incremented always_count before blocking on the named event, so no small fixed limit is hit. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-9.2.1-EXTRACT-ONCE
 
@@ -21828,7 +21847,7 @@ always_comb executes once at time zero while always @* initially waits for a sen
 
 ### SV2023-9.2.2.2.2-EXTRACT-COMB-WRITER-VS-STAR
 
-9.2.2.2.2 / normal / テスト未対応
+9.2.2.2.2 / normal / 実行確認あり
 
 always_comb has exclusive target-writing restrictions including called functions; ordinary always @* permits multiple process writers under general assignment rules.
 
@@ -21836,6 +21855,7 @@ always_comb has exclusive target-writing restrictions including called functions
 
 規定の性質: `mandatory`。
 
+- [test_ch9_extra_star_multiple_writers.sv](../tests/ch9/test_ch9_extra_star_multiple_writers.sv): シミュレーションで9.2.2.2.2-EXTRACT-COMB-WRITER-VS-STARを観測する。Two ordinary always @* blocks read the same input and write the same target v; the design elaborates and both marker variables become 1, while v is only reported to be 1 or 2, never which writer won. The always_comb exclusivity half is documented by test_illeg 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-9.2.2.2.2-EXTRACT-NO-COMB-BLOCKING
 
@@ -22486,7 +22506,7 @@ A delay defers the following procedural statement relative to execution of the p
 
 ### SV2023-9.4.1-EXTRACT-SPECPARAM-DELAY-SDF
 
-9.4.1 / normal / テスト未対応
+9.4.1 / normal / 実行確認あり
 
 A procedural delay may contain a specparam; an SDF override causes the delay expression to be reevaluated.
 
@@ -22494,6 +22514,7 @@ A procedural delay may contain a specparam; an SDF override causes the delay exp
 
 規定の性質: `permission`。
 
+- [test_ch9_extra_specparam_delay.sv](../tests/ch9/test_ch9_extra_specparam_delay.sv): シミュレーションで9.4.1-EXTRACT-SPECPARAM-DELAY-SDFを観測する。The procedural delay #(D) takes its value from specparam D = 3; the delay suspends until time 3, so the captured $time is 3 and delay_honored prints 1. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-9.4.1-EXTRACT-UNKNOWN-DELAY-ZERO
 
@@ -22992,7 +23013,7 @@ Sequence event arguments must be static; automatic variables as such arguments a
 
 ### SV2023-9.4.3-EXTRACT-WAIT-GRAMMAR
 
-9.4.3 / normal / テスト未対応
+9.4.3 / normal / 実行確認あり
 
 Wait syntax permits expression plus statement-or-null, wait fork and wait_order with identifiers/action block under their separate semantics.
 
@@ -23000,6 +23021,7 @@ Wait syntax permits expression plus statement-or-null, wait fork and wait_order 
 
 規定の性質: `definition`。
 
+- [test_ch9_extra_wait_forms.sv](../tests/ch9/test_ch9_extra_wait_forms.sv): シミュレーションで9.4.3-EXTRACT-WAIT-GRAMMARを観測する。One fork branch uses wait (flag) with a statement, a second uses wait (flag) with the null statement, and a third starts a fork-join_none child and runs wait fork; all three complete and the display reads 1 for each. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-9.4.3-EXTRACT-WAIT-LEVEL
 
@@ -23153,7 +23175,7 @@ A repeat event count is evaluated once before scheduling; later changes to the c
 
 ### SV2023-9.5-EXTRACT-CONTINUOUS-THREAD-MODEL
 
-9.5 / normal / テスト未対応
+9.5 / normal / 実行確認あり
 
 Each continuous assignment may be viewed as its own execution thread under continuous scheduling rules.
 
@@ -23161,6 +23183,7 @@ Each continuous assignment may be viewed as its own execution thread under conti
 
 規定の性質: `definition`。
 
+- [test_ch9_extra_continuous_thread.sv](../tests/ch9/test_ch9_extra_continuous_thread.sv): シミュレーションで9.5-EXTRACT-CONTINUOUS-THREAD-MODELを観測する。Three continuous assignments (wa = a, wb = ~b, wsum = wa & wb) each follow their own sources; the values at times 1, 2 and 3 show every assignment reacting to its input change and the chain settling within the same time step. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-9.5-EXTRACT-EXECUTION-THREAD-KINDS
 
@@ -23606,7 +23629,7 @@ Resuming a formerly running suspended process schedules it in Active/Reactive in
 
 ### SV2023-9.7-EXTRACT-RESUME-SIGNATURE
 
-9.7 / normal / テスト未対応
+9.7 / normal / 実行確認あり
 
 The process API declares function void resume().
 
@@ -23614,6 +23637,7 @@ The process API declares function void resume().
 
 規定の性質: `definition`。
 
+- [test_process_suspend_resume_await.sv](../tests/ch9/test_process_suspend_resume_await.sv): シミュレーションで9.7-EXTRACT-RESUME-SIGNATUREを観測する。resume() is called with no arguments as a statement on a process suspended during a delay, and the process continues in the current time step; the header cites 9.7. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-9.7-EXTRACT-RESUME-WAITING
 
@@ -23665,7 +23689,7 @@ The process API declares static function process self().
 
 ### SV2023-9.7-EXTRACT-SET-RANDSTATE-SIGNATURE
 
-9.7 / normal / テスト未対応
+9.7 / normal / 実行確認あり
 
 The process API declares function void set_randstate(string state).
 
@@ -23673,10 +23697,11 @@ The process API declares function void set_randstate(string state).
 
 規定の性質: `definition`。
 
+- [test_process_randstate_signatures.sv](../tests/ch9/test_process_randstate_signatures.sv): シミュレーションで9.7-EXTRACT-SET-RANDSTATE-SIGNATUREを観測する。get_randstate() returns a string, its length is queried with len(), and set_randstate(st) restores the saved state so the next $urandom equals the value drawn before the save; set_randstate therefore takes the string state. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-9.7-EXTRACT-SRANDOM-SIGNATURE
 
-9.7 / normal / テスト未対応
+9.7 / normal / 実行確認あり
 
 The process API declares function void srandom(int seed).
 
@@ -23684,6 +23709,7 @@ The process API declares function void srandom(int seed).
 
 規定の性質: `definition`。
 
+- [test_process_randstate_signatures.sv](../tests/ch9/test_process_randstate_signatures.sv): シミュレーションで9.7-EXTRACT-SRANDOM-SIGNATUREを観測する。get_randstate() returns a string, its length is queried with len(), and set_randstate(st) restores the saved state so the next $urandom equals the value drawn before the save; set_randstate therefore takes the string state. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-9.7-EXTRACT-STATUS-SIGNATURE
 
@@ -23736,7 +23762,7 @@ Suspending a suspended/finished/killed process has no effect.
 
 ### SV2023-9.7-EXTRACT-SUSPEND-SIGNATURE
 
-9.7 / normal / テスト未対応
+9.7 / normal / 実行確認あり
 
 The process API declares function void suspend().
 
@@ -23744,6 +23770,7 @@ The process API declares function void suspend().
 
 規定の性質: `definition`。
 
+- [test_process_suspend_resume_await.sv](../tests/ch9/test_process_suspend_resume_await.sv): シミュレーションで9.7-EXTRACT-SUSPEND-SIGNATUREを観測する。resume() is called with no arguments as a statement on a process suspended during a delay, and the process continues in the current time step; the header cites 9.7. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-9.7-EXTRACT-SUSPENDED-STATE
 
@@ -55678,7 +55705,7 @@ Real/shortreal formats provide the C-language formatting capabilities described 
 
 ### SV2023-21.2.1.1-EXTRACT-UNFORMATTED-COUNT
 
-21.2.1.1 / normal / テスト未対応
+21.2.1.1 / normal / テスト対応あり・実行未確認
 
 An aggregate %u/%z input item counts as 0 or 1 item, not one item per member.
 
@@ -55686,6 +55713,7 @@ An aggregate %u/%z input item counts as 0 or 1 item, not one item per member.
 
 規定の性質: `mandatory`。
 
+- [test_fwrite_unformatted_aggregates.sv](../tests/ch21/test_fwrite_unformatted_aggregates.sv): シミュレーションで21.2.1.1-EXTRACT-UNFORMATTED-COUNTを観測する。Each %u or %z of a packed structure, an unpacked structure and a union is followed by a %0d marker; the marker receives the next argument, so the aggregate consumed one data item, not one per member, and the unpacked union used its first member. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.2.1.1-EXTRACT-UNFORMATTED-TWO-STATE
 
@@ -56217,7 +56245,7 @@ Other singular values print as they would without an explicit format.
 
 ### SV2023-21.2.1.6-EXTRACT-PATTERN-PACKED-STRUCT
 
-21.2.1.6 / normal / テスト未対応
+21.2.1.6 / normal / テスト対応あり・実行未確認
 
 Pattern output recursively traverses unpacked data and prints packed structure values as named-element assignment patterns.
 
@@ -56225,6 +56253,7 @@ Pattern output recursively traverses unpacked data and prints packed structure v
 
 規定の性質: `mandatory`。
 
+- [test_pattern_print_array_and_packed_struct.sv](../tests/ch21/test_pattern_print_array_and_packed_struct.sv): シミュレーションで21.2.1.6-EXTRACT-PATTERN-PACKED-STRUCTを観測する。After white space is normalized, %p of a packed structure gives '{hi:10,lo:5}: an assignment pattern with the declared element names and each element in its unformatted form. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.2.1.6-EXTRACT-PATTERN-STRING
 
@@ -56240,7 +56269,7 @@ Pattern output puts string values/literals in quotes.
 
 ### SV2023-21.2.1.6-EXTRACT-PATTERN-STRUCT
 
-21.2.1.6 / normal / テスト未対応
+21.2.1.6 / normal / 実行確認あり
 
 %p prints unpacked structures as assignment patterns with named elements, unpacked unions by the first declared element and tagged unions with the valid tag:value.
 
@@ -56248,6 +56277,7 @@ Pattern output puts string values/literals in quotes.
 
 規定の性質: `mandatory`。
 
+- [test_ch21_extra_pattern_unpacked_struct.sv](../tests/ch21/test_ch21_extra_pattern_unpacked_struct.sv): シミュレーションで21.2.1.6-EXTRACT-PATTERN-STRUCTを観測する。An unpacked structure with string members is formatted with %p; after white space is removed the result is '{name:"alpha",value:"beta"}, an assignment pattern whose elements carry their declared names and whose string values are quoted. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.2.1.6-EXTRACT-SINGULAR-PATTERN
 
@@ -56588,7 +56618,7 @@ A failed open, including nonexistent read/update-read paths or insufficient perm
 
 ### SV2023-21.3.1-EXTRACT-PREOPENED-FILES
 
-21.3.1 / normal / テスト未対応
+21.3.1 / normal / 実行確認あり
 
 STDIN=0x80000000 is preopened for reading; STDOUT=0x80000001 and STDERR=0x80000002 are preopened for append.
 
@@ -56596,6 +56626,7 @@ STDIN=0x80000000 is preopened for reading; STDOUT=0x80000001 and STDERR=0x800000
 
 規定の性質: `mandatory`。
 
+- [test_ch21_extra_preopened_descriptors.sv](../tests/ch21/test_ch21_extra_preopened_descriptors.sv): シミュレーションで21.3.1-EXTRACT-PREOPENED-FILESを観測する。$ferror is asked for 32'h8000_0000, 32'h8000_0001 and 32'h8000_0002; each reports no error, and output written through the STDOUT value reaches standard output in order while the line written through STDERR stays off it. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.3.1-EXTRACT-REUSE-CHANNELS
 
@@ -56635,7 +56666,7 @@ An output mcd may be a variable or an expression yielding a 32-bit unsigned valu
 
 ### SV2023-21.3.2-EXTRACT-MULTIPLE-FMONITORS
 
-21.3.2 / normal / テスト未対応
+21.3.2 / normal / 実行確認あり
 
 Multiple fmonitor lists may be active simultaneously; they have no monitoron/off counterparts and fclose cancels active fmonitor/fstrobe operations.
 
@@ -56643,6 +56674,7 @@ Multiple fmonitor lists may be active simultaneously; they have no monitoron/off
 
 規定の性質: `mandatory`。
 
+- [test_file_fmonitor_fstrobe.sv](../tests/ch21/test_file_fmonitor_fstrobe.sv): シミュレーションで21.3.2-EXTRACT-MULTIPLE-FMONITORSを観測する。Two $fmonitor lists are active at the same time in two files; there is no monitoron or monitoroff call, and $fclose ends each file's monitor and pending strobe. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.3.3-EXTRACT-FORMAT-MISMATCH
 
@@ -58079,7 +58111,7 @@ dumpfile specifies the VCD output filename.
 
 ### SV2023-21.7.1.1-EXTRACT-FILENAME-TYPE-DEFAULT
 
-21.7.1.1 / boundary / テスト未対応
+21.7.1.1 / boundary / 実行確認あり
 
 The dump filename may be a string literal, string expression or integral character string; omission selects dump.vcd.
 
@@ -58087,6 +58119,7 @@ The dump filename may be a string literal, string expression or integral charact
 
 規定の性質: `mandatory`。
 
+- [test_vcd_dumpvars_all_filename_start.sv](../tests/ch21/test_vcd_dumpvars_all_filename_start.sv): シミュレーションで21.7.1.1-EXTRACT-FILENAME-TYPE-DEFAULTを観測する。$dumpfile receives an integral variable holding a character string; the companion test_vcd_filename_string_and_depth_zero uses a string expression and most VCD tests use a string literal, so all three allowed filename forms are covered. The 'dump.vcd' default 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.7.1.2-EXTRACT-DUMPVARS-ALL
 
@@ -58272,7 +58305,7 @@ VCD data is case-sensitive.
 
 ### SV2023-21.7.2.1-EXTRACT-VCD-COMMAND-GRAMMAR
 
-21.7.2.1 / normal / テスト未対応
+21.7.2.1 / normal / 実行確認あり
 
 Four-state VCD consists of declaration commands followed by simulation commands; each keyword command has the specified $end terminator and payload grammar.
 
@@ -58280,10 +58313,11 @@ Four-state VCD consists of declaration commands followed by simulation commands;
 
 規定の性質: `definition`。
 
+- [test_vcd_header_values_case_identifier.sv](../tests/ch21/test_vcd_header_values_case_identifier.sv): シミュレーションで21.7.2.1-EXTRACT-VCD-COMMAND-GRAMMARを観測する。A token-by-token reader checks that the declaration commands come before the simulation commands, that each section ends with $end, that the header sections and $var payload follow Syntax 21-20, and that no token is outside that syntax. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.7.2.1-EXTRACT-VCD-DECLARATIONS
 
-21.7.2.1 / normal / テスト未対応
+21.7.2.1 / normal / 実行確認あり
 
 VCD declarations include comment, date, enddefinitions, scope, timescale, upscope, var and version; scopes are begin/fork/function/module/task.
 
@@ -58291,6 +58325,7 @@ VCD declarations include comment, date, enddefinitions, scope, timescale, upscop
 
 規定の性質: `definition`。
 
+- [test_vcd_header_values_case_identifier.sv](../tests/ch21/test_vcd_header_values_case_identifier.sv): シミュレーションで21.7.2.1-EXTRACT-VCD-DECLARATIONSを観測する。The reader finds date, version, timescale and enddefinitions in the declaration part, one upscope for every scope, and the $var declarations; the companion test_vcd_scope_commands_begin_fork_task adds the begin, fork, function/task scope types. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.7.2.1-EXTRACT-VCD-IDENTIFIER
 
@@ -58366,7 +58401,7 @@ VCD var types are event, integer, parameter, real, realtime, reg, supply0/1, tim
 
 ### SV2023-21.7.2.1-EXTRACT-VCD-VALUE-GRAMMAR
 
-21.7.2.1 / normal / テスト未対応
+21.7.2.1 / normal / 実行確認あり
 
 VCD scalar values use 0/1/x/X/z/Z; vectors use b/B binary or r/R real values and identifiers; references may include a bit index or msb:lsb range.
 
@@ -58374,10 +58409,11 @@ VCD scalar values use 0/1/x/X/z/Z; vectors use b/B binary or r/R real values and
 
 規定の性質: `definition`。
 
+- [test_vcd_vector_extension_and_event.sv](../tests/ch21/test_vcd_vector_extension_and_event.sv): シミュレーションで21.7.2.1-EXTRACT-VCD-VALUE-GRAMMARを観測する。Scalar changes use 0/1/x/z, vector changes use the b/B form with only those digits, the identifier follows with the specified spacing, and an event uses the scalar form; the header test adds the r/R real form with %.16g. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.7.2.1-EXTRACT-VCD-VECTOR-PART
 
-21.7.2.1 / normal / テスト未対応
+21.7.2.1 / normal / 実行確認あり
 
 The vector-dump rule requires the entire vector rather than a partial range; arbitrary expressions cannot be dumped. The individual-net-bit provision in 21.7.2.3 is retained separately.
 
@@ -58385,6 +58421,7 @@ The vector-dump rule requires the entire vector rather than a partial range; arb
 
 規定の性質: `mandatory`。
 
+- [test_vcd_vector_extension_and_event.sv](../tests/ch21/test_vcd_vector_extension_and_event.sv): シミュレーションで21.7.2.1-EXTRACT-VCD-VECTOR-PARTを観測する。The test's 'the whole vector is dumped' check reads the complete 8-bit value of each dumped vector, and the file declares the whole range rather than a part. The error side is not part of the output: Icarus rejects a part-select at run time and Verilator accep 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.7.2.2-EXTRACT-EVENT-MARKER
 
@@ -58611,7 +58648,7 @@ VCD declaration keywords include enddefinitions and var; dumpon is a simulation 
 
 ### SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-9
 
-21.7.2.3 / normal / テスト未対応
+21.7.2.3 / normal / 実行確認あり
 
 VCD declaration keywords include scope and version; dumpvars is a simulation keyword.
 
@@ -58619,6 +58656,7 @@ VCD declaration keywords include scope and version; dumpvars is a simulation key
 
 規定の性質: `definition`。
 
+- [test_vcd_header_values_case_identifier.sv](../tests/ch21/test_vcd_header_values_case_identifier.sv): シミュレーションで21.7.2.3-EXTRACT-KEYWORD-CLASSES-9を観測する。The reader treats $scope and $version as declaration keywords and $dumpvars as a simulation keyword, and the file has a version section and module scopes before enddefinitions and a $dumpvars section after it. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.7.2.3-EXTRACT-SCOPE-COMMAND
 
@@ -58657,7 +58695,7 @@ The VCD timescale keyword identifies the simulation timescale.
 
 ### SV2023-21.7.2.3-EXTRACT-UPSCOPE-COMMAND
 
-21.7.2.3 / normal / テスト未対応
+21.7.2.3 / normal / テスト対応あり・実行未確認
 
 upscope moves to the next higher design hierarchy level.
 
@@ -58665,6 +58703,7 @@ upscope moves to the next higher design hierarchy level.
 
 規定の性質: `mandatory`。
 
+- [test_vcd_scope_commands_begin_fork_task.sv](../tests/ch21/test_vcd_scope_commands_begin_fork_task.sv): シミュレーションで21.7.2.3-EXTRACT-UPSCOPE-COMMANDを観測する。The reader counts one $upscope for every $scope and checks that the scopes nest and balance, so each upscope returns exactly one level in the design hierarchy. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.7.2.3-EXTRACT-UWIRE-MAPPING
 
@@ -58680,7 +58719,7 @@ A uwire net uses the VCD var_type wire.
 
 ### SV2023-21.7.2.3-EXTRACT-VAR-COMMAND
 
-21.7.2.3 / normal / テスト未対応
+21.7.2.3 / normal / テスト対応あり・実行未確認
 
 var records names, printable identifiers and bit sizes; msb/lsb are most/least significant indices and the identifier is the model variable name.
 
@@ -58688,6 +58727,7 @@ var records names, printable identifiers and bit sizes; msb/lsb are most/least s
 
 規定の性質: `mandatory`。
 
+- [test_vcd_scope_commands_begin_fork_task.sv](../tests/ch21/test_vcd_scope_commands_begin_fork_task.sv): シミュレーションで21.7.2.3-EXTRACT-VAR-COMMANDを観測する。The $var entry for a 4-bit vector is checked field by field: the type, the size, a printable identifier code, the reference name and the \[3:0\] msb/lsb range; test_vcd_type_mappings adds the var_type mapping. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.7.2.3-EXTRACT-VCD-KEYWORD-INSERTION
 
@@ -59660,7 +59700,7 @@ Weak-range input versus strong-range output resolves to l/h using output strengt
 
 ### SV2023-21.7.4.3.2-EXTRACT-PORT-DRIVERS
 
-21.7.4.3.2 / normal / テスト未対応
+21.7.4.3.2 / normal / テスト対応あり・実行未確認
 
 Extended VCD driver classification considers primitives, continuous assignments and procedural continuous assignments; state 0/1 indicates both directions active with the same value.
 
@@ -59668,6 +59708,7 @@ Extended VCD driver classification considers primitives, continuous assignments 
 
 規定の性質: `mandatory`。
 
+- [test_evcd_inout_same_value_conflicts.sv](../tests/ch21/test_evcd_inout_same_value_conflicts.sv): シミュレーションで21.7.4.3.2-EXTRACT-PORT-DRIVERSを観測する。Drivers are a buf primitive and continuous assignments; the test checks the conflict states 0 and 1 when both directions drive the same value, and the d/u and l/h states and strengths when the strengths are in different ranges. Procedural continuous assignment 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-21.7.4.3.2-EXTRACT-SAME-RANGE-CONFLICT
 

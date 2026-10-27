@@ -1,0 +1,28 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch21/test_ch21_extra_pattern_unpacked_struct": {
+   "status": "known",
+   "reason": "compile failed: tests/ch21/test_ch21_extra_pattern_unpacked_struct.sv:30: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "abf47219e83eec1e460a903dc58bcfea5dcc6d7d3fa313418a92aa6f99f3d6b9"
+  },
+  "ch21/test_ch21_extra_preopened_descriptors": {
+   "status": "pass",
+   "inputs_sha256": "c6ac479fde8b3d71890c415357835a52da32e9473c658a172b965a667965dc29"
+  },
+  "ch21/test_ch21_extra_readmem_address_range_error": {
+   "status": "pass",
+   "inputs_sha256": "7d1972747ca5e02aa89610f8aef28780147b49534667db8cc4acfff4398b6a6a"
+  },
+  "ch21/test_ch21_extra_readmem_enum_values": {
+   "status": "pass",
+   "inputs_sha256": "d5fc8fd68444d2f693d85e45f9a732f6f52536f4ad585b65efd45e5c7427bda5"
+  }
+ },
+ "generated_at": "2026-10-27T16:30:07.226181+00:00",
+ "runner_sha256": "9a0d77f74ee935d59b413652bbe6cc3133179c84c2a2130f2c0cd4e51a71ab13",
+ "runner_changed": false,
+ "configuration": {}
+}
