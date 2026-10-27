@@ -23,6 +23,7 @@ import time
 if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from sva_reference import automata as rx, formal_cases as specs
+    from sva_reference import f56_cases as f56
     from sva_reference import nonvacuity as nonvac
     from sva_reference.engine import Current, Engine
     from sva_reference.parser import Parser, Unsupported, parse_sequence
@@ -30,6 +31,7 @@ if __package__ in {None, ""}:
     from sva_reference.values import Bits, evaluate
 else:
     from . import automata as rx, formal_cases as specs
+    from . import f56_cases as f56
     from . import nonvacuity as nonvac
     from .engine import Current, Engine
     from .parser import Parser, Unsupported, parse_sequence
@@ -141,6 +143,9 @@ def attempt_code(spec, samples):
     """
     horizon = len(samples)
     kind = spec.get("kind", "assert property")
+    if kind == "restrict property":
+        # F.3.4.1: in the formal semantics restrict property is assume property.
+        kind = "assume property"
     current = ([Current(tick, samples[tick], "observed") for tick in range(horizon)]
                if spec.get("current") else None)
     engine = Engine(samples, current=current)
@@ -211,6 +216,81 @@ def property_model(name, *, mutation=False):
         "symbolic_bits": size, "input_words": 1 << size, "bmc_depth": 2}
 
 
+def table_model(name):
+    """Exhaustive combinational model for the F.5.4-F.7 finite tables."""
+    spec = f56.TABLES[name]
+    signals, horizon = spec["signals"], spec["horizon"]
+    context, inputs = spec["context"], spec["inputs"]
+    selectors = spec["selectors"]
+    signal_stride = sum(width for _, width in signals)
+    context_width = sum(width + 1 for _, width in context)
+    input_width = sum(width for _, width in inputs)
+    size = max(1, signal_stride * horizon + context_width + input_width + selectors)
+    if size > 17:
+        raise Unsupported(f"{name} enumerates too many input words ({1 << size})")
+    pieces = [f"module check_model; (* anyconst *) reg [{size - 1}:0] word;",
+              "reg [31:0] actual_result, reference_result;",
+              "always @* begin actual_result=0; case(word)"]
+    for word in range(1 << size):
+        samples = []
+        for tick in range(horizon):
+            row = {}
+            offset = tick * signal_stride
+            for signal, width in signals:
+                raw = (word >> offset) & ((1 << width) - 1)
+                row[signal] = Bits(format(raw, f"0{width}b"))
+                offset += width
+            samples.append(row)
+        offset = signal_stride * horizon
+        local = {}
+        for local_name, width in context:
+            present = (word >> offset) & 1
+            raw = (word >> (offset + 1)) & ((1 << width) - 1)
+            if present:
+                local[local_name] = Bits(format(raw, f"0{width}b"))
+            offset += width + 1
+        values = {}
+        for input_name, width in inputs:
+            raw = (word >> offset) & ((1 << width) - 1)
+            values[input_name] = raw
+            offset += width
+        selector = (word >> offset) & ((1 << selectors) - 1) if selectors else 0
+        code = spec["actual"](samples, local, selector, values) if inputs else \
+            spec["actual"](samples, local, selector)
+        pieces.append(f"{size}'d{word}: actual_result=32'd{code};")
+    pieces.append("endcase end")
+    offset = 0
+    for signal, width in signals:
+        for tick in range(horizon):
+            base = tick * signal_stride + offset
+            pieces.append(f"wire [{width - 1}:0] s_{signal}_{tick}=word[{base} +: {width}];")
+        offset += width
+    offset = signal_stride * horizon
+    # emit the context and non-temporal inputs in the same order the table
+    # consumed them
+    for local_name, width in context:
+        pieces.append(f"wire p_{local_name}=word[{offset}];")
+        pieces.append(f"wire [{width - 1}:0] c_{local_name}=word[{offset + 1} +: {width}];")
+        offset += width + 1
+    for input_name, width in inputs:
+        pieces.append(f"wire [{width - 1}:0] i_{input_name}=word[{offset} +: {width}];")
+        offset += width
+    if selectors:
+        pieces.append(f"wire [{selectors - 1}:0] sel=word[{offset} +: {selectors}];")
+    else:
+        pieces.append("wire [0:0] sel=0;")
+    pieces.extend([spec["reference"], "always @* begin",
+                   "assert(actual_result==reference_result);",
+                   f"cover({spec.get('cover', '1')});", "end endmodule\n"])
+    return "\n".join(pieces), {
+        "kind": "finite_local_table", "expression": spec["expression"],
+        "clause": spec["clause"], "signals": [name for name, _ in signals],
+        "semantic_ticks": horizon, "symbolic_bits": size,
+        "input_words": 1 << size, "bmc_depth": 2,
+        "requirement": spec.get("requirement", ""),
+    }
+
+
 def nonvacuity_model(name):
     spec = specs.NONVACUITY[name]
     names, horizon = spec["signals"], spec["horizon"]
@@ -234,6 +314,41 @@ def nonvacuity_model(name):
         "requirement": spec.get("requirement"), "signals": names,
         "semantic_ticks": horizon, "symbolic_bits": size,
         "input_words": 1 << size, "bmc_depth": 2}
+
+
+def clocking_table_model(name):
+    """Export a finite-word table from a clocking/grammar clause spec.
+
+    ``spec["actual"]`` is a Python semantic function; the RTL in
+    ``spec["reference"]`` is written independently from the clause and never
+    calls the parser, derivative engine or evaluator.
+    """
+    spec = specs.TABLES[name]
+    dims, horizon = spec["dims"], spec["horizon"]
+    width = spec["width"]
+    size = sum(bits for _, bits in dims) * horizon
+    pieces = [f"module check_model; (* anyconst *) reg [{size-1}:0] word;",
+              f"reg [{width-1}:0] actual_result, reference_result;",
+              "always @* begin actual_result=0; case(word)"]
+    for word in range(1 << size):
+        value = int(spec["actual"](word))
+        pieces.append(f"{size}'d{word}: actual_result={width}'d{value};")
+    pieces.append("endcase end")
+    stride = sum(bits for _, bits in dims)
+    base = 0
+    for signal, bits in dims:
+        slices = [f"word[{base + tick * stride} +: {bits}]"
+                  for tick in reversed(range(horizon))]
+        pieces.append(f"wire [{bits * horizon - 1}:0] {signal}={{{','.join(slices)}}};")
+        base += bits
+    pieces.extend([spec["reference"],
+                   "always @* begin assert(actual_result==reference_result);",
+                   "cover(1); end endmodule\n"])
+    return "\n".join(pieces), {"kind": "finite_word_clocking",
+        "clause": spec["clause"], "signals": [signal for signal, _ in dims],
+        "semantic_ticks": horizon, "symbolic_bits": size,
+        "input_words": 1 << size, "bmc_depth": 2,
+        "requirement": spec.get("requirement")}
 
 
 def decode_four(value):
@@ -288,6 +403,14 @@ def gated_past_model(*, mutation=False):
 
 
 def export(name, *, mutation=False):
+    if name in f56.TABLES:
+        if mutation:
+            raise Unsupported("no mutation registered for this F.5.4-F.7 case")
+        return table_model(name)
+    if name in specs.TABLES:
+        if mutation:
+            raise Unsupported("no mutation registered for this clocking table")
+        return clocking_table_model(name)
     if name in specs.SEQUENCES or name in specs.STREAMS:
         return sequence_model(name, mutation=mutation)
     if name in specs.PROPERTIES:
@@ -302,7 +425,8 @@ def export(name, *, mutation=False):
 
 
 def catalogue():
-    return [*specs.SEQUENCES, *specs.STREAMS, *specs.PROPERTIES, *specs.NONVACUITY, "four_state_sampled", "gated_past"]
+    return [*f56.TABLES, *specs.TABLES, *specs.SEQUENCES, *specs.STREAMS,
+            *specs.PROPERTIES, *specs.NONVACUITY, "four_state_sampled", "gated_past"]
 
 
 def sby_text(mode, depth, timeout):

@@ -35,8 +35,16 @@ class History:
 
     def function(self, node, tick):
         name, args = node.value, node.args
-        if name not in {"$sampled", "$past", "$rose", "$fell", "$stable", "$changed"}:
+        if name not in {"$sampled", "$past", "$rose", "$fell", "$stable", "$changed",
+                        "$past_gclk", "$future_gclk"}:
             raise Unsupported("unknown sampled function")
+        if name in {"$past_gclk", "$future_gclk"}:
+            target = tick - 1 if name == "$past_gclk" else tick + 1
+            if target < 0:
+                return self.evaluate(args[0], -1)
+            if target >= len(self.samples):
+                raise Unsupported("$future_gclk at the final letter of a finite word is undefined")
+            return self.evaluate(args[0], target)
         event = args[-1] if args[-1].op == "clock" else None
         if event is not None and event.value != self.clock:
             raise Unsupported("sampled function uses a different or unresolved clock")

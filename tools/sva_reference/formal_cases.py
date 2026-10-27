@@ -5,6 +5,11 @@ History bit zero is the latest consumed sample. Each sequence attempt begins
 at the first sample; age is the number consumed, including zero for empty.
 """
 
+try:
+    from . import clocking
+except ImportError:  # direct script-style imports used by older helpers
+    import clocking
+
 
 def count(condition):
     return f"(({condition}) ? 32'd1 : 32'd0)"
@@ -872,3 +877,572 @@ NONVACUITY = {
         "mode": "satisfaction",
         "reference": "always @* reference_result=a[1] && b[1];"},
 }
+
+
+# F.3.1/F.3.2/F.3.4.4/F.5.1 finite tables.  Each entry carries a Python
+# actual(table) function from sva_reference.clocking and an independent RTL
+# reference written directly from the clause.  Dimensional data is a list of
+# (name, width); formal.table_model packs tick 0 first and each signal
+# least-significant bit first, and declares a wire per signal whose bit
+# t*width is tick t.
+TABLES = {
+    # F.3.1 tau: event controls are Boolean clock predicates.
+    "f3_tau_boolean_clocks": {
+        "clause": "F.3.1", "dims": [("b", 1)], "horizon": 3, "width": 2,
+        "actual": clocking.make_tau("boolean_clocks", [("b", 1)], 3),
+        "reference": """
+          wire e0=b[0]!=b[1], e1=b[1]!=b[2];
+          always @* reference_result={1'b0,e0}+{1'b0,e1};
+        """},
+    "f3_tau_change": {
+        "clause": "F.3.1", "dims": [("b", 2)], "horizon": 2, "width": 1,
+        "actual": clocking.make_tau("change", [("b", 2)], 2),
+        "reference": "always @* reference_result=(b[1:0]!=b[3:2]);"},
+    "f3_tau_pos": {
+        "clause": "F.3.1", "dims": [("b", 2)], "horizon": 2, "width": 1,
+        "actual": clocking.make_tau("posedge", [("b", 2)], 2),
+        "reference": "always @* reference_result=(b[0]==1'b0)&&(b[2]==1'b1);"},
+    "f3_tau_neg": {
+        "clause": "F.3.1", "dims": [("b", 2)], "horizon": 2, "width": 1,
+        "actual": clocking.make_tau("negedge", [("b", 2)], 2),
+        "reference": "always @* reference_result=(b[0]==1'b1)&&(b[2]==1'b0);"},
+    "f3_tau_edge": {
+        "clause": "F.3.1", "dims": [("b", 2)], "horizon": 2, "width": 1,
+        "actual": clocking.make_tau("edge", [("b", 2)], 2),
+        "reference": "always @* reference_result=b[0]^b[2];"},
+    "f3_tau_global": {
+        "clause": "F.3.1", "dims": [("b", 1)], "horizon": 2, "width": 1,
+        "actual": clocking.make_tau("global", [("b", 1)], 2),
+        "reference": "always @* reference_result=1'b1;"},
+    "f3_tau_or": {
+        "clause": "F.3.1", "dims": [("b", 1), ("c", 1)], "horizon": 2, "width": 1,
+        "actual": clocking.make_tau("or_event", [("b", 1), ("c", 1)], 2),
+        "reference": """
+          always @* reference_result=(b[0]!=b[1])||(c[0]!=c[1]);
+        """},
+    "f3_tau_iff": {
+        "clause": "F.3.1", "dims": [("c", 1), ("b", 1)], "horizon": 2, "width": 1,
+        "actual": clocking.make_tau("iff", [("c", 1), ("b", 1)], 2),
+        "reference": """
+          always @* reference_result=(c[0]==1'b0)&&(c[1]==1'b1)&&b[0];
+        """},
+    "f3_tau_named": {
+        "clause": "F.3.1", "dims": [("trig", 1)], "horizon": 2, "width": 1,
+        "actual": clocking.make_tau("named", [("trig", 1)], 2),
+        "reference": "always @* reference_result=trig[1];"},
+
+    # F.3.4.4 global sampled comparisons.  The future form compares ticks 0
+    # and 1; the past form compares the last two ticks and ignores earlier
+    # ones, so it exercises $past_gclk rather than the same pair as future.
+    "f3_future_global": {
+        "clause": "F.3.4.4", "dims": [("v", 2)], "horizon": 2, "width": 4,
+        "actual": clocking.make_global_comparison("future", [("v", 2)], 2),
+        "reference": """
+          wire [1:0] prior=v[1:0], now=v[3:2];
+          wire rose=!prior[0]&&now[0], fell=prior[0]&&!now[0];
+          wire steady=(prior==now), changing=(prior!=now);
+          always @* reference_result={changing,steady,fell,rose};
+        """},
+    "f3_past_global": {
+        "clause": "F.3.4.4", "dims": [("v", 2)], "horizon": 3, "width": 4,
+        "actual": clocking.make_global_comparison("past", [("v", 2)], 3),
+        "reference": """
+          wire [1:0] prior=v[3:2], now=v[5:4];
+          wire rose=!prior[0]&&now[0], fell=prior[0]&&!now[0];
+          wire steady=(prior==now), changing=(prior!=now);
+          always @* reference_result={changing,steady,fell,rose};
+        """},
+
+    # F.5.1.1 sequence rewrite.  Each reference is the unclocked right-hand
+    # side of Ts, written as per-age match counts over the global letters.
+    "f51_ts_boolean": {
+        "clause": "F.5.1.1", "dims": [("c", 1), ("b", 1)], "horizon": 3, "width": 16,
+        "actual": clocking.make_clocked_counts(("bool", "b"), [("c", 1), ("b", 1)], 3, "c"),
+        "reference": """
+          always @* begin
+            reference_result=16'd0;
+            if (c[0]&&b[0]) reference_result[7:4]=4'd1;
+            if (!c[0]&&c[1]&&b[1]) reference_result[11:8]=4'd1;
+            if (!c[0]&&!c[1]&&c[2]&&b[2]) reference_result[15:12]=4'd1;
+          end
+        """},
+    "f51_ts_concat": {
+        "clause": "F.5.1.1", "dims": [("c", 1), ("a", 1), ("b", 1)],
+        "horizon": 4, "width": 20,
+        "actual": clocking.make_clocked_counts(
+            ("cat", ("bool", "a"), ("bool", "b"), 1),
+            [("c", 1), ("a", 1), ("b", 1)], 4, "c"),
+        "reference": """
+          always @* begin
+            reference_result=20'd0;
+            if (c[0]&&a[0]&&c[1]&&b[1]) reference_result[11:8]=4'd1;
+            if (c[0]&&a[0]&&!c[1]&&c[2]&&b[2]) reference_result[15:12]=4'd1;
+            if (!c[0]&&c[1]&&a[1]&&c[2]&&b[2]) reference_result[15:12]=4'd1;
+            if (c[0]&&a[0]&&!c[1]&&!c[2]&&c[3]&&b[3])
+              reference_result[19:16]=4'd1;
+            if (!c[0]&&c[1]&&a[1]&&!c[2]&&c[3]&&b[3])
+              reference_result[19:16]=4'd1;
+            if (!c[0]&&!c[1]&&c[2]&&a[2]&&c[3]&&b[3])
+              reference_result[19:16]=4'd1;
+          end
+        """},
+    "f51_ts_choice": {
+        "clause": "F.5.1.1", "dims": [("c", 1), ("a", 1), ("b", 1)],
+        "horizon": 4, "width": 20,
+        "actual": clocking.make_clocked_counts(
+            ("cat", ("or", ("bool", "a"), ("bool", "b")), ("bool", "b"), 1),
+            [("c", 1), ("a", 1), ("b", 1)], 4, "c"),
+        "reference": """
+          always @* begin
+            reference_result=20'd0;
+            if (c[0]&&c[1]&&b[1]) reference_result[11:8]=a[0]+b[0];
+            if (c[0]&&!c[1]&&c[2]&&b[2])
+              reference_result[15:12]=a[0]+b[0];
+            if (!c[0]&&c[1]&&c[2]&&b[2])
+              reference_result[15:12]=a[1]+b[1];
+            if (c[0]&&!c[1]&&!c[2]&&c[3]&&b[3])
+              reference_result[19:16]=a[0]+b[0];
+            if (!c[0]&&c[1]&&!c[2]&&c[3]&&b[3])
+              reference_result[19:16]=a[1]+b[1];
+            if (!c[0]&&!c[1]&&c[2]&&c[3]&&b[3])
+              reference_result[19:16]=a[2]+b[2];
+          end
+        """},
+    "f51_ts_clock": {
+        "clause": "F.5.1.1",
+        "dims": [("c1", 1), ("c2", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 16,
+        "actual": clocking.make_clocked_counts(
+            ("or", ("bool", "a"), ("clock", "c2", ("bool", "b"))),
+            [("c1", 1), ("c2", 1), ("a", 1), ("b", 1)], 3, "c1"),
+        "reference": """
+          reg [2:0] ca, cb;
+          always @* begin
+            reference_result=16'd0;
+            ca=3'd0; cb=3'd0;
+            if (c1[0]&&a[0]) ca[0]=1'b1;
+            if (!c1[0]&&c1[1]&&a[1]) ca[1]=1'b1;
+            if (!c1[0]&&!c1[1]&&c1[2]&&a[2]) ca[2]=1'b1;
+            if (c2[0]&&b[0]) cb[0]=1'b1;
+            if (!c2[0]&&c2[1]&&b[1]) cb[1]=1'b1;
+            if (!c2[0]&&!c2[1]&&c2[2]&&b[2]) cb[2]=1'b1;
+            reference_result[7:4]=ca[0]+cb[0];
+            reference_result[11:8]=ca[1]+cb[1];
+            reference_result[15:12]=ca[2]+cb[2];
+          end
+        """},
+    "f51_ts_first": {
+        "clause": "F.5.1.1", "dims": [("c", 1), ("a", 1), ("b", 1), ("d", 1)],
+        "horizon": 3, "width": 16,
+        "actual": clocking.make_clocked_counts(
+            ("first", ("or", ("cat", ("bool", "a"), ("bool", "b"), 1),
+                       ("cat", ("bool", "a"), ("bool", "d"), 2))),
+            [("c", 1), ("a", 1), ("b", 1), ("d", 1)], 3, "c"),
+        "reference": """
+          always @* begin
+            reference_result=16'd0;
+            if (c[0]&&a[0]) begin
+              if (c[1]&&b[1]) reference_result[11:8]=4'd1;
+              else reference_result[15:12]=(!c[1]&&c[2]&&b[2])
+                + (c[2]&&d[2]);
+            end else if (!c[0]&&c[1]&&a[1]) begin
+              if (c[2]&&b[2]) reference_result[15:12]=4'd1;
+            end
+          end
+        """},
+    "f51_ts_repeat": {
+        "clause": "F.5.1.1", "dims": [("c", 1), ("a", 1)], "horizon": 3, "width": 16,
+        "actual": clocking.make_clocked_counts(
+            ("rep", ("bool", "a"), 0, 1), [("c", 1), ("a", 1)], 3, "c"),
+        "reference": """
+          always @* begin
+            reference_result=16'd1;  // the null repetition at age 0
+            if (c[0]&&a[0]) reference_result[7:4]=4'd1;
+            if (!c[0]&&c[1]&&a[1]) reference_result[11:8]=4'd1;
+            if (!c[0]&&!c[1]&&c[2]&&a[2]) reference_result[15:12]=4'd1;
+          end
+        """},
+    "f51_ts_repeat_plus": {
+        "clause": "F.5.1.1", "dims": [("c", 1), ("a", 1)], "horizon": 3, "width": 16,
+        "actual": clocking.make_clocked_counts(
+            ("rep", ("bool", "a"), 1, None), [("c", 1), ("a", 1)], 3, "c"),
+        "reference": """
+          always @* begin
+            reference_result=16'd0;
+            if (c[0]&&a[0]) reference_result[7:4]=4'd1;
+            if ((c[0]&&a[0]&&c[1]&&a[1]) || (!c[0]&&c[1]&&a[1]))
+              reference_result[11:8]=4'd1;
+            if ((c[0]&&a[0]&&!c[1]&&c[2]&&a[2])
+                || (c[0]&&a[0]&&c[1]&&a[1]&&c[2]&&a[2])
+                || (!c[0]&&c[1]&&a[1]&&c[2]&&a[2])
+                || (!c[0]&&!c[1]&&c[2]&&a[2]))
+              reference_result[15:12]=4'd1;
+          end
+        """},
+
+    # F.5.1.2 property rewrite.  The reference loops implement the transformed
+    # unclocked property; status nibbles are success=0t, failure=1t,
+    # vacuous=2t, holds=3f, disabled=5t.
+    "f51_impl_boolean": {
+        "clause": "F.5.1.2", "dims": [("c", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 8,
+        "actual": clocking.make_clocked_property("implication_boolean",
+            [("c", 1), ("a", 1), ("b", 1)], 3, "c"),
+        "reference": """
+          integer i; reg seen;
+          always @* begin
+            reference_result=8'h3f; seen=0;
+            for (i=0;i<3;i=i+1) if (!seen&&c[i]) begin
+              seen=1;
+              if (!a[i]) reference_result=8'h20+i;
+              else reference_result=(b[i]?8'h00:8'h10)+i;
+            end
+          end
+        """},
+    "f51_next": {
+        "clause": "F.5.1.2", "dims": [("c", 1), ("p", 1)], "horizon": 4, "width": 8,
+        "actual": clocking.make_clocked_property("nexttime",
+            [("c", 1), ("p", 1)], 4, "c"),
+        "reference": """
+          integer i,j; reg seen, found; integer first;
+          always @* begin
+            reference_result=8'h3f; seen=0; found=0; first=0;
+            for (i=0;i<4;i=i+1) if (!seen&&c[i]) begin seen=1; first=i; end
+            if (seen) begin
+              for (j=0;j<4;j=j+1) if (j>first&&!found&&c[j]) begin
+                found=1;
+                reference_result=(p[j]?8'h00:8'h10)+j;
+              end
+            end
+          end
+        """},
+    "f51_sequence": {
+        "clause": "F.5.1.2", "dims": [("c", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 8,
+        "actual": clocking.make_clocked_property("sequence",
+            [("c", 1), ("a", 1), ("b", 1)], 3, "c"),
+        "reference": """
+          integer i,j; reg seen, found;
+          always @* begin
+            reference_result=8'h3f; seen=0; found=0;
+            for (i=0;i<3;i=i+1) if (!seen&&c[i]) begin
+              seen=1;
+              if (!a[i]) reference_result=8'h10+i;
+              else begin
+                for (j=0;j<3;j=j+1) if (j>i&&!found&&c[j]) begin
+                  found=1;
+                  reference_result=b[j]?(8'h00+j):(8'h10+j);
+                end
+              end
+            end
+          end
+        """},
+    "f51_sync": {
+        "clause": "F.5.1.2", "dims": [("c", 1), ("g", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 8,
+        "actual": clocking.make_sync_abort("accept",
+            [("c", 1), ("g", 1), ("a", 1), ("b", 1)], 3, "c"),
+        "reference": """
+          integer i,j; reg seen, found, hit; reg [7:0] base;
+          always @* begin
+            reference_result=8'h3f; seen=0; found=0; hit=0; base=8'h3f;
+            for (i=0;i<3;i=i+1) if (!seen&&c[i]) begin
+              seen=1;
+              if (!a[i]) base=8'h10+i;
+              else begin
+                for (j=0;j<3;j=j+1) if (j>i&&!found&&c[j]) begin
+                  found=1;
+                  base=b[j]?(8'h00+j):(8'h10+j);
+                end
+              end
+            end
+            for (i=0;i<3;i=i+1)
+              if (!hit&&c[i]&&g[i]&&((base[7:4]!=8'h3) ? (i<=base[3:0]) : 1'b1))
+                begin hit=1; reference_result=8'h00+i; end
+            if (!hit) reference_result=base;
+          end
+        """},
+    "f51_until": {
+        "clause": "F.5.1.2", "dims": [("c", 1), ("p", 1), ("q", 1)],
+        "horizon": 4, "width": 8,
+        "actual": clocking.make_clocked_property("until",
+            [("c", 1), ("p", 1), ("q", 1)], 4, "c"),
+        "reference": """
+          integer i; reg done;
+          always @* begin
+            reference_result=8'h3f; done=0;
+            for (i=0;i<4;i=i+1) if (!done&&c[i]) begin
+              if (q[i]) begin reference_result=8'h00+i; done=1; end
+              else if (!p[i]) begin reference_result=8'h10+i; done=1; end
+            end
+          end
+        """},
+    "f51_async": {
+        "clause": "F.5.1.2", "dims": [("c", 1), ("d", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 8,
+        "actual": clocking.make_clocked_property("async_disable",
+            [("c", 1), ("d", 1), ("a", 1), ("b", 1)], 3, "c"),
+        "reference": """
+          integer i,j; reg seen, found, hit; reg [7:0] base; integer last;
+          always @* begin
+            reference_result=8'h3f; seen=0; found=0; hit=0; base=8'h3f; last=2;
+            for (i=0;i<3;i=i+1) if (!seen&&c[i]) begin
+              seen=1;
+              if (!a[i]) begin base=8'h10+i; last=i; end
+              else begin
+                for (j=0;j<3;j=j+1) if (j>i&&!found&&c[j]) begin
+                  found=1;
+                  base=b[j]?(8'h00+j):(8'h10+j);
+                  last=j;
+                end
+              end
+            end
+            for (i=0;i<3;i=i+1)
+              if (i<=last&&!hit&&d[i]) begin hit=1; reference_result=8'h50+i; end
+            if (!hit) reference_result=base;
+          end
+        """},
+    "f51_clock_independence": {
+        "clause": "F.5.1", "dims": [("c", 1), ("a", 1), ("b", 1), ("d", 1)],
+        "horizon": 3, "width": 8,
+        "actual": clocking.make_clocked_property("clock_independence",
+            [("c", 1), ("a", 1), ("b", 1), ("d", 1)], 3, "c"),
+        "reference": """
+          integer i,j; reg seen, found; reg [7:0] base;
+          always @* begin
+            reference_result=8'h3f; seen=0; found=0; base=8'h3f;
+            for (i=0;i<3;i=i+1) if (!seen&&c[i]) begin
+              seen=1;
+              if (!a[i]) base=8'h20+i;
+              else begin
+                for (j=0;j<3;j=j+1) if (j>i&&!found&&c[j]) begin
+                  found=1;
+                  base=b[j]?(d[j]?8'h00+j:8'h10+j):8'h20+i;
+                end
+                if (!found) base=8'h20+i;
+              end
+            end
+            reference_result=base;
+          end
+        """},
+
+    # F.3.2 grammar witnesses.  The grammar itself is definitional; these
+    # cases check one representative semantic witness for each alternative.
+    "f3_g_assertion": {
+        "clause": "F.3.2", "dims": [("c", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 8,
+        "actual": clocking.make_clocked_property("sequence",
+            [("c", 1), ("a", 1), ("b", 1)], 3, "c"),
+        "reference": """
+          integer i,j; reg seen, found;
+          always @* begin
+            reference_result=8'h3f; seen=0; found=0;
+            for (i=0;i<3;i=i+1) if (!seen&&c[i]) begin
+              seen=1;
+              if (!a[i]) reference_result=8'h10+i;
+              else begin
+                for (j=0;j<3;j=j+1) if (j>i&&!found&&c[j]) begin
+                  found=1;
+                  reference_result=b[j]?(8'h00+j):(8'h10+j);
+                end
+              end
+            end
+          end
+        """},
+    "f3_g_prop_clocked": {
+        "clause": "F.3.2", "dims": [("c", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 8,
+        "actual": clocking.make_clocked_property("not_sequence",
+            [("c", 1), ("a", 1), ("b", 1)], 3, "c"),
+        "reference": """
+          integer i,j; reg seen, found; reg [7:0] base;
+          always @* begin
+            reference_result=8'h3f; seen=0; found=0; base=8'h3f;
+            for (i=0;i<3;i=i+1) if (!seen&&c[i]) begin
+              seen=1;
+              if (!a[i]) base=8'h10+i;
+              else begin
+                for (j=0;j<3;j=j+1) if (j>i&&!found&&c[j]) begin
+                  found=1;
+                  base=b[j]?(8'h00+j):(8'h10+j);
+                end
+              end
+            end
+            if (base[7:4]==8'h0) reference_result=8'h10+base[3:0];
+            else if (base[7:4]==8'h1) reference_result=8'h00+base[3:0];
+            else reference_result=base;
+          end
+        """},
+    "f3_g_nondeg_s": {
+        "clause": "F.3.2", "dims": [("c", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 16,
+        "actual": clocking.make_clocked_counts(
+            ("cat", ("bool", "a"), ("bool", "b"), 1),
+            [("c", 1), ("a", 1), ("b", 1)], 3, "c"),
+        "reference": """
+          always @* begin
+            reference_result=16'd0;
+            if (c[0]&&a[0]&&c[1]&&b[1]) reference_result[11:8]=4'd1;
+            if (c[0]&&a[0]&&!c[1]&&c[2]&&b[2]) reference_result[15:12]=4'd1;
+            if (!c[0]&&c[1]&&a[1]&&c[2]&&b[2]) reference_result[15:12]=4'd1;
+          end
+        """},
+    "f3_g_seq_clocked": {
+        "clause": "F.3.2", "dims": [("c", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 16,
+        "actual": clocking.make_clocked_counts(
+            ("cat", ("bool", "a"), ("bool", "b"), 1),
+            [("c", 1), ("a", 1), ("b", 1)], 3, "c"),
+        "reference": """
+          always @* begin
+            reference_result=16'd0;
+            if (c[0]&&a[0]&&c[1]&&b[1]) reference_result[11:8]=4'd1;
+            if (c[0]&&a[0]&&!c[1]&&c[2]&&b[2]) reference_result[15:12]=4'd1;
+            if (!c[0]&&c[1]&&a[1]&&c[2]&&b[2]) reference_result[15:12]=4'd1;
+          end
+        """},
+    "f3_g_top_clocked": {
+        "clause": "F.3.2", "dims": [("c", 1), ("d", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 8,
+        "actual": clocking.make_clocked_property("async_disable",
+            [("c", 1), ("d", 1), ("a", 1), ("b", 1)], 3, "c"),
+        "reference": """
+          integer i,j; reg seen, found, hit; reg [7:0] base; integer last;
+          always @* begin
+            reference_result=8'h3f; seen=0; found=0; hit=0; base=8'h3f; last=2;
+            for (i=0;i<3;i=i+1) if (!seen&&c[i]) begin
+              seen=1;
+              if (!a[i]) begin base=8'h10+i; last=i; end
+              else begin
+                for (j=0;j<3;j=j+1) if (j>i&&!found&&c[j]) begin
+                  found=1;
+                  base=b[j]?(8'h00+j):(8'h10+j);
+                  last=j;
+                end
+              end
+            end
+            for (i=0;i<3;i=i+1)
+              if (i<=last&&!hit&&d[i]) begin hit=1; reference_result=8'h50+i; end
+            if (!hit) reference_result=base;
+          end
+        """},
+
+    # F.3.4 associativity of or: a complete truth table for the one-letter
+    # Boolean language.  Sequence match multiplicity is not associative in
+    # this evaluator, so the case compares satisfaction, which is the meaning
+    # of the parenthesis-omission rule.
+    "f3_assoc_or": {
+        "clause": "F.3.4", "dims": [("a", 1), ("b", 1), ("c", 1)],
+        "horizon": 1, "width": 1,
+        "actual": clocking.make_any([("a", 1), ("b", 1), ("c", 1)], 1, "abc"),
+        "reference": "always @* reference_result=a[0]||b[0]||c[0];"},
+
+    # F.3.4.3.7 abort operators.  The two sync cases use clock context 1,
+    # where sync_accept_on(b) P equals accept_on(b) P.
+    "f3_reject": {
+        "clause": "F.3.4.3.7", "dims": [("g", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 8,
+        "actual": clocking.make_abort("reject", [("g", 1), ("a", 1), ("b", 1)], 3),
+        "reference": """
+          integer i; reg hit; reg [7:0] base;
+          always @* begin
+            base=8'h3f; hit=0;
+            if (!a[0]) base=8'h10;
+            else if (b[1]) base=8'h01; else base=8'h11;
+            for (i=0;i<3;i=i+1) if (!hit&&g[i]&&i<=((base[7:4]==8'h3)?2:base[3:0]))
+              begin hit=1; reference_result=8'h10+i; end
+            if (!hit) reference_result=base;
+          end
+        """},
+    "f3_sync_accept": {
+        "clause": "F.3.4.3.7", "dims": [("g", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 8,
+        "actual": clocking.make_abort("accept", [("g", 1), ("a", 1), ("b", 1)], 3),
+        "reference": """
+          integer i; reg hit; reg [7:0] base;
+          always @* begin
+            base=8'h3f; hit=0;
+            if (!a[0]) base=8'h10;
+            else if (b[1]) base=8'h01; else base=8'h11;
+            for (i=0;i<3;i=i+1) if (!hit&&g[i]&&i<=((base[7:4]==8'h3)?2:base[3:0]))
+              begin hit=1; reference_result=8'h00+i; end
+            if (!hit) reference_result=base;
+          end
+        """},
+    "f3_sync_reject": {
+        "clause": "F.3.4.3.7", "dims": [("g", 1), ("a", 1), ("b", 1)],
+        "horizon": 3, "width": 8,
+        "actual": clocking.make_abort("reject", [("g", 1), ("a", 1), ("b", 1)], 3),
+        "reference": """
+          integer i; reg hit; reg [7:0] base;
+          always @* begin
+            base=8'h3f; hit=0;
+            if (!a[0]) base=8'h10;
+            else if (b[1]) base=8'h01; else base=8'h11;
+            for (i=0;i<3;i=i+1) if (!hit&&g[i]&&i<=((base[7:4]==8'h3)?2:base[3:0]))
+              begin hit=1; reference_result=8'h10+i; end
+            if (!hit) reference_result=base;
+          end
+        """},
+}
+
+
+# F.3.2/F.3.4 unclocked grammar and associativity witnesses.  These use the
+# same independent age-table/property-reference style as the earlier clauses.
+SEQUENCES.update({
+    # ##1 is associative: (a ##1 b) ##1 c and a ##1 (b ##1 c) both match the
+    # three-letter word a,b,c and nothing shorter.
+    "f3_assoc_concat": ("(a ##1 b) ##1 c", "abc", "F.3.4", {
+        3: "h_a[2] && h_b[1] && h_c[0]"}),
+    # An unclocked sequence embedded in a property must be nondegenerate:
+    # a ##1 b has no empty match (age 0 is absent) and matches only at age 2.
+    "f3_g_nondeg_r": ("a ##1 b", "ab", "F.3.2", {
+        2: "h_a[1] && h_b[0]"}),
+    # Unclocked sequence grammar witness: or, ##1/##2 concatenation,
+    # first_match and parentheses.  first_match keeps only the earliest end.
+    "f3_g_seq": ("first_match((a ##1 b) or (a ##2 c))", "abc", "F.3.2", {
+        2: "h_a[1] && h_b[0]",
+        3: "h_a[2] && h_c[0] && !(h_a[2] && h_b[1])"}),
+})
+
+PROPERTIES.update({
+    # Unclocked property grammar witness: not, strong, a sequence property,
+    # parentheses.  Strong(a ##1 b) fails when the word ends without the
+    # required b; not turns that into success at the same deciding tick.
+    "f3_g_prop": {
+        "expression": "not (strong(a ##1 b))", "signals": "ab", "horizon": 2,
+        "clause": "F.3.2", "reference": """
+          always @* begin
+            if (a[0]&&b[1]) reference_result=8'h11;
+            else if (a[0]) reference_result=8'h01;
+            else reference_result=8'h00;
+          end
+        """},
+    # Unclocked top-level grammar witness: disable iff plus an unclocked
+    # property.  The disable condition is checked on every current tick up to
+    # the deciding tick; a later tick only matters when the property is still
+    # unfinished (holds).
+    "f3_g_top": {
+        "expression": "disable iff (d) (a ##1 b)", "signals": "dab", "horizon": 3,
+        "current": True, "clause": "F.3.2", "reference": """
+          always @* begin
+            if (d[0]) reference_result=8'h50;
+            else if (!a[0]) reference_result=8'h10;
+            else if (d[1]) reference_result=8'h51;
+            else if (b[1]) reference_result=8'h01;
+            else reference_result=8'h11;
+          end
+        """},
+    # F.3.4.1 restrict property is assume property in the formal semantics.
+    # The actual path is the historical Engine.property call with the
+    # directive kind replaced by assume; the reference is the assume result.
+    "f3_restrict": {
+        "expression": "a ##1 b", "signals": "ab", "horizon": 2,
+        "kind": "restrict property", "clause": "F.3.4.1", "reference": """
+          always @* begin
+            if (!a[0]) reference_result=8'h10;
+            else if (b[1]) reference_result=8'h01;
+            else reference_result=8'h11;
+          end
+        """},
+})

@@ -1,0 +1,16 @@
+/*
+:name: test_formal_f562_finite
+:description: SymbiYosys checks the F.5.6.2 formal semantics of f562_finite against an independent RTL reference (IEEE 1800-2023 Section F.5.6.2)
+:tags: ch16
+:type: formal
+:lrm: 1800-2023 16.12 F.5.6.2
+:oracle: spec
+:spec_check: ai
+:fourstate: no
+:nondeterministic: no
+:formal_case: f562_finite
+*/
+// The formal case is compared with an independently written RTL reference
+// under SymbiYosys; inputs are symbolic.
+//
+// formal result: PASS

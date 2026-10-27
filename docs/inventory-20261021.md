@@ -1112,8 +1112,11 @@ A fourth formal wave added 17 cases for F.5.3.1; 16 new links were
 accepted.
 
 A fifth formal wave added a nonvacuity relation and 9 F.5.3.3 cases; 9
-new links were accepted. The ledger maps 10606 of 12319 rows (86.09%),
-with 5844 executed (47.44%).
+new links were accepted.
+
+A sixth formal wave added 93 cases for F.3, F.5.1, F.5.4-F.5.6, F.6 and
+F.7; 91 new links were accepted. The ledger maps 10697 of 12319 rows
+(86.83%), with 5935 executed (48.18%).
 
 ### Current state
 
@@ -1122,7 +1125,7 @@ generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-10606 of 12319 rows (86.09%), with 5844 executed (47.44%).
+10697 of 12319 rows (86.83%), with 5935 executed (48.18%).
 
 ### Tests added in this work
 

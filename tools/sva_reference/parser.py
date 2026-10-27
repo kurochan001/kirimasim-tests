@@ -53,7 +53,12 @@ BOOL = {"||": 1, "&&": 2, "|": 3, "^": 4, "~^": 4, "^~": 4, "&": 5,
         "<": 7, "<=": 7, ">": 7, ">=": 7, "<<": 8, ">>": 8, ">>>": 8, "<<<": 8,
         "+": 9, "-": 9, "*": 10, "/": 10, "%": 10, "**": 11,
         "->": -2, "<->": -2, "inside": 7, "dist": 7}
-SAMPLED = {"$past", "$rose", "$fell", "$stable", "$changed", "$sampled"}
+SAMPLED = {"$past", "$rose", "$fell", "$stable", "$changed", "$sampled",
+           "$past_gclk", "$future_gclk"}
+# F.5.6/F.6 local-variable declarations use an integral data type.  Only the
+# scalar subset needed by the local cases is recognised here.
+LOCAL_TYPES = {"logic", "bit", "reg", "byte", "shortint", "int", "longint",
+               "integer", "time"}
 EXCLUDED = {"$isunknown",
             "$global_clock", "accept_on", "reject_on", "sync_accept_on", "sync_reject_on"}
 
@@ -204,14 +209,37 @@ class Parser:
             bounds = self.range()
             left = Node("delay", (self.temporal(91),), bounds)
         elif self.take("("):
-            # A parenthesized Boolean expression can continue with a Boolean
-            # operator, while a temporal group cannot. Backtrack only here.
-            begin = self.pos - 1
-            left = self.temporal()
-            self.need(")")
-            if self.peek() in BOOL or self.peek() in {"?", "["} and self.peek(1) not in {"*", "=", "->", "+"}:
-                self.pos = begin
-                left = Node("bool", (self.boolean(),))
+            # Local variable assignment/declaration, 16.9.11 and F.5.6.  The
+            # forms are (v = e) and (t v; R) (the type may be omitted).  They
+            # are recognised before the Boolean/temporal backtracking so the
+            # '=' and ';' tokens are never fed to boolean().
+            if (self.peek() in LOCAL_TYPES and re.fullmatch(r"[a-zA-Z_]\w*", self.peek(1))
+                    and self.peek(2) == ";"):
+                self.pop()
+                name = self.pop()
+                self.need(";")
+                left = Node("decl", (self.temporal(),), name)
+                self.need(")")
+            elif re.fullmatch(r"[a-zA-Z_]\w*", self.peek()) and self.peek(1) == "=":
+                name = self.pop()
+                self.need("=")
+                left = Node("assign", (self.boolean(),), name)
+                self.need(")")
+            elif re.fullmatch(r"[a-zA-Z_]\w*", self.peek()) and self.peek(1) == ";":
+                name = self.pop()
+                self.need(";")
+                left = Node("decl", (self.temporal(),), name)
+                self.need(")")
+            else:
+                # A parenthesized Boolean expression can continue with a
+                # Boolean operator, while a temporal group cannot. Backtrack
+                # only here.
+                begin = self.pos - 1
+                left = self.temporal()
+                self.need(")")
+                if self.peek() in BOOL or self.peek() in {"?", "["} and self.peek(1) not in {"*", "=", "->", "+"}:
+                    self.pos = begin
+                    left = Node("bool", (self.boolean(),))
         else:
             left = Node("bool", (self.boolean(),))
         while True:
@@ -270,7 +298,7 @@ class Parser:
                 if not self.take(","):
                     break
             self.need(")")
-            maximum = 1 if word == "$sampled" else 4 if word == "$past" else 2
+            maximum = 1 if word in {"$sampled", "$past_gclk", "$future_gclk"} else 4 if word == "$past" else 2
             if len(arguments) > maximum or arguments[0].op in {"omitted", "clock"}:
                 raise Unsupported("invalid sampled function arguments")
             for i, argument in enumerate(arguments[1:], 1):

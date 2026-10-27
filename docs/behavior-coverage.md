@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 86.09%、実行 47.44%。**
+**全規格の要求台帳ベース（暫定）: 設計 86.83%、実行 48.18%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10606/12319 (86.09%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5844/12319 (47.44%)。
-- 登録済みだがテスト未対応: 1713 動作。
+- 登録済み動作に対するテスト設計網羅率: 10697/12319 (86.83%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5935/12319 (48.18%)。
+- 登録済みだがテスト未対応: 1622 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -89,7 +89,7 @@
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
-- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T04:59:09.060282+00:00 / 103/12319 動作確認、古い入力との対応 0 件。
+- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T08:26:34.899009+00:00 / 194/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -220,7 +220,7 @@
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 9。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
-- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 103。
+- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 194。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 25。
 - H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 175。
 - I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 134。
@@ -127856,7 +127856,7 @@ Before formal evaluation, flatten sequence/nonrecursive property instances, elim
 
 ### SV2023-F.3.1-EXTRACT-BOOLEAN-CLOCKS
 
-F.3.1 / normal / テスト未対応
+F.3.1 / normal / 実行確認あり
 
 Formal clock controls are Boolean predicates; convert SystemVerilog event controls using tau, assuming event occurrences align with global-clock ticks.
 
@@ -127864,10 +127864,11 @@ Formal clock controls are Boolean predicates; convert SystemVerilog event contro
 
 規定の性質: `definition`。
 
+- [test_formal_f3_tau_boolean_clocks.sv](../tests/ch16/test_formal_f3_tau_boolean_clocks.sv): SymbiYosysでformalケースf3_tau_boolean_clocksを実行し、SV2023-F.3.1-EXTRACT-BOOLEAN-CLOCKSの意味論を独立RTL参照と比較する。3サンプル中の遷移回数を、イベント制御がグローバルtick上のBoolean述語として数えられることの参照RTLと比較する。tau(b)=changing(b) の集計がイベント発生回数と一致する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.1-EXTRACT-TAU-CHANGE
 
-F.3.1 / normal / テスト未対応
+F.3.1 / normal / 実行確認あり
 
 For b other than $global_clock, tau(b) is $changing_gclk(b).
 
@@ -127875,10 +127876,11 @@ For b other than $global_clock, tau(b) is $changing_gclk(b).
 
 規定の性質: `definition`。
 
+- [test_formal_f3_tau_change.sv](../tests/ch16/test_formal_f3_tau_change.sv): SymbiYosysでformalケースf3_tau_changeを実行し、SV2023-F.3.1-EXTRACT-TAU-CHANGEの意味論を独立RTL参照と比較する。tau(b)=changing_gclk(b) を2ビットbの現在値と次tick値の全体比較として実装し、参照RTLの不等式と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.1-EXTRACT-TAU-EDGE
 
-F.3.1 / normal / テスト未対応
+F.3.1 / normal / 実行確認あり
 
 tau(edge b) is the disjunction of rising and falling transforms.
 
@@ -127886,10 +127888,11 @@ tau(edge b) is the disjunction of rising and falling transforms.
 
 規定の性質: `definition`。
 
+- [test_formal_f3_tau_edge.sv](../tests/ch16/test_formal_f3_tau_edge.sv): SymbiYosysでformalケースf3_tau_edgeを実行し、SV2023-F.3.1-EXTRACT-TAU-EDGEの意味論を独立RTL参照と比較する。tau(edge b) をrisingとfallingの選言（LSBのXOR）として実装し、参照RTLと比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.1-EXTRACT-TAU-GLOBAL
 
-F.3.1 / normal / テスト未対応
+F.3.1 / normal / 実行確認あり
 
 tau($global_clock) is true.
 
@@ -127897,10 +127900,11 @@ tau($global_clock) is true.
 
 規定の性質: `definition`。
 
+- [test_formal_f3_tau_global.sv](../tests/ch16/test_formal_f3_tau_global.sv): SymbiYosysでformalケースf3_tau_globalを実行し、SV2023-F.3.1-EXTRACT-TAU-GLOBALの意味論を独立RTL参照と比較する。tau($global_clock) が常に真であることを、2tickの全語で定数1と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.1-EXTRACT-TAU-IFF
 
-F.3.1 / normal / テスト未対応
+F.3.1 / normal / 実行確認あり
 
 tau(e iff b) conjoins tau(e) with b.
 
@@ -127908,10 +127912,11 @@ tau(e iff b) conjoins tau(e) with b.
 
 規定の性質: `definition`。
 
+- [test_formal_f3_tau_iff.sv](../tests/ch16/test_formal_f3_tau_iff.sv): SymbiYosysでformalケースf3_tau_iffを実行し、SV2023-F.3.1-EXTRACT-TAU-IFFの意味論を独立RTL参照と比較する。tau(e iff b) を tau(posedge c) && b として実装し、参照RTLの rising_gclk(c)&&b と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.1-EXTRACT-TAU-NAMED
 
-F.3.1 / normal / テスト未対応
+F.3.1 / normal / 実行確認あり
 
 For named event e, tau(e) is $future_gclk of an auxiliary bit that is one exactly in event-trigger time slots and zero otherwise.
 
@@ -127919,10 +127924,11 @@ For named event e, tau(e) is $future_gclk of an auxiliary bit that is one exactl
 
 規定の性質: `definition`。
 
+- [test_formal_f3_tau_named.sv](../tests/ch16/test_formal_f3_tau_named.sv): SymbiYosysでformalケースf3_tau_namedを実行し、SV2023-F.3.1-EXTRACT-TAU-NAMEDの意味論を独立RTL参照と比較する。名前付きイベントの補助ビットがトリガslotで1になる入力trigを用意し、tau(e)=future_gclk(aux) を次tickのaux値として実装・参照比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.1-EXTRACT-TAU-NEG
 
-F.3.1 / normal / テスト未対応
+F.3.1 / normal / 実行確認あり
 
 tau(negedge b) is $falling_gclk(b).
 
@@ -127930,10 +127936,11 @@ tau(negedge b) is $falling_gclk(b).
 
 規定の性質: `definition`。
 
+- [test_formal_f3_tau_neg.sv](../tests/ch16/test_formal_f3_tau_neg.sv): SymbiYosysでformalケースf3_tau_negを実行し、SV2023-F.3.1-EXTRACT-TAU-NEGの意味論を独立RTL参照と比較する。tau(negedge b) をLSBが1から0へ変わることとして実装し、参照RTLの falling_gclk 比較と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.1-EXTRACT-TAU-OR
 
-F.3.1 / normal / テスト未対応
+F.3.1 / normal / 実行確認あり
 
 tau of event or/comma composition is the disjunction of the event transforms.
 
@@ -127941,10 +127948,11 @@ tau of event or/comma composition is the disjunction of the event transforms.
 
 規定の性質: `definition`。
 
+- [test_formal_f3_tau_or.sv](../tests/ch16/test_formal_f3_tau_or.sv): SymbiYosysでformalケースf3_tau_orを実行し、SV2023-F.3.1-EXTRACT-TAU-ORの意味論を独立RTL参照と比較する。tau(b or c) をtau(b)||tau(c) として実装し、各信号の現在/次tick変化の選言を書いた参照RTLと比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.1-EXTRACT-TAU-POS
 
-F.3.1 / normal / テスト未対応
+F.3.1 / normal / 実行確認あり
 
 tau(posedge b) is $rising_gclk(b).
 
@@ -127952,10 +127960,11 @@ tau(posedge b) is $rising_gclk(b).
 
 規定の性質: `definition`。
 
+- [test_formal_f3_tau_pos.sv](../tests/ch16/test_formal_f3_tau_pos.sv): SymbiYosysでformalケースf3_tau_posを実行し、SV2023-F.3.1-EXTRACT-TAU-POSの意味論を独立RTL参照と比較する。tau(posedge b) をLSBが0から1へ変わることとして実装し、参照RTLの rising_gclk 比較と一致することを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.2-EXTRACT-GRAMMAR-ASSERTION
 
-F.3.2 / normal / テスト未対応
+F.3.2 / normal / 実行確認あり
 
 Abstract assertions permit always/initial assert property(clocked top-level property), or always/initial @(Boolean) assert property(unclocked top-level property).
 
@@ -127963,10 +127972,11 @@ Abstract assertions permit always/initial assert property(clocked top-level prop
 
 規定の性質: `definition`。
 
+- [test_formal_f3_g_assertion.sv](../tests/ch16/test_formal_f3_g_assertion.sv): SymbiYosysでformalケースf3_g_assertionを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-ASSERTIONの意味論を独立RTL参照と比較する。clocked top-level property の代表例 @(c)(a##1b) を、assert property 形と always @(c) assert property 形の共通意味（最初のc tickでa、次のc tickでb）として評価する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.2-EXTRACT-GRAMMAR-P
 
-F.3.2 / normal / テスト未対応
+F.3.2 / normal / 実行確認あり
 
 Unclocked property forms are strong/weak sequence,local declaration,parentheses,not,or,and,overlapping implication,nexttime,until and accept_on.
 
@@ -127974,10 +127984,11 @@ Unclocked property forms are strong/weak sequence,local declaration,parentheses,
 
 規定の性質: `definition`。
 
+- [test_formal_f3_g_prop.sv](../tests/ch16/test_formal_f3_g_prop.sv): SymbiYosysでformalケースf3_g_propを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-Pの意味論を独立RTL参照と比較する。unclocked property の代表例 not(strong(a##1b)) を既存Engineで評価し、strongの失敗/成功を反転する独立RTL参照と比較する。not/strong/系列property/括弧を含む。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.2-EXTRACT-GRAMMAR-Q
 
-F.3.2 / normal / テスト未対応
+F.3.2 / normal / 実行確認あり
 
 Clocked property forms are clocked unclocked-property,strong/weak clocked sequence,local declaration,parentheses,not,or,and,clocked overlapping implication,nexttime,until and accept_on.
 
@@ -127985,10 +127996,11 @@ Clocked property forms are clocked unclocked-property,strong/weak clocked sequen
 
 規定の性質: `definition`。
 
+- [test_formal_f3_g_prop_clocked.sv](../tests/ch16/test_formal_f3_g_prop_clocked.sv): SymbiYosysでformalケースf3_g_prop_clockedを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-Qの意味論を独立RTL参照と比較する。clocked property の代表例 @(c) not(a##1b) を、Tsによるclock除去後のweak系列statusの否定として実装し、独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.2-EXTRACT-GRAMMAR-R
 
-F.3.2 / normal / テスト未対応
+F.3.2 / normal / 実行確認あり
 
 Unclocked sequence forms are Boolean,local declaration with optional initialization,local sampling assignment,parentheses,##1 concatenation,##0 fusion,or,intersect,first_match,null repetition and positive unbounded repetition.
 
@@ -127996,10 +128008,11 @@ Unclocked sequence forms are Boolean,local declaration with optional initializat
 
 規定の性質: `definition`。
 
+- [test_formal_f3_g_seq.sv](../tests/ch16/test_formal_f3_g_seq.sv): SymbiYosysでformalケースf3_g_seqを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-Rの意味論を独立RTL参照と比較する。unclocked sequence の代表例 first_match((a##1b) or (a##2c)) を年齢表で独立実装し、or/##1/##2/first_match/括弧の組合せを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.2-EXTRACT-GRAMMAR-S
 
-F.3.2 / normal / テスト未対応
+F.3.2 / normal / 実行確認あり
 
 Clocked sequence forms are @(Boolean) unclocked sequence,local declaration,parentheses and ##1 concatenation.
 
@@ -128007,10 +128020,11 @@ Clocked sequence forms are @(Boolean) unclocked sequence,local declaration,paren
 
 規定の性質: `definition`。
 
+- [test_formal_f3_g_seq_clocked.sv](../tests/ch16/test_formal_f3_g_seq_clocked.sv): SymbiYosysでformalケースf3_g_seq_clockedを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-Sの意味論を独立RTL参照と比較する。clocked sequence の代表例 @(c)(a##1b) の一致数を、Ts(a)##1 Ts(b) の独立RTL年齢表と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.2-EXTRACT-GRAMMAR-T
 
-F.3.2 / normal / テスト未対応
+F.3.2 / normal / 実行確認あり
 
 Unclocked top-level property is unclocked property,disable iff(Boolean) unclocked property,local declaration or parentheses.
 
@@ -128018,10 +128032,11 @@ Unclocked top-level property is unclocked property,disable iff(Boolean) unclocke
 
 規定の性質: `definition`。
 
+- [test_formal_f3_g_top.sv](../tests/ch16/test_formal_f3_g_top.sv): SymbiYosysでformalケースf3_g_topを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-Tの意味論を独立RTL参照と比較する。unclocked top-level の代表例 disable iff(d)(a##1b) を既存Engineのcurrent snapshot付き評価で実行し、dの各tick検査と固定##1のfailure/successを持つ独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.2-EXTRACT-GRAMMAR-U
 
-F.3.2 / normal / テスト未対応
+F.3.2 / normal / 実行確認あり
 
 Clocked top-level property is clocked property,disable iff(Boolean) clocked property,local declaration or parentheses.
 
@@ -128029,10 +128044,11 @@ Clocked top-level property is clocked property,disable iff(Boolean) clocked prop
 
 規定の性質: `definition`。
 
+- [test_formal_f3_g_top_clocked.sv](../tests/ch16/test_formal_f3_g_top_clocked.sv): SymbiYosysでformalケースf3_g_top_clockedを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-Uの意味論を独立RTL参照と比較する。clocked top-level の代表例 @(c) disable iff(d)(a##1b) をTs/Tpのdisable保存則で実装し、独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.2-EXTRACT-NONDEGENERATE-R
 
-F.3.2 / normal / テスト未対応
+F.3.2 / normal / 実行確認あり
 
 Unclocked sequences embedded in property grammar must be nondegenerate; sequence-property forms cannot be tightly satisfied by the empty word.
 
@@ -128040,10 +128056,11 @@ Unclocked sequences embedded in property grammar must be nondegenerate; sequence
 
 規定の性質: `definition`。
 
+- [test_formal_f3_g_nondeg_r.sv](../tests/ch16/test_formal_f3_g_nondeg_r.sv): SymbiYosysでformalケースf3_g_nondeg_rを実行し、SV2023-F.3.2-EXTRACT-NONDEGENERATE-Rの意味論を独立RTL参照と比較する。unclocked a##1b は空語で一致しない（age 0の一致数0）ことをDFAと独立年齢表の両方で固定し、age 2の唯一の一致も検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.2-EXTRACT-NONDEGENERATE-S
 
-F.3.2 / normal / テスト未対応
+F.3.2 / normal / 実行確認あり
 
 Clocked sequences embedded in property grammar must be nondegenerate; sequence-property forms cannot be tightly satisfied by the empty word.
 
@@ -128051,6 +128068,7 @@ Clocked sequences embedded in property grammar must be nondegenerate; sequence-p
 
 規定の性質: `definition`。
 
+- [test_formal_f3_g_nondeg_s.sv](../tests/ch16/test_formal_f3_g_nondeg_s.sv): SymbiYosysでformalケースf3_g_nondeg_sを実行し、SV2023-F.3.2-EXTRACT-NONDEGENERATE-Sの意味論を独立RTL参照と比較する。clocked @(c)(a##1b) のTs一致数を年齢表で比較し、age 0が常に0（空語でtight matchしない）であることを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.2-EXTRACT-SYMBOLS
 
@@ -128076,7 +128094,7 @@ Notation distinguishes Boolean/type/local/free-checker-variable/expression; R,S 
 
 ### SV2023-F.3.4-EXTRACT-ASSOCIATIVITY
 
-F.3.4 / normal / テスト未対応
+F.3.4 / normal / 実行確認あり
 
 Internal parentheses can be omitted for compositions of associative ##1 and or.
 
@@ -128084,10 +128102,12 @@ Internal parentheses can be omitted for compositions of associative ##1 and or.
 
 規定の性質: `definition`。
 
+- [test_formal_f3_assoc_concat.sv](../tests/ch16/test_formal_f3_assoc_concat.sv): SymbiYosysでformalケースf3_assoc_concatを実行し、SV2023-F.3.4-EXTRACT-ASSOCIATIVITYの意味論を独立RTL参照と比較する。##1 の結合性を、左結合 (a##1b)##1c のDFA一致数と、右結合 a##1(b##1c) を展開した独立年齢表 age3 で比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
+- [test_formal_f3_assoc_or.sv](../tests/ch16/test_formal_f3_assoc_or.sv): SymbiYosysでformalケースf3_assoc_orを実行し、SV2023-F.3.4-EXTRACT-ASSOCIATIVITYの意味論を独立RTL参照と比較する。or の結合性を、1文字Boolean言語の全8入力に対する真理値表で検査する。満足（tight satisfaction）は結合的で、括弧を省略しても同じ真理関数になる。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.4.1-EXTRACT-RESTRICT
 
-F.3.4.1 / normal / テスト未対応
+F.3.4.1 / normal / 実行確認あり
 
 For formal semantics, restrict property is equivalent to assume property.
 
@@ -128095,6 +128115,7 @@ For formal semantics, restrict property is equivalent to assume property.
 
 規定の性質: `definition`。
 
+- [test_formal_f3_restrict.sv](../tests/ch16/test_formal_f3_restrict.sv): SymbiYosysでformalケースf3_restrictを実行し、SV2023-F.3.4.1-EXTRACT-RESTRICTの意味論を独立RTL参照と比較する。restrict property を仮定propertyとして評価する経路（kindをassumeに写像）と、同じ系列のassume結果を書いた独立RTL参照を比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.4.2.1-EXTRACT-FINITE
 
@@ -128567,7 +128588,7 @@ r #-# p is not(r |-> not p).
 
 ### SV2023-F.3.4.3.7-EXTRACT-REJECT
 
-F.3.4.3.7 / normal / テスト未対応
+F.3.4.3.7 / normal / 実行確認あり
 
 reject_on(b) P is not accept_on(b) not P.
 
@@ -128575,10 +128596,11 @@ reject_on(b) P is not accept_on(b) not P.
 
 規定の性質: `definition`。
 
+- [test_formal_f3_reject.sv](../tests/ch16/test_formal_f3_reject.sv): SymbiYosysでformalケースf3_rejectを実行し、SV2023-F.3.4.3.7-EXTRACT-REJECTの意味論を独立RTL参照と比較する。reject_on(g) P を not accept_on(g) not P として実装し、gが決定tick以前に起こればfailure、起きなければPのweak statusとなる独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.4.3.7-EXTRACT-SYNC-ACCEPT
 
-F.3.4.3.7 / normal / テスト未対応
+F.3.4.3.7 / normal / 実行確認あり
 
 sync_accept_on(b) P equals accept_on(b) P when clock context is 1.
 
@@ -128586,10 +128608,11 @@ sync_accept_on(b) P equals accept_on(b) P when clock context is 1.
 
 規定の性質: `definition`。
 
+- [test_formal_f3_sync_accept.sv](../tests/ch16/test_formal_f3_sync_accept.sv): SymbiYosysでformalケースf3_sync_acceptを実行し、SV2023-F.3.4.3.7-EXTRACT-SYNC-ACCEPTの意味論を独立RTL参照と比較する。clock context 1 で sync_accept_on(g) P が accept_on(g) P に等しいことを、gの全tick走査を持つ独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.4.3.7-EXTRACT-SYNC-REJECT
 
-F.3.4.3.7 / normal / テスト未対応
+F.3.4.3.7 / normal / 実行確認あり
 
 sync_reject_on(b) P is not sync_accept_on(b) not P.
 
@@ -128597,6 +128620,7 @@ sync_reject_on(b) P is not sync_accept_on(b) not P.
 
 規定の性質: `definition`。
 
+- [test_formal_f3_sync_reject.sv](../tests/ch16/test_formal_f3_sync_reject.sv): SymbiYosysでformalケースf3_sync_rejectを実行し、SV2023-F.3.4.3.7-EXTRACT-SYNC-REJECTの意味論を独立RTL参照と比較する。clock context 1 で sync_reject_on(g) P = not sync_accept_on(g) not P を実装し、g発生時failure・非発生時Pとなる独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.4.3.8-EXTRACT-ALWAYS
 
@@ -128816,7 +128840,7 @@ $fell(e,c) is true exactly when prior clock sample of LSB is case-unequal to 0 a
 
 ### SV2023-F.3.4.4-EXTRACT-FUTURE-GLOBAL
 
-F.3.4.4 / normal / テスト未対応
+F.3.4.4 / normal / 実行確認あり
 
 $rising_gclk/$falling_gclk require current LSB case-unequal to 1/0 and future-global LSB case-equal to 1/0 respectively; $steady_gclk/$changing_gclk use full-expression case equality/inequality against $future_gclk.
 
@@ -128824,10 +128848,11 @@ $rising_gclk/$falling_gclk require current LSB case-unequal to 1/0 and future-gl
 
 規定の性質: `definition`。
 
+- [test_formal_f3_future_global.sv](../tests/ch16/test_formal_f3_future_global.sv): SymbiYosysでformalケースf3_future_globalを実行し、SV2023-F.3.4.4-EXTRACT-FUTURE-GLOBALの意味論を独立RTL参照と比較する。2ビットvの現在値と次tick値から $rising_gclk/$falling_gclk/$steady_gclk/$changing_gclk の4ビットを計算し、LSB比較と全体比較を書いた独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.4.4-EXTRACT-PAST-GLOBAL
 
-F.3.4.4 / normal / テスト未対応
+F.3.4.4 / normal / 実行確認あり
 
 $rose_gclk/$fell_gclk/$stable_gclk/$changed_gclk use the same comparisons with $past_gclk, using only LSB for rise/fall.
 
@@ -128835,6 +128860,7 @@ $rose_gclk/$fell_gclk/$stable_gclk/$changed_gclk use the same comparisons with $
 
 規定の性質: `definition`。
 
+- [test_formal_f3_past_global.sv](../tests/ch16/test_formal_f3_past_global.sv): SymbiYosysでformalケースf3_past_globalを実行し、SV2023-F.3.4.4-EXTRACT-PAST-GLOBALの意味論を独立RTL参照と比較する。3tickの最後の2tick（past/current）から4ビットの $*_gclk 比較を計算し、LSB比較と全体比較の独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.3.4.4-EXTRACT-ROSE
 
@@ -129425,7 +129451,7 @@ For i<=j, subword i..j deletes earlier and later letters; if i<=j<length it incl
 
 ### SV2023-F.5.1-EXTRACT-CLOCK-INDEPENDENCE
 
-F.5.1 / normal / テスト未対応
+F.5.1 / normal / 実行確認あり
 
 Clock elimination preserves satisfaction; conditions in event controls must not depend on local variables.
 
@@ -129433,6 +129459,7 @@ Clock elimination preserves satisfaction; conditions in event controls must not 
 
 規定の性質: `definition`。
 
+- [test_formal_f51_clock_independence.sv](../tests/ch16/test_formal_f51_clock_independence.sv): SymbiYosysでformalケースf51_clock_independenceを実行し、SV2023-F.5.1-EXTRACT-CLOCK-INDEPENDENCEの意味論を独立RTL参照と比較する。clocked property @(c)((a##1b)|->d) のstatusと、Ts(a##1b)|->d の独立RTL参照を比較し、clock除去が満足を保存することを代表例で検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.1-EXTRACT-ASSIGN
 
@@ -129447,7 +129474,7 @@ Ts of local sampling assignment is Ts(1,c) ##0 assignment.
 
 ### SV2023-F.5.1.1-EXTRACT-BOOLEAN
 
-F.5.1.1 / normal / テスト未対応
+F.5.1.1 / normal / 実行確認あり
 
 Sequence clock transform Ts(b,c) is !c\[*0:$\] ##1 (c & b).
 
@@ -129455,10 +129482,11 @@ Sequence clock transform Ts(b,c) is !c\[*0:$\] ##1 (c & b).
 
 規定の性質: `definition`。
 
+- [test_formal_f51_ts_boolean.sv](../tests/ch16/test_formal_f51_ts_boolean.sv): SymbiYosysでformalケースf51_ts_booleanを実行し、SV2023-F.5.1.1-EXTRACT-BOOLEANの意味論を独立RTL参照と比較する。clocked @(c)b の一致数と、Ts(b,c)=!c\[*0:$\]##1(c&b) の独立年齢表を比較する。cが真のtickでbが偽なら、そこで打ち切られ後続tickへ読み飛ばさないことも含む。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.1-EXTRACT-CHOICE
 
-F.5.1.1 / normal / テスト未対応
+F.5.1.1 / normal / 実行確認あり
 
 Ts distributes through or/intersect.
 
@@ -129466,10 +129494,11 @@ Ts distributes through or/intersect.
 
 規定の性質: `definition`。
 
+- [test_formal_f51_ts_choice.sv](../tests/ch16/test_formal_f51_ts_choice.sv): SymbiYosysでformalケースf51_ts_choiceを実行し、SV2023-F.5.1.1-EXTRACT-CHOICEの意味論を独立RTL参照と比較する。clocked @(c)((a or b)##1b) の一致数と、(Ts(a,c) or Ts(b,c))##1 Ts(b,c) の独立年齢表を比較し、orへの分配と系列orの多重度を検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.1-EXTRACT-CLOCK
 
-F.5.1.1 / normal / テスト未対応
+F.5.1.1 / normal / 実行確認あり
 
 An explicit nested clock replaces inherited clock for the operand.
 
@@ -129477,10 +129506,11 @@ An explicit nested clock replaces inherited clock for the operand.
 
 規定の性質: `definition`。
 
+- [test_formal_f51_ts_clock.sv](../tests/ch16/test_formal_f51_ts_clock.sv): SymbiYosysでformalケースf51_ts_clockを実行し、SV2023-F.5.1.1-EXTRACT-CLOCKの意味論を独立RTL参照と比較する。clocked @(c1)(a or @(c2)b) の一致数と、Ts(a,c1) or Ts(b,c2) の独立年齢表を比較し、入れ子の明示clockが継承clockを置換することを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.1-EXTRACT-CONCAT
 
-F.5.1.1 / normal / テスト未対応
+F.5.1.1 / normal / 実行確認あり
 
 Ts distributes through ##1 and ##0 with the same inherited clock.
 
@@ -129488,10 +129518,11 @@ Ts distributes through ##1 and ##0 with the same inherited clock.
 
 規定の性質: `definition`。
 
+- [test_formal_f51_ts_concat.sv](../tests/ch16/test_formal_f51_ts_concat.sv): SymbiYosysでformalケースf51_ts_concatを実行し、SV2023-F.5.1.1-EXTRACT-CONCATの意味論を独立RTL参照と比較する。clocked @(c)(a##1b) の一致数と、Ts(a,c)##1 Ts(b,c) の独立年齢表を比較し、##1がグローバルletterの遅延として分配されることを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.1-EXTRACT-FIRST
 
-F.5.1.1 / normal / テスト未対応
+F.5.1.1 / normal / 実行確認あり
 
 Ts preserves first_match around transformed operand.
 
@@ -129499,10 +129530,11 @@ Ts preserves first_match around transformed operand.
 
 規定の性質: `definition`。
 
+- [test_formal_f51_ts_first.sv](../tests/ch16/test_formal_f51_ts_first.sv): SymbiYosysでformalケースf51_ts_firstを実行し、SV2023-F.5.1.1-EXTRACT-FIRSTの意味論を独立RTL参照と比較する。clocked @(c) first_match((a##1b) or (a##2d)) の一致数と、first_match(Ts(a##1b) or Ts(a##2d)) の独立年齢表を比較し、最早終了のみを残すことを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.1-EXTRACT-REPEAT
 
-F.5.1.1 / normal / テスト未対応
+F.5.1.1 / normal / 実行確認あり
 
 Ts preserves null and positive unbounded repetition around transformed operand.
 
@@ -129510,10 +129542,12 @@ Ts preserves null and positive unbounded repetition around transformed operand.
 
 規定の性質: `definition`。
 
+- [test_formal_f51_ts_repeat.sv](../tests/ch16/test_formal_f51_ts_repeat.sv): SymbiYosysでformalケースf51_ts_repeatを実行し、SV2023-F.5.1.1-EXTRACT-REPEATの意味論を独立RTL参照と比較する。clocked @(c) a\[*0:1\] の一致数と、Ts(a,c)\[*0:1\] の独立年齢表を比較し、空繰返しがage 0に保存されることを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
+- [test_formal_f51_ts_repeat_plus.sv](../tests/ch16/test_formal_f51_ts_repeat_plus.sv): SymbiYosysでformalケースf51_ts_repeat_plusを実行し、SV2023-F.5.1.1-EXTRACT-REPEATの意味論を独立RTL参照と比較する。clocked @(c) a\[+\] の一致数と、Ts(a,c)\[*1:$\] の独立年齢表を比較し、正の無限繰返しがclock tick列の全a一致として保存されることを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.2-EXTRACT-ASYNC
 
-F.5.1.2 / normal / テスト未対応
+F.5.1.2 / normal / 実行確認あり
 
 Tp preserves disable iff/accept_on conditions without clock gating, transforming only property operand.
 
@@ -129521,10 +129555,11 @@ Tp preserves disable iff/accept_on conditions without clock gating, transforming
 
 規定の性質: `definition`。
 
+- [test_formal_f51_async.sv](../tests/ch16/test_formal_f51_async.sv): SymbiYosysでformalケースf51_asyncを実行し、SV2023-F.5.1.2-EXTRACT-ASYNCの意味論を独立RTL参照と比較する。clocked @(c) disable iff(d)(a##1b) のstatusと、disable iff(d) Ts(a##1b) の独立RTL参照を比較する。dはclockでgateせず全tickで検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.2-EXTRACT-BOOLEAN-IMPLICATION
 
-F.5.1.2 / normal / テスト未対応
+F.5.1.2 / normal / 実行確認あり
 
 Tp preserves not/or/and and transforms both property operands; implication transforms antecedent by Ts and consequent by Tp.
 
@@ -129532,10 +129567,11 @@ Tp preserves not/or/and and transforms both property operands; implication trans
 
 規定の性質: `definition`。
 
+- [test_formal_f51_impl_boolean.sv](../tests/ch16/test_formal_f51_impl_boolean.sv): SymbiYosysでformalケースf51_impl_booleanを実行し、SV2023-F.5.1.2-EXTRACT-BOOLEAN-IMPLICATIONの意味論を独立RTL参照と比較する。clocked @(c)(a|->b) のstatusと、Ts(a,c)|->Tp(b,c) の独立RTL参照を比較し、not/or/andの保存とimplicationのantecedent/consequent変換を代表例で検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.2-EXTRACT-NEXT
 
-F.5.1.2 / normal / テスト未対応
+F.5.1.2 / normal / 実行確認あり
 
 Tp(nexttime p,c) waits for first clock then next step then next clock before evaluating Tp(p,c), using !c until (c and nexttime(!c until(c and Tp(p,c)))).
 
@@ -129543,10 +129579,11 @@ Tp(nexttime p,c) waits for first clock then next step then next clock before eva
 
 規定の性質: `definition`。
 
+- [test_formal_f51_next.sv](../tests/ch16/test_formal_f51_next.sv): SymbiYosysでformalケースf51_nextを実行し、SV2023-F.5.1.2-EXTRACT-NEXTの意味論を独立RTL参照と比較する。clocked @(c) nexttime p のstatusと、!c until(c && nexttime(!c until(c && Tp(p,c)))) の独立RTL参照を比較する。最初のc tickの次tick、その次のc tickでpを評価する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.2-EXTRACT-SEQUENCE
 
-F.5.1.2 / normal / テスト未対応
+F.5.1.2 / normal / 実行確認あり
 
 Tp preserves strong/weak around Ts of sequence; explicit nested clock overrides inherited clock.
 
@@ -129554,10 +129591,11 @@ Tp preserves strong/weak around Ts of sequence; explicit nested clock overrides 
 
 規定の性質: `definition`。
 
+- [test_formal_f51_sequence.sv](../tests/ch16/test_formal_f51_sequence.sv): SymbiYosysでformalケースf51_sequenceを実行し、SV2023-F.5.1.2-EXTRACT-SEQUENCEの意味論を独立RTL参照と比較する。clocked @(c)(a##1b)（weak既定）のstatusと、weak(Ts(a,c)##1 Ts(b,c)) の独立RTL参照を比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.2-EXTRACT-SYNC
 
-F.5.1.2 / normal / テスト未対応
+F.5.1.2 / normal / 実行確認あり
 
 Tp(sync_accept_on(b) p,c) is accept_on(b&&c) Tp(p,c).
 
@@ -129565,10 +129603,11 @@ Tp(sync_accept_on(b) p,c) is accept_on(b&&c) Tp(p,c).
 
 規定の性質: `definition`。
 
+- [test_formal_f51_sync.sv](../tests/ch16/test_formal_f51_sync.sv): SymbiYosysでformalケースf51_syncを実行し、SV2023-F.5.1.2-EXTRACT-SYNCの意味論を独立RTL参照と比較する。clocked @(c) sync_accept_on(g)(a##1b) のstatusと、accept_on(g&&c) Ts(a##1b) の独立RTL参照を比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.1.2-EXTRACT-UNTIL
 
-F.5.1.2 / normal / テスト未対応
+F.5.1.2 / normal / 実行確認あり
 
 Tp(p until q,c) is (not(c and not Tp(p,c))) until (c and Tp(q,c)).
 
@@ -129576,6 +129615,7 @@ Tp(p until q,c) is (not(c and not Tp(p,c))) until (c and Tp(q,c)).
 
 規定の性質: `definition`。
 
+- [test_formal_f51_until.sv](../tests/ch16/test_formal_f51_until.sv): SymbiYosysでformalケースf51_untilを実行し、SV2023-F.5.1.2-EXTRACT-UNTILの意味論を独立RTL参照と比較する。clocked @(c)(p until q) のstatusと、(not(c && not p)) until(c && q) の独立RTL参照を比較する。非clock tickは左operandが真として読み飛ばされる。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.2-EXTRACT-BOOLEAN
 
@@ -130101,7 +130141,7 @@ until and s_until are nonvacuous iff some in-word suffix has either operand nonv
 
 ### SV2023-F.5.4-EXTRACT-BLOCK-BASE
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 block(Boolean),block(assignment),block(null repetition) are empty; local declaration removes its name; parentheses,first_match and positive repetition preserve operand block.
 
@@ -130109,10 +130149,11 @@ block(Boolean),block(assignment),block(null repetition) are empty; local declara
 
 規定の性質: `definition`。
 
+- [test_formal_f54_block_base.sv](../tests/ch16/test_formal_f54_block_base.sv): SymbiYosysでformalケースf54_block_baseを実行し、SV2023-F.5.4-EXTRACT-BLOCK-BASEの意味論を独立RTL参照と比較する。block(Boolean/assignment/null repetition) is empty, a declaration adds its name, and parentheses/first_match/positive repetition preserve the operand block. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-BLOCK-CONCAT
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 block of concat/fusion is (block(left) minus flow(empty,right)) union block(right).
 
@@ -130120,10 +130161,11 @@ block of concat/fusion is (block(left) minus flow(empty,right)) union block(righ
 
 規定の性質: `definition`。
 
+- [test_formal_f54_block_concat.sv](../tests/ch16/test_formal_f54_block_concat.sv): SymbiYosysでformalケースf54_block_concatを実行し、SV2023-F.5.4-EXTRACT-BLOCK-CONCATの意味論を独立RTL参照と比較する。block(concat) = (block(left) - flow(empty,right)) union block(right); a name assigned by the right operand lets the left declaration escape. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-BLOCK-INTERSECT
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 block(intersect) is union of operand block sets and intersection of operand sample sets.
 
@@ -130131,10 +130173,11 @@ block(intersect) is union of operand block sets and intersection of operand samp
 
 規定の性質: `definition`。
 
+- [test_formal_f54_block_intersect.sv](../tests/ch16/test_formal_f54_block_intersect.sv): SymbiYosysでformalケースf54_block_intersectを実行し、SV2023-F.5.4-EXTRACT-BLOCK-INTERSECTの意味論を独立RTL参照と比較する。block(intersect) is the union of the branch block sets; sample(intersect) is the intersection of the branch sample sets.  The packed result tests both equations. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-BLOCK-OR
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 block(or) is union of operand block sets.
 
@@ -130142,10 +130185,11 @@ block(or) is union of operand block sets.
 
 規定の性質: `definition`。
 
+- [test_formal_f54_block_or.sv](../tests/ch16/test_formal_f54_block_or.sv): SymbiYosysでformalケースf54_block_orを実行し、SV2023-F.5.4-EXTRACT-BLOCK-ORの意味論を独立RTL参照と比較する。block(or) is the union of the operand block sets, independent of assignment. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-FLOW-BASE
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 flow through Boolean or null repetition preserves incoming X; assignment adds its local name; parentheses,first_match and positive repetition use operand flow.
 
@@ -130153,10 +130197,11 @@ flow through Boolean or null repetition preserves incoming X; assignment adds it
 
 規定の性質: `definition`。
 
+- [test_formal_f54_flow_base.sv](../tests/ch16/test_formal_f54_flow_base.sv): SymbiYosysでformalケースf54_flow_baseを実行し、SV2023-F.5.4-EXTRACT-FLOW-BASEの意味論を独立RTL参照と比較する。flow through a Boolean or null repetition is the incoming set X; an assignment adds its local name; parentheses, first_match and positive repetition use the operand flow. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-FLOW-CONCAT
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 flow through concat/fusion composes left then right flow.
 
@@ -130164,10 +130209,11 @@ flow through concat/fusion composes left then right flow.
 
 規定の性質: `definition`。
 
+- [test_formal_f54_flow_concat.sv](../tests/ch16/test_formal_f54_flow_concat.sv): SymbiYosysでformalケースf54_flow_concatを実行し、SV2023-F.5.4-EXTRACT-FLOW-CONCATの意味論を独立RTL参照と比較する。flow(concat) composes left then right: flow(flow(X,left),right).  Variant 1 shows that a left declaration removes the name before the right flow is taken. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-FLOW-INTERSECT
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 flow through intersect is union of branch flow sets minus block(intersect).
 
@@ -130175,10 +130221,11 @@ flow through intersect is union of branch flow sets minus block(intersect).
 
 規定の性質: `definition`。
 
+- [test_formal_f54_flow_intersect.sv](../tests/ch16/test_formal_f54_flow_intersect.sv): SymbiYosysでformalケースf54_flow_intersectを実行し、SV2023-F.5.4-EXTRACT-FLOW-INTERSECTの意味論を独立RTL参照と比較する。flow(intersect) is the union of both branch flows minus block(intersect).  Variant 1 declares v and w in the branches, so both are removed. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-FLOW-OR
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 flow through or is intersection of branch flow sets.
 
@@ -130186,10 +130233,11 @@ flow through or is intersection of branch flow sets.
 
 規定の性質: `definition`。
 
+- [test_formal_f54_flow_or.sv](../tests/ch16/test_formal_f54_flow_or.sv): SymbiYosysでformalケースf54_flow_orを実行し、SV2023-F.5.4-EXTRACT-FLOW-ORの意味論を独立RTL参照と比較する。flow(or) is the intersection of the two branch flows; a declaration in one branch therefore removes that name from the result. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-FLOW-SCOPE
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 flow(X,local v;R) preserves incoming outer v, runs R with v removed, and removes inner v from outgoing flow.
 
@@ -130197,10 +130245,11 @@ flow(X,local v;R) preserves incoming outer v, runs R with v removed, and removes
 
 規定の性質: `definition`。
 
+- [test_formal_f54_flow_scope.sv](../tests/ch16/test_formal_f54_flow_scope.sv): SymbiYosysでformalケースf54_flow_scopeを実行し、SV2023-F.5.4-EXTRACT-FLOW-SCOPEの意味論を独立RTL参照と比較する。flow(local v;R) runs R with incoming v removed, removes inner v from the outgoing flow, and restores an incoming outer v.  Variant 0 keeps outer v and adds w. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-SAMPLE-BASE
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 sample(Boolean) and sample(null repetition) are empty; sample(assignment to v) is {v}.
 
@@ -130208,10 +130257,11 @@ sample(Boolean) and sample(null repetition) are empty; sample(assignment to v) i
 
 規定の性質: `definition`。
 
+- [test_formal_f54_sample_base.sv](../tests/ch16/test_formal_f54_sample_base.sv): SymbiYosysでformalケースf54_sample_baseを実行し、SV2023-F.5.4-EXTRACT-SAMPLE-BASEの意味論を独立RTL参照と比較する。sample(Boolean) and sample(null repetition) are empty; sample(assignment to v) is {v}; parentheses, first_match and positive repetition preserve it. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-SAMPLE-BINARY
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 sample of concat,fusion,or,intersect is union of operand sample sets.
 
@@ -130219,10 +130269,11 @@ sample of concat,fusion,or,intersect is union of operand sample sets.
 
 規定の性質: `definition`。
 
+- [test_formal_f54_sample_binary.sv](../tests/ch16/test_formal_f54_sample_binary.sv): SymbiYosysでformalケースf54_sample_binaryを実行し、SV2023-F.5.4-EXTRACT-SAMPLE-BINARYの意味論を独立RTL参照と比較する。sample of concat, fusion, or and intersect is the union of the operand sample sets. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-SAMPLE-SCOPE
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 sample(local v;R) removes v; parentheses,first_match and positive repetition preserve operand sample.
 
@@ -130230,10 +130281,11 @@ sample(local v;R) removes v; parentheses,first_match and positive repetition pre
 
 規定の性質: `definition`。
 
+- [test_formal_f54_sample_scope.sv](../tests/ch16/test_formal_f54_sample_scope.sv): SymbiYosysでformalケースf54_sample_scopeを実行し、SV2023-F.5.4-EXTRACT-SAMPLE-SCOPEの意味論を独立RTL参照と比較する。sample(local v;R) removes v; parentheses, first_match and positive repetition preserve the operand sample set. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-SETS
 
-F.5.4 / normal / テスト未対応
+F.5.4 / normal / 実行確認あり
 
 sample returns assigned local names,block names prevented from flowing out,flow(X,R) names flowing out for incoming set X; operators are set union,intersection,difference and empty set.
 
@@ -130241,10 +130293,11 @@ sample returns assigned local names,block names prevented from flowing out,flow(
 
 規定の性質: `definition`。
 
+- [test_formal_f54_sets.sv](../tests/ch16/test_formal_f54_sets.sv): SymbiYosysでformalケースf54_setsを実行し、SV2023-F.5.4-EXTRACT-SETSの意味論を独立RTL参照と比較する。F.5.4 uses set union, intersection, difference and the empty set; this case fixes the four operators on all pairs of 3-name subsets. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-ASSIGN
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 Local sampling matches one letter satisfying true; evaluates expression using local context first then letter, replaces v and preserves other inputs; for top/bottom letter expression can be any constant of its type.
 
@@ -130252,10 +130305,11 @@ Local sampling matches one letter satisfying true; evaluates expression using lo
 
 規定の性質: `definition`。
 
+- [test_formal_f55_assign.sv](../tests/ch16/test_formal_f55_assign.sv): SymbiYosysでformalケースf55_assignを実行し、SV2023-F.5.5-EXTRACT-ASSIGNの意味論を独立RTL参照と比較する。An assignment matches one letter satisfying true, evaluates its expression with the local context consulted before the letter, replaces only its own name and preserves the other inputs. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-BOOLEAN
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 Boolean tightly matches exactly one satisfying letter after local substitution and preserves context; parentheses preserve relation.
 
@@ -130263,10 +130317,11 @@ Boolean tightly matches exactly one satisfying letter after local substitution a
 
 規定の性質: `definition`。
 
+- [test_formal_f55_boolean.sv](../tests/ch16/test_formal_f55_boolean.sv): SymbiYosysでformalケースf55_booleanを実行し、SV2023-F.5.5-EXTRACT-BOOLEANの意味論を独立RTL参照と比較する。A Boolean tightly matches exactly one letter satisfying it after local substitution; parentheses preserve the relation and the context is unchanged. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-CLOCKED
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 Clocked local tight satisfaction equals unclocked rewrite with same input/output contexts.
 
@@ -130274,10 +130329,11 @@ Clocked local tight satisfaction equals unclocked rewrite with same input/output
 
 規定の性質: `definition`。
 
+- [test_formal_f55_clocked.sv](../tests/ch16/test_formal_f55_clocked.sv): SymbiYosysでformalケースf55_clockedを実行し、SV2023-F.5.5-EXTRACT-CLOCKEDの意味論を独立RTL参照と比較する。A clocked local tight match equals its unclocked rewrite with the same input and output contexts; the single clock does not change context threading. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-CONCAT
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 Concat passes left output context to right input on adjacent word pieces; fusion does likewise with a single shared letter.
 
@@ -130285,10 +130341,11 @@ Concat passes left output context to right input on adjacent word pieces; fusion
 
 規定の性質: `definition`。
 
+- [test_formal_f55_concat.sv](../tests/ch16/test_formal_f55_concat.sv): SymbiYosysでformalケースf55_concatを実行し、SV2023-F.5.5-EXTRACT-CONCATの意味論を独立RTL参照と比較する。Concat passes the left output context to the right on adjacent pieces; fusion does the same on one shared letter, so the right assignment reads b at tick 0 instead of 1. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-CONTEXT
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 Local context maps names to values; context restriction limits domain; L without v removes v, L\[v\] keeps only v.
 
@@ -130296,10 +130353,11 @@ Local context maps names to values; context restriction limits domain; L without
 
 規定の性質: `definition`。
 
+- [test_formal_f55_context.sv](../tests/ch16/test_formal_f55_context.sv): SymbiYosysでformalケースf55_contextを実行し、SV2023-F.5.5-EXTRACT-CONTEXTの意味論を独立RTL参照と比較する。L without v removes v and L\[v\] keeps only v; the packed result exposes both the domain and the retained values. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-DECL
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 A local declaration evaluates operand with incoming v removed and restores outer v alongside outgoing context with inner v removed.
 
@@ -130307,10 +130365,11 @@ A local declaration evaluates operand with incoming v removed and restores outer
 
 規定の性質: `definition`。
 
+- [test_formal_f55_decl.sv](../tests/ch16/test_formal_f55_decl.sv): SymbiYosysでformalケースf55_declを実行し、SV2023-F.5.5-EXTRACT-DECLの意味論を独立RTL参照と比較する。The operand runs with incoming v removed; the outgoing context drops the inner v and restores the outer v, alongside the names the operand produced. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-FIRST
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 first_match requires a match and no proper prefix whose dual word matches with the same input context and some output context.
 
@@ -130318,10 +130377,11 @@ first_match requires a match and no proper prefix whose dual word matches with t
 
 規定の性質: `definition`。
 
+- [test_formal_f55_first.sv](../tests/ch16/test_formal_f55_first.sv): SymbiYosysでformalケースf55_firstを実行し、SV2023-F.5.5-EXTRACT-FIRSTの意味論を独立RTL参照と比較する。first_match at tick 2 requires a match of the operand and no earlier ending match of a proper prefix with the same input context. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-INTERSECT
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 intersect matches both branches with same input and word; combine each output restricted to its branch flow minus combined block and other branch sample, yielding a valid function.
 
@@ -130329,10 +130389,11 @@ intersect matches both branches with same input and word; combine each output re
 
 規定の性質: `definition`。
 
+- [test_formal_f55_intersect.sv](../tests/ch16/test_formal_f55_intersect.sv): SymbiYosysでformalケースf55_intersectを実行し、SV2023-F.5.5-EXTRACT-INTERSECTの意味論を独立RTL参照と比較する。Both branches match the same input and word; each output is restricted to its branch flow minus the combined block and the other branch's sample set.  In variant 0 the common assigned v therefore disappears while w and x remain. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-NONDEGENERATE
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 Local sequence is nondegenerate iff a nonempty finite word and some input/output contexts tightly satisfy it; clocked case uses its rewrite.
 
@@ -130340,10 +130401,11 @@ Local sequence is nondegenerate iff a nonempty finite word and some input/output
 
 規定の性質: `definition`。
 
+- [test_formal_f55_non_degenerate.sv](../tests/ch16/test_formal_f55_non_degenerate.sv): SymbiYosysでformalケースf55_non_degenerateを実行し、SV2023-F.5.5-EXTRACT-NONDEGENERATEの意味論を独立RTL参照と比較する。A local sequence is nondegenerate exactly when a nonempty finite word and some input/output contexts tightly satisfy it; the empty-only fusion is degenerate. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-NULL
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 Null repetition requires empty word and unchanged context.
 
@@ -130351,10 +130413,11 @@ Null repetition requires empty word and unchanged context.
 
 規定の性質: `definition`。
 
+- [test_formal_f55_null.sv](../tests/ch16/test_formal_f55_null.sv): SymbiYosysでformalケースf55_nullを実行し、SV2023-F.5.5-EXTRACT-NULLの意味論を独立RTL参照と比較する。A null repetition matches the empty word with an unchanged context; the same sequence does not match a one-letter word. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-OR
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 or may match either branch, then restricts its resulting context to flow of the complete or expression.
 
@@ -130362,10 +130425,11 @@ or may match either branch, then restricts its resulting context to flow of the 
 
 規定の性質: `definition`。
 
+- [test_formal_f55_or.sv](../tests/ch16/test_formal_f55_or.sv): SymbiYosysでformalケースf55_orを実行し、SV2023-F.5.5-EXTRACT-ORの意味論を独立RTL参照と比較する。or may match either branch and then restricts the resulting context to flow(or).  Two assignments to different names flow to the empty set; two assignments to v leave the two possible v values. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-REPEAT
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 Positive unbounded repetition has one or more successive matches, threading context from each piece into the next and using final context as result.
 
@@ -130373,10 +130437,11 @@ Positive unbounded repetition has one or more successive matches, threading cont
 
 規定の性質: `definition`。
 
+- [test_formal_f55_repeat.sv](../tests/ch16/test_formal_f55_repeat.sv): SymbiYosysでformalケースf55_repeatを実行し、SV2023-F.5.5-EXTRACT-REPEATの意味論を独立RTL参照と比較する。A positive unbounded repetition threads the context from each piece into the next and returns the final context; the three possible counts on a three-letter word produce initial+1, +2 and +3. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.5-EXTRACT-TIGHT-CONTEXT
 
-F.5.5 / normal / テスト未対応
+F.5.5 / normal / 実行確認あり
 
 Tight local satisfaction relates finite word,input context,sequence and output context; output domain equals flow(input domain,sequence).
 
@@ -130384,6 +130449,7 @@ Tight local satisfaction relates finite word,input context,sequence and output c
 
 規定の性質: `definition`。
 
+- [test_formal_f55_tight_context.sv](../tests/ch16/test_formal_f55_tight_context.sv): SymbiYosysでformalケースf55_tight_contextを実行し、SV2023-F.5.5-EXTRACT-TIGHT-CONTEXTの意味論を独立RTL参照と比較する。Tight local satisfaction has an output context whose domain equals flow of the input domain through the sequence; the packed mask is that domain. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.1-EXTRACT-ACCEPT-CONTEXT-TEXT
 
@@ -130398,7 +130464,7 @@ Local accept_on passes if the operand passes under L0 with no abort, or b holds 
 
 ### SV2023-F.5.6.1-EXTRACT-ASSERTIONS
 
-F.5.6.1 / normal / テスト未対応
+F.5.6.1 / normal / 実行確認あり
 
 Neutral local satisfaction uses nonempty finite/infinite words and local contexts; assertion-statement rules are identical to no-local rules while underlying properties may have locals.
 
@@ -130406,10 +130472,11 @@ Neutral local satisfaction uses nonempty finite/infinite words and local context
 
 規定の性質: `definition`。
 
+- [test_formal_f561_assertions.sv](../tests/ch16/test_formal_f561_assertions.sv): SymbiYosysでformalケースf561_assertionsを実行し、SV2023-F.5.6.1-EXTRACT-ASSERTIONSの意味論を独立RTL参照と比較する。An assertion statement with locals follows the ordinary assertion-statement rules; the underlying property may nevertheless contain a local declaration and implication.  The declared v is removed before the antecedent and w threads to the consequent. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.1-EXTRACT-BOOLEAN
 
-F.5.6.1 / normal / テスト未対応
+F.5.6.1 / normal / 実行確認あり
 
 Local and/or use conjunction/disjunction with same incoming context; nexttime uses suffix one or empty-word truth; until requires eventual RHS with earlier LHS or LHS on all suffixes.
 
@@ -130417,10 +130484,11 @@ Local and/or use conjunction/disjunction with same incoming context; nexttime us
 
 規定の性質: `definition`。
 
+- [test_formal_f561_boolean.sv](../tests/ch16/test_formal_f561_boolean.sv): SymbiYosysでformalケースf561_booleanを実行し、SV2023-F.5.6.1-EXTRACT-BOOLEANの意味論を独立RTL参照と比較する。Local and/or apply conjunction/disjunction with the same incoming context; nexttime uses the suffix and the empty-word truth; until requires a later RHS or LHS on every suffix. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.1-EXTRACT-DISABLED
 
-F.5.6.1 / normal / テスト未対応
+F.5.6.1 / normal / 実行確認あり
 
 Top-level disabling uses no-local rules with fixed incoming context: plain property never disabled; first-disable top extension passes and bottom extension fails; declarations remove their name and parentheses preserve disabled relation.
 
@@ -130428,10 +130496,11 @@ Top-level disabling uses no-local rules with fixed incoming context: plain prope
 
 規定の性質: `definition`。
 
+- [test_formal_f561_disabled.sv](../tests/ch16/test_formal_f561_disabled.sv): SymbiYosysでformalケースf561_disabledを実行し、SV2023-F.5.6.1-EXTRACT-DISABLEDの意味論を独立RTL参照と比較する。A plain top-level property is never disabled; a disable before the deciding tick gives the disabled status while a pass at tick 0 is not revoked.  Parentheses and a declaration do not change the disabled relation. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.1-EXTRACT-EMPTY-CONTEXT
 
-F.5.6.1 / normal / テスト未対応
+F.5.6.1 / normal / 実行確認あり
 
 Unqualified clocked-property satisfaction uses empty local context; clocked properties use Tp with inherited clock true.
 
@@ -130439,10 +130508,11 @@ Unqualified clocked-property satisfaction uses empty local context; clocked prop
 
 規定の性質: `definition`。
 
+- [test_formal_f561_empty_context.sv](../tests/ch16/test_formal_f561_empty_context.sv): SymbiYosysでformalケースf561_empty_contextを実行し、SV2023-F.5.6.1-EXTRACT-EMPTY-CONTEXTの意味論を独立RTL参照と比較する。An unqualified clocked property starts with the empty local context, so the incoming context is not visible and the letter's v is read; the clock is inherited as true. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.1-EXTRACT-IMPLICATION
 
-F.5.6.1 / normal / テスト未対応
+F.5.6.1 / normal / 実行確認あり
 
 Local implication requires every dual-prefix tight antecedent match and output context to satisfy consequent on endpoint suffix using that output context.
 
@@ -130450,10 +130520,11 @@ Local implication requires every dual-prefix tight antecedent match and output c
 
 規定の性質: `definition`。
 
+- [test_formal_f561_implication.sv](../tests/ch16/test_formal_f561_implication.sv): SymbiYosysでformalケースf561_implicationを実行し、SV2023-F.5.6.1-EXTRACT-IMPLICATIONの意味論を独立RTL参照と比較する。Every tight antecedent match and its output context must satisfy the consequent on the endpoint suffix with that output context.  The assignment v=a0 is carried into the consequent; the surviving match is the one-letter prefix. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.1-EXTRACT-LOCAL-DECLARATION-TEXT
 
-F.5.6.1 / normal / テスト未対応
+F.5.6.1 / normal / 実行確認あり
 
 The local property declaration equation equates satisfaction of (t v;P) under L0 with ordinary neutral satisfaction of P under L0 with v removed; the superscript d printed on the right-hand side is not read as the top-level disabled relation.
 
@@ -130461,10 +130532,11 @@ The local property declaration equation equates satisfaction of (t v;P) under L0
 
 規定の性質: `definition`。
 
+- [test_formal_f561_local_declaration.sv](../tests/ch16/test_formal_f561_local_declaration.sv): SymbiYosysでformalケースf561_local_declarationを実行し、SV2023-F.5.6.1-EXTRACT-LOCAL-DECLARATION-TEXTの意味論を独立RTL参照と比較する。A local property declaration is satisfied exactly when the operand is satisfied with the declared name removed from the incoming context; it is not the disabled relation. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.1-EXTRACT-NOT
 
-F.5.6.1 / normal / テスト未対応
+F.5.6.1 / normal / 実行確認あり
 
 Local not P holds iff dual word with same input context fails P; parentheses preserve.
 
@@ -130472,10 +130544,11 @@ Local not P holds iff dual word with same input context fails P; parentheses pre
 
 規定の性質: `definition`。
 
+- [test_formal_f561_not.sv](../tests/ch16/test_formal_f561_not.sv): SymbiYosysでformalケースf561_notを実行し、SV2023-F.5.6.1-EXTRACT-NOTの意味論を独立RTL参照と比較する。not P holds on the dual word with the same input context, so a Boolean P is inverted at the same tick; parentheses preserve the relation. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.1-EXTRACT-STATUS
 
-F.5.6.1 / normal / テスト未対応
+F.5.6.1 / normal / 実行確認あり
 
 Local top-level pass and disabled are mutually exclusive; fail is neither.
 
@@ -130483,10 +130556,11 @@ Local top-level pass and disabled are mutually exclusive; fail is neither.
 
 規定の性質: `definition`。
 
+- [test_formal_f561_status.sv](../tests/ch16/test_formal_f561_status.sv): SymbiYosysでformalケースf561_statusを実行し、SV2023-F.5.6.1-EXTRACT-STATUSの意味論を独立RTL参照と比較する。Top-level pass and disabled are mutually exclusive and a failure is neither; the single status code makes the three cases disjoint. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.1-EXTRACT-STRONG
 
-F.5.6.1 / normal / テスト未対応
+F.5.6.1 / normal / 実行確認あり
 
 Local strong(R) requires some 0<=j<|w| and output context tightly satisfying prefix 0..j from incoming context.
 
@@ -130494,10 +130568,11 @@ Local strong(R) requires some 0<=j<|w| and output context tightly satisfying pre
 
 規定の性質: `definition`。
 
+- [test_formal_f561_strong.sv](../tests/ch16/test_formal_f561_strong.sv): SymbiYosysでformalケースf561_strongを実行し、SV2023-F.5.6.1-EXTRACT-STRONGの意味論を独立RTL参照と比較する。strong(R) needs some prefix 0..j with a tight match; without a witness the finite word leaves the strong property pending. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.1-EXTRACT-TOP
 
-F.5.6.1 / normal / テスト未対応
+F.5.6.1 / normal / 実行確認あり
 
 Plain top-level and parentheses preserve operand satisfaction; local top-level declaration removes its name from incoming context; disable iff uses no-disable satisfaction or prefix before first disable plus infinite bottom with same incoming context.
 
@@ -130505,10 +130580,11 @@ Plain top-level and parentheses preserve operand satisfaction; local top-level d
 
 規定の性質: `definition`。
 
+- [test_formal_f561_top.sv](../tests/ch16/test_formal_f561_top.sv): SymbiYosysでformalケースf561_topを実行し、SV2023-F.5.6.1-EXTRACT-TOPの意味論を独立RTL参照と比較する。Plain and parenthesized properties preserve operand satisfaction; a top-level local declaration removes its name from the incoming context before evaluating the operand. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.1-EXTRACT-WEAK
 
-F.5.6.1 / normal / テスト未対応
+F.5.6.1 / normal / 実行確認あり
 
 Local weak(R) requires every prefix ending 0<=j<|w| plus infinite top to satisfy strong(R) with incoming context.
 
@@ -130516,10 +130592,11 @@ Local weak(R) requires every prefix ending 0<=j<|w| plus infinite top to satisfy
 
 規定の性質: `definition`。
 
+- [test_formal_f561_weak.sv](../tests/ch16/test_formal_f561_weak.sv): SymbiYosysでformalケースf561_weakを実行し、SV2023-F.5.6.1-EXTRACT-WEAKの意味論を独立RTL参照と比較する。weak(R) requires every finite prefix extended with infinite top to satisfy strong(R); for the two-letter sequence the prefix ending at tick 1 already contains b1, so a0=1 with b1=0 fails there while a0=0 fails at the first prefix. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.2-EXTRACT-FINITE
 
-F.5.6.2 / normal / テスト未対応
+F.5.6.2 / normal / 実行確認あり
 
 Weak/strong finite-word definitions are identical to F.5.3.2 with locals permitted in underlying properties.
 
@@ -130527,10 +130604,11 @@ Weak/strong finite-word definitions are identical to F.5.3.2 with locals permitt
 
 規定の性質: `definition`。
 
+- [test_formal_f562_finite.sv](../tests/ch16/test_formal_f562_finite.sv): SymbiYosysでformalケースf562_finiteを実行し、SV2023-F.5.6.2-EXTRACT-FINITEの意味論を独立RTL参照と比較する。The weak/strong finite-word definitions are the F.5.3.2 ones with locals permitted: strong needs an actual tight prefix, weak holds on the finite word when every top-extended prefix can still match. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.5.6.3-EXTRACT-VACUITY
 
-F.5.6.3 / normal / テスト未対応
+F.5.6.3 / normal / 実行確認あり
 
 Local nonvacuity follows F.5.3.3; local declaration evaluates nonvacuity with declared name removed from incoming context.
 
@@ -130538,10 +130616,11 @@ Local nonvacuity follows F.5.3.3; local declaration evaluates nonvacuity with de
 
 規定の性質: `definition`。
 
+- [test_formal_f563_vacuity.sv](../tests/ch16/test_formal_f563_vacuity.sv): SymbiYosysでformalケースf563_vacuityを実行し、SV2023-F.5.6.3-EXTRACT-VACUITYの意味論を独立RTL参照と比較する。Local nonvacuity follows F.5.3.3; a local declaration evaluates nonvacuity with the declared name removed from the incoming context, so the antecedent reads the letter's v rather than the incoming context. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.6-EXTRACT-EXTENDED
 
-F.6 / normal / テスト未対応
+F.6 / normal / 実行確認あり
 
 Extended-expression evaluation at a letter can depend on other letters; its letter-indexed notation must be interpreted with the full trace.
 
@@ -130549,10 +130628,11 @@ Extended-expression evaluation at a letter can depend on other letters; its lett
 
 規定の性質: `definition`。
 
+- [test_formal_f6_extended.sv](../tests/ch16/test_formal_f6_extended.sv): SymbiYosysでformalケースf6_extendedを実行し、SV2023-F.6-EXTRACT-EXTENDEDの意味論を独立RTL参照と比較する。An extended expression at a letter can depend on other letters: $past(v) at tick 0 uses the initial value, at tick 1 uses v0 and at tick 2 uses v1.  The letter-indexed notation is therefore interpreted with the full trace. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.6.1-EXTRACT-MATCHED
 
-F.6.1 / normal / テスト未対応
+F.6.1 / normal / 実行確認あり
 
 At j, clocked T(V).matched requires an earlier 0<=i<j where triggered holds with same input/output contexts and interval i+1..j tightly matches first occurrence of c.
 
@@ -130560,10 +130640,11 @@ At j, clocked T(V).matched requires an earlier 0<=i<j where triggered holds with
 
 規定の性質: `definition`。
 
+- [test_formal_f61_matched.sv](../tests/ch16/test_formal_f61_matched.sv): SymbiYosysでformalケースf61_matchedを実行し、SV2023-F.6.1-EXTRACT-MATCHEDの意味論を独立RTL参照と比較する。At j a clocked T.matched requires an earlier i<j where triggered holds with the same contexts and i+1..j tightly matches the first occurrence of the clock c.  With one always-true clock the first occurrence after i is the single next letter, so j=2 requires a trigger at i=1, whic 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.6.1-EXTRACT-TRIGGERED
 
-F.6.1 / normal / テスト未対応
+F.6.1 / normal / 実行確認あり
 
 At 0<=j<length, T(V).triggered holds iff some 0<=i<=j yields a tight T(V) match on i..j from empty context; outgoing context replaces only passed names in match context and preserves other incoming names.
 
@@ -130571,6 +130652,7 @@ At 0<=j<length, T(V).triggered holds iff some 0<=i<=j yields a tight T(V) match 
 
 規定の性質: `definition`。
 
+- [test_formal_f61_triggered.sv](../tests/ch16/test_formal_f61_triggered.sv): SymbiYosysでformalケースf61_triggeredを実行し、SV2023-F.6.1-EXTRACT-TRIGGEREDの意味論を独立RTL参照と比較する。T.triggered at j holds iff some 0<=i<=j tightly matches T on i..j from the empty context.  For the two-letter sequence only i=j-1 can match, so j=1 reads a0&b1 and j=2 reads a1&b2. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.6.2-EXTRACT-INITIAL-VALUES
 
@@ -130598,7 +130680,7 @@ For n>=1, $past(e1,n,e2,c) at w^j equals e1 at w^i when some 0<=i<j satisfies ((
 
 ### SV2023-F.6.2-EXTRACT-PAST-GLOBAL-INDEX-TEXT
 
-F.6.2 / normal / テスト未対応
+F.6.2 / normal / 実行確認あり
 
 For 0<j<|w|, $past_gclk(e) at w^j equals e at w^{j-1}, the immediately preceding letter (previous global clock tick); at j=0 it is e evaluated using the initial values of its variables. The printed condition j<0 and index i-1 are read as j>0 and j-1.
 
@@ -130606,10 +130688,11 @@ For 0<j<|w|, $past_gclk(e) at w^j equals e at w^{j-1}, the immediately preceding
 
 規定の性質: `definition`。
 
+- [test_formal_f62_past_global.sv](../tests/ch16/test_formal_f62_past_global.sv): SymbiYosysでformalケースf62_past_globalを実行し、SV2023-F.6.2-EXTRACT-PAST-GLOBAL-INDEX-TEXTの意味論を独立RTL参照と比較する。$past_gclk(e) at letter j>0 is e at j-1, the immediately preceding global clock tick; at j=0 it is e from the initial values (1). 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.6.3-EXTRACT-FUTURE-INDEX-TEXT
 
-F.6.3 / normal / テスト未対応
+F.6.3 / normal / 実行確認あり
 
 For 0<=j<|w|-1, $future_gclk(e) at w^j equals e at w^{j+1}, the next letter (next global clock tick); the printed unbound index i+1 is read as j+1. For a finite word the value at the final position w^{|w|-1} is undefined.
 
@@ -130617,10 +130700,11 @@ For 0<=j<|w|-1, $future_gclk(e) at w^j equals e at w^{j+1}, the next letter (nex
 
 規定の性質: `definition`。
 
+- [test_formal_f63_future.sv](../tests/ch16/test_formal_f63_future.sv): SymbiYosysでformalケースf63_futureを実行し、SV2023-F.6.3-EXTRACT-FUTURE-INDEX-TEXTの意味論を独立RTL参照と比較する。$future_gclk(e) at letter j<|w|-1 is e at j+1, the next global clock tick; the value at the final letter is undefined and is not encoded. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.7-EXTRACT-ALL-APPROX
 
-F.7 / normal / テスト未対応
+F.7 / normal / 実行確認あり
 
 A property including top-level holds with local context iff every positive-depth approximation holds with that context; approximate each named-property instance and use nonrecursive flattening.
 
@@ -130628,10 +130712,11 @@ A property including top-level holds with local context iff every positive-depth
 
 規定の性質: `definition`。
 
+- [test_formal_f7_all_approx.sv](../tests/ch16/test_formal_f7_all_approx.sv): SymbiYosysでformalケースf7_all_approxを実行し、SV2023-F.7-EXTRACT-ALL-APPROXの意味論を独立RTL参照と比較する。A recursive property including top holds with the local context exactly when every positive-depth approximation holds; the approximants are monotone, so checking depths 1..3 is the finite form of the conjunction. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.7-EXTRACT-APPROX-BASE
 
-F.7 / normal / テスト未対応
+F.7 / normal / 実行確認あり
 
 Zero-fold approximation copies property signature but replaces body specification by true.
 
@@ -130639,10 +130724,11 @@ Zero-fold approximation copies property signature but replaces body specificatio
 
 規定の性質: `definition`。
 
+- [test_formal_f7_approx_base.sv](../tests/ch16/test_formal_f7_approx_base.sv): SymbiYosysでformalケースf7_approx_baseを実行し、SV2023-F.7-EXTRACT-APPROX-BASEの意味論を独立RTL参照と比較する。The zero-fold approximation copies the property signature and replaces the body by true; the result is vacuous success at tick 0 for every word. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.7-EXTRACT-APPROX-STEP
 
-F.7 / normal / テスト未対応
+F.7 / normal / 実行確認あり
 
 For k>0 replace recursive instances with k-1 approximations and nonrecursive instances with k approximations, preserving corresponding actuals.
 
@@ -130650,10 +130736,11 @@ For k>0 replace recursive instances with k-1 approximations and nonrecursive ins
 
 規定の性質: `definition`。
 
+- [test_formal_f7_approx_step.sv](../tests/ch16/test_formal_f7_approx_step.sv): SymbiYosysでformalケースf7_approx_stepを実行し、SV2023-F.7-EXTRACT-APPROX-STEPの意味論を独立RTL参照と比較する。For k=2 the recursive instance is replaced by the k-1 approximation while the nonrecursive b instance keeps its body; p2 is b0 or (a0 and (b1 or (a1 and true))). 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.7-EXTRACT-DEPENDENCY
 
-F.7 / normal / テスト未対応
+F.7 / normal / 実行確認あり
 
 Property dependency graph has named-property vertices and p-to-q edge exactly when q is instantiated in p, including actual-argument expressions.
 
@@ -130661,10 +130748,11 @@ Property dependency graph has named-property vertices and p-to-q edge exactly wh
 
 規定の性質: `definition`。
 
+- [test_formal_f7_dependency.sv](../tests/ch16/test_formal_f7_dependency.sv): SymbiYosysでformalケースf7_dependencyを実行し、SV2023-F.7-EXTRACT-DEPENDENCYの意味論を独立RTL参照と比較する。The graph has an edge p->q for the instance in p, p->r for the direct instance, p->s for the instance q(s) inside an actual argument of p, and q->p.  No other edge exists, giving mask 30 in the order p,q,r,s. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.7-EXTRACT-RECURSIVE
 
-F.7 / normal / テスト未対応
+F.7 / normal / 実行確認あり
 
 Recursive named property belongs to nontrivial strongly connected component; recursive instance links members of same such component, including self; edge weight is minimum guaranteed time steps among corresponding instances.
 
@@ -130672,10 +130760,11 @@ Recursive named property belongs to nontrivial strongly connected component; rec
 
 規定の性質: `definition`。
 
+- [test_formal_f7_recursive.sv](../tests/ch16/test_formal_f7_recursive.sv): SymbiYosysでformalケースf7_recursiveを実行し、SV2023-F.7-EXTRACT-RECURSIVEの意味論を独立RTL参照と比較する。p and q form a nontrivial strongly connected component and r is self-recursive, so all three are recursive members.  The p->q weight is one time step, q->p is two and r->r is one; the packed code is 7 | 1<<3 | 2<<6 | 1<<9 = 655. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.7-EXTRACT-RESTRICTION-ARGUMENT
 
-F.7 / normal / テスト未対応
+F.7 / normal / 実行確認あり
 
 Each recursive actual must be a formal of enclosing property, contain no such formal, or bind a local variable formal of the called property.
 
@@ -130683,10 +130772,11 @@ Each recursive actual must be a formal of enclosing property, contain no such fo
 
 規定の性質: `definition`。
 
+- [test_formal_f7_restriction_argument.sv](../tests/ch16/test_formal_f7_restriction_argument.sv): SymbiYosysでformalケースf7_restriction_argumentを実行し、SV2023-F.7-EXTRACT-RESTRICTION-ARGUMENTの意味論を独立RTL参照と比較する。p calls p(v), where v is a formal of the enclosing property (allowed); r calls s(1), which contains no enclosing formal (allowed); q calls q(v+1), which contains v but is neither a bare enclosing formal nor a called-property formal (invalid), so the error mask is bit 1. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.7-EXTRACT-RESTRICTION-DISABLE
 
-F.7 / normal / テスト未対応
+F.7 / normal / 実行確認あり
 
 Recursive declarations cannot use disable iff.
 
@@ -130694,10 +130784,11 @@ Recursive declarations cannot use disable iff.
 
 規定の性質: `definition`。
 
+- [test_formal_f7_restriction_disable.sv](../tests/ch16/test_formal_f7_restriction_disable.sv): SymbiYosysでformalケースf7_restriction_disableを実行し、SV2023-F.7-EXTRACT-RESTRICTION-DISABLEの意味論を独立RTL参照と比較する。p is recursive and therefore may not use disable iff; q is nonrecursive and may, so only p is an error. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.7-EXTRACT-RESTRICTION-NOT
 
-F.7 / normal / テスト未対応
+F.7 / normal / 実行確認あり
 
 not cannot apply to an expression instantiating a property from which recursion is reachable.
 
@@ -130705,10 +130796,11 @@ not cannot apply to an expression instantiating a property from which recursion 
 
 規定の性質: `definition`。
 
+- [test_formal_f7_restriction_not.sv](../tests/ch16/test_formal_f7_restriction_not.sv): SymbiYosysでformalケースf7_restriction_notを実行し、SV2023-F.7-EXTRACT-RESTRICTION-NOTの意味論を独立RTL参照と比較する。q applies not to an instance of the recursive p, which is illegal; r applies not to the nonrecursive s, which is legal.  The error mask is bit 1. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-F.7-EXTRACT-RESTRICTION-TIME
 
-F.7 / normal / テスト未対応
+F.7 / normal / 実行確認あり
 
 Every graph cycle must have strictly positive total edge weight.
 
@@ -130716,6 +130808,7 @@ Every graph cycle must have strictly positive total edge weight.
 
 規定の性質: `definition`。
 
+- [test_formal_f7_restriction_time.sv](../tests/ch16/test_formal_f7_restriction_time.sv): SymbiYosysでformalケースf7_restriction_timeを実行し、SV2023-F.7-EXTRACT-RESTRICTION-TIMEの意味論を独立RTL参照と比較する。The p<->q cycle has weights 1 and 2 and therefore total 3, which is strictly positive; the r self-loop has weight 0 and violates the restriction. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。
 
 ### SV2023-G.1-EXTRACT-CONTENTS
 

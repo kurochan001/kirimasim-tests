@@ -471669,7 +471669,25 @@
       "acceptance": "Formal clock controls are Boolean predicates; convert SystemVerilog event controls using tau, assuming event occurrences align with global-clock ticks.",
       "source_note": "IEEE 1800-2023 F.3.1; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_tau_boolean_clocks.sv",
+          "observation": "SymbiYosysでformalケースf3_tau_boolean_clocksを実行し、SV2023-F.3.1-EXTRACT-BOOLEAN-CLOCKSの意味論を独立RTL参照と比較する。3サンプル中の遷移回数を、イベント制御がグローバルtick上のBoolean述語として数えられることの参照RTLと比較する。tau(b)=changing(b) の集計がイベント発生回数と一致する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4a3c9bd04397d6612f8dd7b4aac386ce53b244bc24710eb4afbefc29fa64b068",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_tau_boolean_clocks.sv",
+              "contains": ":formal_case: f3_tau_boolean_clocks"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_tau_boolean_clocks.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.1",
@@ -471688,7 +471706,25 @@
       "acceptance": "For b other than $global_clock, tau(b) is $changing_gclk(b).",
       "source_note": "IEEE 1800-2023 F.3.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_tau_change.sv",
+          "observation": "SymbiYosysでformalケースf3_tau_changeを実行し、SV2023-F.3.1-EXTRACT-TAU-CHANGEの意味論を独立RTL参照と比較する。tau(b)=changing_gclk(b) を2ビットbの現在値と次tick値の全体比較として実装し、参照RTLの不等式と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "34c01fafe30dbae01cb1fe67db03bbb0c3ca8a14027d0c21b21d68df6c83ad26",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_tau_change.sv",
+              "contains": ":formal_case: f3_tau_change"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_tau_change.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.1",
@@ -471706,7 +471742,25 @@
       "acceptance": "tau(edge b) is the disjunction of rising and falling transforms.",
       "source_note": "IEEE 1800-2023 F.3.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_tau_edge.sv",
+          "observation": "SymbiYosysでformalケースf3_tau_edgeを実行し、SV2023-F.3.1-EXTRACT-TAU-EDGEの意味論を独立RTL参照と比較する。tau(edge b) をrisingとfallingの選言（LSBのXOR）として実装し、参照RTLと比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1cbbbb566ed54bd325b0a955fcf736999298c8156ecfbc606cb2f958ac18a793",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_tau_edge.sv",
+              "contains": ":formal_case: f3_tau_edge"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_tau_edge.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.1",
@@ -471724,7 +471778,25 @@
       "acceptance": "tau($global_clock) is true.",
       "source_note": "IEEE 1800-2023 F.3.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_tau_global.sv",
+          "observation": "SymbiYosysでformalケースf3_tau_globalを実行し、SV2023-F.3.1-EXTRACT-TAU-GLOBALの意味論を独立RTL参照と比較する。tau($global_clock) が常に真であることを、2tickの全語で定数1と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "74eb864d1fde4de2c2b660f29904a2a1636700f903d27d3c69ed8c9f29bee1d8",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_tau_global.sv",
+              "contains": ":formal_case: f3_tau_global"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_tau_global.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.1",
@@ -471742,7 +471814,25 @@
       "acceptance": "tau(e iff b) conjoins tau(e) with b.",
       "source_note": "IEEE 1800-2023 F.3.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_tau_iff.sv",
+          "observation": "SymbiYosysでformalケースf3_tau_iffを実行し、SV2023-F.3.1-EXTRACT-TAU-IFFの意味論を独立RTL参照と比較する。tau(e iff b) を tau(posedge c) && b として実装し、参照RTLの rising_gclk(c)&&b と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "39ea669127b640eb319eebb132806d07d1bbc119fc32b73873a74da7784f2ea8",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_tau_iff.sv",
+              "contains": ":formal_case: f3_tau_iff"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_tau_iff.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.1",
@@ -471760,7 +471850,25 @@
       "acceptance": "For named event e, tau(e) is $future_gclk of an auxiliary bit that is one exactly in event-trigger time slots and zero otherwise.",
       "source_note": "IEEE 1800-2023 F.3.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_tau_named.sv",
+          "observation": "SymbiYosysでformalケースf3_tau_namedを実行し、SV2023-F.3.1-EXTRACT-TAU-NAMEDの意味論を独立RTL参照と比較する。名前付きイベントの補助ビットがトリガslotで1になる入力trigを用意し、tau(e)=future_gclk(aux) を次tickのaux値として実装・参照比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "01d8f140735fa834a51bd3cb306dad5ad800304ffa9404d7cfd6990368f7acdd",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_tau_named.sv",
+              "contains": ":formal_case: f3_tau_named"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_tau_named.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.1",
@@ -471778,7 +471886,25 @@
       "acceptance": "tau(negedge b) is $falling_gclk(b).",
       "source_note": "IEEE 1800-2023 F.3.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_tau_neg.sv",
+          "observation": "SymbiYosysでformalケースf3_tau_negを実行し、SV2023-F.3.1-EXTRACT-TAU-NEGの意味論を独立RTL参照と比較する。tau(negedge b) をLSBが1から0へ変わることとして実装し、参照RTLの falling_gclk 比較と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c4dd3e09870c3d6f404ea6c395812eaba4f13659115cb5885a0ac69aa093b940",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_tau_neg.sv",
+              "contains": ":formal_case: f3_tau_neg"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_tau_neg.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.1",
@@ -471796,7 +471922,25 @@
       "acceptance": "tau of event or/comma composition is the disjunction of the event transforms.",
       "source_note": "IEEE 1800-2023 F.3.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_tau_or.sv",
+          "observation": "SymbiYosysでformalケースf3_tau_orを実行し、SV2023-F.3.1-EXTRACT-TAU-ORの意味論を独立RTL参照と比較する。tau(b or c) をtau(b)||tau(c) として実装し、各信号の現在/次tick変化の選言を書いた参照RTLと比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2d6652c68c1b01907c91c25a472f4b676ddcfed53426d497336a455873f6c964",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_tau_or.sv",
+              "contains": ":formal_case: f3_tau_or"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_tau_or.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.1",
@@ -471814,7 +471958,25 @@
       "acceptance": "tau(posedge b) is $rising_gclk(b).",
       "source_note": "IEEE 1800-2023 F.3.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_tau_pos.sv",
+          "observation": "SymbiYosysでformalケースf3_tau_posを実行し、SV2023-F.3.1-EXTRACT-TAU-POSの意味論を独立RTL参照と比較する。tau(posedge b) をLSBが0から1へ変わることとして実装し、参照RTLの rising_gclk 比較と一致することを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "80c07124d9dc8f99379fd91e99ba9e13b5ea38b4971b3faf8b22be00031b28b4",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_tau_pos.sv",
+              "contains": ":formal_case: f3_tau_pos"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_tau_pos.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.1",
@@ -471832,7 +471994,25 @@
       "acceptance": "Abstract assertions permit always/initial assert property(clocked top-level property), or always/initial @(Boolean) assert property(unclocked top-level property).",
       "source_note": "IEEE 1800-2023 F.3.2; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_g_assertion.sv",
+          "observation": "SymbiYosysでformalケースf3_g_assertionを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-ASSERTIONの意味論を独立RTL参照と比較する。clocked top-level property の代表例 @(c)(a##1b) を、assert property 形と always @(c) assert property 形の共通意味（最初のc tickでa、次のc tickでb）として評価する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e019d69c19d8b1255073feb328d466f70ba18ac9cfd099f9f0b720c24eb804b2",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_g_assertion.sv",
+              "contains": ":formal_case: f3_g_assertion"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_g_assertion.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.2",
@@ -471850,7 +472030,25 @@
       "acceptance": "Unclocked property forms are strong/weak sequence,local declaration,parentheses,not,or,and,overlapping implication,nexttime,until and accept_on.",
       "source_note": "IEEE 1800-2023 F.3.2; complete own-body source review, blocks B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_g_prop.sv",
+          "observation": "SymbiYosysでformalケースf3_g_propを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-Pの意味論を独立RTL参照と比較する。unclocked property の代表例 not(strong(a##1b)) を既存Engineで評価し、strongの失敗/成功を反転する独立RTL参照と比較する。not/strong/系列property/括弧を含む。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7af121029a303e72ab3f549972b01def22cc62181f7453ff957e687a429eb367",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_g_prop.sv",
+              "contains": ":formal_case: f3_g_prop"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_g_prop.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.2",
@@ -471869,7 +472067,25 @@
       "acceptance": "Clocked property forms are clocked unclocked-property,strong/weak clocked sequence,local declaration,parentheses,not,or,and,clocked overlapping implication,nexttime,until and accept_on.",
       "source_note": "IEEE 1800-2023 F.3.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_g_prop_clocked.sv",
+          "observation": "SymbiYosysでformalケースf3_g_prop_clockedを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-Qの意味論を独立RTL参照と比較する。clocked property の代表例 @(c) not(a##1b) を、Tsによるclock除去後のweak系列statusの否定として実装し、独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "677e5787618e02a859f19148feb1d4d8b542c13db964b533bce815644fc1388c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_g_prop_clocked.sv",
+              "contains": ":formal_case: f3_g_prop_clocked"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_g_prop_clocked.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.2",
@@ -471887,7 +472103,25 @@
       "acceptance": "Unclocked sequence forms are Boolean,local declaration with optional initialization,local sampling assignment,parentheses,##1 concatenation,##0 fusion,or,intersect,first_match,null repetition and positive unbounded repetition.",
       "source_note": "IEEE 1800-2023 F.3.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_g_seq.sv",
+          "observation": "SymbiYosysでformalケースf3_g_seqを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-Rの意味論を独立RTL参照と比較する。unclocked sequence の代表例 first_match((a##1b) or (a##2c)) を年齢表で独立実装し、or/##1/##2/first_match/括弧の組合せを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9f8df96c420c76f11705a0c83b9764766972446421b3e7bb64af994579b93a49",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_g_seq.sv",
+              "contains": ":formal_case: f3_g_seq"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_g_seq.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.2",
@@ -471905,7 +472139,25 @@
       "acceptance": "Clocked sequence forms are @(Boolean) unclocked sequence,local declaration,parentheses and ##1 concatenation.",
       "source_note": "IEEE 1800-2023 F.3.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_g_seq_clocked.sv",
+          "observation": "SymbiYosysでformalケースf3_g_seq_clockedを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-Sの意味論を独立RTL参照と比較する。clocked sequence の代表例 @(c)(a##1b) の一致数を、Ts(a)##1 Ts(b) の独立RTL年齢表と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "da58a745567ef3e80b9d3982fe6543a3915f1eb1ad0143309101d525d783fb42",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_g_seq_clocked.sv",
+              "contains": ":formal_case: f3_g_seq_clocked"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_g_seq_clocked.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.2",
@@ -471923,7 +472175,25 @@
       "acceptance": "Unclocked top-level property is unclocked property,disable iff(Boolean) unclocked property,local declaration or parentheses.",
       "source_note": "IEEE 1800-2023 F.3.2; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_g_top.sv",
+          "observation": "SymbiYosysでformalケースf3_g_topを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-Tの意味論を独立RTL参照と比較する。unclocked top-level の代表例 disable iff(d)(a##1b) を既存Engineのcurrent snapshot付き評価で実行し、dの各tick検査と固定##1のfailure/successを持つ独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "60ab7e173a9ce339d93666f04ef40b996decdd417cca088003a43b5707b7b7ee",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_g_top.sv",
+              "contains": ":formal_case: f3_g_top"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_g_top.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.2",
@@ -471941,7 +472211,25 @@
       "acceptance": "Clocked top-level property is clocked property,disable iff(Boolean) clocked property,local declaration or parentheses.",
       "source_note": "IEEE 1800-2023 F.3.2; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_g_top_clocked.sv",
+          "observation": "SymbiYosysでformalケースf3_g_top_clockedを実行し、SV2023-F.3.2-EXTRACT-GRAMMAR-Uの意味論を独立RTL参照と比較する。clocked top-level の代表例 @(c) disable iff(d)(a##1b) をTs/Tpのdisable保存則で実装し、独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "19d25f9a7ef5855786c5f59057d7341ce6761349ff27a93a89384db63c020387",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_g_top_clocked.sv",
+              "contains": ":formal_case: f3_g_top_clocked"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_g_top_clocked.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.2",
@@ -471959,7 +472247,25 @@
       "acceptance": "Unclocked sequences embedded in property grammar must be nondegenerate; sequence-property forms cannot be tightly satisfied by the empty word.",
       "source_note": "IEEE 1800-2023 F.3.2; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_g_nondeg_r.sv",
+          "observation": "SymbiYosysでformalケースf3_g_nondeg_rを実行し、SV2023-F.3.2-EXTRACT-NONDEGENERATE-Rの意味論を独立RTL参照と比較する。unclocked a##1b は空語で一致しない（age 0の一致数0）ことをDFAと独立年齢表の両方で固定し、age 2の唯一の一致も検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4f96d00cf855c3c3659a4b011ca679ce786f3dd546bd40cc831dc8ff60fd24a5",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_g_nondeg_r.sv",
+              "contains": ":formal_case: f3_g_nondeg_r"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_g_nondeg_r.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.2",
@@ -471977,7 +472283,25 @@
       "acceptance": "Clocked sequences embedded in property grammar must be nondegenerate; sequence-property forms cannot be tightly satisfied by the empty word.",
       "source_note": "IEEE 1800-2023 F.3.2; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_g_nondeg_s.sv",
+          "observation": "SymbiYosysでformalケースf3_g_nondeg_sを実行し、SV2023-F.3.2-EXTRACT-NONDEGENERATE-Sの意味論を独立RTL参照と比較する。clocked @(c)(a##1b) のTs一致数を年齢表で比較し、age 0が常に0（空語でtight matchしない）であることを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "881f052e3af1701a56f667b3f1800356f6d54177c9ae9a0051a38a2e21642e7c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_g_nondeg_s.sv",
+              "contains": ":formal_case: f3_g_nondeg_s"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_g_nondeg_s.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.2",
@@ -472032,7 +472356,42 @@
       "acceptance": "Internal parentheses can be omitted for compositions of associative ##1 and or.",
       "source_note": "IEEE 1800-2023 F.3.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_assoc_concat.sv",
+          "observation": "SymbiYosysでformalケースf3_assoc_concatを実行し、SV2023-F.3.4-EXTRACT-ASSOCIATIVITYの意味論を独立RTL参照と比較する。##1 の結合性を、左結合 (a##1b)##1c のDFA一致数と、右結合 a##1(b##1c) を展開した独立年齢表 age3 で比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "bb84a97aa898e67776971cfec37ae6abf2a7edf59063c367bb5e44fc83481641",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_assoc_concat.sv",
+              "contains": ":formal_case: f3_assoc_concat"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_assoc_concat.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch16/test_formal_f3_assoc_or.sv",
+          "observation": "SymbiYosysでformalケースf3_assoc_orを実行し、SV2023-F.3.4-EXTRACT-ASSOCIATIVITYの意味論を独立RTL参照と比較する。or の結合性を、1文字Boolean言語の全8入力に対する真理値表で検査する。満足（tight satisfaction）は結合的で、括弧を省略しても同じ真理関数になる。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "15a51db5f1022106d70e2c71ab8cd8819d8dc2d9a8bc7f582864f35d78dd11a8",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_assoc_or.sv",
+              "contains": ":formal_case: f3_assoc_or"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_assoc_or.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4",
@@ -472050,7 +472409,25 @@
       "acceptance": "For formal semantics, restrict property is equivalent to assume property.",
       "source_note": "IEEE 1800-2023 F.3.4.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_restrict.sv",
+          "observation": "SymbiYosysでformalケースf3_restrictを実行し、SV2023-F.3.4.1-EXTRACT-RESTRICTの意味論を独立RTL参照と比較する。restrict property を仮定propertyとして評価する経路（kindをassumeに写像）と、同じ系列のassume結果を書いた独立RTL参照を比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "128da72b4b4bfb7c1ffef40e09da1e413e12a5dae32967f9c8ecb23572b76be8",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_restrict.sv",
+              "contains": ":formal_case: f3_restrict"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_restrict.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.1",
@@ -473488,7 +473865,25 @@
       "acceptance": "reject_on(b) P is not accept_on(b) not P.",
       "source_note": "IEEE 1800-2023 F.3.4.3.7; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_reject.sv",
+          "observation": "SymbiYosysでformalケースf3_rejectを実行し、SV2023-F.3.4.3.7-EXTRACT-REJECTの意味論を独立RTL参照と比較する。reject_on(g) P を not accept_on(g) not P として実装し、gが決定tick以前に起こればfailure、起きなければPのweak statusとなる独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "40d0655746fa3c3e61da771099b6fe60a5d0b3979123b0f1d28e45af754ede6c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_reject.sv",
+              "contains": ":formal_case: f3_reject"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_reject.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.3.7",
@@ -473506,7 +473901,25 @@
       "acceptance": "sync_accept_on(b) P equals accept_on(b) P when clock context is 1.",
       "source_note": "IEEE 1800-2023 F.3.4.3.7; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_sync_accept.sv",
+          "observation": "SymbiYosysでformalケースf3_sync_acceptを実行し、SV2023-F.3.4.3.7-EXTRACT-SYNC-ACCEPTの意味論を独立RTL参照と比較する。clock context 1 で sync_accept_on(g) P が accept_on(g) P に等しいことを、gの全tick走査を持つ独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c53920fd456c279f1ab0e7cc91d9307c971ea3231549424f709bb1ba8b232432",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_sync_accept.sv",
+              "contains": ":formal_case: f3_sync_accept"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_sync_accept.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.3.7",
@@ -473524,7 +473937,25 @@
       "acceptance": "sync_reject_on(b) P is not sync_accept_on(b) not P.",
       "source_note": "IEEE 1800-2023 F.3.4.3.7; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_sync_reject.sv",
+          "observation": "SymbiYosysでformalケースf3_sync_rejectを実行し、SV2023-F.3.4.3.7-EXTRACT-SYNC-REJECTの意味論を独立RTL参照と比較する。clock context 1 で sync_reject_on(g) P = not sync_accept_on(g) not P を実装し、g発生時failure・非発生時Pとなる独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "76751b68e553d850fb4e246c8740c2af77e0419899158a26668c9d37cab30195",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_sync_reject.sv",
+              "contains": ":formal_case: f3_sync_reject"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_sync_reject.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.3.7",
@@ -474190,7 +474621,25 @@
       "acceptance": "$rising_gclk/$falling_gclk require current LSB case-unequal to 1/0 and future-global LSB case-equal to 1/0 respectively; $steady_gclk/$changing_gclk use full-expression case equality/inequality against $future_gclk.",
       "source_note": "IEEE 1800-2023 F.3.4.4; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_future_global.sv",
+          "observation": "SymbiYosysでformalケースf3_future_globalを実行し、SV2023-F.3.4.4-EXTRACT-FUTURE-GLOBALの意味論を独立RTL参照と比較する。2ビットvの現在値と次tick値から $rising_gclk/$falling_gclk/$steady_gclk/$changing_gclk の4ビットを計算し、LSB比較と全体比較を書いた独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "52451e2ae97276db0aa5aaa52d99206f556d583cdf3e24cc1d172f683edc7009",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_future_global.sv",
+              "contains": ":formal_case: f3_future_global"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_future_global.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.4",
@@ -474208,7 +474657,25 @@
       "acceptance": "$rose_gclk/$fell_gclk/$stable_gclk/$changed_gclk use the same comparisons with $past_gclk, using only LSB for rise/fall.",
       "source_note": "IEEE 1800-2023 F.3.4.4; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f3_past_global.sv",
+          "observation": "SymbiYosysでformalケースf3_past_globalを実行し、SV2023-F.3.4.4-EXTRACT-PAST-GLOBALの意味論を独立RTL参照と比較する。3tickの最後の2tick（past/current）から4ビットの $*_gclk 比較を計算し、LSB比較と全体比較の独立RTL参照と比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fbb92e4236c3c9bbfdaa3ef0952f29ad2e6f11a3b425dfba38c2a75d32d0d6c4",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f3_past_global.sv",
+              "contains": ":formal_case: f3_past_global"
+            },
+            {
+              "file": "tests/ch16/test_formal_f3_past_global.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.4",
@@ -475260,7 +475727,25 @@
       "acceptance": "Clock elimination preserves satisfaction; conditions in event controls must not depend on local variables.",
       "source_note": "IEEE 1800-2023 F.5.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_clock_independence.sv",
+          "observation": "SymbiYosysでformalケースf51_clock_independenceを実行し、SV2023-F.5.1-EXTRACT-CLOCK-INDEPENDENCEの意味論を独立RTL参照と比較する。clocked property @(c)((a##1b)|->d) のstatusと、Ts(a##1b)|->d の独立RTL参照を比較し、clock除去が満足を保存することを代表例で検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "323a5eaf95a6938fef5abb7bc9610a6d39b40efc40c24f28fa6210931dee8ddf",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_clock_independence.sv",
+              "contains": ":formal_case: f51_clock_independence"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_clock_independence.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1",
@@ -475296,7 +475781,25 @@
       "acceptance": "Sequence clock transform Ts(b,c) is !c[*0:$] ##1 (c & b).",
       "source_note": "IEEE 1800-2023 F.5.1.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_ts_boolean.sv",
+          "observation": "SymbiYosysでformalケースf51_ts_booleanを実行し、SV2023-F.5.1.1-EXTRACT-BOOLEANの意味論を独立RTL参照と比較する。clocked @(c)b の一致数と、Ts(b,c)=!c[*0:$]##1(c&b) の独立年齢表を比較する。cが真のtickでbが偽なら、そこで打ち切られ後続tickへ読み飛ばさないことも含む。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7d205ff08e614a544c475e7892749ea5eece71c9d2fc190d88c96f9275820710",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_ts_boolean.sv",
+              "contains": ":formal_case: f51_ts_boolean"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_ts_boolean.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.1",
@@ -475314,7 +475817,25 @@
       "acceptance": "Ts distributes through or/intersect.",
       "source_note": "IEEE 1800-2023 F.5.1.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_ts_choice.sv",
+          "observation": "SymbiYosysでformalケースf51_ts_choiceを実行し、SV2023-F.5.1.1-EXTRACT-CHOICEの意味論を独立RTL参照と比較する。clocked @(c)((a or b)##1b) の一致数と、(Ts(a,c) or Ts(b,c))##1 Ts(b,c) の独立年齢表を比較し、orへの分配と系列orの多重度を検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6f62d4d599da22894c743bc31eb577ef44581b410557145921a644c1014c24b5",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_ts_choice.sv",
+              "contains": ":formal_case: f51_ts_choice"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_ts_choice.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.1",
@@ -475332,7 +475853,25 @@
       "acceptance": "An explicit nested clock replaces inherited clock for the operand.",
       "source_note": "IEEE 1800-2023 F.5.1.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_ts_clock.sv",
+          "observation": "SymbiYosysでformalケースf51_ts_clockを実行し、SV2023-F.5.1.1-EXTRACT-CLOCKの意味論を独立RTL参照と比較する。clocked @(c1)(a or @(c2)b) の一致数と、Ts(a,c1) or Ts(b,c2) の独立年齢表を比較し、入れ子の明示clockが継承clockを置換することを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "713e4e6a36e33182a4265c0491de331e806a25efa8e746461cde9d116f7a9f7e",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_ts_clock.sv",
+              "contains": ":formal_case: f51_ts_clock"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_ts_clock.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.1",
@@ -475350,7 +475889,25 @@
       "acceptance": "Ts distributes through ##1 and ##0 with the same inherited clock.",
       "source_note": "IEEE 1800-2023 F.5.1.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_ts_concat.sv",
+          "observation": "SymbiYosysでformalケースf51_ts_concatを実行し、SV2023-F.5.1.1-EXTRACT-CONCATの意味論を独立RTL参照と比較する。clocked @(c)(a##1b) の一致数と、Ts(a,c)##1 Ts(b,c) の独立年齢表を比較し、##1がグローバルletterの遅延として分配されることを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "383d76de2994001411cb0ad2f6531fd1497affd8ff2375183105af7ccc4825aa",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_ts_concat.sv",
+              "contains": ":formal_case: f51_ts_concat"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_ts_concat.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.1",
@@ -475368,7 +475925,25 @@
       "acceptance": "Ts preserves first_match around transformed operand.",
       "source_note": "IEEE 1800-2023 F.5.1.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_ts_first.sv",
+          "observation": "SymbiYosysでformalケースf51_ts_firstを実行し、SV2023-F.5.1.1-EXTRACT-FIRSTの意味論を独立RTL参照と比較する。clocked @(c) first_match((a##1b) or (a##2d)) の一致数と、first_match(Ts(a##1b) or Ts(a##2d)) の独立年齢表を比較し、最早終了のみを残すことを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5729d666d44f4cd6a574b71a396e7fd4ab27d22e30edb638134162959ca994ef",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_ts_first.sv",
+              "contains": ":formal_case: f51_ts_first"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_ts_first.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.1",
@@ -475386,7 +475961,42 @@
       "acceptance": "Ts preserves null and positive unbounded repetition around transformed operand.",
       "source_note": "IEEE 1800-2023 F.5.1.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_ts_repeat.sv",
+          "observation": "SymbiYosysでformalケースf51_ts_repeatを実行し、SV2023-F.5.1.1-EXTRACT-REPEATの意味論を独立RTL参照と比較する。clocked @(c) a[*0:1] の一致数と、Ts(a,c)[*0:1] の独立年齢表を比較し、空繰返しがage 0に保存されることを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "09a6a8b9891808d6014854d35a54a7291a8c5f4e95a394c12ae7443153544da1",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_ts_repeat.sv",
+              "contains": ":formal_case: f51_ts_repeat"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_ts_repeat.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch16/test_formal_f51_ts_repeat_plus.sv",
+          "observation": "SymbiYosysでformalケースf51_ts_repeat_plusを実行し、SV2023-F.5.1.1-EXTRACT-REPEATの意味論を独立RTL参照と比較する。clocked @(c) a[+] の一致数と、Ts(a,c)[*1:$] の独立年齢表を比較し、正の無限繰返しがclock tick列の全a一致として保存されることを検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fe711d46b052dfe4a36eee66b75a86bfaeebe6a5bd30dd172aa0d3faa135c77c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_ts_repeat_plus.sv",
+              "contains": ":formal_case: f51_ts_repeat_plus"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_ts_repeat_plus.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.1",
@@ -475404,7 +476014,25 @@
       "acceptance": "Tp preserves disable iff/accept_on conditions without clock gating, transforming only property operand.",
       "source_note": "IEEE 1800-2023 F.5.1.2; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_async.sv",
+          "observation": "SymbiYosysでformalケースf51_asyncを実行し、SV2023-F.5.1.2-EXTRACT-ASYNCの意味論を独立RTL参照と比較する。clocked @(c) disable iff(d)(a##1b) のstatusと、disable iff(d) Ts(a##1b) の独立RTL参照を比較する。dはclockでgateせず全tickで検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0ea72a78e9e7fc6baeafcb40c379b9d5106255ed7bcc6b0f9469419a364e7e5a",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_async.sv",
+              "contains": ":formal_case: f51_async"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_async.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.2",
@@ -475422,7 +476050,25 @@
       "acceptance": "Tp preserves not/or/and and transforms both property operands; implication transforms antecedent by Ts and consequent by Tp.",
       "source_note": "IEEE 1800-2023 F.5.1.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_impl_boolean.sv",
+          "observation": "SymbiYosysでformalケースf51_impl_booleanを実行し、SV2023-F.5.1.2-EXTRACT-BOOLEAN-IMPLICATIONの意味論を独立RTL参照と比較する。clocked @(c)(a|->b) のstatusと、Ts(a,c)|->Tp(b,c) の独立RTL参照を比較し、not/or/andの保存とimplicationのantecedent/consequent変換を代表例で検査する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "22927dc291c4c946817ea699bd57cd95eebc4a7250bcc9072d3beacc554afb0f",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_impl_boolean.sv",
+              "contains": ":formal_case: f51_impl_boolean"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_impl_boolean.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.2",
@@ -475440,7 +476086,25 @@
       "acceptance": "Tp(nexttime p,c) waits for first clock then next step then next clock before evaluating Tp(p,c), using !c until (c and nexttime(!c until(c and Tp(p,c)))).",
       "source_note": "IEEE 1800-2023 F.5.1.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_next.sv",
+          "observation": "SymbiYosysでformalケースf51_nextを実行し、SV2023-F.5.1.2-EXTRACT-NEXTの意味論を独立RTL参照と比較する。clocked @(c) nexttime p のstatusと、!c until(c && nexttime(!c until(c && Tp(p,c)))) の独立RTL参照を比較する。最初のc tickの次tick、その次のc tickでpを評価する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "94e5a90c086920542406ac7e5c85f57b3df806ca717bef2a6eacf85645a2c49c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_next.sv",
+              "contains": ":formal_case: f51_next"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_next.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.2",
@@ -475458,7 +476122,25 @@
       "acceptance": "Tp preserves strong/weak around Ts of sequence; explicit nested clock overrides inherited clock.",
       "source_note": "IEEE 1800-2023 F.5.1.2; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_sequence.sv",
+          "observation": "SymbiYosysでformalケースf51_sequenceを実行し、SV2023-F.5.1.2-EXTRACT-SEQUENCEの意味論を独立RTL参照と比較する。clocked @(c)(a##1b)（weak既定）のstatusと、weak(Ts(a,c)##1 Ts(b,c)) の独立RTL参照を比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b141569c04baac45cd7bf44b5083dffbeda2cf87df54798ee6a3ccfae6175ac3",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_sequence.sv",
+              "contains": ":formal_case: f51_sequence"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_sequence.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.2",
@@ -475476,7 +476158,25 @@
       "acceptance": "Tp(sync_accept_on(b) p,c) is accept_on(b&&c) Tp(p,c).",
       "source_note": "IEEE 1800-2023 F.5.1.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_sync.sv",
+          "observation": "SymbiYosysでformalケースf51_syncを実行し、SV2023-F.5.1.2-EXTRACT-SYNCの意味論を独立RTL参照と比較する。clocked @(c) sync_accept_on(g)(a##1b) のstatusと、accept_on(g&&c) Ts(a##1b) の独立RTL参照を比較する。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a5817c7f9e7aedf572858c27a68a5aa9be1d00617afa48814ccfcfcfe68c04b4",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_sync.sv",
+              "contains": ":formal_case: f51_sync"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_sync.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.2",
@@ -475494,7 +476194,25 @@
       "acceptance": "Tp(p until q,c) is (not(c and not Tp(p,c))) until (c and Tp(q,c)).",
       "source_note": "IEEE 1800-2023 F.5.1.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f51_until.sv",
+          "observation": "SymbiYosysでformalケースf51_untilを実行し、SV2023-F.5.1.2-EXTRACT-UNTILの意味論を独立RTL参照と比較する。clocked @(c)(p until q) のstatusと、(not(c && not p)) until(c && q) の独立RTL参照を比較する。非clock tickは左operandが真として読み飛ばされる。 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "abcdfda7882fc4f624da93ad6ae454aaf86fcb1a46e7e21dace2c336d7235107",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f51_until.sv",
+              "contains": ":formal_case: f51_until"
+            },
+            {
+              "file": "tests/ch16/test_formal_f51_until.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.1.2",
@@ -477163,7 +477881,25 @@
       "acceptance": "block(Boolean),block(assignment),block(null repetition) are empty; local declaration removes its name; parentheses,first_match and positive repetition preserve operand block.",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_block_base.sv",
+          "observation": "SymbiYosysでformalケースf54_block_baseを実行し、SV2023-F.5.4-EXTRACT-BLOCK-BASEの意味論を独立RTL参照と比較する。block(Boolean/assignment/null repetition) is empty, a declaration adds its name, and parentheses/first_match/positive repetition preserve the operand block. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d367c75cccc5db8ce1a08491c6a9ae88061ce24ed1cb4e51ff2544f996e35ffe",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_block_base.sv",
+              "contains": ":formal_case: f54_block_base"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_block_base.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477182,7 +477918,25 @@
       "acceptance": "block of concat/fusion is (block(left) minus flow(empty,right)) union block(right).",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_block_concat.sv",
+          "observation": "SymbiYosysでformalケースf54_block_concatを実行し、SV2023-F.5.4-EXTRACT-BLOCK-CONCATの意味論を独立RTL参照と比較する。block(concat) = (block(left) - flow(empty,right)) union block(right); a name assigned by the right operand lets the left declaration escape. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2fc898e367a8186fec99e0c277f91646125aebb019fb0420fdb58bc8d279a5ea",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_block_concat.sv",
+              "contains": ":formal_case: f54_block_concat"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_block_concat.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477200,7 +477954,25 @@
       "acceptance": "block(intersect) is union of operand block sets and intersection of operand sample sets.",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_block_intersect.sv",
+          "observation": "SymbiYosysでformalケースf54_block_intersectを実行し、SV2023-F.5.4-EXTRACT-BLOCK-INTERSECTの意味論を独立RTL参照と比較する。block(intersect) is the union of the branch block sets; sample(intersect) is the intersection of the branch sample sets.  The packed result tests both equations. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e4184fb88a32f1165099eb7f6577c8233c3d2f8d911c9b3ca10dc924b4bf8506",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_block_intersect.sv",
+              "contains": ":formal_case: f54_block_intersect"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_block_intersect.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477218,7 +477990,25 @@
       "acceptance": "block(or) is union of operand block sets.",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_block_or.sv",
+          "observation": "SymbiYosysでformalケースf54_block_orを実行し、SV2023-F.5.4-EXTRACT-BLOCK-ORの意味論を独立RTL参照と比較する。block(or) is the union of the operand block sets, independent of assignment. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8390bad4038f8800894a9ca9e46e0eff83e2be8ff46eb7bf1cabb488d1cb4010",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_block_or.sv",
+              "contains": ":formal_case: f54_block_or"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_block_or.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477236,7 +478026,25 @@
       "acceptance": "flow through Boolean or null repetition preserves incoming X; assignment adds its local name; parentheses,first_match and positive repetition use operand flow.",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_flow_base.sv",
+          "observation": "SymbiYosysでformalケースf54_flow_baseを実行し、SV2023-F.5.4-EXTRACT-FLOW-BASEの意味論を独立RTL参照と比較する。flow through a Boolean or null repetition is the incoming set X; an assignment adds its local name; parentheses, first_match and positive repetition use the operand flow. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a4c0cbba0894950a218aca64eef1b9df2a5bb9f238dc587f83073065f27aeedb",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_flow_base.sv",
+              "contains": ":formal_case: f54_flow_base"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_flow_base.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477254,7 +478062,25 @@
       "acceptance": "flow through concat/fusion composes left then right flow.",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_flow_concat.sv",
+          "observation": "SymbiYosysでformalケースf54_flow_concatを実行し、SV2023-F.5.4-EXTRACT-FLOW-CONCATの意味論を独立RTL参照と比較する。flow(concat) composes left then right: flow(flow(X,left),right).  Variant 1 shows that a left declaration removes the name before the right flow is taken. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b7cd0a1da170425ba07aca7cfde11845a528e7384ce4c7d1e8fee95e3abb418c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_flow_concat.sv",
+              "contains": ":formal_case: f54_flow_concat"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_flow_concat.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477272,7 +478098,25 @@
       "acceptance": "flow through intersect is union of branch flow sets minus block(intersect).",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_flow_intersect.sv",
+          "observation": "SymbiYosysでformalケースf54_flow_intersectを実行し、SV2023-F.5.4-EXTRACT-FLOW-INTERSECTの意味論を独立RTL参照と比較する。flow(intersect) is the union of both branch flows minus block(intersect).  Variant 1 declares v and w in the branches, so both are removed. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2b579e8cc24b47a9e924445e157962065e59153014fa3e679feaa07bd778f588",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_flow_intersect.sv",
+              "contains": ":formal_case: f54_flow_intersect"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_flow_intersect.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477290,7 +478134,25 @@
       "acceptance": "flow through or is intersection of branch flow sets.",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_flow_or.sv",
+          "observation": "SymbiYosysでformalケースf54_flow_orを実行し、SV2023-F.5.4-EXTRACT-FLOW-ORの意味論を独立RTL参照と比較する。flow(or) is the intersection of the two branch flows; a declaration in one branch therefore removes that name from the result. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "102ccc5f23a5327a7c983f2fc64d6668ef0c225e64d3c3e278c6777210459715",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_flow_or.sv",
+              "contains": ":formal_case: f54_flow_or"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_flow_or.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477308,7 +478170,25 @@
       "acceptance": "flow(X,local v;R) preserves incoming outer v, runs R with v removed, and removes inner v from outgoing flow.",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_flow_scope.sv",
+          "observation": "SymbiYosysでformalケースf54_flow_scopeを実行し、SV2023-F.5.4-EXTRACT-FLOW-SCOPEの意味論を独立RTL参照と比較する。flow(local v;R) runs R with incoming v removed, removes inner v from the outgoing flow, and restores an incoming outer v.  Variant 0 keeps outer v and adds w. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "738253034844d196671191889ca21861d122caf69e785b91cd1ac0835f448540",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_flow_scope.sv",
+              "contains": ":formal_case: f54_flow_scope"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_flow_scope.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477326,7 +478206,25 @@
       "acceptance": "sample(Boolean) and sample(null repetition) are empty; sample(assignment to v) is {v}.",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_sample_base.sv",
+          "observation": "SymbiYosysでformalケースf54_sample_baseを実行し、SV2023-F.5.4-EXTRACT-SAMPLE-BASEの意味論を独立RTL参照と比較する。sample(Boolean) and sample(null repetition) are empty; sample(assignment to v) is {v}; parentheses, first_match and positive repetition preserve it. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "56d10c7560033b5acd9e948617323e187ebf2887f3a94156209fbcfc1a4d6444",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_sample_base.sv",
+              "contains": ":formal_case: f54_sample_base"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_sample_base.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477344,7 +478242,25 @@
       "acceptance": "sample of concat,fusion,or,intersect is union of operand sample sets.",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_sample_binary.sv",
+          "observation": "SymbiYosysでformalケースf54_sample_binaryを実行し、SV2023-F.5.4-EXTRACT-SAMPLE-BINARYの意味論を独立RTL参照と比較する。sample of concat, fusion, or and intersect is the union of the operand sample sets. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "540586398e382c484a3a4d4de342a74880121ca0b7e47e89f0b1db94d9360f30",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_sample_binary.sv",
+              "contains": ":formal_case: f54_sample_binary"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_sample_binary.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477362,7 +478278,25 @@
       "acceptance": "sample(local v;R) removes v; parentheses,first_match and positive repetition preserve operand sample.",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_sample_scope.sv",
+          "observation": "SymbiYosysでformalケースf54_sample_scopeを実行し、SV2023-F.5.4-EXTRACT-SAMPLE-SCOPEの意味論を独立RTL参照と比較する。sample(local v;R) removes v; parentheses, first_match and positive repetition preserve the operand sample set. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "983b2a059c87ebd56bb6e05b70abca7ec70727d1dfa2e282cc4f8f6f2230413d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_sample_scope.sv",
+              "contains": ":formal_case: f54_sample_scope"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_sample_scope.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477380,7 +478314,25 @@
       "acceptance": "sample returns assigned local names,block names prevented from flowing out,flow(X,R) names flowing out for incoming set X; operators are set union,intersection,difference and empty set.",
       "source_note": "IEEE 1800-2023 F.5.4; complete own-body source review, blocks B002, B003, B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f54_sets.sv",
+          "observation": "SymbiYosysでformalケースf54_setsを実行し、SV2023-F.5.4-EXTRACT-SETSの意味論を独立RTL参照と比較する。F.5.4 uses set union, intersection, difference and the empty set; this case fixes the four operators on all pairs of 3-name subsets. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f2d9ad0e9e7b3bbc7032aec76cebb293bdc0c0fff3d689888a092f5dc07941ea",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f54_sets.sv",
+              "contains": ":formal_case: f54_sets"
+            },
+            {
+              "file": "tests/ch16/test_formal_f54_sets.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.4",
@@ -477401,7 +478353,25 @@
       "acceptance": "Local sampling matches one letter satisfying true; evaluates expression using local context first then letter, replaces v and preserves other inputs; for top/bottom letter expression can be any constant of its type.",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_assign.sv",
+          "observation": "SymbiYosysでformalケースf55_assignを実行し、SV2023-F.5.5-EXTRACT-ASSIGNの意味論を独立RTL参照と比較する。An assignment matches one letter satisfying true, evaluates its expression with the local context consulted before the letter, replaces only its own name and preserves the other inputs. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3b1e62a8f5ccca9d04f60cd6cda2e51ebb44a5740633143b10312d4e0ac9fedb",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_assign.sv",
+              "contains": ":formal_case: f55_assign"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_assign.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477419,7 +478389,25 @@
       "acceptance": "Boolean tightly matches exactly one satisfying letter after local substitution and preserves context; parentheses preserve relation.",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_boolean.sv",
+          "observation": "SymbiYosysでformalケースf55_booleanを実行し、SV2023-F.5.5-EXTRACT-BOOLEANの意味論を独立RTL参照と比較する。A Boolean tightly matches exactly one letter satisfying it after local substitution; parentheses preserve the relation and the context is unchanged. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "79b4de00474f1be2f6120eaa50b6a639237af2f6951c8dcceee12a738d542555",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_boolean.sv",
+              "contains": ":formal_case: f55_boolean"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_boolean.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477437,7 +478425,25 @@
       "acceptance": "Clocked local tight satisfaction equals unclocked rewrite with same input/output contexts.",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_clocked.sv",
+          "observation": "SymbiYosysでformalケースf55_clockedを実行し、SV2023-F.5.5-EXTRACT-CLOCKEDの意味論を独立RTL参照と比較する。A clocked local tight match equals its unclocked rewrite with the same input and output contexts; the single clock does not change context threading. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "317d9226359341c4af0ed9e177e17f517cffe053323733a0963e3f7db9ecc5c9",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_clocked.sv",
+              "contains": ":formal_case: f55_clocked"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_clocked.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477455,7 +478461,25 @@
       "acceptance": "Concat passes left output context to right input on adjacent word pieces; fusion does likewise with a single shared letter.",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_concat.sv",
+          "observation": "SymbiYosysでformalケースf55_concatを実行し、SV2023-F.5.5-EXTRACT-CONCATの意味論を独立RTL参照と比較する。Concat passes the left output context to the right on adjacent pieces; fusion does the same on one shared letter, so the right assignment reads b at tick 0 instead of 1. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a6df37b5caf1252523a163cab0589a8f7eaeaf0c77acf16d59db51fba866c500",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_concat.sv",
+              "contains": ":formal_case: f55_concat"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_concat.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477473,7 +478497,25 @@
       "acceptance": "Local context maps names to values; context restriction limits domain; L without v removes v, L[v] keeps only v.",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_context.sv",
+          "observation": "SymbiYosysでformalケースf55_contextを実行し、SV2023-F.5.5-EXTRACT-CONTEXTの意味論を独立RTL参照と比較する。L without v removes v and L[v] keeps only v; the packed result exposes both the domain and the retained values. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "86fd78f4bea35c1da78ccd654fdbd3f3da460269b1037fe6514e7be6d70eb407",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_context.sv",
+              "contains": ":formal_case: f55_context"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_context.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477491,7 +478533,25 @@
       "acceptance": "A local declaration evaluates operand with incoming v removed and restores outer v alongside outgoing context with inner v removed.",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_decl.sv",
+          "observation": "SymbiYosysでformalケースf55_declを実行し、SV2023-F.5.5-EXTRACT-DECLの意味論を独立RTL参照と比較する。The operand runs with incoming v removed; the outgoing context drops the inner v and restores the outer v, alongside the names the operand produced. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9a839f3e8f13d67886f1e26b0186a6687470cf7f5dcebb33d17e623c923c4aff",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_decl.sv",
+              "contains": ":formal_case: f55_decl"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_decl.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477509,7 +478569,25 @@
       "acceptance": "first_match requires a match and no proper prefix whose dual word matches with the same input context and some output context.",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_first.sv",
+          "observation": "SymbiYosysでformalケースf55_firstを実行し、SV2023-F.5.5-EXTRACT-FIRSTの意味論を独立RTL参照と比較する。first_match at tick 2 requires a match of the operand and no earlier ending match of a proper prefix with the same input context. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c4347549d71f1eefa1c116e55ba7e88cffb40e0e29c94941c955ddf5040dac32",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_first.sv",
+              "contains": ":formal_case: f55_first"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_first.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477527,7 +478605,25 @@
       "acceptance": "intersect matches both branches with same input and word; combine each output restricted to its branch flow minus combined block and other branch sample, yielding a valid function.",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_intersect.sv",
+          "observation": "SymbiYosysでformalケースf55_intersectを実行し、SV2023-F.5.5-EXTRACT-INTERSECTの意味論を独立RTL参照と比較する。Both branches match the same input and word; each output is restricted to its branch flow minus the combined block and the other branch's sample set.  In variant 0 the common assigned v therefore disappears while w and x remain. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "551cf1f51391109b1b07fcfd8528b3416882f4975ac6033cc137702207452370",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_intersect.sv",
+              "contains": ":formal_case: f55_intersect"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_intersect.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477546,7 +478642,25 @@
       "acceptance": "Local sequence is nondegenerate iff a nonempty finite word and some input/output contexts tightly satisfy it; clocked case uses its rewrite.",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_non_degenerate.sv",
+          "observation": "SymbiYosysでformalケースf55_non_degenerateを実行し、SV2023-F.5.5-EXTRACT-NONDEGENERATEの意味論を独立RTL参照と比較する。A local sequence is nondegenerate exactly when a nonempty finite word and some input/output contexts tightly satisfy it; the empty-only fusion is degenerate. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "483d6970669e2e383f212341e6c1f38059808828feebc559d2687a64d4a1ee2f",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_non_degenerate.sv",
+              "contains": ":formal_case: f55_non_degenerate"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_non_degenerate.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477564,7 +478678,25 @@
       "acceptance": "Null repetition requires empty word and unchanged context.",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_null.sv",
+          "observation": "SymbiYosysでformalケースf55_nullを実行し、SV2023-F.5.5-EXTRACT-NULLの意味論を独立RTL参照と比較する。A null repetition matches the empty word with an unchanged context; the same sequence does not match a one-letter word. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd9b9e528cbeb2bebe627ce6bc2655cae7f5fe32f9929db2d860a6f8a73c8e2d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_null.sv",
+              "contains": ":formal_case: f55_null"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_null.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477582,7 +478714,25 @@
       "acceptance": "or may match either branch, then restricts its resulting context to flow of the complete or expression.",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_or.sv",
+          "observation": "SymbiYosysでformalケースf55_orを実行し、SV2023-F.5.5-EXTRACT-ORの意味論を独立RTL参照と比較する。or may match either branch and then restricts the resulting context to flow(or).  Two assignments to different names flow to the empty set; two assignments to v leave the two possible v values. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "179c54072c4f169b13e244a318049f9e1eee5af2c4e3bd86962205f68c227008",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_or.sv",
+              "contains": ":formal_case: f55_or"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_or.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477601,7 +478751,25 @@
       "acceptance": "Positive unbounded repetition has one or more successive matches, threading context from each piece into the next and using final context as result.",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_repeat.sv",
+          "observation": "SymbiYosysでformalケースf55_repeatを実行し、SV2023-F.5.5-EXTRACT-REPEATの意味論を独立RTL参照と比較する。A positive unbounded repetition threads the context from each piece into the next and returns the final context; the three possible counts on a three-letter word produce initial+1, +2 and +3. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f350bb14ca008dd8fca3f21f3e7c8812916b6d79e8950b953a4fdd1fda162892",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_repeat.sv",
+              "contains": ":formal_case: f55_repeat"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_repeat.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477619,7 +478787,25 @@
       "acceptance": "Tight local satisfaction relates finite word,input context,sequence and output context; output domain equals flow(input domain,sequence).",
       "source_note": "IEEE 1800-2023 F.5.5; complete own-body source review, blocks B003, B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f55_tight_context.sv",
+          "observation": "SymbiYosysでformalケースf55_tight_contextを実行し、SV2023-F.5.5-EXTRACT-TIGHT-CONTEXTの意味論を独立RTL参照と比較する。Tight local satisfaction has an output context whose domain equals flow of the input domain through the sequence; the packed mask is that domain. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "eb50f183ab4402f7a012a53eaf02ba3a5b60947ec5664c98a2cc9134ab4ed926",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f55_tight_context.sv",
+              "contains": ":formal_case: f55_tight_context"
+            },
+            {
+              "file": "tests/ch16/test_formal_f55_tight_context.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.5",
@@ -477657,7 +478843,25 @@
       "acceptance": "Neutral local satisfaction uses nonempty finite/infinite words and local contexts; assertion-statement rules are identical to no-local rules while underlying properties may have locals.",
       "source_note": "IEEE 1800-2023 F.5.6.1; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_assertions.sv",
+          "observation": "SymbiYosysでformalケースf561_assertionsを実行し、SV2023-F.5.6.1-EXTRACT-ASSERTIONSの意味論を独立RTL参照と比較する。An assertion statement with locals follows the ordinary assertion-statement rules; the underlying property may nevertheless contain a local declaration and implication.  The declared v is removed before the antecedent and w threads to the consequent. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "959f6a9480e3903ae4b89d3cea13217cc477545f869352e9597c4fc1e22bbd79",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_assertions.sv",
+              "contains": ":formal_case: f561_assertions"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_assertions.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.1",
@@ -477676,7 +478880,25 @@
       "acceptance": "Local and/or use conjunction/disjunction with same incoming context; nexttime uses suffix one or empty-word truth; until requires eventual RHS with earlier LHS or LHS on all suffixes.",
       "source_note": "IEEE 1800-2023 F.5.6.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_boolean.sv",
+          "observation": "SymbiYosysでformalケースf561_booleanを実行し、SV2023-F.5.6.1-EXTRACT-BOOLEANの意味論を独立RTL参照と比較する。Local and/or apply conjunction/disjunction with the same incoming context; nexttime uses the suffix and the empty-word truth; until requires a later RHS or LHS on every suffix. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0c7c6c3067fc8bd31f8d152f8e3d2593d259262cce49c477b520e385f1d922ec",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_boolean.sv",
+              "contains": ":formal_case: f561_boolean"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_boolean.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.1",
@@ -477694,7 +478916,25 @@
       "acceptance": "Top-level disabling uses no-local rules with fixed incoming context: plain property never disabled; first-disable top extension passes and bottom extension fails; declarations remove their name and parentheses preserve disabled relation.",
       "source_note": "IEEE 1800-2023 F.5.6.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_disabled.sv",
+          "observation": "SymbiYosysでformalケースf561_disabledを実行し、SV2023-F.5.6.1-EXTRACT-DISABLEDの意味論を独立RTL参照と比較する。A plain top-level property is never disabled; a disable before the deciding tick gives the disabled status while a pass at tick 0 is not revoked.  Parentheses and a declaration do not change the disabled relation. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ec2795774803646b21219274f42460b4e76750e01cc7c8cb347581e041dbf6d0",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_disabled.sv",
+              "contains": ":formal_case: f561_disabled"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_disabled.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.1",
@@ -477712,7 +478952,25 @@
       "acceptance": "Unqualified clocked-property satisfaction uses empty local context; clocked properties use Tp with inherited clock true.",
       "source_note": "IEEE 1800-2023 F.5.6.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_empty_context.sv",
+          "observation": "SymbiYosysでformalケースf561_empty_contextを実行し、SV2023-F.5.6.1-EXTRACT-EMPTY-CONTEXTの意味論を独立RTL参照と比較する。An unqualified clocked property starts with the empty local context, so the incoming context is not visible and the letter's v is read; the clock is inherited as true. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "006ae3bea753818f235faa8a5629403271da235151f3529bddfbb5369e67cfe3",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_empty_context.sv",
+              "contains": ":formal_case: f561_empty_context"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_empty_context.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.1",
@@ -477730,7 +478988,25 @@
       "acceptance": "Local implication requires every dual-prefix tight antecedent match and output context to satisfy consequent on endpoint suffix using that output context.",
       "source_note": "IEEE 1800-2023 F.5.6.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_implication.sv",
+          "observation": "SymbiYosysでformalケースf561_implicationを実行し、SV2023-F.5.6.1-EXTRACT-IMPLICATIONの意味論を独立RTL参照と比較する。Every tight antecedent match and its output context must satisfy the consequent on the endpoint suffix with that output context.  The assignment v=a0 is carried into the consequent; the surviving match is the one-letter prefix. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f89d770b4e1c4c3d1566bf0629948d863ee7359588b285350d197722c1f93801",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_implication.sv",
+              "contains": ":formal_case: f561_implication"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_implication.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.1",
@@ -477748,7 +479024,25 @@
       "acceptance": "w, L0 satisfies (t v; P) exactly when w, L0\\v satisfies P; the equation is not evaluated with the disabled relation, which F.5.6.1 defines only for top-level properties and which never holds for T = P.",
       "source_note": "IEEE 1800-2023 F.5.6.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue LOCAL-PROPERTY-DISABLED-MARKER resolved on 2026-10-24: All own-body definitions, quantified conditions, equations and boundaries reviewed; the (t v; P) equation in B007 is read with ordinary satisfaction on the right-hand side, because the d relation is defined only for top-level properties and never holds for T = P (B005), while the top-level and vacuity forms (B004, B005, F.5.6.3 B002) use the same relation on both sides.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_local_declaration.sv",
+          "observation": "SymbiYosysでformalケースf561_local_declarationを実行し、SV2023-F.5.6.1-EXTRACT-LOCAL-DECLARATION-TEXTの意味論を独立RTL参照と比較する。A local property declaration is satisfied exactly when the operand is satisfied with the declared name removed from the incoming context; it is not the disabled relation. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3c35455c15c06ec56304caaaa8f314b0afbdaff9959f9f863e7c05d69665e48e",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_local_declaration.sv",
+              "contains": ":formal_case: f561_local_declaration"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_local_declaration.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.1",
@@ -477766,7 +479060,25 @@
       "acceptance": "Local not P holds iff dual word with same input context fails P; parentheses preserve.",
       "source_note": "IEEE 1800-2023 F.5.6.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_not.sv",
+          "observation": "SymbiYosysでformalケースf561_notを実行し、SV2023-F.5.6.1-EXTRACT-NOTの意味論を独立RTL参照と比較する。not P holds on the dual word with the same input context, so a Boolean P is inverted at the same tick; parentheses preserve the relation. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "292a413851ccafb8d045ff4deda011c56793bfec5692648be4df54d9db77de99",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_not.sv",
+              "contains": ":formal_case: f561_not"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_not.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.1",
@@ -477784,7 +479096,25 @@
       "acceptance": "Local top-level pass and disabled are mutually exclusive; fail is neither.",
       "source_note": "IEEE 1800-2023 F.5.6.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_status.sv",
+          "observation": "SymbiYosysでformalケースf561_statusを実行し、SV2023-F.5.6.1-EXTRACT-STATUSの意味論を独立RTL参照と比較する。Top-level pass and disabled are mutually exclusive and a failure is neither; the single status code makes the three cases disjoint. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "169c5d784988a5c353492357e93978933e34297bf5aecb84ced39edf7567f5ca",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_status.sv",
+              "contains": ":formal_case: f561_status"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_status.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.1",
@@ -477802,7 +479132,25 @@
       "acceptance": "Local strong(R) requires some 0<=j<|w| and output context tightly satisfying prefix 0..j from incoming context.",
       "source_note": "IEEE 1800-2023 F.5.6.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_strong.sv",
+          "observation": "SymbiYosysでformalケースf561_strongを実行し、SV2023-F.5.6.1-EXTRACT-STRONGの意味論を独立RTL参照と比較する。strong(R) needs some prefix 0..j with a tight match; without a witness the finite word leaves the strong property pending. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2356767ad295dbf26148f7f071b2969700d8f53dfbb371b39fbb81b8d34b1f91",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_strong.sv",
+              "contains": ":formal_case: f561_strong"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_strong.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.1",
@@ -477820,7 +479168,25 @@
       "acceptance": "Plain top-level and parentheses preserve operand satisfaction; local top-level declaration removes its name from incoming context; disable iff uses no-disable satisfaction or prefix before first disable plus infinite bottom with same incoming context.",
       "source_note": "IEEE 1800-2023 F.5.6.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_top.sv",
+          "observation": "SymbiYosysでformalケースf561_topを実行し、SV2023-F.5.6.1-EXTRACT-TOPの意味論を独立RTL参照と比較する。Plain and parenthesized properties preserve operand satisfaction; a top-level local declaration removes its name from the incoming context before evaluating the operand. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "01966d1a597efab9b48ceb8e6248302cf4f0bf7211d22ae62a3f0b0094576e2b",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_top.sv",
+              "contains": ":formal_case: f561_top"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_top.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.1",
@@ -477838,7 +479204,25 @@
       "acceptance": "Local weak(R) requires every prefix ending 0<=j<|w| plus infinite top to satisfy strong(R) with incoming context.",
       "source_note": "IEEE 1800-2023 F.5.6.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f561_weak.sv",
+          "observation": "SymbiYosysでformalケースf561_weakを実行し、SV2023-F.5.6.1-EXTRACT-WEAKの意味論を独立RTL参照と比較する。weak(R) requires every finite prefix extended with infinite top to satisfy strong(R); for the two-letter sequence the prefix ending at tick 1 already contains b1, so a0=1 with b1=0 fails there while a0=0 fails at the first prefix. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "77c5e8dfe8aef3c010bd16d1d7e95ce03e42b772517fce16934e0727aadac766",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f561_weak.sv",
+              "contains": ":formal_case: f561_weak"
+            },
+            {
+              "file": "tests/ch16/test_formal_f561_weak.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.1",
@@ -477856,7 +479240,25 @@
       "acceptance": "Weak/strong finite-word definitions are identical to F.5.3.2 with locals permitted in underlying properties.",
       "source_note": "IEEE 1800-2023 F.5.6.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f562_finite.sv",
+          "observation": "SymbiYosysでformalケースf562_finiteを実行し、SV2023-F.5.6.2-EXTRACT-FINITEの意味論を独立RTL参照と比較する。The weak/strong finite-word definitions are the F.5.3.2 ones with locals permitted: strong needs an actual tight prefix, weak holds on the finite word when every top-extended prefix can still match. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f6dd5f671b4eab58b8404c5a1eab93decd4ef061a27268c8f8804a8891e9351a",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f562_finite.sv",
+              "contains": ":formal_case: f562_finite"
+            },
+            {
+              "file": "tests/ch16/test_formal_f562_finite.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.2",
@@ -477874,7 +479276,25 @@
       "acceptance": "Local nonvacuity follows F.5.3.3; local declaration evaluates nonvacuity with declared name removed from incoming context.",
       "source_note": "IEEE 1800-2023 F.5.6.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f563_vacuity.sv",
+          "observation": "SymbiYosysでformalケースf563_vacuityを実行し、SV2023-F.5.6.3-EXTRACT-VACUITYの意味論を独立RTL参照と比較する。Local nonvacuity follows F.5.3.3; a local declaration evaluates nonvacuity with the declared name removed from the incoming context, so the antecedent reads the letter's v rather than the incoming context. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0f891937dee1fba1cf2e4cc9e937f5f6603810126494cb897635971130e4d095",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f563_vacuity.sv",
+              "contains": ":formal_case: f563_vacuity"
+            },
+            {
+              "file": "tests/ch16/test_formal_f563_vacuity.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.6.3",
@@ -477892,7 +479312,25 @@
       "acceptance": "Extended-expression evaluation at a letter can depend on other letters; its letter-indexed notation must be interpreted with the full trace.",
       "source_note": "IEEE 1800-2023 F.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f6_extended.sv",
+          "observation": "SymbiYosysでformalケースf6_extendedを実行し、SV2023-F.6-EXTRACT-EXTENDEDの意味論を独立RTL参照と比較する。An extended expression at a letter can depend on other letters: $past(v) at tick 0 uses the initial value, at tick 1 uses v0 and at tick 2 uses v1.  The letter-indexed notation is therefore interpreted with the full trace. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "48b4e714b43fc43fd388899b2aa14982fce3433fd301b226a065db19fc5fcb1d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f6_extended.sv",
+              "contains": ":formal_case: f6_extended"
+            },
+            {
+              "file": "tests/ch16/test_formal_f6_extended.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.6",
@@ -477910,7 +479348,25 @@
       "acceptance": "At j, clocked T(V).matched requires an earlier 0<=i<j where triggered holds with same input/output contexts and interval i+1..j tightly matches first occurrence of c.",
       "source_note": "IEEE 1800-2023 F.6.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f61_matched.sv",
+          "observation": "SymbiYosysでformalケースf61_matchedを実行し、SV2023-F.6.1-EXTRACT-MATCHEDの意味論を独立RTL参照と比較する。At j a clocked T.matched requires an earlier i<j where triggered holds with the same contexts and i+1..j tightly matches the first occurrence of the clock c.  With one always-true clock the first occurrence after i is the single next letter, so j=2 requires a trigger at i=1, whic 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8f548f74623cd613e609e773b4479f4201094bf930094e1eb95c76c066bd9dd1",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f61_matched.sv",
+              "contains": ":formal_case: f61_matched"
+            },
+            {
+              "file": "tests/ch16/test_formal_f61_matched.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.6.1",
@@ -477928,7 +479384,25 @@
       "acceptance": "At 0<=j<length, T(V).triggered holds iff some 0<=i<=j yields a tight T(V) match on i..j from empty context; outgoing context replaces only passed names in match context and preserves other incoming names.",
       "source_note": "IEEE 1800-2023 F.6.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f61_triggered.sv",
+          "observation": "SymbiYosysでformalケースf61_triggeredを実行し、SV2023-F.6.1-EXTRACT-TRIGGEREDの意味論を独立RTL参照と比較する。T.triggered at j holds iff some 0<=i<=j tightly matches T on i..j from the empty context.  For the two-letter sequence only i=j-1 can match, so j=1 reads a0&b1 and j=2 reads a1&b2. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "513f21f6c163f7a3360745a7379d2fa22c8db346135e79951b8f3c08b3fa8ea5",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f61_triggered.sv",
+              "contains": ":formal_case: f61_triggered"
+            },
+            {
+              "file": "tests/ch16/test_formal_f61_triggered.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.6.1",
@@ -478018,7 +479492,25 @@
       "acceptance": "$past_gclk(e) evaluated at a global clock tick returns e's value at the immediately preceding global clock tick, consistent with $past(e,,,@$global_clock); at the first letter (j=0) it returns e evaluated from initial variable values.",
       "source_note": "IEEE 1800-2023 F.6.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue PAST-GLOBAL-INDEX resolved on 2026-10-24: All own-body definitions, quantified conditions, equations and boundaries reviewed; the $past_gclk clause is read as j>0 giving e[w^{j-1}], since j=0 is covered separately and 16.9.4 B002/B006 with F.3.1 B004 reduce the general $past rule to the immediately preceding letter.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f62_past_global.sv",
+          "observation": "SymbiYosysでformalケースf62_past_globalを実行し、SV2023-F.6.2-EXTRACT-PAST-GLOBAL-INDEX-TEXTの意味論を独立RTL参照と比較する。$past_gclk(e) at letter j>0 is e at j-1, the immediately preceding global clock tick; at j=0 it is e from the initial values (1). 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "dda4d89cdd5f9faf168fd87ae62694c1da6763cbcea1654341da7830d2171386",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f62_past_global.sv",
+              "contains": ":formal_case: f62_past_global"
+            },
+            {
+              "file": "tests/ch16/test_formal_f62_past_global.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.6.2",
@@ -478036,7 +479528,25 @@
       "acceptance": "$future_gclk(e) at a global clock tick returns e's value at the next global clock tick (letter j+1); at the last letter of a finite word no value is defined.",
       "source_note": "IEEE 1800-2023 F.6.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue FUTURE-GLOBAL-INDEX resolved on 2026-10-24: All own-body definitions, quantified conditions, equations and boundaries reviewed; the RHS index is read as j+1, the next letter, per 16.9.4 B008 and F.3.1 B004, which also fits the bound 0<=j<|w|-1 and the undefined final position.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f63_future.sv",
+          "observation": "SymbiYosysでformalケースf63_futureを実行し、SV2023-F.6.3-EXTRACT-FUTURE-INDEX-TEXTの意味論を独立RTL参照と比較する。$future_gclk(e) at letter j<|w|-1 is e at j+1, the next global clock tick; the value at the final letter is undefined and is not encoded. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3aded5a1d0efe891ff7fae72fcf98eb725b924e3f684f29c06f6ef22efb40005",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f63_future.sv",
+              "contains": ":formal_case: f63_future"
+            },
+            {
+              "file": "tests/ch16/test_formal_f63_future.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.6.3",
@@ -478054,7 +479564,25 @@
       "acceptance": "A property including top-level holds with local context iff every positive-depth approximation holds with that context; approximate each named-property instance and use nonrecursive flattening.",
       "source_note": "IEEE 1800-2023 F.7; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f7_all_approx.sv",
+          "observation": "SymbiYosysでformalケースf7_all_approxを実行し、SV2023-F.7-EXTRACT-ALL-APPROXの意味論を独立RTL参照と比較する。A recursive property including top holds with the local context exactly when every positive-depth approximation holds; the approximants are monotone, so checking depths 1..3 is the finite form of the conjunction. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ba79fef3e73fb48dfe0fa905e3b2e02e5e63ea1ea8809eead0f337f9aa63643f",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f7_all_approx.sv",
+              "contains": ":formal_case: f7_all_approx"
+            },
+            {
+              "file": "tests/ch16/test_formal_f7_all_approx.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.7",
@@ -478072,7 +479600,25 @@
       "acceptance": "Zero-fold approximation copies property signature but replaces body specification by true.",
       "source_note": "IEEE 1800-2023 F.7; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f7_approx_base.sv",
+          "observation": "SymbiYosysでformalケースf7_approx_baseを実行し、SV2023-F.7-EXTRACT-APPROX-BASEの意味論を独立RTL参照と比較する。The zero-fold approximation copies the property signature and replaces the body by true; the result is vacuous success at tick 0 for every word. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c60b907a8486afc680e57933d42caa7de7fcec3cb492b9ead56945a34ffded58",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f7_approx_base.sv",
+              "contains": ":formal_case: f7_approx_base"
+            },
+            {
+              "file": "tests/ch16/test_formal_f7_approx_base.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.7",
@@ -478090,7 +479636,25 @@
       "acceptance": "For k>0 replace recursive instances with k-1 approximations and nonrecursive instances with k approximations, preserving corresponding actuals.",
       "source_note": "IEEE 1800-2023 F.7; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f7_approx_step.sv",
+          "observation": "SymbiYosysでformalケースf7_approx_stepを実行し、SV2023-F.7-EXTRACT-APPROX-STEPの意味論を独立RTL参照と比較する。For k=2 the recursive instance is replaced by the k-1 approximation while the nonrecursive b instance keeps its body; p2 is b0 or (a0 and (b1 or (a1 and true))). 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8d99cc812b2a04f74fef3a9dcb4669855fe715f84e3650e237b77f405cbda673",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f7_approx_step.sv",
+              "contains": ":formal_case: f7_approx_step"
+            },
+            {
+              "file": "tests/ch16/test_formal_f7_approx_step.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.7",
@@ -478108,7 +479672,25 @@
       "acceptance": "Property dependency graph has named-property vertices and p-to-q edge exactly when q is instantiated in p, including actual-argument expressions.",
       "source_note": "IEEE 1800-2023 F.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f7_dependency.sv",
+          "observation": "SymbiYosysでformalケースf7_dependencyを実行し、SV2023-F.7-EXTRACT-DEPENDENCYの意味論を独立RTL参照と比較する。The graph has an edge p->q for the instance in p, p->r for the direct instance, p->s for the instance q(s) inside an actual argument of p, and q->p.  No other edge exists, giving mask 30 in the order p,q,r,s. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f1ac15e9766753cf5ef515df577945b414071570cfa958e271bf246266688887",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f7_dependency.sv",
+              "contains": ":formal_case: f7_dependency"
+            },
+            {
+              "file": "tests/ch16/test_formal_f7_dependency.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.7",
@@ -478126,7 +479708,25 @@
       "acceptance": "Recursive named property belongs to nontrivial strongly connected component; recursive instance links members of same such component, including self; edge weight is minimum guaranteed time steps among corresponding instances.",
       "source_note": "IEEE 1800-2023 F.7; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f7_recursive.sv",
+          "observation": "SymbiYosysでformalケースf7_recursiveを実行し、SV2023-F.7-EXTRACT-RECURSIVEの意味論を独立RTL参照と比較する。p and q form a nontrivial strongly connected component and r is self-recursive, so all three are recursive members.  The p->q weight is one time step, q->p is two and r->r is one; the packed code is 7 | 1<<3 | 2<<6 | 1<<9 = 655. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c31a0c61e8ac090e582e4042f9cee731f49ad7d6804f3dc077c9570461cb4908",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f7_recursive.sv",
+              "contains": ":formal_case: f7_recursive"
+            },
+            {
+              "file": "tests/ch16/test_formal_f7_recursive.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.7",
@@ -478144,7 +479744,25 @@
       "acceptance": "Each recursive actual must be a formal of enclosing property, contain no such formal, or bind a local variable formal of the called property.",
       "source_note": "IEEE 1800-2023 F.7; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f7_restriction_argument.sv",
+          "observation": "SymbiYosysでformalケースf7_restriction_argumentを実行し、SV2023-F.7-EXTRACT-RESTRICTION-ARGUMENTの意味論を独立RTL参照と比較する。p calls p(v), where v is a formal of the enclosing property (allowed); r calls s(1), which contains no enclosing formal (allowed); q calls q(v+1), which contains v but is neither a bare enclosing formal nor a called-property formal (invalid), so the error mask is bit 1. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "80a23532d64afa0ee9e0436fdc20b2b6400f940db4bfe0d33b1a58d2815a2061",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f7_restriction_argument.sv",
+              "contains": ":formal_case: f7_restriction_argument"
+            },
+            {
+              "file": "tests/ch16/test_formal_f7_restriction_argument.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.7",
@@ -478162,7 +479780,25 @@
       "acceptance": "Recursive declarations cannot use disable iff.",
       "source_note": "IEEE 1800-2023 F.7; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f7_restriction_disable.sv",
+          "observation": "SymbiYosysでformalケースf7_restriction_disableを実行し、SV2023-F.7-EXTRACT-RESTRICTION-DISABLEの意味論を独立RTL参照と比較する。p is recursive and therefore may not use disable iff; q is nonrecursive and may, so only p is an error. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b7b895edf2b9c7c07b76e7b685b1f8392a3ff4e849821117362e97ad0b0f7d3a",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f7_restriction_disable.sv",
+              "contains": ":formal_case: f7_restriction_disable"
+            },
+            {
+              "file": "tests/ch16/test_formal_f7_restriction_disable.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.7",
@@ -478180,7 +479816,25 @@
       "acceptance": "not cannot apply to an expression instantiating a property from which recursion is reachable.",
       "source_note": "IEEE 1800-2023 F.7; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f7_restriction_not.sv",
+          "observation": "SymbiYosysでformalケースf7_restriction_notを実行し、SV2023-F.7-EXTRACT-RESTRICTION-NOTの意味論を独立RTL参照と比較する。q applies not to an instance of the recursive p, which is illegal; r applies not to the nonrecursive s, which is legal.  The error mask is bit 1. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "630387565d48cec2834c48ad1a203695bf91ecbb6787d241244e6c062eb3612d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f7_restriction_not.sv",
+              "contains": ":formal_case: f7_restriction_not"
+            },
+            {
+              "file": "tests/ch16/test_formal_f7_restriction_not.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.7",
@@ -478198,7 +479852,25 @@
       "acceptance": "Every graph cycle must have strictly positive total edge weight.",
       "source_note": "IEEE 1800-2023 F.7; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f7_restriction_time.sv",
+          "observation": "SymbiYosysでformalケースf7_restriction_timeを実行し、SV2023-F.7-EXTRACT-RESTRICTION-TIMEの意味論を独立RTL参照と比較する。The p<->q cycle has weights 1 and 2 and therefore total 3, which is strictly positive; the r self-loop has weight 0 and violates the restriction. 区別: 要求の定義を独立RTL参照として実装し、参照評価器／生成モデルとの全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a7f575e1a79f4b40a27b51fbf84fa59eb336b39d029d8919ba402a24099d368f",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f7_restriction_time.sv",
+              "contains": ":formal_case: f7_restriction_time"
+            },
+            {
+              "file": "tests/ch16/test_formal_f7_restriction_time.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.7",
