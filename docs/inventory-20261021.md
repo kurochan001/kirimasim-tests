@@ -1103,8 +1103,11 @@ tests kept.
 
 A formal wave added :type: formal, the run_sby.py runner and 40 existing
 SymbiYosys cases mapped to F requirements. A second formal wave added 21
-F.3.4.3 cases; 18 new links were accepted. The ledger maps 10562 of
-12319 rows (85.74%), with 5800 executed (47.08%).
+F.3.4.3 cases; 18 new links were accepted.
+
+A third formal wave added 20 cases for F.3.4.2 and F.5.2; 19 new links
+were accepted. The ledger maps 10581 of 12319 rows (85.89%), with 5819
+executed (47.24%).
 
 ### Current state
 
@@ -1113,7 +1116,7 @@ generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-10562 of 12319 rows (85.74%), with 5800 executed (47.08%).
+10581 of 12319 rows (85.89%), with 5819 executed (47.24%).
 
 ### Tests added in this work
 

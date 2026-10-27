@@ -2,8 +2,8 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 7407,
-  "linked_test_files": 4992,
+  "test_files": 7427,
+  "linked_test_files": 5012,
   "unlinked_test_files": 2415,
   "chapters": [
     {
@@ -86,8 +86,8 @@
     },
     {
       "chapter": "ch16",
-      "test_files": 436,
-      "linked_test_files": 381,
+      "test_files": 456,
+      "linked_test_files": 401,
       "unlinked_test_files": 55
     },
     {
@@ -61477,6 +61477,522 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch16/test_formal_f342_concat_fixed.sv",
+      "inputs_sha256": "e676de234c85182fa4e46b59763f56b6a878567fca2dbfb15038de5bbeabdeff",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_concat_zero.sv",
+      "inputs_sha256": "4542e1083b9656d8d621cd1abd619ddaa512e49fb638581d8cbcc76091e9293b",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_goto_finite.sv",
+      "inputs_sha256": "3e3badf30faebb5e40dee84c895f9cc35348394575c3355762b2bfebb5f06bb1",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-42"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-44",
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-46",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-43",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-45",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-47"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_goto_unbounded.sv",
+      "inputs_sha256": "fde3eda4ada258fcc64dbf0b8f3ba24d505f78a0db8e996009cd954568894332",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-44"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-42",
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-46",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-43",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-45",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-47"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_nonconsecutive_finite.sv",
+      "inputs_sha256": "0d424f3d0686b9803452a9973fda1e917c850516c64af446bf412d9c18a55157",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-43"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-42",
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-44",
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-46",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-45",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-47"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_nonconsecutive_unbounded.sv",
+      "inputs_sha256": "0abbca36fd2803b6dfbbe2d09a6fb6a2ed898a9cdb563a8ba6e7eca0fe51283c",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-45"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-42",
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-44",
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-46",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-43",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-47"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_plus.sv",
+      "inputs_sha256": "e97796db438dc8b9021845f4639356a67d7047334bced7dd09d3df60d0b1329d",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.1-EXTRACT-PLUS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.1-EXTRACT-FINITE",
+        "SV2023-F.3.4.2.1-EXTRACT-FIXED",
+        "SV2023-F.3.4.2.1-EXTRACT-POSITIVE-UNBOUNDED",
+        "SV2023-F.3.4.2.1-EXTRACT-SINGLE-RANGE",
+        "SV2023-F.3.4.2.1-EXTRACT-STAR",
+        "SV2023-F.3.4.2.1-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_positive_unbounded.sv",
+      "inputs_sha256": "5979f81c907f3f4d424f571ad4d4e14a691f297fca06afa7520bde3d5f5a01a8",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.1-EXTRACT-POSITIVE-UNBOUNDED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.1-EXTRACT-FINITE",
+        "SV2023-F.3.4.2.1-EXTRACT-FIXED",
+        "SV2023-F.3.4.2.1-EXTRACT-PLUS",
+        "SV2023-F.3.4.2.1-EXTRACT-SINGLE-RANGE",
+        "SV2023-F.3.4.2.1-EXTRACT-STAR",
+        "SV2023-F.3.4.2.1-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_prefix_finite.sv",
+      "inputs_sha256": "478b7af338558e43b3161c4b24d77baffa8f194041efbbc7ff6a3e67e88de326",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_prefix_fixed.sv",
+      "inputs_sha256": "e328cf501d8554f5b686fb9c89b640bf6ad446dd48b0d47052c23822aa43f92d",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_prefix_plus.sv",
+      "inputs_sha256": "c215e1e947066a222d3063ba65504db72a825c913a4b7b0dcdd55b6c27be646f",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_prefix_star.sv",
+      "inputs_sha256": "fc093f23ed6bf060830a5889bc096b94f8549524942613bd000c53f8f3aa7fca",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_prefix_unbounded.sv",
+      "inputs_sha256": "3219f0ff79a59d465248123707ce1f768e86ad37f6da1065701cfbda0cbaad15",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_single_range.sv",
+      "inputs_sha256": "90fe58917f09c56541247d93850cc42f65cd2816db915e47ede8a80467893a9d",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.1-EXTRACT-SINGLE-RANGE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.1-EXTRACT-FINITE",
+        "SV2023-F.3.4.2.1-EXTRACT-FIXED",
+        "SV2023-F.3.4.2.1-EXTRACT-PLUS",
+        "SV2023-F.3.4.2.1-EXTRACT-POSITIVE-UNBOUNDED",
+        "SV2023-F.3.4.2.1-EXTRACT-STAR",
+        "SV2023-F.3.4.2.1-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_star.sv",
+      "inputs_sha256": "c6e51cb2d54248ab1e53298dc1fdfa8ff2ffde6f876d586d1b81c3737e31f3fd",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.1-EXTRACT-STAR"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.1-EXTRACT-FINITE",
+        "SV2023-F.3.4.2.1-EXTRACT-FIXED",
+        "SV2023-F.3.4.2.1-EXTRACT-PLUS",
+        "SV2023-F.3.4.2.1-EXTRACT-POSITIVE-UNBOUNDED",
+        "SV2023-F.3.4.2.1-EXTRACT-SINGLE-RANGE",
+        "SV2023-F.3.4.2.1-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_zero_finite.sv",
+      "inputs_sha256": "a2bef1b2bd4003147f41fc2e58bf8bfe1f1723c825919dc9f971d28442f9d825",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f342_zero_unbounded.sv",
+      "inputs_sha256": "ff4f3e643fcf1761614c53846475e0bef9de9af34e275d0346ae89954ee2c22a",
+      "cited_clauses": [
+        "16.9",
+        "F.3.4.2.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
       "test": "tests/ch16/test_formal_f343_always_infinite.sv",
       "inputs_sha256": "7ace51bd0e98819df751447f9b18be7fd5c29226e82c43cbe7b068cba47488ab",
       "cited_clauses": [
@@ -62670,6 +63186,96 @@
         {
           "clause": "16.12",
           "descendant_requirement_count": 88
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f52_boolean.sv",
+      "inputs_sha256": "5387e5c5f926d246f81fdc949b5ddaca23b16d68980eff9304411e0233963535",
+      "cited_clauses": [
+        "16.9",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-BOOLEAN"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-NULL",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f52_clocked.sv",
+      "inputs_sha256": "7431571ae06ba35854da24a9e4eb5078d1af764e3eb5ebaeb1b15a582fd154b0",
+      "cited_clauses": [
+        "16.9",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-CLOCKED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-NULL",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f52_nonempty_word.sv",
+      "inputs_sha256": "72549ba66f759a6265a7d77bece05271488f57fa1684c6e06e16008572cbfe29",
+      "cited_clauses": [
+        "16.9",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NULL",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "16.9",
+          "descendant_requirement_count": 87
         }
       ]
     },
@@ -532568,7 +533174,7 @@
     "oracle_issue": 257,
     "partial_observation": 2129
   },
-  "registry_sha256": "f258120177a4d81de6a698e6cd2b41a224488d3aa4aa51175bcf16815d4483ce",
+  "registry_sha256": "b40e633855cf788d061a0f4af4cd4c46d5a198073b60c171805a5a4e6ed40235",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "c1dac1a34f1f74e3f694f5ef6218659d24e12fac8b92f59725cdca236f737aec"
 }

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "f258120177a4d81de6a698e6cd2b41a224488d3aa4aa51175bcf16815d4483ce",
+  "registry_sha256": "b40e633855cf788d061a0f4af4cd4c46d5a198073b60c171805a5a4e6ed40235",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -42,18 +42,18 @@
   "normative_sections": 1703,
   "audited_sections": 1683,
   "registered": 12319,
-  "mapped": 10562,
+  "mapped": 10581,
   "denominator_reviewed": false,
   "extraction_progress_percent": 98.825601879037,
-  "unmapped": 1757,
-  "executed": 5800,
+  "unmapped": 1738,
+  "executed": 5819,
   "whole_standard_percent": null,
   "whole_standard_executed_percent": null,
-  "registered_percent": 85.73747869145222,
+  "registered_percent": 85.89171198960955,
   "metric_policy_version": 3,
   "whole_standard_status": "provisional",
-  "provisional_design_percent": 85.73747869145222,
-  "provisional_execution_percent": 47.08174364802338,
+  "provisional_design_percent": 85.89171198960955,
+  "provisional_execution_percent": 47.2359769461807,
   "denominator": {
     "count": 12319,
     "unit": "registered_requirement_condition_or_observation",
@@ -63,15 +63,15 @@
     "interpretation_pending": 21
   },
   "test_mapping": {
-    "suite_test_files": 7407,
-    "linked_test_files": 4992,
+    "suite_test_files": 7427,
+    "linked_test_files": 5012,
     "unlinked_test_files": 2415
   },
   "collective_requirement_count": 652,
   "requirement_status_counts": {
-    "pass": 5800,
+    "pass": 5819,
     "mapped_without_pass": 4762,
-    "unmapped": 1736,
+    "unmapped": 1717,
     "interpretation_pending": 21
   },
   "chapters": [
@@ -539,10 +539,10 @@
       "clause": "F",
       "title": "Formal semantics of concurrent assertions",
       "registered": 253,
-      "mapped": 59,
-      "executed": 59,
-      "design_percent": 23.320158102766797,
-      "execution_percent": 23.320158102766797,
+      "mapped": 78,
+      "executed": 78,
+      "design_percent": 30.8300395256917,
+      "execution_percent": 30.8300395256917,
       "interpretation_pending": 0
     },
     {
@@ -672,8 +672,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10560,
-          "unmapped": 1736,
+          "not_run": 10579,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -694,8 +694,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10560,
-          "unmapped": 1736,
+          "not_run": 10579,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -716,8 +716,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10560,
-          "unmapped": 1736,
+          "not_run": 10579,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -735,8 +735,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 4,
-          "not_run": 10534,
-          "unmapped": 1736,
+          "not_run": 10553,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -763,8 +763,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 4,
-          "not_run": 10535,
-          "unmapped": 1736,
+          "not_run": 10554,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -791,8 +791,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 4,
-          "not_run": 10535,
-          "unmapped": 1736,
+          "not_run": 10554,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -810,8 +810,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10526,
-          "unmapped": 1736,
+          "not_run": 10545,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -858,8 +858,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10526,
-          "unmapped": 1736,
+          "not_run": 10545,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -877,8 +877,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10560,
-          "unmapped": 1736,
+          "not_run": 10579,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -899,8 +899,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10560,
-          "unmapped": 1736,
+          "not_run": 10579,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -921,8 +921,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10560,
-          "unmapped": 1736,
+          "not_run": 10579,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -3784,8 +3784,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 75,
           "stale": 193,
-          "not_run": 894,
-          "unmapped": 1736,
+          "not_run": 913,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -3936,8 +3936,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 7,
-          "not_run": 10423,
-          "unmapped": 1736,
+          "not_run": 10442,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -3972,8 +3972,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 21,
           "stale": 202,
-          "not_run": 6215,
-          "unmapped": 1736,
+          "not_run": 6234,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4003,8 +4003,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 21,
           "stale": 202,
-          "not_run": 6215,
-          "unmapped": 1736,
+          "not_run": 6234,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4022,8 +4022,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 15,
-          "not_run": 10547,
-          "unmapped": 1736,
+          "not_run": 10566,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4041,8 +4041,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 15,
-          "not_run": 10547,
-          "unmapped": 1736,
+          "not_run": 10566,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4060,8 +4060,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 15,
-          "not_run": 10547,
-          "unmapped": 1736,
+          "not_run": 10566,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4079,8 +4079,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 8,
-          "not_run": 10554,
-          "unmapped": 1736,
+          "not_run": 10573,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4098,8 +4098,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 8,
-          "not_run": 10554,
-          "unmapped": 1736,
+          "not_run": 10573,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4117,8 +4117,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 8,
-          "not_run": 10554,
-          "unmapped": 1736,
+          "not_run": 10573,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4142,8 +4142,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10557,
-          "unmapped": 1736,
+          "not_run": 10576,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4165,8 +4165,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10556,
-          "unmapped": 1736,
+          "not_run": 10575,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4188,8 +4188,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10556,
-          "unmapped": 1736,
+          "not_run": 10575,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4207,8 +4207,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10551,
-          "unmapped": 1736,
+          "not_run": 10570,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4226,8 +4226,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10551,
-          "unmapped": 1736,
+          "not_run": 10570,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4245,8 +4245,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10551,
-          "unmapped": 1736,
+          "not_run": 10570,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4264,8 +4264,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4283,8 +4283,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4302,8 +4302,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4323,8 +4323,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4342,8 +4342,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4361,8 +4361,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4392,8 +4392,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10539,
-          "unmapped": 1736,
+          "not_run": 10558,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4430,8 +4430,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10539,
-          "unmapped": 1736,
+          "not_run": 10558,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4453,8 +4453,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10532,
-          "unmapped": 1736,
+          "not_run": 10551,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4475,8 +4475,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10532,
-          "unmapped": 1736,
+          "not_run": 10551,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4497,8 +4497,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10532,
-          "unmapped": 1736,
+          "not_run": 10551,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4516,8 +4516,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10557,
-          "unmapped": 1736,
+          "not_run": 10576,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4535,8 +4535,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10557,
-          "unmapped": 1736,
+          "not_run": 10576,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4554,8 +4554,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10557,
-          "unmapped": 1736,
+          "not_run": 10576,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4573,8 +4573,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10559,
-          "unmapped": 1736,
+          "not_run": 10578,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4592,8 +4592,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10559,
-          "unmapped": 1736,
+          "not_run": 10578,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4611,8 +4611,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10559,
-          "unmapped": 1736,
+          "not_run": 10578,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4632,8 +4632,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4651,8 +4651,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4670,8 +4670,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4689,8 +4689,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4710,8 +4710,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4731,8 +4731,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4776,8 +4776,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10527,
-          "unmapped": 1736,
+          "not_run": 10546,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4830,8 +4830,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10527,
-          "unmapped": 1736,
+          "not_run": 10546,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4884,8 +4884,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10527,
-          "unmapped": 1736,
+          "not_run": 10546,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4893,14 +4893,30 @@
         "file": "formal-20261027-sby.json",
         "simulator": "sby",
         "version": "unknown SBY version",
-        "generated_at": "2026-10-27T02:00:23.658218+00:00",
+        "generated_at": "2026-10-27T02:45:28.564057+00:00",
         "executed": [
           "SV2023-F.3.4.2.1-EXTRACT-FINITE",
           "SV2023-F.3.4.2.1-EXTRACT-FIXED",
+          "SV2023-F.3.4.2.1-EXTRACT-PLUS",
+          "SV2023-F.3.4.2.1-EXTRACT-POSITIVE-UNBOUNDED",
+          "SV2023-F.3.4.2.1-EXTRACT-SINGLE-RANGE",
+          "SV2023-F.3.4.2.1-EXTRACT-STAR",
           "SV2023-F.3.4.2.1-EXTRACT-ZERO-UNBOUNDED",
           "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE",
+          "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED",
           "SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED",
+          "SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO",
+          "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE",
+          "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED",
+          "SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR",
+          "SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED",
+          "SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE",
+          "SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED",
+          "SV2023-F.3.4.2.3-EXTRACT-GOTO-42",
+          "SV2023-F.3.4.2.3-EXTRACT-GOTO-44",
           "SV2023-F.3.4.2.3-EXTRACT-GOTO-46",
+          "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-43",
+          "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-45",
           "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-47",
           "SV2023-F.3.4.2.4-EXTRACT-AND",
           "SV2023-F.3.4.2.4-EXTRACT-THROUGHOUT",
@@ -4939,9 +4955,12 @@
           "SV2023-F.3.4.4-EXTRACT-SAMPLED",
           "SV2023-F.3.4.4-EXTRACT-STABLE-CHANGED",
           "SV2023-F.4.3-EXTRACT-EMPTY-CONCAT",
+          "SV2023-F.5.2-EXTRACT-BOOLEAN",
           "SV2023-F.5.2-EXTRACT-CHOICE",
+          "SV2023-F.5.2-EXTRACT-CLOCKED",
           "SV2023-F.5.2-EXTRACT-CONCAT",
           "SV2023-F.5.2-EXTRACT-FIRST",
+          "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
           "SV2023-F.5.2-EXTRACT-NULL",
           "SV2023-F.5.2-EXTRACT-REPEAT",
           "SV2023-F.5.3.1-EXTRACT-IMPLICATION",
@@ -4957,14 +4976,14 @@
         ],
         "stale_links": 0,
         "status_counts": {
-          "pass": 59,
+          "pass": 78,
           "fail": 0,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
           "not_run": 10503,
-          "unmapped": 1736,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -4982,8 +5001,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10556,
-          "unmapped": 1736,
+          "not_run": 10575,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -5001,8 +5020,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10556,
-          "unmapped": 1736,
+          "not_run": 10575,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -5020,8 +5039,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10556,
-          "unmapped": 1736,
+          "not_run": 10575,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -5241,8 +5260,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 47,
           "stale": 111,
-          "not_run": 9620,
-          "unmapped": 1736,
+          "not_run": 9639,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -5599,8 +5618,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 26,
           "stale": 125,
-          "not_run": 9622,
-          "unmapped": 1736,
+          "not_run": 9641,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -5957,8 +5976,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 26,
           "stale": 125,
-          "not_run": 9622,
-          "unmapped": 1736,
+          "not_run": 9641,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -6610,8 +6629,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 7,
           "stale": 23,
-          "not_run": 8503,
-          "unmapped": 1736,
+          "not_run": 8522,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -7001,8 +7020,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 5,
           "stale": 25,
-          "not_run": 8505,
-          "unmapped": 1736,
+          "not_run": 8524,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -7392,8 +7411,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 5,
           "stale": 25,
-          "not_run": 8505,
-          "unmapped": 1736,
+          "not_run": 8524,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -7614,8 +7633,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 2,
           "stale": 8,
-          "not_run": 10169,
-          "unmapped": 1736,
+          "not_run": 10188,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -7780,8 +7799,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 9,
-          "not_run": 10168,
-          "unmapped": 1736,
+          "not_run": 10187,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -7946,8 +7965,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 9,
-          "not_run": 10168,
-          "unmapped": 1736,
+          "not_run": 10187,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -8076,8 +8095,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 5,
           "stale": 23,
-          "not_run": 10200,
-          "unmapped": 1736,
+          "not_run": 10219,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -8172,8 +8191,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 24,
-          "not_run": 10204,
-          "unmapped": 1736,
+          "not_run": 10223,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -8268,8 +8287,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 24,
-          "not_run": 10204,
-          "unmapped": 1736,
+          "not_run": 10223,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -8424,8 +8443,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 7,
           "stale": 0,
-          "not_run": 10026,
-          "unmapped": 1736,
+          "not_run": 10045,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -8667,8 +8686,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 3,
-          "not_run": 10028,
-          "unmapped": 1736,
+          "not_run": 10047,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -8910,8 +8929,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 3,
-          "not_run": 10028,
-          "unmapped": 1736,
+          "not_run": 10047,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -8940,8 +8959,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10464,
-          "unmapped": 1736,
+          "not_run": 10483,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -9036,8 +9055,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10464,
-          "unmapped": 1736,
+          "not_run": 10483,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -9132,8 +9151,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10464,
-          "unmapped": 1736,
+          "not_run": 10483,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -9151,8 +9170,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 3,
-          "not_run": 10461,
-          "unmapped": 1736,
+          "not_run": 10480,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -9174,8 +9193,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 3,
-          "not_run": 10462,
-          "unmapped": 1736,
+          "not_run": 10481,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -9197,8 +9216,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 3,
-          "not_run": 10462,
-          "unmapped": 1736,
+          "not_run": 10481,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -9284,8 +9303,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 21,
-          "not_run": 10155,
-          "unmapped": 1736,
+          "not_run": 10174,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -9506,8 +9525,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 21,
-          "not_run": 10156,
-          "unmapped": 1736,
+          "not_run": 10175,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -9728,8 +9747,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 21,
-          "not_run": 10156,
-          "unmapped": 1736,
+          "not_run": 10175,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -9749,8 +9768,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9267,
-          "unmapped": 1736,
+          "not_run": 9286,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -10764,8 +10783,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9267,
-          "unmapped": 1736,
+          "not_run": 9286,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -11779,8 +11798,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9267,
-          "unmapped": 1736,
+          "not_run": 9286,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -12735,8 +12754,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 11,
           "stale": 57,
-          "not_run": 7664,
-          "unmapped": 1736,
+          "not_run": 7683,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13252,8 +13271,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10065,
-          "unmapped": 1736,
+          "not_run": 10084,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13271,8 +13290,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 493,
           "stale": 0,
-          "not_run": 10065,
-          "unmapped": 1736,
+          "not_run": 10084,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13290,8 +13309,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 493,
           "stale": 0,
-          "not_run": 10065,
-          "unmapped": 1736,
+          "not_run": 10084,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13315,8 +13334,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10546,
-          "unmapped": 1736,
+          "not_run": 10565,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13334,8 +13353,8 @@
           "unsupported": 2,
           "unreviewed_oracle": 15,
           "stale": 0,
-          "not_run": 10545,
-          "unmapped": 1736,
+          "not_run": 10564,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13358,8 +13377,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10546,
-          "unmapped": 1736,
+          "not_run": 10565,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13382,8 +13401,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10546,
-          "unmapped": 1736,
+          "not_run": 10565,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13401,8 +13420,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10547,
-          "unmapped": 1736,
+          "not_run": 10566,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13420,8 +13439,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10547,
-          "unmapped": 1736,
+          "not_run": 10566,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13439,8 +13458,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10547,
-          "unmapped": 1736,
+          "not_run": 10566,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13458,8 +13477,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13477,8 +13496,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13496,8 +13515,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10561,
-          "unmapped": 1736,
+          "not_run": 10580,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13515,8 +13534,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10560,
-          "unmapped": 1736,
+          "not_run": 10579,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13534,8 +13553,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10560,
-          "unmapped": 1736,
+          "not_run": 10579,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13553,8 +13572,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10560,
-          "unmapped": 1736,
+          "not_run": 10579,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13576,8 +13595,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10550,
-          "unmapped": 1736,
+          "not_run": 10569,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13599,8 +13618,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10550,
-          "unmapped": 1736,
+          "not_run": 10569,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13630,8 +13649,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10549,
-          "unmapped": 1736,
+          "not_run": 10568,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13654,8 +13673,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10558,
-          "unmapped": 1736,
+          "not_run": 10577,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13673,8 +13692,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10556,
-          "unmapped": 1736,
+          "not_run": 10575,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13692,8 +13711,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10556,
-          "unmapped": 1736,
+          "not_run": 10575,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -13711,8 +13730,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10556,
-          "unmapped": 1736,
+          "not_run": 10575,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -14684,8 +14703,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 16,
           "stale": 64,
-          "not_run": 7674,
-          "unmapped": 1736,
+          "not_run": 7693,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -14721,8 +14740,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 21,
           "stale": 21,
-          "not_run": 10457,
-          "unmapped": 1736,
+          "not_run": 10476,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -14749,8 +14768,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 11,
           "stale": 21,
-          "not_run": 10456,
-          "unmapped": 1736,
+          "not_run": 10475,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -14779,8 +14798,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 11,
           "stale": 21,
-          "not_run": 10456,
-          "unmapped": 1736,
+          "not_run": 10475,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -14798,8 +14817,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 2,
           "stale": 12,
-          "not_run": 10548,
-          "unmapped": 1736,
+          "not_run": 10567,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -14817,8 +14836,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 2,
           "stale": 12,
-          "not_run": 10548,
-          "unmapped": 1736,
+          "not_run": 10567,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -14836,8 +14855,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 2,
           "stale": 12,
-          "not_run": 10548,
-          "unmapped": 1736,
+          "not_run": 10567,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -14875,8 +14894,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 4,
           "stale": 0,
-          "not_run": 10391,
-          "unmapped": 1736,
+          "not_run": 10410,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -14937,8 +14956,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 3,
           "stale": 0,
-          "not_run": 10391,
-          "unmapped": 1736,
+          "not_run": 10410,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -14999,8 +15018,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 3,
           "stale": 0,
-          "not_run": 10391,
-          "unmapped": 1736,
+          "not_run": 10410,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15059,8 +15078,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 18,
           "stale": 1,
-          "not_run": 10412,
-          "unmapped": 1736,
+          "not_run": 10431,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15151,8 +15170,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 13,
           "stale": 1,
-          "not_run": 10412,
-          "unmapped": 1736,
+          "not_run": 10431,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15243,8 +15262,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 13,
           "stale": 1,
-          "not_run": 10412,
-          "unmapped": 1736,
+          "not_run": 10431,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15280,8 +15299,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 5,
           "stale": 0,
-          "not_run": 10437,
-          "unmapped": 1736,
+          "not_run": 10456,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15348,8 +15367,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 2,
           "stale": 0,
-          "not_run": 10437,
-          "unmapped": 1736,
+          "not_run": 10456,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15416,8 +15435,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 2,
           "stale": 0,
-          "not_run": 10437,
-          "unmapped": 1736,
+          "not_run": 10456,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15453,8 +15472,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 2,
           "stale": 0,
-          "not_run": 10480,
-          "unmapped": 1736,
+          "not_run": 10499,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15492,8 +15511,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10480,
-          "unmapped": 1736,
+          "not_run": 10499,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15531,8 +15550,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10480,
-          "unmapped": 1736,
+          "not_run": 10499,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15554,8 +15573,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 2,
           "stale": 1,
-          "not_run": 10525,
-          "unmapped": 1736,
+          "not_run": 10544,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15582,8 +15601,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 1,
-          "not_run": 10525,
-          "unmapped": 1736,
+          "not_run": 10544,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15610,8 +15629,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 1,
-          "not_run": 10525,
-          "unmapped": 1736,
+          "not_run": 10544,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15632,8 +15651,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10533,
-          "unmapped": 1736,
+          "not_run": 10552,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15658,8 +15677,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 2,
           "stale": 0,
-          "not_run": 10533,
-          "unmapped": 1736,
+          "not_run": 10552,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       },
@@ -15684,8 +15703,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 2,
           "stale": 0,
-          "not_run": 10533,
-          "unmapped": 1736,
+          "not_run": 10552,
+          "unmapped": 1717,
           "interpretation_pending": 21
         }
       }

@@ -361,3 +361,169 @@ F343_PROPERTIES = {
         """},
 }
 PROPERTIES.update(F343_PROPERTIES)
+
+
+# F.3.4.2 sequence-rewrite cases (IEEE 1800-2023 Annex F, F.3.4.2.1-F.3.4.2.4)
+# and the remaining F.5.2 sequence-semantics cases. Each entry pairs the
+# left-hand syntax with an independent RTL reference that implements the
+# right-hand expansion; no entry calls the parser, derivative engine or
+# evaluator. Finite languages use per-age match counts over the h_* shift
+# registers (h[0] is the latest sample and an attempt starts at the first
+# sample, so the leftmost operand of a concatenation sits at the oldest
+# history bit of that age). Languages with an unbounded tail are STREAMS: the
+# reference is a streaming state machine, not an age table, because their
+# match count does not fall to zero after a fixed age.
+F342_SEQUENCES = {
+    # R[*m:m] = R[*m] with m=2: exactly two consecutive a samples.
+    "f342_single_range": ("a[*2:2]", "a", "F.3.4.2.1", {
+        2: "h_a[1] && h_a[0]"}),
+    # R1 ##m R2 = R1 ##1 1[*m-1] ##1 R2 with m=3: a, then one ANY for the
+    # first ##1, two ANY samples for 1[*2], one ANY for the second ##1, then
+    # b, i.e. the four-letter word a,?,?,b.
+    "f342_concat_fixed": ("a ##3 b", "ab", "F.3.4.2.2", {
+        4: "h_a[3] && h_b[0]"}),
+    # R1 ##[0:0] R2 = fusion R1 ##0 R2: a single letter satisfying both.
+    "f342_concat_zero": ("a ##[0:0] b", "ab", "F.3.4.2.2", {
+        1: "h_a[0] && h_b[0]"}),
+    # ##[m:n] R = 1[*m:n] ##1 R with m=1, n=2: b is the last letter of a word
+    # of two or three letters.
+    "f342_prefix_finite": ("##[1:2] b", "b", "F.3.4.2.2", {
+        2: "h_b[0]", 3: "h_b[0]"}),
+    # ##m R = 1[*m] ##1 R with m=2: three letters ending in b.
+    "f342_prefix_fixed": ("##2 b", "b", "F.3.4.2.2", {
+        3: "h_b[0]"}),
+    # R1 ##[0:n] R2 = fusion or R1 ##[1:n] R2 with n=2: age 1 is the fusion,
+    # age 2 is delay 1 and age 3 is delay 2.
+    "f342_zero_finite": ("a ##[0:2] b", "ab", "F.3.4.2.2", {
+        1: "h_a[0] && h_b[0]",
+        2: "h_a[1] && h_b[0]",
+        3: "h_a[2] && h_b[0]"}),
+    # A Boolean sequence tightly matches exactly one letter that satisfies the
+    # Boolean; the parentheses must not change the tight satisfaction.
+    "f52_boolean": ("((a) && (!b))", "ab", "F.5.2", {
+        1: "h_a[0] && !h_b[0]"}),
+    # A sequence is degenerate exactly when no nonempty finite word tightly
+    # satisfies it. Fusion of two empty repetition operands has no letter to
+    # share, so no word, not even the empty word, matches.
+    "f52_nonempty_word": ("a[*0] ##0 b[*0]", "ab", "F.5.2", {}),
+}
+SEQUENCES.update(F342_SEQUENCES)
+
+
+F342_STREAMS = {
+    # R[+] = R[*1:$]: after at least one consumed sample every letter is a.
+    "f342_plus": ("a[+]", "a", "F.3.4.2.1", """
+      reg started=0, all_a=1;
+      always @(posedge clk) begin started<=1; all_a<=all_a && letter[0]; end
+      wire [31:0] reference_count = started && all_a;
+    """),
+    # R[*] is the null repetition or R[*1:$]: the empty word and every all-a
+    # word.
+    "f342_star": ("a[*]", "a", "F.3.4.2.1", """
+      reg all_a=1;
+      always @(posedge clk) all_a<=all_a && letter[0];
+      wire [31:0] reference_count = all_a;
+    """),
+    # R[*m:$] = R[*m-1] ##1 R[*1:$] with m=2: two or more a samples and every
+    # sample is a.
+    "f342_positive_unbounded": ("a[*2:$]", "a", "F.3.4.2.1", """
+      reg [1:0] seen=0;
+      reg all_a=1;
+      always @(posedge clk) begin
+        if (seen<2) seen<=seen+letter[0];
+        all_a<=all_a && letter[0];
+      end
+      wire [31:0] reference_count = seen>=2 && all_a;
+    """),
+    # ##[*] R = ##[0:$] R: any nonempty word whose last letter satisfies R.
+    "f342_prefix_star": ("##[*] b", "b", "F.3.4.2.2", """
+      reg last_b=0;
+      always @(posedge clk) last_b<=letter[0];
+      wire [31:0] reference_count = last_b;
+    """),
+    # ##[+] R = ##[1:$] R: at least one leading sample and then R at the last
+    # letter, so the word has two or more letters.
+    "f342_prefix_plus": ("##[+] b", "b", "F.3.4.2.2", """
+      reg [1:0] ticks=0;
+      reg last_b=0;
+      always @(posedge clk) begin
+        if (ticks<2) ticks<=ticks+1;
+        last_b<=letter[0];
+      end
+      wire [31:0] reference_count = ticks>=2 && last_b;
+    """),
+    # ##[m:$] R = 1[*m:$] ##1 R with m=2: three or more letters ending in b.
+    "f342_prefix_unbounded": ("##[2:$] b", "b", "F.3.4.2.2", """
+      reg [1:0] ticks=0;
+      reg last_b=0;
+      always @(posedge clk) begin
+        if (ticks<3) ticks<=ticks+1;
+        last_b<=letter[0];
+      end
+      wire [31:0] reference_count = ticks>=3 && last_b;
+    """),
+    # R1 ##[0:$] R2 = fusion or R1 ##[1:$] R2: the attempt starts at the first
+    # sample, so a must be that first letter and b the last letter; delay 0 is
+    # the one-letter fusion of the two.
+    "f342_zero_unbounded": ("a ##[0:$] b", "ab", "F.3.4.2.2", """
+      reg started=0, first_a=0, last_b=0;
+      always @(posedge clk) begin
+        if (!started) first_a<=letter[0];
+        last_b<=letter[1];
+        started<=1;
+      end
+      wire [31:0] reference_count = first_a && last_b;
+    """),
+    # b[->m:n] = (!b[*0:$] ##1 b)[*m:n] with m=2, n=3: exactly two or three a
+    # samples, the last of which is the final letter.
+    "f342_goto_finite": ("a[->2:3]", "a", "F.3.4.2.3", """
+      reg [2:0] seen=0;
+      reg last_a=0;
+      always @(posedge clk) begin
+        if (seen<4) seen<=seen+letter[0];
+        last_a<=letter[0];
+      end
+      wire [31:0] reference_count = last_a && seen>=3'd2 && seen<=3'd3;
+    """),
+    # b[->m:$] = (!b[*0:$] ##1 b)[*m:$] with m=2: two or more a samples and
+    # the final letter is a.
+    "f342_goto_unbounded": ("a[->2:$]", "a", "F.3.4.2.3", """
+      reg [2:0] seen=0;
+      reg last_a=0;
+      always @(posedge clk) begin
+        if (seen<4) seen<=seen+letter[0];
+        last_a<=letter[0];
+      end
+      wire [31:0] reference_count = last_a && seen>=3'd2;
+    """),
+    # b[=m:n] = b[->m:n] ##1 !b[*0:$] with m=1, n=2: one or two a samples and
+    # any, possibly empty, run of !a after the last one.
+    "f342_nonconsecutive_finite": ("a[=1:2]", "a", "F.3.4.2.3", """
+      reg [2:0] seen=0;
+      always @(posedge clk) if (seen<4) seen<=seen+letter[0];
+      wire [31:0] reference_count = seen>=3'd1 && seen<=3'd2;
+    """),
+    # b[=m:$] = b[->m:$] ##1 !b[*0:$] with m=2: two or more a samples.
+    "f342_nonconsecutive_unbounded": ("a[=2:$]", "a", "F.3.4.2.3", """
+      reg [2:0] seen=0;
+      always @(posedge clk) if (seen<4) seen<=seen+letter[0];
+      wire [31:0] reference_count = seen>=3'd2;
+    """),
+}
+STREAMS.update(F342_STREAMS)
+
+
+# F.5.2 CLOCKED: a clocked sequence has the same tight satisfaction as its
+# unclocked rewrite. The reference is the unclocked sequence property result
+# over the same single-clock sample word.
+F52_PROPERTIES = {
+    "f52_clocked": {
+        "expression": "@(posedge clk) (a ##1 b)", "signals": "ab", "horizon": 2,
+        "clause": "F.5.2", "reference": """
+          always @* begin
+            if (!a[0]) reference_result=8'd16;
+            else reference_result=b[1] ? 8'd1 : 8'd17;
+          end
+        """},
+}
+PROPERTIES.update(F52_PROPERTIES)

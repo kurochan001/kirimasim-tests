@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 85.74%、実行 47.08%。**
+**全規格の要求台帳ベース（暫定）: 設計 85.89%、実行 47.24%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10562/12319 (85.74%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5800/12319 (47.08%)。
-- 登録済みだがテスト未対応: 1757 動作。
+- 登録済み動作に対するテスト設計網羅率: 10581/12319 (85.89%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5819/12319 (47.24%)。
+- 登録済みだがテスト未対応: 1738 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -89,7 +89,7 @@
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
-- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T02:00:23.658218+00:00 / 59/12319 動作確認、古い入力との対応 0 件。
+- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T02:45:28.564057+00:00 / 78/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -220,7 +220,7 @@
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 9。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
-- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 59。
+- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 78。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 25。
 - H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 175。
 - I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 134。
@@ -128122,7 +128122,7 @@ For m>0, R\[*m\] expands to R\[*m-1\] ##1 R.
 
 ### SV2023-F.3.4.2.1-EXTRACT-PLUS
 
-F.3.4.2.1 / normal / テスト未対応
+F.3.4.2.1 / normal / 実行確認あり
 
 R\[+\] is R\[*1:$\].
 
@@ -128130,10 +128130,11 @@ R\[+\] is R\[*1:$\].
 
 規定の性質: `definition`。
 
+- [test_formal_f342_plus.sv](../tests/ch16/test_formal_f342_plus.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_plusを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R\[+\] = R\[*1:$\] with R=a: after at least one consumed sample every letter must be a. Streaming reference `started && all_a` is an AND over the whole consumed prefix, independent of the DFA. BMC depth 16, signals a (alphabet 2), 2 DFA states; all letter sequences of length <=16 are covered symbolicall 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.1-EXTRACT-POSITIVE-UNBOUNDED
 
-F.3.4.2.1 / normal / テスト未対応
+F.3.4.2.1 / normal / 実行確認あり
 
 For m>1, R\[*m:$\] is R\[*m-1\] ##1 R\[*1:$\].
 
@@ -128141,10 +128142,11 @@ For m>1, R\[*m:$\] is R\[*m-1\] ##1 R\[*1:$\].
 
 規定の性質: `definition`。
 
+- [test_formal_f342_positive_unbounded.sv](../tests/ch16/test_formal_f342_positive_unbounded.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_positive_unboundedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R\[*m:$\] = R\[*m-1\] ##1 R\[*1:$\] with m=2 and R=a: two or more a samples, all samples a. Streaming reference counts a occurrences saturated at 2 (`seen>=2 && all_a`). BMC depth 16, signals a, 4 DFA states; all letter sequences of length <=16. No unbounded-length proof, no 4-state/multiclock. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.1-EXTRACT-SINGLE-RANGE
 
-F.3.4.2.1 / normal / テスト未対応
+F.3.4.2.1 / normal / 実行確認あり
 
 R\[*m:m\] is R\[*m\].
 
@@ -128152,10 +128154,11 @@ R\[*m:m\] is R\[*m\].
 
 規定の性質: `definition`。
 
+- [test_formal_f342_single_range.sv](../tests/ch16/test_formal_f342_single_range.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_single_rangeを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R\[*m:m\] = R\[*m\] with m=2: exactly two consecutive a samples. Age table {2: h_a\[1\] && h_a\[0\]}; ages 0,1 and >=3 are 0 in both the reference and the DFA (the DFA residual is the zero state after the fixed repeat). BMC depth 8, signals a, 4 DFA states; the whole 2-valued language (max word length 2) is 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.1-EXTRACT-STAR
 
-F.3.4.2.1 / normal / テスト未対応
+F.3.4.2.1 / normal / 実行確認あり
 
 R\[*\] includes null or positive unbounded repetition.
 
@@ -128163,6 +128166,7 @@ R\[*\] includes null or positive unbounded repetition.
 
 規定の性質: `definition`。
 
+- [test_formal_f342_star.sv](../tests/ch16/test_formal_f342_star.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_starを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R\[*\] is the null repetition or R\[*1:$\] with R=a: the empty word and every all-a word. Streaming reference `all_a` (age 0 gives 1 for the null branch, every nonempty prefix must be all a). BMC depth 16, signals a, 2 DFA states; all letter sequences of length <=16. No unbounded-length proof. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.1-EXTRACT-ZERO-UNBOUNDED
 
@@ -128190,7 +128194,7 @@ For 0<m<=n, R1 ##\[m:n\] R2 is R1 ##1 1\[*m-1:n-1\] ##1 R2.
 
 ### SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED
 
-F.3.4.2.2 / normal / テスト未対応
+F.3.4.2.2 / normal / 実行確認あり
 
 For m>1, R1 ##m R2 is R1 ##1 1\[*m-1\] ##1 R2.
 
@@ -128198,6 +128202,7 @@ For m>1, R1 ##m R2 is R1 ##1 1\[*m-1\] ##1 R2.
 
 規定の性質: `definition`。
 
+- [test_formal_f342_concat_fixed.sv](../tests/ch16/test_formal_f342_concat_fixed.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_concat_fixedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R1 ##m R2 = R1 ##1 1\[*m-1\] ##1 R2 with m=3: a, one ANY for the first ##1, two ANY samples for 1\[*2\], one ANY for the second ##1, then b, i.e. the four-sample word a,?,?,b. Age table {4: h_a\[3\] && h_b\[0\]}; all other ages 0. A scratch mutation shifting the a sample to h_a\[2\] fails. BMC depth 8, signal 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED
 
@@ -128213,7 +128218,7 @@ For m>0, R1 ##\[m:$\] R2 is R1 ##1 1\[*m-1:$\] ##1 R2.
 
 ### SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO
 
-F.3.4.2.2 / normal / テスト未対応
+F.3.4.2.2 / normal / 実行確認あり
 
 R1 ##\[0:0\] R2 is fusion R1 ##0 R2.
 
@@ -128221,10 +128226,11 @@ R1 ##\[0:0\] R2 is fusion R1 ##0 R2.
 
 規定の性質: `definition`。
 
+- [test_formal_f342_concat_zero.sv](../tests/ch16/test_formal_f342_concat_zero.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_concat_zeroを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R1 ##\[0:0\] R2 = fusion R1 ##0 R2: one letter satisfying both a and b. Age table {1: h_a\[0\] && h_b\[0\]}; age 0 and >=2 are 0. BMC depth 8, signals ab, 3 DFA states; the whole 2-valued language (single-letter word) is covered. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE
 
-F.3.4.2.2 / normal / テスト未対応
+F.3.4.2.2 / normal / 実行確認あり
 
 For m<=n, ##\[m:n\] R expands to 1\[*m:n\] ##1 R.
 
@@ -128232,10 +128238,11 @@ For m<=n, ##\[m:n\] R expands to 1\[*m:n\] ##1 R.
 
 規定の性質: `definition`。
 
+- [test_formal_f342_prefix_finite.sv](../tests/ch16/test_formal_f342_prefix_finite.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_prefix_finiteを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。##\[m:n\] R = 1\[*m:n\] ##1 R with m=1, n=2: b is the last letter of a 2- or 3-letter word. Age table {2: h_b\[0\], 3: h_b\[0\]}; all other ages 0. BMC depth 8, signals b, 6 DFA states; the whole 2-valued language (max word length 3) is covered. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED
 
-F.3.4.2.2 / normal / テスト未対応
+F.3.4.2.2 / normal / 実行確認あり
 
 ##m R expands to 1\[*m\] ##1 R.
 
@@ -128243,10 +128250,11 @@ F.3.4.2.2 / normal / テスト未対応
 
 規定の性質: `definition`。
 
+- [test_formal_f342_prefix_fixed.sv](../tests/ch16/test_formal_f342_prefix_fixed.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_prefix_fixedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。##m R = 1\[*m\] ##1 R with m=2: three samples ending in b. Age table {3: h_b\[0\]}; all other ages 0. BMC depth 8, signals b, 5 DFA states; the whole 2-valued language (single word length) is covered. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR
 
-F.3.4.2.2 / normal / テスト未対応
+F.3.4.2.2 / normal / 実行確認あり
 
 ##\[*\] R means ##\[0:$\] R; ##\[+\] R means ##\[1:$\] R.
 
@@ -128254,10 +128262,12 @@ F.3.4.2.2 / normal / テスト未対応
 
 規定の性質: `definition`。
 
+- [test_formal_f342_prefix_star.sv](../tests/ch16/test_formal_f342_prefix_star.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_prefix_starを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。##\[*\] R = ##\[0:$\] R = 1\[*0:$\] ##1 R: any nonempty word whose last letter satisfies b. Streaming reference `last_b` (one registered bit of the latest sample). BMC depth 16, signals b, 2 DFA states; all letter sequences of length <=16. No unbounded-length proof. Paired with f342_prefix_plus for the ## 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
+- [test_formal_f342_prefix_plus.sv](../tests/ch16/test_formal_f342_prefix_plus.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_prefix_plusを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。##\[+\] R = ##\[1:$\] R = 1\[*1:$\] ##1 R: at least one leading sample and b at the last letter, so the word has two or more letters. Streaming reference `ticks>=2 && last_b` (saturating tick counter). BMC depth 16, signals b, 3 DFA states; all letter sequences of length <=16. Paired with f342_prefix_star 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED
 
-F.3.4.2.2 / normal / テスト未対応
+F.3.4.2.2 / normal / 実行確認あり
 
 ##\[m:$\] R expands to 1\[*m:$\] ##1 R.
 
@@ -128265,10 +128275,11 @@ F.3.4.2.2 / normal / テスト未対応
 
 規定の性質: `definition`。
 
+- [test_formal_f342_prefix_unbounded.sv](../tests/ch16/test_formal_f342_prefix_unbounded.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_prefix_unboundedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。##\[m:$\] R = 1\[*m:$\] ##1 R with m=2: three or more letters ending in b. Streaming reference `ticks>=3 && last_b`. BMC depth 16, signals b, 4 DFA states; all letter sequences of length <=16. No unbounded-length proof. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE
 
-F.3.4.2.2 / normal / テスト未対応
+F.3.4.2.2 / normal / 実行確認あり
 
 For n>0, R1 ##\[0:n\] R2 is zero-delay fusion or R1 ##\[1:n\] R2.
 
@@ -128276,10 +128287,11 @@ For n>0, R1 ##\[0:n\] R2 is zero-delay fusion or R1 ##\[1:n\] R2.
 
 規定の性質: `definition`。
 
+- [test_formal_f342_zero_finite.sv](../tests/ch16/test_formal_f342_zero_finite.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_zero_finiteを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R1 ##\[0:n\] R2 = fusion or R1 ##\[1:n\] R2 with n=2: age 1 is the fusion, age 2 is delay 1, age 3 is delay 2; the attempt starts at the first sample, so a sits at the oldest bit of each age and fusion at age>=2 cannot precede the leftmost sample. Age table {1: h_a\[0\]&&h_b\[0\], 2: h_a\[1\]&&h_b\[0\], 3: h_a\[ 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED
 
-F.3.4.2.2 / normal / テスト未対応
+F.3.4.2.2 / normal / 実行確認あり
 
 R1 ##\[0:$\] R2 is zero-delay fusion or R1 ##\[1:$\] R2.
 
@@ -128287,10 +128299,11 @@ R1 ##\[0:$\] R2 is zero-delay fusion or R1 ##\[1:$\] R2.
 
 規定の性質: `definition`。
 
+- [test_formal_f342_zero_unbounded.sv](../tests/ch16/test_formal_f342_zero_unbounded.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_zero_unboundedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R1 ##\[0:$\] R2 = fusion or R1 ##\[1:$\] R2: the attempt starts at the first sample, so a must be that first letter and b the last letter (delay 0 is the one-letter fusion of the two). Streaming reference `first_a && last_b`; a reference of only `last_b` fails (e.g. the two-letter word b, a&b has no mat 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.3-EXTRACT-GOTO-42
 
-F.3.4.2.3 / normal / テスト未対応
+F.3.4.2.3 / normal / 実行確認あり
 
 Goto repetition b\[->m:n\] expands to (!b\[*0:$\] ##1 b)\[*m:n\], with m<=n for finite ranges.
 
@@ -128298,10 +128311,11 @@ Goto repetition b\[->m:n\] expands to (!b\[*0:$\] ##1 b)\[*m:n\], with m<=n for 
 
 規定の性質: `definition`。
 
+- [test_formal_f342_goto_finite.sv](../tests/ch16/test_formal_f342_goto_finite.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_goto_finiteを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。b\[->m:n\] = (!b\[*0:$\] ##1 b)\[*m:n\] with m=2, n=3 and b=a: exactly two or three a samples, the last of which is the final letter. Streaming reference `last_a && 2<=seen<=3` with a saturating a counter. Dropping the upper bound fails. BMC depth 16, signals a, 6 DFA states; all letter sequences of lengt 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.3-EXTRACT-GOTO-44
 
-F.3.4.2.3 / normal / テスト未対応
+F.3.4.2.3 / normal / 実行確認あり
 
 Goto repetition b\[->m:$\] expands to (!b\[*0:$\] ##1 b)\[*m:$\], with m<=n for finite ranges.
 
@@ -128309,6 +128323,7 @@ Goto repetition b\[->m:$\] expands to (!b\[*0:$\] ##1 b)\[*m:$\], with m<=n for 
 
 規定の性質: `definition`。
 
+- [test_formal_f342_goto_unbounded.sv](../tests/ch16/test_formal_f342_goto_unbounded.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_goto_unboundedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。b\[->m:$\] = (!b\[*0:$\] ##1 b)\[*m:$\] with m=2 and b=a: two or more a samples and the final letter is a. Streaming reference `last_a && seen>=2`. BMC depth 16, signals a, 3 DFA states; all letter sequences of length <=16. No unbounded-length proof. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.3-EXTRACT-GOTO-46
 
@@ -128324,7 +128339,7 @@ Goto repetition b\[->m\] expands to (!b\[*0:$\] ##1 b)\[*m\], with m<=n for fini
 
 ### SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-43
 
-F.3.4.2.3 / normal / テスト未対応
+F.3.4.2.3 / normal / 実行確認あり
 
 Nonconsecutive repetition b\[=m:n\] expands to b\[->m:n\] ##1 !b\[*0:$\], with m<=n for finite ranges.
 
@@ -128332,10 +128347,11 @@ Nonconsecutive repetition b\[=m:n\] expands to b\[->m:n\] ##1 !b\[*0:$\], with m
 
 規定の性質: `definition`。
 
+- [test_formal_f342_nonconsecutive_finite.sv](../tests/ch16/test_formal_f342_nonconsecutive_finite.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_nonconsecutive_finiteを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。b\[=m:n\] = b\[->m:n\] ##1 !b\[*0:$\] with m=1, n=2 and b=a: one or two a samples and any (possibly empty) run of !a after the last one, so the final letter is unconstrained. Streaming reference `1<=seen<=2`; dropping the upper bound fails. BMC depth 16, signals a, 4 DFA states; all letter sequences of le 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-45
 
-F.3.4.2.3 / normal / テスト未対応
+F.3.4.2.3 / normal / 実行確認あり
 
 Nonconsecutive repetition b\[=m:$\] expands to b\[->m:$\] ##1 !b\[*0:$\], with m<=n for finite ranges.
 
@@ -128343,6 +128359,7 @@ Nonconsecutive repetition b\[=m:$\] expands to b\[->m:$\] ##1 !b\[*0:$\], with m
 
 規定の性質: `definition`。
 
+- [test_formal_f342_nonconsecutive_unbounded.sv](../tests/ch16/test_formal_f342_nonconsecutive_unbounded.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf342_nonconsecutive_unboundedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。b\[=m:$\] = b\[->m:$\] ##1 !b\[*0:$\] with m=2 and b=a: two or more a samples, trailing !a allowed and the final letter unconstrained. Streaming reference `seen>=2`. BMC depth 16, signals a, 4 DFA states; all letter sequences of length <=16. No unbounded-length proof. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-47
 
@@ -129562,7 +129579,7 @@ Tp(p until q,c) is (not(c and not Tp(p,c))) until (c and Tp(q,c)).
 
 ### SV2023-F.5.2-EXTRACT-BOOLEAN
 
-F.5.2 / normal / テスト未対応
+F.5.2 / normal / 実行確認あり
 
 A Boolean sequence tightly matches exactly one letter that satisfies its Boolean; parentheses preserve tight satisfaction.
 
@@ -129570,6 +129587,7 @@ A Boolean sequence tightly matches exactly one letter that satisfies its Boolean
 
 規定の性質: `definition`。
 
+- [test_formal_f52_boolean.sv](../tests/ch16/test_formal_f52_boolean.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf52_booleanを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。A Boolean sequence tightly matches exactly one letter that satisfies it, and parentheses preserve tight satisfaction. Expression ((a) && (!b)) with age table {1: h_a\[0\] && !h_b\[0\]}; age 0 and >=2 are 0. BMC depth 8, signals ab, 3 DFA states; the whole 2-valued language (single-letter word) is covere 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.5.2-EXTRACT-CHOICE
 
@@ -129586,7 +129604,7 @@ or tightly matches if either operand matches the whole word; intersect requires 
 
 ### SV2023-F.5.2-EXTRACT-CLOCKED
 
-F.5.2 / normal / テスト未対応
+F.5.2 / normal / 実行確認あり
 
 Clocked-sequence tight satisfaction equals that of its unclocked rewrite.
 
@@ -129594,6 +129612,7 @@ Clocked-sequence tight satisfaction equals that of its unclocked rewrite.
 
 規定の性質: `definition`。
 
+- [test_formal_f52_clocked.sv](../tests/ch16/test_formal_f52_clocked.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf52_clockedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。Clocked-sequence tight satisfaction equals that of its unclocked rewrite. Expression @(posedge clk) (a ##1 b) is compared with the unclocked rewrite's property result table (failure@0 when a\[0\]=0, success@1 when b\[1\]=1, failure@1 otherwise) over all 16 length-2 words. LIMITATION: the harness is sing 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.5.2-EXTRACT-CONCAT
 
@@ -129622,7 +129641,7 @@ first_match requires a whole-word match and no proper prefix whose dual word tig
 
 ### SV2023-F.5.2-EXTRACT-NONDEGENERATE
 
-F.5.2 / normal / テスト未対応
+F.5.2 / normal / 実行確認あり
 
 A sequence is nondegenerate exactly when some nonempty finite word tightly satisfies it; clocked case uses its rewrite.
 
@@ -129630,6 +129649,7 @@ A sequence is nondegenerate exactly when some nonempty finite word tightly satis
 
 規定の性質: `definition`。
 
+- [test_formal_f52_nonempty_word.sv](../tests/ch16/test_formal_f52_nonempty_word.sv): SymbiYosysでF.3.4.2/F.5.2のformalケースf52_nonempty_wordを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。A sequence is degenerate exactly when no nonempty finite word tightly satisfies it. a\[*0\] ##0 b\[*0\] fuses two empty repetition operands, which have no letter to share, so no word (not even the empty one) matches; the reference is the empty age table (0 at every age) and the DFA has a single zero sta 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。
 
 ### SV2023-F.5.2-EXTRACT-NULL
 

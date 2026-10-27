@@ -472140,7 +472140,25 @@
       "acceptance": "R[+] is R[*1:$].",
       "source_note": "IEEE 1800-2023 F.3.4.2.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_plus.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_plusを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R[+] = R[*1:$] with R=a: after at least one consumed sample every letter must be a. Streaming reference `started && all_a` is an AND over the whole consumed prefix, independent of the DFA. BMC depth 16, signals a (alphabet 2), 2 DFA states; all letter sequences of length <=16 are covered symbolicall 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e97796db438dc8b9021845f4639356a67d7047334bced7dd09d3df60d0b1329d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_plus.sv",
+              "contains": ":formal_case: f342_plus"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_plus.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.1",
@@ -472158,7 +472176,25 @@
       "acceptance": "For m>1, R[*m:$] is R[*m-1] ##1 R[*1:$].",
       "source_note": "IEEE 1800-2023 F.3.4.2.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_positive_unbounded.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_positive_unboundedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R[*m:$] = R[*m-1] ##1 R[*1:$] with m=2 and R=a: two or more a samples, all samples a. Streaming reference counts a occurrences saturated at 2 (`seen>=2 && all_a`). BMC depth 16, signals a, 4 DFA states; all letter sequences of length <=16. No unbounded-length proof, no 4-state/multiclock. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5979f81c907f3f4d424f571ad4d4e14a691f297fca06afa7520bde3d5f5a01a8",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_positive_unbounded.sv",
+              "contains": ":formal_case: f342_positive_unbounded"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_positive_unbounded.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.1",
@@ -472176,7 +472212,25 @@
       "acceptance": "R[*m:m] is R[*m].",
       "source_note": "IEEE 1800-2023 F.3.4.2.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_single_range.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_single_rangeを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R[*m:m] = R[*m] with m=2: exactly two consecutive a samples. Age table {2: h_a[1] && h_a[0]}; ages 0,1 and >=3 are 0 in both the reference and the DFA (the DFA residual is the zero state after the fixed repeat). BMC depth 8, signals a, 4 DFA states; the whole 2-valued language (max word length 2) is 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "90fe58917f09c56541247d93850cc42f65cd2816db915e47ede8a80467893a9d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_single_range.sv",
+              "contains": ":formal_case: f342_single_range"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_single_range.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.1",
@@ -472194,7 +472248,25 @@
       "acceptance": "R[*] includes null or positive unbounded repetition.",
       "source_note": "IEEE 1800-2023 F.3.4.2.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_star.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_starを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R[*] is the null repetition or R[*1:$] with R=a: the empty word and every all-a word. Streaming reference `all_a` (age 0 gives 1 for the null branch, every nonempty prefix must be all a). BMC depth 16, signals a, 2 DFA states; all letter sequences of length <=16. No unbounded-length proof. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c6e51cb2d54248ab1e53298dc1fdfa8ff2ffde6f876d586d1b81c3737e31f3fd",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_star.sv",
+              "contains": ":formal_case: f342_star"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_star.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.1",
@@ -472284,7 +472356,25 @@
       "acceptance": "For m>1, R1 ##m R2 is R1 ##1 1[*m-1] ##1 R2.",
       "source_note": "IEEE 1800-2023 F.3.4.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_concat_fixed.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_concat_fixedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R1 ##m R2 = R1 ##1 1[*m-1] ##1 R2 with m=3: a, one ANY for the first ##1, two ANY samples for 1[*2], one ANY for the second ##1, then b, i.e. the four-sample word a,?,?,b. Age table {4: h_a[3] && h_b[0]}; all other ages 0. A scratch mutation shifting the a sample to h_a[2] fails. BMC depth 8, signal 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e676de234c85182fa4e46b59763f56b6a878567fca2dbfb15038de5bbeabdeff",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_concat_fixed.sv",
+              "contains": ":formal_case: f342_concat_fixed"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_concat_fixed.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.2",
@@ -472338,7 +472428,25 @@
       "acceptance": "R1 ##[0:0] R2 is fusion R1 ##0 R2.",
       "source_note": "IEEE 1800-2023 F.3.4.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_concat_zero.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_concat_zeroを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R1 ##[0:0] R2 = fusion R1 ##0 R2: one letter satisfying both a and b. Age table {1: h_a[0] && h_b[0]}; age 0 and >=2 are 0. BMC depth 8, signals ab, 3 DFA states; the whole 2-valued language (single-letter word) is covered. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4542e1083b9656d8d621cd1abd619ddaa512e49fb638581d8cbcc76091e9293b",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_concat_zero.sv",
+              "contains": ":formal_case: f342_concat_zero"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_concat_zero.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.2",
@@ -472356,7 +472464,25 @@
       "acceptance": "For m<=n, ##[m:n] R expands to 1[*m:n] ##1 R.",
       "source_note": "IEEE 1800-2023 F.3.4.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_prefix_finite.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_prefix_finiteを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。##[m:n] R = 1[*m:n] ##1 R with m=1, n=2: b is the last letter of a 2- or 3-letter word. Age table {2: h_b[0], 3: h_b[0]}; all other ages 0. BMC depth 8, signals b, 6 DFA states; the whole 2-valued language (max word length 3) is covered. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "478b7af338558e43b3161c4b24d77baffa8f194041efbbc7ff6a3e67e88de326",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_prefix_finite.sv",
+              "contains": ":formal_case: f342_prefix_finite"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_prefix_finite.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.2",
@@ -472374,7 +472500,25 @@
       "acceptance": "##m R expands to 1[*m] ##1 R.",
       "source_note": "IEEE 1800-2023 F.3.4.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_prefix_fixed.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_prefix_fixedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。##m R = 1[*m] ##1 R with m=2: three samples ending in b. Age table {3: h_b[0]}; all other ages 0. BMC depth 8, signals b, 5 DFA states; the whole 2-valued language (single word length) is covered. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e328cf501d8554f5b686fb9c89b640bf6ad446dd48b0d47052c23822aa43f92d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_prefix_fixed.sv",
+              "contains": ":formal_case: f342_prefix_fixed"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_prefix_fixed.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.2",
@@ -472392,7 +472536,42 @@
       "acceptance": "##[*] R means ##[0:$] R; ##[+] R means ##[1:$] R.",
       "source_note": "IEEE 1800-2023 F.3.4.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_prefix_star.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_prefix_starを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。##[*] R = ##[0:$] R = 1[*0:$] ##1 R: any nonempty word whose last letter satisfies b. Streaming reference `last_b` (one registered bit of the latest sample). BMC depth 16, signals b, 2 DFA states; all letter sequences of length <=16. No unbounded-length proof. Paired with f342_prefix_plus for the ## 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fc093f23ed6bf060830a5889bc096b94f8549524942613bd000c53f8f3aa7fca",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_prefix_star.sv",
+              "contains": ":formal_case: f342_prefix_star"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_prefix_star.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch16/test_formal_f342_prefix_plus.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_prefix_plusを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。##[+] R = ##[1:$] R = 1[*1:$] ##1 R: at least one leading sample and b at the last letter, so the word has two or more letters. Streaming reference `ticks>=2 && last_b` (saturating tick counter). BMC depth 16, signals b, 3 DFA states; all letter sequences of length <=16. Paired with f342_prefix_star 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c215e1e947066a222d3063ba65504db72a825c913a4b7b0dcdd55b6c27be646f",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_prefix_plus.sv",
+              "contains": ":formal_case: f342_prefix_plus"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_prefix_plus.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.2",
@@ -472410,7 +472589,25 @@
       "acceptance": "##[m:$] R expands to 1[*m:$] ##1 R.",
       "source_note": "IEEE 1800-2023 F.3.4.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_prefix_unbounded.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_prefix_unboundedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。##[m:$] R = 1[*m:$] ##1 R with m=2: three or more letters ending in b. Streaming reference `ticks>=3 && last_b`. BMC depth 16, signals b, 4 DFA states; all letter sequences of length <=16. No unbounded-length proof. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3219f0ff79a59d465248123707ce1f768e86ad37f6da1065701cfbda0cbaad15",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_prefix_unbounded.sv",
+              "contains": ":formal_case: f342_prefix_unbounded"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_prefix_unbounded.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.2",
@@ -472428,7 +472625,25 @@
       "acceptance": "For n>0, R1 ##[0:n] R2 is zero-delay fusion or R1 ##[1:n] R2.",
       "source_note": "IEEE 1800-2023 F.3.4.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_zero_finite.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_zero_finiteを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R1 ##[0:n] R2 = fusion or R1 ##[1:n] R2 with n=2: age 1 is the fusion, age 2 is delay 1, age 3 is delay 2; the attempt starts at the first sample, so a sits at the oldest bit of each age and fusion at age>=2 cannot precede the leftmost sample. Age table {1: h_a[0]&&h_b[0], 2: h_a[1]&&h_b[0], 3: h_a[ 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2bef1b2bd4003147f41fc2e58bf8bfe1f1723c825919dc9f971d28442f9d825",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_zero_finite.sv",
+              "contains": ":formal_case: f342_zero_finite"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_zero_finite.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.2",
@@ -472446,7 +472661,25 @@
       "acceptance": "R1 ##[0:$] R2 is zero-delay fusion or R1 ##[1:$] R2.",
       "source_note": "IEEE 1800-2023 F.3.4.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_zero_unbounded.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_zero_unboundedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。R1 ##[0:$] R2 = fusion or R1 ##[1:$] R2: the attempt starts at the first sample, so a must be that first letter and b the last letter (delay 0 is the one-letter fusion of the two). Streaming reference `first_a && last_b`; a reference of only `last_b` fails (e.g. the two-letter word b, a&b has no mat 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ff4f3e643fcf1761614c53846475e0bef9de9af34e275d0346ae89954ee2c22a",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_zero_unbounded.sv",
+              "contains": ":formal_case: f342_zero_unbounded"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_zero_unbounded.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.2",
@@ -472464,7 +472697,25 @@
       "acceptance": "Goto repetition b[->m:n] expands to (!b[*0:$] ##1 b)[*m:n], with m<=n for finite ranges.",
       "source_note": "IEEE 1800-2023 F.3.4.2.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_goto_finite.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_goto_finiteを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。b[->m:n] = (!b[*0:$] ##1 b)[*m:n] with m=2, n=3 and b=a: exactly two or three a samples, the last of which is the final letter. Streaming reference `last_a && 2<=seen<=3` with a saturating a counter. Dropping the upper bound fails. BMC depth 16, signals a, 6 DFA states; all letter sequences of lengt 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3e3badf30faebb5e40dee84c895f9cc35348394575c3355762b2bfebb5f06bb1",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_goto_finite.sv",
+              "contains": ":formal_case: f342_goto_finite"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_goto_finite.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.3",
@@ -472482,7 +472733,25 @@
       "acceptance": "Goto repetition b[->m:$] expands to (!b[*0:$] ##1 b)[*m:$], with m<=n for finite ranges.",
       "source_note": "IEEE 1800-2023 F.3.4.2.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_goto_unbounded.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_goto_unboundedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。b[->m:$] = (!b[*0:$] ##1 b)[*m:$] with m=2 and b=a: two or more a samples and the final letter is a. Streaming reference `last_a && seen>=2`. BMC depth 16, signals a, 3 DFA states; all letter sequences of length <=16. No unbounded-length proof. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fde3eda4ada258fcc64dbf0b8f3ba24d505f78a0db8e996009cd954568894332",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_goto_unbounded.sv",
+              "contains": ":formal_case: f342_goto_unbounded"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_goto_unbounded.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.3",
@@ -472536,7 +472805,25 @@
       "acceptance": "Nonconsecutive repetition b[=m:n] expands to b[->m:n] ##1 !b[*0:$], with m<=n for finite ranges.",
       "source_note": "IEEE 1800-2023 F.3.4.2.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_nonconsecutive_finite.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_nonconsecutive_finiteを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。b[=m:n] = b[->m:n] ##1 !b[*0:$] with m=1, n=2 and b=a: one or two a samples and any (possibly empty) run of !a after the last one, so the final letter is unconstrained. Streaming reference `1<=seen<=2`; dropping the upper bound fails. BMC depth 16, signals a, 4 DFA states; all letter sequences of le 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0d424f3d0686b9803452a9973fda1e917c850516c64af446bf412d9c18a55157",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_nonconsecutive_finite.sv",
+              "contains": ":formal_case: f342_nonconsecutive_finite"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_nonconsecutive_finite.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.3",
@@ -472554,7 +472841,25 @@
       "acceptance": "Nonconsecutive repetition b[=m:$] expands to b[->m:$] ##1 !b[*0:$], with m<=n for finite ranges.",
       "source_note": "IEEE 1800-2023 F.3.4.2.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f342_nonconsecutive_unbounded.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf342_nonconsecutive_unboundedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。b[=m:$] = b[->m:$] ##1 !b[*0:$] with m=2 and b=a: two or more a samples, trailing !a allowed and the final letter unconstrained. Streaming reference `seen>=2`. BMC depth 16, signals a, 4 DFA states; all letter sequences of length <=16. No unbounded-length proof. 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0abbca36fd2803b6dfbbe2d09a6fb6a2ed898a9cdb563a8ba6e7eca0fe51283c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f342_nonconsecutive_unbounded.sv",
+              "contains": ":formal_case: f342_nonconsecutive_unbounded"
+            },
+            {
+              "file": "tests/ch16/test_formal_f342_nonconsecutive_unbounded.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.3.4.2.3",
@@ -475207,7 +475512,25 @@
       "acceptance": "A Boolean sequence tightly matches exactly one letter that satisfies its Boolean; parentheses preserve tight satisfaction.",
       "source_note": "IEEE 1800-2023 F.5.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f52_boolean.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf52_booleanを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。A Boolean sequence tightly matches exactly one letter that satisfies it, and parentheses preserve tight satisfaction. Expression ((a) && (!b)) with age table {1: h_a[0] && !h_b[0]}; age 0 and >=2 are 0. BMC depth 8, signals ab, 3 DFA states; the whole 2-valued language (single-letter word) is covere 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5387e5c5f926d246f81fdc949b5ddaca23b16d68980eff9304411e0233963535",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f52_boolean.sv",
+              "contains": ":formal_case: f52_boolean"
+            },
+            {
+              "file": "tests/ch16/test_formal_f52_boolean.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.2",
@@ -475278,7 +475601,25 @@
       "acceptance": "Clocked-sequence tight satisfaction equals that of its unclocked rewrite.",
       "source_note": "IEEE 1800-2023 F.5.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f52_clocked.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf52_clockedを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。Clocked-sequence tight satisfaction equals that of its unclocked rewrite. Expression @(posedge clk) (a ##1 b) is compared with the unclocked rewrite's property result table (failure@0 when a[0]=0, success@1 when b[1]=1, failure@1 otherwise) over all 16 length-2 words. LIMITATION: the harness is sing 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7431571ae06ba35854da24a9e4eb5078d1af764e3eb5ebaeb1b15a582fd154b0",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f52_clocked.sv",
+              "contains": ":formal_case: f52_clocked"
+            },
+            {
+              "file": "tests/ch16/test_formal_f52_clocked.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.2",
@@ -475385,7 +475726,25 @@
       "acceptance": "A sequence is nondegenerate exactly when some nonempty finite word tightly satisfies it; clocked case uses its rewrite.",
       "source_note": "IEEE 1800-2023 F.5.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f52_nonempty_word.sv",
+          "observation": "SymbiYosysでF.3.4.2/F.5.2のformalケースf52_nonempty_wordを実行し、書換前後のシーケンス意味論が全入力語で一致することを確認する。A sequence is degenerate exactly when no nonempty finite word tightly satisfies it. a[*0] ##0 b[*0] fuses two empty repetition operands, which have no letter to share, so no word (not even the empty one) matches; the reference is the empty age table (0 at every age) and the DFA has a single zero sta 区別: 書換の右辺を独立RTL参照として実装し、参照評価器のDFAと全入力一致をBMCで証明する。シミュレータ出力に依存しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "72549ba66f759a6265a7d77bece05271488f57fa1684c6e06e16008572cbfe29",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f52_nonempty_word.sv",
+              "contains": ":formal_case: f52_nonempty_word"
+            },
+            {
+              "file": "tests/ch16/test_formal_f52_nonempty_word.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.2",
