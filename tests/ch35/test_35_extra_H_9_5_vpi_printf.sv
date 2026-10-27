@@ -3,7 +3,7 @@
 :description: A noncontext import calls vpi_printf and vpi_flush, which are in the H.9.5 set of VPI routines that do not need DPI context, and the text reaches standard output (IEEE 1800-2023 Section H.9.5)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 35.3.2 H.9.5 H.6.5 35.5.3
+:lrm: 1800-2023 35.3.2 H.9.5 H.6.5 35.5.3 35.5.1.3
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no
