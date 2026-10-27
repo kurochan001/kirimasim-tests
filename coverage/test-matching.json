@@ -2,9 +2,9 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 7346,
-  "linked_test_files": 4935,
-  "unlinked_test_files": 2411,
+  "test_files": 7386,
+  "linked_test_files": 4974,
+  "unlinked_test_files": 2412,
   "chapters": [
     {
       "chapter": "ch3",
@@ -86,9 +86,9 @@
     },
     {
       "chapter": "ch16",
-      "test_files": 375,
-      "linked_test_files": 324,
-      "unlinked_test_files": 51
+      "test_files": 415,
+      "linked_test_files": 363,
+      "unlinked_test_files": 52
     },
     {
       "chapter": "ch17",
@@ -61153,6 +61153,330 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch16/test_formal_always_end.sv",
+      "inputs_sha256": "bc05ae04e9be74cba8ccec340ba975c8df310de1d6103e19f07021584a8ed1b3",
+      "cited_clauses": [
+        "16.12.11",
+        "F.3.4.3.9"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-RANGE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.11-EXTRACT-ALWAYS",
+        "SV2023-16.12.11-EXTRACT-ALWAYS-ALIGN",
+        "SV2023-16.12.11-EXTRACT-IMPLICIT-ALWAYS",
+        "SV2023-16.12.11-EXTRACT-RANGED-ALWAYS",
+        "SV2023-16.12.11-EXTRACT-STRONG-ALWAYS",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-INFINITE",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-POINT",
+        "SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-POINT",
+        "SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-NEXT-POSITIVE",
+        "SV2023-F.3.4.3.9-EXTRACT-NEXT-ZERO",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-ALWAYS-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-INFINITE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT-COUNT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12.11-EXTRACT-ALWAYS-BOUNDS"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_and_endpoint_pairs.sv",
+      "inputs_sha256": "12878f14a802ca34a201bb9002e8345fc467797e366643b966e9083b99d700ad",
+      "cited_clauses": [
+        "16.9.5",
+        "F.3.4.2.4"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.4-EXTRACT-AND"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.5-EXTRACT-AND-END",
+        "SV2023-16.9.5-EXTRACT-AND-MATCH",
+        "SV2023-16.9.5-EXTRACT-BOOLEAN-AND",
+        "SV2023-F.3.4.2.4-EXTRACT-ASSIGN",
+        "SV2023-F.3.4.2.4-EXTRACT-THROUGHOUT",
+        "SV2023-F.3.4.2.4-EXTRACT-WITHIN"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_delay_range.sv",
+      "inputs_sha256": "c50ac3492ea6d0bd24607491f3fe2670e03f41e43771ad108ca7df1778412717",
+      "cited_clauses": [
+        "16.9.1",
+        "F.3.4.2.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-CONCAT",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_empty.sv",
+      "inputs_sha256": "4f6fc3782d5a5ff0b17895b6daf6f23805c096a1749917d802c320c43d953f5a",
+      "cited_clauses": [
+        "16.9.2.1",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-NULL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-MIXED-EMPTY",
+        "SV2023-16.9.2.1-EXTRACT-ZERO-EMPTY",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_empty_antecedent.sv",
+      "inputs_sha256": "a9e29a33fdc1f60f318808af2873f5eef2b4809b03b49b259cc80978f4143bf9",
+      "cited_clauses": [
+        "16.12.7",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-NULL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.7-EXTRACT-EVERY-MATCH",
+        "SV2023-16.12.7-EXTRACT-IMPLICATION-FORMS",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EMPTY",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EXPANSION",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-NONEMPTY",
+        "SV2023-16.12.7-EXTRACT-OVERLAPPED-START",
+        "SV2023-16.12.7-EXTRACT-VACUOUS-TRUE",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_empty_consequent.sv",
+      "inputs_sha256": "53baf65b6d547abd6451d9cda58237b34cb92a18b780b8cb3dc5d8649deace5e",
+      "cited_clauses": [
+        "16.9.2.1",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-NULL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-MIXED-EMPTY",
+        "SV2023-16.9.2.1-EXTRACT-ZERO-EMPTY",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_empty_fusion.sv",
+      "inputs_sha256": "4ebf2fb46c864ed186f793d7f9cc69f59a9d566497063143d57653e6e464a8e2",
+      "cited_clauses": [
+        "16.9.2.1",
+        "F.4.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.4.3-EXTRACT-EMPTY-CONCAT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-MIXED-EMPTY",
+        "SV2023-16.9.2.1-EXTRACT-ZERO-EMPTY",
+        "SV2023-F.4.3-EXTRACT-EMPTY-ATOMS",
+        "SV2023-F.4.3-EXTRACT-EMPTY-DECL-PAREN",
+        "SV2023-F.4.3-EXTRACT-EMPTY-MEANING",
+        "SV2023-F.4.3-EXTRACT-EMPTY-OR-INTERSECT",
+        "SV2023-F.4.3-EXTRACT-KAPPA",
+        "SV2023-F.4.3-EXTRACT-ORDER",
+        "SV2023-F.4.3-EXTRACT-PUSH-BOOLEAN",
+        "SV2023-F.4.3-EXTRACT-PUSH-CONDITIONAL",
+        "SV2023-F.4.3-EXTRACT-PUSH-DECL",
+        "SV2023-F.4.3-EXTRACT-PUSH-NONOVERLAP",
+        "SV2023-F.4.3-EXTRACT-PUSH-OVERLAP",
+        "SV2023-F.4.3-EXTRACT-PUSH-PROCEDURE",
+        "SV2023-F.4.3-EXTRACT-PUSH-SEQUENCE",
+        "SV2023-F.4.3-EXTRACT-PUSH-WRAPPERS",
+        "SV2023-F.4.3-EXTRACT-SEQUENCE-EMPTY",
+        "SV2023-F.4.3-EXTRACT-SEQUENCE-INIT",
+        "SV2023-F.4.3-EXTRACT-SEQUENCE-NONEMPTY"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_empty_left.sv",
+      "inputs_sha256": "83fd81e08c02e289e9334fd08491ba00ae26c08ae5a3bf99095e5235b3374b14",
+      "cited_clauses": [
+        "16.9.2.1",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-NULL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-MIXED-EMPTY",
+        "SV2023-16.9.2.1-EXTRACT-ZERO-EMPTY",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_empty_right.sv",
+      "inputs_sha256": "450e78bc33bbfae245a7fcb7b7fd57765f2935be35447b324457fd9fa8eaca94",
+      "cited_clauses": [
+        "16.9.2.1",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-NULL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-MIXED-EMPTY",
+        "SV2023-16.9.2.1-EXTRACT-ZERO-EMPTY",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_eventually_end.sv",
+      "inputs_sha256": "59a15dac60291ccb2c941767de9156db533b067852dcfae5ba648d216e6bdd0c",
+      "cited_clauses": [
+        "16.12.13",
+        "F.3.4.3.9"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-RANGE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.13-EXTRACT-EVENTUALLY-ALIGN",
+        "SV2023-16.12.13-EXTRACT-RANGED-STRONG-EVENTUALLY",
+        "SV2023-16.12.13-EXTRACT-STRONG-EVENTUALLY",
+        "SV2023-16.12.13-EXTRACT-WEAK-EVENTUALLY",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-INFINITE",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-POINT",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-POINT",
+        "SV2023-F.3.4.3.9-EXTRACT-NEXT-POSITIVE",
+        "SV2023-F.3.4.3.9-EXTRACT-NEXT-ZERO",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-ALWAYS-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-INFINITE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT-COUNT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch16/test_formal_f5_fusion.sv",
       "inputs_sha256": "d0bf9d056e2fbc8e4c0daa8ade9d8fe0389ba928adc88983287ace789e9434be",
       "cited_clauses": [
@@ -61178,6 +61502,1026 @@
         "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
         "SV2023-F.5.2-EXTRACT-NULL",
         "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_first_match.sv",
+      "inputs_sha256": "039bf2ee1b17599d473ea3181fa4d415db103f1572972dbec87fb0b7ddd649b8",
+      "cited_clauses": [
+        "16.9.8",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-FIRST"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.8-EXTRACT-EARLIEST-TIES",
+        "SV2023-16.9.8-EXTRACT-FIRST-MATCH",
+        "SV2023-16.9.8-EXTRACT-MATCH-ITEMS",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-NULL",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_first_match_tie.sv",
+      "inputs_sha256": "2384a25ec8f195f91da4fa26ef000801bec305c94f7d371f255940a9c6cb5a36",
+      "cited_clauses": [
+        "16.9.8",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-FIRST"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.8-EXTRACT-EARLIEST-TIES",
+        "SV2023-16.9.8-EXTRACT-FIRST-MATCH",
+        "SV2023-16.9.8-EXTRACT-MATCH-ITEMS",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-NULL",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_first_unbounded.sv",
+      "inputs_sha256": "a36741b4ce804336b3a3d9202c38a0ff84884bed2df7c31b21db3a21d927f085",
+      "cited_clauses": [
+        "16.9.8",
+        "F.3.4.2.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.8-EXTRACT-EARLIEST-TIES",
+        "SV2023-16.9.8-EXTRACT-FIRST-MATCH",
+        "SV2023-16.9.8-EXTRACT-MATCH-ITEMS",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-FIXED",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-STAR",
+        "SV2023-F.3.4.2.2-EXTRACT-PREFIX-UNBOUNDED",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-FINITE",
+        "SV2023-F.3.4.2.2-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_followed_nonoverlap.sv",
+      "inputs_sha256": "ec0f3c3268440914876f685e98e4ba82d1c402317ecd122f8e486e15911d6eba",
+      "cited_clauses": [
+        "16.12.7",
+        "F.3.4.3.6"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.3.6-EXTRACT-NONOVERLAPPED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.7-EXTRACT-EVERY-MATCH",
+        "SV2023-16.12.7-EXTRACT-IMPLICATION-FORMS",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EMPTY",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EXPANSION",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-NONEMPTY",
+        "SV2023-16.12.7-EXTRACT-OVERLAPPED-START",
+        "SV2023-16.12.7-EXTRACT-VACUOUS-TRUE",
+        "SV2023-F.3.4.3.6-EXTRACT-OVERLAPPED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_followed_overlap.sv",
+      "inputs_sha256": "3fe6d0932ea38692485c7e23ceb1e8ae111e0ac9ead3278e3a372ea9b5e1615b",
+      "cited_clauses": [
+        "16.12.7",
+        "F.3.4.3.6"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.3.6-EXTRACT-OVERLAPPED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.7-EXTRACT-EVERY-MATCH",
+        "SV2023-16.12.7-EXTRACT-IMPLICATION-FORMS",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EMPTY",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EXPANSION",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-NONEMPTY",
+        "SV2023-16.12.7-EXTRACT-OVERLAPPED-START",
+        "SV2023-16.12.7-EXTRACT-VACUOUS-TRUE",
+        "SV2023-F.3.4.3.6-EXTRACT-NONOVERLAPPED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_four_state_sampled.sv",
+      "inputs_sha256": "f129576ed6d3c0b25104382c8e3b3f581bb4d1e6ce9b45f80d25087c9bb668a1",
+      "cited_clauses": [
+        "16.9.3",
+        "F.3.4.4"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.4-EXTRACT-FELL",
+        "SV2023-F.3.4.4-EXTRACT-ROSE",
+        "SV2023-F.3.4.4-EXTRACT-SAMPLED",
+        "SV2023-F.3.4.4-EXTRACT-STABLE-CHANGED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.3-EXTRACT-ACTION-CLOCK",
+        "SV2023-16.9.3-EXTRACT-CHANGED",
+        "SV2023-16.9.3-EXTRACT-CLOCK-FLOW",
+        "SV2023-16.9.3-EXTRACT-DIFFERENT-CLOCK",
+        "SV2023-16.9.3-EXTRACT-FELL",
+        "SV2023-16.9.3-EXTRACT-FIRST-CLOCK-DEFAULT",
+        "SV2023-16.9.3-EXTRACT-GATED-SAMPLING",
+        "SV2023-16.9.3-EXTRACT-OMITTED-ARGS",
+        "SV2023-16.9.3-EXTRACT-PAST-GATE",
+        "SV2023-16.9.3-EXTRACT-PAST-HISTORY",
+        "SV2023-16.9.3-EXTRACT-PAST-PROCEDURAL-AUTOMATIC",
+        "SV2023-16.9.3-EXTRACT-PROCEDURAL-CLOCK",
+        "SV2023-16.9.3-EXTRACT-PROCEDURAL-USE",
+        "SV2023-16.9.3-EXTRACT-ROSE",
+        "SV2023-16.9.3-EXTRACT-SAMPLED",
+        "SV2023-16.9.3-EXTRACT-SIGNATURES",
+        "SV2023-16.9.3-EXTRACT-STABLE",
+        "SV2023-16.9.3-EXTRACT-STRICT-PRIOR",
+        "SV2023-F.3.4.4-EXTRACT-FUTURE-GLOBAL",
+        "SV2023-F.3.4.4-EXTRACT-PAST-GLOBAL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.9.3-EXTRACT-CLOCK-REQUIRED",
+        "SV2023-16.9.3-EXTRACT-DISABLE-CLOCK-EXPLICIT",
+        "SV2023-16.9.3-EXTRACT-NO-AUTOMATIC-GATE",
+        "SV2023-16.9.3-EXTRACT-NO-LOCAL-MATCHED",
+        "SV2023-16.9.3-EXTRACT-PAST-CLOCK",
+        "SV2023-16.9.3-EXTRACT-PAST-COUNT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_fusion.sv",
+      "inputs_sha256": "b968b5978cbd0d89a5185ae8bb30322cb78d5adbde655da3769ce04ddf459868",
+      "cited_clauses": [
+        "16.9.1",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-CONCAT",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-NULL",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_gated_past.sv",
+      "inputs_sha256": "ac28f98d44de5f2c3cf7a2910e1c9d5a32c51e604e0464464ade551436c1bb2c",
+      "cited_clauses": [
+        "16.5.1",
+        "F.6.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.6.2-EXTRACT-INITIAL-VALUES",
+        "SV2023-F.6.2-EXTRACT-PAST-EQUATION-TEXT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.5.1-EXTRACT-AUTOMATIC-HISTORY",
+        "SV2023-16.5.1-EXTRACT-CHECKER-HISTORY",
+        "SV2023-16.5.1-EXTRACT-COMPOSE-AND-CALL",
+        "SV2023-16.5.1-EXTRACT-CONST-CURRENT",
+        "SV2023-16.5.1-EXTRACT-CURRENT-EXCEPTIONS",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-EXPRESSION",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-METHOD",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-OTHER",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-STATIC",
+        "SV2023-16.5.1-EXTRACT-METHOD-CURRENT",
+        "SV2023-16.5.1-EXTRACT-PREPONED",
+        "SV2023-16.5.1-EXTRACT-SINGLE-VARIABLE",
+        "SV2023-F.6.2-EXTRACT-PAST-GLOBAL-INDEX-TEXT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.5.1-EXTRACT-CLOCKING-INPUT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_goto_two_then.sv",
+      "inputs_sha256": "49f8777716c6b0b5623df791f49cbbcdb380221275f7f3c83ff60c92d94b8ee9",
+      "cited_clauses": [
+        "16.9.2",
+        "F.3.4.2.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-46"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2-EXTRACT-COMBINE-DELAY",
+        "SV2023-16.9.2-EXTRACT-CONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-EXACT-EQUIVALENCE",
+        "SV2023-16.9.2-EXTRACT-GOTO",
+        "SV2023-16.9.2-EXTRACT-NONCONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-RANGED-REPETITION",
+        "SV2023-16.9.2-EXTRACT-REPETITION-SYNTAX",
+        "SV2023-16.9.2-EXTRACT-STAR-PLUS",
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-42",
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-44",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-43",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-45",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-47"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.9.2-EXTRACT-COUNT-BOUNDS",
+        "SV2023-16.9.2-EXTRACT-COUNT-ORDER",
+        "SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.9.2",
+          "descendant_requirement_count": 6
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_implication_nonoverlap.sv",
+      "inputs_sha256": "298caab30afe1410f9e686256b13914a2a806bb0cbe1ff9eaa634bbef48c628e",
+      "cited_clauses": [
+        "16.12.7",
+        "F.3.4.3.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.3.3-EXTRACT-UNCLOCKED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.7-EXTRACT-EVERY-MATCH",
+        "SV2023-16.12.7-EXTRACT-IMPLICATION-FORMS",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EMPTY",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EXPANSION",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-NONEMPTY",
+        "SV2023-16.12.7-EXTRACT-OVERLAPPED-START",
+        "SV2023-16.12.7-EXTRACT-VACUOUS-TRUE",
+        "SV2023-F.3.4.3.3-EXTRACT-CLOCKED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_implication_overlap.sv",
+      "inputs_sha256": "2b52e04ce7bd7d68c762987822c99578dd981910ad4420dd1259b4bc63addbfc",
+      "cited_clauses": [
+        "16.12.7",
+        "F.5.3.1",
+        "F.5.3.2",
+        "F.5.3.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.3.1-EXTRACT-IMPLICATION",
+        "SV2023-F.5.3.2-EXTRACT-FAIL",
+        "SV2023-F.5.3.2-EXTRACT-STRONG",
+        "SV2023-F.5.3.3-EXTRACT-IMPLICATION"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.7-EXTRACT-EVERY-MATCH",
+        "SV2023-16.12.7-EXTRACT-IMPLICATION-FORMS",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EMPTY",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EXPANSION",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-NONEMPTY",
+        "SV2023-16.12.7-EXTRACT-OVERLAPPED-START",
+        "SV2023-16.12.7-EXTRACT-VACUOUS-TRUE",
+        "SV2023-F.5.3.1-EXTRACT-ACCEPT",
+        "SV2023-F.5.3.1-EXTRACT-ALWAYS",
+        "SV2023-F.5.3.1-EXTRACT-ASSUME",
+        "SV2023-F.5.3.1-EXTRACT-BOOLEAN",
+        "SV2023-F.5.3.1-EXTRACT-CLOCK-PAREN",
+        "SV2023-F.5.3.1-EXTRACT-COVER",
+        "SV2023-F.5.3.1-EXTRACT-DISABLED",
+        "SV2023-F.5.3.1-EXTRACT-DOMAIN",
+        "SV2023-F.5.3.1-EXTRACT-ENABLE",
+        "SV2023-F.5.3.1-EXTRACT-FEASIBLE",
+        "SV2023-F.5.3.1-EXTRACT-GLOBAL",
+        "SV2023-F.5.3.1-EXTRACT-INITIAL-CLOCK",
+        "SV2023-F.5.3.1-EXTRACT-NEXT",
+        "SV2023-F.5.3.1-EXTRACT-NOT",
+        "SV2023-F.5.3.1-EXTRACT-STATUS",
+        "SV2023-F.5.3.1-EXTRACT-STRONG",
+        "SV2023-F.5.3.1-EXTRACT-TOP-PASS",
+        "SV2023-F.5.3.1-EXTRACT-UNTIL",
+        "SV2023-F.5.3.1-EXTRACT-WEAK",
+        "SV2023-F.5.3.2-EXTRACT-FINITE-EXTENSIONS",
+        "SV2023-F.5.3.2-EXTRACT-HOLD",
+        "SV2023-F.5.3.2-EXTRACT-PENDING",
+        "SV2023-F.5.3.3-EXTRACT-ABORT",
+        "SV2023-F.5.3.3-EXTRACT-ALWAYS",
+        "SV2023-F.5.3.3-EXTRACT-BASE",
+        "SV2023-F.5.3.3-EXTRACT-BOOLEANS",
+        "SV2023-F.5.3.3-EXTRACT-EVENTUALLY",
+        "SV2023-F.5.3.3-EXTRACT-NEXT-TEXT",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUITY",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUOUS-SATISFACTION",
+        "SV2023-F.5.3.3-EXTRACT-UNTIL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_intersect.sv",
+      "inputs_sha256": "73e0b4bb8acd97af42dafee2c6dda28f02f9a523a70bdb71fd2201fb32ca1dae",
+      "cited_clauses": [
+        "16.9.6",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-CHOICE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.6-EXTRACT-INTERSECT",
+        "SV2023-16.9.6-EXTRACT-PAIR-MATCHES",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-NULL",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_nexttime_end.sv",
+      "inputs_sha256": "d9e9124b9fdc4d232b64d9f5c4319220400bfa8e945c57788195026d2ff38dce",
+      "cited_clauses": [
+        "16.12.10",
+        "F.5.3.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.3.1-EXTRACT-NEXT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.10-EXTRACT-INDEXED-NEXTTIME",
+        "SV2023-16.12.10-EXTRACT-INDEXED-STRONG-NEXTTIME",
+        "SV2023-16.12.10-EXTRACT-NEXTTIME",
+        "SV2023-16.12.10-EXTRACT-NEXTTIME-ALIGN",
+        "SV2023-16.12.10-EXTRACT-STRONG-NEXTTIME",
+        "SV2023-F.5.3.1-EXTRACT-ACCEPT",
+        "SV2023-F.5.3.1-EXTRACT-ALWAYS",
+        "SV2023-F.5.3.1-EXTRACT-ASSUME",
+        "SV2023-F.5.3.1-EXTRACT-BOOLEAN",
+        "SV2023-F.5.3.1-EXTRACT-CLOCK-PAREN",
+        "SV2023-F.5.3.1-EXTRACT-COVER",
+        "SV2023-F.5.3.1-EXTRACT-DISABLED",
+        "SV2023-F.5.3.1-EXTRACT-DOMAIN",
+        "SV2023-F.5.3.1-EXTRACT-ENABLE",
+        "SV2023-F.5.3.1-EXTRACT-FEASIBLE",
+        "SV2023-F.5.3.1-EXTRACT-GLOBAL",
+        "SV2023-F.5.3.1-EXTRACT-IMPLICATION",
+        "SV2023-F.5.3.1-EXTRACT-INITIAL-CLOCK",
+        "SV2023-F.5.3.1-EXTRACT-NOT",
+        "SV2023-F.5.3.1-EXTRACT-STATUS",
+        "SV2023-F.5.3.1-EXTRACT-STRONG",
+        "SV2023-F.5.3.1-EXTRACT-TOP-PASS",
+        "SV2023-F.5.3.1-EXTRACT-UNTIL",
+        "SV2023-F.5.3.1-EXTRACT-WEAK"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12.10-EXTRACT-NEXTTIME-COUNT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_nonconsecutive_two.sv",
+      "inputs_sha256": "8c394e171a2f300766a6c3aa1354cfef4c6d4e5492fb4ec811e4e755680206b5",
+      "cited_clauses": [
+        "16.9.2",
+        "F.3.4.2.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-47"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2-EXTRACT-COMBINE-DELAY",
+        "SV2023-16.9.2-EXTRACT-CONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-EXACT-EQUIVALENCE",
+        "SV2023-16.9.2-EXTRACT-GOTO",
+        "SV2023-16.9.2-EXTRACT-NONCONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-RANGED-REPETITION",
+        "SV2023-16.9.2-EXTRACT-REPETITION-SYNTAX",
+        "SV2023-16.9.2-EXTRACT-STAR-PLUS",
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-42",
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-44",
+        "SV2023-F.3.4.2.3-EXTRACT-GOTO-46",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-43",
+        "SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-45"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.9.2-EXTRACT-COUNT-BOUNDS",
+        "SV2023-16.9.2-EXTRACT-COUNT-ORDER",
+        "SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.9.2",
+          "descendant_requirement_count": 6
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_optional_empty.sv",
+      "inputs_sha256": "d741570d78dcccc9dbd77fa93a837cb5ea81a64c3b8b9ffa412df15431d92bcb",
+      "cited_clauses": [
+        "16.9.2.1",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-NULL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-MIXED-EMPTY",
+        "SV2023-16.9.2.1-EXTRACT-ZERO-EMPTY",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_repetition.sv",
+      "inputs_sha256": "9ae9830ca106dcf9df5bc185da3ced1c82db1a52cb7adf064e375837d884860d",
+      "cited_clauses": [
+        "16.9.2",
+        "F.3.4.2.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.1-EXTRACT-FINITE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2-EXTRACT-COMBINE-DELAY",
+        "SV2023-16.9.2-EXTRACT-CONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-EXACT-EQUIVALENCE",
+        "SV2023-16.9.2-EXTRACT-GOTO",
+        "SV2023-16.9.2-EXTRACT-NONCONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-RANGED-REPETITION",
+        "SV2023-16.9.2-EXTRACT-REPETITION-SYNTAX",
+        "SV2023-16.9.2-EXTRACT-STAR-PLUS",
+        "SV2023-F.3.4.2.1-EXTRACT-FIXED",
+        "SV2023-F.3.4.2.1-EXTRACT-PLUS",
+        "SV2023-F.3.4.2.1-EXTRACT-POSITIVE-UNBOUNDED",
+        "SV2023-F.3.4.2.1-EXTRACT-SINGLE-RANGE",
+        "SV2023-F.3.4.2.1-EXTRACT-STAR",
+        "SV2023-F.3.4.2.1-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.9.2-EXTRACT-COUNT-BOUNDS",
+        "SV2023-16.9.2-EXTRACT-COUNT-ORDER",
+        "SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.9.2",
+          "descendant_requirement_count": 6
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_s_always_end.sv",
+      "inputs_sha256": "24105a9fd3c72c54c7bfa3538a9507636676097bdb950ce352722e3daa3d4f77",
+      "cited_clauses": [
+        "16.12.11",
+        "F.3.4.3.9"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-ALWAYS-RANGE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.11-EXTRACT-ALWAYS",
+        "SV2023-16.12.11-EXTRACT-ALWAYS-ALIGN",
+        "SV2023-16.12.11-EXTRACT-IMPLICIT-ALWAYS",
+        "SV2023-16.12.11-EXTRACT-RANGED-ALWAYS",
+        "SV2023-16.12.11-EXTRACT-STRONG-ALWAYS",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-INFINITE",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-POINT",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-POINT",
+        "SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-NEXT-POSITIVE",
+        "SV2023-F.3.4.3.9-EXTRACT-NEXT-ZERO",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-INFINITE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT-COUNT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12.11-EXTRACT-ALWAYS-BOUNDS"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_s_eventually_end.sv",
+      "inputs_sha256": "457bdc21fbaf9a0babe9525226ad6226b0c2b538079bfb145c858c270ab80a3b",
+      "cited_clauses": [
+        "16.12.13",
+        "F.3.4.3.9"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-RANGE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.13-EXTRACT-EVENTUALLY-ALIGN",
+        "SV2023-16.12.13-EXTRACT-RANGED-STRONG-EVENTUALLY",
+        "SV2023-16.12.13-EXTRACT-STRONG-EVENTUALLY",
+        "SV2023-16.12.13-EXTRACT-WEAK-EVENTUALLY",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-INFINITE",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-POINT",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-POINT",
+        "SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-NEXT-POSITIVE",
+        "SV2023-F.3.4.3.9-EXTRACT-NEXT-ZERO",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-ALWAYS-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-INFINITE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT-COUNT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_s_nexttime_end.sv",
+      "inputs_sha256": "88e29d1f145cf77e4cb3e8f42c761d0dca48d0162f5afd1179607cb72194620d",
+      "cited_clauses": [
+        "16.12.10",
+        "F.3.4.3.9"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT-COUNT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.10-EXTRACT-INDEXED-NEXTTIME",
+        "SV2023-16.12.10-EXTRACT-INDEXED-STRONG-NEXTTIME",
+        "SV2023-16.12.10-EXTRACT-NEXTTIME",
+        "SV2023-16.12.10-EXTRACT-NEXTTIME-ALIGN",
+        "SV2023-16.12.10-EXTRACT-STRONG-NEXTTIME",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-INFINITE",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-POINT",
+        "SV2023-F.3.4.3.9-EXTRACT-ALWAYS-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-POINT",
+        "SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-NEXT-POSITIVE",
+        "SV2023-F.3.4.3.9-EXTRACT-NEXT-ZERO",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-ALWAYS-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-INFINITE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-RANGE",
+        "SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12.10-EXTRACT-NEXTTIME-COUNT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_s_until.sv",
+      "inputs_sha256": "b8e8d2aecbbfc75b26caf4f7a043bd324e66c40a4c62a41454812f4c0c190bf0",
+      "cited_clauses": [
+        "16.12.12",
+        "F.3.4.3.8",
+        "F.5.3.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.3.8-EXTRACT-STRONG-UNTIL",
+        "SV2023-F.5.3.2-EXTRACT-PENDING"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.12-EXTRACT-UNTIL-NONOVERLAP",
+        "SV2023-16.12.12-EXTRACT-UNTIL-OVERLAP",
+        "SV2023-16.12.12-EXTRACT-UNTIL-STRONG",
+        "SV2023-16.12.12-EXTRACT-UNTIL-WEAK",
+        "SV2023-F.3.4.3.8-EXTRACT-ALWAYS",
+        "SV2023-F.3.4.3.8-EXTRACT-EVENTUALLY",
+        "SV2023-F.3.4.3.8-EXTRACT-STRONG-UNTIL-WITH",
+        "SV2023-F.3.4.3.8-EXTRACT-UNTIL-WITH",
+        "SV2023-F.5.3.2-EXTRACT-FAIL",
+        "SV2023-F.5.3.2-EXTRACT-FINITE-EXTENSIONS",
+        "SV2023-F.5.3.2-EXTRACT-HOLD",
+        "SV2023-F.5.3.2-EXTRACT-STRONG"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_s_until_with.sv",
+      "inputs_sha256": "a99dd3eb8ef261782f1237849a43ed3530f327ac86e65d25f5bfafac4f2c55de",
+      "cited_clauses": [
+        "16.12.12",
+        "F.3.4.3.8"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.3.8-EXTRACT-STRONG-UNTIL-WITH"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.12-EXTRACT-UNTIL-NONOVERLAP",
+        "SV2023-16.12.12-EXTRACT-UNTIL-OVERLAP",
+        "SV2023-16.12.12-EXTRACT-UNTIL-STRONG",
+        "SV2023-16.12.12-EXTRACT-UNTIL-WEAK",
+        "SV2023-F.3.4.3.8-EXTRACT-ALWAYS",
+        "SV2023-F.3.4.3.8-EXTRACT-EVENTUALLY",
+        "SV2023-F.3.4.3.8-EXTRACT-STRONG-UNTIL",
+        "SV2023-F.3.4.3.8-EXTRACT-UNTIL-WITH"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_sequence_and.sv",
+      "inputs_sha256": "6f044af3a12deda6c3099818d0cd5ae78293a0d8abfc6fd44b7c6e852fe66bda",
+      "cited_clauses": [
+        "16.9.5",
+        "F.3.4.2.4"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.4-EXTRACT-AND"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.5-EXTRACT-AND-END",
+        "SV2023-16.9.5-EXTRACT-AND-MATCH",
+        "SV2023-16.9.5-EXTRACT-BOOLEAN-AND",
+        "SV2023-F.3.4.2.4-EXTRACT-ASSIGN",
+        "SV2023-F.3.4.2.4-EXTRACT-THROUGHOUT",
+        "SV2023-F.3.4.2.4-EXTRACT-WITHIN"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_sequence_or_multiplicity.sv",
+      "inputs_sha256": "8bf08eca1a2d6b3a341164fe519b5568c5183deab80a3db739bac76a7632e406",
+      "cited_clauses": [
+        "16.9.7",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-CHOICE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.7-EXTRACT-BOOLEAN-OR",
+        "SV2023-16.9.7-EXTRACT-OR-OPERANDS",
+        "SV2023-16.9.7-EXTRACT-UNION-MATCHES",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-NULL",
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_sequence_repetition.sv",
+      "inputs_sha256": "00db4b860a691ad513b3808e6a006e8d8a4d74e77a90da165546ef5b334f0687",
+      "cited_clauses": [
+        "16.9.2",
+        "F.3.4.2.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.1-EXTRACT-FIXED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2-EXTRACT-COMBINE-DELAY",
+        "SV2023-16.9.2-EXTRACT-CONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-EXACT-EQUIVALENCE",
+        "SV2023-16.9.2-EXTRACT-GOTO",
+        "SV2023-16.9.2-EXTRACT-NONCONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-RANGED-REPETITION",
+        "SV2023-16.9.2-EXTRACT-REPETITION-SYNTAX",
+        "SV2023-16.9.2-EXTRACT-STAR-PLUS",
+        "SV2023-F.3.4.2.1-EXTRACT-FINITE",
+        "SV2023-F.3.4.2.1-EXTRACT-PLUS",
+        "SV2023-F.3.4.2.1-EXTRACT-POSITIVE-UNBOUNDED",
+        "SV2023-F.3.4.2.1-EXTRACT-SINGLE-RANGE",
+        "SV2023-F.3.4.2.1-EXTRACT-STAR",
+        "SV2023-F.3.4.2.1-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.9.2-EXTRACT-COUNT-BOUNDS",
+        "SV2023-16.9.2-EXTRACT-COUNT-ORDER",
+        "SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.9.2",
+          "descendant_requirement_count": 6
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_throughout.sv",
+      "inputs_sha256": "544287e591793bcd2e36181d44db8e207b48257fde34684d0d91be29d57e0201",
+      "cited_clauses": [
+        "16.9.9",
+        "F.3.4.2.4"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.4-EXTRACT-THROUGHOUT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.9-EXTRACT-THROUGHOUT-EXPANSION",
+        "SV2023-16.9.9-EXTRACT-THROUGHOUT-MATCH",
+        "SV2023-16.9.9-EXTRACT-THROUGHOUT-OPERANDS",
+        "SV2023-F.3.4.2.4-EXTRACT-AND",
+        "SV2023-F.3.4.2.4-EXTRACT-ASSIGN",
+        "SV2023-F.3.4.2.4-EXTRACT-WITHIN"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_unbounded_empty_repetition.sv",
+      "inputs_sha256": "f53c57ee8598686822146c100bed606ea25f189f4ad4d2c550233ca317a21822",
+      "cited_clauses": [
+        "16.9.2",
+        "F.3.4.2.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.1-EXTRACT-ZERO-UNBOUNDED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2-EXTRACT-COMBINE-DELAY",
+        "SV2023-16.9.2-EXTRACT-CONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-EXACT-EQUIVALENCE",
+        "SV2023-16.9.2-EXTRACT-GOTO",
+        "SV2023-16.9.2-EXTRACT-NONCONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-RANGED-REPETITION",
+        "SV2023-16.9.2-EXTRACT-REPETITION-SYNTAX",
+        "SV2023-16.9.2-EXTRACT-STAR-PLUS",
+        "SV2023-F.3.4.2.1-EXTRACT-FINITE",
+        "SV2023-F.3.4.2.1-EXTRACT-FIXED",
+        "SV2023-F.3.4.2.1-EXTRACT-PLUS",
+        "SV2023-F.3.4.2.1-EXTRACT-POSITIVE-UNBOUNDED",
+        "SV2023-F.3.4.2.1-EXTRACT-SINGLE-RANGE",
+        "SV2023-F.3.4.2.1-EXTRACT-STAR"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.9.2-EXTRACT-COUNT-BOUNDS",
+        "SV2023-16.9.2-EXTRACT-COUNT-ORDER",
+        "SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.9.2",
+          "descendant_requirement_count": 6
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_unbounded_repetition.sv",
+      "inputs_sha256": "da6fe9c8c6a3dcb75fb2cd5829a314da088ad45ff520b3c37bfaececb4fe3fc9",
+      "cited_clauses": [
+        "16.9.2",
+        "F.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.2-EXTRACT-REPEAT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.2-EXTRACT-COMBINE-DELAY",
+        "SV2023-16.9.2-EXTRACT-CONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-EXACT-EQUIVALENCE",
+        "SV2023-16.9.2-EXTRACT-GOTO",
+        "SV2023-16.9.2-EXTRACT-NONCONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-RANGED-REPETITION",
+        "SV2023-16.9.2-EXTRACT-REPETITION-SYNTAX",
+        "SV2023-16.9.2-EXTRACT-STAR-PLUS",
+        "SV2023-F.5.2-EXTRACT-BOOLEAN",
+        "SV2023-F.5.2-EXTRACT-CHOICE",
+        "SV2023-F.5.2-EXTRACT-CLOCKED",
+        "SV2023-F.5.2-EXTRACT-CONCAT",
+        "SV2023-F.5.2-EXTRACT-FIRST",
+        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
+        "SV2023-F.5.2-EXTRACT-NULL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.9.2-EXTRACT-COUNT-BOUNDS",
+        "SV2023-16.9.2-EXTRACT-COUNT-ORDER",
+        "SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.9.2",
+          "descendant_requirement_count": 6
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_until.sv",
+      "inputs_sha256": "5da76bd486f7f1ba157af2074095a5e1c74affde6306b34f29772167dcbd4700",
+      "cited_clauses": [
+        "16.12.12",
+        "F.5.3.1",
+        "F.5.3.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.3.1-EXTRACT-UNTIL",
+        "SV2023-F.5.3.2-EXTRACT-HOLD"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.12-EXTRACT-UNTIL-NONOVERLAP",
+        "SV2023-16.12.12-EXTRACT-UNTIL-OVERLAP",
+        "SV2023-16.12.12-EXTRACT-UNTIL-STRONG",
+        "SV2023-16.12.12-EXTRACT-UNTIL-WEAK",
+        "SV2023-F.5.3.1-EXTRACT-ACCEPT",
+        "SV2023-F.5.3.1-EXTRACT-ALWAYS",
+        "SV2023-F.5.3.1-EXTRACT-ASSUME",
+        "SV2023-F.5.3.1-EXTRACT-BOOLEAN",
+        "SV2023-F.5.3.1-EXTRACT-CLOCK-PAREN",
+        "SV2023-F.5.3.1-EXTRACT-COVER",
+        "SV2023-F.5.3.1-EXTRACT-DISABLED",
+        "SV2023-F.5.3.1-EXTRACT-DOMAIN",
+        "SV2023-F.5.3.1-EXTRACT-ENABLE",
+        "SV2023-F.5.3.1-EXTRACT-FEASIBLE",
+        "SV2023-F.5.3.1-EXTRACT-GLOBAL",
+        "SV2023-F.5.3.1-EXTRACT-IMPLICATION",
+        "SV2023-F.5.3.1-EXTRACT-INITIAL-CLOCK",
+        "SV2023-F.5.3.1-EXTRACT-NEXT",
+        "SV2023-F.5.3.1-EXTRACT-NOT",
+        "SV2023-F.5.3.1-EXTRACT-STATUS",
+        "SV2023-F.5.3.1-EXTRACT-STRONG",
+        "SV2023-F.5.3.1-EXTRACT-TOP-PASS",
+        "SV2023-F.5.3.1-EXTRACT-WEAK",
+        "SV2023-F.5.3.2-EXTRACT-FAIL",
+        "SV2023-F.5.3.2-EXTRACT-FINITE-EXTENSIONS",
+        "SV2023-F.5.3.2-EXTRACT-PENDING",
+        "SV2023-F.5.3.2-EXTRACT-STRONG"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_until_with.sv",
+      "inputs_sha256": "8527ae31df203ae9569894b05019157c550ab5f4527b4f3d45cf5e535840fc3a",
+      "cited_clauses": [
+        "16.12.12",
+        "F.3.4.3.8"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.3.8-EXTRACT-UNTIL-WITH"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12.12-EXTRACT-UNTIL-NONOVERLAP",
+        "SV2023-16.12.12-EXTRACT-UNTIL-OVERLAP",
+        "SV2023-16.12.12-EXTRACT-UNTIL-STRONG",
+        "SV2023-16.12.12-EXTRACT-UNTIL-WEAK",
+        "SV2023-F.3.4.3.8-EXTRACT-ALWAYS",
+        "SV2023-F.3.4.3.8-EXTRACT-EVENTUALLY",
+        "SV2023-F.3.4.3.8-EXTRACT-STRONG-UNTIL",
+        "SV2023-F.3.4.3.8-EXTRACT-STRONG-UNTIL-WITH"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_formal_within_endpoints.sv",
+      "inputs_sha256": "74d445167ae87d08ac5095edeebd9feded27ad081dffb5bbdc0948c51801b4fa",
+      "cited_clauses": [
+        "16.9.10",
+        "F.3.4.2.4"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.3.4.2.4-EXTRACT-WITHIN"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.10-EXTRACT-WITHIN-EXPANSION",
+        "SV2023-16.9.10-EXTRACT-WITHIN-INTERVAL",
+        "SV2023-F.3.4.2.4-EXTRACT-AND",
+        "SV2023-F.3.4.2.4-EXTRACT-ASSIGN",
+        "SV2023-F.3.4.2.4-EXTRACT-THROUGHOUT"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
@@ -530027,7 +531371,7 @@
     "oracle_issue": 257,
     "partial_observation": 2129
   },
-  "registry_sha256": "2f574c447a2e5c7431198702f1297159327753b570b7955ec34b300600a43d2d",
+  "registry_sha256": "9db8f5ce513ef21c2efa069f5e826a9d454242a71a8f2455ed395a5fdbbb3b3b",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "c1dac1a34f1f74e3f694f5ef6218659d24e12fac8b92f59725cdca236f737aec"
 }

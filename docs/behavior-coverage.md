@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 85.27%、実行 46.61%。**
+**全規格の要求台帳ベース（暫定）: 設計 85.59%、実行 46.94%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10504/12319 (85.27%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5742/12319 (46.61%)。
-- 登録済みだがテスト未対応: 1815 動作。
+- 登録済み動作に対するテスト設計網羅率: 10544/12319 (85.59%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5782/12319 (46.94%)。
+- 登録済みだがテスト未対応: 1775 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -89,7 +89,7 @@
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
-- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T00:43:50.437117+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
+- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T00:55:02.014787+00:00 / 41/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -220,7 +220,7 @@
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 9。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
-- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 1。
+- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 41。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 25。
 - H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 175。
 - I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 134。
@@ -128098,7 +128098,7 @@ For formal semantics, restrict property is equivalent to assume property.
 
 ### SV2023-F.3.4.2.1-EXTRACT-FINITE
 
-F.3.4.2.1 / normal / テスト未対応
+F.3.4.2.1 / normal / 実行確認あり
 
 For m<n, R\[*m:n\] is R\[*m:n-1\] or R\[*n\].
 
@@ -128106,10 +128106,11 @@ For m<n, R\[*m:n\] is R\[*m:n-1\] or R\[*n\].
 
 規定の性質: `definition`。
 
+- [test_formal_repetition.sv](../tests/ch16/test_formal_repetition.sv): SymbiYosysでformalケースrepetitionを実行し、参照評価器と独立RTLモニタの一致を確認する。a\[*1:3\] の一致ageが1,2,3の各1点のみ、それ以外は0。R\[*m:n\] = R\[*m:n-1\] or R\[*n\] の有限range展開が各繰り返し回数を1通りずつ作ることをm=1,n=3で実証する。BMC深さ8 + PDR。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.2.1-EXTRACT-FIXED
 
-F.3.4.2.1 / normal / テスト未対応
+F.3.4.2.1 / normal / 実行確認あり
 
 For m>0, R\[*m\] expands to R\[*m-1\] ##1 R.
 
@@ -128117,6 +128118,7 @@ For m>0, R\[*m\] expands to R\[*m-1\] ##1 R.
 
 規定の性質: `definition`。
 
+- [test_formal_sequence_repetition.sv](../tests/ch16/test_formal_sequence_repetition.sv): SymbiYosysでformalケースsequence_repetitionを実行し、参照評価器と独立RTLモニタの一致を確認する。(a ##1 b)\[*1:2\] がage2（1回）とage4（2回= R ##1 R）で一致し、age3では一致しない。R\[*m\] = R\[*m-1\] ##1 R の固定回数展開を、2tickのoperandで連接位置まで含めて固定する。BMC深さ8 + PDR。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.2.1-EXTRACT-PLUS
 
@@ -128164,7 +128166,7 @@ R\[*\] includes null or positive unbounded repetition.
 
 ### SV2023-F.3.4.2.1-EXTRACT-ZERO-UNBOUNDED
 
-F.3.4.2.1 / normal / テスト未対応
+F.3.4.2.1 / normal / 実行確認あり
 
 R\[*0:$\] is R\[*0\] or R\[*1:$\].
 
@@ -128172,10 +128174,11 @@ R\[*0:$\] is R\[*0\] or R\[*1:$\].
 
 規定の性質: `definition`。
 
+- [test_formal_unbounded_empty_repetition.sv](../tests/ch16/test_formal_unbounded_empty_repetition.sv): SymbiYosysでformalケースunbounded_empty_repetitionを実行し、参照評価器と独立RTLモニタの一致を確認する。a\[*0:$\] は全letterがaである間ずっと一致1（空分岐が常に生きる）。R\[*0:$\] = R\[*0\] or R\[*1:$\] の零分岐が語全体マッチとして保持されることを固定する。BMC深さ16 + PDR。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.2.2-EXTRACT-CONCAT-FINITE
 
-F.3.4.2.2 / normal / テスト未対応
+F.3.4.2.2 / normal / 実行確認あり
 
 For 0<m<=n, R1 ##\[m:n\] R2 is R1 ##1 1\[*m-1:n-1\] ##1 R2.
 
@@ -128183,6 +128186,7 @@ For 0<m<=n, R1 ##\[m:n\] R2 is R1 ##1 1\[*m-1:n-1\] ##1 R2.
 
 規定の性質: `definition`。
 
+- [test_formal_delay_range.sv](../tests/ch16/test_formal_delay_range.sv): SymbiYosysでformalケースdelay_rangeを実行し、参照評価器と独立RTLモニタの一致を確認する。a ##\[1:3\] b を「a の d サンプル前 + 現在の b」(d=1..3) として age 2..4 で数える独立RTL参照と、微分DFAの一致数を全入力letterで比較。BMC深さ8に加えPDRで全prefix長を証明（22系列の1つ）。F.3.4.2.2のm=1,n=3という1パラメータ点のみを実証する。有限語・2値letterのみで、top/bottom・dual語・無限語は扱わない。F.5.2の連接分割はfusionを代表とする。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.2.2-EXTRACT-CONCAT-FIXED
 
@@ -128197,7 +128201,7 @@ For m>1, R1 ##m R2 is R1 ##1 1\[*m-1\] ##1 R2.
 
 ### SV2023-F.3.4.2.2-EXTRACT-CONCAT-UNBOUNDED
 
-F.3.4.2.2 / normal / テスト未対応
+F.3.4.2.2 / normal / 実行確認あり
 
 For m>0, R1 ##\[m:$\] R2 is R1 ##1 1\[*m-1:$\] ##1 R2.
 
@@ -128205,6 +128209,7 @@ For m>0, R1 ##\[m:$\] R2 is R1 ##1 1\[*m-1:$\] ##1 R2.
 
 規定の性質: `definition`。
 
+- [test_formal_first_unbounded.sv](../tests/ch16/test_formal_first_unbounded.sv): SymbiYosysでformalケースfirst_unboundedを実行し、参照評価器と独立RTLモニタの一致を確認する。first_match(a ##\[1:$\] b) は最初のbでのみ一致し、seen_bで以降のbを抑止する。R1 ##\[1:$\] R2 = R1 ##1 1\[*0:$\] ##1 R2 の無限上界展開をfirst_matchと組み合わせて固定する。BMC深さ16 + PDR。F.5.2-FIRSTの代表はfirst_match。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.2.2-EXTRACT-CONCAT-ZERO
 
@@ -128307,7 +128312,7 @@ Goto repetition b\[->m:$\] expands to (!b\[*0:$\] ##1 b)\[*m:$\], with m<=n for 
 
 ### SV2023-F.3.4.2.3-EXTRACT-GOTO-46
 
-F.3.4.2.3 / normal / テスト未対応
+F.3.4.2.3 / normal / 実行確認あり
 
 Goto repetition b\[->m\] expands to (!b\[*0:$\] ##1 b)\[*m\], with m<=n for finite ranges.
 
@@ -128315,6 +128320,7 @@ Goto repetition b\[->m\] expands to (!b\[*0:$\] ##1 b)\[*m\], with m<=n for fini
 
 規定の性質: `definition`。
 
+- [test_formal_goto_two_then.sv](../tests/ch16/test_formal_goto_two_then.sv): SymbiYosysでformalケースgoto_two_thenを実行し、参照評価器と独立RTLモニタの一致を確認する。a\[->2\] ##1 b は2回目のaの次tickのbで一致する（seen/secondカウンタ参照）。(!a\[*0:$\] ##1 a)\[*2\] の終端とそれに続く##1の1tickを固定する。BMC深さ16 + PDR。coverで2回目a+bの到達をwitnessする。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-43
 
@@ -128340,7 +128346,7 @@ Nonconsecutive repetition b\[=m:$\] expands to b\[->m:$\] ##1 !b\[*0:$\], with m
 
 ### SV2023-F.3.4.2.3-EXTRACT-NONCONSECUTIVE-47
 
-F.3.4.2.3 / normal / テスト未対応
+F.3.4.2.3 / normal / 実行確認あり
 
 Nonconsecutive repetition b\[=m\] expands to b\[->m\] ##1 !b\[*0:$\], with m<=n for finite ranges.
 
@@ -128348,10 +128354,11 @@ Nonconsecutive repetition b\[=m\] expands to b\[->m\] ##1 !b\[*0:$\], with m<=n 
 
 規定の性質: `definition`。
 
+- [test_formal_nonconsecutive_two.sv](../tests/ch16/test_formal_nonconsecutive_two.sv): SymbiYosysでformalケースnonconsecutive_twoを実行し、参照評価器と独立RTLモニタの一致を確認する。a\[=2\] は2個目のa以降、aが続かない限り一致1（3個目のaで0）。b\[=m\] = b\[->m\] ##1 !b\[*0:$\] の末尾!b\[*0:$\]（空も可）を固定する。BMC深さ16 + PDR。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.2.4-EXTRACT-AND
 
-F.3.4.2.4 / normal / テスト未対応
+F.3.4.2.4 / normal / 実行確認あり
 
 R1 and R2 expands to ((R1 ##1 1\[*0:$\]) intersect R2) or (R1 intersect (R2 ##1 1\[*0:$\])).
 
@@ -128359,6 +128366,8 @@ R1 and R2 expands to ((R1 ##1 1\[*0:$\]) intersect R2) or (R1 intersect (R2 ##1 
 
 規定の性質: `definition`。
 
+- [test_formal_sequence_and.sv](../tests/ch16/test_formal_sequence_and.sv): SymbiYosysでformalケースsequence_andを実行し、参照評価器と独立RTLモニタの一致を確認する。(a ##1 b) and (c ##2 d) はage3で a@0,b@1 と c@0,d@2 を要求する。短いR1の終端t1を 1\[*0:$\] で延長して長いR2の終端t2に揃えるというF.3.4.2.4のand展開（2つのintersect分岐）を直接固定する。BMC深さ8 + PDR。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
+- [test_formal_and_endpoint_pairs.sv](../tests/ch16/test_formal_and_endpoint_pairs.sv): SymbiYosysでformalケースand_endpoint_pairsを実行し、参照評価器と独立RTLモニタの一致を確認する。(a ##\[1:2\] b) and (c ##2 d) で、R1の2つの終端候補(b@t1/b@t2)がそれぞれR2の終端t2と対になり一致数が2（端点対の積）。and展開が両方の端点対を落とさず保持することを示す。BMC深さ8 + PDR。代表はsequence_and。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.2.4-EXTRACT-ASSIGN
 
@@ -128373,7 +128382,7 @@ Sequence match assignment (R,v=e) is fusion with (1,v=e); multiple assignments a
 
 ### SV2023-F.3.4.2.4-EXTRACT-THROUGHOUT
 
-F.3.4.2.4 / normal / テスト未対応
+F.3.4.2.4 / normal / 実行確認あり
 
 b throughout R expands to b\[*0:$\] intersect R.
 
@@ -128381,10 +128390,11 @@ b throughout R expands to b\[*0:$\] intersect R.
 
 規定の性質: `definition`。
 
+- [test_formal_throughout.sv](../tests/ch16/test_formal_throughout.sv): SymbiYosysでformalケースthroughoutを実行し、参照評価器と独立RTLモニタの一致を確認する。x throughout (a ##\[1:2\] b) はRの一致区間の全letter（始端・終端を含む）でxを要求する。F.3.4.2.4の b\[*0:$\] intersect R 展開をages 2,3で固定する。BMC深さ8 + PDR。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.2.4-EXTRACT-WITHIN
 
-F.3.4.2.4 / normal / テスト未対応
+F.3.4.2.4 / normal / 実行確認あり
 
 R1 within R2 expands to (1\[*0:$\] ##1 R1 ##1 1\[*0:$\]) intersect R2.
 
@@ -128392,6 +128402,7 @@ R1 within R2 expands to (1\[*0:$\] ##1 R1 ##1 1\[*0:$\]) intersect R2.
 
 規定の性質: `definition`。
 
+- [test_formal_within_endpoints.sv](../tests/ch16/test_formal_within_endpoints.sv): SymbiYosysでformalケースwithin_endpointsを実行し、参照評価器と独立RTLモニタの一致を確認する。(x ##1 x) within (a ##3 b) で、内側2tickの配置が3通り(t0-1,t1-2,t2-3)すべて数えられる。F.3.4.2.4の (1\[*0:$\] ##1 R1 ##1 1\[*0:$\]) intersect R2 による前後paddingを固定する。cover(reference_count>=2)が到達し、右端一致を落とす変異BMCがFAILする。BMC深さ8 + PDR。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.3.1-EXTRACT-DEFAULT-STRENGTH
 
@@ -128439,7 +128450,7 @@ S |=> Q expands to (S ##1 @(1) 1) |-> Q.
 
 ### SV2023-F.3.4.3.3-EXTRACT-UNCLOCKED
 
-F.3.4.3.3 / normal / テスト未対応
+F.3.4.3.3 / normal / 実行確認あり
 
 R |=> P expands to (R ##1 1) |-> P.
 
@@ -128447,6 +128458,7 @@ R |=> P expands to (R ##1 1) |-> P.
 
 規定の性質: `definition`。
 
+- [test_formal_implication_nonoverlap.sv](../tests/ch16/test_formal_implication_nonoverlap.sv): SymbiYosysでformalケースimplication_nonoverlapを実行し、参照評価器と独立RTLモニタの一致を確認する。(a ##1 b) |=> c がtick2のcを要求する（antecedent終端t1の次tick）。R |=> P = (R ##1 1) |-> P の非重複展開を全512語で固定する。finite-wordテーブルのみ（horizon 3、PDRなし）。F.5.3.1-IMPLICATIONの代表はimplication_overlap。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.3.4-EXTRACT-IF
 
@@ -128505,7 +128517,7 @@ Formal specify(Boolean) expands and signs/unsigns comparisons according to 12.5 
 
 ### SV2023-F.3.4.3.6-EXTRACT-NONOVERLAPPED
 
-F.3.4.3.6 / normal / テスト未対応
+F.3.4.3.6 / normal / 実行確認あり
 
 r #=# p is not(r |=> not p).
 
@@ -128513,10 +128525,11 @@ r #=# p is not(r |=> not p).
 
 規定の性質: `definition`。
 
+- [test_formal_followed_nonoverlap.sv](../tests/ch16/test_formal_followed_nonoverlap.sv): SymbiYosysでformalケースfollowed_nonoverlapを実行し、参照評価器と独立RTLモニタの一致を確認する。(a ##1 b) #=# c はantecedent不成立をfailureとし、成立時はtick2のcを要求する。r #=# p = not(r |=> not p) を全512語で固定する。finite-wordテーブルのみ。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.3.6-EXTRACT-OVERLAPPED
 
-F.3.4.3.6 / normal / テスト未対応
+F.3.4.3.6 / normal / 実行確認あり
 
 r #-# p is not(r |-> not p).
 
@@ -128524,6 +128537,7 @@ r #-# p is not(r |-> not p).
 
 規定の性質: `definition`。
 
+- [test_formal_followed_overlap.sv](../tests/ch16/test_formal_followed_overlap.sv): SymbiYosysでformalケースfollowed_overlapを実行し、参照評価器と独立RTLモニタの一致を確認する。(a ##1 b) #-# c はantecedent不成立をvacuousではなくfailure(tick0/1)とする。r #-# p = not(r |-> not p) の双対（成立しなければ失敗）を全512語で固定する。antecedent不在をvacuous成功に変える変異BMCがFAILしており感度がある。finite-wordテーブルのみ。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.3.7-EXTRACT-REJECT
 
@@ -128582,7 +128596,7 @@ s_eventually p is not always(not p).
 
 ### SV2023-F.3.4.3.8-EXTRACT-STRONG-UNTIL
 
-F.3.4.3.8 / normal / テスト未対応
+F.3.4.3.8 / normal / 実行確認あり
 
 p s_until q is (p until q) and s_eventually q.
 
@@ -128590,10 +128604,11 @@ p s_until q is (p until q) and s_eventually q.
 
 規定の性質: `definition`。
 
+- [test_formal_s_until.sv](../tests/ch16/test_formal_s_until.sv): SymbiYosysでformalケースs_untilを実行し、参照評価器と独立RTLモニタの一致を確認する。a s_until b はbが来ない有限語でpending(79)（weakには成り立つがstrongに成らない）。F.3.4.3.8の p s_until q = (p until q) and s_eventually q のs_eventually部分と、F.5.3.2-PENDINGを全64語で固定する。horizon 3。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.3.8-EXTRACT-STRONG-UNTIL-WITH
 
-F.3.4.3.8 / normal / テスト未対応
+F.3.4.3.8 / normal / 実行確認あり
 
 p s_until_with q is p s_until (p and q).
 
@@ -128601,10 +128616,11 @@ p s_until_with q is p s_until (p and q).
 
 規定の性質: `definition`。
 
+- [test_formal_s_until_with.sv](../tests/ch16/test_formal_s_until_with.sv): SymbiYosysでformalケースs_until_withを実行し、参照評価器と独立RTLモニタの一致を確認する。a s_until_with b はbが来なければpending(79)、aが崩れれば失敗、a&&bで成功。p s_until_with q = p s_until (p and q) を全64語で固定する。horizon 3。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.3.8-EXTRACT-UNTIL-WITH
 
-F.3.4.3.8 / normal / テスト未対応
+F.3.4.3.8 / normal / 実行確認あり
 
 p until_with q is p until (p and q).
 
@@ -128612,6 +128628,7 @@ p until_with q is p until (p and q).
 
 規定の性質: `definition`。
 
+- [test_formal_until_with.sv](../tests/ch16/test_formal_until_with.sv): SymbiYosysでformalケースuntil_withを実行し、参照評価器と独立RTLモニタの一致を確認する。a until_with b はaが全tickで成立しbが来なければhold(63)、aが先に崩れれば失敗、a&&bで成功。p until_with q = p until (p and q) の右辺p and qを全64語で固定する。horizon 3。HOLD行の代表はuntil。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.3.9-EXTRACT-ALWAYS-INFINITE
 
@@ -128637,7 +128654,7 @@ For m>=0, always\[m:m\] p is nexttime\[m\] p.
 
 ### SV2023-F.3.4.3.9-EXTRACT-ALWAYS-RANGE
 
-F.3.4.3.9 / normal / テスト未対応
+F.3.4.3.9 / normal / 実行確認あり
 
 For m<n, always\[m:n\] p is always\[m:n-1\] p and nexttime\[n\] p.
 
@@ -128645,6 +128662,7 @@ For m<n, always\[m:n\] p is always\[m:n-1\] p and nexttime\[n\] p.
 
 規定の性質: `definition`。
 
+- [test_formal_always_end.sv](../tests/ch16/test_formal_always_end.sv): SymbiYosysでformalケースalways_endを実行し、参照評価器と独立RTLモニタの一致を確認する。always\[1:2\] a はa\[1\]が偽なら失敗(tick1)、真ならhold(63)。always\[m:n\] = always\[m:n-1\] and nexttime\[n\] の有限range展開を全4語で固定する。horizon 2。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-POINT
 
@@ -128659,7 +128677,7 @@ For m>=0, eventually\[m:m\] p is nexttime\[m\] p.
 
 ### SV2023-F.3.4.3.9-EXTRACT-EVENTUALLY-RANGE
 
-F.3.4.3.9 / normal / テスト未対応
+F.3.4.3.9 / normal / 実行確認あり
 
 For m<n, eventually\[m:n\] p is eventually\[m:n-1\] p or nexttime\[n\] p.
 
@@ -128667,6 +128685,7 @@ For m<n, eventually\[m:n\] p is eventually\[m:n-1\] p or nexttime\[n\] p.
 
 規定の性質: `definition`。
 
+- [test_formal_eventually_end.sv](../tests/ch16/test_formal_eventually_end.sv): SymbiYosysでformalケースeventually_endを実行し、参照評価器と独立RTLモニタの一致を確認する。eventually\[1:2\] a はa\[1\]で成功(tick1)、無ければhold(63)。eventually\[m:n\] = eventually\[m:n-1\] or nexttime\[n\] の有限range展開が、word端を越えるnexttimeをweak holdとして扱うことを全4語で固定する。horizon 2。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.3.9-EXTRACT-NEXT-POSITIVE
 
@@ -128692,7 +128711,7 @@ nexttime\[0\] p is 1 |-> p.
 
 ### SV2023-F.3.4.3.9-EXTRACT-STRONG-ALWAYS-RANGE
 
-F.3.4.3.9 / normal / テスト未対応
+F.3.4.3.9 / normal / 実行確認あり
 
 For m<=n, s_always\[m:n\] p is not eventually\[m:n\] not p.
 
@@ -128700,6 +128719,7 @@ For m<=n, s_always\[m:n\] p is not eventually\[m:n\] not p.
 
 規定の性質: `definition`。
 
+- [test_formal_s_always_end.sv](../tests/ch16/test_formal_s_always_end.sv): SymbiYosysでformalケースs_always_endを実行し、参照評価器と独立RTLモニタの一致を確認する。s_always\[1:2\] a はa\[1\]偽で失敗(tick1)、真ならpending(79)。s_always\[m:n\] = not eventually\[m:n\] not p の有限range強形を全4語で固定する。horizon 2。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-INFINITE
 
@@ -128714,7 +128734,7 @@ For m>=0, s_eventually\[m:$\] p is s_nexttime\[m\] s_eventually p.
 
 ### SV2023-F.3.4.3.9-EXTRACT-STRONG-EVENTUALLY-RANGE
 
-F.3.4.3.9 / normal / テスト未対応
+F.3.4.3.9 / normal / 実行確認あり
 
 For m<=n, s_eventually\[m:n\] p is not always\[m:n\] not p.
 
@@ -128722,6 +128742,7 @@ For m<=n, s_eventually\[m:n\] p is not always\[m:n\] not p.
 
 規定の性質: `definition`。
 
+- [test_formal_s_eventually_end.sv](../tests/ch16/test_formal_s_eventually_end.sv): SymbiYosysでformalケースs_eventually_endを実行し、参照評価器と独立RTLモニタの一致を確認する。s_eventually\[1:2\] a はa\[1\]で成功、無ければpending(79)。s_eventually\[m:n\] = not always\[m:n\] not p の有限range強形を全4語で固定する。horizon 2。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT
 
@@ -128736,7 +128757,7 @@ s_nexttime p is not nexttime not p.
 
 ### SV2023-F.3.4.3.9-EXTRACT-STRONG-NEXT-COUNT
 
-F.3.4.3.9 / normal / テスト未対応
+F.3.4.3.9 / normal / 実行確認あり
 
 For m>=0, s_nexttime\[m\] p is not nexttime\[m\] not p.
 
@@ -128744,10 +128765,11 @@ For m>=0, s_nexttime\[m\] p is not nexttime\[m\] not p.
 
 規定の性質: `definition`。
 
+- [test_formal_s_nexttime_end.sv](../tests/ch16/test_formal_s_nexttime_end.sv): SymbiYosysでformalケースs_nexttime_endを実行し、参照評価器と独立RTLモニタの一致を確認する。s_nexttime\[2\] a を2tick語で評価すると全4語でpending(79)。s_nexttime\[m\] p = not nexttime\[m\] not p により、未来suffixが存在しないと強義務が果たせないことを固定する。horizon 2。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.4-EXTRACT-FELL
 
-F.3.4.4 / normal / テスト未対応
+F.3.4.4 / normal / 実行確認あり
 
 $fell(e,c) is true exactly when prior clock sample of LSB is case-unequal to 0 and current LSB is case-equal to 0; prior sample uses $past(b,1,1,c).
 
@@ -128755,6 +128777,7 @@ $fell(e,c) is true exactly when prior clock sample of LSB is case-unequal to 0 a
 
 規定の性質: `definition`。
 
+- [test_formal_four_state_sampled.sv](../tests/ch16/test_formal_four_state_sampled.sv): SymbiYosysでformalケースfour_state_sampledを実行し、参照評価器と独立RTLモニタの一致を確認する。$sampled/$past/$rose/$fell/$stable/$changed を、4値を2bitで符号化したprevious/currentの全256組で比較（組合せ全列挙、BMC深さ2は回路展開段数）。rose/fellはLSBのcase比較、stable/changedは式全体のcase比較で、x/z符号も含む。x→1遷移のcoverも実行。多tick参照は2tickのみで、$past_gclk/$future_gclk系や不十分履歴の初期値分岐は対象外。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.4-EXTRACT-FUTURE-GLOBAL
 
@@ -128780,7 +128803,7 @@ $rose_gclk/$fell_gclk/$stable_gclk/$changed_gclk use the same comparisons with $
 
 ### SV2023-F.3.4.4-EXTRACT-ROSE
 
-F.3.4.4 / normal / テスト未対応
+F.3.4.4 / normal / 実行確認あり
 
 $rose(e,c) is true exactly when prior clock sample of LSB is case-unequal to 1 and current LSB is case-equal to 1; prior sample uses $past(b,1,1,c).
 
@@ -128788,10 +128811,11 @@ $rose(e,c) is true exactly when prior clock sample of LSB is case-unequal to 1 a
 
 規定の性質: `definition`。
 
+- [test_formal_four_state_sampled.sv](../tests/ch16/test_formal_four_state_sampled.sv): SymbiYosysでformalケースfour_state_sampledを実行し、参照評価器と独立RTLモニタの一致を確認する。$sampled/$past/$rose/$fell/$stable/$changed を、4値を2bitで符号化したprevious/currentの全256組で比較（組合せ全列挙、BMC深さ2は回路展開段数）。rose/fellはLSBのcase比較、stable/changedは式全体のcase比較で、x/z符号も含む。x→1遷移のcoverも実行。多tick参照は2tickのみで、$past_gclk/$future_gclk系や不十分履歴の初期値分岐は対象外。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.4-EXTRACT-SAMPLED
 
-F.3.4.4 / normal / テスト未対応
+F.3.4.4 / normal / 実行確認あり
 
 $sampled(e) is sampled expression e in this trace model.
 
@@ -128799,10 +128823,11 @@ $sampled(e) is sampled expression e in this trace model.
 
 規定の性質: `definition`。
 
+- [test_formal_four_state_sampled.sv](../tests/ch16/test_formal_four_state_sampled.sv): SymbiYosysでformalケースfour_state_sampledを実行し、参照評価器と独立RTLモニタの一致を確認する。$sampled/$past/$rose/$fell/$stable/$changed を、4値を2bitで符号化したprevious/currentの全256組で比較（組合せ全列挙、BMC深さ2は回路展開段数）。rose/fellはLSBのcase比較、stable/changedは式全体のcase比較で、x/z符号も含む。x→1遷移のcoverも実行。多tick参照は2tickのみで、$past_gclk/$future_gclk系や不十分履歴の初期値分岐は対象外。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.4-EXTRACT-STABLE-CHANGED
 
-F.3.4.4 / normal / テスト未対応
+F.3.4.4 / normal / 実行確認あり
 
 $stable/$changed compare current e to $past(e,1,1,c) using case equality/inequality respectively.
 
@@ -128810,6 +128835,7 @@ $stable/$changed compare current e to $past(e,1,1,c) using case equality/inequal
 
 規定の性質: `definition`。
 
+- [test_formal_four_state_sampled.sv](../tests/ch16/test_formal_four_state_sampled.sv): SymbiYosysでformalケースfour_state_sampledを実行し、参照評価器と独立RTLモニタの一致を確認する。$sampled/$past/$rose/$fell/$stable/$changed を、4値を2bitで符号化したprevious/currentの全256組で比較（組合せ全列挙、BMC深さ2は回路展開段数）。rose/fellはLSBのcase比較、stable/changedは式全体のcase比較で、x/z符号も含む。x→1遷移のcoverも実行。多tick参照は2tickのみで、$past_gclk/$future_gclk系や不十分履歴の初期値分岐は対象外。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.3.4.5-EXTRACT-DECLARATION-NEST
 
@@ -129121,7 +129147,7 @@ Boolean and local sampling assignment do not admit empty matches; null repetitio
 
 ### SV2023-F.4.3-EXTRACT-EMPTY-CONCAT
 
-F.4.3 / normal / テスト未対応
+F.4.3 / normal / 実行確認あり
 
 Concatenation admits empty iff both operands do; fusion never admits empty.
 
@@ -129129,6 +129155,7 @@ Concatenation admits empty iff both operands do; fusion never admits empty.
 
 規定の性質: `definition`。
 
+- [test_formal_empty_fusion.sv](../tests/ch16/test_formal_empty_fusion.sv): SymbiYosysでformalケースempty_fusionを実行し、参照評価器と独立RTLモニタの一致を確認する。a\[*0\] ##0 b のDFAは1状態で全語0一致。融合は両operandが同一letterを共有する必要があるが、左operandは空語しか許さないため分割不能で、一致が一切存在しない。F.4.3の「fusion never admits empty」の意味論的帰結を全語で証明する（BMC深さ8 + PDR）。空を許す連接の一般式ではなく、融合に限った主張。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.4.3-EXTRACT-EMPTY-DECL-PAREN
 
@@ -129528,7 +129555,7 @@ A Boolean sequence tightly matches exactly one letter that satisfies its Boolean
 
 ### SV2023-F.5.2-EXTRACT-CHOICE
 
-F.5.2 / normal / テスト未対応
+F.5.2 / normal / 実行確認あり
 
 or tightly matches if either operand matches the whole word; intersect requires both on the same whole word.
 
@@ -129536,6 +129563,8 @@ or tightly matches if either operand matches the whole word; intersect requires 
 
 規定の性質: `definition`。
 
+- [test_formal_sequence_or_multiplicity.sv](../tests/ch16/test_formal_sequence_or_multiplicity.sv): SymbiYosysでformalケースsequence_or_multiplicityを実行し、参照評価器と独立RTLモニタの一致を確認する。(a ##1 b) or (a ##1 b) の一致数が分岐数の和2になり、orの両分岐が同一語全体にマッチすることを固定する。ただし×2という多重度はF.5.2の集合意味論を超える微分エンジンの計数規約であり、F由来の主張は「orはどちらかのoperandが語全体にマッチすれば一致」の部分に限る。BMC深さ8 + PDR。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
+- [test_formal_intersect.sv](../tests/ch16/test_formal_intersect.sv): SymbiYosysでformalケースintersectを実行し、参照評価器と独立RTLモニタの一致を確認する。(a ##\[1:2\] b) intersect (c ##2 d) は両operandが同じ語全体(t0..t2)にマッチするときだけ一致1。F.5.2の「intersectは両operandが同一の語全体にマッチすることを要求」を直接固定する（or側の代表はsequence_or_multiplicity）。BMC深さ8 + PDR。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.5.2-EXTRACT-CLOCKED
 
@@ -129562,7 +129591,7 @@ Concatenation tightly matches iff word splits into adjacent operand matches; fus
 
 ### SV2023-F.5.2-EXTRACT-FIRST
 
-F.5.2 / normal / テスト未対応
+F.5.2 / normal / 実行確認あり
 
 first_match requires a whole-word match and no proper prefix whose dual word tightly matches the operand.
 
@@ -129570,6 +129599,8 @@ first_match requires a whole-word match and no proper prefix whose dual word tig
 
 規定の性質: `definition`。
 
+- [test_formal_first_match.sv](../tests/ch16/test_formal_first_match.sv): SymbiYosysでformalケースfirst_matchを実行し、参照評価器と独立RTLモニタの一致を確認する。first_match(a ##\[1:3\] b) は最初のbの位置でのみ一致し、より早いb（proper prefixの一致）があるageでは0。F.5.2の「whole-word一致かつ、proper prefixのdual語がoperandにマッチしない」をages 2..4で固定する。BMC深さ8 + PDR。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
+- [test_formal_first_match_tie.sv](../tests/ch16/test_formal_first_match_tie.sv): SymbiYosysでformalケースfirst_match_tieを実行し、参照評価器と独立RTLモニタの一致を確認する。first_match((a ##\[1:2\] b) or (a ##2 c)) で、bとcが同一終端tickに並ぶtieは2一致として残る（同じ終端はproper prefixではない）。F.5.2-FIRSTの「proper prefixのみを除外する」という境界を固定する。cover(reference_count>=2)が到達し、tieを1に潰す変異BMCがFAILする。BMC深さ8 + PDR。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.5.2-EXTRACT-NONDEGENERATE
 
@@ -129584,7 +129615,7 @@ A sequence is nondegenerate exactly when some nonempty finite word tightly satis
 
 ### SV2023-F.5.2-EXTRACT-NULL
 
-F.5.2 / normal / テスト未対応
+F.5.2 / normal / 実行確認あり
 
 Null repetition tightly matches exactly empty word.
 
@@ -129592,10 +129623,16 @@ Null repetition tightly matches exactly empty word.
 
 規定の性質: `definition`。
 
+- [test_formal_empty.sv](../tests/ch16/test_formal_empty.sv): SymbiYosysでformalケースemptyを実行し、参照評価器と独立RTLモニタの一致を確認する。a\[*0\] の一致数はage0（空語）で1、age>=1では0。参照表{0:1}と全letter入力で一致することをBMC深さ8 + PDRで証明する。空語が初期状態で実際にassertされるため、「null反復は空語にちょうど一致する」を直接確立する。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
+- [test_formal_empty_left.sv](../tests/ch16/test_formal_empty_left.sv): SymbiYosysでformalケースempty_leftを実行し、参照評価器と独立RTLモニタの一致を確認する。a\[*0\] ##1 b はage1で h_b\[0\] のみを要求し、空左operandが##1の1tick前進に寄与しないことを固定する。BMC深さ8 + PDR。さらに参照を1tick後ろへずらす変異BMCがFAILしており、このtick整合が検査に効いていることの証拠になる。F.5.2-NULLの代表はempty。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
+- [test_formal_empty_right.sv](../tests/ch16/test_formal_empty_right.sv): SymbiYosysでformalケースempty_rightを実行し、参照評価器と独立RTLモニタの一致を確認する。a ##1 b\[*0\] はage1で h_a\[0\] のみ。空右operandによって語がそこで終端できることを固定する。BMC深さ8 + PDR。F.5.2-NULLの代表はempty。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
+- [test_formal_optional_empty.sv](../tests/ch16/test_formal_optional_empty.sv): SymbiYosysでformalケースoptional_emptyを実行し、参照評価器と独立RTLモニタの一致を確認する。a\[*0:1\] ##1 b の一致ageは1（空分岐）と2（1回分岐）のみで、他のageは0。空分岐と正分岐のor展開（F.3.4.2.1-FINITEのm=0の場合）が両方生きたまま##1の位置が決まることを固定する。BMC深さ8 + PDR。F.3.4.2.1-FINITEの代表はrepetition。F.5.2-NULLの代表はempty。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
+- [test_formal_empty_consequent.sv](../tests/ch16/test_formal_empty_consequent.sv): SymbiYosysでformalケースempty_consequentを実行し、参照評価器と独立RTLモニタの一致を確認する。a |-> (b\[*0\] ##1 c) で、b\[*0\]が空語に一致するためconsequentは現在tickのcと同じ語に一致する（a不成立ならvacuous）。空operandを含む連接が1letterに一致し、かつ空一致によってconsequentが空疎化しないことを固定する。horizon 1の有限語のみ（全8語）。F.5.2-NULLの代表はempty。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
+- [test_formal_empty_antecedent.sv](../tests/ch16/test_formal_empty_antecedent.sv): SymbiYosysでformalケースempty_antecedentを実行し、参照評価器と独立RTLモニタの一致を確認する。a\[*0\] |=> b は空antecedentでもvacuousにならず、tick0のbを要求する（b\[0\] ? success : failure）。空系列の一致が##1によって1tick分の連接になることを固定する。horizon 1の有限語のみ。なお空を許す系列をproperty文脈に埋め込む合法性（F.3.2-NONDEGENERATE）自体は本ケースでは判定していない。F.5.2-NULLの代表はempty。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.5.2-EXTRACT-REPEAT
 
-F.5.2 / normal / テスト未対応
+F.5.2 / normal / 実行確認あり
 
 Positive unbounded repetition tightly matches a concatenation of one or more finite operand matches; every piece must match, including both first and last piece.
 
@@ -129603,6 +129640,7 @@ Positive unbounded repetition tightly matches a concatenation of one or more fin
 
 規定の性質: `definition`。
 
+- [test_formal_unbounded_repetition.sv](../tests/ch16/test_formal_unbounded_repetition.sv): SymbiYosysでformalケースunbounded_repetitionを実行し、参照評価器と独立RTLモニタの一致を確認する。a\[*1:$\] は1letter以上消費した後、全letterがaである限り一致1（started && all_a）。F.5.2の正の無限繰り返し（1個以上の有限operand一致の連接）をストリーミング参照で比較する。BMC深さ16 + PDRで全prefix長を証明。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.5.3.1-EXTRACT-ACCEPT
 
@@ -129727,7 +129765,7 @@ An assertion holds globally on an assumption-constrained word set iff satisfied 
 
 ### SV2023-F.5.3.1-EXTRACT-IMPLICATION
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 Overlapping implication requires consequent on suffix j.. for every 0<=j<|w| whose dual prefix 0..j tightly matches antecedent.
 
@@ -129735,6 +129773,7 @@ Overlapping implication requires consequent on suffix j.. for every 0<=j<|w| who
 
 規定の性質: `definition`。
 
+- [test_formal_implication_overlap.sv](../tests/ch16/test_formal_implication_overlap.sv): SymbiYosysでformalケースimplication_overlapを実行し、参照評価器と独立RTLモニタの一致を確認する。(a ##1 b) |-> c の全512語テーブル（horizon 3 tick、BMC深さ2は回路展開段数で標本数ではない。PDRなし）。antecedentがtick1でtight matchするときだけc\[1\]を要求し、matchが無ければvacuous(0x20/0x21)。決着trueはsuccess(0x01)=holds strongly、決着falseはfailure(0x11)。これによりF.5.3.1-IMPLICATION、F.5.3.2のstrong/fail行、F.5.3.3-IMPLICATION（antecedent不在=vacuous）を直接固定する。cons 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.5.3.1-EXTRACT-INITIAL-CLOCK
 
@@ -129749,7 +129788,7 @@ Initial-clocked assert checks first c occurrence selected by !c\[*0:$\] ##1 c on
 
 ### SV2023-F.5.3.1-EXTRACT-NEXT
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 nexttime P holds on an empty word or when suffix starting at one satisfies P.
 
@@ -129757,6 +129796,7 @@ nexttime P holds on an empty word or when suffix starting at one satisfies P.
 
 規定の性質: `definition`。
 
+- [test_formal_nexttime_end.sv](../tests/ch16/test_formal_nexttime_end.sv): SymbiYosysでformalケースnexttime_endを実行し、参照評価器と独立RTLモニタの一致を確認する。nexttime\[2\] a を2tick語で評価するとsuffixが空になり、全4語でhold(63)。F.5.3.1-NEXTの「空語では成り立つ(weak)」分岐を固定する。強いnexttimeではないのでsuccessではなくholdsになる。horizon 2の有限語のみ。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.5.3.1-EXTRACT-NOT
 
@@ -129804,7 +129844,7 @@ Plain top-level properties use underlying property semantics; parentheses preser
 
 ### SV2023-F.5.3.1-EXTRACT-UNTIL
 
-F.5.3.1 / normal / テスト未対応
+F.5.3.1 / normal / 実行確認あり
 
 p until q holds if q holds at some 0<=j<|w| and p holds at every earlier suffix, or p holds at every suffix of w.
 
@@ -129812,6 +129852,7 @@ p until q holds if q holds at some 0<=j<|w| and p holds at every earlier suffix,
 
 規定の性質: `definition`。
 
+- [test_formal_until.sv](../tests/ch16/test_formal_until.sv): SymbiYosysでformalケースuntilを実行し、参照評価器と独立RTLモニタの一致を確認する。a until b の全64語テーブル。bが先なら成功(tick i)、aが先に崩れれば失敗(16+i)、bがword内に来なければneutral hold(63)。F.5.3.1-UNTILの「qがjで成立し以前のsuffixでpが成立、またはpが全suffixで成立」と、F.5.3.2-HOLD（neutralだがstrongでない）を直接固定する。horizon 3の有限語のみで、無限語のlivenessは扱わない。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.5.3.1-EXTRACT-WEAK
 
@@ -129826,7 +129867,7 @@ weak(R) requires every prefix ending 0<=j<|w| followed by infinite top to satisf
 
 ### SV2023-F.5.3.2-EXTRACT-FAIL
 
-F.5.3.2 / normal / テスト未対応
+F.5.3.2 / normal / 実行確認あり
 
 Report fails when finite word does not weakly satisfy assertion.
 
@@ -129834,6 +129875,7 @@ Report fails when finite word does not weakly satisfy assertion.
 
 規定の性質: `recommendation`。
 
+- [test_formal_implication_overlap.sv](../tests/ch16/test_formal_implication_overlap.sv): SymbiYosysでformalケースimplication_overlapを実行し、参照評価器と独立RTLモニタの一致を確認する。(a ##1 b) |-> c の全512語テーブル（horizon 3 tick、BMC深さ2は回路展開段数で標本数ではない。PDRなし）。antecedentがtick1でtight matchするときだけc\[1\]を要求し、matchが無ければvacuous(0x20/0x21)。決着trueはsuccess(0x01)=holds strongly、決着falseはfailure(0x11)。これによりF.5.3.1-IMPLICATION、F.5.3.2のstrong/fail行、F.5.3.3-IMPLICATION（antecedent不在=vacuous）を直接固定する。cons 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.5.3.2-EXTRACT-FINITE-EXTENSIONS
 
@@ -129848,7 +129890,7 @@ Finite possibly empty word weakly satisfies A iff appending infinite top neutral
 
 ### SV2023-F.5.3.2-EXTRACT-HOLD
 
-F.5.3.2 / normal / テスト未対応
+F.5.3.2 / normal / 実行確認あり
 
 Report holds without strong satisfaction when word neutrally satisfies but does not strongly satisfy assertion.
 
@@ -129856,10 +129898,11 @@ Report holds without strong satisfaction when word neutrally satisfies but does 
 
 規定の性質: `recommendation`。
 
+- [test_formal_until.sv](../tests/ch16/test_formal_until.sv): SymbiYosysでformalケースuntilを実行し、参照評価器と独立RTLモニタの一致を確認する。a until b の全64語テーブル。bが先なら成功(tick i)、aが先に崩れれば失敗(16+i)、bがword内に来なければneutral hold(63)。F.5.3.1-UNTILの「qがjで成立し以前のsuffixでpが成立、またはpが全suffixで成立」と、F.5.3.2-HOLD（neutralだがstrongでない）を直接固定する。horizon 3の有限語のみで、無限語のlivenessは扱わない。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.5.3.2-EXTRACT-PENDING
 
-F.5.3.2 / normal / テスト未対応
+F.5.3.2 / normal / 実行確認あり
 
 Report pending when word weakly satisfies but does not neutrally satisfy assertion.
 
@@ -129867,10 +129910,11 @@ Report pending when word weakly satisfies but does not neutrally satisfy asserti
 
 規定の性質: `recommendation`。
 
+- [test_formal_s_until.sv](../tests/ch16/test_formal_s_until.sv): SymbiYosysでformalケースs_untilを実行し、参照評価器と独立RTLモニタの一致を確認する。a s_until b はbが来ない有限語でpending(79)（weakには成り立つがstrongに成らない）。F.3.4.3.8の p s_until q = (p until q) and s_eventually q のs_eventually部分と、F.5.3.2-PENDINGを全64語で固定する。horizon 3。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.5.3.2-EXTRACT-STRONG
 
-F.5.3.2 / normal / テスト未対応
+F.5.3.2 / normal / 実行確認あり
 
 Report holds strongly when finite word strongly satisfies assertion.
 
@@ -129878,6 +129922,7 @@ Report holds strongly when finite word strongly satisfies assertion.
 
 規定の性質: `recommendation`。
 
+- [test_formal_implication_overlap.sv](../tests/ch16/test_formal_implication_overlap.sv): SymbiYosysでformalケースimplication_overlapを実行し、参照評価器と独立RTLモニタの一致を確認する。(a ##1 b) |-> c の全512語テーブル（horizon 3 tick、BMC深さ2は回路展開段数で標本数ではない。PDRなし）。antecedentがtick1でtight matchするときだけc\[1\]を要求し、matchが無ければvacuous(0x20/0x21)。決着trueはsuccess(0x01)=holds strongly、決着falseはfailure(0x11)。これによりF.5.3.1-IMPLICATION、F.5.3.2のstrong/fail行、F.5.3.3-IMPLICATION（antecedent不在=vacuous）を直接固定する。cons 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.5.3.3-EXTRACT-ABORT
 
@@ -129936,7 +129981,7 @@ s_eventually is nonvacuous iff an in-word suffix is nonvacuous and all earlier s
 
 ### SV2023-F.5.3.3-EXTRACT-IMPLICATION
 
-F.5.3.3 / normal / テスト未対応
+F.5.3.3 / normal / 実行確認あり
 
 Overlapping implication is nonvacuous iff some nonnegative endpoint has a tight antecedent match and nonvacuous consequent suffix.
 
@@ -129944,6 +129989,7 @@ Overlapping implication is nonvacuous iff some nonnegative endpoint has a tight 
 
 規定の性質: `definition`。
 
+- [test_formal_implication_overlap.sv](../tests/ch16/test_formal_implication_overlap.sv): SymbiYosysでformalケースimplication_overlapを実行し、参照評価器と独立RTLモニタの一致を確認する。(a ##1 b) |-> c の全512語テーブル（horizon 3 tick、BMC深さ2は回路展開段数で標本数ではない。PDRなし）。antecedentがtick1でtight matchするときだけc\[1\]を要求し、matchが無ければvacuous(0x20/0x21)。決着trueはsuccess(0x01)=holds strongly、決着falseはfailure(0x11)。これによりF.5.3.1-IMPLICATION、F.5.3.2のstrong/fail行、F.5.3.3-IMPLICATION（antecedent不在=vacuous）を直接固定する。cons 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.5.3.3-EXTRACT-NEXT-TEXT
 
@@ -130464,7 +130510,7 @@ At 0<=j<length, T(V).triggered holds iff some 0<=i<=j yields a tight T(V) match 
 
 ### SV2023-F.6.2-EXTRACT-INITIAL-VALUES
 
-F.6.2 / normal / テスト未対応
+F.6.2 / normal / 実行確認あり
 
 Insufficient $past history evaluates expression using static declaration initialization or static type default if omitted; other variables/signals use type default.
 
@@ -130472,10 +130518,11 @@ Insufficient $past history evaluates expression using static declaration initial
 
 規定の性質: `definition`。
 
+- [test_formal_gated_past.sv](../tests/ch16/test_formal_gated_past.sv): SymbiYosysでformalケースgated_pastを実行し、参照評価器と独立RTLモニタの一致を確認する。$past(v), $past(v,2), $past(v,1,g), $past(v,2,g) を4tick×全4096語で比較。ゲートは「c&&e2が成り立つn番目に新しいstrictly prior letter」で、履歴不足時は宣言初期値/型既定（2bit 1）を使う。ゲート付き履歴が現サンプルを先に消費しないことを、emit/updateを入れ替える変異BMCのFAILで確認する。clock引数cの変化と$past_gclkは対象外。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.6.2-EXTRACT-PAST-EQUATION-TEXT
 
-F.6.2 / normal / テスト未対応
+F.6.2 / normal / 実行確認あり
 
 For n>=1, $past(e1,n,e2,c) at w^j equals e1 at w^i when some 0<=i<j satisfies ((c && e2) ##1 (c && e2)\[=n-1\] ##1 1) on w^{i,j}, i.e., i is the nth strictly prior letter where the gated clock c && e2 holds (16.9.3); otherwise e1 is evaluated using the initial values of its variables. The \[=n-1\] repetition applies to c && e2, not to e2 alone.
 
@@ -130483,6 +130530,7 @@ For n>=1, $past(e1,n,e2,c) at w^j equals e1 at w^i when some 0<=i<j satisfies ((
 
 規定の性質: `definition`。
 
+- [test_formal_gated_past.sv](../tests/ch16/test_formal_gated_past.sv): SymbiYosysでformalケースgated_pastを実行し、参照評価器と独立RTLモニタの一致を確認する。$past(v), $past(v,2), $past(v,1,g), $past(v,2,g) を4tick×全4096語で比較。ゲートは「c&&e2が成り立つn番目に新しいstrictly prior letter」で、履歴不足時は宣言初期値/型既定（2bit 1）を使う。ゲート付き履歴が現サンプルを先に消費しないことを、emit/updateを入れ替える変異BMCのFAILで確認する。clock引数cの変化と$past_gclkは対象外。 区別: 形式的証明のPASSを要求全体の証拠とする。入力は記号的に全組合せを覆い、シミュレータ出力や期待値ファイルに依存しない。
 
 ### SV2023-F.6.2-EXTRACT-PAST-GLOBAL-INDEX-TEXT
 
