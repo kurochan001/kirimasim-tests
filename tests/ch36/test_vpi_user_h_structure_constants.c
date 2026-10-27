@@ -2,6 +2,7 @@
 #include <limits.h>
 #include <string.h>
 #include "vpi_user.h"
+#include "sv_vpi_user.h"
 
 #ifdef __cplusplus
 extern "C" {

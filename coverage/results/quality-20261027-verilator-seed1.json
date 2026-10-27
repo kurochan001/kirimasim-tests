@@ -1,0 +1,286 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch10/test_illegal_nba_to_dynamic_array_element": {
+   "status": "pass",
+   "inputs_sha256": "8748df50e9a4c2307012104fdcc2c6c966979439f99137f9f4d878f3b3b511a2"
+  },
+  "ch10/test_illegal_nba_to_queue_element": {
+   "status": "pass",
+   "inputs_sha256": "9a45b145091428be711f73b78a95603ae95054c8f57ebd2fa290d475d36d3e14"
+  },
+  "ch10/test_illegal_unpacked_concat_with_default_key": {
+   "status": "pass",
+   "inputs_sha256": "851cff0eb926e926efe8e0786564a9ca49daeae2e7f456ec3fce2e37fad28147"
+  },
+  "ch10/test_illegal_unpacked_concat_with_replication": {
+   "status": "pass",
+   "inputs_sha256": "a5b3caf9b482a277481409ff2243c3a24a6a23598f3cc48801b194da6f57efbc"
+  },
+  "ch10/test_illegal_unpacked_concat_with_type_prefix": {
+   "status": "pass",
+   "inputs_sha256": "7dbef8f0b418d19f3b74778a9c9b92cee46a0fe24c1fa79e4379cdd65898c696"
+  },
+  "ch11/test_illegal_inside_unpacked_array_operand": {
+   "status": "pass",
+   "inputs_sha256": "a3dd30b191f28d7dce59c323fef625998a78b48d834a5960415fd4727524093d"
+  },
+  "ch11/test_illegal_stream_class_with_local_member": {
+   "status": "pass",
+   "inputs_sha256": "b111e49e3a40ea51849d274286adfa1e46c4bfd935544ebed8ae1dedf6741a89"
+  },
+  "ch13/test_illegal_ref_actual_expression": {
+   "status": "pass",
+   "inputs_sha256": "b41c757f80b8dd98bc8c916a5566e513f54684e14e81c1bd0f81bc08682f958e"
+  },
+  "ch13/test_illegal_ref_actual_packed_bit_select": {
+   "status": "pass",
+   "inputs_sha256": "1ce3c5ed3a5906be50bcea9070e93d5367e71314892833c69b1d513a6ab12b87"
+  },
+  "ch13/test_illegal_ref_actual_packed_member": {
+   "status": "pass",
+   "inputs_sha256": "df483bfe0fee40e6a5c580ba91a96bda91ef3c91cf31d2c3982304965481162d"
+  },
+  "ch13/test_static_task_shared_activation": {
+   "status": "pass",
+   "inputs_sha256": "d83dc85c96348c10285599a1a5cf02642b878337e403c0711bb10fa88919636d"
+  },
+  "ch16/test_illegal_assertion_function_inout_argument": {
+   "status": "pass",
+   "inputs_sha256": "2113d49c1f89eea4477023c5c2ef714fb39f9ab4117a9aab1ae774d16666941e"
+  },
+  "ch16/test_illegal_assertion_function_output_argument": {
+   "status": "pass",
+   "inputs_sha256": "06b5add9e88b1f46e974efa64e8eeb4e1335632448819d084ffe03e33a37d9a5"
+  },
+  "ch16/test_illegal_assertion_function_ref_argument": {
+   "status": "pass",
+   "inputs_sha256": "a2aa3d0fb2052162deedd9fb12192474d1cb983a098f8d15188bb3ce63164118"
+  },
+  "ch16/test_illegal_global_clock_future_function_in_action_block": {
+   "status": "pass",
+   "inputs_sha256": "a1015f0669234ba9f0eaab956198a65e8add5aca4ac0d4155952c71c39eeee3c"
+  },
+  "ch16/test_illegal_global_clock_future_function_in_procedure": {
+   "status": "pass",
+   "inputs_sha256": "e1aa13dd524ccd41a97114c1d8f3f30c2495720f543d49bc4ca00acde81a0b7f"
+  },
+  "ch16/test_illegal_past_automatic_clock": {
+   "status": "pass",
+   "inputs_sha256": "3e89430d34b3ad96c4cf53f95348a9cc78e7d1a12abea99715388d825012831f"
+  },
+  "ch16/test_illegal_past_automatic_gating": {
+   "status": "pass",
+   "inputs_sha256": "a46de3880e8c10d1b07127fe0bb6298495ca5d79ef69f6bdd9e631a2a78fbe5d"
+  },
+  "ch17/test_illegal_checker_port_types": {
+   "status": "pass",
+   "inputs_sha256": "69d399e8e1b60e963c8b0b24d43171d48b946643b1dc34a76275a3bcefb82d0f"
+  },
+  "ch17/test_illegal_checker_rewritten_automatic": {
+   "status": "pass",
+   "inputs_sha256": "5d1d4a25fd5dac90d60cb044f5fc125cff63e7108daa26898ea1d7b02ab2a7a2"
+  },
+  "ch18/test_constraint_grammar_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch18/test_constraint_grammar_forms.sv:49:52: Unsupported: 'default :/' constraint",
+   "inputs_sha256": "ff97475a2c3aca65caa3278d1f8626bea459ed94291ef6eeacde9bfb2c191cba"
+  },
+  "ch18/test_illegal_rand_unpacked_union": {
+   "status": "pass",
+   "inputs_sha256": "1135984bd54673d5992b198ffbc36cb81258efe7acdfc26c411bc7c848dde846"
+  },
+  "ch18/test_illegal_randc_real": {
+   "status": "pass",
+   "inputs_sha256": "08dd81c0a617982ace133d15f4ae9503c3f3dabacdadc109f598eff9a36fa9d6"
+  },
+  "ch18/test_illegal_randc_unpacked_union": {
+   "status": "pass",
+   "inputs_sha256": "540134bd3bde7dafa720387ee70a4460dab2bb3973ac68976007ab0b9b236480"
+  },
+  "ch18/test_inline_constraint_local_qualifier_binding": {
+   "status": "pass",
+   "inputs_sha256": "8f97eb4aeccb50a86c17788e8022f642d071088c6339866ba4504a395e965dd5"
+  },
+  "ch18/test_randomize_with_local_scope": {
+   "status": "pass",
+   "inputs_sha256": "1e88292369c1d88e805170d128483e11cf5b0b17d0dc25f2e76992669996ae95"
+  },
+  "ch21/test_format_library_cell_default_work": {
+   "status": "pass",
+   "inputs_sha256": "24da9b8d79479587c8be90b3deffb1561f0b5d5e6c9d8b201e946128af753c51"
+  },
+  "ch23/test_illegal_defparam_array_sibling_instance": {
+   "status": "pass",
+   "inputs_sha256": "634d8ac6b283ce6ab7f5e64b200c4c76836eaf67d6d7e0c9d96d49baf1a4a273"
+  },
+  "ch23/test_illegal_defparam_generate_sibling_iteration": {
+   "status": "pass",
+   "inputs_sha256": "1f0841ec9f46cf0fb876f569a1953e222efa19f12b8fa9c82353ba1cc6e61b4d"
+  },
+  "ch23/test_illegal_program_header_import_without_lists": {
+   "status": "pass",
+   "inputs_sha256": "02927c63d765819e84696924df96d0591419671f2e4432b819d03b6cf31052ba"
+  },
+  "ch23/test_root_hierarchical_write": {
+   "status": "pass",
+   "inputs_sha256": "4d666b9b230ecbc7e68de28949179686a71aab9df7e89597fad42b2947b7fb78"
+  },
+  "ch29/test_illegal_udp_combinational_reg": {
+   "status": "pass",
+   "inputs_sha256": "859616ca80959f6efa176978c87427e102037625dcf4a921f09daedbb222ce52"
+  },
+  "ch29/test_illegal_udp_sequential_entry_without_state": {
+   "status": "pass",
+   "inputs_sha256": "1780fb9e021b41edc970ea16cae54a83f2e21fcbde2e0ae9a6d6bfe82d072507"
+  },
+  "ch29/test_illegal_udp_sequential_without_reg": {
+   "status": "pass",
+   "inputs_sha256": "edfdae6cea9ab4c4d92829577403e9510a2689c4671899ee576b5f514401fe27"
+  },
+  "ch29/test_illegal_udp_two_transitions_in_entry": {
+   "status": "pass",
+   "inputs_sha256": "33f5810d61497075cfacabec3f6143600f7765e04e43729ac5daecefa5428fd1"
+  },
+  "ch3/test_unit_hierarchical_reference_from_root": {
+   "status": "pass",
+   "inputs_sha256": "4abf6332a8fcc4dffd1538ed3685b8f5f12de04a9757175efc3c752f21055265"
+  },
+  "ch35/test_dpi_import_output_inout": {
+   "status": "pass",
+   "inputs_sha256": "e4fdd7e1fb50d443529f9f98a7ecd76df4c3b88875ce909ced9f9cda691d3de4"
+  },
+  "ch35/test_dpi_reference_arguments_forwarded": {
+   "status": "pass",
+   "inputs_sha256": "c6e99b48e6e2ee31b840f021b4eddc95807ad5df29e298b9c599085c896881ba"
+  },
+  "ch5/test_illegal_string_hex_escape_z_digit": {
+   "status": "pass",
+   "inputs_sha256": "4933b1abebfb02dbd1e342a658be997b0cf278a4bcaa85fd9a1319198579c434"
+  },
+  "ch6/test_illegal_aggregate_parameter_element_defparam": {
+   "status": "pass",
+   "inputs_sha256": "1183e1acfd0d3ab31aa04ad2651ae52dd337b7c27c169286066935ccd35aaed6"
+  },
+  "ch6/test_illegal_automatic_variable_nonblocking": {
+   "status": "pass",
+   "inputs_sha256": "b365a9f0dac914f1953db2affe296399136a17d34810a4bb8b4b5407d1acf890"
+  },
+  "ch6/test_illegal_bitstream_cast_class_with_local_member": {
+   "status": "pass",
+   "inputs_sha256": "93912cf842c37cf501187a76f5659826f62ba1168da5d9e0f006c388ac7f1fc2"
+  },
+  "ch6/test_illegal_bitstream_cast_to_assoc_array": {
+   "status": "pass",
+   "inputs_sha256": "0d863b605866184f328128e68452e7bfc74fd173ebc1fae8ea80f1a1744eb389"
+  },
+  "ch6/test_illegal_bitstream_cast_to_class": {
+   "status": "pass",
+   "inputs_sha256": "7c27bccb3b0e10778f9d779e8bce247a60071adb33043361d665413696d091b4"
+  },
+  "ch6/test_illegal_cast_real_array_to_unpacked_array": {
+   "status": "pass",
+   "inputs_sha256": "ece1f1b4f92b1bf6c1bb631cbd3d80773f9ed17d15d5d60143b0a31b43c285d1"
+  },
+  "ch6/test_illegal_cast_unpacked_struct_with_real_member": {
+   "status": "pass",
+   "inputs_sha256": "3b684b2f7ce1e09313f525c395f4e3a99dde92acc709dad00fbe3035bf7eea9a"
+  },
+  "ch6/test_illegal_continuous_assign_to_class_property": {
+   "status": "pass",
+   "inputs_sha256": "475a39bef8bf94cd6afe69475c4ece755c1779748bbb2b2d001c8cb05b81e889"
+  },
+  "ch6/test_illegal_force_class_property": {
+   "status": "pass",
+   "inputs_sha256": "cf2a728ad8658a61a431eab4f8b1e3c2935cb10c01a83bcfd6aebf51faf25cc8"
+  },
+  "ch6/test_illegal_parameter_from_specparam": {
+   "status": "pass",
+   "inputs_sha256": "7a4738702635453ca66bfffe0de25c953ede8d95fdc8c1070c82e0e2d0a82756"
+  },
+  "ch6/test_illegal_procedural_checker_implicit_net": {
+   "status": "pass",
+   "inputs_sha256": "27ae80b66c63c11a44129827b266939f3ba6fcec355ab5e47b65435167392d5c"
+  },
+  "ch6/test_illegal_specparam_in_declaration_range": {
+   "status": "pass",
+   "inputs_sha256": "39298dee23e3f94bd2140c275e3ac7464cd44c2ecc7039d14d05ea262659c5a9"
+  },
+  "ch6/test_illegal_specparam_in_package": {
+   "status": "pass",
+   "inputs_sha256": "038ce33809f10dd56107854fbd9c4f8781c52a9c0c142ffca7b8a1fa122d2cbd"
+  },
+  "ch6/test_illegal_uwire_on_tran_terminal": {
+   "status": "pass",
+   "inputs_sha256": "3e53dda96c76a2ccbf4cd4fc2802d43826cd7a0b71f5c8f49606aff3eedc464e"
+  },
+  "ch6/test_illegal_vector_range_real_bound": {
+   "status": "pass",
+   "inputs_sha256": "18bf9939dc3268e7cc9768072961dc925337bcf9d891746b5a594d0df639cec9"
+  },
+  "ch6/test_illegal_vector_range_variable_bound": {
+   "status": "pass",
+   "inputs_sha256": "1820699a7904ebec2d50e56f6a454fe90b074ea6d286bb87b62ab6470f480e21"
+  },
+  "ch6/test_module_automatic_lifetime": {
+   "status": "pass",
+   "inputs_sha256": "c37e1b09ed78b1fda456e48be5e7bbe2c3588facac86538e97855a11284f4dcf"
+  },
+  "ch7/test_illegal_assoc_first_argument_type": {
+   "status": "pass",
+   "inputs_sha256": "de6cfbadf34b2f0ae8fa3f6de1296c92295e8a66bbdaad0c7d5374e744762882"
+  },
+  "ch7/test_illegal_assoc_last_argument_type": {
+   "status": "pass",
+   "inputs_sha256": "2916ac0ebec321635c974c27c3b054784fec015bf1f66466e30a8140eaa2f65a"
+  },
+  "ch7/test_illegal_assoc_next_argument_type": {
+   "status": "pass",
+   "inputs_sha256": "a41cb7049852c6b25e5f58b9d9a2b8a94771e0770790782d7dada302a2e27615"
+  },
+  "ch7/test_illegal_fixed_array_element_type_not_equivalent": {
+   "status": "pass",
+   "inputs_sha256": "9fddb0baa70349a271423cc1053381e3b074b94c62e53b089ea5bf7c594f85f3"
+  },
+  "ch7/test_illegal_queue_element_type_not_equivalent": {
+   "status": "pass",
+   "inputs_sha256": "2e269b555aff8403584c3834df80e9d1751621967cf07d82771f7582e3a97996"
+  },
+  "ch7/test_illegal_slice_element_type_not_equivalent": {
+   "status": "pass",
+   "inputs_sha256": "48287c85dc70f0a2b3941294232c405d10dc04f2cafad93e39e8e91c50a8cf2a"
+  },
+  "ch7/test_illegal_wildcard_array_first": {
+   "status": "pass",
+   "inputs_sha256": "4761ab2a2f1ebead966c7a47f7e7a8a3f4a8f6a546d9b4d97e5904a0d564557e"
+  },
+  "ch7/test_illegal_wildcard_array_last": {
+   "status": "pass",
+   "inputs_sha256": "e20a9fa990f4dfc0ba682c44688157be8f73d024bf70737689f08fb925bf500a"
+  },
+  "ch7/test_illegal_wildcard_array_next": {
+   "status": "pass",
+   "inputs_sha256": "c0725ce98b75eec09699875ec7a21640c74340afb2ed7072208ce3d9118f5e01"
+  },
+  "ch8/test_illegal_cast_class_handle_to_integral": {
+   "status": "pass",
+   "inputs_sha256": "5bba2a742d4bf0cfe6d3034f60ed2d3d3c0ba6c921bf0079d19cb9df90e0293d"
+  },
+  "ch8/test_illegal_chandle_dereference": {
+   "status": "pass",
+   "inputs_sha256": "032e7daeea62d985d8d1b54e2119f4f421e3fe2e93b8ba8093aec07ea2b6454c"
+  },
+  "ch8/test_illegal_inherited_nonvirtual_method_for_interface": {
+   "status": "pass",
+   "inputs_sha256": "83af3492f552471bd22448edc97ca1e409c6427bc8e2a506cf9fd44c117f750f"
+  }
+ },
+ "generated_at": "2026-10-27T11:45:16.876642+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

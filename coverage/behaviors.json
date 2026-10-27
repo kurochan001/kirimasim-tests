@@ -313627,9 +313627,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "vpi_user.h の 41 routine の宣言を、戻り型・引数型・ポインタ段数・可変引数まで K.2 の型とコンパイル時に比較し、全て 1 と表示する。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -313669,9 +313669,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "vpi_user.h の構造体定義の 54 定数を K.2 の順に表示し、各値が規格の数値と一致することを確認する。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -497673,9 +497673,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_chk_error: PLI_INT32 (p_vpi_error_info error_info_p)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -497713,9 +497713,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_compare_objects: PLI_INT32 (vpiHandle object1, vpiHandle object2)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -497753,9 +497753,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_control: PLI_INT32 (PLI_INT32 operation, ...)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -497793,9 +497793,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_flush: PLI_INT32 (void)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -497833,9 +497833,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_free_object: PLI_INT32 (vpiHandle object)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -497873,9 +497873,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_get: PLI_INT32 (PLI_INT32 property, vpiHandle object)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -497920,9 +497920,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_get_cb_info: void (vpiHandle object, p_cb_data cb_data_p)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -497960,9 +497960,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_get_data: PLI_INT32 (PLI_INT32 id, PLI_BYTE8 *dataLoc, PLI_INT32 numOfBytes)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498000,9 +498000,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_get_delays: void (vpiHandle object, p_vpi_delay delay_p)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498040,9 +498040,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_get_str: PLI_BYTE8 * (PLI_INT32 property, vpiHandle object)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498080,9 +498080,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_get_systf_info: void (vpiHandle object, p_vpi_systf_data systf_data_p)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498120,9 +498120,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_get_time: void (vpiHandle object, p_vpi_time time_p)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498160,9 +498160,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_get_userdata: void * (vpiHandle obj)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498200,9 +498200,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_get_value: void (vpiHandle expr, p_vpi_value value_p)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498240,9 +498240,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_get_value_array」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498280,9 +498280,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_get_vlog_info: PLI_INT32 (p_vpi_vlog_info vlog_info_p)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498320,9 +498320,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_get64: PLI_INT64 (PLI_INT32 property, vpiHandle object)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498360,9 +498360,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_handle: vpiHandle (PLI_INT32 type, vpiHandle refHandle)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498402,9 +498402,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_handle_by_index: vpiHandle (vpiHandle object, PLI_INT32 indx)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498442,9 +498442,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_handle_by_multi_index」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498482,9 +498482,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_handle_by_name: vpiHandle (PLI_BYTE8 *name, vpiHandle scope)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498522,9 +498522,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_handle_multi」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498562,9 +498562,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_iterate: vpiHandle (PLI_INT32 type, vpiHandle refHandle)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498602,9 +498602,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_mcd_close: PLI_UINT32 (PLI_UINT32 mcd)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498642,9 +498642,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_mcd_flush: PLI_INT32 (PLI_UINT32 mcd)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498682,9 +498682,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_mcd_name: PLI_BYTE8 * (PLI_UINT32 cd)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498722,9 +498722,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_mcd_open: PLI_UINT32 (PLI_BYTE8 *fileName)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498762,9 +498762,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_mcd_printf: PLI_INT32 (PLI_UINT32 mcd, PLI_BYTE8 *format, ...)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498802,9 +498802,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_mcd_vprintf: PLI_INT32 (PLI_UINT32 mcd, PLI_BYTE8 *format, va_list ap)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498842,9 +498842,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_printf: PLI_INT32 (PLI_BYTE8 *format, ...)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498882,9 +498882,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_put_data: PLI_INT32 (PLI_INT32 id, PLI_BYTE8 *dataLoc, PLI_INT32 numOfBytes)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498922,9 +498922,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_put_delays: void (vpiHandle object, p_vpi_delay delay_p)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -498962,9 +498962,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_put_userdata: PLI_INT32 (vpiHandle obj, void *userdata)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -499002,9 +499002,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_put_value」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -499042,9 +499042,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_put_value_array」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -499082,9 +499082,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_register_cb: vpiHandle (p_cb_data cb_data_p)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -499122,9 +499122,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_register_systf: vpiHandle (p_vpi_systf_data systf_data_p)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -499162,9 +499162,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_release_handle: PLI_INT32 (vpiHandle object)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -499202,9 +499202,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_remove_cb: PLI_INT32 (vpiHandle cb_obj)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -499242,9 +499242,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_scan: vpiHandle (vpiHandle iterator)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -499282,9 +499282,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
           "observation": "ヘッダ直後の宣言・マクロを検査し、「vpi_vprintf: PLI_INT32 (PLI_BYTE8 *format, va_list ap)」がそれぞれ1と出力されることを期待出力と比較する。型はCの_GenericとC++のdecltypeで規格の型と完全一致を比較し、順序はoffsetof、マクロは#ifdefで確かめる。 区別: 規格と異なる戻り値型・引数型・ポインタ段数・可変長引数の有無・フィールド型・順序・typedef名・マクロ値のヘッダでは該当行が0になり期待出力と一致しない（誤った型を与える陰性対照で0になることをC/C++とも確認済み）。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
@@ -501434,9 +501434,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpi0の数値を出力し、期待出力の「vpi0 0」と比較する（0はK.2の定義から求めた値）。 区別: ヘッダがvpi0を0以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -501474,9 +501474,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpi1の数値を出力し、期待出力の「vpi1 1」と比較する（1はK.2の定義から求めた値）。 区別: ヘッダがvpi1を1以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -502234,9 +502234,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiBinStrValの数値を出力し、期待出力の「vpiBinStrVal 1」と比較する（1はK.2の定義から求めた値）。 区別: ヘッダがvpiBinStrValを1以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -502794,9 +502794,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiCancelEventの数値を出力し、期待出力の「vpiCancelEvent 7」と比較する（7はK.2の定義から求めた値）。 区別: ヘッダがvpiCancelEventを7以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -503354,9 +503354,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiCompileの数値を出力し、期待出力の「vpiCompile 1」と比較する（1はK.2の定義から求めた値）。 区別: ヘッダがvpiCompileを1以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -503954,9 +503954,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiDecStrValの数値を出力し、期待出力の「vpiDecStrVal 3」と比較する（3はK.2の定義から求めた値）。 区別: ヘッダがvpiDecStrValを3以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -504874,9 +504874,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiDontCareの数値を出力し、期待出力の「vpiDontCare 6」と比較する（6はK.2の定義から求めた値）。 区別: ヘッダがvpiDontCareを6以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -505314,9 +505314,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiErrorの数値を出力し、期待出力の「vpiError 3」と比較する（3はK.2の定義から求めた値）。 区別: ヘッダがvpiErrorを3以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -505834,9 +505834,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiForceFlagの数値を出力し、期待出力の「vpiForceFlag 5」と比較する（5はK.2の定義から求めた値）。 区別: ヘッダがvpiForceFlagを5以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -506554,9 +506554,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiHの数値を出力し、期待出力の「vpiH 4」と比較する（4はK.2の定義から求めた値）。 区別: ヘッダがvpiHを4以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -506634,9 +506634,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiHexStrValの数値を出力し、期待出力の「vpiHexStrVal 4」と比較する（4はK.2の定義から求めた値）。 区別: ヘッダがvpiHexStrValを4以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -506754,9 +506754,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiHiZの数値を出力し、期待出力の「vpiHiZ 1」と比較する（1はK.2の定義から求めた値）。 区別: ヘッダがvpiHiZを1以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -507074,9 +507074,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiInertialDelayの数値を出力し、期待出力の「vpiInertialDelay 2」と比較する（2はK.2の定義から求めた値）。 区別: ヘッダがvpiInertialDelayを2以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -507514,9 +507514,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiInternalの数値を出力し、期待出力の「vpiInternal 5」と比較する（5はK.2の定義から求めた値）。 区別: ヘッダがvpiInternalを5以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -507634,9 +507634,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiIntValの数値を出力し、期待出力の「vpiIntVal 6」と比較する（6はK.2の定義から求めた値）。 区別: ヘッダがvpiIntValを6以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -507874,9 +507874,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiLの数値を出力し、期待出力の「vpiL 5」と比較する（5はK.2の定義から求めた値）。 区別: ヘッダがvpiLを5以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -508434,9 +508434,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiLongIntValの数値を出力し、期待出力の「vpiLongIntVal 15」と比較する（15はK.2の定義から求めた値）。 区別: ヘッダがvpiLongIntValを15以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -510114,9 +510114,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiNoDelayの数値を出力し、期待出力の「vpiNoDelay 1」と比較する（1はK.2の定義から求めた値）。 区別: ヘッダがvpiNoDelayを1以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -510314,9 +510314,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiNoticeの数値を出力し、期待出力の「vpiNotice 1」と比較する（1はK.2の定義から求めた値）。 区別: ヘッダがvpiNoticeを1以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -510594,9 +510594,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiObjTypeValの数値を出力し、期待出力の「vpiObjTypeVal 12」と比較する（12はK.2の定義から求めた値）。 区別: ヘッダがvpiObjTypeValを12以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -510674,9 +510674,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiOctStrValの数値を出力し、期待出力の「vpiOctStrVal 2」と比較する（2はK.2の定義から求めた値）。 区別: ヘッダがvpiOctStrValを2以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -510754,9 +510754,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiOneValueの数値を出力し、期待出力の「vpiOneValue 16384」と比較する（16384はK.2の定義から求めた値）。 区別: ヘッダがvpiOneValueを16384以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -511394,9 +511394,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiPLIの数値を出力し、期待出力の「vpiPLI 2」と比較する（2はK.2の定義から求めた値）。 区別: ヘッダがvpiPLIを2以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -512154,9 +512154,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiPropagateOffの数値を出力し、期待出力の「vpiPropagateOff 32768」と比較する（32768はK.2の定義から求めた値）。 区別: ヘッダがvpiPropagateOffを32768以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -512354,9 +512354,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiPullDriveの数値を出力し、期待出力の「vpiPullDrive 32」と比較する（32はK.2の定義から求めた値）。 区別: ヘッダがvpiPullDriveを32以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -512434,9 +512434,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiPureTransportDelayの数値を出力し、期待出力の「vpiPureTransportDelay 4」と比較する（4はK.2の定義から求めた値）。 区別: ヘッダがvpiPureTransportDelayを4以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -512514,9 +512514,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiRawFourStateValの数値を出力し、期待出力の「vpiRawFourStateVal 18」と比較する（18はK.2の定義から求めた値）。 区別: ヘッダがvpiRawFourStateValを18以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -512554,9 +512554,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiRawTwoStateValの数値を出力し、期待出力の「vpiRawTwoStateVal 17」と比較する（17はK.2の定義から求めた値）。 区別: ヘッダがvpiRawTwoStateValを17以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -512714,9 +512714,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiRealValの数値を出力し、期待出力の「vpiRealVal 7」と比較する（7はK.2の定義から求めた値）。 区別: ヘッダがvpiRealValを7以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -513034,9 +513034,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiReleaseFlagの数値を出力し、期待出力の「vpiReleaseFlag 6」と比較する（6はK.2の定義から求めた値）。 区別: ヘッダがvpiReleaseFlagを6以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -513274,9 +513274,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiReturnEventの数値を出力し、期待出力の「vpiReturnEvent 4096」と比較する（4096はK.2の定義から求めた値）。 区別: ヘッダがvpiReturnEventを4096以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -513634,9 +513634,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiRunの数値を出力し、期待出力の「vpiRun 3」と比較する（3はK.2の定義から求めた値）。 区別: ヘッダがvpiRunを3以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -513794,9 +513794,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiScalarValの数値を出力し、期待出力の「vpiScalarVal 5」と比較する（5はK.2の定義から求めた値）。 区別: ヘッダがvpiScalarValを5以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -513834,9 +513834,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiScaledRealTimeの数値を出力し、期待出力の「vpiScaledRealTime 1」と比較する（1はK.2の定義から求めた値）。 区別: ヘッダがvpiScaledRealTimeを1以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -514154,9 +514154,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiShortIntValの数値を出力し、期待出力の「vpiShortIntVal 14」と比較する（14はK.2の定義から求めた値）。 区別: ヘッダがvpiShortIntValを14以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -514194,9 +514194,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiShortRealValの数値を出力し、期待出力の「vpiShortRealVal 16」と比較する（16はK.2の定義から求めた値）。 区別: ヘッダがvpiShortRealValを16以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -514314,9 +514314,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiSimTimeの数値を出力し、期待出力の「vpiSimTime 2」と比較する（2はK.2の定義から求めた値）。 区別: ヘッダがvpiSimTimeを2以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -514754,9 +514754,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiStrengthValの数値を出力し、期待出力の「vpiStrengthVal 10」と比較する（10はK.2の定義から求めた値）。 区別: ヘッダがvpiStrengthValを10以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -514834,9 +514834,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiStringValの数値を出力し、期待出力の「vpiStringVal 8」と比較する（8はK.2の定義から求めた値）。 区別: ヘッダがvpiStringValを8以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -514874,9 +514874,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiStrongDriveの数値を出力し、期待出力の「vpiStrongDrive 64」と比較する（64はK.2の定義から求めた値）。 区別: ヘッダがvpiStrongDriveを64以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -515034,9 +515034,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiSupplyDriveの数値を出力し、期待出力の「vpiSupplyDrive 128」と比較する（128はK.2の定義から求めた値）。 区別: ヘッダがvpiSupplyDriveを128以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -515074,9 +515074,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiSuppressTimeの数値を出力し、期待出力の「vpiSuppressTime 3」と比較する（3はK.2の定義から求めた値）。 区別: ヘッダがvpiSuppressTimeを3以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -515114,9 +515114,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiSuppressValの数値を出力し、期待出力の「vpiSuppressVal 13」と比較する（13はK.2の定義から求めた値）。 区別: ヘッダがvpiSuppressValを13以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -515234,9 +515234,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiSysFuncの数値を出力し、期待出力の「vpiSysFunc 2」と比較する（2はK.2の定義から求めた値）。 区別: ヘッダがvpiSysFuncを2以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -515514,9 +515514,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiSysTaskの数値を出力し、期待出力の「vpiSysTask 1」と比較する（1はK.2の定義から求めた値）。 区別: ヘッダがvpiSysTaskを1以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -515594,9 +515594,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiSystemの数値を出力し、期待出力の「vpiSystem 4」と比較する（4はK.2の定義から求めた値）。 区別: ヘッダがvpiSystemを4以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -516354,9 +516354,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiTimeValの数値を出力し、期待出力の「vpiTimeVal 11」と比較する（11はK.2の定義から求めた値）。 区別: ヘッダがvpiTimeValを11以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -516594,9 +516594,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiTransportDelayの数値を出力し、期待出力の「vpiTransportDelay 3」と比較する（3はK.2の定義から求めた値）。 区別: ヘッダがvpiTransportDelayを3以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -517434,9 +517434,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiUserAllocFlagの数値を出力し、期待出力の「vpiUserAllocFlag 8192」と比較する（8192はK.2の定義から求めた値）。 区別: ヘッダがvpiUserAllocFlagを8192以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -517834,9 +517834,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiVectorValの数値を出力し、期待出力の「vpiVectorVal 9」と比較する（9はK.2の定義から求めた値）。 区別: ヘッダがvpiVectorValを9以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -517954,9 +517954,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiWarningの数値を出力し、期待出力の「vpiWarning 2」と比較する（2はK.2の定義から求めた値）。 区別: ヘッダがvpiWarningを2以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -517994,9 +517994,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiWeakDriveの数値を出力し、期待出力の「vpiWeakDrive 8」と比較する（8はK.2の定義から求めた値）。 区別: ヘッダがvpiWeakDriveを8以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -518234,9 +518234,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiXの数値を出力し、期待出力の「vpiX 3」と比較する（3はK.2の定義から求めた値）。 区別: ヘッダがvpiXを3以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
@@ -518354,9 +518354,9 @@
         {
           "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
           "observation": "cbStartOfSimulationのVPIアプリが、ヘッダが定義していればvpiZの数値を出力し、期待出力の「vpiZ 2」と比較する（2はK.2の定義から求めた値）。 区別: ヘッダがvpiZを2以外の値で定義すると出力の数値が変わり、定義しなければ#ifdefによりその行が欠けるため、いずれも期待出力と一致しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-27",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
           "evidence": [
             {
               "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",

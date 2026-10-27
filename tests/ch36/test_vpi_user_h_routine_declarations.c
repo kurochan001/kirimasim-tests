@@ -1,6 +1,7 @@
 /* VPI application of test_vpi_user_h_routine_declarations (IEEE 1800-2023 36.7, K.2). */
 #include <string.h>
 #include "vpi_user.h"
+#include "sv_vpi_user.h"
 
 /* SAME_TYPE(e, T) is 1 when the unevaluated expression e has exactly type T.
    Nothing is called or linked: only the declarations of the header are used. */

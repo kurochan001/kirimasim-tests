@@ -233295,7 +233295,7 @@
     },
     {
       "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
-      "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+      "inputs_sha256": "5f7fe841cfc6555a20e2be906ee4c0a93cfcabaca9615959dafd56e16e94298e",
       "cited_clauses": [
         "36.7",
         "K.2"
@@ -233858,7 +233858,7 @@
     },
     {
       "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
-      "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+      "inputs_sha256": "4c7308a3af529191e645423a46651b0981da8ebfee8780907717877af506e400",
       "cited_clauses": [
         "36.7",
         "K.1",
@@ -543764,7 +543764,7 @@
     "oracle_issue": 257,
     "partial_observation": 2129
   },
-  "registry_sha256": "dd94795ced74a2739d045e68d34787f89743e2cbb8fe96c915ce2fe167c76ea2",
+  "registry_sha256": "f0e28c015c54ada20107a4440b4c64274fb83ef31e78fbcdfce1e0ab3c5d0f48",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "c1dac1a34f1f74e3f694f5ef6218659d24e12fac8b92f59725cdca236f737aec"
 }

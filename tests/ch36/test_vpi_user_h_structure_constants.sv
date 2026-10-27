@@ -12,7 +12,9 @@
 :expected_stdout: @test_vpi_user_h_structure_constants.expected
 */
 // IEEE 1800-2023 §36.7: a VPI application includes vpi_user.h, the normative
-// header that every simulator provides (K.1). K.2 defines each of its
+// header that every simulator provides (K.1).  Section 36.7 also requires the
+// system-verilog extension header, so the application includes both
+// normative headers in the same translation unit. K.2 defines each of its
 // constants as a fixed number, so an application compiled against one
 // simulator's header passes the same numbers as another's.
 //

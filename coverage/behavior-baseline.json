@@ -28665,7 +28665,7 @@
     "SV2023-35.8-EXTRACT-IMPORT-TASK-STATUS": "ce8b6e72993da4773ead8017ff918aa65c76b186e6d894d8bc3eb63a99bd3cb1",
     "SV2023-35.9-EXTRACT-IMPORT-DISABLE-STATUS": "4b88d93653fd6882856555716a7a2e12d96af3a854669aa42fe1a0f9aedf990b",
     "SV2023-36.4-EXTRACT-TFARG-ACCESS": "63edd3ff5e92ec5fe3a14dac9b0aa9d3ae1ca08bf0d4529d6e7bc8555f2c0f32",
-    "SV2023-36.7-EXTRACT-INCLUDE-HEADERS": "6e9166a613c86890dd45d83b9fe0c9603b54adc91f4586219d845899184de9b3",
+    "SV2023-36.7-EXTRACT-INCLUDE-HEADERS": "aef3e048b6c1700af8c0dead08e4551141294b22a4325764e91c84b0405f5cf8",
     "SV2023-36.10.2-EXTRACT-PHASE-ACCESS": "3f82a194ebf25796576ae7bfe9ca67a26eda76c43ff15139193a6faa2d61c791",
     "SV2023-36.12.1-EXTRACT-MEMORY-TRANSITIONS": "e751dd57c417cb4d9da77deeaff372d217ca9a73bcf7258d6bb4419e2dff8637",
     "SV2023-36.12.2.1-EXTRACT-BOUND-RETARGET": "e3312ea3ad899739164b64abe392c1e5f8e9aff14d72f5bca8f2e481c2e4880b",
@@ -42967,5 +42967,5 @@
     "P",
     "Q"
   ],
-  "reason": "Monotonic additions of requirements, mappings or completed investigations, recorded by --update"
+  "reason": "Quality audit: the two VPI header tests now include both normative headers (36.7) and were rerun under Verilator 5.052 with unchanged output; reviewed digests refreshed."
 }

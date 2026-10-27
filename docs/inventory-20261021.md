@@ -1124,8 +1124,15 @@ new links were accepted.
 An eighth formal wave closed Annex F: 19 cases for the F.2 model, the
 F.3.2/F.3.3 notation, the F.5 word operations, the remaining assignment
 and declaration rules, accept_on and the F.3.4.6 free-checker rewrites.
-All 253 F requirements are now mapped. The ledger maps 10756 of 12319
-rows (87.31%), with 5994 executed (48.66%).
+All 253 F requirements are now mapped.
+
+A quality audit then checked all 13214 links for missing tests, stale
+evidence and cross-chapter over-linking, sampled the annex, VPI and ch16
+links, and reviewed every formal case. Every formal case now carries a
+reachable cover witness; the formal catalogue reports 518 PASS and the
+five expected mutant failures. Two VPI header tests were extended to
+include both normative headers. The ledger maps 10756 of 12319 rows
+(87.31%), with 6002 executed (48.72%).
 
 ### Current state
 
@@ -1134,7 +1141,7 @@ generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-10756 of 12319 rows (87.31%), with 5994 executed (48.66%).
+10756 of 12319 rows (87.31%), with 6002 executed (48.72%).
 
 ### Tests added in this work
 

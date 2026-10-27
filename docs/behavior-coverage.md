@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 87.31%、実行 48.66%。**
+**全規格の要求台帳ベース（暫定）: 設計 87.31%、実行 48.72%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -16,7 +16,7 @@
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対するテスト設計網羅率: 10756/12319 (87.31%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5994/12319 (48.66%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 6002/12319 (48.72%)。
 - 登録済みだがテスト未対応: 1563 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
@@ -47,7 +47,7 @@
 - `associative-wildcard-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:00:52.942221+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.310380+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.305806+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2843/12319 動作確認、古い入力との対応 329 件。
+- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2843/12319 動作確認、古い入力との対応 426 件。
 - `audit-oracle-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T22:23:59.392020+00:00 / 132/12319 動作確認、古い入力との対応 13 件。
 - `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 16/12319 動作確認、古い入力との対応 304 件。
 - `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 304 件。
@@ -89,7 +89,7 @@
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
-- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T10:53:43.815410+00:00 / 253/12319 動作確認、古い入力との対応 0 件。
+- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T12:15:06.437589+00:00 / 253/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -117,9 +117,9 @@
 - `gap9-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:11:21.453322+00:00 / 67/12319 動作確認、古い入力との対応 21 件。
 - `gap9-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866738+00:00 / 202/12319 動作確認、古い入力との対応 21 件。
 - `gap9-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866731+00:00 / 202/12319 動作確認、古い入力との対応 21 件。
-- `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 995/12319 動作確認、古い入力との対応 0 件。
-- `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 995/12319 動作確認、古い入力との対応 0 件。
+- `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 97 件。
+- `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 899/12319 動作確認、古い入力との対応 97 件。
+- `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 899/12319 動作確認、古い入力との対応 97 件。
 - `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 936/12319 動作確認、古い入力との対応 98 件。
 - `keyword-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T20:48:05.640625+00:00 / 497/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:11.194190+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -134,6 +134,10 @@
 - `p10-refinement-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:10:20.539124+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `p10-refinement-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:10:25.147557+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `p10-refinement-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:10:29.594580+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `quality-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T11:45:16.876642+00:00 / 23/12319 動作確認、古い入力との対応 0 件。
+- `quality-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T11:45:41.230196+00:00 / 23/12319 動作確認、古い入力との対応 0 件。
+- `quality-vpi-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T12:10:47.803286+00:00 / 95/12319 動作確認、古い入力との対応 0 件。
+- `quality-vpi-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T12:10:59.588073+00:00 / 95/12319 動作確認、古い入力との対応 0 件。
 - `regex-refinement-20261025-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T23:12:32.819720+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `regex-refinement-20261025-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T23:12:34.091987+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `regex-refinement-20261025-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T23:12:35.145250+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -12313,7 +12317,7 @@ A specparam is declared only in a module body or specify block; a parameter decl
 
 ### SV2023-6.20.5-EXTRACT-SPECPARAM-USE-SCOPE
 
-6.20.5 / error / テスト対応あり・実行未確認
+6.20.5 / error / 実行確認あり
 
 Specparams are usable only in their permitted module/specify context and cannot supply declaration range specifications.
 
@@ -24435,7 +24439,7 @@ An NBA update can trigger additional blocking work, which is processed after the
 
 ### SV2023-10.4.2-EXTRACT-NO-AUTOMATIC-DYNAMIC-NBA
 
-10.4.2 / error / テスト対応あり・実行未確認
+10.4.2 / error / 実行確認あり
 
 Nonblocking assignment cannot target an automatic variable or an element of a dynamically sized array.
 
@@ -33419,7 +33423,7 @@ Class tasks always have automatic subroutine lifetime.
 
 ### SV2023-13.3.1-EXTRACT-TASK-AUTOMATIC-DEFAULT
 
-13.3.1 / normal / テスト対応あり・実行未確認
+13.3.1 / normal / 実行確認あり
 
 A task may be explicit automatic or inherit automatic from its enclosing module/interface/program/package.
 
@@ -46924,7 +46928,7 @@ this/super-qualified inline names bind to the receiver handle class; failure to 
 
 ### SV2023-18.7-EXTRACT-UNRESTRICTED-LOOKUP
 
-18.7 / normal / テスト対応あり・実行未確認
+18.7 / normal / 実行確認あり
 
 An unrestricted inline block searches the receiver handle class first, then the enclosing call scope; it may reference local variables and subroutine arguments.
 
@@ -64872,7 +64876,7 @@ A design shall contain at least one top-level module.
 
 ### SV2023-23.3.1-EXTRACT-ROOTED-LOOKUP
 
-23.3.1 / normal / テスト対応あり・実行未確認
+23.3.1 / normal / 実行確認あり
 
 Root is the instance-tree root and explicitly roots a top-instance path; without it a competing local path takes precedence.
 
@@ -74433,7 +74437,7 @@ UDP output declarations name one output, and input declarations name one or more
 
 ### SV2023-29.3.2-EXTRACT-UDP-REG-REQUIREMENT
 
-29.3.2 / error / テスト対応あり・実行未確認
+29.3.2 / error / 実行確認あり
 
 Sequential outputs require reg, separately with non-ANSI syntax or inline; combinational UDPs cannot declare reg.
 
@@ -74494,7 +74498,7 @@ A table row explicitly specifying every input as x shall specify output x.
 
 ### SV2023-29.3.4-EXTRACT-SEQUENTIAL-FIELDS
 
-29.3.4 / error / テスト対応あり・実行未確認
+29.3.4 / error / 実行確認あり
 
 A sequential row inserts current output/state between input and next-output fields, separated by colons, and permits a transition on at most one input.
 
@@ -80513,7 +80517,7 @@ Symbolic library.cell with optional config suffix refers to mapped source cells 
 
 ### SV2023-33.3.1-EXTRACT-DEFAULT-WORK-LIBRARY
 
-33.3.1 / normal / テスト対応あり・実行未確認
+33.3.1 / normal / 実行確認あり
 
 A compiled source matching no library path specification maps to library work.
 
@@ -85395,7 +85399,7 @@ A PLI application is a foreign C function using PLI libraries linked into a tool
 
 ### SV2023-36.7-EXTRACT-INCLUDE-HEADERS
 
-36.7 / normal / 実行確認あり
+36.7 / normal / テスト対応あり・実行未確認
 
 A VPI application must include normative vpi_user.h and sv_vpi_user.h, which supply function declarations, constants, structures and interface data.
 
@@ -132115,7 +132119,7 @@ Nonopen inputs of byte,shortint,int,longint,real,shortreal,scalar bit/logic,chan
 
 ### SV2023-H.8.8-EXTRACT-REFERENCE
 
-H.8.8 / normal / テスト対応あり・実行未確認
+H.8.8 / normal / 実行確認あり
 
 Nonopen inout/output always pass by reference; packed data uses canonical pointer and unused-bit rules of H.7.7.
 

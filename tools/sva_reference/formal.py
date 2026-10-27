@@ -118,13 +118,15 @@ def sequence_model(name, *, mutation=False):
         pieces.append("reg [31:0] reference_count; always @* begin reference_count=0; case(age)")
         pieces.extend(f"{age}: reference_count={value};" for age, value in sorted(reference.items()))
         pieces.append("endcase end")
-    cover = "age>=1 && reference_count!=0"
+    reachable = sorted(set(machine.counts))
+    covers = [f"cover(actual_count=={value});" for value in
+              ([reachable[0], reachable[-1]] if len(reachable) > 1 else reachable)]
     if name in {"first_match_tie", "within_endpoints", "and_endpoint_pairs"}:
-        cover = "reference_count>=2"
+        covers = ["cover(reference_count>=2);"]
     if name == "empty_fusion":
-        cover = "age==1 && letter!=0"
+        covers = ["cover(age==1 && letter!=0);"]
     pieces.extend(["always @* begin", "assert(actual_count==reference_count);",
-                   f"assert(state<{len(machine.counts)});", f"cover({cover});", "end endmodule\n"])
+                   f"assert(state<{len(machine.counts)});", *covers, "end endmodule\n"])
     return "\n".join(pieces), {"kind": "streaming_sequence", "expression": expression, "signals": names,
         "clause": clause, "states": len(machine.counts), "alphabet_size": 1 << len(names),
         "bmc_depth": 16 if streaming else max(8, history_size + 3)}
@@ -202,9 +204,12 @@ def property_model(name, *, mutation=False):
     size = len(names) * horizon
     pieces = [f"module check_model; (* anyconst *) reg [{size-1}:0] word;",
               "reg [7:0] actual_result, reference_result;", "always @* begin actual_result=0; case(word)"]
+    codes = set()
     for word in range(1 << size):
         samples = [{name: str((word >> (tick * len(names) + i)) & 1) for i, name in enumerate(names)} for tick in range(horizon)]
-        pieces.append(f"{size}'d{word}: actual_result=8'd{attempt_code(spec, samples)};")
+        code = attempt_code(spec, samples)
+        codes.add(code)
+        pieces.append(f"{size}'d{word}: actual_result=8'd{code};")
     pieces.append("endcase end")
     pieces.extend(f"wire [{horizon-1}:0] {signal_name}={{{','.join(f'word[{tick*len(names)+i}]' for tick in reversed(range(horizon)))}}};"
                   for i, signal_name in enumerate(names))
@@ -213,8 +218,11 @@ def property_model(name, *, mutation=False):
         if name != "followed_overlap":
             raise Unsupported("no mutation registered for this property")
         reference = reference.replace("!a[0]) reference_result=8'd16", "!a[0]) reference_result=8'd32")
+    ordered = sorted(codes)
+    chosen = ordered if len(ordered) <= 2 else [ordered[0], ordered[-1]]
     pieces.extend([reference, "always @* begin assert(actual_result==reference_result);",
-                   "cover(actual_result[7:4]==1); end endmodule\n"])
+                   *[f"cover(actual_result==8'd{value});" for value in chosen],
+                   "end endmodule\n"])
     return "\n".join(pieces), {"kind": "finite_word_property", "expression": spec["expression"],
         "clause": spec["clause"], "signals": names, "semantic_ticks": horizon,
         "symbolic_bits": size, "input_words": 1 << size, "bmc_depth": 2}
@@ -238,6 +246,7 @@ def table_model(name):
     pieces = [f"module check_model; (* anyconst *) reg [{size - 1}:0] word;",
               "reg [31:0] actual_result, reference_result;",
               "always @* begin actual_result=0; case(word)"]
+    codes = set()
     for word in range(1 << size):
         samples = []
         for tick in range(horizon):
@@ -264,6 +273,7 @@ def table_model(name):
         selector = (word >> offset) & ((1 << selectors) - 1) if selectors else 0
         code = spec["actual"](samples, local, selector, values) if inputs else \
             spec["actual"](samples, local, selector)
+        codes.add(code)
         pieces.append(f"{size}'d{word}: actual_result=32'd{code};")
     pieces.append("endcase end")
     offset = 0
@@ -286,9 +296,15 @@ def table_model(name):
         pieces.append(f"wire [{selectors - 1}:0] sel=word[{offset} +: {selectors}];")
     else:
         pieces.append("wire [0:0] sel=0;")
+    if spec.get("cover", "1") != "1":
+        covers = [f"cover({spec['cover']});"]
+    else:
+        ordered = sorted(codes)
+        chosen = ordered if len(ordered) <= 2 else [ordered[0], ordered[-1]]
+        covers = [f"cover(actual_result==32'd{value});" for value in chosen]
     pieces.extend([spec["reference"], "always @* begin",
                    "assert(actual_result==reference_result);",
-                   f"cover({spec.get('cover', '1')});", "end endmodule\n"])
+                   *covers, "end endmodule\n"])
     return "\n".join(pieces), {
         "kind": "finite_local_table", "expression": spec["expression"],
         "clause": spec["clause"], "signals": [name for name, _ in signals],
@@ -305,17 +321,21 @@ def nonvacuity_model(name):
     pieces = [f"module check_model; (* anyconst *) reg [{size-1}:0] word;",
               "reg actual_result, reference_result;",
               "always @* begin actual_result=0; case(word)"]
+    codes = set()
     for word in range(1 << size):
         samples = [{name: str((word >> (tick * len(names) + i)) & 1)
                     for i, name in enumerate(names)} for tick in range(horizon)]
         evaluate = (nonvac.nonvacuous_satisfaction if spec.get("mode") == "satisfaction"
                     else nonvac.nonvacuous)
-        pieces.append(f"{size}'d{word}: actual_result=1'b{int(evaluate(spec['expression'], samples))};")
+        value = int(evaluate(spec['expression'], samples))
+        codes.add(value)
+        pieces.append(f"{size}'d{word}: actual_result=1'b{value};")
     pieces.append("endcase end")
     pieces.extend(f"wire [{horizon-1}:0] {name}={{{','.join(f'word[{tick*len(names)+i}]' for tick in reversed(range(horizon)))}}};"
                   for i, name in enumerate(names))
     pieces.extend([spec["reference"], "always @* begin assert(actual_result==reference_result);",
-                   "cover(actual_result==0); cover(actual_result==1); end endmodule\n"])
+                   *[f"cover(actual_result==1'b{value});" for value in sorted(codes)],
+                   "end endmodule\n"])
     return "\n".join(pieces), {"kind": "finite_word_nonvacuity",
         "expression": spec["expression"], "clause": spec["clause"],
         "requirement": spec.get("requirement"), "signals": names,
@@ -337,8 +357,10 @@ def clocking_table_model(name):
     pieces = [f"module check_model; (* anyconst *) reg [{size-1}:0] word;",
               f"reg [{width-1}:0] actual_result, reference_result;",
               "always @* begin actual_result=0; case(word)"]
+    codes = set()
     for word in range(1 << size):
         value = int(spec["actual"](word))
+        codes.add(value)
         pieces.append(f"{size}'d{word}: actual_result={width}'d{value};")
     pieces.append("endcase end")
     stride = sum(bits for _, bits in dims)
@@ -348,9 +370,12 @@ def clocking_table_model(name):
                   for tick in reversed(range(horizon))]
         pieces.append(f"wire [{bits * horizon - 1}:0] {signal}={{{','.join(slices)}}};")
         base += bits
+    ordered = sorted(codes)
+    chosen = ordered if len(ordered) <= 2 else [ordered[0], ordered[-1]]
     pieces.extend([spec["reference"],
                    "always @* begin assert(actual_result==reference_result);",
-                   "cover(1); end endmodule\n"])
+                   *[f"cover(actual_result=={width}'d{value});" for value in chosen],
+                   "end endmodule\n"])
     return "\n".join(pieces), {"kind": "finite_word_clocking",
         "clause": spec["clause"], "signals": [signal for signal, _ in dims],
         "semantic_ticks": horizon, "symbolic_bits": size,
@@ -496,8 +521,9 @@ def task_plan(name, prove=True):
     tasks = [("bmc", False)]
     if prove and name in {*specs.SEQUENCES, *specs.STREAMS}:
         tasks.append(("prove", False))
-    if name in {"first_match_tie", "within_endpoints", "goto_two_then", "four_state_sampled"}:
-        tasks.append(("cover", False))
+    # Every case must witness a non-vacuous state, not only the four cases
+    # that historically carried a hand-written cover condition.
+    tasks.append(("cover", False))
     if name in {"first_match_tie", "within_endpoints", "empty_left", "followed_overlap", "gated_past"}:
         tasks.append(("bmc", True))
     return tasks
