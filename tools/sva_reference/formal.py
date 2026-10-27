@@ -23,12 +23,14 @@ import time
 if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from sva_reference import automata as rx, formal_cases as specs
+    from sva_reference import nonvacuity as nonvac
     from sva_reference.engine import Current, Engine
     from sva_reference.parser import Parser, Unsupported, parse_sequence
     from sva_reference.sampled import History
     from sva_reference.values import Bits, evaluate
 else:
     from . import automata as rx, formal_cases as specs
+    from . import nonvacuity as nonvac
     from .engine import Current, Engine
     from .parser import Parser, Unsupported, parse_sequence
     from .sampled import History
@@ -209,6 +211,31 @@ def property_model(name, *, mutation=False):
         "symbolic_bits": size, "input_words": 1 << size, "bmc_depth": 2}
 
 
+def nonvacuity_model(name):
+    spec = specs.NONVACUITY[name]
+    names, horizon = spec["signals"], spec["horizon"]
+    size = len(names) * horizon
+    pieces = [f"module check_model; (* anyconst *) reg [{size-1}:0] word;",
+              "reg actual_result, reference_result;",
+              "always @* begin actual_result=0; case(word)"]
+    for word in range(1 << size):
+        samples = [{name: str((word >> (tick * len(names) + i)) & 1)
+                    for i, name in enumerate(names)} for tick in range(horizon)]
+        evaluate = (nonvac.nonvacuous_satisfaction if spec.get("mode") == "satisfaction"
+                    else nonvac.nonvacuous)
+        pieces.append(f"{size}'d{word}: actual_result=1'b{int(evaluate(spec['expression'], samples))};")
+    pieces.append("endcase end")
+    pieces.extend(f"wire [{horizon-1}:0] {name}={{{','.join(f'word[{tick*len(names)+i}]' for tick in reversed(range(horizon)))}}};"
+                  for i, name in enumerate(names))
+    pieces.extend([spec["reference"], "always @* begin assert(actual_result==reference_result);",
+                   "cover(actual_result==0); cover(actual_result==1); end endmodule\n"])
+    return "\n".join(pieces), {"kind": "finite_word_nonvacuity",
+        "expression": spec["expression"], "clause": spec["clause"],
+        "requirement": spec.get("requirement"), "signals": names,
+        "semantic_ticks": horizon, "symbolic_bits": size,
+        "input_words": 1 << size, "bmc_depth": 2}
+
+
 def decode_four(value):
     return Bits("".join("01xz"[(value >> bit) & 3] for bit in [2, 0]))
 
@@ -265,6 +292,8 @@ def export(name, *, mutation=False):
         return sequence_model(name, mutation=mutation)
     if name in specs.PROPERTIES:
         return property_model(name, mutation=mutation)
+    if name in specs.NONVACUITY and not mutation:
+        return nonvacuity_model(name)
     if name == "four_state_sampled" and not mutation:
         return four_state_model()
     if name == "gated_past":
@@ -273,7 +302,7 @@ def export(name, *, mutation=False):
 
 
 def catalogue():
-    return [*specs.SEQUENCES, *specs.STREAMS, *specs.PROPERTIES, "four_state_sampled", "gated_past"]
+    return [*specs.SEQUENCES, *specs.STREAMS, *specs.PROPERTIES, *specs.NONVACUITY, "four_state_sampled", "gated_past"]
 
 
 def sby_text(mode, depth, timeout):

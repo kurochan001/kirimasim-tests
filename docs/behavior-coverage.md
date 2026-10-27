@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 86.02%、実行 47.37%。**
+**全規格の要求台帳ベース（暫定）: 設計 86.09%、実行 47.44%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10597/12319 (86.02%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5835/12319 (47.37%)。
-- 登録済みだがテスト未対応: 1722 動作。
+- 登録済み動作に対するテスト設計網羅率: 10606/12319 (86.09%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5844/12319 (47.44%)。
+- 登録済みだがテスト未対応: 1713 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -89,7 +89,7 @@
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
-- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T04:06:55.201237+00:00 / 94/12319 動作確認、古い入力との対応 0 件。
+- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T04:59:09.060282+00:00 / 103/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -220,7 +220,7 @@
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 9。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
-- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 94。
+- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 103。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 25。
 - H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 175。
 - I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 134。
@@ -129981,7 +129981,7 @@ Report holds strongly when finite word strongly satisfies assertion.
 
 ### SV2023-F.5.3.3-EXTRACT-ABORT
 
-F.5.3.3 / normal / テスト未対応
+F.5.3.3 / normal / 実行確認あり
 
 disable iff,accept_on,reject_on are nonvacuous iff operand is nonvacuous and either no abort condition occurs or an abort-free prefix already settles the result: bottom extension satisfies operand or top extension fails operand.
 
@@ -129989,10 +129989,11 @@ disable iff,accept_on,reject_on are nonvacuous iff operand is nonvacuous and eit
 
 規定の性質: `definition`。
 
+- [test_formal_f533_abort_disable_iff.sv](../tests/ch16/test_formal_f533_abort_disable_iff.sv): SymbiYosysでF.5.3.3のnonvacuityケースf533_abort_disable_iffを実行し、独立RTL参照と比較する。disable iff (r) (strong(a ##1 b)) の全64語で、operand の非空疎性（base で常に真）と abort 規則を比較。abort なしは非空疎、tick 0 の abort は常に空疎、tick 1 の abort は a\[0\]=0 のときだけ abort-free prefix（1 letter）が strong 失敗で確定済みなので非空疎。参照式 !r\[0\] && (!r\[1\] || !a\[0\])。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.3-EXTRACT-ALWAYS
 
-F.5.3.3 / normal / テスト未対応
+F.5.3.3 / normal / 実行確認あり
 
 always is nonvacuous iff an in-word suffix is nonvacuous and all earlier suffixes satisfy operand; bounded always/s_always use inclusive m..n and earlier m..i-1.
 
@@ -130000,10 +130001,11 @@ always is nonvacuous iff an in-word suffix is nonvacuous and all earlier suffixe
 
 規定の性質: `definition`。
 
+- [test_formal_f533_always_guard.sv](../tests/ch16/test_formal_f533_always_guard.sv): SymbiYosysでF.5.3.3のnonvacuityケースf533_always_guardを実行し、独立RTL参照と比較する。always (a |-> b) の全64語で、非空疎性「ある suffix i で operand が非空疎、全 earlier j で operand が真」を a\[0\] || (g0 && a\[1\]) || (g0 && g1 && a\[2\])（g=!a||b）と比較。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.3-EXTRACT-BASE
 
-F.5.3.3 / normal / テスト未対応
+F.5.3.3 / normal / 実行確認あり
 
 strong and weak sequence-property evaluations are nonvacuous; parentheses and not preserve nonvacuity.
 
@@ -130011,10 +130013,11 @@ strong and weak sequence-property evaluations are nonvacuous; parentheses and no
 
 規定の性質: `definition`。
 
+- [test_formal_f533_base_strong_weak_not.sv](../tests/ch16/test_formal_f533_base_strong_weak_not.sv): SymbiYosysでF.5.3.3のnonvacuityケースf533_base_strong_weak_notを実行し、独立RTL参照と比較する。(not (strong(a ##1 b))) and (not (weak(c ##1 d))) の全256語で、actual の F.5.3.3 非空疎性と参照RTL（強/弱系列は常に非空疎、not と and は非空疎性を保存）を比較。actual は strong/weak を base で真、not を再帰、and を either-operand で評価する。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.3-EXTRACT-BOOLEANS
 
-F.5.3.3 / normal / テスト未対応
+F.5.3.3 / normal / 実行確認あり
 
 Property and,or,iff are nonvacuous iff either operand is nonvacuous; implies is nonvacuous iff antecedent holds and both antecedent and consequent are nonvacuous, following the explicit equation.
 
@@ -130022,10 +130025,11 @@ Property and,or,iff are nonvacuous iff either operand is nonvacuous; implies is 
 
 規定の性質: `definition`。
 
+- [test_formal_f533_booleans_implies.sv](../tests/ch16/test_formal_f533_booleans_implies.sv): SymbiYosysでF.5.3.3のnonvacuityケースf533_booleans_impliesを実行し、独立RTL参照と比較する。(a) implies ((c ##1 d) |-> e) の全256語で、implies の明示式「antecedent が真、antecedent が非空疎、consequent が非空疎」を a\[0\] && c\[0\] && d\[1\] と比較。consequent に implication を置き、右辺の非空疎性が実際に効く形にした。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.3-EXTRACT-EVENTUALLY
 
-F.5.3.3 / normal / テスト未対応
+F.5.3.3 / normal / 実行確認あり
 
 s_eventually is nonvacuous iff an in-word suffix is nonvacuous and all earlier suffixes satisfy not operand; bounded eventually/s_eventually use inclusive m..n and earlier m..i-1.
 
@@ -130033,6 +130037,7 @@ s_eventually is nonvacuous iff an in-word suffix is nonvacuous and all earlier s
 
 規定の性質: `definition`。
 
+- [test_formal_f533_eventually_guard.sv](../tests/ch16/test_formal_f533_eventually_guard.sv): SymbiYosysでF.5.3.3のnonvacuityケースf533_eventually_guardを実行し、独立RTL参照と比較する。s_eventually (a |-> b) の全64語で、非空疎性「ある suffix i で operand が非空疎、全 earlier j で not operand が真」を a\[0\] || (n0 && a\[1\]) || (n0 && n1 && a\[2\])（n=a&&!b）と比較。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.3-EXTRACT-IMPLICATION
 
@@ -130048,7 +130053,7 @@ Overlapping implication is nonvacuous iff some nonnegative endpoint has a tight 
 
 ### SV2023-F.5.3.3-EXTRACT-NEXT-TEXT
 
-F.5.3.3 / normal / テスト未対応
+F.5.3.3 / normal / 実行確認あり
 
 The nexttime nonvacuity equation (printed 'nextime' with an unbound suffix index i) is read with suffix index 1, as in nexttime neutral satisfaction (F.5.3.1): w satisfies nexttime P nonvacuously iff |w| > 0 and the suffix w^1.. satisfies P nonvacuously.
 
@@ -130056,10 +130061,11 @@ The nexttime nonvacuity equation (printed 'nextime' with an unbound suffix index
 
 規定の性質: `definition`。
 
+- [test_formal_f533_nexttime_index.sv](../tests/ch16/test_formal_f533_nexttime_index.sv): SymbiYosysでF.5.3.3のnonvacuityケースf533_nexttime_indexを実行し、独立RTL参照と比較する。nexttime ((a ##1 b) |-> c) の全512語で、nexttime の非空疎性が suffix index 1 の P 非空疎性 a\[1\] && b\[2\] に等しいことを独立RTLと比較。index 0 の a\[0\] && b\[1\] ではないことを直接固定する。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.3-EXTRACT-NONVACUITY
 
-F.5.3.3 / normal / テスト未対応
+F.5.3.3 / normal / 実行確認あり
 
 Nonvacuity is a separate evaluation relation; a property evaluation can be nonvacuous independently of whether it satisfies the property.
 
@@ -130067,10 +130073,11 @@ Nonvacuity is a separate evaluation relation; a property evaluation can be nonva
 
 規定の性質: `definition`。
 
+- [test_formal_f533_nonvacuity_separate.sv](../tests/ch16/test_formal_f533_nonvacuity_separate.sv): SymbiYosysでF.5.3.3のnonvacuityケースf533_nonvacuity_separateを実行し、独立RTL参照と比較する。(a ##\[1:2\] b) |-> c の全512語で非空疎性 a\[0\] && (b\[1\] || b\[2\]) を独立RTLと比較。非空疎性は c の真偽と独立で、a\[0\]=0 は vacuous pass、antecedent match かつ c 偽は nonvacuous failure になる。2つの tight endpoint により implication の「ある endpoint が存在」も直接固定する。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.3-EXTRACT-NONVACUOUS-SATISFACTION
 
-F.5.3.3 / normal / テスト未対応
+F.5.3.3 / normal / 実行確認あり
 
 Nonvacuous satisfaction requires both satisfaction and nonvacuity; derived operators not explicitly listed use their defining expansions.
 
@@ -130078,10 +130085,11 @@ Nonvacuous satisfaction requires both satisfaction and nonvacuity; derived opera
 
 規定の性質: `definition`。
 
+- [test_formal_f533_nonvacuous_satisfaction.sv](../tests/ch16/test_formal_f533_nonvacuous_satisfaction.sv): SymbiYosysでF.5.3.3のnonvacuityケースf533_nonvacuous_satisfactionを実行し、独立RTL参照と比較する。派生演算子 s_nexttime (a |-> b) の全16語で、非空疎満足 = 満足 ∧ 非空疎 を独立RTL a\[1\] && b\[1\] と比較。s_nexttime P = not nexttime not P の展開で非空疎性 a\[1\]、満足 !a\[1\] || b\[1\] となり、両者の積が a\[1\] && b\[1\]。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.3.3-EXTRACT-UNTIL
 
-F.5.3.3 / normal / テスト未対応
+F.5.3.3 / normal / 実行確認あり
 
 until and s_until are nonvacuous iff some in-word suffix has either operand nonvacuous and all earlier suffixes satisfy left operand and not right operand.
 
@@ -130089,6 +130097,7 @@ until and s_until are nonvacuous iff some in-word suffix has either operand nonv
 
 規定の性質: `definition`。
 
+- [test_formal_f533_until_operands.sv](../tests/ch16/test_formal_f533_until_operands.sv): SymbiYosysでF.5.3.3のnonvacuityケースf533_until_operandsを実行し、独立RTL参照と比較する。(a |-> b) until nexttime (c |-> d) の全4096語で、until の「ある suffix で either operand が非空疎、全 earlier suffix で left が真かつ right が偽」を独立RTLの g0/g1 ガード式と比較。両 operand を implication にして、suffix ごとの非空疎性が自明でない形にした。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。
 
 ### SV2023-F.5.4-EXTRACT-BLOCK-BASE
 

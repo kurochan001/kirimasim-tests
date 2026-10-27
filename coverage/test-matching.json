@@ -2,8 +2,8 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 7444,
-  "linked_test_files": 5029,
+  "test_files": 7453,
+  "linked_test_files": 5038,
   "unlinked_test_files": 2415,
   "chapters": [
     {
@@ -86,8 +86,8 @@
     },
     {
       "chapter": "ch16",
-      "test_files": 473,
-      "linked_test_files": 418,
+      "test_files": 482,
+      "linked_test_files": 427,
       "unlinked_test_files": 55
     },
     {
@@ -64471,6 +64471,555 @@
         "SV2023-F.5.3.1-EXTRACT-STRONG",
         "SV2023-F.5.3.1-EXTRACT-TOP-PASS",
         "SV2023-F.5.3.1-EXTRACT-UNTIL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS",
+        "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
+        "SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE",
+        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.12",
+          "descendant_requirement_count": 88
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f533_abort_disable_iff.sv",
+      "inputs_sha256": "b8f0cd796357558e09f24350e405554be0a4c5a029ac6ad893496b35b8f28f48",
+      "cited_clauses": [
+        "16.12",
+        "F.5.3.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.3.3-EXTRACT-ABORT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12-EXTRACT-DECLARATION-INERT",
+        "SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT",
+        "SV2023-16.12-EXTRACT-DISABLE-INTERVAL",
+        "SV2023-16.12-EXTRACT-DISABLE-SYNTAX",
+        "SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-DELAY",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IFF",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-16.12-EXTRACT-PROPERTY-FORMAL-USE",
+        "SV2023-16.12-EXTRACT-PROPERTY-GRAMMAR",
+        "SV2023-16.12-EXTRACT-PROPERTY-INSTANCES",
+        "SV2023-16.12-EXTRACT-PROPERTY-RESULT",
+        "SV2023-16.12-EXTRACT-PROPERTY-SCOPES",
+        "SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY",
+        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES",
+        "SV2023-F.5.3.3-EXTRACT-ALWAYS",
+        "SV2023-F.5.3.3-EXTRACT-BASE",
+        "SV2023-F.5.3.3-EXTRACT-BOOLEANS",
+        "SV2023-F.5.3.3-EXTRACT-EVENTUALLY",
+        "SV2023-F.5.3.3-EXTRACT-IMPLICATION",
+        "SV2023-F.5.3.3-EXTRACT-NEXT-TEXT",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUITY",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUOUS-SATISFACTION",
+        "SV2023-F.5.3.3-EXTRACT-UNTIL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS",
+        "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
+        "SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE",
+        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.12",
+          "descendant_requirement_count": 88
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f533_always_guard.sv",
+      "inputs_sha256": "cbb5e6d518a75e90bfac41a171defc7395751d8bec44d408d706cbefe7b1536f",
+      "cited_clauses": [
+        "16.12",
+        "F.5.3.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.3.3-EXTRACT-ALWAYS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12-EXTRACT-DECLARATION-INERT",
+        "SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT",
+        "SV2023-16.12-EXTRACT-DISABLE-INTERVAL",
+        "SV2023-16.12-EXTRACT-DISABLE-SYNTAX",
+        "SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-DELAY",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IFF",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-16.12-EXTRACT-PROPERTY-FORMAL-USE",
+        "SV2023-16.12-EXTRACT-PROPERTY-GRAMMAR",
+        "SV2023-16.12-EXTRACT-PROPERTY-INSTANCES",
+        "SV2023-16.12-EXTRACT-PROPERTY-RESULT",
+        "SV2023-16.12-EXTRACT-PROPERTY-SCOPES",
+        "SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY",
+        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES",
+        "SV2023-F.5.3.3-EXTRACT-ABORT",
+        "SV2023-F.5.3.3-EXTRACT-BASE",
+        "SV2023-F.5.3.3-EXTRACT-BOOLEANS",
+        "SV2023-F.5.3.3-EXTRACT-EVENTUALLY",
+        "SV2023-F.5.3.3-EXTRACT-IMPLICATION",
+        "SV2023-F.5.3.3-EXTRACT-NEXT-TEXT",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUITY",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUOUS-SATISFACTION",
+        "SV2023-F.5.3.3-EXTRACT-UNTIL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS",
+        "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
+        "SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE",
+        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.12",
+          "descendant_requirement_count": 88
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f533_base_strong_weak_not.sv",
+      "inputs_sha256": "1082cd7ade38ab3d8d81d586b2b87379d275a1daef8d14747b0f7890ff97a688",
+      "cited_clauses": [
+        "16.12",
+        "F.5.3.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.3.3-EXTRACT-BASE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12-EXTRACT-DECLARATION-INERT",
+        "SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT",
+        "SV2023-16.12-EXTRACT-DISABLE-INTERVAL",
+        "SV2023-16.12-EXTRACT-DISABLE-SYNTAX",
+        "SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-DELAY",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IFF",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-16.12-EXTRACT-PROPERTY-FORMAL-USE",
+        "SV2023-16.12-EXTRACT-PROPERTY-GRAMMAR",
+        "SV2023-16.12-EXTRACT-PROPERTY-INSTANCES",
+        "SV2023-16.12-EXTRACT-PROPERTY-RESULT",
+        "SV2023-16.12-EXTRACT-PROPERTY-SCOPES",
+        "SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY",
+        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES",
+        "SV2023-F.5.3.3-EXTRACT-ABORT",
+        "SV2023-F.5.3.3-EXTRACT-ALWAYS",
+        "SV2023-F.5.3.3-EXTRACT-BOOLEANS",
+        "SV2023-F.5.3.3-EXTRACT-EVENTUALLY",
+        "SV2023-F.5.3.3-EXTRACT-IMPLICATION",
+        "SV2023-F.5.3.3-EXTRACT-NEXT-TEXT",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUITY",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUOUS-SATISFACTION",
+        "SV2023-F.5.3.3-EXTRACT-UNTIL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS",
+        "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
+        "SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE",
+        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.12",
+          "descendant_requirement_count": 88
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f533_booleans_implies.sv",
+      "inputs_sha256": "00786906eec2301c8d18b276878aa1eac3ff83f7d4715f0830feebf672b5ad13",
+      "cited_clauses": [
+        "16.12",
+        "F.5.3.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.3.3-EXTRACT-BOOLEANS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12-EXTRACT-DECLARATION-INERT",
+        "SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT",
+        "SV2023-16.12-EXTRACT-DISABLE-INTERVAL",
+        "SV2023-16.12-EXTRACT-DISABLE-SYNTAX",
+        "SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-DELAY",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IFF",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-16.12-EXTRACT-PROPERTY-FORMAL-USE",
+        "SV2023-16.12-EXTRACT-PROPERTY-GRAMMAR",
+        "SV2023-16.12-EXTRACT-PROPERTY-INSTANCES",
+        "SV2023-16.12-EXTRACT-PROPERTY-RESULT",
+        "SV2023-16.12-EXTRACT-PROPERTY-SCOPES",
+        "SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY",
+        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES",
+        "SV2023-F.5.3.3-EXTRACT-ABORT",
+        "SV2023-F.5.3.3-EXTRACT-ALWAYS",
+        "SV2023-F.5.3.3-EXTRACT-BASE",
+        "SV2023-F.5.3.3-EXTRACT-EVENTUALLY",
+        "SV2023-F.5.3.3-EXTRACT-IMPLICATION",
+        "SV2023-F.5.3.3-EXTRACT-NEXT-TEXT",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUITY",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUOUS-SATISFACTION",
+        "SV2023-F.5.3.3-EXTRACT-UNTIL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS",
+        "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
+        "SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE",
+        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.12",
+          "descendant_requirement_count": 88
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f533_eventually_guard.sv",
+      "inputs_sha256": "63f60111842b964176b1778f428fa0b6dedd6ab74a55be3ec9c65fe6f76c4395",
+      "cited_clauses": [
+        "16.12",
+        "F.5.3.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.3.3-EXTRACT-EVENTUALLY"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12-EXTRACT-DECLARATION-INERT",
+        "SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT",
+        "SV2023-16.12-EXTRACT-DISABLE-INTERVAL",
+        "SV2023-16.12-EXTRACT-DISABLE-SYNTAX",
+        "SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-DELAY",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IFF",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-16.12-EXTRACT-PROPERTY-FORMAL-USE",
+        "SV2023-16.12-EXTRACT-PROPERTY-GRAMMAR",
+        "SV2023-16.12-EXTRACT-PROPERTY-INSTANCES",
+        "SV2023-16.12-EXTRACT-PROPERTY-RESULT",
+        "SV2023-16.12-EXTRACT-PROPERTY-SCOPES",
+        "SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY",
+        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES",
+        "SV2023-F.5.3.3-EXTRACT-ABORT",
+        "SV2023-F.5.3.3-EXTRACT-ALWAYS",
+        "SV2023-F.5.3.3-EXTRACT-BASE",
+        "SV2023-F.5.3.3-EXTRACT-BOOLEANS",
+        "SV2023-F.5.3.3-EXTRACT-IMPLICATION",
+        "SV2023-F.5.3.3-EXTRACT-NEXT-TEXT",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUITY",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUOUS-SATISFACTION",
+        "SV2023-F.5.3.3-EXTRACT-UNTIL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS",
+        "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
+        "SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE",
+        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.12",
+          "descendant_requirement_count": 88
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f533_nexttime_index.sv",
+      "inputs_sha256": "e464e6dfa81d9252b152ab6377402569878d2f3beacd18674fd59b3194165ef9",
+      "cited_clauses": [
+        "16.12",
+        "F.5.3.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.3.3-EXTRACT-NEXT-TEXT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12-EXTRACT-DECLARATION-INERT",
+        "SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT",
+        "SV2023-16.12-EXTRACT-DISABLE-INTERVAL",
+        "SV2023-16.12-EXTRACT-DISABLE-SYNTAX",
+        "SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-DELAY",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IFF",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-16.12-EXTRACT-PROPERTY-FORMAL-USE",
+        "SV2023-16.12-EXTRACT-PROPERTY-GRAMMAR",
+        "SV2023-16.12-EXTRACT-PROPERTY-INSTANCES",
+        "SV2023-16.12-EXTRACT-PROPERTY-RESULT",
+        "SV2023-16.12-EXTRACT-PROPERTY-SCOPES",
+        "SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY",
+        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES",
+        "SV2023-F.5.3.3-EXTRACT-ABORT",
+        "SV2023-F.5.3.3-EXTRACT-ALWAYS",
+        "SV2023-F.5.3.3-EXTRACT-BASE",
+        "SV2023-F.5.3.3-EXTRACT-BOOLEANS",
+        "SV2023-F.5.3.3-EXTRACT-EVENTUALLY",
+        "SV2023-F.5.3.3-EXTRACT-IMPLICATION",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUITY",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUOUS-SATISFACTION",
+        "SV2023-F.5.3.3-EXTRACT-UNTIL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS",
+        "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
+        "SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE",
+        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.12",
+          "descendant_requirement_count": 88
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f533_nonvacuity_separate.sv",
+      "inputs_sha256": "24f1c37c67496804d3ce346e0299873163b0c58cdcf2ac859562f42a88a7eea4",
+      "cited_clauses": [
+        "16.12",
+        "F.5.3.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.3.3-EXTRACT-NONVACUITY"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12-EXTRACT-DECLARATION-INERT",
+        "SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT",
+        "SV2023-16.12-EXTRACT-DISABLE-INTERVAL",
+        "SV2023-16.12-EXTRACT-DISABLE-SYNTAX",
+        "SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-DELAY",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IFF",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-16.12-EXTRACT-PROPERTY-FORMAL-USE",
+        "SV2023-16.12-EXTRACT-PROPERTY-GRAMMAR",
+        "SV2023-16.12-EXTRACT-PROPERTY-INSTANCES",
+        "SV2023-16.12-EXTRACT-PROPERTY-RESULT",
+        "SV2023-16.12-EXTRACT-PROPERTY-SCOPES",
+        "SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY",
+        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES",
+        "SV2023-F.5.3.3-EXTRACT-ABORT",
+        "SV2023-F.5.3.3-EXTRACT-ALWAYS",
+        "SV2023-F.5.3.3-EXTRACT-BASE",
+        "SV2023-F.5.3.3-EXTRACT-BOOLEANS",
+        "SV2023-F.5.3.3-EXTRACT-EVENTUALLY",
+        "SV2023-F.5.3.3-EXTRACT-IMPLICATION",
+        "SV2023-F.5.3.3-EXTRACT-NEXT-TEXT",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUOUS-SATISFACTION",
+        "SV2023-F.5.3.3-EXTRACT-UNTIL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS",
+        "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
+        "SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE",
+        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.12",
+          "descendant_requirement_count": 88
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f533_nonvacuous_satisfaction.sv",
+      "inputs_sha256": "364b8f6226be6ed5b982b752110dbcc33725d8a03bbc381b8a4ca0ed8cae62bd",
+      "cited_clauses": [
+        "16.12",
+        "F.5.3.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.3.3-EXTRACT-NONVACUOUS-SATISFACTION"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12-EXTRACT-DECLARATION-INERT",
+        "SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT",
+        "SV2023-16.12-EXTRACT-DISABLE-INTERVAL",
+        "SV2023-16.12-EXTRACT-DISABLE-SYNTAX",
+        "SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-DELAY",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IFF",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-16.12-EXTRACT-PROPERTY-FORMAL-USE",
+        "SV2023-16.12-EXTRACT-PROPERTY-GRAMMAR",
+        "SV2023-16.12-EXTRACT-PROPERTY-INSTANCES",
+        "SV2023-16.12-EXTRACT-PROPERTY-RESULT",
+        "SV2023-16.12-EXTRACT-PROPERTY-SCOPES",
+        "SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY",
+        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES",
+        "SV2023-F.5.3.3-EXTRACT-ABORT",
+        "SV2023-F.5.3.3-EXTRACT-ALWAYS",
+        "SV2023-F.5.3.3-EXTRACT-BASE",
+        "SV2023-F.5.3.3-EXTRACT-BOOLEANS",
+        "SV2023-F.5.3.3-EXTRACT-EVENTUALLY",
+        "SV2023-F.5.3.3-EXTRACT-IMPLICATION",
+        "SV2023-F.5.3.3-EXTRACT-NEXT-TEXT",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUITY",
+        "SV2023-F.5.3.3-EXTRACT-UNTIL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS",
+        "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
+        "SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE",
+        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.12",
+          "descendant_requirement_count": 88
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_formal_f533_until_operands.sv",
+      "inputs_sha256": "a20d1fef0aa098b9b470e64ca7b645dbf7943a9ae2e1781e96bf6e414a6b6ee6",
+      "cited_clauses": [
+        "16.12",
+        "F.5.3.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-F.5.3.3-EXTRACT-UNTIL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12-EXTRACT-DECLARATION-INERT",
+        "SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT",
+        "SV2023-16.12-EXTRACT-DISABLE-INTERVAL",
+        "SV2023-16.12-EXTRACT-DISABLE-SYNTAX",
+        "SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-DELAY",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IFF",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-16.12-EXTRACT-PROPERTY-FORMAL-USE",
+        "SV2023-16.12-EXTRACT-PROPERTY-GRAMMAR",
+        "SV2023-16.12-EXTRACT-PROPERTY-INSTANCES",
+        "SV2023-16.12-EXTRACT-PROPERTY-RESULT",
+        "SV2023-16.12-EXTRACT-PROPERTY-SCOPES",
+        "SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY",
+        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES",
+        "SV2023-F.5.3.3-EXTRACT-ABORT",
+        "SV2023-F.5.3.3-EXTRACT-ALWAYS",
+        "SV2023-F.5.3.3-EXTRACT-BASE",
+        "SV2023-F.5.3.3-EXTRACT-BOOLEANS",
+        "SV2023-F.5.3.3-EXTRACT-EVENTUALLY",
+        "SV2023-F.5.3.3-EXTRACT-IMPLICATION",
+        "SV2023-F.5.3.3-EXTRACT-NEXT-TEXT",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUITY",
+        "SV2023-F.5.3.3-EXTRACT-NONVACUOUS-SATISFACTION"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -534381,7 +534930,7 @@
     "oracle_issue": 257,
     "partial_observation": 2129
   },
-  "registry_sha256": "7936eac91c32ed387d5671250a6d1a901bdef7ae0b5ec1b8213544d04e253406",
+  "registry_sha256": "35fcd0558f841a58ae9bc519cdb9e3336c578c464500231536d8c3cd7a1d05a8",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "c1dac1a34f1f74e3f694f5ef6218659d24e12fac8b92f59725cdca236f737aec"
 }

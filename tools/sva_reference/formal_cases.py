@@ -766,3 +766,109 @@ F531_PROPERTIES = {
         """},
 }
 PROPERTIES.update(F531_PROPERTIES)
+
+
+# F.5.3.3 nonvacuity.  Each entry is a finite-word property; actual_result is
+# the one-bit F.5.3.3 relation computed by sva_reference.nonvacuity, while the
+# reference is written directly from the clause bullet and never calls the
+# parser, engine, evaluator or nonvacuity module.  a[k] is the sample at tick k.
+NONVACUITY = {
+    # Base: strong(R) and weak(R) are nonvacuous; parentheses and not preserve
+    # nonvacuity.  The conjunction of two negated sequence properties is
+    # therefore nonvacuous on every word, independently of their truth.
+    "f533_base_strong_weak_not": {
+        "expression": "(not (strong(a ##1 b))) and (not (weak(c ##1 d)))",
+        "signals": "abcd", "horizon": 2, "clause": "F.5.3.3",
+        "requirement": "SV2023-F.5.3.3-EXTRACT-BASE",
+        "reference": "always @* reference_result=1'b1;"},
+    # Boolean implication equation: nonvacuous iff the antecedent is true and
+    # both the antecedent evaluation and the consequent evaluation are
+    # nonvacuous.  The antecedent here is the Boolean a; the consequent is the
+    # overlapping implication whose nonvacuity is c[0] && d[1].
+    "f533_booleans_implies": {
+        "expression": "(a) implies ((c ##1 d) |-> e)",
+        "signals": "acde", "horizon": 2, "clause": "F.5.3.3",
+        "requirement": "SV2023-F.5.3.3-EXTRACT-BOOLEANS",
+        "reference": "always @* reference_result=a[0] && c[0] && d[1];"},
+    # Nonvacuity is separate from satisfaction.  For (a ##[1:2] b) |-> c the
+    # relation is a[0] && (b[1] || b[2]) and ignores c and the consequent
+    # truth; a[0]=0 is a vacuous pass and a match with c false is a
+    # nonvacuous failure.  The two tight antecedent endpoints also exercise
+    # the F.5.3.3 implication "there exists an endpoint" rule.
+    "f533_nonvacuity_separate": {
+        "expression": "(a ##[1:2] b) |-> c",
+        "signals": "abc", "horizon": 3, "clause": "F.5.3.3",
+        "requirement": "SV2023-F.5.3.3-EXTRACT-NONVACUITY",
+        "reference": "always @* reference_result=a[0] && (b[1] || b[2]);"},
+    # until: exists an in-word suffix with either operand nonvacuous and every
+    # earlier suffix satisfies left and not right.  Both operands are
+    # overlapping implications, so their suffix nonvacuity is a[i] and
+    # nexttime(c |-> d) has nonvacuity c[i+1]; the earlier-suffix guard is
+    # (!a[j] || b[j]) && c[j+1] && !d[j+1].
+    "f533_until_operands": {
+        "expression": "(a |-> b) until nexttime (c |-> d)",
+        "signals": "abcd", "horizon": 3, "clause": "F.5.3.3",
+        "requirement": "SV2023-F.5.3.3-EXTRACT-UNTIL",
+        "reference": """
+          wire g0=(!a[0]||b[0]) && c[1] && !d[1];
+          wire g1=(!a[1]||b[1]) && c[2] && !d[2];
+          always @* reference_result=(a[0]||c[1])
+            || (g0 && (a[1]||c[2])) || (g0 && g1 && a[2]);
+        """},
+    # always: exists an in-word suffix whose operand is nonvacuous while every
+    # earlier suffix satisfies it.  For a |-> b, nonvacuity at i is a[i] and
+    # satisfaction at j is (!a[j] || b[j]).
+    "f533_always_guard": {
+        "expression": "always (a |-> b)",
+        "signals": "ab", "horizon": 3, "clause": "F.5.3.3",
+        "requirement": "SV2023-F.5.3.3-EXTRACT-ALWAYS",
+        "reference": """
+          wire g0=!a[0]||b[0];
+          wire g1=!a[1]||b[1];
+          always @* reference_result=a[0] || (g0 && a[1])
+            || (g0 && g1 && a[2]);
+        """},
+    # s_eventually: exists an in-word suffix whose operand is nonvacuous while
+    # every earlier suffix satisfies not operand.  For a |-> b, not-operand
+    # truth at j is a[j] && !b[j].
+    "f533_eventually_guard": {
+        "expression": "s_eventually (a |-> b)",
+        "signals": "ab", "horizon": 3, "clause": "F.5.3.3",
+        "requirement": "SV2023-F.5.3.3-EXTRACT-EVENTUALLY",
+        "reference": """
+          wire n0=a[0] && !b[0];
+          wire n1=a[1] && !b[1];
+          always @* reference_result=a[0] || (n0 && a[1])
+            || (n0 && n1 && a[2]);
+        """},
+    # nexttime uses suffix index 1, not any other suffix.  The operand's
+    # nonvacuity at suffix 1 is a[1] && b[2], the antecedent match starting at
+    # tick 1; a[0] && b[1] would be the wrong (index 0) match.
+    "f533_nexttime_index": {
+        "expression": "nexttime ((a ##1 b) |-> c)",
+        "signals": "abc", "horizon": 3, "clause": "F.5.3.3",
+        "requirement": "SV2023-F.5.3.3-EXTRACT-NEXT-TEXT",
+        "reference": "always @* reference_result=a[1] && b[2];"},
+    # disable iff: the operand is nonvacuous and either no abort occurs or an
+    # abort-free prefix already settles the operand.  strong(a ##1 b) fails on
+    # a bottom extension and is satisfied by a top extension until its match
+    # is complete, so a prefix of one letter settles only when a[0] is false.
+    # An abort at tick 1 therefore forces vacuity exactly when a[0] is true;
+    # an abort at tick 0 always does.  (accept_on/reject_on are outside the
+    # supported parser subset.)
+    "f533_abort_disable_iff": {
+        "expression": "disable iff (r) (strong(a ##1 b))",
+        "signals": "abr", "horizon": 2, "clause": "F.5.3.3",
+        "requirement": "SV2023-F.5.3.3-EXTRACT-ABORT",
+        "reference": "always @* reference_result=(!r[0]) && (!r[1] || !a[0]);"},
+    # Nonvacuous satisfaction is satisfaction and nonvacuity.  s_nexttime is a
+    # derived operator: s_nexttime P = not nexttime not P.  On this word its
+    # nonvacuity is a[1] and its satisfaction is (!a[1] || b[1]), so the
+    # conjunction is a[1] && b[1].
+    "f533_nonvacuous_satisfaction": {
+        "expression": "s_nexttime (a |-> b)",
+        "signals": "ab", "horizon": 2, "clause": "F.5.3.3",
+        "requirement": "SV2023-F.5.3.3-EXTRACT-NONVACUOUS-SATISFACTION",
+        "mode": "satisfaction",
+        "reference": "always @* reference_result=a[1] && b[1];"},
+}

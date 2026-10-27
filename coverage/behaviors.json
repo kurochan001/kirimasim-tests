@@ -476802,7 +476802,25 @@
       "acceptance": "disable iff,accept_on,reject_on are nonvacuous iff operand is nonvacuous and either no abort condition occurs or an abort-free prefix already settles the result: bottom extension satisfies operand or top extension fails operand.",
       "source_note": "IEEE 1800-2023 F.5.3.3; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f533_abort_disable_iff.sv",
+          "observation": "SymbiYosysでF.5.3.3のnonvacuityケースf533_abort_disable_iffを実行し、独立RTL参照と比較する。disable iff (r) (strong(a ##1 b)) の全64語で、operand の非空疎性（base で常に真）と abort 規則を比較。abort なしは非空疎、tick 0 の abort は常に空疎、tick 1 の abort は a[0]=0 のときだけ abort-free prefix（1 letter）が strong 失敗で確定済みなので非空疎。参照式 !r[0] && (!r[1] || !a[0])。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b8f0cd796357558e09f24350e405554be0a4c5a029ac6ad893496b35b8f28f48",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f533_abort_disable_iff.sv",
+              "contains": ":formal_case: f533_abort_disable_iff"
+            },
+            {
+              "file": "tests/ch16/test_formal_f533_abort_disable_iff.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.3",
@@ -476821,7 +476839,25 @@
       "acceptance": "always is nonvacuous iff an in-word suffix is nonvacuous and all earlier suffixes satisfy operand; bounded always/s_always use inclusive m..n and earlier m..i-1.",
       "source_note": "IEEE 1800-2023 F.5.3.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f533_always_guard.sv",
+          "observation": "SymbiYosysでF.5.3.3のnonvacuityケースf533_always_guardを実行し、独立RTL参照と比較する。always (a |-> b) の全64語で、非空疎性「ある suffix i で operand が非空疎、全 earlier j で operand が真」を a[0] || (g0 && a[1]) || (g0 && g1 && a[2])（g=!a||b）と比較。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cbb5e6d518a75e90bfac41a171defc7395751d8bec44d408d706cbefe7b1536f",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f533_always_guard.sv",
+              "contains": ":formal_case: f533_always_guard"
+            },
+            {
+              "file": "tests/ch16/test_formal_f533_always_guard.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.3",
@@ -476839,7 +476875,25 @@
       "acceptance": "strong and weak sequence-property evaluations are nonvacuous; parentheses and not preserve nonvacuity.",
       "source_note": "IEEE 1800-2023 F.5.3.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f533_base_strong_weak_not.sv",
+          "observation": "SymbiYosysでF.5.3.3のnonvacuityケースf533_base_strong_weak_notを実行し、独立RTL参照と比較する。(not (strong(a ##1 b))) and (not (weak(c ##1 d))) の全256語で、actual の F.5.3.3 非空疎性と参照RTL（強/弱系列は常に非空疎、not と and は非空疎性を保存）を比較。actual は strong/weak を base で真、not を再帰、and を either-operand で評価する。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1082cd7ade38ab3d8d81d586b2b87379d275a1daef8d14747b0f7890ff97a688",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f533_base_strong_weak_not.sv",
+              "contains": ":formal_case: f533_base_strong_weak_not"
+            },
+            {
+              "file": "tests/ch16/test_formal_f533_base_strong_weak_not.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.3",
@@ -476857,7 +476911,25 @@
       "acceptance": "Property and,or,iff are nonvacuous iff either operand is nonvacuous; implies is nonvacuous iff antecedent holds and both antecedent and consequent are nonvacuous, following the explicit equation.",
       "source_note": "IEEE 1800-2023 F.5.3.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f533_booleans_implies.sv",
+          "observation": "SymbiYosysでF.5.3.3のnonvacuityケースf533_booleans_impliesを実行し、独立RTL参照と比較する。(a) implies ((c ##1 d) |-> e) の全256語で、implies の明示式「antecedent が真、antecedent が非空疎、consequent が非空疎」を a[0] && c[0] && d[1] と比較。consequent に implication を置き、右辺の非空疎性が実際に効く形にした。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "00786906eec2301c8d18b276878aa1eac3ff83f7d4715f0830feebf672b5ad13",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f533_booleans_implies.sv",
+              "contains": ":formal_case: f533_booleans_implies"
+            },
+            {
+              "file": "tests/ch16/test_formal_f533_booleans_implies.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.3",
@@ -476875,7 +476947,25 @@
       "acceptance": "s_eventually is nonvacuous iff an in-word suffix is nonvacuous and all earlier suffixes satisfy not operand; bounded eventually/s_eventually use inclusive m..n and earlier m..i-1.",
       "source_note": "IEEE 1800-2023 F.5.3.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f533_eventually_guard.sv",
+          "observation": "SymbiYosysでF.5.3.3のnonvacuityケースf533_eventually_guardを実行し、独立RTL参照と比較する。s_eventually (a |-> b) の全64語で、非空疎性「ある suffix i で operand が非空疎、全 earlier j で not operand が真」を a[0] || (n0 && a[1]) || (n0 && n1 && a[2])（n=a&&!b）と比較。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "63f60111842b964176b1778f428fa0b6dedd6ab74a55be3ec9c65fe6f76c4395",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f533_eventually_guard.sv",
+              "contains": ":formal_case: f533_eventually_guard"
+            },
+            {
+              "file": "tests/ch16/test_formal_f533_eventually_guard.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.3",
@@ -476929,7 +477019,25 @@
       "acceptance": "A vacuity oracle reports nexttime P as nonvacuous on w exactly when |w| > 0 and P is nonvacuous on w^1..; nonvacuity of P on any other suffix does not make nexttime P nonvacuous.",
       "source_note": "IEEE 1800-2023 F.5.3.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue VACUITY-NEXT-INDEX resolved on 2026-10-24: All own-body definitions, quantified conditions, equations and boundaries reviewed; the nexttime equation in B002 (printed 'nextime' with an unbound index) is read with suffix index 1, matching nexttime neutral satisfaction in F.5.3.1 B013.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f533_nexttime_index.sv",
+          "observation": "SymbiYosysでF.5.3.3のnonvacuityケースf533_nexttime_indexを実行し、独立RTL参照と比較する。nexttime ((a ##1 b) |-> c) の全512語で、nexttime の非空疎性が suffix index 1 の P 非空疎性 a[1] && b[2] に等しいことを独立RTLと比較。index 0 の a[0] && b[1] ではないことを直接固定する。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e464e6dfa81d9252b152ab6377402569878d2f3beacd18674fd59b3194165ef9",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f533_nexttime_index.sv",
+              "contains": ":formal_case: f533_nexttime_index"
+            },
+            {
+              "file": "tests/ch16/test_formal_f533_nexttime_index.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.3",
@@ -476947,7 +477055,25 @@
       "acceptance": "Nonvacuity is a separate evaluation relation; a property evaluation can be nonvacuous independently of whether it satisfies the property.",
       "source_note": "IEEE 1800-2023 F.5.3.3; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f533_nonvacuity_separate.sv",
+          "observation": "SymbiYosysでF.5.3.3のnonvacuityケースf533_nonvacuity_separateを実行し、独立RTL参照と比較する。(a ##[1:2] b) |-> c の全512語で非空疎性 a[0] && (b[1] || b[2]) を独立RTLと比較。非空疎性は c の真偽と独立で、a[0]=0 は vacuous pass、antecedent match かつ c 偽は nonvacuous failure になる。2つの tight endpoint により implication の「ある endpoint が存在」も直接固定する。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "24f1c37c67496804d3ce346e0299873163b0c58cdcf2ac859562f42a88a7eea4",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f533_nonvacuity_separate.sv",
+              "contains": ":formal_case: f533_nonvacuity_separate"
+            },
+            {
+              "file": "tests/ch16/test_formal_f533_nonvacuity_separate.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.3",
@@ -476965,7 +477091,25 @@
       "acceptance": "Nonvacuous satisfaction requires both satisfaction and nonvacuity; derived operators not explicitly listed use their defining expansions.",
       "source_note": "IEEE 1800-2023 F.5.3.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f533_nonvacuous_satisfaction.sv",
+          "observation": "SymbiYosysでF.5.3.3のnonvacuityケースf533_nonvacuous_satisfactionを実行し、独立RTL参照と比較する。派生演算子 s_nexttime (a |-> b) の全16語で、非空疎満足 = 満足 ∧ 非空疎 を独立RTL a[1] && b[1] と比較。s_nexttime P = not nexttime not P の展開で非空疎性 a[1]、満足 !a[1] || b[1] となり、両者の積が a[1] && b[1]。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "364b8f6226be6ed5b982b752110dbcc33725d8a03bbc381b8a4ca0ed8cae62bd",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f533_nonvacuous_satisfaction.sv",
+              "contains": ":formal_case: f533_nonvacuous_satisfaction"
+            },
+            {
+              "file": "tests/ch16/test_formal_f533_nonvacuous_satisfaction.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.3",
@@ -476983,7 +477127,25 @@
       "acceptance": "until and s_until are nonvacuous iff some in-word suffix has either operand nonvacuous and all earlier suffixes satisfy left operand and not right operand.",
       "source_note": "IEEE 1800-2023 F.5.3.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_formal_f533_until_operands.sv",
+          "observation": "SymbiYosysでF.5.3.3のnonvacuityケースf533_until_operandsを実行し、独立RTL参照と比較する。(a |-> b) until nexttime (c |-> d) の全4096語で、until の「ある suffix で either operand が非空疎、全 earlier suffix で left が真かつ right が偽」を独立RTLの g0/g1 ガード式と比較。両 operand を implication にして、suffix ごとの非空疎性が自明でない形にした。 区別: nonvacuity関係を独立RTL参照で実装し、参照評価器と全入力一致をBMCで証明する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a20d1fef0aa098b9b470e64ca7b645dbf7943a9ae2e1781e96bf6e414a6b6ee6",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_formal_f533_until_operands.sv",
+              "contains": ":formal_case: f533_until_operands"
+            },
+            {
+              "file": "tests/ch16/test_formal_f533_until_operands.sv",
+              "contains": "// formal result: PASS"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "F.5.3.3",

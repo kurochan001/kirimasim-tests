@@ -275,6 +275,42 @@
    "status": "pass",
    "inputs_sha256": "99527b60b15d306f296a683d501a1bb3777329e283b3688dc28505fbcff19679"
   },
+  "ch16/test_formal_f533_abort_disable_iff": {
+   "status": "pass",
+   "inputs_sha256": "b8f0cd796357558e09f24350e405554be0a4c5a029ac6ad893496b35b8f28f48"
+  },
+  "ch16/test_formal_f533_always_guard": {
+   "status": "pass",
+   "inputs_sha256": "cbb5e6d518a75e90bfac41a171defc7395751d8bec44d408d706cbefe7b1536f"
+  },
+  "ch16/test_formal_f533_base_strong_weak_not": {
+   "status": "pass",
+   "inputs_sha256": "1082cd7ade38ab3d8d81d586b2b87379d275a1daef8d14747b0f7890ff97a688"
+  },
+  "ch16/test_formal_f533_booleans_implies": {
+   "status": "pass",
+   "inputs_sha256": "00786906eec2301c8d18b276878aa1eac3ff83f7d4715f0830feebf672b5ad13"
+  },
+  "ch16/test_formal_f533_eventually_guard": {
+   "status": "pass",
+   "inputs_sha256": "63f60111842b964176b1778f428fa0b6dedd6ab74a55be3ec9c65fe6f76c4395"
+  },
+  "ch16/test_formal_f533_nexttime_index": {
+   "status": "pass",
+   "inputs_sha256": "e464e6dfa81d9252b152ab6377402569878d2f3beacd18674fd59b3194165ef9"
+  },
+  "ch16/test_formal_f533_nonvacuity_separate": {
+   "status": "pass",
+   "inputs_sha256": "24f1c37c67496804d3ce346e0299873163b0c58cdcf2ac859562f42a88a7eea4"
+  },
+  "ch16/test_formal_f533_nonvacuous_satisfaction": {
+   "status": "pass",
+   "inputs_sha256": "364b8f6226be6ed5b982b752110dbcc33725d8a03bbc381b8a4ca0ed8cae62bd"
+  },
+  "ch16/test_formal_f533_until_operands": {
+   "status": "pass",
+   "inputs_sha256": "a20d1fef0aa098b9b470e64ca7b645dbf7943a9ae2e1781e96bf6e414a6b6ee6"
+  },
   "ch16/test_formal_f5_fusion": {
    "status": "pass",
    "inputs_sha256": "d0bf9d056e2fbc8e4c0daa8ade9d8fe0389ba928adc88983287ace789e9434be"
@@ -400,7 +436,7 @@
    "inputs_sha256": "74d445167ae87d08ac5095edeebd9feded27ad081dffb5bbdc0948c51801b4fa"
   }
  },
- "generated_at": "2026-10-27T04:06:55.201237+00:00",
+ "generated_at": "2026-10-27T04:59:09.060282+00:00",
  "runner_sha256": "098266f83e119e304a0e1a8f7cc1c6da8146fb72e6a9aa19a104e1a2d3823fa2",
  "runner_changed": false,
  "configuration": {
