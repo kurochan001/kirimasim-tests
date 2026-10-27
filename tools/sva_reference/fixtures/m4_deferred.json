@@ -98,5 +98,30 @@
     "evidence": [
       ":vpi_c:"
     ]
+  },
+  "tests/ch16/test_global_clock_future_action_delay.sv": {
+    "source_sha256": "0f4c93d9c88ae528421d040fb72040bacb74cfe66a42c5c30e2612b8399a3913",
+    "reason": "Global-clock future functions with action scheduling need a global clock history and action-delay model",
+    "evidence": [
+      "$future_gclk",
+      "action delay"
+    ]
+  },
+  "tests/ch16/test_global_clocking_sampled_functions.sv": {
+    "source_sha256": "3df109e251afc175bc143b69480e97d2fdb28a69e8934e3db0385e847e6eb790",
+    "reason": "Global clocking sampled functions need a global clock history model",
+    "evidence": [
+      "$future_gclk",
+      "$past_gclk",
+      "global clocking"
+    ]
+  },
+  "tests/ch39/test_vpi_future_success_callback_time.sv": {
+    "source_sha256": "f9ac85d46eafcab0e46fcf4727e91b1224c52f9b38ecafe7cbc322f0acef2e79",
+    "reason": "The VPI future-success callback schedule is outside the M4 single-clock static audit",
+    "evidence": [
+      "$future_gclk",
+      "VPI callback"
+    ]
   }
 }
