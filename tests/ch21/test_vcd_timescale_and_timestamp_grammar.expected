@@ -1,0 +1,6 @@
+the file has one timescale section: 1
+the timescale number is 1, 10 or 100: 1
+the timescale unit is s, ms, us, ns, ps or fs: 1
+the timescale is the 100us of the design: 1
+every timestamp is # and a decimal number: 1
+the changes are at the times 0, 2 and 5: 1

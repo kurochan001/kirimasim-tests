@@ -1,0 +1,4 @@
+wand inside, wand outside:     driven inside 001110, outside 001110
+wand inside, triand outside:   driven inside 001110, outside 001110
+triand inside, wand outside:   driven inside 001110, outside 001110
+triand inside, triand outside: driven inside 001110, outside 001110

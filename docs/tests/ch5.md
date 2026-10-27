@@ -1,6 +1,6 @@
 # Clause 5: Lexical conventions
 
-[All chapters](README.md). 343 tests, 248 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 345 tests, 248 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -78,6 +78,7 @@
 | [`test_lexical_strings`](../../tests/ch5/test_lexical_strings.sv) | Chapter 5.9: String literals | 5.9 5.9.1 6.16 | Verilator 5.052 |  |
 | [`test_quoted_string_items_and_every_escape_form`](../../tests/ch5/test_quoted_string_items_and_every_escape_form.sv) | A quoted string holds printable characters other than backslash and double quote directly, and every form of escape sequence: a backslash before a character of Table 5-1, before another character, before a newline, before one to three octal digits and before x with one or two hex digits | 5.9 5.9.1 A.8.8 | Icarus Verilog 13.0 |  |
 | [`test_string_literal_cast_justification`](../../tests/ch5/test_string_literal_cast_justification.sv) | A string literal cast to a packed array type is right justified and one cast to an unpacked array of bytes is left justified, as when it is assigned | 5.9 6.24.1 | standard only |  |
+| [`test_string_literal_no_length_limit`](../../tests/ch5/test_string_literal_no_length_limit.sv) | One quoted string literal of 2048 characters, longer than the 1024-character minimum identifier limit of 5.6, is accepted with its exact length and characters | 5.9 | Icarus Verilog 13.0 |  |
 | [`test_string_literal_packed_bytes_and_compare`](../../tests/ch5/test_string_literal_packed_bytes_and_compare.sv) | A string literal stored in a packed array of bytes has the encoding of the flat vector, and a literal used with a string operand is converted to a string and compared character by character | 5.9 6.16 | Icarus Verilog 13.0 |  |
 | [`test_string_literal_to_unpacked_byte_array`](../../tests/ch5/test_string_literal_to_unpacked_byte_array.sv) | A string literal assigned to an unpacked array of bytes fills it from the left element, padding the rest with 0 | 5.9 7.4 | standard only |  |
 | [`test_triple_quoted_and_quoted_string_contents`](../../tests/ch5/test_triple_quoted_and_quoted_string_contents.sv) | A string literal is a quoted or a triple-quoted string; the triple-quoted one holds newlines and double quotes, also two in a row, as plain characters, while a backslash still starts the same escape sequences as in a quoted string | 5.9 5.9.1 A.8.8 | Verilator 5.052 |  |
@@ -94,6 +95,7 @@
 | [`test_attrib_signal`](../../tests/ch5/test_attrib_signal.sv) | Test: Signal attributes | 5.12 | Icarus Verilog 13.0 |  |
 | [`test_attribute_instance_specifications`](../../tests/ch5/test_attribute_instance_specifications.sv) | An attribute instance holds one or more comma-separated attribute specifications before a module, a net, a variable, a module instance, a port connection, an operator and a function call; a specification is an attribute name or a name with a constant expression as its value, and the attributes change no value | 5.12 A.9.1 | Icarus Verilog 13.0 |  |
 | [`test_attribute_latch_generate`](../../tests/ch5/test_attribute_latch_generate.sv) | An attribute on a variable, always_latch, and a variable in a generate loop | 5.12 9.2.2.3 27.4 | Icarus Verilog 13.0 |  |
+| [`test_attribute_prefix_positions`](../../tests/ch5/test_attribute_prefix_positions.sv) | An attribute instance is accepted as the prefix of a module, a declaration, a module item, a statement, a generate item, a port connection and an ANSI port declaration, and the arbitrary attribute names change no value | 5.12 | Verilator 5.052 |  |
 | [`test_illegal_attribute_instance_nested`](../../tests/ch5/test_illegal_attribute_instance_nested.sv) | An attribute instance written inside another attribute instance is rejected | 5.12 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_attribute_value_contains_attribute`](../../tests/ch5/test_illegal_attribute_value_contains_attribute.sv) | An attribute whose value expression contains an attribute instance is rejected | 5.12 | Verilator 5.052 | illegal design |
 | [`test_builtin_method_forms_after_mutation`](../../tests/ch5/test_builtin_method_forms_after_mutation.sv) | Parenthesized and argumentless forms of builtin methods observe the same updated object | 5.13 | Verilator 5.052 |  |

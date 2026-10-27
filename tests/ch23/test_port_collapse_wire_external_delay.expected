@@ -1,0 +1,4 @@
+wire inside, wire outside: driven inside 001110, outside 001110
+wire inside, tri outside:  driven inside 001110, outside 001110
+tri inside, wire outside:  driven inside 001110, outside 001110
+tri inside, tri outside:   driven inside 001110, outside 001110

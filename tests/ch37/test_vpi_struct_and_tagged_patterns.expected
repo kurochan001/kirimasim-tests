@@ -1,0 +1,5 @@
+case on p: struct pattern with 2 member patterns: 1, 2
+case on p: struct pattern with 2 member patterns: 3, 4
+case on u: tagged pattern Narrow, member any pattern n, typespec vpiByteTypespec
+case on u: tagged pattern Wide, member any pattern w, typespec vpiIntTypespec
+patterns: 4

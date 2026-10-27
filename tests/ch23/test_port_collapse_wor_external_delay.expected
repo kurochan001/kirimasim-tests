@@ -1,0 +1,4 @@
+wor inside, wor outside:       driven inside 001110, outside 001110
+wor inside, trior outside:     driven inside 001110, outside 001110
+trior inside, wor outside:     driven inside 001110, outside 001110
+trior inside, trior outside:   driven inside 001110, outside 001110

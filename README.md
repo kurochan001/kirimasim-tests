@@ -45,21 +45,21 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **7327 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **7345 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4167 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1448 |
-| The standard only, with no fixed-release simulator oracle recorded | 1712 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4169 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1453 |
+| The standard only, with no fixed-release simulator oracle recorded | 1723 |
 
-891 tests depend on x or z values (`:fourstate: yes`). 601 tests come with C code: 118 DPI tests (`:dpi_c:`) and 483 VPI tests (`:vpi_c:`). 1890 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 21 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 5 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+893 tests depend on x or z values (`:fourstate: yes`). 603 tests come with C code: 118 DPI tests (`:dpi_c:`) and 485 VPI tests (`:vpi_c:`). 1893 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 21 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 5 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 86 | 64 | 12 | 10 |
 | 4 | Scheduling semantics | 412 | 391 | 5 | 16 |
-| 5 | Lexical conventions | 343 | 323 | 13 | 7 |
+| 5 | Lexical conventions | 345 | 324 | 14 | 7 |
 | 6 | Data types | 594 | 356 | 135 | 103 |
 | 7 | Aggregate data types | 482 | 179 | 234 | 69 |
 | 8 | Classes | 321 | 67 | 182 | 72 |
@@ -71,13 +71,13 @@ The suite has **7327 tests** in 37 chapters. 1308 of them are generated (`tests/
 | 14 | Clocking blocks | 78 | 4 | 61 | 13 |
 | 15 | Interprocess synchronization and communication | 56 | 2 | 36 | 18 |
 | 16 | Assertions | 374 | 104 | 62 | 208 |
-| 17 | Checkers | 77 |  | 22 | 55 |
+| 17 | Checkers | 81 |  | 22 | 59 |
 | 18 | Constrained random value generation | 200 | 26 | 95 | 79 |
 | 19 | Functional coverage | 145 | 2 | 17 | 126 |
-| 20 | Utility system tasks and system functions | 269 | 200 | 24 | 45 |
-| 21 | Input/output system tasks and system functions | 205 | 140 | 14 | 51 |
+| 20 | Utility system tasks and system functions | 270 | 200 | 24 | 46 |
+| 21 | Input/output system tasks and system functions | 207 | 141 | 14 | 52 |
 | 22 | Compiler directives | 348 | 327 | 11 | 10 |
-| 23 | Modules and hierarchy | 230 | 137 | 34 | 59 |
+| 23 | Modules and hierarchy | 237 | 137 | 38 | 62 |
 | 24 | Programs | 43 | 21 | 5 | 17 |
 | 25 | Interfaces | 119 | 31 | 57 | 31 |
 | 26 | Packages | 83 | 53 | 16 | 14 |
@@ -91,7 +91,7 @@ The suite has **7327 tests** in 37 chapters. 1308 of them are generated (`tests/
 | 34 | Protected envelopes | — | | | |
 | 35 | Direct programming interface | 123 | 5 | 76 | 42 |
 | 36 | Programming language interface (PLI/VPI) overview | 84 | 29 | 19 | 36 |
-| 37 | VPI object model diagrams | 222 | 15 | 1 | 206 |
+| 37 | VPI object model diagrams | 224 | 15 | 1 | 208 |
 | 38 | VPI routine definitions | 106 | 54 | 9 | 43 |
 | 39 | Assertion API | 39 |  | 1 | 38 |
 | 40 | Code coverage control and API | 31 | 1 | 2 | 28 |

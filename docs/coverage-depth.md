@@ -6,7 +6,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 7327 |
+| Tests | 7345 |
 | Clauses in scope | 999 |
 | Clauses out of scope | 160 |
 | Clauses with a direct test | 999/999 |
@@ -18,10 +18,10 @@
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 623 |
-| Icarus Verilog 13.0 only | 3544 |
-| Verilator 5.052 only | 1448 |
-| standard only | 1712 |
+| both releases | 624 |
+| Icarus Verilog 13.0 only | 3545 |
+| Verilator 5.052 only | 1453 |
+| standard only | 1723 |
 
 ## By chapter
 
@@ -29,7 +29,7 @@
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 86 | 16 | 5.4 | 0 | 10 |
 | 4 | Scheduling semantics | 412 | 27 | 15.3 | 0 | 16 |
-| 5 | Lexical conventions | 343 | 16 | 21.4 | 0 | 7 |
+| 5 | Lexical conventions | 345 | 16 | 21.6 | 0 | 7 |
 | 6 | Data types | 594 | 76 | 7.8 | 0 | 103 |
 | 7 | Aggregate data types | 482 | 49 | 9.8 | 0 | 69 |
 | 8 | Classes | 321 | 43 | 7.5 | 0 | 72 |
@@ -41,13 +41,13 @@
 | 14 | Clocking blocks | 78 | 15 | 5.2 | 0 | 13 |
 | 15 | Interprocess synchronization and communication | 56 | 21 | 2.7 | 0 | 18 |
 | 16 | Assertions | 374 | 69 | 5.4 | 0 | 208 |
-| 17 | Checkers | 77 | 10 | 7.7 | 0 | 55 |
+| 17 | Checkers | 81 | 10 | 8.1 | 0 | 59 |
 | 18 | Constrained random value generation | 200 | 44 | 4.5 | 0 | 79 |
 | 19 | Functional coverage | 145 | 24 | 6.0 | 0 | 126 |
-| 20 | Utility system tasks and system functions | 269 | 31 | 8.7 | 0 | 45 |
-| 21 | Input/output system tasks and system functions | 205 | 47 | 4.4 | 0 | 51 |
+| 20 | Utility system tasks and system functions | 270 | 31 | 8.7 | 0 | 46 |
+| 21 | Input/output system tasks and system functions | 207 | 47 | 4.4 | 0 | 52 |
 | 22 | Compiler directives | 348 | 21 | 16.6 | 0 | 10 |
-| 23 | Modules and hierarchy | 230 | 32 | 7.2 | 0 | 59 |
+| 23 | Modules and hierarchy | 237 | 32 | 7.4 | 0 | 62 |
 | 24 | Programs | 43 | 7 | 6.1 | 0 | 17 |
 | 25 | Interfaces | 119 | 12 | 9.9 | 0 | 31 |
 | 26 | Packages | 83 | 6 | 13.8 | 0 | 14 |
@@ -60,7 +60,7 @@
 | 33 | Configuring the contents of a design | 42 | 13 | 3.2 | 0 | 22 |
 | 35 | Direct programming interface | 123 | 20 | 6.2 | 0 | 42 |
 | 36 | Programming language interface (PLI/VPI) overview | 84 | 19 | 4.4 | 0 | 36 |
-| 37 | VPI object model diagrams | 222 | 94 | 2.4 | 0 | 206 |
+| 37 | VPI object model diagrams | 224 | 94 | 2.4 | 0 | 208 |
 | 38 | VPI routine definitions | 106 | 46 | 2.3 | 0 | 43 |
 | 39 | Assertion API | 39 | 7 | 5.6 | 0 | 38 |
 | 40 | Code coverage control and API | 31 | 18 | 1.7 | 0 | 28 |

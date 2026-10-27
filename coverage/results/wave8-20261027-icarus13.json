@@ -1,0 +1,99 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch17/test_checker_empty_assume_set_step": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_empty_assume_set_step.sv:31: syntax error",
+   "inputs_sha256": "d8639a5724680fb8448f2c881db3047f2bad4f45191b5f363fcd5baf8c4ebde8"
+  },
+  "ch17/test_illegal_checker_enclosing_references": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_enclosing_references\\\\.sv:(29|33|37):'; the first is: tests/ch17/test_illegal_checker_enclosing_references.sv:28: syntax error",
+   "inputs_sha256": "aefcceed83a301445aba052b3326f265a82ffb004840440be6726fa91eab74b7"
+  },
+  "ch17/test_illegal_checker_port_types": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_port_types\\\\.sv:(32|36|39):'; the first is: tests/ch17/test_illegal_checker_port_types.sv:27: syntax error",
+   "inputs_sha256": "69d399e8e1b60e963c8b0b24d43171d48b946643b1dc34a76275a3bcefb82d0f"
+  },
+  "ch17/test_illegal_checker_rewritten_automatic": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_rewritten_automatic\\\\.sv:(28|45):'; the first is: tests/ch17/test_illegal_checker_rewritten_automatic.sv:27: syntax error",
+   "inputs_sha256": "5d1d4a25fd5dac90d60cb044f5fc125cff63e7108daa26898ea1d7b02ab2a7a2"
+  },
+  "ch20/test_pla_all_forms": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SORRY: tests/ch20/test_pla_all_forms.sv:56: task $async$a...', expected 'v=111 sync array and=111 or=111 nand=000 nor=000'",
+   "inputs_sha256": "8bf6e04d37d3e879f5df3cb756f9d015e168cfd54a4938cfa43a8560c5d638f9"
+  },
+  "ch21/test_vcd_timescale_and_timestamp_grammar": {
+   "status": "pass",
+   "inputs_sha256": "4cd20c5a6590162a6aa4f5db1f3a7db9e112145ace65e7613a265d6e8ee88aa9"
+  },
+  "ch21/test_vcd_version_records_dumpfile_call": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'the version names the $dumpfile call: 0', expected 'the version names the $dumpfile call: 1'",
+   "inputs_sha256": "ad7dde1d53a5fbb662e8b0757628697afeba125d16567583a693522dd5ab6748"
+  },
+  "ch23/test_port_collapse_trireg_external_charge": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_port_collapse_trireg_external_charge.sv:36: sorry: trireg nets not supported.",
+   "inputs_sha256": "9469eb428590797ccd39d787468eefbd56bce2e88cb22498b9df3f87a035f48f"
+  },
+  "ch23/test_port_collapse_uwire_external_delay": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_port_collapse_uwire_external_delay.sv:37: sorry: Net delays not supported.",
+   "inputs_sha256": "6d21685c1850003a19c81babf813c3589a0bb387e41a036ecd7b5348a16a4f89"
+  },
+  "ch23/test_port_collapse_wand_external_delay": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_port_collapse_wand_external_delay.sv:40: sorry: Net delays not supported.",
+   "inputs_sha256": "ec398c137f5355e6c704a6f88bb227636a10f169db4f91feaf30f74503a2962e"
+  },
+  "ch23/test_port_collapse_wand_uwire_warning": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_port_collapse_wand_uwire_warning.sv:40: sorry: Net delays not supported.",
+   "inputs_sha256": "1fb0be5a397cb85de0ae7f84453933bd4fc1bc140763043e9f9a0342b6b02694"
+  },
+  "ch23/test_port_collapse_wire_external_delay": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_port_collapse_wire_external_delay.sv:37: sorry: Net delays not supported.",
+   "inputs_sha256": "fd3af5adde7be23d7337fd254d40302f72b3cb96445b65068142e703afda2687"
+  },
+  "ch23/test_port_collapse_wor_external_delay": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_port_collapse_wor_external_delay.sv:41: sorry: Net delays not supported.",
+   "inputs_sha256": "15d909a074d92125de5889f152d5778593c7fa2c483a2ac1ad1c02dfd2ad1962"
+  },
+  "ch23/test_port_collapse_wor_uwire_warning": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_port_collapse_wor_uwire_warning.sv:39: sorry: Net delays not supported.",
+   "inputs_sha256": "25993c60fdf4dc2fe694640b6e7ddf29e1a795cee36dec6f9e8a04fb32c07d41"
+  },
+  "ch37/test_vpi_attribute_value_types": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "1753bc163f1922266f2aff7151c19ed577c523f992462c1f0b4be82d300fe91f"
+  },
+  "ch37/test_vpi_struct_and_tagged_patterns": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "740b923d0728013fd8f34b5131e2d3a410ec369ab5efc0c6e50d8a9c020d0083"
+  },
+  "ch5/test_attribute_prefix_positions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch5/test_attribute_prefix_positions.sv:50: syntax error",
+   "inputs_sha256": "7d00033b71e5b45b3a0da8a11f699a34bf2e76c95af4d3f464f5371ba34cfe51"
+  },
+  "ch5/test_string_literal_no_length_limit": {
+   "status": "pass",
+   "inputs_sha256": "ee58a92ef2eff416febbe486551b4c3371d7f13d4fbe3340b22b4aa3e8b4cc1e"
+  }
+ },
+ "generated_at": "2026-10-27T00:03:17.546118+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 85.02%、実行 46.55%。**
+**全規格の要求台帳ベース（暫定）: 設計 85.26%、実行 46.60%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10474/12319 (85.02%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5734/12319 (46.55%)。
-- 登録済みだがテスト未対応: 1845 動作。
+- 登録済み動作に対するテスト設計網羅率: 10503/12319 (85.26%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5741/12319 (46.60%)。
+- 登録済みだがテスト未対応: 1816 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -47,7 +47,7 @@
 - `associative-wildcard-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:00:52.942221+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.310380+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.305806+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2844/12319 動作確認、古い入力との対応 328 件。
+- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2843/12319 動作確認、古い入力との対応 329 件。
 - `audit-oracle-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T22:23:59.392020+00:00 / 132/12319 動作確認、古い入力との対応 13 件。
 - `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 16/12319 動作確認、古い入力との対応 304 件。
 - `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 304 件。
@@ -63,9 +63,12 @@
 - `ch37-depth-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:43:02.687407+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch37-depth-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:43:02.822987+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch37-depth-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:43:02.963097+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `ch5-rehash-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:09:39.229521+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `ch5-rehash-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:09:42.230539+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `ch5-rehash-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:09:45.032088+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `ch5-rehash-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:09:39.229521+00:00 / 0/12319 動作確認、古い入力との対応 1 件。
+- `ch5-rehash-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:09:42.230539+00:00 / 0/12319 動作確認、古い入力との対応 1 件。
+- `ch5-rehash-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:09:45.032088+00:00 / 0/12319 動作確認、古い入力との対応 1 件。
+- `ch5-rehash-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-27T00:03:52.539190+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
+- `ch5-rehash-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T00:03:55.682364+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `ch5-rehash-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T00:03:58.656387+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `citation-refinement-icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T14:29:24.878016+00:00 / 11/12319 動作確認、古い入力との対応 0 件。
 - `citation-refinement-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:29:34.097194+00:00 / 18/12319 動作確認、古い入力との対応 0 件。
 - `depthfix-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T05:54:55.670342+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
@@ -162,6 +165,9 @@
 - `wave7-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T23:01:47.236167+00:00 / 3/12319 動作確認、古い入力との対応 1 件。
 - `wave7-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T23:02:01.308709+00:00 / 8/12319 動作確認、古い入力との対応 1 件。
 - `wave7-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T23:02:01.308708+00:00 / 8/12319 動作確認、古い入力との対応 1 件。
+- `wave8-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-27T00:03:17.546118+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
+- `wave8-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T00:03:27.937262+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
+- `wave8-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T00:03:37.993900+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
 
 ## 章・附属書別の調査状態
 
@@ -171,7 +177,7 @@
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 117。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 80。
-- 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 133。
+- 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 136。
 - 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 676。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 324。
 - 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 222。
@@ -183,13 +189,13 @@
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 59。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 68。
 - 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 486。
-- 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 55。
+- 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 59。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 300。
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 215。
-- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 275。
-- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 332。
+- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 285。
+- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 334。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 328。
-- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 220。
+- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 227。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 16。
 - 25 Interfaces: 解釈保留なし 23/25、登録 63、テスト対応 43。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 39。
@@ -203,7 +209,7 @@
 - 34 Protected envelopes: 解釈保留なし 103/104、登録 215、テスト対応 0。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 99。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 137。
-- 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1653。
+- 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1656。
 - 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 253。
 - 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 82。
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 82。
@@ -4409,7 +4415,7 @@ A multidimensional packed target can store the same string encoding as its equiv
 
 ### SV2023-5.9-EXTRACT-STRING-NO-STANDARD-LIMIT
 
-5.9 / normal / テスト未対応
+5.9 / normal / 実行確認あり
 
 The language defines no fixed maximum string-literal length.
 
@@ -4417,6 +4423,7 @@ The language defines no fixed maximum string-literal length.
 
 規定の性質: `definition`。
 
+- [test_string_literal_no_length_limit.sv](../tests/ch5/test_string_literal_no_length_limit.sv): 単一の二重引用符文字列リテラルを 80 文字ずつ 26 行に分け、各行末のバックスラッシュ改行で連結して 2048 文字の 1 リテラルにし、len=2048、文字 0 が 48、文字 1023 が 102、文字 2047 が 102 を出力する。2048 は 5.6 が実装に許す識別子長の下限 1024 を超える。 区別: 文字列リテラルにも識別子の 1024 文字上限を課す実装はこの設計を受理しないか切り詰め、len または 1023 番目・2047 番目の文字が変わる。継続行を 1 リテラルとして扱わない実装では改行が混入して len が変わる。
 
 ### SV2023-5.9-EXTRACT-STRING-PACKED-ALIGN
 
@@ -4944,7 +4951,7 @@ A tool may warn about duplicate attribute specifications.
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-EXPRESSION-TYPE
 
-5.12 / normal / テスト未対応
+5.12 / normal / テスト対応あり・実行未確認
 
 An attribute with a value has the type of that value expression.
 
@@ -4952,6 +4959,7 @@ An attribute with a value has the type of that value expression.
 
 規定の性質: `definition`。
 
+- [test_vpi_attribute_value_types.sv](../tests/ch37/test_vpi_attribute_value_types.sv): The variable iv carries four attributes with different value expressions: num = -3, frac = 2.5, nib = 4'b1010 and text = "AB". vpi_get_value with vpiObjTypeVal returns vpiIntVal for num with the integer -3, vpiRealVal for frac with the real 2.50, vpiVectorVal for nib with aval a bval 0, and vpiVectorVal for text with aval 4142 bval 0, so the 16-bit string literal is an unsigned integer constant and not an integer; vpiStringVal on the same text attribute gives the characters AB. 区別: An implementation that gave every attribute the default bit type, or one integral type for all of them, would reject the real and the string value or would report vpiIntVal for them and lose the fraction 0.5 or the two ASCII characters 41 and 42. The printed format and value change for any other type rule, and the string value in vpiStringVal shows the 16-bit vector holds exactly A and B.
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-INSTANCE-SYNTAX
 
@@ -4989,7 +4997,7 @@ Attributes attach tool-consumable properties; this syntax clause does not standa
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-PREFIX-PLACEMENT
 
-5.12 / normal / テスト未対応
+5.12 / normal / 実行確認あり
 
 Attributes may prefix declarations, module items, statements or port connections at the grammar-authorized positions.
 
@@ -4997,6 +5005,7 @@ Attributes may prefix declarations, module items, statements or port connections
 
 規定の性質: `permission`。
 
+- [test_attribute_prefix_positions.sv](../tests/ch5/test_attribute_prefix_positions.sv): 属性インスタンスを、モジュール宣言、net・変数・parameter・localparam・typedef・function・task 宣言、連続代入、モジュールインスタンスと名前付きポート接続、ANSI ポート宣言、always_comb、initial、ループ generate と条件 generate とその項目、class 宣言とメンバ、interface と package とその項目、および代入・if・case・for・repeat・名前付きブロック・task 呼び出しの各文の前に置き、v=9 n=9 ob=0 inc=4 と gen=1 class=7 t=4 cv=9 を出力する。 区別: いずれかの許された前置位置を拒否する実装はコンパイルに失敗して出力に達しない。任意名の属性は値を変えないため、位置を受理して同じ値で動くことが観測であり、受理しない実装だけが出力を欠く。
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-SUFFIX-PLACEMENT
 
@@ -43456,7 +43465,7 @@ Checkers may be declared in modules, interfaces, programs, checkers, packages, g
 
 ### SV2023-17.2-EXTRACT-ENCLOSING-REFERENCES
 
-17.2 / error / テスト未対応
+17.2 / error / テスト対応あり・実行未確認
 
 A checker shall not reference enclosing-scope automatic variables, members/elements of dynamic variables, or elements of any fork-join variant.
 
@@ -43464,6 +43473,7 @@ A checker shall not reference enclosing-scope automatic variables, members/eleme
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_enclosing_references.sv](../tests/ch17/test_illegal_checker_enclosing_references.sv): The automatic module declares auto_var, the queue q and the named fork block f with the static variable fx. Checkers ref_auto, ref_dyn and ref_fork read auto_var, q\[0\] and f.fx in always_comb, so the design contains an enclosing automatic variable, an element of a dynamic variable and an element of a fork-join block. 区別: Each of the three references is separately prohibited by 17.2. A tool that accepts any one of them does not diagnose at its line, while the expected diagnostic must fall on line 29, 33 or 37; the rest of the design, which reads only formals and local variables, is legal.
 
 ### SV2023-17.2-EXTRACT-EXPLICIT-DIRECTION-TYPE
 
@@ -43562,7 +43572,7 @@ Checker ports may be input or output; omitted direction inherits the previous di
 
 ### SV2023-17.2-EXTRACT-PORT-TYPES
 
-17.2 / error / テスト未対応
+17.2 / error / テスト対応あり・実行未確認
 
 Checker formal types are property-formal types; outputs shall not have type untyped, sequence or property.
 
@@ -43570,6 +43580,7 @@ Checker formal types are property-formal types; outputs shall not have type unty
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_port_types.sv](../tests/ch17/test_illegal_checker_port_types.sv): legal_input has an input formal of type property. bad_untyped declares output o with an explicit output direction and no type, bad_property declares output property p, and bad_sequence declares output sequence s. 区別: An input may have the property formal type, but an output may not be untyped, sequence or property. A tool that accepts one of the three output declarations does not diagnose at its line, while a tool that rejects the legal input property gives a diagnostic at line 27 instead.
 
 ### SV2023-17.2-EXTRACT-STATIC-LEXICAL
 
@@ -43619,7 +43630,7 @@ A $ input actual requires an untyped formal used only as a range upper bound or 
 
 ### SV2023-17.3-EXTRACT-INPUT-REWRITING
 
-17.3 / error / テスト未対応
+17.3 / error / テスト対応あり・実行未確認
 
 Checker input actuals substitute for formals under F.4.2 after name resolution; an illegal flattened checker makes the instance an error.
 
@@ -43627,6 +43638,7 @@ Checker input actuals substitute for formals under F.4.2 after name resolution; 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_rewritten_automatic.sv](../tests/ch17/test_illegal_checker_rewritten_automatic.sv): The static instance passes the module variable v to use_auto, whose always_comb uses the substituted actual. The procedural instance passes the automatic av to the same formal, so after substitution an automatic value appears in the always_comb code. use_prop uses its formal only in a concurrent property and is legal with the same automatic actual. 区別: The actual is substituted for the formal after name resolution, and the flattened checker is illegal when the formal is used in procedural or continuous code with an automatic actual. A tool that does not substitute, or does not reject that use, gives no diagnostic at line 28 or 45.
 
 ### SV2023-17.3-EXTRACT-INSTANCE-GRAMMAR
 
@@ -44128,7 +44140,7 @@ The checker assume set includes its and child assumptions referencing its active
 
 ### SV2023-17.7.2-EXTRACT-EMPTY-SET-CLOCK
 
-17.7.2 / normal / テスト未対応
+17.7.2 / normal / テスト対応あり・実行未確認
 
 An empty assume set has an implicit event each step before Observed; its implicitly clocked active variables may randomize unconstrained each step and then remain constant through step end.
 
@@ -44136,6 +44148,7 @@ An empty assume set has an implicit event each step before Observed; its implici
 
 規定の性質: `mandatory`。
 
+- [test_checker_empty_assume_set_step.sv](../tests/ch17/test_checker_empty_assume_set_step.sv): The checker has no assume statement and never assigns the rand variable z, so z is an active free variable of an empty assume set. The module watches the continuously assigned zout and counts a second change of zout at the same nonzero simulation time, ignoring the initial value and any change at time 0, then prints same_step_updates=0. 区別: An implementation that updates z more than once in one time step, or again after the Observed region before the step ends, increments the counter. A compliant implementation updates an implicitly clocked active variable at most once and keeps the value to the end of the step, as the printed zero shows.
 
 ### SV2023-17.7.2-EXTRACT-FAILURE-REPORT-TIME
 
@@ -54761,7 +54774,7 @@ Table 20-12 provides $async$and$array(memory,input_terms,output_terms).
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-AND-PLANE
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $async$and$plane(memory,input_terms,output_terms).
 
@@ -54769,10 +54782,11 @@ Table 20-12 provides $async$and$plane(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_all_forms.sv](../tests/ch20/test_pla_all_forms.sv): The test calls $async$and$plane(pmem, v, apa) with pmem\[1\]=3'b10?, pmem\[2\]=3'b??1 and pmem\[3\]=3'b0?0. The printed apa is 010 at v=111, 100 at v=100, 010 at v=011 and 110 at v=101; after pmem\[1\] changes to 3'b1z0 at v=101 it is 010. 区別: The plane and of v1&~v2, v3 and ~v1&~v3 fixes every output bit. A tool without the async plane task, one that reads ? as 1, or one that does not re-evaluate after an input or personality change prints a different row.
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-NAND-ARRAY
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $async$nand$array(memory,input_terms,output_terms).
 
@@ -54780,10 +54794,11 @@ Table 20-12 provides $async$nand$array(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_all_forms.sv](../tests/ch20/test_pla_all_forms.sv): The test calls $async$nand$array(mem, v, an) with mem\[1\]=3'b110, mem\[2\]=3'b011 and mem\[3\]=3'b101. The printed an is 101 at v=011 and 110 at v=101, the bitwise complement of the and rows 010 and 001. 区別: The nand array is the negation of the and array. A tool without the async nand array task, or one that returns the and value, prints 010 or 001 on those rows instead of 101 or 110.
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-NAND-PLANE
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $async$nand$plane(memory,input_terms,output_terms).
 
@@ -54791,10 +54806,11 @@ Table 20-12 provides $async$nand$plane(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_all_forms.sv](../tests/ch20/test_pla_all_forms.sv): The test calls $async$nand$plane(pmem, v, apn) with pmem\[1\]=3'b10?, pmem\[2\]=3'b??1 and pmem\[3\]=3'b0?0. The printed apn is 101 at v=111 and 101 at v=011, the complement of the plane and rows 010. 区別: A tool without the async nand plane task, or one that does not negate the and plane, prints 010 where 101 is expected at v=111 and v=011.
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-NOR-ARRAY
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $async$nor$array(memory,input_terms,output_terms).
 
@@ -54802,10 +54818,11 @@ Table 20-12 provides $async$nor$array(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_all_forms.sv](../tests/ch20/test_pla_all_forms.sv): The test calls $async$nor$array(mem, v, ar) with the array personality and prints ar as 000 at v=011 and 000 at v=101, the complements of the or rows 111. 区別: A tool without the async nor array task, or one that returns the or value, prints 111 where 000 is expected on those rows.
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-NOR-PLANE
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $async$nor$plane(memory,input_terms,output_terms).
 
@@ -54813,10 +54830,11 @@ Table 20-12 provides $async$nor$plane(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_all_forms.sv](../tests/ch20/test_pla_all_forms.sv): The test calls $async$nor$plane(pmem, v, apr) with the plane personality and prints apr as 100 at v=011 and 001 at v=101, the complements of the plane or rows 011 and 110. 区別: A tool without the async nor plane task, or one that returns the plane or value, prints 011 or 110 where 100 or 001 is expected.
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-OR-ARRAY
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 Table 20-12 provides $async$or$array(memory,input_terms,output_terms).
 
@@ -54824,6 +54842,7 @@ Table 20-12 provides $async$or$array(memory,input_terms,output_terms).
 
 規定の性質: `definition`。
 
+- [test_pla_all_forms.sv](../tests/ch20/test_pla_all_forms.sv): The test calls $async$or$array(mem, v, ao) with mem\[1\]=3'b110, mem\[2\]=3'b011 and mem\[3\]=3'b101. The printed ao is 101 at v=100 and 111 at v=011, while the corresponding and rows are 000 and 010. 区別: A tool without the async or array task, or one that computes and instead of or, prints the and rows 000 or 010 where 101 or 111 is expected.
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-OR-PLANE
 
@@ -54850,7 +54869,7 @@ PLA inputs may be nets or variables; output terms shall be variable lvalues.
 
 ### SV2023-20.16-EXTRACT-PLA-SIGNATURE
 
-20.16 / normal / テスト未対応
+20.16 / normal / テスト対応あり・実行未確認
 
 PLA tasks use $array_type$logic$format(memory_identifier,input_terms,output_terms), with sync/async, and/or/nand/nor and array/plane components.
 
@@ -54858,6 +54877,7 @@ PLA tasks use $array_type$logic$format(memory_identifier,input_terms,output_term
 
 規定の性質: `definition`。
 
+- [test_pla_all_forms.sv](../tests/ch20/test_pla_all_forms.sv): sync_all and async_all call all sixteen names $sync$ and $async$ with $and$, $or$, $nand$ and $nor$ and with $array$ and $plane$, each as task(memory, input_terms, output_terms). The printed rows show each call ran: at v=111 the sync and array row is 111, the sync and plane row is 010, the async nor array row is 000 and the async nor plane row is 001. 区別: A tool missing any of the sixteen task names, or one that does not accept the memory, input-term and output-term arguments in that order, does not build the test or leaves the corresponding output at its previous value instead of the computed row.
 
 ### SV2023-20.16-EXTRACT-PLA-SYNC-AND-ARRAY
 
@@ -54969,7 +54989,7 @@ Asynchronous PLA evaluation recurs whenever an input term or any personality-mem
 
 ### SV2023-20.16.1-EXTRACT-PLA-NO-DELAY
 
-20.16.1 / normal / テスト未対応
+20.16.1 / normal / テスト対応あり・実行未確認
 
 Both synchronous/asynchronous PLA forms update outputs without delay.
 
@@ -54977,6 +54997,7 @@ Both synchronous/asynchronous PLA forms update outputs without delay.
 
 規定の性質: `mandatory`。
 
+- [test_pla_all_forms.sv](../tests/ch20/test_pla_all_forms.sv): At v=100 the synchronous outputs are read on the statement after sync_all with no intervening delay, and the asynchronous outputs are read one time unit after the change of v. Both reads already show the v=100 rows, for example the async array and 000 and the async plane and 100. 区別: The synchronous form updates inside the call, and the asynchronous form updates on the input change without another task call, so the next time unit already shows the new rows. An implementation that only evaluates at a sync call, or that delays the async update beyond the next time unit, still prints the v=111 rows.
 
 ### SV2023-20.16.1-EXTRACT-SYNC-EVALUATION
 
@@ -54992,7 +55013,7 @@ Synchronous PLA tasks evaluate/update outputs at the time the task is executed.
 
 ### SV2023-20.16.2-EXTRACT-LOGIC-PLANES
 
-20.16.2 / normal / テスト未対応
+20.16.2 / normal / テスト対応あり・実行未確認
 
 All PLA timing/format forms support and, or, nand and nor logic planes.
 
@@ -55000,6 +55021,7 @@ All PLA timing/format forms support and, or, nand and nor logic planes.
 
 規定の性質: `definition`。
 
+- [test_pla_all_forms.sv](../tests/ch20/test_pla_all_forms.sv): Both timing forms and both formats are called with and, or, nand and nor. At v=011 the async array rows are and 010, or 111, nand 101 and nor 000, and the async plane rows are and 010, or 011, nand 101 and nor 100; the sync rows are the same. 区別: Each logic type has its own row at every timing and format form. A form that supports only and, or returns the and row where nand or nor is expected; the four distinct rows in each line distinguish it.
 
 ### SV2023-20.16.3-EXTRACT-ASCENDING-ORDER
 
@@ -55086,7 +55108,7 @@ In plane personality format, 1 selects the true input.
 
 ### SV2023-20.16.4-EXTRACT-PLANE-QUESTION
 
-20.16.4 / normal / テスト未対応
+20.16.4 / normal / テスト対応あり・実行未確認
 
 In plane personality format, ? has the same do-not-care meaning as z.
 
@@ -55094,6 +55116,7 @@ In plane personality format, ? has the same do-not-care meaning as z.
 
 規定の性質: `definition`。
 
+- [test_pla_all_forms.sv](../tests/ch20/test_pla_all_forms.sv): qmem\[1\]=3'bz11 and qmem\[2\]=3'b?11 drive one $async$and$plane call. At v=011 both outputs are 11, at v=101 both are 00 and at v=111 both are 11, so the row with ? behaves exactly like the row with z. 区別: If ? were read as the true input instead of a don't care, qmem\[2\] would be v1&v2&v3 and the v=011 row would print 01, not 11. The two identical printed bits at v=011 distinguish ? from a selected input.
 
 ### SV2023-20.16.4-EXTRACT-PLANE-UNKNOWN
 
@@ -58251,7 +58274,7 @@ VCD header date/version/timescale precedes variable scope/type definitions and t
 
 ### SV2023-21.7.2.1-EXTRACT-VCD-TIME-GRAMMAR
 
-21.7.2.1 / normal / テスト未対応
+21.7.2.1 / normal / 実行確認あり
 
 VCD timescale numbers are 1, 10 or 100 and units s/ms/us/ns/ps/fs; simulation timestamps use # followed by a decimal number.
 
@@ -58259,6 +58282,7 @@ VCD timescale numbers are 1, 10 or 100 and units s/ms/us/ns/ps/fs; simulation ti
 
 規定の性質: `definition`。
 
+- [test_vcd_timescale_and_timestamp_grammar.sv](../tests/ch21/test_vcd_timescale_and_timestamp_grammar.sv): The design sets a time unit and precision of 100us and changes a scalar at 200us and 500us. The reader takes the number and unit of the $timescale section, prints whether the number is one of 1, 10 and 100, whether the unit is one of s, ms, us, ns, ps and fs, whether the pair is the 100us of the design, whether every timestamp is # followed by decimal digits only, and whether the changes are at the times 0, 2 and 5. 区別: A dumper that wrote a number outside 1, 10 and 100, a unit outside the six names, a malformed pair such as 1.0us, or a timestamp such as #1.5 would make one of the first five lines 0; the 100us pair is not the default 1ns, so a dumper that ignored the design timescale would fail the fourth line.
 
 ### SV2023-21.7.2.1-EXTRACT-VCD-TYPE-GRAMMAR
 
@@ -58610,7 +58634,7 @@ Keyword-delimited general-information sections may be inserted by the dumper or 
 
 ### SV2023-21.7.2.3-EXTRACT-VERSION-COMMAND
 
-21.7.2.3 / normal / テスト未対応
+21.7.2.3 / normal / テスト対応あり・実行未確認
 
 version identifies the writer version and dumpfile call; a variable/expression filename is recorded as its unevaluated literal expression.
 
@@ -58618,6 +58642,7 @@ version identifies the writer version and dumpfile call; a variable/expression f
 
 規定の性質: `mandatory`。
 
+- [test_vcd_version_records_dumpfile_call.sv](../tests/ch21/test_vcd_version_records_dumpfile_call.sv): The design names the dump file with the string variable file_name instead of a literal. The reader takes the text of the $version section and prints whether the section exists with text, whether it contains the $dumpfile call, and whether it contains the unevaluated variable expression file_name that the call used. 区別: A writer that records only its own name leaves out the $dumpfile text and the variable, so the second and third lines are 0; the clause requires the unevaluated literal $dumpfile(file_name) in the $version string, and the expected output follows it. Icarus Verilog 13.0 writes only Icarus Verilog, so it is not listed in :oracle:.
 
 ### SV2023-21.7.3-EXTRACT-EXTENDED-INHERITANCE
 
@@ -65423,7 +65448,7 @@ If either side of a port is uwire, failure to merge into one net requires a warn
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-0
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / 実行確認あり
 
 For internal wire/tri and external wire/tri, Table 23-1 selects the external net type.
 
@@ -65431,6 +65456,7 @@ For internal wire/tri and external wire/tri, Table 23-1 selects the external net
 
 規定の性質: `mandatory`。
 
+- [test_port_collapse_wire_external_delay.sv](../tests/ch23/test_port_collapse_wire_external_delay.sv): An internal wire or tri port whose net declaration has delay 3 is connected to an external wire or tri net declared with delay 7 in all four combinations. Each cell has a driver inside the module and a separate driver module outside, and the merged net is sampled 2, 5 and 9 time units after the driver goes to 1 at time 10 and to 0 at time 30. Every sample of every cell reads 001110, i.e. the external delay 7. 区別: Keeping the internal net would read the internal delay 3, 011100; adding the two delays would read 000111 and no delay 111000. Only taking the external net, as Table 23-1 selects for internal wire/tri with external wire/tri, gives 001110, and the delay of the dominating net is what 23.3.3.7 requires the simulated net to take.
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-1
 
@@ -65494,7 +65520,7 @@ For internal wire/tri and external tri1, Table 23-1 selects the external net typ
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-6
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / 実行確認あり
 
 For internal wire/tri and external uwire, Table 23-1 selects the external net type.
 
@@ -65502,6 +65528,7 @@ For internal wire/tri and external uwire, Table 23-1 selects the external net ty
 
 規定の性質: `mandatory`。
 
+- [test_port_collapse_uwire_external_delay.sv](../tests/ch23/test_port_collapse_uwire_external_delay.sv): An internal wire or tri port whose net declaration has delay 3 is connected to an external uwire net declared with delay 7. A uwire allows one driver, so the only driver is the continuous assignment inside the module. The merged net is sampled 2, 5 and 9 time units after the driver goes to 1 at time 10 and to 0 at time 30, and both cells read 001110, i.e. the external uwire delay 7. 区別: Wire and uwire pass their single driver, so the value cannot show the selection; the declaration's delay can. Keeping the internal wire or tri would read 011100 (delay 3), adding the delays 000111 and no delay 111000. Only the external uwire, which Table 23-1 selects for internal wire/tri with external uwire, gives 001110 as 23.3.3.7 requires.
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-7
 
@@ -65541,7 +65568,7 @@ For internal wand/triand and external wire/tri, Table 23-1 selects the internal 
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-1
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / 実行確認あり
 
 For internal wand/triand and external wand/triand, Table 23-1 selects the external net type.
 
@@ -65549,6 +65576,7 @@ For internal wand/triand and external wand/triand, Table 23-1 selects the extern
 
 規定の性質: `mandatory`。
 
+- [test_port_collapse_wand_external_delay.sv](../tests/ch23/test_port_collapse_wand_external_delay.sv): An internal wand or triand port whose net declaration has delay 3 is connected to an external wand or triand net declared with delay 7 in all four combinations. Each cell has a driver inside the module and a separate driver module outside, and the merged net is sampled 2, 5 and 9 time units after the driver goes to 1 at time 10 and to 0 at time 30. Every sample of every cell reads 001110, i.e. the external delay 7. 区別: Wand and triand resolve identically, so the value cannot show the selection; the declaration's delay can. Keeping the internal net would read 011100 (delay 3), adding the delays 000111 and no delay 111000. Only the external net, which Table 23-1 selects for internal wand/triand with external wand/triand, gives 001110 as 23.3.3.7 requires.
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-2
 
@@ -65600,7 +65628,7 @@ For internal wand/triand and external tri1, Table 23-1 selects the external net 
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-6
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wand/triand and external uwire, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -65608,6 +65636,7 @@ For internal wand/triand and external uwire, Table 23-1 selects the external net
 
 規定の性質: `mandatory`。
 
+- [test_port_collapse_wand_uwire_warning.sv](../tests/ch23/test_port_collapse_wand_uwire_warning.sv): An internal wand or triand port whose net declaration has delay 3 is connected to an external uwire net declared with delay 7. The single driver allowed by the uwire is the continuous assignment inside the module, and sampling 2, 5 and 9 time units after the driver goes to 1 at time 10 and to 0 at time 30 gives 001110 for both cells, i.e. the external uwire delay 7. The metadata also requires the warning that the table marks with :expected_stderr_regex: (?i)warning. 区別: Keeping the internal wand or triand would read 011100 (delay 3), adding the delays 000111 and no delay 111000, so 001110 shows the external uwire is dominating as Table 23-1 says. Omitting :expected_stderr_regex: would leave the second acceptance condition, the warning, unchecked.
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-7
 
@@ -65659,7 +65688,7 @@ For internal wor/trior and external wand/triand, Table 23-1 selects the external
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-2
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / 実行確認あり
 
 For internal wor/trior and external wor/trior, Table 23-1 selects the external net type.
 
@@ -65667,6 +65696,7 @@ For internal wor/trior and external wor/trior, Table 23-1 selects the external n
 
 規定の性質: `mandatory`。
 
+- [test_port_collapse_wor_external_delay.sv](../tests/ch23/test_port_collapse_wor_external_delay.sv): An internal wor or trior port whose net declaration has delay 3 is connected to an external wor or trior net declared with delay 7 in all four combinations. Each cell has a driver inside the module and a separate driver module outside, and the merged net is sampled 2, 5 and 9 time units after the driver goes to 1 at time 10 and to 0 at time 30. Every sample of every cell reads 001110, i.e. the external delay 7. 区別: Wor and trior resolve identically, so the value cannot show the selection; the declaration's delay can. Keeping the internal net would read 011100 (delay 3), adding the delays 000111 and no delay 111000. Only the external net, which Table 23-1 selects for internal wor/trior with external wor/trior, gives 001110 as 23.3.3.7 requires.
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-3
 
@@ -65706,7 +65736,7 @@ For internal wor/trior and external tri1, Table 23-1 selects the external net ty
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-6
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wor/trior and external uwire, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -65714,6 +65744,7 @@ For internal wor/trior and external uwire, Table 23-1 selects the external net t
 
 規定の性質: `mandatory`。
 
+- [test_port_collapse_wor_uwire_warning.sv](../tests/ch23/test_port_collapse_wor_uwire_warning.sv): An internal wor or trior port whose net declaration has delay 3 is connected to an external uwire net declared with delay 7. The single driver allowed by the uwire is the continuous assignment inside the module, and sampling 2, 5 and 9 time units after the driver goes to 1 at time 10 and to 0 at time 30 gives 001110 for both cells, i.e. the external uwire delay 7. The metadata also requires the warning that the table marks with :expected_stderr_regex: (?i)warning. 区別: Keeping the internal wor or trior would read 011100 (delay 3), adding the delays 000111 and no delay 111000, so 001110 shows the external uwire is dominating as Table 23-1 says. Omitting :expected_stderr_regex: would leave the second acceptance condition, the warning, unchecked.
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-7
 
@@ -65777,7 +65808,7 @@ For internal trireg and external wor/trior, Table 23-1 selects the external net 
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-3
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal trireg and external trireg, Table 23-1 selects the external net type.
 
@@ -65785,6 +65816,7 @@ For internal trireg and external trireg, Table 23-1 selects the external net typ
 
 規定の性質: `mandatory`。
 
+- [test_port_collapse_trireg_external_charge.sv](../tests/ch23/test_port_collapse_trireg_external_charge.sv): An internal trireg port declared with small, medium or large charge strength is connected to an external trireg net declared with a different charge strength in six pairs. The external driver goes to 1, then z, then 0, then z, and after each step the merged net is printed with %v from outside and inside. The driven samples read St1 and St0; the capacitive samples read the external strength (La for large outside, Sm for small outside, Me for medium outside) on both views. 区別: Taking the internal trireg would print the internal strength instead: Sm, La, Me, La, Sm, Me in the six hold lines, where the external strengths give La, Sm, La, Me, Me, Sm. 23.3.3.7 says the charge strength of the dominating trireg applies to the simulated net, so the printed strengths show that Table 23-1 selected the external trireg in cell 3-3.
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-4
 
@@ -105958,7 +105990,7 @@ The 37.72 VPI model includes tagged pattern in the pattern group; group properti
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-009
 
-37.72 / normal / テスト未対応
+37.72 / normal / テスト対応あり・実行未確認
 
 The 37.72 VPI model includes struct pattern in the pattern group; group properties and relationships apply to this member.
 
@@ -105966,6 +105998,7 @@ The 37.72 VPI model includes struct pattern in the pattern group; group properti
 
 規定の性質: `definition`。
 
+- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): The case matches item '{ 1, 2 } of the case on the struct p gives from vpiExpr a pattern whose vpi_get(vpiType) is vpiStructPattern, and the pattern group relation vpiPattern iterates its two member patterns 1 and 2; the other item '{ 3, 4 } likewise gives a vpiStructPattern whose members are 3 and 4. The application prints the same kind for both struct patterns and counts 4 patterns in the two case statements. 区別: A tool that did not put the struct pattern in the pattern group would model '{ 1, 2 } as a constant, an expr or another object, so the application would print another pattern instead of the struct pattern line, and the pattern count would no longer be 4.
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-010
 
@@ -106028,7 +106061,7 @@ struct pattern exposes vpiName as string, representing pattern name; access it w
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-015
 
-37.72 / normal / テスト未対応
+37.72 / normal / テスト対応あり・実行未確認
 
 37.72 defines a one-to-one relation from tagged pattern to typespec, using the untagged typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -106036,10 +106069,11 @@ struct pattern exposes vpiName as string, representing pattern name; access it w
 
 規定の性質: `definition`。
 
+- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): In the case on the tagged union u, the item tagged Wide .w gives a tagged pattern whose vpi_handle(vpiTypespec) has vpiType vpiIntTypespec, the type of the int member Wide, and the item tagged Narrow .n gives one whose typespec has vpiType vpiByteTypespec, the type of the byte member Narrow; each nested any pattern is named w and n. 区別: The union declaration makes the member types int and byte, and 37.25 detail 1 gives the built-in int and byte types the typespec types vpiIntTypespec and vpiByteTypespec with no vpiName. A tool that returned the union typespec (vpiUnionTypespec), the other member's type, or no typespec would print another type name or none for one of the two lines.
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-016
 
-37.72 / normal / テスト未対応
+37.72 / normal / テスト対応あり・実行未確認
 
 37.72 defines a one-to-many relation from struct pattern to pattern, using the untagged pattern access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -106047,6 +106081,7 @@ struct pattern exposes vpiName as string, representing pattern name; access it w
 
 規定の性質: `definition`。
 
+- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): vpi_iterate(vpiPattern, struct_pattern) on the struct pattern '{ 1, 2 } of the case on p yields exactly two member patterns, whose constant values are printed as 1 and 2, and on the struct pattern '{ 3, 4 } it yields two member patterns with the values 3 and 4. The member list of each struct pattern is printed with its count, so both the one-to-many cardinality and the member values are compared. 区別: The struct pattern '{1, 2} has two member patterns whose constants are 1 and 2. A tool that returned no member patterns would print 0 member patterns and an empty list; one that returned the whole struct as a single constant, or the members of the other item, would print another count or other values, changing the line.
 
 ### SV2023-37.73-EXTRACT-DIAGRAM-001
 

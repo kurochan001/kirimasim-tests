@@ -1,0 +1,23 @@
+v=111 sync array and=111 or=111 nand=000 nor=000
+v=111 sync plane and=010 or=110 nand=101 nor=001
+v=111 async array and=111 or=111 nand=000 nor=000
+v=111 async plane and=010 or=110 nand=101 nor=001
+v=100 sync unchanged array=111 plane=010
+v=100 async array and=000 or=101 nand=111 nor=010
+v=100 async plane and=100 or=101 nand=011 nor=010
+v=100 sync array and=000 or=101 nand=111 nor=010
+v=100 sync plane and=100 or=101 nand=011 nor=010
+v=011 async array and=010 or=111 nand=101 nor=000
+v=011 async plane and=010 or=011 nand=101 nor=100
+v=011 sync array and=010 or=111 nand=101 nor=000
+v=011 sync plane and=010 or=011 nand=101 nor=100
+v=101 async array and=001 or=111 nand=110 nor=000
+v=101 async plane and=110 or=110 nand=001 nor=001
+v=101 sync array and=001 or=111 nand=110 nor=000
+v=101 sync plane and=110 or=110 nand=001 nor=001
+v=101 new personality async plane and=010 or=110 nand=101 nor=001
+v=101 new personality sync plane and=010 or=110 nand=101 nor=001
+q v=111 z/?=11
+q v=011 z/?=11
+q v=101 z/?=00
+q v=xxx z/?=xx

@@ -1,0 +1,6 @@
+frac: format vpiRealVal, real 2.50
+nib: format vpiVectorVal, aval a bval 0
+num: format vpiIntVal, integer -3
+text: format vpiVectorVal, aval 4142 bval 0
+text: string AB
+attributes: 4

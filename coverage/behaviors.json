@@ -11431,7 +11431,7 @@
           "observation": "include ファイルで、最後の1文字(x と y)だけが違う1024文字の名前の変数を2つ宣言して 11 と 22 で初期化し、1024文字の名前の named block で x を1増やして x=12 y=22 を表示する。%m によるブロックの階層名の長さ 1056(モジュール名・ドット・1024文字)と最後の文字 z も表示する。 区別: 1024文字未満で名前を切り詰める誤実装では x と y が同じ名前の再宣言となりエラーになるか、x と y を区別できず x=12 y=22 が変わる。1024文字を受け付けず長さ超過のエラーを出す誤実装はコンパイルに失敗する。ブロック名を切り詰めれば path length が 1056 から変わる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e064bc3cc902703953a468639917d5a777adaedab4ad82f1b031663bed0acdcf",
+          "inputs_sha256": "3336789ee6cdae685f2102f6fc4cd30b87b41626b23b07045818e7bc12a8d185",
           "evidence": [
             {
               "file": "tests/ch5/test_identifier_1024_characters.sv",
@@ -14566,7 +14566,29 @@
       "acceptance": "Do not import the identifier-length limit as a language-imposed string-literal bound.",
       "source_note": "IEEE 1800-2023 5.9; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch5/test_string_literal_no_length_limit.sv",
+          "observation": "単一の二重引用符文字列リテラルを 80 文字ずつ 26 行に分け、各行末のバックスラッシュ改行で連結して 2048 文字の 1 リテラルにし、len=2048、文字 0 が 48、文字 1023 が 102、文字 2047 が 102 を出力する。2048 は 5.6 が実装に許す識別子長の下限 1024 を超える。 区別: 文字列リテラルにも識別子の 1024 文字上限を課す実装はこの設計を受理しないか切り詰め、len または 1023 番目・2047 番目の文字が変わる。継続行を 1 リテラルとして扱わない実装では改行が混入して len が変わる。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ee58a92ef2eff416febbe486551b4c3371d7f13d4fbe3340b22b4aa3e8b4cc1e",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_string_literal_no_length_limit.sv",
+              "contains": "    s = \"0123456789abcdef"
+            },
+            {
+              "file": "tests/ch5/test_string_literal_no_length_limit.expected",
+              "contains": "len=2048"
+            },
+            {
+              "file": "tests/ch5/test_string_literal_no_length_limit.expected",
+              "contains": "c0=48 c1023=102 c2047=102"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "5.9",
@@ -16121,7 +16143,33 @@
       "acceptance": "An attribute with a value has the type of that value expression.",
       "source_note": "IEEE 1800-2023 5.12; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_attribute_value_types.sv",
+          "observation": "The variable iv carries four attributes with different value expressions: num = -3, frac = 2.5, nib = 4'b1010 and text = \"AB\". vpi_get_value with vpiObjTypeVal returns vpiIntVal for num with the integer -3, vpiRealVal for frac with the real 2.50, vpiVectorVal for nib with aval a bval 0, and vpiVectorVal for text with aval 4142 bval 0, so the 16-bit string literal is an unsigned integer constant and not an integer; vpiStringVal on the same text attribute gives the characters AB. 区別: An implementation that gave every attribute the default bit type, or one integral type for all of them, would reject the real and the string value or would report vpiIntVal for them and lose the fraction 0.5 or the two ASCII characters 41 and 42. The printed format and value change for any other type rule, and the string value in vpiStringVal shows the 16-bit vector holds exactly A and B.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1753bc163f1922266f2aff7151c19ed577c523f992462c1f0b4be82d300fe91f",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_attribute_value_types.sv",
+              "contains": "(* num = -3, frac = 2.5, nib = 4'b1010, text = \"AB\" *)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_attribute_value_types.expected",
+              "contains": "frac: format vpiRealVal, real 2.50"
+            },
+            {
+              "file": "tests/ch37/test_vpi_attribute_value_types.expected",
+              "contains": "text: format vpiVectorVal, aval 4142 bval 0"
+            },
+            {
+              "file": "tests/ch37/test_vpi_attribute_value_types.expected",
+              "contains": "text: string AB"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "5.12",
@@ -16215,7 +16263,29 @@
       "acceptance": "Attributes may prefix declarations, module items, statements or port connections at the grammar-authorized positions.",
       "source_note": "IEEE 1800-2023 5.12; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch5/test_attribute_prefix_positions.sv",
+          "observation": "属性インスタンスを、モジュール宣言、net・変数・parameter・localparam・typedef・function・task 宣言、連続代入、モジュールインスタンスと名前付きポート接続、ANSI ポート宣言、always_comb、initial、ループ generate と条件 generate とその項目、class 宣言とメンバ、interface と package とその項目、および代入・if・case・for・repeat・名前付きブロック・task 呼び出しの各文の前に置き、v=9 n=9 ob=0 inc=4 と gen=1 class=7 t=4 cv=9 を出力する。 区別: いずれかの許された前置位置を拒否する実装はコンパイルに失敗して出力に達しない。任意名の属性は値を変えないため、位置を受理して同じ値で動くことが観測であり、受理しない実装だけが出力を欠く。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7d00033b71e5b45b3a0da8a11f699a34bf2e76c95af4d3f464f5371ba34cfe51",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_attribute_prefix_positions.sv",
+              "contains": "(* pfx_module *) module test_attribute_prefix_positions;"
+            },
+            {
+              "file": "tests/ch5/test_attribute_prefix_positions.sv",
+              "contains": "(* pfx_stmt *) v = 4'h3;"
+            },
+            {
+              "file": "tests/ch5/test_attribute_prefix_positions.expected",
+              "contains": "v=9 n=9 ob=0 inc=4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "5.12",
@@ -167269,7 +167339,33 @@
       "acceptance": "A checker shall not reference enclosing-scope automatic variables, members/elements of dynamic variables, or elements of any fork-join variant.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_enclosing_references.sv",
+          "observation": "The automatic module declares auto_var, the queue q and the named fork block f with the static variable fx. Checkers ref_auto, ref_dyn and ref_fork read auto_var, q[0] and f.fx in always_comb, so the design contains an enclosing automatic variable, an element of a dynamic variable and an element of a fork-join block. 区別: Each of the three references is separately prohibited by 17.2. A tool that accepts any one of them does not diagnose at its line, while the expected diagnostic must fall on line 29, 33 or 37; the rest of the design, which reads only formals and local variables, is legal.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "aefcceed83a301445aba052b3326f265a82ffb004840440be6726fa91eab74b7",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_enclosing_references.sv",
+              "contains": "always_comb o = auto_var;"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_enclosing_references.sv",
+              "contains": "always_comb o = q[0];"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_enclosing_references.sv",
+              "contains": "always_comb o = f.fx;"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_enclosing_references.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_enclosing_references\\.sv:(29|33|37):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -167593,7 +167689,33 @@
       "acceptance": "Checker formal types are property-formal types; outputs shall not have type untyped, sequence or property.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_port_types.sv",
+          "observation": "legal_input has an input formal of type property. bad_untyped declares output o with an explicit output direction and no type, bad_property declares output property p, and bad_sequence declares output sequence s. 区別: An input may have the property formal type, but an output may not be untyped, sequence or property. A tool that accepts one of the three output declarations does not diagnose at its line, while a tool that rejects the legal input property gives a diagnostic at line 27 instead.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "69d399e8e1b60e963c8b0b24d43171d48b946643b1dc34a76275a3bcefb82d0f",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_port_types.sv",
+              "contains": "checker bad_untyped(input logic a, output o);"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_port_types.sv",
+              "contains": "checker bad_property(input logic a, output property p);"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_port_types.sv",
+              "contains": "checker bad_sequence(input logic a, output sequence s);"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_port_types.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_port_types\\.sv:(32|36|39):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -167755,7 +167877,29 @@
       "acceptance": "Checker input actuals substitute for formals under F.4.2 after name resolution; an illegal flattened checker makes the instance an error.",
       "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_rewritten_automatic.sv",
+          "observation": "The static instance passes the module variable v to use_auto, whose always_comb uses the substituted actual. The procedural instance passes the automatic av to the same formal, so after substitution an automatic value appears in the always_comb code. use_prop uses its formal only in a concurrent property and is legal with the same automatic actual. 区別: The actual is substituted for the formal after name resolution, and the flattened checker is illegal when the formal is used in procedural or continuous code with an automatic actual. A tool that does not substitute, or does not reject that use, gives no diagnostic at line 28 or 45.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5d1d4a25fd5dac90d60cb044f5fc125cff63e7108daa26898ea1d7b02ab2a7a2",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_rewritten_automatic.sv",
+              "contains": "always_comb y = a + 4'd1;"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_rewritten_automatic.sv",
+              "contains": "use_auto u_auto(av, y_auto);"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_rewritten_automatic.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_rewritten_automatic\\.sv:(28|45):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.3",
@@ -169300,7 +169444,29 @@
       "acceptance": "An empty assume set has an implicit event each step before Observed; its implicitly clocked active variables may randomize unconstrained each step and then remain constant through step end.",
       "source_note": "IEEE 1800-2023 17.7.2; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_empty_assume_set_step.sv",
+          "observation": "The checker has no assume statement and never assigns the rand variable z, so z is an active free variable of an empty assume set. The module watches the continuously assigned zout and counts a second change of zout at the same nonzero simulation time, ignoring the initial value and any change at time 0, then prints same_step_updates=0. 区別: An implementation that updates z more than once in one time step, or again after the Observed region before the step ends, increments the counter. A compliant implementation updates an implicitly clocked active variable at most once and keeps the value to the end of the step, as the printed zero shows.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d8639a5724680fb8448f2c881db3047f2bad4f45191b5f363fcd5baf8c4ebde8",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_empty_assume_set_step.sv",
+              "contains": "rand bit [7:0] z;"
+            },
+            {
+              "file": "tests/ch17/test_checker_empty_assume_set_step.sv",
+              "contains": "assign zout = z;"
+            },
+            {
+              "file": "tests/ch17/test_checker_empty_assume_set_step.expected",
+              "contains": "same_step_updates=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.7.2",
@@ -205463,7 +205629,29 @@
       "acceptance": "Table 20-12 provides $async$and$plane(memory,input_terms,output_terms).",
       "source_note": "IEEE 1800-2023 20.16; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_pla_all_forms.sv",
+          "observation": "The test calls $async$and$plane(pmem, v, apa) with pmem[1]=3'b10?, pmem[2]=3'b??1 and pmem[3]=3'b0?0. The printed apa is 010 at v=111, 100 at v=100, 010 at v=011 and 110 at v=101; after pmem[1] changes to 3'b1z0 at v=101 it is 010. 区別: The plane and of v1&~v2, v3 and ~v1&~v3 fixes every output bit. A tool without the async plane task, one that reads ? as 1, or one that does not re-evaluate after an input or personality change prints a different row.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8bf6e04d37d3e879f5df3cb756f9d015e168cfd54a4938cfa43a8560c5d638f9",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "$async$and$plane(pmem, v, apa);"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "v=111 async plane and=010 or=110 nand=101 nor=001"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "v=101 new personality async plane and=010 or=110 nand=101 nor=001"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.16",
@@ -205481,7 +205669,25 @@
       "acceptance": "Table 20-12 provides $async$nand$array(memory,input_terms,output_terms).",
       "source_note": "IEEE 1800-2023 20.16; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_pla_all_forms.sv",
+          "observation": "The test calls $async$nand$array(mem, v, an) with mem[1]=3'b110, mem[2]=3'b011 and mem[3]=3'b101. The printed an is 101 at v=011 and 110 at v=101, the bitwise complement of the and rows 010 and 001. 区別: The nand array is the negation of the and array. A tool without the async nand array task, or one that returns the and value, prints 010 or 001 on those rows instead of 101 or 110.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8bf6e04d37d3e879f5df3cb756f9d015e168cfd54a4938cfa43a8560c5d638f9",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "$async$nand$array(mem, v, an);"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "v=011 async array and=010 or=111 nand=101 nor=000"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.16",
@@ -205499,7 +205705,25 @@
       "acceptance": "Table 20-12 provides $async$nand$plane(memory,input_terms,output_terms).",
       "source_note": "IEEE 1800-2023 20.16; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_pla_all_forms.sv",
+          "observation": "The test calls $async$nand$plane(pmem, v, apn) with pmem[1]=3'b10?, pmem[2]=3'b??1 and pmem[3]=3'b0?0. The printed apn is 101 at v=111 and 101 at v=011, the complement of the plane and rows 010. 区別: A tool without the async nand plane task, or one that does not negate the and plane, prints 010 where 101 is expected at v=111 and v=011.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8bf6e04d37d3e879f5df3cb756f9d015e168cfd54a4938cfa43a8560c5d638f9",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "$async$nand$plane(pmem, v, apn);"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "v=111 async plane and=010 or=110 nand=101 nor=001"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.16",
@@ -205517,7 +205741,25 @@
       "acceptance": "Table 20-12 provides $async$nor$array(memory,input_terms,output_terms).",
       "source_note": "IEEE 1800-2023 20.16; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_pla_all_forms.sv",
+          "observation": "The test calls $async$nor$array(mem, v, ar) with the array personality and prints ar as 000 at v=011 and 000 at v=101, the complements of the or rows 111. 区別: A tool without the async nor array task, or one that returns the or value, prints 111 where 000 is expected on those rows.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8bf6e04d37d3e879f5df3cb756f9d015e168cfd54a4938cfa43a8560c5d638f9",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "$async$nor$array(mem, v, ar);"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "v=011 async array and=010 or=111 nand=101 nor=000"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.16",
@@ -205535,7 +205777,25 @@
       "acceptance": "Table 20-12 provides $async$nor$plane(memory,input_terms,output_terms).",
       "source_note": "IEEE 1800-2023 20.16; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_pla_all_forms.sv",
+          "observation": "The test calls $async$nor$plane(pmem, v, apr) with the plane personality and prints apr as 100 at v=011 and 001 at v=101, the complements of the plane or rows 011 and 110. 区別: A tool without the async nor plane task, or one that returns the plane or value, prints 011 or 110 where 100 or 001 is expected.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8bf6e04d37d3e879f5df3cb756f9d015e168cfd54a4938cfa43a8560c5d638f9",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "$async$nor$plane(pmem, v, apr);"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "v=011 async plane and=010 or=011 nand=101 nor=100"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.16",
@@ -205553,7 +205813,25 @@
       "acceptance": "Table 20-12 provides $async$or$array(memory,input_terms,output_terms).",
       "source_note": "IEEE 1800-2023 20.16; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_pla_all_forms.sv",
+          "observation": "The test calls $async$or$array(mem, v, ao) with mem[1]=3'b110, mem[2]=3'b011 and mem[3]=3'b101. The printed ao is 101 at v=100 and 111 at v=011, while the corresponding and rows are 000 and 010. 区別: A tool without the async or array task, or one that computes and instead of or, prints the and rows 000 or 010 where 101 or 111 is expected.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8bf6e04d37d3e879f5df3cb756f9d015e168cfd54a4938cfa43a8560c5d638f9",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "$async$or$array(mem, v, ao);"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "v=100 async array and=000 or=101 nand=111 nor=010"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.16",
@@ -205625,7 +205903,29 @@
       "acceptance": "PLA tasks use $array_type$logic$format(memory_identifier,input_terms,output_terms), with sync/async, and/or/nand/nor and array/plane components.",
       "source_note": "IEEE 1800-2023 20.16; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_pla_all_forms.sv",
+          "observation": "sync_all and async_all call all sixteen names $sync$ and $async$ with $and$, $or$, $nand$ and $nor$ and with $array$ and $plane$, each as task(memory, input_terms, output_terms). The printed rows show each call ran: at v=111 the sync and array row is 111, the sync and plane row is 010, the async nor array row is 000 and the async nor plane row is 001. 区別: A tool missing any of the sixteen task names, or one that does not accept the memory, input-term and output-term arguments in that order, does not build the test or leaves the corresponding output at its previous value instead of the computed row.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8bf6e04d37d3e879f5df3cb756f9d015e168cfd54a4938cfa43a8560c5d638f9",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "$async$and$array(mem, v, aa);"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "$sync$nor$plane(pmem, v, spr);"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "v=111 sync array and=111 or=111 nand=000 nor=000"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.16",
@@ -205968,7 +206268,29 @@
       "acceptance": "Both synchronous/asynchronous PLA forms update outputs without delay.",
       "source_note": "IEEE 1800-2023 20.16.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_pla_all_forms.sv",
+          "observation": "At v=100 the synchronous outputs are read on the statement after sync_all with no intervening delay, and the asynchronous outputs are read one time unit after the change of v. Both reads already show the v=100 rows, for example the async array and 000 and the async plane and 100. 区別: The synchronous form updates inside the call, and the asynchronous form updates on the input change without another task call, so the next time unit already shows the new rows. An implementation that only evaluates at a sync call, or that delays the async update beyond the next time unit, still prints the v=111 rows.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8bf6e04d37d3e879f5df3cb756f9d015e168cfd54a4938cfa43a8560c5d638f9",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "    #1;\n    $display(\"v=%b async array and=%b or=%b nand=%b nor=%b\", v, aa, ao, an, ar);"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "v=100 async array and=000 or=101 nand=111 nor=010"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "v=100 async plane and=100 or=101 nand=011 nor=010"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.16.1",
@@ -206022,7 +206344,33 @@
       "acceptance": "All PLA timing/format forms support and, or, nand and nor logic planes.",
       "source_note": "IEEE 1800-2023 20.16.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_pla_all_forms.sv",
+          "observation": "Both timing forms and both formats are called with and, or, nand and nor. At v=011 the async array rows are and 010, or 111, nand 101 and nor 000, and the async plane rows are and 010, or 011, nand 101 and nor 100; the sync rows are the same. 区別: Each logic type has its own row at every timing and format form. A form that supports only and, or returns the and row where nand or nor is expected; the four distinct rows in each line distinguish it.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8bf6e04d37d3e879f5df3cb756f9d015e168cfd54a4938cfa43a8560c5d638f9",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "$async$nand$array(mem, v, an);"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "$async$nor$plane(pmem, v, apr);"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "v=011 async array and=010 or=111 nand=101 nor=000"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "v=011 async plane and=010 or=011 nand=101 nor=100"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.16.2",
@@ -206282,7 +206630,29 @@
       "acceptance": "In plane personality format, ? has the same do-not-care meaning as z.",
       "source_note": "IEEE 1800-2023 20.16.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_pla_all_forms.sv",
+          "observation": "qmem[1]=3'bz11 and qmem[2]=3'b?11 drive one $async$and$plane call. At v=011 both outputs are 11, at v=101 both are 00 and at v=111 both are 11, so the row with ? behaves exactly like the row with z. 区別: If ? were read as the true input instead of a don't care, qmem[2] would be v1&v2&v3 and the v=011 row would print 01, not 11. The two identical printed bits at v=011 distinguish ? from a selected input.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8bf6e04d37d3e879f5df3cb756f9d015e168cfd54a4938cfa43a8560c5d638f9",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "qmem[1] = 3'bz11;"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.sv",
+              "contains": "qmem[2] = 3'b?11;"
+            },
+            {
+              "file": "tests/ch20/test_pla_all_forms.expected",
+              "contains": "q v=011 z/?=11"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.16.4",
@@ -217754,7 +218124,29 @@
       "acceptance": "VCD timescale numbers are 1, 10 or 100 and units s/ms/us/ns/ps/fs; simulation timestamps use # followed by a decimal number.",
       "source_note": "IEEE 1800-2023 21.7.2.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_timescale_and_timestamp_grammar.sv",
+          "observation": "The design sets a time unit and precision of 100us and changes a scalar at 200us and 500us. The reader takes the number and unit of the $timescale section, prints whether the number is one of 1, 10 and 100, whether the unit is one of s, ms, us, ns, ps and fs, whether the pair is the 100us of the design, whether every timestamp is # followed by decimal digits only, and whether the changes are at the times 0, 2 and 5. 区別: A dumper that wrote a number outside 1, 10 and 100, a unit outside the six names, a malformed pair such as 1.0us, or a timestamp such as #1.5 would make one of the first five lines 0; the 100us pair is not the default 1ns, so a dumper that ignored the design timescale would fail the fourth line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4cd20c5a6590162a6aa4f5db1f3a7db9e112145ace65e7613a265d6e8ee88aa9",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_timescale_and_timestamp_grammar.sv",
+              "contains": "`timescale 100us/100us"
+            },
+            {
+              "file": "tests/ch21/test_vcd_timescale_and_timestamp_grammar.sv",
+              "contains": "number_ok = number == \"1\" || number == \"10\" || number == \"100\";"
+            },
+            {
+              "file": "tests/ch21/test_vcd_timescale_and_timestamp_grammar.expected",
+              "contains": "the timescale number is 1, 10 or 100: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.1",
@@ -218645,7 +219037,29 @@
       "acceptance": "version identifies the writer version and dumpfile call; a variable/expression filename is recorded as its unevaluated literal expression.",
       "source_note": "IEEE 1800-2023 21.7.2.3; complete own-body source review, blocks B026. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_version_records_dumpfile_call.sv",
+          "observation": "The design names the dump file with the string variable file_name instead of a literal. The reader takes the text of the $version section and prints whether the section exists with text, whether it contains the $dumpfile call, and whether it contains the unevaluated variable expression file_name that the call used. 区別: A writer that records only its own name leaves out the $dumpfile text and the variable, so the second and third lines are 0; the clause requires the unevaluated literal $dumpfile(file_name) in the $version string, and the expected output follows it. Icarus Verilog 13.0 writes only Icarus Verilog, so it is not listed in :oracle:.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ad7dde1d53a5fbb662e8b0757628697afeba125d16567583a693522dd5ab6748",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_version_records_dumpfile_call.sv",
+              "contains": "$dumpfile(file_name);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_version_records_dumpfile_call.sv",
+              "contains": "expression = contains(text, \"file_name\");"
+            },
+            {
+              "file": "tests/ch21/test_vcd_version_records_dumpfile_call.expected",
+              "contains": "the version names the $dumpfile call: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.3",
@@ -244803,7 +245217,25 @@
       "acceptance": "For internal wire/tri and external wire/tri, Table 23-1 selects the external net type.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B009, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_port_collapse_wire_external_delay.sv",
+          "observation": "An internal wire or tri port whose net declaration has delay 3 is connected to an external wire or tri net declared with delay 7 in all four combinations. Each cell has a driver inside the module and a separate driver module outside, and the merged net is sampled 2, 5 and 9 time units after the driver goes to 1 at time 10 and to 0 at time 30. Every sample of every cell reads 001110, i.e. the external delay 7. 区別: Keeping the internal net would read the internal delay 3, 011100; adding the two delays would read 000111 and no delay 111000. Only taking the external net, as Table 23-1 selects for internal wire/tri with external wire/tri, gives 001110, and the delay of the dominating net is what 23.3.3.7 requires the simulated net to take.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fd3af5adde7be23d7337fd254d40302f72b3cb96445b65068142e703afda2687",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_port_collapse_wire_external_delay.sv",
+              "contains": "  pced_in_tri #(.D(3)) u_tt_i(n_tt_i, d);"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_wire_external_delay.expected",
+              "contains": "tri inside, tri outside:   driven inside 001110, outside 001110"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -245011,7 +245443,25 @@
       "acceptance": "For internal wire/tri and external uwire, Table 23-1 selects the external net type.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B009, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_port_collapse_uwire_external_delay.sv",
+          "observation": "An internal wire or tri port whose net declaration has delay 3 is connected to an external uwire net declared with delay 7. A uwire allows one driver, so the only driver is the continuous assignment inside the module. The merged net is sampled 2, 5 and 9 time units after the driver goes to 1 at time 10 and to 0 at time 30, and both cells read 001110, i.e. the external uwire delay 7. 区別: Wire and uwire pass their single driver, so the value cannot show the selection; the declaration's delay can. Keeping the internal wire or tri would read 011100 (delay 3), adding the delays 000111 and no delay 111000. Only the external uwire, which Table 23-1 selects for internal wire/tri with external uwire, gives 001110 as 23.3.3.7 requires.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6d21685c1850003a19c81babf813c3589a0bb387e41a036ecd7b5348a16a4f89",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_port_collapse_uwire_external_delay.sv",
+              "contains": "  pcuw_in_tri #(.D(3)) u_tri(n_tri, d);"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_uwire_external_delay.expected",
+              "contains": "tri inside, uwire outside:  001110"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -245153,7 +245603,25 @@
       "acceptance": "For internal wand/triand and external wand/triand, Table 23-1 selects the external net type.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B010, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_port_collapse_wand_external_delay.sv",
+          "observation": "An internal wand or triand port whose net declaration has delay 3 is connected to an external wand or triand net declared with delay 7 in all four combinations. Each cell has a driver inside the module and a separate driver module outside, and the merged net is sampled 2, 5 and 9 time units after the driver goes to 1 at time 10 and to 0 at time 30. Every sample of every cell reads 001110, i.e. the external delay 7. 区別: Wand and triand resolve identically, so the value cannot show the selection; the declaration's delay can. Keeping the internal net would read 011100 (delay 3), adding the delays 000111 and no delay 111000. Only the external net, which Table 23-1 selects for internal wand/triand with external wand/triand, gives 001110 as 23.3.3.7 requires.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ec398c137f5355e6c704a6f88bb227636a10f169db4f91feaf30f74503a2962e",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_port_collapse_wand_external_delay.sv",
+              "contains": "  pced_in_triand #(.D(3)) u_tt_i(n_tt_i, d);"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_wand_external_delay.expected",
+              "contains": "triand inside, triand outside: driven inside 001110, outside 001110"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -245336,7 +245804,29 @@
       "acceptance": "For internal wand/triand and external uwire, Table 23-1 selects the external net type. A warning shall be issued.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B010, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_port_collapse_wand_uwire_warning.sv",
+          "observation": "An internal wand or triand port whose net declaration has delay 3 is connected to an external uwire net declared with delay 7. The single driver allowed by the uwire is the continuous assignment inside the module, and sampling 2, 5 and 9 time units after the driver goes to 1 at time 10 and to 0 at time 30 gives 001110 for both cells, i.e. the external uwire delay 7. The metadata also requires the warning that the table marks with :expected_stderr_regex: (?i)warning. 区別: Keeping the internal wand or triand would read 011100 (delay 3), adding the delays 000111 and no delay 111000, so 001110 shows the external uwire is dominating as Table 23-1 says. Omitting :expected_stderr_regex: would leave the second acceptance condition, the warning, unchecked.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1fb0be5a397cb85de0ae7f84453933bd4fc1bc140763043e9f9a0342b6b02694",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_port_collapse_wand_uwire_warning.sv",
+              "contains": ":expected_stderr_regex: (?i)warning"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_wand_uwire_warning.sv",
+              "contains": "  pcwu_in_triand #(.D(3)) u_triand(n_triand, d);"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_wand_uwire_warning.expected",
+              "contains": "triand inside, uwire outside: 001110"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -245519,7 +246009,25 @@
       "acceptance": "For internal wor/trior and external wor/trior, Table 23-1 selects the external net type.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B011, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_port_collapse_wor_external_delay.sv",
+          "observation": "An internal wor or trior port whose net declaration has delay 3 is connected to an external wor or trior net declared with delay 7 in all four combinations. Each cell has a driver inside the module and a separate driver module outside, and the merged net is sampled 2, 5 and 9 time units after the driver goes to 1 at time 10 and to 0 at time 30. Every sample of every cell reads 001110, i.e. the external delay 7. 区別: Wor and trior resolve identically, so the value cannot show the selection; the declaration's delay can. Keeping the internal net would read 011100 (delay 3), adding the delays 000111 and no delay 111000. Only the external net, which Table 23-1 selects for internal wor/trior with external wor/trior, gives 001110 as 23.3.3.7 requires.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "15d909a074d92125de5889f152d5778593c7fa2c483a2ac1ad1c02dfd2ad1962",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_port_collapse_wor_external_delay.sv",
+              "contains": "  pced_in_trior #(.D(3)) u_tt_i(n_tt_i, d);"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_wor_external_delay.expected",
+              "contains": "trior inside, trior outside:   driven inside 001110, outside 001110"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -245661,7 +246169,29 @@
       "acceptance": "For internal wor/trior and external uwire, Table 23-1 selects the external net type. A warning shall be issued.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B011, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_port_collapse_wor_uwire_warning.sv",
+          "observation": "An internal wor or trior port whose net declaration has delay 3 is connected to an external uwire net declared with delay 7. The single driver allowed by the uwire is the continuous assignment inside the module, and sampling 2, 5 and 9 time units after the driver goes to 1 at time 10 and to 0 at time 30 gives 001110 for both cells, i.e. the external uwire delay 7. The metadata also requires the warning that the table marks with :expected_stderr_regex: (?i)warning. 区別: Keeping the internal wor or trior would read 011100 (delay 3), adding the delays 000111 and no delay 111000, so 001110 shows the external uwire is dominating as Table 23-1 says. Omitting :expected_stderr_regex: would leave the second acceptance condition, the warning, unchecked.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "25993c60fdf4dc2fe694640b6e7ddf29e1a795cee36dec6f9e8a04fb32c07d41",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_port_collapse_wor_uwire_warning.sv",
+              "contains": ":expected_stderr_regex: (?i)warning"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_wor_uwire_warning.sv",
+              "contains": "  pcwu_in_trior #(.D(3)) u_trior(n_trior, d);"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_wor_uwire_warning.expected",
+              "contains": "trior inside, uwire outside: 001110"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -245885,7 +246415,25 @@
       "acceptance": "For internal trireg and external trireg, Table 23-1 selects the external net type.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B012, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_port_collapse_trireg_external_charge.sv",
+          "observation": "An internal trireg port declared with small, medium or large charge strength is connected to an external trireg net declared with a different charge strength in six pairs. The external driver goes to 1, then z, then 0, then z, and after each step the merged net is printed with %v from outside and inside. The driven samples read St1 and St0; the capacitive samples read the external strength (La for large outside, Sm for small outside, Me for medium outside) on both views. 区別: Taking the internal trireg would print the internal strength instead: Sm, La, Me, La, Sm, Me in the six hold lines, where the external strengths give La, Sm, La, Me, Me, Sm. 23.3.3.7 says the charge strength of the dominating trireg applies to the simulated net, so the printed strengths show that Table 23-1 selected the external trireg in cell 3-3.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9469eb428590797ccd39d787468eefbd56bce2e88cb22498b9df3f87a035f48f",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_port_collapse_trireg_external_charge.sv",
+              "contains": "  trireg (large) n_sl;"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_trireg_external_charge.expected",
+              "contains": "hold 1:  small inside, large outside:  outside La1 inside La1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -391330,7 +391878,29 @@
       "acceptance": "The 37.72 VPI model includes struct pattern in the pattern group; group properties and relationships apply to this member.",
       "source_note": "IEEE 1800-2023 37.72; complete own-body source review, blocks B002, B003, B004, B005, B006, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
+          "observation": "The case matches item '{ 1, 2 } of the case on the struct p gives from vpiExpr a pattern whose vpi_get(vpiType) is vpiStructPattern, and the pattern group relation vpiPattern iterates its two member patterns 1 and 2; the other item '{ 3, 4 } likewise gives a vpiStructPattern whose members are 3 and 4. The application prints the same kind for both struct patterns and counts 4 patterns in the two case statements. 区別: A tool that did not put the struct pattern in the pattern group would model '{ 1, 2 } as a constant, an expr or another object, so the application would print another pattern instead of the struct pattern line, and the pattern count would no longer be 4.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "740b923d0728013fd8f34b5131e2d3a410ec369ab5efc0c6e50d8a9c020d0083",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
+              "contains": "'{ 1, 2 }: out = 12;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.expected",
+              "contains": "case on p: struct pattern with 2 member patterns: 1, 2"
+            },
+            {
+              "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.expected",
+              "contains": "patterns: 4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.72",
@@ -391578,7 +392148,29 @@
       "acceptance": "37.72 defines a one-to-one relation from tagged pattern to typespec, using the untagged typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.72; complete own-body source review, blocks B002, B003, B004, B005, B006, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
+          "observation": "In the case on the tagged union u, the item tagged Wide .w gives a tagged pattern whose vpi_handle(vpiTypespec) has vpiType vpiIntTypespec, the type of the int member Wide, and the item tagged Narrow .n gives one whose typespec has vpiType vpiByteTypespec, the type of the byte member Narrow; each nested any pattern is named w and n. 区別: The union declaration makes the member types int and byte, and 37.25 detail 1 gives the built-in int and byte types the typespec types vpiIntTypespec and vpiByteTypespec with no vpiName. A tool that returned the union typespec (vpiUnionTypespec), the other member's type, or no typespec would print another type name or none for one of the two lines.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "740b923d0728013fd8f34b5131e2d3a410ec369ab5efc0c6e50d8a9c020d0083",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
+              "contains": "tagged Narrow .n: out = n + 1;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.expected",
+              "contains": "case on u: tagged pattern Narrow, member any pattern n, typespec vpiByteTypespec"
+            },
+            {
+              "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.expected",
+              "contains": "case on u: tagged pattern Wide, member any pattern w, typespec vpiIntTypespec"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.72",
@@ -391602,7 +392194,25 @@
       "acceptance": "37.72 defines a one-to-many relation from struct pattern to pattern, using the untagged pattern access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.72; complete own-body source review, blocks B002, B003, B004, B005, B006, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
+          "observation": "vpi_iterate(vpiPattern, struct_pattern) on the struct pattern '{ 1, 2 } of the case on p yields exactly two member patterns, whose constant values are printed as 1 and 2, and on the struct pattern '{ 3, 4 } it yields two member patterns with the values 3 and 4. The member list of each struct pattern is printed with its count, so both the one-to-many cardinality and the member values are compared. 区別: The struct pattern '{1, 2} has two member patterns whose constants are 1 and 2. A tool that returned no member patterns would print 0 member patterns and an empty list; one that returned the whole struct as a single constant, or the members of the other item, would print another count or other values, changing the line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "740b923d0728013fd8f34b5131e2d3a410ec369ab5efc0c6e50d8a9c020d0083",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
+              "contains": "'{ 3, 4 }: out = 34;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.expected",
+              "contains": "case on p: struct pattern with 2 member patterns: 3, 4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.72",
