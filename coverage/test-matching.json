@@ -336482,7 +336482,7 @@
     },
     {
       "test": "tests/ch6/test_string_ato_integer_scan_rules.sv",
-      "inputs_sha256": "628c4daab5eaeac610689083c543dc1d489561c06b51a133f26ab1d5ce5653ce",
+      "inputs_sha256": "428f5cb7b744ac00b799034f87b5444e2bff1cfba06b7edf5a435c0a48e357f9",
       "cited_clauses": [
         "6.16.9"
       ],
@@ -550939,7 +550939,7 @@
     "oracle_issue": 257,
     "partial_observation": 2129
   },
-  "registry_sha256": "78efeeb72bcecd751526edb068a6dff94649cbb2db4a0cd67299531cec74c01f",
+  "registry_sha256": "ff8e4debd3ad2a54d770f68a701f3d3f2e5a956675cfe6e8f48ff2199de0699a",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "f40a7f61df157fb14e8e77dd2d1dc1220d7ecfa6a6d0d6229e8eafda479f06d8"
 }

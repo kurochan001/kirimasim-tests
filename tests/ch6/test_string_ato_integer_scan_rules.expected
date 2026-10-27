@@ -6,17 +6,17 @@ atoi(" 12")=0
 atoi("abc")=0
 atoi("")=0
 atoi("___")=0
-atoi("-12")=0
 atoi("+12")=0
 atoi("'d12")=0
 atohex("8'hff")=8
 atohex("'hff")=0
 atohex("hff")=0
-atohex("-ff")=0
 atohex("fF_0g1")=4080
 atooct("12'o17")=10
 atooct("7_78")=63
-atooct("-7")=0
 atobin("1_01_2")=5
 atobin("4'b1010")=0
 atobin("b101")=0
+atoi("-12") is 0 or -12: 1
+atohex("-ff") is 0 or -255: 1
+atooct("-7") is 0 or -7: 1

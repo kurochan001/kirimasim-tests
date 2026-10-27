@@ -293,7 +293,7 @@
 | [`test_string_substr_2`](../../tests/ch6/test_string_substr_2.sv) | Test string substr | 6.16.8 | Icarus Verilog 13.0 |  |
 | [`test_string_substr_out_of_range`](../../tests/ch6/test_string_substr_out_of_range.sv) | substr returns the empty string when its range is not inside the string | 6.16.8 | Icarus Verilog 13.0 |  |
 | [`test_string_substr_types_negative_start`](../../tests/ch6/test_string_substr_types_negative_start.sv) | substr(i, j) takes two int indices, returns a string, and returns the empty string when i is negative | 6.16.8 20.6.1 | Verilator 5.052 |  |
-| [`test_string_ato_integer_scan_rules`](../../tests/ch6/test_string_ato_integer_scan_rules.sv) | atoi(), atohex(), atooct() and atobin() scan leading digits and underscores, stop at any other character, return 0 without digits, and do not parse a sign, size, apostrophe or base | 6.16.9 | standard only |  |
+| [`test_string_ato_integer_scan_rules`](../../tests/ch6/test_string_ato_integer_scan_rules.sv) | atoi(), atohex(), atooct() and atobin() scan leading digits and underscores, stop at any other character, return 0 without digits, and do not parse a plus, size, apostrophe or base; a leading minus may be read or not | 6.16.9 | standard only |  |
 | [`test_string_ato_method_result_types`](../../tests/ch6/test_string_ato_method_result_types.sv) | atoi(), atohex(), atooct() and atobin() take no arguments and return a signed 32-bit integer, and atoreal() takes no arguments and returns real | 6.16.9 6.16.10 20.6.1 | Verilator 5.052 |  |
 | [`test_string_atobin`](../../tests/ch6/test_string_atobin.sv) | Test: String atobin method | 6.16.9 | Verilator 5.052 |  |
 | [`test_string_atobin_2`](../../tests/ch6/test_string_atobin_2.sv) | Test string atobin method | 6.16.9 | Verilator 5.052 |  |

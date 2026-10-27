@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 89.15%、実行 59.45%。**
+**全規格の要求台帳ベース（暫定）: 設計 89.15%、実行 59.43%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -16,7 +16,7 @@
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対するテスト設計網羅率: 10982/12319 (89.15%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7324/12319 (59.45%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7321/12319 (59.43%)。
 - 登録済みだがテスト未対応: 1337 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
@@ -63,12 +63,12 @@
 - `chA-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:16:45.126049+00:00 / 45/12319 動作確認、古い入力との対応 0 件。
 - `chH-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:00:40.482405+00:00 / 184/12319 動作確認、古い入力との対応 2 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12319 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4749/12319 動作確認、古い入力との対応 163 件。
+- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4746/12319 動作確認、古い入力との対応 166 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12319 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12319 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12319 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3148/12319 動作確認、古い入力との対応 163 件。
-- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2705/12319 動作確認、古い入力との対応 142 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3148/12319 動作確認、古い入力との対応 166 件。
+- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2705/12319 動作確認、古い入力との対応 145 件。
 - 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
@@ -10305,7 +10305,7 @@ atooct is a no-argument string method returning integer.
 
 ### SV2023-6.16.9-EXTRACT-NO-DIGITS-ZERO
 
-6.16.9 / boundary / 実行確認あり
+6.16.9 / boundary / テスト対応あり・実行未確認
 
 Integer string conversion returns zero if the scan encounters no digits.
 
@@ -10317,7 +10317,7 @@ Integer string conversion returns zero if the scan encounters no digits.
 
 ### SV2023-6.16.9-EXTRACT-NO-LITERAL-GRAMMAR
 
-6.16.9 / normal / 実行確認あり
+6.16.9 / normal / テスト対応あり・実行未確認
 
 atoi/atohex/atooct/atobin do not parse an integer literal sign, size, apostrophe or base specifier.
 
@@ -10325,11 +10325,11 @@ atoi/atohex/atooct/atobin do not parse an integer literal sign, size, apostrophe
 
 規定の性質: `mandatory`。
 
-- [test_string_ato_integer_scan_rules.sv](../tests/ch6/test_string_ato_integer_scan_rules.sv): 整数リテラルの数字以外の部分を含む文字列で、符号 "-12"/"+12"（atoi）、"-ff"（atohex）、"-7"（atooct）が 0、サイズ・アポストロフィ・基数の "8'hff" が atohex で 8（アポストロフィで停止）、"'hff"/"hff"/"'d12" が 0、"12'o17" が atooct で 10、"4'b1010" が atobin で 0 になることを比較している。 区別: 符号を解釈する誤実装（Verilator 5.052 のように strtol を使う）なら -12/12/-255/-7 が出る。サイズと基数を解釈する誤実装なら "8'hff" が 255、"12'o17" が 15、"4'b1010" が 10 になり、基数文字を読み飛ばすなら "hff" が 255 になる。
+- [test_string_ato_integer_scan_rules.sv](../tests/ch6/test_string_ato_integer_scan_rules.sv): 整数リテラルの数字以外の部分を含む文字列で、プラス "+12"（atoi）が 0、サイズ・アポストロフィ・基数の "8'hff" が atohex で 8（アポストロフィで停止）、"'hff"/"hff"/"'d12" が 0、"12'o17" が atooct で 10、"4'b1010" が atobin で 0 になることを比較している。先頭のマイナス "-12"/"-ff"/"-7" は、6.16.9 の sign の読み方が定まらないため、0 と負の値の両方を受け入れ、どちらかは確かめない。 区別: プラスを解釈する誤実装（Verilator 5.052 のように strtol を使う）なら "+12" が 12 になる。サイズと基数を解釈する誤実装なら "8'hff" が 255、"12'o17" が 15、"4'b1010" が 10 になり、基数文字を読み飛ばすなら "hff" が 255 になる。
 
 ### SV2023-6.16.9-EXTRACT-SCAN-STOP
 
-6.16.9 / normal / 実行確認あり
+6.16.9 / normal / テスト対応あり・実行未確認
 
 Integer string conversion scans digits and underscores from the start and stops at the first other character or the end.
 
