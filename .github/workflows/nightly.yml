@@ -341,11 +341,82 @@ jobs:
           path: results/
           if-no-files-found: warn
 
+  # An unreleased guest joins under an alias until its public debut. Private
+  # checkout locations, runtime options and credentials are repository secrets.
+  # Build output stays on the runner; artifacts contain only public verdicts.
+  ghost:
+    if: github.repository == 'kurochan001/kirimasim-tests'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Check out the private simulator
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ secrets.GHOST_REPOSITORY }}
+          path: simulator
+          ssh-key: ${{ secrets.GHOST_DEPLOY_KEY }}
+          persist-credentials: false
+
+      - name: Check out its parser
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ secrets.GHOST_PARSER_REPOSITORY }}
+          ref: ${{ secrets.GHOST_PARSER_REF }}
+          path: ${{ secrets.GHOST_PARSER_PATH }}
+          persist-credentials: false
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
+          sudo apt-get install -y ninja-build zlib1g-dev libffi-dev
+
+      - name: Build the private simulator
+        working-directory: simulator
+        env:
+          BUILD_TARGET: ${{ secrets.GHOST_BUILD_TARGET }}
+        run: |
+          if ! { cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF &&
+                 cmake --build build --target "$BUILD_TARGET" --parallel "$(nproc)"
+               } > "$RUNNER_TEMP/ghost-build.log" 2>&1; then
+            echo "::error::The private simulator did not build; its build log stays private."
+            exit 1
+          fi
+
+      - name: Run the suite
+        env:
+          PRIVATE_EXECUTABLE: ${{ secrets.GHOST_EXECUTABLE }}
+          PRIVATE_PROFILE: ${{ secrets.GHOST_PROFILE }}
+        run: |
+          mkdir -p results
+          umask 077
+          printf '%s' "$PRIVATE_PROFILE" > "$RUNNER_TEMP/ghost-profile.json"
+          ulimit -v 6291456
+          status=0
+          python3 tools/run_ghost.py --simulator "simulator/$PRIVATE_EXECUTABLE" \
+            --include simulator/include --profile "$RUNNER_TEMP/ghost-profile.json" \
+            -j "$(nproc)" --json results/ghost.json > results/ghost.log \
+            2> "$RUNNER_TEMP/ghost-runner.stderr" || status=$?
+          cat results/ghost.log
+          tail -n 1 results/ghost.log >> "$GITHUB_STEP_SUMMARY"
+          if [ "$status" -gt 1 ] || [ ! -f results/ghost.json ]; then
+            echo "::error::The private simulator produced no valid results."
+            exit 1
+          fi
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ !cancelled() }}
+        with:
+          name: results-ghost
+          path: results/
+          if-no-files-found: warn
+
   # Adds the results of the simulators that ran to the history on the results
   # branch, draws the charts and the report there, and pushes it. Only a run
   # of main publishes; a run started by hand on another branch only reports.
   publish:
-    needs: [icarus, verilator, kirimasim, lyra]
+    needs: [icarus, verilator, kirimasim, lyra, ghost]
     if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 15
