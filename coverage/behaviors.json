@@ -34125,9 +34125,9 @@
         {
           "test": "tests/ch6/test_string_ops_edge_cases.sv",
           "observation": "Directly assigns a literal to a string and checks the resulting full text; this approves only direct assignment, not every observation in the file.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "df0b9c6774a7c024538fbe767d7ed12e43566b44ecb86aec61609683a8ae0f2e",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "Claude Code (AI); not an independent human review",
+          "inputs_sha256": "d4d2e5964be13017543407021fa8c1d6a4cb4a777224a6f640255a1e6aca6f55",
           "evidence": [
             {
               "file": "tests/ch6/test_string_ops_edge_cases.sv",
@@ -34399,9 +34399,9 @@
         {
           "test": "tests/ch6/test_string_edge.sv",
           "observation": "Checks the character count of a known string; no static return-type signature is inferred from assignment into an int.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "040268c0aec31967a296edbee83d5cfc6b370d43df265fa46c325b9d8762b44c",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "Claude Code (AI); not an independent human review",
+          "inputs_sha256": "798b1fb899b4e1437cd7ccdfc55d8a1edc1ff73157c5900496bb35c3cc04da4f",
           "evidence": [
             {
               "file": "tests/ch6/test_string_edge.sv",
@@ -36115,10 +36115,10 @@
       "checks": [
         {
           "test": "tests/ch6/test_string_atoi_2.sv",
-          "observation": "decimal ASCII12345/0/2147483647を十進期待値と比較し、leading sign/spaceを読まない対照も持つ。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "99554cb0465a27014c83292e1912cbbcb99a8a68fc84fc59628151673d4022cc",
+          "observation": "decimal ASCII12345/0/2147483647を十進期待値と比較し、leading spaceを読まない対照も持つ。leading signは、6.16.9のsignの読み方が定まらないため、読む結果と読まない結果の両方を受け入れる。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "Claude Code (AI); not an independent human review",
+          "inputs_sha256": "508a47a0c73c279f38ede1d6b6c60c5519e38b22e64e5c6d30954643e111dcbd",
           "evidence": [
             {
               "file": "tests/ch6/test_string_atoi_2.sv",

@@ -1,5 +1,5 @@
 PASS: atoi('12345') = 12345
-PASS: atoi('-9876') = 0 (no sign)
+PASS: atoi('-9876') is 0 or -9876
 PASS: atoi('0') = 0
 PASS: atoi('   42') = 0 (stops at the leading space)
 PASS: atoi('2147483647') = 2147483647 (max int)

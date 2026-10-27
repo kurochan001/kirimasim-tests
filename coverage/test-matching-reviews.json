@@ -29212,9 +29212,9 @@
     },
     {
       "test": "tests/ch6/test_string_conversion.sv",
-      "inputs_sha256": "94b6e16fae2e6599152a7e48b92e4f0cf42b90eda8658733ad1e8a17cfa212da",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "3a6aae2e76045648fabe87ca76ebb074c207fd1287be0a1885b4c13f683d3f73",
+      "reviewed_on": "2026-10-28",
+      "reviewer": "Claude Code (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {

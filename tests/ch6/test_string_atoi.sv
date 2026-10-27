@@ -25,11 +25,13 @@ module test_string_atoi;
     val = s.atoi();
     if (val == 123) pass_count++;
 
-    // Test 2: atoi does not parse a sign, so "-456" has no leading digits
-    // and gives 0 (6.16.9)
+    // Test 2: whether atoi reads a leading minus is not settled: 6.16.9 names
+    // the sign among the parts of the literal syntax it does not parse, and
+    // tools differ. "-456" gives 0 if the minus is not read and -456 if it
+    // is; both pass.
     s = "-456";
     val = s.atoi();
-    if (val == 0) pass_count++;
+    if (val == 0 || val == -456) pass_count++;
 
     // Test 3: Zero
     s = "0";

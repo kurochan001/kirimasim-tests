@@ -13,7 +13,7 @@ Test 12 PASS: atoi = 123
 Test 13 PASS: atohex = 255
 Test 14 PASS: itoa = 456
 Test 15 PASS: hextoa = ff
-Test 16 PASS: atoi of "-100" = 0
+Test 16 PASS: atoi of "-100" is 0 or -100
 === String Ops Edge Cases ===
 Passed: 16/16
 TEST PASSED

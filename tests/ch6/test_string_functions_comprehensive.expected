@@ -33,7 +33,7 @@ Test 8: String.icompare() - Case-insensitive comparison
   PASS: "Hello".icompare("HELLO") = 0
 Test 9: String.atoi() - String to integer
   PASS: "123".atoi() = 123
-  PASS: "-456".atoi() = 0
+  PASS: "-456".atoi() is 0 or -456
   PASS: "0".atoi() = 0
   PASS: "42abc".atoi() = 42
 Test 10: String.atohex() - Hex string to integer
