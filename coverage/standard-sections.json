@@ -2850,7 +2850,7 @@
       "title": "Block names",
       "pdf_page": 230,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "All named/unnamed scope and closing-name rules have been extracted, but the unqualified all-static sentence remains an open source interpretation conflict with 6.21; this section is not closed."
     },
@@ -2886,7 +2886,7 @@
       "title": "Event control",
       "pdf_page": 233,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "All sixteen edge matrix cells and general expression/method/clocking/event reevaluation rules are extracted. The chandle event permission is kept visible alongside 6.14 and this section remains open for resolving that conflict."
     },
@@ -5100,7 +5100,7 @@
       "title": "Multiclocked properties",
       "pdf_page": 468,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Entire source reviewed, but the sequence-property match-only wording remains held pending reconciliation with 16.12.2 finite-trace strengths."
     },
@@ -6090,7 +6090,7 @@
       "title": "Value resolution",
       "pdf_page": 597,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Complete value-resolution source reviewed; x/z warning/removal versus literal four-state matching remains unresolved."
     },
@@ -6234,7 +6234,7 @@
       "title": "Coverpoint coverage computation",
       "pdf_page": 616,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Entire source reviewed; generic automatic denominator versus enum-specific bin count held for interpretation."
     },
@@ -6351,7 +6351,7 @@
       "title": "$timeformat",
       "pdf_page": 626,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Complete syntax/defaults/global effect reviewed; precision argument range versus explicit example held."
     },
@@ -6819,7 +6819,7 @@
       "title": "Reading data from a file",
       "pdf_page": 670,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Read API syntax reviewed; read-allowed opening modes versus update-mode table remain held."
     },
@@ -8205,7 +8205,7 @@
       "title": "Virtual interfaces",
       "pdf_page": 802,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Complete virtual-interface grammar/footnote, null/type/operation/location restrictions and examples read. Sensitivity-list wording retained pending reconciliation with the procedural event-control example."
     },
@@ -8223,7 +8223,7 @@
       "title": "Virtual interface modports and clocking blocks",
       "pdf_page": 805,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Clocking-modport facility extracted; overly broad no-modports wording held against 25.10 unrestricted access semantics."
     },
@@ -8556,7 +8556,7 @@
       "title": "Ambiguous strengths: sources and combinations",
       "pdf_page": 845,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Entire source and all figures reviewed; classifications, equal-opposite resolution, range notation and gate highz effects extracted. General ambiguous-union wording held for dominance reconciliation."
     },
@@ -9240,7 +9240,7 @@
       "title": "$width",
       "pdf_page": 912,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Complete width syntax/prose optionality, arguments, strict thresholds, notifier requirement and opposite-edge derivation extracted; same-time assertion held against general event scheduling."
     },
@@ -9546,7 +9546,7 @@
       "title": "Using multiple library map files",
       "pdf_page": 938,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Included-file substitution and per-file relative resolution extracted; shortened allowed-content list held against formal library grammar."
     },
@@ -9645,7 +9645,7 @@
       "title": "Setting parameters in configurations",
       "pdf_page": 941,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "All eight restriction/precedence bullets, parameter/default-reset facilities and complete examples reviewed; example hash-list/reset notation held against the full Annex A.1.5 grammar."
     },
@@ -10293,7 +10293,7 @@
       "title": "Description",
       "pdf_page": 961,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Complete input, output and decryption behavior; each operation is scoped to the stated tool mode."
     },
@@ -12129,7 +12129,7 @@
       "title": "Callback",
       "pdf_page": 1083,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Complete diagram membership, property types, directed relationship cardinalities and all numbered semantic details reviewed."
     },
@@ -12705,7 +12705,7 @@
       "title": "Placing assertion system callbacks",
       "pdf_page": 1149,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Complete own-body assertion API signature, control/callback semantics and exceptional conditions reviewed. On 2026-10-24 the ASSERTION-SYSTEM-FAIL-ACTION-EVENT wording was resolved: Complete own-body assertion API signature, control/callback semantics and exceptional conditions reviewed; cbAssertionSysEnableFailAction/cbAssertionSysDisableFailAction are read as the system-level fail-action enable/disable events, the 'vacuous and nonvacuous success' qualifier being a carry-over from the pass-action entries, since 39.5.1 B003, 39.4.2 B008 and 20.11 B035 consistently define fail-action control without it."
     },
@@ -13056,7 +13056,7 @@
       "title": "Module items",
       "pdf_page": 1176,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Complete own-body BNF reviewed with optional/repetition/alternative structure retained; normative prose and A.10 clarifications also constrain these productions."
     },
@@ -15090,7 +15090,7 @@
       "title": "Canonical representation of packed arrays",
       "pdf_page": 1276,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Entire own-body text, prototypes, constraints and examples reviewed; reference-only and informative material explicitly distinguished from requirements."
     },
@@ -15378,7 +15378,7 @@
       "title": "Source code",
       "pdf_page": 1293,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "All header declarations,types,macros and normative comments reviewed; platform type-definition example and optional deprecated region distinguished; 66 current and 33 legacy API declarations recorded. On 2026-10-24 the DPI-GET-USER-DATA-RETURN wording was resolved: All header declarations,types,macros and normative comments reviewed; the svGetUserData comment's '0 upon success' (B047) is read per H.9.3 B017 as returning the stored non-NULL user data pointer, consistent with the retrieval purpose stated in B047 and the NULL-userData caution in B046."
     },
@@ -15549,7 +15549,7 @@
       "title": "Source code",
       "pdf_page": 1338,
       "kind": "normative",
-      "review": "in_progress",
+      "review": "complete",
       "reviewed_on": "2026-10-22",
       "review_note": "Every wrapper/helper branch,rounding rule,boundary,seed update and draw order reviewed; portability of the supplied signed-long implementation retained as interpretation issue."
     },

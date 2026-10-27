@@ -3,21 +3,21 @@
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
-**規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 89.29%、実行 59.49%。**
+**規格全動作のテスト設計網羅率: 89.28%。**
+**全規格の要求台帳ベース（暫定）: 設計 89.28%、実行 59.44%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
-規格全動作の実行確認率: 未確定。
+規格全動作の実行確認率: 59.44%。
 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
-- 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
-- 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 11000/12319 (89.29%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7329/12319 (59.49%)。
-- 登録済みだがテスト未対応: 1319 動作。
+- 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
+- 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
+- 登録済み動作に対するテスト設計網羅率: 10980/12298 (89.28%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7310/12298 (59.44%)。
+- 登録済みだがテスト未対応: 1318 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -36,44 +36,44 @@
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で
 グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
-- `ch16-edge-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T15:43:04.210115+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `ch16-edge-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:15.726452+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `ch16-sim-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T15:42:14.965527+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `ch16-sim-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:04.031900+00:00 / 9/12319 動作確認、古い入力との対応 0 件。
-- `ch19-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T21:20:25.211852+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `ch19-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T21:20:35.736196+00:00 / 8/12319 動作確認、古い入力との対応 0 件。
-- `ch19-rest-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:55:13.337642+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `ch19-rest-reuse-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:51:40.361212+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `ch21-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:30:07.226181+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `ch21-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:30:10.339072+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `ch22-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:08:32.360779+00:00 / 13/12319 動作確認、古い入力との対応 0 件。
-- `ch22-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:08:36.769544+00:00 / 15/12319 動作確認、古い入力との対応 0 件。
-- `ch23-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:10:02.321608+00:00 / 5/12319 動作確認、古い入力との対応 0 件。
-- `ch23-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:10:14.224099+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
-- `ch31-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:05:22.468557+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
-- `ch31-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:05:39.429957+00:00 / 7/12319 動作確認、古い入力との対応 0 件。
-- `ch34-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T23:01:55.389805+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
-- `ch34-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T23:02:01.862164+00:00 / 5/12319 動作確認、古い入力との対応 0 件。
-- `ch35-rest-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:51:49.121474+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `ch36-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T21:59:06.732473+00:00 / 55/12319 動作確認、古い入力との対応 0 件。
-- `ch36-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T21:59:09.623661+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `ch37-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:11:52.776966+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `ch38-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:20:48.267440+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
-- `ch38-reuse-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:00:25.077411+00:00 / 40/12319 動作確認、古い入力との対応 0 件。
-- `ch6-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:33:35.549914+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `ch6-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:33:40.336655+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
-- `ch9-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:32:44.231306+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
-- `ch9-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:32:53.445594+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
-- `chA-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T22:16:15.354614+00:00 / 24/12319 動作確認、古い入力との対応 0 件。
-- `chA-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:16:45.126049+00:00 / 45/12319 動作確認、古い入力との対応 0 件。
-- `chH-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:00:40.482405+00:00 / 183/12319 動作確認、古い入力との対応 5 件。
-- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12319 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4747/12319 動作確認、古い入力との対応 167 件。
-- `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12319 動作確認、古い入力との対応 2 件。
-- `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12319 動作確認、古い入力との対応 2 件。
-- `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12319 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3148/12319 動作確認、古い入力との対応 167 件。
-- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2705/12319 動作確認、古い入力との対応 146 件。
+- `ch16-edge-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T15:43:04.210115+00:00 / 0/12298 動作確認、古い入力との対応 0 件。
+- `ch16-edge-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:15.726452+00:00 / 1/12298 動作確認、古い入力との対応 0 件。
+- `ch16-sim-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T15:42:14.965527+00:00 / 0/12298 動作確認、古い入力との対応 0 件。
+- `ch16-sim-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:04.031900+00:00 / 9/12298 動作確認、古い入力との対応 0 件。
+- `ch19-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T21:20:25.211852+00:00 / 0/12298 動作確認、古い入力との対応 0 件。
+- `ch19-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T21:20:35.736196+00:00 / 8/12298 動作確認、古い入力との対応 0 件。
+- `ch19-rest-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:55:13.337642+00:00 / 1/12298 動作確認、古い入力との対応 0 件。
+- `ch19-rest-reuse-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:51:40.361212+00:00 / 0/12298 動作確認、古い入力との対応 0 件。
+- `ch21-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:30:07.226181+00:00 / 1/12298 動作確認、古い入力との対応 0 件。
+- `ch21-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:30:10.339072+00:00 / 2/12298 動作確認、古い入力との対応 0 件。
+- `ch22-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:08:32.360779+00:00 / 13/12298 動作確認、古い入力との対応 0 件。
+- `ch22-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:08:36.769544+00:00 / 15/12298 動作確認、古い入力との対応 0 件。
+- `ch23-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:10:02.321608+00:00 / 5/12298 動作確認、古い入力との対応 0 件。
+- `ch23-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:10:14.224099+00:00 / 10/12298 動作確認、古い入力との対応 0 件。
+- `ch31-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:05:22.468557+00:00 / 10/12298 動作確認、古い入力との対応 0 件。
+- `ch31-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:05:39.429957+00:00 / 7/12298 動作確認、古い入力との対応 0 件。
+- `ch34-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T23:01:55.389805+00:00 / 3/12298 動作確認、古い入力との対応 0 件。
+- `ch34-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T23:02:01.862164+00:00 / 5/12298 動作確認、古い入力との対応 0 件。
+- `ch35-rest-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:51:49.121474+00:00 / 2/12298 動作確認、古い入力との対応 0 件。
+- `ch36-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T21:59:06.732473+00:00 / 55/12298 動作確認、古い入力との対応 0 件。
+- `ch36-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T21:59:09.623661+00:00 / 1/12298 動作確認、古い入力との対応 0 件。
+- `ch37-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:11:52.776966+00:00 / 1/12298 動作確認、古い入力との対応 0 件。
+- `ch38-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:20:48.267440+00:00 / 3/12298 動作確認、古い入力との対応 0 件。
+- `ch38-reuse-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:00:25.077411+00:00 / 40/12298 動作確認、古い入力との対応 0 件。
+- `ch6-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:33:35.549914+00:00 / 1/12298 動作確認、古い入力との対応 0 件。
+- `ch6-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:33:40.336655+00:00 / 3/12298 動作確認、古い入力との対応 0 件。
+- `ch9-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:32:44.231306+00:00 / 6/12298 動作確認、古い入力との対応 0 件。
+- `ch9-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:32:53.445594+00:00 / 6/12298 動作確認、古い入力との対応 0 件。
+- `chA-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T22:16:15.354614+00:00 / 24/12298 動作確認、古い入力との対応 0 件。
+- `chA-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:16:45.126049+00:00 / 45/12298 動作確認、古い入力との対応 0 件。
+- `chH-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:00:40.482405+00:00 / 183/12298 動作確認、古い入力との対応 5 件。
+- `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12298 動作確認、古い入力との対応 0 件。
+- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4729/12298 動作確認、古い入力との対応 167 件。
+- `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12298 動作確認、古い入力との対応 2 件。
+- `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
+- `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3138/12298 動作確認、古い入力との対応 167 件。
+- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2696/12298 動作確認、古い入力との対応 146 件。
 - 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
@@ -220,56 +220,56 @@
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 117。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 80。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 136。
-- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 687。
-- 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 324。
-- 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 222。
-- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 166。
+- 6 Data types: 解釈保留なし 92/92、登録 719、テスト対応 680。
+- 7 Aggregate data types: 解釈保留なし 61/61、登録 345、テスト対応 320。
+- 8 Classes: 解釈保留なし 49/49、登録 252、テスト対応 221。
+- 9 Processes: 解釈保留なし 34/34、登録 189、テスト対応 166。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 130。
-- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 435。
+- 11 Operators and expressions: 解釈保留なし 55/55、登録 459、テスト対応 433。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 89。
-- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 94。
+- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 119、テスト対応 92。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 59。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 68。
-- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 539。
+- 16 Assertions: 解釈保留なし 82/82、登録 555、テスト対応 539。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 59。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 300。
-- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 233。
-- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 285。
-- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 348。
-- 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 346。
+- 19 Functional coverage: 解釈保留なし 34/34、登録 271、テスト対応 232。
+- 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 316、テスト対応 284。
+- 21 Input/output system tasks and system functions: 解釈保留なし 65/65、登録 383、テスト対応 347。
+- 22 Compiler directives: 解釈保留なし 28/28、登録 361、テスト対応 345。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 247。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 16。
-- 25 Interfaces: 解釈保留なし 23/25、登録 63、テスト対応 43。
+- 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 43。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 39。
 - 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 27。
-- 28 Gate-level and switch-level modeling: 解釈保留なし 33/34、登録 384、テスト対応 363。
+- 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 363。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 49。
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 131。
-- 31 Timing checks: 解釈保留なし 25/26、登録 180、テスト対応 154。
+- 31 Timing checks: 解釈保留なし 26/26、登録 180、テスト対応 154。
 - 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 119。
-- 33 Configuring the contents of a design: 解釈保留なし 34/36、登録 63、テスト対応 30。
-- 34 Protected envelopes: 解釈保留なし 103/104、登録 215、テスト対応 5。
+- 33 Configuring the contents of a design: 解釈保留なし 36/36、登録 63、テスト対応 30。
+- 34 Protected envelopes: 解釈保留なし 104/104、登録 214、テスト対応 5。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 115。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 148。
-- 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1658。
+- 37 VPI object model diagrams: 解釈保留なし 101/101、登録 1757、テスト対応 1658。
 - 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 260。
-- 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 82。
+- 39 Assertion API: 解釈保留なし 14/14、登録 95、テスト対応 82。
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 82。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
-- A Formal syntax: 解釈保留なし 86/87、登録 811、テスト対応 794。
+- A Formal syntax: 解釈保留なし 87/87、登録 811、テスト対応 794。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 9。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 253。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 25。
-- H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 190。
-- I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 134。
+- H DPI C layer: 解釈保留なし 72/72、登録 223、テスト対応 190。
+- I svdpi.h: 解釈保留なし 4/4、登録 147、テスト対応 134。
 - J Inclusion of foreign language code: 解釈保留なし 7/7、登録 16、テスト対応 0。
 - K vpi_user.h: 解釈保留なし 3/3、登録 544、テスト対応 541。
 - L vpi_compatibility.h: 解釈保留なし 3/3、登録 88、テスト対応 85。
 - M sv_vpi_user.h: 解釈保留なし 3/3、登録 412、テスト対応 407。
-- N Algorithm for probabilistic distribution functions: 解釈保留なし 2/3、登録 39、テスト対応 29。
+- N Algorithm for probabilistic distribution functions: 解釈保留なし 3/3、登録 39、テスト対応 29。
 - O Encryption/decryption flow: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - P Glossary: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - Q Bibliography: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
@@ -7893,9 +7893,9 @@ Without an explicit initializer, a string variable starts with the empty string.
 
 6.8 / normal / 実行確認あり
 
-Without an explicit initializer, a two-state integral variable starts with zero in every bit.
+Without an explicit initializer, a two-state integral variable starts with zero in every bit; byte, shortint, int and longint atoms each start at zero.
 
-合格基準: Without an explicit initializer, a two-state integral variable starts with zero in every bit.
+合格基準: byte, shortint, int and longint each report zero before any assignment.
 
 規定の性質: `definition`。
 
@@ -8140,16 +8140,6 @@ Uninitialized four-state integer and time variables start unknown.
 合格基準: Both integer and time are reported unknown.
 
 - [test_integer_atom_defaults_and_widths.sv](../tests/ch6/test_integer_atom_defaults_and_widths.sv): Both integer and time are reported unknown.
-
-### SV2023-6.8-TWO-STATE-DEFAULT
-
-6.8 / normal / 実行確認あり
-
-Uninitialized two-state integer atoms start at zero.
-
-合格基準: byte, shortint, int and longint each report zero.
-
-- [test_integer_atom_defaults_and_widths.sv](../tests/ch6/test_integer_atom_defaults_and_widths.sv): byte, shortint, int and longint each report zero.
 
 ### SV2023-6.9-EXTRACT-SCALAR-DEFAULT-WIDTH
 
@@ -9567,9 +9557,9 @@ A string literal implicitly converts to string type when assigned to a string or
 
 6.16 / normal / 実行確認あり
 
-A string literal assigned to an integral destination is right aligned; excess high bits are truncated and missing high bits are zero filled.
+A string literal assigned to an integral destination is right aligned; excess high bits are truncated on the left and missing high bits are zero filled.
 
-合格基準: A string literal assigned to an integral destination is right aligned; excess high bits are truncated and missing high bits are zero filled.
+合格基準: WXYZ stored in 16 bits becomes 595a; K stored in 32 bits is zero filled to 0000004b.
 
 規定の性質: `mandatory`。
 
@@ -9857,16 +9847,6 @@ Assigning a string literal to a string variable retains its converted string len
 規定の性質: `mandatory`。
 
 - [test_string_basic.sv](../tests/ch6/test_string_basic.sv): String assignment/concatenation preserves Hello World and later reassignment preserves New/X with their changed lengths, rather than a fixed destination size.
-
-### SV2023-6.16-STRING-LEFT-TRUNCATE
-
-6.16 / normal / 実行確認あり
-
-An integral target too short for a string literal discards leftmost characters.
-
-合格基準: WXYZ stored in 16 bits becomes 595a.
-
-- [test_string_integral_truncation_and_lexical_compare.sv](../tests/ch11/test_string_integral_truncation_and_lexical_compare.sv): WXYZ stored in 16 bits becomes 595a.
 
 ### SV2023-6.16.1-EXTRACT-EMPTY-LENGTH
 
@@ -11147,16 +11127,6 @@ A type name can be assigned to an enum so the same enum type is reusable at mult
 
 - [test_enum_reuse_next_prev_encoding.sv](../tests/ch6/test_enum_reuse_next_prev_encoding.sv): 同じ名前付き enum 型 color_t で c1 と c2 を宣言し、c2 = c1 の後も c1=1 c2=1 と読めることを観測する。 区別: 名前付き enum を型として再利用できない実装は 2 個目の宣言か代入を拒否し、reuse c1=1 c2=1 が出力されない。
 
-### SV2023-6.19.2-DESCENDING-NAMES
-
-6.19.2 / normal / 実行確認あり
-
-A descending generated enum name range still receives increasing values.
-
-合格基準: SLOT2, SLOT1 and SLOT0 have values 7,8,9.
-
-- [test_enum_descending_names_and_wrap.sv](../tests/ch6/test_enum_descending_names_and_wrap.sv): SLOT2, SLOT1 and SLOT0 have values 7,8,9.
-
 ### SV2023-6.19.2-EXTRACT-COUNT-EXPLICIT-FIRST
 
 6.19.2 / normal / 実行確認あり
@@ -11212,7 +11182,7 @@ The N in enum name\[N\] must be a positive integral number.
 
 For name\[N:M\]=C, the first generated name receives C and every subsequent generated value increases by one regardless of suffix direction.
 
-合格基準: For name\[N:M\]=C, the first generated name receives C and every subsequent generated value increases by one regardless of suffix direction.
+合格基準: For SLOT\[2:0\] = 7 the names SLOT2, SLOT1 and SLOT0 have values 7,8,9; for wr\[2:3\] = 10 the values are wr2=10 and wr3=11.
 
 規定の性質: `mandatory`。
 
@@ -11534,9 +11504,9 @@ prev(N) returns the Nth preceding member from the receiver in declaration order.
 
 6.19.5.4 / boundary / 実行確認あり
 
-prev(N) wraps around the start of the enum member list as needed.
+prev(N) wraps around the start of the enum member list as needed, walking the declared member order across encoding gaps.
 
-合格基準: prev(N) wraps around the start of the enum member list as needed.
+合格基準: One step before SLOT2 is DONE=20, and two steps before SLOT2 is SLOT0=9.
 
 規定の性質: `mandatory`。
 
@@ -11544,23 +11514,13 @@ prev(N) wraps around the start of the enum member list as needed.
 - [test_enum_method_edge.sv](../tests/ch6/test_enum_method_edge.sv): Checks wrapping before the start for default and two-step counts, plus a one-member enum.
 - [test_enum_methods_navigation.sv](../tests/ch6/test_enum_methods_navigation.sv): Observed default-count enum navigation and complete name iteration, with explicit fatal checks on first/last, neighboring values and both wrap directions. No claim is made about invalid receiver encodings or static signatures.
 
-### SV2023-6.19.5.4-PREV-WRAP
-
-6.19.5.4 / boundary / 実行確認あり
-
-Enum prev() wraps in declaration order across value gaps.
-
-合格基準: One step before SLOT2 is DONE=20, and two steps before SLOT2 is SLOT0=9.
-
-- [test_enum_descending_names_and_wrap.sv](../tests/ch6/test_enum_descending_names_and_wrap.sv): One step before SLOT2 is DONE=20, and two steps before SLOT2 is SLOT0=9.
-
 ### SV2023-6.19.5.5-EXTRACT-MEMBER-COUNT
 
 6.19.5.5 / normal / 実行確認あり
 
 num() returns the number of members declared in the enum.
 
-合格基準: num() returns the number of members declared in the enum.
+合格基準: An enum with members 7,8,9,20 reports four members despite the numeric gap.
 
 規定の性質: `mandatory`。
 
@@ -11580,16 +11540,6 @@ num is a no-argument enum method returning int.
 規定の性質: `definition`。
 
 - [test_enum_num_name_result_types.sv](../tests/ch6/test_enum_num_name_result_types.sv): 引数なしの c.num() の型を $typename/$bits で "int"/32 と確認し、bit \[7:0\] 基底で3メンバの値 3、c.num() - 5 < 0 が 1（符号付き int）であることを比較している。 区別: 戻り値を基底型（bit\[7:0\]）や符号なし 32 ビットにする誤実装（Verilator 5.052 は $typename を bit\[31:0\] とする）なら num 行の型名が変わり、符号なしなら below=0、8 ビット幅なら bits=8 になる。
-
-### SV2023-6.19.5.5-NUM-MEMBERS
-
-6.19.5.5 / normal / 実行確認あり
-
-Enum num() counts members rather than the numeric value span.
-
-合格基準: The enum reports four members despite its gap from 9 to 20.
-
-- [test_enum_descending_names_and_wrap.sv](../tests/ch6/test_enum_descending_names_and_wrap.sv): The enum reports four members despite its gap from 9 to 20.
 
 ### SV2023-6.19.5.6-EXTRACT-INVALID-EMPTY
 
@@ -12546,9 +12496,9 @@ A dollar in an unpacked array dimension denotes a queue.
 
 6.20.7 / normal / 実行確認あり
 
-Within a queue select, dollar denotes the last queue element.
+Within a queue select, dollar denotes the last queue element, so q\[$\] tracks the current last element when the queue grows on push_back and shrinks on pop_back.
 
-合格基準: Within a queue select, dollar denotes the last queue element.
+合格基準: After push_back(9), q\[$\] is 9 and q\[1:$\] is 4,9; after pop_back() removes 9, q\[$\] is 4.
 
 規定の性質: `definition`。
 
@@ -12601,26 +12551,6 @@ $isunbounded takes a package-scoped or hierarchical parameter identifier and ret
 規定の性質: `definition`。
 
 - [test_isunbounded_package_and_hierarchical.sv](../tests/ch6/test_isunbounded_package_and_hierarchical.sv): $isunbounded にパッケージ修飾のパラメータ名 iub_pkg::UNB（$）, iub_pkg::BND（4）, iub_pkg::COPY（UNB を代入）と、階層名 c1.MAXV（既定値 $）, c2.MAXV（3 に上書き）を渡し、1 0 1 と 1 0、結果の $bits が 1、$typename が bit であることを比較している。 区別: パッケージ修飾名や階層名の引数を受け付けない誤実装はコンパイルに失敗する。上書き後の値でなく既定値を見る実装なら c2 が 1 になり、$ を値として扱う実装なら UNB/COPY が 0 になる。戻り値を int などにすれば bits/type が変わる。
-
-### SV2023-6.20.7-QUEUE-LAST-AFTER-POP
-
-6.20.7 / normal / 実行確認あり
-
-A queue dollar index is recomputed after shrinkage.
-
-合格基準: After removing 9, q\[$\] is 4.
-
-- [test_unbounded_queue_tail_after_resize.sv](../tests/ch6/test_unbounded_queue_tail_after_resize.sv): After removing 9, q\[$\] is 4.
-
-### SV2023-6.20.7-QUEUE-LAST-AFTER-PUSH
-
-6.20.7 / normal / 実行確認あり
-
-A queue dollar index reflects the current last element after growth.
-
-合格基準: After push_back(9), q\[$\] is 9 and q\[1:$\] is 4,9.
-
-- [test_unbounded_queue_tail_after_resize.sv](../tests/ch6/test_unbounded_queue_tail_after_resize.sv): After push_back(9), q\[$\] is 9 and q\[1:$\] is 4,9.
 
 ### SV2023-6.21-EXTRACT-AUTOMATIC-BLOCK-DEFINITION
 
@@ -16175,23 +16105,13 @@ A wildcard index with any x/z bit is invalid.
 規定の性質: `mandatory`。
 
 
-### SV2023-7.8.2-EMPTY-STRING-KEY
-
-7.8.2 / boundary / 実行確認あり
-
-The empty string is a valid associative-array string index.
-
-合格基準: Reverse traversal reaches an allocated key of length zero.
-
-- [test_assoc_string_empty_and_reverse_order.sv](../tests/ch7/test_assoc_string_empty_and_reverse_order.sv): Reverse traversal reaches an allocated key of length zero.
-
 ### SV2023-7.8.2-EXTRACT-EMPTY-KEY
 
 7.8.2 / boundary / 実行確認あり
 
 An empty string is a valid associative key.
 
-合格基準: An empty string is a valid associative key.
+合格基準: An allocated key of length zero is reached by reverse traversal; a\[""\] = 2 is stored and found.
 
 規定の性質: `mandatory`。
 
@@ -16204,7 +16124,7 @@ An empty string is a valid associative key.
 
 String associative keys are ordered lexicographically from lesser to greater.
 
-合格基準: String associative keys are ordered lexicographically from lesser to greater.
+合格基準: Descending traversal visits b, aa, then the empty string.
 
 規定の性質: `mandatory`。
 
@@ -16222,16 +16142,6 @@ A string-index associative array accepts strings and string literals of any leng
 規定の性質: `mandatory`。
 
 - [test_illegal_string_index_with_int.sv](../tests/ch7/test_illegal_string_index_with_int.sv): string 添字の連想配列 m を int 変数 k で添字付けする m\[k\] = 4; (35行目)でのエラーを求める。文字列リテラル "ab"、長い文字列リテラル、空文字列 ""、"ab" と同じ要素を指す string 変数 s による書き込みと読み出しは合法な対照で、制御版は Verilator で 3 2 30 を表示する。 区別: string 添字に整数を(文字列へ変換するなどして)許す誤実装は35行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
-
-### SV2023-7.8.2-LEXICAL-ORDER
-
-7.8.2 / normal / 実行確認あり
-
-String associative indices are traversed in lexical order.
-
-合格基準: Descending traversal visits b, aa, then the empty string.
-
-- [test_assoc_string_empty_and_reverse_order.sv](../tests/ch7/test_assoc_string_empty_and_reverse_order.sv): Descending traversal visits b, aa, then the empty string.
 
 ### SV2023-7.8.3-EXTRACT-ARBITRARY-DETERMINISTIC-ORDER
 
@@ -16905,20 +16815,11 @@ Whole associative-array assignment requires a compatible associative source/targ
 
 Associative-array assignment clears all old target entries then copies every source entry.
 
-合格基準: Associative-array assignment clears all old target entries then copies every source entry.
+合格基準: The old key 9 disappears and destination size becomes 2; a three-entry source is copied entirely and the copy keeps its values after the source changes.
 
 規定の性質: `mandatory`。
 
 - [test_assoc_assignment_copies_every_entry.sv](../tests/ch7/test_assoc_assignment_copies_every_entry.sv): copy先のold key9の消失、重複key2の上書き、sourceの全3entryの値を検査し、source変更後も全3値を保持する。空sourceのcopyで全keyが消えることも確認する。
-
-### SV2023-7.9.9-REPLACE-NOT-MERGE
-
-7.9.9 / normal / 実行確認あり
-
-Associative assignment clears old destination entries before copying source entries.
-
-合格基準: The old key 9 disappears and destination size becomes 2.
-
 - [test_assoc_assignment_clears_and_detaches.sv](../tests/ch7/test_assoc_assignment_clears_and_detaches.sv): The old key 9 disappears and destination size becomes 2.
 
 ### SV2023-7.9.9-VALUE-COPY
@@ -16951,21 +16852,11 @@ An associative actual/formal pair must have compatible types and the same index 
 
 Passing an associative array by value creates a local copy.
 
-合格基準: Passing an associative array by value creates a local copy.
+合格基準: Deleting and replacing the by-value formal leaves the caller array with its two original entries.
 
 規定の性質: `mandatory`。
 
 - [test_assoc_assignment_clears_and_detaches.sv](../tests/ch7/test_assoc_assignment_clears_and_detaches.sv): inputのlocal copyをdeleteしてkey99だけへ置換してもcallerのbはnum2/key2=4を保持する。refでcallerを変更する誤動作ならcount/valueが変わる。
-
-### SV2023-7.9.10-VALUE-FORMAL-COPY
-
-7.9.10 / normal / 実行確認あり
-
-A by-value associative formal is a local copy.
-
-合格基準: Deleting and replacing the formal leaves the caller array with its two original entries.
-
-- [test_assoc_assignment_clears_and_detaches.sv](../tests/ch7/test_assoc_assignment_clears_and_detaches.sv): Deleting and replacing the formal leaves the caller array with its two original entries.
 
 ### SV2023-7.9.11-DEFAULT-NO-ALLOCATION
 
@@ -20909,7 +20800,7 @@ Casting a null-valued interface source handle follows class-handle null casting 
 
 An interface class cannot be constructed as an object.
 
-合格基準: An interface class cannot be constructed as an object.
+合格基準: Compilation rejects new on the interface class at the intended source line.
 
 規定の性質: `mandatory`。
 
@@ -20938,16 +20829,6 @@ An object handle can be assigned to an interface-class handle for an interface i
 規定の性質: `permission`。
 
 - [test_interface_class_cast.sv](../tests/ch8/test_interface_class_cast.sv): implements済みclass objectをinterface readerへ代入し、そのhandleを通じて同じ実体の値9を読めることを確認する。
-
-### SV2023-8.26.5-NO-INTERFACE-NEW
-
-8.26.5 / error / 実行確認あり
-
-An interface class cannot be constructed.
-
-合格基準: Compilation rejects new on the interface class at the intended source line.
-
-- [test_illegal_interface_class_construction.sv](../tests/ch8/test_illegal_interface_class_construction.sv): Compilation rejects new on the interface class at the intended source line.
 
 ### SV2023-8.26.6-EXTRACT-MERGED-NAME-CONFLICT
 
@@ -22322,13 +22203,11 @@ Optional matching colon names may follow the listed design/subroutine/assertion/
 
 9.3.4 / normal / テスト未対応
 
-Section 9.3.4 states that all variables are static and retain their values across block entry/exit; its unrestricted wording must be reconciled with the explicit automatic lifetime rules of 6.21 before a conformance oracle is assigned.
+Variables declared in a static task, function, or procedural block without an explicit lifetime qualifier have a static lifetime: one location exists for the whole simulation and entering or leaving the block does not change the stored value. Variables explicitly declared automatic, variables in an automatic task, function, or block, and class methods and declared for-loop variables are automatic by default and are initialized on each entry (6.21).
 
-合格基準: Section 9.3.4 states that all variables are static and retain their values across block entry/exit; its unrestricted wording must be reconciled with the explicit automatic lifetime rules of 6.21 before a conformance oracle is assigned.
+合格基準: In a static block a declaration with no qualifier keeps its value across repeated entries (loop counter reaches 9 after three entries of a 3-iteration inner loop), while the same declaration with the automatic keyword, or any declaration inside an automatic block or automatic task/function, starts from its initializer on every entry and is not shared between concurrent activations.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `STATIC-BLOCK-LIFETIME`（対応承認・節完了を保留）。
 
 
 ### SV2023-9.3.4-EXTRACT-UNNAMED-DECLARATION-SCOPE
@@ -22817,13 +22696,11 @@ A tool may also reevaluate the event expression on changes to members/sizes not 
 
 9.4.2 / normal / テスト未対応
 
-Section 9.4.2 explicitly defines a simple object/chandle variable event when a write changes the handle value; its chandle permission conflicts with the 6.14 prohibition and is pending interpretation.
+A procedural event control whose event expression is a bare reference to a simple object handle or chandle variable creates an event whenever a write changes that variable's value. This bare-reference form is the only chandle use permitted in an event expression; every other use of a chandle in a sensitivity list or event expression remains illegal (6.14).
 
-合格基準: Section 9.4.2 explicitly defines a simple object/chandle variable event when a write changes the handle value; its chandle permission conflicts with the 6.14 prohibition and is pending interpretation.
+合格基準: @h, with h a class handle or a chandle, blocks until h is written a value different from its current value and does not unblock when the same value (including null written over null) is written again. A chandle inside any other event expression or sensitivity list, for example @(c1 == c2), is not a permitted use and is rejected.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `CHANDLE-EVENT-CONTROL`（対応承認・節完了を保留）。
 
 
 ### SV2023-9.4.2-EXTRACT-METHOD-DEPENDENCY-REEVALUATION
@@ -26291,7 +26168,7 @@ Real values may be selected as structure/union members or array elements under t
 
 For other permitted operators, a real operand yields a real result, except that a conditional first operand does not participate in this result-type promotion.
 
-合格基準: For other permitted operators, a real operand yields a real result, except that a conditional first operand does not participate in this result-type promotion.
+合格基準: 2.5 plus integer 3 yields real 5.5; a real condition alone leaves the integral branch result at 32 bits while real branches are 64 bits.
 
 規定の性質: `mandatory`。
 
@@ -26309,16 +26186,6 @@ Absent a relevant real operand, a shortreal operand yields shortreal for the oth
 規定の性質: `mandatory`。
 
 - [test_shortreal_result_and_condition_types.sv](../tests/ch11/test_shortreal_result_and_condition_types.sv): Shortreal arithmetic/branches retain 32-bit result width unless a real operand promotes to 64 bits. A shortreal condition alone leaves four-bit integral branches at four bits, distinguishing mistaken promotion to 32-bit shortreal. Standard-derived expectation is retained despite both reference-tool differences.
-
-### SV2023-11.3.1-REAL-PROMOTION
-
-11.3.1 / normal / 実行確認あり
-
-A real arithmetic operand promotes an arithmetic expression to real.
-
-合格基準: 2.5 plus integer 3 yields real 5.5.
-
-- [test_real_operator_result_and_condition.sv](../tests/ch11/test_real_operator_result_and_condition.sv): 2.5 plus integer 3 yields real 5.5.
 
 ### SV2023-11.3.2-EXTRACT-ASSOCIATIVITY
 
@@ -26769,16 +26636,6 @@ With an unknown LHS, logical AND evaluates a needed RHS; a false RHS determines 
 
 - [test_logical_operands_evaluated_once_and_unknown_left.sv](../tests/ch11/test_logical_operands_evaluated_once_and_unknown_left.sv): lhs(1'bx) && rhs(1'b0) が 0 で lhs・rhs とも1回呼ばれ（x && 0 = 0 nl=1 nr=1）、対照として x && 1 = x（nr=1）、x || 1 = 1、x || 0 = x、x -> 1 = 1、x -> 0 = x（いずれも両方1回）を表示する。 区別: 左辺xで右辺を評価しない（xを偽扱いで短絡する）誤実装では nr=0 になり、x && 0 の結果を x とする（偽の右辺で決まらない）誤実装では 1行目が x に変わる。右辺を2回評価すれば nr=2 になる。x && 1 = x の対照で常に0を返す実装も区別される。
 
-### SV2023-11.3.6-ASSIGNMENT-RESULT
-
-11.3.6 / normal / 実行確認あり
-
-An assignment expression returns the value converted to its destination type.
-
-合格基準: Assigning fe to a four-bit target stores e and returns integer value 14.
-
-- [test_assignment_expression_returns_converted_value.sv](../tests/ch11/test_assignment_expression_returns_converted_value.sv): Assigning fe to a four-bit target stores e and returns integer value 14.
-
 ### SV2023-11.3.6-CONCATENATION-TYPE
 
 11.3.6 / boundary / テスト対応あり・実行未確認
@@ -26793,9 +26650,9 @@ An assignment expression with concatenated LHS returns an unsigned integral resu
 
 11.3.6 / normal / 実行確認あり
 
-An assignment expression evaluates RHS, casts to LHS type, saves that value, updates LHS and returns the saved LHS-typed value.
+An assignment expression evaluates the right-hand side, casts it to the left-hand type, saves that value, updates the left-hand side and returns the saved left-hand-typed value.
 
-合格基準: An assignment expression evaluates RHS, casts to LHS type, saves that value, updates LHS and returns the saved LHS-typed value.
+合格基準: Assigning 8'hfe to a four-bit target stores e and returns integer value 14; x = (y = 300) leaves x=44 and y=44.
 
 規定の性質: `mandatory`。
 
@@ -33541,23 +33398,13 @@ Tasks in module/interface/program/package scopes default static; their default s
 
 - [test_static_task_shared_activation.sv](../tests/ch13/test_static_task_shared_activation.sv): Overlapping unqualified module task calls share input v: the second20 replaces the first10 while both wait. Explicit automatic calls retain separate10/20. The witness concerns module scope; it does not enumerate every enclosing design-element category.
 
-### SV2023-13.3.2-AUTOMATIC-FRESH
-
-13.3.2 / normal / 実行確認あり
-
-An automatic task local is initialized for each activation.
-
-合格基準: Two sequential calls each produce count 1.
-
-- [test_task_static_and_automatic_retention.sv](../tests/ch13/test_task_static_and_automatic_retention.sv): Two sequential calls each produce count 1.
-
 ### SV2023-13.3.2-EXTRACT-AUTOMATIC-TASK-INITIALIZATION
 
 13.3.2 / normal / 実行確認あり
 
-Automatic locals/output formals initialize on every entry; input/inout formals receive the supplied actual values.
+Automatic locals and output formals initialize on every entry; input and inout formals receive the supplied actual values.
 
-合格基準: Automatic locals/output formals initialize on every entry; input/inout formals receive the supplied actual values.
+合格基準: Two sequential calls each produce count 1; automatic output formals start at 0 and inout formals receive the supplied actual value.
 
 規定の性質: `mandatory`。
 
@@ -33632,25 +33479,15 @@ Automatic task variables cannot be traced by tasks such as $monitor/$dumpvars.
 
 13.3.2 / normal / 実行確認あり
 
-Static task variables/formals retain storage values between calls and receive type-default initial values under 6.8, subject to call input/inout copy-in.
+Static task variables and formals retain their values between calls and receive the type-default initial value of 6.8, subject to input/inout copy-in.
 
-合格基準: Static task variables/formals retain storage values between calls and receive type-default initial values under 6.8, subject to call input/inout copy-in.
+合格基準: Two sequential calls produce counts 1 and 2; a static output formal retains 5 then 10.
 
 規定の性質: `mandatory`。
 
 - [test_task_output_formal_initial_value.sv](../tests/ch13/test_task_output_formal_initial_value.sv): Actuals start100: automatic output formals start0 and produce5, inout copies100 and produces105, while unqualified static output storage retains5 then10. Grouped with a local counter witness.
 - [test_task_static_and_automatic_retention.sv](../tests/ch13/test_task_static_and_automatic_retention.sv): Uninitialized int locals begin0: a static local counter retains state across calls1/2, an automatic local initializes fresh1/1. Grouped with output-formal and copy-in initialization observations.
 - [test_static_task_shared_activation.sv](../tests/ch13/test_static_task_shared_activation.sv): A default-static local counter advances1/2/3; this is an additional local-storage member, grouped with output-formal retention rather than treated as a standalone full-row witness.
-
-### SV2023-13.3.2-STATIC-RETENTION
-
-13.3.2 / normal / 実行確認あり
-
-A static task local retains its value between calls.
-
-合格基準: Two sequential calls produce counts 1 and 2.
-
-- [test_task_static_and_automatic_retention.sv](../tests/ch13/test_task_static_and_automatic_retention.sv): Two sequential calls produce counts 1 and 2.
 
 ### SV2023-13.4-EXTRACT-FUNCTION-BODY-SEQUENTIAL
 
@@ -41466,13 +41303,11 @@ Multiclocked if/if-else checks its selected branch at the nearest possibly overl
 
 16.13.2 / normal / テスト未対応
 
-16.13.2 describes a multiclocked sequence-property result as true exactly when a match begins at the start; reconcile this wording with the implicit weak/strong defaults of 16.12.2 before approving a finite-trace oracle.
+A multiclocked sequence evaluated as a property in the strong form (cover property, or an explicit strong()) is true if and only if a match of that sequence begins at the evaluation start point. The same sequence used in an assert property or assume property is evaluated as weak(sequence_expr) per 16.12.2, so a finite prefix that has not yet produced a match does not fail; a failure requires a finite prefix that witnesses inability to match.
 
-合格基準: 16.13.2 describes a multiclocked sequence-property result as true exactly when a match begins at the start; reconcile this wording with the implicit weak/strong defaults of 16.12.2 before approving a finite-trace oracle.
+合格基準: For a multiclocked sequence s, cover property (@(posedge clk0) s) succeeds exactly when a match of s starts at the evaluated point and fails when the trace ends without a match, while assert property (@(posedge clk0) s) reports no failure on a prefix where s has not yet matched and no failure witness exists. An explicit strong(s)/weak(s) overrides the context default in both directions.
 
 規定の性質: `definition`。
-
-未解決の解釈: `MULTICLOCK-SEQUENCE-STRENGTH`（対応承認・節完了を保留）。
 
 
 ### SV2023-16.13.2-EXTRACT-MULTICLOCK-BOOLEAN
@@ -49525,13 +49360,11 @@ A bin value changed under normal == comparison by assignment conversion to the p
 
 19.5.7 / normal / テスト未対応
 
-19.5.7 requires warning for a bin value containing x/z except expanded wildcard values; reconcile its following removal rule with 19.5.4 literal four-state bin matching before approving an oracle.
+Value resolution issues a warning for a non-wildcard bins element whose value has x or z bits, and that element then does not participate in the bin values, except for an integral value or transition bin definition that intentionally specifies 4-state values: such a bin is created per 19.5.4 and its count is incremented only when the sampled value has x or z in the same bit positions (comparison with ===). Wildcard bins treat x, z, and ? as 0/1 before comparison. Warning rules b)1) (unsigned effective type with negative b) and b)2) (b not equal to its assigned value) apply unchanged.
 
-合格基準: 19.5.7 requires warning for a bin value containing x/z except expanded wildcard values; reconcile its following removal rule with 19.5.4 literal four-state bin matching before approving an oracle.
+合格基準: bins b = {4'b1x0z}; produces no x/z warning, is not removed, and increments only for a sampled value exactly 1x0z; sample 1x00 and 1z0z do not increment it. A non-wildcard element whose x/z come from expression evaluation (for example bins c = {expr} where expr evaluates to 2'bx1) still warns and does not participate. wildcard bins g = {4'b1?0?}; matches 1000, 1001, 1100, 1101. A range element with only some values expressible contributes the intersection with the effective type's values.
 
 規定の性質: `definition`。
-
-未解決の解釈: `FOUR-STATE-BIN-RESOLUTION`（対応承認・節完了を保留）。
 
 
 ### SV2023-19.5.7-EXTRACT-WARNED-RANGE-INTERSECTION
@@ -51299,13 +51132,11 @@ For a zero-denominator group with zero weight, both coverage query methods retur
 
 19.11.1 / normal / テスト未対応
 
-19.11.1 gives auto-point coverage as covered bins / min(auto_bin_max,2**M); reconcile this generic formula with 19.5.3 enum cardinality before approving an enum percentage oracle.
+For an automatically generated coverpoint the denominator is the number of auto-created bins: for an enum coverpoint, the cardinality of the enumeration (19.5.3), independent of auto_bin_max; for any other integral coverpoint, MIN(auto_bin_max, 2^M) with M the minimum number of bits needed to represent the coverpoint. Bins with no associated value or transition are excluded from both numerator and denominator; when the denominator is zero, get_coverage/get_inst_coverage return 0.0 for nonzero weight and 100.0 for zero weight.
 
-合格基準: 19.11.1 gives auto-point coverage as covered bins / min(auto_bin_max,2**M); reconcile this generic formula with 19.5.3 enum cardinality before approving an enum percentage oracle.
+合格基準: An enum coverpoint with K enumerators whose base type has unused codes (for example 2-bit base type, 3 enumerators) with auto_bin_max=64 reports covered_enum_bins / 3, not / 4; the same coverpoint with K=100 and auto_bin_max=64 still reports / 100 and creates one auto bin per enumerator. A 3-bit integral coverpoint with auto_bin_max=4 reports covered_auto_bins / 4 with the values distributed <0,1>,<2,3>,<4,5,6,7>. A coverpoint all of whose bins are ignore_bins returns 0.0 for nonzero weight.
 
 規定の性質: `definition`。
-
-未解決の解釈: `ENUM-AUTO-COVERAGE-DENOMINATOR`（対応承認・節完了を保留）。
 
 
 ### SV2023-19.11.1-EXTRACT-EMPTY-BIN-EXCLUSION
@@ -51368,29 +51199,18 @@ For a point with zero denominator, coverage queries return 0.0 when its weight i
 
 - [test_cg_zero_denominator_items.sv](../tests/ch19/test_cg_zero_denominator_items.sv): 分母 0 の coverpoint で、weight 1 の ce は get_inst_coverage が 0.00（2引数 0/0）、型の get_coverage が 0.00、weight 0（option と type_option）の cz は 100.00（0/0）と 100.00 を返し、cz の型の2引数も 0/0 になることを比較している。 区別: 分母 0 の coverpoint の値を重みで区別しない誤実装なら ce と cz が同じ値になる。引数に 0 を書かない実装なら括弧内が 0/0 にならない（例えば空の bin 数 2 が入る）。
 
-### SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT
-
-19.11.2 / normal / テスト対応あり・実行未確認
-
-In the 19.11.2 cross coverage equation, Bc is the number of automatic cross bins actually present: product(Bj) minus Bb while automatic bins are retained (cross_retain_auto_bins true, the default), and zero when cross_retain_auto_bins is false and an explicit cross bin is present, so the denominator is then Bu alone.
-
-合格基準: With coverpoints i and j of two explicit bins each, option.cross_retain_auto_bins = 0 set at the covergroup level, and cross x2 of i, j declaring only bins i_zero = binsof(i) intersect {0}, x2.get_inst_coverage(covered, total) reports total = 1 and returns 100.0 once i_zero has been hit; with the option at its default the same cross reports total = 3 (i_zero plus two retained automatic bins).
-
-規定の性質: `definition`。
-
-- [test_cg_option_name_unique_and_retain_scope.sv](../tests/ch19/test_cg_option_name_unique_and_retain_scope.sv): 2 つの coverpoint が各 2 bin、user bin が 2 積を選ぶ cross で、cross_retain_auto_bins=1 の w と y は total 3（積 4 - user 積 2 + user bin 1）、0 の x と v は total 1 になる。期待出力の (0,0): x 1/1 w 1/3 y 1/3 v 1/1 が Bc = product - Bb と Bc=0 の両分岐を数で示す。 区別: Bc を常に product のままにすると retain=0 の total が 1 にならず、Bc を常に 0 にすると retain=1 の total が 3 にならない。
-
 ### SV2023-19.11.2-EXTRACT-CROSS-FRACTION
 
 19.11.2 / normal / 実行確認あり
 
-Cross coverage equals covered contributing bins / (actual automatic cross bins + significant user cross bins), excluding ignore/illegal user bins.
+Cross coverage equals covered contributing bins divided by (Bc + Bu), excluding ignore/illegal user bins, where Bc is the number of automatic cross bins actually present: the product of the crossed coverpoint bin counts (Bj) minus Bb while automatic bins are retained (cross_retain_auto_bins true, the default), and zero when cross_retain_auto_bins is false and an explicit cross bin is present, so the denominator is then Bu alone.
 
-合格基準: Cross coverage equals covered contributing bins / (actual automatic cross bins + significant user cross bins), excluding ignore/illegal user bins.
+合格基準: With two coverpoints of two explicit bins each, cross_retain_auto_bins=0 and cross x2 declaring only bin i_zero = binsof(i) intersect {0}, x2.get_inst_coverage(covered,total) reports total=1 and returns 100.0 once i_zero is hit; with the option at its default the same cross reports total=3 (i_zero plus two retained automatic bins).
 
 規定の性質: `definition`。
 
 - [test_cg_cross_select_bins.sv](../tests/ch19/test_cg_cross_select_bins.sv): cross x は binsof/intersect/!/&&/|| で 3 つの user bin を作り、ignore_bins が user bin からも積を除き、分母を自動積と有効な user bin の和にする。期待出力の (3,2): x 0/3 0.00 から (2,1): x 3/3 100.00 までが、被覆積/(Bc+Bu) を具体値で示す。 区別: ignore_bins を分母から除かない、または user bin の積を二重に数える実装では x の total が 3 にならず、5 行の被覆率が変わらない。
+- [test_cg_option_name_unique_and_retain_scope.sv](../tests/ch19/test_cg_option_name_unique_and_retain_scope.sv): 2 つの coverpoint が各 2 bin、user bin が 2 積を選ぶ cross で、cross_retain_auto_bins=1 の w と y は total 3（積 4 - user 積 2 + user bin 1）、0 の x と v は total 1 になる。期待出力の (0,0): x 1/1 w 1/3 y 1/3 v 1/1 が Bc = product - Bb と Bc=0 の両分岐を数で示す。 区別: Bc を常に product のままにすると retain=0 の total が 1 にならず、Bc を常に 0 にすると retain=1 の total が 3 にならない。
 
 ### SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION
 
@@ -52096,13 +51916,11 @@ The default $timeformat minimum field width is 20.
 
 20.4.3 / normal / テスト未対応
 
-20.4.3 applies the -15..2 integer range to precision_number as well as units_number, while its following example uses precision 5 and describes five fractional digits; resolve the precision domain before approving range-error tests.
+The units_number argument of $timeformat selects the time unit used by %t from the exponent values of Table 20-2 (2 through -15). precision_number selects the number of fractional digits printed; the default is 0 and the example passes 5 to print five fractional digits.
 
-合格基準: 20.4.3 applies the -15..2 integer range to precision_number as well as units_number, while its following example uses precision 5 and describes five fractional digits; resolve the precision domain before approving range-error tests.
+合格基準: $timeformat(-9, 5, " ns", 10) followed by %t output prints times as multiples of 1 ns with five fractional digits (10.00000 ns for 10 ns). units_number is exercised within -15..2. precision_number is exercised with 0 through 5 digits and is not treated as an out-of-range error at 5; no test asserts a result for a units_number outside -15..2.
 
 規定の性質: `definition`。
-
-未解決の解釈: `TIMEFORMAT-PRECISION-DOMAIN`（対応承認・節完了を保留）。
 
 
 ### SV2023-20.4.3-EXTRACT-FORMAT-UNIT-DOMAIN
@@ -54416,16 +54234,6 @@ $random with optional seed returns a new signed 32-bit integer, positive or nega
 
 - [test_dist_uniform_full_range_and_seeded_random.sv](../tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv): 4 つの開始 seed から $random(seed) を 3 回ずつ呼び、-2147138048, 230383387, -547878722 など正負混在の 32 ビット値と更新後の seed を表示する。同じ seed から $dist_uniform(-2^31, 2^31-1) も同値・同 seed になる。 区別: 戻り値を符号なし・16/31 ビットにする、毎回同じ値を返す、seed を更新しない誤実装では、いずれかの $random 行の値か seed 列が変わる。
 
-### SV2023-20.14.2-DIST-SEED-REPLAY
-
-20.14.2 / normal / 実行確認あり
-
-Identical incoming seeds produce identical distribution values and updated seeds.
-
-合格基準: Ten paired dist_normal calls retain equal values and seed states.
-
-- [test_distribution_seed_replay_and_singleton_range.sv](../tests/ch20/test_distribution_seed_replay_and_singleton_range.sv): Ten paired dist_normal calls retain equal values and seed states.
-
 ### SV2023-20.14.2-EXTRACT-DEGREES-SPREAD
 
 20.14.2 / normal / 実行確認あり
@@ -54518,9 +54326,9 @@ $dist_poisson(seed,mean) generates the named probability distribution using the 
 
 20.14.2 / normal / 実行確認あり
 
-Distribution seed arguments are inout: calls update the seed and reproduce the same result for the same seed and other parameters.
+Distribution seed arguments are inout: calls update the seed, and the functions return the same value for the same seed and other parameters.
 
-合格基準: Distribution seed arguments are inout: calls update the seed and reproduce the same result for the same seed and other parameters.
+合格基準: Ten paired dist_normal calls with the same seed retain equal values and equal updated seed states.
 
 規定の性質: `mandatory`。
 
@@ -56793,13 +56601,11 @@ Syntax 21-7 provides fgetc/ungetc/fgets/fscanf/sscanf and integral-variable or m
 
 21.3.4 / normal / テスト未対応
 
-21.3.4 states file reading requires r or r+ opening, while Table 21-6 defines w+/a+ and binary variants as update modes; resolve the restriction before approving rejection tests for those update modes.
+The read system functions of 21.3.4 ($fgetc, $ungetc, $fgets, $fscanf, $fread) may be applied only to a file descriptor opened with the r or r+ type values, including their binary b variants (rb, r+b, rb+). A descriptor opened with w, wb, w+, w+b, wb+, a, ab, a+, a+b, or ab+ is not readable, even though w+ and a+ are described as update modes.
 
-合格基準: 21.3.4 states file reading requires r or r+ opening, while Table 21-6 defines w+/a+ and binary variants as update modes; resolve the restriction before approving rejection tests for those update modes.
+合格基準: $fgetc/$fgets/$fscanf/$fread on an fd from $fopen(name,"r") or $fopen(name,"r+") return data and advance the file position. No test requires a read on an fd from "w+" or "a+" to succeed; such a read is outside the permitted set. $fopen(name,"r") on a missing file returns 0.
 
 規定の性質: `definition`。
-
-未解決の解釈: `FILE-READ-OPEN-MODES`（対応承認・節完了を保留）。
 
 
 ### SV2023-21.3.4.1-EXTRACT-FGETC
@@ -57424,9 +57230,9 @@ fseek may set a position past EOF without itself extending the file; later write
 
 21.3.5 / normal / 実行確認あり
 
-Repositioning cancels prior ungetc pushback.
+Repositioning with $fseek or $rewind cancels prior $ungetc pushback.
 
-合格基準: Repositioning cancels prior ungetc pushback.
+合格基準: After pushback of Z and $fseek to offset 2, the next character is c, not Z; after ungetc X and $rewind, the next character is the first byte, not X.
 
 規定の性質: `mandatory`。
 
@@ -57444,16 +57250,6 @@ Repositioning returns -1 on error and 0 otherwise, with ferror available for cau
 規定の性質: `mandatory`。
 
 - [test_fseek_append_and_gap.sv](../tests/ch21/test_fseek_append_and_gap.sv): 先頭より前への $fseek(fr,-1,0) は位置変更の誤りとして -1 を返し、成功する $fseek(fr,5,0) と $rewind は 0 を返して、それぞれ位置5の Z と先頭の A を読む。append 行と past the end 行の seek=0 も成功時の 0 を示す。 区別: 誤りでも 0 を返す実装(Verilator 5.052)では before the start 行が seek=0 に、成功時に新しい位置を返す実装では seek=5 等に変わる。$ferror は許可であり値を規定しないため観測しない。
-
-### SV2023-21.3.5-SEEK-CANCELS-PUSHBACK
-
-21.3.5 / normal / 実行確認あり
-
-File repositioning cancels a previous ungetc.
-
-合格基準: After pushback of Z and seek to offset 2, the next character is c, not Z.
-
-- [test_fseek_cancels_ungetc_and_clears_error.sv](../tests/ch21/test_fseek_cancels_ungetc_and_clears_error.sv): After pushback of Z and seek to offset 2, the next character is c, not Z.
 
 ### SV2023-21.3.6-EXTRACT-FFLUSH
 
@@ -60542,24 +60338,14 @@ Undefining a macro not previously defined may issue a warning.
 
 22.5.3 / normal / 実行確認あり
 
-Argumentless undefineall removes every macro previously defined by define within the compilation unit and may appear anywhere in source.
+Argumentless undefineall removes every macro previously defined by define within the compilation unit, direct or forwarding, and may appear anywhere in source.
 
-合格基準: Argumentless undefineall removes every macro previously defined by define within the compilation unit and may appear anywhere in source.
+合格基準: Both the direct macro and the forwarding macro that expands it are absent after the directive, and a later define is accepted.
 
 規定の性質: `mandatory`。
 
 - [test_undefineall.sv](../tests/ch22/test_undefineall.sv): module内のdirectiveで既存2macroが両方消えることと、その後の再定義10を確認する。
 - [test_undefineall_clears_nested_macro_expansion.sv](../tests/ch22/test_undefineall_clears_nested_macro_expansion.sv): module外でinner/forwarding outerの両定義が消える観測。module内配置は別のメンバー。
-
-### SV2023-22.5.3-UNDEFINE-ALL
-
-22.5.3 / normal / 実行確認あり
-
-undefineall removes both direct and forwarding text macro definitions.
-
-合格基準: Both source-defined macros are absent after the directive.
-
-- [test_undefineall_clears_nested_macro_expansion.sv](../tests/ch22/test_undefineall_clears_nested_macro_expansion.sv): Both source-defined macros are absent after the directive.
 
 ### SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION
 
@@ -68611,13 +68397,11 @@ Initialized virtual-interface components use dot notation in procedural statemen
 
 25.9 / error / テスト未対応
 
-The prose prohibits virtual-interface components in sensitivity lists; its scope relative to procedural event controls remains unresolved because the same section illustrates a posedge component wait.
+After a virtual interface is initialized, its components are available through dot notation only in procedural statements: they shall not be used in continuous assignments or in the sensitivity list of an always, always_comb, or always_ff procedure. A procedural event control such as @(posedge vif.sig) inside a task, function, or initial block is a procedural statement and is permitted.
 
-合格基準: The prose prohibits virtual-interface components in sensitivity lists; its scope relative to procedural event controls remains unresolved because the same section illustrates a posedge component wait.
+合格基準: always @(posedge vif.clk) ... and always_comb x = vif.a; using a virtual interface component are rejected; initial @(posedge vif.grant) ...; and task t; @(posedge bus.grant); endtask compile and unblock on the interface signal edge. assign x = vif.a; (a continuous assignment from a virtual interface component) is rejected.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `VIRTUAL-INTERFACE-SENSITIVITY`（対応承認・節完了を保留）。
 
 
 ### SV2023-25.9.1-EXTRACT-VIRTUAL-CLOCKING-DRIVE
@@ -68648,13 +68432,11 @@ A selected modport can expose a clocking block by listing it in the modport.
 
 25.9.2 / boundary / テスト未対応
 
-The introductory text limits direct clocking-block access to interfaces with no modports; whether this means no selected modport, rather than no declared modport, must be reconciled with 25.10.
+When a virtual interface type selects no modport, its clocking blocks are referenced directly by dot notation. When the type selects a modport, a clocking block is reachable through that virtual interface only if the selected modport includes the clocking block (modport ... (clocking cb), 25.5.5). An interface that declares modports but whose virtual interface type selects none remains directly accessible.
 
-合格基準: The introductory text limits direct clocking-block access to interfaces with no modports; whether this means no selected modport, rather than no declared modport, must be reconciled with 25.10.
+合格基準: Given interface A_Bus with clocking sb and modport STB (clocking sb): typedef virtual A_Bus.STB T; T s; permits s.sb.req <= 1; typedef virtual A_Bus.DUT U; where DUT does not list clocking sb does not permit u.sb; virtual A_Bus v; with no modport selected permits v.sb.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `VIRTUAL-CLOCKING-MODPORT-SCOPE`（対応承認・節完了を保留）。
 
 
 ### SV2023-25.10-EXTRACT-INTERFACE-HIERARCHICAL-ACCESS
@@ -73662,13 +73444,11 @@ Ambiguous strength may be known-value multiple levels, x spanning both polaritie
 
 28.12.2 / normal / テスト未対応
 
-The prose says combining two ambiguous-strength signals produces an ambiguous range including component levels; its generality for mutually dominating ranges requires reconciliation with component-wise strength dominance.
+When two signals of ambiguous strength combine, the result is a signal of ambiguous strength whose strength range includes the levels of both components and all levels between their extremes; because the range then contains both a 0-side and a 1-side level, the value is x. The dominance rule of 28.12.1 is not applied to ambiguous operands, because 28.12.1 is limited to signals with a known value and a single strength level, and 28.12.3 covers ambiguous combined with unambiguous only.
 
-合格基準: The prose says combining two ambiguous-strength signals produces an ambiguous range including component levels; its generality for mutually dominating ranges requires reconciliation with component-wise strength dominance.
+合格基準: Combining a pull H (pull1 range joined with high impedance) with a weak L yields x with a range spanning weak0..pull1 (35X). Combining two ambiguous ranges where one component's 0-side extreme is stronger than the other component's 1-side extreme still yields x with the union range, not the known value of the dominating side. Combining an ambiguous signal with an unambiguous strong 0 is resolved by 28.12.3 rules a)-c), not by this union rule.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `AMBIGUOUS-STRENGTH-UNION`（対応承認・節完了を保留）。
 
 
 ### SV2023-28.12.2-EXTRACT-EQUAL-OPPOSITE-UNKNOWN
@@ -78340,13 +78120,11 @@ For fullskew, reference may timestamp or timecheck.
 
 31.4.4 / boundary / テスト未対応
 
-The prose states width reference/data opposite transitions never occur at the same simulation time; treatment of separate opposite transitions within one time slot requires reconciliation with event scheduling.
+For a pulse whose reference and data transitions occur at different simulation times, $width checks the pulse width against the limit. The standard requires that the reference and data events never occur at the same simulation time, so coincident opposite edges are outside this requirement and are not given a pass/fail rule.
 
-合格基準: The prose states width reference/data opposite transitions never occur at the same simulation time; treatment of separate opposite transitions within one time slot requires reconciliation with event scheduling.
+合格基準: A pulse with distinct reference and data transition times is checked against the width limit; a design with coincident opposite edges violates the precondition and is outside the test oracle.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `WIDTH-COINCIDENT-EDGES`（対応承認・節完了を保留）。
 
 
 ### SV2023-31.4.4-EXTRACT-WIDTH-EVENT-ROLES
@@ -80880,13 +80658,11 @@ A map include inserts the complete named map file in place of its include statem
 
 33.3.2 / error / テスト未対応
 
-The multiple-map overview limits map syntax to libraries/includes/comments, while 33.3.1 and Annex A also permit configurations and empty statements; its intended scope must be reconciled.
+A lib.map file may contain library declarations, include statements, config declarations, and empty statements (;), in any order, plus SystemVerilog comments. The list in 33.3.2 (library specifications, include statements, comment syntax) summarizes the mapping information carried by a map file and is not an exhaustive syntax restriction; the A.1.1 grammar reproduced as Syntax 33-2 is authoritative.
 
-合格基準: The multiple-map overview limits map syntax to libraries/includes/comments, while 33.3.1 and Annex A also permit configurations and empty statements; its intended scope must be reconciled.
+合格基準: A map file containing library rtlLib *.v; followed by config cfg; design rtlLib.top; endconfig and a stray ; parses without error. Include substitution and relative-path resolution (33.3.2) are unchanged, and a file containing any other construct (for example a module declaration) is still outside the map-file syntax.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `LIBRARY-MAP-CONTENTS`（対応承認・節完了を保留）。
 
 
 ### SV2023-33.3.3-EXTRACT-SOURCE-CELL-MAPPING
@@ -81139,13 +80915,11 @@ Configurations may override design/instance parameters and declare localparams f
 
 33.4.3 / boundary / テスト未対応
 
-The all-parameter reset is illustrated with use #(), while 33.4.1 and Annex A.1.5 provide only unparenthesized named assignments with at least one item; the legal reset/override syntax remains to be reconciled.
+In a configuration, use #(.P()) resets parameter P of that instance to the default declared in its module, and use #() with an empty override list resets every parameter of that instance to the value it had before any override. Positional parameter notation remains forbidden in configurations.
 
-合格基準: The all-parameter reset is illustrated with use #(), while 33.4.1 and Annex A.1.5 provide only unparenthesized named assignments with at least one item; the legal reset/override syntax remains to be reconciled.
+合格基準: For adder #(parameter ID = "id", W = 8, D = 512) instantiated with .ID("a1"), .W(16), .D(1024): instance top.a1 use #(.W()); yields ID=a1, W=8, D=1024, and instance top.a1 use #(); yields ID=id, W=8, D=512. Only the named form is accepted (use #(.W(16))); a positional override such as use #(16) is rejected.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `CONFIG-PARAMETER-OVERRIDE-GRAMMAR`（対応承認・節完了を保留）。
 
 
 ### SV2023-33.4.3-EXTRACT-IDENTIFIER-SCOPE
@@ -82884,13 +82658,11 @@ Combine digest_keyowner with digest_keyname or digest_public_key to identify the
 
 34.5.16.2 / normal / テスト未対応
 
-Preserve digest_keyowner in output, except the text specifies encryption with digest_key_method into digest_key_block for its digital-signature case.
+On encryption output the digest_keyowner is copied unchanged, except when a digital signature is used: then it is encrypted with digest_key_method and carried inside the key_block. The 34.4 keyword set defines key_block and no digest_key_block, so the container is key_block.
 
-合格基準: Preserve digest_keyowner in output, except the text specifies encryption with digest_key_method into digest_key_block for its digital-signature case.
+合格基準: Without a digital signature the output file carries digest_keyowner with the same value as the input. With a digital signature the clear-text digest_keyowner is not emitted; the value is recovered from the key_block at decryption. An output that emits a digest_key_block keyword is non-conforming, and no requirement asserts one.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `DIGEST-KEY-BLOCK-NAME: 34.5.16.2 names digest_key_block, which is absent from the 34.4 keyword set and keyword definitions; related digest key metadata uses key_block. Resolve the container before asserting exact output.`（対応承認・節完了を保留）。
 
 
 ### SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-UNIQUE
@@ -83238,9 +83010,9 @@ Encode the digest using active encoding, place its encoded content on the line a
 
 34.5.22.2 / normal / テスト未対応
 
-Generate the digest with digest_method and encrypt it using digest_key_method and specified digest key selectors; absent digest_key_method use the current data_method encryption key.
+Generate the message digest with digest_method and encrypt it using digest_key_method and the key specified by digest_keyname, digest_keyowner, digest_public_key and digest_decrypt_key (the paragraph's digest_key_keyowner denotes digest_keyowner); if digest_key_method is absent, use the current data_method encryption key.
 
-合格基準: Generate the digest with digest_method and encrypt it using digest_key_method and specified digest key selectors; absent digest_key_method use the current data_method encryption key.
+合格基準: With digest_keyowner and the other digest key selectors set in the encryption input, the digest_block is encrypted under the key they select, using digest_keyowner (Table 34-1, 34.5.16) as the owner selector; no separate digest_key_keyowner keyword is required.
 
 規定の性質: `mandatory`。
 
@@ -83263,17 +83035,6 @@ For CBC digest decryption needing an IV, remove the first decoded cipher block a
 For the selected CBC digest cipher requiring an IV, prepend its IV cipher block before encoding.
 
 合格基準: For the selected CBC digest cipher requiring an IV, prepend its IV cipher block before encoding.
-
-規定の性質: `mandatory`。
-
-
-### SV2023-34.5.22.2-EXTRACT-DIGEST-KEY-OWNER-TEXT
-
-34.5.22.2 / normal / テスト未対応
-
-Encrypt the generated message digest with the key specified by digest_keyname, digest_keyowner, digest_public_key and digest_decrypt_key; the paragraph's digest_key_keyowner denotes the defined digest_keyowner pragma keyword.
-
-合格基準: With digest_keyowner and the other digest key selectors set in the encryption input, the digest_block is encrypted under the key they select, using digest_keyowner (Table 34-1, 34.5.16) as the owner selector; no separate digest_key_keyowner keyword is required.
 
 規定の性質: `mandatory`。
 
@@ -106693,13 +106454,11 @@ The 37.77 VPI model includes disable fork in the disables group; group propertie
 
 37.80 / normal / テスト未対応
 
-The 37.80 diagram draws a single-arrow relation from primitive terminal/expression/time queue/statement to callback; its access cardinality requires reconciliation with the callback iteration APIs.
+Each primitive terminal, expression, time queue, or statement object reaches at most one callback object, with vpi_handle(vpiCallback, ref). Callbacks not related to those reference objects form the one-to-many set reached with vpi_iterate(vpiCallback, NULL) and traversed with vpi_scan. vpi_get_cb_info() supplies the callback information (cb info) of a callback object.
 
-合格基準: The 37.80 diagram draws a single-arrow relation from primitive terminal/expression/time queue/statement to callback; its access cardinality requires reconciliation with the callback iteration APIs.
+合格基準: For a reference object ref with a registered callback, vpi_handle(vpiCallback, ref) returns that callback handle and vpi_get_cb_info() reports its data. Callbacks created with no reference object are enumerated by vpi_iterate(vpiCallback, NULL) and are not returned by vpi_handle(vpiCallback, ref); vpi_iterate(vpiCallback, NULL) returns NULL when there are none.
 
 規定の性質: `definition`。
-
-未解決の解釈: `CALLBACK-RELATION-CARDINALITY: 37.80 draws a single arrow from reference objects to callback while the details describe vpi_iterate for callbacks. Cross-check 38.23/38.36 before asserting one-to-one versus one-to-many object access.`（対応承認・節完了を保留）。
 
 
 ### SV2023-37.80-EXTRACT-CALLBACK-INFO
@@ -112820,13 +112579,11 @@ cbAssertionSysKill marks suspension with no attempt processing or assertion call
 
 39.4.1 / normal / テスト未対応
 
-cbAssertionSysOff marks temporary suspension: the paragraph says no new attempts are processed and no new assertion callbacks occur, while already executing assertions remain unaffected; stopping/resuming can repeat arbitrarily.
+While the assertion system is stopped (cbAssertionSysOff event / vpiAssertionSysOff control), no new assertion attempts are processed and no assertion-related callback is invoked for a new attempt. Callbacks already registered remain installed and are not removed, and assertions already executing are unaffected, so their completion callbacks still occur. The system can be stopped and resumed any number of times.
 
-合格基準: cbAssertionSysOff marks temporary suspension: the paragraph says no new attempts are processed and no new assertion callbacks occur, while already executing assertions remain unaffected; stopping/resuming can repeat arbitrarily.
+合格基準: After vpiAssertionSysOff, vpi_register_cb for cbAssertionSuccess/cbAssertionFailure still returns a valid handle and existing handles stay valid, while an attempt started after the stop produces no cbAssertionSuccess/cbAssertionFailure invocation. An attempt already in progress at the stop produces its completion callback with its result. vpiAssertionSysOn resumes attempts without re-registration.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `ASSERTION-SYSTEM-OFF-CALLBACKS: 39.4.1 says no new assertion-related callbacks occur while stopped but leaves executing assertions unaffected; 39.5.1 preserves executing attempts and preexisting callbacks. Clarify whether new means new registration or invocations before testing callback suppression.`（対応承認・節完了を保留）。
 
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-ON
@@ -115894,13 +115651,11 @@ A non-ANSI port is an optional port expression or dot identifier and parentheses
 
 A.1.4 / normal / テスト未対応
 
-An instance-target bind uses bind,hierarchical target identifier with constant-bit-select,bind instantiation and semicolon; target lists are comma-separated instances.
+An instance-target bind is bind, a hierarchical target identifier with constant bit select, a bind instantiation, and exactly one terminating semicolon. The terminator belongs to the bound instantiation statement; the bind directive adds no second semicolon.
 
-合格基準: An instance-target bind uses bind,hierarchical target identifier with constant-bit-select,bind instantiation and semicolon; target lists are comma-separated instances.
+合格基準: bind top.a1 my_check c1(); and bind cpu fpu_props fpu_rules_1(a,b,c); each end with one ;. A second ; immediately after a bind directive is not accepted. The bound instantiation keeps its full parameter and port association syntax.
 
 規定の性質: `definition`。
-
-未解決の解釈: `BIND-SEMICOLON-GRAMMAR: A.1.4 appends a semicolon to bind_instantiation although every alternative in A.4.1 ends with a semicolon. Preserve the supplied BNF and compare 23.11 before approving the required delimiter count.`（対応承認・節完了を保留）。
 
 
 ### SV2023-A.1.4-EXTRACT-BIND-INSTANTIATION-KINDS
@@ -115919,13 +115674,11 @@ Bind instantiation may be program,module,interface or checker instantiation.
 
 A.1.4 / normal / テスト未対応
 
-A scope-target bind uses bind,module/interface identifier,optional colon target-instance list,bind instantiation and semicolon, subject to clarification 4.
+A scope-target bind is bind, a module or interface identifier, an optional colon followed by a comma-separated list of target instances, a bind instantiation, and exactly one terminating semicolon. If the target scope is an interface, the bind instantiation shall be an interface or checker instantiation (footnote 4).
 
-合格基準: A scope-target bind uses bind,module/interface identifier,optional colon target-instance list,bind instantiation and semicolon, subject to clarification 4.
+合格基準: bind cpu fpu_props fpu_rules_1(a,b,c); and bind cpu: cpu1, cpu2, cpu3 fpu_props fpu_rules_1(a,b,c); parse with a single ;. Without an instance list the instantiation is inserted into every instance of the scope. Binding a module instantiation to an interface target is rejected.
 
 規定の性質: `definition`。
-
-未解決の解釈: `BIND-SEMICOLON-GRAMMAR: A.1.4 appends a semicolon to bind_instantiation although every alternative in A.4.1 ends with a semicolon. Preserve the supplied BNF and compare 23.11 before approving the required delimiter count.`（対応承認・節完了を保留）。
 
 
 ### SV2023-A.1.4-EXTRACT-COMMON-ITEM-68
@@ -132946,13 +132699,11 @@ SV_PACKED_DATA_NELEMS(WIDTH) computes (WIDTH+31)>>5.
 
 H.10.1.2 / normal / テスト未対応
 
-The supplied SV_GET_SIGNED_BITS macro tests VALUE & (1<<N) when N!=32, then fills upper bits if set or masks otherwise; N=32 returns VALUE unchanged.
+svdpi.h shall contain SV_GET_SIGNED_BITS(VALUE, N) exactly as printed in H.10.1.2: VALUE when N == 32, otherwise a test of bit N of VALUE that selects sign fill (VALUE | ~SV_MASK(N)) or masking (VALUE & SV_MASK(N)). The bit index is recorded as printed and is not corrected to N-1.
 
-合格基準: The supplied SV_GET_SIGNED_BITS macro tests VALUE & (1<<N) when N!=32, then fills upper bits if set or masks otherwise; N=32 returns VALUE unchanged.
+合格基準: A conformance check compares the macro definition in svdpi.h with the H.10.1.2 text token for token, including the (1 << (N)) bit test and SV_MASK(N). No test asserts that SV_GET_SIGNED_BITS sign-extends an N-bit value for N != 32; the bit-N versus bit-(N-1) mismatch is recorded as a defect of the supplied header.
 
 規定の性質: `definition`。
-
-未解決の解釈: `DPI-SIGNED-BITS-MACRO: H.10.1.2 tests bit N for an N-bit signed extraction, while sign of N low bits is bit N-1; preserve literal macro and compare Annex I before certifying sign-extension behavior.`（対応承認・節完了を保留）。
 
 
 ### SV2023-H.10.1.2-EXTRACT-UNSIGNED
@@ -135859,13 +135610,11 @@ svSetScope returns previous scope and selects subsequent export scope; default s
 
 I.3 / normal / テスト未対応
 
-SV_GET_SIGNED_BITS returns input for N=32; otherwise tests bit N then fills upper bits or masks using SV_MASK(N), exactly as supplied.
+Annex I reproduces SV_GET_SIGNED_BITS(VALUE, N) verbatim from H.10.1.2: VALUE when N == 32, otherwise a bit-N test selecting sign fill or masking with SV_MASK(N). Both source occurrences carry the same token sequence and neither is corrected.
 
-合格基準: SV_GET_SIGNED_BITS returns input for N=32; otherwise tests bit N then fills upper bits or masks using SV_MASK(N), exactly as supplied.
+合格基準: The macro in the Annex I listing matches the H.10.1.2 definition exactly, so reproducing either occurrence satisfies both. Tests compare the text and do not assert sign extension for N != 32.
 
 規定の性質: `definition`。
-
-未解決の解釈: `DPI-SIGNED-BITS-MACRO: Annex I repeats H.10.1.2 bit-N sign test rather than bit N-1 for N-bit data. The normative header and intended signed extraction need interpretation; retain both source occurrences without silently correcting.`（対応承認・節完了を保留）。
 
 
 ### SV2023-I.3-EXTRACT-TIME-ALIASES
@@ -148902,13 +148651,11 @@ For valid parameter,rtl_dist_t calls its helper and rounds to long nearest integ
 
 N.2 / normal / テスト未対応
 
-The supplied C algorithm updates signed long seed by 69069*seed+1,then assigns it to unsigned union storage; retain type and arithmetic-width dependency for interpretation.
+The seed update of N.2 is evaluated in fixed 32-bit modular arithmetic: seed_next = (69069 * seed + 1) mod 2^32, stored in the seed variable as a 32-bit signed value and read into the unsigned union member as a 32-bit value. The generated stream depends only on the 32-bit seed, not on the host long width or on signed-overflow behaviour. $random returns a 32-bit signed value.
 
-合格基準: The supplied C algorithm updates signed long seed by 69069*seed+1,then assigns it to unsigned union storage; retain type and arithmetic-width dependency for interpretation.
+合格基準: The same 32-bit seed produces the same $random/$dist_* sequence on any host: seed 32'h0000_0001 gives the next seed 32'h0001_0DCE, and seed 32'h7FFF_FFFF gives 32'h7FFE_F234. Building the wrapper with a 64-bit long does not change either value, and no sequence element depends on signed overflow. $random returns values in -2^31..2^31-1.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `DISTRIBUTION-C-WIDTH: N.2 uses long,LONG_MIN/LONG_MAX,signed multiplication and unsigned/float union while 20.14.1 requires repeatable 32-bit $random; host long width and signed overflow are not portable C semantics. Oracle needs documented fixed-width interpretation rather than native compilation on arbitrary hosts.`（対応承認・節完了を保留）。
 
 
 ### SV2023-N.2-EXTRACT-T

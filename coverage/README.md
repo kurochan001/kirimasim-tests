@@ -317,3 +317,5 @@ Nightlyはその回の全ランナーのJSONから再計測し、`results` ブ�
 GitHub Actionsの実行概要にも暫定値・確定値と残件数を表示します。
 
 Nightlyを実際に実行するには、この変更がGitHubに反映される必要があります。
+
+分母レビューの結果は `docs/denominator-review-20261028.md` にあります。確定分母は 12,298 行、設計 89.28%、実行 59.44%（Ghost含む）です。

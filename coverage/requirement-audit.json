@@ -6327,7 +6327,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-6.8-EXTRACT-DEFAULT-FOUR-STATE"
+            "SV2023-6.8-EXTRACT-DEFAULT-FOUR-STATE",
+            "SV2023-6.8-FOUR-STATE-DEFAULT"
           ]
         },
         "B021": {
@@ -6589,7 +6590,8 @@
           "requirements": [
             "SV2023-6.11-EXTRACT-SHORTINT-STATE",
             "SV2023-6.11-EXTRACT-SHORTINT-WIDTH",
-            "SV2023-6.11-EXTRACT-SHORTINT-SIGN"
+            "SV2023-6.11-EXTRACT-SHORTINT-SIGN",
+            "SV2023-6.11-INTEGER-WIDTHS"
           ]
         },
         "B005": {
@@ -6598,7 +6600,8 @@
           "requirements": [
             "SV2023-6.11-EXTRACT-INT-STATE",
             "SV2023-6.11-EXTRACT-INT-WIDTH",
-            "SV2023-6.11-EXTRACT-INT-SIGN"
+            "SV2023-6.11-EXTRACT-INT-SIGN",
+            "SV2023-6.11-INTEGER-WIDTHS"
           ]
         },
         "B006": {
@@ -6607,7 +6610,8 @@
           "requirements": [
             "SV2023-6.11-EXTRACT-LONGINT-STATE",
             "SV2023-6.11-EXTRACT-LONGINT-WIDTH",
-            "SV2023-6.11-EXTRACT-LONGINT-SIGN"
+            "SV2023-6.11-EXTRACT-LONGINT-SIGN",
+            "SV2023-6.11-INTEGER-WIDTHS"
           ]
         },
         "B007": {
@@ -6616,7 +6620,8 @@
           "requirements": [
             "SV2023-6.11-EXTRACT-BYTE-STATE",
             "SV2023-6.11-EXTRACT-BYTE-WIDTH",
-            "SV2023-6.11-EXTRACT-BYTE-SIGN"
+            "SV2023-6.11-EXTRACT-BYTE-SIGN",
+            "SV2023-6.11-INTEGER-WIDTHS"
           ]
         },
         "B008": {
@@ -6652,7 +6657,8 @@
           "requirements": [
             "SV2023-6.11-EXTRACT-INTEGER-STATE",
             "SV2023-6.11-EXTRACT-INTEGER-WIDTH",
-            "SV2023-6.11-EXTRACT-INTEGER-SIGN"
+            "SV2023-6.11-EXTRACT-INTEGER-SIGN",
+            "SV2023-6.11-INTEGER-WIDTHS"
           ]
         },
         "B012": {
@@ -6661,7 +6667,8 @@
           "requirements": [
             "SV2023-6.11-EXTRACT-TIME-STATE",
             "SV2023-6.11-EXTRACT-TIME-WIDTH",
-            "SV2023-6.11-EXTRACT-TIME-SIGN"
+            "SV2023-6.11-EXTRACT-TIME-SIGN",
+            "SV2023-6.11-INTEGER-WIDTHS"
           ]
         }
       }
@@ -6731,7 +6738,8 @@
           "requirements": [
             "SV2023-6.11.2-EXTRACT-UNSIGNED-WIDEN",
             "SV2023-6.11.2-EXTRACT-SIGNED-WIDEN",
-            "SV2023-6.11.2-EXTRACT-NARROW-MSB-TRUNCATION"
+            "SV2023-6.11.2-EXTRACT-NARROW-MSB-TRUNCATION",
+            "SV2023-11.3.4-TWO-STATE-CONVERSION"
           ]
         },
         "B006": {
@@ -6741,7 +6749,8 @@
             "SV2023-6.11.2-EXTRACT-UNSIGNED-WIDEN",
             "SV2023-6.11.2-EXTRACT-SIGNED-WIDEN",
             "SV2023-6.11.2-EXTRACT-NARROW-MSB-TRUNCATION",
-            "SV2023-6.11.2-EXTRACT-FOUR-TO-TWO-STATE"
+            "SV2023-6.11.2-EXTRACT-FOUR-TO-TWO-STATE",
+            "SV2023-11.3.4-TWO-STATE-CONVERSION"
           ]
         }
       }
@@ -6768,7 +6777,8 @@
           "requirements": [
             "SV2023-6.11.3-EXTRACT-DEFAULT-SIGNED-INTEGERS",
             "SV2023-6.11.3-EXTRACT-DEFAULT-UNSIGNED-INTEGERS",
-            "SV2023-6.11.3-EXTRACT-EXPLICIT-INTEGER-SIGNING"
+            "SV2023-6.11.3-EXTRACT-EXPLICIT-INTEGER-SIGNING",
+            "SV2023-6.11.3-SIGNED-ATOMS"
           ]
         },
         "B004": {
@@ -7626,7 +7636,11 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-6.16.13-EXTRACT-STORE-TEXT"
+            "SV2023-6.16.13-EXTRACT-STORE-TEXT",
+            "SV2023-6.16.13-OCTAL-HIGH",
+            "SV2023-6.16.13-OCTAL-NEGATIVE",
+            "SV2023-6.16.13-OCTAL-ONE",
+            "SV2023-6.16.13-OCTAL-ZERO"
           ]
         }
       }
@@ -7654,7 +7668,11 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-6.16.14-EXTRACT-STORE-TEXT"
+            "SV2023-6.16.14-EXTRACT-STORE-TEXT",
+            "SV2023-6.16.14-BINARY-HIGH",
+            "SV2023-6.16.14-BINARY-NEGATIVE",
+            "SV2023-6.16.14-BINARY-ONE",
+            "SV2023-6.16.14-BINARY-ZERO"
           ]
         }
       }
@@ -8106,7 +8124,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-6.19.2-EXTRACT-SIMPLE-NEXT"
+            "SV2023-6.19.2-EXTRACT-SIMPLE-NEXT",
+            "SV2023-6.19.2-EXTRACT-RANGE-EXPLICIT-FIRST"
           ]
         },
         "B005": {
@@ -8138,7 +8157,8 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-6.19.2-EXTRACT-RANGE-NAMES",
-            "SV2023-6.19.2-EXTRACT-NONNEGATIVE-ENDPOINTS"
+            "SV2023-6.19.2-EXTRACT-NONNEGATIVE-ENDPOINTS",
+            "SV2023-6.19.2-EXTRACT-RANGE-EXPLICIT-FIRST"
           ]
         },
         "B009": {
@@ -8359,7 +8379,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-6.19.5.1-EXTRACT-DECLARATION-ORDER"
+            "SV2023-6.19.5.1-EXTRACT-DECLARATION-ORDER",
+            "SV2023-6.19.5.1-FIRST-DECLARED"
           ]
         }
       }
@@ -8391,7 +8412,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-6.19.5.2-EXTRACT-DECLARATION-ORDER"
+            "SV2023-6.19.5.2-EXTRACT-DECLARATION-ORDER",
+            "SV2023-6.19.5.2-LAST-DECLARED"
           ]
         }
       }
@@ -9630,7 +9652,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-6.22.5-EXTRACT-INCOMPATIBLE"
+            "SV2023-6.22.5-EXTRACT-INCOMPATIBLE",
+            "SV2023-6.22.5-NO-HANDLE-REAL"
           ]
         }
       }
@@ -10047,7 +10070,9 @@
           "requirements": [
             "SV2023-6.24.2-EXTRACT-FUNCTION-SUCCESS",
             "SV2023-6.24.2-EXTRACT-FUNCTION-FAILURE",
-            "SV2023-6.24.2-EXTRACT-FUNCTION-NO-CAST-ERROR"
+            "SV2023-6.24.2-EXTRACT-FUNCTION-NO-CAST-ERROR",
+            "SV2023-6.22.4-ENUM-CAST-FAIL",
+            "SV2023-6.22.4-ENUM-CAST-PASS"
           ]
         },
         "B010": {
@@ -10176,7 +10201,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-6.24.3-EXTRACT-DESTINATION-LEFT-TO-RIGHT"
+            "SV2023-6.24.3-EXTRACT-DESTINATION-LEFT-TO-RIGHT",
+            "SV2023-6.24.3-BITS-TO-ARRAY"
           ]
         },
         "B011": {
@@ -12201,7 +12227,8 @@
             "SV2023-7.8.4-EXTRACT-INTEGRAL-KEY-CAST",
             "SV2023-7.8.4-EXTRACT-NO-IMPLICIT-REAL-KEY",
             "SV2023-7.8.4-EXTRACT-XZ-KEY-INVALID",
-            "SV2023-7.8.4-EXTRACT-SIGNEDNESS-ORDER"
+            "SV2023-7.8.4-EXTRACT-SIGNEDNESS-ORDER",
+            "SV2023-7.8.4-SIGNED-ORDER"
           ]
         }
       }
@@ -12235,7 +12262,8 @@
             "SV2023-7.8.5-EXTRACT-RECURSIVE-XZ-INVALID",
             "SV2023-7.8.5-EXTRACT-EMPTY-NULL-VALID",
             "SV2023-7.8.5-EXTRACT-RELATIONAL-ORDER",
-            "SV2023-7.8.5-EXTRACT-NONRELATIONAL-STABLE-ORDER"
+            "SV2023-7.8.5-EXTRACT-NONRELATIONAL-STABLE-ORDER",
+            "SV2023-7.8.5-NO-REAL-MEMBER"
           ]
         }
       }
@@ -12257,14 +12285,17 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-7.8.6-EXTRACT-MISSING-READ-WARNING",
-            "SV2023-7.8.6-EXTRACT-DEFAULT-READ-NO-WARNING"
+            "SV2023-7.8.6-EXTRACT-DEFAULT-READ-NO-WARNING",
+            "SV2023-7.8.6-MISSING-READ-WARNING"
           ]
         },
         "B003": {
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-7.8.6-EXTRACT-INVALID-WRITE-WARNING"
+            "SV2023-7.8.6-EXTRACT-INVALID-WRITE-WARNING",
+            "SV2023-7.8.6-IGNORE-UNKNOWN-WRITE",
+            "SV2023-7.8.6-INVALID-WRITE-WARNING"
           ]
         }
       }
@@ -12608,7 +12639,9 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-7.9.8-EXTRACT-TRAVERSAL-ASSIGNMENT-COMPATIBLE",
-            "SV2023-7.9.8-EXTRACT-NARROW-INDEX-TRUNCATION"
+            "SV2023-7.9.8-EXTRACT-NARROW-INDEX-TRUNCATION",
+            "SV2023-7.9.8-NEXT-TRUNCATION",
+            "SV2023-7.9.8-PREV-TRUNCATION"
           ]
         },
         "B003": {
@@ -12640,7 +12673,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-7.9.9-EXTRACT-CLEAR-AND-COPY"
+            "SV2023-7.9.9-EXTRACT-CLEAR-AND-COPY",
+            "SV2023-7.9.9-VALUE-COPY"
           ]
         }
       }
@@ -12708,14 +12742,16 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-7.9.11-EXTRACT-USER-DEFAULT-READ"
+            "SV2023-7.9.11-EXTRACT-USER-DEFAULT-READ",
+            "SV2023-7.9.11-USER-DEFAULT"
           ]
         },
         "B007": {
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-7.9.11-EXTRACT-DEFAULT-NO-METHOD-EFFECT"
+            "SV2023-7.9.11-EXTRACT-DEFAULT-NO-METHOD-EFFECT",
+            "SV2023-7.9.11-DEFAULT-NO-ALLOCATION"
           ]
         }
       }
@@ -17741,7 +17777,7 @@
       }
     },
     "9.3.4": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "f0f84fc35bc94809602f1ac2c34362c777128805e88646b32285828281347c77",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -17988,7 +18024,7 @@
       }
     },
     "9.4.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "2d228f7bc3a9a59574b90df08a768fb8105b07bd56768dec7ee805e3b1f4afa9",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -18366,7 +18402,9 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-9.4.3-EXTRACT-WAIT-LEVEL"
+            "SV2023-9.4.3-EXTRACT-WAIT-LEVEL",
+            "SV2023-7.10.2.7-SIZE-WAIT-BLOCKED",
+            "SV2023-7.10.2.7-SIZE-WAIT-WAKES"
           ]
         },
         "B004": {
@@ -19866,14 +19904,16 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-10.5-EXTRACT-INITIALIZATION-NOT-DRIVER"
+            "SV2023-10.5-EXTRACT-INITIALIZATION-NOT-DRIVER",
+            "SV2023-10.5-INITIALIZE-ONCE"
           ]
         },
         "B003": {
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-10.5-EXTRACT-INITIALIZED-STORAGE-RETAINS"
+            "SV2023-10.5-EXTRACT-INITIALIZED-STORAGE-RETAINS",
+            "SV2023-10.5-INITIALIZE-ONCE"
           ]
         },
         "B004": {
@@ -21241,7 +21281,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-11.3.1-EXTRACT-REAL-BOOLEAN-RESULT"
+            "SV2023-11.3.1-EXTRACT-REAL-BOOLEAN-RESULT",
+            "SV2023-11.3.1-COMPARISON-WIDTH"
           ]
         },
         "B004": {
@@ -21249,7 +21290,8 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-11.3.1-EXTRACT-REAL-PROMOTION",
-            "SV2023-11.3.1-EXTRACT-SHORTREAL-PROMOTION"
+            "SV2023-11.3.1-EXTRACT-SHORTREAL-PROMOTION",
+            "SV2023-11.3.1-CONDITION-NO-PROMOTION"
           ]
         },
         "B005": {
@@ -21565,7 +21607,18 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-11.3.5-EXTRACT-SHORT-CIRCUIT-ONLY",
-            "SV2023-11.3.5-EXTRACT-SKIPPED-EFFECTS"
+            "SV2023-11.3.5-EXTRACT-SKIPPED-EFFECTS",
+            "SV2023-11.3.5-AND-EVALUATE",
+            "SV2023-11.3.5-AND-SKIP",
+            "SV2023-11.3.5-BITWISE-AND",
+            "SV2023-11.3.5-BITWISE-OR",
+            "SV2023-11.3.5-CONDITIONAL-FALSE",
+            "SV2023-11.3.5-CONDITIONAL-TRUE",
+            "SV2023-11.3.5-IMPLIES-EVALUATE",
+            "SV2023-11.3.5-IMPLIES-SKIP",
+            "SV2023-11.3.5-OR-EVALUATE",
+            "SV2023-11.3.5-OR-SKIP",
+            "SV2023-11.3.5-UNKNOWN-CONDITION"
           ]
         },
         "B003": {
@@ -21613,7 +21666,9 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-11.3.6-EXTRACT-PARENTHESIZED-ASSIGNMENT"
+            "SV2023-11.3.6-EXTRACT-PARENTHESIZED-ASSIGNMENT",
+            "SV2023-11.3.6-NO-TIMING-CONTROL",
+            "SV2023-11.3.6-PARENTHESES"
           ]
         },
         "B003": {
@@ -21629,7 +21684,8 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-11.3.6-EXTRACT-ASSIGNMENT-EXPRESSION-VALUE",
-            "SV2023-11.3.6-EXTRACT-CONCAT-LHS-RESULT"
+            "SV2023-11.3.6-EXTRACT-CONCAT-LHS-RESULT",
+            "SV2023-11.3.6-CONCATENATION-TYPE"
           ]
         },
         "B006": {
@@ -21862,7 +21918,9 @@
           "requirements": [
             "SV2023-11.4.3-EXTRACT-DIV-TRUNCATES-ZERO",
             "SV2023-11.4.3-EXTRACT-ZERO-DIVISOR",
-            "SV2023-11.4.3-EXTRACT-MOD-REMAINDER-SIGN"
+            "SV2023-11.4.3-EXTRACT-MOD-REMAINDER-SIGN",
+            "SV2023-11.4.3.1-DIVIDE-TRUNCATES",
+            "SV2023-11.4.3.1-REMAINDER-SIGN"
           ]
         },
         "B011": {
@@ -22448,7 +22506,8 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-11.4.7-EXTRACT-LOGICAL-RESULT",
-            "SV2023-11.4.7-EXTRACT-LOGICAL-PRECEDENCE"
+            "SV2023-11.4.7-EXTRACT-LOGICAL-PRECEDENCE",
+            "SV2023-11.3.5-UNKNOWN-CONDITION"
           ]
         },
         "B003": {
@@ -22513,7 +22572,14 @@
             "SV2023-11.4.7-EXTRACT-LEFT-EVALUATED",
             "SV2023-11.4.7-EXTRACT-AND-SHORT-CIRCUIT",
             "SV2023-11.4.7-EXTRACT-IMPLICATION-SHORT-CIRCUIT",
-            "SV2023-11.4.7-EXTRACT-OR-SHORT-CIRCUIT"
+            "SV2023-11.4.7-EXTRACT-OR-SHORT-CIRCUIT",
+            "SV2023-11.3.5-AND-EVALUATE",
+            "SV2023-11.3.5-AND-SKIP",
+            "SV2023-11.3.5-IMPLIES-EVALUATE",
+            "SV2023-11.3.5-IMPLIES-SKIP",
+            "SV2023-11.3.5-OR-EVALUATE",
+            "SV2023-11.3.5-OR-SKIP",
+            "SV2023-11.3.5-UNKNOWN-CONDITION"
           ]
         }
       }
@@ -23075,7 +23141,9 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-11.4.11-EXTRACT-SELECTED-BRANCH-ONLY",
-            "SV2023-11.4.11-EXTRACT-AMBIGUOUS-BOTH"
+            "SV2023-11.4.11-EXTRACT-AMBIGUOUS-BOTH",
+            "SV2023-11.3.5-CONDITIONAL-FALSE",
+            "SV2023-11.3.5-CONDITIONAL-TRUE"
           ]
         },
         "B007": {
@@ -23373,7 +23441,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-11.4.12.2-EXTRACT-NONCONSTANT-STRING-COUNT"
+            "SV2023-11.4.12.2-EXTRACT-NONCONSTANT-STRING-COUNT",
+            "SV2023-11.4.12.2-STRING-REPEAT"
           ]
         },
         "B005": {
@@ -24561,7 +24630,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-11.8.3-EXTRACT-ASSIGNMENT-SIZE-EXTENSION"
+            "SV2023-11.8.3-EXTRACT-ASSIGNMENT-SIZE-EXTENSION",
+            "SV2023-11.8.3-UNSIGNED-ZERO-EXTEND"
           ]
         }
       }
@@ -24584,7 +24654,9 @@
           "requirements": [
             "SV2023-11.8.4-EXTRACT-EXTEND-X-SIGN",
             "SV2023-11.8.4-EXTRACT-EXTEND-Z-SIGN",
-            "SV2023-11.8.4-EXTRACT-SIGNED-UNKNOWN-OPERATION"
+            "SV2023-11.8.4-EXTRACT-SIGNED-UNKNOWN-OPERATION",
+            "SV2023-11.8.4-X-SIGN-EXTEND",
+            "SV2023-11.8.4-Z-SIGN-EXTEND"
           ]
         }
       }
@@ -24799,7 +24871,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-11.10.2-EXTRACT-PADDING-IS-DATA"
+            "SV2023-11.10.2-EXTRACT-PADDING-IS-DATA",
+            "SV2023-11.10.2-STRING-ZERO-PAD"
           ]
         },
         "B003": {
@@ -24864,7 +24937,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-11.10.3-EXTRACT-EMPTY-LITERAL-NUL"
+            "SV2023-11.10.3-EXTRACT-EMPTY-LITERAL-NUL",
+            "SV2023-11.10.3-EMPTY-STRING-VALUE"
           ]
         }
       }
@@ -25706,7 +25780,9 @@
           "requirements": [
             "SV2023-12.5-EXTRACT-CASE-ONCE-BEFORE-ITEMS",
             "SV2023-12.5-EXTRACT-CASE-LINEAR-FIRST",
-            "SV2023-12.5-EXTRACT-CASE-NONE-DEFAULT"
+            "SV2023-12.5-EXTRACT-CASE-NONE-DEFAULT",
+            "SV2023-12.5.2-CASEX-DEFAULT",
+            "SV2023-12.5.2-CASEX-FIRST-MATCH"
           ]
         },
         "B012": {
@@ -25771,7 +25847,9 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-12.5.1-EXTRACT-BOTH-SIDES-WILDCARD"
+            "SV2023-12.5.1-EXTRACT-BOTH-SIDES-WILDCARD",
+            "SV2023-12.5.2-CASEX-DEFAULT",
+            "SV2023-12.5.2-CASEX-FIRST-MATCH"
           ]
         },
         "B004": {
@@ -36741,7 +36819,7 @@
       }
     },
     "16.13.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "11b955df10a854ccd8860761ed9374def57fb0071dfeef0566bba8b241792b39",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -46006,7 +46084,7 @@
       }
     },
     "19.5.7": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "ed896c635ec0f6d73ab17f71806956ffb1381590ef36f8151c6397d0f3499231",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -47537,7 +47615,7 @@
       }
     },
     "19.11.1": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "6e95d5711d359bdad487d765bdd40c99ce9138e3aad0cd3f3f869e54d7a1c8b7",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -47660,8 +47738,7 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
-            "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT"
+            "SV2023-19.11.2-EXTRACT-CROSS-FRACTION"
           ]
         },
         "B006": {
@@ -47675,7 +47752,7 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT"
+            "SV2023-19.11.2-EXTRACT-CROSS-FRACTION"
           ]
         },
         "B007": {
@@ -47997,7 +48074,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-20.3.2-EXTRACT-STIME-RESULT"
+            "SV2023-20.3.2-EXTRACT-STIME-RESULT",
+            "SV2023-20.3.2-STIME-WIDTH"
           ]
         }
       }
@@ -48328,7 +48406,7 @@
       }
     },
     "20.4.3": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "55e19545edef2af0c791162ef47b9d75a68c4c71c8631af62263c853d0f44a47",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -52349,7 +52427,7 @@
       }
     },
     "21.3.4": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "310b7965c1cab84a4aa54dc498a9cd1e68379178440677f91113272a77cbb5f6",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -52816,7 +52894,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-21.3.4.4-EXTRACT-FREAD-BYTE-ORDER"
+            "SV2023-21.3.4.4-EXTRACT-FREAD-BYTE-ORDER",
+            "SV2023-21.3.4.4-FREAD-PARTIAL"
           ]
         },
         "B014": {
@@ -52844,7 +52923,9 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-21.3.4.4-EXTRACT-FREAD-RETURN"
+            "SV2023-21.3.4.4-EXTRACT-FREAD-RETURN",
+            "SV2023-21.3.4.4-FREAD-EOF",
+            "SV2023-21.3.4.4-FREAD-PARTIAL"
           ]
         }
       }
@@ -53033,7 +53114,8 @@
           "requirements": [
             "SV2023-21.3.7-EXTRACT-FERROR",
             "SV2023-21.3.7-EXTRACT-FERROR-TARGET-SIZE",
-            "SV2023-21.3.7-EXTRACT-FERROR-CLEAR"
+            "SV2023-21.3.7-EXTRACT-FERROR-CLEAR",
+            "SV2023-21.3.7-FERROR-NO-ERROR"
           ]
         }
       }
@@ -56757,7 +56839,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-22.9-EXTRACT-UNCONNECTED-PULL"
+            "SV2023-22.9-EXTRACT-UNCONNECTED-PULL",
+            "SV2023-22.9-PULL-DECLARATION"
           ]
         },
         "B003": {
@@ -56765,7 +56848,8 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-22.9-EXTRACT-UNCONNECTED-PULL",
-            "SV2023-22.9-EXTRACT-UNCONNECTED-PAIRING"
+            "SV2023-22.9-EXTRACT-UNCONNECTED-PAIRING",
+            "SV2023-22.9-PULL-DECLARATION"
           ]
         },
         "B004": {
@@ -58923,7 +59007,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-23.3.2.4-EXTRACT-WILDCARD-NAMES"
+            "SV2023-23.3.2.4-EXTRACT-WILDCARD-NAMES",
+            "SV2023-23.3.2.3-EXPLICIT-OVERRIDE"
           ]
         },
         "B003": {
@@ -59575,7 +59660,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-23.3.3.8-EXTRACT-PORT-SIGNEDNESS"
+            "SV2023-23.3.3.8-EXTRACT-PORT-SIGNEDNESS",
+            "SV2023-23.3.3.8-PORT-SIGNEDNESS"
           ]
         }
       }
@@ -61005,7 +61091,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-23.11-EXTRACT-BIND-SCOPE-ALL-SUBSET"
+            "SV2023-23.11-EXTRACT-BIND-SCOPE-ALL-SUBSET",
+            "SV2023-23.11-SELECTIVE-BIND"
           ]
         },
         "B009": {
@@ -61411,7 +61498,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-24.3.2-EXTRACT-PROGRAM-PORT-PROPAGATION"
+            "SV2023-24.3.2-EXTRACT-PROGRAM-PORT-PROPAGATION",
+            "SV2023-24.3.2-PROGRAM-CA-REGION"
           ]
         }
       }
@@ -63105,7 +63193,7 @@
       }
     },
     "25.9": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "da4ae9276c54f8a7db0d6d3e82fbddd27dc8d2af9688a696843730fa64024841",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -63354,7 +63442,7 @@
       }
     },
     "25.9.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "e30be479b1ee113c9d3a3be9cf86315e905cb97bfc81abdff29620123bc4f836",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -64043,7 +64131,8 @@
             "SV2023-26.5-EXTRACT-EXPLICIT-LOCAL",
             "SV2023-26.5-EXTRACT-EXPLICIT-NONE",
             "SV2023-26.5-EXTRACT-EXPLICIT-EXPLICIT-Q",
-            "SV2023-26.5-EXTRACT-EXPLICIT-WILDCARD-Q"
+            "SV2023-26.5-EXTRACT-EXPLICIT-WILDCARD-Q",
+            "SV2023-26.5-SCOPED-PACKAGE-NAME"
           ]
         },
         "B008": {
@@ -64053,7 +64142,8 @@
             "SV2023-26.5-EXTRACT-EXPLICIT-LOCAL",
             "SV2023-26.5-EXTRACT-EXPLICIT-NONE",
             "SV2023-26.5-EXTRACT-EXPLICIT-EXPLICIT-Q",
-            "SV2023-26.5-EXTRACT-EXPLICIT-WILDCARD-Q"
+            "SV2023-26.5-EXTRACT-EXPLICIT-WILDCARD-Q",
+            "SV2023-26.5-SCOPED-PACKAGE-NAME"
           ]
         },
         "B009": {
@@ -64898,7 +64988,8 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-28.3-EXTRACT-PRIMITIVE-GRAMMAR",
-            "SV2023-28.3-EXTRACT-SHARED-STRENGTH-DELAY"
+            "SV2023-28.3-EXTRACT-SHARED-STRENGTH-DELAY",
+            "SV2023-28.3.1-MULTIPLE-INSTANCES"
           ]
         },
         "B005": {
@@ -65393,7 +65484,8 @@
           "requirements": [
             "SV2023-28.3.6-EXTRACT-ARRAY-TERMINAL-BROADCAST",
             "SV2023-28.3.6-EXTRACT-ARRAY-INTERCONNECT-WIDTH",
-            "SV2023-28.3.6-EXTRACT-ARRAY-TERMINAL-PARTITION"
+            "SV2023-28.3.6-EXTRACT-ARRAY-TERMINAL-PARTITION",
+            "SV2023-28.3.2-SCALAR-BROADCAST"
           ]
         },
         "B004": {
@@ -66630,7 +66722,7 @@
       }
     },
     "28.12.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "fb1da10157c9da1f655abfb0380e11f1f657146a57c46ad5b815a712e4f29ba1",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -68566,7 +68658,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-29.9-EXTRACT-MIXED-UDP-LEVEL-DOMINANCE"
+            "SV2023-29.9-EXTRACT-MIXED-UDP-LEVEL-DOMINANCE",
+            "SV2023-29.9-LEVEL-OVER-EDGE"
           ]
         }
       }
@@ -72238,7 +72331,7 @@
       }
     },
     "31.4.4": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "08817eaced48bbf618a3ca7be0ce79fd289a1fd2052f836e6b3736e9e187ebb4",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -74809,7 +74902,7 @@
       }
     },
     "33.3.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "af5377f45d2f433da3a6c8f04623090e292efafbbe22399f1fcd7b4fc310077d",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -75187,7 +75280,7 @@
       }
     },
     "33.4.3": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "5d703f966a5db6f2db9911f7aa9581c746ed20aaf1133665392dd50b3b759e21",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -77859,7 +77952,7 @@
       }
     },
     "34.5.16.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "a4c84fef27b14f80d44d2a674265a20f7777799e807bc7e73155c24fde1b98b3",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -78137,7 +78230,6 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-34.5.22.2-EXTRACT-DIGEST-KEY-OWNER-TEXT",
             "SV2023-34.5.22.2-EXTRACT-DIGEST-GENERATE",
             "SV2023-34.5.22.2-EXTRACT-DIGEST-IV-OUTPUT"
           ]
@@ -93864,7 +93956,7 @@
       }
     },
     "37.80": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "a7e3c01800642729f47e2036ed5a0120307f733916dfc3982dad447a81149e77",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -101257,7 +101349,7 @@
       }
     },
     "39.4.1": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "a47979fb005e4796a0c27ce8eb15cb3ba69e93d13b645875964f427ee2b2e155",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -103191,7 +103283,7 @@
       }
     },
     "A.1.4": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "33383cf965e4b0f08afed2e12c3b0939b7dafa8f42fb3ec528f6748805336b0e",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -110997,7 +111089,7 @@
       }
     },
     "H.10.1.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "28311e98954b922dc455ba44aae18099d1f2ca0be7d2cb7da55d79530ea2f052",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -112540,7 +112632,7 @@
       }
     },
     "I.3": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "9c699f3f97ea3246bc069a1c2b3d6b5061e540f34f157115e4ae9937d417e8a6",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
@@ -116228,7 +116320,7 @@
       }
     },
     "N.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "718fed2616596c349d79fb22ce4cf55688bb6759210956b00e2c73b3faf6d676",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",

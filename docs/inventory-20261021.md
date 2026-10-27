@@ -1145,9 +1145,11 @@ After these commits the suite has 6799 tests in 37 chapters, 1308 of them
 generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
-designs, and 33 set an expected exit code. The requirement ledger maps
-11000 of 12319 rows (89.29%), with 7329 executed (59.49%) including the
-concurrent Ghost evidence (6270, 50.87%, without it).
+designs, and 33 set an expected exit code. The denominator is approved at
+12298 unique obligations (docs/denominator-review-20261028.md), the ledger
+maps 10980 rows (89.28%), and 7310 are executed (59.44%) including the
+concurrent Ghost evidence (6251, 50.83%, without it). See
+docs/handover-20261028.md for the final state and the remaining limits.
 
 ### Tests added in this work
 

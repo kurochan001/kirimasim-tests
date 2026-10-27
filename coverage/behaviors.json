@@ -3,8 +3,10 @@
   "standard": "IEEE 1800-2023",
   "review_note": "AI source review covers every own-body section and block of IEEE 1800-2023 clauses 1–41 and annexes A–Q. Rows retain source occurrences, conditional obligations and initial observation cases; they are not a deduplicated whole-standard denominator. Open interpretations are explicitly retained. Unmapped means no reviewed test link, not absence of an existing test. No independent human approval is implied.",
   "denominator_review": {
-    "state": "pending",
-    "scope_note": "All source has been reviewed and requirements extracted. Interpretation conflicts, semantic duplicates and the relationship between requirements and initial concrete observation cases must be reconciled before approving a unique whole-standard behavioral denominator."
+    "state": "approved",
+    "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+    "reviewed_on": "2026-10-28",
+    "scope_note": "All 1703 normative sections reviewed. 21 interpretation rows across 20 sections resolved (20 by normative text or a documented policy choice; 31.4.4 limited to distinct transition times). 25 duplicate candidates reviewed: 21 rows merged into their extracted obligations, 4 candidates kept (kind or source differs). 92 initial rows: 89 assigned block-level source spans, 3 retained with clause-level provenance because no block defines the behavior. The denominator is 12298 registered unique behavioral obligations; it is not a claim of independent human review."
   },
   "requirements": [
     {
@@ -27171,9 +27173,9 @@
       "id": "SV2023-6.8-EXTRACT-DEFAULT-TWO-STATE",
       "clause": "6.8",
       "kind": "normal",
-      "behavior": "Without an explicit initializer, a two-state integral variable starts with zero in every bit.",
-      "acceptance": "Without an explicit initializer, a two-state integral variable starts with zero in every bit.",
-      "source_note": "IEEE 1800-2023 6.8; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Without an explicit initializer, a two-state integral variable starts with zero in every bit; byte, shortint, int and longint atoms each start at zero.",
+      "acceptance": "byte, shortint, int and longint each report zero before any assignment.",
+      "source_note": "IEEE 1800-2023 6.8; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-6.8-TWO-STATE-DEFAULT (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "definition",
       "checks": [
         {
@@ -28015,31 +28017,12 @@
             }
           ]
         }
-      ]
-    },
-    {
-      "id": "SV2023-6.8-TWO-STATE-DEFAULT",
-      "clause": "6.8",
-      "kind": "normal",
-      "behavior": "Uninitialized two-state integer atoms start at zero.",
-      "acceptance": "byte, shortint, int and longint each report zero.",
-      "source_note": "Reviewed IEEE 1800-2023 6.8: Uninitialized two-state integer atoms start at zero. This records this specific obligation only, not completion of the section.",
-      "checks": [
+      ],
+      "source_spans": [
         {
-          "test": "tests/ch6/test_integer_atom_defaults_and_widths.sv",
-          "observation": "byte, shortint, int and longint each report zero.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "2ec225514f5b136c650678e220dba2b3b57ec71387e6d143381933aa21783aa0",
-          "evidence": [
-            {
-              "file": "tests/ch6/test_integer_atom_defaults_and_widths.sv",
-              "contains": "byte b;"
-            },
-            {
-              "file": "tests/ch6/test_integer_atom_defaults_and_widths.expected",
-              "contains": "defaults=0,0,0,0 unknown=1,1"
-            }
+          "section": "6.8",
+          "blocks": [
+            "B020"
           ]
         }
       ]
@@ -29944,6 +29927,19 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "6.11",
+          "blocks": [
+            "B004",
+            "B005",
+            "B006",
+            "B007",
+            "B011",
+            "B012"
+          ]
+        }
       ]
     },
     {
@@ -30868,6 +30864,14 @@
               "file": "tests/ch6/test_integer_atom_defaults_and_widths.expected",
               "contains": "signed=-1,-1"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "6.11.3",
+          "blocks": [
+            "B003"
           ]
         }
       ]
@@ -33411,9 +33415,9 @@
       "id": "SV2023-6.16-EXTRACT-LITERAL-INTEGRAL-ALIGNMENT",
       "clause": "6.16",
       "kind": "normal",
-      "behavior": "A string literal assigned to an integral destination is right aligned; excess high bits are truncated and missing high bits are zero filled.",
-      "acceptance": "A string literal assigned to an integral destination is right aligned; excess high bits are truncated and missing high bits are zero filled.",
-      "source_note": "IEEE 1800-2023 6.16; complete own-body source review, blocks B004, B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A string literal assigned to an integral destination is right aligned; excess high bits are truncated on the left and missing high bits are zero filled.",
+      "acceptance": "WXYZ stored in 16 bits becomes 595a; K stored in 32 bits is zero filled to 0000004b.",
+      "source_note": "IEEE 1800-2023 6.16; complete own-body source review, blocks B004, B013. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-6.16-STRING-LEFT-TRUNCATE (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -34654,33 +34658,6 @@
           "section": "6.16",
           "blocks": [
             "B004"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "SV2023-6.16-STRING-LEFT-TRUNCATE",
-      "clause": "6.16",
-      "kind": "normal",
-      "behavior": "An integral target too short for a string literal discards leftmost characters.",
-      "acceptance": "WXYZ stored in 16 bits becomes 595a.",
-      "source_note": "Reviewed IEEE 1800-2023 6.16: An integral target too short for a string literal discards leftmost characters. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch11/test_string_integral_truncation_and_lexical_compare.sv",
-          "observation": "WXYZ stored in 16 bits becomes 595a.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "95147457058cdd86b8a7b64eab0a4751176d64f78341f5de3f33cab56fa075e4",
-          "evidence": [
-            {
-              "file": "tests/ch11/test_string_integral_truncation_and_lexical_compare.sv",
-              "contains": "short_text = \"WXYZ\";"
-            },
-            {
-              "file": "tests/ch11/test_string_integral_truncation_and_lexical_compare.expected",
-              "contains": "short=595a"
-            }
           ]
         }
       ]
@@ -36825,6 +36802,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "6.16.13",
+          "blocks": [
+            "B003"
+          ]
+        }
       ]
     },
     {
@@ -36856,6 +36841,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "6.16.13",
+          "blocks": [
+            "B003"
+          ]
+        }
       ]
     },
     {
@@ -36881,6 +36874,14 @@
               "file": "tests/ch6/test_string_binary_octal_round_trip.expected",
               "contains": "value=1 roundtrip=1,1 format=1"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "6.16.13",
+          "blocks": [
+            "B003"
           ]
         }
       ]
@@ -36910,6 +36911,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "6.16.13",
+          "blocks": [
+            "B003"
+          ]
+        }
       ]
     },
     {
@@ -36935,6 +36944,14 @@
               "file": "tests/ch6/test_string_binary_octal_round_trip.expected",
               "contains": "value=1073741825 roundtrip=1,1 format=1"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "6.16.14",
+          "blocks": [
+            "B003"
           ]
         }
       ]
@@ -36968,6 +36985,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "6.16.14",
+          "blocks": [
+            "B003"
+          ]
+        }
       ]
     },
     {
@@ -36995,6 +37020,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "6.16.14",
+          "blocks": [
+            "B003"
+          ]
+        }
       ]
     },
     {
@@ -37020,6 +37053,14 @@
               "file": "tests/ch6/test_string_binary_octal_round_trip.expected",
               "contains": "value=0 roundtrip=1,1 format=1"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "6.16.14",
+          "blocks": [
+            "B003"
           ]
         }
       ]
@@ -39133,33 +39174,6 @@
       ]
     },
     {
-      "id": "SV2023-6.19.2-DESCENDING-NAMES",
-      "clause": "6.19.2",
-      "kind": "normal",
-      "behavior": "A descending generated enum name range still receives increasing values.",
-      "acceptance": "SLOT2, SLOT1 and SLOT0 have values 7,8,9.",
-      "source_note": "Reviewed IEEE 1800-2023 6.19.2: A descending generated enum name range still receives increasing values. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch6/test_enum_descending_names_and_wrap.sv",
-          "observation": "SLOT2, SLOT1 and SLOT0 have values 7,8,9.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "4e6faa2c02365ad2bd2f906736c2f59b56b5251ab53f2ac22cc84c49c22d2f4a",
-          "evidence": [
-            {
-              "file": "tests/ch6/test_enum_descending_names_and_wrap.sv",
-              "contains": "SLOT[2:0] = 7"
-            },
-            {
-              "file": "tests/ch6/test_enum_descending_names_and_wrap.expected",
-              "contains": "range=7,8,9"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "SV2023-6.19.2-EXTRACT-COUNT-EXPLICIT-FIRST",
       "clause": "6.19.2",
       "kind": "normal",
@@ -39340,8 +39354,8 @@
       "clause": "6.19.2",
       "kind": "normal",
       "behavior": "For name[N:M]=C, the first generated name receives C and every subsequent generated value increases by one regardless of suffix direction.",
-      "acceptance": "For name[N:M]=C, the first generated name receives C and every subsequent generated value increases by one regardless of suffix direction.",
-      "source_note": "IEEE 1800-2023 6.19.2; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "acceptance": "For SLOT[2:0] = 7 the names SLOT2, SLOT1 and SLOT0 have values 7,8,9; for wr[2:3] = 10 the values are wr2=10 and wr3=11.",
+      "source_note": "IEEE 1800-2023 6.19.2; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-6.19.2-DESCENDING-NAMES (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -39383,6 +39397,8 @@
         {
           "section": "6.19.2",
           "blocks": [
+            "B004",
+            "B008",
             "B009"
           ]
         }
@@ -40071,6 +40087,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "6.19.5.1",
+          "blocks": [
+            "B004"
+          ]
+        }
       ]
     },
     {
@@ -40176,6 +40200,14 @@
               "file": "tests/ch6/test_enum_descending_names_and_wrap.expected",
               "contains": "bounds=7,20 count=4 prev=20"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "6.19.5.2",
+          "blocks": [
+            "B004"
           ]
         }
       ]
@@ -40488,9 +40520,9 @@
       "id": "SV2023-6.19.5.4-EXTRACT-WRAP",
       "clause": "6.19.5.4",
       "kind": "boundary",
-      "behavior": "prev(N) wraps around the start of the enum member list as needed.",
-      "acceptance": "prev(N) wraps around the start of the enum member list as needed.",
-      "source_note": "IEEE 1800-2023 6.19.5.4; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "prev(N) wraps around the start of the enum member list as needed, walking the declared member order across encoding gaps.",
+      "acceptance": "One step before SLOT2 is DONE=20, and two steps before SLOT2 is SLOT0=9.",
+      "source_note": "IEEE 1800-2023 6.19.5.4; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-6.19.5.4-PREV-WRAP (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -40555,39 +40587,12 @@
       ]
     },
     {
-      "id": "SV2023-6.19.5.4-PREV-WRAP",
-      "clause": "6.19.5.4",
-      "kind": "boundary",
-      "behavior": "Enum prev() wraps in declaration order across value gaps.",
-      "acceptance": "One step before SLOT2 is DONE=20, and two steps before SLOT2 is SLOT0=9.",
-      "source_note": "Reviewed IEEE 1800-2023 6.19.5.4: Enum prev() wraps in declaration order across value gaps. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch6/test_enum_descending_names_and_wrap.sv",
-          "observation": "One step before SLOT2 is DONE=20, and two steps before SLOT2 is SLOT0=9.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "4e6faa2c02365ad2bd2f906736c2f59b56b5251ab53f2ac22cc84c49c22d2f4a",
-          "evidence": [
-            {
-              "file": "tests/ch6/test_enum_descending_names_and_wrap.sv",
-              "contains": "s = s.prev(2);"
-            },
-            {
-              "file": "tests/ch6/test_enum_descending_names_and_wrap.expected",
-              "contains": "two_back=SLOT0 value=9 range=7,8,9"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "SV2023-6.19.5.5-EXTRACT-MEMBER-COUNT",
       "clause": "6.19.5.5",
       "kind": "normal",
       "behavior": "num() returns the number of members declared in the enum.",
-      "acceptance": "num() returns the number of members declared in the enum.",
-      "source_note": "IEEE 1800-2023 6.19.5.5; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "acceptance": "An enum with members 7,8,9,20 reports four members despite the numeric gap.",
+      "source_note": "IEEE 1800-2023 6.19.5.5; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-6.19.5.5-NUM-MEMBERS (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -40700,33 +40705,6 @@
           "section": "6.19.5.5",
           "blocks": [
             "B002"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "SV2023-6.19.5.5-NUM-MEMBERS",
-      "clause": "6.19.5.5",
-      "kind": "normal",
-      "behavior": "Enum num() counts members rather than the numeric value span.",
-      "acceptance": "The enum reports four members despite its gap from 9 to 20.",
-      "source_note": "Reviewed IEEE 1800-2023 6.19.5.5: Enum num() counts members rather than the numeric value span. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch6/test_enum_descending_names_and_wrap.sv",
-          "observation": "The enum reports four members despite its gap from 9 to 20.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "4e6faa2c02365ad2bd2f906736c2f59b56b5251ab53f2ac22cc84c49c22d2f4a",
-          "evidence": [
-            {
-              "file": "tests/ch6/test_enum_descending_names_and_wrap.sv",
-              "contains": "s.num()"
-            },
-            {
-              "file": "tests/ch6/test_enum_descending_names_and_wrap.expected",
-              "contains": "bounds=7,20 count=4 prev=20"
-            }
           ]
         }
       ]
@@ -44064,9 +44042,9 @@
       "id": "SV2023-6.20.7-EXTRACT-DOLLAR-QUEUE-LAST",
       "clause": "6.20.7",
       "kind": "normal",
-      "behavior": "Within a queue select, dollar denotes the last queue element.",
-      "acceptance": "Within a queue select, dollar denotes the last queue element.",
-      "source_note": "IEEE 1800-2023 6.20.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Within a queue select, dollar denotes the last queue element, so q[$] tracks the current last element when the queue grows on push_back and shrinks on pop_back.",
+      "acceptance": "After push_back(9), q[$] is 9 and q[1:$] is 4,9; after pop_back() removes 9, q[$] is 4.",
+      "source_note": "IEEE 1800-2023 6.20.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-6.20.7-QUEUE-LAST-AFTER-POP (same clause and same obligation; that row carried section-level provenance only, no source spans). Merged on 2026-10-28 with duplicate initial row SV2023-6.20.7-QUEUE-LAST-AFTER-PUSH (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "definition",
       "checks": [
         {
@@ -44254,60 +44232,6 @@
           "blocks": [
             "B010",
             "B011"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "SV2023-6.20.7-QUEUE-LAST-AFTER-POP",
-      "clause": "6.20.7",
-      "kind": "normal",
-      "behavior": "A queue dollar index is recomputed after shrinkage.",
-      "acceptance": "After removing 9, q[$] is 4.",
-      "source_note": "Reviewed IEEE 1800-2023 6.20.7: A queue dollar index is recomputed after shrinkage. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch6/test_unbounded_queue_tail_after_resize.sv",
-          "observation": "After removing 9, q[$] is 4.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "3e526a6483bb6999a17977156d90f832e8ca409c934cf9effe3a6482637d6d62",
-          "evidence": [
-            {
-              "file": "tests/ch6/test_unbounded_queue_tail_after_resize.sv",
-              "contains": "removed = q.pop_back();"
-            },
-            {
-              "file": "tests/ch6/test_unbounded_queue_tail_after_resize.expected",
-              "contains": "popped=9 new_last=4"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "SV2023-6.20.7-QUEUE-LAST-AFTER-PUSH",
-      "clause": "6.20.7",
-      "kind": "normal",
-      "behavior": "A queue dollar index reflects the current last element after growth.",
-      "acceptance": "After push_back(9), q[$] is 9 and q[1:$] is 4,9.",
-      "source_note": "Reviewed IEEE 1800-2023 6.20.7: A queue dollar index reflects the current last element after growth. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch6/test_unbounded_queue_tail_after_resize.sv",
-          "observation": "After push_back(9), q[$] is 9 and q[1:$] is 4,9.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "3e526a6483bb6999a17977156d90f832e8ca409c934cf9effe3a6482637d6d62",
-          "evidence": [
-            {
-              "file": "tests/ch6/test_unbounded_queue_tail_after_resize.sv",
-              "contains": "q.push_back(9); tail = q[1:$];"
-            },
-            {
-              "file": "tests/ch6/test_unbounded_queue_tail_after_resize.expected",
-              "contains": "pushed_last=9 slice=4,9"
-            }
           ]
         }
       ]
@@ -46036,6 +45960,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "6.24.2",
+          "blocks": [
+            "B009"
+          ]
+        }
       ]
     },
     {
@@ -46061,6 +45993,14 @@
               "file": "tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.expected",
               "contains": "success=1 value=3"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "6.24.2",
+          "blocks": [
+            "B009"
           ]
         }
       ]
@@ -46142,6 +46082,14 @@
               "file": "tests/ch6/test_illegal_handle_to_real_cast.sv",
               "contains": ":expected_stderr_regex: test_illegal_handle_to_real_cast\\.sv:(?:21)(?::|\\s)"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "6.22.5",
+          "blocks": [
+            "B002"
           ]
         }
       ]
@@ -48468,6 +48416,14 @@
               "file": "tests/ch6/test_bitstream_array_to_packed_order.expected",
               "contains": "packed=12ab34 restored=fe,dc,ba"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "6.24.3",
+          "blocks": [
+            "B010"
           ]
         }
       ]
@@ -58720,39 +58676,12 @@
       ]
     },
     {
-      "id": "SV2023-7.8.2-EMPTY-STRING-KEY",
-      "clause": "7.8.2",
-      "kind": "boundary",
-      "behavior": "The empty string is a valid associative-array string index.",
-      "acceptance": "Reverse traversal reaches an allocated key of length zero.",
-      "source_note": "Reviewed IEEE 1800-2023 7.8.2: The empty string is a valid associative-array string index. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
-          "observation": "Reverse traversal reaches an allocated key of length zero.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "0392c3cd953edfd133b01ff079cd2515eaad90cc04a2156a331b0b4ae41c23f0",
-          "evidence": [
-            {
-              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
-              "contains": "a[\"\"] = 2;"
-            },
-            {
-              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.expected",
-              "contains": "empty=1,0"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "SV2023-7.8.2-EXTRACT-EMPTY-KEY",
       "clause": "7.8.2",
       "kind": "boundary",
       "behavior": "An empty string is a valid associative key.",
-      "acceptance": "An empty string is a valid associative key.",
-      "source_note": "IEEE 1800-2023 7.8.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "acceptance": "An allocated key of length zero is reached by reverse traversal; a[\"\"] = 2 is stored and found.",
+      "source_note": "IEEE 1800-2023 7.8.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-7.8.2-EMPTY-STRING-KEY (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -58804,8 +58733,8 @@
       "clause": "7.8.2",
       "kind": "normal",
       "behavior": "String associative keys are ordered lexicographically from lesser to greater.",
-      "acceptance": "String associative keys are ordered lexicographically from lesser to greater.",
-      "source_note": "IEEE 1800-2023 7.8.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "acceptance": "Descending traversal visits b, aa, then the empty string.",
+      "source_note": "IEEE 1800-2023 7.8.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-7.8.2-LEXICAL-ORDER (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -58896,33 +58825,6 @@
           "section": "7.8.2",
           "blocks": [
             "B004"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "SV2023-7.8.2-LEXICAL-ORDER",
-      "clause": "7.8.2",
-      "kind": "normal",
-      "behavior": "String associative indices are traversed in lexical order.",
-      "acceptance": "Descending traversal visits b, aa, then the empty string.",
-      "source_note": "Reviewed IEEE 1800-2023 7.8.2: String associative indices are traversed in lexical order. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
-          "observation": "Descending traversal visits b, aa, then the empty string.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "0392c3cd953edfd133b01ff079cd2515eaad90cc04a2156a331b0b4ae41c23f0",
-          "evidence": [
-            {
-              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
-              "contains": "status = a.prev(k);"
-            },
-            {
-              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.expected",
-              "contains": "last=1,b missing=-7\nprev=1,aa\nempty=1,0"
-            }
           ]
         }
       ]
@@ -59239,6 +59141,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "7.8.4",
+          "blocks": [
+            "B004"
+          ]
+        }
       ]
     },
     {
@@ -59475,6 +59385,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "7.8.5",
+          "blocks": [
+            "B004"
+          ]
+        }
       ]
     },
     {
@@ -59647,6 +59565,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "7.8.6",
+          "blocks": [
+            "B003"
+          ]
+        }
       ]
     },
     {
@@ -59674,6 +59600,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "7.8.6",
+          "blocks": [
+            "B003"
+          ]
+        }
       ]
     },
     {
@@ -59699,6 +59633,14 @@
               "file": "tests/ch7/test_assoc_missing_read_reports_diagnostic.expected",
               "contains": "missing=xxxxxxxx size=1 present=17 absent=0"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "7.8.6",
+          "blocks": [
+            "B002"
           ]
         }
       ]
@@ -61566,6 +61508,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "7.9.8",
+          "blocks": [
+            "B002"
+          ]
+        }
       ]
     },
     {
@@ -61591,6 +61541,14 @@
               "file": "tests/ch7/test_assoc_narrow_prev_next_overflow.expected",
               "contains": "prev=-1 key=212"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "7.9.8",
+          "blocks": [
+            "B002"
           ]
         }
       ]
@@ -61683,8 +61641,8 @@
       "clause": "7.9.9",
       "kind": "normal",
       "behavior": "Associative-array assignment clears all old target entries then copies every source entry.",
-      "acceptance": "Associative-array assignment clears all old target entries then copies every source entry.",
-      "source_note": "IEEE 1800-2023 7.9.9; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "acceptance": "The old key 9 disappears and destination size becomes 2; a three-entry source is copied entirely and the copy keeps its values after the source changes.",
+      "source_note": "IEEE 1800-2023 7.9.9; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-7.9.9-REPLACE-NOT-MERGE (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -61703,25 +61661,7 @@
               "contains": "copy: size=3 old=0 values=40,12,-9"
             }
           ]
-        }
-      ],
-      "source_spans": [
-        {
-          "section": "7.9.9",
-          "blocks": [
-            "B003"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "SV2023-7.9.9-REPLACE-NOT-MERGE",
-      "clause": "7.9.9",
-      "kind": "normal",
-      "behavior": "Associative assignment clears old destination entries before copying source entries.",
-      "acceptance": "The old key 9 disappears and destination size becomes 2.",
-      "source_note": "Reviewed IEEE 1800-2023 7.9.9: Associative assignment clears old destination entries before copying source entries. This records this specific obligation only, not completion of the section.",
-      "checks": [
+        },
         {
           "test": "tests/ch7/test_assoc_assignment_clears_and_detaches.sv",
           "observation": "The old key 9 disappears and destination size becomes 2.",
@@ -61737,6 +61677,14 @@
               "file": "tests/ch7/test_assoc_assignment_clears_and_detaches.expected",
               "contains": "dest=2 old_key=0 copied=4 source=40"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "7.9.9",
+          "blocks": [
+            "B003"
           ]
         }
       ]
@@ -61764,6 +61712,14 @@
               "file": "tests/ch7/test_assoc_assignment_clears_and_detaches.expected",
               "contains": "dest=2 old_key=0 copied=4 source=40"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "7.9.9",
+          "blocks": [
+            "B003"
           ]
         }
       ]
@@ -61856,8 +61812,8 @@
       "clause": "7.9.10",
       "kind": "normal",
       "behavior": "Passing an associative array by value creates a local copy.",
-      "acceptance": "Passing an associative array by value creates a local copy.",
-      "source_note": "IEEE 1800-2023 7.9.10; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "acceptance": "Deleting and replacing the by-value formal leaves the caller array with its two original entries.",
+      "source_note": "IEEE 1800-2023 7.9.10; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-7.9.10-VALUE-FORMAL-COPY (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -61888,33 +61844,6 @@
       ]
     },
     {
-      "id": "SV2023-7.9.10-VALUE-FORMAL-COPY",
-      "clause": "7.9.10",
-      "kind": "normal",
-      "behavior": "A by-value associative formal is a local copy.",
-      "acceptance": "Deleting and replacing the formal leaves the caller array with its two original entries.",
-      "source_note": "Reviewed IEEE 1800-2023 7.9.10: A by-value associative formal is a local copy. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch7/test_assoc_assignment_clears_and_detaches.sv",
-          "observation": "Deleting and replacing the formal leaves the caller array with its two original entries.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "bf811afae5011d0b5b301ab6b8c4da7bd0b738035f28ed83b0bdad7bfb79e84b",
-          "evidence": [
-            {
-              "file": "tests/ch7/test_assoc_assignment_clears_and_detaches.sv",
-              "contains": "local_copy.delete(); local_copy[99] = 8;"
-            },
-            {
-              "file": "tests/ch7/test_assoc_assignment_clears_and_detaches.expected",
-              "contains": "local=1,8\ndest=2 old_key=0 copied=4 source=40"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "SV2023-7.9.11-DEFAULT-NO-ALLOCATION",
       "clause": "7.9.11",
       "kind": "boundary",
@@ -61937,6 +61866,14 @@
               "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.expected",
               "contains": "end=0,0 size=3"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "7.9.11",
+          "blocks": [
+            "B007"
           ]
         }
       ]
@@ -62186,6 +62123,14 @@
               "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.expected",
               "contains": "last=1,b missing=-7"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "7.9.11",
+          "blocks": [
+            "B006"
           ]
         }
       ]
@@ -63793,6 +63738,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "9.4.3",
+          "blocks": [
+            "B003"
+          ]
+        }
       ]
     },
     {
@@ -63818,6 +63771,14 @@
               "file": "tests/ch7/test_queue_size_wait_after_pop.expected",
               "contains": "empty=0 woke=1"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "9.4.3",
+          "blocks": [
+            "B003"
           ]
         }
       ]
@@ -78833,8 +78794,8 @@
       "clause": "8.26.5",
       "kind": "error",
       "behavior": "An interface class cannot be constructed as an object.",
-      "acceptance": "An interface class cannot be constructed as an object.",
-      "source_note": "IEEE 1800-2023 8.26.5; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "acceptance": "Compilation rejects new on the interface class at the intended source line.",
+      "source_note": "IEEE 1800-2023 8.26.5; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-8.26.5-NO-INTERFACE-NEW (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -78932,33 +78893,6 @@
           "section": "8.26.5",
           "blocks": [
             "B002"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "SV2023-8.26.5-NO-INTERFACE-NEW",
-      "clause": "8.26.5",
-      "kind": "error",
-      "behavior": "An interface class cannot be constructed.",
-      "acceptance": "Compilation rejects new on the interface class at the intended source line.",
-      "source_note": "Reviewed IEEE 1800-2023 8.26.5: An interface class cannot be constructed. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch8/test_illegal_interface_class_construction.sv",
-          "observation": "Compilation rejects new on the interface class at the intended source line.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "f91f2ba8606279532a3d45ffefba9415c2a5103072449a07b7187ef76404e731",
-          "evidence": [
-            {
-              "file": "tests/ch8/test_illegal_interface_class_construction.sv",
-              "contains": "initial handle = new;"
-            },
-            {
-              "file": "tests/ch8/test_illegal_interface_class_construction.sv",
-              "contains": ":expected_stderr_regex: test_illegal_interface_class_construction\\.sv:(?:21)(?::|\\s)"
-            }
           ]
         }
       ]
@@ -83598,9 +83532,9 @@
       "id": "SV2023-9.3.4-EXTRACT-STATIC-TEXT-CONFLICT",
       "clause": "9.3.4",
       "kind": "normal",
-      "behavior": "Section 9.3.4 states that all variables are static and retain their values across block entry/exit; its unrestricted wording must be reconciled with the explicit automatic lifetime rules of 6.21 before a conformance oracle is assigned.",
-      "acceptance": "Section 9.3.4 states that all variables are static and retain their values across block entry/exit; its unrestricted wording must be reconciled with the explicit automatic lifetime rules of 6.21 before a conformance oracle is assigned.",
-      "source_note": "IEEE 1800-2023 9.3.4; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Variables declared in a static task, function, or procedural block without an explicit lifetime qualifier have a static lifetime: one location exists for the whole simulation and entering or leaving the block does not change the stored value. Variables explicitly declared automatic, variables in an automatic task, function, or block, and class methods and declared for-loop variables are automatic by default and are initialized on each entry (6.21).",
+      "acceptance": "In a static block a declaration with no qualifier keeps its value across repeated entries (loop counter reaches 9 after three entries of a 3-iteration inner loop), while the same declaration with the automatic keyword, or any declaration inside an automatic block or automatic task/function, starts from its initializer on every entry and is not shared between concurrent activations.",
+      "source_note": "IEEE 1800-2023 9.3.4 (B004), p.230; complete own-body source review, block B004. Quote: \"All variables shall be static; that is, a unique location exists for all variables, and leaving or entering blocks shall not affect the values stored in them.\" Read with 6.21 (p.134): \"Specific variables within a static task, function, or block can be explicitly declared as automatic.\" The specific 6.21 lifetime rules limit 9.3.4 to non-automatic declarations; 6.21's separate initializer rule (explicit static required when a static variable is initialized) is unaffected and is not part of this row.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -83610,8 +83544,7 @@
             "B004"
           ]
         }
-      ],
-      "interpretation_issue": "STATIC-BLOCK-LIFETIME"
+      ]
     },
     {
       "id": "SV2023-9.3.4-EXTRACT-UNNAMED-DECLARATION-SCOPE",
@@ -85259,9 +85192,9 @@
       "id": "SV2023-9.4.2-EXTRACT-HANDLE-CHANGE-EVENT",
       "clause": "9.4.2",
       "kind": "normal",
-      "behavior": "Section 9.4.2 explicitly defines a simple object/chandle variable event when a write changes the handle value; its chandle permission conflicts with the 6.14 prohibition and is pending interpretation.",
-      "acceptance": "Section 9.4.2 explicitly defines a simple object/chandle variable event when a write changes the handle value; its chandle permission conflicts with the 6.14 prohibition and is pending interpretation.",
-      "source_note": "IEEE 1800-2023 9.4.2; complete own-body source review, blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A procedural event control whose event expression is a bare reference to a simple object handle or chandle variable creates an event whenever a write changes that variable's value. This bare-reference form is the only chandle use permitted in an event expression; every other use of a chandle in a sensitivity list or event expression remains illegal (6.14).",
+      "acceptance": "@h, with h a class handle or a chandle, blocks until h is written a value different from its current value and does not unblock when the same value (including null written over null) is written again. A chandle inside any other event expression or sensitivity list, for example @(c1 == c2), is not a permitted use and is rejected.",
+      "source_note": "IEEE 1800-2023 9.4.2 (B016), p.234; complete own-body source review, block B016. Quote: \"If the event expression is a reference to a simple object handle or chandle variable, an event is created when a write to that variable is not equal to its previous value.\" 6.14 (p.112 L39) still says chandles shall not be used \"In sensitivity lists or event expressions\"; B016 is the narrower, specific permission and is read as the only exception.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -85271,8 +85204,7 @@
             "B016"
           ]
         }
-      ],
-      "interpretation_issue": "CHANDLE-EVENT-CONTROL"
+      ]
     },
     {
       "id": "SV2023-9.4.2-EXTRACT-METHOD-DEPENDENCY-REEVALUATION",
@@ -92922,6 +92854,15 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "10.5",
+          "blocks": [
+            "B002",
+            "B003"
+          ]
+        }
       ]
     },
     {
@@ -98819,6 +98760,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.1",
+          "blocks": [
+            "B003"
+          ]
+        }
       ]
     },
     {
@@ -98844,6 +98793,14 @@
               "file": "tests/ch11/test_real_operator_result_and_condition.expected",
               "contains": "condition_bits=32"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.1",
+          "blocks": [
+            "B004"
           ]
         }
       ]
@@ -98963,8 +98920,8 @@
       "clause": "11.3.1",
       "kind": "normal",
       "behavior": "For other permitted operators, a real operand yields a real result, except that a conditional first operand does not participate in this result-type promotion.",
-      "acceptance": "For other permitted operators, a real operand yields a real result, except that a conditional first operand does not participate in this result-type promotion.",
-      "source_note": "IEEE 1800-2023 11.3.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "acceptance": "2.5 plus integer 3 yields real 5.5; a real condition alone leaves the integral branch result at 32 bits while real branches are 64 bits.",
+      "source_note": "IEEE 1800-2023 11.3.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-11.3.1-REAL-PROMOTION (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -99043,33 +99000,6 @@
           "section": "11.3.1",
           "blocks": [
             "B004"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "SV2023-11.3.1-REAL-PROMOTION",
-      "clause": "11.3.1",
-      "kind": "normal",
-      "behavior": "A real arithmetic operand promotes an arithmetic expression to real.",
-      "acceptance": "2.5 plus integer 3 yields real 5.5.",
-      "source_note": "Reviewed IEEE 1800-2023 11.3.1: A real arithmetic operand promotes an arithmetic expression to real. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch11/test_real_operator_result_and_condition.sv",
-          "observation": "2.5 plus integer 3 yields real 5.5.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "9b69c27f3f8fb3a1dd3fd96debde5ebfe919166f4e78d779be5d9582a9edd36e",
-          "evidence": [
-            {
-              "file": "tests/ch11/test_real_operator_result_and_condition.sv",
-              "contains": "r+n"
-            },
-            {
-              "file": "tests/ch11/test_real_operator_result_and_condition.expected",
-              "contains": "sum=5.5 conditional=2.5 compare_bits=1 condition_bits=32"
-            }
           ]
         }
       ]
@@ -100405,6 +100335,15 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "6.11.2",
+          "blocks": [
+            "B005",
+            "B006"
+          ]
+        }
       ]
     },
     {
@@ -100430,6 +100369,20 @@
               "file": "tests/ch11/test_short_circuit_side_effects.expected",
               "contains": "1 && f: r=1 calls=1"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.5",
+          "blocks": [
+            "B002"
+          ]
+        },
+        {
+          "section": "11.4.7",
+          "blocks": [
+            "B015"
           ]
         }
       ]
@@ -100459,6 +100412,20 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.5",
+          "blocks": [
+            "B002"
+          ]
+        },
+        {
+          "section": "11.4.7",
+          "blocks": [
+            "B015"
+          ]
+        }
       ]
     },
     {
@@ -100484,6 +100451,14 @@
               "file": "tests/ch11/test_short_circuit_side_effects.expected",
               "contains": "0 & f: r=0 calls=1"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.5",
+          "blocks": [
+            "B002"
           ]
         }
       ]
@@ -100513,6 +100488,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.5",
+          "blocks": [
+            "B002"
+          ]
+        }
       ]
     },
     {
@@ -100540,6 +100523,20 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.5",
+          "blocks": [
+            "B002"
+          ]
+        },
+        {
+          "section": "11.4.11",
+          "blocks": [
+            "B006"
+          ]
+        }
       ]
     },
     {
@@ -100565,6 +100562,20 @@
               "file": "tests/ch11/test_short_circuit_side_effects.expected",
               "contains": "1 ? 5 : f: t=5 calls=0"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.5",
+          "blocks": [
+            "B002"
+          ]
+        },
+        {
+          "section": "11.4.11",
+          "blocks": [
+            "B006"
           ]
         }
       ]
@@ -100702,6 +100713,20 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.5",
+          "blocks": [
+            "B002"
+          ]
+        },
+        {
+          "section": "11.4.7",
+          "blocks": [
+            "B015"
+          ]
+        }
       ]
     },
     {
@@ -100727,6 +100752,20 @@
               "file": "tests/ch11/test_short_circuit_side_effects.expected",
               "contains": "0 -> f: r=1 calls=0"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.5",
+          "blocks": [
+            "B002"
+          ]
+        },
+        {
+          "section": "11.4.7",
+          "blocks": [
+            "B015"
           ]
         }
       ]
@@ -100756,6 +100795,20 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.5",
+          "blocks": [
+            "B002"
+          ]
+        },
+        {
+          "section": "11.4.7",
+          "blocks": [
+            "B015"
+          ]
+        }
       ]
     },
     {
@@ -100781,6 +100834,20 @@
               "file": "tests/ch11/test_short_circuit_side_effects.expected",
               "contains": "1 || f: r=1 calls=0"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.5",
+          "blocks": [
+            "B002"
+          ]
+        },
+        {
+          "section": "11.4.7",
+          "blocks": [
+            "B015"
           ]
         }
       ]
@@ -100818,31 +100885,19 @@
             }
           ]
         }
-      ]
-    },
-    {
-      "id": "SV2023-11.3.6-ASSIGNMENT-RESULT",
-      "clause": "11.3.6",
-      "kind": "normal",
-      "behavior": "An assignment expression returns the value converted to its destination type.",
-      "acceptance": "Assigning fe to a four-bit target stores e and returns integer value 14.",
-      "source_note": "Reviewed IEEE 1800-2023 11.3.6: An assignment expression returns the value converted to its destination type. This records this specific obligation only, not completion of the section.",
-      "checks": [
+      ],
+      "source_spans": [
         {
-          "test": "tests/ch11/test_assignment_expression_returns_converted_value.sv",
-          "observation": "Assigning fe to a four-bit target stores e and returns integer value 14.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "9e38633dfff87d8a85c39da4b295043c173fdf786bdd8ff117272f32809b0d96",
-          "evidence": [
-            {
-              "file": "tests/ch11/test_assignment_expression_returns_converted_value.sv",
-              "contains": "result = (narrow = 8'hfe);"
-            },
-            {
-              "file": "tests/ch11/test_assignment_expression_returns_converted_value.expected",
-              "contains": "stored=e expression=14"
-            }
+          "section": "11.3.5",
+          "blocks": [
+            "B002"
+          ]
+        },
+        {
+          "section": "11.4.7",
+          "blocks": [
+            "B002",
+            "B015"
           ]
         }
       ]
@@ -100896,15 +100951,23 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.6",
+          "blocks": [
+            "B005"
+          ]
+        }
       ]
     },
     {
       "id": "SV2023-11.3.6-EXTRACT-ASSIGNMENT-EXPRESSION-VALUE",
       "clause": "11.3.6",
       "kind": "normal",
-      "behavior": "An assignment expression evaluates RHS, casts to LHS type, saves that value, updates LHS and returns the saved LHS-typed value.",
-      "acceptance": "An assignment expression evaluates RHS, casts to LHS type, saves that value, updates LHS and returns the saved LHS-typed value.",
-      "source_note": "IEEE 1800-2023 11.3.6; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "An assignment expression evaluates the right-hand side, casts it to the left-hand type, saves that value, updates the left-hand side and returns the saved left-hand-typed value.",
+      "acceptance": "Assigning 8'hfe to a four-bit target stores e and returns integer value 14; x = (y = 300) leaves x=44 and y=44.",
+      "source_note": "IEEE 1800-2023 11.3.6; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-11.3.6-ASSIGNMENT-RESULT (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -101216,6 +101279,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.6",
+          "blocks": [
+            "B002"
+          ]
+        }
       ]
     },
     {
@@ -101245,6 +101316,14 @@
               "file": "tests/ch11/test_illegal_assignment_in_expression_without_parentheses.sv",
               "contains": "    if ((a = b)) c = 1;\n    c = (a = 5);"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "11.3.6",
+          "blocks": [
+            "B002"
           ]
         }
       ]
@@ -103615,6 +103694,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.4.3",
+          "blocks": [
+            "B010"
+          ]
+        }
       ]
     },
     {
@@ -104000,6 +104087,14 @@
               "file": "tests/ch11/test_literal_unsigned_division_and_remainder.expected",
               "contains": "signed=-2,-1"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "11.4.3",
+          "blocks": [
+            "B010"
           ]
         }
       ]
@@ -118327,6 +118422,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.4.12.2",
+          "blocks": [
+            "B004"
+          ]
+        }
       ]
     },
     {
@@ -124527,6 +124630,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.8.3",
+          "blocks": [
+            "B002"
+          ]
+        }
       ]
     },
     {
@@ -124662,6 +124773,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.8.4",
+          "blocks": [
+            "B002"
+          ]
+        }
       ]
     },
     {
@@ -124687,6 +124806,14 @@
               "file": "tests/ch11/test_signed_unknown_extension_and_unsigned_padding.expected",
               "contains": "signed_z=zzzzzz01"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "11.8.4",
+          "blocks": [
+            "B002"
           ]
         }
       ]
@@ -125156,6 +125283,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "11.10.2",
+          "blocks": [
+            "B002"
+          ]
+        }
       ]
     },
     {
@@ -125181,6 +125316,14 @@
               "file": "tests/ch11/test_string_integral_truncation_and_lexical_compare.expected",
               "contains": "empty=0 zero_character=48"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "11.10.3",
+          "blocks": [
+            "B002"
           ]
         }
       ]
@@ -128008,6 +128151,20 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "12.5",
+          "blocks": [
+            "B011"
+          ]
+        },
+        {
+          "section": "12.5.1",
+          "blocks": [
+            "B003"
+          ]
+        }
       ]
     },
     {
@@ -128033,6 +128190,20 @@
               "file": "tests/ch12/test_casex_first_wildcard_item.expected",
               "contains": "ambiguous=1"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "12.5",
+          "blocks": [
+            "B011"
+          ]
+        },
+        {
+          "section": "12.5.1",
+          "blocks": [
+            "B003"
           ]
         }
       ]
@@ -132295,39 +132466,12 @@
       ]
     },
     {
-      "id": "SV2023-13.3.2-AUTOMATIC-FRESH",
-      "clause": "13.3.2",
-      "kind": "normal",
-      "behavior": "An automatic task local is initialized for each activation.",
-      "acceptance": "Two sequential calls each produce count 1.",
-      "source_note": "Reviewed IEEE 1800-2023 13.3.2: An automatic task local is initialized for each activation. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch13/test_task_static_and_automatic_retention.sv",
-          "observation": "Two sequential calls each produce count 1.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "bd92e317d4d8733bc24583e4dd5eb1877b25b6abaced4ea1193c6f808476d777",
-          "evidence": [
-            {
-              "file": "tests/ch13/test_task_static_and_automatic_retention.sv",
-              "contains": "task automatic count_auto"
-            },
-            {
-              "file": "tests/ch13/test_task_static_and_automatic_retention.expected",
-              "contains": "static=1,2 automatic=1,1"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "SV2023-13.3.2-EXTRACT-AUTOMATIC-TASK-INITIALIZATION",
       "clause": "13.3.2",
       "kind": "normal",
-      "behavior": "Automatic locals/output formals initialize on every entry; input/inout formals receive the supplied actual values.",
-      "acceptance": "Automatic locals/output formals initialize on every entry; input/inout formals receive the supplied actual values.",
-      "source_note": "IEEE 1800-2023 13.3.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Automatic locals and output formals initialize on every entry; input and inout formals receive the supplied actual values.",
+      "acceptance": "Two sequential calls each produce count 1; automatic output formals start at 0 and inout formals receive the supplied actual value.",
+      "source_note": "IEEE 1800-2023 13.3.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-13.3.2-AUTOMATIC-FRESH (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -132719,9 +132863,9 @@
       "id": "SV2023-13.3.2-EXTRACT-STATIC-TASK-RETENTION",
       "clause": "13.3.2",
       "kind": "normal",
-      "behavior": "Static task variables/formals retain storage values between calls and receive type-default initial values under 6.8, subject to call input/inout copy-in.",
-      "acceptance": "Static task variables/formals retain storage values between calls and receive type-default initial values under 6.8, subject to call input/inout copy-in.",
-      "source_note": "IEEE 1800-2023 13.3.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Static task variables and formals retain their values between calls and receive the type-default initial value of 6.8, subject to input/inout copy-in.",
+      "acceptance": "Two sequential calls produce counts 1 and 2; a static output formal retains 5 then 10.",
+      "source_note": "IEEE 1800-2023 13.3.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-13.3.2-STATIC-RETENTION (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -132804,33 +132948,6 @@
           "reviewed_on": "2026-10-23",
           "reviewer": "Codex (AI); not an independent human review",
           "observation": "Alternative collective witness: static local default0/retention and static output formal retention must both pass."
-        }
-      ]
-    },
-    {
-      "id": "SV2023-13.3.2-STATIC-RETENTION",
-      "clause": "13.3.2",
-      "kind": "normal",
-      "behavior": "A static task local retains its value between calls.",
-      "acceptance": "Two sequential calls produce counts 1 and 2.",
-      "source_note": "Reviewed IEEE 1800-2023 13.3.2: A static task local retains its value between calls. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch13/test_task_static_and_automatic_retention.sv",
-          "observation": "Two sequential calls produce counts 1 and 2.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "bd92e317d4d8733bc24583e4dd5eb1877b25b6abaced4ea1193c6f808476d777",
-          "evidence": [
-            {
-              "file": "tests/ch13/test_task_static_and_automatic_retention.sv",
-              "contains": "task static count_static"
-            },
-            {
-              "file": "tests/ch13/test_task_static_and_automatic_retention.expected",
-              "contains": "static=1,2 automatic=1,1"
-            }
-          ]
         }
       ]
     },
@@ -161374,9 +161491,9 @@
       "id": "SV2023-16.13.2-EXTRACT-MATCH-STRENGTH-TEXT",
       "clause": "16.13.2",
       "kind": "normal",
-      "behavior": "16.13.2 describes a multiclocked sequence-property result as true exactly when a match begins at the start; reconcile this wording with the implicit weak/strong defaults of 16.12.2 before approving a finite-trace oracle.",
-      "acceptance": "16.13.2 describes a multiclocked sequence-property result as true exactly when a match begins at the start; reconcile this wording with the implicit weak/strong defaults of 16.12.2 before approving a finite-trace oracle.",
-      "source_note": "IEEE 1800-2023 16.13.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A multiclocked sequence evaluated as a property in the strong form (cover property, or an explicit strong()) is true if and only if a match of that sequence begins at the evaluation start point. The same sequence used in an assert property or assume property is evaluated as weak(sequence_expr) per 16.12.2, so a finite prefix that has not yet produced a match does not fail; a failure requires a finite prefix that witnesses inability to match.",
+      "acceptance": "For a multiclocked sequence s, cover property (@(posedge clk0) s) succeeds exactly when a match of s starts at the evaluated point and fails when the trace ends without a match, while assert property (@(posedge clk0) s) reports no failure on a prefix where s has not yet matched and no failure witness exists. An explicit strong(s)/weak(s) overrides the context default in both directions.",
+      "source_note": "IEEE 1800-2023 16.13.2 (B005), p.468; complete own-body source review, block B005. Quote: \"If a multiclocked sequence is evaluated as a property starting at some point, the evaluation returns true if, and only if, there is a match of the multiclocked sequence beginning at that point.\" Read with 16.12.2 (p.444 L33-L36): \"If the assertion statement is assert property or assume property, then the sequence_expr is evaluated as weak(sequence_expr). Otherwise, the sequence_expr is evaluated as strong(sequence_expr).\"",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -161386,8 +161503,7 @@
             "B005"
           ]
         }
-      ],
-      "interpretation_issue": "MULTICLOCK-SEQUENCE-STRENGTH"
+      ]
     },
     {
       "id": "SV2023-16.13.2-EXTRACT-MULTICLOCK-BOOLEAN",
@@ -189095,9 +189211,9 @@
       "id": "SV2023-19.5.7-EXTRACT-WARN-UNKNOWN-TEXT",
       "clause": "19.5.7",
       "kind": "normal",
-      "behavior": "19.5.7 requires warning for a bin value containing x/z except expanded wildcard values; reconcile its following removal rule with 19.5.4 literal four-state bin matching before approving an oracle.",
-      "acceptance": "19.5.7 requires warning for a bin value containing x/z except expanded wildcard values; reconcile its following removal rule with 19.5.4 literal four-state bin matching before approving an oracle.",
-      "source_note": "IEEE 1800-2023 19.5.7; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Value resolution issues a warning for a non-wildcard bins element whose value has x or z bits, and that element then does not participate in the bin values, except for an integral value or transition bin definition that intentionally specifies 4-state values: such a bin is created per 19.5.4 and its count is incremented only when the sampled value has x or z in the same bit positions (comparison with ===). Wildcard bins treat x, z, and ? as 0/1 before comparison. Warning rules b)1) (unsigned effective type with negative b) and b)2) (b not equal to its assigned value) apply unchanged.",
+      "acceptance": "bins b = {4'b1x0z}; produces no x/z warning, is not removed, and increments only for a sampled value exactly 1x0z; sample 1x00 and 1z0z do not increment it. A non-wildcard element whose x/z come from expression evaluation (for example bins c = {expr} where expr evaluates to 2'bx1) still warns and does not participate. wildcard bins g = {4'b1?0?}; matches 1000, 1001, 1100, 1101. A range element with only some values expressible contributes the intersection with the effective type's values.",
+      "source_note": "IEEE 1800-2023 19.5.7 b)3), p.597; complete own-body source review, blocks B002, B003. Quote: \"If b yields a value with any x or z bits\" and \"This rule does not apply to wildcard bins because x and z shall be treated as 0 and 1\". Read with 19.5.4 (p.595 L48-L51): \"By default, an integral value or transition bin definition can specify 4-state values\" and \"the comparison is done using ===\". The specific 19.5.4 rule governs intentional 4-state literals; 19.5.7 b)3) governs x/z that are not such literals.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -189107,8 +189223,7 @@
             "B002"
           ]
         }
-      ],
-      "interpretation_issue": "FOUR-STATE-BIN-RESOLUTION"
+      ]
     },
     {
       "id": "SV2023-19.5.7-EXTRACT-WARNED-RANGE-INTERSECTION",
@@ -194518,9 +194633,9 @@
       "id": "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT",
       "clause": "19.11.1",
       "kind": "normal",
-      "behavior": "19.11.1 gives auto-point coverage as covered bins / min(auto_bin_max,2**M); reconcile this generic formula with 19.5.3 enum cardinality before approving an enum percentage oracle.",
-      "acceptance": "19.11.1 gives auto-point coverage as covered bins / min(auto_bin_max,2**M); reconcile this generic formula with 19.5.3 enum cardinality before approving an enum percentage oracle.",
-      "source_note": "IEEE 1800-2023 19.11.1; complete own-body source review, blocks B005, B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "For an automatically generated coverpoint the denominator is the number of auto-created bins: for an enum coverpoint, the cardinality of the enumeration (19.5.3), independent of auto_bin_max; for any other integral coverpoint, MIN(auto_bin_max, 2^M) with M the minimum number of bits needed to represent the coverpoint. Bins with no associated value or transition are excluded from both numerator and denominator; when the denominator is zero, get_coverage/get_inst_coverage return 0.0 for nonzero weight and 100.0 for zero weight.",
+      "acceptance": "An enum coverpoint with K enumerators whose base type has unused codes (for example 2-bit base type, 3 enumerators) with auto_bin_max=64 reports covered_enum_bins / 3, not / 4; the same coverpoint with K=100 and auto_bin_max=64 still reports / 100 and creates one auto bin per enumerator. A 3-bit integral coverpoint with auto_bin_max=4 reports covered_auto_bins / 4 with the values distributed <0,1>,<2,3>,<4,5,6,7>. A coverpoint all of whose bins are ignore_bins returns 0.0 for nonzero weight.",
+      "source_note": "IEEE 1800-2023 19.11.1 (B005-B007), p.616, read with 19.5.3 (p.595 L24-L28); complete own-body source review, blocks B005, B006, B007. Quote (19.11.1): \"For automatically generated bins, the coverage of a coverpoint is computed as follows\" with the denominator printed as MIN(auto_bin_max, 2^M) (M superscripted in the printed formula). Quote (19.5.3): \"For an enum coverage point, N is the cardinality of the enumeration.\" The specific enum rule in 19.5.3 supplies the bin count that 19.11.1's denominator refers to.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -194532,8 +194647,7 @@
             "B007"
           ]
         }
-      ],
-      "interpretation_issue": "ENUM-AUTO-COVERAGE-DENOMINATOR"
+      ]
     },
     {
       "id": "SV2023-19.11.1-EXTRACT-EMPTY-BIN-EXCLUSION",
@@ -194742,14 +194856,35 @@
       ]
     },
     {
-      "id": "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
+      "id": "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
       "clause": "19.11.2",
       "kind": "normal",
-      "behavior": "In the 19.11.2 cross coverage equation, Bc is the number of automatic cross bins actually present: product(Bj) minus Bb while automatic bins are retained (cross_retain_auto_bins true, the default), and zero when cross_retain_auto_bins is false and an explicit cross bin is present, so the denominator is then Bu alone.",
-      "acceptance": "With coverpoints i and j of two explicit bins each, option.cross_retain_auto_bins = 0 set at the covergroup level, and cross x2 of i, j declaring only bins i_zero = binsof(i) intersect {0}, x2.get_inst_coverage(covered, total) reports total = 1 and returns 100.0 once i_zero has been hit; with the option at its default the same cross reports total = 3 (i_zero plus two retained automatic bins).",
-      "source_note": "IEEE 1800-2023 19.11.2; complete own-body source review, blocks B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue CROSS-AUTO-COVERAGE-DENOMINATOR resolved on 2026-10-24: Entire source reviewed; Bc is the number of auto-cross bins actually present (B005), equal to product minus user products while automatic bins are retained and zero when cross_retain_auto_bins is false with an explicit cross bin (Table 19-1 B014).",
+      "behavior": "Cross coverage equals covered contributing bins divided by (Bc + Bu), excluding ignore/illegal user bins, where Bc is the number of automatic cross bins actually present: the product of the crossed coverpoint bin counts (Bj) minus Bb while automatic bins are retained (cross_retain_auto_bins true, the default), and zero when cross_retain_auto_bins is false and an explicit cross bin is present, so the denominator is then Bu alone.",
+      "acceptance": "With two coverpoints of two explicit bins each, cross_retain_auto_bins=0 and cross x2 declaring only bin i_zero = binsof(i) intersect {0}, x2.get_inst_coverage(covered,total) reports total=1 and returns 100.0 once i_zero is hit; with the option at its default the same cross reports total=3 (i_zero plus two retained automatic bins).",
+      "source_note": "IEEE 1800-2023 19.11.2; complete own-body source review, blocks B002, B003, B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate wording row SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT (same clause, same block, same obligation); its resolved interpretation is preserved here. Interpretation issue CROSS-AUTO-COVERAGE-DENOMINATOR resolved on 2026-10-24: entire source reviewed; Bc is the number of auto-cross bins actually present (B005), equal to product minus user products while automatic bins are retained and zero when cross_retain_auto_bins is false with an explicit cross bin (Table 19-1 B014).",
       "modality": "definition",
       "checks": [
+        {
+          "test": "tests/ch19/test_cg_cross_select_bins.sv",
+          "observation": "cross x は binsof/intersect/!/&&/|| で 3 つの user bin を作り、ignore_bins が user bin からも積を除き、分母を自動積と有効な user bin の和にする。期待出力の (3,2): x 0/3 0.00 から (2,1): x 3/3 100.00 までが、被覆積/(Bc+Bu) を具体値で示す。 区別: ignore_bins を分母から除かない、または user bin の積を二重に数える実装では x の total が 3 にならず、5 行の被覆率が変わらない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "471e5823a04fcd4dff13f08701929abc970164c0e4d01323e7dfaf8b2b0938f0",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_cross_select_bins.sv",
+              "contains": "ignore_bins"
+            },
+            {
+              "file": "tests/ch19/test_cg_cross_select_bins.expected",
+              "contains": "(3,2): x 0/3 0.00, y 1/3 33.33"
+            },
+            {
+              "file": "tests/ch19/test_cg_cross_select_bins.expected",
+              "contains": "(2,1): x 3/3 100.00, y 3/3 100.00"
+            }
+          ]
+        },
         {
           "test": "tests/ch19/test_cg_option_name_unique_and_retain_scope.sv",
           "observation": "2 つの coverpoint が各 2 bin、user bin が 2 積を選ぶ cross で、cross_retain_auto_bins=1 の w と y は total 3（積 4 - user 積 2 + user bin 1）、0 の x と v は total 1 になる。期待出力の (0,0): x 1/1 w 1/3 y 1/3 v 1/1 が Bc = product - Bb と Bc=0 の両分岐を数で示す。 区別: Bc を常に product のままにすると retain=0 の total が 1 にならず、Bc を常に 0 にすると retain=1 の total が 3 にならない。",
@@ -194776,49 +194911,9 @@
         {
           "section": "19.11.2",
           "blocks": [
-            "B004",
-            "B005"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
-      "clause": "19.11.2",
-      "kind": "normal",
-      "behavior": "Cross coverage equals covered contributing bins / (actual automatic cross bins + significant user cross bins), excluding ignore/illegal user bins.",
-      "acceptance": "Cross coverage equals covered contributing bins / (actual automatic cross bins + significant user cross bins), excluding ignore/illegal user bins.",
-      "source_note": "IEEE 1800-2023 19.11.2; complete own-body source review, blocks B002, B003, B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
-      "modality": "definition",
-      "checks": [
-        {
-          "test": "tests/ch19/test_cg_cross_select_bins.sv",
-          "observation": "cross x は binsof/intersect/!/&&/|| で 3 つの user bin を作り、ignore_bins が user bin からも積を除き、分母を自動積と有効な user bin の和にする。期待出力の (3,2): x 0/3 0.00 から (2,1): x 3/3 100.00 までが、被覆積/(Bc+Bu) を具体値で示す。 区別: ignore_bins を分母から除かない、または user bin の積を二重に数える実装では x の total が 3 にならず、5 行の被覆率が変わらない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "471e5823a04fcd4dff13f08701929abc970164c0e4d01323e7dfaf8b2b0938f0",
-          "evidence": [
-            {
-              "file": "tests/ch19/test_cg_cross_select_bins.sv",
-              "contains": "ignore_bins"
-            },
-            {
-              "file": "tests/ch19/test_cg_cross_select_bins.expected",
-              "contains": "(3,2): x 0/3 0.00, y 1/3 33.33"
-            },
-            {
-              "file": "tests/ch19/test_cg_cross_select_bins.expected",
-              "contains": "(2,1): x 3/3 100.00, y 3/3 100.00"
-            }
-          ]
-        }
-      ],
-      "source_spans": [
-        {
-          "section": "19.11.2",
-          "blocks": [
             "B002",
             "B003",
+            "B004",
             "B005",
             "B006"
           ]
@@ -195725,6 +195820,14 @@
               "file": "tests/ch20/test_stime_rounding_with_local_unit.expected",
               "contains": "bits=32"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "20.3.2",
+          "blocks": [
+            "B002"
           ]
         }
       ]
@@ -197156,9 +197259,9 @@
       "id": "SV2023-20.4.3-EXTRACT-FORMAT-PRECISION-DOMAIN-TEXT",
       "clause": "20.4.3",
       "kind": "normal",
-      "behavior": "20.4.3 applies the -15..2 integer range to precision_number as well as units_number, while its following example uses precision 5 and describes five fractional digits; resolve the precision domain before approving range-error tests.",
-      "acceptance": "20.4.3 applies the -15..2 integer range to precision_number as well as units_number, while its following example uses precision 5 and describes five fractional digits; resolve the precision domain before approving range-error tests.",
-      "source_note": "IEEE 1800-2023 20.4.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The units_number argument of $timeformat selects the time unit used by %t from the exponent values of Table 20-2 (2 through -15). precision_number selects the number of fractional digits printed; the default is 0 and the example passes 5 to print five fractional digits.",
+      "acceptance": "$timeformat(-9, 5, \" ns\", 10) followed by %t output prints times as multiples of 1 ns with five fractional digits (10.00000 ns for 10 ns). units_number is exercised within -15..2. precision_number is exercised with 0 through 5 digits and is not treated as an out-of-range error at 5; no test asserts a result for a units_number outside -15..2.",
+      "source_note": "IEEE 1800-2023 20.4.3 (B006), p.626-L37 and the example at p.627 L53; complete own-body source review, block B006. Quote: \"The units number and precision number argument shall be integers in the range from 2 to -15. These arguments represent the units for time as shown in Table 20-2 in 20.4.1.\" The stated rationale (Table 20-2 exponents) fits only units_number; the example says the time is \"reported after the module names with five fractional digits\" (p.627 L53) and Table 20-3 gives precision_number default 0.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -197168,8 +197271,7 @@
             "B006"
           ]
         }
-      ],
-      "interpretation_issue": "TIMEFORMAT-PRECISION-DOMAIN"
+      ]
     },
     {
       "id": "SV2023-20.4.3-EXTRACT-FORMAT-UNIT-DOMAIN",
@@ -205694,33 +205796,6 @@
       ]
     },
     {
-      "id": "SV2023-20.14.2-DIST-SEED-REPLAY",
-      "clause": "20.14.2",
-      "kind": "normal",
-      "behavior": "Identical incoming seeds produce identical distribution values and updated seeds.",
-      "acceptance": "Ten paired dist_normal calls retain equal values and seed states.",
-      "source_note": "Reviewed IEEE 1800-2023 20.14.2: Identical incoming seeds produce identical distribution values and updated seeds. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch20/test_distribution_seed_replay_and_singleton_range.sv",
-          "observation": "Ten paired dist_normal calls retain equal values and seed states.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "42d49d3458ee70e30e3bd3fa881fb6ea83f1662e5a0475da12495b2a5728a0d1",
-          "evidence": [
-            {
-              "file": "tests/ch20/test_distribution_seed_replay_and_singleton_range.sv",
-              "contains": "a = $dist_normal(seed_a, 10, 3);"
-            },
-            {
-              "file": "tests/ch20/test_distribution_seed_replay_and_singleton_range.expected",
-              "contains": "seed_replay=1 singleton=1"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "SV2023-20.14.2-EXTRACT-DEGREES-SPREAD",
       "clause": "20.14.2",
       "kind": "normal",
@@ -206123,9 +206198,9 @@
       "id": "SV2023-20.14.2-EXTRACT-DIST-SEED-INOUT",
       "clause": "20.14.2",
       "kind": "normal",
-      "behavior": "Distribution seed arguments are inout: calls update the seed and reproduce the same result for the same seed and other parameters.",
-      "acceptance": "Distribution seed arguments are inout: calls update the seed and reproduce the same result for the same seed and other parameters.",
-      "source_note": "IEEE 1800-2023 20.14.2; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Distribution seed arguments are inout: calls update the seed, and the functions return the same value for the same seed and other parameters.",
+      "acceptance": "Ten paired dist_normal calls with the same seed retain equal values and equal updated seed states.",
+      "source_note": "IEEE 1800-2023 20.14.2; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-20.14.2-DIST-SEED-REPLAY (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -214042,9 +214117,9 @@
       "id": "SV2023-21.3.4-EXTRACT-READ-OPEN-MODES-TEXT",
       "clause": "21.3.4",
       "kind": "normal",
-      "behavior": "21.3.4 states file reading requires r or r+ opening, while Table 21-6 defines w+/a+ and binary variants as update modes; resolve the restriction before approving rejection tests for those update modes.",
-      "acceptance": "21.3.4 states file reading requires r or r+ opening, while Table 21-6 defines w+/a+ and binary variants as update modes; resolve the restriction before approving rejection tests for those update modes.",
-      "source_note": "IEEE 1800-2023 21.3.4; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The read system functions of 21.3.4 ($fgetc, $ungetc, $fgets, $fscanf, $fread) may be applied only to a file descriptor opened with the r or r+ type values, including their binary b variants (rb, r+b, rb+). A descriptor opened with w, wb, w+, w+b, wb+, a, ab, a+, a+b, or ab+ is not readable, even though w+ and a+ are described as update modes.",
+      "acceptance": "$fgetc/$fgets/$fscanf/$fread on an fd from $fopen(name,\"r\") or $fopen(name,\"r+\") return data and advance the file position. No test requires a read on an fd from \"w+\" or \"a+\" to succeed; such a read is outside the permitted set. $fopen(name,\"r\") on a missing file returns 0.",
+      "source_note": "IEEE 1800-2023 21.3.4 (B004), p.670; complete own-body source review, block B004. Quote: \"Files opened using file descriptors (fd) can be read from only if they were opened with either the r or r+ type values.\" Table 21-6 (p.667 L32-L42) describes \"r+\" as \"Open for update (reading and writing)\" while w+/a+ are only \"for update\"; 21.3.4 is the only clause that speaks about reading.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -214054,8 +214129,7 @@
             "B004"
           ]
         }
-      ],
-      "interpretation_issue": "FILE-READ-OPEN-MODES"
+      ]
     },
     {
       "id": "SV2023-21.3.4.1-EXTRACT-FGETC",
@@ -216158,6 +216232,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "21.3.4.4",
+          "blocks": [
+            "B017"
+          ]
+        }
       ]
     },
     {
@@ -216183,6 +216265,15 @@
               "file": "tests/ch21/test_fread_partial_word_and_eof.expected",
               "contains": "read=2 prefix=1234"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "21.3.4.4",
+          "blocks": [
+            "B013",
+            "B017"
           ]
         }
       ]
@@ -216442,9 +216533,9 @@
       "id": "SV2023-21.3.5-EXTRACT-SEEK-CANCELS-PUSHBACK",
       "clause": "21.3.5",
       "kind": "normal",
-      "behavior": "Repositioning cancels prior ungetc pushback.",
-      "acceptance": "Repositioning cancels prior ungetc pushback.",
-      "source_note": "IEEE 1800-2023 21.3.5; complete own-body source review, blocks B007, B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Repositioning with $fseek or $rewind cancels prior $ungetc pushback.",
+      "acceptance": "After pushback of Z and $fseek to offset 2, the next character is c, not Z; after ungetc X and $rewind, the next character is the first byte, not X.",
+      "source_note": "IEEE 1800-2023 21.3.5; complete own-body source review, blocks B007, B012. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-21.3.5-SEEK-CANCELS-PUSHBACK (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -216548,33 +216639,6 @@
           "section": "21.3.5",
           "blocks": [
             "B015"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "SV2023-21.3.5-SEEK-CANCELS-PUSHBACK",
-      "clause": "21.3.5",
-      "kind": "normal",
-      "behavior": "File repositioning cancels a previous ungetc.",
-      "acceptance": "After pushback of Z and seek to offset 2, the next character is c, not Z.",
-      "source_note": "Reviewed IEEE 1800-2023 21.3.5: File repositioning cancels a previous ungetc. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch21/test_fseek_cancels_ungetc_and_clears_error.sv",
-          "observation": "After pushback of Z and seek to offset 2, the next character is c, not Z.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "97776f9dd0717ec6ec4f82846cadda35dd1f335db38b7cfe848fc21de7f71be8",
-          "evidence": [
-            {
-              "file": "tests/ch21/test_fseek_cancels_ungetc_and_clears_error.sv",
-              "contains": "rc = $fseek(fd, 2, 0);"
-            },
-            {
-              "file": "tests/ch21/test_fseek_cancels_ungetc_and_clears_error.expected",
-              "contains": "char=c position=3 error=0 empty=1"
-            }
           ]
         }
       ]
@@ -216789,6 +216853,14 @@
               "file": "tests/ch21/test_fseek_cancels_ungetc_and_clears_error.expected",
               "contains": "error=0 empty=1"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "21.3.7",
+          "blocks": [
+            "B006"
           ]
         }
       ]
@@ -227673,9 +227745,9 @@
       "id": "SV2023-22.5.3-EXTRACT-UNDEFINE-ALL",
       "clause": "22.5.3",
       "kind": "normal",
-      "behavior": "Argumentless undefineall removes every macro previously defined by define within the compilation unit and may appear anywhere in source.",
-      "acceptance": "Argumentless undefineall removes every macro previously defined by define within the compilation unit and may appear anywhere in source.",
-      "source_note": "IEEE 1800-2023 22.5.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Argumentless undefineall removes every macro previously defined by define within the compilation unit, direct or forwarding, and may appear anywhere in source.",
+      "acceptance": "Both the direct macro and the forwarding macro that expands it are absent after the directive, and a later define is accepted.",
+      "source_note": "IEEE 1800-2023 22.5.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-22.5.3-UNDEFINE-ALL (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
@@ -227731,33 +227803,6 @@
           "reviewed_on": "2026-10-23",
           "reviewer": "Codex (AI); not an independent human review",
           "observation": "module内/外の全undefと再定義を同じ実行回で確認する。Icarusの未対応を成功にしない。"
-        }
-      ]
-    },
-    {
-      "id": "SV2023-22.5.3-UNDEFINE-ALL",
-      "clause": "22.5.3",
-      "kind": "normal",
-      "behavior": "undefineall removes both direct and forwarding text macro definitions.",
-      "acceptance": "Both source-defined macros are absent after the directive.",
-      "source_note": "Reviewed IEEE 1800-2023 22.5.3: undefineall removes both direct and forwarding text macro definitions. This records this specific obligation only, not completion of the section.",
-      "checks": [
-        {
-          "test": "tests/ch22/test_undefineall_clears_nested_macro_expansion.sv",
-          "observation": "Both source-defined macros are absent after the directive.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "06db8abe7ed70bf889ad7a33f5ab56d5e3038682afae52e053161e88568bf34f",
-          "evidence": [
-            {
-              "file": "tests/ch22/test_undefineall_clears_nested_macro_expansion.sv",
-              "contains": "`undefineall"
-            },
-            {
-              "file": "tests/ch22/test_undefineall_clears_nested_macro_expansion.expected",
-              "contains": "inner=absent\nouter=absent"
-            }
-          ]
         }
       ]
     },
@@ -229234,6 +229279,15 @@
               "file": "tests/ch22/test_unconnected_drive_instances_restore.expected",
               "contains": "inputs=111,000,zzz"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "22.9",
+          "blocks": [
+            "B002",
+            "B003"
           ]
         }
       ]
@@ -246331,6 +246385,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "23.3.2.4",
+          "blocks": [
+            "B002"
+          ]
+        }
       ]
     },
     {
@@ -251417,6 +251479,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "23.3.3.8",
+          "blocks": [
+            "B002"
+          ]
+        }
       ]
     },
     {
@@ -254561,6 +254631,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "23.11",
+          "blocks": [
+            "B008"
+          ]
+        }
       ]
     },
     {
@@ -255446,6 +255524,14 @@
               "file": "tests/ch24/test_program_output_after_module_nba_chain.expected",
               "contains": "source=3 output=c module_state=1"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "24.3.2",
+          "blocks": [
+            "B004"
           ]
         }
       ]
@@ -258323,9 +258409,9 @@
       "id": "SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT",
       "clause": "25.9",
       "kind": "error",
-      "behavior": "The prose prohibits virtual-interface components in sensitivity lists; its scope relative to procedural event controls remains unresolved because the same section illustrates a posedge component wait.",
-      "acceptance": "The prose prohibits virtual-interface components in sensitivity lists; its scope relative to procedural event controls remains unresolved because the same section illustrates a posedge component wait.",
-      "source_note": "IEEE 1800-2023 25.9; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "After a virtual interface is initialized, its components are available through dot notation only in procedural statements: they shall not be used in continuous assignments or in the sensitivity list of an always, always_comb, or always_ff procedure. A procedural event control such as @(posedge vif.sig) inside a task, function, or initial block is a procedural statement and is permitted.",
+      "acceptance": "always @(posedge vif.clk) ... and always_comb x = vif.a; using a virtual interface component are rejected; initial @(posedge vif.grant) ...; and task t; @(posedge bus.grant); endtask compile and unblock on the interface signal edge. assign x = vif.a; (a continuous assignment from a virtual interface component) is rejected.",
+      "source_note": "IEEE 1800-2023 25.9 (B015), p.803; complete own-body source review, block B015. Quote: \"These components can only be used in procedural statements; they cannot be used in continuous assignments or sensitivity lists.\" The section's own example uses a procedural event control: \"@(posedge bus.grant);\" (p.803 L41). 9.4.2.1/9.4.2.2 define the sensitivity list as the event control at the head of an always procedure, including the implicit @* list.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -258335,8 +258421,7 @@
             "B015"
           ]
         }
-      ],
-      "interpretation_issue": "VIRTUAL-INTERFACE-SENSITIVITY"
+      ]
     },
     {
       "id": "SV2023-25.9.1-EXTRACT-VIRTUAL-CLOCKING-DRIVE",
@@ -258426,9 +258511,9 @@
       "id": "SV2023-25.9.2-EXTRACT-VIRTUAL-CLOCKING-SCOPE-TEXT",
       "clause": "25.9.2",
       "kind": "boundary",
-      "behavior": "The introductory text limits direct clocking-block access to interfaces with no modports; whether this means no selected modport, rather than no declared modport, must be reconciled with 25.10.",
-      "acceptance": "The introductory text limits direct clocking-block access to interfaces with no modports; whether this means no selected modport, rather than no declared modport, must be reconciled with 25.10.",
-      "source_note": "IEEE 1800-2023 25.9.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "When a virtual interface type selects no modport, its clocking blocks are referenced directly by dot notation. When the type selects a modport, a clocking block is reachable through that virtual interface only if the selected modport includes the clocking block (modport ... (clocking cb), 25.5.5). An interface that declares modports but whose virtual interface type selects none remains directly accessible.",
+      "acceptance": "Given interface A_Bus with clocking sb and modport STB (clocking sb): typedef virtual A_Bus.STB T; T s; permits s.sb.req <= 1; typedef virtual A_Bus.DUT U; where DUT does not list clocking sb does not permit u.sb; virtual A_Bus v; with no modport selected permits v.sb.",
+      "source_note": "IEEE 1800-2023 25.9.2 (B002), p.805; complete own-body source review, block B002. Quote: \"However, this only works for interfaces with no modports. Typically, a DUT and its testbench exhibit modport direction. This common case can be handled by including the clocking in the corresponding modport as described in 25.5.5.\" The example at p.806 L48-L51 (\"typedef virtual A_Bus.STB SYNCTB;\" then \"s.sb.req <= 1;\") and 25.10 (p.807 L25-L28, \"regardless of the existence of any declared modports\") fix the reading as \"no selected modport\".",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -258438,8 +258523,7 @@
             "B002"
           ]
         }
-      ],
-      "interpretation_issue": "VIRTUAL-CLOCKING-MODPORT-SCOPE"
+      ]
     },
     {
       "id": "SV2023-25.10-EXTRACT-INTERFACE-HIERARCHICAL-ACCESS",
@@ -260171,6 +260255,15 @@
               "file": "tests/ch26/test_package_scoped_name_avoids_wildcard_conflict.expected",
               "contains": "left=13 right=29"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "26.5",
+          "blocks": [
+            "B007",
+            "B008"
           ]
         }
       ]
@@ -263350,6 +263443,14 @@
             }
           ]
         }
+      ],
+      "source_spans": [
+        {
+          "section": "28.3",
+          "blocks": [
+            "B004"
+          ]
+        }
       ]
     },
     {
@@ -264173,6 +264274,14 @@
               "file": "tests/ch28/test_gate_array_scalar_broadcast_and_instances.expected",
               "contains": "disabled=0000 scalar=1,0\nenabled=1010"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "28.3.6",
+          "blocks": [
+            "B003"
           ]
         }
       ]
@@ -279415,9 +279524,9 @@
       "id": "SV2023-28.12.2-EXTRACT-AMBIGUOUS-UNION-TEXT",
       "clause": "28.12.2",
       "kind": "normal",
-      "behavior": "The prose says combining two ambiguous-strength signals produces an ambiguous range including component levels; its generality for mutually dominating ranges requires reconciliation with component-wise strength dominance.",
-      "acceptance": "The prose says combining two ambiguous-strength signals produces an ambiguous range including component levels; its generality for mutually dominating ranges requires reconciliation with component-wise strength dominance.",
-      "source_note": "IEEE 1800-2023 28.12.2; complete own-body source review, blocks B024. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "When two signals of ambiguous strength combine, the result is a signal of ambiguous strength whose strength range includes the levels of both components and all levels between their extremes; because the range then contains both a 0-side and a 1-side level, the value is x. The dominance rule of 28.12.1 is not applied to ambiguous operands, because 28.12.1 is limited to signals with a known value and a single strength level, and 28.12.3 covers ambiguous combined with unambiguous only.",
+      "acceptance": "Combining a pull H (pull1 range joined with high impedance) with a weak L yields x with a range spanning weak0..pull1 (35X). Combining two ambiguous ranges where one component's 0-side extreme is stronger than the other component's 1-side extreme still yields x with the union range, not the known value of the dominating side. Combining an ambiguous signal with an unambiguous strong 0 is resolved by 28.12.3 rules a)-c), not by this union rule.",
+      "source_note": "IEEE 1800-2023 28.12.2 (B024-B036), p.846; complete own-body source review, block B024. Quote: \"The combination of two signals of ambiguous strength shall result in a signal of ambiguous strength. The resulting signal shall have a range of strength levels that includes the strength levels in its component signals.\" 28.12.1 (p.844 L49-L50) is expressly limited: \"each signal has a known value and a single strength level\"; 28.12.3 (p.850 L35-L46) covers ambiguous + unambiguous.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -279427,8 +279536,7 @@
             "B024"
           ]
         }
-      ],
-      "interpretation_issue": "AMBIGUOUS-STRENGTH-UNION"
+      ]
     },
     {
       "id": "SV2023-28.12.2-EXTRACT-EQUAL-OPPOSITE-UNKNOWN",
@@ -284924,6 +285032,14 @@
               "file": "tests/ch29/test_udp_level_preset_over_falling_capture.expected",
               "contains": "captured=0\npreset_over_edge=1"
             }
+          ]
+        }
+      ],
+      "source_spans": [
+        {
+          "section": "29.9",
+          "blocks": [
+            "B002"
           ]
         }
       ]
@@ -296961,9 +297077,9 @@
       "id": "SV2023-31.4.4-EXTRACT-WIDTH-COINCIDENT-TEXT",
       "clause": "31.4.4",
       "kind": "boundary",
-      "behavior": "The prose states width reference/data opposite transitions never occur at the same simulation time; treatment of separate opposite transitions within one time slot requires reconciliation with event scheduling.",
-      "acceptance": "The prose states width reference/data opposite transitions never occur at the same simulation time; treatment of separate opposite transitions within one time slot requires reconciliation with event scheduling.",
-      "source_note": "IEEE 1800-2023 31.4.4; complete own-body source review, blocks B020. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "For a pulse whose reference and data transitions occur at different simulation times, $width checks the pulse width against the limit. The standard requires that the reference and data events never occur at the same simulation time, so coincident opposite edges are outside this requirement and are not given a pass/fail rule.",
+      "acceptance": "A pulse with distinct reference and data transition times is checked against the width limit; a design with coincident opposite edges violates the precondition and is outside the test oracle.",
+      "source_note": "IEEE 1800-2023 31.4.4; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable. Resolution 2026-10-28: B021 states that the reference and data events shall never occur at the same simulation time; the requirement is therefore limited to distinct transition times, and coincident edges are treated as a precondition violation rather than an undefined pass/fail case.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -296973,8 +297089,7 @@
             "B020"
           ]
         }
-      ],
-      "interpretation_issue": "WIDTH-COINCIDENT-EDGES"
+      ]
     },
     {
       "id": "SV2023-31.4.4-EXTRACT-WIDTH-EVENT-ROLES",
@@ -305451,9 +305566,9 @@
       "id": "SV2023-33.3.2-EXTRACT-MAP-LIMITED-CONTENTS-TEXT",
       "clause": "33.3.2",
       "kind": "error",
-      "behavior": "The multiple-map overview limits map syntax to libraries/includes/comments, while 33.3.1 and Annex A also permit configurations and empty statements; its intended scope must be reconciled.",
-      "acceptance": "The multiple-map overview limits map syntax to libraries/includes/comments, while 33.3.1 and Annex A also permit configurations and empty statements; its intended scope must be reconciled.",
-      "source_note": "IEEE 1800-2023 33.3.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A lib.map file may contain library declarations, include statements, config declarations, and empty statements (;), in any order, plus SystemVerilog comments. The list in 33.3.2 (library specifications, include statements, comment syntax) summarizes the mapping information carried by a map file and is not an exhaustive syntax restriction; the A.1.1 grammar reproduced as Syntax 33-2 is authoritative.",
+      "acceptance": "A map file containing library rtlLib *.v; followed by config cfg; design rtlLib.top; endconfig and a stray ; parses without error. Include substitution and relative-path resolution (33.3.2) are unchanged, and a file containing any other construct (for example a module declaration) is still outside the map-file syntax.",
+      "source_note": "IEEE 1800-2023 33.3.2 (B003), p.938, read with the grammar reproduced in 33.3.1 (p.937 L10-L21) from A.1.1; complete own-body source review, block B003. Quote: \"The syntax of a lib.map file is limited to library specifications, include statements, and standard SystemVerilog comment syntax.\" Syntax 33-2 gives \"library_description ::= library_declaration | include_statement | config_declaration | ;\".",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -305463,8 +305578,7 @@
             "B003"
           ]
         }
-      ],
-      "interpretation_issue": "LIBRARY-MAP-CONTENTS"
+      ]
     },
     {
       "id": "SV2023-33.3.3-EXTRACT-SOURCE-CELL-MAPPING",
@@ -306181,9 +306295,9 @@
       "id": "SV2023-33.4.3-EXTRACT-CONFIG-RESET-GRAMMAR-TEXT",
       "clause": "33.4.3",
       "kind": "boundary",
-      "behavior": "The all-parameter reset is illustrated with use #(), while 33.4.1 and Annex A.1.5 provide only unparenthesized named assignments with at least one item; the legal reset/override syntax remains to be reconciled.",
-      "acceptance": "The all-parameter reset is illustrated with use #(), while 33.4.1 and Annex A.1.5 provide only unparenthesized named assignments with at least one item; the legal reset/override syntax remains to be reconciled.",
-      "source_note": "IEEE 1800-2023 33.4.3; complete own-body source review, blocks B034. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "In a configuration, use #(.P()) resets parameter P of that instance to the default declared in its module, and use #() with an empty override list resets every parameter of that instance to the value it had before any override. Positional parameter notation remains forbidden in configurations.",
+      "acceptance": "For adder #(parameter ID = \"id\", W = 8, D = 512) instantiated with .ID(\"a1\"), .W(16), .D(1024): instance top.a1 use #(.W()); yields ID=a1, W=8, D=1024, and instance top.a1 use #(); yields ID=id, W=8, D=512. Only the named form is accepted (use #(.W(16))); a positional override such as use #(16) is rejected.",
+      "source_note": "IEEE 1800-2023 33.4.3 (B034-B040), p.943; complete own-body source review, block B034. Quote: \"All the parameters can be reset to their default values, meaning their initial values prior to any parameter overrides.\" Example: \"instance top.a1 use #();\" (p.943 L41). A.1.5 (p.1178 L07-L11) gives \"use named_parameter_assignment { , named_parameter_assignment } [ : config ]\"; 33.4.3 B039 forbids positional notation: \"Configurations may not use positional parameter notation to override parameters.\" (p.941 L43).",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -306193,8 +306307,7 @@
             "B034"
           ]
         }
-      ],
-      "interpretation_issue": "CONFIG-PARAMETER-OVERRIDE-GRAMMAR"
+      ]
     },
     {
       "id": "SV2023-33.4.3-EXTRACT-IDENTIFIER-SCOPE",
@@ -309349,9 +309462,9 @@
       "id": "SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-OUTPUT-TEXT",
       "clause": "34.5.16.2",
       "kind": "normal",
-      "behavior": "Preserve digest_keyowner in output, except the text specifies encryption with digest_key_method into digest_key_block for its digital-signature case.",
-      "acceptance": "Preserve digest_keyowner in output, except the text specifies encryption with digest_key_method into digest_key_block for its digital-signature case.",
-      "source_note": "IEEE 1800-2023 34.5.16.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "On encryption output the digest_keyowner is copied unchanged, except when a digital signature is used: then it is encrypted with digest_key_method and carried inside the key_block. The 34.4 keyword set defines key_block and no digest_key_block, so the container is key_block.",
+      "acceptance": "Without a digital signature the output file carries digest_keyowner with the same value as the input. With a digital signature the clear-text digest_keyowner is not emitted; the value is recovered from the key_block at decryption. An output that emits a digest_key_block keyword is non-conforming, and no requirement asserts one.",
+      "source_note": "IEEE 1800-2023 34.5.16.2 (B003), p.961; complete own-body source review, block B003. Quote: \"The digest_keyowner shall be unchanged in the output file, except where a digital signature is used, in which case it is encrypted with the digest_key_method and placed in a digest_key_block.\" 34.5.17.2 (p.962 L14), 34.5.18.2 (p.960 L06), 34.5.20.2 (p.963 L26) and 34.5.21.2 (p.964 L23) all use key_block for this case; 34.4 lists key_block but not digest_key_block.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -309361,8 +309474,7 @@
             "B003"
           ]
         }
-      ],
-      "interpretation_issue": "DIGEST-KEY-BLOCK-NAME: 34.5.16.2 names digest_key_block, which is absent from the 34.4 keyword set and keyword definitions; related digest key metadata uses key_block. Resolve the container before asserting exact output."
+      ]
     },
     {
       "id": "SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-UNIQUE",
@@ -309927,9 +310039,9 @@
       "id": "SV2023-34.5.22.2-EXTRACT-DIGEST-GENERATE",
       "clause": "34.5.22.2",
       "kind": "normal",
-      "behavior": "Generate the digest with digest_method and encrypt it using digest_key_method and specified digest key selectors; absent digest_key_method use the current data_method encryption key.",
-      "acceptance": "Generate the digest with digest_method and encrypt it using digest_key_method and specified digest key selectors; absent digest_key_method use the current data_method encryption key.",
-      "source_note": "IEEE 1800-2023 34.5.22.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Generate the message digest with digest_method and encrypt it using digest_key_method and the key specified by digest_keyname, digest_keyowner, digest_public_key and digest_decrypt_key (the paragraph's digest_key_keyowner denotes digest_keyowner); if digest_key_method is absent, use the current data_method encryption key.",
+      "acceptance": "With digest_keyowner and the other digest key selectors set in the encryption input, the digest_block is encrypted under the key they select, using digest_keyowner (Table 34-1, 34.5.16) as the owner selector; no separate digest_key_keyowner keyword is required.",
+      "source_note": "IEEE 1800-2023 34.5.22.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate wording row SV2023-34.5.22.2-EXTRACT-DIGEST-KEY-OWNER-TEXT (same clause, same block, same obligation); its resolved interpretation is preserved here. Interpretation issue DIGEST-KEY-OWNER-SPELLING resolved on 2026-10-24: complete input, output and decryption behavior; each operation is scoped to the stated tool mode. The undefined digest_key_keyowner selector is read as digest_keyowner, the only digest key-owner keyword in Table 34-1 and the selector that 34.5.16.2 B002 assigns to digest_block key selection.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -309967,24 +310079,6 @@
       "behavior": "For the selected CBC digest cipher requiring an IV, prepend its IV cipher block before encoding.",
       "acceptance": "For the selected CBC digest cipher requiring an IV, prepend its IV cipher block before encoding.",
       "source_note": "IEEE 1800-2023 34.5.22.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
-      "modality": "mandatory",
-      "checks": [],
-      "source_spans": [
-        {
-          "section": "34.5.22.2",
-          "blocks": [
-            "B003"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "SV2023-34.5.22.2-EXTRACT-DIGEST-KEY-OWNER-TEXT",
-      "clause": "34.5.22.2",
-      "kind": "normal",
-      "behavior": "Encrypt the generated message digest with the key specified by digest_keyname, digest_keyowner, digest_public_key and digest_decrypt_key; the paragraph's digest_key_keyowner denotes the defined digest_keyowner pragma keyword.",
-      "acceptance": "With digest_keyowner and the other digest key selectors set in the encryption input, the digest_block is encrypted under the key they select, using digest_keyowner (Table 34-1, 34.5.16) as the owner selector; no separate digest_key_keyowner keyword is required.",
-      "source_note": "IEEE 1800-2023 34.5.22.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue DIGEST-KEY-OWNER-SPELLING resolved on 2026-10-24: Complete input, output and decryption behavior; each operation is scoped to the stated tool mode. The undefined digest_key_keyowner selector is read as digest_keyowner, the only digest key-owner keyword in Table 34-1 and the selector that 34.5.16.2 B002 assigns to digest_block key selection.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -397225,9 +397319,9 @@
       "id": "SV2023-37.80-EXTRACT-CALLBACK-ARROW-TEXT",
       "clause": "37.80",
       "kind": "normal",
-      "behavior": "The 37.80 diagram draws a single-arrow relation from primitive terminal/expression/time queue/statement to callback; its access cardinality requires reconciliation with the callback iteration APIs.",
-      "acceptance": "The 37.80 diagram draws a single-arrow relation from primitive terminal/expression/time queue/statement to callback; its access cardinality requires reconciliation with the callback iteration APIs.",
-      "source_note": "IEEE 1800-2023 37.80; complete own-body source review, blocks B002, B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Each primitive terminal, expression, time queue, or statement object reaches at most one callback object, with vpi_handle(vpiCallback, ref). Callbacks not related to those reference objects form the one-to-many set reached with vpi_iterate(vpiCallback, NULL) and traversed with vpi_scan. vpi_get_cb_info() supplies the callback information (cb info) of a callback object.",
+      "acceptance": "For a reference object ref with a registered callback, vpi_handle(vpiCallback, ref) returns that callback handle and vpi_get_cb_info() reports its data. Callbacks created with no reference object are enumerated by vpi_iterate(vpiCallback, NULL) and are not returned by vpi_handle(vpiCallback, ref); vpi_iterate(vpiCallback, NULL) returns NULL when there are none.",
+      "source_note": "IEEE 1800-2023 37.80 (B002-B004), p.1083, with the diagram key 37.4.3 (p.1008); complete own-body source review, blocks B002, B003, B004. Quote (37.4.3): \"A single arrow indicates a one-to-one relationship\", read as \"with the routine vpi_handle()\". 37.80 B002: \"To get callback objects not related to the above objects, the second argument to vpi_iterate() shall be NULL.\" The circle-to-callback edge is drawn with a double arrowhead, so it is the 37.4.3 one-to-many-from-a-circle case, not a second single arrow.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -397239,8 +397333,7 @@
             "B004"
           ]
         }
-      ],
-      "interpretation_issue": "CALLBACK-RELATION-CARDINALITY: 37.80 draws a single arrow from reference objects to callback while the details describe vpi_iterate for callbacks. Cross-check 38.23/38.36 before asserting one-to-one versus one-to-many object access."
+      ]
     },
     {
       "id": "SV2023-37.80-EXTRACT-CALLBACK-INFO",
@@ -419418,9 +419511,9 @@
       "id": "SV2023-39.4.1-EXTRACT-SYSTEM-OFF-CALLBACK-TEXT",
       "clause": "39.4.1",
       "kind": "normal",
-      "behavior": "cbAssertionSysOff marks temporary suspension: the paragraph says no new attempts are processed and no new assertion callbacks occur, while already executing assertions remain unaffected; stopping/resuming can repeat arbitrarily.",
-      "acceptance": "cbAssertionSysOff marks temporary suspension: the paragraph says no new attempts are processed and no new assertion callbacks occur, while already executing assertions remain unaffected; stopping/resuming can repeat arbitrarily.",
-      "source_note": "IEEE 1800-2023 39.4.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "While the assertion system is stopped (cbAssertionSysOff event / vpiAssertionSysOff control), no new assertion attempts are processed and no assertion-related callback is invoked for a new attempt. Callbacks already registered remain installed and are not removed, and assertions already executing are unaffected, so their completion callbacks still occur. The system can be stopped and resumed any number of times.",
+      "acceptance": "After vpiAssertionSysOff, vpi_register_cb for cbAssertionSuccess/cbAssertionFailure still returns a valid handle and existing handles stay valid, while an attempt started after the stop produces no cbAssertionSuccess/cbAssertionFailure invocation. An attempt already in progress at the stop produces its completion callback with its result. vpiAssertionSysOn resumes attempts without re-registration.",
+      "source_note": "IEEE 1800-2023 39.4.1 (B003), p.1150; complete own-body source review, block B003. Quote: \"While stopped, no new assertion attempts are processed and no new assertion-related callbacks occur. Assertions already executing are not affected.\" 39.5.1 (p.1154 L11-L12) adds: \"Assertions already executing are not affected. This control has no effect on preexisting assertion callbacks.\"",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -419430,8 +419523,7 @@
             "B003"
           ]
         }
-      ],
-      "interpretation_issue": "ASSERTION-SYSTEM-OFF-CALLBACKS: 39.4.1 says no new assertion-related callbacks occur while stopped but leaves executing assertions unaffected; 39.5.1 preserves executing attempts and preexisting callbacks. Clarify whether new means new registration or invocations before testing callback suppression."
+      ]
     },
     {
       "id": "SV2023-39.4.1-EXTRACT-SYSTEM-ON",
@@ -430196,9 +430288,9 @@
       "id": "SV2023-A.1.4-EXTRACT-BIND-INSTANCE-GRAMMAR",
       "clause": "A.1.4",
       "kind": "normal",
-      "behavior": "An instance-target bind uses bind,hierarchical target identifier with constant-bit-select,bind instantiation and semicolon; target lists are comma-separated instances.",
-      "acceptance": "An instance-target bind uses bind,hierarchical target identifier with constant-bit-select,bind instantiation and semicolon; target lists are comma-separated instances.",
-      "source_note": "IEEE 1800-2023 A.1.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "An instance-target bind is bind, a hierarchical target identifier with constant bit select, a bind instantiation, and exactly one terminating semicolon. The terminator belongs to the bound instantiation statement; the bind directive adds no second semicolon.",
+      "acceptance": "bind top.a1 my_check c1(); and bind cpu fpu_props fpu_rules_1(a,b,c); each end with one ;. A second ; immediately after a bind directive is not accepted. The bound instantiation keeps its full parameter and port association syntax.",
+      "source_note": "IEEE 1800-2023 A.1.4 (B003), p.1177; complete own-body source review, block B003. Quote: \"bind bind_target_instance bind_instantiation ;\" with \"bind_instantiation ::= program_instantiation | module_instantiation | interface_instantiation | checker_instantiation\". A.4.1.1-A.4.1.4 give every alternative a terminated form, and 23.11 p.773 L06 shows \"bind cpu fpu_props fpu_rules_1(a,b,c);\" — one semicolon.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -430208,8 +430300,7 @@
             "B003"
           ]
         }
-      ],
-      "interpretation_issue": "BIND-SEMICOLON-GRAMMAR: A.1.4 appends a semicolon to bind_instantiation although every alternative in A.4.1 ends with a semicolon. Preserve the supplied BNF and compare 23.11 before approving the required delimiter count."
+      ]
     },
     {
       "id": "SV2023-A.1.4-EXTRACT-BIND-INSTANTIATION-KINDS",
@@ -430271,9 +430362,9 @@
       "id": "SV2023-A.1.4-EXTRACT-BIND-SCOPE-GRAMMAR",
       "clause": "A.1.4",
       "kind": "normal",
-      "behavior": "A scope-target bind uses bind,module/interface identifier,optional colon target-instance list,bind instantiation and semicolon, subject to clarification 4.",
-      "acceptance": "A scope-target bind uses bind,module/interface identifier,optional colon target-instance list,bind instantiation and semicolon, subject to clarification 4.",
-      "source_note": "IEEE 1800-2023 A.1.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A scope-target bind is bind, a module or interface identifier, an optional colon followed by a comma-separated list of target instances, a bind instantiation, and exactly one terminating semicolon. If the target scope is an interface, the bind instantiation shall be an interface or checker instantiation (footnote 4).",
+      "acceptance": "bind cpu fpu_props fpu_rules_1(a,b,c); and bind cpu: cpu1, cpu2, cpu3 fpu_props fpu_rules_1(a,b,c); parse with a single ;. Without an instance list the instantiation is inserted into every instance of the scope. Binding a module instantiation to an interface target is rejected.",
+      "source_note": "IEEE 1800-2023 A.1.4 (B003), p.1177; complete own-body source review, block B003. Quote: \"bind bind_target_scope [ : bind_target_instance_list ] bind_instantiation ;\". Footnote 4 (p.772): \"If the bind_target_scope or the bind_target_instance is an interface, then the bind_instantiation shall be an interface_instantiation or a checker_instantiation.\" 23.11 p.773 L25 shows the comma-separated list form with one semicolon.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -430283,8 +430374,7 @@
             "B003"
           ]
         }
-      ],
-      "interpretation_issue": "BIND-SEMICOLON-GRAMMAR: A.1.4 appends a semicolon to bind_instantiation although every alternative in A.4.1 ends with a semicolon. Preserve the supplied BNF and compare 23.11 before approving the required delimiter count."
+      ]
     },
     {
       "id": "SV2023-A.1.4-EXTRACT-COMMON-ITEM-68",
@@ -491744,9 +491834,9 @@
       "id": "SV2023-H.10.1.2-EXTRACT-SIGNED-TEXT",
       "clause": "H.10.1.2",
       "kind": "normal",
-      "behavior": "The supplied SV_GET_SIGNED_BITS macro tests VALUE & (1<<N) when N!=32, then fills upper bits if set or masks otherwise; N=32 returns VALUE unchanged.",
-      "acceptance": "The supplied SV_GET_SIGNED_BITS macro tests VALUE & (1<<N) when N!=32, then fills upper bits if set or masks otherwise; N=32 returns VALUE unchanged.",
-      "source_note": "IEEE 1800-2023 H.10.1.2; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "svdpi.h shall contain SV_GET_SIGNED_BITS(VALUE, N) exactly as printed in H.10.1.2: VALUE when N == 32, otherwise a test of bit N of VALUE that selects sign fill (VALUE | ~SV_MASK(N)) or masking (VALUE & SV_MASK(N)). The bit index is recorded as printed and is not corrected to N-1.",
+      "acceptance": "A conformance check compares the macro definition in svdpi.h with the H.10.1.2 text token for token, including the (1 << (N)) bit test and SV_MASK(N). No test asserts that SV_GET_SIGNED_BITS sign-extends an N-bit value for N != 32; the bit-N versus bit-(N-1) mismatch is recorded as a defect of the supplied header.",
+      "source_note": "IEEE 1800-2023 H.10.1.2 (B008), p.1276; complete own-body source review, block B008. Quote: \"#define SV_GET_SIGNED_BITS(VALUE, N)\" whose body is \"((N) == 32 ? (VALUE) :\" and \"(((VALUE) & (1 << (N))) ? ((VALUE) | ~SV_MASK(N)) : ((VALUE) & SV_MASK(N))))\". H.10.1 (p.1276 L10-L12): \"This standard fully defines the svdpi.h file\" and \"all simulators shall use the same file\".",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -491756,8 +491846,7 @@
             "B008"
           ]
         }
-      ],
-      "interpretation_issue": "DPI-SIGNED-BITS-MACRO: H.10.1.2 tests bit N for an N-bit signed extraction, while sign of N low bits is bit N-1; preserve literal macro and compare Annex I before certifying sign-extension behavior."
+      ]
     },
     {
       "id": "SV2023-H.10.1.2-EXTRACT-UNSIGNED",
@@ -501600,9 +501689,9 @@
       "id": "SV2023-I.3-EXTRACT-SIGNED-TEXT",
       "clause": "I.3",
       "kind": "normal",
-      "behavior": "SV_GET_SIGNED_BITS returns input for N=32; otherwise tests bit N then fills upper bits or masks using SV_MASK(N), exactly as supplied.",
-      "acceptance": "SV_GET_SIGNED_BITS returns input for N=32; otherwise tests bit N then fills upper bits or masks using SV_MASK(N), exactly as supplied.",
-      "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Annex I reproduces SV_GET_SIGNED_BITS(VALUE, N) verbatim from H.10.1.2: VALUE when N == 32, otherwise a bit-N test selecting sign fill or masking with SV_MASK(N). Both source occurrences carry the same token sequence and neither is corrected.",
+      "acceptance": "The macro in the Annex I listing matches the H.10.1.2 definition exactly, so reproducing either occurrence satisfies both. Tests compare the text and do not assert sign extension for N != 32.",
+      "source_note": "IEEE 1800-2023 I.3 (B018), p.1295; complete own-body source review, block B018. Quote: \"#define SV_GET_SIGNED_BITS(VALUE, N)\" with the body \"((N) == 32 ? (VALUE) :\" and \"(((VALUE) & (1 << (N))) ? ((VALUE) | ~SV_MASK(N)) : ((VALUE) & SV_MASK(N))))\" — identical to H.10.1.2 (p.1276 L61-L63). Both occurrences are retained verbatim; the bit-N test is recorded, not corrected.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -501612,8 +501701,7 @@
             "B018"
           ]
         }
-      ],
-      "interpretation_issue": "DPI-SIGNED-BITS-MACRO: Annex I repeats H.10.1.2 bit-N sign test rather than bit N-1 for N-bit data. The normative header and intended signed extraction need interpretation; retain both source occurrences without silently correcting."
+      ]
     },
     {
       "id": "SV2023-I.3-EXTRACT-TIME-ALIASES",
@@ -546089,9 +546177,9 @@
       "id": "SV2023-N.2-EXTRACT-SEED-UPDATE-TEXT",
       "clause": "N.2",
       "kind": "normal",
-      "behavior": "The supplied C algorithm updates signed long seed by 69069*seed+1,then assigns it to unsigned union storage; retain type and arithmetic-width dependency for interpretation.",
-      "acceptance": "The supplied C algorithm updates signed long seed by 69069*seed+1,then assigns it to unsigned union storage; retain type and arithmetic-width dependency for interpretation.",
-      "source_note": "IEEE 1800-2023 N.2; complete own-body source review, blocks B034. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The seed update of N.2 is evaluated in fixed 32-bit modular arithmetic: seed_next = (69069 * seed + 1) mod 2^32, stored in the seed variable as a 32-bit signed value and read into the unsigned union member as a 32-bit value. The generated stream depends only on the 32-bit seed, not on the host long width or on signed-overflow behaviour. $random returns a 32-bit signed value.",
+      "acceptance": "The same 32-bit seed produces the same $random/$dist_* sequence on any host: seed 32'h0000_0001 gives the next seed 32'h0001_0DCE, and seed 32'h7FFF_FFFF gives 32'h7FFE_F234. Building the wrapper with a 64-bit long does not change either value, and no sequence element depends on signed overflow. $random returns values in -2^31..2^31-1.",
+      "source_note": "IEEE 1800-2023 N.2 (B034), p.1343; complete own-body source review, block B034. Quote: \"*seed = 69069 * (*seed) + 1;\" followed by \"u.stemp = *seed;\". N.1 (p.1338 L38) says \"The algorithm for these functions is defined by the C code in N.2.\" Read with 20.14.1 (p.646 L24-L26, \"$random provides a mechanism for generating random numbers. The function returns a new 32-bit random number\") and 20.14.2 (p.647 L16-L17, \"The system functions shall always return the same value given the same seed\").",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -546101,8 +546189,7 @@
             "B034"
           ]
         }
-      ],
-      "interpretation_issue": "DISTRIBUTION-C-WIDTH: N.2 uses long,LONG_MIN/LONG_MAX,signed multiplication and unsigned/float union while 20.14.1 requires repeatable 32-bit $random; host long width and signed overflow are not portable C semantics. Oracle needs documented fixed-width interpretation rather than native compilation on arbitrary hosts."
+      ]
     },
     {
       "id": "SV2023-N.2-EXTRACT-T",

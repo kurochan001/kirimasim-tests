@@ -42618,7 +42618,7 @@
         },
         {
           "requirement_ids": [
-            "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT"
+            "SV2023-19.11.2-EXTRACT-CROSS-FRACTION"
           ],
           "disposition": "citation_refinement",
           "explanation": "cross_retain_auto_bins が 1 のとき分母 5（積 6 - ユーザ積 2 + ユーザビン 1）で 0/5 から 2/5、0 のとき分母 1 で 1/1 となり、Bc = product - Bb と 0 の両分岐を total で観測するが、:lrm: が 19.6.1/19.7/19.8 で 19.11.2 を引かないため候補にならない。",

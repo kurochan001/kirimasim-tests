@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "b967bbda2cd6a0f74d3bd592feff62e1ee1332897737c7e1df1169704e9f0bcb",
+  "registry_sha256": "b2647c05ce3a01ec571678487dce2f48d5caaf5f64448b1c7c72817fa2e8c99e",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -12,55 +12,34 @@
     "source_review_percent": 100.0,
     "normative_reviewed": 1703,
     "normative_source_review_percent": 100.0,
-    "interpretation_issues": 19,
-    "interpretation_issue_rows": 21,
-    "interpretation_sections": [
-      "16.13.2",
-      "19.11.1",
-      "19.5.7",
-      "20.4.3",
-      "21.3.4",
-      "25.9",
-      "25.9.2",
-      "28.12.2",
-      "31.4.4",
-      "33.3.2",
-      "33.4.3",
-      "34.5.16.2",
-      "37.80",
-      "39.4.1",
-      "9.3.4",
-      "9.4.2",
-      "A.1.4",
-      "H.10.1.2",
-      "I.3",
-      "N.2"
-    ],
+    "interpretation_issues": 0,
+    "interpretation_issue_rows": 0,
+    "interpretation_sections": [],
     "source_index_sha256": "15a9aed7738bec626841dbdf20c4c8da3488bbd80b07f0d0328b9492026f5eaa"
   },
   "sections": 1740,
   "normative_sections": 1703,
-  "audited_sections": 1683,
-  "registered": 12319,
-  "mapped": 11000,
-  "denominator_reviewed": false,
-  "extraction_progress_percent": 98.825601879037,
-  "unmapped": 1319,
-  "executed": 7329,
-  "whole_standard_percent": null,
-  "whole_standard_executed_percent": null,
-  "registered_percent": 89.29296209107882,
+  "audited_sections": 1703,
+  "registered": 12298,
+  "mapped": 10980,
+  "denominator_reviewed": true,
+  "extraction_progress_percent": 100.0,
+  "unmapped": 1318,
+  "executed": 7310,
+  "whole_standard_percent": 89.28281021304277,
+  "whole_standard_executed_percent": 59.44055944055944,
+  "registered_percent": 89.28281021304277,
   "metric_policy_version": 3,
-  "whole_standard_status": "provisional",
-  "provisional_design_percent": 89.29296209107882,
-  "provisional_execution_percent": 59.49346537868333,
+  "whole_standard_status": "confirmed",
+  "provisional_design_percent": 89.28281021304277,
+  "provisional_execution_percent": 59.44055944055944,
   "denominator": {
-    "count": 12319,
+    "count": 12298,
     "unit": "registered_requirement_condition_or_observation",
-    "sha256": "574f40680b440c48af09b826e12eea6f459c9c16f41ae67b8a9a05fe3ab12d69",
-    "reviewed": false,
+    "sha256": "1cefe0dc1e46b77e23da14a8cd52b3d24187f67cedc293d8eda3c365f3d68254",
+    "reviewed": true,
     "source_review_complete": true,
-    "interpretation_pending": 21
+    "interpretation_pending": 0
   },
   "test_mapping": {
     "suite_test_files": 7740,
@@ -69,10 +48,10 @@
   },
   "collective_requirement_count": 652,
   "requirement_status_counts": {
-    "pass": 7329,
-    "mapped_without_pass": 3671,
-    "unmapped": 1298,
-    "interpretation_pending": 21
+    "pass": 7310,
+    "mapped_without_pass": 3670,
+    "unmapped": 1318,
+    "interpretation_pending": 0
   },
   "chapters": [
     {
@@ -128,31 +107,31 @@
     {
       "clause": "6",
       "title": "Data types",
-      "registered": 726,
-      "mapped": 687,
-      "executed": 596,
-      "design_percent": 94.62809917355372,
-      "execution_percent": 82.09366391184572,
+      "registered": 719,
+      "mapped": 680,
+      "executed": 589,
+      "design_percent": 94.57579972183588,
+      "execution_percent": 81.91933240611961,
       "interpretation_pending": 0
     },
     {
       "clause": "7",
       "title": "Aggregate data types",
-      "registered": 349,
-      "mapped": 324,
-      "executed": 233,
-      "design_percent": 92.83667621776505,
-      "execution_percent": 66.7621776504298,
+      "registered": 345,
+      "mapped": 320,
+      "executed": 229,
+      "design_percent": 92.7536231884058,
+      "execution_percent": 66.3768115942029,
       "interpretation_pending": 0
     },
     {
       "clause": "8",
       "title": "Classes",
-      "registered": 253,
-      "mapped": 222,
-      "executed": 173,
-      "design_percent": 87.74703557312253,
-      "execution_percent": 68.3794466403162,
+      "registered": 252,
+      "mapped": 221,
+      "executed": 172,
+      "design_percent": 87.6984126984127,
+      "execution_percent": 68.25396825396825,
       "interpretation_pending": 0
     },
     {
@@ -163,7 +142,7 @@
       "executed": 124,
       "design_percent": 87.83068783068784,
       "execution_percent": 65.60846560846561,
-      "interpretation_pending": 2
+      "interpretation_pending": 0
     },
     {
       "clause": "10",
@@ -178,11 +157,11 @@
     {
       "clause": "11",
       "title": "Operators and expressions",
-      "registered": 461,
-      "mapped": 435,
-      "executed": 372,
-      "design_percent": 94.36008676789588,
-      "execution_percent": 80.6941431670282,
+      "registered": 459,
+      "mapped": 433,
+      "executed": 370,
+      "design_percent": 94.33551198257081,
+      "execution_percent": 80.61002178649237,
       "interpretation_pending": 0
     },
     {
@@ -198,11 +177,11 @@
     {
       "clause": "13",
       "title": "Tasks and functions (subroutines)",
-      "registered": 121,
-      "mapped": 94,
-      "executed": 79,
-      "design_percent": 77.68595041322314,
-      "execution_percent": 65.2892561983471,
+      "registered": 119,
+      "mapped": 92,
+      "executed": 77,
+      "design_percent": 77.3109243697479,
+      "execution_percent": 64.70588235294117,
       "interpretation_pending": 0
     },
     {
@@ -233,7 +212,7 @@
       "executed": 214,
       "design_percent": 97.11711711711712,
       "execution_percent": 38.55855855855856,
-      "interpretation_pending": 1
+      "interpretation_pending": 0
     },
     {
       "clause": "17",
@@ -258,41 +237,41 @@
     {
       "clause": "19",
       "title": "Functional coverage",
-      "registered": 272,
-      "mapped": 233,
+      "registered": 271,
+      "mapped": 232,
       "executed": 47,
-      "design_percent": 85.66176470588235,
-      "execution_percent": 17.279411764705884,
-      "interpretation_pending": 2
+      "design_percent": 85.60885608856088,
+      "execution_percent": 17.343173431734318,
+      "interpretation_pending": 0
     },
     {
       "clause": "20",
       "title": "Utility system tasks and system functions",
-      "registered": 317,
-      "mapped": 285,
-      "executed": 192,
-      "design_percent": 89.90536277602524,
-      "execution_percent": 60.56782334384858,
-      "interpretation_pending": 1
+      "registered": 316,
+      "mapped": 284,
+      "executed": 191,
+      "design_percent": 89.87341772151899,
+      "execution_percent": 60.44303797468354,
+      "interpretation_pending": 0
     },
     {
       "clause": "21",
       "title": "Input/output system tasks and system functions",
-      "registered": 384,
-      "mapped": 348,
-      "executed": 237,
-      "design_percent": 90.625,
-      "execution_percent": 61.71875,
-      "interpretation_pending": 1
+      "registered": 383,
+      "mapped": 347,
+      "executed": 236,
+      "design_percent": 90.60052219321149,
+      "execution_percent": 61.61879895561358,
+      "interpretation_pending": 0
     },
     {
       "clause": "22",
       "title": "Compiler directives",
-      "registered": 362,
-      "mapped": 346,
-      "executed": 332,
-      "design_percent": 95.58011049723757,
-      "execution_percent": 91.71270718232044,
+      "registered": 361,
+      "mapped": 345,
+      "executed": 331,
+      "design_percent": 95.56786703601108,
+      "execution_percent": 91.68975069252078,
       "interpretation_pending": 0
     },
     {
@@ -323,7 +302,7 @@
       "executed": 28,
       "design_percent": 68.25396825396825,
       "execution_percent": 44.44444444444444,
-      "interpretation_pending": 2
+      "interpretation_pending": 0
     },
     {
       "clause": "26",
@@ -353,7 +332,7 @@
       "executed": 288,
       "design_percent": 94.53125,
       "execution_percent": 75.0,
-      "interpretation_pending": 1
+      "interpretation_pending": 0
     },
     {
       "clause": "29",
@@ -383,7 +362,7 @@
       "executed": 87,
       "design_percent": 85.55555555555556,
       "execution_percent": 48.333333333333336,
-      "interpretation_pending": 1
+      "interpretation_pending": 0
     },
     {
       "clause": "32",
@@ -403,17 +382,17 @@
       "executed": 19,
       "design_percent": 47.61904761904762,
       "execution_percent": 30.158730158730158,
-      "interpretation_pending": 2
+      "interpretation_pending": 0
     },
     {
       "clause": "34",
       "title": "Protected envelopes",
-      "registered": 215,
+      "registered": 214,
       "mapped": 5,
       "executed": 5,
-      "design_percent": 2.3255813953488373,
-      "execution_percent": 2.3255813953488373,
-      "interpretation_pending": 1
+      "design_percent": 2.336448598130841,
+      "execution_percent": 2.336448598130841,
+      "interpretation_pending": 0
     },
     {
       "clause": "35",
@@ -443,7 +422,7 @@
       "executed": 273,
       "design_percent": 94.36539556061469,
       "execution_percent": 15.53784860557769,
-      "interpretation_pending": 1
+      "interpretation_pending": 0
     },
     {
       "clause": "38",
@@ -463,7 +442,7 @@
       "executed": 57,
       "design_percent": 86.3157894736842,
       "execution_percent": 60.0,
-      "interpretation_pending": 1
+      "interpretation_pending": 0
     },
     {
       "clause": "40",
@@ -493,7 +472,7 @@
       "executed": 614,
       "design_percent": 97.90382244143034,
       "execution_percent": 75.70900123304563,
-      "interpretation_pending": 2
+      "interpretation_pending": 0
     },
     {
       "clause": "B",
@@ -563,7 +542,7 @@
       "executed": 152,
       "design_percent": 85.20179372197309,
       "execution_percent": 68.16143497757848,
-      "interpretation_pending": 1
+      "interpretation_pending": 0
     },
     {
       "clause": "I",
@@ -573,7 +552,7 @@
       "executed": 110,
       "design_percent": 91.15646258503402,
       "execution_percent": 74.82993197278911,
-      "interpretation_pending": 1
+      "interpretation_pending": 0
     },
     {
       "clause": "J",
@@ -623,7 +602,7 @@
       "executed": 29,
       "design_percent": 74.35897435897436,
       "execution_percent": 74.35897435897436,
-      "interpretation_pending": 1
+      "interpretation_pending": 0
     },
     {
       "clause": "O",
@@ -672,9 +651,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10999,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10979,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -693,9 +672,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10999,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10979,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -712,9 +691,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10985,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10965,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -741,9 +720,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10985,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10965,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -760,9 +739,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 0,
-          "not_run": 10992,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10972,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -788,9 +767,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10992,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10972,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -809,9 +788,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10999,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10979,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -828,9 +807,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10956,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10936,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -849,9 +828,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10998,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10978,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -871,9 +850,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10998,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10978,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -904,9 +883,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10985,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10965,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -939,9 +918,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10985,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10965,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -964,9 +943,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 3,
           "stale": 0,
-          "not_run": 10983,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10963,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -994,9 +973,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 3,
           "stale": 0,
-          "not_run": 10983,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10963,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1024,9 +1003,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10990,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10970,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1051,9 +1030,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10990,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10970,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1074,9 +1053,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10995,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10975,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1099,9 +1078,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10995,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10975,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1121,9 +1100,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10998,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10978,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1196,9 +1175,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9794,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 9774,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1217,9 +1196,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 3,
           "stale": 0,
-          "not_run": 10995,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10975,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1238,9 +1217,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10999,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10979,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1261,9 +1240,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10997,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10977,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1321,9 +1300,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10960,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10940,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1342,9 +1321,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10997,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10977,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1365,9 +1344,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10997,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10977,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1391,9 +1370,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10994,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10974,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1417,9 +1396,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10994,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10974,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1461,9 +1440,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10954,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10934,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1526,9 +1505,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10953,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10933,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -1729,9 +1708,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 5,
-          "not_run": 10812,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10792,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -2039,9 +2018,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10710,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10690,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -2176,7 +2155,6 @@
           "SV2023-11.3.1-EXTRACT-REAL-MEMBER-ARRAY",
           "SV2023-11.3.1-EXTRACT-REAL-PROMOTION",
           "SV2023-11.3.1-EXTRACT-SHORTREAL-PROMOTION",
-          "SV2023-11.3.1-REAL-PROMOTION",
           "SV2023-11.3.2-EXTRACT-HIGHER-PRECEDENCE-FIRST",
           "SV2023-11.3.2-EXTRACT-PARENTHESES-OVERRIDE",
           "SV2023-11.3.2-EXTRACT-PRECEDENCE-1",
@@ -2210,7 +2188,6 @@
           "SV2023-11.3.5-OR-EVALUATE",
           "SV2023-11.3.5-OR-SKIP",
           "SV2023-11.3.5-UNKNOWN-CONDITION",
-          "SV2023-11.3.6-ASSIGNMENT-RESULT",
           "SV2023-11.3.6-EXTRACT-ASSIGNMENT-EXPRESSION-VALUE",
           "SV2023-11.4.10-EXTRACT-ARITH-RIGHT-SIGNED",
           "SV2023-11.4.10-EXTRACT-ARITH-RIGHT-UNSIGNED",
@@ -2539,10 +2516,8 @@
           "SV2023-13.3-EXTRACT-TASK-PORT-GRAMMAR",
           "SV2023-13.3-EXTRACT-TWO-ARGUMENT-DECLARATION-STYLES",
           "SV2023-13.3.1-EXTRACT-TASK-LOCAL-LIFETIME-OVERRIDE",
-          "SV2023-13.3.2-AUTOMATIC-FRESH",
           "SV2023-13.3.2-EXTRACT-AUTOMATIC-TASK-INITIALIZATION",
           "SV2023-13.3.2-EXTRACT-STATIC-TASK-RETENTION",
-          "SV2023-13.3.2-STATIC-RETENTION",
           "SV2023-13.4-EXTRACT-FUNCTION-TYPE-DEFAULT",
           "SV2023-13.4-EXTRACT-IMPLICIT-LOGIC-RETURN",
           "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-RESULT",
@@ -2897,7 +2872,6 @@
           "SV2023-20.11-EXTRACT-HIERARCHY-SELECTION",
           "SV2023-20.11-EXTRACT-OFF-ATTEMPTS",
           "SV2023-20.14.1-EXTRACT-RANDOM-SIGNED",
-          "SV2023-20.14.2-DIST-SEED-REPLAY",
           "SV2023-20.14.2-EXTRACT-DEGREES-SPREAD",
           "SV2023-20.14.2-EXTRACT-DIST-CHI-SQUARE",
           "SV2023-20.14.2-EXTRACT-DIST-ERLANG",
@@ -3117,7 +3091,6 @@
           "SV2023-21.3.5-EXTRACT-SEEK-BEYOND-EOF",
           "SV2023-21.3.5-EXTRACT-SEEK-CANCELS-PUSHBACK",
           "SV2023-21.3.5-EXTRACT-SEEK-RESULT",
-          "SV2023-21.3.5-SEEK-CANCELS-PUSHBACK",
           "SV2023-21.3.6-EXTRACT-FFLUSH",
           "SV2023-21.3.7-EXTRACT-FERROR",
           "SV2023-21.3.7-EXTRACT-FERROR-CLEAR",
@@ -3221,7 +3194,6 @@
           "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-STRING",
           "SV2023-22.5.2-EXTRACT-UNDEFINE",
           "SV2023-22.5.3-EXTRACT-UNDEFINE-ALL",
-          "SV2023-22.5.3-UNDEFINE-ALL",
           "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
           "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR",
           "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
@@ -4599,7 +4571,6 @@
           "SV2023-6.16-EXTRACT-STRING-LENGTH",
           "SV2023-6.16-EXTRACT-STRING-METHOD-DOT",
           "SV2023-6.16-EXTRACT-STRING-NO-FIXED-TRUNCATION",
-          "SV2023-6.16-STRING-LEFT-TRUNCATE",
           "SV2023-6.16.1-EXTRACT-EMPTY-LENGTH",
           "SV2023-6.16.1-EXTRACT-LENGTH",
           "SV2023-6.16.1-EXTRACT-SIGNATURE",
@@ -4660,7 +4631,6 @@
           "SV2023-6.19-EXTRACT-ENUM-INTEGRAL-CAST",
           "SV2023-6.19-EXTRACT-FIRST-IMPLICIT-ZERO",
           "SV2023-6.19-EXTRACT-NAMED-INTEGRAL-CONSTANTS",
-          "SV2023-6.19.2-DESCENDING-NAMES",
           "SV2023-6.19.2-EXTRACT-COUNT-EXPLICIT-FIRST",
           "SV2023-6.19.2-EXTRACT-COUNT-NAMES",
           "SV2023-6.19.2-EXTRACT-RANGE-EXPLICIT-FIRST",
@@ -4684,10 +4654,8 @@
           "SV2023-6.19.5.3-EXTRACT-WRAP",
           "SV2023-6.19.5.4-EXTRACT-STEP",
           "SV2023-6.19.5.4-EXTRACT-WRAP",
-          "SV2023-6.19.5.4-PREV-WRAP",
           "SV2023-6.19.5.5-EXTRACT-MEMBER-COUNT",
           "SV2023-6.19.5.5-EXTRACT-SIGNATURE",
-          "SV2023-6.19.5.5-NUM-MEMBERS",
           "SV2023-6.19.5.6-EXTRACT-INVALID-EMPTY",
           "SV2023-6.19.5.6-EXTRACT-MEMBER-NAME",
           "SV2023-6.19.5.6-EXTRACT-SIGNATURE",
@@ -4730,8 +4698,6 @@
           "SV2023-6.20.7-EXTRACT-DOLLAR-SYMBOLIC",
           "SV2023-6.20.7-EXTRACT-DOLLAR-VALUE-RANGE",
           "SV2023-6.20.7-EXTRACT-ISUNBOUNDED-RESULT",
-          "SV2023-6.20.7-QUEUE-LAST-AFTER-POP",
-          "SV2023-6.20.7-QUEUE-LAST-AFTER-PUSH",
           "SV2023-6.21-EXTRACT-ENCLOSING-LIFETIME-QUALIFIER",
           "SV2023-6.21-EXTRACT-EXPLICIT-AUTOMATIC",
           "SV2023-6.21-EXTRACT-STATIC-DEFAULT",
@@ -4939,7 +4905,6 @@
           "SV2023-6.8-EXTRACT-VARIABLE-MODIFIERS",
           "SV2023-6.8-EXTRACT-VIRTUAL-INTERFACE-TYPE",
           "SV2023-6.8-FOUR-STATE-DEFAULT",
-          "SV2023-6.8-TWO-STATE-DEFAULT",
           "SV2023-6.9-EXTRACT-SCALAR-DEFAULT-WIDTH",
           "SV2023-6.9-EXTRACT-VECTOR-PACKED-ARRAY",
           "SV2023-6.9.1-EXTRACT-OVERFLOW-DIAGNOSTIC-LATITUDE",
@@ -5081,10 +5046,8 @@
           "SV2023-7.8-EXTRACT-LOOKUP-KEY-ORDER",
           "SV2023-7.8-EXTRACT-RETAIN-ENTRIES-AND-ORDER",
           "SV2023-7.8-EXTRACT-SPARSE-DEFAULT",
-          "SV2023-7.8.2-EMPTY-STRING-KEY",
           "SV2023-7.8.2-EXTRACT-EMPTY-KEY",
           "SV2023-7.8.2-EXTRACT-LEXICAL-ORDER",
-          "SV2023-7.8.2-LEXICAL-ORDER",
           "SV2023-7.8.3-EXTRACT-ARBITRARY-DETERMINISTIC-ORDER",
           "SV2023-7.8.3-EXTRACT-NULL-KEY",
           "SV2023-7.8.4-SIGNED-ORDER",
@@ -5101,7 +5064,6 @@
           "SV2023-7.9.1-EXTRACT-NUM-COUNT",
           "SV2023-7.9.1-EXTRACT-SIZE-COUNT",
           "SV2023-7.9.10-EXTRACT-ASSOCIATIVE-VALUE-COPY",
-          "SV2023-7.9.10-VALUE-FORMAL-COPY",
           "SV2023-7.9.11-DEFAULT-NO-ALLOCATION",
           "SV2023-7.9.11-EXTRACT-DEFAULT-NO-METHOD-EFFECT",
           "SV2023-7.9.11-EXTRACT-LITERAL-MAPPING",
@@ -5117,7 +5079,6 @@
           "SV2023-7.9.7-NO-PREDECESSOR",
           "SV2023-7.9.7-PREDECESSOR",
           "SV2023-7.9.9-EXTRACT-CLEAR-AND-COPY",
-          "SV2023-7.9.9-REPLACE-NOT-MERGE",
           "SV2023-7.9.9-VALUE-COPY",
           "SV2023-8.10-EXTRACT-STATIC-METHOD-CALL",
           "SV2023-8.10-EXTRACT-STATIC-METHOD-MEMBERS",
@@ -6800,15 +6761,15 @@
         ],
         "stale_links": 167,
         "status_counts": {
-          "pass": 4747,
-          "fail": 4839,
+          "pass": 4729,
+          "fail": 4838,
           "known": 0,
           "unsupported": 0,
-          "unreviewed_oracle": 1156,
+          "unreviewed_oracle": 1155,
           "stale": 156,
           "not_run": 102,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -6847,9 +6808,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 10943,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10923,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -6886,9 +6847,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 2,
-          "not_run": 10947,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10927,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -6925,9 +6886,9 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 2,
-          "not_run": 10947,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 10927,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -7025,7 +6986,6 @@
           "SV2023-11.3.1-COMPARISON-WIDTH",
           "SV2023-11.3.1-CONDITION-NO-PROMOTION",
           "SV2023-11.3.1-EXTRACT-REAL-PROMOTION",
-          "SV2023-11.3.1-REAL-PROMOTION",
           "SV2023-11.3.2-EXTRACT-HIGHER-PRECEDENCE-FIRST",
           "SV2023-11.3.2-EXTRACT-PARENTHESES-OVERRIDE",
           "SV2023-11.3.2-EXTRACT-PRECEDENCE-1",
@@ -7340,14 +7300,12 @@
           "SV2023-13.3.1-EXTRACT-TASK-AUTOMATIC-HIERARCHY",
           "SV2023-13.3.1-EXTRACT-TASK-AUTOMATIC-STORAGE",
           "SV2023-13.3.1-EXTRACT-TASK-STATIC-DEFAULT",
-          "SV2023-13.3.2-AUTOMATIC-FRESH",
           "SV2023-13.3.2-EXTRACT-AUTOMATIC-TASK-INITIALIZATION",
           "SV2023-13.3.2-EXTRACT-CONCURRENT-TASK-STORAGE",
           "SV2023-13.3.2-EXTRACT-NO-AUTOMATIC-CONTINUOUS-REFERENCE",
           "SV2023-13.3.2-EXTRACT-NO-AUTOMATIC-DEFERRED-WRITE",
           "SV2023-13.3.2-EXTRACT-NO-AUTOMATIC-NBA-EVENT",
           "SV2023-13.3.2-EXTRACT-STATIC-TASK-RETENTION",
-          "SV2023-13.3.2-STATIC-RETENTION",
           "SV2023-13.4-EXTRACT-FUNCTION-BODY-SEQUENTIAL",
           "SV2023-13.4-EXTRACT-IMPLICIT-LOGIC-RETURN",
           "SV2023-13.4-EXTRACT-NO-FUNCTION-TASK",
@@ -7450,7 +7408,6 @@
           "SV2023-20.10-EXTRACT-SEVERITY-USER-MESSAGE",
           "SV2023-20.10-EXTRACT-WARNING",
           "SV2023-20.14.1-EXTRACT-RANDOM-SIGNED",
-          "SV2023-20.14.2-DIST-SEED-REPLAY",
           "SV2023-20.14.2-EXTRACT-DEGREES-SPREAD",
           "SV2023-20.14.2-EXTRACT-DIST-CHI-SQUARE",
           "SV2023-20.14.2-EXTRACT-DIST-ERLANG",
@@ -7651,7 +7608,6 @@
           "SV2023-21.3.5-EXTRACT-FTELL-ERROR",
           "SV2023-21.3.5-EXTRACT-REWIND",
           "SV2023-21.3.5-EXTRACT-SEEK-CANCELS-PUSHBACK",
-          "SV2023-21.3.5-SEEK-CANCELS-PUSHBACK",
           "SV2023-21.3.6-EXTRACT-FFLUSH",
           "SV2023-21.3.7-EXTRACT-FERROR",
           "SV2023-21.3.7-EXTRACT-FERROR-CLEAR",
@@ -9146,7 +9102,6 @@
           "SV2023-6.16-EXTRACT-STRING-DIRECT-ASSIGNMENT",
           "SV2023-6.16-EXTRACT-STRING-LENGTH",
           "SV2023-6.16-EXTRACT-STRING-NO-FIXED-TRUNCATION",
-          "SV2023-6.16-STRING-LEFT-TRUNCATE",
           "SV2023-6.16.1-EXTRACT-EMPTY-LENGTH",
           "SV2023-6.16.1-EXTRACT-LENGTH",
           "SV2023-6.16.10-EXTRACT-DECIMAL-REAL",
@@ -9179,7 +9134,6 @@
           "SV2023-6.19-EXTRACT-UNIQUE-NAMES",
           "SV2023-6.19-EXTRACT-UNSIGNED-RANGE-CHECK",
           "SV2023-6.19.1-EXTRACT-NAMED-ENUM-REUSE",
-          "SV2023-6.19.2-DESCENDING-NAMES",
           "SV2023-6.19.2-EXTRACT-COUNT-EXPLICIT-FIRST",
           "SV2023-6.19.2-EXTRACT-COUNT-NAMES",
           "SV2023-6.19.2-EXTRACT-NONNEGATIVE-ENDPOINTS",
@@ -9208,9 +9162,7 @@
           "SV2023-6.19.5.4-EXTRACT-INVALID-DEFAULT",
           "SV2023-6.19.5.4-EXTRACT-STEP",
           "SV2023-6.19.5.4-EXTRACT-WRAP",
-          "SV2023-6.19.5.4-PREV-WRAP",
           "SV2023-6.19.5.5-EXTRACT-MEMBER-COUNT",
-          "SV2023-6.19.5.5-NUM-MEMBERS",
           "SV2023-6.19.5.6-EXTRACT-MEMBER-NAME",
           "SV2023-6.2-EXTRACT-TYPE-VERSUS-OBJECT",
           "SV2023-6.20-EXTRACT-CONSTANT-IMMUTABLE",
@@ -9420,7 +9372,6 @@
           "SV2023-6.8-EXTRACT-VARIABLE-DECLARATOR-FORMS",
           "SV2023-6.8-EXTRACT-VARIABLE-STORAGE",
           "SV2023-6.8-FOUR-STATE-DEFAULT",
-          "SV2023-6.8-TWO-STATE-DEFAULT",
           "SV2023-6.9-EXTRACT-SCALAR-DEFAULT-WIDTH",
           "SV2023-6.9-EXTRACT-VECTOR-PACKED-ARRAY",
           "SV2023-6.9.1-EXTRACT-OVERFLOW-DIAGNOSTIC-LATITUDE",
@@ -10087,15 +10038,15 @@
         ],
         "stale_links": 167,
         "status_counts": {
-          "pass": 3148,
+          "pass": 3138,
           "fail": 0,
-          "known": 7415,
+          "known": 7405,
           "unsupported": 0,
           "unreviewed_oracle": 164,
           "stale": 155,
           "not_run": 118,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       },
       {
@@ -10153,7 +10104,6 @@
           "SV2023-11.3.2-EXTRACT-PRECEDENCE-7",
           "SV2023-11.3.2-EXTRACT-PRECEDENCE-8",
           "SV2023-11.3.5-EXTRACT-SKIPPED-EFFECTS",
-          "SV2023-11.3.6-ASSIGNMENT-RESULT",
           "SV2023-11.3.6-EXTRACT-ASSIGNMENT-EXPRESSION-VALUE",
           "SV2023-11.3.6-EXTRACT-PARENTHESIZED-ASSIGNMENT",
           "SV2023-11.3.6-NO-TIMING-CONTROL",
@@ -10601,7 +10551,6 @@
           "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER",
           "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-STRING",
           "SV2023-22.5.3-EXTRACT-UNDEFINE-ALL",
-          "SV2023-22.5.3-UNDEFINE-ALL",
           "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
           "SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION",
           "SV2023-22.6-EXTRACT-CONDITIONAL-WHITESPACE",
@@ -11043,8 +10992,6 @@
           "SV2023-6.20.7-EXTRACT-DOLLAR-VALUE-RANGE",
           "SV2023-6.20.7-EXTRACT-ISUNBOUNDED-RESULT",
           "SV2023-6.20.7-EXTRACT-ISUNBOUNDED-SIGNATURE",
-          "SV2023-6.20.7-QUEUE-LAST-AFTER-POP",
-          "SV2023-6.20.7-QUEUE-LAST-AFTER-PUSH",
           "SV2023-6.21-EXTRACT-AUTOMATIC-BLOCK-DEFINITION",
           "SV2023-6.21-EXTRACT-AUTOMATIC-SUBROUTINES",
           "SV2023-6.21-EXTRACT-DESIGN-STATIC",
@@ -11206,10 +11153,8 @@
           "SV2023-7.8.1-EXTRACT-NO-NONINTEGRAL-WILDCARD",
           "SV2023-7.8.1-EXTRACT-NO-WILDCARD-FOREACH",
           "SV2023-7.8.1-EXTRACT-NO-WILDCARD-RETURNING-METHOD",
-          "SV2023-7.8.2-EMPTY-STRING-KEY",
           "SV2023-7.8.2-EXTRACT-EMPTY-KEY",
           "SV2023-7.8.2-EXTRACT-LEXICAL-ORDER",
-          "SV2023-7.8.2-LEXICAL-ORDER",
           "SV2023-7.8.3-EXTRACT-ARBITRARY-DETERMINISTIC-ORDER",
           "SV2023-7.8.3-EXTRACT-NULL-KEY",
           "SV2023-7.8.5-EXTRACT-EMPTY-NULL-VALID",
@@ -11221,7 +11166,6 @@
           "SV2023-7.9.1-EXTRACT-SIZE-COUNT",
           "SV2023-7.9.1-EXTRACT-SIZE-SIGNATURE",
           "SV2023-7.9.10-EXTRACT-ASSOCIATIVE-VALUE-COPY",
-          "SV2023-7.9.10-VALUE-FORMAL-COPY",
           "SV2023-7.9.11-DEFAULT-NO-ALLOCATION",
           "SV2023-7.9.11-EXTRACT-DEFAULT-NO-METHOD-EFFECT",
           "SV2023-7.9.11-EXTRACT-LITERAL-MAPPING",
@@ -11236,7 +11180,6 @@
           "SV2023-7.9.7-NO-WILDCARD",
           "SV2023-7.9.7-PREDECESSOR",
           "SV2023-7.9.9-EXTRACT-CLEAR-AND-COPY",
-          "SV2023-7.9.9-REPLACE-NOT-MERGE",
           "SV2023-7.9.9-VALUE-COPY",
           "SV2023-8.10-EXTRACT-NO-STATIC-INSTANCE-ACCESS",
           "SV2023-8.10-EXTRACT-NO-STATIC-VIRTUAL",
@@ -11320,7 +11263,6 @@
           "SV2023-8.26.2-EXTRACT-NONINTERFACE-BASES",
           "SV2023-8.26.3-EXTRACT-INTERFACE-STATIC-TYPES",
           "SV2023-8.26.5-EXTRACT-NO-INTERFACE-CONSTRUCTION",
-          "SV2023-8.26.5-NO-INTERFACE-NEW",
           "SV2023-8.26.6.3-EXTRACT-DIAMOND-ONE-SYMBOL",
           "SV2023-8.26.7-EXTRACT-ABSTRACT-PARTIAL-IMPLEMENTATION",
           "SV2023-8.26.8-EXTRACT-INTERFACE-DEFAULT-SAME-VALUE",
@@ -12812,15 +12754,15 @@
         ],
         "stale_links": 146,
         "status_counts": {
-          "pass": 2705,
+          "pass": 2696,
           "fail": 0,
-          "known": 4933,
+          "known": 4932,
           "unsupported": 0,
           "unreviewed_oracle": 85,
           "stale": 142,
-          "not_run": 3135,
-          "unmapped": 1298,
-          "interpretation_pending": 21
+          "not_run": 3125,
+          "unmapped": 1318,
+          "interpretation_pending": 0
         }
       }
     ]
