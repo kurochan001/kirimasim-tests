@@ -279175,7 +279175,7 @@
     },
     {
       "test": "tests/ch38/test_38_extra_control_stop.sv",
-      "inputs_sha256": "ca7e57650832695d7a399a5229af764e3cf61440b5e4e95d47776d7dc796d1f2",
+      "inputs_sha256": "bdd811532b3e5bd8dfc9e0a765e1355b57be7c602e1db4cdb5e70f48beed2d8f",
       "cited_clauses": [
         "38.4",
         "20.4"
@@ -546848,7 +546848,7 @@
     "oracle_issue": 257,
     "partial_observation": 2129
   },
-  "registry_sha256": "d85315636575d6ecdbb03a4250e91190321c8262d450cb0b157ae1228cdd2713",
+  "registry_sha256": "d09a344756344d85a6a328f1485fd3d825fcce81649e94147695bcef2dbcc33e",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "c1dac1a34f1f74e3f694f5ef6218659d24e12fac8b92f59725cdca236f737aec"
 }
