@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="880" height="400" viewBox="0 0 880 400" role="img">
 <title>Share of the tests that match: Matching tests out of the tests run, in percent</title>
-<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;font-size:12px;fill:#1f2328;stroke:none}.bg{fill:#ffffff}.muted{fill:#59636e}.title{font-size:15px;font-weight:600}.grid{stroke:#d1d9e0;stroke-width:1}.axis{stroke:#818b98;stroke-width:1}.line{fill:none;stroke-width:2}.dashed{stroke-dasharray:5 4}.c-total{stroke:#59636e;fill:#59636e}.c-icarus{stroke:#0969da;fill:#0969da}.c-verilator{stroke:#8250df;fill:#8250df}.c-kirimasim{stroke:#1a7f37;fill:#1a7f37}.c-lyra{stroke:#bf3989;fill:#bf3989}.line{fill:none}.mk{fill:none;stroke-width:1.6}@media (prefers-color-scheme:dark){text{fill:#f0f6fc}.bg{fill:#0d1117}.muted{fill:#9198a1}.grid{stroke:#3d444d}.axis{stroke:#656c76}.c-total{stroke:#9198a1;fill:#9198a1}.c-icarus{stroke:#4493f8;fill:#4493f8}.c-verilator{stroke:#ab7df8;fill:#ab7df8}.c-kirimasim{stroke:#3fb950;fill:#3fb950}.c-lyra{stroke:#db61a2;fill:#db61a2}.line{fill:none}.mk{fill:none;stroke-width:1.6}}</style>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;font-size:12px;fill:#1f2328;stroke:none}.bg{fill:#ffffff}.muted{fill:#59636e}.title{font-size:15px;font-weight:600}.grid{stroke:#d1d9e0;stroke-width:1}.axis{stroke:#818b98;stroke-width:1}.line{fill:none;stroke-width:2}.dashed{stroke-dasharray:5 4}.c-total{stroke:#59636e;fill:#59636e}.c-icarus{stroke:#0969da;fill:#0969da}.c-verilator{stroke:#8250df;fill:#8250df}.c-kirimasim{stroke:#1a7f37;fill:#1a7f37}.c-lyra{stroke:#bf3989;fill:#bf3989}.c-ghost{stroke:#bc4c00;fill:#bc4c00}.line{fill:none}.mk{fill:none;stroke-width:1.6}@media (prefers-color-scheme:dark){text{fill:#f0f6fc}.bg{fill:#0d1117}.muted{fill:#9198a1}.grid{stroke:#3d444d}.axis{stroke:#656c76}.c-total{stroke:#9198a1;fill:#9198a1}.c-icarus{stroke:#4493f8;fill:#4493f8}.c-verilator{stroke:#ab7df8;fill:#ab7df8}.c-kirimasim{stroke:#3fb950;fill:#3fb950}.c-lyra{stroke:#db61a2;fill:#db61a2}.c-ghost{stroke:#f0883e;fill:#f0883e}.line{fill:none}.mk{fill:none;stroke-width:1.6}}</style>
 <rect class="bg" width="880" height="400" rx="6"/>
 <text x="20.0" y="28.0" class="title" text-anchor="start">Share of the tests that match</text>
 <text x="20.0" y="48.0" class="muted" text-anchor="start">Matching tests out of the tests run, in percent</text>
@@ -16,6 +16,9 @@
 <line class="line c-lyra" x1="20" x2="38" y1="90" y2="90"/>
 <polygon class="mk c-lyra" points="29.0,93.5 32.2,87.5 25.8,87.5"/>
 <text x="44.0" y="94.0" text-anchor="start">Lyra 7e2c604b9: 73.7%</text>
+<line class="line c-ghost" x1="203" x2="221" y1="90" y2="90"/>
+<polygon class="mk c-ghost" points="212.0,86.5 215.2,92.5 208.8,92.5"/>
+<text x="227.0" y="94.0" text-anchor="start">Ghost private build d59b7c7f8feb: 76.3%</text>
 <line class="grid" x1="64" x2="852" y1="360.0" y2="360.0"/>
 <text x="56.0" y="364.0" class="muted" text-anchor="end">0%</text>
 <line class="grid" x1="64" x2="852" y1="310.4" y2="310.4"/>
@@ -29,66 +32,69 @@
 <line class="grid" x1="64" x2="852" y1="112.0" y2="112.0"/>
 <text x="56.0" y="116.0" class="muted" text-anchor="end">100%</text>
 <line class="axis" x1="64" x2="852" y1="360" y2="360"/>
-<line class="axis" x1="125.8" x2="125.8" y1="360" y2="364"/>
-<text x="125.8" y="378.0" class="muted" text-anchor="middle">10-20</text>
-<line class="axis" x1="237.4" x2="237.4" y1="360" y2="364"/>
-<text x="237.4" y="378.0" class="muted" text-anchor="middle">10-21</text>
-<line class="axis" x1="349.0" x2="349.0" y1="360" y2="364"/>
-<text x="349.0" y="378.0" class="muted" text-anchor="middle">10-22</text>
-<line class="axis" x1="460.5" x2="460.5" y1="360" y2="364"/>
-<text x="460.5" y="378.0" class="muted" text-anchor="middle">10-23</text>
-<line class="axis" x1="572.1" x2="572.1" y1="360" y2="364"/>
-<text x="572.1" y="378.0" class="muted" text-anchor="middle">10-24</text>
-<line class="axis" x1="683.7" x2="683.7" y1="360" y2="364"/>
-<text x="683.7" y="378.0" class="muted" text-anchor="middle">10-25</text>
-<line class="axis" x1="795.3" x2="795.3" y1="360" y2="364"/>
-<text x="795.3" y="378.0" class="muted" text-anchor="middle">10-26</text>
-<polyline class="line c-icarus" points="64.0,186.5 93.3,191.8 106.4,191.8 186.4,178.8 188.6,179.9 287.4,185.9 400.7,188.8 511.9,190.8 575.5,194.2 622.4,194.2 734.1,201.1 808.1,203.5 852.0,206.5"/>
-<polyline class="line c-verilator" points="64.0,152.0 93.3,154.5"/>
-<polyline class="line c-verilator" points="186.4,175.6 188.6,176.9 287.4,182.7 400.7,183.5 511.9,184.5 575.5,194.0 622.4,193.9 734.1,200.0 808.1,201.9 852.0,202.7"/>
-<polyline class="line c-kirimasim" points="64.0,185.6 93.3,190.5 106.4,190.5 186.4,185.5 188.6,184.7 287.4,189.8 400.7,192.5 511.9,186.7 575.5,185.2 622.4,185.2 734.1,188.9 808.1,191.1 852.0,191.8"/>
-<polyline class="line c-lyra" points="575.5,169.9 622.4,169.9"/>
-<polyline class="line c-lyra" points="808.1,176.7 852.0,177.3"/>
+<line class="axis" x1="120.4" x2="120.4" y1="360" y2="364"/>
+<text x="120.4" y="378.0" class="muted" text-anchor="middle">10-20</text>
+<line class="axis" x1="222.3" x2="222.3" y1="360" y2="364"/>
+<text x="222.3" y="378.0" class="muted" text-anchor="middle">10-21</text>
+<line class="axis" x1="324.2" x2="324.2" y1="360" y2="364"/>
+<text x="324.2" y="378.0" class="muted" text-anchor="middle">10-22</text>
+<line class="axis" x1="426.0" x2="426.0" y1="360" y2="364"/>
+<text x="426.0" y="378.0" class="muted" text-anchor="middle">10-23</text>
+<line class="axis" x1="527.9" x2="527.9" y1="360" y2="364"/>
+<text x="527.9" y="378.0" class="muted" text-anchor="middle">10-24</text>
+<line class="axis" x1="629.8" x2="629.8" y1="360" y2="364"/>
+<text x="629.8" y="378.0" class="muted" text-anchor="middle">10-25</text>
+<line class="axis" x1="731.7" x2="731.7" y1="360" y2="364"/>
+<text x="731.7" y="378.0" class="muted" text-anchor="middle">10-26</text>
+<line class="axis" x1="833.5" x2="833.5" y1="360" y2="364"/>
+<text x="833.5" y="378.0" class="muted" text-anchor="middle">10-27</text>
+<polyline class="line c-icarus" points="64.0,186.5 90.8,191.8 102.7,191.8 175.8,178.8 177.8,179.9 268.0,185.9 371.4,188.8 473.0,190.8 531.0,194.2 573.8,194.2 675.8,201.1 743.3,203.5 783.4,206.5"/>
+<polyline class="line c-verilator" points="64.0,152.0 90.8,154.5"/>
+<polyline class="line c-verilator" points="175.8,175.6 177.8,176.9 268.0,182.7 371.4,183.5 473.0,184.5 531.0,194.0 573.8,193.9 675.8,200.0 743.3,201.9 783.4,202.7"/>
+<polyline class="line c-kirimasim" points="64.0,185.6 90.8,190.5 102.7,190.5 175.8,185.5 177.8,184.7 268.0,189.8 371.4,192.5 473.0,186.7 531.0,185.2 573.8,185.2 675.8,188.9 743.3,191.1 783.4,191.8"/>
+<polyline class="line c-lyra" points="531.0,169.9 573.8,169.9"/>
+<polyline class="line c-lyra" points="743.3,176.7 783.4,177.3"/>
 <circle class="mk c-icarus" cx="64.0" cy="186.5" r="7.5"/>
-<circle class="mk c-icarus" cx="93.3" cy="191.8" r="7.5"/>
-<circle class="mk c-icarus" cx="106.4" cy="191.8" r="7.5"/>
-<circle class="mk c-icarus" cx="186.4" cy="178.8" r="7.5"/>
-<circle class="mk c-icarus" cx="188.6" cy="179.9" r="7.5"/>
-<circle class="mk c-icarus" cx="287.4" cy="185.9" r="7.5"/>
-<circle class="mk c-icarus" cx="400.7" cy="188.8" r="7.5"/>
-<circle class="mk c-icarus" cx="511.9" cy="190.8" r="7.5"/>
-<circle class="mk c-icarus" cx="575.5" cy="194.2" r="7.5"/>
-<circle class="mk c-icarus" cx="622.4" cy="194.2" r="7.5"/>
-<circle class="mk c-icarus" cx="734.1" cy="201.1" r="7.5"/>
-<circle class="mk c-icarus" cx="808.1" cy="203.5" r="7.5"/>
-<circle class="mk c-icarus" cx="852.0" cy="206.5" r="7.5"/>
+<circle class="mk c-icarus" cx="90.8" cy="191.8" r="7.5"/>
+<circle class="mk c-icarus" cx="102.7" cy="191.8" r="7.5"/>
+<circle class="mk c-icarus" cx="175.8" cy="178.8" r="7.5"/>
+<circle class="mk c-icarus" cx="177.8" cy="179.9" r="7.5"/>
+<circle class="mk c-icarus" cx="268.0" cy="185.9" r="7.5"/>
+<circle class="mk c-icarus" cx="371.4" cy="188.8" r="7.5"/>
+<circle class="mk c-icarus" cx="473.0" cy="190.8" r="7.5"/>
+<circle class="mk c-icarus" cx="531.0" cy="194.2" r="7.5"/>
+<circle class="mk c-icarus" cx="573.8" cy="194.2" r="7.5"/>
+<circle class="mk c-icarus" cx="675.8" cy="201.1" r="7.5"/>
+<circle class="mk c-icarus" cx="743.3" cy="203.5" r="7.5"/>
+<circle class="mk c-icarus" cx="783.4" cy="206.5" r="7.5"/>
 <rect class="mk c-verilator" x="59.5" y="147.5" width="9" height="9"/>
-<rect class="mk c-verilator" x="88.8" y="150.0" width="9" height="9"/>
-<rect class="mk c-verilator" x="181.9" y="171.1" width="9" height="9"/>
-<rect class="mk c-verilator" x="184.1" y="172.4" width="9" height="9"/>
-<rect class="mk c-verilator" x="282.9" y="178.2" width="9" height="9"/>
-<rect class="mk c-verilator" x="396.2" y="179.0" width="9" height="9"/>
-<rect class="mk c-verilator" x="507.4" y="180.0" width="9" height="9"/>
-<rect class="mk c-verilator" x="571.0" y="189.5" width="9" height="9"/>
-<rect class="mk c-verilator" x="617.9" y="189.4" width="9" height="9"/>
-<rect class="mk c-verilator" x="729.6" y="195.5" width="9" height="9"/>
-<rect class="mk c-verilator" x="803.6" y="197.4" width="9" height="9"/>
-<rect class="mk c-verilator" x="847.5" y="198.2" width="9" height="9"/>
+<rect class="mk c-verilator" x="86.3" y="150.0" width="9" height="9"/>
+<rect class="mk c-verilator" x="171.3" y="171.1" width="9" height="9"/>
+<rect class="mk c-verilator" x="173.3" y="172.4" width="9" height="9"/>
+<rect class="mk c-verilator" x="263.5" y="178.2" width="9" height="9"/>
+<rect class="mk c-verilator" x="366.9" y="179.0" width="9" height="9"/>
+<rect class="mk c-verilator" x="468.5" y="180.0" width="9" height="9"/>
+<rect class="mk c-verilator" x="526.5" y="189.5" width="9" height="9"/>
+<rect class="mk c-verilator" x="569.3" y="189.4" width="9" height="9"/>
+<rect class="mk c-verilator" x="671.3" y="195.5" width="9" height="9"/>
+<rect class="mk c-verilator" x="738.8" y="197.4" width="9" height="9"/>
+<rect class="mk c-verilator" x="778.9" y="198.2" width="9" height="9"/>
 <polygon class="mk c-kirimasim" points="64.0,182.1 67.5,185.6 64.0,189.1 60.5,185.6"/>
-<polygon class="mk c-kirimasim" points="93.3,187.0 96.8,190.5 93.3,194.0 89.8,190.5"/>
-<polygon class="mk c-kirimasim" points="106.4,187.0 109.9,190.5 106.4,194.0 102.9,190.5"/>
-<polygon class="mk c-kirimasim" points="186.4,182.0 189.9,185.5 186.4,189.0 182.9,185.5"/>
-<polygon class="mk c-kirimasim" points="188.6,181.2 192.1,184.7 188.6,188.2 185.1,184.7"/>
-<polygon class="mk c-kirimasim" points="287.4,186.3 290.9,189.8 287.4,193.3 283.9,189.8"/>
-<polygon class="mk c-kirimasim" points="400.7,189.0 404.2,192.5 400.7,196.0 397.2,192.5"/>
-<polygon class="mk c-kirimasim" points="511.9,183.2 515.4,186.7 511.9,190.2 508.4,186.7"/>
-<polygon class="mk c-kirimasim" points="575.5,181.7 579.0,185.2 575.5,188.7 572.0,185.2"/>
-<polygon class="mk c-kirimasim" points="622.4,181.7 625.9,185.2 622.4,188.7 618.9,185.2"/>
-<polygon class="mk c-kirimasim" points="734.1,185.4 737.6,188.9 734.1,192.4 730.6,188.9"/>
-<polygon class="mk c-kirimasim" points="808.1,187.6 811.6,191.1 808.1,194.6 804.6,191.1"/>
-<polygon class="mk c-kirimasim" points="852.0,188.3 855.5,191.8 852.0,195.3 848.5,191.8"/>
-<polygon class="mk c-lyra" points="575.5,173.4 578.7,167.4 572.3,167.4"/>
-<polygon class="mk c-lyra" points="622.4,173.4 625.6,167.4 619.2,167.4"/>
-<polygon class="mk c-lyra" points="808.1,180.2 811.3,174.2 804.9,174.2"/>
-<polygon class="mk c-lyra" points="852.0,180.8 855.2,174.8 848.8,174.8"/>
+<polygon class="mk c-kirimasim" points="90.8,187.0 94.3,190.5 90.8,194.0 87.3,190.5"/>
+<polygon class="mk c-kirimasim" points="102.7,187.0 106.2,190.5 102.7,194.0 99.2,190.5"/>
+<polygon class="mk c-kirimasim" points="175.8,182.0 179.3,185.5 175.8,189.0 172.3,185.5"/>
+<polygon class="mk c-kirimasim" points="177.8,181.2 181.3,184.7 177.8,188.2 174.3,184.7"/>
+<polygon class="mk c-kirimasim" points="268.0,186.3 271.5,189.8 268.0,193.3 264.5,189.8"/>
+<polygon class="mk c-kirimasim" points="371.4,189.0 374.9,192.5 371.4,196.0 367.9,192.5"/>
+<polygon class="mk c-kirimasim" points="473.0,183.2 476.5,186.7 473.0,190.2 469.5,186.7"/>
+<polygon class="mk c-kirimasim" points="531.0,181.7 534.5,185.2 531.0,188.7 527.5,185.2"/>
+<polygon class="mk c-kirimasim" points="573.8,181.7 577.3,185.2 573.8,188.7 570.3,185.2"/>
+<polygon class="mk c-kirimasim" points="675.8,185.4 679.3,188.9 675.8,192.4 672.3,188.9"/>
+<polygon class="mk c-kirimasim" points="743.3,187.6 746.8,191.1 743.3,194.6 739.8,191.1"/>
+<polygon class="mk c-kirimasim" points="783.4,188.3 786.9,191.8 783.4,195.3 779.9,191.8"/>
+<polygon class="mk c-lyra" points="531.0,173.4 534.2,167.4 527.8,167.4"/>
+<polygon class="mk c-lyra" points="573.8,173.4 577.0,167.4 570.6,167.4"/>
+<polygon class="mk c-lyra" points="743.3,180.2 746.5,174.2 740.1,174.2"/>
+<polygon class="mk c-lyra" points="783.4,180.8 786.6,174.8 780.2,174.8"/>
+<polygon class="mk c-ghost" points="852.0,167.2 855.2,173.2 848.8,173.2"/>
 </svg>
