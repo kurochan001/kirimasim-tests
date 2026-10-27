@@ -25,8 +25,8 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 19 | [Functional coverage](ch19.md) | 145 |  |
 | 20 | [Utility system tasks and system functions](ch20.md) | 270 |  |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 211 |  |
-| 22 | [Compiler directives](ch22.md) | 348 | 248 |
-| 23 | [Modules and hierarchy](ch23.md) | 237 |  |
+| 22 | [Compiler directives](ch22.md) | 358 | 248 |
+| 23 | [Modules and hierarchy](ch23.md) | 256 |  |
 | 24 | [Programs](ch24.md) | 43 |  |
 | 25 | [Interfaces](ch25.md) | 119 |  |
 | 26 | [Packages](ch26.md) | 83 |  |
@@ -34,7 +34,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 245 | 136 |
 | 29 | [User-defined primitives](ch29.md) | 81 |  |
 | 30 | [Specify blocks](ch30.md) | 59 |  |
-| 31 | [Timing checks](ch31.md) | 58 |  |
+| 31 | [Timing checks](ch31.md) | 64 |  |
 | 32 | [Backannotation using the standard delay format](ch32.md) | 50 |  |
 | 33 | [Configuring the contents of a design](ch33.md) | 42 |  |
 | 34 | Protected envelopes | — | |

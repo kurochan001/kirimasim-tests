@@ -241,3 +241,19 @@ not_testable とした。
 
 この結果は、VPIの未対応を隠して数字を上げるより、ツールの実装境界を明示する
 方が正確だと判断した帰結である。
+
+## 追補: 22章・23章・31章（2026-10-28）
+
+コンパイラ指令・モジュール規則・タイミングチェックの106件を3分割で監査した。
+新規35テスト、再利用候補26件を整理し、品質ガードを通った**51件**を統合した。
+
+- 22章: マクロ展開、条件付きコンパイル、`line`、キーワード版、`default_nettype`
+  などを観測。山括弧include・マクロ再帰・実装定義の既定値は not_testable。
+- 23章: ANSI/非ANSIポート、パラメータ上書き、bind、階層名、uwire、net collapse。
+  同型netのcollapseは値で区別できないため、再利用候補を棄却。
+- 31章: timing event、setuphold/recremの負limitとdelayed data/reference、
+  fullskewのactive flag。Icarusは「Timing checks are not supported」と明示するため、
+  違反時刻・notifierトグル・負チェック内部遅延の多くは not_testable。
+
+公式値は **設計10,904 / 12,319（88.51%）**、実行 **7,254（58.88%、Ghost含む）**、
+Ghostを除くIcarus/Verilator/SymbiYosysのみでは **6,192（50.26%）**。

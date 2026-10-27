@@ -3,7 +3,7 @@
 :description: `__FILE__ expands to the path by which the tool opened the current file, for an included file the path through its include directory, and `__LINE__ to the current line, counted from 1 in an included file; after the `include, both return to the including file, at the line after the `include (IEEE 1800-2023 Section 22.13)
 :tags: ch22
 :type: simulation
-:lrm: 1800-2023 22.13 22.4
+:lrm: 1800-2023 22.13 22.4 22.12
 :oracle: spec iverilog@13.0 verilator@5.052
 :spec_check: ai
 :fourstate: no

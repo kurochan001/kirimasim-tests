@@ -1,0 +1,97 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch23/test_23_extra_ansi_portexpr": {
+   "status": "pass",
+   "inputs_sha256": "98c647a0061bb9fe35bf37c654a0818f8eb7a9d7006f89e89ea0e3ec47f023af"
+  },
+  "ch23/test_23_extra_bind_end_scope": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_23_extra_bind_end_scope.sv:46: syntax error",
+   "inputs_sha256": "9918b8680fcc8c9a56a4b5fb5681ab18ac701ce913d247331798c16aa17e2c91"
+  },
+  "ch23/test_23_extra_bind_instance_name": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_23_extra_bind_instance_name.sv:39: syntax error",
+   "inputs_sha256": "e68aeafe66610531e5169f828d6c7084633955013fbe98ec5458498920a1c803"
+  },
+  "ch23/test_23_extra_bind_placement": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_23_extra_bind_placement.sv:43: syntax error",
+   "inputs_sha256": "8583639e472062e8830c3c6002f9f5f56c3a3f9b52257a237827d0b559e55366"
+  },
+  "ch23/test_23_extra_bound_param_constant": {
+   "status": "known",
+   "reason": "no error matches 'test_23_extra_bound_param_constant\\\\.sv:36:'; the first is: tests/ch23/test_23_extra_bound_param_constant.sv:34: syntax error",
+   "inputs_sha256": "13b3d4f35d606106e3054b16f914911f198fdde7e65c4777ff127abc67665a5a"
+  },
+  "ch23/test_23_extra_duplicate_port_name": {
+   "status": "pass",
+   "inputs_sha256": "ad348ec64e0241e7ddbb944005082415ea7461ac1fe9e22311635b386ac14378"
+  },
+  "ch23/test_23_extra_generic_interface_nonansi": {
+   "status": "pass",
+   "inputs_sha256": "43c7237a4c385ece48849e6eb272b13a810720c7eeba6c1d0a66ad3659ea5158"
+  },
+  "ch23/test_23_extra_input_variable_write": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "6ce2e42ea07ed7d3273053521711f0fd4d34c8e3a7b01897efb0ed679386bd20"
+  },
+  "ch23/test_23_extra_instance_grammar": {
+   "status": "pass",
+   "inputs_sha256": "a3f6eedf62e5add01e85a8895cf2a841b119ae93a27e68ec8649a3f017b7c574"
+  },
+  "ch23/test_23_extra_instance_packed_bits": {
+   "status": "pass",
+   "inputs_sha256": "47d35cfd2d4bab3ee936023442c5a8c21bb8dacb1e6e90f574c5a38d607e5f34"
+  },
+  "ch23/test_23_extra_instance_unpacked_dims": {
+   "status": "known",
+   "reason": "no error matches 'test_23_extra_instance_unpacked_dims\\\\.sv:34:'; the first is: 1 error(s) during elaboration.",
+   "inputs_sha256": "dc3ab959e51642caebcb4e880274b883568adbe8e79e7242481708fb4d47e6ce"
+  },
+  "ch23/test_23_extra_param_expressions": {
+   "status": "pass",
+   "inputs_sha256": "e056a80c4b70597875cba9f9ba7a84ff385a5ad461b6b4bd234e104faf9c8762"
+  },
+  "ch23/test_23_extra_parameter_locations": {
+   "status": "pass",
+   "inputs_sha256": "d74ff977ac028712f7c525c6739018f8bae805f4b42676574278e108f21c209b"
+  },
+  "ch23/test_23_extra_port_coercion": {
+   "status": "pass",
+   "inputs_sha256": "4ca2d332cc24363aa9dd7cd02dcc67731ccf7bddacb6b02745e1813cb4b6a92d"
+  },
+  "ch23/test_23_extra_ref_type_mismatch": {
+   "status": "known",
+   "reason": "no error matches 'test_23_extra_ref_type_mismatch\\\\.sv:31:'",
+   "inputs_sha256": "f9b76a9f28faf8151b482b636513e17fb0b35f5e066e9731bd3ae659d5a575fe"
+  },
+  "ch23/test_23_extra_signed_interconnect": {
+   "status": "pass",
+   "inputs_sha256": "f270cfe0e0b21ef0f039d9f1383e9c389bb5d2f06c9cf00605553eae4d41415b"
+  },
+  "ch23/test_23_extra_upward_data_stop": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_23_extra_upward_data_stop.sv:35: error: Unable to bind wire/reg/memory `s.x' in `test_23_extra_upward_data_stop.m.l'",
+   "inputs_sha256": "08cb2cb798af9551203f22dbecf59cbe8bc0b659f8dbfd1592f489efa75228d0"
+  },
+  "ch23/test_23_extra_uwire_dominates": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_23_extra_uwire_dominates.sv:36: sorry: Net delays not supported.",
+   "inputs_sha256": "96430a3be81357347261f6c99a805dfe57a4c63de5ebecfcabc3dcffd61c6e0f"
+  },
+  "ch23/test_23_extra_uwire_warn": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_23_extra_uwire_warn.sv:37: sorry: Net delays not supported.",
+   "inputs_sha256": "d80acb927d16857fe18c1f3f05538542666cf1b017cf981bc19f515c2d340c3d"
+  }
+ },
+ "generated_at": "2026-10-27T18:10:02.321608+00:00",
+ "runner_sha256": "9a0d77f74ee935d59b413652bbe6cc3133179c84c2a2130f2c0cd4e51a71ab13",
+ "runner_changed": false,
+ "configuration": {}
+}

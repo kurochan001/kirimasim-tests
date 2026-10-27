@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 88.10%、実行 58.63%。**
+**全規格の要求台帳ベース（暫定）: 設計 88.51%、実行 58.88%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10853/12319 (88.10%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7223/12319 (58.63%)。
-- 登録済みだがテスト未対応: 1466 動作。
+- 登録済み動作に対するテスト設計網羅率: 10904/12319 (88.51%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7254/12319 (58.88%)。
+- 登録済みだがテスト未対応: 1415 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -42,6 +42,12 @@
 - `ch16-sim-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:04.031900+00:00 / 9/12319 動作確認、古い入力との対応 0 件。
 - `ch21-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:30:07.226181+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `ch21-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:30:10.339072+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
+- `ch22-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:08:32.360779+00:00 / 13/12319 動作確認、古い入力との対応 0 件。
+- `ch22-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:08:36.769544+00:00 / 15/12319 動作確認、古い入力との対応 0 件。
+- `ch23-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:10:02.321608+00:00 / 5/12319 動作確認、古い入力との対応 0 件。
+- `ch23-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:10:14.224099+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
+- `ch31-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:05:22.468557+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
+- `ch31-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:05:39.429957+00:00 / 7/12319 動作確認、古い入力との対応 0 件。
 - `ch37-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:11:52.776966+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `ch38-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:20:48.267440+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `ch38-reuse-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:00:25.077411+00:00 / 40/12319 動作確認、古い入力との対応 0 件。
@@ -50,12 +56,12 @@
 - `ch9-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:32:44.231306+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
 - `ch9-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:32:53.445594+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12319 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4749/12319 動作確認、古い入力との対応 0 件。
+- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4747/12319 動作確認、古い入力との対応 16 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12319 動作確認、古い入力との対応 0 件。
-- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3149/12319 動作確認、古い入力との対応 0 件。
-- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2804/12319 動作確認、古い入力との対応 0 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3143/12319 動作確認、古い入力との対応 16 件。
+- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2804/12319 動作確認、古い入力との対応 3 件。
 - 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
@@ -218,8 +224,8 @@
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 215。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 285。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 348。
-- 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 328。
-- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 227。
+- 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 346。
+- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 247。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 16。
 - 25 Interfaces: 解釈保留なし 23/25、登録 63、テスト対応 43。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 39。
@@ -227,7 +233,7 @@
 - 28 Gate-level and switch-level modeling: 解釈保留なし 33/34、登録 384、テスト対応 363。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 49。
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 131。
-- 31 Timing checks: 解釈保留なし 25/26、登録 180、テスト対応 141。
+- 31 Timing checks: 解釈保留なし 25/26、登録 180、テスト対応 154。
 - 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 119。
 - 33 Configuring the contents of a design: 解釈保留なし 34/36、登録 63、テスト対応 30。
 - 34 Protected envelopes: 解釈保留なし 103/104、登録 215、テスト対応 0。
@@ -59883,7 +59889,7 @@ Unpacked structures appear as named fork-join scopes with members mapped by the 
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-LEXING
 
-22.2 / normal / 実行確認あり
+22.2 / normal / テスト対応あり・実行未確認
 
 Macros expand inside directives, while directives are not recognized inside comments or string literals.
 
@@ -59895,7 +59901,7 @@ Macros expand inside directives, while directives are not recognized inside comm
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-NESTING
 
-22.2 / error / テスト未対応
+22.2 / error / 実行確認あり
 
 A directive in active conditional text or used macro text is processed there; otherwise a directive cannot occur inside another directive, with macro uses not counted as directives.
 
@@ -59903,6 +59909,7 @@ A directive in active conditional text or used macro text is processed there; ot
 
 規定の性質: `mandatory`。
 
+- [test_22_extra_directive_nesting.sv](../tests/ch22/test_22_extra_directive_nesting.sv): 違法系の設計を拒否で22.2-EXTRACT-DIRECTIVE-NESTINGを観測する。The only text after the first `include on its line is a second `include, in the position where the file name of the outer directive belongs. Both simulators reject the design at that directive line, so a directive placed in the middle of another directive is n 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-ONE-LINE
 
@@ -59918,7 +59925,7 @@ Unless specifically multiline, a compiler directive shall occupy one line.
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-PREFIX-SCOPE
 
-22.2 / normal / 実行確認あり
+22.2 / normal / テスト対応あり・実行未確認
 
 Directives begin with ASCII grave accent 0x60; their scope runs from processing through the current compilation unit until superseded or compilation ends.
 
@@ -59942,7 +59949,7 @@ Subject to individual syntax/placement rules, language elements may precede a di
 
 ### SV2023-22.3-EXTRACT-RESET-DEFAULTS
 
-22.3 / normal / 実行確認あり
+22.3 / normal / テスト対応あり・実行未確認
 
 resetall restores directives having defaults and leaves directives without defaults, including define/include, unaffected.
 
@@ -59966,7 +59973,7 @@ resetall shall not occur within a design element.
 
 ### SV2023-22.4-EXTRACT-INCLUDE-ABSOLUTE
 
-22.4 / error / 実行確認あり
+22.4 / error / テスト対応あり・実行未確認
 
 An absolute include path uses only the quoted form and selects only that filename.
 
@@ -59990,7 +59997,7 @@ Angle-bracket includes search only an implementation-dependent standard-files lo
 
 ### SV2023-22.4-EXTRACT-INCLUDE-LINE
 
-22.4 / error / 実行確認あり
+22.4 / error / テスト対応あり・実行未確認
 
 Only whitespace or a comment may share the include directive line.
 
@@ -60046,7 +60053,7 @@ include inserts the entire source file contents in place of the directive during
 
 ### SV2023-22.4-EXTRACT-INCLUDE-SYNTAX
 
-22.4 / normal / テスト未対応
+22.4 / normal / 実行確認あり
 
 include accepts a quoted or angle-bracket filename and may occur anywhere in source subject to its line restriction.
 
@@ -60054,10 +60061,11 @@ include accepts a quoted or angle-bracket filename and may occur anywhere in sou
 
 規定の性質: `mandatory`。
 
+- [test_22_extra_include_syntax.sv](../tests/ch22/test_22_extra_include_syntax.sv): シミュレーションで22.4-EXTRACT-INCLUDE-SYNTAXを観測する。The design uses `include "file" on a line of its own before the module and between the items of the module, and `include <file> before the module. The included files supply the macro QUOTED_WIDTH, the macro ANGLE_NAME and the localparam BODY_VALUE, and the pri 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.5-EXTRACT-MACRO-NO-RESET
 
-22.5 / normal / 実行確認あり
+22.5 / normal / テスト対応あり・実行未確認
 
 resetall does not affect text macros.
 
@@ -60070,7 +60078,7 @@ resetall does not affect text macros.
 
 ### SV2023-22.5.1-EXTRACT-MACRO-ARGUMENT-DELIMITERS
 
-22.5.1 / error / テスト未対応
+22.5.1 / error / 実行確認あり
 
 Actuals and defaults cannot contain comma/right-parenthesis delimiters outside matched parentheses, brackets, braces, double/triple quoted strings or an escaped identifier.
 
@@ -60078,6 +60086,7 @@ Actuals and defaults cannot contain comma/right-parenthesis delimiters outside m
 
 規定の性質: `mandatory`。
 
+- [test_22_extra_macro_argument_delimiters.sv](../tests/ch22/test_22_extra_macro_argument_delimiters.sv): 違法系の設計を拒否で22.5.1-EXTRACT-MACRO-ARGUMENT-DELIMITERSを観測する。The first actual argument of `ADD is "(1 + 2, 3": the comma stands inside a left parenthesis that has no matching right parenthesis inside the actual, so it is not an argument separator and the parenthesis after 3 closes the actual. One actual is then given fo 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-ARITY
 
@@ -60255,7 +60264,7 @@ Formal arguments have identifier-like uses within the macro text and scope throu
 
 ### SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SPACING
 
-22.5.1 / error / テスト未対応
+22.5.1 / error / 実行確認あり
 
 Formal parentheses immediately follow a simple macro name without whitespace; an escaped name requires exactly its one terminating whitespace before the parenthesis.
 
@@ -60263,6 +60272,7 @@ Formal parentheses immediately follow a simple macro name without whitespace; an
 
 規定の性質: `mandatory`。
 
+- [test_22_extra_macro_formal_spacing.sv](../tests/ch22/test_22_extra_macro_formal_spacing.sv): 違法系の設計を拒否で22.5.1-EXTRACT-MACRO-FORMAL-SPACINGを観測する。`define SHOW (x) $display(x); puts white space between the simple macro name and the parenthesis, so SHOW has no formal arguments and its text begins with "(x) $display(x);". The use `SHOW(7) substitutes that text and appends the actual list, which is not a st 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SYNTAX
 
@@ -60317,7 +60327,7 @@ Ordinary quote/triple-quote delimiters within mixed macro text start complete st
 
 ### SV2023-22.5.1-EXTRACT-MACRO-NAME
 
-22.5.1 / error / テスト未対応
+22.5.1 / error / 実行確認あり
 
 A macro name may be a simple or escaped identifier but shall not redefine a compiler directive keyword.
 
@@ -60325,10 +60335,11 @@ A macro name may be a simple or escaped identifier but shall not redefine a comp
 
 規定の性質: `mandatory`。
 
+- [test_22_extra_macro_name.sv](../tests/ch22/test_22_extra_macro_name.sv): 違法系の設計を拒否で22.5.1-EXTRACT-MACRO-NAMEを観測する。`define define 1 tries to make the compiler directive keyword define a text macro name, which 22.5.1 forbids. Icarus Verilog rejects it at the directive line and Verilator rejects it as "Attempting to define built-in directive". 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-NAMESPACE
 
-22.5.1 / normal / テスト未対応
+22.5.1 / normal / 実行確認あり
 
 Ordinary identifiers may reuse directive or macro spellings; macro names cannot be directive keywords; redefining a macro is permitted and the latest read definition governs later uses.
 
@@ -60336,6 +60347,7 @@ Ordinary identifiers may reuse directive or macro spellings; macro names cannot 
 
 規定の性質: `mandatory`。
 
+- [test_22_extra_macro_namespace.sv](../tests/ch22/test_22_extra_macro_namespace.sv): シミュレーションで22.5.1-EXTRACT-MACRO-NAMESPACEを観測する。The module declares variables named define, resetall, timescale and celldefine, which is legal because compiler directive keywords are not part of the normal keyword set. VALUE is both a variable (5) and a macro; first keeps 11 from the first definition while 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-NESTED-EXPANSION
 
@@ -60363,7 +60375,7 @@ Expanding a macro use passed as an actual/default does not introduce new formal-
 
 ### SV2023-22.5.1-EXTRACT-MACRO-NO-SPLIT
 
-22.5.1 / error / テスト未対応
+22.5.1 / error / 実行確認あり
 
 Macro replacement text shall not split comments, numbers, string literals, identifiers, keywords or operators across lexical tokens.
 
@@ -60371,6 +60383,7 @@ Macro replacement text shall not split comments, numbers, string literals, ident
 
 規定の性質: `mandatory`。
 
+- [test_22_extra_macro_no_split.sv](../tests/ch22/test_22_extra_macro_no_split.sv): 違法系の設計を拒否で22.5.1-EXTRACT-MACRO-NO-SPLITを観測する。The macro text opens a string literal that it does not close, and the rest of the literal follows the macro use. That is the standard's own example of text split across a string literal. Verilator 5.052 rejects the unterminated string in the definition and doe 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-ORDINARY-STRING
 
@@ -60782,7 +60795,7 @@ Pairing unconnected_drive with nounconnected_drive is advisable but not required
 
 ### SV2023-22.9-EXTRACT-UNCONNECTED-PULL
 
-22.9 / error / テスト未対応
+22.9 / error / 実行確認あり
 
 unconnected_drive pull1/pull0 pulls otherwise unconnected input ports of following modules, programs and interfaces up/down until superseded by either drive directive; directives shall be outside design elements.
 
@@ -60790,6 +60803,7 @@ unconnected_drive pull1/pull0 pulls otherwise unconnected input ports of followi
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unconnected_drive_inside_module.sv](../tests/ch22/test_illegal_unconnected_drive_inside_module.sv): 違法系の設計を拒否で22.9-EXTRACT-UNCONNECTED-PULLを観測する。`unconnected_drive pull1 placed between the items of a module is rejected by both simulators at that line, which is the clause's "These directives shall be specified outside the design element declarations". The pull-up and pull-down behaviour of the directive 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.9-EXTRACT-UNCONNECTED-RESET
 
@@ -60909,7 +60923,7 @@ The reset pragma restores affected pragma names listed as keywords to their tool
 
 ### SV2023-22.12-EXTRACT-LINE-ARGUMENTS
 
-22.12 / error / テスト未対応
+22.12 / error / 実行確認あり
 
 line requires a positive integer line number, string-literal absolute/relative filename and level 0/1/2, meaning ordinary line/include entry/include exit respectively.
 
@@ -60917,10 +60931,11 @@ line requires a positive integer line number, string-literal absolute/relative f
 
 規定の性質: `mandatory`。
 
+- [test_22_extra_line_arguments.sv](../tests/ch22/test_22_extra_line_arguments.sv): 違法系の設計を拒否で22.12-EXTRACT-LINE-ARGUMENTSを観測する。`line 20 "line_arguments_target.sv" 3 gives a positive line number and a string-literal file name, but a level of 3 where 22.12 allows only 0, 1 and 2. Both simulators reject the design at the directive line. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.12-EXTRACT-LINE-DIRECTIVE
 
-22.12 / error / テスト未対応
+22.12 / error / テスト対応あり・実行未確認
 
 Compilers maintain current filename/line; line sets the following line location, takes all three required arguments, may occur anywhere, allows only whitespace on its line, forbids same-line comments, and survives resetall.
 
@@ -60928,6 +60943,7 @@ Compilers maintain current filename/line; line sets the following line location,
 
 規定の性質: `mandatory`。
 
+- [test_illegal_line_directive_trailing_comment.sv](../tests/ch22/test_illegal_line_directive_trailing_comment.sv): 違法系の設計を拒否で22.12-EXTRACT-LINE-DIRECTIVEを観測する。The design puts a // comment on the same line as a `line directive, which 22.12 forbids, and the expected result is the rejection at that line or at the location the directive names. Both simulators accept the design, so this is a spec-oracle test and is repor 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.12-EXTRACT-LINE-PRODUCTION-OPTIONAL
 
@@ -60942,7 +60958,7 @@ Tools need not emit line directives; manually supplied directives are permitted.
 
 ### SV2023-22.12-EXTRACT-LINE-TRACKING
 
-22.12 / normal / テスト未対応
+22.12 / normal / テスト対応あり・実行未確認
 
 Compilers increment location per line, start files at line 1 and store/restore parent locations across includes; updated locations are PLI-accessible and line does not alter library search.
 
@@ -60950,10 +60966,11 @@ Compilers increment location per line, start files at line 1 and store/restore p
 
 規定の性質: `mandatory`。
 
+- [test_file_line_across_include.sv](../tests/ch22/test_file_line_across_include.sv): シミュレーションで22.12-EXTRACT-LINE-TRACKINGを観測する。An included file reports its line as 3 although it is the third line of that file, so a file starts at line 1 and the number is incremented per line; after the include the including file reports the line after the `include and the same file name as before, whi 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.13-EXTRACT-FILE-MACRO
 
-22.13 / normal / 実行確認あり
+22.13 / normal / テスト対応あり・実行未確認
 
 __FILE__ expands to a string literal containing the path used to open the input file, rather than merely the short include/input spelling; path format may be implementation-dependent.
 
@@ -60965,7 +60982,7 @@ __FILE__ expands to a string literal containing the path used to open the input 
 
 ### SV2023-22.13-EXTRACT-INCLUDE-LOCATION-MACROS
 
-22.13 / normal / 実行確認あり
+22.13 / normal / テスト対応あり・実行未確認
 
 Includes switch FILE/LINE expansions to included input; returning restores parent filename and its include-line number plus one.
 
@@ -62724,7 +62741,7 @@ Keyword mode 1364-2001-noconfig excludes design from the reserved set.
 
 ### SV2023-22.14.4-EXTRACT-EXCLUDE-ENDCONFIG
 
-22.14.4 / normal / テスト未対応
+22.14.4 / normal / 実行確認あり
 
 Keyword mode 1364-2001-noconfig excludes endconfig from the reserved set.
 
@@ -62732,10 +62749,11 @@ Keyword mode 1364-2001-noconfig excludes endconfig from the reserved set.
 
 規定の性質: `definition`。
 
+- [test_22_extra_noconfig_excluded.sv](../tests/ch22/test_22_extra_noconfig_excluded.sv): シミュレーションで22.14.4-EXTRACT-EXCLUDE-ENDCONFIGを観測する。Inside `begin_keywords "1364-2001-noconfig" the module declares variables named endconfig, incdir, include, instance, liblist and use, initializes them to 1 to 6 and prints them, so all six are ordinary identifiers in that region. The same declaration of inclu 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.14.4-EXTRACT-EXCLUDE-INCDIR
 
-22.14.4 / normal / テスト未対応
+22.14.4 / normal / 実行確認あり
 
 Keyword mode 1364-2001-noconfig excludes incdir from the reserved set.
 
@@ -62743,10 +62761,11 @@ Keyword mode 1364-2001-noconfig excludes incdir from the reserved set.
 
 規定の性質: `definition`。
 
+- [test_22_extra_noconfig_excluded.sv](../tests/ch22/test_22_extra_noconfig_excluded.sv): シミュレーションで22.14.4-EXTRACT-EXCLUDE-INCDIRを観測する。Inside `begin_keywords "1364-2001-noconfig" the module declares variables named endconfig, incdir, include, instance, liblist and use, initializes them to 1 to 6 and prints them, so all six are ordinary identifiers in that region. The same declaration of inclu 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.14.4-EXTRACT-EXCLUDE-INCLUDE
 
-22.14.4 / normal / テスト未対応
+22.14.4 / normal / 実行確認あり
 
 Keyword mode 1364-2001-noconfig excludes include from the reserved set.
 
@@ -62754,10 +62773,11 @@ Keyword mode 1364-2001-noconfig excludes include from the reserved set.
 
 規定の性質: `definition`。
 
+- [test_22_extra_noconfig_excluded.sv](../tests/ch22/test_22_extra_noconfig_excluded.sv): シミュレーションで22.14.4-EXTRACT-EXCLUDE-INCLUDEを観測する。Inside `begin_keywords "1364-2001-noconfig" the module declares variables named endconfig, incdir, include, instance, liblist and use, initializes them to 1 to 6 and prints them, so all six are ordinary identifiers in that region. The same declaration of inclu 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.14.4-EXTRACT-EXCLUDE-INSTANCE
 
-22.14.4 / normal / テスト未対応
+22.14.4 / normal / 実行確認あり
 
 Keyword mode 1364-2001-noconfig excludes instance from the reserved set.
 
@@ -62765,10 +62785,11 @@ Keyword mode 1364-2001-noconfig excludes instance from the reserved set.
 
 規定の性質: `definition`。
 
+- [test_22_extra_noconfig_excluded.sv](../tests/ch22/test_22_extra_noconfig_excluded.sv): シミュレーションで22.14.4-EXTRACT-EXCLUDE-INSTANCEを観測する。Inside `begin_keywords "1364-2001-noconfig" the module declares variables named endconfig, incdir, include, instance, liblist and use, initializes them to 1 to 6 and prints them, so all six are ordinary identifiers in that region. The same declaration of inclu 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.14.4-EXTRACT-EXCLUDE-LIBLIST
 
-22.14.4 / normal / テスト未対応
+22.14.4 / normal / 実行確認あり
 
 Keyword mode 1364-2001-noconfig excludes liblist from the reserved set.
 
@@ -62776,6 +62797,7 @@ Keyword mode 1364-2001-noconfig excludes liblist from the reserved set.
 
 規定の性質: `definition`。
 
+- [test_22_extra_noconfig_excluded.sv](../tests/ch22/test_22_extra_noconfig_excluded.sv): シミュレーションで22.14.4-EXTRACT-EXCLUDE-LIBLISTを観測する。Inside `begin_keywords "1364-2001-noconfig" the module declares variables named endconfig, incdir, include, instance, liblist and use, initializes them to 1 to 6 and prints them, so all six are ordinary identifiers in that region. The same declaration of inclu 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.14.4-EXTRACT-EXCLUDE-LIBRARY
 
@@ -62791,7 +62813,7 @@ Keyword mode 1364-2001-noconfig excludes library from the reserved set.
 
 ### SV2023-22.14.4-EXTRACT-EXCLUDE-USE
 
-22.14.4 / normal / テスト未対応
+22.14.4 / normal / 実行確認あり
 
 Keyword mode 1364-2001-noconfig excludes use from the reserved set.
 
@@ -62799,6 +62821,7 @@ Keyword mode 1364-2001-noconfig excludes use from the reserved set.
 
 規定の性質: `definition`。
 
+- [test_22_extra_noconfig_excluded.sv](../tests/ch22/test_22_extra_noconfig_excluded.sv): シミュレーションで22.14.4-EXTRACT-EXCLUDE-USEを観測する。Inside `begin_keywords "1364-2001-noconfig" the module declares variables named endconfig, incdir, include, instance, liblist and use, initializes them to 1 to 6 and prints them, so all six are ordinary identifiers in that region. The same declaration of inclu 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.14.4-EXTRACT-NOCONFIG-BASE
 
@@ -62825,7 +62848,7 @@ Keyword mode 1364-2005 reserves uwire: within a begin_keywords "1364-2005" regio
 
 ### SV2023-22.14.5-EXTRACT-VERSION-SET
 
-22.14.5 / error / テスト未対応
+22.14.5 / error / 実行確認あり
 
 Keyword mode 1364-2005 reserves every keyword of the full 1364-2001 keyword set and of its listed additions: within a begin_keywords "1364-2005" region none of them can be used as an unescaped simple identifier.
 
@@ -62833,6 +62856,7 @@ Keyword mode 1364-2005 reserves every keyword of the full 1364-2001 keyword set 
 
 規定の性質: `mandatory`。
 
+- [test_22_extra_keyword_1364_2005.sv](../tests/ch22/test_22_extra_keyword_1364_2005.sv): 違法系の設計を拒否で22.14.5-EXTRACT-VERSION-SETを観測する。uwire is the only identifier that Table 22-3 adds to the 1364-2005 keyword set. Used as an unescaped declaration name inside a `begin_keywords "1364-2005" region, it is rejected by both simulators at the declaration line, which shows that the region reserves t 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ALIAS
 
@@ -64578,7 +64602,7 @@ Non-ANSI port references may use simple/escaped identifiers, vector bit/part sel
 
 ### SV2023-23.2.2.1-EXTRACT-NONANSI-SIGNED
 
-23.2.2.1 / error / テスト未対応
+23.2.2.1 / error / テスト対応あり・実行未確認
 
 Signedness on either port or corresponding net/variable declaration makes both signed; signed is illegal for interconnect ports.
 
@@ -64586,10 +64610,11 @@ Signedness on either port or corresponding net/variable declaration makes both s
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_signed_interconnect.sv](../tests/ch23/test_23_extra_signed_interconnect.sv): 違法系の設計を拒否で23.2.2.1-EXTRACT-NONANSI-SIGNEDを観測する。The inout port io of si is declared without a net type and then declared as interconnect signed \[3:0\]; the second declaration attaches signed to an interconnect port, which 23.2.2.1 forbids, so the test expects rejection at that line. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.2.2.1-EXTRACT-NONANSI-SPLIT-DECLARATION
 
-23.2.2.1 / error / テスト未対応
+23.2.2.1 / error / 実行確認あり
 
 A port lacking net/variable type may receive a separate net/variable declaration with identical vector range; another port declaration or data-type declaration for that name is prohibited.
 
@@ -64597,6 +64622,7 @@ A port lacking net/variable type may receive a separate net/variable declaration
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nonansi_second_port_declaration.sv](../tests/ch23/test_illegal_nonansi_second_port_declaration.sv): 違法系の設計を拒否で23.2.2.1-EXTRACT-NONANSI-SPLIT-DECLARATIONを観測する。ni_twice declares a without a type and repeats its range in a separate wire declaration, declares v similarly with logic, and then declares y first as input and again as output; the legal separate declarations and the forbidden second port declaration are both 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.2.2.2-EXTRACT-ANSI-EXPLICIT-EXPRESSIONS
 
@@ -64654,7 +64680,7 @@ An ANSI port declaration supplies full characteristics and its identifier cannot
 
 ### SV2023-23.2.2.2-EXTRACT-ANSI-PORT-EXPRESSION
 
-23.2.2.2 / error / テスト未対応
+23.2.2.2 / error / テスト対応あり・実行未確認
 
 An explicitly named port expression is self-determined rather than an assignment-like context and must be legal for the port kind; omission denotes no internal connection.
 
@@ -64662,6 +64688,7 @@ An explicitly named port expression is self-determined rather than an assignment
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_ansi_portexpr.sv](../tests/ch23/test_23_extra_ansi_portexpr.sv): 違法系の設計を拒否で23.2.2.2-EXTRACT-ANSI-PORT-EXPRESSIONを観測する。The ANSI header of pe declares output .P(a + b); a + b is an arithmetic expression, not a net or variable that an output port can drive, so 23.2.2.2 and 23.3.3.3 make the design illegal. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.2.2.2-EXTRACT-ANSI-PORT-GRAMMAR
 
@@ -64678,7 +64705,7 @@ ANSI headers declare net, variable or interface ports with dimensions and permit
 
 ### SV2023-23.2.2.2-EXTRACT-ANSI-PORT-NAMESPACE
 
-23.2.2.2 / error / テスト未対応
+23.2.2.2 / error / 実行確認あり
 
 External port identifiers have a namespace per port list; a simple port item also references the interface item, and duplicate definitions of an external port name are forbidden.
 
@@ -64686,10 +64713,11 @@ External port identifiers have a namespace per port list; a simple port item als
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_duplicate_port_name.sv](../tests/ch23/test_23_extra_duplicate_port_name.sv): 違法系の設計を拒否で23.2.2.2-EXTRACT-ANSI-PORT-NAMESPACEを観測する。The header dp(input logic a, input logic a) defines the external port name a twice in one port list; 23.2.2.2 gives each port list its own namespace and forbids a second definition of the same name, so elaboration must reject the second declaration. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.2.2.2-EXTRACT-GENERIC-INTERFACE-ANSI
 
-23.2.2.2 / error / テスト未対応
+23.2.2.2 / error / テスト対応あり・実行未確認
 
 Generic interface ports require ANSI port-declaration syntax and cannot use non-ANSI port lists.
 
@@ -64697,6 +64725,7 @@ Generic interface ports require ANSI port-declaration syntax and cannot use non-
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_generic_interface_nonansi.sv](../tests/ch23/test_23_extra_generic_interface_nonansi.sv): 違法系の設計を拒否で23.2.2.2-EXTRACT-GENERIC-INTERFACE-ANSIを観測する。The header gi(i) is non-ANSI and its body writes interface .mp i, a generic interface with a modport; 23.2.2.2 allows generic interface ports only in an ANSI list of port declarations, so the design is illegal. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.2.2.2-EXTRACT-NO-MIXED-HEADER
 
@@ -65032,7 +65061,7 @@ A module may be instantiated multiple times and defined before or after its inst
 
 ### SV2023-23.3.2-EXTRACT-INSTANCE-GRAMMAR
 
-23.3.2 / normal / テスト未対応
+23.3.2 / normal / 実行確認あり
 
 Explicit module instantiation names the module, optional ordered/named parameter values and one or more named instances with optional unpacked dimensions and mandatory connection parentheses.
 
@@ -65040,10 +65069,11 @@ Explicit module instantiation names the module, optional ordered/named parameter
 
 規定の性質: `definition`。
 
+- [test_23_extra_instance_grammar.sv](../tests/ch23/test_23_extra_instance_grammar.sv): シミュレーションで23.3.2-EXTRACT-INSTANCE-GRAMMARを観測する。ig #(.W(2)) i0(...), i1(...) gives one named parameter value assignment to two named instances, and ig arr \[1:0\](...) adds one unpacked dimension; y0 becomes 3, which checks that i0 is connected and that the statement parameter value reaches it. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.3.2-EXTRACT-INSTANCE-PARAMETER-EXPRESSIONS
 
-23.3.2 / normal / テスト未対応
+23.3.2 / normal / 実行確認あり
 
 Instance parameter expressions may be mintypmax expressions, data types or dollar; named parameter assignments may omit their expression.
 
@@ -65051,6 +65081,7 @@ Instance parameter expressions may be mintypmax expressions, data types or dolla
 
 規定の性質: `definition`。
 
+- [test_23_extra_param_expressions.sv](../tests/ch23/test_23_extra_param_expressions.sv): シミュレーションで23.3.2-EXTRACT-INSTANCE-PARAMETER-EXPRESSIONSを観測する。px #(bit \[7:0\], 9, 1) gives a data type to T and 9 to W, and px #(.T(shortint), .W(), .D(2)) gives a data type to T and leaves W at 4 through the empty named assignment; the two printed lines are bits=8 W=9 and bits=16 W=4. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.3.2-EXTRACT-INSTANCE-PARENTHESES
 
@@ -65383,7 +65414,7 @@ A port variable cannot connect to an interconnect net or port.
 
 ### SV2023-23.3.3.2-EXTRACT-VARIABLE-INPUT
 
-23.3.3.2 / error / テスト未対応
+23.3.3.2 / error / 実行確認あり
 
 A variable input accepts any compatible expression through an implied continuous assignment; assigning the declared input variable is illegal and an unconnected input has its type default initial value.
 
@@ -65391,6 +65422,7 @@ A variable input accepts any compatible expression through an implied continuous
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_input_variable_write.sv](../tests/ch23/test_23_extra_input_variable_write.sv): 違法系の設計を拒否で23.3.3.2-EXTRACT-VARIABLE-INPUTを観測する。The always procedure of iv writes a, which is declared input var logic \[3:0\]; an input variable is fed by the implied continuous assignment and cannot be assigned, so elaboration must reject the write. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.3.3.2-EXTRACT-VARIABLE-OUTPUT-NET
 
@@ -65419,7 +65451,7 @@ A variable output may connect to a compatible variable or concatenation by impli
 
 ### SV2023-23.3.3.2-EXTRACT-VARIABLE-REF
 
-23.3.3.2 / error / テスト未対応
+23.3.3.2 / error / 実行確認あり
 
 Ref requires an equivalent-type connected variable and treats accesses as hierarchical references; it cannot be unconnected.
 
@@ -65427,6 +65459,7 @@ Ref requires an equivalent-type connected variable and treats accesses as hierar
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_ref_type_mismatch.sv](../tests/ch23/test_23_extra_ref_type_mismatch.sv): 違法系の設計を拒否で23.3.3.2-EXTRACT-VARIABLE-REFを観測する。rf has ref int r and the instance connects it to the 4-bit logic variable v; the connected object has a type that is not equivalent to int, so 23.3.3.2 makes the connection illegal. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.3.3.3-EXTRACT-NET-INOUT
 
@@ -65514,7 +65547,7 @@ A connection matching the size/type of one arrayed instance port connects to eve
 
 ### SV2023-23.3.3.5-EXTRACT-INSTANCE-PACKED-DISTRIBUTION
 
-23.3.3.5 / error / テスト未対応
+23.3.3.5 / error / 実行確認あり
 
 Packed connections distribute part-selects from all right-hand instance indices, varying the rightmost dimension first; too many/few total bits is an error.
 
@@ -65522,10 +65555,11 @@ Packed connections distribute part-selects from all right-hand instance indices,
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_instance_packed_bits.sv](../tests/ch23/test_23_extra_instance_packed_bits.sv): 違法系の設計を拒否で23.3.3.5-EXTRACT-INSTANCE-PACKED-DISTRIBUTIONを観測する。ip u\[3:0\](s) has four instances of an 8-bit input port and the packed connection s has 16 bits; 23.3.3.5 requires 32 bits for all instances, so the too-few connection is an error. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.3.3.5-EXTRACT-INSTANCE-UNPACKED-DISTRIBUTION
 
-23.3.3.5 / error / テスト未対応
+23.3.3.5 / error / 実行確認あり
 
 Otherwise, an unpacked connection outermost dimensions shall exactly match the instance-array sizes and map left-to-left/right-to-right; mismatches are errors.
 
@@ -65533,6 +65567,7 @@ Otherwise, an unpacked connection outermost dimensions shall exactly match the i
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_instance_unpacked_dims.sv](../tests/ch23/test_23_extra_instance_unpacked_dims.sv): 違法系の設計を拒否で23.3.3.5-EXTRACT-INSTANCE-UNPACKED-DISTRIBUTIONを観測する。iu u\[8\]\[4\](a) has an instance array \[8\]\[4\] and the unpacked connection a is \[4\]\[8\]; the slowest-varying dimensions do not match, so 23.3.3.5 makes the connection an error. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.3.3.5-EXTRACT-UNPACKED-PORT-SHAPE
 
@@ -66206,7 +66241,7 @@ For internal tri1 and external supply1, Table 23-1 selects the external net type
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-0
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal uwire and external wire/tri, Table 23-1 selects the internal net type.
 
@@ -66214,10 +66249,11 @@ For internal uwire and external wire/tri, Table 23-1 selects the internal net ty
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_uwire_dominates.sv](../tests/ch23/test_23_extra_uwire_dominates.sv): シミュレーションで23.3.3.7-EXTRACT-COLLAPSE-6-0を観測する。An internal uwire #3 is connected in turn to an external wire #7 and an external uwire #7; the merged net reads 011100 (delay 3) for the wire, so Table 23-1 selects the internal type for cell 6-0, and 001110 (delay 7) for the uwire, so it selects the external 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-1
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal uwire and external wand/triand, Table 23-1 selects the internal net type. A warning shall be issued.
 
@@ -66225,10 +66261,11 @@ For internal uwire and external wand/triand, Table 23-1 selects the internal net
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_uwire_warn.sv](../tests/ch23/test_23_extra_uwire_warn.sv): シミュレーションで23.3.3.7-EXTRACT-COLLAPSE-6-1を観測する。An internal uwire #3 is connected in turn to an external wand #7 and an external wor #7; for cell 6-1 and cell 6-2 Table 23-1 selects the internal uwire and requires a warning, so both merged nets read 011100 (delay 3) and the test requires a warning. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-2
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal uwire and external wor/trior, Table 23-1 selects the internal net type. A warning shall be issued.
 
@@ -66236,6 +66273,7 @@ For internal uwire and external wor/trior, Table 23-1 selects the internal net t
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_uwire_warn.sv](../tests/ch23/test_23_extra_uwire_warn.sv): シミュレーションで23.3.3.7-EXTRACT-COLLAPSE-6-2を観測する。An internal uwire #3 is connected in turn to an external wand #7 and an external wor #7; for cell 6-1 and cell 6-2 Table 23-1 selects the internal uwire and requires a warning, so both merged nets read 011100 (delay 3) and the test requires a warning. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-3
 
@@ -66275,7 +66313,7 @@ For internal uwire and external tri1, Table 23-1 selects the internal net type. 
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-6
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal uwire and external uwire, Table 23-1 selects the external net type.
 
@@ -66283,6 +66321,7 @@ For internal uwire and external uwire, Table 23-1 selects the external net type.
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_uwire_dominates.sv](../tests/ch23/test_23_extra_uwire_dominates.sv): シミュレーションで23.3.3.7-EXTRACT-COLLAPSE-6-6を観測する。An internal uwire #3 is connected in turn to an external wire #7 and an external uwire #7; the merged net reads 011100 (delay 3) for the wire, so Table 23-1 selects the internal type for cell 6-0, and 001110 (delay 7) for the uwire, so it selects the external 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-7
 
@@ -66680,7 +66719,7 @@ extern module declares a module name and ANSI or non-ANSI ports, optionally para
 
 ### SV2023-23.5-EXTRACT-EXTERN-SCOPE-MATCH
 
-23.5 / error / テスト未対応
+23.5 / error / テスト対応あり・実行未確認
 
 Extern module declarations are visible only at their declaring hierarchy level and must match actual port/parameter names, positions and equivalent types.
 
@@ -66688,6 +66727,7 @@ Extern module declarations are visible only at their declaring hierarchy level a
 
 規定の性質: `mandatory`。
 
+- [test_illegal_extern_module_port_mismatch.sv](../tests/ch23/test_illegal_extern_module_port_mismatch.sv): 違法系の設計を拒否で23.5-EXTRACT-EXTERN-SCOPE-MATCHを観測する。The extern declaration of m names its port a and the module body names it b; elaboration rejects the mismatch, so the requirement that the extern and actual port lists agree in names and positions is observed. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.5-EXTRACT-EXTERN-WILDCARD-HEADER
 
@@ -66984,7 +67024,7 @@ One identifier declares one item per applicable scope; the rule applies even to 
 
 ### SV2023-23.10-EXTRACT-OVERRIDE-PRECEDENCE
 
-23.10 / normal / テスト未対応
+23.10 / normal / 実行確認あり
 
 Parameters can be overridden by defparam, instance ordered/named assignments and configurations; defparam wins over an instance parameter assignment.
 
@@ -66992,10 +67032,11 @@ Parameters can be overridden by defparam, instance ordered/named assignments and
 
 規定の性質: `mandatory`。
 
+- [test_parameter_override_type_and_range.sv](../tests/ch23/test_parameter_override_type_and_range.sv): シミュレーションで23.10-EXTRACT-OVERRIDE-PRECEDENCEを観測する。u3 is instantiated with named values U=8'hF0 and R=4'h1 and then changed by defparam u3.U=2.5 and u3.R=2.7; the printed u3 line shows U as 2.5 and R as 3, so the defparam value wins over the instance parameter assignment. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.10-EXTRACT-PARAMETER-LOCATIONS
 
-23.10 / normal / テスト未対応
+23.10 / normal / 実行確認あり
 
 Overridable value/type parameters may occur in parameter ports or body items; if a parameter-port list exists, additional body parameters are local.
 
@@ -67003,6 +67044,7 @@ Overridable value/type parameters may occur in parameter ports or body items; if
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_parameter_locations.sv](../tests/ch23/test_23_extra_parameter_locations.sv): シミュレーションで23.10-EXTRACT-PARAMETER-LOCATIONSを観測する。pl_body #(.A(5)) sets the port-list parameter A to 5; its body parameter B stays 2 and the local C is 7, while pl_items #(11, 22) overrides both body parameters of a module without a parameter port list, so the two lines are A=5 B=2 C=7 and P=11 Q=22. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.10-EXTRACT-RANGED-OVERRIDE
 
@@ -67322,7 +67364,7 @@ Bind instantiations support full port/parameter association syntax; all actuals 
 
 ### SV2023-23.11-EXTRACT-BIND-END-SCOPE
 
-23.11 / normal / テスト未対応
+23.11 / normal / 実行確認あり
 
 A bound instance behaves as placed at the target scope end: target declarations/imports are visible; already imported wildcard candidates are visible, but bind cannot trigger a wildcard import and unit declarations/imports are invisible.
 
@@ -67330,6 +67372,7 @@ A bound instance behaves as placed at the target scope end: target declarations/
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_bind_end_scope.sv](../tests/ch23/test_23_extra_bind_end_scope.sv): シミュレーションで23.11-EXTRACT-BIND-END-SCOPEを観測する。The bind inserts bes_probe into bes_target; the probe reads lvar, a declaration of the target, and pv, a package member that the target already uses through import bes_pkg::*, so it prints x=7 y=6. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.11-EXTRACT-BIND-GRAMMAR
 
@@ -67429,7 +67472,7 @@ User types overriding bound type parameters shall be visible and matching in bot
 
 ### SV2023-23.11-EXTRACT-BOUND-CONSTANT-REFERENCE
 
-23.11 / error / テスト未対応
+23.11 / error / 実行確認あり
 
 Outside a bound instantiation, its parameters cannot be referenced hierarchically in constant-expression contexts.
 
@@ -67437,6 +67480,7 @@ Outside a bound instantiation, its parameters cannot be referenced hierarchicall
 
 規定の性質: `mandatory`。
 
+- [test_23_extra_bound_param_constant.sv](../tests/ch23/test_23_extra_bound_param_constant.sv): 違法系の設計を拒否で23.11-EXTRACT-BOUND-CONSTANT-REFERENCEを観測する。The bind inserts bpc_mod b with P=7 under u, and the localparam X then reads test_23_extra_bound_param_constant.u.b.P; 23.11 forbids a hierarchical reference to a bound instance parameter in a constant-expression context, so elaboration must reject the localpa 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-23.11-EXTRACT-BOUND-DEFPARAM-CONTAINMENT
 
@@ -76909,7 +76953,7 @@ Timing checks are not system tasks: tasks cannot appear in specify blocks and ti
 
 ### SV2023-31.2-EXTRACT-TIMING-CHECK-GRAMMAR
 
-31.2 / normal / 実行確認あり
+31.2 / normal / テスト対応あり・実行未確認
 
 Specify timing checks include setup/hold/setuphold/recovery/removal/recrem/skew/timeskew/fullskew/period/width/nochange with their ordered event/limit and optional notifier/condition/delayed-signal/flag arguments.
 
@@ -76933,7 +76977,7 @@ Timing conditions permit scalar expressions, inversion and equality/case-equalit
 
 ### SV2023-31.2-EXTRACT-TIMING-EVENT-GRAMMAR
 
-31.2 / normal / テスト未対応
+31.2 / normal / 実行確認あり
 
 Timing events name specify terminals with optional posedge/negedge/edge/edge-list controls and triple-ampersand conditions; controlled events require an event control.
 
@@ -76941,6 +76985,7 @@ Timing events name specify terminals with optional posedge/negedge/edge/edge-lis
 
 規定の性質: `definition`。
 
+- [test_31_extra_event_grammar.sv](../tests/ch31/test_31_extra_event_grammar.sv): シミュレーションで31.2-EXTRACT-TIMING-EVENT-GRAMMARを観測する。The cell writes $setup and $hold events with posedge and negedge plus &&& conditions, $setup events with edge\[01\] and edge\[01, 0x, x1\] lists, and $period and $width on a posedge. The design builds and the expected line t=25 clk=0 d=0 en=1 shows it ran to the e 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-31.2-EXTRACT-TIMING-LIMIT-CONSTANT
 
@@ -77209,7 +77254,7 @@ With both setuphold limits positive and data second, use the hold limit in \[tim
 
 ### SV2023-31.3.3-EXTRACT-DELAYED-DATA
 
-31.3.3 / normal / テスト未対応
+31.3.3 / normal / 実行確認あり
 
 For setuphold, the optional delayed data supplies the negative-check delayed data signal.
 
@@ -77217,10 +77262,11 @@ For setuphold, the optional delayed data supplies the negative-check delayed dat
 
 規定の性質: `definition`。
 
+- [test_31_extra_setuphold_negative_limits.sv](../tests/ch31/test_31_extra_setuphold_negative_limits.sv): シミュレーションで31.3.3-EXTRACT-DELAYED-DATAを観測する。The design writes $setuphold(posedge clk, d, -3, 8, , , , dclk, dd) with 1 ns precision, so -3 + 8 = 5 is above one precision unit and the negative limit is accepted; the line t=13 clk=1 dclk=1 d=1 dd=1 q=0 and t=24 q=1 show dclk tracking clk and dd tracking d 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-31.3.3-EXTRACT-DELAYED-REFERENCE
 
-31.3.3 / normal / テスト未対応
+31.3.3 / normal / 実行確認あり
 
 For setuphold, the optional delayed reference supplies the negative-check delayed reference signal.
 
@@ -77228,6 +77274,7 @@ For setuphold, the optional delayed reference supplies the negative-check delaye
 
 規定の性質: `definition`。
 
+- [test_31_extra_setuphold_negative_limits.sv](../tests/ch31/test_31_extra_setuphold_negative_limits.sv): シミュレーションで31.3.3-EXTRACT-DELAYED-REFERENCEを観測する。The design writes $setuphold(posedge clk, d, -3, 8, , , , dclk, dd) with 1 ns precision, so -3 + 8 = 5 is above one precision unit and the negative limit is accepted; the line t=13 clk=1 dclk=1 d=1 dd=1 q=0 and t=24 q=1 show dclk tracking clk and dd tracking d 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-31.3.3-EXTRACT-FIRST-LIMIT
 
@@ -77243,7 +77290,7 @@ For setuphold, the setup limit is a constant expression.
 
 ### SV2023-31.3.3-EXTRACT-NEGATIVE-LIMITS
 
-31.3.3 / normal / テスト未対応
+31.3.3 / normal / 実行確認あり
 
 setuphold accepts negative limits under the rules in 31.9.
 
@@ -77251,6 +77298,7 @@ setuphold accepts negative limits under the rules in 31.9.
 
 規定の性質: `permission`。
 
+- [test_31_extra_setuphold_negative_limits.sv](../tests/ch31/test_31_extra_setuphold_negative_limits.sv): シミュレーションで31.3.3-EXTRACT-NEGATIVE-LIMITSを観測する。The design writes $setuphold(posedge clk, d, -3, 8, , , , dclk, dd) with 1 ns precision, so -3 + 8 = 5 is above one precision unit and the negative limit is accepted; the line t=13 clk=1 dclk=1 d=1 dd=1 q=0 and t=24 q=1 show dclk tracking clk and dd tracking d 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-31.3.3-EXTRACT-NEGATIVE-SUM
 
@@ -77553,7 +77601,7 @@ With both recrem limits positive and data first, use the removal limit in a wind
 
 ### SV2023-31.3.6-EXTRACT-DATA-ROLE
 
-31.3.6 / normal / テスト未対応
+31.3.6 / normal / 実行確認あり
 
 In recrem, data can timecheck or timestamp for positive recovery limit and timestamps when that limit is negative.
 
@@ -77561,6 +77609,7 @@ In recrem, data can timecheck or timestamp for positive recovery limit and times
 
 規定の性質: `mandatory`。
 
+- [test_timing_recrem_windows.sv](../tests/ch31/test_timing_recrem_windows.sv): シミュレーションで31.3.6-EXTRACT-DATA-ROLEを観測する。With positive limits the expected violations at 53 (clk after clr) and 92 (clk before clr) show the data signal acting as timecheck and as timestamp, and the reference signal taking the other role in each case, including the simultaneous events at 10. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-31.3.6-EXTRACT-DATA-SECOND
 
@@ -77576,7 +77625,7 @@ With both recrem limits positive and data second, use the recovery limit in \[ti
 
 ### SV2023-31.3.6-EXTRACT-DELAYED-DATA
 
-31.3.6 / normal / テスト未対応
+31.3.6 / normal / 実行確認あり
 
 For recrem, the optional delayed data supplies the negative-check delayed data signal.
 
@@ -77584,10 +77633,11 @@ For recrem, the optional delayed data supplies the negative-check delayed data s
 
 規定の性質: `definition`。
 
+- [test_31_extra_recrem_negative_limits.sv](../tests/ch31/test_31_extra_recrem_negative_limits.sv): シミュレーションで31.3.6-EXTRACT-DELAYED-DATAを観測する。The design writes $recrem(posedge rst_n, posedge clk, 7, -2, , , , drst, dclk) with 1 ns precision, so -2 + 7 = 5 is above one precision unit and the negative removal limit is accepted; the expected lines show drst following rst_n and dclk following clk, and t 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-31.3.6-EXTRACT-DELAYED-REFERENCE
 
-31.3.6 / normal / テスト未対応
+31.3.6 / normal / 実行確認あり
 
 For recrem, the optional delayed reference supplies the negative-check delayed reference signal.
 
@@ -77595,6 +77645,7 @@ For recrem, the optional delayed reference supplies the negative-check delayed r
 
 規定の性質: `definition`。
 
+- [test_31_extra_recrem_negative_limits.sv](../tests/ch31/test_31_extra_recrem_negative_limits.sv): シミュレーションで31.3.6-EXTRACT-DELAYED-REFERENCEを観測する。The design writes $recrem(posedge rst_n, posedge clk, 7, -2, , , , drst, dclk) with 1 ns precision, so -2 + 7 = 5 is above one precision unit and the negative removal limit is accepted; the expected lines show drst following rst_n and dclk following clk, and t 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-31.3.6-EXTRACT-FIRST-LIMIT
 
@@ -77610,7 +77661,7 @@ For recrem, the recovery limit is a constant expression.
 
 ### SV2023-31.3.6-EXTRACT-NEGATIVE-LIMITS
 
-31.3.6 / normal / テスト未対応
+31.3.6 / normal / 実行確認あり
 
 recrem accepts negative limits under the rules in 31.9.
 
@@ -77618,6 +77669,7 @@ recrem accepts negative limits under the rules in 31.9.
 
 規定の性質: `permission`。
 
+- [test_31_extra_recrem_negative_limits.sv](../tests/ch31/test_31_extra_recrem_negative_limits.sv): シミュレーションで31.3.6-EXTRACT-NEGATIVE-LIMITSを観測する。The design writes $recrem(posedge rst_n, posedge clk, 7, -2, , , , drst, dclk) with 1 ns precision, so -2 + 7 = 5 is above one precision unit and the negative removal limit is accepted; the expected lines show drst following rst_n and dclk following clk, and t 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-31.3.6-EXTRACT-NEGATIVE-SUM
 
@@ -77668,7 +77720,7 @@ With positive recovery and removal limits, timestamp versus timecheck roles depe
 
 ### SV2023-31.3.6-EXTRACT-REFERENCE-ROLE
 
-31.3.6 / normal / テスト未対応
+31.3.6 / normal / 実行確認あり
 
 In recrem, reference can timecheck or timestamp for positive removal limit and timestamps when that limit is negative.
 
@@ -77676,6 +77728,7 @@ In recrem, reference can timecheck or timestamp for positive removal limit and t
 
 規定の性質: `mandatory`。
 
+- [test_timing_recrem_windows.sv](../tests/ch31/test_timing_recrem_windows.sv): シミュレーションで31.3.6-EXTRACT-REFERENCE-ROLEを観測する。With positive limits the expected violations at 53 (clk after clr) and 92 (clk before clr) show the data signal acting as timecheck and as timestamp, and the reference signal taking the other role in each case, including the simultaneous events at 10. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-31.3.6-EXTRACT-SECOND-LIMIT
 
@@ -78051,7 +78104,7 @@ In timer mode with remain-active, a false-conditioned reference leaves the origi
 
 ### SV2023-31.4.3-EXTRACT-ACTIVE-FLAG
 
-31.4.3 / normal / テスト未対応
+31.4.3 / normal / 実行確認あり
 
 For fullskew, remain-active flag is constant.
 
@@ -78059,6 +78112,7 @@ For fullskew, remain-active flag is constant.
 
 規定の性質: `mandatory`。
 
+- [test_31_extra_fullskew_active_flag.sv](../tests/ch31/test_31_extra_fullskew_active_flag.sv): シミュレーションで31.4.3-EXTRACT-ACTIVE-FLAGを観測する。Two $fullskew checks give the remain_active_flag after the notifier and event_based_flag as the constant 0 and as the specparam raf = 1. The design builds and runs, and the expected line t=20 n=00 shows the notifiers unchanged, so the flag accepts a constant e 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-31.4.3-EXTRACT-DATA
 
@@ -78687,7 +78741,7 @@ A timing violation changes notifier value z to z.
 
 ### SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL
 
-31.6 / normal / テスト未対応
+31.6 / normal / テスト対応あり・実行未確認
 
 A notifier is an optional variable declared in the timing-check module, updated on violation; omitting it does not impair check operation and its transitions may trigger modeled responses.
 
@@ -78695,6 +78749,7 @@ A notifier is an optional variable declared in the timing-check module, updated 
 
 規定の性質: `mandatory`。
 
+- [test_timing_check_forms_and_arguments.sv](../tests/ch31/test_timing_check_forms_and_arguments.sv): シミュレーションで31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONALを観測する。The cell passes the module variables n1 and n2 as notifiers to several checks, leaves the notifier out of $setup, $removal and one $timeskew, and leaves it empty in one $hold; all forms build, and the expected line notifiers 0 0 shows the module variables stil 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT
 
@@ -78933,7 +78988,7 @@ Skew/fullskew/timeskew shall not use internally delayed timing signals; their no
 
 ### SV2023-31.9.2-EXTRACT-NEGATIVE-CONDITION-ARGUMENTS
 
-31.9.2 / normal / テスト未対応
+31.9.2 / normal / 実行確認あり
 
 Timestamp/timecheck condition arguments after the notifier permit conditioning based on event role in addition to reference/data triple-ampersand conditions.
 
@@ -78941,6 +78996,7 @@ Timestamp/timecheck condition arguments after the notifier permit conditioning b
 
 規定の性質: `mandatory`。
 
+- [test_31_extra_negative_condition_args.sv](../tests/ch31/test_31_extra_negative_condition_args.sv): シミュレーションで31.9.2-EXTRACT-NEGATIVE-CONDITION-ARGUMENTSを観測する。The $setuphold has all nine arguments: both events carry &&& en, the setup limit is -3, the hold limit 8, and after the notifier n come the timestamp condition ts, the timecheck condition tc and the delayed reference dclk and data dd. The design builds and pri 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-31.9.2-EXTRACT-NEGATIVE-CONDITION-MODELING
 
@@ -78988,7 +79044,7 @@ Negative-check notifiers update when delayed signals violate adjusted limits, ra
 
 ### SV2023-31.9.4-EXTRACT-NEGATIVE-OPTION-DISABLED
 
-31.9.4 / normal / テスト未対応
+31.9.4 / normal / 実行確認あり
 
 Negative timing handling requires an invocation option; without it, or when all timing checks are disabled, explicit delayed reference/data signals are copies of their original signals.
 
@@ -78996,6 +79052,7 @@ Negative timing handling requires an invocation option; without it, or when all 
 
 規定の性質: `mandatory`。
 
+- [test_31_extra_negative_option_disabled.sv](../tests/ch31/test_31_extra_negative_option_disabled.sv): シミュレーションで31.9.4-EXTRACT-NEGATIVE-OPTION-DISABLEDを観測する。The $setuphold has the negative setup limit -3 and names dclk and dd as delayed reference and data, but the run has no negative timing check option. The expected line t=10 clk=1 dclk=1 shows the copy dclk already high in the same time step as clk, and t=12 d=1 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-32.2-EXTRACT-BACKANNOTATION
 

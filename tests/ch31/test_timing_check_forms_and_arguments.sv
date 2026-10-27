@@ -3,7 +3,7 @@
 :description: All twelve timing checks are accepted in a specify block with their events and limits in order and with their optional notifier, condition, delayed-signal and flag arguments given, left empty or left out (IEEE 1800-2023 Section 31.2)
 :tags: ch31
 :type: simulation
-:lrm: 1800-2023 31.2
+:lrm: 1800-2023 31.2 31.6
 :oracle: spec iverilog@13.0 verilator@5.052
 :spec_check: ai
 :fourstate: no

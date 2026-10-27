@@ -3,7 +3,7 @@
 :description: Module port connection with complex expressions
 :tags: ch23
 :type: simulation
-:lrm: 1800-2023 23.3.3 10.3.2
+:lrm: 1800-2023 23.3.3 23.3.3.1 10.3.2
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no

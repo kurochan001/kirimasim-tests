@@ -9876,8 +9876,8 @@
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
-      "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
-      "reviewed_on": "2026-10-23",
+      "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+      "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
@@ -9924,8 +9924,8 @@
     },
     {
       "test": "tests/ch22/test_include_guard_two_files.sv",
-      "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
-      "reviewed_on": "2026-10-23",
+      "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+      "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
@@ -45623,8 +45623,8 @@
     },
     {
       "test": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
-      "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
-      "reviewed_on": "2026-10-26",
+      "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+      "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
@@ -48782,8 +48782,8 @@
     },
     {
       "test": "tests/ch31/test_timing_check_forms_and_arguments.sv",
-      "inputs_sha256": "29eea4a78fffd88ed4dc9c976c8637de57699dea1d329ae772dda3f25dbba656",
-      "reviewed_on": "2026-10-26",
+      "inputs_sha256": "ec3e39e67463907178cbef14a125ee3bf829730b447684831d6eb854270904d2",
+      "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [

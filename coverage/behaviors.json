@@ -224653,9 +224653,9 @@
         {
           "test": "tests/ch22/test_directive_macro_expansion_not_in_comments_or_strings.sv",
           "observation": "`include のファイル名をマクロ LEX_INCLUDE_FILE で与えて LEX_FROM_INCLUDE=7 を読み込み、`timescale の単位と精度をマクロ LEX_UNIT/LEX_PREC（10ns/1ns）で与えて #1 が 10 ns になることを表示する。ブロックコメント内の `define、行コメント内の `undef、文字列リテラル内の `undef がどれも処理されないことを `ifdef で表示し、文字列は `undef LEX_KEEP_S のまま印字する。 区別: 指令の中でマクロを展開しない実装は `include や `timescale でエラーになるか 10 ns の行が変わる。コメントや文字列の中の指令を認識する実装では block comment/line comment/string の行が processed になり、文字列の印字内容も変わる。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
+          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
           "evidence": [
             {
               "file": "tests/ch22/test_directive_macro_expansion_not_in_comments_or_strings.sv",
@@ -224709,7 +224709,29 @@
       "acceptance": "A directive in active conditional text or used macro text is processed there; otherwise a directive cannot occur inside another directive, with macro uses not counted as directives.",
       "source_note": "IEEE 1800-2023 22.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_directive_nesting.sv",
+          "observation": "違法系の設計を拒否で22.2-EXTRACT-DIRECTIVE-NESTINGを観測する。The only text after the first `include on its line is a second `include, in the position where the file name of the outer directive belongs. Both simulators reject the design at that directive line, so a directive placed in the middle of another directive is n 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "96df97db289bdbd6b51c2492da61d6a9ea9ada90b1795278a8e5107d01da6c3f",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_directive_nesting.sv",
+              "contains": ":name: test_22_extra_directive_nesting"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_directive_nesting.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_directive_nesting.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.2",
@@ -224771,9 +224793,9 @@
         {
           "test": "tests/ch22/test_directive_scope_across_include_until_superseded.sv",
           "observation": "` で始まる `timescale と `define の効果を、定義位置の異なる 3 つのモジュールの #1 の長さと SCOPE_VALUE で観測する。1ns/1 の後の scope_first は 1 ns・1、include したファイルの中の `timescale 1us と再定義 2 はそのファイルの終わりの後の scope_included にも効いて 1000 ns・2、後の `timescale 100ns と再定義 3 がそれを置き換えて scope_superseded は 100 ns・3。 区別: 指令の効果を include したファイルの中だけに限る実装では scope_included の行が 1 ns・1 になる。後の指令で置き換えない実装では scope_superseded の行が 1000 ns・2 になり、表示の順序も変わる。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
+          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
           "evidence": [
             {
               "file": "tests/ch22/test_directive_scope_across_include_until_superseded.sv",
@@ -224872,9 +224894,9 @@
         {
           "test": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
           "observation": "`resetall の前に `default_nettype tri0、`unconnected_drive pull1、`celldefine を置き、`define と `include でマクロを定義する。`resetall の前に定義したモジュールは開放入力が 1、暗黙ネットが z だけで 0、インスタンスが cell（vpiCellInstance 1）、後に定義したモジュールは開放入力 z、暗黙ネット z、cell でない（0）。マクロ 2 つは値を保ち、`undef したものは未定義のまま。 区別: 既定値を持つ指令を戻さない実装では after の行が 1/0/cell instance 1 のままになる。既定値を持たない `define を `resetall で消す実装では width 4 や 9 の行がエラーになり、`undef したマクロを戻す実装では undefined の行が defined になる。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
+          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
           "evidence": [
             {
               "file": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
@@ -224990,9 +225012,9 @@
         {
           "test": "tests/ch22/test_illegal_include_absolute_path_not_searched.sv",
           "observation": "`include \"include_absolute_only_helper.svh\" は合法、`include \"/kirimasim_no_such_dir/include_absolute_only_helper.svh\"（30 行目）が誤り。:expected_stderr_regex: が 30 行目を照合する。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
+          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
           "evidence": [
             {
               "file": "tests/ch22/test_illegal_include_absolute_path_not_searched.sv",
@@ -225060,9 +225082,9 @@
         {
           "test": "tests/ch22/test_illegal_include_line_trailing_code.sv",
           "observation": "1 つ目の `include の後には行コメントだけを置き（合法）、2 つ目の `include の後の同じ行に localparam 宣言を置く（25 行目）。インクルードファイルはガードで 2 回目に何も宣言しないので、他の誤りは無い。:expected_stderr_regex: は 25 行目を照合する。 区別: `include の行に空白とコメント以外を許す実装は宣言を受け付けて設計を受理する（Verilator 5.052）のでテストが失敗する。コメントまで拒む実装は 23 行目でもエラーを出すが、25 行目の照合は変わらない。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
+          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
           "evidence": [
             {
               "file": "tests/ch22/test_illegal_include_line_trailing_code.sv",
@@ -225215,9 +225237,9 @@
         {
           "test": "tests/ch22/test_include_file_declarations.sv",
           "observation": "include先のtypedefとfunctionを宣言位置へ挿入し、両memberと関数結果を確認する。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
+          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
           "evidence": [
             {
               "file": "tests/ch22/test_include_file_declarations.sv",
@@ -225249,9 +225271,9 @@
         {
           "test": "tests/ch22/test_include_guard_twice.sv",
           "observation": "同じincludeを2回読み、guardによりparameterが重複せずdepth6とguard定義を観測する。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
+          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
           "evidence": [
             {
               "file": "tests/ch22/test_include_guard_twice.sv",
@@ -225266,9 +225288,9 @@
         {
           "test": "tests/ch22/test_include_guard_two_files.sv",
           "observation": "main/helperの両ファイルで同じinclude由来macro7が使え、3倍21を両方で観測する。compilation unitの構成は固定しない。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
+          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
           "evidence": [
             {
               "file": "tests/ch22/test_include_guard_two_files.sv",
@@ -225283,9 +225305,9 @@
         {
           "test": "tests/ch22/test_include_nested.sv",
           "observation": "outerがincludeするinnerのparameter5とouterの計算値10を両方確認する。",
-          "reviewed_on": "2026-10-23",
+          "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
+          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
           "evidence": [
             {
               "file": "tests/ch22/test_include_nested.sv",
@@ -225349,7 +225371,25 @@
       "acceptance": "include accepts a quoted or angle-bracket filename and may occur anywhere in source subject to its line restriction.",
       "source_note": "IEEE 1800-2023 22.4; complete own-body source review, blocks B004, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_include_syntax.sv",
+          "observation": "シミュレーションで22.4-EXTRACT-INCLUDE-SYNTAXを観測する。The design uses `include \"file\" on a line of its own before the module and between the items of the module, and `include <file> before the module. The included files supply the macro QUOTED_WIDTH, the macro ANGLE_NAME and the localparam BODY_VALUE, and the pri 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_include_syntax.sv",
+              "contains": ":name: test_22_extra_include_syntax"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_include_syntax.expected",
+              "contains": "width=5 name=angle body=3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.4",
@@ -225372,9 +225412,9 @@
         {
           "test": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
           "observation": "`resetall の前に `define RESETALL_KEEP_WIDTH 4、`define と `undef の RESETALL_GONE、include したファイルの `define RESETALL_FROM_INCLUDE 9 を置き、`resetall の後のモジュールで $bits を 4、RESETALL_GONE を undefined、RESETALL_FROM_INCLUDE を 9 と表示する。 区別: `resetall でテキストマクロを消す実装では `RESETALL_KEEP_WIDTH と `RESETALL_FROM_INCLUDE が未定義になりエラーになる。マクロの状態を戻す実装（undef を取り消す）では undefined の行が defined に変わる。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
+          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
           "evidence": [
             {
               "file": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
@@ -225469,7 +225509,29 @@
       "acceptance": "Actuals and defaults cannot contain comma/right-parenthesis delimiters outside matched parentheses, brackets, braces, double/triple quoted strings or an escaped identifier.",
       "source_note": "IEEE 1800-2023 22.5.1; complete own-body source review, blocks B035. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_macro_argument_delimiters.sv",
+          "observation": "違法系の設計を拒否で22.5.1-EXTRACT-MACRO-ARGUMENT-DELIMITERSを観測する。The first actual argument of `ADD is \"(1 + 2, 3\": the comma stands inside a left parenthesis that has no matching right parenthesis inside the actual, so it is not an argument separator and the parenthesis after 3 closes the actual. One actual is then given fo 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "bba8bd756c773b866609b454bb88c11bb44d2cca72828f475bc61a898c4ed65f",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_macro_argument_delimiters.sv",
+              "contains": ":name: test_22_extra_macro_argument_delimiters"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_macro_argument_delimiters.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_macro_argument_delimiters.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.5.1",
@@ -226354,7 +226416,29 @@
       "acceptance": "Formal parentheses immediately follow a simple macro name without whitespace; an escaped name requires exactly its one terminating whitespace before the parenthesis.",
       "source_note": "IEEE 1800-2023 22.5.1; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_macro_formal_spacing.sv",
+          "observation": "違法系の設計を拒否で22.5.1-EXTRACT-MACRO-FORMAL-SPACINGを観測する。`define SHOW (x) $display(x); puts white space between the simple macro name and the parenthesis, so SHOW has no formal arguments and its text begins with \"(x) $display(x);\". The use `SHOW(7) substitutes that text and appends the actual list, which is not a st 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "55df0164184c76bb8ea9c96338337a4bb99826e0e8225485e77e9475fdf6dc0c",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_macro_formal_spacing.sv",
+              "contains": ":name: test_22_extra_macro_formal_spacing"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_macro_formal_spacing.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_macro_formal_spacing.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.5.1",
@@ -226604,7 +226688,29 @@
       "acceptance": "A macro name may be a simple or escaped identifier but shall not redefine a compiler directive keyword.",
       "source_note": "IEEE 1800-2023 22.5.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_macro_name.sv",
+          "observation": "違法系の設計を拒否で22.5.1-EXTRACT-MACRO-NAMEを観測する。`define define 1 tries to make the compiler directive keyword define a text macro name, which 22.5.1 forbids. Icarus Verilog rejects it at the directive line and Verilator rejects it as \"Attempting to define built-in directive\". 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "54b2168debefa70b58387e81c5e2f0488f530253c9295ef8fd198268d55477bd",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_macro_name.sv",
+              "contains": ":name: test_22_extra_macro_name"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_macro_name.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_macro_name.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.5.1",
@@ -226622,7 +226728,25 @@
       "acceptance": "Ordinary identifiers may reuse directive or macro spellings; macro names cannot be directive keywords; redefining a macro is permitted and the latest read definition governs later uses.",
       "source_note": "IEEE 1800-2023 22.5.1; complete own-body source review, blocks B060. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_macro_namespace.sv",
+          "observation": "シミュレーションで22.5.1-EXTRACT-MACRO-NAMESPACEを観測する。The module declares variables named define, resetall, timescale and celldefine, which is legal because compiler directive keywords are not part of the normal keyword set. VALUE is both a variable (5) and a macro; first keeps 11 from the first definition while 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7ccaaf950e761010b077ef5bb8a532a8ae7628595786dac0f99b7769b23fbc5b",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_macro_namespace.sv",
+              "contains": ":name: test_22_extra_macro_namespace"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_macro_namespace.expected",
+              "contains": "directive names: 1 2 3 4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.5.1",
@@ -226728,7 +226852,29 @@
       "acceptance": "Macro replacement text shall not split comments, numbers, string literals, identifiers, keywords or operators across lexical tokens.",
       "source_note": "IEEE 1800-2023 22.5.1; complete own-body source review, blocks B052. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_macro_no_split.sv",
+          "observation": "違法系の設計を拒否で22.5.1-EXTRACT-MACRO-NO-SPLITを観測する。The macro text opens a string literal that it does not close, and the rest of the literal follows the macro use. That is the standard's own example of text split across a string literal. Verilator 5.052 rejects the unterminated string in the definition and doe 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9163ce8c25cfd199100c30f0c5f13edda256dd122d7093c69ff4ac00a13e3ade",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_macro_no_split.sv",
+              "contains": ":name: test_22_extra_macro_no_split"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_macro_no_split.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_macro_no_split.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.5.1",
@@ -228644,7 +228790,29 @@
       "acceptance": "unconnected_drive pull1/pull0 pulls otherwise unconnected input ports of following modules, programs and interfaces up/down until superseded by either drive directive; directives shall be outside design elements.",
       "source_note": "IEEE 1800-2023 22.9; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_illegal_unconnected_drive_inside_module.sv",
+          "observation": "違法系の設計を拒否で22.9-EXTRACT-UNCONNECTED-PULLを観測する。`unconnected_drive pull1 placed between the items of a module is rejected by both simulators at that line, which is the clause's \"These directives shall be specified outside the design element declarations\". The pull-up and pull-down behaviour of the directive 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a75414ba7f4da59636f6c4befc9739a24930fd93888a5e0782738e54440b3adb",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_illegal_unconnected_drive_inside_module.sv",
+              "contains": ":name: test_illegal_unconnected_drive_inside_module"
+            },
+            {
+              "file": "tests/ch22/test_illegal_unconnected_drive_inside_module.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch22/test_illegal_unconnected_drive_inside_module.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.9",
@@ -228985,7 +229153,29 @@
       "acceptance": "line requires a positive integer line number, string-literal absolute/relative filename and level 0/1/2, meaning ordinary line/include entry/include exit respectively.",
       "source_note": "IEEE 1800-2023 22.12; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_line_arguments.sv",
+          "observation": "違法系の設計を拒否で22.12-EXTRACT-LINE-ARGUMENTSを観測する。`line 20 \"line_arguments_target.sv\" 3 gives a positive line number and a string-literal file name, but a level of 3 where 22.12 allows only 0, 1 and 2. Both simulators reject the design at the directive line. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43033c04f479ce93679f6188a3f85451c824be82e64cae797ba10909f406ff60",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_line_arguments.sv",
+              "contains": ":name: test_22_extra_line_arguments"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_line_arguments.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_line_arguments.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.12",
@@ -229003,7 +229193,29 @@
       "acceptance": "Compilers maintain current filename/line; line sets the following line location, takes all three required arguments, may occur anywhere, allows only whitespace on its line, forbids same-line comments, and survives resetall.",
       "source_note": "IEEE 1800-2023 22.12; complete own-body source review, blocks B005, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_illegal_line_directive_trailing_comment.sv",
+          "observation": "違法系の設計を拒否で22.12-EXTRACT-LINE-DIRECTIVEを観測する。The design puts a // comment on the same line as a `line directive, which 22.12 forbids, and the expected result is the rejection at that line or at the location the directive names. Both simulators accept the design, so this is a spec-oracle test and is repor 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "33e205cd5e9bc7a759ba4ccfae036543d0ec77eb0774a2ce6aec6324c4b5fcc6",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_illegal_line_directive_trailing_comment.sv",
+              "contains": ":name: test_illegal_line_directive_trailing_comment"
+            },
+            {
+              "file": "tests/ch22/test_illegal_line_directive_trailing_comment.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch22/test_illegal_line_directive_trailing_comment.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.12",
@@ -229040,7 +229252,25 @@
       "acceptance": "Compilers increment location per line, start files at line 1 and store/restore parent locations across includes; updated locations are PLI-accessible and line does not alter library search.",
       "source_note": "IEEE 1800-2023 22.12; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_file_line_across_include.sv",
+          "observation": "シミュレーションで22.12-EXTRACT-LINE-TRACKINGを観測する。An included file reports its line as 3 although it is the third line of that file, so a file starts at line 1 and the number is incremented per line; after the include the including file reports the line after the `include and the same file name as before, whi 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "09431152c93b5b593405cc018d1f85f5384d348386197f38658c8136e5e078d3",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_file_line_across_include.sv",
+              "contains": ":name: test_file_line_across_include"
+            },
+            {
+              "file": "tests/ch22/test_file_line_across_include.expected",
+              "contains": "inner: line=3 ends with loc_inner.svh=1 contains include_loc_ch22=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.12",
@@ -229062,9 +229292,9 @@
         {
           "test": "tests/ch22/test_file_line_across_include.sv",
           "observation": "include ディレクトリ include_loc_ch22 から見つけた loc_inner.svh 内の `__FILE__ は、`include に書いた短い名前 loc_inner.svh だけでなく、開いたパスとして include_loc_ch22 を含み loc_inner.svh で終わる文字列リテラルになる。外側の `__FILE__ はこのファイル名で終わる。パスの書式は実装依存のため、末尾と部分文字列だけを判定する。 区別: `__FILE__ を `include の短い綴りにする実装では contains include_loc_ch22=0 に、ファイル名を返さない実装では ends with が 0 になる。文字列リテラルとして展開しない実装は string への代入がコンパイルできない。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "6b1f49ded970f2c5122555016c144b6e4b12ee8f5459753e30038b7ecf8c47e4",
+          "inputs_sha256": "09431152c93b5b593405cc018d1f85f5384d348386197f38658c8136e5e078d3",
           "evidence": [
             {
               "file": "tests/ch22/include_loc_ch22/loc_inner.svh",
@@ -229106,9 +229336,9 @@
         {
           "test": "tests/ch22/test_file_line_across_include.sv",
           "observation": "28行目の `__LINE__ は 28、29行目の `include で読む loc_inner.svh の3行目の `__LINE__ は 3(含まれるファイルの行)、その `__FILE__ は loc_inner.svh で終わる。include 後の30行目では `__LINE__ が 30(include 行+1)に戻り、`__FILE__ は include 前と同じ外側のファイル名に戻る。 区別: include 中も外側の行・ファイルのままにする実装では inner の line や ends with が変わり、戻った後に行番号を含まれるファイルの行数分ずらす・+1しない・ファイル名を戻さない実装では after line=30 や same after include=1 が変わる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "6b1f49ded970f2c5122555016c144b6e4b12ee8f5459753e30038b7ecf8c47e4",
+          "inputs_sha256": "09431152c93b5b593405cc018d1f85f5384d348386197f38658c8136e5e078d3",
           "evidence": [
             {
               "file": "tests/ch22/test_file_line_across_include.sv",
@@ -229375,9 +229605,9 @@
         {
           "test": "tests/ch22/test_illegal_begin_keywords_spans_include_boundary.sv",
           "observation": "インクルードファイルに `begin_keywords \"1364-2005\" だけがあり、インクルード後のモジュールの logic x;（31 行目）が誤り。対の `end_keywords はこのファイルにある。:expected_stderr_regex: が 31 行目を照合する。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
+          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
           "evidence": [
             {
               "file": "tests/ch22/begin_keywords_1364_2005_helper.svh",
@@ -236950,7 +237180,25 @@
       "acceptance": "Keyword mode 1364-2001-noconfig excludes endconfig from the reserved set.",
       "source_note": "IEEE 1800-2023 22.14.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_noconfig_excluded.sv",
+          "observation": "シミュレーションで22.14.4-EXTRACT-EXCLUDE-ENDCONFIGを観測する。Inside `begin_keywords \"1364-2001-noconfig\" the module declares variables named endconfig, incdir, include, instance, liblist and use, initializes them to 1 to 6 and prints them, so all six are ordinary identifiers in that region. The same declaration of inclu 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a00e7dc1d77f580db593c278134ab3c25e5bbd3297bd0e9791c15cb306527d6f",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_noconfig_excluded.sv",
+              "contains": ":name: test_22_extra_noconfig_excluded"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_noconfig_excluded.expected",
+              "contains": "endconfig=1 incdir=2 include=3 instance=4 liblist=5 use=6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.14.4",
@@ -236968,7 +237216,25 @@
       "acceptance": "Keyword mode 1364-2001-noconfig excludes incdir from the reserved set.",
       "source_note": "IEEE 1800-2023 22.14.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_noconfig_excluded.sv",
+          "observation": "シミュレーションで22.14.4-EXTRACT-EXCLUDE-INCDIRを観測する。Inside `begin_keywords \"1364-2001-noconfig\" the module declares variables named endconfig, incdir, include, instance, liblist and use, initializes them to 1 to 6 and prints them, so all six are ordinary identifiers in that region. The same declaration of inclu 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a00e7dc1d77f580db593c278134ab3c25e5bbd3297bd0e9791c15cb306527d6f",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_noconfig_excluded.sv",
+              "contains": ":name: test_22_extra_noconfig_excluded"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_noconfig_excluded.expected",
+              "contains": "endconfig=1 incdir=2 include=3 instance=4 liblist=5 use=6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.14.4",
@@ -236986,7 +237252,25 @@
       "acceptance": "Keyword mode 1364-2001-noconfig excludes include from the reserved set.",
       "source_note": "IEEE 1800-2023 22.14.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_noconfig_excluded.sv",
+          "observation": "シミュレーションで22.14.4-EXTRACT-EXCLUDE-INCLUDEを観測する。Inside `begin_keywords \"1364-2001-noconfig\" the module declares variables named endconfig, incdir, include, instance, liblist and use, initializes them to 1 to 6 and prints them, so all six are ordinary identifiers in that region. The same declaration of inclu 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a00e7dc1d77f580db593c278134ab3c25e5bbd3297bd0e9791c15cb306527d6f",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_noconfig_excluded.sv",
+              "contains": ":name: test_22_extra_noconfig_excluded"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_noconfig_excluded.expected",
+              "contains": "endconfig=1 incdir=2 include=3 instance=4 liblist=5 use=6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.14.4",
@@ -237004,7 +237288,25 @@
       "acceptance": "Keyword mode 1364-2001-noconfig excludes instance from the reserved set.",
       "source_note": "IEEE 1800-2023 22.14.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_noconfig_excluded.sv",
+          "observation": "シミュレーションで22.14.4-EXTRACT-EXCLUDE-INSTANCEを観測する。Inside `begin_keywords \"1364-2001-noconfig\" the module declares variables named endconfig, incdir, include, instance, liblist and use, initializes them to 1 to 6 and prints them, so all six are ordinary identifiers in that region. The same declaration of inclu 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a00e7dc1d77f580db593c278134ab3c25e5bbd3297bd0e9791c15cb306527d6f",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_noconfig_excluded.sv",
+              "contains": ":name: test_22_extra_noconfig_excluded"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_noconfig_excluded.expected",
+              "contains": "endconfig=1 incdir=2 include=3 instance=4 liblist=5 use=6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.14.4",
@@ -237022,7 +237324,25 @@
       "acceptance": "Keyword mode 1364-2001-noconfig excludes liblist from the reserved set.",
       "source_note": "IEEE 1800-2023 22.14.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_noconfig_excluded.sv",
+          "observation": "シミュレーションで22.14.4-EXTRACT-EXCLUDE-LIBLISTを観測する。Inside `begin_keywords \"1364-2001-noconfig\" the module declares variables named endconfig, incdir, include, instance, liblist and use, initializes them to 1 to 6 and prints them, so all six are ordinary identifiers in that region. The same declaration of inclu 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a00e7dc1d77f580db593c278134ab3c25e5bbd3297bd0e9791c15cb306527d6f",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_noconfig_excluded.sv",
+              "contains": ":name: test_22_extra_noconfig_excluded"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_noconfig_excluded.expected",
+              "contains": "endconfig=1 incdir=2 include=3 instance=4 liblist=5 use=6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.14.4",
@@ -237076,7 +237396,25 @@
       "acceptance": "Keyword mode 1364-2001-noconfig excludes use from the reserved set.",
       "source_note": "IEEE 1800-2023 22.14.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_noconfig_excluded.sv",
+          "observation": "シミュレーションで22.14.4-EXTRACT-EXCLUDE-USEを観測する。Inside `begin_keywords \"1364-2001-noconfig\" the module declares variables named endconfig, incdir, include, instance, liblist and use, initializes them to 1 to 6 and prints them, so all six are ordinary identifiers in that region. The same declaration of inclu 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a00e7dc1d77f580db593c278134ab3c25e5bbd3297bd0e9791c15cb306527d6f",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_noconfig_excluded.sv",
+              "contains": ":name: test_22_extra_noconfig_excluded"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_noconfig_excluded.expected",
+              "contains": "endconfig=1 incdir=2 include=3 instance=4 liblist=5 use=6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.14.4",
@@ -237152,7 +237490,29 @@
       "acceptance": "Inside a begin_keywords \"1364-2005\" region, using any keyword of the 1364-2005 set as an unescaped simple identifier is rejected with an error at that use.",
       "source_note": "IEEE 1800-2023 22.14.5; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Recast on 2026-10-24 as its observable error case (5.6, 22.14); identifiers outside the selected set and escaped spellings (5.6.1) are separate requirements.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_22_extra_keyword_1364_2005.sv",
+          "observation": "違法系の設計を拒否で22.14.5-EXTRACT-VERSION-SETを観測する。uwire is the only identifier that Table 22-3 adds to the 1364-2005 keyword set. Used as an unescaped declaration name inside a `begin_keywords \"1364-2005\" region, it is rejected by both simulators at the declaration line, which shows that the region reserves t 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b6f49e8cc6fd3d1d0a9636b914a33ea836cef8d5ccbd9e83cf250948f539a3c2",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_keyword_1364_2005.sv",
+              "contains": ":name: test_22_extra_keyword_1364_2005"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_keyword_1364_2005.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch22/test_22_extra_keyword_1364_2005.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.14.5",
@@ -243125,7 +243485,29 @@
       "acceptance": "Signedness on either port or corresponding net/variable declaration makes both signed; signed is illegal for interconnect ports.",
       "source_note": "IEEE 1800-2023 23.2.2.1; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_signed_interconnect.sv",
+          "observation": "違法系の設計を拒否で23.2.2.1-EXTRACT-NONANSI-SIGNEDを観測する。The inout port io of si is declared without a net type and then declared as interconnect signed [3:0]; the second declaration attaches signed to an interconnect port, which 23.2.2.1 forbids, so the test expects rejection at that line. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f270cfe0e0b21ef0f039d9f1383e9c389bb5d2f06c9cf00605553eae4d41415b",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_signed_interconnect.sv",
+              "contains": ":name: test_23_extra_signed_interconnect"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_signed_interconnect.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_signed_interconnect.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.2.2.1",
@@ -243143,7 +243525,29 @@
       "acceptance": "A port lacking net/variable type may receive a separate net/variable declaration with identical vector range; another port declaration or data-type declaration for that name is prohibited.",
       "source_note": "IEEE 1800-2023 23.2.2.1; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_illegal_nonansi_second_port_declaration.sv",
+          "observation": "違法系の設計を拒否で23.2.2.1-EXTRACT-NONANSI-SPLIT-DECLARATIONを観測する。ni_twice declares a without a type and repeats its range in a separate wire declaration, declares v similarly with logic, and then declares y first as input and again as output; the legal separate declarations and the forbidden second port declaration are both 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c00fccd7d49ecbec45ea28f1116a8ef20d9f1a492b7718e89e36504079e6e4c7",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_illegal_nonansi_second_port_declaration.sv",
+              "contains": ":name: test_illegal_nonansi_second_port_declaration"
+            },
+            {
+              "file": "tests/ch23/test_illegal_nonansi_second_port_declaration.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch23/test_illegal_nonansi_second_port_declaration.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.2.2.1",
@@ -243482,7 +243886,29 @@
       "acceptance": "An explicitly named port expression is self-determined rather than an assignment-like context and must be legal for the port kind; omission denotes no internal connection.",
       "source_note": "IEEE 1800-2023 23.2.2.2; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_ansi_portexpr.sv",
+          "observation": "違法系の設計を拒否で23.2.2.2-EXTRACT-ANSI-PORT-EXPRESSIONを観測する。The ANSI header of pe declares output .P(a + b); a + b is an arithmetic expression, not a net or variable that an output port can drive, so 23.2.2.2 and 23.3.3.3 make the design illegal. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "98c647a0061bb9fe35bf37c654a0818f8eb7a9d7006f89e89ea0e3ec47f023af",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_ansi_portexpr.sv",
+              "contains": ":name: test_23_extra_ansi_portexpr"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_ansi_portexpr.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_ansi_portexpr.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.2.2.2",
@@ -243566,7 +243992,29 @@
       "acceptance": "External port identifiers have a namespace per port list; a simple port item also references the interface item, and duplicate definitions of an external port name are forbidden.",
       "source_note": "IEEE 1800-2023 23.2.2.2; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_duplicate_port_name.sv",
+          "observation": "違法系の設計を拒否で23.2.2.2-EXTRACT-ANSI-PORT-NAMESPACEを観測する。The header dp(input logic a, input logic a) defines the external port name a twice in one port list; 23.2.2.2 gives each port list its own namespace and forbids a second definition of the same name, so elaboration must reject the second declaration. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ad348ec64e0241e7ddbb944005082415ea7461ac1fe9e22311635b386ac14378",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_duplicate_port_name.sv",
+              "contains": ":name: test_23_extra_duplicate_port_name"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_duplicate_port_name.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_duplicate_port_name.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.2.2.2",
@@ -243584,7 +244032,29 @@
       "acceptance": "Generic interface ports require ANSI port-declaration syntax and cannot use non-ANSI port lists.",
       "source_note": "IEEE 1800-2023 23.2.2.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_generic_interface_nonansi.sv",
+          "observation": "違法系の設計を拒否で23.2.2.2-EXTRACT-GENERIC-INTERFACE-ANSIを観測する。The header gi(i) is non-ANSI and its body writes interface .mp i, a generic interface with a modport; 23.2.2.2 allows generic interface ports only in an ANSI list of port declarations, so the design is illegal. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43c7237a4c385ece48849e6eb272b13a810720c7eeba6c1d0a66ad3659ea5158",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_generic_interface_nonansi.sv",
+              "contains": ":name: test_23_extra_generic_interface_nonansi"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_generic_interface_nonansi.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_generic_interface_nonansi.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.2.2.2",
@@ -244969,7 +245439,25 @@
       "acceptance": "Explicit module instantiation names the module, optional ordered/named parameter values and one or more named instances with optional unpacked dimensions and mandatory connection parentheses.",
       "source_note": "IEEE 1800-2023 23.3.2; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_instance_grammar.sv",
+          "observation": "シミュレーションで23.3.2-EXTRACT-INSTANCE-GRAMMARを観測する。ig #(.W(2)) i0(...), i1(...) gives one named parameter value assignment to two named instances, and ig arr [1:0](...) adds one unpacked dimension; y0 becomes 3, which checks that i0 is connected and that the statement parameter value reaches it. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a3f6eedf62e5add01e85a8895cf2a841b119ae93a27e68ec8649a3f017b7c574",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_instance_grammar.sv",
+              "contains": ":name: test_23_extra_instance_grammar"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_instance_grammar.expected",
+              "contains": "y0=3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.2",
@@ -244988,7 +245476,25 @@
       "acceptance": "Instance parameter expressions may be mintypmax expressions, data types or dollar; named parameter assignments may omit their expression.",
       "source_note": "IEEE 1800-2023 23.3.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_param_expressions.sv",
+          "observation": "シミュレーションで23.3.2-EXTRACT-INSTANCE-PARAMETER-EXPRESSIONSを観測する。px #(bit [7:0], 9, 1) gives a data type to T and 9 to W, and px #(.T(shortint), .W(), .D(2)) gives a data type to T and leaves W at 4 through the empty named assignment; the two printed lines are bits=8 W=9 and bits=16 W=4. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e056a80c4b70597875cba9f9ba7a84ff385a5ad461b6b4bd234e104faf9c8762",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_param_expressions.sv",
+              "contains": ":name: test_23_extra_param_expressions"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_param_expressions.expected",
+              "contains": "bits=8 W=9"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.2",
@@ -246262,7 +246768,29 @@
       "acceptance": "A variable input accepts any compatible expression through an implied continuous assignment; assigning the declared input variable is illegal and an unconnected input has its type default initial value.",
       "source_note": "IEEE 1800-2023 23.3.3.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_input_variable_write.sv",
+          "observation": "違法系の設計を拒否で23.3.3.2-EXTRACT-VARIABLE-INPUTを観測する。The always procedure of iv writes a, which is declared input var logic [3:0]; an input variable is fed by the implied continuous assignment and cannot be assigned, so elaboration must reject the write. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce2e42ea07ed7d3273053521711f0fd4d34c8e3a7b01897efb0ed679386bd20",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_input_variable_write.sv",
+              "contains": ":name: test_23_extra_input_variable_write"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_input_variable_write.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_input_variable_write.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.2",
@@ -246397,7 +246925,29 @@
       "acceptance": "Ref requires an equivalent-type connected variable and treats accesses as hierarchical references; it cannot be unconnected.",
       "source_note": "IEEE 1800-2023 23.3.3.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_ref_type_mismatch.sv",
+          "observation": "違法系の設計を拒否で23.3.3.2-EXTRACT-VARIABLE-REFを観測する。rf has ref int r and the instance connects it to the 4-bit logic variable v; the connected object has a type that is not equivalent to int, so 23.3.3.2 makes the connection illegal. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f9b76a9f28faf8151b482b636513e17fb0b35f5e066e9731bd3ae659d5a575fe",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_ref_type_mismatch.sv",
+              "contains": ":name: test_23_extra_ref_type_mismatch"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_ref_type_mismatch.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_ref_type_mismatch.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.2",
@@ -246690,7 +247240,29 @@
       "acceptance": "Packed connections distribute part-selects from all right-hand instance indices, varying the rightmost dimension first; too many/few total bits is an error.",
       "source_note": "IEEE 1800-2023 23.3.3.5; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_instance_packed_bits.sv",
+          "observation": "違法系の設計を拒否で23.3.3.5-EXTRACT-INSTANCE-PACKED-DISTRIBUTIONを観測する。ip u[3:0](s) has four instances of an 8-bit input port and the packed connection s has 16 bits; 23.3.3.5 requires 32 bits for all instances, so the too-few connection is an error. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "47d35cfd2d4bab3ee936023442c5a8c21bb8dacb1e6e90f574c5a38d607e5f34",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_instance_packed_bits.sv",
+              "contains": ":name: test_23_extra_instance_packed_bits"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_instance_packed_bits.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_instance_packed_bits.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.5",
@@ -246708,7 +247280,29 @@
       "acceptance": "Otherwise, an unpacked connection outermost dimensions shall exactly match the instance-array sizes and map left-to-left/right-to-right; mismatches are errors.",
       "source_note": "IEEE 1800-2023 23.3.3.5; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_instance_unpacked_dims.sv",
+          "observation": "違法系の設計を拒否で23.3.3.5-EXTRACT-INSTANCE-UNPACKED-DISTRIBUTIONを観測する。iu u[8][4](a) has an instance array [8][4] and the unpacked connection a is [4][8]; the slowest-varying dimensions do not match, so 23.3.3.5 makes the connection an error. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "dc3ab959e51642caebcb4e880274b883568adbe8e79e7242481708fb4d47e6ce",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_instance_unpacked_dims.sv",
+              "contains": ":name: test_23_extra_instance_unpacked_dims"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_instance_unpacked_dims.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_instance_unpacked_dims.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.5",
@@ -248951,7 +249545,25 @@
       "acceptance": "For internal uwire and external wire/tri, Table 23-1 selects the internal net type.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B015, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_uwire_dominates.sv",
+          "observation": "シミュレーションで23.3.3.7-EXTRACT-COLLAPSE-6-0を観測する。An internal uwire #3 is connected in turn to an external wire #7 and an external uwire #7; the merged net reads 011100 (delay 3) for the wire, so Table 23-1 selects the internal type for cell 6-0, and 001110 (delay 7) for the uwire, so it selects the external 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "96430a3be81357347261f6c99a805dfe57a4c63de5ebecfcabc3dcffd61c6e0f",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_uwire_dominates.sv",
+              "contains": ":name: test_23_extra_uwire_dominates"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_uwire_dominates.expected",
+              "contains": "uwire inside, wire outside:  011100"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -248970,7 +249582,25 @@
       "acceptance": "For internal uwire and external wand/triand, Table 23-1 selects the internal net type. A warning shall be issued.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B015, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_uwire_warn.sv",
+          "observation": "シミュレーションで23.3.3.7-EXTRACT-COLLAPSE-6-1を観測する。An internal uwire #3 is connected in turn to an external wand #7 and an external wor #7; for cell 6-1 and cell 6-2 Table 23-1 selects the internal uwire and requires a warning, so both merged nets read 011100 (delay 3) and the test requires a warning. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d80acb927d16857fe18c1f3f05538542666cf1b017cf981bc19f515c2d340c3d",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_uwire_warn.sv",
+              "contains": ":name: test_23_extra_uwire_warn"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_uwire_warn.expected",
+              "contains": "uwire inside, wand outside: 011100"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -248989,7 +249619,25 @@
       "acceptance": "For internal uwire and external wor/trior, Table 23-1 selects the internal net type. A warning shall be issued.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B015, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_uwire_warn.sv",
+          "observation": "シミュレーションで23.3.3.7-EXTRACT-COLLAPSE-6-2を観測する。An internal uwire #3 is connected in turn to an external wand #7 and an external wor #7; for cell 6-1 and cell 6-2 Table 23-1 selects the internal uwire and requires a warning, so both merged nets read 011100 (delay 3) and the test requires a warning. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d80acb927d16857fe18c1f3f05538542666cf1b017cf981bc19f515c2d340c3d",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_uwire_warn.sv",
+              "contains": ":name: test_23_extra_uwire_warn"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_uwire_warn.expected",
+              "contains": "uwire inside, wand outside: 011100"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -249131,7 +249779,25 @@
       "acceptance": "For internal uwire and external uwire, Table 23-1 selects the external net type.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B015, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_uwire_dominates.sv",
+          "observation": "シミュレーションで23.3.3.7-EXTRACT-COLLAPSE-6-6を観測する。An internal uwire #3 is connected in turn to an external wire #7 and an external uwire #7; the merged net reads 011100 (delay 3) for the wire, so Table 23-1 selects the internal type for cell 6-0, and 001110 (delay 7) for the uwire, so it selects the external 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "96430a3be81357347261f6c99a805dfe57a4c63de5ebecfcabc3dcffd61c6e0f",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_uwire_dominates.sv",
+              "contains": ":name: test_23_extra_uwire_dominates"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_uwire_dominates.expected",
+              "contains": "uwire inside, wire outside:  011100"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -250507,7 +251173,29 @@
       "acceptance": "Extern module declarations are visible only at their declaring hierarchy level and must match actual port/parameter names, positions and equivalent types.",
       "source_note": "IEEE 1800-2023 23.5; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_illegal_extern_module_port_mismatch.sv",
+          "observation": "違法系の設計を拒否で23.5-EXTRACT-EXTERN-SCOPE-MATCHを観測する。The extern declaration of m names its port a and the module body names it b; elaboration rejects the mismatch, so the requirement that the extern and actual port lists agree in names and positions is observed. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b87ba30ce6c728bfc0b363addf346a1a159a6f2d1513632c7e995a6caec3e3a0",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_illegal_extern_module_port_mismatch.sv",
+              "contains": ":name: test_illegal_extern_module_port_mismatch"
+            },
+            {
+              "file": "tests/ch23/test_illegal_extern_module_port_mismatch.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch23/test_illegal_extern_module_port_mismatch.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.5",
@@ -251674,7 +252362,25 @@
       "acceptance": "Parameters can be overridden by defparam, instance ordered/named assignments and configurations; defparam wins over an instance parameter assignment.",
       "source_note": "IEEE 1800-2023 23.10; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_parameter_override_type_and_range.sv",
+          "observation": "シミュレーションで23.10-EXTRACT-OVERRIDE-PRECEDENCEを観測する。u3 is instantiated with named values U=8'hF0 and R=4'h1 and then changed by defparam u3.U=2.5 and u3.R=2.7; the printed u3 line shows U as 2.5 and R as 3, so the defparam value wins over the instance parameter assignment. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9c022298579cb1ff212cc731fade0303a404b70b48ebd3447a0cc8e966cd5839",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_parameter_override_type_and_range.sv",
+              "contains": ":name: test_parameter_override_type_and_range"
+            },
+            {
+              "file": "tests/ch23/test_parameter_override_type_and_range.expected",
+              "contains": "u0: U=5/4 R=2/4 T=1/32 S=1/4 SR=1/4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.10",
@@ -251692,7 +252398,25 @@
       "acceptance": "Overridable value/type parameters may occur in parameter ports or body items; if a parameter-port list exists, additional body parameters are local.",
       "source_note": "IEEE 1800-2023 23.10; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_parameter_locations.sv",
+          "observation": "シミュレーションで23.10-EXTRACT-PARAMETER-LOCATIONSを観測する。pl_body #(.A(5)) sets the port-list parameter A to 5; its body parameter B stays 2 and the local C is 7, while pl_items #(11, 22) overrides both body parameters of a module without a parameter port list, so the two lines are A=5 B=2 C=7 and P=11 Q=22. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d74ff977ac028712f7c525c6739018f8bae805f4b42676574278e108f21c209b",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_parameter_locations.sv",
+              "contains": ":name: test_23_extra_parameter_locations"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_parameter_locations.expected",
+              "contains": "A=5 B=2 C=7"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.10",
@@ -252881,7 +253605,25 @@
       "acceptance": "A bound instance behaves as placed at the target scope end: target declarations/imports are visible; already imported wildcard candidates are visible, but bind cannot trigger a wildcard import and unit declarations/imports are invisible.",
       "source_note": "IEEE 1800-2023 23.11; complete own-body source review, blocks B025. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_bind_end_scope.sv",
+          "observation": "シミュレーションで23.11-EXTRACT-BIND-END-SCOPEを観測する。The bind inserts bes_probe into bes_target; the probe reads lvar, a declaration of the target, and pv, a package member that the target already uses through import bes_pkg::*, so it prints x=7 y=6. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9918b8680fcc8c9a56a4b5fb5681ab18ac701ce913d247331798c16aa17e2c91",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_bind_end_scope.sv",
+              "contains": ":name: test_23_extra_bind_end_scope"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_bind_end_scope.expected",
+              "contains": "x=7 y=6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.11",
@@ -253257,7 +253999,29 @@
       "acceptance": "Outside a bound instantiation, its parameters cannot be referenced hierarchically in constant-expression contexts.",
       "source_note": "IEEE 1800-2023 23.11; complete own-body source review, blocks B032. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_23_extra_bound_param_constant.sv",
+          "observation": "違法系の設計を拒否で23.11-EXTRACT-BOUND-CONSTANT-REFERENCEを観測する。The bind inserts bpc_mod b with P=7 under u, and the localparam X then reads test_23_extra_bound_param_constant.u.b.P; 23.11 forbids a hierarchical reference to a bound instance parameter in a constant-expression context, so elaboration must reject the localpa 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "13b3d4f35d606106e3054b16f914911f198fdde7e65c4777ff127abc67665a5a",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_23_extra_bound_param_constant.sv",
+              "contains": ":name: test_23_extra_bound_param_constant"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_bound_param_constant.sv",
+              "contains": ":should_fail_because:"
+            },
+            {
+              "file": "tests/ch23/test_23_extra_bound_param_constant.sv",
+              "contains": ":expected_stderr_regex:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.11",
@@ -291436,9 +292200,9 @@
         {
           "test": "tests/ch31/test_timing_check_forms_and_arguments.sv",
           "observation": "セル tcf_cell の specify に、12種類のタイミングチェック（$setup、$hold、$setuphold、$recovery、$removal、$recrem、$skew、$timeskew、$fullskew、$period、$width、$nochange）を、事象と limit を規定の順に並べて置く。省略可能な引数は、与える形（$setup の notifier、$setuphold の notifier・2つの条件・遅延信号、$timeskew・$fullskew の2つのフラグ、$width の threshold と notifier）、カンマの間を空にする形（$hold の notifier、$setuphold の5つすべて、$recrem の2つの条件）、末尾から省く形（$setup・$removal・$timeskew の limit まで、$width の threshold まで）の3通りを含む。入力は変化しないので違反はなく、期待値は notifiers 0 0。Icarus 13.0 と Verilator 5.052 が受理して一致。 区別: いずれかのタイミングチェックの名前、引数の順序、省略可能な引数の空欄や省略を受け付けない誤実装は設計を拒否し、期待出力の1行が出ないのでテストが失敗する。違反を起こさない刺激なので notifier は0のままで、チェックの評価順などに依存しない。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "29eea4a78fffd88ed4dc9c976c8637de57699dea1d329ae772dda3f25dbba656",
+          "inputs_sha256": "ec3e39e67463907178cbef14a125ee3bf829730b447684831d6eb854270904d2",
           "evidence": [
             {
               "file": "tests/ch31/test_timing_check_forms_and_arguments.sv",
@@ -291519,7 +292283,25 @@
       "acceptance": "Timing events name specify terminals with optional posedge/negedge/edge/edge-list controls and triple-ampersand conditions; controlled events require an event control.",
       "source_note": "IEEE 1800-2023 31.2; complete own-body source review, blocks B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_31_extra_event_grammar.sv",
+          "observation": "シミュレーションで31.2-EXTRACT-TIMING-EVENT-GRAMMARを観測する。The cell writes $setup and $hold events with posedge and negedge plus &&& conditions, $setup events with edge[01] and edge[01, 0x, x1] lists, and $period and $width on a posedge. The design builds and the expected line t=25 clk=0 d=0 en=1 shows it ran to the e 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "87fb6aac116bc7a30fe37c202844739aef63c8509e8fac645ddde9e384493877",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_31_extra_event_grammar.sv",
+              "contains": ":name: test_31_extra_event_grammar"
+            },
+            {
+              "file": "tests/ch31/test_31_extra_event_grammar.expected",
+              "contains": "t=25 clk=0 d=0 en=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.2",
@@ -292468,7 +293250,25 @@
       "acceptance": "For setuphold, the optional delayed data supplies the negative-check delayed data signal.",
       "source_note": "IEEE 1800-2023 31.3.3; complete own-body source review, blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_31_extra_setuphold_negative_limits.sv",
+          "observation": "シミュレーションで31.3.3-EXTRACT-DELAYED-DATAを観測する。The design writes $setuphold(posedge clk, d, -3, 8, , , , dclk, dd) with 1 ns precision, so -3 + 8 = 5 is above one precision unit and the negative limit is accepted; the line t=13 clk=1 dclk=1 d=1 dd=1 q=0 and t=24 q=1 show dclk tracking clk and dd tracking d 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "809b7f21eb1e7ace3037cd4e3222867e1c6a09b2a5a850f7b4aa6284455d1367",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_31_extra_setuphold_negative_limits.sv",
+              "contains": ":name: test_31_extra_setuphold_negative_limits"
+            },
+            {
+              "file": "tests/ch31/test_31_extra_setuphold_negative_limits.expected",
+              "contains": "t=5 clk=0 dclk=0 d=0 dd=0 q=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.3.3",
@@ -292486,7 +293286,25 @@
       "acceptance": "For setuphold, the optional delayed reference supplies the negative-check delayed reference signal.",
       "source_note": "IEEE 1800-2023 31.3.3; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_31_extra_setuphold_negative_limits.sv",
+          "observation": "シミュレーションで31.3.3-EXTRACT-DELAYED-REFERENCEを観測する。The design writes $setuphold(posedge clk, d, -3, 8, , , , dclk, dd) with 1 ns precision, so -3 + 8 = 5 is above one precision unit and the negative limit is accepted; the line t=13 clk=1 dclk=1 d=1 dd=1 q=0 and t=24 q=1 show dclk tracking clk and dd tracking d 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "809b7f21eb1e7ace3037cd4e3222867e1c6a09b2a5a850f7b4aa6284455d1367",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_31_extra_setuphold_negative_limits.sv",
+              "contains": ":name: test_31_extra_setuphold_negative_limits"
+            },
+            {
+              "file": "tests/ch31/test_31_extra_setuphold_negative_limits.expected",
+              "contains": "t=5 clk=0 dclk=0 d=0 dd=0 q=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.3.3",
@@ -292540,7 +293358,25 @@
       "acceptance": "setuphold accepts negative limits under the rules in 31.9.",
       "source_note": "IEEE 1800-2023 31.3.3; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_31_extra_setuphold_negative_limits.sv",
+          "observation": "シミュレーションで31.3.3-EXTRACT-NEGATIVE-LIMITSを観測する。The design writes $setuphold(posedge clk, d, -3, 8, , , , dclk, dd) with 1 ns precision, so -3 + 8 = 5 is above one precision unit and the negative limit is accepted; the line t=13 clk=1 dclk=1 d=1 dd=1 q=0 and t=24 q=1 show dclk tracking clk and dd tracking d 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "809b7f21eb1e7ace3037cd4e3222867e1c6a09b2a5a850f7b4aa6284455d1367",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_31_extra_setuphold_negative_limits.sv",
+              "contains": ":name: test_31_extra_setuphold_negative_limits"
+            },
+            {
+              "file": "tests/ch31/test_31_extra_setuphold_negative_limits.expected",
+              "contains": "t=5 clk=0 dclk=0 d=0 dd=0 q=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.3.3",
@@ -293554,7 +294390,25 @@
       "acceptance": "In recrem, data can timecheck or timestamp for positive recovery limit and timestamps when that limit is negative.",
       "source_note": "IEEE 1800-2023 31.3.6; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_timing_recrem_windows.sv",
+          "observation": "シミュレーションで31.3.6-EXTRACT-DATA-ROLEを観測する。With positive limits the expected violations at 53 (clk after clr) and 92 (clk before clr) show the data signal acting as timecheck and as timestamp, and the reference signal taking the other role in each case, including the simultaneous events at 10. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "742dc28f4855424c599aa55a7bb2ff8342a3635dbf937956fa26e52d668dde8f",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_recrem_windows.sv",
+              "contains": ":name: test_timing_recrem_windows"
+            },
+            {
+              "file": "tests/ch31/test_timing_recrem_windows.expected",
+              "contains": "10: n=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.3.6",
@@ -293612,7 +294466,25 @@
       "acceptance": "For recrem, the optional delayed data supplies the negative-check delayed data signal.",
       "source_note": "IEEE 1800-2023 31.3.6; complete own-body source review, blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_31_extra_recrem_negative_limits.sv",
+          "observation": "シミュレーションで31.3.6-EXTRACT-DELAYED-DATAを観測する。The design writes $recrem(posedge rst_n, posedge clk, 7, -2, , , , drst, dclk) with 1 ns precision, so -2 + 7 = 5 is above one precision unit and the negative removal limit is accepted; the expected lines show drst following rst_n and dclk following clk, and t 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1595664c07bdd288a6a210448a248f6477888d5fb9c9ef815ee9096da5069f32",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_31_extra_recrem_negative_limits.sv",
+              "contains": ":name: test_31_extra_recrem_negative_limits"
+            },
+            {
+              "file": "tests/ch31/test_31_extra_recrem_negative_limits.expected",
+              "contains": "t=6 rst_n=1 drst=1 clk=0 dclk=0 q=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.3.6",
@@ -293630,7 +294502,25 @@
       "acceptance": "For recrem, the optional delayed reference supplies the negative-check delayed reference signal.",
       "source_note": "IEEE 1800-2023 31.3.6; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_31_extra_recrem_negative_limits.sv",
+          "observation": "シミュレーションで31.3.6-EXTRACT-DELAYED-REFERENCEを観測する。The design writes $recrem(posedge rst_n, posedge clk, 7, -2, , , , drst, dclk) with 1 ns precision, so -2 + 7 = 5 is above one precision unit and the negative removal limit is accepted; the expected lines show drst following rst_n and dclk following clk, and t 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1595664c07bdd288a6a210448a248f6477888d5fb9c9ef815ee9096da5069f32",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_31_extra_recrem_negative_limits.sv",
+              "contains": ":name: test_31_extra_recrem_negative_limits"
+            },
+            {
+              "file": "tests/ch31/test_31_extra_recrem_negative_limits.expected",
+              "contains": "t=6 rst_n=1 drst=1 clk=0 dclk=0 q=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.3.6",
@@ -293684,7 +294574,25 @@
       "acceptance": "recrem accepts negative limits under the rules in 31.9.",
       "source_note": "IEEE 1800-2023 31.3.6; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_31_extra_recrem_negative_limits.sv",
+          "observation": "シミュレーションで31.3.6-EXTRACT-NEGATIVE-LIMITSを観測する。The design writes $recrem(posedge rst_n, posedge clk, 7, -2, , , , drst, dclk) with 1 ns precision, so -2 + 7 = 5 is above one precision unit and the negative removal limit is accepted; the expected lines show drst following rst_n and dclk following clk, and t 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1595664c07bdd288a6a210448a248f6477888d5fb9c9ef815ee9096da5069f32",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_31_extra_recrem_negative_limits.sv",
+              "contains": ":name: test_31_extra_recrem_negative_limits"
+            },
+            {
+              "file": "tests/ch31/test_31_extra_recrem_negative_limits.expected",
+              "contains": "t=6 rst_n=1 drst=1 clk=0 dclk=0 q=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.3.6",
@@ -293830,7 +294738,25 @@
       "acceptance": "In recrem, reference can timecheck or timestamp for positive removal limit and timestamps when that limit is negative.",
       "source_note": "IEEE 1800-2023 31.3.6; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_timing_recrem_windows.sv",
+          "observation": "シミュレーションで31.3.6-EXTRACT-REFERENCE-ROLEを観測する。With positive limits the expected violations at 53 (clk after clr) and 92 (clk before clr) show the data signal acting as timecheck and as timestamp, and the reference signal taking the other role in each case, including the simultaneous events at 10. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "742dc28f4855424c599aa55a7bb2ff8342a3635dbf937956fa26e52d668dde8f",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_recrem_windows.sv",
+              "contains": ":name: test_timing_recrem_windows"
+            },
+            {
+              "file": "tests/ch31/test_timing_recrem_windows.expected",
+              "contains": "10: n=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.3.6",
@@ -295035,7 +295961,25 @@
       "acceptance": "For fullskew, remain-active flag is constant.",
       "source_note": "IEEE 1800-2023 31.4.3; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_31_extra_fullskew_active_flag.sv",
+          "observation": "シミュレーションで31.4.3-EXTRACT-ACTIVE-FLAGを観測する。Two $fullskew checks give the remain_active_flag after the notifier and event_based_flag as the constant 0 and as the specparam raf = 1. The design builds and runs, and the expected line t=20 n=00 shows the notifiers unchanged, so the flag accepts a constant e 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "df3b9786c1b2f8a430a721cf48cdcb0aa44829da12346d2c423ed478abae43fe",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_31_extra_fullskew_active_flag.sv",
+              "contains": ":name: test_31_extra_fullskew_active_flag"
+            },
+            {
+              "file": "tests/ch31/test_31_extra_fullskew_active_flag.expected",
+              "contains": "t=20 n=00"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.4.3",
@@ -297072,7 +298016,25 @@
       "acceptance": "A notifier is an optional variable declared in the timing-check module, updated on violation; omitting it does not impair check operation and its transitions may trigger modeled responses.",
       "source_note": "IEEE 1800-2023 31.6; complete own-body source review, blocks B002, B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_timing_check_forms_and_arguments.sv",
+          "observation": "シミュレーションで31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONALを観測する。The cell passes the module variables n1 and n2 as notifiers to several checks, leaves the notifier out of $setup, $removal and one $timeskew, and leaves it empty in one $hold; all forms build, and the expected line notifiers 0 0 shows the module variables stil 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ec3e39e67463907178cbef14a125ee3bf829730b447684831d6eb854270904d2",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_timing_check_forms_and_arguments.sv",
+              "contains": ":name: test_timing_check_forms_and_arguments"
+            },
+            {
+              "file": "tests/ch31/test_timing_check_forms_and_arguments.expected",
+              "contains": "notifiers 0 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.6",
@@ -297792,7 +298754,25 @@
       "acceptance": "Timestamp/timecheck condition arguments after the notifier permit conditioning based on event role in addition to reference/data triple-ampersand conditions.",
       "source_note": "IEEE 1800-2023 31.9.2; complete own-body source review, blocks B002, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_31_extra_negative_condition_args.sv",
+          "observation": "シミュレーションで31.9.2-EXTRACT-NEGATIVE-CONDITION-ARGUMENTSを観測する。The $setuphold has all nine arguments: both events carry &&& en, the setup limit is -3, the hold limit 8, and after the notifier n come the timestamp condition ts, the timecheck condition tc and the delayed reference dclk and data dd. The design builds and pri 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c241133e1a9143170ebf42ab0a1466873776fc8d8faedddb20919797404aa180",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_31_extra_negative_condition_args.sv",
+              "contains": ":name: test_31_extra_negative_condition_args"
+            },
+            {
+              "file": "tests/ch31/test_31_extra_negative_condition_args.expected",
+              "contains": "t=12 clk=1 dclk=1 d=1 dd=1 en=1 ts=1 tc=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.9.2",
@@ -297883,7 +298863,25 @@
       "acceptance": "Negative timing handling requires an invocation option; without it, or when all timing checks are disabled, explicit delayed reference/data signals are copies of their original signals.",
       "source_note": "IEEE 1800-2023 31.9.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch31/test_31_extra_negative_option_disabled.sv",
+          "observation": "シミュレーションで31.9.4-EXTRACT-NEGATIVE-OPTION-DISABLEDを観測する。The $setuphold has the negative setup limit -3 and names dclk and dd as delayed reference and data, but the run has no negative timing check option. The expected line t=10 clk=1 dclk=1 shows the copy dclk already high in the same time step as clk, and t=12 d=1 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3be522b69a9cf5b23f2cf6fdad48cdfa16f2879357937c3a0f56ac68d53deac3",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_31_extra_negative_option_disabled.sv",
+              "contains": ":name: test_31_extra_negative_option_disabled"
+            },
+            {
+              "file": "tests/ch31/test_31_extra_negative_option_disabled.expected",
+              "contains": "t=10 clk=1 dclk=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "31.9.4",
