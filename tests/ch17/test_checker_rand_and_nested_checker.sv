@@ -14,7 +14,9 @@
 // an optional rand followed by a data declaration. 17.7: a rand declaration
 // declares a free variable, and a free variable with the const qualifier
 // that is initialized keeps its initial value forever. The body of cb_free
-// declares rand const int rf = 3, so rf stays 3 and rf_out carries it.
+// declares rand const int rf = 3, so rf stays 3 and rf_out carries it
+// through a continuous assignment. 17.7.1 forbids assigning a checker
+// variable in an initial procedure, so rf_out is not assigned there.
 // The same body declares the checker cb_inner and instantiates it; the
 // instance computes fv = 1 + 1 = 2 from a constant actual, so the nested
 // declaration and the instance exist and carry their value.
@@ -35,7 +37,7 @@ checker cb_free (
 
   cb_inner u_inner (.x(1'b1), .y(fv));
 
-  initial rf_out = rf;
+  assign rf_out = rf;
 endchecker
 
 module test_checker_rand_and_nested_checker;

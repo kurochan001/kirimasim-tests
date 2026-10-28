@@ -16,14 +16,17 @@
 // and an optional colon and name. A checker_port_list is one or more
 // comma-separated checker_port_items, and an item is optional attributes,
 // an optional input or output, a property formal type, an identifier, zero or
-// more variable dimensions and an optional default actual.
-//   - ck_none has no parentheses and sets the compilation-unit variable
-//     none_n from an initial item that carries an attribute,
-//   - ck_empty has empty parentheses and the end name, and sets empty_n,
+// more variable dimensions and an optional default actual. 17.5 allows an
+// initial procedure to hold only let declarations, assertions and an event
+// control, so the checkers that have no ports drive their variables from an
+// always_comb item instead.
+//   - ck_none has no parentheses and drives the compilation-unit variable
+//     none_n from an always_comb item that carries an attribute,
+//   - ck_empty has empty parentheses and the end name, and drives empty_n,
 //   - ck_ports has an attributed input vector, an input whose type is given,
 //     an input whose direction is omitted and therefore inherited, an input
-//     array of two ints, an output int, and an output int with the default
-//     (initial) value 5 that its initial item raises to 6.
+//     array of two ints, an output int, and an output int whose declaration
+//     gives it the initial value 6.
 // y is a + b + c + vec[0] + vec[1] = 2 + 1 + 1 + 1 + 1 = 6.
 //
 // Icarus Verilog 13.0 has no checkers. Verilator 5.052 does not accept a
@@ -33,11 +36,11 @@ int none_n;
 int empty_n;
 
 checker ck_none;
-  (* keep *) initial none_n = 1;
+  (* keep *) always_comb none_n = 1;
 endchecker
 
 checker ck_empty ();
-  initial empty_n = 2;
+  always_comb empty_n = 2;
 endchecker : ck_empty
 
 checker ck_ports (
@@ -46,10 +49,9 @@ checker ck_ports (
   logic c,
   input int vec [2],
   output int y,
-  output int y2 = 5
+  output int y2 = 6
 );
   always_comb y = a + b + c + vec[0] + vec[1];
-  initial y2 = y2 + 1;
 endchecker : ck_ports
 
 module test_checker_declaration_and_port_forms;

@@ -16,7 +16,10 @@
 // automatic. Each variable is written by one process at time zero and read
 // by a different process later, so a per-process automatic variable would
 // read its default value instead. Two design elements declare the same name
-// to show that each name is local to its own element.
+// to show that each name is local to its own element. Within the checker,
+// 17.5 and 17.7.1 forbid writing the variable from an initial procedure, so
+// an always_comb procedure writes cv at time zero and the always_ff
+// procedure reads it at the clock edge.
 
 module automatic m_auto;
   int mv;
@@ -44,8 +47,8 @@ endprogram
 
 checker chk(input logic clk);
   int cv;
-  initial cv = 6;
-  always @(posedge clk) $display("checker=%0d", cv);
+  always_comb cv = 6;
+  always_ff @(posedge clk) $display("checker=%0d", cv);
 endchecker
 
 module test_design_element_static_lifetime;

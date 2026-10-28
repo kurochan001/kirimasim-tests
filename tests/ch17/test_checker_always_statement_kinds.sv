@@ -12,7 +12,9 @@
 */
 // IEEE 1800-2023 17.5: the procedures of a checker allow selection and loop
 // statements, calls of subroutines, immediate assertions and let
-// declarations. A blocking assignment may appear only in always_comb or
+// declarations. The list is exhaustive for statements, so acc is declared in
+// the checker body; the int i of the for loop belongs to the loop statement
+// (12.7). A blocking assignment may appear only in always_comb or
 // always_latch, an event control only in always_ff, and always_ff may assign
 // with nonblocking assignments.
 //
@@ -33,9 +35,10 @@ checker always_kinds(input logic clk, input int d,
     return x + 1;
   endfunction
 
+  int acc;
+
   always_comb begin
     let twice = d * 2;
-    int acc;
     acc = 0;
     for (int i = 0; i < 2; i++)
       acc = plus_one(acc);

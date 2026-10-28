@@ -14,8 +14,12 @@
 // checker_or_generate_item_declaration, an initial, an always, a final, an
 // assertion item, a continuous assignment, or a checker_generate_item, and a
 // checker_generate_item may be a loop generate, a conditional generate, a
-// generate region or an elaboration severity system task.
-//   - initial sets the output side to 7,
+// generate region or an elaboration severity system task. 17.5 allows an
+// initial procedure to hold only let declarations, assertions and an event
+// control, and 17.7.1 forbids assigning a checker variable in it, so the
+// initial procedure holds only an immediate assertion and side is driven by
+// a continuous assignment.
+//   - a continuous assignment drives side with 7,
 //   - always_comb drives comb_out with the complement of d,
 //   - always_ff adds 1 to cnt at each rising edge while rst_n is 1,
 //   - the concurrent assert adds 1 to pass_n at each rising edge where d is
@@ -28,11 +32,15 @@
 //     elaborated and does not end the run; a tool that elaborated it would
 //     stop before the last line,
 //   - final prints the value of d and pass_n at the end of the run.
+// 17.3 treats the output formals as continuous assignments to their actuals,
+// and 10.3.2 forbids a variable driven by a continuous assignment to have a
+// declaration initializer, so cnt and pass_n are declared without one and
+// start at their default value 0.
 // With two rising edges at 2 and 6 and d = 1, cnt and pass_n are 2,
 // comb_out is 0, reg_out is 1 and gen_sum is 1 + 0 + 0 = 1.
 //
-// Icarus Verilog 13.0 has no checkers. Verilator 5.052 does not accept this
-// body.
+// Icarus Verilog 13.0 has no checkers. The expected output is recorded with
+// release 5.052 of Verilator.
 
 checker cb_items (
   input  logic clk,
@@ -48,7 +56,7 @@ checker cb_items (
   genvar g;
   logic gv0, gv1, gr_out;
 
-  initial side = 7;
+  assign side = 7;
 
   always_comb comb_out = ~d;
 
@@ -88,7 +96,7 @@ module test_checker_body_procedural_and_generate_items;
   logic clk = 1'b0;
   logic d = 1'b1;
   logic rst_n = 1'b1;
-  int cnt = 0, pass_n = 0, side;
+  int cnt, pass_n, side;
   logic comb_out, reg_out;
   int gen_sum;
 
