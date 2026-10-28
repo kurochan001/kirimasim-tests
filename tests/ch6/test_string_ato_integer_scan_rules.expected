@@ -1,6 +1,5 @@
 atoi("1_000abc")=1000
 atoi("42")=42
-atoi("_7_")=7
 atoi("12 34")=12
 atoi(" 12")=0
 atoi("abc")=0
@@ -20,3 +19,4 @@ atobin("b101")=0
 atoi("-12") is 0 or -12: 1
 atohex("-ff") is 0 or -255: 1
 atooct("-7") is 0 or -7: 1
+atoi("_7_") is 7 or 0: 1

@@ -36248,14 +36248,14 @@
       "checks": [
         {
           "test": "tests/ch6/test_string_ato_integer_scan_rules.sv",
-          "observation": "数字を1つも含まない（または先頭で走査が止まる）文字列 \"abc\"、\"\"、\"___\"（下線だけ）、\" 12\"、\"'d12\" の atoi、\"'hff\"/\"hff\" の atohex、\"4'b1010\"/\"b101\" の atobin がすべて 0 であることを比較し、対照として数字のある \"42\" が 42、\"_7_\" が 7 であることを見る。 区別: 数字がないときに -1 や未定義値を返す、下線だけで何か値を作る、先頭の空白を読み飛ばす誤実装（Verilator 5.052 は \" 12\" を 12 にする）なら該当行が 0 でなくなる。",
+          "observation": "数字を1つも含まない（または先頭で走査が止まる）文字列 \"abc\"、\"\"、\"___\"（下線だけ）、\" 12\"、\"'d12\" の atoi、\"'hff\"/\"hff\" の atohex、\"4'b1010\"/\"b101\" の atobin がすべて 0 であることを比較し、対照として数字のある \"42\" が 42 であることを見る。 区別: 数字がないときに -1 や未定義値を返す、下線だけで何か値を作る、先頭の空白を読み飛ばす誤実装（Verilator 5.052 は \" 12\" を 12 にする）なら該当行が 0 でなくなる。",
           "reviewed_on": "2026-10-28",
-          "reviewer": "Claude Code (AI); not an independent human review",
-          "inputs_sha256": "428f5cb7b744ac00b799034f87b5444e2bff1cfba06b7edf5a435c0a48e357f9",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b732890292e5cd9da1020b86398f0c15c8edf731039a841c62c698d1e40626e0",
           "evidence": [
             {
               "file": "tests/ch6/test_string_ato_integer_scan_rules.sv",
-              "contains": "string dec[10] = '{\"1_000abc\", \"42\", \"_7_\", \"12 34\", \" 12\", \"abc\", \"\", \"___\","
+              "contains": "string dec[9] = '{\"1_000abc\", \"42\", \"12 34\", \" 12\", \"abc\", \"\", \"___\", \"+12\","
             },
             {
               "file": "tests/ch6/test_string_ato_integer_scan_rules.expected",
@@ -36294,8 +36294,8 @@
           "test": "tests/ch6/test_string_ato_integer_scan_rules.sv",
           "observation": "整数リテラルの数字以外の部分を含む文字列で、プラス \"+12\"（atoi）が 0、サイズ・アポストロフィ・基数の \"8'hff\" が atohex で 8（アポストロフィで停止）、\"'hff\"/\"hff\"/\"'d12\" が 0、\"12'o17\" が atooct で 10、\"4'b1010\" が atobin で 0 になることを比較している。先頭のマイナス \"-12\"/\"-ff\"/\"-7\" は、6.16.9 の sign の読み方が定まらないため、0 と負の値の両方を受け入れ、どちらかは確かめない。 区別: プラスを解釈する誤実装（Verilator 5.052 のように strtol を使う）なら \"+12\" が 12 になる。サイズと基数を解釈する誤実装なら \"8'hff\" が 255、\"12'o17\" が 15、\"4'b1010\" が 10 になり、基数文字を読み飛ばすなら \"hff\" が 255 になる。",
           "reviewed_on": "2026-10-28",
-          "reviewer": "Claude Code (AI); not an independent human review",
-          "inputs_sha256": "428f5cb7b744ac00b799034f87b5444e2bff1cfba06b7edf5a435c0a48e357f9",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b732890292e5cd9da1020b86398f0c15c8edf731039a841c62c698d1e40626e0",
           "evidence": [
             {
               "file": "tests/ch6/test_string_ato_integer_scan_rules.sv",
@@ -36303,7 +36303,7 @@
             },
             {
               "file": "tests/ch6/test_string_ato_integer_scan_rules.sv",
-              "contains": "\"+12\", \"'d12\"};"
+              "contains": "\"___\", \"+12\","
             },
             {
               "file": "tests/ch6/test_string_ato_integer_scan_rules.expected",
@@ -36344,10 +36344,10 @@
       "checks": [
         {
           "test": "tests/ch6/test_string_ato_integer_scan_rules.sv",
-          "observation": "先頭から数字と下線を走査し他の文字で止まることを、\"1_000abc\"→1000、\"12 34\"→12、\"_7_\"→7（先頭の下線も走査対象）、文字列末尾で止まる \"42\"→42、atohex の \"fF_0g1\"→4080（大小文字の16進、g で停止）、atooct の \"7_78\"→63（8 で停止）、atobin の \"1_01_2\"→5（2 で停止）で比較している。 区別: 下線で止まる誤実装なら 1000 が 1、4080 が 255、5 が 1 になる。停止せず後続の数字も拾う誤実装なら \"12 34\" が 1234、\"7_78\" が 511 などに変わり、先頭の下線で止まる実装なら \"_7_\" が 0 になる。",
+          "observation": "先頭から数字と下線を走査し他の文字で止まることを、\"1_000abc\"→1000、\"12 34\"→12、文字列末尾で止まる \"42\"→42、atohex の \"fF_0g1\"→4080（大小文字の16進、g で停止）、atooct の \"7_78\"→63（8 で停止）、atobin の \"1_01_2\"→5（2 で停止）で比較している。先頭の下線 \"_7_\" は、slang と kirimasim が先頭に数字を求めるため、7 と 0 の両方を受け入れ、どちらかは確かめない。 区別: 下線で止まる誤実装なら 1000 が 1、4080 が 255、5 が 1 になる。停止せず後続の数字も拾う誤実装なら \"12 34\" が 1234、\"7_78\" が 511 などに変わる。",
           "reviewed_on": "2026-10-28",
-          "reviewer": "Claude Code (AI); not an independent human review",
-          "inputs_sha256": "428f5cb7b744ac00b799034f87b5444e2bff1cfba06b7edf5a435c0a48e357f9",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b732890292e5cd9da1020b86398f0c15c8edf731039a841c62c698d1e40626e0",
           "evidence": [
             {
               "file": "tests/ch6/test_string_ato_integer_scan_rules.sv",

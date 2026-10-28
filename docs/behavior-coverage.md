@@ -10298,7 +10298,7 @@ Integer string conversion returns zero if the scan encounters no digits.
 
 規定の性質: `mandatory`。
 
-- [test_string_ato_integer_scan_rules.sv](../tests/ch6/test_string_ato_integer_scan_rules.sv): 数字を1つも含まない（または先頭で走査が止まる）文字列 "abc"、""、"___"（下線だけ）、" 12"、"'d12" の atoi、"'hff"/"hff" の atohex、"4'b1010"/"b101" の atobin がすべて 0 であることを比較し、対照として数字のある "42" が 42、"_7_" が 7 であることを見る。 区別: 数字がないときに -1 や未定義値を返す、下線だけで何か値を作る、先頭の空白を読み飛ばす誤実装（Verilator 5.052 は " 12" を 12 にする）なら該当行が 0 でなくなる。
+- [test_string_ato_integer_scan_rules.sv](../tests/ch6/test_string_ato_integer_scan_rules.sv): 数字を1つも含まない（または先頭で走査が止まる）文字列 "abc"、""、"___"（下線だけ）、" 12"、"'d12" の atoi、"'hff"/"hff" の atohex、"4'b1010"/"b101" の atobin がすべて 0 であることを比較し、対照として数字のある "42" が 42 であることを見る。 区別: 数字がないときに -1 や未定義値を返す、下線だけで何か値を作る、先頭の空白を読み飛ばす誤実装（Verilator 5.052 は " 12" を 12 にする）なら該当行が 0 でなくなる。
 
 ### SV2023-6.16.9-EXTRACT-NO-LITERAL-GRAMMAR
 
@@ -10322,7 +10322,7 @@ Integer string conversion scans digits and underscores from the start and stops 
 
 規定の性質: `mandatory`。
 
-- [test_string_ato_integer_scan_rules.sv](../tests/ch6/test_string_ato_integer_scan_rules.sv): 先頭から数字と下線を走査し他の文字で止まることを、"1_000abc"→1000、"12 34"→12、"_7_"→7（先頭の下線も走査対象）、文字列末尾で止まる "42"→42、atohex の "fF_0g1"→4080（大小文字の16進、g で停止）、atooct の "7_78"→63（8 で停止）、atobin の "1_01_2"→5（2 で停止）で比較している。 区別: 下線で止まる誤実装なら 1000 が 1、4080 が 255、5 が 1 になる。停止せず後続の数字も拾う誤実装なら "12 34" が 1234、"7_78" が 511 などに変わり、先頭の下線で止まる実装なら "_7_" が 0 になる。
+- [test_string_ato_integer_scan_rules.sv](../tests/ch6/test_string_ato_integer_scan_rules.sv): 先頭から数字と下線を走査し他の文字で止まることを、"1_000abc"→1000、"12 34"→12、文字列末尾で止まる "42"→42、atohex の "fF_0g1"→4080（大小文字の16進、g で停止）、atooct の "7_78"→63（8 で停止）、atobin の "1_01_2"→5（2 で停止）で比較している。先頭の下線 "_7_" は、slang と kirimasim が先頭に数字を求めるため、7 と 0 の両方を受け入れ、どちらかは確かめない。 区別: 下線で止まる誤実装なら 1000 が 1、4080 が 255、5 が 1 になる。停止せず後続の数字も拾う誤実装なら "12 34" が 1234、"7_78" が 511 などに変わる。
 
 ### SV2023-6.16.10-EXTRACT-DECIMAL-REAL
 
