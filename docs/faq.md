@@ -34,7 +34,7 @@ python3 tools/run_icarus.py --iverilog-bin "$IVERILOG13_BIN" \
 
 ランナーにはPython 3.10以上が必要です。複数本の指定、並列数の`-j N`、記録先の`--json FILE`も使えます。シミュレータやCコードのビルドに必要なものはツールごとに異なります。全件を回す前に[各ランナーの前提条件](../README.md#running-the-suite)を確認してください。
 
-テストを指定しない場合、Icarus・kirimasim・Lyraは全テスト、Verilatorは`:oracle:`に`verilator@5.052`があるテストを選びます。Verilatorで全テストを対象にする指定は`--all`です。
+Icarus・Verilator・kirimasim・Lyraは、明示指定でも`:type: formal`を除外します。その範囲で、テストを指定しない場合はIcarus・kirimasim・Lyraが全件、Verilatorが`:oracle:`に`verilator@5.052`があるテストを選び、Verilatorの`--all`はformal以外の全件を選びます。formalは`:formal_case:`を指定したモデル検査で、`tools/run_sby.py`を使います。[SymbiYosysの実行方法](../README.md#symbiyosys)を参照してください。
 
 ## 2. 期待結果とメタデータ
 
@@ -109,6 +109,8 @@ mainは現在のテスト・ツールと保存済み証跡、resultsはNightly�
 ### Q18. 暫定値は、いつ確定値になりますか。100%なら検証完了ですか
 
 規格資料の調査完了だけでは分母は確定しません。解釈保留、意味の重複、要求単位を整理し、分母を承認する必要があります。暫定100%も登録した単位の範囲の結果で、全プログラム・全入力の組合せを証明した意味にはなりません。分母の状態、未対応・保留・古い証跡、各テストの検出範囲も確認します。[分母と暫定値の扱い](../coverage/README.md#計測の意味)を参照してください。
+
+現在の分母12,298要求は、2026-10-28のAIレビューで承認済みです。解釈保留は0件ですが、独立した人間の承認や全テストの意味上のレビュー完了を示すものではありません。[分母レビュー](denominator-review-20261028.md)に根拠と限界を記録しています。
 
 ### Q19. 複数シミュレータの成功を集めて、AND集合を合格にできますか
 

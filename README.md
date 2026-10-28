@@ -47,13 +47,13 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **7742 tests** in 38 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **7744 tests** in 38 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4227 |
 | Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1509 |
-| The standard only, with no fixed-release simulator oracle recorded | 2006 |
+| The standard only, with no fixed-release simulator oracle recorded | 2008 |
 
 894 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -77,7 +77,7 @@ The suite has **7742 tests** in 38 chapters. 1308 of them are generated (`tests/
 | 18 | Constrained random value generation | 200 | 26 | 95 | 79 |
 | 19 | Functional coverage | 157 | 2 | 29 | 126 |
 | 20 | Utility system tasks and system functions | 270 | 200 | 24 | 46 |
-| 21 | Input/output system tasks and system functions | 211 | 143 | 15 | 53 |
+| 21 | Input/output system tasks and system functions | 213 | 143 | 15 | 55 |
 | 22 | Compiler directives | 358 | 335 | 13 | 10 |
 | 23 | Modules and hierarchy | 256 | 143 | 44 | 69 |
 | 24 | Programs | 43 | 21 | 5 | 17 |
@@ -193,14 +193,14 @@ On 2026-10-28 the requirement ledger was reviewed as the denominator: 21
 duplicate rows were merged into others, leaving 12,298 requirements, and the
 [denominator review](docs/denominator-review-20261028.md) approved them. The
 reviewer was an AI, not an independent human.
-Design coverage is **89.28% (10,980/12,298)**;
-execution coverage is **59.43% (7,309/12,298)**, or 50.83% (6,251/12,298)
+As of 2026-10-29, design coverage is **89.33% (10,986/12,298)**;
+execution coverage is **59.60% (7,330/12,298)**, or 51.00% (6,272/12,298)
 counting only Icarus Verilog, Verilator and SymbiYosys.
 See the [generated behavior summary](docs/behavior-coverage-summary.md) for the
 measurement inputs and denominator, and the
 [Nightly test corrections and oracle review](docs/nightly-suite-corrections-20261027.md)
 for the earlier corrections.
-Clauses 1 to 40 alone are at 87.32% (8,265/9,465) design coverage.
+Clauses 1 to 40 alone are at 87.40% (8,272/9,465) design coverage.
 The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.
@@ -213,7 +213,8 @@ test. Clause 34 (protected envelopes) has only four tests, of the envelope
 syntax and of Verilator leaving a data block out of the source: neither
 Icarus Verilog nor Verilator decrypts an envelope, and the
 [protected-envelope boundary](docs/protected-envelope-boundary.md) gives the
-reason for each of the 210 requirements left untested. Which parts of a design
+audit-time reasons for the untested requirements; after the denominator review,
+209 of the 214 clause-34 requirements remain unmapped. Which parts of a design
 have coverage depends on the tool and its options, so the tests of clause 40
 print only what holds for every result, such as the values the standard
 allows and how the results of the coverage functions relate.
@@ -221,7 +222,7 @@ allows and how the results of the coverage functions relate.
 ## Nightly results
 
 Every night, a [GitHub Actions workflow](.github/workflows/nightly.yml) runs
-every test of `main` with the latest development version of each simulator:
+the applicable tests of `main` with the latest development version of each simulator:
 the `master` branches of Icarus Verilog and Verilator and the `main` branch
 of kirimasim, built that night, and Lyra, which has no releases, at the
 commit that the workflow pins. Ghost joins from a private build. It adds the results to the
@@ -478,7 +479,8 @@ it does not know.
 | `:name:` | Test name, unique in the suite, the same as the file name |
 | `:description:` | What the test checks |
 | `:tags:` | Directory: `chNN`, the chapter of the first clause in `:lrm:` |
-| `:type:` | `simulation` for tests that are run |
+| `:type:` | `simulation` for simulation tests, `elaboration` for illegal designs that must be rejected, or `formal` for SymbiYosys model checks |
+| `:formal_case:` | For `:type: formal`, the case in `tools/sva_reference/formal_cases.py` that `tools/run_sby.py` checks; no expected standard output is required |
 | `:lrm:` | IEEE 1800-2023 clauses the test checks, for example `1800-2023 11.4.3` |
 | `:oracle:` | Where the expected output comes from: `spec` (it was checked against the cited clauses of the standard; `:spec_check:` says by whom), `iverilog@13.0` (Icarus Verilog 13.0 produced it), `verilator@5.052` (Verilator 5.052 produced it) |
 | `:spec_check:` | Who checked a `spec` expectation against the standard: `ai` (an AI model read the cited clauses; no person has checked this test yet) or `human` (a person checked it) |
@@ -650,15 +652,15 @@ where the model and a simulator differ, the clause decides, as above.
 
 ## Running the suite
 
-Every runner needs Python 3.10 or later, and has these options in common:
+The simulation runners need Python 3.10 or later, and have these options in common:
 
 | Option | Meaning |
 | --- | --- |
-| `TEST ...` | Run only these test files. By default, Verilator selects its oracle-tagged tests; the other runners select every `tests/**/test_*.sv`. Verilator's `--all` selects every test |
+| `TEST ...` | Run only these test files. Icarus, Verilator, kirimasim and Lyra exclude `:type: formal`, even when explicitly named. Verilator defaults to its oracle-tagged tests; `--all` selects all non-formal tests. Icarus, kirimasim and Lyra default to all non-formal tests; Ghost selects all test files |
 | `-j N`, `--jobs N` | Run N tests at once (default: 1) |
 | `--json FILE` | Also write the result of every test to FILE (see `tools/suite_results.py`) |
 
-Every runner gives the simulator the metadata that sets up a run, in the
+Each simulation runner gives the simulator the metadata that sets up a run, in the
 form the simulator takes:
 
 | Field | Icarus Verilog | Verilator | kirimasim | Lyra |
@@ -718,7 +720,7 @@ python3 tools/run_verilator.py --all -j 8
 ```
 
 By default this runs only the tests whose `:oracle:` lists `verilator@5.052`;
-`--all` runs every test, and counts those not recorded with Verilator as
+`--all` runs every non-formal test, and counts those not recorded with Verilator as
 known differences when they do not match. Each test is built with
 `verilator --binary --timing --coverage-user` and run with random initial
 values (`--seed` chooses them); without `--coverage-user`, Verilator does not
@@ -804,6 +806,24 @@ and `GHOST_PROFILE` from repository secrets. It runs only in this repository;
 forks can still run the public simulators. To end the guest appearance, remove
 the job and its entry in `publish.needs`, and remove the runner. Its history
 will remain saved, following the same rules as other retired participants.
+
+### SymbiYosys
+
+The suite includes 268 tests with `:type: formal`. They name a `:formal_case:`
+and are run by `tools/run_sby.py`, which compares the reference evaluator with
+an independent RTL model. The Icarus, Verilator, kirimasim and Lyra runners
+exclude them. Ghost's current runner still selects all test files; its
+formal-file results are not SymbiYosys proof evidence.
+
+```sh
+python3 tools/run_sby.py --sby "$SBY_BIN" --json /tmp/sby.json
+```
+
+This runner needs Python 3.10 or later and a working SymbiYosys/Yosys/solver
+environment. It runs cases sequentially; `--no-prove` requests BMC only and
+`--timeout N` sets the per-case timeout. See the
+[runner selection record](docs/runner-selection-20261028.md) and
+[formal verification guide](docs/sva-reference-formal-verification.md).
 
 ### Other simulators
 

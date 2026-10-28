@@ -2,9 +2,9 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 7742,
+  "test_files": 7744,
   "linked_test_files": 5310,
-  "unlinked_test_files": 2432,
+  "unlinked_test_files": 2434,
   "chapters": [
     {
       "chapter": "ch3",
@@ -116,9 +116,9 @@
     },
     {
       "chapter": "ch21",
-      "test_files": 211,
+      "test_files": 213,
       "linked_test_files": 150,
-      "unlinked_test_files": 61
+      "unlinked_test_files": 63
     },
     {
       "chapter": "ch22",
@@ -137917,6 +137917,54 @@
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
+    },
+    {
+      "test": "tests/ch21/test_fst_dump_control_keeps_header.sv",
+      "inputs_sha256": "7220b34dbc568704425a751048a87d80f6b674b10e5dee695fa0670264ecba3b",
+      "cited_clauses": [
+        "21.7.1",
+        "21.7.1.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-21.7.1-EXTRACT-ASCII-CONTENTS",
+        "SV2023-21.7.1-EXTRACT-DUMP-TASKS",
+        "SV2023-21.7.1.3-EXTRACT-DUMP-ENABLE",
+        "SV2023-21.7.1.3-EXTRACT-DUMP-OFF-ON-CHECKPOINT",
+        "SV2023-21.7.1.3-EXTRACT-DUMP-START"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "21.7.1",
+          "descendant_requirement_count": 14
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_fst_header_and_dumpfile.sv",
+      "inputs_sha256": "cff685e080c4522bdb203f482ab7f1322cfe787c6f6306d113d606075628a84a",
+      "cited_clauses": [
+        "21.7.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-21.7.1-EXTRACT-ASCII-CONTENTS",
+        "SV2023-21.7.1-EXTRACT-DUMP-TASKS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "21.7.1",
+          "descendant_requirement_count": 14
+        }
+      ]
     },
     {
       "test": "tests/ch21/test_fwrite_unformatted_aggregates.sv",

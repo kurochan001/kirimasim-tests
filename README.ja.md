@@ -38,13 +38,13 @@ IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認す�
 ## 収録内容
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**7742本のテスト**があります。 うち1308本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
+スイートには38章にわたり**7744本のテスト**があります。 うち1308本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
 | Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 4227 |
 | Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1509 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2006 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2008 |
 
 894本はx/z値に依存します（`:fourstate: yes`）。618本にはCコードがあり、内訳はDPIが123本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1932本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。35本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定21本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
@@ -68,7 +68,7 @@ IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認す�
 | 18 | 制約付き乱数値の生成 | 200 | 26 | 95 | 79 |
 | 19 | 機能カバレッジ | 157 | 2 | 29 | 126 |
 | 20 | ユーティリティ用システムタスク・関数 | 270 | 200 | 24 | 46 |
-| 21 | 入出力用システムタスク・関数 | 211 | 143 | 15 | 53 |
+| 21 | 入出力用システムタスク・関数 | 213 | 143 | 15 | 55 |
 | 22 | コンパイラ指令 | 358 | 335 | 13 | 10 |
 | 23 | モジュールと階層 | 256 | 143 | 44 | 69 |
 | 24 | プログラム | 43 | 21 | 5 | 17 |
@@ -167,12 +167,12 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 2026-10-28に要求台帳を分母としてレビューし、重複21行を統合した12,298要求を
 [分母レビュー](docs/denominator-review-20261028.md)で承認しました。
 レビューしたのはAIで、独立した人間の承認ではありません。
-設計網羅率は**89.28%（10,980/12,298）**、
-実行網羅率は**59.43%（7,309/12,298）**です。
-Icarus Verilog・Verilator・SymbiYosysだけで数えると実行網羅率は50.83%（6,251/12,298）です。
+2026-10-29時点の設計網羅率は**89.33%（10,986/12,298）**、
+実行確認率は**59.60%（7,330/12,298）**です。
+Icarus Verilog・Verilator・SymbiYosysだけで数えると実行確認率は51.00%（6,272/12,298）です。
 測定入力と分母は[生成した振る舞い要約](docs/behavior-coverage-summary.md)、
 以前の修正は[Nightlyのテスト修正とoracleレビュー](docs/nightly-suite-corrections-20261027.md)を参照してください。
-1〜40章だけの設計網羅率は87.32%（8,265/9,465）です。
+1〜40章だけの設計網羅率は87.40%（8,272/9,465）です。
 既存テスト全体の意味のレビューはまだ完了していません。
 追加報告には、観測、規格から決めた期待値、シミュレータとの差、意図的な誤りを入れる検査、
 実行証拠を記録しています。
@@ -181,15 +181,16 @@ Icarus Verilog・Verilator・SymbiYosysだけで数えると実行網羅率は50
 表のIcarus・Verilator・規格のみの列は、最初の表と同じく、期待結果の確認元別の件数です。
 1・2章には検査対象の動作がありません。34章（保護エンベロープ）のテストは、
 エンベロープの構文と、Verilatorがdata_blockをソースから外すことを確かめる4本だけです。
-Icarus VerilogもVerilatorもエンベロープを復号しないためで、テストにしなかった210要求の理由は
-[保護エンベロープの境界](docs/protected-envelope-boundary.md)にあります。設計のどこにコードカバレッジを持つかは
+Icarus VerilogもVerilatorもエンベロープを復号しないためで、監査当時の理由は
+[保護エンベロープの境界](docs/protected-envelope-boundary.md)にあります。
+分母レビュー後は34章の214要求中209要求が未対応です。設計のどこにコードカバレッジを持つかは
 ツールとオプションに依存するので、40章のテストは、許される値やカバレッジ関数の結果同士の
 関係など、すべての結果に共通して成り立つことだけを出力します。
 
 ## Nightlyの結果
 
 毎晩、[GitHub Actionsワークフロー](.github/workflows/nightly.yml)が、各シミュレータで
-`main`の全テストを実行します。Icarus VerilogとVerilatorは`master`、kirimasimは`main`の
+`main`の各ランナーの対象テストを実行します。Icarus VerilogとVerilatorは`master`、kirimasimは`main`の
 最新開発版をその晩にビルドし、リリースのないLyraはワークフローで固定したコミットを使います。
 Ghostは非公開のビルドで参加します。
 結果は[`results`](https://github.com/kurochan001/kirimasim-tests/tree/results)ブランチの履歴に追加します。
@@ -406,7 +407,8 @@ endmodule
 | `:name:` | スイート内で一意のテスト名。ファイル名と同じ |
 | `:description:` | テストが確認すること |
 | `:tags:` | ディレクトリの`chNN`。`:lrm:`の先頭条項の章 |
-| `:type:` | 実行するテストは`simulation` |
+| `:type:` | シミュレーションは`simulation`、拒否すべき不正な設計は`elaboration`、SymbiYosysによるモデル検査は`formal` |
+| `:formal_case:` | `:type: formal`の検証対象。`tools/sva_reference/formal_cases.py`のケース名を指定し、`tools/run_sby.py`で検査する。期待する標準出力は不要 |
 | `:lrm:` | 確認対象のIEEE 1800-2023の条項。例：`1800-2023 11.4.3` |
 | `:oracle:` | 期待出力の根拠。`spec`は引用条項と照合済み（担当は`:spec_check:`）、`iverilog@13.0`はIcarus Verilog 13.0で再現、`verilator@5.052`はVerilator 5.052で再現 |
 | `:spec_check:` | `spec`の期待値を規格と照合した担当。`ai`はAIモデル（人による照合はまだなし）、`human`は人 |
@@ -542,11 +544,11 @@ python3 generators/generate.py --check    # 生成内容が最新か検査
 
 ## スイートの実行
 
-すべての実行スクリプトにはPython 3.10以降が必要です。共通のオプションは次のとおりです。
+シミュレーションランナーにはPython 3.10以降が必要です。共通のオプションは次のとおりです。
 
 | オプション | 意味 |
 | --- | --- |
-| `TEST ...` | 指定したテストだけを実行。既定ではVerilatorは自分のoracleがあるテスト、他は`tests/**/test_*.sv`の全テストを選ぶ。Verilatorも`--all`なら全テスト |
+| `TEST ...` | 指定したテストだけを実行。Icarus・Verilator・kirimasim・Lyraは明示指定でも`:type: formal`を除外する。Verilatorの既定は自分のoracleがあるテスト、`--all`はformal以外の全テスト。Icarus・kirimasim・Lyraの既定もformal以外の全テスト。Ghostは全テストファイルを選ぶ |
 | `-j N`、`--jobs N` | 同時にN本を実行（既定：1） |
 | `--json FILE` | 各テストの結果をFILEにも保存（`tools/suite_results.py`） |
 
@@ -598,7 +600,7 @@ python3 tools/run_verilator.py --all -j 8
 ```
 
 既定では`:oracle:`に`verilator@5.052`があるテストだけを実行します。
-`--all`は全件を実行し、Verilatorが未登録のテストが一致しなければ既知の差異に数えます。
+`--all`はformal以外の全件を実行し、Verilatorが未登録のテストが一致しなければ既知の差異に数えます。
 `verilator --binary --timing --coverage-user`でビルドし、乱数初期値で実行します
 （`--seed`で指定）。`--coverage-user`なしではcover文が動きません。
 比較前に、標準出力に出るバナーや実行時の`%Warning-...`などを除去します。
@@ -668,6 +670,23 @@ NightlyはリポジトリのSecretsから`GHOST_REPOSITORY`、`GHOST_DEPLOY_KEY`
 `GHOST_PROFILE`を読みます。このジョブは本リポジトリだけで動き、forkでは公開シミュレータを実行できます。
 ゲスト参加を終えるときは、ジョブと`publish.needs`の項目、実行スクリプトを外します。
 過去の履歴は、他の比較対象を外した場合と同じ仕組みで残ります。
+
+### SymbiYosys
+
+スイートには`:type: formal`のテストが268本あります。`:formal_case:`に検証ケース名を
+指定し、`tools/run_sby.py`が参照評価器と独立したRTLモデルを比較します。
+Icarus・Verilator・kirimasim・Lyraのランナーはこれらを除外します。
+Ghostの現行ランナーは全テストファイルを選びますが、formalファイルの実行結果は
+SymbiYosysの証明証跡にはなりません。
+
+```sh
+python3 tools/run_sby.py --sby "$SBY_BIN" --json /tmp/sby.json
+```
+
+Python 3.10以上と、動作するSymbiYosys・Yosys・ソルバーの環境が必要です。
+ケースは逐次実行し、`--no-prove`でBMCのみ、`--timeout N`でケースごとの制限時間を指定します。
+[ランナーの選択規則](docs/runner-selection-20261028.md)と
+[フォーマル検証のガイド](docs/sva-reference-formal-verification.md)も参照してください。
 
 ### 他のシミュレータ
 

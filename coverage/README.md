@@ -3,13 +3,15 @@
 [現在の集計概要](../docs/behavior-coverage-summary.md)と[全項目の詳細](../docs/behavior-coverage.md)は、
 節の引用数とは独立した指標です。全規格の要求台帳に対する**暫定値と確定値を併記**します。
 IEEE 1800-2023 の本文1–41章と附属書A–Q、1,740見出しを調査台帳に登録しています。
-**全1,740節の資料確認・要求抽出は完了しました。確定値の分母は未承認です。**
-[抽出結果](../docs/requirement-extraction.md)に確認範囲と残る解釈・分母整理を記録しています。
+**全1,740節の資料確認・要求抽出は完了し、2026-10-28に12,298要求の分母を承認しました。**
+解釈保留は0件です。[抽出結果](../docs/requirement-extraction.md)と
+[分母レビュー](../docs/denominator-review-20261028.md)に整理の根拠を記録しています。
+承認はAIレビューによるもので、独立した人間の承認ではありません。
 初期登録の105件は規格全動作の分母ではありません。全テストについて
 動作との対応確認を終えたという意味でもありません。
 
-[コンパイラ指令の照合結果](../docs/existing-test-matching-preprocessor-20261023.md)に、
-直近の対応追加、集合証拠、観測不足と要求単位の整理が必要な箇所を記録しています。
+最新の対応追加と残件は[カバレッジギャップ調査](../docs/coverage-gap-recommendations-20261029.md)、
+章別の照合状況は[照合一覧](../docs/test-requirement-matching.md)を参照してください。
 
 ## mainの集計とNightlyの集計
 
@@ -95,7 +97,7 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
   複合要求の整理を区別します。`requirement_matching.py`が照合台帳へ取り込み、
   古い入力や存在しない根拠を拒否します。この判断記録は対応承認でも、ファイル全体の
   レビュー完了でもなく、動作網羅率の分子には使いません。
-- `results/icarus.json`と`results/verilator.json`: 全スイート3,912本の実測結果。
+- `results/icarus.json`と`results/verilator.json`: 当時の全スイート3,912本の実測結果。
   期待値との照合結果に加え、実行前後の入力一致、ランナーのハッシュ、実行時刻、
   シミュレータの版、設定を各ランナーの `--json` が記録します。
   `results/citation-refinement-*.json`は、引用メタデータを変更した7本の再実行です。
@@ -110,7 +112,7 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/associative-gaps-20261023-*.json`: 連想配列レビュー後に追加した15本の実行結果。
   その後変更したwildcard/count各1本は、`associative-wildcard-refinement-20261023-*.json`と
   `associative-count-refinement-20261023-*.json`へ別実行として保存しました。
-  現在の入力ではVerilator 5.052のseed 1/73とも8 pass・7 known、Icarus 13.0は15 knownです。
+  保存した実行ではVerilator 5.052のseed 1/73とも8 pass・7 known、Icarus 13.0は15 knownです。
   [追加内容と残件](../docs/associative-gap-tests-20261023.md)を参照してください。
 - `results/header-vpi-tests-20261023-*.json`: 附属書I/K/L/MのCヘッダを検証する24本と、37章のVPIテスト24本の実行結果。
   Icarus 13.0（v13_0-dirty）は1 pass・47 known、Verilator 5.052はseed 1/73とも17 pass・31 knownです。
@@ -195,9 +197,11 @@ includeとinclude検索ディレクトリ内のファイルを含めます。マ
 それでも診断の意味とエラー位置のレビューは必要です。単なる構文未対応を成功扱いしません。
 
 対応付けと要求抽出はAIによるレビューです。独立した人の確認済みとは扱いません。
-全資料を確認しましたが、資料内の不整合が残る要求の解釈は保留しています。
-登録件数には要求の出現箇所と条件別の観測ケースを含み、意味的な重複を除去した確定要求数ではありません。
-[未解決事項と抽出上の注意](../docs/requirement-extraction-notes.md)も参照してください。
+全資料の確認後、解釈保留を解決し、重複21行を統合して分母を承認しました。
+登録単位は要求・条件・観測ケースです。全入力の組み合わせを網羅したという意味ではありません。
+採用した解釈と、節単位の出典だけを持つ3行などの限界は
+[分母レビュー](../docs/denominator-review-20261028.md)と
+[解釈・再検討記録](../docs/requirement-extraction-notes.md)を参照してください。
 
 ## 日常の更新
 
@@ -268,7 +272,8 @@ python3 tools/behavior_coverage.py --update --json /tmp/behavior-coverage.json \
 チェックは未対応要求があること自体では失敗しません。記録が不正・古い、対応が後退した、
 生成レポートが古い場合に失敗します。全規格の設計網羅率と実行確認率の両方で100%を
 要求する場合は次を使います。
-分母未確定の場合も失敗するため、現在は意図どおり非ゼロ終了します。
+分母未確定の場合も失敗します。現在は分母承認済みですが、未対応要求と成功証跡のない要求が
+残るため、意図どおり非ゼロ終了します。
 `--require-source-reviewed`は全資料の確認を要求し、解釈保留・テスト対応を承認するものではありません。
 
 ```sh
@@ -324,6 +329,9 @@ Nightlyはその回の全ランナーのJSONから再計測し、`results` ブ�
 履歴には集計を保存し、全登録行の状態はその回の詳細JSONに保存します。
 GitHub Actionsの実行概要にも暫定値・確定値と残件数を表示します。
 
-Nightlyを実際に実行するには、この変更がGitHubに反映される必要があります。
+Nightlyの測定対象は実行したスイートのコミットです。`main`の変更は、そのコミットを使った
+実行と公開が完了してから結果へ反映されます。
 
-分母レビューの結果は `docs/denominator-review-20261028.md` にあります。確定分母は 12,298 行、設計 89.28%、実行 59.44%（Ghost含む）です。
+確定分母は12,298要求です。現在の設計・実行の割合と証跡は
+[生成した集計概要](../docs/behavior-coverage-summary.md)、承認根拠は
+[分母レビュー](../docs/denominator-review-20261028.md)を参照してください。
