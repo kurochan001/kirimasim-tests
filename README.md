@@ -307,23 +307,27 @@ The suite checks what simulators compute, not how fast. For reference, the
 kirimasim repository keeps a comparison of their speed on small designs of
 its own ([bench/](https://github.com/kurochan001/kirimasim/tree/main/bench)).
 Its latest run, on Linux under WSL2 (AMD Ryzen 9 7950X) on 2026-10-25, used
-each simulator's newest development commit and eleven designs, and gave these
-times: the median of five runs at the stated count less the median of five
-runs with `+n=1`.
+each simulator's newest development commit and eleven designs, and gave the
+times in the first four columns: the median of five runs at the stated count
+less the median of five runs with `+n=1`. The Ghost column is a later
+measurement on the same machine (2026-10-28); because a full run takes much
+longer, it is extrapolated as described in the notes.
 
-| Design | `+n=` | kirimasim | Icarus Verilog 14.0 devel | Verilator 5.053 devel | Lyra (LLVM backend) |
-| --- | :---: | :---: | :---: | :---: | :---: |
-| `comb_chain` | 3,000,000 | 9.249 s | 9.796 s | 0.223 s | 2.878 s |
-| `nba_shift` | 1,000,000 | 25.486 s | 26.585 s | 0.196 s | 5.900 s |
-| `proc_wait` | 1,000,000 | 6.786 s | 5.688 s | 2.283 s | 6.164 s |
-| `fork_join` | 4,000,000 | 4.837 s | 5.023 s | 1.190 s | 4.860 s |
-| `wide_arith` | 1,500,000 | 4.944 s | 2.036 s | 0.086 s | 0.380 s |
-| `mem_rw` | 4,000,000 | 4.937 s | 3.645 s | 0.696 s | 2.705 s |
-| `func_call` | 1,500,000 | 4.917 s | 7.511 s | 0.005 s | 0.395 s |
-| `string_fmt` | 500,000 | 5.003 s | 8.080 s | 0.135 s | 0.279 s |
-| `dyn_queue` | 4,000,000 | 4.112 s | 6.686 s | 0.083 s | 0.412 s |
-| `gate_udp` | 400,000 | 5.378 s | 3.517 s | 0.046 s | not supported |
-| `casez_struct` | 5,000,000 | 3.976 s | 4.117 s | 0.018 s | 0.466 s |
+| Design | `+n=` | kirimasim | Icarus Verilog 14.0 devel | Verilator 5.053 devel | Lyra (LLVM backend) | Ghost* |
+| --- | :---: | :---: | :---: | :---: | :---: | :---: |
+| `comb_chain` | 3,000,000 | 9.249 s | 9.796 s | 0.223 s | 2.878 s | 1,153 s* |
+| `nba_shift` | 1,000,000 | 25.486 s | 26.585 s | 0.196 s | 5.900 s | 2,707 s* |
+| `proc_wait` | 1,000,000 | 6.786 s | 5.688 s | 2.283 s | 6.164 s | 1,816 s* |
+| `fork_join` | 4,000,000 | 4.837 s | 5.023 s | 1.190 s | 4.860 s | 909 s* |
+| `wide_arith` | 1,500,000 | 4.944 s | 2.036 s | 0.086 s | 0.380 s | 131.4 s |
+| `mem_rw` | 4,000,000 | 4.937 s | 3.645 s | 0.696 s | 2.705 s | 1,258 s* |
+| `func_call` | 1,500,000 | 4.917 s | 7.511 s | 0.005 s | 0.395 s | 291 s* |
+| `string_fmt` | 500,000 | 5.003 s | 8.080 s | 0.135 s | 0.279 s | 477 s* |
+| `dyn_queue` | 4,000,000 | 4.112 s | 6.686 s | 0.083 s | 0.412 s | 400 s* |
+| `gate_udp` | 400,000 | 5.378 s | 3.517 s | 0.046 s | not supported | 835 s* |
+| `casez_struct` | 5,000,000 | 3.976 s | 4.117 s | 0.018 s | 0.466 s | 525 s* |
+
+`*` Full count for `wide_arith`; otherwise extrapolated from reduced counts.
 
 - kirimasim was at commit `b66834254c65`, Icarus Verilog at 14.0 devel
   `2b8d42dc088f`, Verilator at 5.053 devel `1838b6ed035c` and Lyra at
@@ -336,6 +340,21 @@ runs with `+n=1`.
   Every measured run gave the expected result; Lyra does not support gates or
   UDPs yet, so it built no program for `gate_udp`. The times do not include
   building a design (Verilator's C++, Lyra's program).
+- Ghost (sukimasim 0.9.9.2) was at commit `a2420294`, measured on
+  2026-10-28 on the same WSL2/Ryzen 9 7950X machine. A full run takes 2 to
+  45 minutes per run for Ghost, so most of its column is extrapolated: three
+  runs at each of two reduced counts, the second twice the first
+  (10,000/20,000, 2,000/4,000, or 1,000/2,000); the larger count took 1.97 to
+  2.09 times as long as the smaller, and the slope was applied to the stated
+  count.
+  The full-count `wide_arith` run (131.4 s) matches its extrapolation within
+  about 2% and its result line was checked. The other columns are the
+  2026-10-25 medians.
+- Ghost was 27 to 268 times slower than kirimasim on these designs (the
+  smallest gap is `wide_arith`, the largest `proc_wait`) and 39 to 345 times
+  slower than Icarus Verilog. These are the default runtime options of its
+  release build; the column shows a large performance gap, not a functional
+  difference.
 - The first four designs exercise `always_comb` chains, nonblocking
   assignments, waiting processes and `fork`/`join`. The other seven use
   256-bit arithmetic (`wide_arith`), a 1024-word memory (`mem_rw`), task and
