@@ -340,7 +340,7 @@ longer, it is extrapolated as described in the notes.
   Every measured run gave the expected result; Lyra does not support gates or
   UDPs yet, so it built no program for `gate_udp`. The times do not include
   building a design (Verilator's C++, Lyra's program).
-- Ghost (sukimasim 0.9.9.2) was at commit `a2420294`, measured on
+- Ghost (0.9.9.2) was at commit `a2420294`, measured on
   2026-10-28 on the same WSL2/Ryzen 9 7950X machine. A full run takes 2 to
   45 minutes per run for Ghost, so most of its column is extrapolated: three
   runs at each of two reduced counts, the second twice the first
