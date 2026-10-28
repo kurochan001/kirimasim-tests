@@ -25,7 +25,10 @@
 // printed values are those of the same design without attributes: v starts at
 // 3, the if makes it 4, the case item 4'h4 leaves ob 0, the for
 // adds 2, the repeat subtracts 1, the named block xor 1 gives 4, put(9) makes
-// v 9, n follows v as 9, and inc(3) is 4. A tool that rejected any authorized
+// v 9, n follows v as 9, and inc(3) is 4. The output ub of the instance is
+// declared before the instance, so the reference does not create an implicit
+// net that the later explicit declaration would redeclare (§6.10). A tool
+// that rejected any authorized
 // prefix position would fail before printing, and one that attached the
 // attribute to the wrong element or changed the value would print another
 // line. Verilator 5.052 reproduces this output. Icarus Verilog 13.0 rejects
@@ -58,8 +61,9 @@ endmodule
   (* pfx_assign *) assign n = v;
   (* pfx_always *) always_comb cv = n;
 
-  (* pfx_inst *) attr_leaf u ((* pfx_conn *) .a(v[0]), .b(ub));
   wire ub;
+
+  (* pfx_inst *) attr_leaf u ((* pfx_conn *) .a(v[0]), .b(ub));
   logic ob;
 
   (* pfx_gen *) for (genvar g = 0; g < 2; g++) begin : gs

@@ -24,7 +24,8 @@
 // parameter declared as a class item is a local parameter.
 // base_c is virtual and parameterized; leaf_c is final, extends base_c #(8)
 // with the constructor argument H, implements two interface classes, and
-// declares an item of each kind. The printed values show that the items
+// declares an item of each kind. The size method is virtual so that it
+// implements sized_if::size() (8.26.2). The printed values show that the items
 // declared in these forms work.
 // Icarus Verilog 13.0 does not support interface classes.
 
@@ -77,7 +78,7 @@ class :final leaf_c #(int H = 3) extends base_c #(8) (H) implements named_if, si
     return 2 + pc - 6;
   endfunction
   extern virtual function :final string name();
-  extern function int size();
+  extern virtual function int size();
   static function int made();
     return count;
   endfunction

@@ -20,8 +20,10 @@
 // at 38); a at 65 is followed by no b at 68. s_h ends at 98 (h at 68 and 98); g
 // at 85 on c1 is followed by the c2 tick at 98. s_pair(u, v) ends on c1 at 35
 // (u at 15, v at 35) and at 55 (u at 35, v at 55), so its matched is true at
-// the c2 ticks 38 and 68 only. From r at 8, ##[1:2] (§16.7) reaches matched at
-// 38 and at 68, followed by q at 68 and 98; from r at 68 it finds matched false
+// the c2 ticks 38 and 68 only. From r at 8, the singly clocked c2 prefix
+// r ##[1:2] 1'b1 (§16.7) ends at 38 and at 68; ##0 then samples matched at
+// that same c2 tick (§16.13.1 allows ##0 between the differently clocked
+// parts), followed by q at 68 and 98; from r at 68 it finds matched false
 // at 98 and 128. The covers (§16.14.3) record the times of their matches.
 
 `timescale 1ns/1ns
@@ -45,7 +47,8 @@ module test_triggered_matched_multiclock;
   c_trig: cover property (@(posedge c2) s_mc.triggered) m_trig.push_back($time);
   c_trig_in: cover sequence (@(posedge c1) g ##1 @(posedge c2) s_h.triggered)
     m_trig_in.push_back($time);
-  c_mat: cover sequence (@(posedge c2) r ##[1:2] s_pair(u, v).matched ##1 q)
+  c_mat: cover sequence
+    (@(posedge c2) (r ##[1:2] 1'b1) ##0 s_pair(u, v).matched ##1 q)
     m_mat.push_back($time);
 
   // True when a signal sampled high at the times listed has to be high at t:

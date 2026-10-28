@@ -17,7 +17,9 @@
 // be defined in more than one module and run concurrently (25.7.4: a call
 // behaves as a fork-join of the definitions). The task put is declared extern
 // in am_bus and defined in am_store; am_caller calls it through its own port
-// and sees value 7 at once. The task tick is extern forkjoin and defined in
+// and sees value 7 at once. Each modport lists the interface variables that
+// its module accesses (25.10): value in store and caller, mask in counter and
+// caller. The task tick is extern forkjoin and defined in
 // the two instances c1 and c2, each of which waits 5 and sets its own bit of
 // mask; the call returns at time 5 with both bits set, not at time 10 as
 // calls one after the other would.
@@ -31,9 +33,10 @@ interface am_bus;
   bit [1:0] mask;
   extern task put(input int v);
   extern forkjoin task tick();
-  modport store (export put);
-  modport counter (export tick);
-  modport caller (import task put(input int v), import task tick());
+  modport store (export put, output value);
+  modport counter (export tick, output mask);
+  modport caller (import task put(input int v), import task tick(),
+                  input value, input mask);
 endinterface
 
 module am_store(am_bus.store b);

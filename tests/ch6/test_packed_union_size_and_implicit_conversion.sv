@@ -3,25 +3,22 @@
 :description: logic is one bit, a packed union is as wide as its largest member, packed structs convert implicitly, and a static enum cast is a coercion
 :tags: ch6
 :type: simulation
-:lrm: 1800-2023 6.24.1 6.19.4
+:lrm: 1800-2023 6.24.1 6.19.4 6.24.3 20.6.2
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_packed_union_size_and_implicit_conversion.expected
 */
-// IEEE 1800-2023 6.24.1: the size of a logic is one bit and the size of an
-// ordinary union is the size of its largest member. Packed types are implicitly
+// IEEE 1800-2023 6.24.1: the size of a logic is one bit and the size of a
+// packed union is the size of its largest member. Packed types are implicitly
 // converted as integral values, so a packed struct can be assigned from an
 // integral value. A cast whose operand is not assignment compatible follows
 // 6.19.4 for an enum destination; the test casts an out-of-range integral to an
 // enum and observes the coerced value without a membership check.
-// The standard disagrees with itself on $bits of the unpacked union uun_t.
-// 20.6.2 takes the legal types of $bits from 6.24.3, whose bit-stream types
-// do not include unions. 6.24.1 gives the size of a union as that of its
-// largest member, and its example applies $bits to a structure holding an
-// unpacked union. The test follows 6.24.1, the rule written for unions;
-// slang, and so kirimasim, follows 6.24.3 and rejects $bits(uun_t).
+// $bits takes a bit-stream type (20.6.2, 6.24.3); an unpacked union is not one,
+// so the size is asked of the packed union pun_t. The unpacked union uun_t is
+// still assigned and read, which 6.24.1 covers.
 
 typedef union {
   logic [7:0] bytev;
@@ -47,7 +44,7 @@ module test_packed_union_size_and_implicit_conversion;
   etwo_t e;
 
   initial begin
-    $display("logic_bits=%0d union_bits=%0d", $bits(logic), $bits(uun_t));
+    $display("logic_bits=%0d union_bits=%0d", $bits(logic), $bits(pun_t));
     $display("struct_bits=%0d packed_union_bits=%0d", $bits(pst_t), $bits(pun_t));
     p.bytev = 8'hA5;
     $display("u_b=%h u_o=%h", p.bytev, p.other);

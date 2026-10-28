@@ -3,7 +3,7 @@
 :description: nexttime, always and eventually evaluated in a time step that is not a tick of their clock first align to the next tick of that clock and count it as tick 0, so nexttime[0] checks that tick, nexttime and nexttime[1] the one after, always [0:1] both and eventually [1:2] the two after it (IEEE 1800-2023 Sections 16.12.10, 16.12.11, 16.12.13)
 :tags: ch16
 :type: simulation
-:lrm: 1800-2023 16.12.10 16.12.11 16.12.13
+:lrm: 1800-2023 16.12.10 16.12.11 16.12.13 16.13.2 16.16.1
 :oracle: spec
 :spec_check: ai
 :fourstate: no
@@ -18,9 +18,13 @@
 // s_always [n:m] the n+1st to m+1st ticks, eventually [n:m] and s_eventually
 // [n:m] one of them. When the time step is a tick, the aligned tick is the
 // current one.
-// Each assertion is clocked by c1 and joins a, which is always 1, with a
-// property clocked by c2 (§16.13.2), so that property is evaluated from the
-// c1 tick. c2 rises at 5, 15, ..., 75 and c1 at 5, a c2 tick, and at 27,
+// Each assertion is a multiclocked implication clocked by c1: a, which is
+// always 1, is the antecedent and the property clocked by c2 is the
+// consequent, so that property is evaluated from the c1 tick, at the nearest
+// c2 tick at or after it (§16.13.2). This form has the single semantic leading
+// clock c1 (§16.16.1), whereas a direct and of the two differently clocked
+// subproperties would have no unique semantic leading clock and would be
+// illegal. c2 rises at 5, 15, ..., 75 and c1 at 5, a c2 tick, and at 27,
 // between the c2 ticks at 25 and 35, which aligns to 35. The signals n0, n1,
 // al and ev take the values of the tables below at the c2 ticks, chosen so
 // that counting from the c2 tick before 27, or from 35 without counting it,
@@ -49,21 +53,21 @@ module test_nexttime_always_eventually_alignment;
 
   always #5 c2 = ~c2;   // rising edges at 5, 15, ..., 75
 
-  a0: assert property (@(posedge c1) a and (@(posedge c2) nexttime[0] n0))
+  a0: assert property (@(posedge c1) a |-> @(posedge c2) nexttime[0] n0)
     hit("nexttime[0]", "P"); else hit("nexttime[0]", "F");
-  a1: assert property (@(posedge c1) a and (@(posedge c2) nexttime n1))
+  a1: assert property (@(posedge c1) a |-> @(posedge c2) nexttime n1)
     hit("nexttime", "P"); else hit("nexttime", "F");
-  a2: assert property (@(posedge c1) a and (@(posedge c2) nexttime[1] n1))
+  a2: assert property (@(posedge c1) a |-> @(posedge c2) nexttime[1] n1)
     hit("nexttime[1]", "P"); else hit("nexttime[1]", "F");
-  a3: assert property (@(posedge c1) a and (@(posedge c2) s_nexttime[1] n1))
+  a3: assert property (@(posedge c1) a |-> @(posedge c2) s_nexttime[1] n1)
     hit("s_nexttime[1]", "P"); else hit("s_nexttime[1]", "F");
-  a4: assert property (@(posedge c1) a and (@(posedge c2) always [0:1] al))
+  a4: assert property (@(posedge c1) a |-> @(posedge c2) always [0:1] al)
     hit("always [0:1]", "P"); else hit("always [0:1]", "F");
-  a5: assert property (@(posedge c1) a and (@(posedge c2) s_always [0:1] al))
+  a5: assert property (@(posedge c1) a |-> @(posedge c2) s_always [0:1] al)
     hit("s_always [0:1]", "P"); else hit("s_always [0:1]", "F");
-  a6: assert property (@(posedge c1) a and (@(posedge c2) eventually [1:2] ev))
+  a6: assert property (@(posedge c1) a |-> @(posedge c2) eventually [1:2] ev)
     hit("eventually [1:2]", "P"); else hit("eventually [1:2]", "F");
-  a7: assert property (@(posedge c1) a and (@(posedge c2) s_eventually [1:2] ev))
+  a7: assert property (@(posedge c1) a |-> @(posedge c2) s_eventually [1:2] ev)
     hit("s_eventually [1:2]", "P"); else hit("s_eventually [1:2]", "F");
 
   initial begin   // c1 rises at 5 and at 27

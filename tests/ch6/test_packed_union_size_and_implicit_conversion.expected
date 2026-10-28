@@ -1,4 +1,4 @@
-logic_bits=1 union_bits=16
+logic_bits=1 union_bits=8
 struct_bits=8 packed_union_bits=8
 u_b=a5 u_o=a5
 s_hi=5 s_lo=a

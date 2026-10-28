@@ -1,6 +1,6 @@
 /*
 :name: test_interface_extern_and_generate_items
-:description: An interface declares an extern function and an extern forkjoin task that connected modules define, and its body holds an attributed initial item, an always_comb, a continuous assignment, a module instance, a generate region, a loop generate, a conditional generate and an elaboration severity task in a branch that is not elaborated, with modports that export those subroutines and use a modport expression (IEEE 1800-2023 Sections 25.3, 25.7 and A.1.6, A.2.9)
+:description: An interface declares an extern function and an extern forkjoin task that connected modules define, and its body holds an attributed initial item, an always_comb, a continuous assignment, a generate region, a loop generate, a conditional generate and an elaboration severity task in a branch that is not elaborated, with modports that export those subroutines and use a modport expression, while the parent module instantiates a module on the interface variables (IEEE 1800-2023 Sections 25.3, 25.7 and A.1.6, A.2.9)
 :tags: ch25
 :type: simulation
 :lrm: 1800-2023 25.7 25.3 A.1.6 A.2.9
@@ -19,10 +19,12 @@
 //     exports it in modport fn; ex_fn_target defines it as x + 100, so the
 //     initial item of the interface computes 5 + 100 + 2 = 107.
 //   - ex_items_bus has an attributed initial item, an always_comb, a
-//     continuous assignment, an instance of ex_leaf, a generate region with
-//     a conditional generate, a loop generate and a conditional generate,
-//     and an extern forkjoin task that both ex_items_target instances
-//     define, each setting its own bit of mask.
+//     continuous assignment, a generate region with a conditional generate,
+//     a loop generate and a conditional generate, and an extern forkjoin task
+//     that both ex_items_target instances define, each setting its own bit of
+//     mask. A module can neither be declared nor instantiated in an interface
+//     (25.3), so the parent instantiates ex_leaf and connects it to the
+//     interface variables shadow and leaf_y.
 //   - Its modport tgt exports the task by identifier and uses the modport
 //     expressions .low(shadow[3:0]) and .fixed(2), which are ports visible
 //     only through the modport.
@@ -74,8 +76,6 @@ interface ex_items_bus;
   always_comb plain = shadow[0];
   (* keep *) initial plain2 = 3;
 
-  ex_leaf u_leaf (.a(shadow[0]), .y(leaf_y));
-
   generate
     if (1) begin : gr
       assign gen_n = shadow[0];
@@ -105,6 +105,8 @@ endmodule
 module test_interface_extern_and_generate_items;
   ex_fn_bus fn_bus ();
   ex_items_bus items_bus ();
+
+  ex_leaf u_leaf (.a(items_bus.shadow[0]), .y(items_bus.leaf_y));
 
   ex_fn_target u_fn (fn_bus.fn);
   ex_items_target #(0) u_t0 (items_bus.tgt);

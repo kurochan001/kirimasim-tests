@@ -14,7 +14,10 @@
 // constraint holds only expressions that denote singular or array variables,
 // as §18.5.4 describes. §18.5: the constraint of the class takes part in
 // randomize, and unique {a, b, c} makes the three singular variables differ
-// while unique {arr} makes the elements of the array differ.
+// while unique {arr} makes the elements of the array differ. The variables in
+// a uniqueness constraint are random variables; a, b, c and arr are rand so
+// that randomize can give them the distinct values that the constraint
+// requires.
 //
 // The three variables a, b and c are inside 0:2, so the only assignment that
 // keeps them different is a permutation of 0, 1 and 2, and each of the three
@@ -26,8 +29,8 @@
 
 module test_uniqueness_constraint_forms;
   class u;
-    int a, b, c;
-    int arr [3];
+    rand int a, b, c;
+    rand int arr [3];
 
     constraint cu {
       unique {a, b, c};
