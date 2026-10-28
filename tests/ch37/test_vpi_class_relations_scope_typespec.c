@@ -218,7 +218,7 @@ static PLI_INT32 classes_calltf(PLI_BYTE8 *user_data)
         vpi_printf((PLI_BYTE8 *)"%s\n", na ? "" : " none");
     }
     if (base_ts != NULL) {
-        vpi_printf((PLI_BYTE8 *)"cr_der base class definition %s\n",
+        vpi_printf((PLI_BYTE8 *)"cr_der base class definition %d\n",
                    vpi_handle(vpiClassDefn, base_ts) != NULL
                    && vpi_compare_objects(vpi_handle(vpiClassDefn, base_ts),
                                          find_class("cr_base")));
