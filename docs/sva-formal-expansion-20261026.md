@@ -1,5 +1,10 @@
 # SVAフォーマル検証の拡張：境界値と実テストとの対応
 
+> 以下は2026-10-26の実行記録です。2026-10-29の確認では、保存済みJSONの
+> `--check-results`は`stale expansion source bindings`で失敗します。
+> 現在のソースを検証する場合は[再実行手順](sva-reference-formal-verification.md#再実行)に従い、
+> 新しく生成した`results.json`を検査してください。
+
 前回の[基本40モデル](../tools/sva_reference/FORMAL_REVIEW.md)に続き、演算子の境界値を系統的に変えた111ケースを追加し、実テストとの対応を記録しました。2026-10-26時点で、**111件のBMCと111件のPDR証明がすべて成功**しています。
 
 基本セットと重複する式を含む別の検証セットです。40と111を足して、151種類の異なる式を検証したという意味にはしません。期待出力・`:oracle:`・シミュレータ実行確認率は変更していません。
@@ -66,7 +71,7 @@ python3 tools/sva_formal_sweep.py --emit-only --output-dir "$SWEEP_EXPORT_DIR"
 # ソース、テスト、モデル、設定、必要ジョブが保存記録と合うか確認。
 # ソルバーの再実行はしない。
 python3 tools/sva_formal_sweep.py \
-  --check-results tools/sva_reference/fixtures/formal_expanded_results.json
+  --check-results "$SWEEP_RUN_DIR/results.json"
 ```
 
 実行環境はYosys 0.68+71、SBY 0.68、Yices 2.7.0、ABC 1.01です。ツールのPATHは子プロセスにだけ設定します。モデル生成と検査用Pythonコードは標準ライブラリのみです。

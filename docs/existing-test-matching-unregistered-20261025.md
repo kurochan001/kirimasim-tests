@@ -1,5 +1,9 @@
 # 未登録テストの照合：第1回（2026-10-25）
 
+> この文書の件数・割合・保留状態は、各作業時点の記録です。
+> 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
+> [要求抽出の結果](requirement-extraction.md)を参照してください。
+
 [現在のカバレッジ](behavior-coverage-summary.md) / [全テストの照合台帳](test-requirement-matching.md) / [照合の方法](requirements-to-tests-method.md) / [前回までの指摘](existing-test-matching-review-20261022.md)
 
 この文書は、対応登録のない既存テスト2,514本を対象に始めた照合の、最初の区間の記録です。

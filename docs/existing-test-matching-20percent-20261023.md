@@ -1,5 +1,9 @@
 # 既存テストの要求照合：20%超過の結果（2026-10-23）
 
+> この文書の件数・割合・保留状態は、各作業時点の記録です。
+> 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
+> [要求抽出の結果](requirement-extraction.md)を参照してください。
+
 [現在の集計](behavior-coverage-summary.md) / [照合台帳](test-requirement-matching.md) / [累積の進捗・指摘](existing-test-matching-review-20261022.md)
 
 既存テストの照合を繰り返し、**暫定設計網羅率20.009741%（2,465/12,319要求）となりました。20%を超える目標を達成しました。**

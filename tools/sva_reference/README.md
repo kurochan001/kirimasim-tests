@@ -24,6 +24,13 @@ for the basic set, the 111-case extension, covers and counterexamples.
 The [Japanese guide](../../docs/sva-reference-formal-verification.md) explains
 the relationship to suite expectations, proof boundaries and reproduction.
 
+The 40-model and 111-case reports above are historical. As of 2026-10-29,
+their saved JSON files fail `--check-results` because their source bindings
+are stale. The current default catalogue contains 267 cases; 268 suite files
+refer to them through `:formal_case:` and are run by `tools/run_sby.py`.
+Current requirement-level evidence is recorded in the
+[behavior summary](../../docs/behavior-coverage-summary.md).
+
 ## Result and decision
 
 The three pilot traces agree with every sampled input tick of the independent
@@ -489,15 +496,15 @@ Run from the repository root. `SBY_BIN` points to OSS CAD Suite's `sby`, and
 each output directory must be new or empty:
 
 ```sh
-# Execute the basic set or the boundary sweep.
+# Execute the current catalogue or the boundary sweep.
 python3 tools/sva_reference/formal.py --sby "$SBY_BIN" --output-dir "$FORMAL_RUN_DIR"
 python3 tools/sva_formal_sweep.py --sby "$SBY_BIN" --output-dir "$SWEEP_RUN_DIR"
 
-# Check saved results against current sources without running solvers.
+# Check newly generated results against current sources without running solvers.
 python3 tools/sva_reference/formal.py \
-  --check-results tools/sva_reference/fixtures/formal_symbolic_results.json
+  --check-results "$FORMAL_RUN_DIR/results.json"
 python3 tools/sva_formal_sweep.py \
-  --check-results tools/sva_reference/fixtures/formal_expanded_results.json
+  --check-results "$SWEEP_RUN_DIR/results.json"
 ```
 
 The sets overlap, so their model counts are not a count of distinct expressions.
@@ -505,5 +512,6 @@ PDR removes the input-length limit for each selected sequence model; it does
 not quantify over arbitrary numeric parameters, expressions or SV programs.
 The sweep checks Boolean sequence kernels, leaving predicate evaluation,
 four-state operations, scheduling, outer properties and actions outside its
-proof. Neither set changes `:oracle:` or simulator execution coverage, and
-no dedicated formal CI job is enabled.
+proof. Neither set changes `:oracle:` or simulator execution coverage.
+The suite separately adopts `run_sby.py` results as formal evidence in the
+requirement ledger; no dedicated formal CI job is enabled.

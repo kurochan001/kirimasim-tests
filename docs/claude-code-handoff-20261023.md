@@ -1,13 +1,9 @@
 # Claude Codeへのハンドオフ（2026-10-23）
 
-> **現在の値（2026-10-25 更新）**
-> 本文は20%到達時点（2026-10-23）の記録です。現在の正本は
-> [`coverage/behavior-summary.json`](../coverage/behavior-summary.json) で、値は次のとおりです。
->
-> - 要求対応：**10,980 / 12,298（89.28%）**、実行成功：**7,309（59.43%、Ghost含む）**
-> - 未対応：1,318、解釈保留：0行、分母：承認済み（AIレビュー、`confirmed`）
-> - テスト：7,740本（対応登録済み5,308本、未登録2,432本）
-> - 75%＝9,240要求まで、75%を**達成**（9,240以上）
+> **履歴資料**
+> 本文は各作業時点の記録です。現在の分母・対応・実行証跡は
+> [生成した集計概要](behavior-coverage-summary.md)、最新の引き継ぎと残件は
+> [2026-10-29更新の引き継ぎ](handover-20261028.md)を参照してください。
 
 ## 最初に把握すること
 
@@ -251,7 +247,7 @@ git diff --check
 
 unit testは74件成功。metadata lintは3,938本、new problem 0、known 378です。
 `--verify-source`にはPDFファイル単体ではなく資料ディレクトリを渡します。
-`--require-complete`は現在未対応要求・分母未承認があるため、成功を要求する通常検査には使いません。
+`--require-complete`は未対応要求と成功証跡のない要求が残る間は失敗するため、成功を要求する通常検査には使いません。分母は2026-10-28に承認済みです。
 元のSV/C全件をこの引き継ぎのために再実行する必要はありません。
 
 生成物に加え、README、最新結果資料、累積進捗、nightly-resultsのmain集計欄も更新対象です。
@@ -278,8 +274,9 @@ mainの保存済み結果と、resultsブランチへNightlyが出すその回�
 このリポジトリのルートで、
 docs/claude-code-handoff-20261023.md と
 docs/claude-code-handoff-20261023-50percent.md を読み、状況を把握してください。
-現在は要求対応11,000/12,319（89.29%）、実行成功7,329（59.49%、Ghost含む。Ghostを除くIcarus/Verilator/formalのみでは6270/50.87%）です。
-75%（9,240要求）は達成済みです。
+最新の分母・要求対応・実行成功は coverage/behavior-summary.json と
+docs/behavior-coverage-summary.md を参照してください。
+75%の目標は達成済みです。現在の残件と作業方針は docs/handover-20261028.md を参照してください。
 正本は coverage/behavior-summary.json、保留判断・AND集合証拠・資料の確認手順を引き継いでください。
 次の具体的な作業指示は別途伝えます。
 ```

@@ -1,5 +1,9 @@
 # テスト側の失敗と Issue #6–#19 の修正（2026-10-28）
 
+> この文書の件数・割合・保留状態は、各作業時点の記録です。
+> 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
+> [要求抽出の結果](requirement-extraction.md)を参照してください。
+
 `docs/test-failure-triage-20261028.md` が判断を記録したテスト側の失敗を、
 IEEE 1800-2023 の節に基づいて修正した記録です。ランナー側の #13 / #14 は
 `docs/runner-selection-20261028.md` にあります。

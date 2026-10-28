@@ -1,5 +1,9 @@
 # 予約語の違法系テストの生成（2026-10-24）
 
+> この文書の件数・割合・保留状態は、各作業時点の記録です。
+> 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
+> [要求抽出の結果](requirement-extraction.md)を参照してください。
+
 [現在の集計](behavior-coverage-summary.md) / [要求抽出と台帳見直し](requirement-extraction.md) / [シミュレータと規格の差異](simulator-differences.md)
 
 2026-10-24の台帳見直しで、予約語の行を「その語をエスケープしない識別子として使うと拒否される」という違法系の要求に組み替えました。

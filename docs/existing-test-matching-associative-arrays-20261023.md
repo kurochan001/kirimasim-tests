@@ -1,5 +1,9 @@
 # 既存テストの要求照合：連想配列（2026-10-23）
 
+> この文書の件数・割合・保留状態は、各作業時点の記録です。
+> 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
+> [要求抽出の結果](requirement-extraction.md)を参照してください。
+
 [現在のカバレッジ](behavior-coverage-summary.md) / [全テストの照合台帳](test-requirement-matching.md) / [前回の配列メソッド照合](existing-test-matching-array-methods-20261023.md)
 
 以下は既存テスト照合直後の記録です。その後の[不足した観測への15本のテスト追加](associative-gap-tests-20261023.md)に、

@@ -140,7 +140,7 @@ python3 tools/behavior_coverage.py --write-baseline --update --require-source-re
 2. 別の検証担当が反証を試みる。
 3. 採用された論点の行から`interpretation_issue`を外し、`source_note`に採用した解釈を追記する。
 4. 節に他の保留が残らなければ、`standard-sections.json`と`requirement-audit.json`の両方で`complete`にする。
-5. 保留を続ける論点には、[未解決事項](requirement-extraction-notes.md)に「決め手として欠けているもの」を書く。
+5. 保留を続ける論点には、[解釈・再検討記録](requirement-extraction-notes.md)に「決め手として欠けているもの」を書く。
 
 書き直した要求文が、正常系と違法系の混在を新たに作っていないかも確認します（4章）。
 

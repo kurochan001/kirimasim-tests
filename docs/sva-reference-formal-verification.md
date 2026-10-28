@@ -139,6 +139,10 @@ BMC深度8は、この検証用モデルのステップ数の設定です。実�
 
 実例1が下表の「テスト出力の確認」、実例2が「評価器のフォーマル検証：基本セット」です。2026-10-26時点の検証結果をまとめると、次のとおりです。
 
+この表は当時の実行記録です。2026-10-29の確認では、基本セットと境界値拡張の保存済みJSONは
+現在のソースに対する`--check-results`でstaleになります。現在のカタログによる再実行と、
+その出力の鮮度検査は[再実行手順](#再実行)を参照してください。
+
 | 確認 | 知りたいこと | 入力と比べ方 | 今回の結果 |
 | --- | --- | --- | --- |
 | テスト出力の確認 | このテストの期待出力は、規格から計算した結果と合うか | 既存テストの決まった入力を評価し、期待出力と比較 | **45本一致** |
@@ -279,14 +283,19 @@ RTLは、ここでは「計算の状態や手順を回路として書いたモ�
 
 `SBY_BIN`にSuite内の`sby`実行ファイル、`FORMAL_RUN_DIR`に新規または空の出力ディレクトリを指定します。ツールのPATHは子プロセスにだけ設定し、通常のシミュレータ選択を変更しません。
 
-### 基本セットの全71ジョブを実行する
+### 現在のカタログを実行する
+
+`--case`を省略すると、現在のカタログ全体を実行します。2026-10-29時点では267ケース・
+583ジョブ（BMC 267、PDR 44、cover 267、意図的な誤り5）です。上記の旧40モデル・71ジョブの
+実行範囲とは異なります。スイートのformalテスト268本には同じケースへの参照もあるため、
+テスト本数とケース数は一致しません。
 
 ```sh
 python3 tools/sva_reference/formal.py --sby "$SBY_BIN" \
   --output-dir "$FORMAL_RUN_DIR"
 ```
 
-生成RTL、SBY設定、ログ、反例・到達例のVCD、`results.json`が出力されます。既存の実行結果は上書きしません。追加PDR負例1件は、この既定の71ジョブには含まれません。
+生成RTL、SBY設定、ログ、反例・到達例のVCD、`results.json`が出力されます。既存の実行結果は上書きしません。追加PDR負例1件は、この既定の実行には含まれません。
 
 ### 境界値の拡張228ジョブを実行する
 
@@ -329,14 +338,17 @@ python3 tools/sva_reference/formal.py --emit-only --output-dir "$FORMAL_RTL_DIR"
 
 ### 保存済み結果と現在のソースの対応を確かめる
 
+再実行して得た`results.json`を検査します。新しい結果が現在のソースと対応し、
+必要なジョブをすべて含んでいる場合に成功します。
+
 次のコマンドはソルバーを再実行せず、ソースのハッシュと必要なジョブの揃い方を検査します。
 
 ```sh
 python3 tools/sva_reference/formal.py \
-  --check-results tools/sva_reference/fixtures/formal_symbolic_results.json
+  --check-results "$FORMAL_RUN_DIR/results.json"
 
 python3 tools/sva_formal_sweep.py \
-  --check-results tools/sva_reference/fixtures/formal_expanded_results.json
+  --check-results "$SWEEP_RUN_DIR/results.json"
 ```
 
 基本セットは`tools/sva_reference/`のPythonソースの変更を検出します。追加セットでは、拡張用コードや対応付け対象のテスト、モデル・設定ハッシュも検査します。再実行した結果と差分を確認してから証跡を更新します。期待出力との不一致が出た場合は、モデル・入力・符号化・有限トレースの境界を調べ、条文で判断します。既存の期待出力や説明を修正する際は、承認と[台帳更新手順](../coverage/README.md)に従います。

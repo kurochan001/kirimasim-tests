@@ -1,0 +1,12 @@
+start=0
+end=10
+scopes=1
+vars=2
+timescale=-9
+scope 0 top
+var 16 2 8 a
+var 5 2 1 b
+t=0 a=00000101
+t=0 b=0
+t=10 a=10100101
+t=10 b=1

@@ -14,7 +14,11 @@ Two formal sets are recorded as of 2026-10-26:
 The sets overlap and must not be added as disjoint model counts. The first
 sections describe the basic set; the extension is described below and in the
 [Japanese boundary-sweep report](../../docs/sva-formal-expansion-20261026.md).
-The basic evaluator/exporter source bindings remain unchanged and valid.
+These are historical results. As of 2026-10-29, both saved reports fail their
+current `--check-results` checks because source bindings have changed. They
+must not be described as fresh proofs for the current source. Current
+suite-level formal evidence is recorded separately through `tools/run_sby.py`
+and the [behavior summary](../../docs/behavior-coverage-summary.md).
 
 The basic formal set has 40 independent semantic-model comparisons.
 All 40 bounded checks passed. The 22 sequence models also passed unbounded
@@ -108,10 +112,15 @@ These are expected failures that validate the checking pipeline; they are not
 newly discovered errors in the current evaluator or suite expectations. The
 counterexamples were inspected and are bound to their model and VCD hashes.
 
-## Basic set: reproduce and inspect
+## Run the current catalogue and inspect results
+
+The default command below now runs the current catalogue, not the historical
+40-model set. On 2026-10-29 it selects 267 cases and 583 jobs: 267 BMC checks,
+44 PDR proofs, 267 covers and five deliberate-error jobs. There are 268 formal
+suite files because more than one test can reference the same case.
 
 ```sh
-# Run BMC, streaming PDR proofs, selected covers and negative controls.
+# Run the current catalogue's BMC, streaming PDR, covers and negative controls.
 # FORMAL_RUN_DIR must be new or empty; previous runs are never overwritten.
 python3 tools/sva_reference/formal.py --sby "$SBY_BIN" \
   --output-dir "$FORMAL_RUN_DIR"
@@ -123,9 +132,9 @@ python3 tools/sva_reference/formal.py --sby "$SBY_BIN" \
 # Export reviewable RTL without installing or executing a formal tool.
 python3 tools/sva_reference/formal.py --emit-only --output-dir "$FORMAL_RTL_DIR"
 
-# Check saved source bindings and task completeness; this does not rerun SBY.
+# Check the newly generated report; this does not rerun SBY.
 python3 tools/sva_reference/formal.py \
-  --check-results tools/sva_reference/fixtures/formal_symbolic_results.json
+  --check-results "$FORMAL_RUN_DIR/results.json"
 ```
 
 `SBY_BIN` points to the SBY executable in a working OSS CAD Suite; its sibling
@@ -197,7 +206,7 @@ index identifies the deliberately altered expression used for comparison.
 python3 tools/sva_formal_sweep.py --sby "$SBY_BIN" --output-dir "$SWEEP_RUN_DIR"
 python3 tools/sva_formal_sweep.py --emit-only --output-dir "$SWEEP_EXPORT_DIR"
 python3 tools/sva_formal_sweep.py \
-  --check-results tools/sva_reference/fixtures/formal_expanded_results.json
+  --check-results "$SWEEP_RUN_DIR/results.json"
 ```
 
 Saved-result validation recomputes code/test bindings, model definitions,

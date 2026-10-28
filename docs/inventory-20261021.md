@@ -1,5 +1,9 @@
 # Inventory of the suite, 2026-10-21
 
+> Counts, percentages and open findings below describe the recorded stages of the work.
+> See the [generated behavior summary](behavior-coverage-summary.md) and
+> [updated handover](handover-20261028.md) for the current suite and remaining work.
+
 Phase 0 of the extension work: what the suite already has, before anything
 is added. Nothing outside this file was changed for it. The counts are those
 of `main` at commit 6177339 (3403 tests).
@@ -1139,17 +1143,16 @@ accept simulator-specific expected outputs, and the execution evidence was
 refreshed with the pinned Icarus 13.0 and Verilator 5.052 releases.
 The ledger maps 10793 of 12319 rows (87.61%), with 6117 executed (49.66%).
 
-### Current state
+### State after these commits (historical)
 
 After these commits the suite has 6799 tests in 37 chapters, 1308 of them
 generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
-designs, and 33 set an expected exit code. The denominator is approved at
-12298 unique obligations (docs/denominator-review-20261028.md), the ledger
-maps 10980 rows (89.28%), and 7309 are executed (59.43%) including the
-concurrent Ghost evidence (6251, 50.83%, without it). See
-docs/handover-20261028.md for the final state and the remaining limits.
+designs, and 33 set an expected exit code. These counts describe the suite
+at this stage of the work. Subsequent additions and the approved denominator
+are recorded in the [generated behavior summary](behavior-coverage-summary.md)
+and the [updated handover](handover-20261028.md).
 
 ### Tests added in this work
 

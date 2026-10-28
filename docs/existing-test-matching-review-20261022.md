@@ -1,10 +1,15 @@
 # 既存テストの要求照合で見つかった問題（2026-10-22開始、2026-10-23更新）
 
+> この文書の件数・割合・保留状態は、各作業時点の記録です。
+> 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
+> [要求抽出の結果](requirement-extraction.md)を参照してください。
+
 対象は既存テストと IEEE 1800-2023 の要求台帳との対応です。
 全テストの意味上の照合を完了したという報告ではありません。
 [全テストの照合台帳](test-requirement-matching.md)と
 [現在の計測結果](behavior-coverage-summary.md)を併せて参照してください。
-最新の続行結果は[未登録テストの照合（2026-10-25）](existing-test-matching-unregistered-20261025.md)です。
+以後の続行結果は[未登録テストの照合（2026-10-25）](existing-test-matching-unregistered-20261025.md)、
+[分母レビュー](denominator-review-20261028.md)、[ギャップ調査（2026-10-29）](coverage-gap-recommendations-20261029.md)を参照してください。
 
 ## 今回の到達点
 
