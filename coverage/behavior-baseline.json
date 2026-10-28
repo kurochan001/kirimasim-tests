@@ -32482,6 +32482,7 @@
     "SV2023-3.12-EXTRACT-INSTANCE-EXPANSION",
     "SV2023-3.12-EXTRACT-NET-CONNECTIVITY",
     "SV2023-3.12-EXTRACT-PARAMETER-VALUES",
+    "SV2023-3.12.1-EXTRACT-COMBINED-FILE-MODE",
     "SV2023-3.12.1-EXTRACT-COMPILATION-UNIT",
     "SV2023-3.12.1-EXTRACT-DIRECTIVE-FORWARD-SCOPE",
     "SV2023-3.12.1-EXTRACT-EXPLICIT-UNIT-RESOLUTION",
@@ -32496,6 +32497,7 @@
     "SV2023-3.12.1-EXTRACT-UNIT-PREFIX-NO-FORWARD",
     "SV2023-3.12.1-EXTRACT-UNIT-SCOPE",
     "SV2023-3.12.1-EXTRACT-UNIT-UPWARD-REFERENCE",
+    "SV2023-3.13-EXTRACT-ATTRIBUTE-NAMESPACE",
     "SV2023-3.13-EXTRACT-BLOCK-NAMESPACE",
     "SV2023-3.13-EXTRACT-ELEMENT-NAMESPACE",
     "SV2023-3.13-EXTRACT-MACRO-NAME-SEPARATION",
@@ -43173,5 +43175,5 @@
     "P",
     "Q"
   ],
-  "reason": "Linked five existing tests to previously unmapped requirements: 23.3.3.7 same-type tri0/tri1 and supply0/supply1 port collapsing, and 20.11 assertion counters unaffected by control types 6-11. No new tests."
+  "reason": "Added test_attribute_namespace (3.13 attribute namespace) and test_compilation_unit_shared_across_files (3.12.1 combined-file mode). The new sibling files refreshed one ch3 include-directory hash."
 }

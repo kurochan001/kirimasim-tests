@@ -3,11 +3,11 @@
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
-**規格全動作のテスト設計網羅率: 89.32%。**
-**全規格の要求台帳ベース（確定）: 設計 89.32%、実行 59.59%。**
+**規格全動作のテスト設計網羅率: 89.33%。**
+**全規格の要求台帳ベース（確定）: 設計 89.33%、実行 59.60%。**
 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
-規格全動作の実行確認率: 59.59%。
+規格全動作の実行確認率: 59.60%。
 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10984/12298 (89.32%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7328/12298 (59.59%)。
-- 登録済みだがテスト未対応: 1314 動作。
+- 登録済み動作に対するテスト設計網羅率: 10986/12298 (89.33%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7330/12298 (59.60%)。
+- 登録済みだがテスト未対応: 1312 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -68,14 +68,16 @@
 - `chA-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T22:16:15.354614+00:00 / 24/12298 動作確認、古い入力との対応 1 件。
 - `chA-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:16:45.126049+00:00 / 44/12298 動作確認、古い入力との対応 1 件。
 - `chH-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:00:40.482405+00:00 / 183/12298 動作確認、古い入力との対応 5 件。
+- `coverage-tests-20261029-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-28T22:47:59.529525+00:00 / 3/12298 動作確認、古い入力との対応 0 件。
+- `coverage-tests-20261029-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T22:46:15.799172+00:00 / 2/12298 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12298 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4727/12298 動作確認、古い入力との対応 276 件。
+- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4727/12298 動作確認、古い入力との対応 277 件。
 - `issues-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-28T13:33:20.979624+00:00 / 11/12298 動作確認、古い入力との対応 0 件。
-- `issues-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T13:45:50.335531+00:00 / 3859/12298 動作確認、古い入力との対応 0 件。
+- `issues-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T13:45:50.335531+00:00 / 3858/12298 動作確認、古い入力との対応 1 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3134/12298 動作確認、古い入力との対応 274 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3133/12298 動作確認、古い入力との対応 275 件。
 - `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2673/12298 動作確認、古い入力との対応 244 件。
 - 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
@@ -220,7 +222,7 @@
 
 - 1 Overview: 解釈保留なし 12/12、登録 0、テスト対応 0。
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
-- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 117。
+- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 119。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 80。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 136。
 - 6 Data types: 解釈保留なし 92/92、登録 719、テスト対応 680。
@@ -1335,7 +1337,7 @@ Compilation-unit use models support single-file and multi-file compilation.
 
 ### SV2023-3.12.1-EXTRACT-COMBINED-FILE-MODE
 
-3.12.1 / normal / テスト未対応
+3.12.1 / normal / 実行確認あり
 
 A compliant implementation provides a use model that treats every file on one compilation command line as one compilation unit.
 
@@ -1343,6 +1345,7 @@ A compliant implementation provides a use model that treats every file on one co
 
 規定の性質: `mandatory`。
 
+- [test_compilation_unit_shared_across_files.sv](../tests/ch3/test_compilation_unit_shared_across_files.sv): 2つのソースファイルを同じコマンドラインでコンパイルすると1つの compilation unit になり、一方で宣言した unit_shared と unit_add が他方の module から見えて unit=42 になることを確認する。
 
 ### SV2023-3.12.1-EXTRACT-COMPILATION-UNIT
 
@@ -1582,7 +1585,7 @@ For upward hierarchical lookup the compilation-unit scope is treated as a top-le
 
 ### SV2023-3.13-EXTRACT-ATTRIBUTE-NAMESPACE
 
-3.13 / normal / テスト未対応
+3.13 / normal / 実行確認あり
 
 Attribute identifiers belong only to the namespace of their attribute instance delimiters.
 
@@ -1590,6 +1593,7 @@ Attribute identifiers belong only to the namespace of their attribute instance d
 
 規定の性質: `definition`。
 
+- [test_attribute_namespace.sv](../tests/ch3/test_attribute_namespace.sv): 同じ属性名 marker を module、variable、net の各 delimiter に付けても名前衝突にならず、コンパイルされて x=2 の動作が変わらないことを確認する。
 
 ### SV2023-3.13-EXTRACT-BLOCK-NAMESPACE
 

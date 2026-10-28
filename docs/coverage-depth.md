@@ -6,7 +6,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 7740 |
+| Tests | 7742 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -18,7 +18,7 @@
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 662 |
+| both releases | 664 |
 | Icarus Verilog 13.0 only | 3563 |
 | Verilator 5.052 only | 1509 |
 | standard only | 2006 |
@@ -27,7 +27,7 @@
 
 | Chapter | Title | Tests | In scope | Tests/clause | One test | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 86 | 16 | 5.4 | 0 | 10 |
+| 3 | Design and verification building blocks | 88 | 16 | 5.5 | 0 | 10 |
 | 4 | Scheduling semantics | 412 | 27 | 15.3 | 0 | 16 |
 | 5 | Lexical conventions | 346 | 16 | 21.6 | 0 | 7 |
 | 6 | Data types | 609 | 76 | 8.0 | 0 | 103 |

@@ -3749,7 +3749,25 @@
       "acceptance": "Declarations across those files obey normal visibility within a shared compilation-unit scope.",
       "source_note": "IEEE 1800-2023 3.12.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_compilation_unit_shared_across_files.sv",
+          "observation": "2つのソースファイルを同じコマンドラインでコンパイルすると1つの compilation unit になり、一方で宣言した unit_shared と unit_add が他方の module から見えて unit=42 になることを確認する。",
+          "reviewed_on": "2026-10-29",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "134d366e77e9afc8335dcfad9f08b69e31b2808179d2f9c4f008170f5c08f633",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_compilation_unit_shared_across_files.sv",
+              "contains": "initial $display(\"unit=%0d\", unit_add(unit_shared));"
+            },
+            {
+              "file": "tests/ch3/test_compilation_unit_shared_across_files.expected",
+              "contains": "unit=42"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.12.1",
@@ -3983,7 +4001,7 @@
           "observation": "どのスコープにも属さない位置で include したファイルが変数 inc_count=3、enum 型 inc_color_t、関数 inc_double を宣言し、取り込む側のコンパイル単位変数 after_include がその変数から 4 に初期化される。モジュールは $unit::inc_count と $unit::after_include を 3 と 4、取り込んだ型の変数 INC_BLUE=2、関数呼出し 42 として表示する。 区別: include したテキストを取り込む側とは別のコンパイル単位とする誤実装では、$unit::inc_count や after_include の初期化、型名と関数名が解決できずコンパイルエラーとなるか、別の値を表示する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "0a820937c39fc494ddf1461bfe4b64fb9a64a58e06dd5333823570af8ef5d0fc",
+          "inputs_sha256": "92b7ed6531cb638c0cde4eacbd95f8e65651720fc02c9b8c732b60668016022c",
           "evidence": [
             {
               "file": "tests/ch3/test_include_text_joins_compilation_unit.sv",
@@ -4485,7 +4503,25 @@
       "acceptance": "Do not treat another declaration category as an attribute declaration or leak attribute identifiers into ordinary scope lookup.",
       "source_note": "IEEE 1800-2023 3.13; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_attribute_namespace.sv",
+          "observation": "同じ属性名 marker を module、variable、net の各 delimiter に付けても名前衝突にならず、コンパイルされて x=2 の動作が変わらないことを確認する。",
+          "reviewed_on": "2026-10-29",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "37c84de28e02fca6f00075da6a83fa3249f62ab12a453736efe8e1e605e8be91",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_attribute_namespace.sv",
+              "contains": "(* marker = \"net\" *) wire w;"
+            },
+            {
+              "file": "tests/ch3/test_attribute_namespace.expected",
+              "contains": "x=2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.13",

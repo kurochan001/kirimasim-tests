@@ -2,14 +2,14 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 7740,
-  "linked_test_files": 5308,
+  "test_files": 7742,
+  "linked_test_files": 5310,
   "unlinked_test_files": 2432,
   "chapters": [
     {
       "chapter": "ch3",
-      "test_files": 86,
-      "linked_test_files": 69,
+      "test_files": 88,
+      "linked_test_files": 71,
       "unlinked_test_files": 17
     },
     {
@@ -192554,6 +192554,46 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch3/test_attribute_namespace.sv",
+      "inputs_sha256": "37c84de28e02fca6f00075da6a83fa3249f62ab12a453736efe8e1e605e8be91",
+      "cited_clauses": [
+        "3.13",
+        "5.12"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-3.13-EXTRACT-ATTRIBUTE-NAMESPACE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-3.13-EXTRACT-BLOCK-NAMESPACE",
+        "SV2023-3.13-EXTRACT-ELEMENT-NAMESPACE",
+        "SV2023-3.13-EXTRACT-MACRO-NAME-SEPARATION",
+        "SV2023-3.13-EXTRACT-MACRO-ORDER",
+        "SV2023-3.13-EXTRACT-PORT-DIRECTIONS",
+        "SV2023-3.13-EXTRACT-PORT-NAMESPACE",
+        "SV2023-3.13-EXTRACT-PORT-REINTRODUCTION",
+        "SV2023-3.13-EXTRACT-UNIT-DECLARATION-NAMES",
+        "SV2023-5.12-EXTRACT-ATTRIBUTE-DEFAULT",
+        "SV2023-5.12-EXTRACT-ATTRIBUTE-DUPLICATE-WARNING",
+        "SV2023-5.12-EXTRACT-ATTRIBUTE-EXPRESSION-TYPE",
+        "SV2023-5.12-EXTRACT-ATTRIBUTE-INSTANCE-SYNTAX",
+        "SV2023-5.12-EXTRACT-ATTRIBUTE-LAST-WINS",
+        "SV2023-5.12-EXTRACT-ATTRIBUTE-METADATA",
+        "SV2023-5.12-EXTRACT-ATTRIBUTE-PREFIX-PLACEMENT",
+        "SV2023-5.12-EXTRACT-ATTRIBUTE-SUFFIX-PLACEMENT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-3.13-EXTRACT-DEFINITION-NAMES",
+        "SV2023-3.13-EXTRACT-NO-REDECLARATION",
+        "SV2023-3.13-EXTRACT-PACKAGE-NAMES",
+        "SV2023-5.12-EXTRACT-NO-ATTRIBUTE-IN-VALUE",
+        "SV2023-5.12-EXTRACT-NO-NESTED-ATTRIBUTES"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch3/test_builtin_primitive_categories.sv",
       "inputs_sha256": "08f7a4c90e3bda6306849b7ced35744a626aac07789d7dc70ac031c3c5b4c488",
       "cited_clauses": [
@@ -192860,6 +192900,44 @@
         "SV2023-17.7.1-EXTRACT-FREE-NO-BLOCKING",
         "SV2023-17.7.1-EXTRACT-NO-HIERARCHICAL-ASSIGNMENT",
         "SV2023-17.7.1-EXTRACT-NO-INITIAL-ASSIGNMENT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch3/test_compilation_unit_shared_across_files.sv",
+      "inputs_sha256": "134d366e77e9afc8335dcfad9f08b69e31b2808179d2f9c4f008170f5c08f633",
+      "cited_clauses": [
+        "3.12.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-3.12.1-EXTRACT-COMBINED-FILE-MODE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-3.12.1-EXTRACT-COMPILATION-UNIT",
+        "SV2023-3.12.1-EXTRACT-DIRECTIVE-FORWARD-SCOPE",
+        "SV2023-3.12.1-EXTRACT-DIRECTIVE-UNIT-ISOLATION",
+        "SV2023-3.12.1-EXTRACT-EXPLICIT-UNIT-RESOLUTION",
+        "SV2023-3.12.1-EXTRACT-GLOBAL-DEFINITIONS",
+        "SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE",
+        "SV2023-3.12.1-EXTRACT-INCOMPLETE-FILE",
+        "SV2023-3.12.1-EXTRACT-NAME-SEARCH-ORDER",
+        "SV2023-3.12.1-EXTRACT-PLI-UNIT-ITERATOR",
+        "SV2023-3.12.1-EXTRACT-SEPARATE-FILE-MODE",
+        "SV2023-3.12.1-EXTRACT-UNIT-BIND",
+        "SV2023-3.12.1-EXTRACT-UNIT-NAME",
+        "SV2023-3.12.1-EXTRACT-UNIT-PACKAGE-ITEMS",
+        "SV2023-3.12.1-EXTRACT-UNIT-SCOPE",
+        "SV2023-3.12.1-EXTRACT-UNIT-UPWARD-REFERENCE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-3.12.1-EXTRACT-NO-UNIT-HIERARCHICAL-ACCESS",
+        "SV2023-3.12.1-EXTRACT-NO-UNIT-IMPORT",
+        "SV2023-3.12.1-EXTRACT-UNIT-FORWARD-LIMIT",
+        "SV2023-3.12.1-EXTRACT-UNIT-PREFIX-NO-FORWARD",
+        "SV2023-3.12.1-EXTRACT-UNIT-PRIVATE-NAMES"
       ],
       "broader_citations": []
     },
@@ -194889,7 +194967,7 @@
     },
     {
       "test": "tests/ch3/test_include_text_joins_compilation_unit.sv",
-      "inputs_sha256": "0a820937c39fc494ddf1461bfe4b64fb9a64a58e06dd5333823570af8ef5d0fc",
+      "inputs_sha256": "92b7ed6531cb638c0cde4eacbd95f8e65651720fc02c9b8c732b60668016022c",
       "cited_clauses": [
         "3.12.1",
         "22.4"
@@ -550603,7 +550681,7 @@
     "oracle_issue": 255,
     "partial_observation": 2129
   },
-  "registry_sha256": "e45d43e42d67d9cfee6dde0cee7cf10a41a5758b793261a9dcea98dab7129f83",
+  "registry_sha256": "416eae55ce5068b0e49625cd4a436a9e90d2aac64676b67100ae57eef24899fe",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
   "review_ledger_sha256": "5539c2065dbc1035600398e6ddab002bafab2b118b0e412d9322753954805011"
 }

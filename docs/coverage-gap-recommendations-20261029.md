@@ -1,33 +1,34 @@
 # カバレッジギャップ調査と追加テスト候補（2026-10-29）
 
-対象: スイート **7,740本**、分母 **12,298行**。Issue #6–#19 の修正後、2026-10-29 時点の集計です。
+対象: スイート **7,742本**、分母 **12,298行**。Issue #6–#19 の修正と、本調査に基づく2本の追加テストの後、2026-10-29 時点の集計です。
 
 ## 結論
 
 - 規格の全 **1,010節** に2本以上のテストがあり、1本だけの節はありません。節単位のテスト密度は十分です。
-- したがって優先順位は、**未対応行のうちテスト可能なクラスタ**、**対応済みだが成功証跡がない行**、**標準のみの期待値しかない節への第二証拠**の順です。
-- 新規テストを書く前に、`behavior_coverage.py --candidates <clause>` で既存テストを確認するのが最も費用対効果が高いです。今回の6候補も、5つは既存テストが既に観測していました。
+- 優先順位は、**未対応行のうちテスト可能なクラスタ**、**対応済みだが成功証跡がない行**、**標準のみの期待値しかない節への第二証拠**の順です。
+- 新規テストの前に `behavior_coverage.py --candidates <clause>` で既存テストを確認するのが最も費用対効果が高いです。当初の6候補のうち5つは既存テストが観測済みだったため、新規作成ではなくリンクで対応しました。
+- 実際に新規追加したのは、既存テストで観測していなかった attribute namespace と combined-file compilation unit の2本です。
 
 ## 1. 現在の指標
 
 | 指標 | 値 |
 |---|---:|
 | 登録行（分母） | 12,298 |
-| 要求対応 | 10,984 |
-| 未対応 | 1,314 |
-| 実行確認 | 7,328 |
+| 要求対応 | 10,986 |
+| 未対応 | 1,312 |
+| 実行確認 | 7,330 |
 | 対応済み・成功証跡なし | 3,656 |
 | 標準のみのテストしかない節 | 201 |
 | テスト2本以下の節 | 120 |
 | テスト1本だけの節 | 0 |
-| 既存テストの未登録 | 2,432 / 7,740 |
+| 既存テストの未登録 | 2,432 / 7,742 |
 
 ## 2. 章別の内訳
 
 | 章 | 合計 | 対応 | 未対応 | 対応済み・証跡なし | 実行確認 |
 |---:|---:|---:|---:|---:|---:|
 | 2 Normative references | 2 | 0 | 2 | 0 | 0 |
-| 3 Design and verification building blocks | 146 | 117 | 29 | 7 | 110 |
+| 3 Design and verification building blocks | 146 | 119 | 27 | 7 | 112 |
 | 4 Scheduling semantics | 107 | 80 | 27 | 16 | 64 |
 | 5 Lexical conventions | 154 | 136 | 18 | 8 | 128 |
 | 6 Data types | 719 | 680 | 39 | 91 | 589 |
@@ -77,71 +78,71 @@
 | L vpi_compatibility.h | 88 | 85 | 3 | 85 | 0 |
 | M sv_vpi_user.h | 412 | 407 | 5 | 0 | 407 |
 | N Algorithm for probabilistic distribution functions | 39 | 29 | 10 | 0 | 29 |
-| **合計** | **12,298** | **10,984** | **1,314** | **3,656** | **7,328** |
+| **合計** | **12,298** | **10,986** | **1,312** | **3,656** | **7,330** |
 
 ## 3. 対応済みだが成功証跡がない節（上位25）
 
-| 節 | 合計 | 対応 | 証跡なし | 実行 | 備考 |
-|---|---:|---:|---:|---:|---|
-| 37.16 Nets | 119 | 113 | 108 | 5 | |
-| L.2 Source code | 87 | 85 | 85 | 0 | |
-| 20.11 Assertion control system tasks | 92 | 92 | 74 | 18 | |
-| 37.85 Generates | 79 | 77 | 73 | 4 | |
-| 37.17 Variables | 115 | 110 | 69 | 41 | |
-| 37.25 Typespec | 75 | 74 | 66 | 8 | |
-| 23.3.3.7 Port connections with dissimilar net types (net and port collapsing) | 85 | 85 | 59 | 26 | |
-| 37.10 Instance | 83 | 75 | 59 | 16 | |
-| 37.12 Scope | 63 | 62 | 56 | 6 | |
-| 36.12.1 VPI Incompatibilities with other standard versions | 59 | 52 | 52 | 0 | |
-| 37.83 Attribute | 53 | 43 | 43 | 0 | |
-| 37.52 Property specification | 42 | 41 | 40 | 1 | |
-| 18.5.12 Constraint guards | 46 | 46 | 38 | 8 | |
-| 28.7 MOS switches | 37 | 37 | 34 | 3 | |
-| 37.42 Task and function call | 40 | 39 | 34 | 5 | |
-| 37.59 Expressions | 35 | 34 | 34 | 0 | |
-| 16.14.8 Nonvacuous evaluations | 36 | 36 | 33 | 3 | |
-| 37.32 Class typespec | 36 | 34 | 33 | 1 | |
-| 37.5 Module | 44 | 44 | 31 | 13 | |
-| 37.60 Atomic statement | 30 | 30 | 30 | 0 | |
-| 19.7 Specifying coverage options | 50 | 39 | 29 | 10 | |
-| 37.35 Primitive, prim term | 29 | 28 | 28 | 0 | |
-| A.2.11 Covergroup declarations | 29 | 29 | 28 | 1 | |
-| 37.28 Parameter, spec param, def param, param assign | 34 | 34 | 27 | 7 | |
-| 37.41 Task and function declaration | 29 | 27 | 27 | 0 | |
+| 節 | 合計 | 対応 | 証跡なし | 実行 |
+|---|---:|---:|---:|---:|
+| 37.16 Nets | 119 | 113 | 108 | 5 |
+| L.2 Source code | 87 | 85 | 85 | 0 |
+| 20.11 Assertion control system tasks | 92 | 92 | 74 | 18 |
+| 37.85 Generates | 79 | 77 | 73 | 4 |
+| 37.17 Variables | 115 | 110 | 69 | 41 |
+| 37.25 Typespec | 75 | 74 | 66 | 8 |
+| 23.3.3.7 Port connections with dissimilar net types (net and port collapsing) | 85 | 85 | 59 | 26 |
+| 37.10 Instance | 83 | 75 | 59 | 16 |
+| 37.12 Scope | 63 | 62 | 56 | 6 |
+| 36.12.1 VPI Incompatibilities with other standard versions | 59 | 52 | 52 | 0 |
+| 37.83 Attribute | 53 | 43 | 43 | 0 |
+| 37.52 Property specification | 42 | 41 | 40 | 1 |
+| 18.5.12 Constraint guards | 46 | 46 | 38 | 8 |
+| 28.7 MOS switches | 37 | 37 | 34 | 3 |
+| 37.42 Task and function call | 40 | 39 | 34 | 5 |
+| 37.59 Expressions | 35 | 34 | 34 | 0 |
+| 16.14.8 Nonvacuous evaluations | 36 | 36 | 33 | 3 |
+| 37.32 Class typespec | 36 | 34 | 33 | 1 |
+| 37.5 Module | 44 | 44 | 31 | 13 |
+| 37.60 Atomic statement | 30 | 30 | 30 | 0 |
+| 19.7 Specifying coverage options | 50 | 39 | 29 | 10 |
+| 37.35 Primitive, prim term | 29 | 28 | 28 | 0 |
+| A.2.11 Covergroup declarations | 29 | 29 | 28 | 1 |
+| 37.28 Parameter, spec param, def param, param assign | 34 | 34 | 27 | 7 |
+| 37.41 Task and function declaration | 29 | 27 | 27 | 0 |
 
 ## 4. 未対応の多い節（上位25）
 
-| 節 | 合計 | 対応 | 未対応 | 実行 | 備考 |
-|---|---:|---:|---:|---:|---|
-| 34.4 Protect pragma directives | 36 | 1 | 35 | 1 | |
-| 34.5.11.2 Description | 21 | 0 | 21 | 0 | |
-| 38.36.1 Simulation event callbacks | 40 | 23 | 17 | 9 | |
-| I.3 Source code | 145 | 132 | 13 | 110 | |
-| H.14.2 svdpi.h definitions for SV3.1a-style packed data processing | 16 | 4 | 12 | 4 | |
-| 19.7 Specifying coverage options | 50 | 39 | 11 | 10 | |
-| 34.5.9.2 Description | 11 | 0 | 11 | 0 | |
-| 31.9.1 Requirements for accurate simulation | 10 | 0 | 10 | 0 | |
-| 37.45 Delay terminals | 10 | 0 | 10 | 0 | |
-| 37.83 Attribute | 53 | 43 | 10 | 0 | |
-| J.4 Object code inclusion | 9 | 0 | 9 | 0 | |
-| 19.7.1 Covergroup type options | 32 | 24 | 8 | 5 | |
-| 32.4.4 SDF annotation of interconnect delays | 13 | 5 | 8 | 1 | |
-| 33.3.1 Specifying libraries—the library map file | 9 | 1 | 8 | 1 | |
-| 34.5.21.2 Description | 8 | 0 | 8 | 0 | |
-| 37.10 Instance | 83 | 75 | 8 | 16 | |
-| N.2 Source code | 30 | 22 | 8 | 22 | |
-| 3.12.1 Compilation units | 21 | 14 | 7 | 13 | |
-| 3.13 Name spaces | 12 | 5 | 7 | 3 | |
-| 12.4.2.1 Violation reports generated by unique-if, unique0-if, and priority-if constructs | 7 | 0 | 7 | 0 | |
-| 13.4 Functions | 13 | 6 | 7 | 6 | |
-| 17.7.2 Checker variable randomization with assumptions | 14 | 7 | 7 | 1 | |
-| 20.10.1 Elaboration severity system tasks | 7 | 0 | 7 | 0 | |
-| 21.7.2.3 Description of keyword commands | 20 | 13 | 7 | 12 | |
-| 36.12.1 VPI Incompatibilities with other standard versions | 59 | 52 | 7 | 0 | |
+| 節 | 合計 | 対応 | 未対応 | 実行 |
+|---|---:|---:|---:|---:|
+| 34.4 Protect pragma directives | 36 | 1 | 35 | 1 |
+| 34.5.11.2 Description | 21 | 0 | 21 | 0 |
+| 38.36.1 Simulation event callbacks | 40 | 23 | 17 | 9 |
+| I.3 Source code | 145 | 132 | 13 | 110 |
+| H.14.2 svdpi.h definitions for SV3.1a-style packed data processing | 16 | 4 | 12 | 4 |
+| 19.7 Specifying coverage options | 50 | 39 | 11 | 10 |
+| 34.5.9.2 Description | 11 | 0 | 11 | 0 |
+| 31.9.1 Requirements for accurate simulation | 10 | 0 | 10 | 0 |
+| 37.45 Delay terminals | 10 | 0 | 10 | 0 |
+| 37.83 Attribute | 53 | 43 | 10 | 0 |
+| J.4 Object code inclusion | 9 | 0 | 9 | 0 |
+| 19.7.1 Covergroup type options | 32 | 24 | 8 | 5 |
+| 32.4.4 SDF annotation of interconnect delays | 13 | 5 | 8 | 1 |
+| 33.3.1 Specifying libraries—the library map file | 9 | 1 | 8 | 1 |
+| 34.5.21.2 Description | 8 | 0 | 8 | 0 |
+| 37.10 Instance | 83 | 75 | 8 | 16 |
+| N.2 Source code | 30 | 22 | 8 | 22 |
+| 12.4.2.1 Violation reports generated by unique-if, unique0-if, and priority-if constructs | 7 | 0 | 7 | 0 |
+| 13.4 Functions | 13 | 6 | 7 | 6 |
+| 17.7.2 Checker variable randomization with assumptions | 14 | 7 | 7 | 1 |
+| 20.10.1 Elaboration severity system tasks | 7 | 0 | 7 | 0 |
+| 21.7.2.3 Description of keyword commands | 20 | 13 | 7 | 12 |
+| 36.12.1 VPI Incompatibilities with other standard versions | 59 | 52 | 7 | 0 |
+| 38.16 vpi_get_value_array() | 19 | 12 | 7 | 10 |
+| 3.12.1 Compilation units | 21 | 15 | 6 | 14 |
 
-## 5. 当初の追加候補6本と、既存テストとの照合結果
+## 5. 当初の追加候補と照合結果
 
-| 候補 | 節 | 当初の狙い | 照合結果 |
+| 候補 | 節 | 当初の狙い | 結果 |
 |---|---:|---|---|
 | `ch20/test_assertion_control_tasks.sv` | 20.11 | control type 0–11、mask、counter | 既存の `test_assertcontrol_*` が多数あり、counter 不変は `test_assertcontrol_callbacks_system` が観測済み。**リンクで対応** |
 | `ch23/test_port_net_collapsing.sv` | 23.3.3.7 | tri0/tri1/supply の collapsing | 既存の `test_port_collapse_internal_tri0_tri1` / `..._supply` が同じ型の4セルを観測済み。**リンクで対応** |
@@ -150,27 +151,36 @@
 | `ch18/test_constraint_guards.sv` | 18.5.12 | guard の 0/1/E/R 論理 | 未対応行は0。既存テストが観測済みで、不足は実行証跡。**新規テスト不要** |
 | `ch19/test_coverage_option_levels.sv` | 19.7 / 19.7.1 | option / type_option の許可レベル | 未対応行の多くは「禁止レベル」で、正常系テストでは観測できない。台帳の kind も normal のため、illegal へ再分類するか解釈保留にするかの判断が必要。**保留** |
 
-### 5.1 今回のリンク結果
+### 5.1 既存テストへのリンク
 
-- `tests/ch23/test_port_collapse_internal_tri0_tri1.sv` → `COLLAPSE-4-4`（tri0/tri0）と `COLLAPSE-5-5`（tri1/tri1）
-- `tests/ch23/test_port_collapse_internal_supply.sv` → `COLLAPSE-7-7`（supply0/supply0）と `COLLAPSE-8-8`（supply1/supply1）
-- `tests/ch20/test_assertcontrol_callbacks_system.sv` → `COUNTERS-UNAFFECTED`
+- `test_port_collapse_internal_tri0_tri1.sv` → `COLLAPSE-4-4`（tri0/tri0）、`COLLAPSE-5-5`（tri1/tri1）
+- `test_port_collapse_internal_supply.sv` → `COLLAPSE-7-7`（supply0/supply0）、`COLLAPSE-8-8`（supply1/supply1）
+- `test_assertcontrol_callbacks_system.sv` → `COUNTERS-UNAFFECTED`
 
-| 指標 | リンク前 | リンク後 |
+### 5.2 新規に追加したテスト
+
+| テスト | 節 | 内容 | 検証 |
+|---|---:|---|---|
+| `tests/ch3/test_attribute_namespace.sv` | 3.13 | 同じ属性名 marker を module / variable / net に付け、名前衝突せず `x=2` になることを確認 | Icarus 13.0 / Verilator 5.052 ともに pass |
+| `tests/ch3/test_compilation_unit_shared_across_files.sv` | 3.12.1 | 2ファイルを同じコマンドラインでコンパイルし、一方の `$unit` 変数と関数が他方から見えて `unit=42` になることを確認 | Icarus 13.0 / Verilator 5.052 ともに pass |
+
+| 指標 | 追加前 | 追加後 |
 |---|---:|---:|
-| 要求対応 | 10,979 | **10,984** |
-| 未対応 | 1,319 | **1,314** |
-| 実行確認 | 7,324 | **7,328** |
-| 設計率 | 89.27% | **89.32%** |
-| 実行率 | 59.55% | **59.59%** |
+| 要求対応 | 10,984 | **10,986** |
+| 未対応 | 1,314 | **1,312** |
+| 実行確認 | 7,328 | **7,330** |
+| 設計率 | 89.32% | **89.33%** |
+| 実行率 | 59.59% | **59.60%** |
+
+追加した2本は `coverage/results/coverage-tests-20261029-icarus13.json` と `...-verilator.json` に実行証跡を記録しています。
 
 ## 6. 次に新規テストを追加するなら
 
-未対応行が残り、かつ正常系のシミュレーションで観測できそうな節です。
+未対応行が残り、かつ正常系のシミュレーションで観測できそうな節です。3.12.1 / 3.13 は2本追加済みで、残りは namespace の他の規則です。
 
 | 節 | 未対応 | 追加するテストの例 | 想定ツール |
 |---|---:|---|---|
-| 3.12.1 / 3.13 | 14 | compilation unit、`$unit`、design-wide / package namespace | Icarus / Verilator |
+| 3.12.1 / 3.13 | 12 | 残る namespace 規則、PLI unit iterator | Icarus / Verilator（PLI は要確認） |
 | 13.4 / 13.4.1 | 12 | void / implicit call、return type range、未使用戻り値 | Icarus / Verilator |
 | N.2 | 8 | `$dist_*` の seed 更新、範囲、引数検証 | 要確認 |
 | 32.4.4 | 8 | SDF interconnect annotation | Icarus |
