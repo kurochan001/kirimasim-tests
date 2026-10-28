@@ -24,13 +24,13 @@
 
 ## 対応を保留した理由
 
-1361 本について、確認した範囲と判断を [レビュー判断台帳](../coverage/test-matching-reviews.json)に記録しました。
+1360 本について、確認した範囲と判断を [レビュー判断台帳](../coverage/test-matching-reviews.json)に記録しました。
 これは範囲を限定した判断の記録で、テスト全体のレビュー完了数ではありません。対応登録や動作網羅率を増やす情報としては使用しません。
 入力ハッシュ・根拠の文字列・要求IDを検査し、変更後の判断の使い回しを防ぎます。
 
 - `citation_refinement`: 196 件。
 - `compound_requirement`: 176 件。
-- `oracle_issue`: 257 件。
+- `oracle_issue`: 255 件。
 - `partial_observation`: 2129 件。
 
 ## 章別の登録状況

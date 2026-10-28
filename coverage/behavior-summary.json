@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "b2647c05ce3a01ec571678487dce2f48d5caaf5f64448b1c7c72817fa2e8c99e",
+  "registry_sha256": "94d0a24493d010ecb9dd58ec69d1370c0276d7e47a2dc97183efe7280a135746",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -25,18 +25,18 @@
   "denominator_reviewed": true,
   "extraction_progress_percent": 100.0,
   "unmapped": 1318,
-  "executed": 7310,
+  "executed": 7309,
   "whole_standard_percent": 89.28281021304277,
-  "whole_standard_executed_percent": 59.44055944055944,
+  "whole_standard_executed_percent": 59.4324280370792,
   "registered_percent": 89.28281021304277,
   "metric_policy_version": 3,
   "whole_standard_status": "confirmed",
   "provisional_design_percent": 89.28281021304277,
-  "provisional_execution_percent": 59.44055944055944,
+  "provisional_execution_percent": 59.4324280370792,
   "denominator": {
     "count": 12298,
     "unit": "registered_requirement_condition_or_observation",
-    "sha256": "1cefe0dc1e46b77e23da14a8cd52b3d24187f67cedc293d8eda3c365f3d68254",
+    "sha256": "8a8f350dfea82366808f80d1fa1f6cb8d6b488d7a9b3edf3092b79e1fc57e1da",
     "reviewed": true,
     "source_review_complete": true,
     "interpretation_pending": 0
@@ -48,8 +48,8 @@
   },
   "collective_requirement_count": 652,
   "requirement_status_counts": {
-    "pass": 7310,
-    "mapped_without_pass": 3670,
+    "pass": 7309,
+    "mapped_without_pass": 3671,
     "unmapped": 1318,
     "interpretation_pending": 0
   },
@@ -159,9 +159,9 @@
       "title": "Operators and expressions",
       "registered": 459,
       "mapped": 433,
-      "executed": 370,
+      "executed": 369,
       "design_percent": 94.33551198257081,
-      "execution_percent": 80.61002178649237,
+      "execution_percent": 80.3921568627451,
       "interpretation_pending": 0
     },
     {
@@ -2154,7 +2154,6 @@
           "SV2023-11.3.1-EXTRACT-REAL-BOOLEAN-RESULT",
           "SV2023-11.3.1-EXTRACT-REAL-MEMBER-ARRAY",
           "SV2023-11.3.1-EXTRACT-REAL-PROMOTION",
-          "SV2023-11.3.1-EXTRACT-SHORTREAL-PROMOTION",
           "SV2023-11.3.2-EXTRACT-HIGHER-PRECEDENCE-FIRST",
           "SV2023-11.3.2-EXTRACT-PARENTHESES-OVERRIDE",
           "SV2023-11.3.2-EXTRACT-PRECEDENCE-1",
@@ -6759,14 +6758,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 167,
+        "stale_links": 170,
         "status_counts": {
-          "pass": 4729,
+          "pass": 4728,
           "fail": 4838,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1155,
-          "stale": 156,
+          "stale": 157,
           "not_run": 102,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -10036,14 +10035,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 167,
+        "stale_links": 170,
         "status_counts": {
           "pass": 3138,
           "fail": 0,
-          "known": 7405,
+          "known": 7404,
           "unsupported": 0,
           "unreviewed_oracle": 164,
-          "stale": 155,
+          "stale": 156,
           "not_run": 118,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -12752,14 +12751,14 @@
           "SV2023-M.2-EXTRACT-GUARD",
           "SV2023-M.2-EXTRACT-REGISTER"
         ],
-        "stale_links": 146,
+        "stale_links": 149,
         "status_counts": {
           "pass": 2696,
           "fail": 0,
-          "known": 4932,
+          "known": 4930,
           "unsupported": 0,
           "unreviewed_oracle": 85,
-          "stale": 142,
+          "stale": 144,
           "not_run": 3125,
           "unmapped": 1318,
           "interpretation_pending": 0

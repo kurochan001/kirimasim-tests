@@ -4,10 +4,10 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 89.28%。**
-**全規格の要求台帳ベース（暫定）: 設計 89.28%、実行 59.44%。**
-解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
+**全規格の要求台帳ベース（確定）: 設計 89.28%、実行 59.43%。**
+解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
-規格全動作の実行確認率: 59.44%。
+規格全動作の実行確認率: 59.43%。
 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
@@ -16,7 +16,7 @@
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対するテスト設計網羅率: 10980/12298 (89.28%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7310/12298 (59.44%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7309/12298 (59.43%)。
 - 登録済みだがテスト未対応: 1318 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
@@ -25,7 +25,7 @@
 
 [要求抽出の未解決事項](../docs/requirement-extraction-notes.md)も管理します。
 登録単位には要求文の出現箇所、条件別の検証項目、初期登録の具体的な観測ケースを含みます。
-登録件数は、意味的に重複のない全規格要求数を確定した値ではありません。
+分母のレビューで意味的な重複を統合し、登録件数を全規格要求数として承認しています。
 
 ## 実行証跡
 
@@ -68,12 +68,12 @@
 - `chA-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:16:45.126049+00:00 / 45/12298 動作確認、古い入力との対応 0 件。
 - `chH-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:00:40.482405+00:00 / 183/12298 動作確認、古い入力との対応 5 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12298 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4729/12298 動作確認、古い入力との対応 167 件。
+- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4728/12298 動作確認、古い入力との対応 170 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3138/12298 動作確認、古い入力との対応 167 件。
-- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2696/12298 動作確認、古い入力との対応 146 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3138/12298 動作確認、古い入力との対応 170 件。
+- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2696/12298 動作確認、古い入力との対応 149 件。
 - 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
@@ -26168,16 +26168,16 @@ Real values may be selected as structure/union members or array elements under t
 
 For other permitted operators, a real operand yields a real result, except that a conditional first operand does not participate in this result-type promotion.
 
-合格基準: 2.5 plus integer 3 yields real 5.5; a real condition alone leaves the integral branch result at 32 bits while real branches are 64 bits.
+合格基準: 2.5 plus integer 3 yields real 5.5; a real condition alone leaves the integral branch result at 32 bits while real branches give a real result.
 
 規定の性質: `mandatory`。
 
-- [test_real_operand_result_types.sv](../tests/ch11/test_real_operand_result_types.sv): Direct expression widths distinguish real arithmetic/mixed shortreal-real promotion and real conditional branches (64 bits) from a real condition with integral branches (32 bits); the converted chosen integral branch prints 3.0.
+- [test_real_operand_result_types.sv](../tests/ch11/test_real_operand_result_types.sv): Values show the result types without $bits, which real does not have (6.24.3): r + i prints 3.50, which an integral result cannot hold; s * t (shortreal times real) has the precision of a real, 0.2000000000 instead of 0.2000000030; (1 ? 3 : 2.5) / 2 is 1.5 because a real branch makes the conditional real; a real condition with integral branches stays 32 bits.
 - [test_real_operator_result_and_condition.sv](../tests/ch11/test_real_operator_result_and_condition.sv): Fractional real/integer sum and selected real branch retain real values; a real condition alone leaves integral branch result width at 32.
 
 ### SV2023-11.3.1-EXTRACT-SHORTREAL-PROMOTION
 
-11.3.1 / normal / 実行確認あり
+11.3.1 / normal / テスト対応あり・実行未確認
 
 Absent a relevant real operand, a shortreal operand yields shortreal for the other permitted operators, excluding conditional first operand from promotion.
 
@@ -26185,7 +26185,7 @@ Absent a relevant real operand, a shortreal operand yields shortreal for the oth
 
 規定の性質: `mandatory`。
 
-- [test_shortreal_result_and_condition_types.sv](../tests/ch11/test_shortreal_result_and_condition_types.sv): Shortreal arithmetic/branches retain 32-bit result width unless a real operand promotes to 64 bits. A shortreal condition alone leaves four-bit integral branches at four bits, distinguishing mistaken promotion to 32-bit shortreal. Standard-derived expectation is retained despite both reference-tool differences.
+- [test_shortreal_result_and_condition_types.sv](../tests/ch11/test_shortreal_result_and_condition_types.sv): Rounding shows the result types without $bits, which shortreal does not have (6.24.3): big + one gives 16777216.0 and three * t 0.3000000119, the shortreal values, while big + r1 gives 16777217.0 because the real operand takes priority; (1 ? s : one) * t and (0 ? one : s) * t give the shortreal 0.1500000060, so the branches give a shortreal; a shortreal condition alone leaves four-bit integral branches at four bits. Standard-derived expectation is retained although Icarus 13.0 and Verilator 5.052 compute shortreal as real.
 
 ### SV2023-11.3.2-EXTRACT-ASSOCIATIVITY
 

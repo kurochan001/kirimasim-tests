@@ -134,6 +134,15 @@ class BehaviorCoverageTests(unittest.TestCase):
         self.assertIsNone(result["provisional_design_percent"])
         self.assertIsNone(result["provisional_execution_percent"])
 
+    def test_compact_report_drops_provisional_wording_once_confirmed(self):
+        snapshot = json.loads((coverage.DATA / "behavior-summary.json").read_text())
+        for status, heading in (("confirmed", "## 全規格の要求台帳に対する値"),
+                                ("provisional", "## 全規格の要求台帳に対する暫定値")):
+            with self.subTest(status=status):
+                text = coverage.compact_report({**snapshot, "whole_standard_status": status})
+                self.assertIn(heading + "\n", text)
+                self.assertEqual("意味の重複整理前" in text, status != "confirmed")
+
     def test_linked_file_count_deduplicates_requirements_without_inferring_unlinked_tests(self):
         _, rows = self.validated()
         linked = coverage.ROOT / rows[0]["checks"][0]["test"]

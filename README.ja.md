@@ -168,7 +168,7 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 [分母レビュー](docs/denominator-review-20261028.md)で承認しました。
 レビューしたのはAIで、独立した人間の承認ではありません。
 設計網羅率は**89.28%（10,980/12,298）**、
-実行網羅率は**59.44%（7,310/12,298）**です。
+実行網羅率は**59.43%（7,309/12,298）**です。
 Icarus Verilog・Verilator・SymbiYosysだけで数えると実行網羅率は50.83%（6,251/12,298）です。
 測定入力と分母は[生成した振る舞い要約](docs/behavior-coverage-summary.md)、
 以前の修正は[Nightlyのテスト修正とoracleレビュー](docs/nightly-suite-corrections-20261027.md)を参照してください。

@@ -26230,7 +26230,7 @@
     },
     {
       "test": "tests/ch11/test_real_operand_result_types.sv",
-      "inputs_sha256": "52e566c83f6d8331919b1fc6b068781d8df6aed58ae7d13cfb57d5d2c9b66431",
+      "inputs_sha256": "509c9cc6fdb910a447a7fd1eb8e9dc9118d70f3138fa33a5922b01ce369aab4e",
       "cited_clauses": [
         "11.3.1",
         "6.12",
@@ -26288,9 +26288,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch11/test_real_operand_result_types.sv",
-        "inputs_sha256": "52e566c83f6d8331919b1fc6b068781d8df6aed58ae7d13cfb57d5d2c9b66431",
-        "reviewed_on": "2026-10-23",
-        "reviewer": "Codex (AI); not an independent human review",
+        "inputs_sha256": "509c9cc6fdb910a447a7fd1eb8e9dc9118d70f3138fa33a5922b01ce369aab4e",
+        "reviewed_on": "2026-10-28",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -26298,32 +26298,19 @@
               "SV2023-11.3.1-EXTRACT-SHORTREAL-PROMOTION"
             ],
             "disposition": "partial_observation",
-            "explanation": "M22: shortreal+intの式幅32は直接確認するが、shortrealを条件のみに使っても結果型を変えない例がない。実数condition cはreal型である。条件operand例外まで含むshortreal要求全体は保留。",
+            "explanation": "M22: shortreal+int の結果が shortreal であることは丸め（big + j が 16777216.0）で直接確認するが、shortreal を条件だけに使っても結果型を変えない例がない。実数 condition c は real 型である。条件 operand の例外まで含む shortreal 要求全体は保留（その例は test_shortreal_result_and_condition_types にある）。",
             "evidence": [
               {
                 "file": "tests/ch11/test_real_operand_result_types.sv",
-                "contains": "$bits(s + i)"
-              }
-            ]
-          },
-          {
-            "requirement_ids": [
-              "SV2023-20.6.2-EXTRACT-BITS-RESULT"
-            ],
-            "disposition": "oracle_issue",
-            "explanation": "M98: 20.6.2 は $bits の合法な型を 6.24.3 の bit-stream type（integral・packed・string とその unpacked/動的集合）に委ねており、real/shortreal はそこに含まれない。このテストは $bits(r + i)=64、$bits(s * r)=64、$bits(s + i)=32、$bits(1 ? 3 : 2.5)=64 と real 型の式に $bits を適用した値を期待しており、規格から導けない（同じスイートの test_bits_2 は「real is not a bit-stream type」として $bits(real) を避けている）。$bits の結果の証拠にできず、この値を根拠に 11.3.1 の結果型を判定している既存リンクも再確認が要る。",
-            "reviewed_on": "2026-10-23",
-            "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-            "evidence": [
-              {
-                "file": "tests/ch11/test_real_operand_result_types.sv",
-                "contains": "$display(\"real: %0d %0d, shortreal: %0d\", $bits(r + i), $bits(s * r), $bits(s + i));"
+                "contains": "big + j"
               },
               {
                 "file": "tests/ch11/test_real_operand_result_types.expected",
-                "contains": "real: 64 64, shortreal: 32"
+                "contains": "shortreal: 16777216.0"
               }
-            ]
+            ],
+            "reviewed_on": "2026-10-28",
+            "reviewer": "Claude Opus 5.5 (AI); not an independent human review"
           }
         ]
       }
@@ -27996,7 +27983,7 @@
     },
     {
       "test": "tests/ch11/test_shortreal_result_and_condition_types.sv",
-      "inputs_sha256": "97028d074ceb2a440679dd5f39c44fe16630de7f0fa02f29b3a996f0fe1281ae",
+      "inputs_sha256": "7f4c074cf758b1a6557648567a9ec10f7cf65a93a67b441e1102f2b7e9c6c994",
       "cited_clauses": [
         "11.3.1",
         "6.12",
@@ -28036,35 +28023,7 @@
           "clause": "6.12",
           "descendant_requirement_count": 5
         }
-      ],
-      "scoped_review": {
-        "test": "tests/ch11/test_shortreal_result_and_condition_types.sv",
-        "inputs_sha256": "97028d074ceb2a440679dd5f39c44fe16630de7f0fa02f29b3a996f0fe1281ae",
-        "reviewed_on": "2026-10-23",
-        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-        "decisions": [
-          {
-            "requirement_ids": [
-              "SV2023-20.6.2-EXTRACT-BITS-RESULT"
-            ],
-            "disposition": "oracle_issue",
-            "explanation": "M110: real/shortreal は 6.24.3 の bit-stream type に含まれないため、20.6.2 は $bits(s+i)=32・$bits(s+r)=64・$bits(1 ? s : i)=32 のような shortreal/real 式の $bits を定義していない。期待値 arithmetic_bits=32 32 real_mix=64 は規格から導けず、$bits の結果の証拠にできない（11.3.1 の shortreal 昇格のリンクもこの値に依存している）。",
-            "reviewed_on": "2026-10-23",
-            "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-            "evidence": [
-              {
-                "file": "tests/ch11/test_shortreal_result_and_condition_types.sv",
-                "contains": "             $bits(s+i), $bits(i*s), $bits(s+r));"
-              },
-              {
-                "file": "tests/ch11/test_shortreal_result_and_condition_types.expected",
-                "contains": "arithmetic_bits=32 32 real_mix=64"
-              }
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "test": "tests/ch11/test_sign_ext.sv",
@@ -550603,14 +550562,14 @@
       }
     }
   ],
-  "scoped_review_test_files": 1361,
+  "scoped_review_test_files": 1360,
   "review_disposition_counts": {
     "citation_refinement": 196,
     "compound_requirement": 176,
-    "oracle_issue": 257,
+    "oracle_issue": 255,
     "partial_observation": 2129
   },
-  "registry_sha256": "b2647c05ce3a01ec571678487dce2f48d5caaf5f64448b1c7c72817fa2e8c99e",
+  "registry_sha256": "94d0a24493d010ecb9dd58ec69d1370c0276d7e47a2dc97183efe7280a135746",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "efcd28ebf28cb7dd54fae433669c48c936e8dcccbe7b42273393ec3a5dbeca82"
+  "review_ledger_sha256": "f279cb70fe1600c0d5992a7569e9d50aa1166f4af6f36568efde3c9203e47bac"
 }

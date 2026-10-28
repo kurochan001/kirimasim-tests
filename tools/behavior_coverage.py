@@ -371,16 +371,19 @@ def compact_report(snapshot: dict, source_url: str | None = None,
     counts = snapshot["requirement_status_counts"]
     scope = snapshot["denominator"]
     test_mapping = snapshot["test_mapping"]
+    confirmed = snapshot["whole_standard_status"] == "confirmed"
     lines = ["# IEEE 1800-2023 動作カバレッジ集計", "",
              f"[全項目の詳細]({detailed_report}) / "
              f"[管理手順]({link('coverage/README.md')}) / "
              f"[解釈保留の根拠]({link('docs/requirement-extraction-notes.md')})", "",
-             "## 全規格の要求台帳に対する暫定値", "",
+             "## 全規格の要求台帳に対する値" if confirmed else "## 全規格の要求台帳に対する暫定値", "",
              f"- テスト設計網羅率: **{percent(snapshot['provisional_design_percent'])}** "
              f"({snapshot['mapped']}/{total})。",
              f"- 実行確認率: **{percent(snapshot['provisional_execution_percent'])}** "
              f"({snapshot['executed']}/{total})。複数環境の成功の和集合。",
              "- 分母には解釈保留と未対応も含みます。未実装・未対応を除外していません。",
+             "- 登録単位は要求の出現箇所・条件・観測ケースであり、分母のレビューで意味の重複を統合しています。"
+             if confirmed else
              "- 登録単位は要求の出現箇所・条件・初期の観測ケースであり、意味の重複整理前の暫定値です。",
              "  全プログラム・全入力の組み合わせを試した割合や、単一シミュレータの規格適合率ではありません。", "",
              "## 既存テストの集計状況", "",
@@ -396,6 +399,8 @@ def compact_report(snapshot: dict, source_url: str | None = None,
              f"- 規格全動作の実行確認率: {percent(snapshot['whole_standard_executed_percent'])}。",
              f"- 分母の承認: {'承認済み' if scope['reviewed'] else '未承認'}。"
              f"計測状態: `{snapshot['whole_standard_status']}`。",
+             "- 資料確認、保留解釈の解決、要求単位の重複整理、分母のレビューを経て確定しました。"
+             if confirmed else
              "- 資料確認、保留解釈の解決、要求単位の重複整理、分母のレビューを経て確定します。", "",
              "## 残件", "",
              f"- 新鮮な成功証跡あり: {counts['pass']} 行。",
@@ -490,6 +495,8 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
              "その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。", "",
              f"[要求抽出の未解決事項]({link('docs/requirement-extraction-notes.md')})も管理します。",
              "登録単位には要求文の出現箇所、条件別の検証項目、初期登録の具体的な観測ケースを含みます。",
+             "分母のレビューで意味的な重複を統合し、登録件数を全規格要求数として承認しています。"
+             if whole is not None else
              "登録件数は、意味的に重複のない全規格要求数を確定した値ではありません。", "",
              "## 実行証跡", "",
              "成功は対応テストの全期待出力／診断の一致を意味します。`known`、`unsupported`、",
@@ -501,9 +508,14 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
         provisional = measured["provisional_design_percent"]
         execution_pct = measured["provisional_execution_percent"]
         display = lambda value: "未確定" if value is None else f"{value:.2f}%"
-        lines[6:6] = [f"**全規格の要求台帳ベース（暫定）: 設計 {display(provisional)}、"
-                      f"実行 {display(execution_pct)}。**",
-                      "解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。", ""]
+        if whole is not None:
+            lines[6:6] = [f"**全規格の要求台帳ベース（確定）: 設計 {display(provisional)}、"
+                          f"実行 {display(execution_pct)}。**",
+                          "解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。", ""]
+        else:
+            lines[6:6] = [f"**全規格の要求台帳ベース（暫定）: 設計 {display(provisional)}、"
+                          f"実行 {display(execution_pct)}。**",
+                          "解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。", ""]
     if source_audit:
         position = lines.index(f"- 規格棚卸し: 本文1–41章と附属書A–Q、計 {stats['sections']} 見出し。") + 1
         lines[position:position] = [

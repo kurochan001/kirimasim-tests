@@ -194,7 +194,7 @@ duplicate rows were merged into others, leaving 12,298 requirements, and the
 [denominator review](docs/denominator-review-20261028.md) approved them. The
 reviewer was an AI, not an independent human.
 Design coverage is **89.28% (10,980/12,298)**;
-execution coverage is **59.44% (7,310/12,298)**, or 50.83% (6,251/12,298)
+execution coverage is **59.43% (7,309/12,298)**, or 50.83% (6,251/12,298)
 counting only Icarus Verilog, Verilator and SymbiYosys.
 See the [generated behavior summary](docs/behavior-coverage-summary.md) for the
 measurement inputs and denominator, and the

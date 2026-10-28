@@ -98817,9 +98817,9 @@
         {
           "test": "tests/ch11/test_real_operand_result_types.sv",
           "observation": "Logical, relational and inside operations on real operands each report a one-bit expression; the corresponding values are also printed.",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "52e566c83f6d8331919b1fc6b068781d8df6aed58ae7d13cfb57d5d2c9b66431",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "509c9cc6fdb910a447a7fd1eb8e9dc9118d70f3138fa33a5922b01ce369aab4e",
           "evidence": [
             {
               "file": "tests/ch11/test_real_operand_result_types.sv",
@@ -98920,24 +98920,32 @@
       "clause": "11.3.1",
       "kind": "normal",
       "behavior": "For other permitted operators, a real operand yields a real result, except that a conditional first operand does not participate in this result-type promotion.",
-      "acceptance": "2.5 plus integer 3 yields real 5.5; a real condition alone leaves the integral branch result at 32 bits while real branches are 64 bits.",
+      "acceptance": "2.5 plus integer 3 yields real 5.5; a real condition alone leaves the integral branch result at 32 bits while real branches give a real result.",
       "source_note": "IEEE 1800-2023 11.3.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Merged on 2026-10-28 with duplicate initial row SV2023-11.3.1-REAL-PROMOTION (same clause and same obligation; that row carried section-level provenance only, no source spans).",
       "modality": "mandatory",
       "checks": [
         {
           "test": "tests/ch11/test_real_operand_result_types.sv",
-          "observation": "Direct expression widths distinguish real arithmetic/mixed shortreal-real promotion and real conditional branches (64 bits) from a real condition with integral branches (32 bits); the converted chosen integral branch prints 3.0.",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "52e566c83f6d8331919b1fc6b068781d8df6aed58ae7d13cfb57d5d2c9b66431",
+          "observation": "Values show the result types without $bits, which real does not have (6.24.3): r + i prints 3.50, which an integral result cannot hold; s * t (shortreal times real) has the precision of a real, 0.2000000000 instead of 0.2000000030; (1 ? 3 : 2.5) / 2 is 1.5 because a real branch makes the conditional real; a real condition with integral branches stays 32 bits.",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "509c9cc6fdb910a447a7fd1eb8e9dc9118d70f3138fa33a5922b01ce369aab4e",
           "evidence": [
             {
               "file": "tests/ch11/test_real_operand_result_types.sv",
-              "contains": "$bits(r + i), $bits(s * r), $bits(s + i)"
+              "contains": "r + i, s * t, big + j"
+            },
+            {
+              "file": "tests/ch11/test_real_operand_result_types.sv",
+              "contains": "$bits(c ? 3 : 4), (1 ? 3 : 2.5) / 2"
             },
             {
               "file": "tests/ch11/test_real_operand_result_types.expected",
-              "contains": "condition only: 32, branches: 64 3.0"
+              "contains": "real: 3.50 0.2000000000"
+            },
+            {
+              "file": "tests/ch11/test_real_operand_result_types.expected",
+              "contains": "condition only: 32, branches: 1.5"
             }
           ]
         },
@@ -98979,18 +98987,26 @@
       "checks": [
         {
           "test": "tests/ch11/test_shortreal_result_and_condition_types.sv",
-          "observation": "Shortreal arithmetic/branches retain 32-bit result width unless a real operand promotes to 64 bits. A shortreal condition alone leaves four-bit integral branches at four bits, distinguishing mistaken promotion to 32-bit shortreal. Standard-derived expectation is retained despite both reference-tool differences.",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "97028d074ceb2a440679dd5f39c44fe16630de7f0fa02f29b3a996f0fe1281ae",
+          "observation": "Rounding shows the result types without $bits, which shortreal does not have (6.24.3): big + one gives 16777216.0 and three * t 0.3000000119, the shortreal values, while big + r1 gives 16777217.0 because the real operand takes priority; (1 ? s : one) * t and (0 ? one : s) * t give the shortreal 0.1500000060, so the branches give a shortreal; a shortreal condition alone leaves four-bit integral branches at four bits. Standard-derived expectation is retained although Icarus 13.0 and Verilator 5.052 compute shortreal as real.",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "7f4c074cf758b1a6557648567a9ec10f7cf65a93a67b441e1102f2b7e9c6c994",
           "evidence": [
             {
               "file": "tests/ch11/test_shortreal_result_and_condition_types.sv",
-              "contains": "$bits(1 ? s : i), $bits(0 ? i : s), $bits(s ? nibble : 4'd3)"
+              "contains": "big + one, three * t, big + r1"
+            },
+            {
+              "file": "tests/ch11/test_shortreal_result_and_condition_types.sv",
+              "contains": "(1 ? s : one) * t, (0 ? one : s) * t, $bits(s ? nibble : 4'd3)"
             },
             {
               "file": "tests/ch11/test_shortreal_result_and_condition_types.expected",
-              "contains": "conditional_bits=32 32 control_only=4"
+              "contains": "arithmetic=16777216.0 0.3000000119 real_mix=16777217.0"
+            },
+            {
+              "file": "tests/ch11/test_shortreal_result_and_condition_types.expected",
+              "contains": "conditional=0.1500000060 0.1500000060 control_only=4"
             }
           ]
         }

@@ -143,7 +143,7 @@ not parse the modport in an interface port of a module.
 | 19.7 | `at_least` is ignored: a bin is covered after one hit. | `ch19/test_cg_at_least` |
 | 19.6, 19.11 | Coverage of a cross, and of a covergroup with weights, is the share of all bins, ignoring the weight option. | `ch19/test_cg_cross_coverage`, `ch19/test_cg_item_weighted_average` |
 | 19.8 | Sampling goes on after `stop()`, and `get_coverage` sets both of its arguments to 0. | `ch19/test_cg_start_stop_counts` |
-| 11.3.1 | It treats shortreal as real, so an expression with a shortreal operand and no real one is 64 bits wide instead of 32. | `ch11/test_real_operand_result_types` |
+| 11.3.1 | It keeps and computes shortreal as real, so an expression with a shortreal operand and no real one has the precision of a real: 16777216.0 + 1 gives 16777217.0, which a shortreal cannot hold. | `ch11/test_real_operand_result_types`, `ch11/test_shortreal_result_and_condition_types` |
 | 7.10.3, 13.5.2 | A reference to a queue element follows the position instead of the element: after the element is deleted, a write through the reference changes the element that took its place, and after an assignment to the whole queue it reads memory that is no longer the queue's. | `ch7/test_queue_reference_persistence` |
 | 16.9.1 | It groups `x throughout y ##1 z` as `(x throughout y) ##1 z`; `##` has to bind more tightly than throughout. | `ch16/test_sequence_operator_precedence` |
 | 20.4.1 | `$timeprecision` without an argument gives the simulation precision instead of that of the design element. | `ch20/test_timeunit_timeprecision_functions` |
@@ -283,12 +283,13 @@ independent oracle confirmations. The following observable differences remain:
   The selected operands require no call, side effect or run-time error.
   Verilator 5.052 skips all five calls and matches the expected output.
 - IEEE 11.3.1 and 6.12: in
-  `ch11/test_shortreal_result_and_condition_types`, Icarus 13.0 reports
-  arithmetic expression widths of 1 instead of 32 for shortreal and 64 for
-  a mixed-real result. Verilator 5.052 instead reports 64 for shortreal
-  arithmetic and branches because it promotes shortreal to real. The
-  expected output retains the standard's 32-bit shortreal requirements;
-  neither release is recorded as an oracle for this test.
+  `ch11/test_shortreal_result_and_condition_types`, Icarus 13.0 and
+  Verilator 5.052 keep and compute shortreal as real, so the shortreal
+  results have the values of a real (16777217.0 for 16777216.0 + 1,
+  0.3000000000 for 3 times a shortreal 0.1). The expected output keeps the
+  standard's shortreal results; neither release is recorded as an oracle
+  for this test. Until 2026-10-28 the test read the types with `$bits`,
+  which real and shortreal do not have (6.24.3, 20.6.2).
 
 The new `ch11/test_real_boolean_results_without_shortreal` isolates the
 one-bit real logical/relational/inside results. It matches Verilator 5.052
