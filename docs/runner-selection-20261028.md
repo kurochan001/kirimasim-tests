@@ -33,7 +33,7 @@ Issue #13「Simulation runners run :type: formal tests」と Issue #14
 `tools/suite_results.py` の `runner_digest()` は `run_<simulator>.py` を
 ハッシュに含めるため、ランナーのファイルを変更すると保存済みの実行証跡が
 stale になります。今回の Icarus/Verilator の変更は `main()` のテスト選択だけで、
-`run()` の判定処理（出力比較、違法設計の判定、終了コード、診断）は変えていません。
+`run()` の判定処理（出力比較、規格違反のコードの判定、終了コード、診断）は変えていません。
 
 そこで、`coverage/behavior-summary.json` が採用している Icarus/Verilator の
 37 スナップショットについて、`runner_sha256` だけを新しい値へ更新しました。

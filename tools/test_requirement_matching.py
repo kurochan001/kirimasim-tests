@@ -107,7 +107,7 @@ class RequirementMatchingTests(unittest.TestCase):
         self.assertEqual(data["chapters"][0]["linked_test_files"], 1)
         self.assertEqual(data["tests"][0]["registered_requirement_ids"], ["A", "B"])
         self.assertEqual(data["tests"][0]["unapproved_candidate_ids"], ["PENDING"])
-        self.assertIn("全テストの意味上の照合は未完了", matching.report(data))
+        self.assertIn("全テストの検証内容に基づく対応付けは未完了", matching.report(data))
 
     def test_changed_stimulus_changes_matching_fingerprint(self):
         before = matching.inventory([self.test], [])

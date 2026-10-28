@@ -14,10 +14,10 @@ kirimasim の結果も並べています。ただし、Lyra と kirimasim はフ
 | 分類 | 本数 | 見直しの結果 |
 | --- | ---: | --- |
 | 出力の不一致 | 65 | テストの判定の不備2本（下記、修正済み）。ほかは Lyra 側の未実装や誤りで、確かめた規則ではすべて期待値が正しかった |
-| 合法な設計を拒否（コンパイルエラー） | 28 | ほとんどが slang の診断。確かめたものは、すべてテストが正しく、slang の方が厳しすぎる |
-| 違法な設計を受理 | 86 | どのシミュレータも期待した場所で拒否できていない。根拠は AI の検証だけなので、優先して見直す対象 |
+| 規格上正しいコードを拒否（コンパイルエラー） | 28 | ほとんどが slang の診断。確かめたものは、すべてテストが正しく、slang の方が厳しすぎる |
+| 規格違反のコードを受理 | 86 | どのシミュレータも期待した場所で拒否できていない。根拠は AI の検証だけなので、優先して見直す対象 |
 | 内部エラー・クラッシュ | 10 | Lyra 側の問題 |
-| 違法な設計を別の場所で拒否 | 5 | Lyra 側の問題 |
+| 規格違反のコードを別の場所で拒否 | 5 | Lyra 側の問題 |
 
 期待出力を誤りと判断したテストは、ありませんでした。
 
@@ -43,7 +43,7 @@ kirimasim と Lyra は clang の書式（`ファイル:行: error: …`）で、
 
 ## 規格で確かめた規則
 
-出力の不一致と、合法な設計の拒否のうち、次のものは規格の本文で確かめ、期待値やテストが正しいと判断しました。
+出力の不一致と、規格上正しいコードの拒否のうち、次のものは規格の本文で確かめ、期待値やテストが正しいと判断しました。
 
 | テスト | 根拠 | 判断 |
 | --- | --- | --- |
@@ -130,7 +130,7 @@ config の12本は Lyra が config を、タイミングチェックの28本は 
 | `ch7/test_assoc_invalid_write_reports_diagnostic` | 未対応 | no message matches '(?i:\\bwarn(?:ing)?\\b\|%Warning-)' |
 | `ch7/test_assoc_missing_read_reports_diagnostic` | 未対応 | no message matches '(?i:\\bwarn(?:ing)?\\b\|%Warning-)' |
 
-### 合法な設計を拒否（28本）
+### 規格上正しいコードを拒否（28本）
 
 | テスト | kirimasim | Lyra の結果 |
 | --- | --- | --- |
@@ -163,7 +163,7 @@ config の12本は Lyra が config を、タイミングチェックの28本は 
 | `ch7/test_assoc_narrow_prev_next_overflow` | 不一致 | argument of type 'bit[7:0]' connects to 'ref' port of inequivalent type 'int' |
 | `ch7/test_assoc_traversal_narrow_index` | 不一致 | argument of type 'bit[7:0]' connects to 'ref' port of inequivalent type 'int' |
 
-### 違法な設計を受理（86本、優先して見直す対象）
+### 規格違反のコードを受理（86本、優先して見直す対象）
 
 | テスト | kirimasim | Lyra の結果 |
 | --- | --- | --- |
@@ -269,7 +269,7 @@ config の12本は Lyra が config を、タイミングチェックの28本は 
 | `ch35/test_dpi_context_scope_of_declaration` | 未対応 | error: internal error: AST->HIR call: the scope declaring this DPI import is not on the current scope stack (i… |
 | `ch8/test_super_new_default` | 未対応 | crashed (signal 11) |
 
-### 違法な設計を別の場所で拒否（5本）
+### 規格違反のコードを別の場所で拒否（5本）
 
 | テスト | kirimasim | Lyra の結果 |
 | --- | --- | --- |

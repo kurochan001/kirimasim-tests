@@ -15,10 +15,10 @@ handle、constructor、static member、this、コピー、継承、virtual dispa
 - 一つ以上の要求との対応登録済み：813本から858本（全3,923本のうち45本追加）。
 - 対応済み要求：698行から725行（27行追加）。新しい対応根拠は92件です。
 - 実行確認済み要求：624行から651行（27行追加）。
-- 暫定設計網羅率：**5.89%（725/12,319）**。
+- 暫定の要求カバレッジ（テスト設計）：**5.89%（725/12,319）**。
 - 暫定実行確認率：**5.28%（651/12,319）**。
 - 確定値：設計・実行とも未確定。分母承認・重複整理・解釈保留は残件です。
-- 一つ以上の対応も未登録のテスト：3,065本。全件の意味上の照合は未完了です。
+- 一つ以上の対応も未登録のテスト：3,065本。全件の検証内容に基づく対応付けは未完了です。
 
 登録済み本数は一つ以上の観測を対応付けた本数で、各ファイルの全観測・全要求の精査完了数ではありません。
 レビューはAIによるもので、独立した人の確認済みではありません。
@@ -99,7 +99,7 @@ static class method修飾が引数/local変数をstatic lifetimeにしない要�
 [test_class_static_corner.sv](../tests/ch8/test_class_static_corner.sv) のInitTestはinitializerの一度の表示を確認しますが、
 InitTestのobject自体は一度もnewしません。newごとの再初期化を検出する根拠には、累積countと独立idの別テストを使いました。
 [test_static_method_through_null_handle.sv](../tests/ch8/test_static_method_through_null_handle.sv) もstatic memberへのアクセスで、
-nullからnonstatic member／virtual methodへアクセスする違法規則の検証ではありません。
+nullからnonstatic member／virtual methodへアクセスする規格上禁止される操作の検証ではありません。
 
 ## M32：default引数・implicit constructor・初期化順序の区別
 
@@ -110,7 +110,7 @@ implicit constructorの根拠には、newを宣言しないCalculatorを生成�
 [test_class_multilevel_inheritance.sv](../tests/ch8/test_class_multilevel_inheritance.sv) は、
 derived bodyでbaseの値を上書きします。最終合計だけではbase constructorの実行や順序を確認できません。
 先頭に正しく書いたsuper.newを成功させるだけの例も、後置呼び出しを許す誤実装との差が出ません。
-順序には前述の41→43→430を使い、合法構文の成功と順序の観測を区別しました。
+順序には前述の41→43→430を使い、規格上正しい構文の成功と順序の観測を区別しました。
 
 thisのproperty・戻り値・method選択には有効な観測がありますが、同じ要求行に含まれる
 value parameter／localparamの選択は未観測です。formalとpropertyのshadowを区別する観測は
@@ -136,7 +136,7 @@ final override、initialによるvirtual override、extends対象の欠如、ini
 新構文自体の未対応による構文エラーでも通り得るため、該当する意味制約の拒否を特定できません。
 診断oracleの具体化と、構文対応環境での実行を残件にしました。
 
-[test_final_class_and_method.sv](../tests/ch8/test_final_class_and_method.sv) の合法利用も、
+[test_final_class_and_method.sv](../tests/ch8/test_final_class_and_method.sv) の規格上正しい使用例も、
 final methodのoverride禁止やfinal classの継承禁止の検証へは換算していません。
 
 ## M35：castのnull literal、失敗状態、task形式の不足

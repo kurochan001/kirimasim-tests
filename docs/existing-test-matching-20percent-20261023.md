@@ -6,7 +6,7 @@
 
 [現在の集計](behavior-coverage-summary.md) / [照合台帳](test-requirement-matching.md) / [累積の進捗・指摘](existing-test-matching-review-20261022.md)
 
-既存テストの照合を繰り返し、**暫定設計網羅率20.009741%（2,465/12,319要求）となりました。20%を超える目標を達成しました。**
+既存テストの照合を繰り返し、**暫定の要求カバレッジ（テスト設計）20.009741%（2,465/12,319要求）となりました。20%を超える目標を達成しました。**
 固定分母12,319では2,464要求から20%を超えます。現在の2桁表示は20.01%で、正確な増分を確認できるよう6桁でも併記しています。
 
 ## 集計
@@ -14,15 +14,15 @@
 - 対応済み要求：開始時1,242 → **2,465（1,223要求追加）**。
 - 追加した対応根拠：**1,296件、418本**。各ファイルの確認した観測だけが対象です。
 - 一つ以上の対応があるテスト：1,030 → **1,386本**。全3,938本のうち未登録は**2,552本**。
-- 暫定設計網羅率：10.081987% → **20.009741%（2桁表示20.01%）**。
-- 新鮮な実行成功証跡のある要求：754 → **1,292（538要求追加）**。
+- 暫定の要求カバレッジ（テスト設計）：10.081987% → **20.009741%（2桁表示20.01%）**。
+- 現行入力に対応するパス結果の記録のある要求：754 → **1,292（538要求追加）**。
 - 暫定実行確認率：6.120627% → **10.487864%（1,292/12,319、表示10.49%）**。
 - 確定値：**設計・実行とも未確定**。分母承認、意味上の重複整理、既存の解釈保留が残ります。
 - AND集合証拠：55 → **126要求**。別実行回の部分成功は合成しません。
 - 保留台帳：372本・504件 → **406本・546件（42判断追加）**。
 
 既存テスト、期待出力、C helper、引用メタデータ、要求定義、分母は変更していません。
-開始時に存在した未コミットの10%到達作業も保持しています。今回も元テストは再実行せず、保存済み結果の入力・ランナーの鮮度を照合しています。
+開始時に存在した未コミットの10%到達作業も保持しています。今回も元テストは再実行せず、保存済み結果の入力・ランナーのハッシュを照合しています。
 担当はCodex（AI）で、独立した人による確認済みではありません。ファイル全体のレビュー完了数や、全入力の組合せを試した割合ではありません。
 
 ## 今回確認した範囲
@@ -45,7 +45,7 @@ SVAは異なる時刻の真偽、複数matchの多重性、first_matchの同時�
 - **M71：1stepの説明と規格が異なる。** `test_clocking_input_step_skew`はObserved/NBA後と説明しますが、規格は直前time stepの値です。刺激が両方式を区別しないため、この説明は期待値の根拠にできません。
 - **M72：off-event driveの早過ぎる更新を見逃す。** `test_clocking_drive_between_edges`の最初の読出しは次event後です。RHS captureは確認できますが、次event前の更新を排除できません。
 - **M73：cycle driveの定義節を未引用。** `test_clocking_output_skew_cycle_delay`は提供版の14.16を引用していません。14.16.1だけでは異なる要求へ対応付けず、既存入力は保持しました。
-- **M74：bin set式がmoduleの可変queueを参照。** `test_cg_bins_with_set_expr`の`bins picked[] = vals`は、19.5のcovergroup expressionで許される変数の制約と整合しません。non-ref covergroup引数を使う等の合法性整理が必要です。
+- **M74：bin set式がmoduleの可変queueを参照。** `test_cg_bins_with_set_expr`の`bins picked[] = vals`は、19.5のcovergroup expressionで許される変数の制約と整合しません。non-ref covergroup引数を使う等の規格適合性整理が必要です。
 
 - **M75：coverage種別の受理だけを確認。** `test_coverage_api_minimum_types`はERROR以外を許容するため、未収集のNOCOVでも通ります。各種別の実収集機能の証拠は保留しました。
 - **M76：全0でもscope和・reset/stopを満たす。** `test_coverage_scope_sums`と`test_coverage_reset_and_stop`は非零の対照を要求しません。scope集計や制御効果の登録を保留しました。
@@ -64,7 +64,7 @@ SVAは異なる時刻の真偽、複数matchの多重性、first_matchの同時�
 
 - **M85：VPI config名が非空かだけを比較。** `test_vpi_module_binding_properties`はlibrary/cellを具体値と比較しますが、configは非空なら通ります。`vpiConfig`の正しい値を返す要求は保留しました。
 - **M86：future値とaction遅延の誤りが相殺し得る。** `test_global_clocking_sampled_functions`はglobal clockとassertion clockが同じで、future関数の評価と遅延したactionを一つのqueue時刻で比較します。futureをpastへ置き換え、同時にaction遅延を省く誤実装を区別できないため、future値と遅延の個別要求には計上しません。別のVPIテストでevent時刻とcallback実行時刻が異なることを比較できる範囲だけは登録しました。
-- **M87：正常終了するnegative API harnessを管理側が受け付けない。** `test_vpi_chk_error_callbacks`は不正APIのNULL返値とerror status、合法なcallbackの成功を確認する有効な負例です。ただし現行validatorはerror要求を`should_fail_because`とstderr regexのcaseに限定しており、この形式の登録を拒否します。管理形式を明示的に拡張して検査するまでは計上せず、既存test入力を変更して回避していません。
+- **M87：正常終了するnegative API harnessを管理側が受け付けない。** `test_vpi_chk_error_callbacks`は不正APIのNULL返値とerror status、規格上正しいcallbackの成功を確認する有効な負例です。ただし現行validatorはerror要求を`should_fail_because`とstderr regexのcaseに限定しており、この形式の登録を拒否します。管理形式を明示的に拡張して検査するまでは計上せず、既存test入力を変更して回避していません。
 - **M88：package exportの複合条件が未観測。** `test_package_export_all`と`test_package_export_named_wildcard`の正側の出力だけでは、複数reexport経路の宣言同一性、export-before-import、未参照wildcard候補の非再公開などを判別できません。これらを含む全要求への対応を保留しました。
 
 - **M89：bindを無視しても通り得る。** `test_bind_assertion_basic`はDUTのreadyを比較しますが、bound instanceの存在やpass/cover件数を確認しません。bindの動作要求の根拠は保留しました。
@@ -105,6 +105,6 @@ M84のタグ符号化の保留も再確認し、同じfileの幅・配置に対�
 
 ## 検証
 
-管理ツールの74テスト、動作カバレッジと資料ハッシュの検証、照合台帳、suiteの統計・catalog・引用深度（最低2本）、生成テストの再現性、メタデータlint、`git diff --check`を確認しました。
+管理ツールの74テスト、要求カバレッジと資料ハッシュの検証、照合台帳、suiteの統計・catalog・条項別テスト数（最低2本）、生成テストの再現性、メタデータlint、`git diff --check`を確認しました。
 開始時snapshotとの比較で、要求定義、既存checks/AND集合、既存保留判断、履歴の既存部分、固定分母と資料索引を保持していることも検証しました。
 元のSystemVerilog/Cテストの再実行や新規テスト追加による到達ではありません。

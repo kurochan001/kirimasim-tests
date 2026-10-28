@@ -74,7 +74,7 @@ base64 本体だけを読み捨てる。したがって 215 要求の大部分�
 
 Icarus にとって `` `pragma `` は「知らない pragma 行」であり、34 章の構文は
 一切パースされない。したがって Icarus で pass する 34 章テストは、**その行が
-たまたま合法な無視対象テキストである**ことしか示さない。
+たまたま規格上正しい無視対象テキストである**ことしか示さない。
 
 ### 3.2 Verilator 5.052
 
@@ -308,7 +308,7 @@ Icarus では payload が構文エラーになるため。
 両側が elaborate されて `envelope keywords: 13` を出力する。Verilator は
 `` `pragma protect begin_protected foo `` を unknown で拒否するので、裸の綴りが
 受理されたことは構文の観測になる。**復号は観測していない**。Icarus の pass は
-「無視しても合法なテキストだった」以上の意味を持たない旨をコメントに書いた。
+「無視しても規格上正しいテキストだった」以上の意味を持たない旨をコメントに書いた。
 
 ### 5.2 `test_34_extra_nested_envelopes.sv`
 

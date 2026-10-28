@@ -27,5 +27,14 @@ class DocumentationRenderingTests(unittest.TestCase):
         self.assertNotRegex(outside_code, r"(?<!\\)\[[^\]]*\]\(")
 
 
+    def test_sva_terms_preserve_literal_output_and_random_sequence_terms(self):
+        source = '系列と性質、非空成功と空成功。`$display("空成功")`'
+        output = behavior_coverage.markdown_prose(source, "16.12")
+        self.assertIn("シーケンスとプロパティ、nonvacuous passとvacuous pass", output)
+        self.assertIn('`$display("空成功")`', output)
+        random_text = "乱数系列と時系列、生成器の性質"
+        self.assertEqual(behavior_coverage.markdown_prose(random_text, "18.14"), random_text)
+
+
 if __name__ == "__main__":
     unittest.main()

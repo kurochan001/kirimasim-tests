@@ -4,14 +4,14 @@
 
 修正の基点はスイート`9783d9fd`です。以下の集計前後の比較はこのスナップショットで行い、並行して進む別の要求照合作業の増分は含めていません。
 
-Differは失敗したテストの本数です。出力差分、コンパイル失敗、違法設計の受理、診断・終了コードの不一致を含み、独立したバグの数ではありません。今回の調査は174本すべての正誤を確定するものではありません。
+Differは失敗したテストの本数です。出力差分、コンパイル失敗、規格違反のコードの受理、診断・終了コードの不一致を含み、独立したバグの数ではありません。今回の調査は174本すべての正誤を確定するものではありません。
 
 ## 設計自体を直した4本
 
 | テスト | 問題と修正 | 規格根拠 |
 | --- | --- | --- |
 | `ch7/test_packed_struct_union_dimensions_and_rand_member` | 通常の`union packed`のメンバーが6ビットと3ビットだった。両方を6ビットに揃えた。`matches`を表示引数として使っていた箇所も、`if`の条件で判定したビットを表示する形にした。期待出力の`packed 12 12 5a9 56a`と`tag 1 rand 1 3`は変わらない | 7.3.1、12.6.2、附属書Aの構文 |
-| `ch20/test_illegal_bits_function_dynamic_return` | `function int[] f()`という構文が先に拒否され、意図した`$bits(f())`の違反まで到達しなかった。動的配列型をtypedefし、合法な関数宣言にした。診断対象は`$bits`の行に限定する | 20.6.2、関数の戻り型の構文 |
+| `ch20/test_illegal_bits_function_dynamic_return` | `function int[] f()`という構文が先に拒否され、意図した`$bits(f())`の違反まで到達しなかった。動的配列型をtypedefし、規格上正しい関数宣言にした。診断対象は`$bits`の行に限定する | 20.6.2、関数の戻り型の構文 |
 | `ch33/test_illegal_config_design_is_config` | 複数のconfigから対象を選ぶ情報がなく、トップ選択のエラーになった。`:top_module: cfgdc`を指定し、configをdesignのセルとして使う違反を検査する | 33.4.1.1 |
 | `ch33/test_illegal_config_instance_inside_other_config` | 同様に`:top_module: cfgio`を指定。他のconfigが指定した階層内へinstanceルールを適用する違反を検査する | 33.4.2 |
 
@@ -19,24 +19,24 @@ packed unionのメンバー幅が異なる場合の拒否は、既存の`ch7/tes
 
 ## 診断を検査する位置と内容
 
-違法設計の診断は、規格違反を起こした使用箇所のほか、その宣言や展開された本体に付くことがあります。以下の24本は、関連する位置を明示して受け入れます。意図した違反を示す診断内容も検査し、構文未対応や無関係なエラーによる成功を防ぎます。
+規格違反のコードの診断は、規格違反を起こした使用箇所のほか、その宣言や展開された本体に付くことがあります。以下の24本は、関連する位置を明示して受け入れます。意図した違反を示す診断内容も検査し、構文未対応や無関係なエラーによる成功を防ぎます。
 
 | 対象 | 本数 | 認める位置・内容 |
 | --- | ---: | --- |
 | final deferred assertion | 1 | アクション呼び出し、または呼ばれたタスク内のPostponed領域での書き込み |
 | `$inferred_clock` | 1 | 既定実引数、クロック使用箇所、またはassertionのインスタンス。クロックが解決できない診断 |
-| 再帰propertyの否定・strong演算子 | 7 | 違法な使用箇所、または展開先の再帰本体。再帰propertyへの禁止演算を指摘する診断 |
-| property実引数の展開後の合法性 | 1 | インスタンス、または展開先。property式をsequenceとして使用できない診断 |
-| sequenceのlocal output | 1 | 仮引数、系列本体、またはインスタンス。未代入を指摘する診断 |
+| 再帰propertyの否定・strong演算子 | 7 | 規格違反を含む使用箇所、または展開先の再帰本体。再帰propertyへの禁止演算を指摘する診断 |
+| property実引数の展開後の規格適合性 | 1 | インスタンス、または展開先。property式をsequenceとして使用できない診断 |
+| sequenceのlocal output | 1 | 仮引数、シーケンス本体、またはインスタンス。未代入を指摘する診断 |
 | PLAのメモリ添字方向 | 1 | メモリ宣言、またはシステムタスク呼び出し。昇順の要件を示す診断 |
 | ANSI／non-ANSIポートの再宣言 | 4 | 元のポート宣言、または再宣言。重複宣言の診断 |
 | modport prototypeの個数・型 | 2 | prototype、または対応する関数宣言。引数の個数・型の不一致 |
-| package importの競合 | 3 | 違法な宣言・import、または先に名前を取り込んだ参照箇所。import競合の診断 |
+| package importの競合 | 3 | 規格違反を含む宣言・import、または先に名前を取り込んだ参照箇所。import競合の診断 |
 | UDPの`endtable`欠落 | 1 | 次の`endprimitive`、または直前の表の末尾。後者は`endtable`を要求する診断に限る |
 | 関数内のfork-join／join_any | 2 | `fork`、または閉じる`join`／`join_any`。時間制御禁止の診断 |
 | **合計** | **24** | |
 
-残り3本の違法系は、前節の関数宣言1本とconfig選択2本です。メタデータ検査も、宣言済みのconfigを`:top_module:`として指定できるようにし、存在しない名前は引き続き拒否します。config選択の誤りを、意図した規格違反の診断として受け入れる変更はしていません。
+残り3本の規格違反テストは、前節の関数宣言1本とconfig選択2本です。メタデータ検査も、宣言済みのconfigを`:top_module:`として指定できるようにし、存在しない名前は引き続き拒否します。config選択の誤りを、意図した規格違反の診断として受け入れる変更はしていません。
 
 位置と関連するエラー内容を結び付けるため、一部の正規表現では英語の概念語も検査します。特定ツールの診断全文には固定していませんが、別ツールの同義の診断を追加するときも、規格と照合して判断する必要があります。
 
@@ -67,13 +67,13 @@ main `6094cbaf`への統合では、並行作業で追加された148本と要�
 | Verilator 5.052、seed 73 | 8 pass、21 known、0 fail | [JSON](../coverage/results/nightly-suite-corrections-20261027-verilator-seed73.json) |
 | ローカルkirimasim `a2aa75737147` | 27 pass、1 unsupported、1 fail | [JSON](../coverage/results/nightly-suite-corrections-20261027-kirimasim.json) |
 
-kirimasimの成功27本には、修正対象26本と既存の負例1本を含みます。正常系のpacked unionテストは、無関係なコンパイルエラーがなくなった後、tagged union自体が未対応として報告されます。合法な戻り型へ直した`$bits`負例はkirimasim・Icarus・Verilatorとも受理してしまい、意図した違反の未検出が残ります。成功に合わせてテストを弱めていません。
+kirimasimの成功27本には、修正対象26本と既存の負例1本を含みます。正常系のpacked unionテストは、無関係なコンパイルエラーがなくなった後、tagged union自体が未対応として報告されます。規格上正しい戻り型へ直した`$bits`負例はkirimasim・Icarus・Verilatorとも受理してしまい、意図した違反の未検出が残ります。成功に合わせてテストを弱めていません。
 
-このローカルkirimasimはNightlyと異なるコミットです。174件から何件減るかは、同じ条件で次のNightlyを実行した結果で確認します。kirimasimによる違法設計の成功は固定版oracleとして認定しておらず、上の27 passをそのまま実行確認率へ加算しません。
+このローカルkirimasimはNightlyと異なるコミットです。174件から何件減るかは、同じ条件で次のNightlyを実行した結果で確認します。kirimasimによる規格違反のコードの成功は固定バージョンoracleとして認定しておらず、上の27 passをそのまま実行確認率へ加算しません。
 
-その後、kirimasimのmain `f0799b3c04d4`をビルドし、合法な関数宣言を使う独立した最小例でも`$bits`の未検出を確認して、[Bug Issue #53](https://github.com/kurochan001/kirimasim/issues/53)を発行しました。同じNightly調査から規格と最小例で確認した別件は、[foreachのbreak #52](https://github.com/kurochan001/kirimasim/issues/52)、[条件演算子と論理含意の優先順位 #54](https://github.com/kurochan001/kirimasim/issues/54)、[空の名前付きポート接続 #55](https://github.com/kurochan001/kirimasim/issues/55)、[未サイズ指定X/Zリテラルの拡張 #56](https://github.com/kurochan001/kirimasim/issues/56)、[atorealの走査 #57](https://github.com/kurochan001/kirimasim/issues/57)に分けて記録しています。いずれも`bug`ラベル付きで、規格本文や他プロジェクトのコードの転載を含みません。
+その後、kirimasimのmain `f0799b3c04d4`をビルドし、規格上正しい関数宣言を使う独立した最小例でも`$bits`の未検出を確認して、[Bug Issue #53](https://github.com/kurochan001/kirimasim/issues/53)を発行しました。同じNightly調査から規格と最小例で確認した別件は、[foreachのbreak #52](https://github.com/kurochan001/kirimasim/issues/52)、[条件演算子と論理含意の優先順位 #54](https://github.com/kurochan001/kirimasim/issues/54)、[空の名前付きポート接続 #55](https://github.com/kurochan001/kirimasim/issues/55)、[未サイズ指定X/Zリテラルの拡張 #56](https://github.com/kurochan001/kirimasim/issues/56)、[atorealの走査 #57](https://github.com/kurochan001/kirimasim/issues/57)に分けて記録しています。いずれも`bug`ラベル付きで、規格本文や他プロジェクトのコードの転載を含みません。
 
-[診断fixture](../tools/fixtures/nightly_diagnostics_20261027.json)と[6件の回帰検査](../tools/test_nightly_diagnostics.py)には、確認した診断、固定版ツールの未対応エラー、および合成した無関係・未対応のエラーを含めています。`$bits`の正しい診断例だけは、ソルバーやシミュレータの実測ではない合成例として明記しました。
+[診断fixture](../tools/fixtures/nightly_diagnostics_20261027.json)と[6件の回帰検査](../tools/test_nightly_diagnostics.py)には、確認した診断、固定バージョンツールの未対応エラー、および合成した無関係・未対応のエラーを含めています。`$bits`の正しい診断例だけは、ソルバーやシミュレータの実測ではない合成例として明記しました。
 
 ```sh
 python3 -m unittest discover -s tools -p 'test_nightly_diagnostics.py'
@@ -84,4 +84,4 @@ python3 tools/behavior_coverage.py --check --require-source-reviewed
 python3 tools/requirement_matching.py --check
 ```
 
-既存205件の単体テストと追加6件の回帰検査が成功しました。README集計、生成テスト、カタログ、網羅深度、メタデータ、動作網羅率、要求照合の整合性検査も成功しています。基本40モデルと追加111ケースのフォーマル証跡は現行ソースに対応したままです（ソルバーは再実行していません）。
+既存205件の単体テストと追加6件の回帰検査が成功しました。README集計、生成テスト、カタログ、条項別テスト数、メタデータ、動作網羅率、要求照合の整合性検査も成功しています。基本40モデルと追加111ケースのフォーマル証跡は現行ソースに対応したままです（ソルバーは再実行していません）。

@@ -19,7 +19,7 @@ IEEE 1800-2023 の節に基づいて修正した記録です。ランナー側�
 | #10 | specparam / program / checker delay 3本 | specparam を generate 条件へ、program 信号は output port 経由、checker の delay 表示は `final` へ |
 | #11 | VPI C 1本 | `vpi_printf` の `%s` を `%d` に修正 |
 | #12 | VCD 3本 | `$var` の index range を任意とし、型・サイズは厳密に、range は「なし」または宣言どおりのみ許容 |
-| #15 | grammar 6本 | `matches` を `cond_predicate` の合法形へ、`wildcard bins` の語順、`cell` 予約語の回避 |
+| #15 | grammar 6本 | `matches` を `cond_predicate` の規格上正しい記述へ、`wildcard bins` の語順、`cell` 予約語の回避 |
 | #16 | 9本 | multiclock を `|->` / `##0` へ、rand 制約、quoted include、modport、interface 内 module、`$bits` の packed union 化、`extern virtual` |
 | #17 | 6本 | `$future_gclk` を property 式へ、`local` formal、virtual interface port、`out` → `output`、soft packed union |
 | #18 | 4本 | 配列クエリから real / shortreal / event を削除（20.7 の対象外） |
@@ -27,7 +27,7 @@ IEEE 1800-2023 の節に基づいて修正した記録です。ランナー側�
 
 合計 46 本のテストファイル（#11 は C のみ）を変更しました。テストの追加・削除は
 していません。期待出力が変わったのは #9、#12、#16 の ch6、#17 の
-`test_sequence_local_formal_assignment` です。それ以外は設計を合法形に直し、
+`test_sequence_local_formal_assignment` です。それ以外は設計を規格上正しい記述に直し、
 同じ期待値を保っています。
 
 ## 2. 検証
@@ -59,14 +59,14 @@ IEEE 1800-2023 の節に基づいて修正した記録です。ランナー側�
 | 要求対応 | 10,980 | **10,979** |
 | 未対応 | 1,318 | **1,319** |
 | 実行確認 | 7,309 | **7,324** |
-| 規格全体の設計率 | 89.28% | **89.27%** |
-| 規格全体の実行率 | 59.43% | **59.55%** |
+| 規格全体のテスト対応率 | 89.28% | **89.27%** |
+| 規格全体の実行確認率 | 59.43% | **59.55%** |
 | 採用スナップショット | 39 | **41** |
 
 要求対応が1行減ったのは、`SV2023-A.10-EXTRACT-FOOTNOTE-30`
 （matches が `&&` / `||` より強く結合する）の対応を外したためです。
 `matches` は `cond_pattern` であり式のオペランドになれないため、この主張を
-合法なテストで表せません。実行確認は、追加した Verilator 全件実行の証跡により
+規格上正しいテストで表せません。実行確認は、追加した Verilator 全件実行の証跡により
 差し引き15行増えています。Ghost の変更前証跡は、変更したテストについて stale
 になった分があり、Ghost は再実行していません。
 

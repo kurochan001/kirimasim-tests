@@ -372,12 +372,12 @@ def compact_report(snapshot: dict, source_url: str | None = None,
     scope = snapshot["denominator"]
     test_mapping = snapshot["test_mapping"]
     confirmed = snapshot["whole_standard_status"] == "confirmed"
-    lines = ["# IEEE 1800-2023 動作カバレッジ集計", "",
+    lines = ["# IEEE 1800-2023 要求カバレッジ集計", "",
              f"[全項目の詳細]({detailed_report}) / "
              f"[管理手順]({link('coverage/README.md')}) / "
-             f"[解釈保留の根拠]({link('docs/requirement-extraction-notes.md')})", "",
+             f"[解釈・再検討記録]({link('docs/requirement-extraction-notes.md')})", "",
              "## 全規格の要求台帳に対する値" if confirmed else "## 全規格の要求台帳に対する暫定値", "",
-             f"- テスト設計網羅率: **{percent(snapshot['provisional_design_percent'])}** "
+             f"- 要求カバレッジ（テスト設計）: **{percent(snapshot['provisional_design_percent'])}** "
              f"({snapshot['mapped']}/{total})。",
              f"- 実行確認率: **{percent(snapshot['provisional_execution_percent'])}** "
              f"({snapshot['executed']}/{total})。複数環境の成功の和集合。",
@@ -395,16 +395,16 @@ def compact_report(snapshot: dict, source_url: str | None = None,
              f"- 複数テストで分担する要求は {snapshot['collective_requirement_count']} 行。"
              "各グループの全テストが同じ実行回で成功した場合だけ、要求全体の実行成功に数えます。", "",
              "## 確定値", "",
-             f"- 規格全動作のテスト設計網羅率: {percent(snapshot['whole_standard_percent'])}。",
-             f"- 規格全動作の実行確認率: {percent(snapshot['whole_standard_executed_percent'])}。",
+             f"- 要求カバレッジ（テスト設計）: {percent(snapshot['whole_standard_percent'])}。",
+             f"- 規格要求の実行確認率: {percent(snapshot['whole_standard_executed_percent'])}。",
              f"- 分母の承認: {'承認済み' if scope['reviewed'] else '未承認'}。"
              f"計測状態: `{snapshot['whole_standard_status']}`。",
              "- 資料確認、保留解釈の解決、要求単位の重複整理、分母のレビューを経て確定しました。"
              if confirmed else
              "- 資料確認、保留解釈の解決、要求単位の重複整理、分母のレビューを経て確定します。", "",
              "## 残件", "",
-             f"- 新鮮な成功証跡あり: {counts['pass']} 行。",
-             f"- 対応済み・成功証跡なし: {counts['mapped_without_pass']} 行。",
+             f"- 現行入力に対応するパス結果の記録あり: {counts['pass']} 行。",
+             f"- 対応済み・パス結果の記録なし: {counts['mapped_without_pass']} 行。",
              f"- テスト対応未確認（解釈保留以外）: {counts['unmapped']} 行。",
              f"- 解釈保留: {counts['interpretation_pending']} 行。",
              "", "未対応は、既存テストが存在しないという判定ではありません。", "",
@@ -415,15 +415,15 @@ def compact_report(snapshot: dict, source_url: str | None = None,
                   f"  計測元: {run['generated_at']} / `{run['file']}`。",
                   f"  失敗 {detail['fail']}、既知不一致 {detail['known']}、未対応 {detail['unsupported']}、"
                   f"未実行 {detail['not_run']}、古い証跡 {detail['stale']}、"
-                  f"違法系の判定根拠未承認 {detail['unreviewed_oracle']} 行。"]
+                  f"規格違反テストの判定根拠が未承認 {detail['unreviewed_oracle']} 行。"]
     if not snapshot["execution"]["snapshots"]:
         lines.append("採用可能な実行証跡なし。")
     lines += [f"- 不採用の結果ファイル: {len(snapshot['ignored_results'])} 件。", "",
               "## 章・附属書別（登録項目に対する割合）", ""]
     for chapter in snapshot["chapters"]:
         lines.append(f"- {chapter['clause']} {chapter['title']}: "
-                     f"設計 {ratio(chapter['mapped'], chapter['registered'])}、"
-                     f"実行 {ratio(chapter['executed'], chapter['registered'])}、"
+                     f"テスト対応 {ratio(chapter['mapped'], chapter['registered'])}、"
+                     f"実行確認 {ratio(chapter['executed'], chapter['registered'])}、"
                      f"解釈保留 {chapter['interpretation_pending']} 行。")
     lines += ["", "## 分母と履歴", "",
               f"- 分母SHA-256: `{scope['sha256']}`。",
@@ -452,14 +452,29 @@ def summary_data(snapshot: dict, keep_timestamp: bool = False) -> dict:
     return result
 
 
-def markdown_prose(value: str) -> str:
-    """Keep array/index brackets literal without altering inline code spans."""
+def markdown_prose(value: str, clause: str = "") -> str:
+    """Render Japanese terminology and literal arrays, preserving inline code."""
+    def prose(text):
+        # Presentation only: registry text, evidence anchors and hashes stay intact.
+        for original, rendered in (
+            ("非空成功", "nonvacuous pass"), ("空成功", "vacuous pass"),
+            ("違法系テスト", "規格違反テスト"), ("違法系", "規格違反テスト"), ("違法な", "規格に違反する"),
+            ("合法な", "規格で認められる"),
+            ("並行アサーション", "コンカレントアサーション"),
+            ("被覆済み", "カバー済み"), ("被覆率", "カバレッジ"),
+        ):
+            text = text.replace(original, rendered)
+        if clause.split(".")[0] in {"16", "F"}:
+            text = re.sub(r"(?<!時)(?<!乱数)系列", "シーケンス", text)
+            text = text.replace("性質", "プロパティ")
+        return re.sub(r"(?<!\\)([\[\]])", r"\\\1", text)
+
     pieces, end = [], 0
     for match in re.finditer(r"(`+)(.*?)\1", value, re.DOTALL):
-        pieces.append(re.sub(r"(?<!\\)([\[\]])", r"\\\1", value[end:match.start()]))
+        pieces.append(prose(value[end:match.start()]))
         pieces.append(match[0])
         end = match.end()
-    pieces.append(re.sub(r"(?<!\\)([\[\]])", r"\\\1", value[end:]))
+    pieces.append(prose(value[end:]))
     return "".join(pieces)
 
 
@@ -475,25 +490,25 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
                if source_audit and source_audit["source_review_complete"]
                else "未確定（要求の洗い出しが未完了）")
     link = lambda path: f"{source_url.rstrip('/')}/{path}" if source_url else f"../{path}"
-    lines = ["# IEEE 1800-2023 動作カバレッジ", "",
+    lines = ["# IEEE 1800-2023 要求カバレッジ", "",
              "`tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。",
              f"[集計概要]({link('docs/behavior-coverage-summary.md')}) / "
              f"[全要求の抽出結果]({link('docs/requirement-extraction.md')}) / "
              f"[管理手順]({link('coverage/README.md')}) / "
              f"[節の引用数]({link('docs/coverage-depth.md')})", "",
-             f"**規格全動作のテスト設計網羅率: {pending if whole is None else f'{whole:.2f}%'}。**",
-             f"規格全動作の実行確認率: {'未確定' if executed_whole is None else f'{executed_whole:.2f}%'}。",
+             f"**要求カバレッジ（テスト設計）: {pending if whole is None else f'{whole:.2f}%'}。**",
+             f"規格要求の実行確認率: {'未確定' if executed_whole is None else f'{executed_whole:.2f}%'}。",
              "節の引用やテスト本数を、全動作の網羅率に換算しません。", "",
              f"- 規格棚卸し: 本文1–41章と附属書A–Q、計 {stats['sections']} 見出し。",
              f"- 規定部分の解釈保留なし: {stats['audited_sections']}/{stats['normative_sections']} 見出し "
              f"({stats['extraction_progress_percent']:.2f}%)。資料確認率・動作網羅率とは別です。",
-             f"- 登録済み動作に対するテスト設計網羅率: {pct(stats['mapped'])}。",
-             f"- 登録済み動作のうち、新鮮な実行成功証跡があるもの: {pct(stats['executed'])}。",
+             f"- 登録済み動作に対する要求カバレッジ（テスト設計）: {pct(stats['mapped'])}。",
+             f"- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: {pct(stats['executed'])}。",
              f"- 登録済みだがテスト未対応: {stats['unmapped']} 動作。", "",
              "登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した",
              "調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて",
              "その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。", "",
-             f"[要求抽出の未解決事項]({link('docs/requirement-extraction-notes.md')})も管理します。",
+             f"[要求抽出の解釈・再検討記録]({link('docs/requirement-extraction-notes.md')})も管理します。",
              "登録単位には要求文の出現箇所、条件別の検証項目、初期登録の具体的な観測ケースを含みます。",
              "分母のレビューで意味的な重複を統合し、登録件数を全規格要求数として承認しています。"
              if whole is not None else
@@ -553,15 +568,15 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
     for r in sorted(rows, key=lambda r: (section_key(r["clause"]), r["id"])):
         state = "実行確認あり" if r["id"] in executed else "テスト対応あり・実行未確認" if r["mapped"] else "テスト未対応"
         lines += [f"### {r['id']}", "", f"{r['clause']} / {r['kind']} / {state}", "",
-                  markdown_prose(r["behavior"]), "",
-                  f"合格基準: {markdown_prose(r['acceptance'])}", ""]
+                  markdown_prose(r["behavior"], r["clause"]), "",
+                  f"合格基準: {markdown_prose(r['acceptance'], r['clause'])}", ""]
         if r.get("modality"):
             lines += [f"規定の性質: `{r['modality']}`。", ""]
         if r.get("interpretation_issue"):
             lines += [f"未解決の解釈: `{r['interpretation_issue']}`（対応承認・節完了を保留）。", ""]
         for c in r["checks"]:
             lines.append(f"- [{Path(c['test']).name}]({link(c['test'])}): "
-                         f"{markdown_prose(c['observation'])}")
+                         f"{markdown_prose(c['observation'], r['clause'])}")
         lines.append("")
     return "\n".join(lines).rstrip() + "\n"
 

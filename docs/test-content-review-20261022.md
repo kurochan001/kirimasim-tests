@@ -43,7 +43,7 @@
 
 対象: [当時のtest_sched_procedural_assign_part_select.sv:28](https://github.com/kurochan001/kirimasim-tests/blob/a77a826cd89ad478617ac82b18be9df7d99e3571/tests/ch4/test_sched_procedural_assign_part_select.sv#L28)、同36行。修正に伴い削除されたため、指摘時点のコミットへリンクしています。
 
-`assign q[3:0] = d[3:0]` と `deassign q[3:0]` を合法な動作として扱い、
+`assign q[3:0] = d[3:0]` と `deassign q[3:0]` を規格上正しい動作として扱い、
 部分的な上書き抑制を期待している。しかし **10.6.1（p.257）** は、
 procedural continuous assignmentの変数左辺にbit-select/part-selectを認めていない。
 ここはnetに対する通常のcontinuous assignmentでもforce/releaseでもない。
