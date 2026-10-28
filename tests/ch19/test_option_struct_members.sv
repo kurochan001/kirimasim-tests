@@ -15,8 +15,10 @@
 // own set of members: for example cross_retain_auto_bins and per_instance in
 // the option of a covergroup, detect_overlap in the option of a coverpoint,
 // cross_num_print_missing in the option of a cross, and real_interval, a
-// real, in the type_option of a covergroup. $bits shows the types: 1 for a
-// bit, 32 for an int, 64 for a real. per_instance, detect_overlap and
+// real, in the type_option of a covergroup. $bits shows the integral types:
+// 1 for a bit and 32 for an int. It is not used on real_interval, because a
+// real is not a bit-stream type (6.24.3, 20.6.2); the value 0.5, which no
+// integral member can hold, shows the real. per_instance, detect_overlap and
 // real_interval are set in the covergroup, as 19.7 and 19.7.1 require; the
 // others are set procedurally after the instance is made (19.7).
 
@@ -45,8 +47,7 @@ module test_option_struct_members;
     $display("coverpoint: weight=%0d detect_overlap=%0d bits=%0d", g.cp_a.option.weight,
              g.cp_a.option.detect_overlap, $bits(g.cp_a.option.detect_overlap));
     $display("cross: cross_num_print_missing=%0d", g.ab.option.cross_num_print_missing);
-    $display("type_option: real_interval=%.1f bits=%0d, strobe bits=%0d",
-             cg::type_option.real_interval, $bits(cg::type_option.real_interval),
-             $bits(cg::type_option.strobe));
+    $display("type_option: real_interval=%.1f, strobe bits=%0d",
+             cg::type_option.real_interval, $bits(cg::type_option.strobe));
   end
 endmodule

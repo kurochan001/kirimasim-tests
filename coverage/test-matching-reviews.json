@@ -42921,7 +42921,7 @@
     },
     {
       "test": "tests/ch19/test_option_struct_members.sv",
-      "inputs_sha256": "4e68513e847e67cb13a1164d90536c7370e0a6e59fba094e43a28cac8cd7178b",
+      "inputs_sha256": "ed96de61785208480890f882be225cf5358ec6f35b9ccc46c33692cc3b3b1c76",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",

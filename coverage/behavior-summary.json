@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "ad8c09fa487d0fe9db8b16824c31410ae33b248d3b8e9198f01d96511b378b5d",
+  "registry_sha256": "3113fa094bc28d18e770873bfdc7a3f2f43936e78550353e93618c55f0414fba",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -6758,14 +6758,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 170,
+        "stale_links": 173,
         "status_counts": {
           "pass": 4728,
-          "fail": 4838,
+          "fail": 4835,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1155,
-          "stale": 157,
+          "stale": 160,
           "not_run": 102,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -10035,14 +10035,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 170,
+        "stale_links": 173,
         "status_counts": {
           "pass": 3138,
           "fail": 0,
-          "known": 7404,
+          "known": 7401,
           "unsupported": 0,
           "unreviewed_oracle": 164,
-          "stale": 156,
+          "stale": 159,
           "not_run": 118,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -12751,14 +12751,14 @@
           "SV2023-M.2-EXTRACT-GUARD",
           "SV2023-M.2-EXTRACT-REGISTER"
         ],
-        "stale_links": 149,
+        "stale_links": 152,
         "status_counts": {
           "pass": 2696,
           "fail": 0,
-          "known": 4930,
+          "known": 4927,
           "unsupported": 0,
           "unreviewed_oracle": 85,
-          "stale": 144,
+          "stale": 147,
           "not_run": 3125,
           "unmapped": 1318,
           "interpretation_pending": 0

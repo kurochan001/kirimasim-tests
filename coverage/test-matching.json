@@ -119947,7 +119947,7 @@
     },
     {
       "test": "tests/ch19/test_option_struct_members.sv",
-      "inputs_sha256": "4e68513e847e67cb13a1164d90536c7370e0a6e59fba094e43a28cac8cd7178b",
+      "inputs_sha256": "ed96de61785208480890f882be225cf5358ec6f35b9ccc46c33692cc3b3b1c76",
       "cited_clauses": [
         "19.10",
         "19.7",
@@ -120058,7 +120058,7 @@
       ],
       "scoped_review": {
         "test": "tests/ch19/test_option_struct_members.sv",
-        "inputs_sha256": "4e68513e847e67cb13a1164d90536c7370e0a6e59fba094e43a28cac8cd7178b",
+        "inputs_sha256": "ed96de61785208480890f882be225cf5358ec6f35b9ccc46c33692cc3b3b1c76",
         "reviewed_on": "2026-10-26",
         "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -550569,7 +550569,7 @@
     "oracle_issue": 255,
     "partial_observation": 2129
   },
-  "registry_sha256": "ad8c09fa487d0fe9db8b16824c31410ae33b248d3b8e9198f01d96511b378b5d",
+  "registry_sha256": "3113fa094bc28d18e770873bfdc7a3f2f43936e78550353e93618c55f0414fba",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "f279cb70fe1600c0d5992a7569e9d50aa1166f4af6f36568efde3c9203e47bac"
+  "review_ledger_sha256": "fa47a3859713685db37d74318aca1ca51ff89adeba2cb96509c1606c77e5d5b2"
 }

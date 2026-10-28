@@ -191301,9 +191301,9 @@
         {
           "test": "tests/ch19/test_option_struct_members.sv",
           "observation": "point宣言に設定したdetect_overlap=1を実読出し。warningの振舞いは未検査。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "4e68513e847e67cb13a1164d90536c7370e0a6e59fba094e43a28cac8cd7178b",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "ed96de61785208480890f882be225cf5358ec6f35b9ccc46c33692cc3b3b1c76",
           "evidence": [
             {
               "file": "tests/ch19/test_option_struct_members.sv",
@@ -191623,9 +191623,9 @@
         {
           "test": "tests/ch19/test_option_struct_members.sv",
           "observation": "group宣言で設定したper_instance=1を実member読出しで確認。database保存義務行には加算しない。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "4e68513e847e67cb13a1164d90536c7370e0a6e59fba094e43a28cac8cd7178b",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "ed96de61785208480890f882be225cf5358ec6f35b9ccc46c33692cc3b3b1c76",
           "evidence": [
             {
               "file": "tests/ch19/test_option_struct_members.sv",
@@ -192772,10 +192772,10 @@
       "checks": [
         {
           "test": "tests/ch19/test_option_struct_members.sv",
-          "observation": "group宣言でreal_intervalを0.5へ設定し、値と64bitを実読出し。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "4e68513e847e67cb13a1164d90536c7370e0a6e59fba094e43a28cac8cd7178b",
+          "observation": "group宣言でreal_intervalを0.5へ設定し、整数のメンバでは持てない値0.5を実読出し。real は bit-stream type でないため（6.24.3、20.6.2）$bits は使わない。",
+          "reviewed_on": "2026-10-28",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "ed96de61785208480890f882be225cf5358ec6f35b9ccc46c33692cc3b3b1c76",
           "evidence": [
             {
               "file": "tests/ch19/test_option_struct_members.sv",
@@ -192783,7 +192783,7 @@
             },
             {
               "file": "tests/ch19/test_option_struct_members.expected",
-              "contains": "type_option: real_interval=0.5 bits=64, strobe bits=1"
+              "contains": "type_option: real_interval=0.5, strobe bits=1"
             }
           ]
         }

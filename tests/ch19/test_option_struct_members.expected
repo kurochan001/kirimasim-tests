@@ -1,4 +1,4 @@
 group: group per_instance=1 bits=1,32
 coverpoint: weight=3 detect_overlap=1 bits=1
 cross: cross_num_print_missing=2
-type_option: real_interval=0.5 bits=64, strobe bits=1
+type_option: real_interval=0.5, strobe bits=1
