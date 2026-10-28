@@ -3,11 +3,11 @@
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
-**規格全動作のテスト設計網羅率: 89.27%。**
-**全規格の要求台帳ベース（確定）: 設計 89.27%、実行 59.55%。**
+**規格全動作のテスト設計網羅率: 89.32%。**
+**全規格の要求台帳ベース（確定）: 設計 89.32%、実行 59.59%。**
 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
-規格全動作の実行確認率: 59.55%。
+規格全動作の実行確認率: 59.59%。
 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10979/12298 (89.27%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7324/12298 (59.55%)。
-- 登録済みだがテスト未対応: 1319 動作。
+- 登録済み動作に対するテスト設計網羅率: 10984/12298 (89.32%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7328/12298 (59.59%)。
+- 登録済みだがテスト未対応: 1314 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -75,7 +75,7 @@
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3130/12298 動作確認、古い入力との対応 274 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3134/12298 動作確認、古い入力との対応 274 件。
 - `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2673/12298 動作確認、古い入力との対応 244 件。
 - 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
@@ -237,10 +237,10 @@
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 59。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 300。
 - 19 Functional coverage: 解釈保留なし 34/34、登録 271、テスト対応 232。
-- 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 316、テスト対応 284。
+- 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 316、テスト対応 285。
 - 21 Input/output system tasks and system functions: 解釈保留なし 65/65、登録 383、テスト対応 347。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 361、テスト対応 345。
-- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 247。
+- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 251。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 16。
 - 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 43。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 39。
@@ -53818,7 +53818,7 @@ Assertion control_type 11 selects VacuousOff.
 
 ### SV2023-20.11-EXTRACT-COUNTERS-UNAFFECTED
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Action-control tasks and control types 6 through 11 do not affect assertion statistics counters; future-global-clock attempt behavior follows 16.9.4.
 
@@ -53826,6 +53826,7 @@ Action-control tasks and control types 6 through 11 do not affect assertion stat
 
 規定の性質: `mandatory`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): control type 6〜11 の $assertcontrol の前後で assertion statistics counter（attempts, nonvacuous/vacuous successes, failures）が変化しないことを、VPI の counter 読み出しで確認する。
 
 ### SV2023-20.11-EXTRACT-DEFAULT-ACTIONS
 
@@ -65894,7 +65895,7 @@ For internal tri0 and external trireg, Table 23-1 selects the internal net type.
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-4
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / 実行確認あり
 
 For internal tri0 and external tri0, Table 23-1 selects the external net type.
 
@@ -65902,6 +65903,7 @@ For internal tri0 and external tri0, Table 23-1 selects the external net type.
 
 規定の性質: `mandatory`。
 
+- [test_port_collapse_internal_tri0_tri1.sv](../tests/ch23/test_port_collapse_internal_tri0_tri1.sv): 内部 tri0 ポートを外部 tri0 に接続すると、Table 23-1 は外部の tri0 を選ぶ。同じ net の両側から見た値が x0010 で一致する。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-5
 
@@ -66013,7 +66015,7 @@ For internal tri1 and external tri0, Table 23-1 selects the external net type. A
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-5
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / 実行確認あり
 
 For internal tri1 and external tri1, Table 23-1 selects the external net type.
 
@@ -66021,6 +66023,7 @@ For internal tri1 and external tri1, Table 23-1 selects the external net type.
 
 規定の性質: `mandatory`。
 
+- [test_port_collapse_internal_tri0_tri1.sv](../tests/ch23/test_port_collapse_internal_tri0_tri1.sv): 内部 tri1 ポートを外部 tri1 に接続すると、Table 23-1 は外部の tri1 を選ぶ。同じ net の両側から見た値が x0111 で一致する。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-6
 
@@ -66252,7 +66255,7 @@ For internal supply0 and external uwire, Table 23-1 selects the internal net typ
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-7
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / 実行確認あり
 
 For internal supply0 and external supply0, Table 23-1 selects the external net type.
 
@@ -66260,6 +66263,7 @@ For internal supply0 and external supply0, Table 23-1 selects the external net t
 
 規定の性質: `mandatory`。
 
+- [test_port_collapse_internal_supply.sv](../tests/ch23/test_port_collapse_internal_supply.sv): 内部 supply0 ポートを外部 supply0 に接続すると、Table 23-1 は外部の supply0 を選ぶ。同じ net の両側から見た値が 00000 で一致する。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-8
 
@@ -66371,7 +66375,7 @@ For internal supply1 and external supply0, Table 23-1 selects the external net t
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-8
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / 実行確認あり
 
 For internal supply1 and external supply1, Table 23-1 selects the external net type.
 
@@ -66379,6 +66383,7 @@ For internal supply1 and external supply1, Table 23-1 selects the external net t
 
 規定の性質: `mandatory`。
 
+- [test_port_collapse_internal_supply.sv](../tests/ch23/test_port_collapse_internal_supply.sv): 内部 supply1 ポートを外部 supply1 に接続すると、Table 23-1 は外部の supply1 を選ぶ。同じ net の両側から見た値が 11111 で一致する。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-DEFINITIONS
 

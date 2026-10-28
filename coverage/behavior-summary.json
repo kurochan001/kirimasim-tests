@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "657ba1f4f2245e4b11edbfcf9c3477bad3661ec88046ecbd716c861e7b468795",
+  "registry_sha256": "e45d43e42d67d9cfee6dde0cee7cf10a41a5758b793261a9dcea98dab7129f83",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -21,18 +21,18 @@
   "normative_sections": 1703,
   "audited_sections": 1703,
   "registered": 12298,
-  "mapped": 10979,
+  "mapped": 10984,
   "denominator_reviewed": true,
   "extraction_progress_percent": 100.0,
-  "unmapped": 1319,
-  "executed": 7324,
-  "whole_standard_percent": 89.27467880956253,
-  "whole_standard_executed_percent": 59.55439908928281,
-  "registered_percent": 89.27467880956253,
+  "unmapped": 1314,
+  "executed": 7328,
+  "whole_standard_percent": 89.31533582696373,
+  "whole_standard_executed_percent": 59.58692470320377,
+  "registered_percent": 89.31533582696373,
   "metric_policy_version": 3,
   "whole_standard_status": "confirmed",
-  "provisional_design_percent": 89.27467880956253,
-  "provisional_execution_percent": 59.55439908928281,
+  "provisional_design_percent": 89.31533582696373,
+  "provisional_execution_percent": 59.58692470320377,
   "denominator": {
     "count": 12298,
     "unit": "registered_requirement_condition_or_observation",
@@ -48,9 +48,9 @@
   },
   "collective_requirement_count": 652,
   "requirement_status_counts": {
-    "pass": 7324,
-    "mapped_without_pass": 3655,
-    "unmapped": 1319,
+    "pass": 7328,
+    "mapped_without_pass": 3656,
+    "unmapped": 1314,
     "interpretation_pending": 0
   },
   "chapters": [
@@ -248,9 +248,9 @@
       "clause": "20",
       "title": "Utility system tasks and system functions",
       "registered": 316,
-      "mapped": 284,
+      "mapped": 285,
       "executed": 191,
-      "design_percent": 89.87341772151899,
+      "design_percent": 90.18987341772151,
       "execution_percent": 60.44303797468354,
       "interpretation_pending": 0
     },
@@ -278,10 +278,10 @@
       "clause": "23",
       "title": "Modules and hierarchy",
       "registered": 260,
-      "mapped": 247,
-      "executed": 149,
-      "design_percent": 95.0,
-      "execution_percent": 57.30769230769231,
+      "mapped": 251,
+      "executed": 153,
+      "design_percent": 96.53846153846153,
+      "execution_percent": 58.84615384615385,
       "interpretation_pending": 0
     },
     {
@@ -651,8 +651,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10978,
-          "unmapped": 1319,
+          "not_run": 10983,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -672,8 +672,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10978,
-          "unmapped": 1319,
+          "not_run": 10983,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -691,8 +691,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 2,
-          "not_run": 10964,
-          "unmapped": 1319,
+          "not_run": 10969,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -720,8 +720,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 2,
-          "not_run": 10964,
-          "unmapped": 1319,
+          "not_run": 10969,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -739,8 +739,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 0,
-          "not_run": 10971,
-          "unmapped": 1319,
+          "not_run": 10976,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -767,8 +767,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10971,
-          "unmapped": 1319,
+          "not_run": 10976,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -788,8 +788,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10978,
-          "unmapped": 1319,
+          "not_run": 10983,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -807,8 +807,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10935,
-          "unmapped": 1319,
+          "not_run": 10940,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -828,8 +828,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10977,
-          "unmapped": 1319,
+          "not_run": 10982,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -850,8 +850,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10977,
-          "unmapped": 1319,
+          "not_run": 10982,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -883,8 +883,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 10964,
-          "unmapped": 1319,
+          "not_run": 10969,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -917,8 +917,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 10964,
-          "unmapped": 1319,
+          "not_run": 10969,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -942,8 +942,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 3,
           "stale": 0,
-          "not_run": 10962,
-          "unmapped": 1319,
+          "not_run": 10967,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -972,8 +972,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 3,
           "stale": 0,
-          "not_run": 10962,
-          "unmapped": 1319,
+          "not_run": 10967,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1002,8 +1002,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10969,
-          "unmapped": 1319,
+          "not_run": 10974,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1029,8 +1029,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10969,
-          "unmapped": 1319,
+          "not_run": 10974,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1052,8 +1052,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10974,
-          "unmapped": 1319,
+          "not_run": 10979,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1077,8 +1077,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10974,
-          "unmapped": 1319,
+          "not_run": 10979,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1099,8 +1099,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10977,
-          "unmapped": 1319,
+          "not_run": 10982,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1174,8 +1174,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9773,
-          "unmapped": 1319,
+          "not_run": 9778,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1195,8 +1195,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 3,
           "stale": 0,
-          "not_run": 10974,
-          "unmapped": 1319,
+          "not_run": 10979,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1216,8 +1216,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10978,
-          "unmapped": 1319,
+          "not_run": 10983,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1239,8 +1239,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10976,
-          "unmapped": 1319,
+          "not_run": 10981,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1299,8 +1299,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10939,
-          "unmapped": 1319,
+          "not_run": 10944,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1320,8 +1320,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10976,
-          "unmapped": 1319,
+          "not_run": 10981,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1343,8 +1343,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10976,
-          "unmapped": 1319,
+          "not_run": 10981,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1362,8 +1362,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 3,
-          "not_run": 10976,
-          "unmapped": 1319,
+          "not_run": 10981,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1388,8 +1388,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10973,
-          "unmapped": 1319,
+          "not_run": 10978,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1414,8 +1414,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10973,
-          "unmapped": 1319,
+          "not_run": 10978,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1458,8 +1458,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 10933,
-          "unmapped": 1319,
+          "not_run": 10938,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1522,8 +1522,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 10932,
-          "unmapped": 1319,
+          "not_run": 10937,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -1725,8 +1725,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 5,
-          "not_run": 10791,
-          "unmapped": 1319,
+          "not_run": 10796,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -2035,8 +2035,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10689,
-          "unmapped": 1319,
+          "not_run": 10694,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -6777,13 +6777,13 @@
         "stale_links": 276,
         "status_counts": {
           "pass": 4727,
-          "fail": 4737,
+          "fail": 4742,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1155,
           "stale": 258,
           "not_run": 102,
-          "unmapped": 1319,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -6813,8 +6813,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10891,
-          "unmapped": 1319,
+          "not_run": 10896,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -10688,12 +10688,12 @@
         "status_counts": {
           "pass": 3859,
           "fail": 0,
-          "known": 6159,
+          "known": 6164,
           "unsupported": 0,
           "unreviewed_oracle": 671,
           "stale": 0,
           "not_run": 290,
-          "unmapped": 1319,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -10733,8 +10733,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 10922,
-          "unmapped": 1319,
+          "not_run": 10927,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -10772,8 +10772,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 2,
-          "not_run": 10926,
-          "unmapped": 1319,
+          "not_run": 10931,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -10811,8 +10811,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 2,
-          "not_run": 10926,
-          "unmapped": 1319,
+          "not_run": 10931,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -11961,9 +11961,11 @@
           "SV2023-23.3.3.3-EXTRACT-NET-OUTPUT",
           "SV2023-23.3.3.5-EXTRACT-INSTANCE-BROADCAST",
           "SV2023-23.3.3.5-EXTRACT-UNPACKED-PORT-SHAPE",
+          "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-4",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-7",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-8",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-0",
+          "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-5",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-7",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-8",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-7",
@@ -11973,11 +11975,13 @@
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-4",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-5",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-6",
+          "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-7",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-0",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-2",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-4",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-5",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-6",
+          "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-8",
           "SV2023-23.3.3.7-EXTRACT-COLLAPSE-DEFINITIONS",
           "SV2023-23.3.3.7.1-EXTRACT-NO-RESIDUAL-INTERCONNECT",
           "SV2023-23.3.3.8-PORT-SIGNEDNESS",
@@ -13955,14 +13959,14 @@
         ],
         "stale_links": 274,
         "status_counts": {
-          "pass": 3130,
+          "pass": 3134,
           "fail": 0,
-          "known": 7312,
+          "known": 7313,
           "unsupported": 0,
           "unreviewed_oracle": 164,
           "stale": 255,
           "not_run": 118,
-          "unmapped": 1319,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       },
@@ -16650,12 +16654,12 @@
         "status_counts": {
           "pass": 2673,
           "fail": 0,
-          "known": 4861,
+          "known": 4862,
           "unsupported": 0,
           "unreviewed_oracle": 85,
           "stale": 235,
-          "not_run": 3125,
-          "unmapped": 1319,
+          "not_run": 3129,
+          "unmapped": 1314,
           "interpretation_pending": 0
         }
       }

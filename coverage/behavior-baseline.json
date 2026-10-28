@@ -30774,6 +30774,7 @@
     "SV2023-20.11-EXTRACT-CONTROL-CODE-PASSON",
     "SV2023-20.11-EXTRACT-CONTROL-CODE-UNLOCK",
     "SV2023-20.11-EXTRACT-CONTROL-CODE-VACUOUSOFF",
+    "SV2023-20.11-EXTRACT-COUNTERS-UNAFFECTED",
     "SV2023-20.11-EXTRACT-DEFAULT-ACTIONS",
     "SV2023-20.11-EXTRACT-DIRECTIVE-MASK",
     "SV2023-20.11-EXTRACT-DIRECTIVE-MASK-1",
@@ -31854,6 +31855,7 @@
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-1",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-2",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-3",
+    "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-4",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-5",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-6",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-7",
@@ -31863,6 +31865,7 @@
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-2",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-3",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-4",
+    "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-5",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-6",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-7",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-8",
@@ -31882,6 +31885,7 @@
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-4",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-5",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-6",
+    "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-7",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-8",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-0",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-1",
@@ -31891,6 +31895,7 @@
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-5",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-6",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-7",
+    "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-8",
     "SV2023-23.3.3.7-EXTRACT-COLLAPSE-DEFINITIONS",
     "SV2023-23.3.3.7-EXTRACT-DOMINATING-DELAY-STRENGTH",
     "SV2023-23.3.3.7-EXTRACT-EXTERNAL-FALLBACK",
@@ -43168,5 +43173,5 @@
     "P",
     "Q"
   ],
-  "reason": "Test-side fixes for issues #6-#19 corrected illegal or non-standard constructs; one A.10 matches-precedence mapping was removed because the grammar makes the claim inexpressible; execution evidence for the changed tests was refreshed with Icarus Verilog 13.0 and Verilator 5.052."
+  "reason": "Linked five existing tests to previously unmapped requirements: 23.3.3.7 same-type tri0/tri1 and supply0/supply1 port collapsing, and 20.11 assertion counters unaffected by control types 6-11. No new tests."
 }

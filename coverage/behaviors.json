@@ -204076,7 +204076,25 @@
       "acceptance": "Action-control tasks and control types 6 through 11 do not affect assertion statistics counters; future-global-clock attempt behavior follows 16.9.4.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B035. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "control type 6〜11 の $assertcontrol の前後で assertion statistics counter（attempts, nonvacuous/vacuous successes, failures）が変化しないことを、VPI の counter 読み出しで確認する。",
+          "reviewed_on": "2026-10-29",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "$assertcontrol(7);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "after control 7: attempts 3, nonvacuous successes 1, vacuous successes 1, failures 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -249433,7 +249451,25 @@
       "acceptance": "For internal tri0 and external tri0, Table 23-1 selects the external net type.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B013, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_port_collapse_internal_tri0_tri1.sv",
+          "observation": "内部 tri0 ポートを外部 tri0 に接続すると、Table 23-1 は外部の tri0 を選ぶ。同じ net の両側から見た値が x0010 で一致する。",
+          "reviewed_on": "2026-10-29",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "85af2f3fcfdcca24e80d17d7d931300cc57becb7bb39ad2d5bc364599c740f5b",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_port_collapse_internal_tri0_tri1.sv",
+              "contains": "tri0 n_tri0_tri0;"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_internal_tri0_tri1.expected",
+              "contains": "tri0 inside, tri0 outside:       outside x0010 inside x0010"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -249821,7 +249857,25 @@
       "acceptance": "For internal tri1 and external tri1, Table 23-1 selects the external net type.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B014, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_port_collapse_internal_tri0_tri1.sv",
+          "observation": "内部 tri1 ポートを外部 tri1 に接続すると、Table 23-1 は外部の tri1 を選ぶ。同じ net の両側から見た値が x0111 で一致する。",
+          "reviewed_on": "2026-10-29",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "85af2f3fcfdcca24e80d17d7d931300cc57becb7bb39ad2d5bc364599c740f5b",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_port_collapse_internal_tri0_tri1.sv",
+              "contains": "tri1 n_tri1_tri1;"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_internal_tri0_tri1.expected",
+              "contains": "tri1 inside, tri1 outside:       outside x0111 inside x0111"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -250603,7 +250657,25 @@
       "acceptance": "For internal supply0 and external supply0, Table 23-1 selects the external net type.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B016, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_port_collapse_internal_supply.sv",
+          "observation": "内部 supply0 ポートを外部 supply0 に接続すると、Table 23-1 は外部の supply0 を選ぶ。同じ net の両側から見た値が 00000 で一致する。",
+          "reviewed_on": "2026-10-29",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "bdc28b209e73a32ae924a9201ff40b54dd97477f9c82507b9f85fd1f05c56737",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_port_collapse_internal_supply.sv",
+              "contains": "supply0 n_supply0_supply0;"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_internal_supply.expected",
+              "contains": "supply0 inside, supply0 outside: outside 00000 inside 00000"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
@@ -250991,7 +251063,25 @@
       "acceptance": "For internal supply1 and external supply1, Table 23-1 selects the external net type.",
       "source_note": "IEEE 1800-2023 23.3.3.7; complete own-body source review, blocks B017, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_port_collapse_internal_supply.sv",
+          "observation": "内部 supply1 ポートを外部 supply1 に接続すると、Table 23-1 は外部の supply1 を選ぶ。同じ net の両側から見た値が 11111 で一致する。",
+          "reviewed_on": "2026-10-29",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "bdc28b209e73a32ae924a9201ff40b54dd97477f9c82507b9f85fd1f05c56737",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_port_collapse_internal_supply.sv",
+              "contains": "supply1 n_supply1_supply1;"
+            },
+            {
+              "file": "tests/ch23/test_port_collapse_internal_supply.expected",
+              "contains": "supply1 inside, supply1 outside: outside 11111 inside 11111"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3.7",
