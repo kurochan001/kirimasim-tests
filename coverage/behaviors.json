@@ -46976,7 +46976,7 @@
           "observation": "$bits(logic) が 1 であることを表示する。 区別: logic を 4 状態の 1 ビットとして扱わない実装は logic_bits を 1 以外にする。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "defffb9b4b7372abbcdf13121f869b0e6490cc58cce83fc4b694ab2884f80370",
+          "inputs_sha256": "517336180943aee7beef3a513fed0a8fc3aa145edc9dcf5890925c9a5d1d4f20",
           "evidence": [
             {
               "file": "tests/ch6/test_packed_union_size_and_implicit_conversion.sv",
@@ -47121,7 +47121,7 @@
           "observation": "packed struct へ 8'h5A を明示キャストなしで代入し、hi=5 lo=a、さらに 8'(s) の明示キャストも 5a となることを表示する。 区別: packed 型を整数として暗黙変換しない実装は s_hi/s_lo を x にし、ビット順を逆にする実装は hi=a lo=5 を出す。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "defffb9b4b7372abbcdf13121f869b0e6490cc58cce83fc4b694ab2884f80370",
+          "inputs_sha256": "517336180943aee7beef3a513fed0a8fc3aa145edc9dcf5890925c9a5d1d4f20",
           "evidence": [
             {
               "file": "tests/ch6/test_packed_union_size_and_implicit_conversion.sv",
@@ -47820,7 +47820,7 @@
           "observation": "$bits で 8 ビットと 16 ビットのメンバを持つ unpacked union の大きさが最大メンバの 16 になることを表示する。 区別: 最初のメンバや合計で union の大きさを決める実装は union_bits を 8 や 24 にし、16 と一致しない。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "defffb9b4b7372abbcdf13121f869b0e6490cc58cce83fc4b694ab2884f80370",
+          "inputs_sha256": "517336180943aee7beef3a513fed0a8fc3aa145edc9dcf5890925c9a5d1d4f20",
           "evidence": [
             {
               "file": "tests/ch6/test_packed_union_size_and_implicit_conversion.sv",

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "3113fa094bc28d18e770873bfdc7a3f2f43936e78550353e93618c55f0414fba",
+  "registry_sha256": "7d76e482f8b29b1622df6a5e4c8fdd82cc712cec18d4593a5976eb19b9b6567e",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -1335,6 +1335,29 @@
           "SV2023-6.18-EXTRACT-UNPACKED-PARAMETER-TYPENAME",
           "SV2023-6.21-EXTRACT-CLASS-LOOP-AUTOMATIC",
           "SV2023-6.22.2-EXTRACT-DYNAMIC-EQUIVALENCE"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 3,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10977,
+          "unmapped": 1318,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "ch6-union-note-20261028-verilator.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-28T01:09:01.904537+00:00",
+        "executed": [
+          "SV2023-6.24.1-EXTRACT-LOGIC-BIT-SIZE",
+          "SV2023-6.24.1-EXTRACT-PACKED-IMPLICIT-CONVERSION",
+          "SV2023-6.24.1-EXTRACT-UNION-BIT-SIZE"
         ],
         "stale_links": 0,
         "status_counts": {
@@ -6758,14 +6781,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 173,
+        "stale_links": 176,
         "status_counts": {
           "pass": 4728,
-          "fail": 4835,
+          "fail": 4832,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1155,
-          "stale": 160,
+          "stale": 163,
           "not_run": 102,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -10035,14 +10058,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 173,
+        "stale_links": 176,
         "status_counts": {
           "pass": 3138,
           "fail": 0,
-          "known": 7401,
+          "known": 7398,
           "unsupported": 0,
           "unreviewed_oracle": 164,
-          "stale": 159,
+          "stale": 162,
           "not_run": 118,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -11015,13 +11038,10 @@
           "SV2023-6.23-EXTRACT-TYPE-REFERENCE-USES",
           "SV2023-6.24.1-EXTRACT-CAST-GRAMMAR",
           "SV2023-6.24.1-EXTRACT-CONST-CAST",
-          "SV2023-6.24.1-EXTRACT-LOGIC-BIT-SIZE",
-          "SV2023-6.24.1-EXTRACT-PACKED-IMPLICIT-CONVERSION",
           "SV2023-6.24.1-EXTRACT-SIGN-CAST-WIDTH",
           "SV2023-6.24.1-EXTRACT-SIZE-CAST-RESIZE",
           "SV2023-6.24.1-EXTRACT-SIZE-CAST-SIGN-PRESERVED",
           "SV2023-6.24.1-EXTRACT-SIZE-CAST-VECTOR",
-          "SV2023-6.24.1-EXTRACT-UNION-BIT-SIZE",
           "SV2023-6.24.2-EXTRACT-DYNAMIC-ENUM-MEMBERSHIP",
           "SV2023-6.24.2-EXTRACT-DYNAMIC-SIGNATURE",
           "SV2023-6.24.2-EXTRACT-DYNAMIC-TASK-OR-FUNCTION",
@@ -12751,14 +12771,14 @@
           "SV2023-M.2-EXTRACT-GUARD",
           "SV2023-M.2-EXTRACT-REGISTER"
         ],
-        "stale_links": 152,
+        "stale_links": 155,
         "status_counts": {
-          "pass": 2696,
+          "pass": 2693,
           "fail": 0,
           "known": 4927,
           "unsupported": 0,
           "unreviewed_oracle": 85,
-          "stale": 147,
+          "stale": 150,
           "not_run": 3125,
           "unmapped": 1318,
           "interpretation_pending": 0

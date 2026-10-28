@@ -332495,7 +332495,7 @@
     },
     {
       "test": "tests/ch6/test_packed_union_size_and_implicit_conversion.sv",
-      "inputs_sha256": "defffb9b4b7372abbcdf13121f869b0e6490cc58cce83fc4b694ab2884f80370",
+      "inputs_sha256": "517336180943aee7beef3a513fed0a8fc3aa145edc9dcf5890925c9a5d1d4f20",
       "cited_clauses": [
         "6.24.1",
         "6.19.4"
@@ -550569,7 +550569,7 @@
     "oracle_issue": 255,
     "partial_observation": 2129
   },
-  "registry_sha256": "3113fa094bc28d18e770873bfdc7a3f2f43936e78550353e93618c55f0414fba",
+  "registry_sha256": "7d76e482f8b29b1622df6a5e4c8fdd82cc712cec18d4593a5976eb19b9b6567e",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
   "review_ledger_sha256": "fa47a3859713685db37d74318aca1ca51ff89adeba2cb96509c1606c77e5d5b2"
 }

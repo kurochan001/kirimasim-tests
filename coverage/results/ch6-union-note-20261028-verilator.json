@@ -1,0 +1,17 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch6/test_packed_union_size_and_implicit_conversion": {
+   "status": "pass",
+   "inputs_sha256": "517336180943aee7beef3a513fed0a8fc3aa145edc9dcf5890925c9a5d1d4f20"
+  }
+ },
+ "generated_at": "2026-10-28T01:09:01.904537+00:00",
+ "runner_sha256": "22308c0f537530ce2225f1c70638ae6e8c9c725559b0e9fdeee7a9aa34918dc7",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

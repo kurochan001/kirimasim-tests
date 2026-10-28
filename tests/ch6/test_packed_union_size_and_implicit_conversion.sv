@@ -16,6 +16,12 @@
 // integral value. A cast whose operand is not assignment compatible follows
 // 6.19.4 for an enum destination; the test casts an out-of-range integral to an
 // enum and observes the coerced value without a membership check.
+// The standard disagrees with itself on $bits of the unpacked union uun_t.
+// 20.6.2 takes the legal types of $bits from 6.24.3, whose bit-stream types
+// do not include unions. 6.24.1 gives the size of a union as that of its
+// largest member, and its example applies $bits to a structure holding an
+// unpacked union. The test follows 6.24.1, the rule written for unions;
+// slang, and so kirimasim, follows 6.24.3 and rejects $bits(uun_t).
 
 typedef union {
   logic [7:0] bytev;
