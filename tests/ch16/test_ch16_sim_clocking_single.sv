@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the property p_bad declared inside clocking block cb has two clocking events of its own and is therefore multiclocked
-:expected_stderr_regex: test_ch16_sim_clocking_single\.sv:42: .*[Mm]ulticlock
+:expected_stderr_regex: (?i)\A(?=[\s\S]*(?:error[^\n]*test_ch16_sim_clocking_single\.sv:42:(?:\d+:)?[^\n]*(?:multiclock|explicit[ -]?clock)|test_ch16_sim_clocking_single\.sv:42:(?:\d+:)?[^\n]*error[^\n]*(?:multiclock|explicit[ -]?clock)))
 */
 // IEEE 1800-2023 §16.16 rule b: within a clocking block, no explicit
 // clocking event is allowed in any property or sequence declaration, and

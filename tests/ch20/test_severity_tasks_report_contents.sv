@@ -10,7 +10,7 @@
 :nondeterministic: no
 :expected_stdout: @test_severity_tasks_report_contents.expected
 :expected_exit: nonzero
-:expected_stderr_regex: (?i)\A(?=[\s\S]*info[^\n]*test_severity_tasks_report_contents\.sv:42:[^\n]*msg-one 42 abc)(?=[\s\S]*warn[^\n]*test_severity_tasks_report_contents\.sv:46:[^\n]*msg-two ab 10)(?=[\s\S]*error[^\n]*test_severity_tasks_report_contents\.sv:50:[^\n]*msg-three 1\+2=3)(?=[\s\S]*fatal[^\n]*test_severity_tasks_report_contents\.sv:62:[^\n]*msg-four end)(?=[\s\S]*scope_one)(?=[\s\S]*scope_two)(?=[\s\S]*scope_three)(?=[\s\S]*scope_four)(?=[\s\S]*1111)(?=[\s\S]*2222)(?=[\s\S]*3333)(?=[\s\S]*4444)
+:expected_stderr_regex: (?i)\A(?=[\s\S]*(?:info[^\n]*test_severity_tasks_report_contents\.sv:42:[^\n]*msg-one 42 abc|test_severity_tasks_report_contents\.sv:42:[^\n]*info[^\n]*msg-one 42 abc))(?=[\s\S]*(?:warn[^\n]*test_severity_tasks_report_contents\.sv:46:[^\n]*msg-two ab 10|test_severity_tasks_report_contents\.sv:46:[^\n]*warn[^\n]*msg-two ab 10))(?=[\s\S]*(?:error[^\n]*test_severity_tasks_report_contents\.sv:50:[^\n]*msg-three 1\+2=3|test_severity_tasks_report_contents\.sv:50:[^\n]*error[^\n]*msg-three 1\+2=3))(?=[\s\S]*(?:fatal[^\n]*test_severity_tasks_report_contents\.sv:62:[^\n]*msg-four end|test_severity_tasks_report_contents\.sv:62:[^\n]*fatal[^\n]*msg-four end))(?=[\s\S]*scope_one)(?=[\s\S]*scope_two)(?=[\s\S]*scope_three)(?=[\s\S]*scope_four)(?=[\s\S]*1111)(?=[\s\S]*2222)(?=[\s\S]*3333)(?=[\s\S]*4444)
 */
 // IEEE 1800-2023 §20.10: $info prints a message of no specific severity,
 // $warning a warning and $error an error, and the run goes on; $fatal prints

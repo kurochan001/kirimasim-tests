@@ -10,7 +10,7 @@
 :nondeterministic: no
 :expected_stdout: @test_fatal_form_finish_number_and_arguments.expected
 :expected_exit: nonzero
-:expected_stderr_regex: (?i)\A(?=[\s\S]*fatal[^\n]*test_fatal_form_finish_number_and_arguments\.sv:35:[^\n]*ff-msg n=42 end)
+:expected_stderr_regex: (?i)\A(?=[\s\S]*(?:fatal[^\n]*test_fatal_form_finish_number_and_arguments\.sv:35:[^\n]*ff-msg n=42 end|test_fatal_form_finish_number_and_arguments\.sv:35:[^\n]*fatal[^\n]*ff-msg n=42 end))
 */
 // IEEE 1800-2023 A.1.4 and 20.10: $fatal is written either without
 // parentheses or with parentheses that hold a finish number, which is 0, 1
