@@ -1,6 +1,6 @@
 /*
 :name: test_virtual_interface_data_type_forms
-:description: A virtual interface data type written with and without the keyword interface, with a modport selected, with an actual parameter value, as a class property, as a constructor argument and as a variable input port, and the assignments and writes that each form allows (IEEE 1800-2023 Sections 25.9 and 25.9.2)
+:description: A virtual interface data type written with and without the keyword interface, with a modport selected, with an actual parameter value, as a class property, as a constructor argument and as a module interface port, and the assignments and writes that each form allows (IEEE 1800-2023 Sections 25.9 and 25.9.2)
 :tags: ch25
 :type: simulation
 :lrm: 1800-2023 25.9 25.9.2 A.2.2.1
@@ -22,13 +22,14 @@
 //   - h.wport selects the writer modport, so it may write data,
 //   - h.par has the actual parameter value 8 and reads the 8-bit data of the
 //     parameterized interface instance,
-//   - vif_reader has a variable input port of the virtual interface type and
-//     copies data to its output.
+//   - vif_reader has a module interface port of type vif_bus, since §25.9
+//     does not allow a virtual interface as a port, and copies data to its
+//     output.
 // The writes leave bus.data at 8'h11, so the parent prints 11 for bus, vv,
 // v2, plain and the port output, and c3 for the parameterized interface.
 //
-// Icarus Verilog 13.0 does not compile virtual interfaces as a class
-// property or port type; Verilator 5.052 does not accept every form here.
+// Icarus Verilog 13.0 does not compile a virtual interface as a class
+// property; Verilator 5.052 does not accept every form here.
 
 interface vif_bus;
   logic [7:0] data;
@@ -49,7 +50,7 @@ class vif_holder;
   endfunction
 endclass
 
-module vif_reader (input var virtual vif_bus v, output logic [7:0] seen);
+module vif_reader (vif_bus v, output logic [7:0] seen);
   always_comb seen = v.data;
 endmodule
 

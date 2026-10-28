@@ -1,6 +1,6 @@
 /*
 :name: test_sequence_local_formal_assignment
-:description: A variable actual of a typed local formal is viewed through the formal's type, so its wider value is truncated, and an assignment to the formal is followed by an assignment from the formal to the actual (IEEE 1800-2023 Section 16.8.1)
+:description: A variable actual of a typed local input formal is viewed through the formal's type, so its wider value is truncated, and an assignment to the formal does not write back to the actual (IEEE 1800-2023 Section 16.8.1)
 :tags: ch16
 :type: simulation
 :lrm: 1800-2023 16.8.1
@@ -11,17 +11,16 @@
 :expected_stdout: @test_sequence_local_formal_assignment.expected
 */
 // IEEE 1800-2023 §16.8.1: when the actual argument is a variable_lvalue,
-// references to the typed formal have the formal's type, and an assignment to
-// the formal is treated as though a subsequent assignment from the formal to
-// the actual followed. s_add declares the local inout formal f of type
-// logic [1:0]; its actual is the 8-bit variable w. At the attempt that starts
-// at 5, f starts as the low two bits of w, which is 01, and f = f + 2'b11
-// wraps to 00 in the two-bit type. The comparison at 15 passes, and the end
-// of the match assigns f, cast to eight bits, to w, so w becomes 0. The
-// attempt from 15 is vacuous because start is low; it adds one pass at 15.
-// The test prints w and the counts at 18, before the tick at 25. A tool that
+// references to the typed formal have the formal's type. The actual of an
+// inout or output local formal must itself be a local variable, so s_add
+// declares the local input formal f of type logic [1:0] and reads the 8-bit
+// variable w through it. At the attempt that starts at 5, f starts as the low
+// two bits of w, which is 01, and f = f + 2'b11 wraps to 00 in the two-bit
+// type. The comparison at 15 passes, and an input formal writes nothing back,
+// so w stays 5. The attempt that starts at 15 is still running when the test
+// prints w and the counts at 18, so it has not added a pass yet. A tool that
 // views w as eight bits would not wrap f to 00 and the comparison would fail;
-// a tool that does not copy the formal back leaves w at 5.
+// a tool that copies an input formal back would leave w at 0.
 
 `timescale 1ns/1ns
 
@@ -32,7 +31,7 @@ module test_sequence_local_formal_assignment;
 
   always #5 clk = ~clk;   // rising edges at 5, 15 and 25
 
-  sequence s_add(local inout logic [1:0] f);
+  sequence s_add(local input logic [1:0] f);
     (1'b1, f = f + 2'b11) ##1 (f == 2'b00);
   endsequence
 

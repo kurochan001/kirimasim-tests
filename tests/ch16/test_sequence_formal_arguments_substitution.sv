@@ -19,9 +19,10 @@
 // §16.12.18: a property formal of type sequence is replaced by the
 // sequence_expr actual, and one of type bit [3:0] is cast, so the byte 8'hA5
 // becomes 4'h5. §16.12.19: a local input formal of a property obeys the
-// sequence rules and takes its default actual when none is given. The pass
-// counts of the two properties are printed at the end, so the order of their
-// actions in a time step does not matter.
+// sequence rules and takes its default actual when none is given. §16.8.1: a
+// formal that gives a direction must also be local, so z is local input. The
+// pass counts of the two properties are printed at the end, so the order of
+// their actions in a time step does not matter.
 
 `timescale 1ns/1ns
 
@@ -70,7 +71,7 @@ module test_sequence_formal_arguments_substitution;
     sq |-> sq;
   endproperty
 
-  property p_loc(local input int w = 4, input int z);
+  property p_loc(local input int w = 4, local input int z);
     @(posedge clk) (go, add_loc(w + z));
   endproperty
 

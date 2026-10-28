@@ -14,19 +14,20 @@
 // tagged; a union may also be packed, signed when packed, and followed by
 // packed dimensions. Footnote 17 allows a packed dimension with a union when
 // the soft and/or packed keyword is present, and footnote 20 allows a void
-// member only in a tagged union. The test declares each permitted form, writes
-// and reads a packed member through its overlapping view, indexes the two
-// packed dimensions, reads a soft-union member, and constructs and
-// pattern-matches a tagged union and a packed tagged union. A tool that mixes
-// up the member layout or rejects one of the forms prints other values or
-// cannot elaborate the design.
+// member only in a tagged union. A soft union is packed, so its members must
+// be integral (7.3.1). The test declares each permitted form, writes and
+// reads a packed member through its overlapping view, indexes the two packed
+// dimensions, writes and reads a shortreal member of an unpacked union, and
+// constructs and pattern-matches a tagged union and a packed tagged union. A
+// tool that mixes up the member layout or rejects one of the forms prints
+// other values or cannot elaborate the design.
 
 typedef union packed signed {
   logic [7:0] a;
   byte b;
 } pu_t;
 typedef union packed { byte a; } parr_t [1:0];
-typedef union soft {
+typedef union {
   int i;
   shortreal f;
 } su_t;

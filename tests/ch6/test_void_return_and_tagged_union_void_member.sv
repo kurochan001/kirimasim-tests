@@ -13,8 +13,8 @@
 // IEEE 1800-2023 6.13: void represents nonexistent data. A function declared
 // with the void return type produces no value, and a tagged union may have a
 // void member whose value is carried by the tag alone (7.3.2, 11.9). The test
-// writes through an out argument of a void function, builds the void member of
-// a tagged union, and reads the tag and the payload of both tags through
+// writes through an output argument of a void function, builds the void member
+// of a tagged union, and reads the tag and the payload of both tags through
 // pattern matching.
 
 typedef union tagged {
@@ -27,7 +27,7 @@ module test_void_return_and_tagged_union_void_member;
   int r;
   int calls;
 
-  function automatic void set(out int dst, input int src);
+  function automatic void set(output int dst, input int src);
     dst = src;
   endfunction
 
