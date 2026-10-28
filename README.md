@@ -13,17 +13,22 @@ For terminology and common questions, see the [glossary](docs/glossary.md)
 and [FAQ](docs/faq.md) (Japanese). They explain test expectations, result
 statuses, Nightly, coverage and the SVA/formal checks used by this suite.
 
-Each test is a small, self-contained design with an expected result. A legal
-design passes when its normalized standard output matches and any specified
+Each simulation test is a small, self-contained design with an expected result.
+A legal design passes when its normalized standard output matches and any specified
 exit-code and diagnostic checks succeed. An illegal design passes when it is
 rejected with the required diagnostic (see [how a test is judged](#how-a-test-is-judged)).
 The tests are written for the
-[kirimasim](https://github.com/kurochan001/kirimasim) simulator, but nothing in
-them is specific to it: runners for Icarus Verilog, Verilator, kirimasim and
+[kirimasim](https://github.com/kurochan001/kirimasim) simulator. Runners for
+Icarus Verilog, Verilator, kirimasim and
 [Lyra](https://github.com/hankhsu1996/lyra) are included. An unreleased guest,
 **Ghost**, is also taking part under an alias for now. The metadata
 format is that of
 [sv-tests](https://github.com/chipsalliance/sv-tests).
+
+Most simulation expectations follow simulator-independent standard rules.
+Tests of implementation-defined behavior state the assumed format explicitly;
+the [FST waveform tests](docs/fst-tests-20261029.md) target kirimasim's planned
+FST backend and are not requirements to use FST in every simulator.
 
 What sets the suite apart:
 
@@ -99,14 +104,20 @@ The suite has **7744 tests** in 38 chapters. 1308 of them are generated (`tests/
 | 40 | Code coverage control and API | 31 | 1 | 2 | 28 |
 <!-- suite-stats:end -->
 
-Additional SVA validation is tracked separately from these oracle counts:
-the reference evaluator reproduces **45 test outputs**. The basic formal set
+The total includes 268 `:type: formal` tests. They are checked with SymbiYosys
+through `:formal_case:` rather than by comparing simulator standard output;
+see [running formal tests](#symbiyosys).
+
+Additional SVA validation was recorded separately from these oracle counts
+on 2026-10-26: the reference evaluator reproduced **45 test outputs**. The basic formal set
 has **40 BMC checks**, with **22 models also passing unbounded PDR proofs**. A separate
 parameter-boundary sweep has **111 cases**, all passing both BMC and PDR;
 its suite bindings identify **127 sequence fragments in 91 directives across
 28 tests**. The two formal sets overlap and are not added as distinct models.
-Formal models are not additional suite tests, and these results do not
-reclassify tests in the tables above.
+These model counts are not added to the suite total, and these results do not
+reclassify tests in the tables above. As of 2026-10-29, the two saved formal
+reports have stale source bindings; see the guide for current execution and
+validation commands.
 See the [SVA reference and formal verification guide](docs/sva-reference-formal-verification.md)
 and [boundary-sweep results](docs/sva-formal-expansion-20261026.md) for the
 scope, evidence and reproduction commands.
@@ -142,9 +153,9 @@ requirements and observable test outcomes. Their
 A–Q, including parent introductions and previously excluded material. The
 source review covers all 1,740 sections. Provisional percentages use every
 registered requirement/condition/observation row, including interpretation
-holds and unmapped rows. Confirmed whole-standard percentages remain undefined
-until interpretations and overlapping requirement units are reconciled and
-the denominator is approved. The reports separate design coverage, execution
+holds and unmapped rows. Confirmed whole-standard percentages use the approved
+denominator after interpretations and overlapping requirement units have been
+reconciled. The reports separate design coverage, execution
 evidence, simulator outcomes and source-review progress. CI checks the registry
 and generated summaries. Nightly records percentages, outstanding items,
 simulator outcomes and denominator identities on the `results` branch.
@@ -813,7 +824,7 @@ The suite includes 268 tests with `:type: formal`. They name a `:formal_case:`
 and are run by `tools/run_sby.py`, which compares the reference evaluator with
 an independent RTL model. The Icarus, Verilator, kirimasim and Lyra runners
 exclude them. Ghost's current runner still selects all test files; its
-formal-file results are not SymbiYosys proof evidence.
+results for formal test files are not SymbiYosys proof evidence.
 
 ```sh
 python3 tools/run_sby.py --sby "$SBY_BIN" --json /tmp/sby.json
@@ -864,7 +875,7 @@ tab (`workflow_dispatch`). Its jobs fail when the
 suite has a problem:
 
 - **icarus** builds Icarus Verilog 13.0 from its `v13_0` tag (kept in the
-  Actions cache) and runs every test. Every test whose `:oracle:` lists
+  Actions cache) and runs every non-formal test. Every test whose `:oracle:` lists
   `iverilog@13.0` must match; the others are known differences.
 - **verilator** builds Verilator 5.052 from its `v5.052` tag (kept in the
   cache), installs `z3` for `randomize()` and ccache, whose cache it keeps for
@@ -891,15 +902,15 @@ for it, and a newer one replaces a run that is still waiting. Its results are
 only reported, except for the ratchet of the kirimasim job. It has six jobs:
 
 - **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
-  by its commit) and runs every test.
+  by its commit) and runs every non-formal test.
 - **verilator** builds the latest `master` of Verilator (kept in the cache
   by its commit), installs `z3` and ccache, whose cache it keeps for the next
-  night, and runs every test with `--all`. Each process of the run gets at
+  night, and runs every non-formal test with `--all`. Each process of the run gets at
   most 6 GB of address space (`ulimit -v`): a design that makes Verilator
   recurse without end would otherwise take all the memory of the runner,
   which stops the job.
 - **kirimasim** builds the latest `main` of kirimasim with its `release`
-  preset and runs every test. Then it compares the results with
+  preset and runs every non-formal test. Then it compares the results with
   `latest/kirimasim.json` of the `results` branch, the previous night's, with
   `tools/results_ratchet.py`, and fails when a test that matched there differs
   now; tests that are new or unsupported, and a night without previous
@@ -911,7 +922,7 @@ only reported, except for the ratchet of the kirimasim job. It has six jobs:
   build (the executable and its runfiles, copied out of Bazel's tree,
   without the runfiles manifest that names files in that tree) is kept in
   the cache by that commit and only a change of the pin builds it again. It
-  runs every test, which took 35 to 70 minutes and makes it the longest job
+  runs every non-formal test, which took 35 to 70 minutes and makes it the longest job
   of the night, and records the commit in the results.
 - **ghost** privately builds the unreleased guest and runs every test. Its
   checkout locations and runtime profile come from secrets. Only the public
