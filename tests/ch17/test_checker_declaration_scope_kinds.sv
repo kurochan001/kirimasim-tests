@@ -20,7 +20,10 @@
 // label, the package checker reached through a package scope, the interface
 // and program checkers, the generate-block checker, and the checker nested in
 // another checker. The module-scope checker also holds a function, a let, a
-// sequence, a property, a covergroup instance and a generate block. Both
+// sequence, a property, a covergroup instance and a generate block. §24.3
+// makes a reference to a program signal from outside every program an error,
+// so the program drives the value of its checker through the output port
+// hit_out and the module reads that design signal instead of p.hit. Both
 // releases of the suite reject every one of these checkers, Icarus Verilog
 // 13.0 as unknown syntax and Verilator 5.052 as "checker below unit-level",
 // so the expected output follows the clauses alone.
@@ -51,13 +54,14 @@ interface ifc;
   ifc_check ic (sig, hit);
 endinterface : ifc
 
-program prog;
+program prog (output bit hit_out);
   logic sig = 1'b0;
   bit hit;
   checker prog_check (input logic s, output bit h);
     assign h = ~s;
   endchecker : prog_check
   prog_check pc (.s(sig), .h(hit));
+  assign hit_out = hit;
 endprogram : prog
 
 module mod;
@@ -127,10 +131,11 @@ endmodule : mod
 module test_checker_declaration_scope_kinds;
   ifc i ();
   mod m ();
-  prog p ();
+  bit prog_hit;
+  prog p (.hit_out(prog_hit));
 
   initial begin
-    #2 $display("ifc=%b prog=%b", i.hit, p.hit);
+    #2 $display("ifc=%b prog=%b", i.hit, prog_hit);
     $finish;
   end
 endmodule

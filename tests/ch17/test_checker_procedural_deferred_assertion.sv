@@ -21,16 +21,21 @@
 // Active region, before the deferred action runs. At t=5 the instance is
 // reached with b=0, so the print shows 0 and the action makes it 1 before the
 // next clock. The edge at 15 is not reached, and the edge at 25 is reached
-// with b=1, so the count stays 1. Icarus Verilog 13.0 has no checkers and
-// release 5.052 of Verilator does not support deferred assertions here, so
-// expected output follows the clauses alone.
+// with b=1, so the count stays 1. §16.4.1: the action block of a deferred
+// assertion is a single subroutine call, so a1 counts its failure in the void
+// function bump. Icarus Verilog 13.0 has no checkers and Verilator 5.052 does
+// not support deferred assertions here, so the expected output follows the
+// clauses alone.
 
 `timescale 1ns/1ns
 
 checker cb_deferred (logic clk, logic b, output int fails, output int cfails);
   int f = 0;
   int c = 0;
-  a1: assert #0 (b) else f = f + 1;
+  function automatic void bump();
+    f = f + 1;
+  endfunction
+  a1: assert #0 (b) else bump();
   a2: assert property (@(posedge clk) b) else c = c + 1;
   assign fails = f;
   assign cfails = c;

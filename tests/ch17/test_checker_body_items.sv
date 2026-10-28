@@ -23,6 +23,8 @@
 // and the action blocks count the edges that passed and failed. clk rises at
 // 5, 15, ..., 45; d is 4'd0, 4'd9, 4'd5, 4'd12 and 4'd15 at those edges, and
 // en is 0, 0, 1, 0 and 1.
+// §16.4.1: the action block of the deferred assertion is a single subroutine
+// call, so a_def counts its failure in the void function bump_def.
 
 `timescale 1ns/1ns
 
@@ -31,12 +33,15 @@ checker body_items(input logic clk, input logic en, input logic [3:0] d,
                    output int act_pass, output int act_fail,
                    output logic [3:0] comb_q, output logic [3:0] latch_q,
                    output int ff_n, output int gen_n, output int nested_n);
-  // Declarations of a let, a sequence, a property and a function.
+  // Declarations of a let, a sequence, a property and functions.
   let is_five = (d == 4'd5);
   sequence s_five; is_five; endsequence
   property p_low; d < 4'd8; endproperty
   function automatic int inc(int x);
     return x + 1;
+  endfunction
+  function automatic void bump_def();
+    def_fail = def_fail + 1;
   endfunction
 
   // Checker variable written by a continuous assignment.
@@ -66,7 +71,7 @@ checker body_items(input logic clk, input logic en, input logic [3:0] d,
   a_seq: assert property (@(posedge clk) s_five |-> d[0] == 1'b0)
     else seq_fail = seq_fail + 1;
   // Deferred assertion, reported when its expression changes to false.
-  a_def: assert #0 (d != 4'd9) else def_fail = def_fail + 1;
+  a_def: assert #0 (d != 4'd9) else bump_def();
 
   initial begin
     @(posedge clk);

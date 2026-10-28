@@ -24,10 +24,12 @@
 // sm_t, 19 in the generate block gen, 18 in the named block blk, 20 in an
 // unnamed sequential block, and 21 and 22 in the named parallel block par
 // and an unnamed parallel block inside it. The outer x of sm_top stays 1.
-// The display times 5 to 10, 20 for the program, fix the order of the lines.
-// Icarus Verilog 13.0 does not support programs with items read this way or
-// classes in this context, so the expected output is recorded with
-// release 5.052 of the other simulator.
+// The display times 5 to 10 and 20 for the program fix the order of the
+// first lines. §17.5 does not allow a delay control in a checker initial
+// procedure, so the checker prints x from a final procedure, which runs at the
+// end of simulation and prints its line last. Icarus Verilog 13.0 does not
+// support programs with items read this way or classes in this context, so
+// the expected output is recorded with release 5.052 of the other simulator.
 
 int x = 24;
 
@@ -41,7 +43,7 @@ endclass
 
 checker sm_chk;
   int x = 23;
-  initial #9 $display("checker x=%0d", x);
+  final $display("checker x=%0d", x);
 endchecker
 
 interface sm_ifc;

@@ -22,13 +22,18 @@
 // in the Observed region of that time step. d is 0, 9, 9, 4 and 9 at the
 // rising clocks at 5, 15, 25, 35 and 45 and changes to 9 at 6, 18 and 38; bad
 // is 1, 0, 1, 0 and 1 at those clocks; en is 1 only at the clock at 25.
+// §16.4.1: the action block of a deferred assertion is a single subroutine
+// call, so d1 counts its failure in the void function bump_def.
 
 `timescale 1ns/1ns
 
 checker static_asserts(input logic clk, input logic [3:0] d,
                        output int conc_fail, output int def_fail);
+  function automatic void bump_def();
+    def_fail = def_fail + 1;
+  endfunction
   c1: assert property (@(posedge clk) d != 4'd9) else conc_fail = conc_fail + 1;
-  d1: assert #0 (d != 4'd9) else def_fail = def_fail + 1;
+  d1: assert #0 (d != 4'd9) else bump_def();
 endchecker : static_asserts
 
 checker inner_chk(input logic clk, input logic bad, output int fails);
