@@ -1,6 +1,6 @@
 /*
 :name: test_array_query_dimension_counts
-:description: $dimensions counts all packed and unpacked, fixed and dynamic dimensions, is 1 for a string or a nonarray simple bit vector type and 0 for other types, and $unpacked_dimensions counts only the unpacked ones (IEEE 1800-2023 Section 20.7)
+:description: $dimensions counts all packed and unpacked, fixed and dynamic dimensions, is 1 for a string or a nonarray simple bit vector type and 0 for the other integral types in its domain, and $unpacked_dimensions counts only the unpacked ones (IEEE 1800-2023 Section 20.7)
 :tags: ch20
 :type: simulation
 :lrm: 1800-2023 20.7
@@ -19,9 +19,10 @@
 // The lines print $dimensions and $unpacked_dimensions of: a 2-D unpacked
 // array of a 2-D packed vector (4 and 2); a dynamic array and a queue of
 // predefined-width integers (2 and 1); a string and an 8-bit vector (1 and
-// 0); a 2-D packed vector (2 and 0) and a packed structure, a nonarray type
-// equivalent to a simple bit vector (§6.11.1, 1 and 0); and real, shortreal
-// and event variables (0 and 0).
+// 0); and a 2-D packed vector (2 and 0) and a packed structure, a nonarray
+// type equivalent to a simple bit vector (§6.11.1, 1 and 0). A real,
+// shortreal or event is outside the domain of these functions (§20.7), so
+// none is passed to them.
 // Icarus Verilog 13.0 gives 0 and 0 for the dynamic array and the queue.
 
 module test_array_query_dimension_counts;
@@ -36,9 +37,6 @@ module test_array_query_dimension_counts;
   ps_t ps;
   bit [7:0] v8;
   logic [3:0][1:0] pk;
-  real r;
-  shortreal sr;
-  event ev;
 
   initial begin
     $display("m %0d %0d", $dimensions(m), $unpacked_dimensions(m));
@@ -48,7 +46,5 @@ module test_array_query_dimension_counts;
              $unpacked_dimensions(v8));
     $display("pk %0d %0d ps %0d %0d", $dimensions(pk), $unpacked_dimensions(pk), $dimensions(ps),
              $unpacked_dimensions(ps));
-    $display("r %0d %0d sr %0d %0d ev %0d %0d", $dimensions(r), $unpacked_dimensions(r),
-             $dimensions(sr), $unpacked_dimensions(sr), $dimensions(ev), $unpacked_dimensions(ev));
   end
 endmodule

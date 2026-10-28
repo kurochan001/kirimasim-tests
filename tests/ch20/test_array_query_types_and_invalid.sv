@@ -1,6 +1,6 @@
 /*
 :name: test_array_query_types_and_invalid
-:description: Array query functions accept a data type and a constant expression, an empty queue returns -1 for the right bound and increment, and an invalid dimension returns x while the dimension counts keep 0 (IEEE 1800-2023 Section 20.7)
+:description: Array query functions accept a data type and a constant expression, an empty queue returns -1 for the right bound and increment, and an out-of-range dimension returns x (IEEE 1800-2023 Section 20.7)
 :tags: ch20
 :type: simulation
 :lrm: 1800-2023 20.7
@@ -15,9 +15,9 @@
 // type and a constant dimension is legal in a constant expression; the
 // standard's own example has $size(Word) and $size(Ram,2) return 16. For a
 // queue, $left is 0 and $increment is -1; $right is -1 while the queue is
-// empty and the index of the last element otherwise. An invalid first
-// argument, or a dimension out of range, returns all x, while $dimensions and
-// $unpacked_dimensions keep their defined 0. Icarus Verilog 13.0 rejects type
+// empty and the index of the last element otherwise. A dimension out of
+// range returns all x. A real is outside the domain of these functions
+// (§20.7), so it is not passed to them. Icarus Verilog 13.0 rejects type
 // arguments, so this test is checked against the standard only.
 
 module test_array_query_types_and_invalid;
@@ -25,7 +25,6 @@ module test_array_query_types_and_invalid;
   Word Ram[0:9];
   int q[$];
   int dyn[];
-  real r;
   string s;
 
   localparam int LP_WORD = $size(Word);
@@ -66,7 +65,6 @@ module test_array_query_types_and_invalid;
     chk("size(Word)", $size(Word), 16);
     chk("dimensions(string)", $dimensions(string), 1);
     chk("dimensions(int)", $dimensions(int), 1);
-    chk("dimensions(real)", $dimensions(real), 0);
     chk("unpacked(int)", $unpacked_dimensions(int), 0);
 
     // The standard's array example: unpacked [0:9], packed [16:1].
@@ -112,16 +110,10 @@ module test_array_query_types_and_invalid;
     chk("right(dyn) empty", $right(dyn), -1);
     chk("increment(dyn)", $increment(dyn), -1);
 
-    // Invalid first argument or out-of-range dimension returns all x.
-    chkx("left(real)", $left(r));
-    chkx("size(real,1)", $size(r, 1));
+    // A dimension out of range returns all x.
     chkx("left(int,2)", $left(int, 2));
     chkx("size(string,2)", $size(s, 2));
     chkx("left(logic[7:0],2)", $left(logic [7:0], 2));
-
-    // The dimension counts keep their defined zero.
-    chk("dimensions(real)", $dimensions(r), 0);
-    chk("unpacked(real)", $unpacked_dimensions(r), 0);
 
     if (errors == 0) $display("TEST PASSED");
     else $display("TEST FAILED: %0d check(s) failed", errors);

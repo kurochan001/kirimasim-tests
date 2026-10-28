@@ -18,8 +18,10 @@
 // direction has -1; a dynamic array has increment -1, left 0, and right -1
 // when empty. A predefined-width integer is one packed [width-1:0] dimension.
 // $dimensions counts packed and unpacked dimensions and is 1 for string and
-// simple bit vectors and 0 for other types; $unpacked_dimensions counts only
-// unpacked dimensions. An empty queue and an invalid dimension are checked in
+// simple bit vectors, and 0 for the other types in its domain;
+// $unpacked_dimensions counts only unpacked dimensions. A real, shortreal
+// or event is outside the domain of both (§20.7), so neither is passed to
+// them. An empty queue and an invalid dimension are checked in
 // test_array_query_types_and_invalid, because Icarus Verilog 13.0 returns 0
 // for an empty queue's right bound and increment instead of -1, and counts a
 // dynamic array of int as 0 dimensions instead of 2.
@@ -37,7 +39,6 @@ module test_array_query_functions;
   longint lv;
   integer gv;
   string s;
-  real r;
   logic [7:0] v;
 
   int errors = 0;
@@ -105,13 +106,11 @@ module test_array_query_functions;
     chk("dimensions(v)", $dimensions(v), 1);
     chk("dimensions(s)", $dimensions(s), 1);
     chk("dimensions(iv)", $dimensions(iv), 1);
-    chk("dimensions(r)", $dimensions(r), 0);
     chk("unpacked(n)", $unpacked_dimensions(n), 2);
     chk("unpacked(pv)", $unpacked_dimensions(pv), 0);
     chk("unpacked(ua)", $unpacked_dimensions(ua), 1);
     chk("unpacked(dyn)", $unpacked_dimensions(dyn), 1);
     chk("unpacked(iv)", $unpacked_dimensions(iv), 0);
-    chk("unpacked(r)", $unpacked_dimensions(r), 0);
 
     if (errors == 0) $display("TEST PASSED");
     else $display("TEST FAILED: %0d check(s) failed", errors);

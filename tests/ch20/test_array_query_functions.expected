@@ -40,11 +40,9 @@ ok   dimensions(dyn) = 2
 ok   dimensions(v) = 1
 ok   dimensions(s) = 1
 ok   dimensions(iv) = 1
-ok   dimensions(r) = 0
 ok   unpacked(n) = 2
 ok   unpacked(pv) = 0
 ok   unpacked(ua) = 1
 ok   unpacked(dyn) = 1
 ok   unpacked(iv) = 0
-ok   unpacked(r) = 0
 TEST PASSED
