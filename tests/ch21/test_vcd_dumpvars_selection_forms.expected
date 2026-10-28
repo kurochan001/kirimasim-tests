@@ -1,5 +1,5 @@
 vars: 3
-i1.a1 1 -
+i1.a1 reg 1 ok
 i1.gg.gv missing
-i2.a2 1 -
-i2.gg.gv 4 3:0
+i2.a2 reg 1 ok
+i2.gg.gv reg 4 ok

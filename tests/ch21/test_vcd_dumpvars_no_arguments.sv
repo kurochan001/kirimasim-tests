@@ -14,9 +14,12 @@
 // variables in the model to the VCD file. The test has a 4-bit vector and an
 // int in the top module and an 8-bit vector and a bit in an instance, calls
 // $dumpvars with no arguments, and reads the $var sections of the file back.
-// All four variables are there with their sizes and index ranges
-// (§21.7.2.3) and no other variable is, because the reader is an automatic
-// task and its automatic variables are not dumped (§21.7.5).
+// All four variables are there with their types and sizes (§21.7.2.3), and
+// no other variable is, because the reader is an automatic task and its
+// automatic variables are not dumped (§21.7.5). §21.7.2.1, Syntax 21-20,
+// makes the index range of a reference optional: the test accepts a plain
+// identifier or the declared [msb:lsb] range, but a range that is written
+// has to be the one of the declaration.
 
 `timescale 1ns/1ns
 
@@ -26,9 +29,34 @@ module vdna_child;
 endmodule
 
 module vdna_reader;
+  // The state of one $var declaration: its type and size as §21.7.2.3
+  // requires them, and an index range that is either absent or the one of
+  // the declaration.
+  function automatic string var_state(string typ, string want_typ, int size,
+                                      int want_size, string rng,
+                                      string want_rng);
+    if (typ != want_typ)
+      return $sformatf("%s %0d: type, want %s", typ, size, want_typ);
+    if (size != want_size)
+      return $sformatf("%s %0d: size, want %0d", typ, size, want_size);
+    if (rng != "-" && rng != want_rng)
+      return $sformatf("%s %0d: range %s, want %s or none",
+                       typ, size, rng, want_rng);
+    return $sformatf("%s %0d ok", typ, size);
+  endfunction
+
+  // The range of a reference may be a token of its own (tv [3:0]) or part
+  // of the reference (tv[3:0]), so a reference can hold the bracket.
+  function automatic int bracket_at(string s);
+    for (int i = 0; i < s.len(); i++)
+      if (s[i] == "[") return i;
+    return -1;
+  endfunction
+
   task automatic read_and_report(string file);
     int fd = $fopen(file, "r");
-    string tok, typ, size, code, nm, rng, whose;
+    int sz, bracket;
+    string tok, typ, code, nm, rng, whose;
     string n_tv = "", n_ti = "", n_cv = "", n_cs = "";
     bit after = 1'b0;
     int nvars = 0;
@@ -43,18 +71,25 @@ module vdna_reader;
         end else if (tok == "$upscope") begin
           do void'($fscanf(fd, "%s", tok)); while (tok != "$end");
         end else if (tok == "$var") begin
-          void'($fscanf(fd, "%s %s %s %s", typ, size, code, nm));
+          void'($fscanf(fd, "%s %d %s %s", typ, sz, code, nm));
           rng = "-";
-          void'($fscanf(fd, "%s", tok));
-          if (tok != "$end") begin
-            rng = tok.substr(1, tok.len() - 2);
+          bracket = bracket_at(nm);
+          if (bracket >= 0) begin
+            rng = nm.substr(bracket + 1, nm.len() - 2);
+            nm = nm.substr(0, bracket - 1);
             void'($fscanf(fd, "%s", tok));
+          end else begin
+            void'($fscanf(fd, "%s", tok));
+            if (tok != "$end") begin
+              rng = tok.substr(1, tok.len() - 2);
+              void'($fscanf(fd, "%s", tok));
+            end
           end
           nvars++;
-          if (nm == "tv") n_tv = {size, " ", rng};
-          if (nm == "ti") n_ti = {size, " ", rng};
-          if (nm == "cv") n_cv = {size, " ", rng};
-          if (nm == "cs") n_cs = {size, " ", rng};
+          if (nm == "tv") n_tv = var_state(typ, "reg", sz, 4, rng, "3:0");
+          if (nm == "ti") n_ti = var_state(typ, "integer", sz, 32, rng, "31:0");
+          if (nm == "cv") n_cv = var_state(typ, "reg", sz, 8, rng, "7:0");
+          if (nm == "cs") n_cs = var_state(typ, "reg", sz, 1, rng, "-");
         end else begin
           do void'($fscanf(fd, "%s", tok)); while (tok != "$end");
         end
