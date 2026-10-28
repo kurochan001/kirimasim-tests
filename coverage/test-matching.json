@@ -249544,7 +249544,7 @@
               "SV2023-37.34-EXTRACT-DIAGRAM-007"
             ],
             "disposition": "oracle_issue",
-            "explanation": "The standard gives no value rule for vpiVirtual on a pure constraint: 37.34 detail 1 defines only vpiAutomatic, and sukimasim 0.9.9.2 returns 0 for the pure constraint. The draft's expectation of 1 is not established, so vpiVirtual is not read.",
+            "explanation": "The standard gives no value rule for vpiVirtual on a pure constraint: 37.34 detail 1 defines only vpiAutomatic, and the one simulator checked returns 0 for the pure constraint. The draft's expectation of 1 is not established, so vpiVirtual is not read.",
             "reviewed_on": "2026-10-26",
             "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
             "evidence": [
@@ -550612,5 +550612,5 @@
   },
   "registry_sha256": "b2647c05ce3a01ec571678487dce2f48d5caaf5f64448b1c7c72817fa2e8c99e",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "6c83886b1ca3b65b2696b7b79e60e014ae1b18dcb4ec7c7abaf556f59215f2b2"
+  "review_ledger_sha256": "efcd28ebf28cb7dd54fae433669c48c936e8dcccbe7b42273393ec3a5dbeca82"
 }

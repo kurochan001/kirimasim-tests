@@ -1,0 +1,3294 @@
+{
+ "schema": 1,
+ "chapter": 34,
+ "title": "IEEE 1800-2023 clause 34 (protected envelopes): what the two OSS simulators let a test observe",
+ "tools": {
+  "icarus": "Icarus Verilog 13.0 (v13_0)",
+  "verilator": "Verilator 5.052 2026-09-05"
+ },
+ "denominator": {
+  "source": "coverage/behaviors.json",
+  "filter": "clause starts with 34, checks and check_groups empty",
+  "requirements": 215,
+  "kinds": {
+   "normal": 205,
+   "error": 9,
+   "boundary": 1
+  }
+ },
+ "totals": {
+  "requirements": 215,
+  "tested_requirements": 5,
+  "test_files": 4,
+  "not_testable": 210
+ },
+ "categories": {
+  "envelope-structure": {
+   "label_ja": "envelope構造（対、入れ子、モード、字句スコープ）",
+   "count": 24,
+   "observable": "Observable: acceptance of begin_protected/end_protected pairs, their nesting to eight levels, matching across an include boundary, and that unmatched delimiters are not diagnosed.",
+   "unobservable": "Not observable: replacement of an envelope by cleartext, encrypt/decrypt modes, pragma left-to-right state, re-encryption of a preexisting protected block, and self-containment, since no encryptor or decryptor exists.",
+   "tested": [
+    "SV2023-34.2-EXTRACT-DECRYPTION-ENVELOPE",
+    "SV2023-34.4-EXTRACT-PROTECT-LEXICAL-SCOPE"
+   ],
+   "not_testable": [
+    "SV2023-34.2-EXTRACT-ENCRYPTION-ENVELOPE",
+    "SV2023-34.2-EXTRACT-ENVELOPE-CONTENT-KEYWORDS",
+    "SV2023-34.2-EXTRACT-ENVELOPE-TRANSFORMATION",
+    "SV2023-34.2-EXTRACT-PROTECT-SEQUENCE",
+    "SV2023-34.3-EXTRACT-ENVELOPE-MODES",
+    "SV2023-34.3-EXTRACT-ENVELOPE-PROCESSING-SCOPE",
+    "SV2023-34.3.1-EXTRACT-ENCRYPTION-REPLACEMENT",
+    "SV2023-34.3.1-EXTRACT-OUTSIDE-ENCRYPTION-PRESERVED",
+    "SV2023-34.3.2-EXTRACT-DECRYPT-THEN-EXPAND",
+    "SV2023-34.4-EXTRACT-PROTECT-LEXICAL-REGION",
+    "SV2023-34.4-EXTRACT-PROTECT-SELF-CONTAINMENT",
+    "SV2023-34.5.1.2-EXTRACT-ENCRYPT-ALL-CONTENT",
+    "SV2023-34.5.1.2-EXTRACT-ENCRYPT-BEGIN",
+    "SV2023-34.5.1.2-EXTRACT-ENCRYPT-BEGIN-OUTPUT",
+    "SV2023-34.5.1.2-EXTRACT-ENCRYPT-PADDING-COMMENTS",
+    "SV2023-34.5.1.2-EXTRACT-ENVELOPE-SELF-CONTAINED",
+    "SV2023-34.5.2.2-EXTRACT-ENCRYPT-END",
+    "SV2023-34.5.3.2-EXTRACT-DECRYPT-BEGIN",
+    "SV2023-34.5.3.2-EXTRACT-REENCRYPT-PROTECTED",
+    "SV2023-34.5.4.2-EXTRACT-DECRYPT-END",
+    "SV2023-34.5.4.2-EXTRACT-PREEXISTING-PROTECTED-END",
+    "SV2023-34.5.4.2-EXTRACT-REENCRYPT-PROTECTED-END"
+   ]
+  },
+  "encryption-encoding": {
+   "label_ja": "暗号化/encoding（data_* 選択子、data_block、enctype）",
+   "count": 51,
+   "observable": "Observable: base64 is the only enctype Verilator accepts; the declared byte count controls how much text is discarded; line_length must be a multiple of 4; a data_block body is read from the line after the directive.",
+   "unobservable": "Not observable: any cipher, IV handling, key or public-key selection, uuencode/quoted-printable/raw, per-field encodings, and any decryption.",
+   "tested": [
+    "SV2023-34.5.15.2-EXTRACT-DATA-OUTPUT"
+   ],
+   "not_testable": [
+    "SV2023-34.3.1-EXTRACT-EXCHANGE-KEY-DATA",
+    "SV2023-34.5.9.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.9.2-EXTRACT-BASE64-REQUIRED",
+    "SV2023-34.5.9.2-EXTRACT-DECODING-DESCRIPTOR",
+    "SV2023-34.5.9.2-EXTRACT-ENCODING-BYTES",
+    "SV2023-34.5.9.2-EXTRACT-ENCODING-EXTENSIONS",
+    "SV2023-34.5.9.2-EXTRACT-ENCODING-INPUT",
+    "SV2023-34.5.9.2-EXTRACT-ENCODING-LINE-LENGTH",
+    "SV2023-34.5.9.2-EXTRACT-ENCODING-OUTPUT",
+    "SV2023-34.5.9.2-EXTRACT-ENCODING-PER-FIELD",
+    "SV2023-34.5.9.2-EXTRACT-QUOTED-PRINTABLE-OPTION",
+    "SV2023-34.5.9.2-EXTRACT-RAW-ENCODING-OPTION",
+    "SV2023-34.5.9.2-EXTRACT-UUENCODE-REQUIRED",
+    "SV2023-34.5.10.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.10.2-EXTRACT-OWNER-DECRYPT",
+    "SV2023-34.5.10.2-EXTRACT-OWNER-OUTPUT",
+    "SV2023-34.5.10.2-EXTRACT-OWNER-SELECT",
+    "SV2023-34.5.10.2-EXTRACT-OWNER-UNIQUE-KEYS",
+    "SV2023-34.5.11.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-3DES-CBC",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-AES128-CBC",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-AES192-CBC",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-AES256-CBC",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-BLOWFISH-CBC",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-CAST128-CBC",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-DES-CBC",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-ELGAMAL",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-PGP-RSA",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-RSA",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-SERPENT128-CBC",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-SERPENT192-CBC",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-SERPENT256-CBC",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-TWOFISH128-CBC",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-TWOFISH192-CBC",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-TWOFISH256-CBC",
+    "SV2023-34.5.11.2-EXTRACT-DATA-ALGORITHM",
+    "SV2023-34.5.11.2-EXTRACT-METHOD-DECRYPT",
+    "SV2023-34.5.11.2-EXTRACT-METHOD-OUTPUT",
+    "SV2023-34.5.11.2-EXTRACT-RANDOM-IV",
+    "SV2023-34.5.12.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.12.2-EXTRACT-NAME-COMBINE-TEXT",
+    "SV2023-34.5.12.2-EXTRACT-NAME-DECRYPT",
+    "SV2023-34.5.12.2-EXTRACT-NAME-OUTPUT",
+    "SV2023-34.5.13.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.13.2-EXTRACT-PUBLIC-KEY-DECRYPT",
+    "SV2023-34.5.13.2-EXTRACT-PUBLIC-KEY-LINE",
+    "SV2023-34.5.13.2-EXTRACT-PUBLIC-KEY-OUTPUT",
+    "SV2023-34.5.15.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.15.2-EXTRACT-CBC-IV-PREFIX",
+    "SV2023-34.5.15.2-EXTRACT-DATA-DECRYPT"
+   ]
+  },
+  "key-block": {
+   "label_ja": "key block（key_block と key_* 選択子、data_decrypt_key の格納）",
+   "count": 26,
+   "observable": "Observable: the key_block directive starts a base64 body that Verilator consumes; a key_block and a data_block cannot both be carried in one envelope.",
+   "unobservable": "Not observable: key selection, key wrapping and unwrapping, the digital envelope form and the uniqueness rules, because there is no key store.",
+   "tested": [],
+   "not_testable": [
+    "SV2023-34.3.1-EXTRACT-SESSION-KEY-OPTION",
+    "SV2023-34.5.14.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.14.2-EXTRACT-DECRYPT-KEY-LINE",
+    "SV2023-34.5.14.2-EXTRACT-DECRYPT-KEY-OUTPUT",
+    "SV2023-34.5.14.2-EXTRACT-DECRYPT-KEY-UNWRAP",
+    "SV2023-34.5.14.2-EXTRACT-SIGNATURE-KEY-USAGE",
+    "SV2023-34.5.14.2-EXTRACT-WRAP-KEY-NOT-DATA",
+    "SV2023-34.5.23.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.23.2-EXTRACT-KEY-OWNER",
+    "SV2023-34.5.23.2-EXTRACT-KEY-OWNER-DECRYPT",
+    "SV2023-34.5.23.2-EXTRACT-KEY-OWNER-OUTPUT",
+    "SV2023-34.5.24.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.24.2-EXTRACT-KEY-ALGORITHM",
+    "SV2023-34.5.24.2-EXTRACT-KEY-METHOD-DECRYPT",
+    "SV2023-34.5.24.2-EXTRACT-KEY-METHOD-OUTPUT",
+    "SV2023-34.5.25.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.25.2-EXTRACT-KEY-NAME-DECRYPT-TEXT",
+    "SV2023-34.5.25.2-EXTRACT-KEY-NAME-OUTPUT",
+    "SV2023-34.5.26.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.26.2-EXTRACT-KEY-PUBLIC-DECRYPT",
+    "SV2023-34.5.26.2-EXTRACT-KEY-PUBLIC-INPUT",
+    "SV2023-34.5.26.2-EXTRACT-KEY-PUBLIC-OUTPUT",
+    "SV2023-34.5.27.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.27.2-EXTRACT-KEY-BLOCK-DECRYPT",
+    "SV2023-34.5.27.2-EXTRACT-KEY-BLOCK-OUTPUT",
+    "SV2023-34.5.27.2-EXTRACT-KEY-IV-PREFIX"
+   ]
+  },
+  "directive-syntax": {
+   "label_ja": "directive構文（protectキーワードの字句と引数）",
+   "count": 43,
+   "observable": "Observable: which spellings each parser tolerates (Verilator's lexer knows version, encrypt_agent, encrypt_agent_info, key_keyowner, key_keyname, key_method, data_method, encoding, data_block, key_block, begin_protected, end_protected and end; it rejects 20 of the 33 Table 34-1 keywords).",
+   "unobservable": "Not observable: any value a keyword carries, any default, and any effect, because neither tool keeps keyword state or produces/consumes a decrypted body; Icarus accepts every line as ignored text.",
+   "tested": [
+    "SV2023-34.5.3.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.4.1-EXTRACT-KEYWORD-SYNTAX"
+   ],
+   "not_testable": [
+    "SV2023-34.4-EXTRACT-KEYWORD-AUTHOR",
+    "SV2023-34.4-EXTRACT-KEYWORD-AUTHOR-INFO",
+    "SV2023-34.4-EXTRACT-KEYWORD-BEGIN",
+    "SV2023-34.4-EXTRACT-KEYWORD-BEGIN-PROTECTED",
+    "SV2023-34.4-EXTRACT-KEYWORD-COMMENT",
+    "SV2023-34.4-EXTRACT-KEYWORD-DATA-BLOCK",
+    "SV2023-34.4-EXTRACT-KEYWORD-DATA-DECRYPT-KEY",
+    "SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYNAME",
+    "SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYOWNER",
+    "SV2023-34.4-EXTRACT-KEYWORD-DATA-METHOD",
+    "SV2023-34.4-EXTRACT-KEYWORD-DATA-PUBLIC-KEY",
+    "SV2023-34.4-EXTRACT-KEYWORD-DECRYPT-LICENSE",
+    "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-BLOCK",
+    "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-DECRYPT-KEY",
+    "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEY-METHOD",
+    "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEYNAME",
+    "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEYOWNER",
+    "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-METHOD",
+    "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-PUBLIC-KEY",
+    "SV2023-34.4-EXTRACT-KEYWORD-ENCODING",
+    "SV2023-34.4-EXTRACT-KEYWORD-ENCRYPT-AGENT",
+    "SV2023-34.4-EXTRACT-KEYWORD-ENCRYPT-AGENT-INFO",
+    "SV2023-34.4-EXTRACT-KEYWORD-END",
+    "SV2023-34.4-EXTRACT-KEYWORD-END-PROTECTED",
+    "SV2023-34.4-EXTRACT-KEYWORD-KEY-BLOCK",
+    "SV2023-34.4-EXTRACT-KEYWORD-KEY-KEYNAME",
+    "SV2023-34.4-EXTRACT-KEYWORD-KEY-KEYOWNER",
+    "SV2023-34.4-EXTRACT-KEYWORD-KEY-METHOD",
+    "SV2023-34.4-EXTRACT-KEYWORD-KEY-PUBLIC-KEY",
+    "SV2023-34.4-EXTRACT-KEYWORD-RESET",
+    "SV2023-34.4-EXTRACT-KEYWORD-RUNTIME-LICENSE",
+    "SV2023-34.4-EXTRACT-KEYWORD-VIEWPORT",
+    "SV2023-34.4-EXTRACT-PROTECT-DEFAULTS",
+    "SV2023-34.5.1.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.2.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.28.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.29.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.31.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.31.2-EXTRACT-RESET-FILE-LIST",
+    "SV2023-34.5.31.2-EXTRACT-RESET-PROTECT",
+    "SV2023-34.5.32.1-EXTRACT-KEYWORD-SYNTAX"
+   ]
+  },
+  "error": {
+   "label_ja": "エラー（規格が定める誤り条件）",
+   "count": 9,
+   "observable": "Observable: none of the specified errors is raised. The tools do reject some protect syntax, but for their own reasons (unknown keyword, base64 length), not for the conditions the clause defines.",
+   "unobservable": "Not observable: unknown-key errors, illegal data_block/key_block input, nested encryption input, conflicting key_blocks, licence denial, because the conditions need an encryptor, a key store or a licence manager. The standard fixes no message or value for them either.",
+   "tested": [],
+   "not_testable": [
+    "SV2023-34.5.1.2-EXTRACT-NO-ENCRYPTION-NESTING",
+    "SV2023-34.5.12.2-EXTRACT-NAME-SELECT",
+    "SV2023-34.5.15.2-EXTRACT-INPUT-BLOCK-ERROR",
+    "SV2023-34.5.18.2-EXTRACT-DIGEST-NAME",
+    "SV2023-34.5.25.2-EXTRACT-KEY-NAME",
+    "SV2023-34.5.27.2-EXTRACT-KEY-BLOCK-INPUT-ERROR",
+    "SV2023-34.5.27.2-EXTRACT-MULTIPLE-KEY-BLOCKS",
+    "SV2023-34.5.28.2-EXTRACT-LICENSE-DENIAL",
+    "SV2023-34.5.29.2-EXTRACT-LICENSE-DENIAL"
+   ]
+  },
+  "visibility-cleartext": {
+   "label_ja": "可視性（data_block 外に平文で出る項目）",
+   "count": 17,
+   "observable": "Observable: nothing. No encryptor runs, so no output envelope exists.",
+   "unobservable": "Not observable: which fields are emitted outside data_block (author, author_info, encrypt_agent, encrypt_agent_info, key names, comment, licence directives, viewport). Verilator rejects most of these keywords outright.",
+   "tested": [],
+   "not_testable": [
+    "SV2023-34.5.5.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.5.2-EXTRACT-AUTHOR-CLEARTEXT-OUTPUT",
+    "SV2023-34.5.5.2-EXTRACT-AUTHOR-METADATA",
+    "SV2023-34.5.6.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.6.2-EXTRACT-AUTHOR-CLEARTEXT-OUTPUT",
+    "SV2023-34.5.6.2-EXTRACT-AUTHOR-METADATA",
+    "SV2023-34.5.7.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.7.2-EXTRACT-AGENT-OUTPUT",
+    "SV2023-34.5.8.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.8.2-EXTRACT-AGENT-OUTPUT",
+    "SV2023-34.5.28.2-EXTRACT-LICENSE-OUTPUT",
+    "SV2023-34.5.29.2-EXTRACT-LICENSE-OUTPUT",
+    "SV2023-34.5.30.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.30.2-EXTRACT-COMMENT-ANYWHERE",
+    "SV2023-34.5.30.2-EXTRACT-COMMENT-NOT-ENCRYPTED",
+    "SV2023-34.5.30.2-EXTRACT-COMMENT-OUTPUT",
+    "SV2023-34.5.32.2-EXTRACT-VIEWPORT-OBJECT"
+   ]
+  },
+  "implementation-defined": {
+   "label_ja": "実装定義（規格が実装に委ねる部分）",
+   "count": 7,
+   "observable": "Observable: nothing portable by construction.",
+   "unobservable": "Not observable: extra cipher/digest/encoding identifiers, the licence library interface, and viewport access, which the clause leaves to the implementation and which neither tool implements.",
+   "tested": [],
+   "not_testable": [
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-EXTENSIONS",
+    "SV2023-34.5.21.2-EXTRACT-DIGEST-EXTENSIONS",
+    "SV2023-34.5.28.2-EXTRACT-LICENSE-ENTRY",
+    "SV2023-34.5.28.2-EXTRACT-LICENSE-EXIT",
+    "SV2023-34.5.29.2-EXTRACT-LICENSE-ENTRY",
+    "SV2023-34.5.29.2-EXTRACT-LICENSE-EXIT",
+    "SV2023-34.5.32.2-EXTRACT-VIEWPORT-ACCESS"
+   ]
+  },
+  "digest": {
+   "label_ja": "digest（digest_* 選択子、digest_block、完全性照合）",
+   "count": 38,
+   "observable": "Observable: nothing about integrity. Verilator rejects every digest_* keyword as unknown; Icarus ignores them.",
+   "unobservable": "Not observable: digest generation, digest encryption, placement and the comparison that detects modification, which need decrypted data and keys.",
+   "tested": [],
+   "not_testable": [
+    "SV2023-34.5.16.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER",
+    "SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-DECRYPT",
+    "SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-OUTPUT-TEXT",
+    "SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-UNIQUE",
+    "SV2023-34.5.17.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.17.2-EXTRACT-DIGEST-CIPHER",
+    "SV2023-34.5.17.2-EXTRACT-DIGEST-CIPHER-DECRYPT",
+    "SV2023-34.5.17.2-EXTRACT-DIGEST-CIPHER-OUTPUT",
+    "SV2023-34.5.18.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.18.2-EXTRACT-DIGEST-NAME-DECRYPT",
+    "SV2023-34.5.18.2-EXTRACT-DIGEST-NAME-OUTPUT",
+    "SV2023-34.5.19.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.19.2-EXTRACT-DIGEST-PUBLIC-DECRYPT",
+    "SV2023-34.5.19.2-EXTRACT-DIGEST-PUBLIC-INPUT",
+    "SV2023-34.5.19.2-EXTRACT-DIGEST-PUBLIC-OUTPUT",
+    "SV2023-34.5.20.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.20.2-EXTRACT-DIGEST-DECRYPT-INPUT",
+    "SV2023-34.5.20.2-EXTRACT-DIGEST-DECRYPT-OUTPUT",
+    "SV2023-34.5.20.2-EXTRACT-DIGEST-DECRYPT-UNWRAP",
+    "SV2023-34.5.20.2-EXTRACT-DIGEST-DECRYPT-USAGE",
+    "SV2023-34.5.20.2-EXTRACT-WRAP-DIGEST-KEY",
+    "SV2023-34.5.21.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.21.2-EXTRACT-DIGEST-MD2",
+    "SV2023-34.5.21.2-EXTRACT-DIGEST-MD5",
+    "SV2023-34.5.21.2-EXTRACT-DIGEST-METHOD",
+    "SV2023-34.5.21.2-EXTRACT-DIGEST-METHOD-DECRYPT",
+    "SV2023-34.5.21.2-EXTRACT-DIGEST-METHOD-OUTPUT",
+    "SV2023-34.5.21.2-EXTRACT-DIGEST-RIPEMD-160",
+    "SV2023-34.5.21.2-EXTRACT-DIGEST-SHA1",
+    "SV2023-34.5.22.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.22.2-EXTRACT-DIGEST-AUTHENTICATE",
+    "SV2023-34.5.22.2-EXTRACT-DIGEST-ENCODE-PLACE",
+    "SV2023-34.5.22.2-EXTRACT-DIGEST-GENERATE",
+    "SV2023-34.5.22.2-EXTRACT-DIGEST-IV-INPUT",
+    "SV2023-34.5.22.2-EXTRACT-DIGEST-IV-OUTPUT",
+    "SV2023-34.5.22.2-EXTRACT-DIGEST-KEY-OWNER-TEXT",
+    "SV2023-34.5.22.2-EXTRACT-DIGEST-REQUEST"
+   ]
+  }
+ },
+ "category_counts": {
+  "envelope-structure": 24,
+  "encryption-encoding": 51,
+  "key-block": 26,
+  "directive-syntax": 43,
+  "error": 9,
+  "visibility-cleartext": 17,
+  "implementation-defined": 7,
+  "digest": 38
+ },
+ "tests": {
+  "tests/ch34/test_34_extra_envelope_keywords.sv": {
+   "requirements": [
+    "SV2023-34.5.3.1-EXTRACT-KEYWORD-SYNTAX",
+    "SV2023-34.5.4.1-EXTRACT-KEYWORD-SYNTAX"
+   ],
+   "why": "An empty begin_protected/end_protected pair is accepted as a directive pair and the declarations on either side elaborate; Verilator rejects `pragma protect begin_protected foo as unknown, so the bare spelling is what it recognizes.",
+   "limitation": "No decryption happens: Icarus ignores the line, Verilator only records the delimiters, so the keyword's effect is not observed.",
+   "status": {
+    "icarus": "pass",
+    "verilator": "pass"
+   }
+  },
+  "tests/ch34/test_34_extra_nested_envelopes.sv": {
+   "requirements": [
+    "SV2023-34.2-EXTRACT-DECRYPTION-ENVELOPE"
+   ],
+   "why": "Eight nested begin_protected/end_protected pairs are accepted by both tools and the design after them runs, which is the minimum nesting depth 34.2 requires.",
+   "limitation": "The pairs are empty. 34.2 speaks of encrypted data that contains nested envelopes; without a decryptor that content cannot be produced or recovered, so only the delimiter depth is observed.",
+   "status": {
+    "icarus": "pass",
+    "verilator": "pass"
+   }
+  },
+  "tests/ch34/test_34_extra_include_envelope.sv": {
+   "requirements": [
+    "SV2023-34.4-EXTRACT-PROTECT-LEXICAL-SCOPE"
+   ],
+   "why": "Verilator opens an envelope in an included file (begin_protected, encoding, 24-byte data_block) and closes it with end_protected in the including file; its base64 counter and state cross the file boundary, and the module after the include runs.",
+   "limitation": "Nothing is decrypted and the 24 bytes are arbitrary, so the test shows the lexical extent of the directive state, not recovery of protected text. Icarus cannot run it (it reads the payload as source).",
+   "status": {
+    "icarus": "known",
+    "verilator": "pass"
+   }
+  },
+  "tests/ch34/test_34_extra_data_block_skipped.sv": {
+   "requirements": [
+    "SV2023-34.5.15.2-EXTRACT-DATA-OUTPUT"
+   ],
+   "why": "The data_block body is 32 base64 characters (encoding bytes=24) on the line after the directive, and Verilator consumes exactly those bytes and elaborates the module that follows, so the body was not read as source text (the bare 32-character token would be a syntax error).",
+   "limitation": "The bytes are arbitrary, not a ciphertext, and Verilator drops them instead of decrypting; only the placement and the exclusion from analysis are observed, not the encryption.",
+   "status": {
+    "icarus": "known",
+    "verilator": "pass"
+   }
+  }
+ },
+ "probes": {
+  "P1": "unknown protect keyword: Icarus silent, Verilator BADSTDPRAGMA",
+  "P2": "empty begin_protected/end_protected accepted by both",
+  "P3": "cleartext module inside begin_protected is compiled by both",
+  "P4": "data_block base64 payload: Verilator skips it, Icarus syntax error",
+  "P5": "`pragma protect begin/end: Verilator unknown, Icarus ignores",
+  "P6": "key_block + data_block in one envelope: Verilator byte-count errors",
+  "P7": "uuencode/quoted-printable/raw: Verilator unsupported, only base64",
+  "P8": "encoding line_length not a multiple of 4: Verilator rejects",
+  "P9": "digest_block: Verilator unknown, Icarus ignores",
+  "P10": "keyword table: which protect keywords Verilator recognizes",
+  "P11": "eight nested empty envelopes accepted by both",
+  "P12": "unmatched end_protected and unclosed begin_protected accepted by both",
+  "P13": "envelope crosses an include boundary in Verilator",
+  "P14": "--protect-key does not change IEEE envelope handling",
+  "P15": "a module inside a data_block is unavailable (MODMISSING)",
+  "P16": "data_block payload on the same line: Verilator unknown, Icarus accepts",
+  "P17": "text between begin_protected and end_protected still executes",
+  "P18": "legacy `protected/`endprotected form rejected by both",
+  "P19": "keyword recognition table for the 32 Table 34-1 keywords plus version",
+  "P20": "two encoding directives in one envelope: Verilator rejects them",
+  "P0": "no protect/decrypt option in iverilog or vvp"
+ },
+ "probe_log": "scratch-ch34/probe-log.txt",
+ "not_testable": {
+  "SV2023-34.2-EXTRACT-ENCRYPTION-ENVELOPE": {
+   "category": "envelope-structure",
+   "clause": "34.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Begin/end delimit encryption envelopes, with end associated with the most recent begin, subject to the explicit nonnesting rule.",
+   "reason": "Neither tool checks that a begin/end encryption pair is closed: Icarus ignores the directives (P1) and Verilator accepts an unmatched end_protected and an unclosed begin_protected without a diagnostic (P12). A decryptor that paired the delimiters would be needed to observe the rule, and neither tool has one (P14).",
+   "evidence": [
+    "P12",
+    "P1",
+    "P14"
+   ],
+   "citation": "1800-2023 34.2"
+  },
+  "SV2023-34.2-EXTRACT-ENVELOPE-CONTENT-KEYWORDS": {
+   "category": "envelope-structure",
+   "clause": "34.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Pragma expressions before begin/begin_protected are envelope keywords; those inside matching delimiters are content keywords processed within the transformed region.",
+   "reason": "Whether a pragma is an envelope keyword or a content keyword matters only to a tool that processes the envelope. Verilator rejects most of these keywords outright as unknown (P10) and keeps no envelope state beyond the base64 counter (P4); Icarus ignores them all (P1). The distinction the clause draws therefore has no observable consequence in either tool.",
+   "evidence": [
+    "P10",
+    "P4",
+    "P1"
+   ],
+   "citation": "1800-2023 34.2"
+  },
+  "SV2023-34.2-EXTRACT-ENVELOPE-TRANSFORMATION": {
+   "category": "envelope-structure",
+   "clause": "34.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protected text regions supply cryptographic/key/attribute/data information and are transformed before source-language analysis.",
+   "reason": "Both tools remove or keep the envelope text without decrypting: Icarus compiles the whole region as source (P3, P17), Verilator deletes only a data_block/key_block payload (P4, P15). There is no cleartext replacement, so macro expansion and recursive decryption of a replaced body cannot be observed.",
+   "evidence": [
+    "P3",
+    "P17",
+    "P4"
+   ],
+   "citation": "1800-2023 34.2"
+  },
+  "SV2023-34.2-EXTRACT-PROTECT-SEQUENCE": {
+   "category": "envelope-structure",
+   "clause": "34.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Protect pragma expressions process left to right; splitting or combining the same sequence across directives must not alter envelope interpretation.",
+   "reason": "Processing pragma expressions left to right is only visible in the state an encryptor or decryptor derives from them, or in output. Verilator keeps almost no such state and rejects most keywords (P10); Icarus ignores all of them (P1). Splitting or combining a sequence therefore yields no observable difference in either tool.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.2"
+  },
+  "SV2023-34.3-EXTRACT-ENVELOPE-MODES": {
+   "category": "envelope-structure",
+   "clause": "34.3",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Encryption transforms source encryption envelopes to decryption envelopes; decryption replaces them with cleartext before compilation.",
+   "reason": "The rule relates source encryption envelopes to decryption envelopes. There is no encryptor in either tool (P0, P5: Verilator rejects `pragma protect begin; Icarus ignores it), so no source encryption envelope can be made and the replacement cannot be observed; Verilator only drops data_block bytes (P4).",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.3"
+  },
+  "SV2023-34.3-EXTRACT-ENVELOPE-PROCESSING-SCOPE": {
+   "category": "envelope-structure",
+   "clause": "34.3",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Source-processing tools decrypt every envelope when supplied the proper key; encryptors need interpret only protect pragmas and apply no other interpretation to ordinary source text.",
+   "reason": "Decrypting every envelope with the proper key needs a key store. Icarus has no protect option (P0) and Verilator's --protect-key does not affect IEEE envelopes (P14); Verilator merely skips the payload (P4). The decrypting half of the rule is unreachable, and the encryptor half needs an encryptor that neither tool has (P5).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P5"
+   ],
+   "citation": "1800-2023 34.3"
+  },
+  "SV2023-34.3.1-EXTRACT-ENCRYPTION-REPLACEMENT": {
+   "category": "envelope-structure",
+   "clause": "34.3.1",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "An encryptor replaces each encryption envelope with a decryption envelope encrypted according to its pragma expressions.",
+   "reason": "The rule relates source encryption envelopes to decryption envelopes. There is no encryptor in either tool (P0, P5: Verilator rejects `pragma protect begin; Icarus ignores it), so no source encryption envelope can be made and the replacement cannot be observed; Verilator only drops data_block bytes (P4).",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.3.1"
+  },
+  "SV2023-34.3.1-EXTRACT-EXCHANGE-KEY-DATA": {
+   "category": "encryption-encoding",
+   "clause": "34.3.1",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Specified envelope pragmas become output envelope/content pragmas and the body encrypted under the specified exchange key is emitted as data_block.",
+   "reason": "Emitting the body encrypted under an exchange key as data_block is encryptor output. Neither tool encrypts (P0, P5: Verilator rejects `pragma protect begin; Icarus ignores it), and Verilator only consumes an existing base64 block to discard it (P4, P6).",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.3.1"
+  },
+  "SV2023-34.3.1-EXTRACT-OUTSIDE-ENCRYPTION-PRESERVED": {
+   "category": "envelope-structure",
+   "clause": "34.3.1",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Source outside encryption envelopes remains unchanged unless explicitly specified otherwise.",
+   "reason": "Both tools do compile the text outside an envelope unchanged (P3, P17), but only because they leave the inside unchanged too: Icarus never recognises a protect construct (P1), and Verilator removes just the data_block/key_block bytes (P4). A test of the outside text would therefore pass for a tool with no protection at all and would not show that the rule was implemented, so it is not written.",
+   "evidence": [
+    "P3",
+    "P17",
+    "P4"
+   ],
+   "citation": "1800-2023 34.3.1"
+  },
+  "SV2023-34.3.1-EXTRACT-SESSION-KEY-OPTION": {
+   "category": "key-block",
+   "clause": "34.3.1",
+   "kind": "normal",
+   "modality": "permission",
+   "subject": "An encryptor may generate an unspecified session key, encrypt it with the exchange key into key_block and encrypt the body with the session key into data_block.",
+   "reason": "Generating a session key, encrypting it under the exchange key into key_block and encrypting the body under it is encryptor work. Neither tool encrypts (P0, P5), and Verilator cannot even carry a key_block and a data_block in one envelope: its single base64 byte counter runs out or overruns (P6).",
+   "evidence": [
+    "P0",
+    "P5",
+    "P6"
+   ],
+   "citation": "1800-2023 34.3.1"
+  },
+  "SV2023-34.3.2-EXTRACT-DECRYPT-THEN-EXPAND": {
+   "category": "envelope-structure",
+   "clause": "34.3.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Decrypting compilation replaces each envelope with cleartext data_block according to pragmas, then expands macros and recursively decrypts nested envelopes in the replacement.",
+   "reason": "Both tools remove or keep the envelope text without decrypting: Icarus compiles the whole region as source (P3, P17), Verilator deletes only a data_block/key_block payload (P4, P15). There is no cleartext replacement, so macro expansion and recursive decryption of a replaced body cannot be observed.",
+   "evidence": [
+    "P3",
+    "P17",
+    "P4"
+   ],
+   "citation": "1800-2023 34.3.2"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-AUTHOR": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword author records IP author identity.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-AUTHOR-INFO": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword author_info records author metadata.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-BEGIN": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword begin starts encryption.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-BEGIN-PROTECTED": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword begin_protected starts a decryption envelope.",
+   "reason": "Verilator 5.052 accepts the line but gives it no effect beyond recording it (P10), and Icarus 13.0 ignores it (P1). The keyword's role is only visible in encrypted output or in decryption, and neither tool produces either.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-COMMENT": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword comment carries uninterpreted documentation.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DATA-BLOCK": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword data_block introduces encrypted body bytes.",
+   "reason": "Verilator 5.052 accepts the line but gives it no effect beyond recording it (P10), and Icarus 13.0 ignores it (P1). The keyword's role is only visible in encrypted output or in decryption, and neither tool produces either.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DATA-DECRYPT-KEY": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword data_decrypt_key provides body session key.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYNAME": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword data_keyname names data key.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYOWNER": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword data_keyowner names data-key owner.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DATA-METHOD": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword data_method selects body encryption.",
+   "reason": "Verilator 5.052 accepts the line but gives it no effect beyond recording it (P10), and Icarus 13.0 ignores it (P1). The keyword's role is only visible in encrypted output or in decryption, and neither tool produces either.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DATA-PUBLIC-KEY": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword data_public_key provides body encryption public key.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DECRYPT-LICENSE": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword decrypt_license controls decryption licensing.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-BLOCK": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword digest_block provides integrity digest.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-DECRYPT-KEY": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword digest_decrypt_key provides digest session key.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEY-METHOD": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword digest_key_method selects digest encryption.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEYNAME": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword digest_keyname names digest key.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEYOWNER": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword digest_keyowner names digest-key owner.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-METHOD": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword digest_method selects digest computation.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-PUBLIC-KEY": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword digest_public_key provides digest encryption public key.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-ENCODING": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword encoding selects binary-to-text representation.",
+   "reason": "Verilator 5.052 accepts the line but gives it no effect beyond recording it (P10), and Icarus 13.0 ignores it (P1). The keyword's role is only visible in encrypted output or in decryption, and neither tool produces either.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-ENCRYPT-AGENT": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword encrypt_agent records encryptor identity.",
+   "reason": "Verilator 5.052 accepts the line but gives it no effect beyond recording it (P10), and Icarus 13.0 ignores it (P1). The keyword's role is only visible in encrypted output or in decryption, and neither tool produces either.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-ENCRYPT-AGENT-INFO": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword encrypt_agent_info records encryptor metadata.",
+   "reason": "Verilator 5.052 accepts the line but gives it no effect beyond recording it (P10), and Icarus 13.0 ignores it (P1). The keyword's role is only visible in encrypted output or in decryption, and neither tool produces either.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-END": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword end ends encryption.",
+   "reason": "Verilator 5.052 accepts the line but gives it no effect beyond recording it (P10), and Icarus 13.0 ignores it (P1). The keyword's role is only visible in encrypted output or in decryption, and neither tool produces either.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-END-PROTECTED": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword end_protected ends a decryption envelope.",
+   "reason": "Verilator 5.052 accepts the line but gives it no effect beyond recording it (P10), and Icarus 13.0 ignores it (P1). The keyword's role is only visible in encrypted output or in decryption, and neither tool produces either.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-KEY-BLOCK": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword key_block introduces encrypted key bytes.",
+   "reason": "Verilator 5.052 accepts the line but gives it no effect beyond recording it (P10), and Icarus 13.0 ignores it (P1). The keyword's role is only visible in encrypted output or in decryption, and neither tool produces either.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-KEY-KEYNAME": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword key_keyname names key-encryption key.",
+   "reason": "Verilator 5.052 accepts the line but gives it no effect beyond recording it (P10), and Icarus 13.0 ignores it (P1). The keyword's role is only visible in encrypted output or in decryption, and neither tool produces either.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-KEY-KEYOWNER": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword key_keyowner names key-encryption key owner.",
+   "reason": "Verilator 5.052 accepts the line but gives it no effect beyond recording it (P10), and Icarus 13.0 ignores it (P1). The keyword's role is only visible in encrypted output or in decryption, and neither tool produces either.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-KEY-METHOD": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword key_method selects key encryption.",
+   "reason": "Verilator 5.052 accepts the line but gives it no effect beyond recording it (P10), and Icarus 13.0 ignores it (P1). The keyword's role is only visible in encrypted output or in decryption, and neither tool produces either.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-KEY-PUBLIC-KEY": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword key_public_key provides key-encryption public key.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-RESET": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword reset restores keyword defaults.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-RUNTIME-LICENSE": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword runtime_license controls simulation licensing.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-KEYWORD-VIEWPORT": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect keyword viewport controls protected-region access.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-PROTECT-DEFAULTS": {
+   "category": "directive-syntax",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "An absent envelope keyword uses its specified default.",
+   "reason": "An absent keyword must take its specified default, but a default is only visible in the output of an encryptor or in the decryption it drives. Neither tool encrypts (P0, P5) or decrypts (P14), and Verilator rejects most of the keywords whose defaults are at issue (P10).",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-PROTECT-LEXICAL-REGION": {
+   "category": "envelope-structure",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect directives delimit lexical envelopes and their expressions define processing effects.",
+   "reason": "Verilator does carry directive state across an include boundary (P13, and the test), but the state it carries is only its base64 skip counter; the lexical envelope has no decryption effect. Icarus ignores every protect line (P1). The rule's consequence -- which text is inside the envelope for processing -- is not observable beyond the delimiter state.",
+   "evidence": [
+    "P13",
+    "P1"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.4-EXTRACT-PROTECT-SELF-CONTAINMENT": {
+   "category": "envelope-structure",
+   "clause": "34.4",
+   "kind": "normal",
+   "modality": "recommendation",
+   "subject": "Encryptors should emit all relevant envelope keywords and may append reset to avoid unwanted interactions across envelopes.",
+   "reason": "Self-containment is advice to an encryptor about which keywords to emit. Neither tool encrypts (P0, P5), so no envelope output exists whose self-containment or interaction across envelopes could be inspected.",
+   "evidence": [
+    "P0",
+    "P5"
+   ],
+   "citation": "1800-2023 34.4"
+  },
+  "SV2023-34.5.1.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "directive-syntax",
+   "clause": "34.5.1.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect begin is a bare keyword.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.1.1"
+  },
+  "SV2023-34.5.1.2-EXTRACT-ENCRYPT-ALL-CONTENT": {
+   "category": "envelope-structure",
+   "clause": "34.5.1.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Unless specified otherwise, all content including comments/protect pragmas between begin/end is encrypted into data_block.",
+   "reason": "What an encryptor puts into data_block, including comments and padding, is output of an encryptor. Neither tool encrypts (P0, P5); Verilator only deletes an existing data_block payload (P4) and Icarus compiles it as source (P4). No output envelope can be produced to inspect.",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.5.1.2"
+  },
+  "SV2023-34.5.1.2-EXTRACT-ENCRYPT-BEGIN": {
+   "category": "envelope-structure",
+   "clause": "34.5.1.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Begin marks where input encryption starts.",
+   "reason": "The rule defines what an encryption or decryption run does at a delimiter, including how a preexisting protected block is carried as plain bytes. Neither tool runs either mode (P0, P5, P14): Verilator rejects the encryption keywords and only skips data_block bytes (P4, P6), Icarus compiles every line as source (P3, P17).",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.5.1.2"
+  },
+  "SV2023-34.5.1.2-EXTRACT-ENCRYPT-BEGIN-OUTPUT": {
+   "category": "envelope-structure",
+   "clause": "34.5.1.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Begin becomes begin_protected; required output pragmas occur within the output envelope and data/key blocks stay within its delimiters.",
+   "reason": "The rule defines what an encryption or decryption run does at a delimiter, including how a preexisting protected block is carried as plain bytes. Neither tool runs either mode (P0, P5, P14): Verilator rejects the encryption keywords and only skips data_block bytes (P4, P6), Icarus compiles every line as source (P3, P17).",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.5.1.2"
+  },
+  "SV2023-34.5.1.2-EXTRACT-ENCRYPT-PADDING-COMMENTS": {
+   "category": "envelope-structure",
+   "clause": "34.5.1.2",
+   "kind": "normal",
+   "modality": "permission",
+   "subject": "An encryptor may add an unspecified amount of arbitrary comments at the beginning/end before encryption.",
+   "reason": "What an encryptor puts into data_block, including comments and padding, is output of an encryptor. Neither tool encrypts (P0, P5); Verilator only deletes an existing data_block payload (P4) and Icarus compiles it as source (P4). No output envelope can be produced to inspect.",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.5.1.2"
+  },
+  "SV2023-34.5.1.2-EXTRACT-ENVELOPE-SELF-CONTAINED": {
+   "category": "envelope-structure",
+   "clause": "34.5.1.2",
+   "kind": "normal",
+   "modality": "recommendation",
+   "subject": "Protected envelopes should be self-contained to avoid cross-model interactions.",
+   "reason": "Self-containment is advice to an encryptor about which keywords to emit. Neither tool encrypts (P0, P5), so no envelope output exists whose self-containment or interaction across envelopes could be inspected.",
+   "evidence": [
+    "P0",
+    "P5"
+   ],
+   "citation": "1800-2023 34.5.1.2"
+  },
+  "SV2023-34.5.1.2-EXTRACT-NO-ENCRYPTION-NESTING": {
+   "category": "error",
+   "clause": "34.5.1.2",
+   "kind": "error",
+   "modality": "mandatory",
+   "subject": "Nested begin/end encryption blocks are errors; previously encrypted protected envelopes inside one are treated as plain bytes for reencryption.",
+   "reason": "The condition is an input error for an encryptor: nested begin/end encryption blocks. Neither tool encrypts (P0, P5: Verilator rejects `pragma protect begin as unknown; Icarus ignores it), so no nested encryption input can be presented, and Icarus never diagnoses any protect construct while Verilator only reads a data_block's bytes.",
+   "evidence": [
+    "P0",
+    "P5"
+   ],
+   "citation": "1800-2023 34.5.1.2"
+  },
+  "SV2023-34.5.2.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "directive-syntax",
+   "clause": "34.5.2.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect end is a bare keyword.",
+   "reason": "Verilator 5.052 accepts a bare `pragma protect end, but only because its lexer treats end, end_protected and begin_protected alike; it does not distinguish the encryption close from \"nothing\" (P5, P10). Icarus ignores the line (P1). The keyword's role in encryption is not observable because neither tool encrypts (P5).",
+   "evidence": [
+    "P5",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.2.1"
+  },
+  "SV2023-34.5.2.2-EXTRACT-ENCRYPT-END": {
+   "category": "envelope-structure",
+   "clause": "34.5.2.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "End closes the cleartext encryption region and becomes end_protected in its encrypted output.",
+   "reason": "The rule defines what an encryption or decryption run does at a delimiter, including how a preexisting protected block is carried as plain bytes. Neither tool runs either mode (P0, P5, P14): Verilator rejects the encryption keywords and only skips data_block bytes (P4, P6), Icarus compiles every line as source (P3, P17).",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.5.2.2"
+  },
+  "SV2023-34.5.3.2-EXTRACT-DECRYPT-BEGIN": {
+   "category": "envelope-structure",
+   "clause": "34.5.3.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "During decryption, begin_protected starts an encrypted region and the tool accumulates its pragmas to decrypt that block.",
+   "reason": "The rule defines what an encryption or decryption run does at a delimiter, including how a preexisting protected block is carried as plain bytes. Neither tool runs either mode (P0, P5, P14): Verilator rejects the encryption keywords and only skips data_block bytes (P4, P6), Icarus compiles every line as source (P3, P17).",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.5.3.2"
+  },
+  "SV2023-34.5.3.2-EXTRACT-REENCRYPT-PROTECTED": {
+   "category": "envelope-structure",
+   "clause": "34.5.3.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "While encrypting a containing region, an existing begin_protected block and all its pragmas/content through its matching close are plain bytes encrypted with current keys/method; their pragmas do not alter current encryption state.",
+   "reason": "The rule defines what an encryption or decryption run does at a delimiter, including how a preexisting protected block is carried as plain bytes. Neither tool runs either mode (P0, P5, P14): Verilator rejects the encryption keywords and only skips data_block bytes (P4, P6), Icarus compiles every line as source (P3, P17).",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.5.3.2"
+  },
+  "SV2023-34.5.4.2-EXTRACT-DECRYPT-END": {
+   "category": "envelope-structure",
+   "clause": "34.5.4.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "During decryption, end_protected terminates the pragma set defining the current encrypted block.",
+   "reason": "The rule defines what an encryption or decryption run does at a delimiter, including how a preexisting protected block is carried as plain bytes. Neither tool runs either mode (P0, P5, P14): Verilator rejects the encryption keywords and only skips data_block bytes (P4, P6), Icarus compiles every line as source (P3, P17).",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.5.4.2"
+  },
+  "SV2023-34.5.4.2-EXTRACT-PREEXISTING-PROTECTED-END": {
+   "category": "envelope-structure",
+   "clause": "34.5.4.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "When processing encryption input, end_protected closes a previous protected block and later pragma values accumulate for the next envelope.",
+   "reason": "The rule defines what an encryption or decryption run does at a delimiter, including how a preexisting protected block is carried as plain bytes. Neither tool runs either mode (P0, P5, P14): Verilator rejects the encryption keywords and only skips data_block bytes (P4, P6), Icarus compiles every line as source (P3, P17).",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.5.4.2"
+  },
+  "SV2023-34.5.4.2-EXTRACT-REENCRYPT-PROTECTED-END": {
+   "category": "envelope-structure",
+   "clause": "34.5.4.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "A preexisting end_protected matching an input protected block is encrypted into the containing current data_block.",
+   "reason": "The rule defines what an encryption or decryption run does at a delimiter, including how a preexisting protected block is carried as plain bytes. Neither tool runs either mode (P0, P5, P14): Verilator rejects the encryption keywords and only skips data_block bytes (P4, P6), Icarus compiles every line as source (P3, P17).",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.5.4.2"
+  },
+  "SV2023-34.5.5.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.5.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect author takes a string value.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.5.1"
+  },
+  "SV2023-34.5.5.2-EXTRACT-AUTHOR-CLEARTEXT-OUTPUT": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.5.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "author present inside encryption input is emitted inside the protected envelope but outside encrypted data_block; otherwise it is copied unchanged to output.",
+   "reason": "The rule says which fields appear in cleartext outside data_block in encryptor output. Neither tool encrypts (P0, P5), so no output envelope exists to inspect. Verilator also rejects author, author_info, data_keyowner, comment and viewport as unknown keywords (P10), and Icarus ignores them (P1), so their placement cannot be observed even as input.",
+   "evidence": [
+    "P0",
+    "P5",
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.5.2"
+  },
+  "SV2023-34.5.5.2-EXTRACT-AUTHOR-METADATA": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.5.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "author records IP author identity as a distinct string field.",
+   "reason": "The rule says which fields appear in cleartext outside data_block in encryptor output. Neither tool encrypts (P0, P5), so no output envelope exists to inspect. Verilator also rejects author, author_info, data_keyowner, comment and viewport as unknown keywords (P10), and Icarus ignores them (P1), so their placement cannot be observed even as input.",
+   "evidence": [
+    "P0",
+    "P5",
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.5.2"
+  },
+  "SV2023-34.5.6.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.6.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect author_info takes a string value.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.6.1"
+  },
+  "SV2023-34.5.6.2-EXTRACT-AUTHOR-CLEARTEXT-OUTPUT": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.6.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "author_info present inside encryption input is emitted inside the protected envelope but outside encrypted data_block; otherwise it is copied unchanged to output.",
+   "reason": "The rule says which fields appear in cleartext outside data_block in encryptor output. Neither tool encrypts (P0, P5), so no output envelope exists to inspect. Verilator also rejects author, author_info, data_keyowner, comment and viewport as unknown keywords (P10), and Icarus ignores them (P1), so their placement cannot be observed even as input.",
+   "evidence": [
+    "P0",
+    "P5",
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.6.2"
+  },
+  "SV2023-34.5.6.2-EXTRACT-AUTHOR-METADATA": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.6.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "author_info records additional author-supplied information as a distinct string field.",
+   "reason": "The rule says which fields appear in cleartext outside data_block in encryptor output. Neither tool encrypts (P0, P5), so no output envelope exists to inspect. Verilator also rejects author, author_info, data_keyowner, comment and viewport as unknown keywords (P10), and Icarus ignores them (P1), so their placement cannot be observed even as input.",
+   "evidence": [
+    "P0",
+    "P5",
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.6.2"
+  },
+  "SV2023-34.5.7.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.7.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect encrypt_agent takes a string value.",
+   "reason": "Verilator 5.052 recognizes the keyword but keeps no value for it and never acts on it: it only skips data_block/key_block bytes and drops the envelope (P10, P4). Icarus Verilog 13.0 ignores the line (P1). The value the clause assigns to the keyword therefore has no observable effect in either tool.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.7.1"
+  },
+  "SV2023-34.5.7.2-EXTRACT-AGENT-OUTPUT": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.7.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "The encryptor shall generate encrypt_agent identifying itself within the protected envelope outside encrypted data_block.",
+   "reason": "The rule says which fields appear in cleartext outside data_block in encryptor output. Neither tool encrypts (P0, P5), so no output envelope exists to inspect. Verilator also rejects author, author_info, data_keyowner, comment and viewport as unknown keywords (P10), and Icarus ignores them (P1), so their placement cannot be observed even as input.",
+   "evidence": [
+    "P0",
+    "P5",
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.7.2"
+  },
+  "SV2023-34.5.8.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.8.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect encrypt_agent_info takes a string value.",
+   "reason": "Verilator 5.052 recognizes the keyword but keeps no value for it and never acts on it: it only skips data_block/key_block bytes and drops the envelope (P10, P4). Icarus Verilog 13.0 ignores the line (P1). The value the clause assigns to the keyword therefore has no observable effect in either tool.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.8.1"
+  },
+  "SV2023-34.5.8.2-EXTRACT-AGENT-OUTPUT": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.8.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Optional encrypt_agent_info supplies encryptor metadata within the protected envelope outside encrypted data_block.",
+   "reason": "The rule says which fields appear in cleartext outside data_block in encryptor output. Neither tool encrypts (P0, P5), so no output envelope exists to inspect. Verilator also rejects author, author_info, data_keyowner, comment and viewport as unknown keywords (P10), and Icarus ignores them (P1), so their placement cannot be observed even as input.",
+   "evidence": [
+    "P0",
+    "P5",
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.8.2"
+  },
+  "SV2023-34.5.9.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "encryption-encoding",
+   "clause": "34.5.9.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Protect encoding takes an enctype string and optional numeric line_length and bytes fields.",
+   "reason": "Verilator 5.052 parses encoding by a fixed literal pattern: the form with enctype, line_length and bytes is accepted, a missing enctype is rejected, only base64 is supported, and a line_length that is not a multiple of 4 is rejected (P7; see the probe log for the encoding probes). The numbers are used only to count the bytes to discard, so their meaning beyond that is not observable, and the optional fields cannot be checked. Icarus Verilog 13.0 ignores encoding (P1).",
+   "evidence": [
+    "P7",
+    "P4"
+   ],
+   "citation": "1800-2023 34.5.9.1"
+  },
+  "SV2023-34.5.9.2-EXTRACT-BASE64-REQUIRED": {
+   "category": "encryption-encoding",
+   "clause": "34.5.9.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Protect encoding base64 is required and uses RFC 2045 / uuencode -m representation.",
+   "reason": "Verilator 5.052 recognizes only base64 as an enctype and rejects uuencode, quoted-printable and raw (P7); it enforces a line_length that is a multiple of 4 (P8 in the probe log) and consumes the declared bytes only to discard them (P4). The standard requires uuencode and base64 in every implementation (34.5.9.2), so the required representations are absent; Icarus ignores encoding entirely (P1). Encoding output would require an encryptor, which neither tool has (P0, P5).",
+   "evidence": [
+    "P7",
+    "P4",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.9.2"
+  },
+  "SV2023-34.5.9.2-EXTRACT-DECODING-DESCRIPTOR": {
+   "category": "encryption-encoding",
+   "clause": "34.5.9.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Decryption uses the encoding directive to determine encoding algorithm and actual data size.",
+   "reason": "Verilator 5.052 recognizes only base64 as an enctype and rejects uuencode, quoted-printable and raw (P7); it enforces a line_length that is a multiple of 4 (P8 in the probe log) and consumes the declared bytes only to discard them (P4). The standard requires uuencode and base64 in every implementation (34.5.9.2), so the required representations are absent; Icarus ignores encoding entirely (P1). Encoding output would require an encryptor, which neither tool has (P0, P5).",
+   "evidence": [
+    "P7",
+    "P4",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.9.2"
+  },
+  "SV2023-34.5.9.2-EXTRACT-ENCODING-BYTES": {
+   "category": "encryption-encoding",
+   "clause": "34.5.9.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Bytes counts original data before encoding/linebreak insertion and is ignored on encryption input.",
+   "reason": "Verilator 5.052 recognizes only base64 as an enctype and rejects uuencode, quoted-printable and raw (P7); it enforces a line_length that is a multiple of 4 (P8 in the probe log) and consumes the declared bytes only to discard them (P4). The standard requires uuencode and base64 in every implementation (34.5.9.2), so the required representations are absent; Icarus ignores encoding entirely (P1). Encoding output would require an encryptor, which neither tool has (P0, P5).",
+   "evidence": [
+    "P7",
+    "P4",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.9.2"
+  },
+  "SV2023-34.5.9.2-EXTRACT-ENCODING-EXTENSIONS": {
+   "category": "encryption-encoding",
+   "clause": "34.5.9.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Required encodings are available in every implementation; optional recognized identifiers must use their specified algorithms and extra algorithms/identifiers are implementation-defined.",
+   "reason": "Verilator 5.052 recognizes only base64 as an enctype and rejects uuencode, quoted-printable and raw (P7); it enforces a line_length that is a multiple of 4 (P8 in the probe log) and consumes the declared bytes only to discard them (P4). The standard requires uuencode and base64 in every implementation (34.5.9.2), so the required representations are absent; Icarus ignores encoding entirely (P1). Encoding output would require an encryptor, which neither tool has (P0, P5).",
+   "evidence": [
+    "P7",
+    "P4",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.9.2"
+  },
+  "SV2023-34.5.9.2-EXTRACT-ENCODING-INPUT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.9.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Encoding selects the representation of encrypted body/digest/key binary content; an explicit input encoding controls output representation.",
+   "reason": "Verilator 5.052 recognizes only base64 as an enctype and rejects uuencode, quoted-printable and raw (P7); it enforces a line_length that is a multiple of 4 (P8 in the probe log) and consumes the declared bytes only to discard them (P4). The standard requires uuencode and base64 in every implementation (34.5.9.2), so the required representations are absent; Icarus ignores encoding entirely (P1). Encoding output would require an encryptor, which neither tool has (P0, P5).",
+   "evidence": [
+    "P7",
+    "P4",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.9.2"
+  },
+  "SV2023-34.5.9.2-EXTRACT-ENCODING-LINE-LENGTH": {
+   "category": "encryption-encoding",
+   "clause": "34.5.9.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Line_length bounds encoded data_block characters per line, permitting inserted output line breaks.",
+   "reason": "Verilator 5.052 recognizes only base64 as an enctype and rejects uuencode, quoted-printable and raw (P7); it enforces a line_length that is a multiple of 4 (P8 in the probe log) and consumes the declared bytes only to discard them (P4). The standard requires uuencode and base64 in every implementation (34.5.9.2), so the required representations are absent; Icarus ignores encoding entirely (P1). Encoding output would require an encryptor, which neither tool has (P0, P5).",
+   "evidence": [
+    "P7",
+    "P4",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.9.2"
+  },
+  "SV2023-34.5.9.2-EXTRACT-ENCODING-OUTPUT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.9.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Every output protected block explicitly emits encoding and generated original-byte count; a tool may choose encoding even without an input encoding directive.",
+   "reason": "Verilator 5.052 recognizes only base64 as an enctype and rejects uuencode, quoted-printable and raw (P7); it enforces a line_length that is a multiple of 4 (P8 in the probe log) and consumes the declared bytes only to discard them (P4). The standard requires uuencode and base64 in every implementation (34.5.9.2), so the required representations are absent; Icarus ignores encoding entirely (P1). Encoding output would require an encryptor, which neither tool has (P0, P5).",
+   "evidence": [
+    "P7",
+    "P4",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.9.2"
+  },
+  "SV2023-34.5.9.2-EXTRACT-ENCODING-PER-FIELD": {
+   "category": "encryption-encoding",
+   "clause": "34.5.9.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "The active encoding applies to data_block, data_public_key, data_decrypt_key, digest_block, key_block and key_public_key; preceding encoding pragmas may select different encodings per field and encryptor emits bytes per encrypted block.",
+   "reason": "Verilator 5.052 recognizes only base64 as an enctype and rejects uuencode, quoted-printable and raw (P7); it enforces a line_length that is a multiple of 4 (P8 in the probe log) and consumes the declared bytes only to discard them (P4). The standard requires uuencode and base64 in every implementation (34.5.9.2), so the required representations are absent; Icarus ignores encoding entirely (P1). Encoding output would require an encryptor, which neither tool has (P0, P5).",
+   "evidence": [
+    "P7",
+    "P4",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.9.2"
+  },
+  "SV2023-34.5.9.2-EXTRACT-QUOTED-PRINTABLE-OPTION": {
+   "category": "encryption-encoding",
+   "clause": "34.5.9.2",
+   "kind": "normal",
+   "modality": "permission",
+   "subject": "Optional quoted-printable encoding uses RFC 2045.",
+   "reason": "Verilator 5.052 recognizes only base64 as an enctype and rejects uuencode, quoted-printable and raw (P7); it enforces a line_length that is a multiple of 4 (P8 in the probe log) and consumes the declared bytes only to discard them (P4). The standard requires uuencode and base64 in every implementation (34.5.9.2), so the required representations are absent; Icarus ignores encoding entirely (P1). Encoding output would require an encryptor, which neither tool has (P0, P5).",
+   "evidence": [
+    "P7",
+    "P4",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.9.2"
+  },
+  "SV2023-34.5.9.2-EXTRACT-RAW-ENCODING-OPTION": {
+   "category": "encryption-encoding",
+   "clause": "34.5.9.2",
+   "kind": "normal",
+   "modality": "permission",
+   "subject": "Optional raw encoding is identity, performs no encoding and may contain nonprintable bytes.",
+   "reason": "Verilator 5.052 recognizes only base64 as an enctype and rejects uuencode, quoted-printable and raw (P7); it enforces a line_length that is a multiple of 4 (P8 in the probe log) and consumes the declared bytes only to discard them (P4). The standard requires uuencode and base64 in every implementation (34.5.9.2), so the required representations are absent; Icarus ignores encoding entirely (P1). Encoding output would require an encryptor, which neither tool has (P0, P5).",
+   "evidence": [
+    "P7",
+    "P4",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.9.2"
+  },
+  "SV2023-34.5.9.2-EXTRACT-UUENCODE-REQUIRED": {
+   "category": "encryption-encoding",
+   "clause": "34.5.9.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Protect encoding uuencode is required and uses the IEEE 1003.1 historical uuencode algorithm.",
+   "reason": "Verilator 5.052 recognizes only base64 as an enctype and rejects uuencode, quoted-printable and raw (P7); it enforces a line_length that is a multiple of 4 (P8 in the probe log) and consumes the declared bytes only to discard them (P4). The standard requires uuencode and base64 in every implementation (34.5.9.2), so the required representations are absent; Icarus ignores encoding entirely (P1). Encoding output would require an encryptor, which neither tool has (P0, P5).",
+   "evidence": [
+    "P7",
+    "P4",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.9.2"
+  },
+  "SV2023-34.5.10.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "encryption-encoding",
+   "clause": "34.5.10.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The data_keyowner pragma has the syntax data_keyowner = <string>; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.10.1"
+  },
+  "SV2023-34.5.10.2-EXTRACT-OWNER-DECRYPT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.10.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Combine data_keyowner with data_keyname or data_public_key to select the secret/private key for data_block decryption.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.10.2"
+  },
+  "SV2023-34.5.10.2-EXTRACT-OWNER-OUTPUT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.10.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Preserve data_keyowner in encryption output, except for the stated digital-signature case where key_method encrypts it into key_block.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.10.2"
+  },
+  "SV2023-34.5.10.2-EXTRACT-OWNER-SELECT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.10.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "data_keyowner identifies the legal entity/tool supplying the data encryption/decryption keys, including third-party keys distinct from author/encrypt_agent, and selects the data_block encryption key.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.10.2"
+  },
+  "SV2023-34.5.10.2-EXTRACT-OWNER-UNIQUE-KEYS": {
+   "category": "encryption-encoding",
+   "clause": "34.5.10.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "data_keyname, data_decrypt_key and data_public_key values must be unique for the selected data_keyowner.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.10.2"
+  },
+  "SV2023-34.5.11.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The data_method pragma has the syntax data_method = <string>; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 recognizes the keyword but keeps no value for it and never acts on it: it only skips data_block/key_block bytes and drops the envelope (P10, P4). Icarus Verilog 13.0 ignores the line (P1). The value the clause assigns to the keyword therefore has no observable effect in either tool.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.11.1"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-3DES-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns 3des-cbc to triple DES CBC (FIPS 46-3, ANSI X9.52-1998); implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-AES128-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns aes128-cbc to AES 128-bit CBC (FIPS 197); implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-AES192-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns aes192-cbc to AES 192-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-AES256-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns aes256-cbc to AES 256-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-BLOWFISH-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns blowfish-cbc to Blowfish CBC; implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-CAST128-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns cast128-cbc to CAST-128 CBC (RFC 2144); implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-DES-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns des-cbc to DES in CBC mode (FIPS 46-3); implementation support is required.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-ELGAMAL": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns elgamal to ElGamal; implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-EXTENSIONS": {
+   "category": "implementation-defined",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "implementation_defined",
+   "subject": "All implementations support the required Table 34-3 method; optional supported ciphers use the standardized identifiers, and additional cipher identifiers are implementation-defined.",
+   "reason": "The clause delegates the identifier set to the implementation: extra cipher or digest identifiers, and the encoding identifiers beyond the required ones, are implementation-defined. Verilator 5.052 recognizes only base64 for encoding and rejects the other enctypes (P7); Icarus ignores encoding entirely (P1). No portable identifier or behaviour exists to test.",
+   "evidence": [
+    "P7",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-PGP-RSA": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns pgp-rsa to OpenPGP RSA key (RFC 2440); implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-RSA": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns rsa to RSA (RFC 2437); implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-SERPENT128-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns serpent128-cbc to Serpent 128-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-SERPENT192-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns serpent192-cbc to Serpent 192-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-SERPENT256-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns serpent256-cbc to Serpent 256-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-TWOFISH128-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns twofish128-cbc to Twofish 128-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-TWOFISH192-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns twofish192-cbc to Twofish 192-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-ALGORITHM-TWOFISH256-CBC": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-3 assigns twofish256-cbc to Twofish 256-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.",
+   "reason": "The clause maps a cipher identifier to a published algorithm. No cipher is ever run: Verilator skips a data_block's bytes without decrypting them (P4, P14) and Icarus rejects the payload as a syntax error (P4). The identifier therefore has no observable effect, and no key exists to use with the algorithm (P0, P14).",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-DATA-ALGORITHM": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "data_method selects the encryption algorithm for subsequent begin-end blocks.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-METHOD-DECRYPT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "data_method specifies the algorithm used to decrypt data_block.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-METHOD-OUTPUT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Preserve data_method in output, except in the stated digital-signature case where key_method encrypts it into key_block.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.11.2-EXTRACT-RANDOM-IV": {
+   "category": "encryption-encoding",
+   "clause": "34.5.11.2",
+   "kind": "normal",
+   "modality": "recommendation",
+   "subject": "For a CBC algorithm requiring an IV, a fresh random IV for each cipher use is recommended.",
+   "reason": "A fresh random IV per cipher use is visible only in encryptor output. Neither tool encrypts (P0, P5); Verilator only deletes an existing data_block body (P4), so no IV is ever generated or checked.",
+   "evidence": [
+    "P0",
+    "P5",
+    "P4"
+   ],
+   "citation": "1800-2023 34.5.11.2"
+  },
+  "SV2023-34.5.12.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "encryption-encoding",
+   "clause": "34.5.12.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The data_keyname pragma has the syntax data_keyname = <string>; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.12.1"
+  },
+  "SV2023-34.5.12.2-EXTRACT-NAME-COMBINE-TEXT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.12.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "When data_keyname is provided in the encryption input, the encrypting tool combines it with data_keyowner to determine the data encryption key; the repeated data_keyname operand in the text denotes data_keyowner.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.12.2"
+  },
+  "SV2023-34.5.12.2-EXTRACT-NAME-DECRYPT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.12.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Combine data_keyname and data_keyowner to choose one key for decrypting the protected envelope data_block.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.12.2"
+  },
+  "SV2023-34.5.12.2-EXTRACT-NAME-OUTPUT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.12.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Output data_keyname in cleartext unless a digital envelope is used; then encrypt it with key_method and key_keyname/key_public_key into key_block.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.12.2"
+  },
+  "SV2023-34.5.12.2-EXTRACT-NAME-SELECT": {
+   "category": "error",
+   "clause": "34.5.12.2",
+   "kind": "error",
+   "modality": "mandatory",
+   "subject": "data_keyname names the decryption key (or asymmetric key pair); a name unknown for the selected data_keyowner is an error.",
+   "reason": "The error is raised during key lookup (an unknown key name for the selected owner). Neither tool has a key store: Icarus has no protect option at all (P0) and Verilator's --protect-key belongs to its own symbol protection and does not change envelope handling (P14); the envelope is never decrypted, so the lookup, and the error it must raise, cannot happen. The standard also fixes no message or value for the error.",
+   "evidence": [
+    "P1",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.12.2"
+  },
+  "SV2023-34.5.13.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "encryption-encoding",
+   "clause": "34.5.13.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The data_public_key pragma has the syntax data_public_key; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.13.1"
+  },
+  "SV2023-34.5.13.2-EXTRACT-PUBLIC-KEY-DECRYPT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.13.2",
+   "kind": "normal",
+   "modality": "permission",
+   "subject": "Use data_keyowner, data_method and data_public_key to determine the private key; computable key permits decryption subject to licensing.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.13.2"
+  },
+  "SV2023-34.5.13.2-EXTRACT-PUBLIC-KEY-LINE": {
+   "category": "encryption-encoding",
+   "clause": "34.5.13.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "data_public_key declares an encoded public key on the next line using the active encoding; if data_keyname also appears it must identify the same key.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.13.2"
+  },
+  "SV2023-34.5.13.2-EXTRACT-PUBLIC-KEY-OUTPUT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.13.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Emit data_public_key and its encoded value in every protected block using it; with data_method it may fully specify encryption.",
+   "reason": "The data_* selectors choose a key and cipher for decryption or encryption. Neither tool has a key store (P0, P14) and neither decrypts (P4); Verilator rejects data_keyowner, data_keyname, data_public_key and data_decrypt_key as unknown (P10), so no selection can be exercised.",
+   "evidence": [
+    "P0",
+    "P14",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.13.2"
+  },
+  "SV2023-34.5.14.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "key-block",
+   "clause": "34.5.14.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The data_decrypt_key pragma has the syntax data_decrypt_key; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.14.1"
+  },
+  "SV2023-34.5.14.2-EXTRACT-DECRYPT-KEY-LINE": {
+   "category": "key-block",
+   "clause": "34.5.14.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "data_decrypt_key introduces the encoded data decryption key on the next line.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.14.2"
+  },
+  "SV2023-34.5.14.2-EXTRACT-DECRYPT-KEY-OUTPUT": {
+   "category": "key-block",
+   "clause": "34.5.14.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Emit data_decrypt_key within encrypted key_block content with the selected encoding.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.14.2"
+  },
+  "SV2023-34.5.14.2-EXTRACT-DECRYPT-KEY-UNWRAP": {
+   "category": "key-block",
+   "clause": "34.5.14.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "For the stated signature mechanism, decrypt key_block to obtain data_decrypt_key and data_method and then decrypt data_block.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.14.2"
+  },
+  "SV2023-34.5.14.2-EXTRACT-SIGNATURE-KEY-USAGE": {
+   "category": "key-block",
+   "clause": "34.5.14.2",
+   "kind": "normal",
+   "modality": "recommendation",
+   "subject": "data_decrypt_key should only be used for the stated digital-signature mechanism.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.14.2"
+  },
+  "SV2023-34.5.14.2-EXTRACT-WRAP-KEY-NOT-DATA": {
+   "category": "key-block",
+   "clause": "34.5.14.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "With a preencrypted author data_block, encrypt data_method and data_decrypt_key with key_method into key_block; do not reencrypt data_block.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.14.2"
+  },
+  "SV2023-34.5.15.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "encryption-encoding",
+   "clause": "34.5.15.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The data_block pragma has the syntax data_block; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 recognizes the keyword only as the start of a base64 body: it consumes the number of bytes the encoding declares and discards them (P4, P6). Icarus Verilog 13.0 reads the body as source and fails (P4). The bare directive is therefore accepted, but the keyword's connection to a decrypted body cannot be observed.",
+   "evidence": [
+    "P4",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.15.1"
+  },
+  "SV2023-34.5.15.2-EXTRACT-CBC-IV-PREFIX": {
+   "category": "encryption-encoding",
+   "clause": "34.5.15.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "For a CBC data cipher requiring an IV, prepend the IV cipher block to encrypted data before text encoding.",
+   "reason": "Prepending or removing the IV cipher block requires a CBC decryption. Verilator never decrypts (P4, P14) and Icarus has no decryptor or key option (P0); the prefix bytes cannot be distinguished from body bytes in either tool.",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.15.2"
+  },
+  "SV2023-34.5.15.2-EXTRACT-DATA-DECRYPT": {
+   "category": "encryption-encoding",
+   "clause": "34.5.15.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Decode data_block before decryption; for CBC requiring an IV, remove the first decoded cipher block as IV and decrypt the remainder.",
+   "reason": "Prepending or removing the IV cipher block requires a CBC decryption. Verilator never decrypts (P4, P14) and Icarus has no decryptor or key option (P0); the prefix bytes cannot be distinguished from body bytes in either tool.",
+   "evidence": [
+    "P4",
+    "P14",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.15.2"
+  },
+  "SV2023-34.5.15.2-EXTRACT-INPUT-BLOCK-ERROR": {
+   "category": "error",
+   "clause": "34.5.15.2",
+   "kind": "error",
+   "modality": "mandatory",
+   "subject": "A data_block in encryption input outside an already generated begin_protected/end_protected region is an error; inside such a region ignore it.",
+   "reason": "The condition is a data_block or key_block written in encryption input outside generated protected delimiters. No encryptor exists in either tool (P0, P5), so encryption input cannot be formed; Verilator's parser only consumes such a block as base64 to skip it (P4, P6) and Icarus reads it as ordinary source, so neither reaches the specified error.",
+   "evidence": [
+    "P1",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.15.2"
+  },
+  "SV2023-34.5.16.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "digest",
+   "clause": "34.5.16.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The digest_keyowner pragma has the syntax digest_keyowner = <string>; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.16.1"
+  },
+  "SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER": {
+   "category": "digest",
+   "clause": "34.5.16.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "digest_keyowner selects the digest key supplier, may be a third party independent of author/agent, and defaults to the current data_keyowner if absent.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.16.2"
+  },
+  "SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-DECRYPT": {
+   "category": "digest",
+   "clause": "34.5.16.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Combine digest_keyowner with digest_keyname or digest_public_key to identify the digest_block secret/private decryption key.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.16.2"
+  },
+  "SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-OUTPUT-TEXT": {
+   "category": "digest",
+   "clause": "34.5.16.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Preserve digest_keyowner in output, except the text specifies encryption with digest_key_method into digest_key_block for its digital-signature case.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.16.2"
+  },
+  "SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-UNIQUE": {
+   "category": "digest",
+   "clause": "34.5.16.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "digest_keyname, digest_decrypt_key and digest_public_key values must be unique for the selected digest_keyowner.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.16.2"
+  },
+  "SV2023-34.5.17.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "digest",
+   "clause": "34.5.17.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The digest_key_method pragma has the syntax digest_key_method = <string>; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.17.1"
+  },
+  "SV2023-34.5.17.2-EXTRACT-DIGEST-CIPHER": {
+   "category": "digest",
+   "clause": "34.5.17.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "digest_key_method selects subsequent digest_block encryption, uses data_method algorithm identifiers, and defaults to the current data_method when absent.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.17.2"
+  },
+  "SV2023-34.5.17.2-EXTRACT-DIGEST-CIPHER-DECRYPT": {
+   "category": "digest",
+   "clause": "34.5.17.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "digest_key_method determines digest_block decryption.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.17.2"
+  },
+  "SV2023-34.5.17.2-EXTRACT-DIGEST-CIPHER-OUTPUT": {
+   "category": "digest",
+   "clause": "34.5.17.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Preserve digest_key_method in output except in the stated signature case, where key_method and the key in key_block encrypt it.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.17.2"
+  },
+  "SV2023-34.5.18.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "digest",
+   "clause": "34.5.18.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The digest_keyname pragma has the syntax digest_keyname = <string>; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.18.1"
+  },
+  "SV2023-34.5.18.2-EXTRACT-DIGEST-NAME": {
+   "category": "error",
+   "clause": "34.5.18.2",
+   "kind": "error",
+   "modality": "mandatory",
+   "subject": "digest_keyname names the digest decryption key/pair, defaults to current data_keyname if absent, and an unknown name for digest_keyowner is an error.",
+   "reason": "The error is raised during key lookup (an unknown key name for the selected owner). Neither tool has a key store: Icarus has no protect option at all (P0) and Verilator's --protect-key belongs to its own symbol protection and does not change envelope handling (P14); the envelope is never decrypted, so the lookup, and the error it must raise, cannot happen. The standard also fixes no message or value for the error.",
+   "evidence": [
+    "P1",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.18.2"
+  },
+  "SV2023-34.5.18.2-EXTRACT-DIGEST-NAME-DECRYPT": {
+   "category": "digest",
+   "clause": "34.5.18.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Select one digest_block decryption key by combining digest_keyname and digest_keyowner.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.18.2"
+  },
+  "SV2023-34.5.18.2-EXTRACT-DIGEST-NAME-OUTPUT": {
+   "category": "digest",
+   "clause": "34.5.18.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "For encryption select the key with digest_keyname and digest_keyowner; preserve the name cleartext except digital envelope key_method with key_keyname/key_public_key encrypts it in key_block.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.18.2"
+  },
+  "SV2023-34.5.19.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "digest",
+   "clause": "34.5.19.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The digest_public_key pragma has the syntax digest_public_key; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.19.1"
+  },
+  "SV2023-34.5.19.2-EXTRACT-DIGEST-PUBLIC-DECRYPT": {
+   "category": "digest",
+   "clause": "34.5.19.2",
+   "kind": "normal",
+   "modality": "permission",
+   "subject": "Determine the digest private key using digest_keyowner, digest_key_method and digest_public_key; decrypt if computable and licensed.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.19.2"
+  },
+  "SV2023-34.5.19.2-EXTRACT-DIGEST-PUBLIC-INPUT": {
+   "category": "digest",
+   "clause": "34.5.19.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "digest_public_key introduces the next-line public key in the active encoding, must match digest_keyname if both occur, and defaults to current data_public_key when absent.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.19.2"
+  },
+  "SV2023-34.5.19.2-EXTRACT-DIGEST-PUBLIC-OUTPUT": {
+   "category": "digest",
+   "clause": "34.5.19.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Emit digest_public_key plus encoded value in each protected block using it; together with digest_key_method it can fully specify the encryption.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.19.2"
+  },
+  "SV2023-34.5.20.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "digest",
+   "clause": "34.5.20.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The digest_decrypt_key pragma has the syntax digest_decrypt_key; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.20.1"
+  },
+  "SV2023-34.5.20.2-EXTRACT-DIGEST-DECRYPT-INPUT": {
+   "category": "digest",
+   "clause": "34.5.20.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "digest_decrypt_key introduces next-line encoded digest decryption key and defaults to current data_decrypt_key when absent.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.20.2"
+  },
+  "SV2023-34.5.20.2-EXTRACT-DIGEST-DECRYPT-OUTPUT": {
+   "category": "digest",
+   "clause": "34.5.20.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Emit digest_decrypt_key in encrypted key_block content with the active encoding.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.20.2"
+  },
+  "SV2023-34.5.20.2-EXTRACT-DIGEST-DECRYPT-UNWRAP": {
+   "category": "digest",
+   "clause": "34.5.20.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "For the stated signature mechanism decrypt key_block for digest_decrypt_key and digest_key_method and use them to decrypt digest_block.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.20.2"
+  },
+  "SV2023-34.5.20.2-EXTRACT-DIGEST-DECRYPT-USAGE": {
+   "category": "digest",
+   "clause": "34.5.20.2",
+   "kind": "normal",
+   "modality": "recommendation",
+   "subject": "digest_decrypt_key should be used only for the stated digital-signature mechanism.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.20.2"
+  },
+  "SV2023-34.5.20.2-EXTRACT-WRAP-DIGEST-KEY": {
+   "category": "digest",
+   "clause": "34.5.20.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Encrypt digest_key_method and digest_decrypt_key with key_method into key_block; an author-encrypted digest_block is not itself reencrypted.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.20.2"
+  },
+  "SV2023-34.5.21.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "digest",
+   "clause": "34.5.21.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The digest_method pragma has the syntax digest_method = <string>; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.21.1"
+  },
+  "SV2023-34.5.21.2-EXTRACT-DIGEST-EXTENSIONS": {
+   "category": "implementation-defined",
+   "clause": "34.5.21.2",
+   "kind": "normal",
+   "modality": "implementation_defined",
+   "subject": "Additional digest identifiers beyond Table 34-4 are implementation-defined.",
+   "reason": "The clause delegates the identifier set to the implementation: extra cipher or digest identifiers, and the encoding identifiers beyond the required ones, are implementation-defined. Verilator 5.052 recognizes only base64 for encoding and rejects the other enctypes (P7); Icarus ignores encoding entirely (P1). No portable identifier or behaviour exists to test.",
+   "evidence": [
+    "P7",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.21.2"
+  },
+  "SV2023-34.5.21.2-EXTRACT-DIGEST-MD2": {
+   "category": "digest",
+   "clause": "34.5.21.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-4 assigns md2 to MD2 (RFC 1319); support is optional.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.21.2"
+  },
+  "SV2023-34.5.21.2-EXTRACT-DIGEST-MD5": {
+   "category": "digest",
+   "clause": "34.5.21.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-4 assigns md5 to MD5 (RFC 1321); support is required.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.21.2"
+  },
+  "SV2023-34.5.21.2-EXTRACT-DIGEST-METHOD": {
+   "category": "digest",
+   "clause": "34.5.21.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "digest_method selects the digest algorithm for subsequent data_block and key_block output.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.21.2"
+  },
+  "SV2023-34.5.21.2-EXTRACT-DIGEST-METHOD-DECRYPT": {
+   "category": "digest",
+   "clause": "34.5.21.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Use digest_method to generate the comparison digest from data_block.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.21.2"
+  },
+  "SV2023-34.5.21.2-EXTRACT-DIGEST-METHOD-OUTPUT": {
+   "category": "digest",
+   "clause": "34.5.21.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Preserve digest_method in output except the stated signature case, where key_method encrypts it in key_block.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.21.2"
+  },
+  "SV2023-34.5.21.2-EXTRACT-DIGEST-RIPEMD-160": {
+   "category": "digest",
+   "clause": "34.5.21.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-4 assigns ripemd-160 to RIPEMD-160 (ISO/IEC 10118-3:2004); support is optional.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.21.2"
+  },
+  "SV2023-34.5.21.2-EXTRACT-DIGEST-SHA1": {
+   "category": "digest",
+   "clause": "34.5.21.2",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "Table 34-4 assigns sha1 to SHA-1 (FIPS 180-2); support is required.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.21.2"
+  },
+  "SV2023-34.5.22.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "digest",
+   "clause": "34.5.22.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The digest_block pragma has the syntax digest_block; string-valued forms require a string argument.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.22.1"
+  },
+  "SV2023-34.5.22.2-EXTRACT-DIGEST-AUTHENTICATE": {
+   "category": "digest",
+   "clause": "34.5.22.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Decode/decrypt the data and digest, generate a digest from decrypted data and compare; mismatch indicates modification of digest or encrypted data. The corresponding digest_block must immediately follow the key_block/data_block.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.22.2"
+  },
+  "SV2023-34.5.22.2-EXTRACT-DIGEST-ENCODE-PLACE": {
+   "category": "digest",
+   "clause": "34.5.22.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Encode the digest using active encoding, place its encoded content on the line after digest_block, and generate one immediately after every generated key_block and data_block.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.22.2"
+  },
+  "SV2023-34.5.22.2-EXTRACT-DIGEST-GENERATE": {
+   "category": "digest",
+   "clause": "34.5.22.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Generate the digest with digest_method and encrypt it using digest_key_method and specified digest key selectors; absent digest_key_method use the current data_method encryption key.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.22.2"
+  },
+  "SV2023-34.5.22.2-EXTRACT-DIGEST-IV-INPUT": {
+   "category": "digest",
+   "clause": "34.5.22.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "For CBC digest decryption needing an IV, remove the first decoded cipher block as IV and decrypt the rest.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.22.2"
+  },
+  "SV2023-34.5.22.2-EXTRACT-DIGEST-IV-OUTPUT": {
+   "category": "digest",
+   "clause": "34.5.22.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "For the selected CBC digest cipher requiring an IV, prepend its IV cipher block before encoding.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.22.2"
+  },
+  "SV2023-34.5.22.2-EXTRACT-DIGEST-KEY-OWNER-TEXT": {
+   "category": "digest",
+   "clause": "34.5.22.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Encrypt the generated message digest with the key specified by digest_keyname, digest_keyowner, digest_public_key and digest_decrypt_key; the paragraph's digest_key_keyowner denotes the defined digest_keyowner pragma keyword.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.22.2"
+  },
+  "SV2023-34.5.22.2-EXTRACT-DIGEST-REQUEST": {
+   "category": "digest",
+   "clause": "34.5.22.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "An encryption-input digest_block outside preexisting protected delimiters requests digest generation in output.",
+   "reason": "Neither tool computes or checks a digest. Verilator 5.052 has no digest keyword in its protect lexer: digest_block, digest_method, digest_keyowner, digest_key_method, digest_keyname, digest_public_key and digest_decrypt_key are all rejected as unknown (P9, P10). Icarus ignores them (P9). The integrity comparison needs decrypted data and a digest key, neither of which exists (P4, P14).",
+   "evidence": [
+    "P9",
+    "P10",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.22.2"
+  },
+  "SV2023-34.5.23.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "key-block",
+   "clause": "34.5.23.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The key_keyowner pragma uses the grammar key_keyowner = <string>.",
+   "reason": "Verilator 5.052 recognizes the keyword but keeps no value for it and never acts on it: it only skips data_block/key_block bytes and drops the envelope (P10, P4). Icarus Verilog 13.0 ignores the line (P1). The value the clause assigns to the keyword therefore has no observable effect in either tool.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.23.1"
+  },
+  "SV2023-34.5.23.2-EXTRACT-KEY-OWNER": {
+   "category": "key-block",
+   "clause": "34.5.23.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "key_keyowner identifies the entity/tool supplying key-information encryption/decryption keys and obeys data_keyowner value constraints.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.23.2"
+  },
+  "SV2023-34.5.23.2-EXTRACT-KEY-OWNER-DECRYPT": {
+   "category": "key-block",
+   "clause": "34.5.23.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Combine key_keyowner with key_keyname or key_public_key to determine the secret/private key for key_block decryption.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.23.2"
+  },
+  "SV2023-34.5.23.2-EXTRACT-KEY-OWNER-OUTPUT": {
+   "category": "key-block",
+   "clause": "34.5.23.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Preserve key_keyowner unchanged in encryption output.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.23.2"
+  },
+  "SV2023-34.5.24.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "key-block",
+   "clause": "34.5.24.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The key_method pragma uses the grammar key_method = <string>.",
+   "reason": "Verilator 5.052 recognizes the keyword but keeps no value for it and never acts on it: it only skips data_block/key_block bytes and drops the envelope (P10, P4). Icarus Verilog 13.0 ignores the line (P1). The value the clause assigns to the keyword therefore has no observable effect in either tool.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.24.1"
+  },
+  "SV2023-34.5.24.2-EXTRACT-KEY-ALGORITHM": {
+   "category": "key-block",
+   "clause": "34.5.24.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "key_method selects encryption of data_block encryption keys, using the same algorithm identifier set as data_method.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.24.2"
+  },
+  "SV2023-34.5.24.2-EXTRACT-KEY-METHOD-DECRYPT": {
+   "category": "key-block",
+   "clause": "34.5.24.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "key_method selects key_block decryption.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.24.2"
+  },
+  "SV2023-34.5.24.2-EXTRACT-KEY-METHOD-OUTPUT": {
+   "category": "key-block",
+   "clause": "34.5.24.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Preserve key_method unchanged in output.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.24.2"
+  },
+  "SV2023-34.5.25.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "key-block",
+   "clause": "34.5.25.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The key_keyname pragma uses the grammar key_keyname = <string>.",
+   "reason": "Verilator 5.052 recognizes the keyword but keeps no value for it and never acts on it: it only skips data_block/key_block bytes and drops the envelope (P10, P4). Icarus Verilog 13.0 ignores the line (P1). The value the clause assigns to the keyword therefore has no observable effect in either tool.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.25.1"
+  },
+  "SV2023-34.5.25.2-EXTRACT-KEY-NAME": {
+   "category": "error",
+   "clause": "34.5.25.2",
+   "kind": "error",
+   "modality": "mandatory",
+   "subject": "key_keyname identifies the key/pair for key_block decryption; a name not known for key_keyowner is an error.",
+   "reason": "The error is raised during key lookup (an unknown key name for the selected owner). Neither tool has a key store: Icarus has no protect option at all (P0) and Verilator's --protect-key belongs to its own symbol protection and does not change envelope handling (P14); the envelope is never decrypted, so the lookup, and the error it must raise, cannot happen. The standard also fixes no message or value for the error.",
+   "evidence": [
+    "P1",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.25.2"
+  },
+  "SV2023-34.5.25.2-EXTRACT-KEY-NAME-DECRYPT-TEXT": {
+   "category": "key-block",
+   "clause": "34.5.25.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "In decryption input, combine key_keyname with key_keyowner to select a single key used to decrypt the key_block; the paragraph's data_block target denotes the key_block.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.25.2"
+  },
+  "SV2023-34.5.25.2-EXTRACT-KEY-NAME-OUTPUT": {
+   "category": "key-block",
+   "clause": "34.5.25.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Combine key_keyname and key_keyowner to select encryption of data keys; output key_keyname itself as cleartext.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.25.2"
+  },
+  "SV2023-34.5.26.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "key-block",
+   "clause": "34.5.26.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The key_public_key pragma uses the grammar key_public_key.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.26.1"
+  },
+  "SV2023-34.5.26.2-EXTRACT-KEY-PUBLIC-DECRYPT": {
+   "category": "key-block",
+   "clause": "34.5.26.2",
+   "kind": "normal",
+   "modality": "permission",
+   "subject": "Combine key_keyowner, key_method and key_public_key to determine the corresponding private key; if computable, the data keys may be decrypted.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.26.2"
+  },
+  "SV2023-34.5.26.2-EXTRACT-KEY-PUBLIC-INPUT": {
+   "category": "key-block",
+   "clause": "34.5.26.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "key_public_key introduces next-line encoded public key for key data using active encoding; with key_keyname both must refer to the same key.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.26.2"
+  },
+  "SV2023-34.5.26.2-EXTRACT-KEY-PUBLIC-OUTPUT": {
+   "category": "key-block",
+   "clause": "34.5.26.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Output key_public_key and its encoded value in every protected block using it; with key_method it can fully specify data-key encryption.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.26.2"
+  },
+  "SV2023-34.5.27.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "key-block",
+   "clause": "34.5.27.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The key_block pragma uses the grammar key_block.",
+   "reason": "Verilator 5.052 recognizes the keyword only as the start of a base64 body: it consumes the number of bytes the encoding declares and discards them (P4, P6). Icarus Verilog 13.0 reads the body as source and fails (P4). The bare directive is therefore accepted, but the keyword's connection to a decrypted body cannot be observed.",
+   "evidence": [
+    "P4",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.27.1"
+  },
+  "SV2023-34.5.27.2-EXTRACT-KEY-BLOCK-DECRYPT": {
+   "category": "key-block",
+   "clause": "34.5.27.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Decode key_block then decrypt and parse its text for data_block keys; for CBC needing IV first remove the initial decoded cipher block as IV and decrypt the remainder.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.27.2"
+  },
+  "SV2023-34.5.27.2-EXTRACT-KEY-BLOCK-INPUT-ERROR": {
+   "category": "error",
+   "clause": "34.5.27.2",
+   "kind": "error",
+   "modality": "mandatory",
+   "subject": "A key_block in encryption input outside already generated protected delimiters is an error; ignore it inside preexisting protected delimiters.",
+   "reason": "The condition is a data_block or key_block written in encryption input outside generated protected delimiters. No encryptor exists in either tool (P0, P5), so encryption input cannot be formed; Verilator's parser only consumes such a block as base64 to skip it (P4, P6) and Icarus reads it as ordinary source, so neither reaches the specified error.",
+   "evidence": [
+    "P1",
+    "P4",
+    "P14"
+   ],
+   "citation": "1800-2023 34.5.27.2"
+  },
+  "SV2023-34.5.27.2-EXTRACT-KEY-BLOCK-OUTPUT": {
+   "category": "key-block",
+   "clause": "34.5.27.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "key_block content begins on the next line. For the stated signature mechanism form a text buffer from data_method, data_public_key, data_keyname, data_decrypt_key and digest_block as applicable, encrypt using appropriate key_public_key, encode with active encoding and output as key_block.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.27.2"
+  },
+  "SV2023-34.5.27.2-EXTRACT-KEY-IV-PREFIX": {
+   "category": "key-block",
+   "clause": "34.5.27.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "For key_method CBC requiring an IV, prepend the IV cipher block to encrypted key data before encoding.",
+   "reason": "No key store exists in either tool: Icarus has no protect or key option (P0) and Verilator's --protect-key is its own symbol protection, leaving IEEE envelopes skipped unchanged (P14). key_block bytes are never decoded, unwrapped or selected, and a key_block written next to a data_block in one envelope already fails Verilator's byte accounting (P6).",
+   "evidence": [
+    "P0",
+    "P14",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.27.2"
+  },
+  "SV2023-34.5.27.2-EXTRACT-MULTIPLE-KEY-BLOCKS": {
+   "category": "error",
+   "clause": "34.5.27.2",
+   "kind": "error",
+   "modality": "mandatory",
+   "subject": "Multiple key_blocks within one begin-end envelope must encode the same data decryption key data; changing data decryption pragma values between those blocks is an error. They provide alternative decryption keys.",
+   "reason": "The condition is an encryption-input error: several key_blocks in one envelope whose data-decryption values differ. Neither tool encrypts (P0, P5), so such input cannot be formed, and Verilator cannot carry a key_block and a data_block, let alone several key_blocks, in one envelope (P6). The standard fixes no message or value for the error.",
+   "evidence": [
+    "P0",
+    "P6"
+   ],
+   "citation": "1800-2023 34.5.27.2"
+  },
+  "SV2023-34.5.28.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "directive-syntax",
+   "clause": "34.5.28.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The decrypt_license pragma uses the displayed keyword and argument grammar: decrypt_license = ( library = <string> , entry = <string> ,\n              feature = <string> [, exit = <string>] [, match = <number> ] ). Parenthesized library/entry/feature strings are required for licenses; exit and numeric match are optional where bracketed.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.28.1"
+  },
+  "SV2023-34.5.28.2-EXTRACT-LICENSE-DENIAL": {
+   "category": "error",
+   "clause": "34.5.28.2",
+   "kind": "error",
+   "modality": "mandatory",
+   "subject": "If decrypt_license authorization fails, perform no decryption and issue an error including the entry return value.",
+   "reason": "Neither tool implements the licence interface: Verilator 5.052 rejects decrypt_license and runtime_license as unknown protect keywords (P10) and Icarus Verilog 13.0 ignores them (P1), so authorization cannot fail and the required error and the entry return value it must contain cannot be produced. The standard also fixes no message text or exit status, so even with a licence manager the observation would be tool-specific.",
+   "evidence": [
+    "P10",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.28.2"
+  },
+  "SV2023-34.5.28.2-EXTRACT-LICENSE-ENTRY": {
+   "category": "implementation-defined",
+   "clause": "34.5.28.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "After finding decrypt_license in an encrypted model, before processing decrypted text, load its specified library, call entry with feature string, and compare return value to match. Licensed return equals match; an unlicensed return differs.",
+   "reason": "The entry/exit routines live in a licence-manager library whose interface the clause defines only for a tool that supports licensing. Neither tool reads decrypt_license or runtime_license (Verilator: unknown keyword, P10; Icarus: ignored, P1), and no library is loaded, so the call, its return value and the exit call cannot be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.28.2"
+  },
+  "SV2023-34.5.28.2-EXTRACT-LICENSE-EXIT": {
+   "category": "implementation-defined",
+   "clause": "34.5.28.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "If decrypt_license specifies exit, call it before the relevant application exits to release its license.",
+   "reason": "The entry/exit routines live in a licence-manager library whose interface the clause defines only for a tool that supports licensing. Neither tool reads decrypt_license or runtime_license (Verilator: unknown keyword, P10; Icarus: ignored, P1), and no library is loaded, so the call, its return value and the exit call cannot be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.28.2"
+  },
+  "SV2023-34.5.28.2-EXTRACT-LICENSE-OUTPUT": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.28.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Output decrypt_license unchanged except for encryption and encoding with the surrounding begin-end cleartext.",
+   "reason": "The licence directive must be reproduced unchanged in encryptor output. Verilator rejects decrypt_license and runtime_license as unknown (P10), Icarus ignores them (P1), and neither tool encrypts, so no output envelope exists in which the directive could be reproduced.",
+   "evidence": [
+    "P10",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.28.2"
+  },
+  "SV2023-34.5.29.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "directive-syntax",
+   "clause": "34.5.29.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The runtime_license pragma uses the displayed keyword and argument grammar: runtime_license = ( library = <string> , entry = <string> ,\n         feature = <string> [ , exit = <string> ] [ , match = <number> ] ). Parenthesized library/entry/feature strings are required for licenses; exit and numeric match are optional where bracketed.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.29.1"
+  },
+  "SV2023-34.5.29.2-EXTRACT-LICENSE-DENIAL": {
+   "category": "error",
+   "clause": "34.5.29.2",
+   "kind": "error",
+   "modality": "mandatory",
+   "subject": "If runtime_license authorization fails, do not begin execution and issue an error including the entry return value.",
+   "reason": "Neither tool implements the licence interface: Verilator 5.052 rejects decrypt_license and runtime_license as unknown protect keywords (P10) and Icarus Verilog 13.0 ignores them (P1), so authorization cannot fail and the required error and the entry return value it must contain cannot be produced. The standard also fixes no message text or exit status, so even with a licence manager the observation would be tool-specific.",
+   "evidence": [
+    "P10",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.29.2"
+  },
+  "SV2023-34.5.29.2-EXTRACT-LICENSE-ENTRY": {
+   "category": "implementation-defined",
+   "clause": "34.5.29.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "After finding runtime_license in an encrypted model, before model execution, load its specified library, call entry with feature string, and compare return value to match. Licensed return equals match; an unlicensed return differs.",
+   "reason": "The entry/exit routines live in a licence-manager library whose interface the clause defines only for a tool that supports licensing. Neither tool reads decrypt_license or runtime_license (Verilator: unknown keyword, P10; Icarus: ignored, P1), and no library is loaded, so the call, its return value and the exit call cannot be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.29.2"
+  },
+  "SV2023-34.5.29.2-EXTRACT-LICENSE-EXIT": {
+   "category": "implementation-defined",
+   "clause": "34.5.29.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "If runtime_license specifies exit, call it before the relevant application exits to release its license.",
+   "reason": "The entry/exit routines live in a licence-manager library whose interface the clause defines only for a tool that supports licensing. Neither tool reads decrypt_license or runtime_license (Verilator: unknown keyword, P10; Icarus: ignored, P1), and no library is loaded, so the call, its return value and the exit call cannot be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.29.2"
+  },
+  "SV2023-34.5.29.2-EXTRACT-LICENSE-OUTPUT": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.29.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Output runtime_license unchanged except for encryption and encoding with the surrounding begin-end cleartext.",
+   "reason": "The licence directive must be reproduced unchanged in encryptor output. Verilator rejects decrypt_license and runtime_license as unknown (P10), Icarus ignores them (P1), and neither tool encrypts, so no output envelope exists in which the directive could be reproduced.",
+   "evidence": [
+    "P10",
+    "P0"
+   ],
+   "citation": "1800-2023 34.5.29.2"
+  },
+  "SV2023-34.5.30.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.30.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The comment pragma uses the grammar comment = <string>.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.30.1"
+  },
+  "SV2023-34.5.30.2-EXTRACT-COMMENT-ANYWHERE": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.30.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "comment may occur anywhere in input; even within begin-end, output its value as cleartext comment immediately before the corresponding data_block.",
+   "reason": "The comment pragma and its value are emitted before data_block by an encryptor. Verilator 5.052 rejects comment as an unknown protect keyword (P10) and Icarus ignores it (P1), and neither tool encrypts (P0, P5), so no output places a comment and the placement rule cannot be observed.",
+   "evidence": [
+    "P10",
+    "P0",
+    "P5"
+   ],
+   "citation": "1800-2023 34.5.30.2"
+  },
+  "SV2023-34.5.30.2-EXTRACT-COMMENT-NOT-ENCRYPTED": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.30.2",
+   "kind": "normal",
+   "modality": "recommendation",
+   "subject": "The comment pragma and value should be excluded from encrypted text.",
+   "reason": "The comment pragma and its value are emitted before data_block by an encryptor. Verilator 5.052 rejects comment as an unknown protect keyword (P10) and Icarus ignores it (P1), and neither tool encrypts (P0, P5), so no output places a comment and the placement rule cannot be observed.",
+   "evidence": [
+    "P10",
+    "P0",
+    "P5"
+   ],
+   "citation": "1800-2023 34.5.30.2"
+  },
+  "SV2023-34.5.30.2-EXTRACT-COMMENT-OUTPUT": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.30.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "Emit the entire comment including the initial pragma in cleartext immediately before the data_block for the begin-end containing it.",
+   "reason": "The comment pragma and its value are emitted before data_block by an encryptor. Verilator 5.052 rejects comment as an unknown protect keyword (P10) and Icarus ignores it (P1), and neither tool encrypts (P0, P5), so no output places a comment and the placement rule cannot be observed.",
+   "evidence": [
+    "P10",
+    "P0",
+    "P5"
+   ],
+   "citation": "1800-2023 34.5.30.2"
+  },
+  "SV2023-34.5.31.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "directive-syntax",
+   "clause": "34.5.31.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The reset pragma uses the grammar reset.",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.31.1"
+  },
+  "SV2023-34.5.31.2-EXTRACT-RESET-FILE-LIST": {
+   "category": "directive-syntax",
+   "clause": "34.5.31.2",
+   "kind": "normal",
+   "modality": "recommendation",
+   "subject": "Because pragma state extends lexically to compilation-input end, authors sharing metadata at the start of file lists should reset it at the end to avoid unintended propagation.",
+   "reason": "reset restores protect-keyword state, which matters only to an encryptor or decryptor that carries that state. Verilator 5.052 rejects reset as an unknown keyword (P10) and Icarus ignores it (P1); no keyword value can be observed before or after a reset, so the restoration cannot be tested.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.31.2"
+  },
+  "SV2023-34.5.31.2-EXTRACT-RESET-PROTECT": {
+   "category": "directive-syntax",
+   "clause": "34.5.31.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "protect reset is synonymous with a reset pragma listing protect; it restores every protect keyword to its default value.",
+   "reason": "reset restores protect-keyword state, which matters only to an encryptor or decryptor that carries that state. Verilator 5.052 rejects reset as an unknown keyword (P10) and Icarus ignores it (P1); no keyword value can be observed before or after a reset, so the restoration cannot be tested.",
+   "evidence": [
+    "P1",
+    "P10"
+   ],
+   "citation": "1800-2023 34.5.31.2"
+  },
+  "SV2023-34.5.32.1-EXTRACT-KEYWORD-SYNTAX": {
+   "category": "directive-syntax",
+   "clause": "34.5.32.1",
+   "kind": "normal",
+   "modality": "definition",
+   "subject": "The viewport pragma uses the grammar viewport = ( object = <string> , access = <string> ).",
+   "reason": "Verilator 5.052 rejects the directive line with \"Unknown '`pragma protect' error\" (P10), so the spelling and the value it carries are not read as this keyword at all; Icarus Verilog 13.0 ignores every `pragma protect line without a diagnostic (P1). No tool implements the keyword, so neither its grammar nor its effect can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.32.1"
+  },
+  "SV2023-34.5.32.2-EXTRACT-VIEWPORT-ACCESS": {
+   "category": "implementation-defined",
+   "clause": "34.5.32.2",
+   "kind": "normal",
+   "modality": "implementation_defined",
+   "subject": "viewport access is an implementation-specific relaxation of protection.",
+   "reason": "The clause itself says the access value is an implementation-specific relaxation of protection. Verilator 5.052 rejects the viewport keyword as unknown (P10) and Icarus ignores it (P1), so no implementation-defined meaning can be observed, and by construction there is no portable expectation to assert.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.32.2"
+  },
+  "SV2023-34.5.32.2-EXTRACT-VIEWPORT-OBJECT": {
+   "category": "visibility-cleartext",
+   "clause": "34.5.32.2",
+   "kind": "normal",
+   "modality": "mandatory",
+   "subject": "viewport grants tool access to named objects in the current protected envelope; the named object must be contained in that envelope.",
+   "reason": "viewport grants a tool access to a named object in the current protected envelope. Verilator 5.052 rejects viewport as unknown (P10) and Icarus ignores it (P1); there is no protected-object view to grant or refuse, so neither the containment of the named object nor the grant can be observed.",
+   "evidence": [
+    "P10",
+    "P1"
+   ],
+   "citation": "1800-2023 34.5.32.2"
+  }
+ }
+}

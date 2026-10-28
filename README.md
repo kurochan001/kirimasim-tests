@@ -189,14 +189,19 @@ the K.2, I.3 and N.2 headers and algorithms, assertion control, coverage,
 checkers and 1364 VPI compatibility, Icarus Verilog 13.0 was recorded as the
 oracle of 277 standard-only tests that it reproduces, and a further pass over
 the existing tests in twelve ranges linked 341 more requirements.
-Provisional design coverage is **85.023135% (10,474/12,319)**;
-provisional execution coverage is **46.545986% (5,734/12,319)**.
+On 2026-10-28 the requirement ledger was reviewed as the denominator: 21
+duplicate rows were merged into others, leaving 12,298 requirements, and the
+[denominator review](docs/denominator-review-20261028.md) approved them. The
+reviewer was an AI, not an independent human.
+Design coverage is **89.28% (10,980/12,298)**;
+execution coverage is **59.44% (7,310/12,298)**, or 50.83% (6,251/12,298)
+counting only Icarus Verilog, Verilator and SymbiYosys.
 See the [generated behavior summary](docs/behavior-coverage-summary.md) for the
 measurement inputs and denominator, and the
 [Nightly test corrections and oracle review](docs/nightly-suite-corrections-20261027.md)
 for the earlier corrections.
-Clauses 1 to 40 alone are at 84.95% (8,058/9,486) design coverage.
-Confirmed values remain undefined. The full existing-test semantic review is still incomplete.
+Clauses 1 to 40 alone are at 87.32% (8,265/9,465) design coverage.
+The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.
 
@@ -204,8 +209,11 @@ Tests are grouped in directories by the chapter (clause) of IEEE 1800-2023
 that the first clause in their `:lrm:` belongs to. The columns Icarus,
 Verilator and Standard only count the tests by where their expected output
 was recorded, as in the first table. Clauses 1 and 2 set out no behavior to
-test. Clause 34 (protected envelopes) has no tests: what a protected envelope
-contains depends on the encryption each tool defines. Which parts of a design
+test. Clause 34 (protected envelopes) has only four tests, of the envelope
+syntax and of Verilator leaving a data block out of the source: neither
+Icarus Verilog nor Verilator decrypts an envelope, and the
+[protected-envelope boundary](docs/protected-envelope-boundary.md) gives the
+reason for each of the 210 requirements left untested. Which parts of a design
 have coverage depends on the tool and its options, so the tests of clause 40
 print only what holds for every result, such as the values the standard
 allows and how the results of the coverage functions relate.

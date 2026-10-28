@@ -1,0 +1,260 @@
+
+==================== P0 tool versions ====================
+Icarus Verilog version 13.0 (stable) (v13_0)
+Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905
+iverilog -h protect/decrypt options:
+0
+vvp -h protect/decrypt options:
+0
+verilator protect options:
+        --generate-key              Create random key for --protect-key
+        --protect-ids               Hash identifier names for obscurity
+        --protect-key <key>         Key for symbol protection
+        --protect-lib <name>        Create a DPI protected library
+
+==================== P1 unknown protect keyword ====================
+--- iverilog p_unk.sv
+compile=0
+ran
+--- verilator p_unk.sv
+exit=1
+%Error-BADSTDPRAGMA: p_unk.sv:1:17: Unknown '`pragma protect' error
+%Error: Exiting due to 1 error(s)
+
+==================== P2 empty begin_protected/end_protected ====================
+--- iverilog p_empty.sv
+compile=0
+ran
+--- verilator p_empty.sv
+exit=0
+
+==================== P3 cleartext module inside begin_protected: is it compiled? ====================
+--- iverilog p_clear.sv
+compile=0
+wrapper ran
+SECRET RAN
+--- verilator p_clear.sv
+exit=0
+%Warning-MULTITOP: p_clear.sv:4:8: Multiple top level modules
+
+==================== P4 data_block with base64 payload ====================
+--- iverilog p_data.sv
+compile=2
+p_data.sv:4: syntax error
+I give up.
+--- verilator p_data.sv
+exit=0
+%Warning-PROTECTED: p_data.sv:4:17: A '`pragma protected data_block' encrypted section was detected and will be skipped.
+
+==================== P5 protect begin / protect end (encryption keywords) ====================
+--- iverilog p_begin.sv
+compile=0
+ran
+--- verilator p_begin.sv
+exit=1
+%Error-BADSTDPRAGMA: p_begin.sv:1:17: Unknown '`pragma protect' error
+%Error: Exiting due to 1 error(s)
+
+==================== P6 key_block and data_block in one envelope (encoding bytes=24) ====================
+--- iverilog p_keydata.sv
+compile=2
+p_keydata.sv:4: syntax error
+I give up.
+--- verilator p_keydata.sv
+exit=1
+%Warning-PROTECTED: p_keydata.sv:6:17: A '`pragma protected data_block' encrypted section was detected and will be skipped.
+%Error-BADSTDPRAGMA: p_keydata.sv:7:1: BASE64 encoding (too short) in `pragma protect key_block/data_block
+`pragma protect end_%Error-BADSTDPRAGMA: p_keydata.sv:8:1: BASE64 line too long in `pragma protect key_block/data_block
+%Error-BADSTDPRAGMA: p_keydata.sv:8:1: BASE64 encoding (too short) in `pragma protect key_block/data_block
+module p_keydata; initial $display("ran"); %Error-BADSTDPRAGMA: p_keydata.sv:9:1: BASE64 line too long in `pragma protect key_block/data_block
+%Error-BADSTDPRAGMA: p_keydata.sv:9:1: BASE64 encoding (too short) in `pragma protect key_block/data_block
+%Error-BADSTDPRAGMA: p_keydata.sv:9:1: BASE64 encoding length mismatch in `pragma protect key_block/data_block
+%Error: Exiting due to 6 error(s)
+
+==================== P7 encoding uuencode / quoted-printable / raw ====================
+### enctype=uuencode
+--- verilator p_enc.sv
+exit=1
+%Error-UNSUPPORTED: p_enc.sv:1:17: Unsupported: only BASE64 is recognized for `pragma protected encoding
+%Warning-PROTECTED: p_enc.sv:4:17: A '`pragma protected data_block' encrypted section was detected and will be skipped.
+%Error: Exiting due to 1 error(s)
+### enctype=quoted-printable
+--- verilator p_enc.sv
+exit=1
+%Error-BADSTDPRAGMA: p_enc.sv:1:17: Illegal encoding type for `pragma protected encoding
+%Error-UNSUPPORTED: p_enc.sv:1:17: Unsupported: only BASE64 is recognized for `pragma protected encoding
+%Warning-PROTECTED: p_enc.sv:4:17: A '`pragma protected data_block' encrypted section was detected and will be skipped.
+%Error-BADSTDPRAGMA: p_enc.sv:5:1: BASE64 encoding (too short) in `pragma protect key_block/data_block
+`pragma protect end_%Error-BADSTDPRAGMA: p_enc.sv:6:1: BASE64 line too long in `pragma protect key_block/data_block
+%Error-BADSTDPRAGMA: p_enc.sv:6:1: BASE64 encoding (too short) in `pragma protect key_block/data_block
+module p_enc; initial $display("ran"); %Error-BADSTDPRAGMA: p_enc.sv:7:1: BASE64 line too long in `pragma protect key_block/data_block
+%Error-BADSTDPRAGMA: p_enc.sv:7:1: BASE64 encoding (too short) in `pragma protect key_block/data_block
+### enctype=raw
+--- verilator p_enc.sv
+exit=1
+%Error-UNSUPPORTED: p_enc.sv:1:17: Unsupported: only BASE64 is recognized for `pragma protected encoding
+%Warning-PROTECTED: p_enc.sv:4:17: A '`pragma protected data_block' encrypted section was detected and will be skipped.
+%Error: Exiting due to 1 error(s)
+
+==================== P8 encoding line_length 50 (not a multiple of 4) ====================
+--- verilator p_ll.sv
+exit=1
+%Error-BADSTDPRAGMA: p_ll.sv:1:17: line_length must be multiple of 4 for BASE64
+%Warning-PROTECTED: p_ll.sv:4:17: A '`pragma protected data_block' encrypted section was detected and will be skipped.
+%Error: Exiting due to 1 error(s)
+
+==================== P9 digest_block ====================
+--- iverilog p_dig.sv
+compile=0
+ran
+--- verilator p_dig.sv
+exit=1
+%Error-BADSTDPRAGMA: p_dig.sv:2:17: Unknown '`pragma protect' error
+%Error: Exiting due to 1 error(s)
+
+==================== P10 author / author_info / data_keyowner / data_keyname ====================
+### keyword author="A"
+--- verilator p_kw.sv
+exit=1
+%Error-BADSTDPRAGMA: p_kw.sv:2:17: Unknown '`pragma protect' error
+%Error: Exiting due to 1 error(s)
+### keyword author_info="I"
+--- verilator p_kw.sv
+exit=1
+%Error-BADSTDPRAGMA: p_kw.sv:2:17: Unknown '`pragma protect' error
+%Error: Exiting due to 1 error(s)
+### keyword data_keyowner="O"
+--- verilator p_kw.sv
+exit=1
+%Error-BADSTDPRAGMA: p_kw.sv:2:17: Unknown '`pragma protect' error
+%Error: Exiting due to 1 error(s)
+### keyword data_keyname="N"
+--- verilator p_kw.sv
+exit=1
+%Error-BADSTDPRAGMA: p_kw.sv:2:17: Unknown '`pragma protect' error
+%Error: Exiting due to 1 error(s)
+### keyword data_method="aes256-cbc"
+--- verilator p_kw.sv
+exit=0
+### keyword key_keyname="N"
+--- verilator p_kw.sv
+exit=0
+### keyword encrypt_agent="E"
+--- verilator p_kw.sv
+exit=0
+
+==================== P11 eight nested empty envelopes ====================
+--- iverilog p_nest.sv
+compile=0
+ran
+--- verilator p_nest.sv
+exit=0
+
+==================== P12 unmatched end_protected / unclosed begin_protected ====================
+--- iverilog p_stray.sv
+compile=0
+ran
+--- verilator p_stray.sv
+exit=0
+--- iverilog p_open.sv
+compile=0
+ran
+--- verilator p_open.sv
+exit=0
+
+==================== P13 envelope crossing an include boundary ====================
+--- iverilog p_inc.sv
+./inc/open.svh:4: syntax error
+I give up.
+--- verilator p_inc.sv
+%Warning-PROTECTED: inc/open.svh:4:17: A '`pragma protected data_block' encrypted section was detected and will be skipped.
+
+==================== P14 --protect-key does not decrypt an IEEE envelope ====================
+%Warning-PROTECTED: p_data.sv:4:17: A '`pragma protected data_block' encrypted section was detected and will be skipped.
+
+==================== P15 module defined inside a data_block is not available ====================
+--- verilator p_mod.sv
+exit=1
+%Warning-PROTECTED: p_mod.sv:4:17: A '`pragma protected data_block' encrypted section was detected and will be skipped.
+%Error-MODMISSING: p_mod.sv:5:15: Cannot find file containing module: 'p_absent'
+%Error: Exiting due to 1 error(s)
+
+==================== P16 data_block payload on the same line ====================
+--- iverilog p_same.sv
+compile=0
+ran
+--- verilator p_same.sv
+exit=1
+%Error-BADSTDPRAGMA: p_same.sv:2:17: Unknown '`pragma protect' error
+%Error: Exiting due to 1 error(s)
+
+==================== P17 text between begin_protected and end_protected still executes ====================
+--- iverilog p_inner.sv
+compile=0
+before
+inside
+after
+--- verilator --binary p_inner.sv
+build=0
+before
+inside
+after
+- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05
+- Verilator: end at 0s; walltime 0.000 s; speed 0.000 s/s
+probe.sh: line 190: protected: command not found
+
+==================== P18 legacy endprotected form ====================
+--- iverilog p_legacy.sv
+compile=2
+p_legacy.sv:1: warning: macro protected undefined (and assumed null) at this point.
+p_legacy.sv:3: warning: macro endprotected undefined (and assumed null) at this point.
+p_legacy.sv:2: syntax error
+I give up.
+--- verilator p_legacy.sv
+exit=1
+%Error: p_legacy.sv:1:1: Define or directive not defined: '`protected'
+%Error: p_legacy.sv:3:1: Define or directive not defined: '`endprotected'
+%Error: p_legacy.sv:2:1: syntax error, unexpected IDENTIFIER
+%Error: Exiting due to 3 error(s)
+
+==================== P19 which Table 34-1 keywords Verilator recognizes ====================
+unknown  begin
+accepted  end
+accepted  begin_protected
+accepted  end_protected
+unknown  author="A"
+unknown  author_info="I"
+accepted  encrypt_agent="E"
+accepted  encrypt_agent_info="EI"
+accepted  encoding=(enctype="base64", line_length=76, bytes=12)
+unknown  data_keyowner="O"
+accepted  data_method="aes256-cbc"
+unknown  data_keyname="N"
+unknown  data_public_key
+unknown  data_decrypt_key
+accepted  data_block
+unknown  digest_keyowner="O"
+unknown  digest_key_method="md5"
+unknown  digest_keyname="N"
+unknown  digest_public_key
+unknown  digest_decrypt_key
+unknown  digest_method="sha1"
+unknown  digest_block
+accepted  key_keyowner="O"
+accepted  key_method="rsa"
+accepted  key_keyname="N"
+unknown  key_public_key
+accepted  key_block
+unknown  decrypt_license=(library="l", entry="e", feature="f")
+unknown  runtime_license=(library="l", entry="e", feature="f")
+unknown  comment="C"
+unknown  reset
+unknown  viewport=(object="o", access="read")
+accepted  version=1
+
+==================== P20 second encoding directive before the data_block ====================
+--- verilator p_twoenc.sv
+exit=1
+%Error-BADSTDPRAGMA: p_twoenc.sv:2:17: Multiple `pragma protected encoding sections
+%Warning-PROTECTED: p_twoenc.sv:5:17: A '`pragma protected data_block' encrypted section was detected and will be skipped.
+%Error: Exiting due to 1 error(s)

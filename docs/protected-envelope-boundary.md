@@ -1,16 +1,15 @@
 # IEEE 1800-2023 第34章（保護エンベロープ）215 要求の境界監査
 
-- リポジトリ: `/Users/mitsuyuki/Projects/kirimasim-tests`
 - 監査日: 2026-10-28
 - 対象: `coverage/behaviors.json` の clause が `34` で始まり、`checks` も
   `check_groups` も持たない **215 要求**。behavior 本文を正本とした。
   `kind` の内訳は normal 205 / error 9 / boundary 1。
-- ツール: Icarus Verilog 13.0
-  `/private/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/opencode/icarus13/icarus-verilog/13.0/bin`
-  と Verilator 5.052（2026-09-05）
-- 追加したファイル: `tests/ch34/test_34_extra_*.sv` 4 本、`.expected` 4 本、
-  `tests/ch34/ch34_include/lexical_env.svh` 1 本。`coverage/`、`tools/`、既存テストは
-  変更していない。git 操作は行っていない。
+- ツール: Icarus Verilog 13.0 と Verilator 5.052（2026-09-05）
+- 追加したテスト: `tests/ch34/test_34_extra_*.sv` 4 本、`.expected` 4 本、
+  `tests/ch34/ch34_include/lexical_env.svh` 1 本。既存テストは変更していない。
+- 根拠ファイル: [`protected-envelope-boundary/`](protected-envelope-boundary/) に、
+  要求ごとの分類と理由（`ch34-boundary.json`、以下「JSON」）、プローブの
+  スクリプト（`probe.sh`）と生の出力（`probe-log.txt`）を置いた。
 - 規格本文はローカルの IEEE 1800-2023 PDF を `pdftotext -layout` で読んで引用した
   （テキストは配布しない）。以下の引用はすべて 34 章の該当節から取っている。
 
@@ -45,14 +44,15 @@ base64 本体だけを読み捨てる。したがって 215 要求の大部分�
    （`python3 -c` で件数一致を確認）。
 2. 34 章の規格本文（34.1〜34.5.32）を読み、各 behavior が「入力の構文」「暗号化
    出力」「復号入力」「エラー」のどれを問題にしているかを分類した。
-3. 最小の `.sv` を `scratch-ch34/`（リポジトリ外）に作り、両ツールで
-   compile / lint / 実行した。再現スクリプトは `scratch-ch34/probe.sh`、生の出力は
-   `scratch-ch34/probe-log.txt`（P0〜P19）。本文の「P4」等はこのログの節番号。
+3. 最小の `.sv` を作業ディレクトリに作り、両ツールで compile / lint / 実行した。
+   再現スクリプトは `protected-envelope-boundary/probe.sh`（入力の `.sv` も
+   生成する）、生の出力は `protected-envelope-boundary/probe-log.txt`（P0〜P20）。
+   本文の「P4」等はこのログの節番号で、JSON の `probes` に一行要約がある。
 4. 「観測できた」の基準は、**その規則に固有の出力または診断が出たこと**とした。
    単にコンパイルが通るだけ、あるいは「無視された結果として通る」だけでは
    テスト化していない。
 5. 215 件すべてを、テスト化した 5 件か not_testable 210 件のどちらかに割り当てた
-   （`notes/ch34-boundary.json` の `not_testable` に 210 件分の理由がある）。
+   （JSON の `not_testable` に 210 件分の理由がある）。
 
 ## 3. 実測: 2 つのツールは何をするか
 
@@ -112,7 +112,7 @@ key_public_key  decrypt_license  runtime_license  comment  reset  viewport
 Icarus は 32 語すべてを「知らない pragma」として無視する（受理とも拒否とも
 言えない）。この非対称が、34 章のテストを書けるかどうかの最大の分岐になる。
 
-### 3.4 観測できた事実（4 つ）と、できなかったこと
+### 3.4 観測できた事実と、できなかったこと
 
 1. `begin_protected`/`end_protected` の**裸の綴り**は受理され、引数を付けると
    Verilator は拒否する（P2, P19）。
@@ -142,8 +142,7 @@ Icarus は 32 語すべてを「知らない pragma」として無視する（�
 ### 4.1 directive構文（43 件、テスト化 2）
 
 対象: 34.4 のキーワード定義 32 件と既定値 1 件、34.5.1.1〜4.1 の裸の綴り 4 件、
-34.5.28.1/29.1/31.1/32.1 の文法 4 件、34.4 の既定値 1 件、34.5.31.2 の
-reset 2 件（34.4 のうち lexical region/scope/self-containment は envelope 側）。
+34.5.28.1/29.1/31.1/32.1 の文法 4 件、34.5.31.2 の reset 2 件（34.4 のうち lexical region/scope/self-containment は envelope 側）。
 
 - 観測できた: 受理される綴りと拒否される綴り（P19）。`begin_protected` に
   引数を付けると拒否され、裸なら通る（P2）。`author`・`data_keyname`・
@@ -392,28 +391,30 @@ JSON の `not_testable` は 1 件ずつ `reason`・`evidence`・`citation` を�
   列という構文レベルの観測である。各テストの `:description:` とコメントに
   「復号は観測していない」と書いた。
 - 既存テストの再利用（reuse）は 0 件。34 章を対象にした既存テストは無く、
-  `README.md` も「Clause 34 … has no tests」と記している。
+  監査前の `README.md` も「Clause 34 … has no tests」と記していた。
 
 ## 9. 再現手順
 
 ```sh
-IV=/private/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/opencode/icarus13/icarus-verilog/13.0/bin
-W=/Users/mitsuyuki/Projects/kirimasim-tests-work/90percent-20261026
+# ICARUS_BIN は Icarus Verilog 13.0 の bin ディレクトリ、OUT は結果の置き場所
+export ICARUS_BIN=<Icarus Verilog 13.0 の bin>
+ROOT=$(pwd)
+OUT=$(mktemp -d)
 
-# 1. プローブ（P0〜P19 の生ログ）
-cd "$W/scratch-ch34" && sh probe.sh > probe-log.txt 2>&1
+# 1. プローブ（P0〜P20 の生ログ）。入力の .sv は空のディレクトリに生成される
+(cd "$OUT" && sh "$ROOT/docs/protected-envelope-boundary/probe.sh" > probe-log.txt 2>&1)
 
 # 2. 新規テスト
-cd /Users/mitsuyuki/Projects/kirimasim-tests
-python3 tools/run_icarus.py --iverilog-bin "$IV" -j 4 \
-  --json "$W/ch34-extra-icarus.json" tests/ch34/*.sv
+python3 tools/run_icarus.py --iverilog-bin "$ICARUS_BIN" -j 4 \
+  --json "$OUT/ch34-extra-icarus.json" tests/ch34/*.sv
 python3 tools/run_verilator.py --all -j 4 \
-  --json "$W/ch34-extra-verilator.json" tests/ch34/*.sv
+  --json "$OUT/ch34-extra-verilator.json" tests/ch34/*.sv
 python3 tools/lint_metadata.py tests/ch34/*.sv
-
-# 3. 分類 JSON の再生成
-python3 "$W/scratch-ch34/make_ch34.py"
 ```
+
+リポジトリのルートで実行する。分類 JSON は監査時の記録で、生成スクリプトは
+配布していない。プローブのログは、スクリプト自身のパスが出る 1 行
+（第 10 節で述べる `say` の不具合）を除いて保存済みのものと一致する。
 
 実測値:
 
