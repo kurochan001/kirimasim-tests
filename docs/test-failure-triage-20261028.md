@@ -77,6 +77,8 @@
   `src/` の変更と同じ PR に混ぜない。
 - likely の 1 本（`ch17/test_checker_always_statement_kinds`）は、
   宣言を checker body に移す書き換えにしてから確定する。
+- Issue #13（formal テストの誤実行）と #14（kirimasim の分類順）は
+  [ランナー選択の修正](runner-selection-20261028.md)で対応した。
 
 ## 4. 関連
 

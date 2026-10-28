@@ -5,8 +5,10 @@ normalized output with its expected output.
 Usage:
     python3 tools/run_icarus.py [--iverilog-bin DIR] [-j N] [--json FILE] [TEST ...]
 
-With no TEST arguments, runs every tests/**/*.sv. Exits with 1 if any test
-does not match. The expected outputs were recorded with Icarus Verilog 13.0
+With no TEST arguments, runs every test whose :type: is not formal. A formal
+test belongs to tools/run_sby.py and has no expected output. Exits with 1 if
+any test does not match. The expected outputs were recorded with Icarus
+Verilog 13.0
 (`:oracle:` lists iverilog@13.0), so other versions may differ.
 
 A test whose `:oracle:` does not list iverilog@13.0 has an expected output
@@ -66,6 +68,13 @@ def header_field(test: Path, name: str) -> str | None:
 
 def expected_output(test: Path) -> str | None:
     return suite_results.expected_output(test, "icarus")
+
+
+def simulation_tests(tests: list[Path]) -> list[Path]:
+    """The tests that a simulator runs. A test with :type: formal names a
+    :formal_case: and belongs to tools/run_sby.py; it has no expected output,
+    so counting it as a simulation failure would be wrong."""
+    return [test for test in tests if header_field(test, "type") != "formal"]
 
 
 def c_source(test: Path, name: str) -> Path | None:
@@ -132,7 +141,7 @@ def main() -> int:
 
     if args.iverilog_bin:
         args.iverilog_bin = args.iverilog_bin.resolve()   # iverilog-vpi runs in another directory
-    tests = args.tests or suite_results.find_tests()
+    tests = simulation_tests(args.tests or suite_results.find_tests())
     inputs = suite_results.fingerprints(tests) if args.json else None
     runner_hash = suite_results.runner_digest("icarus") if args.json else None
     failed = known = 0

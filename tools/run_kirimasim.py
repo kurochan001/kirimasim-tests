@@ -5,9 +5,12 @@ output with its expected output.
 Usage:
     python3 tools/run_kirimasim.py [--kirimasim PATH] [-j N] [--json FILE] [TEST ...]
 
-With no TEST arguments, runs every tests/**/*.sv. Exits with 1 if any test
-does not match. No expected output was recorded with kirimasim, so every test
-counts.
+With no TEST arguments, runs every test whose :type: is not formal. A formal
+test belongs to tools/run_sby.py and has no expected output, so a simulation
+runner must not count it. Exits with 1 if any test does not match. No expected
+output was recorded with kirimasim, so every simulation test counts, except a
+test whose output was recorded only with another simulator: that is a known
+difference, not a failure.
 
 Each test runs in its own temporary directory as `kirimasim <test>.sv`.
 kirimasim writes only what the design prints to standard output and its own
@@ -61,8 +64,27 @@ def expected_output(test: Path) -> str | None:
     return suite_results.expected_output(test, "kirimasim")
 
 
+def simulation_tests(tests: list[Path]) -> list[Path]:
+    """The tests that a simulator runs. A test with :type: formal names a
+    :formal_case: and belongs to tools/run_sby.py; it has no expected output,
+    so counting it as a simulation failure would be wrong."""
+    return [test for test in tests if header_field(test, "type") != "formal"]
+
+
+def expectation_of_other_simulator(test: Path) -> str | None:
+    """The simulator whose own expected output the test records, when the test
+    records none for kirimasim. Such a test is a known difference, not a
+    failure, because its output was recorded for another simulator."""
+    fields = suite_results.header(test)
+    if any(name in fields for name in suite_results.expected_fields("kirimasim")):
+        return None
+    return next((other for other in suite_results.SIMULATORS
+                 if other != "kirimasim"
+                 and f"{suite_results.EXPECTED}_{other}" in fields), None)
+
+
 def run(test: Path, kirimasim: str) -> tuple[str, str]:
-    """The status of the test (pass, fail or unsupported) and the reason."""
+    """The status of the test (pass, fail, known or unsupported) and the reason."""
     if header_field(test, "dpi_c") is not None or header_field(test, "vpi_c") is not None:
         return "unsupported", "kirimasim cannot load C code yet"
     sources, include_dirs = suite_results.files(test)
@@ -89,14 +111,17 @@ def run(test: Path, kirimasim: str) -> tuple[str, str]:
         return ("pass" if ok else "fail"), why
     norm = subprocess.run([sys.executable, str(NORMALIZE)], input=r.stdout,
                           capture_output=True, text=True).stdout
+    if r.returncode == 2 and unsupported:
+        return "unsupported", unsupported.group(1).strip()
     want = expected_output(test)
     if want is None:
+        other = expectation_of_other_simulator(test)
+        if other is not None:
+            return "known", f"the expected output is recorded with {other}"
         return "fail", "no :expected_stdout:"
     if norm == want:
         why = suite_results.judge_run(test, r.returncode, r.stderr)
         return ("fail" if why else "pass"), why
-    if r.returncode == 2 and unsupported:
-        return "unsupported", unsupported.group(1).strip()
     if r.returncode < 0:
         return "fail", f"crashed (signal {-r.returncode})"
     err = [l for l in r.stderr.splitlines() if ": error: " in l or ": fatal: " in l]
@@ -118,10 +143,10 @@ def main() -> int:
         ap.error(f"cannot find {args.kirimasim}")
     exe = str(Path(exe).resolve())   # the tests run in other directories
 
-    tests = args.tests or suite_results.find_tests()
+    tests = simulation_tests(args.tests or suite_results.find_tests())
     inputs = suite_results.fingerprints(tests) if args.json else None
     runner_hash = suite_results.runner_digest("kirimasim") if args.json else None
-    failed = unsupported = 0
+    failed = unsupported = known = 0
     statuses = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
         results = pool.map(lambda t: run(t, exe), tests)
@@ -130,11 +155,15 @@ def main() -> int:
             if status == "unsupported":
                 unsupported += 1
                 print(f"UNSUPPORTED {name}: {why}", flush=True)
+            elif status == "known":
+                known += 1
+                print(f"KNOWN {name}: {why}", flush=True)
             elif status == "fail":
                 failed += 1
                 print(f"FAIL {name}: {why}", flush=True)
             statuses[suite_results.test_id(t)] = (status, why)
-    print(f"{len(tests) - failed - unsupported}/{len(tests)} tests match"
+    print(f"{len(tests) - failed - unsupported - known}/{len(tests) - known} tests match"
+          + (f"; {known} known differences not counted" if known else "")
           + (f"; {unsupported} use what kirimasim does not support yet" if unsupported else ""))
     if args.json:
         suite_results.write(args.json, "kirimasim", "kirimasim",

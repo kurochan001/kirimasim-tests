@@ -152,6 +152,10 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/ch19-extra-20261028-*.json`: 19章covergroupのVerilator実行とIcarusのknown記録。
 - `results/chA-extra-20261028-*.json`・`results/chH-extra-20261028-*.json`・`results/ch36-extra-20261028-*.json`: 附属書A/Hと35/36章の追加・再利用テストの実行結果。
 - `results/ch34-extra-20261028-*.json`・`results/ch19-rest-20261028-*.json`・`results/ch35-rest-20261028-*.json`: 34章の境界テストと19/35章の残り要求の実行結果。
+- 2026-10-28のランナー選択修正: `:type: formal` をシミュレーション対象から外した。
+  判定処理（`run()`）は変えていないため、Icarus/Verilatorの採用中スナップショットは
+  状態を変えずに`runner_sha256`だけを更新した。
+  [記録](../docs/runner-selection-20261028.md)を参照。
 - `results/ghost-local-20261028.json`: Ghostのローカル全件実行。対象はスイート`23b4c542`の7,629本、
   ビルド識別子は`d59b7c7f8feb`で、5,823 pass・1,806 fail（76.3%一致）です。
   実行時間は約3分25秒。同名の`.log`に不一致の一覧を保存しています。

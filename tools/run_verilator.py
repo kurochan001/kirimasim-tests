@@ -6,10 +6,12 @@ Usage:
     python3 tools/run_verilator.py [--verilator PATH] [--seed N] [--all] [-j N]
                                    [--json FILE] [TEST ...]
 
-With no TEST arguments, runs every tests/**/*.sv whose `:oracle:` lists
-verilator@5.052 (with --all, every test). These are tests that Icarus
-Verilog 13.0 cannot compile or run; their expected outputs were recorded
-with Verilator 5.052 and checked against the standard. Verilator is a
+With no TEST arguments, runs every test whose `:type:` is not formal and whose
+`:oracle:` lists verilator@5.052 (with --all, every test whose `:type:` is not
+formal). A formal test belongs to tools/run_sby.py and has no expected output.
+These are tests that Icarus Verilog 13.0 cannot compile or run; their expected
+outputs were recorded with Verilator 5.052 and checked against the standard.
+Verilator is a
 two-state simulator, so these tests do not depend on x or z values
 (`:fourstate: no`). Each test is built with `verilator --binary --timing
 --coverage-user`, without which Verilator does not run cover statements, and
@@ -77,6 +79,13 @@ def expected_output(test: Path) -> str | None:
     return suite_results.expected_output(test, "verilator")
 
 
+def simulation_tests(tests: list[Path]) -> list[Path]:
+    """The tests that a simulator runs. A test with :type: formal names a
+    :formal_case: and belongs to tools/run_sby.py; it has no expected output,
+    so counting it as a simulation failure would be wrong."""
+    return [test for test in tests if header_field(test, "type") != "formal"]
+
+
 def c_source(test: Path, name: str) -> Path | None:
     value = header_field(test, name)
     if value is None:
@@ -132,15 +141,16 @@ def main() -> int:
     ap.add_argument("--verilator", default="verilator", help="verilator executable")
     ap.add_argument("--seed", type=int, default=1, help="seed for random initial values")
     ap.add_argument("--all", action="store_true",
-                    help="run every test, not only those recorded with Verilator")
+                    help="run every simulation test, not only those recorded with Verilator")
     ap.add_argument("-j", "--jobs", type=int, default=1, help="number of tests run at once")
     ap.add_argument("--json", type=Path, default=None, help="also write the results to this file")
     ap.add_argument("tests", nargs="*", type=Path)
     args = ap.parse_args()
 
-    tests = args.tests or [t for t in suite_results.find_tests()
-                           if args.all
-                           or "verilator@5.052" in (header_field(t, "oracle") or "").split()]
+    tests = simulation_tests(args.tests or suite_results.find_tests())
+    if not args.tests and not args.all:
+        tests = [t for t in tests
+                 if "verilator@5.052" in (header_field(t, "oracle") or "").split()]
     failed = known = 0
     inputs = suite_results.fingerprints(tests) if args.json else None
     runner_hash = suite_results.runner_digest("verilator") if args.json else None

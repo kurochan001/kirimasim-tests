@@ -6,9 +6,10 @@ Usage:
     python3 tools/run_lyra.py [--lyra PATH] [--commit SHA] [--cache-dir DIR]
                               [-j N] [--json FILE] [TEST ...]
 
-With no TEST arguments, runs every tests/**/*.sv. Exits with 1 if any test
-does not match. No expected output was recorded with Lyra, so every test
-counts.
+With no TEST arguments, runs every test whose :type: is not formal. A formal
+test belongs to tools/run_sby.py and has no expected output. Exits with 1 if
+any test does not match. No expected output was recorded with Lyra, so every
+test counts.
 
 Lyra (https://github.com/hankhsu1996/lyra) compiles a design through slang
 and LLVM into a program and runs it; it has no releases, so --commit names
@@ -75,6 +76,13 @@ def header_field(test: Path, name: str) -> str | None:
 
 def expected_output(test: Path) -> str | None:
     return suite_results.expected_output(test, "lyra")
+
+
+def simulation_tests(tests: list[Path]) -> list[Path]:
+    """The tests that a simulator runs. A test with :type: formal names a
+    :formal_case: and belongs to tools/run_sby.py; it has no expected output,
+    so counting it as a simulation failure would be wrong."""
+    return [test for test in tests if header_field(test, "type") != "formal"]
 
 
 def c_source(test: Path, name: str) -> Path | None:
@@ -161,7 +169,7 @@ def main() -> int:
         ap.error(f"cannot find {args.lyra}")
     exe = str(Path(exe).resolve())   # the tests run in other directories
 
-    tests = args.tests or suite_results.find_tests()
+    tests = simulation_tests(args.tests or suite_results.find_tests())
     inputs = suite_results.fingerprints(tests) if args.json else None
     runner_hash = suite_results.runner_digest("lyra") if args.json else None
     failed = unsupported = 0
