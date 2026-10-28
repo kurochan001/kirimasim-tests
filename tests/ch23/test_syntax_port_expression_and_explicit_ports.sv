@@ -26,6 +26,9 @@
 // The sum adds the four port expressions, so a port that carries the wrong
 // slice or the wrong concatenation changes the number; the ref port writes to
 // the parent's variable; the interface ports drive signals the parent reads.
+// The null ports .nc() and .unused() have no port expression, so the
+// instances leave them unconnected: a blank ordered connection (23.3.2.1) and
+// empty parentheses after the port name (23.3.2.2).
 //
 // No release compiles this: Icarus Verilog 13.0 rejects interface ports and
 // every complex port; Verilator 5.052 rejects complex ports.
@@ -59,7 +62,7 @@ module explicit_ports (
   output .hi(r[7:4]),
   output .lo(r[3:0]),
   input  .low_in(w[3:0]),
-  ref    .cell(v[1]),
+  ref    .cell_v(v[1]),
   input  .unused()
 );
   logic [7:0] r;
@@ -89,9 +92,9 @@ module test_syntax_port_expression_and_explicit_ports;
 
   assign bus = 4'd3;
 
-  nonansi_ports u_np({p, q}, pv, bv, 1'b1, bus, rv, np_m, np_p, sum);
-  explicit_ports u_ep (.hi(hi), .lo(lo), .low_in(4'h3), .cell(cellv[1]),
-                       .unused(1'b1));
+  nonansi_ports u_np({p, q}, pv, bv, , bus, rv, np_m, np_p, sum);
+  explicit_ports u_ep (.hi(hi), .lo(lo), .low_in(4'h3), .cell_v(cellv[1]),
+                       .unused());
   nonansi_empty u_ne ();
 
   initial begin

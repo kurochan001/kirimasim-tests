@@ -19,10 +19,14 @@
 // one bin, name[] is one bin per value and name[N] makes N bins. §19.5.2: one
 // trans_list is one transition bin and name[] makes one bin per transition.
 // §19.5.3: automatic bins do not exist when explicit bins are given. §19.5.4:
-// a wildcard bin is one bin. §19.11.1: the coverage of a point is the covered
-// bins over all its bins, and a default bin, ignore_bins and illegal_bins are
-// not among them. The test prints the number of bins of each point and of a
-// cross before anything is sampled, and then the coverage after one sample.
+// a wildcard bin is one bin, and its wildcard keyword comes before the
+// bins keyword (§19.5, A.2.11). §19.11.1: the coverage of a point is the
+// covered bins over all its bins, and a default bin, ignore_bins and
+// illegal_bins are not among them. The test prints the number of bins of each
+// point and of a cross before anything is sampled, and then the coverage
+// after one sample. §19.11.1, Table 19-5: the two optional arguments of
+// get_inst_coverage are ref int values, the covered and total bin counts, so
+// both arrays are int.
 
 module test_cg_bin_syntax_all_forms;
   bit [3:0] v;
@@ -39,7 +43,7 @@ module test_cg_bin_syntax_all_forms;
       bins each[] = {6, 7};
       bins fixed[2] = {[8:11]};
       bins top = {[12:$]};
-      bins wc = wildcard {4'b0?1?};
+      wildcard bins wc = {4'b0?1?};
       bins trans = (1 => 2);
       bins other = default;
       ignore_bins skip = {14};
@@ -60,7 +64,7 @@ module test_cg_bin_syntax_all_forms;
 
   initial begin
     int t[5];
-    real c[5];
+    int c[5];
     void'(g.typed.get_inst_coverage(c[0], t[0]));
     void'(g.lab.get_inst_coverage(c[1], t[1]));
     void'(g.fromset.get_inst_coverage(c[2], t[2]));

@@ -14,12 +14,14 @@
 // a series of expressions and "expression matches pattern" clauses joined by
 // &&&; the clauses are a left-to-right conjunction, a failing clause stops the
 // evaluation of the rest, and every clause must succeed for the predicate to
-// be true. Each pattern's scope extends over the remaining clauses and the
-// consequent. The predicate can be true, false or ambiguous, and §11.4.11
-// gives the result: for an ambiguous condition each bit of the result is the
-// common bit of the two expressions, or x if they differ, so a = 4'b1010 and
-// b = 4'b1100 give 4'b1xx0. The function bump counts its calls, which shows
-// that the second clause is not evaluated when the first one fails.
+// be true. Each "expression matches pattern" clause is a cond_pattern, which
+// is not an expression and cannot be parenthesized or joined with &&. Each
+// pattern's scope extends over the remaining clauses and the consequent. The
+// predicate can be true, false or ambiguous, and §11.4.11 gives the result:
+// for an ambiguous condition each bit of the result is the common bit of the
+// two expressions, or x if they differ, so a = 4'b1010 and b = 4'b1100 give
+// 4'b1xx0. The function bump counts its calls, which shows that the second
+// clause is not evaluated when the first one fails.
 
 module test_pattern_conditional_predicate;
   logic [3:0] v = 4'b1010;
@@ -36,24 +38,24 @@ module test_pattern_conditional_predicate;
 
   initial begin
     xp = 1'bx;
-    r = ((v matches .n) &&& xp) ? a : b;
+    r = v matches .n &&& xp ? a : b;
     $display("ambiguous: %b", r);
 
     xp = 1'b1;
-    r = ((v matches .n) &&& xp) ? a : b;
+    r = v matches .n &&& xp ? a : b;
     $display("true: %b", r);
 
     xp = 1'b0;
-    r = ((v matches .n) &&& xp) ? a : b;
+    r = v matches .n &&& xp ? a : b;
     $display("false: %b", r);
 
-    r = ((v matches .n) &&& (n == 4'b1010)) ? n + 1 : 4'b1111;
+    r = v matches .n &&& n == 4'b1010 ? n + 1 : 4'b1111;
     $display("scope: %b", r);
 
-    r = ((v matches 4'b0000) &&& bump()) ? a : b;
+    r = v matches 4'b0000 &&& bump() ? a : b;
     $display("short: calls=%0d r=%b", calls, r);
 
-    r = ((v matches 4'b1010) &&& bump()) ? a : b;
+    r = v matches 4'b1010 &&& bump() ? a : b;
     $display("called: calls=%0d r=%b", calls, r);
   end
 endmodule

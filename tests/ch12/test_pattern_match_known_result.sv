@@ -14,12 +14,16 @@
 // value, 0 or 1, and cannot be x or z even when the value and the pattern
 // contain such bits; a successful match binds each pattern identifier to the
 // corresponding part of the value with an ordinary procedural assignment,
-// that is, as a copy of the value at that moment. The match of v = 4'b1x0z
-// against the same bits succeeds and against 4'b1x01 fails, both as known
-// values; 4'b1?0z is 4'b1z0z, so the x in v does not equal its z bit and the
-// match fails, because ? is a z digit and not a wildcard here (§12.6.1 gives
-// the wildcard comparisons to casez and casex). .n binds n to the whole value
-// and changing v afterwards does not change n.
+// that is, as a copy of the value at that moment. A "value matches pattern"
+// clause is a cond_pattern and not an expression, so it cannot be the right
+// side of an assignment; the result is tested in a conditional expression,
+// whose predicate is a cond_predicate, or in an if, whose condition is one
+// too. The match of v = 4'b1x0z against the same bits succeeds and
+// against 4'b1x01 fails, both as known values; 4'b1?0z is 4'b1z0z, so the x
+// in v does not equal its z bit and the match fails, because ? is a z digit
+// and not a wildcard here (§12.6.1 gives the wildcard comparisons to casez
+// and casex). .n binds n to the whole value and changing v afterwards does
+// not change n.
 
 module test_pattern_match_known_result;
   logic [3:0] v;
@@ -27,13 +31,13 @@ module test_pattern_match_known_result;
 
   initial begin
     v = 4'b1x0z;
-    r = (v matches 4'b1x0z);
+    r = v matches 4'b1x0z ? 1'b1 : 1'b0;
     $display("same: %b unknown=%b", r, $isunknown(r));
-    r = (v matches 4'b1x01);
+    r = v matches 4'b1x01 ? 1'b1 : 1'b0;
     $display("diff: %b unknown=%b", r, $isunknown(r));
-    r = (v matches 4'b1?0z);
+    r = v matches (4'b1?0z) ? 1'b1 : 1'b0;
     $display("q is z: %b", r);
-    r = (v matches .*);
+    r = v matches .* ? 1'b1 : 1'b0;
     $display("wildcard: %b", r);
     v = 4'b10x1;
     if (v matches .n) begin

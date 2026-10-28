@@ -11,11 +11,16 @@
 :expected_stdout: @test_conditional_predicate_and_integral_branch.expected
 */
 // IEEE 1800-2023 §11.4.11: the cond_predicate is a list of expression or
-// matches-pattern terms joined by &&&. The first two conditionals use a
-// matches pattern term and an expression term together. The last one pairs
-// the integral branch 8'd5 with an enum branch, which is implicitly
-// convertible to integral, so the enum is converted and the ambiguous
-// predicate combines the two integral values bit by bit with Table 11-20.
+// matches-pattern terms joined by &&&. A term of the form "expression matches
+// pattern" is a cond_pattern and is not an expression, so the terms are
+// neither wrapped as a parenthesized expression nor joined with && or ||.
+// The first two conditionals use a matches pattern term and an expression
+// term together. x is 4'b1x01, and a constant pattern is compared with case
+// equality (§12.6), so the pattern 4'b1x01 matches it exactly while 4'b0x01
+// fails in its most significant bit. The last conditional pairs the integral
+// branch 8'd5 with an enum branch, which is implicitly convertible to
+// integral, so the enum is converted and the ambiguous predicate combines the
+// two integral values bit by bit with Table 11-20.
 //
 // Neither release compiles the &&& predicate here, so the expectation
 // follows 11.4.11.
@@ -34,11 +39,11 @@ module test_conditional_predicate_and_integral_branch;
   int r;
 
   initial begin
-    y = ((x matches 4'b1?01) &&& (2 > 1)) ? 4'd7 : 4'd8;
+    y = x matches 4'b1x01 &&& (2 > 1) ? 4'd7 : 4'd8;
     $display("match=%0d", y);
-    y = ((x matches 4'b0?01) &&& (2 > 1)) ? 4'd7 : 4'd8;
+    y = x matches 4'b0x01 &&& (2 > 1) ? 4'd7 : 4'd8;
     $display("nomatch=%0d", y);
-    r = ((1 == 1) &&& (2 == 2)) ? 10 : 20;
+    r = (1 == 1) &&& (2 == 2) ? 10 : 20;
     $display("andand=%0d", r);
     c = 1'bx;
     r8 = c ? 8'd5 : green;
