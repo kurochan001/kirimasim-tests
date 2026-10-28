@@ -7,8 +7,8 @@
 - 結果: 手元の実行記録（JSON、7,740 本、fail 462）
 - 関連: kirimasim の [失敗の再解析](https://github.com/kurochan001/kirimasim/blob/main/docs/kirimasim_failure_analysis_2026-10-28.md)、[非 slang のトリアージ](https://github.com/kurochan001/kirimasim/blob/main/docs/kirimasim_nonslang_triage_2026-10-28.md)
 
-> この記録は判断の記録であり、期待値・テストはまだ変更していません。
-> 修正は規格の節を根拠に、期待値の変更だけを別の PR に分けます。
+> この記録は判断の記録です。修正は `docs/test-side-fixes-20261028.md` にまとめ、
+> 規格の節を根拠にテストと期待値を直しました。
 
 ## 1. Issue 別の件数
 
@@ -79,6 +79,8 @@
   宣言を checker body に移す書き換えにしてから確定する。
 - Issue #13（formal テストの誤実行）と #14（kirimasim の分類順）は
   [ランナー選択の修正](runner-selection-20261028.md)で対応した。
+- テスト側の #6–#12、#15–#19 は
+  [テスト側の修正](test-side-fixes-20261028.md)で対応した。
 
 ## 4. 関連
 

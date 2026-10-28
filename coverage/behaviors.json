@@ -11433,7 +11433,7 @@
           "observation": "include ファイルで、最後の1文字(x と y)だけが違う1024文字の名前の変数を2つ宣言して 11 と 22 で初期化し、1024文字の名前の named block で x を1増やして x=12 y=22 を表示する。%m によるブロックの階層名の長さ 1056(モジュール名・ドット・1024文字)と最後の文字 z も表示する。 区別: 1024文字未満で名前を切り詰める誤実装では x と y が同じ名前の再宣言となりエラーになるか、x と y を区別できず x=12 y=22 が変わる。1024文字を受け付けず長さ超過のエラーを出す誤実装はコンパイルに失敗する。ブロック名を切り詰めれば path length が 1056 から変わる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "88704fc450ab186a55cb3fc0afd7f13d5e7b74c813de3410596306495fcdacab",
+          "inputs_sha256": "15d46c9c7cde13e72993a78fe2cc0cba4126455923da21532f8416671b0b5a6a",
           "evidence": [
             {
               "file": "tests/ch5/test_identifier_1024_characters.sv",
@@ -16271,7 +16271,7 @@
           "observation": "属性インスタンスを、モジュール宣言、net・変数・parameter・localparam・typedef・function・task 宣言、連続代入、モジュールインスタンスと名前付きポート接続、ANSI ポート宣言、always_comb、initial、ループ generate と条件 generate とその項目、class 宣言とメンバ、interface と package とその項目、および代入・if・case・for・repeat・名前付きブロック・task 呼び出しの各文の前に置き、v=9 n=9 ob=0 inc=4 と gen=1 class=7 t=4 cv=9 を出力する。 区別: いずれかの許された前置位置を拒否する実装はコンパイルに失敗して出力に達しない。任意名の属性は値を変えないため、位置を受理して同じ値で動くことが観測であり、受理しない実装だけが出力を欠く。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "7d00033b71e5b45b3a0da8a11f699a34bf2e76c95af4d3f464f5371ba34cfe51",
+          "inputs_sha256": "e67e88bda8cefee33b07e6bfe2353ce37eb2de9a0ef88dd378172690e9345bb7",
           "evidence": [
             {
               "file": "tests/ch5/test_attribute_prefix_positions.sv",
@@ -31713,7 +31713,7 @@
           "observation": "tagged union の void メンバ Invalid を tagged Invalid で構成し、tag=invalid と、続く Valid(7) の tag=valid n=7 を pattern matching で読む。 区別: void メンバを許さない実装は tag=invalid を出せず、タグと値の整合を検査しない実装は n=7 を別値にする。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "65a95363287b4e31efef005712d5f4f53f69ac52661da59eac542ba649e9fa62",
+          "inputs_sha256": "03ed9fe0082bf76d058902bdcb7be68ec25d9ed038642197098ecc5391e94844",
           "evidence": [
             {
               "file": "tests/ch6/test_void_return_and_tagged_union_void_member.sv",
@@ -44438,7 +44438,7 @@
           "observation": "A variable outside processes in a module, interface, program and checker is written at time zero and read by another process later as 3, 4, 5 and 6; the modules m_auto and other both use the name mv and print 3 and 9. 区別: A per-process automatic variable would read its default value, and a shared name would make the two module values interfere.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "d1a5985f87710f2d6cf4a17ee45585d46ee8f4372ac4623b0a8aaf866e042513",
+          "inputs_sha256": "78f88ee415fed9b939b8a3c766e0d59b765f945a4803c05ae9b445c8ed44eab0",
           "evidence": [
             {
               "file": "tests/ch6/test_design_element_static_lifetime.sv",
@@ -46976,15 +46976,15 @@
           "observation": "$bits(logic) が 1 であることを表示する。 区別: logic を 4 状態の 1 ビットとして扱わない実装は logic_bits を 1 以外にする。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "517336180943aee7beef3a513fed0a8fc3aa145edc9dcf5890925c9a5d1d4f20",
+          "inputs_sha256": "ef705fcf7254913f8b44c444a6da37ab9a8ed2518b275cc11a2cde64237cdaa6",
           "evidence": [
             {
               "file": "tests/ch6/test_packed_union_size_and_implicit_conversion.sv",
-              "contains": "$display(\"logic_bits=%0d union_bits=%0d\", $bits(logic), $bits(uun_t));"
+              "contains": "$display(\"logic_bits=%0d union_bits=%0d\", $bits(logic), $bits(pun_t));"
             },
             {
               "file": "tests/ch6/test_packed_union_size_and_implicit_conversion.expected",
-              "contains": "logic_bits=1 union_bits=16"
+              "contains": "logic_bits=1 union_bits=8"
             }
           ]
         }
@@ -47121,7 +47121,7 @@
           "observation": "packed struct へ 8'h5A を明示キャストなしで代入し、hi=5 lo=a、さらに 8'(s) の明示キャストも 5a となることを表示する。 区別: packed 型を整数として暗黙変換しない実装は s_hi/s_lo を x にし、ビット順を逆にする実装は hi=a lo=5 を出す。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "517336180943aee7beef3a513fed0a8fc3aa145edc9dcf5890925c9a5d1d4f20",
+          "inputs_sha256": "ef705fcf7254913f8b44c444a6da37ab9a8ed2518b275cc11a2cde64237cdaa6",
           "evidence": [
             {
               "file": "tests/ch6/test_packed_union_size_and_implicit_conversion.sv",
@@ -47817,18 +47817,18 @@
       "checks": [
         {
           "test": "tests/ch6/test_packed_union_size_and_implicit_conversion.sv",
-          "observation": "$bits で 8 ビットと 16 ビットのメンバを持つ unpacked union の大きさが最大メンバの 16 になることを表示する。 区別: 最初のメンバや合計で union の大きさを決める実装は union_bits を 8 や 24 にし、16 と一致しない。",
+          "observation": "$bits(pun_t) が 8 で、8 ビットのメンバを持つ packed union の大きさが最大メンバの 8 になることを表示する。 区別: 最初のメンバや合計で union の大きさを決める実装は union_bits を 8 や 24 にし、8 と一致しない。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "517336180943aee7beef3a513fed0a8fc3aa145edc9dcf5890925c9a5d1d4f20",
+          "inputs_sha256": "ef705fcf7254913f8b44c444a6da37ab9a8ed2518b275cc11a2cde64237cdaa6",
           "evidence": [
             {
               "file": "tests/ch6/test_packed_union_size_and_implicit_conversion.sv",
-              "contains": "typedef union {"
+              "contains": "$display(\"logic_bits=%0d union_bits=%0d\", $bits(logic), $bits(pun_t));"
             },
             {
               "file": "tests/ch6/test_packed_union_size_and_implicit_conversion.expected",
-              "contains": "union_bits=16"
+              "contains": "union_bits=8"
             }
           ]
         }
@@ -50353,7 +50353,7 @@
           "observation": "packed signed, packed with a packed dimension, soft, soft with a packed dimension, tagged with a void member, and packed tagged unions are declared; overlapping members, indexed packed dimensions, soft members and tagged pattern matches print their values. 区別: a tool that rejects one of the forms cannot elaborate the design, and one that lays members out differently prints another packed or member value.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b200850981286869b9b7cfb1ee6532acae2e0cefaa087e6bcc6686897ee85de2",
+          "inputs_sha256": "2d335d6ed20b79b7366c7f5a44391794466a0fdc6a19918ee6e7b1ad7f5835cb",
           "evidence": [
             {
               "file": "tests/ch7/test_union_grammar_forms.sv",
@@ -69112,7 +69112,7 @@
           "observation": "virtual で parameter 付きの base_c と、:final・parameter・extends の constructor 引数・implements 2 個・end label を持つ leaf_c を宣言し、継承値・interface method・class scope の parameter 値を表示する。 区別: class header の virtual/final/parameter/extends 引数/implements/end label のいずれかを受理しない実装ではコンパイルできず、継承や method 呼出しの値を誤る実装では expected の area/name 行が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "af931e6b899b374c707c82830b2d543188ef62a6e9a2ddcbebbf3e60aaa96d17",
+          "inputs_sha256": "7a40092a289caa23e5ee6b18c0838b52d53e429e822637323dc7fbdd96118276",
           "evidence": [
             {
               "file": "tests/ch8/test_class_declaration_grammar_forms.sv",
@@ -69148,7 +69148,7 @@
           "observation": "leaf_c に属性付きプロパティ (* note = \"attribute\" *) int attr_prop、constraint c_r、入れ子クラス node_c、入れ子の interface class inner_if、埋め込み covergroup cg、localparam LPV と class item の parameter PV、空の項目 ; を置き、attr_prop=2、LPV=11、PV=12(クラススコープでも12)、node v=9、randomize ok=1 r<10=1 を表示する。 区別: いずれかの種類の class item(属性付き項目、入れ子の class / interface class、covergroup、parameter / localparam、空項目)を受理しない実装は受理できず、制約や値の扱いを誤る実装は 'attr_prop=2 LPV=11 PV=12 scoped PV=12 node v=9' や 'randomize ok=1 r<10=1' が変わる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "af931e6b899b374c707c82830b2d543188ef62a6e9a2ddcbebbf3e60aaa96d17",
+          "inputs_sha256": "7a40092a289caa23e5ee6b18c0838b52d53e429e822637323dc7fbdd96118276",
           "evidence": [
             {
               "file": "tests/ch8/test_class_declaration_grammar_forms.sv",
@@ -69196,7 +69196,7 @@
           "observation": "class 内の function new(int w0 = W)、extern function new(int extra) の prototype、class 外の function leaf_c::new で宣言文の後に文を置く形、および明示 super.new のない constructor を実行する。 区別: constructor に戻り型を要求する、extern constructor prototype を拒否する、宣言と文の順を誤る、または暗黙 super.new を挿入しない実装では、コンパイルか count の値（made 行）が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "af931e6b899b374c707c82830b2d543188ef62a6e9a2ddcbebbf3e60aaa96d17",
+          "inputs_sha256": "7a40092a289caa23e5ee6b18c0838b52d53e429e822637323dc7fbdd96118276",
           "evidence": [
             {
               "file": "tests/ch8/test_class_declaration_grammar_forms.sv",
@@ -69236,7 +69236,7 @@
           "observation": "dynamic override specifier を文法の位置(function/task の直後)に、virtual task :initial tick、virtual function :extends int area、function :extends :final int scale、extern のプロトタイプ extern virtual function :final string name として置き、tick=5、area=9、scale=2(基底 handle からも2)、name=leaf を表示する。 区別: :initial / :extends / :final の各指定子やその組み合わせ、prototype での使用を受理しない実装は受理できず、:extends 付きを override として扱わない誤実装では 'base scale=2' が1になる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "af931e6b899b374c707c82830b2d543188ef62a6e9a2ddcbebbf3e60aaa96d17",
+          "inputs_sha256": "7a40092a289caa23e5ee6b18c0838b52d53e429e822637323dc7fbdd96118276",
           "evidence": [
             {
               "file": "tests/ch8/test_class_declaration_grammar_forms.sv",
@@ -69376,7 +69376,7 @@
           "observation": "class item として rand/randc、static local、protected const、localparam/parameter、pure virtual、virtual :extends/:final、extern、constraint、nested class、interface class、covergroup を宣言し、randomize と各値を表示する。 区別: 許可された property/const/method の修飾子形を受理しない実装はコンパイルできず、rand/randc や修飾子の意味を誤る実装では randomize 行や値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "af931e6b899b374c707c82830b2d543188ef62a6e9a2ddcbebbf3e60aaa96d17",
+          "inputs_sha256": "7a40092a289caa23e5ee6b18c0838b52d53e429e822637323dc7fbdd96118276",
           "evidence": [
             {
               "file": "tests/ch8/test_class_declaration_grammar_forms.sv",
@@ -115916,7 +115916,7 @@
           "observation": "Under an x predicate, the integral branch 8'd5 and the enum branch green are converted to integral and combined bit by bit into 00000x01. 区別: Without the implicit conversion to integral, the branch pair would not be legal or would use the enum default instead of the combined 00000x01.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c58653d9380dde5b7f0167516c213686e3ccd6b135865ce6845183dc364e491b",
+          "inputs_sha256": "8fa6e04c72e18be00bf67abdd624b7dd3df720d802185291c7c7c13dbcd7584c",
           "evidence": [
             {
               "file": "tests/ch11/test_conditional_predicate_and_integral_branch.sv",
@@ -125016,7 +125016,7 @@
           "observation": "tagged union 変数 b を tagged Valid(42) で初期化し、c を tagged Valid(7)、a を値なしの tagged Invalid で初期化する。case (b) matches の tagged Valid(v) が v=42 を取り出して payload 42 を表示し、void メンバの a は void none になる。選択した int メンバに合法な初期化子 42 が入ることを観測する。 区別: tagged 式の初期化子を無視する実装では b の Valid 値が 0 や x になり payload 42 が変わらない。void メンバに値があるものとして扱う実装では tagged Invalid の照合が失敗して void none が出ない。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "cd7c6dd47b3b5a5cc5ac557445e1beb55531fb53811f69000c1426bc50be7c40",
+          "inputs_sha256": "90af398e4637dfcdec44d1d4133701a9e8e23fff8c60c839a37956d502655008",
           "evidence": [
             {
               "file": "tests/ch11/test_tagged_union_expression_and_matches_precedence.sv",
@@ -125024,7 +125024,7 @@
             },
             {
               "file": "tests/ch11/test_tagged_union_expression_and_matches_precedence.sv",
-              "contains": "      tagged Valid(v): $display(\"payload %0d\", v);"
+              "contains": "      tagged Valid .v: $display(\"payload %0d\", v);"
             },
             {
               "file": "tests/ch11/test_tagged_union_expression_and_matches_precedence.expected",
@@ -128876,11 +128876,11 @@
           "observation": "v = 4'b1x0z matches 4'b1x0z with result 1 and $isunknown 0 and does not match 4'b1x01 or 4'b1?0z, also with a known 0; .* matches; .n binds n to 4'b10x1 and changing v afterwards leaves n=10x1, which prints as bound n=10x1 v=0000. 区別: A tool that returned x for a match over x or z, treated ? as a wildcard, or bound n by reference rather than by an ordinary procedural copy would print a different result or n.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a366c32354c3e67f914af33c0fa4e2b449643d30e627fe1187f5c46d42197cc0",
+          "inputs_sha256": "d08e1fffc0a6247fa3df0feaebc0b0112a8b39668484f14db0253a4db739d914",
           "evidence": [
             {
               "file": "tests/ch12/test_pattern_match_known_result.sv",
-              "contains": "r = (v matches 4'b1x0z);"
+              "contains": "r = v matches 4'b1x0z ? 1'b1 : 1'b0;"
             },
             {
               "file": "tests/ch12/test_pattern_match_known_result.sv",
@@ -129551,11 +129551,11 @@
           "observation": "The predicate ((v matches .n) &&& xp) with xp = 1'bx gives the bit-by-bit merge of a=4'b1010 and b=4'b1100, printed as 1xx0; xp = 1 gives 1010 and xp = 0 gives 1100. 区別: A tool that treated an ambiguous predicate as false or true would print 1100 or 1010, and one that combined the branches with a bitwise operator would print 1110.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "8d8bfc9ea531d7dbcf522c188e1700dfb59951ae2dd91a0ac99741b7e1a7c7bf",
+          "inputs_sha256": "92ef3026f9cbcab052730eda6e08c63014d778583960ac1b9a9ccb64ff2a443b",
           "evidence": [
             {
               "file": "tests/ch12/test_pattern_conditional_predicate.sv",
-              "contains": "r = ((v matches .n) &&& xp) ? a : b;"
+              "contains": "r = v matches .n &&& xp ? a : b;"
             },
             {
               "file": "tests/ch12/test_pattern_conditional_predicate.expected",
@@ -129587,11 +129587,11 @@
           "observation": "The identifier n bound by the first clause is used in the second clause (n == 4'b1010) and in the true branch (n + 1), so the predicate is true and the result is 1011. 区別: If the binding were confined to the first pattern or deferred, n would be unassigned and the printed result would not be 1011.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "8d8bfc9ea531d7dbcf522c188e1700dfb59951ae2dd91a0ac99741b7e1a7c7bf",
+          "inputs_sha256": "92ef3026f9cbcab052730eda6e08c63014d778583960ac1b9a9ccb64ff2a443b",
           "evidence": [
             {
               "file": "tests/ch12/test_pattern_conditional_predicate.sv",
-              "contains": "r = ((v matches .n) &&& (n == 4'b1010)) ? n + 1 : 4'b1111;"
+              "contains": "r = v matches .n &&& n == 4'b1010 ? n + 1 : 4'b1111;"
             },
             {
               "file": "tests/ch12/test_pattern_conditional_predicate.expected",
@@ -129623,11 +129623,11 @@
           "observation": "With (v matches 4'b0000) &&& bump() the failing first clause leaves calls=0 and the result 1100, and with (v matches 4'b1010) &&& bump() the second clause runs, so calls=1 and the result is 1010. 区別: A tool that evaluated all clauses before combining them would call bump in the first case and print calls=1.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "8d8bfc9ea531d7dbcf522c188e1700dfb59951ae2dd91a0ac99741b7e1a7c7bf",
+          "inputs_sha256": "92ef3026f9cbcab052730eda6e08c63014d778583960ac1b9a9ccb64ff2a443b",
           "evidence": [
             {
               "file": "tests/ch12/test_pattern_conditional_predicate.sv",
-              "contains": "r = ((v matches 4'b0000) &&& bump()) ? a : b;"
+              "contains": "r = v matches 4'b0000 &&& bump() ? a : b;"
             },
             {
               "file": "tests/ch12/test_pattern_conditional_predicate.expected",
@@ -145491,7 +145491,7 @@
           "observation": "シミュレーションで16.5.1-EXTRACT-CHECKER-HISTORYを観測する。A checker free variable v (rand, kept active by an assume statement that references it) is observed at every tick. The checker records the current value of v at each tick and checks at the next tick that $past(v) equals the recorded value, and records $future_ 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "240c316cb6636bbc51af40f0bfc97748a4b026acad16ab6fc2cb12b1a4b36844",
+          "inputs_sha256": "f0cd3ddf8fde59a689290fc2270aabc7e8da48241099b00e3fcb1796b09353a7",
           "evidence": [
             {
               "file": "tests/ch16/test_ch16_sim_checker_history.sv",
@@ -148728,7 +148728,7 @@
           "observation": "untyped formal x に a | b を渡し、本体内の x + k を評価する。actual が括弧付きの式項として代入されるので (a | b) + 1 = 16 になる。a + b を x に渡し x == 0 を評価する s_self は、self-determined の 4 bit の和 0 を cast するので真になる。 区別: 括弧を保存しない実装は prec を 15（a | (b + 1)）にし、self-determined 型への cast をしない実装は self を 0 にする。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "910cf8b63b2facb923d01e6a17fe6ae9e6423d1d4c0aa86bf20a0312b97a9c45",
+          "inputs_sha256": "f5fb291fababace8bc5ab589aa5a1b89622711204d3f50dc6b8d042e20065391",
           "evidence": [
             {
               "file": "tests/ch16/test_sequence_formal_arguments_substitution.sv",
@@ -158806,15 +158806,15 @@
           "observation": "c1 の tick から評価する c2 クロックの nexttime 系は、c2 の tick である 5 ではその tick に、c2 の tick でない 27 では次の c2 の tick 35 に整列し、そこを0番目として数える。nexttime[0] n0 は 5 と 35 の値を調べて 5:P 35:P、nexttime n1 と nexttime[1] n1 と s_nexttime[1] n1 は整列した tick の次(15 と 45)を調べて 15:P 45:P になる。27 の前の c2 の tick 25 の n0 は 0、35 の n1 は 0。 区別: 整列を行わず評価時点から次の c2 の tick を1番目と数える誤実装では、27 の試行の nexttime / nexttime[1] が 35 の n1 = 0 で失敗し 35:F になる。直前の c2 の tick 25 に整列する誤実装では nexttime[0] が 25 の n0 = 0 で失敗する。nexttime[0] を整列演算子として扱わない誤実装では 27 の試行の結果が 35:P 以外になる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "2a03bf60c82442e8e57b7388c5ff05b792a6ff68127863349a7dea45b914fda2",
+          "inputs_sha256": "057625d7bdfc1c3f41888ad267752a6e2f1e2d300cdbfd6dde3dd46dcb8cac66",
           "evidence": [
             {
               "file": "tests/ch16/test_nexttime_always_eventually_alignment.sv",
-              "contains": "  a0: assert property (@(posedge c1) a and (@(posedge c2) nexttime[0] n0))"
+              "contains": "  a0: assert property (@(posedge c1) a |-> @(posedge c2) nexttime[0] n0)"
             },
             {
               "file": "tests/ch16/test_nexttime_always_eventually_alignment.sv",
-              "contains": "  a2: assert property (@(posedge c1) a and (@(posedge c2) nexttime[1] n1))"
+              "contains": "  a2: assert property (@(posedge c1) a |-> @(posedge c2) nexttime[1] n1)"
             },
             {
               "file": "tests/ch16/test_nexttime_always_eventually_alignment.sv",
@@ -158962,15 +158962,15 @@
           "observation": "c2 クロックの always [0:1] al と s_always [0:1] al は、c1 の tick 5 では 5 と 15、c2 の tick でない 27 では整列した 35 と次の 45 の al を調べ、どちらも 1 なので 15:P 45:P になる。直前の c2 の tick 25 と 55 の al は 0。 区別: 整列を行わず直前の tick 25 から数える誤実装では 27 の試行が al(25) = 0 で失敗する。整列した tick を0番目に数えず 45 と 55 を調べる誤実装では al(55) = 0 で失敗し 55:F になる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "2a03bf60c82442e8e57b7388c5ff05b792a6ff68127863349a7dea45b914fda2",
+          "inputs_sha256": "057625d7bdfc1c3f41888ad267752a6e2f1e2d300cdbfd6dde3dd46dcb8cac66",
           "evidence": [
             {
               "file": "tests/ch16/test_nexttime_always_eventually_alignment.sv",
-              "contains": "  a4: assert property (@(posedge c1) a and (@(posedge c2) always [0:1] al))"
+              "contains": "  a4: assert property (@(posedge c1) a |-> @(posedge c2) always [0:1] al)"
             },
             {
               "file": "tests/ch16/test_nexttime_always_eventually_alignment.sv",
-              "contains": "  a5: assert property (@(posedge c1) a and (@(posedge c2) s_always [0:1] al))"
+              "contains": "  a5: assert property (@(posedge c1) a |-> @(posedge c2) s_always [0:1] al)"
             },
             {
               "file": "tests/ch16/test_nexttime_always_eventually_alignment.sv",
@@ -160782,7 +160782,7 @@
           "observation": "property p_typed は bit [3:0] の typed formal と sequence 型の formal を持ち、actual の byte 8'ha5 を 4'h5 に cast して sq |-> (v == 4'h5) を評価する。go=1 の tick 5 で非空虚に 1 回成功する。 区別: typed formal の cast をしない実装は右辺を 4'h5 と比較して失敗し、typed_pass が 0・typed_fail が 1 になる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "910cf8b63b2facb923d01e6a17fe6ae9e6423d1d4c0aa86bf20a0312b97a9c45",
+          "inputs_sha256": "f5fb291fababace8bc5ab589aa5a1b89622711204d3f50dc6b8d042e20065391",
           "evidence": [
             {
               "file": "tests/ch16/test_sequence_formal_arguments_substitution.sv",
@@ -160883,11 +160883,11 @@
           "observation": "property p_loc は local input int の w に既定 actual 4 を持ち、z=2 を渡す。既定のままの instance は 6、w=10 を渡す instance は 12 を記録し、和が 18 になる。 区別: local formal の既定 actual を使わない実装は local sum を 12 にし、instance ごとに新しい copy を作らない実装は値を混ぜる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "910cf8b63b2facb923d01e6a17fe6ae9e6423d1d4c0aa86bf20a0312b97a9c45",
+          "inputs_sha256": "f5fb291fababace8bc5ab589aa5a1b89622711204d3f50dc6b8d042e20065391",
           "evidence": [
             {
               "file": "tests/ch16/test_sequence_formal_arguments_substitution.sv",
-              "contains": "  property p_loc(local input int w = 4, input int z);"
+              "contains": "  property p_loc(local input int w = 4, local input int z);"
             },
             {
               "file": "tests/ch16/test_sequence_formal_arguments_substitution.expected",
@@ -162046,11 +162046,11 @@
           "observation": "実引数付き instance s_pair(u,v).matched が c1 の終点 35/55 の後の最初の c2 ティック 38/68 で真になることを観測する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "d85c508f70d8d7eea120eee91f2e16b1a2b1ad09fe59a7b48df200542d6a7d94",
+          "inputs_sha256": "1db04fdc8b4c376c2ae57c89128d55b159173b7a25b25be3f6cd6935b4342b71",
           "evidence": [
             {
               "file": "tests/ch16/test_triggered_matched_multiclock.sv",
-              "contains": "c_mat: cover sequence (@(posedge c2) r ##[1:2] s_pair(u, v).matched ##1 q)"
+              "contains": "(@(posedge c2) (r ##[1:2] 1'b1) ##0 s_pair(u, v).matched ##1 q)"
             },
             {
               "file": "tests/ch16/test_triggered_matched_multiclock.expected",
@@ -167068,7 +167068,7 @@
           "observation": "シミュレーションで16.16-EXTRACT-CLOCKING-SINGLEを観測する。A property declared in clocking block cb with two clocking events of its own is multiclocked and is illegal under 16.16 rule b; p_ok, which has no clock of its own, is the legal single-clock form treated as though the clocking block's event were its leading cl 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c210d7db449ce758e5e02b9622993708c9c4ac0b72a4dc2580956f3e2c14db17",
+          "inputs_sha256": "d9c11782fd338a1e49c6c33ea3208cc6dcb49728431fa32eb04e04f750cac063",
           "evidence": [
             {
               "file": "tests/ch16/test_ch16_sim_clocking_single.sv",
@@ -168595,7 +168595,7 @@
           "observation": "checker の assertion の pass/fail アクションブロックで checker の出力変数 act_pass/act_fail を更新し、final 手続きで数える。default disable iff (d==15) のため 45 のエッジでは動作しないので pass=1・fail=3 になる。 区別: アクションブロックを checker action block として扱わない実装では act_pass/act_fail が更新されず、pass=0 fail=0 になる。また 45 のエッジを数える実装は default disable iff も action block に効かないので pass=2 fail=3 になり、期待値と区別できる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9f5e193f08b281af42f9961d1e1b86259befcde3e6c230a25a6e7c5c50e8ef33",
+          "inputs_sha256": "644b941a9045da529692e171b9c0fc358868b8d48bff2c6634655b3ef038e547",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_body_items.sv",
@@ -168639,7 +168639,7 @@
           "observation": "checker body に let・sequence・property・function・checker 宣言と実体化・covergroup 宣言と実体化・checker 変数と continuous assign・default clocking・default disable iff・initial・always_comb・always_latch・always_ff・final・generate block・concurrent/deferred assertion を 1 つずつ置き、最終行に各要素の結果をまとめて表示する。 区別: いずれかの要素を持てない実装は構文エラーになる。要素を取り違えると対応する数値が変わる: comb=14 は always_comb が現在値で d^en を出したこと、latch=15 は always_latch が en=1 の間 d を保持したこと、ff=46 は always_ff がサンプル値 cur を加算したこと、gen=5・nested=2 は generate block と入れ子 checker の実体化、def=1 は deferred assertion、seq=1・prop=2 は sequence/let と default clocking/disable の効果を示す。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9f5e193f08b281af42f9961d1e1b86259befcde3e6c230a25a6e7c5c50e8ef33",
+          "inputs_sha256": "644b941a9045da529692e171b9c0fc358868b8d48bff2c6634655b3ef038e547",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_body_items.sv",
@@ -168683,7 +168683,7 @@
             },
             {
               "file": "tests/ch17/test_checker_body_items.sv",
-              "contains": "a_def: assert #0 (d != 4'd9) else def_fail = def_fail + 1;"
+              "contains": "a_def: assert #0 (d != 4'd9) else bump_def();"
             },
             {
               "file": "tests/ch17/test_checker_body_items.sv",
@@ -168785,7 +168785,7 @@
           "observation": "compilation unit、package、interface、program、module、generate block、checker の7つのスコープに checker を宣言し、それぞれを実体化して出力 cu=1 pkg=5 outer=1 grammar=1 gen=1 と ifc=1 prog=1 を固定時刻に読む。 区別: 列挙されたスコープのどれかで宣言できない実装では、そのスコープの出力が現れず、cu=... の行か ifc/prog の行が変わる。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "6e17341d20aa42e8a22befdfb84398ec66ec7f3c308997b992c76a429f4f0af7",
+          "inputs_sha256": "8a47cdb77b321d4122cc54cea96c71a9ea626e821ec55daebc32e3ce3fa13cab",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_declaration_scope_kinds.sv",
@@ -169499,7 +169499,7 @@
           "observation": "checker proc_assert の always_ff 手続きの中で、if (en) の下に concurrent assertion p1 を書く。16.14.6 の procedural concurrent assertion として、手続きがその文に到達したときだけ queue に入り、その時刻の Observed 領域で評価される。 区別: 手続き内の concurrent assertion を静的な assertion として常時監視する実装では、d=9 のエッジ 15, 25, 45 すべてで失敗し internal=3 になる。到着時だけ queue に入れる実装では en=1 の 25 だけが失敗し internal=1 になる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9f457966a5d91cc21a14f440c15364faa188b34ec21c5f75596423876325cceb",
+          "inputs_sha256": "34c657d9995a7ad1ded65f1e49630033acdc9d88730ac8c6833a8acaa7fa17ae",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_assertion_placement.sv",
@@ -169539,7 +169539,7 @@
           "observation": "outer_chk が inner_chk を静的に実体化し、inner_chk は静的な concurrent assertion i1 を持つ。outer_chk を静的に実体化した u_outer_static と、always 手続きの中で実体化した u_outer_proc を比べる。入れ子の static assertion は親の文脈で扱われ、最上位の実体が手続きで訪問されると procedural になる。 区別: 入れ子の static assertion を常に静的に扱う実装では n_proc が n_static と同じ 3 になる。親の実体化に従う実装では、procedural な親が訪問された 25 のエッジだけを数え n_proc=1 になる。bad は 5, 25, 45 のエッジで 1 なので、n_static=3 との差が入れ子の扱いを示す。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9f457966a5d91cc21a14f440c15364faa188b34ec21c5f75596423876325cceb",
+          "inputs_sha256": "34c657d9995a7ad1ded65f1e49630033acdc9d88730ac8c6833a8acaa7fa17ae",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_assertion_placement.sv",
@@ -169731,7 +169731,7 @@
           "observation": "手続き中で実体化した checker の静的 concurrent assertion が到達したクロックだけで失敗し (cfails=1)、静的 deferred assertion が到達時に queue に入り Active の fails=0 の後で成熟する (t=15 で fails=1) ことを読む。 区別: 到達していないクロックでも assertion を検査する実装では cfails が増え、deferred assertion を到達時に queue に入れない実装では t=5 の直後に fails が1になる。",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "eaa5082889813e35f989914a8cc47382ed7871bf44556a9eb5f9c1a9297dfe1f",
+          "inputs_sha256": "e1b2840a91cf3bf6ba2d41179f417368c42577ea7bff1d979ac32e1f304fd99b",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_procedural_deferred_assertion.sv",
@@ -169771,7 +169771,7 @@
           "observation": "静的に実体化した checker static_asserts が concurrent assertion c1 と deferred assertion d1 を持つ。c1 は 15, 25, 45 のエッジで d=9 のため失敗し、d1 は式が変化した 6, 18, 38 の時点で失敗する（エッジではない）。 区別: 静的な checker の concurrent assertion を先頭のクロックイベントで 1 回だけ始める実装では concurrent=1 になる。deferred assertion をクロックエッジでだけ監視する実装では deferred=2（6, 18, 38 のうち 38 の後はエッジがないため）や 0 になり、式の変化で監視する実装だけが 3 になる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9f457966a5d91cc21a14f440c15364faa188b34ec21c5f75596423876325cceb",
+          "inputs_sha256": "34c657d9995a7ad1ded65f1e49630033acdc9d88730ac8c6833a8acaa7fa17ae",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_assertion_placement.sv",
@@ -169779,7 +169779,7 @@
             },
             {
               "file": "tests/ch17/test_checker_assertion_placement.sv",
-              "contains": "d1: assert #0 (d != 4'd9) else def_fail = def_fail + 1;"
+              "contains": "d1: assert #0 (d != 4'd9) else bump_def();"
             },
             {
               "file": "tests/ch17/test_checker_assertion_placement.sv",
@@ -170125,7 +170125,7 @@
           "observation": "checker body_items が initial（@(posedge clk) 後の即時 assert）、always_comb、always_latch、always_ff、final の各手続きを持ち、final が comb=14 latch=15 ff=46 gen=5 nested=2 を表示する。 区別: checker 本体で initial/always_comb/always_latch/always_ff/final のいずれかが許されない実装ではコンパイルできず、値も出ない。各手続きが実行されることが最終行の各値に現れる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9f5e193f08b281af42f9961d1e1b86259befcde3e6c230a25a6e7c5c50e8ef33",
+          "inputs_sha256": "644b941a9045da529692e171b9c0fc358868b8d48bff2c6634655b3ef038e547",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_body_items.sv",
@@ -186420,11 +186420,11 @@
           "observation": "One covergroup uses a typed and labeled coverpoint with an iff, value bins of a range list with $ and of a wildcard, bins[], bins[N], a transition bin, a default bin, ignore_bins, illegal_bins and a coverage option, a bin of a set expression and a default sequence. Before any sample the bins are 1 for the typed point, 8 for the point that has all the forms, 1 for the set-expression point, 1 for the transition point and 8 for the cross of the first two. 区別: A form that the tool did not accept would make the design illegal, and a form that created another number of bins would change one of these counts; counting the default bin, ignore_bins or illegal_bins would make the second count larger than 8.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "cc2d66fd70420f547be4bc9c284d9852428a50a908723e97deb21521f4059dc4",
+          "inputs_sha256": "2a2f5f332f0341da1e4193d3f2e00ace17e76ed5f8ef0bf89739efbcf82c1393",
           "evidence": [
             {
               "file": "tests/ch19/test_cg_bin_syntax_all_forms.sv",
-              "contains": "bins wc = wildcard {4'b0?1?};"
+              "contains": "wildcard bins wc = {4'b0?1?};"
             },
             {
               "file": "tests/ch19/test_cg_bin_syntax_all_forms.expected",
@@ -198606,7 +198606,7 @@
           "observation": "$size/$left/$right/$low/$high/$increment を、データ式 Ram とデータ型 int・byte・longint・Word・string の両方で呼ぶ。次元引数を省略した $size(Ram) と $left(Ram) が次元1を選び、明示した $size(Ram,1) と $size(Ram,2) が各次元を選ぶことを確認する。6関数すべての結果を整数として比較する。 区別: 型引数を受け付けない実装では $size(int) などがコンパイルできないか0 を返す。次元引数の既定を1としない実装では $size(Ram) が10 にならない。次元を明示した呼び出しが別の次元を選ぶ実装では Ram の1/2次元の値が入れ替わる。式と型の両方、既定次元と明示次元、6関数のすべてを同じテストで観測する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9ab8feca0ac9e0c12ea4cada2cc1643c64b3205c000e4304e493699e5ec8b160",
+          "inputs_sha256": "14525f64ae0c660385f9c4c35ea7a9f184a2f6a93150f837d324623df3318eb7",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_types_and_invalid.sv",
@@ -198800,7 +198800,7 @@
           "observation": "localparam int LP_WORD = $size(Word);、LP_RAM1 = $size(Ram,1);、LP_RAM2 = $size(Ram,2); を宣言し、それぞれ 16、10、16 になることを確認する。LP_WORD を使って logic [LP_WORD-1:0] uses_word を宣言し、その $bits が 16 になることも確認する。 区別: 固定サイズの型に対する問い合わせを定数式として受理しない実装では、localparam の宣言でコンパイルが止まるか、LP_WORD が0 や x になる。次元式が定数でないとして拒否する実装では LP_RAM2 が得られない。3つの localparam と、それを使ったベクタ幅16が、定数式での利用を観測する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9ab8feca0ac9e0c12ea4cada2cc1643c64b3205c000e4304e493699e5ec8b160",
+          "inputs_sha256": "14525f64ae0c660385f9c4c35ea7a9f184a2f6a93150f837d324623df3318eb7",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_types_and_invalid.sv",
@@ -198840,7 +198840,7 @@
           "observation": "unpacked 次元 [1:5][2:8] と packed 次元 [3:0][2:1] を持つ n について、$size(n,1)=5、$size(n,2)=7、$size(n,3)=4、$size(n,4)=2 を確認する。同じ次元を typedef packed_reg で宣言した pn でも同じ4値になる。次元1が最も遅く変化する [1:5]、次元4が最も速い [2:1] であることを、各次元のサイズの違いで示す。 区別: 次元番号を宣言順や速い順に付ける実装では、$size(n,1) が 2 や 4 になり、$size(n,3) が 5 や 7 になる。typedef を展開せずに番号を付ける実装では pn の値が n と食い違う。5/7/4/2 の4値が、unpacked を先に、packed を後に、それぞれ遅い順から番号付けたことを示す。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2e7a2792d870f0362bd74b8e632cdb9dcbe2024dcc39ace0fd3bc711a801bd80",
+          "inputs_sha256": "af2b060a2d7bba6cc3933de4895200956de67bb4bf5899abe8784cc551344a36",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_functions.sv",
@@ -198876,7 +198876,7 @@
           "observation": "$dimensions が、n（packed 2 + unpacked 2）で4、packed のみの pv で2、unpacked 配列 ua（int の packed 次元を含む）で2、動的配列 dyn で2、8ビットの v で1、string の s で1、int の iv で1、real の r で0 になることを確認する。 区別: packed と unpacked の合計を数えない実装では n が2、ua が1、dyn が1 になる。string や simple bit vector を1、real などの非配列型を0 としない実装では s/v/r の値が変わる。8つの値が、packed/unpacked/動的/string/simple bit vector/その他の各分類を分けて示す。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2e7a2792d870f0362bd74b8e632cdb9dcbe2024dcc39ace0fd3bc711a801bd80",
+          "inputs_sha256": "af2b060a2d7bba6cc3933de4895200956de67bb4bf5899abe8784cc551344a36",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_functions.sv",
@@ -198948,7 +198948,7 @@
           "observation": "固定次元について、Ram の1次元 [0:9] は left<right なので $increment=-1、2次元 [16:1] は left>right なので +1、int は +1 になることを確認する。動的配列 dyn と空のキュー q、要素を1つ入れた q のいずれも $increment=-1 になることを確認する。 区別: left と right の比較を逆にする実装では Ram の1次元と2次元の符号が入れ替わる。動的配列やキューに +1 を返す実装では dyn/q が1 になる。固定次元の両方向と、動的・キュー（空と非空）の -1 を分けて観測する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9ab8feca0ac9e0c12ea4cada2cc1643c64b3205c000e4304e493699e5ec8b160",
+          "inputs_sha256": "14525f64ae0c660385f9c4c35ea7a9f184a2f6a93150f837d324623df3318eb7",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_types_and_invalid.sv",
@@ -198985,22 +198985,18 @@
       "checks": [
         {
           "test": "tests/ch20/test_array_query_types_and_invalid.sv",
-          "observation": "次元を持たない real の変数 r に対する $left(r) と $size(r,1)、範囲外の次元を指定した $left(int,2)、$size(string,2)、$left(logic [7:0],2) が、いずれも32ビット全x になることを確認する。同じ real に対して $dimensions(r)=0、$unpacked_dimensions(r)=0 になることも確認する。 区別: 無効な次元に0 を返す実装では、5つの x 検査がすべて BAD になる。次元数関数まで x にする実装では $dimensions(r) と $unpacked_dimensions(r) が0 にならない。5つの無効な問い合わせが x を返し、次元数関数だけが定義どおり0 を保つことを同時に観測する。",
+          "observation": "範囲外の次元を指定した $left(int,2)、$size(string,2)、$left(logic [7:0],2) が、いずれも32ビット全x になることを確認する。20.7 の対象外である real の呼び出しは削除したため、この check は範囲外次元だけを観測する。 区別: 無効な次元に0を返す実装では3つの x 検査がすべて BAD になる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9ab8feca0ac9e0c12ea4cada2cc1643c64b3205c000e4304e493699e5ec8b160",
+          "inputs_sha256": "14525f64ae0c660385f9c4c35ea7a9f184a2f6a93150f837d324623df3318eb7",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_types_and_invalid.sv",
-              "contains": "    chkx(\"left(real)\", $left(r));"
-            },
-            {
-              "file": "tests/ch20/test_array_query_types_and_invalid.sv",
-              "contains": "    chk(\"dimensions(real)\", $dimensions(r), 0);"
+              "contains": "chkx(\"left(int,2)\", $left(int, 2));"
             },
             {
               "file": "tests/ch20/test_array_query_types_and_invalid.expected",
-              "contains": "ok   left(logic[7:0],2) = x"
+              "contains": "ok   left(int,2) = x"
             }
           ]
         }
@@ -199144,7 +199140,7 @@
           "observation": "int、byte、longint、integer の各変数について、$size が 32、8、64、32、$left が 31、7、63、31、$right が int で 0、$increment が int で 1 になることを確認する。各型が [幅-1:0] の1つの packed 次元として扱われることを、幅と両端の値で示す。 区別: predefined-width の整数を次元なしの型として扱う実装では、$size/$left/$right が 0 や x になり、$dimensions も 0 になる。32/8/64/32 の幅と 31/7/63/31 の左端、0 の右端、+1 の増分は、各型が [n-1:0] の単一 packed 次元であることを示す。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2e7a2792d870f0362bd74b8e632cdb9dcbe2024dcc39ace0fd3bc711a801bd80",
+          "inputs_sha256": "af2b060a2d7bba6cc3933de4895200956de67bb4bf5899abe8784cc551344a36",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_functions.sv",
@@ -199180,7 +199176,7 @@
           "observation": "$right が、Ram の unpacked 次元 [0:9] で9、packed 次元 [16:1] で1（最下位ビット）、int で0 になることを確認する。空の動的配列 dyn と空のキュー q で -1、要素を1つ入れた q で0 になることも確認する。 区別: packed 次元の右端を最上位ビットとする実装では Ram の2次元が16 になる。空の動的配列やキューに0 を返す実装では dyn/q が -1 にならない。固定次元・packed・空の動的・空のキュー・非空のキューの5通りが、右端の定義と空の特別扱いを分けて観測する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9ab8feca0ac9e0c12ea4cada2cc1643c64b3205c000e4304e493699e5ec8b160",
+          "inputs_sha256": "14525f64ae0c660385f9c4c35ea7a9f184a2f6a93150f837d324623df3318eb7",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_types_and_invalid.sv",
@@ -199256,7 +199252,7 @@
           "observation": "$unpacked_dimensions が、n で2、packed のみの pv で0、unpacked 配列 ua で1、動的配列 dyn で1、int の iv で0、real の r で0 になることを確認する。 区別: unpacked 次元だけを数えない実装では n が4、pv が2、ua が2、dyn が2 になる。packed 次元を数えてしまう実装では pv や iv が0 にならない。2/0/1/1/0/0 の値が、unpacked の静的・動的次元だけを数え、他の型で0 を返すことを示す。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2e7a2792d870f0362bd74b8e632cdb9dcbe2024dcc39ace0fd3bc711a801bd80",
+          "inputs_sha256": "af2b060a2d7bba6cc3933de4895200956de67bb4bf5899abe8784cc551344a36",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_functions.sv",
@@ -200888,7 +200884,7 @@
           "observation": "$error の呼び出しが :expected_stderr_regex: で要求される \"error\" を含み、その呼び出しの file:line とユーザメッセージを持つ行を出し、その後の $display(\"after error\") と以降の呼び出しが実行されること（実行時エラーとして報告して続行する）を比較している。 区別: $error を報告しない・別の重大度で報告する実装では lookahead が失敗し、$error で実行を止める実装では \"after error\" と final の行の前の処理が変わる（scope_four の fatal 行が出ず regex も失敗する）。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "99d595c22ff48e9e3a449ce5b15bdac743bdd5d42b5d1691c8a23e1e5d6de65d",
+          "inputs_sha256": "5817abb1c47fd3766d05beeabb9b15c1417ce04dbc4a192ca22b6a265708d4ee",
           "evidence": [
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.sv",
@@ -200896,7 +200892,7 @@
             },
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.sv",
-              "contains": "(?=[\\s\\S]*error[^\\n]*test_severity_tasks_report_contents\\.sv:50:[^\\n]*msg-three 1\\+2=3)"
+              "contains": "error[^\\n]*test_severity_tasks_report_contents\\.sv:50:[^\\n]*msg-three 1\\+2=3"
             },
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.sv",
@@ -200932,7 +200928,7 @@
           "observation": "scope_four の $fatal(1, \"msg-four %s\", \"end\") が、severity・file:line (62 行)・scope・時刻 1111・整形済みメッセージを stderr に出し、expected_exit nonzero で終了する。final procedure が走り、後続の $display(\"not reached\") は出ない。 区別: $fatal がエラー終了しない、final を実行しない、またはメッセージに severity/file:line/スコープ/ユーザ引数を含めない誤実装では、expected_exit・expected_stderr_regex・final 行のいずれかが変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "99d595c22ff48e9e3a449ce5b15bdac743bdd5d42b5d1691c8a23e1e5d6de65d",
+          "inputs_sha256": "5817abb1c47fd3766d05beeabb9b15c1417ce04dbc4a192ca22b6a265708d4ee",
           "evidence": [
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.sv",
@@ -200976,7 +200972,7 @@
           "observation": "$info の呼び出しが \"info\" を含みその file:line とユーザメッセージ \"msg-one 42 abc\" を持つ行を出すこと（:expected_stderr_regex:）と、その後も実行が続き後続の呼び出しと \"after error\" が出ることを比較している。 区別: $info でメッセージを出さない、または実行に影響させる（停止する）実装では regex の info の lookahead か後続の出力が変わる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "99d595c22ff48e9e3a449ce5b15bdac743bdd5d42b5d1691c8a23e1e5d6de65d",
+          "inputs_sha256": "5817abb1c47fd3766d05beeabb9b15c1417ce04dbc4a192ca22b6a265708d4ee",
           "evidence": [
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.sv",
@@ -200984,7 +200980,7 @@
             },
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.sv",
-              "contains": "(?=[\\s\\S]*info[^\\n]*test_severity_tasks_report_contents\\.sv:42:[^\\n]*msg-one 42 abc)"
+              "contains": "info[^\\n]*test_severity_tasks_report_contents\\.sv:42:[^\\n]*msg-one 42 abc"
             },
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.expected",
@@ -201016,11 +201012,11 @@
           "observation": "4つの重大度タスクをそれぞれ固有の名前付きブロック（scope_one〜scope_four）と固有の時刻（1111/2222/3333/4444 ns、テスト自身は表示しない）で呼び、:expected_stderr_regex: が各呼び出しについて重大度名（info/warn/error/fatal）・その呼び出しの「ファイル名:行番号」・ユーザメッセージが同じ行にあること、スコープ名と時刻がメッセージ中にあることを要求し、標準出力は \"after error\" と final の行だけであることを比較している。 区別: 行番号を別の行（例えば begin や initial の行）にする、ファイル名を省く、スコープや時刻を出さない、重大度を示さない実装では、対応する lookahead のいずれかが失敗してテストが失敗する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "99d595c22ff48e9e3a449ce5b15bdac743bdd5d42b5d1691c8a23e1e5d6de65d",
+          "inputs_sha256": "5817abb1c47fd3766d05beeabb9b15c1417ce04dbc4a192ca22b6a265708d4ee",
           "evidence": [
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.sv",
-              "contains": "(?=[\\s\\S]*info[^\\n]*test_severity_tasks_report_contents\\.sv:42:[^\\n]*msg-one 42 abc)"
+              "contains": "info[^\\n]*test_severity_tasks_report_contents\\.sv:42:[^\\n]*msg-one 42 abc"
             },
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.sv",
@@ -201112,7 +201108,7 @@
           "observation": "$info(\"msg-one %0d %s\", n, \"abc\")・$warning(\"msg-two %h %b\", 8'hab, 2'b10)・$error(\"msg-three %0d+%0d=%0d\", 1, 2, 1 + 2)・$fatal(1, \"msg-four %s\", \"end\") と複数の $display 形式の引数を与え、:expected_stderr_regex: が各メッセージ中に整形済みの \"msg-one 42 abc\"・\"msg-two ab 10\"・\"msg-three 1+2=3\"・\"msg-four end\" を要求している。 区別: ユーザメッセージを出さない、書式を処理せず生の文字列を出す、最初の引数しか使わない実装では \"msg-two ab 10\" などの部分が一致せずテストが失敗する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "99d595c22ff48e9e3a449ce5b15bdac743bdd5d42b5d1691c8a23e1e5d6de65d",
+          "inputs_sha256": "5817abb1c47fd3766d05beeabb9b15c1417ce04dbc4a192ca22b6a265708d4ee",
           "evidence": [
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.sv",
@@ -201128,7 +201124,7 @@
             },
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.sv",
-              "contains": "(?=[\\s\\S]*error[^\\n]*test_severity_tasks_report_contents\\.sv:50:[^\\n]*msg-three 1\\+2=3)"
+              "contains": "error[^\\n]*test_severity_tasks_report_contents\\.sv:50:[^\\n]*msg-three 1\\+2=3"
             },
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.expected",
@@ -201161,7 +201157,7 @@
           "observation": "$warning の呼び出しが \"warn\" を含みその file:line とユーザメッセージ \"msg-two ab 10\" を持つ行を出すこと（:expected_stderr_regex:）と、その後も実行が続き scope_three・scope_four の呼び出しと \"after error\" が出ることを比較している。 区別: $warning を報告しない・error として扱い停止する実装では regex の warn の lookahead か後続の出力が変わる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "99d595c22ff48e9e3a449ce5b15bdac743bdd5d42b5d1691c8a23e1e5d6de65d",
+          "inputs_sha256": "5817abb1c47fd3766d05beeabb9b15c1417ce04dbc4a192ca22b6a265708d4ee",
           "evidence": [
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.sv",
@@ -201169,7 +201165,7 @@
             },
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.sv",
-              "contains": "(?=[\\s\\S]*warn[^\\n]*test_severity_tasks_report_contents\\.sv:46:[^\\n]*msg-two ab 10)"
+              "contains": "warn[^\\n]*test_severity_tasks_report_contents\\.sv:46:[^\\n]*msg-two ab 10"
             },
             {
               "file": "tests/ch20/test_severity_tasks_report_contents.expected",
@@ -219166,7 +219162,7 @@
           "observation": "$dumpvars with no arguments dumps the 4-bit tv and the int ti of the top module and the 8-bit cv and the bit cs of its instance, and no other variable: the reader counts 4 $var sections and prints tv 4 3:0, ti 32 31:0, cv 8 7:0 and cs 1 -. 区別: A tool that dumped only the calling module, missed the instance below it, or also dumped the automatic variables of the reader would print a different count, or a missing size and index range.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e7ba3489081b77a5c35f1e5857ed9f146685729c68431d322cd48667140dc47f",
+          "inputs_sha256": "733051a52d8d91ef41ef170e4ca82af316e8dc34d4f1e13605e47a87add52547",
           "evidence": [
             {
               "file": "tests/ch21/test_vcd_dumpvars_no_arguments.sv",
@@ -219238,7 +219234,7 @@
           "observation": "$dumpvars has no arguments and the file holds the four variables of the top module and of its instance.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e7ba3489081b77a5c35f1e5857ed9f146685729c68431d322cd48667140dc47f",
+          "inputs_sha256": "733051a52d8d91ef41ef170e4ca82af316e8dc34d4f1e13605e47a87add52547",
           "evidence": [
             {
               "file": "tests/ch21/test_vcd_dumpvars_no_arguments.sv",
@@ -219255,7 +219251,7 @@
           "observation": "$dumpvars(1, ...i1) dumps the variable of i1 and not the one below it, and $dumpvars(0, ...i2) dumps the variable of i2 and the one below it, in one file with 3 variables.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "d9d69029bfe3e3aef026ff861ec94d82e32205dc26f8c18d8a99a1ef036ac320",
+          "inputs_sha256": "9b5391aaa2d68e87245bffcf2eec7fb9e98d80551afbd13d6ca0f6fabc769c03",
           "evidence": [
             {
               "file": "tests/ch21/test_vcd_dumpvars_selection_forms.sv",
@@ -220840,7 +220836,7 @@
           "observation": "The file declares a module scope, a begin scope for the named sequential block, a fork scope for the named parallel block and a task scope for the subroutine; each expected boolean records one type with its name. 区別: A tool that used the wrong scope type, or omitted one of the named scopes, would print 0 on that line.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5aa94ddeb7002743d4d608221f1a9821611f3d7838eb682db0d3ce9375467d96",
+          "inputs_sha256": "a69cfe8d559dc7445d8eaa117580380ce0a4962664c5a0271abe82f9a00040c2",
           "evidence": [
             {
               "file": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
@@ -220931,7 +220927,7 @@
           "observation": "シミュレーションで21.7.2.3-EXTRACT-UPSCOPE-COMMANDを観測する。The reader counts one $upscope for every $scope and checks that the scopes nest and balance, so each upscope returns exactly one level in the design hierarchy. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5aa94ddeb7002743d4d608221f1a9821611f3d7838eb682db0d3ce9375467d96",
+          "inputs_sha256": "a69cfe8d559dc7445d8eaa117580380ce0a4962664c5a0271abe82f9a00040c2",
           "evidence": [
             {
               "file": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
@@ -221003,7 +220999,7 @@
           "observation": "シミュレーションで21.7.2.3-EXTRACT-VAR-COMMANDを観測する。The $var entry for a 4-bit vector is checked field by field: the type, the size, a printable identifier code, the reference name and the [3:0] msb/lsb range; test_vcd_type_mappings adds the var_type mapping. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5aa94ddeb7002743d4d608221f1a9821611f3d7838eb682db0d3ce9375467d96",
+          "inputs_sha256": "a69cfe8d559dc7445d8eaa117580380ce0a4962664c5a0271abe82f9a00040c2",
           "evidence": [
             {
               "file": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
@@ -225087,7 +225083,7 @@
           "observation": "`include のファイル名をマクロ LEX_INCLUDE_FILE で与えて LEX_FROM_INCLUDE=7 を読み込み、`timescale の単位と精度をマクロ LEX_UNIT/LEX_PREC（10ns/1ns）で与えて #1 が 10 ns になることを表示する。ブロックコメント内の `define、行コメント内の `undef、文字列リテラル内の `undef がどれも処理されないことを `ifdef で表示し、文字列は `undef LEX_KEEP_S のまま印字する。 区別: 指令の中でマクロを展開しない実装は `include や `timescale でエラーになるか 10 ns の行が変わる。コメントや文字列の中の指令を認識する実装では block comment/line comment/string の行が processed になり、文字列の印字内容も変わる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
           "evidence": [
             {
               "file": "tests/ch22/test_directive_macro_expansion_not_in_comments_or_strings.sv",
@@ -225227,7 +225223,7 @@
           "observation": "` で始まる `timescale と `define の効果を、定義位置の異なる 3 つのモジュールの #1 の長さと SCOPE_VALUE で観測する。1ns/1 の後の scope_first は 1 ns・1、include したファイルの中の `timescale 1us と再定義 2 はそのファイルの終わりの後の scope_included にも効いて 1000 ns・2、後の `timescale 100ns と再定義 3 がそれを置き換えて scope_superseded は 100 ns・3。 区別: 指令の効果を include したファイルの中だけに限る実装では scope_included の行が 1 ns・1 になる。後の指令で置き換えない実装では scope_superseded の行が 1000 ns・2 になり、表示の順序も変わる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
           "evidence": [
             {
               "file": "tests/ch22/test_directive_scope_across_include_until_superseded.sv",
@@ -225328,7 +225324,7 @@
           "observation": "`resetall の前に `default_nettype tri0、`unconnected_drive pull1、`celldefine を置き、`define と `include でマクロを定義する。`resetall の前に定義したモジュールは開放入力が 1、暗黙ネットが z だけで 0、インスタンスが cell（vpiCellInstance 1）、後に定義したモジュールは開放入力 z、暗黙ネット z、cell でない（0）。マクロ 2 つは値を保ち、`undef したものは未定義のまま。 区別: 既定値を持つ指令を戻さない実装では after の行が 1/0/cell instance 1 のままになる。既定値を持たない `define を `resetall で消す実装では width 4 や 9 の行がエラーになり、`undef したマクロを戻す実装では undefined の行が defined になる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
           "evidence": [
             {
               "file": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
@@ -225446,7 +225442,7 @@
           "observation": "`include \"include_absolute_only_helper.svh\" は合法、`include \"/kirimasim_no_such_dir/include_absolute_only_helper.svh\"（30 行目）が誤り。:expected_stderr_regex: が 30 行目を照合する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
           "evidence": [
             {
               "file": "tests/ch22/test_illegal_include_absolute_path_not_searched.sv",
@@ -225516,7 +225512,7 @@
           "observation": "1 つ目の `include の後には行コメントだけを置き（合法）、2 つ目の `include の後の同じ行に localparam 宣言を置く（25 行目）。インクルードファイルはガードで 2 回目に何も宣言しないので、他の誤りは無い。:expected_stderr_regex: は 25 行目を照合する。 区別: `include の行に空白とコメント以外を許す実装は宣言を受け付けて設計を受理する（Verilator 5.052）のでテストが失敗する。コメントまで拒む実装は 23 行目でもエラーを出すが、25 行目の照合は変わらない。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
           "evidence": [
             {
               "file": "tests/ch22/test_illegal_include_line_trailing_code.sv",
@@ -225671,7 +225667,7 @@
           "observation": "include先のtypedefとfunctionを宣言位置へ挿入し、両memberと関数結果を確認する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
           "evidence": [
             {
               "file": "tests/ch22/test_include_file_declarations.sv",
@@ -225705,7 +225701,7 @@
           "observation": "同じincludeを2回読み、guardによりparameterが重複せずdepth6とguard定義を観測する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
           "evidence": [
             {
               "file": "tests/ch22/test_include_guard_twice.sv",
@@ -225722,7 +225718,7 @@
           "observation": "main/helperの両ファイルで同じinclude由来macro7が使え、3倍21を両方で観測する。compilation unitの構成は固定しない。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
           "evidence": [
             {
               "file": "tests/ch22/test_include_guard_two_files.sv",
@@ -225739,7 +225735,7 @@
           "observation": "outerがincludeするinnerのparameter5とouterの計算値10を両方確認する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
           "evidence": [
             {
               "file": "tests/ch22/test_include_nested.sv",
@@ -225809,7 +225805,7 @@
           "observation": "シミュレーションで22.4-EXTRACT-INCLUDE-SYNTAXを観測する。The design uses `include \"file\" on a line of its own before the module and between the items of the module, and `include <file> before the module. The included files supply the macro QUOTED_WIDTH, the macro ANGLE_NAME and the localparam BODY_VALUE, and the pri 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
           "evidence": [
             {
               "file": "tests/ch22/test_22_extra_include_syntax.sv",
@@ -225846,7 +225842,7 @@
           "observation": "`resetall の前に `define RESETALL_KEEP_WIDTH 4、`define と `undef の RESETALL_GONE、include したファイルの `define RESETALL_FROM_INCLUDE 9 を置き、`resetall の後のモジュールで $bits を 4、RESETALL_GONE を undefined、RESETALL_FROM_INCLUDE を 9 と表示する。 区別: `resetall でテキストマクロを消す実装では `RESETALL_KEEP_WIDTH と `RESETALL_FROM_INCLUDE が未定義になりエラーになる。マクロの状態を戻す実装（undef を取り消す）では undefined の行が defined に変わる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
           "evidence": [
             {
               "file": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
@@ -230021,7 +230017,7 @@
           "observation": "インクルードファイルに `begin_keywords \"1364-2005\" だけがあり、インクルード後のモジュールの logic x;（31 行目）が誤り。対の `end_keywords はこのファイルにある。:expected_stderr_regex: が 31 行目を照合する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
           "evidence": [
             {
               "file": "tests/ch22/begin_keywords_1364_2005_helper.svh",
@@ -243674,7 +243670,7 @@
           "observation": "非 ANSI ヘッダ ({p, q}, part[1:0], .named(b), .nc(), io, rr, m, plain, sum) が、連結・部分選択・明示名・式なしの各ポート参照を並べ、方向と型は本体の input/inout/ref/output 宣言で与える。期待出力 nonansi: sum=15 rr=15 m=17 plain=34 io=3 は各参照が正しく接続されたことを示す。 区別: ポート参照と本体宣言を分離して解釈しない実装、または {p,q} や part[1:0] の選択を誤る実装では sum が 15 にならず、この行が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b095bd69a3db1f0d351036ea09317d651a133c0b0eb02ca0e0913ca52d6ec6b1",
+          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -252663,7 +252659,7 @@
           "observation": "同じ名前 x を package(14)、class の static メンバ(15)、interface(12)、program(13)、checker(23)、module インスタンス(11)とその配列要素、function の local(16)、task の local(17)、generate ブロック(19)、名前付き/無名の順次ブロック(18/20)、名前付き/無名の並行ブロック(21/22) に宣言し、unit scope の x=24 と共存させて各値を表示する。 区別: 2つのスコープを1つに統合する実装は重複宣言として設計を拒否するか、同じ値を2回出力する。checker をスコープにしない実装は unit の x と衝突する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "33aaf35a33c869a7e18f336b0395cc89644f56c99f93ee9bddcf903828929f99",
+          "inputs_sha256": "ff1757b15741be764a41235b0ab13a0322357d9799e2c1fab1f695a993eae3dd",
           "evidence": [
             {
               "file": "tests/ch23/test_scope_creators_all_kinds.sv",
@@ -252671,7 +252667,7 @@
             },
             {
               "file": "tests/ch23/test_scope_creators_all_kinds.sv",
-              "contains": "checker sm_chk;\n  int x = 23;\n  initial #9 $display(\"checker x=%0d\", x);\nendchecker"
+              "contains": "checker sm_chk;\n  int x = 23;\n  final $display(\"checker x=%0d\", x);\nendchecker"
             },
             {
               "file": "tests/ch23/test_scope_creators_all_kinds.expected",
@@ -255760,7 +255756,7 @@
           "observation": "am_bus でタスク put を extern 宣言し am_store がポート名 b.put で定義、am_caller は modport caller の import を通して自分のポートから b.put(7) を呼び、時刻0に value=7 を表示する。extern forkjoin のタスク tick は c1/c2 の2インスタンスが定義し、それぞれ #5 後に mask の自分のビットを立てる。b.tick() は時刻5に mask=11 で戻る。 区別: 宣言・定義・呼び出しを別モジュールに分けられない誤実装はコンパイルできないか value=7 が出ない。forkjoin タスクの複数定義を1つしか実行しない誤実装は mask=01 か 10 になり、並行でなく順に実行する誤実装は戻り時刻が 10 になって2行目が '10: mask=11' に変わる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "0452f14b559ef55109dcc4fcc15008915000bbf5c0d27d26768fecd615beae95",
+          "inputs_sha256": "2a18cf06ee798d2ce33edfd58f210a5c54167ecdc182f897bf78990b6a129d23",
           "evidence": [
             {
               "file": "tests/ch25/test_interface_abstract_methods_and_broadcast.sv",
@@ -255768,7 +255764,7 @@
             },
             {
               "file": "tests/ch25/test_interface_abstract_methods_and_broadcast.sv",
-              "contains": "modport caller (import task put(input int v), import task tick());"
+              "contains": "modport caller (import task put(input int v), import task tick(),"
             },
             {
               "file": "tests/ch25/test_interface_abstract_methods_and_broadcast.sv",
@@ -364500,7 +364496,7 @@
           "observation": "cr_base declares static int s, automatic int a, static function sf, automatic function af, an explicit new, event ev and event array eva; cr_plain declares no method and gives 0. 区別: Omitting a static or automatic member drops a name from 'variables', 'methods', 'named events' or 'named event arrays'; adding the implicit constructor changes 'cr_plain: methods 0'.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4",
+          "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_relations_scope_typespec.sv",
@@ -364544,7 +364540,7 @@
           "observation": "cr_der extends cr_base; the output names the base class typespec and the constructor-chaining argument v passed by super.new(v). 区別: Returning no extends object, the wrong base, or no vpiArgument drops 'cr_der extends cr_base' or changes 'constructor chaining arguments: v'.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4",
+          "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_relations_scope_typespec.sv",
@@ -364664,7 +364660,7 @@
           "observation": "vpi_iterate(vpiClassDefn, NULL) returns the three class definitions of the design, sorted as cr_base, cr_der and cr_plain. 区別: An implementation that does not expose class definitions from the design root, or exposes only some, changes the 'classes from NULL root' count or names.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4",
+          "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_relations_scope_typespec.sv",
@@ -364844,7 +364840,7 @@
           "observation": "The extends object of cr_der iterates vpiArgument and gives the expression v, the actual passed to super.new. 区別: A missing vpiArgument relation or the wrong expression changes 'constructor chaining arguments: v' to 'none' or another name.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4",
+          "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_relations_scope_typespec.sv",
@@ -364932,7 +364928,7 @@
           "observation": "The class definitions of cr_base and cr_der give their instance, compared with vpi_compare_objects to the top module instance. 区別: Returning NULL or a different instance changes 'instance is top 1' in the cr_base and cr_der lines.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4",
+          "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_relations_scope_typespec.sv",
@@ -365108,7 +365104,7 @@
           "observation": "Each variable of cr_base and cr_der leads back with vpiClassDefn to the class definition it came from, compared by vpi_compare_objects. 区別: A missing or wrong reverse relation changes 'a: back to class definition 1' or 'b: back to class definition 1' to 0.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4",
+          "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_relations_scope_typespec.sv",
@@ -365196,7 +365192,7 @@
           "observation": "Each explicit method af, new and sf leads back with vpiClassDefn to its class definition, compared by vpi_compare_objects. 区別: A wrong reverse relation changes 'af: back to class definition 1' or the new and sf lines to 0.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4",
+          "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_relations_scope_typespec.sv",
@@ -365284,7 +365280,7 @@
           "observation": "The declared constraint c_base and the extern-position constraint c_late lead back with vpiClassDefn to their class definitions. 区別: A wrong reverse relation changes 'c_base: back to class definition 1' or 'c_late: back to class definition 1' to 0.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4",
+          "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_relations_scope_typespec.sv",
@@ -365372,7 +365368,7 @@
           "observation": "Both the parameter-port W and the body parameter P lead back with vpiClassDefn to cr_base. 区別: A wrong reverse relation changes 'P(local 1): back to class definition 1' or 'W(local 0): back to class definition 1' to 0.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4",
+          "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_relations_scope_typespec.sv",
@@ -365598,7 +365594,7 @@
           "observation": "vpi_iterate(vpiTypedef, cr_der) returns both class typedefs byte_t and nib_t, sorted by name. 区別: Returning one typedef or a non-typedef typespec changes the two lines under 'cr_der typedefs'.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4",
+          "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_relations_scope_typespec.sv",
@@ -365640,7 +365636,7 @@
           "observation": "Each class typedef typespec leads back with vpiClassDefn to cr_der, compared by vpi_compare_objects. 区別: A wrong or missing reverse relation changes 'byte_t: back to cr_der 1' or 'nib_t: back to cr_der 1' to 0.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4",
+          "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_relations_scope_typespec.sv",
@@ -365840,7 +365836,7 @@
           "observation": "vpiAutomatic of both class definitions is 1, the automatic default lifetime of the variables of their declared methods. 区別: Returning 0 for a class definition changes 'automatic 1' in the cr_base and cr_der lines.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4",
+          "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_relations_scope_typespec.sv",
@@ -427245,7 +427241,7 @@
           "observation": "ck_none は丸括弧を省き、ck_empty は空の丸括弧と endchecker : ck_empty を持ち、ck_ports はポート並びと endchecker : ck_ports を持つ。none=1 empty=2 で本体が動く。 区別: 各 checker の出力と、checker が駆動した compilation-unit 変数を出力するので、宣言の形・ポートの種類・方向の継承を誤る実装では値が出ないか変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "60c5ab10798153cc9057b1bdd47977b4a903b1c0935737b2d1fa08197829fd1f",
+          "inputs_sha256": "d8cc8d8bd41509942a6f15dbaf7fc424908da0f23a8d1c0c17cb301675cf36da",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_declaration_and_port_forms.sv",
@@ -427269,7 +427265,7 @@
             },
             {
               "file": "tests/ch17/test_checker_declaration_and_port_forms.sv",
-              "contains": "output int y2 = 5"
+              "contains": "output int y2 = 6"
             },
             {
               "file": "tests/ch17/test_checker_declaration_and_port_forms.sv",
@@ -429026,7 +429022,7 @@
           "observation": "explicit_ports は .hi(r[7:4])、.lo(r[3:0])、.low_in(w[3:0])、.cell(v[1]) のように方向・名前・式を並べ、.unused() は式を省く。hi=a lo=5 low=3 cell=42 を出力する。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b095bd69a3db1f0d351036ea09317d651a133c0b0eb02ca0e0913ca52d6ec6b1",
+          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -429406,7 +429402,7 @@
           "observation": "nonansi_ports の並びは {p, q}, part[1:0], .named(b), .nc(), io, rr, m, plain, sum の 9 項目で、nonansi_empty は () の空の並びを持つ。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b095bd69a3db1f0d351036ea09317d651a133c0b0eb02ca0e0913ca52d6ec6b1",
+          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -429706,7 +429702,7 @@
           "observation": "inout tri [3:0] io は net の双方向ポートで、親の 3 を読んで sum に加える。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b095bd69a3db1f0d351036ea09317d651a133c0b0eb02ca0e0913ca52d6ec6b1",
+          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -429782,7 +429778,7 @@
           "observation": "属性付きの input wire [1:0] p, q と input logic [3:0] part が非 ANSI の宣言で、p=2 q=1 part[1:0]=1 が sum に入る。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b095bd69a3db1f0d351036ea09317d651a133c0b0eb02ca0e0913ca52d6ec6b1",
+          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -429858,7 +429854,7 @@
           "observation": "非 ANSI の宣言で ifc.master m と modport を選ばない ifc plain を置き、m.data=17 plain.data=34 を親が読む。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b095bd69a3db1f0d351036ea09317d651a133c0b0eb02ca0e0913ca52d6ec6b1",
+          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -429934,7 +429930,7 @@
           "observation": "output logic [7:0] sum は非 ANSI の宣言で、4 つのポート式の和 15 を駆動する。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b095bd69a3db1f0d351036ea09317d651a133c0b0eb02ca0e0913ca52d6ec6b1",
+          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -430010,7 +430006,7 @@
           "observation": "ref int rr は親の変数 rv=10 を参照し、タスク本体の rr = rr + 5 が親を 15 にする。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b095bd69a3db1f0d351036ea09317d651a133c0b0eb02ca0e0913ca52d6ec6b1",
+          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -430162,7 +430158,7 @@
           "observation": "{p, q} は 2 つの port_reference の連結、part[1:0] は constant_select 付きの参照で、その和が sum=15 になる。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b095bd69a3db1f0d351036ea09317d651a133c0b0eb02ca0e0913ca52d6ec6b1",
+          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -430238,7 +430234,7 @@
           "observation": "nonansi_ports は式だけのポートと .named(b) の明示ポート、式を省いた .nc()、空の並びの nonansi_empty を全部使う。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b095bd69a3db1f0d351036ea09317d651a133c0b0eb02ca0e0913ca52d6ec6b1",
+          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -431023,7 +431019,7 @@
           "observation": "括弧なしの $fatal; を 5 に呼び、正規表現が fatal ... sv:34: を照合、期待出力は 'before fatal n=6' と 'final ran at 5' だけ。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b29ed3020ccb3291e4bb7268fbcced0c4c48d0153087bc920a6b52c230927b28",
+          "inputs_sha256": "b6bedc233db9c5bbfb7abc2a84bf49bb89836467572ea32702b8e1c1388286ea",
           "evidence": [
             {
               "file": "tests/ch20/test_fatal_form_without_parentheses.sv",
@@ -431044,7 +431040,7 @@
           "observation": "finish_number だけの $fatal(0); を 5 に呼び、正規表現が fatal ... sv:34: を照合、期待出力は 'before fatal n=6' と 'final ran at 5' だけ。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a4952d4e1800ed2c730534ad222f92bba6d94fda409b72b9ed4a7d7ba60eac47",
+          "inputs_sha256": "f914d19a621373fed13f33e181910a38329e7881e58bcf9dc6e70955a605294c",
           "evidence": [
             {
               "file": "tests/ch20/test_fatal_form_finish_number_only.sv",
@@ -431065,7 +431061,7 @@
           "observation": "$fatal(2, \"ff-msg n=%0d %s\", n * 7, \"end\"); を 5 に呼び、正規表現が fatal ... sv:35: ... ff-msg n=42 end を照合、期待出力は 'before fatal n=6' と 'final ran at 5' だけ。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "18ee266b37a35d24a69e8b923babcd7ca83db2d2ba76eb36919f16c064308c9b",
+          "inputs_sha256": "ba0730c894980a14375750017035379f8b9a5eb3aff28bd5c3330647caa1dee2",
           "evidence": [
             {
               "file": "tests/ch20/test_fatal_form_finish_number_and_arguments.sv",
@@ -431930,7 +431926,7 @@
           "observation": "ex_fn_bus は extern function int ext_add(input int x) を、ex_items_bus は extern forkjoin task work() を宣言し、接続したモジュールの定義が result=107 と mask=11 を出す。 区別: インターフェースが extern の関数と forkjoin タスクを呼び、構成要素が駆動した値を出力するので、extern 宣言や generate 項目、modport の式を誤ると値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "fed9759300e8600a54949ca73a4062478e0f4c139b5699c8906fdf20db29789f",
+          "inputs_sha256": "6688cfc20d11ce7e2292dcc42f78a8fd123762d37947c8fa2bdbab5022304e3c",
           "evidence": [
             {
               "file": "tests/ch25/test_interface_extern_and_generate_items.sv",
@@ -431950,7 +431946,7 @@
             },
             {
               "file": "tests/ch25/test_interface_extern_and_generate_items.sv",
-              "contains": "ex_leaf u_leaf (.a(shadow[0]), .y(leaf_y));"
+              "contains": "ex_leaf u_leaf (.a(items_bus.shadow[0]), .y(items_bus.leaf_y));"
             },
             {
               "file": "tests/ch25/test_interface_extern_and_generate_items.sv",
@@ -432006,7 +432002,7 @@
           "observation": "interface の本体に属性付き initial、always_comb、continuous assign、モジュール実体、generate 領域、loop/conditional generate、elaboration severity task を置き、shadow=a5 plain=1 gen=1 leaf=0 を出す。 区別: インターフェースが extern の関数と forkjoin タスクを呼び、構成要素が駆動した値を出力するので、extern 宣言や generate 項目、modport の式を誤ると値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "fed9759300e8600a54949ca73a4062478e0f4c139b5699c8906fdf20db29789f",
+          "inputs_sha256": "6688cfc20d11ce7e2292dcc42f78a8fd123762d37947c8fa2bdbab5022304e3c",
           "evidence": [
             {
               "file": "tests/ch25/test_interface_extern_and_generate_items.sv",
@@ -432026,7 +432022,7 @@
             },
             {
               "file": "tests/ch25/test_interface_extern_and_generate_items.sv",
-              "contains": "ex_leaf u_leaf (.a(shadow[0]), .y(leaf_y));"
+              "contains": "ex_leaf u_leaf (.a(items_bus.shadow[0]), .y(items_bus.leaf_y));"
             },
             {
               "file": "tests/ch25/test_interface_extern_and_generate_items.sv",
@@ -432690,7 +432686,7 @@
           "observation": "checker 本体に rand const int rf = 3 を置き、const の自由変数が初期値 3 を保つことを rf=3 で確かめる。 区別: rand const の自由変数が初期値 3 を保つことと、入れ子 checker の実体が 1+1 を計算することを出力するので、どちらかを取り違えると数値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "4e754928228bd5fcf7cc42c73a4b61fa7ef995d3bd1f7219e2a62ff383f9ed36",
+          "inputs_sha256": "582688e4f35e273761a91746e3bf5c6cfa1955c529bff3ea9abdfdc63588acfb",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_rand_and_nested_checker.sv",
@@ -432706,7 +432702,7 @@
             },
             {
               "file": "tests/ch17/test_checker_rand_and_nested_checker.sv",
-              "contains": "initial rf_out = rf;"
+              "contains": "assign rf_out = rf;"
             },
             {
               "file": "tests/ch17/test_checker_rand_and_nested_checker.expected",
@@ -432814,7 +432810,7 @@
           "observation": "checker 本体に入れ子の checker cb_inner を宣言して実体化し、その出力が 1+1=2 になることを fv=2 で確かめる。 区別: rand const の自由変数が初期値 3 を保つことと、入れ子 checker の実体が 1+1 を計算することを出力するので、どちらかを取り違えると数値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "4e754928228bd5fcf7cc42c73a4b61fa7ef995d3bd1f7219e2a62ff383f9ed36",
+          "inputs_sha256": "582688e4f35e273761a91746e3bf5c6cfa1955c529bff3ea9abdfdc63588acfb",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_rand_and_nested_checker.sv",
@@ -432830,7 +432826,7 @@
             },
             {
               "file": "tests/ch17/test_checker_rand_and_nested_checker.sv",
-              "contains": "initial rf_out = rf;"
+              "contains": "assign rf_out = rf;"
             },
             {
               "file": "tests/ch17/test_checker_rand_and_nested_checker.expected",
@@ -433114,11 +433110,11 @@
           "observation": "checker 本体に generate 領域、for の loop generate、if の conditional generate、if (0) の中の elaboration severity task を置き、gen=1 と最終行の出力で非生成枝が実行されないことを確かめる。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "1e4cdab447d34421adf5e933c520846cf8af874d1c9fc7a03f72ecea0fb947ec",
+          "inputs_sha256": "2a460023502c901cefc80d23c0abb354aa579f99954479d4da58db14d84a1450",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
-              "contains": "initial side = 7;"
+              "contains": "assign side = 7;"
             },
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
@@ -433226,11 +433222,11 @@
           "observation": "checker 本体の initial が出力 side を 7 にし、side=7 を表示する。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "1e4cdab447d34421adf5e933c520846cf8af874d1c9fc7a03f72ecea0fb947ec",
+          "inputs_sha256": "2a460023502c901cefc80d23c0abb354aa579f99954479d4da58db14d84a1450",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
-              "contains": "initial side = 7;"
+              "contains": "assign side = 7;"
             },
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
@@ -433302,11 +433298,11 @@
           "observation": "checker 本体の always_comb が comb=0 を、always_ff が 2 つの立ち上がりで cnt=2 を出す。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "1e4cdab447d34421adf5e933c520846cf8af874d1c9fc7a03f72ecea0fb947ec",
+          "inputs_sha256": "2a460023502c901cefc80d23c0abb354aa579f99954479d4da58db14d84a1450",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
-              "contains": "initial side = 7;"
+              "contains": "assign side = 7;"
             },
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
@@ -433378,11 +433374,11 @@
           "observation": "checker 本体の final が実行の最後に d=1 pass_n=2 を表示し、親の行のあとに出る。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "1e4cdab447d34421adf5e933c520846cf8af874d1c9fc7a03f72ecea0fb947ec",
+          "inputs_sha256": "2a460023502c901cefc80d23c0abb354aa579f99954479d4da58db14d84a1450",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
-              "contains": "initial side = 7;"
+              "contains": "assign side = 7;"
             },
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
@@ -433454,11 +433450,11 @@
           "observation": "checker 本体の concurrent assert が 2 回成功して pass=2、cover property と immediate assertion も受け付けられる。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "1e4cdab447d34421adf5e933c520846cf8af874d1c9fc7a03f72ecea0fb947ec",
+          "inputs_sha256": "2a460023502c901cefc80d23c0abb354aa579f99954479d4da58db14d84a1450",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
-              "contains": "initial side = 7;"
+              "contains": "assign side = 7;"
             },
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
@@ -433530,11 +433526,11 @@
           "observation": "checker 本体の continuous assign が reg_out に d を駆動し、reg=1 を表示する。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "1e4cdab447d34421adf5e933c520846cf8af874d1c9fc7a03f72ecea0fb947ec",
+          "inputs_sha256": "2a460023502c901cefc80d23c0abb354aa579f99954479d4da58db14d84a1450",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
-              "contains": "initial side = 7;"
+              "contains": "assign side = 7;"
             },
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
@@ -433606,11 +433602,11 @@
           "observation": "checker 本体の checker_generate_item として loop generate と conditional generate を置き、gv0/gv1 の和が gen=1 になる。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "1e4cdab447d34421adf5e933c520846cf8af874d1c9fc7a03f72ecea0fb947ec",
+          "inputs_sha256": "2a460023502c901cefc80d23c0abb354aa579f99954479d4da58db14d84a1450",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
-              "contains": "initial side = 7;"
+              "contains": "assign side = 7;"
             },
             {
               "file": "tests/ch17/test_checker_body_procedural_and_generate_items.sv",
@@ -433682,7 +433678,7 @@
           "observation": "input の a,b,vec と output の y,y2 を明示し、方向を省いた c は前の input を継承する。y=6 がその和を示す。 区別: 各 checker の出力と、checker が駆動した compilation-unit 変数を出力するので、宣言の形・ポートの種類・方向の継承を誤る実装では値が出ないか変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "60c5ab10798153cc9057b1bdd47977b4a903b1c0935737b2d1fa08197829fd1f",
+          "inputs_sha256": "d8cc8d8bd41509942a6f15dbaf7fc424908da0f23a8d1c0c17cb301675cf36da",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_declaration_and_port_forms.sv",
@@ -433706,7 +433702,7 @@
             },
             {
               "file": "tests/ch17/test_checker_declaration_and_port_forms.sv",
-              "contains": "output int y2 = 5"
+              "contains": "output int y2 = 6"
             },
             {
               "file": "tests/ch17/test_checker_declaration_and_port_forms.sv",
@@ -433746,7 +433742,7 @@
           "observation": "各項目は属性、方向、property_formal_type、識別子、variable_dimension、既定値の順で、vec は次元を、y2 は既定値 5 を持ち、本体が 6 にする。 区別: 各 checker の出力と、checker が駆動した compilation-unit 変数を出力するので、宣言の形・ポートの種類・方向の継承を誤る実装では値が出ないか変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "60c5ab10798153cc9057b1bdd47977b4a903b1c0935737b2d1fa08197829fd1f",
+          "inputs_sha256": "d8cc8d8bd41509942a6f15dbaf7fc424908da0f23a8d1c0c17cb301675cf36da",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_declaration_and_port_forms.sv",
@@ -433770,7 +433766,7 @@
             },
             {
               "file": "tests/ch17/test_checker_declaration_and_port_forms.sv",
-              "contains": "output int y2 = 5"
+              "contains": "output int y2 = 6"
             },
             {
               "file": "tests/ch17/test_checker_declaration_and_port_forms.sv",
@@ -433810,7 +433806,7 @@
           "observation": "ck_ports のポート並びは属性付きの a、b、c、vec、y、y2 の 6 項目をカンマで並べ、y=6 を出力する。 区別: 各 checker の出力と、checker が駆動した compilation-unit 変数を出力するので、宣言の形・ポートの種類・方向の継承を誤る実装では値が出ないか変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "60c5ab10798153cc9057b1bdd47977b4a903b1c0935737b2d1fa08197829fd1f",
+          "inputs_sha256": "d8cc8d8bd41509942a6f15dbaf7fc424908da0f23a8d1c0c17cb301675cf36da",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_declaration_and_port_forms.sv",
@@ -433834,7 +433830,7 @@
             },
             {
               "file": "tests/ch17/test_checker_declaration_and_port_forms.sv",
-              "contains": "output int y2 = 5"
+              "contains": "output int y2 = 6"
             },
             {
               "file": "tests/ch17/test_checker_declaration_and_port_forms.sv",
@@ -439709,7 +439705,7 @@
           "observation": "virtual vif_bus、virtual interface vif_bus.writer、virtual vif_par #(8) の 3 つの書き方（interface キーワードの有無・modport・パラメータ値）を使い、data=11 par=c3 を出力する。 区別: virtual interface の各宣言から同じインスタンスを読み書きし、パラメータ付きのものは 8 ビット、modport 付きのものは書き込みができることを出力するので、型の解釈を誤ると値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "05ba2b1c6f24f1c02310b56f33c8e85249761d38d6f0f31c6c346aa9e9f9d25b",
+          "inputs_sha256": "e57a4983af2eb93fe40808982d5644f6ae1c9eeb68b5fbacce9769eeb8775a5e",
           "evidence": [
             {
               "file": "tests/ch25/test_virtual_interface_data_type_forms.sv",
@@ -439733,7 +439729,7 @@
             },
             {
               "file": "tests/ch25/test_virtual_interface_data_type_forms.sv",
-              "contains": "input var virtual vif_bus v, output logic [7:0] seen"
+              "contains": "vif_bus v, output logic [7:0] seen"
             },
             {
               "file": "tests/ch25/test_virtual_interface_data_type_forms.expected",
@@ -444483,7 +444479,7 @@
           "observation": "modport tgt に output mask の単純な port_identifier と、input .low(shadow[3:0])・input .fixed(2) の明示式を置き、low=5 を出力する。 区別: インターフェースが extern の関数と forkjoin タスクを呼び、構成要素が駆動した値を出力するので、extern 宣言や generate 項目、modport の式を誤ると値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "fed9759300e8600a54949ca73a4062478e0f4c139b5699c8906fdf20db29789f",
+          "inputs_sha256": "6688cfc20d11ce7e2292dcc42f78a8fd123762d37947c8fa2bdbab5022304e3c",
           "evidence": [
             {
               "file": "tests/ch25/test_interface_extern_and_generate_items.sv",
@@ -444503,7 +444499,7 @@
             },
             {
               "file": "tests/ch25/test_interface_extern_and_generate_items.sv",
-              "contains": "ex_leaf u_leaf (.a(shadow[0]), .y(leaf_y));"
+              "contains": "ex_leaf u_leaf (.a(items_bus.shadow[0]), .y(items_bus.leaf_y));"
             },
             {
               "file": "tests/ch25/test_interface_extern_and_generate_items.sv",
@@ -444559,7 +444555,7 @@
           "observation": "modport tgt に export work（識別子）、export function int ext_add(input int x)（プロトタイプ）、modport fn に import function int local_double(input int x) を置き、result=107 mask=11 になる。 区別: インターフェースが extern の関数と forkjoin タスクを呼び、構成要素が駆動した値を出力するので、extern 宣言や generate 項目、modport の式を誤ると値が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "fed9759300e8600a54949ca73a4062478e0f4c139b5699c8906fdf20db29789f",
+          "inputs_sha256": "6688cfc20d11ce7e2292dcc42f78a8fd123762d37947c8fa2bdbab5022304e3c",
           "evidence": [
             {
               "file": "tests/ch25/test_interface_extern_and_generate_items.sv",
@@ -444579,7 +444575,7 @@
             },
             {
               "file": "tests/ch25/test_interface_extern_and_generate_items.sv",
-              "contains": "ex_leaf u_leaf (.a(shadow[0]), .y(leaf_y));"
+              "contains": "ex_leaf u_leaf (.a(items_bus.shadow[0]), .y(items_bus.leaf_y));"
             },
             {
               "file": "tests/ch25/test_interface_extern_and_generate_items.sv",
@@ -446190,7 +446186,7 @@
           "observation": "実行でA.2.10-EXTRACT-REPETITIONSを観測する。Five concurrent assertions write [*2], [*], [+], [->1] and [=1] on a true operand; the default clocking block supplies the ticks and the printed failure count is 0. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "0926801c7dda61de8244540906d205ca51a55c784549120d9b4ed546a8290606",
+          "inputs_sha256": "e257081a3d6a6afaef9cd788ecb906a836af5f4492830accd21005e82ddbf4d5",
           "evidence": [
             {
               "file": "tests/ch16/test_A_extra_repetitions.sv",
@@ -457144,7 +457140,7 @@
           "observation": "tagged Invalid のように値のないメンバーと tagged Valid(42) のように primary を伴うメンバーを式に使い、a matches tagged Invalid などで 1 1 0 を出させる。 区別: tagged の後の primary を任意として扱わない実装は、値のあるメンバーの式を受理せず、タグの比較が誤っていれば tag 行が 1 1 0 にならない。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "cd7c6dd47b3b5a5cc5ac557445e1beb55531fb53811f69000c1426bc50be7c40",
+          "inputs_sha256": "90af398e4637dfcdec44d1d4133701a9e8e23fff8c60c839a37956d502655008",
           "evidence": [
             {
               "file": "tests/ch11/test_tagged_union_expression_and_matches_precedence.sv",
@@ -462908,7 +462904,7 @@
           "observation": "unique {a, b, c} のように単独の変数を並べ、unique {arr} のように配列変数を 1 つ置き、randomize の成功 1 と、3 つの比較がすべて 1 であることを uniq 行と arr 行に出す。 区別: 単独でない式や配列でない式を range list に許す実装はこの設計を受理せず、unique を無視する実装では uniq 行と arr 行の比較が 1 にならない。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b2e6648bc981d025d890df046e47d0f283db3a0d8c1e9927cb33a5ca73a3a129",
+          "inputs_sha256": "cb0392b9237afcf088df93e2fed89c4552db2ec2b2c10f4e23b89f449f79d15b",
           "evidence": [
             {
               "file": "tests/ch18/test_uniqueness_constraint_forms.sv",
@@ -463825,25 +463821,7 @@
       "acceptance": "matches has higher precedence than && and ||.",
       "source_note": "IEEE 1800-2023 A.10; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [
-        {
-          "test": "tests/ch11/test_tagged_union_expression_and_matches_precedence.sv",
-          "observation": "matches を && と || の被演算子として括弧なしで並べ、prec 行に 1 1 0 を出させる。 区別: matches の優先順位が && や || より低い実装では括弧なしの式が別に解釈され、prec 行の3 つの値が期待値にならない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "cd7c6dd47b3b5a5cc5ac557445e1beb55531fb53811f69000c1426bc50be7c40",
-          "evidence": [
-            {
-              "file": "tests/ch11/test_tagged_union_expression_and_matches_precedence.sv",
-              "contains": "$display(\"prec %0d %0d %0d\","
-            },
-            {
-              "file": "tests/ch11/test_tagged_union_expression_and_matches_precedence.expected",
-              "contains": "prec 1 1 0"
-            }
-          ]
-        }
-      ],
+      "checks": [],
       "source_spans": [
         {
           "section": "A.10",

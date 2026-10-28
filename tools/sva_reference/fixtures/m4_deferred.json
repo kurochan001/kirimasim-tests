@@ -125,7 +125,7 @@
     ]
   },
   "tests/ch16/test_ch16_sim_checker_history.sv": {
-    "source_sha256": "fec4f58a62367b33243924903cd8bc8378f66b72e46a982b1917180aab1ced97",
+    "source_sha256": "a8bed05e96a10a0410961f59deb52cb4967177d01a48f4d0c817b0005d2d7de5",
     "reason": "Free checker variables with global-clock past/future sampling need a global clock history and checker model",
     "evidence": [
       "$future_gclk",

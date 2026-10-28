@@ -1,0 +1,231 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch11/test_A_extra_specparam_range": {
+   "status": "pass",
+   "inputs_sha256": "aaddfd057126382a70ae5ab3868383cd1e7e3c6b66a3236a518eef11caf0c100"
+  },
+  "ch11/test_conditional_predicate_and_integral_branch": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_conditional_predicate_and_integral_branch.sv:42: syntax error",
+   "inputs_sha256": "8fa6e04c72e18be00bf67abdd624b7dd3df720d802185291c7c7c13dbcd7584c"
+  },
+  "ch11/test_tagged_union_expression_and_matches_precedence": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_tagged_union_expression_and_matches_precedence.sv:38: syntax error",
+   "inputs_sha256": "90af398e4637dfcdec44d1d4133701a9e8e23fff8c60c839a37956d502655008"
+  },
+  "ch12/test_pattern_conditional_predicate": {
+   "status": "known",
+   "reason": "compile failed: tests/ch12/test_pattern_conditional_predicate.sv:41: syntax error",
+   "inputs_sha256": "92ef3026f9cbcab052730eda6e08c63014d778583960ac1b9a9ccb64ff2a443b"
+  },
+  "ch12/test_pattern_match_known_result": {
+   "status": "known",
+   "reason": "compile failed: tests/ch12/test_pattern_match_known_result.sv:34: syntax error",
+   "inputs_sha256": "d08e1fffc0a6247fa3df0feaebc0b0112a8b39668484f14db0253a4db739d914"
+  },
+  "ch16/test_A_extra_repetitions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_A_extra_repetitions.sv:30: syntax error",
+   "inputs_sha256": "e257081a3d6a6afaef9cd788ecb906a836af5f4492830accd21005e82ddbf4d5"
+  },
+  "ch16/test_ch16_sim_checker_history": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_ch16_sim_checker_history.sv:43: syntax error",
+   "inputs_sha256": "f0cd3ddf8fde59a689290fc2270aabc7e8da48241099b00e3fcb1796b09353a7"
+  },
+  "ch16/test_ch16_sim_clocking_single": {
+   "status": "known",
+   "reason": "no error matches '(?i)\\\\A(?=[\\\\s\\\\S]*(?:error[^\\\\n]*test_ch16_sim_clocking_single\\\\.sv:42:(?:\\\\d+:)?[^\\\\n]*(?:multiclock|explicit[ -]?clock)|test_ch16_sim_clocking_single\\\\.sv:42:(?:\\\\d+:)?[^\\\\n]*error[^\\\\n]*(?:multiclock|explicit[ -]?clock)))'; the first is: tests/ch16/test_ch16_sim_clocking_single.sv:36: syntax error",
+   "inputs_sha256": "d9c11782fd338a1e49c6c33ea3208cc6dcb49728431fa32eb04e04f750cac063"
+  },
+  "ch16/test_nexttime_always_eventually_alignment": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_nexttime_always_eventually_alignment.sv:56: syntax error",
+   "inputs_sha256": "057625d7bdfc1c3f41888ad267752a6e2f1e2d300cdbfd6dde3dd46dcb8cac66"
+  },
+  "ch16/test_sequence_formal_arguments_substitution": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_sequence_formal_arguments_substitution.sv:54: syntax error",
+   "inputs_sha256": "f5fb291fababace8bc5ab589aa5a1b89622711204d3f50dc6b8d042e20065391"
+  },
+  "ch16/test_sequence_local_formal_assignment": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_sequence_local_formal_assignment.sv:34: syntax error",
+   "inputs_sha256": "95bd31507bddd2d396acf709de9f698c200a807c30fc5d4d78eb7173f39dbb0e"
+  },
+  "ch16/test_triggered_matched_multiclock": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_triggered_matched_multiclock.sv:35: syntax error",
+   "inputs_sha256": "1db04fdc8b4c376c2ae57c89128d55b159173b7a25b25be3f6cd6935b4342b71"
+  },
+  "ch17/test_checker_always_statement_kinds": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_always_statement_kinds.sv:32: syntax error",
+   "inputs_sha256": "738fd8094ada8efb3ae0147dabd6f73834fc5133b0918f23be1ab15ef88dc40a"
+  },
+  "ch17/test_checker_assertion_placement": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_assertion_placement.sv:30: syntax error",
+   "inputs_sha256": "34c657d9995a7ad1ded65f1e49630033acdc9d88730ac8c6833a8acaa7fa17ae"
+  },
+  "ch17/test_checker_body_items": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_body_items.sv:31: syntax error",
+   "inputs_sha256": "644b941a9045da529692e171b9c0fc358868b8d48bff2c6634655b3ef038e547"
+  },
+  "ch17/test_checker_body_procedural_and_generate_items": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_body_procedural_and_generate_items.sv:45: syntax error",
+   "inputs_sha256": "2a460023502c901cefc80d23c0abb354aa579f99954479d4da58db14d84a1450"
+  },
+  "ch17/test_checker_declaration_and_port_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_declaration_and_port_forms.sv:38: syntax error",
+   "inputs_sha256": "d8cc8d8bd41509942a6f15dbaf7fc424908da0f23a8d1c0c17cb301675cf36da"
+  },
+  "ch17/test_checker_declaration_scope_kinds": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_declaration_scope_kinds.sv:33: syntax error",
+   "inputs_sha256": "8a47cdb77b321d4122cc54cea96c71a9ea626e821ec55daebc32e3ce3fa13cab"
+  },
+  "ch17/test_checker_procedural_deferred_assertion": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_procedural_deferred_assertion.sv:32: syntax error",
+   "inputs_sha256": "e1b2840a91cf3bf6ba2d41179f417368c42577ea7bff1d979ac32e1f304fd99b"
+  },
+  "ch17/test_checker_rand_and_nested_checker": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_rand_and_nested_checker.sv:27: syntax error",
+   "inputs_sha256": "582688e4f35e273761a91746e3bf5c6cfa1955c529bff3ea9abdfdc63588acfb"
+  },
+  "ch18/test_uniqueness_constraint_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_uniqueness_constraint_forms.sv:36: syntax error",
+   "inputs_sha256": "cb0392b9237afcf088df93e2fed89c4552db2ec2b2c10f4e23b89f449f79d15b"
+  },
+  "ch19/test_cg_bin_syntax_all_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_bin_syntax_all_forms.sv:37: syntax error",
+   "inputs_sha256": "2a2f5f332f0341da1e4193d3f2e00ace17e76ed5f8ef0bf89739efbcf82c1393"
+  },
+  "ch20/test_array_query_dimension_counts": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'd 0 0 q 0 0', expected 'd 2 1 q 2 1'",
+   "inputs_sha256": "9ac1a84df10ea095bc373550e43540e4a893afa43c1ccca240e0de6759e7b652"
+  },
+  "ch20/test_array_query_functions": {
+   "status": "known",
+   "reason": "output differs: line 39 is 'BAD  dimensions(dyn) got=0 want=2', expected 'ok   dimensions(dyn) = 2'",
+   "inputs_sha256": "af2b060a2d7bba6cc3933de4895200956de67bb4bf5899abe8784cc551344a36"
+  },
+  "ch20/test_array_query_invalid_dimension_all_x": {
+   "status": "pass",
+   "inputs_sha256": "aacae25dc70a24fa387146c434e67143eab68d5f0cbb5b73dd9778cf1283a594"
+  },
+  "ch20/test_array_query_types_and_invalid": {
+   "status": "known",
+   "reason": "compile failed: tests/ch20/test_array_query_types_and_invalid.sv:31: error: A reference to a net or variable (`Ram') is not allowed in a constant expression.",
+   "inputs_sha256": "14525f64ae0c660385f9c4c35ea7a9f184a2f6a93150f837d324623df3318eb7"
+  },
+  "ch20/test_fatal_form_finish_number_and_arguments": {
+   "status": "pass",
+   "inputs_sha256": "ba0730c894980a14375750017035379f8b9a5eb3aff28bd5c3330647caa1dee2"
+  },
+  "ch20/test_fatal_form_finish_number_only": {
+   "status": "pass",
+   "inputs_sha256": "f914d19a621373fed13f33e181910a38329e7881e58bcf9dc6e70955a605294c"
+  },
+  "ch20/test_fatal_form_without_parentheses": {
+   "status": "pass",
+   "inputs_sha256": "b6bedc233db9c5bbfb7abc2a84bf49bb89836467572ea32702b8e1c1388286ea"
+  },
+  "ch20/test_severity_tasks_report_contents": {
+   "status": "pass",
+   "inputs_sha256": "5817abb1c47fd3766d05beeabb9b15c1417ce04dbc4a192ca22b6a265708d4ee"
+  },
+  "ch21/test_readmemh_address_range": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'm[0][2]=11', expected 'm[0][2]=ee'",
+   "inputs_sha256": "c5875e4caa0a182d9cf8ff5eb7a802e3311f92520763168da8de77a297a25063"
+  },
+  "ch21/test_vcd_dumpvars_no_arguments": {
+   "status": "pass",
+   "inputs_sha256": "733051a52d8d91ef41ef170e4ca82af316e8dc34d4f1e13605e47a87add52547"
+  },
+  "ch21/test_vcd_dumpvars_selection_forms": {
+   "status": "pass",
+   "inputs_sha256": "9b5391aaa2d68e87245bffcf2eec7fb9e98d80551afbd13d6ca0f6fabc769c03"
+  },
+  "ch21/test_vcd_scope_commands_begin_fork_task": {
+   "status": "pass",
+   "inputs_sha256": "a69cfe8d559dc7445d8eaa117580380ce0a4962664c5a0271abe82f9a00040c2"
+  },
+  "ch22/test_22_extra_include_syntax": {
+   "status": "pass",
+   "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f"
+  },
+  "ch23/test_scope_creators_all_kinds": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_scope_creators_all_kinds.sv:44: syntax error",
+   "inputs_sha256": "ff1757b15741be764a41235b0ab13a0322357d9799e2c1fab1f695a993eae3dd"
+  },
+  "ch23/test_syntax_port_expression_and_explicit_ports": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_syntax_port_expression_and_explicit_ports.sv:43: syntax error",
+   "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa"
+  },
+  "ch25/test_interface_abstract_methods_and_broadcast": {
+   "status": "known",
+   "reason": "compile failed: tests/ch25/test_interface_abstract_methods_and_broadcast.sv:34: syntax error",
+   "inputs_sha256": "2a18cf06ee798d2ce33edfd58f210a5c54167ecdc182f897bf78990b6a129d23"
+  },
+  "ch25/test_interface_extern_and_generate_items": {
+   "status": "known",
+   "reason": "compile failed: tests/ch25/test_interface_extern_and_generate_items.sv:42: syntax error",
+   "inputs_sha256": "6688cfc20d11ce7e2292dcc42f78a8fd123762d37947c8fa2bdbab5022304e3c"
+  },
+  "ch25/test_virtual_interface_data_type_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch25/test_virtual_interface_data_type_forms.sv:44: syntax error",
+   "inputs_sha256": "e57a4983af2eb93fe40808982d5644f6ae1c9eeb68b5fbacce9769eeb8775a5e"
+  },
+  "ch5/test_attribute_prefix_positions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch5/test_attribute_prefix_positions.sv:53: syntax error",
+   "inputs_sha256": "e67e88bda8cefee33b07e6bfe2353ce37eb2de9a0ef88dd378172690e9345bb7"
+  },
+  "ch6/test_design_element_static_lifetime": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_design_element_static_lifetime.sv:48: syntax error",
+   "inputs_sha256": "78f88ee415fed9b939b8a3c766e0d59b765f945a4803c05ae9b445c8ed44eab0"
+  },
+  "ch6/test_packed_union_size_and_implicit_conversion": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_packed_union_size_and_implicit_conversion.sv:23: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "ef705fcf7254913f8b44c444a6da37ab9a8ed2518b275cc11a2cde64237cdaa6"
+  },
+  "ch6/test_void_return_and_tagged_union_void_member": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_void_return_and_tagged_union_void_member.sv:20: syntax error",
+   "inputs_sha256": "03ed9fe0082bf76d058902bdcb7be68ec25d9ed038642197098ecc5391e94844"
+  },
+  "ch7/test_union_grammar_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_union_grammar_forms.sv:30: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "2d335d6ed20b79b7366c7f5a44391794466a0fdc6a19918ee6e7b1ad7f5835cb"
+  },
+  "ch8/test_class_declaration_grammar_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_declaration_grammar_forms.sv:32: syntax error",
+   "inputs_sha256": "7a40092a289caa23e5ee6b18c0838b52d53e429e822637323dc7fbdd96118276"
+  }
+ },
+ "generated_at": "2026-10-28T13:33:20.979624+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -156,6 +156,10 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
   判定処理（`run()`）は変えていないため、Icarus/Verilatorの採用中スナップショットは
   状態を変えずに`runner_sha256`だけを更新した。
   [記録](../docs/runner-selection-20261028.md)を参照。
+- `results/issues-20261028-icarus13.json`・`results/issues-20261028-verilator.json`:
+  Issue #6–#19のテスト側修正で変更した46本の再実行（Icarus Verilog 13.0）と、
+  Verilator 5.052による全7,472本の再実行。テスト側の修正と来歴更新は
+  [記録](../docs/test-side-fixes-20261028.md)を参照。
 - `results/ghost-local-20261028.json`: Ghostのローカル全件実行。対象はスイート`23b4c542`の7,629本、
   ビルド識別子は`d59b7c7f8feb`で、5,823 pass・1,806 fail（76.3%一致）です。
   実行時間は約3分25秒。同名の`.log`に不一致の一覧を保存しています。

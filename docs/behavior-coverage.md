@@ -3,11 +3,11 @@
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
-**規格全動作のテスト設計網羅率: 89.28%。**
-**全規格の要求台帳ベース（確定）: 設計 89.28%、実行 59.43%。**
+**規格全動作のテスト設計網羅率: 89.27%。**
+**全規格の要求台帳ベース（確定）: 設計 89.27%、実行 59.55%。**
 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
-規格全動作の実行確認率: 59.43%。
+規格全動作の実行確認率: 59.55%。
 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 10980/12298 (89.28%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7309/12298 (59.43%)。
-- 登録済みだがテスト未対応: 1318 動作。
+- 登録済み動作に対するテスト設計網羅率: 10979/12298 (89.27%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 7324/12298 (59.55%)。
+- 登録済みだがテスト未対応: 1319 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -38,16 +38,16 @@
 
 - `ch16-edge-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T15:43:04.210115+00:00 / 0/12298 動作確認、古い入力との対応 0 件。
 - `ch16-edge-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:15.726452+00:00 / 1/12298 動作確認、古い入力との対応 0 件。
-- `ch16-sim-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T15:42:14.965527+00:00 / 0/12298 動作確認、古い入力との対応 0 件。
-- `ch16-sim-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:04.031900+00:00 / 9/12298 動作確認、古い入力との対応 0 件。
+- `ch16-sim-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T15:42:14.965527+00:00 / 0/12298 動作確認、古い入力との対応 2 件。
+- `ch16-sim-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T15:43:04.031900+00:00 / 9/12298 動作確認、古い入力との対応 2 件。
 - `ch19-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T21:20:25.211852+00:00 / 0/12298 動作確認、古い入力との対応 0 件。
 - `ch19-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T21:20:35.736196+00:00 / 8/12298 動作確認、古い入力との対応 0 件。
 - `ch19-rest-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:55:13.337642+00:00 / 1/12298 動作確認、古い入力との対応 0 件。
 - `ch19-rest-reuse-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:51:40.361212+00:00 / 0/12298 動作確認、古い入力との対応 0 件。
 - `ch21-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:30:07.226181+00:00 / 1/12298 動作確認、古い入力との対応 0 件。
 - `ch21-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:30:10.339072+00:00 / 2/12298 動作確認、古い入力との対応 0 件。
-- `ch22-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:08:32.360779+00:00 / 13/12298 動作確認、古い入力との対応 0 件。
-- `ch22-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:08:36.769544+00:00 / 15/12298 動作確認、古い入力との対応 0 件。
+- `ch22-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:08:32.360779+00:00 / 13/12298 動作確認、古い入力との対応 1 件。
+- `ch22-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:08:36.769544+00:00 / 14/12298 動作確認、古い入力との対応 1 件。
 - `ch23-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:10:02.321608+00:00 / 5/12298 動作確認、古い入力との対応 0 件。
 - `ch23-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T18:10:14.224099+00:00 / 10/12298 動作確認、古い入力との対応 0 件。
 - `ch31-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T18:05:22.468557+00:00 / 10/12298 動作確認、古い入力との対応 0 件。
@@ -62,19 +62,21 @@
 - `ch38-reuse-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T17:00:25.077411+00:00 / 40/12298 動作確認、古い入力との対応 0 件。
 - `ch6-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:33:35.549914+00:00 / 1/12298 動作確認、古い入力との対応 0 件。
 - `ch6-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:33:40.336655+00:00 / 3/12298 動作確認、古い入力との対応 0 件。
-- `ch6-union-note-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T01:09:01.904537+00:00 / 3/12298 動作確認、古い入力との対応 0 件。
+- `ch6-union-note-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T01:09:01.904537+00:00 / 0/12298 動作確認、古い入力との対応 3 件。
 - `ch9-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T16:32:44.231306+00:00 / 6/12298 動作確認、古い入力との対応 0 件。
 - `ch9-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T16:32:53.445594+00:00 / 6/12298 動作確認、古い入力との対応 0 件。
-- `chA-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T22:16:15.354614+00:00 / 24/12298 動作確認、古い入力との対応 0 件。
-- `chA-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:16:45.126049+00:00 / 45/12298 動作確認、古い入力との対応 0 件。
+- `chA-extra-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T22:16:15.354614+00:00 / 24/12298 動作確認、古い入力との対応 1 件。
+- `chA-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:16:45.126049+00:00 / 44/12298 動作確認、古い入力との対応 1 件。
 - `chH-extra-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T22:00:40.482405+00:00 / 183/12298 動作確認、古い入力との対応 5 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12298 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4728/12298 動作確認、古い入力との対応 176 件。
+- `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4727/12298 動作確認、古い入力との対応 276 件。
+- `issues-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-28T13:33:20.979624+00:00 / 11/12298 動作確認、古い入力との対応 0 件。
+- `issues-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T13:45:50.335531+00:00 / 3859/12298 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3138/12298 動作確認、古い入力との対応 176 件。
-- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2693/12298 動作確認、古い入力との対応 155 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3130/12298 動作確認、古い入力との対応 274 件。
+- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2673/12298 動作確認、古い入力との対応 244 件。
 - 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
@@ -257,7 +259,7 @@
 - 39 Assertion API: 解釈保留なし 14/14、登録 95、テスト対応 82。
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 82。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
-- A Formal syntax: 解釈保留なし 87/87、登録 811、テスト対応 794。
+- A Formal syntax: 解釈保留なし 87/87、登録 811、テスト対応 793。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 9。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
@@ -13537,7 +13539,7 @@ An ordinary union bit size equals that of its largest member, subject to the dis
 
 規定の性質: `mandatory`。
 
-- [test_packed_union_size_and_implicit_conversion.sv](../tests/ch6/test_packed_union_size_and_implicit_conversion.sv): $bits で 8 ビットと 16 ビットのメンバを持つ unpacked union の大きさが最大メンバの 16 になることを表示する。 区別: 最初のメンバや合計で union の大きさを決める実装は union_bits を 8 や 24 にし、16 と一致しない。
+- [test_packed_union_size_and_implicit_conversion.sv](../tests/ch6/test_packed_union_size_and_implicit_conversion.sv): $bits(pun_t) が 8 で、8 ビットのメンバを持つ packed union の大きさが最大メンバの 8 になることを表示する。 区別: 最初のメンバや合計で union の大きさを決める実装は union_bits を 8 や 24 にし、8 と一致しない。
 
 ### SV2023-6.24.1-EXTRACT-UNPACKED-PACK-ORDER
 
@@ -52387,7 +52389,7 @@ A dimension-specific query whose operand has zero dimensions, or whose requested
 
 規定の性質: `mandatory`。
 
-- [test_array_query_types_and_invalid.sv](../tests/ch20/test_array_query_types_and_invalid.sv): 次元を持たない real の変数 r に対する $left(r) と $size(r,1)、範囲外の次元を指定した $left(int,2)、$size(string,2)、$left(logic \[7:0\],2) が、いずれも32ビット全x になることを確認する。同じ real に対して $dimensions(r)=0、$unpacked_dimensions(r)=0 になることも確認する。 区別: 無効な次元に0 を返す実装では、5つの x 検査がすべて BAD になる。次元数関数まで x にする実装では $dimensions(r) と $unpacked_dimensions(r) が0 にならない。5つの無効な問い合わせが x を返し、次元数関数だけが定義どおり0 を保つことを同時に観測する。
+- [test_array_query_types_and_invalid.sv](../tests/ch20/test_array_query_types_and_invalid.sv): 範囲外の次元を指定した $left(int,2)、$size(string,2)、$left(logic \[7:0\],2) が、いずれも32ビット全x になることを確認する。20.7 の対象外である real の呼び出しは削除したため、この check は範囲外次元だけを観測する。 区別: 無効な次元に0を返す実装では3つの x 検査がすべて BAD になる。
 
 ### SV2023-20.7-EXTRACT-LEFT-BOUND
 
@@ -57983,7 +57985,7 @@ With arguments, the first gives hierarchy depth below each selected module insta
 
 ### SV2023-21.7.1.2-EXTRACT-DUMPVARS-SYNTAX
 
-21.7.1.2 / normal / 実行確認あり
+21.7.1.2 / normal / テスト対応あり・実行未確認
 
 dumpvars accepts no arguments or a hierarchy depth followed optionally by module/variable selections.
 
@@ -58496,7 +58498,7 @@ VCD declaration keywords include scope and version; dumpvars is a simulation key
 
 ### SV2023-21.7.2.3-EXTRACT-SCOPE-COMMAND
 
-21.7.2.3 / normal / テスト対応あり・実行未確認
+21.7.2.3 / normal / 実行確認あり
 
 scope specifies variable scope using module for top/module instances, task/function for subroutines, begin for named sequential blocks and fork for named parallel blocks.
 
@@ -58531,7 +58533,7 @@ The VCD timescale keyword identifies the simulation timescale.
 
 ### SV2023-21.7.2.3-EXTRACT-UPSCOPE-COMMAND
 
-21.7.2.3 / normal / テスト対応あり・実行未確認
+21.7.2.3 / normal / 実行確認あり
 
 upscope moves to the next higher design hierarchy level.
 
@@ -58555,7 +58557,7 @@ A uwire net uses the VCD var_type wire.
 
 ### SV2023-21.7.2.3-EXTRACT-VAR-COMMAND
 
-21.7.2.3 / normal / テスト対応あり・実行未確認
+21.7.2.3 / normal / 実行確認あり
 
 var records names, printable identifiers and bit sizes; msb/lsb are most/least significant indices and the identifier is the model variable name.
 
@@ -59716,7 +59718,7 @@ Unpacked structures appear as named fork-join scopes with members mapped by the 
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-LEXING
 
-22.2 / normal / テスト対応あり・実行未確認
+22.2 / normal / 実行確認あり
 
 Macros expand inside directives, while directives are not recognized inside comments or string literals.
 
@@ -59752,7 +59754,7 @@ Unless specifically multiline, a compiler directive shall occupy one line.
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-PREFIX-SCOPE
 
-22.2 / normal / テスト対応あり・実行未確認
+22.2 / normal / 実行確認あり
 
 Directives begin with ASCII grave accent 0x60; their scope runs from processing through the current compilation unit until superseded or compilation ends.
 
@@ -60775,7 +60777,7 @@ Tools need not emit line directives; manually supplied directives are permitted.
 
 ### SV2023-22.12-EXTRACT-LINE-TRACKING
 
-22.12 / normal / テスト対応あり・実行未確認
+22.12 / normal / 実行確認あり
 
 Compilers increment location per line, start files at line 1 and store/restore parent locations across includes; updated locations are PLI-accessible and line does not alter library search.
 
@@ -60787,7 +60789,7 @@ Compilers increment location per line, start files at line 1 and store/restore p
 
 ### SV2023-22.13-EXTRACT-FILE-MACRO
 
-22.13 / normal / テスト対応あり・実行未確認
+22.13 / normal / 実行確認あり
 
 __FILE__ expands to a string literal containing the path used to open the input file, rather than merely the short include/input spelling; path format may be implementation-dependent.
 
@@ -60799,7 +60801,7 @@ __FILE__ expands to a string literal containing the path used to open the input 
 
 ### SV2023-22.13-EXTRACT-INCLUDE-LOCATION-MACROS
 
-22.13 / normal / テスト対応あり・実行未確認
+22.13 / normal / 実行確認あり
 
 Includes switch FILE/LINE expansions to included input; returning restores parent filename and its include-line number plus one.
 
@@ -83925,7 +83927,7 @@ An import with neither attribute cannot access SV data beyond its actual argumen
 
 ### SV2023-35.5.1.3-EXTRACT-NONCONTEXT-API
 
-35.5.1.3 / normal / テスト対応あり・実行未確認
+35.5.1.3 / normal / 実行確認あり
 
 For a noncontext import, calls requiring context through VPI or SV exports have unpredictable effects, subject to expressly safe H.9.5 APIs.
 
@@ -84206,7 +84208,7 @@ Scope APIs/export calls from non-DPI foreign interfaces require scope setup and 
 
 ### SV2023-35.5.3-EXTRACT-SAFE-CONTEXT-APIS
 
-35.5.3 / normal / テスト対応あり・実行未確認
+35.5.3 / normal / 実行確認あり
 
 Only context imports are generally instrumented for arbitrary VPI/export calls; noncontext imports can safely use the specifically permitted H.9.5 subset.
 
@@ -124019,7 +124021,7 @@ Constraint-primary parentheses are permitted only for an array built-in method, 
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-13
 
-A.10 / normal / テスト対応あり・実行未確認
+A.10 / normal / 実行確認あり
 
 Uniqueness-constraint range-list expressions must denote singular or array variables under 18.5.4.
 
@@ -124247,7 +124249,7 @@ A timeunits declaration used as a non-port module/interface/program or package i
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-30
 
-A.10 / normal / テスト対応あり・実行未確認
+A.10 / normal / テスト未対応
 
 matches has higher precedence than && and ||.
 
@@ -124255,7 +124257,6 @@ matches has higher precedence than && and ||.
 
 規定の性質: `mandatory`。
 
-- [test_tagged_union_expression_and_matches_precedence.sv](../tests/ch11/test_tagged_union_expression_and_matches_precedence.sv): matches を && と || の被演算子として括弧なしで並べ、prec 行に 1 1 0 を出させる。 区別: matches の優先順位が && や || より低い実装では括弧なしの式が別に解釈され、prec 行の3 つの値が期待値にならない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-31
 
@@ -131307,7 +131308,7 @@ Specification string DPI enables deprecated implementation-specific packed-data 
 
 ### SV2023-H.2-EXTRACT-DIRECTIONS
 
-H.2 / normal / テスト対応あり・実行未確認
+H.2 / normal / 実行確認あり
 
 Imported C functions are callable from SV; exported SV functions/tasks callable from C; imported C tasks can call exported tasks, using C call/link protocol.
 
@@ -132283,7 +132284,7 @@ Aggregate string members use const char* and same ownership/lifetime rules as st
 
 ### SV2023-H.9-EXTRACT-CONTEXT-CHAIN
 
-H.9 / normal / テスト対応あり・実行未確認
+H.9 / normal / 実行確認あり
 
 A DPI-C context chain starts at a context import call and continues in C without SV callback; context utility/export behavior is undefined outside a qualifying chain. Only context imports receive required instrumentation.
 
@@ -132521,7 +132522,7 @@ User data storage supports shared or unique keys within a scope; key selects sha
 
 ### SV2023-H.9.5-EXTRACT-CONTEXT-EXCEPTIONS
 
-H.9.5 / normal / テスト対応あり・実行未確認
+H.9.5 / normal / 実行確認あり
 
 VPI calls from imports require context except printf/vprintf/flush,mcd_open/close/name/printf/vprintf/flush,and get_vlog_info routines, which do not access model.
 
@@ -135430,7 +135431,7 @@ If supported, legacy size APIs return vendor packed-array byte size for width.
 
 ### SV2023-I.3-EXTRACT-LOGIC-TYPES
 
-I.3 / normal / テスト対応あり・実行未確認
+I.3 / normal / 実行確認あり
 
 VPI_VECVAL guards struct t_vpi_vecval with uint32_t aval,bval in order, s_vpi_vecval/p_vpi_vecval typedefs; svLogicVecVal aliases s_vpi_vecval.
 
@@ -135644,7 +135645,7 @@ vpiScaledRealTime=1,vpiSimTime=2,vpiSuppressTime=3.
 
 ### SV2023-I.3-EXTRACT-TIME-STRUCT
 
-I.3 / normal / テスト対応あり・実行未確認
+I.3 / normal / 実行確認あり
 
 VPI_TIME guards t_vpi_time with int32_t type,uint32_t high then low,double real and value/pointer typedefs.
 

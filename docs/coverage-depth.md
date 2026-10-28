@@ -18,10 +18,10 @@
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 663 |
+| both releases | 662 |
 | Icarus Verilog 13.0 only | 3563 |
 | Verilator 5.052 only | 1509 |
-| standard only | 2005 |
+| standard only | 2006 |
 
 ## By chapter
 
@@ -45,7 +45,7 @@
 | 18 | Constrained random value generation | 200 | 44 | 4.5 | 0 | 79 |
 | 19 | Functional coverage | 157 | 24 | 6.5 | 0 | 126 |
 | 20 | Utility system tasks and system functions | 270 | 31 | 8.7 | 0 | 46 |
-| 21 | Input/output system tasks and system functions | 211 | 47 | 4.5 | 0 | 52 |
+| 21 | Input/output system tasks and system functions | 211 | 47 | 4.5 | 0 | 53 |
 | 22 | Compiler directives | 358 | 21 | 17.0 | 0 | 10 |
 | 23 | Modules and hierarchy | 256 | 33 | 7.8 | 0 | 69 |
 | 24 | Programs | 43 | 7 | 6.1 | 0 | 17 |

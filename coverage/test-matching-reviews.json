@@ -9863,7 +9863,7 @@
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
-      "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+      "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -9911,7 +9911,7 @@
     },
     {
       "test": "tests/ch22/test_include_guard_two_files.sv",
-      "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+      "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -18352,7 +18352,7 @@
     },
     {
       "test": "tests/ch21/test_readmemh_address_range.sv",
-      "inputs_sha256": "d335055d9bac461e61fe3d983035d13c1d3bbc11f3227a2ef9b6990579e0d689",
+      "inputs_sha256": "c5875e4caa0a182d9cf8ff5eb7a802e3311f92520763168da8de77a297a25063",
       "reviewed_on": "2026-10-25",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -18362,7 +18362,7 @@
             "SV2023-21.4.3-EXTRACT-ROW-MAJOR-LOW-HIGH"
           ],
           "disposition": "partial_observation",
-          "explanation": "配列宣言が [0:1][0:2] と両次元とも昇順で、宣言順と数値の昇順が一致するため、宣言順に走査する誤実装でも同じ m[0][2]=11, m[1][0]=22 になる。次元を逆にした宣言で同じ並びを確かめる刺激がない。",
+          "explanation": "配列宣言は [0:1][0:2] で、start/finish の 2..5 は最高次元 [0:1] の範囲外である。21.4/21.4.3 は警告してメモリを変更しないことを求める。テストは警告文を固定せず、全語が初期値 ee のままであることだけを観測する。Icarus/Verilator の線形アドレス結果は規格に反するため、この行の期待値には使わない。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
@@ -18387,7 +18387,7 @@
             "SV2023-21.4.1-EXTRACT-PACKED-ELEMENTS"
           ],
           "disposition": "partial_observation",
-          "explanation": "ファイルに @ アドレス指令がなく、start..finish の範囲を完全に埋める4語を読むため、@ が最高次元の語だけを選ぶこと、部分的な語の未初期化、入力不足での停止を観測しない。packed 次元は 8bit 1つだけで、複数 packed 次元の語レイアウト、writemem*、動的配列の非リサイズも刺激しない。",
+          "explanation": "範囲外の start/finish が最高次元 [0:1] を超えるため、21.4/21.4.3 に従えば警告して全語を変更しない。ファイル内の @ アドレス指令、部分語、複数 packed 次元、writemem*、動的配列の非リサイズは刺激しない。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
@@ -20147,7 +20147,7 @@
     },
     {
       "test": "tests/ch17/test_checker_assertion_placement.sv",
-      "inputs_sha256": "9f457966a5d91cc21a14f440c15364faa188b34ec21c5f75596423876325cceb",
+      "inputs_sha256": "34c657d9995a7ad1ded65f1e49630033acdc9d88730ac8c6833a8acaa7fa17ae",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -31703,7 +31703,7 @@
     },
     {
       "test": "tests/ch8/test_class_declaration_grammar_forms.sv",
-      "inputs_sha256": "af931e6b899b374c707c82830b2d543188ef62a6e9a2ddcbebbf3e60aaa96d17",
+      "inputs_sha256": "7a40092a289caa23e5ee6b18c0838b52d53e429e822637323dc7fbdd96118276",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -38697,7 +38697,7 @@
     },
     {
       "test": "tests/ch16/test_triggered_matched_multiclock.sv",
-      "inputs_sha256": "d85c508f70d8d7eea120eee91f2e16b1a2b1ad09fe59a7b48df200542d6a7d94",
+      "inputs_sha256": "1db04fdc8b4c376c2ae57c89128d55b159173b7a25b25be3f6cd6935b4342b71",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -38713,7 +38713,7 @@
           "evidence": [
             {
               "file": "tests/ch16/test_triggered_matched_multiclock.sv",
-              "contains": "c_mat: cover sequence (@(posedge c2) r ##[1:2] s_pair(u, v).matched ##1 q)"
+              "contains": "(@(posedge c2) (r ##[1:2] 1'b1) ##0 s_pair(u, v).matched ##1 q)"
             }
           ]
         },
@@ -38728,7 +38728,7 @@
           "evidence": [
             {
               "file": "tests/ch16/test_triggered_matched_multiclock.sv",
-              "contains": "r ##[1:2] s_pair(u, v).matched"
+              "contains": "(r ##[1:2] 1'b1) ##0 s_pair(u, v).matched"
             }
           ]
         }
@@ -39882,7 +39882,7 @@
     },
     {
       "test": "tests/ch17/test_checker_body_items.sv",
-      "inputs_sha256": "9f5e193f08b281af42f9961d1e1b86259befcde3e6c230a25a6e7c5c50e8ef33",
+      "inputs_sha256": "644b941a9045da529692e171b9c0fc358868b8d48bff2c6634655b3ef038e547",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -43272,7 +43272,7 @@
     },
     {
       "test": "tests/ch20/test_fatal_form_finish_number_and_arguments.sv",
-      "inputs_sha256": "18ee266b37a35d24a69e8b923babcd7ca83db2d2ba76eb36919f16c064308c9b",
+      "inputs_sha256": "ba0730c894980a14375750017035379f8b9a5eb3aff28bd5c3330647caa1dee2",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -45582,7 +45582,7 @@
     },
     {
       "test": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
-      "inputs_sha256": "c8b52733b09c31f7dfe4545cfe5aa48eb4eaa041aa9584a3b79b4453948927da",
+      "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
       "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -45966,7 +45966,7 @@
     },
     {
       "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
-      "inputs_sha256": "b095bd69a3db1f0d351036ea09317d651a133c0b0eb02ca0e0913ca52d6ec6b1",
+      "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -47682,7 +47682,7 @@
     },
     {
       "test": "tests/ch25/test_interface_abstract_methods_and_broadcast.sv",
-      "inputs_sha256": "0452f14b559ef55109dcc4fcc15008915000bbf5c0d27d26768fecd615beae95",
+      "inputs_sha256": "2a18cf06ee798d2ce33edfd58f210a5c54167ecdc182f897bf78990b6a129d23",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -53180,7 +53180,7 @@
     },
     {
       "test": "tests/ch16/test_sequence_local_formal_assignment.sv",
-      "inputs_sha256": "64c58c2e6a89edf2c2d421d46e361afb19186436ae0060226e2950bcd1217791",
+      "inputs_sha256": "95bd31507bddd2d396acf709de9f698c200a807c30fc5d4d78eb7173f39dbb0e",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -53194,13 +53194,13 @@
             "SV2023-16.10-EXTRACT-TRIGGERED-FLOW"
           ],
           "disposition": "partial_observation",
-          "explanation": "the five rules describe local variables that become unassigned and may not be read before a new assignment; a legal design never reads such a variable, and the only positive observation would be an error for the reference, which the normal-kind requirements cannot use. The test observes the value that does flow out of a local inout formal",
+          "explanation": "The test observes a wider actual viewed through a typed local input formal (truncation) and that an input formal writes nothing back. The inout/output copy-back rule is not observed: a legal inout/output actual must itself be a local variable, and this test provides none.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch16/test_sequence_local_formal_assignment.sv",
-              "contains": "sequence s_add(local inout logic [1:0] f);"
+              "contains": "sequence s_add(local input logic [1:0] f);"
             }
           ]
         }
@@ -54258,7 +54258,7 @@
     },
     {
       "test": "tests/ch17/test_checker_always_statement_kinds.sv",
-      "inputs_sha256": "886aeb4bad60175470287bd6a2c957e7c887d641fb7e2df790f91403beec543b",
+      "inputs_sha256": "738fd8094ada8efb3ae0147dabd6f73834fc5133b0918f23be1ab15ef88dc40a",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -54282,7 +54282,7 @@
     },
     {
       "test": "tests/ch17/test_checker_rand_and_nested_checker.sv",
-      "inputs_sha256": "4e754928228bd5fcf7cc42c73a4b61fa7ef995d3bd1f7219e2a62ff383f9ed36",
+      "inputs_sha256": "582688e4f35e273761a91746e3bf5c6cfa1955c529bff3ea9abdfdc63588acfb",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -55719,7 +55719,7 @@
     },
     {
       "test": "tests/ch16/test_nexttime_always_eventually_alignment.sv",
-      "inputs_sha256": "2a03bf60c82442e8e57b7388c5ff05b792a6ff68127863349a7dea45b914fda2",
+      "inputs_sha256": "057625d7bdfc1c3f41888ad267752a6e2f1e2d300cdbfd6dde3dd46dcb8cac66",
       "reviewed_on": "2026-10-27",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -56260,7 +56260,7 @@
     },
     {
       "test": "tests/ch21/test_vcd_dumpvars_selection_forms.sv",
-      "inputs_sha256": "d9d69029bfe3e3aef026ff861ec94d82e32205dc26f8c18d8a99a1ef036ac320",
+      "inputs_sha256": "9b5391aaa2d68e87245bffcf2eec7fb9e98d80551afbd13d6ca0f6fabc769c03",
       "reviewed_on": "2026-10-27",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",

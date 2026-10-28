@@ -51,9 +51,9 @@ The suite has **7740 tests** in 38 chapters. 1308 of them are generated (`tests/
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4226 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4225 |
 | Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1509 |
-| The standard only, with no fixed-release simulator oracle recorded | 2005 |
+| The standard only, with no fixed-release simulator oracle recorded | 2006 |
 
 894 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 22 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -77,7 +77,7 @@ The suite has **7740 tests** in 38 chapters. 1308 of them are generated (`tests/
 | 18 | Constrained random value generation | 200 | 26 | 95 | 79 |
 | 19 | Functional coverage | 157 | 2 | 29 | 126 |
 | 20 | Utility system tasks and system functions | 270 | 200 | 24 | 46 |
-| 21 | Input/output system tasks and system functions | 211 | 144 | 15 | 52 |
+| 21 | Input/output system tasks and system functions | 211 | 143 | 15 | 53 |
 | 22 | Compiler directives | 358 | 335 | 13 | 10 |
 | 23 | Modules and hierarchy | 256 | 143 | 44 | 69 |
 | 24 | Programs | 43 | 21 | 5 | 17 |
