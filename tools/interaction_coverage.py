@@ -32,6 +32,7 @@ STATES = ("pass", "fail", "known", "unsupported", "stale", "not_run")
 def source_digest() -> str:
     digest = hashlib.sha256()
     names = {"generators/interaction_cover.py", "generators/interaction_models.py",
+             "generators/interaction_bits.py",
              "generators/common.py", "tools/interaction_coverage.py"}
     names.update(Path(g.__file__).resolve().relative_to(ROOT).as_posix()
                  for g in interaction_models.GENERATORS)

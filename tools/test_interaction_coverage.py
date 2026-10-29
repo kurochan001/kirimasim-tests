@@ -18,6 +18,10 @@ import interaction_expr
 import interaction_select
 import interaction_cond
 import interaction_models
+import interaction_shift
+import interaction_cast
+import interaction_task
+from interaction_bits import resize
 
 
 class CoveringSets(unittest.TestCase):
@@ -120,6 +124,43 @@ class CoveringSets(unittest.TestCase):
         self.assertEqual(interaction_cond.reference(known), ("z", "z", "zz"))
         self.assertEqual(interaction_cond.reference(mixed), ("z", "z", "0z"))
         self.assertEqual(interaction_cond.reference(bit), ("z", "z", "00"))
+
+    def test_shift_uses_context_width_and_preserves_a_z_sign_bit(self):
+        wider = ("33", "signed", "shr", "width", "known", "wide", "logic")
+        self.assertEqual(interaction_shift.reference(wider)[2], "0" * 33 + "1")
+        zsign = ("65", "signed", "ashr", "width", "z", "wide", "logic")
+        self.assertEqual(interaction_shift.reference(zsign)[2], "z" * 66)
+        unknown = ("32", "unsigned", "shl", "z", "known", "same", "logic")
+        bit = (*unknown[:-1], "bit")
+        self.assertEqual(interaction_shift.reference(unknown)[2], "x" * 32)
+        self.assertEqual(interaction_shift.reference(bit)[2], "0" * 32)
+        with self.assertRaisesRegex(ValueError, "legal complete"):
+            interaction_shift.MODEL.targets(("1", "signed", "shr", "last", "x", "same", "logic"))
+
+    def test_cast_converts_before_arithmetic_and_size_cast_limits_context(self):
+        bit_cast = ("1", "unsigned", "x", "typed_bit", "same", "add", "logic")
+        logic_cast = ("1", "unsigned", "x", "typed_logic", "same", "add", "logic")
+        self.assertEqual(interaction_cast.reference(bit_cast), ("x", "0", "001"))
+        self.assertEqual(interaction_cast.reference(logic_cast), ("x", "x", "xxx"))
+        signed = ("1", "unsigned", "known", "signed", "same", "plain", "logic")
+        unsigned = ("1", "signed", "known", "unsigned", "same", "plain", "logic")
+        self.assertEqual(interaction_cast.reference(signed)[2], "111")
+        self.assertEqual(interaction_cast.reference(unsigned)[2], "001")
+        narrow = ("33", "signed", "known", "size", "narrow", "add", "bit")
+        self.assertEqual(int(interaction_cast.reference(narrow)[2], 2), 0x10002)
+        with self.assertRaisesRegex(ValueError, "positive width"):
+            resize("1", 0, False)
+
+    def test_task_modes_differ_inside_and_after_return(self):
+        for mode in ("input", "output", "inout", "ref"):
+            with self.subTest(mode=mode):
+                row = ("1", "logic", "z", mode, "element", "delayed")
+                source, before, captured, inside, after = interaction_task.reference(row)
+                self.assertEqual((source, before, captured), ("z", "0", "z"))
+                self.assertEqual(inside, "z" if mode == "ref" else "0")
+                self.assertEqual(after, "0" if mode == "input" else "z")
+        bit = ("1", "bit", "x", "output", "scalar", "delayed")
+        self.assertEqual(interaction_task.reference(bit), ("x", "1", "0", "1", "0"))
 
 
 class ExecutionEvidence(unittest.TestCase):

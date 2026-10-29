@@ -17,6 +17,9 @@ import interaction_nba
 import interaction_expr
 import interaction_select
 import interaction_cond
+import interaction_shift
+import interaction_cast
+import interaction_task
 import keywords
 import scheduling
 import strength
@@ -25,7 +28,8 @@ import width_sign
 import xz_propagation
 
 GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths, keywords,
-              interaction_nba, interaction_expr, interaction_select, interaction_cond]
+              interaction_nba, interaction_expr, interaction_select, interaction_cond,
+              interaction_shift, interaction_cast, interaction_task]
 
 
 def main() -> int:

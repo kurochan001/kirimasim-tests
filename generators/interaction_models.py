@@ -11,10 +11,14 @@ import interaction_nba
 import interaction_expr
 import interaction_select
 import interaction_cond
+import interaction_shift
+import interaction_cast
+import interaction_task
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond)
+GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+              interaction_shift, interaction_cast, interaction_task)
 
 
 @dataclass
@@ -69,5 +73,26 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_cond.MODEL.select(),
             "両分岐の入力と条件演算の結果を表示し、分岐選択・X/Zのビットごとの結合・"
             "符号拡張・代入先の幅と2状態変換を一連の式で確認する。",
+        ),
+        SuiteModel(
+            interaction_shift.MODEL,
+            lambda row: "tests/gen/ch11/" + interaction_shift.case_name(row) + ".sv",
+            interaction_shift.MODEL.select(),
+            "シフト前の値・シフト量・結果を表示し、代入先から伝わる幅、符号付きの埋め込み、"
+            "X/Zの移動、未知のシフト量、最後の2状態変換を確認する。",
+        ),
+        SuiteModel(
+            interaction_cast.MODEL,
+            lambda row: "tests/gen/ch6/" + interaction_cast.case_name(row) + ".sv",
+            interaction_cast.MODEL.select(),
+            "元の値・キャスト直後の値・後続演算の結果を分けて表示し、キャストの幅と符号、"
+            "演算前のX/Z変換、外側の代入コンテキストと最終変換の順序を確認する。",
+        ),
+        SuiteModel(
+            interaction_task.MODEL,
+            lambda row: "tests/gen/ch13/" + interaction_task.case_name(row) + ".sv",
+            interaction_task.MODEL.select(),
+            "タスク内部・復帰直前・復帰後から実引数を観測し、コピー渡しと参照渡しの"
+            "更新時点の違い、値と隣接要素の保持を確認する。",
         ),
     )
