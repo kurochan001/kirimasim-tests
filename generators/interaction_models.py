@@ -14,11 +14,15 @@ import interaction_cond
 import interaction_shift
 import interaction_cast
 import interaction_task
+import interaction_struct
+import interaction_case
+import interaction_port
 import scheduling
 from interaction_cover import Model, Row
 
 GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
-              interaction_shift, interaction_cast, interaction_task)
+              interaction_shift, interaction_cast, interaction_task,
+              interaction_struct, interaction_case, interaction_port)
 
 
 @dataclass
@@ -94,5 +98,26 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_task.MODEL.select(),
             "タスク内部・復帰直前・復帰後から実引数を観測し、コピー渡しと参照渡しの"
             "更新時点の違い、値と隣接要素の保持を確認する。",
+        ),
+        SuiteModel(
+            interaction_struct.MODEL,
+            lambda row: "tests/gen/ch7/" + interaction_struct.case_name(row) + ".sv",
+            interaction_struct.MODEL.select(),
+            "構造体の全ビット・payload・tagと、メンバ／全体の拡張結果を観測し、"
+            "配置、更新領域、NBAの値の確定、各式の符号属性を確認する。",
+        ),
+        SuiteModel(
+            interaction_case.MODEL,
+            lambda row: "tests/gen/ch12/" + interaction_case.case_name(row) + ".sv",
+            interaction_case.MODEL.select(),
+            "セレクタと項目値を表示し、重複項目とフォールバック項目の2回の分岐結果から、"
+            "幅・符号の統一、X/Zの扱い、最初に一致した項目の優先を確認する。",
+        ),
+        SuiteModel(
+            interaction_port.MODEL,
+            lambda row: "tests/gen/ch23/" + interaction_port.case_name(row) + ".sv",
+            interaction_port.MODEL.select(),
+            "親と子の間で幅が変わる接続を使い、元の値・4状態の接続線・サンプル変数を観測して、"
+            "接続方向、駆動元の符号、宣言と接続形式、最後の2状態変換を確認する。",
         ),
     )

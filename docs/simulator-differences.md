@@ -31,6 +31,7 @@ of the test as well.
 
 | Clause | What Icarus Verilog 13.0 does | Tests |
 | --- | --- | --- |
+| 23.3.3.8, 10.7 | With the suite runner's `-ginterconnect` option, it zero-pads a signed parent value connected to a wider input port. The source must sign-extend. The same cases match without `-ginterconnect`. | `gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a`, `gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n` |
 | 11.4.11 | With an x or z condition, `?:` gives z where both operands have z in the same bit; Table 11-20 gives x. | `gen/ch11/test_gen_xz_cond_07`, `_08`; `gen/ch11/test_gen_cross_cond_w129_ss_x_same_xz_w_l`, `gen/ch11/test_gen_cross_cond_w65_uu_z_same_xz_n_l` |
 | 28.12.1, 28.12.4 | On wand, wor, triand and trior nets it ignores the strengths of the drivers: it combines their values with the logic function and gives the result strong strength. The stronger driver has to win, and only drivers of equal strength are combined, at that strength. | the 29 `gen/ch28/test_gen_strength_{wand,wor,triand,trior}_*` tests with `:oracle: spec` |
 | 30.4.4.1, 32.4.1 | It treats the condition of a state-dependent path as false when it is x or z; it has to be treated as true, also for the COND entry of an SDF file. | `ch30/test_specify_condition_unknown_true`, `ch32/test_sdf_cond_unknown_true` |

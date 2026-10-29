@@ -21,6 +21,9 @@ import interaction_models
 import interaction_shift
 import interaction_cast
 import interaction_task
+import interaction_struct
+import interaction_case
+import interaction_port
 from interaction_bits import resize
 
 
@@ -161,6 +164,36 @@ class CoveringSets(unittest.TestCase):
                 self.assertEqual(after, "0" if mode == "input" else "z")
         bit = ("1", "bit", "x", "output", "scalar", "delayed")
         self.assertEqual(interaction_task.reference(bit), ("x", "1", "0", "1", "0"))
+
+    def test_packed_structure_member_and_aggregate_extend_independently(self):
+        row = ("1", "first", "signed", "unsigned", "logic", "z", "whole", "nba")
+        self.assertEqual(interaction_struct.reference(row),
+                         ("z", "0", "0101", "z101", "0000z", "zz101"))
+        row = ("1", "last", "unsigned", "signed", "logic", "x", "member", "blocking")
+        self.assertEqual(interaction_struct.reference(row),
+                         ("x", "0", "101x", "101x", "xxxxx", "0101x"))
+
+    def test_case_masks_both_sides_and_preserves_first_match_priority(self):
+        m = interaction_case.matches
+        self.assertTrue(m("x", "x", False, "case"))
+        self.assertFalse(m("x", "0", False, "casez"))
+        self.assertTrue(m("z", "0", False, "casez"))
+        self.assertTrue(m("0", "z", False, "casez"))
+        self.assertTrue(m("x", "0", False, "casex"))
+        self.assertTrue(m("1", "11", True, "case"))
+        self.assertFalse(m("1", "11", False, "case"))
+        fallback = ("1", "unsigned", "unsigned", "same", "case", "known", "flip_low")
+        self.assertEqual(interaction_case.reference(fallback), ("1", "0", "1", 9, 2))
+        mixed = ("1", "signed", "unsigned", "wide", "case", "known", "equal")
+        self.assertEqual(interaction_case.reference(mixed), ("1", "11", "11", 9, 9))
+
+    def test_port_source_sign_is_used_before_sampling_state_conversion(self):
+        signed = ("1", "input", "signed", "wide", "z", "logic", "named", "ansi")
+        unsigned = ("1", "output", "unsigned", "wide", "z", "bit", "positional", "nonansi")
+        self.assertEqual(interaction_port.reference(signed), ("z", "zz", "zz"))
+        self.assertEqual(interaction_port.reference(unsigned), ("z", "0z", "00"))
+        for row in interaction_port.MODEL.anchors:
+            self.assertIn(row, interaction_port.MODEL.select())
 
 
 class ExecutionEvidence(unittest.TestCase):

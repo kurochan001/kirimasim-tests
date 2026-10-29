@@ -10,12 +10,12 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 4 | [Scheduling semantics](ch4.md) | 412 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 346 | 248 |
 | 6 | [Data types](ch6.md) | 641 | 39 |
-| 7 | [Aggregate data types](ch7.md) | 482 | 14 |
+| 7 | [Aggregate data types](ch7.md) | 518 | 50 |
 | 8 | [Classes](ch8.md) | 321 |  |
 | 9 | [Processes](ch9.md) | 210 |  |
 | 10 | [Assignment statements](ch10.md) | 240 | 36 |
 | 11 | [Operators and expressions](ch11.md) | 1012 | 491 |
-| 12 | [Procedural programming statements](ch12.md) | 181 |  |
+| 12 | [Procedural programming statements](ch12.md) | 217 | 36 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 237 | 50 |
 | 14 | [Clocking blocks](ch14.md) | 78 |  |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 56 |  |
@@ -26,7 +26,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 20 | [Utility system tasks and system functions](ch20.md) | 270 |  |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 213 |  |
 | 22 | [Compiler directives](ch22.md) | 358 | 248 |
-| 23 | [Modules and hierarchy](ch23.md) | 256 |  |
+| 23 | [Modules and hierarchy](ch23.md) | 292 | 36 |
 | 24 | [Programs](ch24.md) | 43 |  |
 | 25 | [Interfaces](ch25.md) | 119 |  |
 | 26 | [Packages](ch26.md) | 83 |  |
