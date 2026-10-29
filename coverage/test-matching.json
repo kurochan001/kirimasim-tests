@@ -300485,7 +300485,7 @@
     },
     {
       "test": "tests/ch4/test_reactive_region_set_order.sv",
-      "inputs_sha256": "b9de68864f4a030c7f602223656aee081dae07d8e98e0b27e3e8d9028eb4ace2",
+      "inputs_sha256": "4352a90c767d0e5b635bad43817d304298ea5d0f689b6539eaf1fce007384387",
       "cited_clauses": [
         "4.4.2.7",
         "4.4.2.8",
@@ -300529,42 +300529,7 @@
           "clause": "24.3",
           "descendant_requirement_count": 8
         }
-      ],
-      "scoped_review": {
-        "test": "tests/ch4/test_reactive_region_set_order.sv",
-        "inputs_sha256": "b9de68864f4a030c7f602223656aee081dae07d8e98e0b27e3e8d9028eb4ace2",
-        "reviewed_on": "2026-10-23",
-        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-        "decisions": [
-          {
-            "requirement_ids": [
-              "SV2023-4.4.2.8-EXTRACT-REACTIVE-NBA-SCHEDULE",
-              "SV2023-4.4.2.8-EXTRACT-RENBA-AFTER-REINACTIVE",
-              "SV2023-4.4.2.7-EXTRACT-ZERO-DELAY-REINACTIVE",
-              "SV2023-4.4.2.7-EXTRACT-REINACTIVE-AFTER-REACTIVE"
-            ],
-            "disposition": "oracle_issue",
-            "explanation": "M111: 期待出力の最後の2行は module: v changed to 1 を program: v changed to 1 より先としているが、4.5 の参照アルゴリズムでは Re-NBA の更新は Reactive 領域へ移されて execute_region(Reactive) 内で実行され、そこで起こされた program の @(v) プロセスは同じ Reactive 領域に入り、同じ反応領域セットのループ内で先に実行される(4.5 B005: 反応領域セットの5領域が空になるまで他の領域の反復は再開しない)。module の always @(v) は Active 領域に入るため、その後になる。規格から導ける順序は program 行が先で、期待出力の順序はこれと矛盾する。前半2行(program: start / after #0, v = 0)自体は妥当だが、テスト全体の期待出力が規格と一致しないため照合しない。",
-            "reviewed_on": "2026-10-23",
-            "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-            "evidence": [
-              {
-                "file": "tests/ch4/test_reactive_region_set_order.sv",
-                "contains": "  always @(v) log($sformatf(\"module: v changed to %0d\", v));"
-              },
-              {
-                "file": "tests/ch4/test_reactive_region_set_order.sv",
-                "contains": "      @(v);\n      log($sformatf(\"program: v changed to %0d\", v));"
-              },
-              {
-                "file": "tests/ch4/test_reactive_region_set_order.expected",
-                "contains": "module: v changed to 1\nprogram: v changed to 1"
-              }
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "test": "tests/ch4/test_region_set_iteration_order.sv",
@@ -550722,14 +550687,14 @@
       }
     }
   ],
-  "scoped_review_test_files": 1360,
+  "scoped_review_test_files": 1359,
   "review_disposition_counts": {
     "citation_refinement": 196,
     "compound_requirement": 176,
-    "oracle_issue": 255,
+    "oracle_issue": 254,
     "partial_observation": 2129
   },
   "registry_sha256": "416eae55ce5068b0e49625cd4a436a9e90d2aac64676b67100ae57eef24899fe",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "5539c2065dbc1035600398e6ddab002bafab2b118b0e412d9322753954805011"
+  "review_ledger_sha256": "f7b5a3d9735138c07ad536ca15b6202744297979e18bb9acac24f4e0e407d6da"
 }
