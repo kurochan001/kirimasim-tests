@@ -183,6 +183,9 @@ that satisfy their constraints. The full suite retains all existing tests.
 The [interaction report](docs/interaction-coverage.md) separates the selection plan
 from fingerprint-qualified passes in each individual run; it does not change the
 whole-standard requirement denominator.
+The [design rationale and practical methodology](docs/interaction-verification-method.md)
+(Japanese) explain model selection, implementation and evidence, how to add new
+models, and how to apply the approach to other projects and LSI verification.
 
 The [method from the PDF to tests](docs/requirements-to-tests-method.md) describes,
 step by step, how the requirements were extracted from the standard, how existing
