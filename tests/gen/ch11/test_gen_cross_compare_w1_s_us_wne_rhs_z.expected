@@ -1,0 +1,8 @@
+p0_inputs=1 z
+p0_result=0 wide=0000000 binary=0000000 bits=1
+p1_inputs=1 z
+p1_result=0 wide=0000000 binary=0000000 bits=1
+p2_inputs=0 z
+p2_result=0 wide=0000000 binary=0000000 bits=1
+p3_inputs=1 z
+p3_result=0 wide=0000000 binary=0000000 bits=1

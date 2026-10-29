@@ -1,0 +1,4 @@
+p0_inputs=1 1 1
+p0_value=11 direct=011 saved=011 bits=2
+p1_inputs=1 0 0
+p1_value=01 direct=001 saved=001 bits=2

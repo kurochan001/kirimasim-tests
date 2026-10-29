@@ -108,6 +108,7 @@ not parse the modport in an interface port of a module.
 
 | Clause | What Verilator 5.052 does | Tests |
 | --- | --- | --- |
+| 7.12.3, 6.24.1, 11.8.2 | Some array-reduction results, extensions or expression widths differ. An unsigned one-bit dynamic-array sum of three ones extends to `11` instead of `01`; a 32-bit product with a 33-bit with-expression also differs when assigned wide. Seven observed output differences are listed in the [interaction guide](interaction-verification.md). | `gen/ch7/test_gen_cross_method_w1_b_u_d_sum_plain_known`, `gen/ch7/test_gen_cross_method_w32_l_u_f_product_widen_known` and five other cases listed in the guide |
 | 11.4.14.3 | A left-stream unpack of 33 bits with slice size 4 gives the pack permutation, rather than its inverse. The partial block makes these permutations different; both fixed seeds give the same difference. | `gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k` |
 | 20.10 | `$error` stops the run; it has to report the error and go on. The runner passes `+verilator+error+limit+1000000`, with which it goes on. | `ch20/test_error_does_not_end_run` (without that option) |
 | 20.10, 9.2.3 | When `$fatal` ends the run, the final procedures do not run. | `ch20/test_fatal_runs_final_procedures` |

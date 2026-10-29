@@ -28,6 +28,8 @@ import interaction_port
 import interaction_array
 import interaction_query
 import interaction_stream
+import interaction_compare
+import interaction_method
 from interaction_bits import resize
 
 
@@ -245,6 +247,44 @@ class CoveringSets(unittest.TestCase):
         self.assertEqual(unstable, {interaction_query.case_name(r)
                                    for r in interaction_query.MODEL.select()
                                    if interaction_query.icarus_unstable(r)})
+
+    def test_comparison_oracle_distinguishes_signedness_unknowns_and_wildcard_side(self):
+        compare = interaction_compare.compare
+        self.assertEqual(compare("1111", "00001111", "signed", "unsigned", "eq"), "1")
+        self.assertEqual(compare("1111", "00001111", "signed", "signed", "eq"), "0")
+        self.assertEqual(compare("1111", "00001111", "signed", "signed", "lt"), "1")
+        self.assertEqual(compare("1x00", "0100", "unsigned", "unsigned", "eq"), "0")
+        self.assertEqual(compare("1x00", "1100", "unsigned", "unsigned", "eq"), "x")
+        self.assertEqual(compare("1x00", "0100", "unsigned", "unsigned", "gt"), "x")
+        self.assertEqual(compare("1x01", "1101", "unsigned", "unsigned", "weq"), "x")
+        self.assertEqual(compare("1001", "1x01", "unsigned", "unsigned", "weq"), "1")
+        self.assertEqual(compare("z001", "z001", "signed", "signed", "ceq"), "1")
+        self.assertEqual(compare("x001", "z001", "signed", "signed", "cne"), "1")
+
+    def test_array_method_overflow_happens_before_destination_extension(self):
+        row = ("1", "logic", "unsigned", "queue", "sum", "plain", "known")
+        self.assertEqual(interaction_method.reference(row, 0), ("1", "01"))
+        self.assertEqual(interaction_method.reference((*row[:5], "widen", row[-1]), 0),
+                         ("11", "011"))
+        signed = ("1", "logic", "signed", "fixed", "sum", "plain", "known")
+        self.assertEqual(interaction_method.reference(signed, 0), ("1", "11"))
+        self.assertEqual(interaction_method.reference((*signed[:5], "widen", signed[-1]), 0),
+                         ("01", "001"))
+
+    def test_array_method_cast_truncation_and_four_state_controlling_values(self):
+        row = ("129", "logic", "signed", "queue", "xor", "integer", "high_z")
+        self.assertEqual(interaction_method.reference(row, 0), ("0" * 31 + "1", "0" * 32 + "1"))
+        plain = (*row[:5], "plain", row[-1])
+        self.assertEqual(interaction_method.reference(plain, 0)[0][0], "x")
+        unknown_or = ("1", "logic", "unsigned", "fixed", "or", "integer", "high_x")
+        self.assertEqual(interaction_method.reference(unknown_or, 1),
+                         ("0" * 31 + "x", "0" * 32 + "x"))
+        converted_or = (*unknown_or[:5], "int", unknown_or[-1])
+        self.assertEqual(interaction_method.reference(converted_or, 1), ("0" * 32, "0" * 33))
+        reduce = interaction_method.reduce_values
+        self.assertEqual(reduce(["xz", "00", "11"], "and"), "00")
+        self.assertEqual(reduce(["xz", "00", "11"], "or"), "11")
+        self.assertEqual(reduce(["xz", "00", "11"], "xor"), "xx")
 
     def test_stream_partial_blocks_need_inverse_permutations_for_unpack(self):
         reorder = interaction_stream.reorder

@@ -20,13 +20,16 @@ import interaction_port
 import interaction_array
 import interaction_query
 import interaction_stream
+import interaction_compare
+import interaction_method
 import scheduling
 from interaction_cover import Model, Row
 
 GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task,
               interaction_struct, interaction_case, interaction_port,
-              interaction_array, interaction_query, interaction_stream)
+              interaction_array, interaction_query, interaction_stream,
+              interaction_compare, interaction_method)
 
 
 @dataclass
@@ -144,5 +147,19 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_stream.MODEL.select(),
             "入力ストリームと結果を比較し、ブロック順、端数ブロック、複数項目の連結、"
             "packとunpackの逆変換、2状態の格納先への変換を確認する。",
+        ),
+        SuiteModel(
+            interaction_compare.MODEL,
+            lambda row: "tests/gen/ch11/" + interaction_compare.case_name(row) + ".sv",
+            interaction_compare.MODEL.select(),
+            "4組の入力で幅・符号の統一、未知値と既知の不一致、右辺だけのワイルドカードを"
+            "確認し、1ビットの比較結果を広いlogic/bitへ直接代入して変換順序を観測する。",
+        ),
+        SuiteModel(
+            interaction_method.MODEL,
+            lambda row: "tests/gen/ch7/" + interaction_method.case_name(row) + ".sv",
+            interaction_method.MODEL.select(),
+            "固定長配列・動的配列・キューの集計を2組の背景値で観測し、with式による要素の"
+            "型変換、戻り値の幅、オーバーフロー、X/Z伝播と呼出し後の拡張を確認する。",
         ),
     )
