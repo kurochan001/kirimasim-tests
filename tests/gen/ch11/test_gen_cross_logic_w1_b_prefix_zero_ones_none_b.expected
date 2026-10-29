@@ -1,0 +1,8 @@
+p_input=1 source=1 expr=01
+p_and=0 wide=0000000 bits=1
+p_nand=1 wide=0000001 bits=1
+p_or=1 wide=0000001 bits=1
+p_nor=0 wide=0000000 bits=1
+p_xor=1 wide=0000001 bits=1
+p_xnor=0 wide=0000000 bits=1
+p_not=0 wide=0000000 bits=1

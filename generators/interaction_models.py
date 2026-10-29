@@ -26,6 +26,8 @@ import interaction_index
 import interaction_queue
 import interaction_divide
 import interaction_resize
+import interaction_concat
+import interaction_logic
 import scheduling
 from interaction_cover import Model, Row
 
@@ -35,7 +37,8 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_array, interaction_query, interaction_stream,
               interaction_compare, interaction_method,
               interaction_index, interaction_queue,
-              interaction_divide, interaction_resize)
+              interaction_divide, interaction_resize,
+              interaction_concat, interaction_logic)
 
 
 @dataclass
@@ -195,5 +198,19 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_resize.MODEL.select(),
             "再確保前後のサイズと全要素を観測し、別配列コピー・自己リサイズ・初期化式なしの"
             "再生成、切り詰め、追加領域の型別既定値、コピー後の独立性を確認する。",
+        ),
+        SuiteModel(
+            interaction_concat.MODEL,
+            lambda row: "tests/gen/ch11/" + interaction_concat.case_name(row) + ".sv",
+            interaction_concat.MODEL.select(),
+            "2組の既知入力とX/Zの入力で、連結全体への拡張と分割、各項の状態変換、"
+            "即時更新とNBAの値確定、各項と連結を読み出す際の符号の違いを確認する。",
+        ),
+        SuiteModel(
+            interaction_logic.MODEL,
+            lambda row: "tests/gen/ch11/" + interaction_logic.case_name(row) + ".sv",
+            interaction_logic.MODEL.select(),
+            "各行で全6リダクションと論理否定の入力・実際の式・結果を観測し、支配値とX/Z、"
+            "演算前後の状態変換、1ビットunsigned結果の拡張、入力の自己決定幅を確認する。",
         ),
     )

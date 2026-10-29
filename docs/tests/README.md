@@ -14,7 +14,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 8 | [Classes](ch8.md) | 321 |  |
 | 9 | [Processes](ch9.md) | 210 |  |
 | 10 | [Assignment statements](ch10.md) | 240 | 36 |
-| 11 | [Operators and expressions](ch11.md) | 1264 | 743 |
+| 11 | [Operators and expressions](ch11.md) | 1406 | 885 |
 | 12 | [Procedural programming statements](ch12.md) | 217 | 36 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 237 | 50 |
 | 14 | [Clocking blocks](ch14.md) | 78 |  |

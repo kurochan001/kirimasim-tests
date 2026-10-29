@@ -34,6 +34,8 @@ import interaction_index
 import interaction_queue
 import interaction_divide
 import interaction_resize
+import interaction_concat
+import interaction_logic
 from interaction_bits import resize
 
 
@@ -382,6 +384,51 @@ class CoveringSets(unittest.TestCase):
         empty_result = (*reset[:5], "0", "reset")
         self.assertEqual(interaction_resize.reference(empty_result, 0)[1], [])
         self.assertFalse(interaction_resize.make_case(empty_result).fourstate)
+
+    def test_concatenated_assignment_extends_rhs_before_partitioning(self):
+        row = ("2", "head_bit", "narrow", "signed", "ll", "unsigned", "blocking", "known")
+        self.assertEqual(interaction_concat.reference(row, 0)[:4], ("1", "11", "1", "1"))
+        unsigned = (*row[:3], "unsigned", *row[4:])
+        self.assertEqual(interaction_concat.reference(unsigned, 0)[:4], ("1", "01", "0", "1"))
+        signed_members = (*row[:5], "signed", *row[6:])
+        self.assertIn("p0_wide=11 11 concat=011", interaction_concat.make_case(signed_members).expected)
+        self.assertIn("p0_wide=01 01 concat=011", interaction_concat.make_case(row).expected)
+
+    def test_concatenated_assignment_converts_each_field_and_captures_nba(self):
+        row = ("2", "head_bit", "narrow", "signed", "bl", "signed", "nba", "x")
+        self.assertEqual(interaction_concat.reference(row, 0),
+                         ("x", "xx", "0", "x", "1", "1", "1"))
+        case = interaction_concat.make_case(row)
+        self.assertTrue(case.fourstate)
+        self.assertIn("p0_scheduled=1 1", case.expected)
+        self.assertIn("p0_changed=1\np0_final=0 x", case.expected)
+        self.assertIn("k0_scheduled=0 0", case.expected)
+        wide = ("33", "head_bit", "wide", "unsigned", "bl", "signed", "blocking", "z")
+        source, fitted, left, right, *_ = interaction_concat.reference(wide, 0)
+        self.assertEqual((source[0], fitted[0], left, right[-1]), ("z", "0", "0", "z"))
+        self.assertEqual(len(fitted), 33)
+
+    def test_packed_reductions_observe_controlling_bits_and_unknown_parity(self):
+        r = interaction_logic.evaluate
+        self.assertEqual(r("1xz"), {"and": "x", "nand": "x", "or": "1", "nor": "0",
+                                    "xor": "x", "xnor": "x", "not": "0"})
+        self.assertEqual((r("0xz")["and"], r("0xz")["or"], r("0xz")["not"]), ("0", "x", "x"))
+        self.assertEqual((r("1" * 32)["xor"], r("1" * 33)["xor"]), ("0", "1"))
+        one = ("1", "logic", "direct", "z", "low", "logic")
+        result = interaction_logic.reference(one)[3]
+        for op in ("and", "or", "xor"):
+            self.assertEqual(result[op], ("x", "000000x"))
+
+    def test_packed_logic_distinguishes_conversion_before_and_after_operation(self):
+        row = ("65", "logic", "direct", "x", "high", "bit")
+        self.assertEqual(interaction_logic.reference(row)[3]["not"], ("x", "0000000"))
+        binary_input = (row[0], "bit", *row[2:])
+        self.assertEqual(interaction_logic.reference(binary_input)[3]["not"], ("1", "0000001"))
+        prefix = ("65", "logic", "prefix_one", "z", "high", "logic")
+        result = interaction_logic.reference(prefix)[3]
+        self.assertEqual(result["not"], ("0", "0000000"))
+        self.assertEqual(result["xor"], ("x", "000000x"))
+        self.assertTrue(interaction_logic.make_case(prefix).fourstate)
 
     def test_stream_partial_blocks_need_inverse_permutations_for_unpack(self):
         reorder = interaction_stream.reorder

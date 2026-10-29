@@ -1,0 +1,20 @@
+k0_input=11
+k0_scheduled=0 0
+k0_changed=00
+k0_final=1 1
+k0_wide=01 01 concat=011
+k1_input=00
+k1_scheduled=1 1
+k1_changed=11
+k1_final=0 0
+k1_wide=00 00 concat=000
+p0_input=zz
+p0_scheduled=1 1
+p0_changed=11
+p0_final=0 0
+p0_wide=00 00 concat=000
+p1_input=zz
+p1_scheduled=1 1
+p1_changed=11
+p1_final=0 0
+p1_wide=00 00 concat=000

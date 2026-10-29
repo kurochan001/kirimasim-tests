@@ -32,6 +32,8 @@ import interaction_index
 import interaction_queue
 import interaction_divide
 import interaction_resize
+import interaction_concat
+import interaction_logic
 import keywords
 import scheduling
 import strength
@@ -46,7 +48,8 @@ GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths, keyw
               interaction_array, interaction_query, interaction_stream,
               interaction_compare, interaction_method,
               interaction_index, interaction_queue,
-              interaction_divide, interaction_resize]
+              interaction_divide, interaction_resize,
+              interaction_concat, interaction_logic]
 
 
 def main() -> int:

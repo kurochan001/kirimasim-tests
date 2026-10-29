@@ -1,0 +1,16 @@
+k_input=1 source=1 expr=11
+k_and=1 wide=0000001 bits=1
+k_nand=0 wide=0000000 bits=1
+k_or=1 wide=0000001 bits=1
+k_nor=0 wide=0000000 bits=1
+k_xor=0 wide=0000000 bits=1
+k_xnor=1 wide=0000001 bits=1
+k_not=0 wide=0000000 bits=1
+p_input=x source=x expr=1x
+p_and=x wide=0000000 bits=1
+p_nand=x wide=0000000 bits=1
+p_or=1 wide=0000001 bits=1
+p_nor=0 wide=0000000 bits=1
+p_xor=x wide=0000000 bits=1
+p_xnor=x wide=0000000 bits=1
+p_not=0 wide=0000000 bits=1
