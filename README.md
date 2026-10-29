@@ -52,15 +52,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **7780 tests** in 38 chapters. 1344 of them are generated (`tests/gen/`, see "Generated tests"): 36 by `interaction_nba`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **7899 tests** in 38 chapters. 1463 of them are generated (`tests/gen/`, see "Generated tests"): 32 by `interaction_cond`, 51 by `interaction_expr`, 36 by `interaction_nba`, 36 by `interaction_select`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4263 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4380 |
 | Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1509 |
-| The standard only, with no fixed-release simulator oracle recorded | 2008 |
+| The standard only, with no fixed-release simulator oracle recorded | 2010 |
 
-918 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+966 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -72,7 +72,7 @@ The suite has **7780 tests** in 38 chapters. 1344 of them are generated (`tests/
 | 8 | Classes | 321 | 67 | 182 | 72 |
 | 9 | Processes | 210 | 151 | 32 | 27 |
 | 10 | Assignment statements | 240 | 169 | 43 | 28 |
-| 11 | Operators and expressions | 837 | 706 | 92 | 39 |
+| 11 | Operators and expressions | 956 | 823 | 92 | 41 |
 | 12 | Procedural programming statements | 181 | 133 | 29 | 19 |
 | 13 | Tasks and functions (subroutines) | 201 | 107 | 81 | 13 |
 | 14 | Clocking blocks | 78 | 4 | 61 | 13 |
@@ -172,8 +172,10 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.md) uses constrained
 pairwise coverage, selected three-factor groups and mandatory boundary witnesses.
-Its focused selection reuses 51 of the 325 scheduling tests and adds 36 NBA capture
-tests selected from 432 legal assignments. The full suite retains all existing tests.
+Its focused selection has 206 tests: 51 reused scheduling tests, 36 NBA capture tests,
+51 arithmetic-context tests, 36 packed-part-select tests and 32 conditional-merge tests.
+The latter three select 119 tests from 2,740 legal assignments. The full suite retains
+all existing tests.
 The [interaction report](docs/interaction-coverage.md) separates the selection plan
 from fingerprint-qualified passes in each individual run; it does not change the
 whole-standard requirement denominator.
@@ -674,6 +676,9 @@ outputs, and it writes many small variations of one kind of test:
 | --- | ---: | --- |
 | `scheduling` | 4 | How a variable is written (blocking, nonblocking, nonblocking with an intra-assignment delay, through a continuous assignment, by `force`), how it is read (in the same process, by another process waiting for it, `$strobe`, `$monitor`), where the write is (initial, always, task, function, fork branch, interface, generate block) and after which delay (none, `#0`, `#1`); only the combinations whose result the standard fixes |
 | `interaction_nba` | 10 | Constrained pairwise combinations of width (1, 32, 33, 64, 65, 129), bit/logic, known/X/Z values, scalar/fixed unpacked array, array direction, initial/automatic task and immediate/delayed NBA; selected triples and boundary witnesses additionally check value/index capture before mutation and task return |
+| `interaction_expr` | 11 | Operand widths/signs, destination width and add/subtract/multiply; 51 selected cases with four input pairs each check context extension, carries and truncation |
+| `interaction_select` | 11 | Packed-vector width/direction, +:/-: indexed slices, span/position, bit/logic and known/X/Z data; 36 selected cases check reads, writes and unselected-bit preservation |
+| `interaction_cond` | 11 | Branch signs, condition 0/1/X/Z, known/X/Z branch patterns, destination width and bit/logic; 32 selected cases check selection, bitwise merge and conversion |
 | `width_sign` | 11 | Operands and targets of 63 to 1000 bits, signed and unsigned, with the operators whose result size and sign 11.6 to 11.8 decide |
 | `xz_propagation` | 11 | Operands with x and z bits for every operator of 11.4 that has rules for them |
 | `strength` | 28 | Two drivers of a net with different strengths and values, on wire, tri, wand, triand, wor, trior, tri0 and tri1 nets and through bufif gates, shown with `%v` |

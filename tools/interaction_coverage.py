@@ -21,8 +21,6 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "generators"))
 import common  # noqa: E402
 import interaction_models  # noqa: E402
-import interaction_nba  # noqa: E402
-import scheduling  # noqa: E402
 
 DATA = ROOT / "coverage" / "interaction-summary.json"
 REPORT = ROOT / "docs" / "interaction-coverage.md"
@@ -33,16 +31,18 @@ STATES = ("pass", "fail", "known", "unsupported", "stale", "not_run")
 
 def source_digest() -> str:
     digest = hashlib.sha256()
-    for name in ("generators/interaction_cover.py", "generators/interaction_models.py",
-                 "generators/interaction_nba.py", "generators/scheduling.py",
-                 "generators/common.py", "tools/interaction_coverage.py"):
+    names = {"generators/interaction_cover.py", "generators/interaction_models.py",
+             "generators/common.py", "tools/interaction_coverage.py"}
+    names.update(Path(g.__file__).resolve().relative_to(ROOT).as_posix()
+                 for g in interaction_models.GENERATORS)
+    for name in sorted(names):
         digest.update(name.encode() + b"\0")
         digest.update((ROOT / name).read_bytes())
     return digest.hexdigest()
 
 
 def validate_files() -> None:
-    for path, expected in common.outputs([scheduling, interaction_nba]).items():
+    for path, expected in common.outputs(interaction_models.GENERATORS).items():
         if not path.is_file() or path.read_text() != expected:
             raise ValueError(f"generated witness is stale: {path.relative_to(ROOT)}")
 

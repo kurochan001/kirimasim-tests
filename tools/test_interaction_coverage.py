@@ -14,9 +14,23 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "generators"))
 from interaction_cover import Model
 from interaction_models import SuiteModel
 import interaction_nba
+import interaction_expr
+import interaction_select
+import interaction_cond
+import interaction_models
 
 
 class CoveringSets(unittest.TestCase):
+    def test_registered_models_have_all_projected_targets_and_available_anchors(self):
+        for plan in interaction_models.registered():
+            with self.subTest(model=plan.model.name):
+                selected = plan.model.select()
+                self.assertTrue(set(selected) <= set(plan.available))
+                self.assertTrue(set(plan.model.anchors) <= set(selected))
+                self.assertEqual({t for r in selected for t in plan.model.targets(r)},
+                                 set(plan.model.universe()))
+                self.assertEqual(selected, plan.model.select())
+
     def test_legal_projection_needs_a_complete_extension(self):
         model = Model("extend", (("a", ("0", "1")), ("b", ("0", "1")),
                                   ("c", ("0", "1"))),
@@ -67,6 +81,45 @@ class CoveringSets(unittest.TestCase):
         self.assertEqual(interaction_nba.reference(base), ("0" * 65, "z" * 65, "1" * 65))
         bit = ("65", "bit", "x", "array", "ascending", "initial", "immediate")
         self.assertEqual(interaction_nba.reference(bit), ("1" * 65, "0" * 65, "1" * 65))
+
+    def test_arithmetic_context_keeps_carry_and_changes_mixed_sign_extension(self):
+        unsigned = ("32", "same", "wide", "unsigned", "unsigned", "mul")
+        self.assertEqual(interaction_expr.reference(unsigned, 0xffffffff, 2), 0x1fffffffe)
+        signed = ("33", "narrow", "wide", "signed", "signed", "add")
+        mixed = ("33", "narrow", "wide", "signed", "unsigned", "add")
+        self.assertEqual(interaction_expr.reference(signed, 0x100000000, 0x80000000),
+                         0x280000000)
+        self.assertEqual(interaction_expr.reference(mixed, 0x100000000, 0x80000000),
+                         0x180000000)
+        with self.assertRaisesRegex(ValueError, "legal complete"):
+            interaction_expr.MODEL.targets(("1", "narrow", "same", "signed", "signed", "add"))
+
+    def test_packed_slice_preserves_neighbors_and_known_writes_always_change_data(self):
+        for row in interaction_select.MODEL.rows():
+            before, data, old_slice, after = interaction_select.reference(row)
+            w, size, offset = interaction_select.geometry(row)
+            start = w - offset - size
+            self.assertEqual(before[:start], after[:start])
+            self.assertEqual(before[start + size:], after[start + size:])
+            if row[6] == "known":
+                self.assertNotEqual(data, old_slice)
+                self.assertNotEqual(before, after)
+        row = ("33", "descending", "plus", "half", "interior", "logic", "z")
+        before, data, _, after = interaction_select.reference(row)
+        self.assertEqual(data, "z" * 16)
+        self.assertEqual(after, before[:9] + "z" * 16 + before[25:])
+        with self.assertRaisesRegex(ValueError, "legal complete"):
+            interaction_select.MODEL.targets(("1", "ascending", "plus", "half", "low", "bit", "x"))
+
+    def test_conditional_merge_distinguishes_known_selection_from_z_z_merge(self):
+        ambiguous = ("1", "signed", "signed", "x", "same_xz", "wide", "logic")
+        known = ("1", "signed", "signed", "1", "same_xz", "wide", "logic")
+        mixed = ("1", "signed", "unsigned", "1", "same_xz", "wide", "logic")
+        bit = ("1", "signed", "unsigned", "1", "same_xz", "wide", "bit")
+        self.assertEqual(interaction_cond.reference(ambiguous), ("z", "z", "xx"))
+        self.assertEqual(interaction_cond.reference(known), ("z", "z", "zz"))
+        self.assertEqual(interaction_cond.reference(mixed), ("z", "z", "0z"))
+        self.assertEqual(interaction_cond.reference(bit), ("z", "z", "00"))
 
 
 class ExecutionEvidence(unittest.TestCase):
