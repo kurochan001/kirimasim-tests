@@ -1,4 +1,4 @@
-# Symbolic formal checks (2026-10-26)
+# Symbolic formal checks (2026-10-26; refreshed 2026-10-29)
 
 For an introduction and operating guide in Japanese, see
 [`SVA参照評価器とフォーマル検証`](../../docs/sva-reference-formal-verification.md).
@@ -14,13 +14,22 @@ Two formal sets are recorded as of 2026-10-26:
 The sets overlap and must not be added as disjoint model counts. The first
 sections describe the basic set; the extension is described below and in the
 [Japanese boundary-sweep report](../../docs/sva-formal-expansion-20261026.md).
-These are historical results. As of 2026-10-29, both saved reports fail their
-current `--check-results` checks because source bindings have changed. They
-must not be described as fresh proofs for the current source. Current
-suite-level formal evidence is recorded separately through `tools/run_sby.py`
+On 2026-10-29, both saved reports and their negative-control VCDs were
+regenerated from the current sources. The catalogue report now includes all
+267 cases: 267 BMC checks, 44 PDR proofs, 267 covers and five deliberate BMC
+failures (583 jobs: 578 expected PASS, five expected FAIL). The boundary
+sweep again produced 225 expected PASS and three expected FAIL results.
+Both current-source/task-completeness checks pass. The separate PDR negative
+control was also rerun and produced its expected counterexample.
+
+The full catalogue contains 120 local-semantics tables, 34 clocking tables,
+44 sequence/streaming cases, 58 property cases, nine nonvacuity cases and two
+sampled-function cases. The 40-model counts and descriptions below refer to
+the initial 2026-10-26 subset, which is included in the current catalogue.
+Suite-level requirement evidence remains separate, through `tools/run_sby.py`
 and the [behavior summary](../../docs/behavior-coverage-summary.md).
 
-The basic formal set has 40 independent semantic-model comparisons.
+The initial basic formal set had 40 independent semantic-model comparisons.
 All 40 bounded checks passed. The 22 sequence models also passed unbounded
 PDR equivalence proofs. Four reachability checks passed, and five deliberately
 incorrect references each failed with a counterexample. That is 71 tool jobs:
@@ -30,10 +39,10 @@ or ERROR result was accepted.
 An additional ABC PDR backend negative control also returned FAIL with a VCD
 for the tied-first-match mistake. It is recorded separately in
 [`fixtures/formal_pdr_negative.json`](fixtures/formal_pdr_negative.json);
-its model hash equals the corresponding BMC mutant's hash. The main 71-job
+its model hash equals the corresponding BMC mutant's hash. The catalogue
 report and this one extra backend check are kept distinct.
 
-The source-bound result is
+The current full-catalogue source-bound result is
 [`fixtures/formal_symbolic_results.json`](fixtures/formal_symbolic_results.json).
 It records case expressions, clauses, models/configuration hashes, input
 domains, depths, modes, tool versions and statuses. Full regenerated RTL,
@@ -123,7 +132,7 @@ suite files because more than one test can reference the same case.
 # Run the current catalogue's BMC, streaming PDR, covers and negative controls.
 # FORMAL_RUN_DIR must be new or empty; previous runs are never overwritten.
 python3 tools/sva_reference/formal.py --sby "$SBY_BIN" \
-  --output-dir "$FORMAL_RUN_DIR"
+  --timeout 300 --output-dir "$FORMAL_RUN_DIR"
 
 # Limit the workload, retaining the relevant proof/cover/negative control.
 python3 tools/sva_reference/formal.py --sby "$SBY_BIN" \
@@ -143,6 +152,12 @@ The user's PATH and simulator tool selections are not changed. This run used
 OSS CAD Suite 20260816, Yosys 0.68+71, SBY 0.68, Yices 2.7.0 and ABC 1.01.
 The existing formal service's known PASS, FAIL and cover smoke checks also
 returned their expected results before the extended run.
+
+Use a 300-second per-job limit for the full catalogue. On 2026-10-29,
+`f43_push_nonoverlap_bmc` exceeded the default 30 seconds, then passed in
+about 35 seconds with a longer limit. The complete catalogue is rerun with
+one consistent limit; timed-out jobs are never accepted as proofs. The
+boundary sweep retains its 30-second limit.
 
 Unknown statuses, inconsistent exit codes, missing status files, and missing
 negative-control/cover witnesses fail the run. Generation is deterministic;
@@ -244,3 +259,10 @@ passed (the basic-set milestone had 193). The 45 concrete suite comparisons
 still match, both saved formal result sets pass their freshness checks, and README,
 generator, catalog, coverage-depth, metadata, behavior/source-audit and
 requirement-matching consistency checks passed.
+
+The 2026-10-29 refresh also passed all 263 repository unittests and the 45
+audited output comparisons (M2: 10, M3: 28, M4: seven). The wider M3 survey
+still exits with status 2 for two `in_scope_unhandled` tests,
+`test_ch16_sim_prop_inherited_eventually.sv` and
+`test_dollar_cycle_delay_and_actual.sv`; neither is counted as an additional
+verified output or proof in this refresh.

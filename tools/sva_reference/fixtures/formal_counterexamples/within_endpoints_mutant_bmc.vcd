@@ -3,10 +3,10 @@ $timescale 1ns $end
 $var integer 32 t smt_step $end
 $var event 1 ! smt_clock $end
 $scope module check_model $end
-$var wire 32 n10 \$auto$proc_rom.cc:155:do_switch$39<0> $end
-$var wire 32 n11 \$auto$proc_rom.cc:155:do_switch$39<3> $end
-$var wire 32 n14 \$auto$proc_rom.cc:155:do_switch$39<4> $end
-$var wire 32 n12 \$auto$proc_rom.cc:155:do_switch$39<8> $end
+$var wire 32 n11 \$auto$proc_rom.cc:155:do_switch$39<0> $end
+$var wire 32 n10 \$auto$proc_rom.cc:155:do_switch$39<3> $end
+$var wire 32 n12 \$auto$proc_rom.cc:155:do_switch$39<4> $end
+$var wire 32 n14 \$auto$proc_rom.cc:155:do_switch$39<8> $end
 $var wire 32 n13 \$auto$proc_rom.cc:155:do_switch$39<c> $end
 $var wire 4 n17 \$auto$proc_rom.cc:155:do_switch$43<0> $end
 $var wire 4 n18 \$auto$proc_rom.cc:155:do_switch$43<1> $end

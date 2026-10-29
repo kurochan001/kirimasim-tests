@@ -24,10 +24,13 @@ for the basic set, the 111-case extension, covers and counterexamples.
 The [Japanese guide](../../docs/sva-reference-formal-verification.md) explains
 the relationship to suite expectations, proof boundaries and reproduction.
 
-The 40-model and 111-case reports above are historical. As of 2026-10-29,
-their saved JSON files fail `--check-results` because their source bindings
-are stale. The current default catalogue contains 267 cases; 268 suite files
-refer to them through `:formal_case:` and are run by `tools/run_sby.py`.
+The milestone counts above are historical. On 2026-10-29, both saved formal
+reports and their counterexamples were regenerated from current sources.
+The catalogue report now covers all 267 cases: 267 BMC checks, 44 PDR proofs,
+267 covers and five expected deliberate-error failures (583 jobs). The
+111-case sweep again passed its 228-job plan. Both saved reports pass
+`--check-results`. There are 268 suite files referring to the current
+catalogue through `:formal_case:`, run by `tools/run_sby.py`.
 Current requirement-level evidence is recorded in the
 [behavior summary](../../docs/behavior-coverage-summary.md).
 
@@ -476,11 +479,12 @@ this is recorded separately from any assertion-output verification.
 
 ## Symbolic formal checks and parameter-boundary sweep
 
-The basic set checks sequences, finite-word properties and sampled functions
-against independently written RTL. It has 40 BMC jobs, 22 PDR jobs, four
-reachability jobs and five deliberate-error jobs: 71 jobs with 66 expected
-PASS and five expected FAIL results. A separate PDR negative control is also
-recorded. See [`FORMAL_REVIEW.md`](FORMAL_REVIEW.md) for domains and limits.
+The initial 40-model basic set checked sequences, finite-word properties and
+sampled functions against independently written RTL. The 2026-10-29 refresh
+runs the full 267-case catalogue: 267 BMC jobs, 44 PDR jobs, 267 reachability
+jobs and five deliberate-error jobs, with 578 expected PASS and five expected
+FAIL results. A separate PDR negative control was also rerun and recorded.
+See [`FORMAL_REVIEW.md`](FORMAL_REVIEW.md) for domains and limits.
 
 The later sweep varies delays, repetitions and related operator boundaries
 over 111 fixed-parameter sequence cases. All 111 passed BMC and unbounded
@@ -497,7 +501,7 @@ each output directory must be new or empty:
 
 ```sh
 # Execute the current catalogue or the boundary sweep.
-python3 tools/sva_reference/formal.py --sby "$SBY_BIN" --output-dir "$FORMAL_RUN_DIR"
+python3 tools/sva_reference/formal.py --sby "$SBY_BIN" --timeout 300 --output-dir "$FORMAL_RUN_DIR"
 python3 tools/sva_formal_sweep.py --sby "$SBY_BIN" --output-dir "$SWEEP_RUN_DIR"
 
 # Check newly generated results against current sources without running solvers.

@@ -3,7 +3,7 @@ $timescale 1ns $end
 $var integer 32 t smt_step $end
 $var event 1 ! smt_clock $end
 $scope module check_model $end
-$var wire 8 n6 \$auto$proc_rom.cc:155:do_switch$13<102> $end
+$var wire 8 n6 \$auto$proc_rom.cc:155:do_switch$15<102> $end
 $var wire 3 n0 a $end
 $var wire 8 n1 actual_result $end
 $var wire 3 n2 b $end

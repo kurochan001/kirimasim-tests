@@ -4,8 +4,8 @@ $var integer 32 t smt_step $end
 $var event 1 ! smt_clock $end
 $scope module check_model $end
 $scope module _witness_ $end
-$var wire 2 n0 anyseq_auto_setundef_cc_550_execute_100 $end
-$var wire 2 n1 anyseq_auto_setundef_cc_550_execute_102 $end
+$var wire 2 n0 anyseq_auto_setundef_cc_550_execute_103 $end
+$var wire 2 n1 anyseq_auto_setundef_cc_550_execute_105 $end
 $upscope $end
 $var wire 1 n2 actual_count $end
 $var wire 8 n3 age $end

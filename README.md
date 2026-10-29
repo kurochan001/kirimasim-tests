@@ -108,16 +108,18 @@ The total includes 268 `:type: formal` tests. They are checked with SymbiYosys
 through `:formal_case:` rather than by comparing simulator standard output;
 see [running formal tests](#symbiyosys).
 
-Additional SVA validation was recorded separately from these oracle counts
-on 2026-10-26: the reference evaluator reproduced **45 test outputs**. The basic formal set
-has **40 BMC checks**, with **22 models also passing unbounded PDR proofs**. A separate
+Additional SVA validation is recorded separately from these oracle counts:
+the reference evaluator reproduces **45 test outputs**. The 2026-10-29 formal
+rerun covers the full **267-case catalogue**: **267 BMC checks**, **44 unbounded
+PDR proofs**, **267 covers** and five expected deliberate-error failures.
+The original 2026-10-26 basic set had 40 models and is included in this catalogue. A separate
 parameter-boundary sweep has **111 cases**, all passing both BMC and PDR;
 its suite bindings identify **127 sequence fragments in 91 directives across
 28 tests**. The two formal sets overlap and are not added as distinct models.
 These model counts are not added to the suite total, and these results do not
-reclassify tests in the tables above. As of 2026-10-29, the two saved formal
-reports have stale source bindings; see the guide for current execution and
-validation commands.
+reclassify tests in the tables above. Both saved reports were regenerated on
+2026-10-29 and pass their current-source and task-completeness checks; see the
+guide for execution and validation commands.
 See the [SVA reference and formal verification guide](docs/sva-reference-formal-verification.md)
 and [boundary-sweep results](docs/sva-formal-expansion-20261026.md) for the
 scope, evidence and reproduction commands.
@@ -615,8 +617,8 @@ file.
 The [SVA reference evaluator](tools/sva_reference/README.md) independently
 reproduces 45 selected test outputs from sampled input traces. An optional
 Yosys/SymbiYosys suite additionally compares its semantics with separately
-written RTL models under unconstrained inputs. The basic set passed 40 BMC
-checks and 22 unbounded streaming PDR proofs. The later
+written RTL models under unconstrained inputs. The current 267-case catalogue
+passed 267 BMC checks and 44 unbounded streaming PDR proofs on 2026-10-29. The
 [boundary sweep](docs/sva-formal-expansion-20261026.md) passed BMC and PDR for
 all 111 cases, with bindings to 127 sequence fragments in 28 suite tests.
 These sets overlap; the bindings cover Boolean sequence calculations, not

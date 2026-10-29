@@ -10,7 +10,7 @@
   },
   "within_1_1_mutant_bmc": {
     "trace": "within_1_1_mutant_bmc.vcd",
-    "trace_sha256": "d7da9350c28ac8b6e7b5c1b0a4d93ecb6e45664164e34311d9144186ee0a2453",
+    "trace_sha256": "436c5fa920314cb910093553fca9fa09b36af51ba58f80c8ac3f5296e85c46e4",
     "model_sha256": "57f7eeed01dd43b5522a5086dc3fafc8bc74f6c73b01436c22c2e8eed5c72556",
     "expected_status": "FAIL",
     "clause": "16.9.10",
@@ -19,7 +19,7 @@
   },
   "tie_1_mutant_bmc": {
     "trace": "tie_1_mutant_bmc.vcd",
-    "trace_sha256": "6e3b8b647cd6a2de0199dada265ecdf10825eaf631b92c191545fd0388814569",
+    "trace_sha256": "05670f36ea43664d5c5585661677db431915f06e1461961ddfa7adac87a4ce7f",
     "model_sha256": "2b8d687272cc247af237db11a2b2c1c2c3c5bd2a9f8202462513298665a55a6c",
     "expected_status": "FAIL",
     "clause": "16.9.7/16.9.8",

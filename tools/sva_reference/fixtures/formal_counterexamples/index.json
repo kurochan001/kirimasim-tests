@@ -1,29 +1,29 @@
 {
   "empty_left_mutant_bmc": {
     "trace": "empty_left_mutant_bmc.vcd",
-    "trace_sha256": "e70a0b09569f36307f3f57f6eba29a81c9db75720db9f7b94e93d3d2d170e71a",
-    "model_sha256": "0d9e39361a8399df5dd04f71910d3930b28e385ec17556174099dae41301fb95",
+    "trace_sha256": "0ccbe64dc0e90fc44f529a28d0034113223f73f3c12f68f9ccb90439d9d9f00b",
+    "model_sha256": "13f0a40a6edc106a78d9864f4a117773eddbe7e4a6242a59cf33ee5415d93920",
     "clause": "16.9.2.1",
     "expected_status": "FAIL"
   },
   "first_match_tie_mutant_bmc": {
     "trace": "first_match_tie_mutant_bmc.vcd",
-    "trace_sha256": "038140307b10a692d660804b7be973447ddf196325319c899079ebb7b1a3248a",
+    "trace_sha256": "04b07f882bc80359d3b59f6b1b5e33608e782c299f899f8b56732e86305f2434",
     "model_sha256": "c0215128c033d04583a86384992ff04c1433a810fb4f2eecddcbf471c93cb5a1",
     "clause": "16.9.8",
     "expected_status": "FAIL"
   },
   "within_endpoints_mutant_bmc": {
     "trace": "within_endpoints_mutant_bmc.vcd",
-    "trace_sha256": "7b5c41705628f6617b63dfa4a44fac0c5702a9ed329d85306fcb3c5498300e84",
+    "trace_sha256": "3c4b13b541b861c2cdd38ef3f3ee09915857bd22d6b9b0b5c824e3626a575919",
     "model_sha256": "0ee99642350418ba839275b0bcd608f1f0c67d7382ded6e411429b8209fc5525",
     "clause": "16.9.10",
     "expected_status": "FAIL"
   },
   "followed_overlap_mutant_bmc": {
     "trace": "followed_overlap_mutant_bmc.vcd",
-    "trace_sha256": "70bb3286394b98b579b33b74809582a36b2ed9092dc27c5dc7f00bd4e3bb9f58",
-    "model_sha256": "4a5c563fe40ff1e24cc223b93998d6acba51a768462f7ce18e760e109915ac2e",
+    "trace_sha256": "839ef41b3190a3836067114089019b963efe81e61260b67a70f52285b9b1fda7",
+    "model_sha256": "93839255a66a4efd96daf45f73677eace6dea54c4033867d8612f15610739a07",
     "clause": "16.12.7/16.12.9/16.14.5",
     "expected_status": "FAIL"
   },
@@ -36,7 +36,7 @@
   },
   "first_match_tie_mutant_prove": {
     "trace": "first_match_tie_mutant_prove.vcd",
-    "trace_sha256": "8d03807413918a8ff9dc417c327ab3925e7b5a94bfca99bd6aea57c5ae744f09",
+    "trace_sha256": "aef8a90ad562e6a32d087335bbc4cb53a174e6224a7d83e6bd69d92288ec83a3",
     "model_sha256": "c0215128c033d04583a86384992ff04c1433a810fb4f2eecddcbf471c93cb5a1",
     "clause": "16.9.8",
     "expected_status": "FAIL"

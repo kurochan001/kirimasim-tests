@@ -3,21 +3,21 @@ $timescale 1ns $end
 $var integer 32 t smt_step $end
 $var event 1 ! smt_clock $end
 $scope module check_model $end
-$var wire 3 n12 \$auto$proc_rom.cc:155:do_switch$38<0> $end
+$var wire 3 n10 \$auto$proc_rom.cc:155:do_switch$38<0> $end
 $var wire 3 n11 \$auto$proc_rom.cc:155:do_switch$38<3> $end
-$var wire 3 n10 \$auto$proc_rom.cc:155:do_switch$38<6> $end
-$var wire 3 n15 \$auto$proc_rom.cc:155:do_switch$42<0> $end
+$var wire 3 n12 \$auto$proc_rom.cc:155:do_switch$38<6> $end
+$var wire 3 n13 \$auto$proc_rom.cc:155:do_switch$42<0> $end
 $var wire 3 n14 \$auto$proc_rom.cc:155:do_switch$42<3> $end
-$var wire 3 n13 \$auto$proc_rom.cc:155:do_switch$42<6> $end
-$var wire 3 n18 \$auto$proc_rom.cc:155:do_switch$46<0> $end
+$var wire 3 n15 \$auto$proc_rom.cc:155:do_switch$42<6> $end
+$var wire 3 n16 \$auto$proc_rom.cc:155:do_switch$46<0> $end
 $var wire 3 n17 \$auto$proc_rom.cc:155:do_switch$46<3> $end
-$var wire 3 n16 \$auto$proc_rom.cc:155:do_switch$46<6> $end
-$var wire 3 n21 \$auto$proc_rom.cc:155:do_switch$50<0> $end
+$var wire 3 n18 \$auto$proc_rom.cc:155:do_switch$46<6> $end
+$var wire 3 n19 \$auto$proc_rom.cc:155:do_switch$50<0> $end
 $var wire 3 n20 \$auto$proc_rom.cc:155:do_switch$50<3> $end
-$var wire 3 n19 \$auto$proc_rom.cc:155:do_switch$50<6> $end
-$var wire 3 n24 \$auto$proc_rom.cc:155:do_switch$54<0> $end
+$var wire 3 n21 \$auto$proc_rom.cc:155:do_switch$50<6> $end
+$var wire 3 n22 \$auto$proc_rom.cc:155:do_switch$54<0> $end
 $var wire 3 n23 \$auto$proc_rom.cc:155:do_switch$54<3> $end
-$var wire 3 n22 \$auto$proc_rom.cc:155:do_switch$54<6> $end
+$var wire 3 n24 \$auto$proc_rom.cc:155:do_switch$54<6> $end
 $var wire 2 n0 actual_count $end
 $var wire 8 n1 age $end
 $var wire 1 n2 clk $end
@@ -49,9 +49,9 @@ b001 n12
 b001 n13
 b001 n14
 b001 n15
-b100 n16
+b001 n16
 b011 n17
-b001 n18
+b100 n18
 b001 n19
 b001 n20
 b001 n21
@@ -79,9 +79,9 @@ b001 n12
 b001 n13
 b001 n14
 b001 n15
-b100 n16
+b001 n16
 b011 n17
-b001 n18
+b100 n18
 b001 n19
 b001 n20
 b001 n21
@@ -109,9 +109,9 @@ b001 n12
 b001 n13
 b001 n14
 b001 n15
-b100 n16
+b001 n16
 b011 n17
-b001 n18
+b100 n18
 b001 n19
 b001 n20
 b001 n21
