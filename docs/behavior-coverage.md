@@ -4,10 +4,10 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **要求カバレッジ（テスト設計）: 89.33%。**
-**全規格の要求台帳ベース（確定）: 設計 89.33%、実行 59.60%。**
+**全規格の要求台帳ベース（確定）: 設計 89.33%、実行 59.61%。**
 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
-規格要求の実行確認率: 59.60%。
+規格要求の実行確認率: 59.61%。
 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
@@ -16,7 +16,7 @@
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対する要求カバレッジ（テスト設計）: 10986/12298 (89.33%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 7330/12298 (59.60%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 7331/12298 (59.61%)。
 - 登録済みだがテスト未対応: 1312 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
@@ -74,6 +74,7 @@
 - `ghost-local-20261028.json`: private build d59b7c7f8feb / 2026-10-27T16:21:03.763583+00:00 / 4727/12298 動作確認、古い入力との対応 277 件。
 - `issues-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-28T13:33:20.979624+00:00 / 11/12298 動作確認、古い入力との対応 0 件。
 - `issues-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T13:45:50.335531+00:00 / 3858/12298 動作確認、古い入力との対応 1 件。
+- `p1-core-20261029-kirimasim.json`: kirimasim 0.0.0 (commit 169923eb5638), built with AppleClang 21.0.0.21000334 / 2026-10-29T00:40:01.909606+00:00 / 9/12298 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
@@ -29155,7 +29156,7 @@ The shift count is treated as unsigned and does not determine result signedness.
 
 ### SV2023-11.4.11-EXTRACT-AMBIGUOUS-ARRAY-ELEMENTS
 
-11.4.11 / normal / テスト対応あり・実行未確認
+11.4.11 / normal / 実行確認あり
 
 For an ambiguous predicate and nonequivalent-valued equal-length nonassociative aggregate arrays, combine corresponding elements: keep a matching element, otherwise use its Table 7-1 nonexistent value.
 

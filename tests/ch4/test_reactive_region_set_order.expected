@@ -1,4 +1,4 @@
 program: start
 program: after #0, v = 0
-module: v changed to 1
 program: v changed to 1
+module: v changed to 1
