@@ -13,6 +13,7 @@ import argparse
 import sys
 
 import common
+import interaction_nba
 import keywords
 import scheduling
 import strength
@@ -20,7 +21,8 @@ import wide_paths
 import width_sign
 import xz_propagation
 
-GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths, keywords]
+GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths, keywords,
+              interaction_nba]
 
 
 def main() -> int:

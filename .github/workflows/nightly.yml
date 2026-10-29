@@ -477,6 +477,16 @@ jobs:
           printf '\n[動作カバレッジ集計](%s/%s/blob/results/behavior-coverage-summary.md)\n' \
             "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Measure feature interactions with this run's results
+        run: |
+          shopt -s nullglob
+          files=(results/*.json)
+          python3 tools/interaction_coverage.py --results "${files[@]}" \
+            --output history/interaction-coverage.md --json history/interaction-coverage.json \
+            --source-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/$GITHUB_SHA"
+          printf '\n[機能間クロスの実行確認](%s/%s/blob/results/interaction-coverage.md)\n' \
+            "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Push the results branch
         working-directory: history
         run: |

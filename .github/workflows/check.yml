@@ -22,6 +22,7 @@ on:
       - "coverage/**"
       - "docs/behavior-coverage.md"
       - "docs/coverage-depth.md"
+      - "docs/interaction-*.md"
       - "README.md"
       - "README.ja.md"
       - ".github/workflows/check.yml"
@@ -34,6 +35,7 @@ on:
       - "coverage/**"
       - "docs/behavior-coverage.md"
       - "docs/coverage-depth.md"
+      - "docs/interaction-*.md"
       - "README.md"
       - "README.ja.md"
       - ".github/workflows/check.yml"
@@ -193,6 +195,9 @@ jobs:
             echo "::error::docs/tests/ is out of date: run python3 tools/suite_catalog.py --update"
             exit 1
           }
+
+      - name: Check interaction models and execution evidence
+        run: python3 tools/interaction_coverage.py --check
 
       - name: Check the coverage depth report
         run: |

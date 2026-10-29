@@ -52,15 +52,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **7744 tests** in 38 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **7780 tests** in 38 chapters. 1344 of them are generated (`tests/gen/`, see "Generated tests"): 36 by `interaction_nba`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4227 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4263 |
 | Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1509 |
 | The standard only, with no fixed-release simulator oracle recorded | 2008 |
 
-894 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+918 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -71,7 +71,7 @@ The suite has **7744 tests** in 38 chapters. 1308 of them are generated (`tests/
 | 7 | Aggregate data types | 482 | 179 | 234 | 69 |
 | 8 | Classes | 321 | 67 | 182 | 72 |
 | 9 | Processes | 210 | 151 | 32 | 27 |
-| 10 | Assignment statements | 204 | 133 | 43 | 28 |
+| 10 | Assignment statements | 240 | 169 | 43 | 28 |
 | 11 | Operators and expressions | 837 | 706 | 92 | 39 |
 | 12 | Procedural programming statements | 181 | 133 | 29 | 19 |
 | 13 | Tasks and functions (subroutines) | 201 | 107 | 81 | 13 |
@@ -169,6 +169,14 @@ The [existing-test matching inventory](docs/test-requirement-matching.md) lists
 chapter progress and links to the complete candidate worklist and content findings.
 Collective witnesses require every member test to pass in one simulator snapshot;
 partial successes from separate runs are not combined into a successful requirement.
+
+[Feature-interaction verification](docs/interaction-verification.md) uses constrained
+pairwise coverage, selected three-factor groups and mandatory boundary witnesses.
+Its focused selection reuses 51 of the 325 scheduling tests and adds 36 NBA capture
+tests selected from 432 legal assignments. The full suite retains all existing tests.
+The [interaction report](docs/interaction-coverage.md) separates the selection plan
+from fingerprint-qualified passes in each individual run; it does not change the
+whole-standard requirement denominator.
 
 The [method from the PDF to tests](docs/requirements-to-tests-method.md) describes,
 step by step, how the requirements were extracted from the standard, how existing
@@ -428,6 +436,8 @@ docs/glossary.md               terminology and abbreviations used by this suite 
 docs/faq.md                    questions about expectations, results, coverage and verification (Japanese)
 docs/coverage-depth.md          how many tests each clause has, and the priority gaps
 docs/behavior-coverage-summary.md provisional and confirmed behavior coverage, by chapter and simulator
+docs/interaction-verification.md feature-interaction models, focused execution and evidence rules
+docs/interaction-coverage.md     planned and executed coverage of registered interaction models
 docs/requirements-to-tests-method.md the method from the standard's PDF to requirements, tests and coverage
 coverage/behavior-summary.json  the current behavior measurements and denominator identity
 coverage/behavior-history.json  saved measurement history with denominator identities
@@ -443,6 +453,7 @@ tools/results_ratchet.py        lists the tests that matched in the previous run
 tools/suite_stats.py            counts the tests and keeps both README language versions' tables
 tools/suite_catalog.py          writes the catalog of the tests, docs/tests/
 tools/coverage_depth.py         writes docs/coverage-depth.md, the depth report
+tools/interaction_coverage.py   selects focused cross tests and checks execution coverage
 tools/clauses.txt               the clause numbers of the standard, for docs/tests/clauses.md
 tools/lint_metadata.py          checks the metadata and the form of the tests
 tools/lint_baseline.txt         the problems of existing tests that the check reports as known
@@ -459,7 +470,9 @@ every test in each simulator's latest run), `charts/*.svg` and the report,
 has a runner for; the history keeps the runs of a simulator whose runner was
 removed, but they are not drawn. The publish job also writes `behavior-coverage-summary.md`,
 `behavior-coverage.md`, `behavior-summary.json`, `behavior-coverage.json`
-and `behavior-history.json` for behavioral coverage of that run. The
+and `behavior-history.json` for behavioral coverage of that run, plus
+`interaction-coverage.md` and `interaction-coverage.json` for each simulator's
+feature-interaction coverage. The
 [Japanese guide](docs/nightly-results.md) explains how these differ from the
 saved evidence on `main`.
 
@@ -527,6 +540,8 @@ it does not know.
 | `:expected_stderr_regex:` | A Python regular expression for the diagnostic text passed by the runner (see "How a test is judged" below). For an illegal design, an error line must match the reviewed source locations, such as `test_x\.sv:12:`, and any required diagnostic concepts. Appropriate alternative locations can be accepted; unsupported syntax is not evidence of the intended violation. For other tests, the run's messages must match the pattern. The full diagnostic text is not fixed |
 | `:args:` | Arguments for the simulation, separated by spaces: plusargs such as `+count=3` |
 | `:generator:` | `<generator>@<version>`: the test was written by `generators/<generator>.py` (see "Generated tests") |
+| `:interaction_model:` | `<model>@<version>`: the registered interaction model for a generated cross test |
+| `:interaction_values:` | `factor=value` assignments for that model; coverage also verifies the generator and execution fingerprints |
 | `:files:` | Other files next to the test, separated by spaces: sources (`.sv`, `.v`), compiled before the test in the order written, and files that the design includes with `` `include ``, whose directory becomes an include directory. Their names do not start with `test_`. Whether the files form one compilation unit or several is left to the tool (3.12.1), and the tests do not depend on it |
 | `:defines:` | Macros that the simulator defines before the first source file, separated by spaces: `NAME` or `NAME=VALUE` (the `-D` or `+define+` option of a tool). The standard leaves such options to the tool; the tests use them only to set macros that `` `ifdef `` and macro uses then see as if `` `define `` had set them (22.5.1) |
 | `:incdirs:` | Include directories, relative to the directory of the test, separated by spaces, where `` `include "<file>" `` looks after the current working directory (22.4); a runner gives them to the simulator after the directories of the include files in `:files:` |
@@ -658,6 +673,7 @@ outputs, and it writes many small variations of one kind of test:
 | Generator | Chapter | What it varies |
 | --- | ---: | --- |
 | `scheduling` | 4 | How a variable is written (blocking, nonblocking, nonblocking with an intra-assignment delay, through a continuous assignment, by `force`), how it is read (in the same process, by another process waiting for it, `$strobe`, `$monitor`), where the write is (initial, always, task, function, fork branch, interface, generate block) and after which delay (none, `#0`, `#1`); only the combinations whose result the standard fixes |
+| `interaction_nba` | 10 | Constrained pairwise combinations of width (1, 32, 33, 64, 65, 129), bit/logic, known/X/Z values, scalar/fixed unpacked array, array direction, initial/automatic task and immediate/delayed NBA; selected triples and boundary witnesses additionally check value/index capture before mutation and task return |
 | `width_sign` | 11 | Operands and targets of 63 to 1000 bits, signed and unsigned, with the operators whose result size and sign 11.6 to 11.8 decide |
 | `xz_propagation` | 11 | Operands with x and z bits for every operator of 11.4 that has rules for them |
 | `strength` | 28 | Two drivers of a net with different strengths and values, on wire, tri, wand, triand, wor, trior, tri0 and tri1 nets and through bufif gates, shown with `%v` |
@@ -890,7 +906,7 @@ for stays in the history but is not drawn. `python3 tools/results_history.py ren
 `.github/workflows/check.yml` runs on every push to `main` and every pull
 request that changes `tests/`, `tools/`, `generators/`, `docs/tests/`, this
 README or its Japanese version, `coverage/`, `docs/behavior-coverage.md`,
-`docs/coverage-depth.md`
+`docs/coverage-depth.md`, `docs/interaction-*.md`
 or the workflow itself, and can be started by hand from the Actions
 tab (`workflow_dispatch`). Its jobs fail when the
 suite has a problem:
@@ -913,7 +929,9 @@ suite has a problem:
   `tools/lint_metadata.py` checks, other than the known problems of existing
   tests in `tools/lint_baseline.txt`. It also runs the tooling unit tests,
   validates behavioral coverage and its baseline with source review required,
-  and checks the freshness of the requirement-matching inventory.
+  checks the freshness of the requirement-matching inventory, and validates the
+  interaction models, selected witnesses and saved execution report
+  (`tools/interaction_coverage.py --check`).
 
 `.github/workflows/nightly.yml` is scheduled at 19:23 UTC every day
 (04:23 JST the following day), and can be

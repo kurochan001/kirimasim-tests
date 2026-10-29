@@ -116,6 +116,12 @@ IEEE 1800-2023の全動作に対する網羅率とは別の指標です。
 - [管理手順](../coverage/README.md)：分母、暫定値と確定値、入力ハッシュ、複数テストの集合証拠の扱い。
 - [照合一覧](test-requirement-matching.md)と[ギャップ調査](coverage-gap-recommendations-20261029.md)：現在の照合状況と追加テスト候補。
 
+機能間クロスは要求カバレッジとは別に、`publish`がその回の実行結果から
+`interaction-coverage.md`と`interaction-coverage.json`を`results`ブランチへ書き出します。
+登録したモデルの2因子・指定した3因子の組合せと、必須ケースの合格をシミュレータ別に確認します。
+未対応・既知の差異・未実行のケースを合格に含めず、別々の実行の部分成功も合成しません。
+[mainの保存済み集計](interaction-coverage.md)と[導入手順](interaction-verification.md)を参照してください。
+
 mainの保存済み証跡には固定バージョンの実行、部分再実行、Ghostのローカル全件実行があり、
 Nightlyは各シミュレータの開発版で実行します。
 対象コミット・実行範囲・版が異なるため、両者の割合を同一条件の結果として比較しないでください。

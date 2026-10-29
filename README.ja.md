@@ -43,15 +43,15 @@ Icarus Verilog、Verilator、kirimasim、
 ## 収録内容
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**7744本のテスト**があります。 うち1308本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
+スイートには38章にわたり**7780本のテスト**があります。 うち1344本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`interaction_nba`が36本、`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
-| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 4227 |
+| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 4263 |
 | Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1509 |
 | 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2008 |
 
-894本はx/z値に依存します（`:fourstate: yes`）。618本にはCコードがあり、内訳はDPIが123本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1932本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。35本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定21本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+918本はx/z値に依存します（`:fourstate: yes`）。618本にはCコードがあり、内訳はDPIが123本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1932本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。35本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定21本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -62,7 +62,7 @@ Icarus Verilog、Verilator、kirimasim、
 | 7 | 集合データ型 | 482 | 179 | 234 | 69 |
 | 8 | クラス | 321 | 67 | 182 | 72 |
 | 9 | プロセス | 210 | 151 | 32 | 27 |
-| 10 | 代入文 | 204 | 133 | 43 | 28 |
+| 10 | 代入文 | 240 | 169 | 43 | 28 |
 | 11 | 演算子と式 | 837 | 706 | 92 | 39 |
 | 12 | 手続き型プログラミング文 | 181 | 133 | 29 | 19 |
 | 13 | タスクと関数（サブルーチン） | 201 | 107 | 81 | 13 |
@@ -147,6 +147,12 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 候補の全作業リスト・内容の指摘へのリンクがあります。
 複数テストを一組の証拠とする場合は、同じシミュレータの同じ実行スナップショットで
 すべて合格する必要があります。別々の実行の部分的な成功を合わせて要求の成功にはしません。
+
+[機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
+指定した3因子群と必須の境界ケースを併用します。短時間実行用には、既存の
+スケジューリング325件から51件を選び、合法な432通りから選んだNBAの新規36件を加えます。
+通常の全件実行では既存テストをすべて保持します。[クロス検証レポート](docs/interaction-coverage.md)は
+計画上の網羅と、入力指紋が一致した実行の合格を分けて集計します。規格要求の分母は変更しません。
 
 [規格PDFからテストに至る方法](docs/requirements-to-tests-method.md)は、要求の抽出、
 既存テストとの照合と追加テストの作成、独立したレビュー、統合と測定までを順に説明します。
@@ -358,6 +364,8 @@ docs/glossary.md               このスイートの用語・略語
 docs/faq.md                    期待値・結果・網羅率・検証のFAQ
 docs/coverage-depth.md          条項ごとの本数と優先して補う不足
 docs/behavior-coverage-summary.md 章別・シミュレータ別の要求カバレッジの集計
+docs/interaction-verification.md 機能間クロスのモデル・短時間実行・証跡の扱い
+docs/interaction-coverage.md     登録したクロスモデルの計画と実行確認
 docs/requirements-to-tests-method.md 規格PDFから要求・テスト・網羅率に至る方法
 coverage/behavior-summary.json  現在の要求カバレッジの集計結果と分母の識別情報
 coverage/behavior-history.json  分母の識別情報を含む測定履歴
@@ -373,6 +381,7 @@ tools/results_ratchet.py        前回一致して今回不一致のテストの
 tools/suite_stats.py            テスト集計と両言語のREADMEの表の更新
 tools/suite_catalog.py          docs/tests/のカタログ生成
 tools/coverage_depth.py         docs/coverage-depth.mdの生成
+tools/interaction_coverage.py   クロス検証の実行対象選択と充足の集計
 tools/clauses.txt               docs/tests/clauses.md用の条項番号
 tools/lint_metadata.py          メタデータとテストの形式の検査
 tools/lint_baseline.txt         既存テストの既知の問題
@@ -388,7 +397,9 @@ Nightlyだけが書き込む`results`ブランチには、`history.json`（1実�
 シミュレータだけを表示します。実行スクリプトがなくなったものも履歴には残しますが、描画しません。
 publishジョブは、その実行の要求カバレッジとして`behavior-coverage-summary.md`、
 `behavior-coverage.md`、`behavior-summary.json`、`behavior-coverage.json`、`behavior-history.json`も
-書き出します。`main`の保存済み証跡との違いは[Nightlyの説明](docs/nightly-results.md)を参照してください。
+書き出します。機能間クロスのシミュレータ別の実行確認は`interaction-coverage.md`と
+`interaction-coverage.json`に書き出します。`main`の保存済み証跡との違いは
+[Nightlyの説明](docs/nightly-results.md)を参照してください。
 
 ## テストの形式
 
@@ -452,6 +463,8 @@ endmodule
 | `:expected_stderr_regex:` | 実行スクリプトが渡す診断テキストに対するPython正規表現（後述の「合否の判定方法」）。不正な設計では、レビューした位置（例：`test_x\.sv:12:`）と必要な診断の概念をエラー行が満たす必要がある。妥当な別位置も許容できるが、未対応構文の診断は意図した違反の証拠にしない。他のテストでは実行時のメッセージがパターンを満たすことを確認する。診断全文の言い回しは固定しない |
 | `:args:` | 空白区切りの実行時引数。例：`+count=3` |
 | `:generator:` | `<generator>@<version>`。`generators/<generator>.py`が生成したテスト |
+| `:interaction_model:` | `<model>@<version>`。生成したクロステストが属するモデル |
+| `:interaction_values:` | モデルの`因子=値`の組。集計時は生成器と実行結果の入力指紋も検査する |
 | `:files:` | 隣の追加ソース（`.sv`、`.v`。指定順にテストより先にコンパイル）とインクルードファイル（そのディレクトリを検索先に追加）。名前は`test_`で始めない。コンパイル単位が一つか複数かはツールに委ね、テストは依存しない（3.12.1） |
 | `:defines:` | 最初のソースより前に定義するマクロ。空白区切りの`NAME`または`NAME=VALUE`。ツールの`-D`や`+define+`を使い、`` `ifdef ``やマクロ参照から`` `define ``と同様に見えるようにする（22.5.1）。オプション自体は規格の範囲外 |
 | `:incdirs:` | テストのディレクトリを基準としたインクルードディレクトリ。空白区切り。`` `include "<file>" ``が作業ディレクトリの後に探す場所（22.4）。`:files:`のインクルードファイルのディレクトリより後に渡す |
@@ -551,6 +564,7 @@ oracleメタデータやシミュレータ実行確認率は変更しません�
 | 生成器 | 章 | 変えるもの |
 | --- | ---: | --- |
 | `scheduling` | 4 | 書き込み（ブロッキング・ノンブロッキング・代入内遅延付きノンブロッキング・継続代入経由・`force`）、読み取り（同一プロセス・待機中の別プロセス・`$strobe`・`$monitor`）、場所（initial・always・タスク・関数・fork分岐・インターフェース・generateブロック）、遅延（なし・`#0`・`#1`）。規格が結果を決める組合せだけ |
+| `interaction_nba` | 10 | 幅（1・32・33・64・65・129）、bit/logic、既知値/X/Z、スカラ/固定長アンパック配列、添字方向、initial/automaticタスク、遅延なし/遅延付きNBAの制約付き2因子網羅。指定した3因子群と境界ケースも保持し、値・添字の変更とタスク復帰前にNBAの値と代入先が確定することを確認 |
 | `width_sign` | 11 | 63〜1000ビットの符号付き・符号なしのオペランドと代入先。11.6〜11.8が結果の幅と符号を決める演算子 |
 | `xz_propagation` | 11 | 11.4でx/zの規則が定まる各演算子について、x/zを含むオペランド |
 | `strength` | 28 | 異なる強度と値を持つ二つのドライバ。wire・tri・wand・triand・wor・trior・tri0・tri1とbufifゲートを通し、`%v`で表示 |
@@ -744,7 +758,7 @@ python3 tools/results_history.py update --history my-results out/*.json
 
 `.github/workflows/check.yml`は、`tests/`、`tools/`、`generators/`、`docs/tests/`、
 英語版または日本語版README、`coverage/`、`docs/behavior-coverage.md`、
-`docs/coverage-depth.md`、またはワークフロー自身を変更するmainへのpushとプルリクエストで動きます。
+`docs/coverage-depth.md`、`docs/interaction-*.md`、またはワークフロー自身を変更するmainへのpushとプルリクエストで動きます。
 Actionsタブから手動実行もできます（`workflow_dispatch`）。スイートに問題がある場合に失敗します。
 
 - **icarus**：Icarus Verilog 13.0を`v13_0`タグからビルドし、Actionsのキャッシュに保存してformal以外の全件を実行します。
@@ -758,7 +772,8 @@ Actionsタブから手動実行もできます（`workflow_dispatch`）。スイ
   `tools/lint_metadata.py`が確認できるメタデータ・参加ルール違反が、
   `tools/lint_baseline.txt`の既知の問題以外にないことも検査します。
   ツールの単体テスト、原文レビュー必須での要求カバレッジとベースラインの検査、
-  要求照合一覧の更新状況の確認も行います。
+  要求照合一覧の更新状況の確認も行います。クロスのモデル・選択ケース・保存済み実行集計は
+  `tools/interaction_coverage.py --check`で検査します。
 
 `.github/workflows/nightly.yml`は毎日19:23 UTC（翌日の04:23 JST）に予定され、手動実行もできます。
 最新のスイートと設定で再実行するときは、
