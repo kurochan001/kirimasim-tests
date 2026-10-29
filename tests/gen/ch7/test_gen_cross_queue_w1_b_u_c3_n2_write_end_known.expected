@@ -1,0 +1,16 @@
+p0_input=11
+p0_size=3 popped=00 source=00
+p0_q0=1
+p0_q1=0
+p0_q2=1
+p0_saved_size=2
+p0_saved0=1
+p0_saved1=0
+p1_input=11
+p1_size=3 popped=00 source=00
+p1_q0=0
+p1_q1=1
+p1_q2=1
+p1_saved_size=2
+p1_saved0=0
+p1_saved1=1

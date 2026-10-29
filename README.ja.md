@@ -43,15 +43,15 @@ Icarus Verilog、Verilator、kirimasim、
 ## 収録内容
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**8435本のテスト**があります。 うち1999本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`interaction_array`が36本、`interaction_case`が36本、`interaction_cast`が32本、`interaction_compare`が100本、`interaction_cond`が32本、`interaction_expr`が51本、`interaction_method`が72本、`interaction_nba`が36本、`interaction_port`が36本、`interaction_query`が60本、`interaction_select`が36本、`interaction_shift`が56本、`interaction_stream`が36本、`interaction_struct`が36本、`interaction_task`が36本、`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
+スイートには38章にわたり**8527本のテスト**があります。 うち2091本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`interaction_array`が36本、`interaction_case`が36本、`interaction_cast`が32本、`interaction_compare`が100本、`interaction_cond`が32本、`interaction_expr`が51本、`interaction_index`が44本、`interaction_method`が72本、`interaction_nba`が36本、`interaction_port`が36本、`interaction_query`が60本、`interaction_queue`が48本、`interaction_select`が36本、`interaction_shift`が56本、`interaction_stream`が36本、`interaction_struct`が36本、`interaction_task`が36本、`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
-| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 4743 |
-| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1549 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2143 |
+| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 4807 |
+| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1552 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2168 |
 
-1345本はx/z値に依存します（`:fourstate: yes`）。618本にはCコードがあり、内訳はDPIが123本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1932本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。35本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定21本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+1404本はx/z値に依存します（`:fourstate: yes`）。618本にはCコードがあり、内訳はDPIが123本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1932本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。35本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定21本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -59,11 +59,11 @@ Icarus Verilog、Verilator、kirimasim、
 | 4 | スケジューリングの意味論 | 412 | 391 | 5 | 16 |
 | 5 | 字句規則 | 346 | 325 | 14 | 7 |
 | 6 | データ型 | 641 | 396 | 142 | 103 |
-| 7 | 集合データ型 | 626 | 215 | 259 | 152 |
+| 7 | 集合データ型 | 674 | 253 | 262 | 159 |
 | 8 | クラス | 321 | 67 | 182 | 72 |
 | 9 | プロセス | 210 | 151 | 32 | 27 |
 | 10 | 代入文 | 240 | 169 | 43 | 28 |
-| 11 | 演算子と式 | 1148 | 979 | 103 | 66 |
+| 11 | 演算子と式 | 1192 | 1005 | 103 | 84 |
 | 12 | 手続き型プログラミング文 | 217 | 169 | 29 | 19 |
 | 13 | タスクと関数（サブルーチン） | 237 | 137 | 82 | 18 |
 | 14 | クロッキングブロック | 78 | 4 | 61 | 13 |
@@ -149,11 +149,12 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 すべて合格する必要があります。別々の実行の部分的な成功を合わせて要求の成功にはしません。
 
 [機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
-指定した3因子群と必須の境界ケースを併用します。短時間実行用の742件は、
+指定した3因子群と必須の境界ケースを併用します。短時間実行用の834件は、
 スケジューリング、NBA、演算コンテキスト、パック配列の部分選択、条件演算、シフト、
 キャスト、タスク引数、パック構造体、case、ポート接続、アンパック配列のコピー、
-ビットベクタの集計・判定関数、ストリーミング演算、比較演算、配列リダクションの
-16モデルを対象にします。直近の2モデルは、制約を満たす7,720通りから172件を選びます。
+ビットベクタの集計・判定関数、ストリーミング演算、比較演算、配列リダクション、
+可変ビット選択、キュー操作と容量制限の18モデルを対象にします。
+直近の2モデルは、制約を満たす6,336通りから92件を選びます。
 通常の全件実行では既存テストをすべて保持します。[クロス検証レポート](docs/interaction-coverage.md)は
 計画上の網羅と、入力指紋が一致した実行の合格を分けて集計します。規格要求の分母は変更しません。
 
@@ -582,6 +583,8 @@ oracleメタデータやシミュレータ実行確認率は変更しません�
 | `interaction_stream` | 11 | 幅・方向・スライス幅・タグ・pack/unpack・格納先の状態型・値をクロス。36件で端数ブロックとunpackの逆変換を確認 |
 | `interaction_compare` | 11 | 両オペランドの幅・符号、10種の比較演算子、既知値/X/Zをクロス。100件で拡張、右辺だけのワイルドカード、1ビットの比較結果を広いlogic/bitへ代入する変換を確認 |
 | `interaction_method` | 7 | 要素の幅・状態型・符号、固定長配列/動的配列/キュー、5種の集計、変換方法4種をクロス。72件で集計前の型変換、オーバーフロー、戻り値の拡張を確認 |
+| `interaction_index` | 11 | 幅、添字範囲の始点・向き、bit/logic、インデックスの符号と値、書き込み値をクロス。44件で可変ビット選択の読み書き、無効アクセスの既定値、非選択ビットの保持を確認 |
+| `interaction_queue` | 7 | 要素の幅・状態型・符号、容量、初期サイズ、6種の操作、値をクロス。48件で要素順、容量超過時の警告と破棄、空キューの既定値、コピー後の独立性を確認 |
 | `width_sign` | 11 | 63〜1000ビットの符号付き・符号なしのオペランドと代入先。11.6〜11.8が結果の幅と符号を決める演算子 |
 | `xz_propagation` | 11 | 11.4でx/zの規則が定まる各演算子について、x/zを含むオペランド |
 | `strength` | 28 | 異なる強度と値を持つ二つのドライバ。wire・tri・wand・triand・wor・trior・tri0・tri1とbufifゲートを通し、`%v`で表示 |

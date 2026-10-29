@@ -30,6 +30,8 @@ import interaction_query
 import interaction_stream
 import interaction_compare
 import interaction_method
+import interaction_index
+import interaction_queue
 from interaction_bits import resize
 
 
@@ -285,6 +287,48 @@ class CoveringSets(unittest.TestCase):
         self.assertEqual(reduce(["xz", "00", "11"], "and"), "00")
         self.assertEqual(reduce(["xz", "00", "11"], "or"), "11")
         self.assertEqual(reduce(["xz", "00", "11"], "xor"), "xx")
+
+    def test_variable_indices_keep_their_sign_and_invalid_access_defaults(self):
+        row = ("33", "negative", "ascending", "logic", "signed", "low", "known")
+        self.assertEqual(interaction_index.position(row), 0)
+        initial, before, incoming, after, read = interaction_index.reference(row)
+        self.assertEqual((before, incoming, read), ("1", "0", "0"))
+        self.assertEqual(after, "0" + initial[1:])
+        unsigned = (*row[:4], "unsigned", *row[5:])
+        self.assertEqual(interaction_index.index_bits(row), interaction_index.index_bits(unsigned))
+        self.assertIsNone(interaction_index.position(unsigned))
+        self.assertEqual(interaction_index.reference(unsigned)[1:], ("x", "0", initial, "x"))
+        unknown = ("65", "offset", "descending", "bit", "signed", "z", "x")
+        source, before, _, result, after = interaction_index.reference(unknown)
+        self.assertEqual((before, after), ("0", "0"))
+        self.assertEqual(source, result)
+
+    def test_queue_overflow_drops_the_tail_after_insertion_and_keeps_the_copy(self):
+        row = ("1", "bit", "unsigned", "three", "3", "push_front", "known")
+        saved, result, _, changed, removed = interaction_queue.reference(row, 0)
+        self.assertEqual(saved, ["1", "0", "1"])
+        self.assertEqual(result, ["1", "1", "0"])
+        self.assertEqual((changed, removed), ("00", "00"))
+        push_back = (*row[:5], "push_back", row[-1])
+        self.assertEqual(interaction_queue.reference(push_back, 0)[1], saved)
+        write_end = (*row[:5], "write_end", row[-1])
+        self.assertEqual(interaction_queue.reference(write_end, 0)[1], saved)
+        phases = [interaction_queue.reference(row, p)[0] for p in (0, 1)]
+        self.assertEqual(len(set(zip(*phases))), 3)
+        self.assertIn("expected_stderr_regex", interaction_queue.make_case(row).extra)
+
+    def test_queue_empty_pops_and_argument_conversion_use_element_type(self):
+        row = ("33", "logic", "signed", "unbounded", "0", "pop_back", "known")
+        self.assertEqual(interaction_queue.reference(row, 0)[-1], "x" * 34)
+        unsigned = (row[0], row[1], "unsigned", *row[3:])
+        self.assertEqual(interaction_queue.reference(unsigned, 0)[-1], "0" + "x" * 33)
+        binary = (row[0], "bit", *row[2:])
+        self.assertEqual(interaction_queue.reference(binary, 0)[-1], "0" * 34)
+        self.assertTrue(interaction_queue.make_case(row).fourstate)
+        self.assertFalse(interaction_queue.make_case(binary).fourstate)
+        insert = ("1", "bit", "unsigned", "two", "2", "insert", "z")
+        saved, result, source, changed, _ = interaction_queue.reference(insert, 0)
+        self.assertEqual((saved, result, source, changed), (["0", "1"], ["0", "0"], "zz", "01"))
 
     def test_stream_partial_blocks_need_inverse_permutations_for_unpack(self):
         reorder = interaction_stream.reorder

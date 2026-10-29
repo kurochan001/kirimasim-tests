@@ -22,6 +22,8 @@ import interaction_query
 import interaction_stream
 import interaction_compare
 import interaction_method
+import interaction_index
+import interaction_queue
 import scheduling
 from interaction_cover import Model, Row
 
@@ -29,7 +31,8 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_shift, interaction_cast, interaction_task,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
-              interaction_compare, interaction_method)
+              interaction_compare, interaction_method,
+              interaction_index, interaction_queue)
 
 
 @dataclass
@@ -161,5 +164,19 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_method.MODEL.select(),
             "固定長配列・動的配列・キューの集計を2組の背景値で観測し、with式による要素の"
             "型変換、戻り値の幅、オーバーフロー、X/Z伝播と呼出し後の拡張を確認する。",
+        ),
+        SuiteModel(
+            interaction_index.MODEL,
+            lambda row: "tests/gen/ch11/" + interaction_index.case_name(row) + ".sv",
+            interaction_index.MODEL.select(),
+            "可変インデックスのビット列と書き込み前後の全ビットを観測し、添字の符号、"
+            "範囲の始点と向き、無効な読み取りの既定値、無効な書き込み時の保持を確認する。",
+        ),
+        SuiteModel(
+            interaction_queue.MODEL,
+            lambda row: "tests/gen/ch7/" + interaction_queue.case_name(row) + ".sv",
+            interaction_queue.MODEL.select(),
+            "2組の入力でサイズと全要素、取り出した値、操作前のコピーを観測し、"
+            "追加位置と容量による破棄、空の既定値、型変換、値コピーの独立性を確認する。",
         ),
     )

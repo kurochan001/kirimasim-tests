@@ -1,0 +1,16 @@
+p0_input=xx
+p0_size=3 popped=00 source=01
+p0_q0=x
+p0_q1=1
+p0_q2=x
+p0_saved_size=2
+p0_saved0=x
+p0_saved1=1
+p1_input=xx
+p1_size=3 popped=00 source=01
+p1_q0=1
+p1_q1=x
+p1_q2=x
+p1_saved_size=2
+p1_saved0=1
+p1_saved1=x
