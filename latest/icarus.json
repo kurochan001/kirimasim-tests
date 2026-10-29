@@ -1,8 +1,8 @@
 {
  "name": "Icarus Verilog",
  "version": "Icarus Verilog version 14.0 (devel) (s20260301-749-gfd8759f6)",
- "time": "2026-10-29T00:48:22Z",
- "suite_commit": "248cca894a2607eb6eae0bda3303dc1c7cb130a9",
+ "time": "2026-10-29T03:55:11Z",
+ "suite_commit": "a594d659b947a7321ce5e252660ea6d376d813b3",
  "tests": {
   "ch10/test_a6_7_1_assignment_pattern_keys": "known",
   "ch10/test_adder_edge_cases": "pass",

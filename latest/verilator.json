@@ -1,8 +1,8 @@
 {
  "name": "Verilator",
- "version": "Verilator 5.053 devel rev v5.052-635-g375685d2",
- "time": "2026-10-29T00:48:22Z",
- "suite_commit": "248cca894a2607eb6eae0bda3303dc1c7cb130a9",
+ "version": "Verilator 5.053 devel rev v5.052-637-gad839901",
+ "time": "2026-10-29T03:55:11Z",
+ "suite_commit": "a594d659b947a7321ce5e252660ea6d376d813b3",
  "tests": {
   "ch10/test_a6_7_1_assignment_pattern_keys": "pass",
   "ch10/test_adder_edge_cases": "pass",
