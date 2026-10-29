@@ -25,14 +25,14 @@
   "denominator_reviewed": true,
   "extraction_progress_percent": 100.0,
   "unmapped": 1312,
-  "executed": 7330,
+  "executed": 7331,
   "whole_standard_percent": 89.33159863392422,
-  "whole_standard_executed_percent": 59.603187510164254,
+  "whole_standard_executed_percent": 59.611318913644496,
   "registered_percent": 89.33159863392422,
   "metric_policy_version": 3,
   "whole_standard_status": "confirmed",
   "provisional_design_percent": 89.33159863392422,
-  "provisional_execution_percent": 59.603187510164254,
+  "provisional_execution_percent": 59.611318913644496,
   "denominator": {
     "count": 12298,
     "unit": "registered_requirement_condition_or_observation",
@@ -48,8 +48,8 @@
   },
   "collective_requirement_count": 652,
   "requirement_status_counts": {
-    "pass": 7330,
-    "mapped_without_pass": 3656,
+    "pass": 7331,
+    "mapped_without_pass": 3655,
     "unmapped": 1312,
     "interpretation_pending": 0
   },
@@ -159,9 +159,9 @@
       "title": "Operators and expressions",
       "registered": 459,
       "mapped": 433,
-      "executed": 369,
+      "executed": 370,
       "design_percent": 94.33551198257081,
-      "execution_percent": 80.3921568627451,
+      "execution_percent": 80.61002178649237,
       "interpretation_pending": 0
     },
     {
@@ -10737,6 +10737,35 @@
           "unreviewed_oracle": 671,
           "stale": 1,
           "not_run": 292,
+          "unmapped": 1312,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "p1-core-20261029-kirimasim.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.0.0 (commit 169923eb5638), built with AppleClang 21.0.0.21000334",
+        "generated_at": "2026-10-29T00:40:01.909606+00:00",
+        "executed": [
+          "SV2023-11.4.11-EXTRACT-AMBIGUOUS-ARRAY-ELEMENTS",
+          "SV2023-24.3.2-EXTRACT-PROGRAM-PORT-DESIGN-CONNECTION",
+          "SV2023-24.3.2-EXTRACT-PROGRAM-PORT-PROPAGATION",
+          "SV2023-5.7.1-EXTRACT-LITERAL-UNKNOWN-PADDING",
+          "SV2023-5.7.1-EXTRACT-QUESTION-Z",
+          "SV2023-5.7.1-EXTRACT-UNSIZED-UNKNOWN-CONTEXT",
+          "SV2023-5.7.1-EXTRACT-X-DIGIT-GROUP",
+          "SV2023-5.7.1-EXTRACT-XZ-CASE",
+          "SV2023-5.7.1-EXTRACT-Z-DIGIT-GROUP"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 9,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10977,
           "unmapped": 1312,
           "interpretation_pending": 0
         }
