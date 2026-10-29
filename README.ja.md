@@ -178,7 +178,8 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 [分母レビュー](docs/denominator-review-20261028.md)で承認しました。
 レビューしたのはAIで、人による独立したレビュー・承認ではありません。
 2026-10-29時点の要求カバレッジ（テスト設計）は**89.33%（10,986/12,298）**、
-実行確認率は**59.60%（7,330/12,298）**です。
+`coverage/results/`の保存済み証跡による実行確認率は
+**59.60%（7,330/12,298）**です。
 Icarus Verilog・Verilator・SymbiYosysだけで数えると実行確認率は51.00%（6,272/12,298）です。
 測定入力と分母は[生成した要求カバレッジ集計](docs/behavior-coverage-summary.md)、
 以前の修正は[Nightlyのテスト修正とoracleレビュー](docs/nightly-suite-corrections-20261027.md)を参照してください。
@@ -198,6 +199,23 @@ Icarus VerilogもVerilatorもエンベロープを復号しないためで、監
 関係など、すべての結果に共通して成り立つことだけを出力します。
 
 ## Nightlyの結果
+
+<!-- workflow-verification:begin -->
+**2026-10-29の再実行：** [Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805455107)は成功し、[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805499579)は
+5環境すべての実行と結果公開が成功しました。対象はスイート[`a594d659`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3)、
+[この回の公開結果](https://github.com/kurochan001/kirimasim-tests/blob/22e410125bba56d3783dd9f8a884dac332239ec7/README.md)の生成時刻は12:55 JST（03:55 UTC）です。
+Lyraは[`ed9515d8eec1`](https://github.com/hankhsu1996/lyra/commit/ed9515d8eec105fdf74eecbd6abf83de268c1fe9)からビルドしました。
+期待結果に一致したテスト数／結果が記録されたテスト数は次のとおりです。
+
+- Icarus Verilog：**4,607 / 7,476**
+- Verilator：**4,779 / 7,476**
+- kirimasim：**5,076 / 7,476**
+- Lyra：**5,501 / 7,476**
+- Ghost：**6,095 / 7,744**
+
+不一致・既知の差異・未対応も分母に含みます。最初の4ランナーはformalの268本を除き、
+Ghostは全テストファイルを選びます。SymbiYosysの検証結果は上記の別集計です。
+<!-- workflow-verification:end -->
 
 毎晩、[GitHub Actionsワークフロー](.github/workflows/nightly.yml)が、各シミュレータで
 `main`の各ランナーの対象テストを実行します。Icarus VerilogとVerilatorは`master`、kirimasimは`main`の
@@ -225,7 +243,7 @@ Ghostは非公開のビルドで参加します。
 後続のワークフローが実行して公開するまで変わりません。現在のスイートと比較するときは、
 `suite commit`とテスト数を確認してください。
 
-![期待結果に一致するテスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=ghost-20261028)
+![期待結果に一致するテスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=nightly-40805499579)
 
 シミュレータごとに、Icarus Verilogは丸、Verilatorは四角、kirimasimはひし形、
 Lyraは下向き三角、Ghostはオレンジの上向き三角を使います。
@@ -239,7 +257,7 @@ Lyraは下向き三角、Ghostはオレンジの上向き三角を使います�
 表はNightlyのグラフとともに更新し、上部に日付とシミュレータの版を表示します。
 クリックすると原寸の画像を開けます。
 
-[![章別の一致テスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=ghost-20261028)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=ghost-20261028)
+[![章別の一致テスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40805499579)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40805499579)
 
 ### 結果の分類
 
@@ -743,6 +761,8 @@ Actionsタブから手動実行もできます（`workflow_dispatch`）。スイ
   要求照合一覧の更新状況の確認も行います。
 
 `.github/workflows/nightly.yml`は毎日19:23 UTC（翌日の04:23 JST）に予定され、手動実行もできます。
+最新のスイートと設定で再実行するときは、
+[`main`を指定して新しい実行を起動](docs/nightly-results.md#最新のmainで手動実行する)します。
 GitHubが混雑していると数時間遅れることがあります。実行は重複せず、実行中に始まったものは待機し、
 さらに新しいものが来ると待機中の古いものを置き換えます。kirimasimのratchetを除いて結果の報告のみです。
 次の6ジョブがあります。

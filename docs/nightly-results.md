@@ -18,6 +18,7 @@ Lyraは各ジョブの開始時に`main`先端のコミットを取得します�
 `publish`が結果を集計して`results`ブランチへpushすると、READMEから参照しているグラフと結果レポートが更新されます。
 `main`へのpushと、Nightly結果の公開は別の処理です。
 
+
 ローカル結果を公開グラフにも反映する場合は、`main`への結果保存に加え、
 `tools/results_history.py update --source local`で`results`ブランチの履歴・グラフ・表を
 更新してpushします。実行時刻と実際に使ったスイートのコミットを指定し、結果JSONへのリンクを付けます。
@@ -28,6 +29,20 @@ Lyraは各ジョブの開始時に`main`先端のコミットを取得します�
 この時刻は`tools/results_history.py update`がレポートを生成した時刻で、ワークフローの開始時刻ではありません。
 日本時間へ換算するには9時間を足します。日付が変わる場合もあります。
 開始時刻・待機状態・終了状態は、レポートの`workflow run`リンク先で確認できます。
+
+
+## 最新のmainで手動実行する
+
+再実行時もスイートとワークフローの最新版を使うには、`main`を指定して新しい実行を起動します。
+
+```sh
+gh workflow run check.yml --repo kurochan001/kirimasim-tests --ref main
+gh workflow run nightly.yml --repo kurochan001/kirimasim-tests --ref main
+```
+
+GitHubの[Re-runは元の実行と同じコミット・refを使います](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs)。
+`workflow_dispatch`で`main`を選ぶと、起動時の`main`先端のスイートと設定が対象になります。
+Lyraはそのジョブ開始時に上流の`main`先端を取得し、実行に使ったSHAを結果へ記録します。
 
 ## 確認例：2026年10月24日の手動実行
 

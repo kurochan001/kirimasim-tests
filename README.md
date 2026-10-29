@@ -207,7 +207,8 @@ duplicate rows were merged into others, leaving 12,298 requirements, and the
 [denominator review](docs/denominator-review-20261028.md) approved them. The
 reviewer was an AI, not an independent human.
 As of 2026-10-29, design coverage is **89.33% (10,986/12,298)**;
-execution coverage is **59.60% (7,330/12,298)**, or 51.00% (6,272/12,298)
+execution coverage from the saved `coverage/results/` evidence is
+**59.60% (7,330/12,298)**, or 51.00% (6,272/12,298)
 counting only Icarus Verilog, Verilator and SymbiYosys.
 See the [generated behavior summary](docs/behavior-coverage-summary.md) for the
 measurement inputs and denominator, and the
@@ -234,9 +235,27 @@ allows and how the results of the coverage functions relate.
 
 ## Nightly results
 
+<!-- workflow-verification:begin -->
+**Manual verification on 2026-10-29:** [Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805455107) succeeded, and
+[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805499579) completed all five simulator jobs and published the
+[results snapshot](https://github.com/kurochan001/kirimasim-tests/blob/22e410125bba56d3783dd9f8a884dac332239ec7/README.md) for suite [`a594d659`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3) at
+12:55 JST (03:55 UTC). Lyra was built from [`ed9515d8eec1`](https://github.com/hankhsu1996/lyra/commit/ed9515d8eec105fdf74eecbd6abf83de268c1fe9).
+Matching tests / recorded results:
+
+- Icarus Verilog: **4,607 / 7,476**.
+- Verilator: **4,779 / 7,476**.
+- kirimasim: **5,076 / 7,476**.
+- Lyra: **5,501 / 7,476**.
+- Ghost: **6,095 / 7,744**.
+
+`differ`, `known difference` and `unsupported` results remain in the denominator.
+The first four runners exclude the 268 formal tests; Ghost selects the full
+catalogue. The SymbiYosys results are reported separately above.
+<!-- workflow-verification:end -->
+
 Every night, a [GitHub Actions workflow](.github/workflows/nightly.yml) runs
 the applicable tests of `main` with the latest development version of each simulator:
-the `master` branches of Icarus Verilog and Verilator and the `main` branch
+the `master` branches of Icarus Verilog and Verilator and the `main` branches
 of kirimasim and Lyra, resolved anew when each job starts. Builds are reused
 only for the same resolved commit. Ghost joins from a private build. It adds the results to the
 history on the
@@ -268,7 +287,7 @@ results appear after a subsequent workflow runs that commit and publishes
 its results. Check `suite commit` and the test count before comparing a chart
 with the current suite.
 
-![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=ghost-20261028)
+![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=nightly-40805499579)
 
 Each simulator has its own marker: a circle for Icarus Verilog, a square for
 Verilator, a diamond for kirimasim, a downward triangle for Lyra and an orange
@@ -287,7 +306,7 @@ denominator. This table updates with the Nightly charts;
 its date and simulator versions are shown at the top. Click it to view the
 full-size image.
 
-[![Matching tests by chapter](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=ghost-20261028)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=ghost-20261028)
+[![Matching tests by chapter](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40805499579)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40805499579)
 
 ### Result statuses
 
@@ -898,8 +917,9 @@ suite has a problem:
 
 `.github/workflows/nightly.yml` is scheduled at 19:23 UTC every day
 (04:23 JST the following day), and can be
-started by hand as well; GitHub can start a scheduled run hours late when it
-is busy. Runs do not overlap: one that starts while another is running waits
+started by hand as well. For a fresh run of the latest suite and settings,
+[dispatch it on `main`](docs/nightly-results.md#最新のmainで手動実行する).
+GitHub can start a scheduled run hours late when it is busy. Runs do not overlap: one that starts while another is running waits
 for it, and a newer one replaces a run that is still waiting. Its results are
 only reported, except for the ratchet of the kirimasim job. It has six jobs:
 
