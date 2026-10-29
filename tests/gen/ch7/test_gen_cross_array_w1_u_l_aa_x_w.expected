@@ -1,0 +1,6 @@
+p0=x 0 1
+e0=0x 00 01
+changed0=1
+p1=1 x 0
+e1=01 0x 00
+changed1=0

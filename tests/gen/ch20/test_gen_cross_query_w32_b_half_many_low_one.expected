@@ -1,0 +1,3 @@
+source=00000000000000000000000000000011 expr=0000000000000011
+bits=16 count=2 ones=2
+onehot=0 onehot0=0 unknown=0

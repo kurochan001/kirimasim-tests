@@ -31,6 +31,7 @@ of the test as well.
 
 | Clause | What Icarus Verilog 13.0 does | Tests |
 | --- | --- | --- |
+| 20.9 | `$countones` of concatenation/replication arguments wider than 64 bits and not a multiple of 32 bits varies across identical reruns in nine selected cases. All six qualification runs agree for the other 51 cases; the nine receive no Icarus oracle. See the [qualification evidence](../coverage/interaction-qualification/README.md). | the nine `gen/ch20/test_gen_cross_query_*` cases identified by `icarus_unstable` in `generators/interaction_query.py` |
 | 23.3.3.8, 10.7 | With the suite runner's `-ginterconnect` option, it zero-pads a signed parent value connected to a wider input port. The source must sign-extend. The same cases match without `-ginterconnect`. | `gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a`, `gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n` |
 | 11.4.11 | With an x or z condition, `?:` gives z where both operands have z in the same bit; Table 11-20 gives x. | `gen/ch11/test_gen_xz_cond_07`, `_08`; `gen/ch11/test_gen_cross_cond_w129_ss_x_same_xz_w_l`, `gen/ch11/test_gen_cross_cond_w65_uu_z_same_xz_n_l` |
 | 28.12.1, 28.12.4 | On wand, wor, triand and trior nets it ignores the strengths of the drivers: it combines their values with the logic function and gives the result strong strength. The stronger driver has to win, and only drivers of equal strength are combined, at that strength. | the 29 `gen/ch28/test_gen_strength_{wand,wor,triand,trior}_*` tests with `:oracle: spec` |
@@ -107,6 +108,7 @@ not parse the modport in an interface port of a module.
 
 | Clause | What Verilator 5.052 does | Tests |
 | --- | --- | --- |
+| 11.4.14.3 | A left-stream unpack of 33 bits with slice size 4 gives the pack permutation, rather than its inverse. The partial block makes these permutations different; both fixed seeds give the same difference. | `gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k` |
 | 20.10 | `$error` stops the run; it has to report the error and go on. The runner passes `+verilator+error+limit+1000000`, with which it goes on. | `ch20/test_error_does_not_end_run` (without that option) |
 | 20.10, 9.2.3 | When `$fatal` ends the run, the final procedures do not run. | `ch20/test_fatal_runs_final_procedures` |
 | 4.4.2.3, 21.2.2, 21.2.3 | At time 0, `$strobe` and `$monitor` show the values from before a write made after `#0` or by a nonblocking assignment; `$monitor` also misses changes of variables of an interface instance. | the 45 `gen/ch4/test_gen_sched_*_{strobe,monitor}_*` tests it does not match, `ch4/test_sched_strobe_after_zero_delays_and_nba`, `ch4/test_sched_monitor_once_per_time_step` |

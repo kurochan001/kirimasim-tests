@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 import datetime
+import json
 from itertools import product
 from pathlib import Path
 import sys
@@ -24,6 +25,9 @@ import interaction_task
 import interaction_struct
 import interaction_case
 import interaction_port
+import interaction_array
+import interaction_query
+import interaction_stream
 from interaction_bits import resize
 
 
@@ -194,6 +198,56 @@ class CoveringSets(unittest.TestCase):
         self.assertEqual(interaction_port.reference(unsigned), ("z", "0z", "00"))
         for row in interaction_port.MODEL.anchors:
             self.assertIn(row, interaction_port.MODEL.select())
+
+    def test_array_rotations_distinguish_one_bit_positions_and_keep_slice_guard(self):
+        row = ("1", "signed", "bit", "descending", "ascending", "x", "whole")
+        a, ea, changed0 = interaction_array.reference(row, 0)
+        b, eb, changed1 = interaction_array.reference(row, 1)
+        self.assertEqual(a, ["0", "0", "1"])
+        self.assertEqual(b, ["1", "0", "0"])
+        self.assertEqual(len(set(zip(a, b))), 3)
+        self.assertEqual((ea, eb), (["00", "00", "11"], ["11", "00", "00"]))
+        self.assertEqual((changed0, changed1), ("1", "0"))
+        sliced = (*row[:-1], "slice")
+        self.assertEqual(interaction_array.reference(sliced, 1)[0], ["1", "0", "1"])
+
+    def test_queries_deduplicate_controls_and_count_known_ones_with_unknowns(self):
+        mixed = ("129", "logic", "repeat", "mixed", "middle", "duplicate")
+        source, expr, result = interaction_query.reference(mixed)
+        self.assertEqual(result, (258, 6, 2, 0, 0, 1))
+        self.assertEqual(interaction_query.reference((*mixed[:-1], "mixed"))[2], result)
+        unknown = ("65", "logic", "direct", "x", "high", "unknown")
+        self.assertEqual(interaction_query.reference(unknown)[2], (65, 1, 1, 1, 1, 1))
+        dropped = ("33", "bit", "half", "one", "high", "one")
+        self.assertEqual(interaction_query.reference(dropped)[2], (16, 0, 0, 0, 1, 0))
+
+    def test_fixed_oracle_registration_rejects_inconsistent_qualification_runs(self):
+        directory = coverage.ROOT / "coverage/interaction-qualification/20261029-query"
+        snapshots = [json.loads(p.read_text()) for p in sorted(directory.glob("*.json"))]
+        self.assertEqual(len(snapshots), 6)
+        oracles = coverage.common.read_oracles()
+        unstable = set()
+        for case in interaction_query.cases():
+            key = "gen/ch20/" + case.name
+            self.assertTrue(all("13.0" in r["version"] and key in r["tests"] for r in snapshots))
+            if any(r["tests"][key]["status"] != "pass" for r in snapshots):
+                unstable.add(case.name)
+                self.assertNotIn("iverilog@13.0", oracles.get(case.name, "").split())
+        self.assertTrue(unstable)
+        self.assertEqual(unstable, {interaction_query.case_name(r)
+                                   for r in interaction_query.MODEL.select()
+                                   if interaction_query.icarus_unstable(r)})
+
+    def test_stream_partial_blocks_need_inverse_permutations_for_unpack(self):
+        reorder = interaction_stream.reorder
+        self.assertEqual(reorder("abcdef", "left", 4), "cdefab")
+        self.assertEqual(reorder("abcdef", "left", 4, True), "efabcd")
+        self.assertNotEqual(reorder(reorder("abcdef", "left", 4), "left", 4), "abcdef")
+        for width in (1, 32, 33, 64, 65, 129, 132):
+            bits = ("01xz" * ((width + 3) // 4))[:width]
+            for size in (1, 4, 8, 16):
+                self.assertEqual(reorder(reorder(bits, "left", size), "left", size, True), bits)
+                self.assertEqual(reorder(bits, "right", size), bits)
 
 
 class ExecutionEvidence(unittest.TestCase):

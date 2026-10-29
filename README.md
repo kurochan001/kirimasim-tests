@@ -52,15 +52,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **8131 tests** in 38 chapters. 1695 of them are generated (`tests/gen/`, see "Generated tests"): 36 by `interaction_case`, 32 by `interaction_cast`, 32 by `interaction_cond`, 51 by `interaction_expr`, 36 by `interaction_nba`, 36 by `interaction_port`, 36 by `interaction_select`, 56 by `interaction_shift`, 36 by `interaction_struct`, 36 by `interaction_task`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **8263 tests** in 38 chapters. 1827 of them are generated (`tests/gen/`, see "Generated tests"): 36 by `interaction_array`, 36 by `interaction_case`, 32 by `interaction_cast`, 32 by `interaction_cond`, 51 by `interaction_expr`, 36 by `interaction_nba`, 36 by `interaction_port`, 60 by `interaction_query`, 36 by `interaction_select`, 56 by `interaction_shift`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4604 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1511 |
-| The standard only, with no fixed-release simulator oracle recorded | 2016 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4655 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1536 |
+| The standard only, with no fixed-release simulator oracle recorded | 2072 |
 
-1121 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+1217 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -68,11 +68,11 @@ The suite has **8131 tests** in 38 chapters. 1695 of them are generated (`tests/
 | 4 | Scheduling semantics | 412 | 391 | 5 | 16 |
 | 5 | Lexical conventions | 346 | 325 | 14 | 7 |
 | 6 | Data types | 641 | 396 | 142 | 103 |
-| 7 | Aggregate data types | 518 | 215 | 234 | 69 |
+| 7 | Aggregate data types | 554 | 215 | 246 | 93 |
 | 8 | Classes | 321 | 67 | 182 | 72 |
 | 9 | Processes | 210 | 151 | 32 | 27 |
 | 10 | Assignment statements | 240 | 169 | 43 | 28 |
-| 11 | Operators and expressions | 1012 | 879 | 92 | 41 |
+| 11 | Operators and expressions | 1048 | 879 | 103 | 66 |
 | 12 | Procedural programming statements | 217 | 169 | 29 | 19 |
 | 13 | Tasks and functions (subroutines) | 237 | 137 | 82 | 18 |
 | 14 | Clocking blocks | 78 | 4 | 61 | 13 |
@@ -81,7 +81,7 @@ The suite has **8131 tests** in 38 chapters. 1695 of them are generated (`tests/
 | 17 | Checkers | 81 |  | 22 | 59 |
 | 18 | Constrained random value generation | 200 | 26 | 95 | 79 |
 | 19 | Functional coverage | 157 | 2 | 29 | 126 |
-| 20 | Utility system tasks and system functions | 270 | 200 | 24 | 46 |
+| 20 | Utility system tasks and system functions | 330 | 251 | 26 | 53 |
 | 21 | Input/output system tasks and system functions | 213 | 143 | 15 | 55 |
 | 22 | Compiler directives | 358 | 335 | 13 | 10 |
 | 23 | Modules and hierarchy | 292 | 177 | 45 | 70 |
@@ -172,10 +172,11 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.md) uses constrained
 pairwise coverage, selected three-factor groups and mandatory boundary witnesses.
-Its focused selection has 438 tests across eleven models: scheduling, NBA capture,
+Its focused selection has 570 tests across fourteen models: scheduling, NBA capture,
 arithmetic context, packed part-selects, conditional merging, shifts, cast pipelines
-and task argument visibility, packed structures, case matching and port connections.
-The last three select 108 tests from 5,232 assignments
+and task argument visibility, packed structures, case matching, port connections,
+unpacked array copies, bit-vector queries and streaming permutations.
+The last three select 132 tests from 5,048 assignments
 that satisfy their constraints. The full suite retains all existing tests.
 The [interaction report](docs/interaction-coverage.md) separates the selection plan
 from fingerprint-qualified passes in each individual run; it does not change the
@@ -686,6 +687,9 @@ outputs, and it writes many small variations of one kind of test:
 | `interaction_struct` | 7 | Member order, whole/member signs, width/state/value, member/whole writes and blocking/NBA updates; 36 selected cases check tag preservation, packed layout and independent sign extension |
 | `interaction_case` | 12 | Selector/item widths and signs, case/casez/casex, X/Z and item patterns; 36 selected cases check exact/wildcard matching, duplicate-item priority and fallback branches |
 | `interaction_port` | 23 | Source width/sign/value, input/output, sink width, named/positional binding, ANSI/non-ANSI declaration and sample state; 36 selected cases check values through hierarchy and final sampling conversion |
+| `interaction_array` | 7 | Equivalent array element types, width/sign/state, source/destination index order, value and whole/slice copy; 36 cases observe declaration order, source independence and an untouched guard element |
+| `interaction_query` | 20 | Width, state, argument shape, value/position and countbits controls; 60 cases check bit counts, one-hot/unknown predicates and duplicate controls |
+| `interaction_stream` | 11 | Width, direction, slice size, tag, pack/unpack, target state and value; 36 cases check partial blocks and inverse unpack permutations |
 | `width_sign` | 11 | Operands and targets of 63 to 1000 bits, signed and unsigned, with the operators whose result size and sign 11.6 to 11.8 decide |
 | `xz_propagation` | 11 | Operands with x and z bits for every operator of 11.4 that has rules for them |
 | `strength` | 28 | Two drivers of a net with different strengths and values, on wire, tri, wand, triand, wor, trior, tri0 and tri1 nets and through bufif gates, shown with `%v` |

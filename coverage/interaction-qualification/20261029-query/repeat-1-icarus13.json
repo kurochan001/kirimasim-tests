@@ -1,0 +1,259 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch20/test_gen_cross_query_w129_b_direct_many_high_mixed": {
+   "status": "pass",
+   "inputs_sha256": "b95890783f595e12994d2f0245394dc651f34406978691574aeead89cf70df48"
+  },
+  "gen/ch20/test_gen_cross_query_w129_b_half_mixed_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "98e41f1c8c2d8beebe2d8c1c23d6f27eb514e83e6380fe7a20f03916c2c841a4"
+  },
+  "gen/ch20/test_gen_cross_query_w129_b_prefix_one_low_mixed": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=130 count=2 ones=8', expected 'bits=130 count=2 ones=2'",
+   "inputs_sha256": "f784db1c998edb0782952a58c09a52382e77249752571653d5a9c83635751f4f"
+  },
+  "gen/ch20/test_gen_cross_query_w129_b_prefix_zero_none_one": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=130 count=1 ones=10', expected 'bits=130 count=1 ones=1'",
+   "inputs_sha256": "f1f03395999b276a22cf9a192e5b853b6a9ee2ab8c1eb548a50b97f4dabfe251"
+  },
+  "gen/ch20/test_gen_cross_query_w129_l_direct_z_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "5c30a222b13546a2436d0490414602871e864e6b787732a990ff41c9aaa4878f"
+  },
+  "gen/ch20/test_gen_cross_query_w129_l_prefix_x_low_zero": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=130 count=127 ones=8', expected 'bits=130 count=127 ones=2'",
+   "inputs_sha256": "606668d0f7626b3dc4c36c38418923d19aceade4230ae06daeddf402f010c6da"
+  },
+  "gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=258 count=6 ones=9', expected 'bits=258 count=6 ones=2'",
+   "inputs_sha256": "d988eb3d8346e40e52d0c2191f4e102d7245643202f15bef630b72e2bb60dd79"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_direct_one_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "910691b603dc143c862379bd86ef2e12672e773d16d63daf244391fd17c2e3a8"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_direct_x_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "e66a3aae6eebb2680648b6bfd0be89e253d98c3357ae57b43ccfb54ff077b915"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_direct_z_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "00cb821b6e8417586374bff7b059db8e232725a3b69ea7fad2c60c6b788931ee"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_direct_z_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "cde60f9fc99d09484a17a7d129a96c293804011e87f415543773a7f52114ca14"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_direct_zero_none_mixed": {
+   "status": "pass",
+   "inputs_sha256": "89a4f098fa0c5cbdf6c2ca3f0a6bbcb9485067e43669b59dbc9488a0d3629a04"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_direct_zero_none_zero": {
+   "status": "pass",
+   "inputs_sha256": "456a418643d505f4ad87fbd0cb89764d3ebe17bb8e6dc622778b904c70e1dcf0"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_repeat_x_low_one": {
+   "status": "pass",
+   "inputs_sha256": "339a2f7a4f04178c50b5003ff9b136d31312c7538286b734df4b91bdea95ef89"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_direct_one_low_one": {
+   "status": "pass",
+   "inputs_sha256": "6f4d8783d2f4befdfadfaf86dcaef3e83e576722f25b9e2decc5634cac694d3e"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_direct_x_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "9141b2d4c6f6d8a455474b292f1f0493c84daa21ea544f2e6a5a95da4481c37a"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_direct_z_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "c60148f529dc6cace07a79f3660b8c9255a00ef1b983e3fc953dc8a6aa5e978e"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_direct_zero_none_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "23078066d8f6f81d5d741b48e2d10f82bd1c1e32aab5e1be2e41f2cbd30b5776"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_direct_zero_none_zero": {
+   "status": "pass",
+   "inputs_sha256": "8b0db1adc5e37f0284a7a539c09a6eb759bdd9fd9525ac7f550c4d16b96741c3"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_prefix_one_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "da5fd9a5c8d2695650efdf9bfb6602c7b4f9cf04cbfea5dc623e9d5112d79841"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_repeat_one_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "b942e76e8ce2f3d83f556a364fcba108702f12ab29d939325998df569f41d565"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_repeat_x_low_one": {
+   "status": "pass",
+   "inputs_sha256": "319277268fb87a8ac36713606d9a4255738739bab3a1f5c54e83791c0c85c4dd"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_repeat_z_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "5a834bfccb84c4b00e2a57479680b3567577b48a6a75fba98cf8c9660d287eb7"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_repeat_zero_none_unknown": {
+   "status": "pass",
+   "inputs_sha256": "b48fe8f7de295e80cd780394b4b93c5d3629c6fa01cba7a8c9e9ac4073665200"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_direct_many_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "aae65c4bb74bfddf67efd099c89b8309811b26444c8da3467ef9c51ebf87e7cd"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_direct_mixed_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "046d29e8765129b2eab7fa3a18a92d140a0f6d817611880a72e6654f75c8cc7b"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_direct_mixed_middle_one": {
+   "status": "pass",
+   "inputs_sha256": "deb0ec2ac32012fcb49c3e48bb5060f57495123aa8574f90e935abfc5ea15c6b"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_half_many_low_one": {
+   "status": "pass",
+   "inputs_sha256": "6edbc7d36fc787208eaaa99a04759a0f8f6021b817e98376bdb327a638dfcf96"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_half_x_high_unknown": {
+   "status": "pass",
+   "inputs_sha256": "d52fc12da5ed3c7cd620238962de068ee11d8c1f29ce27df4df81e85a0fa8e29"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_half_zero_none_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "c993b37a539308beff34f9cb9a8b2f18a918fdeb77ef13c2dcfc4213739d2c7f"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_repeat_one_middle_zero": {
+   "status": "pass",
+   "inputs_sha256": "d1706a4e431b83ace01ab7e19f5637b3b4b6c288fe5fa5cb034df1cd324fd68b"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_direct_many_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "306f6d3d15c8a670f33059295084d3609523d43cdd6dc5d327aea15dda701a6c"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_direct_many_low_one": {
+   "status": "pass",
+   "inputs_sha256": "8d5f4f1b48fdcb4638d81fdb93d33d8fd3b413112650aa0a57c5dbffd5194613"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_direct_mixed_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "e89738c1e29691f89a81bce076ba6a2dda68638a546bafd11d251f6853441446"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_half_mixed_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "e79aa983bd51128f6558dc14d9f3361e789a21b4707377f463da0d433b4a4f8b"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_half_one_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "4d4c5bbc869dae5a225d04024f685f8d7d6cb4de49b4033ac5fbfb816051ab67"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_half_z_low_one": {
+   "status": "pass",
+   "inputs_sha256": "851478bc50a8935106f7f1bd7a31dfd7672a765bb0da93174578be510a4b02eb"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_prefix_many_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "3a681f8f3bc420839da402c493f7748f91268ca6c2b7e54aec751e9b9e8b0319"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_prefix_mixed_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "524a1e32069d88916123b8ff9457ed26ab7f7532aacb4e9b10701661acad4224"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "262f283ae02041201f7ba4365147e383ea7fd5a55e291b6665756b7700c4a9fa"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_repeat_many_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "2d264d79e076be31d4079761801e5155563b62bdbedd60b652cea0d20a0db468"
+  },
+  "gen/ch20/test_gen_cross_query_w33_b_direct_x_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "40caab7363b4aaf49e44f4f4364b2000fb3bd759533f3df9ff31cebec48094e7"
+  },
+  "gen/ch20/test_gen_cross_query_w33_b_half_one_high_one": {
+   "status": "pass",
+   "inputs_sha256": "256590aac327702edb0401fef5c23a9b9c356580b40211342201a091f11a1dd5"
+  },
+  "gen/ch20/test_gen_cross_query_w33_b_prefix_mixed_high_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "7f2576743147aee60a826cc9770dd6f4f38756ae91c9533dc5fa2094bf2d1967"
+  },
+  "gen/ch20/test_gen_cross_query_w33_b_prefix_x_middle_zero": {
+   "status": "pass",
+   "inputs_sha256": "b08e4869238f40722451790bfbd32f19a66cad401b39de2798cd070e7710bee7"
+  },
+  "gen/ch20/test_gen_cross_query_w33_b_prefix_z_low_one": {
+   "status": "pass",
+   "inputs_sha256": "b1bc74636bfea0917183ef6e9f9ad8b666d720602a0be82c0d83e908b362532f"
+  },
+  "gen/ch20/test_gen_cross_query_w33_b_repeat_zero_none_unknown": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=66 count=0 ones=6', expected 'bits=66 count=0 ones=0'",
+   "inputs_sha256": "cdf529cadc19b76e80ea39d1bba434192f025ae3658d04096f573b92e9be8a4d"
+  },
+  "gen/ch20/test_gen_cross_query_w33_l_half_many_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "eb5ac41010f11fa589155d699c6d8ab9303a025f1fef8a91d0ad450ef8472887"
+  },
+  "gen/ch20/test_gen_cross_query_w64_b_prefix_many_middle_unknown": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=65 count=0 ones=9', expected 'bits=65 count=0 ones=3'",
+   "inputs_sha256": "f2d0a3e07f74fd423c82c2c98e6817ff5ed860cf82e6a6b6257b84c0b28117a9"
+  },
+  "gen/ch20/test_gen_cross_query_w64_b_repeat_z_high_zero": {
+   "status": "pass",
+   "inputs_sha256": "bfdfab1906754a94b91e858dc063adebf6fd1f6c90e5d27c0675e94dcd8a3056"
+  },
+  "gen/ch20/test_gen_cross_query_w64_l_direct_mixed_low_one": {
+   "status": "pass",
+   "inputs_sha256": "c570e7f53c2bf5d7767e124d3a9e6c8bdc207b53ac68bbb0fc32a8deb48fba04"
+  },
+  "gen/ch20/test_gen_cross_query_w64_l_direct_one_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "6b036d3d52437d22ed60a1411eab0f833b8d31de3a9271c505705bd5981748eb"
+  },
+  "gen/ch20/test_gen_cross_query_w64_l_half_x_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "784a0bbcf876fe1670576d2ed8c3d49a3c3a6031561f492e38736d409abe48e0"
+  },
+  "gen/ch20/test_gen_cross_query_w64_l_half_zero_none_mixed": {
+   "status": "pass",
+   "inputs_sha256": "99319ff9b10b72362d8e521f58dca2f845f35f617aaf79bb647178f2bb7e9e2e"
+  },
+  "gen/ch20/test_gen_cross_query_w65_b_direct_one_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "a25f4b39572803d433c700432e32f8367cf78f9cf462e889c407524d7cca76cd"
+  },
+  "gen/ch20/test_gen_cross_query_w65_b_half_z_middle_mixed": {
+   "status": "pass",
+   "inputs_sha256": "056c65db199ea0df5e8173870287f2103dcbf721ca6ac397f7a0d418915a7506"
+  },
+  "gen/ch20/test_gen_cross_query_w65_b_repeat_many_low_duplicate": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=130 count=4 ones=9', expected 'bits=130 count=4 ones=4'",
+   "inputs_sha256": "2ced4511c5f498ec1d82ab45b433601c48387eef893a195d6ebc9adf95ae95ea"
+  },
+  "gen/ch20/test_gen_cross_query_w65_b_repeat_mixed_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "2174e1b7a2680637317e8dbaa9cf70a6bf582432a2109be06b2b49d96944c070"
+  },
+  "gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown": {
+   "status": "pass",
+   "inputs_sha256": "291e0e648cc8b76fa30a4bf53ff0c50396f5571ec3f610f1827394f6c716397e"
+  },
+  "gen/ch20/test_gen_cross_query_w65_l_prefix_zero_none_one": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=66 count=1 ones=7', expected 'bits=66 count=1 ones=1'",
+   "inputs_sha256": "2e454f591bde4734124acf5ec8e74fa8a5ccbe136c358c648ebd1b56b8e297e8"
+  }
+ },
+ "generated_at": "2026-10-29T14:15:35.755012+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

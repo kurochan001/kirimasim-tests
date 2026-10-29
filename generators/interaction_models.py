@@ -17,12 +17,16 @@ import interaction_task
 import interaction_struct
 import interaction_case
 import interaction_port
+import interaction_array
+import interaction_query
+import interaction_stream
 import scheduling
 from interaction_cover import Model, Row
 
 GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task,
-              interaction_struct, interaction_case, interaction_port)
+              interaction_struct, interaction_case, interaction_port,
+              interaction_array, interaction_query, interaction_stream)
 
 
 @dataclass
@@ -119,5 +123,26 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_port.MODEL.select(),
             "親と子の間で幅が変わる接続を使い、元の値・4状態の接続線・サンプル変数を観測して、"
             "接続方向、駆動元の符号、宣言と接続形式、最後の2状態変換を確認する。",
+        ),
+        SuiteModel(
+            interaction_array.MODEL,
+            lambda row: "tests/gen/ch7/" + interaction_array.case_name(row) + ".sv",
+            interaction_array.MODEL.select(),
+            "2組の入力を配列全体／スライスへコピーし、宣言順の対応、非選択要素の保持、"
+            "コピー元変更後の独立性と、読み出した要素の符号拡張を確認する。",
+        ),
+        SuiteModel(
+            interaction_query.MODEL,
+            lambda row: "tests/gen/ch20/" + interaction_query.case_name(row) + ".sv",
+            interaction_query.MODEL.select(),
+            "引数の実ビット列・幅と各関数の結果を表示し、式の形、状態変換、X/Zの位置、"
+            "制御ビットの重複除去、one-hot判定と未知値の有無を確認する。",
+        ),
+        SuiteModel(
+            interaction_stream.MODEL,
+            lambda row: "tests/gen/ch11/" + interaction_stream.case_name(row) + ".sv",
+            interaction_stream.MODEL.select(),
+            "入力ストリームと結果を比較し、ブロック順、端数ブロック、複数項目の連結、"
+            "packとunpackの逆変換、2状態の格納先への変換を確認する。",
         ),
     )

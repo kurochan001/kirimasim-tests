@@ -23,6 +23,9 @@ import interaction_task
 import interaction_struct
 import interaction_case
 import interaction_port
+import interaction_array
+import interaction_query
+import interaction_stream
 import keywords
 import scheduling
 import strength
@@ -33,7 +36,8 @@ import xz_propagation
 GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths, keywords,
               interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task,
-              interaction_struct, interaction_case, interaction_port]
+              interaction_struct, interaction_case, interaction_port,
+              interaction_array, interaction_query, interaction_stream]
 
 
 def main() -> int:

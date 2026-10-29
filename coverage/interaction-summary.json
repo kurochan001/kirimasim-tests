@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_sha256": "69f26b771193f66f4b5be8cb6032646e9332924463c34904daa528146a7b092f",
+  "source_sha256": "f243e53d459a544a12569d5450e55d8cd656432f77b525bcb58c9f3ff098d670",
   "models": [
     {
       "id": "scheduling_visibility",
@@ -6324,6 +6324,1889 @@
           "inputs_sha256": "73612538155daeca9115cdb33508fa509dcf50d6c3a49efacd4959d8442acce8"
         }
       ]
+    },
+    {
+      "id": "unpacked_array_copy",
+      "version": 1,
+      "factors": {
+        "width": [
+          "1",
+          "32",
+          "33",
+          "64",
+          "65",
+          "129"
+        ],
+        "sign": [
+          "unsigned",
+          "signed"
+        ],
+        "state": [
+          "bit",
+          "logic"
+        ],
+        "source_order": [
+          "ascending",
+          "descending"
+        ],
+        "target_order": [
+          "ascending",
+          "descending"
+        ],
+        "value": [
+          "known",
+          "x",
+          "z"
+        ],
+        "operation": [
+          "whole",
+          "slice"
+        ]
+      },
+      "constraints": [
+        "両配列の要素型は同じtypedef。各3要素、sliceは宣言順の先頭2要素。非ゼロ添字の固定長配列を使い、動的配列・キュー・要素型変換は対象外"
+      ],
+      "higher_strength_groups": [
+        [
+          "width",
+          "state",
+          "value"
+        ],
+        [
+          "source_order",
+          "target_order",
+          "operation"
+        ],
+        [
+          "sign",
+          "operation",
+          "source_order"
+        ]
+      ],
+      "witness": "2組の入力を配列全体／スライスへコピーし、宣言順の対応、非選択要素の保持、コピー元変更後の独立性と、読み出した要素の符号拡張を確認する。",
+      "legal_rows": 576,
+      "available_cases": 36,
+      "selected_cases": 36,
+      "targets_by_strength": {
+        "2": 148,
+        "3": 52
+      },
+      "mandatory_witnesses": [
+        "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv",
+        "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv",
+        "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv"
+      ],
+      "selection": [
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv",
+          "values": {
+            "width": "129",
+            "sign": "signed",
+            "state": "logic",
+            "source_order": "descending",
+            "target_order": "ascending",
+            "value": "z",
+            "operation": "slice"
+          },
+          "inputs_sha256": "e36fff0f98199c0a71a4ab02349492f5f6787361432447edf0165443ea580bc3"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv",
+          "values": {
+            "width": "65",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "descending",
+            "value": "x",
+            "operation": "whole"
+          },
+          "inputs_sha256": "f9afb751616fe7f5fe7be59de768f565c608926db9c597951943077050957b23"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv",
+          "values": {
+            "width": "33",
+            "sign": "signed",
+            "state": "bit",
+            "source_order": "descending",
+            "target_order": "descending",
+            "value": "known",
+            "operation": "whole"
+          },
+          "inputs_sha256": "58bd8432aeab7173a97e122f64d30ec2f0103c6afe5b9e3b9a01cf3c43dd0828"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w1_u_l_aa_k_s.sv",
+          "values": {
+            "width": "1",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "known",
+            "operation": "slice"
+          },
+          "inputs_sha256": "90ccbede18c0762e0c84262d49b74ed05d8b320850f1938ae81e0f2e9e3e10ab"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w32_u_b_da_z_w.sv",
+          "values": {
+            "width": "32",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "descending",
+            "target_order": "ascending",
+            "value": "z",
+            "operation": "whole"
+          },
+          "inputs_sha256": "1e30169754ad505b82314269133a42271355d8a7f381d0ab459b99c7df1fe287"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w32_s_l_ad_x_s.sv",
+          "values": {
+            "width": "32",
+            "sign": "signed",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "descending",
+            "value": "x",
+            "operation": "slice"
+          },
+          "inputs_sha256": "83f2a3be18ed2d05c87782acb96f062069f2fe5bccdcffb03fad7a2605905d30"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w64_u_b_da_x_s.sv",
+          "values": {
+            "width": "64",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "descending",
+            "target_order": "ascending",
+            "value": "x",
+            "operation": "slice"
+          },
+          "inputs_sha256": "42d274abec41155e261ec907641dcfddd03f3f740257722a8dbba85ebd0f354d"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w64_s_l_ad_z_w.sv",
+          "values": {
+            "width": "64",
+            "sign": "signed",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "descending",
+            "value": "z",
+            "operation": "whole"
+          },
+          "inputs_sha256": "ed50a1ff338ff08d99942a8c3153a7b06a93ca660ecadfd7b110eacc4ccf833e"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w1_s_b_dd_x_w.sv",
+          "values": {
+            "width": "1",
+            "sign": "signed",
+            "state": "bit",
+            "source_order": "descending",
+            "target_order": "descending",
+            "value": "x",
+            "operation": "whole"
+          },
+          "inputs_sha256": "588fbe951400609bf15c95c72268839b02e254507a01df66a96c8f11578c1608"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w33_u_l_aa_x_w.sv",
+          "values": {
+            "width": "33",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "x",
+            "operation": "whole"
+          },
+          "inputs_sha256": "0e0bddfa37ee720efc105f4a0772123e2aac54f03ef24d385833b865b1be2381"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w65_s_l_da_k_s.sv",
+          "values": {
+            "width": "65",
+            "sign": "signed",
+            "state": "logic",
+            "source_order": "descending",
+            "target_order": "ascending",
+            "value": "known",
+            "operation": "slice"
+          },
+          "inputs_sha256": "4c96372168bc4069442783c56108f490640be5289ac31bc645db855349ed2c62"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w129_u_b_ad_k_w.sv",
+          "values": {
+            "width": "129",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "descending",
+            "value": "known",
+            "operation": "whole"
+          },
+          "inputs_sha256": "43dfed45b88335c45d84522c8713ec86dbb550468aafe8dbe5b4015257900ba8"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w33_u_b_dd_z_s.sv",
+          "values": {
+            "width": "33",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "descending",
+            "target_order": "descending",
+            "value": "z",
+            "operation": "slice"
+          },
+          "inputs_sha256": "7fbb698962e174ad09c1b138589f169f5c385e2885020238f38cc0a7c0cf92d1"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w1_u_b_aa_z_w.sv",
+          "values": {
+            "width": "1",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "z",
+            "operation": "whole"
+          },
+          "inputs_sha256": "ba7c5cd99dbfe3a50fff614109d44c9d1e3e9f5ae7e3c4aee807564115ae44ce"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w32_u_b_aa_k_w.sv",
+          "values": {
+            "width": "32",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "known",
+            "operation": "whole"
+          },
+          "inputs_sha256": "4952a616e6c95e004e1c07b9da9e7bfe52527cfd4f91080ae62ea2f7f946641c"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w64_u_b_aa_k_w.sv",
+          "values": {
+            "width": "64",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "known",
+            "operation": "whole"
+          },
+          "inputs_sha256": "324cdd26622f0a407bf9fc4ef47c0cd3733cf356df556885d343852396c2d8f2"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w65_u_b_aa_z_w.sv",
+          "values": {
+            "width": "65",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "z",
+            "operation": "whole"
+          },
+          "inputs_sha256": "ef39de720d93c14a03e69804f3fc3701d72b3d74839b4585fae7b35458ec58ff"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w129_u_b_aa_x_w.sv",
+          "values": {
+            "width": "129",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "x",
+            "operation": "whole"
+          },
+          "inputs_sha256": "d179816de97b0e61bfc3a6343088ea1958e109a40d16b40957223ea14dc43b6b"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w1_u_b_aa_k_w.sv",
+          "values": {
+            "width": "1",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "known",
+            "operation": "whole"
+          },
+          "inputs_sha256": "7b1140b9c4a3435a506a3d6a410736d13cb782561b066ba62cc62b9cbb33c4c7"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w1_u_l_aa_x_w.sv",
+          "values": {
+            "width": "1",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "x",
+            "operation": "whole"
+          },
+          "inputs_sha256": "57bd840f1219f59b3988adcf14b5ee11737ec42b4acc03460958c385b4a3e9ee"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w1_u_l_aa_z_w.sv",
+          "values": {
+            "width": "1",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "z",
+            "operation": "whole"
+          },
+          "inputs_sha256": "713eddc45c861eafb0c0d63dce5cccf6325d7b12b45c89928e7da2a991d88343"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w32_u_b_aa_x_w.sv",
+          "values": {
+            "width": "32",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "x",
+            "operation": "whole"
+          },
+          "inputs_sha256": "0b58b71b458517e14a511c9823d427283fdb523e64f906a7c468eee2454811b0"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w32_u_l_aa_k_w.sv",
+          "values": {
+            "width": "32",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "known",
+            "operation": "whole"
+          },
+          "inputs_sha256": "e46223f7a0e0c6c6b04fc10bc51856a519d81628fbce20003763aa7d7b3066b1"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w32_u_l_aa_z_w.sv",
+          "values": {
+            "width": "32",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "z",
+            "operation": "whole"
+          },
+          "inputs_sha256": "1fe0db7aca5f1e4d1ea5773d890db755f89706eddf94c4d25acf58a042ed5270"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w33_u_b_aa_x_w.sv",
+          "values": {
+            "width": "33",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "x",
+            "operation": "whole"
+          },
+          "inputs_sha256": "0ce0c881343698b8cf4c6573907e01326007486fa1e2ef0a8083e1605e80d952"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w33_u_l_aa_k_w.sv",
+          "values": {
+            "width": "33",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "known",
+            "operation": "whole"
+          },
+          "inputs_sha256": "68883af916e459d3c6af85210d55c77797ff749aa4e94a844805cdc006ce767a"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w33_u_l_aa_z_w.sv",
+          "values": {
+            "width": "33",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "z",
+            "operation": "whole"
+          },
+          "inputs_sha256": "f1fab45b8cd870a216acd5713a49071226c43f717b6cc53d808df858b63d3074"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w64_u_b_aa_z_w.sv",
+          "values": {
+            "width": "64",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "z",
+            "operation": "whole"
+          },
+          "inputs_sha256": "0308be72ffd098d91a15dfdf472d512f27c2b6f4a6750b8467dd2f5dfcc8712a"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w64_u_l_aa_k_w.sv",
+          "values": {
+            "width": "64",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "known",
+            "operation": "whole"
+          },
+          "inputs_sha256": "2e14192dab02be158f53aed7da82ca1e5f192023bf41603f6a3134cd0e452e63"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w64_u_l_aa_x_w.sv",
+          "values": {
+            "width": "64",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "x",
+            "operation": "whole"
+          },
+          "inputs_sha256": "a5fcc53d84f0f5951fd771ff886f9227c22729e823a0dce40d9427796da0dbb5"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w65_u_b_aa_k_w.sv",
+          "values": {
+            "width": "65",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "known",
+            "operation": "whole"
+          },
+          "inputs_sha256": "1a629f232241900c8e4380de96e6e59e38e89a96d3fbcfc4313795fa2e3de8ab"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w65_u_l_aa_x_w.sv",
+          "values": {
+            "width": "65",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "x",
+            "operation": "whole"
+          },
+          "inputs_sha256": "aafce49df4f595ce65a5351db0f910579abd843dcd23ce7b2b4f8e3171c2d101"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w65_u_l_aa_z_w.sv",
+          "values": {
+            "width": "65",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "z",
+            "operation": "whole"
+          },
+          "inputs_sha256": "f0be5731b1e80739a791c50a69d3e48674eed0b8c2aa71442b441ea5a7c691d6"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w129_u_b_aa_z_w.sv",
+          "values": {
+            "width": "129",
+            "sign": "unsigned",
+            "state": "bit",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "z",
+            "operation": "whole"
+          },
+          "inputs_sha256": "6bb7e9cc51bfec7d9a6a75b6d3151964e6e3be0bbeb6a7d9c9f9abaac88e327f"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w129_u_l_aa_k_w.sv",
+          "values": {
+            "width": "129",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "known",
+            "operation": "whole"
+          },
+          "inputs_sha256": "4b29cf9e52b58c660b60c0c047fc922445eb1570c22212f956b53f9321ecff1f"
+        },
+        {
+          "test": "tests/gen/ch7/test_gen_cross_array_w129_u_l_aa_x_w.sv",
+          "values": {
+            "width": "129",
+            "sign": "unsigned",
+            "state": "logic",
+            "source_order": "ascending",
+            "target_order": "ascending",
+            "value": "x",
+            "operation": "whole"
+          },
+          "inputs_sha256": "e092e8cf76f15cf33ca7523dbfe25a479d3d417669b9ef46286d32b2585e5bda"
+        }
+      ]
+    },
+    {
+      "id": "bit_vector_queries",
+      "version": 1,
+      "factors": {
+        "width": [
+          "1",
+          "32",
+          "33",
+          "64",
+          "65",
+          "129"
+        ],
+        "state": [
+          "bit",
+          "logic"
+        ],
+        "expression": [
+          "direct",
+          "half",
+          "prefix",
+          "repeat"
+        ],
+        "value": [
+          "zero",
+          "one",
+          "many",
+          "x",
+          "z",
+          "mixed"
+        ],
+        "position": [
+          "none",
+          "low",
+          "middle",
+          "high"
+        ],
+        "controls": [
+          "zero",
+          "one",
+          "unknown",
+          "mixed",
+          "duplicate"
+        ]
+      },
+      "constraints": [
+        "zeroの位置はnone。他の値はlow/middle/high。幅1ではlowだけを使い、many/mixedとhalfを除外。halfは下位半分。制御ビットは1ビット定数"
+      ],
+      "higher_strength_groups": [
+        [
+          "value",
+          "state",
+          "controls"
+        ],
+        [
+          "expression",
+          "value",
+          "state"
+        ]
+      ],
+      "witness": "引数の実ビット列・幅と各関数の結果を表示し、式の形、状態変換、X/Zの位置、制御ビットの重複除去、one-hot判定と未知値の有無を確認する。",
+      "legal_rows": 3320,
+      "available_cases": 60,
+      "selected_cases": 60,
+      "targets_by_strength": {
+        "2": 285,
+        "3": 108
+      },
+      "mandatory_witnesses": [
+        "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv",
+        "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv",
+        "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv",
+        "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv"
+      ],
+      "selection": [
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "expression": "repeat",
+            "value": "mixed",
+            "position": "middle",
+            "controls": "duplicate"
+          },
+          "inputs_sha256": "42036e7a9bf16e3566364524af0a66b280e657d89c2c3a5a860fd98fac5ac888"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "expression": "direct",
+            "value": "x",
+            "position": "high",
+            "controls": "unknown"
+          },
+          "inputs_sha256": "4eff07c9c86cc6152d161b7c85d0e0cae773fe41354129484964ec7aab410755"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "expression": "half",
+            "value": "one",
+            "position": "high",
+            "controls": "one"
+          },
+          "inputs_sha256": "ba45ce7b6902f2fce25f9ad6dfaff645f9714926c071d99561bf1a1fb0dd0b24"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "expression": "prefix",
+            "value": "z",
+            "position": "low",
+            "controls": "mixed"
+          },
+          "inputs_sha256": "935cd16a0a3464756edc73eaa2be682d243b638c3b1cdb72adc41c7fc8682788"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_b_direct_zero_none_zero.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "direct",
+            "value": "zero",
+            "position": "none",
+            "controls": "zero"
+          },
+          "inputs_sha256": "60de83f9ed34eda52c5b2d9fe523bed3f464d913b2f3b5350aa2973879fd4bfb"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w64_b_prefix_many_middle_unknown.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "expression": "prefix",
+            "value": "many",
+            "position": "middle",
+            "controls": "unknown"
+          },
+          "inputs_sha256": "d6154b1919a3f1be7c45252e17d01490f91eb57b02d998f7278d698284cd349f"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_b_repeat_x_low_one.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "repeat",
+            "value": "x",
+            "position": "low",
+            "controls": "one"
+          },
+          "inputs_sha256": "9a8161a38ca58eb4a606279b3b0970500ec8a3b92e05fa69e2a88c8f7893cef6"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w33_l_half_many_low_zero.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "expression": "half",
+            "value": "many",
+            "position": "low",
+            "controls": "zero"
+          },
+          "inputs_sha256": "fa9b43dba718175c334e09dd75145a5882f3abb60e0f18be862b89326b4b075c"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w64_l_direct_one_low_duplicate.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "expression": "direct",
+            "value": "one",
+            "position": "low",
+            "controls": "duplicate"
+          },
+          "inputs_sha256": "a567dea52cbefe8d2fe867df28bdb007afbc76733a787a799e3756e2a55b59b9"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w65_b_half_z_middle_mixed.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "expression": "half",
+            "value": "z",
+            "position": "middle",
+            "controls": "mixed"
+          },
+          "inputs_sha256": "16dabc2654a00f6bb999702a66a782eb7e1cc4b0018ae74101ce20b5f0c2c4c0"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w65_l_prefix_zero_none_one.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "expression": "prefix",
+            "value": "zero",
+            "position": "none",
+            "controls": "one"
+          },
+          "inputs_sha256": "e6d6ede366595266ec9bef66d636175ee2431e54a2d76b7937265a45c62253ac"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_b_direct_mixed_middle_one.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "direct",
+            "value": "mixed",
+            "position": "middle",
+            "controls": "one"
+          },
+          "inputs_sha256": "d6e7c5f2e543d38bd7b719cc16e6e9fb8bccbb1d4bd03863dcdc08bb1705a57e"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_b_half_zero_none_duplicate.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "half",
+            "value": "zero",
+            "position": "none",
+            "controls": "duplicate"
+          },
+          "inputs_sha256": "511328e5e9657273b9bc722c0ec85efbf090bb053d9a236dd9fea16f7f422197"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w64_b_repeat_z_high_zero.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "expression": "repeat",
+            "value": "z",
+            "position": "high",
+            "controls": "zero"
+          },
+          "inputs_sha256": "265958aeb07a43d7efafd00e9a04ef1e3542e0f79c016cc5c8276924993efcfb"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w129_b_direct_many_high_mixed.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "expression": "direct",
+            "value": "many",
+            "position": "high",
+            "controls": "mixed"
+          },
+          "inputs_sha256": "023f1e5e452229035349b4b731802ee7579e5c46d6813dac2c64c74ba6d87801"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w33_b_repeat_zero_none_unknown.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "expression": "repeat",
+            "value": "zero",
+            "position": "none",
+            "controls": "unknown"
+          },
+          "inputs_sha256": "039c84e51cfe55cfcdf2599e4e297ccb492211d9be678fc6a57bd4fdcbbd1b20"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w33_b_prefix_x_middle_zero.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "expression": "prefix",
+            "value": "x",
+            "position": "middle",
+            "controls": "zero"
+          },
+          "inputs_sha256": "68e134102f26d30b3bf2044c7e72600e77b66b44dab6152a681eb4ca8558510d"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w129_b_half_mixed_low_unknown.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "expression": "half",
+            "value": "mixed",
+            "position": "low",
+            "controls": "unknown"
+          },
+          "inputs_sha256": "a543b1200565c0736f742ef12af23abffa29c4c385f4db1819de45336d47c245"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w33_b_prefix_mixed_high_duplicate.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "expression": "prefix",
+            "value": "mixed",
+            "position": "high",
+            "controls": "duplicate"
+          },
+          "inputs_sha256": "0b3cc40860bf569b683cc3548867e699c6ad40d054e56240b5ee6480bd2c8081"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_l_prefix_one_low_unknown.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "expression": "prefix",
+            "value": "one",
+            "position": "low",
+            "controls": "unknown"
+          },
+          "inputs_sha256": "bbc5f1a5ccef1c8d807225153623961bb9826a6feb67b2650825270e3b2de7b1"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_b_repeat_one_middle_zero.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "repeat",
+            "value": "one",
+            "position": "middle",
+            "controls": "zero"
+          },
+          "inputs_sha256": "08628254ca0e37386685acb46e24666f55ed801112d904cafc755ce4d8b0ffa3"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w64_l_half_zero_none_mixed.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "expression": "half",
+            "value": "zero",
+            "position": "none",
+            "controls": "mixed"
+          },
+          "inputs_sha256": "a979c7f8eac122f3dc1c8c7118dd2cb2b313dd61fceb435d26d4e5baee64d295"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w65_b_repeat_many_low_duplicate.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "expression": "repeat",
+            "value": "many",
+            "position": "low",
+            "controls": "duplicate"
+          },
+          "inputs_sha256": "09c74f0f8931286b1cdd1c974fac7f7a3932508cdfe9313778bf83eeb4effef3"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_b_direct_z_low_duplicate.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "direct",
+            "value": "z",
+            "position": "low",
+            "controls": "duplicate"
+          },
+          "inputs_sha256": "d9a9be24e815d66dd6a524b4775cc817a90dbb67885a38d413a3ae0bf746ec88"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_b_half_x_high_unknown.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "half",
+            "value": "x",
+            "position": "high",
+            "controls": "unknown"
+          },
+          "inputs_sha256": "22a1a6ba3a4c8e589666a1d7118bcc22512f73467989c25d9a4b7a3ff07fe13c"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w129_b_prefix_zero_none_one.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "expression": "prefix",
+            "value": "zero",
+            "position": "none",
+            "controls": "one"
+          },
+          "inputs_sha256": "319e7c8fb99c2f2cbccf125970dd07d2fe052396ecc3a69d7c982734bea41563"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_l_repeat_one_low_mixed.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "expression": "repeat",
+            "value": "one",
+            "position": "low",
+            "controls": "mixed"
+          },
+          "inputs_sha256": "2f18bd7b5d59748249fd94a98f54fe9b37787be731e6c32e0dfd8eec6ca24be8"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w33_b_direct_x_low_mixed.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "expression": "direct",
+            "value": "x",
+            "position": "low",
+            "controls": "mixed"
+          },
+          "inputs_sha256": "afe315be315cdee75ec0f5988e53fe4633802fcbd23636efa86f416ce9b9437b"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w65_b_repeat_mixed_low_zero.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "expression": "repeat",
+            "value": "mixed",
+            "position": "low",
+            "controls": "zero"
+          },
+          "inputs_sha256": "f6ff14ca9842840787d7d1158edbdf6b1fe9a669057ff9aa319b146ad29b5662"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_b_half_many_low_one.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "half",
+            "value": "many",
+            "position": "low",
+            "controls": "one"
+          },
+          "inputs_sha256": "f9eac6f1bf34bd7298f26a9125134e616037d01325de74ad0326cee25edfa1e1"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w33_b_prefix_z_low_one.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "expression": "prefix",
+            "value": "z",
+            "position": "low",
+            "controls": "one"
+          },
+          "inputs_sha256": "cde086ede559b249c211c19dfef66978850e7f4496babf2e6736c45b348e1d9d"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w64_l_direct_mixed_low_one.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "expression": "direct",
+            "value": "mixed",
+            "position": "low",
+            "controls": "one"
+          },
+          "inputs_sha256": "5dd64c34173d81167f7832273e294f07ff0936e56e95528c8890baa6a88dccb4"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w64_l_half_x_low_duplicate.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "expression": "half",
+            "value": "x",
+            "position": "low",
+            "controls": "duplicate"
+          },
+          "inputs_sha256": "aee77f708fd3fa1100a5ac3666f02cf82c1ffa5048ef51c6eb9f51cba9bce233"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w129_l_direct_z_low_zero.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "expression": "direct",
+            "value": "z",
+            "position": "low",
+            "controls": "zero"
+          },
+          "inputs_sha256": "488a29e19409f5e2cc5f7d85542e4b29799d177a74408879e2e1a510ad8581be"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_l_repeat_z_low_unknown.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "expression": "repeat",
+            "value": "z",
+            "position": "low",
+            "controls": "unknown"
+          },
+          "inputs_sha256": "4a44afe1603952fc3d2669ad4fe8a3c41596cd29d9ebc9ab39b83b2b3a95c8e1"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_l_half_mixed_low_mixed.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "expression": "half",
+            "value": "mixed",
+            "position": "low",
+            "controls": "mixed"
+          },
+          "inputs_sha256": "a08fdcd2d9641df5e5b3f70449a05d9233813f2c626c7751855866f0a1272955"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w65_b_direct_one_low_unknown.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "expression": "direct",
+            "value": "one",
+            "position": "low",
+            "controls": "unknown"
+          },
+          "inputs_sha256": "0957a9c0f39edc9eee1eaa503aca5c0e6c5d9fbaf48bbb90eaf8d5eda3ff9981"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w129_b_prefix_one_low_mixed.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "expression": "prefix",
+            "value": "one",
+            "position": "low",
+            "controls": "mixed"
+          },
+          "inputs_sha256": "4e211bc9229e3688568d2f50b7d34b57d369b515ef39b4b35356d32c43280e50"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w129_l_prefix_x_low_zero.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "expression": "prefix",
+            "value": "x",
+            "position": "low",
+            "controls": "zero"
+          },
+          "inputs_sha256": "4c78db53d167e3076035a75d32a430bda8ed7b51571fe971d8f11b62f62f1e7d"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_l_direct_zero_none_zero.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "expression": "direct",
+            "value": "zero",
+            "position": "none",
+            "controls": "zero"
+          },
+          "inputs_sha256": "a7c18cf88089613e1cc5b8e49024cf6b5c95a1f9b5398e49377d82f8ca597216"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_l_repeat_zero_none_unknown.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "expression": "repeat",
+            "value": "zero",
+            "position": "none",
+            "controls": "unknown"
+          },
+          "inputs_sha256": "07684ca70f2732e8c962a6170ca6a88082618b1333b1953c735add91a28261a6"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_l_repeat_x_low_one.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "expression": "repeat",
+            "value": "x",
+            "position": "low",
+            "controls": "one"
+          },
+          "inputs_sha256": "85c306ebcc782f804e8a6ac0992a5a469310b3473806127e0cdcabea454648f9"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_l_direct_many_low_one.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "expression": "direct",
+            "value": "many",
+            "position": "low",
+            "controls": "one"
+          },
+          "inputs_sha256": "6a4e890fe66307c178335c6f3787b9677ed709cb3e03335d3d121979f26e6595"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_l_half_one_low_zero.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "expression": "half",
+            "value": "one",
+            "position": "low",
+            "controls": "zero"
+          },
+          "inputs_sha256": "ae557f0924a68f5cf6750b2a0f3d33756e0f79695bbc1a42a937a09f0463cf58"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_l_half_z_low_one.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "expression": "half",
+            "value": "z",
+            "position": "low",
+            "controls": "one"
+          },
+          "inputs_sha256": "c22be5224d6a6a7d665215f7c29be737a405e11efbb0ca4e9168239f20eb4c58"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_many_low_unknown.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "expression": "prefix",
+            "value": "many",
+            "position": "low",
+            "controls": "unknown"
+          },
+          "inputs_sha256": "953afff7736897a9f212f088425d11d0a5ac6f32ba03d5191046cbf47d9763d7"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_mixed_low_zero.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "expression": "prefix",
+            "value": "mixed",
+            "position": "low",
+            "controls": "zero"
+          },
+          "inputs_sha256": "e09cd2346d01a07b61f5ab0a00e51e1158dfc142664f3960dd9f0320fd7df2c5"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_l_repeat_many_low_mixed.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "expression": "repeat",
+            "value": "many",
+            "position": "low",
+            "controls": "mixed"
+          },
+          "inputs_sha256": "5ab755d155904cef54470012e705c9262d8ffa630aff7fc9b159d6a1572b157b"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_b_direct_zero_none_mixed.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "direct",
+            "value": "zero",
+            "position": "none",
+            "controls": "mixed"
+          },
+          "inputs_sha256": "f8a1d978dd17eff285390cf500ea4166a5e0bcbf4ed1ef385abc8b557a58009c"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_b_direct_one_low_duplicate.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "direct",
+            "value": "one",
+            "position": "low",
+            "controls": "duplicate"
+          },
+          "inputs_sha256": "afd9428dda2b3c08ee2d7ae6e5da3bd6217dd7dc896b93d7f0cf9957bbcd179a"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_b_direct_x_low_duplicate.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "direct",
+            "value": "x",
+            "position": "low",
+            "controls": "duplicate"
+          },
+          "inputs_sha256": "b23f5d25435777cd63420f5a80eb431ee4abaf1a8d646087929776a031c1dbf3"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_b_direct_z_low_unknown.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "direct",
+            "value": "z",
+            "position": "low",
+            "controls": "unknown"
+          },
+          "inputs_sha256": "46cd1c6806c34d295108d771283e83cda2de20e899d3c11025f0b2543aedf0c6"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_l_direct_zero_none_duplicate.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "expression": "direct",
+            "value": "zero",
+            "position": "none",
+            "controls": "duplicate"
+          },
+          "inputs_sha256": "3ae2b8cbcd35f7932005de3716ebb39a0c272cda34edbba305bdd93f992862cf"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_l_direct_one_low_one.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "expression": "direct",
+            "value": "one",
+            "position": "low",
+            "controls": "one"
+          },
+          "inputs_sha256": "798c05b09a085b556c8d73abf980e92593fe8dbaae965ea3caedf85aea9ceba0"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_l_direct_x_low_mixed.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "expression": "direct",
+            "value": "x",
+            "position": "low",
+            "controls": "mixed"
+          },
+          "inputs_sha256": "3b3eed2999b6cd66a5a1ba30a416d32147cd6d3d71b8c039f7a29f1b4ada9450"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w1_l_direct_z_low_duplicate.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "expression": "direct",
+            "value": "z",
+            "position": "low",
+            "controls": "duplicate"
+          },
+          "inputs_sha256": "f3374bd972b05820ca3aa833e401492ddcad0f48519549ad42291993f129e901"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_b_direct_many_low_zero.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "direct",
+            "value": "many",
+            "position": "low",
+            "controls": "zero"
+          },
+          "inputs_sha256": "85016d0c784df86c2d080d745952e1a0a08524a485344a654c7b22dc4879c3f9"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_b_direct_mixed_low_mixed.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "direct",
+            "value": "mixed",
+            "position": "low",
+            "controls": "mixed"
+          },
+          "inputs_sha256": "2a44b6110faf51a6105dca4b6d08345e701260a1f481ae8d7479d5c0ac7fa006"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_l_direct_many_low_duplicate.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "expression": "direct",
+            "value": "many",
+            "position": "low",
+            "controls": "duplicate"
+          },
+          "inputs_sha256": "65d9b9730941454cfc16bb30ebcef208a714c2765dd3d35c0664e206e6fe3807"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_query_w32_l_direct_mixed_low_unknown.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "expression": "direct",
+            "value": "mixed",
+            "position": "low",
+            "controls": "unknown"
+          },
+          "inputs_sha256": "5fec3b03966a64bf4b68c7b3029098f6f8f5cf3a5d45f4011fb0670a316e7901"
+        }
+      ]
+    },
+    {
+      "id": "streaming_permutation",
+      "version": 1,
+      "factors": {
+        "width": [
+          "1",
+          "32",
+          "33",
+          "64",
+          "65",
+          "129"
+        ],
+        "direction": [
+          "left",
+          "right"
+        ],
+        "slice": [
+          "1",
+          "4",
+          "8",
+          "16"
+        ],
+        "form": [
+          "plain",
+          "tagged"
+        ],
+        "operation": [
+          "pack",
+          "unpack"
+        ],
+        "state": [
+          "bit",
+          "logic"
+        ],
+        "value": [
+          "known",
+          "x",
+          "z"
+        ]
+      },
+      "constraints": [
+        "スライス幅は正の定数。taggedは先頭に101を追加。入出力のビット数を同一にし、パックベクタだけを使う。動的配列、with範囲、サイズ不一致は対象外"
+      ],
+      "higher_strength_groups": [
+        [
+          "width",
+          "state",
+          "value"
+        ],
+        [
+          "direction",
+          "slice",
+          "operation"
+        ],
+        [
+          "form",
+          "slice",
+          "operation"
+        ]
+      ],
+      "witness": "入力ストリームと結果を比較し、ブロック順、端数ブロック、複数項目の連結、packとunpackの逆変換、2状態の格納先への変換を確認する。",
+      "legal_rows": 1152,
+      "available_cases": 36,
+      "selected_cases": 36,
+      "targets_by_strength": {
+        "2": 182,
+        "3": 68
+      },
+      "mandatory_witnesses": [
+        "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv",
+        "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv",
+        "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv",
+        "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv"
+      ],
+      "selection": [
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv",
+          "values": {
+            "width": "129",
+            "direction": "left",
+            "slice": "8",
+            "form": "tagged",
+            "operation": "unpack",
+            "state": "logic",
+            "value": "z"
+          },
+          "inputs_sha256": "8c5a029a304bc8ad8023621b61e0ac75eda75ad366598fec1ebbce2685f58203"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv",
+          "values": {
+            "width": "65",
+            "direction": "left",
+            "slice": "16",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "x"
+          },
+          "inputs_sha256": "4802c20e6e5ee5d4e64936a7a84b2f3c68983fd8d7998f8e0a7d44f793fb53c8"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv",
+          "values": {
+            "width": "33",
+            "direction": "left",
+            "slice": "4",
+            "form": "plain",
+            "operation": "unpack",
+            "state": "bit",
+            "value": "known"
+          },
+          "inputs_sha256": "a3deda3abc72b8d5ea7bd1d6da2fd96eebe06cfcf38c7217704f8c40646b1e53"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv",
+          "values": {
+            "width": "32",
+            "direction": "right",
+            "slice": "8",
+            "form": "tagged",
+            "operation": "pack",
+            "state": "logic",
+            "value": "z"
+          },
+          "inputs_sha256": "0a4b56d0a8e64296fc61189b3765343e6992a5b8444ef43a354cec8ab0ef254f"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w1_r_s1_t_unpack_b_x.sv",
+          "values": {
+            "width": "1",
+            "direction": "right",
+            "slice": "1",
+            "form": "tagged",
+            "operation": "unpack",
+            "state": "bit",
+            "value": "x"
+          },
+          "inputs_sha256": "ac41a60e5165df5ca57fa52187c711b6bcc315829837c864d01ad645fcb31d1b"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w64_r_s1_p_pack_l_k.sv",
+          "values": {
+            "width": "64",
+            "direction": "right",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "known"
+          },
+          "inputs_sha256": "34a391ccf68075479c582bf086418d47335c360099bae36499efb556a0cf15ea"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w33_r_s16_t_pack_b_z.sv",
+          "values": {
+            "width": "33",
+            "direction": "right",
+            "slice": "16",
+            "form": "tagged",
+            "operation": "pack",
+            "state": "bit",
+            "value": "z"
+          },
+          "inputs_sha256": "f126ea2d1e30e4e9fa53b613a84a0c66386d0c31477416ce2e3c6fe8c5cab8ef"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w1_l_s4_p_pack_l_z.sv",
+          "values": {
+            "width": "1",
+            "direction": "left",
+            "slice": "4",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "z"
+          },
+          "inputs_sha256": "5a1d887f006657d018a894e7e724ecbecd1b1e3b646b373e70f073b04eb480af"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w65_r_s4_t_unpack_b_k.sv",
+          "values": {
+            "width": "65",
+            "direction": "right",
+            "slice": "4",
+            "form": "tagged",
+            "operation": "unpack",
+            "state": "bit",
+            "value": "known"
+          },
+          "inputs_sha256": "97b884496c22b5dcc4c11af971d9bf3631ccd3a0f0e43f1a0487fe96b9161c01"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w32_l_s16_p_unpack_b_k.sv",
+          "values": {
+            "width": "32",
+            "direction": "left",
+            "slice": "16",
+            "form": "plain",
+            "operation": "unpack",
+            "state": "bit",
+            "value": "known"
+          },
+          "inputs_sha256": "5bac2a843489f43cb5d81bf72b719a60be774a5b0baa7fa60ef15dd863a21fe3"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w64_l_s8_p_pack_b_x.sv",
+          "values": {
+            "width": "64",
+            "direction": "left",
+            "slice": "8",
+            "form": "plain",
+            "operation": "pack",
+            "state": "bit",
+            "value": "x"
+          },
+          "inputs_sha256": "3ad6c205a897647fc553a31997692cbffad50c632918f86f3e4c78f069fdd248"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w129_r_s4_p_pack_b_x.sv",
+          "values": {
+            "width": "129",
+            "direction": "right",
+            "slice": "4",
+            "form": "plain",
+            "operation": "pack",
+            "state": "bit",
+            "value": "x"
+          },
+          "inputs_sha256": "13fe399d024b504944a7d1c7cb8678b152828545936026a84d6c453620fb8979"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w33_l_s1_p_unpack_l_x.sv",
+          "values": {
+            "width": "33",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "unpack",
+            "state": "logic",
+            "value": "x"
+          },
+          "inputs_sha256": "1e2ffc13ccd07deb5735d30451099aa8618afb43b432b9f0c5daac4dc72ec630"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w64_r_s16_t_unpack_b_z.sv",
+          "values": {
+            "width": "64",
+            "direction": "right",
+            "slice": "16",
+            "form": "tagged",
+            "operation": "unpack",
+            "state": "bit",
+            "value": "z"
+          },
+          "inputs_sha256": "595b3556d0298a2cc23f27495f6dadbbf861be869a5a3d65b013a988ba5f7f4b"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w1_r_s8_p_unpack_b_k.sv",
+          "values": {
+            "width": "1",
+            "direction": "right",
+            "slice": "8",
+            "form": "plain",
+            "operation": "unpack",
+            "state": "bit",
+            "value": "known"
+          },
+          "inputs_sha256": "61d3482bfd814a0075cb90f0477bd5caf0d669d95b5411ea2c3aefa5bbf0c9ac"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w65_l_s1_t_pack_b_z.sv",
+          "values": {
+            "width": "65",
+            "direction": "left",
+            "slice": "1",
+            "form": "tagged",
+            "operation": "pack",
+            "state": "bit",
+            "value": "z"
+          },
+          "inputs_sha256": "308a594137dac2267b90b51be89e880da72aed397109524246c1e177be864761"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w32_l_s4_t_pack_b_x.sv",
+          "values": {
+            "width": "32",
+            "direction": "left",
+            "slice": "4",
+            "form": "tagged",
+            "operation": "pack",
+            "state": "bit",
+            "value": "x"
+          },
+          "inputs_sha256": "b6358ebc994db035627dd5ef63b8dcba4a0feb4eff42442c59461fbd36349b84"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w129_l_s1_p_pack_b_k.sv",
+          "values": {
+            "width": "129",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "bit",
+            "value": "known"
+          },
+          "inputs_sha256": "615bc7a143ae21bcb6b4362cec29447790d4ecc69eb9fed7b4aa6a98568b4560"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w1_l_s16_p_pack_b_z.sv",
+          "values": {
+            "width": "1",
+            "direction": "left",
+            "slice": "16",
+            "form": "plain",
+            "operation": "pack",
+            "state": "bit",
+            "value": "z"
+          },
+          "inputs_sha256": "fb8f438b9ea1b2e39e21a2fb29316474d266ca8f3c3a5707bea696b48982a441"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w32_l_s1_p_pack_b_z.sv",
+          "values": {
+            "width": "32",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "bit",
+            "value": "z"
+          },
+          "inputs_sha256": "befae0911b1428c0d05302df6444ed771635bd970ce4ac9a2cd1946978b26216"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w33_l_s8_p_pack_b_x.sv",
+          "values": {
+            "width": "33",
+            "direction": "left",
+            "slice": "8",
+            "form": "plain",
+            "operation": "pack",
+            "state": "bit",
+            "value": "x"
+          },
+          "inputs_sha256": "d0dfee113fdeddf69416b46123c197e8c170f2167ba2292cdb3005f8194da631"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w64_l_s4_p_pack_b_k.sv",
+          "values": {
+            "width": "64",
+            "direction": "left",
+            "slice": "4",
+            "form": "plain",
+            "operation": "pack",
+            "state": "bit",
+            "value": "known"
+          },
+          "inputs_sha256": "07d2a29661f12b2b25d0bd61ef2df43fddbd2ad74b6d7489e05d65c91e6e9f6e"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w65_l_s8_p_pack_b_x.sv",
+          "values": {
+            "width": "65",
+            "direction": "left",
+            "slice": "8",
+            "form": "plain",
+            "operation": "pack",
+            "state": "bit",
+            "value": "x"
+          },
+          "inputs_sha256": "c7e34023bb7124a3213e9419efa4ebc1e7e551eee82676d4d845a15cb15f15f4"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w129_l_s16_p_pack_b_z.sv",
+          "values": {
+            "width": "129",
+            "direction": "left",
+            "slice": "16",
+            "form": "plain",
+            "operation": "pack",
+            "state": "bit",
+            "value": "z"
+          },
+          "inputs_sha256": "de9127975277a64cd511dcb3e9b1c563d57346d2bb68c6b1a24c48cdc0c010f7"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w1_l_s1_p_pack_l_k.sv",
+          "values": {
+            "width": "1",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "known"
+          },
+          "inputs_sha256": "80fc3a83ae59affab18c633f33b8dfe94062d45ed6b7637cd1d9a06a84b0e42d"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w1_l_s1_p_pack_l_x.sv",
+          "values": {
+            "width": "1",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "x"
+          },
+          "inputs_sha256": "42b26f2efa1777e3a5c1dbdd060c59ee57c7f562d7550a48995bd8e0806bcdd4"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w32_l_s1_p_pack_l_k.sv",
+          "values": {
+            "width": "32",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "known"
+          },
+          "inputs_sha256": "3152c4a454fe44600279857a426618a631782a794953d2cc220f543f988f658c"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w32_l_s1_p_pack_l_x.sv",
+          "values": {
+            "width": "32",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "x"
+          },
+          "inputs_sha256": "338556de0e46bcc0db20b14132d3dfdb5aba5b05cc5430547e2194b2f3cdb976"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w33_l_s1_p_pack_l_k.sv",
+          "values": {
+            "width": "33",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "known"
+          },
+          "inputs_sha256": "9488f499d1fff041eaf0325a5a84f8b0060dd63cad14b5253f5eee57b3351dd9"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w33_l_s1_p_pack_l_z.sv",
+          "values": {
+            "width": "33",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "z"
+          },
+          "inputs_sha256": "8fa06eac872973d0b91c0ca9c5e65ca925eb650ee5aadcef6e0e2c64606ef367"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w64_l_s1_p_pack_l_x.sv",
+          "values": {
+            "width": "64",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "x"
+          },
+          "inputs_sha256": "a7526736db93a52e267791475343fe9c668fe668209649c8939db8fd26c1f884"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w64_l_s1_p_pack_l_z.sv",
+          "values": {
+            "width": "64",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "z"
+          },
+          "inputs_sha256": "e0ef4311c5ffe81636c423a7b679a3b458f6c7b3ec98a7cf4e78436e92238acf"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w65_l_s1_p_pack_l_k.sv",
+          "values": {
+            "width": "65",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "known"
+          },
+          "inputs_sha256": "a87aee270471f2bfe7cb075d861c381d59df853c86c1e7fa36780001c6f24714"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w65_l_s1_p_pack_l_z.sv",
+          "values": {
+            "width": "65",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "z"
+          },
+          "inputs_sha256": "a4be28ee4a129a113c490d05a58c240112ebe976b304be5afc5c321dbfbefee6"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w129_l_s1_p_pack_l_k.sv",
+          "values": {
+            "width": "129",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "known"
+          },
+          "inputs_sha256": "a17d271cb7a573405fec51c23740a5a6cda84209988daf1c9fce07029a6755e9"
+        },
+        {
+          "test": "tests/gen/ch11/test_gen_cross_stream_w129_l_s1_p_pack_l_x.sv",
+          "values": {
+            "width": "129",
+            "direction": "left",
+            "slice": "1",
+            "form": "plain",
+            "operation": "pack",
+            "state": "logic",
+            "value": "x"
+          },
+          "inputs_sha256": "5cf0e117293c00305a61e7196187d2bc093663d9dc2a2538caf41afbc3097aa3"
+        }
+      ]
     }
   ],
   "runs": [
@@ -6647,6 +8530,95 @@
             "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
           },
           "provenance_problem": "",
           "complete": false
@@ -6976,6 +8948,95 @@
           },
           "provenance_problem": "",
           "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
         }
       }
     },
@@ -7299,6 +9360,95 @@
             "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
           },
           "provenance_problem": "",
           "complete": false
@@ -7628,6 +9778,95 @@
           },
           "provenance_problem": "",
           "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
         }
       }
     },
@@ -7951,6 +10190,95 @@
             "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "pass",
             "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "known",
             "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "known"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
           },
           "provenance_problem": "",
           "complete": false
@@ -8280,6 +10608,95 @@
           },
           "provenance_problem": "",
           "complete": true
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
         }
       }
     },
@@ -8603,6 +11020,95 @@
             "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "pass",
             "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
           },
           "provenance_problem": "",
           "complete": false
@@ -8932,6 +11438,95 @@
           },
           "provenance_problem": "",
           "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
         }
       }
     },
@@ -9255,6 +11850,95 @@
             "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
           },
           "provenance_problem": "",
           "complete": false
@@ -9584,6 +12268,95 @@
           },
           "provenance_problem": "",
           "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
         }
       }
     },
@@ -9907,6 +12680,95 @@
             "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
           },
           "provenance_problem": "",
           "complete": false
@@ -10236,6 +13098,95 @@
           },
           "provenance_problem": "",
           "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
         }
       }
     },
@@ -10559,6 +13510,95 @@
             "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
           },
           "provenance_problem": "",
           "complete": false
@@ -10888,6 +13928,1755 @@
           },
           "provenance_problem": "",
           "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        }
+      }
+    },
+    {
+      "source": "coverage/interaction-results/cross-20261029-remaining-icarus13.json",
+      "simulator": "icarus",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+      "generated_at": "2026-10-29T14:35:10.893659+00:00",
+      "models": {
+        "scheduling_visibility": {
+          "case_statuses": {
+            "pass": 51,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 274
+          },
+          "coverage": {
+            "2": {
+              "passed": 126,
+              "total": 126,
+              "missing": 0
+            },
+            "3": {
+              "passed": 51,
+              "total": 51,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {},
+          "provenance_problem": "",
+          "complete": true
+        },
+        "nba_capture": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 162,
+              "total": 162,
+              "missing": 0
+            },
+            "3": {
+              "passed": 44,
+              "total": 44,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch10/test_gen_cross_nba_w65_l_x_a_d_t_d.sv": "pass",
+            "tests/gen/ch10/test_gen_cross_nba_w129_l_z_a_a_t_d.sv": "pass",
+            "tests/gen/ch10/test_gen_cross_nba_w129_b_x_a_d_t_i.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "expression_context": {
+          "case_statuses": {
+            "pass": 51,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 143,
+              "total": 143,
+              "missing": 0
+            },
+            "3": {
+              "passed": 63,
+              "total": 63,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_expr_w129_n_w_ss_mul.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_expr_w65_w_n_su_add.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_expr_w33_s_w_us_sub.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "packed_part_select": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 162,
+              "total": 162,
+              "missing": 0
+            },
+            "3": {
+              "passed": 48,
+              "total": 48,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_select_w65_a_m_h_high_l_z.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_select_w129_d_p_h_interior_l_x.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_select_w33_a_p_s_high_b_x.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "conditional_merge": {
+          "case_statuses": {
+            "pass": 30,
+            "fail": 0,
+            "known": 2,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 182,
+              "total": 185,
+              "missing": 3
+            },
+            "3": {
+              "passed": 71,
+              "total": 76,
+              "missing": 5
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_cond_w129_ss_x_same_xz_w_l.sv": "known",
+            "tests/gen/ch11/test_gen_cross_cond_w65_su_1_mixed_xz_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_cond_w33_ss_0_mixed_xz_n_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "shift_context": {
+          "case_statuses": {
+            "pass": 56,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 298,
+              "total": 298,
+              "missing": 0
+            },
+            "3": {
+              "passed": 92,
+              "total": 92,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_shift_w65_s_ashr_width_z_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_shift_w129_u_shl_one_x_n_b.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_shift_w33_s_shr_width_k_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_shift_w64_s_ashr_beyond_k_n_l.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "cast_pipeline": {
+          "case_statuses": {
+            "pass": 32,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 214,
+              "total": 214,
+              "missing": 0
+            },
+            "3": {
+              "passed": 76,
+              "total": 76,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch6/test_gen_cross_cast_w129_s_x_typed_bit_n_add_l.sv": "pass",
+            "tests/gen/ch6/test_gen_cross_cast_w65_s_z_size_w_plain_l.sv": "pass",
+            "tests/gen/ch6/test_gen_cross_cast_w33_s_k_size_n_add_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "task_argument_visibility": {
+          "case_statuses": {
+            "pass": 30,
+            "fail": 0,
+            "known": 6,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 126,
+              "total": 144,
+              "missing": 18
+            },
+            "3": {
+              "passed": 42,
+              "total": 52,
+              "missing": 10
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch13/test_gen_cross_task_w129_l_z_ref_e_d.sv": "known",
+            "tests/gen/ch13/test_gen_cross_task_w65_l_x_inout_e_d.sv": "pass",
+            "tests/gen/ch13/test_gen_cross_task_w33_b_x_output_s_d.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "packed_structure": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 186,
+              "total": 186,
+              "missing": 0
+            },
+            "3": {
+              "passed": 52,
+              "total": 52,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_struct_w129_f_su_l_z_w_n.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_struct_w65_l_us_l_x_m_n.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_struct_w33_f_ss_b_x_m_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "case_matching": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 220,
+              "total": 220,
+              "missing": 0
+            },
+            "3": {
+              "passed": 82,
+              "total": 82,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch12/test_gen_cross_case_w129_ss_n_casez_z_wild_high.sv": "pass",
+            "tests/gen/ch12/test_gen_cross_case_w65_su_w_case_k_equal.sv": "pass",
+            "tests/gen/ch12/test_gen_cross_case_w33_us_s_casex_x_unknown_low.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "port_connection": {
+          "case_statuses": {
+            "pass": 34,
+            "fail": 0,
+            "known": 2,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 198,
+              "total": 204,
+              "missing": 6
+            },
+            "3": {
+              "passed": 52,
+              "total": 56,
+              "missing": 4
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch23/test_gen_cross_port_w129_o_s_w_z_l_n_n.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w65_i_s_n_x_b_p_a.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "known",
+            "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "known"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 36,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "known",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "known",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "known"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 56,
+            "fail": 0,
+            "known": 4,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 264,
+              "total": 285,
+              "missing": 21
+            },
+            "3": {
+              "passed": 100,
+              "total": 108,
+              "missing": 8
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 36,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "known",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "known",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "known",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "known"
+          },
+          "provenance_problem": "",
+          "complete": false
+        }
+      }
+    },
+    {
+      "source": "coverage/interaction-results/cross-20261029-remaining-kirimasim-5e8ab59.json",
+      "simulator": "kirimasim",
+      "version": "kirimasim 0.0.0 (commit 5e8ab597520a), built with AppleClang 21.0.0.21000334",
+      "generated_at": "2026-10-29T14:31:05.204425+00:00",
+      "models": {
+        "scheduling_visibility": {
+          "case_statuses": {
+            "pass": 51,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 274
+          },
+          "coverage": {
+            "2": {
+              "passed": 126,
+              "total": 126,
+              "missing": 0
+            },
+            "3": {
+              "passed": 51,
+              "total": 51,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {},
+          "provenance_problem": "",
+          "complete": true
+        },
+        "nba_capture": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 162,
+              "total": 162,
+              "missing": 0
+            },
+            "3": {
+              "passed": 44,
+              "total": 44,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch10/test_gen_cross_nba_w65_l_x_a_d_t_d.sv": "pass",
+            "tests/gen/ch10/test_gen_cross_nba_w129_l_z_a_a_t_d.sv": "pass",
+            "tests/gen/ch10/test_gen_cross_nba_w129_b_x_a_d_t_i.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "expression_context": {
+          "case_statuses": {
+            "pass": 51,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 143,
+              "total": 143,
+              "missing": 0
+            },
+            "3": {
+              "passed": 63,
+              "total": 63,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_expr_w129_n_w_ss_mul.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_expr_w65_w_n_su_add.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_expr_w33_s_w_us_sub.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "packed_part_select": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 162,
+              "total": 162,
+              "missing": 0
+            },
+            "3": {
+              "passed": 48,
+              "total": 48,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_select_w65_a_m_h_high_l_z.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_select_w129_d_p_h_interior_l_x.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_select_w33_a_p_s_high_b_x.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "conditional_merge": {
+          "case_statuses": {
+            "pass": 32,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 185,
+              "total": 185,
+              "missing": 0
+            },
+            "3": {
+              "passed": 76,
+              "total": 76,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_cond_w129_ss_x_same_xz_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_cond_w65_su_1_mixed_xz_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_cond_w33_ss_0_mixed_xz_n_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "shift_context": {
+          "case_statuses": {
+            "pass": 56,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 298,
+              "total": 298,
+              "missing": 0
+            },
+            "3": {
+              "passed": 92,
+              "total": 92,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_shift_w65_s_ashr_width_z_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_shift_w129_u_shl_one_x_n_b.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_shift_w33_s_shr_width_k_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_shift_w64_s_ashr_beyond_k_n_l.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "cast_pipeline": {
+          "case_statuses": {
+            "pass": 32,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 214,
+              "total": 214,
+              "missing": 0
+            },
+            "3": {
+              "passed": 76,
+              "total": 76,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch6/test_gen_cross_cast_w129_s_x_typed_bit_n_add_l.sv": "pass",
+            "tests/gen/ch6/test_gen_cross_cast_w65_s_z_size_w_plain_l.sv": "pass",
+            "tests/gen/ch6/test_gen_cross_cast_w33_s_k_size_n_add_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "task_argument_visibility": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 144,
+              "total": 144,
+              "missing": 0
+            },
+            "3": {
+              "passed": 52,
+              "total": 52,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch13/test_gen_cross_task_w129_l_z_ref_e_d.sv": "pass",
+            "tests/gen/ch13/test_gen_cross_task_w65_l_x_inout_e_d.sv": "pass",
+            "tests/gen/ch13/test_gen_cross_task_w33_b_x_output_s_d.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "packed_structure": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 186,
+              "total": 186,
+              "missing": 0
+            },
+            "3": {
+              "passed": 52,
+              "total": 52,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_struct_w129_f_su_l_z_w_n.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_struct_w65_l_us_l_x_m_n.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_struct_w33_f_ss_b_x_m_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "case_matching": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 220,
+              "total": 220,
+              "missing": 0
+            },
+            "3": {
+              "passed": 82,
+              "total": 82,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch12/test_gen_cross_case_w129_ss_n_casez_z_wild_high.sv": "pass",
+            "tests/gen/ch12/test_gen_cross_case_w65_su_w_case_k_equal.sv": "pass",
+            "tests/gen/ch12/test_gen_cross_case_w33_us_s_casex_x_unknown_low.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "port_connection": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 204,
+              "total": 204,
+              "missing": 0
+            },
+            "3": {
+              "passed": 56,
+              "total": 56,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch23/test_gen_cross_port_w129_o_s_w_z_l_n_n.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w65_i_s_n_x_b_p_a.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 30,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 6,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 122,
+              "total": 148,
+              "missing": 26
+            },
+            "3": {
+              "passed": 38,
+              "total": 52,
+              "missing": 14
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "unsupported",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 60,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 285,
+              "total": 285,
+              "missing": 0
+            },
+            "3": {
+              "passed": 108,
+              "total": 108,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 182,
+              "total": 182,
+              "missing": 0
+            },
+            "3": {
+              "passed": 68,
+              "total": 68,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        }
+      }
+    },
+    {
+      "source": "coverage/interaction-results/cross-20261029-remaining-verilator5052-seed1.json",
+      "simulator": "verilator",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "generated_at": "2026-10-29T14:31:31.988799+00:00",
+      "models": {
+        "scheduling_visibility": {
+          "case_statuses": {
+            "pass": 43,
+            "fail": 0,
+            "known": 8,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 274
+          },
+          "coverage": {
+            "2": {
+              "passed": 119,
+              "total": 126,
+              "missing": 7
+            },
+            "3": {
+              "passed": 43,
+              "total": 51,
+              "missing": 8
+            }
+          },
+          "mandatory_witnesses": {},
+          "provenance_problem": "",
+          "complete": false
+        },
+        "nba_capture": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 98,
+              "total": 162,
+              "missing": 64
+            },
+            "3": {
+              "passed": 17,
+              "total": 44,
+              "missing": 27
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch10/test_gen_cross_nba_w65_l_x_a_d_t_d.sv": "not_run",
+            "tests/gen/ch10/test_gen_cross_nba_w129_l_z_a_a_t_d.sv": "not_run",
+            "tests/gen/ch10/test_gen_cross_nba_w129_b_x_a_d_t_i.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "expression_context": {
+          "case_statuses": {
+            "pass": 51,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 143,
+              "total": 143,
+              "missing": 0
+            },
+            "3": {
+              "passed": 63,
+              "total": 63,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_expr_w129_n_w_ss_mul.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_expr_w65_w_n_su_add.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_expr_w33_s_w_us_sub.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "packed_part_select": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 100,
+              "total": 162,
+              "missing": 62
+            },
+            "3": {
+              "passed": 18,
+              "total": 48,
+              "missing": 30
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_select_w65_a_m_h_high_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_select_w129_d_p_h_interior_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_select_w33_a_p_s_high_b_x.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "conditional_merge": {
+          "case_statuses": {
+            "pass": 8,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 93,
+              "total": 185,
+              "missing": 92
+            },
+            "3": {
+              "passed": 22,
+              "total": 76,
+              "missing": 54
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_cond_w129_ss_x_same_xz_w_l.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_cond_w65_su_1_mixed_xz_w_l.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_cond_w33_ss_0_mixed_xz_n_b.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "shift_context": {
+          "case_statuses": {
+            "pass": 23,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 33
+          },
+          "coverage": {
+            "2": {
+              "passed": 166,
+              "total": 298,
+              "missing": 132
+            },
+            "3": {
+              "passed": 34,
+              "total": 92,
+              "missing": 58
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_shift_w65_s_ashr_width_z_w_l.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_shift_w129_u_shl_one_x_n_b.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_shift_w33_s_shr_width_k_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_shift_w64_s_ashr_beyond_k_n_l.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "cast_pipeline": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 20
+          },
+          "coverage": {
+            "2": {
+              "passed": 131,
+              "total": 214,
+              "missing": 83
+            },
+            "3": {
+              "passed": 32,
+              "total": 76,
+              "missing": 44
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch6/test_gen_cross_cast_w129_s_x_typed_bit_n_add_l.sv": "not_run",
+            "tests/gen/ch6/test_gen_cross_cast_w65_s_z_size_w_plain_l.sv": "not_run",
+            "tests/gen/ch6/test_gen_cross_cast_w33_s_k_size_n_add_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "task_argument_visibility": {
+          "case_statuses": {
+            "pass": 11,
+            "fail": 0,
+            "known": 1,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 80,
+              "total": 144,
+              "missing": 64
+            },
+            "3": {
+              "passed": 18,
+              "total": 52,
+              "missing": 34
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch13/test_gen_cross_task_w129_l_z_ref_e_d.sv": "not_run",
+            "tests/gen/ch13/test_gen_cross_task_w65_l_x_inout_e_d.sv": "not_run",
+            "tests/gen/ch13/test_gen_cross_task_w33_b_x_output_s_d.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "packed_structure": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 126,
+              "total": 186,
+              "missing": 60
+            },
+            "3": {
+              "passed": 23,
+              "total": 52,
+              "missing": 29
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_struct_w129_f_su_l_z_w_n.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_struct_w65_l_us_l_x_m_n.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_struct_w33_f_ss_b_x_m_b.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "case_matching": {
+          "case_statuses": {
+            "pass": 6,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 30
+          },
+          "coverage": {
+            "2": {
+              "passed": 81,
+              "total": 220,
+              "missing": 139
+            },
+            "3": {
+              "passed": 18,
+              "total": 82,
+              "missing": 64
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch12/test_gen_cross_case_w129_ss_n_casez_z_wild_high.sv": "not_run",
+            "tests/gen/ch12/test_gen_cross_case_w65_su_w_case_k_equal.sv": "pass",
+            "tests/gen/ch12/test_gen_cross_case_w33_us_s_casex_x_unknown_low.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "port_connection": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 133,
+              "total": 204,
+              "missing": 71
+            },
+            "3": {
+              "passed": 24,
+              "total": 56,
+              "missing": 32
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch23/test_gen_cross_port_w129_o_s_w_z_l_n_n.sv": "not_run",
+            "tests/gen/ch23/test_gen_cross_port_w65_i_s_n_x_b_p_a.sv": "not_run",
+            "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "not_run",
+            "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 95,
+              "total": 148,
+              "missing": 53
+            },
+            "3": {
+              "passed": 21,
+              "total": 52,
+              "missing": 31
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 48
+          },
+          "coverage": {
+            "2": {
+              "passed": 98,
+              "total": 285,
+              "missing": 187
+            },
+            "3": {
+              "passed": 24,
+              "total": 108,
+              "missing": 84
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 11,
+            "fail": 0,
+            "known": 1,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 105,
+              "total": 182,
+              "missing": 77
+            },
+            "3": {
+              "passed": 22,
+              "total": 68,
+              "missing": 46
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "known",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        }
+      }
+    },
+    {
+      "source": "coverage/interaction-results/cross-20261029-remaining-verilator5052-seed73.json",
+      "simulator": "verilator",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "generated_at": "2026-10-29T14:31:53.086928+00:00",
+      "models": {
+        "scheduling_visibility": {
+          "case_statuses": {
+            "pass": 43,
+            "fail": 0,
+            "known": 8,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 274
+          },
+          "coverage": {
+            "2": {
+              "passed": 119,
+              "total": 126,
+              "missing": 7
+            },
+            "3": {
+              "passed": 43,
+              "total": 51,
+              "missing": 8
+            }
+          },
+          "mandatory_witnesses": {},
+          "provenance_problem": "",
+          "complete": false
+        },
+        "nba_capture": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 98,
+              "total": 162,
+              "missing": 64
+            },
+            "3": {
+              "passed": 17,
+              "total": 44,
+              "missing": 27
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch10/test_gen_cross_nba_w65_l_x_a_d_t_d.sv": "not_run",
+            "tests/gen/ch10/test_gen_cross_nba_w129_l_z_a_a_t_d.sv": "not_run",
+            "tests/gen/ch10/test_gen_cross_nba_w129_b_x_a_d_t_i.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "expression_context": {
+          "case_statuses": {
+            "pass": 51,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 143,
+              "total": 143,
+              "missing": 0
+            },
+            "3": {
+              "passed": 63,
+              "total": 63,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_expr_w129_n_w_ss_mul.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_expr_w65_w_n_su_add.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_expr_w33_s_w_us_sub.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "packed_part_select": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 100,
+              "total": 162,
+              "missing": 62
+            },
+            "3": {
+              "passed": 18,
+              "total": 48,
+              "missing": 30
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_select_w65_a_m_h_high_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_select_w129_d_p_h_interior_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_select_w33_a_p_s_high_b_x.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "conditional_merge": {
+          "case_statuses": {
+            "pass": 8,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 93,
+              "total": 185,
+              "missing": 92
+            },
+            "3": {
+              "passed": 22,
+              "total": 76,
+              "missing": 54
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_cond_w129_ss_x_same_xz_w_l.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_cond_w65_su_1_mixed_xz_w_l.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_cond_w33_ss_0_mixed_xz_n_b.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "shift_context": {
+          "case_statuses": {
+            "pass": 23,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 33
+          },
+          "coverage": {
+            "2": {
+              "passed": 166,
+              "total": 298,
+              "missing": 132
+            },
+            "3": {
+              "passed": 34,
+              "total": 92,
+              "missing": 58
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_shift_w65_s_ashr_width_z_w_l.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_shift_w129_u_shl_one_x_n_b.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_shift_w33_s_shr_width_k_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_shift_w64_s_ashr_beyond_k_n_l.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "cast_pipeline": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 20
+          },
+          "coverage": {
+            "2": {
+              "passed": 131,
+              "total": 214,
+              "missing": 83
+            },
+            "3": {
+              "passed": 32,
+              "total": 76,
+              "missing": 44
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch6/test_gen_cross_cast_w129_s_x_typed_bit_n_add_l.sv": "not_run",
+            "tests/gen/ch6/test_gen_cross_cast_w65_s_z_size_w_plain_l.sv": "not_run",
+            "tests/gen/ch6/test_gen_cross_cast_w33_s_k_size_n_add_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "task_argument_visibility": {
+          "case_statuses": {
+            "pass": 11,
+            "fail": 0,
+            "known": 1,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 80,
+              "total": 144,
+              "missing": 64
+            },
+            "3": {
+              "passed": 18,
+              "total": 52,
+              "missing": 34
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch13/test_gen_cross_task_w129_l_z_ref_e_d.sv": "not_run",
+            "tests/gen/ch13/test_gen_cross_task_w65_l_x_inout_e_d.sv": "not_run",
+            "tests/gen/ch13/test_gen_cross_task_w33_b_x_output_s_d.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "packed_structure": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 126,
+              "total": 186,
+              "missing": 60
+            },
+            "3": {
+              "passed": 23,
+              "total": 52,
+              "missing": 29
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_struct_w129_f_su_l_z_w_n.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_struct_w65_l_us_l_x_m_n.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_struct_w33_f_ss_b_x_m_b.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "case_matching": {
+          "case_statuses": {
+            "pass": 6,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 30
+          },
+          "coverage": {
+            "2": {
+              "passed": 81,
+              "total": 220,
+              "missing": 139
+            },
+            "3": {
+              "passed": 18,
+              "total": 82,
+              "missing": 64
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch12/test_gen_cross_case_w129_ss_n_casez_z_wild_high.sv": "not_run",
+            "tests/gen/ch12/test_gen_cross_case_w65_su_w_case_k_equal.sv": "pass",
+            "tests/gen/ch12/test_gen_cross_case_w33_us_s_casex_x_unknown_low.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "port_connection": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 133,
+              "total": 204,
+              "missing": 71
+            },
+            "3": {
+              "passed": 24,
+              "total": 56,
+              "missing": 32
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch23/test_gen_cross_port_w129_o_s_w_z_l_n_n.sv": "not_run",
+            "tests/gen/ch23/test_gen_cross_port_w65_i_s_n_x_b_p_a.sv": "not_run",
+            "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "not_run",
+            "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 95,
+              "total": 148,
+              "missing": 53
+            },
+            "3": {
+              "passed": 21,
+              "total": 52,
+              "missing": 31
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 48
+          },
+          "coverage": {
+            "2": {
+              "passed": 98,
+              "total": 285,
+              "missing": 187
+            },
+            "3": {
+              "passed": 24,
+              "total": 108,
+              "missing": 84
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 11,
+            "fail": 0,
+            "known": 1,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 24
+          },
+          "coverage": {
+            "2": {
+              "passed": 105,
+              "total": 182,
+              "missing": 77
+            },
+            "3": {
+              "passed": 22,
+              "total": 68,
+              "missing": 46
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "known",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
         }
       }
     },
@@ -11214,6 +16003,95 @@
           },
           "provenance_problem": "",
           "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
         }
       }
     },
@@ -11537,6 +16415,95 @@
             "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "not_run",
             "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 148,
+              "missing": 148
+            },
+            "3": {
+              "passed": 0,
+              "total": 52,
+              "missing": 52
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "not_run",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 60
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 285,
+              "missing": 285
+            },
+            "3": {
+              "passed": 0,
+              "total": 108,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "not_run",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "not_run"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 36
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 182,
+              "missing": 182
+            },
+            "3": {
+              "passed": 0,
+              "total": 68,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "not_run",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "not_run"
           },
           "provenance_problem": "",
           "complete": false

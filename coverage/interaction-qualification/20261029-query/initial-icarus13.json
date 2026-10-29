@@ -1,0 +1,617 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch11/test_gen_cross_stream_w129_l_s16_p_pack_b_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w129_l_s16_p_pack_b_z.sv:37: syntax error",
+   "inputs_sha256": "c6caf54fcf922636c03f510bf1caee02662c834714ebb1b7e540d9b8315264b8"
+  },
+  "gen/ch11/test_gen_cross_stream_w129_l_s1_p_pack_b_k": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w129_l_s1_p_pack_b_k.sv:31: syntax error",
+   "inputs_sha256": "1b1ebce988e74a83f9260dfc9aa7d42eea43460e04e9c452bdeca09a6ab80feb"
+  },
+  "gen/ch11/test_gen_cross_stream_w129_l_s1_p_pack_l_k": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w129_l_s1_p_pack_l_k.sv:31: syntax error",
+   "inputs_sha256": "3da656b321fc67cacf8908420f2df0c28f016d40bd31568c060f488b672ca08e"
+  },
+  "gen/ch11/test_gen_cross_stream_w129_l_s1_p_pack_l_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w129_l_s1_p_pack_l_x.sv:37: syntax error",
+   "inputs_sha256": "8186cdb75e0a0061a2746cfd5f6b52294ee7b2ed5a46a19ba256674e3d8ef864"
+  },
+  "gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv:37: syntax error",
+   "inputs_sha256": "7cbf999a9f4db7f01cb021a909349ac8cbba45dccb6651d9d12533d395e0a368"
+  },
+  "gen/ch11/test_gen_cross_stream_w129_r_s4_p_pack_b_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w129_r_s4_p_pack_b_x.sv:37: syntax error",
+   "inputs_sha256": "e02f6b3b1538fd61bac72b2f57f15725b0bc12a60761589c46aa4d8ad0e75eae"
+  },
+  "gen/ch11/test_gen_cross_stream_w1_l_s16_p_pack_b_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w1_l_s16_p_pack_b_z.sv:33: syntax error",
+   "inputs_sha256": "6bcfad9076b6467376c9912b4b4523f9a20bb0ba5ffbf69808e008825efc854a"
+  },
+  "gen/ch11/test_gen_cross_stream_w1_l_s1_p_pack_l_k": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w1_l_s1_p_pack_l_k.sv:31: syntax error",
+   "inputs_sha256": "0aec1844fd971bc365fb6d284eead3d56785dc27b2ec5bbdc6f418e6960e5df0"
+  },
+  "gen/ch11/test_gen_cross_stream_w1_l_s1_p_pack_l_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w1_l_s1_p_pack_l_x.sv:33: syntax error",
+   "inputs_sha256": "eb3757b64021af497e34d55b2b6836b6bd6774e4263ecb327c59a3d3f7072989"
+  },
+  "gen/ch11/test_gen_cross_stream_w1_l_s4_p_pack_l_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w1_l_s4_p_pack_l_z.sv:33: syntax error",
+   "inputs_sha256": "0edd53cd3f048991da8f1cf27af8f89203b46c07ed722df6f5632671d3ac0d61"
+  },
+  "gen/ch11/test_gen_cross_stream_w1_r_s1_t_unpack_b_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w1_r_s1_t_unpack_b_x.sv:33: syntax error",
+   "inputs_sha256": "844469195327847a038e6d7c68030e359686d1c3f12b874ef514a90a8e8df063"
+  },
+  "gen/ch11/test_gen_cross_stream_w1_r_s8_p_unpack_b_k": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w1_r_s8_p_unpack_b_k.sv:31: syntax error",
+   "inputs_sha256": "bf3ec2304932fb71c67c481353d797b0807c15a4969ece5393991793ef711ad3"
+  },
+  "gen/ch11/test_gen_cross_stream_w32_l_s16_p_unpack_b_k": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w32_l_s16_p_unpack_b_k.sv:31: syntax error",
+   "inputs_sha256": "f679fe028e4d52144507ff196a83c0b06056c1027613a917987e537af129ff3f"
+  },
+  "gen/ch11/test_gen_cross_stream_w32_l_s1_p_pack_b_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w32_l_s1_p_pack_b_z.sv:33: syntax error",
+   "inputs_sha256": "b52860789c46799e8d8cd94022278d9dfc027fee5ae81a0e204768fef0b715a3"
+  },
+  "gen/ch11/test_gen_cross_stream_w32_l_s1_p_pack_l_k": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w32_l_s1_p_pack_l_k.sv:31: syntax error",
+   "inputs_sha256": "4e9bff0c7e9684f99ced01c23e82c3fab8e50eb5938bbba28a3820f9bdc8d107"
+  },
+  "gen/ch11/test_gen_cross_stream_w32_l_s1_p_pack_l_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w32_l_s1_p_pack_l_x.sv:33: syntax error",
+   "inputs_sha256": "fca7ccf323cbb298b19f851c1e6e289d03fd119b4b0ae660a7e12e0591643b43"
+  },
+  "gen/ch11/test_gen_cross_stream_w32_l_s4_t_pack_b_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w32_l_s4_t_pack_b_x.sv:33: syntax error",
+   "inputs_sha256": "f88af4852be30f4bb580659d0bc24fadadace36137abc5b4c3a937d79f6a1f7d"
+  },
+  "gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv:33: syntax error",
+   "inputs_sha256": "9b984b5e8121439fcda8adebcdeca09baeb80253547f6ca5bba972d655077adb"
+  },
+  "gen/ch11/test_gen_cross_stream_w33_l_s1_p_pack_l_k": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w33_l_s1_p_pack_l_k.sv:31: syntax error",
+   "inputs_sha256": "cdfd62279d772a72ecd2dac98b868905f3d9eb9dd38d0683467588e7da209c0c"
+  },
+  "gen/ch11/test_gen_cross_stream_w33_l_s1_p_pack_l_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w33_l_s1_p_pack_l_z.sv:34: syntax error",
+   "inputs_sha256": "c1c8708dde46dc212dddeb219ff1a28cc662944f840c85180d6055f1ab3db954"
+  },
+  "gen/ch11/test_gen_cross_stream_w33_l_s1_p_unpack_l_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w33_l_s1_p_unpack_l_x.sv:34: syntax error",
+   "inputs_sha256": "191000a65d0947b1019ef4c3855103c9cbc76b1828ad978630d804c0e69fb6e3"
+  },
+  "gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv:31: syntax error",
+   "inputs_sha256": "5412d96ec88661a7bf532c6b76c6cb509bf84579e9a4a0a0cfe7dc2a6bbf754c"
+  },
+  "gen/ch11/test_gen_cross_stream_w33_l_s8_p_pack_b_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w33_l_s8_p_pack_b_x.sv:34: syntax error",
+   "inputs_sha256": "dfa43f0838d3e6cea5b48e2ae179833b7cfe97982cde826f658d75ec7faab421"
+  },
+  "gen/ch11/test_gen_cross_stream_w33_r_s16_t_pack_b_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w33_r_s16_t_pack_b_z.sv:34: syntax error",
+   "inputs_sha256": "a0b7ec83b39be08a9e12f3b12b478d648b9107202d96cc8dafdff24536eb2a29"
+  },
+  "gen/ch11/test_gen_cross_stream_w64_l_s1_p_pack_l_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w64_l_s1_p_pack_l_x.sv:34: syntax error",
+   "inputs_sha256": "fb9af80c79af9b16f74b89daa68f0c8a6a70fa3d6c0d201937a7400f2ec4210e"
+  },
+  "gen/ch11/test_gen_cross_stream_w64_l_s1_p_pack_l_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w64_l_s1_p_pack_l_z.sv:34: syntax error",
+   "inputs_sha256": "3b4a5a3f745e9d2d0ed614078c842f4934da6f538a65dd5755539d83876f6abc"
+  },
+  "gen/ch11/test_gen_cross_stream_w64_l_s4_p_pack_b_k": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w64_l_s4_p_pack_b_k.sv:31: syntax error",
+   "inputs_sha256": "36a3da373b4937c8372035edef0a9efc4a7d4e190c8502c6bc8a6cd94d4b2a7d"
+  },
+  "gen/ch11/test_gen_cross_stream_w64_l_s8_p_pack_b_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w64_l_s8_p_pack_b_x.sv:34: syntax error",
+   "inputs_sha256": "dd6ef21a3cbaf1bc147ade13a4d76d310ee5391f3b3bc4df5562c5b2ecaef82e"
+  },
+  "gen/ch11/test_gen_cross_stream_w64_r_s16_t_unpack_b_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w64_r_s16_t_unpack_b_z.sv:34: syntax error",
+   "inputs_sha256": "d0bf7ef74514bbbd71388731eae3087bb9c63c21980829f947112bb3b74a3681"
+  },
+  "gen/ch11/test_gen_cross_stream_w64_r_s1_p_pack_l_k": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w64_r_s1_p_pack_l_k.sv:31: syntax error",
+   "inputs_sha256": "77c69b4e29309775991303329f6301611a3d19bb56ee525dd263eeec2f605eff"
+  },
+  "gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv:35: syntax error",
+   "inputs_sha256": "507962a8063fb9a7da04eee4d2525f4e124091402b61434864ce1dfeb7d0e08e"
+  },
+  "gen/ch11/test_gen_cross_stream_w65_l_s1_p_pack_l_k": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w65_l_s1_p_pack_l_k.sv:31: syntax error",
+   "inputs_sha256": "2f181de8a83b2729495c52dab6a0fb41acfa3a6e9097f16eefe70cd8eb5e7e70"
+  },
+  "gen/ch11/test_gen_cross_stream_w65_l_s1_p_pack_l_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w65_l_s1_p_pack_l_z.sv:35: syntax error",
+   "inputs_sha256": "a1d53557d5f62d4590ff2cde60be6dc586b0105addc3229e40976a64adf008e0"
+  },
+  "gen/ch11/test_gen_cross_stream_w65_l_s1_t_pack_b_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w65_l_s1_t_pack_b_z.sv:35: syntax error",
+   "inputs_sha256": "4ceaeaee977cf09bd4b6809e80cb5b20015497054239ad49813fd35b47f98515"
+  },
+  "gen/ch11/test_gen_cross_stream_w65_l_s8_p_pack_b_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w65_l_s8_p_pack_b_x.sv:35: syntax error",
+   "inputs_sha256": "bf0c6ddd4b22bf434235e4295e8a7de8a33361b6217f738090e4faafcb9a675d"
+  },
+  "gen/ch11/test_gen_cross_stream_w65_r_s4_t_unpack_b_k": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch11/test_gen_cross_stream_w65_r_s4_t_unpack_b_k.sv:31: syntax error",
+   "inputs_sha256": "1527a7afd065ef0fbf1b85bd6de7b274484b950ed71882dcaa394990c0c57227"
+  },
+  "gen/ch20/test_gen_cross_query_w129_b_direct_many_high_mixed": {
+   "status": "pass",
+   "inputs_sha256": "b95890783f595e12994d2f0245394dc651f34406978691574aeead89cf70df48"
+  },
+  "gen/ch20/test_gen_cross_query_w129_b_half_mixed_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "98e41f1c8c2d8beebe2d8c1c23d6f27eb514e83e6380fe7a20f03916c2c841a4"
+  },
+  "gen/ch20/test_gen_cross_query_w129_b_prefix_one_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "f784db1c998edb0782952a58c09a52382e77249752571653d5a9c83635751f4f"
+  },
+  "gen/ch20/test_gen_cross_query_w129_b_prefix_zero_none_one": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=130 count=1 ones=10', expected 'bits=130 count=1 ones=1'",
+   "inputs_sha256": "f1f03395999b276a22cf9a192e5b853b6a9ee2ab8c1eb548a50b97f4dabfe251"
+  },
+  "gen/ch20/test_gen_cross_query_w129_l_direct_z_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "5c30a222b13546a2436d0490414602871e864e6b787732a990ff41c9aaa4878f"
+  },
+  "gen/ch20/test_gen_cross_query_w129_l_prefix_x_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "606668d0f7626b3dc4c36c38418923d19aceade4230ae06daeddf402f010c6da"
+  },
+  "gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=258 count=6 ones=7', expected 'bits=258 count=6 ones=2'",
+   "inputs_sha256": "d988eb3d8346e40e52d0c2191f4e102d7245643202f15bef630b72e2bb60dd79"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_direct_one_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "910691b603dc143c862379bd86ef2e12672e773d16d63daf244391fd17c2e3a8"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_direct_x_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "e66a3aae6eebb2680648b6bfd0be89e253d98c3357ae57b43ccfb54ff077b915"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_direct_z_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "00cb821b6e8417586374bff7b059db8e232725a3b69ea7fad2c60c6b788931ee"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_direct_z_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "cde60f9fc99d09484a17a7d129a96c293804011e87f415543773a7f52114ca14"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_direct_zero_none_mixed": {
+   "status": "pass",
+   "inputs_sha256": "89a4f098fa0c5cbdf6c2ca3f0a6bbcb9485067e43669b59dbc9488a0d3629a04"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_direct_zero_none_zero": {
+   "status": "pass",
+   "inputs_sha256": "456a418643d505f4ad87fbd0cb89764d3ebe17bb8e6dc622778b904c70e1dcf0"
+  },
+  "gen/ch20/test_gen_cross_query_w1_b_repeat_x_low_one": {
+   "status": "pass",
+   "inputs_sha256": "339a2f7a4f04178c50b5003ff9b136d31312c7538286b734df4b91bdea95ef89"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_direct_one_low_one": {
+   "status": "pass",
+   "inputs_sha256": "6f4d8783d2f4befdfadfaf86dcaef3e83e576722f25b9e2decc5634cac694d3e"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_direct_x_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "9141b2d4c6f6d8a455474b292f1f0493c84daa21ea544f2e6a5a95da4481c37a"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_direct_z_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "c60148f529dc6cace07a79f3660b8c9255a00ef1b983e3fc953dc8a6aa5e978e"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_direct_zero_none_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "23078066d8f6f81d5d741b48e2d10f82bd1c1e32aab5e1be2e41f2cbd30b5776"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_direct_zero_none_zero": {
+   "status": "pass",
+   "inputs_sha256": "8b0db1adc5e37f0284a7a539c09a6eb759bdd9fd9525ac7f550c4d16b96741c3"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_prefix_one_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "da5fd9a5c8d2695650efdf9bfb6602c7b4f9cf04cbfea5dc623e9d5112d79841"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_repeat_one_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "b942e76e8ce2f3d83f556a364fcba108702f12ab29d939325998df569f41d565"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_repeat_x_low_one": {
+   "status": "pass",
+   "inputs_sha256": "319277268fb87a8ac36713606d9a4255738739bab3a1f5c54e83791c0c85c4dd"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_repeat_z_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "5a834bfccb84c4b00e2a57479680b3567577b48a6a75fba98cf8c9660d287eb7"
+  },
+  "gen/ch20/test_gen_cross_query_w1_l_repeat_zero_none_unknown": {
+   "status": "pass",
+   "inputs_sha256": "b48fe8f7de295e80cd780394b4b93c5d3629c6fa01cba7a8c9e9ac4073665200"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_direct_many_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "aae65c4bb74bfddf67efd099c89b8309811b26444c8da3467ef9c51ebf87e7cd"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_direct_mixed_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "046d29e8765129b2eab7fa3a18a92d140a0f6d817611880a72e6654f75c8cc7b"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_direct_mixed_middle_one": {
+   "status": "pass",
+   "inputs_sha256": "deb0ec2ac32012fcb49c3e48bb5060f57495123aa8574f90e935abfc5ea15c6b"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_half_many_low_one": {
+   "status": "pass",
+   "inputs_sha256": "6edbc7d36fc787208eaaa99a04759a0f8f6021b817e98376bdb327a638dfcf96"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_half_x_high_unknown": {
+   "status": "pass",
+   "inputs_sha256": "d52fc12da5ed3c7cd620238962de068ee11d8c1f29ce27df4df81e85a0fa8e29"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_half_zero_none_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "c993b37a539308beff34f9cb9a8b2f18a918fdeb77ef13c2dcfc4213739d2c7f"
+  },
+  "gen/ch20/test_gen_cross_query_w32_b_repeat_one_middle_zero": {
+   "status": "pass",
+   "inputs_sha256": "d1706a4e431b83ace01ab7e19f5637b3b4b6c288fe5fa5cb034df1cd324fd68b"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_direct_many_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "306f6d3d15c8a670f33059295084d3609523d43cdd6dc5d327aea15dda701a6c"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_direct_many_low_one": {
+   "status": "pass",
+   "inputs_sha256": "8d5f4f1b48fdcb4638d81fdb93d33d8fd3b413112650aa0a57c5dbffd5194613"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_direct_mixed_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "e89738c1e29691f89a81bce076ba6a2dda68638a546bafd11d251f6853441446"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_half_mixed_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "e79aa983bd51128f6558dc14d9f3361e789a21b4707377f463da0d433b4a4f8b"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_half_one_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "4d4c5bbc869dae5a225d04024f685f8d7d6cb4de49b4033ac5fbfb816051ab67"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_half_z_low_one": {
+   "status": "pass",
+   "inputs_sha256": "851478bc50a8935106f7f1bd7a31dfd7672a765bb0da93174578be510a4b02eb"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_prefix_many_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "3a681f8f3bc420839da402c493f7748f91268ca6c2b7e54aec751e9b9e8b0319"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_prefix_mixed_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "524a1e32069d88916123b8ff9457ed26ab7f7532aacb4e9b10701661acad4224"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "262f283ae02041201f7ba4365147e383ea7fd5a55e291b6665756b7700c4a9fa"
+  },
+  "gen/ch20/test_gen_cross_query_w32_l_repeat_many_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "2d264d79e076be31d4079761801e5155563b62bdbedd60b652cea0d20a0db468"
+  },
+  "gen/ch20/test_gen_cross_query_w33_b_direct_x_low_mixed": {
+   "status": "pass",
+   "inputs_sha256": "40caab7363b4aaf49e44f4f4364b2000fb3bd759533f3df9ff31cebec48094e7"
+  },
+  "gen/ch20/test_gen_cross_query_w33_b_half_one_high_one": {
+   "status": "pass",
+   "inputs_sha256": "256590aac327702edb0401fef5c23a9b9c356580b40211342201a091f11a1dd5"
+  },
+  "gen/ch20/test_gen_cross_query_w33_b_prefix_mixed_high_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "7f2576743147aee60a826cc9770dd6f4f38756ae91c9533dc5fa2094bf2d1967"
+  },
+  "gen/ch20/test_gen_cross_query_w33_b_prefix_x_middle_zero": {
+   "status": "pass",
+   "inputs_sha256": "b08e4869238f40722451790bfbd32f19a66cad401b39de2798cd070e7710bee7"
+  },
+  "gen/ch20/test_gen_cross_query_w33_b_prefix_z_low_one": {
+   "status": "pass",
+   "inputs_sha256": "b1bc74636bfea0917183ef6e9f9ad8b666d720602a0be82c0d83e908b362532f"
+  },
+  "gen/ch20/test_gen_cross_query_w33_b_repeat_zero_none_unknown": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=66 count=0 ones=8', expected 'bits=66 count=0 ones=0'",
+   "inputs_sha256": "cdf529cadc19b76e80ea39d1bba434192f025ae3658d04096f573b92e9be8a4d"
+  },
+  "gen/ch20/test_gen_cross_query_w33_l_half_many_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "eb5ac41010f11fa589155d699c6d8ab9303a025f1fef8a91d0ad450ef8472887"
+  },
+  "gen/ch20/test_gen_cross_query_w64_b_prefix_many_middle_unknown": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=65 count=0 ones=11', expected 'bits=65 count=0 ones=3'",
+   "inputs_sha256": "f2d0a3e07f74fd423c82c2c98e6817ff5ed860cf82e6a6b6257b84c0b28117a9"
+  },
+  "gen/ch20/test_gen_cross_query_w64_b_repeat_z_high_zero": {
+   "status": "pass",
+   "inputs_sha256": "bfdfab1906754a94b91e858dc063adebf6fd1f6c90e5d27c0675e94dcd8a3056"
+  },
+  "gen/ch20/test_gen_cross_query_w64_l_direct_mixed_low_one": {
+   "status": "pass",
+   "inputs_sha256": "c570e7f53c2bf5d7767e124d3a9e6c8bdc207b53ac68bbb0fc32a8deb48fba04"
+  },
+  "gen/ch20/test_gen_cross_query_w64_l_direct_one_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "6b036d3d52437d22ed60a1411eab0f833b8d31de3a9271c505705bd5981748eb"
+  },
+  "gen/ch20/test_gen_cross_query_w64_l_half_x_low_duplicate": {
+   "status": "pass",
+   "inputs_sha256": "784a0bbcf876fe1670576d2ed8c3d49a3c3a6031561f492e38736d409abe48e0"
+  },
+  "gen/ch20/test_gen_cross_query_w64_l_half_zero_none_mixed": {
+   "status": "pass",
+   "inputs_sha256": "99319ff9b10b72362d8e521f58dca2f845f35f617aaf79bb647178f2bb7e9e2e"
+  },
+  "gen/ch20/test_gen_cross_query_w65_b_direct_one_low_unknown": {
+   "status": "pass",
+   "inputs_sha256": "a25f4b39572803d433c700432e32f8367cf78f9cf462e889c407524d7cca76cd"
+  },
+  "gen/ch20/test_gen_cross_query_w65_b_half_z_middle_mixed": {
+   "status": "pass",
+   "inputs_sha256": "056c65db199ea0df5e8173870287f2103dcbf721ca6ac397f7a0d418915a7506"
+  },
+  "gen/ch20/test_gen_cross_query_w65_b_repeat_many_low_duplicate": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=130 count=4 ones=10', expected 'bits=130 count=4 ones=4'",
+   "inputs_sha256": "2ced4511c5f498ec1d82ab45b433601c48387eef893a195d6ebc9adf95ae95ea"
+  },
+  "gen/ch20/test_gen_cross_query_w65_b_repeat_mixed_low_zero": {
+   "status": "pass",
+   "inputs_sha256": "2174e1b7a2680637317e8dbaa9cf70a6bf582432a2109be06b2b49d96944c070"
+  },
+  "gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown": {
+   "status": "pass",
+   "inputs_sha256": "291e0e648cc8b76fa30a4bf53ff0c50396f5571ec3f610f1827394f6c716397e"
+  },
+  "gen/ch20/test_gen_cross_query_w65_l_prefix_zero_none_one": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'bits=66 count=1 ones=9', expected 'bits=66 count=1 ones=1'",
+   "inputs_sha256": "2e454f591bde4734124acf5ec8e74fa8a5ccbe136c358c648ebd1b56b8e297e8"
+  },
+  "gen/ch7/test_gen_cross_array_w129_s_l_da_z_s": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv:41: error: cannot perform a part select on array target.",
+   "inputs_sha256": "e1c8e92f41d16b25cef1bb390609e2a1406e0d301ae4d786e7947daf7490c701"
+  },
+  "gen/ch7/test_gen_cross_array_w129_u_b_aa_x_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w129_u_b_aa_x_w.sv:41: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "f2a23ee4a2c174a41c467c77241ebe8cf40a61ddc640f0317381ca31df27b1c2"
+  },
+  "gen/ch7/test_gen_cross_array_w129_u_b_aa_z_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w129_u_b_aa_z_w.sv:41: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "37a24dd51415921a313df65c8b80916bf30dce06dd0fdd4d2efd0855e7a0e8a4"
+  },
+  "gen/ch7/test_gen_cross_array_w129_u_b_ad_k_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w129_u_b_ad_k_w.sv:35: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "cbbece15743421ca1b3746a9409ac87fa0251fe63ad15f8f88f963f0e0c76765"
+  },
+  "gen/ch7/test_gen_cross_array_w129_u_l_aa_k_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w129_u_l_aa_k_w.sv:35: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "bf67ecb6f2bc950bbf48407f34eaf93938a0bc24985a33d3eda5b33454e561e8"
+  },
+  "gen/ch7/test_gen_cross_array_w129_u_l_aa_x_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w129_u_l_aa_x_w.sv:41: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "4a602d6fb5fb4abea5375626d5f9dc8ebd9e9849ec4643dc5a338663be753004"
+  },
+  "gen/ch7/test_gen_cross_array_w1_s_b_dd_x_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w1_s_b_dd_x_w.sv:37: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "6d057bd737af6133ab4b7505d0afeb9031d0ae2667d1e77f1fd3b91c7e51530e"
+  },
+  "gen/ch7/test_gen_cross_array_w1_u_b_aa_k_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w1_u_b_aa_k_w.sv:35: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "07e29a26c1f8fee46c7bf7f6573ec73a76383da0052626d865615ae7e9d51734"
+  },
+  "gen/ch7/test_gen_cross_array_w1_u_b_aa_z_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w1_u_b_aa_z_w.sv:37: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "6d3160f1a49950af0872d7f92886592cd58530080ef97f1e07503fd070f58226"
+  },
+  "gen/ch7/test_gen_cross_array_w1_u_l_aa_k_s": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w1_u_l_aa_k_s.sv:35: error: cannot perform a part select on array target.",
+   "inputs_sha256": "68f640a5a6358ca32f4ec1b55e24d412079bc9d1b2ef03d37da0805935987f94"
+  },
+  "gen/ch7/test_gen_cross_array_w1_u_l_aa_x_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w1_u_l_aa_x_w.sv:37: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "856d6dfbbfbae4ad9c6b5c1b7527676f745bf5e5661bc3536a431f42f43c8ef0"
+  },
+  "gen/ch7/test_gen_cross_array_w1_u_l_aa_z_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w1_u_l_aa_z_w.sv:37: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "e597637ab3c6cc45e8fe00f0e274c163b158fe562ec13439567c2c2d5e37e065"
+  },
+  "gen/ch7/test_gen_cross_array_w32_s_l_ad_x_s": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w32_s_l_ad_x_s.sv:37: error: cannot perform a part select on array target.",
+   "inputs_sha256": "48d2ef8d62e696e75d8d65f6c6ac763ac6234e54c2e4c630358c27fbacc9036c"
+  },
+  "gen/ch7/test_gen_cross_array_w32_u_b_aa_k_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w32_u_b_aa_k_w.sv:35: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "7fbd263a440eaed5d90f8b9b5952da5daa82199dd5dd3e57e680a27a1bf0f456"
+  },
+  "gen/ch7/test_gen_cross_array_w32_u_b_aa_x_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w32_u_b_aa_x_w.sv:37: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "fae9ad78992b5248a1a05b0351d16a25524bb88f51b4ebfe6f378a321b915701"
+  },
+  "gen/ch7/test_gen_cross_array_w32_u_b_da_z_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w32_u_b_da_z_w.sv:37: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "ef4bbb787648aeb8ac94be3fd8f09dd7b414961d8afe194f55b9c54eec55871a"
+  },
+  "gen/ch7/test_gen_cross_array_w32_u_l_aa_k_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w32_u_l_aa_k_w.sv:35: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "ec705851d187955bd1c0b06d7430408b3615e20697dd90b9bfef372348eac6b2"
+  },
+  "gen/ch7/test_gen_cross_array_w32_u_l_aa_z_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w32_u_l_aa_z_w.sv:37: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "9db84c3648489fceb6b551ba9283be071b22fcc3fe867f803e37ce6b26fa1af4"
+  },
+  "gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv:35: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "f671c30193a537d028758360a5b681d2679199c1c79199c5935dc0fb6d1d3a8f"
+  },
+  "gen/ch7/test_gen_cross_array_w33_u_b_aa_x_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w33_u_b_aa_x_w.sv:38: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "c706cf9f952e140c116a686669cbed90c5c9317d96f91b85fd99ffe9ad6cef6e"
+  },
+  "gen/ch7/test_gen_cross_array_w33_u_b_dd_z_s": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w33_u_b_dd_z_s.sv:38: error: cannot perform a part select on array target.",
+   "inputs_sha256": "213acc44fc50567ef6be9dd914368c01e9c54f67e5a7c0afa6b0140a9bbce776"
+  },
+  "gen/ch7/test_gen_cross_array_w33_u_l_aa_k_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w33_u_l_aa_k_w.sv:35: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "5119bb143ba619ab16682d1397f96799d4079a62501b125a9577d0d9e36c1efb"
+  },
+  "gen/ch7/test_gen_cross_array_w33_u_l_aa_x_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w33_u_l_aa_x_w.sv:38: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "aaaf7b4cf9e3a6a9c62ba76e6fbc744a11127f0a5e6bfa395e672d2aac9fc22c"
+  },
+  "gen/ch7/test_gen_cross_array_w33_u_l_aa_z_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w33_u_l_aa_z_w.sv:38: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "ff34e8ac12eb78720b0f259adc8602a872c43b70ceda1d4c08cc7bb5ac95e834"
+  },
+  "gen/ch7/test_gen_cross_array_w64_s_l_ad_z_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w64_s_l_ad_z_w.sv:38: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "5dbf65a28b843bd7c67f9749645b31705d84520142348c58cacc92867c171768"
+  },
+  "gen/ch7/test_gen_cross_array_w64_u_b_aa_k_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w64_u_b_aa_k_w.sv:35: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "fec350549e983f25dbcd42225ef110a6f7fd4c8835cbc7026413642a8631fb85"
+  },
+  "gen/ch7/test_gen_cross_array_w64_u_b_aa_z_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w64_u_b_aa_z_w.sv:38: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "4089f2da0f32da30e5caa23548cd8960d4ee367cb859bf494542b0b08209886a"
+  },
+  "gen/ch7/test_gen_cross_array_w64_u_b_da_x_s": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w64_u_b_da_x_s.sv:38: error: cannot perform a part select on array target.",
+   "inputs_sha256": "365c785c753897ab4f789cd511d4165753b073b98f140f0d65104ba745ea47f8"
+  },
+  "gen/ch7/test_gen_cross_array_w64_u_l_aa_k_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w64_u_l_aa_k_w.sv:35: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "3a8f76c15d7a01c9c901ba315cdbfaef08af49c7b8118f419989e80ce0f9228f"
+  },
+  "gen/ch7/test_gen_cross_array_w64_u_l_aa_x_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w64_u_l_aa_x_w.sv:38: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "5d67dca4892b9d6c324a5e56b801bc4e1ee9191d4442dfff23299f62a6a769db"
+  },
+  "gen/ch7/test_gen_cross_array_w65_s_l_da_k_s": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w65_s_l_da_k_s.sv:35: error: cannot perform a part select on array target.",
+   "inputs_sha256": "5912af3cd0283e4f8902aba28358c5d107af67111140127d2f1f00c781640345"
+  },
+  "gen/ch7/test_gen_cross_array_w65_u_b_aa_k_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w65_u_b_aa_k_w.sv:35: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "4b6dd87c6e1e9afb788565614e700abd515765af60c6ea14147fd45529b503cd"
+  },
+  "gen/ch7/test_gen_cross_array_w65_u_b_aa_z_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w65_u_b_aa_z_w.sv:39: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "3cf3a2ccb6f7bb330ff3cb5b3d609195af77a4a372a226f39908ce26fae8f8a6"
+  },
+  "gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv:39: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "c7627c1902a49cdce9e4c55008b8dc43a009095626c9bee82b2c357a2e8e2bfd"
+  },
+  "gen/ch7/test_gen_cross_array_w65_u_l_aa_x_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w65_u_l_aa_x_w.sv:39: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "ac837e81fc3d3c5404060b0da37fee16fee57dd20b00053b0ef162ac1c7657e3"
+  },
+  "gen/ch7/test_gen_cross_array_w65_u_l_aa_z_w": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch7/test_gen_cross_array_w65_u_l_aa_z_w.sv:39: error: the type of the variable 'source' doesn't match the context type.",
+   "inputs_sha256": "7d5133f3ecad1c6f9a908e93dae437535be49996096d099390887ce30c71a745"
+  }
+ },
+ "generated_at": "2026-10-29T14:11:37.197228+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

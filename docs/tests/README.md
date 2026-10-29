@@ -10,11 +10,11 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 4 | [Scheduling semantics](ch4.md) | 412 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 346 | 248 |
 | 6 | [Data types](ch6.md) | 641 | 39 |
-| 7 | [Aggregate data types](ch7.md) | 518 | 50 |
+| 7 | [Aggregate data types](ch7.md) | 554 | 86 |
 | 8 | [Classes](ch8.md) | 321 |  |
 | 9 | [Processes](ch9.md) | 210 |  |
 | 10 | [Assignment statements](ch10.md) | 240 | 36 |
-| 11 | [Operators and expressions](ch11.md) | 1012 | 491 |
+| 11 | [Operators and expressions](ch11.md) | 1048 | 527 |
 | 12 | [Procedural programming statements](ch12.md) | 217 | 36 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 237 | 50 |
 | 14 | [Clocking blocks](ch14.md) | 78 |  |
@@ -23,7 +23,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 17 | [Checkers](ch17.md) | 81 |  |
 | 18 | [Constrained random value generation](ch18.md) | 200 |  |
 | 19 | [Functional coverage](ch19.md) | 157 |  |
-| 20 | [Utility system tasks and system functions](ch20.md) | 270 |  |
+| 20 | [Utility system tasks and system functions](ch20.md) | 330 | 60 |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 213 |  |
 | 22 | [Compiler directives](ch22.md) | 358 | 248 |
 | 23 | [Modules and hierarchy](ch23.md) | 292 | 36 |
