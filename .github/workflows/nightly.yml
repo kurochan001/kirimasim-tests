@@ -1,7 +1,7 @@
 name: Nightly
 
 # Runs every test of main once a day with the latest development version of
-# each simulator (Lyra, which has no releases, at a pinned commit), and adds
+# each simulator, resolving each upstream commit for the run, and adds
 # the results to the history on the results branch,
 # which tools/results_history.py draws as charts (see "Nightly results" in
 # README.md). The results are only reported, except that the kirimasim job
@@ -261,27 +261,39 @@ jobs:
             echo "No previous results of kirimasim: the comparison is skipped."
           fi
 
-  # Lyra at the commit that LYRA_COMMIT names. Lyra has no releases, so the
-  # commit is pinned here, the one place that names it, and the runner records
-  # it in the results. Building Lyra builds LLVM from source with Bazel, which
-  # takes hours on a hosted runner, so the build is kept in the cache by that
-  # commit and only a change of the pin builds it again; a build first makes
+  # Resolve the latest main of Lyra for each run and record that exact commit.
+  # Building Lyra builds LLVM from source with Bazel, which takes hours on a
+  # hosted runner, so a build is reused only for the same resolved commit.
+  # A new commit builds again; a build first makes
   # room on the disk. Lyra finds its shipped files (such as svdpi.h) beside
   # the executable, in lyra.runfiles, which is copied with the executable.
   lyra:
     runs-on: ubuntu-24.04
     timeout-minutes: 360
-    env:
-      LYRA_COMMIT: 7e2c604b9ab2266749487066298dc67d0a4c6c7a
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Find the latest commit of Lyra
+        id: head
+        run: |
+          set -euo pipefail
+          sha=$(git ls-remote --exit-code https://github.com/hankhsu1996/lyra.git refs/heads/main |
+            cut -f1)
+          if [[ ! "$sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::Could not resolve the latest Lyra main commit."
+            exit 1
+          fi
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "LYRA_COMMIT=$sha" >> "$GITHUB_ENV"
+          printf 'Lyra main commit: [%s](https://github.com/hankhsu1996/lyra/commit/%s)\n' \
+            "$sha" "$sha" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Restore Lyra
         id: cache
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/lyra
-          key: lyra-${{ env.LYRA_COMMIT }}-ubuntu-24.04
+          key: lyra-${{ steps.head.outputs.sha }}-ubuntu-24.04
 
       - name: Make room for the build
         if: steps.cache.outputs.cache-hit != 'true'
@@ -318,7 +330,7 @@ jobs:
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/lyra
-          key: lyra-${{ env.LYRA_COMMIT }}-ubuntu-24.04
+          key: lyra-${{ steps.head.outputs.sha }}-ubuntu-24.04
 
       # As in the Verilator job, every process of the run gets at most 6 GB of
       # address space: on 2026-10-26 a test took all the memory of the runner

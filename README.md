@@ -237,8 +237,8 @@ allows and how the results of the coverage functions relate.
 Every night, a [GitHub Actions workflow](.github/workflows/nightly.yml) runs
 the applicable tests of `main` with the latest development version of each simulator:
 the `master` branches of Icarus Verilog and Verilator and the `main` branch
-of kirimasim, built that night, and Lyra, which has no releases, at the
-commit that the workflow pins. Ghost joins from a private build. It adds the results to the
+of kirimasim and Lyra, resolved anew when each job starts. Builds are reused
+only for the same resolved commit. Ghost joins from a private build. It adds the results to the
 history on the
 [`results`](https://github.com/kurochan001/kirimasim-tests/tree/results)
 branch. The chart below is redrawn after each run; the
@@ -345,10 +345,10 @@ longer, it is extrapolated as described in the notes.
 
 - kirimasim was at commit `b66834254c65`, Icarus Verilog at 14.0 devel
   `2b8d42dc088f`, Verilator at 5.053 devel `1838b6ed035c` and Lyra at
-  `63922502ff0a`, built with `bazel build -c opt`, which is not the commit the
-  nightly workflow pins. The Lyra column is its LLVM backend, which Lyra's
-  README calls its main one, at Lyra's default `-O 0`. Lyra's default
-  backend, used when `--backend` is not given, is its C++ backend: on these
+  `63922502ff0a`, built with `bazel build -c opt`. These benchmark measurements
+  use the recorded commits; Nightly resolves the latest upstream commits for
+  each run. The Lyra column uses its LLVM backend at `-O 0`. In these
+  measurements, omitting `--backend` selected its C++ backend: on these
   designs it was 3.3 to 67 times slower than the LLVM backend, and its times
   are in kirimasim's benchmark details linked below.
   Every measured run gave the expected result; Lyra does not support gates or
@@ -918,14 +918,13 @@ only reported, except for the ratchet of the kirimasim job. It has six jobs:
   now; tests that are new or unsupported, and a night without previous
   results, do not count. The results are uploaded before, so the night's
   entry has them either way.
-- **lyra** builds Lyra at the commit that `LYRA_COMMIT` pins in the
-  workflow, the one place that names it. Building Lyra builds LLVM from
-  source with Bazel, which took 42 to 89 minutes on hosted runners, so the
-  build (the executable and its runfiles, copied out of Bazel's tree,
-  without the runfiles manifest that names files in that tree) is kept in
-  the cache by that commit and only a change of the pin builds it again. It
-  runs every non-formal test, which took 35 to 70 minutes and makes it the longest job
-  of the night, and records the commit in the results.
+- **lyra** resolves the latest `main` commit at the start of every job and
+  sets `LYRA_COMMIT` to that SHA. The same SHA selects the source checkout,
+  build cache and commit recorded with the results. An uncached commit is
+  built with Bazel, including LLVM; earlier hosted builds took 42 to 89
+  minutes. The executable and its runfiles are copied out of Bazel's tree
+  without its location-dependent manifest. It runs every non-formal test;
+  earlier test runs took 35 to 70 minutes.
 - **ghost** privately builds the unreleased guest and runs every test. Its
   checkout locations and runtime profile come from secrets. Only the public
   alias, build hash and test verdicts are uploaded; source and build output
