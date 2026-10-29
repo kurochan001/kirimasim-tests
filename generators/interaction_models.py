@@ -28,6 +28,8 @@ import interaction_divide
 import interaction_resize
 import interaction_concat
 import interaction_logic
+import interaction_shortcircuit
+import interaction_edge
 import scheduling
 from interaction_cover import Model, Row
 
@@ -38,7 +40,8 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_compare, interaction_method,
               interaction_index, interaction_queue,
               interaction_divide, interaction_resize,
-              interaction_concat, interaction_logic)
+              interaction_concat, interaction_logic,
+              interaction_shortcircuit, interaction_edge)
 
 
 @dataclass
@@ -212,5 +215,19 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_logic.MODEL.select(),
             "各行で全6リダクションと論理否定の入力・実際の式・結果を観測し、支配値とX/Z、"
             "演算前後の状態変換、1ビットunsigned結果の拡張、入力の自己決定幅を確認する。",
+        ),
+        SuiteModel(
+            interaction_shortcircuit.MODEL,
+            lambda row: "tests/gen/ch11/" + interaction_shortcircuit.case_name(row) + ".sv",
+            interaction_shortcircuit.MODEL.select(),
+            "4演算ごとに左右の関数の呼出し回数・観測値・独立した副作用を表示し、短絡による"
+            "右辺の評価抑止、未知値の真偽変換、結果と最終格納先の状態変換を確認する。",
+        ),
+        SuiteModel(
+            interaction_edge.MODEL,
+            lambda row: "tests/gen/ch9/" + interaction_edge.case_name(row) + ".sv",
+            interaction_edge.MODEL.select(),
+            "両背景で初期イベントを除外し、更新直後の値と次時刻の3カウンタを観測して、"
+            "X/Z遷移、式の変化、ベクタのLSB規則、状態変換、NBAの更新時点を確認する。",
         ),
     )

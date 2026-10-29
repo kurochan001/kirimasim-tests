@@ -6,7 +6,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 8779 |
+| Tests | 8935 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -19,9 +19,9 @@
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 664 |
-| Icarus Verilog 13.0 only | 4389 |
-| Verilator 5.052 only | 1552 |
-| standard only | 2174 |
+| Icarus Verilog 13.0 only | 4469 |
+| Verilator 5.052 only | 1564 |
+| standard only | 2238 |
 
 ## By chapter
 
@@ -33,9 +33,9 @@
 | 6 | Data types | 641 | 76 | 8.4 | 0 | 103 |
 | 7 | Aggregate data types | 712 | 49 | 14.5 | 0 | 159 |
 | 8 | Classes | 321 | 43 | 7.5 | 0 | 72 |
-| 9 | Processes | 210 | 25 | 8.4 | 0 | 27 |
+| 9 | Processes | 274 | 25 | 11.0 | 0 | 27 |
 | 10 | Assignment statements | 240 | 18 | 13.3 | 0 | 28 |
-| 11 | Operators and expressions | 1406 | 42 | 33.5 | 0 | 90 |
+| 11 | Operators and expressions | 1498 | 42 | 35.7 | 0 | 154 |
 | 12 | Procedural programming statements | 217 | 19 | 11.4 | 0 | 19 |
 | 13 | Tasks and functions (subroutines) | 237 | 15 | 15.8 | 0 | 18 |
 | 14 | Clocking blocks | 78 | 15 | 5.2 | 0 | 13 |

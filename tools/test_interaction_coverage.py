@@ -36,6 +36,8 @@ import interaction_divide
 import interaction_resize
 import interaction_concat
 import interaction_logic
+import interaction_shortcircuit
+import interaction_edge
 from interaction_bits import resize
 
 
@@ -429,6 +431,61 @@ class CoveringSets(unittest.TestCase):
         self.assertEqual(result["not"], ("0", "0000000"))
         self.assertEqual(result["xor"], ("x", "000000x"))
         self.assertTrue(interaction_logic.make_case(prefix).fourstate)
+
+    def test_short_circuit_skips_only_decisive_right_operands(self):
+        calls = interaction_shortcircuit.right_calls
+        self.assertEqual([calls(op, "0") for op in ("and", "or", "imply", "equiv")], [0, 1, 0, 1])
+        self.assertEqual([calls(op, "1") for op in ("and", "or", "imply", "equiv")], [1, 0, 1, 1])
+        self.assertTrue(all(calls(op, "x") == 1 for op in interaction_shortcircuit.OPERATORS))
+        r = interaction_shortcircuit.reference
+        row = ("65", "same", "ll", "unknown", "one", "bit")
+        result = r(row, "and")
+        self.assertEqual((result["scalar"], result["wide"], result["calls_b"]),
+                         ("x", "0000000", 1))
+        self.assertEqual((r(row, "imply")["scalar"], r(row, "imply")["calls_b"]), ("1", 1))
+        binary_left = (*row[:2], "bl", *row[3:])
+        for op in ("and", "imply"):
+            self.assertEqual(r(binary_left, op)["calls_b"], 0)
+
+    def test_short_circuit_keeps_skipped_side_effects_and_all_xz_stimuli(self):
+        row = ("1", "same", "ll", "zero", "one", "logic")
+        result = interaction_shortcircuit.reference(row, "imply")
+        self.assertEqual((result["scalar"], result["seen_a"], result["seen_b"]), ("1", "0", "0"))
+        self.assertEqual((result["marker_a"], result["marker_b"]), ("a5", "69"))
+        for a in ("0", "1", "x"):
+            for b in ("0", "1", "x"):
+                self.assertEqual(interaction_shortcircuit.logical("equiv", a, b),
+                                 "x" if "x" in (a, b) else str(int(a == b)))
+        unknown = ("33", "same", "ll", "unknown", "unknown", "logic")
+        stimuli = interaction_shortcircuit.stimuli(unknown)
+        self.assertEqual(len(stimuli), 6)
+        pairs = {interaction_shortcircuit.inputs(unknown, phase)[:2]
+                 for _, phase, baseline in stimuli if baseline is None}
+        self.assertEqual(len(pairs), 4)
+
+    def test_event_edges_use_expression_lsb_and_preserve_x_z_changes(self):
+        events = interaction_edge.events
+        self.assertEqual(events("0", "z"), (1, 0, 1))
+        self.assertEqual(events("z", "1"), (1, 0, 1))
+        self.assertEqual(events("1", "x"), (0, 1, 1))
+        self.assertEqual(events("x", "0"), (0, 1, 1))
+        self.assertEqual(events("x", "z"), (0, 0, 1))
+        self.assertEqual(events("00", "10"), (0, 0, 1))
+        row = ("129", "logic", "vector", "high", "x", "z", "nba")
+        for bg in (0, 1):
+            self.assertEqual(interaction_edge.reference(row, bg)[-1], (0, 0, 1))
+
+    def test_event_expressions_observe_conversion_and_reduction_masking(self):
+        row = ("65", "logic", "reduce_or", "high", "0", "1", "blocking")
+        self.assertEqual(interaction_edge.reference(row, 0)[-1], (1, 0, 1))
+        self.assertEqual(interaction_edge.reference(row, 1)[-1], (0, 0, 0))
+        binary = ("33", "bit", "lsb", "low", "z", "1", "nba")
+        self.assertEqual(interaction_edge.reference(binary, 0)[-1], (1, 0, 1))
+        same_unknown = ("1", "logic", "reduce_or", "low", "x", "z", "blocking")
+        self.assertEqual(interaction_edge.reference(same_unknown, 0)[-1], (0, 0, 0))
+        self.assertTrue(interaction_edge.make_case(binary).fourstate)
+        case = interaction_edge.make_case(("1", "logic", "vector", "low", "0", "1", "nba"))
+        self.assertIn("b0_p_scheduled=0\nb0_p_final=1 expr=1 pos=1 neg=0 change=1", case.expected)
 
     def test_stream_partial_blocks_need_inverse_permutations_for_unpack(self):
         reorder = interaction_stream.reorder

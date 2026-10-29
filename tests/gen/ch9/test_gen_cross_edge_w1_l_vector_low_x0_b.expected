@@ -1,0 +1,12 @@
+b0_k_input=0 1 source=0 expr=0
+b0_k_scheduled=1
+b0_k_final=1 expr=1 pos=1 neg=0 change=1
+b0_p_input=x 0 source=x expr=x
+b0_p_scheduled=0
+b0_p_final=0 expr=0 pos=0 neg=1 change=1
+b1_k_input=0 1 source=0 expr=0
+b1_k_scheduled=1
+b1_k_final=1 expr=1 pos=1 neg=0 change=1
+b1_p_input=x 0 source=x expr=x
+b1_p_scheduled=0
+b1_p_final=0 expr=0 pos=0 neg=1 change=1
