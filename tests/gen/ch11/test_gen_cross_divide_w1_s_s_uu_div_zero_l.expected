@@ -1,0 +1,16 @@
+k0_inputs=1 1
+k0_result=1 direct=1 bits=1
+k1_inputs=1 1
+k1_result=1 direct=1 bits=1
+k2_inputs=1 1
+k2_result=1 direct=1 bits=1
+k3_inputs=1 1
+k3_result=1 direct=1 bits=1
+p0_inputs=1 0
+p0_result=x direct=x bits=1
+p1_inputs=1 0
+p1_result=x direct=x bits=1
+p2_inputs=1 0
+p2_result=x direct=x bits=1
+p3_inputs=1 0
+p3_result=x direct=x bits=1

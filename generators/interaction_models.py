@@ -24,6 +24,8 @@ import interaction_compare
 import interaction_method
 import interaction_index
 import interaction_queue
+import interaction_divide
+import interaction_resize
 import scheduling
 from interaction_cover import Model, Row
 
@@ -32,7 +34,8 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
               interaction_compare, interaction_method,
-              interaction_index, interaction_queue)
+              interaction_index, interaction_queue,
+              interaction_divide, interaction_resize)
 
 
 @dataclass
@@ -178,5 +181,19 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_queue.MODEL.select(),
             "2組の入力でサイズと全要素、取り出した値、操作前のコピーを観測し、"
             "追加位置と容量による破棄、空の既定値、型変換、値コピーの独立性を確認する。",
+        ),
+        SuiteModel(
+            interaction_divide.MODEL,
+            lambda row: "tests/gen/ch11/" + interaction_divide.case_name(row) + ".sv",
+            interaction_divide.MODEL.select(),
+            "両オペランドと演算結果を観測し、演算前の幅・符号の統一、商の0方向への丸め、"
+            "剰余の符号、ゼロ除算とX/Zの伝播、最終的な2状態変換を確認する。",
+        ),
+        SuiteModel(
+            interaction_resize.MODEL,
+            lambda row: "tests/gen/ch7/" + interaction_resize.case_name(row) + ".sv",
+            interaction_resize.MODEL.select(),
+            "再確保前後のサイズと全要素を観測し、別配列コピー・自己リサイズ・初期化式なしの"
+            "再生成、切り詰め、追加領域の型別既定値、コピー後の独立性を確認する。",
         ),
     )

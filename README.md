@@ -52,15 +52,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **8527 tests** in 38 chapters. 2091 of them are generated (`tests/gen/`, see "Generated tests"): 36 by `interaction_array`, 36 by `interaction_case`, 32 by `interaction_cast`, 100 by `interaction_compare`, 32 by `interaction_cond`, 51 by `interaction_expr`, 44 by `interaction_index`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 60 by `interaction_query`, 48 by `interaction_queue`, 36 by `interaction_select`, 56 by `interaction_shift`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **8637 tests** in 38 chapters. 2201 of them are generated (`tests/gen/`, see "Generated tests"): 36 by `interaction_array`, 36 by `interaction_case`, 32 by `interaction_cast`, 100 by `interaction_compare`, 32 by `interaction_cond`, 72 by `interaction_divide`, 51 by `interaction_expr`, 44 by `interaction_index`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 60 by `interaction_query`, 48 by `interaction_queue`, 38 by `interaction_resize`, 36 by `interaction_select`, 56 by `interaction_shift`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4807 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4917 |
 | Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1552 |
 | The standard only, with no fixed-release simulator oracle recorded | 2168 |
 
-1404 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+1492 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -68,11 +68,11 @@ The suite has **8527 tests** in 38 chapters. 2091 of them are generated (`tests/
 | 4 | Scheduling semantics | 412 | 391 | 5 | 16 |
 | 5 | Lexical conventions | 346 | 325 | 14 | 7 |
 | 6 | Data types | 641 | 396 | 142 | 103 |
-| 7 | Aggregate data types | 674 | 253 | 262 | 159 |
+| 7 | Aggregate data types | 712 | 291 | 262 | 159 |
 | 8 | Classes | 321 | 67 | 182 | 72 |
 | 9 | Processes | 210 | 151 | 32 | 27 |
 | 10 | Assignment statements | 240 | 169 | 43 | 28 |
-| 11 | Operators and expressions | 1192 | 1005 | 103 | 84 |
+| 11 | Operators and expressions | 1264 | 1077 | 103 | 84 |
 | 12 | Procedural programming statements | 217 | 169 | 29 | 19 |
 | 13 | Tasks and functions (subroutines) | 237 | 137 | 82 | 18 |
 | 14 | Clocking blocks | 78 | 4 | 61 | 13 |
@@ -172,12 +172,13 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.md) uses constrained
 pairwise coverage, selected three-factor groups and mandatory boundary witnesses.
-Its focused selection has 834 tests across eighteen models: scheduling, NBA capture,
+Its focused selection has 944 tests across twenty models: scheduling, NBA capture,
 arithmetic context, packed part-selects, conditional merging, shifts, cast pipelines
 and task argument visibility, packed structures, case matching, port connections,
 unpacked array copies, bit-vector queries, streaming permutations, comparisons,
-array reduction pipelines, variable bit indices and queue updates with capacity limits.
-The last two select 92 tests from 6,336 assignments
+array reduction pipelines, variable bit indices, queue updates with capacity limits,
+division/remainder context and dynamic-array resizing.
+The last two select 110 tests from 6,720 assignments
 that satisfy their constraints. The full suite retains all existing tests.
 The [interaction report](docs/interaction-coverage.md) separates the selection plan
 from fingerprint-qualified passes in each individual run; it does not change the
@@ -695,6 +696,8 @@ outputs, and it writes many small variations of one kind of test:
 | `interaction_method` | 7 | Element width/state/sign, fixed/dynamic/queue storage, five reduction methods and four conversion forms; 72 cases check conversion before reduction, overflow and return-type extension |
 | `interaction_index` | 11 | Width, range origin/direction, bit/logic, index sign/class and write value; 44 cases check variable reads/writes, invalid-access defaults and preservation of other bits |
 | `interaction_queue` | 7 | Element width/state/sign, capacity, initial size, six operations and value; 48 cases check ordering, overflow warnings/discard, empty-pop defaults and independent copies |
+| `interaction_divide` | 11 | Operand widths/signs, assignment width/state, division/remainder and zero/X/Z values; 72 cases check rounding toward zero, remainder signs and context before final conversion |
+| `interaction_resize` | 7 | Element width/state/sign/value, old/new sizes and copy/self/reset construction; 38 cases check retained prefixes, type defaults, truncation and independent copies |
 | `width_sign` | 11 | Operands and targets of 63 to 1000 bits, signed and unsigned, with the operators whose result size and sign 11.6 to 11.8 decide |
 | `xz_propagation` | 11 | Operands with x and z bits for every operator of 11.4 that has rules for them |
 | `strength` | 28 | Two drivers of a net with different strengths and values, on wire, tri, wand, triand, wor, trior, tri0 and tri1 nets and through bufif gates, shown with `%v` |

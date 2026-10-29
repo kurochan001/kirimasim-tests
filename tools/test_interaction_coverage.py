@@ -32,6 +32,8 @@ import interaction_compare
 import interaction_method
 import interaction_index
 import interaction_queue
+import interaction_divide
+import interaction_resize
 from interaction_bits import resize
 
 
@@ -329,6 +331,57 @@ class CoveringSets(unittest.TestCase):
         insert = ("1", "bit", "unsigned", "two", "2", "insert", "z")
         saved, result, source, changed, _ = interaction_queue.reference(insert, 0)
         self.assertEqual((saved, result, source, changed), (["0", "1"], ["0", "0"], "zz", "01"))
+
+    def test_division_rounds_toward_zero_and_remainder_follows_the_numerator(self):
+        divide = interaction_divide.quotient_remainder
+        self.assertEqual(divide(-7, 3), (-2, -1))
+        self.assertEqual(divide(7, -3), (-2, 1))
+        self.assertEqual(divide(-7, -3), (2, -1))
+        row = ("1", "same", "wide", "signed", "signed", "div", "known", "logic")
+        a, b = interaction_divide.inputs(row, 0)
+        self.assertEqual((a, b), ("1", "1"))
+        self.assertEqual(interaction_divide.reference(row, a, b, 1), "1")
+        self.assertEqual(interaction_divide.reference(row, a, b, 2), "01")
+        signed = ("32", "same", "same", "signed", "signed", "mod", "known", "logic")
+        a, b = interaction_divide.inputs(signed, 1)
+        self.assertEqual(interaction_divide.reference(signed, a, b, 32), "1" * 32)
+        mixed = (*signed[:4], "unsigned", *signed[5:])
+        self.assertEqual(interaction_divide.reference(mixed, a, b, 32), "0" * 32)
+
+    def test_division_keeps_known_witnesses_before_unknown_and_zero_divisors(self):
+        row = ("32", "same", "wide", "signed", "signed", "div", "zero", "bit")
+        case = interaction_divide.make_case(row)
+        self.assertTrue(case.fourstate)
+        self.assertIn("k0_result=", case.expected)
+        self.assertIn("p0_result=" + "x" * 32 + " direct=" + "0" * 33, case.expected)
+        unknown = (*row[:6], "rhs_z", "logic")
+        a, b = interaction_divide.inputs(unknown, 1)
+        self.assertEqual(interaction_divide.reference(unknown, a, b, 33), "x" * 33)
+
+    def test_dynamic_resize_preserves_prefix_and_uses_element_defaults(self):
+        row = ("1", "logic", "signed", "z", "3", "4", "self")
+        initial, result, peer, modified = interaction_resize.reference(row, 0)
+        self.assertEqual(initial, ["z", "0", "1"])
+        self.assertEqual(result, ["z", "0", "1", "x"])
+        self.assertEqual(peer, ["1", "0", "1"])
+        self.assertEqual(modified, ["1", "0", "1", "x"])
+        short = (*row[:5], "1", "copy")
+        self.assertEqual(interaction_resize.reference(short, 1)[1], ["0"])
+        bit = ("1", "bit", "signed", "z", "3", "4", "self")
+        self.assertEqual(interaction_resize.reference(bit, 0)[1], ["0", "0", "1", "0"])
+        phases = [interaction_resize.reference(row, p)[0] for p in (0, 1)]
+        self.assertEqual(len(set(zip(*phases))), 3)
+
+    def test_dynamic_resize_reset_and_padding_require_four_state_evidence(self):
+        reset = ("33", "logic", "signed", "known", "2", "2", "reset")
+        self.assertEqual(interaction_resize.reference(reset, 0)[1], ["x" * 33] * 2)
+        self.assertTrue(interaction_resize.make_case(reset).fourstate)
+        empty_source = ("1", "logic", "unsigned", "known", "0", "4", "self")
+        self.assertEqual(interaction_resize.reference(empty_source, 0)[1], ["x"] * 4)
+        self.assertTrue(interaction_resize.make_case(empty_source).fourstate)
+        empty_result = (*reset[:5], "0", "reset")
+        self.assertEqual(interaction_resize.reference(empty_result, 0)[1], [])
+        self.assertFalse(interaction_resize.make_case(empty_result).fourstate)
 
     def test_stream_partial_blocks_need_inverse_permutations_for_unpack(self):
         reorder = interaction_stream.reorder
