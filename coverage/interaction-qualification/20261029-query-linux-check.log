@@ -17,4 +17,3 @@ FAIL tests/gen/ch20/test_gen_cross_query_w33_b_prefix_mixed_high_duplicate.sv: o
 FAIL tests/gen/ch20/test_gen_cross_query_w33_b_prefix_x_middle_zero.sv: output differs: line 2 is 'bits=34 count=32 ones=4', expected 'bits=34 count=32 ones=2'
 FAIL tests/gen/ch20/test_gen_cross_query_w33_b_prefix_z_low_one.sv: output differs: line 2 is 'bits=34 count=2 ones=10', expected 'bits=34 count=2 ones=2'
 4643/4655 tests match; 3340 known differences not counted
-
