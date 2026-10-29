@@ -82,7 +82,7 @@ def reference(row: Row) -> tuple[str, str, tuple[int, int, int, int, int, int]]:
 
 def icarus_unstable(row: Row) -> bool:
     n = len(reference(row)[1])
-    return row[2] in ("prefix", "repeat") and n > 64 and n % 32 != 0
+    return row[2] in ("prefix", "repeat") and n % 32 != 0
 
 
 def make_case(row: Row) -> Case:
@@ -104,7 +104,7 @@ def make_case(row: Row) -> Case:
              "    $finish;", "  end", "endmodule"]
     b, c, o, h, h0, u = result
     note = (" Icarus Verilog 13.0 gives differing countones results across identical "
-            "reruns for this wide concatenation/replication. It is not registered as "
+            "reruns or hosts for this concatenation/replication. It is not registered as "
             "this case's fixed oracle; the standard-based expectation is unchanged."
             if icarus_unstable(row) else "")
     return Case(

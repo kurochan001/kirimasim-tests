@@ -20,7 +20,7 @@
 // hits. Onehot functions count known ones even when X/Z is present. Source,
 // argument, width and all query results are observed, including unknowns above
 // bit 64. Icarus Verilog 13.0 gives differing countones results across
-// identical reruns for this wide concatenation/replication. It is not
+// identical reruns or hosts for this concatenation/replication. It is not
 // registered as this case's fixed oracle; the standard-based expectation is
 // unchanged.
 

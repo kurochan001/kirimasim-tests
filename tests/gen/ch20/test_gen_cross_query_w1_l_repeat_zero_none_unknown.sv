@@ -4,7 +4,7 @@
 :tags: ch20
 :type: simulation
 :lrm: 1800-2023 20.9 20.6.2 6.11.2 11.4.12 11.5.1
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: yes
 :nondeterministic: no
@@ -19,7 +19,10 @@
 // counts a set of exact 0/1/X/Z values; duplicate controls do not multiply
 // hits. Onehot functions count known ones even when X/Z is present. Source,
 // argument, width and all query results are observed, including unknowns above
-// bit 64.
+// bit 64. Icarus Verilog 13.0 gives differing countones results across
+// identical reruns or hosts for this concatenation/replication. It is not
+// registered as this case's fixed oracle; the standard-based expectation is
+// unchanged.
 
 module test_gen_cross_query_w1_l_repeat_zero_none_unknown;
   logic [0:0] source;

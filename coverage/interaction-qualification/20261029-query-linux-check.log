@@ -1,0 +1,20 @@
+# Icarus Verilog 13.0 qualification on Ubuntu 24.04
+# Suite commit: 039af02d40b443b94ee77337a684a07e0285bf31
+# Workflow: https://github.com/kurochan001/kirimasim-tests/actions/runs/40893253924
+# Job: https://github.com/kurochan001/kirimasim-tests/actions/runs/40893253924/job/123515392584
+# Exact query failure lines extracted from the job log; timestamp prefixes removed.
+# This is qualification evidence, not a current input-fingerprinted run snapshot.
+FAIL tests/gen/ch20/test_gen_cross_query_w1_b_repeat_x_low_one.sv: output differs: line 2 is 'bits=2 count=0 ones=8', expected 'bits=2 count=0 ones=0'
+FAIL tests/gen/ch20/test_gen_cross_query_w1_l_prefix_one_low_unknown.sv: output differs: line 2 is 'bits=2 count=0 ones=5', expected 'bits=2 count=0 ones=2'
+FAIL tests/gen/ch20/test_gen_cross_query_w1_l_repeat_one_low_mixed.sv: output differs: line 2 is 'bits=2 count=2 ones=7', expected 'bits=2 count=2 ones=2'
+FAIL tests/gen/ch20/test_gen_cross_query_w1_l_repeat_x_low_one.sv: output differs: line 2 is 'bits=2 count=0 ones=9', expected 'bits=2 count=0 ones=0'
+FAIL tests/gen/ch20/test_gen_cross_query_w1_l_repeat_z_low_unknown.sv: output differs: line 2 is 'bits=2 count=2 ones=8', expected 'bits=2 count=2 ones=0'
+FAIL tests/gen/ch20/test_gen_cross_query_w1_l_repeat_zero_none_unknown.sv: output differs: line 2 is 'bits=2 count=0 ones=6', expected 'bits=2 count=0 ones=0'
+FAIL tests/gen/ch20/test_gen_cross_query_w32_l_prefix_many_low_unknown.sv: output differs: line 2 is 'bits=33 count=0 ones=7', expected 'bits=33 count=0 ones=3'
+FAIL tests/gen/ch20/test_gen_cross_query_w32_l_prefix_mixed_low_zero.sv: output differs: line 2 is 'bits=33 count=29 ones=7', expected 'bits=33 count=29 ones=2'
+FAIL tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv: output differs: line 2 is 'bits=33 count=3 ones=7', expected 'bits=33 count=3 ones=2'
+FAIL tests/gen/ch20/test_gen_cross_query_w33_b_prefix_mixed_high_duplicate.sv: output differs: line 2 is 'bits=34 count=2 ones=9', expected 'bits=34 count=2 ones=2'
+FAIL tests/gen/ch20/test_gen_cross_query_w33_b_prefix_x_middle_zero.sv: output differs: line 2 is 'bits=34 count=32 ones=4', expected 'bits=34 count=32 ones=2'
+FAIL tests/gen/ch20/test_gen_cross_query_w33_b_prefix_z_low_one.sv: output differs: line 2 is 'bits=34 count=2 ones=10', expected 'bits=34 count=2 ones=2'
+4643/4655 tests match; 3340 known differences not counted
+

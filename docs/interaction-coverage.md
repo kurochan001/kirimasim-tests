@@ -1432,10 +1432,10 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 必須ケース: 0/3。
   - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
 - bit_vector_queries:
-  - 2因子の合格確認済み組合せ: 264/285。
-  - 3因子の合格確認済み組合せ: 100/108。
-  - 必須ケース: 4/4。
-  - ケース状態: pass=56, fail=0, known=4, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 210/285。
+  - 3因子の合格確認済み組合せ: 66/108。
+  - 必須ケース: 2/4。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=21, not_run=0。
 - streaming_permutation:
   - 2因子の合格確認済み組合せ: 0/182。
   - 3因子の合格確認済み組合せ: 0/68。
@@ -1508,6 +1508,158 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 必須ケース: 2/3。
   - ケース状態: pass=30, fail=0, known=0, unsupported=6, stale=0, not_run=0。
 - bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 210/285。
+  - 3因子の合格確認済み組合せ: 66/108。
+  - 必須ケース: 2/4。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=21, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+
+### coverage/interaction-results/cross-20261029-remaining-qualified-icarus13.json
+
+- 環境: Icarus Verilog version 13.0 (stable) (v13_0-dirty)。
+- 実行日時: 2026-10-29T14:41:10.267798+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 3因子の合格確認済み組合せ: 51/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 182/185。
+  - 3因子の合格確認済み組合せ: 71/76。
+  - 必須ケース: 2/3。
+  - ケース状態: pass=30, fail=0, known=2, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 126/144。
+  - 3因子の合格確認済み組合せ: 42/52。
+  - 必須ケース: 2/3。
+  - ケース状態: pass=30, fail=0, known=6, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 198/204。
+  - 3因子の合格確認済み組合せ: 52/56。
+  - 必須ケース: 3/5。
+  - ケース状態: pass=34, fail=0, known=2, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 249/285。
+  - 3因子の合格確認済み組合せ: 90/108。
+  - 必須ケース: 3/4。
+  - ケース状態: pass=51, fail=0, known=9, unsupported=0, stale=0, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
+
+### coverage/interaction-results/cross-20261029-remaining-qualified-kirimasim-5e8ab59.json
+
+- 環境: kirimasim 0.0.0 (commit 5e8ab597520a), built with AppleClang 21.0.0.21000334。
+- 実行日時: 2026-10-29T14:41:35.089445+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 3因子の合格確認済み組合せ: 51/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 185/185。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 144/144。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 204/204。
+  - 3因子の合格確認済み組合せ: 56/56。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 122/148。
+  - 3因子の合格確認済み組合せ: 38/52。
+  - 必須ケース: 2/3。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=6, stale=0, not_run=0。
+- bit_vector_queries:
   - 2因子の合格確認済み組合せ: 285/285。
   - 3因子の合格確認済み組合せ: 108/108。
   - 必須ケース: 4/4。
@@ -1518,10 +1670,10 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 必須ケース: 4/4。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 
-### coverage/interaction-results/cross-20261029-remaining-verilator5052-seed1.json
+### coverage/interaction-results/cross-20261029-remaining-qualified-verilator5052-seed1.json
 
 - 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
-- 実行日時: 2026-10-29T14:31:31.988799+00:00。
+- 実行日時: 2026-10-29T14:42:10.274843+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 119/126。
@@ -1594,10 +1746,10 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 必須ケース: 0/4。
   - ケース状態: pass=11, fail=0, known=1, unsupported=0, stale=0, not_run=24。
 
-### coverage/interaction-results/cross-20261029-remaining-verilator5052-seed73.json
+### coverage/interaction-results/cross-20261029-remaining-qualified-verilator5052-seed73.json
 
 - 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
-- 実行日時: 2026-10-29T14:31:53.086928+00:00。
+- 実行日時: 2026-10-29T14:42:37.837012+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 119/126。
@@ -1664,6 +1816,158 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 24/108。
   - 必須ケース: 1/4。
   - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 105/182。
+  - 3因子の合格確認済み組合せ: 22/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=11, fail=0, known=1, unsupported=0, stale=0, not_run=24。
+
+### coverage/interaction-results/cross-20261029-remaining-verilator5052-seed1.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-10-29T14:31:31.988799+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 119/126。
+  - 3因子の合格確認済み組合せ: 43/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=43, fail=0, known=8, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 98/162。
+  - 3因子の合格確認済み組合せ: 17/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 100/162。
+  - 3因子の合格確認済み組合せ: 18/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 93/185。
+  - 3因子の合格確認済み組合せ: 22/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=8, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 166/298。
+  - 3因子の合格確認済み組合せ: 34/92。
+  - 必須ケース: 2/4。
+  - ケース状態: pass=23, fail=0, known=0, unsupported=0, stale=0, not_run=33。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 131/214。
+  - 3因子の合格確認済み組合せ: 32/76。
+  - 必須ケース: 1/3。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=20。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 80/144。
+  - 3因子の合格確認済み組合せ: 18/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=11, fail=0, known=1, unsupported=0, stale=0, not_run=24。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 126/186。
+  - 3因子の合格確認済み組合せ: 23/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 81/220。
+  - 3因子の合格確認済み組合せ: 18/82。
+  - 必須ケース: 1/3。
+  - ケース状態: pass=6, fail=0, known=0, unsupported=0, stale=0, not_run=30。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 133/204。
+  - 3因子の合格確認済み組合せ: 24/56。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 95/148。
+  - 3因子の合格確認済み組合せ: 21/52。
+  - 必須ケース: 1/3。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 81/285。
+  - 3因子の合格確認済み組合せ: 20/108。
+  - 必須ケース: 1/4。
+  - ケース状態: pass=10, fail=0, known=0, unsupported=0, stale=2, not_run=48。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 105/182。
+  - 3因子の合格確認済み組合せ: 22/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=11, fail=0, known=1, unsupported=0, stale=0, not_run=24。
+
+### coverage/interaction-results/cross-20261029-remaining-verilator5052-seed73.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-10-29T14:31:53.086928+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 119/126。
+  - 3因子の合格確認済み組合せ: 43/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=43, fail=0, known=8, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 98/162。
+  - 3因子の合格確認済み組合せ: 17/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 100/162。
+  - 3因子の合格確認済み組合せ: 18/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 93/185。
+  - 3因子の合格確認済み組合せ: 22/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=8, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 166/298。
+  - 3因子の合格確認済み組合せ: 34/92。
+  - 必須ケース: 2/4。
+  - ケース状態: pass=23, fail=0, known=0, unsupported=0, stale=0, not_run=33。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 131/214。
+  - 3因子の合格確認済み組合せ: 32/76。
+  - 必須ケース: 1/3。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=20。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 80/144。
+  - 3因子の合格確認済み組合せ: 18/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=11, fail=0, known=1, unsupported=0, stale=0, not_run=24。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 126/186。
+  - 3因子の合格確認済み組合せ: 23/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 81/220。
+  - 3因子の合格確認済み組合せ: 18/82。
+  - 必須ケース: 1/3。
+  - ケース状態: pass=6, fail=0, known=0, unsupported=0, stale=0, not_run=30。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 133/204。
+  - 3因子の合格確認済み組合せ: 24/56。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 95/148。
+  - 3因子の合格確認済み組合せ: 21/52。
+  - 必須ケース: 1/3。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 81/285。
+  - 3因子の合格確認済み組合せ: 20/108。
+  - 必須ケース: 1/4。
+  - ケース状態: pass=10, fail=0, known=0, unsupported=0, stale=2, not_run=48。
 - streaming_permutation:
   - 2因子の合格確認済み組合せ: 105/182。
   - 3因子の合格確認済み組合せ: 22/68。

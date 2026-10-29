@@ -233,7 +233,15 @@ class CoveringSets(unittest.TestCase):
             if any(r["tests"][key]["status"] != "pass" for r in snapshots):
                 unstable.add(case.name)
                 self.assertNotIn("iverilog@13.0", oracles.get(case.name, "").split())
-        self.assertTrue(unstable)
+        self.assertEqual(len(unstable), 9)
+        linux_log = (directory.parent / "20261029-query-linux-check.log").read_text()
+        linux_failed = {line.split()[1].removeprefix("tests/gen/ch20/").removesuffix(".sv:")
+                        for line in linux_log.splitlines() if line.startswith("FAIL ")}
+        self.assertEqual(len(linux_failed), 12)
+        self.assertFalse(unstable & linux_failed)
+        for name in linux_failed:
+            self.assertNotIn("iverilog@13.0", oracles.get(name, "").split())
+        unstable |= linux_failed
         self.assertEqual(unstable, {interaction_query.case_name(r)
                                    for r in interaction_query.MODEL.select()
                                    if interaction_query.icarus_unstable(r)})
