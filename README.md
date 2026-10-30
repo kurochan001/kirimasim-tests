@@ -194,6 +194,11 @@ The [design rationale and practical methodology](docs/interaction-verification-m
 (Japanese) explain model selection, implementation and evidence, how to add new
 models, and how to apply the approach to other projects and LSI verification.
 
+The [saved-run summary](docs/interaction-verification.md#保存実行の概要) records the
+build revision, execution scope and pass/unsupported/fail counts. A complete
+selection plan and a successful Check do not mean all crosses passed on every
+simulator. These saved cross runs are separate from the full Nightly suite.
+
 [Issue #21's regression report](docs/p1-combination-regressions-20261030.md) and
 [reviewed registry](coverage/combination-gaps.json) link existing witnesses to 74 new
 tests: nine event, sixteen NBA, eighteen aggregate, thirteen I/O and eighteen

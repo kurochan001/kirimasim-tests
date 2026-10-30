@@ -23,7 +23,12 @@ version now matches shows there as `NOW MATCHES` for Icarus Verilog or as a
 new match.
 
 When a new test finds such a place, add it here, and say it in the comment
-of the test as well.
+of the test as well. The [interaction guide](interaction-verification.md) gives
+the source clauses, independent checks and retained unsupported cases for the
+2026-10-30 compound-shift and membership additions. Its
+[saved-run summary](interaction-verification.md#保存実行の概要) separates those runs
+from CI and Nightly; a fixed-release observation is not a claim about a later
+development build.
 
 ## Icarus Verilog 13.0
 
@@ -31,6 +36,8 @@ of the test as well.
 
 | Clause | What Icarus Verilog 13.0 does | Tests |
 | --- | --- | --- |
+| 11.4.10, 6.11.2 | For six selected compound shifts into packed bit storage with an X/Z count, the original vector remains. The shift result must be unknown, then convert to zero on storage into bit. | the six compound-shift cases with bit destinations and X/Z counts in [cross26-icarus-13.json](../coverage/interaction-results/cross26-icarus-13.json), including [the 129-bit scalar case](../tests/gen/ch11/test_gen_cross_compound_shift_w129_b_u_scalar_shl_z_c8_known.sv) |
+| 11.4.1, 11.4.10 | Arithmetic right shift by 65 of a signed 65-bit logic array element with a Z sign bit gives zero instead of repeating Z. This extends the earlier indexed-int compound-assignment observation below. | [test_gen_cross_compound_shift_w65_l_s_element_ashr_width_c65_z](../tests/gen/ch11/test_gen_cross_compound_shift_w65_l_s_element_ashr_width_c65_z.sv) |
 | 20.9 | `$countones` of concatenation/replication arguments whose width is not a multiple of 32 bits differs across reruns or hosts: nine selected cases vary in six local runs, and twelve more differ on Ubuntu 24.04 (argument widths 2, 33 and 34). None of these 21 receives an Icarus oracle. See the [qualification evidence](../coverage/interaction-qualification/README.md). | the 21 `gen/ch20/test_gen_cross_query_*` cases identified by `icarus_unstable` in `generators/interaction_query.py` |
 | 23.3.3.8, 10.7 | With the suite runner's `-ginterconnect` option, it zero-pads a signed parent value connected to a wider input port. The source must sign-extend. The same cases match without `-ginterconnect`. | `gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a`, `gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n` |
 | 11.4.11 | With an x or z condition, `?:` gives z where both operands have z in the same bit; Table 11-20 gives x. | `gen/ch11/test_gen_xz_cond_07`, `_08`; `gen/ch11/test_gen_cross_cond_w129_ss_x_same_xz_w_l`, `gen/ch11/test_gen_cross_cond_w65_uu_z_same_xz_n_l` |
@@ -109,6 +116,8 @@ not parse the modport in an interface port of a module.
 
 | Clause | What Verilator 5.052 does | Tests |
 | --- | --- | --- |
+| 11.4.1, 11.5.1 | Two compound shifts into variable packed part-selects evaluate the index function twice, changing its next index and unselected bits. The left index must be evaluated once. Both seeds show two calls instead of one; [full outputs and a fault control](../coverage/interaction-qualification/20261030-compound-shift.json) are saved. | [33-bit signed-parent case](../tests/gen/ch11/test_gen_cross_compound_shift_w33_l_s_part_ashr_last_c8_known.sv), [129-bit case](../tests/gen/ch11/test_gen_cross_compound_shift_w129_b_u_part_shr_width_c8_known.sv) |
+| 11.4.13, 11.4.6, 11.8.2 | A 128-bit signed all-ones needle returns 1 against an explicit list of 129-bit unsigned all-ones/one members. The common unsigned comparison must zero-extend the needle, yielding 0. The last input phase differs at both seeds. | [test_gen_cross_inside_w129_n_su_b_list_n3_known](../tests/gen/ch11/test_gen_cross_inside_w129_n_su_b_list_n3_known.sv) |
 | 11.5.1 | Some out-of-range variable selects of ascending bit vectors fail the required zero-read/ignored-write behavior. Both fixed seeds differ; a negative range or a non-word-sized vector exposes the boundary. | `gen/ch11/test_gen_cross_index_w129_z_a_b_u_before_known`, `gen/ch11/test_gen_cross_index_w64_n_a_b_u_after_known`, `gen/ch11/test_gen_cross_index_w65_n_a_b_s_before_known` |
 | 7.10.5 | Full bounded-queue push/write operations give the correct contents but no required overflow warning. A full three-element bit queue also grows to four elements on insert. | `gen/ch7/test_gen_cross_queue_w1_b_u_c2_n2_push_front_known`, `gen/ch7/test_gen_cross_queue_w1_b_u_c3_n3_write_end_known`, `gen/ch7/test_gen_cross_queue_w65_b_s_c2_n2_push_back_known`; `gen/ch7/test_gen_cross_queue_w1_b_u_c3_n3_insert_known` |
 | 7.12.3, 6.24.1, 11.8.2 | Some array-reduction results, extensions or expression widths differ. An unsigned one-bit dynamic-array sum of three ones extends to `11` instead of `01`; a 32-bit product with a 33-bit with-expression also differs when assigned wide. Seven observed output differences are listed in the [interaction guide](interaction-verification.md). | `gen/ch7/test_gen_cross_method_w1_b_u_d_sum_plain_known`, `gen/ch7/test_gen_cross_method_w32_l_u_f_product_widen_known` and five other cases listed in the guide |

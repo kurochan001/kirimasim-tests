@@ -21,6 +21,31 @@ Issue #21の組合せ境界は[回帰取り込みレポート](../docs/p1-combin
 `python3 tools/combination_gaps.py --check`は台帳と生成レポートの整合性を検査し、
 未対応・不一致を合格へ読み替えません。
 
+## 機能間クロスの計画と証跡
+
+機能間クロスは、要求カバレッジとは別に次のファイルで管理します。
+[保存実行の概要](../docs/interaction-verification.md#保存実行の概要)から、対象版と残件を確認できます。
+
+- `interaction-summary.json`と[クロス検証レポート](../docs/interaction-coverage.md):
+  登録モデルの因子・制約・対象組合せ・必須ケースと、各実行の充足状況。
+- `interaction-results/`: ランナーが保存した実行結果。入力・期待値・ランナーのハッシュ、
+  日時、シミュレータの版を照合します。別の実行回の部分成功を合成しません。
+- `interaction-qualification/`: 確認元の選別、最小例、独立検算、故障注入、ビルドの補助証跡。
+  このJSONを回帰実行の成功として取り込んだり、テスト数へ加算したりはしません。
+
+```sh
+python3 tools/interaction_coverage.py --check
+python3 tools/interaction_coverage.py --list-tests --model membership_container
+python3 tools/interaction_coverage.py --model membership_container \
+  --results coverage/interaction-results/cross27-kirimasim-latest.json --require-pass
+```
+
+`--check`は計画・生成物・集計の整合性を検査します。最後の`--require-pass`は指定した保存実行の
+対象組合せと必須ケースの成功を判定するため、この記録の集合所属判定では非ゼロを返します。
+どちらもシミュレータを起動するコマンドではありません。
+再実行は[導入・更新手順](../docs/interaction-verification-method.md)に従い、新しい証跡を保存してください。
+保存時に最新コミットを確認した記録でも、その後の上流更新へ自動追従するわけではありません。
+
 ## mainの集計とNightlyの集計
 
 `main`の`docs/behavior-coverage-summary.md`は、`coverage/results/`に保存した証跡を使います。

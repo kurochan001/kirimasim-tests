@@ -8,6 +8,8 @@
 現在の因子・分母・実行ごとの達成状況は[クロス検証レポート](interaction-coverage.md)、
 規格要求とテストの対応付けは[要求からテストを作る手順](requirements-to-tests-method.md)を
 参照してください。本資料は方法を説明し、最新の件数はレポートで確認します。
+ビルド版と残件を短く読む場合は[保存実行の概要](interaction-verification.md#保存実行の概要)、
+固定参照版の不一致は[差異一覧](simulator-differences.md)を参照してください。
 有限モデルとは別に追加する境界条件の回帰テストは、
 [Issue #21の回帰取り込みレポート](p1-combination-regressions-20261030.md)と
 [照合台帳](../coverage/combination-gaps.json)で、既存テストの再利用、規格根拠、保留事項を管理します。
@@ -247,6 +249,9 @@ python3 tools/lint_metadata.py
 
 保存する実行JSONは`coverage/interaction-results/`へ置いてからクロス集計を更新します。
 更新後は対応する`--check`も実行し、CIのCheckを確認します。
+関連資料はREADME両言語、検証ガイド、固定版の差異一覧、補助証跡の説明へ反映します。
+記録済みの過去の数値を新しい値で置換せず、対象コミットと版を付けた追記にします。
+FAQ・用語集では変動する件数を重複管理せず、集計や保存実行の概要へリンクします。
 `interaction_coverage.py --check`は、計画と生成物・集計が最新であることの検査です。
 全モデルの実行が合格していることを要求するゲートは`--require-pass`です。
 具体的な不一致・未対応は期待値を緩めず記録し、既存テスト、oracle、過去の証跡が
