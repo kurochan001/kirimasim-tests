@@ -173,8 +173,10 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 合格／未対応／不一致の内訳をまとめています。計画上の網羅とCheckの成功を、
 各シミュレータでの全クロス合格とは扱いません。Nightlyの全件実行とも範囲を区別します。
 
-Claude Codeへ引き継ぐ場合は、[2026-10-30のハンドオフ資料](docs/claude-code-handoff-20261030-cross-verification.md)を
-参照してください。リポジトリの状態、検証済みの版、残件、再開コマンドをまとめています。
+作業を引き継ぐ場合は、まず[2026-10-31のハンドオフ資料](docs/codex-handoff-20261031.md)を
+参照してください。リポジトリの状態、未着手のIssue、再開コマンドをまとめています。
+クロスのモデル追加手順と検証済みの版は
+[2026-10-30のハンドオフ資料](docs/claude-code-handoff-20261030-cross-verification.md)にあります。
 
 [Issue #21の回帰取り込みレポート](docs/p1-combination-regressions-20261030.md)と
 [確認済みの照合台帳](coverage/combination-gaps.json)には、既存テストの再利用と、

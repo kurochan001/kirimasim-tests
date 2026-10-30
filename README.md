@@ -202,8 +202,10 @@ build revision, execution scope and pass/unsupported/fail counts. A complete
 selection plan and a successful Check do not mean all crosses passed on every
 simulator. These saved cross runs are separate from the full Nightly suite.
 
-For continuation in Claude Code, see the [2026-10-30 handoff](docs/claude-code-handoff-20261030-cross-verification.md)
-for the repository state, verified builds, remaining gaps and resumption commands.
+To continue this work, see the [2026-10-31 handoff](docs/codex-handoff-20261031.md)
+for the repository state, the open issues and the resumption commands, and the
+[2026-10-30 handoff](docs/claude-code-handoff-20261030-cross-verification.md) for
+the cross-model procedure and the verified builds behind it.
 
 [Issue #21's regression report](docs/p1-combination-regressions-20261030.md) and
 [reviewed registry](coverage/combination-gaps.json) link existing witnesses to 74 new
