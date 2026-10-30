@@ -1,0 +1,6 @@
+p0 input=x amount=11111111
+p0 scalar=x a0=0 a1=x a2=1
+p0 parent=100 extended=00 choice=2 calls=1
+p1 input=x amount=11111111
+p1 scalar=x a0=0 a1=x a2=1
+p1 parent=001 extended=00 choice=2 calls=1

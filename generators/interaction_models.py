@@ -30,6 +30,7 @@ import interaction_concat
 import interaction_logic
 import interaction_shortcircuit
 import interaction_edge
+import interaction_compound
 import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
@@ -42,7 +43,8 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_index, interaction_queue,
               interaction_divide, interaction_resize,
               interaction_concat, interaction_logic,
-              interaction_shortcircuit, interaction_edge, combination_monitors)
+              interaction_shortcircuit, interaction_edge, combination_monitors,
+              interaction_compound)
 
 
 @dataclass
@@ -237,5 +239,12 @@ def registered() -> tuple[SuiteModel, ...]:
             combination_monitors.MODEL.select(),
             "9種類の登録場所と2種類のコンテナ・記述子を組み合わせ、ファイルを読み戻して、"
             "Postponedの最終値、非選択要素、選択・置換、monitoroff、閉鎖後の出力抑止を確認する。",
+        ),
+        SuiteModel(
+            interaction_compound.MODEL,
+            lambda row: "tests/gen/ch11/" + interaction_compound.case_name(row) + ".sv",
+            interaction_compound.MODEL.select(),
+            "複合シフト代入の前後にスカラ・配列全要素・親ベクタ・拡張値と添字関数の回数を"
+            "観測し、左辺の1回評価、部分選択の符号、シフト量の独立した幅と型変換を確認する。",
         ),
     )

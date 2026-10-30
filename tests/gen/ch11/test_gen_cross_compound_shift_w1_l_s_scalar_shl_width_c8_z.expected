@@ -1,0 +1,6 @@
+p0 input=z amount=00000001
+p0 scalar=0 a0=0 a1=z a2=1
+p0 parent=1z0 extended=00 choice=1 calls=0
+p1 input=z amount=00000001
+p1 scalar=0 a0=0 a1=z a2=1
+p1 parent=0z1 extended=00 choice=1 calls=0
