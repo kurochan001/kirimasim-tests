@@ -12,6 +12,8 @@ SystemVerilog.
 For terminology and common questions, see the [glossary](docs/glossary.md)
 and [FAQ](docs/faq.md) (Japanese). They explain test expectations, result
 statuses, Nightly, coverage and the SVA/formal checks used by this suite.
+This README describes the suite as it is now; records of earlier work and
+measurements are in the [history](docs/history.md).
 
 Each simulation test is a small, self-contained design with an expected result.
 A legal design passes when its normalized standard output matches and any specified
@@ -109,11 +111,10 @@ through `:formal_case:` rather than by comparing simulator standard output;
 see [running formal tests](#symbiyosys).
 
 Additional SVA validation is recorded separately from these oracle counts:
-the reference evaluator reproduces **45 test outputs**. The 2026-10-29 formal
-rerun covers the full **267-case catalogue**: **267 BMC checks**, **44 unbounded
+the reference evaluator reproduces **45 test outputs**. The latest formal
+rerun (2026-10-29) covers the full **267-case catalogue**: **267 BMC checks**, **44 unbounded
 PDR proofs**, **267 covers** and five expected deliberate-error failures.
-The original 2026-10-26 basic set had 40 models and is included in this catalogue. A separate
-parameter-boundary sweep has **111 cases**, all passing both BMC and PDR;
+A separate parameter-boundary sweep has **111 cases**, all passing both BMC and PDR;
 its suite bindings identify **127 sequence fragments in 91 directives across
 28 tests**. The two formal sets overlap and are not added as distinct models.
 These model counts are not added to the suite total, and these results do not
@@ -142,9 +143,7 @@ combination in IEEE 1800-2023 is exercised. The citation-depth scope is the
 leaf clauses of chapters 3 to 40 selected by `tools/clauses.txt`, with the
 current count and exclusions in the [depth report](docs/coverage-depth.md).
 Annexes and explicitly excluded clauses are not silently included in a
-claim about the entire standard. The
-[2026-10-22 extension](docs/coverage-strengthening-20261022.md) adds distinct
-cases for all 187 clauses that previously had one test. CI enforces the
+claim about the entire standard. CI enforces the
 two-test floor with `tools/coverage_depth.py --check --minimum-tests 2`;
 parent-clause citations do not satisfy that floor for a child clause.
 
@@ -219,48 +218,21 @@ tests are matched to them and new tests written, how an independent reviewer che
 both, and how the results are merged and measured, with the
 [matching kit](tools/matching_kit/README.md) that the steps use.
 
-The 2026-10-23 updates are documented in the
-[matching progress and findings](docs/existing-test-matching-review-20261022.md),
-the [matching result exceeding 20% provisional design coverage](docs/existing-test-matching-20percent-20261023.md),
-the [VPI review and 10.08% milestone](docs/existing-test-matching-vpi-20261023.md),
-the [compiler-directive review](docs/existing-test-matching-preprocessor-20261023.md),
-the [11 expression gap tests](docs/expression-gap-tests-20261023.md),
-the [15 associative-array gap tests](docs/associative-gap-tests-20261023.md) and the
-[header and VPI model tests with further matching](docs/header-vpi-tests-and-matching-20261023.md),
-which add 24 tests of the C headers of Annexes I, K, L and M and 24 VPI tests of
-clause 37. On 2026-10-24 the [requirement extraction](docs/requirement-extraction.md)
-recast the keyword-reservation rows as error cases and resolved 27 interpretation
-issues, and the [generated keyword tests](docs/keyword-tests-20261024.md) add 496
-illegal designs that use a reserved keyword as a name. The
-[gap tests](docs/gap-tests-20261024.md) then add 594 independently verified tests
-for requirements that had none, and their
-[second run](docs/gap-tests-2-20261024.md) adds 933 more. On 2026-10-25 the
-[first pass over the unregistered tests](docs/existing-test-matching-unregistered-20261025.md)
-linked 45 tests to 99 requirements: six new tests written for stimuli that the
-existing tests lacked, and 23 imported from the CTest suite of the simulator
-repository. On 2026-10-25 and 2026-10-26 the remaining ranges of that work
-were verified and merged (p01, p05, p07, p09, p10, p12, p13 and p15, the
-annex and gap ranges, and the grammar tests of Annex A), tests were added for
-the K.2, I.3 and N.2 headers and algorithms, assertion control, coverage,
-checkers and 1364 VPI compatibility, Icarus Verilog 13.0 was recorded as the
-oracle of 277 standard-only tests that it reproduces, and a further pass over
-the existing tests in twelve ranges linked 341 more requirements.
-On 2026-10-28 the requirement ledger was reviewed as the denominator: 21
-duplicate rows were merged into others, leaving 12,298 requirements, and the
-[denominator review](docs/denominator-review-20261028.md) approved them. The
-reviewer was an AI, not an independent human.
-As of 2026-10-29, design coverage is **89.33% (10,986/12,298)**;
+The requirement denominator is **12,298 requirements**, after duplicate rows
+were merged; the [denominator review](docs/denominator-review-20261028.md)
+approved it. The reviewer was an AI, not an independent human.
+Design coverage is **89.33% (10,986/12,298)**;
 execution coverage from the saved `coverage/results/` evidence is
 **59.60% (7,330/12,298)**, or 51.00% (6,272/12,298)
 counting only Icarus Verilog, Verilator and SymbiYosys.
-See the [generated behavior summary](docs/behavior-coverage-summary.md) for the
-measurement inputs and denominator, and the
-[Nightly test corrections and oracle review](docs/nightly-suite-corrections-20261027.md)
-for the earlier corrections.
 Clauses 1 to 40 alone are at 87.40% (8,272/9,465) design coverage.
+See the [generated behavior summary](docs/behavior-coverage-summary.md) for the
+measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.
-The addition reports record the observations, standard-derived expectations,
-simulator differences, mutation checks and execution evidence.
+The reports of each extraction, matching and test-addition step are linked
+from the [history](docs/history.md); they record the observations,
+standard-derived expectations, simulator differences, mutation checks and
+execution evidence.
 
 Tests are grouped in directories by the chapter (clause) of IEEE 1800-2023
 that the first clause in their `:lrm:` belongs to. The columns Icarus,
@@ -279,17 +251,17 @@ allows and how the results of the coverage functions relate.
 ## Nightly results
 
 <!-- workflow-verification:begin -->
-**Manual verification on 2026-10-29:** [Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805455107) succeeded, and
-[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805499579) completed all five simulator jobs and published the
-[results snapshot](https://github.com/kurochan001/kirimasim-tests/blob/22e410125bba56d3783dd9f8a884dac332239ec7/README.md) for suite [`a594d659`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3) at
-12:55 JST (03:55 UTC). Lyra was built from [`ed9515d8eec1`](https://github.com/hankhsu1996/lyra/commit/ed9515d8eec105fdf74eecbd6abf83de268c1fe9).
+**Latest Nightly:** [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/40972765631) completed all five simulator jobs and published the
+[results snapshot](https://github.com/kurochan001/kirimasim-tests/blob/87b351e63412292ce137361c0ebd610b6522f8e1/README.md) for suite [`360ef70c`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) (8,779 tests) at
+10:43 JST (01:43 UTC) on 2026-10-30; the [Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/40965048026) of that commit also succeeded.
+Lyra was built from [`8eff7abdc335`](https://github.com/hankhsu1996/lyra/commit/8eff7abdc335).
 Matching tests / recorded results:
 
-- Icarus Verilog: **4,607 / 7,476**.
-- Verilator: **4,779 / 7,476**.
-- kirimasim: **5,076 / 7,476**.
-- Lyra: **5,501 / 7,476**.
-- Ghost: **6,095 / 7,744**.
+- Icarus Verilog: **5,502 / 8,511**.
+- Verilator: **5,151 / 8,511**.
+- kirimasim: **6,108 / 8,511**.
+- Lyra: **6,537 / 8,511**.
+- Ghost: **7,159 / 8,779**.
 
 `differ`, `known difference` and `unsupported` results remain in the denominator.
 The first four runners exclude the 268 formal tests; Ghost selects the full
@@ -330,7 +302,7 @@ results appear after a subsequent workflow runs that commit and publishes
 its results. Check `suite commit` and the test count before comparing a chart
 with the current suite.
 
-![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=nightly-40805499579)
+![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=nightly-40972765631)
 
 Each simulator has its own marker: a circle for Icarus Verilog, a square for
 Verilator, a diamond for kirimasim, a downward triangle for Lyra and an orange
@@ -349,7 +321,7 @@ denominator. This table updates with the Nightly charts;
 its date and simulator versions are shown at the top. Click it to view the
 full-size image.
 
-[![Matching tests by chapter](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40805499579)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40805499579)
+[![Matching tests by chapter](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40972765631)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40972765631)
 
 ### Result statuses
 
@@ -441,11 +413,7 @@ longer, it is extrapolated as described in the notes.
   times), `mem_rw` and `gate_udp`, clearly faster on `func_call`,
   `string_fmt` and `dyn_queue`, and within about 6% on the other four. On
   `dyn_queue` its peak memory grows with the count (547 MiB at 4,000,000).
-- On the first four designs kirimasim took 1.08–1.14 times as long as at
-  `8a8607690aa6` in a run earlier that day; kirimasim traces the change to
-  `b17234e420b6`. An earlier run on 2026-10-24, with the releases Icarus
-  Verilog 13.0 and Verilator 5.050, and nvc 1.23.0, which could not analyse
-  the designs and is no longer compared, is kept in kirimasim's raw data.
+  Comparisons with earlier runs are in the [history](docs/history.md).
 - Small designs on one machine do not stand for the speed of real designs.
   Build times, startup, memory and the commands that reproduce the runs are
   in kirimasim's
@@ -464,7 +432,7 @@ generators/<generator>.py       a generator of tests and its reference model
 generators/generate.py          writes tests/gen/, or checks it with --check
 generators/oracles.txt          which releases produce each generated test's output
 docs/simulator-differences.md   where Icarus Verilog 13.0 and Verilator 5.052 differ from the standard
-docs/inventory-20261021.md      what the suite had before the extension work of 2026-10-21, its plan, and the tests added after its report
+docs/history.md                 records of earlier work, measurements and checks
 docs/tests/                     the catalog: every test with what it checks, by chapter
 docs/tests/clauses.md           which clauses of the standard the tests cite
 docs/glossary.md               terminology and abbreviations used by this suite (Japanese)
@@ -678,14 +646,6 @@ A disagreement between a simulator and the expected output is never resolved
 by copying the simulator's output: the clause decides. The places found so
 far where Icarus Verilog 13.0 or Verilator 5.052 differs from the standard are
 listed in [docs/simulator-differences.md](docs/simulator-differences.md).
-
-An [audit](https://github.com/kurochan001/kirimasim/blob/main/docs/review/oracle_audit.md)
-in kirimasim (2026-10-21) ran the 1466 tests of its P1 population, taken from
-this repository at `c983cf7`, with both releases, Verilator with four random
-seeds for the initial values. Every expected output that lists a release was
-reproduced by that release, and none was found to record a deviation of a
-release from the standard; the deviations that the runs showed are in that
-file.
 
 ### Independent SVA checks and formal models
 

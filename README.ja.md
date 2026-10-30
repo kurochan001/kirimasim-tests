@@ -10,6 +10,7 @@ IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認す�
 
 用語やよくある質問は、[用語集](docs/glossary.md)と[FAQ](docs/faq.md)を参照してください。
 期待値、結果の分類、Nightly、網羅率、SVA・フォーマル検証について説明しています。
+このREADMEには現時点の情報だけを載せます。以前の作業の記録や測定は[履歴](docs/history.ja.md)にあります。
 
 各シミュレーションテストは、期待結果を持つ小さな独立した設計です。規格上正しいコードは、正規化した標準出力が
 期待出力に一致し、指定された終了コード・診断の検査にも通れば合格です。
@@ -99,9 +100,8 @@ Icarus Verilog、Verilator、kirimasim、
 `:formal_case:`を使ってSymbiYosysで検査します。[実行方法](#symbiyosys)を参照してください。
 
 SVAの追加検証は、上のoracle別の件数とは別に記録しています。
-参照評価器は**45本のテスト出力**を再現しました。2026-10-29の再実行では、現行の全267ケースについて
+参照評価器は**45本のテスト出力**を再現します。最新の再実行（2026-10-29）では、現行の全267ケースについて
 **267件のBMC、44件のPDR証明、267件のcover**が成功し、意図的な誤り5件も反例を生成しました。
-2026-10-26の基本40モデルは、この現行カタログに含まれます。
 別の境界値の組合せ検査では、**111ケースすべてでBMC・PDRが成功**し、
 28本のテストの91指令に含まれる**127個のシーケンス部分式**と対応付けています。
 二つのセットには重複があるので、異なるモデルの数として足し合わせません。
@@ -124,9 +124,7 @@ SVAの追加検証は、上のoracle別の件数とは別に記録していま�
 条項別テスト数の範囲は`tools/clauses.txt`が選ぶ3〜40章の末端条項で、現在の件数と除外理由は
 [条項別テスト数レポート](docs/coverage-depth.md)に記載しています。
 附属書や明示的な除外条項を、規格全体を網羅したという主張に暗黙に含めることはしません。
-[2026-10-22の拡充](docs/coverage-strengthening-20261022.md)では、それまでテストが1本だった
-187条項すべてに異なるケースを追加しました。CIは
-`tools/coverage_depth.py --check --minimum-tests 2`で2本以上を必須にします。
+CIは`tools/coverage_depth.py --check --minimum-tests 2`で2本以上を必須にします。
 親条項の引用だけでは、その子条項の本数を満たしません。
 
 [要求カバレッジの要約](docs/behavior-coverage-summary.md)と
@@ -189,40 +187,18 @@ Claude Codeへ引き継ぐ場合は、[2026-10-30のハンドオフ資料](docs/
 既存テストとの照合と追加テストの作成、独立したレビュー、統合と測定までを順に説明します。
 作業には[照合キット](tools/matching_kit/README.md)を使います。
 
-2026-10-23の更新は、[照合の進捗と指摘](docs/existing-test-matching-review-20261022.md)、
-[暫定の要求カバレッジ（テスト設計）20%超の照合結果](docs/existing-test-matching-20percent-20261023.md)、
-[VPIレビューと10.08%到達時の記録](docs/existing-test-matching-vpi-20261023.md)、
-[コンパイラ指令のレビュー](docs/existing-test-matching-preprocessor-20261023.md)、
-[式の不足を補う11テスト](docs/expression-gap-tests-20261023.md)、
-[連想配列の不足を補う15テスト](docs/associative-gap-tests-20261023.md)、
-[ヘッダー・VPIモデルのテストと追加照合](docs/header-vpi-tests-and-matching-20261023.md)に
-記録しています。最後の更新では、附属書I・K・L・MのCヘッダーの24テストと、37章のVPIの24テストを追加しました。
-2026-10-24の[要求抽出](docs/requirement-extraction.md)では、予約キーワードの要求を
-エラーケースとして整理し直し、27件の解釈上の問題を解決しました。
-[生成キーワードテスト](docs/keyword-tests-20261024.md)では、予約語を名前に使う不正な設計496本を追加しました。
-その後の[不足を補うテスト](docs/gap-tests-20261024.md)では、テスト未対応の要求に
-独立検証済みの594本を追加し、[第2回](docs/gap-tests-2-20261024.md)では933本を追加しました。
-2026-10-25の[台帳未登録テストの初回照合](docs/existing-test-matching-unregistered-20261025.md)では、
-45本を99要求に対応付けました。既存テストにないテスト刺激（スティミュラス）を補う新規6本と、
-シミュレータリポジトリのCTestスイートから取り込んだ23本を含みます。
-2026-10-25〜26には、その作業の残りの範囲
-（p01・p05・p07・p09・p10・p12・p13・p15、附属書と不足分、附属書Aの文法テスト）を
-検証して統合しました。K.2・I.3・N.2のヘッダーとアルゴリズム、アサーション制御、
-カバレッジ、チェッカー、1364 VPI互換性のテストも追加しました。
-規格のみの277本についてIcarus Verilog 13.0で再現できたことを記録し、
-さらに既存テストの12範囲の照合で341要求を対応付けました。
-2026-10-28に要求台帳を分母としてレビューし、重複21行を統合した12,298要求を
+要求カバレッジの分母は、重複を統合した**12,298要求**です。
 [分母レビュー](docs/denominator-review-20261028.md)で承認しました。
 レビューしたのはAIで、人による独立したレビュー・承認ではありません。
-2026-10-29時点の要求カバレッジ（テスト設計）は**89.33%（10,986/12,298）**、
+現在の要求カバレッジ（テスト設計）は**89.33%（10,986/12,298）**、
 `coverage/results/`の保存済み証跡による実行確認率は
 **59.60%（7,330/12,298）**です。
 Icarus Verilog・Verilator・SymbiYosysだけで数えると実行確認率は51.00%（6,272/12,298）です。
-測定入力と分母は[生成した要求カバレッジ集計](docs/behavior-coverage-summary.md)、
-以前の修正は[Nightlyのテスト修正とoracleレビュー](docs/nightly-suite-corrections-20261027.md)を参照してください。
 1〜40章だけの要求カバレッジ（テスト設計）は87.40%（8,272/9,465）です。
+測定入力と分母は[生成した要求カバレッジ集計](docs/behavior-coverage-summary.md)を参照してください。
 既存テスト全体の検証内容のレビューはまだ完了していません。
-追加報告には、観測、規格から決めた期待値、シミュレータとの差、意図的な誤りを入れる検査、
+要求の抽出・照合・テスト追加の各回の報告は[履歴](docs/history.ja.md)から辿れます。
+報告には、観測、規格から決めた期待値、シミュレータとの差、意図的な誤りを入れる検査、
 実行証拠を記録しています。
 
 テストの配置先は、`:lrm:`の先頭の条項が属するIEEE 1800-2023の章に対応するディレクトリです。
@@ -238,17 +214,18 @@ Icarus VerilogもVerilatorもエンベロープを復号しないためで、監
 ## Nightlyの結果
 
 <!-- workflow-verification:begin -->
-**2026-10-29の再実行：** [Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805455107)は成功し、[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805499579)は
-5環境すべての実行と結果公開が成功しました。対象はスイート[`a594d659`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3)、
-[この回の公開結果](https://github.com/kurochan001/kirimasim-tests/blob/22e410125bba56d3783dd9f8a884dac332239ec7/README.md)の生成時刻は12:55 JST（03:55 UTC）です。
-Lyraは[`ed9515d8eec1`](https://github.com/hankhsu1996/lyra/commit/ed9515d8eec105fdf74eecbd6abf83de268c1fe9)からビルドしました。
+**最新のNightly：** [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/40972765631)は
+5環境すべての実行と結果公開が成功しました。対象はスイート[`360ef70c`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537)（8,779本）で、
+同じコミットの[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/40965048026)も成功しています。
+[この回の公開結果](https://github.com/kurochan001/kirimasim-tests/blob/87b351e63412292ce137361c0ebd610b6522f8e1/README.md)の生成時刻は2026-10-30 10:43 JST（01:43 UTC）です。
+Lyraは[`8eff7abdc335`](https://github.com/hankhsu1996/lyra/commit/8eff7abdc335)からビルドしました。
 期待結果に一致したテスト数／結果が記録されたテスト数は次のとおりです。
 
-- Icarus Verilog：**4,607 / 7,476**
-- Verilator：**4,779 / 7,476**
-- kirimasim：**5,076 / 7,476**
-- Lyra：**5,501 / 7,476**
-- Ghost：**6,095 / 7,744**
+- Icarus Verilog：**5,502 / 8,511**
+- Verilator：**5,151 / 8,511**
+- kirimasim：**6,108 / 8,511**
+- Lyra：**6,537 / 8,511**
+- Ghost：**7,159 / 8,779**
 
 不一致・既知の差異・未対応も分母に含みます。最初の4ランナーはformalの268本を除き、
 Ghostは全テストファイルを選びます。SymbiYosysの検証結果は上記の別集計です。
@@ -280,7 +257,7 @@ Ghostは非公開のビルドで参加します。
 後続のワークフローが実行して公開するまで変わりません。現在のスイートと比較するときは、
 `suite commit`とテスト数を確認してください。
 
-![期待結果に一致するテスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=nightly-40805499579)
+![期待結果に一致するテスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=nightly-40972765631)
 
 シミュレータごとに、Icarus Verilogは丸、Verilatorは四角、kirimasimはひし形、
 Lyraは下向き三角、Ghostはオレンジの上向き三角を使います。
@@ -294,7 +271,7 @@ Lyraは下向き三角、Ghostはオレンジの上向き三角を使います�
 表はNightlyのグラフとともに更新し、上部に日付とシミュレータの版を表示します。
 クリックすると原寸の画像を開けます。
 
-[![章別の一致テスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40805499579)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40805499579)
+[![章別の一致テスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40972765631)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40972765631)
 
 ### 結果の分類
 
@@ -368,10 +345,7 @@ Ghost列は同じマシンで2026-10-28に測ったもので、フル実行は�
 - kirimasimはIcarus Verilogに比べ、`proc_wait`、`wide_arith`（2.4倍）、`mem_rw`、`gate_udp`で遅く、
   `func_call`、`string_fmt`、`dyn_queue`で明確に速く、残り4設計では約6%以内でした。
   `dyn_queue`ではピークメモリが回数とともに増えます（4,000,000回で547 MiB）。
-- 最初の4設計では、同日の先の測定の`8a8607690aa6`より1.08〜1.14倍の時間がかかりました。
-  kirimasim側では`b17234e420b6`による変化としています。
-  2026-10-24のIcarus Verilog 13.0、Verilator 5.050、nvc 1.23.0の測定も生データに残しています。
-  nvcは設計を解析できず、現在は比較から外れています。
+  以前の測定との比較は[履歴](docs/history.ja.md)にあります。
 - 1台のマシンの小さな設計は、実際の設計の速度を代表しません。ビルド時間、起動時間、メモリ、
   再現コマンドは[kirimasimのベンチマーク詳細](https://github.com/kurochan001/kirimasim/blob/main/docs/BENCHMARKS.md#development-versions-on-linux-wsl2-2026-10-25)を参照してください。
 
@@ -388,7 +362,7 @@ generators/<generator>.py       テスト生成器と参照モデル
 generators/generate.py          tests/gen/の生成、--checkによる検査
 generators/oracles.txt          各生成テストの期待出力を再現したリリース
 docs/simulator-differences.md   Icarus Verilog 13.0・Verilator 5.052と規格との差
-docs/inventory-20261021.md      2026-10-21の拡充前の内容・計画・報告後の追加テスト
+docs/history.ja.md              以前の作業の記録・測定・確認結果
 docs/tests/                     章ごとのテストカタログ
 docs/tests/clauses.md           テストが引用する規格の条項
 docs/glossary.md               このスイートの用語・略語
@@ -572,12 +546,6 @@ sv-testsの実行スクリプトはこれらのフィールドを知らず、Sys
 シミュレータと期待出力が異なる場合に、出力をコピーして解決することはしません。判断基準は条項です。
 見つかったIcarus Verilog 13.0・Verilator 5.052と規格との差は
 [差異一覧](docs/simulator-differences.md)に記録しています。
-
-kirimasimでの[監査](https://github.com/kurochan001/kirimasim/blob/main/docs/review/oracle_audit.md)
-（2026-10-21）は、このリポジトリの`c983cf7`から選んだP1対象1,466本を両リリースで実行しました。
-Verilatorでは初期値用に4種類のシードを使っています。リリース名が登録された期待出力は
-すべてそのリリースで再現でき、リリースの規格違反を期待値として記録したものは見つかりませんでした。
-実行で見つかった差異も同資料にあります。
 
 ### SVAの独立確認とフォーマルモデル
 
