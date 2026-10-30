@@ -1,0 +1,20 @@
+p0 needle=x
+p0 lo given=1 stored=1
+p0 top=1
+p0 raw=x wide=000000x binary=0000000 bits=1
+p0 relation=x
+p1 needle=x
+p1 lo given=1 stored=1
+p1 top=1
+p1 raw=x wide=000000x binary=0000000 bits=1
+p1 relation=x
+p2 needle=x
+p2 lo given=1 stored=1
+p2 top=1
+p2 raw=x wide=000000x binary=0000000 bits=1
+p2 relation=x
+p3 needle=x
+p3 lo given=1 stored=1
+p3 top=1
+p3 raw=x wide=000000x binary=0000000 bits=1
+p3 relation=x

@@ -54,15 +54,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **9096 tests** in 38 chapters. 2659 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_case`, 32 by `interaction_cast`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 72 by `interaction_divide`, 64 by `interaction_edge`, 51 by `interaction_expr`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 60 by `interaction_query`, 48 by `interaction_queue`, 38 by `interaction_resize`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **9142 tests** in 38 chapters. 2705 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_case`, 32 by `interaction_cast`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 72 by `interaction_divide`, 64 by `interaction_edge`, 51 by `interaction_expr`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 60 by `interaction_query`, 48 by `interaction_queue`, 46 by `interaction_range`, 38 by `interaction_resize`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5170 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1591 |
-| The standard only, with no fixed-release simulator oracle recorded | 2335 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1598 |
+| The standard only, with no fixed-release simulator oracle recorded | 2374 |
 
-1756 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 39 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+1786 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 39 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -74,7 +74,7 @@ The suite has **9096 tests** in 38 chapters. 2659 of them are generated (`tests/
 | 8 | Classes | 321 | 67 | 182 | 72 |
 | 9 | Processes | 284 | 217 | 38 | 29 |
 | 10 | Assignment statements | 254 | 169 | 45 | 40 |
-| 11 | Operators and expressions | 1598 | 1262 | 125 | 211 |
+| 11 | Operators and expressions | 1644 | 1262 | 132 | 250 |
 | 12 | Procedural programming statements | 217 | 169 | 29 | 19 |
 | 13 | Tasks and functions (subroutines) | 244 | 137 | 89 | 18 |
 | 14 | Clocking blocks | 78 | 4 | 61 | 13 |
@@ -171,7 +171,7 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.md) uses constrained
 pairwise coverage, selected three-factor groups and mandatory boundary witnesses.
-Its focused selection has 1,346 tests across twenty-seven models: scheduling, NBA capture,
+Its focused selection has 1,392 tests across twenty-eight models: scheduling, NBA capture,
 arithmetic context, packed part-selects, conditional merging, shifts, cast pipelines
 and task argument visibility, packed structures, case matching, port connections,
 unpacked array copies, bit-vector queries, streaming permutations, comparisons,
@@ -179,7 +179,9 @@ array reduction pipelines, variable bit indices, queue updates with capacity lim
 division/remainder context, dynamic-array resizing, concatenated assignments,
 packed logical/reduction pipelines, short-circuit side effects, event-edge expressions,
 heap-backed file monitors across registration contexts, compound shifts with
-selected targets and integral set membership across typed containers. Membership
+selected targets, integral set membership across typed containers, and value ranges
+with typed bounds. The range model selects 46 tests from 5,680 assignments, covering
+303 pairs, 178 triples and six mandatory witnesses. Membership
 selects 46 tests from 5,984 assignments, covering 305 pairs, 174 triples and five
 mandatory witnesses. The compound-shift model selects 40 tests from 7,560 assignments,
 covering 308 pairs, 90 triples and four mandatory witnesses. The file-monitor model
@@ -681,6 +683,7 @@ outputs, and it writes many small variations of one kind of test:
 | `interaction_shift` | 11 | Operator/count/sign, source and destination width, known/X/Z values and bit/logic; 56 selected cases check context extension, boundary counts, X/Z sign fill and unknown counts |
 | `interaction_compound` | 11 | Width/state/sign, scalar/array-element/packed-slice targets, three compound shifts and signed 8/65-bit counts; 40 cases check once-only LHS evaluation, full containers, guard bits and widened reads |
 | `interaction_inside` | 11 | Set/needle widths and signs, bit/logic set elements, explicit list/fixed/dynamic/queue storage, size and X/Z patterns; 46 cases check wildcard comparison before four-state OR, empty sets, reverse lists and result conversion |
+| `interaction_range` | 11 | Bound/needle widths and signs, bit/logic bounds, closed/reversed/`$`-bounded/absolute- and relative-tolerance ranges, X/Z and ranges mixed with values; 46 cases check bound extension at the comparison type, empty ranges, swapped and truncated tolerance bounds, and X/Z in a range against X/Z in a value |
 | `interaction_cast` | 6 | Source sign/value, size/signing/typed casts, cast width, later addition and destination state; 32 selected cases distinguish intermediate conversion from final conversion |
 | `interaction_task` | 13 | Width/state/value, input/output/inout/ref, scalar/array-element actuals and immediate/delayed return; 36 selected cases check copy-in, copy-out, immediate reference updates and neighbor preservation |
 | `interaction_struct` | 7 | Member order, whole/member signs, width/state/value, member/whole writes and blocking/NBA updates; 36 selected cases check tag preservation, packed layout and independent sign extension |

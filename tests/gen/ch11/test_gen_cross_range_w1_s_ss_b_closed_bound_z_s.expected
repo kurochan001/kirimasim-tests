@@ -1,0 +1,20 @@
+p0 needle=1
+p0 lo given=z stored=0
+p0 hi given=1 stored=1
+p0 raw=0 wide=0000000 binary=0000000 bits=1
+p0 relation=0
+p1 needle=0
+p1 lo given=z stored=0
+p1 hi given=1 stored=1
+p1 raw=0 wide=0000000 binary=0000000 bits=1
+p1 relation=0
+p2 needle=1
+p2 lo given=z stored=0
+p2 hi given=1 stored=1
+p2 raw=0 wide=0000000 binary=0000000 bits=1
+p2 relation=0
+p3 needle=0
+p3 lo given=z stored=0
+p3 hi given=1 stored=1
+p3 raw=0 wide=0000000 binary=0000000 bits=1
+p3 relation=0

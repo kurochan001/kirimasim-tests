@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-30T13:27:38.806574+00:00",
+  "model": "membership_range@1",
+  "build": {
+    "upstream_main_at_start": "f303becad9cafcb96221bcfd4321a92341bab4ff",
+    "checkout_commit": "f303becad9cafcb96221bcfd4321a92341bab4ff",
+    "checked_at": "2026-10-30T13:27:27.912474+00:00",
+    "version": "kirimasim 0.0.0 (commit f303becad9ca), built with AppleClang 21.0.0.21000334",
+    "binary_sha256_before": "496ab09ae6dd9002204ec8658f1e815ba4d5bfa51d502024c00e78fcac708019",
+    "binary_sha256_after": "496ab09ae6dd9002204ec8658f1e815ba4d5bfa51d502024c00e78fcac708019",
+    "commands": [
+      "git fetch origin",
+      "git checkout --detach f303becad9cafcb96221bcfd4321a92341bab4ff",
+      "cmake --preset release",
+      "cmake --build --preset release --target kirimasim"
+    ],
+    "note": "Latest upstream observed at run start, not a guarantee about later upstream changes."
+  },
+  "independent_oracle_review": "tools/test_interaction_range.py recomputes every selected case with integer intervals instead of bit strings: an unsigned comparison reads both operands as unsigned values and a signed one reads both as signed (11.8.1, 11.8.2), a tolerance range uses exact decimal arithmetic truncated toward zero, and set values use ==? with right-side wildcards (11.4.6). Cases with an unknown low bound keep the high bound satisfied, so the range is X whether its two relations are joined by && or any X relation makes it X.",
+  "dollar_bound_probe": {
+    "source_sha256": "c158fa5583d6069af196c064bbb86c6e3bab5a60600a12ef2529febf0a59a054",
+    "source": "module probe_dollar;\n  bit [7:0] u;\n  bit signed [7:0] s;\n  bit [7:0] lo8, hi8;\n  bit [0:0] lo1;\n  bit [1:0] u2;\n  initial begin\n    lo8 = 8'd3; hi8 = 8'd10; lo1 = 1'b1;\n    u = 8'd5;\n    $display(\"A u=5 [$:hi=10]=%b [lo=3:$]=%b [$:10]=%b [3:$]=%b\", u inside {[$:hi8]},\n             u inside {[lo8:$]}, u inside {[$:10]}, u inside {[3:$]});\n    u = 8'd200;\n    $display(\"B u=200 [$:hi=10]=%b [lo=3:$]=%b\", u inside {[$:hi8]}, u inside {[lo8:$]});\n    s = -8'sd5;\n    $display(\"C s=-5 [$:hi=10]=%b [lo=3:$]=%b [$:10]=%b\", s inside {[$:hi8]},\n             s inside {[lo8:$]}, s inside {[$:10]});\n    u2 = 2'b01;\n    $display(\"D u2=01 [lo1=1:$]=%b [1:$]=%b\", u2 inside {[lo1:$]}, u2 inside {[1'b1:$]});\n    u2 = 2'b11;\n    $display(\"E u2=11 [lo1=1:$]=%b\", u2 inside {[lo1:$]});\n  end\nendmodule\n",
+    "expected_stdout": "A u=5 [$:hi=10]=1 [lo=3:$]=1 [$:10]=1 [3:$]=1\nB u=200 [$:hi=10]=0 [lo=3:$]=1\nC s=-5 [$:hi=10]=0 [lo=3:$]=1 [$:10]=1\nD u2=01 [lo1=1:$]=1 [1:$]=1\nE u2=11 [lo1=1:$]=1\n",
+    "reading": "A $ side holds for every known value of the left operand's type, so [lo:$] reduces to needle >= lo and [$:hi] to needle <= hi, compared at the joint type. In C the signed needle -5 meets the unsigned bound 10, so the comparison is unsigned and 251 <= 10 is 0.",
+    "kirimasim": {
+      "exit_code": 0,
+      "normalized_stdout": "A u=5 [$:hi=10]=1 [lo=3:$]=1 [$:10]=1 [3:$]=1\nB u=200 [$:hi=10]=0 [lo=3:$]=1\nC s=-5 [$:hi=10]=0 [lo=3:$]=1 [$:10]=1\nD u2=01 [lo1=1:$]=1 [1:$]=1\nE u2=11 [lo1=1:$]=1\n",
+      "output_matches_expected": true
+    },
+    "verilator": {
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "commands": [
+        "verilator --binary --timing --coverage-user -Wno-fatal -Wno-lint -Wno-style --x-assign unique --x-initial unique -Mdir obj --prefix Vt probe.sv",
+        "obj/Vt +verilator+rand+reset+2 +verilator+seed+SEED +verilator+error+limit+1000000",
+        "python3 tools/normalize_output.py"
+      ],
+      "runs": [
+        {
+          "seed": 1,
+          "exit_code": 0,
+          "normalized_stdout": "A u=5 [$:hi=10]=1 [lo=3:$]=0 [$:10]=1 [3:$]=1\nB u=200 [$:hi=10]=0 [lo=3:$]=0\nC s=-5 [$:hi=10]=1 [lo=3:$]=1 [$:10]=1\nD u2=01 [lo1=1:$]=0 [1:$]=0\nE u2=11 [lo1=1:$]=0\n",
+          "output_matches_expected": false
+        },
+        {
+          "seed": 73,
+          "exit_code": 0,
+          "normalized_stdout": "A u=5 [$:hi=10]=1 [lo=3:$]=0 [$:10]=1 [3:$]=1\nB u=200 [$:hi=10]=0 [lo=3:$]=0\nC s=-5 [$:hi=10]=1 [lo=3:$]=1 [$:10]=1\nD u2=01 [lo1=1:$]=0 [1:$]=0\nE u2=11 [lo1=1:$]=0\n",
+          "output_matches_expected": false
+        }
+      ]
+    }
+  },
+  "fault_injection": {
+    "method": "Each mutant replaces one rule of the reference model in memory; the count is the selected cases whose expected output changes. Mutants are not suite tests.",
+    "mutants": [
+      {
+        "mutant": "bounds extended by their own sign instead of the joint type",
+        "detecting_cases": 6,
+        "examples": [
+          "test_gen_cross_range_w129_n_su_b_low_open_known_s",
+          "test_gen_cross_range_w129_w_us_b_abs_tol_known_s",
+          "test_gen_cross_range_w32_n_su_b_abs_tol_bound_x_s"
+        ]
+      },
+      {
+        "mutant": "unknown bound bits read as zero in a range",
+        "detecting_cases": 8,
+        "examples": [
+          "test_gen_cross_range_w129_s_ss_l_abs_tol_bound_x_m",
+          "test_gen_cross_range_w129_s_us_l_rel_tol_bound_z_m",
+          "test_gen_cross_range_w1_s_uu_l_closed_bound_z_m"
+        ]
+      },
+      {
+        "mutant": "tolerance bounds not swapped",
+        "detecting_cases": 3,
+        "examples": [
+          "test_gen_cross_range_w129_w_us_b_abs_tol_known_s",
+          "test_gen_cross_range_w32_w_us_b_rel_tol_bound_z_s",
+          "test_gen_cross_range_w65_n_ss_l_rel_tol_known_s"
+        ]
+      },
+      {
+        "mutant": "relative tolerance rounded instead of truncated",
+        "detecting_cases": 2,
+        "examples": [
+          "test_gen_cross_range_w65_n_ss_l_rel_tol_known_s",
+          "test_gen_cross_range_w65_s_su_b_rel_tol_known_m"
+        ]
+      },
+      {
+        "mutant": "$ taken from the bound type instead of the needle type",
+        "detecting_cases": 14,
+        "examples": [
+          "test_gen_cross_range_w129_s_ss_l_abs_tol_bound_x_m",
+          "test_gen_cross_range_w129_s_us_l_rel_tol_bound_z_m",
+          "test_gen_cross_range_w129_w_us_b_abs_tol_known_s"
+        ]
+      },
+      {
+        "mutant": "reversed range read with its bounds swapped",
+        "detecting_cases": 6,
+        "examples": [
+          "test_gen_cross_range_w129_w_su_b_reversed_known_s",
+          "test_gen_cross_range_w32_s_uu_l_reversed_known_m",
+          "test_gen_cross_range_w32_w_us_b_reversed_known_s"
+        ]
+      },
+      {
+        "mutant": "unknown needle bits read as zero in a range",
+        "detecting_cases": 8,
+        "examples": [
+          "test_gen_cross_range_w129_n_uu_b_closed_lhs_x_m",
+          "test_gen_cross_range_w1_s_uu_l_high_open_lhs_x_m",
+          "test_gen_cross_range_w1_w_ss_l_low_open_lhs_x_s"
+        ]
+      }
+    ]
+  },
+  "note": "This probe and these mutants are qualification evidence, not extra suite tests or pass records."
+}
