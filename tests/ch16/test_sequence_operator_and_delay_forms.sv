@@ -3,7 +3,7 @@
 :description: Sequence and, or, intersect, within, throughout, first_match with a match item, the cycle delays ##n, ##[m:n], ##[m:$], ##[*] and ##[+], the repetitions [*n], [*m:n], [*], [+], [=n] and [->n], a leading delay, a chain, strong and weak, a parenthesized property, a property instance and a clocking event on a property each hold where their definitions say (IEEE 1800-2023 Sections 16.9, 16.12.2 and 16.12.15)
 :tags: ch16
 :type: simulation
-:lrm: 1800-2023 16.9 16.10 16.12.2 16.12.15 16.14.1 A.2.10
+:lrm: 1800-2023 16.9 16.10 16.11 16.12.2 16.12.15 16.12.22 16.14.1 A.2.10
 :oracle: spec
 :spec_check: ai
 :fourstate: no
@@ -24,11 +24,18 @@
 // tick, so every sequence that needs b or c at a later tick fails, while a
 // parenthesized a, a[*1:3], a[+] and ##[*] a, which need no later tick, pass.
 // In the second phase a, b, c and e are 1 at four ticks, so the same forms
-// pass, except a__int_diff and a__win_rev, whose sequences cannot match with
-// these ends, and every form that needs a later tick matches. The assertions
-// with an unbounded delay or repetition are started only in the second phase
-// (start2), where they match, so no attempt stays pending. The first_match
-// match item counts its first match, one per phase.
+// pass and every form that needs a later tick matches, except a_int_diff and
+// a_win_rev. a_int_diff intersects a ##1 b with a sequence that, while e is
+// 1, ends one tick later, so the two never share an end, although and would
+// hold. a_win_rev needs a sequence that, while e is 1, is longer than
+// a ##1 b to lie within it, although both sequences match. Each consequent is
+// a sequence used as a property, which §16.12.22 requires to be
+// nondegenerate: with e at 0 at the second tick, both could match. The
+// assertions with an unbounded delay or repetition are started only in the
+// second phase (start2), where they match, so no attempt stays pending. The
+// first_match match item calls a void function that counts its first match,
+// one per phase: a subroutine call can be attached to a sequence (§16.11),
+// while an assignment in a match item assigns a local variable (§16.10).
 
 `timescale 1ns/1ns
 
@@ -47,21 +54,26 @@ module test_sequence_operator_and_delay_forms;
     a;
   endproperty
 
+  function automatic void count_first_match();
+    fm++;
+  endfunction
+
   a_and: assert property (@(posedge clk) start |-> (a ##1 b) and (a ##2 c))
     else f_and++;
   a_or: assert property (@(posedge clk) start |-> (a ##1 b) or (a ##2 c))
     else f_or++;
   a_int: assert property (@(posedge clk) start |-> (a ##1 b) intersect (a ##1 c))
     else f_int++;
-  a_int_diff: assert property (@(posedge clk) start |-> (a ##1 b) intersect (a ##2 c))
+  a_int_diff: assert property (@(posedge clk)
+                               start |-> (a ##1 b) intersect ((a ##1 !e) or (a ##2 c)))
     else f_int_diff++;
   a_win: assert property (@(posedge clk) start |-> (a ##1 b) within (a ##2 c))
     else f_win++;
-  a_win_rev: assert property (@(posedge clk) start |-> (a ##2 c) within (a ##1 b))
+  a_win_rev: assert property (@(posedge clk) start |-> ((a ##2 c) or !e) within (a ##1 b))
     else f_win_rev++;
   a_thr: assert property (@(posedge clk) start |-> e throughout (a ##2 c))
     else f_thr++;
-  a_fm: assert property (@(posedge clk) start |-> first_match (a ##[1:2] b, fm = fm + 1))
+  a_fm: assert property (@(posedge clk) start |-> first_match (a ##[1:2] b, count_first_match()))
     else f_fm++;
   a_cyc: assert property (@(posedge clk) start |-> ##[1:2] a) else f_cyc++;
   a_cyc0: assert property (@(posedge clk) start |-> ##[*] a) else f_cyc0++;

@@ -1,6 +1,6 @@
 /*
 :name: test_concurrent_assert_actions
-:description: a concurrent assert runs its pass statement when its property is true, its fail statement when it is false and neither when the evaluation is disabled, in the Reactive region after the nonblocking updates of the tick; the action control tasks suppress them; without an else clause a failure calls $error unless fail actions are off, a null pass statement is allowed, and severity tasks in a fail statement report with their own severity (IEEE 1800-2023 Section 16.14.1)
+:description: a concurrent assert runs its pass statement when its property is true, its fail statement when it is false and neither when the evaluation is disabled, in the Reactive region after the nonblocking updates of the tick; the action control tasks suppress them; without an else clause a failure calls $error unless fail actions are off, the pass statement before else may be left out, and severity tasks in a fail statement report with their own severity (IEEE 1800-2023 Section 16.14.1)
 :tags: ch16
 :type: simulation
 :lrm: 1800-2023 16.14.1 16.3 20.10 20.11 4.4.2 16.12
@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_concurrent_assert_actions.expected
-:expected_stderr_regex: (?i)\A(?=[\s\S]*error[^\n]*test_concurrent_assert_actions\.sv:48:)(?![\s\S]*test_concurrent_assert_actions\.sv:49:)(?=[\s\S]*warn[^\n]*test_concurrent_assert_actions\.sv:51:)(?=[\s\S]*a_warn tick 2)(?=[\s\S]*a_info tick 2)
+:expected_stderr_regex: (?i)\A(?=[\s\S]*(?:error[^\n]*(?:\n[^\n]*)?test_concurrent_assert_actions\.sv:48\b|test_concurrent_assert_actions\.sv:48\b[^\n]*(?:\n[^\n]*)?error))(?![\s\S]*test_concurrent_assert_actions\.sv:49\b)(?=[\s\S]*(?:warn(?! tick)[^\n]*(?:\n[^\n]*)?test_concurrent_assert_actions\.sv:51\b|test_concurrent_assert_actions\.sv:51\b[^\n]*(?:\n[^\n]*)?warn(?! tick)))(?=[\s\S]*a_warn tick 2)(?=[\s\S]*a_info tick 2)
 */
 // IEEE 1800-2023 §16.14.1: when the property of an assert is true its pass
 // statement runs, when it is false its fail statement runs, and when the
@@ -26,11 +26,11 @@
 // it is disabled; between ticks 5 and 6 the pass and fail actions are turned
 // off, and back on between 7 and 8. a_def (line 48) fails at tick 2 and has to
 // be reported with an error; a_off (line 49) fails only at tick 7, while fail
-// actions are off, and must not be reported. a_null has a null pass
-// statement. a_warn (line 51) and a_info report with $warning and $info at
-// tick 2. The wording of the messages is not compared. Icarus Verilog 13.0
-// does not support these assertions. The 5.052 release of Verilator runs the
-// action blocks before the NBA region of the tick, so they see n = k - 1.
+// actions are off, and must not be reported. a_null has no pass statement,
+// which A.6.3 allows before else (a null one is not). a_warn (line 51) and
+// a_info report with $warning and $info at tick 2; their form is not compared.
+// Icarus Verilog 13.0 does not support these assertions. The 5.052 release
+// of Verilator runs the action blocks before the NBA region (n = k - 1).
 
 `timescale 1ns/1ns
 
@@ -47,7 +47,7 @@ module test_concurrent_assert_actions;
     else f_q.push_back(n);
   a_def: assert property (@(posedge clk) g_def |-> x);
   a_off: assert property (@(posedge clk) g_off |-> x);
-  a_null: assert property (@(posedge clk) g_null |-> x) ; else f_null++;
+  a_null: assert property (@(posedge clk) g_null |-> x) else f_null++;
   a_warn: assert property (@(posedge clk) g_sev |-> x) else $warning("a_warn tick %0d", n);
   a_info: assert property (@(posedge clk) g_sev |-> x) else $info("a_info tick %0d", n);
 

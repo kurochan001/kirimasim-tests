@@ -11,8 +11,10 @@
 :expected_stdout: @test_fst_dump_control_keeps_header.expected
 */
 // IEEE 1800-2023 §21.7.1.3 gives $dumpoff, $dumpon and $dumpall control over
-// an open dump. FST is a tool format outside the standard; this test checks
-// that a simulator with an FST backend keeps writing the FST header block (tag
+// an open dump. FST is a tool format outside the standard, and §21.7.1.1 has
+// $dumpfile name a VCD file, so writing FST is an extension that a simulator
+// following the standard does not provide. This test checks that a simulator
+// with such an FST backend keeps writing the FST header block (tag
 // 0, big-endian section length 329, timescale -9 for 1 ns) after the control
 // tasks, so the stream stays FST rather than becoming a VCD file with an .fst
 // name. The writer is flushed before the test reads the bytes.

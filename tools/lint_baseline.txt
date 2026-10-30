@@ -395,4 +395,3 @@ imported/ch3/test_delay_negative_real_to_minus_one_const width
 imported/ch3/test_delay_value_matrix width
 imported/ch6/test_package_call_matrix width
 imported/ch9/test_edge_matrix width
-imported/ch9/test_intra_assignment_timing timescale

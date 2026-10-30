@@ -38,7 +38,9 @@ static PLI_INT32 lookup_calltf(PLI_BYTE8 *user_data)
     it = vpi_iterate(vpiInstance, NULL);
     while (it != NULL && (h = vpi_scan(it)) != NULL) {
         const char *kind = inst_kind(h);
-        if (vpi_get(vpiUnit, h))
+        /* vpiUnit is a property of a package only (37.10); for another object
+           vpi_get() can report an error and return vpiUndefined (38.6). */
+        if (vpi_get(vpiType, h) == vpiPackage && vpi_get(vpiUnit, h) == 1)
             continue;
         if (kind != NULL && n < MAX)
             snprintf(names[n++], sizeof names[0], "%s %s", kind,

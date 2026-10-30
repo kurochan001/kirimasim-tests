@@ -1,19 +1,21 @@
 """A simulation runner must not judge a formal test, and a test whose expected
 output is recorded only with another simulator is a known difference rather
-than a failure (issues #13 and #14 of 2026-10-28)."""
+than a failure (issues #13 and #14 of 2026-10-28). Ghost's runner selects
+the same way (issue #22)."""
 
 import sys
 import tempfile
 import unittest
 from pathlib import Path
 
+import run_ghost
 import run_icarus
 import run_kirimasim
 import run_lyra
 import run_verilator
 
 
-RUNNERS = (run_icarus, run_kirimasim, run_lyra, run_verilator)
+RUNNERS = (run_ghost, run_icarus, run_kirimasim, run_lyra, run_verilator)
 
 
 class SimulationSelectionTests(unittest.TestCase):

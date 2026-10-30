@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_ch16_sim_bias_no_relaxation.expected
+:expected_stdout: @test_ch16_sim_bias_no_relaxation.expected
 */
 // IEEE 1800-2023 §16.14.2: when a property with biasing is used within an
 // assert or cover statement, the dist operator is equivalent to the inside

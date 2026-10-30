@@ -1,6 +1,5 @@
 /* VPI application of test_vpi_array_objects_and_array_member (IEEE 1800-2023 37.17, C.4.3). */
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include "sv_vpi_user.h"
 
@@ -10,24 +9,11 @@ extern "C" {
 
 #define TOP "test_vpi_array_objects_and_array_member"
 
-static char *copy_of(PLI_BYTE8 *s)
-{
-    char *c = (char *)malloc(s != NULL ? strlen(s) + 1 : 7);
-
-    strcpy(c, s != NULL ? s : "(null)");
-    return c;
-}
-
-static int by_name(const void *a, const void *b)
-{
-    return strcmp(*(char *const *)a, *(char *const *)b);
-}
-
 static PLI_INT32 arrays_calltf(PLI_BYTE8 *user_data)
 {
-    vpiHandle mem, ia, element, it, h;
-    char *names[4];
-    int count = 0, k;
+    vpiHandle top, mem, ia, element, it, h;
+    PLI_BYTE8 *name;
+    int found = 0, all_arrays = 1;
 
     (void)user_data;
     mem = vpi_handle_by_name((PLI_BYTE8 *)TOP ".mem", NULL);
@@ -45,19 +31,23 @@ static PLI_INT32 arrays_calltf(PLI_BYTE8 *user_data)
 
     ia = vpi_handle_by_name((PLI_BYTE8 *)TOP ".ia", NULL);
     element = ia != NULL ? vpi_handle_by_index(ia, 1) : NULL;
-    printf("ia is an array var %d, ia[1] is an integer var %d and a member %d\n",
+    printf("ia is an array var %d, ia[1] is an int var %d and a member %d\n",
            ia != NULL && vpi_get(vpiType, ia) == vpiArrayVar,
-           element != NULL && vpi_get(vpiType, element) == vpiIntegerVar,
+           element != NULL && vpi_get(vpiType, element) == vpiIntVar,
            element != NULL ? (int)vpi_get(vpiArrayMember, element) : -1);
 
-    it = vpi_iterate(vpiMemory, NULL);
-    while (it != NULL && count < 4 && (h = vpi_scan(it)) != NULL)
-        names[count++] = copy_of(vpi_get_str(vpiName, h));
-    qsort(names, (size_t)count, sizeof names[0], by_name);
-    printf("the vpiMemory relationship gives %d arrays:", count);
-    for (k = 0; k < count; k++)
-        printf(" %s", names[k]);
-    printf("\n");
+    /* vpiMemory is a relationship of a module (37.20). */
+    top = vpi_handle_by_name((PLI_BYTE8 *)TOP, NULL);
+    it = top != NULL ? vpi_iterate(vpiMemory, top) : NULL;
+    while (it != NULL && (h = vpi_scan(it)) != NULL) {
+        name = vpi_get_str(vpiName, h);
+        if (name != NULL && strcmp(name, "mem") == 0)
+            found = 1;
+        if (vpi_get(vpiType, h) != vpiArrayVar)
+            all_arrays = 0;
+    }
+    printf("the vpiMemory relationship of the module gives mem %d"
+           " and only array vars %d\n", found, all_arrays);
     fflush(stdout);
     return 0;
 }

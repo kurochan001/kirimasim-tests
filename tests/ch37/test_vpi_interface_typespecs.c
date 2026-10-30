@@ -48,9 +48,13 @@ static void flush_sorted(void)
      (void)user_data;
      while (it != NULL && (t = vpi_scan(it)) != NULL && n_lines < 16) {
          vpiHandle p = vpi_handle(vpiParent, t);
+         char name[64], def[64];
          if (vpi_get(vpiType, t) != vpiInterfaceTypespec)
              continue;
-         snprintf(lines[n_lines++], 160, "%s: def name %s, parent %s", name_of(t), def_name(t),
+         /* vpi_get_str() returns every string in one buffer (38.11). */
+         snprintf(name, sizeof name, "%s", name_of(t));
+         snprintf(def, sizeof def, "%s", def_name(t));
+         snprintf(lines[n_lines++], 160, "%s: def name %s, parent %s", name, def,
                   p ? def_name(p) : "none");
      }
      flush_sorted();

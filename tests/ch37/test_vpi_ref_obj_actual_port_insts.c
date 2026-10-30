@@ -11,10 +11,17 @@ extern "C" {
 #define TOP "test_vpi_ref_obj_actual_port_insts"
 #define MAX 8
 
+/* vpi_get_str() returns every string in one buffer (38.11), so each string is
+   copied into one of a few buffers, enough for the strings of one line. */
 static const char *sprop(PLI_INT32 property, vpiHandle h)
 {
+    static char copies[4][96];
+    static int next;
+    char *c = copies[next++ % 4];
     PLI_BYTE8 *s = h != NULL ? vpi_get_str(property, h) : NULL;
-    return s != NULL ? s : "NULL";
+
+    snprintf(c, sizeof copies[0], "%s", s != NULL ? s : "NULL");
+    return c;
 }
 
 static int int_value(vpiHandle h)

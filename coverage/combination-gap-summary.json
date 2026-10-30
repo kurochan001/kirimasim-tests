@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "registry_sha256": "588ebc326f306fa95db6862b95a7c1d4b6ceb4bd8c055191fd22b7e76f48c5e1",
+  "registry_sha256": "27f663316ec4683b80ffac320b78b7425abad32ba68845ac04dbce92d36ceedf",
   "candidate_count": 20,
   "test_count": 88,
   "new_tests": 74,
@@ -13,9 +13,9 @@
       "statuses": {
         "pass": 11,
         "fail": 0,
-        "known": 77,
+        "known": 76,
         "unsupported": 0,
-        "stale": 0,
+        "stale": 1,
         "not_run": 0
       },
       "groups": {
@@ -249,10 +249,10 @@
       "provenance_problem": "",
       "statuses": {
         "pass": 26,
-        "fail": 3,
+        "fail": 2,
         "known": 0,
         "unsupported": 59,
-        "stale": 0,
+        "stale": 1,
         "not_run": 0
       },
       "groups": {
@@ -487,9 +487,9 @@
       "statuses": {
         "pass": 27,
         "fail": 0,
-        "known": 50,
+        "known": 49,
         "unsupported": 0,
-        "stale": 0,
+        "stale": 1,
         "not_run": 11
       },
       "groups": {
@@ -724,9 +724,9 @@
       "statuses": {
         "pass": 27,
         "fail": 0,
-        "known": 50,
+        "known": 49,
         "unsupported": 0,
-        "stale": 0,
+        "stale": 1,
         "not_run": 11
       },
       "groups": {

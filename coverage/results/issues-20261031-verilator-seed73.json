@@ -1,0 +1,475 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch11/test_concatenation_pattern_string_operand_and_replication_once": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'replication: 111 calls=1, zero: f calls=0', expected 'replication: 111 calls=1, zero: f calls=1'",
+   "inputs_sha256": "bb4e86f9d19cf21dde8500bbdaa67e65ca2a1da14e2e87cf7bd77a5bbeb58a77"
+  },
+  "ch12/test_statement_item_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch12/test_statement_item_forms.sv:105:5: Unsupported: expect",
+   "inputs_sha256": "5a9a90c760e1544dda8986631ed3da0b41a12dc5a691846d3552aa4e40eb00f8"
+  },
+  "ch13/test_A_extra_tf_dims": {
+   "status": "pass",
+   "inputs_sha256": "4b52cc29bc6ab8f6b32de73d1ac5ec3189b1f0abecaa4c06c84ff8a4e4155e53"
+  },
+  "ch13/test_illegal_ref_in_static_function": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "f67482c9179826bfed3feac35948bedf9782168c66a8c2af2bbb1865828341b4"
+  },
+  "ch14/test_clocking_block_event_after_nba_before_reactive": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'waiting for @(cb): q=1 pv=1', expected 'waiting for @(cb): q=1 pv=0'",
+   "inputs_sha256": "75f39adae8d8be3189e3a32e0cddd58085e9188e80a9b253a11b984604abb32c"
+  },
+  "ch16/test_assume_property_actions": {
+   "status": "pass",
+   "inputs_sha256": "217d73ed1eb3cd534ae0d7db5b1362521ad9d7a18110ef913468cf6bbe049fbf"
+  },
+  "ch16/test_ch16_sim_bias_no_relaxation": {
+   "status": "pass",
+   "inputs_sha256": "c6a5d0ab2da6ae2f55c07df91f4f3c0933cd0821d944ea470766c5d4a11e6992"
+  },
+  "ch16/test_ch16_sim_checker_inference": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_ch16_sim_checker_inference.sv:31:22: Unsupported: sequence argument data type",
+   "inputs_sha256": "800dc4690e0cb12578d589c1eed9fc461fb99a0051bc6bd4a22eae2d5799cc2e"
+  },
+  "ch16/test_ch16_sim_cover_counters": {
+   "status": "pass",
+   "inputs_sha256": "7c2afd3a0961f0dca70987245c8cfb69e830ab55fc41d93b3c776853d5e4d998"
+  },
+  "ch16/test_ch16_sim_declaration_inert": {
+   "status": "pass",
+   "inputs_sha256": "461e01222c5edca8489888c96b3b47e6139d0a1203cc907d87bbb263acd772ba"
+  },
+  "ch16/test_ch16_sim_glitch_free": {
+   "status": "pass",
+   "inputs_sha256": "a899408df21d5009d7af1c3784abfcc4e4c80c3767436b66c17ecef0a5f2e47d"
+  },
+  "ch16/test_ch16_sim_prop_async_abort": {
+   "status": "pass",
+   "inputs_sha256": "fc951ceb9b72370cff7e7f30e74d0567492e64c0847e2d18f3d7f40297aa939e"
+  },
+  "ch16/test_ch16_sim_prop_inherited_always": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'always a fails at: 25', expected 'always a fails at: 25 25 25'",
+   "inputs_sha256": "d95b70512adc4cc3ceeab48b9c2e470221a205fc86d4380042eea57b38b451f2"
+  },
+  "ch16/test_ch16_sim_prop_inherited_case": {
+   "status": "pass",
+   "inputs_sha256": "3318f7ad3c9942076d7954ffdf9de0922b24c200968f4289d4603cb10497710a"
+  },
+  "ch16/test_ch16_sim_prop_inherited_conditional": {
+   "status": "pass",
+   "inputs_sha256": "af7cf73889e9b9aba13df18de4494ec3795fd5c76f99604425bd98b562f6040d"
+  },
+  "ch16/test_ch16_sim_reported_interval": {
+   "status": "pass",
+   "inputs_sha256": "da9e20cf33949196a84e481186720ec2a6c64629525b76b66c7a8e8ff47d4166"
+  },
+  "ch16/test_concurrent_assert_actions": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a_pf passes at ticks 0 4; failures at ticks 1 7', expected 'a_pf passes at ticks 1 5; failures at ticks 2 8'",
+   "inputs_sha256": "3c1d81c1b9839af8d764b0e0174da0cc58ba66e519538cfcf706c98fb8d4d115"
+  },
+  "ch16/test_deferred_assertion_default_error": {
+   "status": "known",
+   "reason": "no message matches '(?i)\\\\A(?![\\\\s\\\\S]*test_deferred_assertion_default_error\\\\.sv:34\\\\b)(?=[\\\\s\\\\S]*(?:error[^\\\\n]*(?:\\\\n[^\\\\n]*)?test_deferred_assertion_default_error\\\\.sv:43\\\\b|test_deferred_assertion_default_error\\\\.sv:43\\\\b[^\\\\n]*(?:\\\\n[^\\\\n]*)?error))(?=[\\\\s\\\\S]*(?:error[^\\\\n]*(?:\\\\n[^\\\\n]*)?test_deferred_assertion_default_error\\\\.sv:44\\\\b|test_deferred_assertion_default_error\\\\.sv:44\\\\b[^\\\\n]*(?:\\\\n[^\\\\n]*)?error))(?![\\\\s\\\\S]*test_deferred_assertion_default_error\\\\.sv:45\\\\b)'",
+   "inputs_sha256": "7d22870874322f7e1b968fd7eeda67a7f20fc189106dfa632bd529f87a30f10c"
+  },
+  "ch16/test_illegal_triggered_outside_local_formal": {
+   "status": "pass",
+   "inputs_sha256": "249e158229246fc1d25dbae12ef323aafe4bacf926ede3bd5fb9bb9fea52a870"
+  },
+  "ch16/test_immediate_assertion_default_error": {
+   "status": "pass",
+   "inputs_sha256": "f9cb526a33c4845b487a7ec8ce3810f9ed47796c8a1f51da96bc766c5b3899fd"
+  },
+  "ch16/test_recursive_property_time_advance": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_recursive_property_time_advance.sv:32:12: Unsupported: Recursive property call: 'p_rec'",
+   "inputs_sha256": "0aa33fe649025c017d7664889ce5377d222f990e0c025ea5ab13f819736b4f46"
+  },
+  "ch16/test_sampled_automatic_and_const_current": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_sampled_automatic_and_const_current.sv:47:14: Unsupported: Procedural concurrent assertion with clocking event inside always (IEEE 1800-2023 16.14.6)",
+   "inputs_sha256": "dfa3cfec7e8f1399bf64a4ec213f7ef46ccd8d786f4ed0edb11aec5bf609bb80"
+  },
+  "ch16/test_sequence_match_item_and_triggered_method": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch16/test_sequence_match_item_and_triggered_method.sv:65:5: syntax error, unexpected '@', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "47f9439a01f0489efa3bc0cadfb38693794d1539e38fdb58663375bb00342163"
+  },
+  "ch16/test_sequence_operator_and_delay_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_sequence_operator_and_delay_forms.sv:76:51: Unsupported: first_match with sequence_match_items",
+   "inputs_sha256": "5e12afaa976af8763afe577d19ffad77ba170b9d40180a2fe3043d2d63c395fe"
+  },
+  "ch17/test_checker_body_declaration_kinds": {
+   "status": "pass",
+   "inputs_sha256": "75fff18b4c84ea2d4fbe56b85828ccc534d1bd0128f3db808306f274626d712e"
+  },
+  "ch17/test_checker_instantiation_connection_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_instantiation_connection_forms.sv:34:11: Unsupported: 'checker' below unit-level",
+   "inputs_sha256": "214f09e1c4cdfbea551578d8aeb49c115ca00e5eb7b0ad9f73f14ec0f72aba46"
+  },
+  "ch17/test_checker_procedures_reactive_renba": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'inactive at 10: comb_v=1 cont_v=1', expected 'inactive at 10: comb_v=0 cont_v=0'",
+   "inputs_sha256": "db4c28da07e90a56e25417a5542224796436f78b27ae6b8960306d395838c515"
+  },
+  "ch17/test_illegal_checker_covergroup_constant_actual": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "a53125fb42ab16e39001d19fe531fe2cd29ba9a906ea0858b51ab8792adc407c"
+  },
+  "ch18/test_illegal_constraint_foreach_dimensions": {
+   "status": "pass",
+   "inputs_sha256": "986e6f2079d21724e3b4a3ccdbd2343f3537161f745cf3fd7a8e7a4e950ed28c"
+  },
+  "ch18/test_illegal_solve_before_parentheses": {
+   "status": "pass",
+   "inputs_sha256": "724290ede56c5d044fd424c51addbad85dc4b5ecf3d0f778fa88c679d42b4313"
+  },
+  "ch19/test_19_extra_cross_items": {
+   "status": "pass",
+   "inputs_sha256": "a73554159adfb4e2a4c52261d3be8489dc6f245d3b8dc0cfccbfb6acfcf17233"
+  },
+  "ch19/test_19_extra_option_comment": {
+   "status": "pass",
+   "inputs_sha256": "5ee9d1e2db1ae76e392f671de8a0788e235e01290fa2b23afa084c042cb01189"
+  },
+  "ch19/test_19_extra_option_cross_num_print_missing": {
+   "status": "pass",
+   "inputs_sha256": "f25eff6718b7a923647d4c8119c9dd1b4ca7a304dfccc7cbb060f719bf193f2c"
+  },
+  "ch19/test_19_extra_option_detect_overlap": {
+   "status": "pass",
+   "inputs_sha256": "9706981a53b119b5cded821a59d56a8b7eeb00c1c3024b5b884ad2203c1eec95"
+  },
+  "ch19/test_19_extra_option_per_instance": {
+   "status": "pass",
+   "inputs_sha256": "2da049c5ed3f8d9a3c3b0249d245f350856950bdab603c2f187f9f4f88387bb4"
+  },
+  "ch19/test_19_extra_sample_method": {
+   "status": "pass",
+   "inputs_sha256": "9ad96f5a27251099d9900e612586d893dc805c7dfddc55550e8d8d2657fa51f1"
+  },
+  "ch19/test_19_extra_type_option_comment": {
+   "status": "pass",
+   "inputs_sha256": "d35baba0415dd915dd91292dd7af1b0bbb16bb69f0f84a53982bc10175ace640"
+  },
+  "ch19/test_19_extra_type_option_mutation": {
+   "status": "pass",
+   "inputs_sha256": "0f50b45a5d04adf5db8b5500db41d8abe9add0d5990eee17c34b13c2e3b60b2b"
+  },
+  "ch19/test_19_rest_set_visibility": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_19_rest_set_visibility.sv:37:35: syntax error, unexpected IDENTIFIER-for-type",
+   "inputs_sha256": "dfb63e82247f11c30d35257c61bdf3ab4023cc7f7c4119220cafbee0cd41136d"
+  },
+  "ch19/test_cg_illegal_value_error": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_illegal_value_error.sv:42:13: Member 'bad' not found in covergroup 'cg'",
+   "inputs_sha256": "283b9a0286b5077ee26dded5c12a0f2f62737720dc0b6bb922504944f2210547"
+  },
+  "ch19/test_covergroup_cross_and_select_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_covergroup_cross_and_select_forms.sv:58:23: syntax error, unexpected with-then-(, expecting '('",
+   "inputs_sha256": "325420e24450e6a4549956522047a9f8e67e62822dcf6f21f7b585f8d5221593"
+  },
+  "ch19/test_illegal_cg_function_side_effect": {
+   "status": "pass",
+   "inputs_sha256": "36c9f78df1e065404351a3c2b49f3604e2177a02caf2e50d0c4e7a1eee8b5d51"
+  },
+  "ch19/test_illegal_cg_outer_constant": {
+   "status": "pass",
+   "inputs_sha256": "848355d37f23e60e599aada114c1c263ff23d60821b77aa17c59a801b1340d49"
+  },
+  "ch19/test_illegal_cg_ref_formal_expression": {
+   "status": "pass",
+   "inputs_sha256": "1d10338c3639883016631b6bca3f0c14ae73b62f3783c9044b4f698cbfd9ca4d"
+  },
+  "ch19/test_illegal_cg_ref_formal_variable": {
+   "status": "pass",
+   "inputs_sha256": "118babea097b215b9ca456159eabf641eb6aeea910cc70d4dc3b97bcce005284"
+  },
+  "ch19/test_illegal_cg_system_function": {
+   "status": "pass",
+   "inputs_sha256": "d121e4ff7b9a809234bd94cf0b7bf0b0ebbe381f63d5b191be17b8bb915c542a"
+  },
+  "ch20/test_expect_wait_order_default_error_failoff": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch20/test_expect_wait_order_default_error_failoff.sv:50:5: Unsupported: expect",
+   "inputs_sha256": "a4f2d744b0a3d23fd2c85ca4f70327c1134667bfe3a11c263ae56e6a7226fea0"
+  },
+  "ch20/test_fatal_form_finish_number_and_arguments": {
+   "status": "known",
+   "reason": "output differs: line 2 is missing, expected 'final ran at 5'",
+   "inputs_sha256": "c32bc5358f1c9e8b51690107374474c4c3f05a79ceb8f59bcaef2115da0ccd44"
+  },
+  "ch20/test_fatal_form_finish_number_only": {
+   "status": "known",
+   "reason": "output differs: line 2 is missing, expected 'final ran at 5'",
+   "inputs_sha256": "a4e36b5a1340c36e9d5e41afa3bcb141e0f5ca5588fd754c69ac304706301201"
+  },
+  "ch20/test_fatal_form_without_parentheses": {
+   "status": "known",
+   "reason": "output differs: line 2 is missing, expected 'final ran at 5'",
+   "inputs_sha256": "c6e0aa6c4a60d8a98211f5c81bab19fb39edd684dfedd1f94c49a9e3f60585a7"
+  },
+  "ch20/test_illegal_countbits_non_bitstream": {
+   "status": "pass",
+   "inputs_sha256": "726cb21583d5763399d7ebd92926a53fafa857befb7d0e63384c5f9db670cbc7"
+  },
+  "ch20/test_illegal_dist_exponential_zero_mean": {
+   "status": "known",
+   "reason": "no message matches '(?i:\\\\bwarn(?:ing)?\\\\b|\\\\berror\\\\b)'",
+   "inputs_sha256": "7930f70d725c2d9225c3a280048fdd3680a1020532454c211765503dcf2d8211"
+  },
+  "ch20/test_queue_statistics_wait_codes": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch20/test_queue_statistics_wait_codes.sv:37:5: Unsupported: IEEE 1364-1995 reserved word not implemented: '$q_initialize'",
+   "inputs_sha256": "35d04aa42ac9ba9748c37fc53265ac9b3edd7df7411103394839e06f05ccb87f"
+  },
+  "ch20/test_severity_task_argument_forms": {
+   "status": "known",
+   "reason": "output differs: line 3 is missing, expected 'final ran'",
+   "inputs_sha256": "19b5204862ef0528ddadb4e83dfeeeea2a5d414cf545e0e73bcad8878f52c124"
+  },
+  "ch20/test_severity_tasks_report_contents": {
+   "status": "known",
+   "reason": "output differs: line 2 is missing, expected 'final procedure ran'",
+   "inputs_sha256": "551d162aa7e08db70276b6653bd2b4d38a13fa04a35debe7662cee833eeb39d7"
+  },
+  "ch21/test_display_backslash_escapes": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch21/test_display_backslash_escapes.sv:37:14: Unknown escape sequence: \\x",
+   "inputs_sha256": "20d548af410c0bc102abf30830f3d444ea35f752088b0b6f8f0a21c00e601147"
+  },
+  "ch21/test_fread_unpacked_struct_union": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch21/test_fread_unpacked_struct_union.sv:46:9: $fread loading other than unpacked-array variable",
+   "inputs_sha256": "c6f34df301267ef236247b71ea754cd7854529a19a5be7454a50c7f4a4782d38"
+  },
+  "ch21/test_fst_dump_control_keeps_header": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_fst_dump_control_keeps_header.sv:3...', expected 'bytes=9 tag=0 len=329'",
+   "inputs_sha256": "78392d76302323d709d01d259efde269f63db34c0c5d0c805b66b1dbddc2219b"
+  },
+  "ch21/test_fst_header_and_dumpfile": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_fst_header_and_dumpfile.sv:35: $du...', expected 'bytes=74 tag=0 len=329 timescale=-9'",
+   "inputs_sha256": "10ff5974b0452256a989f652917d73a5e44b42910f7b6a3e84124a25b9ac61fc"
+  },
+  "ch23/test_23_extra_upward_data_stop": {
+   "status": "pass",
+   "inputs_sha256": "cf9bab21838021d22965f2f014c0cfb53e311f8e2d8b5f153844ca293c451082"
+  },
+  "ch24/test_program_and_checker_generate_items": {
+   "status": "pass",
+   "inputs_sha256": "235728a1e6b9426bcd9519db6fe8d8dc2b5f732afdd3494a5da417c66a60f04a"
+  },
+  "ch3/test_illegal_time_unit_specified_only_in_some_elements": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "b39eb521ad3f2a7c239c8294a2dbb306d3caf898054058f3c4ca9c4af951bb77"
+  },
+  "ch3/test_include_text_joins_compilation_unit": {
+   "status": "pass",
+   "inputs_sha256": "3af3c894e623c59d54d75e0fb3584647a8b1d6bd25423a6976b8bb3e7dc4876b"
+  },
+  "ch30/test_A_extra_module_path": {
+   "status": "pass",
+   "inputs_sha256": "cb7cb0b10213825d623d7804f0d2f7c2650750ca2dbbcd145e2f76e8bf539468"
+  },
+  "ch33/test_illegal_config_hierarchical_name_in_expression": {
+   "status": "pass",
+   "inputs_sha256": "2f9dc5d567fa8eb222e2742ac1596e6ec4755db9e066aec677dfb8c87b48f22d"
+  },
+  "ch33/test_illegal_config_index_not_literal": {
+   "status": "pass",
+   "inputs_sha256": "05df004ee20abb501398c8665373839226e476ea754ddc351f27f2eb61c6bc92"
+  },
+  "ch33/test_illegal_config_instance_array_path": {
+   "status": "pass",
+   "inputs_sha256": "c1b3bc8dba6443c8896d2e8d735ed818007b026e90f94207cceb951ad5d32cf0"
+  },
+  "ch33/test_illegal_config_package_binding": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "e54de5cb51009fc1b2d5179e7838e39def1a0583535ba22e2987a9286b3eae72"
+  },
+  "ch35/test_35_extra_35_5_1_6_cxx_linkage": {
+   "status": "pass",
+   "inputs_sha256": "2a57b4cca80a53b72a2b5f282034a4ea3abb447c0641209c2f31d82023ccabef"
+  },
+  "ch35/test_35_extra_35_5_3_chain_attribute": {
+   "status": "pass",
+   "inputs_sha256": "fbc468e932501df8fab1d727f8b11a3ad3ef42fbe0cf56a2aae045b25df11342"
+  },
+  "ch35/test_35_extra_H_8_10_1_string_arrays": {
+   "status": "pass",
+   "inputs_sha256": "379fb2947602051a55e9cae27b49053b1251c827b8436cf6d5ea2c1d8ad81069"
+  },
+  "ch35/test_35_extra_H_9_5_vpi_printf": {
+   "status": "pass",
+   "inputs_sha256": "88b8c0b436db266f9b50e394e6cfca3419148f150020472d9d3eaa8ce020294d"
+  },
+  "ch35/test_dpi_call_directions_and_context_chain": {
+   "status": "pass",
+   "inputs_sha256": "79723f4fa11d55e74b688f95f955c54f43880bbb11d2b2c8d3dfa3cb4026ce2d"
+  },
+  "ch35/test_illegal_dpi_pure_import_task": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "f85559b3fd0a01ca7e87aa0c4d42842e4154529c2d0c33819ec025b8a71127a0"
+  },
+  "ch35/test_svdpi_h_disabled_state_ack": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch35/test_svdpi_h_disabled_state_ack.sv:40:5: Unsupported: Timing controls inside DPI-exported tasks",
+   "inputs_sha256": "5de90a1818799a3347fd9a11e5217726816ea3ed026406a103b1147040dc9319"
+  },
+  "ch37/test_vpi_array_objects_and_array_member": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_array_objects_and_array_member.sv:42:8: Unsupported or unknown PLI call: '$vt_arrays'",
+   "inputs_sha256": "13c2ce5c23a2742341b6f56b621b66abb0dbefa5b53892e18c8955f8a520cee8"
+  },
+  "ch37/test_vpi_attribute_ports_params": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 'location of a_net of net w: test_vpi_attribute_ports_para...'",
+   "inputs_sha256": "95b1258827a9d0bf2518b81812a3aabb4b98f6d98c0ba60fa44c10e83fcae21e"
+  },
+  "ch37/test_vpi_clocking_scope_group": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_clocking_scope_group.sv:31:14: Unsupported or unknown PLI call: '$vt_clock'",
+   "inputs_sha256": "403d39ca15c220f366315c8e993b9f2898a846f923f26dbfa2b09fcf301964cf"
+  },
+  "ch37/test_vpi_cont_assign_rhs_and_load": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_cont_assign_rhs_and_load.sv:35:14: Unsupported or unknown PLI call: '$vt_ca'",
+   "inputs_sha256": "46c12c6fbf680a9e765be2f3860e92fe7221ebc67ffc8ea00fce2078da654568"
+  },
+  "ch37/test_vpi_generate_nettype_typedef": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_generate_nettype_typedef.sv:33:5: Unsupported: nettype",
+   "inputs_sha256": "af5d4c22f6fc8df85860e69c413d4cf109f55954b975bbb41da931e982e730aa"
+  },
+  "ch37/test_vpi_interface_typespecs": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_interface_typespecs.sv:35:14: Unsupported or unknown PLI call: '$vt_typespecs'",
+   "inputs_sha256": "fafbae0a4882f9b97552b9a84872a8424117dda2fb719a02d2504c7852551146"
+  },
+  "ch37/test_vpi_io_decl_scope_typespec_ports": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv:76:14: Unsupported or unknown PLI call: '$vt_io'",
+   "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044"
+  },
+  "ch37/test_vpi_named_event_array_prefix": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_named_event_array_prefix.sv:32:8: Unsupported or unknown PLI call: '$vt_ev'",
+   "inputs_sha256": "4c8dd7e133776a18a48ea6269d1e8f7fd3ce6a9c766203344720d91827380bc6"
+  },
+  "ch37/test_vpi_named_event_relations": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_named_event_relations.sv:33:14: Unsupported or unknown PLI call: '$vt_events'",
+   "inputs_sha256": "c8c3489d579b0279ecbbde3202982252076b45d3bea8768ab203dc3c1f67cfed"
+  },
+  "ch37/test_vpi_net_array_members_parents": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_net_array_members_parents.sv:50:14: Unsupported or unknown PLI call: '$vt_nets'",
+   "inputs_sha256": "907aa91ecd31dcf207279a805eda19b1cea76cfd4cd980fdaa527b832ba672b6"
+  },
+  "ch37/test_vpi_nettype_relations": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_nettype_relations.sv:37:3: Unsupported: nettype",
+   "inputs_sha256": "af33dbbfe3397b24f7dd7449d16021dbb278848e1eafdfc389b508c1bf2e8a2e"
+  },
+  "ch37/test_vpi_prefix_allocation": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_prefix_allocation.sv:46:8: Unsupported or unknown PLI call: '$vt_prefix'",
+   "inputs_sha256": "9c99f7d8de71cafbb5bab1548ba913a007a8fd8b78e537d5202fb9cf9a9bafb4"
+  },
+  "ch37/test_vpi_program_interface_relations": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_program_interface_relations.sv:50:14: Unsupported or unknown PLI call: '$vt_program'",
+   "inputs_sha256": "676b60be3b58de93da59d82a82be2827044ec8dd7e702815658ce618a995b3c8"
+  },
+  "ch37/test_vpi_ref_obj_actual_port_insts": {
+   "status": "known",
+   "reason": "build failed: %Error: Verilator internal fault, sorry. Suggest trying --debug --gdbbt",
+   "inputs_sha256": "192e5769446bcefb94c00b53dc72cc03581824508ea29c4235e17fe39c8625a8"
+  },
+  "ch37/test_vpi_root_lookup_restrictions": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_root_lookup_restrictions.sv:44:8: Unsupported or unknown PLI call: '$vt_lookup'",
+   "inputs_sha256": "ba0c72ce244806cd0eca89f5ea0db16d0e503e3381d5843008373e01043a04cb"
+  },
+  "ch37/test_vpi_typespec_instance_ranges": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_typespec_instance_ranges.sv:44:14: Unsupported or unknown PLI call: '$vt_ts'",
+   "inputs_sha256": "6ee50d49ed6bc7944d27b51feb2dbf23391b197cf5caa99fb6163f1e974302d7"
+  },
+  "ch37/test_vpi_virtual_interface_expr": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_virtual_interface_expr.sv:43:14: Unsupported or unknown PLI call: '$vt_vif'",
+   "inputs_sha256": "2b730e0055e92268db9c25af8aa440b937b381d2ecc2b6dc771b03a3df8a5215"
+  },
+  "ch38/test_38_extra_control_stop": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_38_extra_control_stop.sv:31:5: Unsupported or unknown PLI call: '$vt_stop'",
+   "inputs_sha256": "c931cd9642c1200915e3acbae0e6cd2042dc5396a602f2829bbbb94020b89d60"
+  },
+  "ch4/test_reactive_region_set_order": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch4/test_reactive_region_set_order.sv:46:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "c8d107b0e8761c53bdaf27eee43b06f65a1049275dff13b7e4874520466b1ca7"
+  },
+  "ch6/test_a2_1_3_interconnect_declaration_identifiers": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_a2_1_3_interconnect_declaration_identifiers.sv:37:23: Unsupported: interconnect",
+   "inputs_sha256": "a8fdb38446b8b8e0f3c5a92bd9f4e0dcd88169ed7da315ab6869a341d4fb0885"
+  },
+  "ch6/test_design_element_static_lifetime": {
+   "status": "pass",
+   "inputs_sha256": "cb5e57e768e6a3e15191c043b88679847661b43063c52fdbc182f01f39d22491"
+  },
+  "ch6/test_interconnect_and_net_port_types": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_interconnect_and_net_port_types.sv:39:1: Unsupported: nettype",
+   "inputs_sha256": "62c6c56484a2318a3da8d41f403af86aab0825a753f2a059fb2005ec9dcab0a8"
+  },
+  "ch7/test_illegal_wildcard_array_find": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "a2a2a861d383c238d05349bf63893a63def0ebc03272ee932b18f67512ad04eb"
+  },
+  "ch7/test_illegal_wildcard_index_method": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "3fb605c68ecc8bf1d3e74122d455f4f81afe0dcaffa456487a101586eef5c935"
+  },
+  "ch8/test_illegal_interface_class_method_with_body": {
+   "status": "pass",
+   "inputs_sha256": "20420c26fe63bdccf5ca8e4407351b261fef5ed0516b9f57ddaf5e3db0947209"
+  },
+  "imported/ch9/test_intra_assignment_timing": {
+   "status": "known",
+   "reason": "output differs: line 6 is '16 step1 y=0 arr1=0 w=69', expected '16 step1 y=0 arr1=0 w=xx'",
+   "inputs_sha256": "4979a4c63a6d324c9af157ce145b19fd505cb01be72fe76da0294b822e229aab"
+  }
+ },
+ "generated_at": "2026-10-30T20:32:01.484680+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_ch16_sim_glitch_free.expected
+:expected_stdout: @test_ch16_sim_glitch_free.expected
 */
 // IEEE 1800-2023 §16.5: the clocking event of a concurrent assertion should
 // be glitch-free and only transition once during any time step. The clock

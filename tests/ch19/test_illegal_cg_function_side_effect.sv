@@ -8,12 +8,17 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:should_fail_because: the function f increments the class member calls, so it has a side effect
-:expected_stderr_regex: test_illegal_cg_function_side_effect\.sv:31:
+:should_fail_because: the value of the bin one calls the function f, which increments the class member calls, so it has a side effect
+:expected_stderr_regex: test_illegal_cg_function_side_effect\.sv:(33|38):
 */
 // A function used in a covergroup expression shall be automatic or keep
 // no state, shall have no side effects and shall not reference
-// nonconstant variables outside its local scope. f writes calls.
+// nonconstant variables outside its local scope. f writes calls, a
+// variable outside f, which is its side effect.
+// The restriction is on covergroup_expression, which the syntax of 19.5
+// uses for the values of bins and not for the expression after the
+// coverpoint keyword, so the call is made in the value of a bin. A tool can
+// report the call or the write in f.
 //
 // Icarus Verilog 13.0 does not implement covergroups; its cascading
 // syntax errors fall on every line of the construct, including the line
@@ -23,12 +28,15 @@
 module test_illegal_cg_function_side_effect;
   class c;
     static int calls = 0;
+    int v;
     static function int f(int a);
       calls = calls + 1;
       return a;
     endfunction
     covergroup cg;
-      coverpoint f(1);   // illegal: f has a side effect
+      coverpoint v {
+        bins one = {f(1)};   // illegal: f has a side effect
+      }
     endgroup
   endclass
 endmodule

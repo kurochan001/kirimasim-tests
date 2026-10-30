@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_19_extra_cross_items.expected
+:expected_stdout: @test_19_extra_cross_items.expected
 */
 // IEEE 1800-2023 §19.6: a cross names at least two cross items, here the
 // coverpoints ca and cb. §19.6.1: the cross has a bin for each pair of bins

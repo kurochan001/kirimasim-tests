@@ -23,7 +23,9 @@
 // unused output left empty, by name with every actual written and .flag()
 // empty, by implicit names, and by .*. a is 1, b is 2 and c is 4, so every
 // sum is 7; the two instances that leave the parity output empty write
-// nothing to it.
+// nothing to it. u_imp writes its parity to f_imp, since u_wild drives flag
+// through .*, and an output connection acts as a continuous assignment to its
+// actual (§17.3), of which a variable may have only one (§6.5).
 // Icarus Verilog 13.0 does not parse checkers, and Verilator 5.052 does not
 // support a checker declared in a package, so the expected output follows the
 // standard; with the same checker at unit level Verilator 5.052 reproduces it.
@@ -40,7 +42,7 @@ endpackage : ck_inst_pkg
 module test_checker_instantiation_connection_forms;
   logic [3:0] a = 4'd1, b = 4'd2, c = 4'd4;
   logic [5:0] s_pos, s_skip, s_named, s_imp, sum;
-  logic f_pos, flag;
+  logic f_pos, f_imp, flag;
 
   ck_inst_pkg::ck_add u_pos (a, b, c, s_pos, f_pos);
 
@@ -48,7 +50,7 @@ module test_checker_instantiation_connection_forms;
 
   ck_inst_pkg::ck_add u_named (.a(a), .b(b), .c(c), .sum(s_named), .flag());
 
-  ck_inst_pkg::ck_add u_imp (.a, .b, .c, .sum(s_imp), .flag(flag));
+  ck_inst_pkg::ck_add u_imp (.a, .b, .c, .sum(s_imp), .flag(f_imp));
 
   ck_inst_pkg::ck_add u_wild (.*);
 

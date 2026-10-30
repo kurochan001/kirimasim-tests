@@ -19,7 +19,10 @@
 // vpiInstance. The program one takes a scalar interface port and the program
 // two a port that is an array of two interfaces, so the scalar and the array
 // relations are observed apart from each other. Interface instances are
-// printed sorted by name, elements by index.
+// printed sorted by name, elements by index. The simulation ends when the
+// initial procedures of both programs have ended, at 3 (§24.3), so the
+// application runs at 1. vpi_get_str() returns each string in the same
+// buffer (§38.11), so the application copies the strings it prints together.
 
 `timescale 1ns/1ns
 
@@ -44,5 +47,5 @@ module test_vpi_program_interface_relations;
   pri_one one(b);
   pri_two two(ba);
 
-  initial #4 $vt_program;
+  initial #1 $vt_program;
 endmodule

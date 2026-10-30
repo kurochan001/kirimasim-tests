@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_19_extra_option_per_instance.expected
+:expected_stdout: @test_19_extra_option_per_instance.expected
 */
 // IEEE 1800-2023 §19.7: option.per_instance is a definition-only covergroup
 // option whose default is false. With true, the tool saves and reports the

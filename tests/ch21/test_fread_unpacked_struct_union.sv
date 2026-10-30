@@ -16,7 +16,8 @@
 // takes 7 bytes, 1 into a, the next 2 into b and the next 4 into c, each big
 // endian. The union has a 16-bit first member and a 32-bit second member, so
 // it takes 2 bytes, into the first member. The file holds the bytes 01 to 0c
-// (hex); $fgetc shows the byte after the union. The result is the number of
+// (hex); $fgetc shows the byte after the union, printed with %h as the
+// 32-bit int c, so with eight digits. The result is the number of
 // bytes read. The file is created in the current directory. Icarus Verilog
 // 13.0 does not support unpacked structures, and the 5.052 release
 // of Verilator rejects $fread into a variable that is not an unpacked array.

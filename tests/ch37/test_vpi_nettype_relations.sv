@@ -18,7 +18,14 @@
 // declaration reaches the instance that declares it with vpiInstance, which
 // is the top module here. The test declares one nettype without a resolution
 // function and one with a function, and a net of each, and compares the
-// vpiInstance handle with the top module handle (37.3.1).
+// vpiInstance handle with the top module handle (37.3.1). A nettype
+// declaration has a name but no full name, so the application finds it with
+// the vpiNetTypedef iteration of the module (§37.10 detail 10), not with
+// vpi_handle_by_name(), which applies to objects with a full name (§38.21).
+// Annex M defines no constant for that tag, so where the header has none the
+// application iterates with the object type vpiNettypeDecl.
+// vpi_get_str() returns each string in the same buffer (§38.11), so the
+// application copies the strings it prints together.
 
 module test_vpi_nettype_relations;
   typedef logic [3:0] nib_t;

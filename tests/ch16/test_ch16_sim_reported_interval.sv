@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_ch16_sim_reported_interval.expected
+:expected_stdout: @test_ch16_sim_reported_interval.expected
 */
 // IEEE 1800-2023 §16.9.4: a tool message that reports the starting or ending
 // time step of an evaluation attempt shall be consistent with the interval

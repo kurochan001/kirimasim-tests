@@ -22,7 +22,9 @@
 // The two generated program procedures print 1 at time 1 and 2 at time 2,
 // each from its own pv. The generated assertion in c1 holds a at each posedge
 // of clk, where a is 1, so it passes at times 5 and 15 and its pass action
-// prints them.
+// prints them. The program procedures then wait #20: when all initial
+// procedures of the programs have ended, the simulation ends with an implicit
+// $finish (24.3), which at time 2 would come before the passes.
 //
 // Icarus Verilog 13.0 has no checkers; Verilator 5.052 produces this output.
 
@@ -40,6 +42,7 @@ program prog;
       int pv;
       pv = i + 1;
       #(i+1) $display("prog %0d", pv);
+      #20;
     end
   end
 endprogram

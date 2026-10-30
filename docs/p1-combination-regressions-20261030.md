@@ -348,7 +348,7 @@ queue/動的配列とalways_comb、always @*、連続代入、always_latchを交
 
 - 版: Icarus Verilog version 13.0 (stable) (v13_0-dirty)。
 - 実行日時: 2026-10-30T00:40:13.297515+00:00。
-- 対象全件: pass=11, fail=0, known=77, unsupported=0, stale=0, not_run=0。
+- 対象全件: pass=11, fail=0, known=76, unsupported=0, stale=1, not_run=0。
 - E01: 主観測に未達あり。known=2。
 - E02: 主観測に未達あり。known=2。
 - E03: 主観測すべて合格。pass=1。
@@ -374,7 +374,7 @@ queue/動的配列とalways_comb、always @*、連続代入、always_latchを交
 
 - 版: kirimasim 0.0.0 (commit 1ca363e2c922), built with AppleClang 21.0.0.21000334。
 - 実行日時: 2026-10-30T00:41:13.175003+00:00。
-- 対象全件: pass=26, fail=3, known=0, unsupported=59, stale=0, not_run=0。
+- 対象全件: pass=26, fail=2, known=0, unsupported=59, stale=1, not_run=0。
 - E01: 主観測に未達あり。unsupported=2。
 - E02: 主観測に未達あり。unsupported=2。
 - E03: 主観測に未達あり。unsupported=1。
@@ -400,7 +400,7 @@ queue/動的配列とalways_comb、always @*、連続代入、always_latchを交
 
 - 版: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
 - 実行日時: 2026-10-30T00:40:20.650747+00:00。
-- 対象全件: pass=27, fail=0, known=50, unsupported=0, stale=0, not_run=11。
+- 対象全件: pass=27, fail=0, known=49, unsupported=0, stale=1, not_run=11。
 - E01: 主観測に未達あり。known=2。
 - E02: 主観測に未達あり。known=2。
 - E03: 主観測すべて合格。pass=1。
@@ -426,7 +426,7 @@ queue/動的配列とalways_comb、always @*、連続代入、always_latchを交
 
 - 版: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
 - 実行日時: 2026-10-30T00:40:24.278982+00:00。
-- 対象全件: pass=27, fail=0, known=50, unsupported=0, stale=0, not_run=11。
+- 対象全件: pass=27, fail=0, known=49, unsupported=0, stale=1, not_run=11。
 - E01: 主観測に未達あり。known=2。
 - E02: 主観測に未達あり。known=2。
 - E03: 主観測すべて合格。pass=1。

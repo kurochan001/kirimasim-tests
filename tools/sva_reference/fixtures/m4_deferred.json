@@ -17,7 +17,7 @@
     ]
   },
   "tests/ch16/test_sampled_automatic_and_const_current.sv": {
-    "source_sha256": "a9c03820dbf766aa8628d76cf9c33ca421a5c00337e495bf1da619975e0ec1fe",
+    "source_sha256": "68dd093a1873ea8f50d7de807840070d6b77252a3d9f6a3e9a230e25aec9388e",
     "reason": "Automatic/const-current operand exceptions need capture/lifetime/current-region modeling",
     "evidence": [
       "automatic",

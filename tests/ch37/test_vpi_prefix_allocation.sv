@@ -18,7 +18,13 @@
 // vi.d to a system task; the application reads vpiPrefix of each argument,
 // compares the allocation scheme of the argument with that of its prefix with
 // vpi_get(vpiAllocScheme), and prints the prefix kind and name and whether the
-// two schemes are equal.
+// two schemes are equal. The prefixes c and vi are static variables of the
+// module, not allocated in dynamic memory, so their scheme is vpiOtherScheme
+// (§37.3.7), and by detail 2 so is the scheme of c.m and vi.d. §37.3.7 alone
+// would call c.m, a part of a class object, dynamic; the test follows the
+// more specific rule of §37.61 for an object with a prefix. vpi_get_str()
+// returns each string in the same buffer (§38.11), so the application copies
+// the strings it prints together.
 
 interface pfx_ifc;
   logic [3:0] d;

@@ -15,7 +15,9 @@
 // the interface, or of the modport when it represents a modport, and vpiParent
 // of a modport typespec returns the typespec of its interface, while that of an
 // interface typespec is NULL. The vpiTypedef iteration of the module returns
-// the typedefs bus_t and phy_t. The lines are sorted by name.
+// the typedefs bus_t and phy_t. The lines are sorted by name. vpi_get_str()
+// returns each string in the same buffer (§38.11), so the application copies
+// the strings it prints together.
 
 `timescale 1ns/1ns
 

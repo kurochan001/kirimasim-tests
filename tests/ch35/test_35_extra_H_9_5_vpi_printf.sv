@@ -10,7 +10,7 @@
 :nondeterministic: no
 :dpi_c: @test_35_extra_H_9_5_vpi_printf.c
 :vpi_c: @test_35_extra_H_9_5_vpi_printf_vpi.c
-:expected_stdout_verilator: @test_35_extra_H_9_5_vpi_printf.expected
+:expected_stdout: @test_35_extra_H_9_5_vpi_printf.expected
 */
 // IEEE 1800-2023 §H.9.5: VPI calls from an imported subroutine need DPI
 // context, except for vpi_printf, vpi_vprintf and vpi_flush, the mcd_*

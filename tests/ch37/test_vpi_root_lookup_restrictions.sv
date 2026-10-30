@@ -19,7 +19,9 @@
 // outside every design element, so its full name begins with "$unit::"
 // (detail 5); neither is found by name, while the module's own variable lvar
 // is. The top-level module and the package are both instance objects, so the
-// NULL root iteration gives both (37.10 diagram).
+// NULL root iteration gives both (37.10 diagram). The application skips the
+// compilation unit, asking vpiUnit only of packages, the objects that have
+// it: for others vpi_get() can report an error (§38.6).
 
 package rlr_pkg;
   int pv;

@@ -32,6 +32,8 @@
 // instance u, the name and value of its attributes and whether their
 // vpiParent is that object, and for each attribute found, and the one of w,
 // the base name of vpiDefFile and vpiDefLineNo; the lines are sorted.
+// vpi_get_str() returns each string in the same buffer (§38.11), so the
+// application copies the name of an attribute before it asks for the file.
 // Neither release produces this output: Icarus Verilog 13.0 cannot build the
 // application, as its headers lack vpiAttribute, vpiParamAssign and vpiLhs,
 // and a run with Verilator 5.052 prints nothing, as it gives no ports, no

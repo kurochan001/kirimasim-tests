@@ -11,7 +11,10 @@
 :expected_stdout: @test_intra_assignment_timing.expected
 */
 // From kirimasim tests/suite/sched/intra_assignment_timing.sv, 2026-10-25.
-// Its expectation is checked against the clauses below.
+// Its expectation is checked against the clauses below. The times are
+// printed with %t, so the test sets its time unit and precision, which are
+// otherwise left to the tool (3.14.2.3).
+`timescale 1ns/1ns
 module top;
   int a, b, y, idx;
   int arr [4];

@@ -24,6 +24,9 @@
 // productions add 4 and 8, so i is 44. p is 1 from the procedural continuous
 // assignment and keeps that value after deassign (10.6.1), and the clocking
 // drive writes q_cb at the next rising edge.
+// The task add declares v as input: a formal without a direction takes the
+// direction of the one before it (13.3), so v would be ref, and a literal
+// actual such as 4 cannot be passed by reference (13.5.2).
 
 `timescale 1ns/1ns
 
@@ -40,7 +43,7 @@ module test_statement_item_forms;
     output q_cb;
   endclocking
 
-  task automatic add(ref int x, int v);
+  task automatic add(ref int x, input int v);
     x += v;
   endtask
 

@@ -14299,7 +14299,7 @@
     },
     {
       "test": "tests/ch11/test_concatenation_pattern_string_operand_and_replication_once.sv",
-      "inputs_sha256": "ae42123c669f9a8299138e07821c82fcfcb853863665a2b1673cac5585639d5a",
+      "inputs_sha256": "bb4e86f9d19cf21dde8500bbdaa67e65ca2a1da14e2e87cf7bd77a5bbeb58a77",
       "cited_clauses": [
         "11.4.12",
         "11.4.12.1",
@@ -39482,7 +39482,7 @@
     },
     {
       "test": "tests/ch12/test_statement_item_forms.sv",
-      "inputs_sha256": "09592b1cc8596e1176b2771962ca5a600966e9e0646102cac3b22de2aebce6b7",
+      "inputs_sha256": "5a9a90c760e1544dda8986631ed3da0b41a12dc5a691846d3552aa4e40eb00f8",
       "cited_clauses": [
         "12.3",
         "12.2"
@@ -41628,7 +41628,7 @@
     },
     {
       "test": "tests/ch13/test_A_extra_tf_dims.sv",
-      "inputs_sha256": "bc1b36aa16cdf6e04bd74a8f6219857d3a1d568cc73ba8ece4121a43015b97ec",
+      "inputs_sha256": "4b52cc29bc6ab8f6b32de73d1ac5ec3189b1f0abecaa4c06c84ff8a4e4155e53",
       "cited_clauses": [
         "13.3",
         "A.2.3"
@@ -47432,7 +47432,7 @@
     },
     {
       "test": "tests/ch13/test_illegal_ref_in_static_function.sv",
-      "inputs_sha256": "dea30c9e45dcbdedb967a11982afebb7bcc4a6c66c18a4b88b098ac9eb912c6a",
+      "inputs_sha256": "f67482c9179826bfed3feac35948bedf9782168c66a8c2af2bbb1865828341b4",
       "cited_clauses": [
         "13.5.2",
         "13.4.2"
@@ -47470,9 +47470,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch13/test_illegal_ref_in_static_function.sv",
-        "inputs_sha256": "dea30c9e45dcbdedb967a11982afebb7bcc4a6c66c18a4b88b098ac9eb912c6a",
-        "reviewed_on": "2026-10-22",
-        "reviewer": "Codex (AI); not an independent human review",
+        "inputs_sha256": "f67482c9179826bfed3feac35948bedf9782168c66a8c2af2bbb1865828341b4",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -51139,7 +51139,7 @@
     },
     {
       "test": "tests/ch14/test_clocking_block_event_after_nba_before_reactive.sv",
-      "inputs_sha256": "77b2f5ce137359ab8ba6e947617198bdf4797368443b343f6886f02689d90d41",
+      "inputs_sha256": "75f39adae8d8be3189e3a32e0cddd58085e9188e80a9b253a11b984604abb32c",
       "cited_clauses": [
         "14.10",
         "4.4.2",
@@ -58954,7 +58954,7 @@
     },
     {
       "test": "tests/ch16/test_assume_property_actions.sv",
-      "inputs_sha256": "b34cc0d7765d29cd6bae1c833a47ef8f7bdef9d4ceca08046e97880e23736dbc",
+      "inputs_sha256": "217d73ed1eb3cd534ae0d7db5b1362521ad9d7a18110ef913468cf6bbe049fbf",
       "cited_clauses": [
         "16.14.2",
         "16.14.4",
@@ -59120,9 +59120,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch16/test_assume_property_actions.sv",
-        "inputs_sha256": "b34cc0d7765d29cd6bae1c833a47ef8f7bdef9d4ceca08046e97880e23736dbc",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "217d73ed1eb3cd534ae0d7db5b1362521ad9d7a18110ef913468cf6bbe049fbf",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -59242,7 +59242,7 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_bias_no_relaxation.sv",
-      "inputs_sha256": "c58d0175ad526217eaf76d7ce799976148a13e85f6c2a04a0722d60168fa8b11",
+      "inputs_sha256": "c6a5d0ab2da6ae2f55c07df91f4f3c0933cd0821d944ea470766c5d4a11e6992",
       "cited_clauses": [
         "16.14.2",
         "18.5.3"
@@ -59345,7 +59345,7 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_checker_inference.sv",
-      "inputs_sha256": "e1adff08d31f32399fadc1f96e508f14ce3e855ffba3c9bca1a417c03cb8a522",
+      "inputs_sha256": "800dc4690e0cb12578d589c1eed9fc461fb99a0051bc6bd4a22eae2d5799cc2e",
       "cited_clauses": [
         "16.13.6",
         "16.16"
@@ -59448,7 +59448,7 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_cover_counters.sv",
-      "inputs_sha256": "76cc33340a393bedee097173028d32383ac3d0f3db0f015f01ed33040012f708",
+      "inputs_sha256": "7c2afd3a0961f0dca70987245c8cfb69e830ab55fc41d93b3c776853d5e4d998",
       "cited_clauses": [
         "16.3"
       ],
@@ -59480,7 +59480,7 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_declaration_inert.sv",
-      "inputs_sha256": "b6084fdc7c81c40a49721dfdf00661c46b0923051d8b83724936a14ac2b9c463",
+      "inputs_sha256": "461e01222c5edca8489888c96b3b47e6139d0a1203cc907d87bbb263acd772ba",
       "cited_clauses": [
         "16.12"
       ],
@@ -59530,7 +59530,7 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_glitch_free.sv",
-      "inputs_sha256": "c4e0ddfb6f56dbb2b25584e2a80a655baeec36134e9f20de540c8b298238c557",
+      "inputs_sha256": "a899408df21d5009d7af1c3784abfcc4e4c80c3767436b66c17ecef0a5f2e47d",
       "cited_clauses": [
         "16.5"
       ],
@@ -59598,10 +59598,12 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_prop_async_abort.sv",
-      "inputs_sha256": "51a1d81222e22678f6d68c3510d62600fd8b6a138745e33cf39a945178ad3e2d",
+      "inputs_sha256": "fc951ceb9b72370cff7e7f30e74d0567492e64c0847e2d18f3d7f40297aa939e",
       "cited_clauses": [
         "16.16.1",
-        "16.12.14"
+        "16.12.14",
+        "16.12.3",
+        "16.14.8"
       ],
       "negative_test": false,
       "registered_requirement_ids": [
@@ -59619,6 +59621,44 @@
         "SV2023-16.12.14-EXTRACT-REJECT-DUAL",
         "SV2023-16.12.14-EXTRACT-SYNC-REJECT-DUAL",
         "SV2023-16.12.14-EXTRACT-SYNCHRONOUS-SAMPLED",
+        "SV2023-16.12.3-EXTRACT-NEGATION",
+        "SV2023-16.12.3-EXTRACT-NEGATION-STRENGTH",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-A",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-AA",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-AB",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-AC",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-AD",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-AE",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-AF",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-AG",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-B",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-C",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-D",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-E",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-F",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-G-ELSE",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-G-IF",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-H-NONOVERLAP",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-H-OVERLAP",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-I",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-J",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-K",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-L",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-M",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-N",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-O",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-P",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-Q",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-R",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-S",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-SUCCESS",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-T",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-U",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-V",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-W",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-X",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-Y",
+        "SV2023-16.14.8-EXTRACT-NONVACUOUS-Z",
         "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
         "SV2023-16.16.1-EXTRACT-INHERITED",
         "SV2023-16.16.1-EXTRACT-OUTER-CLOCK",
@@ -59650,7 +59690,7 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_prop_inherited_always.sv",
-      "inputs_sha256": "348b5ac6bdcc23700d2c0f0284d3e3b72e2b13d8f4d1b6991b995eff3b5c9576",
+      "inputs_sha256": "d95b70512adc4cc3ceeab48b9c2e470221a205fc86d4380042eea57b38b451f2",
       "cited_clauses": [
         "16.16.1",
         "16.12.11"
@@ -59697,7 +59737,7 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_prop_inherited_case.sv",
-      "inputs_sha256": "c3833b1db99e4ce1f6effaa2c1df1d9acef2b18189940aec74913eb28a6b3955",
+      "inputs_sha256": "3318f7ad3c9942076d7954ffdf9de0922b24c200968f4289d4603cb10497710a",
       "cited_clauses": [
         "16.16.1",
         "16.12.9"
@@ -59744,7 +59784,7 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_prop_inherited_conditional.sv",
-      "inputs_sha256": "81e715bc35bedd304351280f15ebd0521ebf96acd4523fdeff7eda199eedd8ef",
+      "inputs_sha256": "af7cf73889e9b9aba13df18de4494ec3795fd5c76f99604425bd98b562f6040d",
       "cited_clauses": [
         "16.16.1",
         "16.12.8"
@@ -59830,7 +59870,7 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_reported_interval.sv",
-      "inputs_sha256": "2d9165e119632f5498ec3a3a8e9dca3f083f3022b837fbb4d8f0510629bc1eff",
+      "inputs_sha256": "da9e20cf33949196a84e481186720ec2a6c64629525b76b66c7a8e8ff47d4166",
       "cited_clauses": [
         "16.9.4",
         "16.9.2"
@@ -60125,7 +60165,7 @@
     },
     {
       "test": "tests/ch16/test_concurrent_assert_actions.sv",
-      "inputs_sha256": "8fa34bbbcf4035cfa51b36013ae4630ada58f28169266a9bb985019075156df1",
+      "inputs_sha256": "3c1d81c1b9839af8d764b0e0174da0cc58ba66e519538cfcf706c98fb8d4d115",
       "cited_clauses": [
         "16.14.1",
         "16.3",
@@ -61571,7 +61611,7 @@
     },
     {
       "test": "tests/ch16/test_deferred_assertion_default_error.sv",
-      "inputs_sha256": "3ccc361ac87709b1d5337917823eab95e0f41c66d6891598b9ab5570070c415c",
+      "inputs_sha256": "7d22870874322f7e1b968fd7eeda67a7f20fc189106dfa632bd529f87a30f10c",
       "cited_clauses": [
         "16.4.1",
         "16.3",
@@ -83621,7 +83661,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_triggered_outside_local_formal.sv",
-      "inputs_sha256": "ac427559a7421043f21c4bcb73ac196918a4c85405d557e81a17147161af5a5a",
+      "inputs_sha256": "249e158229246fc1d25dbae12ef323aafe4bacf926ede3bd5fb9bb9fea52a870",
       "cited_clauses": [
         "16.13.6"
       ],
@@ -83967,7 +84007,7 @@
     },
     {
       "test": "tests/ch16/test_immediate_assertion_default_error.sv",
-      "inputs_sha256": "4318dc070282b62aac143cc1b8758684a95e99b06f4bfa0eb1e02daf868a71ab",
+      "inputs_sha256": "f9cb526a33c4845b487a7ec8ce3810f9ed47796c8a1f51da96bc766c5b3899fd",
       "cited_clauses": [
         "16.3",
         "20.10",
@@ -90313,7 +90353,7 @@
     },
     {
       "test": "tests/ch16/test_recursive_property_time_advance.sv",
-      "inputs_sha256": "82e5e405a4a5a2e7d91af45e482c50b9ed128d92043c4dec8fe5eb21ffa9133e",
+      "inputs_sha256": "0aa33fe649025c017d7664889ce5377d222f990e0c025ea5ab13f819736b4f46",
       "cited_clauses": [
         "16.12",
         "16.12.17"
@@ -90440,7 +90480,7 @@
     },
     {
       "test": "tests/ch16/test_sampled_automatic_and_const_current.sv",
-      "inputs_sha256": "f43d73d5272d26959d391d61710f148420079b8bf3a9e73fee2643ea5cfce8a0",
+      "inputs_sha256": "dfa3cfec7e8f1399bf64a4ec213f7ef46ccd8d786f4ed0edb11aec5bf609bb80",
       "cited_clauses": [
         "16.5.1",
         "16.5.2",
@@ -92741,7 +92781,7 @@
     },
     {
       "test": "tests/ch16/test_sequence_match_item_and_triggered_method.sv",
-      "inputs_sha256": "9f16c275b0eb89248bd302267e6fb9b568bc9ad16e27079d5ea27b63974758a1",
+      "inputs_sha256": "47f9439a01f0489efa3bc0cadfb38693794d1539e38fdb58663375bb00342163",
       "cited_clauses": [
         "16.13.6",
         "16.10",
@@ -92979,9 +93019,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch16/test_sequence_match_item_and_triggered_method.sv",
-        "inputs_sha256": "9f16c275b0eb89248bd302267e6fb9b568bc9ad16e27079d5ea27b63974758a1",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "47f9439a01f0489efa3bc0cadfb38693794d1539e38fdb58663375bb00342163",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -93191,12 +93231,14 @@
     },
     {
       "test": "tests/ch16/test_sequence_operator_and_delay_forms.sv",
-      "inputs_sha256": "089187d6bfb6f04aca156f2899706f320649415e67dbc0ddac4450186c187213",
+      "inputs_sha256": "5e12afaa976af8763afe577d19ffad77ba170b9d40180a2fe3043d2d63c395fe",
       "cited_clauses": [
         "16.9",
         "16.10",
+        "16.11",
         "16.12.2",
         "16.12.15",
+        "16.12.22",
         "16.14.1",
         "A.2.10"
       ],
@@ -93236,6 +93278,9 @@
         "SV2023-16.10-EXTRACT-TRIGGERED-FLOW",
         "SV2023-16.10-EXTRACT-TRIGGERED-THREADS",
         "SV2023-16.10-EXTRACT-UNTYPED-SHARED-LOCAL",
+        "SV2023-16.11-EXTRACT-ATTACHED-CALL",
+        "SV2023-16.11-EXTRACT-EVERY-ENDPOINT",
+        "SV2023-16.11-EXTRACT-REACTIVE-CALL",
         "SV2023-16.12.15-EXTRACT-STRONG-OPERATORS",
         "SV2023-16.12.15-EXTRACT-WEAK-OPERATORS",
         "SV2023-16.12.2-EXTRACT-IMPLICIT-STRENGTH",
@@ -93243,6 +93288,8 @@
         "SV2023-16.12.2-EXTRACT-STRONG-FIRST-MATCH",
         "SV2023-16.12.2-EXTRACT-WEAK",
         "SV2023-16.12.2-EXTRACT-WEAK-FIRST-MATCH",
+        "SV2023-16.12.22-EXTRACT-DEGENERATE",
+        "SV2023-16.12.22-EXTRACT-ZERO-NO-SAMPLE",
         "SV2023-16.14.1-EXTRACT-ASSERT-ACTIONS",
         "SV2023-16.14.1-EXTRACT-ASSERT-DEFAULT",
         "SV2023-16.14.1-EXTRACT-ASSERT-REACTIVE",
@@ -93303,7 +93350,14 @@
         "SV2023-16.10-EXTRACT-NO-REDECLARED-FORMAL",
         "SV2023-16.10-EXTRACT-SIBLING-ISOLATION",
         "SV2023-16.10-EXTRACT-TRIGGERED-LOCAL-ACTUAL",
+        "SV2023-16.11-EXTRACT-AUTOMATIC-ARGUMENT",
+        "SV2023-16.11-EXTRACT-CALL-ARGUMENTS",
+        "SV2023-16.11-EXTRACT-LOCAL-CALL-ARGUMENT",
+        "SV2023-16.11-EXTRACT-NO-EMPTY-CALL",
         "SV2023-16.12.2-EXTRACT-NO-EMPTY-PROPERTY",
+        "SV2023-16.12.22-EXTRACT-NONOVERLAPPED-MATCHABLE",
+        "SV2023-16.12.22-EXTRACT-OVERLAPPED-NONDEGENERATE",
+        "SV2023-16.12.22-EXTRACT-PROPERTY-NONDEGENERATE",
         "SV2023-16.14.1-EXTRACT-ASSERT-ACTION-CONTENT"
       ],
       "broader_citations": [
@@ -93314,9 +93368,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch16/test_sequence_operator_and_delay_forms.sv",
-        "inputs_sha256": "089187d6bfb6f04aca156f2899706f320649415e67dbc0ddac4450186c187213",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "5e12afaa976af8763afe577d19ffad77ba170b9d40180a2fe3043d2d63c395fe",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -93324,13 +93378,13 @@
               "SV2023-A.2.10-EXTRACT-MATCH-METHOD"
             ],
             "disposition": "partial_observation",
-            "explanation": "match item として first_match 内の fm = fm + 1 を置くが、sequence instance の dot method identifier（triggered/matched）を使っていない。2 つの条件のうち match item だけの観測。",
+            "explanation": "match item として first_match 内に void 関数の呼出し count_first_match()（subroutine call の形）を置くが、sequence instance の dot method identifier（triggered/matched）を使っていない。2 つの条件のうち match item だけの観測で、match item も演算子代入や増減の形ではない。",
             "reviewed_on": "2026-10-26",
             "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch16/test_sequence_operator_and_delay_forms.sv",
-                "contains": "  a_fm: assert property (@(posedge clk) start |-> first_match (a ##[1:2] b, fm = fm + 1))"
+                "contains": "  a_fm: assert property (@(posedge clk) start |-> first_match (a ##[1:2] b, count_first_match()))"
               }
             ]
           },
@@ -93339,13 +93393,13 @@
               "SV2023-A.2.10-EXTRACT-SEQUENCE-ATOM"
             ],
             "disposition": "partial_observation",
-            "explanation": "first_match (a ##[1:2] b, fm = fm + 1) は parenthesized sequence と match item を持つが、sequence abbreviation（[*n] 等）をその sequence atom に付けた形は無い。",
+            "explanation": "first_match (a ##[1:2] b, count_first_match()) は parenthesized sequence と match item を持つが、sequence abbreviation（[*n] 等）をその sequence atom に付けた形は無い。",
             "reviewed_on": "2026-10-26",
             "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch16/test_sequence_operator_and_delay_forms.sv",
-                "contains": "  a_fm: assert property (@(posedge clk) start |-> first_match (a ##[1:2] b, fm = fm + 1))"
+                "contains": "  a_fm: assert property (@(posedge clk) start |-> first_match (a ##[1:2] b, count_first_match()))"
               }
             ]
           }
@@ -96386,7 +96440,7 @@
     },
     {
       "test": "tests/ch17/test_checker_body_declaration_kinds.sv",
-      "inputs_sha256": "6c8f35af2bb2d851882880584beb3b66ed3488e597a5ad52a7c5ea2fd081e8f8",
+      "inputs_sha256": "75fff18b4c84ea2d4fbe56b85828ccc534d1bd0128f3db808306f274626d712e",
       "cited_clauses": [
         "17.2",
         "17.7",
@@ -96451,9 +96505,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch17/test_checker_body_declaration_kinds.sv",
-        "inputs_sha256": "6c8f35af2bb2d851882880584beb3b66ed3488e597a5ad52a7c5ea2fd081e8f8",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "75fff18b4c84ea2d4fbe56b85828ccc534d1bd0128f3db808306f274626d712e",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -98112,7 +98166,7 @@
     },
     {
       "test": "tests/ch17/test_checker_instantiation_connection_forms.sv",
-      "inputs_sha256": "aa41cae967d9d206de21cb5743fc92b84d0f31aaf3c83b467960d4d17a417f0a",
+      "inputs_sha256": "214f09e1c4cdfbea551578d8aeb49c115ca00e5eb7b0ad9f73f14ec0f72aba46",
       "cited_clauses": [
         "17.3",
         "17.2",
@@ -98510,7 +98564,7 @@
     },
     {
       "test": "tests/ch17/test_checker_procedures_reactive_renba.sv",
-      "inputs_sha256": "61d50dea2f82adac50e41781f632fa86ba4afd07d0227469ffca9b6aa80dc04f",
+      "inputs_sha256": "db4c28da07e90a56e25417a5542224796436f78b27ae6b8960306d395838c515",
       "cited_clauses": [
         "17.7.3",
         "24.3.1"
@@ -98975,7 +99029,7 @@
     },
     {
       "test": "tests/ch17/test_illegal_checker_covergroup_constant_actual.sv",
-      "inputs_sha256": "06be2987df0cbae161fb453a935c850c55270b8096ce530227f7c5ff927d219a",
+      "inputs_sha256": "a53125fb42ab16e39001d19fe531fe2cd29ba9a906ea0858b51ab8792adc407c",
       "cited_clauses": [
         "17.6"
       ],
@@ -98994,9 +99048,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch17/test_illegal_checker_covergroup_constant_actual.sv",
-        "inputs_sha256": "06be2987df0cbae161fb453a935c850c55270b8096ce530227f7c5ff927d219a",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "a53125fb42ab16e39001d19fe531fe2cd29ba9a906ea0858b51ab8792adc407c",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -102792,7 +102846,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_constraint_foreach_dimensions.sv",
-      "inputs_sha256": "e41c379e517d45aa150faafeb39ccda64f5e213e83d1b622514e0e152ba6e345",
+      "inputs_sha256": "986e6f2079d21724e3b4a3ccdbd2343f3537161f745cf3fd7a8e7a4e950ed28c",
       "cited_clauses": [
         "18.5.7.1"
       ],
@@ -105226,7 +105280,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_solve_before_parentheses.sv",
-      "inputs_sha256": "11ea4a8765437c8195ee76a5d945364e40cf3314c8724f242cc418078a0cd030",
+      "inputs_sha256": "724290ede56c5d044fd424c51addbad85dc4b5ecf3d0f778fa88c679d42b4313",
       "cited_clauses": [
         "18.5.9"
       ],
@@ -109971,7 +110025,7 @@
     },
     {
       "test": "tests/ch19/test_19_extra_cross_items.sv",
-      "inputs_sha256": "1b1865956c8955a8eac9c7d82008cd092aaf1344c4e721a0984371ebc0914372",
+      "inputs_sha256": "a73554159adfb4e2a4c52261d3be8489dc6f245d3b8dc0cfccbfb6acfcf17233",
       "cited_clauses": [
         "19.6",
         "19.11.2"
@@ -110006,7 +110060,7 @@
     },
     {
       "test": "tests/ch19/test_19_extra_option_comment.sv",
-      "inputs_sha256": "a7c16e3f7affd6662309abcba7e4a5e370d0299e5e75fdd82f2b3e2046cc7aa6",
+      "inputs_sha256": "5ee9d1e2db1ae76e392f671de8a0788e235e01290fa2b23afa084c042cb01189",
       "cited_clauses": [
         "19.7",
         "19.10"
@@ -110085,7 +110139,7 @@
     },
     {
       "test": "tests/ch19/test_19_extra_option_cross_num_print_missing.sv",
-      "inputs_sha256": "1a4825349f24f66e667c2abc9394ad112b9483b09f024fb31fa52231eed97580",
+      "inputs_sha256": "f25eff6718b7a923647d4c8119c9dd1b4ca7a304dfccc7cbb060f719bf193f2c",
       "cited_clauses": [
         "19.7",
         "19.10"
@@ -110164,7 +110218,7 @@
     },
     {
       "test": "tests/ch19/test_19_extra_option_detect_overlap.sv",
-      "inputs_sha256": "5d81ffc034f27512a82c90f84eabc9ca4eab0b9adb263196f08601d136c88dfb",
+      "inputs_sha256": "9706981a53b119b5cded821a59d56a8b7eeb00c1c3024b5b884ad2203c1eec95",
       "cited_clauses": [
         "19.7",
         "19.10"
@@ -110243,7 +110297,7 @@
     },
     {
       "test": "tests/ch19/test_19_extra_option_per_instance.sv",
-      "inputs_sha256": "b376169b90a4fdbfe92a4a4f50263a9779f709d83e4f64c5205fc57a65065968",
+      "inputs_sha256": "2da049c5ed3f8d9a3c3b0249d245f350856950bdab603c2f187f9f4f88387bb4",
       "cited_clauses": [
         "19.7",
         "19.10"
@@ -110322,7 +110376,7 @@
     },
     {
       "test": "tests/ch19/test_19_extra_sample_method.sv",
-      "inputs_sha256": "4c0a3b71aa590e4f7ea0687b076ca6b3bfa2e57b06bbad174e5e9c0673e3501e",
+      "inputs_sha256": "9ad96f5a27251099d9900e612586d893dc805c7dfddc55550e8d8d2657fa51f1",
       "cited_clauses": [
         "19.8",
         "19.11.1"
@@ -110378,7 +110432,7 @@
     },
     {
       "test": "tests/ch19/test_19_extra_type_option_comment.sv",
-      "inputs_sha256": "376024522ad40561b378c567ef614501ca343c59c0b0039ea29380c35aac54c5",
+      "inputs_sha256": "d35baba0415dd915dd91292dd7af1b0bbb16bb69f0f84a53982bc10175ace640",
       "cited_clauses": [
         "19.7.1",
         "19.10"
@@ -110434,7 +110488,7 @@
     },
     {
       "test": "tests/ch19/test_19_extra_type_option_mutation.sv",
-      "inputs_sha256": "4587ad926131a0e7a413ed2a61b32a3c5921299d83752d24038e0d99e21d7477",
+      "inputs_sha256": "0f50b45a5d04adf5db8b5500db41d8abe9add0d5990eee17c34b13c2e3b60b2b",
       "cited_clauses": [
         "19.7.1",
         "19.10",
@@ -110497,21 +110551,48 @@
     },
     {
       "test": "tests/ch19/test_19_rest_set_visibility.sv",
-      "inputs_sha256": "190d9e49f0b0b29c4acb6c2844557a631e5022f0f23d0feeabb344c71affdbf1",
+      "inputs_sha256": "dfb63e82247f11c30d35257c61bdf3ab4023cc7f7c4119220cafbee0cd41136d",
       "cited_clauses": [
-        "19.5.1.2"
+        "19.5.1.2",
+        "19.5"
       ],
       "negative_test": false,
       "registered_requirement_ids": [
         "SV2023-19.5.1.2-EXTRACT-SET-VISIBILITY-TIME"
       ],
       "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.5-EXTRACT-BIN-COUNT",
+        "SV2023-19.5-EXTRACT-CLOCKING-SAMPLE-REGION",
+        "SV2023-19.5-EXTRACT-DEFAULT-VALUES",
+        "SV2023-19.5-EXTRACT-INTEGRAL-AUTO-BINS",
+        "SV2023-19.5-EXTRACT-POINT-ASSIGNMENT",
+        "SV2023-19.5-EXTRACT-POINT-GRAMMAR",
+        "SV2023-19.5-EXTRACT-POINT-IFF",
+        "SV2023-19.5-EXTRACT-POINT-INFER-TYPE",
+        "SV2023-19.5-EXTRACT-POINT-NAME",
+        "SV2023-19.5-EXTRACT-SAMPLE-EVALUATION"
+      ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
+        "SV2023-19.5-EXTRACT-CONSTANT-INITIALIZATION",
+        "SV2023-19.5-EXTRACT-COVERPOINT-DOMAIN",
+        "SV2023-19.5-EXTRACT-DEFAULT-EXCLUDED",
+        "SV2023-19.5-EXTRACT-GROUP-EXPRESSION-VARIABLES",
+        "SV2023-19.5-EXTRACT-GROUP-FUNCTION-ARGS",
+        "SV2023-19.5-EXTRACT-GROUP-FUNCTION-PURITY",
+        "SV2023-19.5-EXTRACT-GROUP-SYSTEM-FUNCTIONS",
+        "SV2023-19.5-EXTRACT-POINT-TYPE-NAME",
+        "SV2023-19.5-EXTRACT-POINT-VISIBILITY",
+        "SV2023-19.5-EXTRACT-REAL-EXPLICIT-BINS",
         "SV2023-19.5.1.2-EXTRACT-SET-ARRAY"
       ],
-      "broader_citations": []
+      "broader_citations": [
+        {
+          "clause": "19.5",
+          "descendant_requirement_count": 62
+        }
+      ]
     },
     {
       "test": "tests/ch19/test_A_extra_spec_option.sv",
@@ -113484,7 +113565,7 @@
     },
     {
       "test": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
-      "inputs_sha256": "b383e74922c45616d209a5a2322f37bfc68b5f0594805220d06a29a41a27abd6",
+      "inputs_sha256": "3c612de15f2c5e1354a92319cfe9d45d7be1079f18e74291e35759e045cf288d",
       "cited_clauses": [
         "19.5.4",
         "19.5.7"
@@ -113512,9 +113593,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
-        "inputs_sha256": "b383e74922c45616d209a5a2322f37bfc68b5f0594805220d06a29a41a27abd6",
-        "reviewed_on": "2026-10-27",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "3c612de15f2c5e1354a92319cfe9d45d7be1079f18e74291e35759e045cf288d",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -113761,7 +113842,7 @@
     },
     {
       "test": "tests/ch19/test_cg_illegal_value_error.sv",
-      "inputs_sha256": "fb68681383252b838d5252d2eb9e925e49b8a5983174b080cc7226d730c4ee2f",
+      "inputs_sha256": "283b9a0286b5077ee26dded5c12a0f2f62737720dc0b6bb922504944f2210547",
       "cited_clauses": [
         "19.5.6",
         "19.11.1",
@@ -117141,7 +117222,7 @@
     },
     {
       "test": "tests/ch19/test_covergroup_cross_and_select_forms.sv",
-      "inputs_sha256": "21a4a194ab07a2e8290565217379dfb25dfd133740e3efc1eea7c622065b6126",
+      "inputs_sha256": "325420e24450e6a4549956522047a9f8e67e62822dcf6f21f7b585f8d5221593",
       "cited_clauses": [
         "19.6",
         "19.6.1",
@@ -117234,9 +117315,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch19/test_covergroup_cross_and_select_forms.sv",
-        "inputs_sha256": "21a4a194ab07a2e8290565217379dfb25dfd133740e3efc1eea7c622065b6126",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "325420e24450e6a4549956522047a9f8e67e62822dcf6f21f7b585f8d5221593",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -118375,7 +118456,7 @@
     },
     {
       "test": "tests/ch19/test_illegal_cg_function_side_effect.sv",
-      "inputs_sha256": "db06ef74efe263d0ecd5af2d0927913b18782af49930e636be4f1a1933646d60",
+      "inputs_sha256": "36c9f78df1e065404351a3c2b49f3604e2177a02caf2e50d0c4e7a1eee8b5d51",
       "cited_clauses": [
         "19.5"
       ],
@@ -118550,7 +118631,7 @@
     },
     {
       "test": "tests/ch19/test_illegal_cg_outer_constant.sv",
-      "inputs_sha256": "e4d7b129e4fdeca538ddb7334f2ff462a8eb007a57552704b40d4b5c914153f8",
+      "inputs_sha256": "848355d37f23e60e599aada114c1c263ff23d60821b77aa17c59a801b1340d49",
       "cited_clauses": [
         "19.5"
       ],
@@ -118590,9 +118671,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch19/test_illegal_cg_outer_constant.sv",
-        "inputs_sha256": "e4d7b129e4fdeca538ddb7334f2ff462a8eb007a57552704b40d4b5c914153f8",
-        "reviewed_on": "2026-10-27",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "848355d37f23e60e599aada114c1c263ff23d60821b77aa17c59a801b1340d49",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -118606,7 +118687,7 @@
             "evidence": [
               {
                 "file": "tests/ch19/test_illegal_cg_outer_constant.sv",
-                "contains": "coverpoint p::OUTER;"
+                "contains": "bins b = {p::OUTER};"
               }
             ]
           }
@@ -119096,7 +119177,7 @@
     },
     {
       "test": "tests/ch19/test_illegal_cg_ref_formal_expression.sv",
-      "inputs_sha256": "2b64e89cfd54facc9362eb563a16de4b324e8c465b5fc27d1d26a366f52ec73c",
+      "inputs_sha256": "1d10338c3639883016631b6bca3f0c14ae73b62f3783c9044b4f698cbfd9ca4d",
       "cited_clauses": [
         "19.5"
       ],
@@ -119138,7 +119219,7 @@
     },
     {
       "test": "tests/ch19/test_illegal_cg_ref_formal_variable.sv",
-      "inputs_sha256": "f4ad4f832ab2a8ff8d215011f46312df810647e112ffcb99117401197514ed5a",
+      "inputs_sha256": "118babea097b215b9ca456159eabf641eb6aeea910cc70d4dc3b97bcce005284",
       "cited_clauses": [
         "19.5"
       ],
@@ -119290,7 +119371,7 @@
     },
     {
       "test": "tests/ch19/test_illegal_cg_system_function.sv",
-      "inputs_sha256": "275b49bb61f300137f711c235c1e9a59c8912819843c35363410da424d2f7850",
+      "inputs_sha256": "d121e4ff7b9a809234bd94cf0b7bf0b0ebbe381f63d5b191be17b8bb915c542a",
       "cited_clauses": [
         "19.5"
       ],
@@ -126033,7 +126114,7 @@
     },
     {
       "test": "tests/ch20/test_expect_wait_order_default_error_failoff.sv",
-      "inputs_sha256": "492aee4f4263fc527fee8fc2aafb175cf784e1ac035c2f8c737225740a3f1ef9",
+      "inputs_sha256": "a4f2d744b0a3d23fd2c85ca4f70327c1134667bfe3a11c263ae56e6a7226fea0",
       "cited_clauses": [
         "20.10",
         "20.11",
@@ -126245,7 +126326,7 @@
     },
     {
       "test": "tests/ch20/test_fatal_form_finish_number_and_arguments.sv",
-      "inputs_sha256": "ba0730c894980a14375750017035379f8b9a5eb3aff28bd5c3330647caa1dee2",
+      "inputs_sha256": "c32bc5358f1c9e8b51690107374474c4c3f05a79ceb8f59bcaef2115da0ccd44",
       "cited_clauses": [
         "20.10",
         "20.2",
@@ -126322,9 +126403,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch20/test_fatal_form_finish_number_and_arguments.sv",
-        "inputs_sha256": "ba0730c894980a14375750017035379f8b9a5eb3aff28bd5c3330647caa1dee2",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "c32bc5358f1c9e8b51690107374474c4c3f05a79ceb8f59bcaef2115da0ccd44",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -126347,7 +126428,7 @@
     },
     {
       "test": "tests/ch20/test_fatal_form_finish_number_only.sv",
-      "inputs_sha256": "f914d19a621373fed13f33e181910a38329e7881e58bcf9dc6e70955a605294c",
+      "inputs_sha256": "a4e36b5a1340c36e9d5e41afa3bcb141e0f5ca5588fd754c69ac304706301201",
       "cited_clauses": [
         "20.10",
         "20.2",
@@ -126425,7 +126506,7 @@
     },
     {
       "test": "tests/ch20/test_fatal_form_without_parentheses.sv",
-      "inputs_sha256": "b6bedc233db9c5bbfb7abc2a84bf49bb89836467572ea32702b8e1c1388286ea",
+      "inputs_sha256": "c6e0aa6c4a60d8a98211f5c81bab19fb39edd684dfedd1f94c49a9e3f60585a7",
       "cited_clauses": [
         "20.10",
         "20.2",
@@ -127135,7 +127216,7 @@
     },
     {
       "test": "tests/ch20/test_illegal_countbits_non_bitstream.sv",
-      "inputs_sha256": "49c67b6ae6d7b0bf1210f6ccd02d384451cdb564a04d0927e2240a13314bec9b",
+      "inputs_sha256": "726cb21583d5763399d7ebd92926a53fafa857befb7d0e63384c5f9db670cbc7",
       "cited_clauses": [
         "20.9"
       ],
@@ -127161,18 +127242,14 @@
     },
     {
       "test": "tests/ch20/test_illegal_dist_exponential_zero_mean.sv",
-      "inputs_sha256": "f7d314e17628eaf06b4190f3fb8cd26e6076c94c02ec102327c2bdc5611b593e",
+      "inputs_sha256": "7930f70d725c2d9225c3a280048fdd3680a1020532454c211765503dcf2d8211",
       "cited_clauses": [
         "20.14.2"
       ],
-      "negative_test": true,
+      "negative_test": false,
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-20.14.2-EXTRACT-POSITIVE-PARAMETERS"
-      ],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
         "SV2023-20.14.2-EXTRACT-DEGREES-SPREAD",
         "SV2023-20.14.2-EXTRACT-DIST-CHI-SQUARE",
         "SV2023-20.14.2-EXTRACT-DIST-ERLANG",
@@ -127187,6 +127264,10 @@
         "SV2023-20.14.2-EXTRACT-NORMAL-SPREAD",
         "SV2023-20.14.2-EXTRACT-UNIFORM-BOUNDS",
         "SV2023-20.14.2-UNIFORM-SINGLETON"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-20.14.2-EXTRACT-POSITIVE-PARAMETERS"
       ],
       "broader_citations": []
     },
@@ -130250,7 +130331,7 @@
     },
     {
       "test": "tests/ch20/test_queue_statistics_wait_codes.sv",
-      "inputs_sha256": "61024620ad254aded93ff53b2779e311b1656bdcc7cf4e940f4e9826c9eb6c8d",
+      "inputs_sha256": "35d04aa42ac9ba9748c37fc53265ac9b3edd7df7411103394839e06f05ccb87f",
       "cited_clauses": [
         "20.15.5",
         "20.15.2",
@@ -130612,7 +130693,7 @@
     },
     {
       "test": "tests/ch20/test_severity_task_argument_forms.sv",
-      "inputs_sha256": "b5b790b23ea26e9bdb9cad7ba8edc24c55ec7f6876d24858d5ed80ee846880b0",
+      "inputs_sha256": "19b5204862ef0528ddadb4e83dfeeeea2a5d414cf545e0e73bcad8878f52c124",
       "cited_clauses": [
         "20.10",
         "20.10.1",
@@ -130689,9 +130770,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch20/test_severity_task_argument_forms.sv",
-        "inputs_sha256": "b5b790b23ea26e9bdb9cad7ba8edc24c55ec7f6876d24858d5ed80ee846880b0",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "19b5204862ef0528ddadb4e83dfeeeea2a5d414cf545e0e73bcad8878f52c124",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -130714,7 +130795,7 @@
               "SV2023-20.10.1-EXTRACT-ELABORATION-DIAGNOSTICS"
             ],
             "disposition": "partial_observation",
-            "explanation": "expected_stderr_regex は 64-74 行の runtime 呼び出しだけを照合し、45-50 行の elaboration $info/$warning の severity・file:line・階層スコープ・ユーザメッセージを比較しない。",
+            "explanation": "expected_stderr_regex は 66-76 行の runtime 呼び出しだけを照合し（severity とメッセージは file:line の前後どちらでも、同じ行か次の行でもよい）、47-52 行の elaboration $info/$warning の severity・file:line・階層スコープ・ユーザメッセージを比較しない。",
             "reviewed_on": "2026-10-26",
             "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
             "evidence": [
@@ -130789,7 +130870,7 @@
     },
     {
       "test": "tests/ch20/test_severity_tasks_report_contents.sv",
-      "inputs_sha256": "5817abb1c47fd3766d05beeabb9b15c1417ce04dbc4a192ca22b6a265708d4ee",
+      "inputs_sha256": "551d162aa7e08db70276b6653bd2b4d38a13fa04a35debe7662cee833eeb39d7",
       "cited_clauses": [
         "20.10",
         "22.13"
@@ -133881,7 +133962,7 @@
     },
     {
       "test": "tests/ch21/test_display_backslash_escapes.sv",
-      "inputs_sha256": "ee7525e38dac5aebf229fa9dcf8629c53cecec7fbc2ff5b8f2143efba6d1bb1b",
+      "inputs_sha256": "20d548af410c0bc102abf30830f3d444ea35f752088b0b6f8f0a21c00e601147",
       "cited_clauses": [
         "21.2.1",
         "5.9.1"
@@ -137588,7 +137669,7 @@
     },
     {
       "test": "tests/ch21/test_fread_unpacked_struct_union.sv",
-      "inputs_sha256": "9bff800b52a41bc4f6bec852f40521673837347cc64beae40d61b0ef9d699ec8",
+      "inputs_sha256": "c6f34df301267ef236247b71ea754cd7854529a19a5be7454a50c7f4a4782d38",
       "cited_clauses": [
         "21.3.4.4"
       ],
@@ -137969,7 +138050,7 @@
     },
     {
       "test": "tests/ch21/test_fst_dump_control_keeps_header.sv",
-      "inputs_sha256": "7220b34dbc568704425a751048a87d80f6b674b10e5dee695fa0670264ecba3b",
+      "inputs_sha256": "78392d76302323d709d01d259efde269f63db34c0c5d0c805b66b1dbddc2219b",
       "cited_clauses": [
         "21.7.1",
         "21.7.1.3"
@@ -137995,7 +138076,7 @@
     },
     {
       "test": "tests/ch21/test_fst_header_and_dumpfile.sv",
-      "inputs_sha256": "cff685e080c4522bdb203f482ab7f1322cfe787c6f6306d113d606075628a84a",
+      "inputs_sha256": "10ff5974b0452256a989f652917d73a5e44b42910f7b6a3e84124a25b9ac61fc",
       "cited_clauses": [
         "21.7.1"
       ],
@@ -151811,7 +151892,7 @@
     },
     {
       "test": "tests/ch23/test_23_extra_upward_data_stop.sv",
-      "inputs_sha256": "08cb2cb798af9551203f22dbecf59cbe8bc0b659f8dbfd1592f489efa75228d0",
+      "inputs_sha256": "cf9bab21838021d22965f2f014c0cfb53e311f8e2d8b5f153844ca293c451082",
       "cited_clauses": [
         "23.8"
       ],
@@ -152180,7 +152261,7 @@
     },
     {
       "test": "tests/ch23/test_ansi_explicit_named_ports.sv",
-      "inputs_sha256": "e108d124100c86ea3c1a6633e55075980ac8d1cbc59042a85bb5c01576cc59fa",
+      "inputs_sha256": "fe3effd587ad85d00c54e0faf6a7d125274862a0544fe3fab742e19c01f51a87",
       "cited_clauses": [
         "23.2.2.2",
         "23.2.2.3"
@@ -166890,7 +166971,7 @@
     },
     {
       "test": "tests/ch24/test_program_and_checker_generate_items.sv",
-      "inputs_sha256": "2aae145c8c606e8635d98ead24a67e83cd6b6390c33cb66481bd1a5d376d5377",
+      "inputs_sha256": "235728a1e6b9426bcd9519db6fe8d8dc2b5f732afdd3494a5da417c66a60f04a",
       "cited_clauses": [
         "24.3",
         "17.2",
@@ -182959,7 +183040,7 @@
     },
     {
       "test": "tests/ch28/test_gate_delay_forms.sv",
-      "inputs_sha256": "ac1f0dede1bf4cf763a34828f5e36053132209ba385d66aa6535c91997f132da",
+      "inputs_sha256": "f7dd5604d9604b4011eaa3c0153751078d4f192ff7537ec24b2d8069637d6165",
       "cited_clauses": [
         "28.3.3",
         "28.16",
@@ -191474,7 +191555,7 @@
     },
     {
       "test": "tests/ch29/test_udp_delay_rise_fall.sv",
-      "inputs_sha256": "137fb489b3e61b51ac7024f631f721919c2607eb344ad94b5194e356ce89c09c",
+      "inputs_sha256": "4b1c89cf7334827db36d95095e2513a2d418adfdb6f486dc4d8cf77a918cda04",
       "cited_clauses": [
         "29.8",
         "29.4"
@@ -191492,7 +191573,7 @@
     },
     {
       "test": "tests/ch29/test_udp_delay_sequential_latch.sv",
-      "inputs_sha256": "43f361740112ef44e3fc2402e89e92be61741330ad2e9c64fa0e7223a433f51f",
+      "inputs_sha256": "507d367f4942d2137f11d44ef0084e6599a32c03cf5e4f81faa1241569ec1143",
       "cited_clauses": [
         "29.8",
         "29.5"
@@ -191510,7 +191591,7 @@
     },
     {
       "test": "tests/ch29/test_udp_delay_single_value.sv",
-      "inputs_sha256": "86f5880274a977c815ffd1e7e064ef1bd63b6a50f43f43564f1ca2de3c96a800",
+      "inputs_sha256": "396d57b0c645e751fa307be3ed293d3cab4610f7b54367373327654bd8053752",
       "cited_clauses": [
         "29.8",
         "29.4"
@@ -192104,7 +192185,7 @@
     },
     {
       "test": "tests/ch29/test_udp_instance_rise_fall_delay.sv",
-      "inputs_sha256": "17ca6a5badcaab5f724e9340112dc89404e8e799148734ae9e455366786c7e63",
+      "inputs_sha256": "a25e53cf540250c725e403911139a76a27fee0e0e79a2ecbadd1fa646526822e",
       "cited_clauses": [
         "29.8",
         "29.6",
@@ -194665,7 +194746,7 @@
     },
     {
       "test": "tests/ch3/test_illegal_time_unit_specified_only_in_some_elements.sv",
-      "inputs_sha256": "08c0c63fbcda59b0de20208ab62ebbf7a5a4bee64fa86bb87d451f58acb57b05",
+      "inputs_sha256": "b39eb521ad3f2a7c239c8294a2dbb306d3caf898054058f3c4ca9c4af951bb77",
       "cited_clauses": [
         "3.14.2.3",
         "3.14.2.2"
@@ -195064,7 +195145,7 @@
     },
     {
       "test": "tests/ch3/test_include_text_joins_compilation_unit.sv",
-      "inputs_sha256": "92b7ed6531cb638c0cde4eacbd95f8e65651720fc02c9b8c732b60668016022c",
+      "inputs_sha256": "3af3c894e623c59d54d75e0fb3584647a8b1d6bd25423a6976b8bb3e7dc4876b",
       "cited_clauses": [
         "3.12.1",
         "22.4"
@@ -198461,7 +198542,7 @@
     },
     {
       "test": "tests/ch30/test_A_extra_module_path.sv",
-      "inputs_sha256": "6a8305ec524a64d3bcd98c0168b7600de1ec50676b9d02a15e83e762213ec16c",
+      "inputs_sha256": "cb7cb0b10213825d623d7804f0d2f7c2650750ca2dbbcd145e2f76e8bf539468",
       "cited_clauses": [
         "30.4.4",
         "11.2.1",
@@ -209753,7 +209834,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_hierarchical_name_in_expression.sv",
-      "inputs_sha256": "f26388d2cd1e35d368bf03fc05d4495f9372b84e370ed6b36b4bb73050a6421b",
+      "inputs_sha256": "2f9dc5d567fa8eb222e2742ac1596e6ec4755db9e066aec677dfb8c87b48f22d",
       "cited_clauses": [
         "33.4.3"
       ],
@@ -209781,7 +209862,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_index_not_literal.sv",
-      "inputs_sha256": "688e1718997a9e880decd7c06e78a6b32c48b297f9015aa9a3bcdfd3adc0c814",
+      "inputs_sha256": "05df004ee20abb501398c8665373839226e476ea754ddc351f27f2eb61c6bc92",
       "cited_clauses": [
         "33.4.3"
       ],
@@ -209810,7 +209891,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_instance_array_path.sv",
-      "inputs_sha256": "daafb4ab4652a12fa9e0df089280c364b3af8720bdc265f477f7041264c6588d",
+      "inputs_sha256": "c1b3bc8dba6443c8896d2e8d735ed818007b026e90f94207cceb951ad5d32cf0",
       "cited_clauses": [
         "33.4.3",
         "23.3.3.5"
@@ -209931,7 +210012,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_package_binding.sv",
-      "inputs_sha256": "bb8165201bfa9826b579cae22f8e32460dc2c899d2378f3ae7efbf9cd69e2885",
+      "inputs_sha256": "e54de5cb51009fc1b2d5179e7838e39def1a0583535ba22e2987a9286b3eae72",
       "cited_clauses": [
         "33.4",
         "33.4.1.4",
@@ -210438,7 +210519,7 @@
     },
     {
       "test": "tests/ch35/test_35_extra_35_5_1_6_cxx_linkage.sv",
-      "inputs_sha256": "26b252fd451ff84b117b8fc7a1b531b247e4ede9577be1758dff0ea8146568a8",
+      "inputs_sha256": "2a57b4cca80a53b72a2b5f282034a4ea3abb447c0641209c2f31d82023ccabef",
       "cited_clauses": [
         "35.5.1.6",
         "H.2"
@@ -210465,7 +210546,7 @@
     },
     {
       "test": "tests/ch35/test_35_extra_35_5_3_chain_attribute.sv",
-      "inputs_sha256": "2b36277c6bbfd4252620f3d4655e2fa431751d6e8721dc7132519950bd316096",
+      "inputs_sha256": "fbc468e932501df8fab1d727f8b11a3ad3ef42fbe0cf56a2aae045b25df11342",
       "cited_clauses": [
         "35.5.3",
         "H.9",
@@ -210543,7 +210624,7 @@
     },
     {
       "test": "tests/ch35/test_35_extra_H_8_10_1_string_arrays.sv",
-      "inputs_sha256": "fb6f55e7d6dcdeb7aeba739b4ad8c6db87b7285302730ae13538f94a40e9518b",
+      "inputs_sha256": "379fb2947602051a55e9cae27b49053b1251c827b8436cf6d5ea2c1d8ad81069",
       "cited_clauses": [
         "35.5.6",
         "H.8.10.1",
@@ -210590,7 +210671,7 @@
     },
     {
       "test": "tests/ch35/test_35_extra_H_9_5_vpi_printf.sv",
-      "inputs_sha256": "6398fd35c89ae09f2b52c3603411e9b1836292a149b6aa298b9053938d13d2b1",
+      "inputs_sha256": "88b8c0b436db266f9b50e394e6cfca3419148f150020472d9d3eaa8ce020294d",
       "cited_clauses": [
         "35.3.2",
         "H.9.5",
@@ -211207,7 +211288,7 @@
     },
     {
       "test": "tests/ch35/test_dpi_call_directions_and_context_chain.sv",
-      "inputs_sha256": "2d86c46a3e2b04985c5b8e6cd4d1781f10fbd8db164b90cd6e1861769c659943",
+      "inputs_sha256": "79723f4fa11d55e74b688f95f955c54f43880bbb11d2b2c8d3dfa3cb4026ce2d",
       "cited_clauses": [
         "35.5.4",
         "35.5.1.6",
@@ -211283,9 +211364,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch35/test_dpi_call_directions_and_context_chain.sv",
-        "inputs_sha256": "2d86c46a3e2b04985c5b8e6cd4d1781f10fbd8db164b90cd6e1861769c659943",
-        "reviewed_on": "2026-10-28",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "79723f4fa11d55e74b688f95f955c54f43880bbb11d2b2c8d3dfa3cb4026ce2d",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -217492,7 +217573,7 @@
     },
     {
       "test": "tests/ch35/test_illegal_dpi_pure_import_task.sv",
-      "inputs_sha256": "39252cdc44584cd02989afb605c84390f3b24a265c01914ebd26e723a8a460f5",
+      "inputs_sha256": "f85559b3fd0a01ca7e87aa0c4d42842e4154529c2d0c33819ec025b8a71127a0",
       "cited_clauses": [
         "35.5.1.3",
         "35.5.4"
@@ -219742,7 +219823,7 @@
     },
     {
       "test": "tests/ch35/test_svdpi_h_disabled_state_ack.sv",
-      "inputs_sha256": "a7ee3e67915391e898400964ca52adc64ce7e0812951229d6639310bb8a57a4d",
+      "inputs_sha256": "5de90a1818799a3347fd9a11e5217726816ea3ed026406a103b1147040dc9319",
       "cited_clauses": [
         "35.3.2",
         "I.3",
@@ -219751,7 +219832,6 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
-        "SV2023-I.3-EXTRACT-ACK",
         "SV2023-I.3-EXTRACT-DISABLED"
       ],
       "collective_requirement_ids": [],
@@ -219779,6 +219859,7 @@
         "SV2023-H.9.3-EXTRACT-SET-SCOPE",
         "SV2023-H.9.3-EXTRACT-UNIQUE-KEY",
         "SV2023-H.9.3-EXTRACT-USER-DATA",
+        "SV2023-I.3-EXTRACT-ACK",
         "SV2023-I.3-EXTRACT-ACTIVE-SCOPE",
         "SV2023-I.3-EXTRACT-API-SVACKDISABLEDSTATE",
         "SV2023-I.3-EXTRACT-API-SVDIMENSIONS",
@@ -243455,9 +243536,10 @@
     },
     {
       "test": "tests/ch37/test_vpi_array_objects_and_array_member.sv",
-      "inputs_sha256": "324900f58cec69d8d5d77cb6938690cb25abc6380471608fc4ec7efdcd8fc6d3",
+      "inputs_sha256": "13c2ce5c23a2742341b6f56b621b66abb0dbefa5b53892e18c8955f8a520cee8",
       "cited_clauses": [
         "37.17",
+        "37.20",
         "C.4.3"
       ],
       "negative_test": false,
@@ -243581,6 +243663,20 @@
         "SV2023-37.17-EXTRACT-VARIABLE-SELECT-INDEX",
         "SV2023-37.17-EXTRACT-VARIABLE-STRUCT-MEMBER",
         "SV2023-37.17-EXTRACT-VARIABLE-VISIBILITY",
+        "SV2023-37.20-EXTRACT-DIAGRAM-001",
+        "SV2023-37.20-EXTRACT-DIAGRAM-002",
+        "SV2023-37.20-EXTRACT-DIAGRAM-003",
+        "SV2023-37.20-EXTRACT-DIAGRAM-004",
+        "SV2023-37.20-EXTRACT-DIAGRAM-005",
+        "SV2023-37.20-EXTRACT-DIAGRAM-006",
+        "SV2023-37.20-EXTRACT-DIAGRAM-007",
+        "SV2023-37.20-EXTRACT-DIAGRAM-008",
+        "SV2023-37.20-EXTRACT-DIAGRAM-009",
+        "SV2023-37.20-EXTRACT-DIAGRAM-010",
+        "SV2023-37.20-EXTRACT-DIAGRAM-011",
+        "SV2023-37.20-EXTRACT-DIAGRAM-012",
+        "SV2023-37.20-EXTRACT-DIAGRAM-013",
+        "SV2023-37.20-EXTRACT-MEMORY-METHODS",
         "SV2023-C.4.3-EXTRACT-ARRAY-PROPERTY",
         "SV2023-C.4.3-EXTRACT-INTERFACE-RELATION",
         "SV2023-C.4.3-EXTRACT-MEMORY-WORD",
@@ -245107,7 +245203,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_attribute_ports_params.sv",
-      "inputs_sha256": "ab0ceeef0c071b054df51bb37f77725600eb41be9af8653e4bc136b504abce38",
+      "inputs_sha256": "95b1258827a9d0bf2518b81812a3aabb4b98f6d98c0ba60fa44c10e83fcae21e",
       "cited_clauses": [
         "37.83",
         "5.12",
@@ -248499,7 +248595,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_clocking_scope_group.sv",
-      "inputs_sha256": "90223f14d837d78f38dd9fd87c767ed45fe30a8e19738b62823f3dcf95e65a36",
+      "inputs_sha256": "403d39ca15c220f366315c8e993b9f2898a846f923f26dbfa2b09fcf301964cf",
       "cited_clauses": [
         "37.12",
         "14.3"
@@ -250094,7 +250190,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_cont_assign_rhs_and_load.sv",
-      "inputs_sha256": "f0f23c05bc8a3928ec9b46f95362c26d129039286e801f3de8e8d3f5adaffad4",
+      "inputs_sha256": "46c12c6fbf680a9e765be2f3860e92fe7221ebc67ffc8ea00fce2078da654568",
       "cited_clauses": [
         "37.47",
         "37.46",
@@ -250102,7 +250198,6 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
-        "SV2023-37.46-EXTRACT-DIAGRAM-013",
         "SV2023-37.47-EXTRACT-DIAGRAM-007"
       ],
       "collective_requirement_ids": [],
@@ -250122,6 +250217,7 @@
         "SV2023-37.46-EXTRACT-DIAGRAM-010",
         "SV2023-37.46-EXTRACT-DIAGRAM-011",
         "SV2023-37.46-EXTRACT-DIAGRAM-012",
+        "SV2023-37.46-EXTRACT-DIAGRAM-013",
         "SV2023-37.46-EXTRACT-DIAGRAM-014",
         "SV2023-37.46-EXTRACT-DIAGRAM-015",
         "SV2023-37.46-EXTRACT-LOAD-HIGH-CONNECTION",
@@ -253759,7 +253855,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_generate_nettype_typedef.sv",
-      "inputs_sha256": "0dc5971551a18cfe420d2a11279f51e774b4b74d970af92ac64e02f4c7cc0322",
+      "inputs_sha256": "af5d4c22f6fc8df85860e69c413d4cf109f55954b975bbb41da931e982e730aa",
       "cited_clauses": [
         "37.85",
         "37.23",
@@ -253946,9 +254042,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch37/test_vpi_generate_nettype_typedef.sv",
-        "inputs_sha256": "0dc5971551a18cfe420d2a11279f51e774b4b74d970af92ac64e02f4c7cc0322",
-        "reviewed_on": "2026-10-27",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "af5d4c22f6fc8df85860e69c413d4cf109f55954b975bbb41da931e982e730aa",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -253956,7 +254052,7 @@
               "SV2023-37.85-EXTRACT-GENERATE-TYPEDEFS"
             ],
             "disposition": "partial_observation",
-            "explanation": "The new test observes the vpiTypedef half (gen_word_t in g and top_byte_t in the top instance), but the row also requires vpiNetTypedef, whose constant the Annex M headers do not define, so the row is only partly observed.",
+            "explanation": "The test observes the vpiTypedef half (gen_word_t in g and top_byte_t in the top instance, with their counts). For vpiNetTypedef it only uses the iteration of g to find gnt, through the object type vpiNettypeDecl where the header has no constant for the tag, which Annex M does not define; it does not print what the iteration returns, so that it returns exactly the explicitly declared user nettypes is not observed and the row is only partly observed.",
             "reviewed_on": "2026-10-27",
             "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
             "evidence": [
@@ -257525,7 +257621,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_interface_typespecs.sv",
-      "inputs_sha256": "e1b7a1b0b341b6683b3ca49b1e5bc2acd631ae94429df8cb50543456eadea548",
+      "inputs_sha256": "fafbae0a4882f9b97552b9a84872a8424117dda2fb719a02d2504c7852551146",
       "cited_clauses": [
         "37.30",
         "37.29"
@@ -257562,9 +257658,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch37/test_vpi_interface_typespecs.sv",
-        "inputs_sha256": "e1b7a1b0b341b6683b3ca49b1e5bc2acd631ae94429df8cb50543456eadea548",
-        "reviewed_on": "2026-10-23",
-        "reviewer": "Codex (AI); not an independent human review",
+        "inputs_sha256": "fafbae0a4882f9b97552b9a84872a8424117dda2fb719a02d2504c7852551146",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -258085,7 +258181,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-      "inputs_sha256": "f0ad6225ce2caf4fdfe77ec97a4d4e2d668beb20bfefad18c6d86ccf731fc60c",
+      "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
       "cited_clauses": [
         "37.13",
         "37.14",
@@ -258195,9 +258291,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-        "inputs_sha256": "f0ad6225ce2caf4fdfe77ec97a4d4e2d668beb20bfefad18c6d86ccf731fc60c",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -261565,7 +261661,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_named_event_array_prefix.sv",
-      "inputs_sha256": "24b1058f8deec9811d13fc9efaaacc9460d4d15cf2bba20b145082af77de188f",
+      "inputs_sha256": "4c8dd7e133776a18a48ea6269d1e8f7fd3ce6a9c766203344720d91827380bc6",
       "cited_clauses": [
         "37.61",
         "37.32",
@@ -261648,7 +261744,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_named_event_relations.sv",
-      "inputs_sha256": "7e6f95c93a63a9c84e4165f84c231ff61c86eb460d101293ef457a1bd3b904b4",
+      "inputs_sha256": "c8c3489d579b0279ecbbde3202982252076b45d3bea8768ab203dc3c1f67cfed",
       "cited_clauses": [
         "37.27"
       ],
@@ -261694,9 +261790,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch37/test_vpi_named_event_relations.sv",
-        "inputs_sha256": "7e6f95c93a63a9c84e4165f84c231ff61c86eb460d101293ef457a1bd3b904b4",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "c8c3489d579b0279ecbbde3202982252076b45d3bea8768ab203dc3c1f67cfed",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -262401,7 +262497,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_net_array_members_parents.sv",
-      "inputs_sha256": "46fd5b8f17590019cbdec214433ea6392b42b480ce50f949548b8cece391c436",
+      "inputs_sha256": "907aa91ecd31dcf207279a805eda19b1cea76cfd4cd980fdaa527b832ba672b6",
       "cited_clauses": [
         "37.16",
         "7.4.1",
@@ -262562,9 +262658,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch37/test_vpi_net_array_members_parents.sv",
-        "inputs_sha256": "46fd5b8f17590019cbdec214433ea6392b42b480ce50f949548b8cece391c436",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "907aa91ecd31dcf207279a805eda19b1cea76cfd4cd980fdaa527b832ba672b6",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -265401,7 +265497,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_nettype_relations.sv",
-      "inputs_sha256": "3dc360d4b6bd3160db4ed0e3014c0e7cfa0bd2cd9ce161d963b5968df3f31ddb",
+      "inputs_sha256": "af33dbbfe3397b24f7dd7449d16021dbb278848e1eafdfc389b508c1bf2e8a2e",
       "cited_clauses": [
         "37.23",
         "37.10",
@@ -267660,7 +267756,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_prefix_allocation.sv",
-      "inputs_sha256": "9ee575b16fced193498b8aa1dc0f98b18e945aed52bd451eaba9833602729b89",
+      "inputs_sha256": "9c99f7d8de71cafbb5bab1548ba913a007a8fd8b78e537d5202fb9cf9a9bafb4",
       "cited_clauses": [
         "37.61",
         "37.3.7",
@@ -268488,7 +268584,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_program_interface_relations.sv",
-      "inputs_sha256": "196f78f06ff61939f4bfe9d056dcdd199856bbe8438e3a08fafee4474dc19235",
+      "inputs_sha256": "676b60be3b58de93da59d82a82be2827044ec8dd7e702815658ce618a995b3c8",
       "cited_clauses": [
         "37.9",
         "25.5",
@@ -270428,7 +270524,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_ref_obj_actual_port_insts.sv",
-      "inputs_sha256": "737d65184e1fd010affcf8c3b26893d0c55ca8425361cc8df2e03d8f25a86078",
+      "inputs_sha256": "192e5769446bcefb94c00b53dc72cc03581824508ea29c4235e17fe39c8625a8",
       "cited_clauses": [
         "37.15",
         "37.13",
@@ -271612,7 +271708,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_root_lookup_restrictions.sv",
-      "inputs_sha256": "f65e127ef7e3a9ebd043e3c763fe2b3536a57791048daf61d6812cf38ea3b99e",
+      "inputs_sha256": "ba0c72ce244806cd0eca89f5ea0db16d0e503e3381d5843008373e01043a04cb",
       "cited_clauses": [
         "37.10",
         "26.3"
@@ -271725,9 +271821,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch37/test_vpi_root_lookup_restrictions.sv",
-        "inputs_sha256": "f65e127ef7e3a9ebd043e3c763fe2b3536a57791048daf61d6812cf38ea3b99e",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "ba0c72ce244806cd0eca89f5ea0db16d0e503e3381d5843008373e01043a04cb",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -277630,7 +277726,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_typespec_instance_ranges.sv",
-      "inputs_sha256": "1afdac581b7ad3576016adf104fdfdc745d361bb45381e7b98681673cffbdff6",
+      "inputs_sha256": "6ee50d49ed6bc7944d27b51feb2dbf23391b197cf5caa99fb6163f1e974302d7",
       "cited_clauses": [
         "37.25",
         "6.18",
@@ -277638,8 +277734,7 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
-        "SV2023-37.25-EXTRACT-DIAGRAM-024",
-        "SV2023-37.25-EXTRACT-DIAGRAM-050"
+        "SV2023-37.25-EXTRACT-DIAGRAM-024"
       ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
@@ -277693,6 +277788,7 @@
         "SV2023-37.25-EXTRACT-DIAGRAM-047",
         "SV2023-37.25-EXTRACT-DIAGRAM-048",
         "SV2023-37.25-EXTRACT-DIAGRAM-049",
+        "SV2023-37.25-EXTRACT-DIAGRAM-050",
         "SV2023-37.25-EXTRACT-DIAGRAM-051",
         "SV2023-37.25-EXTRACT-DIAGRAM-052",
         "SV2023-37.25-EXTRACT-DIAGRAM-053",
@@ -282685,7 +282781,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_virtual_interface_expr.sv",
-      "inputs_sha256": "50fdf074b679572f99256010b1783df5509df6c6c14a004051be50070497eee4",
+      "inputs_sha256": "2b730e0055e92268db9c25af8aa440b937b381d2ecc2b6dc771b03a3df8a5215",
       "cited_clauses": [
         "37.29",
         "25.9"
@@ -283298,7 +283394,7 @@
     },
     {
       "test": "tests/ch38/test_38_extra_control_stop.sv",
-      "inputs_sha256": "bdd811532b3e5bd8dfc9e0a765e1355b57be7c602e1db4cdb5e70f48beed2d8f",
+      "inputs_sha256": "c931cd9642c1200915e3acbae0e6cd2042dc5396a602f2829bbbb94020b89d60",
       "cited_clauses": [
         "38.4",
         "20.4"
@@ -300534,7 +300630,7 @@
     },
     {
       "test": "tests/ch4/test_reactive_region_set_order.sv",
-      "inputs_sha256": "b9de68864f4a030c7f602223656aee081dae07d8e98e0b27e3e8d9028eb4ace2",
+      "inputs_sha256": "c8d107b0e8761c53bdaf27eee43b06f65a1049275dff13b7e4874520466b1ca7",
       "cited_clauses": [
         "4.4.2.7",
         "4.4.2.8",
@@ -300578,42 +300674,7 @@
           "clause": "24.3",
           "descendant_requirement_count": 8
         }
-      ],
-      "scoped_review": {
-        "test": "tests/ch4/test_reactive_region_set_order.sv",
-        "inputs_sha256": "b9de68864f4a030c7f602223656aee081dae07d8e98e0b27e3e8d9028eb4ace2",
-        "reviewed_on": "2026-10-23",
-        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-        "decisions": [
-          {
-            "requirement_ids": [
-              "SV2023-4.4.2.8-EXTRACT-REACTIVE-NBA-SCHEDULE",
-              "SV2023-4.4.2.8-EXTRACT-RENBA-AFTER-REINACTIVE",
-              "SV2023-4.4.2.7-EXTRACT-ZERO-DELAY-REINACTIVE",
-              "SV2023-4.4.2.7-EXTRACT-REINACTIVE-AFTER-REACTIVE"
-            ],
-            "disposition": "oracle_issue",
-            "explanation": "M111: 期待出力の最後の2行は module: v changed to 1 を program: v changed to 1 より先としているが、4.5 の参照アルゴリズムでは Re-NBA の更新は Reactive 領域へ移されて execute_region(Reactive) 内で実行され、そこで起こされた program の @(v) プロセスは同じ Reactive 領域に入り、同じ反応領域セットのループ内で先に実行される(4.5 B005: 反応領域セットの5領域が空になるまで他の領域の反復は再開しない)。module の always @(v) は Active 領域に入るため、その後になる。規格から導ける順序は program 行が先で、期待出力の順序はこれと矛盾する。前半2行(program: start / after #0, v = 0)自体は妥当だが、テスト全体の期待出力が規格と一致しないため照合しない。",
-            "reviewed_on": "2026-10-23",
-            "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-            "evidence": [
-              {
-                "file": "tests/ch4/test_reactive_region_set_order.sv",
-                "contains": "  always @(v) log($sformatf(\"module: v changed to %0d\", v));"
-              },
-              {
-                "file": "tests/ch4/test_reactive_region_set_order.sv",
-                "contains": "      @(v);\n      log($sformatf(\"program: v changed to %0d\", v));"
-              },
-              {
-                "file": "tests/ch4/test_reactive_region_set_order.expected",
-                "contains": "module: v changed to 1\nprogram: v changed to 1"
-              }
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "test": "tests/ch4/test_region_set_iteration_order.sv",
@@ -312964,7 +313025,7 @@
     },
     {
       "test": "tests/ch6/test_a2_1_3_interconnect_declaration_identifiers.sv",
-      "inputs_sha256": "1565a1ef6828cae6327409319695c161c4c88070adbf5e38aea774c4205abbf4",
+      "inputs_sha256": "a8fdb38446b8b8e0f3c5a92bd9f4e0dcd88169ed7da315ab6869a341d4fb0885",
       "cited_clauses": [
         "6.6.8",
         "23.3.3.7",
@@ -317896,7 +317957,7 @@
     },
     {
       "test": "tests/ch6/test_design_element_static_lifetime.sv",
-      "inputs_sha256": "78f88ee415fed9b939b8a3c766e0d59b765f945a4803c05ae9b445c8ed44eab0",
+      "inputs_sha256": "cb5e57e768e6a3e15191c043b88679847661b43063c52fdbc182f01f39d22491",
       "cited_clauses": [
         "6.21"
       ],
@@ -328856,7 +328917,7 @@
     },
     {
       "test": "tests/ch6/test_interconnect_and_net_port_types.sv",
-      "inputs_sha256": "558e99da2f09729c25d91a9630a403aded5f29071a495e8a42fb2022fe75aaea",
+      "inputs_sha256": "62c6c56484a2318a3da8d41f403af86aab0825a753f2a059fb2005ec9dcab0a8",
       "cited_clauses": [
         "6.6.8",
         "23.3.3.7",
@@ -329013,9 +329074,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch6/test_interconnect_and_net_port_types.sv",
-        "inputs_sha256": "558e99da2f09729c25d91a9630a403aded5f29071a495e8a42fb2022fe75aaea",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "62c6c56484a2318a3da8d41f403af86aab0825a753f2a059fb2005ec9dcab0a8",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -359068,7 +359129,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_wildcard_array_find.sv",
-      "inputs_sha256": "a9139dc3a3a44b152fef997bc935760f428347f0591d51486df0fda5f8b3f6d5",
+      "inputs_sha256": "a2a2a861d383c238d05349bf63893a63def0ebc03272ee932b18f67512ad04eb",
       "cited_clauses": [
         "7.8.1",
         "7.12.1"
@@ -359110,9 +359171,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch7/test_illegal_wildcard_array_find.sv",
-        "inputs_sha256": "a9139dc3a3a44b152fef997bc935760f428347f0591d51486df0fda5f8b3f6d5",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "a2a2a861d383c238d05349bf63893a63def0ebc03272ee932b18f67512ad04eb",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -359126,7 +359187,7 @@
             "evidence": [
               {
                 "file": "tests/ch7/test_illegal_wildcard_array_find.sv",
-                "contains": ":oracle: spec iverilog@13.0"
+                "contains": ":oracle: spec\n:spec_check: ai"
               }
             ]
           },
@@ -359450,7 +359511,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_wildcard_index_method.sv",
-      "inputs_sha256": "cf3b99ec9a7a7b3ff72acd326d2baa786959374d5ebcdc7e5d2fc7b52bd65296",
+      "inputs_sha256": "3fb605c68ecc8bf1d3e74122d455f4f81afe0dcaffa456487a101586eef5c935",
       "cited_clauses": [
         "7.12.4",
         "7.8.1"
@@ -375744,7 +375805,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_interface_class_method_with_body.sv",
-      "inputs_sha256": "29546eaab3ea9e74f4225a8933fc90617af63599981a2f0b90ff3e9da24bc723",
+      "inputs_sha256": "20420c26fe63bdccf5ca8e4407351b261fef5ed0516b9f57ddaf5e3db0947209",
       "cited_clauses": [
         "8.26"
       ],
@@ -660217,7 +660278,7 @@
     },
     {
       "test": "tests/imported/ch9/test_intra_assignment_timing.sv",
-      "inputs_sha256": "b6035a222cbea4c995f549d648236c3ec66e3f1df91f2ea616f490f24186931f",
+      "inputs_sha256": "4979a4c63a6d324c9af157ce145b19fd505cb01be72fe76da0294b822e229aab",
       "cited_clauses": [
         "9.4.5",
         "10.4.1",
@@ -660264,9 +660325,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/imported/ch9/test_intra_assignment_timing.sv",
-        "inputs_sha256": "b6035a222cbea4c995f549d648236c3ec66e3f1df91f2ea616f490f24186931f",
-        "reviewed_on": "2026-10-25",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "4979a4c63a6d324c9af157ce145b19fd505cb01be72fe76da0294b822e229aab",
+        "reviewed_on": "2026-10-31",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -660534,14 +660595,14 @@
       }
     }
   ],
-  "scoped_review_test_files": 1360,
+  "scoped_review_test_files": 1359,
   "review_disposition_counts": {
     "citation_refinement": 196,
     "compound_requirement": 176,
-    "oracle_issue": 255,
+    "oracle_issue": 254,
     "partial_observation": 2129
   },
-  "registry_sha256": "416eae55ce5068b0e49625cd4a436a9e90d2aac64676b67100ae57eef24899fe",
+  "registry_sha256": "6e74615ee93627a978fc3adbcfe39d461d8dea68568edc23448467be8a5c580d",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "5539c2065dbc1035600398e6ddab002bafab2b118b0e412d9322753954805011"
+  "review_ledger_sha256": "b8ab6ee4956f1311fb48f319f32baddd56572fbe22a17c430c3087a61a9bca70"
 }

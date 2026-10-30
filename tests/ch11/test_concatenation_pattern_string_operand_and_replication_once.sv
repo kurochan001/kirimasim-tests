@@ -1,6 +1,6 @@
 /*
 :name: test_concatenation_pattern_string_operand_and_replication_once
-:description: a concatenation joins bits while an assignment pattern with an apostrophe fills elements, a string operand makes a concatenation a string with the other operands converted to strings, and the operand of a replication is evaluated once, also for a zero multiplier (IEEE 1800-2023 Section 11.4.12)
+:description: a concatenation joins bits while an assignment pattern with an apostrophe fills elements, a string operand makes a concatenation a string with string literal operands converted to strings and integral values cast to string, and the operand of a replication is evaluated once, also for a zero multiplier (IEEE 1800-2023 Section 11.4.12)
 :tags: ch11
 :type: simulation
 :lrm: 1800-2023 11.4.12 11.4.12.1 11.4.12.2 6.16
@@ -17,10 +17,17 @@
 // zero-extended to 00ab, while '{4'ha, 4'hb} sets the two elements to 0a and
 // 0b; {2{4'ha}} is aa, '{2{4'ha}} gives 0a0a.
 // §11.4.12.2: when an operand is a string, the concatenation is a string and
-// the other operands are converted to strings as in §6.16: an integral value
-// is zero-filled to whole bytes, each byte is a character and NUL bytes are
-// dropped. {s, 12'h041} is "abA", {s, 24'h004300} is "abC", and a literal
-// "\0" adds nothing; without a string operand {"ab", "\0"} keeps its 24 bits.
+// the other operands are converted to strings as in §6.16. An integral value
+// cast to string is zero-filled to whole bytes, each byte is a character and
+// NUL bytes are dropped: {s, string'(12'h041)} is "abA" and
+// {s, string'(24'h004300)} is "abC". A literal "\0" adds nothing; without a
+// string operand {"ab", "\0"} keeps its 24 bits.
+// The integral operands carry a cast because the text differs: §11.4.12.2
+// converts every other operand implicitly, while the concatenation row of
+// Table 6-9 (§6.16) lists only string literals and string expressions as
+// operands and §6.16 requires a cast from an integral value to a string.
+// With the casts the design is legal under both readings and the strings are
+// the same.
 // §11.4.12.1: the operands of a replication are evaluated exactly once, even
 // with a zero multiplier: next() returns how often it was called, so
 // {3{next()}} is 111 after one call, and a zero replication of next() still
@@ -52,13 +59,13 @@ module test_concatenation_pattern_string_operand_and_replication_once;
     $write(" %h", pv);
     pv = '{2{4'ha}};
     $display(" %h", pv);
-    t = {s, 12'h041};
+    t = {s, string'(12'h041)};
     $write("string operand: %s %0d", t, t.len());
-    t = {s, 24'h004300};
+    t = {s, string'(24'h004300)};
     $write(" %s %0d", t, t.len());
     t = {s, "\0"};
     $write(" %s %0d", t, t.len());
-    t = {"x", s, 16'h4344};
+    t = {"x", s, string'(16'h4344)};
     $display(" %s %0d", t, t.len());
     v24 = {"ab", "\0"};
     $display("bit concatenation: %h", v24);

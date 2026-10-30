@@ -15,8 +15,11 @@
 // (§5.9.1): \t is a tab, \\ a backslash, \" a double quote, \n a newline,
 // \v a vertical tab, \f a form feed, \a a bell, \ddd the character with the
 // octal code of one to three digits and \xdd the character with the
-// hexadecimal code of one or two digits. A backslash before a character that
-// is not in the table stands for that character alone (§5.9.1).
+// hexadecimal code of one or two digits. A short octal escape is followed
+// by a character that is not an octal_digit, which includes x, z and ? as
+// well as 0 to 7 (Syntax 5-2), so \60 is followed by q here. A backslash
+// before a character that is not in the table stands for that character
+// alone (§5.9.1).
 // Printable results and tabs (including the one-digit \x9) are shown as they
 // are. The vertical tab, form feed and bell, and the one-digit escapes \7
 // and \x5, which give other control characters, are written with $swrite
@@ -30,7 +33,7 @@ module test_display_backslash_escapes;
     $display("[a\tb]");
     $display("[\\][\"]");
     $display("<first\nsecond>");
-    $display("[\101\102\103][\60x]");
+    $display("[\101\102\103][\60q]");
     $display("[\x41\x7a][\x9|]");
     $display("[\q\w]");
     $swrite(s, "\v\f\a\7\x5");

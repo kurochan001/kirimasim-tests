@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :dpi_c: @test_35_extra_H_8_10_1_string_arrays.c
-:expected_stdout_verilator: @test_35_extra_H_8_10_1_string_arrays.expected
+:expected_stdout: @test_35_extra_H_8_10_1_string_arrays.expected
 */
 // IEEE 1800-2023 §H.8.10.1: string members of aggregate arguments are
 // const char*, with the same ownership and lifetime rules as a stand-alone
@@ -20,7 +20,8 @@
 // reads the characters of the input elements, s_out writes new string
 // pointers into the output array, and s_inout reads one element and writes
 // another through the same const char** parameter. SystemVerilog sees the
-// strings that C wrote.
+// strings that C wrote. The C code flushes standard output after each printf,
+// so its lines keep their place among the lines of $display.
 module test_35_extra_H_8_10_1_string_arrays;
   import "DPI-C" function void s_in(input string a[3]);
   import "DPI-C" function void s_out(output string a[3]);

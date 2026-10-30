@@ -19,7 +19,9 @@
 // to show that each name is local to its own element. Within the checker,
 // 17.5 and 17.7.1 forbid writing the variable from an initial procedure, so
 // an always_comb procedure writes cv at time zero and the always_ff
-// procedure reads it at the clock edge.
+// procedure reads it at the clock edge. The run ends when the initial
+// procedures of every program have ended (24.3), so the program keeps one
+// running until 7, when the top module ends the run as well.
 
 module automatic m_auto;
   int mv;
@@ -43,6 +45,7 @@ program automatic p_auto;
   int pv;
   initial pv = 5;
   initial #3 $display("program=%0d", pv);
+  initial #7;
 endprogram
 
 checker chk(input logic clk);

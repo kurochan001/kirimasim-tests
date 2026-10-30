@@ -12,7 +12,9 @@ Each test runs in a temporary directory. DPI/VPI C sources are compiled into
 a shared library and loaded with --lib; a missing sv_vpi_user.h is supplied
 as an include of vpi_user.h for implementations that combine those APIs.
 
-All tests count, including illegal designs, expected exits and diagnostics.
+All tests count, including illegal designs, expected exits and diagnostics,
+except :type: formal tests, which belong to tools/run_sby.py as for the
+other simulation runners; they are left out even when named.
 Public results contain the alias, a hash of the executable and generic failure
 reasons. The private profile, tool version, paths and diagnostics are never
 copied to results. Keep the profile and the build outside public artifacts.
@@ -115,6 +117,13 @@ def run(test: Path, simulator: str, include: Path | None,
     return ("fail" if why else "pass"), why
 
 
+def simulation_tests(tests: list[Path]) -> list[Path]:
+    """The tests that a simulator runs. A test with :type: formal names a
+    :formal_case: and belongs to tools/run_sby.py; it has no expected output,
+    so counting it as a simulation failure would be wrong."""
+    return [test for test in tests if suite_results.header(test).get("type") != "formal"]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--simulator", required=True, help="private simulator executable")
@@ -143,7 +152,7 @@ def main() -> int:
     except (OSError, ValueError, KeyError, TypeError):
         ap.error("cannot read a valid private runtime profile")
     include = args.include.resolve() if args.include else None
-    tests = args.tests or suite_results.find_tests()
+    tests = simulation_tests(args.tests or suite_results.find_tests())
     inputs = suite_results.fingerprints(tests) if args.json else None
     runner_hash = suite_results.runner_digest("ghost") if args.json else None
     binary_hash = hashlib.sha256(Path(exe).read_bytes()).hexdigest()

@@ -8,12 +8,17 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:should_fail_because: the coverpoint expression uses v, a ref argument of the covergroup
-:expected_stderr_regex: test_illegal_cg_ref_formal_variable\.sv:26:
+:should_fail_because: the bound of the bin b uses hi, a ref argument of the covergroup
+:expected_stderr_regex: test_illegal_cg_ref_formal_variable\.sv:32:
 */
 // Only constant expressions, the permitted constants and non-ref
 // arguments to the covergroup may be used as variables in a covergroup
 // expression. A ref argument is not a non-ref argument.
+// The syntax of 19.5 uses covergroup_expression for the values of bins,
+// not for the expression after the coverpoint keyword, which may cover a
+// ref argument. So coverpoint v is legal, and only the bound of the bin b,
+// which uses the ref argument hi as a variable, is the error. The bound
+// does not use v, which here is also the name of the coverpoint.
 //
 // Icarus Verilog 13.0 does not implement covergroups; its cascading
 // syntax errors fall on every line of the construct, including the line
@@ -22,8 +27,10 @@
 
 module test_illegal_cg_ref_formal_variable;
   class c;
-    covergroup cg(ref int v);
-      coverpoint v;   // illegal: v is a ref argument
+    covergroup cg(ref int v, ref int hi);
+      coverpoint v {
+        bins b = {[0:hi]};   // illegal: hi is a ref argument
+      }
     endgroup
   endclass
 endmodule

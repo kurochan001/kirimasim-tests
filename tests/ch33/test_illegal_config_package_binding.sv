@@ -4,16 +4,17 @@
 :tags: ch33
 :type: elaboration
 :lrm: 1800-2023 33.4 33.4.1.4 33.4.1.6
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: a cell clause of the config binds a package name to another package
-:expected_stderr_regex: test_illegal_config_package_binding\.sv:36:
+:expected_stderr_regex: test_illegal_config_package_binding\.sv:37:
+:top_module: cfgpk
 */
 // IEEE 1800-2023 §33.4: a configuration may change the binding of module,
 // primitive, interface and program instances, but shall not change the
-// binding of a package.
+// binding of a package. The test elaborates the config, so its rules apply.
 // Icarus Verilog 13.0 reports a syntax error on that line, which does not
 // count: it skips config declarations, and the error comes from the package
 // name in the cell clause. Verilator 5.052 accepts the design

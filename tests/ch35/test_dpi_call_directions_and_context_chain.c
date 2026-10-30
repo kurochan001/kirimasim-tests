@@ -13,9 +13,10 @@ int c_add(int a, int b)
     return a + b;
 }
 
-void c_set(int *o)
+int c_set(int *o)
 {
     *o = 9;
+    return 0;
 }
 
 static const char *scope_name(void)
@@ -27,6 +28,7 @@ static const char *scope_name(void)
 int c_chain(int v)
 {
     printf("scope %s\n", scope_name());
+    fflush(stdout);
     return sv_twice(v) + 1;
 }
 

@@ -38,6 +38,16 @@
 
 ## 3. 直近に完了した変更
 
+### 2026-10-31：Issue の対応（このコミット）
+
+- 別のシミュレータ（Ghost）の一斉実行が「テスト側の問題」とした #22〜#28 の432件と、#36〜#39 を規格と照らした。直したテストは約90件で、残りは規格どおりのテストに Ghost が合っていないものとして据え置いた。
+- #22：`tools/run_ghost.py` も formal のテストを除くようにした。保存済みの Ghost の結果はランナーの指紋が変わって数えなくなり、要求の実行確認率は 50.93% になった。新しい Ghost の実行（Nightly の `latest/ghost.json` など）を `coverage/results/` に保存すれば戻る。
+- #29〜#35（Ghost の未実装操作）は説明を付けて閉じた。リアクティブ順序のブランチは、テストの修正だけを当て直した（`iverilog@13.0` を追加）。
+- 入力を変えた99件を Icarus 13.0・Verilator 5.052 で実行し、`coverage/results/issues-20261031-*.json` に保存した。要求の対応付けは全件レビューし直し、成り立たなくなった3件を外した（`behavior-baseline.json` に理由）。
+- 未対応の構文で拒否しているだけの不正テスト7件から `iverilog@13.0` を外した（README の規則）。同じ問題は ch8 などの不正テストにも残り、`test-matching-reviews.json` に oracle_issue として記録がある。FST の2件は、`$dumpfile` が VCD を名指すこと（21.7.1.1）をコメントに正し、拡張のテストとして残した。
+- 残件：DPI の未定義動作・非推奨の2件（規格から期待値が決まらない）、不正テストの判定が `file:line:` を1行に求める書式、`scheduling` 生成器の時刻0の競合（14件）、読み方の分かれるテスト（ポート強制、コンパイル単位、config の use 節、X/Z の bin、チェッカーの空の出力接続、param assign など）。
+- kirimasim：inside・case inside の配列要素の符号拡張を、別の作業ツリーのブランチ `fix/inside-array-element-extension` で直した（未プッシュ。local_ci 通過、クロスの不一致2件が解消）。
+
 ### 初版の後（2026-10-30）
 
 - **case insideのモデル（本書の今回の更新と同じコミット）**

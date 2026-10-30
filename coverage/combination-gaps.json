@@ -980,7 +980,7 @@
           "lrm": [
             "21.3.4.4"
           ],
-          "inputs_sha256": "9bff800b52a41bc4f6bec852f40521673837347cc64beae40d61b0ef9d699ec8"
+          "inputs_sha256": "c6f34df301267ef236247b71ea754cd7854529a19a5be7454a50c7f4a4782d38"
         },
         {
           "test": "tests/ch21/test_fread_partial_word_and_eof.sv",

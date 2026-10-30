@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_19_extra_option_cross_num_print_missing.expected
+:expected_stdout: @test_19_extra_option_cross_num_print_missing.expected
 */
 // IEEE 1800-2023 §19.7: option.cross_num_print_missing is an instance option
 // of a covergroup and a cross whose default is 0. It gives the number of

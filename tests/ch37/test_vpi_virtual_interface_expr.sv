@@ -21,7 +21,9 @@
 // interface instance, leaves one uninitialized, and gives a never-called task
 // two assignments, one from null and one from another virtual interface
 // variable; the application prints the declaration expressions and the kind of
-// each assignment's right-hand expression.
+// each assignment's right-hand expression. vpi_get_str() returns each string
+// in the same buffer (§38.11), so the application copies a name before it
+// asks for another.
 
 interface vi_if;
   logic v;

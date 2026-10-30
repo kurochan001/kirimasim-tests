@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_ch16_sim_prop_inherited_case.expected
+:expected_stdout: @test_ch16_sim_prop_inherited_case.expected
 */
 // IEEE 1800-2023 §16.16.1: the set of semantic leading clocks of
 // case (b) b1: q1 ... endcase is {inherited}, so under the explicit clock c

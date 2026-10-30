@@ -1,9 +1,9 @@
 /*
 :name: test_vpi_array_objects_and_array_member
-:description: An unpacked array of variables is an array var object and not a memory object, its elements are variable objects and not memory words, vpiArrayMember is true for an element and false for the array, and the vpiMemory relationship still iterates the arrays (IEEE 1800-2023 Section C.4.3, 37.17)
+:description: An unpacked array of variables is an array var object and not a memory object, its elements are variable objects and not memory words, vpiArrayMember is true for an element and false for the array, and the vpiMemory relationship of the module still gives the array of logic as an array var (IEEE 1800-2023 Section C.4.3, 37.17, 37.20)
 :tags: ch37
 :type: simulation
-:lrm: 1800-2023 37.17 C.4.3
+:lrm: 1800-2023 37.17 37.20 C.4.3
 :oracle: spec
 :spec_check: ai
 :fourstate: no
@@ -24,10 +24,12 @@
 // The design declares an array of 8-bit variables and an array of int
 // variables. The application asks a handle obtained by name for its type, asks
 // the element of each array for its type and for vpiArrayMember, and iterates
-// the vpiMemory relationship, whose object names it sorts, so that the order
-// the relationship chooses does not enter. The expected output follows the
-// standard; the release used while the test was written still reports the
-// memory object types here.
+// the vpiMemory relationship of the module (37.20), checking that it gives
+// mem and only array var objects. An element of an int array is an int var
+// (vpiIntVar), not an integer var, which is the type of integer. Whether the
+// relationship also gives the int array, which was not a memory in IEEE Std
+// 1364, is not checked. The expected output follows the standard; the release
+// used while the test was written still reports the memory object types here.
 
 module test_vpi_array_objects_and_array_member;
   logic [7:0] mem [0:3];

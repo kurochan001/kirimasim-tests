@@ -46,20 +46,44 @@ static void typedefs(const char *label, vpiHandle scope)
     vpi_printf((PLI_BYTE8 *)"\n");
 }
 
+/* A nettype declaration has a name but no full name (37.23), so it is found
+   through the vpiNetTypedef iteration of the generate scope (37.85 detail 6)
+   instead of vpi_handle_by_name(), which needs a full name (38.21). Annex M
+   defines no constant for that tag, so the object type is used without it. */
+#ifndef vpiNetTypedef
+#define vpiNetTypedef vpiNettypeDecl
+#endif
+
+static vpiHandle nettype_decl(vpiHandle scope, const char *name)
+{
+    vpiHandle it = scope != NULL ? vpi_iterate(vpiNetTypedef, scope) : NULL, h, found = NULL;
+
+    while (it != NULL && (h = vpi_scan(it)) != NULL)
+        if (found == NULL && strcmp(name_of(h), name) == 0)
+            found = h;
+    return found;
+}
+
 static PLI_INT32 gen_calltf(PLI_BYTE8 *user_data)
 {
     vpiHandle g = find("g");
-    vpiHandle decl = find("g.gnt");
+    vpiHandle decl = nettype_decl(g, "gnt");
     vpiHandle scope = decl != NULL ? vpi_handle(vpiGenScope, decl) : NULL;
     vpiHandle ts = decl != NULL ? vpi_handle(vpiTypespec, decl) : NULL;
+    char decl_name[48], type_name[48];
 
     (void)user_data;
     if (decl == NULL) {
         vpi_printf((PLI_BYTE8 *)"g.gnt: not found\n");
         return 0;
     }
-    vpi_printf((PLI_BYTE8 *)"g.gnt: name %s, %s, typespec %s, gen scope g %d\n", name_of(decl),
-               vpi_get_str(vpiType, decl), name_of(ts),
+    /* vpi_get_str() returns every string in one buffer (38.11): copy each
+       string before the next call. */
+    snprintf(decl_name, sizeof decl_name, "%s", name_of(decl));
+    snprintf(type_name, sizeof type_name, "%s",
+             vpi_get_str(vpiType, decl) != NULL ? vpi_get_str(vpiType, decl) : "NULL");
+    vpi_printf((PLI_BYTE8 *)"g.gnt: name %s, %s, typespec %s, gen scope g %d\n", decl_name,
+               type_name, name_of(ts),
                g != NULL && scope != NULL && vpi_compare_objects(g, scope) ? 1 : 0);
     typedefs("g", g);
     typedefs("top", vpi_handle_by_name((PLI_BYTE8 *)TOP, NULL));

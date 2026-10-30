@@ -9,6 +9,7 @@ extern "C" {
 void s_in(const char **a)
 {
     printf("in %s %s %s\n", a[0], a[1], a[2]);
+    fflush(stdout);
 }
 
 void s_out(const char **a)
@@ -21,6 +22,7 @@ void s_out(const char **a)
 void s_inout(const char **a)
 {
     printf("inout before %s\n", a[0]);
+    fflush(stdout);
     a[0] = "delta";
 }
 

@@ -26,6 +26,10 @@
 //     of the edge, before the NBA update: it sees 0;
 //   - a module process waiting for @(cb) sees q = 1 and still pv = 0.
 //
+// The program waits #10 after setting pv: when the initial procedures of all
+// programs have ended, the simulation ends with an implicit $finish (24.3),
+// which at 5 would come before the report at 6.
+//
 // Simulator note: in a run with Verilator 5.052 the @(cb) waiter sees
 // pv = 1, because the program process does not wait for the Reactive
 // region there; the q values match.
@@ -37,6 +41,7 @@ program marker (input logic clk, output logic pv);
     pv = 1'b0;
     @(posedge clk);
     pv = 1'b1;
+    #10;
   end
 endprogram
 

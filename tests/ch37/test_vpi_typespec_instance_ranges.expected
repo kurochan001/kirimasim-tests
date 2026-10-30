@@ -1,3 +1,3 @@
 instance typespecs: 3 arr_t,pst_t,word_t
-arr_t: packed array 1, ranges 2:1 4:3 2, left 2 right 1
+arr_t: logic typespec 1, ranges 2:1 4:3 1:0 3, left 2 right 1
 word_t: logic typespec 1, ranges 1:0 1

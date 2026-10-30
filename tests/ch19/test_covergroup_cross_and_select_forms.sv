@@ -23,7 +23,12 @@
 // automatic bins, and all eleven of its selections cover one of the samples:
 // both0, any1, not2, paren, withx, withm, withall, selx, setx, fnx and cond.
 // The covergroup coverage is the average of the two crosses, so 31.25 and
-// 100 give 82.8125 as the mean of the two coverpoints and two crosses. Icarus
+// 100 give 82.8125 as the mean of the two coverpoints and two crosses, which
+// %0.4f prints exactly.
+// A bins_expression names a coverpoint or one of its bins, without an index
+// (A.2.11), so both0 and any1 pick the element of the bin arrays v and w with
+// intersect; and a cross_identifier in a select expression has to name the
+// enclosing cross (19.6.1.2), so the with selections and selx use x2. Icarus
 // Verilog 13.0 has no covergroups, and the 5.052
 // release of the other tool does not support a function in a cross body or a
 // cross set expression, so the expected output follows the standard.
@@ -46,14 +51,14 @@ module test_covergroup_cross_and_select_forms;
         return q;
       endfunction
       option.cross_retain_auto_bins = 0;
-      bins both0 = binsof(ca.v[0]) && binsof(cb.w[0]);
-      bins any1 = binsof(ca.v[1]) || binsof(cb.w[1]);
+      bins both0 = binsof(ca.v) intersect {0} && binsof(cb.w) intersect {0};
+      bins any1 = binsof(ca.v) intersect {1} || binsof(cb.w) intersect {1};
       bins not2 = !binsof(ca) intersect {2};
       bins paren = (binsof(ca) intersect {[0:1]}) || (binsof(cb) intersect {3});
-      bins withx = x1 with (ca == 0);
-      bins withm = x1 with (ca == 0) matches 1;
-      bins withall = x1 with (ca == 0) matches $;
-      bins selx = x1;
+      bins withx = x2 with (ca == 0);
+      bins withm = x2 with (ca == 0) matches 1;
+      bins withall = x2 with (ca == 0) matches $;
+      bins selx = x2;
       bins setx = '{ '{1, 1} };
       bins fnx = diagonal() matches 1;
       bins cond = binsof(ca) intersect {[0:1]} iff (en);
@@ -74,7 +79,7 @@ module test_covergroup_cross_and_select_forms;
     put(2, 2);
     put(3, 3);
     put(1, 3);
-    $display("cross %0.3f", g.get_inst_coverage());
+    $display("cross %0.4f", g.get_inst_coverage());
     $finish;
   end
 endmodule

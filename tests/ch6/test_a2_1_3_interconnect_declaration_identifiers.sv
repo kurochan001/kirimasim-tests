@@ -19,12 +19,14 @@
 // The declaration interconnect [3:0] #0 ia, ib [2]; gives the two nets ia and
 // ib, where ib is an unpacked array of two elements. ia is driven with 4'h1 by
 // ic_src and read by ic_sink, whose leaf adds 1, so ya is 2. ib[1] is driven
-// with 4'h2 and read the same way, so yb is 3. Neither release supports
-// interconnect nets (Icarus Verilog 13.0 stops at the declaration and the
-// 5.052 release of Verilator reports it as unsupported), so the expected
-// output follows the standard.
+// with 4'h2 and read the same way, so yb is 3. The output port of ic_drv is
+// a net (wire logic): an output port with a data type alone is a variable
+// (23.2.2.3), and an interconnect may only be connected to net ports.
+// Neither release supports interconnect nets (Icarus Verilog 13.0 stops at
+// the declaration and the 5.052 release of Verilator reports it as
+// unsupported), so the expected output follows the standard.
 
-module ic_drv #(parameter logic [3:0] V = 0) (output logic [3:0] y);
+module ic_drv #(parameter logic [3:0] V = 0) (output wire logic [3:0] y);
   assign y = V;
 endmodule
 

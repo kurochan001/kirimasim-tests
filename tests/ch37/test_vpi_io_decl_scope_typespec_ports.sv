@@ -23,6 +23,8 @@
 // declaration has a vpiVirtualInterfaceVar (detail 2), and its direction is
 // undefined (detail 3), so it is not printed. §37.14: vpiPortType is vpiPort,
 // vpiInterfacePort or vpiModportPort according to the formal (detail 1).
+// The io declarations are sorted by name; vpi_get_str() returns each string
+// in the same buffer (§38.11), so the names are copied before the sort.
 
 interface tids_bus;
   logic req, gnt;

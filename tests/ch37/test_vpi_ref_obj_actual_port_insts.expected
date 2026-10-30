@@ -1,7 +1,7 @@
+task t formal x: ref obj 1, actual variable test_vpi_ref_obj_actual_port_insts.v value 7
 r: ref obj 1, actual variable test_vpi_ref_obj_actual_port_insts.v value 7
 b: ref obj 1, actual interface test_vpi_ref_obj_actual_port_insts.bi, def name trf_bus
 d: ref obj 1, actual modport dev, def name dev
 ports inst of b: 2
   c1 i
   c2 i
-task t formal x: ref obj 1, actual variable test_vpi_ref_obj_actual_port_insts.v value 7

@@ -1,6 +1,6 @@
 /*
 :name: test_sequence_match_item_and_triggered_method
-:description: A sequence match item assigns a variable from a constant bit select when the part of the sequence before it matches, and the triggered method of a sequence instance is a primary that says whether the sequence reached its end point in the current time step, also through a hierarchical name, as is a property of another instance (IEEE 1800-2023 Sections 16.10, 16.11 and 16.13.6)
+:description: A sequence match item assigns a local variable through a constant part select when the part of the sequence before it matches, and an attached void function call passes the value out, and the triggered method of a sequence instance is a primary that says whether the sequence reached its end point in the current time step, also through a hierarchical name, as is a property of another instance (IEEE 1800-2023 Sections 16.10, 16.11 and 16.13.6)
 :tags: ch16
 :type: simulation
 :lrm: 1800-2023 16.13.6 16.10 16.11 A.8.4 A.10 A.9.3
@@ -16,16 +16,21 @@
 // can name them through an instance. Footnote 51 of A.10: a variable lvalue
 // assigned in a sequence match item uses constant selects only.
 //
-// §16.10 and §16.11: the match item (a, seen[1:0] = 2'b10) assigns seen when
-// a matches. §16.13.6: s.triggered is true in the time step in which the
-// sequence reaches its end point and false otherwise. A sequence that
-// declares its own clocking event is evaluated when it is used, here by the
-// wait statement and by the assertion of the hierarchical property.
+// §16.10 and §16.11: when e matches, the match items of s_ef assign the local
+// variable lv through the part select lv[1:0] and pass lv to the void function
+// set_seen, which writes seen in the Reactive region. A match item may assign
+// only local variables, so seen itself is not its target. §16.13.6:
+// s.triggered is true in the time step in which the sequence reaches its end
+// point and false otherwise. A sequence that declares its own clocking event
+// is evaluated when it is used, here by the wait statement and by the
+// assertion of the hierarchical property.
 //
-// a is 1 from time 12 and b from 22, so u.p_ab (a ##1 b) completes at the
-// posedge at 25 and its action prints 25. c is 1 from 32 and d from 42, so
+// a is 1 from time 12 to 22 and b from 22, so only the attempt of u.p_ab
+// (a ##1 b) that starts at the posedge at 15 holds; it completes at 25 and its
+// action prints 25. Every other attempt fails at its first tick and calls
+// $error, whose messages are not compared. c is 1 from 32 and d from 42, so
 // the wait on u.s_cd.triggered ends after the posedge at 45 and prints once.
-// e is 1 from 52 and f from 62, so the match item sets seen to 2 at the
+// e is 1 from 52 and f from 62, so the match items set seen to 2 at the
 // posedge at 55 and the wait on the local s_ef.triggered ends after the
 // posedge at 65. At time 70 seen is 2 and s_ef.triggered is false again.
 //
@@ -51,8 +56,13 @@ module test_sequence_match_item_and_triggered_method;
 
   always #5 clk = ~clk;
 
+  function void set_seen(int value);
+    seen = value;
+  endfunction
+
   sequence s_ef;
-    @(posedge clk) (e, seen[1:0] = 2'b10) ##1 f;
+    int lv = 0;
+    @(posedge clk) (e, lv[1:0] = 2'b10, set_seen(lv)) ##1 f;
   endsequence
 
   sub u (clk, a, b, c, d);
@@ -71,7 +81,7 @@ module test_sequence_match_item_and_triggered_method;
 
   initial begin
     #12 a = 1;
-    #10 b = 1;
+    #10 b = 1; a = 0;
     #10 c = 1;
     #10 d = 1;
     #10 e = 1;

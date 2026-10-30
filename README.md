@@ -58,32 +58,32 @@ The suite has **9176 tests** in 38 chapters. 2739 of them are generated (`tests/
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5170 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1602 |
-| The standard only, with no fixed-release simulator oracle recorded | 2404 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5163 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1599 |
+| The standard only, with no fixed-release simulator oracle recorded | 2414 |
 
-1811 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 39 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+1811 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 88 | 66 | 12 | 10 |
-| 4 | Scheduling semantics | 412 | 391 | 5 | 16 |
+| 4 | Scheduling semantics | 412 | 392 | 5 | 15 |
 | 5 | Lexical conventions | 346 | 325 | 14 | 7 |
 | 6 | Data types | 645 | 396 | 144 | 105 |
-| 7 | Aggregate data types | 712 | 291 | 262 | 159 |
+| 7 | Aggregate data types | 712 | 290 | 262 | 160 |
 | 8 | Classes | 321 | 67 | 182 | 72 |
 | 9 | Processes | 284 | 217 | 38 | 29 |
 | 10 | Assignment statements | 254 | 169 | 45 | 40 |
 | 11 | Operators and expressions | 1644 | 1262 | 132 | 250 |
 | 12 | Procedural programming statements | 251 | 169 | 33 | 49 |
-| 13 | Tasks and functions (subroutines) | 244 | 137 | 89 | 18 |
+| 13 | Tasks and functions (subroutines) | 244 | 136 | 89 | 19 |
 | 14 | Clocking blocks | 78 | 4 | 61 | 13 |
 | 15 | Interprocess synchronization and communication | 59 | 2 | 36 | 21 |
-| 16 | Assertions | 661 | 104 | 75 | 482 |
+| 16 | Assertions | 661 | 104 | 74 | 483 |
 | 17 | Checkers | 81 |  | 22 | 59 |
-| 18 | Constrained random value generation | 200 | 26 | 95 | 79 |
-| 19 | Functional coverage | 157 | 2 | 29 | 126 |
-| 20 | Utility system tasks and system functions | 330 | 239 | 26 | 65 |
+| 18 | Constrained random value generation | 200 | 25 | 95 | 80 |
+| 19 | Functional coverage | 157 | 2 | 28 | 127 |
+| 20 | Utility system tasks and system functions | 330 | 239 | 25 | 66 |
 | 21 | Input/output system tasks and system functions | 236 | 145 | 15 | 76 |
 | 22 | Compiler directives | 358 | 335 | 13 | 10 |
 | 23 | Modules and hierarchy | 292 | 177 | 45 | 70 |
@@ -96,9 +96,9 @@ The suite has **9176 tests** in 38 chapters. 2739 of them are generated (`tests/
 | 30 | Specify blocks | 60 | 35 | 1 | 24 |
 | 31 | Timing checks | 66 | 17 | 1 | 48 |
 | 32 | Backannotation using the standard delay format | 50 | 16 |  | 34 |
-| 33 | Configuring the contents of a design | 43 | 12 | 9 | 22 |
+| 33 | Configuring the contents of a design | 43 | 8 | 9 | 26 |
 | 34 | Protected envelopes | 4 | 2 | 2 |  |
-| 35 | Direct programming interface | 131 | 5 | 84 | 42 |
+| 35 | Direct programming interface | 131 | 4 | 84 | 43 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 34 | 19 | 36 |
 | 37 | VPI object model diagrams | 227 | 18 | 1 | 208 |
 | 38 | VPI routine definitions | 109 | 56 | 9 | 44 |
@@ -225,11 +225,12 @@ both, and how the results are merged and measured, with the
 The requirement denominator is **12,298 requirements**, after duplicate rows
 were merged; the [denominator review](docs/denominator-review-20261028.md)
 approved it. The reviewer was an AI, not an independent human.
-Design coverage is **89.33% (10,986/12,298)**;
+Design coverage is **89.31% (10,983/12,298)**;
 execution coverage from the saved `coverage/results/` evidence is
-**59.60% (7,330/12,298)**, or 51.00% (6,272/12,298)
-counting only Icarus Verilog, Verilator and SymbiYosys.
-Clauses 1 to 40 alone are at 87.40% (8,272/9,465) design coverage.
+**50.93% (6,263/12,298)**, from Icarus Verilog, Verilator and SymbiYosys.
+The saved Ghost results no longer count, as the Ghost runner changed
+(it now leaves out formal tests); a new Ghost run has to be saved first.
+Clauses 1 to 40 alone are at 87.37% (8,270/9,465) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.
@@ -268,8 +269,9 @@ Matching tests / recorded results:
 - Ghost: **7,159 / 8,779**.
 
 `differ`, `known difference` and `unsupported` results remain in the denominator.
-The first four runners exclude the 268 formal tests; Ghost selects the full
-catalogue. The SymbiYosys results are reported separately above.
+The first four runners exclude the 268 formal tests; in this run Ghost still
+selected the full catalogue (its runner now excludes them too). The SymbiYosys
+results are reported separately above.
 <!-- workflow-verification:end -->
 
 Every night, a [GitHub Actions workflow](.github/workflows/nightly.yml) runs
@@ -740,7 +742,7 @@ The simulation runners need Python 3.10 or later, and have these options in comm
 
 | Option | Meaning |
 | --- | --- |
-| `TEST ...` | Run only these test files. Icarus, Verilator, kirimasim and Lyra exclude `:type: formal`, even when explicitly named. Verilator defaults to its oracle-tagged tests; `--all` selects all non-formal tests. Icarus, kirimasim and Lyra default to all non-formal tests; Ghost selects all test files |
+| `TEST ...` | Run only these test files. Every simulation runner excludes `:type: formal`, even when explicitly named. Verilator defaults to its oracle-tagged tests; `--all` selects all non-formal tests. Icarus, kirimasim, Lyra and Ghost default to all non-formal tests |
 | `-j N`, `--jobs N` | Run N tests at once (default: 1) |
 | `--json FILE` | Also write the result of every test to FILE (see `tools/suite_results.py`) |
 
@@ -898,9 +900,8 @@ will remain saved, following the same rules as other retired participants.
 
 The suite includes 268 tests with `:type: formal`. They name a `:formal_case:`
 and are run by `tools/run_sby.py`, which compares the reference evaluator with
-an independent RTL model. The Icarus, Verilator, kirimasim and Lyra runners
-exclude them. Ghost's current runner still selects all test files; its
-results for formal test files are not SymbiYosys proof evidence.
+an independent RTL model. The Icarus, Verilator, kirimasim, Lyra and Ghost
+runners exclude them.
 
 ```sh
 python3 tools/run_sby.py --sby "$SBY_BIN" --json /tmp/sby.json

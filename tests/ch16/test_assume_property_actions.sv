@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_assume_property_actions.expected
-:expected_stderr_regex: (?i)\A(?=[\s\S]*error[^\n]*test_assume_property_actions\.sv:41:)(?![\s\S]*test_assume_property_actions\.sv:42:)(?![\s\S]*test_assume_property_actions\.sv:44:)
+:expected_stderr_regex: (?i)\A(?=[\s\S]*(?:error[^\n]*(?:\n[^\n]*)?test_assume_property_actions\.sv:41\b|test_assume_property_actions\.sv:41\b[^\n]*(?:\n[^\n]*)?error))(?![\s\S]*test_assume_property_actions\.sv:42\b)(?![\s\S]*test_assume_property_actions\.sv:44\b)
 */
 // IEEE 1800-2023 §16.14.2: in simulation an assumed property is checked like
 // an asserted one and reported when it fails: the pass statement runs when it
@@ -23,9 +23,9 @@
 // disabled at 25 and 35; the pass and fail actions are off from 50 to 70.
 // u_def (line 41) fails at 15 and has to be reported with an error; u_off
 // (line 42) fails only at 65, while fail actions are off, and must not be
-// reported. u_null has a null pass statement. r_chk (line 44) is violated at
-// 15 and 65 but must not be reported. The wording of the messages is not
-// compared.
+// reported. u_null leaves out its pass statement, as A.6.3 allows before else
+// (a null statement cannot stand there). r_chk (line 44) is violated at 15 and
+// 65 but must not be reported. Wording and layout of messages are not compared.
 
 `timescale 1ns/1ns
 
@@ -40,7 +40,7 @@ module test_assume_property_actions;
     else f_q.push_back($time);
   u_def: assume property (@(posedge clk) g_def |-> x);
   u_off: assume property (@(posedge clk) g_off |-> x);
-  u_null: assume property (@(posedge clk) g_null |-> x) ; else f_null++;
+  u_null: assume property (@(posedge clk) g_null |-> x) else f_null++;
   r_chk: restrict property (@(posedge clk) g_r |-> x);
 
   // Sets the values sampled at the next tick.

@@ -32,10 +32,13 @@ static void declarations(void)
     vpiHandle it = top != NULL ? vpi_iterate(vpiVirtualInterfaceVar, top) : NULL, h;
 
     while (it != NULL && (h = vpi_scan(it)) != NULL) {
-        const char *name = name_of(h);
+        char name[48];
         vpiHandle e;
         char what[96];
 
+        /* vpi_get_str() returns every string in one buffer (38.11), so the
+           name is copied before the name of the expression is asked for. */
+        snprintf(name, sizeof name, "%s", name_of(h));
         if (strcmp(name, "v0") != 0 && strcmp(name, "v1") != 0)
             continue;
         e = vpi_handle(vpiExpr, h);

@@ -92,8 +92,8 @@ static PLI_INT32 ts_calltf(PLI_BYTE8 *user_data)
     vpi_printf((PLI_BYTE8 *)"\n");
 
     ts = vpi_handle(vpiTypespec, by_name("a"));
-    vpi_printf((PLI_BYTE8 *)"arr_t: packed array %d, ",
-               ts != NULL && vpi_get(vpiType, ts) == vpiPackedArrayTypespec);
+    vpi_printf((PLI_BYTE8 *)"arr_t: logic typespec %d, ",
+               ts != NULL && vpi_get(vpiType, ts) == vpiLogicTypespec);
     ranges(ts, 1);
     vpi_printf((PLI_BYTE8 *)"\n");
     ts = vpi_handle(vpiTypespec, by_name("w"));

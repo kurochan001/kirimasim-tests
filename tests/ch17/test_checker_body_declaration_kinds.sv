@@ -26,6 +26,11 @@
 // An always_ff procedure adds inc to cnt and computes
 // seen = twice(d) + rf + dflt at each rising edge, so every declaration
 // contributes to a printed number: cnt = 2, seen = 2 + 3 + 5 = 10.
+// cb declares no clockvar: a clocking signal names a net or variable of the
+// enclosing scope (14.3), and whether a checker formal such as d, which is
+// replaced by its actual (17.3), counts as one is not clear. The outputs act
+// as continuous assignments to cnt and seen (17.3), so these variables have
+// no declaration assignment, which is a procedural assignment (10.5, 6.5).
 //
 // Icarus Verilog 13.0 has no checkers. Verilator 5.052 produces these values.
 
@@ -55,7 +60,6 @@ checker cb_decls (
   let is_high = (d == 1'b1);
 
   clocking cb @(posedge clk);
-    input d;
   endclocking
 
   default clocking cb;
@@ -77,7 +81,7 @@ endchecker
 module test_checker_body_declaration_kinds;
   logic clk = 1'b0;
   logic d = 1'b1;
-  int cnt = 0, seen;
+  int cnt, seen;   // driven only by the checker outputs
 
   cb_decls u_cb (.clk(clk), .d(d), .dflt(5), .inc(1), .cnt(cnt), .seen(seen));
 

@@ -7,11 +7,11 @@ vv4[7][8]: parent vv4, is vv4 1
 vv4: parent NULL
 sa[4][1]: struct net size 2, array member 1, packed member 0, struct member 0, vpiArray bool 1
 members: bv,id
-sa[4][1].id: int net size 32, array member 0, packed member 0, struct member 1, vpiArray bool 1
+sa[4][1].id: integer net size 32, array member 0, packed member 0, struct member 1, vpiArray bool 1
 sa[4][1].bv: array net size 2, array member 0, packed member 0, struct member 1, vpiArray bool 1
 sa[4][1].bv: parent sa[4][1], is sa[4][1] 1
 sa[4][1].bv[6]: logic net size 4, array member 1, packed member 0, struct member 0, vpiArray bool 1
-sa[4][1].bv[6]: parent sa[4][1].bv, is sa[4][1].bv 1
+sa[4][1].bv[6]: parent bv, is sa[4][1].bv 1
 sa[4][1]: parent sa, is sa 1
 sa: parent NULL
 un: union net size 2, array member 0, packed member 0, struct member 0, vpiArray bool 1

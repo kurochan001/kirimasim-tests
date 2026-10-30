@@ -4,9 +4,9 @@
   "reviews": [
     {
       "test": "tests/ch13/test_illegal_ref_in_static_function.sv",
-      "inputs_sha256": "dea30c9e45dcbdedb967a11982afebb7bcc4a6c66c18a4b88b098ac9eb912c6a",
-      "reviewed_on": "2026-10-22",
-      "reviewer": "Codex (AI); not an independent human review",
+      "inputs_sha256": "f67482c9179826bfed3feac35948bedf9782168c66a8c2af2bbb1865828341b4",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -11461,9 +11461,9 @@
     },
     {
       "test": "tests/ch37/test_vpi_interface_typespecs.sv",
-      "inputs_sha256": "e1b7a1b0b341b6683b3ca49b1e5bc2acd631ae94429df8cb50543456eadea548",
-      "reviewed_on": "2026-10-23",
-      "reviewer": "Codex (AI); not an independent human review",
+      "inputs_sha256": "fafbae0a4882f9b97552b9a84872a8424117dda2fb719a02d2504c7852551146",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -14812,41 +14812,6 @@
             {
               "file": "tests/ch21/test_monitor_end_of_step.expected",
               "contains": "a=7 b=8"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch4/test_reactive_region_set_order.sv",
-      "inputs_sha256": "b9de68864f4a030c7f602223656aee081dae07d8e98e0b27e3e8d9028eb4ace2",
-      "reviewed_on": "2026-10-23",
-      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-4.4.2.8-EXTRACT-REACTIVE-NBA-SCHEDULE",
-            "SV2023-4.4.2.8-EXTRACT-RENBA-AFTER-REINACTIVE",
-            "SV2023-4.4.2.7-EXTRACT-ZERO-DELAY-REINACTIVE",
-            "SV2023-4.4.2.7-EXTRACT-REINACTIVE-AFTER-REACTIVE"
-          ],
-          "disposition": "oracle_issue",
-          "explanation": "M111: 期待出力の最後の2行は module: v changed to 1 を program: v changed to 1 より先としているが、4.5 の参照アルゴリズムでは Re-NBA の更新は Reactive 領域へ移されて execute_region(Reactive) 内で実行され、そこで起こされた program の @(v) プロセスは同じ Reactive 領域に入り、同じ反応領域セットのループ内で先に実行される(4.5 B005: 反応領域セットの5領域が空になるまで他の領域の反復は再開しない)。module の always @(v) は Active 領域に入るため、その後になる。規格から導ける順序は program 行が先で、期待出力の順序はこれと矛盾する。前半2行(program: start / after #0, v = 0)自体は妥当だが、テスト全体の期待出力が規格と一致しないため照合しない。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch4/test_reactive_region_set_order.sv",
-              "contains": "  always @(v) log($sformatf(\"module: v changed to %0d\", v));"
-            },
-            {
-              "file": "tests/ch4/test_reactive_region_set_order.sv",
-              "contains": "      @(v);\n      log($sformatf(\"program: v changed to %0d\", v));"
-            },
-            {
-              "file": "tests/ch4/test_reactive_region_set_order.expected",
-              "contains": "module: v changed to 1\nprogram: v changed to 1"
             }
           ]
         }
@@ -19736,9 +19701,9 @@
     },
     {
       "test": "tests/imported/ch9/test_intra_assignment_timing.sv",
-      "inputs_sha256": "b6035a222cbea4c995f549d648236c3ec66e3f1df91f2ea616f490f24186931f",
-      "reviewed_on": "2026-10-25",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "4979a4c63a6d324c9af157ce145b19fd505cb01be72fe76da0294b822e229aab",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -20658,9 +20623,9 @@
     },
     {
       "test": "tests/ch17/test_checker_body_declaration_kinds.sv",
-      "inputs_sha256": "6c8f35af2bb2d851882880584beb3b66ed3488e597a5ad52a7c5ea2fd081e8f8",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "75fff18b4c84ea2d4fbe56b85828ccc534d1bd0128f3db808306f274626d712e",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -31107,9 +31072,9 @@
     },
     {
       "test": "tests/ch7/test_illegal_wildcard_array_find.sv",
-      "inputs_sha256": "a9139dc3a3a44b152fef997bc935760f428347f0591d51486df0fda5f8b3f6d5",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "a2a2a861d383c238d05349bf63893a63def0ebc03272ee932b18f67512ad04eb",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -31123,7 +31088,7 @@
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_wildcard_array_find.sv",
-              "contains": ":oracle: spec iverilog@13.0"
+              "contains": ":oracle: spec\n:spec_check: ai"
             }
           ]
         },
@@ -38922,9 +38887,9 @@
     },
     {
       "test": "tests/ch16/test_sequence_match_item_and_triggered_method.sv",
-      "inputs_sha256": "9f16c275b0eb89248bd302267e6fb9b568bc9ad16e27079d5ea27b63974758a1",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "47f9439a01f0489efa3bc0cadfb38693794d1539e38fdb58663375bb00342163",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -39000,9 +38965,9 @@
     },
     {
       "test": "tests/ch16/test_assume_property_actions.sv",
-      "inputs_sha256": "b34cc0d7765d29cd6bae1c833a47ef8f7bdef9d4ceca08046e97880e23736dbc",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "217d73ed1eb3cd534ae0d7db5b1362521ad9d7a18110ef913468cf6bbe049fbf",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -39999,9 +39964,9 @@
     },
     {
       "test": "tests/ch17/test_illegal_checker_covergroup_constant_actual.sv",
-      "inputs_sha256": "06be2987df0cbae161fb453a935c850c55270b8096ce530227f7c5ff927d219a",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "a53125fb42ab16e39001d19fe531fe2cd29ba9a906ea0858b51ab8792adc407c",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -42366,9 +42331,9 @@
     },
     {
       "test": "tests/ch19/test_covergroup_cross_and_select_forms.sv",
-      "inputs_sha256": "21a4a194ab07a2e8290565217379dfb25dfd133740e3efc1eea7c622065b6126",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "325420e24450e6a4549956522047a9f8e67e62822dcf6f21f7b585f8d5221593",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -43272,9 +43237,9 @@
     },
     {
       "test": "tests/ch20/test_fatal_form_finish_number_and_arguments.sv",
-      "inputs_sha256": "ba0730c894980a14375750017035379f8b9a5eb3aff28bd5c3330647caa1dee2",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "c32bc5358f1c9e8b51690107374474c4c3f05a79ceb8f59bcaef2115da0ccd44",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -43368,9 +43333,9 @@
     },
     {
       "test": "tests/ch20/test_severity_task_argument_forms.sv",
-      "inputs_sha256": "b5b790b23ea26e9bdb9cad7ba8edc24c55ec7f6876d24858d5ed80ee846880b0",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "19b5204862ef0528ddadb4e83dfeeeea2a5d414cf545e0e73bcad8878f52c124",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -43393,7 +43358,7 @@
             "SV2023-20.10.1-EXTRACT-ELABORATION-DIAGNOSTICS"
           ],
           "disposition": "partial_observation",
-          "explanation": "expected_stderr_regex は 64-74 行の runtime 呼び出しだけを照合し、45-50 行の elaboration $info/$warning の severity・file:line・階層スコープ・ユーザメッセージを比較しない。",
+          "explanation": "expected_stderr_regex は 66-76 行の runtime 呼び出しだけを照合し（severity とメッセージは file:line の前後どちらでも、同じ行か次の行でもよい）、47-52 行の elaboration $info/$warning の severity・file:line・階層スコープ・ユーザメッセージを比較しない。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
@@ -50442,9 +50407,9 @@
     },
     {
       "test": "tests/ch6/test_interconnect_and_net_port_types.sv",
-      "inputs_sha256": "558e99da2f09729c25d91a9630a403aded5f29071a495e8a42fb2022fe75aaea",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "62c6c56484a2318a3da8d41f403af86aab0825a753f2a059fb2005ec9dcab0a8",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -50791,9 +50756,9 @@
     },
     {
       "test": "tests/ch16/test_sequence_operator_and_delay_forms.sv",
-      "inputs_sha256": "089187d6bfb6f04aca156f2899706f320649415e67dbc0ddac4450186c187213",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "5e12afaa976af8763afe577d19ffad77ba170b9d40180a2fe3043d2d63c395fe",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -50801,13 +50766,13 @@
             "SV2023-A.2.10-EXTRACT-MATCH-METHOD"
           ],
           "disposition": "partial_observation",
-          "explanation": "match item として first_match 内の fm = fm + 1 を置くが、sequence instance の dot method identifier（triggered/matched）を使っていない。2 つの条件のうち match item だけの観測。",
+          "explanation": "match item として first_match 内に void 関数の呼出し count_first_match()（subroutine call の形）を置くが、sequence instance の dot method identifier（triggered/matched）を使っていない。2 つの条件のうち match item だけの観測で、match item も演算子代入や増減の形ではない。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch16/test_sequence_operator_and_delay_forms.sv",
-              "contains": "  a_fm: assert property (@(posedge clk) start |-> first_match (a ##[1:2] b, fm = fm + 1))"
+              "contains": "  a_fm: assert property (@(posedge clk) start |-> first_match (a ##[1:2] b, count_first_match()))"
             }
           ]
         },
@@ -50816,13 +50781,13 @@
             "SV2023-A.2.10-EXTRACT-SEQUENCE-ATOM"
           ],
           "disposition": "partial_observation",
-          "explanation": "first_match (a ##[1:2] b, fm = fm + 1) は parenthesized sequence と match item を持つが、sequence abbreviation（[*n] 等）をその sequence atom に付けた形は無い。",
+          "explanation": "first_match (a ##[1:2] b, count_first_match()) は parenthesized sequence と match item を持つが、sequence abbreviation（[*n] 等）をその sequence atom に付けた形は無い。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch16/test_sequence_operator_and_delay_forms.sv",
-              "contains": "  a_fm: assert property (@(posedge clk) start |-> first_match (a ##[1:2] b, fm = fm + 1))"
+              "contains": "  a_fm: assert property (@(posedge clk) start |-> first_match (a ##[1:2] b, count_first_match()))"
             }
           ]
         }
@@ -52283,9 +52248,9 @@
     },
     {
       "test": "tests/ch37/test_vpi_net_array_members_parents.sv",
-      "inputs_sha256": "46fd5b8f17590019cbdec214433ea6392b42b480ce50f949548b8cece391c436",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "907aa91ecd31dcf207279a805eda19b1cea76cfd4cd980fdaa527b832ba672b6",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -52337,9 +52302,9 @@
     },
     {
       "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-      "inputs_sha256": "f0ad6225ce2caf4fdfe77ec97a4d4e2d668beb20bfefad18c6d86ccf731fc60c",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -54045,9 +54010,9 @@
     },
     {
       "test": "tests/ch37/test_vpi_root_lookup_restrictions.sv",
-      "inputs_sha256": "f65e127ef7e3a9ebd043e3c763fe2b3536a57791048daf61d6812cf38ea3b99e",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "ba0c72ce244806cd0eca89f5ea0db16d0e503e3381d5843008373e01043a04cb",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -54069,9 +54034,9 @@
     },
     {
       "test": "tests/ch37/test_vpi_named_event_relations.sv",
-      "inputs_sha256": "7e6f95c93a63a9c84e4165f84c231ff61c86eb460d101293ef457a1bd3b904b4",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "c8c3489d579b0279ecbbde3202982252076b45d3bea8768ab203dc3c1f67cfed",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -54641,9 +54606,9 @@
     },
     {
       "test": "tests/ch35/test_dpi_call_directions_and_context_chain.sv",
-      "inputs_sha256": "2d86c46a3e2b04985c5b8e6cd4d1781f10fbd8db164b90cd6e1861769c659943",
-      "reviewed_on": "2026-10-28",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "79723f4fa11d55e74b688f95f955c54f43880bbb11d2b2c8d3dfa3cb4026ce2d",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -55379,9 +55344,9 @@
     },
     {
       "test": "tests/ch37/test_vpi_generate_nettype_typedef.sv",
-      "inputs_sha256": "0dc5971551a18cfe420d2a11279f51e774b4b74d970af92ac64e02f4c7cc0322",
-      "reviewed_on": "2026-10-27",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "af5d4c22f6fc8df85860e69c413d4cf109f55954b975bbb41da931e982e730aa",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -55389,7 +55354,7 @@
             "SV2023-37.85-EXTRACT-GENERATE-TYPEDEFS"
           ],
           "disposition": "partial_observation",
-          "explanation": "The new test observes the vpiTypedef half (gen_word_t in g and top_byte_t in the top instance), but the row also requires vpiNetTypedef, whose constant the Annex M headers do not define, so the row is only partly observed.",
+          "explanation": "The test observes the vpiTypedef half (gen_word_t in g and top_byte_t in the top instance, with their counts). For vpiNetTypedef it only uses the iteration of g to find gnt, through the object type vpiNettypeDecl where the header has no constant for the tag, which Annex M does not define; it does not print what the iteration returns, so that it returns exactly the explicitly declared user nettypes is not observed and the row is only partly observed.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
@@ -55843,9 +55808,9 @@
     },
     {
       "test": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
-      "inputs_sha256": "b383e74922c45616d209a5a2322f37bfc68b5f0594805220d06a29a41a27abd6",
-      "reviewed_on": "2026-10-27",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "3c612de15f2c5e1354a92319cfe9d45d7be1079f18e74291e35759e045cf288d",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -56188,9 +56153,9 @@
     },
     {
       "test": "tests/ch19/test_illegal_cg_outer_constant.sv",
-      "inputs_sha256": "e4d7b129e4fdeca538ddb7334f2ff462a8eb007a57552704b40d4b5c914153f8",
-      "reviewed_on": "2026-10-27",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "848355d37f23e60e599aada114c1c263ff23d60821b77aa17c59a801b1340d49",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -56204,7 +56169,7 @@
           "evidence": [
             {
               "file": "tests/ch19/test_illegal_cg_outer_constant.sv",
-              "contains": "coverpoint p::OUTER;"
+              "contains": "bins b = {p::OUTER};"
             }
           ]
         }

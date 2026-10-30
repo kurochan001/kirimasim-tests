@@ -21,11 +21,16 @@
 // struct or union net (detail 33). vpiParent gives the nearest prefix that is
 // a struct or union net, a struct or union member, the largest containing
 // packed array net or the largest containing unpacked array net, or NULL
-// (detail 31). A packed array net iterates only its explicit packed ranges
-// (detail 1), and vpiArray and vpiExpanded are Boolean (details 2, 21); whether
-// a vector is expanded is left to the tool, so only that the value is 0 or 1
-// is printed. A logic net's bits exist whether or not it is expanded
-// (detail 3). Nets of these types are legal (7.4.1, 6.7.1).
+// (detail 31). The printed parent name is its vpiName, which keeps the indices
+// of an element but drops the struct prefix of a member, so the parent of
+// bv[6] is named bv while the handle is still sa[4][1].bv (detail 34). The
+// member id is declared integer, so it is an integer net, a net kind apart
+// from an int net (the diagram; vpiIntegerNet in Annex M). A packed array net
+// iterates only its explicit packed ranges (detail 1), and vpiArray and
+// vpiExpanded are Boolean (details 2, 21); whether a vector is expanded is
+// left to the tool, so only that the value is 0 or 1 is printed. A logic
+// net's bits exist whether or not it is expanded (detail 3). Nets of these
+// types are legal (7.4.1, 6.7.1).
 
 typedef struct packed { logic hi; logic lo; } nap_pair_t;
 typedef enum logic [1:0] {NAP_A, NAP_B, NAP_C} nap_enum_t;

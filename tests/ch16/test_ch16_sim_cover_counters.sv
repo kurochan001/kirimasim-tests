@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_ch16_sim_cover_counters.expected
+:expected_stdout: @test_ch16_sim_cover_counters.expected
 */
 // IEEE 1800-2023 §16.3: the results of coverage for an immediate cover
 // statement shall contain the number of times evaluated and the number of

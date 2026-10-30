@@ -26,6 +26,7 @@ static const char *kind(vpiHandle h)
     case vpiStructNet: return "struct net";
     case vpiUnionNet: return "union net";
     case vpiIntNet: return "int net";
+    case vpiIntegerNet: return "integer net";
     case vpiEnumNet: return "enum net";
     default: return "other net";
     }

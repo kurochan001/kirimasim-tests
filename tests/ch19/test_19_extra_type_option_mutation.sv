@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_19_extra_type_option_mutation.expected
+:expected_stdout: @test_19_extra_type_option_mutation.expected
 */
 // IEEE 1800-2023 §19.7.1: type_option.strobe and type_option.real_interval may
 // be set only in the covergroup definition; the other type options may be
@@ -19,6 +19,11 @@
 // accepting direction: Verilator 5.052 accepts a procedural assignment to
 // strobe as well, and a procedural assignment to real_interval stops in its
 // generated C++ code.
+// With strobe set, Table 19-3 moves the samples of the group to the end of
+// the time slot, and the standard does not say whether that also holds for a
+// call of sample(). The test therefore keeps a unchanged and waits one time
+// unit after each call before it reads the coverage, so the values are the
+// same whether the sample is taken at the call or at the end of the slot.
 
 module test_19_extra_type_option_mutation;
   bit [1:0] a;
@@ -39,9 +44,9 @@ module test_19_extra_type_option_mutation;
              g.type_option.goal, g.type_option.comment);
     a = 0;
     g.sample();
-    $display("after sample 0, below 100: %0d", g.get_inst_coverage() < 100.0);
+    #1 $display("after sample 0, below 100: %0d", g.get_inst_coverage() < 100.0);
     a = 1;
     g.sample();
-    $display("after sample 1: %0.2f", g.get_inst_coverage());
+    #1 $display("after sample 1: %0.2f", g.get_inst_coverage());
   end
 endmodule

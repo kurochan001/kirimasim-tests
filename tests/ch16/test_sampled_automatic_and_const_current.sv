@@ -17,10 +17,14 @@
 // reference. §16.5.2: assertion expressions are tied to their clock, and a
 // value change is a change of the sampled values, so the change of the static
 // variable a in the same time step as the tick at 15 is seen by $changed only
-// at the tick at 25. The procedural concurrent assertion in the automatic task
-// watch reads its automatic variable av, which the same task sets to 1 at 15
-// and 2 at 25 in the Active region; at the tick at 15 the Preponed value of a
-// is still 0 while its current value is 1.
+// at the tick at 25. §16.14: a concurrent assertion stands in an always or
+// initial procedure, not in a task. §16.14.6: each time the procedure reaches
+// a_cur, one attempt is queued; it matures and starts in the Observed region of
+// that tick, and its action block uses the values that the automatic variable
+// av and const'(a) had when it was queued (§16.14.6.1). The procedure queues
+// a_cur once at each tick from 5 to 35, after it has set av to 1 at 15 and to 2
+// at 25 and a to 1 at 15 in the Active region; at the tick at 15 the Preponed
+// value of a is still 0 while its current value is 1.
 
 `timescale 1ns/1ns
 
@@ -30,29 +34,23 @@ module test_sampled_automatic_and_const_current;
 
   always #5 clk = ~clk;   // rising edges at 5, 15, 25, ...
 
-  task automatic watch();
-    int av = 0;
+  initial begin : watch
+    automatic int av = 0;
 
-    a_cur: assert property (@(posedge clk) 1'b1) begin
-      $display("t=%0t av=%0d sampled_av=%0d past_av=%0d changed_a=%0d",
-               $time, av, $sampled(av), $past(av), $changed(a));
-      $display("     a=%0d sampled_a=%0d const_a=%0d past_const_a=%0d",
-               a, $sampled(a), const'(a), $past(const'(a)));
-    end
-
-    #15 av = 1;   // in the time step of the tick at 15
-    #10 av = 2;   // in the time step of the tick at 25
-    #15;
-  endtask
-
-  initial begin
-    fork
-      watch();
-      begin
-        #15 a = 1;   // in the time step of the tick at 15
-        #20;
+    repeat (4) begin
+      @(posedge clk);
+      if ($time == 15) begin   // in the time step of the tick at 15
+        av = 1;
+        a = 1;
       end
-    join
-    $finish;
+      if ($time == 25) av = 2;   // in the time step of the tick at 25
+      a_cur: assert property (@(posedge clk) 1'b1) begin
+        $display("t=%0t av=%0d sampled_av=%0d past_av=%0d changed_a=%0d",
+                 $time, av, $sampled(av), $past(av), $changed(a));
+        $display("     a=%0d sampled_a=%0d const_a=%0d past_const_a=%0d",
+                 a, $sampled(a), const'(a), $past(const'(a)));
+      end
+    end
+    #5 $finish;
   end
 endmodule

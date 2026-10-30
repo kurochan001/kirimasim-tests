@@ -22,7 +22,8 @@
 //
 // One cell writes every form as the condition of a path declaration: the
 // conditional with an attribute after ?, the binary expression with an
-// attribute, the unary expression with an attribute, a parenthesized
+// attribute, the unary expression ~ with an attribute (A.8.6 lists the unary
+// module path operators, and - is not one of them), a parenthesized
 // concatenation, the call f(sel), and the parenthesized mintypmax expression
 // (1:2:3). The cell builds with each condition, and the test prints done.
 // The 5.052 release of Verilator ignores module path delays but accepts the
@@ -39,7 +40,7 @@ module mp_cell(input wire a, input wire sel, input wire en, output wire y);
   specify
     if (sel ?(* c1 *) en : 1) (a => y) = 1;
     if (sel &(* c2 *) en) (a => y) = 2;
-    if (-(* c3 *) sel) (a => y) = 3;
+    if (~(* c3 *) sel) (a => y) = 3;
     if ({sel, en}) (a => y) = 4;
     if (f(sel)) (a => y) = 5;
     if ((1:2:3)) (a => y) = 6;

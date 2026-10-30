@@ -2,8 +2,3 @@
 5: routine before vpi_control
 5: vpi_control(vpiStop, 0) returned 1
 5: the routine went on after vpi_control
-** VVP Stop(0) **
-** Flushing output streams.
-** Current simulation time is 5 ticks.
-** Continue **
-5: design after the call

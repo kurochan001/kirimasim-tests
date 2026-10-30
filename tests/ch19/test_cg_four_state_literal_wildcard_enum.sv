@@ -22,7 +22,15 @@
 // v is sampled with 1x0z, 1x00, 1z0z and 1100. Only the first matches the
 // literal bin; the wildcard bin matches only the last, because a sampled
 // value with x or z is excluded. w goes 0x then 1z, which matches the literal
-// transition, and then 0x then 1x, which does not. e is E3 then E5.
+// transition, and then 0x then 1x, which does not. e is E3 then E5. The
+// literals 4'b0x and 4'b1z are padded on the left with zeros (5.7.1), so %b
+// prints w as 000x and 001z.
+//
+// The standard is not consistent about the literal bins: §19.5.4 counts an x
+// or z bin value with ===, as above, while rule 3 of §19.5.7 asks for a
+// warning for a non-wildcard bin value with x or z bits and takes that value
+// out of the bin. The test follows §19.5.4; under §19.5.7 the bins lit.xz and
+// tr.xz would have no values.
 
 module test_cg_four_state_literal_wildcard_enum;
   logic [3:0] v, w;

@@ -1,6 +1,6 @@
 /*
 :name: test_gate_delay_forms
-:description: A delay value as an unsigned number, a real number, a package-scoped identifier, a time literal and 1step, a two-value delay on an n-input gate, a two-value and a three-value delay on a buf gate, and the third value as the turn-off delay (IEEE 1800-2023 Sections 28.3.3, 28.4 and 28.16)
+:description: A delay value as an unsigned number, a real number, a package-scoped identifier, a time literal and 1step, a two-value delay on an n-input gate and on a buf gate, a three-value delay on a bufif1 gate, and the third value as the turn-off delay (IEEE 1800-2023 Sections 28.3.3, 28.4 and 28.16)
 :tags: ch28
 :type: simulation
 :lrm: 1800-2023 28.3.3 28.16 28.4 A.2.2.3
@@ -15,7 +15,10 @@
 // delay value or a parenthesized list of one or two expressions, and delay3
 // is a delay value or a parenthesized list of one to three expressions.
 // 28.16: the first value of a delay is the rise delay, the second the fall
-// delay and the third the turn-off delay.
+// delay and the third the turn-off delay. A buf or not gate takes delay2, at
+// most two values (28.5), so the three-value delays are on bufif1 gates, an
+// enable gate with delay3 (28.6) whose control input is held at 1 or used to
+// turn the output off.
 //   - in dl_edges, e rises at 10 and falls at 30, and nine gates drive their
 //     own nets: 1step, the two values 1 and 2, the time literal 2.5ns, the
 //     real number 3.5, the three values 4, 5 and 6, the two values 6 and 7
@@ -23,12 +26,12 @@
 //     identifier dpkg::D, which is 9,
 //   - each always block prints the time of a rising or a falling edge, so
 //     the expected time is the edge time plus the delay of that direction,
-//   - in dl_off, o is 1 and becomes z at 10; the third value 4 of the buf
-//     delay is the turn-off delay, so its output becomes z at 14.
+//   - in dl_off, the control en of a bufif1 that passes 1 falls at 10; the
+//     third value 4.5 of its delay is the turn-off delay, so its output
+//     becomes z at 14.5.
 //
-// Icarus Verilog 13.0 does not accept 1step, the package-scoped identifier
-// or a third delay on a buf gate. Verilator 5.052 does not use gate delays
-// here.
+// Icarus Verilog 13.0 does not accept 1step or the package-scoped
+// identifier. Verilator 5.052 does not use gate delays here.
 
 `timescale 1ns/1ps
 
@@ -44,7 +47,7 @@ module dl_edges;
   buf #(1, 2) u_two (d_two, e);
   buf #2.5ns u_time (d_time, e);
   buf #3.5 u_real (d_real, e);
-  buf #(4, 5, 6) u_three (d_three, e);
+  bufif1 #(4, 5, 6) u_three (d_three, e, 1'b1);
   and #(6, 7) u_and (d_and, e, 1'b1);
   buf #8 u_uns (d_uns, e);
   buf #dpkg::D u_ps (d_ps, e);
@@ -73,14 +76,14 @@ module dl_edges;
 endmodule
 
 module dl_off;
-  logic o = 1'b1;
+  logic en = 1'b1;
   wire y;
 
-  buf #(2, 3, 4.5) u_off (y, o);
+  bufif1 #(2, 3, 4.5) u_off (y, 1'b1, en);
 
   always @(y) if (y === 1'bz) $display("off_turnoff=%0.3f", $realtime);
 
-  initial #10 o = 1'bz;
+  initial #10 en = 1'b0;
 endmodule
 
 module test_gate_delay_forms;

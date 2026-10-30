@@ -1,5 +1,5 @@
 t=10 code 6 average=5 status=0
-t=10 queue 4 length=0
+t=10 queue 4 length=1
 t=20 code 2 mean=10 status=0
 t=25 code 4 shortest=5 status=0
 t=25 queue 2 length=0

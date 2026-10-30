@@ -69,9 +69,31 @@ static int same_ranges(vpiHandle a, vpiHandle b)
 static void owner(const char *label, vpiHandle decl, PLI_INT32 relation, vpiHandle want)
 {
     vpiHandle back = decl != NULL ? vpi_handle(relation, decl) : NULL;
-    vpi_printf((PLI_BYTE8 *)"%s %s: back with %s %d\n", label, sprop(vpiName, decl),
+    vpi_printf((PLI_BYTE8 *)"%s%s: back with %s %d\n", label, sprop(vpiName, decl),
                relation == vpiTaskFunc ? "vpiTaskFunc" : "vpiUdpDefn",
                back != NULL && want != NULL && vpi_compare_objects(back, want));
+}
+
+/* Sorts decls[0] to decls[n - 1] by name. vpi_get_str() returns every string
+   in one buffer (38.11), so the names are copied before they are compared. */
+static void sort_by_name(vpiHandle *decls, int n)
+{
+    char names[MAX][24], t[24];
+    vpiHandle th;
+    int i, j;
+
+    for (i = 0; i < n; i++)
+        snprintf(names[i], sizeof names[0], "%s", sprop(vpiName, decls[i]));
+    for (i = 0; i < n; i++)
+        for (j = i + 1; j < n; j++)
+            if (strcmp(names[i], names[j]) > 0) {
+                snprintf(t, sizeof t, "%s", names[i]);
+                snprintf(names[i], sizeof names[i], "%s", names[j]);
+                snprintf(names[j], sizeof names[j], "%s", t);
+                th = decls[i];
+                decls[i] = decls[j];
+                decls[j] = th;
+            }
 }
 
 static void io_decl(vpiHandle d, vpiHandle u)
@@ -163,13 +185,7 @@ static PLI_INT32 io_calltf(PLI_BYTE8 *user_data)
     n = 0;
     while (it != NULL && (d = vpi_scan(it)) != NULL && n < MAX)
         decls[n++] = d;
-    for (i = 0; i < n; i++)
-        for (j = i + 1; j < n; j++)
-            if (strcmp(sprop(vpiName, decls[i]), sprop(vpiName, decls[j])) > 0) {
-                vpiHandle th = decls[i];
-                decls[i] = decls[j];
-                decls[j] = th;
-            }
+    sort_by_name(decls, n);
     for (i = 0; i < n; i++)
         owner("  ", decls[i], vpiTaskFunc, task);
     for (i = 0; i < n; i++)
@@ -191,13 +207,7 @@ static PLI_INT32 io_calltf(PLI_BYTE8 *user_data)
     n = 0;
     while (it != NULL && (d = vpi_scan(it)) != NULL && n < MAX)
         decls[n++] = d;
-    for (i = 0; i < n; i++)
-        for (j = i + 1; j < n; j++)
-            if (strcmp(sprop(vpiName, decls[i]), sprop(vpiName, decls[j])) > 0) {
-                vpiHandle th = decls[i];
-                decls[i] = decls[j];
-                decls[j] = th;
-            }
+    sort_by_name(decls, n);
     for (i = 0; i < n; i++)
         owner("  ", decls[i], vpiUdpDefn, defn);
 

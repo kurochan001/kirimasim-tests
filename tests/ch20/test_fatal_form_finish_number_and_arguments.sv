@@ -10,7 +10,7 @@
 :nondeterministic: no
 :expected_stdout: @test_fatal_form_finish_number_and_arguments.expected
 :expected_exit: nonzero
-:expected_stderr_regex: (?i)\A(?=[\s\S]*(?:fatal[^\n]*test_fatal_form_finish_number_and_arguments\.sv:35:[^\n]*ff-msg n=42 end|test_fatal_form_finish_number_and_arguments\.sv:35:[^\n]*fatal[^\n]*ff-msg n=42 end))
+:expected_stderr_regex: (?i)\A(?=[\s\S]*?(?:fatal(?:(?!\.sv:\d)[^\n])*(?:\n(?:(?!\.sv:\d)[^\n])*)?test_fatal_form_finish_number_and_arguments\.sv:36\b|test_fatal_form_finish_number_and_arguments\.sv:36\b(?:(?!\.sv:\d)[^\n])*(?:\n(?:(?!\.sv:\d)[^\n])*)?fatal))(?=[\s\S]*?(?:ff-msg n=42 end(?:(?!\.sv:\d)[^\n])*(?:\n(?:(?!\.sv:\d)[^\n])*)?test_fatal_form_finish_number_and_arguments\.sv:36\b|test_fatal_form_finish_number_and_arguments\.sv:36\b(?:(?!\.sv:\d)[^\n])*(?:\n(?:(?!\.sv:\d)[^\n])*)?ff-msg n=42 end))
 */
 // IEEE 1800-2023 A.1.4 and 20.10: $fatal is written either without
 // parentheses or with parentheses that hold a finish number, which is 0, 1
@@ -18,10 +18,11 @@
 // like $display. Here the call has the finish number 2 and the arguments
 // of the message "ff-msg n=42 end".
 // It prints a message with its severity and the file and line of the call
-// (the regular expression looks for them), and it ends the run with an
-// error code through an implicit $finish (20.2): the final procedure runs,
-// the statement after the call is not reached, and neither is the second
-// initial procedure, which would print at 10.
+// (the regular expression looks for them in either order, on one line or
+// two, since the layout of the message is the tool's), and it ends the run
+// with an error code through an implicit $finish (20.2): the final
+// procedure runs, the statement after the call is not reached, and neither
+// is the second initial procedure, which would print at 10.
 // In release 5.052 of the Verilator tool $fatal stops the run like $stop,
 // and the final procedure does not run.
 

@@ -35,12 +35,16 @@ static void add_line(const char *text)
 /* Records "where: base name of vpiDefFile line vpiDefLineNo" for the attribute a. */
 static void location(const char *label, const char *attr, vpiHandle a)
 {
-    char text[128];
-    const char *file = vpi_get_str(vpiDefFile, a), *base;
+    char text[128], name[64];
+    const char *file, *base;
 
+    /* attr may be in the buffer of vpi_get_str(), which every call reuses
+       (38.11), so it is copied before vpiDefFile is asked for. */
+    snprintf(name, sizeof name, "%s", attr);
+    file = vpi_get_str(vpiDefFile, a);
     base = file != NULL ? strrchr(file, '/') : NULL;
     base = base != NULL ? base + 1 : (file != NULL ? file : "NULL");
-    snprintf(text, sizeof text, "location of %s of %s: %s line %d", attr, label, base,
+    snprintf(text, sizeof text, "location of %s of %s: %s line %d", name, label, base,
              (int)vpi_get(vpiDefLineNo, a));
     add_line(text);
 }

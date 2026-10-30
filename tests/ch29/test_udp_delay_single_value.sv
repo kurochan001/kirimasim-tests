@@ -15,9 +15,11 @@
 // The AND here is x until the delay after its inputs become known, then 0.
 // Setting a = 1 at 4 leaves the output 0, so nothing is scheduled; setting
 // b = 1 at 6 makes the output 1 at 9, and setting b = x at 10 makes it x at
-// 13. The test samples the output before and after each due change.
+// 13. The test samples the output half a nanosecond before and after each
+// due change: a sample in the time step of a change could run before or
+// after the change (4.7).
 
-`timescale 1ns/1ns
+`timescale 1ns/100ps
 
 primitive udp_and_d (y, a, b);
   output y;
@@ -39,15 +41,15 @@ module test_udp_delay_single_value;
   initial begin
     a = 0;
     b = 0;
-    #1 $display("t=%0d: y=%b", $time, y);
-    #2 $display("t=%0d: y=%b", $time, y);
-    #1 a = 1;
-    #1 $display("t=%0d: y=%b", $time, y);
+    #2.5 $display("t=%0.1f: y=%b", $realtime, y);
+    #1 $display("t=%0.1f: y=%b", $realtime, y);
+    #0.5 a = 1;
+    #1 $display("t=%0.1f: y=%b", $realtime, y);
     #1 b = 1;
-    #1 $display("t=%0d: y=%b", $time, y);
-    #2 $display("t=%0d: y=%b", $time, y);
-    #1 b = 1'bx;
-    #1 $display("t=%0d: y=%b", $time, y);
-    #2 $display("t=%0d: y=%b", $time, y);
+    #2.5 $display("t=%0.1f: y=%b", $realtime, y);
+    #1 $display("t=%0.1f: y=%b", $realtime, y);
+    #0.5 b = 1'bx;
+    #2.5 $display("t=%0.1f: y=%b", $realtime, y);
+    #1 $display("t=%0.1f: y=%b", $realtime, y);
   end
 endmodule

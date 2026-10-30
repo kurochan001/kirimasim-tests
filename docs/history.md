@@ -110,3 +110,16 @@ clause 37.
   `differ`, `known difference` and `unsupported` results remain in the
   denominator. The first four runners exclude the 268 formal tests; Ghost
   selects the full catalogue.
+
+## 2026-10-31
+
+- `tools/run_ghost.py` now leaves out `:type: formal` tests, like the other
+  simulation runners (issue #22). Earlier Ghost results count the 268 formal
+  tests as failures. As the runner's fingerprint changed, the Ghost results
+  saved earlier in `coverage/results/` no longer count as execution evidence
+  for requirement coverage.
+- Before the test corrections of issues #22 to #28 and #36 to #39 (as of
+  2026-10-30), design coverage was 89.33% (10,986/12,298), execution coverage
+  59.60% (7,330/12,298), or 51.00% (6,272/12,298) counting only Icarus
+  Verilog, Verilator and SymbiYosys, and clauses 1 to 40 were at 87.40%
+  (8,272/9,465) design coverage.

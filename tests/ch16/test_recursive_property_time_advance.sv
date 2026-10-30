@@ -12,8 +12,10 @@
 */
 // IEEE 1800-2023 §16.12.17: a property may depend on itself, and such a
 // dependency is legal when a positive number of clock ticks lies on every
-// cycle of the dependency graph. Here p_rec is a ##1 (b or p_rec), so the
-// reference to p_rec in its own body follows a delay of one tick. a is high at
+// cycle of the dependency graph. Here p_rec holds when a holds and, one tick
+// later, b or p_rec holds, so the reference to p_rec in its own body follows
+// the |=> of one tick. A property such as b or p_rec cannot follow ##1, whose
+// operands are sequences (§16.7), so it follows 1'b1 |=> instead. a is high at
 // the ticks at 5 and 15 and low at 25, and b is high at 25. The attempt that
 // starts at 5 reaches b at 25 through one recursion, and the attempt that
 // starts at 15 reaches b at 25 directly; both pass at 25. The attempt that
@@ -28,7 +30,7 @@ module test_recursive_property_time_advance;
   always #5 clk = ~clk;   // rising edges at 5, 15, 25
 
   property p_rec;
-    a ##1 (b or p_rec);
+    a and (1'b1 |=> (b or p_rec));
   endproperty
 
   a_rec: assert property (@(posedge clk) p_rec)

@@ -22,20 +22,23 @@
 //   - bus, b2 and arr are interconnect nets; b2 carries the delay value 0
 //     and arr has an unpacked dimension, and the declaration of arr and b2
 //     has two identifiers,
-//   - ic_src connects the output of ic_drv to its interconnect output port,
+//   - ic_src connects the output of ic_drv, a net port (an output port with
+//     a data type alone would be a variable, 23.2.2.3), to its interconnect
+//     output port,
 //     ic_sink connects its interconnect input port to the input of ic_leaf,
 //     and the value 8'hD comes out of ic_leaf as 8'hE,
 //   - nt_leaf has a port of the user nettype nib_net, a port of wire [3:0]
 //     (a net type and an implicit data type) and a port of logic [3:0] (a
 //     data type alone), and its output adds the two driven values.
-// Printed: y = e for bus, b2 and arr[0], nn = 9, wn = 3 and nty = c.
+// Printed: y = e for bus, b2 and arr[0], nn = 9, wn = 3 and nty = 0000000c,
+// since %h shows the leading zeros of the 32-bit int (21.2.1.2).
 //
 // Icarus Verilog 13.0 and Verilator 5.052 do not support interconnect nets or
 // nettype ports.
 
 nettype logic [3:0] nib_net;
 
-module ic_drv (output logic [3:0] y);
+module ic_drv (output wire logic [3:0] y);
   assign y = 4'hD;
 endmodule
 

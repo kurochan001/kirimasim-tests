@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_ch16_sim_declaration_inert.expected
+:expected_stdout: @test_ch16_sim_declaration_inert.expected
 */
 // IEEE 1800-2023 §16.12: a property defines a behavior of the design; in
 // order to use the behavior for verification, an assert, assume or cover

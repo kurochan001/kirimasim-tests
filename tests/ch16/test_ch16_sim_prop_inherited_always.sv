@@ -1,26 +1,29 @@
 /*
 :name: test_ch16_sim_prop_inherited_always
-:description: always a under an outer clock is evaluated only at the outer clock ticks, so a drop of a between ticks is not seen and only the tick whose sample is false fails (IEEE 1800-2023 Section 16.16.1)
+:description: always a under an outer clock is evaluated only at the outer clock ticks, so a drop of a between ticks is not seen and the attempts fail only at the tick whose sample is false (IEEE 1800-2023 Section 16.16.1)
 :tags: ch16
 :type: simulation
 :lrm: 1800-2023 16.16.1 16.12.11
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_ch16_sim_prop_inherited_always.expected
+:expected_stdout: @test_ch16_sim_prop_inherited_always.expected
 */
 // IEEE 1800-2023 §16.16.1: the set of semantic leading clocks of always q is
 // {inherited}, so under the explicit clock c the property always a is
 // evaluated at the ticks of c and a is sampled there. The clock rises at 5,
 // 15, 25 and 35. a is 1 at the ticks at 5 and 15. It drops to 0 at 7, between
 // ticks, which is not seen, and is 1 again at 10. It drops to 0 at 22, so the
-// tick at 25 samples it as 0 and the attempt fails there. The failure is
-// reported at 25 only; the tick at 35 samples 1 again. The failure queue is
-// printed at the end, so the order of the $display calls in the fail action
-// does not matter.
-// Icarus Verilog 13.0 has no concurrent assertions, so it has no expected
-// output of its own.
+// tick at 25 samples it as 0. §16.12.11: an assertion outside a procedure
+// begins an evaluation attempt of always a at every tick, so the attempts
+// from 5, 15 and 25 are all running at 25 and each of them fails there, while
+// the tick at 35 samples 1 again and the attempt from 35 is still pending at
+// the end. The failure queue therefore holds 25 three times. It is printed at
+// the end, so the order of the three fail actions at 25 does not matter.
+// Icarus Verilog 13.0 has no concurrent assertions, and Verilator 5.052
+// reports a single failure at 25 (docs/simulator-differences.md), so the
+// expected output comes from the standard alone.
 
 `timescale 1ns/1ns
 

@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_expect_wait_order_default_error_failoff.expected
-:expected_stderr_regex: \A(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:48:)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:49:)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:50:)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:51:)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:52:)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:53:)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:56:)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:57:)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:58:)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:59:)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:60:)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:61:)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:64:)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:65:)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:66:)
+:expected_stderr_regex: \A(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:50\b)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:51\b)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:52\b)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:53\b)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:54\b)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:55\b)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:58\b)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:59\b)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:60\b)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:61\b)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:62\b)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:63\b)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:66\b)(?=[\s\S]*test_expect_wait_order_default_error_failoff\.sv:67\b)(?![\s\S]*test_expect_wait_order_default_error_failoff\.sv:68\b)
 */
 // IEEE 1800-2023 §20.10: when the action block of an expect statement
 // (§16.17) or a wait_order (§15.5.4) has no else clause, its fail action is
@@ -27,6 +27,8 @@
 // FailOff, only the wait_order lines after it, and the expect lines again
 // after FailOn. No else-clause line ever reports; the else clause of the
 // expect statement does not count under FailOff, that of wait_order does.
+// The layout of the message is the tool's (20.10), so file:line of a
+// statement may be followed by a space or any punctuation, not only a colon.
 // Neither simulator runs this test: Icarus Verilog 13.0 and release 5.052 of
 // the Verilator tool support neither expect nor wait_order.
 

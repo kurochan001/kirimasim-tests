@@ -35,6 +35,9 @@
 //   the interface ifc has the input .ip(iv[2]), the element of an array,
 //      which receives 4'h9; the program prg has the output .op(pv[0]),
 //      which drives the 4'h6 of the element outside.
+// The initial procedure of prg waits #2 after setting pv[0]: when all
+// program initial procedures have ended the simulation ends with an implicit
+// $finish (24.3), which at time 0 would come before the report at 1.
 // Icarus Verilog 13.0 and Verilator 5.052 do not support explicitly named
 // ANSI ports, so this expected output follows the standard alone.
 
@@ -71,7 +74,10 @@ endinterface
 
 program ansi_explicit_named_ports_p(output .op(pv[0]));
   logic [3:0] pv [0:1];
-  initial pv[0] = 4'h6;
+  initial begin
+    pv[0] = 4'h6;
+    #2;
+  end
 endprogram
 
 module test_ansi_explicit_named_ports;

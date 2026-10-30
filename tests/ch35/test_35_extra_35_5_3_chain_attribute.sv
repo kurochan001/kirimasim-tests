@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :dpi_c: @test_35_extra_35_5_3_chain_attribute.c
-:expected_stdout_verilator: @test_35_extra_35_5_3_chain_attribute.expected
+:expected_stdout: @test_35_extra_35_5_3_chain_attribute.expected
 */
 // IEEE 1800-2023 §35.5.3: the context property applies to each import call
 // made from SystemVerilog and is not promoted transitively; it adheres to the

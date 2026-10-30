@@ -19,7 +19,9 @@
 // e4.triggered is true at a c tick where that sample is 1. c rises at 10,
 // 30, 50 and 70; b is 1 before 25 and between 35 and 55, so the c ticks at
 // 10 and 50 see b as 1 while the ticks at 30 and 70 do not. The example
-// cover statement prints a line at each of the two hits.
+// cover statement prints a line at each of the two hits. The checker prints
+// its count in a final procedure (§17.5), because §23.6 forbids hierarchical
+// references into a checker from the module.
 // Neither simulator can run this test: Icarus Verilog 13.0 does not support
 // checkers and Verilator 5.052 reports "Unsupported: sequence argument data
 // type". The expected output is the behavior that §16.13.6 defines.
@@ -33,6 +35,7 @@ checker chk(logic c, sequence s);
         hits++;
         $display("triggered at %0t", $time);
       end
+  final $display("hits=%0d", hits);
 endchecker
 
 module test_ch16_sim_checker_inference;
@@ -53,7 +56,6 @@ module test_ch16_sim_checker_inference;
     #10 b = 1;
     #20 b = 0;
     #30;
-    $display("hits=%0d", i1.hits);
     $finish;
   end
 endmodule

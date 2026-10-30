@@ -48,8 +48,15 @@ static PLI_INT32 prefix_calltf(PLI_BYTE8 *user_data)
     (void)user_data;
     while (it != NULL && (arg = vpi_scan(it)) != NULL) {
         vpiHandle p = vpi_handle(vpiPrefix, arg);
+        char kind[48], name[48], prefix_kind[48];
+
+        /* vpi_get_str() returns every string in one buffer (38.11), so each
+           string printed with others is copied first. */
+        snprintf(kind, sizeof kind, "%s", kind_of(arg));
+        snprintf(name, sizeof name, "%s", name_of(arg));
+        snprintf(prefix_kind, sizeof prefix_kind, "%s", kind_of(p));
         vpi_printf((PLI_BYTE8 *)"%s %s: prefix %s %s, scheme %s vs %s, same %d\n",
-                   kind_of(arg), name_of(arg), kind_of(p), name_of(p),
+                   kind, name, prefix_kind, name_of(p),
                    scheme_of(arg), scheme_of(p),
                    p != NULL && vpi_get(vpiAllocScheme, arg) == vpi_get(vpiAllocScheme, p)
                        ? 1 : 0);

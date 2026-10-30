@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: s_bad increments its untyped formal x in a match item, and the wait calls s_bad(v).triggered outside a sequence context
-:expected_stderr_regex: test_illegal_triggered_outside_local_formal\.sv:35:
+:expected_stderr_regex: test_illegal_triggered_outside_local_formal\.sv:(?:37|41):
 */
 // IEEE 1800-2023 §16.13.6: triggered may be used in wait statements and other
 // Boolean expressions outside a sequence context, but it is an error to call
@@ -18,17 +18,23 @@
 // or increment in a sequence_match_item. s_ok only reads x, so the wait on
 // s_ok(1'b1).triggered is legal. s_bad increments x, and the wait on
 // s_bad(v).triggered is outside a sequence context and is illegal.
+// Both sequences name their clock: a sequence with a method is clocked or
+// infers its clock, and these initial procedures give it none. Outside a
+// sequence context no local variable can be bound to x, so the static v takes
+// its place, and a match item may assign only local variables (§16.10). A
+// tool may therefore report the one error where the substituted increment
+// stands (line 37) instead of at the wait (line 41).
 
 module test_illegal_triggered_outside_local_formal;
-  logic a = 0, b = 0;
+  logic clk = 0, a = 0, b = 0;
   int v = 0;
 
   sequence s_ok(x);
-    x ##1 b;
+    @(posedge clk) x ##1 b;
   endsequence
 
   sequence s_bad(x);
-    (a, x++) ##1 b;
+    @(posedge clk) (a, x++) ##1 b;
   endsequence
 
   initial wait (s_ok(1'b1).triggered);

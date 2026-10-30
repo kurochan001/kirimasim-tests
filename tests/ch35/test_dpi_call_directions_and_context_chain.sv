@@ -21,11 +21,14 @@
 // H.9.1 says is the scope of the import, not of the call site.
 //
 // The top module imports c_add as a function and c_set as a task and calls
-// both. The instance u of wA_dpi_unit declares the context function c_chain
-// and the export sv_twice; its initial block calls c_chain, which calls the C
-// helper scope_name, not called directly from SystemVerilog but part of the
-// chain, and then the exported sv_twice(7), whose result 14 gives 15. The
-// printed scope is the instance u, the declaration scope.
+// both. 35.5.4: the C code of an imported task is an int function, whose
+// result is the disable status, so c_set returns 0. The instance u of
+// wA_dpi_unit declares the context function c_chain and the export sv_twice;
+// its initial block calls c_chain, which calls the C helper scope_name, not
+// called directly from SystemVerilog but part of the chain, and then the
+// exported sv_twice(7), whose result 14 gives 15. The printed scope is the
+// instance u, the declaration scope. The order of the initial procedures of
+// two modules is not defined (4.7, 9.2), so the chain runs at time 1.
 
 `timescale 1ns/1ns
 
@@ -37,7 +40,7 @@ module wA_dpi_unit;
     return x * 2;
   endfunction
 
-  initial $display("chain %0d", c_chain(7));
+  initial #1 $display("chain %0d", c_chain(7));
 endmodule
 
 module test_dpi_call_directions_and_context_chain;

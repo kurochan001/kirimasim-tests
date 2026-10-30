@@ -11,10 +11,13 @@ extern "C" {
 #define TOP "test_vpi_named_event_relations"
 #define MAX 8
 
-static const char *sprop(PLI_INT32 property, vpiHandle h)
+/* vpi_get_str() may return every string in the same buffer (38.11), so each
+   string is copied into buf before the next call. */
+static const char *sprop(PLI_INT32 property, vpiHandle h, char *buf, size_t size)
 {
     PLI_BYTE8 *s = h != NULL ? vpi_get_str(property, h) : NULL;
-    return s != NULL ? s : "NULL";
+    snprintf(buf, size, "%s", s != NULL ? s : "NULL");
+    return buf;
 }
 
 static vpiHandle by_name(const char *path)
@@ -40,11 +43,14 @@ static void event(const char *label, vpiHandle e, vpiHandle owner)
     vpiHandle inst = vpi_handle(vpiInstance, e);
     vpiHandle scope = vpi_handle(vpiScope, e);
     vpiHandle module = vpi_handle(vpiModule, e);
+    char full[160], scope_full[160];
 
+    sprop(vpiFullName, e, full, sizeof full);
+    sprop(vpiFullName, scope, scope_full, sizeof scope_full);
     vpi_printf((PLI_BYTE8 *)"%s: full name %s, instance owner %d, scope owner %d, "
                "scope name %s, module owner %d, vpiArray bool %d\n",
-               label, sprop(vpiFullName, e), same(inst, owner), same(scope, owner),
-               sprop(vpiFullName, scope), same(module, owner), is_boolean(vpiArray, e));
+               label, full, same(inst, owner), same(scope, owner),
+               scope_full, same(module, owner), is_boolean(vpiArray, e));
 }
 
 static void event_array(const char *label, vpiHandle a, vpiHandle u)
@@ -52,14 +58,14 @@ static void event_array(const char *label, vpiHandle a, vpiHandle u)
     vpiHandle inst = vpi_handle(vpiInstance, a);
     vpiHandle module = vpi_handle(vpiModule, a);
     vpiHandle it, e;
-    char names[MAX][96];
+    char names[MAX][96], full[160];
     int n = 0, i, j, all_events = 1;
 
     it = vpi_iterate(vpiNamedEvent, a);
     while (it != NULL && (e = vpi_scan(it)) != NULL && n < MAX) {
         if (vpi_get(vpiType, e) != vpiNamedEvent)
             all_events = 0;
-        snprintf(names[n++], sizeof names[0], "%s", sprop(vpiFullName, e));
+        sprop(vpiFullName, e, names[n++], sizeof names[0]);
     }
     for (i = 0; i < n; i++)
         for (j = i + 1; j < n; j++)
@@ -71,8 +77,8 @@ static void event_array(const char *label, vpiHandle a, vpiHandle u)
             }
     vpi_printf((PLI_BYTE8 *)"%s: full name %s, instance is u %d, module is u %d, "
                "elements %d, all vpiNamedEvent %d\n",
-               label, sprop(vpiFullName, a), same(inst, u), same(module, u),
-               n, all_events);
+               label, sprop(vpiFullName, a, full, sizeof full), same(inst, u),
+               same(module, u), n, all_events);
     for (i = 0; i < n; i++)
         vpi_printf((PLI_BYTE8 *)"  element %s\n", names[i]);
 }

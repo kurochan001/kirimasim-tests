@@ -10,10 +10,12 @@
 :nondeterministic: no
 :expected_stdout: @test_fst_header_and_dumpfile.expected
 */
-// IEEE 1800-2023 §21.7.1 makes $dumpfile name the waveform file but leaves its
-// format to the implementation. FST is the GTKWave/libfst format, not a format
-// of the standard. This test is for a simulator that writes FST, such as
-// kirimasim when its FST backend is implemented. It checks the bytes of the
+// IEEE 1800-2023 §21.7.1.1 makes $dumpfile name the VCD file, so the standard
+// itself asks for a VCD file here. FST is the GTKWave/libfst format, not a
+// format of the standard, and writing it for an .fst name is an extension.
+// This test is for a simulator that provides that extension, such as
+// kirimasim when its FST backend is implemented; a simulator that writes VCD
+// as the standard says does not pass it. It checks the bytes of the
 // first FST block: tag 0 (FST_BL_HDR), the big-endian section length 329, and
 // the timescale byte -9 for 1 ns. A VCD writer starts with "$date" instead, so
 // this test also distinguishes an FST file from a VCD file with an .fst name.

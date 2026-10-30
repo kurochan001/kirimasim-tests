@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_19_extra_sample_method.expected
+:expected_stdout: @test_19_extra_sample_method.expected
 */
 // IEEE 1800-2023 §19.8: void sample() takes a sample of the covergroup, that
 // is, it samples every coverpoint and cross of the group once. The coverpoint

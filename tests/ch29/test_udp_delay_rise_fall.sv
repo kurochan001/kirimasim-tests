@@ -15,10 +15,11 @@
 // at the start, so the first change, to 0 after the inputs become known, takes
 // the fall delay 5. Setting a = 1 at 6 keeps the output 0, so nothing is
 // scheduled; b = 1 at 8 makes it 1 after the rise delay 2, and a = 0 at 12
-// makes it 0 after the fall delay 5. The test samples just before and at each
-// due time.
+// makes it 0 after the fall delay 5. The test samples half a nanosecond
+// before and after each due time: a sample in the time step of a change could
+// run before or after the change (4.7).
 
-`timescale 1ns/1ns
+`timescale 1ns/100ps
 
 primitive udp_and_rf (y, a, b);
   output y;
@@ -40,14 +41,14 @@ module test_udp_delay_rise_fall;
   initial begin
     a = 0;
     b = 0;
-    #1 $display("t=%0d: y=%b", $time, y);
-    #4 $display("t=%0d: y=%b", $time, y);
-    #1 a = 1;
+    #4.5 $display("t=%0.1f: y=%b", $realtime, y);
+    #1 $display("t=%0.1f: y=%b", $realtime, y);
+    #0.5 a = 1;
     #2 b = 1;
-    #1 $display("t=%0d: y=%b", $time, y);
-    #1 $display("t=%0d: y=%b", $time, y);
-    #2 a = 0;
-    #4 $display("t=%0d: y=%b", $time, y);
-    #1 $display("t=%0d: y=%b", $time, y);
+    #1.5 $display("t=%0.1f: y=%b", $realtime, y);
+    #1 $display("t=%0.1f: y=%b", $realtime, y);
+    #1.5 a = 0;
+    #4.5 $display("t=%0.1f: y=%b", $realtime, y);
+    #1 $display("t=%0.1f: y=%b", $realtime, y);
   end
 endmodule

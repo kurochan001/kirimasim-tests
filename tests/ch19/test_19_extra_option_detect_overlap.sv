@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_19_extra_option_detect_overlap.expected
+:expected_stdout: @test_19_extra_option_detect_overlap.expected
 */
 // IEEE 1800-2023 §19.7: option.detect_overlap is a definition-only group and
 // point option whose default is false. When true, the tool warns about

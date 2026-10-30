@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:expected_stdout_verilator: @test_19_extra_option_comment.expected
+:expected_stdout: @test_19_extra_option_comment.expected
 */
 // IEEE 1800-2023 §19.7: option.comment is an instance option of a covergroup,
 // coverpoint and cross whose default is the empty string. §19.10 makes option

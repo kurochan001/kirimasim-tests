@@ -22,8 +22,11 @@
 // 20 ns. Queue 2 has one job that waits 20 ns and one that waits 5 ns, so the
 // shortest wait ever is 5 ns. Queue 3 still holds jobs added at 0 and 10 ns
 // when it is examined at 30 ns, so the longest wait of those jobs is 30 ns.
-// Queue 4 held one job that waited 5 ns, so the average wait of the queue is
-// 5 ns whether the average counts the job or only the jobs still there.
+// Table 20-10 does not say which jobs the average wait of code 6 covers: the
+// jobs that have left the queue, the jobs still in it, or all of them. Queue
+// 4 makes the three answers equal: one job waited 5 ns until its removal at
+// 5 ns, and the job added then has waited 5 ns when the queue is examined at
+// 10 ns, so the average wait is 5 ns in each case.
 
 `timescale 1ns/1ns
 
@@ -40,7 +43,10 @@ module test_queue_statistics_wait_codes;
     $q_add(3, 1, 1, status);
     $q_add(4, 1, 1, status);
 
-    #5 $q_remove(4, job, inform, status);
+    #5 begin
+      $q_remove(4, job, inform, status);
+      $q_add(4, 2, 2, status);
+    end
     #5 begin
       $q_add(1, 2, 2, status);
       $q_add(3, 2, 2, status);

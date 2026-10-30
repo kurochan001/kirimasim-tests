@@ -20,6 +20,8 @@
 // for an interface or modport actual (detail 6). vpi_iterate(vpiPortInst) over
 // a ref obj gives the ports through which that local interface declaration is
 // passed (37.15 diagram), here the two leaf instances of the child module.
+// vpi_get_str() returns each string in the same buffer (§38.11), so the
+// application copies the strings it prints together.
 
 interface trf_bus;
   logic req, gnt;
