@@ -28,6 +28,9 @@ Issue #21で追加した境界条件の回帰テストと、保留した解釈�
 - 32件の未対応は、従来の配列スライス代入6件と、集合所属判定で動的配列・キューを読む26件です。
   不一致1件は、幅と符号が異なる固定配列要素と個別列挙の判定結果が食い違うケースです。
   [最小例・対照条件・ビルド証跡](../coverage/interaction-qualification/20261030-inside.json)を保存しています。
+- 同日、実行直前の上流mainを確認して再ビルドしたkirimasim `fb79248e46f6`でも全1,346件を実行し、
+  [別の保存実行](../coverage/interaction-results/cross27-kirimasim-fb79248e.json)として残しました。
+  1,313件一致・32件未対応・1件不一致で、状態が変わったケースはありません。入力ハッシュも同じです。
 
 [Checkの構成](../.github/workflows/check.yml)と
 [実行履歴](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml)も参照してください。

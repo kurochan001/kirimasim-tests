@@ -62289,6 +62289,818 @@
       }
     },
     {
+      "source": "coverage/interaction-results/cross27-kirimasim-fb79248e.json",
+      "simulator": "kirimasim",
+      "version": "kirimasim 0.0.0 (commit fb79248e46f6), built with AppleClang 21.0.0.21000334",
+      "generated_at": "2026-10-30T09:58:25.583864+00:00",
+      "models": {
+        "scheduling_visibility": {
+          "case_statuses": {
+            "pass": 51,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 274
+          },
+          "coverage": {
+            "2": {
+              "passed": 126,
+              "total": 126,
+              "missing": 0
+            },
+            "3": {
+              "passed": 51,
+              "total": 51,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {},
+          "provenance_problem": "",
+          "complete": true
+        },
+        "nba_capture": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 162,
+              "total": 162,
+              "missing": 0
+            },
+            "3": {
+              "passed": 44,
+              "total": 44,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch10/test_gen_cross_nba_w65_l_x_a_d_t_d.sv": "pass",
+            "tests/gen/ch10/test_gen_cross_nba_w129_l_z_a_a_t_d.sv": "pass",
+            "tests/gen/ch10/test_gen_cross_nba_w129_b_x_a_d_t_i.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "expression_context": {
+          "case_statuses": {
+            "pass": 51,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 143,
+              "total": 143,
+              "missing": 0
+            },
+            "3": {
+              "passed": 63,
+              "total": 63,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_expr_w129_n_w_ss_mul.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_expr_w65_w_n_su_add.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_expr_w33_s_w_us_sub.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "packed_part_select": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 162,
+              "total": 162,
+              "missing": 0
+            },
+            "3": {
+              "passed": 48,
+              "total": 48,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_select_w65_a_m_h_high_l_z.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_select_w129_d_p_h_interior_l_x.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_select_w33_a_p_s_high_b_x.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "conditional_merge": {
+          "case_statuses": {
+            "pass": 32,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 185,
+              "total": 185,
+              "missing": 0
+            },
+            "3": {
+              "passed": 76,
+              "total": 76,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_cond_w129_ss_x_same_xz_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_cond_w65_su_1_mixed_xz_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_cond_w33_ss_0_mixed_xz_n_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "shift_context": {
+          "case_statuses": {
+            "pass": 56,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 298,
+              "total": 298,
+              "missing": 0
+            },
+            "3": {
+              "passed": 92,
+              "total": 92,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_shift_w65_s_ashr_width_z_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_shift_w129_u_shl_one_x_n_b.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_shift_w33_s_shr_width_k_w_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_shift_w64_s_ashr_beyond_k_n_l.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "cast_pipeline": {
+          "case_statuses": {
+            "pass": 32,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 214,
+              "total": 214,
+              "missing": 0
+            },
+            "3": {
+              "passed": 76,
+              "total": 76,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch6/test_gen_cross_cast_w129_s_x_typed_bit_n_add_l.sv": "pass",
+            "tests/gen/ch6/test_gen_cross_cast_w65_s_z_size_w_plain_l.sv": "pass",
+            "tests/gen/ch6/test_gen_cross_cast_w33_s_k_size_n_add_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "task_argument_visibility": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 144,
+              "total": 144,
+              "missing": 0
+            },
+            "3": {
+              "passed": 52,
+              "total": 52,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch13/test_gen_cross_task_w129_l_z_ref_e_d.sv": "pass",
+            "tests/gen/ch13/test_gen_cross_task_w65_l_x_inout_e_d.sv": "pass",
+            "tests/gen/ch13/test_gen_cross_task_w33_b_x_output_s_d.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "packed_structure": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 186,
+              "total": 186,
+              "missing": 0
+            },
+            "3": {
+              "passed": 52,
+              "total": 52,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_struct_w129_f_su_l_z_w_n.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_struct_w65_l_us_l_x_m_n.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_struct_w33_f_ss_b_x_m_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "case_matching": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 220,
+              "total": 220,
+              "missing": 0
+            },
+            "3": {
+              "passed": 82,
+              "total": 82,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch12/test_gen_cross_case_w129_ss_n_casez_z_wild_high.sv": "pass",
+            "tests/gen/ch12/test_gen_cross_case_w65_su_w_case_k_equal.sv": "pass",
+            "tests/gen/ch12/test_gen_cross_case_w33_us_s_casex_x_unknown_low.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "port_connection": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 204,
+              "total": 204,
+              "missing": 0
+            },
+            "3": {
+              "passed": 56,
+              "total": 56,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch23/test_gen_cross_port_w129_o_s_w_z_l_n_n.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w65_i_s_n_x_b_p_a.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w33_o_u_w_k_l_n_a.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "unpacked_array_copy": {
+          "case_statuses": {
+            "pass": 30,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 6,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 122,
+              "total": 148,
+              "missing": 26
+            },
+            "3": {
+              "passed": 38,
+              "total": 52,
+              "missing": 14
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_array_w129_s_l_da_z_s.sv": "unsupported",
+            "tests/gen/ch7/test_gen_cross_array_w65_u_b_ad_x_w.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_array_w33_s_b_dd_k_w.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "bit_vector_queries": {
+          "case_statuses": {
+            "pass": 60,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 285,
+              "total": 285,
+              "missing": 0
+            },
+            "3": {
+              "passed": 108,
+              "total": 108,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch20/test_gen_cross_query_w129_l_repeat_mixed_middle_duplicate.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_query_w65_l_direct_x_high_unknown.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_query_w33_b_half_one_high_one.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_query_w32_l_prefix_z_low_mixed.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "streaming_permutation": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 182,
+              "total": 182,
+              "missing": 0
+            },
+            "3": {
+              "passed": 68,
+              "total": 68,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_stream_w129_l_s8_t_unpack_l_z.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_stream_w65_l_s16_p_pack_l_x.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_stream_w33_l_s4_p_unpack_b_k.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_stream_w32_r_s8_t_pack_l_z.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "comparison_context": {
+          "case_statuses": {
+            "pass": 100,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 302,
+              "total": 302,
+              "missing": 0
+            },
+            "3": {
+              "passed": 174,
+              "total": 174,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_compare_w129_n_su_weq_rhs_z.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_compare_w65_w_ss_eq_both_unknown.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_compare_w33_w_us_ge_known.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_compare_w1_s_ss_ceq_both_unknown.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "array_reduction_pipeline": {
+          "case_statuses": {
+            "pass": 72,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 261,
+              "total": 261,
+              "missing": 0
+            },
+            "3": {
+              "passed": 162,
+              "total": 162,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_method_w129_l_s_q_xor_int_high_z.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_method_w65_b_u_d_product_widen_high_x.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_method_w33_l_u_f_sum_plain_known.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_method_w1_l_u_q_sum_widen_known.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_method_w1_l_u_f_or_int_high_x.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_method_w1_l_u_f_or_integer_high_x.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_method_w32_l_u_f_product_widen_known.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_method_w129_b_u_d_and_widen_known.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "variable_bit_index": {
+          "case_statuses": {
+            "pass": 44,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 253,
+              "total": 253,
+              "missing": 0
+            },
+            "3": {
+              "passed": 106,
+              "total": 106,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_index_w129_n_d_l_u_high_z.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_index_w65_o_a_l_s_middle_x.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_index_w33_n_a_l_s_low_known.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_index_w1_z_d_b_s_z_known.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "queue_update_capacity": {
+          "case_statuses": {
+            "pass": 48,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 258,
+              "total": 258,
+              "missing": 0
+            },
+            "3": {
+              "passed": 120,
+              "total": 120,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_queue_w129_l_s_c3_n3_push_front_z.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_queue_w65_b_u_c2_n2_insert_x.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_queue_w33_l_s_cu_n0_pop_back_known.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_queue_w1_b_u_c3_n3_write_end_known.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_queue_w65_b_u_c3_n0_pop_front_z.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "division_context": {
+          "case_statuses": {
+            "pass": 72,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 283,
+              "total": 283,
+              "missing": 0
+            },
+            "3": {
+              "passed": 98,
+              "total": 98,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_divide_w129_s_s_ss_div_known_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_divide_w65_n_w_su_mod_known_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_divide_w33_w_n_ss_mod_known_b.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_divide_w32_s_w_ss_div_zero_b.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_divide_w1_s_w_ss_div_known_l.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "dynamic_array_resize": {
+          "case_statuses": {
+            "pass": 38,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 219,
+              "total": 219,
+              "missing": 0
+            },
+            "3": {
+              "passed": 96,
+              "total": 96,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch7/test_gen_cross_resize_w129_l_s_z_n3_4_self.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_resize_w65_b_u_x_n3_1_copy.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_resize_w33_l_s_known_n2_2_reset.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_resize_w1_b_s_known_n0_4_self.sv": "pass",
+            "tests/gen/ch7/test_gen_cross_resize_w65_l_u_x_n2_0_self.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "concatenated_assignment": {
+          "case_statuses": {
+            "pass": 72,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 265,
+              "total": 265,
+              "missing": 0
+            },
+            "3": {
+              "passed": 126,
+              "total": 126,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_concat_w129_head_bit_n_s_bl_ms_n_z.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_concat_w65_halves_w_u_bb_mu_b_x.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_concat_w33_tail_bit_s_s_ll_ms_n_k.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_concat_w32_halves_n_u_lb_ms_n_k.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_concat_w2_head_bit_n_s_bl_ms_n_k.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "packed_logical_reduction": {
+          "case_statuses": {
+            "pass": 70,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 218,
+              "total": 218,
+              "missing": 0
+            },
+            "3": {
+              "passed": 142,
+              "total": 142,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_logic_w129_l_direct_mixed_high_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_logic_w65_l_prefix_one_z_high_b.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_logic_w33_b_half_x_high_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_logic_w1_l_direct_z_low_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_logic_w64_l_prefix_zero_ones_none_b.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_logic_w65_l_direct_ones_none_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "logical_short_circuit": {
+          "case_statuses": {
+            "pass": 92,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 214,
+              "total": 214,
+              "missing": 0
+            },
+            "3": {
+              "passed": 236,
+              "total": 236,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_sc_w129_n_ll_unknown_one_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_sc_w65_w_bl_unknown_mixed_b.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_sc_w33_s_lb_mixed_unknown_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_sc_w1_w_ll_unknown_mixed_l.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_sc_w32_n_bb_zero_unknown_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "edge_event_expression": {
+          "case_statuses": {
+            "pass": 64,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 260,
+              "total": 260,
+              "missing": 0
+            },
+            "3": {
+              "passed": 152,
+              "total": 152,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch9/test_gen_cross_edge_w129_l_vector_high_xz_n.sv": "pass",
+            "tests/gen/ch9/test_gen_cross_edge_w65_l_msb_high_x1_b.sv": "pass",
+            "tests/gen/ch9/test_gen_cross_edge_w33_b_lsb_low_z1_n.sv": "pass",
+            "tests/gen/ch9/test_gen_cross_edge_w1_l_vector_low_0z_n.sv": "pass",
+            "tests/gen/ch9/test_gen_cross_edge_w64_l_reduce_or_middle_01_b.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "heap_file_monitor_context": {
+          "case_statuses": {
+            "pass": 18,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 40,
+              "total": 40,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch21/test_gen_comb_file_monitor_dynamic_mcd_program.sv": "pass",
+            "tests/gen/ch21/test_gen_comb_file_monitor_queue_fd_package.sv": "pass",
+            "tests/gen/ch21/test_gen_comb_file_monitor_queue_mcd_function.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "compound_shift_target": {
+          "case_statuses": {
+            "pass": 40,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 308,
+              "total": 308,
+              "missing": 0
+            },
+            "3": {
+              "passed": 90,
+              "total": 90,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_compound_shift_w65_l_s_element_ashr_width_c65_z.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_compound_shift_w33_l_s_part_ashr_last_c8_known.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_compound_shift_w129_b_s_element_shl_x_c65_z.sv": "pass",
+            "tests/gen/ch11/test_gen_cross_compound_shift_w1_l_s_part_shr_ones_c8_x.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "membership_container": {
+          "case_statuses": {
+            "pass": 19,
+            "fail": 1,
+            "known": 0,
+            "unsupported": 26,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 208,
+              "total": 305,
+              "missing": 97
+            },
+            "3": {
+              "passed": 84,
+              "total": 174,
+              "missing": 90
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch11/test_gen_cross_inside_w129_w_ss_l_dynamic_n3_both_unknown.sv": "unsupported",
+            "tests/gen/ch11/test_gen_cross_inside_w65_n_su_b_queue_n1_rhs_z.sv": "unsupported",
+            "tests/gen/ch11/test_gen_cross_inside_w33_w_us_l_fixed_n3_rhs_x.sv": "fail",
+            "tests/gen/ch11/test_gen_cross_inside_w1_s_ss_l_queue_n0_lhs_x.sv": "unsupported",
+            "tests/gen/ch11/test_gen_cross_inside_w33_s_uu_l_list_n3_both_unknown.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        }
+      }
+    },
+    {
       "source": "coverage/interaction-results/cross27-kirimasim-latest.json",
       "simulator": "kirimasim",
       "version": "kirimasim 0.0.0 (commit 74fb2340925a), built with AppleClang 21.0.0.21000334",
