@@ -30,8 +30,8 @@
 
 - `citation_refinement`: 196 件。
 - `compound_requirement`: 176 件。
-- `oracle_issue`: 254 件。
-- `partial_observation`: 2129 件。
+- `oracle_issue`: 252 件。
+- `partial_observation`: 2131 件。
 
 ## 章別の登録状況
 

@@ -12,7 +12,7 @@
 | Clauses with a direct test | 1010/1010 |
 | Clauses with at least two direct tests | 1010/1010 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 120 |
+| Clauses with two tests or fewer | 121 |
 | Clauses with only standard-only tests | 200 |
 | Clauses with one test and only a standard-only test | 0 |
 
@@ -20,8 +20,8 @@
 | --- | ---: |
 | both releases | 664 |
 | Icarus Verilog 13.0 only | 4499 |
-| Verilator 5.052 only | 1599 |
-| standard only | 2414 |
+| Verilator 5.052 only | 1598 |
+| standard only | 2415 |
 
 ## By chapter
 
@@ -38,7 +38,7 @@
 | 11 | Operators and expressions | 1644 | 42 | 39.1 | 0 | 250 |
 | 12 | Procedural programming statements | 251 | 19 | 13.2 | 0 | 49 |
 | 13 | Tasks and functions (subroutines) | 244 | 15 | 16.3 | 0 | 19 |
-| 14 | Clocking blocks | 78 | 15 | 5.2 | 0 | 13 |
+| 14 | Clocking blocks | 78 | 15 | 5.2 | 0 | 14 |
 | 15 | Interprocess synchronization and communication | 59 | 21 | 2.8 | 0 | 21 |
 | 16 | Assertions | 661 | 69 | 9.6 | 0 | 483 |
 | 17 | Checkers | 81 | 10 | 8.1 | 0 | 59 |

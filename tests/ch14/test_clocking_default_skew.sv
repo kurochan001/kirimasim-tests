@@ -4,7 +4,7 @@
 :tags: ch14
 :type: simulation
 :lrm: 1800-2023 14.4 14.13 14.16
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -18,6 +18,10 @@
 // a synchronous drive matures its output skew after the clocking event, so the
 // drives given at 5 and 15 change q at 8 and 18. §14.13: the sampled values
 // are updated before the process waiting on the clocking event resumes.
+// The Active observations at 8 and 18 precede the Re-NBA output updates;
+// the Postponed $strobe observations see the new values. Finish at 19 so the
+// final time slot completes. The 5.052 release of Verilator updates q before
+// the Active observations; it is not an oracle for this region ordering.
 
 `timescale 1ns/1ns
 
@@ -41,12 +45,14 @@ module test_clocking_default_skew;
     cb.q <= 1;
     #1 $display("%0d: q=%b", $time, q);
     #2 $display("%0d: q=%b", $time, q);
+    $strobe("%0d end: q=%b", $time, q);
     #6 d = 0;
     @(cb);
     $display("%0d: d=%b", $time, cb.d);
     cb.q <= 0;
     #1 $display("%0d: q=%b", $time, q);
     #2 $display("%0d: q=%b", $time, q);
-    $finish;
+    $strobe("%0d end: q=%b", $time, q);
+    #1 $finish;
   end
 endmodule

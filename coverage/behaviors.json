@@ -139202,10 +139202,10 @@
       "checks": [
         {
           "test": "tests/ch14/test_syntax_clocking_drive_forms.sv",
-          "observation": "default clocking cb の output d に対し、cb.d <= ##1 2、cb.d <= ##(2) 3、cb.d <= ##N 4、cb.d <= ##(N + 1) 5、最後に cb.d <= 1'b1 と、サイクル遅延なしと ## の整数・識別子・括弧式の各形を手続き文として実行する。d は 21 で 0 のまま、61/101/141/181 に 2/3/4/5、421 に 1 となり、各駆動が指定サイクル後の clocking イベントで成熟することを観測する。 区別: ## の識別子や括弧式を定数として扱わない実装では 141 や 181 の値がずれる。駆動を即時代入として扱う実装では 21 で d=0 にならず、421 の遅延駆動も即時に見える。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c48f6bece7bbe9a7f512cdf73e7ed84bedbe3308f0b08d8f7ee0e1dfef2c1c61",
+          "observation": "default clocking cb の output d に対し、cb.d <= ##1 2、cb.d <= ##(2) 3、cb.d <= ##N 4、cb.d <= ##(N + 1) 5、最後に cb.d <= 1'b1 と、サイクル遅延なしと ## の整数・識別子・括弧式の各形を手続き文として実行する。d は 21 で 0 のまま、61/101/141/181 に 2/3/4/5、421 に 1 となり、各駆動が指定サイクル後の clocking イベントで成熟することを観測する。 区別: ## の識別子や括弧式を定数として扱わない実装では 141 や 181 の値がずれる。駆動を即時代入として扱う実装では 21 で d=0 にならず、421 の遅延駆動も即時に見える。 d は logic [2:0] で宣言し、0〜5の各駆動値を10.7の切り詰めで失わず区別する。",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "ef834812d4956a7fda33c6b10f009c5aa4f77a3b01277e02c69c1540affa45c2",
           "evidence": [
             {
               "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
@@ -139230,6 +139230,10 @@
             {
               "file": "tests/ch14/test_syntax_clocking_drive_forms.expected",
               "contains": "421 d=1"
+            },
+            {
+              "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
+              "contains": "  logic [2:0] d = 3'b000;"
             }
           ]
         }
@@ -386829,9 +386833,9 @@
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
           "observation": "呼ばれない task checks の各 immediate assert（条件変数 c00〜c04 がそれぞれ別）について vpi_handle(vpiExpr, h) の vpiName を行頭に出し、行を条件名で整列して期待出力と照合する。 区別: vpiExpr が NULL を返す誤実装なら行頭が none になり、別の式（例えば else 側の代入の右辺や他の文の条件）を返す誤実装なら行頭の c00〜c04 が別名になって整列順と内容が変わる。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -386870,10 +386874,10 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
-          "observation": "immediate assert の vpi_handle(vpiStmt, h) を、代入なら『左辺 = 定数値』、task call なら『call 名前』、NULL なら none として pass 欄に出す。単純形は代入（v = 1 等の異なる値）、#0 と final は pass_t/fail_t の呼び出しで、期待出力の pass 欄と照合する。pass 文のない assert (c04) else v = 4 は pass none になる。 区別: vpiStmt が else 側の文を返す誤実装なら pass 欄が else と同じ値（v = 2 や call fail_t）になり、NULL を返す誤実装なら none、別の文を返す誤実装なら値が変わる。pass 文がないのに else 文を返す誤実装は c04 の pass 欄が v = 4 になる。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "observation": "immediate assert の vpi_handle(vpiStmt, h) を、代入なら『左辺 = 定数値』、task call なら『call 名前』、NULL なら none として pass 欄に出す。単純形は代入（v = 1 等の異なる値）、#0 と final は pass_t/fail_t の呼び出しで、期待出力の pass 欄と照合する。pass 文のない assert (c04) else v = 4 は pass none になる。 区別: vpiStmt が else 側の文を返す誤実装なら pass 欄が else と同じ値（v = 2 や call fail_t）になり、NULL を返す誤実装なら none、別の文を返す誤実装なら値が変わる。pass 文がないのに else 文を返す誤実装は c04 の pass 欄が v = 4 になる。 呼出し文自身の vpiName（文ラベル）ではなく、37.42の vpi_handle(vpiTask, s) で辿ったタスクの vpiName を名前として表示する（37.60）。",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -386886,6 +386890,10 @@
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.expected",
               "contains": "c00: assert, deferred 0, final 0, pass v = 1, else v = 2\nc01: assert, deferred 1, final 0, pass call pass_t, else call fail_t\nc02: assert, deferred 1, final 1, pass call pass_t, else call fail_t\nc03: assert, deferred 0, final 0, pass v = 3, else none\nc04: assert, deferred 0, final 0, pass none, else v = 4"
+            },
+            {
+              "file": "tests/ch37/test_vpi_immediate_assertion_parts.c",
+              "contains": "snprintf(buf, size, \"call %s\", name_of(vpi_handle(vpiTask, s)));"
             }
           ]
         }
@@ -386913,9 +386921,9 @@
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
           "observation": "単純形・#0・final の immediate assert それぞれで vpi_get(vpiIsDeferred, h) が非0かを deferred 欄に出し、単純形 0、#0 と final は 1（16.4 で final も deferred assertion の一種）を期待出力と照合する。 区別: 常に0（または常に非0）を返す誤実装、final を deferred と扱わない誤実装、#0 だけを区別できない誤実装のいずれでも、対応する行の deferred 欄が期待値から変わる。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -386955,9 +386963,9 @@
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
           "observation": "単純形・#0・final の immediate assert それぞれで vpi_get(vpiIsFinal, h) が非0かを final 欄に出し、final だけが 1、単純形と #0 は 0 であることを期待出力と照合する。 区別: #0 も final と扱う誤実装なら #0 の行の final 欄が 1 になり、final を検出しない誤実装なら final の行が 0 になる。vpiIsDeferred と取り違える誤実装も #0 の行で区別される。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -386996,10 +387004,10 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
-          "observation": "immediate assert の vpi_handle(vpiElseStmt, h) を else 欄に出し、else 付きの単純形は異なる代入値（v = 2 / v = 6 等）、#0 と final は call fail_t、else のないものは none になることを期待出力と照合する。 区別: vpiElseStmt が pass 側の文を返す誤実装なら else 欄が pass と同じ（v = 1、call pass_t など）になり、else がないのに何かを返す誤実装なら none の行が変わり、NULL しか返さない誤実装なら else 付きの行が none になる。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "observation": "immediate assert の vpi_handle(vpiElseStmt, h) を else 欄に出し、else 付きの単純形は異なる代入値（v = 2 / v = 6 等）、#0 と final は call fail_t、else のないものは none になることを期待出力と照合する。 区別: vpiElseStmt が pass 側の文を返す誤実装なら else 欄が pass と同じ（v = 1、call pass_t など）になり、else がないのに何かを返す誤実装なら none の行が変わり、NULL しか返さない誤実装なら else 付きの行が none になる。 呼出し文自身の vpiName（文ラベル）ではなく、37.42の vpi_handle(vpiTask, s) で辿ったタスクの vpiName を名前として表示する（37.60）。",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -387012,6 +387020,10 @@
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.expected",
               "contains": "c00: assert, deferred 0, final 0, pass v = 1, else v = 2\nc01: assert, deferred 1, final 0, pass call pass_t, else call fail_t\nc02: assert, deferred 1, final 1, pass call pass_t, else call fail_t\nc03: assert, deferred 0, final 0, pass v = 3, else none\nc04: assert, deferred 0, final 0, pass none, else v = 4"
+            },
+            {
+              "file": "tests/ch37/test_vpi_immediate_assertion_parts.c",
+              "contains": "snprintf(buf, size, \"call %s\", name_of(vpi_handle(vpiTask, s)));"
             }
           ]
         }
@@ -387039,9 +387051,9 @@
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
           "observation": "呼ばれない task checks の各 immediate assume（条件変数 c05〜c07 がそれぞれ別）について vpi_handle(vpiExpr, h) の vpiName を行頭に出し、行を条件名で整列して期待出力と照合する。 区別: vpiExpr が NULL を返す誤実装なら行頭が none になり、別の式（例えば else 側の代入の右辺や他の文の条件）を返す誤実装なら行頭の c05〜c07 が別名になって整列順と内容が変わる。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -387080,10 +387092,10 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
-          "observation": "immediate assume の vpi_handle(vpiStmt, h) を、代入なら『左辺 = 定数値』、task call なら『call 名前』、NULL なら none として pass 欄に出す。単純形は代入（v = 1 等の異なる値）、#0 と final は pass_t/fail_t の呼び出しで、期待出力の pass 欄と照合する。 区別: vpiStmt が else 側の文を返す誤実装なら pass 欄が else と同じ値（v = 2 や call fail_t）になり、NULL を返す誤実装なら none、別の文を返す誤実装なら値が変わる。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "observation": "immediate assume の vpiStmt を pass 欄に出し、c05 は v = 5、c06 と c07 は call pass_t と照合する。 区別: else 側を返す実装なら c05 は v = 6、c06 は call fail_t、c07 は none となり、NULL や他の文を返す実装でも期待値が変わる。 呼出し文自身の vpiName（文ラベル）ではなく、37.42の vpi_handle(vpiTask, s) で辿ったタスクの vpiName を名前として表示する（37.60）。",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -387096,6 +387108,10 @@
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.expected",
               "contains": "c05: assume, deferred 0, final 0, pass v = 5, else v = 6\nc06: assume, deferred 1, final 0, pass call pass_t, else call fail_t\nc07: assume, deferred 1, final 1, pass call pass_t, else none"
+            },
+            {
+              "file": "tests/ch37/test_vpi_immediate_assertion_parts.c",
+              "contains": "snprintf(buf, size, \"call %s\", name_of(vpi_handle(vpiTask, s)));"
             }
           ]
         }
@@ -387123,9 +387139,9 @@
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
           "observation": "単純形・#0・final の immediate assume それぞれで vpi_get(vpiIsDeferred, h) が非0かを deferred 欄に出し、単純形 0、#0 と final は 1（16.4 で final も deferred assertion の一種）を期待出力と照合する。 区別: 常に0（または常に非0）を返す誤実装、final を deferred と扱わない誤実装、#0 だけを区別できない誤実装のいずれでも、対応する行の deferred 欄が期待値から変わる。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -387165,9 +387181,9 @@
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
           "observation": "単純形・#0・final の immediate assume それぞれで vpi_get(vpiIsFinal, h) が非0かを final 欄に出し、final だけが 1、単純形と #0 は 0 であることを期待出力と照合する。 区別: #0 も final と扱う誤実装なら #0 の行の final 欄が 1 になり、final を検出しない誤実装なら final の行が 0 になる。vpiIsDeferred と取り違える誤実装も #0 の行で区別される。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -387206,10 +387222,10 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
-          "observation": "immediate assume の vpi_handle(vpiElseStmt, h) を else 欄に出し、else 付きの単純形は異なる代入値（v = 2 / v = 6 等）、#0 と final は call fail_t、else のないものは none になることを期待出力と照合する。 区別: vpiElseStmt が pass 側の文を返す誤実装なら else 欄が pass と同じ（v = 1、call pass_t など）になり、else がないのに何かを返す誤実装なら none の行が変わり、NULL しか返さない誤実装なら else 付きの行が none になる。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "observation": "immediate assume の vpi_handle(vpiElseStmt, h) を else 欄に出し、else 付きの単純形は異なる代入値（v = 2 / v = 6 等）、#0 と final は call fail_t、else のないものは none になることを期待出力と照合する。 区別: vpiElseStmt が pass 側の文を返す誤実装なら else 欄が pass と同じ（v = 1、call pass_t など）になり、else がないのに何かを返す誤実装なら none の行が変わり、NULL しか返さない誤実装なら else 付きの行が none になる。 呼出し文自身の vpiName（文ラベル）ではなく、37.42の vpi_handle(vpiTask, s) で辿ったタスクの vpiName を名前として表示する（37.60）。",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -387222,6 +387238,10 @@
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.expected",
               "contains": "c05: assume, deferred 0, final 0, pass v = 5, else v = 6\nc06: assume, deferred 1, final 0, pass call pass_t, else call fail_t\nc07: assume, deferred 1, final 1, pass call pass_t, else none"
+            },
+            {
+              "file": "tests/ch37/test_vpi_immediate_assertion_parts.c",
+              "contains": "snprintf(buf, size, \"call %s\", name_of(vpi_handle(vpiTask, s)));"
             }
           ]
         }
@@ -387249,9 +387269,9 @@
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
           "observation": "呼ばれない task checks の各 immediate cover（条件変数 c08〜c10 がそれぞれ別）について vpi_handle(vpiExpr, h) の vpiName を行頭に出し、行を条件名で整列して期待出力と照合する。 区別: vpiExpr が NULL を返す誤実装なら行頭が none になり、別の式（例えば else 側の代入の右辺や他の文の条件）を返す誤実装なら行頭の c08〜c10 が別名になって整列順と内容が変わる。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -387290,10 +387310,10 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
-          "observation": "immediate cover の vpi_handle(vpiStmt, h) を、代入なら『左辺 = 定数値』、task call なら『call 名前』、NULL なら none として pass 欄に出す。単純形は代入（v = 1 等の異なる値）、#0 と final は pass_t/fail_t の呼び出しで、期待出力の pass 欄と照合する。 区別: vpiStmt が else 側の文を返す誤実装なら pass 欄が else と同じ値（v = 2 や call fail_t）になり、NULL を返す誤実装なら none、別の文を返す誤実装なら値が変わる。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "observation": "immediate cover の vpiStmt を pass 欄に出し、c08 は v = 7、c09 は call pass_t、c10 は call fail_t と照合する。 区別: NULL を返す実装なら none となり、別の文またはタスクへの誤った関係を返す実装なら代入値や呼出し先が変わる。 呼出し文自身の vpiName（文ラベル）ではなく、37.42の vpi_handle(vpiTask, s) で辿ったタスクの vpiName を名前として表示する（37.60）。",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -387306,6 +387326,10 @@
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.expected",
               "contains": "c08: cover, deferred 0, final 0, pass v = 7\nc09: cover, deferred 1, final 0, pass call pass_t\nc10: cover, deferred 1, final 1, pass call fail_t"
+            },
+            {
+              "file": "tests/ch37/test_vpi_immediate_assertion_parts.c",
+              "contains": "snprintf(buf, size, \"call %s\", name_of(vpi_handle(vpiTask, s)));"
             }
           ]
         }
@@ -387333,9 +387357,9 @@
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
           "observation": "単純形・#0・final の immediate cover それぞれで vpi_get(vpiIsDeferred, h) が非0かを deferred 欄に出し、単純形 0、#0 と final は 1（16.4 で final も deferred assertion の一種）を期待出力と照合する。 区別: 常に0（または常に非0）を返す誤実装、final を deferred と扱わない誤実装、#0 だけを区別できない誤実装のいずれでも、対応する行の deferred 欄が期待値から変わる。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -387375,9 +387399,9 @@
         {
           "test": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
           "observation": "単純形・#0・final の immediate cover それぞれで vpi_get(vpiIsFinal, h) が非0かを final 欄に出し、final だけが 1、単純形と #0 は 0 であることを期待出力と照合する。 区別: #0 も final と扱う誤実装なら #0 の行の final 欄が 1 になり、final を検出しない誤実装なら final の行が 0 になる。vpiIsDeferred と取り違える誤実装も #0 の行で区別される。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_immediate_assertion_parts.sv",
@@ -451828,10 +451852,10 @@
       "checks": [
         {
           "test": "tests/ch14/test_syntax_clocking_drive_forms.sv",
-          "observation": "the clocking drives cb.d <= ##1 2, ##(2) 3, ##N 4 and ##(N+1) 5 are statement items and make d 2 at 61, 3 at 101, 4 at 141 and 5 at 181. 区別: If a clocking drive could not be a statement item, the test would not compile or one of the printed d values would differ.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c48f6bece7bbe9a7f512cdf73e7ed84bedbe3308f0b08d8f7ee0e1dfef2c1c61",
+          "observation": "the clocking drives cb.d <= ##1 2, ##(2) 3, ##N 4 and ##(N+1) 5 are statement items and make d 2 at 61, 3 at 101, 4 at 141 and 5 at 181. 区別: If a clocking drive could not be a statement item, the test would not compile or one of the printed d values would differ. d は logic [2:0] で宣言し、0〜5の各駆動値を10.7の切り詰めで失わず区別する。",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "ef834812d4956a7fda33c6b10f009c5aa4f77a3b01277e02c69c1540affa45c2",
           "evidence": [
             {
               "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
@@ -451840,6 +451864,10 @@
             {
               "file": "tests/ch14/test_syntax_clocking_drive_forms.expected",
               "contains": "61 d=2"
+            },
+            {
+              "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
+              "contains": "  logic [2:0] d = 3'b000;"
             }
           ]
         }
@@ -453837,10 +453865,10 @@
       "checks": [
         {
           "test": "tests/ch14/test_syntax_clocking_drive_forms.sv",
-          "observation": "the drives cb.d <= ##1 2, ##(2) 3, ##N 4 and ##(N+1) 5 make d 2 at 61, 3 at 101, 4 at 141 and 5 at 181, and the drive without a cycle delay makes 1 at 421. 区別: A wrong cycle delay would put a value at another printed time or leave d at 0.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c48f6bece7bbe9a7f512cdf73e7ed84bedbe3308f0b08d8f7ee0e1dfef2c1c61",
+          "observation": "the drives cb.d <= ##1 2, ##(2) 3, ##N 4 and ##(N+1) 5 make d 2 at 61, 3 at 101, 4 at 141 and 5 at 181, and the drive without a cycle delay makes 1 at 421. 区別: A wrong cycle delay would put a value at another printed time or leave d at 0. d は logic [2:0] で宣言し、0〜5の各駆動値を10.7の切り詰めで失わず区別する。",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "ef834812d4956a7fda33c6b10f009c5aa4f77a3b01277e02c69c1540affa45c2",
           "evidence": [
             {
               "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
@@ -453849,6 +453877,10 @@
             {
               "file": "tests/ch14/test_syntax_clocking_drive_forms.expected",
               "contains": "61 d=2"
+            },
+            {
+              "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
+              "contains": "  logic [2:0] d = 3'b000;"
             }
           ]
         }

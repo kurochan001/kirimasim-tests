@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "6e74615ee93627a978fc3adbcfe39d461d8dea68568edc23448467be8a5c580d",
+  "registry_sha256": "0ec00f587d3d02d41a1b6a21cff00e778722f8e386491d1aeb22bf5e0fdbbd15",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -25,14 +25,14 @@
   "denominator_reviewed": true,
   "extraction_progress_percent": 100.0,
   "unmapped": 1315,
-  "executed": 6263,
+  "executed": 6266,
   "whole_standard_percent": 89.3072044234835,
-  "whole_standard_executed_percent": 50.92697999674744,
+  "whole_standard_executed_percent": 50.95137420718816,
   "registered_percent": 89.3072044234835,
   "metric_policy_version": 3,
   "whole_standard_status": "confirmed",
   "provisional_design_percent": 89.3072044234835,
-  "provisional_execution_percent": 50.92697999674744,
+  "provisional_execution_percent": 50.95137420718816,
   "denominator": {
     "count": 12298,
     "unit": "registered_requirement_condition_or_observation",
@@ -48,8 +48,8 @@
   },
   "collective_requirement_count": 652,
   "requirement_status_counts": {
-    "pass": 6263,
-    "mapped_without_pass": 4720,
+    "pass": 6266,
+    "mapped_without_pass": 4717,
     "unmapped": 1315,
     "interpretation_pending": 0
   },
@@ -189,9 +189,9 @@
       "title": "Clocking blocks",
       "registered": 87,
       "mapped": 59,
-      "executed": 42,
+      "executed": 43,
       "design_percent": 67.816091954023,
-      "execution_percent": 48.275862068965516,
+      "execution_percent": 49.42528735632184,
       "interpretation_pending": 0
     },
     {
@@ -469,9 +469,9 @@
       "title": "Formal syntax",
       "registered": 811,
       "mapped": 793,
-      "executed": 509,
+      "executed": 511,
       "design_percent": 97.78051787916152,
-      "execution_percent": 62.762022194821206,
+      "execution_percent": 63.00863131935882,
       "interpretation_pending": 0
     },
     {
@@ -5903,14 +5903,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 209,
+        "stale_links": 226,
         "status_counts": {
           "pass": 3813,
           "fail": 0,
-          "known": 6015,
+          "known": 5998,
           "unsupported": 0,
           "unreviewed_oracle": 668,
-          "stale": 195,
+          "stale": 212,
           "not_run": 292,
           "unmapped": 1315,
           "interpretation_pending": 0
@@ -6072,6 +6072,90 @@
           "unreviewed_oracle": 8,
           "stale": 0,
           "not_run": 10791,
+          "unmapped": 1315,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "issues-40-44-20261031-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+        "generated_at": "2026-10-30T21:21:15.292779+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 17,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10966,
+          "unmapped": 1315,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "issues-40-44-20261031-kirimasim-83e89bf5.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.0.0 (commit 83e89bf5e833), built with AppleClang 21.0.0.21000334",
+        "generated_at": "2026-10-30T21:21:54.084687+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 17,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10966,
+          "unmapped": 1315,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "issues-40-44-20261031-verilator5.052-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-30T21:21:16.188504+00:00",
+        "executed": [
+          "SV2023-14.16-EXTRACT-CLOCKING-DRIVE-GRAMMAR",
+          "SV2023-A.6.11-EXTRACT-DRIVE",
+          "SV2023-A.6.4-EXTRACT-ITEM-31"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 3,
+          "fail": 0,
+          "known": 14,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10966,
+          "unmapped": 1315,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "issues-40-44-20261031-verilator5.052-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-30T21:21:16.245370+00:00",
+        "executed": [
+          "SV2023-14.16-EXTRACT-CLOCKING-DRIVE-GRAMMAR",
+          "SV2023-A.6.11-EXTRACT-DRIVE",
+          "SV2023-A.6.4-EXTRACT-ITEM-31"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 3,
+          "fail": 0,
+          "known": 14,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10966,
           "unmapped": 1315,
           "interpretation_pending": 0
         }
@@ -9325,14 +9409,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 445,
+        "stale_links": 462,
         "status_counts": {
           "pass": 3123,
           "fail": 0,
-          "known": 7164,
+          "known": 7147,
           "unsupported": 0,
           "unreviewed_oracle": 159,
-          "stale": 417,
+          "stale": 434,
           "not_run": 120,
           "unmapped": 1315,
           "interpretation_pending": 0
@@ -12000,14 +12084,14 @@
           "SV2023-M.2-EXTRACT-GUARD",
           "SV2023-M.2-EXTRACT-REGISTER"
         ],
-        "stale_links": 403,
+        "stale_links": 420,
         "status_counts": {
           "pass": 2655,
           "fail": 0,
-          "known": 4728,
+          "known": 4711,
           "unsupported": 0,
           "unreviewed_oracle": 84,
-          "stale": 385,
+          "stale": 402,
           "not_run": 3131,
           "unmapped": 1315,
           "interpretation_pending": 0

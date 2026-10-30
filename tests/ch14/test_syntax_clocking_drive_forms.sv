@@ -22,13 +22,14 @@
 // at 100, ##N with N = 3 sets 4 at 140 and ##(N+1) sets 5 at 180. Ten more
 // clocking events after the first one reach 420, where a drive without a
 // cycle delay sets 1. Each value is printed one unit after its edge, and d is
-// still 0 at 21.
+// still 0 at 21. The three-bit d holds every value 0 through 5 without
+// discarding a significant bit (10.7).
 
 `timescale 1ns/1ns
 
 module test_syntax_clocking_drive_forms;
   logic clk = 1'b0;
-  logic d = 1'b0;
+  logic [2:0] d = 3'b000;
   localparam int N = 3;
 
   always #20 clk = ~clk;

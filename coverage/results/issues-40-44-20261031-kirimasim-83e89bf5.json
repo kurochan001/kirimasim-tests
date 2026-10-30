@@ -1,0 +1,36 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.0.0 (commit 83e89bf5e833), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch11/test_A_extra_specparam_range": {
+   "status": "fail",
+   "reason": "output differs (exit 2): error: specparams cannot be used in general constant expressions",
+   "inputs_sha256": "aaddfd057126382a70ae5ab3868383cd1e7e3c6b66a3236a518eef11caf0c100"
+  },
+  "ch14/test_clocking_default_skew": {
+   "status": "unsupported",
+   "reason": "output or inout clocking variable (not implemented yet)",
+   "inputs_sha256": "2df7540f7e342f13fa17ef8428b657774855f9cec286819c85cc59b245308d5c"
+  },
+  "ch14/test_syntax_clocking_drive_forms": {
+   "status": "unsupported",
+   "reason": "output or inout clocking variable (not implemented yet)",
+   "inputs_sha256": "ef834812d4956a7fda33c6b10f009c5aa4f77a3b01277e02c69c1540affa45c2"
+  },
+  "ch37/test_vpi_immediate_assertion_parts": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "4d8054449ce44d574da8166457d2dcb0dd62a1afbe7340e23b58bceca7521c5e"
+  },
+  "ch4/test_pli_phase_chain_after_nba_and_end_write": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "d3c5c966ce1eeab5f952d51845294989497eab4430b1b342c167b46776bddb73"
+  }
+ },
+ "generated_at": "2026-10-30T21:21:54.084687+00:00",
+ "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+ "runner_changed": false,
+ "configuration": {}
+}

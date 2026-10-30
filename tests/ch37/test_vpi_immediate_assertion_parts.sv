@@ -27,8 +27,9 @@
 // application prints, for each assertion, the name of its condition, its kind,
 // whether vpiIsDeferred and vpiIsFinal are nonzero, and its pass and else
 // statements: an assignment as target = value (37.64), a task call by the
-// name of the task (37.42), NULL as none. Each condition is a different
-// variable, so the lines are sorted by its name.
+// name of the task reached through vpiTask (37.42), NULL as none. A call's
+// own vpiName is its statement label, or NULL without a label (37.60).
+// Each condition is a different variable, so the lines are sorted by its name.
 // Neither release produces this output: Icarus Verilog 13.0 cannot build the
 // application, as its sv_vpi_user.h lacks the constants of Annex M used here,
 // and Verilator 5.052 gives no statements of the task (statements: 0).

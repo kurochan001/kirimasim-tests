@@ -14819,27 +14819,26 @@
     },
     {
       "test": "tests/ch4/test_pli_phase_chain_after_nba_and_end_write.sv",
-      "inputs_sha256": "31d6b6317453d615ecd1d317870b67471d89785616cbf0775cb930324a4a9cb2",
-      "reviewed_on": "2026-10-23",
-      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "inputs_sha256": "d3c5c966ce1eeab5f952d51845294989497eab4430b1b342c167b46776bddb73",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Codex GPT-6 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
           "requirement_ids": [
-            "SV2023-4.4.3.4-EXTRACT-READ-WRITE-CONTROL",
             "SV2023-4.4.3.2-EXTRACT-READ-WRITE-CONTROL",
             "SV2023-4.4.3.9-EXTRACT-READ-WRITE-CONTROL",
             "SV2023-4.4.3.10-EXTRACT-PREPOSTPONED-ITERATION",
             "SV2023-4.4.3.10-EXTRACT-POSTPONED-READONLY-CALLBACK"
           ],
-          "disposition": "oracle_issue",
-          "explanation": "M112: 期待出力 post_nba=10 は cbReadWriteSynch コールバックが時刻5の captured <= value の NBA 更新後(Post-NBA)に実行されることを前提にしている。しかし 4.10 Table 4-1 は cbReadWriteSynch を Pre-NBA or Post-NBA とし、38.36.2 も NBA 処理の前でも後でもよいとしているため、Pre-NBA を選ぶ準拠実装では captured はまだ 0 で post_nba=0 を出す。期待出力の1行目が実装の選択に依存し規格から一意に導けないので、このテストを Post-NBA の書込み制御や後続の反復の証拠として照合しない。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "disposition": "partial_observation",
+          "explanation": "#44の修正で、Pre-NBA/Post-NBAのどちらでもよいcbReadWriteSynchは呼出し回数だけを記録し、capturedと最終値の観測をcbReadOnlySynchへ移した。Pre-Activeのvalue=10をHDLのNBAが捕捉し、Pre-Postponedのvalue=30からreacted=31へ戻る反復とPostponedの読取りを観測する。旧oracle_issueの前後関係への依存は解消したが、各制御点での書込み可否など要求全体をこのテストだけで観測するものではないため、承認済み対応付けは追加しない。",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch4/test_pli_phase_chain_after_nba_and_end_write.c",
-              "contains": "place(cbReadWriteSynch, post_nba);"
+              "contains": "{ (void)cb; read_write_calls++; return 0; }"
             },
             {
               "file": "tests/ch4/test_pli_phase_chain_after_nba_and_end_write.sv",
@@ -14847,7 +14846,7 @@
             },
             {
               "file": "tests/ch4/test_pli_phase_chain_after_nba_and_end_write.expected",
-              "contains": "post_nba=10"
+              "contains": "captured=10 read_write_calls=1\nread_only=30,31"
             }
           ]
         },
@@ -14855,11 +14854,19 @@
           "requirement_ids": [
             "SV2023-4.4.3.4-EXTRACT-READ-WRITE-CONTROL"
           ],
-          "disposition": "oracle_issue",
-          "explanation": "cbReadWriteSynch を登録し、そのコールバックが NBA 後の captured=10 を読むことを期待するが、Table 4-1 は cbReadWriteSynch を Pre-NBA または Post-NBA のどちらでもよいとしており、Pre-NBA に置く適合実装では captured が 0 になって 'post_nba=10' が 'post_nba=0' になる。テスト名と期待値が規格の許す選択肢の一方に固定されているため、Post-NBA 制御点の観測として承認できない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "disposition": "partial_observation",
+          "explanation": "#44の修正後もcbReadWriteSynchはPre-NBAまたはPost-NBAのどちらで実行されても同じ回数を記録するだけである。Post-NBA固有の制御点の選択やその地点からの書込みを識別する刺激・観測がないため、4.4.3.4の証拠としては承認しない。",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
           "evidence": [
+            {
+              "file": "tests/ch4/test_pli_phase_chain_after_nba_and_end_write.c",
+              "contains": "place(cbAfterDelay, pre_active); place(cbReadWriteSynch, read_write);"
+            },
+            {
+              "file": "tests/ch4/test_pli_phase_chain_after_nba_and_end_write.c",
+              "contains": "{ (void)cb; read_write_calls++; return 0; }"
+            },
             {
               "file": "tests/ch4/test_pli_phase_chain_after_nba_and_end_write.sv",
               "contains": "    #5 captured <= value;"
@@ -36435,9 +36442,9 @@
     },
     {
       "test": "tests/ch14/test_syntax_clocking_drive_forms.sv",
-      "inputs_sha256": "c48f6bece7bbe9a7f512cdf73e7ed84bedbe3308f0b08d8f7ee0e1dfef2c1c61",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "ef834812d4956a7fda33c6b10f009c5aa4f77a3b01277e02c69c1540affa45c2",
+      "reviewed_on": "2026-10-31",
+      "reviewer": "Codex GPT-6 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
@@ -36446,8 +36453,8 @@
           ],
           "disposition": "partial_observation",
           "explanation": "default clocking 形式、clocking イベント、output の方向付き信号代入は観測するが、default スキュー、assertion 宣言、endclocking の閉じ名、skew の edge 構文を同じテストで刺激していない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
@@ -36465,8 +36472,8 @@
           ],
           "disposition": "partial_observation",
           "explanation": "clocking 宣言は default clocking cb @(posedge clk); の 1 形だけで、default 無しの clocking、identifier 無し、endclocking の identifier label、global clocking を観測していない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
@@ -36480,8 +36487,8 @@
           ],
           "disposition": "partial_observation",
           "explanation": "clocking item は output d; の 1 つだけで、default skew declaration、comma 区切りの複数 clocking assignment、属性付き assertion-item declaration を観測していない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
@@ -36495,8 +36502,8 @@
           ],
           "disposition": "partial_observation",
           "explanation": "clocking block に skew が 1 つも無い（input/output の skew、input-then-output の順序、inout、edge 付き/無しの skew を観測していない）。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "Codex GPT-6 (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",

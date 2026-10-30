@@ -4,10 +4,10 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **要求カバレッジ（テスト設計）: 89.31%。**
-**全規格の要求台帳ベース（確定）: 設計 89.31%、実行 50.93%。**
+**全規格の要求台帳ベース（確定）: 設計 89.31%、実行 50.95%。**
 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
-規格要求の実行確認率: 50.93%。
+規格要求の実行確認率: 50.95%。
 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
@@ -16,7 +16,7 @@
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対する要求カバレッジ（テスト設計）: 10983/12298 (89.31%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 6263/12298 (50.93%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 6266/12298 (50.95%)。
 - 登録済みだがテスト未対応: 1315 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
@@ -72,15 +72,19 @@
 - `coverage-tests-20261029-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T22:46:15.799172+00:00 / 2/12298 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12298 動作確認、古い入力との対応 0 件。
 - `issues-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-28T13:33:20.979624+00:00 / 5/12298 動作確認、古い入力との対応 10 件。
-- `issues-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T13:45:50.335531+00:00 / 3813/12298 動作確認、古い入力との対応 209 件。
+- `issues-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T13:45:50.335531+00:00 / 3813/12298 動作確認、古い入力との対応 226 件。
 - `issues-20261031-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-30T20:31:55.476769+00:00 / 14/12298 動作確認、古い入力との対応 0 件。
 - `issues-20261031-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-30T20:31:59.218896+00:00 / 43/12298 動作確認、古い入力との対応 0 件。
 - `issues-20261031-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-30T20:32:01.484680+00:00 / 43/12298 動作確認、古い入力との対応 0 件。
+- `issues-40-44-20261031-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-30T21:21:15.292779+00:00 / 0/12298 動作確認、古い入力との対応 0 件。
+- `issues-40-44-20261031-kirimasim-83e89bf5.json`: kirimasim 0.0.0 (commit 83e89bf5e833), built with AppleClang 21.0.0.21000334 / 2026-10-30T21:21:54.084687+00:00 / 0/12298 動作確認、古い入力との対応 0 件。
+- `issues-40-44-20261031-verilator5.052-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-30T21:21:16.188504+00:00 / 3/12298 動作確認、古い入力との対応 0 件。
+- `issues-40-44-20261031-verilator5.052-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-30T21:21:16.245370+00:00 / 3/12298 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-icarus14.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-27T13:37:34.824763+00:00 / 21/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.897897+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T13:37:34.973472+00:00 / 19/12298 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3123/12298 動作確認、古い入力との対応 445 件。
-- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2655/12298 動作確認、古い入力との対応 403 件。
+- `refresh-20261027-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-27T14:45:42.063155+00:00 / 3123/12298 動作確認、古い入力との対応 462 件。
+- `refresh-20261027-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-27T14:43:38.130423+00:00 / 2655/12298 動作確認、古い入力との対応 420 件。
 - 不採用: associative-count-refinement-20261023-icarus13.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed1.json: legacy, unknown, or stale runner provenance。
 - 不採用: associative-count-refinement-20261023-verilator-seed73.json: legacy, unknown, or stale runner provenance。
@@ -35297,7 +35301,7 @@ Clocking event expressions use synchronous sampled values rather than instantane
 
 ### SV2023-14.16-EXTRACT-CLOCKING-DRIVE-GRAMMAR
 
-14.16 / normal / テスト対応あり・実行未確認
+14.16 / normal / 実行確認あり
 
 A synchronous drive uses clockvar-with-select <= optional ## cycle delay expression as a procedural statement.
 
@@ -35305,7 +35309,7 @@ A synchronous drive uses clockvar-with-select <= optional ## cycle delay express
 
 規定の性質: `definition`。
 
-- [test_syntax_clocking_drive_forms.sv](../tests/ch14/test_syntax_clocking_drive_forms.sv): default clocking cb の output d に対し、cb.d <= ##1 2、cb.d <= ##(2) 3、cb.d <= ##N 4、cb.d <= ##(N + 1) 5、最後に cb.d <= 1'b1 と、サイクル遅延なしと ## の整数・識別子・括弧式の各形を手続き文として実行する。d は 21 で 0 のまま、61/101/141/181 に 2/3/4/5、421 に 1 となり、各駆動が指定サイクル後の clocking イベントで成熟することを観測する。 区別: ## の識別子や括弧式を定数として扱わない実装では 141 や 181 の値がずれる。駆動を即時代入として扱う実装では 21 で d=0 にならず、421 の遅延駆動も即時に見える。
+- [test_syntax_clocking_drive_forms.sv](../tests/ch14/test_syntax_clocking_drive_forms.sv): default clocking cb の output d に対し、cb.d <= ##1 2、cb.d <= ##(2) 3、cb.d <= ##N 4、cb.d <= ##(N + 1) 5、最後に cb.d <= 1'b1 と、サイクル遅延なしと ## の整数・識別子・括弧式の各形を手続き文として実行する。d は 21 で 0 のまま、61/101/141/181 に 2/3/4/5、421 に 1 となり、各駆動が指定サイクル後の clocking イベントで成熟することを観測する。 区別: ## の識別子や括弧式を定数として扱わない実装では 141 や 181 の値がずれる。駆動を即時代入として扱う実装では 21 で d=0 にならず、421 の遅延駆動も即時に見える。 d は logic \[2:0\] で宣言し、0〜5の各駆動値を10.7の切り詰めで失わず区別する。
 
 ### SV2023-14.16-EXTRACT-CURRENT-RE-NBA
 
@@ -103812,7 +103816,7 @@ Sequence operands follow BNF order except unary-cycle-delay returns sequence,lef
 
 規定の性質: `definition`。
 
-- [test_vpi_immediate_assertion_parts.sv](../tests/ch37/test_vpi_immediate_assertion_parts.sv): immediate assert の vpi_handle(vpiStmt, h) を、代入なら『左辺 = 定数値』、task call なら『call 名前』、NULL なら none として pass 欄に出す。単純形は代入（v = 1 等の異なる値）、#0 と final は pass_t/fail_t の呼び出しで、期待出力の pass 欄と照合する。pass 文のない assert (c04) else v = 4 は pass none になる。 区別: vpiStmt が else 側の文を返す誤実装なら pass 欄が else と同じ値（v = 2 や call fail_t）になり、NULL を返す誤実装なら none、別の文を返す誤実装なら値が変わる。pass 文がないのに else 文を返す誤実装は c04 の pass 欄が v = 4 になる。
+- [test_vpi_immediate_assertion_parts.sv](../tests/ch37/test_vpi_immediate_assertion_parts.sv): immediate assert の vpi_handle(vpiStmt, h) を、代入なら『左辺 = 定数値』、task call なら『call 名前』、NULL なら none として pass 欄に出す。単純形は代入（v = 1 等の異なる値）、#0 と final は pass_t/fail_t の呼び出しで、期待出力の pass 欄と照合する。pass 文のない assert (c04) else v = 4 は pass none になる。 区別: vpiStmt が else 側の文を返す誤実装なら pass 欄が else と同じ値（v = 2 や call fail_t）になり、NULL を返す誤実装なら none、別の文を返す誤実装なら値が変わる。pass 文がないのに else 文を返す誤実装は c04 の pass 欄が v = 4 になる。 呼出し文自身の vpiName（文ラベル）ではなく、37.42の vpi_handle(vpiTask, s) で辿ったタスクの vpiName を名前として表示する（37.60）。
 
 ### SV2023-37.55-EXTRACT-DIAGRAM-003
 
@@ -103848,7 +103852,7 @@ immediate assert exposes vpiIsFinal as integer, representing final deferred asse
 
 規定の性質: `definition`。
 
-- [test_vpi_immediate_assertion_parts.sv](../tests/ch37/test_vpi_immediate_assertion_parts.sv): immediate assert の vpi_handle(vpiElseStmt, h) を else 欄に出し、else 付きの単純形は異なる代入値（v = 2 / v = 6 等）、#0 と final は call fail_t、else のないものは none になることを期待出力と照合する。 区別: vpiElseStmt が pass 側の文を返す誤実装なら else 欄が pass と同じ（v = 1、call pass_t など）になり、else がないのに何かを返す誤実装なら none の行が変わり、NULL しか返さない誤実装なら else 付きの行が none になる。
+- [test_vpi_immediate_assertion_parts.sv](../tests/ch37/test_vpi_immediate_assertion_parts.sv): immediate assert の vpi_handle(vpiElseStmt, h) を else 欄に出し、else 付きの単純形は異なる代入値（v = 2 / v = 6 等）、#0 と final は call fail_t、else のないものは none になることを期待出力と照合する。 区別: vpiElseStmt が pass 側の文を返す誤実装なら else 欄が pass と同じ（v = 1、call pass_t など）になり、else がないのに何かを返す誤実装なら none の行が変わり、NULL しか返さない誤実装なら else 付きの行が none になる。 呼出し文自身の vpiName（文ラベル）ではなく、37.42の vpi_handle(vpiTask, s) で辿ったタスクの vpiName を名前として表示する（37.60）。
 
 ### SV2023-37.55-EXTRACT-DIAGRAM-006
 
@@ -103872,7 +103876,7 @@ immediate assert exposes vpiIsFinal as integer, representing final deferred asse
 
 規定の性質: `definition`。
 
-- [test_vpi_immediate_assertion_parts.sv](../tests/ch37/test_vpi_immediate_assertion_parts.sv): immediate assume の vpi_handle(vpiStmt, h) を、代入なら『左辺 = 定数値』、task call なら『call 名前』、NULL なら none として pass 欄に出す。単純形は代入（v = 1 等の異なる値）、#0 と final は pass_t/fail_t の呼び出しで、期待出力の pass 欄と照合する。 区別: vpiStmt が else 側の文を返す誤実装なら pass 欄が else と同じ値（v = 2 や call fail_t）になり、NULL を返す誤実装なら none、別の文を返す誤実装なら値が変わる。
+- [test_vpi_immediate_assertion_parts.sv](../tests/ch37/test_vpi_immediate_assertion_parts.sv): immediate assume の vpiStmt を pass 欄に出し、c05 は v = 5、c06 と c07 は call pass_t と照合する。 区別: else 側を返す実装なら c05 は v = 6、c06 は call fail_t、c07 は none となり、NULL や他の文を返す実装でも期待値が変わる。 呼出し文自身の vpiName（文ラベル）ではなく、37.42の vpi_handle(vpiTask, s) で辿ったタスクの vpiName を名前として表示する（37.60）。
 
 ### SV2023-37.55-EXTRACT-DIAGRAM-008
 
@@ -103908,7 +103912,7 @@ immediate assume exposes vpiIsFinal as integer, representing final deferred asse
 
 規定の性質: `definition`。
 
-- [test_vpi_immediate_assertion_parts.sv](../tests/ch37/test_vpi_immediate_assertion_parts.sv): immediate assume の vpi_handle(vpiElseStmt, h) を else 欄に出し、else 付きの単純形は異なる代入値（v = 2 / v = 6 等）、#0 と final は call fail_t、else のないものは none になることを期待出力と照合する。 区別: vpiElseStmt が pass 側の文を返す誤実装なら else 欄が pass と同じ（v = 1、call pass_t など）になり、else がないのに何かを返す誤実装なら none の行が変わり、NULL しか返さない誤実装なら else 付きの行が none になる。
+- [test_vpi_immediate_assertion_parts.sv](../tests/ch37/test_vpi_immediate_assertion_parts.sv): immediate assume の vpi_handle(vpiElseStmt, h) を else 欄に出し、else 付きの単純形は異なる代入値（v = 2 / v = 6 等）、#0 と final は call fail_t、else のないものは none になることを期待出力と照合する。 区別: vpiElseStmt が pass 側の文を返す誤実装なら else 欄が pass と同じ（v = 1、call pass_t など）になり、else がないのに何かを返す誤実装なら none の行が変わり、NULL しか返さない誤実装なら else 付きの行が none になる。 呼出し文自身の vpiName（文ラベル）ではなく、37.42の vpi_handle(vpiTask, s) で辿ったタスクの vpiName を名前として表示する（37.60）。
 
 ### SV2023-37.55-EXTRACT-DIAGRAM-011
 
@@ -103932,7 +103936,7 @@ immediate assume exposes vpiIsFinal as integer, representing final deferred asse
 
 規定の性質: `definition`。
 
-- [test_vpi_immediate_assertion_parts.sv](../tests/ch37/test_vpi_immediate_assertion_parts.sv): immediate cover の vpi_handle(vpiStmt, h) を、代入なら『左辺 = 定数値』、task call なら『call 名前』、NULL なら none として pass 欄に出す。単純形は代入（v = 1 等の異なる値）、#0 と final は pass_t/fail_t の呼び出しで、期待出力の pass 欄と照合する。 区別: vpiStmt が else 側の文を返す誤実装なら pass 欄が else と同じ値（v = 2 や call fail_t）になり、NULL を返す誤実装なら none、別の文を返す誤実装なら値が変わる。
+- [test_vpi_immediate_assertion_parts.sv](../tests/ch37/test_vpi_immediate_assertion_parts.sv): immediate cover の vpiStmt を pass 欄に出し、c08 は v = 7、c09 は call pass_t、c10 は call fail_t と照合する。 区別: NULL を返す実装なら none となり、別の文またはタスクへの誤った関係を返す実装なら代入値や呼出し先が変わる。 呼出し文自身の vpiName（文ラベル）ではなく、37.42の vpi_handle(vpiTask, s) で辿ったタスクの vpiName を名前として表示する（37.60）。
 
 ### SV2023-37.55-EXTRACT-DIAGRAM-013
 
@@ -120764,7 +120768,7 @@ Statement items permit procedural assertion statement.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-31
 
-A.6.4 / normal / テスト対応あり・実行未確認
+A.6.4 / normal / 実行確認あり
 
 Statement items permit clocking drive plus semicolon.
 
@@ -120772,7 +120776,7 @@ Statement items permit clocking drive plus semicolon.
 
 規定の性質: `definition`。
 
-- [test_syntax_clocking_drive_forms.sv](../tests/ch14/test_syntax_clocking_drive_forms.sv): the clocking drives cb.d <= ##1 2, ##(2) 3, ##N 4 and ##(N+1) 5 are statement items and make d 2 at 61, 3 at 101, 4 at 141 and 5 at 181. 区別: If a clocking drive could not be a statement item, the test would not compile or one of the printed d values would differ.
+- [test_syntax_clocking_drive_forms.sv](../tests/ch14/test_syntax_clocking_drive_forms.sv): the clocking drives cb.d <= ##1 2, ##(2) 3, ##N 4 and ##(N+1) 5 are statement items and make d 2 at 61, 3 at 101, 4 at 141 and 5 at 181. 区別: If a clocking drive could not be a statement item, the test would not compile or one of the printed d values would differ. d は logic \[2:0\] で宣言し、0〜5の各駆動値を10.7の切り詰めで失わず区別する。
 
 ### SV2023-A.6.4-EXTRACT-ITEM-32
 
@@ -121392,7 +121396,7 @@ Clocking items are default skew declaration semicolon, direction and nonempty co
 
 ### SV2023-A.6.11-EXTRACT-DRIVE
 
-A.6.11 / normal / テスト対応あり・実行未確認
+A.6.11 / normal / 実行確認あり
 
 Clocking drive is selected hierarchical clockvar <= optional cycle delay then expression; cycle delay is ## integral number, ## identifier or ##(expression).
 
@@ -121400,7 +121404,7 @@ Clocking drive is selected hierarchical clockvar <= optional cycle delay then ex
 
 規定の性質: `definition`。
 
-- [test_syntax_clocking_drive_forms.sv](../tests/ch14/test_syntax_clocking_drive_forms.sv): the drives cb.d <= ##1 2, ##(2) 3, ##N 4 and ##(N+1) 5 make d 2 at 61, 3 at 101, 4 at 141 and 5 at 181, and the drive without a cycle delay makes 1 at 421. 区別: A wrong cycle delay would put a value at another printed time or leave d at 0.
+- [test_syntax_clocking_drive_forms.sv](../tests/ch14/test_syntax_clocking_drive_forms.sv): the drives cb.d <= ##1 2, ##(2) 3, ##N 4 and ##(N+1) 5 make d 2 at 61, 3 at 101, 4 at 141 and 5 at 181, and the drive without a cycle delay makes 1 at 421. 区別: A wrong cycle delay would put a value at another printed time or leave d at 0. d は logic \[2:0\] で宣言し、0〜5の各駆動値を10.7の切り詰めで失わず区別する。
 
 ### SV2023-A.6.11-EXTRACT-SKEW
 

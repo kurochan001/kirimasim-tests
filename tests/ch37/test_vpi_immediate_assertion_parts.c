@@ -50,7 +50,8 @@ static void stmt_text(vpiHandle s, char *buf, size_t size)
         }
         break;
     case vpiTaskCall:
-        snprintf(buf, size, "call %s", name_of(s));
+        /* 37.60: the call's name is its label, not the callee (37.42). */
+        snprintf(buf, size, "call %s", name_of(vpi_handle(vpiTask, s)));
         break;
     default:
         snprintf(buf, size, "other statement");

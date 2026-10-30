@@ -59,8 +59,8 @@ The suite has **9176 tests** in 38 chapters. 2739 of them are generated (`tests/
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5163 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1599 |
-| The standard only, with no fixed-release simulator oracle recorded | 2414 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1598 |
+| The standard only, with no fixed-release simulator oracle recorded | 2415 |
 
 1811 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -77,7 +77,7 @@ The suite has **9176 tests** in 38 chapters. 2739 of them are generated (`tests/
 | 11 | Operators and expressions | 1644 | 1262 | 132 | 250 |
 | 12 | Procedural programming statements | 251 | 169 | 33 | 49 |
 | 13 | Tasks and functions (subroutines) | 244 | 136 | 89 | 19 |
-| 14 | Clocking blocks | 78 | 4 | 61 | 13 |
+| 14 | Clocking blocks | 78 | 4 | 60 | 14 |
 | 15 | Interprocess synchronization and communication | 59 | 2 | 36 | 21 |
 | 16 | Assertions | 661 | 104 | 74 | 483 |
 | 17 | Checkers | 81 |  | 22 | 59 |
@@ -206,6 +206,8 @@ To continue this work, see the [2026-10-31 handoff](docs/codex-handoff-20261031.
 for the repository state, the open issues and the resumption commands, and the
 [2026-10-30 handoff](docs/claude-code-handoff-20261030-cross-verification.md) for
 the cross-model procedure and the verified builds behind it.
+The [follow-up review of issues #40–#44](docs/issues-40-44-review-20261031.md)
+records the test corrections, fixed-tool results and remaining implementation limits.
 
 [Issue #21's regression report](docs/p1-combination-regressions-20261030.md) and
 [reviewed registry](coverage/combination-gaps.json) link existing witnesses to 74 new
@@ -229,7 +231,7 @@ were merged; the [denominator review](docs/denominator-review-20261028.md)
 approved it. The reviewer was an AI, not an independent human.
 Design coverage is **89.31% (10,983/12,298)**;
 execution coverage from the saved `coverage/results/` evidence is
-**50.93% (6,263/12,298)**, from Icarus Verilog, Verilator and SymbiYosys.
+**50.95% (6,266/12,298)**, from Icarus Verilog, Verilator and SymbiYosys.
 The saved Ghost results no longer count, as the Ghost runner changed
 (it now leaves out formal tests); a new Ghost run has to be saved first.
 Clauses 1 to 40 alone are at 87.37% (8,270/9,465) design coverage.

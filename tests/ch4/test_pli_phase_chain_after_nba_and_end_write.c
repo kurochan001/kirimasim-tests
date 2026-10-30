@@ -8,6 +8,7 @@ extern "C" {
 #endif
 
 #define TOP "test_pli_phase_chain_after_nba_and_end_write."
+static int read_write_calls;
 static vpiHandle named(const char *name)
 {
     char full[160]; snprintf(full, sizeof full, "%s%s", TOP, name);
@@ -28,13 +29,15 @@ static void write_int(const char *name, int value)
 }
 static PLI_INT32 pre_active(p_cb_data cb)
 { (void)cb; write_int("value", 10); return 0; }
-static PLI_INT32 post_nba(p_cb_data cb)
-{ (void)cb; vpi_printf("post_nba=%d\n", read_int("captured")); return 0; }
+static PLI_INT32 read_write(p_cb_data cb)
+{ (void)cb; read_write_calls++; return 0; }
 static PLI_INT32 end_time(p_cb_data cb)
 { (void)cb; write_int("value", 30); return 0; }
 static PLI_INT32 read_only(p_cb_data cb)
 {
-    (void)cb; vpi_printf("read_only=%d,%d\n", read_int("value"), read_int("reacted"));
+    (void)cb;
+    vpi_printf("captured=%d read_write_calls=%d\n", read_int("captured"), read_write_calls);
+    vpi_printf("read_only=%d,%d\n", read_int("value"), read_int("reacted"));
     return 0;
 }
 static void place(PLI_INT32 reason, PLI_INT32 (*routine)(p_cb_data))
@@ -48,7 +51,7 @@ static void place(PLI_INT32 reason, PLI_INT32 (*routine)(p_cb_data))
 static PLI_INT32 install(PLI_BYTE8 *data)
 {
     (void)data;
-    place(cbAfterDelay, pre_active); place(cbReadWriteSynch, post_nba);
+    place(cbAfterDelay, pre_active); place(cbReadWriteSynch, read_write);
     place(cbAtEndOfSimTime, end_time); place(cbReadOnlySynch, read_only);
     return 0;
 }
