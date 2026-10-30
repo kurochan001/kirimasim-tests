@@ -1,19 +1,19 @@
 # Claude Codeへの引き継ぎ：機能間クロス検証（2026-10-30）
 
-外部状態の確認：2026-10-30 13:42 UTC（22:42 JST）。
-初版は同日09:31:59 UTCの状態で書き、その後のクロス再実行、insideの再確認、範囲指定のモデルの追加を反映しました。
+外部状態の確認：2026-10-30 14:15 UTC（23:15 JST）。
+初版は同日09:31:59 UTCの状態で書き、その後のクロス再実行、insideの再確認、範囲指定とcase insideのモデルの追加を反映しました。
 この資料は`kirimasim-tests`の作業を引き継ぐためのものです。
 以下のコマンドは、通常の`kirimasim-tests`リポジトリのルートで実行します。
 
 ## 1. 最初に把握すること
 
-- 範囲指定のモデルを追加する前のmainは`e1be859f90d23836983ee2e2cac7435415edcf7e`で、origin/mainと一致していました。
-- 本書の今回の更新は、範囲指定のモデルと同じコミットです。再開時のHEADとpushの有無は`git log`と`git status`で確認してください。
+- case insideのモデルを追加する前のmainは`a4e70f2b9e27a66a810c9fdeaaded342f8ce7bf0`（範囲指定のモデル）で、origin/mainと一致していました。
+- 本書の今回の更新は、case insideのモデルと同じコミットです。再開時のHEADとpushの有無は`git log`と`git status`で確認してください。
 - 現在の継続テーマは、機能間クロスを全直積にせず、規格に基づく期待値と観測を備えた有限モデルとして追加することです。
-- スイートは**9,142件、生成2,705件**（初版から手書き1件と範囲指定の生成46件を追加）。クロスの短時間実行は**28モデル・1,392件**です。
+- スイートは**9,176件、生成2,739件**（初版から手書き1件、範囲指定の生成46件、case insideの生成34件を追加）。クロスの短時間実行は**29モデル・1,426件**です。
 - クロスの計画が網羅できても、シミュレータの実装がすべて合格したことにはなりません。
-- 最新の保存クロス実行はkirimasim **`f303becad9ca`**（確認時の上流main）で、1,392件中1,343 pass・48 unsupported・1 failです。保存結果を新しい本体の結果へ読み替えないでください。
-- insideの不一致1件は`fc4cc356`で再確認し、配列集合の符号付き要素を0拡張せず符号拡張する形だと絞り込みました。本体は変更していません。`f303beca`のクロス実行でも同じ1件が不一致です。
+- 最新の保存クロス実行はkirimasim **`f303becad9ca`**（確認時の上流main）で、1,426件中1,368 pass・56 unsupported・2 failです。保存結果を新しい本体の結果へ読み替えないでください。
+- insideの不一致1件は`fc4cc356`で再確認し、配列集合の符号付き要素を0拡張せず符号拡張する形だと絞り込みました。本体は変更していません。`f303beca`のクロス実行でも同じ1件が不一致で、case insideの配列項目でも同じ形の不一致1件が見つかりました。
 
 まず[保存実行の概要](interaction-verification.md#保存実行の概要)、
 [設計思想・追加手順](interaction-verification-method.md)、本書を読んでください。
@@ -40,7 +40,13 @@
 
 ### 初版の後（2026-10-30）
 
-- **範囲指定のモデル（本書の今回の更新と同じコミット）**
+- **case insideのモデル（本書の今回の更新と同じコミット）**
+  - `generators/interaction_case_inside.py`、`case_inside_selection@1`、独立検算`tools/test_interaction_case_inside.py`を追加。
+  - 先頭項目（値・範囲・固定配列・リスト）、ケース式と項目の幅・符号・bit/logic、X/Z、修飾子なし/`unique0`、3番目の項目（変数/数える関数）をクロス。8,704通りから34件、315ペア・154の3因子組合せ・7必須条件。
+  - priority・uniqueは、一致がないときの違反報告と`default`の関係を本文が明記しないため対象外。`unique0`では一致が2項目以上になる入力を使わない。
+  - kirimasim `f303beca`は25 pass・8 unsupported（関数呼び出しの項目）・1 fail（符号付き固定配列の項目を符号拡張。insideの配列集合と同じ形）。Verilator 5.052は両seedで2状態9件中4件一致で、この4件だけoracle登録。Icarus 13.0は34件すべてknown。
+  - 29モデル・1,426件を`cross29-*.json`として保存。証跡は`coverage/interaction-qualification/20261030-case-inside.json`（配列項目の最小例、故障注入7種）。
+- **`a4e70f2b`：範囲指定のモデル**
   - `generators/interaction_range.py`、`membership_range@1`、独立検算`tools/test_interaction_range.py`を追加。
   - 閉区間・逆順・`$`端点・絶対/相対許容差、端点の幅・符号・bit/logic、X/Z、値との混在をクロス。5,680通りから46件、303ペア・178の3因子組合せ・6必須条件。
   - 規格本文の読み方が分かれる組合せ（端点X/Zの範囲、X/Zを含む空の範囲、許容差の桁あふれ）は、どの読み方でも同じ結果になる入力と制約で避けた。
@@ -85,15 +91,16 @@
 
 ### 最新の保存クロス実行
 
-`coverage/interaction-results/cross28-kirimasim-f303beca.json`：
+`coverage/interaction-results/cross29-kirimasim-f303beca.json`：
 
-- 本体`f303becad9ca`、1,392件中**1,343 pass・48 unsupported・1 fail**。従来の1,346件の状態は`fb79248e`と同じ。
+- 本体`f303becad9ca`、1,426件中**1,368 pass・56 unsupported・2 fail**。従来の1,392件の状態は28モデルの`cross28-kirimasim-f303beca.json`と同じ。
+- case inside：**25 pass・8 unsupported・1 fail**。315ペア中274組、3因子154組中115組、必須7件中3件。
 - 範囲指定：**30 pass・16 unsupported**（許容差の範囲）。303ペア中252組、3因子178組中117組、必須6件中4件。
 - 27モデルの`cross27-kirimasim-fb79248e.json`（`fb79248e46f6`）と`cross27-kirimasim-latest.json`（`74fb2340925a`）は、どちらも1,313 pass・32 unsupported・1 fail。すべて保持する。
 - 複合シフト代入：**40件すべてpass**。
 - 集合所属判定：**19 pass・26 unsupported・1 fail**。
 - 集合所属判定の実行で確認できた対象は、305ペア中208組、3因子174組中84組。必須5件は1 pass・3 unsupported・1 failで、`complete`はfalse。
-- 48件のunsupportedは、従来の配列スライス代入6件、集合として動的配列・キューを読む26件、許容差の範囲16件。
+- 56件のunsupportedは、従来の配列スライス代入6件、集合として動的配列・キューを読む26件、許容差の範囲16件、副作用のある関数呼び出しのcase inside項目8件。2件のfailは、insideの配列集合とcase insideの配列項目。
 
 `f303beca`より新しい版では、クロス全体を実行していません。手書きテスト`test_inside_array_set_mixed_sign_width`はクロスの対象外で、最後に実行したのは`fc4cc356`です。
 次の実行では新しい結果名を使い、古いJSONを上書きしないでください。
@@ -119,6 +126,8 @@
 
 ### 固定参照版
 
+- `cross29-icarus-13.json`：全1,426件で1,007 pass・419 known。case inside 34件はすべてknown。変動を記録しているビット関数の1件が再びknownになった。
+- `cross29-verilator-5.052-seed1.json`と`seed73.json`：各517件中438 pass・79 known。case insideの2状態9件は各4 pass・5 known（配列項目のC++ビルド失敗2件、変数の4状態RHSの`==?`2件、一致後の項目評価1件）。
 - `cross28-icarus-13.json`：全1,392件で1,008 pass・384 known。範囲指定46件はすべてknown。以前から変動を記録しているビット関数の2件がknownからpassに変わったが、oracleは変えていない。
 - `cross28-verilator-5.052-seed1.json`と`seed73.json`：各508件中434 pass・74 known。範囲指定の2状態16件は各7 pass・9 known（許容差の構文4件、変数の4状態RHSの`==?`3件、`$`端点の結果2件）。
 - `cross27-icarus-13.json`：全1,346件では1,006 pass・340 known。新規inside 46件はすべてknownで、Icarus oracleの追加なし。
@@ -275,7 +284,7 @@ automatic strobeの解釈、ネイティブcallback再入・実GC回収量の未
 2. 本体のinsideを直す場合は、最新ビルドで手書きテスト`test_inside_array_set_mixed_sign_width`と`test_gen_cross_inside_w33_w_us_l_fixed_n3_rhs_x`を先に実行し、再現を確かめる。直す箇所は配列集合を比較する経路での符号付き要素の拡張。本体の規約に従い、本体側で続いている作業と混ぜない。
 3. その後、動的配列・キューの集合26件と、従来の配列スライス6件を区別して進める。
 4. 保存版と現在の本体版に差があるため、必要な範囲を最新ビルドで再実行し、新しい結果名で保存する。
-5. クロス追加を続ける場合は、既存ガイドの対象外から選ぶ。候補は`case ... inside`（12.5.4。一致の優先順位、Xの比較を不一致として後続の項目へ進むこと、項目の評価回数）、task引数の添字変更と復帰時の可視性、キュー要素の参照寿命など。合法性と未規定の順序を先に確認する。既存の`ch12/test_case_inside_evaluation_order_by_qualifier`との重複も確認する。
+5. クロス追加を続ける場合は、既存ガイドの対象外から選ぶ。候補は、task引数の添字変更と復帰時の可視性、キュー要素の参照寿命、イベントORと`iff`の因子モデル化など。合法性と未規定の順序を先に確認する。
 6. 最新mainの全件確認が目的なら、そのコミットでNightlyを実行し、全ジョブとpublishを確認する。古いNightly成功を新しいスイートへ読み替えない。
 
 ユーザーの判断を待っているもの：

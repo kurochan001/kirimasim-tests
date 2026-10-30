@@ -1,0 +1,8 @@
+second given=0 stored=0
+third given=0 stored=0
+lo given=x stored=x
+hi given=1 stored=1
+p0 expr=00 r=2 sel=1
+p1 expr=11 r=0 sel=1
+p2 expr=10 r=0 sel=1
+p3 expr=01 r=0 sel=1

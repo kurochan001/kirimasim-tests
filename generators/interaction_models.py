@@ -33,6 +33,7 @@ import interaction_edge
 import interaction_compound
 import interaction_inside
 import interaction_range
+import interaction_case_inside
 import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
@@ -46,7 +47,8 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_divide, interaction_resize,
               interaction_concat, interaction_logic,
               interaction_shortcircuit, interaction_edge, combination_monitors,
-              interaction_compound, interaction_inside, interaction_range)
+              interaction_compound, interaction_inside, interaction_range,
+              interaction_case_inside)
 
 
 @dataclass
@@ -263,5 +265,13 @@ def registered() -> tuple[SuiteModel, ...]:
             "閉区間・逆順・$端点・絶対/相対許容差の範囲で、端点の格納値、各端点の前後の入力、"
             "生の判定値・拡張・bit変換と関係演算子での同じ判定を観測し、範囲の比較と"
             "集合値のワイルドカードの違い、許容差の端点の入れ替えと切り捨てを確認する。",
+        ),
+        SuiteModel(
+            interaction_case_inside.MODEL,
+            lambda row: "tests/gen/ch12/" + interaction_case_inside.case_name(row) + ".sv",
+            interaction_case_inside.MODEL.select(),
+            "値・範囲・固定配列・2値のリストを先頭項目にしたcase insideで、各項目とdefaultを"
+            "狙う4組のケース式、格納後の項目値、選ばれた分岐、ケース式と数える項目の評価回数を"
+            "観測し、Xの比較を不一致として後続へ進むこと、端点の拡張、unique0の評価を確認する。",
         ),
     )

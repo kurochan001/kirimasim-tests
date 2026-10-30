@@ -1,0 +1,8 @@
+second given=0 stored=0
+third given=0 stored=0
+first given=0 stored=0
+alt given=1 stored=1
+p0 expr=1 r=1 sel=1 probe=0
+p1 expr=0 r=1 sel=1 probe=0
+p2 expr=1 r=1 sel=1 probe=0
+p3 expr=0 r=1 sel=1 probe=0

@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-30T14:09:29.026878+00:00",
+  "model": "case_inside_selection@1",
+  "build": {
+    "upstream_main_at_start": "f303becad9cafcb96221bcfd4321a92341bab4ff",
+    "checkout_commit": "f303becad9cafcb96221bcfd4321a92341bab4ff",
+    "checked_at": "2026-10-30T14:09:23.515633+00:00",
+    "version": "kirimasim 0.0.0 (commit f303becad9ca), built with AppleClang 21.0.0.21000334",
+    "binary_sha256_before": "496ab09ae6dd9002204ec8658f1e815ba4d5bfa51d502024c00e78fcac708019",
+    "binary_sha256_after": "496ab09ae6dd9002204ec8658f1e815ba4d5bfa51d502024c00e78fcac708019",
+    "commands": [
+      "git fetch origin",
+      "git checkout --detach f303becad9cafcb96221bcfd4321a92341bab4ff",
+      "cmake --preset release",
+      "cmake --build --preset release --target kirimasim"
+    ],
+    "note": "Latest upstream observed at run start, not a guarantee about later upstream changes."
+  },
+  "independent_oracle_review": "tools/test_interaction_case_inside.py recomputes every selected case with integer comparisons and a linear search: an unsigned comparison reads both operands as unsigned values and a signed one reads both as signed (11.8.1, 11.8.2), an item value uses ==? with right-side wildcards (11.4.6), a range uses >= and <=, an item matches only on 1 (12.5.4), a plain case stops at the first match and a unique0-case never matches more than one item for the chosen inputs (12.5.3).",
+  "array_item_probe": {
+    "source_sha256": "d29fd98419d08aca4ac7740d190ba7cd98a72f06327a6e3fbe657f6b7abc597e",
+    "source": "module probe_case_array;\n  typedef logic signed [1:0] s2_t;\n  s2_t arr [0:0];\n  s2_t one;\n  logic [2:0] u;\n  int r;\n  initial begin\n    arr[0] = 2'b11;\n    one = 2'b11;\n    u = 3'b111;\n    case (u) inside arr: r = 1; default: r = 0; endcase\n    $display(\"A u=111 array=%0d\", r);\n    case (u) inside one: r = 1; default: r = 0; endcase\n    $display(\"A u=111 value=%0d\", r);\n    u = 3'b011;\n    case (u) inside arr: r = 1; default: r = 0; endcase\n    $display(\"B u=011 array=%0d\", r);\n    case (u) inside one: r = 1; default: r = 0; endcase\n    $display(\"B u=011 value=%0d\", r);\n  end\nendmodule\n",
+    "expected_stdout": "A u=111 array=0\nA u=111 value=0\nB u=011 array=1\nB u=011 value=1\n",
+    "reading": "A 2-bit signed array element 11 meets a 3-bit unsigned case expression, so the comparison is unsigned and the element is zero-extended to 011: 111 selects default and 011 selects the item, for the array as for the same value written as an item.",
+    "kirimasim": {
+      "exit_code": 0,
+      "normalized_stdout": "A u=111 array=1\nA u=111 value=0\nB u=011 array=0\nB u=011 value=1\n",
+      "output_matches_expected": false
+    },
+    "verilator": {
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "build_exit_code": 2,
+      "note": "The generated C++ of this design did not build."
+    }
+  },
+  "suite_test_kirimasim": {
+    "test": "tests/gen/ch12/test_gen_cross_caseinside_w33_w_us_l_array_known_pv.sv",
+    "inputs_sha256": "c07f01b6b62ff7622bd5c2105f4f63516c27234174ca9cd4088f8c0d2d498a91",
+    "exit_code": 0,
+    "normalized_stdout": "second given=000000000000000000000000000000101 stored=000000000000000000000000000000101\nthird given=000000000000000000000000000000110 stored=000000000000000000000000000000110\narr0 given=000000000000000000000000000000011 stored=000000000000000000000000000000011\narr1 given=100000000000000000000000000000001 stored=100000000000000000000000000000001\np0 expr=0100000000000000000000000000000001 r=0 sel=1\np1 expr=0000000000000000000000000000000101 r=2 sel=1\np2 expr=0000000000000000000000000000000110 r=3 sel=1\np3 expr=1100000000000000000000000000000001 r=1 sel=1\n",
+    "expected_stdout": "second given=000000000000000000000000000000101 stored=000000000000000000000000000000101\nthird given=000000000000000000000000000000110 stored=000000000000000000000000000000110\narr0 given=000000000000000000000000000000011 stored=000000000000000000000000000000011\narr1 given=100000000000000000000000000000001 stored=100000000000000000000000000000001\np0 expr=0100000000000000000000000000000001 r=1 sel=1\np1 expr=0000000000000000000000000000000101 r=2 sel=1\np2 expr=0000000000000000000000000000000110 r=3 sel=1\np3 expr=1100000000000000000000000000000001 r=0 sel=1\n",
+    "output_matches_expected": false
+  },
+  "fault_injection": {
+    "method": "Each mutant changes one rule of the reference model while the case expressions stay those that the reference chose; the count is the selected cases with a changed selected item, case expression call count or counting item observation. Mutants are not suite tests.",
+    "mutants": [
+      {
+        "mutant": "an X result taken as a match",
+        "detecting_cases": 11,
+        "examples": [
+          "test_gen_cross_caseinside_w129_n_uu_b_range_expr_x_uv",
+          "test_gen_cross_caseinside_w129_s_uu_l_range_item_z_uv",
+          "test_gen_cross_caseinside_w129_w_ss_b_list_expr_x_uc"
+        ]
+      },
+      {
+        "mutant": "items extended by their own sign instead of the joint type",
+        "detecting_cases": 2,
+        "examples": [
+          "test_gen_cross_caseinside_w33_w_us_l_array_known_pv",
+          "test_gen_cross_caseinside_w65_w_us_l_range_known_uc"
+        ]
+      },
+      {
+        "mutant": "operands of the wildcard comparison swapped",
+        "detecting_cases": 12,
+        "examples": [
+          "test_gen_cross_caseinside_w129_n_uu_b_range_expr_x_uv",
+          "test_gen_cross_caseinside_w129_s_ss_l_value_item_x_pv",
+          "test_gen_cross_caseinside_w129_w_ss_b_list_expr_x_uc"
+        ]
+      },
+      {
+        "mutant": "the last matching item selected",
+        "detecting_cases": 3,
+        "examples": [
+          "test_gen_cross_caseinside_w1_s_ss_b_array_item_z_pc",
+          "test_gen_cross_caseinside_w1_s_uu_b_list_known_pc",
+          "test_gen_cross_caseinside_w1_w_ss_l_range_item_x_pv"
+        ]
+      },
+      {
+        "mutant": "unknown item bits read as zero",
+        "detecting_cases": 6,
+        "examples": [
+          "test_gen_cross_caseinside_w129_s_ss_l_value_item_x_pv",
+          "test_gen_cross_caseinside_w129_s_uu_l_range_item_z_uv",
+          "test_gen_cross_caseinside_w32_s_ss_l_list_item_x_uv"
+        ]
+      },
+      {
+        "mutant": "counting item called after an earlier match",
+        "detecting_cases": 3,
+        "examples": [
+          "test_gen_cross_caseinside_w1_s_ss_b_array_item_z_pc",
+          "test_gen_cross_caseinside_w1_s_uu_b_list_known_pc",
+          "test_gen_cross_caseinside_w64_s_uu_l_range_item_x_pc"
+        ]
+      },
+      {
+        "mutant": "case expression evaluated again for each compared item",
+        "detecting_cases": 33,
+        "examples": [
+          "test_gen_cross_caseinside_w129_n_su_b_array_known_uv",
+          "test_gen_cross_caseinside_w129_n_uu_b_range_expr_x_uv",
+          "test_gen_cross_caseinside_w129_s_ss_l_value_item_x_pv"
+        ]
+      }
+    ]
+  },
+  "note": "This probe and these mutants are qualification evidence, not extra suite tests or pass records."
+}
