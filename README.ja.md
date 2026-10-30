@@ -172,6 +172,9 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 合格／未対応／不一致の内訳をまとめています。計画上の網羅とCheckの成功を、
 各シミュレータでの全クロス合格とは扱いません。Nightlyの全件実行とも範囲を区別します。
 
+Claude Codeへ引き継ぐ場合は、[2026-10-30のハンドオフ資料](docs/claude-code-handoff-20261030-cross-verification.md)を
+参照してください。リポジトリの状態、検証済みの版、残件、再開コマンドをまとめています。
+
 [Issue #21の回帰取り込みレポート](docs/p1-combination-regressions-20261030.md)と
 [確認済みの照合台帳](coverage/combination-gaps.json)には、既存テストの再利用と、
 新規74件（イベント9件、NBA16件、複合型18件、I/O13件、ファイル監視18件）を記載しています。
