@@ -958,6 +958,14 @@ Icarusで一致する配列要素のケースには、左辺を2回評価する�
 同符号の対照条件も含め、[切り分けとビルドの証跡](../coverage/interaction-qualification/20261030-inside.json)に
 入力・期待値・実測値を保存しています。シミュレータの実装ソースは参照していません。
 
+同日、上流main `fc4cc356`で再ビルドしたkirimasimでも同じ最小例で再現しました。
+左辺の値を変えた追加の最小例から、配列の符号付き要素を0拡張ではなく符号拡張して比較していることがわかります。
+同じ比較を定数として評価すると期待値どおりになり、ずれは実行時の配列集合の比較に限られます。
+この性質を2状態だけで確かめる手書きテスト
+[`test_inside_array_set_mixed_sign_width`](../tests/ch11/test_inside_array_set_mixed_sign_width.sv)を追加しました。
+Verilator 5.052でも配列形式が別の形でずれるため、[固定版の差異一覧](simulator-differences.md)へ記録しています。
+再確認の証跡は[`20261030-inside-fc4cc356.json`](../coverage/interaction-qualification/20261030-inside-fc4cc356.json)です。
+
 Icarus 13.0は`inside`を未対応として46件すべてが既知の差異でした。
 新規のIcarus oracleは登録しません。Verilator 5.052はseed 1・73で2状態の11件を実行し、
 各6件が一致しました。この6件だけをVerilatorのoracleへ登録し、残る40件は規格の期待値を保持します。

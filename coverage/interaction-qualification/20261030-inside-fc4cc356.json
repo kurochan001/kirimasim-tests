@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-30T10:21:08.247237+00:00",
+  "previous_record": "20261030-inside.json",
+  "build": {
+    "upstream_main_at_start": "fc4cc3569fd60867305cb4e49888e42f89f53668",
+    "checkout_commit": "fc4cc3569fd60867305cb4e49888e42f89f53668",
+    "checked_at": "2026-10-30T10:21:04.012742+00:00",
+    "version": "kirimasim 0.0.0 (commit fc4cc3569fd6), built with AppleClang 21.0.0.21000334",
+    "binary_sha256_before": "23fc6875489bb4339a1126ac482a0094d605ed59136acda3cb7eb203acf63687",
+    "binary_sha256_after": "23fc6875489bb4339a1126ac482a0094d605ed59136acda3cb7eb203acf63687",
+    "commands": [
+      "git fetch origin",
+      "git checkout --detach fc4cc3569fd60867305cb4e49888e42f89f53668",
+      "cmake --preset release",
+      "cmake --build --preset release --target kirimasim"
+    ],
+    "note": "Latest upstream observed at run start, not a guarantee about later upstream changes."
+  },
+  "independent_oracle_review": "Expected values were computed by a separate model of the comparison: the wider width, unsigned unless both operands are signed (11.8.1), and sign extension only for a signed comparison (11.8.2); inside compares each singular element with ==? (11.4.13). It reproduces the expected output of the previous record and of the suite test.",
+  "commands": [
+    "kirimasim probe.sv",
+    "python3 tools/normalize_output.py"
+  ],
+  "minimal_array_list_comparisons": [
+    {
+      "source_sha256": "34a41f1eede43bd747b171a63f42fc9283e6b4546aba4ada1954deb374411ae1",
+      "storage": "bit",
+      "exit_code": 0,
+      "normalized_stdout": "A array=1 listed=0 equality=0\nB array=0 listed=0 equality=0\nC array=1 listed=1 equality=1\nD array=0 listed=0 equality=0\n",
+      "expected_stdout": "A array=0 listed=0 equality=0\nB array=0 listed=0 equality=0\nC array=1 listed=1 equality=1\nD array=0 listed=0 equality=0\n",
+      "output_matches_expected": false,
+      "same_as_previous_record": true
+    },
+    {
+      "source_sha256": "e920e0b859203ca657244bace7c20bef4f47ff6e46672ffe2cc2d3acae8ff2bf",
+      "storage": "logic",
+      "exit_code": 0,
+      "normalized_stdout": "A array=1 listed=0 equality=0\nB array=0 listed=0 equality=0\nC array=1 listed=1 equality=1\nD array=0 listed=0 equality=0\n",
+      "expected_stdout": "A array=0 listed=0 equality=0\nB array=0 listed=0 equality=0\nC array=1 listed=1 equality=1\nD array=0 listed=0 equality=0\n",
+      "output_matches_expected": false,
+      "same_as_previous_record": true
+    }
+  ],
+  "extension_probe": {
+    "source_sha256": "267b201c1382aa7d01727f13d16d42025f49e9abe40a017f5d6744d7cf21a5c9",
+    "source": "module probe;\n  typedef bit signed [1:0] s2_t;\n  localparam s2_t PA [0:0] = '{2'b11};\n  localparam bit P_ARRAY = 3'b111 inside {PA};\n  localparam bit P_LIST = 3'b111 inside {PA[0]};\n  s2_t sa [0:0], sa2 [0:1];\n  logic [2:0] a;\n  initial begin\n    sa[0] = 2'b11;\n    a = 3'b111;\n    $display(\"E1 a=111 array=%b listed=%b\", a inside {sa}, a inside {sa[0]});\n    a = 3'b011;\n    $display(\"E2 a=011 array=%b listed=%b\", a inside {sa}, a inside {sa[0]});\n    sa2[0] = 2'b01;\n    sa2[1] = 2'b11;\n    a = 3'b111;\n    $display(\"E3 a=111 two array=%b listed=%b\", a inside {sa2}, a inside {sa2[0], sa2[1]});\n    $display(\"E4 constant array=%b listed=%b\", P_ARRAY, P_LIST);\n    $finish;\n  end\nendmodule\n",
+    "exit_code": 0,
+    "normalized_stdout": "E1 a=111 array=1 listed=0\nE2 a=011 array=0 listed=1\nE3 a=111 two array=1 listed=0\nE4 constant array=0 listed=0\n",
+    "expected_stdout": "E1 a=111 array=0 listed=0\nE2 a=011 array=1 listed=1\nE3 a=111 two array=0 listed=0\nE4 constant array=0 listed=0\n",
+    "output_matches_expected": false,
+    "reading": "E1 and E2 move in opposite directions from the expected values, so the array form compares the signed 2-bit element 11 as 111 (sign extension) instead of 011. E4 is the same comparison as E1 in localparams, which the front end evaluates as constants, and it gives the expected 0."
+  },
+  "suite_test_kirimasim": {
+    "test": "tests/ch11/test_inside_array_set_mixed_sign_width.sv",
+    "inputs_sha256": "f77b1b7e10743a5ba144d39c92f81aa3fc4ddd79d4cab2a4b4952e65db31cb09",
+    "exit_code": 0,
+    "normalized_stdout": "u=111 in {11}: array=1 listed=0\nu=011 in {11}: array=0 listed=1\nu=111 in {01, 11}: array=1 listed=0\ns=11 in unsigned {111}: array=0 listed=0\ns=11 in signed {111}: array=1 listed=1\n",
+    "expected_stdout": "u=111 in {11}: array=0 listed=0\nu=011 in {11}: array=1 listed=1\nu=111 in {01, 11}: array=0 listed=0\ns=11 in unsigned {111}: array=0 listed=0\ns=11 in signed {111}: array=1 listed=1\n",
+    "output_matches_expected": false
+  },
+  "verilator_difference_observations": {
+    "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+    "commands": [
+      "verilator --binary --timing --coverage-user -Wno-fatal -Wno-lint -Wno-style --x-assign unique --x-initial unique -Mdir obj --prefix Vt TEST.sv",
+      "obj/Vt +verilator+rand+reset+2 +verilator+seed+SEED +verilator+error+limit+1000000",
+      "python3 tools/normalize_output.py"
+    ],
+    "runs": [
+      {
+        "test": "tests/ch11/test_inside_array_set_mixed_sign_width.sv",
+        "inputs_sha256": "f77b1b7e10743a5ba144d39c92f81aa3fc4ddd79d4cab2a4b4952e65db31cb09",
+        "seed": 1,
+        "exit_code": 0,
+        "normalized_stdout": "u=111 in {11}: array=1 listed=0\nu=011 in {11}: array=1 listed=1\nu=111 in {01, 11}: array=1 listed=0\ns=11 in unsigned {111}: array=1 listed=1\ns=11 in signed {111}: array=1 listed=1\n",
+        "output_matches_expected": false
+      },
+      {
+        "test": "tests/ch11/test_inside_array_set_mixed_sign_width.sv",
+        "inputs_sha256": "f77b1b7e10743a5ba144d39c92f81aa3fc4ddd79d4cab2a4b4952e65db31cb09",
+        "seed": 73,
+        "exit_code": 0,
+        "normalized_stdout": "u=111 in {11}: array=1 listed=0\nu=011 in {11}: array=1 listed=1\nu=111 in {01, 11}: array=1 listed=0\ns=11 in unsigned {111}: array=1 listed=1\ns=11 in signed {111}: array=1 listed=1\n",
+        "output_matches_expected": false
+      }
+    ]
+  },
+  "note": "These probes are qualification evidence, not extra suite tests or pass records."
+}

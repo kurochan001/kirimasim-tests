@@ -2,9 +2,9 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 9095,
+  "test_files": 9096,
   "linked_test_files": 5310,
-  "unlinked_test_files": 3785,
+  "unlinked_test_files": 3786,
   "chapters": [
     {
       "chapter": "ch3",
@@ -56,9 +56,9 @@
     },
     {
       "chapter": "ch11",
-      "test_files": 1597,
+      "test_files": 1598,
       "linked_test_files": 367,
-      "unlinked_test_files": 1230
+      "unlinked_test_files": 1231
     },
     {
       "chapter": "ch12",
@@ -20069,6 +20069,55 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch11/test_inside_array_set_mixed_sign_width.sv",
+      "inputs_sha256": "f77b1b7e10743a5ba144d39c92f81aa3fc4ddd79d4cab2a4b4952e65db31cb09",
+      "cited_clauses": [
+        "11.4.13",
+        "11.8.1",
+        "11.8.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-11.4.13-EXTRACT-ABSOLUTE-TOLERANCE",
+        "SV2023-11.4.13-EXTRACT-INCLUSIVE-RANGE",
+        "SV2023-11.4.13-EXTRACT-INSIDE-EQUALITY-TYPES",
+        "SV2023-11.4.13-EXTRACT-INSIDE-GRAMMAR",
+        "SV2023-11.4.13-EXTRACT-INSIDE-MATCH-RESULT",
+        "SV2023-11.4.13-EXTRACT-INSIDE-UNKNOWN",
+        "SV2023-11.4.13-EXTRACT-OVERLAP-ALLOWED",
+        "SV2023-11.4.13-EXTRACT-RELATIVE-TOLERANCE",
+        "SV2023-11.4.13-EXTRACT-REVERSED-COLON-EMPTY",
+        "SV2023-11.4.13-EXTRACT-TOLERANCE-ORDER-TYPE",
+        "SV2023-11.4.13-EXTRACT-TOLERANCE-TRUNCATES",
+        "SV2023-11.4.13-EXTRACT-UNPACKED-SET-RECURSION",
+        "SV2023-11.8.1-EXTRACT-BASED-SIGN",
+        "SV2023-11.8.1-EXTRACT-BIT-SELECT-UNSIGNED",
+        "SV2023-11.8.1-EXTRACT-COMPARE-REDUCE-UNSIGNED",
+        "SV2023-11.8.1-EXTRACT-CONCAT-UNSIGNED",
+        "SV2023-11.8.1-EXTRACT-CONTEXT-REAL",
+        "SV2023-11.8.1-EXTRACT-CONTEXT-SIGNED",
+        "SV2023-11.8.1-EXTRACT-CONTEXT-UNSIGNED",
+        "SV2023-11.8.1-EXTRACT-DECIMAL-SIGNED",
+        "SV2023-11.8.1-EXTRACT-OPERAND-TYPE",
+        "SV2023-11.8.1-EXTRACT-PART-SELECT-UNSIGNED",
+        "SV2023-11.8.1-EXTRACT-REAL-COERCION-SIGNED",
+        "SV2023-11.8.1-EXTRACT-SELF-SIGN-SIZE",
+        "SV2023-11.8.2-EXTRACT-COMPARISON-CONTEXT-EXCEPTION",
+        "SV2023-11.8.2-EXTRACT-PROPAGATE-CONTEXT",
+        "SV2023-11.8.2-EXTRACT-REAL-PROPAGATION-EXCEPTION",
+        "SV2023-11.8.2-EXTRACT-SIMPLE-OPERAND-CONVERSION",
+        "SV2023-11.8.2-EXTRACT-SIZE-THEN-SIGN"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-11.4.13-EXTRACT-INSIDE-SINGULAR-LHS",
+        "SV2023-11.4.13-EXTRACT-RANGE-RELATIONAL-TYPE"
+      ],
       "broader_citations": []
     },
     {

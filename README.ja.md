@@ -43,13 +43,13 @@ Icarus Verilog、Verilator、kirimasim、
 ## 収録内容
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**9095本のテスト**があります。 うち2659本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`combination_aggregates`が18本、`combination_events`が9本、`combination_io`が13本、`combination_monitors`が18本、`combination_nba`が16本、`interaction_array`が36本、`interaction_case`が36本、`interaction_cast`が32本、`interaction_compare`が100本、`interaction_compound`が40本、`interaction_concat`が72本、`interaction_cond`が32本、`interaction_divide`が72本、`interaction_edge`が64本、`interaction_expr`が51本、`interaction_index`が44本、`interaction_inside`が46本、`interaction_logic`が70本、`interaction_method`が72本、`interaction_nba`が36本、`interaction_port`が36本、`interaction_query`が60本、`interaction_queue`が48本、`interaction_resize`が38本、`interaction_select`が36本、`interaction_shift`が56本、`interaction_shortcircuit`が92本、`interaction_stream`が36本、`interaction_struct`が36本、`interaction_task`が36本、`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
+スイートには38章にわたり**9096本のテスト**があります。 うち2659本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`combination_aggregates`が18本、`combination_events`が9本、`combination_io`が13本、`combination_monitors`が18本、`combination_nba`が16本、`interaction_array`が36本、`interaction_case`が36本、`interaction_cast`が32本、`interaction_compare`が100本、`interaction_compound`が40本、`interaction_concat`が72本、`interaction_cond`が32本、`interaction_divide`が72本、`interaction_edge`が64本、`interaction_expr`が51本、`interaction_index`が44本、`interaction_inside`が46本、`interaction_logic`が70本、`interaction_method`が72本、`interaction_nba`が36本、`interaction_port`が36本、`interaction_query`が60本、`interaction_queue`が48本、`interaction_resize`が38本、`interaction_select`が36本、`interaction_shift`が56本、`interaction_shortcircuit`が92本、`interaction_stream`が36本、`interaction_struct`が36本、`interaction_task`が36本、`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
 | Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 5170 |
 | Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1591 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2334 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2335 |
 
 1756本はx/z値に依存します（`:fourstate: yes`）。618本にはCコードがあり、内訳はDPIが123本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1932本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。35本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定39本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
@@ -63,7 +63,7 @@ Icarus Verilog、Verilator、kirimasim、
 | 8 | クラス | 321 | 67 | 182 | 72 |
 | 9 | プロセス | 284 | 217 | 38 | 29 |
 | 10 | 代入文 | 254 | 169 | 45 | 40 |
-| 11 | 演算子と式 | 1597 | 1262 | 125 | 210 |
+| 11 | 演算子と式 | 1598 | 1262 | 125 | 211 |
 | 12 | 手続き型プログラミング文 | 217 | 169 | 29 | 19 |
 | 13 | タスクと関数（サブルーチン） | 244 | 137 | 89 | 18 |
 | 14 | クロッキングブロック | 78 | 4 | 61 | 13 |

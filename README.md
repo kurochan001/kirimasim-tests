@@ -52,13 +52,13 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **9095 tests** in 38 chapters. 2659 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_case`, 32 by `interaction_cast`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 72 by `interaction_divide`, 64 by `interaction_edge`, 51 by `interaction_expr`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 60 by `interaction_query`, 48 by `interaction_queue`, 38 by `interaction_resize`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **9096 tests** in 38 chapters. 2659 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_case`, 32 by `interaction_cast`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 72 by `interaction_divide`, 64 by `interaction_edge`, 51 by `interaction_expr`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 60 by `interaction_query`, 48 by `interaction_queue`, 38 by `interaction_resize`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5170 |
 | Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1591 |
-| The standard only, with no fixed-release simulator oracle recorded | 2334 |
+| The standard only, with no fixed-release simulator oracle recorded | 2335 |
 
 1756 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 39 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -72,7 +72,7 @@ The suite has **9095 tests** in 38 chapters. 2659 of them are generated (`tests/
 | 8 | Classes | 321 | 67 | 182 | 72 |
 | 9 | Processes | 284 | 217 | 38 | 29 |
 | 10 | Assignment statements | 254 | 169 | 45 | 40 |
-| 11 | Operators and expressions | 1597 | 1262 | 125 | 210 |
+| 11 | Operators and expressions | 1598 | 1262 | 125 | 211 |
 | 12 | Procedural programming statements | 217 | 169 | 29 | 19 |
 | 13 | Tasks and functions (subroutines) | 244 | 137 | 89 | 18 |
 | 14 | Clocking blocks | 78 | 4 | 61 | 13 |

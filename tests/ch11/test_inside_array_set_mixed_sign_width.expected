@@ -1,0 +1,5 @@
+u=111 in {11}: array=0 listed=0
+u=011 in {11}: array=1 listed=1
+u=111 in {01, 11}: array=0 listed=0
+s=11 in unsigned {111}: array=0 listed=0
+s=11 in signed {111}: array=1 listed=1
