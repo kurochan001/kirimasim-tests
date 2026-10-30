@@ -59,7 +59,7 @@
 
 - 続けるなら、`tools/matching_kit/workflows/gap.js`の`verifyOnly: true`で上の区間を検証し、前回と同じ手順で統合する。`merge.py`は保留判断の重複を防ぐよう修正済み。
 - 統合前に確かめること（今回分かったこと）：
-  - ANSI形式で種類を省いた2状態型の入力（`input int`）はネットになり規格違反（23.2.2.3、6.7.1）。`input var int`にする。
+  - ANSI形式で種類を省いた2値型の入力（`input int`）はネットになり規格違反（23.2.2.3、6.7.1）。`input var int`にする。
   - 新規テストが、これまで引用のない節を1本だけで引用すると`coverage_depth.py --check --minimum-tests 2`が落ちる。背景の節なら`:lrm:`から外す。
   - 取り込み後にテストを直したら、再実行を別名の結果ファイルに保存し、台帳の`inputs_sha256`を更新して`--write-baseline --reason`で記録する。`--history`は最後に1回だけ。
 

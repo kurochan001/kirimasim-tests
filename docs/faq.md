@@ -64,7 +64,7 @@ Icarus・Verilator・kirimasim・Lyraは、明示指定でも`:type: formal`を�
 
 ### Q9. Match、Differ、Known difference、Unsupportedは何が違いますか
 
-Matchは期待結果との一致、Differは判定条件の不一致です。Known differenceはIcarus・Verilatorの固定バージョンoracleがないテストの不一致を分ける区分で、成功には数えません。Unsupportedはランナーが認識する未対応機能や実行できないテストの区分です。未対応と認識されないコンパイル失敗がDifferになる場合もあります。ランナーによって区分の条件が異なるので、同じ列名の件数だけで比較せず、[結果の定義](../README.md#result-statuses)と個別ログを確認してください。
+Matchは期待結果との一致、Differは判定条件の不一致です。Known differenceはIcarus・Verilatorの固定バージョンoracleがないテストの不一致を分ける区分で、成功には数えません。kirimasimでも、使える共通・専用の期待出力がなく、他ツール専用の期待出力だけがある場合はKnown differenceになります。Unsupportedはランナーが認識する未対応機能や実行できないテストの区分です。未対応と認識されないコンパイル失敗がDifferになる場合もあります。ランナーによって区分の条件が異なるので、同じ列名の件数だけで比較せず、[結果の定義](../README.md#result-statuses)と個別ログを確認してください。
 
 Matchには規格違反のコードを適切に拒否した結果も含みます。また、Icarus・Verilatorの端末の要約は、その固定バージョンoracleが付いたテストを分母にします。`--json`ではoracle未登録でも判定に一致すれば`pass`となり、Nightlyはその結果も数えます。`NOW MATCHES`はIcarusランナーがこの一致を知らせる表示で、oracleの自動認定ではありません。
 

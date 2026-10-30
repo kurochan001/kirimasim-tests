@@ -20,7 +20,7 @@ IEEE 1800-2023 の節に基づいて修正した記録です。ランナー側�
 | #11 | VPI C 1本 | `vpi_printf` の `%s` を `%d` に修正 |
 | #12 | VCD 3本 | `$var` の index range を任意とし、型・サイズは厳密に、range は「なし」または宣言どおりのみ許容 |
 | #15 | grammar 6本 | `matches` を `cond_predicate` の規格上正しい記述へ、`wildcard bins` の語順、`cell` 予約語の回避 |
-| #16 | 9本 | multiclock を `|->` / `##0` へ、rand 制約、quoted include、modport、interface 内 module、`$bits` の packed union 化、`extern virtual` |
+| #16 | 9本 | multiclock を `\|->` / `##0` へ、rand 制約、quoted include、modport、interface 内 module、`$bits` の packed union 化、`extern virtual` |
 | #17 | 6本 | `$future_gclk` を property 式へ、`local` formal、virtual interface port、`out` → `output`、soft packed union |
 | #18 | 4本 | 配列クエリから real / shortreal / event を削除（20.7 の対象外） |
 | #19 | 1本 | 空マッチになる `1'b1[*]` を property から削除 |

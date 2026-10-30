@@ -334,7 +334,7 @@ Each test of a run gets one of these statuses:
 | --- | --- |
 | match | The output and any specified exit-code and runtime-diagnostic checks match, or an illegal design is rejected with the required diagnostic. |
 | differ | A result does not match, a required diagnostic is missing, an illegal design is accepted, or a build or run fails without being classified otherwise. |
-| known difference | An Icarus or Verilator test does not match and has no oracle token for that fixed release (see `:oracle:`). |
+| known difference | An Icarus or Verilator test does not match and has no oracle token for that fixed release. Also used by kirimasim when a test has only another simulator's expectation and no common or kirimasim-specific expectation. |
 | unsupported | The simulator reported a construct it does not support yet, or it cannot run this kind of test (kirimasim cannot load the C code of DPI and VPI tests yet, and Lyra that of VPI tests). |
 
 For Icarus Verilog and Verilator, a Nightly differ is a test tagged for the
@@ -473,7 +473,7 @@ tools/matching_kit/             proposes, checks, judges and merges links betwee
 .github/workflows/nightly.yml   the nightly run
 ```
 
-The `results` branch, written only by the nightly workflow, holds
+The `results` branch holds
 `history.json` (one entry per run), `latest/<simulator>.json` (the result of
 every test in each simulator's latest run), `charts/*.svg` and the report,
 `README.md`. The charts and the report show only the simulators that `tools/`
@@ -485,6 +485,8 @@ and `behavior-history.json` for behavioral coverage of that run, plus
 feature-interaction coverage. The
 [Japanese guide](docs/nightly-results.md) explains how these differ from the
 saved evidence on `main`.
+The Nightly publish job normally updates this branch. Local results can also
+be imported with their execution time, suite commit and `--source local`.
 
 ## Test format
 
@@ -600,7 +602,8 @@ A test with `:dpi_c:` or `:vpi_c:` is the SystemVerilog file together with
 its C file, which has the same name. The C file includes only the standard
 headers `svdpi.h` (Annex I), `vpi_user.h` (Annex K) or `sv_vpi_user.h`
 (Annex M) and those of the C library, and it compiles both as C and as C++
-(Verilator compiles it as C++), with its definitions inside `extern "C"`.
+(Verilator compiles it as C++). Guard the opening and closing of
+`extern "C"` with `#ifdef __cplusplus` so they are enabled only for C++.
 Results are returned to SystemVerilog and printed with `$display` where
 possible; C code that prints uses `vpi_printf`, or `printf` followed by
 `fflush(stdout)`. The system tasks and functions that a VPI application
@@ -834,7 +837,10 @@ prints only what the design prints on standard output, so nothing of its own
 needs to be removed. A test that uses a construct kirimasim does not support
 yet (exit code 2 with an `error: unsupported:` message) is reported as
 unsupported, and so are the tests with C code, which kirimasim cannot load
-yet. No expected output was recorded with kirimasim, so every test counts.
+yet. No kirimasim oracle is recorded; non-formal tests are selected.
+When a test has only another simulator's expectation and neither a common
+nor a kirimasim-specific expectation, it is `known` and excluded from the
+terminal match-rate denominator. Its status is still recorded in JSON.
 
 ### Lyra
 
@@ -900,8 +906,9 @@ python3 tools/run_sby.py --sby "$SBY_BIN" --json /tmp/sby.json
 ```
 
 This runner needs Python 3.10 or later and a working SymbiYosys/Yosys/solver
-environment. It runs cases sequentially; `--no-prove` requests BMC only and
-`--timeout N` sets the per-case timeout. See the
+environment. It runs cases sequentially. `--no-prove` omits PDR proofs;
+BMC, registered cover jobs and deliberate-error checks still run.
+`--timeout N` is passed as the timeout for each formal job. See the
 [runner selection record](docs/runner-selection-20261028.md) and
 [formal verification guide](docs/sva-reference-formal-verification.md).
 
@@ -924,7 +931,7 @@ history in `my-results/`:
 ```sh
 python3 tools/run_icarus.py -j 8 --json out/icarus.json
 python3 tools/run_kirimasim.py --kirimasim /path/to/kirimasim -j 8 --json out/kirimasim.json
-python3 tools/results_history.py update --history my-results out/*.json
+python3 tools/results_history.py update --history my-results --source local out/*.json
 ```
 
 `update` compares each simulator with its previous run in the same history,
@@ -932,6 +939,9 @@ adds the run to `my-results/history.json`, and draws `my-results/charts/*.svg`
 and `my-results/README.md`. A simulator that `tools/` no longer has a runner
 for stays in the history but is not drawn. `python3 tools/results_history.py render
 --history my-results` draws them again from the history alone.
+The defaults use the current time and suite `HEAD`. When importing earlier
+results, pass `--time`, `--suite-commit` and `--run-url` with the actual
+execution time, suite commit and result location.
 
 ## Workflows
 
@@ -1073,6 +1083,8 @@ python3 tools/suite_stats.py --update
 python3 tools/suite_catalog.py --update
 python3 tools/coverage_depth.py --update
 python3 tools/behavior_coverage.py --update
+python3 tools/requirement_matching.py --update
+python3 tools/interaction_coverage.py --update
 python3 tools/lint_metadata.py
 ```
 

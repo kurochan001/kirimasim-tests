@@ -60,7 +60,7 @@ continueは本体の残りを飛ばし、forのstepを経て次の反復へ進�
 部分実行を全3,923本の一括再実行と扱ったり、異なる実行回の部分成功を集合証拠として合成したりしていません。
 累積レビュー入口にあった「全3,923本を再実行」という誤記も、この実際の実行範囲へ訂正しました。
 
-## M23：2状態のintでselectorのX/Zが失われる
+## M23：2値のintでselectorのX/Zが失われる
 
 例：[test_control_flow.sv](../tests/ch12/test_control_flow.sv)、
 [test_control_flow_4.sv](../tests/ch12/test_control_flow_4.sv)、[test_stmt_ext.sv](../tests/ch12/test_stmt_ext.sv)。

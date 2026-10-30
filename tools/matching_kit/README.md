@@ -8,7 +8,7 @@ proposals, verdicts and notes live in a work directory outside it.
 
 | File | What it does |
 | --- | --- |
-| `partition.py OUT_DIR` | Splits the open requirements into assignment files: `p..` (some test cites them; match first), `g..`, `a..`, `h..` (no candidate test; new tests needed) |
+| `partition.py OUT_DIR` | Splits the open requirements into assignment files: `p..` (some test cites them; match first), `g..`, `a..`, `h..` (no candidate; inspect existing tests further and add tests where needed) |
 | `propose.py` | `scope`, `req`, `test` to read; `add`, `group`, `hold` to propose (checked at once with the conditions of `behavior_coverage.validate()`); `show`, `verdict`, `testverdict` for the verifier |
 | `merge.py DIR --reviewer TEXT --date YYYY-MM-DD` | Applies the proposals whose latest verdict is `accept`, after checking them again; idempotent; `--dry-run` |
 | `runsim.py tests/...` | Runs tests with Icarus Verilog 13.0 and Verilator 5.052 (seeds 1 and 73) and says which match, to decide `:oracle:` |

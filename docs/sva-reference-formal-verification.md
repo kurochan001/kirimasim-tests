@@ -223,7 +223,7 @@ RTLは、ここでは「計算の状態や手順を回路として書いたモ�
 
 シーケンスには、空マッチ、連結、繰り返し、goto/nonconsecutive、and/or/intersect、first_match、throughout、withinを含みます。プロパティには、implication/followed-by、空前件の位置合わせ、untilの4形、トレース末尾でのstrong/weakの違いを含みます。
 
-サンプル値関数は、`$sampled`・`$past`・`$rose`・`$fell`・`$stable`・`$changed`です。「4値」は0・1・不明値x・高インピーダンスzを指します。「gating付き」は、gateが成立したtickだけを履歴として数える、という意味です。gating付きモデルでは、宣言の既定値を2ビットの1に固定しています。
+サンプル値関数は、`$sampled`・`$past`・`$rose`・`$fell`・`$stable`・`$changed`です。「4値」は0・1・未知値x・高インピーダンスzを指します。「gating付き」は、gateが成立したtickだけを履歴として数える、という意味です。gating付きモデルでは、宣言の既定値を2ビットの1に固定しています。
 
 内部では、シーケンス評価を有限状態機械に、有限入力のプロパティ・関数評価を全組合せの結果表に変換します。式・幅・遅延範囲などはモデルごとに固定しており、すべてのSVA式を証明したわけではありません。
 
@@ -339,7 +339,7 @@ first_match_tie_mutant_bmc: FAIL (expected FAIL)
 
 末尾の集計は`{"ok": true, "counts": {"PASS": 3, "FAIL": 1}}`になります。別のケースも加える場合は、`--case gated_past`などを追加します。
 
-### ツールを動かさず、基本セットの生成RTLだけを見る
+### ツールを動かさず、現在のカタログの生成RTLだけを見る
 
 `FORMAL_RTL_DIR`も、新規または空のディレクトリを指定します。
 

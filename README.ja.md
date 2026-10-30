@@ -158,7 +158,7 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 短絡評価と副作用、イベント式のエッジ判定の24モデルを対象にします。
 直近の2モデルは、制約を満たす6,184通りから156件を選びます。
 通常の全件実行では既存テストをすべて保持します。[クロス検証レポート](docs/interaction-coverage.md)は
-計画上の網羅と、入力指紋が一致した実行の合格を分けて集計します。規格要求の分母は変更しません。
+計画上の網羅と、入力ハッシュが一致した実行の合格を分けて集計します。規格要求の分母は変更しません。
 設計思想、モデルの選び方、追加・再実行手順、他プロジェクトやLSIへの適用方法は、
 [機能間クロス検証の考え方と実践手順](docs/interaction-verification-method.md)にまとめています。
 
@@ -281,7 +281,7 @@ Lyraは下向き三角、Ghostはオレンジの上向き三角を使います�
 | --- | --- |
 | match（一致） | 出力と、指定された終了コード・実行時診断の検査が一致した、または不正な設計が必要な診断付きで拒否された |
 | differ（不一致） | 結果が一致しない、必要な診断がない、不正な設計が受理された、または他の分類に当たらないビルド・実行の失敗 |
-| known difference（既知の差異） | IcarusまたはVerilatorで一致せず、その固定リリースのoracleトークンもない（`:oracle:`を参照） |
+| known difference（既知の差異） | IcarusまたはVerilatorで一致せず、その固定リリースのoracleトークンもない。または、kirimasimで使える共通・専用の期待出力がなく、他ツール専用の期待出力だけがある |
 | unsupported（未対応） | 使用した構文などが未対応と診断された、またはその種類のテストを実行できない。kirimasimはDPI/VPI、LyraはVPIのCコードをまだ読み込めない |
 
 Icarus VerilogとVerilatorのNightlyでのdifferは、固定リリースのoracleが付いたテストが、
@@ -399,7 +399,7 @@ tools/matching_kit/             要求とテストの対応の提案・検査・
 .github/workflows/nightly.yml   Nightly実行
 ```
 
-Nightlyだけが書き込む`results`ブランチには、`history.json`（1実行1エントリ）、
+`results`ブランチには、`history.json`（1実行1エントリ）、
 `latest/<simulator>.json`（各シミュレータの最新の全テスト結果）、`charts/*.svg`、
 レポートの`README.md`があります。グラフとレポートには`tools/`に実行スクリプトがある
 シミュレータだけを表示します。実行スクリプトがなくなったものも履歴には残しますが、描画しません。
@@ -408,6 +408,8 @@ publishジョブは、その実行の要求カバレッジとして`behavior-cov
 書き出します。機能間クロスのシミュレータ別の実行確認は`interaction-coverage.md`と
 `interaction-coverage.json`に書き出します。`main`の保存済み証跡との違いは
 [Nightlyの説明](docs/nightly-results.md)を参照してください。
+通常はNightlyのpublishジョブが更新します。ローカル結果を取り込む場合も、
+実行日時・スイートのコミットと`--source local`を指定して履歴へ追加します。
 
 ## テストの形式
 
@@ -463,7 +465,7 @@ endmodule
 | `:fourstate:` | x/zに依存するか（`yes` / `no`）。x/zリテラル、`$isunknown`、`casex`/`casez`、三状態・強度構文、期待出力のx/zなど |
 | `:nondeterministic:` | 規格が決めていない実行順に結果が依存し得るか |
 | `:expected_stdout:` | 期待する標準出力、または隣のファイルを示す`@<file>`。シミュレータ別のフィールドがない場合の共通の期待値 |
-| `:expected_stdout_<simulator>:` | シミュレータ別の期待する標準出力。`<simulator>`は`icarus`、`verilator`、`kirimasim`、`lyra`。`:expected_stdout:`より優先し、`:expected_stdout:`は他のシミュレータ用の共通値として残せる。差分が規格に由来する場合（規格がツールに委ねた表示形式など）だけ追加し、理由をテストのコメントに書く。参照する全期待値ファイルは入力指紋に含めるので、どれを変えても保存済みの実行証跡は無効になる |
+| `:expected_stdout_<simulator>:` | シミュレータ別の期待する標準出力。`<simulator>`は`icarus`、`verilator`、`kirimasim`、`lyra`。`:expected_stdout:`より優先し、`:expected_stdout:`は他のシミュレータ用の共通値として残せる。差分が規格に由来する場合（規格がツールに委ねた表示形式など）だけ追加し、理由をテストのコメントに書く。参照する全期待値ファイルは入力ハッシュに含めるので、どれを変えても保存済みの実行証跡は無効になる |
 | `:dpi_c:` | 隣のCコード`@<file>`。DPIインポートを実装し、エクスポートを呼び出す（35章） |
 | `:vpi_c:` | 隣のVPIアプリケーション`@<file>`。`vlog_startup_routines`からシステムタスク・関数とコールバックを登録する（36〜40章） |
 | `:should_fail_because:` | 不正な設計である理由。シミュレータは拒否する必要がある。`:type: elaboration`とし、期待出力（`:expected_stdout:`またはシミュレータ別フィールド）は置かず、`:expected_stderr_regex:`でエラー箇所を指定する |
@@ -472,7 +474,7 @@ endmodule
 | `:args:` | 空白区切りの実行時引数。例：`+count=3` |
 | `:generator:` | `<generator>@<version>`。`generators/<generator>.py`が生成したテスト |
 | `:interaction_model:` | `<model>@<version>`。生成したクロステストが属するモデル |
-| `:interaction_values:` | モデルの`因子=値`の組。集計時は生成器と実行結果の入力指紋も検査する |
+| `:interaction_values:` | モデルの`因子=値`の組。集計時は生成器と実行結果の入力ハッシュも検査する |
 | `:files:` | 隣の追加ソース（`.sv`、`.v`。指定順にテストより先にコンパイル）とインクルードファイル（そのディレクトリを検索先に追加）。名前は`test_`で始めない。コンパイル単位が一つか複数かはツールに委ね、テストは依存しない（3.12.1） |
 | `:defines:` | 最初のソースより前に定義するマクロ。空白区切りの`NAME`または`NAME=VALUE`。ツールの`-D`や`+define+`を使い、`` `ifdef ``やマクロ参照から`` `define ``と同様に見えるようにする（22.5.1）。オプション自体は規格の範囲外 |
 | `:incdirs:` | テストのディレクトリを基準としたインクルードディレクトリ。空白区切り。`` `include "<file>" ``が作業ディレクトリの後に探す場所（22.4）。`:files:`のインクルードファイルのディレクトリより後に渡す |
@@ -509,6 +511,7 @@ Icarus VerilogとVerilatorが標準出力に出すため、取り除きます。
 Cコードがインクルードするのは標準の`svdpi.h`（附属書I）、`vpi_user.h`（附属書K）、
 `sv_vpi_user.h`（附属書M）とCライブラリのヘッダーだけです。定義を`extern "C"`で囲み、
 CとしてもC++としてもコンパイルできるようにします（VerilatorはC++としてコンパイルします）。
+`extern "C"`の開始・終了は`#ifdef __cplusplus`で囲み、C++の場合だけ有効にします。
 可能なら結果をSystemVerilogに返して`$display`で出力します。C側から出力するときは
 `vpi_printf`、または`printf`の後に`fflush(stdout)`を使います。
 VPIが登録するシステムタスク・関数は、組み込みの上書きテストを除き、`$vt_...`という名前にします。
@@ -531,7 +534,7 @@ sv-testsの実行スクリプトはこれらのフィールドを知らず、Sys
 シミュレータ別のキーは`:expected_stdout:`より優先し、共通キーは残りのシミュレータの
 期待値になります。追加してよいのは、両方の出力が規格に適合し、`%p`の空白のように
 規格がツールに委ねた形式だけが異なる場合です。理由はテストのコメントに書きます。
-これらのキーが参照する全期待値ファイルは入力指紋に含まれ、別のシミュレータが使う
+これらのキーが参照する全期待値ファイルは入力ハッシュに含まれ、別のシミュレータが使う
 ファイルを変えた場合も保存済みの実行結果は無効になります。
 
 不正な設計では、指定箇所のエラーで拒否されることが期待結果です。
@@ -700,7 +703,9 @@ python3 tools/run_kirimasim.py --kirimasim /path/to/kirimasim -j 8
 シミュレータ自身の行を除去する必要はありません。未対応の構文など
 （終了コード2と`error: unsupported:`メッセージ）は未対応として報告します。
 Cコードをまだ読み込めないため、Cコード付きのテストも未対応です。
-kirimasimを根拠に記録した期待出力はなく、全テストを集計対象にします。
+kirimasimを根拠に記録したoracleはなく、formal以外を実行対象にします。
+使える共通・kirimasim専用の期待出力がなく、他ツール専用の期待出力だけがある場合は、
+`known`として端末の一致率の分母から除きます。JSONにはその結果も記録します。
 
 ### Lyra
 
@@ -757,7 +762,8 @@ python3 tools/run_sby.py --sby "$SBY_BIN" --json /tmp/sby.json
 ```
 
 Python 3.10以上と、動作するSymbiYosys・Yosys・ソルバーの環境が必要です。
-ケースは逐次実行し、`--no-prove`でBMCのみ、`--timeout N`でケースごとの制限時間を指定します。
+ケースは逐次実行します。`--no-prove`はPDR証明を省略する指定で、BMCに加え、
+登録されたcoverと意図的な誤りの検出も実行します。`--timeout N`は各フォーマルジョブへ渡す制限時間です。
 [ランナーの選択規則](docs/runner-selection-20261028.md)と
 [フォーマル検証のガイド](docs/sva-reference-formal-verification.md)も参照してください。
 
@@ -776,11 +782,13 @@ Nightlyと同じ履歴をローカル実行からも作れます。例えば`my-
 ```sh
 python3 tools/run_icarus.py -j 8 --json out/icarus.json
 python3 tools/run_kirimasim.py --kirimasim /path/to/kirimasim -j 8 --json out/kirimasim.json
-python3 tools/results_history.py update --history my-results out/*.json
+python3 tools/results_history.py update --history my-results --source local out/*.json
 ```
 
 `update`は同じ履歴内の各シミュレータの前回と比較して`my-results/history.json`に追加し、
 `my-results/charts/*.svg`と`my-results/README.md`を生成します。
+既定では実行日時に現在時刻、スイートのコミットに`HEAD`を使います。過去の結果を取り込む場合は、
+`--time`、`--suite-commit`、`--run-url`で実際の実行日時・コミット・結果の参照先を指定します。
 `tools/`から実行スクリプトがなくなったシミュレータも履歴には残しますが、描画しません。
 `python3 tools/results_history.py render --history my-results`で履歴だけから再生成できます。
 
@@ -881,6 +889,8 @@ python3 tools/suite_stats.py --update
 python3 tools/suite_catalog.py --update
 python3 tools/coverage_depth.py --update
 python3 tools/behavior_coverage.py --update
+python3 tools/requirement_matching.py --update
+python3 tools/interaction_coverage.py --update
 python3 tools/lint_metadata.py
 ```
 

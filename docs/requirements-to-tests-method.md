@@ -77,7 +77,7 @@ Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2�
 
 | スクリプト | 役割 |
 | --- | --- |
-| `partition.py` | 未対応の要求を、節を分けずに担当範囲のファイルへ区切る。引用テストのある要求は`p..`（先に照合）、ない要求は`g..`／`a..`／`h..`（新規テストが必要）。 |
+| `partition.py` | 未対応の要求を、節を分けずに担当範囲のファイルへ区切る。引用テストのある要求は`p..`（先に照合）、候補のない要求は`g..`／`a..`／`h..`（既存テストの追加調査、必要なら新規作成）。候補がないことだけでは、既存テストがないとは判断しない。 |
 | `propose.py` | `req`（要求・出典・候補テスト・既存の保留）、`test`（テストのヘッダ・入力ファイル・リンク）、`scope`（担当範囲の進捗）、`add`／`group`／`hold`（照合案の追記）、`verdict`／`testverdict`（レビュー担当者の判定）。追記の時点で`behavior_coverage.validate()`と同じ条件を検査する。条件は、節の引用、正常系テストと規格違反テストの一致、anchorの実在、入力ファイル、既存の保留、取り下げ済みの組（`withdrawn-20261023.json`）、利用禁止のテスト。 |
 | `merge.py` | 最新の判定が`accept`の案だけを、統合直前の台帳に対して再検査してから`behaviors.json`と`test-matching-reviews.json`へ統合する。入力digestは統合の時点で計算する。統合済みの案は飛ばす。担当者名と日付は引数で渡す。 |
 | `runsim.py` | Icarus 13.0とVerilator 5.052（seed 1/73）で実行し、どれが一致するかを表示する。 |
@@ -137,7 +137,7 @@ python3 tools/behavior_coverage.py --write-baseline --update --require-source-re
 手順：
 
 1. 論点ごとに、分析担当が判断・根拠（節とブロックID）・書き直した要求文・節の確認メモを作る。
-2. 別のレビュー担当が仕様上の反例や見落としがないかを確認しる。
+2. 別のレビュー担当が仕様上の反例や見落としがないかを確認する。
 3. 採用された論点の行から`interpretation_issue`を外し、`source_note`に採用した解釈を追記する。
 4. 節に他の保留が残らなければ、`standard-sections.json`と`requirement-audit.json`の両方で`complete`にする。
 5. 保留を続ける論点には、[解釈・再検討記録](requirement-extraction-notes.md)に「決め手として欠けているもの」を書く。
@@ -186,7 +186,7 @@ python3 tools/behavior_coverage.py --write-baseline --update --require-source-re
 READMEの「Test format」「Metadata」「How a test is judged」「Tests with C code」「Where the expected outputs come from」「Contributing」に従います。要点は次のとおりです。
 
 - `tools/new_test.py chNN test_<内容> --lrm "節 ..."`で雛形を作ります。置き場所は、先頭の引用節の章のディレクトリです。対応付ける要求の節は、必ず`:lrm:`に含めます。
-- 期待出力がシミュレータごとに正当に異なる場合は、`:expected_stdout_icarus:`・`:expected_stdout_verilator:`・`:expected_stdout_kirimasim:`・`:expected_stdout_lyra:`を追加し、共通の`:expected_stdout:`は残します。シミュレータ別のフィールドが優先されます。追加してよいのは、差分が規格に由来する場合（規格がツールに委ねた表示形式、規格が定めない順序など）だけです。両方の出力を実際に記録し、どちらも規格と矛盾しないことを確かめ、差分の理由をテストのコメントと作業ノートに書きます。規格が順序を定めない出力は、期待値を固定せず変換対象から外します。参照する全期待値ファイルは入力指紋に含まれ、どれを変えても実行証跡は無効になります。
+- 期待出力の表示形式がシミュレータごとに異なる場合は、`:expected_stdout_icarus:`・`:expected_stdout_verilator:`・`:expected_stdout_kirimasim:`・`:expected_stdout_lyra:`を追加し、共通の`:expected_stdout:`は残します。シミュレータ別のフィールドが優先されます。追加してよいのは、`%p`の空白など、規格がツールに委ねた表示形式だけが異なり、両方の出力が規格に適合する場合です。両方の出力を実際に記録し、差分の理由をテストのコメントと作業ノートに書きます。規格が実行順序を定めない場合は、その順序をシミュレータ別の期待値として固定せず、順序に依存しない結果を観測します。参照する全期待値ファイルは入力ハッシュに含まれ、どれを変えても実行証跡は無効になります。
 - 1本で、密接に関連する1〜数個の要求を完全に検証します。誤実装なら出力が変わるよう、対照となるケースを入れます（真と偽、境界の両側、x/zを扱う要求ではxとzの両方）。出力は規格が決める値だけにし、実際の値を表示します。
 - 期待値を先に書き、`runsim`で確かめます。一致しなければ、まず自分の期待値を規格で確かめ直します。シミュレータ側の誤りなら、`docs/simulator-differences.md`とテストのコメントに書きます（未対応の構文は記録しない）。
 - `:oracle:`の付け方：
@@ -195,12 +195,12 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
   - どちらも一致しなければ`spec`だけにする。
   - kirimasimとLyraの結果は`:oracle:`に記録しない。これらは、期待値の裏付けを増やすための比較用です（nightlyで実行）。
   - `:fourstate:`と`` `timescale ``は実態に合わせる。
-- 規格違反テストのテストは、`kind: error`の要求にだけ使います。エラーは1つだけにし、`:expected_stderr_regex:`でファイルと行を示します。未対応構文のエラーを、規格違反の検出と取り違えないようにします。
+- 規格違反テストは、`kind: error`の要求にだけ使います。意図した違反を1つだけ含め、`:expected_stderr_regex:`で妥当な診断位置と必要な診断内容を指定します。複数の報告位置が妥当なら、それらを許容します。未対応構文のエラーを、規格違反の検出と取り違えないようにします。
 - コメント行を「Verilator」という語で始めないでください（BADVLTPRAGMAになる）。実行に数秒以上かかるテストや、巨大なメモリを使うテストは避けます。
 
 ### 7.2 VPI・DPIのテスト
 
-- CとC++の両方でコンパイルできるように書き、`extern "C"`で囲みます（VerilatorはC++としてコンパイルする）。
+- CとC++の両方でコンパイルできるように書きます。C++でコンパイルする場合だけ、`#ifdef __cplusplus`で囲んだ`extern "C" {`と対応する`}`を有効にします（VerilatorはC++としてコンパイルします）。
 - Verilatorは、`vpi_register_systf`で登録したシステムタスクを呼べません。Verilatorでも動かしたい出力は、`cbStartOfSimulation`などのコールバックか、`vlog_startup_routines`から出します。
 - 標準ヘッダだけをインクルードします（`vpi_user.h`、`sv_vpi_user.h`、`svdpi.h`、Cライブラリ）。
 - どちらのシミュレータでも動かない`:oracle: spec`のテストは、1800-2023版の標準ヘッダ（Verilator同梱の`vltstd`）に対して、CとC++の両方でコンパイルできることを確かめます。
@@ -253,7 +253,7 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
 | 同じ`$display`の中の評価順に依存する | 規格が順序を決めない観測をしない |
 | 規格違反テストの`:expected_stderr_regex:`が、違反の前後にある規格上正しい行を指す | 「`// illegal`」の行と照らし、正しい実装がその行で報告することを確かめる |
 | 規格違反テストに、意図した違反とは別の違反が重なる（例：automaticタスクの項目への階層参照） | 違反を1つにし、それを除いた設計にエラーがないことを確かめる |
-| ANSI形式で種類を省いた入力ポートで、ネットに使えない型（`input int`などの2状態型、仮想インターフェース）を使う | `input var int`のように`var`を付ける（23.2.2.3、6.7.1） |
+| ANSI形式で種類を省いた入力ポートで、ネットに使えない型（`input int`などの2値型、仮想インターフェース）を使う | `input var int`のように`var`を付ける（23.2.2.3、6.7.1） |
 | 違反の行に付けた説明のコメントが、それ自体で違反になる（`` `line ``と同じ行のコメントは22.12で禁止） | 指令の行にはコメントを置かない |
 | 強度やtri-stateを出力するのに`:fourstate: no`になっている | 強度の構文を使うテストは`:fourstate: yes`にする |
 | 未サイズの値の`$bits`、同時刻の事象の順序、VPIの反復順や要素名のように、規格が決めない値を出力する | 出力しないか、規格が決める形に変える |
@@ -284,7 +284,7 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
    統合した後でテストを直した場合は、次のようにします。
    - 直したテストを再実行し、`coverage/results/<名前>-refinement-<日付>-*.json`のように別名で保存します。
    - 台帳の`inputs_sha256`を新しい入力で計算し直します。
-   - 基準線との差になるので、`behavior_coverage.py --update --require-source-reviewed --write-baseline --reason '<理由>'`で理由を残します。
+   - ベースラインとの差分になるので、`behavior_coverage.py --update --require-source-reviewed --write-baseline --reason '<理由>'`で理由を残します。
    - `--history`は、作業の最後に1回だけ付けます。付けるたびに、履歴が1件増えます。
 
 6. 文書を更新します：結果報告（新規）、README、`coverage/README.md`の結果ファイル一覧、`docs/nightly-results.md`のmain集計、累積の指摘資料、`docs/simulator-differences.md`。
@@ -346,6 +346,6 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
 - 未対応要求の中には、既存テストで観測できても対応を未登録のものがあります。新規テストを書く前に刺激と期待結果を照合してください。
 - `:oracle: spec`だけのテストは、固定バージョンシミュレータでの期待結果の再現を登録していません。開発版や別ツールで一致する場合もあるため、「どのシミュレータでも動かない」とは限りません。期待値の規格照合はAIによるもので、人による確認は未実施です。
 - 比較用のLyra（2026-10-24追加）は、独立した裏付けとしては限られます。Lyraとkirimasimはフロントエンドにslangを共有しているので、構文解析や展開に関する両者の一致は、独立した裏付けになりません。同時に加えたnvcは、SystemVerilogへの対応が少なく（合格は6,009本中1,611本）、DPI・VPIのテストも実行できないため、2026-10-25に外しました。
-- 比較で見つかった、期待値が規格と食い違う疑いのあるテスト（Icarus・Verilator由来の期待値）は、除外の候補として[シミュレータと規格の差異](simulator-differences.md#expected-outputs-that-may-follow-both-releases-rather-than-the-standard)に記録しています。まだ除外していません。
+- 比較で見つかった`test_readmemh_address_range`の期待値は、規格に合わせて修正し、`:oracle:`を`spec`だけにしました。テストは保持しています。[修正内容と各ツールの結果](simulator-differences.md#a-test-whose-expected-output-followed-both-releases-rather-than-the-standard)を参照してください。
 - 照合キットのWorkflowスクリプトは、Claude CodeのWorkflowツールを前提にしています。ほかの環境では、指示文を同じ基準で使う必要があります。
 - 附属書ヘッダのテスト24本を作った生成スクリプトは、使い捨てとしてリポジトリに入れていません。コミット済みのテストと、7.3節の技法が基準です。
