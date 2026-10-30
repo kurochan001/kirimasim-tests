@@ -2,7 +2,7 @@
 
 The [nightly workflow](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml) of [kirimasim-tests](https://github.com/kurochan001/kirimasim-tests) writes this branch. Each night it runs every test of the suite's main branch with each simulator, adds the results to `history.json` and draws the charts below. Local runs can also be imported and are marked `local`. A test matches when its output and specified checks agree with the expected result, or an illegal design is rejected with the required diagnostic; see the suite's README for what each status means.
 
-Latest run: 2026-10-29 03:55 UTC, suite commit [`a594d65`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3), 7744 tests, [workflow run](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805499579).
+Latest run: 2026-10-30 01:43 UTC, suite commit [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537), 8779 tests, [workflow run](https://github.com/kurochan001/kirimasim-tests/actions/runs/40972765631).
 
 ## Latest results per simulator
 
@@ -10,58 +10,73 @@ Each row and chapter-table column uses that simulator's most recent recorded run
 
 | Simulator | Version | Run (UTC) | Suite | Source | Match | Differ | Known differences | Unsupported |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-749-gfd8759f6) | 2026-10-29 03:55 | [`a594d65`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3) | nightly | 4607 (61.6%) | 14 | 2855 | 0 |
-| Verilator | Verilator 5.053 devel rev v5.052-637-gad839901 | 2026-10-29 03:55 | [`a594d65`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3) | nightly | 4779 (63.9%) | 9 | 2688 | 0 |
-| kirimasim | kirimasim 0.0.0 (commit 938d60c833a6), built with GNU 13.3.0 | 2026-10-29 03:55 | [`a594d65`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3) | nightly | 5076 (67.9%) | 136 | 2 | 2262 |
-| Lyra | Lyra (commit ed9515d8eec1) | 2026-10-29 03:55 | [`a594d65`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3) | nightly | 5501 (73.6%) | 488 | 0 | 1487 |
-| Ghost | private build 5c1261cba4df | 2026-10-29 03:55 | [`a594d65`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3) | nightly | 6095 (78.7%) | 1649 | 0 | 0 |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-776-g69914455) | 2026-10-30 01:43 | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | nightly | 5502 (64.6%) | 16 | 2993 | 0 |
+| Verilator | Verilator 5.053 devel rev v5.052-645-g453b02a3 | 2026-10-30 01:43 | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | nightly | 5151 (60.5%) | 9 | 3351 | 0 |
+| kirimasim | kirimasim 0.0.0 (commit 51cda3143aed), built with GNU 13.3.0 | 2026-10-30 01:43 | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | nightly | 6108 (71.8%) | 133 | 2 | 2268 |
+| Lyra | Lyra (commit 8eff7abdc335) | 2026-10-30 01:43 | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | nightly | 6537 (76.8%) | 487 | 0 | 1487 |
+| Ghost | private build 2d76b598f1c1 | 2026-10-30 01:43 | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | nightly | 7159 (81.5%) | 1620 | 0 | 0 |
 
 Ghost is an unidentified simulator taking part before its public debut. For now, only its test results step out from behind the curtain. Its name, source and build logs remain private; build IDs are executable hashes.
 
-![Tests that match their expected results](charts/overview.svg?v=20261029T035511)
+![Tests that match their expected results](charts/overview.svg?v=20261030T014358)
 
-![Share of the tests that match](charts/rate.svg?v=20261029T035511)
+![Share of the tests that match](charts/rate.svg?v=20261030T014358)
 
 ## Changes in the latest run
 
 Tests that match now but did not in the previous run of the same simulator, and tests that matched then but do not now. Tests added to the suite are counted in the table above.
 
+### Icarus Verilog
+
+Newly match (10): `ch28/test_mos_switch_truth_tables`, `ch28/test_notif_gate_truth_table_all_inputs`, `ch28/test_rcmos_reduction`, `ch28/test_rcmos_switch_rnmos_rpmos_equivalence`, `ch28/test_syntax_resistive_mos_switches`, `ch29/test_udp_ansi_header`, `ch29/test_udp_combinational`, `ch29/test_udp_combinational_2`, `ch29/test_udp_header_forms_and_input_field_order`, `ch9/test_syntax_structured_procedure_forms`
+
+No longer match (3):
+
+- `ch23/test_defparam_block_task_function_parameters`: differ — output differs: line 1 is missing, expected 'u_def BP=3 TP=12 FP=6'
+- `ch27/test_generate_instances_param`: differ — output differs: line 1 is missing, expected 'Inst array tests: 4/4 passed'
+- `ch6/test_continuous_assign_to_variable_converts_and_drops_strength`: known difference — output differs: line 3 is 'strength after variable: assign=St1 gate=We1 port=We1', expected 'strength after variable: assign=St1 gate=St1 port=St1'
+
 ### kirimasim
 
-Newly match (6): `ch14/test_clocking_blk_edge_cases`, `ch14/test_clocking_block_per_instance_local_scope`, `ch14/test_clocking_input`, `ch14/test_clocking_input_sample_holds`, `ch14/test_clocking_input_with_expression`, `ch4/test_one_step_sample_before_time_slot`
+Newly match (3): `ch11/test_expr_conditional_ambiguous`, `ch20/test_illegal_bits_function_dynamic_return`, `ch7/test_queue_invalid_index_write_ignored_warning`
 
 ### Lyra
 
-Newly match (9): `ch13/test_default_argument_declaring_scope`, `ch20/test_illegal_random_seed_real`, `ch21/test_fst_dump_control_keeps_header`, `ch21/test_fst_header_and_dumpfile`, `ch21/test_vcd_dumpflush_resume`, `ch21/test_vcd_vector_extension_and_event`, `ch8/test_illegal_constraint_mode_via_interface_handle`, `ch8/test_illegal_rand_mode_via_interface_handle`, `ch8/test_syntax_class_item_kinds`
+Newly match (4): `ch21/test_vcd_checkpoint_and_dump_control_protocol`, `ch21/test_vcd_dump_readback`, `ch21/test_vcd_dumpvars_no_arguments`, `ch21/test_vcd_type_mappings`
 
-No longer match (6):
+No longer match (1):
 
-- `ch11/test_real_shortreal_operands_of_arithmetic_logical_relational`: differ — compile failed: error: compiling 'test_real_shortreal_operands_of_arithmetic_logical_relational.cpp' failed
-- `ch23/test_port_default_value_module_scope`: differ — error: internal error: UnitSignatures::ValuesOf: specialization '$unit__19fdd4645b9cedf5' published no values; every specialization of the design publishes (in unit 'port_default_value_module_scope_m__1a6a158f1396acd5')
-- `ch26/test_package_explicit_import_only_named`: differ — error: internal error: UnitSignatures::ValuesOf: specialization '$unit__9bf2e7bfd44bc6ae' published no values; every specialization of the design publishes (in unit 'test_package_explicit_import_only_named')
-- `ch26/test_package_export_wildcard_forms`: differ — error: internal error: UnitSignatures::ValuesOf: specialization '$unit__4fa0aa5bb0f60587' published no values; every specialization of the design publishes (in unit 'xw_use_all')
-- `ch5/test_unsized_fill_wide_part_select_nba`: differ — error: internal error: UnitSignatures::ValuesOf: specialization '$unit__d52bd269ba466722' published no values; every specialization of the design publishes (in unit 'test_unsized_fill_wide_part_select_nba__7fe2ee550b530867')
-- `ch6/test_class_cast_compatibility_dynamic`: differ — compile failed: error: compiling 'test_class_cast_compatibility_dynamic.cpp' failed
+- `ch15/test_ipc_classes_extended_shadowed_and_created`: differ — error: internal error: mir_transform: a temporary was made outside the evaluation it belongs to (in unit 'test_ipc_classes_extended_shadowed_and_created')
 
 ### Ghost
 
-Newly match (12): `ch21/test_evcd_port_node_declarations`, `ch37/test_vpi_case_items_patterns`, `ch37/test_vpi_cast_pattern_constants`, `ch37/test_vpi_cont_assign_bits_delays`, `ch37/test_vpi_cont_assign_module_delays`, `ch37/test_vpi_delay_expressions`, `ch37/test_vpi_delay_source_and_effective`, `ch37/test_vpi_dpi_import_access_props`, `ch37/test_vpi_module_port_io_decl_relations`, `ch37/test_vpi_part_select_parts`, `ch37/test_vpi_relationships_and_tags`, `ch37/test_vpi_unbounded_const_ranges`
+Newly match (145): `ch12/test_pattern_if_clause_order_scope_and_filter`, `ch13/test_ref_and_inout_object_handle_replacement`, `ch16/test_concurrent_assertion_places_and_kinds`, `ch18/test_randcase_selection`, `ch20/test_array_query_dimension_counts`, `ch20/test_array_query_functions`, `ch21/test_evcd_inout_unknown_and_three_state`, `ch21/test_fopen_name_and_type_forms`, `ch21/test_illegal_dumpports_string_scope`, `ch21/test_vcd_scope_commands_begin_fork_task`, `ch21/test_vcd_unpacked_struct_and_undumped`, `ch28/test_ambiguous_strengths`, `ch28/test_bufif_gate_truth_table_all_inputs`, `ch28/test_large_charge_strength_level_in_ranges`, `ch28/test_notif_gate_truth_table_all_inputs`, `ch28/test_three_state_gate_unknown_output_delay`, `ch3/test_same_names_in_module_interface_program_checker_scopes`, `ch3/test_task_argument_directions_and_blocking`, `ch35/test_dpi_export_task_time`, `ch35/test_dpi_import_task_consumes_time`, `ch35/test_dpi_import_task_reentrant`, `ch35/test_dpi_packed_tagged_union_tag_bits`, `ch36/test_vpi_routines_path_delays`, `ch36/test_vpi_systf_task_function_places`, `ch37/test_37_extra_automatic_callback`, `ch37/test_37_extra_name_lookup`, `ch37/test_vpi_assertion_objects`, `ch37/test_vpi_atomic_statement_labels`, `ch37/test_vpi_attribute_parents`, `ch37/test_vpi_clocking_decl_relations`, `ch37/test_vpi_clocking_edges_prefix`, `ch37/test_vpi_frames_threads_alloc`, `ch37/test_vpi_gen_scope_array_relations`, `ch37/test_vpi_gen_scope_data_items`, `ch37/test_vpi_gen_scope_instance_items`, `ch37/test_vpi_generate_scope_contents`, `ch37/test_vpi_generate_scopes`, `ch37/test_vpi_handle_release_independence`, `ch37/test_vpi_import_referenced_items`, `ch37/test_vpi_instance_array_kinds`, `ch37/test_vpi_instance_array_relations`, `ch37/test_vpi_instance_assertion_members`, `ch37/test_vpi_instance_directive_properties`, `ch37/test_vpi_instance_enclosure_names`, `ch37/test_vpi_instance_item_relations`, `ch37/test_vpi_interconnect_array_ranges`, `ch37/test_vpi_interconnect_elements`, `ch37/test_vpi_interface_modport_links`, `ch37/test_vpi_interface_relations`, `ch37/test_vpi_interface_tf_decl_relations`, `ch37/test_vpi_iterators_time_queue_events`, `ch37/test_vpi_let_decl_body`, `ch37/test_vpi_let_expr_arguments`, `ch37/test_vpi_lifetime_properties`, `ch37/test_vpi_mailbox_semaphore_waiters`, `ch37/test_vpi_mod_path_relations_delays`, `ch37/test_vpi_module_defparam_alias_clocking_relations`, `ch37/test_vpi_module_instance_relations`, `ch37/test_vpi_module_specify_relations`, `ch37/test_vpi_net_driver_objects`, `ch37/test_vpi_net_local_active_connectivity`, `ch37/test_vpi_net_members_elements_parents`, `ch37/test_vpi_net_terminals_module_typespec`, `ch37/test_vpi_net_variable_bit_select_drivers`, `ch37/test_vpi_null_reference_relations`, `ch37/test_vpi_null_stmt_wait_fork`, `ch37/test_vpi_object_access_basics`, `ch37/test_vpi_param_assign_defparam`, `ch37/test_vpi_parameter_defaults_types`, `ch37/test_vpi_path_terms_tchk_args`, `ch37/test_vpi_port_kinds_connections`, `ch37/test_vpi_prefix_has_actual`, `ch37/test_vpi_prefix_kinds_actual`, `ch37/test_vpi_program_relations`, `ch37/test_vpi_property_decl_formals_args`, `ch37/test_vpi_property_instance_links`, `ch37/test_vpi_property_operator_kinds`, `ch37/test_vpi_property_sequence_operators`, `ch37/test_vpi_ref_obj_kinds_relations`, `ch37/test_vpi_scope_item_back_relations`, `ch37/test_vpi_scope_lifetimes`, `ch37/test_vpi_select_objects_event_arrays`, `ch37/test_vpi_sequence_decl_operands`, `ch37/test_vpi_struct_union_net_flags`, `ch37/test_vpi_subroutine_body_stmt`, `ch37/test_vpi_tagged_relation_access`, `ch37/test_vpi_task_function_properties`, `ch37/test_vpi_typespec_elem_unwind`, `ch37/test_vpi_typespec_kinds_more`, `ch37/test_vpi_typespec_relations`, `ch37/test_vpi_variable_parent_prefixes`, `ch37/test_vpi_variable_port_relations`, `ch37/test_vpi_variable_scope_relations`, `ch37/test_vpi_virtual_interface_init_parent`, `ch37/test_vpi_virtual_interface_var_iteration`, `ch38/test_vpi_assign_force_disable_callbacks`, `ch38/test_vpi_callback_memory_index`, `ch38/test_vpi_callback_registration_errors`, `ch38/test_vpi_path_delay_counts`, `ch38/test_vpi_put_value_delay_modes_queue` and 45 more
+
+No longer match (7):
+
+- `ch16/test_property_declaration_and_argument_forms`: differ — crashed (signal 11)
+- `ch16/test_sequence_default_actuals_and_name_scopes`: differ — crashed (signal 11)
+- `ch16/test_sequence_formal_reference_forms_and_types`: differ — crashed (signal 11)
+- `ch23/test_type_parameter_override_dependent_value`: differ — output differs (exit 139)
+- `ch36/test_vpi_systf_in_generate`: differ — output differs
+- `ch37/test_vpi_case_items_patterns`: differ — output differs
+- `ch37/test_vpi_loop_branch_children`: differ — output differs
 
 ## By chapter
 
-![Matching tests by chapter](charts/chapters.svg?v=20261029T035511)
+![Matching tests by chapter](charts/chapters.svg?v=20261030T014358)
 
 ## Each simulator over time
 
-![Icarus Verilog: results by status](charts/status-icarus.svg?v=20261029T035511)
+![Icarus Verilog: results by status](charts/status-icarus.svg?v=20261030T014358)
 
-![Verilator: results by status](charts/status-verilator.svg?v=20261029T035511)
+![Verilator: results by status](charts/status-verilator.svg?v=20261030T014358)
 
-![kirimasim: results by status](charts/status-kirimasim.svg?v=20261029T035511)
+![kirimasim: results by status](charts/status-kirimasim.svg?v=20261030T014358)
 
-![Lyra: results by status](charts/status-lyra.svg?v=20261029T035511)
+![Lyra: results by status](charts/status-lyra.svg?v=20261030T014358)
 
-![Ghost: results by status](charts/status-ghost.svg?v=20261029T035511)
+![Ghost: results by status](charts/status-ghost.svg?v=20261030T014358)
 
 ## Recent runs
 
@@ -69,6 +84,7 @@ Matching tests of each simulator, with the change since its previous run. The ve
 
 | Run (UTC) | Suite | Tests | Icarus Verilog | Verilator | kirimasim | Lyra | Ghost |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [2026-10-30 01:43](https://github.com/kurochan001/kirimasim-tests/actions/runs/40972765631) | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | 8779 | 5502 (+898 −3) `14.0 devel 6991445` | 5151 (+372 −0) `5.053 devel 453b02a` | 6108 (+1032 −0) `51cda3143` | 6537 (+1037 −1) `8eff7abdc` | 7159 (+1071 −7) `private build 2d76b598f1c1` |
 | [2026-10-29 03:55](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805499579) | [`a594d65`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3) | 7744 | 4607 | 4779 `5.053 devel ad83990` | 5076 (+6 −0) `938d60c83` | 5501 (+9 −6) `ed9515d8e` | 6095 (+12 −0) `private build 5c1261cba4df` |
 | [2026-10-29 00:48](https://github.com/kurochan001/kirimasim-tests/actions/runs/40786512421) | [`248cca8`](https://github.com/kurochan001/kirimasim-tests/commit/248cca894a2607eb6eae0bda3303dc1c7cb130a9) | 7744 | 4607 (+5 −1) `14.0 devel fd8759f` | 4779 (+3 −1) `5.053 devel 375685d` | 5070 (+17 −0) `df25891fa` | 5498 (+19 −0) | 6083 (+143 −3) `private build af267bf4f8b1` |
 | [2026-10-28 09:54](https://github.com/kurochan001/kirimasim-tests/actions/runs/40657143465) | [`b83d0ff`](https://github.com/kurochan001/kirimasim-tests/commit/b83d0ffd666f533b0ce1c77f6cb5377fbbe0b511) | 7740 | 4603 (+4 −0) | 4777 (+14 −0) `5.053 devel 9440ae8` | 5053 (+8 −0) `a24202947` | 5479 (+5 −0) | 5943 (+9 −1) `private build 07c6cb0ee0df` |
