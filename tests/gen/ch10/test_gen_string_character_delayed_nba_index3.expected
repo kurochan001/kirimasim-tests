@@ -1,0 +1,4 @@
+scheduled t=0 text=wyCD len=4 index=0 source=0
+before t=1 text=wyCD
+active t=2 text=wyCD
+after t=3 text=wyCZ len=4

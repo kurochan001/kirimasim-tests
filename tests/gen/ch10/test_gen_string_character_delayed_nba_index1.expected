@@ -1,0 +1,4 @@
+scheduled t=0 text=wBCz len=4 index=3 source=0
+before t=1 text=wBCz
+active t=2 text=wBCz
+after t=3 text=wQCz len=4

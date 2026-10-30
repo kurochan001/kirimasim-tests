@@ -30,6 +30,7 @@ import interaction_concat
 import interaction_logic
 import interaction_shortcircuit
 import interaction_edge
+import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
@@ -41,7 +42,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_index, interaction_queue,
               interaction_divide, interaction_resize,
               interaction_concat, interaction_logic,
-              interaction_shortcircuit, interaction_edge)
+              interaction_shortcircuit, interaction_edge, combination_monitors)
 
 
 @dataclass
@@ -229,5 +230,12 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_edge.MODEL.select(),
             "両背景で初期イベントを除外し、更新直後の値と次時刻の3カウンタを観測して、"
             "X/Z遷移、式の変化、ベクタのLSB規則、状態変換、NBAの更新時点を確認する。",
+        ),
+        SuiteModel(
+            combination_monitors.MODEL,
+            lambda row: "tests/gen/ch21/" + combination_monitors.case_name(row) + ".sv",
+            combination_monitors.MODEL.select(),
+            "9種類の登録場所と2種類のコンテナ・記述子を組み合わせ、ファイルを読み戻して、"
+            "Postponedの最終値、非選択要素、選択・置換、monitoroff、閉鎖後の出力抑止を確認する。",
         ),
     )

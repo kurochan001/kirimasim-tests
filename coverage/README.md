@@ -13,6 +13,14 @@ IEEE 1800-2023 の本文1–41章と附属書A–Q、1,740見出しを調査台�
 最新の対応追加と残件は[カバレッジギャップ調査](../docs/coverage-gap-recommendations-20261029.md)、
 章別の照合状況は[照合一覧](../docs/test-requirement-matching.md)を参照してください。
 
+Issue #21の組合せ境界は[回帰取り込みレポート](../docs/p1-combination-regressions-20261030.md)と
+`combination-gaps.json`で管理します。候補ID、既存・新規テスト、規格根拠、観測点、
+入力指紋を対応付け、`combination-results/`に実行ごとの結果を保存します。
+`combination-qualification/`はビルド版と検査器の故障注入の証跡です。
+この台帳への登録は、要求対応の承認や要求カバレッジへの加算ではありません。
+`python3 tools/combination_gaps.py --check`は台帳と生成レポートの整合性を検査し、
+未対応・不一致を合格へ読み替えません。
+
 ## mainの集計とNightlyの集計
 
 `main`の`docs/behavior-coverage-summary.md`は、`coverage/results/`に保存した証跡を使います。

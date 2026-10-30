@@ -1,0 +1,9 @@
+copy0 first=1 second=0 calls=1 chosen_first=1
+wake0 at=2 completed=1
+clear0 null=1 originals_distinct=1
+copy1 first=0 second=1 calls=2 chosen_first=0
+wake1 at=4 completed=2
+clear1 null=1 originals_distinct=1
+copy2 first=1 second=0 calls=3 chosen_first=1
+wake2 at=6 completed=3
+clear2 null=1 originals_distinct=1

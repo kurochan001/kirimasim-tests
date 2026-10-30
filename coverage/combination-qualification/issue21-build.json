@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "upstream_repository": "https://github.com/kurochan001/kirimasim",
+  "upstream_main_at_start": "1ca363e2c922a1a8f1f6823bb2f3189cb7b9aaa4",
+  "checkout_commit": "1ca363e2c922a1a8f1f6823bb2f3189cb7b9aaa4",
+  "checked_at": "2026-10-30T00:41:04.293879+00:00",
+  "version": "kirimasim 0.0.0 (commit 1ca363e2c922), built with AppleClang 21.0.0.21000334",
+  "binary_sha256_before": "4b7b252de1ba38d53506c3f63d08c4039fafa259fd8b6d7de4d3d45bde490c20",
+  "binary_sha256_after": "4b7b252de1ba38d53506c3f63d08c4039fafa259fd8b6d7de4d3d45bde490c20",
+  "commands": [
+    "git fetch origin",
+    "git checkout --detach origin/main",
+    "cmake -S . -B build/release",
+    "cmake --build build/release --target kirimasim -j 8"
+  ],
+  "note": "Build is from the latest upstream main observed before these two runs. Later upstream changes require a new build/run."
+}

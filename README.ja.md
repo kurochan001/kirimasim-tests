@@ -43,37 +43,37 @@ Icarus Verilog、Verilator、kirimasim、
 ## 収録内容
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**8935本のテスト**があります。 うち2499本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`interaction_array`が36本、`interaction_case`が36本、`interaction_cast`が32本、`interaction_compare`が100本、`interaction_concat`が72本、`interaction_cond`が32本、`interaction_divide`が72本、`interaction_edge`が64本、`interaction_expr`が51本、`interaction_index`が44本、`interaction_logic`が70本、`interaction_method`が72本、`interaction_nba`が36本、`interaction_port`が36本、`interaction_query`が60本、`interaction_queue`が48本、`interaction_resize`が38本、`interaction_select`が36本、`interaction_shift`が56本、`interaction_shortcircuit`が92本、`interaction_stream`が36本、`interaction_struct`が36本、`interaction_task`が36本、`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
+スイートには38章にわたり**9009本のテスト**があります。 うち2573本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`combination_aggregates`が18本、`combination_events`が9本、`combination_io`が13本、`combination_monitors`が18本、`combination_nba`が16本、`interaction_array`が36本、`interaction_case`が36本、`interaction_cast`が32本、`interaction_compare`が100本、`interaction_concat`が72本、`interaction_cond`が32本、`interaction_divide`が72本、`interaction_edge`が64本、`interaction_expr`が51本、`interaction_index`が44本、`interaction_logic`が70本、`interaction_method`が72本、`interaction_nba`が36本、`interaction_port`が36本、`interaction_query`が60本、`interaction_queue`が48本、`interaction_resize`が38本、`interaction_select`が36本、`interaction_shift`が56本、`interaction_shortcircuit`が92本、`interaction_stream`が36本、`interaction_struct`が36本、`interaction_task`が36本、`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
-| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 5133 |
-| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1564 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2238 |
+| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 5137 |
+| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1585 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2287 |
 
-1682本はx/z値に依存します（`:fourstate: yes`）。618本にはCコードがあり、内訳はDPIが123本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1932本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。35本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定21本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+1690本はx/z値に依存します（`:fourstate: yes`）。618本にはCコードがあり、内訳はDPIが123本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1932本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。35本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定39本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | 設計と検証の構成要素 | 88 | 66 | 12 | 10 |
 | 4 | スケジューリングの意味論 | 412 | 391 | 5 | 16 |
 | 5 | 字句規則 | 346 | 325 | 14 | 7 |
-| 6 | データ型 | 641 | 396 | 142 | 103 |
+| 6 | データ型 | 645 | 396 | 144 | 105 |
 | 7 | 集合データ型 | 712 | 291 | 262 | 159 |
 | 8 | クラス | 321 | 67 | 182 | 72 |
-| 9 | プロセス | 274 | 215 | 32 | 27 |
-| 10 | 代入文 | 240 | 169 | 43 | 28 |
-| 11 | 演算子と式 | 1498 | 1229 | 115 | 154 |
+| 9 | プロセス | 284 | 217 | 38 | 29 |
+| 10 | 代入文 | 254 | 169 | 45 | 40 |
+| 11 | 演算子と式 | 1511 | 1229 | 119 | 163 |
 | 12 | 手続き型プログラミング文 | 217 | 169 | 29 | 19 |
-| 13 | タスクと関数（サブルーチン） | 237 | 137 | 82 | 18 |
+| 13 | タスクと関数（サブルーチン） | 244 | 137 | 89 | 18 |
 | 14 | クロッキングブロック | 78 | 4 | 61 | 13 |
-| 15 | プロセス間の同期と通信 | 56 | 2 | 36 | 18 |
+| 15 | プロセス間の同期と通信 | 59 | 2 | 36 | 21 |
 | 16 | アサーション | 661 | 104 | 75 | 482 |
 | 17 | チェッカー | 81 |  | 22 | 59 |
 | 18 | 制約付き乱数値の生成 | 200 | 26 | 95 | 79 |
 | 19 | 機能カバレッジ | 157 | 2 | 29 | 126 |
 | 20 | ユーティリティ用システムタスク・関数 | 330 | 239 | 26 | 65 |
-| 21 | 入出力用システムタスク・関数 | 213 | 143 | 15 | 55 |
+| 21 | 入出力用システムタスク・関数 | 236 | 145 | 15 | 76 |
 | 22 | コンパイラ指令 | 358 | 335 | 13 | 10 |
 | 23 | モジュールと階層 | 292 | 177 | 45 | 70 |
 | 24 | プログラム | 43 | 21 | 5 | 17 |
@@ -149,18 +149,30 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 すべて合格する必要があります。別々の実行の部分的な成功を合わせて要求の成功にはしません。
 
 [機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
-指定した3因子群と必須の境界ケースを併用します。短時間実行用の1,242件は、
+指定した3因子群と必須の境界ケースを併用します。短時間実行用の1,260件は、
 スケジューリング、NBA、演算コンテキスト、パック配列の部分選択、条件演算、シフト、
 キャスト、タスク引数、パック構造体、case、ポート接続、アンパック配列のコピー、
 ビットベクタの集計・判定関数、ストリーミング演算、比較演算、配列リダクション、
 可変ビット選択、キュー操作と容量制限、除算・剰余のコンテキスト、動的配列の
 サイズ変更、連結した左辺への代入、パックベクタの論理・リダクション演算、
-短絡評価と副作用、イベント式のエッジ判定の24モデルを対象にします。
-直近の2モデルは、制約を満たす6,184通りから156件を選びます。
+短絡評価と副作用、イベント式のエッジ判定、キュー・動的配列のファイル監視と登録元の
+記述位置の25モデルを対象にします。ファイル監視のモデルは36通りから18件を選び、
+全因子対40組と必須ケース3件を保持します。短絡評価とエッジ判定の2モデルは、
+制約を満たす6,184通りから156件を選びます。
 通常の全件実行では既存テストをすべて保持します。[クロス検証レポート](docs/interaction-coverage.md)は
 計画上の網羅と、入力ハッシュが一致した実行の合格を分けて集計します。規格要求の分母は変更しません。
 設計思想、モデルの選び方、追加・再実行手順、他プロジェクトやLSIへの適用方法は、
 [機能間クロス検証の考え方と実践手順](docs/interaction-verification-method.md)にまとめています。
+
+[Issue #21の回帰取り込みレポート](docs/p1-combination-regressions-20261030.md)と
+[確認済みの照合台帳](coverage/combination-gaps.json)には、既存テストの再利用と、
+新規74件（イベント9件、NBA16件、複合型18件、I/O13件、ファイル監視18件）を記載しています。
+このうち有限のクロスモデルへ登録するのはファイル監視の18件です。残る56件は機構の境界条件を
+確認する回帰テストとして扱い、t-wayの達成率へ混ぜません。規格解釈の保留、
+別のネイティブAPI試験で確認する範囲、保存した実行ごとの結果もレポートから確認できます。
+`python3 tools/combination_gaps.py --check`で台帳とレポートの整合性を、
+`python3 tools/combination_gaps.py --list-tests`で再利用分を含む回帰対象の全パスを確認します。
+この整合性検査は、シミュレータの全件合格を要求するものではありません。
 
 [規格PDFからテストに至る方法](docs/requirements-to-tests-method.md)は、要求の抽出、
 既存テストとの照合と追加テストの作成、独立したレビュー、統合と測定までを順に説明します。
@@ -374,6 +386,8 @@ docs/coverage-depth.md          条項ごとの本数と優先して補う不足
 docs/behavior-coverage-summary.md 章別・シミュレータ別の要求カバレッジの集計
 docs/interaction-verification.md 機能間クロスのモデル・短時間実行・証跡の扱い
 docs/interaction-coverage.md     登録したクロスモデルの計画と実行確認
+docs/p1-combination-regressions-20261030.md Issue #21の境界条件と実行証跡
+coverage/combination-gaps.json   Issue #21の候補と回帰テストの確認済み対応
 docs/requirements-to-tests-method.md 規格PDFから要求・テスト・網羅率に至る方法
 coverage/behavior-summary.json  現在の要求カバレッジの集計結果と分母の識別情報
 coverage/behavior-history.json  分母の識別情報を含む測定履歴
@@ -390,6 +404,7 @@ tools/suite_stats.py            テスト集計と両言語のREADMEの表の更
 tools/suite_catalog.py          docs/tests/のカタログ生成
 tools/coverage_depth.py         docs/coverage-depth.mdの生成
 tools/interaction_coverage.py   クロス検証の実行対象選択と充足の集計
+tools/combination_gaps.py       Issue #21の回帰対象一覧と台帳・レポートの整合性検査
 tools/clauses.txt               docs/tests/clauses.md用の条項番号
 tools/lint_metadata.py          メタデータとテストの形式の検査
 tools/lint_baseline.txt         既存テストの既知の問題
@@ -598,6 +613,11 @@ oracleメタデータやシミュレータ実行確認率は変更しません�
 | `interaction_logic` | 11 | 幅、入力と結果の状態型、式の形、値と位置をクロス。70件それぞれで6種のリダクションと論理否定を実行し、支配値、状態変換の順序、unsignedの1ビット結果の拡張を確認 |
 | `interaction_shortcircuit` | 11 | 左右の幅・状態型・真偽値の分類、結果の状態型をクロス。92件それぞれで4種の二項論理演算を実行し、呼出し回数、独立した副作用、X/Zの真偽変換、状態変換の順序を確認 |
 | `interaction_edge` | 9 | 幅・状態型、イベント式、変更位置、遷移前後の値、ブロッキング/NBAをクロス。64件それぞれで背景0/1を使い、初期設定が収束した後の3種のイベント回数を確認 |
+| `combination_events` | 6, 9, 15 | 境界条件9件。自動変数のeventの寿命、戻り値・条件式で選択したevent、計算したイベント制御、`iff`、遅延トリガ、名前付きforkの終了処理を確認 |
+| `combination_nba` | 10, 13 | 境界条件16件。`ref static`経由の遅延・イベント制御付きNBA、値と添字の確定、文字列の文字要素、配列スライスのコピーアウトを確認 |
+| `combination_aggregates` | 6, 11, 13 | 境界条件18件。アンパック構造体の参照渡しと寿命、配列のinputコピー、ネストしたパック選択、文字列やネストした代入先へのストリーミングを確認 |
+| `combination_io` | 9, 10, 21 | 境界条件13件。`$fread`の格納先とバイト順、キュー・動的配列の暗黙感度、SV内で読み戻したVCDの内容を確認 |
+| `combination_monitors` | 21 | `heap_file_monitor_context@1`の18件。登録元の記述位置×キュー/動的配列×MCD/FDをクロスし、ファイルの読み戻しでPostponedの最終値、選択添字、サイズ、コンテナ置換、`$monitoroff`との非干渉、close後の出力停止を確認 |
 | `width_sign` | 11 | 63〜1000ビットの符号付き・符号なしのオペランドと代入先。11.6〜11.8が結果の幅と符号を決める演算子 |
 | `xz_propagation` | 11 | 11.4でx/zの規則が定まる各演算子について、x/zを含むオペランド |
 | `strength` | 28 | 異なる強度と値を持つ二つのドライバ。wire・tri・wand・triand・wor・trior・tri0・tri1とbufifゲートを通し、`%v`で表示 |

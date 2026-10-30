@@ -1,0 +1,6 @@
+created=1 distinct=1
+before=0,0
+first=1,0 result=10,0
+second=1,1 result=10,11
+released=1,1 new=1
+final=1,1,1 result=10,11,12 null=1

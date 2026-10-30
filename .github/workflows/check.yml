@@ -199,6 +199,9 @@ jobs:
       - name: Check interaction models and execution evidence
         run: python3 tools/interaction_coverage.py --check
 
+      - name: Check combination gap bindings and execution evidence
+        run: python3 tools/combination_gaps.py --check
+
       - name: Check the coverage depth report
         run: |
           python3 tools/coverage_depth.py --check --minimum-tests 2 || {

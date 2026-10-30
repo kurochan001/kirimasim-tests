@@ -7,6 +7,9 @@
 
 設計思想、選択アルゴリズム、モデルの追加手順、他プロジェクトやLSIへの適用方法は、
 [考え方と実践手順](interaction-verification-method.md)を参照してください。
+Issue #21で追加した境界条件の回帰テストと、保留した解釈・別APIの範囲は
+[回帰取り込みレポート](p1-combination-regressions-20261030.md)と
+[照合台帳](../coverage/combination-gaps.json)にまとめています。
 
 ## 導入済みのモデル
 
@@ -479,10 +482,34 @@ X↔Zでは`posedge`も`negedge`も発生せず、エッジ指定のないイベ
 1ビットの0→Z、背景1によるOR式の変化抑制を必須ケースにします。
 イベントOR、iff、同一時間ステップ内の複数更新、グリッチ、複数クロックは対象外です。
 
+### キュー・動的配列のファイル監視と登録元の記述位置
+
+`heap_file_monitor_context@1`は、`$fmonitor`を登録する場所9種類
+（initial・task・void function・fork・generate・interface・program・package・always）、
+キュー/動的配列、MCD/FDをクロスします。合法な36通りから18件を選び、
+全因子対40組を網羅します。program×動的配列×MCD、package×キュー×FD、
+function×キュー×MCDの3件は必須ケースとして保持します。
+
+監視対象のコンテナと選択添字は静的寿命の変数です。登録する場所と監視対象の寿命を
+混同しないようにし、programには別の存続プロセスを置きます。
+登録完了を待ってから値を変え、同一時刻内の複数更新、非選択要素だけの更新、
+選択添字の変更、コンテナの置換、サイズ変更を順に与えます。
+21.2.3・21.3.2・4.4.2.9に基づき、Postponed領域での最終値とサイズを、
+SV内でファイルを読み戻して確認します。`$monitoroff`の後もファイル監視が続くことと、
+21.3.1に従ってclose後は出力されないことも観測します。
+close後に別ファイルを開いて内容を確認しますが、同じ番号の記述子が再利用されることは要求しません。
+
+この選択は登録元9種類×コンテナ2種類×記述子2種類の有限モデルに対するものです。
+全36個の3因子組合せ、任意の構文のネスト、自動変数のコンテナ、class内の登録は保証しません。
+出力の停止だけで、内部GCルートの除去や実メモリの解放を確認したとは扱いません。
+ネイティブcallback実行中の登録・再確保は別APIの試験範囲として未確認です。
+Postponed領域の制約があるため、副作用付きSV関数をそのまま代用できるとは判断せず、
+任意の入れ子登録を違法とも断定しません。
+
 ## 短時間実行と合否の確認
 
-24モデルを合わせた短時間実行の対象は1,242件です。直近の短絡評価とイベント制御の
-2モデルは、制約を満たす6,184通りから選んだ156件です。
+25モデルを合わせた短時間実行の対象は1,260件です。ファイル監視の18件が加わりました。
+短絡評価とイベント制御の2モデルは、制約を満たす6,184通りから選んだ156件です。
 次の例は選択したパスを引数として
 既存ランナーへ渡します。シミュレータは事前に用意したものを指定してください。
 
@@ -505,6 +532,7 @@ python3 tools/interaction_coverage.py --list-tests --model concatenated_assignme
 python3 tools/interaction_coverage.py --list-tests --model packed_logical_reduction
 python3 tools/interaction_coverage.py --list-tests --model logical_short_circuit
 python3 tools/interaction_coverage.py --list-tests --model edge_event_expression
+python3 tools/interaction_coverage.py --list-tests --model heap_file_monitor_context
 ```
 
 ```python
@@ -569,6 +597,33 @@ Checkは生成結果、選択計画、保存済み実行証跡からの集計、
 固定リリースによる確認と、開発版の最新コミットによるNightly測定を区別します。
 Nightlyはその回のシミュレータ別JSONから`results`ブランチの
 `interaction-coverage.md`と`interaction-coverage.json`を生成します。
+
+### Issue #21の境界条件の回帰テスト
+
+Issue #21では、イベント9件、NBA16件、複合型18件、I/O13件、ファイル監視18件の
+計74件を追加しました。このうち18件だけが`heap_file_monitor_context@1`の選択ケースです。
+残る56件は機構の境界条件を確認する回帰テストであり、因子と全対象を定義した
+クロスモデルのt-way達成率には含めません。既存テストも再利用し、候補ごとの
+主観測・対照・規格根拠・入力指紋を[照合台帳](../coverage/combination-gaps.json)で管理します。
+
+[回帰取り込みレポート](p1-combination-regressions-20261030.md)に、保留した規格解釈、
+別APIで確認する範囲、現在の入力に対応する実行結果を記載しています。
+登録や規格確認の完了と、実装の合格は分けて確認してください。
+次の一覧には、有限モデルの18件に加えて、他の新規テストと既存の再利用テストも含まれます。
+
+```sh
+python3 tools/combination_gaps.py --list-tests
+python3 tools/combination_gaps.py --check
+```
+
+`--check`は台帳、テストの指紋、保存済み結果から作るレポートの整合性を検査します。
+シミュレータの全件合格を要求するコマンドではありません。
+一覧のパスを既存ランナーへ渡し、新しい結果JSONを`coverage/combination-results/`へ保存した後に
+`python3 tools/combination_gaps.py --update`でレポートを更新します。
+kirimasimは実行直前に上流の最新コミットを確認し、そのコミットからビルドします。
+未対応や不一致は期待値を変えずに記録します。
+
+### 過去の導入確認
 
 `main`に保存する実行証跡は`coverage/interaction-results/`です。
 2026-10-29の導入確認では、Icarus Verilog 13.0と、実行直前に上流mainとの一致を
@@ -761,6 +816,8 @@ Verilator 5.052はseed 1・73で各454件を実行し、各414件が一致しま
 両シミュレータの差異は最小例と規格で再監査し、実装ソースは参照していません。
 期待値は別方式でも検算し、演算結果・呼出し回数・副作用・遷移表の一致を確認しています。
 今回の証跡は`coverage/interaction-results/cross-20261030-logicedge-*.json`に保存しています。
+
+### モデル変更時の更新
 
 モデルやテストを変えたときは、必要なケースを再実行して新しい証跡を保存してください。
 古い結果の入力ハッシュだけを書き換えて合格を引き継いではいけません。

@@ -52,37 +52,37 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **8935 tests** in 38 chapters. 2499 of them are generated (`tests/gen/`, see "Generated tests"): 36 by `interaction_array`, 36 by `interaction_case`, 32 by `interaction_cast`, 100 by `interaction_compare`, 72 by `interaction_concat`, 32 by `interaction_cond`, 72 by `interaction_divide`, 64 by `interaction_edge`, 51 by `interaction_expr`, 44 by `interaction_index`, 70 by `interaction_logic`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 60 by `interaction_query`, 48 by `interaction_queue`, 38 by `interaction_resize`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **9009 tests** in 38 chapters. 2573 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_case`, 32 by `interaction_cast`, 100 by `interaction_compare`, 72 by `interaction_concat`, 32 by `interaction_cond`, 72 by `interaction_divide`, 64 by `interaction_edge`, 51 by `interaction_expr`, 44 by `interaction_index`, 70 by `interaction_logic`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 60 by `interaction_query`, 48 by `interaction_queue`, 38 by `interaction_resize`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5133 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1564 |
-| The standard only, with no fixed-release simulator oracle recorded | 2238 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5137 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1585 |
+| The standard only, with no fixed-release simulator oracle recorded | 2287 |
 
-1682 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+1690 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1932 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 35 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 39 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 88 | 66 | 12 | 10 |
 | 4 | Scheduling semantics | 412 | 391 | 5 | 16 |
 | 5 | Lexical conventions | 346 | 325 | 14 | 7 |
-| 6 | Data types | 641 | 396 | 142 | 103 |
+| 6 | Data types | 645 | 396 | 144 | 105 |
 | 7 | Aggregate data types | 712 | 291 | 262 | 159 |
 | 8 | Classes | 321 | 67 | 182 | 72 |
-| 9 | Processes | 274 | 215 | 32 | 27 |
-| 10 | Assignment statements | 240 | 169 | 43 | 28 |
-| 11 | Operators and expressions | 1498 | 1229 | 115 | 154 |
+| 9 | Processes | 284 | 217 | 38 | 29 |
+| 10 | Assignment statements | 254 | 169 | 45 | 40 |
+| 11 | Operators and expressions | 1511 | 1229 | 119 | 163 |
 | 12 | Procedural programming statements | 217 | 169 | 29 | 19 |
-| 13 | Tasks and functions (subroutines) | 237 | 137 | 82 | 18 |
+| 13 | Tasks and functions (subroutines) | 244 | 137 | 89 | 18 |
 | 14 | Clocking blocks | 78 | 4 | 61 | 13 |
-| 15 | Interprocess synchronization and communication | 56 | 2 | 36 | 18 |
+| 15 | Interprocess synchronization and communication | 59 | 2 | 36 | 21 |
 | 16 | Assertions | 661 | 104 | 75 | 482 |
 | 17 | Checkers | 81 |  | 22 | 59 |
 | 18 | Constrained random value generation | 200 | 26 | 95 | 79 |
 | 19 | Functional coverage | 157 | 2 | 29 | 126 |
 | 20 | Utility system tasks and system functions | 330 | 239 | 26 | 65 |
-| 21 | Input/output system tasks and system functions | 213 | 143 | 15 | 55 |
+| 21 | Input/output system tasks and system functions | 236 | 145 | 15 | 76 |
 | 22 | Compiler directives | 358 | 335 | 13 | 10 |
 | 23 | Modules and hierarchy | 292 | 177 | 45 | 70 |
 | 24 | Programs | 43 | 21 | 5 | 17 |
@@ -172,21 +172,34 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.md) uses constrained
 pairwise coverage, selected three-factor groups and mandatory boundary witnesses.
-Its focused selection has 1,242 tests across twenty-four models: scheduling, NBA capture,
+Its focused selection has 1,260 tests across twenty-five models: scheduling, NBA capture,
 arithmetic context, packed part-selects, conditional merging, shifts, cast pipelines
 and task argument visibility, packed structures, case matching, port connections,
 unpacked array copies, bit-vector queries, streaming permutations, comparisons,
 array reduction pipelines, variable bit indices, queue updates with capacity limits,
 division/remainder context, dynamic-array resizing, concatenated assignments,
-packed logical/reduction pipelines, short-circuit side effects and event-edge expressions.
-The last two select 156 tests from 6,184 assignments
-that satisfy their constraints. The full suite retains all existing tests.
+packed logical/reduction pipelines, short-circuit side effects, event-edge expressions
+and heap-backed file monitors across registration contexts. The file-monitor model
+selects 18 tests from 36 assignments, covering all 40 pairs and three mandatory
+witnesses. The short-circuit and event-edge models select 156 tests from 6,184
+assignments that satisfy their constraints. The full suite retains all existing tests.
 The [interaction report](docs/interaction-coverage.md) separates the selection plan
 from fingerprint-qualified passes in each individual run; it does not change the
 whole-standard requirement denominator.
 The [design rationale and practical methodology](docs/interaction-verification-method.md)
 (Japanese) explain model selection, implementation and evidence, how to add new
 models, and how to apply the approach to other projects and LSI verification.
+
+[Issue #21's regression report](docs/p1-combination-regressions-20261030.md) and
+[reviewed registry](coverage/combination-gaps.json) link existing witnesses to 74 new
+tests: nine event, sixteen NBA, eighteen aggregate, thirteen I/O and eighteen
+file-monitor cases. Only the eighteen file-monitor cases join a registered finite
+interaction model; the other 56 exercise mechanism boundaries and are kept outside
+the t-way coverage totals. The report records unresolved interpretations, separate
+native-API work and results for each saved simulator run.
+Use `python3 tools/combination_gaps.py --check` to check registry/report consistency,
+and `python3 tools/combination_gaps.py --list-tests` to list all bound regression
+tests, including reused tests. The consistency check does not require simulator passes.
 
 The [method from the PDF to tests](docs/requirements-to-tests-method.md) describes,
 step by step, how the requirements were extracted from the standard, how existing
@@ -448,6 +461,8 @@ docs/coverage-depth.md          how many tests each clause has, and the priority
 docs/behavior-coverage-summary.md provisional and confirmed behavior coverage, by chapter and simulator
 docs/interaction-verification.md feature-interaction models, focused execution and evidence rules
 docs/interaction-coverage.md     planned and executed coverage of registered interaction models
+docs/p1-combination-regressions-20261030.md reviewed boundaries and run evidence for Issue #21
+coverage/combination-gaps.json   reviewed links from Issue #21 candidates to regression tests
 docs/requirements-to-tests-method.md the method from the standard's PDF to requirements, tests and coverage
 coverage/behavior-summary.json  the current behavior measurements and denominator identity
 coverage/behavior-history.json  saved measurement history with denominator identities
@@ -464,6 +479,7 @@ tools/suite_stats.py            counts the tests and keeps both README language 
 tools/suite_catalog.py          writes the catalog of the tests, docs/tests/
 tools/coverage_depth.py         writes docs/coverage-depth.md, the depth report
 tools/interaction_coverage.py   selects focused cross tests and checks execution coverage
+tools/combination_gaps.py       lists Issue #21 regression tests and checks the registry/report
 tools/clauses.txt               the clause numbers of the standard, for docs/tests/clauses.md
 tools/lint_metadata.py          checks the metadata and the form of the tests
 tools/lint_baseline.txt         the problems of existing tests that the check reports as known
@@ -709,6 +725,11 @@ outputs, and it writes many small variations of one kind of test:
 | `interaction_logic` | 11 | Width, input/result state, expression shape, value and position; 70 cases each observe six packed reductions and logical negation, controlling bits, state conversion order and unsigned one-bit result extension |
 | `interaction_shortcircuit` | 11 | Operand widths/states/truth classes and result state; 92 cases each check four binary logical operators, call counts, independent side effects, X/Z truth and conversion order |
 | `interaction_edge` | 9 | Width/state, event expression, changed position, before/after values and blocking/NBA; 64 cases each observe both backgrounds and three event counts after setup has settled |
+| `combination_events` | 6, 9, 15 | Nine mechanism-boundary cases for automatic event lifetimes, returned/selected event handles, computed event controls, `iff`, deferred triggers and named-fork cleanup |
+| `combination_nba` | 10, 13 | Sixteen mechanism-boundary cases for delayed/event-controlled NBA through `ref static`, captured indices and values, string characters and array-slice copyback |
+| `combination_aggregates` | 6, 11, 13 | Eighteen mechanism-boundary cases for unpacked-structure references and lifetimes, array input copies, nested packed selections and streaming into strings/nested targets |
+| `combination_io` | 9, 10, 21 | Thirteen mechanism-boundary cases for `$fread` destinations and byte order, heap-backed implicit sensitivity and VCD contents read back inside SV |
+| `combination_monitors` | 21 | Eighteen selected cases for `heap_file_monitor_context@1`: registration context × queue/dynamic array × MCD/FD; file readback checks Postponed values, selectors, size, replacement, `$monitoroff` independence and cancellation after close |
 | `width_sign` | 11 | Operands and targets of 63 to 1000 bits, signed and unsigned, with the operators whose result size and sign 11.6 to 11.8 decide |
 | `xz_propagation` | 11 | Operands with x and z bits for every operator of 11.4 that has rules for them |
 | `strength` | 28 | Two drivers of a net with different strengths and values, on wire, tri, wand, triand, wor, trior, tri0 and tri1 nets and through bufif gates, shown with `%v` |

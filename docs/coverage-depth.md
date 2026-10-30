@@ -6,7 +6,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 8935 |
+| Tests | 9009 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -19,9 +19,9 @@
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 664 |
-| Icarus Verilog 13.0 only | 4469 |
-| Verilator 5.052 only | 1564 |
-| standard only | 2238 |
+| Icarus Verilog 13.0 only | 4473 |
+| Verilator 5.052 only | 1585 |
+| standard only | 2287 |
 
 ## By chapter
 
@@ -30,22 +30,22 @@
 | 3 | Design and verification building blocks | 88 | 16 | 5.5 | 0 | 10 |
 | 4 | Scheduling semantics | 412 | 27 | 15.3 | 0 | 16 |
 | 5 | Lexical conventions | 346 | 16 | 21.6 | 0 | 7 |
-| 6 | Data types | 641 | 76 | 8.4 | 0 | 103 |
+| 6 | Data types | 645 | 76 | 8.5 | 0 | 105 |
 | 7 | Aggregate data types | 712 | 49 | 14.5 | 0 | 159 |
 | 8 | Classes | 321 | 43 | 7.5 | 0 | 72 |
-| 9 | Processes | 274 | 25 | 11.0 | 0 | 27 |
-| 10 | Assignment statements | 240 | 18 | 13.3 | 0 | 28 |
-| 11 | Operators and expressions | 1498 | 42 | 35.7 | 0 | 154 |
+| 9 | Processes | 284 | 25 | 11.4 | 0 | 29 |
+| 10 | Assignment statements | 254 | 18 | 14.1 | 0 | 40 |
+| 11 | Operators and expressions | 1511 | 42 | 36.0 | 0 | 163 |
 | 12 | Procedural programming statements | 217 | 19 | 11.4 | 0 | 19 |
-| 13 | Tasks and functions (subroutines) | 237 | 15 | 15.8 | 0 | 18 |
+| 13 | Tasks and functions (subroutines) | 244 | 15 | 16.3 | 0 | 18 |
 | 14 | Clocking blocks | 78 | 15 | 5.2 | 0 | 13 |
-| 15 | Interprocess synchronization and communication | 56 | 21 | 2.7 | 0 | 18 |
+| 15 | Interprocess synchronization and communication | 59 | 21 | 2.8 | 0 | 21 |
 | 16 | Assertions | 661 | 69 | 9.6 | 0 | 482 |
 | 17 | Checkers | 81 | 10 | 8.1 | 0 | 59 |
 | 18 | Constrained random value generation | 200 | 44 | 4.5 | 0 | 79 |
 | 19 | Functional coverage | 157 | 24 | 6.5 | 0 | 126 |
 | 20 | Utility system tasks and system functions | 330 | 31 | 10.6 | 0 | 65 |
-| 21 | Input/output system tasks and system functions | 213 | 47 | 4.5 | 0 | 55 |
+| 21 | Input/output system tasks and system functions | 236 | 47 | 5.0 | 0 | 76 |
 | 22 | Compiler directives | 358 | 21 | 17.0 | 0 | 10 |
 | 23 | Modules and hierarchy | 292 | 33 | 8.8 | 0 | 70 |
 | 24 | Programs | 43 | 7 | 6.1 | 0 | 17 |

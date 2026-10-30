@@ -1,0 +1,3 @@
+inside t=0 values=10,20,30,40 formal=21,32
+waiting t=1 values=85,20,30,102
+returned t=2 values=85,21,32,102

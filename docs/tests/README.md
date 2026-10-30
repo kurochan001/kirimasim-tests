@@ -9,22 +9,22 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 3 | [Design and verification building blocks](ch3.md) | 88 |  |
 | 4 | [Scheduling semantics](ch4.md) | 412 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 346 | 248 |
-| 6 | [Data types](ch6.md) | 641 | 39 |
+| 6 | [Data types](ch6.md) | 645 | 43 |
 | 7 | [Aggregate data types](ch7.md) | 712 | 244 |
 | 8 | [Classes](ch8.md) | 321 |  |
-| 9 | [Processes](ch9.md) | 274 | 64 |
-| 10 | [Assignment statements](ch10.md) | 240 | 36 |
-| 11 | [Operators and expressions](ch11.md) | 1498 | 977 |
+| 9 | [Processes](ch9.md) | 284 | 74 |
+| 10 | [Assignment statements](ch10.md) | 254 | 50 |
+| 11 | [Operators and expressions](ch11.md) | 1511 | 990 |
 | 12 | [Procedural programming statements](ch12.md) | 217 | 36 |
-| 13 | [Tasks and functions (subroutines)](ch13.md) | 237 | 50 |
+| 13 | [Tasks and functions (subroutines)](ch13.md) | 244 | 57 |
 | 14 | [Clocking blocks](ch14.md) | 78 |  |
-| 15 | [Interprocess synchronization and communication](ch15.md) | 56 |  |
+| 15 | [Interprocess synchronization and communication](ch15.md) | 59 | 3 |
 | 16 | [Assertions](ch16.md) | 661 |  |
 | 17 | [Checkers](ch17.md) | 81 |  |
 | 18 | [Constrained random value generation](ch18.md) | 200 |  |
 | 19 | [Functional coverage](ch19.md) | 157 |  |
 | 20 | [Utility system tasks and system functions](ch20.md) | 330 | 60 |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 213 |  |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 236 | 23 |
 | 22 | [Compiler directives](ch22.md) | 358 | 248 |
 | 23 | [Modules and hierarchy](ch23.md) | 292 | 36 |
 | 24 | [Programs](ch24.md) | 43 |  |

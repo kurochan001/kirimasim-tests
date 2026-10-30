@@ -1,0 +1,9 @@
+empty=0
+allocated=2
+unrelated=2
+element=2
+held=-1
+enabled=2
+grown=3
+replaced=2
+cleared=0

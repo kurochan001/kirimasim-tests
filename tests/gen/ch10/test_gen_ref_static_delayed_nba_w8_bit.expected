@@ -1,0 +1,4 @@
+returned=2 t=0 first=00000000 second=00000000
+before t=1 first=00000000 second=00000000
+active t=2 first=00000000 second=00000000
+after t=3 first=10100101 second=00111100 sources=00000000,00000000

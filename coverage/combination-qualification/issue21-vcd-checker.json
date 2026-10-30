@@ -1,0 +1,255 @@
+{
+  "schema": 1,
+  "qualification": "Issue #21 VCD checker normal and fault-injection evidence",
+  "checked_at": "2026-10-30T00:42:58.010279+00:00",
+  "simulator": {
+    "name": "Icarus Verilog",
+    "tools": {
+      "iverilog": {
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+        "executable_sha256": "a3c72702e0826bb7b12860c0d4d9dded384efa8e7b30bbb4d782c495becc365a"
+      },
+      "vvp": {
+        "version": "Icarus Verilog runtime version 13.0 (stable) (v13_0-dirty)",
+        "executable_sha256": "8c3bb33305a6570222f6e721e8d0fb5b0fc86919a12c99a8d43733f1d9d73bc9"
+      }
+    }
+  },
+  "input": {
+    "test": "tests/gen/ch21/test_gen_comb_vcd_program_interface_explicit.sv",
+    "inputs_sha256": "8ef4258fc2baa12f8aa9ba2a6b5775d3d4c77665538c20e9b43f554780578be6",
+    "digest_method": "tools/suite_results.py:input_digest (repository-relative input names, source and referenced expectation contents)",
+    "source_sha256": "4d3382ecd739058522dd86d8a8677d70bd592452fa8d5fb91471f064a29b5e87",
+    "expected_file": "tests/gen/ch21/test_gen_comb_vcd_program_interface_explicit.expected",
+    "expected_sha256": "1f7c6a78ca0e9d950b5bc9b1cc9a7d4fc6418276dce2b6ada20e41b162524d0b",
+    "oracle_metadata": "spec iverilog@13.0",
+    "unchanged_after_execution": true
+  },
+  "checker_identity": {
+    "checked_region": "From the suite test file-open-for-read statement through endmodule; declarations and helper functions are separately checked.",
+    "checker_sha256": "b9b1398d3519741b8ef4db4ebaa1cb9bba9b73aa6080608429a31502dd60bac2",
+    "checker_helpers_sha256": "2dca97f10072e700713e53d57e75e29e0aab4785743579c4f84950393365a04f",
+    "byte_identical_in_all_variants": true
+  },
+  "reproduction": {
+    "working_directory": "Use a fresh scratch directory for each variant; commands use relative names only.",
+    "steps": [
+      "Read the repository source at input.test and apply each exact single replacement in order; normal has no replacement.",
+      "Write the transformed text unchanged to case.sv; retain the original module name.",
+      "For leading_upscope only, write transformation.artifact_fixture.fixture_utf8 to the original VCD artifact filename before execution.",
+      "Run the listed compile and runtime commands using the fingerprinted Icarus 13 tools.",
+      "Require exit code zero and exactly one scopes= observation equal to expected_observation. The three injected faults must disagree with the unmodified suite expectation."
+    ],
+    "observation_selection": "Only lines starting with scopes= are compared; complete compile/run stdout and stderr are also retained below.",
+    "artifact": "test_gen_comb_vcd_program_interface_explicit.vcd"
+  },
+  "variants": [
+    {
+      "variant": "normal",
+      "checked_at": "2026-10-30T00:42:57.910560+00:00",
+      "transformation": {
+        "exact_single_replacements": [],
+        "scope": "Only waveform-production statements are changed; checker declarations, helper functions, parser, verdict and file-read start are byte-identical to the suite test."
+      },
+      "transformed_source_sha256": "4d3382ecd739058522dd86d8a8677d70bd592452fa8d5fb91471f064a29b5e87",
+      "checker_sha256": "b9b1398d3519741b8ef4db4ebaa1cb9bba9b73aa6080608429a31502dd60bac2",
+      "checker_helpers_sha256": "2dca97f10072e700713e53d57e75e29e0aab4785743579c4f84950393365a04f",
+      "commands": [
+        [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "test_gen_comb_vcd_program_interface_explicit",
+          "-o",
+          "case.vvp",
+          "case.sv"
+        ],
+        [
+          "vvp",
+          "case.vvp"
+        ]
+      ],
+      "expected_observation": "scopes=111 vars=111 balanced=1 ended=1",
+      "compile": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "run": {
+        "exit_code": 0,
+        "stdout": "VCD info: dumpfile test_gen_comb_vcd_program_interface_explicit.vcd opened for output.\nscopes=111 vars=111 balanced=1 ended=1\ncase.sv:103: $finish called at 4 (1ns)\n",
+        "stderr": "",
+        "observations": [
+          "scopes=111 vars=111 balanced=1 ended=1"
+        ]
+      },
+      "matches_expected_observation": true,
+      "matches_unmodified_suite_expected": true,
+      "status": "pass",
+      "artifact_sha256": "0df20ffd34ddeced5dcd085c39080ba8d542b08fe14e06bc63be637391e031ca"
+    },
+    {
+      "variant": "omit_program",
+      "checked_at": "2026-10-30T00:42:57.934245+00:00",
+      "transformation": {
+        "exact_single_replacements": [
+          {
+            "before": "$dumpvars(0, program_value);",
+            "after": ""
+          }
+        ],
+        "scope": "Only waveform-production statements are changed; checker declarations, helper functions, parser, verdict and file-read start are byte-identical to the suite test."
+      },
+      "transformed_source_sha256": "42b6bb04c5dc28510f75cd63b338fd8f13869746341f0a79d46a7c82e53a2adc",
+      "checker_sha256": "b9b1398d3519741b8ef4db4ebaa1cb9bba9b73aa6080608429a31502dd60bac2",
+      "checker_helpers_sha256": "2dca97f10072e700713e53d57e75e29e0aab4785743579c4f84950393365a04f",
+      "commands": [
+        [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "test_gen_comb_vcd_program_interface_explicit",
+          "-o",
+          "case.vvp",
+          "case.sv"
+        ],
+        [
+          "vvp",
+          "case.vvp"
+        ]
+      ],
+      "expected_observation": "scopes=110 vars=110 balanced=1 ended=1",
+      "compile": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "run": {
+        "exit_code": 0,
+        "stdout": "VCD info: dumpfile test_gen_comb_vcd_program_interface_explicit.vcd opened for output.\nscopes=110 vars=110 balanced=1 ended=1\ncase.sv:103: $finish called at 4 (1ns)\n",
+        "stderr": "",
+        "observations": [
+          "scopes=110 vars=110 balanced=1 ended=1"
+        ]
+      },
+      "matches_expected_observation": true,
+      "matches_unmodified_suite_expected": false,
+      "status": "pass",
+      "artifact_sha256": "a55ec14bf35dd5fd88eb0b7925b1059f39412ee29cbdd78e2402df7babe5a340"
+    },
+    {
+      "variant": "module_only",
+      "checked_at": "2026-10-30T00:42:57.959483+00:00",
+      "transformation": {
+        "exact_single_replacements": [
+          {
+            "before": "$dumpvars(0, program_value);",
+            "after": ""
+          },
+          {
+            "before": "$dumpvars(0, dut.module_value, dut.bus.bus_value);",
+            "after": "$dumpvars(0, dut.module_value);"
+          }
+        ],
+        "scope": "Only waveform-production statements are changed; checker declarations, helper functions, parser, verdict and file-read start are byte-identical to the suite test."
+      },
+      "transformed_source_sha256": "162a8a363ffbe995ed5cb6169b89b4c54faf1ce08e9d51128c24459191e25a44",
+      "checker_sha256": "b9b1398d3519741b8ef4db4ebaa1cb9bba9b73aa6080608429a31502dd60bac2",
+      "checker_helpers_sha256": "2dca97f10072e700713e53d57e75e29e0aab4785743579c4f84950393365a04f",
+      "commands": [
+        [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "test_gen_comb_vcd_program_interface_explicit",
+          "-o",
+          "case.vvp",
+          "case.sv"
+        ],
+        [
+          "vvp",
+          "case.vvp"
+        ]
+      ],
+      "expected_observation": "scopes=100 vars=100 balanced=1 ended=1",
+      "compile": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "run": {
+        "exit_code": 0,
+        "stdout": "VCD info: dumpfile test_gen_comb_vcd_program_interface_explicit.vcd opened for output.\nscopes=100 vars=100 balanced=1 ended=1\ncase.sv:103: $finish called at 4 (1ns)\n",
+        "stderr": "",
+        "observations": [
+          "scopes=100 vars=100 balanced=1 ended=1"
+        ]
+      },
+      "matches_expected_observation": true,
+      "matches_unmodified_suite_expected": false,
+      "status": "pass",
+      "artifact_sha256": "d48cea7d76799e9a73a648a09434e72584c8e66c98c5415e0a2b4fd9f80dff33"
+    },
+    {
+      "variant": "leading_upscope",
+      "checked_at": "2026-10-30T00:42:57.983319+00:00",
+      "transformation": {
+        "exact_single_replacements": [
+          {
+            "before": "$dumpvars(0, program_value);",
+            "after": ""
+          },
+          {
+            "before": "$dumpvars(0, dut.module_value, dut.bus.bus_value);",
+            "after": ""
+          }
+        ],
+        "scope": "Only waveform-production statements are changed; checker declarations, helper functions, parser, verdict and file-read start are byte-identical to the suite test.",
+        "artifact_fixture": {
+          "method": "Prepend exactly \"$upscope $end\\n\" to the VCD produced by the normal run. Both dumpvars calls are removed so the fixture remains intact; dumpfile and dumpflush stay in place.",
+          "normal_artifact_sha256": "0df20ffd34ddeced5dcd085c39080ba8d542b08fe14e06bc63be637391e031ca",
+          "fixture_sha256": "3f913544ea3548e78bf44167ddc10c66f9dda7bc4f226427380382882885c8ff",
+          "fixture_utf8": "$upscope $end\n$date\n\tFri Oct 30 09:42:57 2026\n$end\n$version\n\tIcarus Verilog\n$end\n$timescale\n\t1ns\n$end\n$scope module test_gen_comb_vcd_program_interface_explicit $end\n$scope module dut $end\n$var reg 1 ! module_value $end\n$upscope $end\n$upscope $end\n$scope module test_gen_comb_vcd_program_interface_explicit $end\n$scope module dut $end\n$scope module bus $end\n$var reg 1 \" bus_value $end\n$upscope $end\n$upscope $end\n$upscope $end\n$scope module test_gen_comb_vcd_program_interface_explicit $end\n$scope module dut $end\n$scope module job $end\n$var reg 1 # program_value $end\n$upscope $end\n$upscope $end\n$upscope $end\n$enddefinitions $end\n$comment Show the parameter values. $end\n$dumpall\n$end\n#0\n$dumpvars\n0#\n0\"\n0!\n$end\n#1\n1#\n1!\n1\"\n#4\n"
+        }
+      },
+      "transformed_source_sha256": "4805cfbe13bd579bb630fc4b75142476f7b96962a1cbebf4d654228c5c4f2dae",
+      "checker_sha256": "b9b1398d3519741b8ef4db4ebaa1cb9bba9b73aa6080608429a31502dd60bac2",
+      "checker_helpers_sha256": "2dca97f10072e700713e53d57e75e29e0aab4785743579c4f84950393365a04f",
+      "commands": [
+        [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "test_gen_comb_vcd_program_interface_explicit",
+          "-o",
+          "case.vvp",
+          "case.sv"
+        ],
+        [
+          "vvp",
+          "case.vvp"
+        ]
+      ],
+      "expected_observation": "scopes=111 vars=111 balanced=0 ended=1",
+      "compile": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "run": {
+        "exit_code": 0,
+        "stdout": "scopes=111 vars=111 balanced=0 ended=1\ncase.sv:103: $finish called at 4 (1ns)\n",
+        "stderr": "",
+        "observations": [
+          "scopes=111 vars=111 balanced=0 ended=1"
+        ]
+      },
+      "matches_expected_observation": true,
+      "matches_unmodified_suite_expected": false,
+      "status": "pass",
+      "artifact_sha256": "3f913544ea3548e78bf44167ddc10c66f9dda7bc4f226427380382882885c8ff"
+    }
+  ],
+  "status": "pass",
+  "scope_note": "This qualifies the exact current suite checker against three specific observable faults. Normal runs the unmodified generated SV. Injected variants change waveform production or preseed its file, never the checker. This is not a simulator conformance claim for malformed VCD."
+}

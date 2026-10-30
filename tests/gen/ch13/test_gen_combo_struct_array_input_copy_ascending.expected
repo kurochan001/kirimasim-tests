@@ -1,0 +1,4 @@
+copy=10 a1 20 b2
+local=99 a1 77 b2
+inside_actual=10 a1 20 b2
+returned=10 a1 20 b2
