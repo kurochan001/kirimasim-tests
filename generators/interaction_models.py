@@ -31,6 +31,7 @@ import interaction_logic
 import interaction_shortcircuit
 import interaction_edge
 import interaction_compound
+import interaction_inside
 import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
@@ -44,7 +45,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_divide, interaction_resize,
               interaction_concat, interaction_logic,
               interaction_shortcircuit, interaction_edge, combination_monitors,
-              interaction_compound)
+              interaction_compound, interaction_inside)
 
 
 @dataclass
@@ -246,5 +247,12 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_compound.MODEL.select(),
             "複合シフト代入の前後にスカラ・配列全要素・親ベクタ・拡張値と添字関数の回数を"
             "観測し、左辺の1回評価、部分選択の符号、シフト量の独立した幅と型変換を確認する。",
+        ),
+        SuiteModel(
+            interaction_inside.MODEL,
+            lambda row: "tests/gen/ch11/" + interaction_inside.case_name(row) + ".sv",
+            interaction_inside.MODEL.select(),
+            "個別列挙・固定配列・動的配列・キューの要素とサイズ、異なる幅・符号の入力、"
+            "生の判定値・拡張・bit変換・逆順リストを観測し、片側ワイルドカードとORを確認する。",
         ),
     )

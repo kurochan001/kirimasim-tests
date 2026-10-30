@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-30T08:44:52.776005+00:00",
+  "build": {
+    "upstream_main_at_start": "74fb2340925a7ead279608454851eb52d46c6408",
+    "checkout_commit": "74fb2340925a7ead279608454851eb52d46c6408",
+    "checked_at": "2026-10-30T08:44:34.109273+00:00",
+    "version": "kirimasim 0.0.0 (commit 74fb2340925a), built with AppleClang 21.0.0.21000334",
+    "binary_sha256_before": "861bb7a82857cef2b34f11fce1cbe86eeccec9527585cf9ae6e150c133879523",
+    "binary_sha256_after": "861bb7a82857cef2b34f11fce1cbe86eeccec9527585cf9ae6e150c133879523",
+    "commands": [
+      "git fetch origin",
+      "git checkout --detach origin/main",
+      "cmake -S . -B build/release",
+      "cmake --build build/release --target kirimasim -j 8"
+    ],
+    "note": "Latest upstream observed at run start, not a guarantee about later upstream changes."
+  },
+  "independent_oracle_review": "Singleton comparisons at widths 1/2/3 and every sign pair were checked by enumerating independent completions of extended unknown bits. OR is then applied to comparison results, not to all completions of the whole set. Tests also check an empty set, order permutations, wildcard extension and bit storage before matching. See tools/test_interaction_inside.py.",
+  "commands": [
+    "kirimasim probe.sv",
+    "python3 tools/normalize_output.py"
+  ],
+  "minimal_array_list_comparisons": [
+    {
+      "source_sha256": "34a41f1eede43bd747b171a63f42fc9283e6b4546aba4ada1954deb374411ae1",
+      "exit_code": 0,
+      "normalized_stdout": "A array=1 listed=0 equality=0\nB array=0 listed=0 equality=0\nC array=1 listed=1 equality=1\nD array=0 listed=0 equality=0\n",
+      "storage": "bit",
+      "source": "module probe;\n  logic [2:0] a, d;\n  logic signed [1:0] b, c;\n  typedef bit signed [1:0] s2_t;\n  typedef bit [2:0] u3_t;\n  typedef bit signed [2:0] s3_t;\n  typedef bit [1:0] u2_t;\n  s2_t sa[0:0]; u3_t ub[0:0]; s3_t sc[0:0]; u2_t ud[0:0];\n  initial begin\n    a = 3'b111; b = 2'b11; c = 2'b11; d = 3'b111;\n    sa[0] = 2'b11; ub[0] = 3'b111; sc[0] = 3'b111; ud[0] = 2'b11;\n    $display(\"A array=%b listed=%b equality=%b\", a inside {sa},\n             a inside {sa[0]}, a ==? sa[0]);\n    $display(\"B array=%b listed=%b equality=%b\", b inside {ub},\n             b inside {ub[0]}, b ==? ub[0]);\n    $display(\"C array=%b listed=%b equality=%b\", c inside {sc},\n             c inside {sc[0]}, c ==? sc[0]);\n    $display(\"D array=%b listed=%b equality=%b\", d inside {ud},\n             d inside {ud[0]}, d ==? ud[0]);\n    $finish;\n  end\nendmodule\n",
+      "expected_stdout": "A array=0 listed=0 equality=0\nB array=0 listed=0 equality=0\nC array=1 listed=1 equality=1\nD array=0 listed=0 equality=0\n",
+      "output_matches_expected": false
+    },
+    {
+      "source_sha256": "e920e0b859203ca657244bace7c20bef4f47ff6e46672ffe2cc2d3acae8ff2bf",
+      "exit_code": 0,
+      "normalized_stdout": "A array=1 listed=0 equality=0\nB array=0 listed=0 equality=0\nC array=1 listed=1 equality=1\nD array=0 listed=0 equality=0\n",
+      "storage": "logic",
+      "source": "module probe;\n  logic [2:0] a, d;\n  logic signed [1:0] b, c;\n  typedef logic signed [1:0] s2_t;\n  typedef logic [2:0] u3_t;\n  typedef logic signed [2:0] s3_t;\n  typedef logic [1:0] u2_t;\n  s2_t sa[0:0]; u3_t ub[0:0]; s3_t sc[0:0]; u2_t ud[0:0];\n  initial begin\n    a = 3'b111; b = 2'b11; c = 2'b11; d = 3'b111;\n    sa[0] = 2'b11; ub[0] = 3'b111; sc[0] = 3'b111; ud[0] = 2'b11;\n    $display(\"A array=%b listed=%b equality=%b\", a inside {sa},\n             a inside {sa[0]}, a ==? sa[0]);\n    $display(\"B array=%b listed=%b equality=%b\", b inside {ub},\n             b inside {ub[0]}, b ==? ub[0]);\n    $display(\"C array=%b listed=%b equality=%b\", c inside {sc},\n             c inside {sc[0]}, c ==? sc[0]);\n    $display(\"D array=%b listed=%b equality=%b\", d inside {ud},\n             d inside {ud[0]}, d ==? ud[0]);\n    $finish;\n  end\nendmodule\n",
+      "expected_stdout": "A array=0 listed=0 equality=0\nB array=0 listed=0 equality=0\nC array=1 listed=1 equality=1\nD array=0 listed=0 equality=0\n",
+      "output_matches_expected": false
+    }
+  ],
+  "mutation": {
+    "test": "tests/gen/ch11/test_gen_cross_inside_w33_s_uu_l_list_n3_both_unknown.sv",
+    "inputs_sha256": "373bddea18ae87f8a9c69e9b589d607e076d227ec8b49c6f9b5592a161afe4b0",
+    "replacement": {
+      "from": "needle inside {terms[0], terms[1], terms[2]}",
+      "to": "(needle ==? terms[0])",
+      "occurrences": 16
+    },
+    "checks": [
+      {
+        "source_sha256": "a199575a7aaea2fc8482a367fd05889bb3aac707f2083b4bcffbb2ecfeb5a824",
+        "exit_code": 0,
+        "normalized_stdout": "p0 needle=00000000000000000000000000000000x size=3\np0 item0 supplied=111111111111111111111111111111111 stored=111111111111111111111111111111111\np0 item1 supplied=11111111111111111111111111111111x stored=11111111111111111111111111111111x\np0 item2 supplied=000000000000000000000000000000001 stored=000000000000000000000000000000001\np0 raw=x wide=000000x binary=0000000 bits=1\np0 reversed=x\np1 needle=00000000000000000000000000000000z size=3\np1 item0 supplied=000000000000000000000000000000001 stored=000000000000000000000000000000001\np1 item1 supplied=11111111111111111111111111111111z stored=11111111111111111111111111111111z\np1 item2 supplied=111111111111111111111111111111111 stored=111111111111111111111111111111111\np1 raw=x wide=000000x binary=0000000 bits=1\np1 reversed=x\np2 needle=10000000000000000000000000000000x size=3\np2 item0 supplied=11111111111111111111111111111111z stored=11111111111111111111111111111111z\np2 item1 supplied=111111111111111111111111111111111 stored=111111111111111111111111111111111\np2 item2 supplied=000000000000000000000000000000001 stored=000000000000000000000000000000001\np2 raw=0 wide=0000000 binary=0000000 bits=1\np2 reversed=0\np3 needle=11111111111111111111111111111111z size=3\np3 item0 supplied=111111111111111111111111111111111 stored=111111111111111111111111111111111\np3 item1 supplied=000000000000000000000000000000001 stored=000000000000000000000000000000001\np3 item2 supplied=11111111111111111111111111111111x stored=11111111111111111111111111111111x\np3 raw=1 wide=0000001 binary=0000001 bits=1\np3 reversed=1\n",
+        "control": "normal",
+        "output_matches_expected": true
+      },
+      {
+        "source_sha256": "43ad39d20e0054019f8f8ef7cdc9317d4d2afd5ef825f5af46b76b606409c6ef",
+        "exit_code": 0,
+        "normalized_stdout": "p0 needle=00000000000000000000000000000000x size=3\np0 item0 supplied=111111111111111111111111111111111 stored=111111111111111111111111111111111\np0 item1 supplied=11111111111111111111111111111111x stored=11111111111111111111111111111111x\np0 item2 supplied=000000000000000000000000000000001 stored=000000000000000000000000000000001\np0 raw=0 wide=0000000 binary=0000000 bits=1\np0 reversed=x\np1 needle=00000000000000000000000000000000z size=3\np1 item0 supplied=000000000000000000000000000000001 stored=000000000000000000000000000000001\np1 item1 supplied=11111111111111111111111111111111z stored=11111111111111111111111111111111z\np1 item2 supplied=111111111111111111111111111111111 stored=111111111111111111111111111111111\np1 raw=x wide=000000x binary=0000000 bits=1\np1 reversed=x\np2 needle=10000000000000000000000000000000x size=3\np2 item0 supplied=11111111111111111111111111111111z stored=11111111111111111111111111111111z\np2 item1 supplied=111111111111111111111111111111111 stored=111111111111111111111111111111111\np2 item2 supplied=000000000000000000000000000000001 stored=000000000000000000000000000000001\np2 raw=0 wide=0000000 binary=0000000 bits=1\np2 reversed=0\np3 needle=11111111111111111111111111111111z size=3\np3 item0 supplied=111111111111111111111111111111111 stored=111111111111111111111111111111111\np3 item1 supplied=000000000000000000000000000000001 stored=000000000000000000000000000000001\np3 item2 supplied=11111111111111111111111111111111x stored=11111111111111111111111111111111x\np3 raw=x wide=000000x binary=0000000 bits=1\np3 reversed=1\n",
+        "control": "only_first_member",
+        "output_matches_expected": false
+      }
+    ]
+  },
+  "note": "These probes and fault controls are qualification evidence, not extra suite tests or pass records."
+}

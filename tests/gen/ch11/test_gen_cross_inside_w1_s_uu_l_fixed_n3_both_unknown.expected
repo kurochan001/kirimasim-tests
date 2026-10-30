@@ -1,0 +1,24 @@
+p0 needle=x size=3
+p0 item0 supplied=1 stored=1
+p0 item1 supplied=x stored=x
+p0 item2 supplied=1 stored=1
+p0 raw=1 wide=0000001 binary=0000001 bits=1
+p0 reversed=1
+p1 needle=z size=3
+p1 item0 supplied=1 stored=1
+p1 item1 supplied=z stored=z
+p1 item2 supplied=1 stored=1
+p1 raw=1 wide=0000001 binary=0000001 bits=1
+p1 reversed=1
+p2 needle=x size=3
+p2 item0 supplied=z stored=z
+p2 item1 supplied=1 stored=1
+p2 item2 supplied=1 stored=1
+p2 raw=1 wide=0000001 binary=0000001 bits=1
+p2 reversed=1
+p3 needle=z size=3
+p3 item0 supplied=1 stored=1
+p3 item1 supplied=1 stored=1
+p3 item2 supplied=x stored=x
+p3 raw=1 wide=0000001 binary=0000001 bits=1
+p3 reversed=1
