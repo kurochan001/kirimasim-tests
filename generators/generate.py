@@ -36,6 +36,7 @@ import interaction_concat
 import interaction_logic
 import interaction_shortcircuit
 import interaction_edge
+import interaction_iff
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -61,7 +62,8 @@ GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths, keyw
               interaction_index, interaction_queue,
               interaction_divide, interaction_resize,
               interaction_concat, interaction_logic,
-              interaction_shortcircuit, interaction_edge, interaction_compound, interaction_inside,
+              interaction_shortcircuit, interaction_edge, interaction_iff,
+              interaction_compound, interaction_inside,
               interaction_range, interaction_case_inside,
               combination_events, combination_nba, combination_aggregates, combination_io,
               combination_monitors]

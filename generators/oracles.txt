@@ -2739,3 +2739,10 @@ test_gen_xz_xor_05 spec iverilog@13.0
 test_gen_xz_xor_06 spec iverilog@13.0
 test_gen_xz_xor_07 spec iverilog@13.0
 test_gen_xz_xor_08 spec iverilog@13.0
+test_gen_cross_iff_comma_mixed_negedge_first_known_blocking spec verilator@5.052
+test_gen_cross_iff_comma_signals_change_first_known_blocking spec verilator@5.052
+test_gen_cross_iff_comma_signals_posedge_both_known_blocking spec verilator@5.052
+test_gen_cross_iff_or_mixed_posedge_second_known_blocking spec verilator@5.052
+test_gen_cross_iff_or_named_change_both_known_blocking spec verilator@5.052
+test_gen_cross_iff_or_named_change_second_known_blocking spec verilator@5.052
+test_gen_cross_iff_or_signals_negedge_second_known_blocking spec verilator@5.052

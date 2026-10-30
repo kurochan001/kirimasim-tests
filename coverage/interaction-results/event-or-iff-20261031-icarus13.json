@@ -1,0 +1,146 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch9/test_gen_cross_iff_comma_mixed_change_second_xz_nba": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_comma_mixed_change_second_xz_nba.sv:35: syntax error",
+   "inputs_sha256": "6cead38a8fb01981b11e562848329ab90f0b5dc7174e04dc017c92c7c81036a0"
+  },
+  "gen/ch9/test_gen_cross_iff_comma_mixed_negedge_both_known_nba": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_comma_mixed_negedge_both_known_nba.sv:35: syntax error",
+   "inputs_sha256": "2dbf4dc6ebfe43384bc791929128e41647689b1e7d650ef3d41d2f7abf39c82b"
+  },
+  "gen/ch9/test_gen_cross_iff_comma_mixed_negedge_first_known_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_comma_mixed_negedge_first_known_blocking.sv:35: syntax error",
+   "inputs_sha256": "f42e8444b219bd802a07ecb9a04797f59b0fee21241ee61c221e91f272850bbd"
+  },
+  "gen/ch9/test_gen_cross_iff_comma_mixed_posedge_second_mixed_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_comma_mixed_posedge_second_mixed_blocking.sv:35: syntax error",
+   "inputs_sha256": "297a4516bfa7dde58141f0db1133815896979313b26583198c00f487cb1ae2ef"
+  },
+  "gen/ch9/test_gen_cross_iff_comma_named_change_both_mixed_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_comma_named_change_both_mixed_blocking.sv:35: syntax error",
+   "inputs_sha256": "c866ae8f915703613608551fe0524b22d1d4192179737cf97c45435793f5f1a7"
+  },
+  "gen/ch9/test_gen_cross_iff_comma_signals_change_first_known_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_comma_signals_change_first_known_blocking.sv:35: syntax error",
+   "inputs_sha256": "495e8a7b7c060d56f20f07430a7b951067465be17de220526a8a71bedc907193"
+  },
+  "gen/ch9/test_gen_cross_iff_comma_signals_negedge_second_xz_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_comma_signals_negedge_second_xz_blocking.sv:35: syntax error",
+   "inputs_sha256": "33c8bc8cb3b6d62624736636cd93ddeafbc6fbfb83fc95e655c729fed7a37ab9"
+  },
+  "gen/ch9/test_gen_cross_iff_comma_signals_posedge_both_known_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_comma_signals_posedge_both_known_blocking.sv:35: syntax error",
+   "inputs_sha256": "79ab47118b96b5926e853ee40a2cbc077741e20e8a73e23b2edfff151e592b27"
+  },
+  "gen/ch9/test_gen_cross_iff_comma_signals_posedge_first_xz_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_comma_signals_posedge_first_xz_blocking.sv:35: syntax error",
+   "inputs_sha256": "3b4e36e5320b916012474f024403931fd65e0c12e0477e9e370082bcaa9a5c2d"
+  },
+  "gen/ch9/test_gen_cross_iff_or_mixed_change_both_xz_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_mixed_change_both_xz_blocking.sv:35: syntax error",
+   "inputs_sha256": "f17d177eb06d5dfff832905d80a558ddcae3ef86ade3658a48c648b67d44e4c5"
+  },
+  "gen/ch9/test_gen_cross_iff_or_mixed_change_first_xz_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_mixed_change_first_xz_blocking.sv:35: syntax error",
+   "inputs_sha256": "70759e08b60fd533b738314857935c8b24d2c09c4eaede744dc1b91414243f2e"
+  },
+  "gen/ch9/test_gen_cross_iff_or_mixed_negedge_first_mixed_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_mixed_negedge_first_mixed_blocking.sv:35: syntax error",
+   "inputs_sha256": "9a19a3df23c0ecb4cd8763f9c917a8f71d21062605c59d143b56160ce6194357"
+  },
+  "gen/ch9/test_gen_cross_iff_or_mixed_posedge_both_mixed_nba": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_mixed_posedge_both_mixed_nba.sv:35: syntax error",
+   "inputs_sha256": "822ebe5c3c486e6963525e522bc5d80697d861973beb85042e896d699e7b73a5"
+  },
+  "gen/ch9/test_gen_cross_iff_or_mixed_posedge_second_known_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_mixed_posedge_second_known_blocking.sv:35: syntax error",
+   "inputs_sha256": "2d2d9f8b4415eb4b3cd1bd6fc7861a1e76ccebbb049bdbcacb656d376afe3768"
+  },
+  "gen/ch9/test_gen_cross_iff_or_named_change_both_known_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_named_change_both_known_blocking.sv:35: syntax error",
+   "inputs_sha256": "4861993de66dfc3ffae0a97993376c4ffcd073f51da4cd8783c2ad7234ac5902"
+  },
+  "gen/ch9/test_gen_cross_iff_or_named_change_both_xz_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_named_change_both_xz_blocking.sv:35: syntax error",
+   "inputs_sha256": "9ef6f1e7b1ad0bfc52f02753681602ebbbcaeddeb8e8aaa3b1092c5044a78a8a"
+  },
+  "gen/ch9/test_gen_cross_iff_or_named_change_first_known_nba": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_named_change_first_known_nba.sv:35: syntax error",
+   "inputs_sha256": "7e758165a6c4807aae96f1ae08ed2dd7f3c6498800346c3568b5edd175113060"
+  },
+  "gen/ch9/test_gen_cross_iff_or_named_change_first_mixed_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_named_change_first_mixed_blocking.sv:35: syntax error",
+   "inputs_sha256": "4455a5a1f1ae48f6efe80e2376a39f2655f8337680bdd5f9e23883ae7d630e3c"
+  },
+  "gen/ch9/test_gen_cross_iff_or_named_change_first_xz_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_named_change_first_xz_blocking.sv:35: syntax error",
+   "inputs_sha256": "ace0d464c5b0a0aca0c17a53b50d1ab22e960e9c604a7fabaf820d82fab0113f"
+  },
+  "gen/ch9/test_gen_cross_iff_or_named_change_second_known_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_named_change_second_known_blocking.sv:35: syntax error",
+   "inputs_sha256": "bafb1ef36cce62e336961344579d9c7811770a4f908f381498da18c444d56865"
+  },
+  "gen/ch9/test_gen_cross_iff_or_named_change_second_mixed_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_named_change_second_mixed_blocking.sv:35: syntax error",
+   "inputs_sha256": "b4d0d4246127d40704aeb78e1818cfda42186ffbccaffd770b0686488adb328b"
+  },
+  "gen/ch9/test_gen_cross_iff_or_named_change_second_xz_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_named_change_second_xz_blocking.sv:35: syntax error",
+   "inputs_sha256": "d58cb46649f8a0da4261916526b9e65a5c6c638fe35efdde94ecedca8c8d06ab"
+  },
+  "gen/ch9/test_gen_cross_iff_or_signals_change_both_mixed_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_signals_change_both_mixed_blocking.sv:35: syntax error",
+   "inputs_sha256": "c6f83b81dd58ca4f1191099574d86cc705eb8844a0159f689a1c3d2dfa57fff5"
+  },
+  "gen/ch9/test_gen_cross_iff_or_signals_change_second_mixed_nba": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_signals_change_second_mixed_nba.sv:35: syntax error",
+   "inputs_sha256": "351e853f3ca5d341d53c27a88dbfbabc9f92aac8dc5242ee8ac231cb6154a8dc"
+  },
+  "gen/ch9/test_gen_cross_iff_or_signals_negedge_both_xz_nba": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_signals_negedge_both_xz_nba.sv:35: syntax error",
+   "inputs_sha256": "757c7d221ea5cf43b207d225dc9d8097f6e8155a9129210db373d3ef3d59898d"
+  },
+  "gen/ch9/test_gen_cross_iff_or_signals_negedge_second_known_blocking": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_signals_negedge_second_known_blocking.sv:35: syntax error",
+   "inputs_sha256": "61778cb7e215edce7dd874ee66aa9fe7314b1ed8caed3f9dcb0f493dfa82da99"
+  },
+  "gen/ch9/test_gen_cross_iff_or_signals_posedge_first_mixed_nba": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch9/test_gen_cross_iff_or_signals_posedge_first_mixed_nba.sv:35: syntax error",
+   "inputs_sha256": "db945f110bbd14a84e6e4f24446040f897851ce786833d6c79c9a5c580e12e74"
+  }
+ },
+ "generated_at": "2026-10-30T22:01:50.796031+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

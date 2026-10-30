@@ -30,6 +30,7 @@ import interaction_concat
 import interaction_logic
 import interaction_shortcircuit
 import interaction_edge
+import interaction_iff
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -46,7 +47,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_index, interaction_queue,
               interaction_divide, interaction_resize,
               interaction_concat, interaction_logic,
-              interaction_shortcircuit, interaction_edge, combination_monitors,
+              interaction_shortcircuit, interaction_edge, interaction_iff, combination_monitors,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -236,6 +237,14 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_edge.MODEL.select(),
             "両背景で初期イベントを除外し、更新直後の値と次時刻の3カウンタを観測して、"
             "X/Z遷移、式の変化、ベクタのLSB規則、状態変換、NBAの更新時点を確認する。",
+        ),
+        SuiteModel(
+            interaction_iff.MODEL,
+            lambda row: "tests/gen/ch9/" + interaction_iff.case_name(row) + ".sv",
+            interaction_iff.MODEL.select(),
+            "独立した左右のイベント数と条件付きORの起床数、条件だけを変えた後の保持を観測し、"
+            "iffの項ごとの結合、orとカンマの同義性、名前付きイベントの再発火、"
+            "X/Zを含む条件の真偽、ブロッキング/NBAの更新時点を確認する。",
         ),
         SuiteModel(
             combination_monitors.MODEL,

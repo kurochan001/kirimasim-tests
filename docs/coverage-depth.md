@@ -6,13 +6,13 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 9176 |
+| Tests | 9203 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
 | Clauses with at least two direct tests | 1010/1010 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 121 |
+| Clauses with two tests or fewer | 120 |
 | Clauses with only standard-only tests | 200 |
 | Clauses with one test and only a standard-only test | 0 |
 
@@ -20,8 +20,8 @@
 | --- | ---: |
 | both releases | 664 |
 | Icarus Verilog 13.0 only | 4499 |
-| Verilator 5.052 only | 1598 |
-| standard only | 2415 |
+| Verilator 5.052 only | 1605 |
+| standard only | 2435 |
 
 ## By chapter
 
@@ -33,7 +33,7 @@
 | 6 | Data types | 645 | 76 | 8.5 | 0 | 105 |
 | 7 | Aggregate data types | 712 | 49 | 14.5 | 0 | 160 |
 | 8 | Classes | 321 | 43 | 7.5 | 0 | 72 |
-| 9 | Processes | 284 | 25 | 11.4 | 0 | 29 |
+| 9 | Processes | 311 | 25 | 12.4 | 0 | 49 |
 | 10 | Assignment statements | 254 | 18 | 14.1 | 0 | 40 |
 | 11 | Operators and expressions | 1644 | 42 | 39.1 | 0 | 250 |
 | 12 | Procedural programming statements | 251 | 19 | 13.2 | 0 | 49 |

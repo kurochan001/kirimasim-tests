@@ -1,0 +1,220 @@
+{
+  "schema": 1,
+  "purpose": "event_or_iff positive and fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 17b7192b4f05), built with AppleClang 21.0.0.21000334",
+  "commit": "17b7192b4f05162029d24ddcf50e5c6b5a6d2718",
+  "generator_sha256": "b7685a6fba2a05571fb926a537c5d4328abc2864e953ea6357534b05173e3fb2",
+  "qualification_sha256": "c02d384e892abf49fa516b50822fbf62f197e2b8a1baf5b1d36523dd4fd98196",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_iff_comma_signals_change_first_known_blocking",
+      "values": {
+        "join": "comma",
+        "source": "signals",
+        "edge": "change",
+        "filter": "first",
+        "guard": "known",
+        "update": "blocking"
+      },
+      "source_sha256": "fbcfbd896592036c03f97693365b306f67e939354193767cafc536e1ba35aafc",
+      "expected_sha256": "76dec4efffb1f28d7b68bdef57bc14b59f5402df9448099a9091672f7450d0f4",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_iff_or_signals_change_both_mixed_blocking",
+      "values": {
+        "join": "or",
+        "source": "signals",
+        "edge": "change",
+        "filter": "both",
+        "guard": "mixed",
+        "update": "blocking"
+      },
+      "source_sha256": "74230bda9f1dc4756e1942efbe7ecc0ad5b565fc03d65f0305eb28342aea0c33",
+      "expected_sha256": "3ca2be3fe7ff9740f64baa4e68888b5d65e21c78acb9014809ac346c63b009b0",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_iff_or_named_change_both_known_blocking",
+      "values": {
+        "join": "or",
+        "source": "named",
+        "edge": "change",
+        "filter": "both",
+        "guard": "known",
+        "update": "blocking"
+      },
+      "source_sha256": "44da4c0ef415de558b44a112c5b2471917c0dfe3458cffd0a2a269c4cb66fc4b",
+      "expected_sha256": "bfa6e394a2b322f96ee4dbbe779a11583e647f05c07eea5e1f7c9ed7822778d3",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_iff_or_mixed_posedge_both_mixed_nba",
+      "values": {
+        "join": "or",
+        "source": "mixed",
+        "edge": "posedge",
+        "filter": "both",
+        "guard": "mixed",
+        "update": "nba"
+      },
+      "source_sha256": "a8ffe92f318645c863cfeb5b1ba71864c94e6695f841b6ba0823c467fe25f8a8",
+      "expected_sha256": "0455dedbf322de3a272879e95c64bff2407513f16e9d1f0eaa801a356950e6bc",
+      "status": "pass",
+      "reason": ""
+    }
+  ],
+  "faults": [
+    {
+      "name": "wrong_guard",
+      "case": "test_gen_cross_iff_comma_signals_change_first_known_blocking",
+      "values": {
+        "join": "comma",
+        "source": "signals",
+        "edge": "change",
+        "filter": "first",
+        "guard": "known",
+        "update": "blocking"
+      },
+      "source_sha256": "deafff73c3707e17317f9a4d8a3ccdbf4a4dc8cf0ea7c2a517a4ab0414307d18",
+      "expected_sha256": "76dec4efffb1f28d7b68bdef57bc14b59f5402df9448099a9091672f7450d0f4",
+      "status": "fail",
+      "reason": "output differs: line 14 is 'p1_left_up gates=1,0 raw=3,2 hit=2', expected 'p1_left_up gates=1,0 raw=3,2 hit=3'",
+      "mutation": {
+        "before": "signal_a iff gate_a, signal_b",
+        "after": "signal_a iff gate_b, signal_b"
+      }
+    },
+    {
+      "name": "guard_both_terms",
+      "case": "test_gen_cross_iff_comma_signals_change_first_known_blocking",
+      "values": {
+        "join": "comma",
+        "source": "signals",
+        "edge": "change",
+        "filter": "first",
+        "guard": "known",
+        "update": "blocking"
+      },
+      "source_sha256": "a841839ab0455ef2b0cbe7383630d0557e5c3ae3c0e9b59d6b1e60b4c313d969",
+      "expected_sha256": "76dec4efffb1f28d7b68bdef57bc14b59f5402df9448099a9091672f7450d0f4",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'p0_right_up gates=0,0 raw=1,1 hit=0', expected 'p0_right_up gates=0,0 raw=1,1 hit=1'",
+      "mutation": {
+        "before": "signal_a iff gate_a, signal_b",
+        "after": "signal_a iff gate_a, signal_b iff gate_a"
+      }
+    },
+    {
+      "name": "drop_right_term",
+      "case": "test_gen_cross_iff_comma_signals_change_first_known_blocking",
+      "values": {
+        "join": "comma",
+        "source": "signals",
+        "edge": "change",
+        "filter": "first",
+        "guard": "known",
+        "update": "blocking"
+      },
+      "source_sha256": "1baeccf5577ad08b6d0987f45e6e2f7260f052567c6a9182c903240dcb274598",
+      "expected_sha256": "76dec4efffb1f28d7b68bdef57bc14b59f5402df9448099a9091672f7450d0f4",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'p0_right_up gates=0,0 raw=1,1 hit=0', expected 'p0_right_up gates=0,0 raw=1,1 hit=1'",
+      "mutation": {
+        "before": "signal_a iff gate_a, signal_b",
+        "after": "signal_a iff gate_a"
+      }
+    },
+    {
+      "name": "guard_is_an_event",
+      "case": "test_gen_cross_iff_comma_signals_change_first_known_blocking",
+      "values": {
+        "join": "comma",
+        "source": "signals",
+        "edge": "change",
+        "filter": "first",
+        "guard": "known",
+        "update": "blocking"
+      },
+      "source_sha256": "1a9115d6ffd518d947732cfe82d0b466e3d50ad43da2b665706883733742ba0e",
+      "expected_sha256": "76dec4efffb1f28d7b68bdef57bc14b59f5402df9448099a9091672f7450d0f4",
+      "status": "fail",
+      "reason": "output differs: line 12 is 'p1_guards gates=1,0 raw=2,2 hit=3', expected 'p1_guards gates=1,0 raw=2,2 hit=2'",
+      "mutation": {
+        "before": "signal_a iff gate_a, signal_b",
+        "after": "signal_a iff gate_a, signal_b, gate_a"
+      }
+    },
+    {
+      "name": "reject_known_one_with_x",
+      "case": "test_gen_cross_iff_or_signals_change_both_mixed_blocking",
+      "values": {
+        "join": "or",
+        "source": "signals",
+        "edge": "change",
+        "filter": "both",
+        "guard": "mixed",
+        "update": "blocking"
+      },
+      "source_sha256": "185841ff0270b2a4b33c360a28fb1b7f7048dfe8d419bf43d73c775b3c5d750c",
+      "expected_sha256": "3ca2be3fe7ff9740f64baa4e68888b5d65e21c78acb9014809ac346c63b009b0",
+      "status": "fail",
+      "reason": "output differs: line 47 is 'p4_left_up gates=1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx,000000...', expected 'p4_left_up gates=1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx,000000...'",
+      "mutation": {
+        "before": "iff gate_a",
+        "after": "iff (gate_a === 33'b1)"
+      }
+    },
+    {
+      "name": "drop_named_repeat",
+      "case": "test_gen_cross_iff_or_named_change_both_known_blocking",
+      "values": {
+        "join": "or",
+        "source": "named",
+        "edge": "change",
+        "filter": "both",
+        "guard": "known",
+        "update": "blocking"
+      },
+      "source_sha256": "00d6bcafe929ccfbf131aa490c456a2736193eb6903e7cfd810ee931d6d8c1de",
+      "expected_sha256": "bfa6e394a2b322f96ee4dbbe779a11583e647f05c07eea5e1f7c9ed7822778d3",
+      "status": "fail",
+      "reason": "output differs: line 11 is 'p0_left_repeat gates=0,0 raw=2,2 hit=0', expected 'p0_left_repeat gates=0,0 raw=3,2 hit=0'",
+      "mutation": {
+        "before": "    -> event_a;\n    $display(\"p0_left_repeat_scheduled=",
+        "after": "    ;\n    $display(\"p0_left_repeat_scheduled="
+      }
+    },
+    {
+      "name": "nba_becomes_blocking",
+      "case": "test_gen_cross_iff_or_mixed_posedge_both_mixed_nba",
+      "values": {
+        "join": "or",
+        "source": "mixed",
+        "edge": "posedge",
+        "filter": "both",
+        "guard": "mixed",
+        "update": "nba"
+      },
+      "source_sha256": "09a53e0de5c2bc0a7e74266d6d2602cb4b240c3ab76beafd6a67fafd3d4517b1",
+      "expected_sha256": "0455dedbf322de3a272879e95c64bff2407513f16e9d1f0eaa801a356950e6bc",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0_left_up_scheduled=1,0', expected 'p0_left_up_scheduled=0,0'",
+      "mutation": {
+        "before": "signal_a <=",
+        "after": "signal_a ="
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true
+}

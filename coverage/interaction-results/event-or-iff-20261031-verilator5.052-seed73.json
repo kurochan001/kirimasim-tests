@@ -1,0 +1,51 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch9/test_gen_cross_iff_comma_mixed_negedge_both_known_nba": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'p0_right_up gates=0,0 raw=0,0 hit=0', expected 'p0_right_up gates=0,0 raw=0,1 hit=0'",
+   "inputs_sha256": "2dbf4dc6ebfe43384bc791929128e41647689b1e7d650ef3d41d2f7abf39c82b"
+  },
+  "gen/ch9/test_gen_cross_iff_comma_mixed_negedge_first_known_blocking": {
+   "status": "pass",
+   "inputs_sha256": "f42e8444b219bd802a07ecb9a04797f59b0fee21241ee61c221e91f272850bbd"
+  },
+  "gen/ch9/test_gen_cross_iff_comma_signals_change_first_known_blocking": {
+   "status": "pass",
+   "inputs_sha256": "495e8a7b7c060d56f20f07430a7b951067465be17de220526a8a71bedc907193"
+  },
+  "gen/ch9/test_gen_cross_iff_comma_signals_posedge_both_known_blocking": {
+   "status": "pass",
+   "inputs_sha256": "79ab47118b96b5926e853ee40a2cbc077741e20e8a73e23b2edfff151e592b27"
+  },
+  "gen/ch9/test_gen_cross_iff_or_mixed_posedge_second_known_blocking": {
+   "status": "pass",
+   "inputs_sha256": "2d2d9f8b4415eb4b3cd1bd6fc7861a1e76ccebbb049bdbcacb656d376afe3768"
+  },
+  "gen/ch9/test_gen_cross_iff_or_named_change_both_known_blocking": {
+   "status": "pass",
+   "inputs_sha256": "4861993de66dfc3ffae0a97993376c4ffcd073f51da4cd8783c2ad7234ac5902"
+  },
+  "gen/ch9/test_gen_cross_iff_or_named_change_first_known_nba": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'p0_left_up gates=0,0 raw=0,0 hit=0', expected 'p0_left_up gates=0,0 raw=1,0 hit=0'",
+   "inputs_sha256": "7e758165a6c4807aae96f1ae08ed2dd7f3c6498800346c3568b5edd175113060"
+  },
+  "gen/ch9/test_gen_cross_iff_or_named_change_second_known_blocking": {
+   "status": "pass",
+   "inputs_sha256": "bafb1ef36cce62e336961344579d9c7811770a4f908f381498da18c444d56865"
+  },
+  "gen/ch9/test_gen_cross_iff_or_signals_negedge_second_known_blocking": {
+   "status": "pass",
+   "inputs_sha256": "61778cb7e215edce7dd874ee66aa9fe7314b1ed8caed3f9dcb0f493dfa82da99"
+  }
+ },
+ "generated_at": "2026-10-30T22:01:52.182875+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

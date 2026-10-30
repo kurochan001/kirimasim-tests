@@ -74,3 +74,23 @@ kirimasimは期待値どおりで、Verilatorは両seedで同じ結果が期待�
 参照モデルの規則を一つずつ誤りに置き換えた7種類の故障注入について、観測が変わるケース数も記録しています。
 故障注入は検出力の確認用で、通常のスイートや実行カバレッジへ加算しません。
 現行の回帰結果は`interaction-results/cross29-*.json`です。
+
+## イベントORとiffの確認
+
+[`20261031-event-iff.json`](20261031-event-iff.json)は`event_or_iff@1`の確認記録です。
+上流mainと版を照合したkirimasim `17b7192b4f05`で、選択済みの4行がすべて一致し、
+条件の取り違え・両項への誤った条件付け・右項の欠落・条件での誤起床・既知の1とXの混在の拒否・
+名前付きイベントの再発火の欠落・NBAの即時化、の7種類をすべて出力の相違として検出しました。
+元の生成器、確認ツール、作ったSVと期待値の指紋、各変更箇所と判定を保存しています。
+通常のスイートの件数や実行カバレッジには故障注入を加算しません。
+
+再確認は、実行直前に最新上流を取得・ビルドして版の一致を確認した後、次の形で実行します。
+過去の証跡を上書きせず、新しいファイル名を指定してください。
+
+```sh
+python3 tools/qualify_event_iff.py --kirimasim BIN --commit VERIFIED_COMMIT \
+  --json coverage/interaction-qualification/NEW-event-iff.json
+```
+
+通常の保存実行は`interaction-results/cross30-kirimasim-17b7192b.json`と
+`interaction-results/event-or-iff-20261031-*.json`です。
