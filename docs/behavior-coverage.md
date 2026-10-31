@@ -4,10 +4,10 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **要求カバレッジ（テスト設計）: 89.31%。**
-**全規格の要求台帳ベース（確定）: 設計 89.31%、実行 77.33%。**
+**全規格の要求台帳ベース（確定）: 設計 89.31%、実行 77.47%。**
 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
-規格要求の実行確認率: 77.33%。
+規格要求の実行確認率: 77.47%。
 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
@@ -16,7 +16,7 @@
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対する要求カバレッジ（テスト設計）: 10983/12298 (89.31%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9510/12298 (77.33%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9527/12298 (77.47%)。
 - 登録済みだがテスト未対応: 1315 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
@@ -71,6 +71,7 @@
 - `coverage-tests-20261029-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-28T22:47:59.529525+00:00 / 2/12298 動作確認、古い入力との対応 1 件。
 - `coverage-tests-20261029-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T22:46:15.799172+00:00 / 2/12298 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12298 動作確認、古い入力との対応 0 件。
+- `ghost-local-20261031-strict.json`: private build 7ed5e63eedf9 / 2026-10-31T10:33:23.126942+00:00 / 7883/12298 動作確認、古い入力との対応 0 件。
 - `ghost-local-20261031.json`: private build 88d08d9c3441 / 2026-10-31T08:07:21.082572+00:00 / 7927/12298 動作確認、古い入力との対応 0 件。
 - `issues-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-28T13:33:20.979624+00:00 / 5/12298 動作確認、古い入力との対応 10 件。
 - `issues-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T13:45:50.335531+00:00 / 3813/12298 動作確認、古い入力との対応 226 件。
@@ -20370,7 +20371,7 @@ A generic class itself is not a concrete type; a class type requires a specializ
 
 ### SV2023-8.25-EXTRACT-MATCHING-SPECIALIZATION-TYPE
 
-8.25 / normal / テスト対応あり・実行未確認
+8.25 / normal / 実行確認あり
 
 Matching specializations of the same generic class are the same type; package generic classes share globally, while each instance-local generic class declaration has its own specialization family.
 
@@ -25524,7 +25525,7 @@ An unpacked concatenation cannot directly contain another unpacked concatenation
 
 ### SV2023-10.10.3-EXTRACT-TYPED-PATTERN-AS-CONCAT-ITEM
 
-10.10.3 / normal / テスト対応あり・実行未確認
+10.10.3 / normal / 実行確認あり
 
 A self-determined typed array pattern expression can be a concatenation item and contributes its array elements under the flattening rules.
 
@@ -44434,7 +44435,7 @@ Constraints support only two-state values; x/z literals and four-state operators
 
 ### SV2023-18.4-EXTRACT-ARRAY-INDICES
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 Individual element constraints may use iterative loop variables, constants and state variables in indices.
 
@@ -44568,7 +44569,7 @@ A rand object handle causes its object variables/constraints to be solved concur
 
 ### SV2023-18.4-EXTRACT-RANDOM-ARRAYS
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 Arrays, including dynamic/associative arrays and queues, may be rand/randc; all elements inherit the qualifier and their old data is overwritten by randomization.
 
@@ -44580,7 +44581,7 @@ Arrays, including dynamic/associative arrays and queues, may be rand/randc; all 
 
 ### SV2023-18.4-EXTRACT-RANDOM-QUALIFIERS
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 Class properties may be declared rand or randc under Syntax 18-1.
 
@@ -44616,7 +44617,7 @@ The solver supports singular integral and real random variables, but real variab
 
 ### SV2023-18.4-EXTRACT-SIZE-BEFORE-ELEMENTS
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 A rand/randc dynamic-array/queue size may be constrained via size; resize according to that constraint before randomizing all elements.
 
@@ -49550,7 +49551,7 @@ Crossed coverpoints shall belong to the containing covergroup; crossing another 
 
 ### SV2023-19.6.1-EXTRACT-BINSOF-INTERSECT
 
-19.6.1 / normal / テスト対応あり・実行未確認
+19.6.1 / normal / 実行確認あり
 
 binsof yields bins of a point or specified point bin; intersect selects those whose associated values overlap a specified range set.
 
@@ -49562,7 +49563,7 @@ binsof yields bins of a point or specified point bin; intersect selects those wh
 
 ### SV2023-19.6.1-EXTRACT-BINSOF-NEGATION
 
-19.6.1 / normal / テスト対応あり・実行未確認
+19.6.1 / normal / 実行確認あり
 
 Negated binsof/intersect selects bins whose values do not intersect the specified range set.
 
@@ -49574,7 +49575,7 @@ Negated binsof/intersect selects bins whose values do not intersect the specifie
 
 ### SV2023-19.6.1-EXTRACT-CROSS-BIN-COUNT
 
-19.6.1 / normal / テスト対応あり・実行未確認
+19.6.1 / normal / 実行確認あり
 
 A cross bin associates a name/count with selected cross products and increments when any selected product has every point matching its corresponding bin.
 
@@ -49586,7 +49587,7 @@ A cross bin associates a name/count with selected cross products and increments 
 
 ### SV2023-19.6.1-EXTRACT-RETAIN-AUTO
 
-19.6.1 / normal / テスト対応あり・実行未確認
+19.6.1 / normal / 実行確認あり
 
 User cross bins coexist with automatic bins; by default automatic bins remain for products not overlapping any user bin, controlled by cross_retain_auto_bins.
 
@@ -49598,7 +49599,7 @@ User cross bins coexist with automatic bins; by default automatic bins remain fo
 
 ### SV2023-19.6.1-EXTRACT-SELECT-EXPRESSIONS
 
-19.6.1 / normal / テスト対応あり・実行未確認
+19.6.1 / normal / 実行確認あり
 
 User-defined cross bins use Syntax 19-4 bin selection expressions.
 
@@ -49610,7 +49611,7 @@ User-defined cross bins use Syntax 19-4 bin selection expressions.
 
 ### SV2023-19.6.1-EXTRACT-SELECT-LOGICAL
 
-19.6.1 / normal / テスト対応あり・実行未確認
+19.6.1 / normal / 実行確認あり
 
 Selected bin sets may combine with && and ||.
 
@@ -49773,7 +49774,7 @@ A cross set expression shall produce the enclosing cross CrossQueueType, whose e
 
 ### SV2023-19.6.2-EXTRACT-IGNORE-CROSS
 
-19.6.2 / normal / テスト対応あり・実行未確認
+19.6.2 / normal / 実行確認あり
 
 ignore_bins excludes every selected cross product from coverage even if included in another bin of the same cross.
 
@@ -50010,7 +50011,7 @@ Table 19-2 prohibits option.cross_retain_auto_bins at the coverpoint syntactic l
 
 ### SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-CROSS
 
-19.7 / normal / テスト対応あり・実行未確認
+19.7 / normal / 実行確認あり
 
 Table 19-2 permits option.cross_retain_auto_bins at the cross syntactic level.
 
@@ -50291,7 +50292,7 @@ Instance option cross_num_print_missing defaults to 0 and specifies the missing 
 
 ### SV2023-19.7-EXTRACT-OPTION-CROSS-RETAIN-AUTO-BINS
 
-19.7 / normal / テスト対応あり・実行未確認
+19.7 / normal / 実行確認あり
 
 Instance option cross_retain_auto_bins defaults to true; true retains automatic products outside explicit cross bins, while false removes all automatic cross bins when any explicit cross bin exists.
 
@@ -51216,7 +51217,7 @@ For a point with zero denominator, coverage queries return 0.0 when its weight i
 
 ### SV2023-19.11.2-EXTRACT-CROSS-FRACTION
 
-19.11.2 / normal / テスト対応あり・実行未確認
+19.11.2 / normal / 実行確認あり
 
 Cross coverage equals covered contributing bins divided by (Bc + Bu), excluding ignore/illegal user bins, where Bc is the number of automatic cross bins actually present: the product of the crossed coverpoint bin counts (Bj) minus Bb while automatic bins are retained (cross_retain_auto_bins true, the default), and zero when cross_retain_auto_bins is false and an explicit cross bin is present, so the denominator is then Bu alone.
 
@@ -69085,7 +69086,7 @@ Generate syntax provides genvar for initialization/test/update, constant if/else
 
 ### SV2023-27.3-EXTRACT-GENERATE-HIERARCHY
 
-27.3 / normal / テスト対応あり・実行未確認
+27.3 / normal / 実行確認あり
 
 Each instantiated generate block creates hierarchy with its contained objects/processes/instances; enclosing scope declarations remain directly visible and named blocks support hierarchical references.
 

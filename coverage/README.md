@@ -213,6 +213,20 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
   [#2641](https://github.com/kurochan001/sukimasim/issues/2641)（いずれも再オープン）と
   [#2888](https://github.com/kurochan001/sukimasim/issues/2888)〜
   [#2892](https://github.com/kurochan001/sukimasim/issues/2892)に記録しています。
+- `results/ghost-local-20261031-strict.json`: Ghostのローカル全件実行（LRM準拠モードを有効にした非公開プロファイル）。
+  対象はスイート`c0f9905b`の9,211本、ビルド識別子は`7ed5e63eedf9`で、8,524 pass・687 fail（92.54%一致）です。
+  同名の`.log`に不一致の一覧を保存しています。実行前後の入力一致とランナーのハッシュを検証済みです。
+  非公開の実行プロファイルや内部診断は含めません。
+  既定プロファイルの同じ9,211本（8,427 pass）と比べ、規格違反の受理は223本から101本へ減りました。
+  残る101本はGhost側のIssue
+  [#2897](https://github.com/kurochan001/sukimasim/issues/2897)〜
+  [#2939](https://github.com/kurochan001/sukimasim/issues/2939)に原因ごとに分類しています。
+  拒否はしたものの診断の位置形式が一致しない10本は
+  [#2899](https://github.com/kurochan001/sukimasim/issues/2899)と
+  [#2900](https://github.com/kurochan001/sukimasim/issues/2900)に記録しています。
+  LRM準拠モードで新たに落ちた22本のうち20本はテスト側の非準拠（§6.21 B007の18本、§13.5.2の2本）で、
+  残る2本は調査中です。
+  保存済みの他の実行結果との和集合で、対応済み要求の実行確認に加わります。
 - `results/quality-persim-20261027-*.json`: シミュレータ別期待値のパイロット実行（19本）。
 - `results/audit-oracle-20261026-icarus13.json`: spec-onlyのうちIcarus 13.0で一致した277本へ`iverilog@13.0`を追加した後の再実行（277/277 pass）。
 - `results/regex-refinement-20261025-*.json`: 判定の正規表現をメッセージの書式に依存しない形に直した`ch16`の2本の再実行。

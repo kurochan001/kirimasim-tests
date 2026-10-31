@@ -267,8 +267,8 @@ were merged; the [denominator review](docs/denominator-review-20261028.md)
 approved it. The reviewer was an AI, not an independent human.
 Design coverage is **89.31% (10,983/12,298)**;
 execution coverage from the saved `coverage/results/` evidence is
-**77.33% (9,510/12,298)**, from Icarus Verilog, Verilator, SymbiYosys and Ghost.
-The [Ghost full-suite snapshot from 2026-10-31](coverage/results/ghost-local-20261031.json)
+**77.47% (9,527/12,298)**, from Icarus Verilog, Verilator, SymbiYosys and Ghost.
+The [Ghost full-suite snapshot from 2026-10-31](coverage/results/ghost-local-20261031-strict.json)
 was saved with the current runner and contributes matching pass evidence.
 Clauses 1 to 40 alone are at 87.37% (8,270/9,465) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.md) for the
