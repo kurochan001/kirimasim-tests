@@ -103,7 +103,7 @@ program test_package_items_anonymous_program_export_timeunit;
   import pk_prog::*;
 
   initial begin
-    int acc = 5;
+    static int acc = 5;
     ApBox box;
     ApSquare sq;
     ApShape sh;

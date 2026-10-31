@@ -34,7 +34,7 @@ endprogram
 
 program test_anonymous_program;
   initial begin
-    ap_counter c = new;
+    static ap_counter c = new;
     c.bump(ap_scale(5));
     c.bump(1);
     $display("ap_scale(5) = %0d, counter = %0d", ap_scale(5), c.n);

@@ -29,7 +29,7 @@
 
 module test_process_random_state;
   initial begin
-    std::process here = std::process::self();
+    static std::process here = std::process::self();
     string state;
     int first_a, first_b, second_a, second_b;
 

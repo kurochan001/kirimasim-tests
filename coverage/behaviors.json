@@ -4000,8 +4000,8 @@
           "test": "tests/ch3/test_include_text_joins_compilation_unit.sv",
           "observation": "どのスコープにも属さない位置で include したファイルが変数 inc_count=3、enum 型 inc_color_t、関数 inc_double を宣言し、取り込む側のコンパイル単位変数 after_include がその変数から 4 に初期化される。モジュールは $unit::inc_count と $unit::after_include を 3 と 4、取り込んだ型の変数 INC_BLUE=2、関数呼出し 42 として表示する。 区別: include したテキストを取り込む側とは別のコンパイル単位とする誤実装では、$unit::inc_count や after_include の初期化、型名と関数名が解決できずコンパイルエラーとなるか、別の値を表示する。",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "3af3c894e623c59d54d75e0fb3584647a8b1d6bd25423a6976b8bb3e7dc4876b",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a8b24bdc395b85cd9cd146794e67b8006b639adea45d48e959e4572a2a715c18",
           "evidence": [
             {
               "file": "tests/ch3/test_include_text_joins_compilation_unit.sv",
@@ -4091,9 +4091,9 @@
         {
           "test": "tests/ch3/test_name_lookup_scope_order.sv",
           "observation": "コンパイル単位・モジュール・名前付きブロックの各 h はそれぞれの位置で最も近いもの(block h=9、module h=5、$unit::h=2)となり、モジュールの関数は局所宣言のない g をコンパイル単位の 1 と読む。モジュールとコンパイル単位の両方の wildcard import にある k はモジュール側の 10、コンパイル単位の import にだけある j は 30。子モジュールが呼ぶ pick はコンパイル単位の関数(100)に解決され親モジュールの pick(200)ではなく、only_in_parent は階層の上方探索で親の 300 となる。 区別: コンパイル単位をモジュールより先に探す誤実装では h や k がコンパイル単位の 2 や 20 となり、階層探索をコンパイル単位より先に行う誤実装(Icarus 13.0 がそうである)では pick=200 となる。階層探索をしない誤実装では only_in_parent が解決できない。",
-          "reviewed_on": "2026-10-25",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9693f6b2dca3c88d2c642e429aa8dfaf887109817726c562126e2c7afd641e7c",
+          "inputs_sha256": "4eebb480fd786f1b53c8f70f28b70ce7cf1ffe4d53684a450747db39d653aec1",
           "evidence": [
             {
               "file": "tests/ch3/test_name_lookup_scope_order.sv",
@@ -4543,9 +4543,9 @@
         {
           "test": "tests/ch3/test_element_and_block_name_spaces.sv",
           "observation": "test モジュールが名前 x をモジュール直下（1）、名前付きブロック named（2）、無名ブロック（3）、関数 read_x（4）、タスク take_x（5）、specify ブロックの specparam（6）に宣言し、名前付きブロックは 2、無名ブロックは 3、関数は 4、タスクは 5、モジュール変数は 1 を表示する。specparam x=6 はモジュール変数 x と衝突せずに宣言できる。 区別: ブロック・関数・タスク・specify が局所のブロック名前空間を持たずモジュール名前空間を共有する誤実装では、x の再宣言がエラーになるか、'named block x=2'・'unnamed block x=3'・'function x=4 task x=5 module x=1' の表示がすべて 1 になる。期待出力の 2/3/4/5/1 という異なる値が、各構文が自分の名前空間と自分の x を持つことを示す。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a154e95c0bcd3d64dc955beade687773588d6ba2cd12eb09047269b73847215e",
+          "inputs_sha256": "86f5095c9692159e309b3783c51bf9a945037dfc9b6a90b12875c8e3697a7327",
           "evidence": [
             {
               "file": "tests/ch3/test_element_and_block_name_spaces.sv",
@@ -4553,7 +4553,7 @@
             },
             {
               "file": "tests/ch3/test_element_and_block_name_spaces.sv",
-              "contains": "    begin : named\n      int x = 2;"
+              "contains": "    begin : named\n      static int x = 2;"
             },
             {
               "file": "tests/ch3/test_element_and_block_name_spaces.expected",
@@ -4605,9 +4605,9 @@
         {
           "test": "tests/ch3/test_element_and_block_name_spaces.sv",
           "observation": "module space_a、module space_b、interface space_if、package space_pkg が、それぞれ同じ名前 P（パラメータ）、T（型）、v（変数）、n（ネット）、f（関数）、t（タスク）、blk（名前付きブロック）、module では更にインスタンス u を宣言し、各要素が自分の値（space_a は 10/32bit/11/12/13/14/15、space_b は 20/64bit/21/22/23/24/25、space_if は 40/16bit/41/42/43/44）を表示する。 区別: 各モジュール・インタフェース・パッケージが単一のメンバー名前空間を持たず名前が漏れる誤実装では、同名の P/T/v/n/f/t/u が別要素の宣言と衝突してコンパイルエラーになるか、space_a と space_b の $bits(T)・v・f() が同じ値になる。期待出力の 'space_a: P=10 $bits(T)=32 ... f=14 t=15' と 'space_b: P=20 $bits(T)=64 ...' および 'space_if: ...' の各行が要素ごとに異なることが、要素名前空間の独立を示す。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a154e95c0bcd3d64dc955beade687773588d6ba2cd12eb09047269b73847215e",
+          "inputs_sha256": "86f5095c9692159e309b3783c51bf9a945037dfc9b6a90b12875c8e3697a7327",
           "evidence": [
             {
               "file": "tests/ch3/test_element_and_block_name_spaces.sv",
@@ -127679,9 +127679,9 @@
         {
           "test": "tests/ch12/test_syntax_case_statement_forms.sv",
           "observation": "case の項目に 1, 2 の複数式とコロンなし default、default なし case、casez の 1???/01??、casex の 1xxx、unique/unique0/priority case を置き、plain: 10 20 30、no default: 1 2、casez: 1 2 3、casex: 1 1、qualifiers: 1 2 1、null 文項目の r=9 を表示する。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5fedbf5db2177f2686e0652ca026d34a77f2b0c43bdb9db981a3cf0572af6214",
+          "inputs_sha256": "e87a26e77edd2c1061109f026c0ce5cc1ebf8cea4ac82a5dd18930394621a32e",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_case_statement_forms.sv",
@@ -172744,9 +172744,9 @@
         {
           "test": "tests/ch18/test_rand_uniform_full_range.sv",
           "observation": "制約なしの rand bit [3:0] nib を 1600 回解き 16 値すべてが現れて各回数が 40..260、rand bit [2:0] three に inside {[1:6]} を課すと 6 値だけが各 160..380 で現れる。 区別: 範囲の一部しか生成しない、または一様でない実装では values seen が 16/6 未満になるか counts の範囲を外れる。集合制約が残存値を一様に保たない実装も counts を外す。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "29abd44673e9b62ddb8bc90832c1ec46224834c7781791e36c45807c8ff3223f",
+          "inputs_sha256": "0a93a341bd417d89c4a5baf831945d0529d4c44cbe273df45b6201aedbd1da6a",
           "evidence": [
             {
               "file": "tests/ch18/test_rand_uniform_full_range.sv",
@@ -197958,9 +197958,9 @@
         {
           "test": "tests/ch20/test_typename_enum_encoded_values.sv",
           "observation": "Takes the part of $typename between the braces for the same enumeration declared with GREEN=3 in two packages and with GREEN=4 in a third. 区別: A tool that left the encoded values out of the string would make the first and the second package equal, so the second comparison would print 1.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "3c231ddea6c4c541cffbe12ba83d1043f1150db2ba71fcae5bbc4595a6b9455f",
+          "inputs_sha256": "95a5637c88dc03bf27d62678db1f03bf580b6d4294235517532c69c6a4f24f1a",
           "evidence": [
             {
               "file": "tests/ch20/test_typename_enum_encoded_values.sv",
@@ -220892,9 +220892,9 @@
         {
           "test": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
           "observation": "The file declares a module scope, a begin scope for the named sequential block, a fork scope for the named parallel block and a task scope for the subroutine; each expected boolean records one type with its name. 区別: A tool that used the wrong scope type, or omitted one of the named scopes, would print 0 on that line.",
-          "reviewed_on": "2026-10-27",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a69cfe8d559dc7445d8eaa117580380ce0a4962664c5a0271abe82f9a00040c2",
+          "inputs_sha256": "608d60cd4dec1058e4419a5b6cc1409b45475dad6c8a52c06fcab6ea656f68d6",
           "evidence": [
             {
               "file": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
@@ -220983,9 +220983,9 @@
         {
           "test": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
           "observation": "シミュレーションで21.7.2.3-EXTRACT-UPSCOPE-COMMANDを観測する。The reader counts one $upscope for every $scope and checks that the scopes nest and balance, so each upscope returns exactly one level in the design hierarchy. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
-          "reviewed_on": "2026-10-28",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a69cfe8d559dc7445d8eaa117580380ce0a4962664c5a0271abe82f9a00040c2",
+          "inputs_sha256": "608d60cd4dec1058e4419a5b6cc1409b45475dad6c8a52c06fcab6ea656f68d6",
           "evidence": [
             {
               "file": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
@@ -221055,9 +221055,9 @@
         {
           "test": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
           "observation": "シミュレーションで21.7.2.3-EXTRACT-VAR-COMMANDを観測する。The $var entry for a 4-bit vector is checked field by field: the type, the size, a printable identifier code, the reference name and the [3:0] msb/lsb range; test_vcd_type_mappings adds the var_type mapping. 区別: 既存テストの再利用で要求の条件を刺激し、規格から導いた期待値と比較する。",
-          "reviewed_on": "2026-10-28",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a69cfe8d559dc7445d8eaa117580380ce0a4962664c5a0271abe82f9a00040c2",
+          "inputs_sha256": "608d60cd4dec1058e4419a5b6cc1409b45475dad6c8a52c06fcab6ea656f68d6",
           "evidence": [
             {
               "file": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
@@ -254865,9 +254865,9 @@
         {
           "test": "tests/ch24/test_anonymous_program.sv",
           "observation": "program; ... endprogramのanonymous bodyへfunction/classを宣言し、named programからその名前をscope prefixなしで呼び、戻り値22とclass objectの累積23を期待する合法構文を確認する。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "b181099c60f0a57eade9e40728ec6187c57796bc490db36fe786cd36899fa482",
+          "reviewed_on": "2026-10-31",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4c717a2c4506fe7b4089a791d3423cb58d4b3ec65382338be0f14dbebb36cfc4",
           "evidence": [
             {
               "file": "tests/ch24/test_anonymous_program.sv",
@@ -258994,9 +258994,9 @@
         {
           "test": "tests/ch26/test_package_dpi_and_assertion_items.sv",
           "observation": "package pk_dpi_assert の sequence s_pulse と property p_pulse_ack を module から assert/cover し、fails=1 hits=3 を比較する。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "89de477b3af0fd1000134476bdc24dcd95bce43e9889c69a119c8ea0e12c31dc",
+          "inputs_sha256": "780c17e0295c9b66e0bf2836218c4e09c4de3d2ae07d3379abf191cde66723ab",
           "evidence": [
             {
               "file": "tests/ch26/test_package_dpi_and_assertion_items.sv",
@@ -259011,9 +259011,9 @@
         {
           "test": "tests/ch26/test_package_checker_and_covergroup_items.sv",
           "observation": "package pk_chk_cov の checker no_double_pulse を package-scoped 名で実体化し、sig の 2 連パルスで時刻25 に失敗行が出ることを比較する。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b9ca4623e9e18aebb964b11e01640cea8218e22de4f159a1b7584c33e4e8664d",
+          "inputs_sha256": "2a1cd8ffbf094c43f68b1fa338253d81699d18e844e7fdbb49be97ab8afdcaba",
           "evidence": [
             {
               "file": "tests/ch26/test_package_checker_and_covergroup_items.sv",
@@ -311724,9 +311724,9 @@
         {
           "test": "tests/ch35/test_dpi_native_types_and_passing.sv",
           "observation": "Declares the C formals as int, short, signed char, svBitVecVal, svLogicVecVal, double, char pointer and svBit for the SV formals, and prints the sum the C function reads. 区別: A C declaration whose types did not match the SV formals would read different bytes and print another sum than 693.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2af04904d984b49559d6f6639423ec1b87f3064f245459b81ef764384eff6087",
+          "inputs_sha256": "f834d2fa77b6a67b867e28ff1f51cf4b1578167c7397dd36c6815454732939a3",
           "evidence": [
             {
               "file": "tests/ch35/test_dpi_native_types_and_passing.sv",
@@ -311764,9 +311764,9 @@
         {
           "test": "tests/ch35/test_dpi_native_types_and_passing.sv",
           "observation": "Reads a 4-bit logic vector through aval and bval and a 64-bit bit vector through two chunks, and adds a term that is 1000 times the x and z bits. 区別: A layer that put the value in bval or ordered the 64-bit chunks the other way would print a sum other than 693.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2af04904d984b49559d6f6639423ec1b87f3064f245459b81ef764384eff6087",
+          "inputs_sha256": "f834d2fa77b6a67b867e28ff1f51cf4b1578167c7397dd36c6815454732939a3",
           "evidence": [
             {
               "file": "tests/ch35/test_dpi_native_types_and_passing.sv",
@@ -311804,9 +311804,9 @@
         {
           "test": "tests/ch35/test_dpi_native_types_and_passing.sv",
           "observation": "Calls the imported functions and receives their results, and passes an output and an inout that the C function writes. 区別: A simulator whose calling protocol differed would not deliver the arguments or the written values, and the sums 693, 30 and 7 would differ.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2af04904d984b49559d6f6639423ec1b87f3064f245459b81ef764384eff6087",
+          "inputs_sha256": "f834d2fa77b6a67b867e28ff1f51cf4b1578167c7397dd36c6815454732939a3",
           "evidence": [
             {
               "file": "tests/ch35/test_dpi_native_types_and_passing.sv",
@@ -312229,9 +312229,9 @@
         {
           "test": "tests/ch35/test_dpi_input_actual_and_output_values.sv",
           "observation": "Writes through the pointers of an int, a bit vector and a logic vector input formal and prints the actual arguments after the call. 区別: A tool that passed the actuals by reference would show the written 99 or the changed vector bytes instead of 11, 5a and 1001.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "64f476c9d61f810b5143d4203b49cae6a915bb3fe9b667a39ae7400c39ac5b51",
+          "inputs_sha256": "7700c455c14000ee769c23d6b13a44a7d7040791265411896f37b8469487b4ad",
           "evidence": [
             {
               "file": "tests/ch35/test_dpi_input_actual_and_output_values.sv",
@@ -314501,9 +314501,9 @@
         {
           "test": "tests/ch35/test_dpi_native_types_and_passing.sv",
           "observation": "Uses int, shortint, byte, bit [7:0], logic [3:0], bit [63:0], real, string and bit formals of SV types in one import. 区別: A tool that accepted a foreign type spelling, or rejected one of the supported SV types, would not compile or would pass another value.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2af04904d984b49559d6f6639423ec1b87f3064f245459b81ef764384eff6087",
+          "inputs_sha256": "f834d2fa77b6a67b867e28ff1f51cf4b1578167c7397dd36c6815454732939a3",
           "evidence": [
             {
               "file": "tests/ch35/test_dpi_native_types_and_passing.sv",
@@ -315394,9 +315394,9 @@
         {
           "test": "tests/ch35/test_dpi_native_types_and_passing.sv",
           "observation": "Passes eight values of different SV types and checks that the C function reads them in the canonical representation. 区別: A passing that were not transparent would change the sum, for example by sign-extending the logic vector differently.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2af04904d984b49559d6f6639423ec1b87f3064f245459b81ef764384eff6087",
+          "inputs_sha256": "f834d2fa77b6a67b867e28ff1f51cf4b1578167c7397dd36c6815454732939a3",
           "evidence": [
             {
               "file": "tests/ch35/test_dpi_native_types_and_passing.sv",
@@ -315430,9 +315430,9 @@
         {
           "test": "tests/ch35/test_dpi_input_actual_and_output_values.sv",
           "observation": "Prints the input actuals after the foreign function wrote to the formals and the output after it wrote 99 there. 区別: A tool that let the foreign writes reach the actuals would print another int or vector value than 11, 5a and 1001.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "64f476c9d61f810b5143d4203b49cae6a915bb3fe9b667a39ae7400c39ac5b51",
+          "inputs_sha256": "7700c455c14000ee769c23d6b13a44a7d7040791265411896f37b8469487b4ad",
           "evidence": [
             {
               "file": "tests/ch35/test_dpi_input_actual_and_output_values.sv",
@@ -339283,8 +339283,8 @@
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
           "observation": "Each io declaration of instance u gives that same instance with vpiInstance, compared by vpi_compare_objects. 区別: Returning NULL or another instance changes 'instance is u 1' to 0 on an io declaration line.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -339319,8 +339319,8 @@
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
           "observation": "The UDP definition of instance up iterates its three io declarations a, b and o. 区別: Missing an io declaration or returning another owner changes the three 'udp io declarations' lines.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -339359,8 +339359,8 @@
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
           "observation": "Each UDP io declaration leads back with vpiUdpDefn to the definition that owns it. 区別: A wrong reverse relation changes 'a: back with vpiUdpDefn 1' to 0.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -339435,12 +339435,12 @@
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
           "observation": "The io declarations of task t (ti, to, tr) and function f (fi) lead back with vpiTaskFunc to that task or function. 区別: A wrong reverse relation changes 'ti: back with vpiTaskFunc 1', 'tr: ...' or 'fi: ...' to 0.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-              "contains": "  task t (input int ti, output int to, ref int tr);"
+              "contains": "  task automatic t (input int ti, output int to, ref int tr);"
             },
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.expected",
@@ -339679,8 +339679,8 @@
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
           "observation": "The io declarations din, dout, scalar and vec iterate their ranges: one 7:0 or 3:0 range, or none for scalar. 区別: A missing range iteration or the wrong ranges changes 'ranges 1 7:0', 'ranges 1 3:0' or 'ranges 0'.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -339715,8 +339715,8 @@
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
           "observation": "Each io declaration din, dout, scalar and vec gives a typespec whose ranges and left/right bounds match the io declaration's own. 区別: Returning a NULL typespec or different bounds changes 'typespec exists 1', 'same bounds 1' or the left/right comparison.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -339831,8 +339831,8 @@
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
           "observation": "vpiScalar is 1 for the scalar io declaration and 0 for the vector declarations. 区別: Returning the wrong scalar property changes 'scalar 1' or 'scalar 0' on the four lines.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -339867,8 +339867,8 @@
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
           "observation": "vpiSigned is 1 for the signed input din and 0 for the unsigned output dout and the other formals. 区別: Returning the wrong signedness changes 'signed 1' or 'signed 0'.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -339943,8 +339943,8 @@
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
           "observation": "vpiVector is 1 for the 8-bit and 4-bit wide formals and 0 for the 1-bit scalar. 区別: Returning the wrong vector property changes 'vector 1' or 'vector 0'.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -340015,8 +340015,8 @@
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
           "observation": "For din and dout, the io declaration's range iteration, vpiLeftRange and vpiRightRange equal those of its typespec. 区別: A different bound or a missing range relation changes 'same bounds 1' or the left/right 'same 1'.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -340051,8 +340051,8 @@
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
           "observation": "The ref port rp and the ref task argument tr have vpiDirection vpiRef and a vpiRefObj expression; the interface port b and modport port d also give ref objs. 区別: Returning another direction or expression type changes 'ref 1' or 'expr ref obj 1' for rp, tr, b or d.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -340060,7 +340060,7 @@
             },
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-              "contains": "  task t (input int ti, output int to, ref int tr);"
+              "contains": "  task automatic t (input int ti, output int to, ref int tr);"
             },
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.expected",
@@ -341232,8 +341232,8 @@
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
           "observation": "vpiPortType is vpiPort for din, dout, scalar, vec and rp, vpiInterfacePort for b, and vpiModportPort for d. 区別: Returning another port type changes the 'port 1', 'interface port 1' or 'modport port 1' field of a port line.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -341597,8 +341597,8 @@
           "test": "tests/ch37/test_vpi_ref_obj_actual_port_insts.sv",
           "observation": "The ref obj of interface port b iterates two vpiPortInst handles, the port i of c1 and c2, each with its instance as parent. 区別: Missing the ports or returning other ports changes 'ports inst of b: 2' or the 'c1 i' and 'c2 i' lines.",
           "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "192e5769446bcefb94c00b53dc72cc03581824508ea29c4235e17fe39c8625a8",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c440b925e87f9e9dcf8af111b11f42c1bb97031f25dc115fec603426fe001292",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_ref_obj_actual_port_insts.sv",
@@ -436202,9 +436202,9 @@
         {
           "test": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
           "observation": "匿名プログラム項目のタスク ap_accumulate(inout int acc, input int v) を acc=5, v=7 で呼び、acc=12 を表示する。 区別: 匿名プログラム内のタスク宣言を受理しない実装はコンパイルに失敗し、inout を書き戻さなければ acc=12 が 5 に変わる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "959fd1615868071b5937ba94e21d7867e5e8c34f0d8a2b84825731eeb1d28828",
+          "inputs_sha256": "c92377fc47560ed2dcbd072b1723d66fc1bc1d538887144ef4b7f387bf3e8c03",
           "evidence": [
             {
               "file": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
@@ -436242,9 +436242,9 @@
         {
           "test": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
           "observation": "匿名プログラム項目の関数 ap_cube(int x) を ap_cube(3) で呼び、cube=27 を表示する。 区別: 匿名プログラム内の関数宣言を受理しないかパッケージの名前空間に置かない実装はコンパイルに失敗し、評価を誤れば cube=27 が変わる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "959fd1615868071b5937ba94e21d7867e5e8c34f0d8a2b84825731eeb1d28828",
+          "inputs_sha256": "c92377fc47560ed2dcbd072b1723d66fc1bc1d538887144ef4b7f387bf3e8c03",
           "evidence": [
             {
               "file": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
@@ -436278,9 +436278,9 @@
         {
           "test": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
           "observation": "匿名プログラム項目のクラス ApBox と ApSquare をプログラムで new し、ApBox の get() が box=40、ApSquare の area() が area=36 を返すことを表示する。 区別: 匿名プログラム内のクラス宣言を受理しない実装はコンパイルに失敗し、メンバやメソッドを誤れば box=40 area=36 が変わる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "959fd1615868071b5937ba94e21d7867e5e8c34f0d8a2b84825731eeb1d28828",
+          "inputs_sha256": "c92377fc47560ed2dcbd072b1723d66fc1bc1d538887144ef4b7f387bf3e8c03",
           "evidence": [
             {
               "file": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
@@ -436318,9 +436318,9 @@
         {
           "test": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
           "observation": "匿名プログラム項目のインターフェースクラス ApShape（pure virtual area()）を ApSquare が実装し、ApShape 型ハンドル sh 経由の sh.area() が辺 6 の 36 を返すことを area=36 で確認する。 区別: 匿名プログラム内のインターフェースクラス宣言を受理しない実装はコンパイルに失敗し、インターフェースクラスのハンドルからの呼び出しが実装に届かなければ area=36 が変わる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "959fd1615868071b5937ba94e21d7867e5e8c34f0d8a2b84825731eeb1d28828",
+          "inputs_sha256": "c92377fc47560ed2dcbd072b1723d66fc1bc1d538887144ef4b7f387bf3e8c03",
           "evidence": [
             {
               "file": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
@@ -436358,9 +436358,9 @@
         {
           "test": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
           "observation": "匿名プログラム項目のカバーグループ ap_cg（bins b0={0}, b1={1}）をプログラムで new し、sample(1) の後の get_inst_coverage() が 2 ビン中 1 ビンの coverage=50.00 になることを表示する。 区別: 匿名プログラム内のカバーグループ宣言を受理しない実装はコンパイルに失敗し、サンプルを数えなければ coverage=0.00、ビンを誤れば 100.00 などに変わる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "959fd1615868071b5937ba94e21d7867e5e8c34f0d8a2b84825731eeb1d28828",
+          "inputs_sha256": "c92377fc47560ed2dcbd072b1723d66fc1bc1d538887144ef4b7f387bf3e8c03",
           "evidence": [
             {
               "file": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
@@ -436398,9 +436398,9 @@
         {
           "test": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
           "observation": "匿名プログラム項目のクラスコンストラクタ宣言 function ApBox::new(int v); this.v = 10 * v; を extern function new(int v) の原型に対して置き、new(4) の後 box=40 を表示する。 区別: 匿名プログラム内のクラス外コンストラクタ宣言を受理しないか原型に結び付けない実装は、コンパイルに失敗するか v を設定せず box=40 が 0 に変わる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "959fd1615868071b5937ba94e21d7867e5e8c34f0d8a2b84825731eeb1d28828",
+          "inputs_sha256": "c92377fc47560ed2dcbd072b1723d66fc1bc1d538887144ef4b7f387bf3e8c03",
           "evidence": [
             {
               "file": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
@@ -436438,9 +436438,9 @@
         {
           "test": "tests/ch24/test_anonymous_program_empty_item.sv",
           "observation": "The anonymous program in anon_pkg holds a lone semicolon before the class counter, one after it, and the function twice; the named program prints class member=7 and function=42. 区別: A tool that did not accept the empty anonymous-program item would reject the package, so the class member and the function result would not be printed.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "4e0928feb8803216a865242273c5bf90080daf304eb4d8793171aa6688bcd1a5",
+          "inputs_sha256": "f19747e94f368aac5967f2575db6224a33d7a2b5fa538f73a06858808cb47406",
           "evidence": [
             {
               "file": "tests/ch24/test_anonymous_program_empty_item.sv",
@@ -436474,9 +436474,9 @@
         {
           "test": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
           "observation": "パッケージ内に program; で始まり endprogram で終わる匿名プログラムを置き、タスク・関数・クラス・インターフェースクラス・カバーグループ・クラスコンストラクタ宣言・空項目の7項目を繰り返し並べる。プログラムがそれらを pk_prog からインポートして acc=12 cube=27、box=40 area=36、coverage=50.00 を表示する。 区別: 匿名プログラムを受理しない実装はコンパイルに失敗し、匿名プログラムを独自のスコープとして扱いパッケージの名前空間に項目を入れない実装では、import pk_prog::* で ap_cube などが見つからずコンパイルに失敗する。項目を途中で打ち切れば後続の項目の結果行が出ない。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "959fd1615868071b5937ba94e21d7867e5e8c34f0d8a2b84825731eeb1d28828",
+          "inputs_sha256": "c92377fc47560ed2dcbd072b1723d66fc1bc1d538887144ef4b7f387bf3e8c03",
           "evidence": [
             {
               "file": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
@@ -436674,9 +436674,9 @@
         {
           "test": "tests/ch26/test_package_checker_and_covergroup_items.sv",
           "observation": "パッケージ項目のチェッカ宣言 no_double_pulse(logic sig, event clk)（assert property (@clk sig |=> !sig)）を、モジュールが pk_chk_cov::no_double_pulse u_chk(sig, posedge clk) で実体化する。sig=0 1 1 0 1 0（立ち上がり 5..55）で tick 2 の試行だけが tick 3 で失敗し、'no_double_pulse failed at 25' が1行だけ出る。 区別: パッケージ内のチェッカ宣言を受理しない実装はコンパイルに失敗し、チェッカ内のアサーションを実体化しない・引数を誤って渡す実装では failed at 25 の行が消えるか時刻や回数が変わる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b9ca4623e9e18aebb964b11e01640cea8218e22de4f159a1b7584c33e4e8664d",
+          "inputs_sha256": "2a1cd8ffbf094c43f68b1fa338253d81699d18e844e7fdbb49be97ab8afdcaba",
           "evidence": [
             {
               "file": "tests/ch26/test_package_checker_and_covergroup_items.sv",
@@ -436718,9 +436718,9 @@
         {
           "test": "tests/ch26/test_package_dpi_and_assertion_items.sv",
           "observation": "パッケージ項目として import \"DPI-C\" context function int c_scaled_sum と export \"DPI-C\" function sv_add を置き、モジュールから c_scaled_sum(2, 5) を呼ぶ。C 側はエクスポートされたパッケージ関数 sv_add(2,5)=7 を呼んで 10 倍し、c_scaled_sum(2,5)=70 を表示する。 区別: パッケージ内の DPI インポートを受理しない実装はコンパイルかリンクに失敗し、パッケージ内のエクスポートを C から呼べる関数として公開しない実装ではリンクに失敗するか値が 70 にならない。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "89de477b3af0fd1000134476bdc24dcd95bce43e9889c69a119c8ea0e12c31dc",
+          "inputs_sha256": "780c17e0295c9b66e0bf2836218c4e09c4de3d2ae07d3379abf191cde66723ab",
           "evidence": [
             {
               "file": "tests/ch26/test_package_dpi_and_assertion_items.sv",
@@ -436998,9 +436998,9 @@
         {
           "test": "tests/ch26/test_package_checker_and_covergroup_items.sv",
           "observation": "パッケージ項目のカバーグループ宣言 cg_val（bins lo={[0:3]}, hi={[4:7]}）のインスタンスを new し、sample(1) を2回呼んだ後の get_inst_coverage() が 2 ビン中 1 ビンで c_pkg=50.00 になることを表示する。 区別: パッケージ内のカバーグループ宣言を受理しない実装はコンパイルに失敗し、サンプリングやビンの数え方を誤れば（重複ヒットを2ビンと数える、標本を捨てる等）c_pkg=50.00 が 100.00 や 0.00 に変わる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b9ca4623e9e18aebb964b11e01640cea8218e22de4f159a1b7584c33e4e8664d",
+          "inputs_sha256": "2a1cd8ffbf094c43f68b1fa338253d81699d18e844e7fdbb49be97ab8afdcaba",
           "evidence": [
             {
               "file": "tests/ch26/test_package_checker_and_covergroup_items.sv",
@@ -437038,9 +437038,9 @@
         {
           "test": "tests/ch26/test_package_dpi_and_assertion_items.sv",
           "observation": "アサーション項目宣言の3種（let max2、sequence s_pulse(sig)=sig ##1 !sig、property p_pulse_ack=s_pulse |-> ack）をパッケージに置く。let は max2(3,7)=7 / max2(9,2)=9、9 クロックの req=010010110 / ack=001000001 に対し、パッケージの sequence を cover して hits=3（tick 3,6,9 で一致）、property を assert して ack=0 の tick 6 だけ失敗し fails=1 を表示する。 区別: パッケージ内の let・sequence・property 宣言のどれかを扱えない実装はコンパイルに失敗し、let の引数置換や sequence の一致、含意の判定を誤れば max2 の値、hits=3、fails=1 のいずれかが変わる（例えば |-> を |=> と扱えば fails が変わる）。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "89de477b3af0fd1000134476bdc24dcd95bce43e9889c69a119c8ea0e12c31dc",
+          "inputs_sha256": "780c17e0295c9b66e0bf2836218c4e09c4de3d2ae07d3379abf191cde66723ab",
           "evidence": [
             {
               "file": "tests/ch26/test_package_dpi_and_assertion_items.sv",
@@ -437126,9 +437126,9 @@
         {
           "test": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
           "observation": "パッケージ pk_prog に、宣言（int pkg_calls、タスク wait_pkg）、匿名プログラム、export pk_base::base_val;、先行宣言と一致する2回目の timeunit 1ns / 10ps; を並べる。プログラムから base_val=40（エクスポート経由）、匿名プログラム項目の結果、wait_pkg の #1.25 が 1250 ps になる time=1250 calls=1 を表示する。 区別: エクスポートを処理しなければ base_val が見えずコンパイルに失敗し、パッケージの時間単位（2回目の宣言を含む）を無視してプログラムの 1 ps 単位を使えば time=1250 が 1 に変わり、匿名プログラムを受理しなければコンパイルに失敗する。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "959fd1615868071b5937ba94e21d7867e5e8c34f0d8a2b84825731eeb1d28828",
+          "inputs_sha256": "c92377fc47560ed2dcbd072b1723d66fc1bc1d538887144ef4b7f387bf3e8c03",
           "evidence": [
             {
               "file": "tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",
@@ -438597,9 +438597,9 @@
         {
           "test": "tests/ch26/test_package_checker_and_covergroup_items.sv",
           "observation": "データ型としてパッケージスコープ付きのカバーグループ名 pk_chk_cov::cg_val と、スコープなしのモジュール内カバーグループ名 cg_local の変数を宣言し、それぞれ new してサンプリングした get_inst_coverage() が c_pkg=50.00（2 ビン中 1）、c_loc=75.00（4 ビン中 3）になることを表示する。 区別: カバーグループ名をデータ型として受理しない、またはパッケージスコープ付きの名前を解決しない実装はコンパイルに失敗し、変数が別の型のインスタンスを指せば 50.00 と 75.00 が入れ替わるか変わる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b9ca4623e9e18aebb964b11e01640cea8218e22de4f159a1b7584c33e4e8664d",
+          "inputs_sha256": "2a1cd8ffbf094c43f68b1fa338253d81699d18e844e7fdbb49be97ab8afdcaba",
           "evidence": [
             {
               "file": "tests/ch26/test_package_checker_and_covergroup_items.sv",
@@ -444363,13 +444363,13 @@
         {
           "test": "tests/ch9/test_block_item_declaration_kinds.sv",
           "observation": "名前付き sequential block blk に属性付きの data_declaration（int x = 3）、localparam（L = 4）、parameter（P = 5）、let（y(i) = i + x + L + P）を順に置き、parallel block par にも data_declaration（int z = 6）を置く。y(2) が 14、par の z が 6 と表示される。 区別: 4 つの代替のどれかを拒否すると構文エラーになり、localparam や parameter を値の計算に使わない実装では y が 9 や 10 になり、let の実引数を無視すると y が 12 になる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "78c951e0c9a526656fdae3345288a34f30b0f5e6733582927cba3acca307481c",
+          "inputs_sha256": "83b9f14b170987fa3dfd1ad00e699a1ce5c472b826178a1352be009ffcd36303",
           "evidence": [
             {
               "file": "tests/ch9/test_block_item_declaration_kinds.sv",
-              "contains": "(* keep = \"true\" *) int x = 3;"
+              "contains": "(* keep = \"true\" *) static int x = 3;"
             },
             {
               "file": "tests/ch9/test_block_item_declaration_kinds.sv",
@@ -451421,9 +451421,9 @@
         {
           "test": "tests/ch12/test_syntax_case_statement_forms.sv",
           "observation": "case statements used as statement items print plain 10 20 30, no default 1 2, casez 1 2 3 and casex 1 1. 区別: A case that could not be a statement item would not compile, and a wrong item selection would change one of these numbers.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5fedbf5db2177f2686e0652ca026d34a77f2b0c43bdb9db981a3cf0572af6214",
+          "inputs_sha256": "e87a26e77edd2c1061109f026c0ce5cc1ebf8cea4ac82a5dd18930394621a32e",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_case_statement_forms.sv",
@@ -452475,9 +452475,9 @@
         {
           "test": "tests/ch12/test_syntax_case_statement_forms.sv",
           "observation": "case, casez and casex with unique, unique0 and priority print plain 10 20 30, no default 1 2, casez 1 2 3, casex 1 1, qualifiers 1 2 1 and null and default r=9.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5fedbf5db2177f2686e0652ca026d34a77f2b0c43bdb9db981a3cf0572af6214",
+          "inputs_sha256": "e87a26e77edd2c1061109f026c0ce5cc1ebf8cea4ac82a5dd18930394621a32e",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_case_statement_forms.sv",
@@ -452540,9 +452540,9 @@
         {
           "test": "tests/ch12/test_syntax_case_statement_forms.sv",
           "observation": "items with the expression list 1, 2, default with and without a colon and a null statement item print plain 10 20 30, no default 1 2 and null and default r=9.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5fedbf5db2177f2686e0652ca026d34a77f2b0c43bdb9db981a3cf0572af6214",
+          "inputs_sha256": "e87a26e77edd2c1061109f026c0ce5cc1ebf8cea4ac82a5dd18930394621a32e",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_case_statement_forms.sv",
@@ -452750,9 +452750,9 @@
         {
           "test": "tests/ch12/test_syntax_pattern_matching_forms.sv",
           "observation": "the constant pattern 7 returns constant, the parenthesized constant (8) returns parenthesized, and 9 falls to default. 区別: If the constant or parenthesized pattern matched another value, the three printed results would differ.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e05baf9864cfa759f26bc3760d0e444f893eeeedb7e77db3cfdaa0f13933fe69",
+          "inputs_sha256": "436d43bf770549b31e41b5d5e41564cf8a0ad07af5a24e470176b4e935cb7f0a",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_pattern_matching_forms.sv",
@@ -452822,9 +452822,9 @@
         {
           "test": "tests/ch12/test_syntax_pattern_matching_forms.sv",
           "observation": "the named pattern '{a: 1, b: .v} matches a=1,b=5 and prints named a1 b5, '{a: 2, b: 3} prints named a2 b3, and a=4,b=4 falls to default. 区別: If a member name in the pattern named another member, the bound v or the selected item would change.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e05baf9864cfa759f26bc3760d0e444f893eeeedb7e77db3cfdaa0f13933fe69",
+          "inputs_sha256": "436d43bf770549b31e41b5d5e41564cf8a0ad07af5a24e470176b4e935cb7f0a",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_pattern_matching_forms.sv",
@@ -452858,9 +452858,9 @@
         {
           "test": "tests/ch12/test_syntax_pattern_matching_forms.sv",
           "observation": "the parenthesized pattern (8) matches 8 and returns parenthesized, while 7 is constant and 9 falls to default. 区別: If the parentheses changed the pattern, 8 would not print parenthesized or 7 or 9 would.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e05baf9864cfa759f26bc3760d0e444f893eeeedb7e77db3cfdaa0f13933fe69",
+          "inputs_sha256": "436d43bf770549b31e41b5d5e41564cf8a0ad07af5a24e470176b4e935cb7f0a",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_pattern_matching_forms.sv",
@@ -452894,9 +452894,9 @@
         {
           "test": "tests/ch12/test_syntax_pattern_matching_forms.sv",
           "observation": "the positional pattern '{1, .v} matches a=1,b=5 and prints position 1 5, '{2, 3} prints position 2 3, and a=4,b=4 falls to default. 区別: If the members were bound in another order, the printed position values would differ.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e05baf9864cfa759f26bc3760d0e444f893eeeedb7e77db3cfdaa0f13933fe69",
+          "inputs_sha256": "436d43bf770549b31e41b5d5e41564cf8a0ad07af5a24e470176b4e935cb7f0a",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_pattern_matching_forms.sv",
@@ -452930,9 +452930,9 @@
         {
           "test": "tests/ch12/test_syntax_pattern_matching_forms.sv",
           "observation": "the tagged patterns match tagged Valid (9) and tagged Invalid and print valid 9 and invalid. 区別: If the tag or the nested value were not matched, the printed lines would be wrong.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e05baf9864cfa759f26bc3760d0e444f893eeeedb7e77db3cfdaa0f13933fe69",
+          "inputs_sha256": "436d43bf770549b31e41b5d5e41564cf8a0ad07af5a24e470176b4e935cb7f0a",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_pattern_matching_forms.sv",
@@ -453002,9 +453002,9 @@
         {
           "test": "tests/ch12/test_syntax_pattern_matching_forms.sv",
           "observation": "the variable pattern .v matches 42 and binds it, so the print is variable 42. 区別: If the variable pattern did not bind the matched value, the printed number would differ or the item would not match.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e05baf9864cfa759f26bc3760d0e444f893eeeedb7e77db3cfdaa0f13933fe69",
+          "inputs_sha256": "436d43bf770549b31e41b5d5e41564cf8a0ad07af5a24e470176b4e935cb7f0a",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_pattern_matching_forms.sv",
@@ -453038,9 +453038,9 @@
         {
           "test": "tests/ch12/test_syntax_pattern_matching_forms.sv",
           "observation": "the wildcard pattern .* matches 0 and prints wildcard. 区別: If .* did not match every value, the case would fall through and print nothing.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e05baf9864cfa759f26bc3760d0e444f893eeeedb7e77db3cfdaa0f13933fe69",
+          "inputs_sha256": "436d43bf770549b31e41b5d5e41564cf8a0ad07af5a24e470176b4e935cb7f0a",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_pattern_matching_forms.sv",
@@ -485439,9 +485439,9 @@
         {
           "test": "tests/ch26/test_std_package_system_types.sv",
           "observation": "std::semaphore、std::mailbox#(int)、std::process、std::randomize、std::weak_reference#(item) をそれぞれ使い、キーの取得と返却、int の受け渡し、status()、制約付き randomize、referent の取得と clear を 8 行で比較する。 区別: いずれかの施設が std パッケージに無い実装ではコンパイルできず、semaphore や mailbox の意味が違う実装では該当する行が 0 になる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9736816d923292b3c3deb65e307717f98f1ac8b64d730161883d4dc7348b8ea0",
+          "inputs_sha256": "1a80c75da77fa01d86ef01b2dce5651b36d93f146543bb00c660a7a4c24458b5",
           "evidence": [
             {
               "file": "tests/ch26/test_std_package_system_types.sv",
@@ -485475,9 +485475,9 @@
         {
           "test": "tests/ch26/test_std_package_system_types.sv",
           "observation": "std:: を付けた semaphore・mailbox・process・weak_reference と、26.7 の暗黙の wildcard import による非修飾の semaphore・process を使い、それぞれの型の意味（キー、値、status、referent）を 8 行で比較する。 区別: 組み込みパッケージの型が暗黙に import されない実装では unqualified names work の行がコンパイルできず、型の意味が違えば各値の行が 0 になる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9736816d923292b3c3deb65e307717f98f1ac8b64d730161883d4dc7348b8ea0",
+          "inputs_sha256": "1a80c75da77fa01d86ef01b2dce5651b36d93f146543bb00c660a7a4c24458b5",
           "evidence": [
             {
               "file": "tests/ch26/test_std_package_system_types.sv",
@@ -486194,9 +486194,9 @@
         {
           "test": "tests/ch9/test_process_random_state.sv",
           "observation": "get_randstate() の戻り値を string 変数で受け、その文字列を set_randstate() に渡した後、保存前に引いた 2 つの $urandom と同じ 2 値が再び得られることを比較する。 区別: get_randstate が状態を返さない、または string を返さない実装ではこの文がコンパイルできず、状態を取り違える実装では the saved state repeats both values が 0 になる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "040b42ac081466adb9a9f29d26f72827ba71598aafa255350a736ada36ea7b4f",
+          "inputs_sha256": "f617d2a28a12e8fca801670f0c39129f86aa9d13f32a23a556643bce03cb1214",
           "evidence": [
             {
               "file": "tests/ch9/test_process_random_state.sv",
@@ -486230,9 +486230,9 @@
         {
           "test": "tests/ch9/test_process_self_status_kill.sv",
           "observation": "100 時間待つ子を kill() し、直後の status() が KILLED であること、110 時間後もその子の mark が 0 のままであることを比較する。 区別: kill が子を止めない実装では marks after the victim's delay が 1 になり、status を KILLED にしない実装では victim killed が 0 になる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "fc4a2a2b19fbc195714af9a608c41cf0758b1757439862d75f2d4954be9f3ed8",
+          "inputs_sha256": "1233af005b81e361698e332d5e31725f09c258f2d28d22deeb1ee7096fb8f673",
           "evidence": [
             {
               "file": "tests/ch9/test_process_self_status_kill.sv",
@@ -486284,9 +486284,9 @@
         {
           "test": "tests/ch9/test_process_self_status_kill.sv",
           "observation": "initial 手続きで std::process::self() を呼び、その handle の status() が RUNNING であることを比較し、fork で作った子では子自身の self() の handle が WAITING を返すことを次の行で確かめる。 区別: self() が呼び出したプロセスの handle を返さない実装では self is the running process が 0 になり、子の handle を取り違える実装では paced waits が 0 になる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "fc4a2a2b19fbc195714af9a608c41cf0758b1757439862d75f2d4954be9f3ed8",
+          "inputs_sha256": "1233af005b81e361698e332d5e31725f09c258f2d28d22deeb1ee7096fb8f673",
           "evidence": [
             {
               "file": "tests/ch9/test_process_self_status_kill.sv",
@@ -486320,9 +486320,9 @@
         {
           "test": "tests/ch9/test_process_random_state.sv",
           "observation": "set_randstate(state) で get_randstate() が返した文字列を設定し、続く 2 つの $urandom が設定前と同じ値になることを比較する。 区別: set_randstate が内部状態を設定しない実装では 2 値が一致せず the saved state repeats both values が 0 になる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "040b42ac081466adb9a9f29d26f72827ba71598aafa255350a736ada36ea7b4f",
+          "inputs_sha256": "f617d2a28a12e8fca801670f0c39129f86aa9d13f32a23a556643bce03cb1214",
           "evidence": [
             {
               "file": "tests/ch9/test_process_random_state.sv",
@@ -486356,9 +486356,9 @@
         {
           "test": "tests/ch9/test_process_random_state.sv",
           "observation": "自分のプロセスの srandom(17) を 2 回実行し、その直後の $urandom の値が等しいことを比較する（値そのものは表示しない）。 区別: srandom がプロセスの RNG を種で初期化しない実装では 2 つの値が一致せず the same seed repeats the sequence が 0 になる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "040b42ac081466adb9a9f29d26f72827ba71598aafa255350a736ada36ea7b4f",
+          "inputs_sha256": "f617d2a28a12e8fca801670f0c39129f86aa9d13f32a23a556643bce03cb1214",
           "evidence": [
             {
               "file": "tests/ch9/test_process_random_state.sv",
@@ -486392,9 +486392,9 @@
         {
           "test": "tests/ch9/test_process_self_status_kill.sv",
           "observation": "自分の status()（RUNNING）、遅延で待つ子（WAITING）、遅延を終えた子（FINISHED）、kill した子（KILLED）の status() を比較し、state 列挙の 5 つの値 0〜4 も表示する。 区別: status() が待機・終了・強制終了を区別しない実装では paced waits、paced marked ... finished、victim killed の行が 0 になり、列挙の値が違えば state values の行が変わる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "fc4a2a2b19fbc195714af9a608c41cf0758b1757439862d75f2d4954be9f3ed8",
+          "inputs_sha256": "1233af005b81e361698e332d5e31725f09c258f2d28d22deeb1ee7096fb8f673",
           "evidence": [
             {
               "file": "tests/ch9/test_process_self_status_kill.sv",

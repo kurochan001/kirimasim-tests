@@ -35,7 +35,7 @@ module test_dpi_native_types_and_passing;
 
   initial begin
     int o;
-    int io = 4;
+    static int io = 4;
     $display("types=%0d", native_types(7, -3, 5, 8'hA5, 4'b1010,
              64'h0000_0001_2345_6789, 2.5, "hi", 1));
     directions(3, o, io);

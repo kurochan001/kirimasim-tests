@@ -74,7 +74,7 @@ module test_name_lookup_scope_order;
 
   initial begin
     begin : blk
-      int h = 9;
+      static int h = 9;
       $display("block h=%0d", h);
     end
     $display("module h=%0d unit h=%0d g=%0d", h, $unit::h, read_g());

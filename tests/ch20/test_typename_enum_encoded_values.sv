@@ -47,9 +47,9 @@ module test_typename_enum_encoded_values;
   endfunction
 
   initial begin
-    string a = constants_only($typename(first_pkg::color_t));
-    string b = constants_only($typename(second_pkg::color_t));
-    string c = constants_only($typename(third_pkg::color_t));
+    static string a = constants_only($typename(first_pkg::color_t));
+    static string b = constants_only($typename(second_pkg::color_t));
+    static string c = constants_only($typename(third_pkg::color_t));
     $display("first and third: %0d", a == c);
     $display("first and second: %0d", a == b);
     $display("same type: %0d", a == constants_only($typename(first_pkg::color_t)));

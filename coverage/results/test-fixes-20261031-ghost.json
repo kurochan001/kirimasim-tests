@@ -1,0 +1,102 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 9ba2e0575dcb",
+ "tests": {
+  "ch12/test_syntax_case_statement_forms": {
+   "status": "pass",
+   "inputs_sha256": "e87a26e77edd2c1061109f026c0ce5cc1ebf8cea4ac82a5dd18930394621a32e"
+  },
+  "ch12/test_syntax_pattern_matching_forms": {
+   "status": "pass",
+   "inputs_sha256": "436d43bf770549b31e41b5d5e41564cf8a0ad07af5a24e470176b4e935cb7f0a"
+  },
+  "ch18/test_rand_uniform_full_range": {
+   "status": "pass",
+   "inputs_sha256": "0a93a341bd417d89c4a5baf831945d0529d4c44cbe273df45b6201aedbd1da6a"
+  },
+  "ch20/test_typename_enum_encoded_values": {
+   "status": "pass",
+   "inputs_sha256": "95a5637c88dc03bf27d62678db1f03bf580b6d4294235517532c69c6a4f24f1a"
+  },
+  "ch21/test_vcd_scope_commands_begin_fork_task": {
+   "status": "pass",
+   "inputs_sha256": "608d60cd4dec1058e4419a5b6cc1409b45475dad6c8a52c06fcab6ea656f68d6"
+  },
+  "ch24/test_anonymous_program": {
+   "status": "pass",
+   "inputs_sha256": "4c717a2c4506fe7b4089a791d3423cb58d4b3ec65382338be0f14dbebb36cfc4"
+  },
+  "ch24/test_anonymous_program_empty_item": {
+   "status": "pass",
+   "inputs_sha256": "f19747e94f368aac5967f2575db6224a33d7a2b5fa538f73a06858808cb47406"
+  },
+  "ch26/test_package_checker_and_covergroup_items": {
+   "status": "pass",
+   "inputs_sha256": "2a1cd8ffbf094c43f68b1fa338253d81699d18e844e7fdbb49be97ab8afdcaba"
+  },
+  "ch26/test_package_declaration_all_elements": {
+   "status": "pass",
+   "inputs_sha256": "dbc6780e5080bab2d2a7b2cff9b4b0c5dbea4c97cf9008e6d0b6fe3519bbdd55"
+  },
+  "ch26/test_package_dpi_and_assertion_items": {
+   "status": "pass",
+   "inputs_sha256": "780c17e0295c9b66e0bf2836218c4e09c4de3d2ae07d3379abf191cde66723ab"
+  },
+  "ch26/test_package_item_declaration_kinds": {
+   "status": "pass",
+   "inputs_sha256": "72b36d7dc307c43b14e1b3b02ba51baf79302366258daf673d0cf7efdd835307"
+  },
+  "ch26/test_package_items_anonymous_program_export_timeunit": {
+   "status": "pass",
+   "inputs_sha256": "c92377fc47560ed2dcbd072b1723d66fc1bc1d538887144ef4b7f387bf3e8c03"
+  },
+  "ch26/test_std_package_system_types": {
+   "status": "pass",
+   "inputs_sha256": "1a80c75da77fa01d86ef01b2dce5651b36d93f146543bb00c660a7a4c24458b5"
+  },
+  "ch3/test_element_and_block_name_spaces": {
+   "status": "pass",
+   "inputs_sha256": "86f5095c9692159e309b3783c51bf9a945037dfc9b6a90b12875c8e3697a7327"
+  },
+  "ch3/test_name_lookup_scope_order": {
+   "status": "pass",
+   "inputs_sha256": "4eebb480fd786f1b53c8f70f28b70ce7cf1ffe4d53684a450747db39d653aec1"
+  },
+  "ch35/test_dpi_input_actual_and_output_values": {
+   "status": "pass",
+   "inputs_sha256": "7700c455c14000ee769c23d6b13a44a7d7040791265411896f37b8469487b4ad"
+  },
+  "ch35/test_dpi_native_types_and_passing": {
+   "status": "pass",
+   "inputs_sha256": "f834d2fa77b6a67b867e28ff1f51cf4b1578167c7397dd36c6815454732939a3"
+  },
+  "ch37/test_vpi_io_decl_scope_typespec_ports": {
+   "status": "pass",
+   "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582"
+  },
+  "ch37/test_vpi_ref_obj_actual_port_insts": {
+   "status": "pass",
+   "inputs_sha256": "c440b925e87f9e9dcf8af111b11f42c1bb97031f25dc115fec603426fe001292"
+  },
+  "ch9/test_block_item_declaration_kinds": {
+   "status": "pass",
+   "inputs_sha256": "83b9f14b170987fa3dfd1ad00e699a1ce5c472b826178a1352be009ffcd36303"
+  },
+  "ch9/test_process_random_state": {
+   "status": "pass",
+   "inputs_sha256": "f617d2a28a12e8fca801670f0c39129f86aa9d13f32a23a556643bce03cb1214"
+  },
+  "ch9/test_process_self_status_kill": {
+   "status": "pass",
+   "inputs_sha256": "1233af005b81e361698e332d5e31725f09c258f2d28d22deeb1ee7096fb8f673"
+  }
+ },
+ "generated_at": "2026-10-31T12:31:48.317872+00:00",
+ "runner_sha256": "c39ee013549700f53ae37be884805b5b843a0415a5f0c8bd7a7b7738f25f465c",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "9ba2e0575dcbf21016fe313320cb1fc33e136c0068ad56b69b099cd1275f36e3",
+  "profile_sha256": "fe1341d6cdd65f85dcc594023dd50e44070bd9509a9b0ea0516606c706c1088a"
+ }
+}

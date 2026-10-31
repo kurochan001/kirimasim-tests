@@ -81,7 +81,7 @@ module test_syntax_case_statement_forms;
   endfunction
 
   initial begin
-    int r = 0;
+    static int r = 0;
 
     $display("plain: %0d %0d %0d", plain(0), plain(2), plain(5));
     $display("no default: %0d %0d", plain_no_default(0), plain_no_default(1));

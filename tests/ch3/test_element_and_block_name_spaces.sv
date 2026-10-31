@@ -120,11 +120,11 @@ module test_element_and_block_name_spaces;
     int r;
     #3;
     begin : named
-      int x = 2;
+      static int x = 2;
       $display("named block x=%0d", x);
     end
     begin
-      int x = 3;
+      static int x = 3;
       $display("unnamed block x=%0d", x);
     end
     take_x(tx);

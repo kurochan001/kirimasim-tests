@@ -27,13 +27,13 @@
 
 module test_block_item_declaration_kinds;
   initial begin : blk
-    (* keep = "true" *) int x = 3;
+    (* keep = "true" *) static int x = 3;
     (* keep = "true" *) localparam int L = 4;
     (* keep = "true" *) parameter int P = 5;
     (* keep = "true" *) let y(i) = i + x + L + P;
     $display("blk x=%0d L=%0d P=%0d y=%0d", x, L, P, y(2));
     fork : par
-      int z = 6;
+      automatic int z = 6;
       #1 $display("par z=%0d", z);
     join
   end

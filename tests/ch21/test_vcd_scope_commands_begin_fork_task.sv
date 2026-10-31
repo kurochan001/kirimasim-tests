@@ -29,7 +29,7 @@ module test_vcd_scope_commands_begin_fork_task;
   logic top = 1'b1;
 
   task named_task();
-    logic in_task = 1'b1;
+    static logic in_task = 1'b1;
     #6;
   endtask
 
@@ -119,10 +119,10 @@ module test_vcd_scope_commands_begin_fork_task;
   endtask
 
   initial begin : named_begin
-    logic [3:0] nib = 4'h5;
+    static logic [3:0] nib = 4'h5;
     fork : named_fork
       begin
-        logic in_fork = 1'b0;
+        static logic in_fork = 1'b0;
         #2 in_fork = 1'b1;
         #4;
       end

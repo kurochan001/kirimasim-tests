@@ -56,7 +56,7 @@ module test_package_dpi_and_assertion_items;
   c_pulse: cover property (@(posedge clk) pk_dpi_assert::s_pulse(req)) hits++;
 
   initial begin
-    logic [1:9] rq = 9'b010010110, ak = 9'b001000001;
+    static logic [1:9] rq = 9'b010010110, ak = 9'b001000001;
 
     $display("max2(3,7)=%0d max2(9,2)=%0d", pk_dpi_assert::max2(3, 7), pk_dpi_assert::max2(9, 2));
     $display("c_scaled_sum(2,5)=%0d", pk_dpi_assert::c_scaled_sum(2, 5));

@@ -52,7 +52,7 @@ module tids_m (
   output logic [7:0] vec,
   ref logic [2:0] rp
 );
-  task t (input int ti, output int to, ref int tr);
+  task automatic t (input int ti, output int to, ref int tr);
     to = ti;
   endtask
 

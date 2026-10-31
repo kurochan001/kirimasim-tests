@@ -43,7 +43,7 @@ endpackage : anon_pkg
 
 program test_anonymous_program_empty_item;
   initial begin
-    anon_pkg::counter c = new;
+    static anon_pkg::counter c = new;
     $display("class member=%0d function=%0d", c.get(), anon_pkg::twice(21));
   end
 endprogram

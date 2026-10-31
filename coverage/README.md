@@ -225,8 +225,13 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
   [#2899](https://github.com/kurochan001/sukimasim/issues/2899)と
   [#2900](https://github.com/kurochan001/sukimasim/issues/2900)に記録しています。
   LRM準拠モードで新たに落ちた22本のうち20本はテスト側の非準拠（§6.21 B007の18本、§13.5.2の2本）で、
-  残る2本は調査中です。
+  明示的な`static`/`automatic`を追加して修正しました。残る2本はGhost側の課題
+  （§6.5の独立要素ドライバの誤判定と、`with (...).size()`のstrictパーサ差）です。
   保存済みの他の実行結果との和集合で、対応済み要求の実行確認に加わります。
+- `results/test-fixes-20261031-*.json`: §6.21 B007 と §13.5.2 のテスト側修正で変更した20本と、
+  §26.2 の集合証跡を揃えるために同時に再実行した2本の結果です。
+  Ghost（既定）は22/22、Icarus Verilog 13.0 と Verilator 5.052 は対応するテストのみを実行しています。
+  実行確認率は77.47%を維持しています。
 - `results/quality-persim-20261027-*.json`: シミュレータ別期待値のパイロット実行（19本）。
 - `results/audit-oracle-20261026-icarus13.json`: spec-onlyのうちIcarus 13.0で一致した277本へ`iverilog@13.0`を追加した後の再実行（277/277 pass）。
 - `results/regex-refinement-20261025-*.json`: 判定の正規表現をメッセージの書式に依存しない形に直した`ch16`の2本の再実行。

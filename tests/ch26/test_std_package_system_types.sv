@@ -32,13 +32,13 @@ module test_std_package_system_types;
   endclass
 
   initial begin
-    std::semaphore keys = new(1);
-    std::mailbox #(int) box = new(1);
-    std::process here;
-    std::weak_reference #(item) reference;
-    item obj;
-    int got;
-    int value = 0;
+    static std::semaphore keys = new(1);
+    static std::mailbox #(int) box = new(1);
+    static std::process here;
+    static std::weak_reference #(item) reference;
+    static item obj;
+    static int got;
+    static int value = 0;
 
     $display("semaphore takes one key %0d", keys.try_get(1) == 1);
     keys.put(1);
@@ -62,8 +62,8 @@ module test_std_package_system_types;
     $display("cleared weak reference is null %0d", reference.get() == null);
 
     begin
-      semaphore unqualified = new(1);
-      process mine = process::self();
+      static semaphore unqualified = new(1);
+      static process mine = process::self();
       $display("unqualified names work %0d %0d",
                unqualified.try_get(1) == 1,
                mine.status() == process::RUNNING);

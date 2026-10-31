@@ -45,7 +45,7 @@ module test_vpi_ref_obj_actual_port_insts;
   trf_bus bi ();
   trf_child u (.r(v), .b(bi), .d(bi.dev));
 
-  task t (ref logic [3:0] x);
+  task automatic t (ref logic [3:0] x);
     x = x + 1;
     $vt_taskref;
   endtask

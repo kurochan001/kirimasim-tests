@@ -27,9 +27,9 @@ module test_dpi_input_actual_and_output_values;
       input logic [3:0] l, output int o);
 
   initial begin
-    int iv = 11;
-    bit [7:0] bv = 8'h5A;
-    logic [3:0] lv = 4'b1001;
+    static int iv = 11;
+    static bit [7:0] bv = 8'h5A;
+    static logic [3:0] lv = 4'b1001;
     int ov;
     change_inputs(iv, bv, lv, ov);
     $display("inputs i=%0d v=%h l=%b output=%0d", iv, bv, lv, ov);

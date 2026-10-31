@@ -31,7 +31,7 @@ module test_process_self_status_kill;
   std::process victim;
 
   initial begin
-    std::process here = std::process::self();
+    static std::process here = std::process::self();
     $display("self is the running process %0d",
              here.status() == std::process::RUNNING);
     $display("state values %0d %0d %0d %0d %0d", std::process::FINISHED,

@@ -39,8 +39,8 @@ module test_rand_uniform_full_range;
       if (o.three < 1 || o.three > 6) out_of_set++;
     end
     begin
-      int seen = 0;
-      int in_bounds = 1;
+      static int seen = 0;
+      static int in_bounds = 1;
       foreach (n_nib[i]) begin
         if (n_nib[i] > 0) seen++;
         if (n_nib[i] < 40 || n_nib[i] > 260) in_bounds = 0;
@@ -49,8 +49,8 @@ module test_rand_uniform_full_range;
                seen, in_bounds, out_of_set);
     end
     begin
-      int seen = 0;
-      int in_bounds = 1;
+      static int seen = 0;
+      static int in_bounds = 1;
       foreach (n_three[i]) begin
         if (n_three[i] > 0) seen++;
         if (i >= 1 && i <= 6 && (n_three[i] < 160 || n_three[i] > 380))

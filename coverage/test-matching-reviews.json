@@ -35522,8 +35522,8 @@
     },
     {
       "test": "tests/ch12/test_syntax_case_statement_forms.sv",
-      "inputs_sha256": "5fedbf5db2177f2686e0652ca026d34a77f2b0c43bdb9db981a3cf0572af6214",
-      "reviewed_on": "2026-10-26",
+      "inputs_sha256": "e87a26e77edd2c1061109f026c0ce5cc1ebf8cea4ac82a5dd18930394621a32e",
+      "reviewed_on": "2026-10-31",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
@@ -35616,8 +35616,8 @@
     },
     {
       "test": "tests/ch12/test_syntax_pattern_matching_forms.sv",
-      "inputs_sha256": "e05baf9864cfa759f26bc3760d0e444f893eeeedb7e77db3cfdaa0f13933fe69",
-      "reviewed_on": "2026-10-26",
+      "inputs_sha256": "436d43bf770549b31e41b5d5e41564cf8a0ad07af5a24e470176b4e935cb7f0a",
+      "reviewed_on": "2026-10-31",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
@@ -47399,8 +47399,8 @@
     },
     {
       "test": "tests/ch24/test_anonymous_program.sv",
-      "inputs_sha256": "b181099c60f0a57eade9e40728ec6187c57796bc490db36fe786cd36899fa482",
-      "reviewed_on": "2026-10-26",
+      "inputs_sha256": "4c717a2c4506fe7b4089a791d3423cb58d4b3ec65382338be0f14dbebb36cfc4",
+      "reviewed_on": "2026-10-31",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
@@ -52309,9 +52309,9 @@
     },
     {
       "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-      "inputs_sha256": "1ef1203bdb87e39601e7ab77c8b1e966c6fae2a3ea7588abf0664e9138e6f044",
+      "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
       "reviewed_on": "2026-10-31",
-      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {

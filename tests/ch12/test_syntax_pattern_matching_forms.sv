@@ -83,11 +83,11 @@ module test_syntax_pattern_matching_forms;
   endfunction
 
   initial begin
-    pair_t p1 = '{1, 5};
-    pair_t p2 = '{2, 3};
-    pair_t p3 = '{4, 4};
-    value_t ok = tagged Valid (9);
-    value_t no = tagged Invalid;
+    static pair_t p1 = '{1, 5};
+    static pair_t p2 = '{2, 3};
+    static pair_t p3 = '{4, 4};
+    static value_t ok = tagged Valid (9);
+    static value_t no = tagged Invalid;
 
     $display("int: %s %s %s", pat_int(7), pat_int(8), pat_int(9));
     $display("var: %s", pat_var(42));

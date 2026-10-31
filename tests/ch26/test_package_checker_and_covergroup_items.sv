@@ -58,7 +58,7 @@ module test_package_checker_and_covergroup_items;
   always #5 clk = ~clk;   // rising edges at 5, 15, ..., 55
 
   initial begin
-    logic [1:6] s = 6'b011010;
+    static logic [1:6] s = 6'b011010;
     pk_chk_cov::cg_val c_pkg;
     cg_local c_loc;
 
