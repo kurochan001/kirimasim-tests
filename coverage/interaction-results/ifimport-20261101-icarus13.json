@@ -1,0 +1,155 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch25/test_gen_cross_ifimport_129_bit_known_a_explicit_ansi_narrow": {
+   "status": "pass",
+   "inputs_sha256": "63852ded76895f888ff00206fd4e37de1e59fd8acf3b08a4172dc4f6c317ebf0"
+  },
+  "gen/ch25/test_gen_cross_ifimport_129_bit_x_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "a58b8636de2684cdb7aabb1e6a938f0ac31fad5c0099b51fca585af99b39a00f"
+  },
+  "gen/ch25/test_gen_cross_ifimport_129_bit_z_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "1fcabd7452ce430e56fc5ef16797e014d2280c75709fe0812ec9a712de41f527"
+  },
+  "gen/ch25/test_gen_cross_ifimport_129_logic_known_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "9fd39c984eef3a1b9f73fc24425761f897f62afaba2c61b53499e17c43648139"
+  },
+  "gen/ch25/test_gen_cross_ifimport_129_logic_x_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "b57876bd8210d1ca45f189ab4709ad05ee0b3ce94063abb2f50321e8c5b3d8d6"
+  },
+  "gen/ch25/test_gen_cross_ifimport_129_logic_z_b_export_nonansi_wide": {
+   "status": "pass",
+   "inputs_sha256": "b22b8d852ba1b2260f75d2ab73b55fa8afcbd2f113393d91b0f32bb486590a9d"
+  },
+  "gen/ch25/test_gen_cross_ifimport_1_bit_known_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "dda5d4162b506300eee6e8cc11e5cfc057b79bf3bb527ee69810d38dd4f4a530"
+  },
+  "gen/ch25/test_gen_cross_ifimport_1_bit_x_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "f3b61f76a2e41fa6e2c6a28e45220bf7d1001a9959f2e5d153dc4116fef159c3"
+  },
+  "gen/ch25/test_gen_cross_ifimport_1_bit_z_b_export_ansi_narrow": {
+   "status": "pass",
+   "inputs_sha256": "80d34e76741e1980bc1cd36da6df762b137f9a76c520f54f037b288bf0c80a2e"
+  },
+  "gen/ch25/test_gen_cross_ifimport_1_logic_known_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "0345034edb40a40c4ab865e905d1ec18a3b13e42bbf5abb58cfe9c5f3e68b36c"
+  },
+  "gen/ch25/test_gen_cross_ifimport_1_logic_x_a_explicit_nonansi_wide": {
+   "status": "pass",
+   "inputs_sha256": "2ae7695f00eb706dcac049653a61c78374316226c171e46565974d2966b6f3d4"
+  },
+  "gen/ch25/test_gen_cross_ifimport_1_logic_z_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "a032923d16bc54bd847226370da51e82ce7c9e223c0617e025ed06bc97b4c155"
+  },
+  "gen/ch25/test_gen_cross_ifimport_32_bit_known_a_explicit_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "18b66898b9e7cb8776b894cb78eac41b41e00f1d6184e70c5df768c556515dd4"
+  },
+  "gen/ch25/test_gen_cross_ifimport_32_bit_x_a_export_nonansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "6fd0d62a6ee6c5364ddf794ff013222f6c04b9721ff9c6c09c41e9c625ef5052"
+  },
+  "gen/ch25/test_gen_cross_ifimport_32_bit_z_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "94f0e80b65560a109ab39236ce8e4d9cb6aa3a5af3e5cef38c87da7308c479da"
+  },
+  "gen/ch25/test_gen_cross_ifimport_32_logic_known_a_export_ansi_wide": {
+   "status": "pass",
+   "inputs_sha256": "913253161e885255beb8d610641abd6dc9301aa908c27744321edfd42f59c8b1"
+  },
+  "gen/ch25/test_gen_cross_ifimport_32_logic_x_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "b47dcd0ac46b34e1407cb7439e79d82414fd2c576950f67e2975e8d335c34ddc"
+  },
+  "gen/ch25/test_gen_cross_ifimport_32_logic_z_b_wildcard_ansi_narrow": {
+   "status": "pass",
+   "inputs_sha256": "f8ad7de00db655ff8cfe2d7a08eb390c18d6ab7705450969d480e1bf5d2eaee2"
+  },
+  "gen/ch25/test_gen_cross_ifimport_33_bit_known_a_export_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "be89de28bd56a3923044ff6e65bce2e195774ac58f06567bbfb62ccf96c4aba3"
+  },
+  "gen/ch25/test_gen_cross_ifimport_33_bit_x_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "6f61b3331e674b2cb99f52b9eb68ebb5fc81a3a6359f5256039d3f373dce6e72"
+  },
+  "gen/ch25/test_gen_cross_ifimport_33_bit_z_a_wildcard_nonansi_wide": {
+   "status": "pass",
+   "inputs_sha256": "69196a189ed95dd74dbdad05718cb651982079966d1726ed1653d6f3c822714d"
+  },
+  "gen/ch25/test_gen_cross_ifimport_33_logic_known_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "3f6fda9583bfaed8f24b19f810b5c5947043354dd386908af816fe59426a4732"
+  },
+  "gen/ch25/test_gen_cross_ifimport_33_logic_x_b_wildcard_ansi_narrow": {
+   "status": "pass",
+   "inputs_sha256": "6b405b482bbe1795906d9f3a9405ea5123b571d49da9eea6d6c595b9f588572d"
+  },
+  "gen/ch25/test_gen_cross_ifimport_33_logic_z_a_explicit_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "9d2a46f4b2334fc1df4ffb96704b3dbedfa67f7f572a30d25598aff60891ded8"
+  },
+  "gen/ch25/test_gen_cross_ifimport_64_bit_known_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "2af2741f9edd726c459dcda92d6e3d1621e046ff7774ac0ba2a8733fdeb6cd4f"
+  },
+  "gen/ch25/test_gen_cross_ifimport_64_bit_x_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "bdd67a156e0bdb0fe3761b37a9055bb1e3d952f8e29141a0e8bc0a54630d1eeb"
+  },
+  "gen/ch25/test_gen_cross_ifimport_64_bit_z_b_explicit_nonansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "e4ad2f9e20b636817f7c84b8e3b2baacbae1546cac2366f3a39fef00a95c4b5c"
+  },
+  "gen/ch25/test_gen_cross_ifimport_64_logic_known_b_wildcard_nonansi_narrow": {
+   "status": "pass",
+   "inputs_sha256": "05d6a6a2975e2079ac9bd8c21a62ff35a0baebae21893c21c04a51103b39c211"
+  },
+  "gen/ch25/test_gen_cross_ifimport_64_logic_x_a_export_ansi_wide": {
+   "status": "pass",
+   "inputs_sha256": "87d406f5916371b016d719c7e1ca299ce0c0048098ec2d3aca247bdd258baf3c"
+  },
+  "gen/ch25/test_gen_cross_ifimport_64_logic_z_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "fb25668077d3055fad090dde3fe7db6010e3925b78839f41e1f8a1605273989a"
+  },
+  "gen/ch25/test_gen_cross_ifimport_65_bit_known_a_export_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "a63b4dea483b80a0cf43b536f418ddc66f9f5958586b0817af773ef62ae3c173"
+  },
+  "gen/ch25/test_gen_cross_ifimport_65_bit_x_a_explicit_nonansi_narrow": {
+   "status": "pass",
+   "inputs_sha256": "6818b84d88e2158ed0fcc76e9285d514fa81f18282baf4238be919c213865da0"
+  },
+  "gen/ch25/test_gen_cross_ifimport_65_bit_z_b_wildcard_ansi_wide": {
+   "status": "pass",
+   "inputs_sha256": "260339d677296428bcd1a690865dca1f4adec7a1aa13cc94137130cf7274983b"
+  },
+  "gen/ch25/test_gen_cross_ifimport_65_logic_known_b_explicit_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "47be97e5d28b9b109b20b4ba1aa170465f22c94aa0a399b0fb54dcb1a1cf7e05"
+  },
+  "gen/ch25/test_gen_cross_ifimport_65_logic_x_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "8801700e45d19f298f2808380887310f1463831cf4bcb6c6aaa4e1a3d69f0cd5"
+  },
+  "gen/ch25/test_gen_cross_ifimport_65_logic_z_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "25bdddded7d96548b6fcd5260dbbfbdc030c65d1e19e7fda7cd1ac198a0addb0"
+  }
+ },
+ "generated_at": "2026-10-31T21:48:40.536902+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "source_commit": "4fb5f6b1aec8be9519d2db584ead16228d179183",
+  "upstream_commit": "4fb5f6b1aec8be9519d2db584ead16228d179183",
+  "source_clean": true,
+  "version": "kirimasim 0.0.0 (commit 4fb5f6b1aec8), built with AppleClang 21.0.0.21000334",
+  "binary_sha256_before": "05cf7d5364d3a9a21d9db985d27d535facfc8e0b735df06ffd9c12a3bf84bee3",
+  "verified_at": "2026-10-31T21:53:04.984594+00:00",
+  "suite_base_commit": "cb976dfcb06deb5813d8695b6777b0e397291417",
+  "scope": "All 53 selected interaction models; latest upstream update detected before the full run and release reconfigured/rebuilt at 4fb5f6b1. Prior 52 model plans, inputs, saved artifacts, statuses and six failures remain unchanged.",
+  "fixed_snapshot_provenance": {
+    "method": "Fresh executions after final oracle metadata generation; fingerprints verified. Icarus matches all 36; Verilator matches all 12 eligible cases at each of seeds 1 and 73.",
+    "artifacts": {
+      "coverage/interaction-results/ifimport-20261101-icarus13.json": {
+        "sha256": "67d03d288501dc55195ab4d2a12be3f76f96521c384e8ebe0e992813ad89c0a1",
+        "input_and_runner_fingerprints_verified": true
+      },
+      "coverage/interaction-results/ifimport-20261101-verilator5.052-seed1.json": {
+        "sha256": "dcd6071cacf5965e720ee6391f3f5663ce3d84c247e6d14d5568f882d087b9a5",
+        "input_and_runner_fingerprints_verified": true
+      },
+      "coverage/interaction-results/ifimport-20261101-verilator5.052-seed73.json": {
+        "sha256": "82b5fe5d8974e7c4a9447dae61871e4ae5028c1d72cfe4b4b0ffdc8f8e78636e",
+        "input_and_runner_fingerprints_verified": true
+      }
+    }
+  },
+  "binary_sha256_after": "05cf7d5364d3a9a21d9db985d27d535facfc8e0b735df06ffd9c12a3bf84bee3",
+  "binary_unchanged": true,
+  "prior_run_comparison": {
+    "source": "coverage/interaction-results/cross52-kirimasim-3550d774.json",
+    "tests": 2256,
+    "inputs_unchanged": true,
+    "statuses_unchanged": true
+  },
+  "prior_report_comparison": {
+    "source": "coverage/interaction-qualification/20261101-ifimport-prior-digests.json",
+    "models": 52,
+    "snapshots": 149,
+    "model_plans_unchanged": true,
+    "prior_model_run_aggregates_unchanged": true,
+    "prior_artifacts_unchanged": true
+  },
+  "prior_files_comparison": {
+    "files": 18633,
+    "sha256_unchanged": true
+  },
+  "local_validation": {
+    "tool_unit_tests": 539,
+    "tool_unit_tests_passed": true,
+    "metadata_tests": 10042,
+    "metadata_new_problems": 0,
+    "metadata_known_problems": 395,
+    "consistency_checks": 11,
+    "generated_reports_current": true,
+    "github_check_nightly_for_current_changes": "Local validation only; inspect workflows for the pushed suite commit.",
+    "baseline_github_check": {
+      "commit": "cb976dfcb06deb5813d8695b6777b0e397291417",
+      "conclusion": "success",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/41244082915"
+    }
+  }
+}

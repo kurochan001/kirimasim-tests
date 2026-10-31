@@ -53,6 +53,7 @@ import interaction_reactive
 import interaction_config
 import interaction_udp
 import interaction_udpstate
+import interaction_ifimport
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -84,6 +85,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_config,
               interaction_udp,
               interaction_udpstate,
+              interaction_ifimport,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -484,5 +486,12 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_udpstate.MODEL.select(),
             "generateで初期値の異なる逐次UDPをビットごとに選択し、共通/交互のクロックで個別の状態を採取・保持する。"
             "bit/logicへのX/Z格納、未知入力前の全1準備、既知値への回復、別クロックの対照の保持と後の採取を照合する。",
+        ),
+        SuiteModel(
+            interaction_ifimport.MODEL,
+            lambda row: "tests/gen/ch25/" + interaction_ifimport.case_name(row) + ".sv",
+            interaction_ifimport.MODEL.select(),
+            "interfaceヘッダのimportでパラメータ既定値・型・package関数を結合し、targetだけの幅/タグ変更をguardと比較する。"
+            "同名の呼出し側宣言を対照に、bit/logicの仮引数変換がpackage関数の演算前に行われる順序と実際の幅・中間値を照合する。",
         ),
     )

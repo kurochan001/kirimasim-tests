@@ -1,0 +1,61 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch25/test_gen_cross_ifimport_129_bit_known_a_explicit_ansi_narrow": {
+   "status": "pass",
+   "inputs_sha256": "63852ded76895f888ff00206fd4e37de1e59fd8acf3b08a4172dc4f6c317ebf0"
+  },
+  "gen/ch25/test_gen_cross_ifimport_129_logic_known_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "9fd39c984eef3a1b9f73fc24425761f897f62afaba2c61b53499e17c43648139"
+  },
+  "gen/ch25/test_gen_cross_ifimport_1_bit_known_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "dda5d4162b506300eee6e8cc11e5cfc057b79bf3bb527ee69810d38dd4f4a530"
+  },
+  "gen/ch25/test_gen_cross_ifimport_1_logic_known_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "0345034edb40a40c4ab865e905d1ec18a3b13e42bbf5abb58cfe9c5f3e68b36c"
+  },
+  "gen/ch25/test_gen_cross_ifimport_32_bit_known_a_explicit_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "18b66898b9e7cb8776b894cb78eac41b41e00f1d6184e70c5df768c556515dd4"
+  },
+  "gen/ch25/test_gen_cross_ifimport_32_logic_known_a_export_ansi_wide": {
+   "status": "pass",
+   "inputs_sha256": "913253161e885255beb8d610641abd6dc9301aa908c27744321edfd42f59c8b1"
+  },
+  "gen/ch25/test_gen_cross_ifimport_33_bit_known_a_export_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "be89de28bd56a3923044ff6e65bce2e195774ac58f06567bbfb62ccf96c4aba3"
+  },
+  "gen/ch25/test_gen_cross_ifimport_33_logic_known_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "3f6fda9583bfaed8f24b19f810b5c5947043354dd386908af816fe59426a4732"
+  },
+  "gen/ch25/test_gen_cross_ifimport_64_bit_known_a_wildcard_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "2af2741f9edd726c459dcda92d6e3d1621e046ff7774ac0ba2a8733fdeb6cd4f"
+  },
+  "gen/ch25/test_gen_cross_ifimport_64_logic_known_b_wildcard_nonansi_narrow": {
+   "status": "pass",
+   "inputs_sha256": "05d6a6a2975e2079ac9bd8c21a62ff35a0baebae21893c21c04a51103b39c211"
+  },
+  "gen/ch25/test_gen_cross_ifimport_65_bit_known_a_export_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "a63b4dea483b80a0cf43b536f418ddc66f9f5958586b0817af773ef62ae3c173"
+  },
+  "gen/ch25/test_gen_cross_ifimport_65_logic_known_b_explicit_ansi_defaults": {
+   "status": "pass",
+   "inputs_sha256": "47be97e5d28b9b109b20b4ba1aa170465f22c94aa0a399b0fb54dcb1a1cf7e05"
+  }
+ },
+ "generated_at": "2026-10-31T21:49:03.900237+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

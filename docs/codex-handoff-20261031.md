@@ -14,17 +14,16 @@
 
 ## 1. 最初に把握すること
 
-- この更新の基点はmainの`2ad42ad0`です。逐次UDPの新モデル36件と関連文書を今回の反映対象としています。
+- この更新の基点はmainの`cb976dfc`です。interfaceヘッダimportの新モデル36件と関連文書を今回の反映対象としています。
   反映後のコミットは`git log -1`と`git rev-parse origin/main`で照合してください。
-  基点の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41222569272)は成功を確認しました。
-  ローカルのツール回帰530件と整合性検査11項目は成功しました。
+  基点の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41244082915)は成功を確認しました。
+  ローカルのツール回帰539件と整合性検査11項目は成功しました。
   GitHub Check・Nightlyの結果は、プッシュしたコミットの実行を別途確認します。
-- スイートは**10,006件、生成3,569件**。機能間クロスの短時間実行は**52モデル・2,256件**です。
-- 全体回帰の直前の上流更新を取り込んだkirimasim `3550d77474f1`で、全クロスは
-  **2,134 pass・116 unsupported・既存6 fail**です。新規36件はすべてPASSです。
-  従来2,220件の入力は同じで、本体更新によりクラスメソッドの18件がunsupportedからpassへ改善しました。
-  ほかの結果分類は同じです。同モデルの残る18件はまだunsupportedです。
-  [最新記録](interaction-verification.md#generateで生成した逐次udpの状態と入力変換)を参照してください。
+- スイートは**10,042件、生成3,605件**。機能間クロスの短時間実行は**53モデル・2,292件**です。
+- 全体回帰前の上流更新を取り込んだkirimasim `4fb5f6b1aec8`で、全クロスは
+  **2,170 pass・116 unsupported・既存6 fail**です。新規36件はすべてPASSです。
+  従来2,256件の入力と結果分類は同じです。
+  [最新記録](interaction-verification.md#interfaceヘッダのimportとpackage関数の型変換)を参照してください。
 - 要求カバレッジは、テスト設計**89.31%（10,983/12,298）**、実行確認**77.57%（9,539/12,298）**です。
   実行確認はIcarus Verilog 13.0・Verilator 5.052・SymbiYosys・Ghostの保存証跡の和集合です。
   今回のクロステストには新しい要求対応を登録しておらず、要求の分母・確認率は維持しています。
@@ -310,13 +309,22 @@ Ghostの全件実行（別リポジトリの監査）が「テスト側の問題
 
   同日にgenerateで生成した逐次UDPの状態と入力変換を、52番目のモデルとして36件追加しました。
   [設計と実行記録](interaction-verification.md#generateで生成した逐次udpの状態と入力変換)を参照してください。
-  現在52モデル・2,256選択ケース、通常スイート10,006件です。全体回帰直前の上流更新に合わせて
+  この時点では52モデル・2,256選択ケース、通常スイート10,006件です。全体回帰直前の上流更新に合わせて
   `3550d77474f1`をビルドし直し、新規36件はすべてPASSしました。全体は2,134 pass・116 unsupported・既存6 failです。
   従来2,220件の入力は同じで、既存クラスメソッドの18件がunsupportedからpassへ改善しました。
   同モデルの残る18件はまだunsupportedです。従来の保存実行のファイルと集計は変更していません。
   第27章×第29章・第6章×第29章を登録し、章対は82対、全選択ケースPASSは45モデルになりました。
   固定Icarusは全36件、固定Verilatorは対象2件が両seedで一致しました。4状態の34件はVerilatorの対象外です。
   入力が変わる間の保持、対照を後で動かす確認、未知入力前の全1準備、258個の位置履歴の識別を実践手順へ記載しました。
+
+  同日にinterfaceヘッダのimportとpackage関数の型変換を、53番目のモデルとして36件追加しました。
+  [設計と実行記録](interaction-verification.md#interfaceヘッダのimportとpackage関数の型変換)を参照してください。
+  現在53モデル・2,292選択ケース、通常スイート10,042件です。全体回帰前に上流mainの更新を検出して
+  `4fb5f6b1aec8`をビルドし直し、新規36件はすべてPASSしました。全体は2,170 pass・116 unsupported・既存6 failです。
+  従来2,256件の入力と結果分類は同じです。第25章×第26章・第6章×第26章を登録し、章対は84対になりました。
+  全選択ケースPASSは46モデルです。固定Icarusは全36件、固定Verilatorは対象12件が両seedで一致しました。
+  4状態の24件はVerilatorの対象外です。型変換を迂回する故障は既知入力55行を通過し、最初の未知入力で検出できました。
+  宣言側と呼出し側のスコープを区別する比較と、中間値・未知値による処理順序の観測を実践手順へ追記しています。
 
 ## 5. 実行環境
 
@@ -326,7 +334,7 @@ Ghostの全件実行（別リポジトリの監査）が「テスト側の問題
 | --- | --- | --- |
 | Icarus Verilog 13.0 | 固定oracleの確認 | `../kirimasim-tests-work/50percent-20261023/iverilog13/bin`（版を確認する） |
 | Verilator 5.052 | 固定oracleの確認 | `PATH`上。2状態テストのみ、seed 1・73 |
-| kirimasim | 最新実装の検証 | `../kirimasim-tests-work/cross30-event-iff-core`（確認時のビルドは`3550d77474f1`。実行直前に上流を取得してビルドし直す） |
+| kirimasim | 最新実装の検証 | `../kirimasim-tests-work/cross30-event-iff-core`（確認時のビルドは`4fb5f6b1aec8`。実行直前に上流を取得してビルドし直す） |
 | Lyra | 比較 | x86-64 Linuxのみ。`run_lyra.py --commit`に実際のコミットを渡す |
 | Ghost | 比較（公開前） | 非公開のビルドと実行プロファイルが必要。リポジトリ外に置く（README「Ghost」） |
 | SymbiYosys | formalの268件 | `tools/run_sby.py`。`:formal_case:`で検証ケースを指定 |

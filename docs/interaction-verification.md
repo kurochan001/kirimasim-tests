@@ -13,7 +13,14 @@ Issue #21で追加した境界条件の回帰テストと、保留した解釈�
 
 ## 保存実行の概要
 
-2026-11-01の逐次UDP追加：現在は**52モデル・2,256件**です。
+2026-11-01のinterface import追加：現在は**53モデル・2,292件**です。
+全体回帰前の上流更新へ合わせてビルドしたkirimasim `4fb5f6b1aec8`で、新規36件はすべてPASSしました。
+[全クロスの保存実行](../coverage/interaction-results/cross53-kirimasim-4fb5f6b1.json)は
+2,170 pass・116 unsupported・既存6 failです。従来2,256件の入力ハッシュと結果分類は同じです。
+第25章×第26章・第6章×第26章を登録し、章対は84対、全選択ケースPASSは46モデルになりました。
+[interfaceヘッダのimport・型変換の設計と確認](#interfaceヘッダのimportとpackage関数の型変換)を参照してください。
+
+同日の逐次UDP追加時点は**52モデル・2,256件**でした。
 全体回帰の直前に検出した上流更新へ合わせ、再構成・ビルドしたkirimasim `3550d77474f1`で、新規36件はすべてPASSしました。
 [全クロスの保存実行](../coverage/interaction-results/cross52-kirimasim-3550d774.json)は
 2,134 pass・116 unsupported・既存6 failです。従来2,220件の入力ハッシュは同じです。
@@ -2994,6 +3001,100 @@ python3 tools/qualify_udpstate.py --kirimasim BIN --commit VERIFIED_COMMIT \
 要求への新しい対応付けは登録しておらず、要求カバレッジの分母と確認率を維持しています。
 
 ツール回帰530件と整合性検査11項目は成功しました。メタデータは10,006件で新規問題0件（既知395件）です。
+これらはローカル検査の結果で、今回の差分のGitHub CheckやNightlyの全件実行とは分けて扱います。
+
+### interfaceヘッダのimportとpackage関数の型変換
+
+`interface_header_import`は、第25章のinterfaceと、第26章のヘッダimport・再export、
+第6章の型変換を組み合わせます。
+既存の[interfaceヘッダの型と関数](../tests/ch26/test_package_import_interface_header_function.sv)と
+[interfaceのヘッダ要素](../tests/ch25/test_interface_declaration_all_header_elements.sv)は変更していません。
+第25章×第26章・第6章×第26章を要精査Rから有限モデルMへ移しました。
+第25章×第26章は全36件、第6章×第26章はX/Zを渡す24件を対応付けています。
+
+- 基準幅：1・32・33・64・65・129ビット。packageのword_t型：bit／logic。入力：既知値／X／Z。
+- 選ぶpackage：A／B。同じ名前のパラメータ・型・関数を、それぞれ異なる幅・タグ・演算で定義します。
+- ヘッダimport：wildcard／明示import／再exportを経由。interfaceヘッダ：ANSI／非ANSI。
+- targetのパラメータ：既定値／幅だけを縮小／幅を拡張してタグも変更。guardは既定値のままです。
+
+全1,296行が合法で、未対応を理由に除外していません。
+36件で全因子対183組・重点3因子78組・必須6件を保持します。
+重点群は「基準幅×word_t型×入力」36組、「package×import形式×ヘッダ形式」12組、
+「package×パラメータ指定×ヘッダ形式」12組、「import形式×word_t型×入力」18組です。
+
+26.4と25.3に従い、ヘッダでimportした名前を、パラメータの既定値・ポート宣言・interface本体へ渡します。
+package Aは基準幅とタグ11、package Bは基準幅+1とタグ23を持ちます。
+両方とも入力のraw_t型はlogicベクタ、word_t型は選択したbit/logicベクタです。
+Aのencode関数はビット反転、Bは下位2ビットのXORを行います。
+
+再export経路の中継packageでは、BASE・MARK・raw_t・word_t・encodeの5項目を明示importしてからexportします。
+26.6では、wildcard importの候補であるだけの名前が、すべて自動で再公開されるわけではありません。
+実際に取り込んだ5項目が、元の宣言としてinterfaceへ届く経路を使います。
+競合するimport、型パラメータの変更、modport、virtual interface、時間を使うpackageサブルーチンは対象外です。
+
+呼出し側には同名のBASE・MARK・word_t・encodeを別の値や定義で置きます。
+interfaceのパラメータ既定値はimport先のBASE/MARKを使い、入力型と関数もpackageの宣言へ結び付くことを要求します。
+一方、インスタンス指定の`.W(BASE), .TAG(MARK)`は呼出し側の宣言を使います。
+幅だけの指定は`max(1, 基準幅/2)`へ縮小し、タグを既定値のまま保持します。
+幅とタグの指定では、呼出し側の基準幅+3と99を使います。
+同じinterface定義から作ったguardは、targetの上書きに影響されない対照です。
+
+入力rawは両packageの入力幅より広い基準幅+2ビットとし、入力ポートでの切捨ても観測します。
+incomingはlogicのままX/Zを保持し、そこからinterface内のword_t変数typedへの代入と、
+package関数encodeへの入力を別々に作ります。
+13.5.1と6.11.2に従い、関数の演算前に仮引数のword_t型へ変換することを要求します。
+例えばbitの場合、未知入力を0へ変換してから反転すると1になります。
+反転してXになった後でbitへ戻す0とは異なります。logicではZを反転・XORするとXになります。
+
+storedは関数の戻り値、echoはstoredを指定幅へ縮小・ゼロ拡張してからタグをXORした値です。
+raw・incoming・typed・stored・echoと、それぞれの実際の幅、W/TAGを表示します。
+タグのXORで途中の誤りが相殺される場合でも、変換前後と演算後の値を分けて判定できます。
+word_tは符号なしベクタで、拡張時に最上位ビットの1/Xを符号拡張しないことも確認します。
+
+既知入力は9回の位置符号と全0・全1の計11回です。
+targetとguardには別の符号を与え、最大131ビットのraw入力2系統の262位置と、その反転を含む524履歴を識別します。
+X/Zのケースでは、保持する範囲の最下位・最上位・中央と、ポートで捨てる最上位rawビットに1個ずつ未知値を置きます。
+最後の刺激では、捨てた未知ビットがincoming以降を汚さないことを要求します。
+各更新の1 ns後に1プロセスで両インスタンスを表示し、ゼロ遅延の評価順に依存させません。
+
+[生成器](../generators/interaction_ifimport.py)は文字列の切捨て・型変換・演算・幅変更で期待値を作ります。
+[独立モデル](../tools/test_interaction_ifimport.py)は、元のpackage宣言と再公開する参照を持つ名前環境、
+呼出し側と各インスタンスの別々のパラメータ環境、整数の値/X/Zマスクと仮引数変換から観測を計算します。
+全1,296行の一致、524履歴の識別、スコープの違い、再exportした宣言の参照、
+ANSI/非ANSIの同値性、guardの独立性、捨てた未知ビットの影響がないことを確認しています。
+
+[最新kirimasimの保存実行](../coverage/interaction-results/cross53-kirimasim-4fb5f6b1.json)では36件すべてPASSし、
+183ペア・3因子78組・必須6件をすべて成功で充足しています。
+固定[Icarus 13.0](../coverage/interaction-results/ifimport-20261101-icarus13.json)も36件すべて一致しました。
+固定Verilator 5.052は対象の既知値12件が[seed 1](../coverage/interaction-results/ifimport-20261101-verilator5.052-seed1.json)・
+[seed 73](../coverage/interaction-results/ifimport-20261101-verilator5.052-seed73.json)で一致しました。
+X/Zの24件は4状態テストとして比較対象外です。36件へIcarus、両seedが一致した12件へVerilatorのoracleを登録し、
+最終生成物で実行し直しました。期待値と合法な対象範囲は維持しています。
+
+[故障注入](../coverage/interaction-qualification/20261101-ifimport.json)は、最新`4fb5f6b1aec8`で正常対照6件が一致しました。
+import・再export・内部型・関数の結合先の誤り、既定値と実引数のスコープの混同、
+幅指定の欠落・guardへの波及・入力型への誤適用、仮引数変換の迂回・bit/logicの交換・ポート型の交換、
+packageの演算の誤り、符号拡張・64ビットへの切捨て、タグの欠落、両入力の誤った共通接続・上位ビットの再利用の
+20種類を、正常終了後の出力差として検出しました。この件数を通常スイートの合格数へ加算しません。
+関数呼出しを`~incoming`へ置き換える故障では、既知11回分の55行は一致したまま、
+最初の未知入力の56行目で不一致になることを保存しています。既知値だけで変換順序を確認済みとしない具体例です。
+
+実行直前に最新上流とビルド版を照合してから、[確認ツール](../tools/qualify_ifimport.py)を再実行できます。
+過去の証跡は上書きせず、新しい保存先を使ってください。
+
+```sh
+python3 tools/qualify_ifimport.py --kirimasim BIN --commit VERIFIED_COMMIT \
+  --output coverage/interaction-qualification/NEW-ifimport.json
+```
+
+この追加は通常スイート36件増で、合計10,042件・生成3,605件・短時間選択2,292件です。
+[ビルド証跡](../coverage/interaction-qualification/20261101-ifimport-build.json)に、直前の上流更新へ合わせた版、
+ソースの未変更、実行前後のバイナリ指紋、従来2,256件の入力と結果分類の不変性を保存しています。
+従来52モデルの計画と149保存実行の集計値・ファイルは、
+[事前の指紋](../coverage/interaction-qualification/20261101-ifimport-prior-digests.json)と照合し、そのまま保持しています。
+要求への新しい対応付けは登録しておらず、要求カバレッジの分母と確認率を維持しています。
+
+ツール回帰539件と整合性検査11項目は成功しました。メタデータは10,042件で新規問題0件（既知395件）です。
 これらはローカル検査の結果で、今回の差分のGitHub CheckやNightlyの全件実行とは分けて扱います。
 
 ### モデル変更時の更新

@@ -1,0 +1,671 @@
+{
+  "schema": 1,
+  "purpose": "interface_header_import fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4fb5f6b1aec8), built with AppleClang 21.0.0.21000334",
+  "commit": "4fb5f6b1aec8be9519d2db584ead16228d179183",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "05cf7d5364d3a9a21d9db985d27d535facfc8e0b735df06ffd9c12a3bf84bee3",
+  "scope": "six mandatory controls: header binding, exported declaration identity, caller/default scopes, package formal conversion and independent guard parameters",
+  "generator_sha256": "5762aae7af7eced9fddc9fe6b9fb828974e3f23f8caea552f928a7006c1152fc",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_ifimport_1_bit_known_a_wildcard_ansi_defaults",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "package": "a",
+        "imports": "wildcard",
+        "header": "ansi",
+        "override": "defaults"
+      },
+      "source_sha256": "abda8553e2e849679e58f17ddb05cc0805160501c30988e9680b009554a1398d",
+      "expected_sha256": "5afd0c86b8d81ce1ec0ca79064c16a0ffda1259cf02df65a318f8ead609a7cc2",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_ifimport_129_logic_z_b_export_nonansi_wide",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "package": "b",
+        "imports": "export",
+        "header": "nonansi",
+        "override": "wide"
+      },
+      "source_sha256": "c927826a0ea4ab2a79873f1006ee0d3273a4238176bd27830c8432337aa1571b",
+      "expected_sha256": "ecbc3e610dfd6096a8058b809bf1e639cad9f173ce9170c6230ea21d12f1ad2c",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_ifimport_65_bit_x_a_explicit_nonansi_narrow",
+      "values": {
+        "width": "65",
+        "storage": "bit",
+        "value": "x",
+        "package": "a",
+        "imports": "explicit",
+        "header": "nonansi",
+        "override": "narrow"
+      },
+      "source_sha256": "f055abd932cbab3a784512b92dbf988260879e8d371aad537d3eb5733ecb900f",
+      "expected_sha256": "7d1eff182f5bac1f6e23a857966818ced18fbe339db6710372e2a6f7726a0d40",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_ifimport_33_logic_x_b_wildcard_ansi_narrow",
+      "values": {
+        "width": "33",
+        "storage": "logic",
+        "value": "x",
+        "package": "b",
+        "imports": "wildcard",
+        "header": "ansi",
+        "override": "narrow"
+      },
+      "source_sha256": "6f70bfa51dcefc9d9bf6d460e8216833a51f8caca09916092e5db52a57ed4f40",
+      "expected_sha256": "dd231fa4a6e7db3b51546db4d3412923d04d666dd36782a2a6eed5ae84f622b4",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_ifimport_32_logic_known_a_export_ansi_wide",
+      "values": {
+        "width": "32",
+        "storage": "logic",
+        "value": "known",
+        "package": "a",
+        "imports": "export",
+        "header": "ansi",
+        "override": "wide"
+      },
+      "source_sha256": "226edb9fc0a31af1db199752703dc493f7aa93dd6c2615f71868f042cb53d9d0",
+      "expected_sha256": "206d47538e0c953a12cd5e85669d4f48cae0bd65429080c6505e63a065b0f870",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_ifimport_64_bit_z_b_explicit_nonansi_defaults",
+      "values": {
+        "width": "64",
+        "storage": "bit",
+        "value": "z",
+        "package": "b",
+        "imports": "explicit",
+        "header": "nonansi",
+        "override": "defaults"
+      },
+      "source_sha256": "9f3b58eb86fa270323b1f545e2d9dc768624a9ef84bd4f075c2efd19530ae8ed",
+      "expected_sha256": "35b295a00b08d667a419b6d653c17d126340b0c0a931271f836e832a5064f0f6",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "defaults_use_caller_scope",
+      "case": "test_gen_cross_ifimport_1_bit_known_a_wildcard_ansi_defaults",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "package": "a",
+        "imports": "wildcard",
+        "header": "ansi",
+        "override": "defaults"
+      },
+      "source_sha256": "eace57361dae20b04918946399e3fe67d7b0701576da1bba75639d1722a0f107",
+      "expected_sha256": "5afd0c86b8d81ce1ec0ca79064c16a0ffda1259cf02df65a318f8ead609a7cc2",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 target raw=101 incoming=1 typed=1 stored=0 echo=0011', expected 'k0 target raw=101 incoming=1 typed=1 stored=0 echo=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#(parameter int W=BASE, TAG=MARK)",
+        "after": "#(parameter int W=4, TAG=99)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "reexport_binds_wrong_original_package",
+      "case": "test_gen_cross_ifimport_129_logic_z_b_export_nonansi_wide",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "package": "b",
+        "imports": "export",
+        "header": "nonansi",
+        "override": "wide"
+      },
+      "source_sha256": "d05067131b7922f9a6756e10f18dd30957bdb72810bf647d11eb0df0c93fa056",
+      "expected_sha256": "ecbc3e610dfd6096a8058b809bf1e639cad9f173ce9170c6230ea21d12f1ad2c",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 target raw=1010101010101010101010101010101010101010101...', expected 'k0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "package bridge_pkg;\n  import pkg_b::BASE;\n  import pkg_b::MARK;\n  import pkg_b::raw_t;\n  import pkg_b::word_t;\n  import pkg_b::encode;\n  export pkg_b::*;\nendpackage",
+        "after": "package bridge_pkg;\n  import pkg_a::BASE;\n  import pkg_a::MARK;\n  import pkg_a::raw_t;\n  import pkg_a::word_t;\n  import pkg_a::encode;\n  export pkg_a::*;\nendpackage",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "instance_width_changes_imported_input_type",
+      "case": "test_gen_cross_ifimport_129_logic_z_b_export_nonansi_wide",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "package": "b",
+        "imports": "export",
+        "header": "nonansi",
+        "override": "wide"
+      },
+      "source_sha256": "68a53bff2dd111ff1c20bef51f4a2763dad0397e3775a3f5360cd05bf0850f01",
+      "expected_sha256": "ecbc3e610dfd6096a8058b809bf1e639cad9f173ce9170c6230ea21d12f1ad2c",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 target raw=1010101010101010101010101010101010101010101...', expected 'k0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "input raw_t incoming;",
+        "after": "input logic [W-1:0] incoming;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "internal_type_binds_wrong_package",
+      "case": "test_gen_cross_ifimport_129_logic_z_b_export_nonansi_wide",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "package": "b",
+        "imports": "export",
+        "header": "nonansi",
+        "override": "wide"
+      },
+      "source_sha256": "4fea9146bd6ac481d1a41832c6771676d9cf5558bd3f915efbc41796fae64e50",
+      "expected_sha256": "ecbc3e610dfd6096a8058b809bf1e639cad9f173ce9170c6230ea21d12f1ad2c",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 target raw=1010101010101010101010101010101010101010101...', expected 'k0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "word_t typed, stored;",
+        "after": "pkg_a::word_t typed, stored;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "function_binds_caller_shadow",
+      "case": "test_gen_cross_ifimport_129_logic_z_b_export_nonansi_wide",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "package": "b",
+        "imports": "export",
+        "header": "nonansi",
+        "override": "wide"
+      },
+      "source_sha256": "ae7640ec7fbda9fa7446b416b54ffa0ca74f7e9484b280f475997f94e4d23143",
+      "expected_sha256": "ecbc3e610dfd6096a8058b809bf1e639cad9f173ce9170c6230ea21d12f1ad2c",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 target raw=1010101010101010101010101010101010101010101...', expected 'k0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "encode(incoming)",
+        "after": "test_gen_cross_ifimport_129_logic_z_b_export_nonansi_wide.encode(incoming)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "logic_formal_and_storage_become_bit",
+      "case": "test_gen_cross_ifimport_129_logic_z_b_export_nonansi_wide",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "package": "b",
+        "imports": "export",
+        "header": "nonansi",
+        "override": "wide"
+      },
+      "source_sha256": "4b483393a5e79686375b3fe2aaba53db4460581535626e6b669704a7a99c69e9",
+      "expected_sha256": "ecbc3e610dfd6096a8058b809bf1e639cad9f173ce9170c6230ea21d12f1ad2c",
+      "status": "fail",
+      "reason": "output differs: line 56 is 'u0 target raw=1010101010101010101010101010101010101010101...', expected 'u0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "typedef logic [BASE-1:0] word_t;",
+        "after": "typedef bit [BASE-1:0] word_t;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "unsigned_word_is_sign_extended",
+      "case": "test_gen_cross_ifimport_129_logic_z_b_export_nonansi_wide",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "package": "b",
+        "imports": "export",
+        "header": "nonansi",
+        "override": "wide"
+      },
+      "source_sha256": "6bbc10a97f305de166da889a03c17c7da17ab14b88c3f3c33eea36a8084bc236",
+      "expected_sha256": "ecbc3e610dfd6096a8058b809bf1e639cad9f173ce9170c6230ea21d12f1ad2c",
+      "status": "fail",
+      "reason": "output differs: line 6 is 'k1 target raw=1100110011001100110011001100110011001100110...', expected 'k1 target raw=1100110011001100110011001100110011001100110...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "W'(stored)",
+        "after": "W'($signed(stored))",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "encoded_word_truncates_above_64",
+      "case": "test_gen_cross_ifimport_129_logic_z_b_export_nonansi_wide",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "package": "b",
+        "imports": "export",
+        "header": "nonansi",
+        "override": "wide"
+      },
+      "source_sha256": "a6ca5968a116a1fc5a00e1e548ffe213b40d90806a9270281708587df4f2ef30",
+      "expected_sha256": "ecbc3e610dfd6096a8058b809bf1e639cad9f173ce9170c6230ea21d12f1ad2c",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 target raw=1010101010101010101010101010101010101010101...', expected 'k0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "W'(stored)",
+        "after": "W'(64'(stored))",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "guard_input_aliases_target",
+      "case": "test_gen_cross_ifimport_129_logic_z_b_export_nonansi_wide",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "package": "b",
+        "imports": "export",
+        "header": "nonansi",
+        "override": "wide"
+      },
+      "source_sha256": "f22f4ea4795bd3d0f7dbbc0490c842b422c17f7a403918da02b63ef0d7d9d9d2",
+      "expected_sha256": "ecbc3e610dfd6096a8058b809bf1e639cad9f173ce9170c6230ea21d12f1ad2c",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 guard raw=01010101010101010101010101010101010101010101...', expected 'k0 guard raw=01010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "guard(.incoming(raw_guard))",
+        "after": "guard(.incoming(raw_target))",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "upper_input_word_reuses_lower_bits",
+      "case": "test_gen_cross_ifimport_129_logic_z_b_export_nonansi_wide",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "package": "b",
+        "imports": "export",
+        "header": "nonansi",
+        "override": "wide"
+      },
+      "source_sha256": "46e405e6c7c84a0c3d7c7fc6114c24bb08367cf01ecf06bdc6d38780af98121b",
+      "expected_sha256": "ecbc3e610dfd6096a8058b809bf1e639cad9f173ce9170c6230ea21d12f1ad2c",
+      "status": "fail",
+      "reason": "output differs: line 31 is 'k6 target raw=0000111111111111111111111111111111111111111...', expected 'k6 target raw=0000111111111111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "target(.incoming(raw_target))",
+        "after": "target(.incoming({raw_target[66:0], raw_target[63:0]}))",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "explicit_header_imports_wrong_package",
+      "case": "test_gen_cross_ifimport_65_bit_x_a_explicit_nonansi_narrow",
+      "values": {
+        "width": "65",
+        "storage": "bit",
+        "value": "x",
+        "package": "a",
+        "imports": "explicit",
+        "header": "nonansi",
+        "override": "narrow"
+      },
+      "source_sha256": "d494400c3dfd6c1ea97724a7c3ec2a4d979454a1575b7d9704b4d8d597ec2b72",
+      "expected_sha256": "7d1eff182f5bac1f6e23a857966818ced18fbe339db6710372e2a6f7726a0d40",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 target raw=1010101010101010101010101010101010101010101...', expected 'k0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "import pkg_a::",
+        "after": "import pkg_b::",
+        "replacements": 5
+      }
+    },
+    {
+      "name": "lose_narrow_width_override",
+      "case": "test_gen_cross_ifimport_65_bit_x_a_explicit_nonansi_narrow",
+      "values": {
+        "width": "65",
+        "storage": "bit",
+        "value": "x",
+        "package": "a",
+        "imports": "explicit",
+        "header": "nonansi",
+        "override": "narrow"
+      },
+      "source_sha256": "4276ce42aa2e19038a707c2c94042fe3a4ac5bf77455d71278844638ca549967",
+      "expected_sha256": "7d1eff182f5bac1f6e23a857966818ced18fbe339db6710372e2a6f7726a0d40",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 target raw=1010101010101010101010101010101010101010101...', expected 'k0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#(.W(LOW)) ",
+        "after": "",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "inline_operation_bypasses_formal_conversion",
+      "case": "test_gen_cross_ifimport_65_bit_x_a_explicit_nonansi_narrow",
+      "values": {
+        "width": "65",
+        "storage": "bit",
+        "value": "x",
+        "package": "a",
+        "imports": "explicit",
+        "header": "nonansi",
+        "override": "narrow"
+      },
+      "source_sha256": "94d7b7ba18cbc5dd6d5daa5a36c0f8ab8b228dfee722b52e08d91fb7a08e5d60",
+      "expected_sha256": "7d1eff182f5bac1f6e23a857966818ced18fbe339db6710372e2a6f7726a0d40",
+      "status": "fail",
+      "reason": "output differs: line 56 is 'u0 target raw=1010101010101010101010101010101010101010101...', expected 'u0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "encode(incoming)",
+        "after": "~incoming",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "bit_formal_and_storage_become_logic",
+      "case": "test_gen_cross_ifimport_65_bit_x_a_explicit_nonansi_narrow",
+      "values": {
+        "width": "65",
+        "storage": "bit",
+        "value": "x",
+        "package": "a",
+        "imports": "explicit",
+        "header": "nonansi",
+        "override": "narrow"
+      },
+      "source_sha256": "8a8449c9b247bf5634f03b8144e353d7e4396b6abfcf8fa9d9ec8d279f8e4f8b",
+      "expected_sha256": "7d1eff182f5bac1f6e23a857966818ced18fbe339db6710372e2a6f7726a0d40",
+      "status": "fail",
+      "reason": "output differs: line 56 is 'u0 target raw=1010101010101010101010101010101010101010101...', expected 'u0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "typedef bit [BASE-1:0] word_t;",
+        "after": "typedef logic [BASE-1:0] word_t;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "raw_input_type_becomes_word_type",
+      "case": "test_gen_cross_ifimport_65_bit_x_a_explicit_nonansi_narrow",
+      "values": {
+        "width": "65",
+        "storage": "bit",
+        "value": "x",
+        "package": "a",
+        "imports": "explicit",
+        "header": "nonansi",
+        "override": "narrow"
+      },
+      "source_sha256": "3ed5bf9a9883317188f547906199b4a52fca8e956443e6527023d87f5e25623b",
+      "expected_sha256": "7d1eff182f5bac1f6e23a857966818ced18fbe339db6710372e2a6f7726a0d40",
+      "status": "fail",
+      "reason": "output differs: line 56 is 'u0 target raw=1010101010101010101010101010101010101010101...', expected 'u0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "input raw_t incoming;",
+        "after": "input word_t incoming;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_package_operation",
+      "case": "test_gen_cross_ifimport_65_bit_x_a_explicit_nonansi_narrow",
+      "values": {
+        "width": "65",
+        "storage": "bit",
+        "value": "x",
+        "package": "a",
+        "imports": "explicit",
+        "header": "nonansi",
+        "override": "narrow"
+      },
+      "source_sha256": "1dd5d4a766d37a6b8642b5664d4cdc4243d9b5fe314a56c6a4a77c7d4aeb1df2",
+      "expected_sha256": "7d1eff182f5bac1f6e23a857966818ced18fbe339db6710372e2a6f7726a0d40",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 target raw=1010101010101010101010101010101010101010101...', expected 'k0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "return ~data;",
+        "after": "return data;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "function_formal_loses_early_conversion",
+      "case": "test_gen_cross_ifimport_65_bit_x_a_explicit_nonansi_narrow",
+      "values": {
+        "width": "65",
+        "storage": "bit",
+        "value": "x",
+        "package": "a",
+        "imports": "explicit",
+        "header": "nonansi",
+        "override": "narrow"
+      },
+      "source_sha256": "e2810e248483f87a7a9d46cbabb0ef9533ba0691ab162f11d6fde4e8a9aaa97a",
+      "expected_sha256": "7d1eff182f5bac1f6e23a857966818ced18fbe339db6710372e2a6f7726a0d40",
+      "status": "fail",
+      "reason": "output differs: line 56 is 'u0 target raw=1010101010101010101010101010101010101010101...', expected 'u0 target raw=1010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "typedef bit [BASE-1:0] word_t;\n  function automatic word_t encode(input word_t data);",
+        "after": "typedef bit [BASE-1:0] word_t;\n  function automatic word_t encode(input raw_t data);",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "actual_arguments_use_package_defaults",
+      "case": "test_gen_cross_ifimport_32_logic_known_a_export_ansi_wide",
+      "values": {
+        "width": "32",
+        "storage": "logic",
+        "value": "known",
+        "package": "a",
+        "imports": "export",
+        "header": "ansi",
+        "override": "wide"
+      },
+      "source_sha256": "5ce6c3b780ca1201b677ffbc4dfbe0b7311ac18b77e3f3ac116ada9120296555",
+      "expected_sha256": "206d47538e0c953a12cd5e85669d4f48cae0bd65429080c6505e63a065b0f870",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 target raw=0101010101010101010101010101010101 incoming...', expected 'k0 target raw=0101010101010101010101010101010101 incoming...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#(.W(BASE), .TAG(MARK))",
+        "after": "#(.W(32), .TAG(11))",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "target_overrides_leak_to_guard",
+      "case": "test_gen_cross_ifimport_32_logic_known_a_export_ansi_wide",
+      "values": {
+        "width": "32",
+        "storage": "logic",
+        "value": "known",
+        "package": "a",
+        "imports": "export",
+        "header": "ansi",
+        "override": "wide"
+      },
+      "source_sha256": "2b60fb59690c26e924669c34846a2e09398912c014d3e08e4a8a361bc5dfee33",
+      "expected_sha256": "206d47538e0c953a12cd5e85669d4f48cae0bd65429080c6505e63a065b0f870",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 guard raw=0101010101010101010101010101010101 incoming=...', expected 'k0 guard raw=0101010101010101010101010101010101 incoming=...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  imported_bus guard(",
+        "after": "  imported_bus #(.W(BASE), .TAG(MARK)) guard(",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "tag_missing_from_functional_output",
+      "case": "test_gen_cross_ifimport_32_logic_known_a_export_ansi_wide",
+      "values": {
+        "width": "32",
+        "storage": "logic",
+        "value": "known",
+        "package": "a",
+        "imports": "export",
+        "header": "ansi",
+        "override": "wide"
+      },
+      "source_sha256": "d75a9910eaa7a8588045dcee66b37cbbcc05579df9b05de660c677b569c55286",
+      "expected_sha256": "206d47538e0c953a12cd5e85669d4f48cae0bd65429080c6505e63a065b0f870",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 target raw=0101010101010101010101010101010101 incoming...', expected 'k0 target raw=0101010101010101010101010101010101 incoming...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "W'(TAG)",
+        "after": "W'(0)",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "conversion_fault_known_prefix": {
+    "known_trace_lines": 55,
+    "first_difference_line": 56,
+    "known_frames_still_match": true
+  },
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "21e5de5c6a2e439342b06b83c57dbdec40e593e98557482a97c34650ab5b7147",
+  "binary_unchanged": true
+}

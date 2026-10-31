@@ -1450,6 +1450,32 @@
           "reason": "X/Zをbit/logicへ格納した後に逐次UDPへ渡し、未知入力前の全1準備と交互のクロックにより、型変換とZをXとして扱う時点・採取後の値・回復を照合する。"
         }
       ]
+    },
+    {
+      "id": "interface_header_import",
+      "primary_chapter": 25,
+      "pairs": [
+        {
+          "chapters": [
+            25,
+            26
+          ],
+          "reason": "ANSI/非ANSIのinterfaceヘッダでwildcard/明示/再exportのimportを使い、packageの型・関数・パラメータ既定値と、呼出し側の同名宣言・targetだけの実引数指定を照合する。"
+        },
+        {
+          "chapters": [
+            6,
+            26
+          ],
+          "when": {
+            "value": [
+              "x",
+              "z"
+            ]
+          },
+          "reason": "logic入力をpackageのbit/logic型の仮引数へ変換してから演算し、interface内の同型変数への代入と別に観測する。X/Z保持・変換・破棄ビット・演算後の幅変更の順序を照合する。"
+        }
+      ]
     }
   ]
 }

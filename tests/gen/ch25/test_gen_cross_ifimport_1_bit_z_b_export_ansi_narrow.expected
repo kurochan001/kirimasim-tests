@@ -1,0 +1,75 @@
+k0 target raw=101 incoming=01 typed=01 stored=10 echo=1
+k0 target W=1 TAG=23 bits=2,2,2,1
+k0 guard raw=010 incoming=10 typed=10 stored=01 echo=10
+k0 guard W=2 TAG=23 bits=2,2,2,2
+k0 caller BASE=4 MARK=99 bits=1
+k1 target raw=110 incoming=10 typed=10 stored=01 echo=0
+k1 target W=1 TAG=23 bits=2,2,2,1
+k1 guard raw=100 incoming=00 typed=00 stored=11 echo=00
+k1 guard W=2 TAG=23 bits=2,2,2,2
+k1 caller BASE=4 MARK=99 bits=1
+k2 target raw=000 incoming=00 typed=00 stored=11 echo=0
+k2 target W=1 TAG=23 bits=2,2,2,1
+k2 guard raw=111 incoming=11 typed=11 stored=00 echo=11
+k2 guard W=2 TAG=23 bits=2,2,2,2
+k2 caller BASE=4 MARK=99 bits=1
+k3 target raw=000 incoming=00 typed=00 stored=11 echo=0
+k3 target W=1 TAG=23 bits=2,2,2,1
+k3 guard raw=000 incoming=00 typed=00 stored=11 echo=00
+k3 guard W=2 TAG=23 bits=2,2,2,2
+k3 caller BASE=4 MARK=99 bits=1
+k4 target raw=000 incoming=00 typed=00 stored=11 echo=0
+k4 target W=1 TAG=23 bits=2,2,2,1
+k4 guard raw=000 incoming=00 typed=00 stored=11 echo=00
+k4 guard W=2 TAG=23 bits=2,2,2,2
+k4 caller BASE=4 MARK=99 bits=1
+k5 target raw=000 incoming=00 typed=00 stored=11 echo=0
+k5 target W=1 TAG=23 bits=2,2,2,1
+k5 guard raw=000 incoming=00 typed=00 stored=11 echo=00
+k5 guard W=2 TAG=23 bits=2,2,2,2
+k5 caller BASE=4 MARK=99 bits=1
+k6 target raw=000 incoming=00 typed=00 stored=11 echo=0
+k6 target W=1 TAG=23 bits=2,2,2,1
+k6 guard raw=000 incoming=00 typed=00 stored=11 echo=00
+k6 guard W=2 TAG=23 bits=2,2,2,2
+k6 caller BASE=4 MARK=99 bits=1
+k7 target raw=000 incoming=00 typed=00 stored=11 echo=0
+k7 target W=1 TAG=23 bits=2,2,2,1
+k7 guard raw=000 incoming=00 typed=00 stored=11 echo=00
+k7 guard W=2 TAG=23 bits=2,2,2,2
+k7 caller BASE=4 MARK=99 bits=1
+k8 target raw=000 incoming=00 typed=00 stored=11 echo=0
+k8 target W=1 TAG=23 bits=2,2,2,1
+k8 guard raw=000 incoming=00 typed=00 stored=11 echo=00
+k8 guard W=2 TAG=23 bits=2,2,2,2
+k8 caller BASE=4 MARK=99 bits=1
+k9 target raw=000 incoming=00 typed=00 stored=11 echo=0
+k9 target W=1 TAG=23 bits=2,2,2,1
+k9 guard raw=000 incoming=00 typed=00 stored=11 echo=00
+k9 guard W=2 TAG=23 bits=2,2,2,2
+k9 caller BASE=4 MARK=99 bits=1
+k10 target raw=111 incoming=11 typed=11 stored=00 echo=1
+k10 target W=1 TAG=23 bits=2,2,2,1
+k10 guard raw=111 incoming=11 typed=11 stored=00 echo=11
+k10 guard W=2 TAG=23 bits=2,2,2,2
+k10 caller BASE=4 MARK=99 bits=1
+u0 target raw=10z incoming=0z typed=00 stored=11 echo=0
+u0 target W=1 TAG=23 bits=2,2,2,1
+u0 guard raw=01z incoming=1z typed=10 stored=01 echo=10
+u0 guard W=2 TAG=23 bits=2,2,2,2
+u0 caller BASE=4 MARK=99 bits=1
+u1 target raw=1z0 incoming=z0 typed=00 stored=11 echo=0
+u1 target W=1 TAG=23 bits=2,2,2,1
+u1 guard raw=1z0 incoming=z0 typed=00 stored=11 echo=00
+u1 guard W=2 TAG=23 bits=2,2,2,2
+u1 caller BASE=4 MARK=99 bits=1
+u2 target raw=0z0 incoming=z0 typed=00 stored=11 echo=0
+u2 target W=1 TAG=23 bits=2,2,2,1
+u2 guard raw=1z1 incoming=z1 typed=01 stored=10 echo=01
+u2 guard W=2 TAG=23 bits=2,2,2,2
+u2 caller BASE=4 MARK=99 bits=1
+u3 target raw=z00 incoming=00 typed=00 stored=11 echo=0
+u3 target W=1 TAG=23 bits=2,2,2,1
+u3 guard raw=z00 incoming=00 typed=00 stored=11 echo=00
+u3 guard W=2 TAG=23 bits=2,2,2,2
+u3 caller BASE=4 MARK=99 bits=1
