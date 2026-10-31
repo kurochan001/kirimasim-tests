@@ -54,15 +54,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **9263 tests** in 38 chapters. 2826 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_case`, 34 by `interaction_case_inside`, 32 by `interaction_cast`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 72 by `interaction_divide`, 64 by `interaction_edge`, 51 by `interaction_expr`, 27 by `interaction_iff`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 60 by `interaction_query`, 48 by `interaction_queue`, 60 by `interaction_queue_ref`, 46 by `interaction_range`, 38 by `interaction_resize`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **9299 tests** in 38 chapters. 2862 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_binding`, 36 by `interaction_case`, 34 by `interaction_case_inside`, 32 by `interaction_cast`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 72 by `interaction_divide`, 64 by `interaction_edge`, 51 by `interaction_expr`, 27 by `interaction_iff`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 60 by `interaction_query`, 48 by `interaction_queue`, 60 by `interaction_queue_ref`, 46 by `interaction_range`, 38 by `interaction_resize`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5163 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1624 |
-| The standard only, with no fixed-release simulator oracle recorded | 2476 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5181 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1627 |
+| The standard only, with no fixed-release simulator oracle recorded | 2491 |
 
-1853 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+1877 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -76,7 +76,7 @@ The suite has **9263 tests** in 38 chapters. 2826 of them are generated (`tests/
 | 10 | Assignment statements | 254 | 169 | 45 | 40 |
 | 11 | Operators and expressions | 1644 | 1262 | 132 | 250 |
 | 12 | Procedural programming statements | 251 | 169 | 33 | 49 |
-| 13 | Tasks and functions (subroutines) | 244 | 136 | 89 | 19 |
+| 13 | Tasks and functions (subroutines) | 280 | 154 | 92 | 34 |
 | 14 | Clocking blocks | 78 | 4 | 60 | 14 |
 | 15 | Interprocess synchronization and communication | 59 | 2 | 36 | 21 |
 | 16 | Assertions | 661 | 104 | 74 | 483 |
@@ -171,7 +171,7 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.md) uses constrained
 pairwise coverage, selected three-factor groups and mandatory boundary witnesses.
-Its focused selection has 1,513 tests across thirty-one models: scheduling, NBA capture,
+Its focused selection has 1,549 tests across thirty-two models: scheduling, NBA capture,
 arithmetic context, packed part-selects, conditional merging, shifts, cast pipelines
 and task argument visibility, packed structures, case matching, port connections,
 unpacked array copies, bit-vector queries, streaming permutations, comparisons,
@@ -181,7 +181,9 @@ packed logical/reduction pipelines, short-circuit side effects, event-edge expre
 heap-backed file monitors across registration contexts, compound shifts with
 selected targets, integral set membership across typed containers, value ranges
 with typed bounds, case-inside item selection, event OR with per-term iff guards,
-and queue element reference lifetimes. The queue-reference model selects 60 tests
+queue element reference lifetimes, and argument binding across later selector changes.
+The binding model selects 36 tests from 972 assignments, covering 162 pairs,
+63 triples and five mandatory witnesses. The queue-reference model selects 60 tests
 from 2,160 assignments, covering 257 pairs, 96 triples and five mandatory witnesses.
 The event-OR model selects 27 tests from 252 legal assignments, covering 104 pairs,
 59 triples and four mandatory witnesses. The case-inside model selects 34
@@ -699,6 +701,7 @@ outputs, and it writes many small variations of one kind of test:
 | `interaction_case_inside` | 12 | Case-expression/item widths and signs, bit/logic items, a first item that is a value, range, fixed array or list, X/Z, no qualifier or `unique0`, and a third item held in a variable or returned by a counting call; 34 cases check that an X comparison moves on to later items, item extension, one evaluation of the case expression and evaluation after a match |
 | `interaction_cast` | 6 | Source sign/value, size/signing/typed casts, cast width, later addition and destination state; 32 selected cases distinguish intermediate conversion from final conversion |
 | `interaction_task` | 13 | Width/state/value, input/output/inout/ref, scalar/array-element actuals and immediate/delayed return; 36 selected cases check copy-in, copy-out, immediate reference updates and neighbor preservation |
+| `interaction_binding` | 13 | Width/state/value, input/ref/const ref, fixed/dynamic/queue elements and later selector changes; 36 cases check original-element binding, private input copies, live reference reads, bidirectional updates and guard preservation |
 | `interaction_struct` | 7 | Member order, whole/member signs, width/state/value, member/whole writes and blocking/NBA updates; 36 selected cases check tag preservation, packed layout and independent sign extension |
 | `interaction_case` | 12 | Selector/item widths and signs, case/casez/casex, X/Z and item patterns; 36 selected cases check exact/wildcard matching, duplicate-item priority and fallback branches |
 | `interaction_port` | 23 | Source width/sign/value, input/output, sink width, named/positional binding, ANSI/non-ANSI declaration and sample state; 36 selected cases check values through hierarchy and final sampling conversion |

@@ -1,0 +1,241 @@
+{
+  "schema": 1,
+  "purpose": "argument_binding_index positive and fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit a08e3489b8ab), built with AppleClang 21.0.0.21000334",
+  "commit": "a08e3489b8ab2c129f1d4524cce0dac5b1951456",
+  "binary_sha256": "20817fa5fe1f3ed7b460311438a28add2c4d6baadd9536339db1e166f3a5d26b",
+  "generator_sha256": "ceb69f70bef3a2fd5d4fa0071992aacce5d5f3c05a47a4612f27328d5b70bc59",
+  "qualification_sha256": "24b5365f338771ac5109ae2d334e3ef13607786bde9ae544c58c1b9721cd3a3e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_bind_w1_b_known_ref_fixed_next",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "mode": "ref",
+        "storage": "fixed",
+        "index": "next"
+      },
+      "source_sha256": "24f48138f0068912b6b18cc0568a238f34e7623b1d9c937fb383d87f5cd66598",
+      "expected_sha256": "25b21c589ac132ed03233ceec03062f03d27af707bf916bd17d6206746778f23",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_bind_w129_l_z_const_ref_dynamic_invalid",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "mode": "const_ref",
+        "storage": "dynamic",
+        "index": "invalid"
+      },
+      "source_sha256": "157738f5e0032d510bb663e9563121615fdba5a7528435d063f0780138338496",
+      "expected_sha256": "700d1c9884edff8206298214a719a75222bdf16e43fc917ef16595337c3d1473",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_bind_w33_b_known_input_queue_next",
+      "values": {
+        "width": "33",
+        "state": "bit",
+        "value": "known",
+        "mode": "input",
+        "storage": "queue",
+        "index": "next"
+      },
+      "source_sha256": "c80ff95283f9d51816ba06d06fd01809eccfda9ff8f17319b5d55df32a60b15f",
+      "expected_sha256": "00c866f0af850b6d490632d195616ffbb78eb11d50ea8bc3df0ce0b243478271",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_bind_w65_l_x_ref_queue_invalid",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "mode": "ref",
+        "storage": "queue",
+        "index": "invalid"
+      },
+      "source_sha256": "2f0480de33e9dad17223474fd132abce34bf905a520cac580a6b1d588f569992",
+      "expected_sha256": "87911dac9886c6ee89dbf73ed8cf4dac24adfb89cb3157bead5e70882f6a900f",
+      "status": "pass",
+      "reason": ""
+    }
+  ],
+  "faults": [
+    {
+      "name": "capture_wrong_element",
+      "case": "test_gen_cross_bind_w1_b_known_ref_fixed_next",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "mode": "ref",
+        "storage": "fixed",
+        "index": "next"
+      },
+      "source_sha256": "abf54286824860043a3920bbfa93dca968d129a75ec246643089882080f80140",
+      "expected_sha256": "25b21c589ac132ed03233ceec03062f03d27af707bf916bd17d6206746778f23",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 entry=0', expected 'k0 entry=1'",
+      "mutation": {
+        "before": "observe(cells[index]",
+        "after": "observe(cells[3]"
+      }
+    },
+    {
+      "name": "ref_becomes_input",
+      "case": "test_gen_cross_bind_w1_b_known_ref_fixed_next",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "mode": "ref",
+        "storage": "fixed",
+        "index": "next"
+      },
+      "source_sha256": "51f4b483a6374ac3ae1ea41912111bab00e65a7e1f4c130eb8621a9513bce3dd",
+      "expected_sha256": "25b21c589ac132ed03233ceec03062f03d27af707bf916bd17d6206746778f23",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 seen=1', expected 'k0 seen=0'",
+      "mutation": {
+        "before": "observe(ref word_t formal",
+        "after": "observe(input word_t formal"
+      }
+    },
+    {
+      "name": "lose_ref_write",
+      "case": "test_gen_cross_bind_w1_b_known_ref_fixed_next",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "mode": "ref",
+        "storage": "fixed",
+        "index": "next"
+      },
+      "source_sha256": "c7e1f256a12b360937279301e3f2b875341c13d5d35ebe9d9225b396d4a61516",
+      "expected_sha256": "25b21c589ac132ed03233ceec03062f03d27af707bf916bd17d6206746778f23",
+      "status": "fail",
+      "reason": "output differs: line 6 is 'k0 after=0', expected 'k0 after=1'",
+      "mutation": {
+        "before": "formal = next_value;",
+        "after": ";"
+      }
+    },
+    {
+      "name": "lose_late_caller_update",
+      "case": "test_gen_cross_bind_w1_b_known_ref_fixed_next",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "mode": "ref",
+        "storage": "fixed",
+        "index": "next"
+      },
+      "source_sha256": "899e4e1b72903ff8cd9f29fa886c0de782b0c15396b6ddfc418852c6c63c5ba7",
+      "expected_sha256": "25b21c589ac132ed03233ceec03062f03d27af707bf916bd17d6206746778f23",
+      "status": "fail",
+      "reason": "output differs: line 8 is 'k0 returning=1', expected 'k0 returning=0'",
+      "mutation": {
+        "before": "cells[2] = tail_value;",
+        "after": "cells[2] = write_value;"
+      }
+    },
+    {
+      "name": "corrupt_guard_element",
+      "case": "test_gen_cross_bind_w1_b_known_ref_fixed_next",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "mode": "ref",
+        "storage": "fixed",
+        "index": "next"
+      },
+      "source_sha256": "6b96d8e8d93cd8e424708f693f8eff57c13d8450464d8cc2758ca1cea482d19e",
+      "expected_sha256": "25b21c589ac132ed03233ceec03062f03d27af707bf916bd17d6206746778f23",
+      "status": "fail",
+      "reason": "output differs: line 7 is 'k0_after_write index=3 cells=1,1,1', expected 'k0_after_write index=3 cells=1,1,0'",
+      "mutation": {
+        "before": "formal = next_value;",
+        "after": "formal = next_value; cells[4] = next_value;"
+      }
+    },
+    {
+      "name": "const_ref_becomes_input",
+      "case": "test_gen_cross_bind_w129_l_z_const_ref_dynamic_invalid",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "mode": "const_ref",
+        "storage": "dynamic",
+        "index": "invalid"
+      },
+      "source_sha256": "21154610e6b069e5cdfd94c8ee813ef6db84b74b6649f1244940f9274c0f302d",
+      "expected_sha256": "700d1c9884edff8206298214a719a75222bdf16e43fc917ef16595337c3d1473",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 seen=1111111111111111111111111111111111111111111111111...', expected 'k0 seen=0000000000000000000000000000000000000000000000000...'",
+      "mutation": {
+        "before": "observe(const ref word_t formal",
+        "after": "observe(input word_t formal"
+      }
+    },
+    {
+      "name": "input_becomes_ref",
+      "case": "test_gen_cross_bind_w33_b_known_input_queue_next",
+      "values": {
+        "width": "33",
+        "state": "bit",
+        "value": "known",
+        "mode": "input",
+        "storage": "queue",
+        "index": "next"
+      },
+      "source_sha256": "ca9e0390bdf00e39586296dcb1a8aa3a9e549dcdd57687325f7ff59ac2a172c3",
+      "expected_sha256": "00c866f0af850b6d490632d195616ffbb78eb11d50ea8bc3df0ce0b243478271",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 seen=000000000000000000000000000000000', expected 'k0 seen=111111111111111111111111111111111'",
+      "mutation": {
+        "before": "observe(input word_t formal",
+        "after": "observe(ref word_t formal"
+      }
+    },
+    {
+      "name": "wrong_storage_state",
+      "case": "test_gen_cross_bind_w65_l_x_ref_queue_invalid",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "mode": "ref",
+        "storage": "queue",
+        "index": "invalid"
+      },
+      "source_sha256": "a1d807b236db993aacef9465e0283aa71914b070ccb5b5b4ead277fc205fe394",
+      "expected_sha256": "87911dac9886c6ee89dbf73ed8cf4dac24adfb89cb3157bead5e70882f6a900f",
+      "status": "fail",
+      "reason": "output differs: line 13 is 'x0_changed index=-1 cells=0000000000000000000000000000000...', expected 'x0_changed index=-1 cells=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+      "mutation": {
+        "before": "typedef logic [64:0] word_t;",
+        "after": "typedef bit [64:0] word_t;"
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true
+}

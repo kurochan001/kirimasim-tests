@@ -117,3 +117,23 @@ python3 tools/qualify_queue_ref.py --kirimasim BIN --commit VERIFIED_COMMIT \
 [`20261031-queue-ref-verilator.json`](20261031-queue-ref-verilator.json)は、通常のランナーが
 出力なしと記録した上限付き連結代入の1件について、固定版を同じオプションで再実行した記録です。
 ビルドは成功し、両seedともSIGBUSで終了しました。ソースコードは調べていません。
+
+## 引数の結合と添字変更の確認
+
+[`20261031-binding.json`](20261031-binding.json)は`argument_binding_index@1`の確認記録です。
+上流mainとビルド版を照合したkirimasim `a08e3489b8ab`で、選択済みの正の対照条件4件が一致し、
+誤った要素への結合、refの値渡し化、refの書込みの欠落、const refの値渡し化、
+inputの参照化、遅い時刻の親の更新の欠落、logicのbit化、保護用要素の破壊の8種類を検出しました。
+構文エラー・未対応・異常終了は検出として数えず、正常終了時の出力相違で確認しています。
+バイナリ・生成器・確認ツール・作成したSV・期待値の指紋と、各変更箇所・判定を保存しています。
+故障注入を通常のスイートや実行カバレッジへ加算しません。
+
+最新上流を取得・ビルドして版を照合した後、新しい保存先を指定して再実行できます。
+
+```sh
+python3 tools/qualify_binding.py --kirimasim BIN --commit VERIFIED_COMMIT \
+  --json coverage/interaction-qualification/NEW-binding.json
+```
+
+通常の保存実行は`interaction-results/cross32-kirimasim-a08e3489.json`と
+`interaction-results/binding-20261031-*.json`です。

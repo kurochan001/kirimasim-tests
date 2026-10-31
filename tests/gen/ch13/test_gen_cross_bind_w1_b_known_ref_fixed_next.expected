@@ -1,0 +1,27 @@
+k0 source=0 write=1 tail=0
+k0_start index=2 cells=1,0,0
+k0 entry=1
+k0_changed index=3 cells=0,1,0
+k0 seen=0
+k0 after=1
+k0_after_write index=3 cells=1,1,0
+k0 returning=0
+k0_final index=3 cells=0,1,0
+k1 source=1 write=0 tail=1
+k1_start index=2 cells=0,1,0
+k1 entry=0
+k1_changed index=3 cells=1,0,0
+k1 seen=1
+k1 after=0
+k1_after_write index=3 cells=0,0,0
+k1 returning=1
+k1_final index=3 cells=1,0,0
+k2 source=1 write=0 tail=1
+k2_start index=2 cells=0,0,1
+k2 entry=0
+k2_changed index=3 cells=1,0,1
+k2 seen=1
+k2 after=0
+k2_after_write index=3 cells=0,0,1
+k2 returning=1
+k2_final index=3 cells=1,0,1

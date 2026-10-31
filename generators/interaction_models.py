@@ -14,6 +14,7 @@ import interaction_cond
 import interaction_shift
 import interaction_cast
 import interaction_task
+import interaction_binding
 import interaction_struct
 import interaction_case
 import interaction_port
@@ -41,7 +42,7 @@ import scheduling
 from interaction_cover import Model, Row
 
 GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
-              interaction_shift, interaction_cast, interaction_task,
+              interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
               interaction_compare, interaction_method,
@@ -126,6 +127,14 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_task.MODEL.select(),
             "タスク内部・復帰直前・復帰後から実引数を観測し、コピー渡しと参照渡しの"
             "更新時点の違い、値と隣接要素の保持を確認する。",
+        ),
+        SuiteModel(
+            interaction_binding.MODEL,
+            lambda row: "tests/gen/ch13/" + interaction_binding.case_name(row) + ".sv",
+            interaction_binding.MODEL.select(),
+            "呼出し後に添字を同値・次要素・-1へ変更し、実引数と仮引数の複数時刻の値を観測して、"
+            "元の要素への結合、inputの値コピー、refの双方向の可視性、const refのライブな読取り、"
+            "復帰時の書戻しや隣接要素の破壊がないことを確認する。",
         ),
         SuiteModel(
             interaction_struct.MODEL,

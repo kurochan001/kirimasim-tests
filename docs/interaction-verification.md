@@ -13,7 +13,16 @@ Issue #21で追加した境界条件の回帰テストと、保留した解釈�
 
 ## 保存実行の概要
 
-2026-10-31のキュー参照追加：現在は**31モデル・1,513件**です。
+2026-10-31の引数結合追加：現在は**32モデル・1,549件**です。
+実行直前に上流mainとビルド版を照合したkirimasim `a08e3489b8ab`で、
+新規の`argument_binding_index`36件はすべて一致しました。
+[全クロスの保存実行](../coverage/interaction-results/cross32-kirimasim-a08e3489.json)は
+1,497 pass・50 unsupported・2 failです。従来1,513件の入力指紋と結果の分類は同じです。
+新モデルの162ペア・3因子63組・必須5件はすべて成功で充足しました。
+未対応と不一致が残る3モデルは今回の追加対象とは別です。
+[引数結合の設計と確認記録](#引数の結合と呼出し後の添字変更)も参照してください。
+
+同日のキュー参照追加では**31モデル・1,513件**でした。
 実行直前に上流mainとビルド版を照合したkirimasim `29ad73153518`で、
 新規の`queue_element_reference`60件はすべて一致しました。
 [全クロスの保存実行](../coverage/interaction-results/cross31-kirimasim-29ad7315.json)は
@@ -1291,6 +1300,70 @@ python3 tools/interaction_coverage.py --model queue_element_reference --results 
 追加時のツール回帰344件はすべて成功しました。生成物、クロス計画・保存実行、組合せ台帳、
 件数、カタログ、要求カバレッジ、要求照合の整合性検査も成功しています。
 メタデータは9,263件で新規問題0件（既知395件）、`git diff --check`も成功です。
+GitHub CheckとNightlyの全件実行結果とは区別します。
+
+### 引数の結合と呼出し後の添字変更
+
+`argument_binding_index@1`は、既存の`task_argument_visibility`が対象外としていた
+呼出し後の添字変更をモデル化したものです。13.5・13.5.1・13.5.2に基づき、
+inputのコピーと、元の変数を共有するref・const refの違いを確認します。
+const refはタスクから書き換えられませんが、呼出し元による変更は読取りへ反映されます。
+今回はこれらの明確な規則を対象にし、output/inoutの復帰先の評価時点は対象外としています。
+
+[生成器](../generators/interaction_binding.py)の因子は次の6つです。
+
+- 要素幅：1・32・33・64・65・129ビット。
+- 状態型：bit、logic。
+- 呼出し元が後から書込む値：既知値、X、Z。
+- 引数の渡し方：input、ref、const ref。
+- 実引数の格納先：固定配列`[2:4]`、3要素の動的配列、3要素のキュー。
+- 呼出し後の添字：変更なし、隣の要素の添字、-1。
+
+全972通りから36件を選び、全162ペアと「幅×状態型×値」の36組、
+「渡し方×格納先×添字」の27組を網羅し、必須5件を保持します。
+添字が-1になるのは有効な先頭要素を渡した後です。正しいプログラムは変更後の添字で配列を読まず、
+すでに結合した元の要素を使い続けます。無効アクセスを正常な期待値にしているわけではありません。
+保持中のサイズ変更、引数評価の副作用、NBA、output/inoutは対象外です。
+
+親プロセスは1 tick後に添字と元の要素・隣の要素を変更します。タスクの2 tick後の読取りでは、
+inputは初期値、refとconst refは元の要素の新しい値を観測します。
+inputとrefは既知のマーカーを書込み、const refは読むだけです。
+親は3 tick後に全3要素を観測し、さらに元の要素へ異なる値を書込みます。
+4 tick後の読取りではref・const refがその値を観測し、inputは自分のコピーを保持します。
+復帰後の5 tickで再度全要素を観測するので、誤った書戻しや隣接要素の破壊も識別できます。
+刺激と観測は競合する時刻を避け、3組の初期値を巡回して1ビットでも要素を識別します。
+全X/Z行にも既知値の対照条件を含め、親の書込み時のbit/logic変換と参照先の確定を分けて確認します。
+
+期待値は独立したPythonモデルで計算し、[検算テスト](../tools/test_interaction_binding.py)では
+共有する要素オブジェクトとinput用の独立したコピーを使って全972行を照合しました。
+[故障注入](../coverage/interaction-qualification/20261031-binding.json)は選択済みの正の対照条件4件が一致し、
+要素の取り違え、refの値渡し化、refの書込みの欠落、const refの値渡し化、inputの参照化、
+遅い時刻の親の更新の欠落、logicのbit化、保護用要素の破壊の8種類をすべて出力相違として検出しました。
+構文エラー・未対応・異常終了は検出として数えず、故障注入を通常の成功証跡へ加算しません。
+
+固定版の[Icarus 13.0](../coverage/interaction-results/binding-20261031-icarus13.json)は
+18 pass・18 knownでした。成功はinputの18件で、ref・const refは未対応です。
+Verilator 5.052の[seed 1](../coverage/interaction-results/binding-20261031-verilator5.052-seed1.json)・
+[seed 73](../coverage/interaction-results/binding-20261031-verilator5.052-seed73.json)は
+2状態12件中それぞれ8 pass・4 knownでした。差異は、親の変更前の値を読む2件と、
+合法なconst ref実引数を型の診断で拒否する2件です。4状態24件はVerilatorの確認対象外です。
+Icarusの18件、両seedで一致したVerilatorの8件だけにoracleを登録しました。
+重複する5件を除く21件が固定oracleを持ち、残る15件は規格からの期待値を保持します。
+
+通常スイートは36件増えて9,299件、生成2,862件です。新しい要求対応付けは登録しておらず、
+要求カバレッジの分母と設計・実行確認率は維持しています。
+最新上流を取得・ビルドして版を照合した後、モデル単体は次の形で再実行できます。
+過去の証跡を上書きせず、新しい保存先を指定してください。
+
+```sh
+python3 tools/interaction_coverage.py --model argument_binding_index --list-tests > /tmp/bind-tests.txt
+python3 tools/run_kirimasim.py --kirimasim BIN --json NEW.json $(cat /tmp/bind-tests.txt)
+python3 tools/interaction_coverage.py --model argument_binding_index --results NEW.json --require-pass
+```
+
+追加時のツール回帰349件はすべて成功しました。生成物、クロス計画・保存実行、組合せ台帳、
+件数、カタログ、要求カバレッジ、要求照合の整合性検査も成功しています。
+メタデータは9,299件で新規問題0件（既知395件）、`git diff --check`も成功です。
 GitHub CheckとNightlyの全件実行結果とは区別します。
 
 ### モデル変更時の更新
