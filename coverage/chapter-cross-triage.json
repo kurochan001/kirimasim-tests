@@ -1,0 +1,1272 @@
+{
+  "schema": 1,
+  "reviewed_on": "2026-10-31",
+  "reviewer": "Codex (GPT-6), AI review",
+  "scope": "Unordered off-diagonal pairs with no registered finite model mapping. Existing witnesses are source/expectation reviews, not new execution passes. Unreviewed pairs stay R.",
+  "excluded_chapters": {
+    "1": "概要は独立した動作要求を定めないため、動作クロスの軸としては対象外。",
+    "2": "引用規格の一覧は独立した動作要求ではないため、動作クロスの軸としては対象外。",
+    "34": "保護エンベロープは本スイートの動作検証の対象範囲外。対応方針が変わるときに再確認する。"
+  },
+  "pairs": [
+    {
+      "chapters": [
+        4,
+        14
+      ],
+      "category": "E",
+      "priority": "P1",
+      "reason": "クロッキングの待機・駆動とイベント領域が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "クロッキングの待機・駆動とイベント領域",
+      "factors": [
+        "入力スキュー（1step/0）",
+        "出力スキュー（0/非0）",
+        "更新領域（NBA/Re-NBA）",
+        "待機先（信号エッジ/cb）"
+      ],
+      "observation": "通常エッジ待機とcb待機で読み取る値、NBA後とReactive前の値、出力駆動の前後を区別する。",
+      "witnesses": [
+        {
+          "test": "tests/ch14/test_clocking_block_event_after_nba_before_reactive.sv",
+          "inputs_sha256": "75f39adae8d8be3189e3a32e0cddd58085e9188e80a9b253a11b984604abb32c"
+        },
+        {
+          "test": "tests/ch14/test_clocking_future_drive_in_re_nba.sv",
+          "inputs_sha256": "f78b19754121867867ae99fffad9c3975d3d9274eefb8779079b7cc19babb571"
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "chapters": [
+        4,
+        16
+      ],
+      "category": "E",
+      "priority": "P1",
+      "reason": "アサーションのサンプリングとライブ値が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "アサーションのサンプリングとライブ値",
+      "factors": [
+        "更新方法（blocking/NBA）",
+        "更新時点",
+        "assert種別",
+        "サンプル値/ライブ値"
+      ],
+      "observation": "サンプル値0とNBA後のライブ値1、評価結果とアクション時の値を分けて観測する。",
+      "witnesses": [
+        {
+          "test": "tests/ch4/test_preponed_sample_observed_before_action.sv",
+          "inputs_sha256": "c6f0b3cdcf46268efbf8b466fc80969a4136c3a8e6a93016490ef0b2a1d075b0"
+        }
+      ],
+      "rank": 2
+    },
+    {
+      "chapters": [
+        4,
+        24
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "program出力とmoduleのNBA連鎖が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "program出力とmoduleのNBA連鎖",
+      "factors": [
+        "入力更新方法",
+        "NBA連鎖の段数",
+        "読出し側（module/program）"
+      ],
+      "observation": "program出力の変化を検知したときにmodule側の更新連鎖が完了していることを観測する。",
+      "witnesses": [
+        {
+          "test": "tests/ch24/test_program_output_after_module_nba_chain.sv",
+          "inputs_sha256": "e8224524292200b7f6e698c5bc68329865b01e48018c5d4987990b52f81dc037"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        6,
+        8
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "クラス継承と動的キャストが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "クラス継承と動的キャスト",
+      "factors": [
+        "継承関係",
+        "実体の動的型",
+        "null/非null",
+        "キャスト先の型"
+      ],
+      "observation": "成功/失敗、派生メンバの値、nullの保存を確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch8/test_dynamic_cast.sv",
+          "inputs_sha256": "a3387e534b4357507ad49076dd3c23db565304d19bff856bf6c4360f2f0d202b"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        6,
+        15
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "イベント変数の再結合と待機先の保持が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "イベント変数の再結合と待機先の保持",
+      "factors": [
+        "別名の数",
+        "再結合時点",
+        "トリガ対象（旧/新）"
+      ],
+      "observation": "再結合後の別イベントでは起床せず、元のイベントで起床することを区別する。",
+      "witnesses": [
+        {
+          "test": "tests/ch6/test_event_rebinding_retains_old_wait.sv",
+          "inputs_sha256": "8dcf75f093490e97829be6b75a59bc5cecc6a278f8801ffe579f33d9b1707f7d"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        6,
+        21
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "列挙型・整数配列のメモリファイル往復が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "列挙型・整数配列のメモリファイル往復",
+      "factors": [
+        "要素型（enum/int/bit/logic）",
+        "書式（b/h）",
+        "値の符号",
+        "配列範囲"
+      ],
+      "observation": "enumを値として読戻した結果と、符号付き整数の往復結果を確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch21/test_writemem_two_state_enum.sv",
+          "inputs_sha256": "fcd1cdb4f05cc042ea7fc6827a8cba28444c4dcb82f25bcb3ba08077648d94d1"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        7,
+        8
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "クラスのshallow copyと配列プロパティの独立性が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "クラスのshallow copyと配列プロパティの独立性",
+      "factors": [
+        "プロパティ（固定/動的/キュー）",
+        "コピー方式",
+        "コピー後の要素変更/サイズ変更"
+      ],
+      "observation": "コピー先の変更後もコピー元の値とサイズが保持されることを確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch8/test_shallow_copy_array_properties.sv",
+          "inputs_sha256": "88c693521e4f655ba484613d21003e29fb6f0ffeddf0ca0517b3c9e557b8729f"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        7,
+        9
+      ],
+      "category": "E",
+      "priority": "P1",
+      "reason": "コンテナのサイズ変更によるwaitの再評価が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "コンテナのサイズ変更によるwaitの再評価",
+      "factors": [
+        "コンテナ（動的配列/キュー）",
+        "更新方法",
+        "待機条件",
+        "無関係な変数の変更"
+      ],
+      "observation": "必要な変更での起床時刻・回数と、無関係な変更では起床しないことを観測する。",
+      "witnesses": [
+        {
+          "test": "tests/ch9/test_wait_on_array_size.sv",
+          "inputs_sha256": "1f37e72d69552e7c19b54489ad4177e295d8d345a945457fc1baacb4af59e56b"
+        }
+      ],
+      "rank": 4
+    },
+    {
+      "chapters": [
+        7,
+        15
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "struct内イベントの識別と所有タスク復帰後の寿命が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "struct内イベントの識別と所有タスク復帰後の寿命",
+      "factors": [
+        "格納先（scalar/struct）",
+        "呼出し回数",
+        "別名解除の順序",
+        "トリガ順序"
+      ],
+      "observation": "別呼出しのイベントの独立性、復帰後の起床と保持値、別名解除後の他の待機の存続を確認する。",
+      "witnesses": [
+        {
+          "test": "tests/gen/ch6/test_gen_combo_event_automatic_struct_capture.sv",
+          "inputs_sha256": "59b9ed298c9d09eb12c579964b15b95f6cf73bca386c67f2ef4b6e0fda0c9d6c"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        7,
+        18
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "制約内の配列リダクションと式の型が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "制約内の配列リダクションと式の型",
+      "factors": [
+        "要素幅/符号",
+        "集計演算",
+        "with式の型変換",
+        "要素数"
+      ],
+      "observation": "唯一解を使い、要素型での桁あふれとwithで拡張した集計の違いを確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch18/test_array_reduction_element_type.sv",
+          "inputs_sha256": "6dffe0d2ca8b3c47c027e8326dd6e4016e87e60bc99b469d95d0d06a7ce35c9e"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        7,
+        19
+      ],
+      "category": "C",
+      "priority": "P2",
+      "reason": "サイズ・値が同時に変わる観測境界。一般の配列操作とは別にサンプリング時点の設計を確認する。",
+      "objective": "コンテナ変更前後のcovergroupサンプリング",
+      "factors": [
+        "コンテナ（固定/動的/キュー）",
+        "要素/サイズの変更",
+        "sampleの前後",
+        "bin条件"
+      ],
+      "observation": "値・サイズを与えた決定的なsample列とヒット数を照合する。空コンテナの合法な扱いは先に規格照合する。",
+      "witnesses": []
+    },
+    {
+      "chapters": [
+        7,
+        20
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "連想配列と配列問い合わせ関数が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "連想配列と配列問い合わせ関数",
+      "factors": [
+        "添字型/符号",
+        "空/非空",
+        "割当て済み添字",
+        "問い合わせ関数"
+      ],
+      "observation": "型の添字範囲と割当て済みの最小/最大、要素数、空の未知値を区別する。",
+      "witnesses": [
+        {
+          "test": "tests/ch20/test_associative_array_query_functions.sv",
+          "inputs_sha256": "8ee1cf8ab1b9d7126c80a7d9a0bf8dc260af1b13ec20ad5df2edea82c79490d1"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        7,
+        35
+      ],
+      "category": "E",
+      "priority": "P1",
+      "reason": "DPIをまたぐ配列の形状・値・書戻しが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "DPIをまたぐ配列の形状・値・書戻し",
+      "factors": [
+        "実引数（動的配列/キュー）",
+        "仮引数（open/fixed）",
+        "入出力方向",
+        "要素数/範囲"
+      ],
+      "observation": "C側の形状・総和とSV側の値を照合し、outputの書戻し後の全要素を確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch35/test_dpi_dynamic_array_actual.sv",
+          "inputs_sha256": "c58fb7ae894cc84c150a22e028f2e90a03e255bd0699f5030decc98c61cd1f53"
+        }
+      ],
+      "rank": 5
+    },
+    {
+      "chapters": [
+        8,
+        9
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "weak referenceの解除とwaitの起床が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "weak referenceの解除とwaitの起床",
+      "factors": [
+        "解除方法",
+        "別名の有無",
+        "待機開始/解除の順序"
+      ],
+      "observation": "weak referenceの明示的clear後の起床時刻を確認する。GC実行時期には依存しない。",
+      "witnesses": [
+        {
+          "test": "tests/ch8/test_weak_reference_wait_cleared.sv",
+          "inputs_sha256": "3b7c1ccdadf6d2cb60b2aa0f79b6f5bbe91814242106bbdfaec0e9c475af67b5"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        8,
+        13
+      ],
+      "category": "E",
+      "priority": "P1",
+      "reason": "クラスメソッドの再帰とref引数が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "クラスメソッドの再帰とref引数",
+      "factors": [
+        "task/function",
+        "再帰深さ",
+        "渡し方",
+        "複数インスタンス"
+      ],
+      "observation": "再帰深さ、累積した更新回数と呼出し後の実引数を照合する。",
+      "witnesses": [
+        {
+          "test": "tests/ch13/test_recursive_class_task_ref_argument.sv",
+          "inputs_sha256": "8ab07bb858ca936bccbc79575fdc107ca93bf879536f68282191fd1316218c45"
+        }
+      ],
+      "rank": 6
+    },
+    {
+      "chapters": [
+        8,
+        15
+      ],
+      "category": "C",
+      "priority": "P1",
+      "reason": "非同期の受渡しとオブジェクト共有が同じ状態に作用する。値コピーとハンドルコピーの取り違えを狙う。",
+      "objective": "mailboxを介したクラスハンドルと別名の可視性",
+      "factors": [
+        "typed/typeless mailbox",
+        "put/get/peek",
+        "取得前後のメンバ更新",
+        "複数ハンドル"
+      ],
+      "observation": "取得したハンドルの同一性、メンバ値、キュー内個数、peekとgetの違いを観測する。",
+      "witnesses": [],
+      "rank": 9
+    },
+    {
+      "chapters": [
+        8,
+        18
+      ],
+      "category": "E",
+      "priority": "P1",
+      "reason": "クラス継承と制約の置換・追加が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "クラス継承と制約の置換・追加",
+      "factors": [
+        "基底/派生ハンドル",
+        "制約の置換/追加",
+        "pure/extern定義",
+        "解あり/矛盾"
+      ],
+      "observation": "唯一解や不変条件で動的な制約選択を確認し、失敗時の既存値の保持も観測する。",
+      "witnesses": [
+        {
+          "test": "tests/ch18/test_constraint_inherit_add_and_pure_chain.sv",
+          "inputs_sha256": "eaea5f70f6bcdf449cb2d8821944bc274339eb23b83f6bc17a3303f3c5afff23"
+        }
+      ],
+      "rank": 7
+    },
+    {
+      "chapters": [
+        8,
+        21
+      ],
+      "category": "C",
+      "priority": "P2",
+      "reason": "監視式とオブジェクトの寿命が共有される境界。許される監視式と評価時点の解釈を先に確認する。",
+      "objective": "クラスメンバを監視するmonitorとハンドルの置換",
+      "factors": [
+        "メンバ型",
+        "ハンドルの別名/置換",
+        "登録/停止/閉鎖",
+        "更新順序"
+      ],
+      "observation": "登録式がどの実体を参照し、どの変更で出力するかを規格から確定してから、出力列と停止を照合する。",
+      "witnesses": []
+    },
+    {
+      "chapters": [
+        8,
+        25
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "クラスが保持するvirtual interfaceの接続先が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "クラスが保持するvirtual interfaceの接続先",
+      "factors": [
+        "ハンドル格納場所",
+        "インスタンス数",
+        "再結合/null",
+        "読み書き経路"
+      ],
+      "observation": "直接更新したinterfaceの値をクラス経由で読み、同じ実体を参照することを確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch25/test_virtual_interface.sv",
+          "inputs_sha256": "e2682d3c8dcbd4035e14300be0ab9daf71610a81a5584909b4412fd3d0a4adbd"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        9,
+        14
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "clocking eventのiffとサンプル保持が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "clocking eventのiffとサンプル保持",
+      "factors": [
+        "エッジ種別",
+        "iffの真偽/X/Z",
+        "ガード変更時点",
+        "入力更新時点"
+      ],
+      "observation": "通過したイベントだけでサンプルを更新し、ガード不通過時は前の値を保持する。",
+      "witnesses": [
+        {
+          "test": "tests/ch14/test_clocking_event_iff.sv",
+          "inputs_sha256": "1c7ffa77cadf9a7cf19932de8aa1312ef94e418ccc3b7d3f90e258eab8e8bb0e"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        9,
+        16
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "disableと遅延即時アサーションのアクションが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "disableと遅延即時アサーションのアクション",
+      "factors": [
+        "disable対象（assert/block/task）",
+        "条件変更",
+        "遅延assert種別"
+      ],
+      "observation": "アサーションラベルをdisableした場合と周辺スコープをdisableした場合のアクション回数を区別する。",
+      "witnesses": [
+        {
+          "test": "tests/ch16/test_deferred_assertion_disable_inner_scope.sv",
+          "inputs_sha256": "6202fb6b559d7f15edd32f0a94833c5f611a07b0472b175bf6faa50f4ce2ede7"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        9,
+        24
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "program終了と子プロセスの取消しが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "program終了と子プロセスの取消し",
+      "factors": [
+        "子の待機方法",
+        "終了時点",
+        "program数",
+        "共有変数への書込み"
+      ],
+      "observation": "終了したprogramの子は書き込まず、存続中の別programの観測が継続することを確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch24/test_program_end_kills_descendants.sv",
+          "inputs_sha256": "f7407dc8fe0e9adc1dd9d07cea8eaf14c76de13120926b759cb7a77d78ca340d"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        9,
+        25
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "interface内のalways_comb/always_latchが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "interface内のalways_comb/always_latch",
+      "factors": [
+        "プロセス種別",
+        "イネーブル",
+        "入力変更",
+        "インスタンス数"
+      ],
+      "observation": "組合せ出力の更新と、ラッチのイネーブル無効時の保持を区別する。",
+      "witnesses": [
+        {
+          "test": "tests/ch9/test_always_latch_comb_in_interface.sv",
+          "inputs_sha256": "a08bb6c5afae5ce52840397af6008d867f8d206412f12bc1fee85c21eeff5774"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        10,
+        12
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "ループ内の同一変数への複数NBAが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "ループ内の同一変数への複数NBA",
+      "factors": [
+        "ループ種別",
+        "反復回数",
+        "左辺（同一/別要素）",
+        "代入方式"
+      ],
+      "observation": "NBA前の旧値と、最後に予約した右辺の値へ更新された結果を確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch4/test_sched_nonblocking_loop_last_wins.sv",
+          "inputs_sha256": "ff029375228e61de1b0a8b2a692767b867680d484a4ab255bc2cea06ec5701e7"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        10,
+        25
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "interface変数へのNBAとインスタンスの独立性が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "interface変数へのNBAとインスタンスの独立性",
+      "factors": [
+        "駆動元（内部/外部）",
+        "左辺（scalar/定数/可変添字）",
+        "インスタンス数",
+        "要素幅"
+      ],
+      "observation": "各interfaceのscalar・定数添字・可変添字の結果を照合し、他インスタンスの混入を検出する。",
+      "witnesses": [
+        {
+          "test": "tests/ch10/test_nba_interface_array_element.sv",
+          "inputs_sha256": "a361fdc58bf9cee9a0da724d32ebcc8c1821c92fd4a6ce9cd026c5c7e8cdd17a"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        10,
+        27
+      ],
+      "category": "E",
+      "priority": "P3",
+      "reason": "generate反復ごとの連続代入が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "generate反復ごとの連続代入",
+      "factors": [
+        "反復数",
+        "genvar依存の式",
+        "幅/符号",
+        "入れ子深さ"
+      ],
+      "observation": "展開ごとに異なる定数式が独立した配列要素を駆動することを確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch27/test_generate_assign.sv",
+          "inputs_sha256": "8f546e0d353f40f01ea16aa6e02083d54037a313976a6968f47e28d7b8c692cc"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        10,
+        28
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "連続代入のゲート遅延とパルス抑制が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "連続代入のゲート遅延とパルス抑制",
+      "factors": [
+        "立上り/立下り遅延",
+        "入力パルス幅",
+        "0/1/X/Z遷移"
+      ],
+      "observation": "遷移別の出力時刻と、遅延より短いパルスが出力されないことを確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch10/test_continuous_assign_rise_fall_delay.sv",
+          "inputs_sha256": "e75935ce45c9d4486ee832bd07478197b30005378fbf8f8f4addb5be79e9eb99"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        10,
+        35
+      ],
+      "category": "C",
+      "priority": "P1",
+      "reason": "外国語呼出しの同期的な書戻しと遅延する代入が同じ変数に作用する境界。競合のない刺激を設計する。",
+      "objective": "DPIの書戻しとNBAの値・代入先の確定",
+      "factors": [
+        "DPI input/output/inout",
+        "呼出しとNBA予約の前後",
+        "左辺（scalar/要素）",
+        "幅/状態型"
+      ],
+      "observation": "DPI復帰直後・NBA前・NBA後の値と非選択要素を別々に観測する。",
+      "witnesses": [],
+      "rank": 10
+    },
+    {
+      "chapters": [
+        11,
+        18
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "dist制約と演算子の優先順位が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "dist制約と演算子の優先順位",
+      "factors": [
+        "演算子の組",
+        "括弧の有無",
+        "幅/符号",
+        "distの水準"
+      ],
+      "observation": "唯一解にして、distの左辺をどの範囲の式として評価したかを区別する。",
+      "witnesses": [
+        {
+          "test": "tests/ch11/test_precedence_dist_takes_whole_expression.sv",
+          "inputs_sha256": "137134c642e42d5c78034dce570d58b765239fa90628f7e04e3b6ed41d08ce38"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        11,
+        19
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "実数binの許容差式とbinの併合が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "実数binの許容差式とbinの併合",
+      "factors": [
+        "絶対/相対許容差",
+        "端点/外側",
+        "bin配列/単一bin",
+        "重複範囲の順序"
+      ],
+      "observation": "決定的な入力列に対するヒット数と総bin数を直接照合する。",
+      "witnesses": [
+        {
+          "test": "tests/ch19/test_cg_real_bins_tolerance_and_merge.sv",
+          "inputs_sha256": "bbaaa76694dc7378295be7e820406927596d990b28194cce6da90979454de220"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        12,
+        13
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "制御フローと関数の早期returnが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "制御フローと関数の早期return",
+      "factors": [
+        "ループ/分岐の種別",
+        "return位置",
+        "引数値",
+        "副作用の位置"
+      ],
+      "observation": "返り値と、return後の副作用が実行されないことを確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch13/test_function_early_return.sv",
+          "inputs_sha256": "c4b7b101db441a34f54487eebd1ee28f103cb21a293c1db73f82ea2a4dcd9472"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        13,
+        15
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "refイベント引数のトリガと待機が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "refイベント引数のトリガと待機",
+      "factors": [
+        "渡し方",
+        "待機元/トリガ元",
+        "イベント別名",
+        "呼出し時点"
+      ],
+      "observation": "仮引数を介したトリガで実引数の待機が起床する時刻と回数を確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch13/test_ref_event_argument.sv",
+          "inputs_sha256": "db4f7dd53c8f069ffe0bc57ef808f2798810cd56b45e521bdd61f200de724567"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        13,
+        23
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "デフォルト引数の宣言スコープと階層呼出しが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "デフォルト引数の宣言スコープと階層呼出し",
+      "factors": [
+        "呼出し形式",
+        "引数の省略/明示",
+        "同名変数の隠蔽",
+        "宣言側の値変更"
+      ],
+      "observation": "呼出し側の同名変数ではなく、宣言側で呼出し時に読んだ値を使うことを確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch13/test_default_argument_declaring_scope.sv",
+          "inputs_sha256": "78ddc5da1c3950415401a3f25e47153bef9b557515fef4720e248dbd5f08e1be"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        13,
+        26
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "package内タスクと共有状態が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "package内タスクと共有状態",
+      "factors": [
+        "import/明示修飾",
+        "呼出し元数",
+        "状態型",
+        "input/output/ref"
+      ],
+      "observation": "複数回の呼出しでpackageの状態と回数が更新され、outputへ書き戻ることを確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch26/test_package_task_package_state.sv",
+          "inputs_sha256": "60c8abad59874798a662d78da9482cfc4d8cc7466316b69cee2084d3962e726b"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        14,
+        15
+      ],
+      "category": "C",
+      "priority": "P2",
+      "reason": "通常のイベントとObservedでのclocking eventを跨ぐ待機の境界を確認する。",
+      "objective": "clocking event待機と名前付きイベントの連携",
+      "factors": [
+        "待機先（信号/cb/名前付き）",
+        "通知時点",
+        "エッジ種別",
+        "条件"
+      ],
+      "observation": "通知と待機の順序、起床回数、読めるサンプル値を観測する。未規定の同時実行順序は期待値にしない。",
+      "witnesses": []
+    },
+    {
+      "chapters": [
+        14,
+        16
+      ],
+      "category": "E",
+      "priority": "P1",
+      "reason": "異なるclockingサンプルとアサーションのクロックが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "異なるclockingサンプルとアサーションのクロック",
+      "factors": [
+        "サンプルするエッジ",
+        "propertyのクロック",
+        "入力スキュー",
+        "入力遷移時点"
+      ],
+      "observation": "ライブ値、別エッジのclockingサンプル、cbをクロックとするassertionの失敗時刻を区別する。",
+      "witnesses": [
+        {
+          "test": "tests/ch16/test_clocking_block_other_clock_assertion.sv",
+          "inputs_sha256": "4e204ef512c935ad2dd4279bae2f99dfd898b60379c43c117a5b7171baf1bc9f"
+        }
+      ],
+      "rank": 8
+    },
+    {
+      "chapters": [
+        14,
+        25
+      ],
+      "category": "E",
+      "priority": "P1",
+      "reason": "virtual modportを通るclocking出力のスキューが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "virtual modportを通るclocking出力のスキュー",
+      "factors": [
+        "直接/virtual経路",
+        "modport経路",
+        "出力スキュー",
+        "複数interfaceインスタンス"
+      ],
+      "observation": "スキュー前は旧値、スキュー後は新値となり、正しいinterface実体へ駆動されることを確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch25/test_virtual_modport_clocking_output_skew.sv",
+          "inputs_sha256": "5d3f774b36768a16e621c81c0f7750f6d1c1bd477f8fb14b5d8f927d0d2a0008"
+        }
+      ],
+      "rank": 3
+    },
+    {
+      "chapters": [
+        15,
+        25
+      ],
+      "category": "C",
+      "priority": "P2",
+      "reason": "イベントの識別とinterface実体の選択が同じ同期対象に作用する。",
+      "objective": "interface内イベントの別名と待機先",
+      "factors": [
+        "直接/virtual interface",
+        "interface数",
+        "別名の再結合",
+        "トリガ経路"
+      ],
+      "observation": "元の待機先と再結合後の待機先、別インスタンスのイベントを起床回数で識別する。",
+      "witnesses": []
+    },
+    {
+      "chapters": [
+        15,
+        26
+      ],
+      "category": "C",
+      "priority": "P2",
+      "reason": "package状態の共有とイベント別名の規則が交わる。初期化と待機の競合を避けた刺激を設計する。",
+      "objective": "packageのイベントを複数呼出し元で共有する同期",
+      "factors": [
+        "import/明示修飾",
+        "呼出し元数",
+        "別名の有無",
+        "待機開始順"
+      ],
+      "observation": "同じpackageイベントの共有と別名の独立性、起床時刻と回数を確認する。",
+      "witnesses": []
+    },
+    {
+      "chapters": [
+        16,
+        17
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "checker内アサーションとmodule側のサンプリング一致が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "checker内アサーションとmodule側のサンプリング一致",
+      "factors": [
+        "checkerの接続",
+        "データ変更時点",
+        "クロックの渡し方",
+        "assertion種別"
+      ],
+      "observation": "同じ刺激に対するcheckerとmoduleの判定列を比較する。",
+      "witnesses": [
+        {
+          "test": "tests/ch17/test_checker_assertion_sampling_as_module.sv",
+          "inputs_sha256": "e17f99392bb9dd5564bcea6b9fe27fcbee92aa58c5aabbdad339d4408a123420"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        16,
+        24
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "program内アサーションの試行が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "program内アサーションの試行",
+      "factors": [
+        "配置（module/program）",
+        "クロック数",
+        "property種別",
+        "アクションの観測時点"
+      ],
+      "observation": "program内assertionの試行回数を与えたクロック数と照合する。",
+      "witnesses": [
+        {
+          "test": "tests/ch16/test_assertions_in_interface_and_program.sv",
+          "inputs_sha256": "835cad065b644cc99cc6cf115e8b044d85a30302a3a65ce014cecc7e2cc978bf"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        16,
+        25
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "interfaceごとのアサーション状態の独立性が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "interfaceごとのアサーション状態の独立性",
+      "factors": [
+        "interface数",
+        "要求/応答の時点",
+        "property種別",
+        "配置"
+      ],
+      "observation": "同じreqを与えてackだけを変えた2インスタンスの失敗数を区別する。",
+      "witnesses": [
+        {
+          "test": "tests/ch16/test_assertions_in_interface_and_program.sv",
+          "inputs_sha256": "835cad065b644cc99cc6cf115e8b044d85a30302a3a65ce014cecc7e2cc978bf"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        16,
+        27
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "generateスコープのdefault disable iffが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "generateスコープのdefault disable iff",
+      "factors": [
+        "親/子generate",
+        "同名変数の隠蔽",
+        "disable条件の上書き",
+        "条件を立てる時点"
+      ],
+      "observation": "親からの継承と内側の上書きを失敗したアサーションの集合で識別する。",
+      "witnesses": [
+        {
+          "test": "tests/ch16/test_default_disable_iff_scopes.sv",
+          "inputs_sha256": "563437eff834fe0e78dbb865492aecab27dbb7115663aa159475db523ccb9ec5"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        17,
+        25
+      ],
+      "category": "C",
+      "priority": "P2",
+      "reason": "checkerへの接続とinterface固有の状態が同じサンプリングに作用する。",
+      "objective": "interface内checkerの接続とサンプリング",
+      "factors": [
+        "配置",
+        "interfaceインスタンス数",
+        "形式引数の接続",
+        "データ変更時点"
+      ],
+      "observation": "合法な配置と接続を規格照合した後、checkerと対照assertionの判定列・インスタンス独立性を比較する。",
+      "witnesses": []
+    },
+    {
+      "chapters": [
+        20,
+        35
+      ],
+      "category": "C",
+      "priority": "P2",
+      "reason": "二つのAPIが同じ配列形状を別の表現で扱う境界。方向と空配列の規則を先に照合する。",
+      "objective": "SV問い合わせとDPIの配列形状問い合わせの整合",
+      "factors": [
+        "配列範囲/方向",
+        "open/fixed formal",
+        "要素型",
+        "要素数"
+      ],
+      "observation": "SVの$size/$left/$rightとCのsvSize/svLeft/svRightを同一実引数で照合する。",
+      "witnesses": []
+    },
+    {
+      "chapters": [
+        21,
+        28
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "解決済み強度と%vの書式化が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "解決済み強度と%vの書式化",
+      "factors": [
+        "ドライバ強度",
+        "競合の有無",
+        "値（0/1/X/Z）",
+        "net型"
+      ],
+      "observation": "解決後の値と強度をSt/We/Pu/Su/HiZの表示で確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch21/test_display_strength_format.sv",
+          "inputs_sha256": "30c6b4e56b8abba3d022df496316d3480ab3f61e3fa883735f58ba093d548db5"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        22,
+        23
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "default_nettypeと暗黙のポートnetが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "default_nettypeと暗黙のポートnet",
+      "factors": [
+        "default_nettype",
+        "ポート宣言形式",
+        "ドライバ数",
+        "幅"
+      ],
+      "observation": "暗黙にwandとなったポートの幅と、多重ドライバの解決値を親子で確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch6/test_implicit_port_expression_nets.sv",
+          "inputs_sha256": "4e69e5ccaefd0fd2bf82bf84c40f58201f3915bcac3b06a62914627243563a23"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        23,
+        25
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "階層からinterfaceの要素へアクセスする駆動経路が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "階層からinterfaceの要素へアクセスする駆動経路",
+      "factors": [
+        "インスタンス数",
+        "内部/外部の駆動経路",
+        "定数/可変添字",
+        "接続形式"
+      ],
+      "observation": "階層で選んだ各interface実体の要素が、内部駆動でも外部駆動でも独立に更新される。",
+      "witnesses": [
+        {
+          "test": "tests/ch10/test_nba_interface_array_element.sv",
+          "inputs_sha256": "a361fdc58bf9cee9a0da724d32ebcc8c1821c92fd4a6ce9cd026c5c7e8cdd17a"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        23,
+        26
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "package importとワイルドカードポート接続が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "package importとワイルドカードポート接続",
+      "factors": [
+        "import形式",
+        "接続（.* / .p / .p(p)）",
+        "ポート既定値",
+        "同名宣言"
+      ],
+      "observation": ".*だけの場合と明示参照の場合で、既定値5とpackageの値8を区別する。",
+      "witnesses": [
+        {
+          "test": "tests/ch23/test_wildcard_port_connection_package_import.sv",
+          "inputs_sha256": "8fa5d2bde2afc5db8840ac2a93f7ecd6a0b3fadc3ed06980853c28e3fb712290"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        23,
+        27
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "入れ子generate内の階層名探索が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "入れ子generate内の階層名探索",
+      "factors": [
+        "入れ子深さ",
+        "兄弟/親/子参照",
+        "assign/always_comb",
+        "同名宣言"
+      ],
+      "observation": "内側・兄弟スコープの値が2組の入力変更に追従し、別経路の対照と一致する。",
+      "witnesses": [
+        {
+          "test": "tests/ch23/test_generate_upward_scope_name.sv",
+          "inputs_sha256": "bdab08cfc9b08843fc3280226be6a672bd5296359ad045e9df3864f844a9677f"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        23,
+        33
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "configパラメータ上書きとdefparamの優先が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "configパラメータ上書きとdefparamの優先",
+      "factors": [
+        "config上書き対象",
+        "defparam対象",
+        "階層深さ",
+        "既定値"
+      ],
+      "observation": "config対象Pは9、別の子のQはdefparamの6となることを確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch33/test_config_defparam_precedence.sv",
+          "inputs_sha256": "7c35f09f684e7b9cac46ee0250b947d6a4de6a59ccffeefe0ee9846db1c18e77"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        25,
+        27
+      ],
+      "category": "C",
+      "priority": "P2",
+      "reason": "展開時に確定する型・階層とinterface接続の境界を確認する。",
+      "objective": "generateで展開したinterfaceとmodportの選択",
+      "factors": [
+        "展開数",
+        "interfaceパラメータ",
+        "modport",
+        "定数添字/階層"
+      ],
+      "observation": "各展開での接続先の値と幅、別インスタンスの保持を確認する。",
+      "witnesses": []
+    },
+    {
+      "chapters": [
+        26,
+        27
+      ],
+      "category": "C",
+      "priority": "P2",
+      "reason": "名前探索と展開時の型・定数評価が交わる。単なるpackage関数呼出しとは別に確認する。",
+      "objective": "packageの型・定数とgenerateスコープの隠蔽",
+      "factors": [
+        "import/明示修飾",
+        "同名localparam/typedef",
+        "generateの分岐",
+        "入れ子深さ"
+      ],
+      "observation": "選択した分岐・$bitsと値を照合し、packageと局所スコープの取り違えを識別する。",
+      "witnesses": []
+    },
+    {
+      "chapters": [
+        27,
+        33
+      ],
+      "category": "C",
+      "priority": "P2",
+      "reason": "生成した階層名をconfigが解決する境界。既存階層上書き試験の拡張として検討する。",
+      "objective": "generate階層の名前とconfigの束縛先",
+      "factors": [
+        "生成ブロック名/添字",
+        "config指定の粒度",
+        "パラメータ",
+        "展開数"
+      ],
+      "observation": "合法な指定を先に確認し、実際に選択された実体の識別値と非対象インスタンスの保持を照合する。",
+      "witnesses": []
+    },
+    {
+      "chapters": [
+        28,
+        29
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "UDPインスタンスの強度と配列展開が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "UDPインスタンスの強度と配列展開",
+      "factors": [
+        "強度対",
+        "名前付き/名前なし",
+        "配列範囲",
+        "入力値"
+      ],
+      "observation": "UDP出力の強度と、配列展開されたビット対応を確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch29/test_udp_instance_strength_and_array_range.sv",
+          "inputs_sha256": "fa838f30c32c2f6caaa65e9d2aac629ec11871f07c0e1d982e59c7bb27087c73"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        30,
+        32
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "条件付きspecifyパスとSDF注釈が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "条件付きspecifyパスとSDF注釈",
+      "factors": [
+        "COND/CONDELSE",
+        "条件の真偽",
+        "パス選択",
+        "遷移方向/遅延"
+      ],
+      "observation": "注釈対象と非対象のパスを区別して、出力が変わる時刻を照合する。",
+      "witnesses": [
+        {
+          "test": "tests/ch32/test_sdf_cond_iopath.sv",
+          "inputs_sha256": "a2852e95a9d71a335e4b78ff9c3939145eb3ad31b39a07009ebdbbcedc0773e5"
+        }
+      ]
+    },
+    {
+      "chapters": [
+        31,
+        32
+      ],
+      "category": "E",
+      "priority": "P2",
+      "reason": "SDFによるタイミング検査限界の変更が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
+      "objective": "SDFによるタイミング検査限界の変更",
+      "factors": [
+        "検査種別",
+        "注釈対象",
+        "限界の前/同時/後",
+        "エッジ/条件"
+      ],
+      "observation": "注釈で変更したsetup/holdだけが違反してnotifierが変化し、対照は保持されることを確認する。",
+      "witnesses": [
+        {
+          "test": "tests/ch32/test_sdf_timing_check_limits.sv",
+          "inputs_sha256": "9bfb301c36148eae1a7d21173a8ba84e2a1dd376c37de74cb70b6cf241b1cab7"
+        }
+      ]
+    }
+  ]
+}

@@ -202,6 +202,8 @@ whole-standard requirement denominator.
 The [chapter interaction matrices](docs/chapter-cross-matrix.md) show which pairs
 of IEEE 1800-2023 chapters these models exercise, with CSVs for registered models,
 models whose full selection passed, and the underlying test and run evidence.
+The [zero-cell triage](docs/chapter-cross-triage.md) distinguishes reviewed existing
+tests, proposed additions, scope exclusions and pairs awaiting review, with priorities and CSVs.
 The [design rationale and practical methodology](docs/interaction-verification-method.md)
 (Japanese) explain model selection, implementation and evidence, how to add new
 models, and how to apply the approach to other projects and LSI verification.
