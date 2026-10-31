@@ -48,6 +48,9 @@ import interaction_loop_nba
 import interaction_process
 import interaction_generate
 import interaction_default
+import interaction_event_task
+import interaction_delay
+import interaction_import
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -75,7 +78,11 @@ GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths, keyw
               interaction_concat, interaction_logic,
               interaction_shortcircuit, interaction_edge, interaction_iff,
               interaction_clocking,
-              interaction_assertion, interaction_wait, interaction_class_method, interaction_return, interaction_loop_nba, interaction_process, interaction_generate, interaction_default,
+              interaction_assertion, interaction_wait, interaction_class_method, interaction_return,
+              interaction_loop_nba, interaction_process, interaction_generate, interaction_default,
+              interaction_event_task,
+              interaction_delay,
+              interaction_import,
               interaction_compound, interaction_inside,
               interaction_range, interaction_case_inside,
               combination_events, combination_nba, combination_aggregates, combination_io,

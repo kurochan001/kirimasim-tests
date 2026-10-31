@@ -54,15 +54,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **9623 tests** in 38 chapters. 3186 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_assertion`, 36 by `interaction_binding`, 36 by `interaction_case`, 34 by `interaction_case_inside`, 32 by `interaction_cast`, 36 by `interaction_class_method`, 36 by `interaction_clocking`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 36 by `interaction_default`, 72 by `interaction_divide`, 64 by `interaction_edge`, 51 by `interaction_expr`, 36 by `interaction_generate`, 27 by `interaction_iff`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 36 by `interaction_loop_nba`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 36 by `interaction_process`, 60 by `interaction_query`, 48 by `interaction_queue`, 60 by `interaction_queue_ref`, 46 by `interaction_range`, 38 by `interaction_resize`, 36 by `interaction_return`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 36 by `interaction_wait`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **9738 tests** in 38 chapters. 3301 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_assertion`, 36 by `interaction_binding`, 36 by `interaction_case`, 34 by `interaction_case_inside`, 32 by `interaction_cast`, 36 by `interaction_class_method`, 36 by `interaction_clocking`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 36 by `interaction_default`, 63 by `interaction_delay`, 72 by `interaction_divide`, 64 by `interaction_edge`, 13 by `interaction_event_task`, 51 by `interaction_expr`, 36 by `interaction_generate`, 27 by `interaction_iff`, 39 by `interaction_import`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 36 by `interaction_loop_nba`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 36 by `interaction_process`, 60 by `interaction_query`, 48 by `interaction_queue`, 60 by `interaction_queue_ref`, 46 by `interaction_range`, 38 by `interaction_resize`, 36 by `interaction_return`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 36 by `interaction_wait`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5402 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1662 |
-| The standard only, with no fixed-release simulator oracle recorded | 2559 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5497 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1667 |
+| The standard only, with no fixed-release simulator oracle recorded | 2574 |
 
-2098 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+2166 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -73,12 +73,12 @@ The suite has **9623 tests** in 38 chapters. 3186 of them are generated (`tests/
 | 7 | Aggregate data types | 772 | 290 | 281 | 201 |
 | 8 | Classes | 357 | 82 | 191 | 84 |
 | 9 | Processes | 383 | 279 | 48 | 56 |
-| 10 | Assignment statements | 290 | 205 | 45 | 40 |
+| 10 | Assignment statements | 353 | 262 | 47 | 44 |
 | 11 | Operators and expressions | 1644 | 1262 | 132 | 250 |
 | 12 | Procedural programming statements | 251 | 169 | 33 | 49 |
 | 13 | Tasks and functions (subroutines) | 352 | 226 | 92 | 34 |
 | 14 | Clocking blocks | 114 | 4 | 72 | 38 |
-| 15 | Interprocess synchronization and communication | 59 | 2 | 36 | 21 |
+| 15 | Interprocess synchronization and communication | 72 | 2 | 39 | 31 |
 | 16 | Assertions | 697 | 104 | 85 | 508 |
 | 17 | Checkers | 81 |  | 22 | 59 |
 | 18 | Constrained random value generation | 200 | 25 | 95 | 80 |
@@ -86,7 +86,7 @@ The suite has **9623 tests** in 38 chapters. 3186 of them are generated (`tests/
 | 20 | Utility system tasks and system functions | 330 | 239 | 25 | 66 |
 | 21 | Input/output system tasks and system functions | 236 | 145 | 15 | 76 |
 | 22 | Compiler directives | 358 | 335 | 13 | 10 |
-| 23 | Modules and hierarchy | 292 | 177 | 45 | 70 |
+| 23 | Modules and hierarchy | 331 | 215 | 45 | 71 |
 | 24 | Programs | 43 | 21 | 5 | 17 |
 | 25 | Interfaces | 119 | 31 | 57 | 31 |
 | 26 | Packages | 83 | 53 | 16 | 14 |
@@ -171,7 +171,7 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.md) uses constrained
 pairwise coverage, selected three-factor groups and mandatory boundary witnesses.
-Its focused selection has 1,873 tests across forty-one models: scheduling, NBA capture,
+Its focused selection has 1,988 tests across forty-four models: scheduling, NBA capture,
 arithmetic context, packed part-selects, conditional merging, shifts, cast pipelines
 and task argument visibility, packed structures, case matching, port connections,
 unpacked array copies, bit-vector queries, streaming permutations, comparisons,
@@ -188,7 +188,25 @@ class receiver dispatch with recursive input/ref/const-ref arguments, and early
 function return across loop forms and local/package state, plus looped assignment
 ordering across module/interface instances, and implicit comb/latch sensitivity
 with direct or function reads, generate hierarchy with package/local type lookup,
-and default argument evaluation through hierarchical module/interface calls.
+default argument evaluation through hierarchical module/interface calls, and scoped
+named events shared through input/ref task arguments, and continuous-assignment
+delay selection with inertial pulse rejection, plus package import visibility in
+wildcard/defaulted port connections.
+The import-scope model selects 39 tests from 540 legal assignments, covering 158 pairs,
+141 triples and six mandatory witnesses. It checks explicit/wildcard imports, local
+shadows, implicit/named/qualified connections and final bit/logic sampling. Opposite
+child defaults and an independent guard scope prevent accidental value matches and
+cross-scope import leakage; all 39 pass on verified latest kirimasim.
+The continuous-delay model selects 63 tests from 504 assignments, covering 141 pairs,
+129 triples and seven mandatory witnesses. It checks scalar/vector delay choices,
+bit/logic conversion before optional inversion, short/long pulses, pending-update
+replacement and per-tick values, transition counts and timestamps. All 63 pass on
+verified latest kirimasim; fixed-simulator differences retain the standard expectations.
+The event-task model selects 13 tests from 288 assignments, covering 109 pairs,
+52 triples and six mandatory witnesses. It checks module/interface/package sources,
+early/late listeners, one-to-many wakeups, direct/task triggers, rearming and Active/NBA
+payload visibility. All 13 pass on verified latest kirimasim. Fixed Verilator matches
+three tests in both seeds; ten retain observed differences, with unchanged expectations.
 The default-argument model selects 36 tests from 720 assignments, covering 159 pairs,
 128 triples and six mandatory witnesses. It checks declaring-instance scope,
 call-time evaluation, empty/named actuals and suppression of unused defaults,
@@ -746,6 +764,9 @@ outputs, and it writes many small variations of one kind of test:
 | `interaction_process` | 9 | Width/state/value, comb/latch, direct/function, module/interface, 0/1/X/Z enable and idle value/hold; 36 cases observe implicit sensitivity, startup, disabled updates, unrelated changes and separate instance state |
 | `interaction_generate` | 27 | Width/state/value, wildcard import/package qualification, optional local type/constant shadows, nesting and if/case generate; 36 cases check hierarchical paths, selected widths, genvar constants and continuous updates |
 | `interaction_default` | 13 | Width/state/value, module/interface, variable/function defaults and five omitted/empty/named/explicit passing forms; 36 cases check declaring-instance scope, call-time values, formal binding and default evaluation counts |
+| `interaction_event_task` | 15 | Module/interface/package event sources, input/ref tasks, direct/task blocking/NBA triggers, 1/2/3 listeners, source order and early/late arrival; 13 cases check event identity, fanout, rearming and Active/NBA payload visibility |
+| `interaction_delay` | 10 | Scalar and 2/32/33/64/65/129-bit vectors, bit/logic, known/X/Z, one/two/three delays, short/long pulses and direct/inverted sources; 63 cases check delay selection, inertial cancellation, values and transition times/counts |
+| `interaction_import` | 23 | Width/sample state/value, wildcard/explicit package imports, optional local shadow and five wildcard/named/qualified/constant connections; 39 cases check source selection, child defaults, live updates and scope isolation |
 | `interaction_struct` | 7 | Member order, whole/member signs, width/state/value, member/whole writes and blocking/NBA updates; 36 selected cases check tag preservation, packed layout and independent sign extension |
 | `interaction_case` | 12 | Selector/item widths and signs, case/casez/casex, X/Z and item patterns; 36 selected cases check exact/wildcard matching, duplicate-item priority and fallback branches |
 | `interaction_port` | 23 | Source width/sign/value, input/output, sink width, named/positional binding, ANSI/non-ANSI declaration and sample state; 36 selected cases check values through hierarchy and final sampling conversion |

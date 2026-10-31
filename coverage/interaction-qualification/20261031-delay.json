@@ -1,0 +1,560 @@
+{
+  "schema": 1,
+  "purpose": "continuous_delay_inertial fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "scope": "all seven mandatory witnesses: scalar/vector, all profiles, bit/logic, known/X/Z, short/long pulses, inversion and word boundaries",
+  "generator_sha256": "244c0eb90db26f101889bfb7c16d6246ccf3bb57c879659e5058cc78d58861a4",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_delay_1_logic_x_three_short_direct",
+      "values": {
+        "width": "1",
+        "state": "logic",
+        "value": "x",
+        "profile": "three",
+        "pulse": "short",
+        "expression": "direct"
+      },
+      "source_sha256": "bf940544f53022b7056e1225b9881a992cbdbe5a84fa31042ac22f3daccbbb73",
+      "expected_sha256": "e1b4af401752d5738552e354815d998df6731037a147ae449915c8e5fc1c0689",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_delay_2_logic_z_three_long_direct",
+      "values": {
+        "width": "2",
+        "state": "logic",
+        "value": "z",
+        "profile": "three",
+        "pulse": "long",
+        "expression": "direct"
+      },
+      "source_sha256": "d231b027773bdd46e671fbd9e7d6b81426264ba0b28e0777a32abebf063fdf02",
+      "expected_sha256": "69b42d77530bff8f1d490eb65a12dca10ce3d61d65ebf912778ea10e7eb15595",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_delay_129_logic_z_two_short_invert",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "profile": "two",
+        "pulse": "short",
+        "expression": "invert"
+      },
+      "source_sha256": "635b9a667eaf1e7447433bd40126b535b61e7946ea6ae701a8697d7e66347f42",
+      "expected_sha256": "10dda685e4595202cfdc8360baf4e756b132b13c6d26d0a9f4411b367d2e1c27",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_delay_65_bit_x_three_long_direct",
+      "values": {
+        "width": "65",
+        "state": "bit",
+        "value": "x",
+        "profile": "three",
+        "pulse": "long",
+        "expression": "direct"
+      },
+      "source_sha256": "ca14d5af48febb3a57b92a171074e89491e52dd47eb0062d309d5ae868ef03d6",
+      "expected_sha256": "e374706cc241ff03c6cf9ffa1e6e505e47820e2e5db09a868c5432e6fc96fcd8",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_delay_33_logic_known_one_short_invert",
+      "values": {
+        "width": "33",
+        "state": "logic",
+        "value": "known",
+        "profile": "one",
+        "pulse": "short",
+        "expression": "invert"
+      },
+      "source_sha256": "88f6fb0d70d195e6cd3e6a3c158db9fe2f34e9440f40a5224910f70b56f277f8",
+      "expected_sha256": "c5c3ee4fe9c416771de42465e9df6334d7b7ce2eae1c4f53824e3ef698872ac2",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_delay_32_bit_known_two_long_direct",
+      "values": {
+        "width": "32",
+        "state": "bit",
+        "value": "known",
+        "profile": "two",
+        "pulse": "long",
+        "expression": "direct"
+      },
+      "source_sha256": "ef4567418007d19dc25f0a1fcb5ac36bac06c42943f0baf891ff3413f6873399",
+      "expected_sha256": "8233bbd1ddb42048002e87c31fdc0e5f9f9cb18f65c2663f8a5aaa2d9b79b6fa",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_delay_64_logic_x_two_short_direct",
+      "values": {
+        "width": "64",
+        "state": "logic",
+        "value": "x",
+        "profile": "two",
+        "pulse": "short",
+        "expression": "direct"
+      },
+      "source_sha256": "b0c9334d1d075cfad2d0cf44de490c1c4c3ce2d28e2216b18caabe876a606eae",
+      "expected_sha256": "10a22f1bde54f4bf44e1c9bd71cd68cfb36a521f48b49199565e8379a5c6d600",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "wrong_scalar_minimum_delay",
+      "case": "test_gen_cross_delay_1_logic_x_three_short_direct",
+      "values": {
+        "width": "1",
+        "state": "logic",
+        "value": "x",
+        "profile": "three",
+        "pulse": "short",
+        "expression": "direct"
+      },
+      "source_sha256": "ecbf18af42509bb95432cfa2bc94802addcb93ee778c0517417f8687e546e47a",
+      "expected_sha256": "e1b4af401752d5738552e354815d998df6731037a147ae449915c8e5fc1c0689",
+      "status": "fail",
+      "reason": "output differs: line 103 is 'tick=102 raw=x source=x rhs=x out=0 changes=4 last=43', expected 'tick=102 raw=x source=x rhs=x out=x changes=5 last=102'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#(7, 5, 2)",
+        "after": "#(7, 5, 9)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "double_change_count",
+      "case": "test_gen_cross_delay_1_logic_x_three_short_direct",
+      "values": {
+        "width": "1",
+        "state": "logic",
+        "value": "x",
+        "profile": "three",
+        "pulse": "short",
+        "expression": "direct"
+      },
+      "source_sha256": "7462be606b7305e4616c2a1c9b84840aaa7b37b93af161784c1cf251f6937494",
+      "expected_sha256": "e1b4af401752d5738552e354815d998df6731037a147ae449915c8e5fc1c0689",
+      "status": "fail",
+      "reason": "output differs: line 10 is 'tick=9 raw=1 source=1 rhs=1 out=1 changes=2 last=9', expected 'tick=9 raw=1 source=1 rhs=1 out=1 changes=1 last=9'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "changes++;",
+        "after": "changes += 2;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_explicit_turnoff_delay",
+      "case": "test_gen_cross_delay_2_logic_z_three_long_direct",
+      "values": {
+        "width": "2",
+        "state": "logic",
+        "value": "z",
+        "profile": "three",
+        "pulse": "long",
+        "expression": "direct"
+      },
+      "source_sha256": "aafbd6f8baf64872c77651a10442bfd2715627dbd7c09bcea79f92394d899ed3",
+      "expected_sha256": "69b42d77530bff8f1d490eb65a12dca10ce3d61d65ebf912778ea10e7eb15595",
+      "status": "fail",
+      "reason": "output differs: line 112 is 'tick=111 raw=zz source=zz rhs=zz out=00 changes=9 last=102', expected 'tick=111 raw=zz source=zz rhs=zz out=zz changes=10 last=111'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#(7, 5, 2)",
+        "after": "#(7, 5)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "logic_source_becomes_bit",
+      "case": "test_gen_cross_delay_2_logic_z_three_long_direct",
+      "values": {
+        "width": "2",
+        "state": "logic",
+        "value": "z",
+        "profile": "three",
+        "pulse": "long",
+        "expression": "direct"
+      },
+      "source_sha256": "a754a466ab94221b141363ba1c372ffd89159c666efd84dfbe35e5bea1482d95",
+      "expected_sha256": "69b42d77530bff8f1d490eb65a12dca10ce3d61d65ebf912778ea10e7eb15595",
+      "status": "fail",
+      "reason": "output differs: line 110 is 'tick=109 raw=zz source=00 rhs=00 out=00 changes=9 last=102', expected 'tick=109 raw=zz source=zz rhs=zz out=00 changes=9 last=102'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "logic [1:0] source;",
+        "after": "bit [1:0] source;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_vector_rise_delay",
+      "case": "test_gen_cross_delay_2_logic_z_three_long_direct",
+      "values": {
+        "width": "2",
+        "state": "logic",
+        "value": "z",
+        "profile": "three",
+        "pulse": "long",
+        "expression": "direct"
+      },
+      "source_sha256": "ae251fa0b0153e8e7583b312640013bc3eda387a614defd169c33ddd14446cad",
+      "expected_sha256": "69b42d77530bff8f1d490eb65a12dca10ce3d61d65ebf912778ea10e7eb15595",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'tick=4 raw=11 source=11 rhs=11 out=11 changes=1 last=4', expected 'tick=4 raw=11 source=11 rhs=11 out=00 changes=0 last=-1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#(7, 5, 2)",
+        "after": "#(2, 5, 2)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "truncate_wide_net",
+      "case": "test_gen_cross_delay_129_logic_z_two_short_invert",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "profile": "two",
+        "pulse": "short",
+        "expression": "invert"
+      },
+      "source_sha256": "2c50bb5ebb224a23fd1222483e2062bf7da397a7dc15b42cb7fdf25ecde20a24",
+      "expected_sha256": "10dda685e4595202cfdc8360baf4e756b132b13c6d26d0a9f4411b367d2e1c27",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'tick=0 raw=0000000000000000000000000000000000000000000000...', expected 'tick=0 raw=0000000000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "wire [128:0] delayed;",
+        "after": "wire [63:0] delayed;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "bit_source_becomes_logic",
+      "case": "test_gen_cross_delay_65_bit_x_three_long_direct",
+      "values": {
+        "width": "65",
+        "state": "bit",
+        "value": "x",
+        "profile": "three",
+        "pulse": "long",
+        "expression": "direct"
+      },
+      "source_sha256": "db58ee49a861d7d8477d74a693b2b6c032f029ef8aa1a088ac99560ba72e2edd",
+      "expected_sha256": "e374706cc241ff03c6cf9ffa1e6e505e47820e2e5db09a868c5432e6fc96fcd8",
+      "status": "fail",
+      "reason": "output differs: line 110 is 'tick=109 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...', expected 'tick=109 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "bit [64:0] source;",
+        "after": "logic [64:0] source;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_single_delay",
+      "case": "test_gen_cross_delay_33_logic_known_one_short_invert",
+      "values": {
+        "width": "33",
+        "state": "logic",
+        "value": "known",
+        "profile": "one",
+        "pulse": "short",
+        "expression": "invert"
+      },
+      "source_sha256": "5684f9abb25c2ad82db434bb8a7d0a0eea8b535d014b84f7a088777521850060",
+      "expected_sha256": "c5c3ee4fe9c416771de42465e9df6334d7b7ce2eae1c4f53824e3ef698872ac2",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'tick=3 raw=111111111111111111111111111111111 source=11111...', expected 'tick=3 raw=111111111111111111111111111111111 source=11111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#(5)",
+        "after": "#(1)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_source_inversion",
+      "case": "test_gen_cross_delay_33_logic_known_one_short_invert",
+      "values": {
+        "width": "33",
+        "state": "logic",
+        "value": "known",
+        "profile": "one",
+        "pulse": "short",
+        "expression": "invert"
+      },
+      "source_sha256": "6ee586990889b5665b0047b16c7933cd39bfbc8372d735087651fde10b233bf8",
+      "expected_sha256": "c5c3ee4fe9c416771de42465e9df6334d7b7ce2eae1c4f53824e3ef698872ac2",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'tick=0 raw=000000000000000000000000000000000 source=00000...', expected 'tick=0 raw=000000000000000000000000000000000 source=00000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign rhs = ~source;",
+        "after": "assign rhs = source;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "short_pulse_becomes_long",
+      "case": "test_gen_cross_delay_33_logic_known_one_short_invert",
+      "values": {
+        "width": "33",
+        "state": "logic",
+        "value": "known",
+        "profile": "one",
+        "pulse": "short",
+        "expression": "invert"
+      },
+      "source_sha256": "472ffba1f03d439924bf659d523f70f8024b2b336bb719e71df250cd606d03e9",
+      "expected_sha256": "c5c3ee4fe9c416771de42465e9df6334d7b7ce2eae1c4f53824e3ef698872ac2",
+      "status": "fail",
+      "reason": "output differs: line 64 is 'tick=63 raw=111111111111111111111111111111111 source=1111...', expected 'tick=63 raw=000000000000000000000000000000000 source=0000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "        #1;\n        raw =",
+        "after": "        #10;\n        raw =",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "transport_instead_of_inertial",
+      "case": "test_gen_cross_delay_33_logic_known_one_short_invert",
+      "values": {
+        "width": "33",
+        "state": "logic",
+        "value": "known",
+        "profile": "one",
+        "pulse": "short",
+        "expression": "invert"
+      },
+      "source_sha256": "1f92b2a32ef4b30c0e9f7fd33e583ae53b9d24bd572688de603a5a3ef0b86dba",
+      "expected_sha256": "c5c3ee4fe9c416771de42465e9df6334d7b7ce2eae1c4f53824e3ef698872ac2",
+      "status": "fail",
+      "reason": "output differs: line 68 is 'tick=67 raw=000000000000000000000000000000000 source=0000...', expected 'tick=67 raw=000000000000000000000000000000000 source=0000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  wire [32:0] delayed;\n  int tick, changes, last;\n  assign rhs = ~source;\n  assign #(5) delayed = rhs;",
+        "after": "  logic [32:0] delayed;\n  int tick, changes, last;\n  assign rhs = ~source;\n  always @(rhs) delayed <= #5 rhs;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "swap_rise_fall",
+      "case": "test_gen_cross_delay_32_bit_known_two_long_direct",
+      "values": {
+        "width": "32",
+        "state": "bit",
+        "value": "known",
+        "profile": "two",
+        "pulse": "long",
+        "expression": "direct"
+      },
+      "source_sha256": "87a76b3ea86135322293c083ac5727ba4c37419bdaedc7eb6b5bb7784ab840f9",
+      "expected_sha256": "8233bbd1ddb42048002e87c31fdc0e5f9f9cb18f65c2663f8a5aaa2d9b79b6fa",
+      "status": "fail",
+      "reason": "output differs: line 6 is 'tick=5 raw=11111111111111111111111111111111 source=111111...', expected 'tick=5 raw=11111111111111111111111111111111 source=111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#(7, 3)",
+        "after": "#(3, 7)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_source_updates",
+      "case": "test_gen_cross_delay_32_bit_known_two_long_direct",
+      "values": {
+        "width": "32",
+        "state": "bit",
+        "value": "known",
+        "profile": "two",
+        "pulse": "long",
+        "expression": "direct"
+      },
+      "source_sha256": "b4c759c60e6e4eecdfc4a6ca3db1e24a00e6ba743f5bb245f027cb72870bb66f",
+      "expected_sha256": "8233bbd1ddb42048002e87c31fdc0e5f9f9cb18f65c2663f8a5aaa2d9b79b6fa",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'tick=2 raw=11111111111111111111111111111111 source=000000...', expected 'tick=2 raw=11111111111111111111111111111111 source=111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "source = raw;",
+        "after": ";",
+        "replacements": 11
+      }
+    },
+    {
+      "name": "invert_delayed_driver",
+      "case": "test_gen_cross_delay_32_bit_known_two_long_direct",
+      "values": {
+        "width": "32",
+        "state": "bit",
+        "value": "known",
+        "profile": "two",
+        "pulse": "long",
+        "expression": "direct"
+      },
+      "source_sha256": "d7fa812d6c364d3cee816c8a15fe4e0d64f60d54352a1f638f87a317a0e1057b",
+      "expected_sha256": "8233bbd1ddb42048002e87c31fdc0e5f9f9cb18f65c2663f8a5aaa2d9b79b6fa",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'tick=0 raw=00000000000000000000000000000000 source=000000...', expected 'tick=0 raw=00000000000000000000000000000000 source=000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "delayed = rhs;",
+        "after": "delayed = ~rhs;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_change_count",
+      "case": "test_gen_cross_delay_32_bit_known_two_long_direct",
+      "values": {
+        "width": "32",
+        "state": "bit",
+        "value": "known",
+        "profile": "two",
+        "pulse": "long",
+        "expression": "direct"
+      },
+      "source_sha256": "c69901e3ca0e8686b1758e12b553c3021fdf36c34c701a144306d61ab19ee2fe",
+      "expected_sha256": "8233bbd1ddb42048002e87c31fdc0e5f9f9cb18f65c2663f8a5aaa2d9b79b6fa",
+      "status": "fail",
+      "reason": "output differs: line 10 is 'tick=9 raw=11111111111111111111111111111111 source=111111...', expected 'tick=9 raw=11111111111111111111111111111111 source=111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "changes++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_transition_timestamp",
+      "case": "test_gen_cross_delay_64_logic_x_two_short_direct",
+      "values": {
+        "width": "64",
+        "state": "logic",
+        "value": "x",
+        "profile": "two",
+        "pulse": "short",
+        "expression": "direct"
+      },
+      "source_sha256": "94d3b16cb2e3c4a795a20b18fe1627d450af7e86f3d18c96e90ec2c3a6ca0876",
+      "expected_sha256": "10a22f1bde54f4bf44e1c9bd71cd68cfb36a521f48b49199565e8379a5c6d600",
+      "status": "fail",
+      "reason": "output differs: line 10 is 'tick=9 raw=1111111111111111111111111111111111111111111111...', expected 'tick=9 raw=1111111111111111111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "last = $time - 20;",
+        "after": "last = $time - 19;",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "4cd62c67d96437ae0ebe9e7e03b40a9106d3dd4b5c7c4ec176b1d0397707488f",
+  "binary_unchanged": true
+}

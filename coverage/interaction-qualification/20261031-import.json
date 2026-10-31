@@ -1,0 +1,560 @@
+{
+  "schema": 1,
+  "purpose": "port_import_scope fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "scope": "all six mandatory witnesses plus one selected unqualified named connection; default pairs, scope isolation, shadows, live values and final bit/logic conversion",
+  "generator_sha256": "97b5151f83577e9cbf82c62e0e1dfac47c81c6db812d7ca5445126aba87acab4",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_import_1_bit_known_wild_none_star",
+      "values": {
+        "width": "1",
+        "sample_state": "bit",
+        "value": "known",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "star"
+      },
+      "source_sha256": "afb2ce947f6d20bbc4a4389aa833082cd723202e098bda96d7e256e411e29107",
+      "expected_sha256": "b9497f002704cb87f33cf940d2c2eeca21906be9d2464d178d17a1242f5a2bfe",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_import_129_logic_z_wild_none_short",
+      "values": {
+        "width": "129",
+        "sample_state": "logic",
+        "value": "z",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "short"
+      },
+      "source_sha256": "02557f21c2084999c54e0668430b061f3456d15a6e662a2d2ad3d65150e6a5da",
+      "expected_sha256": "3f76fd98bc74710901e82da247d14095c20e6f2eec33c6a0cc7d45f4b884b99d",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_import_65_logic_x_explicit_none_star",
+      "values": {
+        "width": "65",
+        "sample_state": "logic",
+        "value": "x",
+        "import_style": "explicit",
+        "shadow": "none",
+        "binding": "star"
+      },
+      "source_sha256": "0b6a59c6617409b3a12bdd22ca11ff8424a64af6ab147439aa215bf330719f2a",
+      "expected_sha256": "139396a69cb7b874af8cebc210ef4eb00ef1d867af17976843a02ccdb84021f8",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_import_33_bit_x_wild_local_star",
+      "values": {
+        "width": "33",
+        "sample_state": "bit",
+        "value": "x",
+        "import_style": "wild",
+        "shadow": "local",
+        "binding": "star"
+      },
+      "source_sha256": "7b04c5d2191276250e58a400017e06da6657f9ea06517464577488dde8d093f0",
+      "expected_sha256": "fcfd5d5dade420fe174e2f4eec6b9186d6fe5837956168ae538f21b21245c3bf",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_import_32_logic_known_wild_local_qualified",
+      "values": {
+        "width": "32",
+        "sample_state": "logic",
+        "value": "known",
+        "import_style": "wild",
+        "shadow": "local",
+        "binding": "qualified"
+      },
+      "source_sha256": "ab6213fb385cfbbb308540560d435221f84b90f66e857314cfd903a843981f49",
+      "expected_sha256": "1d72d0e0a6023a19b5481ec247f9dda0f8b0489641665f8c38b49a6991368221",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_import_64_logic_known_wild_none_zero",
+      "values": {
+        "width": "64",
+        "sample_state": "logic",
+        "value": "known",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "zero"
+      },
+      "source_sha256": "12733050e23820b11fdf396d3a791d4731a92d69bfec2bb44652c47538bf2ede",
+      "expected_sha256": "1f0c7e58b2ad01873053105f8adad99c0396e0ef06bf4c8a00b3b38000f74fae",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_import_65_bit_known_wild_none_named",
+      "values": {
+        "width": "65",
+        "sample_state": "bit",
+        "value": "known",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "named"
+      },
+      "source_sha256": "ad0d8d981d795b3f125a2e674111f81e9f0dd268e5b388f10f2a68cbaedd3c52",
+      "expected_sha256": "4bd0204b48bb29b803d4af8df0fe1c9a08dfc2b23cbc12b61875f08bfbe03989",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "force_import_in_star_scope",
+      "case": "test_gen_cross_import_1_bit_known_wild_none_star",
+      "values": {
+        "width": "1",
+        "sample_state": "bit",
+        "value": "known",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "star"
+      },
+      "source_sha256": "7ce7c7a1dd8922974c56942667ff0a5ac99838de255d0540e319b9518d57574b",
+      "expected_sha256": "b9497f002704cb87f33cf940d2c2eeca21906be9d2464d178d17a1242f5a2bfe",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 dut left_port=0 left=0 left_sample=0 right_port=0 righ...', expected 'k0 dut left_port=0 left=0 left_sample=0 right_port=1 righ...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "module port_parent;\n  import port_source::*;",
+        "after": "module port_parent;\n  import port_source::*;\n  wire force_p = ^p;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "leak_import_into_guard",
+      "case": "test_gen_cross_import_1_bit_known_wild_none_star",
+      "values": {
+        "width": "1",
+        "sample_state": "bit",
+        "value": "known",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "star"
+      },
+      "source_sha256": "b4e69befa3267fc9541bfdd24128578ba893e9794f7c416215ceb7c9b170f84d",
+      "expected_sha256": "b9497f002704cb87f33cf940d2c2eeca21906be9d2464d178d17a1242f5a2bfe",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 guard left_port=0 left=0 left_sample=0 right_port=0 ri...', expected 'k0 guard left_port=0 left=0 left_sample=0 right_port=1 ri...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "module port_guard;\n  import port_source::*;",
+        "after": "module port_guard;\n  import port_source::p;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "collapse_opposite_defaults",
+      "case": "test_gen_cross_import_1_bit_known_wild_none_star",
+      "values": {
+        "width": "1",
+        "sample_state": "bit",
+        "value": "known",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "star"
+      },
+      "source_sha256": "a1fd6ac0dfb13e141f6e8c87b28eb6b3a4809c382d4cda2684c8ed717eb9ad48",
+      "expected_sha256": "b9497f002704cb87f33cf940d2c2eeca21906be9d2464d178d17a1242f5a2bfe",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 dut left_port=0 left=0 left_sample=0 right_port=0 righ...', expected 'k0 dut left_port=0 left=0 left_sample=0 right_port=1 righ...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".FALLBACK('1)",
+        "after": ".FALLBACK('0)",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "invert_child_output",
+      "case": "test_gen_cross_import_1_bit_known_wild_none_star",
+      "values": {
+        "width": "1",
+        "sample_state": "bit",
+        "value": "known",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "star"
+      },
+      "source_sha256": "fc78e81b9187d0f3131137418750edf2f0bae7a683c57d2e78bc55e0600b39d5",
+      "expected_sha256": "b9497f002704cb87f33cf940d2c2eeca21906be9d2464d178d17a1242f5a2bfe",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 dut left_port=0 left=1 left_sample=1 right_port=1 righ...', expected 'k0 dut left_port=0 left=0 left_sample=0 right_port=1 righ...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign y = p;",
+        "after": "assign y = ~p;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_short_name_reference",
+      "case": "test_gen_cross_import_129_logic_z_wild_none_short",
+      "values": {
+        "width": "129",
+        "sample_state": "logic",
+        "value": "z",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "short"
+      },
+      "source_sha256": "7bedeb255096793edee1f208fd4623963232fec63f0ee52abaf98a8d1bb5f8f5",
+      "expected_sha256": "3f76fd98bc74710901e82da247d14095c20e6f2eec33c6a0cc7d45f4b884b99d",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 dut left_port=0000000000000000000000000000000000000000...', expected 'k0 dut left_port=0000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".p, .*",
+        "after": ".*",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "logic_sample_becomes_bit",
+      "case": "test_gen_cross_import_129_logic_z_wild_none_short",
+      "values": {
+        "width": "129",
+        "sample_state": "logic",
+        "value": "z",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "short"
+      },
+      "source_sha256": "46e68fb550c91dd15b12aa45a0f66aabab02acca1c6a1cddd7c1a7824ec116b8",
+      "expected_sha256": "3f76fd98bc74710901e82da247d14095c20e6f2eec33c6a0cc7d45f4b884b99d",
+      "status": "fail",
+      "reason": "output differs: line 11 is 'u0 dut left_port=z000000000000000000000000000000000000000...', expected 'u0 dut left_port=z000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "logic [128:0] left_sample",
+        "after": "bit [128:0] left_sample",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "truncate_child_output",
+      "case": "test_gen_cross_import_129_logic_z_wild_none_short",
+      "values": {
+        "width": "129",
+        "sample_state": "logic",
+        "value": "z",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "short"
+      },
+      "source_sha256": "8ea373ff7d57815ca87ee759ec53f9ee89e66810f711a39459b2ebe28577d86a",
+      "expected_sha256": "3f76fd98bc74710901e82da247d14095c20e6f2eec33c6a0cc7d45f4b884b99d",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 guard left_port=00000000000000000000000000000000000000...', expected 'k0 guard left_port=00000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "output wire [128:0] y",
+        "after": "output wire [127:0] y",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "explicit_import_becomes_wildcard",
+      "case": "test_gen_cross_import_65_logic_x_explicit_none_star",
+      "values": {
+        "width": "65",
+        "sample_state": "logic",
+        "value": "x",
+        "import_style": "explicit",
+        "shadow": "none",
+        "binding": "star"
+      },
+      "source_sha256": "5b30c94e5112c0b6c4a0233324de49558c97298c5323cc0121df92829b9b5195",
+      "expected_sha256": "139396a69cb7b874af8cebc210ef4eb00ef1d867af17976843a02ccdb84021f8",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 dut left_port=0000000000000000000000000000000000000000...', expected 'k0 dut left_port=0000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "import port_source::p;",
+        "after": "import port_source::*;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "lose_package_updates",
+      "case": "test_gen_cross_import_65_logic_x_explicit_none_star",
+      "values": {
+        "width": "65",
+        "sample_state": "logic",
+        "value": "x",
+        "import_style": "explicit",
+        "shadow": "none",
+        "binding": "star"
+      },
+      "source_sha256": "5a311c4d4581d0341aef04b17507bc37653adce1fc2d38449783ef0370c2d72f",
+      "expected_sha256": "139396a69cb7b874af8cebc210ef4eb00ef1d867af17976843a02ccdb84021f8",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k1 raw=11111111111111111111111111111111111111111111111111...', expected 'k1 raw=11111111111111111111111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "writer.drive(raw);",
+        "after": ";",
+        "replacements": 6
+      }
+    },
+    {
+      "name": "ignore_local_shadow",
+      "case": "test_gen_cross_import_33_bit_x_wild_local_star",
+      "values": {
+        "width": "33",
+        "sample_state": "bit",
+        "value": "x",
+        "import_style": "wild",
+        "shadow": "local",
+        "binding": "star"
+      },
+      "source_sha256": "f559b8f8ebb4caef38db79018ba939fe93f10823cec871aa5c97d6aa2e655f29",
+      "expected_sha256": "fcfd5d5dade420fe174e2f4eec6b9186d6fe5837956168ae538f21b21245c3bf",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 dut left_port=000000000000000000000000000000000 left=0...', expected 'k0 dut left_port=111111111111111111111111111111111 left=1...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "module port_parent;\n  import port_source::*;\n  localparam logic [32:0] FALLBACK = 33'h155555555;\n  wire [32:0] left, right;\n  logic [32:0] p;\n  port_leaf #(.FALLBACK('0)) lo(.y(left), .*);\n  port_leaf #(.FALLBACK('1)) hi(.y(right), .*);\nendmodule",
+        "after": "module port_parent;\n  import port_source::*;\n  localparam logic [32:0] FALLBACK = 33'h155555555;\n  wire [32:0] left, right;\n  logic [32:0] p;\n  port_leaf #(.FALLBACK('0)) lo(.y(left), .p(port_source::p), .*);\n  port_leaf #(.FALLBACK('1)) hi(.y(right), .p(port_source::p), .*);\nendmodule",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "local_shadow_gets_package_stimulus",
+      "case": "test_gen_cross_import_33_bit_x_wild_local_star",
+      "values": {
+        "width": "33",
+        "sample_state": "bit",
+        "value": "x",
+        "import_style": "wild",
+        "shadow": "local",
+        "binding": "star"
+      },
+      "source_sha256": "631a72fcce9c0a06f1bfa3bb4439c002c6434d3eb90e026a812959febf33fbac",
+      "expected_sha256": "fcfd5d5dade420fe174e2f4eec6b9186d6fe5837956168ae538f21b21245c3bf",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 raw=000000000000000000000000000000000 package=00000000...', expected 'k0 raw=000000000000000000000000000000000 package=00000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "dut.p = local_stimulus;",
+        "after": "dut.p = raw;",
+        "replacements": 6
+      }
+    },
+    {
+      "name": "bit_sample_becomes_logic",
+      "case": "test_gen_cross_import_33_bit_x_wild_local_star",
+      "values": {
+        "width": "33",
+        "sample_state": "bit",
+        "value": "x",
+        "import_style": "wild",
+        "shadow": "local",
+        "binding": "star"
+      },
+      "source_sha256": "09236bfc4851f27877b01c78c658a174fb0956e03828478644fe91e0fb5e3ad5",
+      "expected_sha256": "fcfd5d5dade420fe174e2f4eec6b9186d6fe5837956168ae538f21b21245c3bf",
+      "status": "fail",
+      "reason": "output differs: line 11 is 'u0 dut left_port=z111111111111111z111111111111111z left=z...', expected 'u0 dut left_port=z111111111111111z111111111111111z left=z...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "bit [32:0] left_sample",
+        "after": "logic [32:0] left_sample",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "qualified_connection_loses_qualification",
+      "case": "test_gen_cross_import_32_logic_known_wild_local_qualified",
+      "values": {
+        "width": "32",
+        "sample_state": "logic",
+        "value": "known",
+        "import_style": "wild",
+        "shadow": "local",
+        "binding": "qualified"
+      },
+      "source_sha256": "d80424e2df81cfcba38df420eac17f6f614de3b350bf2407483b892eddc8bae6",
+      "expected_sha256": "1d72d0e0a6023a19b5481ec247f9dda0f8b0489641665f8c38b49a6991368221",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 dut left_port=11111111111111111111111111111111 left=11...', expected 'k0 dut left_port=00000000000000000000000000000000 left=00...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".p(port_source::p)",
+        "after": ".p(p)",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "explicit_zero_uses_package",
+      "case": "test_gen_cross_import_64_logic_known_wild_none_zero",
+      "values": {
+        "width": "64",
+        "sample_state": "logic",
+        "value": "known",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "zero"
+      },
+      "source_sha256": "afe3611cb9c51f788865d53bda83f8515169f2515bc9d0f1489e5fb7774fa98d",
+      "expected_sha256": "1f0c7e58b2ad01873053105f8adad99c0396e0ef06bf4c8a00b3b38000f74fae",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k1 dut left_port=1111111111111111111111111111111111111111...', expected 'k1 dut left_port=0000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".p('0)",
+        "after": ".p(port_source::p)",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "explicit_zero_becomes_one",
+      "case": "test_gen_cross_import_64_logic_known_wild_none_zero",
+      "values": {
+        "width": "64",
+        "sample_state": "logic",
+        "value": "known",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "zero"
+      },
+      "source_sha256": "ec21e511c5d87a35d987e9950c4d44945942533ae2c4e81e6d84a5c1a15ad0b5",
+      "expected_sha256": "1f0c7e58b2ad01873053105f8adad99c0396e0ef06bf4c8a00b3b38000f74fae",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 dut left_port=1111111111111111111111111111111111111111...', expected 'k0 dut left_port=0000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".p('0)",
+        "after": ".p('1)",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "lose_named_reference",
+      "case": "test_gen_cross_import_65_bit_known_wild_none_named",
+      "values": {
+        "width": "65",
+        "sample_state": "bit",
+        "value": "known",
+        "import_style": "wild",
+        "shadow": "none",
+        "binding": "named"
+      },
+      "source_sha256": "be3245a5f99d41af76c2c72512cff0875d4986c37f3fd9884d4c5268d7aa6bc2",
+      "expected_sha256": "4bd0204b48bb29b803d4af8df0fe1c9a08dfc2b23cbc12b61875f08bfbe03989",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 dut left_port=0000000000000000000000000000000000000000...', expected 'k0 dut left_port=0000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".p(p), .*",
+        "after": ".*",
+        "replacements": 2
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "13da02d0223fed6dbe1bf7b3fffb85cfce2fcacbbaf508036a09b5b03962d703",
+  "binary_unchanged": true
+}

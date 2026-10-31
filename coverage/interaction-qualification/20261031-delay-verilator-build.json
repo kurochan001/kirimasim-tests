@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "purpose": "Black-box compiler diagnostics; no generated or implementation source was inspected",
+  "simulator": "verilator",
+  "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "test": "tests/gen/ch10/test_gen_cross_delay_65_bit_known_three_short_direct.sv",
+  "seed": 1,
+  "status": "build_failed",
+  "diagnostic_paths_redacted": true,
+  "builds": [
+    {
+      "exit_code": 2,
+      "diagnostics": [
+        "./Vt___024root__0.cpp:467:43: error: use of undeclared identifier 'VL_EQ_I'",
+        "%Error: 'make -C <temporary-build-directory>/obj -f Vt.mk -j 1' exited with 2",
+        "%Error: Command Failed /opt/homebrew/Cellar/verilator/5.052/bin/verilator_bin --binary --timing --coverage-user -Wno-fatal -Wno-lint -Wno-style --x-assign unique --x-initial unique -Mdir <temporary-build-directory>/obj --prefix Vt <repository>/tests/gen/ch10/test_gen_cross_delay_65_bit_known_three_short_direct.sv"
+      ]
+    }
+  ]
+}

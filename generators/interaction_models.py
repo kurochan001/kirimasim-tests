@@ -42,6 +42,9 @@ import interaction_loop_nba
 import interaction_process
 import interaction_generate
 import interaction_default
+import interaction_event_task
+import interaction_delay
+import interaction_import
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -60,7 +63,11 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_concat, interaction_logic,
               interaction_shortcircuit, interaction_edge, interaction_iff, combination_monitors,
               interaction_clocking,
-              interaction_assertion, interaction_wait, interaction_class_method, interaction_return, interaction_loop_nba, interaction_process, interaction_generate, interaction_default,
+              interaction_assertion, interaction_wait, interaction_class_method, interaction_return,
+              interaction_loop_nba, interaction_process, interaction_generate, interaction_default,
+              interaction_event_task,
+              interaction_delay,
+              interaction_import,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -383,5 +390,27 @@ def registered() -> tuple[SuiteModel, ...]:
             "A/B/Aの階層呼出しで既定値の元を毎回変え、両仮引数・戻り値と宣言側/呼出し元の"
             "関数評価回数を観測する。省略・空欄・名前付き・明示0での評価抑止、呼出し時の"
             "宣言スコープへの束縛、型変換とmodule/interfaceの各インスタンスの独立性を確認する。",
+        ),
+        SuiteModel(
+            interaction_event_task.MODEL,
+            lambda row: "tests/gen/ch15/" + interaction_event_task.case_name(row) + ".sv",
+            interaction_event_task.MODEL.select(),
+            "module/interfaceの別インスタンスまたはpackageの2イベントをinput/refで渡し、"
+            "1/2/3待機者の時刻・回数・値を観測する。待機前のトリガの不保持、通常/NBA起床の"
+            "値の可視性、トリガ経路、逆順での再待機、noiseと完了後の余計な起動を区別する。",
+        ),
+        SuiteModel(
+            interaction_delay.MODEL,
+            lambda row: "tests/gen/ch10/" + interaction_delay.case_name(row) + ".sv",
+            interaction_delay.MODEL.select(),
+            "幅1のスカラと幅2以上のベクタで1/2/3個の遅延を使い、短パルスの除去と予約の取消しを観測する。"
+            "bit/logic格納と反転後の値、X/Zの遅延選択、全体値の更新時刻・回数・最終変化時刻を毎tick照合する。",
+        ),
+        SuiteModel(
+            interaction_import.MODEL,
+            lambda row: "tests/gen/ch23/" + interaction_import.case_name(row) + ".sv",
+            interaction_import.MODEL.select(),
+            "packageのwildcard/明示import、局所宣言、.*・.name・明示接続で入力の接続先と既定値を区別する。"
+            "既定値0/全1の2子と独立した対照スコープを観測し、ライブ値の追従・隠蔽・型変換を確認する。",
         ),
     )

@@ -1,0 +1,76 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch15/test_gen_cross_event_task_interface_input_direct_nba_1_a_b_late": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_interface_input_direct_nba_1_a_b_late.sv:43: syntax error",
+   "inputs_sha256": "fa87e68a8a45dd85bd72c3b3cac2ae6e34142ca4df24bf2c699b8149a5192e08"
+  },
+  "gen/ch15/test_gen_cross_event_task_interface_input_direct_nba_3_a_b_early": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_interface_input_direct_nba_3_a_b_early.sv:43: syntax error",
+   "inputs_sha256": "175168283e478ec554b67625fc4fc29a12ee76939401b1b491b6fc82b6ba8fc5"
+  },
+  "gen/ch15/test_gen_cross_event_task_interface_input_task_blocking_2_a_b_early": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_interface_input_task_blocking_2_a_b_early.sv:35: syntax error",
+   "inputs_sha256": "9f830b964e65e78ab11e077f881419b2c4873511aeba71d5e86833e99d28d0cf"
+  },
+  "gen/ch15/test_gen_cross_event_task_interface_ref_direct_blocking_1_b_a_late": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_interface_ref_direct_blocking_1_b_a_late.sv:43: syntax error",
+   "inputs_sha256": "d932512a9a7ea3f085d71b13b6639223eab095ba7695aa86974cb07e645639eb"
+  },
+  "gen/ch15/test_gen_cross_event_task_interface_ref_task_nba_3_b_a_late": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_interface_ref_task_nba_3_b_a_late.sv:35: syntax error",
+   "inputs_sha256": "fec67903830b281184e3d4090c9dcd5c32a5a43de7fac2f8dcac9c306b3ac8d7"
+  },
+  "gen/ch15/test_gen_cross_event_task_module_input_direct_blocking_1_a_b_early": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_module_input_direct_blocking_1_a_b_early.sv:43: syntax error",
+   "inputs_sha256": "b5675882aec7c97db8b798625d239cb41cb5f4f1eecaa1bd733d7da7403274f8"
+  },
+  "gen/ch15/test_gen_cross_event_task_module_input_task_nba_3_a_b_late": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_module_input_task_nba_3_a_b_late.sv:35: syntax error",
+   "inputs_sha256": "26a390a0ec0a7e28b2f7c93b15dd2e21f3dc12ce424006988c4774d0ed5be4a4"
+  },
+  "gen/ch15/test_gen_cross_event_task_module_ref_direct_nba_2_b_a_early": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_module_ref_direct_nba_2_b_a_early.sv:43: syntax error",
+   "inputs_sha256": "c81f044349104cacbb071ab9ebfde9945efb0be7c6bcd44b07e83a75346f13bb"
+  },
+  "gen/ch15/test_gen_cross_event_task_module_ref_task_blocking_1_a_b_late": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_module_ref_task_blocking_1_a_b_late.sv:35: syntax error",
+   "inputs_sha256": "b6e43ed9654bcb8ca723efa571f95747145f3039fa1f0b40f6805b07f74def64"
+  },
+  "gen/ch15/test_gen_cross_event_task_package_input_direct_nba_1_b_a_early": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_package_input_direct_nba_1_b_a_early.sv:43: syntax error",
+   "inputs_sha256": "8471bc6208417dc15dba8ec9d94fa4190a5545430ee4e48c1ab938180830d31e"
+  },
+  "gen/ch15/test_gen_cross_event_task_package_input_task_blocking_2_a_b_late": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_package_input_task_blocking_2_a_b_late.sv:35: syntax error",
+   "inputs_sha256": "85167f76f31e351c04f3ea74c0c851c41484843659f565b3c71f050443418e2f"
+  },
+  "gen/ch15/test_gen_cross_event_task_package_ref_direct_nba_2_b_a_late": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_package_ref_direct_nba_2_b_a_late.sv:43: syntax error",
+   "inputs_sha256": "67c1d76145cb3b638ec570a9382a95a9d7542eaeab613618e176370c03f1bd87"
+  },
+  "gen/ch15/test_gen_cross_event_task_package_ref_task_blocking_3_b_a_early": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_event_task_package_ref_task_blocking_3_b_a_early.sv:35: syntax error",
+   "inputs_sha256": "2efecfcd6122db4a3b9448354c7ed1ed9bd36c3bb9b7a64396963daf3213fd05"
+  }
+ },
+ "generated_at": "2026-10-31T11:37:00.461739+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

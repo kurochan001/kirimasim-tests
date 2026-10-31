@@ -1,0 +1,70 @@
+start time=0
+start a0 hits=0 at=-1 value=0
+start a1 hits=0 at=-1 value=0
+start a2 hits=0 at=-1 value=0
+start b0 hits=0 at=-1 value=0
+start b1 hits=0 at=-1 value=0
+start b2 hits=0 at=-1 value=0
+noise time=3
+noise a0 hits=0 at=-1 value=0
+noise a1 hits=0 at=-1 value=0
+noise a2 hits=0 at=-1 value=0
+noise b0 hits=0 at=-1 value=0
+noise b1 hits=0 at=-1 value=0
+noise b2 hits=0 at=-1 value=0
+pulse1 time=4
+pulse1 a0 hits=0 at=-1 value=0
+pulse1 a1 hits=0 at=-1 value=0
+pulse1 a2 hits=0 at=-1 value=0
+pulse1 b0 hits=0 at=-1 value=0
+pulse1 b1 hits=0 at=-1 value=0
+pulse1 b2 hits=0 at=-1 value=0
+pair1 time=5
+pair1 a0 hits=0 at=-1 value=0
+pair1 a1 hits=0 at=-1 value=0
+pair1 a2 hits=0 at=-1 value=0
+pair1 b0 hits=0 at=-1 value=0
+pair1 b1 hits=0 at=-1 value=0
+pair1 b2 hits=0 at=-1 value=0
+repeat1 time=9
+repeat1 a0 hits=1 at=8 value=30
+repeat1 a1 hits=0 at=-1 value=0
+repeat1 a2 hits=0 at=-1 value=0
+repeat1 b0 hits=0 at=-1 value=0
+repeat1 b1 hits=0 at=-1 value=0
+repeat1 b2 hits=0 at=-1 value=0
+pair2 time=11
+pair2 a0 hits=1 at=8 value=30
+pair2 a1 hits=0 at=-1 value=0
+pair2 a2 hits=0 at=-1 value=0
+pair2 b0 hits=1 at=10 value=400
+pair2 b1 hits=0 at=-1 value=0
+pair2 b2 hits=0 at=-1 value=0
+rearmed time=19
+rearmed a0 hits=1 at=8 value=30
+rearmed a1 hits=0 at=-1 value=0
+rearmed a2 hits=0 at=-1 value=0
+rearmed b0 hits=1 at=10 value=400
+rearmed b1 hits=0 at=-1 value=0
+rearmed b2 hits=0 at=-1 value=0
+round2_first time=21
+round2_first a0 hits=1 at=8 value=30
+round2_first a1 hits=0 at=-1 value=0
+round2_first a2 hits=0 at=-1 value=0
+round2_first b0 hits=2 at=20 value=600
+round2_first b1 hits=0 at=-1 value=0
+round2_first b2 hits=0 at=-1 value=0
+round2_pair time=23
+round2_pair a0 hits=2 at=22 value=70
+round2_pair a1 hits=0 at=-1 value=0
+round2_pair a2 hits=0 at=-1 value=0
+round2_pair b0 hits=2 at=20 value=600
+round2_pair b1 hits=0 at=-1 value=0
+round2_pair b2 hits=0 at=-1 value=0
+final time=26
+final a0 hits=2 at=22 value=70
+final a1 hits=0 at=-1 value=0
+final a2 hits=0 at=-1 value=0
+final b0 hits=2 at=20 value=600
+final b1 hits=0 at=-1 value=0
+final b2 hits=0 at=-1 value=0

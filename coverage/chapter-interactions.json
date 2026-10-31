@@ -1164,6 +1164,99 @@
           }
         }
       ]
+    },
+    {
+      "id": "event_task_scope",
+      "primary_chapter": 15,
+      "pairs": [
+        {
+          "chapters": [
+            13,
+            15
+          ],
+          "reason": "input/refのイベント引数を介して別moduleの待機者を起床し、実引数の同期対象・待機開始時点・1回限りの登録を時刻と回数で観測する。"
+        },
+        {
+          "chapters": [
+            4,
+            15
+          ],
+          "reason": "静的payloadのNBAを先に予約してから通常/NBAイベントをトリガし、Activeで読む旧値とNBA起床で読む更新値を区別する。"
+        },
+        {
+          "chapters": [
+            10,
+            15
+          ],
+          "reason": "静的payloadへのblocking初期値とNBA更新を、イベント待機から復帰した読取りと組み合わせ、異なる起床領域での値を確認する。"
+        },
+        {
+          "chapters": [
+            15,
+            25
+          ],
+          "reason": "別interfaceインスタンスのイベントとトリガタスクを呼び分け、対応する全待機者だけが起床することを時刻・回数・値で確認する。",
+          "when": {
+            "home": [
+              "interface"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            15,
+            26
+          ],
+          "reason": "packageの2イベントを明示修飾で複数の待機タスクへ渡し、共有される同期対象と別イベントの独立性を観測する。",
+          "when": {
+            "home": [
+              "package"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "continuous_delay_inertial",
+      "primary_chapter": 10,
+      "pairs": [
+        {
+          "chapters": [
+            10,
+            28
+          ],
+          "reason": "連続代入のスカラ/ベクタで1/2/3個の遅延と慣性による予約取消しを組み合わせ、値・遷移時刻・回数で短パルス除去と遅延選択を確認する。"
+        },
+        {
+          "chapters": [
+            6,
+            28
+          ],
+          "reason": "X/Zをbit型の元変数へ格納すると0になり、変換後の値で遅延選択・入力変化・短パルス除去が決まることを、元のraw値とsource・出力時系列で観測する。",
+          "when": {
+            "state": [
+              "bit"
+            ],
+            "value": [
+              "x",
+              "z"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "port_import_scope",
+      "primary_chapter": 23,
+      "pairs": [
+        {
+          "chapters": [
+            23,
+            26
+          ],
+          "reason": "packageの名前を.*だけではimportせず、明示importや.name/式の参照ではimportする規則を、局所宣言と明示修飾・2個の入力既定値・独立スコープの対照を使って確認する。"
+        }
+      ]
     }
   ]
 }

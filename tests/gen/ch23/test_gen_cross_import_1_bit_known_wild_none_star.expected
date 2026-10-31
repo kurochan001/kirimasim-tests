@@ -1,0 +1,9 @@
+k0 raw=0 package=0 local=1
+k0 dut left_port=0 left=0 left_sample=0 right_port=1 right=1 right_sample=1 bits=1
+k0 guard left_port=0 left=0 left_sample=0 right_port=1 right=1 right_sample=1 bits=1
+k1 raw=1 package=1 local=0
+k1 dut left_port=0 left=0 left_sample=0 right_port=1 right=1 right_sample=1 bits=1
+k1 guard left_port=0 left=0 left_sample=0 right_port=1 right=1 right_sample=1 bits=1
+k2 raw=1 package=1 local=0
+k2 dut left_port=0 left=0 left_sample=0 right_port=1 right=1 right_sample=1 bits=1
+k2 guard left_port=0 left=0 left_sample=0 right_port=1 right=1 right_sample=1 bits=1

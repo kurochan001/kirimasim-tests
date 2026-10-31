@@ -1,0 +1,110 @@
+{
+  "simulator": "verilator",
+  "name": "Verilator",
+  "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "tests": {
+    "gen/ch10/test_gen_cross_delay_129_bit_known_one_long_direct": {
+      "status": "pass",
+      "inputs_sha256": "553d6317dbff2772e5f6191453a5dc28a3a7fc34a57e096fdf82e332b45b8d71"
+    },
+    "gen/ch10/test_gen_cross_delay_129_bit_known_three_short_direct": {
+      "status": "known",
+      "reason": "build failed: %Error: 'make -C <temporary-build-directory>/obj -f Vt.mk -j 1' exited with 2",
+      "inputs_sha256": "7951628a13a0e4c9dd8835b1ca676df759ba11f3a57a068a42765c22e41e8f23"
+    },
+    "gen/ch10/test_gen_cross_delay_129_logic_known_two_short_direct": {
+      "status": "known",
+      "reason": "build failed: %Error: 'make -C <temporary-build-directory>/obj -f Vt.mk -j 1' exited with 2",
+      "inputs_sha256": "322fe46240b28bb0fb576b71acb64d65e4bb69b4202345de6895b3ecacf5e8b1"
+    },
+    "gen/ch10/test_gen_cross_delay_1_bit_known_three_short_direct": {
+      "status": "pass",
+      "inputs_sha256": "f8d132eba0dc1f1136d496e61257f68426985268e67db5dd3b5d1e6f96067f76"
+    },
+    "gen/ch10/test_gen_cross_delay_1_bit_known_two_short_direct": {
+      "status": "pass",
+      "inputs_sha256": "e03c6c8313fb5470478e5abab34ff39887cb6cbb575f29bea91054a49ceb05c3"
+    },
+    "gen/ch10/test_gen_cross_delay_1_logic_known_one_short_direct": {
+      "status": "pass",
+      "inputs_sha256": "705d457f5647986d2f6fd50302422230c09c333b911795c0193439644f150733"
+    },
+    "gen/ch10/test_gen_cross_delay_2_bit_known_three_short_invert": {
+      "status": "pass",
+      "inputs_sha256": "7556f7282b6947a4bc517482d8e4009d7265551f8577bee624821db51f327282"
+    },
+    "gen/ch10/test_gen_cross_delay_2_bit_known_two_short_direct": {
+      "status": "pass",
+      "inputs_sha256": "97f9c8228f15e9e11570f96c8b51fb3a811a56d19d8734564a9457bd93371307"
+    },
+    "gen/ch10/test_gen_cross_delay_2_logic_known_one_short_direct": {
+      "status": "pass",
+      "inputs_sha256": "510ce76358b0baa4c464ec723baee180e5c0a666e3bdc410fd447d81c3783939"
+    },
+    "gen/ch10/test_gen_cross_delay_32_bit_known_three_short_direct": {
+      "status": "pass",
+      "inputs_sha256": "e8db901490493579886654c18e9f62ee249289d3c2a07fc3b1f5c81c344e32ef"
+    },
+    "gen/ch10/test_gen_cross_delay_32_bit_known_two_long_direct": {
+      "status": "pass",
+      "inputs_sha256": "526ebced1f0c890e23d45e052336399e0d718c292d4212177a68f6de9f23c1aa"
+    },
+    "gen/ch10/test_gen_cross_delay_32_logic_known_one_short_direct": {
+      "status": "pass",
+      "inputs_sha256": "4ecc9a2fe277eaf35d07040171015db847bcb0c63fc0a4d4e38413e7a184fc86"
+    },
+    "gen/ch10/test_gen_cross_delay_33_bit_known_three_short_direct": {
+      "status": "pass",
+      "inputs_sha256": "d82e87de17e12fceb4033275646f7d78f7a045c12ece262c46e756256433c963"
+    },
+    "gen/ch10/test_gen_cross_delay_33_bit_known_two_short_direct": {
+      "status": "pass",
+      "inputs_sha256": "bfd022c59b7adcb83a4c0ceae483eb1ce231452aa5aa828aadbad9b617590c5a"
+    },
+    "gen/ch10/test_gen_cross_delay_33_logic_known_one_short_invert": {
+      "status": "pass",
+      "inputs_sha256": "b5798d99613858a78ad64162dfc12ba2be998ffffef2957bfa80cd9018faadb1"
+    },
+    "gen/ch10/test_gen_cross_delay_64_bit_known_three_long_invert": {
+      "status": "pass",
+      "inputs_sha256": "5431d80318f9b4073294c3cf0dc3f45f67a6dc1843e422364193bbf1df2d9474"
+    },
+    "gen/ch10/test_gen_cross_delay_64_bit_known_two_short_direct": {
+      "status": "pass",
+      "inputs_sha256": "aa03edfcc226a198135faa6c21a053b2f8c5654c29c4223e05b0bd256516614f"
+    },
+    "gen/ch10/test_gen_cross_delay_64_logic_known_one_short_direct": {
+      "status": "pass",
+      "inputs_sha256": "3ee821cf3159a41c0adde7601cc5c0a187887ebf0a4615cb45720426d8d40aa9"
+    },
+    "gen/ch10/test_gen_cross_delay_65_bit_known_three_short_direct": {
+      "status": "known",
+      "reason": "build failed: %Error: 'make -C <temporary-build-directory>/obj -f Vt.mk -j 1' exited with 2",
+      "inputs_sha256": "34d9c41f389877e73b8ac402ff776a502b10ea993d3d3d3c91e27229e571fb72"
+    },
+    "gen/ch10/test_gen_cross_delay_65_bit_known_two_short_direct": {
+      "status": "known",
+      "reason": "build failed: %Error: 'make -C <temporary-build-directory>/obj -f Vt.mk -j 1' exited with 2",
+      "inputs_sha256": "25b47bc5da60e37e459b40aea620fe6c23e5cf95bb50d53d83aa4fcaeb864b4d"
+    },
+    "gen/ch10/test_gen_cross_delay_65_logic_known_one_short_direct": {
+      "status": "pass",
+      "inputs_sha256": "3024a93a77d8082534f6e823ef7c014dc4c8a0df7c158568c5499b183ae778c5"
+    }
+  },
+  "generated_at": "2026-10-31T12:30:46.541338+00:00",
+  "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+  "runner_changed": false,
+  "configuration": {
+    "seed": 1
+  },
+  "diagnostic_redactions": {
+    "note": "Temporary build directory paths replaced; statuses and input/runner fingerprints are unchanged.",
+    "original_reason_sha256": {
+      "gen/ch10/test_gen_cross_delay_129_bit_known_three_short_direct": "1e0b6a1ab4a0098e1bb391b71b3b6c374c00438921bbcfd1a1c832b138cdb4c1",
+      "gen/ch10/test_gen_cross_delay_129_logic_known_two_short_direct": "744052da91061da5f4b9c98c87764d6abda55fbca4ded2a847115fa5a2a17f7a",
+      "gen/ch10/test_gen_cross_delay_65_bit_known_three_short_direct": "0ba169f6722f17f57f6f5156a2ee081f22c46d7c9c22235c5aca61f1673cabba",
+      "gen/ch10/test_gen_cross_delay_65_bit_known_two_short_direct": "904748e4fc15c5a928e24abb2571e26ca138e441baedc04981bf80828de58d17"
+    }
+  }
+}

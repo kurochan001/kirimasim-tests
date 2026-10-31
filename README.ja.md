@@ -44,15 +44,15 @@ Icarus Verilog、Verilator、kirimasim、
 ## 収録内容
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**9623本のテスト**があります。 うち3186本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`combination_aggregates`が18本、`combination_events`が9本、`combination_io`が13本、`combination_monitors`が18本、`combination_nba`が16本、`interaction_array`が36本、`interaction_assertion`が36本、`interaction_binding`が36本、`interaction_case`が36本、`interaction_case_inside`が34本、`interaction_cast`が32本、`interaction_class_method`が36本、`interaction_clocking`が36本、`interaction_compare`が100本、`interaction_compound`が40本、`interaction_concat`が72本、`interaction_cond`が32本、`interaction_default`が36本、`interaction_divide`が72本、`interaction_edge`が64本、`interaction_expr`が51本、`interaction_generate`が36本、`interaction_iff`が27本、`interaction_index`が44本、`interaction_inside`が46本、`interaction_logic`が70本、`interaction_loop_nba`が36本、`interaction_method`が72本、`interaction_nba`が36本、`interaction_port`が36本、`interaction_process`が36本、`interaction_query`が60本、`interaction_queue`が48本、`interaction_queue_ref`が60本、`interaction_range`が46本、`interaction_resize`が38本、`interaction_return`が36本、`interaction_select`が36本、`interaction_shift`が56本、`interaction_shortcircuit`が92本、`interaction_stream`が36本、`interaction_struct`が36本、`interaction_task`が36本、`interaction_wait`が36本、`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
+スイートには38章にわたり**9738本のテスト**があります。 うち3301本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`combination_aggregates`が18本、`combination_events`が9本、`combination_io`が13本、`combination_monitors`が18本、`combination_nba`が16本、`interaction_array`が36本、`interaction_assertion`が36本、`interaction_binding`が36本、`interaction_case`が36本、`interaction_case_inside`が34本、`interaction_cast`が32本、`interaction_class_method`が36本、`interaction_clocking`が36本、`interaction_compare`が100本、`interaction_compound`が40本、`interaction_concat`が72本、`interaction_cond`が32本、`interaction_default`が36本、`interaction_delay`が63本、`interaction_divide`が72本、`interaction_edge`が64本、`interaction_event_task`が13本、`interaction_expr`が51本、`interaction_generate`が36本、`interaction_iff`が27本、`interaction_import`が39本、`interaction_index`が44本、`interaction_inside`が46本、`interaction_logic`が70本、`interaction_loop_nba`が36本、`interaction_method`が72本、`interaction_nba`が36本、`interaction_port`が36本、`interaction_process`が36本、`interaction_query`が60本、`interaction_queue`が48本、`interaction_queue_ref`が60本、`interaction_range`が46本、`interaction_resize`が38本、`interaction_return`が36本、`interaction_select`が36本、`interaction_shift`が56本、`interaction_shortcircuit`が92本、`interaction_stream`が36本、`interaction_struct`が36本、`interaction_task`が36本、`interaction_wait`が36本、`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
-| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 5402 |
-| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1662 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2559 |
+| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 5497 |
+| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1667 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2574 |
 
-2098本はx/z値に依存します（`:fourstate: yes`）。618本にはCコードがあり、内訳はDPIが123本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1931本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。34本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定40本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+2166本はx/z値に依存します（`:fourstate: yes`）。618本にはCコードがあり、内訳はDPIが123本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1931本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。34本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定40本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -63,12 +63,12 @@ Icarus Verilog、Verilator、kirimasim、
 | 7 | 集合データ型 | 772 | 290 | 281 | 201 |
 | 8 | クラス | 357 | 82 | 191 | 84 |
 | 9 | プロセス | 383 | 279 | 48 | 56 |
-| 10 | 代入文 | 290 | 205 | 45 | 40 |
+| 10 | 代入文 | 353 | 262 | 47 | 44 |
 | 11 | 演算子と式 | 1644 | 1262 | 132 | 250 |
 | 12 | 手続き型プログラミング文 | 251 | 169 | 33 | 49 |
 | 13 | タスクと関数（サブルーチン） | 352 | 226 | 92 | 34 |
 | 14 | クロッキングブロック | 114 | 4 | 72 | 38 |
-| 15 | プロセス間の同期と通信 | 59 | 2 | 36 | 21 |
+| 15 | プロセス間の同期と通信 | 72 | 2 | 39 | 31 |
 | 16 | アサーション | 697 | 104 | 85 | 508 |
 | 17 | チェッカー | 81 |  | 22 | 59 |
 | 18 | 制約付き乱数値の生成 | 200 | 25 | 95 | 80 |
@@ -76,7 +76,7 @@ Icarus Verilog、Verilator、kirimasim、
 | 20 | ユーティリティ用システムタスク・関数 | 330 | 239 | 25 | 66 |
 | 21 | 入出力用システムタスク・関数 | 236 | 145 | 15 | 76 |
 | 22 | コンパイラ指令 | 358 | 335 | 13 | 10 |
-| 23 | モジュールと階層 | 292 | 177 | 45 | 70 |
+| 23 | モジュールと階層 | 331 | 215 | 45 | 71 |
 | 24 | プログラム | 43 | 21 | 5 | 17 |
 | 25 | インターフェース | 119 | 31 | 57 | 31 |
 | 26 | パッケージ | 83 | 53 | 16 | 14 |
@@ -147,7 +147,7 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 すべて合格する必要があります。別々の実行の部分的な成功を合わせて要求の成功にはしません。
 
 [機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
-指定した3因子群と必須の境界ケースを併用します。短時間実行用の1,873件は、
+指定した3因子群と必須の境界ケースを併用します。短時間実行用の1,988件は、
 スケジューリング、NBA、演算コンテキスト、パック配列の部分選択、条件演算、シフト、
 キャスト、タスク引数、パック構造体、case、ポート接続、アンパック配列のコピー、
 ビットベクタの集計・判定関数、ストリーミング演算、比較演算、配列リダクション、
@@ -160,7 +160,18 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 アサーションのサンプル値とactionのライブ値、コンテナ変更とwaitの起床、
 クラスメソッドの呼出し先と再帰引数、ループからの関数returnと状態の共有範囲、
 module/interface内のループ代入と更新順序、comb/latchの暗黙の感度と出力保持、
-generate階層とpackage/局所宣言の名前探索、デフォルト引数の評価と階層呼出しの41モデルを対象にします。
+generate階層とpackage/局所宣言の名前探索、デフォルト引数の評価と階層呼出し、
+イベント引数によるスコープ間の同期、連続代入の遅延と短パルスの除去、
+packageのimportとワイルドカードポート接続の44モデルを対象にします。
+importとポート接続は合法な540通りから39件を選び、全因子対158組・3因子141組・必須6件を保持します。
+[名前の可視性・局所宣言・既定値とスコープの独立性](docs/interaction-verification.md#packageのimportとワイルドカードポート接続)を、
+異なる既定値を持つ2個の子と独立した対照スコープで確認します。最新kirimasimでは39件すべてPASSです。
+連続代入の遅延は504通りから63件を選び、全因子対141組・3因子129組・必須7件を保持します。
+[スカラ/ベクタの遅延選択と予約の取消し](docs/interaction-verification.md#連続代入の遅延と短パルスの除去)を、
+元変数のbit/logic型への変換・反転、出力値・遷移時刻・回数まで含めて確認します。最新kirimasimでは63件すべてPASSです。
+イベント引数は288通りから13件を選び、全因子対109組・3因子52組・必須6件を保持します。
+[待機の開始時点・複数待機者・Active/NBAの値](docs/interaction-verification.md#イベント引数によるスコープ間の同期)を確認します。
+最新kirimasimでは13件すべてPASSです。固定Verilatorは3件が両seedで一致し、10件の差異は期待値を維持して記録します。
 デフォルト引数は720通りから36件を選び、全因子対159組・3因子128組・必須6件を保持します。
 [宣言元のスコープと呼出しごとの評価](docs/interaction-verification.md#デフォルト引数と階層呼出しのスコープ)、
 空の位置引数・名前付き引数、明示指定による既定値の評価抑制を、仮引数と評価回数も含めて確認します。
@@ -629,6 +640,9 @@ oracleメタデータやシミュレータ実行確認率は変更しません�
 | `interaction_process` | 9 | 幅・状態型・値、comb/latch、直接読取り/関数、module/interface、0/1/X/Zのイネーブル、無効時の既定値/保持。36件で暗黙の感度・時刻0の起動・保持・無関係な変更と各インスタンスの独立性を確認 |
 | `interaction_generate` | 27 | 幅・状態型・値、ワイルドカードimport/明示修飾、局所の同名型・定数、入れ子、if/case generate。36件で階層パス・型幅・genvar定数・生成要素ごとの連続代入を確認 |
 | `interaction_default` | 13 | 幅・状態型・値、module/interface、変数/関数の既定値、省略・空・名前付き・明示指定の5形式。36件で宣言元のスコープ・呼出し時の値・仮引数の結合・既定値の評価回数を確認 |
+| `interaction_event_task` | 15 | module/interface/packageのイベント、input/ref、直接/タスク経由の通常/NBAトリガ、待機者1/2/3、起床順・早い/遅い待機。13件で同期対象・全待機者の起床・再待機・Active/NBAの値を確認 |
+| `interaction_delay` | 10 | スカラ・2/32/33/64/65/129ビットのベクタ、bit/logic、既知値/X/Z、1/2/3遅延、短い/長いパルス、直接/反転。63件で遅延選択・予約取消し・値・遷移時刻と回数を確認 |
+| `interaction_import` | 23 | 幅・サンプル型・値、wildcard/明示import、局所の同名宣言、.*・.name・名前付き・修飾名・定数の接続。39件で接続先・既定値・ライブ値への追従・スコープの独立性を確認 |
 | `interaction_struct` | 7 | メンバ順序、全体とメンバの符号、幅・状態・値、メンバ/全体の書き込み、ブロッキング/NBA。選択した36件でタグの保持、配置、独立した符号拡張を確認 |
 | `interaction_case` | 12 | セレクタと項目の幅・符号、case/casez/casex、X/Zと項目パターン。選択した36件で完全一致・ワイルドカード・重複項目の優先・フォールバック分岐を確認 |
 | `interaction_port` | 23 | 元の幅・符号・値、input/output、接続先幅、名前/位置指定、ANSI/非ANSI、サンプル型。選択した36件で階層を通過する値と最終サンプル変換を確認 |

@@ -386,28 +386,6 @@
     {
       "chapters": [
         10,
-        28
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "連続代入のゲート遅延とパルス抑制が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "連続代入のゲート遅延とパルス抑制",
-      "factors": [
-        "立上り/立下り遅延",
-        "入力パルス幅",
-        "0/1/X/Z遷移"
-      ],
-      "observation": "遷移別の出力時刻と、遅延より短いパルスが出力されないことを確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch10/test_continuous_assign_rise_fall_delay.sv",
-          "inputs_sha256": "e75935ce45c9d4486ee832bd07478197b30005378fbf8f8f4addb5be79e9eb99"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        10,
         35
       ],
       "category": "C",
@@ -472,29 +450,6 @@
     },
     {
       "chapters": [
-        13,
-        15
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "refイベント引数のトリガと待機が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "refイベント引数のトリガと待機",
-      "factors": [
-        "渡し方",
-        "待機元/トリガ元",
-        "イベント別名",
-        "呼出し時点"
-      ],
-      "observation": "仮引数を介したトリガで実引数の待機が起床する時刻と回数を確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch13/test_ref_event_argument.sv",
-          "inputs_sha256": "db4f7dd53c8f069ffe0bc57ef808f2798810cd56b45e521bdd61f200de724567"
-        }
-      ]
-    },
-    {
-      "chapters": [
         14,
         15
       ],
@@ -534,42 +489,6 @@
         }
       ],
       "rank": 8
-    },
-    {
-      "chapters": [
-        15,
-        25
-      ],
-      "category": "C",
-      "priority": "P2",
-      "reason": "イベントの識別とinterface実体の選択が同じ同期対象に作用する。",
-      "objective": "interface内イベントの別名と待機先",
-      "factors": [
-        "直接/virtual interface",
-        "interface数",
-        "別名の再結合",
-        "トリガ経路"
-      ],
-      "observation": "元の待機先と再結合後の待機先、別インスタンスのイベントを起床回数で識別する。",
-      "witnesses": []
-    },
-    {
-      "chapters": [
-        15,
-        26
-      ],
-      "category": "C",
-      "priority": "P2",
-      "reason": "package状態の共有とイベント別名の規則が交わる。初期化と待機の競合を避けた刺激を設計する。",
-      "objective": "packageのイベントを複数呼出し元で共有する同期",
-      "factors": [
-        "import/明示修飾",
-        "呼出し元数",
-        "別名の有無",
-        "待機開始順"
-      ],
-      "observation": "同じpackageイベントの共有と別名の独立性、起床時刻と回数を確認する。",
-      "witnesses": []
     },
     {
       "chapters": [
@@ -719,29 +638,6 @@
         {
           "test": "tests/ch6/test_implicit_port_expression_nets.sv",
           "inputs_sha256": "4e69e5ccaefd0fd2bf82bf84c40f58201f3915bcac3b06a62914627243563a23"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        23,
-        26
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "package importとワイルドカードポート接続が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "package importとワイルドカードポート接続",
-      "factors": [
-        "import形式",
-        "接続（.* / .p / .p(p)）",
-        "ポート既定値",
-        "同名宣言"
-      ],
-      "observation": ".*だけの場合と明示参照の場合で、既定値5とpackageの値8を区別する。",
-      "witnesses": [
-        {
-          "test": "tests/ch23/test_wildcard_port_connection_package_import.sv",
-          "inputs_sha256": "8fa5d2bde2afc5db8840ac2a93f7ecd6a0b3fadc3ed06980853c28e3fb712290"
         }
       ]
     },

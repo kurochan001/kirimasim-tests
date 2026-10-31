@@ -6,7 +6,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 9623 |
+| Tests | 9738 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -18,10 +18,10 @@
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 729 |
-| Icarus Verilog 13.0 only | 4673 |
-| Verilator 5.052 only | 1662 |
-| standard only | 2559 |
+| both releases | 744 |
+| Icarus Verilog 13.0 only | 4753 |
+| Verilator 5.052 only | 1667 |
+| standard only | 2574 |
 
 ## By chapter
 
@@ -34,12 +34,12 @@
 | 7 | Aggregate data types | 772 | 49 | 15.8 | 0 | 201 |
 | 8 | Classes | 357 | 43 | 8.3 | 0 | 84 |
 | 9 | Processes | 383 | 25 | 15.3 | 0 | 56 |
-| 10 | Assignment statements | 290 | 18 | 16.1 | 0 | 40 |
+| 10 | Assignment statements | 353 | 18 | 19.6 | 0 | 44 |
 | 11 | Operators and expressions | 1644 | 42 | 39.1 | 0 | 250 |
 | 12 | Procedural programming statements | 251 | 19 | 13.2 | 0 | 49 |
 | 13 | Tasks and functions (subroutines) | 352 | 15 | 23.5 | 0 | 34 |
 | 14 | Clocking blocks | 114 | 15 | 7.6 | 0 | 38 |
-| 15 | Interprocess synchronization and communication | 59 | 21 | 2.8 | 0 | 21 |
+| 15 | Interprocess synchronization and communication | 72 | 21 | 3.4 | 0 | 31 |
 | 16 | Assertions | 697 | 69 | 10.1 | 0 | 508 |
 | 17 | Checkers | 81 | 10 | 8.1 | 0 | 59 |
 | 18 | Constrained random value generation | 200 | 44 | 4.5 | 0 | 80 |
@@ -47,7 +47,7 @@
 | 20 | Utility system tasks and system functions | 330 | 31 | 10.6 | 0 | 66 |
 | 21 | Input/output system tasks and system functions | 236 | 47 | 5.0 | 0 | 76 |
 | 22 | Compiler directives | 358 | 21 | 17.0 | 0 | 10 |
-| 23 | Modules and hierarchy | 292 | 33 | 8.8 | 0 | 70 |
+| 23 | Modules and hierarchy | 331 | 33 | 10.0 | 0 | 71 |
 | 24 | Programs | 43 | 7 | 6.1 | 0 | 17 |
 | 25 | Interfaces | 119 | 12 | 9.9 | 0 | 31 |
 | 26 | Packages | 83 | 6 | 13.8 | 0 | 14 |

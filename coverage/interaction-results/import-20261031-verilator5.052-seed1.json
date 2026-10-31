@@ -1,0 +1,78 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch23/test_gen_cross_import_129_bit_known_explicit_none_qualified": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'k0 guard left_port=00000000000000000000000000000000000000...', expected 'k0 guard left_port=00000000000000000000000000000000000000...'",
+   "inputs_sha256": "7e09c172695c03e71d2dcf98117838beece7cf6b5803221fd94de7e414a4d41d"
+  },
+  "gen/ch23/test_gen_cross_import_129_logic_known_wild_local_star": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'k0 guard left_port=00000000000000000000000000000000000000...', expected 'k0 guard left_port=00000000000000000000000000000000000000...'",
+   "inputs_sha256": "507107fd4a62a6056ffa9ea86259828b72dc9a9cd11f8728382771c381faff56"
+  },
+  "gen/ch23/test_gen_cross_import_1_bit_known_wild_none_star": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'k0 dut left_port=0 left=0 left_sample=0 right_port=0 righ...', expected 'k0 dut left_port=0 left=0 left_sample=0 right_port=1 righ...'",
+   "inputs_sha256": "6960a5d8a6f499e69f1ec71f70571b1d2efcee733e9d1aef9bfd99e24258f044"
+  },
+  "gen/ch23/test_gen_cross_import_1_logic_known_wild_local_short": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'k0 guard left_port=0 left=0 left_sample=0 right_port=0 ri...', expected 'k0 guard left_port=0 left=0 left_sample=0 right_port=1 ri...'",
+   "inputs_sha256": "7e9ad781011863f8e7cb263d1894fb9a305b8d4681c41f5be1841f09b17f5c8a"
+  },
+  "gen/ch23/test_gen_cross_import_32_bit_known_wild_local_zero": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'k0 guard left_port=00000000000000000000000000000000 left=...', expected 'k0 guard left_port=00000000000000000000000000000000 left=...'",
+   "inputs_sha256": "cd30af29574c2c336ce37cb4dd09cc9080d92ba8fb4ce65af89820690074dc3a"
+  },
+  "gen/ch23/test_gen_cross_import_32_logic_known_wild_local_qualified": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'k0 guard left_port=00000000000000000000000000000000 left=...', expected 'k0 guard left_port=00000000000000000000000000000000 left=...'",
+   "inputs_sha256": "9e7b836276e99017d787a5ef8a63692d85c2eea5d60d90efd16f52799a08e0df"
+  },
+  "gen/ch23/test_gen_cross_import_33_bit_known_explicit_none_short": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'k0 guard left_port=000000000000000000000000000000000 left...', expected 'k0 guard left_port=000000000000000000000000000000000 left...'",
+   "inputs_sha256": "905074f86a612b1e824a1dc27191b06e2215cf9dd797791964e308d792d75ed8"
+  },
+  "gen/ch23/test_gen_cross_import_33_bit_known_explicit_none_zero": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'k0 guard left_port=000000000000000000000000000000000 left...', expected 'k0 guard left_port=000000000000000000000000000000000 left...'",
+   "inputs_sha256": "eda4144fb2b78273d4030795432e6020bac76b765e3774a954a2a0e6babeb758"
+  },
+  "gen/ch23/test_gen_cross_import_33_logic_known_wild_local_named": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'k0 guard left_port=000000000000000000000000000000000 left...', expected 'k0 guard left_port=000000000000000000000000000000000 left...'",
+   "inputs_sha256": "644072d42f4509afd07b797e4a9c5ef5fb6e7e006e5df0ded29dcd9fd6727c2b"
+  },
+  "gen/ch23/test_gen_cross_import_64_bit_known_explicit_none_star": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'k0 guard left_port=00000000000000000000000000000000000000...', expected 'k0 guard left_port=00000000000000000000000000000000000000...'",
+   "inputs_sha256": "83a8d181cf85437bd0122fcf6172ed2eafd4bbc1a5946839c13977a0f4e4a795"
+  },
+  "gen/ch23/test_gen_cross_import_64_logic_known_wild_none_zero": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'k0 guard left_port=00000000000000000000000000000000000000...', expected 'k0 guard left_port=00000000000000000000000000000000000000...'",
+   "inputs_sha256": "cf088e23d3d648d5b058a2212a04d29a31c76a504fbfa9a15a14b581cfcf75d0"
+  },
+  "gen/ch23/test_gen_cross_import_65_bit_known_wild_none_named": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'k0 guard left_port=00000000000000000000000000000000000000...', expected 'k0 guard left_port=00000000000000000000000000000000000000...'",
+   "inputs_sha256": "8c37d4285c2a8f5de0318953cde343a328f9cf99f5a123888c5ff1eabc6b97c4"
+  },
+  "gen/ch23/test_gen_cross_import_65_logic_known_explicit_none_named": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'k0 guard left_port=00000000000000000000000000000000000000...', expected 'k0 guard left_port=00000000000000000000000000000000000000...'",
+   "inputs_sha256": "23787aa262fb0c59e06cb193ee468da667ad9f00edc67924386874afd610bb77"
+  }
+ },
+ "generated_at": "2026-10-31T13:02:34.966121+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

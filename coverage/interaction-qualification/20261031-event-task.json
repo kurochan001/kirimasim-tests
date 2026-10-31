@@ -1,0 +1,536 @@
+{
+  "schema": 1,
+  "purpose": "event_task_scope fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "scope": "all six mandatory witnesses: all source scopes, input/ref, direct/task triggers, Active/NBA capture, early/late, 1/2/3 listeners",
+  "generator_sha256": "874334f0c52df53f4287c97cb2d37f1f0e0dfc0c8365e691625346803a5d5cce",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_event_task_module_input_direct_blocking_1_a_b_early",
+      "values": {
+        "home": "module",
+        "passing": "input",
+        "emitter": "direct",
+        "trigger": "blocking",
+        "listeners": "1",
+        "order": "a_b",
+        "arrival": "early"
+      },
+      "source_sha256": "ec22e6c321f75448f5015b2b739c3688daa0ac7c0b45f5e08029c33c919e3a56",
+      "expected_sha256": "d80cd0d8b2870213f2509fd553b52316f45bbadbee65d0cf254cbed97d94c56a",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_event_task_interface_ref_task_nba_3_b_a_late",
+      "values": {
+        "home": "interface",
+        "passing": "ref",
+        "emitter": "task",
+        "trigger": "nba",
+        "listeners": "3",
+        "order": "b_a",
+        "arrival": "late"
+      },
+      "source_sha256": "b9a09de616d2769c02d835fda9fcf647d50d131e9feff336a35aa95bfe2af3e2",
+      "expected_sha256": "ca4d46ad15d045e52653cec20387afeabeac3a188b5f83bc66cdb5936825df47",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_event_task_package_input_task_blocking_2_a_b_late",
+      "values": {
+        "home": "package",
+        "passing": "input",
+        "emitter": "task",
+        "trigger": "blocking",
+        "listeners": "2",
+        "order": "a_b",
+        "arrival": "late"
+      },
+      "source_sha256": "2fba42981a340342c8c5e73dc9b3c15037f160d1681a415becf99782ed9d9d83",
+      "expected_sha256": "bb85f6ab5f023d75b880bd2deb75fdab82979b73b60806181fa0084888d9b187",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_event_task_module_ref_direct_nba_2_b_a_early",
+      "values": {
+        "home": "module",
+        "passing": "ref",
+        "emitter": "direct",
+        "trigger": "nba",
+        "listeners": "2",
+        "order": "b_a",
+        "arrival": "early"
+      },
+      "source_sha256": "363173c0c43d36e4375c77ffb66a4e0d512dd7b1ae91c9aff2ca65c2dbe445f5",
+      "expected_sha256": "9be42b458191c16b6ca97651343c440430dc066a392bfcfed42cc997ab4c5e03",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_event_task_interface_input_direct_nba_1_a_b_late",
+      "values": {
+        "home": "interface",
+        "passing": "input",
+        "emitter": "direct",
+        "trigger": "nba",
+        "listeners": "1",
+        "order": "a_b",
+        "arrival": "late"
+      },
+      "source_sha256": "67b61d62b661217433a1db854a8a914b46339a324609c1909150a5ab4d98b6d2",
+      "expected_sha256": "2b3d3f2b67a7dfd923665918dfecd4229be15c5c255c7b3d0bb9aa9583426993",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_event_task_package_ref_task_blocking_3_b_a_early",
+      "values": {
+        "home": "package",
+        "passing": "ref",
+        "emitter": "task",
+        "trigger": "blocking",
+        "listeners": "3",
+        "order": "b_a",
+        "arrival": "early"
+      },
+      "source_sha256": "19e7147cd0958eb4cbf31f56be06392c13e774d73d633ed21de37ef30c0af443",
+      "expected_sha256": "98e16d40dfe7c36053f46d8aa28c2296d4b0a8f390bdeac96500023bb0cbc9fb",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "lose_event_wait",
+      "case": "test_gen_cross_event_task_module_input_direct_blocking_1_a_b_early",
+      "values": {
+        "home": "module",
+        "passing": "input",
+        "emitter": "direct",
+        "trigger": "blocking",
+        "listeners": "1",
+        "order": "a_b",
+        "arrival": "early"
+      },
+      "source_sha256": "4605002cbf83047ae43a920eb4a9d7b8a3d1d9abb76d0027d94883137987250f",
+      "expected_sha256": "d80cd0d8b2870213f2509fd553b52316f45bbadbee65d0cf254cbed97d94c56a",
+      "status": "fail",
+      "reason": "output differs: line 9 is 'noise a0 hits=1 at=1 value=0', expected 'noise a0 hits=0 at=-1 value=0'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "@(ev);",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "early_listener_becomes_late",
+      "case": "test_gen_cross_event_task_module_input_direct_blocking_1_a_b_early",
+      "values": {
+        "home": "module",
+        "passing": "input",
+        "emitter": "direct",
+        "trigger": "blocking",
+        "listeners": "1",
+        "order": "a_b",
+        "arrival": "early"
+      },
+      "source_sha256": "7f0ce6cbd1b4d3db69f6c45c7bb97596f1e185a4f8f7577ea53ff843761f49a5",
+      "expected_sha256": "d80cd0d8b2870213f2509fd553b52316f45bbadbee65d0cf254cbed97d94c56a",
+      "status": "fail",
+      "reason": "output differs: line 8 is 'noise time=8', expected 'noise time=3'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#1;",
+        "after": "#6;",
+        "replacements": 15
+      }
+    },
+    {
+      "name": "listen_to_other_instance",
+      "case": "test_gen_cross_event_task_module_input_direct_blocking_1_a_b_early",
+      "values": {
+        "home": "module",
+        "passing": "input",
+        "emitter": "direct",
+        "trigger": "blocking",
+        "listeners": "1",
+        "order": "a_b",
+        "arrival": "early"
+      },
+      "source_sha256": "3fa2bad20e1cdd5b1e6816bebac3bb2d08eebb88af57c0093dd1de281ff02c07",
+      "expected_sha256": "d80cd0d8b2870213f2509fd553b52316f45bbadbee65d0cf254cbed97d94c56a",
+      "status": "fail",
+      "reason": "output differs: line 16 is 'pulse1 a0 hits=0 at=-1 value=0', expected 'pulse1 a0 hits=1 at=3 value=10'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "observe(bank_a.go,",
+        "after": "observe(bank_b.go,",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "listen_to_noise",
+      "case": "test_gen_cross_event_task_module_input_direct_blocking_1_a_b_early",
+      "values": {
+        "home": "module",
+        "passing": "input",
+        "emitter": "direct",
+        "trigger": "blocking",
+        "listeners": "1",
+        "order": "a_b",
+        "arrival": "early"
+      },
+      "source_sha256": "1461d7c0dd8dac941d5049fd196feb3a205547c419de69d05d46c7d295849d93",
+      "expected_sha256": "d80cd0d8b2870213f2509fd553b52316f45bbadbee65d0cf254cbed97d94c56a",
+      "status": "fail",
+      "reason": "output differs: line 9 is 'noise a0 hits=1 at=2 value=7', expected 'noise a0 hits=0 at=-1 value=0'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "observe(bank_a.go,",
+        "after": "observe(bank_a.noise,",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "lose_payload_capture",
+      "case": "test_gen_cross_event_task_module_input_direct_blocking_1_a_b_early",
+      "values": {
+        "home": "module",
+        "passing": "input",
+        "emitter": "direct",
+        "trigger": "blocking",
+        "listeners": "1",
+        "order": "a_b",
+        "arrival": "early"
+      },
+      "source_sha256": "885b4e166819e423e519c0b176d1f51d70eb096a9563953e0f427e1734d38727",
+      "expected_sha256": "d80cd0d8b2870213f2509fd553b52316f45bbadbee65d0cf254cbed97d94c56a",
+      "status": "fail",
+      "reason": "output differs: line 16 is 'pulse1 a0 hits=1 at=3 value=0', expected 'pulse1 a0 hits=1 at=3 value=10'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "captured[slot] = stamp;",
+        "after": "captured[slot] = 0;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_wake_time",
+      "case": "test_gen_cross_event_task_module_input_direct_blocking_1_a_b_early",
+      "values": {
+        "home": "module",
+        "passing": "input",
+        "emitter": "direct",
+        "trigger": "blocking",
+        "listeners": "1",
+        "order": "a_b",
+        "arrival": "early"
+      },
+      "source_sha256": "be5fcf04b42909bfab6d475fccc4a9c04f6fcd00815f290f429b8a33c24cf84a",
+      "expected_sha256": "d80cd0d8b2870213f2509fd553b52316f45bbadbee65d0cf254cbed97d94c56a",
+      "status": "fail",
+      "reason": "output differs: line 16 is 'pulse1 a0 hits=1 at=-1 value=10', expected 'pulse1 a0 hits=1 at=3 value=10'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "at_tick[slot] = $time;",
+        "after": "at_tick[slot] = -1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "late_listener_remembers_past_pulse",
+      "case": "test_gen_cross_event_task_interface_ref_task_nba_3_b_a_late",
+      "values": {
+        "home": "interface",
+        "passing": "ref",
+        "emitter": "task",
+        "trigger": "nba",
+        "listeners": "3",
+        "order": "b_a",
+        "arrival": "late"
+      },
+      "source_sha256": "61edf1f8d9d6b1887177bc81ca3aee8bc16df8dea35e9a151c3ac320f11cbccf",
+      "expected_sha256": "ca4d46ad15d045e52653cec20387afeabeac3a188b5f83bc66cdb5936825df47",
+      "status": "fail",
+      "reason": "output differs: line 19 is 'pulse1 b0 hits=1 at=3 value=101', expected 'pulse1 b0 hits=0 at=-1 value=0'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#6;",
+        "after": "#1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "double_wake_count",
+      "case": "test_gen_cross_event_task_interface_ref_task_nba_3_b_a_late",
+      "values": {
+        "home": "interface",
+        "passing": "ref",
+        "emitter": "task",
+        "trigger": "nba",
+        "listeners": "3",
+        "order": "b_a",
+        "arrival": "late"
+      },
+      "source_sha256": "919cc7460194adf720191204e6ac297769a393d344da13fc33a0260184e91f40",
+      "expected_sha256": "ca4d46ad15d045e52653cec20387afeabeac3a188b5f83bc66cdb5936825df47",
+      "status": "fail",
+      "reason": "output differs: line 33 is 'repeat1 b0 hits=2 at=8 value=301', expected 'repeat1 b0 hits=1 at=8 value=301'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "hits[slot]++;",
+        "after": "hits[slot] += 2;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "listeners_share_counter_slot",
+      "case": "test_gen_cross_event_task_interface_ref_task_nba_3_b_a_late",
+      "values": {
+        "home": "interface",
+        "passing": "ref",
+        "emitter": "task",
+        "trigger": "nba",
+        "listeners": "3",
+        "order": "b_a",
+        "arrival": "late"
+      },
+      "source_sha256": "b1c8ba6bc36d18e971af5948ec0add415e69b66df6fe0764a81ea93b51b595ff",
+      "expected_sha256": "ca4d46ad15d045e52653cec20387afeabeac3a188b5f83bc66cdb5936825df47",
+      "status": "fail",
+      "reason": "output differs: line 33 is 'repeat1 b0 hits=3 at=8 value=301', expected 'repeat1 b0 hits=1 at=8 value=301'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "hits[slot]++;",
+        "after": "hits[0]++;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "helper_ignores_event_actual",
+      "case": "test_gen_cross_event_task_package_input_task_blocking_2_a_b_late",
+      "values": {
+        "home": "package",
+        "passing": "input",
+        "emitter": "task",
+        "trigger": "blocking",
+        "listeners": "2",
+        "order": "a_b",
+        "arrival": "late"
+      },
+      "source_sha256": "2b0b3b33f6841bdac21b760c303a7898575635e565335f5291deca66dc3cff4b",
+      "expected_sha256": "bb85f6ab5f023d75b880bd2deb75fdab82979b73b60806181fa0084888d9b187",
+      "status": "fail",
+      "reason": "output differs: line 40 is 'pair2 b0 hits=0 at=-1 value=0', expected 'pair2 b0 hits=1 at=10 value=400'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "-> ev;",
+        "after": "-> a;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_fanout_listener",
+      "case": "test_gen_cross_event_task_package_input_task_blocking_2_a_b_late",
+      "values": {
+        "home": "package",
+        "passing": "input",
+        "emitter": "task",
+        "trigger": "blocking",
+        "listeners": "2",
+        "order": "a_b",
+        "arrival": "late"
+      },
+      "source_sha256": "9f62e46dfffc8f6ffcd4a9a99d59aba6ec02d24fa070b5e5d462d779cbb7a242",
+      "expected_sha256": "bb85f6ab5f023d75b880bd2deb75fdab82979b73b60806181fa0084888d9b187",
+      "status": "fail",
+      "reason": "output differs: line 31 is 'repeat1 a1 hits=0 at=-1 value=0', expected 'repeat1 a1 hits=1 at=8 value=30'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "listen_a.observe(event_source::a, 1);",
+        "after": ";",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "trigger_wrong_instance",
+      "case": "test_gen_cross_event_task_module_ref_direct_nba_2_b_a_early",
+      "values": {
+        "home": "module",
+        "passing": "ref",
+        "emitter": "direct",
+        "trigger": "nba",
+        "listeners": "2",
+        "order": "b_a",
+        "arrival": "early"
+      },
+      "source_sha256": "f1c1f93e0f5758d324fd5c883e62277a13602e196feb1b4246e4ea6252ae50fc",
+      "expected_sha256": "9be42b458191c16b6ca97651343c440430dc066a392bfcfed42cc997ab4c5e03",
+      "status": "fail",
+      "reason": "output differs: line 16 is 'pulse1 a0 hits=1 at=3 value=11', expected 'pulse1 a0 hits=0 at=-1 value=0'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "->> bank_b.go;",
+        "after": "->> bank_a.go;",
+        "replacements": 4
+      }
+    },
+    {
+      "name": "lose_queued_payload",
+      "case": "test_gen_cross_event_task_module_ref_direct_nba_2_b_a_early",
+      "values": {
+        "home": "module",
+        "passing": "ref",
+        "emitter": "direct",
+        "trigger": "nba",
+        "listeners": "2",
+        "order": "b_a",
+        "arrival": "early"
+      },
+      "source_sha256": "41cb5d55ba88dfe01a37bf8eba732a16518c18a65965ea883a1eaad563f67ada",
+      "expected_sha256": "9be42b458191c16b6ca97651343c440430dc066a392bfcfed42cc997ab4c5e03",
+      "status": "fail",
+      "reason": "output differs: line 19 is 'pulse1 b0 hits=1 at=3 value=100', expected 'pulse1 b0 hits=1 at=3 value=101'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "stamp <= token + 1;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "nba_event_becomes_blocking",
+      "case": "test_gen_cross_event_task_module_ref_direct_nba_2_b_a_early",
+      "values": {
+        "home": "module",
+        "passing": "ref",
+        "emitter": "direct",
+        "trigger": "nba",
+        "listeners": "2",
+        "order": "b_a",
+        "arrival": "early"
+      },
+      "source_sha256": "5e3144aae405290762be5b546433c35d07f60f8e078a93cb1b331acc4f867a15",
+      "expected_sha256": "9be42b458191c16b6ca97651343c440430dc066a392bfcfed42cc997ab4c5e03",
+      "status": "fail",
+      "reason": "output differs: line 23 is 'pair1 a0 hits=1 at=4 value=20', expected 'pair1 a0 hits=1 at=4 value=21'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "->> bank_a.go;",
+        "after": "-> bank_a.go;",
+        "replacements": 4
+      }
+    },
+    {
+      "name": "payload_nba_becomes_blocking",
+      "case": "test_gen_cross_event_task_package_ref_task_blocking_3_b_a_early",
+      "values": {
+        "home": "package",
+        "passing": "ref",
+        "emitter": "task",
+        "trigger": "blocking",
+        "listeners": "3",
+        "order": "b_a",
+        "arrival": "early"
+      },
+      "source_sha256": "be4d9c72ccc3642fba0945f716d6c2ebafeb3290dc58720b412c01b5c4adbcf1",
+      "expected_sha256": "98e16d40dfe7c36053f46d8aa28c2296d4b0a8f390bdeac96500023bb0cbc9fb",
+      "status": "fail",
+      "reason": "output differs: line 19 is 'pulse1 b0 hits=1 at=3 value=101', expected 'pulse1 b0 hits=1 at=3 value=100'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "stamp <= token + 1;",
+        "after": "stamp = token + 1;",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "8065f5b7aca556e8c94999549a9df6619e0a0dffce70b29d356a597a75a05a92",
+  "binary_unchanged": true
+}
