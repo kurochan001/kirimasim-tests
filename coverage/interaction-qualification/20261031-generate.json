@@ -1,0 +1,421 @@
+{
+  "schema": 1,
+  "purpose": "generate_scope_lookup fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "scope": "one-bit import/no-shadow, 129-bit logic Z nested case/import/local, 65-bit logic X nested if/qualified/local; known controls in all parents",
+  "generator_sha256": "ce4394d21545c0a8638aab400dca99a9ca1e0fa9b939f4ca1a9d623337630117",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_generate_1_bit_known_import_none_one_if",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "import",
+        "shadow": "none",
+        "depth": "one",
+        "branch": "if"
+      },
+      "source_sha256": "b242cce8737252ec54796285cc6c2a5add5a9b90675c427d1da59363c3361763",
+      "expected_sha256": "eb6102e1f9860ce1d7e5ab0ef04662440e6afc9ac4a463aad395ae7d1abfc1d8",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_generate_129_logic_z_import_local_two_case",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "access": "import",
+        "shadow": "local",
+        "depth": "two",
+        "branch": "case"
+      },
+      "source_sha256": "9db3730a096f86cbb13b23e15195f9e108289715c7bca9828f46ed80eb9992db",
+      "expected_sha256": "69da38830bb291dd19aafa091a3faa2021913ebd8c286babffbc7b5d86da9e25",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_generate_65_logic_x_qualified_local_two_if",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "access": "qualified",
+        "shadow": "local",
+        "depth": "two",
+        "branch": "if"
+      },
+      "source_sha256": "01713f7eb438a7738244f2bfd62ab717b5ff1349ced83d9746869e9b98660b83",
+      "expected_sha256": "f3a68b78536796381655105156c66078cd80fcab3a00cee978ab09bb98b9b18e",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "wrong_package_width",
+      "case": "test_gen_cross_generate_1_bit_known_import_none_one_if",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "import",
+        "shadow": "none",
+        "depth": "one",
+        "branch": "if"
+      },
+      "source_sha256": "04e8c1f4274b1740e6b57381526dc1a0246bd9f037ec42b7696b1c0fa80c4688",
+      "expected_sha256": "eb6102e1f9860ce1d7e5ab0ef04662440e6afc9ac4a463aad395ae7d1abfc1d8",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a lane=0 kind=0 local=0 index=0 width=2 bits=2 origin=...', expected 'k0 a lane=0 kind=0 local=0 index=0 width=1 bits=1 origin=...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "localparam int WIDTH = 1;",
+        "after": "localparam int WIDTH = 2;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_package_constant",
+      "case": "test_gen_cross_generate_1_bit_known_import_none_one_if",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "import",
+        "shadow": "none",
+        "depth": "one",
+        "branch": "if"
+      },
+      "source_sha256": "f2f2705e015ff8d94129cfc3f0769db17c71533ada6bb8e6d462c00d26f68721",
+      "expected_sha256": "eb6102e1f9860ce1d7e5ab0ef04662440e6afc9ac4a463aad395ae7d1abfc1d8",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a lane=0 kind=0 local=0 index=0 width=1 bits=1 origin=...', expected 'k0 a lane=0 kind=0 local=0 index=0 width=1 bits=1 origin=...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "localparam int ORIGIN = 5;",
+        "after": "localparam int ORIGIN = 4;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_genvar_index",
+      "case": "test_gen_cross_generate_1_bit_known_import_none_one_if",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "import",
+        "shadow": "none",
+        "depth": "one",
+        "branch": "if"
+      },
+      "source_sha256": "e1f7f49e8366db4454e79a45d06a2c03c1b5523d6746642b5ccfbb5cb9f8a1c8",
+      "expected_sha256": "eb6102e1f9860ce1d7e5ab0ef04662440e6afc9ac4a463aad395ae7d1abfc1d8",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 a lane=1 kind=1 local=0 index=0 width=1 bits=1 origin=...', expected 'k0 a lane=1 kind=1 local=0 index=1 width=1 bits=1 origin=...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "localparam int INDEX = g;",
+        "after": "localparam int INDEX = 0;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "ignore_loop_in_branch_selection",
+      "case": "test_gen_cross_generate_1_bit_known_import_none_one_if",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "import",
+        "shadow": "none",
+        "depth": "one",
+        "branch": "if"
+      },
+      "source_sha256": "a8d0290e7ba1468890ed87ac9328d8128270f94f57280b4267e29931f23ac95e",
+      "expected_sha256": "eb6102e1f9860ce1d7e5ab0ef04662440e6afc9ac4a463aad395ae7d1abfc1d8",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 a lane=1 kind=0 local=0 index=1 width=1 bits=1 origin=...', expected 'k0 a lane=1 kind=1 local=0 index=1 width=1 bits=1 origin=...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "SELECT + g",
+        "after": "SELECT",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_instance_parameter",
+      "case": "test_gen_cross_generate_1_bit_known_import_none_one_if",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "import",
+        "shadow": "none",
+        "depth": "one",
+        "branch": "if"
+      },
+      "source_sha256": "e7d05a3d4070394cbb3296a18f0c9fde293ddeadc2512c25a5cb32942e89b4f9",
+      "expected_sha256": "eb6102e1f9860ce1d7e5ab0ef04662440e6afc9ac4a463aad395ae7d1abfc1d8",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 b lane=0 kind=0 local=0 index=0 width=1 bits=1 origin=...', expected 'k0 b lane=0 kind=1 local=0 index=0 width=1 bits=1 origin=...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#(.SELECT(1)) b()",
+        "after": "#(.SELECT(0)) b()",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_continuous_source",
+      "case": "test_gen_cross_generate_1_bit_known_import_none_one_if",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "import",
+        "shadow": "none",
+        "depth": "one",
+        "branch": "if"
+      },
+      "source_sha256": "e64b0bed18f300d6fba092c1149976ea4d6d14c306034e7728254977b66e27a0",
+      "expected_sha256": "eb6102e1f9860ce1d7e5ab0ef04662440e6afc9ac4a463aad395ae7d1abfc1d8",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 b lane=0 kind=1 local=0 index=0 width=1 bits=1 origin=...', expected 'k0 b lane=0 kind=1 local=0 index=0 width=1 bits=1 origin=...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign value = source ^",
+        "after": "assign value = '0 ^",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "update_wrong_instance",
+      "case": "test_gen_cross_generate_1_bit_known_import_none_one_if",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "import",
+        "shadow": "none",
+        "depth": "one",
+        "branch": "if"
+      },
+      "source_sha256": "9f8350782344e84ce88f7d0002ff5e5a60dff255dd69d51c9661c6e95925c153",
+      "expected_sha256": "eb6102e1f9860ce1d7e5ab0ef04662440e6afc9ac4a463aad395ae7d1abfc1d8",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 a source=11', expected 'k0 a source=00'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "b.source =",
+        "after": "a.source =",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "xor_becomes_or",
+      "case": "test_gen_cross_generate_1_bit_known_import_none_one_if",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "import",
+        "shadow": "none",
+        "depth": "one",
+        "branch": "if"
+      },
+      "source_sha256": "62ccdcc224a51bbe09bf0d834e1f313949442d94011085fe0c1bedeff16c1ac4",
+      "expected_sha256": "eb6102e1f9860ce1d7e5ab0ef04662440e6afc9ac4a463aad395ae7d1abfc1d8",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 b lane=0 kind=1 local=0 index=0 width=1 bits=1 origin=...', expected 'k0 b lane=0 kind=1 local=0 index=0 width=1 bits=1 origin=...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "source ^ used_t'",
+        "after": "source | used_t'",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "wrong_local_width",
+      "case": "test_gen_cross_generate_129_logic_z_import_local_two_case",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "access": "import",
+        "shadow": "local",
+        "depth": "two",
+        "branch": "case"
+      },
+      "source_sha256": "2993bcdb65844caeb56621c0125b971583079394f39b73407f928e077af7416b",
+      "expected_sha256": "69da38830bb291dd19aafa091a3faa2021913ebd8c286babffbc7b5d86da9e25",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a lane=0 kind=0 local=1 index=0 width=131 bits=131 ori...', expected 'k0 a lane=0 kind=0 local=1 index=0 width=130 bits=130 ori...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "scope_pkg::WIDTH + 1;",
+        "after": "scope_pkg::WIDTH + 2;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_local_constant",
+      "case": "test_gen_cross_generate_129_logic_z_import_local_two_case",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "access": "import",
+        "shadow": "local",
+        "depth": "two",
+        "branch": "case"
+      },
+      "source_sha256": "10684fbed4e724e5a453f6fe8b77174874418be879198c122a6ed05cb7961749",
+      "expected_sha256": "69da38830bb291dd19aafa091a3faa2021913ebd8c286babffbc7b5d86da9e25",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a lane=0 kind=0 local=1 index=0 width=130 bits=130 ori...', expected 'k0 a lane=0 kind=0 local=1 index=0 width=130 bits=130 ori...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "localparam int ORIGIN = 9;",
+        "after": "localparam int ORIGIN = 5;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_local_state_type",
+      "case": "test_gen_cross_generate_129_logic_z_import_local_two_case",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "access": "import",
+        "shadow": "local",
+        "depth": "two",
+        "branch": "case"
+      },
+      "source_sha256": "62946323475ea14b1a3b95a2890e86711f6e793ec4fc17e37b052cbd977d26ce",
+      "expected_sha256": "69da38830bb291dd19aafa091a3faa2021913ebd8c286babffbc7b5d86da9e25",
+      "status": "fail",
+      "reason": "output differs: line 20 is 'u0 a lane=0 kind=0 local=1 index=0 width=130 bits=130 ori...', expected 'u0 a lane=0 kind=0 local=1 index=0 width=130 bits=130 ori...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "typedef bit [WIDTH-1:0] word_t;",
+        "after": "typedef logic [WIDTH-1:0] word_t;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "ignore_import_shadow",
+      "case": "test_gen_cross_generate_129_logic_z_import_local_two_case",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "access": "import",
+        "shadow": "local",
+        "depth": "two",
+        "branch": "case"
+      },
+      "source_sha256": "8e001dacc6574887276b19beceabc5de9629d625d6d97e5c6e8e54eb39b4f659",
+      "expected_sha256": "69da38830bb291dd19aafa091a3faa2021913ebd8c286babffbc7b5d86da9e25",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a lane=0 kind=0 local=1 index=0 width=130 bits=129 ori...', expected 'k0 a lane=0 kind=0 local=1 index=0 width=130 bits=130 ori...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "typedef word_t used_t;",
+        "after": "typedef scope_pkg::word_t used_t;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "ignore_explicit_qualification",
+      "case": "test_gen_cross_generate_65_logic_x_qualified_local_two_if",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "access": "qualified",
+        "shadow": "local",
+        "depth": "two",
+        "branch": "if"
+      },
+      "source_sha256": "bc88fa98f9fdaef7400619eafaf5f6ef5e014ec13e80a892987f7573735d47d7",
+      "expected_sha256": "f3a68b78536796381655105156c66078cd80fcab3a00cee978ab09bb98b9b18e",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a lane=0 kind=0 local=1 index=0 width=65 bits=66 origi...', expected 'k0 a lane=0 kind=0 local=1 index=0 width=65 bits=65 origi...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "typedef bit [WIDTH-1:0] word_t;\n      typedef scope_pkg::word_t used_t;",
+        "after": "typedef bit [WIDTH-1:0] word_t;\n      typedef word_t used_t;",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "d249916a143718dc206d888401a2525e03ac27c22c99ce6bf678ef8fe87ea31b",
+  "binary_unchanged": true
+}

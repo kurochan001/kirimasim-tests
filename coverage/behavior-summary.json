@@ -42,9 +42,9 @@
     "interpretation_pending": 0
   },
   "test_mapping": {
-    "suite_test_files": 9551,
+    "suite_test_files": 9587,
     "linked_test_files": 5310,
-    "unlinked_test_files": 4241
+    "unlinked_test_files": 4277
   },
   "collective_requirement_count": 652,
   "requirement_status_counts": {

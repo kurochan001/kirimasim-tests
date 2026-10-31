@@ -1,0 +1,61 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch27/test_gen_cross_generate_129_bit_known_qualified_none_one_if": {
+   "status": "pass",
+   "inputs_sha256": "471ead1539de0b73f6dc2de78cb7a2a3dea80582ce7b6d13af2135e20fe73647"
+  },
+  "gen/ch27/test_gen_cross_generate_129_logic_known_import_none_one_if": {
+   "status": "pass",
+   "inputs_sha256": "e0766319a56c689951aa3ecb2f914971313cf09caea3087f362028a2503cae8b"
+  },
+  "gen/ch27/test_gen_cross_generate_1_bit_known_import_none_one_if": {
+   "status": "pass",
+   "inputs_sha256": "48e18b5904a2d1379e79add1be8986b5b2184a21abbe86b62709befffd3d794d"
+  },
+  "gen/ch27/test_gen_cross_generate_1_logic_known_import_none_one_if": {
+   "status": "pass",
+   "inputs_sha256": "1a4689c9f97b9a8a8eae04b335aade60a008c4f0cf6ac29f96294e0208dae06e"
+  },
+  "gen/ch27/test_gen_cross_generate_32_bit_known_import_none_one_if": {
+   "status": "pass",
+   "inputs_sha256": "cd3e0ee63fde17902381fc1e55fe2dfec7f1a5b5b51bae97945cbac6928f4062"
+  },
+  "gen/ch27/test_gen_cross_generate_32_logic_known_qualified_none_one_case": {
+   "status": "pass",
+   "inputs_sha256": "f9de8eb81d43a171d6ebb0daecf26de4551f6ccdbaea7157b29870f7727cb128"
+  },
+  "gen/ch27/test_gen_cross_generate_33_bit_known_import_none_one_if": {
+   "status": "pass",
+   "inputs_sha256": "f4e59327a93237195e63e3937d841cf22c58a85c248ede47552895dd1d2d18e4"
+  },
+  "gen/ch27/test_gen_cross_generate_33_logic_known_import_none_one_if": {
+   "status": "pass",
+   "inputs_sha256": "a2364095b080781f38a8805301a34f140d7f48653a0403299cb96402a58c182e"
+  },
+  "gen/ch27/test_gen_cross_generate_64_bit_known_import_none_one_if": {
+   "status": "pass",
+   "inputs_sha256": "9a844700ba21bddc53f7f72dc348f65aa0f68c08e3f3713f6e95fa0e0e58a65a"
+  },
+  "gen/ch27/test_gen_cross_generate_64_logic_known_import_local_two_if": {
+   "status": "pass",
+   "inputs_sha256": "dc56d78147aec353b1f6b4f31aeea8dec6e6eaf6481a3d81dafe777204b0b8d4"
+  },
+  "gen/ch27/test_gen_cross_generate_65_bit_known_import_none_one_case": {
+   "status": "pass",
+   "inputs_sha256": "34b553d027cb981f3f0cb05e2f3b0cf3d0325881a54b96ef821697b19339ac98"
+  },
+  "gen/ch27/test_gen_cross_generate_65_logic_known_import_none_one_if": {
+   "status": "pass",
+   "inputs_sha256": "0ed7bcc301443bc4cd043272abfc40ecaa7c0f19543925c6bf4e91106a0789b2"
+  }
+ },
+ "generated_at": "2026-10-31T10:41:44.403294+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

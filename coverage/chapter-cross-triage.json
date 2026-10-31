@@ -386,29 +386,6 @@
     {
       "chapters": [
         10,
-        27
-      ],
-      "category": "E",
-      "priority": "P3",
-      "reason": "generate反復ごとの連続代入が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "generate反復ごとの連続代入",
-      "factors": [
-        "反復数",
-        "genvar依存の式",
-        "幅/符号",
-        "入れ子深さ"
-      ],
-      "observation": "展開ごとに異なる定数式が独立した配列要素を駆動することを確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch27/test_generate_assign.sv",
-          "inputs_sha256": "8f546e0d353f40f01ea16aa6e02083d54037a313976a6968f47e28d7b8c692cc"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        10,
         28
       ],
       "category": "E",
@@ -817,29 +794,6 @@
     {
       "chapters": [
         23,
-        27
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "入れ子generate内の階層名探索が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "入れ子generate内の階層名探索",
-      "factors": [
-        "入れ子深さ",
-        "兄弟/親/子参照",
-        "assign/always_comb",
-        "同名宣言"
-      ],
-      "observation": "内側・兄弟スコープの値が2組の入力変更に追従し、別経路の対照と一致する。",
-      "witnesses": [
-        {
-          "test": "tests/ch23/test_generate_upward_scope_name.sv",
-          "inputs_sha256": "bdab08cfc9b08843fc3280226be6a672bd5296359ad045e9df3864f844a9677f"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        23,
         33
       ],
       "category": "E",
@@ -876,24 +830,6 @@
         "定数添字/階層"
       ],
       "observation": "各展開での接続先の値と幅、別インスタンスの保持を確認する。",
-      "witnesses": []
-    },
-    {
-      "chapters": [
-        26,
-        27
-      ],
-      "category": "C",
-      "priority": "P2",
-      "reason": "名前探索と展開時の型・定数評価が交わる。単なるpackage関数呼出しとは別に確認する。",
-      "objective": "packageの型・定数とgenerateスコープの隠蔽",
-      "factors": [
-        "import/明示修飾",
-        "同名localparam/typedef",
-        "generateの分岐",
-        "入れ子深さ"
-      ],
-      "observation": "選択した分岐・$bitsと値を照合し、packageと局所スコープの取り違えを識別する。",
       "witnesses": []
     },
     {

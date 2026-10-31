@@ -1,0 +1,36 @@
+k0 a source=00
+k0 a lane=0 kind=0 local=1 index=0 width=1 bits=1 origin=5 value=1
+k0 a lane=1 kind=1 local=0 index=1 width=1 bits=1 origin=5 value=0
+k0 b source=11
+k0 b lane=0 kind=1 local=0 index=0 width=1 bits=1 origin=5 value=0
+k0 b lane=1 kind=0 local=1 index=1 width=1 bits=1 origin=5 value=1
+k1 a source=11
+k1 a lane=0 kind=0 local=1 index=0 width=1 bits=1 origin=5 value=0
+k1 a lane=1 kind=1 local=0 index=1 width=1 bits=1 origin=5 value=1
+k1 b source=10
+k1 b lane=0 kind=1 local=0 index=0 width=1 bits=1 origin=5 value=1
+k1 b lane=1 kind=0 local=1 index=1 width=1 bits=1 origin=5 value=0
+k2 a source=10
+k2 a lane=0 kind=0 local=1 index=0 width=1 bits=1 origin=5 value=1
+k2 a lane=1 kind=1 local=0 index=1 width=1 bits=1 origin=5 value=0
+k2 b source=00
+k2 b lane=0 kind=1 local=0 index=0 width=1 bits=1 origin=5 value=1
+k2 b lane=1 kind=0 local=1 index=1 width=1 bits=1 origin=5 value=0
+u0 a source=zz
+u0 a lane=0 kind=0 local=1 index=0 width=1 bits=1 origin=5 value=0
+u0 a lane=1 kind=1 local=0 index=1 width=1 bits=1 origin=5 value=0
+u0 b source=zz
+u0 b lane=0 kind=1 local=0 index=0 width=1 bits=1 origin=5 value=0
+u0 b lane=1 kind=0 local=1 index=1 width=1 bits=1 origin=5 value=0
+u1 a source=zz
+u1 a lane=0 kind=0 local=1 index=0 width=1 bits=1 origin=5 value=0
+u1 a lane=1 kind=1 local=0 index=1 width=1 bits=1 origin=5 value=0
+u1 b source=zz
+u1 b lane=0 kind=1 local=0 index=0 width=1 bits=1 origin=5 value=0
+u1 b lane=1 kind=0 local=1 index=1 width=1 bits=1 origin=5 value=0
+u2 a source=zz
+u2 a lane=0 kind=0 local=1 index=0 width=1 bits=1 origin=5 value=0
+u2 a lane=1 kind=1 local=0 index=1 width=1 bits=1 origin=5 value=0
+u2 b source=zz
+u2 b lane=0 kind=1 local=0 index=0 width=1 bits=1 origin=5 value=0
+u2 b lane=1 kind=0 local=1 index=1 width=1 bits=1 origin=5 value=0

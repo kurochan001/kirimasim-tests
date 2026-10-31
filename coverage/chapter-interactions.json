@@ -1100,6 +1100,33 @@
           }
         }
       ]
+    },
+    {
+      "id": "generate_scope_lookup",
+      "primary_chapter": 27,
+      "pairs": [
+        {
+          "chapters": [
+            23,
+            27
+          ],
+          "reason": "名前付きfor/if/case generateを入れ子にし、2インスタンスの各要素の階層パスが分岐・genvar定数・型幅と更新値を正しく指すことを観測する。"
+        },
+        {
+          "chapters": [
+            26,
+            27
+          ],
+          "reason": "generate分岐内の同名型・定数がワイルドカードimportを隠す一方、明示修飾はpackage宣言を選ぶことを型幅・定数・X/Z変換で観測する。"
+        },
+        {
+          "chapters": [
+            10,
+            27
+          ],
+          "reason": "生成要素ごとに選んだ型とgenvar依存定数で連続代入を駆動し、別インスタンスの更新の混入や定数・代入先の共有を検出する。"
+        }
+      ]
     }
   ]
 }

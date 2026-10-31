@@ -196,11 +196,16 @@ Ghostの全件実行（別リポジトリの監査）が「テスト側の問題
   第10章×第12章・第10章×第25章を登録し、章対は53対、全選択ケースPASSのモデルは32になりました。
   comb/latchの暗黙の感度と保持も、39番目のモデルとして36件を追加しました。
   [設計と実行記録](interaction-verification.md#暗黙の感度リストとラッチ保持)を参照してください。
-  現在39モデル・1,801選択ケース、通常スイート9,551件です。最新照合版`95eefebeb952`で新規36件は
+  この時点では39モデル・1,801選択ケース、通常スイート9,551件でした。最新照合版`95eefebeb952`で新規36件は
   すべてPASS、全体は1,665 pass・134 unsupported・既存2 failです。従来1,765件の入力と結果は同じです。
   第9章×第25章・第13章×第25章を登録し、章対は55対、全選択ケースPASSのモデルは33になりました。
   固定Verilatorは既知値7件で時刻0の評価カウンタが期待1から512へ達する差異を両seedで再現したため、
   このモデルにはVerilatorのoracleを登録していません。Icarus 13.0は36件すべて一致しています。
+  generate階層とpackage/局所宣言の型・定数の名前探索も、40番目のモデルとして36件を追加しました。
+  [設計と実行記録](interaction-verification.md#generate階層でのpackageと局所宣言の名前探索)を参照してください。
+  現在40モデル・1,837選択ケース、通常スイート9,587件です。最新照合版`4b58e29f8c94`で新規36件は
+  すべてPASS、全体は1,701 pass・134 unsupported・既存2 failです。従来1,801件の入力と結果は同じです。
+  第10/23/26章×第27章を登録し、章対は58対、全選択ケースPASSのモデルは34になりました。
 
 ## 5. 実行環境
 
@@ -210,7 +215,7 @@ Ghostの全件実行（別リポジトリの監査）が「テスト側の問題
 | --- | --- | --- |
 | Icarus Verilog 13.0 | 固定oracleの確認 | `../kirimasim-tests-work/50percent-20261023/iverilog13/bin`（版を確認する） |
 | Verilator 5.052 | 固定oracleの確認 | `PATH`上。2状態テストのみ、seed 1・73 |
-| kirimasim | 最新実装の検証 | `../kirimasim-tests-work/cross30-event-iff-core`（確認時のビルドは`95eefebeb952`。実行直前に上流を取得してビルドし直す） |
+| kirimasim | 最新実装の検証 | `../kirimasim-tests-work/cross30-event-iff-core`（確認時のビルドは`4b58e29f8c94`。実行直前に上流を取得してビルドし直す） |
 | Lyra | 比較 | x86-64 Linuxのみ。`run_lyra.py --commit`に実際のコミットを渡す |
 | Ghost | 比較（公開前） | 非公開のビルドと実行プロファイルが必要。リポジトリ外に置く（README「Ghost」） |
 | SymbiYosys | formalの268件 | `tools/run_sby.py`。`:formal_case:`で検証ケースを指定 |
@@ -255,7 +260,7 @@ python3 tools/lint_metadata.py
 git diff --check
 ```
 
-確認時はツールの回帰テスト**427件**が通ります。`--check`に対応する更新は`--update`です
+確認時はツールの回帰テスト**434件**が通ります。`--check`に対応する更新は`--update`です
 （`coverage_depth.py`は`--minimum-tests 2`、`behavior_coverage.py`は`--require-source-reviewed`を付ける）。
 
 ### 6.2 テストを直したときの順序
