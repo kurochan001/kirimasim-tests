@@ -209,6 +209,7 @@ python3 tools/run_sby.py --sby "$SBY_BIN" --json FILE
 python3 -m unittest discover -s tools -p 'test_*.py'
 python3 generators/generate.py --check
 python3 tools/interaction_coverage.py --check
+python3 tools/chapter_cross_matrix.py --check
 python3 tools/combination_gaps.py --check
 python3 tools/suite_stats.py --check
 python3 tools/suite_catalog.py --check

@@ -199,6 +199,9 @@ assignments that satisfy their constraints. The full suite retains all existing 
 The [interaction report](docs/interaction-coverage.md) separates the selection plan
 from fingerprint-qualified passes in each individual run; it does not change the
 whole-standard requirement denominator.
+The [chapter interaction matrices](docs/chapter-cross-matrix.md) show which pairs
+of IEEE 1800-2023 chapters these models exercise, with CSVs for registered models,
+models whose full selection passed, and the underlying test and run evidence.
 The [design rationale and practical methodology](docs/interaction-verification-method.md)
 (Japanese) explain model selection, implementation and evidence, how to add new
 models, and how to apply the approach to other projects and LSI verification.

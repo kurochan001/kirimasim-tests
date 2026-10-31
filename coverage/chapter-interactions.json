@@ -1,0 +1,850 @@
+{
+  "schema": 1,
+  "reviewed_on": "2026-10-31",
+  "reviewer": "Codex (GPT-6), AI review",
+  "scope": "Registered finite interaction models only; explicit semantic chapter pairs, not citation co-occurrences. Diagonal entries are primary-chapter model counts.",
+  "models": [
+    {
+      "id": "scheduling_visibility",
+      "primary_chapter": 4,
+      "pairs": [
+        {
+          "chapters": [
+            4,
+            10
+          ],
+          "reason": "代入方式と観測イベント領域の関係"
+        },
+        {
+          "chapters": [
+            4,
+            9
+          ],
+          "reason": "手続きプロセスの待機・遅延と更新の可視性",
+          "when": {
+            "home": [
+              "initial",
+              "always",
+              "fork"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            4,
+            13
+          ],
+          "reason": "タスク／関数からの書込みと観測時点",
+          "when": {
+            "home": [
+              "task",
+              "function"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            4,
+            21
+          ],
+          "reason": "strobe／monitorの観測イベント領域",
+          "when": {
+            "reader": [
+              "strobe",
+              "monitor"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            4,
+            25
+          ],
+          "reason": "インターフェース内の書込みと観測",
+          "when": {
+            "home": [
+              "interface"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            4,
+            27
+          ],
+          "reason": "generate内の書込みと観測",
+          "when": {
+            "home": [
+              "generate"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba_capture",
+      "primary_chapter": 10,
+      "pairs": [
+        {
+          "chapters": [
+            4,
+            10
+          ],
+          "reason": "Active／NBA領域での値と代入先の確定"
+        },
+        {
+          "chapters": [
+            6,
+            10
+          ],
+          "reason": "代入時の幅・状態型変換と値の確定"
+        },
+        {
+          "chapters": [
+            7,
+            10
+          ],
+          "reason": "配列要素の代入先の確定と隣接要素の保持",
+          "when": {
+            "storage": [
+              "array"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            9,
+            10
+          ],
+          "reason": "遅延NBAと刺激変更後の代入",
+          "when": {
+            "timing": [
+              "delayed"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            10,
+            13
+          ],
+          "reason": "automaticタスク復帰後のNBA更新",
+          "when": {
+            "home": [
+              "task"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "expression_context",
+      "primary_chapter": 11,
+      "pairs": []
+    },
+    {
+      "id": "packed_part_select",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            7
+          ],
+          "reason": "パック配列の状態型と選択範囲の格納変換"
+        },
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "部分選択式の値とX/Z変換"
+        },
+        {
+          "chapters": [
+            7,
+            11
+          ],
+          "reason": "パック配列の宣言方向と部分選択の添字・方向"
+        }
+      ]
+    },
+    {
+      "id": "conditional_merge",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "条件式のX/Z結合と幅・符号・状態型変換"
+        }
+      ]
+    },
+    {
+      "id": "shift_context",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "シフト式の幅・符号と格納先の状態型変換"
+        }
+      ]
+    },
+    {
+      "id": "cast_pipeline",
+      "primary_chapter": 6,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "キャストの型変換と後続演算の評価順序"
+        }
+      ]
+    },
+    {
+      "id": "task_argument_visibility",
+      "primary_chapter": 13,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            13
+          ],
+          "reason": "引数の型変換と渡し方ごとの更新の可視性"
+        },
+        {
+          "chapters": [
+            7,
+            13
+          ],
+          "reason": "配列要素の引数渡しと隣接要素の保持",
+          "when": {
+            "storage": [
+              "element"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            9,
+            13
+          ],
+          "reason": "時間を消費するタスクの途中と復帰後の可視性",
+          "when": {
+            "timing": [
+              "delayed"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "argument_binding_index",
+      "primary_chapter": 13,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            13
+          ],
+          "reason": "input／ref／const refの型とコピー・参照の可視性"
+        },
+        {
+          "chapters": [
+            7,
+            13
+          ],
+          "reason": "配列・動的配列・キュー要素への結合と添字変更"
+        }
+      ]
+    },
+    {
+      "id": "packed_structure",
+      "primary_chapter": 7,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            7
+          ],
+          "reason": "構造体全体とメンバの符号・状態型"
+        },
+        {
+          "chapters": [
+            7,
+            10
+          ],
+          "reason": "構造体全体／メンバへの代入と更新領域・NBAの値確定"
+        },
+        {
+          "chapters": [
+            7,
+            11
+          ],
+          "reason": "構造体全体とメンバの式の符号拡張"
+        }
+      ]
+    },
+    {
+      "id": "case_matching",
+      "primary_chapter": 12,
+      "pairs": [
+        {
+          "chapters": [
+            11,
+            12
+          ],
+          "reason": "case比較時の幅・符号・X/Zと最初の一致の選択"
+        }
+      ]
+    },
+    {
+      "id": "port_connection",
+      "primary_chapter": 23,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            23
+          ],
+          "reason": "接続の型・幅・符号と最後の2状態変換"
+        },
+        {
+          "chapters": [
+            10,
+            23
+          ],
+          "reason": "ポートの駆動方向と接続時の代入変換"
+        }
+      ]
+    },
+    {
+      "id": "unpacked_array_copy",
+      "primary_chapter": 7,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            7
+          ],
+          "reason": "配列コピーの要素型と値の独立性"
+        },
+        {
+          "chapters": [
+            7,
+            11
+          ],
+          "reason": "配列／スライスの方向と読み出した要素の符号拡張"
+        }
+      ]
+    },
+    {
+      "id": "bit_vector_queries",
+      "primary_chapter": 20,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            20
+          ],
+          "reason": "ビットベクタ関数の引数の状態型とX/Z判定"
+        },
+        {
+          "chapters": [
+            11,
+            20
+          ],
+          "reason": "引数の式の形・実ビット列と集計・判定関数"
+        }
+      ]
+    },
+    {
+      "id": "streaming_permutation",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "ストリーミングの並べ替えと格納先の状態型変換"
+        }
+      ]
+    },
+    {
+      "id": "comparison_context",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "比較時の幅・符号・未知値と結果の格納変換"
+        }
+      ]
+    },
+    {
+      "id": "array_reduction_pipeline",
+      "primary_chapter": 7,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            7
+          ],
+          "reason": "配列要素とwith式の型変換・戻り値の幅"
+        },
+        {
+          "chapters": [
+            7,
+            11
+          ],
+          "reason": "配列リダクションの演算・オーバーフローと呼出し後の拡張"
+        }
+      ]
+    },
+    {
+      "id": "variable_bit_index",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "添字の符号・状態型と無効アクセス時の値"
+        },
+        {
+          "chapters": [
+            7,
+            11
+          ],
+          "reason": "パック配列の範囲・方向と可変ビット選択"
+        }
+      ]
+    },
+    {
+      "id": "queue_update_capacity",
+      "primary_chapter": 7,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            7
+          ],
+          "reason": "キューの要素型変換と空の既定値"
+        },
+        {
+          "chapters": [
+            7,
+            11
+          ],
+          "reason": "キュー操作の引数の切り詰めと取り出した値の符号拡張"
+        }
+      ]
+    },
+    {
+      "id": "queue_element_reference",
+      "primary_chapter": 7,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            7
+          ],
+          "reason": "キュー要素の状態型変換と保持値"
+        },
+        {
+          "chapters": [
+            7,
+            13
+          ],
+          "reason": "キュー要素へのref結合と要素移動・削除後の参照"
+        }
+      ]
+    },
+    {
+      "id": "division_context",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "除算・剰余の幅・符号・X/Zと最終型変換"
+        }
+      ]
+    },
+    {
+      "id": "dynamic_array_resize",
+      "primary_chapter": 7,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            7
+          ],
+          "reason": "動的配列の再確保と要素型ごとの既定値"
+        },
+        {
+          "chapters": [
+            7,
+            11
+          ],
+          "reason": "再確保で保持した要素の読み出しと符号拡張",
+          "when": {
+            "new_size": [
+              "1",
+              "2",
+              "4"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "concatenated_assignment",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            10
+          ],
+          "reason": "連結左辺の各項への代入と状態型変換"
+        },
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "連結全体／各項の符号と式の拡張"
+        },
+        {
+          "chapters": [
+            10,
+            11
+          ],
+          "reason": "連結への分割代入とNBAの右辺の値確定"
+        }
+      ]
+    },
+    {
+      "id": "packed_logical_reduction",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "リダクション・論理否定と演算前後の状態型変換"
+        }
+      ]
+    },
+    {
+      "id": "logical_short_circuit",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "論理演算の未知値の真偽変換と最終格納変換"
+        },
+        {
+          "chapters": [
+            11,
+            13
+          ],
+          "reason": "短絡評価による関数呼出しの抑止と副作用"
+        }
+      ]
+    },
+    {
+      "id": "edge_event_expression",
+      "primary_chapter": 9,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            9
+          ],
+          "reason": "状態型変換・X/Z遷移とエッジ検出"
+        },
+        {
+          "chapters": [
+            9,
+            10
+          ],
+          "reason": "ブロッキング／NBA更新とイベント発生"
+        },
+        {
+          "chapters": [
+            9,
+            11
+          ],
+          "reason": "ビット選択／リダクション式の変化とエッジ検出",
+          "when": {
+            "expression": [
+              "lsb",
+              "msb",
+              "reduce_or"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "event_or_iff",
+      "primary_chapter": 9,
+      "pairs": [
+        {
+          "chapters": [
+            9,
+            10
+          ],
+          "reason": "イベントORの起床とブロッキング／NBA更新"
+        },
+        {
+          "chapters": [
+            9,
+            12
+          ],
+          "reason": "iff条件のX/Zを含む真偽と起床の抑制"
+        },
+        {
+          "chapters": [
+            9,
+            15
+          ],
+          "reason": "名前付きイベントと条件付きイベントOR",
+          "when": {
+            "source": [
+              "named",
+              "mixed"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            10,
+            15
+          ],
+          "reason": "名前付きイベントの非ブロッキングトリガ",
+          "when": {
+            "source": [
+              "named",
+              "mixed"
+            ],
+            "update": [
+              "nba"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "heap_file_monitor_context",
+      "primary_chapter": 21,
+      "pairs": [
+        {
+          "chapters": [
+            4,
+            21
+          ],
+          "reason": "fmonitorによるPostponedでの最終値の観測"
+        },
+        {
+          "chapters": [
+            7,
+            21
+          ],
+          "reason": "キュー／動的配列要素の選択とファイル監視"
+        },
+        {
+          "chapters": [
+            9,
+            21
+          ],
+          "reason": "initial／always／forkからの監視登録",
+          "when": {
+            "context": [
+              "initial",
+              "always",
+              "fork"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            13,
+            21
+          ],
+          "reason": "タスク／関数からの監視登録と復帰後の観測",
+          "when": {
+            "context": [
+              "task",
+              "function"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            21,
+            24
+          ],
+          "reason": "programからの監視登録",
+          "when": {
+            "context": [
+              "program"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            21,
+            25
+          ],
+          "reason": "interfaceからの監視登録",
+          "when": {
+            "context": [
+              "interface"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            21,
+            26
+          ],
+          "reason": "package内の関数からの監視登録",
+          "when": {
+            "context": [
+              "package"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            21,
+            27
+          ],
+          "reason": "generate内からの監視登録",
+          "when": {
+            "context": [
+              "generate"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "compound_shift_target",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "複合シフト代入の符号・状態型変換とシフト量の独立幅"
+        },
+        {
+          "chapters": [
+            7,
+            11
+          ],
+          "reason": "配列要素を左辺とする複合シフトと添字の1回評価",
+          "when": {
+            "target": [
+              "element"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "membership_container",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "insideの幅・符号・状態型と片側ワイルドカード"
+        },
+        {
+          "chapters": [
+            7,
+            11
+          ],
+          "reason": "固定配列・動的配列・キューを集合とするinside",
+          "when": {
+            "container": [
+              "fixed",
+              "dynamic",
+              "queue"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "membership_range",
+      "primary_chapter": 11,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            11
+          ],
+          "reason": "insideの範囲端点の型変換・符号拡張・切捨て"
+        }
+      ]
+    },
+    {
+      "id": "case_inside_selection",
+      "primary_chapter": 12,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            12
+          ],
+          "reason": "case insideの項目とケース式の型変換"
+        },
+        {
+          "chapters": [
+            7,
+            12
+          ],
+          "reason": "固定配列をcase insideの項目とする分岐選択",
+          "when": {
+            "first": [
+              "array"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            11,
+            12
+          ],
+          "reason": "insideの範囲・ワイルドカード判定と分岐優先・評価回数"
+        }
+      ]
+    }
+  ]
+}

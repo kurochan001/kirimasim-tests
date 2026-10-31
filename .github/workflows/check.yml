@@ -199,6 +199,9 @@ jobs:
       - name: Check interaction models and execution evidence
         run: python3 tools/interaction_coverage.py --check
 
+      - name: Check the chapter interaction matrices
+        run: python3 tools/chapter_cross_matrix.py --check
+
       - name: Check combination gap bindings and execution evidence
         run: python3 tools/combination_gaps.py --check
 

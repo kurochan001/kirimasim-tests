@@ -1376,11 +1376,14 @@ python3 generators/generate.py
 # シミュレータで実行し、必要ならcoverage/interaction-results/へ新しいJSONを保存
 python3 tools/interaction_coverage.py --update
 python3 tools/interaction_coverage.py --check
+python3 tools/chapter_cross_matrix.py --update
+python3 tools/chapter_cross_matrix.py --check
 python3 -m unittest discover -s tools -p test_interaction_coverage.py
 ```
 
 生成テスト追加時はREADMEの統計、カタログ、条項別テスト数、要求照合一覧、要求カバレッジの
 生成物も通常どおり更新します。新しいクロスモデルは要求台帳の分母を変更しません。
+章間の対応は[章間クロス検証マトリクス](chapter-cross-matrix.md)の台帳にも登録し、CSVを更新します。
 新規テストを要求カバレッジに算入するには、別途、刺激・観測・期待値と要求の対応を
 レビューして登録する必要があります。既存テスト、負例、期待値は維持します。
 
