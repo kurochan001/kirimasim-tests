@@ -495,29 +495,6 @@
     },
     {
       "chapters": [
-        13,
-        23
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "デフォルト引数の宣言スコープと階層呼出しが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "デフォルト引数の宣言スコープと階層呼出し",
-      "factors": [
-        "呼出し形式",
-        "引数の省略/明示",
-        "同名変数の隠蔽",
-        "宣言側の値変更"
-      ],
-      "observation": "呼出し側の同名変数ではなく、宣言側で呼出し時に読んだ値を使うことを確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch13/test_default_argument_declaring_scope.sv",
-          "inputs_sha256": "78ddc5da1c3950415401a3f25e47153bef9b557515fef4720e248dbd5f08e1be"
-        }
-      ]
-    },
-    {
-      "chapters": [
         14,
         15
       ],
@@ -742,29 +719,6 @@
         {
           "test": "tests/ch6/test_implicit_port_expression_nets.sv",
           "inputs_sha256": "4e69e5ccaefd0fd2bf82bf84c40f58201f3915bcac3b06a62914627243563a23"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        23,
-        25
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "階層からinterfaceの要素へアクセスする駆動経路が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "階層からinterfaceの要素へアクセスする駆動経路",
-      "factors": [
-        "インスタンス数",
-        "内部/外部の駆動経路",
-        "定数/可変添字",
-        "接続形式"
-      ],
-      "observation": "階層で選んだ各interface実体の要素が、内部駆動でも外部駆動でも独立に更新される。",
-      "witnesses": [
-        {
-          "test": "tests/ch10/test_nba_interface_array_element.sv",
-          "inputs_sha256": "a361fdc58bf9cee9a0da724d32ebcc8c1821c92fd4a6ce9cd026c5c7e8cdd17a"
         }
       ]
     },

@@ -1,0 +1,72 @@
+k0 call=0 owner=a return=0 data=1 mask=1
+k0 a calls=1 data_reads=0 mask_reads=1 source=0 mask_source=1
+k0 b calls=0 data_reads=0 mask_reads=0 source=0 mask_source=0
+k0 caller data_reads=0 mask_reads=0 source=1 mask_source=0
+k0 call=1 owner=b return=0 data=0 mask=0
+k0 a calls=1 data_reads=0 mask_reads=1 source=0 mask_source=1
+k0 b calls=1 data_reads=0 mask_reads=1 source=1 mask_source=0
+k0 caller data_reads=0 mask_reads=0 source=0 mask_source=1
+k0 call=2 owner=a return=0 data=0 mask=0
+k0 a calls=2 data_reads=0 mask_reads=2 source=1 mask_source=0
+k0 b calls=1 data_reads=0 mask_reads=1 source=1 mask_source=0
+k0 caller data_reads=0 mask_reads=0 source=0 mask_source=1
+k1 call=0 owner=a return=1 data=0 mask=1
+k1 a calls=1 data_reads=0 mask_reads=1 source=1 mask_source=1
+k1 b calls=0 data_reads=0 mask_reads=0 source=0 mask_source=0
+k1 caller data_reads=0 mask_reads=0 source=0 mask_source=0
+k1 call=1 owner=b return=0 data=1 mask=1
+k1 a calls=1 data_reads=0 mask_reads=1 source=1 mask_source=1
+k1 b calls=1 data_reads=0 mask_reads=1 source=0 mask_source=1
+k1 caller data_reads=0 mask_reads=0 source=1 mask_source=0
+k1 call=2 owner=a return=0 data=1 mask=1
+k1 a calls=2 data_reads=0 mask_reads=2 source=0 mask_source=1
+k1 b calls=1 data_reads=0 mask_reads=1 source=0 mask_source=1
+k1 caller data_reads=0 mask_reads=0 source=1 mask_source=0
+k2 call=0 owner=a return=0 data=0 mask=0
+k2 a calls=1 data_reads=0 mask_reads=1 source=1 mask_source=0
+k2 b calls=0 data_reads=0 mask_reads=0 source=0 mask_source=0
+k2 caller data_reads=0 mask_reads=0 source=0 mask_source=1
+k2 call=1 owner=b return=1 data=0 mask=1
+k2 a calls=1 data_reads=0 mask_reads=1 source=1 mask_source=0
+k2 b calls=1 data_reads=0 mask_reads=1 source=1 mask_source=1
+k2 caller data_reads=0 mask_reads=0 source=0 mask_source=0
+k2 call=2 owner=a return=1 data=0 mask=1
+k2 a calls=2 data_reads=0 mask_reads=2 source=1 mask_source=1
+k2 b calls=1 data_reads=0 mask_reads=1 source=1 mask_source=1
+k2 caller data_reads=0 mask_reads=0 source=0 mask_source=0
+u0 call=0 owner=a return=1 data=1 mask=0
+u0 a calls=1 data_reads=0 mask_reads=1 source=0 mask_source=0
+u0 b calls=0 data_reads=0 mask_reads=0 source=0 mask_source=0
+u0 caller data_reads=0 mask_reads=0 source=1 mask_source=1
+u0 call=1 owner=b return=1 data=1 mask=0
+u0 a calls=1 data_reads=0 mask_reads=1 source=0 mask_source=0
+u0 b calls=1 data_reads=0 mask_reads=1 source=0 mask_source=0
+u0 caller data_reads=0 mask_reads=0 source=1 mask_source=1
+u0 call=2 owner=a return=1 data=1 mask=0
+u0 a calls=2 data_reads=0 mask_reads=2 source=0 mask_source=0
+u0 b calls=1 data_reads=0 mask_reads=1 source=0 mask_source=0
+u0 caller data_reads=0 mask_reads=0 source=1 mask_source=1
+u1 call=0 owner=a return=1 data=1 mask=0
+u1 a calls=1 data_reads=0 mask_reads=1 source=0 mask_source=0
+u1 b calls=0 data_reads=0 mask_reads=0 source=0 mask_source=0
+u1 caller data_reads=0 mask_reads=0 source=1 mask_source=1
+u1 call=1 owner=b return=1 data=1 mask=0
+u1 a calls=1 data_reads=0 mask_reads=1 source=0 mask_source=0
+u1 b calls=1 data_reads=0 mask_reads=1 source=0 mask_source=0
+u1 caller data_reads=0 mask_reads=0 source=1 mask_source=1
+u1 call=2 owner=a return=1 data=1 mask=0
+u1 a calls=2 data_reads=0 mask_reads=2 source=0 mask_source=0
+u1 b calls=1 data_reads=0 mask_reads=1 source=0 mask_source=0
+u1 caller data_reads=0 mask_reads=0 source=1 mask_source=1
+u2 call=0 owner=a return=1 data=1 mask=0
+u2 a calls=1 data_reads=0 mask_reads=1 source=0 mask_source=0
+u2 b calls=0 data_reads=0 mask_reads=0 source=0 mask_source=0
+u2 caller data_reads=0 mask_reads=0 source=1 mask_source=1
+u2 call=1 owner=b return=1 data=1 mask=0
+u2 a calls=1 data_reads=0 mask_reads=1 source=0 mask_source=0
+u2 b calls=1 data_reads=0 mask_reads=1 source=0 mask_source=0
+u2 caller data_reads=0 mask_reads=0 source=1 mask_source=1
+u2 call=2 owner=a return=1 data=1 mask=0
+u2 a calls=2 data_reads=0 mask_reads=2 source=0 mask_source=0
+u2 b calls=1 data_reads=0 mask_reads=1 source=0 mask_source=0
+u2 caller data_reads=0 mask_reads=0 source=1 mask_source=1

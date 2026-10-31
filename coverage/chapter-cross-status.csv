@@ -11,7 +11,7 @@
 10,代入文,N,N,R,M,R,M,M,R,M,D,M,M,M,M,M,M,R,R,R,R,R,R,M,R,M,R,M,E2,R,R,R,R,R,N,C1,R,R,R,R,R,R
 11,演算子と式,N,N,R,R,R,M,M,R,M,M,D,M,M,R,R,M,R,E2,E2,M,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 12,手続き型プログラミング文,N,N,R,R,R,M,M,R,M,M,M,D,M,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
-13,タスクと関数（サブルーチン）,N,N,R,M,R,M,M,M,M,M,M,M,D,R,E2,R,R,R,R,R,M,R,E2,R,M,M,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
+13,タスクと関数（サブルーチン）,N,N,R,M,R,M,M,M,M,M,M,M,D,R,E2,R,R,R,R,R,M,R,M,R,M,M,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 14,クロッキングブロック,N,N,R,M,R,M,R,R,E2,M,R,R,R,D,C2,E1,R,R,R,R,R,R,R,R,M,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 15,プロセス間の同期と通信,N,N,R,R,R,E2,E2,C1,M,M,R,R,E2,C2,D,R,R,R,R,R,R,R,R,R,C2,C2,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 16,アサーション,N,N,R,M,R,M,R,R,E2,M,M,R,R,E1,R,D,E2,R,R,R,R,R,R,E2,M,R,E2,R,R,R,R,R,R,N,R,R,R,R,R,R,R
@@ -21,9 +21,9 @@
 20,ユーティリティ用システムタスク・関数,N,N,R,R,R,M,E2,R,R,R,M,R,R,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,N,C2,R,R,R,R,R,R
 21,入出力用システムタスク・関数,N,N,R,M,R,E2,M,C2,M,R,R,R,M,R,R,R,R,R,R,R,D,R,R,M,M,M,M,E2,R,R,R,R,R,N,R,R,R,R,R,R,R
 22,コンパイラ指令,N,N,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,D,E2,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
-23,モジュールと階層,N,N,R,R,R,M,R,R,R,M,R,R,E2,R,R,R,R,R,R,R,R,E2,D,R,E2,E2,M,R,R,R,R,R,E2,N,R,R,R,R,R,R,R
+23,モジュールと階層,N,N,R,R,R,M,R,R,R,M,R,R,M,R,R,R,R,R,R,R,R,E2,D,R,M,E2,M,R,R,R,R,R,E2,N,R,R,R,R,R,R,R
 24,プログラム,N,N,R,E2,R,R,R,R,E2,R,R,R,R,R,R,E2,R,R,R,R,M,R,R,D,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
-25,インターフェース,N,N,R,M,R,R,R,E2,M,M,R,R,M,M,C2,M,C2,R,R,R,M,R,E2,R,D,R,C2,R,R,R,R,R,R,N,R,R,R,R,R,R,R
+25,インターフェース,N,N,R,M,R,R,R,E2,M,M,R,R,M,M,C2,M,C2,R,R,R,M,R,M,R,D,R,C2,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 26,パッケージ,N,N,R,R,R,R,R,R,R,R,R,R,M,R,C2,R,R,R,R,R,M,R,E2,R,R,D,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 27,generate構文,N,N,R,M,R,R,R,R,R,M,R,R,R,R,R,E2,R,R,R,R,M,R,M,R,C2,M,D,R,R,R,R,R,C2,N,R,R,R,R,R,R,R
 28,ゲートレベル・スイッチレベルのモデリング,N,N,R,R,R,R,R,R,R,E2,R,R,R,R,R,R,R,R,R,R,E2,R,R,R,R,R,R,D,E2,R,R,R,R,N,R,R,R,R,R,R,R

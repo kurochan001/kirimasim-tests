@@ -6,7 +6,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 9587 |
+| Tests | 9623 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -18,8 +18,8 @@
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 717 |
-| Icarus Verilog 13.0 only | 4649 |
+| both releases | 729 |
+| Icarus Verilog 13.0 only | 4673 |
 | Verilator 5.052 only | 1662 |
 | standard only | 2559 |
 
@@ -37,7 +37,7 @@
 | 10 | Assignment statements | 290 | 18 | 16.1 | 0 | 40 |
 | 11 | Operators and expressions | 1644 | 42 | 39.1 | 0 | 250 |
 | 12 | Procedural programming statements | 251 | 19 | 13.2 | 0 | 49 |
-| 13 | Tasks and functions (subroutines) | 316 | 15 | 21.1 | 0 | 34 |
+| 13 | Tasks and functions (subroutines) | 352 | 15 | 23.5 | 0 | 34 |
 | 14 | Clocking blocks | 114 | 15 | 7.6 | 0 | 38 |
 | 15 | Interprocess synchronization and communication | 59 | 21 | 2.8 | 0 | 21 |
 | 16 | Assertions | 697 | 69 | 10.1 | 0 | 508 |

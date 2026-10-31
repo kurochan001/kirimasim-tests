@@ -1,0 +1,465 @@
+{
+  "schema": 1,
+  "purpose": "default_argument_scope fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "scope": "all six mandatory witnesses: every passing mode, both expression forms and both homes, known/X/Z controls and wide values",
+  "generator_sha256": "4e169711c09bbe1e44d7884685e09e4c925e61249ad5e9bec5a83d6c4d322488",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_default_1_bit_known_module_variable_omitted",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "home": "module",
+        "expression": "variable",
+        "passing": "omitted"
+      },
+      "source_sha256": "1371134dedc1f4ce841d796a8d0870d2a7f0c157011331b057fab421505309ac",
+      "expected_sha256": "04f8c2eac66c446fbd886f4639afa0c7b495c0d1a286746195583b9dc33b8e5a",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_default_129_logic_z_interface_function_empty_data",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "home": "interface",
+        "expression": "function",
+        "passing": "empty_data"
+      },
+      "source_sha256": "249625a42a4fc81b66cdc080a92cf026afb189150dd8bc854ff2c4b411479c51",
+      "expected_sha256": "f162fc50d5b0f168a2a3efe1ec4975d145833c04c41cdf1d1b70075451f5273a",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_default_65_logic_x_module_function_named_data",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "home": "module",
+        "expression": "function",
+        "passing": "named_data"
+      },
+      "source_sha256": "20fbba48701495ff98b01590f5a9c269adf6c94d1526b9dd1ffa023e61de818c",
+      "expected_sha256": "4eb3efc8bdbf57549405e05335f90168a77f75585dc8c4d6a3bc3b34f8f04c8d",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_default_33_bit_x_interface_variable_named_both",
+      "values": {
+        "width": "33",
+        "state": "bit",
+        "value": "x",
+        "home": "interface",
+        "expression": "variable",
+        "passing": "named_both"
+      },
+      "source_sha256": "24299660945df8cb28938770301ed2ccb39e83821caacd6252dedbabe2eb3908",
+      "expected_sha256": "645b5d8f018ce4f185f4a126c27fbe2bf198ff66921700d6d7792e2711f02aca",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_default_32_logic_known_interface_function_explicit_zero",
+      "values": {
+        "width": "32",
+        "state": "logic",
+        "value": "known",
+        "home": "interface",
+        "expression": "function",
+        "passing": "explicit_zero"
+      },
+      "source_sha256": "00f3a1ce2f862b6a8b408e0afd150d49ddfd664260331267f040e378c41c936d",
+      "expected_sha256": "e36ef278dfe0da0d0de6db064e95c55c8a6e3ff311b11750ab4f3ab654af896d",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_default_64_logic_known_module_function_omitted",
+      "values": {
+        "width": "64",
+        "state": "logic",
+        "value": "known",
+        "home": "module",
+        "expression": "function",
+        "passing": "omitted"
+      },
+      "source_sha256": "ba79550f4db23e3d57968e9f674d457b0b370d5561fb8be694b3a2d73a99f9cb",
+      "expected_sha256": "f37464ea17e03039919973565ac866f99d25aa1dac53463911306f1460f3939e",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "use_caller_instead_of_default",
+      "case": "test_gen_cross_default_1_bit_known_module_variable_omitted",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "home": "module",
+        "expression": "variable",
+        "passing": "omitted"
+      },
+      "source_sha256": "9c99bdf28c479d7c098decd8946309c1c5b6b32db1f6c8666b1c4028109f94fd",
+      "expected_sha256": "04f8c2eac66c446fbd886f4639afa0c7b495c0d1a286746195583b9dc33b8e5a",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 call=0 owner=a return=0 data=1 mask=1', expected 'k0 call=0 owner=a return=1 data=0 mask=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".pick()",
+        "after": ".pick(source)",
+        "replacements": 9
+      }
+    },
+    {
+      "name": "wrong_variable_default",
+      "case": "test_gen_cross_default_1_bit_known_module_variable_omitted",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "home": "module",
+        "expression": "variable",
+        "passing": "omitted"
+      },
+      "source_sha256": "bd1ffef947701509c170b01143ebf31484e99686f3dfa759cab23fcbb09294e4",
+      "expected_sha256": "04f8c2eac66c446fbd886f4639afa0c7b495c0d1a286746195583b9dc33b8e5a",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 call=0 owner=a return=0 data=0 mask=0', expected 'k0 call=0 owner=a return=1 data=0 mask=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "mask_arg = mask_source",
+        "after": "mask_arg = '0",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "empty_data_loses_default",
+      "case": "test_gen_cross_default_129_logic_z_interface_function_empty_data",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "home": "interface",
+        "expression": "function",
+        "passing": "empty_data"
+      },
+      "source_sha256": "23248073bf6933d9d1217fc19d6c5409b88f18c247fc18923e7ae65f5517c076",
+      "expected_sha256": "f162fc50d5b0f168a2a3efe1ec4975d145833c04c41cdf1d1b70075451f5273a",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a calls=1 data_reads=0 mask_reads=0 source=00000000000...', expected 'k0 a calls=1 data_reads=1 mask_reads=0 source=00000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".pick(, mask_source)",
+        "after": ".pick('0, mask_source)",
+        "replacements": 18
+      }
+    },
+    {
+      "name": "logic_storage_becomes_bit",
+      "case": "test_gen_cross_default_129_logic_z_interface_function_empty_data",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "home": "interface",
+        "expression": "function",
+        "passing": "empty_data"
+      },
+      "source_sha256": "62f74a3a88b649884aac0a1cdc7a611a54f2fb94c94d227ce94ef7f79d625815",
+      "expected_sha256": "f162fc50d5b0f168a2a3efe1ec4975d145833c04c41cdf1d1b70075451f5273a",
+      "status": "fail",
+      "reason": "output differs: line 37 is 'u0 call=0 owner=a return=00000000000000000000000000000000...', expected 'u0 call=0 owner=a return=x0000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "typedef logic [128:0] word_t;",
+        "after": "typedef bit [128:0] word_t;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "named_data_loses_mask_default",
+      "case": "test_gen_cross_default_65_logic_x_module_function_named_data",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "home": "module",
+        "expression": "function",
+        "passing": "named_data"
+      },
+      "source_sha256": "4f90c7ed928b21774a37037e08484b25935ba5603b029c186b1553b795b6462f",
+      "expected_sha256": "4eb3efc8bdbf57549405e05335f90168a77f75585dc8c4d6a3bc3b34f8f04c8d",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 call=0 owner=a return=11111111111111111111111111111111...', expected 'k0 call=0 owner=a return=00000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".pick(.data_arg(source))",
+        "after": ".pick(.data_arg(source), .mask_arg('0))",
+        "replacements": 18
+      }
+    },
+    {
+      "name": "swap_named_bindings",
+      "case": "test_gen_cross_default_33_bit_x_interface_variable_named_both",
+      "values": {
+        "width": "33",
+        "state": "bit",
+        "value": "x",
+        "home": "interface",
+        "expression": "variable",
+        "passing": "named_both"
+      },
+      "source_sha256": "c8d037317fa822e27b042b06d7f2660168839a6bcc12c3af45502fa34bc56762",
+      "expected_sha256": "645b5d8f018ce4f185f4a126c27fbe2bf198ff66921700d6d7792e2711f02aca",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 call=0 owner=a return=11111111111111111111111111111111...', expected 'k0 call=0 owner=a return=11111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".mask_arg(mask_source), .data_arg(source)",
+        "after": ".mask_arg(source), .data_arg(mask_source)",
+        "replacements": 18
+      }
+    },
+    {
+      "name": "eager_default_with_explicit_zero",
+      "case": "test_gen_cross_default_32_logic_known_interface_function_explicit_zero",
+      "values": {
+        "width": "32",
+        "state": "logic",
+        "value": "known",
+        "home": "interface",
+        "expression": "function",
+        "passing": "explicit_zero"
+      },
+      "source_sha256": "9373ac48613aad45ebde0a1b41644df0c5ebcea3030ad8f0ea1286b0cc2802df",
+      "expected_sha256": "e36ef278dfe0da0d0de6db064e95c55c8a6e3ff311b11750ab4f3ab654af896d",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a calls=1 data_reads=1 mask_reads=0 source=00000000000...', expected 'k0 a calls=1 data_reads=0 mask_reads=0 source=00000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "calls++; seen_data = data_arg;",
+        "after": "calls++; seen_data = read_data(); seen_data = data_arg;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "explicit_zero_becomes_omitted",
+      "case": "test_gen_cross_default_32_logic_known_interface_function_explicit_zero",
+      "values": {
+        "width": "32",
+        "state": "logic",
+        "value": "known",
+        "home": "interface",
+        "expression": "function",
+        "passing": "explicit_zero"
+      },
+      "source_sha256": "018d09f81311db4d06a6fd0532bab8217c14c89fbbff67b04392139688ecd5a8",
+      "expected_sha256": "e36ef278dfe0da0d0de6db064e95c55c8a6e3ff311b11750ab4f3ab654af896d",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 call=0 owner=a return=11111111111111111111111111111111...', expected 'k0 call=0 owner=a return=00000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".pick('0, '0)",
+        "after": ".pick()",
+        "replacements": 9
+      }
+    },
+    {
+      "name": "wrong_default_function",
+      "case": "test_gen_cross_default_64_logic_known_module_function_omitted",
+      "values": {
+        "width": "64",
+        "state": "logic",
+        "value": "known",
+        "home": "module",
+        "expression": "function",
+        "passing": "omitted"
+      },
+      "source_sha256": "9fb4bbcd2733dfbf5013594ef27efea653241307093c82ecac4cb7c0d543be0f",
+      "expected_sha256": "f37464ea17e03039919973565ac866f99d25aa1dac53463911306f1460f3939e",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 call=0 owner=a return=00000000000000000000000000000000...', expected 'k0 call=0 owner=a return=11111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "data_arg = read_data()",
+        "after": "data_arg = read_mask()",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "evaluate_data_default_twice",
+      "case": "test_gen_cross_default_64_logic_known_module_function_omitted",
+      "values": {
+        "width": "64",
+        "state": "logic",
+        "value": "known",
+        "home": "module",
+        "expression": "function",
+        "passing": "omitted"
+      },
+      "source_sha256": "fe884a5660c7dff56731c9509e37e1ec4f09a138d870665526da8452770e7e20",
+      "expected_sha256": "f37464ea17e03039919973565ac866f99d25aa1dac53463911306f1460f3939e",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a calls=1 data_reads=2 mask_reads=1 source=00000000000...', expected 'k0 a calls=1 data_reads=1 mask_reads=1 source=00000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "data_reads++;",
+        "after": "data_reads += 2;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "default_stuck_at_initial_zero",
+      "case": "test_gen_cross_default_64_logic_known_module_function_omitted",
+      "values": {
+        "width": "64",
+        "state": "logic",
+        "value": "known",
+        "home": "module",
+        "expression": "function",
+        "passing": "omitted"
+      },
+      "source_sha256": "487cc9c2719af6c8b0a7565f82d9565b0ea433e5df60079ffeda594cfe4cbbb2",
+      "expected_sha256": "f37464ea17e03039919973565ac866f99d25aa1dac53463911306f1460f3939e",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 call=1 owner=b return=00000000000000000000000000000000...', expected 'k0 call=1 owner=b return=10101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "return source;",
+        "after": "return '0;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "invoke_wrong_instance",
+      "case": "test_gen_cross_default_64_logic_known_module_function_omitted",
+      "values": {
+        "width": "64",
+        "state": "logic",
+        "value": "known",
+        "home": "module",
+        "expression": "function",
+        "passing": "omitted"
+      },
+      "source_sha256": "bf9543d80e5a574c7b14e6d8132204fc8b3b6d93aa45f97018f2a4a10b1d4bb9",
+      "expected_sha256": "f37464ea17e03039919973565ac866f99d25aa1dac53463911306f1460f3939e",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 call=1 owner=b return=11111111111111111111111111111111...', expected 'k0 call=1 owner=b return=10101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "b.pick(",
+        "after": "a.pick(",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "lose_body_call_count",
+      "case": "test_gen_cross_default_64_logic_known_module_function_omitted",
+      "values": {
+        "width": "64",
+        "state": "logic",
+        "value": "known",
+        "home": "module",
+        "expression": "function",
+        "passing": "omitted"
+      },
+      "source_sha256": "7f85a31d34af97e5bcdd2499ca9dbdcfd9512267f38130b2f63ee5065580f508",
+      "expected_sha256": "f37464ea17e03039919973565ac866f99d25aa1dac53463911306f1460f3939e",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a calls=0 data_reads=1 mask_reads=1 source=00000000000...', expected 'k0 a calls=1 data_reads=1 mask_reads=1 source=00000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "calls++;",
+        "after": ";",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "248f22c10ff60bae2fa74bd9074691e9fe457d2e79bd2bed4dde5213974ed39a",
+  "binary_unchanged": true
+}

@@ -41,6 +41,7 @@ import interaction_return
 import interaction_loop_nba
 import interaction_process
 import interaction_generate
+import interaction_default
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -59,7 +60,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_concat, interaction_logic,
               interaction_shortcircuit, interaction_edge, interaction_iff, combination_monitors,
               interaction_clocking,
-              interaction_assertion, interaction_wait, interaction_class_method, interaction_return, interaction_loop_nba, interaction_process, interaction_generate,
+              interaction_assertion, interaction_wait, interaction_class_method, interaction_return, interaction_loop_nba, interaction_process, interaction_generate, interaction_default,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -374,5 +375,13 @@ def registered() -> tuple[SuiteModel, ...]:
             "2インスタンスのgenerate要素を階層名で読み、選択分岐・局所宣言・genvar定数・"
             "型幅・package定数と連続代入の値を観測する。importと明示修飾、入れ子、"
             "型と定数の隠蔽、X/Zを含む入力変更への追従と各スコープの独立性を確認する。",
+        ),
+        SuiteModel(
+            interaction_default.MODEL,
+            lambda row: "tests/gen/ch13/" + interaction_default.case_name(row) + ".sv",
+            interaction_default.MODEL.select(),
+            "A/B/Aの階層呼出しで既定値の元を毎回変え、両仮引数・戻り値と宣言側/呼出し元の"
+            "関数評価回数を観測する。省略・空欄・名前付き・明示0での評価抑止、呼出し時の"
+            "宣言スコープへの束縛、型変換とmodule/interfaceの各インスタンスの独立性を確認する。",
         ),
     )
