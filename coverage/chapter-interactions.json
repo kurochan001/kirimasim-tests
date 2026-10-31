@@ -845,6 +845,46 @@
           "reason": "insideの範囲・ワイルドカード判定と分岐優先・評価回数"
         }
       ]
+    },
+    {
+      "id": "clocking_input_sampling",
+      "primary_chapter": 14,
+      "pairs": [
+        {
+          "chapters": [
+            4,
+            14
+          ],
+          "reason": "#1step/#0のサンプリングとActive/NBA/Observed領域"
+        },
+        {
+          "chapters": [
+            6,
+            14
+          ],
+          "reason": "bit/logicへの格納変換とクロッキング入力のサンプリング"
+        },
+        {
+          "chapters": [
+            10,
+            14
+          ],
+          "reason": "blocking/NBA更新とサンプル値・ライブ値の区別"
+        },
+        {
+          "chapters": [
+            14,
+            25
+          ],
+          "reason": "interfaceとvirtual modportを通るクロッキング入力の観測",
+          "when": {
+            "access": [
+              "interface",
+              "virtual"
+            ]
+          }
+        }
+      ]
     }
   ]
 }

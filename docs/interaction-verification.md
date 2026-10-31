@@ -13,7 +13,16 @@ Issue #21で追加した境界条件の回帰テストと、保留した解釈�
 
 ## 保存実行の概要
 
-2026-10-31の引数結合追加：現在は**32モデル・1,549件**です。
+2026-10-31のクロッキング入力追加：現在は**33モデル・1,585件**です。
+実行直前に上流mainを取得し、再構成・ビルド・版の一致を確認したkirimasim `55ce80b9d5bc`で、
+新規の`clocking_input_sampling`36件は24 pass・12 unsupported・0 failでした。
+[全クロスの保存実行](../coverage/interaction-results/cross33-kirimasim-55ce80b9.json)は
+1,521 pass・62 unsupported・2 failです。従来1,549件の入力ハッシュと結果分類は同じです。
+新モデルは165ペア・3因子72組・必須5件を計画していますが、実行による充足は未達です。
+入力スキュー#0とvirtual modport型の未対応を、合法な計画から除外していません。
+[設計と固定版・故障注入の確認](#クロッキング入力のサンプリングと参照経路)を参照してください。
+
+同日の引数結合追加では**32モデル・1,549件**でした。
 実行直前に上流mainとビルド版を照合したkirimasim `a08e3489b8ab`で、
 新規の`argument_binding_index`36件はすべて一致しました。
 [全クロスの保存実行](../coverage/interaction-results/cross32-kirimasim-a08e3489.json)は
@@ -1365,6 +1374,87 @@ python3 tools/interaction_coverage.py --model argument_binding_index --results N
 件数、カタログ、要求カバレッジ、要求照合の整合性検査も成功しています。
 メタデータは9,299件で新規問題0件（既知395件）、`git diff --check`も成功です。
 GitHub CheckとNightlyの全件実行結果とは区別します。
+
+### クロッキング入力のサンプリングと参照経路
+
+`clocking_input_sampling`は、第14章の入力サンプリングを、更新方法・状態型・参照経路と
+組み合わせるモデルです。章対の仕分けで優先候補にした第4章×第14章、第14章×第25章に加え、
+第6章×第14章、第10章×第14章をモデル表へ登録しました。
+第14章を主題とする最初の有限クロスモデルです。
+既存の単発のクロッキング試験も保持しています。
+
+IEEE 1800-2023の14.4・14.13に従い、`#1step`はクロック直前の値、`#0`はObservedでの値を
+サンプルします。14.10・14.13に従って、観測側は生のクロックエッジではなく`@(cb)`で待ち、
+クロック変数の更新との競合を避けます。10.4.1・10.4.2のblocking/NBA、6.11.2の状態型変換、
+25.5.5・25.9.1のmodport・virtual interfaceを合わせて確認します。
+
+- 幅：1・32・33・64・65・129ビット。
+- 格納先の状態型：bit／logic。
+- 入力値：既知値／Xを含む値／Zを含む値。
+- 観測経路：module内、interface経由、virtual modport経由。
+- 入力スキュー：`#1step`／`#0`。
+- クロック：posedge／negedge。
+- 更新方式：blocking／NBA。
+
+全864通りから36件を選び、全因子対165組を網羅します。
+重点3因子群は「幅×状態型×値」36組、「参照経路×スキュー×エッジ」12組、
+「参照経路×スキュー×更新方式」12組、「状態型×値×スキュー」12組の計72組で、
+必須ケース5件を保持します。未対応によって制約や分母を減らしません。
+
+各ケースでは3組の背景条件を使い、既知値の更新で全ビットを反転させます。
+X/Zの行にも既知値の対照を置き、幅が広い場合は端と中央に未知値、残りには既知値を含めます。
+刺激はエッジの2 tick前に準備し、moduleの更新側がエッジで書き込みます。
+観測側は`@(cb)`でサンプル値・ライブ値・累積起床回数を保存し、1 tick後に実格納先と合わせて表示します。
+これにより、古い値と更新後の値、bitへの状態変換、更新の欠落、起床の欠落を区別します。
+
+期待値は生成器の規格モデルで計算し、[検算テスト](../tools/test_interaction_clocking.py)では
+Active→NBA→Observedと進める別のイベント順序モデルで全864行を照合しています。
+期待値をシミュレータの出力から生成していません。
+program由来のクロック、出力スキュー、inout、iff、複数クロック、複数interface実体の選択、
+同一時刻内の複数エッジは、このモデルの対象外です。
+
+最新上流`55ce80b9d5bc`を照合して再ビルドした
+[全33モデルの保存実行](../coverage/interaction-results/cross33-kirimasim-55ce80b9.json)では、
+新規36件中24件が一致し、12件が未対応でした。不一致はありません。
+合格で確認できた範囲は118/165ペア、3因子38/72組、必須ケース2/5件です。
+未対応診断は、入力スキュー`#0`とvirtual modportの型です。
+[ビルド証跡](../coverage/interaction-qualification/20261031-clocking-build.json)には
+上流とソースのコミット、バイナリの実行前後のハッシュ、従来1,549件との比較を記録しています。
+新モデルの全選択ケースPASSや全対象組合せの充足を主張しません。
+
+固定版の[Icarus 13.0](../coverage/interaction-results/clocking-20261031-icarus13.json)は
+36 knownで、クロッキング構文を受理しませんでした。oracleは登録していません。
+Verilator 5.052の[seed 1](../coverage/interaction-results/clocking-20261031-verilator5.052-seed1.json)・
+[seed 73](../coverage/interaction-results/clocking-20261031-verilator5.052-seed73.json)では、
+X/Zを含まない12件が両方で一致しました。この12件だけに固定oracleを登録し、
+既存のoracle登録は保持しています。X/Zを含む24件は固定Verilatorの確認対象外です。
+
+[故障注入](../coverage/interaction-qualification/20261031-clocking.json)は、kirimasimが対応する
+`#1step`の直接参照／interface経由に限って実施しました。
+正の対照3件が一致し、ライブ値とサンプル値の取り違え、書込みの欠落、書込みエッジの誤り、
+起床回数の欠落、サンプルの0固定、上位ビットの切捨て、logicのbit化、bitのlogic化、
+ライブ値の観測先の誤りの9種類をすべて出力相違で検出しました。
+構文エラーや未対応は検出に数えず、未対応の`#0`やvirtual経路の検出能力へ読み替えません。
+
+通常スイートは36件増えて9,335件、生成2,898件です。短時間選択は1,585件です。
+要求への新たな対応付けは登録しておらず、要求カバレッジの分母と設計・実行確認率は維持します。
+章対のモデル数は37対から41対へ増えますが、新モデルの全選択ケースPASSは未達なので、
+追加した4章対の全選択ケースPASSモデル数は0です。
+
+最新の上流を取得・再ビルドし、バイナリの版を照合してから、次の形で再実行してください。
+保存先には過去の証跡を上書きしない新しいパスを指定します。
+
+```sh
+python3 tools/interaction_coverage.py --model clocking_input_sampling --list-tests > /tmp/clock-tests.txt
+python3 tools/run_kirimasim.py --kirimasim BIN --json NEW.json $(cat /tmp/clock-tests.txt)
+python3 tools/interaction_coverage.py --model clocking_input_sampling --results NEW.json --require-pass
+```
+
+この保存実行に対する`--require-pass`は未対応が残るため失敗します。
+CheckやNightlyの全件実行結果とは範囲を区別します。
+追加時のツール回帰378件、生成物・保存実行・章対CSV・仕分け台帳・件数・カタログ・要求照合・
+要求カバレッジの整合性検査は成功しました。メタデータは9,335件で新規問題0件（既知395件）、
+`git diff --check`も成功です。故障注入は通常スイートの件数や成功証跡へ加算しません。
 
 ### モデル変更時の更新
 

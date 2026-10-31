@@ -1,0 +1,12 @@
+p0_known before=0 source=1
+p0_known hits=1 sampled=1 at_cb=1 live=1
+p0_x before=0 source=x
+p0_x hits=2 sampled=x at_cb=x live=x
+p1_known before=1 source=0
+p1_known hits=3 sampled=0 at_cb=0 live=0
+p1_x before=1 source=x
+p1_x hits=4 sampled=x at_cb=x live=x
+p2_known before=0 source=1
+p2_known hits=5 sampled=1 at_cb=1 live=1
+p2_x before=0 source=x
+p2_x hits=6 sampled=x at_cb=x live=x

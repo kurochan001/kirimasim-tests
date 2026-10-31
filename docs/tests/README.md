@@ -17,7 +17,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 11 | [Operators and expressions](ch11.md) | 1644 | 1122 |
 | 12 | [Procedural programming statements](ch12.md) | 251 | 70 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 280 | 93 |
-| 14 | [Clocking blocks](ch14.md) | 78 |  |
+| 14 | [Clocking blocks](ch14.md) | 114 | 36 |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 59 | 3 |
 | 16 | [Assertions](ch16.md) | 661 |  |
 | 17 | [Checkers](ch17.md) | 81 |  |

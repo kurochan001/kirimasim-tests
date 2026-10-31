@@ -1,0 +1,259 @@
+{
+  "schema": 1,
+  "purpose": "clocking_input_sampling supported-path fault controls",
+  "scope": "#1step local/interface paths only; does not qualify unsupported #0 or virtual paths",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 55ce80b9d5bc), built with AppleClang 21.0.0.21000334",
+  "commit": "55ce80b9d5bcaaf14f3bcc042ef14322ba76148e",
+  "binary_sha256": "b00467b6499ec632109e8cef0cfe2bba09667b29d8ebda148d80a394752eae47",
+  "binary_changed": false,
+  "generator_sha256": "b52d6c4b00d200df409361eb360d73e052a60e34eb9127e6aff6c08ffb9d5ef0",
+  "qualification_sha256": "9a2bed8700852648225e2bb2ce0bf6b4510ba18c31db609cd718c653070a7b1d",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_clock_1_bit_known_local_step_posedge_nba",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "local",
+        "skew": "step",
+        "edge": "posedge",
+        "update": "nba"
+      },
+      "source_sha256": "b2cfe513fa7014099f2c1b5a1f2059b9db145c2ea837fc55612f7ec4b288a1d6",
+      "expected_sha256": "241610a2ff4fd2cb7fdfc900c3d99fd6b1100fe959ae084c7ba81aec41085654",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_clock_65_logic_x_interface_step_posedge_blocking",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "access": "interface",
+        "skew": "step",
+        "edge": "posedge",
+        "update": "blocking"
+      },
+      "source_sha256": "72bddd78b28e5a52817c6f20221c0f78399737803fab63317fd6d8aa6296c182",
+      "expected_sha256": "703db3a12409ab38b09e9085fdb01430cab7c0a9d859bdd675275ed0d9ed5394",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_clock_129_bit_x_local_step_posedge_blocking",
+      "values": {
+        "width": "129",
+        "state": "bit",
+        "value": "x",
+        "access": "local",
+        "skew": "step",
+        "edge": "posedge",
+        "update": "blocking"
+      },
+      "source_sha256": "a4bfa22d9fdaab113e5aeab0cb3f737d0c09f9799e126305fee37cc1ac0a8f5f",
+      "expected_sha256": "ddffc24c3b0d37719ab5fea1165b06c1968c0dc56c06910d2c632f7691e2f363",
+      "status": "pass",
+      "reason": ""
+    }
+  ],
+  "faults": [
+    {
+      "name": "sample_live_instead_of_pre_edge",
+      "case": "test_gen_cross_clock_1_bit_known_local_step_posedge_nba",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "local",
+        "skew": "step",
+        "edge": "posedge",
+        "update": "nba"
+      },
+      "source_sha256": "f11ecc3081727daef7f416547681ded8d5456af3f7345aaefa068558033e64ca",
+      "expected_sha256": "241610a2ff4fd2cb7fdfc900c3d99fd6b1100fe959ae084c7ba81aec41085654",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0_known hits=1 sampled=1 at_cb=1 live=1', expected 'p0_known hits=1 sampled=0 at_cb=1 live=1'",
+      "mutation": {
+        "before": "seen_sample = cb.data;",
+        "after": "seen_sample = data;"
+      }
+    },
+    {
+      "name": "lose_data_update",
+      "case": "test_gen_cross_clock_1_bit_known_local_step_posedge_nba",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "local",
+        "skew": "step",
+        "edge": "posedge",
+        "update": "nba"
+      },
+      "source_sha256": "5c02fa417d77c4f64ca9c5661bd33e52920355d60499152a805aeecf98f1edcc",
+      "expected_sha256": "241610a2ff4fd2cb7fdfc900c3d99fd6b1100fe959ae084c7ba81aec41085654",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0_known hits=1 sampled=0 at_cb=0 live=0', expected 'p0_known hits=1 sampled=0 at_cb=1 live=1'",
+      "mutation": {
+        "before": "data <= incoming;",
+        "after": "data <= data;"
+      }
+    },
+    {
+      "name": "writer_uses_wrong_edge",
+      "case": "test_gen_cross_clock_1_bit_known_local_step_posedge_nba",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "local",
+        "skew": "step",
+        "edge": "posedge",
+        "update": "nba"
+      },
+      "source_sha256": "9ef2a7107865ec2146a4e0a0596d5732ef6d5349e43b5126e8f0f9b617c1661a",
+      "expected_sha256": "241610a2ff4fd2cb7fdfc900c3d99fd6b1100fe959ae084c7ba81aec41085654",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0_known hits=1 sampled=0 at_cb=0 live=0', expected 'p0_known hits=1 sampled=0 at_cb=1 live=1'",
+      "mutation": {
+        "before": "always @(posedge clk)",
+        "after": "always @(negedge clk)"
+      }
+    },
+    {
+      "name": "lose_wake_count",
+      "case": "test_gen_cross_clock_1_bit_known_local_step_posedge_nba",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "local",
+        "skew": "step",
+        "edge": "posedge",
+        "update": "nba"
+      },
+      "source_sha256": "da1f4680770245d4d72b42b00373dfbd3dd25f0e23ba9902c64aa6d8fc771f2b",
+      "expected_sha256": "241610a2ff4fd2cb7fdfc900c3d99fd6b1100fe959ae084c7ba81aec41085654",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0_known hits=0 sampled=0 at_cb=1 live=1', expected 'p0_known hits=1 sampled=0 at_cb=1 live=1'",
+      "mutation": {
+        "before": "hits++;",
+        "after": ";"
+      }
+    },
+    {
+      "name": "sample_stuck_at_zero",
+      "case": "test_gen_cross_clock_1_bit_known_local_step_posedge_nba",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "access": "local",
+        "skew": "step",
+        "edge": "posedge",
+        "update": "nba"
+      },
+      "source_sha256": "9077d9b02838e06c3c4e6a832578fe5c6971d3e4ff94c1d149710645dcc0b9e9",
+      "expected_sha256": "241610a2ff4fd2cb7fdfc900c3d99fd6b1100fe959ae084c7ba81aec41085654",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'p1_known hits=2 sampled=0 at_cb=0 live=0', expected 'p1_known hits=2 sampled=1 at_cb=0 live=0'",
+      "mutation": {
+        "before": "seen_sample = cb.data;",
+        "after": "seen_sample = '0;"
+      }
+    },
+    {
+      "name": "truncate_upper_bits",
+      "case": "test_gen_cross_clock_65_logic_x_interface_step_posedge_blocking",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "access": "interface",
+        "skew": "step",
+        "edge": "posedge",
+        "update": "blocking"
+      },
+      "source_sha256": "c2f446571504f1156154a6fc026ec6f1eea9db3843dad2944abb8c4971a2c235",
+      "expected_sha256": "703db3a12409ab38b09e9085fdb01430cab7c0a9d859bdd675275ed0d9ed5394",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0_known hits=1 sampled=000000000000000000000000000000000...', expected 'p0_known hits=1 sampled=010101010101010101010101010101010...'",
+      "mutation": {
+        "before": "seen_sample = bus.cb.data;",
+        "after": "seen_sample = bus.cb.data[31:0];"
+      }
+    },
+    {
+      "name": "logic_storage_becomes_bit",
+      "case": "test_gen_cross_clock_65_logic_x_interface_step_posedge_blocking",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "access": "interface",
+        "skew": "step",
+        "edge": "posedge",
+        "update": "blocking"
+      },
+      "source_sha256": "776a1d8f1b497418b551433a077947059b647374782082ce4fd05e26f86f7b3c",
+      "expected_sha256": "703db3a12409ab38b09e9085fdb01430cab7c0a9d859bdd675275ed0d9ed5394",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'p0_x hits=2 sampled=0101010101010101010101010101010101010...', expected 'p0_x hits=2 sampled=0101010101010101010101010101010101010...'",
+      "mutation": {
+        "before": "logic [64:0] data;",
+        "after": "bit [64:0] data;"
+      }
+    },
+    {
+      "name": "live_observation_uses_sample",
+      "case": "test_gen_cross_clock_65_logic_x_interface_step_posedge_blocking",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "access": "interface",
+        "skew": "step",
+        "edge": "posedge",
+        "update": "blocking"
+      },
+      "source_sha256": "dbcfef0811e9e2a3aca17c7059d9b1befe184edf4446cee0f589840d649c7953",
+      "expected_sha256": "703db3a12409ab38b09e9085fdb01430cab7c0a9d859bdd675275ed0d9ed5394",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0_known hits=1 sampled=010101010101010101010101010101010...', expected 'p0_known hits=1 sampled=010101010101010101010101010101010...'",
+      "mutation": {
+        "before": "seen_live = bus.data;",
+        "after": "seen_live = bus.cb.data;"
+      }
+    },
+    {
+      "name": "bit_storage_becomes_logic",
+      "case": "test_gen_cross_clock_129_bit_x_local_step_posedge_blocking",
+      "values": {
+        "width": "129",
+        "state": "bit",
+        "value": "x",
+        "access": "local",
+        "skew": "step",
+        "edge": "posedge",
+        "update": "blocking"
+      },
+      "source_sha256": "1d1f970782948260412e487d9133b1008ea3cb5c54786c64a30cdc7486831d90",
+      "expected_sha256": "ddffc24c3b0d37719ab5fea1165b06c1968c0dc56c06910d2c632f7691e2f363",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'p0_x hits=2 sampled=0101010101010101010101010101010101010...', expected 'p0_x hits=2 sampled=0101010101010101010101010101010101010...'",
+      "mutation": {
+        "before": "bit [128:0] data;",
+        "after": "logic [128:0] data;"
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true
+}

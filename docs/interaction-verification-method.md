@@ -222,6 +222,9 @@ print(len(model.rows()), len(selected))
 7. [回帰テスト](../tools/test_interaction_coverage.py)へ意味上の境界の検査を追加する。
    全対象の射影、必須ケースの保持、選択の決定性は共通検査でも確認する。
 8. `python3 generators/generate.py`を実行し、新規のSVと期待出力を生成してから実行確認へ進む。
+9. [章対の対応付け台帳](../coverage/chapter-interactions.json)に主題章・章対・因子条件を登録する。
+   [0セルの仕分け](chapter-cross-triage.md)に該当するE/Cエントリがある場合は再確認して外し、
+   モデル表と仕分け表を更新する。章の同時引用だけからクロスを追加しない。
 
 利用可能な行は、実在するテストと対応させます。既存テストを再利用する場合は全行を保持でき、
 新規生成器では選択した行だけを生成できます。意味や期待値を変更するときは、
@@ -281,6 +284,8 @@ python3 tools/coverage_depth.py --update --minimum-tests 2
 python3 tools/requirement_matching.py --update
 python3 tools/behavior_coverage.py --update --require-source-reviewed
 python3 tools/interaction_coverage.py --update
+python3 tools/chapter_cross_matrix.py --update
+python3 tools/chapter_cross_triage.py --update
 python3 -m unittest discover -s tools -p 'test_*.py'
 python3 tools/lint_metadata.py
 ```

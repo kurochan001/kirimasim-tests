@@ -12,34 +12,6 @@
     {
       "chapters": [
         4,
-        14
-      ],
-      "category": "E",
-      "priority": "P1",
-      "reason": "クロッキングの待機・駆動とイベント領域が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "クロッキングの待機・駆動とイベント領域",
-      "factors": [
-        "入力スキュー（1step/0）",
-        "出力スキュー（0/非0）",
-        "更新領域（NBA/Re-NBA）",
-        "待機先（信号エッジ/cb）"
-      ],
-      "observation": "通常エッジ待機とcb待機で読み取る値、NBA後とReactive前の値、出力駆動の前後を区別する。",
-      "witnesses": [
-        {
-          "test": "tests/ch14/test_clocking_block_event_after_nba_before_reactive.sv",
-          "inputs_sha256": "75f39adae8d8be3189e3a32e0cddd58085e9188e80a9b253a11b984604abb32c"
-        },
-        {
-          "test": "tests/ch14/test_clocking_future_drive_in_re_nba.sv",
-          "inputs_sha256": "f78b19754121867867ae99fffad9c3975d3d9274eefb8779079b7cc19babb571"
-        }
-      ],
-      "rank": 1
-    },
-    {
-      "chapters": [
-        4,
         16
       ],
       "category": "E",
@@ -818,30 +790,6 @@
         }
       ],
       "rank": 8
-    },
-    {
-      "chapters": [
-        14,
-        25
-      ],
-      "category": "E",
-      "priority": "P1",
-      "reason": "virtual modportを通るclocking出力のスキューが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "virtual modportを通るclocking出力のスキュー",
-      "factors": [
-        "直接/virtual経路",
-        "modport経路",
-        "出力スキュー",
-        "複数interfaceインスタンス"
-      ],
-      "observation": "スキュー前は旧値、スキュー後は新値となり、正しいinterface実体へ駆動されることを確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch25/test_virtual_modport_clocking_output_skew.sv",
-          "inputs_sha256": "5d3f774b36768a16e621c81c0f7750f6d1c1bd477f8fb14b5d8f927d0d2a0008"
-        }
-      ],
-      "rank": 3
     },
     {
       "chapters": [

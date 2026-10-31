@@ -33,6 +33,7 @@ import interaction_logic
 import interaction_shortcircuit
 import interaction_edge
 import interaction_iff
+import interaction_clocking
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -50,6 +51,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_divide, interaction_resize,
               interaction_concat, interaction_logic,
               interaction_shortcircuit, interaction_edge, interaction_iff, combination_monitors,
+              interaction_clocking,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -300,5 +302,13 @@ def registered() -> tuple[SuiteModel, ...]:
             "値・範囲・固定配列・2値のリストを先頭項目にしたcase insideで、各項目とdefaultを"
             "狙う4組のケース式、格納後の項目値、選ばれた分岐、ケース式と数える項目の評価回数を"
             "観測し、Xの比較を不一致として後続へ進むこと、端点の拡張、unique0の評価を確認する。",
+        ),
+        SuiteModel(
+            interaction_clocking.MODEL,
+            lambda row: "tests/gen/ch14/" + interaction_clocking.case_name(row) + ".sv",
+            interaction_clocking.MODEL.select(),
+            "3組の背景値でクロック前の値と更新後の値、cbでのサンプルとライブ値、起床回数を観測し、"
+            "#1step/#0、blocking/NBA、状態型、クロック方向とlocal/interface/virtual modportの"
+            "参照経路の相互作用を確認する。X/Z行にも既知値の対照を保持する。",
         ),
     )
