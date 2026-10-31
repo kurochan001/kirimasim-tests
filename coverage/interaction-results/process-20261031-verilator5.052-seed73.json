@@ -1,0 +1,48 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch9/test_gen_cross_process_129_logic_known_comb_direct_module_zero_zero": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'start a en=1 data=000000000000000000000000000000000000000...', expected 'start a en=1 data=000000000000000000000000000000000000000...'",
+   "inputs_sha256": "c08ec9b1a55b13ba66a91e09ed104e3962176949a53aefe1f067e4028597d7a3"
+  },
+  "gen/ch9/test_gen_cross_process_1_bit_known_comb_direct_module_zero_zero": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'start a en=1 data=0 mask=1 q=1 noise=0 events=512', expected 'start a en=1 data=0 mask=1 q=1 noise=0 events=1'",
+   "inputs_sha256": "9f28d17d6289f694919f443b4abf2491e304772d2cdd74cd5a40b1f2765d6f1c"
+  },
+  "gen/ch9/test_gen_cross_process_32_bit_known_comb_direct_module_one_zero": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'start a en=1 data=00000000000000000000000000000000 mask=1...', expected 'start a en=1 data=00000000000000000000000000000000 mask=1...'",
+   "inputs_sha256": "6f2cecf27683c72b597abe6114425eb78f5a2a4a719b200cc52b8f66f7ed9d41"
+  },
+  "gen/ch9/test_gen_cross_process_32_logic_known_latch_function_module_zero_hold": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'start a en=1 data=00000000000000000000000000000000 mask=1...', expected 'start a en=1 data=00000000000000000000000000000000 mask=1...'",
+   "inputs_sha256": "742425646cd6c87d80249055a63e8821c4e5022e25ada00488fc3cd125a8c29b"
+  },
+  "gen/ch9/test_gen_cross_process_33_bit_known_comb_direct_module_zero_zero": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'start a en=1 data=000000000000000000000000000000000 mask=...', expected 'start a en=1 data=000000000000000000000000000000000 mask=...'",
+   "inputs_sha256": "4a78a664bec07fc1635772618bfdf81c26de5c4ca9e2c2b56f74a06775495f6e"
+  },
+  "gen/ch9/test_gen_cross_process_64_logic_known_comb_direct_interface_one_one": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'start a en=1 data=000000000000000000000000000000000000000...', expected 'start a en=1 data=000000000000000000000000000000000000000...'",
+   "inputs_sha256": "b4898eabe5e993d69049b73a102b070a2bc0c2b4d6078bb1c7d8bccc84ec02ac"
+  },
+  "gen/ch9/test_gen_cross_process_65_logic_known_comb_direct_module_zero_zero": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'start a en=1 data=000000000000000000000000000000000000000...', expected 'start a en=1 data=000000000000000000000000000000000000000...'",
+   "inputs_sha256": "0622ecefddbec18007ffd71ae57e7426b6085af036c6e66e5e92c230db9bb21e"
+  }
+ },
+ "generated_at": "2026-10-31T10:05:56.693452+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

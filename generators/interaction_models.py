@@ -38,6 +38,8 @@ import interaction_assertion
 import interaction_wait
 import interaction_class_method
 import interaction_return
+import interaction_loop_nba
+import interaction_process
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -56,7 +58,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_concat, interaction_logic,
               interaction_shortcircuit, interaction_edge, interaction_iff, combination_monitors,
               interaction_clocking,
-              interaction_assertion, interaction_wait, interaction_class_method, interaction_return,
+              interaction_assertion, interaction_wait, interaction_class_method, interaction_return, interaction_loop_nba, interaction_process,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -347,5 +349,21 @@ def registered() -> tuple[SuiteModel, ...]:
             "for/while/repeat内で最初の非0ビットからreturnし、戻り値・走査回数と添字の総和・"
             "末尾到達・return後の副作用を観測する。A/B/A呼出しでインスタンス別状態と"
             "packageの共有状態、呼出し元の同名変数の保持、X/Zの2状態変換も確認する。",
+        ),
+        SuiteModel(
+            interaction_loop_nba.MODEL,
+            lambda row: "tests/gen/ch10/" + interaction_loop_nba.case_name(row) + ".sv",
+            interaction_loop_nba.MODEL.select(),
+            "for/while/repeat内の複数代入で、途中結果を使うblockingと旧値からNBAを予約する動作を"
+            "区別する。A/B/A呼出しの各反復の値・添字、ActiveとNBA後の全要素・カウンタ・"
+            "ガードを観測し、書込み順序、状態変換、module/interfaceの独立した格納先を確認する。",
+        ),
+        SuiteModel(
+            interaction_process.MODEL,
+            lambda row: "tests/gen/ch9/" + interaction_process.case_name(row) + ".sv",
+            interaction_process.MODEL.select(),
+            "宣言時初期値による時刻0の起動、data/maskと関数内部の読取りによる再実行、"
+            "0/X/Zでのcombの既定値とlatchの保持を観測する。1変数ずつ変更して両インスタンスの"
+            "出力・評価回数を確認し、無関係なnoiseと自己更新による余分な起動も区別する。",
         ),
     )

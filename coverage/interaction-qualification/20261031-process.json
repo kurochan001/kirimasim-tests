@@ -1,0 +1,437 @@
+{
+  "schema": 1,
+  "purpose": "implicit_process_visibility fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 95eefebeb952), built with AppleClang 21.0.0.21000334",
+  "commit": "95eefebeb9527ddb2327027f74217b3443e17a10",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "85d7008a8c7933332d59b47ee0280c53fd5c2e8e8b5ea9ca6b4009bba5af405b",
+  "scope": "one-bit direct comb/module, 129-bit logic Z function/latch/interface, 65-bit logic X function/comb/interface; known controls in all parents",
+  "generator_sha256": "94508cc9d2333e5cc4f49d858fd6f1a0972b864ae01d667ee1a39cdef73ffc0f",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_process_1_bit_known_comb_direct_module_zero_zero",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "process": "comb",
+        "access": "direct",
+        "home": "module",
+        "gate": "zero",
+        "idle": "zero"
+      },
+      "source_sha256": "444b9f236ed469cdbe793af2accda151abd3f8c8d7745903d1906624494c3f6c",
+      "expected_sha256": "b9edca77a25b73a9b52e15ec4fcc9c1da0bbd2972a8cdbea3f5081f93fbd0291",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_process_129_logic_z_latch_function_interface_x_hold",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "process": "latch",
+        "access": "function",
+        "home": "interface",
+        "gate": "x",
+        "idle": "hold"
+      },
+      "source_sha256": "8ef9c6e7664b94d716f9aee41a3aa06879b010a7eeee905358fa898b87fd6532",
+      "expected_sha256": "17c3010b0e34bd6f27aaa6d3418b5603633b539f074f737934be12b4c7706af5",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_process_65_logic_x_comb_function_interface_z_one",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "process": "comb",
+        "access": "function",
+        "home": "interface",
+        "gate": "z",
+        "idle": "one"
+      },
+      "source_sha256": "e04ff11817acd33e6a83277eab813e2b21b43ef6484b376a43376451729d6f0c",
+      "expected_sha256": "75d071f30080dcda68d38df380acdb40109621610d1307cb9bbab0464dc04782",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "comb_loses_default",
+      "case": "test_gen_cross_process_1_bit_known_comb_direct_module_zero_zero",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "process": "comb",
+        "access": "direct",
+        "home": "module",
+        "gate": "zero",
+        "idle": "zero"
+      },
+      "source_sha256": "ebaf51178ecb4a210ef6f47d1156e21f7834b916e35ffa4bf2839b36c37eceef",
+      "expected_sha256": "b9edca77a25b73a9b52e15ec4fcc9c1da0bbd2972a8cdbea3f5081f93fbd0291",
+      "status": "fail",
+      "reason": "output differs: line 15 is 'k0_6 a en=0 data=0 mask=1 q=1 noise=0 events=2', expected 'k0_6 a en=0 data=0 mask=1 q=0 noise=0 events=2'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "else q = '0;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_execution_count",
+      "case": "test_gen_cross_process_1_bit_known_comb_direct_module_zero_zero",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "process": "comb",
+        "access": "direct",
+        "home": "module",
+        "gate": "zero",
+        "idle": "zero"
+      },
+      "source_sha256": "63281844c83f98dee13923fce48df25ab98f17a57c4a61c94a68890a6a06952a",
+      "expected_sha256": "b9edca77a25b73a9b52e15ec4fcc9c1da0bbd2972a8cdbea3f5081f93fbd0291",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'start a en=1 data=0 mask=1 q=1 noise=0 events=0', expected 'start a en=1 data=0 mask=1 q=1 noise=0 events=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "if (events < 512) events++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_time_zero_run",
+      "case": "test_gen_cross_process_1_bit_known_comb_direct_module_zero_zero",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "process": "comb",
+        "access": "direct",
+        "home": "module",
+        "gate": "zero",
+        "idle": "zero"
+      },
+      "source_sha256": "b3b053a411d3c66f9bcf59c9e1e64337e187cb358f58b4c10b56fd0f2c7a324d",
+      "expected_sha256": "b9edca77a25b73a9b52e15ec4fcc9c1da0bbd2972a8cdbea3f5081f93fbd0291",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'start a en=1 data=0 mask=1 q=0 noise=0 events=0', expected 'start a en=1 data=0 mask=1 q=1 noise=0 events=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "always_comb begin",
+        "after": "always @(en or data or mask) begin",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "update_wrong_instance",
+      "case": "test_gen_cross_process_1_bit_known_comb_direct_module_zero_zero",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "process": "comb",
+        "access": "direct",
+        "home": "module",
+        "gate": "zero",
+        "idle": "zero"
+      },
+      "source_sha256": "6b70c5b2e9e22ddc2d2e62db6f3f873b6eaa5c6244a966e03c9f026f48bf46ea",
+      "expected_sha256": "b9edca77a25b73a9b52e15ec4fcc9c1da0bbd2972a8cdbea3f5081f93fbd0291",
+      "status": "fail",
+      "reason": "output differs: line 9 is 'k0_3 a en=1 data=1 mask=1 q=0 noise=0 events=2', expected 'k0_3 a en=1 data=0 mask=1 q=1 noise=0 events=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "b.data =",
+        "after": "a.data =",
+        "replacements": 6
+      }
+    },
+    {
+      "name": "wrong_comb_default",
+      "case": "test_gen_cross_process_1_bit_known_comb_direct_module_zero_zero",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "process": "comb",
+        "access": "direct",
+        "home": "module",
+        "gate": "zero",
+        "idle": "zero"
+      },
+      "source_sha256": "c4b2b929d79cedc88bc4ee32d1638b274ee7c420a8e5ec0e62cfb3e8f8a85ac2",
+      "expected_sha256": "b9edca77a25b73a9b52e15ec4fcc9c1da0bbd2972a8cdbea3f5081f93fbd0291",
+      "status": "fail",
+      "reason": "output differs: line 15 is 'k0_6 a en=0 data=0 mask=1 q=1 noise=0 events=2', expected 'k0_6 a en=0 data=0 mask=1 q=0 noise=0 events=2'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "else q = '0;",
+        "after": "else q = '1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "latch_loses_hold",
+      "case": "test_gen_cross_process_129_logic_z_latch_function_interface_x_hold",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "process": "latch",
+        "access": "function",
+        "home": "interface",
+        "gate": "x",
+        "idle": "hold"
+      },
+      "source_sha256": "d1fb7dc121e93bad5e7f61cb5303ff6385faebe05000bcd4d2e5ab5ac495583e",
+      "expected_sha256": "17c3010b0e34bd6f27aaa6d3418b5603633b539f074f737934be12b4c7706af5",
+      "status": "fail",
+      "reason": "output differs: line 15 is 'k0_6 a en=x data=0000000000000000000000000000000000000000...', expected 'k0_6 a en=x data=0000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "if (en) q <= compute();",
+        "after": "if (en) q <= compute(); else q <= '0;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "function_omits_data",
+      "case": "test_gen_cross_process_129_logic_z_latch_function_interface_x_hold",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "process": "latch",
+        "access": "function",
+        "home": "interface",
+        "gate": "x",
+        "idle": "hold"
+      },
+      "source_sha256": "8dab40d5715d09b6bb5ecb6998a471d20d5dd699dbfa1278d35e776549b1dc66",
+      "expected_sha256": "17c3010b0e34bd6f27aaa6d3418b5603633b539f074f737934be12b4c7706af5",
+      "status": "fail",
+      "reason": "output differs: line 10 is 'k0_3 b en=1 data=1111111111111111111111111111111111111111...', expected 'k0_3 b en=1 data=1111111111111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "return data ^ mask;",
+        "after": "return mask;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "logic_storage_becomes_bit",
+      "case": "test_gen_cross_process_129_logic_z_latch_function_interface_x_hold",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "process": "latch",
+        "access": "function",
+        "home": "interface",
+        "gate": "x",
+        "idle": "hold"
+      },
+      "source_sha256": "d1dd7a9d0c237441baa294b1c629ab5f2ec100481d4695e3e5e80f02e404a355",
+      "expected_sha256": "17c3010b0e34bd6f27aaa6d3418b5603633b539f074f737934be12b4c7706af5",
+      "status": "fail",
+      "reason": "output differs: line 107 is 'u0_4 a en=1 data=0000000000000000000000000000000000000000...', expected 'u0_4 a en=1 data=0000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "typedef logic [128:0] word_t;",
+        "after": "typedef bit [128:0] word_t;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "latch_ignores_enable",
+      "case": "test_gen_cross_process_129_logic_z_latch_function_interface_x_hold",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "process": "latch",
+        "access": "function",
+        "home": "interface",
+        "gate": "x",
+        "idle": "hold"
+      },
+      "source_sha256": "34c0e3d5d59271609087f16c3bedf351bb50e78f33c757c76a3dce63db46c8fb",
+      "expected_sha256": "17c3010b0e34bd6f27aaa6d3418b5603633b539f074f737934be12b4c7706af5",
+      "status": "fail",
+      "reason": "output differs: line 15 is 'k0_6 a en=x data=0000000000000000000000000000000000000000...', expected 'k0_6 a en=x data=0000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "if (en) q",
+        "after": "if (1'b1) q",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "unknown_gate_is_true",
+      "case": "test_gen_cross_process_65_logic_x_comb_function_interface_z_one",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "process": "comb",
+        "access": "function",
+        "home": "interface",
+        "gate": "z",
+        "idle": "one"
+      },
+      "source_sha256": "e609457f053a0f183ae80cbfc17dee56da5d91930ea85629a3a45090d2a31547",
+      "expected_sha256": "75d071f30080dcda68d38df380acdb40109621610d1307cb9bbab0464dc04782",
+      "status": "fail",
+      "reason": "output differs: line 15 is 'k0_6 a en=z data=0000000000000000000000000000000000000000...', expected 'k0_6 a en=z data=0000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "if (en) q",
+        "after": "if (en !== 1'b0) q",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "function_omits_mask",
+      "case": "test_gen_cross_process_65_logic_x_comb_function_interface_z_one",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "process": "comb",
+        "access": "function",
+        "home": "interface",
+        "gate": "z",
+        "idle": "one"
+      },
+      "source_sha256": "9dc1c469e6411e397004a9577caffcddf28d1ac250343ff67b581ee53ec825dd",
+      "expected_sha256": "75d071f30080dcda68d38df380acdb40109621610d1307cb9bbab0464dc04782",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'start a en=1 data=000000000000000000000000000000000000000...', expected 'start a en=1 data=000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "return data ^ mask;",
+        "after": "return data;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "noise_enters_sensitivity",
+      "case": "test_gen_cross_process_65_logic_x_comb_function_interface_z_one",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "process": "comb",
+        "access": "function",
+        "home": "interface",
+        "gate": "z",
+        "idle": "one"
+      },
+      "source_sha256": "d9f50f1af3142dc945aeb072559834e50d36f2c956af4b45414fbf92ec639cd5",
+      "expected_sha256": "75d071f30080dcda68d38df380acdb40109621610d1307cb9bbab0464dc04782",
+      "status": "fail",
+      "reason": "output differs: line 27 is 'k0_12 a en=z data=111111111111111111111111111111111111111...', expected 'k0_12 a en=z data=111111111111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "q = compute();",
+        "after": "q = compute() ^ noise;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "function_xor_becomes_or",
+      "case": "test_gen_cross_process_65_logic_x_comb_function_interface_z_one",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "process": "comb",
+        "access": "function",
+        "home": "interface",
+        "gate": "z",
+        "idle": "one"
+      },
+      "source_sha256": "285b80e934c9e385fad68df5fa0185a79bce13d9b979c5b5624adf5840d2fbaf",
+      "expected_sha256": "75d071f30080dcda68d38df380acdb40109621610d1307cb9bbab0464dc04782",
+      "status": "fail",
+      "reason": "output differs: line 10 is 'k0_3 b en=1 data=1111111111111111111111111111111111111111...', expected 'k0_3 b en=1 data=1111111111111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "return data ^ mask;",
+        "after": "return data | mask;",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "f580b8f31219035564563b9c289ba58dfe84b3fb2a9d3a1d499ad6da57b022dd",
+  "binary_unchanged": true
+}

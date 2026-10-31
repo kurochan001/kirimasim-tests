@@ -1030,6 +1030,76 @@
           }
         }
       ]
+    },
+    {
+      "id": "loop_assignment_order",
+      "primary_chapter": 10,
+      "pairs": [
+        {
+          "chapters": [
+            10,
+            12
+          ],
+          "reason": "for/while/repeatからの複数代入で、blockingの値の依存とNBAの旧値参照・同じ格納先への予約順序を観測する。"
+        },
+        {
+          "chapters": [
+            10,
+            25
+          ],
+          "reason": "interface内の静的なスカラ・配列要素に代入し、2個のinterfaceの独立性をA/B/A呼出しとActive/NBA後の全要素で観測する。",
+          "when": {
+            "home": [
+              "interface"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "implicit_process_visibility",
+      "primary_chapter": 9,
+      "pairs": [
+        {
+          "chapters": [
+            9,
+            25
+          ],
+          "reason": "interface内のalways_comb/always_latchについて、時刻0の実行・暗黙の感度・イネーブル無効時の出力と2インスタンスの独立性を観測する。",
+          "when": {
+            "home": [
+              "interface"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            9,
+            13
+          ],
+          "reason": "引数なし関数の内部から読むdata/maskを暗黙の感度へ含め、関数を呼ばない分岐でもその変更による評価回数を観測する。",
+          "when": {
+            "access": [
+              "function"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            13,
+            25
+          ],
+          "reason": "interfaceに定義した関数が自身のdata/maskを読み、他インスタンスの変更が関数の結果・起動回数へ混入しないことを観測する。",
+          "when": {
+            "access": [
+              "function"
+            ],
+            "home": [
+              "interface"
+            ]
+          }
+        }
+      ]
     }
   ]
 }

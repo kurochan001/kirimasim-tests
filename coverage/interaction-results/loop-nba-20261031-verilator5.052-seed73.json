@@ -1,0 +1,61 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch10/test_gen_cross_loop_nba_129_bit_known_for_2_same_blocking_module": {
+   "status": "pass",
+   "inputs_sha256": "140ac56000800ab3890bb987354dd92c13197f5b76edf399a78ac90ad973b7ee"
+  },
+  "gen/ch10/test_gen_cross_loop_nba_129_logic_known_for_2_scalar_blocking_module": {
+   "status": "pass",
+   "inputs_sha256": "656e32fd25e9c81d193a6e682bdf7bfa0aaaf0aae35e3e13652ff6a001177777"
+  },
+  "gen/ch10/test_gen_cross_loop_nba_1_bit_known_for_2_scalar_nba_module": {
+   "status": "pass",
+   "inputs_sha256": "a67ceb8218f98f62c457c70b8d09c4df5944195e77855c7eaab6c48891d60435"
+  },
+  "gen/ch10/test_gen_cross_loop_nba_1_logic_known_for_3_rotate_blocking_interface": {
+   "status": "pass",
+   "inputs_sha256": "f080b1f65a5206cb8c02c56e1e406d50a54c4616bed375bc1140baa95be7af2b"
+  },
+  "gen/ch10/test_gen_cross_loop_nba_32_bit_known_while_3_rotate_nba_module": {
+   "status": "pass",
+   "inputs_sha256": "2e5db0371c71567923716e7f97f0e3c02e2dbc801e230cff690508632d82232c"
+  },
+  "gen/ch10/test_gen_cross_loop_nba_32_logic_known_while_2_same_nba_interface": {
+   "status": "pass",
+   "inputs_sha256": "1761dca787a3f21ef8b8f1ace2d00e4f86a0bf1d9d5d44cf754878ccfd0f7919"
+  },
+  "gen/ch10/test_gen_cross_loop_nba_33_bit_known_repeat_3_same_nba_module": {
+   "status": "pass",
+   "inputs_sha256": "a2afb72afa54229d36408b7fb77b7032478d09218e02bcb4455e3ddedf736c6b"
+  },
+  "gen/ch10/test_gen_cross_loop_nba_33_logic_known_for_2_scalar_blocking_module": {
+   "status": "pass",
+   "inputs_sha256": "705f3527141cf7f941631aa330ce68cfd4dd88194473976829686e4b5e8963cc"
+  },
+  "gen/ch10/test_gen_cross_loop_nba_64_bit_known_for_5_same_nba_module": {
+   "status": "pass",
+   "inputs_sha256": "296315dc808b7b3f97304667720c2bbeb6b89299c62930977919f1a38e426352"
+  },
+  "gen/ch10/test_gen_cross_loop_nba_64_logic_known_repeat_3_scalar_blocking_module": {
+   "status": "pass",
+   "inputs_sha256": "5b342f1954dbea1b57b64853d29102c72919492acd79a4176345ed3d6472c380"
+  },
+  "gen/ch10/test_gen_cross_loop_nba_65_bit_known_for_5_scalar_nba_module": {
+   "status": "pass",
+   "inputs_sha256": "8295f5e525644132f4846c0b80a7879a91c9aebc450c3b63c531ca3eb1de1c0d"
+  },
+  "gen/ch10/test_gen_cross_loop_nba_65_logic_known_for_2_scalar_blocking_module": {
+   "status": "pass",
+   "inputs_sha256": "98dcd225d65756890934fe03e71ba8c693ec1596ac8bf9396b485fd1814ee0bc"
+  }
+ },
+ "generated_at": "2026-10-31T09:42:30.512977+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

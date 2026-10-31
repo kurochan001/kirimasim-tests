@@ -12,8 +12,8 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 6 | [Data types](ch6.md) | 645 | 43 |
 | 7 | [Aggregate data types](ch7.md) | 772 | 304 |
 | 8 | [Classes](ch8.md) | 357 | 36 |
-| 9 | [Processes](ch9.md) | 347 | 137 |
-| 10 | [Assignment statements](ch10.md) | 254 | 50 |
+| 9 | [Processes](ch9.md) | 383 | 173 |
+| 10 | [Assignment statements](ch10.md) | 290 | 86 |
 | 11 | [Operators and expressions](ch11.md) | 1644 | 1122 |
 | 12 | [Procedural programming statements](ch12.md) | 251 | 70 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 316 | 129 |

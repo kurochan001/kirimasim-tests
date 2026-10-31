@@ -6,7 +6,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 9479 |
+| Tests | 9551 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -18,8 +18,8 @@
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 693 |
-| Icarus Verilog 13.0 only | 4565 |
+| both releases | 705 |
+| Icarus Verilog 13.0 only | 4625 |
 | Verilator 5.052 only | 1662 |
 | standard only | 2559 |
 
@@ -33,8 +33,8 @@
 | 6 | Data types | 645 | 76 | 8.5 | 0 | 105 |
 | 7 | Aggregate data types | 772 | 49 | 15.8 | 0 | 201 |
 | 8 | Classes | 357 | 43 | 8.3 | 0 | 84 |
-| 9 | Processes | 347 | 25 | 13.9 | 0 | 56 |
-| 10 | Assignment statements | 254 | 18 | 14.1 | 0 | 40 |
+| 9 | Processes | 383 | 25 | 15.3 | 0 | 56 |
+| 10 | Assignment statements | 290 | 18 | 16.1 | 0 | 40 |
 | 11 | Operators and expressions | 1644 | 42 | 39.1 | 0 | 250 |
 | 12 | Procedural programming statements | 251 | 19 | 13.2 | 0 | 49 |
 | 13 | Tasks and functions (subroutines) | 316 | 15 | 21.1 | 0 | 34 |

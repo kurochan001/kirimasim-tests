@@ -1,0 +1,437 @@
+{
+  "schema": 1,
+  "purpose": "loop_assignment_order fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 95eefebeb952), built with AppleClang 21.0.0.21000334",
+  "commit": "95eefebeb9527ddb2327027f74217b3443e17a10",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "85d7008a8c7933332d59b47ee0280c53fd5c2e8e8b5ea9ca6b4009bba5af405b",
+  "scope": "one-bit module scalar NBA, 65-bit logic X interface same-element blocking feedback, 129-bit logic Z interface rotated NBA; all retain known controls",
+  "generator_sha256": "2c8383e7d610d6482e0c24a1490ec7b1323a01b21f0e49c8b41369c48ad04ca6",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_loop_nba_1_bit_known_for_2_scalar_nba_module",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "loop": "for",
+        "count": "2",
+        "storage": "scalar",
+        "update": "nba",
+        "home": "module"
+      },
+      "source_sha256": "353e15c0d2a6d70ea122df57f287d15c2329dbd6f5f9e9f5f42d659020a2e5d6",
+      "expected_sha256": "b44a09cb884eb221e47d47bb667c3f92c80ce16b092279bb362d353bcd824abe",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_loop_nba_65_logic_x_while_3_same_blocking_interface",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "loop": "while",
+        "count": "3",
+        "storage": "same",
+        "update": "blocking",
+        "home": "interface"
+      },
+      "source_sha256": "c98884a12f1337387ee0b004b4a9b224228927f4491924498e79c6278ff8b70b",
+      "expected_sha256": "3c90985eb32e8057cc1fd69a253ef7265375c43973fa2ba39cc69711cc312ef2",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_loop_nba_129_logic_z_repeat_5_rotate_nba_interface",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "count": "5",
+        "storage": "rotate",
+        "update": "nba",
+        "home": "interface"
+      },
+      "source_sha256": "9531a3eff352647984657fe5f1ad17680b05fe8bc800d64627a7524cc4efa382",
+      "expected_sha256": "6419ff6ab3854687cc9ee748e24fbd0fdd2181462b75c942ba3a8384fcce8124",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "nba_updates_immediately",
+      "case": "test_gen_cross_loop_nba_1_bit_known_for_2_scalar_nba_module",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "loop": "for",
+        "count": "2",
+        "storage": "scalar",
+        "update": "nba",
+        "home": "module"
+      },
+      "source_sha256": "575085ab5f6f4beece4ab056370d13a42103c5dc49d8de34fe0b8e85c727e349",
+      "expected_sha256": "b44a09cb884eb221e47d47bb667c3f92c80ce16b092279bb362d353bcd824abe",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'phase=0 owner=2 call=1 step=1 index=0 old=1 raw=1 mask=1', expected 'phase=0 owner=2 call=1 step=1 index=0 old=0 raw=1 mask=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "target <= target ^ captured;",
+        "after": "target = target ^ captured;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_issued_count",
+      "case": "test_gen_cross_loop_nba_1_bit_known_for_2_scalar_nba_module",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "loop": "for",
+        "count": "2",
+        "storage": "scalar",
+        "update": "nba",
+        "home": "module"
+      },
+      "source_sha256": "c9cf11065c39ccb054ca032554adb0851e405390d27e854811d01abe77eb9b8f",
+      "expected_sha256": "b44a09cb884eb221e47d47bb667c3f92c80ce16b092279bb362d353bcd824abe",
+      "status": "fail",
+      "reason": "output differs: line 7 is 'k0 active owner=2 calls=2 issued=0 guard=1', expected 'k0 active owner=2 calls=2 issued=4 guard=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "issued++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_call_count",
+      "case": "test_gen_cross_loop_nba_1_bit_known_for_2_scalar_nba_module",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "loop": "for",
+        "count": "2",
+        "storage": "scalar",
+        "update": "nba",
+        "home": "module"
+      },
+      "source_sha256": "cf163c89b7681b027ab471b9057da0f0a9ef207286e9e96cc5294632a31c4401",
+      "expected_sha256": "b44a09cb884eb221e47d47bb667c3f92c80ce16b092279bb362d353bcd824abe",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'phase=0 owner=2 call=0 step=0 index=0 old=0 raw=1 mask=1', expected 'phase=0 owner=2 call=1 step=0 index=0 old=0 raw=1 mask=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "calls++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "xor_becomes_or",
+      "case": "test_gen_cross_loop_nba_1_bit_known_for_2_scalar_nba_module",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "loop": "for",
+        "count": "2",
+        "storage": "scalar",
+        "update": "nba",
+        "home": "module"
+      },
+      "source_sha256": "784bbc68d3611ba5cefd8f369094b175fa6e7e82dc0b093a40a54bfbe1a5d055",
+      "expected_sha256": "b44a09cb884eb221e47d47bb667c3f92c80ce16b092279bb362d353bcd824abe",
+      "status": "fail",
+      "reason": "output differs: line 14 is 'k0 settled owner=5 word0=1', expected 'k0 settled owner=5 word0=0'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "target ^ captured",
+        "after": "target | captured",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "blocking_update_is_deferred",
+      "case": "test_gen_cross_loop_nba_65_logic_x_while_3_same_blocking_interface",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "loop": "while",
+        "count": "3",
+        "storage": "same",
+        "update": "blocking",
+        "home": "interface"
+      },
+      "source_sha256": "c3986a7ee15a6a206be0d9f0c2ca480658a67da473e7685168561b9714cd6dc2",
+      "expected_sha256": "3c90985eb32e8057cc1fd69a253ef7265375c43973fa2ba39cc69711cc312ef2",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'phase=0 owner=2 call=1 step=1 index=2 old=000000000000000...', expected 'phase=0 owner=2 call=1 step=1 index=2 old=111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "target[index] = target[index] ^ captured;",
+        "after": "target[index] <= target[index] ^ captured;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_target_feedback",
+      "case": "test_gen_cross_loop_nba_65_logic_x_while_3_same_blocking_interface",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "loop": "while",
+        "count": "3",
+        "storage": "same",
+        "update": "blocking",
+        "home": "interface"
+      },
+      "source_sha256": "f45a1aedf6ab85c437ac1c74230a68d4f30faf33dee111f70129c91104856739",
+      "expected_sha256": "3c90985eb32e8057cc1fd69a253ef7265375c43973fa2ba39cc69711cc312ef2",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'phase=0 owner=2 call=1 step=2 index=2 old=101010101010101...', expected 'phase=0 owner=2 call=1 step=2 index=2 old=010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "target[index] ^ captured",
+        "after": "captured",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "reuse_first_mask",
+      "case": "test_gen_cross_loop_nba_129_logic_z_repeat_5_rotate_nba_interface",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "count": "5",
+        "storage": "rotate",
+        "update": "nba",
+        "home": "interface"
+      },
+      "source_sha256": "6f976f9958ec2af13f6f1bb8c0acf292393e781884cdd76a52e42e31eecf226c",
+      "expected_sha256": "6419ff6ab3854687cc9ee748e24fbd0fdd2181462b75c942ba3a8384fcce8124",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'phase=0 owner=2 call=1 step=1 index=3 old=111111111111111...', expected 'phase=0 owner=2 call=1 step=1 index=3 old=111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "captured = raw;",
+        "after": "captured = raw0;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "logic_storage_becomes_bit",
+      "case": "test_gen_cross_loop_nba_129_logic_z_repeat_5_rotate_nba_interface",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "count": "5",
+        "storage": "rotate",
+        "update": "nba",
+        "home": "interface"
+      },
+      "source_sha256": "5864cfcd931856fb3bbc08993e869fe281a3dcf036ba45f3ce79a8136b134c31",
+      "expected_sha256": "6419ff6ab3854687cc9ee748e24fbd0fdd2181462b75c942ba3a8384fcce8124",
+      "status": "fail",
+      "reason": "output differs: line 94 is 'phase=3 owner=2 call=1 step=0 index=2 old=000000000000000...', expected 'phase=3 owner=2 call=1 step=0 index=2 old=000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "typedef logic [128:0] word_t;",
+        "after": "typedef bit [128:0] word_t;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "collapse_rotating_index",
+      "case": "test_gen_cross_loop_nba_129_logic_z_repeat_5_rotate_nba_interface",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "count": "5",
+        "storage": "rotate",
+        "update": "nba",
+        "home": "interface"
+      },
+      "source_sha256": "7e7d2f18d23288afd61cb7eef29b3045282944d24fb80891068e44c6e4823e1f",
+      "expected_sha256": "6419ff6ab3854687cc9ee748e24fbd0fdd2181462b75c942ba3a8384fcce8124",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'phase=0 owner=2 call=1 step=1 index=2 old=000000000000000...', expected 'phase=0 owner=2 call=1 step=1 index=3 old=111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "index = 2 + (i % 3);",
+        "after": "index = 2;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "reverse_array_route",
+      "case": "test_gen_cross_loop_nba_129_logic_z_repeat_5_rotate_nba_interface",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "count": "5",
+        "storage": "rotate",
+        "update": "nba",
+        "home": "interface"
+      },
+      "source_sha256": "a79bb8dea5da1ca50c374222623e7497c7091f84b523e37575beba965ca0e05b",
+      "expected_sha256": "6419ff6ab3854687cc9ee748e24fbd0fdd2181462b75c942ba3a8384fcce8124",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'phase=0 owner=2 call=1 step=0 index=2 old=101010101010101...', expected 'phase=0 owner=2 call=1 step=0 index=2 old=000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "target[index]",
+        "after": "target[6 - index]",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "skip_last_iteration",
+      "case": "test_gen_cross_loop_nba_129_logic_z_repeat_5_rotate_nba_interface",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "count": "5",
+        "storage": "rotate",
+        "update": "nba",
+        "home": "interface"
+      },
+      "source_sha256": "c7126889268f137ba1dcaa93a9c534bb1f14cdf0ee8c57f95936a7eff0346b60",
+      "expected_sha256": "6419ff6ab3854687cc9ee748e24fbd0fdd2181462b75c942ba3a8384fcce8124",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'phase=0 owner=5 call=1 step=0 index=2 old=111111111111111...', expected 'phase=0 owner=2 call=1 step=4 index=3 old=111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "repeat (5)",
+        "after": "repeat (4)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "invoke_wrong_instance",
+      "case": "test_gen_cross_loop_nba_129_logic_z_repeat_5_rotate_nba_interface",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "count": "5",
+        "storage": "rotate",
+        "update": "nba",
+        "home": "interface"
+      },
+      "source_sha256": "9982e924c74ab99b6bbcc112a9b1c3be8b3e94e4235e87fbd2ce261d71741b9e",
+      "expected_sha256": "6419ff6ab3854687cc9ee748e24fbd0fdd2181462b75c942ba3a8384fcce8124",
+      "status": "fail",
+      "reason": "output differs: line 6 is 'phase=0 owner=2 call=2 step=0 index=2 old=000000000000000...', expected 'phase=0 owner=5 call=1 step=0 index=2 old=111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "b.issue(",
+        "after": "a.issue(",
+        "replacements": 6
+      }
+    },
+    {
+      "name": "corrupt_guard",
+      "case": "test_gen_cross_loop_nba_129_logic_z_repeat_5_rotate_nba_interface",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "count": "5",
+        "storage": "rotate",
+        "update": "nba",
+        "home": "interface"
+      },
+      "source_sha256": "029f40bccd31aec50d6262fbdafea33be872280b80677e8fca380869ed6c24ea",
+      "expected_sha256": "6419ff6ab3854687cc9ee748e24fbd0fdd2181462b75c942ba3a8384fcce8124",
+      "status": "fail",
+      "reason": "output differs: line 16 is 'k0 active owner=2 calls=2 issued=10 guard=000000000000000...', expected 'k0 active owner=2 calls=2 issued=10 guard=101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "issued++;",
+        "after": "issued++; guard = '0;",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "215ef38e74a68134cfcaf1476e83cdaf721732bc8e093a9fbd36a8687f56bdcb",
+  "binary_unchanged": true
+}
