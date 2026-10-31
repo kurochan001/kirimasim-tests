@@ -32,7 +32,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 26 | [Packages](ch26.md) | 83 |  |
 | 27 | [Generate constructs](ch27.md) | 175 | 72 |
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 245 | 136 |
-| 29 | [User-defined primitives](ch29.md) | 106 | 25 |
+| 29 | [User-defined primitives](ch29.md) | 142 | 61 |
 | 30 | [Specify blocks](ch30.md) | 60 |  |
 | 31 | [Timing checks](ch31.md) | 66 |  |
 | 32 | [Backannotation using the standard delay format](ch32.md) | 50 |  |

@@ -54,15 +54,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **9970 tests** in 38 chapters. 3533 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_assertion`, 36 by `interaction_binding`, 36 by `interaction_case`, 34 by `interaction_case_inside`, 32 by `interaction_cast`, 36 by `interaction_class_method`, 36 by `interaction_clocking`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 41 by `interaction_config`, 36 by `interaction_default`, 63 by `interaction_delay`, 72 by `interaction_divide`, 64 by `interaction_edge`, 13 by `interaction_event_task`, 51 by `interaction_expr`, 36 by `interaction_generate`, 27 by `interaction_iff`, 36 by `interaction_ifgenerate`, 39 by `interaction_import`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 36 by `interaction_loop_nba`, 36 by `interaction_memfile`, 72 by `interaction_method`, 36 by `interaction_nba`, 40 by `interaction_nettype`, 36 by `interaction_port`, 36 by `interaction_process`, 18 by `interaction_program`, 60 by `interaction_query`, 48 by `interaction_queue`, 60 by `interaction_queue_ref`, 46 by `interaction_range`, 36 by `interaction_reactive`, 38 by `interaction_resize`, 36 by `interaction_return`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 25 by `interaction_udp`, 36 by `interaction_wait`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **10006 tests** in 38 chapters. 3569 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_assertion`, 36 by `interaction_binding`, 36 by `interaction_case`, 34 by `interaction_case_inside`, 32 by `interaction_cast`, 36 by `interaction_class_method`, 36 by `interaction_clocking`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 41 by `interaction_config`, 36 by `interaction_default`, 63 by `interaction_delay`, 72 by `interaction_divide`, 64 by `interaction_edge`, 13 by `interaction_event_task`, 51 by `interaction_expr`, 36 by `interaction_generate`, 27 by `interaction_iff`, 36 by `interaction_ifgenerate`, 39 by `interaction_import`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 36 by `interaction_loop_nba`, 36 by `interaction_memfile`, 72 by `interaction_method`, 36 by `interaction_nba`, 40 by `interaction_nettype`, 36 by `interaction_port`, 36 by `interaction_process`, 18 by `interaction_program`, 60 by `interaction_query`, 48 by `interaction_queue`, 60 by `interaction_queue_ref`, 46 by `interaction_range`, 36 by `interaction_reactive`, 38 by `interaction_resize`, 36 by `interaction_return`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 25 by `interaction_udp`, 36 by `interaction_udpstate`, 36 by `interaction_wait`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5547 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5583 |
 | Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1680 |
 | The standard only, with no fixed-release simulator oracle recorded | 2743 |
 
-2303 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+2337 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -92,7 +92,7 @@ The suite has **9970 tests** in 38 chapters. 3533 of them are generated (`tests/
 | 26 | Packages | 83 | 53 | 16 | 14 |
 | 27 | Generate constructs | 175 | 129 | 20 | 26 |
 | 28 | Gate-level and switch-level modeling | 245 | 194 | 3 | 48 |
-| 29 | User-defined primitives | 106 | 59 | 11 | 36 |
+| 29 | User-defined primitives | 142 | 95 | 11 | 36 |
 | 30 | Specify blocks | 60 | 35 | 1 | 24 |
 | 31 | Timing checks | 66 | 17 | 1 | 48 |
 | 32 | Backannotation using the standard delay format | 50 | 16 |  | 34 |
@@ -171,7 +171,7 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.md) uses constrained
 pairwise coverage, selected three-factor groups and mandatory boundary witnesses.
-Its focused selection has 2,220 tests across fifty-one models: scheduling, NBA capture,
+Its focused selection has 2,256 tests across fifty-two models: scheduling, NBA capture,
 arithmetic context, packed part-selects, conditional merging, shifts, cast pipelines
 and task argument visibility, packed structures, case matching, port connections,
 unpacked array copies, bit-vector queries, streaming permutations, comparisons,
@@ -194,7 +194,13 @@ delay selection with inertial pulse rejection, plus package import visibility in
 wildcard/defaulted port connections, typed memory-file transfers, and program
 completion with descendant cancellation, default net types on implicit port nets,
 generated interface bindings, module-to-program region handoffs, configuration-driven generated shapes,
-and UDP arrays with drive-strength contention.
+UDP arrays with drive-strength contention, and generated sequential UDP state.
+The sequential-UDP model selects 36 tests from 864 assignments, retaining 165 pairs,
+68 focused triples and six mandatory cases. It checks generated initial states, shared/masked
+clocks, per-instance holds and bit/logic conversion; see the
+[design and evidence](docs/interaction-verification.md#generateで生成した逐次udpの状態と入力変換).
+Latest kirimasim and fixed Icarus pass all 36; fixed Verilator passes both eligible cases
+at each of seeds 1 and 73. The other 34 cases require four-state observation.
 The UDP model selects 25 tests from 1,152 assignments, retaining 182 pairs, 80 focused
 triples and six mandatory cases. It compares isolated and contended arrays, scalar broadcast,
 vector terminal ordering and all four-state input pairs; see the

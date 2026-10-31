@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "source_commit": "3550d77474f132e14833b0ea3a8b9bd1cdb552b2",
+  "upstream_commit": "3550d77474f132e14833b0ea3a8b9bd1cdb552b2",
+  "source_clean": true,
+  "version": "kirimasim 0.0.0 (commit 3550d77474f1), built with AppleClang 21.0.0.21000334",
+  "binary_sha256_before": "f018de7a8b63f801b1f4c5bce153c0045e151ebc0406e150e60884bdedc06388",
+  "verified_at": "2026-10-31T21:17:01.046868+00:00",
+  "suite_base_commit": "2ad42ad0584a4265ca0c34893770d7b0f1efd7c8",
+  "scope": "All 52 selected interaction models; latest upstream update detected before the full run and release reconfigured/rebuilt at 3550d774. Eighteen existing class-method cases improve from unsupported to pass; six failures remain. Prior plans, inputs and saved artifacts are preserved.",
+  "fixed_snapshot_provenance": {
+    "method": "Fresh executions after final oracle metadata generation; fingerprints verified. Icarus matches all 36; Verilator matches both eligible cases at each of seeds 1 and 73.",
+    "artifacts": {
+      "coverage/interaction-results/udpstate-20261101-icarus13.json": {
+        "sha256": "3c979cd40f41434484ab8ee812ec9825f5e6ab86cfb0790abaf1f4475a4b1dd3",
+        "input_and_runner_fingerprints_verified": true
+      },
+      "coverage/interaction-results/udpstate-20261101-verilator5.052-seed1.json": {
+        "sha256": "7059747e93bb1c342a2b618a7dc5b569c317ba77cedd3f8cd6d8bc3e24a804e1",
+        "input_and_runner_fingerprints_verified": true
+      },
+      "coverage/interaction-results/udpstate-20261101-verilator5.052-seed73.json": {
+        "sha256": "6ad4c158ad6f4602b03c1819ed9c92f06548511160a3fe79adcd75f51891c0f3",
+        "input_and_runner_fingerprints_verified": true
+      }
+    }
+  },
+  "binary_sha256_after": "f018de7a8b63f801b1f4c5bce153c0045e151ebc0406e150e60884bdedc06388",
+  "binary_unchanged": true,
+  "prior_run_comparison": {
+    "source": "coverage/interaction-results/cross51-kirimasim-4b58e29f.json",
+    "tests": 2220,
+    "inputs_unchanged": true,
+    "statuses_unchanged": false,
+    "status_changes": [
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_129_bit_x_direct_function_input_0",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_129_bit_z_direct_function_input_0",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_129_logic_known_direct_function_input_0",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_129_logic_x_direct_function_input_0",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_1_bit_x_base_nonvirtual_task_input_3",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_32_bit_z_base_virtual_function_input_1",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_32_logic_x_base_nonvirtual_function_input_0",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_33_bit_z_direct_function_input_3",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_33_logic_x_direct_function_input_0",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_33_logic_z_direct_function_input_0",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_64_bit_known_direct_function_input_0",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_64_logic_known_direct_task_input_1",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_64_logic_x_direct_function_input_0",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_64_logic_z_direct_function_input_0",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_65_bit_known_base_virtual_task_input_0",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_65_logic_known_base_virtual_function_input_3",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_65_logic_x_base_nonvirtual_function_input_1",
+        "before": "unsupported",
+        "after": "pass"
+      },
+      {
+        "test": "gen/ch8/test_gen_cross_class_method_65_logic_z_direct_function_input_0",
+        "before": "unsupported",
+        "after": "pass"
+      }
+    ]
+  },
+  "prior_report_comparison": {
+    "source": "coverage/interaction-qualification/20261101-udpstate-prior-digests.json",
+    "models": 51,
+    "snapshots": 145,
+    "model_plans_unchanged": true,
+    "prior_model_run_aggregates_unchanged": true,
+    "prior_artifacts_unchanged": true
+  },
+  "prior_files_comparison": {
+    "files": 18557,
+    "sha256_unchanged": true
+  },
+  "local_validation": {
+    "tool_unit_tests": 530,
+    "tool_unit_tests_passed": true,
+    "metadata_tests": 10006,
+    "metadata_new_problems": 0,
+    "metadata_known_problems": 395,
+    "consistency_checks": 11,
+    "generated_reports_current": true,
+    "github_check_nightly_for_current_changes": "Local validation only; inspect workflows for the pushed suite commit.",
+    "baseline_github_check": {
+      "commit": "2ad42ad0584a4265ca0c34893770d7b0f1efd7c8",
+      "conclusion": "success",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/41222569272"
+    }
+  }
+}

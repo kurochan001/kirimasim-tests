@@ -6,7 +6,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 9970 |
+| Tests | 10006 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -18,8 +18,8 @@
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 754 |
-| Icarus Verilog 13.0 only | 4793 |
+| both releases | 756 |
+| Icarus Verilog 13.0 only | 4827 |
 | Verilator 5.052 only | 1680 |
 | standard only | 2743 |
 
@@ -53,7 +53,7 @@
 | 26 | Packages | 83 | 6 | 13.8 | 0 | 14 |
 | 27 | Generate constructs | 175 | 5 | 35.0 | 0 | 26 |
 | 28 | Gate-level and switch-level modeling | 245 | 26 | 9.4 | 0 | 48 |
-| 29 | User-defined primitives | 106 | 14 | 7.6 | 0 | 36 |
+| 29 | User-defined primitives | 142 | 14 | 10.1 | 0 | 36 |
 | 30 | Specify blocks | 60 | 22 | 2.7 | 0 | 24 |
 | 31 | Timing checks | 66 | 20 | 3.3 | 0 | 48 |
 | 32 | Backannotation using the standard delay format | 50 | 11 | 4.5 | 0 | 34 |

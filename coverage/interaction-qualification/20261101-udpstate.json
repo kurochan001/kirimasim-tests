@@ -1,0 +1,692 @@
+{
+  "schema": 1,
+  "purpose": "generated_udp_state fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 3550d77474f1), built with AppleClang 21.0.0.21000334",
+  "commit": "3550d77474f132e14833b0ea3a8b9bd1cdb552b2",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "f018de7a8b63f801b1f4c5bce153c0045e151ebc0406e150e60884bdedc06388",
+  "scope": "six mandatory controls: generated initial categories, separate states, data/return holds, rising/falling capture, source conversion and guard recovery",
+  "generator_sha256": "29b7add571516353fa83b90b0e0b38254b0bcf615d207cf136e3d2b308abdf8c",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_udpstate_1_bit_known_rise_0_if_shared",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "edge": "rise",
+        "offset": "0",
+        "form": "if",
+        "clocks": "shared"
+      },
+      "source_sha256": "2f5635f6dfccb032a7013812a78cad761b7beea290883bd8f6948541d7a0aa18",
+      "expected_sha256": "b162bcd0d85ce60f7033af78d4d92c5ec049662e092362a2094099318a5d2734",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "e3149ea58aa30cf489b0df05c945e2aa75ace61e6f0df1517a146a8aaf55b296",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_udpstate_65_bit_x_rise_1_if_masked",
+      "values": {
+        "width": "65",
+        "storage": "bit",
+        "value": "x",
+        "edge": "rise",
+        "offset": "1",
+        "form": "if",
+        "clocks": "masked"
+      },
+      "source_sha256": "4b9762f15b438fffe3f9e5e389eea3418d3ac0b36b1fd8b0b2598e5ed39883e6",
+      "expected_sha256": "9bcd83ba2a130ae9296253ad6906ee9d89c5d9b3b5b8e8ce86aec36e10728c3c",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_udpstate_33_logic_x_fall_0_case_shared",
+      "values": {
+        "width": "33",
+        "storage": "logic",
+        "value": "x",
+        "edge": "fall",
+        "offset": "0",
+        "form": "case",
+        "clocks": "shared"
+      },
+      "source_sha256": "b2fb1ff0eeb485825816e3a07e64bb280ee971a62bbf8aae3ec634f9fe4bad5f",
+      "expected_sha256": "103eafb224d033f136bad9032cbd6822bccb662590f7df3db84a931ceec19815",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_udpstate_32_logic_known_rise_1_case_masked",
+      "values": {
+        "width": "32",
+        "storage": "logic",
+        "value": "known",
+        "edge": "rise",
+        "offset": "1",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "b943f6339ab0fddf3f0612f0cc202d831674b7da92482e6a6f87464ba633e569",
+      "expected_sha256": "3981199241ce5295379e8c6902d0a34c0452772cca1366bb3fee2a7f614cd0a3",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_udpstate_64_bit_z_fall_2_if_shared",
+      "values": {
+        "width": "64",
+        "storage": "bit",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "if",
+        "clocks": "shared"
+      },
+      "source_sha256": "4f062406be826a9380a80f6a9e1e6e5c185d89d7629a7ec59202b2e5e21c33d5",
+      "expected_sha256": "1fc48e91ea068ca57af195d3723879ad2ada34f2f3decd57896cef76cd685cbb",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "wrong_one_initial_state",
+      "case": "test_gen_cross_udpstate_1_bit_known_rise_0_if_shared",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "edge": "rise",
+        "offset": "0",
+        "form": "if",
+        "clocks": "shared"
+      },
+      "source_sha256": "0b454675d9d356ce34fb1bffddd5210d1a141542e3c8dbd637be47d870e127b0",
+      "expected_sha256": "b162bcd0d85ce60f7033af78d4d92c5ec049662e092362a2094099318a5d2734",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'initial raw=0 source=0 clock=0 guard_clk=0 q=0 guard=0', expected 'initial raw=0 source=0 clock=0 guard_clk=0 q=0 guard=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  initial q = 1'b1;",
+        "after": "  initial q = 1'b0;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "selected_branch_uses_wrong_udp",
+      "case": "test_gen_cross_udpstate_1_bit_known_rise_0_if_shared",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "edge": "rise",
+        "offset": "0",
+        "form": "if",
+        "clocks": "shared"
+      },
+      "source_sha256": "3eda5065dc0bf978f7c07c7dedfd3ed85a31c4e24094064b707189c6e9e1af51",
+      "expected_sha256": "b162bcd0d85ce60f7033af78d4d92c5ec049662e092362a2094099318a5d2734",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'initial raw=0 source=0 clock=0 guard_clk=0 q=1 guard=1', expected 'initial raw=0 source=0 clock=0 guard_clk=0 q=0 guard=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "seq0 u(q[i]",
+        "after": "seq1 u(q[i]",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "guard_reuses_target_initial_category",
+      "case": "test_gen_cross_udpstate_1_bit_known_rise_0_if_shared",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "edge": "rise",
+        "offset": "0",
+        "form": "if",
+        "clocks": "shared"
+      },
+      "source_sha256": "bf6a3c11083e95265afdbc8bbba82d5d206a725cf561651bdb1066edf958979e",
+      "expected_sha256": "b162bcd0d85ce60f7033af78d4d92c5ec049662e092362a2094099318a5d2734",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'initial raw=0 source=0 clock=0 guard_clk=0 q=0 guard=0', expected 'initial raw=0 source=0 clock=0 guard_clk=0 q=0 guard=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "seq1 v(guard[i]",
+        "after": "seq0 v(guard[i]",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "capture_edge_reversed",
+      "case": "test_gen_cross_udpstate_1_bit_known_rise_0_if_shared",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "edge": "rise",
+        "offset": "0",
+        "form": "if",
+        "clocks": "shared"
+      },
+      "source_sha256": "bbe0007fcc77063145f8d2bae8a08be641ae730ab7c88c0a9c9a5719b5d1e540",
+      "expected_sha256": "b162bcd0d85ce60f7033af78d4d92c5ec049662e092362a2094099318a5d2734",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'initial raw=0 source=0 clock=0 guard_clk=0 q=x guard=x', expected 'initial raw=0 source=0 clock=0 guard_clk=0 q=0 guard=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "primitive seq0(q, clk, d);\n  output q;\n  reg q;\n  input clk, d;\n  initial q = 1'b0;\n  table\n    (01) 0 : ? : 0;\n    (01) 1 : ? : 1;\n    (?0) ? : ? : -;\n    ? * : ? : -;\n  endtable\nendprimitive\nprimitive seq1(q, clk, d);\n  output q;\n  reg q;\n  input clk, d;\n  initial q = 1'b1;\n  table\n    (01) 0 : ? : 0;\n    (01) 1 : ? : 1;\n    (?0) ? : ? : -;\n    ? * : ? : -;\n  endtable\nendprimitive\nprimitive seq2(q, clk, d);\n  output q;\n  reg q;\n  input clk, d;\n  table\n    (01) 0 : ? : 0;\n    (01) 1 : ? : 1;\n    (?0) ? : ? : -;\n    ? * : ? : -;\n  endtable\nendprimitive",
+        "after": "primitive seq0(q, clk, d);\n  output q;\n  reg q;\n  input clk, d;\n  initial q = 1'b0;\n  table\n    (10) 0 : ? : 0;\n    (10) 1 : ? : 1;\n    (?1) ? : ? : -;\n    ? * : ? : -;\n  endtable\nendprimitive\nprimitive seq1(q, clk, d);\n  output q;\n  reg q;\n  input clk, d;\n  initial q = 1'b1;\n  table\n    (10) 0 : ? : 0;\n    (10) 1 : ? : 1;\n    (?1) ? : ? : -;\n    ? * : ? : -;\n  endtable\nendprimitive\nprimitive seq2(q, clk, d);\n  output q;\n  reg q;\n  input clk, d;\n  table\n    (10) 0 : ? : 0;\n    (10) 1 : ? : 1;\n    (?1) ? : ? : -;\n    ? * : ? : -;\n  endtable\nendprimitive",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_return_edge_hold",
+      "case": "test_gen_cross_udpstate_1_bit_known_rise_0_if_shared",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "edge": "rise",
+        "offset": "0",
+        "form": "if",
+        "clocks": "shared"
+      },
+      "source_sha256": "f711c8e69c2b288514cadcf5df06bf678a90e04b588d843d2c40d8fb9fe1fa5f",
+      "expected_sha256": "b162bcd0d85ce60f7033af78d4d92c5ec049662e092362a2094099318a5d2734",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'initial raw=0 source=0 clock=0 guard_clk=0 q=x guard=x', expected 'initial raw=0 source=0 clock=0 guard_clk=0 q=0 guard=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    (?0) ? : ? : -;",
+        "after": "",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "guard_clock_never_activates",
+      "case": "test_gen_cross_udpstate_1_bit_known_rise_0_if_shared",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "edge": "rise",
+        "offset": "0",
+        "form": "if",
+        "clocks": "shared"
+      },
+      "source_sha256": "7d99ff85e406922bc44b0436c6cfafa89796f9bd5a3fd0d6b6f4e667d43640df",
+      "expected_sha256": "b162bcd0d85ce60f7033af78d4d92c5ec049662e092362a2094099318a5d2734",
+      "status": "fail",
+      "reason": "output differs: line 70 is 'guard0_capture raw=1 source=1 clock=0 guard_clk=0 q=1 gua...', expected 'guard0_capture raw=1 source=1 clock=0 guard_clk=1 q=1 gua...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    guard_clk = 1'b1;",
+        "after": "    guard_clk = 1'b0;",
+        "replacements": 10
+      }
+    },
+    {
+      "name": "lose_zero_initial_state",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "f73fdc5d7211c773cd4c861a0f9f5d30ee04591051993899a04979a4b7ed4fc0",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'initial raw=000000000000000000000000000000000000000000000...', expected 'initial raw=000000000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  initial q = 1'b0;",
+        "after": "",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "uninitialized_state_becomes_zero",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "0a52a7c322c5ee96e2a051c1dbb2ee4bc9d64ee699caee3b5f7939f26bd6e6f2",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'initial raw=000000000000000000000000000000000000000000000...', expected 'initial raw=000000000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "primitive seq2(q, clk, d);\n  output q;\n  reg q;\n  input clk, d;\n",
+        "after": "primitive seq2(q, clk, d);\n  output q;\n  reg q;\n  input clk, d;\n  initial q = 1'b0;\n",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_generate_selector",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "0a3ea11df13f14c30ab8589ceed77a4bad0eee5bece5f70be724adc75cb8c7b8",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'initial raw=000000000000000000000000000000000000000000000...', expected 'initial raw=000000000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "(i+2)%3",
+        "after": "(i+1)%3",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "logic_storage_becomes_bit",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "9c08b4c0686a34b1b312dff0f347f0540927a9fa64884e9e88d0e65b042aa3f7",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 69 is 'u0_0_pre raw=z0101010101010101010101010101010101010101010...', expected 'u0_0_pre raw=z0101010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "logic [128:0] source;",
+        "after": "bit [128:0] source;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "guard_loses_data_inversion",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "e6f9de11091b51fe9235bf4913be76486fc8cf60b0efd7a02e6c684d01572282",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 106 is 'guard0_capture raw=10101010101010101010101010101010101010...', expected 'guard0_capture raw=10101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "guard_data = ~source",
+        "after": "guard_data = source",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "guard_uses_target_clock",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "48d604c32e14e3fc339a9ed36bc76b31a0a5c0256063decb2fdf5453b85884b6",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0_0_capture raw=1010101010101010101010101010101010101010...', expected 'k0_0_capture raw=1010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "v(guard[i], guard_clk, guard_data[i])",
+        "after": "v(guard[i], clocks[i], guard_data[i])",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "target_uses_guard_clock",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "c93bdc3d3110ffdbe0c9aa07e955ae7917cfa35ea28b6d1c0da9b74df09cfdea",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0_0_capture raw=1010101010101010101010101010101010101010...', expected 'k0_0_capture raw=1010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "u(q[i], clocks[i], source[i])",
+        "after": "u(q[i], guard_clk, source[i])",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "masked_target_uses_shared_clock",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "2d1ff53ea5d2d40147a086339cbcf55bab29a10b7e6f96a7119aadbd2141fb31",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0_0_capture raw=1010101010101010101010101010101010101010...', expected 'k0_0_capture raw=1010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "u(q[i], clocks[i], source[i])",
+        "after": "u(q[i], clk, source[i])",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "capture_zero_becomes_one",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "dbe596906b244cf609b6764694ceba59f17a5259d0a92741da991e89dd072214",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 7 is 'k0_1_capture raw=1010101010101010101010101010101010101010...', expected 'k0_1_capture raw=1010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "(10) 0 : ? : 0;",
+        "after": "(10) 0 : ? : 1;",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "lose_data_change_hold",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "7f9ac37b17a3abf34f7097c13de7b5f3de7061eafbe50643a9c515d1638ef9eb",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'initial raw=000000000000000000000000000000000000000000000...', expected 'initial raw=000000000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    ? * : ? : -;",
+        "after": "",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "unknown_capture_holds_previous_state",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "ad96bc466874817fbd4911548d175245933f20cd86986e6154489bab8e3555c3",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 70 is 'u0_0_capture raw=z010101010101010101010101010101010101010...', expected 'u0_0_capture raw=z010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    ? * : ? : -;",
+        "after": "    (10) x : ? : -;\n    ? * : ? : -;",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "upper_word_reuses_lower_bits",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "276bde80265c985550a0fcf43fbd77b1fdc220b058263157e6744488fc4d49c7",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 39 is 'k6_0_pre raw=00111111111111111111111111111111111111111111...', expected 'k6_0_pre raw=00111111111111111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "source = raw;",
+        "after": "source = {raw[64:0], raw[63:0]};",
+        "replacements": 45
+      }
+    },
+    {
+      "name": "target_states_share_one_output_bit",
+      "case": "test_gen_cross_udpstate_129_logic_z_fall_2_case_masked",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "z",
+        "edge": "fall",
+        "offset": "2",
+        "form": "case",
+        "clocks": "masked"
+      },
+      "source_sha256": "fbf3b9f981894fa0e95234f0f8087143a9ba6db39968c4fd7202006e6bc1e74d",
+      "expected_sha256": "7ca7f892ec463401b1f13655c7ec5930576628c81c84d86edb51916b1e3c8e47",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'initial raw=000000000000000000000000000000000000000000000...', expected 'initial raw=000000000000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "u(q[i],",
+        "after": "u(q[0],",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "bit_storage_becomes_logic",
+      "case": "test_gen_cross_udpstate_65_bit_x_rise_1_if_masked",
+      "values": {
+        "width": "65",
+        "storage": "bit",
+        "value": "x",
+        "edge": "rise",
+        "offset": "1",
+        "form": "if",
+        "clocks": "masked"
+      },
+      "source_sha256": "26e51f755886b0faea1266ba65036291682f59e00dd055397fd5e62c8150e772",
+      "expected_sha256": "9bcd83ba2a130ae9296253ad6906ee9d89c5d9b3b5b8e8ce86aec36e10728c3c",
+      "status": "fail",
+      "reason": "output differs: line 69 is 'u0_0_pre raw=x0101010101010101010101010101010x01010101010...', expected 'u0_0_pre raw=x0101010101010101010101010101010x01010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "bit [64:0] source;",
+        "after": "logic [64:0] source;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "target_bypasses_storage_conversion",
+      "case": "test_gen_cross_udpstate_65_bit_x_rise_1_if_masked",
+      "values": {
+        "width": "65",
+        "storage": "bit",
+        "value": "x",
+        "edge": "rise",
+        "offset": "1",
+        "form": "if",
+        "clocks": "masked"
+      },
+      "source_sha256": "2a2f50a8dd44c88bfbbae863d5119efa9c0131f108597e89613a85ec30c4733a",
+      "expected_sha256": "9bcd83ba2a130ae9296253ad6906ee9d89c5d9b3b5b8e8ce86aec36e10728c3c",
+      "status": "fail",
+      "reason": "output differs: line 70 is 'u0_0_capture raw=x0101010101010101010101010101010x0101010...', expected 'u0_0_capture raw=x0101010101010101010101010101010x0101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "u(q[i], clocks[i], source[i])",
+        "after": "u(q[i], clocks[i], raw[i])",
+        "replacements": 3
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "6f39fca01a80227323f1f30631dc44c198639693696e6ce539dc889605ded8ed",
+  "binary_unchanged": true
+}
