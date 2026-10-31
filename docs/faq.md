@@ -162,6 +162,8 @@ python3 generators/generate.py --check
 
 このプロジェクトでは、Icarus・Verilatorの固定版との差異を[差異一覧](simulator-differences.md)とテストのコメントへ記録し、上流への報告は行わない方針です。他の実装の課題も既存Issueと担当範囲を確認して扱い、レビューだけで外部へ自動投稿しません。記録には根拠となる節番号と自分の言葉での説明を付け、規格本文・図・例のコードは転載しません。[作業方針](codex-handoff-20261031.md#2-ユーザーの方針と作業上の注意)と[Contributing](../README.md#contributing)を参照してください。
 
+商用シミュレータの出力・診断は報告へ含めません。[Q45の投稿方針](#q45-issueに商用シミュレータの出力診断を載せてもよいですか)を確認してください。
+
 ## 7. 機能間クロス検証
 
 ### Q28. どうして全機能を単純に掛け合わせないのですか
@@ -311,7 +313,8 @@ python3 tools/interaction_coverage.py --model interface_header_import \
 
 ### Q44. 商用シミュレータでも確認していますか
 
-商用SystemVerilogシミュレータでは確認しておらず、今後も本プロジェクトでは実行・比較を行わない方針です。
+本プロジェクトでは、商用SystemVerilogシミュレータのライセンスを保有していません。
+商用製品での確認は行っておらず、今後も本プロジェクトでは実行・比較を行わない方針です。
 結果の公表制限や、他社製品の挙動解析・競合製品開発への利用に関する契約上の問題を避け、
 規格に基づいて期待結果を独立に導くためです。結果を非公開にするだけで利用条件を満たすとは判断しません。
 第三者が得た商用シミュレータの出力・診断も、期待値の作成や実装判断へ流用しません。
@@ -329,3 +332,21 @@ Icarus Verilog・Verilatorで確認できた範囲を`:oracle:`へ記録しま�
 確認方法は
 [期待値の決め方](../README.md#where-the-expected-outputs-come-from)と
 [保存実行の概要](interaction-verification.md#保存実行の概要)を参照してください。
+
+### Q45. Issueに商用シミュレータの出力・診断を載せてもよいですか
+
+このプロジェクトでは受け付けません。Issue本文・コメントに加え、ログの添付、スクリーンショット、
+波形、外部の貼付け先や実行環境へのリンクも対象です。製品名を伏せた抜粋・要約や、第三者の実行結果を
+転載する形でも持ち込まないでください。報告のために商用シミュレータを実行するよう求めることもありません。
+
+期待する動作は、IEEE 1800-2023の条項番号と自分の言葉による説明、自作の最小再現コードで示します。
+実行結果を添える場合は、本プロジェクトの確認対象であるIcarus Verilog・Verilator・kirimasim・Lyra・SymbiYosys、
+または公開用に整えたGhostの結果に限定し、使用した版とスイートのコミットを記録してください。
+規格本文の転載や、Ghostの非公開情報・個人情報の掲載も避けます。
+
+[Issueフォーム](../.github/ISSUE_TEMPLATE/report.yml)には投稿前の案内と必須の確認欄があります。
+[フォーム選択の設定](../.github/ISSUE_TEMPLATE/config.yml)では、一般投稿者向けの空欄Issueを無効にします。
+ただし、これらは内容を自動検査する仕組みではなく、管理者等の空欄投稿、API・CLIによる投稿、
+投稿後のコメントや添付まで完全に防げるものではありません。
+[GitHubのテンプレート設定の説明](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)も参照してください。
+該当内容を見つけても転載・要約・期待値への取り込みは行わず、投稿者または管理者による対応を求めます。

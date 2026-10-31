@@ -1060,6 +1060,12 @@ that night's entry, and its next run is compared with its last results.
 
 ## Contributing
 
+Do not include commercial simulator outputs or diagnostics in issues or comments,
+including attachments, screenshots, waveforms, external links, anonymized excerpts
+or summaries. Use IEEE 1800-2023 clause references and independently written examples
+to explain expected behavior. See the [issue posting policy](docs/faq.md#q45-issueに商用シミュレータの出力診断を載せてもよいですか).
+The [issue form](.github/ISSUE_TEMPLATE/report.yml) presents this policy before submission.
+
 Changes that modify, remove, or relax an existing expected result must say
 why and cite the IEEE 1800-2023 clause. Do not copy text, figures, or example
 code from the standard; describe behavior in your own words and cite clause
