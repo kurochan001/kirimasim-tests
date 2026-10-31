@@ -1,0 +1,295 @@
+{
+  "schema": 1,
+  "purpose": "container_wait_visibility fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 3a31b060c158), built with AppleClang 21.0.0.21000334",
+  "commit": "3a31b060c1587967e452008510270ff270f5b828",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "a231c7f779fdd292641c9d76d92fc69091fe13604f11d4d9b07eaa573da5d4e3",
+  "scope": "typed queue growth and dynamic-array element-sensitive replacement",
+  "generator_sha256": "159b8853d8d891260c8929c83dc34d2dac6e7b156ed5e4a27b6a4e1cc3feda2a",
+  "qualification_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_wait_1_bit_known_queue_grow_size_waiting",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "container": "queue",
+        "change": "grow",
+        "condition": "size",
+        "timing": "waiting"
+      },
+      "source_sha256": "2e4751de50ca845a6322d1a118bde90ec45febc80e177613685c32f1784e8da3",
+      "expected_sha256": "7675dcdc6ff414df2e4ed29cdcea9a1466c8cabdb99f0816d2a2b752142b89d5",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_wait_129_logic_z_dynamic_replace_both_waiting",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "container": "dynamic",
+        "change": "replace",
+        "condition": "both",
+        "timing": "waiting"
+      },
+      "source_sha256": "47cca0ee9ca44cc4fc2ab9ea5d86be9dfb140524ef6573e72fe60234945db5b2",
+      "expected_sha256": "099031c6b639c1750d61520fbc0091a16a9762d95cd05e438bc3b85d08c83609",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "wait_never_matches",
+      "case": "test_gen_cross_wait_1_bit_known_queue_grow_size_waiting",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "container": "queue",
+        "change": "grow",
+        "condition": "size",
+        "timing": "waiting"
+      },
+      "source_sha256": "195c2cf4b8290a96d4cdbc529d29cd41f59dd905be6805c08c55b111453ff5d2",
+      "expected_sha256": "7675dcdc6ff414df2e4ed29cdcea9a1466c8cabdb99f0816d2a2b752142b89d5",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 done wake=0 dt=-1 captured=0 size=2', expected 'k0 done wake=1 dt=3 captured=2 size=2'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "wait (cells.size() == 2);",
+        "after": "wait (1'b0);",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "wait_always_matches",
+      "case": "test_gen_cross_wait_1_bit_known_queue_grow_size_waiting",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "container": "queue",
+        "change": "grow",
+        "condition": "size",
+        "timing": "waiting"
+      },
+      "source_sha256": "ee7c520ed256b3f860c66944b1271208bc5d2a8e9e4d7d48e134c9ad0e6eb1f5",
+      "expected_sha256": "7675dcdc6ff414df2e4ed29cdcea9a1466c8cabdb99f0816d2a2b752142b89d5",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 noise wake=1 dt=0 size=1', expected 'k0 noise wake=0 dt=-1 size=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "wait (cells.size() == 2);",
+        "after": "wait (1'b1);",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "wait_on_unrelated_container",
+      "case": "test_gen_cross_wait_1_bit_known_queue_grow_size_waiting",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "container": "queue",
+        "change": "grow",
+        "condition": "size",
+        "timing": "waiting"
+      },
+      "source_sha256": "a87470c476dd9f28d78d9aa3ef44ff554d676575bb8a92e4feea1edc0426c830",
+      "expected_sha256": "7675dcdc6ff414df2e4ed29cdcea9a1466c8cabdb99f0816d2a2b752142b89d5",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 noise wake=1 dt=1 size=1', expected 'k0 noise wake=0 dt=-1 size=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "wait (cells.size() == 2);",
+        "after": "wait (noise.size() == 2);",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "update_wrong_container",
+      "case": "test_gen_cross_wait_1_bit_known_queue_grow_size_waiting",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "container": "queue",
+        "change": "grow",
+        "condition": "size",
+        "timing": "waiting"
+      },
+      "source_sha256": "dc6f983cf748750547a8bbf57a8fcda657263375e6f290a31b3c5016b67b42ac",
+      "expected_sha256": "7675dcdc6ff414df2e4ed29cdcea9a1466c8cabdb99f0816d2a2b752142b89d5",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 done wake=0 dt=-1 captured=0 size=1', expected 'k0 done wake=1 dt=3 captured=2 size=2'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "cells.push_front(marker);",
+        "after": "noise.push_front(marker);",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "lose_capture",
+      "case": "test_gen_cross_wait_1_bit_known_queue_grow_size_waiting",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "container": "queue",
+        "change": "grow",
+        "condition": "size",
+        "timing": "waiting"
+      },
+      "source_sha256": "b94b123f6a231d141cd5b8697597766624d7a84fb8f3903a54eb4dbab35ff09f",
+      "expected_sha256": "7675dcdc6ff414df2e4ed29cdcea9a1466c8cabdb99f0816d2a2b752142b89d5",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 done wake=1 dt=3 captured=0 size=2', expected 'k0 done wake=1 dt=3 captured=2 size=2'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "captured = cells;",
+        "after": ";",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "lose_wake_count",
+      "case": "test_gen_cross_wait_1_bit_known_queue_grow_size_waiting",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "container": "queue",
+        "change": "grow",
+        "condition": "size",
+        "timing": "waiting"
+      },
+      "source_sha256": "2dd6b682bc3085ce32f2c01eded516936e72cf0b999cf12c0cd265bf5bd4f525",
+      "expected_sha256": "7675dcdc6ff414df2e4ed29cdcea9a1466c8cabdb99f0816d2a2b752142b89d5",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 done wake=0 dt=3 captured=2 size=2', expected 'k0 done wake=1 dt=3 captured=2 size=2'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "wakes++;",
+        "after": ";",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "case_equality_becomes_logical",
+      "case": "test_gen_cross_wait_129_logic_z_dynamic_replace_both_waiting",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "container": "dynamic",
+        "change": "replace",
+        "condition": "both",
+        "timing": "waiting"
+      },
+      "source_sha256": "933945aa2bf7419fef82edff38f04861da7f36bd5f5e916e770dfb1b1ec20f5d",
+      "expected_sha256": "099031c6b639c1750d61520fbc0091a16a9762d95cd05e438bc3b85d08c83609",
+      "status": "fail",
+      "reason": "output differs: line 24 is 'u0 done wake=0 dt=-1 captured=0 size=2', expected 'u0 done wake=1 dt=3 captured=2 size=2'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "cells[0] === marker",
+        "after": "cells[0] == marker",
+        "replacements": 6
+      }
+    },
+    {
+      "name": "logic_storage_becomes_bit",
+      "case": "test_gen_cross_wait_129_logic_z_dynamic_replace_both_waiting",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "container": "dynamic",
+        "change": "replace",
+        "condition": "both",
+        "timing": "waiting"
+      },
+      "source_sha256": "559db9775ebf24b22ff383591b81e3616810b2b7698c43ad672644c624553146",
+      "expected_sha256": "099031c6b639c1750d61520fbc0091a16a9762d95cd05e438bc3b85d08c83609",
+      "status": "fail",
+      "reason": "output differs: line 22 is 'u0 start=2 raw=zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz...', expected 'u0 start=2 raw=zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "typedef logic [128:0] word_t;",
+        "after": "typedef bit [128:0] word_t;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "reuse_wrong_initializer",
+      "case": "test_gen_cross_wait_129_logic_z_dynamic_replace_both_waiting",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "container": "dynamic",
+        "change": "replace",
+        "condition": "both",
+        "timing": "waiting"
+      },
+      "source_sha256": "261a5b7f4ae7beb427763b6776dd98e78d95c312cfb40c88826af17f7e8c0be3",
+      "expected_sha256": "099031c6b639c1750d61520fbc0091a16a9762d95cd05e438bc3b85d08c83609",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 done wake=0 dt=-1 captured=0 size=2', expected 'k0 done wake=1 dt=3 captured=2 size=2'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "cells = new[2](prepared);",
+        "after": "cells = new[2](cells);",
+        "replacements": 6
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "binary_unchanged": true
+}

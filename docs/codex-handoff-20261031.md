@@ -172,6 +172,11 @@ Ghostの全件実行（別リポジトリの監査）が「テスト側の問題
   33モデル・1,585選択ケースとなり、最新照合版`55ce80b9d5bc`で新規24 pass・12 unsupported、
   全体は1,521 pass・62 unsupported・既存2 failです。`#0`とvirtual modportは未対応を保持しています。
   次の章対候補は[0セルの仕分け](chapter-cross-triage.md)を参照してください。
+  アサーションのサンプル/action観測とコンテナwaitも34・35番目のモデルとして各36件を追加済みです。
+  [アサーション](interaction-verification.md#アサーションのサンプル値とactionのライブ値)は最新照合版
+  `3a31b060c158`で36 unsupported、[コンテナwait](interaction-verification.md#コンテナ変更とwaitの起床)は36 passです。
+  現在35モデル・1,657選択ケース、全体は1,557 pass・98 unsupported・既存2 fail、通常スイート9,407件です。
+  concurrent assertionの実装が進んだら再実行してください。固定VerilatorのNBA同時更新時のライブ値の差異も記録しています。
 
 ## 5. 実行環境
 

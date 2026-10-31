@@ -34,6 +34,8 @@ import interaction_shortcircuit
 import interaction_edge
 import interaction_iff
 import interaction_clocking
+import interaction_assertion
+import interaction_wait
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -52,6 +54,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_concat, interaction_logic,
               interaction_shortcircuit, interaction_edge, interaction_iff, combination_monitors,
               interaction_clocking,
+              interaction_assertion, interaction_wait,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -310,5 +313,21 @@ def registered() -> tuple[SuiteModel, ...]:
             "3組の背景値でクロック前の値と更新後の値、cbでのサンプルとライブ値、起床回数を観測し、"
             "#1step/#0、blocking/NBA、状態型、クロック方向とlocal/interface/virtual modportの"
             "参照経路の相互作用を確認する。X/Z行にも既知値の対照を保持する。",
+        ),
+        SuiteModel(
+            interaction_assertion.MODEL,
+            lambda row: "tests/gen/ch16/" + interaction_assertion.case_name(row) + ".sv",
+            interaction_assertion.MODEL.select(),
+            "更新前後の既知値とX/Zで、assertionのpass/fail回数、サンプル値と1ビットの式の値、"
+            "Reactiveのライブ値と最終値を観測する。型、式、エッジ、blocking/NBA、"
+            "更新時点、module/interfaceを組み合わせ、サンプリング時点とaction実行時点を区別する。",
+        ),
+        SuiteModel(
+            interaction_wait.MODEL,
+            lambda row: "tests/gen/ch9/" + interaction_wait.case_name(row) + ".sv",
+            interaction_wait.MODEL.select(),
+            "サイズ・先頭要素・両条件を待ち、動的配列とキューの作成・拡大・縮小・削除・"
+            "同サイズ置換の前後で起床時刻・回数と全要素を観測する。無関係なコンテナ変更での"
+            "早期起床を区別し、既に真の場合と、型変換後のX/Zをcase等価で待つ場合も確認する。",
         ),
     )

@@ -1,0 +1,110 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch16/test_gen_cross_assert_129_bit_known_case_equal_posedge_blocking_before_module": {
+   "status": "pass",
+   "inputs_sha256": "bf27c9cc7d81b176518a7c653d44922adde6c7f9cea2d2f510eb57a6c3e1620b"
+  },
+  "gen/ch16/test_gen_cross_assert_129_logic_known_reduce_or_posedge_blocking_before_module": {
+   "status": "pass",
+   "inputs_sha256": "2416c388383aa645a329a2d3ad1e8a25b1ae2a72f27f33401439e551031fde85"
+  },
+  "gen/ch16/test_gen_cross_assert_1_bit_known_reduce_or_posedge_nba_edge_module": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'k0 pass=0 fail=1 predicate=0 sampled=0 at_action=0 final=1', expected 'k0 pass=0 fail=1 predicate=0 sampled=0 at_action=1 final=1'",
+   "inputs_sha256": "e5edc3696d6e5499707906e592948a034b44a181760961c1d6cdaf39c659348e"
+  },
+  "gen/ch16/test_gen_cross_assert_1_logic_known_reduce_or_posedge_blocking_before_module": {
+   "status": "pass",
+   "inputs_sha256": "7d46492b2fba3520c1d826489beea2a85780d2d557f980adde7c90b6f8a9d172"
+  },
+  "gen/ch16/test_gen_cross_assert_32_bit_known_reduce_or_posedge_blocking_before_module": {
+   "status": "pass",
+   "inputs_sha256": "42b9b2247c26a932629aa69c65584383d58205adc5c3a0af504f91491142d93e"
+  },
+  "gen/ch16/test_gen_cross_assert_32_logic_known_equal_posedge_blocking_edge_module": {
+   "status": "pass",
+   "inputs_sha256": "eb208c7eaa6259e940db8388385ad65f7c0261fd07dd75326e4fc763a8de2170"
+  },
+  "gen/ch16/test_gen_cross_assert_33_bit_known_equal_posedge_blocking_after_interface": {
+   "status": "pass",
+   "inputs_sha256": "b315b1d5f3a095ed12b637b8dcd98caa461f21aaa105cdf7a999194fdd727955"
+  },
+  "gen/ch16/test_gen_cross_assert_33_logic_known_reduce_or_posedge_blocking_before_module": {
+   "status": "pass",
+   "inputs_sha256": "c188bbd34a52a163330f635fcf25b0b331496f0e05f276cbee5032b538092ed2"
+  },
+  "gen/ch16/test_gen_cross_assert_64_bit_known_reduce_or_negedge_blocking_before_interface": {
+   "status": "pass",
+   "inputs_sha256": "1bed28d77888f53c3fbbc50c04f2f5dfdaf67e4edcd93268cd76f51363f090a4"
+  },
+  "gen/ch16/test_gen_cross_assert_64_logic_known_reduce_or_posedge_blocking_before_module": {
+   "status": "pass",
+   "inputs_sha256": "48786c6c6679e40a3337a239bce6fe3fc1b8dc36c470fe057416cb9b9c829922"
+  },
+  "gen/ch16/test_gen_cross_assert_65_bit_known_equal_posedge_blocking_before_module": {
+   "status": "pass",
+   "inputs_sha256": "3c487eaa3d4d2153d40d36471d4e6bacce67ed7b21c2e4204484d7ca502ef6c1"
+  },
+  "gen/ch16/test_gen_cross_assert_65_logic_known_case_equal_posedge_nba_after_module": {
+   "status": "pass",
+   "inputs_sha256": "d2066c3c390740b0b030115b8c4e8d8fde88ae6df030faed0e5bf107287cd9a3"
+  },
+  "gen/ch9/test_gen_cross_wait_129_bit_known_queue_shrink_size_ready": {
+   "status": "pass",
+   "inputs_sha256": "7652690ddd855979559df6863f47dc219549b5140695c019cf0043762ec2aa3e"
+  },
+  "gen/ch9/test_gen_cross_wait_129_logic_known_dynamic_clear_size_waiting": {
+   "status": "pass",
+   "inputs_sha256": "a06c16406d4ea89777ad544eb784d909c1029cef433be55afd56f547546146b6"
+  },
+  "gen/ch9/test_gen_cross_wait_1_bit_known_queue_grow_size_waiting": {
+   "status": "pass",
+   "inputs_sha256": "ee2a80310aca6cd37e16d5f5148c27f0445d2d2d27e2a218d75dbb7cba5d1f7c"
+  },
+  "gen/ch9/test_gen_cross_wait_1_logic_known_dynamic_create_size_waiting": {
+   "status": "pass",
+   "inputs_sha256": "e6427e9ab560f311b6c4f46e2f324469a7db0a1bba6f59ba77870153fdd58934"
+  },
+  "gen/ch9/test_gen_cross_wait_32_bit_known_dynamic_create_size_waiting": {
+   "status": "pass",
+   "inputs_sha256": "afe8fdc4a2b7142399c30f4258cfcf90be220cf9988aaebc236cf96247c29bd3"
+  },
+  "gen/ch9/test_gen_cross_wait_32_logic_known_queue_clear_size_waiting": {
+   "status": "pass",
+   "inputs_sha256": "81cbf910692f2cb6480ef2c16593eb37c9371f19fe85bc111fce571b4caa7b9c"
+  },
+  "gen/ch9/test_gen_cross_wait_33_bit_known_dynamic_grow_size_waiting": {
+   "status": "pass",
+   "inputs_sha256": "1e1afe226bf90b38fc5f1b29d68bed1d64fa5ba1da3581b32ab19df371400d74"
+  },
+  "gen/ch9/test_gen_cross_wait_33_logic_known_dynamic_replace_element_waiting": {
+   "status": "pass",
+   "inputs_sha256": "3754c871bf0c1eb470e550d90f8d1d07c8153139bf4c408e782f18a6c99e9a6a"
+  },
+  "gen/ch9/test_gen_cross_wait_64_bit_known_queue_replace_element_ready": {
+   "status": "pass",
+   "inputs_sha256": "81c85ff8088985dcfc73950e4004073d782d099259408f70d65b136e1f635942"
+  },
+  "gen/ch9/test_gen_cross_wait_64_logic_known_dynamic_grow_both_ready": {
+   "status": "pass",
+   "inputs_sha256": "ec197d4d0bdc8b79dd3697d0da2bba75d7b83427bfbe566609d7e5505b0353a0"
+  },
+  "gen/ch9/test_gen_cross_wait_65_bit_known_dynamic_grow_size_ready": {
+   "status": "pass",
+   "inputs_sha256": "aa791e5e3694fabd822768e27174faf697f19397165d3aa12359e8912d8eb7c8"
+  },
+  "gen/ch9/test_gen_cross_wait_65_logic_known_dynamic_create_size_waiting": {
+   "status": "pass",
+   "inputs_sha256": "42d08b150ef42ac650aa5b33d5c1bc94d54211653fb0b2eabfff0cb1e41437bc"
+  }
+ },
+ "generated_at": "2026-10-31T07:10:53.151925+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

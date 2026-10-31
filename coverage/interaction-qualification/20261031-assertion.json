@@ -1,0 +1,287 @@
+{
+  "schema": 1,
+  "purpose": "assertion_sample_visibility fault controls",
+  "simulator": "verilator",
+  "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "seed": 1,
+  "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+  "scope": "known inputs, before/after updates only; no qualification of edge updates or X/Z",
+  "generator_sha256": "4f82c07170dd2c358072949957feef47715e1b5a9106c6fc26440f44ec672cfb",
+  "qualification_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_assert_64_bit_known_reduce_or_negedge_blocking_before_interface",
+      "values": {
+        "width": "64",
+        "state": "bit",
+        "value": "known",
+        "expression": "reduce_or",
+        "edge": "negedge",
+        "update": "blocking",
+        "timing": "before",
+        "home": "interface"
+      },
+      "source_sha256": "58f3da425874626d4cb73fc7c99b7cf246546b65064e118f9b47c7e8817c7e36",
+      "expected_sha256": "1d1290f1c32eae20a9212db0bcce112c392255d18643e3fe8bddfad609994cfc",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_assert_65_logic_known_case_equal_posedge_nba_after_module",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "known",
+        "expression": "case_equal",
+        "edge": "posedge",
+        "update": "nba",
+        "timing": "after",
+        "home": "module"
+      },
+      "source_sha256": "96a9a9c634ce941359608b18c089d8b3ec6bb420172db00f78bd43406d8f0140",
+      "expected_sha256": "308b64049c15b904da6a90bdeecfe3ea669ee075ea0fd8e334e30dc8f087e0b4",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "assert_always_passes",
+      "case": "test_gen_cross_assert_64_bit_known_reduce_or_negedge_blocking_before_interface",
+      "values": {
+        "width": "64",
+        "state": "bit",
+        "value": "known",
+        "expression": "reduce_or",
+        "edge": "negedge",
+        "update": "blocking",
+        "timing": "before",
+        "home": "interface"
+      },
+      "source_sha256": "daac7c98571b98c96f2665266cb28084b6fcbbffc8f7084db8053bafcbee0bdd",
+      "expected_sha256": "1d1290f1c32eae20a9212db0bcce112c392255d18643e3fe8bddfad609994cfc",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k1 pass=2 fail=0 predicate=0 sampled=00000000000000000000...', expected 'k1 pass=1 fail=1 predicate=0 sampled=00000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assert property (@(negedge clk) (|data))",
+        "after": "assert property (@(negedge clk) 1'b1)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "assert_always_fails",
+      "case": "test_gen_cross_assert_64_bit_known_reduce_or_negedge_blocking_before_interface",
+      "values": {
+        "width": "64",
+        "state": "bit",
+        "value": "known",
+        "expression": "reduce_or",
+        "edge": "negedge",
+        "update": "blocking",
+        "timing": "before",
+        "home": "interface"
+      },
+      "source_sha256": "13470f3e20e2bcfec6ed3bc1383285b0eee999cfc9ffa071d0dff3497c7f94eb",
+      "expected_sha256": "1d1290f1c32eae20a9212db0bcce112c392255d18643e3fe8bddfad609994cfc",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 pass=0 fail=1 predicate=1 sampled=11111111111111111111...', expected 'k0 pass=1 fail=0 predicate=1 sampled=11111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assert property (@(negedge clk) (|data))",
+        "after": "assert property (@(negedge clk) 1'b0)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_pass_count",
+      "case": "test_gen_cross_assert_64_bit_known_reduce_or_negedge_blocking_before_interface",
+      "values": {
+        "width": "64",
+        "state": "bit",
+        "value": "known",
+        "expression": "reduce_or",
+        "edge": "negedge",
+        "update": "blocking",
+        "timing": "before",
+        "home": "interface"
+      },
+      "source_sha256": "da8458587bd5fddabf7f7e82a1fa9cf7a7af4ff74e9f08afc7b9855cf4f6865a",
+      "expected_sha256": "1d1290f1c32eae20a9212db0bcce112c392255d18643e3fe8bddfad609994cfc",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 pass=0 fail=0 predicate=1 sampled=11111111111111111111...', expected 'k0 pass=1 fail=0 predicate=1 sampled=11111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "passed++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_fail_count",
+      "case": "test_gen_cross_assert_64_bit_known_reduce_or_negedge_blocking_before_interface",
+      "values": {
+        "width": "64",
+        "state": "bit",
+        "value": "known",
+        "expression": "reduce_or",
+        "edge": "negedge",
+        "update": "blocking",
+        "timing": "before",
+        "home": "interface"
+      },
+      "source_sha256": "6a120cd08585f70369209cb7d68b2a2f59933a2c2655bb75b7cd7e6b3c623dfb",
+      "expected_sha256": "1d1290f1c32eae20a9212db0bcce112c392255d18643e3fe8bddfad609994cfc",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k1 pass=1 fail=0 predicate=0 sampled=00000000000000000000...', expected 'k1 pass=1 fail=1 predicate=0 sampled=00000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "failed++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "sample_stuck_zero",
+      "case": "test_gen_cross_assert_64_bit_known_reduce_or_negedge_blocking_before_interface",
+      "values": {
+        "width": "64",
+        "state": "bit",
+        "value": "known",
+        "expression": "reduce_or",
+        "edge": "negedge",
+        "update": "blocking",
+        "timing": "before",
+        "home": "interface"
+      },
+      "source_sha256": "d3b24043a98c7f040ad72b1a46fc06be3a7e27b12218d96711f0d2249df56040",
+      "expected_sha256": "1d1290f1c32eae20a9212db0bcce112c392255d18643e3fe8bddfad609994cfc",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 pass=1 fail=0 predicate=1 sampled=00000000000000000000...', expected 'k0 pass=1 fail=0 predicate=1 sampled=11111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "seen_sample = $sampled(data);",
+        "after": "seen_sample = '0;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "predicate_stuck_zero",
+      "case": "test_gen_cross_assert_64_bit_known_reduce_or_negedge_blocking_before_interface",
+      "values": {
+        "width": "64",
+        "state": "bit",
+        "value": "known",
+        "expression": "reduce_or",
+        "edge": "negedge",
+        "update": "blocking",
+        "timing": "before",
+        "home": "interface"
+      },
+      "source_sha256": "f148c2d6516f65272f2e926c871f53e6798906859910245760322791ee789096",
+      "expected_sha256": "1d1290f1c32eae20a9212db0bcce112c392255d18643e3fe8bddfad609994cfc",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 pass=1 fail=0 predicate=0 sampled=11111111111111111111...', expected 'k0 pass=1 fail=0 predicate=1 sampled=11111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "seen_predicate = $sampled((|data));",
+        "after": "seen_predicate = 1'b0;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "live_uses_future_input",
+      "case": "test_gen_cross_assert_65_logic_known_case_equal_posedge_nba_after_module",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "known",
+        "expression": "case_equal",
+        "edge": "posedge",
+        "update": "nba",
+        "timing": "after",
+        "home": "module"
+      },
+      "source_sha256": "595d9ce3b3d65d2b9addbb2e6bd4956fbd8e27d326c8eb60940b278722971dbc",
+      "expected_sha256": "308b64049c15b904da6a90bdeecfe3ea669ee075ea0fd8e334e30dc8f087e0b4",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 pass=1 fail=0 predicate=1 sampled=00000000000000000000...', expected 'k0 pass=1 fail=0 predicate=1 sampled=00000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "seen_live = data;",
+        "after": "seen_live = incoming;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "lose_late_update",
+      "case": "test_gen_cross_assert_65_logic_known_case_equal_posedge_nba_after_module",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "known",
+        "expression": "case_equal",
+        "edge": "posedge",
+        "update": "nba",
+        "timing": "after",
+        "home": "module"
+      },
+      "source_sha256": "ce440a634923b971dbaa7a7b260011bbb4344537a72fba7814aff07c6cab6c33",
+      "expected_sha256": "308b64049c15b904da6a90bdeecfe3ea669ee075ea0fd8e334e30dc8f087e0b4",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 pass=1 fail=0 predicate=1 sampled=00000000000000000000...', expected 'k0 pass=1 fail=0 predicate=1 sampled=00000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "data <= incoming;",
+        "after": ";",
+        "replacements": 3
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true
+}

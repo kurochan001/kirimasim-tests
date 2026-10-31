@@ -145,7 +145,7 @@ class M4IntegrationTests(unittest.TestCase):
             return original_read(path, *args, **kwargs)
         with mock.patch.object(m4, "generate", generate), mock.patch.object(Path, "read_text", read):
             result = m4.run()
-        self.assertEqual(result["counts"], {"deferred": 17, "match": 7})
+        self.assertEqual(result["counts"], {"deferred": 42, "match": 7})
 
     def test_emit_only_never_opens_expected_and_writes_evidence(self):
         from sva_reference import m4
@@ -156,7 +156,7 @@ class M4IntegrationTests(unittest.TestCase):
             return original(path, *args, **kwargs)
         with tempfile.TemporaryDirectory() as directory, mock.patch.object(Path,"read_text",read):
             result = m4.run(emit_only=True, output_dir=directory)
-            self.assertEqual(result["counts"], {"deferred": 17, "generated": 7})
+            self.assertEqual(result["counts"], {"deferred": 42, "generated": 7})
             self.assertEqual(len(list(Path(directory).glob("*.actual"))),7)
             self.assertEqual(len(list(Path(directory).glob("*.events.json"))),7)
 
@@ -206,6 +206,30 @@ class M4IntegrationTests(unittest.TestCase):
             rows=m4.inventory()
         self.assertEqual(len(rows),7)
         self.assertTrue(all(row["status"]=="unhandled" for row in rows))
+
+    def test_generated_crosses_have_explicit_hashed_deferrals_not_successes(self):
+        from sva_reference import m4
+        import suite_results
+        paths = sorted((m4.ROOT / "tests/gen/ch16").glob("test_gen_cross_assert_*.sv"))
+        expected = {p.relative_to(m4.ROOT).as_posix(): m4.digest(p.read_bytes()) for p in paths
+                    if suite_results.header(p)["oracle"].split() == ["spec"]}
+        self.assertEqual(len(expected), 25)
+        entries = {r["test"]: r for r in m4.inventory() if r["test"] in expected}
+        self.assertEqual(set(entries), set(expected))
+        for test, digest in expected.items():
+            self.assertEqual(entries[test]["status"], "deferred")
+            self.assertEqual(entries[test]["source_sha256"], digest)
+            self.assertIn("M4 input/report audit", entries[test]["reason"])
+
+    def test_changed_generated_deferral_is_unhandled_until_reaudited(self):
+        from sva_reference import m4
+        rows = m4.survey.candidates(include_sampled=True)
+        target = next(r for r in rows if r["test"].startswith("tests/gen/ch16/test_gen_cross_assert_"))
+        changed = [{**r, "source_sha256": "0" * 64} if r["test"] == target["test"] else r for r in rows]
+        with mock.patch.object(m4.survey, "candidates", return_value=changed):
+            inventory = m4.inventory()
+        actual = next(r for r in inventory if r["test"] == target["test"])
+        self.assertEqual(actual["status"], "unhandled")
 
 
 if __name__ == "__main__":

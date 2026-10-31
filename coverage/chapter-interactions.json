@@ -885,6 +885,106 @@
           }
         }
       ]
+    },
+    {
+      "id": "assertion_sample_visibility",
+      "primary_chapter": 16,
+      "pairs": [
+        {
+          "chapters": [
+            4,
+            16
+          ],
+          "reason": "Preponedの評価値とReactiveのactionから読むライブ値"
+        },
+        {
+          "chapters": [
+            6,
+            16
+          ],
+          "reason": "bit/logicへの変換とサンプル値・式の値の観測"
+        },
+        {
+          "chapters": [
+            10,
+            16
+          ],
+          "reason": "blocking/NBA更新の前・同時・後とアサーションの観測時点"
+        },
+        {
+          "chapters": [
+            11,
+            16
+          ],
+          "reason": "リダクションOR・論理等価・case等価のサンプル値とpass/fail"
+        },
+        {
+          "chapters": [
+            16,
+            25
+          ],
+          "reason": "interface内の静的アサーションのサンプリングとaction",
+          "when": {
+            "home": [
+              "interface"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "container_wait_visibility",
+      "primary_chapter": 9,
+      "pairs": [
+        {
+          "chapters": [
+            7,
+            9
+          ],
+          "reason": "コンテナのサイズ・要素・全体置換とwaitの起床"
+        },
+        {
+          "chapters": [
+            6,
+            7
+          ],
+          "reason": "型を持つmarkerとコンテナ要素の格納・観測",
+          "when": {
+            "change": [
+              "create",
+              "grow",
+              "shrink",
+              "replace"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            6,
+            9
+          ],
+          "reason": "型変換した要素とmarkerのcase等価を条件とする待機",
+          "when": {
+            "condition": [
+              "element",
+              "both"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            7,
+            11
+          ],
+          "reason": "コンテナ要素のX/Zのcase等価と複合条件による起床",
+          "when": {
+            "condition": [
+              "element",
+              "both"
+            ]
+          }
+        }
+      ]
     }
   ]
 }

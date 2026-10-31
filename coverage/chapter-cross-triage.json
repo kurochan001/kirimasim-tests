@@ -12,30 +12,6 @@
     {
       "chapters": [
         4,
-        16
-      ],
-      "category": "E",
-      "priority": "P1",
-      "reason": "アサーションのサンプリングとライブ値が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "アサーションのサンプリングとライブ値",
-      "factors": [
-        "更新方法（blocking/NBA）",
-        "更新時点",
-        "assert種別",
-        "サンプル値/ライブ値"
-      ],
-      "observation": "サンプル値0とNBA後のライブ値1、評価結果とアクション時の値を分けて観測する。",
-      "witnesses": [
-        {
-          "test": "tests/ch4/test_preponed_sample_observed_before_action.sv",
-          "inputs_sha256": "c6f0b3cdcf46268efbf8b466fc80969a4136c3a8e6a93016490ef0b2a1d075b0"
-        }
-      ],
-      "rank": 2
-    },
-    {
-      "chapters": [
-        4,
         24
       ],
       "category": "E",
@@ -144,30 +120,6 @@
           "inputs_sha256": "88c693521e4f655ba484613d21003e29fb6f0ffeddf0ca0517b3c9e557b8729f"
         }
       ]
-    },
-    {
-      "chapters": [
-        7,
-        9
-      ],
-      "category": "E",
-      "priority": "P1",
-      "reason": "コンテナのサイズ変更によるwaitの再評価が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "コンテナのサイズ変更によるwaitの再評価",
-      "factors": [
-        "コンテナ（動的配列/キュー）",
-        "更新方法",
-        "待機条件",
-        "無関係な変数の変更"
-      ],
-      "observation": "必要な変更での起床時刻・回数と、無関係な変更では起床しないことを観測する。",
-      "witnesses": [
-        {
-          "test": "tests/ch9/test_wait_on_array_size.sv",
-          "inputs_sha256": "1f37e72d69552e7c19b54489ad4177e295d8d345a945457fc1baacb4af59e56b"
-        }
-      ],
-      "rank": 4
     },
     {
       "chapters": [
@@ -866,29 +818,6 @@
         "アクションの観測時点"
       ],
       "observation": "program内assertionの試行回数を与えたクロック数と照合する。",
-      "witnesses": [
-        {
-          "test": "tests/ch16/test_assertions_in_interface_and_program.sv",
-          "inputs_sha256": "835cad065b644cc99cc6cf115e8b044d85a30302a3a65ce014cecc7e2cc978bf"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        16,
-        25
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "interfaceごとのアサーション状態の独立性が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "interfaceごとのアサーション状態の独立性",
-      "factors": [
-        "interface数",
-        "要求/応答の時点",
-        "property種別",
-        "配置"
-      ],
-      "observation": "同じreqを与えてackだけを変えた2インスタンスの失敗数を区別する。",
       "witnesses": [
         {
           "test": "tests/ch16/test_assertions_in_interface_and_program.sv",

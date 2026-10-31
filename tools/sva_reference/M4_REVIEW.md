@@ -7,11 +7,32 @@ test-source or oracle change was needed for M4. M2's ten and M3's 28 tests
 still match, including M3's separately approved corrections.
 
 [`fixtures/m4_inventory.json`](fixtures/m4_inventory.json) accounts for all
-20 legal spec-only candidates that actually call one of these six functions.
-Seven are evaluated; 13 mixed-feature cases are deferred with source hashes,
+20 legal spec-only candidates at the original M4 milestone that actually called one of these six functions.
+Seven were evaluated; 13 mixed-feature cases were deferred with source hashes,
 reasons and evidence. Deferred cases are not successful evaluations or a claim
 of full sampled-function support. Changed/new unaudited cases report a gap
 instead of disappearing or being classified from a parser failure.
+
+## Inventory update, 2026-10-31
+
+The current inventory has 49 legal spec-only sampled-function candidates: the
+same seven audited matches and 42 explicit deferrals. The newly generated
+`assertion_sample_visibility` cross contributes 25 spec-only candidates; the
+other 11 have a fixed Verilator oracle and are outside this spec-only survey.
+The existing 17 deferrals remain, and each new deferral binds the current source
+hash and records why an input/report adapter audit is needed.
+
+These crosses store sampled data, a sampled predicate and live data in both
+action branches, then report the saved fields later in a procedure. M4's approved
+action adapter handles its audited display/counter protocol; these later reports
+and interface contexts need a separate adapter and region/dependency audit.
+The cross generator and its independent timeline checks do not make these M4
+matches or additional formal proofs. New/changed unaudited sources still report
+`unhandled`; the seven-output generation-before-comparison boundary is unchanged.
+
+The integration regressions keep the exact seven generated outputs and matches,
+check all 42 deferrals, and separately verify that the new 25 are source-bound
+deferrals whose hash changes become `unhandled`.
 
 ## Semantics and normative checks
 

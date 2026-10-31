@@ -1,0 +1,6 @@
+k0 before=0 source=1
+k0 pass=1 fail=0 predicate=1 sampled=1 at_action=1 final=1
+k1 before=1 source=0
+k1 pass=1 fail=1 predicate=0 sampled=0 at_action=0 final=0
+k2 before=0 source=1
+k2 pass=2 fail=1 predicate=1 sampled=1 at_action=1 final=1

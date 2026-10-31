@@ -16,7 +16,7 @@ all 28 match after two clause-reviewed, user-approved corrections to expected
 outputs and explanation comments. Source/trace integration limits are
 documented below.
 M4 adds the six static integral sampled functions for a single clock, with
-seven additional matching tests and 13 explicitly deferred mixed-feature cases.
+seven additional matching tests and, at the original milestone, 13 explicitly deferred mixed-feature cases.
 Only Python 3.10+ and its standard library are required for offline use.
 An optional symbolic formal suite now checks the evaluator against independent
 RTL models with Yosys/SymbiYosys. See [`FORMAL_REVIEW.md`](FORMAL_REVIEW.md)
@@ -452,7 +452,10 @@ python3 tools/sva_reference/check.py --sampled --output-dir "$M4_OUTPUT_DIR"
 ```
 
 [`M4_REVIEW.md`](M4_REVIEW.md) describes the normative rules, each input/report
-and scheduling audit, the 13 deferred mixed-feature cases and their boundaries.
+and scheduling audit, the original 13 deferred mixed-feature cases and their boundaries.
+The 2026-10-31 inventory update retains seven audited matches and explicitly
+defers 42 candidates, including the 25 spec-only generated assertion crosses.
+Those crosses need a new delayed-report adapter audit and are not M4 matches.
 [`fixtures/m4_inventory.json`](fixtures/m4_inventory.json) gives every result;
 [`fixtures/m4_cases.json`](fixtures/m4_cases.json) and cached inputs bind source,
 projection, types, defaults and scheduling assumptions. Fresh Icarus 13.0 input

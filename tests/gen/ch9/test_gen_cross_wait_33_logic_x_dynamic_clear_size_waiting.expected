@@ -1,0 +1,18 @@
+k0 start=2 raw=111111111111111111111111111111111 marker=111111111111111111111111111111111
+k0 noise wake=0 dt=-1 size=2
+k0 done wake=1 dt=3 captured=0 size=0
+k1 start=2 raw=000000000000000000000000000000000 marker=000000000000000000000000000000000
+k1 noise wake=0 dt=-1 size=2
+k1 done wake=1 dt=3 captured=0 size=0
+k2 start=2 raw=101010101010101010101010101010101 marker=101010101010101010101010101010101
+k2 noise wake=0 dt=-1 size=2
+k2 done wake=1 dt=3 captured=0 size=0
+u0 start=2 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx marker=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+u0 noise wake=0 dt=-1 size=2
+u0 done wake=1 dt=3 captured=0 size=0
+u1 start=2 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx marker=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+u1 noise wake=0 dt=-1 size=2
+u1 done wake=1 dt=3 captured=0 size=0
+u2 start=2 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx marker=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+u2 noise wake=0 dt=-1 size=2
+u2 done wake=1 dt=3 captured=0 size=0

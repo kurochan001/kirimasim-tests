@@ -1,0 +1,42 @@
+k0 start=2 raw=1 marker=1
+k0 noise wake=1 dt=0 size=2
+k0 done wake=1 dt=0 captured=2 size=2
+k0 live0=1
+k0 live1=0
+k0 saved0=1
+k0 saved1=0
+k1 start=2 raw=0 marker=0
+k1 noise wake=1 dt=0 size=2
+k1 done wake=1 dt=0 captured=2 size=2
+k1 live0=0
+k1 live1=1
+k1 saved0=0
+k1 saved1=1
+k2 start=2 raw=1 marker=1
+k2 noise wake=1 dt=0 size=2
+k2 done wake=1 dt=0 captured=2 size=2
+k2 live0=1
+k2 live1=0
+k2 saved0=1
+k2 saved1=0
+u0 start=2 raw=x marker=0
+u0 noise wake=1 dt=0 size=2
+u0 done wake=1 dt=0 captured=2 size=2
+u0 live0=0
+u0 live1=0
+u0 saved0=0
+u0 saved1=0
+u1 start=2 raw=x marker=0
+u1 noise wake=1 dt=0 size=2
+u1 done wake=1 dt=0 captured=2 size=2
+u1 live0=0
+u1 live1=1
+u1 saved0=0
+u1 saved1=1
+u2 start=2 raw=x marker=0
+u2 noise wake=1 dt=0 size=2
+u2 done wake=1 dt=0 captured=2 size=2
+u2 live0=0
+u2 live1=0
+u2 saved0=0
+u2 saved1=0
