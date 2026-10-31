@@ -202,6 +202,17 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
   実行時間は約3分25秒。同名の`.log`に不一致の一覧を保存しています。
   実行前後の入力一致とランナーのハッシュを検証済みです。非公開の実行プロファイルや内部診断は含めません。
   規格違反の検出を求める要求は従来どおり固定バージョンoracleの証跡だけを採用し、Ghostのpassでは実行確認を増やしません。
+- `results/ghost-local-20261031.json`: Ghostのローカル全件実行。対象はスイート`c53a5603`の9,139本、
+  ビルド識別子は`88d08d9c3441`で、8,382 pass・757 fail（91.72%一致）です。
+  実行時間は約2分7秒。同名の`.log`に不一致の一覧を保存しています。
+  実行前後の入力一致とランナーのハッシュを検証済みです。非公開の実行プロファイルや内部診断は含めません。
+  再構成したローカルプロファイルによる実行で公式nightlyの証跡ではないため、実行確認率には採用しません。
+  回帰8本はsukimasimのIssue
+  [#1909](https://github.com/kurochan001/sukimasim/issues/1909)、
+  [#1913](https://github.com/kurochan001/sukimasim/issues/1913)、
+  [#2641](https://github.com/kurochan001/sukimasim/issues/2641)（いずれも再オープン）と
+  [#2888](https://github.com/kurochan001/sukimasim/issues/2888)〜
+  [#2892](https://github.com/kurochan001/sukimasim/issues/2892)に記録しています。
 - `results/quality-persim-20261027-*.json`: シミュレータ別期待値のパイロット実行（19本）。
 - `results/audit-oracle-20261026-icarus13.json`: spec-onlyのうちIcarus 13.0で一致した277本へ`iverilog@13.0`を追加した後の再実行（277/277 pass）。
 - `results/regex-refinement-20261025-*.json`: 判定の正規表現をメッセージの書式に依存しない形に直した`ch16`の2本の再実行。
