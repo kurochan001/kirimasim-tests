@@ -1,0 +1,62 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch21/test_gen_cross_memfile_129_bit_plain_known_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "737ce3881511e7037a233b1dac8ba9fd1c516f71dcacc5fdc3e80498f84fb3f2"
+  },
+  "gen/ch21/test_gen_cross_memfile_129_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "efd1f98aa764b75d1f10b8a639f67589667a66de291904763ca42be69b18fa77"
+  },
+  "gen/ch21/test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "62ce9283e3b8e7242bcb4ef6d7d4a30c63d24025cd2bdc686c0c08bfbcd74afc"
+  },
+  "gen/ch21/test_gen_cross_memfile_1_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "8e69d2e4a1597122942edb98d8cf383bab0a0676cdfb1a4299eb4c8f1bb0564b"
+  },
+  "gen/ch21/test_gen_cross_memfile_32_bit_enum_known_hex_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "f67e6b86c0c01e90c8c458b26aad46f8318cb84563c0f2382286784dfd65d06a"
+  },
+  "gen/ch21/test_gen_cross_memfile_32_logic_enum_known_bin_middle_up_bit_reverse": {
+   "status": "known",
+   "reason": "output differs: line 13 is 'k0 dest idx=11 written=00000000000000000000000000000000 c...', expected 'k0 dest idx=11 written=00100100100100100100100100100100 c...'",
+   "inputs_sha256": "0434b72960afad9bb45d441c3dd9841d301de7297368337d3986399c55dcc9db"
+  },
+  "gen/ch21/test_gen_cross_memfile_33_bit_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "b0b34d3892282961f7f14b2e06821394d2113ddfb5433b2186d71f1fe849e8bd"
+  },
+  "gen/ch21/test_gen_cross_memfile_33_logic_plain_known_bin_middle_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "bce3223452a761b03045e56ee3e01c5e3659e42cd93c3ca0101c2bacccdb67f8"
+  },
+  "gen/ch21/test_gen_cross_memfile_64_bit_plain_known_hex_all_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "4d2c343a2ecae787565ddf824ea7e63c2f6dd81d8be6732ea14589cdf398bcc5"
+  },
+  "gen/ch21/test_gen_cross_memfile_64_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "2f7030ce9676fecfbe4f825e94b694b1fcab636a85021800d0c8924ba7dd6aac"
+  },
+  "gen/ch21/test_gen_cross_memfile_65_bit_enum_known_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "a94162464dfd2aa09fcd36c23843bad1a4e5f33face2058f97b4cf06bc587be0"
+  },
+  "gen/ch21/test_gen_cross_memfile_65_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "90c5b7080f84c1dc7ec759f33e8661501781d3d40ca5118b6132d427494b04f6"
+  }
+ },
+ "generated_at": "2026-10-31T13:49:44.340773+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

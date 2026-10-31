@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "source_commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "upstream_commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "source_clean": true,
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "binary_sha256_before": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "verified_at": "2026-10-31T15:59:24.151555+00:00",
+  "suite_base_commit": "efd160c4702f080125ebedb60b887071424dabfb",
+  "scope": "All 49 selected interaction models; release reconfigured and rebuilt from verified latest source. Prior 48-model plans/results preserved by separate digests.",
+  "fixed_snapshot_provenance": {
+    "method": "Fresh black-box probes saved unchanged after checking every input and runner fingerprint; oracle metadata remains spec.",
+    "artifacts": {
+      "coverage/interaction-results/reactive-20261101-icarus13.json": {
+        "sha256": "5732ad6b8e5274cac9000f523e48ebcb6825b4fea797b418b626d85423a4ad2e",
+        "input_and_runner_fingerprints_verified": true
+      },
+      "coverage/interaction-results/reactive-20261101-verilator5.052-seed1.json": {
+        "sha256": "8b8f3eed5d403eb78302aae022d6c55cf88a34ffd81c249aeb96237b1c8a33b2",
+        "input_and_runner_fingerprints_verified": true
+      },
+      "coverage/interaction-results/reactive-20261101-verilator5.052-seed73.json": {
+        "sha256": "dcc85f396c88b25d00a1afe88b9abacbaccd0c8e6ea2a564fd0ba2d8da2435c3",
+        "input_and_runner_fingerprints_verified": true
+      }
+    }
+  },
+  "binary_sha256_after": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "binary_unchanged": true,
+  "prior_run_comparison": {
+    "source": "coverage/interaction-results/cross48-kirimasim-4b58e29f.json",
+    "tests": 2118,
+    "inputs_unchanged": true,
+    "statuses_unchanged": true
+  },
+  "prior_report_comparison": {
+    "source": "coverage/interaction-qualification/20261101-reactive-prior-digests.json",
+    "models": 48,
+    "snapshots": 135,
+    "model_plans_unchanged": true,
+    "prior_model_run_aggregates_unchanged": true,
+    "prior_artifacts_unchanged": true
+  }
+}

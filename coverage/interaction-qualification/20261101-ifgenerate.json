@@ -1,0 +1,614 @@
+{
+  "schema": 1,
+  "purpose": "generated_interface_binding fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "scope": "six mandatory controls: generated widths, if/case routes, whole/modport bindings, live guards, position/role histories and conversion order",
+  "generator_sha256": "6916ecebbd37f253924f3883e9dd3dcbc29f2112d9089383178478d379956b51",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_ifgenerate_1_1_if_a_whole_bit_known",
+      "values": {
+        "base_width": "1",
+        "count": "1",
+        "form": "if",
+        "route": "a",
+        "access": "whole",
+        "state": "bit",
+        "value": "known"
+      },
+      "source_sha256": "212c081378c3c9a37e56a6db5c75012e6fd836f5fd1dafcd693a26afda8804a1",
+      "expected_sha256": "b183f3cef1587d7a88d97c88008377dc13aa4a1da5368782d5058fd7b34f9898",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "1f34d047e27382ee8d6ee755243542b8fbcf8de25ea007e4dab61dae7d34d81d",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_ifgenerate_65_2_if_b_whole_logic_x",
+      "values": {
+        "base_width": "65",
+        "count": "2",
+        "form": "if",
+        "route": "b",
+        "access": "whole",
+        "state": "logic",
+        "value": "x"
+      },
+      "source_sha256": "6e135eeda37f36cc54c6953f1bfc0b0f301380e41d0d98a943669444ac34ac3c",
+      "expected_sha256": "3d8fa1a144bd7150a865efc9a4a912907744103cdd2942f74a973aefa8ab5dae",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_ifgenerate_33_3_case_b_modport_bit_z",
+      "values": {
+        "base_width": "33",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "bit",
+        "value": "z"
+      },
+      "source_sha256": "3396595c152c7be47dd0c99f217d89207e00850aa5516024ea43a67722c62f34",
+      "expected_sha256": "6ff082ef9c1b8e84e84c10c715a56aba76edf6a3dd2c29c45770d4e116e6aed4",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_ifgenerate_32_2_case_b_modport_bit_known",
+      "values": {
+        "base_width": "32",
+        "count": "2",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "bit",
+        "value": "known"
+      },
+      "source_sha256": "847f58116aa4b157b66ace66c2779fab492f73ca273be3563f7566783d1ce26e",
+      "expected_sha256": "97475f7f8e63d7d42b4e011c82ab2b6582ad5e5512f80e41e3c6de8be4fc8b32",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_ifgenerate_64_1_if_a_whole_logic_known",
+      "values": {
+        "base_width": "64",
+        "count": "1",
+        "form": "if",
+        "route": "a",
+        "access": "whole",
+        "state": "logic",
+        "value": "known"
+      },
+      "source_sha256": "a0a8b2ff85460f855fa165c8073bcf76beae8f64ef2952bb717770faebd6b612",
+      "expected_sha256": "e07a2388aab3315179256c9be9daad035e7af3b12405d134747ea779bfadac0f",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "wrong_selected_branch",
+      "case": "test_gen_cross_ifgenerate_1_1_if_a_whole_bit_known",
+      "values": {
+        "base_width": "1",
+        "count": "1",
+        "form": "if",
+        "route": "a",
+        "access": "whole",
+        "state": "bit",
+        "value": "known"
+      },
+      "source_sha256": "fa65d5d25ae6bd24ceca3123cad5f3e70b5f98784aaeadf6b3bc289c98c7dbfc",
+      "expected_sha256": "b183f3cef1587d7a88d97c88008377dc13aa4a1da5368782d5058fd7b34f9898",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 lane=0 a=1 atag=-1 b=0 btag=111', expected 'k0 lane=0 a=1 atag=11 b=1 btag=-1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "localparam bit SELECT = 0;",
+        "after": "localparam bit SELECT = 1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "force_complement_on_direct_route",
+      "case": "test_gen_cross_ifgenerate_1_1_if_a_whole_bit_known",
+      "values": {
+        "base_width": "1",
+        "count": "1",
+        "form": "if",
+        "route": "a",
+        "access": "whole",
+        "state": "bit",
+        "value": "known"
+      },
+      "source_sha256": "355a76dafe985cc3610926ec5e5dfff80b42fb3249a366dee0f99bbbc5c6ca2b",
+      "expected_sha256": "b183f3cef1587d7a88d97c88008377dc13aa4a1da5368782d5058fd7b34f9898",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 lane=0 a=0 atag=11 b=1 btag=-1', expected 'k0 lane=0 a=1 atag=11 b=1 btag=-1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign p.payload = FLIP ? ~raw : raw;",
+        "after": "assign p.payload = ~raw;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_guard_payload",
+      "case": "test_gen_cross_ifgenerate_1_1_if_a_whole_bit_known",
+      "values": {
+        "base_width": "1",
+        "count": "1",
+        "form": "if",
+        "route": "a",
+        "access": "whole",
+        "state": "bit",
+        "value": "known"
+      },
+      "source_sha256": "2d54c73279459ae02fdacfd07cd2f94e71ab5355784885d3a66572a307362ea9",
+      "expected_sha256": "b183f3cef1587d7a88d97c88008377dc13aa4a1da5368782d5058fd7b34f9898",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 lane=0 a=1 atag=11 b=0 btag=-1', expected 'k0 lane=0 a=1 atag=11 b=1 btag=-1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "= guard_data;",
+        "after": "= '0;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "lose_selected_complement",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "970a4aebd4a82d12f451c49dabdea1e459ff68230c11d3c6261022d1c1280564",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 lane=0 a=101010101010101010101010101010101010101010101...', expected 'k0 lane=0 a=101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign p.payload = FLIP ? ~raw : raw;",
+        "after": "assign p.payload = raw;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "logic_payload_becomes_bit",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "e969d20a0fd3f93e4b444dc7ee32e87443fd22c67a894c3878821e214c2b7a4a",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 119 is 'u0 lane=0 a=101010101010101010101010101010101010101010101...', expected 'u0 lane=0 a=101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "logic [W-1:0] payload;",
+        "after": "bit [W-1:0] payload;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "reader_binds_guard_interface",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "5071cdb95922bf55e581987a415578acec091a626c18cd4be27a4204c3afaa09",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 lane=0 seen=101010101010101010101010101010101010101010...', expected 'k0 lane=0 seen=010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "r(.p(b), .seen",
+        "after": "r(.p(a), .seen",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_reader_tag",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "47b3fab95a14a07abb49ff36ce59f473e8b8fa7560e76f9dc4ea373a22a3cbe4",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 lane=0 seen=010101010101010101010101010101010101010101...', expected 'k0 lane=0 seen=010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign sid = p.tag;",
+        "after": "assign sid = 0;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "guard_tags_alias_first_element",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "920670c25cd79da9bd0aac8c8b927316f08b0c4bbf0e78b5e4aea07bb2bc363b",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 lane=1 a=010101010101010101010101010101010101010101010...', expected 'k0 lane=1 a=010101010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "= -1-i;",
+        "after": "= -1;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "active_tags_alias_first_element",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "ca28c8fe5ea1879791c1f9ce07c3b9f7736f7e9363516a93bb7600705f10d1d2",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 lane=1 a=010101010101010101010101010101010101010101010...', expected 'k0 lane=1 a=010101010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".ID(111+i)",
+        "after": ".ID(111)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "writer_reads_first_element",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "6df1dac851345bd4f82fccfb32821bfa905ed4003d406bf609dee59c9283e4dc",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 8 is 'k0 lane=2 a=101010101010101010101010101010101010101010101...', expected 'k0 lane=2 a=101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".raw(raw)",
+        "after": ".raw(g[0].raw)",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "generated_width_loses_index",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "4a799c67ae26f0221dfcfe9731c50d8fbc8a46cae66184393628af6c1976ddbe",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0 lane=1 raw=1010101010101010101010101010101010101010101...', expected 'k0 lane=1 raw=0101010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "W = BASE+i;",
+        "after": "W = BASE;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "interface_parameter_loses_index",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "2f91d07d378ba18522677857f2ec3335150e72eed9102758bbda5a3cdb6d2643",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 lane=1 a=101010101010101010101010101010101010101010101...', expected 'k0 lane=1 a=010101010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "lane_if #(W) a(), b();",
+        "after": "lane_if #(BASE) a(), b();",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_writer_payload",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "f1032d477b783024cb6350dfb13e814e074861891e2fba881091a7ff09d6b4ea",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 lane=0 a=101010101010101010101010101010101010101010101...', expected 'k0 lane=0 a=101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign p.payload = FLIP ? ~raw : raw;",
+        "after": "assign p.payload = '0;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "truncate_reader_above_64",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "a8447aed95709511b3b3827e4d23af7d465a600767a819b67f8c95155a2eac1f",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 lane=0 seen=000000000000000000000000000000000000000000...', expected 'k0 lane=0 seen=010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign seen = p.payload;",
+        "after": "assign seen = 64'(p.payload);",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "reader_reuses_lower_word",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "11bf1925be6c1b83700c51c74c279b354151a2801c7058909efa6d9b24de34ca",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 6 is 'k0 lane=1 seen=001010101010101010101010101010101010101010...', expected 'k0 lane=1 seen=101010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign seen = p.payload;",
+        "after": "assign seen = {p.payload[64:0], p.payload[63:0]};",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "corrupt_guard_payload",
+      "case": "test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z",
+      "values": {
+        "base_width": "129",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "logic",
+        "value": "z"
+      },
+      "source_sha256": "cf2b230b0a1ec4702718b19dacde6313ff552153f7c38cb135f9259a22b3d849",
+      "expected_sha256": "46d544d73f86fab965a412009b965de35a3e10d5348c8df23bcc9d2dc38ae4b6",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 lane=0 a=010101010101010101010101010101010101010101010...', expected 'k0 lane=0 a=101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "= guard_data;",
+        "after": "= ~guard_data;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "bit_payload_becomes_logic",
+      "case": "test_gen_cross_ifgenerate_33_3_case_b_modport_bit_z",
+      "values": {
+        "base_width": "33",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "bit",
+        "value": "z"
+      },
+      "source_sha256": "1a27048874d8a782c6562a72123ae848211a62f7860980015e62e57ff5376469",
+      "expected_sha256": "6ff082ef9c1b8e84e84c10c715a56aba76edf6a3dd2c29c45770d4e116e6aed4",
+      "status": "fail",
+      "reason": "output differs: line 119 is 'u0 lane=0 a=101010101010101010101010101010101 atag=-1 b=x...', expected 'u0 lane=0 a=101010101010101010101010101010101 atag=-1 b=0...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "bit [W-1:0] payload;",
+        "after": "logic [W-1:0] payload;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "convert_before_complement",
+      "case": "test_gen_cross_ifgenerate_33_3_case_b_modport_bit_z",
+      "values": {
+        "base_width": "33",
+        "count": "3",
+        "form": "case",
+        "route": "b",
+        "access": "modport",
+        "state": "bit",
+        "value": "z"
+      },
+      "source_sha256": "dc929805189d8750e662df34645d8a2645ec6c757e86a2e679f9513f8b874985",
+      "expected_sha256": "6ff082ef9c1b8e84e84c10c715a56aba76edf6a3dd2c29c45770d4e116e6aed4",
+      "status": "fail",
+      "reason": "output differs: line 119 is 'u0 lane=0 a=101010101010101010101010101010101 atag=-1 b=1...', expected 'u0 lane=0 a=101010101010101010101010101010101 atag=-1 b=0...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign p.payload = FLIP ? ~raw : raw;",
+        "after": "bit [W-1:0] converted;\n  assign converted = raw;\n  assign p.payload = FLIP ? ~converted : converted;",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "bfdabe4b3e15dc4cf7a528e25e6f00b111f6b842e5287b2ca40ba19258141fe5",
+  "binary_unchanged": true
+}

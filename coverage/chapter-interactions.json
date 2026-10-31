@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "reviewed_on": "2026-10-31",
+  "reviewed_on": "2026-11-01",
   "reviewer": "Codex (GPT-6), AI review",
   "scope": "Registered finite interaction models only; explicit semantic chapter pairs, not citation co-occurrences. Diagonal entries are primary-chapter model counts.",
   "models": [
@@ -1255,6 +1255,173 @@
             26
           ],
           "reason": "packageの名前を.*だけではimportせず、明示importや.name/式の参照ではimportする規則を、局所宣言と明示修飾・2個の入力既定値・独立スコープの対照を使って確認する。"
+        }
+      ]
+    },
+    {
+      "id": "typed_memory_file",
+      "primary_chapter": 21,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            21
+          ],
+          "reason": "明示キャストした列挙型の数値とbit/logic基底型のX/Z変換を、ファイル出力・独立入力・読込み先の状態型を通して照合する。",
+          "when": {
+            "kind": [
+              "enum"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            7,
+            21
+          ],
+          "reason": "固定配列の宣言方向と明示した書込み/読込み範囲、異なる添字オフセット、単一/部分/全範囲を組み合わせ、読み込んだ値と範囲外の保持を確認する。"
+        }
+      ]
+    },
+    {
+      "id": "program_descendant_shutdown",
+      "primary_chapter": 24,
+      "pairs": [
+        {
+          "chapters": [
+            9,
+            24
+          ],
+          "reason": "自然終了と$exit、複数initial、forkのjoin種別、子/孫プロセスを組み合わせ、時刻5の進捗と終了後の書込み取消し・最後のprogramによる暗黙終了を照合する。"
+        },
+        {
+          "chapters": [
+            15,
+            24
+          ],
+          "when": {
+            "waiting": [
+              "event"
+            ]
+          },
+          "reason": "同じ名前付きイベントを待つ終了対象と別programの対照を使い、前者だけの待機取消しと後者の起床を同時に確認する。"
+        }
+      ]
+    },
+    {
+      "id": "implicit_port_nettype",
+      "primary_chapter": 22,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            22
+          ],
+          "reason": "default_nettypeの6種類の字句、2ドライバの解決表、vector/scalarの暗黙net宣言、明示wireの上書きと指示解除後の保持を観測する。"
+        },
+        {
+          "chapters": [
+            22,
+            23
+          ],
+          "reason": "ANSI/非ANSIのポート宣言で既定のnet型と幅を確認し、vectorだけを明示wireにした場合のscalarポートの既定型と、後続moduleの型を親子で照合する。"
+        }
+      ]
+    },
+    {
+      "id": "generated_interface_binding",
+      "primary_chapter": 27,
+      "pairs": [
+        {
+          "chapters": [
+            25,
+            27
+          ],
+          "reason": "generateで幅の違うinterfaceを複数生成し、if/caseの選択、whole/modportのwriter/reader接続、非選択側の対照、要素ごとの識別タグ・幅・値を照合する。"
+        },
+        {
+          "chapters": [
+            6,
+            25
+          ],
+          "when": {
+            "value": [
+              "x",
+              "z"
+            ]
+          },
+          "reason": "生成したinterfaceのbit/logic payloadへ反転前後のX/Zを格納し、型変換の時点とreaderの観測値を、既知の対照とともに照合する。"
+        }
+      ]
+    },
+    {
+      "id": "program_reactive_handoff",
+      "primary_chapter": 24,
+      "pairs": [
+        {
+          "chapters": [
+            4,
+            24
+          ],
+          "reason": "moduleのActive/NBA連鎖が完了する前後を同じ式のmodule/programで比較し、プログラムの文脈・出力イベント・Reactive/Re-NBAの順序を観測する。"
+        },
+        {
+          "chapters": [
+            10,
+            24
+          ],
+          "when": {
+            "producer": [
+              "nba"
+            ]
+          },
+          "reason": "programのNBA予約直後の旧値とRe-NBA後にmoduleへ伝わる新値を区別し、moduleのNBA連鎖完了後に採取した文脈と照合する。"
+        },
+        {
+          "chapters": [
+            6,
+            24
+          ],
+          "when": {
+            "value": [
+              "x",
+              "z"
+            ]
+          },
+          "reason": "moduleのbit/logic sourceへのX/Z格納とprogramの反転を組み合わせ、格納後の値を使う順序、出力と連鎖内の未知値を観測する。"
+        }
+      ]
+    },
+    {
+      "id": "configuration_generated_shape",
+      "primary_chapter": 33,
+      "pairs": [
+        {
+          "chapters": [
+            23,
+            33
+          ],
+          "reason": "通常の直下/ラッパ階層のtargetへconfigを適用し、既定値・インスタンス指定・defparamへの優先、Wだけ/全体のリセット、対象外の兄弟への不適用とRHSのスコープを照合する。"
+        },
+        {
+          "chapters": [
+            27,
+            33
+          ],
+          "reason": "configで決まったパラメータからgenerateの幅・個数・if/case分岐を生成し、実際の配列・子の幅・分岐処理を観測する。generate内部への直接config指定と、RHSのgenerate階層参照は扱わない。"
+        }
+      ]
+    },
+    {
+      "id": "udp_array_strength",
+      "primary_chapter": 29,
+      "pairs": [
+        {
+          "chapters": [
+            28,
+            29
+          ],
+          "reason": "組合せUDPの駆動強度と別ドライバの競合を、通常/逆方向の配列・パックベクタ・スカラー共通接続と組み合わせ、単独出力と全ビットの値を照合する。%vや個別インスタンスの階層参照は含めない。"
         }
       ]
     }

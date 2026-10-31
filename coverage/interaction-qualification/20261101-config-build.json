@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "source_commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "upstream_commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "source_clean": true,
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "binary_sha256_before": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "verified_at": "2026-10-31T16:43:37.961193+00:00",
+  "suite_base_commit": "efd160c4702f080125ebedb60b887071424dabfb",
+  "scope": "All 50 selected interaction models; release reconfigured and rebuilt from verified latest source. Four new config all-reset/defparam output differences are preserved. Prior 49-model plans/results preserved by separate digests.",
+  "fixed_snapshot_provenance": {
+    "method": "Fresh black-box probes saved unchanged after checking every input and runner fingerprint; oracle metadata remains spec.",
+    "artifacts": {
+      "coverage/interaction-results/config-20261101-icarus13.json": {
+        "sha256": "d73f0abaaf3fd74f3c3800b81c1aa05f3b67569466061930e90abf4f80fa7954",
+        "input_and_runner_fingerprints_verified": true
+      },
+      "coverage/interaction-results/config-20261101-verilator5.052-seed1.json": {
+        "sha256": "d190aa1949263dc64e813491d1d16d86ba458e95c14a9f6dcbda1e630132f4a7",
+        "input_and_runner_fingerprints_verified": true
+      },
+      "coverage/interaction-results/config-20261101-verilator5.052-seed73.json": {
+        "sha256": "e4f6801beac8797d903804953bb4cfcfd7fd2ca70cf92feaa03f7668f032cf3b",
+        "input_and_runner_fingerprints_verified": true
+      }
+    }
+  },
+  "binary_sha256_after": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "binary_unchanged": true,
+  "prior_run_comparison": {
+    "source": "coverage/interaction-results/cross49-kirimasim-4b58e29f.json",
+    "tests": 2154,
+    "inputs_unchanged": true,
+    "statuses_unchanged": true
+  },
+  "prior_report_comparison": {
+    "source": "coverage/interaction-qualification/20261101-config-prior-digests.json",
+    "models": 49,
+    "snapshots": 139,
+    "model_plans_unchanged": true,
+    "prior_model_run_aggregates_unchanged": true,
+    "prior_artifacts_unchanged": true
+  },
+  "prior_files_comparison": {
+    "files": 18419,
+    "sha256_unchanged": true
+  },
+  "local_validation": {
+    "tool_unit_tests": 512,
+    "tool_unit_tests_passed": true,
+    "metadata_tests": 9945,
+    "metadata_new_problems": 0,
+    "metadata_known_problems": 395,
+    "generated_reports_current": true,
+    "github_check_nightly_for_uncommitted_changes": "not run"
+  }
+}

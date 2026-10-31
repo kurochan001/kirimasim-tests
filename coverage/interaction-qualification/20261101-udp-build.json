@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "source_commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "upstream_commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "source_clean": true,
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "binary_sha256_before": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "verified_at": "2026-10-31T16:59:36.278758+00:00",
+  "suite_base_commit": "efd160c4702f080125ebedb60b887071424dabfb",
+  "scope": "All 51 selected interaction models; release reconfigured and rebuilt from verified latest source. Prior 50-model plans/results and six existing failures are preserved.",
+  "fixed_snapshot_provenance": {
+    "method": "Fresh execution after final oracle metadata generation; fingerprints verified. Only one matching fixed-Icarus case is registered as an oracle.",
+    "artifacts": {
+      "coverage/interaction-results/udp-20261101-icarus13.json": {
+        "sha256": "33c6b56d4f014d058895e39037dd1147b855fb9cda26c0d0de84902f4f15f56a",
+        "input_and_runner_fingerprints_verified": true
+      }
+    },
+    "verilator": {
+      "eligible_cases": 0,
+      "executed": false,
+      "reason": "All 25 cases require four-state observation."
+    }
+  },
+  "binary_sha256_after": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "binary_unchanged": true,
+  "prior_run_comparison": {
+    "source": "coverage/interaction-results/cross50-kirimasim-4b58e29f.json",
+    "tests": 2195,
+    "inputs_unchanged": true,
+    "statuses_unchanged": true
+  },
+  "prior_report_comparison": {
+    "source": "coverage/interaction-qualification/20261101-udp-prior-digests.json",
+    "models": 50,
+    "snapshots": 143,
+    "model_plans_unchanged": true,
+    "prior_model_run_aggregates_unchanged": true,
+    "prior_artifacts_unchanged": true
+  },
+  "prior_files_comparison": {
+    "files": 18505,
+    "sha256_unchanged": true
+  },
+  "local_validation": {
+    "tool_unit_tests": 521,
+    "tool_unit_tests_passed": true,
+    "metadata_tests": 9970,
+    "metadata_new_problems": 0,
+    "metadata_known_problems": 395,
+    "consistency_checks": 11,
+    "generated_reports_current": true,
+    "github_check_nightly": "Local validation only; inspect workflows for the pushed suite commit."
+  }
+}

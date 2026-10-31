@@ -1,0 +1,73 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch24/test_gen_cross_reactive_129_bit_known_1_blocking_blocking_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010101010101...', expected 'late t=10 value=10101010101010101010101010101010101010101...'",
+   "inputs_sha256": "c34a1dc7a6672ba9b7ba1157d0481477d3b0240bbe32bc1fd4789aba8ac25705"
+  },
+  "gen/ch24/test_gen_cross_reactive_129_logic_known_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010101010101...', expected 'late t=10 value=10101010101010101010101010101010101010101...'",
+   "inputs_sha256": "abe909258af203c7cf02d69e4c558108d903d6d27e3a48c574262b50843e2f6e"
+  },
+  "gen/ch24/test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=1 last=1 steps=1', expected 'late t=10 value=1 last=0 steps=1'",
+   "inputs_sha256": "ff0fdac52174510a1807c2b2b547179f6868e907307a4c3a0ed93e323b1e0862"
+  },
+  "gen/ch24/test_gen_cross_reactive_1_logic_known_2_blocking_nba_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=1 last=1 steps=2', expected 'late t=10 value=1 last=0 steps=2'",
+   "inputs_sha256": "4ab9d8840ed125737b6eef2c078b29ed62cd975efda31159a6c1e34c6564d6c6"
+  },
+  "gen/ch24/test_gen_cross_reactive_32_bit_known_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101 last=000...', expected 'late t=10 value=01010101010101010101010101010101 last=010...'",
+   "inputs_sha256": "9ddb366ebe81aefb4adcf9397a2dc22850d9cb95384520d87a499c25da37eb35"
+  },
+  "gen/ch24/test_gen_cross_reactive_32_logic_known_2_nba_blocking_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101 last=000...', expected 'late t=10 value=01010101010101010101010101010101 last=010...'",
+   "inputs_sha256": "5710ffc3ae9484f86f2d585705089d9fda17c9fc3843752fc5356e4d4e978fda"
+  },
+  "gen/ch24/test_gen_cross_reactive_33_bit_known_2_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=101010101010101010101010101010101 last=00...', expected 'late t=10 value=101010101010101010101010101010101 last=10...'",
+   "inputs_sha256": "dd7825f64098396f1b6b0ab6945ca7f4667f22700521bc46b25390e721aa0a1e"
+  },
+  "gen/ch24/test_gen_cross_reactive_33_logic_known_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=101010101010101010101010101010101 last=00...', expected 'late t=10 value=101010101010101010101010101010101 last=10...'",
+   "inputs_sha256": "7edf73ad57e6d46e29ad807dced48e61b37dee2ee5e81483977225acba0cfe31"
+  },
+  "gen/ch24/test_gen_cross_reactive_64_bit_known_1_blocking_nba_invert": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'p0 program captured=1111111111111111111111111111111111111...', expected 'p0 program captured=1111111111111111111111111111111111111...'",
+   "inputs_sha256": "8a511b87b2e0e363cddad90aa5b0a361b64a613ffe22fb110da45ff4acd2108c"
+  },
+  "gen/ch24/test_gen_cross_reactive_64_logic_known_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+   "inputs_sha256": "20b22c6c489c64c901500ee3b009c45e53a95d226d7c0f38e8f2767dbf7b50b6"
+  },
+  "gen/ch24/test_gen_cross_reactive_65_bit_known_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010101010101...', expected 'late t=10 value=10101010101010101010101010101010101010101...'",
+   "inputs_sha256": "e8be0d0363b03be5e64a418039a47afc519e02518862b3a6cd580c63a79d744f"
+  },
+  "gen/ch24/test_gen_cross_reactive_65_logic_known_3_blocking_continuous_invert": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+   "inputs_sha256": "0dd076248ff1a1cc646c0d565dc8a2cdfe43afe8e0bbf1fcbaa03f879db9a8bd"
+  }
+ },
+ "generated_at": "2026-10-31T15:54:59.675080+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

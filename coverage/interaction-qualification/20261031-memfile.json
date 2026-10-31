@@ -1,0 +1,635 @@
+{
+  "schema": 1,
+  "purpose": "typed_memory_file fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "scope": "all six mandatory witnesses: enum/plain and source/target states, both radices, guarded bounds/directions, independent input and overwrite",
+  "generator_sha256": "c96deaa81d083b22f20cf4f60d48b9d40d8304ab4c41d9076491b72a0ae72acf",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "kind": "plain",
+        "value": "known",
+        "format": "bin",
+        "span": "all",
+        "declaration": "up",
+        "target_state": "logic",
+        "read_order": "forward"
+      },
+      "source_sha256": "013b15cfa19bc0d3cf8d384eaa8c560ac025ffe53fc4e0b5be150a10a5c7dcd1",
+      "expected_sha256": "76be085df68225a08ebc00d94d1e836998efe5474e2f6ce447b4676a6e2a2535",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_memfile_129_logic_enum_z_hex_middle_down_bit_reverse",
+      "values": {
+        "width": "129",
+        "source_state": "logic",
+        "kind": "enum",
+        "value": "z",
+        "format": "hex",
+        "span": "middle",
+        "declaration": "down",
+        "target_state": "bit",
+        "read_order": "reverse"
+      },
+      "source_sha256": "48d01e39a2f280b0ae188130a87d623c6b4374b21983f0ba30df5bbbc4e3ebb0",
+      "expected_sha256": "1504176d5241bc6ce803072d96890244adec30ceee9f937b36b55ead64f74270",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_memfile_65_logic_plain_x_bin_all_down_logic_reverse",
+      "values": {
+        "width": "65",
+        "source_state": "logic",
+        "kind": "plain",
+        "value": "x",
+        "format": "bin",
+        "span": "all",
+        "declaration": "down",
+        "target_state": "logic",
+        "read_order": "reverse"
+      },
+      "source_sha256": "2f0a5799ca2bfe39599e2150f65c184994444ec171ef873c76bbacfe2c345893",
+      "expected_sha256": "c7021ddcf597a4fe273c414eddc7d43391485d20f5c15acbf0e902c1686b9a71",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_memfile_33_bit_enum_x_hex_single_up_logic_forward",
+      "values": {
+        "width": "33",
+        "source_state": "bit",
+        "kind": "enum",
+        "value": "x",
+        "format": "hex",
+        "span": "single",
+        "declaration": "up",
+        "target_state": "logic",
+        "read_order": "forward"
+      },
+      "source_sha256": "64b80ee622d9ba7f3407950432d594b3906bc58bedc8b5d47a4ad59750b9ad45",
+      "expected_sha256": "a056a1fbf323a099974f952c4c00fc9b70c1367d06a2230aa79b8ff9177654cd",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_memfile_32_logic_enum_known_bin_middle_up_bit_reverse",
+      "values": {
+        "width": "32",
+        "source_state": "logic",
+        "kind": "enum",
+        "value": "known",
+        "format": "bin",
+        "span": "middle",
+        "declaration": "up",
+        "target_state": "bit",
+        "read_order": "reverse"
+      },
+      "source_sha256": "5fbd7a2243ebb435d3b2d8ea7c15b34d464e12ab8d45d2358d896c1e4190117b",
+      "expected_sha256": "8b1ca504c8558694e2472a07189e1195089650debfec03cfe381124d476d9288",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_memfile_64_bit_plain_known_hex_all_down_bit_forward",
+      "values": {
+        "width": "64",
+        "source_state": "bit",
+        "kind": "plain",
+        "value": "known",
+        "format": "hex",
+        "span": "all",
+        "declaration": "down",
+        "target_state": "bit",
+        "read_order": "forward"
+      },
+      "source_sha256": "268b05f4b1f413a27da375a79b9073787463daa1e1bc5cb5d27a0a4cabedee40",
+      "expected_sha256": "4f8851e227f3904ae57578a24ea391b38f98593f5dffc12dc8f2d2a566da6b59",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "paired_write_read_reversal",
+      "case": "test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "kind": "plain",
+        "value": "known",
+        "format": "bin",
+        "span": "all",
+        "declaration": "up",
+        "target_state": "logic",
+        "read_order": "forward"
+      },
+      "source_sha256": "9592021592a9a8c45040f453ca34e35283b0592dcc79af1436597dc63d1c6144",
+      "expected_sha256": "76be085df68225a08ebc00d94d1e836998efe5474e2f6ce447b4676a6e2a2535",
+      "status": "fail",
+      "reason": "output differs: line 33 is 'k1 dest idx=12 written=1 canonical=0', expected 'k1 dest idx=12 written=1 canonical=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "module test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward;\n  typedef bit [0:0] source_t;\n  logic [0:0] raw[2:6];\n  source_t source[2:6];\n  logic [0:0] loaded[10:16], canonical[10:16];\n  int fd, phase;\n  function automatic int addresses(input string filename);\n    int handle, c, state, previous, count;\n    handle = $fopen(filename, \"r\");\n    if (handle == 0) return -1;\n    state = 0; previous = 0; count = 0; c = $fgetc(handle);\n    while (c != -1) begin\n      case (state)\n        0: begin\n          if (c == 8'd47) state = 1;\n          else if (c == 8'd64) count++;\n        end\n        1: begin\n          if (c == 8'd47) state = 2;\n          else if (c == 8'd42) state = 3;\n          else begin\n            state = 0; if (c == 8'd64) count++;\n          end\n        end\n        2: if (c == 10 || c == 13) state = 0;\n        3: if (previous == 8'd42 && c == 8'd47) state = 0;\n      endcase\n      previous = c; c = $fgetc(handle);\n    end\n    $fclose(handle);\n    return count;\n  endfunction\n  initial begin\n    phase = 0;\n    $display(\"k0 count=5 write=2:6 read=11:15\");\n    raw[2] = 1'h1;\n    raw[3] = 1'h0;\n    raw[4] = 1'h1;\n    raw[5] = 1'h0;\n    raw[6] = 1'h1;\n    for (int i = 2; i <= 6; i++) begin\n      source[i] = source_t'(raw[i]);\n      $display(\"k0 before idx=%0d raw=%b source=%b\", i, raw[i], source[i]);\n    end\n    $writememb(\"written.mem\", source, 2, 6);\n    source[2] = source_t'(1'h0);\n    source[3] = source_t'(1'h1);\n    source[4] = source_t'(1'h0);\n    source[5] = source_t'(1'h1);\n    source[6] = source_t'(1'h0);\n    for (int i = 2; i <= 6; i++)\n      $display(\"k0 after idx=%0d source=%b\", i, source[i]);\n    fd = $fopen(\"canonical.mem\", \"w\");\n    if (fd == 0) $fatal(1, \"canonical open failed\");\n    $fdisplay(fd, \"// @ inside a line comment\");\n    $fdisplay(fd, \"/* @ inside a block comment */\");\n    $fdisplay(fd, \"1\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"1\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"1\");\n    $fclose(fd);\n    loaded[10] = 1'h0;\n    canonical[10] = 1'h0;\n    loaded[11] = 1'h0;\n    canonical[11] = 1'h0;\n    loaded[12] = 1'h0;\n    canonical[12] = 1'h0;\n    loaded[13] = 1'h0;\n    canonical[13] = 1'h0;\n    loaded[14] = 1'h0;\n    canonical[14] = 1'h0;\n    loaded[15] = 1'h0;\n    canonical[15] = 1'h0;\n    loaded[16] = 1'h1;\n    canonical[16] = 1'h1;\n    $readmemb(\"written.mem\", loaded, 11, 15);\n    $readmemb(\"canonical.mem\", canonical, 11, 15);\n    for (int i = 10; i <= 16; i++)\n      $display(\"k0 dest idx=%0d written=%b canonical=%b\", i, loaded[i], canonical[i]);\n    $display(\"k0 addresses written=%0d canonical=%0d\",\n             addresses(\"written.mem\"), addresses(\"canonical.mem\"));\n    phase = 1;\n    $display(\"k1 count=5 write=2:6 read=11:15\");\n    raw[2] = 1'h0;\n    raw[3] = 1'h1;\n    raw[4] = 1'h1;\n    raw[5] = 1'h0;\n    raw[6] = 1'h0;\n    for (int i = 2; i <= 6; i++) begin\n      source[i] = source_t'(raw[i]);\n      $display(\"k1 before idx=%0d raw=%b source=%b\", i, raw[i], source[i]);\n    end\n    $writememb(\"written.mem\", source, 2, 6);\n    source[2] = source_t'(1'h1);\n    source[3] = source_t'(1'h0);\n    source[4] = source_t'(1'h0);\n    source[5] = source_t'(1'h1);\n    source[6] = source_t'(1'h1);\n    for (int i = 2; i <= 6; i++)\n      $display(\"k1 after idx=%0d source=%b\", i, source[i]);\n    fd = $fopen(\"canonical.mem\", \"w\");\n    if (fd == 0) $fatal(1, \"canonical open failed\");\n    $fdisplay(fd, \"// @ inside a line comment\");\n    $fdisplay(fd, \"/* @ inside a block comment */\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"1\");\n    $fdisplay(fd, \"1\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"0\");\n    $fclose(fd);\n    loaded[10] = 1'h1;\n    canonical[10] = 1'h1;\n    loaded[11] = 1'h0;\n    canonical[11] = 1'h0;\n    loaded[12] = 1'h0;\n    canonical[12] = 1'h0;\n    loaded[13] = 1'h0;\n    canonical[13] = 1'h0;\n    loaded[14] = 1'h0;\n    canonical[14] = 1'h0;\n    loaded[15] = 1'h0;\n    canonical[15] = 1'h0;\n    loaded[16] = 1'h1;\n    canonical[16] = 1'h1;\n    $readmemb(\"written.mem\", loaded, 11, 15);\n    $readmemb(\"canonical.mem\", canonical, 11, 15);\n    for (int i = 10; i <= 16; i++)\n      $display(\"k1 dest idx=%0d written=%b canonical=%b\", i, loaded[i], canonical[i]);\n    $display(\"k1 addresses written=%0d canonical=%0d\",\n             addresses(\"written.mem\"), addresses(\"canonical.mem\"));\n    phase = 2;\n    $display(\"k2 count=5 write=2:6 read=11:15\");\n    raw[2] = 1'h0;\n    raw[3] = 1'h0;\n    raw[4] = 1'h0;\n    raw[5] = 1'h1;\n    raw[6] = 1'h1;\n    for (int i = 2; i <= 6; i++) begin\n      source[i] = source_t'(raw[i]);\n      $display(\"k2 before idx=%0d raw=%b source=%b\", i, raw[i], source[i]);\n    end\n    $writememb(\"written.mem\", source, 2, 6);\n    source[2] = source_t'(1'h1);\n    source[3] = source_t'(1'h1);\n    source[4] = source_t'(1'h1);\n    source[5] = source_t'(1'h0);\n    source[6] = source_t'(1'h0);\n    for (int i = 2; i <= 6; i++)\n      $display(\"k2 after idx=%0d source=%b\", i, source[i]);\n    fd = $fopen(\"canonical.mem\", \"w\");\n    if (fd == 0) $fatal(1, \"canonical open failed\");\n    $fdisplay(fd, \"// @ inside a line comment\");\n    $fdisplay(fd, \"/* @ inside a block comment */\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"1\");\n    $fdisplay(fd, \"1\");\n    $fclose(fd);\n    loaded[10] = 1'h1;\n    canonical[10] = 1'h1;\n    loaded[11] = 1'h0;\n    canonical[11] = 1'h0;\n    loaded[12] = 1'h0;\n    canonical[12] = 1'h0;\n    loaded[13] = 1'h0;\n    canonical[13] = 1'h0;\n    loaded[14] = 1'h0;\n    canonical[14] = 1'h0;\n    loaded[15] = 1'h0;\n    canonical[15] = 1'h0;\n    loaded[16] = 1'h1;\n    canonical[16] = 1'h1;\n    $readmemb(\"written.mem\", loaded, 11, 15);\n    $readmemb(\"canonical.mem\", canonical, 11, 15);\n    for (int i = 10; i <= 16; i++)\n      $display(\"k2 dest idx=%0d written=%b canonical=%b\", i, loaded[i], canonical[i]);\n    $display(\"k2 addresses written=%0d canonical=%0d\",\n             addresses(\"written.mem\"), addresses(\"canonical.mem\"));\n    $finish;\n  end\nendmodule",
+        "after": "module test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward;\n  typedef bit [0:0] source_t;\n  logic [0:0] raw[2:6];\n  source_t source[2:6];\n  logic [0:0] loaded[10:16], canonical[10:16];\n  int fd, phase;\n  function automatic int addresses(input string filename);\n    int handle, c, state, previous, count;\n    handle = $fopen(filename, \"r\");\n    if (handle == 0) return -1;\n    state = 0; previous = 0; count = 0; c = $fgetc(handle);\n    while (c != -1) begin\n      case (state)\n        0: begin\n          if (c == 8'd47) state = 1;\n          else if (c == 8'd64) count++;\n        end\n        1: begin\n          if (c == 8'd47) state = 2;\n          else if (c == 8'd42) state = 3;\n          else begin\n            state = 0; if (c == 8'd64) count++;\n          end\n        end\n        2: if (c == 10 || c == 13) state = 0;\n        3: if (previous == 8'd42 && c == 8'd47) state = 0;\n      endcase\n      previous = c; c = $fgetc(handle);\n    end\n    $fclose(handle);\n    return count;\n  endfunction\n  initial begin\n    phase = 0;\n    $display(\"k0 count=5 write=2:6 read=11:15\");\n    raw[2] = 1'h1;\n    raw[3] = 1'h0;\n    raw[4] = 1'h1;\n    raw[5] = 1'h0;\n    raw[6] = 1'h1;\n    for (int i = 2; i <= 6; i++) begin\n      source[i] = source_t'(raw[i]);\n      $display(\"k0 before idx=%0d raw=%b source=%b\", i, raw[i], source[i]);\n    end\n    $writememb(\"written.mem\", source, 6, 2);\n    source[2] = source_t'(1'h0);\n    source[3] = source_t'(1'h1);\n    source[4] = source_t'(1'h0);\n    source[5] = source_t'(1'h1);\n    source[6] = source_t'(1'h0);\n    for (int i = 2; i <= 6; i++)\n      $display(\"k0 after idx=%0d source=%b\", i, source[i]);\n    fd = $fopen(\"canonical.mem\", \"w\");\n    if (fd == 0) $fatal(1, \"canonical open failed\");\n    $fdisplay(fd, \"// @ inside a line comment\");\n    $fdisplay(fd, \"/* @ inside a block comment */\");\n    $fdisplay(fd, \"1\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"1\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"1\");\n    $fclose(fd);\n    loaded[10] = 1'h0;\n    canonical[10] = 1'h0;\n    loaded[11] = 1'h0;\n    canonical[11] = 1'h0;\n    loaded[12] = 1'h0;\n    canonical[12] = 1'h0;\n    loaded[13] = 1'h0;\n    canonical[13] = 1'h0;\n    loaded[14] = 1'h0;\n    canonical[14] = 1'h0;\n    loaded[15] = 1'h0;\n    canonical[15] = 1'h0;\n    loaded[16] = 1'h1;\n    canonical[16] = 1'h1;\n    $readmemb(\"written.mem\", loaded, 15, 11);\n    $readmemb(\"canonical.mem\", canonical, 15, 11);\n    for (int i = 10; i <= 16; i++)\n      $display(\"k0 dest idx=%0d written=%b canonical=%b\", i, loaded[i], canonical[i]);\n    $display(\"k0 addresses written=%0d canonical=%0d\",\n             addresses(\"written.mem\"), addresses(\"canonical.mem\"));\n    phase = 1;\n    $display(\"k1 count=5 write=2:6 read=11:15\");\n    raw[2] = 1'h0;\n    raw[3] = 1'h1;\n    raw[4] = 1'h1;\n    raw[5] = 1'h0;\n    raw[6] = 1'h0;\n    for (int i = 2; i <= 6; i++) begin\n      source[i] = source_t'(raw[i]);\n      $display(\"k1 before idx=%0d raw=%b source=%b\", i, raw[i], source[i]);\n    end\n    $writememb(\"written.mem\", source, 6, 2);\n    source[2] = source_t'(1'h1);\n    source[3] = source_t'(1'h0);\n    source[4] = source_t'(1'h0);\n    source[5] = source_t'(1'h1);\n    source[6] = source_t'(1'h1);\n    for (int i = 2; i <= 6; i++)\n      $display(\"k1 after idx=%0d source=%b\", i, source[i]);\n    fd = $fopen(\"canonical.mem\", \"w\");\n    if (fd == 0) $fatal(1, \"canonical open failed\");\n    $fdisplay(fd, \"// @ inside a line comment\");\n    $fdisplay(fd, \"/* @ inside a block comment */\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"1\");\n    $fdisplay(fd, \"1\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"0\");\n    $fclose(fd);\n    loaded[10] = 1'h1;\n    canonical[10] = 1'h1;\n    loaded[11] = 1'h0;\n    canonical[11] = 1'h0;\n    loaded[12] = 1'h0;\n    canonical[12] = 1'h0;\n    loaded[13] = 1'h0;\n    canonical[13] = 1'h0;\n    loaded[14] = 1'h0;\n    canonical[14] = 1'h0;\n    loaded[15] = 1'h0;\n    canonical[15] = 1'h0;\n    loaded[16] = 1'h1;\n    canonical[16] = 1'h1;\n    $readmemb(\"written.mem\", loaded, 15, 11);\n    $readmemb(\"canonical.mem\", canonical, 15, 11);\n    for (int i = 10; i <= 16; i++)\n      $display(\"k1 dest idx=%0d written=%b canonical=%b\", i, loaded[i], canonical[i]);\n    $display(\"k1 addresses written=%0d canonical=%0d\",\n             addresses(\"written.mem\"), addresses(\"canonical.mem\"));\n    phase = 2;\n    $display(\"k2 count=5 write=2:6 read=11:15\");\n    raw[2] = 1'h0;\n    raw[3] = 1'h0;\n    raw[4] = 1'h0;\n    raw[5] = 1'h1;\n    raw[6] = 1'h1;\n    for (int i = 2; i <= 6; i++) begin\n      source[i] = source_t'(raw[i]);\n      $display(\"k2 before idx=%0d raw=%b source=%b\", i, raw[i], source[i]);\n    end\n    $writememb(\"written.mem\", source, 6, 2);\n    source[2] = source_t'(1'h1);\n    source[3] = source_t'(1'h1);\n    source[4] = source_t'(1'h1);\n    source[5] = source_t'(1'h0);\n    source[6] = source_t'(1'h0);\n    for (int i = 2; i <= 6; i++)\n      $display(\"k2 after idx=%0d source=%b\", i, source[i]);\n    fd = $fopen(\"canonical.mem\", \"w\");\n    if (fd == 0) $fatal(1, \"canonical open failed\");\n    $fdisplay(fd, \"// @ inside a line comment\");\n    $fdisplay(fd, \"/* @ inside a block comment */\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"0\");\n    $fdisplay(fd, \"1\");\n    $fdisplay(fd, \"1\");\n    $fclose(fd);\n    loaded[10] = 1'h1;\n    canonical[10] = 1'h1;\n    loaded[11] = 1'h0;\n    canonical[11] = 1'h0;\n    loaded[12] = 1'h0;\n    canonical[12] = 1'h0;\n    loaded[13] = 1'h0;\n    canonical[13] = 1'h0;\n    loaded[14] = 1'h0;\n    canonical[14] = 1'h0;\n    loaded[15] = 1'h0;\n    canonical[15] = 1'h0;\n    loaded[16] = 1'h1;\n    canonical[16] = 1'h1;\n    $readmemb(\"written.mem\", loaded, 15, 11);\n    $readmemb(\"canonical.mem\", canonical, 15, 11);\n    for (int i = 10; i <= 16; i++)\n      $display(\"k2 dest idx=%0d written=%b canonical=%b\", i, loaded[i], canonical[i]);\n    $display(\"k2 addresses written=%0d canonical=%0d\",\n             addresses(\"written.mem\"), addresses(\"canonical.mem\"));\n    $finish;\n  end\nendmodule",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "write_into_target_guard",
+      "case": "test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "kind": "plain",
+        "value": "known",
+        "format": "bin",
+        "span": "all",
+        "declaration": "up",
+        "target_state": "logic",
+        "read_order": "forward"
+      },
+      "source_sha256": "0543db9b2fcb155ee958398b1bcfe76ed9ff461507fb7da38fbdc60e874a6a73",
+      "expected_sha256": "76be085df68225a08ebc00d94d1e836998efe5474e2f6ce447b4676a6e2a2535",
+      "status": "fail",
+      "reason": "output differs: line 12 is 'k0 dest idx=10 written=1 canonical=0', expected 'k0 dest idx=10 written=0 canonical=0'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "loaded, 11, 15);",
+        "after": "loaded, 10, 14);",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "lose_written_file_load",
+      "case": "test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "kind": "plain",
+        "value": "known",
+        "format": "bin",
+        "span": "all",
+        "declaration": "up",
+        "target_state": "logic",
+        "read_order": "forward"
+      },
+      "source_sha256": "4322eb3915b80bc496dbead4c9d7089d112f20617bd3149024673d1099973f45",
+      "expected_sha256": "76be085df68225a08ebc00d94d1e836998efe5474e2f6ce447b4676a6e2a2535",
+      "status": "fail",
+      "reason": "output differs: line 13 is 'k0 dest idx=11 written=0 canonical=1', expected 'k0 dest idx=11 written=1 canonical=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "$readmemb(\"written.mem\", loaded, 11, 15);",
+        "after": ";",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "lose_canonical_file_load",
+      "case": "test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "kind": "plain",
+        "value": "known",
+        "format": "bin",
+        "span": "all",
+        "declaration": "up",
+        "target_state": "logic",
+        "read_order": "forward"
+      },
+      "source_sha256": "829597b136a947bdfc428de98922754840a0ff6e6de23eb2a9dee3b4dec88dc0",
+      "expected_sha256": "76be085df68225a08ebc00d94d1e836998efe5474e2f6ce447b4676a6e2a2535",
+      "status": "fail",
+      "reason": "output differs: line 13 is 'k0 dest idx=11 written=1 canonical=0', expected 'k0 dest idx=11 written=1 canonical=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "$readmemb(\"canonical.mem\", canonical, 11, 15);",
+        "after": ";",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "stale_file_after_first_dump",
+      "case": "test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "kind": "plain",
+        "value": "known",
+        "format": "bin",
+        "span": "all",
+        "declaration": "up",
+        "target_state": "logic",
+        "read_order": "forward"
+      },
+      "source_sha256": "3328ebdaa5e5944fecad67fcc46fc6dbbb15897aaa602010ad3f20147d5ccd1e",
+      "expected_sha256": "76be085df68225a08ebc00d94d1e836998efe5474e2f6ce447b4676a6e2a2535",
+      "status": "fail",
+      "reason": "output differs: line 32 is 'k1 dest idx=11 written=1 canonical=0', expected 'k1 dest idx=11 written=0 canonical=0'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "$writememb(\"written.mem\", source, 2, 6);",
+        "after": "if (phase == 0) $writememb(\"written.mem\", source, 2, 6);",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "source_never_receives_input",
+      "case": "test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "kind": "plain",
+        "value": "known",
+        "format": "bin",
+        "span": "all",
+        "declaration": "up",
+        "target_state": "logic",
+        "read_order": "forward"
+      },
+      "source_sha256": "b08388fc6a7c9523a65070163d0e38dfddbb0441ccec668db6ef5902611e5823",
+      "expected_sha256": "76be085df68225a08ebc00d94d1e836998efe5474e2f6ce447b4676a6e2a2535",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 before idx=2 raw=1 source=0', expected 'k0 before idx=2 raw=1 source=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "source_t'(raw[i])",
+        "after": "source_t'('0)",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "written_file_contains_address",
+      "case": "test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "kind": "plain",
+        "value": "known",
+        "format": "bin",
+        "span": "all",
+        "declaration": "up",
+        "target_state": "logic",
+        "read_order": "forward"
+      },
+      "source_sha256": "0ab137a3389c8575767f8d57beb7c91a252796df67240956d44d99fd61d30dd7",
+      "expected_sha256": "76be085df68225a08ebc00d94d1e836998efe5474e2f6ce447b4676a6e2a2535",
+      "status": "fail",
+      "reason": "output differs: line 19 is 'k0 addresses written=1 canonical=0', expected 'k0 addresses written=0 canonical=0'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    $writememb(\"written.mem\", source, 2, 6);",
+        "after": "    $writememb(\"written.mem\", source, 2, 6);\n    fd = $fopen(\"written.mem\", \"a\");\n    $fdisplay(fd, \"@b\");\n    $fclose(fd);",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "comment_addresses_are_counted",
+      "case": "test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "kind": "plain",
+        "value": "known",
+        "format": "bin",
+        "span": "all",
+        "declaration": "up",
+        "target_state": "logic",
+        "read_order": "forward"
+      },
+      "source_sha256": "745fab18823a7862e71b4cc8f2d862d0ab0e24c94d73169eeb1624786fc7a33a",
+      "expected_sha256": "76be085df68225a08ebc00d94d1e836998efe5474e2f6ce447b4676a6e2a2535",
+      "status": "fail",
+      "reason": "output differs: line 19 is 'k0 addresses written=0 canonical=2', expected 'k0 addresses written=0 canonical=0'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "while (c != -1) begin",
+        "after": "while (c != -1) begin\n      if (c == 8'd64) count++;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "dump_observes_mutated_source",
+      "case": "test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "kind": "plain",
+        "value": "known",
+        "format": "bin",
+        "span": "all",
+        "declaration": "up",
+        "target_state": "logic",
+        "read_order": "forward"
+      },
+      "source_sha256": "142eecdfb2b8546202328054fbcc55afdd400d26f918b896dc42d19eff650135",
+      "expected_sha256": "76be085df68225a08ebc00d94d1e836998efe5474e2f6ce447b4676a6e2a2535",
+      "status": "fail",
+      "reason": "output differs: line 13 is 'k0 dest idx=11 written=0 canonical=1', expected 'k0 dest idx=11 written=1 canonical=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    $writememb(\"written.mem\", source, 2, 6);\n    source[2] = source_t'(1'h0);\n    source[3] = source_t'(1'h1);\n    source[4] = source_t'(1'h0);\n    source[5] = source_t'(1'h1);\n    source[6] = source_t'(1'h0);",
+        "after": "    source[2] = source_t'(1'h0);\n    source[3] = source_t'(1'h1);\n    source[4] = source_t'(1'h0);\n    source[5] = source_t'(1'h1);\n    source[6] = source_t'(1'h0);\n    $writememb(\"written.mem\", source, 2, 6);",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "bit_target_becomes_logic",
+      "case": "test_gen_cross_memfile_129_logic_enum_z_hex_middle_down_bit_reverse",
+      "values": {
+        "width": "129",
+        "source_state": "logic",
+        "kind": "enum",
+        "value": "z",
+        "format": "hex",
+        "span": "middle",
+        "declaration": "down",
+        "target_state": "bit",
+        "read_order": "reverse"
+      },
+      "source_sha256": "d08d18af9e199bc00e74b7a31d49c168cdce685eff4cec54ca316dd6043dffce",
+      "expected_sha256": "1504176d5241bc6ce803072d96890244adec30ceee9f937b36b55ead64f74270",
+      "status": "fail",
+      "reason": "output differs: line 70 is 'u0 dest idx=11 written=z010010010010010010010010010010010...', expected 'u0 dest idx=11 written=0010010010010010010010010010010010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "bit [128:0] loaded",
+        "after": "logic [128:0] loaded",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "truncate_enum_base_width",
+      "case": "test_gen_cross_memfile_129_logic_enum_z_hex_middle_down_bit_reverse",
+      "values": {
+        "width": "129",
+        "source_state": "logic",
+        "kind": "enum",
+        "value": "z",
+        "format": "hex",
+        "span": "middle",
+        "declaration": "down",
+        "target_state": "bit",
+        "read_order": "reverse"
+      },
+      "source_sha256": "da9acba898dd9099457eb9df3d51dc9eceeea3825488831c9ed09c3fa8d1c32f",
+      "expected_sha256": "1504176d5241bc6ce803072d96890244adec30ceee9f937b36b55ead64f74270",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 before idx=2 raw=1001001001001001001001001001001001001...', expected 'k0 before idx=2 raw=1001001001001001001001001001001001001...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "enum logic [128:0]",
+        "after": "enum logic [63:0]",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "read_ignores_reverse_direction",
+      "case": "test_gen_cross_memfile_65_logic_plain_x_bin_all_down_logic_reverse",
+      "values": {
+        "width": "65",
+        "source_state": "logic",
+        "kind": "plain",
+        "value": "x",
+        "format": "bin",
+        "span": "all",
+        "declaration": "down",
+        "target_state": "logic",
+        "read_order": "reverse"
+      },
+      "source_sha256": "0d471e047375d5ae54ddb8af4ee2611bc0e9df40d13c9626d113c7fc3617c689",
+      "expected_sha256": "c7021ddcf597a4fe273c414eddc7d43391485d20f5c15acbf0e902c1686b9a71",
+      "status": "fail",
+      "reason": "output differs: line 13 is 'k0 dest idx=11 written=1001001001001001001001001001001001...', expected 'k0 dest idx=11 written=1011011011011011011011011011011011...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ", 15, 11);",
+        "after": ", 11, 15);",
+        "replacements": 12
+      }
+    },
+    {
+      "name": "logic_source_becomes_bit",
+      "case": "test_gen_cross_memfile_65_logic_plain_x_bin_all_down_logic_reverse",
+      "values": {
+        "width": "65",
+        "source_state": "logic",
+        "kind": "plain",
+        "value": "x",
+        "format": "bin",
+        "span": "all",
+        "declaration": "down",
+        "target_state": "logic",
+        "read_order": "reverse"
+      },
+      "source_sha256": "82f37535996956349c6e4722a5ab356b9186fb1e0183c9d8c50e4503f27ede7f",
+      "expected_sha256": "c7021ddcf597a4fe273c414eddc7d43391485d20f5c15acbf0e902c1686b9a71",
+      "status": "fail",
+      "reason": "output differs: line 59 is 'u0 before idx=2 raw=x001001001001001001001001xxxx01001001...', expected 'u0 before idx=2 raw=x001001001001001001001001xxxx01001001...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "typedef logic [64:0] source_t;",
+        "after": "typedef bit [64:0] source_t;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "bit_enum_becomes_logic",
+      "case": "test_gen_cross_memfile_33_bit_enum_x_hex_single_up_logic_forward",
+      "values": {
+        "width": "33",
+        "source_state": "bit",
+        "kind": "enum",
+        "value": "x",
+        "format": "hex",
+        "span": "single",
+        "declaration": "up",
+        "target_state": "logic",
+        "read_order": "forward"
+      },
+      "source_sha256": "7244ede94eed3885c5e138f3e737fe4e70d87a9d233c133992626a756d817ab7",
+      "expected_sha256": "a056a1fbf323a099974f952c4c00fc9b70c1367d06a2230aa79b8ff9177654cd",
+      "status": "fail",
+      "reason": "output differs: line 59 is 'u0 before idx=2 raw=x00100100xxxx0010010010010010xxxx sou...', expected 'u0 before idx=2 raw=x00100100xxxx0010010010010010xxxx sou...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "enum bit [32:0]",
+        "after": "enum logic [32:0]",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "enum_numerical_value_changes",
+      "case": "test_gen_cross_memfile_32_logic_enum_known_bin_middle_up_bit_reverse",
+      "values": {
+        "width": "32",
+        "source_state": "logic",
+        "kind": "enum",
+        "value": "known",
+        "format": "bin",
+        "span": "middle",
+        "declaration": "up",
+        "target_state": "bit",
+        "read_order": "reverse"
+      },
+      "source_sha256": "7788b457fddebcda40598dd4216c241a66170f3318158b91fd35126a4486e895",
+      "expected_sha256": "8b1ca504c8558694e2472a07189e1195089650debfec03cfe381124d476d9288",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 before idx=2 raw=10010010010010010010010010010010 sour...', expected 'k0 before idx=2 raw=10010010010010010010010010010010 sour...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "source_t'(raw[i])",
+        "after": "source_t'(raw[i] + 1)",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "write_wrong_source_span",
+      "case": "test_gen_cross_memfile_32_logic_enum_known_bin_middle_up_bit_reverse",
+      "values": {
+        "width": "32",
+        "source_state": "logic",
+        "kind": "enum",
+        "value": "known",
+        "format": "bin",
+        "span": "middle",
+        "declaration": "up",
+        "target_state": "bit",
+        "read_order": "reverse"
+      },
+      "source_sha256": "8a96251f92e079639c801a9785751c7fb7b6abf0789c6e6a30a1ddbdffa2b7bc",
+      "expected_sha256": "8b1ca504c8558694e2472a07189e1195089650debfec03cfe381124d476d9288",
+      "status": "fail",
+      "reason": "output differs: line 13 is 'k0 dest idx=11 written=11011011011011011011011011011011 c...', expected 'k0 dest idx=11 written=00100100100100100100100100100100 c...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "source, 3, 5);",
+        "after": "source, 2, 4);",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "wrong_written_file_radix",
+      "case": "test_gen_cross_memfile_64_bit_plain_known_hex_all_down_bit_forward",
+      "values": {
+        "width": "64",
+        "source_state": "bit",
+        "kind": "plain",
+        "value": "known",
+        "format": "hex",
+        "span": "all",
+        "declaration": "down",
+        "target_state": "bit",
+        "read_order": "forward"
+      },
+      "source_sha256": "ba249b6c3ad5ab5613792deecfe9cdc3fc222e100500a08f5e6fa91459cad88a",
+      "expected_sha256": "4f8851e227f3904ae57578a24ea391b38f98593f5dffc12dc8f2d2a566da6b59",
+      "status": "fail",
+      "reason": "output differs: line 13 is 'k0 dest idx=11 written=0001000000000001000000000001000000...', expected 'k0 dest idx=11 written=1001001001001001001001001001001001...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "$writememh(\"written.mem\"",
+        "after": "$writememb(\"written.mem\"",
+        "replacements": 3
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "paired_reversal_first_difference_is_canonical_only": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "622865a6cf20de563e67ab0fb6ebe1911d614bb06a19894ae20ba156ef9b786b",
+  "binary_unchanged": true
+}

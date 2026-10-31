@@ -1,0 +1,191 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch27/test_gen_cross_ifgenerate_129_1_if_a_whole_bit_known": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_129_1_if_a_whole_bit_known.sv:38: syntax error",
+   "inputs_sha256": "1b5ba326f52fee156c4a7b11515105c09eaae7fb5a60b30c7f10456b1be7539a"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_129_1_if_a_whole_bit_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_129_1_if_a_whole_bit_z.sv:38: syntax error",
+   "inputs_sha256": "3983d21a93be4b4e0d5dc99a0a0c05ab84431e7b2d7ae7384b89b7a5369f88cb"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_129_1_if_a_whole_logic_known": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_129_1_if_a_whole_logic_known.sv:38: syntax error",
+   "inputs_sha256": "60318ae6923259ac419f8e7d374a0f2ce1b592bee5e7f524203e84a3e624ab9b"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_129_1_if_a_whole_logic_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_129_1_if_a_whole_logic_x.sv:38: syntax error",
+   "inputs_sha256": "ac537fa19d91f214744df4b013819abb126e3b4cbcab3d09d44dd2f292bc2bbe"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_129_2_if_a_whole_bit_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_129_2_if_a_whole_bit_x.sv:38: syntax error",
+   "inputs_sha256": "bab73b5ac5533edb1986370af5e711df4595f6de1c91fe4ab0678f2b9929e9b5"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_129_3_case_b_modport_logic_z.sv:38: syntax error",
+   "inputs_sha256": "c36339683653ea99303ab835dc2755f6f802e749e7a82cfe04f5ac2c7c8b107b"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_1_1_if_a_whole_bit_known": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_1_1_if_a_whole_bit_known.sv:38: syntax error",
+   "inputs_sha256": "991b92303ecdac44f48a2915191b076f0f286b4b9f8516c44819237304e4f115"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_1_1_if_a_whole_bit_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_1_1_if_a_whole_bit_z.sv:38: syntax error",
+   "inputs_sha256": "7e22c01dca403cfb06c3e513c491b53591ddfcb903c57659b1a75c6d35ba1ede"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_1_1_if_a_whole_logic_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_1_1_if_a_whole_logic_x.sv:38: syntax error",
+   "inputs_sha256": "7123dd04f7f5d6a8bf14cd93db18354c13dc5cac80600c2cd8493391f1930571"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_1_1_if_b_modport_logic_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_1_1_if_b_modport_logic_z.sv:38: syntax error",
+   "inputs_sha256": "c1b00e30f1eb413a34c6707eaba5ad16b93fefad660dc50d7f5c059a7e06c7d8"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_1_2_if_a_whole_bit_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_1_2_if_a_whole_bit_x.sv:38: syntax error",
+   "inputs_sha256": "29f29c3cfe4356c22987c627cbac7d2e5ee80d0f506e71d7021b51db12798f51"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_1_3_case_a_whole_logic_known": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_1_3_case_a_whole_logic_known.sv:38: syntax error",
+   "inputs_sha256": "bc62f3593af10754cf5103a9cf541ec0867e6e55d5c6f318496ace5626198c5e"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_32_1_case_b_whole_logic_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_32_1_case_b_whole_logic_x.sv:38: syntax error",
+   "inputs_sha256": "6ee35ece36ec95f58e492d81b5d977371ad53e8e85aec808cd02447aa6bf8599"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_32_1_if_a_whole_bit_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_32_1_if_a_whole_bit_x.sv:38: syntax error",
+   "inputs_sha256": "778fbb189425f0b71ff92462decc1938b7f1825b778311a19b74c53fb53c0828"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_32_1_if_a_whole_bit_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_32_1_if_a_whole_bit_z.sv:38: syntax error",
+   "inputs_sha256": "627fa8697a2128dc5322684e6dac8db73195a71535271b3030175aefbc4d5ccd"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_32_1_if_a_whole_logic_known": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_32_1_if_a_whole_logic_known.sv:38: syntax error",
+   "inputs_sha256": "254dd5165f68126df318899d25c783d3bae41c4f99a89fc8b3f3eb19e1d9634c"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_32_2_case_b_modport_bit_known": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_32_2_case_b_modport_bit_known.sv:38: syntax error",
+   "inputs_sha256": "2639ae270fae9bdeee18a588c5a9cc02a16a107e9f21e1b59b5b02f1098f6bc3"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_32_3_if_a_whole_logic_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_32_3_if_a_whole_logic_z.sv:38: syntax error",
+   "inputs_sha256": "f175dbb3dd1a7a27df761c85227722c3cc89465e6482dce8f39a653f73f771e7"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_33_1_if_a_whole_bit_known": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_33_1_if_a_whole_bit_known.sv:38: syntax error",
+   "inputs_sha256": "32c20187d8684459496678459647d754e96f31e60201042e9726430828a7e76b"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_33_1_if_a_whole_bit_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_33_1_if_a_whole_bit_x.sv:38: syntax error",
+   "inputs_sha256": "7fffe658080814129b27b10172811ad9bbf814ad851a48e2da87dcd7d8926053"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_33_2_case_a_whole_logic_known": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_33_2_case_a_whole_logic_known.sv:38: syntax error",
+   "inputs_sha256": "177e4219c005a630c038f380f0cea394b15f1cfa34e00fa5a8f4c346105328c6"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_33_2_if_a_whole_logic_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_33_2_if_a_whole_logic_z.sv:38: syntax error",
+   "inputs_sha256": "d5e1d9c362aeeeef722942c871ba099685055ba825b99dd0e09dd1dc199f29e4"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_33_3_case_b_modport_bit_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_33_3_case_b_modport_bit_z.sv:38: syntax error",
+   "inputs_sha256": "edfa83dc469424379e235f27a5850de7b43e36fec2bf91c37f6c096912d49d51"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_33_3_if_b_whole_logic_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_33_3_if_b_whole_logic_x.sv:38: syntax error",
+   "inputs_sha256": "4fc2cd53b181cb16cd6c36c06fa1e24dca6714e2a2a2fae464f1c3c0755017c4"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_64_1_if_a_whole_bit_known": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_64_1_if_a_whole_bit_known.sv:38: syntax error",
+   "inputs_sha256": "5544b69e959ed354ceaad719c8c3fb9ae8cb3241eb24a7fa54ec16c9a67ca6e0"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_64_1_if_a_whole_logic_known": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_64_1_if_a_whole_logic_known.sv:38: syntax error",
+   "inputs_sha256": "b085d7fcf3bd573c9f49bf4226664a49ddb30f083fe2a486629e9f6bd297f989"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_64_1_if_a_whole_logic_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_64_1_if_a_whole_logic_x.sv:38: syntax error",
+   "inputs_sha256": "d97cab6e5eb000e8471826092e32032a108ad80d5560e219e60f22ba4aae6fdb"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_64_1_if_a_whole_logic_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_64_1_if_a_whole_logic_z.sv:38: syntax error",
+   "inputs_sha256": "61d469924bdabd0d3273f9a58ce6bb08bf28a8b2100f03c1a5a578282f5924ae"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_64_2_if_a_modport_bit_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_64_2_if_a_modport_bit_z.sv:38: syntax error",
+   "inputs_sha256": "013df51a8c38476f049e72c331bd690fe53a0abe0442fef94f62c5f48b8484af"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_64_3_case_b_whole_bit_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_64_3_case_b_whole_bit_x.sv:38: syntax error",
+   "inputs_sha256": "c92b22371f6a73642f937661e80e7ffc1a56096cf94d8096788767a153b19b8c"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_65_1_case_a_modport_bit_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_65_1_case_a_modport_bit_x.sv:38: syntax error",
+   "inputs_sha256": "b2210f05cb8525ffc8981de7fbdcf16af57b00fd07d86ae4d18ca63fe661dd44"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_65_1_if_a_whole_bit_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_65_1_if_a_whole_bit_z.sv:38: syntax error",
+   "inputs_sha256": "506b277eb601d437b21dc28c8ad1d1f6efa2ef421c4ddb7f7f846f6428d840d4"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_65_1_if_a_whole_logic_known": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_65_1_if_a_whole_logic_known.sv:38: syntax error",
+   "inputs_sha256": "fc393ccff532ecfe626d3d5288d7c8cb5d6dd7f7385f10d7591590ebfca0a7f4"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_65_1_if_a_whole_logic_z": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_65_1_if_a_whole_logic_z.sv:38: syntax error",
+   "inputs_sha256": "09de2f79a91fe5adc840492e2dc0a66e3d4ac03b038708d06f351d4f3b58213e"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_65_2_if_b_whole_logic_x": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_65_2_if_b_whole_logic_x.sv:38: syntax error",
+   "inputs_sha256": "192b5088410de12a0b71d079cbe33eab606f0e6e205b9c84a8baf100b1746346"
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_65_3_if_a_whole_bit_known": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch27/test_gen_cross_ifgenerate_65_3_if_a_whole_bit_known.sv:38: syntax error",
+   "inputs_sha256": "ecfda0e19687e41020f7fe91ba62121d214056d15c4f17a164ce62eeecf78c68"
+  }
+ },
+ "generated_at": "2026-10-31T15:12:55.040589+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,61 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch27/test_gen_cross_ifgenerate_129_1_if_a_whole_bit_known": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_129_1_if_a_whole_logic_known": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_1_1_if_a_whole_bit_known": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_1_3_case_a_whole_logic_known": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_32_1_if_a_whole_logic_known": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_32_2_case_b_modport_bit_known": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_33_1_if_a_whole_bit_known": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_33_2_case_a_whole_logic_known": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_64_1_if_a_whole_bit_known": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_64_1_if_a_whole_logic_known": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_65_1_if_a_whole_logic_known": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_ifgenerate_65_3_if_a_whole_bit_known": {
+   "status": "pass",
+   "inputs_changed": true
+  }
+ },
+ "generated_at": "2026-10-31T15:13:54.665421+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

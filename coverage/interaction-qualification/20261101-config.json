@@ -1,0 +1,684 @@
+{
+  "schema": 1,
+  "purpose": "configuration_generated_shape fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "scope": "six mandatory controls: configuration precedence, selective/full reset, shadow scopes, generated count/width/branch and untouched sibling",
+  "generator_sha256": "ae2a65736bba17c00aba1a5ae3ee70f1f2a77850881a9adf50d9b0cbcff771f0",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_config_1_default_set_0_if_literal_direct",
+      "values": {
+        "base_width": "1",
+        "prior": "default",
+        "action": "set",
+        "mode": "0",
+        "form": "if",
+        "rhs": "literal",
+        "hierarchy": "direct"
+      },
+      "source_sha256": "494f15b881090963407061571f87c023152081f44b4a476987509cf6c4760c81",
+      "expected_sha256": "9e3f8a20e407af413d17500ec6980b23ac61c71a7fff0515ec8d1ba79cc93984",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_config_129_both_set_2_case_parent_wrapped",
+      "values": {
+        "base_width": "129",
+        "prior": "both",
+        "action": "set",
+        "mode": "2",
+        "form": "case",
+        "rhs": "parent",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "b2d0e25e9ffe42eeeec67297459f4f2ff8a083d400d9dc42a8c87dcc92a3f6c6",
+      "expected_sha256": "49be07de28d450be33da0cd0e8651629ac5fa136ceb280d0dbd566cffb70376b",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_config_65_defparam_reset_w_0_if_literal_wrapped",
+      "values": {
+        "base_width": "65",
+        "prior": "defparam",
+        "action": "reset_w",
+        "mode": "0",
+        "form": "if",
+        "rhs": "literal",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "d9622b0063abd622f7e0cf226ac7fb193f082224281aa9d6437ef6268c19f077",
+      "expected_sha256": "a914c7659012bb1a34a637c384d022c4d97a6334f451d389840c138f8efa5f15",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_config_33_instance_reset_all_0_case_literal_direct",
+      "values": {
+        "base_width": "33",
+        "prior": "instance",
+        "action": "reset_all",
+        "mode": "0",
+        "form": "case",
+        "rhs": "literal",
+        "hierarchy": "direct"
+      },
+      "source_sha256": "929f7f9d0cf7a385218c769ea59162ee1307b667f88dc5d792a823c24206f43e",
+      "expected_sha256": "cef1c0fb06123dad5747856e9b2d8c79c74858f2f9cf02a9474ca03d59659898",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_config_32_both_reset_w_0_case_literal_direct",
+      "values": {
+        "base_width": "32",
+        "prior": "both",
+        "action": "reset_w",
+        "mode": "0",
+        "form": "case",
+        "rhs": "literal",
+        "hierarchy": "direct"
+      },
+      "source_sha256": "bdc70eb0ccd3b85c6b0172c4599834373ec47e162394128ba077438b551fe6e4",
+      "expected_sha256": "2b9c7e05d57adf9793ea38833e6611de225e034fc2874acc73172f0cf32f6237",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_config_64_instance_set_1_if_local_wrapped",
+      "values": {
+        "base_width": "64",
+        "prior": "instance",
+        "action": "set",
+        "mode": "1",
+        "form": "if",
+        "rhs": "local",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "af4785971dd8faee6b06bff23992e005aa568850a065d42db6ee20bfe82793dc",
+      "expected_sha256": "879a7a761e78b73e070820a96d1257f16802a035556c07e251a59c1204e46b04",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "ignore_config_override",
+      "case": "test_gen_cross_config_1_default_set_0_if_literal_direct",
+      "values": {
+        "base_width": "1",
+        "prior": "default",
+        "action": "set",
+        "mode": "0",
+        "form": "if",
+        "rhs": "literal",
+        "hierarchy": "direct"
+      },
+      "source_sha256": "de8f11cede18065acff2ac4fc93617d43f84f8d1024c39c274f622fd4b83623a",
+      "expected_sha256": "9e3f8a20e407af413d17500ec6980b23ac61c71a7fff0515ec8d1ba79cc93984",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'id=0 p=0 W=1 N=2 MODE=0 TAG=10', expected 'id=0 p=0 W=4 N=2 MODE=0 TAG=10'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  instance cfg_top.target use #(.W(4), .MODE(0));",
+        "after": "",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "config_targets_wrong_sibling",
+      "case": "test_gen_cross_config_1_default_set_0_if_literal_direct",
+      "values": {
+        "base_width": "1",
+        "prior": "default",
+        "action": "set",
+        "mode": "0",
+        "form": "if",
+        "rhs": "literal",
+        "hierarchy": "direct"
+      },
+      "source_sha256": "f4810c923350621bb679ed1a4bbd4254553386fd5714053815504fa145534e33",
+      "expected_sha256": "9e3f8a20e407af413d17500ec6980b23ac61c71a7fff0515ec8d1ba79cc93984",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'id=0 p=0 W=1 N=2 MODE=0 TAG=10', expected 'id=0 p=0 W=4 N=2 MODE=0 TAG=10'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  instance cfg_top.target use #(.W(4), .MODE(0));",
+        "after": "  instance cfg_top.guard use #(.W(4), .MODE(0));",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "config_leaks_to_guard",
+      "case": "test_gen_cross_config_1_default_set_0_if_literal_direct",
+      "values": {
+        "base_width": "1",
+        "prior": "default",
+        "action": "set",
+        "mode": "0",
+        "form": "if",
+        "rhs": "literal",
+        "hierarchy": "direct"
+      },
+      "source_sha256": "74bdedff4e51e50e5f4e77eea5310d57654f25467a7e6b0a1560f24cefa9b30b",
+      "expected_sha256": "9e3f8a20e407af413d17500ec6980b23ac61c71a7fff0515ec8d1ba79cc93984",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'id=1 p=0 W=4 N=3 MODE=0 TAG=40', expected 'id=1 p=0 W=7 N=3 MODE=2 TAG=40'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  instance cfg_top.target use #(.W(4), .MODE(0));",
+        "after": "  instance cfg_top.target use #(.W(4), .MODE(0));\n  instance cfg_top.guard use #(.W(4), .MODE(0));",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "config_loses_to_defparam",
+      "case": "test_gen_cross_config_129_both_set_2_case_parent_wrapped",
+      "values": {
+        "base_width": "129",
+        "prior": "both",
+        "action": "set",
+        "mode": "2",
+        "form": "case",
+        "rhs": "parent",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "2dbda82ff96dcdac6da1eb795f21ac7e55831363e36d7502b05055092a9d5d69",
+      "expected_sha256": "49be07de28d450be33da0cd0e8651629ac5fa136ceb280d0dbd566cffb70376b",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'id=0 p=0 W=131 N=1 MODE=2 TAG=30', expected 'id=0 p=0 W=134 N=1 MODE=1 TAG=30'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  instance cfg_top.box.target use #(.W(cfg_top.box.PW), .MODE(cfg_top.box.PM));",
+        "after": "  instance cfg_top.box.target use #(.W(131), .MODE(2));",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "parent_rhs_resolves_wrong_scope",
+      "case": "test_gen_cross_config_129_both_set_2_case_parent_wrapped",
+      "values": {
+        "base_width": "129",
+        "prior": "both",
+        "action": "set",
+        "mode": "2",
+        "form": "case",
+        "rhs": "parent",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "11abab3252ede71c55e5a2db31eaa2c71fe9ce32bc91ba3e7404997597dd0831",
+      "expected_sha256": "49be07de28d450be33da0cd0e8651629ac5fa136ceb280d0dbd566cffb70376b",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'id=0 p=0 W=133 N=1 MODE=0 TAG=30', expected 'id=0 p=0 W=134 N=1 MODE=1 TAG=30'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#(.W(cfg_top.box.PW), .MODE(cfg_top.box.PM))",
+        "after": "#(.W(133), .MODE(0))",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "omit_last_generated_child",
+      "case": "test_gen_cross_config_129_both_set_2_case_parent_wrapped",
+      "values": {
+        "base_width": "129",
+        "prior": "both",
+        "action": "set",
+        "mode": "2",
+        "form": "case",
+        "rhs": "parent",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "47f9659217d908cc7ba40d2295d94af244aea1782b358ecd43451e9d5dc08b80",
+      "expected_sha256": "49be07de28d450be33da0cd0e8651629ac5fa136ceb280d0dbd566cffb70376b",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'id=0 p=0 lane=0 raw=0101010101010101010101010101010101010...', expected 'id=0 p=0 lane=0 raw=0101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "i < N;",
+        "after": "i < N-1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "select_wrong_generated_operation",
+      "case": "test_gen_cross_config_129_both_set_2_case_parent_wrapped",
+      "values": {
+        "base_width": "129",
+        "prior": "both",
+        "action": "set",
+        "mode": "2",
+        "form": "case",
+        "rhs": "parent",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "583c1d12685c9364013a2b4b86fa9ad0def9e7e97b4ba520055e357a3b4ef4a7",
+      "expected_sha256": "49be07de28d450be33da0cd0e8651629ac5fa136ceb280d0dbd566cffb70376b",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'id=0 p=0 lane=0 raw=0101010101010101010101010101010101010...', expected 'id=0 p=0 lane=0 raw=0101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".OP(1)",
+        "after": ".OP(0)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "truncate_child_width",
+      "case": "test_gen_cross_config_129_both_set_2_case_parent_wrapped",
+      "values": {
+        "base_width": "129",
+        "prior": "both",
+        "action": "set",
+        "mode": "2",
+        "form": "case",
+        "rhs": "parent",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "833f3fd5438985e6df6a82c4198d40f8c437658686d8474e0e540750691c60bc",
+      "expected_sha256": "49be07de28d450be33da0cd0e8651629ac5fa136ceb280d0dbd566cffb70376b",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'id=0 p=0 lane=0 raw=0101010101010101010101010101010101010...', expected 'id=0 p=0 lane=0 raw=0101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".W(W), .TAG(TAG)",
+        "after": ".W(64), .TAG(TAG)",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "lose_instance_identity_in_data",
+      "case": "test_gen_cross_config_129_both_set_2_case_parent_wrapped",
+      "values": {
+        "base_width": "129",
+        "prior": "both",
+        "action": "set",
+        "mode": "2",
+        "form": "case",
+        "rhs": "parent",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "d966143c882e405bebe7b941b52cf7a3b2a0f788be952a1ca37d1599950905e0",
+      "expected_sha256": "49be07de28d450be33da0cd0e8651629ac5fa136ceb280d0dbd566cffb70376b",
+      "status": "fail",
+      "reason": "output differs: line 70 is 'id=1 p=11 lane=0 raw=111111111111111111111111111111111111...', expected 'id=1 p=11 lane=0 raw=000000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "(ID+1)*2048",
+        "after": "2048",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "truncate_input_history",
+      "case": "test_gen_cross_config_129_both_set_2_case_parent_wrapped",
+      "values": {
+        "base_width": "129",
+        "prior": "both",
+        "action": "set",
+        "mode": "2",
+        "form": "case",
+        "rhs": "parent",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "97be7e859792d949f3dc456db81f94206940cc879cc08a35718fb9b377cfc691",
+      "expected_sha256": "49be07de28d450be33da0cd0e8651629ac5fa136ceb280d0dbd566cffb70376b",
+      "status": "fail",
+      "reason": "output differs: line 38 is 'id=0 p=6 lane=0 raw=0000001000000000000000000000000000000...', expected 'id=0 p=6 lane=0 raw=0000000111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "bitidx+1) >> phase",
+        "after": "(bitidx%64)+1) >> phase",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_guard_width",
+      "case": "test_gen_cross_config_129_both_set_2_case_parent_wrapped",
+      "values": {
+        "base_width": "129",
+        "prior": "both",
+        "action": "set",
+        "mode": "2",
+        "form": "case",
+        "rhs": "parent",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "67be542188fa3e26b88a54b62d26632e662f3c4503a875deefd62d2a1aafafe5",
+      "expected_sha256": "49be07de28d450be33da0cd0e8651629ac5fa136ceb280d0dbd566cffb70376b",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'id=1 p=0 W=134 N=3 MODE=2 TAG=40', expected 'id=1 p=0 W=135 N=3 MODE=2 TAG=40'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": ".ID(1), .W(135)",
+        "after": ".ID(1), .W(134)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_reported_child_width",
+      "case": "test_gen_cross_config_129_both_set_2_case_parent_wrapped",
+      "values": {
+        "base_width": "129",
+        "prior": "both",
+        "action": "set",
+        "mode": "2",
+        "form": "case",
+        "rhs": "parent",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "d9cb54a1a7286324ba35d88da54b732112d3be803f6708745fca2cfad6d7294d",
+      "expected_sha256": "49be07de28d450be33da0cd0e8651629ac5fa136ceb280d0dbd566cffb70376b",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'id=0 p=0 lane=0 raw=0101010101010101010101010101010101010...', expected 'id=0 p=0 lane=0 raw=0101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign width_code = W;",
+        "after": "assign width_code = W-1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "selective_reset_resets_every_parameter",
+      "case": "test_gen_cross_config_65_defparam_reset_w_0_if_literal_wrapped",
+      "values": {
+        "base_width": "65",
+        "prior": "defparam",
+        "action": "reset_w",
+        "mode": "0",
+        "form": "if",
+        "rhs": "literal",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "8d83543eae0de1b3dffc8cddbeb5f59bbd8a3a6a184b43d04a38c84484b80668",
+      "expected_sha256": "a914c7659012bb1a34a637c384d022c4d97a6334f451d389840c138f8efa5f15",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'id=0 p=0 W=67 N=1 MODE=2 TAG=30', expected 'id=0 p=0 W=65 N=1 MODE=2 TAG=30'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "use #(.W());",
+        "after": "use #();",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "full_reset_only_resets_width",
+      "case": "test_gen_cross_config_33_instance_reset_all_0_case_literal_direct",
+      "values": {
+        "base_width": "33",
+        "prior": "instance",
+        "action": "reset_all",
+        "mode": "0",
+        "form": "case",
+        "rhs": "literal",
+        "hierarchy": "direct"
+      },
+      "source_sha256": "0321e6d2f4b859b7209510fa81a9706a21a7f85117ad39fd1a914605761d14a7",
+      "expected_sha256": "cef1c0fb06123dad5747856e9b2d8c79c74858f2f9cf02a9474ca03d59659898",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'id=0 p=0 W=33 N=3 MODE=1 TAG=20', expected 'id=0 p=0 W=33 N=2 MODE=0 TAG=10'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "use #();",
+        "after": "use #(.W());",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "selective_reset_keeps_defparam_width",
+      "case": "test_gen_cross_config_32_both_reset_w_0_case_literal_direct",
+      "values": {
+        "base_width": "32",
+        "prior": "both",
+        "action": "reset_w",
+        "mode": "0",
+        "form": "case",
+        "rhs": "literal",
+        "hierarchy": "direct"
+      },
+      "source_sha256": "eeab7cc75165347b05a88517acba3085a5f8c1c25cb69a249e05db869acc96c0",
+      "expected_sha256": "2b9c7e05d57adf9793ea38833e6611de225e034fc2874acc73172f0cf32f6237",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'id=0 p=0 W=34 N=1 MODE=2 TAG=30', expected 'id=0 p=0 W=32 N=1 MODE=2 TAG=30'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "use #(.W());",
+        "after": "use #(.W(34));",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_defparam_other_parameters",
+      "case": "test_gen_cross_config_32_both_reset_w_0_case_literal_direct",
+      "values": {
+        "base_width": "32",
+        "prior": "both",
+        "action": "reset_w",
+        "mode": "0",
+        "form": "case",
+        "rhs": "literal",
+        "hierarchy": "direct"
+      },
+      "source_sha256": "7529c6ab4623c9d3278895f0e5625dace437d6b5496b4ddfa98dffad79ce8b48",
+      "expected_sha256": "2b9c7e05d57adf9793ea38833e6611de225e034fc2874acc73172f0cf32f6237",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'id=0 p=0 W=32 N=3 MODE=2 TAG=30', expected 'id=0 p=0 W=32 N=1 MODE=2 TAG=30'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  defparam target.N = 1;",
+        "after": "",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "local_rhs_resolves_parent",
+      "case": "test_gen_cross_config_64_instance_set_1_if_local_wrapped",
+      "values": {
+        "base_width": "64",
+        "prior": "instance",
+        "action": "set",
+        "mode": "1",
+        "form": "if",
+        "rhs": "local",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "57c1d2e637cdd3eb5c836b013f899e579b2875d57af48415fd22c2a1f7f57159",
+      "expected_sha256": "879a7a761e78b73e070820a96d1257f16802a035556c07e251a59c1204e46b04",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'id=0 p=0 W=69 N=3 MODE=0 TAG=20', expected 'id=0 p=0 W=68 N=3 MODE=2 TAG=20'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#(.W(PW), .MODE(PM))",
+        "after": "#(.W(cfg_top.box.PW), .MODE(cfg_top.box.PM))",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_instance_other_parameters",
+      "case": "test_gen_cross_config_64_instance_set_1_if_local_wrapped",
+      "values": {
+        "base_width": "64",
+        "prior": "instance",
+        "action": "set",
+        "mode": "1",
+        "form": "if",
+        "rhs": "local",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "1e39f15d687610b7e16b3ada5325e28f37435ed90b13082cf289917806e9c494",
+      "expected_sha256": "879a7a761e78b73e070820a96d1257f16802a035556c07e251a59c1204e46b04",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'id=0 p=0 W=68 N=2 MODE=2 TAG=10', expected 'id=0 p=0 W=68 N=3 MODE=2 TAG=20'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#(.W(65), .N(3), .MODE(1), .TAG(20)) ",
+        "after": "",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_lane_specific_transform",
+      "case": "test_gen_cross_config_64_instance_set_1_if_local_wrapped",
+      "values": {
+        "base_width": "64",
+        "prior": "instance",
+        "action": "set",
+        "mode": "1",
+        "form": "if",
+        "rhs": "local",
+        "hierarchy": "wrapped"
+      },
+      "source_sha256": "cace6b864741792d8aaab232fd5fccfb0abcd7bc4179088c03595a8cec85a02c",
+      "expected_sha256": "879a7a761e78b73e070820a96d1257f16802a035556c07e251a59c1204e46b04",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'id=0 p=0 lane=1 raw=0101010101010101010101010101010101010...', expected 'id=0 p=0 lane=1 raw=0101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "W'(TAG+INDEX)",
+        "after": "W'(TAG)",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "1a9ff7e83ab1ef6eabf5b1915c176c41d4418f37a38b9fa50cb7b23612ab69e7",
+  "reset_diagnostics": [
+    {
+      "name": "all_reset_after_defparam",
+      "source": "module reset_leaf #(parameter W=1, N=2, MODE=0, TAG=10)();\n  initial $display(\"W=%0d N=%0d MODE=%0d TAG=%0d\", W, N, MODE, TAG);\nendmodule\nmodule reset_top;\n  reset_leaf #(.W(2), .N(3), .MODE(1), .TAG(20)) target();\n  defparam target.W=3, target.N=1, target.MODE=2, target.TAG=30;\nendmodule\nconfig reset_cfg;\n  design work.reset_top;\n  default liblist work;\n  instance reset_top.target use #();\nendconfig\n",
+      "source_sha256": "ccf22c6c267435b1fc6d2714b259900c5fc4419879dd5f0f86e9105e90f384da",
+      "expected": "W=1 N=2 MODE=0 TAG=10\n",
+      "stdout": "W=3 N=1 MODE=2 TAG=30\n",
+      "stderr": "kirimasim: info: kirimasim 0.0.0 (commit 4b58e29f8c94) seed=0 args: reset_probe.sv\nkirimasim: info: quiescent at 0 ns\n",
+      "returncode": 0,
+      "matched": false
+    },
+    {
+      "name": "named_resets_after_defparam",
+      "source": "module reset_leaf #(parameter W=1, N=2, MODE=0, TAG=10)();\n  initial $display(\"W=%0d N=%0d MODE=%0d TAG=%0d\", W, N, MODE, TAG);\nendmodule\nmodule reset_top;\n  reset_leaf #(.W(2), .N(3), .MODE(1), .TAG(20)) target();\n  defparam target.W=3, target.N=1, target.MODE=2, target.TAG=30;\nendmodule\nconfig reset_cfg;\n  design work.reset_top;\n  default liblist work;\n  instance reset_top.target use #(.W(), .N(), .MODE(), .TAG());\nendconfig\n",
+      "source_sha256": "13aecd36106e31b77b63acf7ea7f6559f12359be3cdef6d2022db27eb5d43926",
+      "expected": "W=1 N=2 MODE=0 TAG=10\n",
+      "stdout": "W=1 N=2 MODE=0 TAG=10\n",
+      "stderr": "kirimasim: info: kirimasim 0.0.0 (commit 4b58e29f8c94) seed=0 args: reset_probe.sv\nkirimasim: info: quiescent at 0 ns\n",
+      "returncode": 0,
+      "matched": true
+    },
+    {
+      "name": "all_reset_after_instance",
+      "source": "module reset_leaf #(parameter W=1, N=2, MODE=0, TAG=10)();\n  initial $display(\"W=%0d N=%0d MODE=%0d TAG=%0d\", W, N, MODE, TAG);\nendmodule\nmodule reset_top;\n  reset_leaf #(.W(2), .N(3), .MODE(1), .TAG(20)) target();\nendmodule\nconfig reset_cfg;\n  design work.reset_top;\n  default liblist work;\n  instance reset_top.target use #();\nendconfig\n",
+      "source_sha256": "fd57e5dfa434711aaec0c8c92a7f23f8512f351bdf9497570b66d99bb52b169a",
+      "expected": "W=1 N=2 MODE=0 TAG=10\n",
+      "stdout": "W=1 N=2 MODE=0 TAG=10\n",
+      "stderr": "kirimasim: info: kirimasim 0.0.0 (commit 4b58e29f8c94) seed=0 args: reset_probe.sv\nkirimasim: info: quiescent at 0 ns\n",
+      "returncode": 0,
+      "matched": true
+    },
+    {
+      "name": "width_reset_after_defparam",
+      "source": "module reset_leaf #(parameter W=1, N=2, MODE=0, TAG=10)();\n  initial $display(\"W=%0d N=%0d MODE=%0d TAG=%0d\", W, N, MODE, TAG);\nendmodule\nmodule reset_top;\n  reset_leaf #(.W(2), .N(3), .MODE(1), .TAG(20)) target();\n  defparam target.W=3, target.N=1, target.MODE=2, target.TAG=30;\nendmodule\nconfig reset_cfg;\n  design work.reset_top;\n  default liblist work;\n  instance reset_top.target use #(.W());\nendconfig\n",
+      "source_sha256": "4a0cfaff4436df4b08a9f1386916ec6d89becfdc2c2f63fb65986689e7d911fb",
+      "expected": "W=1 N=1 MODE=2 TAG=30\n",
+      "stdout": "W=1 N=1 MODE=2 TAG=30\n",
+      "stderr": "kirimasim: info: kirimasim 0.0.0 (commit 4b58e29f8c94) seed=0 args: reset_probe.sv\nkirimasim: info: quiescent at 0 ns\n",
+      "returncode": 0,
+      "matched": true
+    }
+  ],
+  "reset_diagnostics_normal_exit": true,
+  "reset_diagnostic_controls_pass": true,
+  "binary_unchanged": true
+}

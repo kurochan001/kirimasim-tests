@@ -6,22 +6,22 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 9738 |
+| Tests | 9970 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
 | Clauses with at least two direct tests | 1010/1010 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 120 |
+| Clauses with two tests or fewer | 117 |
 | Clauses with only standard-only tests | 200 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 744 |
-| Icarus Verilog 13.0 only | 4753 |
-| Verilator 5.052 only | 1667 |
-| standard only | 2574 |
+| both releases | 754 |
+| Icarus Verilog 13.0 only | 4793 |
+| Verilator 5.052 only | 1680 |
+| standard only | 2743 |
 
 ## By chapter
 
@@ -45,19 +45,19 @@
 | 18 | Constrained random value generation | 200 | 44 | 4.5 | 0 | 80 |
 | 19 | Functional coverage | 157 | 24 | 6.5 | 0 | 127 |
 | 20 | Utility system tasks and system functions | 330 | 31 | 10.6 | 0 | 66 |
-| 21 | Input/output system tasks and system functions | 236 | 47 | 5.0 | 0 | 76 |
-| 22 | Compiler directives | 358 | 21 | 17.0 | 0 | 10 |
+| 21 | Input/output system tasks and system functions | 272 | 47 | 5.8 | 0 | 76 |
+| 22 | Compiler directives | 398 | 21 | 19.0 | 0 | 36 |
 | 23 | Modules and hierarchy | 331 | 33 | 10.0 | 0 | 71 |
-| 24 | Programs | 43 | 7 | 6.1 | 0 | 17 |
+| 24 | Programs | 97 | 7 | 13.9 | 0 | 71 |
 | 25 | Interfaces | 119 | 12 | 9.9 | 0 | 31 |
 | 26 | Packages | 83 | 6 | 13.8 | 0 | 14 |
-| 27 | Generate constructs | 139 | 5 | 27.8 | 0 | 2 |
+| 27 | Generate constructs | 175 | 5 | 35.0 | 0 | 26 |
 | 28 | Gate-level and switch-level modeling | 245 | 26 | 9.4 | 0 | 48 |
-| 29 | User-defined primitives | 81 | 14 | 5.8 | 0 | 12 |
+| 29 | User-defined primitives | 106 | 14 | 7.6 | 0 | 36 |
 | 30 | Specify blocks | 60 | 22 | 2.7 | 0 | 24 |
 | 31 | Timing checks | 66 | 20 | 3.3 | 0 | 48 |
 | 32 | Backannotation using the standard delay format | 50 | 11 | 4.5 | 0 | 34 |
-| 33 | Configuring the contents of a design | 43 | 13 | 3.3 | 0 | 26 |
+| 33 | Configuring the contents of a design | 84 | 13 | 6.5 | 0 | 67 |
 | 34 | Protected envelopes | 4 | 8 | 0.5 | 0 | 0 |
 | 35 | Direct programming interface | 131 | 21 | 6.2 | 0 | 43 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 19 | 4.7 | 0 | 36 |

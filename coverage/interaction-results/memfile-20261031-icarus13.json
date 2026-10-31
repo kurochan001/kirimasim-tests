@@ -1,0 +1,156 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch21/test_gen_cross_memfile_129_bit_plain_known_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "737ce3881511e7037a233b1dac8ba9fd1c516f71dcacc5fdc3e80498f84fb3f2"
+  },
+  "gen/ch21/test_gen_cross_memfile_129_bit_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "b556c55f95a59600bb30b73e2746c2132fae13ba9c635a42d2a7a39f4761ee33"
+  },
+  "gen/ch21/test_gen_cross_memfile_129_bit_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "e633d22fac765617c4ee8398c7cb699b897bf2e8a3c206ab3b01e5b996f5e74d"
+  },
+  "gen/ch21/test_gen_cross_memfile_129_logic_enum_z_hex_middle_down_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "0c8e53aa0694879acdb468b3315f884d497c2ca92b7e7a133147909ad2915e78"
+  },
+  "gen/ch21/test_gen_cross_memfile_129_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "efd1f98aa764b75d1f10b8a639f67589667a66de291904763ca42be69b18fa77"
+  },
+  "gen/ch21/test_gen_cross_memfile_129_logic_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "55333a8f1981889ac3194516b6e9f3131873b6c38011f7abd9981dcf137ba268"
+  },
+  "gen/ch21/test_gen_cross_memfile_1_bit_plain_known_bin_all_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "62ce9283e3b8e7242bcb4ef6d7d4a30c63d24025cd2bdc686c0c08bfbcd74afc"
+  },
+  "gen/ch21/test_gen_cross_memfile_1_bit_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "5c70de9becb54a17a4df39d72f695c4ab1975794215111a5acb54533ea6f59dd"
+  },
+  "gen/ch21/test_gen_cross_memfile_1_bit_plain_z_hex_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "6b3710765f80e9b0398915d280f0f4949adcc4acf9860993f8811b82ea9a787d"
+  },
+  "gen/ch21/test_gen_cross_memfile_1_logic_enum_x_bin_single_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "0597baa40d633154a8b160e7b7cd499cf61fbdd9f967e683dcf8d97819a7d8b2"
+  },
+  "gen/ch21/test_gen_cross_memfile_1_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "8e69d2e4a1597122942edb98d8cf383bab0a0676cdfb1a4299eb4c8f1bb0564b"
+  },
+  "gen/ch21/test_gen_cross_memfile_1_logic_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "86d7d20c9dfcb7e5c143f4f6a22d823a273cc38bc2053dd1325151c428472a59"
+  },
+  "gen/ch21/test_gen_cross_memfile_32_bit_enum_known_hex_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "f67e6b86c0c01e90c8c458b26aad46f8318cb84563c0f2382286784dfd65d06a"
+  },
+  "gen/ch21/test_gen_cross_memfile_32_bit_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "a3e3530f96214ffe15d4f18f1f53800c8b402b991f037d76ed9f00e124565a15"
+  },
+  "gen/ch21/test_gen_cross_memfile_32_bit_plain_z_bin_single_down_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "6eab0f966fccde7b6d9498c2849b176a0075e73b1b7f84225e4bc5b4a2424bba"
+  },
+  "gen/ch21/test_gen_cross_memfile_32_logic_enum_known_bin_middle_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "0434b72960afad9bb45d441c3dd9841d301de7297368337d3986399c55dcc9db"
+  },
+  "gen/ch21/test_gen_cross_memfile_32_logic_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "de857d704a393246865394df951dd49ed6f4acf90edf005365dac2ac064fb774"
+  },
+  "gen/ch21/test_gen_cross_memfile_32_logic_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "0f61c16676589da0bfeee0f53be8fc5bea426b9e8565f8b2045dc20cf95b3f68"
+  },
+  "gen/ch21/test_gen_cross_memfile_33_bit_enum_x_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "ce2a61715aa593492ddc5460d87001ac1a4b87d07753b26d3975ef069d7449ba"
+  },
+  "gen/ch21/test_gen_cross_memfile_33_bit_enum_z_bin_all_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "c28dba580854bade2abd24a9eb743fc40ad061b41f46e6036092a3cc0b99e2ad"
+  },
+  "gen/ch21/test_gen_cross_memfile_33_bit_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "b0b34d3892282961f7f14b2e06821394d2113ddfb5433b2186d71f1fe849e8bd"
+  },
+  "gen/ch21/test_gen_cross_memfile_33_logic_plain_known_bin_middle_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "bce3223452a761b03045e56ee3e01c5e3659e42cd93c3ca0101c2bacccdb67f8"
+  },
+  "gen/ch21/test_gen_cross_memfile_33_logic_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "adb06bb9e7bdfa64fc2bd696a16d53cdb95b2635819d430050505a34d33ae7cf"
+  },
+  "gen/ch21/test_gen_cross_memfile_33_logic_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "3ee95fe8a3fbfc623f28fa287b4054f64353748fb052564634dcc281c96f939f"
+  },
+  "gen/ch21/test_gen_cross_memfile_64_bit_enum_x_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "4a83af86cded4e9d666268512e27a908d63b577857d728939fee04fa7beb09cb"
+  },
+  "gen/ch21/test_gen_cross_memfile_64_bit_plain_known_hex_all_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "4d2c343a2ecae787565ddf824ea7e63c2f6dd81d8be6732ea14589cdf398bcc5"
+  },
+  "gen/ch21/test_gen_cross_memfile_64_bit_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "a54f4e327e039f7fd94d0fc4a002fa7adac07db3f8eb841f8a9140fb964ec98c"
+  },
+  "gen/ch21/test_gen_cross_memfile_64_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "2f7030ce9676fecfbe4f825e94b694b1fcab636a85021800d0c8924ba7dd6aac"
+  },
+  "gen/ch21/test_gen_cross_memfile_64_logic_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "7066a3e4eec8ec78c1d447b5e95e68f39f125adf03a1cdc8b8e57a8cd059c3a4"
+  },
+  "gen/ch21/test_gen_cross_memfile_64_logic_plain_z_bin_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "0f780a1b123f742b82952b07743f81649c22cbf0c3bcb29703ba72a6e028c46a"
+  },
+  "gen/ch21/test_gen_cross_memfile_65_bit_enum_known_bin_single_up_bit_forward": {
+   "status": "known",
+   "reason": "compile failed: Assertion failed: (len <= sizeof(uint64_t)*8), function draw_enum2_value, file draw_enum.c, line 44.",
+   "inputs_sha256": "a94162464dfd2aa09fcd36c23843bad1a4e5f33face2058f97b4cf06bc587be0"
+  },
+  "gen/ch21/test_gen_cross_memfile_65_bit_plain_x_hex_middle_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "5ad0fd5380455f93015cbd7f2ff5c22b3afbe9a874add3488fd591a42fd88208"
+  },
+  "gen/ch21/test_gen_cross_memfile_65_bit_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "9b02fbce2a17020cd1eec0094c7afdf1bcfbb437f93e45b34b83a659785e1c1d"
+  },
+  "gen/ch21/test_gen_cross_memfile_65_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "90c5b7080f84c1dc7ec759f33e8661501781d3d40ca5118b6132d427494b04f6"
+  },
+  "gen/ch21/test_gen_cross_memfile_65_logic_plain_x_bin_all_down_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "16bc742509c7a2263a276c0e557e0a09b4f59a6efe0184a3f2b95a16a2042973"
+  },
+  "gen/ch21/test_gen_cross_memfile_65_logic_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "538a520e8d826ae73e8ba13163371c36888c55ddfdb2a3f5bbd1423bead6710e"
+  }
+ },
+ "generated_at": "2026-10-31T13:48:55.086233+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

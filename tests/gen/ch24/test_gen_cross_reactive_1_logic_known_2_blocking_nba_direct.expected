@@ -1,0 +1,78 @@
+early t=10 value=1 last=1
+late t=10 value=1 last=0 steps=2
+p0 t=11 raw=1 source=1 out=1 early=1 late=1 steps=2
+p0 stages s0=0 s1=0
+p0 program captured=0 sampled=1 last=0 steps=2 visits=1
+early t=20 value=0 last=0
+late t=20 value=0 last=1 steps=4
+p1 t=21 raw=0 source=0 out=0 early=2 late=2 steps=4
+p1 stages s0=1 s1=1
+p1 program captured=1 sampled=0 last=1 steps=4 visits=2
+p2 t=31 raw=0 source=0 out=0 early=2 late=2 steps=4
+p2 stages s0=1 s1=1
+p2 program captured=1 sampled=0 last=1 steps=4 visits=2
+early t=40 value=1 last=1
+late t=40 value=1 last=0 steps=6
+p3 t=41 raw=1 source=1 out=1 early=3 late=3 steps=6
+p3 stages s0=0 s1=0
+p3 program captured=0 sampled=1 last=0 steps=6 visits=3
+early t=50 value=0 last=0
+late t=50 value=0 last=1 steps=8
+p4 t=51 raw=0 source=0 out=0 early=4 late=4 steps=8
+p4 stages s0=1 s1=1
+p4 program captured=1 sampled=0 last=1 steps=8 visits=4
+early t=60 value=1 last=1
+late t=60 value=1 last=0 steps=10
+p5 t=61 raw=1 source=1 out=1 early=5 late=5 steps=10
+p5 stages s0=0 s1=0
+p5 program captured=0 sampled=1 last=0 steps=10 visits=5
+early t=70 value=0 last=0
+late t=70 value=0 last=1 steps=12
+p6 t=71 raw=0 source=0 out=0 early=6 late=6 steps=12
+p6 stages s0=1 s1=1
+p6 program captured=1 sampled=0 last=1 steps=12 visits=6
+early t=80 value=1 last=1
+late t=80 value=1 last=0 steps=14
+p7 t=81 raw=1 source=1 out=1 early=7 late=7 steps=14
+p7 stages s0=0 s1=0
+p7 program captured=0 sampled=1 last=0 steps=14 visits=7
+early t=90 value=0 last=0
+late t=90 value=0 last=1 steps=16
+p8 t=91 raw=0 source=0 out=0 early=8 late=8 steps=16
+p8 stages s0=1 s1=1
+p8 program captured=1 sampled=0 last=1 steps=16 visits=8
+early t=100 value=1 last=1
+late t=100 value=1 last=0 steps=18
+p9 t=101 raw=1 source=1 out=1 early=9 late=9 steps=18
+p9 stages s0=0 s1=0
+p9 program captured=0 sampled=1 last=0 steps=18 visits=9
+early t=110 value=0 last=0
+late t=110 value=0 last=1 steps=20
+p10 t=111 raw=0 source=0 out=0 early=10 late=10 steps=20
+p10 stages s0=1 s1=1
+p10 program captured=1 sampled=0 last=1 steps=20 visits=10
+early t=120 value=1 last=1
+late t=120 value=1 last=0 steps=22
+p11 t=121 raw=1 source=1 out=1 early=11 late=11 steps=22
+p11 stages s0=0 s1=0
+p11 program captured=0 sampled=1 last=0 steps=22 visits=11
+early t=130 value=0 last=0
+late t=130 value=0 last=1 steps=24
+p12 t=131 raw=0 source=0 out=0 early=12 late=12 steps=24
+p12 stages s0=1 s1=1
+p12 program captured=1 sampled=0 last=1 steps=24 visits=12
+early t=140 value=1 last=1
+late t=140 value=1 last=0 steps=26
+p13 t=141 raw=1 source=1 out=1 early=13 late=13 steps=26
+p13 stages s0=0 s1=0
+p13 program captured=0 sampled=1 last=0 steps=26 visits=13
+early t=150 value=0 last=0
+late t=150 value=0 last=1 steps=28
+p14 t=151 raw=0 source=0 out=0 early=14 late=14 steps=28
+p14 stages s0=1 s1=1
+p14 program captured=1 sampled=0 last=1 steps=28 visits=14
+early t=160 value=1 last=1
+late t=160 value=1 last=0 steps=30
+p15 t=161 raw=1 source=1 out=1 early=15 late=15 steps=30
+p15 stages s0=0 s1=0
+p15 program captured=0 sampled=1 last=0 steps=30 visits=15

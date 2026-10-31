@@ -1,0 +1,580 @@
+{
+  "schema": 1,
+  "scope": "Uncommitted 47-model baseline preserved before generated-interface addition.",
+  "report_sha256": "91accbd0e5bc789ce61aabccade7ac3be1760cbf907b09dd830c5d4a27fcf7af",
+  "models": {
+    "scheduling_visibility": "c94b591ca29482a3bf85eaa6ced57789578d5a84ac0a20a5ebc04d715d73c790",
+    "nba_capture": "81a3264fb2d66b386bc3a7c4777283349d80ce48595b17660f2a72249c8712ba",
+    "expression_context": "22a011e9acb292df40f8c6037eee1db27d039282b18e737174f98f4cd9e02788",
+    "packed_part_select": "66f810d56b82005283fd3134b39d571a82b177cd8aa59c5e8e6d52c34cad8197",
+    "conditional_merge": "0443f4257296533c3d72f00f99e4d4789b00f20d0deb7cb3aca01e041c9b98fe",
+    "shift_context": "e2781f0e87ebb49dce82b9bcbdf296d76c6b0e7b31a70b8de1d4f9b79487af93",
+    "cast_pipeline": "e59824d336e9c7ed14545396634e578bcbcb1604a8a45f9c313c47fc55210b6f",
+    "task_argument_visibility": "602f05413d27871357c8a7049065198407d78d941df7b78b1b2272ba80c0316f",
+    "argument_binding_index": "e9446e4239e87021da4e48946158dfe41712b5bbb9ebd2dee7f4e13b704604c5",
+    "packed_structure": "bd3a9f47d50914c763e7bbf7e3c6d98eb3202ddfdd719420422fbaa3e649c36d",
+    "case_matching": "fec465db4b5df84e4d311d4820d7f7e131d9a1e58907ba7c23348fd064102699",
+    "port_connection": "73f28c86a875101206b1a442743fbe2ad5c5c040e6addda10bc64d184ce43418",
+    "unpacked_array_copy": "6182aa6f845a1cdd2ef05198dfc02e93929a46db06d1cc5a7479deaebd25bbd2",
+    "bit_vector_queries": "93e02e94f982963a7816bb25fc2f4cd48f037df8f8f38e95ea2ad40d38b560a4",
+    "streaming_permutation": "3c774e16081be91342b93bd42b86b6ab65dcfd62261677d6589cbe1bfb2dc888",
+    "comparison_context": "241408155965e8e77d8aa32e95c9ca650712a839874ec19b9a00acfe948fc052",
+    "array_reduction_pipeline": "c232f28c826271c8446180a86eb738d7623133e1288bfdc405b77b9c93451730",
+    "variable_bit_index": "0c83f1f8c75caabfb05dac296d5ce3d2c83f86886be59a2557b5e9d22eeff185",
+    "queue_update_capacity": "07f119114a1ff91c1742697e70d4520f188584e8ffda17bec9ee58e3c6a5ab9b",
+    "queue_element_reference": "8748235d87a899469668002aab424b715fb549ddd8404f94d50a83286b33382e",
+    "division_context": "81e41f1e80c6e0d9c70675820b68c0a5db66c7e4dd4e990173d8a9802bca7946",
+    "dynamic_array_resize": "31c0816783b96e676391662d42a0bad51ded64dd5ba8f58a9cd15b2c50682ce2",
+    "concatenated_assignment": "91d92681c259f050c472ab2ac092c98ac4aa2461ff0403c4e3d4435d3e778a6e",
+    "packed_logical_reduction": "a7676fd9215647597bb27a1e9fb8528dff6b68980929ec513cdfafc2de9634a1",
+    "logical_short_circuit": "f188d37b0a5a43e3fb4ecad19da2625b74d4615d62fb831a4f3920432fbc57af",
+    "edge_event_expression": "601d879988caf32f7e60e4aaafafa8b504a1e0e4356f3343d947389e7b95ab74",
+    "event_or_iff": "31ce03ff90a05b60665a8d95c1ebffb26bd74cf0d984a1053b0daae7e428e4f6",
+    "heap_file_monitor_context": "8ab6678cdbbebbd8dce9b90336febed2a47eff4518521eb80bc36d136321df8a",
+    "compound_shift_target": "6d392791cb3ccf7b7753bb005804c49e3edc536885cd2fde8e6cac27a2e2b62a",
+    "membership_container": "f9f0fb76c2ea891a7771c1165e66899fa56539ddb635b727411caec4236310b2",
+    "membership_range": "01446bd98f81a7b015f707bb6839255e228f01cc9bf04f1647059eb9f8d199f2",
+    "case_inside_selection": "e350d5c03a346a85c83b0e15f7a072e8acf18e31904b1af2d76d464fe623bb2a",
+    "clocking_input_sampling": "e52758e95c70d7d0e1550df501b785ddd4cbaf68269f0b2aa5a06a9330aacd11",
+    "assertion_sample_visibility": "017574898433b41a43d2f5dcaa9aa68e5557732228fa1ec639c104d1f5720579",
+    "container_wait_visibility": "283bd30ec2d0dab7e713e72ff019aebd1ee753653ef325cd09291758f559d3c6",
+    "class_method_reference": "8b7be28bae2843fc8806ecd0244728061cfaf1a1d234b2dd9bf12961cf9abef5",
+    "function_loop_return": "1a4246f3f4b184f6251388cae16de0e11971007d62da6a3fa3c375fd15dfe30a",
+    "loop_assignment_order": "ccebc05c3373518b57eb5462a81ec436e582004023de078cdd03f360f4d9d3be",
+    "implicit_process_visibility": "72310eb361dd58fda6e04a1225bffc5770b0e17bf2df911228e78bfa1c620273",
+    "generate_scope_lookup": "70a19192818f0476f4108ad5c58a8582844bdadfc3ae5a3a9ce4443ca9b47eea",
+    "default_argument_scope": "4a470c23498c7f8b0b5784e1b7a8b7935977872cbe08396a7ac6683bfeb75f8a",
+    "event_task_scope": "768ee68b256b7f608514763ce70ab1812223242f5f6610713c93b120f84ae174",
+    "continuous_delay_inertial": "136a1df05abf1a7b45aa8fc00beccf325db1ce6d715f24618b4136e11b12e399",
+    "port_import_scope": "8ea3a4e23466a93b4aabefe73d2f95b07c025cee62f49f15aedea7c120ca928e",
+    "typed_memory_file": "e815f0240ac4e152c4d585ede8ad984d3708e7eae8b7acb926ebe133b46c60f0",
+    "program_descendant_shutdown": "0d9a6cba2fbbe421823a49234e826ae0342c94f4b786a47467ddad401741701b",
+    "implicit_port_nettype": "2653e247b2eb2c8b4909ca7bffa47f854daee6f40daf3178f8631d3f1078b19d"
+  },
+  "runs": {
+    "coverage/interaction-results/assertion-wait-20261031-icarus13.json": {
+      "model_aggregates_sha256": "8759a1bba56b43ee8231b9cebb66183fa7286629bbfde5b5508e449ad2a312e2",
+      "artifact_sha256": "7d0823f9ffa206ea702c5b06b46fdcd8873f5ef738bce7d292215e2a79d8de5b"
+    },
+    "coverage/interaction-results/assertion-wait-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "41384b2f08844e6ae9349652818e07aad081df7480ba5b323f0076243bd9d955",
+      "artifact_sha256": "7315b4a6403bffde9afd1f71fa8040d4cd4e77a63b641e3051e12437c9dec77c"
+    },
+    "coverage/interaction-results/assertion-wait-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "41384b2f08844e6ae9349652818e07aad081df7480ba5b323f0076243bd9d955",
+      "artifact_sha256": "2e751778893e1f6fc59f26e3cf5a9ee13b7c47bcec175d224be37d33947656d7"
+    },
+    "coverage/interaction-results/binding-20261031-icarus13.json": {
+      "model_aggregates_sha256": "c54b6221d2508f001ac6a8f9d8d10a441341cb3557ffbebd8b349cf4dc59b37e",
+      "artifact_sha256": "85512678d3a3e11219aeb4f826dde4abbe6899d231eac5a9e0219007c40f11fe"
+    },
+    "coverage/interaction-results/binding-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "cc0fb5735ecc3cd30af5920601d1660b131c23b7835c42ab1e34788320802698",
+      "artifact_sha256": "e75f67d22500d1cdfeb0023f9f2b94666c35111724cb87db946a0cdc589fc0b8"
+    },
+    "coverage/interaction-results/binding-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "cc0fb5735ecc3cd30af5920601d1660b131c23b7835c42ab1e34788320802698",
+      "artifact_sha256": "81f7627954c815d1ead908456dfe0546d5fad6c7be09fb80baf2618cba3ecf5b"
+    },
+    "coverage/interaction-results/class-method-20261031-icarus13.json": {
+      "model_aggregates_sha256": "b27f5e8fec6d0466bc54258f2e974737daecfd77f6917c69057cbf22d656cdd5",
+      "artifact_sha256": "3051b68dfba9a9859552c839cbc90046db2b1331486b87d6a4a7edf2e56ea732"
+    },
+    "coverage/interaction-results/class-method-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "1c4c062ce24f7d2ead52f85e38c82ace523e02f457718990ff1dec8bd9d73727",
+      "artifact_sha256": "0147ddb20efde79ebb13b737325bc3752124f7c17de16c32b087fb99f0102c15"
+    },
+    "coverage/interaction-results/class-method-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "1c4c062ce24f7d2ead52f85e38c82ace523e02f457718990ff1dec8bd9d73727",
+      "artifact_sha256": "20609590a8a96d61cb0b9ad990fc498bf30e10d83ed567065090ed4817ce8abc"
+    },
+    "coverage/interaction-results/clocking-20261031-icarus13.json": {
+      "model_aggregates_sha256": "6bff6af08421d5b2f914e9d79c2c0d879cf1626264557f878b76f4e88d5b187f",
+      "artifact_sha256": "cc272a0256224d14527466eecd23050b0d77c006a39f65dbffc9c67ddf350809"
+    },
+    "coverage/interaction-results/clocking-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "e48b464c9882460b4a2da7f0d7996d9c3bac57af7db84822ab58dda91cb1693c",
+      "artifact_sha256": "372b172a8ebc8fcfaa6544510576c25e05b8ad49b42d6a2eadd2f6e8008dc880"
+    },
+    "coverage/interaction-results/clocking-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "e48b464c9882460b4a2da7f0d7996d9c3bac57af7db84822ab58dda91cb1693c",
+      "artifact_sha256": "297aa7ee21d6b7d89358790aa099b0e3a7d94d08fb359103cae255921d363d9e"
+    },
+    "coverage/interaction-results/cross-20261029-expanded-icarus13.json": {
+      "model_aggregates_sha256": "9980b7cfa9db8e7716eb081a5c13b02b6739b6f70a1473e1ff7bb1b9ff0f1305",
+      "artifact_sha256": "581b0d23f0b239cdaaf365d68c519d7ad0ea36e5cb094375e3e7acbf3451472e"
+    },
+    "coverage/interaction-results/cross-20261029-expanded-kirimasim-f8408ea.json": {
+      "model_aggregates_sha256": "50b74a565c37c2d51751bb6ea31ed7bb068e6ed77789f0cade3fb363f891a8eb",
+      "artifact_sha256": "c26a62e611cea3b7047f8c64eee1832fd801caf0e6b9459407bfb8b2e0a11b30"
+    },
+    "coverage/interaction-results/cross-20261029-expanded-verilator5052-seed1.json": {
+      "model_aggregates_sha256": "ec9f57ffcc67a192eb4a9cf3900b951cf2775e5c72ecaeb70933ad29df68c23e",
+      "artifact_sha256": "ca4e49a52c2a0547113ff8af9308091c5a2ef1cd8f96cdaf77ee155b16709082"
+    },
+    "coverage/interaction-results/cross-20261029-expanded-verilator5052-seed73.json": {
+      "model_aggregates_sha256": "ec9f57ffcc67a192eb4a9cf3900b951cf2775e5c72ecaeb70933ad29df68c23e",
+      "artifact_sha256": "d7a7a4bf797a1cafbc3444084b844a339d7cb1702300a31095b5fdc945a67174"
+    },
+    "coverage/interaction-results/cross-20261029-hierarchy-icarus13.json": {
+      "model_aggregates_sha256": "ef0e2a74d169cdddc59626fe64ea30803ab692dc3ed28882935e5f819febf66c",
+      "artifact_sha256": "620d005e1c636b880385e7cf0df195a5126601d48cbccbb307a1863e5a7c7c48"
+    },
+    "coverage/interaction-results/cross-20261029-hierarchy-kirimasim-ee36c83.json": {
+      "model_aggregates_sha256": "8838c14b7ec008e47b00d09204dbcdb20dc411c8cef592897d5e1587d08bf9c9",
+      "artifact_sha256": "6075f2ea234d8d7f440d0b71ccfd39f52f33122dca6470d4eed35b9e3ef1c223"
+    },
+    "coverage/interaction-results/cross-20261029-hierarchy-verilator5052-seed1.json": {
+      "model_aggregates_sha256": "476c89b61991d4e93b4ef56e4551c06258b53891fcc36c3aa5698eac4f8e8b05",
+      "artifact_sha256": "1b8c398bff526a7a012b1beadeaa7ad8db785fb0013d54be1d4c6fffd587cf44"
+    },
+    "coverage/interaction-results/cross-20261029-hierarchy-verilator5052-seed73.json": {
+      "model_aggregates_sha256": "476c89b61991d4e93b4ef56e4551c06258b53891fcc36c3aa5698eac4f8e8b05",
+      "artifact_sha256": "7d6e0fd2725f79e799f32b4fb324c6cea940c9d972e872137e41fa98483efe9d"
+    },
+    "coverage/interaction-results/cross-20261029-icarus13.json": {
+      "model_aggregates_sha256": "641d1dc25c6be596d6dc28a32413eac4a576a181be888a7c5e14a3043d5832ea",
+      "artifact_sha256": "b52ff2a5f71ebbaa7e7da18b340b7f2c603a22b602654ca2dc07cb9b03436c67"
+    },
+    "coverage/interaction-results/cross-20261029-kirimasim-dd2c018.json": {
+      "model_aggregates_sha256": "641d1dc25c6be596d6dc28a32413eac4a576a181be888a7c5e14a3043d5832ea",
+      "artifact_sha256": "c3244ab3619dd3298ef3bb06a072faeb3447488bd6f7bcce6bc3d8d07c95385e"
+    },
+    "coverage/interaction-results/cross-20261029-paths-icarus13.json": {
+      "model_aggregates_sha256": "0bc53d2fc3de64fbfec70180ba7e3d8f077ced5d88458ae74a093c7e127fab6a",
+      "artifact_sha256": "a45ceb9e0d3efc231c1673e4c53566e7bdfcacc30f526dfdf1dced3648383d84"
+    },
+    "coverage/interaction-results/cross-20261029-paths-kirimasim-b86ccb6.json": {
+      "model_aggregates_sha256": "c35edc6a849ab01794b3578cc4948bf9f1d7d0f6cffb40d02838b9dac872e78b",
+      "artifact_sha256": "ac92fce82a2d4ad39a0fbd3345d541cc2222e6f4fa9b6863c85545d98898eca6"
+    },
+    "coverage/interaction-results/cross-20261029-paths-verilator5052-seed1.json": {
+      "model_aggregates_sha256": "47bd8160a93c36e12e2f64a2f30fa912eadf541c1bb1ce4cc04fa7a83149cba5",
+      "artifact_sha256": "888278a4071e328a42f56654356016bc72cbd4547967fe3f673bd794023c0e77"
+    },
+    "coverage/interaction-results/cross-20261029-paths-verilator5052-seed73.json": {
+      "model_aggregates_sha256": "47bd8160a93c36e12e2f64a2f30fa912eadf541c1bb1ce4cc04fa7a83149cba5",
+      "artifact_sha256": "6d42fac62dfa03c969cdb7417fa48614bf052a95b83939be6c35367e3140e582"
+    },
+    "coverage/interaction-results/cross-20261029-remaining-icarus13.json": {
+      "model_aggregates_sha256": "0918a58f5ba8031650d55a72267a1151ca2d60ca9efce37a49a1c1f3d2272169",
+      "artifact_sha256": "15264e4d1665df4f8414ae425828b751822204b388e655a490d2a14dd648fbd8"
+    },
+    "coverage/interaction-results/cross-20261029-remaining-kirimasim-5e8ab59.json": {
+      "model_aggregates_sha256": "fa94225cf30dab59fb6fb6ce89ed0351388cd0aac056d8c05a48eb176c5ba216",
+      "artifact_sha256": "bcdada0a3f9aeec261ed692700975c4560db6e09cac544ff527cf1de0c38afc7"
+    },
+    "coverage/interaction-results/cross-20261029-remaining-qualified-icarus13.json": {
+      "model_aggregates_sha256": "0be868570f8531d295778d9e9f54019a7cf4d514993b760e761bf449d1588d66",
+      "artifact_sha256": "386d0c196b29408680bbc825a125aacb26a630f19f4964a86dfa822f50109391"
+    },
+    "coverage/interaction-results/cross-20261029-remaining-qualified-kirimasim-5e8ab59.json": {
+      "model_aggregates_sha256": "a2359008019b739daf4ff6216dfe49e37ac80f94c062b1280e7f4940feb79b69",
+      "artifact_sha256": "fb328678c4acf1b2fd5a7b67dc4dfd909087f188a2c553632d1d79fb920cf997"
+    },
+    "coverage/interaction-results/cross-20261029-remaining-qualified-verilator5052-seed1.json": {
+      "model_aggregates_sha256": "113221b81c15f5a4effc8ade21b1a237063a137ff4f81900a6c404e93a65a525",
+      "artifact_sha256": "191bf2812e4f969e8dc5fb18c6fd933a9f3caeffb2d5c08bd14758b2dba91f58"
+    },
+    "coverage/interaction-results/cross-20261029-remaining-qualified-verilator5052-seed73.json": {
+      "model_aggregates_sha256": "113221b81c15f5a4effc8ade21b1a237063a137ff4f81900a6c404e93a65a525",
+      "artifact_sha256": "12688d93cbedcd90165e5197cb18e8851a9806d8b35ae6efe22c7af5206b0558"
+    },
+    "coverage/interaction-results/cross-20261029-remaining-verilator5052-seed1.json": {
+      "model_aggregates_sha256": "87d734118fe990b54dc446e2ce07574e7fdd8c5aeea62dd4a49458437347dbaf",
+      "artifact_sha256": "5311bf850218b0971b090a2859a7d06da9f5b3b017fbc481a878bfa7144a6264"
+    },
+    "coverage/interaction-results/cross-20261029-remaining-verilator5052-seed73.json": {
+      "model_aggregates_sha256": "87d734118fe990b54dc446e2ce07574e7fdd8c5aeea62dd4a49458437347dbaf",
+      "artifact_sha256": "8e42ffc7fdcba221a430d6b3c2ed58efc45a113cae3227390fe4e0d38b09d2e9"
+    },
+    "coverage/interaction-results/cross-20261029-verilator5052-seed1.json": {
+      "model_aggregates_sha256": "7a0a57686fc3b5a08e4b2ce643f50a3fd8fa5cbf0e01f5158af7975271e0ec39",
+      "artifact_sha256": "0135e2beb66d2e7e41577b1b8eb03d1159bdd00db333cc66a82f2f984aa2d32a"
+    },
+    "coverage/interaction-results/cross-20261029-verilator5052-seed73.json": {
+      "model_aggregates_sha256": "7a0a57686fc3b5a08e4b2ce643f50a3fd8fa5cbf0e01f5158af7975271e0ec39",
+      "artifact_sha256": "5e731808ef2ec60fad6b0b1226975ff1162e78177b37f335337818959eb5bac8"
+    },
+    "coverage/interaction-results/cross-20261030-concatlogic-icarus13.json": {
+      "model_aggregates_sha256": "4320fe71610a6c1710d56e2b0b47c9a0f87aa7537104e070611d600927a0f140",
+      "artifact_sha256": "fec113602e3edf5d69edec41ef2ee87d987bf35cd01ba74d10540c9eeeded9e4"
+    },
+    "coverage/interaction-results/cross-20261030-concatlogic-kirimasim-1d67d4e.json": {
+      "model_aggregates_sha256": "24856ccc7e2c4187b60e56f37fe16048fe112870bbcf045f7f4e6b74e06b2e9a",
+      "artifact_sha256": "4435de22982c46b68f0f66229bce4fe584e05314dd7f61cc6885ffadbca1427c"
+    },
+    "coverage/interaction-results/cross-20261030-concatlogic-verilator5052-seed1.json": {
+      "model_aggregates_sha256": "bf77f9f430663680d9910af9afccd46c99200f61c13753ed4e0ebd875d7a3184",
+      "artifact_sha256": "69e41f3bd249f2d1fe88183b6e6efeef64d77a007ab6ef1afac4175c4e8e1037"
+    },
+    "coverage/interaction-results/cross-20261030-concatlogic-verilator5052-seed73.json": {
+      "model_aggregates_sha256": "bf77f9f430663680d9910af9afccd46c99200f61c13753ed4e0ebd875d7a3184",
+      "artifact_sha256": "65004cff3d1b8e8d1182a5f2f400a1364caf6d2b046b955fe6b06240bd51e576"
+    },
+    "coverage/interaction-results/cross-20261030-divresize-icarus13.json": {
+      "model_aggregates_sha256": "180da4dbec64878b3c8652443cf5e90ab28864510b3cdad31d12b54a5ddcd148",
+      "artifact_sha256": "f3a04587e1a9f89a4bde86929ebc57f4ff95e2293dd172f60c608acfe8c75f15"
+    },
+    "coverage/interaction-results/cross-20261030-divresize-kirimasim-2020305.json": {
+      "model_aggregates_sha256": "f518f8a036b219dffec6205347a6410fffbddcbcc7dea3ceb42d347a46907be0",
+      "artifact_sha256": "032fd866a4d1446f3dfe5a0968543158637c27d90502267356b53a86a148bdde"
+    },
+    "coverage/interaction-results/cross-20261030-divresize-verilator5052-seed1.json": {
+      "model_aggregates_sha256": "446e32e92eaf668189453dd3249ccab2f3a6803919f9f482da417ce3ae8ea05e",
+      "artifact_sha256": "2a39577b5dc9116ee9b2572c1257386fb64b1d694663136f584d6488d7c5f6bf"
+    },
+    "coverage/interaction-results/cross-20261030-divresize-verilator5052-seed73.json": {
+      "model_aggregates_sha256": "446e32e92eaf668189453dd3249ccab2f3a6803919f9f482da417ce3ae8ea05e",
+      "artifact_sha256": "42eb2f581c9dfddae178c29a5b151ec19842b6d1e57db06e110cc1d94b6bb5eb"
+    },
+    "coverage/interaction-results/cross-20261030-indexqueue-icarus13.json": {
+      "model_aggregates_sha256": "ec29239f1a20d9a673970a703718460f683226d6b2cdfee645a698586085291d",
+      "artifact_sha256": "e90c08590299fcb46a3352fbc155ed0929e162993f547b47f87e07041c8e51c7"
+    },
+    "coverage/interaction-results/cross-20261030-indexqueue-kirimasim-b0fc996.json": {
+      "model_aggregates_sha256": "a10cd3abf3fb572dfe16403efa9c94d4bc16cec0c00df2c85b29a2d8c43e7140",
+      "artifact_sha256": "967eb3d36739dc51ea7982f62db137846b47d312e98a9c7b070b110a43ca7394"
+    },
+    "coverage/interaction-results/cross-20261030-indexqueue-verilator5052-seed1.json": {
+      "model_aggregates_sha256": "5235366833c08c899f7d429e521a2cd99dc8d8ef8ab864de74428d927044fa21",
+      "artifact_sha256": "a3d9cd4fb2a56fd458d8a84540539a60786457a42137d1582ebf4479d3e1a2d3"
+    },
+    "coverage/interaction-results/cross-20261030-indexqueue-verilator5052-seed73.json": {
+      "model_aggregates_sha256": "5235366833c08c899f7d429e521a2cd99dc8d8ef8ab864de74428d927044fa21",
+      "artifact_sha256": "f200191a7553d508bbde4e3949bfadd88cb2a4daf4763130488afee691a7c909"
+    },
+    "coverage/interaction-results/cross-20261030-logicedge-icarus13.json": {
+      "model_aggregates_sha256": "dd36aca853007604d979b35124042513137ba71b9c28630cfae6e9a1f3c87eac",
+      "artifact_sha256": "1cdd731bbb3359a55a662b1cccd9f472f2517949596180dd2b540c8691116666"
+    },
+    "coverage/interaction-results/cross-20261030-logicedge-kirimasim-51cda31.json": {
+      "model_aggregates_sha256": "272b31001c0337da78cf44838a5f5b032c877360fb7320b7da3cff9f504bfcf1",
+      "artifact_sha256": "0431309467041d93f0d22774723a7bd426943437a837842ac946061a2e8c1b69"
+    },
+    "coverage/interaction-results/cross-20261030-logicedge-verilator5052-seed1.json": {
+      "model_aggregates_sha256": "0dfbff37342bc539862cba86b767e6b0acacbd78688a5a7892f48e6b95f70293",
+      "artifact_sha256": "4cbc0b321ee411b31c9524897e105f2d8cd78a8951f53fbbb04e8347aa547e22"
+    },
+    "coverage/interaction-results/cross-20261030-logicedge-verilator5052-seed73.json": {
+      "model_aggregates_sha256": "0dfbff37342bc539862cba86b767e6b0acacbd78688a5a7892f48e6b95f70293",
+      "artifact_sha256": "1a0ceaae45b9fd73e3574f43d7e11aeb3211c84f07055434f6ca61bb84ea5db4"
+    },
+    "coverage/interaction-results/cross-20261030-operators-icarus13.json": {
+      "model_aggregates_sha256": "5edc6b9813d439ab18d3749fce8d5d55e6b5ca96cacb9e1f2825cac35fdba146",
+      "artifact_sha256": "1ab0e9c327361dca299299aa940704e479971bda4eb07d9cb0732f229ddc6093"
+    },
+    "coverage/interaction-results/cross-20261030-operators-kirimasim-5e8ab59.json": {
+      "model_aggregates_sha256": "602d788ca955cf68b20b7d8129058284b090e896f7e88c6f9e68bd0b95c49ca5",
+      "artifact_sha256": "1f674e458e40db8035026532a51ea637fff94f8650909d89af0ab22553e61ef8"
+    },
+    "coverage/interaction-results/cross-20261030-operators-verilator5052-seed1.json": {
+      "model_aggregates_sha256": "ec8096ccc3fdfe1dd472ad37bdf2ddc077fe7bd28f52975599898001fdfd7a8b",
+      "artifact_sha256": "65381024d2d31c03e1830de96caf15b971e033238c6d001c2ac962b268c56020"
+    },
+    "coverage/interaction-results/cross-20261030-operators-verilator5052-seed73.json": {
+      "model_aggregates_sha256": "ec8096ccc3fdfe1dd472ad37bdf2ddc077fe7bd28f52975599898001fdfd7a8b",
+      "artifact_sha256": "97a4546a549ad721f67fe7c9f9c03e307ad175d4317d97ed1ad18bab06543b6a"
+    },
+    "coverage/interaction-results/cross25-icarus-13.json": {
+      "model_aggregates_sha256": "286fae20c6cd0cfe429cdee82ca477ae163401eaaf98c2d95587da42c81f46dd",
+      "artifact_sha256": "0a04f4fcc017f7647cf5a88d687dec99c3cb1838d24dabb87d6d66e0c3904bf5"
+    },
+    "coverage/interaction-results/cross25-kirimasim-latest.json": {
+      "model_aggregates_sha256": "51d926d74a9b0c48f3a9c4bf7599f5e8a1c3b2e00c3cc4b6a01e8881fad2391d",
+      "artifact_sha256": "15b726f336d693bfffd7428e2c0ea15784e1873aab35a28023906bca3fe82dbd"
+    },
+    "coverage/interaction-results/cross25-verilator-5.052-seed1.json": {
+      "model_aggregates_sha256": "1a1beb16304dbcc8e110c70f23b8299d8b7d959921ded9d5a383ebfd8cd326d5",
+      "artifact_sha256": "56bc0497698f00374512c9e87c22f620877a92ef9a64ccd866cd1e124b17b376"
+    },
+    "coverage/interaction-results/cross25-verilator-5.052-seed73.json": {
+      "model_aggregates_sha256": "1a1beb16304dbcc8e110c70f23b8299d8b7d959921ded9d5a383ebfd8cd326d5",
+      "artifact_sha256": "4a20bd8bcc824ff0c90dd6be6865cd99b58b368637224f7ed0bdf73ae8b240fd"
+    },
+    "coverage/interaction-results/cross26-icarus-13.json": {
+      "model_aggregates_sha256": "2240eaa39339be58e884042957ede1159c9588af2ce6f05596548ec4fcea52d9",
+      "artifact_sha256": "e9c88759874dc8bf8b11aa8d6cb34a3ab5db60621b0f4e9ca62c453ed067c103"
+    },
+    "coverage/interaction-results/cross26-kirimasim-latest.json": {
+      "model_aggregates_sha256": "5b518b6613291b2477245c7e84e24ff64cc42104450fc1af8b3230462937c93d",
+      "artifact_sha256": "d0185075ce681f17ed5430f3eeb930526c99a90efe9c19ba6c768a8733ef8732"
+    },
+    "coverage/interaction-results/cross26-verilator-5.052-seed1.json": {
+      "model_aggregates_sha256": "9c871b042662e3c52f9d408600d6915cefaaa447baee21041ae8571ef41cf920",
+      "artifact_sha256": "68cc872b0c7af8f9e5970195ec0dee2bb2fb7d7ef2c588e41286769f34fa1b46"
+    },
+    "coverage/interaction-results/cross26-verilator-5.052-seed73.json": {
+      "model_aggregates_sha256": "9c871b042662e3c52f9d408600d6915cefaaa447baee21041ae8571ef41cf920",
+      "artifact_sha256": "9db61ff8a4d79da6fb7c9f75c1e52557532e2eb5c3608990194a79a8f9e0b61b"
+    },
+    "coverage/interaction-results/cross27-icarus-13.json": {
+      "model_aggregates_sha256": "e78e11fa50f433e4ec57305570549fe20cfdee7eb0b86cf7f6b8538675c1b20f",
+      "artifact_sha256": "ab7cfd33e9103f5c399ee78e44ad69aa1e62120565adf9ed3f257113970b13b2"
+    },
+    "coverage/interaction-results/cross27-kirimasim-fb79248e.json": {
+      "model_aggregates_sha256": "60a2c0ded0bb046dd11159db0d0975953a69d9c1cce58548f8bfe2ab9f6a9077",
+      "artifact_sha256": "963233ad40997ac66421ea5c9f99f9b1d0acdb4ea369b49c44c3bcc5f319f1be"
+    },
+    "coverage/interaction-results/cross27-kirimasim-latest.json": {
+      "model_aggregates_sha256": "60a2c0ded0bb046dd11159db0d0975953a69d9c1cce58548f8bfe2ab9f6a9077",
+      "artifact_sha256": "a2fc04f2742fc56a5afb0ff88fa0d9503694322037080c36b90d4fef681b378b"
+    },
+    "coverage/interaction-results/cross27-verilator-5.052-seed1.json": {
+      "model_aggregates_sha256": "b51ed5876b91d9b0e2e6b85e5a16f08c2455986e8f9840e8c21639db48b90495",
+      "artifact_sha256": "7b7120061c9503712ec387ef7b47ca78cad02576e83cee5cbc647cc73c60ca87"
+    },
+    "coverage/interaction-results/cross27-verilator-5.052-seed73.json": {
+      "model_aggregates_sha256": "b51ed5876b91d9b0e2e6b85e5a16f08c2455986e8f9840e8c21639db48b90495",
+      "artifact_sha256": "4aee6acf7c5b8f589e8e0d5d431bc9dff8b506d05250e2e4de91c456dde7ee3a"
+    },
+    "coverage/interaction-results/cross28-icarus-13.json": {
+      "model_aggregates_sha256": "651723ec997cec4ed12f82b50995ae26ad03dfe89a4b24a2702e162cf0772922",
+      "artifact_sha256": "1c15d67fb4134e13e26dd555d2b2381328c468313ac6377fd3c17b0e2f267d0c"
+    },
+    "coverage/interaction-results/cross28-kirimasim-f303beca.json": {
+      "model_aggregates_sha256": "1a0de2270142149327024522086c0090233aeb1452ec33841c938b2ae4b9241c",
+      "artifact_sha256": "00f3a2030f14e13bcec6c7e9c0ff4e13d2fe401d3c4037f23c18bf4cdd206ebc"
+    },
+    "coverage/interaction-results/cross28-verilator-5.052-seed1.json": {
+      "model_aggregates_sha256": "f4ac623dc07954108a90b4d933c81a8290fadbfc2697af903d04f74b23da5538",
+      "artifact_sha256": "a0be387e63537d43886aa1c92170ad997b2f59707b23dc2fdfade24d4e859c19"
+    },
+    "coverage/interaction-results/cross28-verilator-5.052-seed73.json": {
+      "model_aggregates_sha256": "f4ac623dc07954108a90b4d933c81a8290fadbfc2697af903d04f74b23da5538",
+      "artifact_sha256": "5087bc5631fa251dbb9c663bb5bd80593ddb729f606935fe8980f9dc91912c08"
+    },
+    "coverage/interaction-results/cross29-icarus-13.json": {
+      "model_aggregates_sha256": "a4c75e8ded498bccd2655dc3919f6bb8c89e7ff1e2340032f7945c438c275642",
+      "artifact_sha256": "d0e2eb1600faa909008debd9638de7b888c54cfaf7ca5a2a0cb21f77ee3c1df1"
+    },
+    "coverage/interaction-results/cross29-kirimasim-f303beca.json": {
+      "model_aggregates_sha256": "af7f524c0a03f68b7a71bead0ead0531bc21b594535199dd44d24e2d1db15a0d",
+      "artifact_sha256": "8bde7bf00340796214de6a8ffac0f415ca92880dbdd9a6e92c51205e5000a6f1"
+    },
+    "coverage/interaction-results/cross29-verilator-5.052-seed1.json": {
+      "model_aggregates_sha256": "28ac6df7ad697859c463425493413f7fa770374b117a4a73ec1187491aabb2e4",
+      "artifact_sha256": "af0fdebfd390e04557c23125c04e381fbbebb154b2252cda836f9d81710fd729"
+    },
+    "coverage/interaction-results/cross29-verilator-5.052-seed73.json": {
+      "model_aggregates_sha256": "28ac6df7ad697859c463425493413f7fa770374b117a4a73ec1187491aabb2e4",
+      "artifact_sha256": "1d2cd308283bd0dba99620fe1371d6f49521d1a5602115578b6e1b16e1f8edc4"
+    },
+    "coverage/interaction-results/cross30-kirimasim-17b7192b.json": {
+      "model_aggregates_sha256": "63b0db7745e5bf7ffc81f07cd4ee9863f76536d2bf4f0767d781974609faa124",
+      "artifact_sha256": "f9ad3711edb252d0a2ec2dcd1b2bac5eb7a46d05d56d6746b84898338d580767"
+    },
+    "coverage/interaction-results/cross31-kirimasim-29ad7315.json": {
+      "model_aggregates_sha256": "787581a73b3ea21b9064dfc919e18c7698daa4d3904175d99e5e4e1900bb1ed8",
+      "artifact_sha256": "bb0890450443ec7e97223d81542437cbd2399edb998ab911c057a4b373e15e79"
+    },
+    "coverage/interaction-results/cross32-kirimasim-a08e3489.json": {
+      "model_aggregates_sha256": "d905b023bdae971fc49b991e0c1e54ad663fb607143110dc06628a109b4e49bf",
+      "artifact_sha256": "0f11213565ed9ec9620de7bf61470e825ebe99c5983a8a98a2aa8db2a8455333"
+    },
+    "coverage/interaction-results/cross33-kirimasim-55ce80b9.json": {
+      "model_aggregates_sha256": "f8378f879cdb11b108bc3a6fbd1f8bfbee60b6cd1d395f6298bc5831a2c90826",
+      "artifact_sha256": "ba84cc8c911a54a92e193336cc43c663b0ddc6511c6f7df1e56b4e094a8e3297"
+    },
+    "coverage/interaction-results/cross35-kirimasim-3a31b060.json": {
+      "model_aggregates_sha256": "9b77878e37454672a7361e5a2deb3dd0014c439fd330c8c43342d3bf64aca834",
+      "artifact_sha256": "4b21fb41692aaa9a5a83a605bc51ecb06674861dd7f3b6a1aed8e702256c0566"
+    },
+    "coverage/interaction-results/cross36-kirimasim-3a31b060.json": {
+      "model_aggregates_sha256": "ecd76a29b9802769cdb94c3ec295aaf4cf281b37b277f72342cc140672ddae6a",
+      "artifact_sha256": "3ab64e051b60836274e8672e49243cf5eb4784cd5dcd05d6d9222926cb745186"
+    },
+    "coverage/interaction-results/cross37-kirimasim-3a31b060.json": {
+      "model_aggregates_sha256": "b1ea60cdba6e50ed898c68ded8a14b85f8db1c39c7e9fc4b9def54872652e9d9",
+      "artifact_sha256": "bc0e4a1585cdc19ea179c610c8862746ca4036bfa3c8c868f149cd32e10f118b"
+    },
+    "coverage/interaction-results/cross38-kirimasim-95eefebe.json": {
+      "model_aggregates_sha256": "3613e106373b6c6c8c21c0cf66e7ef1aafe240a37d63ba3ae0fc9a0d3fcef867",
+      "artifact_sha256": "aaa21a28de84e393229dbfcae4e4c09f11511029cd2425be27c45fab5faf5659"
+    },
+    "coverage/interaction-results/cross39-kirimasim-95eefebe.json": {
+      "model_aggregates_sha256": "936fe38288a312ad2857c3dfa151c38a19d082d408e4df42a27637c8af73426a",
+      "artifact_sha256": "a2569598ac743faa58b53c42e8ebfd5c9306bbfbc3238657d0acac0b7c48afe6"
+    },
+    "coverage/interaction-results/cross40-kirimasim-4b58e29f.json": {
+      "model_aggregates_sha256": "61e33632fb7fb2ddf3f0e494d464fbbd34017a84d4f31d7392c2f5f04eb06362",
+      "artifact_sha256": "e672148dc36fb82ff183b0347a56f08c989af65945fef6ba5b7fad0c0c258087"
+    },
+    "coverage/interaction-results/cross41-kirimasim-4b58e29f.json": {
+      "model_aggregates_sha256": "49a201bebb59561fe70b4472387cffd5e08f8a71d45ab44a475dd350105be325",
+      "artifact_sha256": "8124c8ecc733bec5d7377f0079f32b79acadf394c7e9dd1529c851a8654e45d9"
+    },
+    "coverage/interaction-results/cross42-kirimasim-4b58e29f.json": {
+      "model_aggregates_sha256": "18c808aeff3c7bb90dd64d5f3358bdb0d1911c9826b0a50287159c50a12b4549",
+      "artifact_sha256": "660a30ce401f56301c87def93c62a68df2a8b264806871d82e1d630931eecb58"
+    },
+    "coverage/interaction-results/cross43-kirimasim-4b58e29f.json": {
+      "model_aggregates_sha256": "0b7381d48d19cab1a62596655e5e6ffff75017cb7de8ddb97f68ff47b2ebad43",
+      "artifact_sha256": "97b8d626f320eb415b7babc0cd3c018330ee51e634f1f365a43151dc22de016a"
+    },
+    "coverage/interaction-results/cross44-kirimasim-4b58e29f.json": {
+      "model_aggregates_sha256": "3d3d64aaad8752ab49d97582118d342d2aef3653df75550b3314ec91491d69d8",
+      "artifact_sha256": "45333ab08252858d6b010fe78dfa23c246e50d18476520c7909329b856bba51b"
+    },
+    "coverage/interaction-results/cross45-kirimasim-4b58e29f.json": {
+      "model_aggregates_sha256": "d08dfd7625fed8e041d5a26441f467571c8d30bfe98f7a5be604508692f40eda",
+      "artifact_sha256": "a76b3dbb662d7f2e6e7da980b45feea2c545e84dc4cba42526ea76c0664a8c64"
+    },
+    "coverage/interaction-results/cross46-kirimasim-4b58e29f.json": {
+      "model_aggregates_sha256": "1f1f5f072af3115455c80570235215cf35c07b1d9d3ae61f4b71ae3414c6d855",
+      "artifact_sha256": "7dc32c36535e53d92aad510cd2946bacaba34d9bb88831aad89abf861afeba62"
+    },
+    "coverage/interaction-results/cross47-kirimasim-4b58e29f.json": {
+      "model_aggregates_sha256": "5901c254db22bc9a1879a84ea78d0e39d73af40627c41c23ad07a2d51900a5a9",
+      "artifact_sha256": "7f9adea1ce617a3953aff8edd833231f334a80dc08555f1482964df567a660e2"
+    },
+    "coverage/interaction-results/default-20261031-icarus13.json": {
+      "model_aggregates_sha256": "d73f9fbd7ed05c5534ee7182b6c185c4890e1ac658245d0fefa46513c57e15ae",
+      "artifact_sha256": "071cce82b05be6da0986982fdf2083125e83a7df8bdf5b690f560d85f25d9591"
+    },
+    "coverage/interaction-results/default-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "a029806735a6845c43c8dccb2f3a714c84bba79f7a405315e2091cfa9b4cbf2d",
+      "artifact_sha256": "057235d973a64492aeca7a7ab61d38b588bbe8bc39a0c1a3dda8bfd5b60bd902"
+    },
+    "coverage/interaction-results/default-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "a029806735a6845c43c8dccb2f3a714c84bba79f7a405315e2091cfa9b4cbf2d",
+      "artifact_sha256": "273edeed5325308ba06b7933c625023052ef7562de625b26fe19c40018bc7b31"
+    },
+    "coverage/interaction-results/delay-20261031-icarus13.json": {
+      "model_aggregates_sha256": "d6a251c273490b402db57ec25dc9b7096abed24f9219dbf0d7ca046fcdb0e7b1",
+      "artifact_sha256": "b3a5867a9027a9782a4cac24f35ed94d3e0d240523bd8db35a8932c217595691"
+    },
+    "coverage/interaction-results/delay-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "34ba97e6e1eb3d954f9626395aebe13129f92b812d183ad6d92238a7cee920a0",
+      "artifact_sha256": "dfa40db125d28ca20c5858da293199fdd4cf941b3caa3932561cdcc5f8e81b70"
+    },
+    "coverage/interaction-results/delay-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "34ba97e6e1eb3d954f9626395aebe13129f92b812d183ad6d92238a7cee920a0",
+      "artifact_sha256": "f56a4d6fc237170aa126809d304414639043fd1df3d847c676f7132d6076e276"
+    },
+    "coverage/interaction-results/event-or-iff-20261031-icarus13.json": {
+      "model_aggregates_sha256": "488b1af563b187ba235ecc5d90f9f853270cbd9b501dd516945b7065d6ac0683",
+      "artifact_sha256": "b878dca372839704ae40c593e6b51da86dbc51fd134fc4800334e878fdfd52c5"
+    },
+    "coverage/interaction-results/event-or-iff-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "59b9e53ae75991e5d9050df0ffca310c65b2e18879061f6858f9965d8ce30f46",
+      "artifact_sha256": "2a7590061f200650b4c0d05a0e19c268580ee0342be5a8bbcab4af3ea417b646"
+    },
+    "coverage/interaction-results/event-or-iff-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "59b9e53ae75991e5d9050df0ffca310c65b2e18879061f6858f9965d8ce30f46",
+      "artifact_sha256": "7f9bed4042599a1005529bfdedfc42c279a7a6785afde0c99384a700f8ae838c"
+    },
+    "coverage/interaction-results/event-task-20261031-icarus13.json": {
+      "model_aggregates_sha256": "c1d3c96d71b621ad879e3170ef84ef5becadc88a4cbeac2202f0cefda6b18bf8",
+      "artifact_sha256": "f928c7ad43535fd000c2d89be8b029dbb6bf86780c6ff041f1a1dba254d0ef2e"
+    },
+    "coverage/interaction-results/event-task-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "37a0d3d9bcc0b05c2db71c38808d07ecfafc30fea82f0995d7eb7c5e24e259b3",
+      "artifact_sha256": "ae2e6de58faa0a0aa2f09594bf384c4b9ce14da960dc9977062b01477849ba1b"
+    },
+    "coverage/interaction-results/event-task-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "37a0d3d9bcc0b05c2db71c38808d07ecfafc30fea82f0995d7eb7c5e24e259b3",
+      "artifact_sha256": "0656d1d4c559218ee06eba45d01af8959020da76507bbad8f5d7782e144b8543"
+    },
+    "coverage/interaction-results/generate-20261031-icarus13.json": {
+      "model_aggregates_sha256": "90fd2a0d3264f3c3edb2dc7089fa53552c2d33e82815c1ae349324147d639621",
+      "artifact_sha256": "14f1c343f910c77ae54d199e401152c2271be22047e1732aee32b11720052f0c"
+    },
+    "coverage/interaction-results/generate-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "2b793030c1d454b40c77085d11f78dee7c5ae3af11a562b234bf02b00f4a5221",
+      "artifact_sha256": "1af37e58ca1df85ee9af358868d4eaddc78d467dd0a12e3cdda64bd9d471c62d"
+    },
+    "coverage/interaction-results/generate-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "2b793030c1d454b40c77085d11f78dee7c5ae3af11a562b234bf02b00f4a5221",
+      "artifact_sha256": "160f8acac9b41cee3d547ed04b1b9fb11ecf7d0a8735e0a04cd9cd322c1772e7"
+    },
+    "coverage/interaction-results/import-20261031-icarus13.json": {
+      "model_aggregates_sha256": "a2855a405bcb821f9030ed06d353cecb92a6ea1302ef1a0b7db5cae4cb174e2a",
+      "artifact_sha256": "f5d74531f442d3688e980fb3d2d498923050faead36e386d31ffe4f780878340"
+    },
+    "coverage/interaction-results/import-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "00be38f0742a9c9c6fcaabb7a2c9c8dec18e483e804af42e52ece1588fadb0a1",
+      "artifact_sha256": "20a2250b051d1d4e03fa5cb6a2f2ef1b68c1f65c0b39db26e84c494a1d45d9b4"
+    },
+    "coverage/interaction-results/import-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "00be38f0742a9c9c6fcaabb7a2c9c8dec18e483e804af42e52ece1588fadb0a1",
+      "artifact_sha256": "eb5344a41acdc376e71295e0c82ef6e63f123b312c76ceccf9467a175171ab3d"
+    },
+    "coverage/interaction-results/loop-nba-20261031-icarus13.json": {
+      "model_aggregates_sha256": "6109f7e40b92f07c709737a9433602a2fd2ca697b5b1a88c93934ac4ccda6c89",
+      "artifact_sha256": "405130d927b15515c8fe3f3c3fd80564a99f2ca404a14a8be36792ded0222d27"
+    },
+    "coverage/interaction-results/loop-nba-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "4e5cc9233013f02d492b0bf03fd3269c6ef0524357ef1ac39f65d09ed4e3547c",
+      "artifact_sha256": "00c313ba308e237d9c8ef0b77b67b307fa3145065d53077ad191a7eb58838fd5"
+    },
+    "coverage/interaction-results/loop-nba-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "4e5cc9233013f02d492b0bf03fd3269c6ef0524357ef1ac39f65d09ed4e3547c",
+      "artifact_sha256": "8f1b94a9bcf7e3c7278786948a696dd0520f8e94bd8be6b1d311083f32317398"
+    },
+    "coverage/interaction-results/memfile-20261031-icarus13.json": {
+      "model_aggregates_sha256": "f27c299634014b8fa50aa4738e83ee517704e2ece5201242c32c82845f553021",
+      "artifact_sha256": "2e186856805d49042cfcb9b7f3a56a033913da03606ba4dd1359de4fb02ab0ff"
+    },
+    "coverage/interaction-results/memfile-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "e17a8207731e1988ec96e917634e7a26267110fe1779f8388563df7a491df7ea",
+      "artifact_sha256": "a4bbdd2b6c298df5b30b98d67adbed777a0434490dfc31b640e0ada90799e5ee"
+    },
+    "coverage/interaction-results/memfile-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "e17a8207731e1988ec96e917634e7a26267110fe1779f8388563df7a491df7ea",
+      "artifact_sha256": "3531692b416cdf8a3ad54c8043c2f2007b19b2ce249f5f38ba18e9224747b0f4"
+    },
+    "coverage/interaction-results/nettype-20261031-icarus13.json": {
+      "model_aggregates_sha256": "a97a97dbb3ec3dd28dadba463c3003b9152bc7cef0b9c4bc0c8da34acadc5524",
+      "artifact_sha256": "fe328d7dcdd9cac2e38335184092821c3dea01fec8b92d28b5c2dbbb972cf2fc"
+    },
+    "coverage/interaction-results/process-20261031-icarus13.json": {
+      "model_aggregates_sha256": "21c0332c68e5df4c889b48cb781d08ecdbc8e05f82bf42850d7fb2aff55af3c1",
+      "artifact_sha256": "258ab62c8c3b345b52ee26179b9303069fd1acd5bb62a3ca9c479c7167873224"
+    },
+    "coverage/interaction-results/process-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "e3ed04896efc065c90945b614ee614d77419d7246d04b1722a11d28e851c5ec4",
+      "artifact_sha256": "deb9f11bf969cb70b3eb1c94b7e58153b9500f8e4f60ffaf5b174018b81df912"
+    },
+    "coverage/interaction-results/process-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "e3ed04896efc065c90945b614ee614d77419d7246d04b1722a11d28e851c5ec4",
+      "artifact_sha256": "3e7ed53c3cdec6288260a57a51babac956087dac0b3f929629ff98579e067ff8"
+    },
+    "coverage/interaction-results/program-20261031-icarus13.json": {
+      "model_aggregates_sha256": "b0c55297e9cff8e22121d402977798d7be71d2c8a10acf3ed20ed61ac4ef0abc",
+      "artifact_sha256": "45008048b58fbbb4dc593b7d0f22151de3377a0f9ae17c7a1e5d53ee261ee299"
+    },
+    "coverage/interaction-results/program-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "b0c55297e9cff8e22121d402977798d7be71d2c8a10acf3ed20ed61ac4ef0abc",
+      "artifact_sha256": "d4a6df1d01cdb790db10c7d512112563c11013ad093188694c1cc2b06062f042"
+    },
+    "coverage/interaction-results/program-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "b0c55297e9cff8e22121d402977798d7be71d2c8a10acf3ed20ed61ac4ef0abc",
+      "artifact_sha256": "8023700ba433b46e0be57b23b67f08a7d13d3f4c72373e36ea038db675000a19"
+    },
+    "coverage/interaction-results/queue-ref-20261031-icarus13.json": {
+      "model_aggregates_sha256": "6013150f94f23bfe2d38f5164a2373e74d0cf973ec3be5f32d360b369ea06d74",
+      "artifact_sha256": "01224edc7a127ea908eb4eb2a0c28df28ec7b437afffc14111de0abf6680f4f0"
+    },
+    "coverage/interaction-results/queue-ref-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "d61b97f52c7d48eb2131ef7c102e69213bcc3ccd32250b06fc15f748a3d5388d",
+      "artifact_sha256": "5d069c32e67ced86fde7cced9ce45a5850bcb9cb76844d86c94d451d9b4097b1"
+    },
+    "coverage/interaction-results/queue-ref-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "d61b97f52c7d48eb2131ef7c102e69213bcc3ccd32250b06fc15f748a3d5388d",
+      "artifact_sha256": "35687c87fdb74f1098cc6ea22651730cfcc784001310e5c9dc72f391a246c156"
+    },
+    "coverage/interaction-results/return-20261031-icarus13.json": {
+      "model_aggregates_sha256": "af1ae1a187968bfa78192dcdbcbe67e4919e7455520944ad0dc01eef701727e1",
+      "artifact_sha256": "08b4602f329e206a7faf11f25f4e98ce3719f7d812537dccc8b934ad74d42a16"
+    },
+    "coverage/interaction-results/return-20261031-verilator5.052-seed1.json": {
+      "model_aggregates_sha256": "e580ef9f0995b032f65e9950ae35f59223588c14fcb8240b829313fda7d9c5be",
+      "artifact_sha256": "a2cd7f02c6fe967bc8bef055d5898f8a9c7d96150d1d8dda9f45290ba35e35e7"
+    },
+    "coverage/interaction-results/return-20261031-verilator5.052-seed73.json": {
+      "model_aggregates_sha256": "e580ef9f0995b032f65e9950ae35f59223588c14fcb8240b829313fda7d9c5be",
+      "artifact_sha256": "65fee74b7b8b1ca82a6eb3d1983d5d010e16864bc070bb3db24de20442376295"
+    }
+  }
+}

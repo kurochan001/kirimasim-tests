@@ -1,0 +1,191 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch24/test_gen_cross_reactive_129_bit_known_1_blocking_blocking_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010101010101...', expected 'late t=10 value=10101010101010101010101010101010101010101...'",
+   "inputs_sha256": "c34a1dc7a6672ba9b7ba1157d0481477d3b0240bbe32bc1fd4789aba8ac25705"
+  },
+  "gen/ch24/test_gen_cross_reactive_129_bit_x_2_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010101010101...', expected 'late t=10 value=10101010101010101010101010101010101010101...'",
+   "inputs_sha256": "b55e5696f364efd79d7d1fe0154c9ce50733e8efb93bcb8cb9c2bcb2d48b7375"
+  },
+  "gen/ch24/test_gen_cross_reactive_129_bit_z_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010101010101...', expected 'late t=10 value=10101010101010101010101010101010101010101...'",
+   "inputs_sha256": "5e1df4b21d139bd0552636c1034a689eeea8c50108627c41a922da6d60df9ae1"
+  },
+  "gen/ch24/test_gen_cross_reactive_129_logic_known_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010101010101...', expected 'late t=10 value=10101010101010101010101010101010101010101...'",
+   "inputs_sha256": "abe909258af203c7cf02d69e4c558108d903d6d27e3a48c574262b50843e2f6e"
+  },
+  "gen/ch24/test_gen_cross_reactive_129_logic_x_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010101010101...', expected 'late t=10 value=10101010101010101010101010101010101010101...'",
+   "inputs_sha256": "70debf44780ad80dc3db4de688ab7caaa9b6ab9425971bcbf92e40d1d127a509"
+  },
+  "gen/ch24/test_gen_cross_reactive_129_logic_z_3_nba_nba_invert": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+   "inputs_sha256": "5b3d90f27c17673a6b820cb3288f7a4bbef9a4b592287edd7f55dccea8118adc"
+  },
+  "gen/ch24/test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=1 last=1 steps=0', expected 'late t=10 value=1 last=0 steps=1'",
+   "inputs_sha256": "ff0fdac52174510a1807c2b2b547179f6868e907307a4c3a0ed93e323b1e0862"
+  },
+  "gen/ch24/test_gen_cross_reactive_1_bit_x_3_nba_blocking_invert": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=0 last=0 steps=1', expected 'late t=10 value=0 last=1 steps=3'",
+   "inputs_sha256": "54000fd6054dd0e1c957226c1dfa1a617b31e4f3330f45079df2a29fba14c725"
+  },
+  "gen/ch24/test_gen_cross_reactive_1_bit_z_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=1 last=1 steps=0', expected 'late t=10 value=1 last=0 steps=1'",
+   "inputs_sha256": "d234846d1e9a98c9c39a967a556fa0498b2b2c1ab5943f0e61002f0985e45190"
+  },
+  "gen/ch24/test_gen_cross_reactive_1_logic_known_2_blocking_nba_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=1 last=1 steps=1', expected 'late t=10 value=1 last=0 steps=2'",
+   "inputs_sha256": "4ab9d8840ed125737b6eef2c078b29ed62cd975efda31159a6c1e34c6564d6c6"
+  },
+  "gen/ch24/test_gen_cross_reactive_1_logic_x_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=1 last=1 steps=0', expected 'late t=10 value=1 last=0 steps=1'",
+   "inputs_sha256": "373405afad8007dc7e2ee3d3125fbac808b17227fdf8ee32e1e084bd051a3b15"
+  },
+  "gen/ch24/test_gen_cross_reactive_1_logic_z_2_nba_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=1 last=1 steps=0', expected 'late t=10 value=1 last=0 steps=2'",
+   "inputs_sha256": "3153bd638a4c2b20ab068eb0d95fa36e1d9f95e484f3c072308e1ddf7c2cbc75"
+  },
+  "gen/ch24/test_gen_cross_reactive_32_bit_known_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101 last=000...', expected 'late t=10 value=01010101010101010101010101010101 last=010...'",
+   "inputs_sha256": "9ddb366ebe81aefb4adcf9397a2dc22850d9cb95384520d87a499c25da37eb35"
+  },
+  "gen/ch24/test_gen_cross_reactive_32_bit_x_3_blocking_nba_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101 last=000...', expected 'late t=10 value=01010101010101010101010101010101 last=010...'",
+   "inputs_sha256": "ba787ad78497f80752d68557f4d5ddf55cbdf96e93e8d42490493a64afa5e970"
+  },
+  "gen/ch24/test_gen_cross_reactive_32_bit_z_1_nba_blocking_invert": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010 last=000...', expected 'late t=10 value=10101010101010101010101010101010 last=010...'",
+   "inputs_sha256": "473ee2a884391cdf10c527ca03151010456cb9d3303088649a00216319c788d6"
+  },
+  "gen/ch24/test_gen_cross_reactive_32_logic_known_2_nba_blocking_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101 last=000...', expected 'late t=10 value=01010101010101010101010101010101 last=010...'",
+   "inputs_sha256": "5710ffc3ae9484f86f2d585705089d9fda17c9fc3843752fc5356e4d4e978fda"
+  },
+  "gen/ch24/test_gen_cross_reactive_32_logic_x_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101 last=000...', expected 'late t=10 value=01010101010101010101010101010101 last=010...'",
+   "inputs_sha256": "c28443ee66e9325992591db4a996d3a9f9b2a46f858e6e45a4f84b6e770c324d"
+  },
+  "gen/ch24/test_gen_cross_reactive_32_logic_z_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101 last=000...', expected 'late t=10 value=01010101010101010101010101010101 last=010...'",
+   "inputs_sha256": "afe4d59602edd469d8e0ef8178ba52479debf6ea3bd06c95f544af23b9ec8b85"
+  },
+  "gen/ch24/test_gen_cross_reactive_33_bit_known_2_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=101010101010101010101010101010101 last=00...', expected 'late t=10 value=101010101010101010101010101010101 last=10...'",
+   "inputs_sha256": "dd7825f64098396f1b6b0ab6945ca7f4667f22700521bc46b25390e721aa0a1e"
+  },
+  "gen/ch24/test_gen_cross_reactive_33_bit_x_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=101010101010101010101010101010101 last=00...', expected 'late t=10 value=101010101010101010101010101010101 last=10...'",
+   "inputs_sha256": "fb145a6af957746debbc21a6f918ecdac2a3eb0e30c756eae5b61a085ee623f1"
+  },
+  "gen/ch24/test_gen_cross_reactive_33_bit_z_3_nba_continuous_invert": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=010101010101010101010101010101010 last=00...', expected 'late t=10 value=010101010101010101010101010101010 last=10...'",
+   "inputs_sha256": "377bcc628c59d744543d7413bc7523edba79ff51143303134f26b8c95b3fffed"
+  },
+  "gen/ch24/test_gen_cross_reactive_33_logic_known_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=101010101010101010101010101010101 last=00...', expected 'late t=10 value=101010101010101010101010101010101 last=10...'",
+   "inputs_sha256": "7edf73ad57e6d46e29ad807dced48e61b37dee2ee5e81483977225acba0cfe31"
+  },
+  "gen/ch24/test_gen_cross_reactive_33_logic_x_1_nba_nba_direct": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'p0 program captured=000000000000000000000000000000000 sam...', expected 'p0 program captured=000000000000000000000000000000000 sam...'",
+   "inputs_sha256": "0fb64afce07e4f7390062e1d292f9e12967643101c43901a200c6e931da950d7"
+  },
+  "gen/ch24/test_gen_cross_reactive_33_logic_z_1_blocking_blocking_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=101010101010101010101010101010101 last=00...', expected 'late t=10 value=101010101010101010101010101010101 last=10...'",
+   "inputs_sha256": "30067a119fd22f30f7392c737624e39b10ceab362b3f34d70e36b03e72408f83"
+  },
+  "gen/ch24/test_gen_cross_reactive_64_bit_known_1_blocking_nba_invert": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'p0 program captured=1111111111111111111111111111111111111...', expected 'p0 program captured=1111111111111111111111111111111111111...'",
+   "inputs_sha256": "8a511b87b2e0e363cddad90aa5b0a361b64a613ffe22fb110da45ff4acd2108c"
+  },
+  "gen/ch24/test_gen_cross_reactive_64_bit_x_2_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+   "inputs_sha256": "974b2e3a6bfba588d9045bb3faf5c5507a2d4c50cfd1cae530a5adf507ecacc2"
+  },
+  "gen/ch24/test_gen_cross_reactive_64_bit_z_3_blocking_blocking_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+   "inputs_sha256": "f69af32b4724e0ad962adbcfd0812e9d615b87ac041bac478849655149f99cd7"
+  },
+  "gen/ch24/test_gen_cross_reactive_64_logic_known_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+   "inputs_sha256": "20b22c6c489c64c901500ee3b009c45e53a95d226d7c0f38e8f2767dbf7b50b6"
+  },
+  "gen/ch24/test_gen_cross_reactive_64_logic_x_1_nba_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+   "inputs_sha256": "51d142d73606defe34c7c9c5091b6f68ed5d4b7f1ebbcabd1bdfe2f736d26815"
+  },
+  "gen/ch24/test_gen_cross_reactive_64_logic_z_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+   "inputs_sha256": "eaaa653ec1bc35daef30abcac3bb42d5fdf233a2796abdd505eb36caa95f8e99"
+  },
+  "gen/ch24/test_gen_cross_reactive_65_bit_known_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010101010101...', expected 'late t=10 value=10101010101010101010101010101010101010101...'",
+   "inputs_sha256": "e8be0d0363b03be5e64a418039a47afc519e02518862b3a6cd580c63a79d744f"
+  },
+  "gen/ch24/test_gen_cross_reactive_65_bit_x_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010101010101...', expected 'late t=10 value=10101010101010101010101010101010101010101...'",
+   "inputs_sha256": "a6b7ffc9b926343c69d8baef475a3576bd85372e11c3fab6fa643e122c0cdab4"
+  },
+  "gen/ch24/test_gen_cross_reactive_65_bit_z_2_nba_nba_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010101010101...', expected 'late t=10 value=10101010101010101010101010101010101010101...'",
+   "inputs_sha256": "1a6619ff1790f652a501673c23a47bba3a1ce3c7bae84ba75575e085d6b6ac2b"
+  },
+  "gen/ch24/test_gen_cross_reactive_65_logic_known_3_blocking_continuous_invert": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+   "inputs_sha256": "0dd076248ff1a1cc646c0d565dc8a2cdfe43afe8e0bbf1fcbaa03f879db9a8bd"
+  },
+  "gen/ch24/test_gen_cross_reactive_65_logic_x_2_blocking_blocking_invert": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+   "inputs_sha256": "3da687e60871605afcd34ab0d0198f65222dd26a387fe88644335d18ab295dc7"
+  },
+  "gen/ch24/test_gen_cross_reactive_65_logic_z_1_blocking_continuous_direct": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'late t=10 value=10101010101010101010101010101010101010101...', expected 'late t=10 value=10101010101010101010101010101010101010101...'",
+   "inputs_sha256": "ea678f410f28e026c76c29c87fa12ec5103929c8cf3b909f413666fe07f94c86"
+  }
+ },
+ "generated_at": "2026-10-31T15:54:29.068938+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

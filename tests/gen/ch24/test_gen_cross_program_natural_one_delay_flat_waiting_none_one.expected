@@ -1,0 +1,2 @@
+observe t=9 entered=1 prepared=0 short_done=1 parent_done=0 resumed=0 primary_done=1 secondary_done=0 checkpoint=0 escaped=0 probe_escape=0 task_returned=0 caller_returned=0 released=1 survivor=1 keeper_a=0 keeper_b=0
+final t=12 entered=1 prepared=0 short_done=1 parent_done=0 resumed=0 primary_done=1 secondary_done=0 checkpoint=0 escaped=0 probe_escape=0 task_returned=0 caller_returned=0 released=1 survivor=1 keeper_a=1 keeper_b=0

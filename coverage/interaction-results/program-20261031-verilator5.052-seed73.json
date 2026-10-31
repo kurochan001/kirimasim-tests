@@ -1,0 +1,103 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch24/test_gen_cross_program_exit_one_delay_flat_waiting_none_two": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_exit_one_delay_flat_waiting_none_two.sv:59:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "5dbca8eddcc83de86da3d94d5a8c81bf223aaa1de22bce93b901b0e24fe98ea1"
+  },
+  "gen/ch24/test_gen_cross_program_exit_one_event_flat_waiting_any_one": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_exit_one_event_flat_waiting_any_one.sv:59:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "fa6b2494fd73591114199bb8750695fe8953eb258b7d789db3c87fde2434b5ac"
+  },
+  "gen/ch24/test_gen_cross_program_exit_one_level_flat_waiting_none_one": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_exit_one_level_flat_waiting_none_one.sv:59:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "3dc16db9c5a17d71d0c8bc081f8c4083f36a2b6caa3da7f166cd880a7debad6f"
+  },
+  "gen/ch24/test_gen_cross_program_exit_two_delay_nested_waiting_none_one": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_exit_two_delay_nested_waiting_none_one.sv:65:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "f0a808926dae930290e153be1e728d4b6b471665cf5fc1c858ee0e714b3587cd"
+  },
+  "gen/ch24/test_gen_cross_program_exit_two_event_flat_waiting_none_one": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_exit_two_event_flat_waiting_none_one.sv:60:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "00e9d2c9f1d17c3184b2d91dad3772aeb8ec2270f6c93eb6b53e74215c9bcfea"
+  },
+  "gen/ch24/test_gen_cross_program_exit_two_level_nested_partial_none_two": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_exit_two_level_nested_partial_none_two.sv:66:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "1df91effe79900b64a11fd03306f931d67dc9979e708c74d694ddf61a532a164"
+  },
+  "gen/ch24/test_gen_cross_program_natural_one_delay_flat_waiting_none_one": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_natural_one_delay_flat_waiting_none_one.sv:57:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "c275b9ff3c54b543851f7b864c30faa95e537a519c428535d42b587b87998cb8"
+  },
+  "gen/ch24/test_gen_cross_program_natural_one_event_flat_waiting_none_one": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_natural_one_event_flat_waiting_none_one.sv:57:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "49b7f1ab6816773ac65ba114cf47030e34124937f6f3681bb34574dd93efe67d"
+  },
+  "gen/ch24/test_gen_cross_program_natural_one_level_flat_partial_none_two": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_natural_one_level_flat_partial_none_two.sv:58:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "e16890acbb1d674f1c1375d56d27b8a3ebf4abd0a218ad6dbcd93d56f5c6202f"
+  },
+  "gen/ch24/test_gen_cross_program_natural_two_delay_flat_waiting_none_one": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_natural_two_delay_flat_waiting_none_one.sv:58:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "8865bce73e2194d22cf3ca52d4808326e351ee8e20b87da696025968b3618642"
+  },
+  "gen/ch24/test_gen_cross_program_natural_two_event_nested_partial_any_two": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_natural_two_event_nested_partial_any_two.sv:64:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "ba9233f1606eab14d6c08274258ceb57114c7b10de9458552c9bf54ea2c621c9"
+  },
+  "gen/ch24/test_gen_cross_program_natural_two_level_flat_waiting_none_one": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_natural_two_level_flat_waiting_none_one.sv:58:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "68409482c365547162e9a3bcda4e5379a5dc9e3a36c6e1e190f6f1d6ce2a6ccc"
+  },
+  "gen/ch24/test_gen_cross_program_task_one_delay_flat_waiting_none_one": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_task_one_delay_flat_waiting_none_one.sv:63:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "3d06e7abdda511b9361831f1bff6010478d36ea3ced3798beb99e96362a41242"
+  },
+  "gen/ch24/test_gen_cross_program_task_one_event_flat_waiting_none_one": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_task_one_event_flat_waiting_none_one.sv:63:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "d5e6e56a64a779f2195c3640e2cc76744d4c57a675745d1bebd07cbf26872e26"
+  },
+  "gen/ch24/test_gen_cross_program_task_one_level_nested_waiting_any_two": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_task_one_level_nested_waiting_any_two.sv:68:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "8ba7d2a85f2fa8e709aef59f862c856d623a94794b6cbc886a430bae615420b5"
+  },
+  "gen/ch24/test_gen_cross_program_task_two_delay_flat_partial_any_one": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_task_two_delay_flat_partial_any_one.sv:65:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "e7843ac3ed65a2b6ee29dc737a2883cb8e7f6b3f56fbe815ede94d9d64f6176a"
+  },
+  "gen/ch24/test_gen_cross_program_task_two_event_flat_waiting_none_two": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_task_two_event_flat_waiting_none_two.sv:64:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "ff588f914772445e0a5556de52cb09a6017559653314af0e2f2974aeacc6c247"
+  },
+  "gen/ch24/test_gen_cross_program_task_two_level_flat_waiting_none_one": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_program_task_two_level_flat_waiting_none_one.sv:64:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "c36d4805bd8a4e72084cc13d25d9f36bc097fe3ba9e492a44eb8fd01f4c9d395"
+  }
+ },
+ "generated_at": "2026-10-31T14:24:34.553272+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

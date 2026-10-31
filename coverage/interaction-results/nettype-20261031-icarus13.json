@@ -1,0 +1,197 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch22/test_gen_cross_nettype_tri_129_nonansi_implicit_binary_wire": {
+   "status": "pass",
+   "inputs_sha256": "33a9522572766a449e14b0f76bd0a2e1a536adc778e811218a1bb3f7dc926b73"
+  },
+  "gen/ch22/test_gen_cross_nettype_tri_1_nonansi_implicit_binary_wire": {
+   "status": "pass",
+   "inputs_sha256": "29555908ddb737bf318802a957652e7549709cdcf93f573fa33ce4307ad1d79a"
+  },
+  "gen/ch22/test_gen_cross_nettype_tri_32_ansi_implicit_xz_wire": {
+   "status": "pass",
+   "inputs_sha256": "76c4e2d880ea376b4c74faf238713f4d00bc46755cb13b81941f77ee867d35f5"
+  },
+  "gen/ch22/test_gen_cross_nettype_tri_32_nonansi_wire_binary_resetall": {
+   "status": "pass",
+   "inputs_sha256": "1aeb3a2d5c00af470818a37f1a66cee51e522b3238fa90ac452686ee8164ccc7"
+  },
+  "gen/ch22/test_gen_cross_nettype_tri_33_nonansi_implicit_binary_wire": {
+   "status": "pass",
+   "inputs_sha256": "b5b51cd7bee728d15f98ca7657925b4a44fe4a4e4fed606e06c7854f20c366d9"
+  },
+  "gen/ch22/test_gen_cross_nettype_tri_64_ansi_wire_xz_resetall": {
+   "status": "pass",
+   "inputs_sha256": "5ef65d13a94445212e358d693a9c57ca0e19e7812a3531fd86f241c3da0d9469"
+  },
+  "gen/ch22/test_gen_cross_nettype_tri_65_nonansi_wire_binary_wire": {
+   "status": "pass",
+   "inputs_sha256": "f38c684a31013e89a769eb6ca8e19c860fc4518297ff386c51a10115e4de4311"
+  },
+  "gen/ch22/test_gen_cross_nettype_triand_129_ansi_wire_xz_resetall": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx...', expected 'p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx...'",
+   "inputs_sha256": "3aa7da25c2327f804f0546f348bcdf03738b14b418f7a033d3680cf3cb906123"
+  },
+  "gen/ch22/test_gen_cross_nettype_triand_1_nonansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'p1 y=x inside=x g=x ig=x', expected 'p1 y=0 inside=0 g=0 ig=0'",
+   "inputs_sha256": "5a2d4f7d5ab3170edb1e16bb9b5be7ce376f1035d254cd3c6e2446de2453ba70"
+  },
+  "gen/ch22/test_gen_cross_nettype_triand_32_nonansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=1xx01xx01xx01xx01xx01xx01xx01xx0 inside=1xx01xx01xx0...', expected 'p0 y=10001000100010001000100010001000 inside=100010001000...'",
+   "inputs_sha256": "cead90a2ac28d86ea699d86e9e3970fc8ad0a24c4c36798d371e53b62d3387d1"
+  },
+  "gen/ch22/test_gen_cross_nettype_triand_33_ansi_implicit_binary_resetall": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=01xx01xx01xx01xx01xx01xx01xx01xx0 inside=01xx01xx01x...', expected 'p0 y=010001000100010001000100010001000 inside=01000100010...'",
+   "inputs_sha256": "76c7d23dfe676ec1892c0e81561290254c82968f268e8d04cbc6046fd18e64fc"
+  },
+  "gen/ch22/test_gen_cross_nettype_triand_33_nonansi_wire_xz_wire": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx inside=x0zx1xxxxx1...', expected 'p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx inside=x0zx1xxxxx1...'",
+   "inputs_sha256": "f1de1c58027193e61cb8aba0f06f475ad437a8cce0909b942498eef9256b9a64"
+  },
+  "gen/ch22/test_gen_cross_nettype_triand_64_nonansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=1xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx0...', expected 'p0 y=1000100010001000100010001000100010001000100010001000...'",
+   "inputs_sha256": "606c7a124b7d68658fb616d4df06c055f9880a9227bfcab68f765020953d9836"
+  },
+  "gen/ch22/test_gen_cross_nettype_triand_65_nonansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx...', expected 'p0 y=0100010001000100010001000100010001000100010001000100...'",
+   "inputs_sha256": "8014dfb4f94b6dc8d83ad2ff09a22c7324c92e4659af03145358355fc5cef69b"
+  },
+  "gen/ch22/test_gen_cross_nettype_trior_129_ansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx...', expected 'p0 y=0111011101110111011101110111011101110111011101110111...'",
+   "inputs_sha256": "c3378d61c41b86aa727a1f55b688d38202f1e3299b7af32ff319cda10709eddc"
+  },
+  "gen/ch22/test_gen_cross_nettype_trior_1_nonansi_implicit_xz_wire": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'p1 y=x inside=x g=x ig=x', expected 'p1 y=1 inside=1 g=1 ig=1'",
+   "inputs_sha256": "4b43e1013f2aa629dcc8110cf26c0514aa879db0dd7f04713b47c04a053b22b2"
+  },
+  "gen/ch22/test_gen_cross_nettype_trior_32_nonansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=1xx01xx01xx01xx01xx01xx01xx01xx0 inside=1xx01xx01xx0...', expected 'p0 y=11101110111011101110111011101110 inside=111011101110...'",
+   "inputs_sha256": "513b88b4548d477122b27d9e52c75cf6c15bc656d1eac7b4b4fc846455bae5bd"
+  },
+  "gen/ch22/test_gen_cross_nettype_trior_33_ansi_wire_binary_resetall": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'p1 y=xx10xx10xx10xx10xx10xx10xx10xx10x inside=xx10xx10xx1...', expected 'p1 y=xx10xx10xx10xx10xx10xx10xx10xx10x inside=xx10xx10xx1...'",
+   "inputs_sha256": "79801cbb508eb5bdf390ce523da9e84341e69cdd84dc74aefe0e62e158acd27d"
+  },
+  "gen/ch22/test_gen_cross_nettype_trior_64_nonansi_wire_xz_resetall": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'p1 y=0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1...', expected 'p1 y=0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1...'",
+   "inputs_sha256": "eb23edc81bcda00463e0cba51bf250706df206876635c64cff26fb7646db722d"
+  },
+  "gen/ch22/test_gen_cross_nettype_trior_65_nonansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx...', expected 'p0 y=0111011101110111011101110111011101110111011101110111...'",
+   "inputs_sha256": "bfbbb5d0a16c6a48a88a107a876f356c47bd274ba44453ba50a0a3cab3f5a119"
+  },
+  "gen/ch22/test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx1...', expected 'p0 y=0zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx1...'",
+   "inputs_sha256": "2683d59d514d2013ba69aa2928b7de9015ac40a91266e19b67af3b974a781c4c"
+  },
+  "gen/ch22/test_gen_cross_nettype_wand_1_nonansi_wire_binary_resetall": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'p1 y=x inside=x g=x ig=x', expected 'p1 y=x inside=x g=0 ig=0'",
+   "inputs_sha256": "ebf2b331d02a8bb8da4448b537033d96a666419e7202ac3b9f17316d420acc2d"
+  },
+  "gen/ch22/test_gen_cross_nettype_wand_32_ansi_wire_xz_wire": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'p1 y=0zx1xxxxx1x100xx0zx1xxxxx1x100xx inside=0zx1xxxxx1x1...', expected 'p1 y=0zx1xxxxx1x100xx0zx1xxxxx1x100xx inside=0zx1xxxxx1x1...'",
+   "inputs_sha256": "c35a0cae4ee4d5a0810ebfa214b465f457e06fad6888371e1eb6ae5e152edc45"
+  },
+  "gen/ch22/test_gen_cross_nettype_wand_33_nonansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=01xx01xx01xx01xx01xx01xx01xx01xx0 inside=01xx01xx01x...', expected 'p0 y=010001000100010001000100010001000 inside=01000100010...'",
+   "inputs_sha256": "948c7b817d201953d68fd8ba87923f131aac8ebef5d0ea77e2faa47c9e9e92f7"
+  },
+  "gen/ch22/test_gen_cross_nettype_wand_64_ansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=1xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx0...', expected 'p0 y=1000100010001000100010001000100010001000100010001000...'",
+   "inputs_sha256": "b4f90a664b1282f061a403e68a9590f414042f24b76bc870838357ae13650237"
+  },
+  "gen/ch22/test_gen_cross_nettype_wand_65_nonansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx...', expected 'p0 y=0100010001000100010001000100010001000100010001000100...'",
+   "inputs_sha256": "cccff49d2ade32faa3aee038102060c96f2f0b5851b0dc54e3c901868d9888ae"
+  },
+  "gen/ch22/test_gen_cross_nettype_wire_129_nonansi_wire_binary_resetall": {
+   "status": "pass",
+   "inputs_sha256": "94160684178807e4bf85c5d8154a77a917b8e4e02f327e9644df6121e79ec5a1"
+  },
+  "gen/ch22/test_gen_cross_nettype_wire_1_ansi_wire_xz_resetall": {
+   "status": "pass",
+   "inputs_sha256": "da5cd5ae8b03ec9c50bddf2cc3f46b8d4f7dcb6bae6921302c2e8e14986c356e"
+  },
+  "gen/ch22/test_gen_cross_nettype_wire_1_nonansi_implicit_binary_wire": {
+   "status": "pass",
+   "inputs_sha256": "e6c2107e1f518b1df4c626b3229a99f36971e1be9a4f47146bc9cd3a621d0ae8"
+  },
+  "gen/ch22/test_gen_cross_nettype_wire_32_nonansi_implicit_binary_wire": {
+   "status": "pass",
+   "inputs_sha256": "f927e5c8fb483de6bb9171c49ea2242b183ea2117be84f7aa89c76c4c60cea08"
+  },
+  "gen/ch22/test_gen_cross_nettype_wire_33_nonansi_implicit_binary_wire": {
+   "status": "pass",
+   "inputs_sha256": "7f105c62936401d0cd305dbb013c9d842974b212bfc53b7c4b840ed1dbfd6536"
+  },
+  "gen/ch22/test_gen_cross_nettype_wire_64_nonansi_implicit_binary_wire": {
+   "status": "pass",
+   "inputs_sha256": "318a90c7558f45be2f5e5adb6258dd3e0461aaf99baff6eb59c09c04807a0974"
+  },
+  "gen/ch22/test_gen_cross_nettype_wire_65_ansi_implicit_xz_wire": {
+   "status": "pass",
+   "inputs_sha256": "531306475eb207581021fac4e901131b9ea05bc1a7b50d8965d8fc1b2baf007a"
+  },
+  "gen/ch22/test_gen_cross_nettype_wor_129_nonansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx...', expected 'p0 y=0111011101110111011101110111011101110111011101110111...'",
+   "inputs_sha256": "feeda590bf7f63a04408617c2c2df9e36477993b51b123911ae8e2332c7156fa"
+  },
+  "gen/ch22/test_gen_cross_nettype_wor_1_ansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'p1 y=x inside=x g=x ig=x', expected 'p1 y=1 inside=1 g=1 ig=1'",
+   "inputs_sha256": "1959e2794d240ecd1640d5ba0c01d87fb7fb3da7127fe79586220a97cbc3bebd"
+  },
+  "gen/ch22/test_gen_cross_nettype_wor_32_nonansi_wire_xz_resetall": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'p1 y=0zx1xxxxx1x100xx0zx1xxxxx1x100xx inside=0zx1xxxxx1x1...', expected 'p1 y=0zx1xxxxx1x100xx0zx1xxxxx1x100xx inside=0zx1xxxxx1x1...'",
+   "inputs_sha256": "cd2f31f2f2fc384105dd9cca5870a3e5d2d1fc7e10fc56b26eb71c55616d7bca"
+  },
+  "gen/ch22/test_gen_cross_nettype_wor_33_nonansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=01xx01xx01xx01xx01xx01xx01xx01xx0 inside=01xx01xx01x...', expected 'p0 y=011101110111011101110111011101110 inside=01110111011...'",
+   "inputs_sha256": "f76584c327c6018ef68d9705750f835108f926e9890cca0ec010f5fe28567a4f"
+  },
+  "gen/ch22/test_gen_cross_nettype_wor_64_nonansi_implicit_binary_wire": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=1xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx0...', expected 'p0 y=1110111011101110111011101110111011101110111011101110...'",
+   "inputs_sha256": "1697bc9ac9ee778d1c0567667d8972619f950de5b3999194a1c0ebda4fe0ae8f"
+  },
+  "gen/ch22/test_gen_cross_nettype_wor_65_ansi_wire_xz_wire": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx...', expected 'p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx...'",
+   "inputs_sha256": "c49636d372c8a416440ee8c2520c05e3c7c11d99fd512d309fd0423f9e78b10e"
+  },
+  "gen/ch22/test_gen_cross_nettype_wor_65_nonansi_implicit_binary_resetall": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'p0 y=01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx01xx...', expected 'p0 y=0111011101110111011101110111011101110111011101110111...'",
+   "inputs_sha256": "bf8b4dbd4166c76b6df61401ace9ae508c783a7289dce47525ed250df15f5a14"
+  }
+ },
+ "generated_at": "2026-10-31T14:49:12.783716+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

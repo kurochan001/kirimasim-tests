@@ -24,19 +24,19 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 18 | [Constrained random value generation](ch18.md) | 200 |  |
 | 19 | [Functional coverage](ch19.md) | 157 |  |
 | 20 | [Utility system tasks and system functions](ch20.md) | 330 | 60 |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 236 | 23 |
-| 22 | [Compiler directives](ch22.md) | 358 | 248 |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 272 | 59 |
+| 22 | [Compiler directives](ch22.md) | 398 | 288 |
 | 23 | [Modules and hierarchy](ch23.md) | 331 | 75 |
-| 24 | [Programs](ch24.md) | 43 |  |
+| 24 | [Programs](ch24.md) | 97 | 54 |
 | 25 | [Interfaces](ch25.md) | 119 |  |
 | 26 | [Packages](ch26.md) | 83 |  |
-| 27 | [Generate constructs](ch27.md) | 139 | 36 |
+| 27 | [Generate constructs](ch27.md) | 175 | 72 |
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 245 | 136 |
-| 29 | [User-defined primitives](ch29.md) | 81 |  |
+| 29 | [User-defined primitives](ch29.md) | 106 | 25 |
 | 30 | [Specify blocks](ch30.md) | 60 |  |
 | 31 | [Timing checks](ch31.md) | 66 |  |
 | 32 | [Backannotation using the standard delay format](ch32.md) | 50 |  |
-| 33 | [Configuring the contents of a design](ch33.md) | 43 |  |
+| 33 | [Configuring the contents of a design](ch33.md) | 84 | 41 |
 | 34 | [Protected envelopes](ch34.md) | 4 |  |
 | 35 | [Direct programming interface](ch35.md) | 131 |  |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 89 |  |

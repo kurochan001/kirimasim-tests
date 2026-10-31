@@ -45,6 +45,13 @@ import interaction_default
 import interaction_event_task
 import interaction_delay
 import interaction_import
+import interaction_memfile
+import interaction_program
+import interaction_nettype
+import interaction_ifgenerate
+import interaction_reactive
+import interaction_config
+import interaction_udp
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -68,6 +75,13 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_event_task,
               interaction_delay,
               interaction_import,
+              interaction_memfile,
+              interaction_program,
+              interaction_nettype,
+              interaction_ifgenerate,
+              interaction_reactive,
+              interaction_config,
+              interaction_udp,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -412,5 +426,54 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_import.MODEL.select(),
             "packageのwildcard/明示import、局所宣言、.*・.name・明示接続で入力の接続先と既定値を区別する。"
             "既定値0/全1の2子と独立した対照スコープを観測し、ライブ値の追従・隠蔽・型変換を確認する。",
+        ),
+        SuiteModel(
+            interaction_memfile.MODEL,
+            lambda row: "tests/gen/ch21/" + interaction_memfile.case_name(row) + ".sv",
+            interaction_memfile.MODEL.select(),
+            "bit/logicと列挙型のメモリファイルを出力し、元配列の変更後に別の添字範囲へ読み込む。"
+            "独立に用意した入力も読み込み、要素の値・範囲外の保持・宣言方向と読込み順・上書きを照合する。",
+        ),
+        SuiteModel(
+            interaction_program.MODEL,
+            lambda row: "tests/gen/ch24/" + interaction_program.case_name(row) + ".sv",
+            interaction_program.MODEL.select(),
+            "programの自然終了と直接/タスク内の$exit、複数initial、子/孫プロセスの待機を組み合わせる。"
+            "終了前の進捗と終了後の書込み取消し、同じ待機条件を持つ別programの起床、最後のprogramによる暗黙終了を観測する。",
+        ),
+        SuiteModel(
+            interaction_nettype.MODEL,
+            lambda row: "tests/gen/ch22/" + interaction_nettype.case_name(row) + ".sv",
+            interaction_nettype.MODEL.select(),
+            "ANSI/非ANSIのポート宣言でnet型を省略し、default_nettypeによるvectorとscalarの解決値・幅を親子で照合する。"
+            "vectorだけの明示wireによる上書きと、指示解除後の別moduleを同じ刺激で比較し、既定型の適用範囲を確認する。",
+        ),
+        SuiteModel(
+            interaction_ifgenerate.MODEL,
+            lambda row: "tests/gen/ch27/" + interaction_ifgenerate.case_name(row) + ".sv",
+            interaction_ifgenerate.MODEL.select(),
+            "generate要素ごとに幅の違うinterfaceを2個置き、if/caseで選択した側をwhole/modportのwriter/readerへ接続する。"
+            "bit/logicへの格納前の反転、非選択側の対照、実際の幅・識別タグ・接続先と全要素の独立性を観測する。",
+        ),
+        SuiteModel(
+            interaction_reactive.MODEL,
+            lambda row: "tests/gen/ch24/" + interaction_reactive.case_name(row) + ".sv",
+            interaction_reactive.MODEL.select(),
+            "moduleのNBA連鎖の完了前後を、早いmodule内の対照とReactiveで動くprogramで観測する。"
+            "連続代入・blocking・Re-NBAの出力と採取値、型変換、全段の値・NBA予約回数・採取した文脈を照合する。",
+        ),
+        SuiteModel(
+            interaction_config.MODEL,
+            lambda row: "tests/gen/ch33/" + interaction_config.case_name(row) + ".sv",
+            interaction_config.MODEL.select(),
+            "configの設定・Wだけのリセット・全パラメータのリセットを、既定値・インスタンス指定・defparamと比較する。"
+            "通常階層の親パラメータとconfig localparamの隠蔽、生成した幅・個数・if/case分岐、対象外の兄弟を観測する。",
+        ),
+        SuiteModel(
+            interaction_udp.MODEL,
+            lambda row: "tests/gen/ch29/" + interaction_udp.case_name(row) + ".sv",
+            interaction_udp.MODEL.select(),
+            "組合せUDPの配列へベクタをビット分配し、スカラーを共通接続する。"
+            "単独出力・競合する別ドライバ付きの出力・名前なしの単一UDPを比較し、強度・全4状態の入力対・位置識別を照合する。",
         ),
     )

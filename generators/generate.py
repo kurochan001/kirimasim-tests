@@ -51,6 +51,13 @@ import interaction_default
 import interaction_event_task
 import interaction_delay
 import interaction_import
+import interaction_memfile
+import interaction_program
+import interaction_nettype
+import interaction_ifgenerate
+import interaction_reactive
+import interaction_config
+import interaction_udp
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -83,6 +90,13 @@ GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths, keyw
               interaction_event_task,
               interaction_delay,
               interaction_import,
+              interaction_memfile,
+              interaction_program,
+              interaction_nettype,
+              interaction_ifgenerate,
+              interaction_reactive,
+              interaction_config,
+              interaction_udp,
               interaction_compound, interaction_inside,
               interaction_range, interaction_case_inside,
               combination_events, combination_nba, combination_aggregates, combination_io,

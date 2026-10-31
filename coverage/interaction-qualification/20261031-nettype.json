@@ -1,0 +1,718 @@
+{
+  "schema": 1,
+  "purpose": "implicit_port_nettype fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "scope": "six mandatory controls: all net keywords, ANSI/non-ANSI declarations, vector/scalar defaults, explicit wire override, both resets and wide four-state data",
+  "generator_sha256": "96e7503e29e181571161700c552fa7e08533cc8a661493db1becd3c64e75e15e",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_nettype_wire_1_nonansi_implicit_binary_wire",
+      "values": {
+        "nettype": "wire",
+        "width": "1",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "binary",
+        "reset": "wire"
+      },
+      "source_sha256": "13dc39850188ea9e3cef5aef6c0d5e58a9098cc094eedbd28357c441da0dbeb6",
+      "expected_sha256": "789d5ee08e99707eb21550564790b4e9e295b27b713b162315b00d2813bc3dd0",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall",
+      "values": {
+        "nettype": "wand",
+        "width": "129",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "9bbfbc922da2891d8973916b9e2fdcdd814e4900a9f0ba9fd51a8c9006ad408e",
+      "expected_sha256": "d182afee952518f83156f7c664e701aecf1c64e62c8916054d2455c23ca6af82",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_nettype_wor_65_ansi_wire_xz_wire",
+      "values": {
+        "nettype": "wor",
+        "width": "65",
+        "style": "ansi",
+        "override": "wire",
+        "value": "xz",
+        "reset": "wire"
+      },
+      "source_sha256": "502060440733a2f155f6ef6017087e307e4e4bc613b8f9b6cc74f569a8629501",
+      "expected_sha256": "b8babb1bb653e391db4b9a66ed9f95d79843f6ddc995d181e8287346c105d79d",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_nettype_triand_33_ansi_implicit_binary_resetall",
+      "values": {
+        "nettype": "triand",
+        "width": "33",
+        "style": "ansi",
+        "override": "implicit",
+        "value": "binary",
+        "reset": "resetall"
+      },
+      "source_sha256": "692176667c4c59cf1970e855d9d0c5e514ff1c19d6f1d6aa879e6f8d8c91565a",
+      "expected_sha256": "2ad05e05e9344793c1c09a79980aeb8b4c5565a8e9e8c1da88b9fc1fe2b449f3",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_nettype_trior_64_nonansi_wire_xz_resetall",
+      "values": {
+        "nettype": "trior",
+        "width": "64",
+        "style": "nonansi",
+        "override": "wire",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "67c9421b339f5025c7aa06d09021f4143f3366fc65d3b6b22c339c7a551588b8",
+      "expected_sha256": "3ac322955184d554e32a161e55e581ae164bfd6b4bf51935b4648bedb1674f37",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_nettype_tri_32_ansi_implicit_xz_wire",
+      "values": {
+        "nettype": "tri",
+        "width": "32",
+        "style": "ansi",
+        "override": "implicit",
+        "value": "xz",
+        "reset": "wire"
+      },
+      "source_sha256": "ebeb557aa9197729f610fa8b6e64690500c1b7f10b4a48a60304fe8052ecd9cf",
+      "expected_sha256": "5fd7bd6aa3e61a80060afbf33e8e5b5f5c797e9b965a5bafa9dd04fe8e7d73a1",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "lose_first_vector_driver",
+      "case": "test_gen_cross_nettype_wire_1_nonansi_implicit_binary_wire",
+      "values": {
+        "nettype": "wire",
+        "width": "1",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "binary",
+        "reset": "wire"
+      },
+      "source_sha256": "a5ee8f5642899c16f954067626c0d39aed556485e7902ee613f7aaad1cb1fff5",
+      "expected_sha256": "789d5ee08e99707eb21550564790b4e9e295b27b713b162315b00d2813bc3dd0",
+      "status": "fail",
+      "reason": "output differs: line 6 is 'p1 y=0 inside=0 g=x ig=x', expected 'p1 y=x inside=x g=x ig=x'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign y = a;",
+        "after": "assign y = b;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "wand_becomes_wire",
+      "case": "test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall",
+      "values": {
+        "nettype": "wand",
+        "width": "129",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "81ece6e5a87096ee145269ff2ce6697c7d67bb6f1047dd6420bca3bea4e8bb39",
+      "expected_sha256": "d182afee952518f83156f7c664e701aecf1c64e62c8916054d2455c23ca6af82",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0 y=0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx1...', expected 'p0 y=0zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx1...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "`default_nettype wand",
+        "after": "`default_nettype wire",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "force_implicit_vector_to_wire",
+      "case": "test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall",
+      "values": {
+        "nettype": "wand",
+        "width": "129",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "3b90a6b8c5cff2f59fbd1a4fe2965a468be89be752b063bce819009899bd987f",
+      "expected_sha256": "d182afee952518f83156f7c664e701aecf1c64e62c8916054d2455c23ca6af82",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0 y=0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx1...', expected 'p0 y=0zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx1...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "output [128:0] y",
+        "after": "output wire [128:0] y",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "ignore_resetall",
+      "case": "test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall",
+      "values": {
+        "nettype": "wand",
+        "width": "129",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "09f3d78e1da046c99661bfc96914df78709024884dcf613729158ccadd49c5a3",
+      "expected_sha256": "d182afee952518f83156f7c664e701aecf1c64e62c8916054d2455c23ca6af82",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'p0 reset=0zx10xxx01x100000zx10xxx01x100000zx10xxx01x10000...', expected 'p0 reset=0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "`resetall",
+        "after": "",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_second_vector_driver",
+      "case": "test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall",
+      "values": {
+        "nettype": "wand",
+        "width": "129",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "4f8ef5c9ad7b966789fce7a0a49cefd8054f6a4dea0839cf35886ececd9c3753",
+      "expected_sha256": "d182afee952518f83156f7c664e701aecf1c64e62c8916054d2455c23ca6af82",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0 y=0zx10zx10zx10zx10zx10zx10zx10zx10zx10zx10zx10zx10zx1...', expected 'p0 y=0zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx1...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign y = b;",
+        "after": ";",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "scalar_uses_wrong_source_bit",
+      "case": "test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall",
+      "values": {
+        "nettype": "wand",
+        "width": "129",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "1c3d22f26ddce671abf4073f7e40bbf237527fdb04f318a05000715142c33a00",
+      "expected_sha256": "d182afee952518f83156f7c664e701aecf1c64e62c8916054d2455c23ca6af82",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'p0 reset=0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx...', expected 'p0 reset=0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign g = a[0];",
+        "after": "assign g = a[1];",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "truncate_vector_port_above_64",
+      "case": "test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall",
+      "values": {
+        "nettype": "wand",
+        "width": "129",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "3579bae6f044e626f063b3654a703f338138be1bf69563aff1a080637f11d23a",
+      "expected_sha256": "d182afee952518f83156f7c664e701aecf1c64e62c8916054d2455c23ca6af82",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0 y=0000000000000000000000000000000000000000000000000000...', expected 'p0 y=0zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx1...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "output [128:0] y",
+        "after": "output [63:0] y",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "truncate_input_ports_above_64",
+      "case": "test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall",
+      "values": {
+        "nettype": "wand",
+        "width": "129",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "0c4c63e8672a4a0591b5a436f656f99368b2df6cf1db18f4b9b89ea68030bc3f",
+      "expected_sha256": "d182afee952518f83156f7c664e701aecf1c64e62c8916054d2455c23ca6af82",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0 y=0000000000000000000000000000000000000000000000000000...', expected 'p0 y=0zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx1...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "input [128:0] a, b",
+        "after": "input [63:0] a, b",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "upper_word_reuses_lower_word",
+      "case": "test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall",
+      "values": {
+        "nettype": "wand",
+        "width": "129",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "9d041a96bc1c3bcd0ff8e65d56741a46092623c39b535a65f4bbf8fef6d3d6a6",
+      "expected_sha256": "d182afee952518f83156f7c664e701aecf1c64e62c8916054d2455c23ca6af82",
+      "status": "fail",
+      "reason": "output differs: line 90 is 'p22 y=000000000000000000000000000000000000000000000000000...', expected 'p22 y=001111111111111111111111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign y = a;",
+        "after": "assign y = {a[64:0], a[63:0]};",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "source_storage_becomes_two_state",
+      "case": "test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall",
+      "values": {
+        "nettype": "wand",
+        "width": "129",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "e1e641a404557e1328ed3d4c2ed44306a405c99d55daa18d3694e6f83598573f",
+      "expected_sha256": "d182afee952518f83156f7c664e701aecf1c64e62c8916054d2455c23ca6af82",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'p0 input a=0001000100010001000100010001000100010001000100...', expected 'p0 input a=0zx10zx10zx10zx10zx10zx10zx10zx10zx10zx10zx10z...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "logic [128:0] a, b",
+        "after": "bit [128:0] a, b",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "later_module_reuses_earlier_definition",
+      "case": "test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall",
+      "values": {
+        "nettype": "wand",
+        "width": "129",
+        "style": "nonansi",
+        "override": "implicit",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "388d7c125187217c1b2961f4f28e1ccfdaa213d502e29955af0db45e59a1d677",
+      "expected_sha256": "d182afee952518f83156f7c664e701aecf1c64e62c8916054d2455c23ca6af82",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'p0 reset=0zx10xxx01x100000zx10xxx01x100000zx10xxx01x10000...', expected 'p0 reset=0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "reset_port r(a, b, post, post_g);",
+        "after": "selected_port r(a, b, post, post_g);",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wor_becomes_wire",
+      "case": "test_gen_cross_nettype_wor_65_ansi_wire_xz_wire",
+      "values": {
+        "nettype": "wor",
+        "width": "65",
+        "style": "ansi",
+        "override": "wire",
+        "value": "xz",
+        "reset": "wire"
+      },
+      "source_sha256": "3ee5c0ffd8e2d0bf34cdbeb19112024875eeed4a5cade4e53458a2fe29f4738f",
+      "expected_sha256": "b8babb1bb653e391db4b9a66ed9f95d79843f6ddc995d181e8287346c105d79d",
+      "status": "fail",
+      "reason": "output differs: line 6 is 'p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx...', expected 'p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "`default_nettype wor",
+        "after": "`default_nettype wire",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_explicit_vector_wire",
+      "case": "test_gen_cross_nettype_wor_65_ansi_wire_xz_wire",
+      "values": {
+        "nettype": "wor",
+        "width": "65",
+        "style": "ansi",
+        "override": "wire",
+        "value": "xz",
+        "reset": "wire"
+      },
+      "source_sha256": "d2599fbc63b4bd1e1162bbabcd8a6a0df2b8ef8b4888d2e25b9cba10ba6e020e",
+      "expected_sha256": "b8babb1bb653e391db4b9a66ed9f95d79843f6ddc995d181e8287346c105d79d",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0 y=0zx10xx1x11110x10zx10xx1x11110x10zx10xx1x11110x10zx1...', expected 'p0 y=0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx1...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "output wire [64:0] y",
+        "after": "output [64:0] y",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "ignore_explicit_reset",
+      "case": "test_gen_cross_nettype_wor_65_ansi_wire_xz_wire",
+      "values": {
+        "nettype": "wor",
+        "width": "65",
+        "style": "ansi",
+        "override": "wire",
+        "value": "xz",
+        "reset": "wire"
+      },
+      "source_sha256": "61bd436faef7c1f0fd21b9ff8416a2b63103bf4345897b7fb8a36ccfac9b989a",
+      "expected_sha256": "b8babb1bb653e391db4b9a66ed9f95d79843f6ddc995d181e8287346c105d79d",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'p0 reset=0zx10xx1x11110x10zx10xx1x11110x10zx10xx1x11110x1...', expected 'p0 reset=0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "`default_nettype wire",
+        "after": "",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "lose_second_scalar_driver",
+      "case": "test_gen_cross_nettype_wor_65_ansi_wire_xz_wire",
+      "values": {
+        "nettype": "wor",
+        "width": "65",
+        "style": "ansi",
+        "override": "wire",
+        "value": "xz",
+        "reset": "wire"
+      },
+      "source_sha256": "46fdb0c4d9af1bf996bf7185da1a3e3ea7b0b840e491edaa19cc14c9bb5900a6",
+      "expected_sha256": "b8babb1bb653e391db4b9a66ed9f95d79843f6ddc995d181e8287346c105d79d",
+      "status": "fail",
+      "reason": "output differs: line 7 is 'p1 reset=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100x...', expected 'p1 reset=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100x...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign g = b[0];",
+        "after": ";",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "scalar_inherits_explicit_vector_net_kind",
+      "case": "test_gen_cross_nettype_wor_65_ansi_wire_xz_wire",
+      "values": {
+        "nettype": "wor",
+        "width": "65",
+        "style": "ansi",
+        "override": "wire",
+        "value": "xz",
+        "reset": "wire"
+      },
+      "source_sha256": "c91b7f1e4210e366d72d265e5e138f6e58fc7db75a6b6037c0bdb3d43878f812",
+      "expected_sha256": "b8babb1bb653e391db4b9a66ed9f95d79843f6ddc995d181e8287346c105d79d",
+      "status": "fail",
+      "reason": "output differs: line 6 is 'p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx...', expected 'p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "output g);",
+        "after": "output wire g);",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "triand_becomes_trior",
+      "case": "test_gen_cross_nettype_triand_33_ansi_implicit_binary_resetall",
+      "values": {
+        "nettype": "triand",
+        "width": "33",
+        "style": "ansi",
+        "override": "implicit",
+        "value": "binary",
+        "reset": "resetall"
+      },
+      "source_sha256": "697e2111552db290f3f0c207a6f8b1b8cc218ae350e3bf55585885991d2f1d2d",
+      "expected_sha256": "2ad05e05e9344793c1c09a79980aeb8b4c5565a8e9e8c1da88b9fc1fe2b449f3",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0 y=011101110111011101110111011101110 inside=01110111011...', expected 'p0 y=010001000100010001000100010001000 inside=01000100010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "`default_nettype triand",
+        "after": "`default_nettype trior",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "trior_becomes_triand",
+      "case": "test_gen_cross_nettype_trior_64_nonansi_wire_xz_resetall",
+      "values": {
+        "nettype": "trior",
+        "width": "64",
+        "style": "nonansi",
+        "override": "wire",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "015932ffdc0e5b653eae6283d2dd60ef16e8eb204b21dd11bab33bc13d266e24",
+      "expected_sha256": "3ac322955184d554e32a161e55e581ae164bfd6b4bf51935b4648bedb1674f37",
+      "status": "fail",
+      "reason": "output differs: line 6 is 'p1 y=0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1...', expected 'p1 y=0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "`default_nettype trior",
+        "after": "`default_nettype triand",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "scalar_port_inherits_vector_width",
+      "case": "test_gen_cross_nettype_trior_64_nonansi_wire_xz_resetall",
+      "values": {
+        "nettype": "trior",
+        "width": "64",
+        "style": "nonansi",
+        "override": "wire",
+        "value": "xz",
+        "reset": "resetall"
+      },
+      "source_sha256": "d6280324a9adc93bc44918ed583545e149f36130e806fac07a7e5233c6dc796b",
+      "expected_sha256": "3ac322955184d554e32a161e55e581ae164bfd6b4bf51935b4648bedb1674f37",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'p0 y=zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10...', expected 'p0 y=zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "output g;",
+        "after": "output [1:0] g;",
+        "replacements": 2
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "wide_word_reuse_detected_only_by_index_tags": true,
+  "fixed_icarus_diagnostics": {
+    "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+    "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+    "temporary_paths_redacted": true,
+    "scope": "Six mandatory controls only; not kirimasim fault controls.",
+    "records": [
+      {
+        "test": "tests/gen/ch22/test_gen_cross_nettype_wire_1_nonansi_implicit_binary_wire.sv",
+        "inputs_sha256": "e6c2107e1f518b1df4c626b3229a99f36971e1be9a4f47146bc9cd3a621d0ae8",
+        "matched": true,
+        "reason": "",
+        "subprocess_returncodes": [
+          0,
+          0,
+          0
+        ],
+        "diagnostics": [],
+        "first_difference_full": null
+      },
+      {
+        "test": "tests/gen/ch22/test_gen_cross_nettype_wand_129_nonansi_implicit_xz_resetall.sv",
+        "inputs_sha256": "2683d59d514d2013ba69aa2928b7de9015ac40a91266e19b67af3b974a781c4c",
+        "matched": false,
+        "reason": "output differs: line 2 is 'p0 y=0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx1...', expected 'p0 y=0zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx1...'",
+        "subprocess_returncodes": [
+          0,
+          0,
+          0
+        ],
+        "diagnostics": [],
+        "first_difference_full": {
+          "line": 2,
+          "actual": "p0 y=0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0 inside=0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0zx10xxxx1x1x0xx0 g=0 ig=0",
+          "expected": "p0 y=0zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000 inside=0zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000zx10xxx01x100000 g=0 ig=0"
+        }
+      },
+      {
+        "test": "tests/gen/ch22/test_gen_cross_nettype_wor_65_ansi_wire_xz_wire.sv",
+        "inputs_sha256": "c49636d372c8a416440ee8c2520c05e3c7c11d99fd512d309fd0423f9e78b10e",
+        "matched": false,
+        "reason": "output differs: line 6 is 'p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx...', expected 'p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx...'",
+        "subprocess_returncodes": [
+          0,
+          0,
+          0
+        ],
+        "diagnostics": [],
+        "first_difference_full": {
+          "line": 6,
+          "actual": "p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx inside=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx g=x ig=x",
+          "expected": "p1 y=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx inside=x0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx g=1 ig=1"
+        }
+      },
+      {
+        "test": "tests/gen/ch22/test_gen_cross_nettype_triand_33_ansi_implicit_binary_resetall.sv",
+        "inputs_sha256": "76c7d23dfe676ec1892c0e81561290254c82968f268e8d04cbc6046fd18e64fc",
+        "matched": false,
+        "reason": "output differs: line 2 is 'p0 y=01xx01xx01xx01xx01xx01xx01xx01xx0 inside=01xx01xx01x...', expected 'p0 y=010001000100010001000100010001000 inside=01000100010...'",
+        "subprocess_returncodes": [
+          0,
+          0,
+          0
+        ],
+        "diagnostics": [],
+        "first_difference_full": {
+          "line": 2,
+          "actual": "p0 y=01xx01xx01xx01xx01xx01xx01xx01xx0 inside=01xx01xx01xx01xx01xx01xx01xx01xx0 g=0 ig=0",
+          "expected": "p0 y=010001000100010001000100010001000 inside=010001000100010001000100010001000 g=0 ig=0"
+        }
+      },
+      {
+        "test": "tests/gen/ch22/test_gen_cross_nettype_trior_64_nonansi_wire_xz_resetall.sv",
+        "inputs_sha256": "eb23edc81bcda00463e0cba51bf250706df206876635c64cff26fb7646db722d",
+        "matched": false,
+        "reason": "output differs: line 6 is 'p1 y=0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1...', expected 'p1 y=0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1...'",
+        "subprocess_returncodes": [
+          0,
+          0,
+          0
+        ],
+        "diagnostics": [],
+        "first_difference_full": {
+          "line": 6,
+          "actual": "p1 y=0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx inside=0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx g=x ig=x",
+          "expected": "p1 y=0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx inside=0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx0zx1xxxxx1x100xx g=1 ig=1"
+        }
+      },
+      {
+        "test": "tests/gen/ch22/test_gen_cross_nettype_tri_32_ansi_implicit_xz_wire.sv",
+        "inputs_sha256": "76c4e2d880ea376b4c74faf238713f4d00bc46755cb13b81941f77ee867d35f5",
+        "matched": true,
+        "reason": "",
+        "subprocess_returncodes": [
+          0,
+          0,
+          0
+        ],
+        "diagnostics": [],
+        "first_difference_full": null
+      }
+    ]
+  },
+  "qualification_sha256": "ce42b4ce50b4cf82133ec219e271876174100a6912f43abf30c37a36c40c2b3c",
+  "binary_unchanged": true
+}

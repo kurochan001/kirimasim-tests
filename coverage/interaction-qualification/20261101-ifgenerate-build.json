@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "source_commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "upstream_commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "source_clean": true,
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "binary_sha256_before": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "verified_at": "2026-10-31T15:12:53.831719+00:00",
+  "suite_base_commit": "efd160c4702f080125ebedb60b887071424dabfb",
+  "scope": "All 48 selected interaction models; release reconfigured and rebuilt from verified latest source. Prior 47-model plans/results preserved by separate digests.",
+  "binary_sha256_after": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "binary_unchanged": true,
+  "prior_run_comparison": {
+    "source": "coverage/interaction-results/cross47-kirimasim-4b58e29f.json",
+    "tests": 2082,
+    "inputs_unchanged": true,
+    "statuses_unchanged": true
+  },
+  "prior_report_comparison": {
+    "source": "coverage/interaction-qualification/20261101-ifgenerate-prior-digests.json",
+    "models": 47,
+    "snapshots": 131,
+    "model_plans_unchanged": true,
+    "prior_model_run_aggregates_unchanged": true,
+    "prior_artifacts_unchanged": true
+  }
+}

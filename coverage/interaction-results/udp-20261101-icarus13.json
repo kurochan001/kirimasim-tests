@@ -1,0 +1,135 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch29/test_gen_cross_udp_129_andnot_pull_weak_down_down_vector": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_129_andnot_pull_weak_down_down_vector.sv:47: syntax error",
+   "inputs_sha256": "45b3b4ee0e6f29310ee076ffe2300b59bf318ee6ed839fc0b1fa8a03cb96a811"
+  },
+  "gen/ch29/test_gen_cross_udp_129_andnot_strong_weak_weak_down_down_scalar": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_129_andnot_strong_weak_weak_down_down_scalar.sv:47: syntax error",
+   "inputs_sha256": "44dde827d2c97ef20431b6313884190f654b3f4d36e6211821f79baac6c6199b"
+  },
+  "gen/ch29/test_gen_cross_udp_129_ornot_default_strong_down_up_scalar": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_129_ornot_default_strong_down_up_scalar.sv:47: sorry: UDPs with a range (isolated [131:3]) are not supported.",
+   "inputs_sha256": "a89d03634d5b5e6ef2d69fc107ee24558aca6ef397f3ca4510e4712e0fcb9bc4"
+  },
+  "gen/ch29/test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector.sv:47: syntax error",
+   "inputs_sha256": "9e0804ebd97f62f3c863b92c4a63a4911cceb40a03a64e2fd7fc334e2ec416e2"
+  },
+  "gen/ch29/test_gen_cross_udp_1_andnot_default_strong_down_down_scalar": {
+   "status": "pass",
+   "inputs_sha256": "aaabde6b4d22ebd3a996fbb0b5ec8817a67ae9bd052a8511d887d289671399ec"
+  },
+  "gen/ch29/test_gen_cross_udp_1_andnot_weak_strong_weak_up_down_vector": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_1_andnot_weak_strong_weak_up_down_vector.sv:47: syntax error",
+   "inputs_sha256": "6d2d287c271d5ba45e7db7700547e5554c16f92d24fbc0c2f21ab33ad74470df"
+  },
+  "gen/ch29/test_gen_cross_udp_1_ornot_pull_pull_down_up_vector": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_1_ornot_pull_pull_down_up_vector.sv:47: syntax error",
+   "inputs_sha256": "3022086be82dee605aca0dc27435357c4a23b9ccf16dde964903dcaefffa4eb8"
+  },
+  "gen/ch29/test_gen_cross_udp_1_ornot_strong_weak_weak_down_up_scalar": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_1_ornot_strong_weak_weak_down_up_scalar.sv:47: syntax error",
+   "inputs_sha256": "83045e53273c4d072ded11614aa82ff5f90693dd0beb0dd6563114502032749d"
+  },
+  "gen/ch29/test_gen_cross_udp_32_andnot_default_pull_down_up_vector": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_32_andnot_default_pull_down_up_vector.sv:47: sorry: UDPs with a range (isolated [34:3]) are not supported.",
+   "inputs_sha256": "2012219f27c398b0efdebfdf81eede0ffd5a147b621f462a5801a62201bab859"
+  },
+  "gen/ch29/test_gen_cross_udp_32_andnot_pull_weak_up_up_scalar": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_32_andnot_pull_weak_up_up_scalar.sv:47: syntax error",
+   "inputs_sha256": "f232421bf603235aea10ab07ce8c9fbc405100b23fa789d270dce25c22741e06"
+  },
+  "gen/ch29/test_gen_cross_udp_32_ornot_strong_weak_strong_up_down_vector": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_32_ornot_strong_weak_strong_up_down_vector.sv:47: syntax error",
+   "inputs_sha256": "ed273e084afecb097fbff1e99ae85645981ab13ab673a3c71f3001525987fba1"
+  },
+  "gen/ch29/test_gen_cross_udp_32_ornot_weak_strong_strong_down_down_scalar": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_32_ornot_weak_strong_strong_down_down_scalar.sv:47: syntax error",
+   "inputs_sha256": "758f2a4db0dce1a1c36a48a56f8ac2c140c833827b411ab7d72fac6fa68fc5b0"
+  },
+  "gen/ch29/test_gen_cross_udp_33_andnot_default_weak_down_up_vector": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_33_andnot_default_weak_down_up_vector.sv:47: sorry: UDPs with a range (isolated [35:3]) are not supported.",
+   "inputs_sha256": "769300af2c65585fa8c95657ecd0498d183879c7a0b7c36d77b6efe2ff483840"
+  },
+  "gen/ch29/test_gen_cross_udp_33_andnot_weak_strong_pull_down_up_scalar": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_33_andnot_weak_strong_pull_down_up_scalar.sv:47: syntax error",
+   "inputs_sha256": "b4b74d827e1db8cbd70b5cccc4e9060a9aa36309dba153e0e1ab7a4a1c379ed5"
+  },
+  "gen/ch29/test_gen_cross_udp_33_ornot_pull_strong_up_down_scalar": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_33_ornot_pull_strong_up_down_scalar.sv:47: syntax error",
+   "inputs_sha256": "6b89ddd7f05f495c46fcd2c95cffd5b146c0b14df0bbfe2e723d18f191241471"
+  },
+  "gen/ch29/test_gen_cross_udp_33_ornot_strong_weak_pull_down_down_vector": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_33_ornot_strong_weak_pull_down_down_vector.sv:47: syntax error",
+   "inputs_sha256": "0ad5d78505bfd3f034918106fd13505fc10e14e82942f81dc45ce85fb8dd3098"
+  },
+  "gen/ch29/test_gen_cross_udp_64_andnot_pull_pull_up_up_vector": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_64_andnot_pull_pull_up_up_vector.sv:47: syntax error",
+   "inputs_sha256": "4281777e0a98c4c63b66afcff3146efaa5fb553f3756ead81354242e95622939"
+  },
+  "gen/ch29/test_gen_cross_udp_64_andnot_strong_weak_strong_down_down_scalar": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_64_andnot_strong_weak_strong_down_down_scalar.sv:47: syntax error",
+   "inputs_sha256": "ab081145088699bdbe1b64eb98c945cab82fb9e9c43a2ae093d7c1e8b132ea23"
+  },
+  "gen/ch29/test_gen_cross_udp_64_andnot_weak_strong_strong_down_up_scalar": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_64_andnot_weak_strong_strong_down_up_scalar.sv:47: syntax error",
+   "inputs_sha256": "e3a296c15bf5eb48ca3ad51720c5ea32a65fc3dbc30affbbdf6bf44fe21a937f"
+  },
+  "gen/ch29/test_gen_cross_udp_64_ornot_default_weak_down_down_vector": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_64_ornot_default_weak_down_down_vector.sv:47: sorry: UDPs with a range (isolated [66:3]) are not supported.",
+   "inputs_sha256": "d3a0152c7f6b1846ce26ebc86f8e2a4f2f35b124cfdda7607973b843a25b1fb9"
+  },
+  "gen/ch29/test_gen_cross_udp_64_ornot_pull_weak_down_down_scalar": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_64_ornot_pull_weak_down_down_scalar.sv:47: syntax error",
+   "inputs_sha256": "8e7a081f3a7422963cfb81b90969d32ea2123443cd8bb6843316517c1399a7f2"
+  },
+  "gen/ch29/test_gen_cross_udp_65_andnot_pull_strong_down_up_scalar": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_65_andnot_pull_strong_down_up_scalar.sv:47: syntax error",
+   "inputs_sha256": "d31479141786d200b470c7b6fa500de4d38ed155dbee4e6084cc43c35809015a"
+  },
+  "gen/ch29/test_gen_cross_udp_65_andnot_strong_weak_pull_down_up_vector": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_65_andnot_strong_weak_pull_down_up_vector.sv:47: syntax error",
+   "inputs_sha256": "2a07f2d0c53289bfd8015d74bf2197a85d7ab2df91c8f584c2dce0d860f87771"
+  },
+  "gen/ch29/test_gen_cross_udp_65_ornot_default_pull_up_down_scalar": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_65_ornot_default_pull_up_down_scalar.sv:47: sorry: UDPs with a range (isolated [3:67]) are not supported.",
+   "inputs_sha256": "d15b994869ebf30d9591f9d582486e2878f2ec58f617629cb85328d43dfef6a2"
+  },
+  "gen/ch29/test_gen_cross_udp_65_ornot_weak_strong_weak_down_down_vector": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch29/test_gen_cross_udp_65_ornot_weak_strong_weak_down_down_vector.sv:47: syntax error",
+   "inputs_sha256": "e36d8767759f76b44d493529ab3ea673846121a9bdfeed7173838d3d951a18b2"
+  }
+ },
+ "generated_at": "2026-10-31T16:55:57.934921+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

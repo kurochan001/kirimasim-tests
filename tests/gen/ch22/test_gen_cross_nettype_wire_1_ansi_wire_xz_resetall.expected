@@ -1,0 +1,96 @@
+p0 input a=0 b=0
+p0 y=0 inside=0 g=0 ig=0
+p0 reset=0 inside=0 pg=0 ipg=0
+p0 bits=1,1,1,1,1,1
+p1 input a=1 b=0
+p1 y=x inside=x g=x ig=x
+p1 reset=x inside=x pg=x ipg=x
+p1 bits=1,1,1,1,1,1
+p2 input a=x b=0
+p2 y=x inside=x g=x ig=x
+p2 reset=x inside=x pg=x ipg=x
+p2 bits=1,1,1,1,1,1
+p3 input a=z b=0
+p3 y=0 inside=0 g=0 ig=0
+p3 reset=0 inside=0 pg=0 ipg=0
+p3 bits=1,1,1,1,1,1
+p4 input a=0 b=1
+p4 y=x inside=x g=x ig=x
+p4 reset=x inside=x pg=x ipg=x
+p4 bits=1,1,1,1,1,1
+p5 input a=1 b=1
+p5 y=1 inside=1 g=1 ig=1
+p5 reset=1 inside=1 pg=1 ipg=1
+p5 bits=1,1,1,1,1,1
+p6 input a=x b=1
+p6 y=x inside=x g=x ig=x
+p6 reset=x inside=x pg=x ipg=x
+p6 bits=1,1,1,1,1,1
+p7 input a=z b=1
+p7 y=1 inside=1 g=1 ig=1
+p7 reset=1 inside=1 pg=1 ipg=1
+p7 bits=1,1,1,1,1,1
+p8 input a=0 b=x
+p8 y=x inside=x g=x ig=x
+p8 reset=x inside=x pg=x ipg=x
+p8 bits=1,1,1,1,1,1
+p9 input a=1 b=x
+p9 y=x inside=x g=x ig=x
+p9 reset=x inside=x pg=x ipg=x
+p9 bits=1,1,1,1,1,1
+p10 input a=x b=x
+p10 y=x inside=x g=x ig=x
+p10 reset=x inside=x pg=x ipg=x
+p10 bits=1,1,1,1,1,1
+p11 input a=z b=x
+p11 y=x inside=x g=x ig=x
+p11 reset=x inside=x pg=x ipg=x
+p11 bits=1,1,1,1,1,1
+p12 input a=0 b=z
+p12 y=0 inside=0 g=0 ig=0
+p12 reset=0 inside=0 pg=0 ipg=0
+p12 bits=1,1,1,1,1,1
+p13 input a=1 b=z
+p13 y=1 inside=1 g=1 ig=1
+p13 reset=1 inside=1 pg=1 ipg=1
+p13 bits=1,1,1,1,1,1
+p14 input a=x b=z
+p14 y=x inside=x g=x ig=x
+p14 reset=x inside=x pg=x ipg=x
+p14 bits=1,1,1,1,1,1
+p15 input a=z b=z
+p15 y=z inside=z g=z ig=z
+p15 reset=z inside=z pg=z ipg=z
+p15 bits=1,1,1,1,1,1
+p16 input a=1 b=1
+p16 y=1 inside=1 g=1 ig=1
+p16 reset=1 inside=1 pg=1 ipg=1
+p16 bits=1,1,1,1,1,1
+p17 input a=0 b=0
+p17 y=0 inside=0 g=0 ig=0
+p17 reset=0 inside=0 pg=0 ipg=0
+p17 bits=1,1,1,1,1,1
+p18 input a=0 b=0
+p18 y=0 inside=0 g=0 ig=0
+p18 reset=0 inside=0 pg=0 ipg=0
+p18 bits=1,1,1,1,1,1
+p19 input a=0 b=0
+p19 y=0 inside=0 g=0 ig=0
+p19 reset=0 inside=0 pg=0 ipg=0
+p19 bits=1,1,1,1,1,1
+p20 input a=0 b=0
+p20 y=0 inside=0 g=0 ig=0
+p20 reset=0 inside=0 pg=0 ipg=0
+p20 bits=1,1,1,1,1,1
+p21 input a=0 b=0
+p21 y=0 inside=0 g=0 ig=0
+p21 reset=0 inside=0 pg=0 ipg=0
+p21 bits=1,1,1,1,1,1
+p22 input a=0 b=0
+p22 y=0 inside=0 g=0 ig=0
+p22 reset=0 inside=0 pg=0 ipg=0
+p22 bits=1,1,1,1,1,1
+p23 input a=0 b=0
+p23 y=0 inside=0 g=0 ig=0
+p23 reset=0 inside=0 pg=0 ipg=0
+p23 bits=1,1,1,1,1,1

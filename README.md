@@ -54,15 +54,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **9738 tests** in 38 chapters. 3301 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_assertion`, 36 by `interaction_binding`, 36 by `interaction_case`, 34 by `interaction_case_inside`, 32 by `interaction_cast`, 36 by `interaction_class_method`, 36 by `interaction_clocking`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 36 by `interaction_default`, 63 by `interaction_delay`, 72 by `interaction_divide`, 64 by `interaction_edge`, 13 by `interaction_event_task`, 51 by `interaction_expr`, 36 by `interaction_generate`, 27 by `interaction_iff`, 39 by `interaction_import`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 36 by `interaction_loop_nba`, 72 by `interaction_method`, 36 by `interaction_nba`, 36 by `interaction_port`, 36 by `interaction_process`, 60 by `interaction_query`, 48 by `interaction_queue`, 60 by `interaction_queue_ref`, 46 by `interaction_range`, 38 by `interaction_resize`, 36 by `interaction_return`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 36 by `interaction_wait`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **9970 tests** in 38 chapters. 3533 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_assertion`, 36 by `interaction_binding`, 36 by `interaction_case`, 34 by `interaction_case_inside`, 32 by `interaction_cast`, 36 by `interaction_class_method`, 36 by `interaction_clocking`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 41 by `interaction_config`, 36 by `interaction_default`, 63 by `interaction_delay`, 72 by `interaction_divide`, 64 by `interaction_edge`, 13 by `interaction_event_task`, 51 by `interaction_expr`, 36 by `interaction_generate`, 27 by `interaction_iff`, 36 by `interaction_ifgenerate`, 39 by `interaction_import`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 36 by `interaction_loop_nba`, 36 by `interaction_memfile`, 72 by `interaction_method`, 36 by `interaction_nba`, 40 by `interaction_nettype`, 36 by `interaction_port`, 36 by `interaction_process`, 18 by `interaction_program`, 60 by `interaction_query`, 48 by `interaction_queue`, 60 by `interaction_queue_ref`, 46 by `interaction_range`, 36 by `interaction_reactive`, 38 by `interaction_resize`, 36 by `interaction_return`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 25 by `interaction_udp`, 36 by `interaction_wait`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5497 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1667 |
-| The standard only, with no fixed-release simulator oracle recorded | 2574 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5547 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1680 |
+| The standard only, with no fixed-release simulator oracle recorded | 2743 |
 
-2166 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+2303 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -84,19 +84,19 @@ The suite has **9738 tests** in 38 chapters. 3301 of them are generated (`tests/
 | 18 | Constrained random value generation | 200 | 25 | 95 | 80 |
 | 19 | Functional coverage | 157 | 2 | 28 | 127 |
 | 20 | Utility system tasks and system functions | 330 | 239 | 25 | 66 |
-| 21 | Input/output system tasks and system functions | 236 | 145 | 15 | 76 |
-| 22 | Compiler directives | 358 | 335 | 13 | 10 |
+| 21 | Input/output system tasks and system functions | 272 | 180 | 16 | 76 |
+| 22 | Compiler directives | 398 | 349 | 13 | 36 |
 | 23 | Modules and hierarchy | 331 | 215 | 45 | 71 |
-| 24 | Programs | 43 | 21 | 5 | 17 |
+| 24 | Programs | 97 | 21 | 5 | 71 |
 | 25 | Interfaces | 119 | 31 | 57 | 31 |
 | 26 | Packages | 83 | 53 | 16 | 14 |
-| 27 | Generate constructs | 139 | 129 | 8 | 2 |
+| 27 | Generate constructs | 175 | 129 | 20 | 26 |
 | 28 | Gate-level and switch-level modeling | 245 | 194 | 3 | 48 |
-| 29 | User-defined primitives | 81 | 58 | 11 | 12 |
+| 29 | User-defined primitives | 106 | 59 | 11 | 36 |
 | 30 | Specify blocks | 60 | 35 | 1 | 24 |
 | 31 | Timing checks | 66 | 17 | 1 | 48 |
 | 32 | Backannotation using the standard delay format | 50 | 16 |  | 34 |
-| 33 | Configuring the contents of a design | 43 | 8 | 9 | 26 |
+| 33 | Configuring the contents of a design | 84 | 8 | 9 | 67 |
 | 34 | Protected envelopes | 4 | 2 | 2 |  |
 | 35 | Direct programming interface | 131 | 4 | 84 | 43 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 34 | 19 | 36 |
@@ -171,7 +171,7 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.md) uses constrained
 pairwise coverage, selected three-factor groups and mandatory boundary witnesses.
-Its focused selection has 1,988 tests across forty-four models: scheduling, NBA capture,
+Its focused selection has 2,220 tests across fifty-one models: scheduling, NBA capture,
 arithmetic context, packed part-selects, conditional merging, shifts, cast pipelines
 and task argument visibility, packed structures, case matching, port connections,
 unpacked array copies, bit-vector queries, streaming permutations, comparisons,
@@ -191,7 +191,47 @@ with direct or function reads, generate hierarchy with package/local type lookup
 default argument evaluation through hierarchical module/interface calls, and scoped
 named events shared through input/ref task arguments, and continuous-assignment
 delay selection with inertial pulse rejection, plus package import visibility in
-wildcard/defaulted port connections.
+wildcard/defaulted port connections, typed memory-file transfers, and program
+completion with descendant cancellation, default net types on implicit port nets,
+generated interface bindings, module-to-program region handoffs, configuration-driven generated shapes,
+and UDP arrays with drive-strength contention.
+The UDP model selects 25 tests from 1,152 assignments, retaining 182 pairs, 80 focused
+triples and six mandatory cases. It compares isolated and contended arrays, scalar broadcast,
+vector terminal ordering and all four-state input pairs; see the
+[design and evidence](docs/interaction-verification.md#udpの配列接続と駆動強度の解決).
+Latest kirimasim passes all 25; fixed Icarus passes one and rejects the other 24 at build time.
+All cases require four-state observation, so Verilator is outside this comparison.
+The configuration model selects 41 tests from 1,056 distinct assignments, retaining 213 pairs,
+80 focused triples and six mandatory cases. It checks parameter precedence, selective/full
+resets, generated widths/counts/branches and an untouched sibling; see the
+[design and evidence](docs/interaction-verification.md#configのパラメータ設定とgenerateの形状).
+Latest kirimasim passes 37 cases; four expose defparam values surviving a reset
+of all instance parameters. Expected defaults are retained. Both fixed simulators reject all 41 cases at build time.
+The Reactive-handoff model selects 36 tests from 1,296 assignments, covering 183 pairs,
+84 triples and six mandatory witnesses. It compares an early module expression with
+continuous/blocking/NBA program outputs after one/two/three NBA stages. Stage values,
+reservation counts, exported sampling context and readback before the Re-NBA update are
+checked separately; all 36 pass on verified latest kirimasim.
+The interface-generate model selects 36 tests from 864 assignments, covering 165 pairs,
+74 triples and six mandatory witnesses. It checks per-element widths through 131 bits,
+if/case branch selection, whole-interface/modport connections and bit/logic conversion.
+Active and guard interfaces have distinct histories and tags; all 36 pass on verified
+latest kirimasim.
+The net-type model selects 40 tests from 576 assignments, covering 156 pairs,
+72 triples and six mandatory witnesses. It compares ANSI/non-ANSI port defaults,
+an explicit vector-wire override, scalar controls, and modules defined after a
+directive reset. Every bit sees all driver pairs. All 40 pass on verified latest
+kirimasim; binary inputs can still resolve to X, so all cases require four states.
+The program model selects 18 tests from 288 assignments, covering 109 pairs,
+38 triples and four mandatory witnesses. Natural completion, direct/task `$exit`,
+multiple initials, fork joins and grandchildren are checked against a live wait
+in another program and the final simulation time. All 18 pass on verified latest
+kirimasim; fixed-engine differences retain the standard-derived expectations.
+The memory-file model selects 36 tests from 2,880 constrained assignments, covering
+248 pairs, 82 triples and six mandatory witnesses. It checks enum/integral words,
+source/target state conversion, binary/hex files, explicit ranges and read direction.
+An independently specified input file exposes compensating writer/reader errors;
+all 36 pass on verified latest kirimasim.
 The import-scope model selects 39 tests from 540 legal assignments, covering 158 pairs,
 141 triples and six mandatory witnesses. It checks explicit/wildcard imports, local
 shadows, implicit/named/qualified connections and final bit/logic sampling. Opposite
@@ -767,6 +807,11 @@ outputs, and it writes many small variations of one kind of test:
 | `interaction_event_task` | 15 | Module/interface/package event sources, input/ref tasks, direct/task blocking/NBA triggers, 1/2/3 listeners, source order and early/late arrival; 13 cases check event identity, fanout, rearming and Active/NBA payload visibility |
 | `interaction_delay` | 10 | Scalar and 2/32/33/64/65/129-bit vectors, bit/logic, known/X/Z, one/two/three delays, short/long pulses and direct/inverted sources; 63 cases check delay selection, inertial cancellation, values and transition times/counts |
 | `interaction_import` | 23 | Width/sample state/value, wildcard/explicit package imports, optional local shadow and five wildcard/named/qualified/constant connections; 39 cases check source selection, child defaults, live updates and scope isolation |
+| `interaction_memfile` | 21 | Width, source/target bit/logic, plain/enum words, known/X/Z, binary/hex, full/middle/single ranges, declaration and read direction; 36 cases check snapshots, independent input, guards, overwrite and comment-aware address checks |
+| `interaction_program` | 24 | Natural/direct/task exit, one/two initials, delay/event/level waits, children/grandchildren, partial progress, join_none/join_any and independent program lifetimes; 18 cases check cancellation, live counterparts and implicit finish |
+| `interaction_nettype` | 22 | Six default net keywords, widths through 129 bits, ANSI/non-ANSI declarations, implicit/explicit vector wire, binary/four-state drivers and two reset forms; 40 cases compare resolved values and scalar/vector widths before and after the directive reset |
+| `interaction_ifgenerate` | 27 | Per-element interface widths, one/two/three generate elements, if/case-selected routes, whole/modport access, bit/logic and known/X/Z data; 36 cases check active/guard identity, conversion order, widths and reader bindings |
+| `interaction_reactive` | 24 | Width/state/value, one/two/three module NBA stages, blocking/NBA source updates, continuous/blocking/NBA program producers and direct/inverted output; 36 cases compare early/settled values, reservation counts, sampled context and readback before Re-NBA updates |
 | `interaction_struct` | 7 | Member order, whole/member signs, width/state/value, member/whole writes and blocking/NBA updates; 36 selected cases check tag preservation, packed layout and independent sign extension |
 | `interaction_case` | 12 | Selector/item widths and signs, case/casez/casex, X/Z and item patterns; 36 selected cases check exact/wildcard matching, duplicate-item priority and fallback branches |
 | `interaction_port` | 23 | Source width/sign/value, input/output, sink width, named/positional binding, ANSI/non-ANSI declaration and sample state; 36 selected cases check values through hierarchy and final sampling conversion |

@@ -1,0 +1,640 @@
+{
+  "schema": 1,
+  "purpose": "udp_array_strength fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "scope": "six mandatory controls: UDP truth rows, scalar/vector terminals, packed/instance ranges, drive pairs, contention and isolated controls",
+  "generator_sha256": "01ee134434ae98714afc8a5304a64e4ef550db2c9a77433f1b9de145aaf5a6c9",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_udp_1_andnot_default_strong_down_down_scalar",
+      "values": {
+        "width": "1",
+        "udp": "andnot",
+        "drive": "default",
+        "contender": "strong",
+        "array_order": "down",
+        "port_order": "down",
+        "input_mode": "scalar"
+      },
+      "source_sha256": "8dd1043fad644110c12089d7512462d66cd9ac11312c3b27c9674d58d08b0651",
+      "expected_sha256": "212971793a6786f24be3bc0d9748e70f32d43f750cf9c59a40dcbe9f3a99c5e9",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "c08abd16214c5310a59d9033abe28359a76b8963009a83a064fb9ef45a967da6",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_udp_65_andnot_strong_weak_pull_down_up_vector",
+      "values": {
+        "width": "65",
+        "udp": "andnot",
+        "drive": "strong_weak",
+        "contender": "pull",
+        "array_order": "down",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "81564e7d309d6b71cbfb3013a9679db4c9252bcaa90c7f5a463b348df1c81143",
+      "expected_sha256": "218d004d81bf3221fce0b7a62ab48cbf469c81296b1c6acfd765dc78a5d5bac3",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_udp_33_ornot_pull_strong_up_down_scalar",
+      "values": {
+        "width": "33",
+        "udp": "ornot",
+        "drive": "pull",
+        "contender": "strong",
+        "array_order": "up",
+        "port_order": "down",
+        "input_mode": "scalar"
+      },
+      "source_sha256": "1cfb53b000cc3a6a8245e1d4e6d1ec69c0e2f191e379799489a4b2dfc7145137",
+      "expected_sha256": "619e0ee8195177109e50e38314b7b887b419bf6265cfcb5e6aa7dc2786bb0d9a",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_udp_32_andnot_pull_weak_up_up_scalar",
+      "values": {
+        "width": "32",
+        "udp": "andnot",
+        "drive": "pull",
+        "contender": "weak",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "scalar"
+      },
+      "source_sha256": "e1a6f729bf20ba1eb8c662389e19b98fa9c171bce46ab4f6748928c4ba160911",
+      "expected_sha256": "513f9209dd5e760aba47ce7063c70237d4e7cb17973cb56c460c2c9126b5a7b9",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_udp_64_ornot_default_weak_down_down_vector",
+      "values": {
+        "width": "64",
+        "udp": "ornot",
+        "drive": "default",
+        "contender": "weak",
+        "array_order": "down",
+        "port_order": "down",
+        "input_mode": "vector"
+      },
+      "source_sha256": "a590b98e6d558b0f78d094bcc0e31e5517e78582eac84afb5c955b9b90f014ef",
+      "expected_sha256": "2340f0c1e01d5ca9eb3b18f79bda6d0eacb93418ed9453a872ab710ba9374f57",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "swap_zero_one_strengths",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "f2a267da88ab097844657586d1227f6a692178faa94254de553d8386ed19f646",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0_0 solo=10101010101010101010101010101010101010101010101...', expected 'k0_0 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "(weak0, strong1)",
+        "after": "(strong0, weak1)",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "ignore_udp_drive_strength",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "621bbca2e56c0d8bf3f6152591ae648d6b0e28bda2c635c19f93e005a3838366",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0_1 solo=10101010101010101010101010101010101010101010101...', expected 'k0_1 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "(weak0, strong1)",
+        "after": "",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "weaken_contending_driver",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "e8f759949ed6c90f6a47218f929db2df44da86064304b46e56a99e4723108685",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0_1 solo=10101010101010101010101010101010101010101010101...', expected 'k0_1 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign (pull0, pull1)",
+        "after": "assign (weak0, weak1)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_contending_driver",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "60f944960641dbfd4b99819950cf184e77c50830b677049b2ce7f234537f9270",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0_1 solo=10101010101010101010101010101010101010101010101...', expected 'k0_1 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  assign (pull0, pull1) net = {129{rival}};",
+        "after": "",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "contender_also_drives_isolated_control",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "b5828e66b1f232d46ce516d0141bf72eb62e2d23bc3035a335704639dd905636",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0_1 solo=11111111111111111111111111111111111111111111111...', expected 'k0_1 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  assign (pull0, pull1) net = {129{rival}};",
+        "after": "  assign (pull0, pull1) net = {129{rival}};\n  assign (pull0, pull1) solo = {129{rival}};",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "contender_never_releases",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "dbff6af5c66f53ecd35053f0ee706e356ac4196778c24c5d743839b5972ce13d",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0_1 solo=10101010101010101010101010101010101010101010101...', expected 'k0_1 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "{129{rival}}",
+        "after": "{129{1'b0}}",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "vector_input_uses_wrong_terminal",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "a3a94d7ed4fbc87b7271d75af4f6f5c310cfe7a15b3f253a88d74036c31283fa",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0_0 solo=10101010101010101010101010101010101010101010101...', expected 'k0_0 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "(net, a, b)",
+        "after": "(net, a, a)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "rotate_only_a_terminal",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "d78367fb8d5080662cf23f34b21c4f6b4c2259fbe2dffdc88d40c7665ddd3c5d",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0_0 solo=10101010101010101010101010101010101010101010101...', expected 'k0_0 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "(net, a, b)",
+        "after": "(net, {a[0], a[128:1]}, b)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "rotate_only_b_terminal",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "a96ee1fe64d116e26ca1534261c2a83219b412e2d9405ac3f5234d49fa007674",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0_0 solo=10101010101010101010101010101010101010101010101...', expected 'k0_0 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "(net, a, b)",
+        "after": "(net, a, {b[128], b[0:127]})",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "truncate_a_above_64",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "5eeb92ee6bdd9800df499f78aab87794e42c6e6beecf20ccb91a08534b8f01f0",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 62 is 't0 solo=1xx1xxx1xxx101111xx1xxx1xxx101111xx1xxx1xxx101111...', expected 't0 solo=1xx1xxx1xxx101111xx1xxx1xxx101111xx1xxx1xxx101111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "(net, a, b)",
+        "after": "(net, 129'(a[63:0]), b)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "unnamed_udp_samples_wrong_bit",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "a74ad9b811e1569d2cb1f446069d02a1ea9b3c624f46e741043683f4d0cc4f75",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 8 is 'k1_0 solo=00110011001100110011001100110011001100110011001...', expected 'k1_0 solo=00110011001100110011001100110011001100110011001...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "(sample, a[0], b[128])",
+        "after": "(sample, a[1], b[128])",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_unnamed_udp",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "e2bd870dd7f11da0289b1c52381e8e59f53dd845eb4c07b6e30d2ad54303580d",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0_0 solo=10101010101010101010101010101010101010101010101...', expected 'k0_0 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  cross_udp (weak0, strong1) (sample, a[0], b[128]);",
+        "after": "",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "unmatched_partial_unknown_row_becomes_zero",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "f30f4d2fbca5e4f3d55981c2bdb5a122a3785a7ed01c65830632d3a8369ffb9b",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 62 is 't0 solo=1xx10xx10xx101111xx10xx10xx101111xx10xx10xx101111...', expected 't0 solo=1xx1xxx1xxx101111xx1xxx1xxx101111xx1xxx1xxx101111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "  endtable",
+        "after": "    0 x : 0;\n  endtable",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "input_storage_loses_unknowns",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "eb9e25b0dd1fef5232dd40b7d530f8d155c653c22bfc8b7fbd4e6ac31ed998ff",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 61 is 't0 a=0001000100010001000100010001000100010001000100010001...', expected 't0 a=0zx10zx10zx10zx10zx10zx10zx10zx10zx10zx10zx10zx10zx1...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "logic [128:0] a;",
+        "after": "bit [128:0] a;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "isolated_array_uses_wrong_terminal",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "c9bc6b77f6b987aac0f4258815dfc76f7654e7a226fdf0e705de3867d81b02eb",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0_0 solo=11111111111111111111111111111111111111111111111...', expected 'k0_0 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "(solo, a, b)",
+        "after": "(solo, b, b)",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "omit_last_array_element",
+      "case": "test_gen_cross_udp_129_ornot_weak_strong_pull_up_up_vector",
+      "values": {
+        "width": "129",
+        "udp": "ornot",
+        "drive": "weak_strong",
+        "contender": "pull",
+        "array_order": "up",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "5425f589ab43e6b99836ce107b07631d486669d7465e8542eb1fc21e1d627e94",
+      "expected_sha256": "ca59437d01a2f3346c201689876018b3446cc7da6c7efd1d44d825268ed4ad99",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0_0 solo=10101010101010101010101010101010101010101010101...', expected 'k0_0 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "competing[3:131](net, a, b)",
+        "after": "competing[3:130](net[0:127], a[127:0], b[0:127])",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "andnot_becomes_and",
+      "case": "test_gen_cross_udp_65_andnot_strong_weak_pull_down_up_vector",
+      "values": {
+        "width": "65",
+        "udp": "andnot",
+        "drive": "strong_weak",
+        "contender": "pull",
+        "array_order": "down",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "12ba963c403a1bb2066b58055c374f5562945d13edb7cb507374029f8dfd91e4",
+      "expected_sha256": "218d004d81bf3221fce0b7a62ab48cbf469c81296b1c6acfd765dc78a5d5bac3",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0_0 solo=00000000000000000000000000000000000000000000000...', expected 'k0_0 solo=10101010101010101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    0 ? : 0;\n    ? 1 : 0;\n    1 0 : 1;",
+        "after": "    0 ? : 0;\n    ? 0 : 0;\n    1 1 : 1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "omit_known_table_row",
+      "case": "test_gen_cross_udp_65_andnot_strong_weak_pull_down_up_vector",
+      "values": {
+        "width": "65",
+        "udp": "andnot",
+        "drive": "strong_weak",
+        "contender": "pull",
+        "array_order": "down",
+        "port_order": "up",
+        "input_mode": "vector"
+      },
+      "source_sha256": "85dbd4c26284d3c3afe10addc25edccd4bde098ef6b254847e1265c76fa303b1",
+      "expected_sha256": "218d004d81bf3221fce0b7a62ab48cbf469c81296b1c6acfd765dc78a5d5bac3",
+      "status": "fail",
+      "reason": "output differs: line 62 is 't0 solo=0xxx0xxx0xxx0xx10xxx0xxx0xxx0xx10xxx0xxx0xxx0xx10...', expected 't0 solo=0xxx0xxx00000xx10xxx0xxx00000xx10xxx0xxx00000xx10...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    ? 1 : 0;",
+        "after": "",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "scalar_broadcast_uses_wrong_source",
+      "case": "test_gen_cross_udp_33_ornot_pull_strong_up_down_scalar",
+      "values": {
+        "width": "33",
+        "udp": "ornot",
+        "drive": "pull",
+        "contender": "strong",
+        "array_order": "up",
+        "port_order": "down",
+        "input_mode": "scalar"
+      },
+      "source_sha256": "8e8460cf273caaab34e4355115ff906f0fa52a605d31c989b61338a9260a7544",
+      "expected_sha256": "619e0ee8195177109e50e38314b7b887b419bf6265cfcb5e6aa7dc2786bb0d9a",
+      "status": "fail",
+      "reason": "output differs: line 12 is 'k1_z solo=001100110011001100110011001100110 net=111111111...', expected 'k1_z solo=001100110011001100110011001100110 net=001100110...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "(net, a, b)",
+        "after": "(net, a, a[0])",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "be86907390974b625e722b04d2ac12f13b963d829585111246acc63815e81443",
+  "binary_unchanged": true
+}

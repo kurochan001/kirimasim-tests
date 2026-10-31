@@ -1,0 +1,640 @@
+{
+  "schema": 1,
+  "purpose": "program_reactive_handoff fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "scope": "six mandatory controls: early module counterpart, NBA depths, three program producers, exported context, conversion and Re-NBA readback",
+  "generator_sha256": "02b0ca03f221d407f6463c275ef31ae8ffd2556979aec1bbd6981192fe4dd54b",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "value": "known",
+        "depth": "1",
+        "update": "blocking",
+        "producer": "continuous",
+        "operation": "direct"
+      },
+      "source_sha256": "668bc43ee1e141a83f51eaa4bd5ec6e2963e2ffc01599a1bd1155fded1f9adb9",
+      "expected_sha256": "dbb3eb710085f8f88c570bb566847515909b1cf65660595ee5996a83bb5108f5",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_reactive_129_logic_z_3_nba_nba_invert",
+      "values": {
+        "width": "129",
+        "source_state": "logic",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "nba",
+        "operation": "invert"
+      },
+      "source_sha256": "13d85c5d34ee254972c133c354eae55530642ec3383fc11f246700b2d6c4d3fc",
+      "expected_sha256": "4933c1b41931add603f6565a2c6aad699abcb4adde7e6826243372e1990b7990",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_reactive_65_logic_x_2_blocking_blocking_invert",
+      "values": {
+        "width": "65",
+        "source_state": "logic",
+        "value": "x",
+        "depth": "2",
+        "update": "blocking",
+        "producer": "blocking",
+        "operation": "invert"
+      },
+      "source_sha256": "26979731bd080ec56b1bfb18831fb78786f131aa91eed80d8b0411687347d8dd",
+      "expected_sha256": "58fcecd0468bf985bbef022d9d6ba0216bf260fa255d839c17c3550d0078314f",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_reactive_33_bit_z_3_nba_continuous_invert",
+      "values": {
+        "width": "33",
+        "source_state": "bit",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "continuous",
+        "operation": "invert"
+      },
+      "source_sha256": "1a0f9b23168edbc0c40e7086e53b3aebce40386792623379baa5e349633a6faf",
+      "expected_sha256": "70e145824e25bc149c2baadc22c3f545264da5d320ffa6e599fa7947ca7b3f27",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_reactive_32_logic_known_2_nba_blocking_direct",
+      "values": {
+        "width": "32",
+        "source_state": "logic",
+        "value": "known",
+        "depth": "2",
+        "update": "nba",
+        "producer": "blocking",
+        "operation": "direct"
+      },
+      "source_sha256": "2353b756a080d7725b2fdadb114d7fce51f8ca66ec26cb7e2125466065b666fc",
+      "expected_sha256": "c51c8269fb0796837840c7fbc872b0537d9ae321c26b86e5dbafee660eb1b691",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_reactive_64_bit_known_1_blocking_nba_invert",
+      "values": {
+        "width": "64",
+        "source_state": "bit",
+        "value": "known",
+        "depth": "1",
+        "update": "blocking",
+        "producer": "nba",
+        "operation": "invert"
+      },
+      "source_sha256": "818cf4194ffecbf90c5e74f899db1db15b8de791d3e5fb293970cf1f8ff0a4bf",
+      "expected_sha256": "2c07759b4586ffc7bed206746a1a19626af52f61d2fae0ff58ae43c6eb01f7fc",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "program_continuous_runs_in_module_region",
+      "case": "test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "value": "known",
+        "depth": "1",
+        "update": "blocking",
+        "producer": "continuous",
+        "operation": "direct"
+      },
+      "source_sha256": "812c90b810c49f45b9aa97c870a7781eee44772d89cbc5b4e0f94a2b9bf9c217",
+      "expected_sha256": "dbb3eb710085f8f88c570bb566847515909b1cf65660595ee5996a83bb5108f5",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'late t=10 value=1 last=1 steps=1', expected 'late t=10 value=1 last=0 steps=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "program region_producer #(parameter int W = 1)(\n  input wire [W-1:0] src, output wire [W-1:0] y,\n  output logic [W-1:0] captured, sampled_src, sampled_last,\n  output int sampled_steps, visits);\n  assign y = src;\n  initial begin\n    captured = '0;\n    sampled_src = '0;\n    sampled_last = 1'h1;\n    sampled_steps = 0; visits = 0;\n    forever begin\n      @(src);\n      if ($time > 0) begin\n        captured = src;\n        sampled_src = src;\n        sampled_last =\n          test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct.s0;\n        sampled_steps =\n          test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct.module_steps;\n        visits++;\n      end\n    end\n  end\nendprogram",
+        "after": "module region_producer #(parameter int W = 1)(\n  input wire [W-1:0] src, output wire [W-1:0] y,\n  output logic [W-1:0] captured, sampled_src, sampled_last,\n  output int sampled_steps, visits);\n  assign y = src;\n  initial begin\n    captured = '0;\n    sampled_src = '0;\n    sampled_last = 1'h1;\n    sampled_steps = 0; visits = 0;\n    forever begin\n      @(src);\n      if ($time > 0) begin\n        captured = src;\n        sampled_src = src;\n        sampled_last =\n          test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct.s0;\n        sampled_steps =\n          test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct.module_steps;\n        visits++;\n      end\n    end\n  end\nendmodule",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_early_control_expression",
+      "case": "test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "value": "known",
+        "depth": "1",
+        "update": "blocking",
+        "producer": "continuous",
+        "operation": "direct"
+      },
+      "source_sha256": "474351f37c51dfb6900850ee71e14341d4bc2b8d8bf621bf4d3096dc01ead522",
+      "expected_sha256": "dbb3eb710085f8f88c570bb566847515909b1cf65660595ee5996a83bb5108f5",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'early t=10 value=0 last=1', expected 'early t=10 value=1 last=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "assign tap = source;",
+        "after": "assign tap = ~source;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_early_count",
+      "case": "test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "value": "known",
+        "depth": "1",
+        "update": "blocking",
+        "producer": "continuous",
+        "operation": "direct"
+      },
+      "source_sha256": "747d373a4f4d5cec3182d46705ff15131282896c5a18e4a48fa15904e91dab1b",
+      "expected_sha256": "dbb3eb710085f8f88c570bb566847515909b1cf65660595ee5996a83bb5108f5",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'p0 t=11 raw=1 source=1 out=1 early=0 late=1 steps=1', expected 'p0 t=11 raw=1 source=1 out=1 early=1 late=1 steps=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "early_count++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_late_count",
+      "case": "test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct",
+      "values": {
+        "width": "1",
+        "source_state": "bit",
+        "value": "known",
+        "depth": "1",
+        "update": "blocking",
+        "producer": "continuous",
+        "operation": "direct"
+      },
+      "source_sha256": "cb1b52b66f55b8297feaaca488a1e6d44044ccad4897e216f909217e4cf2d7ad",
+      "expected_sha256": "dbb3eb710085f8f88c570bb566847515909b1cf65660595ee5996a83bb5108f5",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'p0 t=11 raw=1 source=1 out=1 early=1 late=0 steps=1', expected 'p0 t=11 raw=1 source=1 out=1 early=1 late=1 steps=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "late_count++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "program_nba_runs_in_module_region",
+      "case": "test_gen_cross_reactive_129_logic_z_3_nba_nba_invert",
+      "values": {
+        "width": "129",
+        "source_state": "logic",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "nba",
+        "operation": "invert"
+      },
+      "source_sha256": "f831e1c3a62927933be714feef14a923ca3432825c8c5f38eb2480dfd2509e18",
+      "expected_sha256": "4933c1b41931add603f6565a2c6aad699abcb4adde7e6826243372e1990b7990",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "program region_producer #(parameter int W = 1)(\n  input wire [W-1:0] src, output logic [W-1:0] y,\n  output logic [W-1:0] captured, sampled_src, sampled_last,\n  output int sampled_steps, visits);\n  initial begin\n    y <= '1;\n    captured = '1;\n    sampled_src = '0;\n    sampled_last = 129'h0;\n    sampled_steps = 0; visits = 0;\n    forever begin\n      @(src);\n      if ($time > 0) begin\n        y <= ~src;\n        captured = y;\n        sampled_src = src;\n        sampled_last =\n          test_gen_cross_reactive_129_logic_z_3_nba_nba_invert.s2;\n        sampled_steps =\n          test_gen_cross_reactive_129_logic_z_3_nba_nba_invert.module_steps;\n        visits++;\n      end\n    end\n  end\nendprogram",
+        "after": "module region_producer #(parameter int W = 1)(\n  input wire [W-1:0] src, output logic [W-1:0] y,\n  output logic [W-1:0] captured, sampled_src, sampled_last,\n  output int sampled_steps, visits);\n  initial begin\n    y <= '1;\n    captured = '1;\n    sampled_src = '0;\n    sampled_last = 129'h0;\n    sampled_steps = 0; visits = 0;\n    forever begin\n      @(src);\n      if ($time > 0) begin\n        y <= ~src;\n        captured = y;\n        sampled_src = src;\n        sampled_last =\n          test_gen_cross_reactive_129_logic_z_3_nba_nba_invert.s2;\n        sampled_steps =\n          test_gen_cross_reactive_129_logic_z_3_nba_nba_invert.module_steps;\n        visits++;\n      end\n    end\n  end\nendmodule",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "program_nba_becomes_blocking",
+      "case": "test_gen_cross_reactive_129_logic_z_3_nba_nba_invert",
+      "values": {
+        "width": "129",
+        "source_state": "logic",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "nba",
+        "operation": "invert"
+      },
+      "source_sha256": "ce431e1b702a7a5ff0f6249b7af922254dec801b37cceb8240ab07ce03a69a88",
+      "expected_sha256": "4933c1b41931add603f6565a2c6aad699abcb4adde7e6826243372e1990b7990",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'p0 program captured=0101010101010101010101010101010101010...', expected 'p0 program captured=1111111111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "y <= ~src;",
+        "after": "y = ~src;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "logic_source_becomes_bit",
+      "case": "test_gen_cross_reactive_129_logic_z_3_nba_nba_invert",
+      "values": {
+        "width": "129",
+        "source_state": "logic",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "nba",
+        "operation": "invert"
+      },
+      "source_sha256": "51ffe60634ecba8d7574718baeaba171f30f62c6076639e9b44311e3ddf56ebd",
+      "expected_sha256": "4933c1b41931add603f6565a2c6aad699abcb4adde7e6826243372e1990b7990",
+      "status": "fail",
+      "reason": "output differs: line 86 is 'early t=180 value=110101010101010101010101010101010101010...', expected 'early t=180 value=x10101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "logic [128:0] source",
+        "after": "bit [128:0] source",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_final_pipeline_value",
+      "case": "test_gen_cross_reactive_129_logic_z_3_nba_nba_invert",
+      "values": {
+        "width": "129",
+        "source_state": "logic",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "nba",
+        "operation": "invert"
+      },
+      "source_sha256": "577f3dd9e4687f7df45e12c40e68524f2dd3c14f331b29be70a6f202779525d5",
+      "expected_sha256": "4933c1b41931add603f6565a2c6aad699abcb4adde7e6826243372e1990b7990",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "s2 <= s1 ^ 129'd3;",
+        "after": "s2 <= '0;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_module_step_count",
+      "case": "test_gen_cross_reactive_129_logic_z_3_nba_nba_invert",
+      "values": {
+        "width": "129",
+        "source_state": "logic",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "nba",
+        "operation": "invert"
+      },
+      "source_sha256": "459a81ccb4c0f7283d01a1a5f9cc75ac8b770638502e2b6389f9a3a65baf598f",
+      "expected_sha256": "4933c1b41931add603f6565a2c6aad699abcb4adde7e6826243372e1990b7990",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "module_steps++;",
+        "after": ";",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "lose_program_visit_count",
+      "case": "test_gen_cross_reactive_129_logic_z_3_nba_nba_invert",
+      "values": {
+        "width": "129",
+        "source_state": "logic",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "nba",
+        "operation": "invert"
+      },
+      "source_sha256": "994f83390204c8f5a25cd8293c9f5dab3358d695083f89c58031a46949f9e3f7",
+      "expected_sha256": "4933c1b41931add603f6565a2c6aad699abcb4adde7e6826243372e1990b7990",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'p0 program captured=1111111111111111111111111111111111111...', expected 'p0 program captured=1111111111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "visits++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "truncate_program_output",
+      "case": "test_gen_cross_reactive_129_logic_z_3_nba_nba_invert",
+      "values": {
+        "width": "129",
+        "source_state": "logic",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "nba",
+        "operation": "invert"
+      },
+      "source_sha256": "f2fe9ddc356089352360d9bba19c02e93f4de46363e24510b2364be3fd6df259",
+      "expected_sha256": "4933c1b41931add603f6565a2c6aad699abcb4adde7e6826243372e1990b7990",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'late t=10 value=00000000000000000000000000000000000000000...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "y <= ~src;",
+        "after": "y <= 64'(~src);",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "nba_readback_uses_rhs",
+      "case": "test_gen_cross_reactive_129_logic_z_3_nba_nba_invert",
+      "values": {
+        "width": "129",
+        "source_state": "logic",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "nba",
+        "operation": "invert"
+      },
+      "source_sha256": "67180563cc3be8f0cdf8ac4000e86d87606fd5a12f69c16baa03d7253c397a00",
+      "expected_sha256": "4933c1b41931add603f6565a2c6aad699abcb4adde7e6826243372e1990b7990",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'p0 program captured=0101010101010101010101010101010101010...', expected 'p0 program captured=1111111111111111111111111111111111111...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "captured = y;",
+        "after": "captured = ~src;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "program_blocking_runs_in_module_region",
+      "case": "test_gen_cross_reactive_65_logic_x_2_blocking_blocking_invert",
+      "values": {
+        "width": "65",
+        "source_state": "logic",
+        "value": "x",
+        "depth": "2",
+        "update": "blocking",
+        "producer": "blocking",
+        "operation": "invert"
+      },
+      "source_sha256": "b7af508fd12bc519013de1f4f6aa1738e343f06a38ec773193c649a02ccddfc4",
+      "expected_sha256": "58fcecd0468bf985bbef022d9d6ba0216bf260fa255d839c17c3550d0078314f",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "program region_producer #(parameter int W = 1)(\n  input wire [W-1:0] src, output logic [W-1:0] y,\n  output logic [W-1:0] captured, sampled_src, sampled_last,\n  output int sampled_steps, visits);\n  initial begin\n    y = '1;\n    captured = '1;\n    sampled_src = '0;\n    sampled_last = 65'h3;\n    sampled_steps = 0; visits = 0;\n    forever begin\n      @(src);\n      if ($time > 0) begin\n        y = ~src;\n        captured = y;\n        sampled_src = src;\n        sampled_last =\n          test_gen_cross_reactive_65_logic_x_2_blocking_blocking_invert.s1;\n        sampled_steps =\n          test_gen_cross_reactive_65_logic_x_2_blocking_blocking_invert.module_steps;\n        visits++;\n      end\n    end\n  end\nendprogram",
+        "after": "module region_producer #(parameter int W = 1)(\n  input wire [W-1:0] src, output logic [W-1:0] y,\n  output logic [W-1:0] captured, sampled_src, sampled_last,\n  output int sampled_steps, visits);\n  initial begin\n    y = '1;\n    captured = '1;\n    sampled_src = '0;\n    sampled_last = 65'h3;\n    sampled_steps = 0; visits = 0;\n    forever begin\n      @(src);\n      if ($time > 0) begin\n        y = ~src;\n        captured = y;\n        sampled_src = src;\n        sampled_last =\n          test_gen_cross_reactive_65_logic_x_2_blocking_blocking_invert.s1;\n        sampled_steps =\n          test_gen_cross_reactive_65_logic_x_2_blocking_blocking_invert.module_steps;\n        visits++;\n      end\n    end\n  end\nendmodule",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "program_blocking_becomes_nba",
+      "case": "test_gen_cross_reactive_65_logic_x_2_blocking_blocking_invert",
+      "values": {
+        "width": "65",
+        "source_state": "logic",
+        "value": "x",
+        "depth": "2",
+        "update": "blocking",
+        "producer": "blocking",
+        "operation": "invert"
+      },
+      "source_sha256": "31a4d1a574a9d4465f5f4511c52f7e52401e7413d038bf967937e6ed3919a7c6",
+      "expected_sha256": "58fcecd0468bf985bbef022d9d6ba0216bf260fa255d839c17c3550d0078314f",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'p0 program captured=1111111111111111111111111111111111111...', expected 'p0 program captured=0101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "y = ~src;",
+        "after": "y <= ~src;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_stage_transform",
+      "case": "test_gen_cross_reactive_65_logic_x_2_blocking_blocking_invert",
+      "values": {
+        "width": "65",
+        "source_state": "logic",
+        "value": "x",
+        "depth": "2",
+        "update": "blocking",
+        "producer": "blocking",
+        "operation": "invert"
+      },
+      "source_sha256": "29e436c305c0decacefcdc7aa07c0d012927beb42b10cc8282491b8124f35856",
+      "expected_sha256": "58fcecd0468bf985bbef022d9d6ba0216bf260fa255d839c17c3550d0078314f",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'late t=10 value=01010101010101010101010101010101010101010...', expected 'late t=10 value=01010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "s1 <= s0 ^ 65'd2;",
+        "after": "s1 <= s0 ^ 65'd0;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "program_samples_wrong_stage",
+      "case": "test_gen_cross_reactive_65_logic_x_2_blocking_blocking_invert",
+      "values": {
+        "width": "65",
+        "source_state": "logic",
+        "value": "x",
+        "depth": "2",
+        "update": "blocking",
+        "producer": "blocking",
+        "operation": "invert"
+      },
+      "source_sha256": "e29944956d640df32e1ee88069843801cdfabc9f9073e9d8e914e379ea802102",
+      "expected_sha256": "58fcecd0468bf985bbef022d9d6ba0216bf260fa255d839c17c3550d0078314f",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'p0 program captured=0101010101010101010101010101010101010...', expected 'p0 program captured=0101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "test_gen_cross_reactive_65_logic_x_2_blocking_blocking_invert.s1",
+        "after": "test_gen_cross_reactive_65_logic_x_2_blocking_blocking_invert.s0",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "bit_source_becomes_logic",
+      "case": "test_gen_cross_reactive_33_bit_z_3_nba_continuous_invert",
+      "values": {
+        "width": "33",
+        "source_state": "bit",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "continuous",
+        "operation": "invert"
+      },
+      "source_sha256": "0690231df4b91d3b11e21d94f3410f28241a63c3c368deaebfba581fa0d644cb",
+      "expected_sha256": "70e145824e25bc149c2baadc22c3f545264da5d320ffa6e599fa7947ca7b3f27",
+      "status": "fail",
+      "reason": "output differs: line 84 is 'early t=180 value=x101010101010101010101010101010xx last=...', expected 'early t=180 value=110101010101010101010101010101011 last=...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "bit [32:0] source",
+        "after": "logic [32:0] source",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "program_bypasses_source_conversion",
+      "case": "test_gen_cross_reactive_33_bit_z_3_nba_continuous_invert",
+      "values": {
+        "width": "33",
+        "source_state": "bit",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "continuous",
+        "operation": "invert"
+      },
+      "source_sha256": "35b4dbbe816e5419ec44ce84675cfa0d8e263e4413109e84ebba868693f17a0a",
+      "expected_sha256": "70e145824e25bc149c2baadc22c3f545264da5d320ffa6e599fa7947ca7b3f27",
+      "status": "fail",
+      "reason": "output differs: line 85 is 'late t=180 value=x101010101010101010101010101010xx last=0...', expected 'late t=180 value=110101010101010101010101010101011 last=0...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "~src",
+        "after": "~test_gen_cross_reactive_33_bit_z_3_nba_continuous_invert.raw",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "pipeline_bypasses_source_conversion",
+      "case": "test_gen_cross_reactive_33_bit_z_3_nba_continuous_invert",
+      "values": {
+        "width": "33",
+        "source_state": "bit",
+        "value": "z",
+        "depth": "3",
+        "update": "nba",
+        "producer": "continuous",
+        "operation": "invert"
+      },
+      "source_sha256": "e2965a4fe5825d69638aedf0f64e8814d5dd7699e2517ff3ac47338dae26a4c6",
+      "expected_sha256": "70e145824e25bc149c2baadc22c3f545264da5d320ffa6e599fa7947ca7b3f27",
+      "status": "fail",
+      "reason": "output differs: line 85 is 'late t=180 value=110101010101010101010101010101011 last=x...', expected 'late t=180 value=110101010101010101010101010101011 last=0...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "s0 <= source ^ 33'd1;",
+        "after": "s0 <= raw ^ 33'd1;",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "b976691504d37c82e37331e62296f6f5045596a620ae76363b3677ffb50bddae",
+  "binary_unchanged": true
+}

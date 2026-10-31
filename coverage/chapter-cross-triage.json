@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "reviewed_on": "2026-10-31",
+  "reviewed_on": "2026-11-01",
   "reviewer": "Codex (GPT-6), AI review",
   "scope": "Unordered off-diagonal pairs with no registered finite model mapping. Existing witnesses are source/expectation reviews, not new execution passes. Unreviewed pairs stay R.",
   "excluded_chapters": {
@@ -9,28 +9,6 @@
     "34": "保護エンベロープは本スイートの動作検証の対象範囲外。対応方針が変わるときに再確認する。"
   },
   "pairs": [
-    {
-      "chapters": [
-        4,
-        24
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "program出力とmoduleのNBA連鎖が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "program出力とmoduleのNBA連鎖",
-      "factors": [
-        "入力更新方法",
-        "NBA連鎖の段数",
-        "読出し側（module/program）"
-      ],
-      "observation": "program出力の変化を検知したときにmodule側の更新連鎖が完了していることを観測する。",
-      "witnesses": [
-        {
-          "test": "tests/ch24/test_program_output_after_module_nba_chain.sv",
-          "inputs_sha256": "e8224524292200b7f6e698c5bc68329865b01e48018c5d4987990b52f81dc037"
-        }
-      ]
-    },
     {
       "chapters": [
         6,
@@ -50,29 +28,6 @@
         {
           "test": "tests/ch6/test_event_rebinding_retains_old_wait.sv",
           "inputs_sha256": "8dcf75f093490e97829be6b75a59bc5cecc6a278f8801ffe579f33d9b1707f7d"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        6,
-        21
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "列挙型・整数配列のメモリファイル往復が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "列挙型・整数配列のメモリファイル往復",
-      "factors": [
-        "要素型（enum/int/bit/logic）",
-        "書式（b/h）",
-        "値の符号",
-        "配列範囲"
-      ],
-      "observation": "enumを値として読戻した結果と、符号付き整数の往復結果を確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch21/test_writemem_two_state_enum.sv",
-          "inputs_sha256": "fcd1cdb4f05cc042ea7fc6827a8cba28444c4dcb82f25bcb3ba08077648d94d1"
         }
       ]
     },
@@ -362,29 +317,6 @@
     },
     {
       "chapters": [
-        9,
-        24
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "program終了と子プロセスの取消しが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "program終了と子プロセスの取消し",
-      "factors": [
-        "子の待機方法",
-        "終了時点",
-        "program数",
-        "共有変数への書込み"
-      ],
-      "observation": "終了したprogramの子は書き込まず、存続中の別programの観測が継続することを確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch24/test_program_end_kills_descendants.sv",
-          "inputs_sha256": "f7407dc8fe0e9adc1dd9d07cea8eaf14c76de13120926b759cb7a77d78ca340d"
-        }
-      ]
-    },
-    {
-      "chapters": [
         10,
         35
       ],
@@ -615,111 +547,6 @@
         {
           "test": "tests/ch21/test_display_strength_format.sv",
           "inputs_sha256": "30c6b4e56b8abba3d022df496316d3480ab3f61e3fa883735f58ba093d548db5"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        22,
-        23
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "default_nettypeと暗黙のポートnetが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "default_nettypeと暗黙のポートnet",
-      "factors": [
-        "default_nettype",
-        "ポート宣言形式",
-        "ドライバ数",
-        "幅"
-      ],
-      "observation": "暗黙にwandとなったポートの幅と、多重ドライバの解決値を親子で確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch6/test_implicit_port_expression_nets.sv",
-          "inputs_sha256": "4e69e5ccaefd0fd2bf82bf84c40f58201f3915bcac3b06a62914627243563a23"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        23,
-        33
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "configパラメータ上書きとdefparamの優先が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "configパラメータ上書きとdefparamの優先",
-      "factors": [
-        "config上書き対象",
-        "defparam対象",
-        "階層深さ",
-        "既定値"
-      ],
-      "observation": "config対象Pは9、別の子のQはdefparamの6となることを確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch33/test_config_defparam_precedence.sv",
-          "inputs_sha256": "7c35f09f684e7b9cac46ee0250b947d6a4de6a59ccffeefe0ee9846db1c18e77"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        25,
-        27
-      ],
-      "category": "C",
-      "priority": "P2",
-      "reason": "展開時に確定する型・階層とinterface接続の境界を確認する。",
-      "objective": "generateで展開したinterfaceとmodportの選択",
-      "factors": [
-        "展開数",
-        "interfaceパラメータ",
-        "modport",
-        "定数添字/階層"
-      ],
-      "observation": "各展開での接続先の値と幅、別インスタンスの保持を確認する。",
-      "witnesses": []
-    },
-    {
-      "chapters": [
-        27,
-        33
-      ],
-      "category": "C",
-      "priority": "P2",
-      "reason": "生成した階層名をconfigが解決する境界。既存階層上書き試験の拡張として検討する。",
-      "objective": "generate階層の名前とconfigの束縛先",
-      "factors": [
-        "生成ブロック名/添字",
-        "config指定の粒度",
-        "パラメータ",
-        "展開数"
-      ],
-      "observation": "合法な指定を先に確認し、実際に選択された実体の識別値と非対象インスタンスの保持を照合する。",
-      "witnesses": []
-    },
-    {
-      "chapters": [
-        28,
-        29
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "UDPインスタンスの強度と配列展開が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "UDPインスタンスの強度と配列展開",
-      "factors": [
-        "強度対",
-        "名前付き/名前なし",
-        "配列範囲",
-        "入力値"
-      ],
-      "observation": "UDP出力の強度と、配列展開されたビット対応を確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch29/test_udp_instance_strength_and_array_range.sv",
-          "inputs_sha256": "fa838f30c32c2f6caaa65e9d2aac629ec11871f07c0e1d982e59c7bb27087c73"
         }
       ]
     },

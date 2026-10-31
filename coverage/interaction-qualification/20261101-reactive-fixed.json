@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "purpose": "Fixed-engine scalar first-slot diagnostics; excluded from suite pass counts and kirimasim fault controls.",
+  "method": "Existing runner functions, capturing normalization stdout; first time slot only. Every subprocess exited zero.",
+  "versions": {
+    "icarus": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+    "verilator": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905"
+  },
+  "temporary_paths_redacted": true,
+  "records": [
+    {
+      "simulator": "icarus",
+      "seed": null,
+      "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+      "test": "tests/gen/ch24/test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct.sv",
+      "inputs_sha256": "ff0fdac52174510a1807c2b2b547179f6868e907307a4c3a0ed93e323b1e0862",
+      "matched": false,
+      "reason": "output differs: line 2 is 'late t=10 value=1 last=1 steps=0', expected 'late t=10 value=1 last=0 steps=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "actual_first_slot": [
+        "early t=10 value=1 last=1",
+        "late t=10 value=1 last=1 steps=0",
+        "p0 t=11 raw=1 source=1 out=1 early=1 late=1 steps=1",
+        "p0 stages s0=0",
+        "p0 program captured=1 sampled=1 last=1 steps=0 visits=1"
+      ],
+      "expected_first_slot": [
+        "early t=10 value=1 last=1",
+        "late t=10 value=1 last=0 steps=1",
+        "p0 t=11 raw=1 source=1 out=1 early=1 late=1 steps=1",
+        "p0 stages s0=0",
+        "p0 program captured=1 sampled=1 last=0 steps=1 visits=1"
+      ]
+    },
+    {
+      "simulator": "verilator",
+      "seed": 1,
+      "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+      "test": "tests/gen/ch24/test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct.sv",
+      "inputs_sha256": "ff0fdac52174510a1807c2b2b547179f6868e907307a4c3a0ed93e323b1e0862",
+      "matched": false,
+      "reason": "output differs: line 2 is 'late t=10 value=1 last=1 steps=1', expected 'late t=10 value=1 last=0 steps=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "actual_first_slot": [
+        "early t=10 value=1 last=1",
+        "late t=10 value=1 last=1 steps=1",
+        "p0 t=11 raw=1 source=1 out=1 early=1 late=1 steps=1",
+        "p0 stages s0=0",
+        "p0 program captured=1 sampled=1 last=1 steps=0 visits=1"
+      ],
+      "expected_first_slot": [
+        "early t=10 value=1 last=1",
+        "late t=10 value=1 last=0 steps=1",
+        "p0 t=11 raw=1 source=1 out=1 early=1 late=1 steps=1",
+        "p0 stages s0=0",
+        "p0 program captured=1 sampled=1 last=0 steps=1 visits=1"
+      ]
+    },
+    {
+      "simulator": "verilator",
+      "seed": 73,
+      "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+      "test": "tests/gen/ch24/test_gen_cross_reactive_1_bit_known_1_blocking_continuous_direct.sv",
+      "inputs_sha256": "ff0fdac52174510a1807c2b2b547179f6868e907307a4c3a0ed93e323b1e0862",
+      "matched": false,
+      "reason": "output differs: line 2 is 'late t=10 value=1 last=1 steps=1', expected 'late t=10 value=1 last=0 steps=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "actual_first_slot": [
+        "early t=10 value=1 last=1",
+        "late t=10 value=1 last=1 steps=1",
+        "p0 t=11 raw=1 source=1 out=1 early=1 late=1 steps=1",
+        "p0 stages s0=0",
+        "p0 program captured=1 sampled=1 last=1 steps=0 visits=1"
+      ],
+      "expected_first_slot": [
+        "early t=10 value=1 last=1",
+        "late t=10 value=1 last=0 steps=1",
+        "p0 t=11 raw=1 source=1 out=1 early=1 late=1 steps=1",
+        "p0 stages s0=0",
+        "p0 program captured=1 sampled=1 last=0 steps=1 visits=1"
+      ]
+    }
+  ]
+}

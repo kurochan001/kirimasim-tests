@@ -921,6 +921,154 @@ packageのwildcard/明示import、局所宣言、.*・.name・明示接続で入
 
 制約: 明示importと同名の局所宣言の併用180行は26.3で不正なため除外し、合法540行を対象とする。すべての接続型・幅を揃え、input/outputは明示した4状態wire。bit/logicは整定後のサンプル型。各親に既定値0/全1の2子を置き、別の親スコープの対照は常にwildcard importと.*だけを使う。.*だけのスコープに別の無修飾p参照を作らない。default_nettype noneで暗黙netを禁止する。空の実引数・幅変換・競合する複数package・inout/refは対象外。未対応による除外なし
 
+## typed_memory_file / model 1
+
+- 制約を満たす組合せ数: 2880。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 248/248。
+- 3因子の計画上の網羅: 82/82。
+
+bit/logicと列挙型のメモリファイルを出力し、元配列の変更後に別の添字範囲へ読み込む。独立に用意した入力も読み込み、要素の値・範囲外の保持・宣言方向と読込み順・上書きを照合する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- source_state: bit, logic。
+- kind: plain, enum。
+- value: known, x, z。
+- format: bin, hex。
+- span: all, middle, single。
+- declaration: up, down。
+- target_state: bit, logic。
+- read_order: forward, reverse。
+
+制約: 固定1次元配列を使う。singleの逆順は開始/終了が同じで等価なため順方向に代表させ、576行を重複削減して2880行とする。全行は合法で未対応による除外なし。元配列は[2:6]、書込みは2:6/3:5/4:4、読込み先は[10:16]または[16:10]で11からの1/3/5要素だけを更新する。enumへの格納は明示キャスト。未知値はニブル単位に揃え、hexでの部分ニブルの情報損失を混ぜない。動的/連想配列・多次元・幅変換・符号変換は対象外
+
+## program_descendant_shutdown / model 1
+
+- 制約を満たす組合せ数: 288。
+- 利用できる既存・新規テスト: 18。
+- 短時間実行の選択: 18。
+- 個別に保持する必須ケース: 4。
+- 2因子の計画上の網羅: 109/109。
+- 3因子の計画上の網羅: 38/38。
+
+programの自然終了と直接/タスク内の$exit、複数initial、子/孫プロセスの待機を組み合わせる。終了前の進捗と終了後の書込み取消し、同じ待機条件を持つ別programの起床、最後のprogramによる暗黙終了を観測する。
+
+- finish: natural, exit, task。
+- initials: one, two。
+- waiting: delay, event, level。
+- topology: flat, nested。
+- progress: waiting, partial。
+- spawn: none, any。
+- keepers: one, two。
+
+制約: 288行はすべて合法で未対応による除外なし。対象programの主initialは時刻4で終了または$exitを呼び、追加initialは6で終わる。子の観測点は5、解放は7/8で、自然終了の全initial待ちと明示終了を区別する。別programは12/15まで存続し、moduleの20の番兵より先に暗黙の$finishが起きる。データ幅・状態型は因子に水増ししない
+
+## implicit_port_nettype / model 1
+
+- 制約を満たす組合せ数: 576。
+- 利用できる既存・新規テスト: 40。
+- 短時間実行の選択: 40。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 156/156。
+- 3因子の計画上の網羅: 72/72。
+
+ANSI/非ANSIのポート宣言でnet型を省略し、default_nettypeによるvectorとscalarの解決値・幅を親子で照合する。vectorだけの明示wireによる上書きと、指示解除後の別moduleを同じ刺激で比較し、既定型の適用範囲を確認する。
+
+- nettype: wire, tri, wand, triand, wor, trior。
+- width: 1, 32, 33, 64, 65, 129。
+- style: nonansi, ansi。
+- override: implicit, wire。
+- value: binary, xz。
+- reset: wire, resetall。
+
+制約: 576行はすべて合法で未対応による除外なし。等強度の2ドライバでwire/tri、wand/triand、wor/triorを検査する。各別名は指示の字句と宣言規則の検査のため保持する。暗黙のscalar出力を対照にし、vector出力だけを明示wireで上書きできる。後続moduleはdefault_nettype wireまたはresetall後に定義する。none/uwireの不正な多重駆動、tri0/tri1のpull、triregの電荷保持、強度差・遅延は対象外。binary刺激にもwireの競合によるXがあるため全件fourstate=yes
+
+## generated_interface_binding / model 1
+
+- 制約を満たす組合せ数: 864。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 165/165。
+- 3因子の計画上の網羅: 74/74。
+
+generate要素ごとに幅の違うinterfaceを2個置き、if/caseで選択した側をwhole/modportのwriter/readerへ接続する。bit/logicへの格納前の反転、非選択側の対照、実際の幅・識別タグ・接続先と全要素の独立性を観測する。
+
+- base_width: 1, 32, 33, 64, 65, 129。
+- count: 1, 2, 3。
+- form: if, case。
+- route: a, b。
+- access: whole, modport。
+- state: bit, logic。
+- value: known, x, z。
+
+制約: 864行はすべて合法で未対応による除外なし。generate要素iの幅は基底幅+i、最大131ビット。各要素に同じ型のinterfaceを2個置き、選択した側だけwriter/readerへ接続し、他方を対照として駆動する。if/caseの二つの選択肢には同じroute名を使う。b側は反転後にinterfaceのbit/logic型へ格納する。13回の既知刺激で全要素・ビット位置・active/guardを識別し、X/Zには3回の追加刺激を与える。virtual interface、interface配列ポート、clocking、modportの不正アクセスは対象外
+
+## program_reactive_handoff / model 1
+
+- 制約を満たす組合せ数: 1296。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 183/183。
+- 3因子の計画上の網羅: 84/84。
+
+moduleのNBA連鎖の完了前後を、早いmodule内の対照とReactiveで動くprogramで観測する。連続代入・blocking・Re-NBAの出力と採取値、型変換、全段の値・NBA予約回数・採取した文脈を照合する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- source_state: bit, logic。
+- value: known, x, z。
+- depth: 1, 2, 3。
+- update: blocking, nba。
+- producer: continuous, blocking, nba。
+- operation: direct, invert。
+
+制約: 1296行はすべて合法で未対応による除外なし。moduleのsource更新から1/2/3段のNBA連鎖を起こす。programは連続代入またはイベント待機後のblocking/NBAで出力する。module内の同じ式は早い対照。16回の既知刺激でビット位置を識別し、X/Zの各刺激直前には全1を与えて変化を保証する。各刺激を10時刻離し、1時刻後に値と採取済み文脈を観測する。自動変数へのNBA、clocking、複数書込みの競合、同時刻の外部刺激は対象外
+
+## configuration_generated_shape / model 1
+
+- 制約を満たす組合せ数: 1056。
+- 利用できる既存・新規テスト: 41。
+- 短時間実行の選択: 41。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 213/213。
+- 3因子の計画上の網羅: 80/80。
+
+configの設定・Wだけのリセット・全パラメータのリセットを、既定値・インスタンス指定・defparamと比較する。通常階層の親パラメータとconfig localparamの隠蔽、生成した幅・個数・if/case分岐、対象外の兄弟を観測する。
+
+- base_width: 1, 32, 33, 64, 65, 129。
+- prior: default, instance, defparam, both。
+- action: set, reset_w, reset_all。
+- mode: 0, 1, 2。
+- form: if, case。
+- rhs: literal, local, parent。
+- hierarchy: direct, wrapped。
+
+制約: 全直積2592行のうち、resetで使わないmode/rhsは0/literalに代表させ、1536行の重複を省いて1056行とする。全行は合法で未対応による除外なし。configは通常のmodule階層にあるtargetのW/MODEを設定し、そのパラメータでgenerateの幅・個数・分岐を決める。reset_wはWだけ、reset_allは全パラメータを既定値へ戻す。対照guardはconfig/defparamの対象外。RHSは数値・config localparam・通常の親moduleパラメータのみ。generate内部へのconfig参照、セル置換、ライブラリ差替え、未知値パラメータは対象外
+
+## udp_array_strength / model 1
+
+- 制約を満たす組合せ数: 1152。
+- 利用できる既存・新規テスト: 25。
+- 短時間実行の選択: 25。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 182/182。
+- 3因子の計画上の網羅: 80/80。
+
+組合せUDPの配列へベクタをビット分配し、スカラーを共通接続する。単独出力・競合する別ドライバ付きの出力・名前なしの単一UDPを比較し、強度・全4状態の入力対・位置識別を照合する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- udp: andnot, ornot。
+- drive: default, pull, strong_weak, weak_strong。
+- contender: weak, pull, strong。
+- array_order: down, up。
+- port_order: down, up。
+- input_mode: scalar, vector。
+
+制約: 全1152行が合法。組合せUDPのみ。両配列は同じ強度と入力を持ち、一方だけ別ドライバと競合する。既知入力の識別刺激では競合値0/1/Zをすべて観測する。4状態の全入力対では競合側をZに解放する。逐次UDP・遅延・%v・名前付き配列要素の階層参照・個別要素への設定は対象外。未対応による除外なし
+
 ## 入力指紋が一致した実行の確認
 
 各スナップショットを独立に評価します。複数の版・実行の部分成功を合成しません。
@@ -1151,6 +1299,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/assertion-wait-20261031-verilator5.052-seed1.json
 
@@ -1376,6 +1559,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/assertion-wait-20261031-verilator5.052-seed73.json
 
@@ -1601,6 +1819,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/binding-20261031-icarus13.json
 
@@ -1826,6 +2079,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/binding-20261031-verilator5.052-seed1.json
 
@@ -2051,6 +2339,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/binding-20261031-verilator5.052-seed73.json
 
@@ -2276,6 +2599,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/class-method-20261031-icarus13.json
 
@@ -2501,6 +2859,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/class-method-20261031-verilator5.052-seed1.json
 
@@ -2726,6 +3119,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/class-method-20261031-verilator5.052-seed73.json
 
@@ -2951,6 +3379,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/clocking-20261031-icarus13.json
 
@@ -3176,6 +3639,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/clocking-20261031-verilator5.052-seed1.json
 
@@ -3401,6 +3899,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/clocking-20261031-verilator5.052-seed73.json
 
@@ -3626,6 +4159,821 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/config-20261101-icarus13.json
+
+- 環境: Icarus Verilog version 13.0 (stable) (v13_0-dirty)。
+- 実行日時: 2026-10-31T16:35:40.430771+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=41, unsupported=0, stale=0, not_run=0。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/config-20261101-verilator5.052-seed1.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-10-31T16:35:40.718160+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=41, unsupported=0, stale=0, not_run=0。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/config-20261101-verilator5.052-seed73.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-10-31T16:35:49.704082+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=41, unsupported=0, stale=0, not_run=0。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-expanded-icarus13.json
 
@@ -3851,6 +5199,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-expanded-kirimasim-f8408ea.json
 
@@ -4076,6 +5459,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-expanded-verilator5052-seed1.json
 
@@ -4301,6 +5719,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-expanded-verilator5052-seed73.json
 
@@ -4526,6 +5979,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-hierarchy-icarus13.json
 
@@ -4751,6 +6239,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-hierarchy-kirimasim-ee36c83.json
 
@@ -4976,6 +6499,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-hierarchy-verilator5052-seed1.json
 
@@ -5201,6 +6759,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-hierarchy-verilator5052-seed73.json
 
@@ -5426,6 +7019,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-icarus13.json
 
@@ -5651,6 +7279,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-kirimasim-dd2c018.json
 
@@ -5876,6 +7539,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-paths-icarus13.json
 
@@ -6101,6 +7799,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-paths-kirimasim-b86ccb6.json
 
@@ -6326,6 +8059,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-paths-verilator5052-seed1.json
 
@@ -6551,6 +8319,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-paths-verilator5052-seed73.json
 
@@ -6776,6 +8579,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-remaining-icarus13.json
 
@@ -7001,6 +8839,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-remaining-kirimasim-5e8ab59.json
 
@@ -7226,6 +9099,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-remaining-qualified-icarus13.json
 
@@ -7451,6 +9359,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-remaining-qualified-kirimasim-5e8ab59.json
 
@@ -7676,6 +9619,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-remaining-qualified-verilator5052-seed1.json
 
@@ -7901,6 +9879,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-remaining-qualified-verilator5052-seed73.json
 
@@ -8126,6 +10139,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-remaining-verilator5052-seed1.json
 
@@ -8351,6 +10399,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-remaining-verilator5052-seed73.json
 
@@ -8576,6 +10659,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-verilator5052-seed1.json
 
@@ -8801,6 +10919,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261029-verilator5052-seed73.json
 
@@ -9026,6 +11179,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-concatlogic-icarus13.json
 
@@ -9251,6 +11439,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-concatlogic-kirimasim-1d67d4e.json
 
@@ -9476,6 +11699,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-concatlogic-verilator5052-seed1.json
 
@@ -9701,6 +11959,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-concatlogic-verilator5052-seed73.json
 
@@ -9926,6 +12219,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-divresize-icarus13.json
 
@@ -10151,6 +12479,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-divresize-kirimasim-2020305.json
 
@@ -10376,6 +12739,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-divresize-verilator5052-seed1.json
 
@@ -10601,6 +12999,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-divresize-verilator5052-seed73.json
 
@@ -10826,6 +13259,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-indexqueue-icarus13.json
 
@@ -11051,6 +13519,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-indexqueue-kirimasim-b0fc996.json
 
@@ -11276,6 +13779,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-indexqueue-verilator5052-seed1.json
 
@@ -11501,6 +14039,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-indexqueue-verilator5052-seed73.json
 
@@ -11726,6 +14299,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-logicedge-icarus13.json
 
@@ -11951,6 +14559,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-logicedge-kirimasim-51cda31.json
 
@@ -12176,6 +14819,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-logicedge-verilator5052-seed1.json
 
@@ -12401,6 +15079,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-logicedge-verilator5052-seed73.json
 
@@ -12626,6 +15339,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-operators-icarus13.json
 
@@ -12851,6 +15599,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-operators-kirimasim-5e8ab59.json
 
@@ -13076,6 +15859,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-operators-verilator5052-seed1.json
 
@@ -13301,6 +16119,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross-20261030-operators-verilator5052-seed73.json
 
@@ -13526,6 +16379,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross25-icarus-13.json
 
@@ -13751,6 +16639,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross25-kirimasim-latest.json
 
@@ -13976,6 +16899,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross25-verilator-5.052-seed1.json
 
@@ -14201,6 +17159,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross25-verilator-5.052-seed73.json
 
@@ -14426,6 +17419,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross26-icarus-13.json
 
@@ -14651,6 +17679,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross26-kirimasim-latest.json
 
@@ -14876,6 +17939,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross26-verilator-5.052-seed1.json
 
@@ -15101,6 +18199,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross26-verilator-5.052-seed73.json
 
@@ -15326,6 +18459,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross27-icarus-13.json
 
@@ -15551,6 +18719,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross27-kirimasim-fb79248e.json
 
@@ -15776,6 +18979,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross27-kirimasim-latest.json
 
@@ -16001,6 +19239,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross27-verilator-5.052-seed1.json
 
@@ -16226,6 +19499,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross27-verilator-5.052-seed73.json
 
@@ -16451,6 +19759,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross28-icarus-13.json
 
@@ -16676,6 +20019,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross28-kirimasim-f303beca.json
 
@@ -16901,6 +20279,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross28-verilator-5.052-seed1.json
 
@@ -17126,6 +20539,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross28-verilator-5.052-seed73.json
 
@@ -17351,6 +20799,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross29-icarus-13.json
 
@@ -17576,6 +21059,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross29-kirimasim-f303beca.json
 
@@ -17801,6 +21319,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross29-verilator-5.052-seed1.json
 
@@ -18026,6 +21579,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross29-verilator-5.052-seed73.json
 
@@ -18251,6 +21839,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross30-kirimasim-17b7192b.json
 
@@ -18476,6 +22099,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross31-kirimasim-29ad7315.json
 
@@ -18701,6 +22359,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross32-kirimasim-a08e3489.json
 
@@ -18926,6 +22619,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross33-kirimasim-55ce80b9.json
 
@@ -19151,6 +22879,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross35-kirimasim-3a31b060.json
 
@@ -19376,6 +23139,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross36-kirimasim-3a31b060.json
 
@@ -19601,6 +23399,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross37-kirimasim-3a31b060.json
 
@@ -19826,6 +23659,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross38-kirimasim-95eefebe.json
 
@@ -20051,6 +23919,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross39-kirimasim-95eefebe.json
 
@@ -20276,6 +24179,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross40-kirimasim-4b58e29f.json
 
@@ -20501,6 +24439,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross41-kirimasim-4b58e29f.json
 
@@ -20726,6 +24699,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross42-kirimasim-4b58e29f.json
 
@@ -20951,6 +24959,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross43-kirimasim-4b58e29f.json
 
@@ -21176,6 +25219,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/cross44-kirimasim-4b58e29f.json
 
@@ -21401,6 +25479,1861 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 141/141。
   - 必須ケース: 6/6。
   - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/cross45-kirimasim-4b58e29f.json
+
+- 環境: kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334。
+- 実行日時: 2026-10-31T13:49:23.980185+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 3因子の合格確認済み組合せ: 51/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 185/185。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 144/144。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 204/204。
+  - 3因子の合格確認済み組合せ: 56/56。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 285/285。
+  - 3因子の合格確認済み組合せ: 108/108。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 302/302。
+  - 3因子の合格確認済み組合せ: 174/174。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 261/261。
+  - 3因子の合格確認済み組合せ: 162/162。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 253/253。
+  - 3因子の合格確認済み組合せ: 106/106。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 258/258。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 257/257。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- division_context:
+  - 2因子の合格確認済み組合せ: 283/283。
+  - 3因子の合格確認済み組合せ: 98/98。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 219/219。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 265/265。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 218/218。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 236/236。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 260/260。
+  - 3因子の合格確認済み組合せ: 152/152。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 3因子の合格確認済み組合せ: 59/59。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 308/308。
+  - 3因子の合格確認済み組合せ: 90/90。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 208/305。
+  - 3因子の合格確認済み組合せ: 84/174。
+  - 必須ケース: 1/5。
+  - ケース状態: pass=19, fail=1, known=0, unsupported=26, stale=0, not_run=0。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 252/303。
+  - 3因子の合格確認済み組合せ: 117/178。
+  - 必須ケース: 4/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 274/315。
+  - 3因子の合格確認済み組合せ: 115/154。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=25, fail=1, known=0, unsupported=8, stale=0, not_run=0。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 118/165。
+  - 3因子の合格確認済み組合せ: 38/72。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 88/88。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 161/161。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 246/246。
+  - 3因子の合格確認済み組合せ: 111/111。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 242/242。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 159/159。
+  - 3因子の合格確認済み組合せ: 128/128。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 141/141。
+  - 3因子の合格確認済み組合せ: 129/129。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=63, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 158/158。
+  - 3因子の合格確認済み組合せ: 141/141。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 248/248。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/cross46-kirimasim-4b58e29f.json
+
+- 環境: kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334。
+- 実行日時: 2026-10-31T14:24:58.443119+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 3因子の合格確認済み組合せ: 51/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 185/185。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 144/144。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 204/204。
+  - 3因子の合格確認済み組合せ: 56/56。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 285/285。
+  - 3因子の合格確認済み組合せ: 108/108。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 302/302。
+  - 3因子の合格確認済み組合せ: 174/174。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 261/261。
+  - 3因子の合格確認済み組合せ: 162/162。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 253/253。
+  - 3因子の合格確認済み組合せ: 106/106。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 258/258。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 257/257。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- division_context:
+  - 2因子の合格確認済み組合せ: 283/283。
+  - 3因子の合格確認済み組合せ: 98/98。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 219/219。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 265/265。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 218/218。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 236/236。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 260/260。
+  - 3因子の合格確認済み組合せ: 152/152。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 3因子の合格確認済み組合せ: 59/59。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 308/308。
+  - 3因子の合格確認済み組合せ: 90/90。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 208/305。
+  - 3因子の合格確認済み組合せ: 84/174。
+  - 必須ケース: 1/5。
+  - ケース状態: pass=19, fail=1, known=0, unsupported=26, stale=0, not_run=0。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 252/303。
+  - 3因子の合格確認済み組合せ: 117/178。
+  - 必須ケース: 4/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 274/315。
+  - 3因子の合格確認済み組合せ: 115/154。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=25, fail=1, known=0, unsupported=8, stale=0, not_run=0。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 118/165。
+  - 3因子の合格確認済み組合せ: 38/72。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 88/88。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 161/161。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 246/246。
+  - 3因子の合格確認済み組合せ: 111/111。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 242/242。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 159/159。
+  - 3因子の合格確認済み組合せ: 128/128。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 141/141。
+  - 3因子の合格確認済み組合せ: 129/129。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=63, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 158/158。
+  - 3因子の合格確認済み組合せ: 141/141。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 248/248。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 38/38。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/cross47-kirimasim-4b58e29f.json
+
+- 環境: kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334。
+- 実行日時: 2026-10-31T14:49:12.310850+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 3因子の合格確認済み組合せ: 51/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 185/185。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 144/144。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 204/204。
+  - 3因子の合格確認済み組合せ: 56/56。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 285/285。
+  - 3因子の合格確認済み組合せ: 108/108。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 302/302。
+  - 3因子の合格確認済み組合せ: 174/174。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 261/261。
+  - 3因子の合格確認済み組合せ: 162/162。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 253/253。
+  - 3因子の合格確認済み組合せ: 106/106。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 258/258。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 257/257。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- division_context:
+  - 2因子の合格確認済み組合せ: 283/283。
+  - 3因子の合格確認済み組合せ: 98/98。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 219/219。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 265/265。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 218/218。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 236/236。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 260/260。
+  - 3因子の合格確認済み組合せ: 152/152。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 3因子の合格確認済み組合せ: 59/59。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 308/308。
+  - 3因子の合格確認済み組合せ: 90/90。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 208/305。
+  - 3因子の合格確認済み組合せ: 84/174。
+  - 必須ケース: 1/5。
+  - ケース状態: pass=19, fail=1, known=0, unsupported=26, stale=0, not_run=0。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 252/303。
+  - 3因子の合格確認済み組合せ: 117/178。
+  - 必須ケース: 4/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 274/315。
+  - 3因子の合格確認済み組合せ: 115/154。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=25, fail=1, known=0, unsupported=8, stale=0, not_run=0。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 118/165。
+  - 3因子の合格確認済み組合せ: 38/72。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 88/88。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 161/161。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 246/246。
+  - 3因子の合格確認済み組合せ: 111/111。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 242/242。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 159/159。
+  - 3因子の合格確認済み組合せ: 128/128。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 141/141。
+  - 3因子の合格確認済み組合せ: 129/129。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=63, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 158/158。
+  - 3因子の合格確認済み組合せ: 141/141。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 248/248。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 38/38。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 156/156。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/cross48-kirimasim-4b58e29f.json
+
+- 環境: kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334。
+- 実行日時: 2026-10-31T15:13:37.275043+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 3因子の合格確認済み組合せ: 51/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 185/185。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 144/144。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 204/204。
+  - 3因子の合格確認済み組合せ: 56/56。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 285/285。
+  - 3因子の合格確認済み組合せ: 108/108。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 302/302。
+  - 3因子の合格確認済み組合せ: 174/174。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 261/261。
+  - 3因子の合格確認済み組合せ: 162/162。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 253/253。
+  - 3因子の合格確認済み組合せ: 106/106。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 258/258。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 257/257。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- division_context:
+  - 2因子の合格確認済み組合せ: 283/283。
+  - 3因子の合格確認済み組合せ: 98/98。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 219/219。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 265/265。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 218/218。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 236/236。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 260/260。
+  - 3因子の合格確認済み組合せ: 152/152。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 3因子の合格確認済み組合せ: 59/59。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 308/308。
+  - 3因子の合格確認済み組合せ: 90/90。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 208/305。
+  - 3因子の合格確認済み組合せ: 84/174。
+  - 必須ケース: 1/5。
+  - ケース状態: pass=19, fail=1, known=0, unsupported=26, stale=0, not_run=0。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 252/303。
+  - 3因子の合格確認済み組合せ: 117/178。
+  - 必須ケース: 4/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 274/315。
+  - 3因子の合格確認済み組合せ: 115/154。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=25, fail=1, known=0, unsupported=8, stale=0, not_run=0。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 118/165。
+  - 3因子の合格確認済み組合せ: 38/72。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 88/88。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 161/161。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 246/246。
+  - 3因子の合格確認済み組合せ: 111/111。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 242/242。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 159/159。
+  - 3因子の合格確認済み組合せ: 128/128。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 141/141。
+  - 3因子の合格確認済み組合せ: 129/129。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=63, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 158/158。
+  - 3因子の合格確認済み組合せ: 141/141。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 248/248。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 38/38。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 156/156。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 74/74。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/cross49-kirimasim-4b58e29f.json
+
+- 環境: kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334。
+- 実行日時: 2026-10-31T15:59:46.477895+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 3因子の合格確認済み組合せ: 51/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 185/185。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 144/144。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 204/204。
+  - 3因子の合格確認済み組合せ: 56/56。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 285/285。
+  - 3因子の合格確認済み組合せ: 108/108。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 302/302。
+  - 3因子の合格確認済み組合せ: 174/174。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 261/261。
+  - 3因子の合格確認済み組合せ: 162/162。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 253/253。
+  - 3因子の合格確認済み組合せ: 106/106。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 258/258。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 257/257。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- division_context:
+  - 2因子の合格確認済み組合せ: 283/283。
+  - 3因子の合格確認済み組合せ: 98/98。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 219/219。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 265/265。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 218/218。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 236/236。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 260/260。
+  - 3因子の合格確認済み組合せ: 152/152。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 3因子の合格確認済み組合せ: 59/59。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 308/308。
+  - 3因子の合格確認済み組合せ: 90/90。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 208/305。
+  - 3因子の合格確認済み組合せ: 84/174。
+  - 必須ケース: 1/5。
+  - ケース状態: pass=19, fail=1, known=0, unsupported=26, stale=0, not_run=0。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 252/303。
+  - 3因子の合格確認済み組合せ: 117/178。
+  - 必須ケース: 4/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 274/315。
+  - 3因子の合格確認済み組合せ: 115/154。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=25, fail=1, known=0, unsupported=8, stale=0, not_run=0。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 118/165。
+  - 3因子の合格確認済み組合せ: 38/72。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 88/88。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 161/161。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 246/246。
+  - 3因子の合格確認済み組合せ: 111/111。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 242/242。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 159/159。
+  - 3因子の合格確認済み組合せ: 128/128。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 141/141。
+  - 3因子の合格確認済み組合せ: 129/129。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=63, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 158/158。
+  - 3因子の合格確認済み組合せ: 141/141。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 248/248。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 38/38。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 156/156。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 74/74。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 84/84。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/cross50-kirimasim-4b58e29f.json
+
+- 環境: kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334。
+- 実行日時: 2026-10-31T16:36:35.721145+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 3因子の合格確認済み組合せ: 51/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 185/185。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 144/144。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 204/204。
+  - 3因子の合格確認済み組合せ: 56/56。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 285/285。
+  - 3因子の合格確認済み組合せ: 108/108。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 302/302。
+  - 3因子の合格確認済み組合せ: 174/174。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 261/261。
+  - 3因子の合格確認済み組合せ: 162/162。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 253/253。
+  - 3因子の合格確認済み組合せ: 106/106。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 258/258。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 257/257。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- division_context:
+  - 2因子の合格確認済み組合せ: 283/283。
+  - 3因子の合格確認済み組合せ: 98/98。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 219/219。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 265/265。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 218/218。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 236/236。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 260/260。
+  - 3因子の合格確認済み組合せ: 152/152。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 3因子の合格確認済み組合せ: 59/59。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 308/308。
+  - 3因子の合格確認済み組合せ: 90/90。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 208/305。
+  - 3因子の合格確認済み組合せ: 84/174。
+  - 必須ケース: 1/5。
+  - ケース状態: pass=19, fail=1, known=0, unsupported=26, stale=0, not_run=0。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 252/303。
+  - 3因子の合格確認済み組合せ: 117/178。
+  - 必須ケース: 4/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 274/315。
+  - 3因子の合格確認済み組合せ: 115/154。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=25, fail=1, known=0, unsupported=8, stale=0, not_run=0。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 118/165。
+  - 3因子の合格確認済み組合せ: 38/72。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 88/88。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 161/161。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 246/246。
+  - 3因子の合格確認済み組合せ: 111/111。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 242/242。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 159/159。
+  - 3因子の合格確認済み組合せ: 128/128。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 141/141。
+  - 3因子の合格確認済み組合せ: 129/129。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=63, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 158/158。
+  - 3因子の合格確認済み組合せ: 141/141。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 248/248。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 38/38。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 156/156。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 74/74。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 84/84。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 207/213。
+  - 3因子の合格確認済み組合せ: 72/80。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=37, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/cross51-kirimasim-4b58e29f.json
+
+- 環境: kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334。
+- 実行日時: 2026-10-31T16:56:21.864194+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 3因子の合格確認済み組合せ: 51/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 185/185。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 144/144。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 204/204。
+  - 3因子の合格確認済み組合せ: 56/56。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 285/285。
+  - 3因子の合格確認済み組合せ: 108/108。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 302/302。
+  - 3因子の合格確認済み組合せ: 174/174。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 261/261。
+  - 3因子の合格確認済み組合せ: 162/162。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 253/253。
+  - 3因子の合格確認済み組合せ: 106/106。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 258/258。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 257/257。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- division_context:
+  - 2因子の合格確認済み組合せ: 283/283。
+  - 3因子の合格確認済み組合せ: 98/98。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 219/219。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 265/265。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 218/218。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 236/236。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 260/260。
+  - 3因子の合格確認済み組合せ: 152/152。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 3因子の合格確認済み組合せ: 59/59。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 308/308。
+  - 3因子の合格確認済み組合せ: 90/90。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 208/305。
+  - 3因子の合格確認済み組合せ: 84/174。
+  - 必須ケース: 1/5。
+  - ケース状態: pass=19, fail=1, known=0, unsupported=26, stale=0, not_run=0。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 252/303。
+  - 3因子の合格確認済み組合せ: 117/178。
+  - 必須ケース: 4/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 274/315。
+  - 3因子の合格確認済み組合せ: 115/154。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=25, fail=1, known=0, unsupported=8, stale=0, not_run=0。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 118/165。
+  - 3因子の合格確認済み組合せ: 38/72。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 88/88。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 161/161。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 246/246。
+  - 3因子の合格確認済み組合せ: 111/111。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 242/242。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 159/159。
+  - 3因子の合格確認済み組合せ: 128/128。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 141/141。
+  - 3因子の合格確認済み組合せ: 129/129。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=63, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 158/158。
+  - 3因子の合格確認済み組合せ: 141/141。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 248/248。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 38/38。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 156/156。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 74/74。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 84/84。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 207/213。
+  - 3因子の合格確認済み組合せ: 72/80。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=37, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 80/80。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=25, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 
 ### coverage/interaction-results/default-20261031-icarus13.json
 
@@ -21626,6 +27559,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/default-20261031-verilator5.052-seed1.json
 
@@ -21851,6 +27819,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/default-20261031-verilator5.052-seed73.json
 
@@ -22076,6 +28079,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/delay-20261031-icarus13.json
 
@@ -22301,6 +28339,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/delay-20261031-verilator5.052-seed1.json
 
@@ -22526,6 +28599,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/delay-20261031-verilator5.052-seed73.json
 
@@ -22751,6 +28859,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/event-or-iff-20261031-icarus13.json
 
@@ -22976,6 +29119,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/event-or-iff-20261031-verilator5.052-seed1.json
 
@@ -23201,6 +29379,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/event-or-iff-20261031-verilator5.052-seed73.json
 
@@ -23426,6 +29639,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/event-task-20261031-icarus13.json
 
@@ -23651,6 +29899,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/event-task-20261031-verilator5.052-seed1.json
 
@@ -23876,6 +30159,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/event-task-20261031-verilator5.052-seed73.json
 
@@ -24101,6 +30419,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/generate-20261031-icarus13.json
 
@@ -24326,6 +30679,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/generate-20261031-verilator5.052-seed1.json
 
@@ -24551,6 +30939,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/generate-20261031-verilator5.052-seed73.json
 
@@ -24776,6 +31199,821 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/ifgenerate-20261101-icarus13.json
+
+- 環境: Icarus Verilog version 13.0 (stable) (v13_0-dirty)。
+- 実行日時: 2026-10-31T15:12:55.040589+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=24, unsupported=0, stale=12, not_run=0。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/ifgenerate-20261101-verilator5.052-seed1.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-10-31T15:13:54.665421+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=12, not_run=24。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/ifgenerate-20261101-verilator5.052-seed73.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-10-31T15:13:54.674624+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=12, not_run=24。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/import-20261031-icarus13.json
 
@@ -25001,6 +32239,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 139/141。
   - 必須ケース: 5/6。
   - ケース状態: pass=38, fail=0, known=1, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/import-20261031-verilator5.052-seed1.json
 
@@ -25226,6 +32499,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=13, unsupported=0, stale=0, not_run=26。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/import-20261031-verilator5.052-seed73.json
 
@@ -25451,6 +32759,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=13, unsupported=0, stale=0, not_run=26。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/loop-nba-20261031-icarus13.json
 
@@ -25676,6 +33019,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/loop-nba-20261031-verilator5.052-seed1.json
 
@@ -25901,6 +33279,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/loop-nba-20261031-verilator5.052-seed73.json
 
@@ -26126,6 +33539,1081 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/memfile-20261031-icarus13.json
+
+- 環境: Icarus Verilog version 13.0 (stable) (v13_0-dirty)。
+- 実行日時: 2026-10-31T13:48:55.086233+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 246/248。
+  - 3因子の合格確認済み組合せ: 81/82。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=35, fail=0, known=1, unsupported=0, stale=0, not_run=0。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/memfile-20261031-verilator5.052-seed1.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-10-31T13:49:44.338694+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 147/248。
+  - 3因子の合格確認済み組合せ: 28/82。
+  - 必須ケース: 2/6。
+  - ケース状態: pass=11, fail=0, known=1, unsupported=0, stale=0, not_run=24。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/memfile-20261031-verilator5.052-seed73.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-10-31T13:49:44.340773+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 147/248。
+  - 3因子の合格確認済み組合せ: 28/82。
+  - 必須ケース: 2/6。
+  - ケース状態: pass=11, fail=0, known=1, unsupported=0, stale=0, not_run=24。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/nettype-20261031-icarus13.json
+
+- 環境: Icarus Verilog version 13.0 (stable) (v13_0-dirty)。
+- 実行日時: 2026-10-31T14:49:12.783716+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 90/156。
+  - 3因子の合格確認済み組合せ: 28/72。
+  - 必須ケース: 2/6。
+  - ケース状態: pass=14, fail=0, known=26, unsupported=0, stale=0, not_run=0。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/process-20261031-icarus13.json
 
@@ -26351,6 +34839,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/process-20261031-verilator5.052-seed1.json
 
@@ -26576,6 +35099,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/process-20261031-verilator5.052-seed73.json
 
@@ -26801,6 +35359,821 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/program-20261031-icarus13.json
+
+- 環境: Icarus Verilog version 13.0 (stable) (v13_0-dirty)。
+- 実行日時: 2026-10-31T14:24:34.286830+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/program-20261031-verilator5.052-seed1.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-10-31T14:24:34.553270+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/program-20261031-verilator5.052-seed73.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-10-31T14:24:34.553272+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/queue-ref-20261031-icarus13.json
 
@@ -27026,6 +36399,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/queue-ref-20261031-verilator5.052-seed1.json
 
@@ -27251,6 +36659,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/queue-ref-20261031-verilator5.052-seed73.json
 
@@ -27476,6 +36919,821 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/reactive-20261101-icarus13.json
+
+- 環境: Icarus Verilog version 13.0 (stable) (v13_0-dirty)。
+- 実行日時: 2026-10-31T15:54:29.068938+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/reactive-20261101-verilator5.052-seed1.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-10-31T15:54:59.675080+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=12, unsupported=0, stale=0, not_run=24。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/reactive-20261101-verilator5.052-seed73.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-10-31T15:54:59.675083+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=12, unsupported=0, stale=0, not_run=24。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/return-20261031-icarus13.json
 
@@ -27701,6 +37959,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/return-20261031-verilator5.052-seed1.json
 
@@ -27926,6 +38219,41 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
 
 ### coverage/interaction-results/return-20261031-verilator5.052-seed73.json
 
@@ -28151,3 +38479,298 @@ passだけを合格の証跡とし、known・unsupported・staleを合格へ含�
   - 3因子の合格確認済み組合せ: 0/141。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+
+### coverage/interaction-results/udp-20261101-icarus13.json
+
+- 環境: Icarus Verilog version 13.0 (stable) (v13_0-dirty)。
+- 実行日時: 2026-10-31T16:55:57.934921+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 21/182。
+  - 3因子の合格確認済み組合せ: 4/80。
+  - 必須ケース: 1/6。
+  - ケース状態: pass=1, fail=0, known=24, unsupported=0, stale=0, not_run=0。

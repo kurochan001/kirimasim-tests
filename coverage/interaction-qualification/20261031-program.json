@@ -1,0 +1,684 @@
+{
+  "schema": 1,
+  "purpose": "program_descendant_shutdown fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 4b58e29f8c94), built with AppleClang 21.0.0.21000334",
+  "commit": "4b58e29f8c94b6284bf51e0dbda7a148cb20750e",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "e86cfb0bca4f1a8e9fd7e3c0daa0981b1c1c5c070c13dfd80e069bfc273aa9dd",
+  "scope": "four mandatory controls: natural/all-initial completion, direct/task exit, delay/event/level liveness, grandchildren, join modes and independent keepers",
+  "generator_sha256": "38f24ec2ec5f51f9bc9746aa2acecd52f273661f8f369398ee12b3ee0fc9b44c",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_program_natural_one_delay_flat_waiting_none_one",
+      "values": {
+        "finish": "natural",
+        "initials": "one",
+        "waiting": "delay",
+        "topology": "flat",
+        "progress": "waiting",
+        "spawn": "none",
+        "keepers": "one"
+      },
+      "source_sha256": "0e2b27450f2a4289ec74adb8327fb367d4d9bd36d005e9060cda4842d68eb7cd",
+      "expected_sha256": "2922e69c03cecb376c120aa6dc87a7c492e12908615280eb9af82b3681bf5b7e",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_program_natural_two_event_nested_partial_any_two",
+      "values": {
+        "finish": "natural",
+        "initials": "two",
+        "waiting": "event",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "any",
+        "keepers": "two"
+      },
+      "source_sha256": "0eed0a97e2fd389d37c318f2d8af8e13d770da66cb58915fcfcdc8e231f482cf",
+      "expected_sha256": "14c0825f9fe13b7aaae55dd0d860d3d66e0e3413362987bf1b6f787a25b62126",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_program_exit_two_level_nested_partial_none_two",
+      "values": {
+        "finish": "exit",
+        "initials": "two",
+        "waiting": "level",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "none",
+        "keepers": "two"
+      },
+      "source_sha256": "da12ec22de59a419c288cfb3b7e88974c3b465308123cf2a8f0899e1300001dc",
+      "expected_sha256": "a8be9813774adfbadfdce2567e46f801c14b8bf4ad4c6eec56f787c8d9ad4fde",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_program_task_two_delay_flat_partial_any_one",
+      "values": {
+        "finish": "task",
+        "initials": "two",
+        "waiting": "delay",
+        "topology": "flat",
+        "progress": "partial",
+        "spawn": "any",
+        "keepers": "one"
+      },
+      "source_sha256": "0b9ac03ba170ecba7064b664174513842952c2117a0377b976510ab17ddba935",
+      "expected_sha256": "91c484214c6edcd19f3c839a2aac0355baf597ff05583f8c6999eaf0bce6894e",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "lose_worker_entry",
+      "case": "test_gen_cross_program_natural_one_delay_flat_waiting_none_one",
+      "values": {
+        "finish": "natural",
+        "initials": "one",
+        "waiting": "delay",
+        "topology": "flat",
+        "progress": "waiting",
+        "spawn": "none",
+        "keepers": "one"
+      },
+      "source_sha256": "86bd784cb22e69c067760b136134757bd2528d28eba8289c2c76690a5b304358",
+      "expected_sha256": "2922e69c03cecb376c120aa6dc87a7c492e12908615280eb9af82b3681bf5b7e",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=0 prepared=0 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=0 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "entered++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "delay_worker_survives_before_shutdown",
+      "case": "test_gen_cross_program_natural_one_delay_flat_waiting_none_one",
+      "values": {
+        "finish": "natural",
+        "initials": "one",
+        "waiting": "delay",
+        "topology": "flat",
+        "progress": "waiting",
+        "spawn": "none",
+        "keepers": "one"
+      },
+      "source_sha256": "229a7530431e5cbbc50fbca7879dde7db36dcb37993955ece5e2d9cc639a0599",
+      "expected_sha256": "2922e69c03cecb376c120aa6dc87a7c492e12908615280eb9af82b3681bf5b7e",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=0 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=0 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#7;",
+        "after": "#2;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "join_none_blocks_until_all_children_end",
+      "case": "test_gen_cross_program_natural_one_delay_flat_waiting_none_one",
+      "values": {
+        "finish": "natural",
+        "initials": "one",
+        "waiting": "delay",
+        "topology": "flat",
+        "progress": "waiting",
+        "spawn": "none",
+        "keepers": "one"
+      },
+      "source_sha256": "378021a4ffbfb538c2fb0bf10731c1c6076e64784bb6a6b9ad7d706dd4b3e6ed",
+      "expected_sha256": "2922e69c03cecb376c120aa6dc87a7c492e12908615280eb9af82b3681bf5b7e",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=0 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=0 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "join_none",
+        "after": "join",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "first_keeper_ends_early",
+      "case": "test_gen_cross_program_natural_one_delay_flat_waiting_none_one",
+      "values": {
+        "finish": "natural",
+        "initials": "one",
+        "waiting": "delay",
+        "topology": "flat",
+        "progress": "waiting",
+        "spawn": "none",
+        "keepers": "one"
+      },
+      "source_sha256": "549925006bd70d25d66e039629627ff467d1cc0f156e23ec4a35255f73c572b6",
+      "expected_sha256": "2922e69c03cecb376c120aa6dc87a7c492e12908615280eb9af82b3681bf5b7e",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'final t=10 entered=1 prepared=0 short_done=1 parent_done=...', expected 'final t=12 entered=1 prepared=0 short_done=1 parent_done=...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#12 keeper_a = 1;",
+        "after": "#10 keeper_a = 1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_primary_completion",
+      "case": "test_gen_cross_program_natural_one_delay_flat_waiting_none_one",
+      "values": {
+        "finish": "natural",
+        "initials": "one",
+        "waiting": "delay",
+        "topology": "flat",
+        "progress": "waiting",
+        "spawn": "none",
+        "keepers": "one"
+      },
+      "source_sha256": "ee4f6a41fc937e9c8d07dd6d3b5a712a012baaa3070203550087078c51526ca4",
+      "expected_sha256": "2922e69c03cecb376c120aa6dc87a7c492e12908615280eb9af82b3681bf5b7e",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=0 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=0 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "primary_done = 1;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "natural_cancels_before_last_initial",
+      "case": "test_gen_cross_program_natural_two_event_nested_partial_any_two",
+      "values": {
+        "finish": "natural",
+        "initials": "two",
+        "waiting": "event",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "any",
+        "keepers": "two"
+      },
+      "source_sha256": "1eb5208a527621e122ed3009596514846cfcf286019cd1c7f0c517c41d688b9b",
+      "expected_sha256": "14c0825f9fe13b7aaae55dd0d860d3d66e0e3413362987bf1b6f787a25b62126",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#6 secondary_done++",
+        "after": "#3 secondary_done++",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "natural_keeps_children_alive_too_long",
+      "case": "test_gen_cross_program_natural_two_event_nested_partial_any_two",
+      "values": {
+        "finish": "natural",
+        "initials": "two",
+        "waiting": "event",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "any",
+        "keepers": "two"
+      },
+      "source_sha256": "7975b343d6fdcf6f223df8d8842399aec9b5a284384e1129262d1aacb46670dd",
+      "expected_sha256": "14c0825f9fe13b7aaae55dd0d860d3d66e0e3413362987bf1b6f787a25b62126",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#6 secondary_done++",
+        "after": "#10 secondary_done++",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_partial_progress",
+      "case": "test_gen_cross_program_natural_two_event_nested_partial_any_two",
+      "values": {
+        "finish": "natural",
+        "initials": "two",
+        "waiting": "event",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "any",
+        "keepers": "two"
+      },
+      "source_sha256": "a148a780a4bedd7de1d05ce72deaecb9bb90c0df8d8378f6c394a1f6fcd04b9d",
+      "expected_sha256": "14c0825f9fe13b7aaae55dd0d860d3d66e0e3413362987bf1b6f787a25b62126",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=0 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#1 prepared++;",
+        "after": "#1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_pretermination_checkpoint",
+      "case": "test_gen_cross_program_natural_two_event_nested_partial_any_two",
+      "values": {
+        "finish": "natural",
+        "initials": "two",
+        "waiting": "event",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "any",
+        "keepers": "two"
+      },
+      "source_sha256": "d68935c9252deccb6bea10417e03e044dbeb4a0fb84ad85f246c5b47b53f8c6e",
+      "expected_sha256": "14c0825f9fe13b7aaae55dd0d860d3d66e0e3413362987bf1b6f787a25b62126",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#5 checkpoint++;",
+        "after": "#7 checkpoint++;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "event_worker_survives_before_shutdown",
+      "case": "test_gen_cross_program_natural_two_event_nested_partial_any_two",
+      "values": {
+        "finish": "natural",
+        "initials": "two",
+        "waiting": "event",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "any",
+        "keepers": "two"
+      },
+      "source_sha256": "c4ce6e1a5562b1fbc56076bda7bef38cfe1a276619ab138cbb068f7dbc80779b",
+      "expected_sha256": "14c0825f9fe13b7aaae55dd0d860d3d66e0e3413362987bf1b6f787a25b62126",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#8 released = 1;",
+        "after": "#3 released = 1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "event_never_releases_live_counterpart",
+      "case": "test_gen_cross_program_natural_two_event_nested_partial_any_two",
+      "values": {
+        "finish": "natural",
+        "initials": "two",
+        "waiting": "event",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "any",
+        "keepers": "two"
+      },
+      "source_sha256": "71ea0af2d60dba0be0b3e19b070d71a175687a099bb775614adad3c644e7a49d",
+      "expected_sha256": "14c0825f9fe13b7aaae55dd0d860d3d66e0e3413362987bf1b6f787a25b62126",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "-> release_event;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_intermediate_parent_completion",
+      "case": "test_gen_cross_program_natural_two_event_nested_partial_any_two",
+      "values": {
+        "finish": "natural",
+        "initials": "two",
+        "waiting": "event",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "any",
+        "keepers": "two"
+      },
+      "source_sha256": "77a0afdbf0588052036de28438cc4a9d55a1bf4c240d5217f26d8e890791e568",
+      "expected_sha256": "14c0825f9fe13b7aaae55dd0d860d3d66e0e3413362987bf1b6f787a25b62126",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#2 parent_done++;",
+        "after": "#7 parent_done++;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "direct_exit_returns",
+      "case": "test_gen_cross_program_exit_two_level_nested_partial_none_two",
+      "values": {
+        "finish": "exit",
+        "initials": "two",
+        "waiting": "level",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "none",
+        "keepers": "two"
+      },
+      "source_sha256": "62cf3e0eae022284cefe7a7e6d767d65fe9fc76db9f252a8382d2d8fffdcf572",
+      "expected_sha256": "a8be9813774adfbadfdce2567e46f801c14b8bf4ad4c6eec56f787c8d9ad4fde",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "$exit;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "level_worker_survives_before_shutdown",
+      "case": "test_gen_cross_program_exit_two_level_nested_partial_none_two",
+      "values": {
+        "finish": "exit",
+        "initials": "two",
+        "waiting": "level",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "none",
+        "keepers": "two"
+      },
+      "source_sha256": "c95d4c71a26137cc114191c7644696c4c8e49f906038fece7c87d7916348c257",
+      "expected_sha256": "a8be9813774adfbadfdce2567e46f801c14b8bf4ad4c6eec56f787c8d9ad4fde",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#8 released = 1;",
+        "after": "#3 released = 1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "second_keeper_ends_early",
+      "case": "test_gen_cross_program_exit_two_level_nested_partial_none_two",
+      "values": {
+        "finish": "exit",
+        "initials": "two",
+        "waiting": "level",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "none",
+        "keepers": "two"
+      },
+      "source_sha256": "5aaa8687d212e6c4189971af753f7ccaa151b04f686bdfc4ac4f7fb0175938a7",
+      "expected_sha256": "a8be9813774adfbadfdce2567e46f801c14b8bf4ad4c6eec56f787c8d9ad4fde",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'final t=12 entered=1 prepared=1 short_done=1 parent_done=...', expected 'between t=13 entered=1 prepared=1 short_done=1 parent_don...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#15 keeper_b = 1;",
+        "after": "#11 keeper_b = 1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "second_keeper_ends_late",
+      "case": "test_gen_cross_program_exit_two_level_nested_partial_none_two",
+      "values": {
+        "finish": "exit",
+        "initials": "two",
+        "waiting": "level",
+        "topology": "nested",
+        "progress": "partial",
+        "spawn": "none",
+        "keepers": "two"
+      },
+      "source_sha256": "959a182cf70866fac718ca4a00662fbe492fd27964530b6f9c1c9688e1698692",
+      "expected_sha256": "a8be9813774adfbadfdce2567e46f801c14b8bf4ad4c6eec56f787c8d9ad4fde",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'final t=17 entered=1 prepared=1 short_done=1 parent_done=...', expected 'final t=15 entered=1 prepared=1 short_done=1 parent_done=...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "#15 keeper_b = 1;",
+        "after": "#17 keeper_b = 1;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "task_exit_returns",
+      "case": "test_gen_cross_program_task_two_delay_flat_partial_any_one",
+      "values": {
+        "finish": "task",
+        "initials": "two",
+        "waiting": "delay",
+        "topology": "flat",
+        "progress": "partial",
+        "spawn": "any",
+        "keepers": "one"
+      },
+      "source_sha256": "04297fd407a04f5c449d14944429bd321bf36987ff3d1d1677e71e585120bbc6",
+      "expected_sha256": "91c484214c6edcd19f3c839a2aac0355baf597ff05583f8c6999eaf0bce6894e",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "$exit;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_join_any_resume_time",
+      "case": "test_gen_cross_program_task_two_delay_flat_partial_any_one",
+      "values": {
+        "finish": "task",
+        "initials": "two",
+        "waiting": "delay",
+        "topology": "flat",
+        "progress": "partial",
+        "spawn": "any",
+        "keepers": "one"
+      },
+      "source_sha256": "2d2a2bde01a3c012bb56de58799b28b1abff8d55804aeaaabcbea617c07f89b6",
+      "expected_sha256": "91c484214c6edcd19f3c839a2aac0355baf597ff05583f8c6999eaf0bce6894e",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "resumed = $time;",
+        "after": "resumed = 0;",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "fixed_icarus_diagnostics": {
+    "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+    "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+    "temporary_paths_redacted": true,
+    "scope": "Four mandatory controls only; fixed-engine mismatches, outside kirimasim fault controls.",
+    "records": [
+      {
+        "test": "tests/gen/ch24/test_gen_cross_program_natural_one_delay_flat_waiting_none_one.sv",
+        "inputs_sha256": "c275b9ff3c54b543851f7b864c30faa95e537a519c428535d42b587b87998cb8",
+        "matched": false,
+        "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=0 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=0 short_done=1 parent_done...'",
+        "native_runs": [
+          {
+            "program": "iverilog",
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "tests/gen/ch24/test_gen_cross_program_natural_one_delay_flat_waiting_none_one.sv:60: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_natural_one_delay_flat_waiting_none_one.sv:62: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_natural_one_delay_flat_waiting_none_one.sv:52: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_natural_one_delay_flat_waiting_none_one.sv:54: warning: Program blocking assignments are not currently scheduled in the Reactive region.\n"
+          },
+          {
+            "program": "vvp",
+            "returncode": 0,
+            "stdout": "observe t=9 entered=1 prepared=0 short_done=1 parent_done=0 resumed=0 primary_done=1 secondary_done=0 checkpoint=1 escaped=1 probe_escape=1 task_returned=0 caller_returned=0 released=1 survivor=1 keeper_a=0 keeper_b=0\nmodule sentinel survived\nfinal t=20 entered=1 prepared=0 short_done=1 parent_done=0 resumed=0 primary_done=1 secondary_done=0 checkpoint=1 escaped=1 probe_escape=1 task_returned=0 caller_returned=0 released=1 survivor=1 keeper_a=1 keeper_b=0\n",
+            "stderr": ""
+          },
+          {
+            "program": "python3.14",
+            "returncode": 0,
+            "stdout": "observe t=9 entered=1 prepared=0 short_done=1 parent_done=0 resumed=0 primary_done=1 secondary_done=0 checkpoint=1 escaped=1 probe_escape=1 task_returned=0 caller_returned=0 released=1 survivor=1 keeper_a=0 keeper_b=0\nmodule sentinel survived\nfinal t=20 entered=1 prepared=0 short_done=1 parent_done=0 resumed=0 primary_done=1 secondary_done=0 checkpoint=1 escaped=1 probe_escape=1 task_returned=0 caller_returned=0 released=1 survivor=1 keeper_a=1 keeper_b=0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      {
+        "test": "tests/gen/ch24/test_gen_cross_program_natural_two_event_nested_partial_any_two.sv",
+        "inputs_sha256": "ba9233f1606eab14d6c08274258ceb57114c7b10de9458552c9bf54ea2c621c9",
+        "matched": false,
+        "reason": "output differs: line 1 is 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+        "native_runs": [
+          {
+            "program": "iverilog",
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "tests/gen/ch24/test_gen_cross_program_natural_two_event_nested_partial_any_two.sv:67: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_natural_two_event_nested_partial_any_two.sv:69: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_natural_two_event_nested_partial_any_two.sv:72: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_natural_two_event_nested_partial_any_two.sv:58: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_natural_two_event_nested_partial_any_two.sv:60: warning: Program blocking assignments are not currently scheduled in the Reactive region.\n"
+          },
+          {
+            "program": "vvp",
+            "returncode": 0,
+            "stdout": "observe t=9 entered=1 prepared=1 short_done=1 parent_done=1 resumed=1 primary_done=1 secondary_done=1 checkpoint=1 escaped=1 probe_escape=1 task_returned=0 caller_returned=0 released=1 survivor=1 keeper_a=0 keeper_b=0\nbetween t=13 entered=1 prepared=1 short_done=1 parent_done=1 resumed=1 primary_done=1 secondary_done=1 checkpoint=1 escaped=1 probe_escape=1 task_returned=0 caller_returned=0 released=1 survivor=1 keeper_a=1 keeper_b=0\nmodule sentinel survived\nfinal t=20 entered=1 prepared=1 short_done=1 parent_done=1 resumed=1 primary_done=1 secondary_done=1 checkpoint=1 escaped=1 probe_escape=1 task_returned=0 caller_returned=0 released=1 survivor=1 keeper_a=1 keeper_b=1\n",
+            "stderr": ""
+          },
+          {
+            "program": "python3.14",
+            "returncode": 0,
+            "stdout": "observe t=9 entered=1 prepared=1 short_done=1 parent_done=1 resumed=1 primary_done=1 secondary_done=1 checkpoint=1 escaped=1 probe_escape=1 task_returned=0 caller_returned=0 released=1 survivor=1 keeper_a=0 keeper_b=0\nbetween t=13 entered=1 prepared=1 short_done=1 parent_done=1 resumed=1 primary_done=1 secondary_done=1 checkpoint=1 escaped=1 probe_escape=1 task_returned=0 caller_returned=0 released=1 survivor=1 keeper_a=1 keeper_b=0\nmodule sentinel survived\nfinal t=20 entered=1 prepared=1 short_done=1 parent_done=1 resumed=1 primary_done=1 secondary_done=1 checkpoint=1 escaped=1 probe_escape=1 task_returned=0 caller_returned=0 released=1 survivor=1 keeper_a=1 keeper_b=1\n",
+            "stderr": ""
+          }
+        ]
+      },
+      {
+        "test": "tests/gen/ch24/test_gen_cross_program_exit_two_level_nested_partial_none_two.sv",
+        "inputs_sha256": "1df91effe79900b64a11fd03306f931d67dc9979e708c74d694ddf61a532a164",
+        "matched": false,
+        "reason": "output differs: line 1 is '<temporary>', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+        "native_runs": [
+          {
+            "program": "iverilog",
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "tests/gen/ch24/test_gen_cross_program_exit_two_level_nested_partial_none_two.sv:69: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_exit_two_level_nested_partial_none_two.sv:71: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_exit_two_level_nested_partial_none_two.sv:74: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_exit_two_level_nested_partial_none_two.sv:58: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_exit_two_level_nested_partial_none_two.sv:60: warning: Program blocking assignments are not currently scheduled in the Reactive region.\n"
+          },
+          {
+            "program": "vvp",
+            "returncode": 1,
+            "stdout": "<temporary> Program not runnable, 1 errors.\n",
+            "stderr": "tests/gen/ch24/test_gen_cross_program_exit_two_level_nested_partial_none_two.sv:61: Error: System task/function $exit() is not defined by any module.\n"
+          },
+          {
+            "program": "python3.14",
+            "returncode": 0,
+            "stdout": "<temporary> Program not runnable, 1 errors.\n",
+            "stderr": ""
+          }
+        ]
+      },
+      {
+        "test": "tests/gen/ch24/test_gen_cross_program_task_two_delay_flat_partial_any_one.sv",
+        "inputs_sha256": "e7843ac3ed65a2b6ee29dc737a2883cb8e7f6b3f56fbe815ede94d9d64f6176a",
+        "matched": false,
+        "reason": "output differs: line 1 is '<temporary>', expected 'observe t=9 entered=1 prepared=1 short_done=1 parent_done...'",
+        "native_runs": [
+          {
+            "program": "iverilog",
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "tests/gen/ch24/test_gen_cross_program_task_two_delay_flat_partial_any_one.sv:68: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_task_two_delay_flat_partial_any_one.sv:70: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_task_two_delay_flat_partial_any_one.sv:57: warning: Program blocking assignments are not currently scheduled in the Reactive region.\ntests/gen/ch24/test_gen_cross_program_task_two_delay_flat_partial_any_one.sv:59: warning: Program blocking assignments are not currently scheduled in the Reactive region.\n"
+          },
+          {
+            "program": "vvp",
+            "returncode": 1,
+            "stdout": "<temporary> Program not runnable, 1 errors.\n",
+            "stderr": "tests/gen/ch24/test_gen_cross_program_task_two_delay_flat_partial_any_one.sv:40: Error: System task/function $exit() is not defined by any module.\n"
+          },
+          {
+            "program": "python3.14",
+            "returncode": 0,
+            "stdout": "<temporary> Program not runnable, 1 errors.\n",
+            "stderr": ""
+          }
+        ]
+      }
+    ]
+  },
+  "qualification_sha256": "1e14cfc59a9d8536fc8f882e80434523e09ce9604ae134a59004a56cca73d40d",
+  "binary_unchanged": true
+}

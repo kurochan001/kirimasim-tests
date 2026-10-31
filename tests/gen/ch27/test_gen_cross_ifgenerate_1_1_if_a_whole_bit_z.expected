@@ -1,0 +1,48 @@
+k0 lane=0 raw=1
+k0 lane=0 a=1 atag=11 b=1 btag=-1
+k0 lane=0 seen=1 sid=11 bits=1,1,1 branch=0
+k1 lane=0 raw=0
+k1 lane=0 a=0 atag=11 b=0 btag=-1
+k1 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
+k2 lane=0 raw=0
+k2 lane=0 a=0 atag=11 b=0 btag=-1
+k2 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
+k3 lane=0 raw=0
+k3 lane=0 a=0 atag=11 b=0 btag=-1
+k3 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
+k4 lane=0 raw=0
+k4 lane=0 a=0 atag=11 b=0 btag=-1
+k4 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
+k5 lane=0 raw=0
+k5 lane=0 a=0 atag=11 b=0 btag=-1
+k5 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
+k6 lane=0 raw=0
+k6 lane=0 a=0 atag=11 b=0 btag=-1
+k6 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
+k7 lane=0 raw=0
+k7 lane=0 a=0 atag=11 b=0 btag=-1
+k7 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
+k8 lane=0 raw=1
+k8 lane=0 a=1 atag=11 b=1 btag=-1
+k8 lane=0 seen=1 sid=11 bits=1,1,1 branch=0
+k9 lane=0 raw=0
+k9 lane=0 a=0 atag=11 b=0 btag=-1
+k9 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
+k10 lane=0 raw=0
+k10 lane=0 a=0 atag=11 b=1 btag=-1
+k10 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
+k11 lane=0 raw=0
+k11 lane=0 a=0 atag=11 b=0 btag=-1
+k11 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
+k12 lane=0 raw=1
+k12 lane=0 a=1 atag=11 b=0 btag=-1
+k12 lane=0 seen=1 sid=11 bits=1,1,1 branch=0
+u0 lane=0 raw=z
+u0 lane=0 a=0 atag=11 b=1 btag=-1
+u0 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
+u1 lane=0 raw=z
+u1 lane=0 a=0 atag=11 b=0 btag=-1
+u1 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
+u2 lane=0 raw=z
+u2 lane=0 a=0 atag=11 b=0 btag=-1
+u2 lane=0 seen=0 sid=11 bits=1,1,1 branch=0
