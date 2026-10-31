@@ -1,0 +1,174 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch7/test_gen_cross_qref_w129_b_t_l_clear_known": {
+   "status": "pass",
+   "inputs_sha256": "229a8e83240a320d20a7bb1777aa6b98c30bc2d312763ce5931829feae7f0e3f"
+  },
+  "gen/ch7/test_gen_cross_qref_w129_b_t_l_copy_known": {
+   "status": "pass",
+   "inputs_sha256": "21e8f3a104c1f76c08a8e91f4a92a327464aa3aa6b93942dab417851ec415361"
+  },
+  "gen/ch7/test_gen_cross_qref_w129_b_t_l_delete_other_known": {
+   "status": "known",
+   "reason": "output differs: line 15 is 'k0_after_first q1=000000000000000000000000000000000000000...', expected 'k0_after_first q1=111111111111111111111111111111111111111...'",
+   "inputs_sha256": "6dceb3ab66dc5cd38aaba5ed41480822a6c2f7363c9f5618dafcf6b431b97d7d"
+  },
+  "gen/ch7/test_gen_cross_qref_w129_b_t_l_insert_known": {
+   "status": "known",
+   "reason": "output differs: line 8 is 'k0_changed size=4', expected 'k0_changed size=3'",
+   "inputs_sha256": "723fa881d4847ff79d99bb019705d9b1913cec544ef91f1ba1412ba1f4280193"
+  },
+  "gen/ch7/test_gen_cross_qref_w129_b_u_f_push_back_known": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'k0_after_first q0=111111111111111111111111111111111111111...', expected 'k0_after_first q0=000000000000000000000000000000000000000...'",
+   "inputs_sha256": "10c57b60c9abac9fec174d1db040218b71044e3ab45d3fdf6c24914e0c188de6"
+  },
+  "gen/ch7/test_gen_cross_qref_w129_l_t_m_pop_front_known": {
+   "status": "known",
+   "reason": "output differs: line 14 is 'k0_after_first q0=000000000000000000000000000000000000000...', expected 'k0_after_first q0=111111111111111111111111111111111111111...'",
+   "inputs_sha256": "88229fcc0f8c38745f98d786ca87b4e528b3f387bbb2401ac623d7cbbafa29cb"
+  },
+  "gen/ch7/test_gen_cross_qref_w1_b_t_f_pop_back_known": {
+   "status": "pass",
+   "inputs_sha256": "75b92970563880b04d22bd53baa77fb842c9c0252ebe790d24124e05a0001948"
+  },
+  "gen/ch7/test_gen_cross_qref_w1_b_t_m_concat_known": {
+   "status": "known",
+   "reason": "no message matches '(?i:\\\\bwarn(?:ing)?\\\\b|%Warning-)'",
+   "inputs_sha256": "9e462da84424c927014b568f0d2289d882181b0914218fa39e92731b67679975"
+  },
+  "gen/ch7/test_gen_cross_qref_w1_b_t_m_push_back_known": {
+   "status": "known",
+   "reason": "no message matches '(?i:\\\\bwarn(?:ing)?\\\\b|%Warning-)'",
+   "inputs_sha256": "e5f4617fd077d7a55b218b6036d74871b1995aeed2754c31feef2773ec4f8db7"
+  },
+  "gen/ch7/test_gen_cross_qref_w1_b_u_l_delete_held_known": {
+   "status": "pass",
+   "inputs_sha256": "2445c122f95c9a28aeb684a2dd4344a09aaa194be17109c294714a971bf8a0c8"
+  },
+  "gen/ch7/test_gen_cross_qref_w1_b_u_m_push_front_known": {
+   "status": "pass",
+   "inputs_sha256": "48cdd1d5ea8d4da15e09268b0edac91905c52b7250c8aea09c1d74497ded37c8"
+  },
+  "gen/ch7/test_gen_cross_qref_w1_l_u_l_delete_other_known": {
+   "status": "pass",
+   "inputs_sha256": "5e961b47f1f3a4978cdc0054b7076e7681e341bbfc7cf64da0e2dafb5057dec4"
+  },
+  "gen/ch7/test_gen_cross_qref_w32_b_t_l_concat_known": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 'k0 input=11111111111111111111111111111111,000000000000000...'",
+   "inputs_sha256": "f855e955ba7e7294027addc040ae783e145b5f519e594df9ad4f52e25c9ded36"
+  },
+  "gen/ch7/test_gen_cross_qref_w32_b_t_l_pop_back_known": {
+   "status": "pass",
+   "inputs_sha256": "3eb3960f2e3da5c907249ab36a57f929fdeb1e1e8e6d11798bc0d5a3bb60c6be"
+  },
+  "gen/ch7/test_gen_cross_qref_w32_b_u_l_copy_known": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'k0_after_first q2=11111111111111111111111111111111', expected 'k0_after_first q2=00000000000000000000000000000000'",
+   "inputs_sha256": "7465e2bef1d9a7062319bf90a4013d48d3273c3e7ab2166c9865e2488de5a90b"
+  },
+  "gen/ch7/test_gen_cross_qref_w32_b_u_m_delete_other_known": {
+   "status": "pass",
+   "inputs_sha256": "28d8b88aee19994c9a3f44922167ae6c4b17ca6f2079d3d4350627a47da198d2"
+  },
+  "gen/ch7/test_gen_cross_qref_w32_b_u_m_pop_front_known": {
+   "status": "pass",
+   "inputs_sha256": "62e3b6fb937578fb33e286e78a918cb5acd2c40674e4fe1ae5d85468a94dc57c"
+  },
+  "gen/ch7/test_gen_cross_qref_w32_l_u_m_clear_known": {
+   "status": "pass",
+   "inputs_sha256": "876203749d0edd7462eccec36068b88aab8fc003d04213dadce4ee6719d9b457"
+  },
+  "gen/ch7/test_gen_cross_qref_w33_b_t_l_push_back_known": {
+   "status": "known",
+   "reason": "no message matches '(?i:\\\\bwarn(?:ing)?\\\\b|%Warning-)'",
+   "inputs_sha256": "e3584fbebf14ca9e83a96072de480f54f8639b9440425e49730cc09f65cc736c"
+  },
+  "gen/ch7/test_gen_cross_qref_w33_b_t_m_clear_known": {
+   "status": "pass",
+   "inputs_sha256": "4e058d3c84174ee763430db3c60dbbdf226e5bbb7b83859485b0471324a4f11e"
+  },
+  "gen/ch7/test_gen_cross_qref_w33_b_t_m_copy_known": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'k0_after_first q1=111111111111111111111111111111111', expected 'k0_after_first q1=000000000000000000000000000000000'",
+   "inputs_sha256": "3746465552e1b105fe0f811b959fdee2f06da4b19f77ea70609094189c84e37f"
+  },
+  "gen/ch7/test_gen_cross_qref_w33_b_u_f_insert_known": {
+   "status": "known",
+   "reason": "output differs: line 13 is 'k0 before=100000000000000010000000000000001', expected 'k0 before=111111111111111111111111111111111'",
+   "inputs_sha256": "bb7bd5984cb4e3de346ba36b0a210eba5db137e804a6561dc9f9393caf93b1f1"
+  },
+  "gen/ch7/test_gen_cross_qref_w33_b_u_l_push_front_known": {
+   "status": "pass",
+   "inputs_sha256": "550d30025d467a67df3b0f5aa2c68d117b0b2c63dc0ef927a351a4834c6d6acb"
+  },
+  "gen/ch7/test_gen_cross_qref_w33_l_t_l_delete_held_known": {
+   "status": "pass",
+   "inputs_sha256": "d2c273737c4487703d1c5213997e935fc33528416a15890bb503800397a26d96"
+  },
+  "gen/ch7/test_gen_cross_qref_w64_b_t_f_delete_held_known": {
+   "status": "pass",
+   "inputs_sha256": "7b65a3d57eab424f04c1778dbd1104bf1b78248071222f1ffe3b54a606768c1f"
+  },
+  "gen/ch7/test_gen_cross_qref_w64_b_t_f_insert_known": {
+   "status": "known",
+   "reason": "output differs: line 8 is 'k0_changed size=4', expected 'k0_changed size=3'",
+   "inputs_sha256": "617d347be04626912cc9f44aa54eb3a910a1edf27fe73cbba98d66279938a46e"
+  },
+  "gen/ch7/test_gen_cross_qref_w64_b_t_f_pop_front_known": {
+   "status": "pass",
+   "inputs_sha256": "59b9b446111be5f86df004a00c80efc3cb88b7eb85181608c8c4931eaa5857f1"
+  },
+  "gen/ch7/test_gen_cross_qref_w64_b_t_f_push_front_known": {
+   "status": "known",
+   "reason": "no message matches '(?i:\\\\bwarn(?:ing)?\\\\b|%Warning-)'",
+   "inputs_sha256": "cbe8911f11a4e8c37f23b829e90eb43b98e830e53d50b8a751376e89c8ff4054"
+  },
+  "gen/ch7/test_gen_cross_qref_w64_b_u_m_push_back_known": {
+   "status": "pass",
+   "inputs_sha256": "73ac6877eca5794c94e8a632f5d3ef762b944675ee3cc7e1d06f0e64ca9d93f8"
+  },
+  "gen/ch7/test_gen_cross_qref_w64_l_u_f_pop_back_known": {
+   "status": "pass",
+   "inputs_sha256": "120c05ebeacecae389a367561b7dc4fa6d2cc8868a210015f2c20bc75fbfc15c"
+  },
+  "gen/ch7/test_gen_cross_qref_w65_b_t_f_delete_other_known": {
+   "status": "known",
+   "reason": "output differs: line 14 is 'k0_after_first q0=111111111111111111111111111111111111111...', expected 'k0_after_first q0=000000000000000000000000000000000000000...'",
+   "inputs_sha256": "4c9af81776ef48a70890d1db7d422968d10c10cc43c4da05b90afe40aa876771"
+  },
+  "gen/ch7/test_gen_cross_qref_w65_b_t_l_pop_front_known": {
+   "status": "known",
+   "reason": "output differs: line 15 is 'k0_after_first q1=000000000000000000000000000000000000000...', expected 'k0_after_first q1=111111111111111111111111111111111111111...'",
+   "inputs_sha256": "ceff85475deba6885e0b890e1b0ea403aef5f4ab06e3ec0d76cd8aae44382eae"
+  },
+  "gen/ch7/test_gen_cross_qref_w65_b_t_m_delete_held_known": {
+   "status": "pass",
+   "inputs_sha256": "081554f0b8326e7b0216d8e00d2f797176865374c303a88c8d8a3b451ddfbce5"
+  },
+  "gen/ch7/test_gen_cross_qref_w65_b_t_m_push_front_known": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'k0_after_first q2=000000000000000000000000000000000000000...', expected 'k0_after_first q2=111111111111111111111111111111111111111...'",
+   "inputs_sha256": "79ec09cdfbc326a7f790a38d9af86f43a995d1c062fc54cbdec9b8960b4cf088"
+  },
+  "gen/ch7/test_gen_cross_qref_w65_b_u_f_clear_known": {
+   "status": "pass",
+   "inputs_sha256": "e2c41f186512ddf4acecae70928b56586760b0b52a8e682e75a78951bd9b7050"
+  },
+  "gen/ch7/test_gen_cross_qref_w65_l_t_f_concat_known": {
+   "status": "known",
+   "reason": "no message matches '(?i:\\\\bwarn(?:ing)?\\\\b|%Warning-)'",
+   "inputs_sha256": "75becbfa41a2f50ede78612983dc36deb2687f4a226d7f7c0883e7a0070cb667"
+  }
+ },
+ "generated_at": "2026-10-30T23:51:18.968149+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

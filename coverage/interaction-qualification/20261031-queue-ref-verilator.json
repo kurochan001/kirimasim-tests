@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "purpose": "black-box recheck of the queue-ref case with missing output",
+  "simulator": "verilator",
+  "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "test": "tests/gen/ch7/test_gen_cross_qref_w32_b_t_l_concat_known.sv",
+  "inputs_sha256": "f855e955ba7e7294027addc040ae783e145b5f519e594df9ad4f52e25c9ded36",
+  "build_returncode": 0,
+  "runs": [
+    {
+      "seed": 1,
+      "returncode": -10,
+      "stdout": "",
+      "stderr": "",
+      "signal": "SIGBUS"
+    },
+    {
+      "seed": 73,
+      "returncode": -10,
+      "stdout": "",
+      "stderr": "",
+      "signal": "SIGBUS"
+    }
+  ]
+}

@@ -13,7 +13,16 @@ Issue #21で追加した境界条件の回帰テストと、保留した解釈�
 
 ## 保存実行の概要
 
-2026-10-31の追加：現在は**30モデル・1,453件**です。新しい`event_or_iff`の27件は、
+2026-10-31のキュー参照追加：現在は**31モデル・1,513件**です。
+実行直前に上流mainとビルド版を照合したkirimasim `29ad73153518`で、
+新規の`queue_element_reference`60件はすべて一致しました。
+[全クロスの保存実行](../coverage/interaction-results/cross31-kirimasim-29ad7315.json)は
+1,461 pass・50 unsupported・2 failです。従来1,453件の入力指紋と結果の分類は同じです。
+新モデルの257ペア・3因子96組・必須5件はすべて成功で充足しましたが、
+insideとcase insideの不一致2件と、3モデルの未対応50件は残っています。
+[キュー参照の設計と確認記録](#キュー要素への参照と要素の寿命)も参照してください。
+
+同日の先行追加では**30モデル・1,453件**でした。新しい`event_or_iff`の27件は、
 実行直前に上流mainとビルド版を照合したkirimasim `17b7192b4f05`ですべて一致しました。
 [全クロスの保存実行](../coverage/interaction-results/cross30-kirimasim-17b7192b.json)は
 1,401 pass・50 unsupported・2 failです。従来1,426件の入力指紋は変更していません。
@@ -1216,6 +1225,72 @@ python3 tools/interaction_coverage.py --model event_or_iff --results NEW.json --
 追加時のツール回帰339件はすべて成功しました。生成物、クロス計画・保存実行、
 組合せ台帳、件数、カタログ、要求カバレッジ、要求照合の整合性検査も成功しています。
 メタデータは9,203件で新規問題0件（既知395件）、`git diff --check`も成功です。
+GitHub CheckとNightlyの全件実行結果とは区別します。
+
+### キュー要素への参照と要素の寿命
+
+`queue_element_reference@1`は、既存の`queue_update_capacity`が対象外としていた
+要素参照の寿命をモデル化したものです。7.10.3・7.10.4・13.5.2に基づき、
+メソッドによる更新では削除されない要素の同一性を保持し、削除・キュー全体への代入では
+参照を古い要素へ残すことを検証します。古い参照は保持しているタスク内で引き続き使用できますが、
+その書込みは現在のキューへ届きません。物理的なメモリ回収の時期は検証しません。
+
+[生成器](../generators/interaction_queue_ref.py)の因子は次の6つです。
+
+- 要素幅：1・32・33・64・65・129ビット。
+- 状態型：bit、logic。
+- 容量：無制限、要素数3の上限付き。初期要素数はどちらも3。
+- 保持する要素：先頭、中央、末尾。
+- 操作：push_front、push_back、添字1へのinsert、pop_front、pop_back、
+  保持要素のdelete、別要素のdelete、値コピーからの全体代入、連結による全体代入、全削除。
+- 書込む値：既知値、X、Z。
+
+全2,160通りから60件を選び、全257ペアと「幅×状態型×値」の36組、
+「容量×保持要素×操作」の60組を網羅します。後者の構造上の全60通りと必須5件を残し、
+型や値の組合せを同じケースへ重ねる方式です。未対応による組合せの除外はしていません。
+動的配列・連想配列、ref static、実引数の添字変更、同時刻の競合は対象外です。
+
+タスクが参照を保持した1 tick後に親プロセスが操作し、タスクは2・4 tick後に書込みます。
+キューは1・3・5 tick後に全要素を観測するので、操作直後、最初の書込み、復帰後を
+競合なく区別できます。保持中の値も書込み前後に表示し、古い要素を読めることと、
+現在のキューへの書込みの可視性を別々に確認します。操作前の値コピーも保持・観測します。
+初期値を3組で巡回させ、1ビットでも3要素の同一性を識別します。
+X/Zの行にも既知値の対照条件を含め、bit型への変換で値が同じになって欠落が隠れることを避けます。
+上限付きでは7.10.5による末尾の破棄と必須の容量超過警告も確認します。
+
+期待値は、数値の位置とは独立した要素オブジェクトを持つPythonモデルで計算します。
+[検算テスト](../tools/test_interaction_queue_ref.py)では、全2,160行を位置対応の表でも照合しました。
+同じ値を作るpush_backと連結代入でも、既存参照の有効性が異なることを対照条件にしています。
+[故障注入](../coverage/interaction-qualification/20261031-queue-ref.json)では選択済み4行がすべて一致し、
+誤った要素の取得、refの値渡し化、メソッドの全体代入化、最初の書込みの欠落、
+全体代入での参照の誤保持、削除済み参照から現在のキューへの漏出、容量制限の欠落、
+logic入力のbit化、の8種類をすべて正常終了時の出力相違として検出しました。
+故障注入を通常の成功証跡やスイートの件数へ加算していません。
+
+Icarus 13.0はref引数が未対応で、[60件すべてknown](../coverage/interaction-results/queue-ref-20261031-icarus13.json)です。
+Verilator 5.052の[seed 1](../coverage/interaction-results/queue-ref-20261031-verilator5.052-seed1.json)・
+[seed 73](../coverage/interaction-results/queue-ref-20261031-verilator5.052-seed73.json)では、
+2状態36件中それぞれ19 pass・17 knownでした。一致した19件だけにoracleを登録しました。
+4状態24件はVerilatorの確認対象外です。差異は、参照値または書込みの可視性9件、
+上限付きinsert後のサイズ2件、出力なし1件、出力は一致するが必須の警告がない5件です。
+出力なしの1件は[黒箱の再確認](../coverage/interaction-qualification/20261031-queue-ref-verilator.json)でも
+両seedでSIGBUSによる終了となりました。実装ソースによる原因の調査はしていません。
+詳細は[固定版の差異一覧](simulator-differences.md)を参照してください。
+
+新規60件は通常スイートにも追加し、全体は9,263件、生成2,826件になりました。
+新たな要求対応付けは登録しておらず、要求カバレッジの分母と設計・実行確認率は維持しています。
+モデルだけ再実行する場合は、最新上流を取得・ビルドして版の一致を確認した上で、
+保存先を新しい名前にして次の形で実行します。
+
+```sh
+python3 tools/interaction_coverage.py --model queue_element_reference --list-tests > /tmp/qref-tests.txt
+python3 tools/run_kirimasim.py --kirimasim BIN --json NEW.json $(cat /tmp/qref-tests.txt)
+python3 tools/interaction_coverage.py --model queue_element_reference --results NEW.json --require-pass
+```
+
+追加時のツール回帰344件はすべて成功しました。生成物、クロス計画・保存実行、組合せ台帳、
+件数、カタログ、要求カバレッジ、要求照合の整合性検査も成功しています。
+メタデータは9,263件で新規問題0件（既知395件）、`git diff --check`も成功です。
 GitHub CheckとNightlyの全件実行結果とは区別します。
 
 ### モデル変更時の更新

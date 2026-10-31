@@ -10,7 +10,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 4 | [Scheduling semantics](ch4.md) | 412 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 346 | 248 |
 | 6 | [Data types](ch6.md) | 645 | 43 |
-| 7 | [Aggregate data types](ch7.md) | 712 | 244 |
+| 7 | [Aggregate data types](ch7.md) | 772 | 304 |
 | 8 | [Classes](ch8.md) | 321 |  |
 | 9 | [Processes](ch9.md) | 311 | 101 |
 | 10 | [Assignment statements](ch10.md) | 254 | 50 |

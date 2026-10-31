@@ -94,3 +94,26 @@ python3 tools/qualify_event_iff.py --kirimasim BIN --commit VERIFIED_COMMIT \
 
 通常の保存実行は`interaction-results/cross30-kirimasim-17b7192b.json`と
 `interaction-results/event-or-iff-20261031-*.json`です。
+
+## キュー要素の参照の確認
+
+[`20261031-queue-ref.json`](20261031-queue-ref.json)は`queue_element_reference@1`の確認記録です。
+上流mainとビルド版を照合したkirimasim `29ad73153518`で、選択済みの正の対照条件4件が一致し、
+要素の取り違え・値渡し化・メソッドの全体代入化・書込みの欠落・全体代入後の参照の誤保持・
+削除済み参照から現在のキューへの書込み・容量制限の欠落・logic入力のbit化の8種類を検出しました。
+構文エラー、未対応、異常終了は故障検出として数えません。
+ビルド版とバイナリ、生成器、確認ツール、SVと期待値の指紋、変更箇所と判定を保存しています。
+故障注入は通常の実行カバレッジへ加算しません。
+
+最新上流を取得・ビルドして版を照合した後、新しい保存先を指定して再実行できます。
+
+```sh
+python3 tools/qualify_queue_ref.py --kirimasim BIN --commit VERIFIED_COMMIT \
+  --json coverage/interaction-qualification/NEW-queue-ref.json
+```
+
+通常の保存実行は`interaction-results/cross31-kirimasim-29ad7315.json`と
+`interaction-results/queue-ref-20261031-*.json`です。
+[`20261031-queue-ref-verilator.json`](20261031-queue-ref-verilator.json)は、通常のランナーが
+出力なしと記録した上限付き連結代入の1件について、固定版を同じオプションで再実行した記録です。
+ビルドは成功し、両seedともSIGBUSで終了しました。ソースコードは調べていません。

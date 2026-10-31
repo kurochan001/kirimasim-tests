@@ -44,15 +44,15 @@ Icarus Verilog、Verilator、kirimasim、
 ## 収録内容
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**9203本のテスト**があります。 うち2766本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`combination_aggregates`が18本、`combination_events`が9本、`combination_io`が13本、`combination_monitors`が18本、`combination_nba`が16本、`interaction_array`が36本、`interaction_case`が36本、`interaction_case_inside`が34本、`interaction_cast`が32本、`interaction_compare`が100本、`interaction_compound`が40本、`interaction_concat`が72本、`interaction_cond`が32本、`interaction_divide`が72本、`interaction_edge`が64本、`interaction_expr`が51本、`interaction_iff`が27本、`interaction_index`が44本、`interaction_inside`が46本、`interaction_logic`が70本、`interaction_method`が72本、`interaction_nba`が36本、`interaction_port`が36本、`interaction_query`が60本、`interaction_queue`が48本、`interaction_range`が46本、`interaction_resize`が38本、`interaction_select`が36本、`interaction_shift`が56本、`interaction_shortcircuit`が92本、`interaction_stream`が36本、`interaction_struct`が36本、`interaction_task`が36本、`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
+スイートには38章にわたり**9263本のテスト**があります。 うち2826本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`combination_aggregates`が18本、`combination_events`が9本、`combination_io`が13本、`combination_monitors`が18本、`combination_nba`が16本、`interaction_array`が36本、`interaction_case`が36本、`interaction_case_inside`が34本、`interaction_cast`が32本、`interaction_compare`が100本、`interaction_compound`が40本、`interaction_concat`が72本、`interaction_cond`が32本、`interaction_divide`が72本、`interaction_edge`が64本、`interaction_expr`が51本、`interaction_iff`が27本、`interaction_index`が44本、`interaction_inside`が46本、`interaction_logic`が70本、`interaction_method`が72本、`interaction_nba`が36本、`interaction_port`が36本、`interaction_query`が60本、`interaction_queue`が48本、`interaction_queue_ref`が60本、`interaction_range`が46本、`interaction_resize`が38本、`interaction_select`が36本、`interaction_shift`が56本、`interaction_shortcircuit`が92本、`interaction_stream`が36本、`interaction_struct`が36本、`interaction_task`が36本、`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
 | Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 5163 |
-| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1605 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2435 |
+| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1624 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2476 |
 
-1829本はx/z値に依存します（`:fourstate: yes`）。618本にはCコードがあり、内訳はDPIが123本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1931本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。34本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定40本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+1853本はx/z値に依存します（`:fourstate: yes`）。618本にはCコードがあり、内訳はDPIが123本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1931本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。34本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定40本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -60,7 +60,7 @@ Icarus Verilog、Verilator、kirimasim、
 | 4 | スケジューリングの意味論 | 412 | 392 | 5 | 15 |
 | 5 | 字句規則 | 346 | 325 | 14 | 7 |
 | 6 | データ型 | 645 | 396 | 144 | 105 |
-| 7 | 集合データ型 | 712 | 290 | 262 | 160 |
+| 7 | 集合データ型 | 772 | 290 | 281 | 201 |
 | 8 | クラス | 321 | 67 | 182 | 72 |
 | 9 | プロセス | 311 | 217 | 45 | 49 |
 | 10 | 代入文 | 254 | 169 | 45 | 40 |
@@ -147,7 +147,7 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 すべて合格する必要があります。別々の実行の部分的な成功を合わせて要求の成功にはしません。
 
 [機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
-指定した3因子群と必須の境界ケースを併用します。短時間実行用の1,453件は、
+指定した3因子群と必須の境界ケースを併用します。短時間実行用の1,513件は、
 スケジューリング、NBA、演算コンテキスト、パック配列の部分選択、条件演算、シフト、
 キャスト、タスク引数、パック構造体、case、ポート接続、アンパック配列のコピー、
 ビットベクタの集計・判定関数、ストリーミング演算、比較演算、配列リダクション、
@@ -155,7 +155,9 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 サイズ変更、連結した左辺への代入、パックベクタの論理・リダクション演算、
 短絡評価と副作用、イベント式のエッジ判定、キュー・動的配列のファイル監視と登録元の
 記述位置、複合シフト代入と左辺選択、集合所属判定と集合の格納形式、集合所属判定の範囲指定と
-端点の型、case insideの項目の種類と選択、イベントORと項ごとのiff条件の30モデルを対象にします。
+端点の型、case insideの項目の種類と選択、イベントORと項ごとのiff条件、
+キュー要素への参照と寿命の31モデルを対象にします。
+キュー要素の参照は2,160通りから60件を選び、全因子対257組・3因子96組・必須ケース5件を保持します。
 イベントORは合法な252通りから27件を選び、全因子対104組・3因子59組・必須ケース4件を保持します。
 case insideは8,704通りから
 34件を選び、全因子対315組・3因子154組・必須ケース7件を保持します。範囲指定は5,680通りから46件を選び、全因子対303組・
@@ -601,6 +603,7 @@ oracleメタデータやシミュレータ実行確認率は変更しません�
 | `interaction_method` | 7 | 要素の幅・状態型・符号、固定長配列/動的配列/キュー、5種の集計、変換方法4種をクロス。72件で集計前の型変換、オーバーフロー、戻り値の拡張を確認 |
 | `interaction_index` | 11 | 幅、添字範囲の始点・向き、bit/logic、インデックスの符号と値、書き込み値をクロス。44件で可変ビット選択の読み書き、無効アクセスの既定値、非選択ビットの保持を確認 |
 | `interaction_queue` | 7 | 要素の幅・状態型・符号、容量、初期サイズ、6種の操作、値をクロス。48件で要素順、容量超過時の警告と破棄、空キューの既定値、コピー後の独立性を確認 |
+| `interaction_queue_ref` | 7 | 幅・状態型・容量・保持する位置・10種の操作・既知値/X/Zの書込みをクロス。60件で移動後の要素の同一性、削除・全体代入後の参照の分離、2回の書込み、値コピーの独立性を確認 |
 | `interaction_divide` | 11 | 両オペランドの幅・符号、代入先の幅・状態型、除算/剰余、ゼロ/X/Zをクロス。72件で商の0方向への丸め、剰余の符号、演算前の拡張と演算後の変換を確認 |
 | `interaction_resize` | 7 | 要素の幅・状態型・符号・値、変更前後のサイズ、別配列コピー/自己リサイズ/初期化式なしの再生成をクロス。38件で先頭要素の保持、型別既定値、切り詰め、コピーの独立性を確認 |
 | `interaction_concat` | 11 | 連結全体と分割位置・右辺の幅、右辺と各項の符号、bit/logicの混在、ブロッキング/NBA、既知値/X/Zをクロス。72件で分割前の幅変換、各項の状態変換、値の確定、各項と連結の符号の違いを確認 |

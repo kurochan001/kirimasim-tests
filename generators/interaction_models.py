@@ -24,6 +24,7 @@ import interaction_compare
 import interaction_method
 import interaction_index
 import interaction_queue
+import interaction_queue_ref
 import interaction_divide
 import interaction_resize
 import interaction_concat
@@ -44,7 +45,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
               interaction_compare, interaction_method,
-              interaction_index, interaction_queue,
+              interaction_index, interaction_queue, interaction_queue_ref,
               interaction_divide, interaction_resize,
               interaction_concat, interaction_logic,
               interaction_shortcircuit, interaction_edge, interaction_iff, combination_monitors,
@@ -195,6 +196,14 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_queue.MODEL.select(),
             "2組の入力でサイズと全要素、取り出した値、操作前のコピーを観測し、"
             "追加位置と容量による破棄、空の既定値、型変換、値コピーの独立性を確認する。",
+        ),
+        SuiteModel(
+            interaction_queue_ref.MODEL,
+            lambda row: "tests/gen/ch7/" + interaction_queue_ref.case_name(row) + ".sv",
+            interaction_queue_ref.MODEL.select(),
+            "3組の入力で保持中の参照値・変更後の全要素・2回の書込み後・値コピーを観測し、"
+            "要素の移動後の同一性、削除・全体代入後の古い参照の存続と書込みの分離、"
+            "容量超過での末尾要素の破棄、bit/logicの引数変換を確認する。",
         ),
         SuiteModel(
             interaction_divide.MODEL,

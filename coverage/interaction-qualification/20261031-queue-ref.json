@@ -1,0 +1,241 @@
+{
+  "schema": 1,
+  "purpose": "queue_element_reference positive and fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 29ad73153518), built with AppleClang 21.0.0.21000334",
+  "commit": "29ad731535186510ce7d34f4b331fa664df7c744",
+  "binary_sha256": "e1ef3a100b04b7d5b70101552066548a11cff7ff1c9e43b85f3ddbb35fc32efe",
+  "generator_sha256": "3d9ffab6dda5fd2aab898670bbd365acfc61ecc7406dcd5bac6b261a9e74d164",
+  "qualification_sha256": "e5b8e1c3c6d29c8dfb07df932345b2d86f0ce02beed1c5ad0f6130c26bedf507",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_qref_w1_b_u_m_push_front_known",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "capacity": "unbounded",
+        "held": "middle",
+        "operation": "push_front",
+        "value": "known"
+      },
+      "source_sha256": "ac09a59e29b5cebb8f0b38328c7ca2c47278f8ee72ce7f75f2399408c89bad57",
+      "expected_sha256": "cf7005a46d0902f486c247d95ee95e07c607b6cf4d676e6fa873f45178c13e3b",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_qref_w65_b_u_m_copy_x",
+      "values": {
+        "width": "65",
+        "state": "bit",
+        "capacity": "unbounded",
+        "held": "middle",
+        "operation": "copy",
+        "value": "x"
+      },
+      "source_sha256": "3c3e9e3d8129a05561305d57ede7ae942afab9e398b6a60261f4148e313417be",
+      "expected_sha256": "c6f8b72d4fb7be205ad29d6c784fe5afd6dda63554a9bd7cb8f29edf9ac219cf",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_qref_w129_l_t_l_push_front_z",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "capacity": "three",
+        "held": "last",
+        "operation": "push_front",
+        "value": "z"
+      },
+      "source_sha256": "cf7845912a069a8843de812313a9508ae92b77d1f8b455579f0e53ef8dfbed04",
+      "expected_sha256": "432feaf43e611e30d781e0bd9ba520b4d0658429f08404b504919f9ead1e9c83",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_qref_w33_l_t_l_delete_held_known",
+      "values": {
+        "width": "33",
+        "state": "logic",
+        "capacity": "three",
+        "held": "last",
+        "operation": "delete_held",
+        "value": "known"
+      },
+      "source_sha256": "f07fbf38b842d74c3bd9a6567ad50e2ad6ab43f5e34d2fb32fcb1aa3c6333bd6",
+      "expected_sha256": "50a51e290713c367a66e690fbd8bef2376499b264928a378fcff36d3993d160a",
+      "status": "pass",
+      "reason": ""
+    }
+  ],
+  "faults": [
+    {
+      "name": "capture_wrong_element",
+      "case": "test_gen_cross_qref_w1_b_u_m_push_front_known",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "capacity": "unbounded",
+        "held": "middle",
+        "operation": "push_front",
+        "value": "known"
+      },
+      "source_sha256": "968e8955d49694246db4d0f94b6c032fef937a4e88114908e5753c806329889c",
+      "expected_sha256": "cf7005a46d0902f486c247d95ee95e07c607b6cf4d676e6fa873f45178c13e3b",
+      "status": "fail",
+      "reason": "output differs: line 6 is 'k0 entry=1', expected 'k0 entry=0'",
+      "mutation": {
+        "before": "hold(q[1]",
+        "after": "hold(q[0]"
+      }
+    },
+    {
+      "name": "ref_becomes_input",
+      "case": "test_gen_cross_qref_w1_b_u_m_push_front_known",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "capacity": "unbounded",
+        "held": "middle",
+        "operation": "push_front",
+        "value": "known"
+      },
+      "source_sha256": "61fe27064c2ce3d4fc64a2845a493f7bb24fd537c7a80403f0efe406bbd9af84",
+      "expected_sha256": "cf7005a46d0902f486c247d95ee95e07c607b6cf4d676e6fa873f45178c13e3b",
+      "status": "fail",
+      "reason": "output differs: line 18 is 'k0_after_first q2=0', expected 'k0_after_first q2=1'",
+      "mutation": {
+        "before": "hold(ref word_t r",
+        "after": "hold(input word_t r"
+      }
+    },
+    {
+      "name": "method_becomes_assignment",
+      "case": "test_gen_cross_qref_w1_b_u_m_push_front_known",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "capacity": "unbounded",
+        "held": "middle",
+        "operation": "push_front",
+        "value": "known"
+      },
+      "source_sha256": "1625e0e916c2ee0c8c79b51503d2b6f0034bcb42e5fb432f7df737c8eddc1880",
+      "expected_sha256": "cf7005a46d0902f486c247d95ee95e07c607b6cf4d676e6fa873f45178c13e3b",
+      "status": "fail",
+      "reason": "output differs: line 18 is 'k0_after_first q2=0', expected 'k0_after_first q2=1'",
+      "mutation": {
+        "before": "q.push_front(added);",
+        "after": "q = {added, q};"
+      }
+    },
+    {
+      "name": "lose_first_write",
+      "case": "test_gen_cross_qref_w1_b_u_m_push_front_known",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "capacity": "unbounded",
+        "held": "middle",
+        "operation": "push_front",
+        "value": "known"
+      },
+      "source_sha256": "a9d4af2c9f566ca442c68027bc3af23639c856e84ed50b55867c001e2698086c",
+      "expected_sha256": "cf7005a46d0902f486c247d95ee95e07c607b6cf4d676e6fa873f45178c13e3b",
+      "status": "fail",
+      "reason": "output differs: line 14 is 'k0 first=0', expected 'k0 first=1'",
+      "mutation": {
+        "before": "r = first_value;",
+        "after": ";"
+      }
+    },
+    {
+      "name": "keep_reference_on_whole_assignment",
+      "case": "test_gen_cross_qref_w65_b_u_m_copy_x",
+      "values": {
+        "width": "65",
+        "state": "bit",
+        "capacity": "unbounded",
+        "held": "middle",
+        "operation": "copy",
+        "value": "x"
+      },
+      "source_sha256": "fd2f6f92823d7b3e45143928afb3203fcfc639ab0414aa770759140c6528ea3c",
+      "expected_sha256": "c6f8b72d4fb7be205ad29d6c784fe5afd6dda63554a9bd7cb8f29edf9ac219cf",
+      "status": "fail",
+      "reason": "output differs: line 16 is 'k0_after_first q1=111111111111111111111111111111111111111...', expected 'k0_after_first q1=000000000000000000000000000000000000000...'",
+      "mutation": {
+        "before": "q = saved;",
+        "after": "q[0] = saved[0];"
+      }
+    },
+    {
+      "name": "omit_capacity_bound",
+      "case": "test_gen_cross_qref_w129_l_t_l_push_front_z",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "capacity": "three",
+        "held": "last",
+        "operation": "push_front",
+        "value": "z"
+      },
+      "source_sha256": "0e74910e743d31e21babe3a69109427e56366cc70a5dc95cba49fabac78d3fe4",
+      "expected_sha256": "432feaf43e611e30d781e0bd9ba520b4d0658429f08404b504919f9ead1e9c83",
+      "status": "fail",
+      "reason": "output differs: line 8 is 'k0_changed size=4', expected 'k0_changed size=3'",
+      "mutation": {
+        "before": "q[$:2]",
+        "after": "q[$]"
+      }
+    },
+    {
+      "name": "convert_logic_input_to_bit",
+      "case": "test_gen_cross_qref_w129_l_t_l_push_front_z",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "capacity": "three",
+        "held": "last",
+        "operation": "push_front",
+        "value": "z"
+      },
+      "source_sha256": "7b727c919f56bae19ea651d2b8ca83f6825cb316ae283afd4cdbe24250d208c1",
+      "expected_sha256": "432feaf43e611e30d781e0bd9ba520b4d0658429f08404b504919f9ead1e9c83",
+      "status": "fail",
+      "reason": "output differs: line 39 is 'z0 first=000000000000000000000000000000000000000000000000...', expected 'z0 first=zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz...'",
+      "mutation": {
+        "before": "input word_t first_value",
+        "after": "input bit [128:0] first_value"
+      }
+    },
+    {
+      "name": "write_removed_reference_into_live_queue",
+      "case": "test_gen_cross_qref_w33_l_t_l_delete_held_known",
+      "values": {
+        "width": "33",
+        "state": "logic",
+        "capacity": "three",
+        "held": "last",
+        "operation": "delete_held",
+        "value": "known"
+      },
+      "source_sha256": "0d3f105b51e11da4a2cd8c54a2e51693f31ed4ef1e705721e93bfa6413498908",
+      "expected_sha256": "50a51e290713c367a66e690fbd8bef2376499b264928a378fcff36d3993d160a",
+      "status": "fail",
+      "reason": "output differs: line 37 is 'k1_after_first q0=111111111111111111111111111111111', expected 'k1_after_first q0=000000000000000000000000000000000'",
+      "mutation": {
+        "before": "r = first_value;",
+        "after": "r = first_value; q[0] = first_value;"
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true
+}

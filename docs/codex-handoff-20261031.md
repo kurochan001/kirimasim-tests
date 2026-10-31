@@ -161,7 +161,9 @@ Ghostの全件実行（別リポジトリの監査）が「テスト側の問題
   [考え方と実践手順](interaction-verification-method.md)§5。
   追記：イベントORと`iff`は30番目のモデルとして27件を追加済み。
   [モデルの設計と実行記録](interaction-verification.md#イベントorと項ごとのiff条件)を参照。
-  task引数とキュー参照寿命は引き続き候補です。
+  キュー参照寿命も31番目のモデルとして60件を追加済み。
+  [設計と実行記録](interaction-verification.md#キュー要素への参照と要素の寿命)を参照。
+  task引数の添字変更と復帰時の可視性は引き続き候補です。
 
 ## 5. 実行環境
 
