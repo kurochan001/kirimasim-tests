@@ -14899,6 +14899,1126 @@
      }
     }
    }
+  },
+  {
+   "time": "2026-10-31T02:16:44Z",
+   "suite_commit": "73af6e954828221c3c7447dd13cd3a271ae5bb55",
+   "run_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/41141958886",
+   "tests": 9203,
+   "chapters": {
+    "10": 254,
+    "11": 1644,
+    "12": 251,
+    "13": 244,
+    "14": 78,
+    "15": 59,
+    "16": 661,
+    "17": 81,
+    "18": 200,
+    "19": 157,
+    "20": 330,
+    "21": 236,
+    "22": 358,
+    "23": 292,
+    "24": 43,
+    "25": 119,
+    "26": 83,
+    "27": 103,
+    "28": 245,
+    "29": 81,
+    "3": 88,
+    "30": 60,
+    "31": 66,
+    "32": 50,
+    "33": 43,
+    "34": 4,
+    "35": 131,
+    "36": 89,
+    "37": 227,
+    "38": 109,
+    "39": 39,
+    "4": 412,
+    "40": 31,
+    "5": 346,
+    "6": 645,
+    "7": 712,
+    "8": 321,
+    "9": 311
+   },
+   "simulators": {
+    "icarus": {
+     "name": "Icarus Verilog",
+     "version": "Icarus Verilog version 14.0 (devel) (s20260301-786-g5d048885)",
+     "counts": {
+      "pass": 5701,
+      "fail": 15,
+      "known": 3219,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       68,
+       88
+      ],
+      "4": [
+       392,
+       412
+      ],
+      "5": [
+       327,
+       346
+      ],
+      "6": [
+       426,
+       645
+      ],
+      "7": [
+       393,
+       712
+      ],
+      "8": [
+       102,
+       321
+      ],
+      "9": [
+       227,
+       311
+      ],
+      "10": [
+       187,
+       254
+      ],
+      "11": [
+       1351,
+       1644
+      ],
+      "12": [
+       172,
+       251
+      ],
+      "13": [
+       147,
+       244
+      ],
+      "14": [
+       18,
+       78
+      ],
+      "15": [
+       7,
+       59
+      ],
+      "16": [
+       144,
+       393
+      ],
+      "17": [
+       0,
+       81
+      ],
+      "18": [
+       56,
+       200
+      ],
+      "19": [
+       51,
+       157
+      ],
+      "20": [
+       262,
+       330
+      ],
+      "21": [
+       151,
+       236
+      ],
+      "22": [
+       337,
+       358
+      ],
+      "23": [
+       195,
+       292
+      ],
+      "24": [
+       21,
+       43
+      ],
+      "25": [
+       44,
+       119
+      ],
+      "26": [
+       58,
+       83
+      ],
+      "27": [
+       94,
+       103
+      ],
+      "28": [
+       202,
+       245
+      ],
+      "29": [
+       62,
+       81
+      ],
+      "30": [
+       36,
+       60
+      ],
+      "31": [
+       17,
+       66
+      ],
+      "32": [
+       17,
+       50
+      ],
+      "33": [
+       12,
+       43
+      ],
+      "34": [
+       2,
+       4
+      ],
+      "35": [
+       14,
+       131
+      ],
+      "36": [
+       34,
+       89
+      ],
+      "37": [
+       18,
+       227
+      ],
+      "38": [
+       56,
+       109
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       1,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 5,
+      "failing": 0,
+      "passing_tests": [
+       "ch13/test_A_extra_tf_dims",
+       "ch23/test_23_extra_upward_data_stop",
+       "ch23/test_syntax_parameter_port_list_forms",
+       "ch26/test_package_empty_item_declaration",
+       "ch4/test_reactive_region_set_order"
+      ],
+      "failing_tests": [],
+      "added": 424,
+      "added_passing": 194,
+      "removed": 0
+     }
+    },
+    "verilator": {
+     "name": "Verilator",
+     "version": "Verilator 5.053 devel rev v5.052-651-g92ac4051",
+     "counts": {
+      "pass": 5265,
+      "fail": 9,
+      "known": 3661,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       56,
+       88
+      ],
+      "4": [
+       349,
+       412
+      ],
+      "5": [
+       326,
+       346
+      ],
+      "6": [
+       459,
+       645
+      ],
+      "7": [
+       461,
+       712
+      ],
+      "8": [
+       244,
+       321
+      ],
+      "9": [
+       181,
+       311
+      ],
+      "10": [
+       171,
+       254
+      ],
+      "11": [
+       871,
+       1644
+      ],
+      "12": [
+       156,
+       251
+      ],
+      "13": [
+       198,
+       244
+      ],
+      "14": [
+       62,
+       78
+      ],
+      "15": [
+       38,
+       59
+      ],
+      "16": [
+       174,
+       393
+      ],
+      "17": [
+       30,
+       81
+      ],
+      "18": [
+       124,
+       200
+      ],
+      "19": [
+       73,
+       157
+      ],
+      "20": [
+       197,
+       330
+      ],
+      "21": [
+       112,
+       236
+      ],
+      "22": [
+       334,
+       358
+      ],
+      "23": [
+       164,
+       292
+      ],
+      "24": [
+       20,
+       43
+      ],
+      "25": [
+       77,
+       119
+      ],
+      "26": [
+       53,
+       83
+      ],
+      "27": [
+       80,
+       103
+      ],
+      "28": [
+       38,
+       245
+      ],
+      "29": [
+       37,
+       81
+      ],
+      "30": [
+       4,
+       60
+      ],
+      "31": [
+       14,
+       66
+      ],
+      "32": [
+       0,
+       50
+      ],
+      "33": [
+       20,
+       43
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       88,
+       131
+      ],
+      "36": [
+       26,
+       89
+      ],
+      "37": [
+       1,
+       227
+      ],
+      "38": [
+       19,
+       109
+      ],
+      "39": [
+       1,
+       39
+      ],
+      "40": [
+       3,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 9,
+      "failing": 3,
+      "passing_tests": [
+       "ch14/test_syntax_clocking_drive_forms",
+       "ch18/test_illegal_constraint_foreach_dimensions",
+       "ch19/test_illegal_cg_function_side_effect",
+       "ch19/test_illegal_cg_outer_constant",
+       "ch19/test_illegal_cg_ref_formal_expression",
+       "ch19/test_illegal_cg_ref_formal_variable",
+       "ch19/test_illegal_cg_system_function",
+       "ch23/test_23_extra_upward_data_stop",
+       "ch8/test_class_scope_base_members_from_derived"
+      ],
+      "failing_tests": [
+       [
+        "ch14/test_clocking_default_skew",
+        "known",
+        "output differs: line 3 is '8: q=1', expected '8: q=0'"
+       ],
+       [
+        "ch16/test_ch16_sim_prop_inherited_always",
+        "known",
+        "output differs: line 1 is 'always a fails at: 25', expected 'always a fails at: 25 25 25'"
+       ],
+       [
+        "ch19/test_19_rest_set_visibility",
+        "known",
+        "build failed: %Error: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch19/test_19_rest_set_visibility.sv:37:35: syntax error, unexpected IDENTIFIER-for-type"
+       ]
+      ],
+      "added": 424,
+      "added_passing": 108,
+      "removed": 0
+     }
+    },
+    "kirimasim": {
+     "name": "kirimasim",
+     "version": "kirimasim 0.0.0 (commit 17b7192b4f05), built with GNU 13.3.0",
+     "counts": {
+      "pass": 6468,
+      "fail": 121,
+      "known": 0,
+      "unsupported": 2346
+     },
+     "chapters": {
+      "3": [
+       72,
+       88
+      ],
+      "4": [
+       396,
+       412
+      ],
+      "5": [
+       336,
+       346
+      ],
+      "6": [
+       547,
+       645
+      ],
+      "7": [
+       548,
+       712
+      ],
+      "8": [
+       123,
+       321
+      ],
+      "9": [
+       273,
+       311
+      ],
+      "10": [
+       232,
+       254
+      ],
+      "11": [
+       1548,
+       1644
+      ],
+      "12": [
+       224,
+       251
+      ],
+      "13": [
+       224,
+       244
+      ],
+      "14": [
+       26,
+       78
+      ],
+      "15": [
+       9,
+       59
+      ],
+      "16": [
+       184,
+       393
+      ],
+      "17": [
+       35,
+       81
+      ],
+      "18": [
+       78,
+       200
+      ],
+      "19": [
+       38,
+       157
+      ],
+      "20": [
+       289,
+       330
+      ],
+      "21": [
+       188,
+       236
+      ],
+      "22": [
+       348,
+       358
+      ],
+      "23": [
+       244,
+       292
+      ],
+      "24": [
+       35,
+       43
+      ],
+      "25": [
+       85,
+       119
+      ],
+      "26": [
+       72,
+       83
+      ],
+      "27": [
+       100,
+       103
+      ],
+      "28": [
+       64,
+       245
+      ],
+      "29": [
+       79,
+       81
+      ],
+      "30": [
+       12,
+       60
+      ],
+      "31": [
+       12,
+       66
+      ],
+      "32": [
+       0,
+       50
+      ],
+      "33": [
+       25,
+       43
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       14,
+       131
+      ],
+      "36": [
+       2,
+       89
+      ],
+      "37": [
+       0,
+       227
+      ],
+      "38": [
+       0,
+       109
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       2,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 16,
+      "failing": 0,
+      "passing_tests": [
+       "ch11/test_expr_operand_categories",
+       "ch13/test_A_extra_tf_dims",
+       "ch14/test_clocking_block_event_after_nba_before_reactive",
+       "ch16/test_ch16_sim_cover_counters",
+       "ch17/test_illegal_checker_covergroup_constant_actual",
+       "ch18/test_illegal_constraint_foreach_dimensions",
+       "ch20/test_illegal_countbits_non_bitstream",
+       "ch20/test_illegal_dist_exponential_zero_mean",
+       "ch23/test_23_extra_upward_data_stop",
+       "ch4/test_reactive_region_set_order",
+       "gen/ch7/test_gen_cross_array_w129_s_l_da_z_s",
+       "gen/ch7/test_gen_cross_array_w1_u_l_aa_k_s",
+       "gen/ch7/test_gen_cross_array_w32_s_l_ad_x_s",
+       "gen/ch7/test_gen_cross_array_w33_u_b_dd_z_s",
+       "gen/ch7/test_gen_cross_array_w64_u_b_da_x_s",
+       "gen/ch7/test_gen_cross_array_w65_s_l_da_k_s"
+      ],
+      "failing_tests": [],
+      "added": 424,
+      "added_passing": 344,
+      "removed": 0
+     }
+    },
+    "lyra": {
+     "name": "Lyra",
+     "version": "Lyra (commit e13a017966a5)",
+     "counts": {
+      "pass": 6933,
+      "fail": 463,
+      "known": 0,
+      "unsupported": 1539
+     },
+     "chapters": {
+      "3": [
+       66,
+       88
+      ],
+      "4": [
+       295,
+       412
+      ],
+      "5": [
+       336,
+       346
+      ],
+      "6": [
+       573,
+       645
+      ],
+      "7": [
+       674,
+       712
+      ],
+      "8": [
+       299,
+       321
+      ],
+      "9": [
+       292,
+       311
+      ],
+      "10": [
+       226,
+       254
+      ],
+      "11": [
+       1600,
+       1644
+      ],
+      "12": [
+       244,
+       251
+      ],
+      "13": [
+       241,
+       244
+      ],
+      "14": [
+       20,
+       78
+      ],
+      "15": [
+       50,
+       59
+      ],
+      "16": [
+       236,
+       393
+      ],
+      "17": [
+       35,
+       81
+      ],
+      "18": [
+       141,
+       200
+      ],
+      "19": [
+       121,
+       157
+      ],
+      "20": [
+       286,
+       330
+      ],
+      "21": [
+       136,
+       236
+      ],
+      "22": [
+       345,
+       358
+      ],
+      "23": [
+       236,
+       292
+      ],
+      "24": [
+       38,
+       43
+      ],
+      "25": [
+       101,
+       119
+      ],
+      "26": [
+       76,
+       83
+      ],
+      "27": [
+       99,
+       103
+      ],
+      "28": [
+       15,
+       245
+      ],
+      "29": [
+       29,
+       81
+      ],
+      "30": [
+       13,
+       60
+      ],
+      "31": [
+       19,
+       66
+      ],
+      "32": [
+       0,
+       50
+      ],
+      "33": [
+       12,
+       43
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       71,
+       131
+      ],
+      "36": [
+       2,
+       89
+      ],
+      "37": [
+       0,
+       227
+      ],
+      "38": [
+       0,
+       109
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       2,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 24,
+      "failing": 1,
+      "passing_tests": [
+       "ch13/test_A_extra_tf_dims",
+       "ch16/test_ch16_sim_cover_counters",
+       "ch16/test_ch16_sim_declaration_inert",
+       "ch16/test_ch16_sim_glitch_free",
+       "ch16/test_ch16_sim_prop_inherited_case",
+       "ch16/test_ch16_sim_prop_inherited_conditional",
+       "ch16/test_ch16_sim_reported_interval",
+       "ch17/test_illegal_checker_covergroup_constant_actual",
+       "ch18/test_illegal_constraint_foreach_dimensions",
+       "ch19/test_19_extra_cross_items",
+       "ch19/test_19_extra_option_comment",
+       "ch19/test_19_extra_option_cross_num_print_missing",
+       "ch19/test_19_extra_option_detect_overlap",
+       "ch19/test_19_extra_option_per_instance",
+       "ch19/test_19_extra_sample_method",
+       "ch19/test_19_extra_type_option_comment",
+       "ch19/test_19_extra_type_option_mutation",
+       "ch19/test_cg_illegal_value_error",
+       "ch20/test_illegal_countbits_non_bitstream",
+       "ch20/test_severity_task_argument_forms",
+       "ch23/test_23_extra_upward_data_stop",
+       "ch35/test_35_extra_35_5_1_6_cxx_linkage",
+       "ch4/test_reactive_region_set_order",
+       "ch7/test_queue_refs_outdated_by_bounded_push_and_assignment"
+      ],
+      "failing_tests": [
+       [
+        "ch27/test_generate_recursive_module",
+        "fail",
+        "crashed (signal 11)"
+       ]
+      ],
+      "added": 424,
+      "added_passing": 373,
+      "removed": 0
+     }
+    },
+    "ghost": {
+     "name": "Ghost",
+     "version": "private build a20e2aaaee3a",
+     "counts": {
+      "pass": 8036,
+      "fail": 899,
+      "known": 0,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       78,
+       88
+      ],
+      "4": [
+       406,
+       412
+      ],
+      "5": [
+       343,
+       346
+      ],
+      "6": [
+       596,
+       645
+      ],
+      "7": [
+       670,
+       712
+      ],
+      "8": [
+       307,
+       321
+      ],
+      "9": [
+       255,
+       311
+      ],
+      "10": [
+       234,
+       254
+      ],
+      "11": [
+       1567,
+       1644
+      ],
+      "12": [
+       237,
+       251
+      ],
+      "13": [
+       231,
+       244
+      ],
+      "14": [
+       71,
+       78
+      ],
+      "15": [
+       50,
+       59
+      ],
+      "16": [
+       252,
+       393
+      ],
+      "17": [
+       62,
+       81
+      ],
+      "18": [
+       156,
+       200
+      ],
+      "19": [
+       104,
+       157
+      ],
+      "20": [
+       307,
+       330
+      ],
+      "21": [
+       211,
+       236
+      ],
+      "22": [
+       353,
+       358
+      ],
+      "23": [
+       256,
+       292
+      ],
+      "24": [
+       42,
+       43
+      ],
+      "25": [
+       107,
+       119
+      ],
+      "26": [
+       80,
+       83
+      ],
+      "27": [
+       102,
+       103
+      ],
+      "28": [
+       233,
+       245
+      ],
+      "29": [
+       80,
+       81
+      ],
+      "30": [
+       45,
+       60
+      ],
+      "31": [
+       47,
+       66
+      ],
+      "32": [
+       25,
+       50
+      ],
+      "33": [
+       34,
+       43
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       86,
+       131
+      ],
+      "36": [
+       57,
+       89
+      ],
+      "37": [
+       187,
+       227
+      ],
+      "38": [
+       101,
+       109
+      ],
+      "39": [
+       35,
+       39
+      ],
+      "40": [
+       25,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 566,
+      "failing": 5,
+      "passing_tests": [
+       "ch10/test_alias_bidirectional_shared_drivers",
+       "ch10/test_assignment_delays_with_time_units",
+       "ch10/test_force_part_select_of_net",
+       "ch10/test_less_equal_token_by_context",
+       "ch10/test_unpacked_array_concat_rules",
+       "ch10/test_unpacked_concat_bounded_queue_overflow",
+       "ch11/test_A_extra_specparam_range",
+       "ch11/test_assignment_expression_concat_target_unsigned_sum_width",
+       "ch11/test_compound_assignment_index_evaluated_once",
+       "ch11/test_concatenation_pattern_string_operand_and_replication_once",
+       "ch11/test_conditional_real_shortreal_branch_promotion",
+       "ch11/test_constant_builtin_method_calls_at_elaboration",
+       "ch11/test_expr_conditional_ambiguous",
+       "ch11/test_expr_inside_set_forms",
+       "ch11/test_expr_tagged_union_access",
+       "ch11/test_expr_timescale_constants",
+       "ch11/test_inside_ranges_tolerance_unknown_and_types",
+       "ch11/test_inside_tolerance_ranges",
+       "ch11/test_let_binds_in_declaration_scope_local_and_package",
+       "ch11/test_precedence_distinguishing_values",
+       "ch11/test_precedence_logical_conditional_implication_levels",
+       "ch12/test_case_inside_evaluation_order_by_qualifier",
+       "ch12/test_for_shared_outer_control_variable",
+       "ch12/test_foreach_index_auto_cast_types",
+       "ch12/test_statement_item_forms",
+       "ch13/test_A_extra_tf_dims",
+       "ch13/test_a2_7_dynamic_override_specifiers",
+       "ch13/test_call_without_parentheses_subroutine_kinds",
+       "ch13/test_class_methods_always_automatic",
+       "ch13/test_constant_function_call_fresh_initial_values",
+       "ch13/test_default_argument_only_when_omitted",
+       "ch13/test_function_body_order_and_empty_body",
+       "ch13/test_function_directions_both_formal_styles",
+       "ch13/test_function_nonblocking_statements_no_delay",
+       "ch13/test_function_struct_return_member_or_scope",
+       "ch13/test_optional_parentheses_every_subroutine_kind",
+       "ch14/test_clocking_block_event_after_nba_before_reactive",
+       "ch14/test_clocking_block_per_instance_local_scope",
+       "ch14/test_clocking_drive_prefix_default_cycles_rhs_target_cycles",
+       "ch14/test_clocking_future_drive_in_re_nba",
+       "ch14/test_clocking_input_expression_skew",
+       "ch14/test_clocking_multiple_blocks",
+       "ch14/test_clocking_net_outputs_strong_drivers_resolved",
+       "ch14/test_clocking_output_part_select_skew",
+       "ch14/test_clocking_signal_hierarchical_slice_concat_inout_var",
+       "ch14/test_clocking_synchronous_events",
+       "ch14/test_clocking_zero_skew_drive_in_re_nba",
+       "ch14/test_cycle_delay_forms_and_zero_drive_delay",
+       "ch14/test_syntax_clocking_drive_forms",
+       "ch15/test_event_compare_arguments",
+       "ch15/test_event_null_waiter_queue",
+       "ch15/test_mailbox_typeless_try_type_check",
+       "ch15/test_semaphore_get_try_get_int_count_default_one",
+       "ch15/test_std_mailbox_default_type_parameter",
+       "ch15/test_wait_order_first_triggered",
+       "ch16/test_A_extra_assertion_items",
+       "ch16/test_ch16_sim_cover_counters",
+       "ch16/test_ch16_sim_declaration_inert",
+       "ch16/test_ch16_sim_glitch_free",
+       "ch16/test_ch16_sim_prop_inherited_always",
+       "ch16/test_ch16_sim_prop_inherited_case",
+       "ch16/test_ch16_sim_prop_inherited_conditional",
+       "ch16/test_ch16_sim_reported_interval",
+       "ch16/test_concurrent_assert_actions",
+       "ch16/test_concurrent_assertion_names_and_control",
+       "ch16/test_concurrent_boolean_truth_array_samples",
+       "ch16/test_default_disable_iff",
+       "ch16/test_deferred_assertion_disable_inner_scope",
+       "ch16/test_global_clock_past_functions_procedural_action",
+       "ch16/test_illegal_past_automatic_clock",
+       "ch16/test_illegal_past_automatic_gating",
+       "ch16/test_illegal_triggered_outside_local_formal",
+       "ch16/test_immediate_assert_syntax_actions",
+       "ch16/test_immediate_assertion_default_error",
+       "ch16/test_immediate_assertion_truth_and_actions",
+       "ch16/test_nexttime_always_eventually_alignment",
+       "ch16/test_property_declaration_and_argument_forms",
+       "ch16/test_property_nested_if_case",
+       "ch16/test_recursive_property_time_advance",
+       "ch16/test_sampled_value_functions_with_clocking_event",
+       "ch16/test_sequence_attached_call_kinds_order_region",
+       "ch16/test_sequence_default_actuals_and_name_scopes",
+       "ch16/test_sequence_empty_match_fusion",
+       "ch16/test_sequence_formal_reference_forms_and_types",
+       "ch16/test_sequence_repetition_and_concat_precedence",
+       "ch16/test_sequence_subroutine_call_arguments",
+       "ch16/test_static_assertions_start_every_tick",
+       "ch16/test_sva_typed_formal_assignment",
+       "ch16/test_zero_repetition_no_sample",
+       "ch17/test_checker_always_comb_latch_ff",
+       "ch17/test_checker_always_latch",
+       "ch17/test_checker_always_procedures",
+       "ch17/test_checker_always_statement_kinds",
+       "ch17/test_checker_assertion_sampling_as_module",
+       "ch17/test_checker_body_declaration_kinds",
+       "ch17/test_checker_concurrent_assertion",
+       "ch17/test_checker_covergroup",
+       "ch17/test_checker_generate_instance",
+       "ch17/test_checker_generate_state",
+       "ch17/test_checker_in_package"
+      ],
+      "failing_tests": [
+       [
+        "ch10/test_unpacked_concat_typed_array_and_string_item",
+        "fail",
+        "output differs"
+       ],
+       [
+        "ch17/test_illegal_checker_covergroup_in_procedure",
+        "fail",
+        "the design was accepted, but it is illegal"
+       ],
+       [
+        "ch19/test_cg_cross_select_bins",
+        "fail",
+        "output differs"
+       ],
+       [
+        "ch4/test_reactive_region_set_order",
+        "fail",
+        "output differs"
+       ],
+       [
+        "ch8/test_dynamic_cast",
+        "fail",
+        "output differs (exit 2)"
+       ]
+      ],
+      "added": 424,
+      "added_passing": 316,
+      "removed": 268
+     }
+    }
+   }
   }
  ]
 }

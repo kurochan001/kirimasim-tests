@@ -2,7 +2,7 @@
 
 The [nightly workflow](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml) of [kirimasim-tests](https://github.com/kurochan001/kirimasim-tests) writes this branch. Each night it runs every test of the suite's main branch with each simulator, adds the results to `history.json` and draws the charts below. Local runs can also be imported and are marked `local`. A test matches when its output and specified checks agree with the expected result, or an illegal design is rejected with the required diagnostic; see the suite's README for what each status means.
 
-Latest run: 2026-10-30 01:43 UTC, suite commit [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537), 8779 tests, [workflow run](https://github.com/kurochan001/kirimasim-tests/actions/runs/40972765631).
+Latest run: 2026-10-31 02:16 UTC, suite commit [`73af6e9`](https://github.com/kurochan001/kirimasim-tests/commit/73af6e954828221c3c7447dd13cd3a271ae5bb55), 9203 tests, [workflow run](https://github.com/kurochan001/kirimasim-tests/actions/runs/41141958886).
 
 ## Latest results per simulator
 
@@ -10,17 +10,17 @@ Each row and chapter-table column uses that simulator's most recent recorded run
 
 | Simulator | Version | Run (UTC) | Suite | Source | Match | Differ | Known differences | Unsupported |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-776-g69914455) | 2026-10-30 01:43 | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | nightly | 5502 (64.6%) | 16 | 2993 | 0 |
-| Verilator | Verilator 5.053 devel rev v5.052-645-g453b02a3 | 2026-10-30 01:43 | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | nightly | 5151 (60.5%) | 9 | 3351 | 0 |
-| kirimasim | kirimasim 0.0.0 (commit 51cda3143aed), built with GNU 13.3.0 | 2026-10-30 01:43 | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | nightly | 6108 (71.8%) | 133 | 2 | 2268 |
-| Lyra | Lyra (commit 8eff7abdc335) | 2026-10-30 01:43 | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | nightly | 6537 (76.8%) | 487 | 0 | 1487 |
-| Ghost | private build 2d76b598f1c1 | 2026-10-30 01:43 | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | nightly | 7159 (81.5%) | 1620 | 0 | 0 |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-786-g5d048885) | 2026-10-31 02:16 | [`73af6e9`](https://github.com/kurochan001/kirimasim-tests/commit/73af6e954828221c3c7447dd13cd3a271ae5bb55) | nightly | 5701 (63.8%) | 15 | 3219 | 0 |
+| Verilator | Verilator 5.053 devel rev v5.052-651-g92ac4051 | 2026-10-31 02:16 | [`73af6e9`](https://github.com/kurochan001/kirimasim-tests/commit/73af6e954828221c3c7447dd13cd3a271ae5bb55) | nightly | 5265 (58.9%) | 9 | 3661 | 0 |
+| kirimasim | kirimasim 0.0.0 (commit 17b7192b4f05), built with GNU 13.3.0 | 2026-10-31 02:16 | [`73af6e9`](https://github.com/kurochan001/kirimasim-tests/commit/73af6e954828221c3c7447dd13cd3a271ae5bb55) | nightly | 6468 (72.4%) | 121 | 0 | 2346 |
+| Lyra | Lyra (commit e13a017966a5) | 2026-10-31 02:16 | [`73af6e9`](https://github.com/kurochan001/kirimasim-tests/commit/73af6e954828221c3c7447dd13cd3a271ae5bb55) | nightly | 6933 (77.6%) | 463 | 0 | 1539 |
+| Ghost | private build a20e2aaaee3a | 2026-10-31 02:16 | [`73af6e9`](https://github.com/kurochan001/kirimasim-tests/commit/73af6e954828221c3c7447dd13cd3a271ae5bb55) | nightly | 8036 (89.9%) | 899 | 0 | 0 |
 
 Ghost is an unidentified simulator taking part before its public debut. For now, only its test results step out from behind the curtain. Its name, source and build logs remain private; build IDs are executable hashes.
 
-![Tests that match their expected results](charts/overview.svg?v=20261030T014358)
+![Tests that match their expected results](charts/overview.svg?v=20261031T021644)
 
-![Share of the tests that match](charts/rate.svg?v=20261030T014358)
+![Share of the tests that match](charts/rate.svg?v=20261031T021644)
 
 ## Changes in the latest run
 
@@ -28,55 +28,57 @@ Tests that match now but did not in the previous run of the same simulator, and 
 
 ### Icarus Verilog
 
-Newly match (10): `ch28/test_mos_switch_truth_tables`, `ch28/test_notif_gate_truth_table_all_inputs`, `ch28/test_rcmos_reduction`, `ch28/test_rcmos_switch_rnmos_rpmos_equivalence`, `ch28/test_syntax_resistive_mos_switches`, `ch29/test_udp_ansi_header`, `ch29/test_udp_combinational`, `ch29/test_udp_combinational_2`, `ch29/test_udp_header_forms_and_input_field_order`, `ch9/test_syntax_structured_procedure_forms`
+Newly match (5): `ch13/test_A_extra_tf_dims`, `ch23/test_23_extra_upward_data_stop`, `ch23/test_syntax_parameter_port_list_forms`, `ch26/test_package_empty_item_declaration`, `ch4/test_reactive_region_set_order`
+
+### Verilator
+
+Newly match (9): `ch14/test_syntax_clocking_drive_forms`, `ch18/test_illegal_constraint_foreach_dimensions`, `ch19/test_illegal_cg_function_side_effect`, `ch19/test_illegal_cg_outer_constant`, `ch19/test_illegal_cg_ref_formal_expression`, `ch19/test_illegal_cg_ref_formal_variable`, `ch19/test_illegal_cg_system_function`, `ch23/test_23_extra_upward_data_stop`, `ch8/test_class_scope_base_members_from_derived`
 
 No longer match (3):
 
-- `ch23/test_defparam_block_task_function_parameters`: differ — output differs: line 1 is missing, expected 'u_def BP=3 TP=12 FP=6'
-- `ch27/test_generate_instances_param`: differ — output differs: line 1 is missing, expected 'Inst array tests: 4/4 passed'
-- `ch6/test_continuous_assign_to_variable_converts_and_drops_strength`: known difference — output differs: line 3 is 'strength after variable: assign=St1 gate=We1 port=We1', expected 'strength after variable: assign=St1 gate=St1 port=St1'
+- `ch14/test_clocking_default_skew`: known difference — output differs: line 3 is '8: q=1', expected '8: q=0'
+- `ch16/test_ch16_sim_prop_inherited_always`: known difference — output differs: line 1 is 'always a fails at: 25', expected 'always a fails at: 25 25 25'
+- `ch19/test_19_rest_set_visibility`: known difference — build failed: %Error: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch19/test_19_rest_set_visibility.sv:37:35: syntax error, unexpected IDENTIFIER-for-type
 
 ### kirimasim
 
-Newly match (3): `ch11/test_expr_conditional_ambiguous`, `ch20/test_illegal_bits_function_dynamic_return`, `ch7/test_queue_invalid_index_write_ignored_warning`
+Newly match (16): `ch11/test_expr_operand_categories`, `ch13/test_A_extra_tf_dims`, `ch14/test_clocking_block_event_after_nba_before_reactive`, `ch16/test_ch16_sim_cover_counters`, `ch17/test_illegal_checker_covergroup_constant_actual`, `ch18/test_illegal_constraint_foreach_dimensions`, `ch20/test_illegal_countbits_non_bitstream`, `ch20/test_illegal_dist_exponential_zero_mean`, `ch23/test_23_extra_upward_data_stop`, `ch4/test_reactive_region_set_order`, `gen/ch7/test_gen_cross_array_w129_s_l_da_z_s`, `gen/ch7/test_gen_cross_array_w1_u_l_aa_k_s`, `gen/ch7/test_gen_cross_array_w32_s_l_ad_x_s`, `gen/ch7/test_gen_cross_array_w33_u_b_dd_z_s`, `gen/ch7/test_gen_cross_array_w64_u_b_da_x_s`, `gen/ch7/test_gen_cross_array_w65_s_l_da_k_s`
 
 ### Lyra
 
-Newly match (4): `ch21/test_vcd_checkpoint_and_dump_control_protocol`, `ch21/test_vcd_dump_readback`, `ch21/test_vcd_dumpvars_no_arguments`, `ch21/test_vcd_type_mappings`
+Newly match (24): `ch13/test_A_extra_tf_dims`, `ch16/test_ch16_sim_cover_counters`, `ch16/test_ch16_sim_declaration_inert`, `ch16/test_ch16_sim_glitch_free`, `ch16/test_ch16_sim_prop_inherited_case`, `ch16/test_ch16_sim_prop_inherited_conditional`, `ch16/test_ch16_sim_reported_interval`, `ch17/test_illegal_checker_covergroup_constant_actual`, `ch18/test_illegal_constraint_foreach_dimensions`, `ch19/test_19_extra_cross_items`, `ch19/test_19_extra_option_comment`, `ch19/test_19_extra_option_cross_num_print_missing`, `ch19/test_19_extra_option_detect_overlap`, `ch19/test_19_extra_option_per_instance`, `ch19/test_19_extra_sample_method`, `ch19/test_19_extra_type_option_comment`, `ch19/test_19_extra_type_option_mutation`, `ch19/test_cg_illegal_value_error`, `ch20/test_illegal_countbits_non_bitstream`, `ch20/test_severity_task_argument_forms`, `ch23/test_23_extra_upward_data_stop`, `ch35/test_35_extra_35_5_1_6_cxx_linkage`, `ch4/test_reactive_region_set_order`, `ch7/test_queue_refs_outdated_by_bounded_push_and_assignment`
 
 No longer match (1):
 
-- `ch15/test_ipc_classes_extended_shadowed_and_created`: differ — error: internal error: mir_transform: a temporary was made outside the evaluation it belongs to (in unit 'test_ipc_classes_extended_shadowed_and_created')
+- `ch27/test_generate_recursive_module`: differ — crashed (signal 11)
 
 ### Ghost
 
-Newly match (145): `ch12/test_pattern_if_clause_order_scope_and_filter`, `ch13/test_ref_and_inout_object_handle_replacement`, `ch16/test_concurrent_assertion_places_and_kinds`, `ch18/test_randcase_selection`, `ch20/test_array_query_dimension_counts`, `ch20/test_array_query_functions`, `ch21/test_evcd_inout_unknown_and_three_state`, `ch21/test_fopen_name_and_type_forms`, `ch21/test_illegal_dumpports_string_scope`, `ch21/test_vcd_scope_commands_begin_fork_task`, `ch21/test_vcd_unpacked_struct_and_undumped`, `ch28/test_ambiguous_strengths`, `ch28/test_bufif_gate_truth_table_all_inputs`, `ch28/test_large_charge_strength_level_in_ranges`, `ch28/test_notif_gate_truth_table_all_inputs`, `ch28/test_three_state_gate_unknown_output_delay`, `ch3/test_same_names_in_module_interface_program_checker_scopes`, `ch3/test_task_argument_directions_and_blocking`, `ch35/test_dpi_export_task_time`, `ch35/test_dpi_import_task_consumes_time`, `ch35/test_dpi_import_task_reentrant`, `ch35/test_dpi_packed_tagged_union_tag_bits`, `ch36/test_vpi_routines_path_delays`, `ch36/test_vpi_systf_task_function_places`, `ch37/test_37_extra_automatic_callback`, `ch37/test_37_extra_name_lookup`, `ch37/test_vpi_assertion_objects`, `ch37/test_vpi_atomic_statement_labels`, `ch37/test_vpi_attribute_parents`, `ch37/test_vpi_clocking_decl_relations`, `ch37/test_vpi_clocking_edges_prefix`, `ch37/test_vpi_frames_threads_alloc`, `ch37/test_vpi_gen_scope_array_relations`, `ch37/test_vpi_gen_scope_data_items`, `ch37/test_vpi_gen_scope_instance_items`, `ch37/test_vpi_generate_scope_contents`, `ch37/test_vpi_generate_scopes`, `ch37/test_vpi_handle_release_independence`, `ch37/test_vpi_import_referenced_items`, `ch37/test_vpi_instance_array_kinds`, `ch37/test_vpi_instance_array_relations`, `ch37/test_vpi_instance_assertion_members`, `ch37/test_vpi_instance_directive_properties`, `ch37/test_vpi_instance_enclosure_names`, `ch37/test_vpi_instance_item_relations`, `ch37/test_vpi_interconnect_array_ranges`, `ch37/test_vpi_interconnect_elements`, `ch37/test_vpi_interface_modport_links`, `ch37/test_vpi_interface_relations`, `ch37/test_vpi_interface_tf_decl_relations`, `ch37/test_vpi_iterators_time_queue_events`, `ch37/test_vpi_let_decl_body`, `ch37/test_vpi_let_expr_arguments`, `ch37/test_vpi_lifetime_properties`, `ch37/test_vpi_mailbox_semaphore_waiters`, `ch37/test_vpi_mod_path_relations_delays`, `ch37/test_vpi_module_defparam_alias_clocking_relations`, `ch37/test_vpi_module_instance_relations`, `ch37/test_vpi_module_specify_relations`, `ch37/test_vpi_net_driver_objects`, `ch37/test_vpi_net_local_active_connectivity`, `ch37/test_vpi_net_members_elements_parents`, `ch37/test_vpi_net_terminals_module_typespec`, `ch37/test_vpi_net_variable_bit_select_drivers`, `ch37/test_vpi_null_reference_relations`, `ch37/test_vpi_null_stmt_wait_fork`, `ch37/test_vpi_object_access_basics`, `ch37/test_vpi_param_assign_defparam`, `ch37/test_vpi_parameter_defaults_types`, `ch37/test_vpi_path_terms_tchk_args`, `ch37/test_vpi_port_kinds_connections`, `ch37/test_vpi_prefix_has_actual`, `ch37/test_vpi_prefix_kinds_actual`, `ch37/test_vpi_program_relations`, `ch37/test_vpi_property_decl_formals_args`, `ch37/test_vpi_property_instance_links`, `ch37/test_vpi_property_operator_kinds`, `ch37/test_vpi_property_sequence_operators`, `ch37/test_vpi_ref_obj_kinds_relations`, `ch37/test_vpi_scope_item_back_relations`, `ch37/test_vpi_scope_lifetimes`, `ch37/test_vpi_select_objects_event_arrays`, `ch37/test_vpi_sequence_decl_operands`, `ch37/test_vpi_struct_union_net_flags`, `ch37/test_vpi_subroutine_body_stmt`, `ch37/test_vpi_tagged_relation_access`, `ch37/test_vpi_task_function_properties`, `ch37/test_vpi_typespec_elem_unwind`, `ch37/test_vpi_typespec_kinds_more`, `ch37/test_vpi_typespec_relations`, `ch37/test_vpi_variable_parent_prefixes`, `ch37/test_vpi_variable_port_relations`, `ch37/test_vpi_variable_scope_relations`, `ch37/test_vpi_virtual_interface_init_parent`, `ch37/test_vpi_virtual_interface_var_iteration`, `ch38/test_vpi_assign_force_disable_callbacks`, `ch38/test_vpi_callback_memory_index`, `ch38/test_vpi_callback_registration_errors`, `ch38/test_vpi_path_delay_counts`, `ch38/test_vpi_put_value_delay_modes_queue` and 45 more
+Newly match (566): `ch10/test_alias_bidirectional_shared_drivers`, `ch10/test_assignment_delays_with_time_units`, `ch10/test_force_part_select_of_net`, `ch10/test_less_equal_token_by_context`, `ch10/test_unpacked_array_concat_rules`, `ch10/test_unpacked_concat_bounded_queue_overflow`, `ch11/test_A_extra_specparam_range`, `ch11/test_assignment_expression_concat_target_unsigned_sum_width`, `ch11/test_compound_assignment_index_evaluated_once`, `ch11/test_concatenation_pattern_string_operand_and_replication_once`, `ch11/test_conditional_real_shortreal_branch_promotion`, `ch11/test_constant_builtin_method_calls_at_elaboration`, `ch11/test_expr_conditional_ambiguous`, `ch11/test_expr_inside_set_forms`, `ch11/test_expr_tagged_union_access`, `ch11/test_expr_timescale_constants`, `ch11/test_inside_ranges_tolerance_unknown_and_types`, `ch11/test_inside_tolerance_ranges`, `ch11/test_let_binds_in_declaration_scope_local_and_package`, `ch11/test_precedence_distinguishing_values`, `ch11/test_precedence_logical_conditional_implication_levels`, `ch12/test_case_inside_evaluation_order_by_qualifier`, `ch12/test_for_shared_outer_control_variable`, `ch12/test_foreach_index_auto_cast_types`, `ch12/test_statement_item_forms`, `ch13/test_A_extra_tf_dims`, `ch13/test_a2_7_dynamic_override_specifiers`, `ch13/test_call_without_parentheses_subroutine_kinds`, `ch13/test_class_methods_always_automatic`, `ch13/test_constant_function_call_fresh_initial_values`, `ch13/test_default_argument_only_when_omitted`, `ch13/test_function_body_order_and_empty_body`, `ch13/test_function_directions_both_formal_styles`, `ch13/test_function_nonblocking_statements_no_delay`, `ch13/test_function_struct_return_member_or_scope`, `ch13/test_optional_parentheses_every_subroutine_kind`, `ch14/test_clocking_block_event_after_nba_before_reactive`, `ch14/test_clocking_block_per_instance_local_scope`, `ch14/test_clocking_drive_prefix_default_cycles_rhs_target_cycles`, `ch14/test_clocking_future_drive_in_re_nba`, `ch14/test_clocking_input_expression_skew`, `ch14/test_clocking_multiple_blocks`, `ch14/test_clocking_net_outputs_strong_drivers_resolved`, `ch14/test_clocking_output_part_select_skew`, `ch14/test_clocking_signal_hierarchical_slice_concat_inout_var`, `ch14/test_clocking_synchronous_events`, `ch14/test_clocking_zero_skew_drive_in_re_nba`, `ch14/test_cycle_delay_forms_and_zero_drive_delay`, `ch14/test_syntax_clocking_drive_forms`, `ch15/test_event_compare_arguments`, `ch15/test_event_null_waiter_queue`, `ch15/test_mailbox_typeless_try_type_check`, `ch15/test_semaphore_get_try_get_int_count_default_one`, `ch15/test_std_mailbox_default_type_parameter`, `ch15/test_wait_order_first_triggered`, `ch16/test_A_extra_assertion_items`, `ch16/test_ch16_sim_cover_counters`, `ch16/test_ch16_sim_declaration_inert`, `ch16/test_ch16_sim_glitch_free`, `ch16/test_ch16_sim_prop_inherited_always`, `ch16/test_ch16_sim_prop_inherited_case`, `ch16/test_ch16_sim_prop_inherited_conditional`, `ch16/test_ch16_sim_reported_interval`, `ch16/test_concurrent_assert_actions`, `ch16/test_concurrent_assertion_names_and_control`, `ch16/test_concurrent_boolean_truth_array_samples`, `ch16/test_default_disable_iff`, `ch16/test_deferred_assertion_disable_inner_scope`, `ch16/test_global_clock_past_functions_procedural_action`, `ch16/test_illegal_past_automatic_clock`, `ch16/test_illegal_past_automatic_gating`, `ch16/test_illegal_triggered_outside_local_formal`, `ch16/test_immediate_assert_syntax_actions`, `ch16/test_immediate_assertion_default_error`, `ch16/test_immediate_assertion_truth_and_actions`, `ch16/test_nexttime_always_eventually_alignment`, `ch16/test_property_declaration_and_argument_forms`, `ch16/test_property_nested_if_case`, `ch16/test_recursive_property_time_advance`, `ch16/test_sampled_value_functions_with_clocking_event`, `ch16/test_sequence_attached_call_kinds_order_region`, `ch16/test_sequence_default_actuals_and_name_scopes`, `ch16/test_sequence_empty_match_fusion`, `ch16/test_sequence_formal_reference_forms_and_types`, `ch16/test_sequence_repetition_and_concat_precedence`, `ch16/test_sequence_subroutine_call_arguments`, `ch16/test_static_assertions_start_every_tick`, `ch16/test_sva_typed_formal_assignment`, `ch16/test_zero_repetition_no_sample`, `ch17/test_checker_always_comb_latch_ff`, `ch17/test_checker_always_latch`, `ch17/test_checker_always_procedures`, `ch17/test_checker_always_statement_kinds`, `ch17/test_checker_assertion_sampling_as_module`, `ch17/test_checker_body_declaration_kinds`, `ch17/test_checker_concurrent_assertion`, `ch17/test_checker_covergroup`, `ch17/test_checker_generate_instance`, `ch17/test_checker_generate_state`, `ch17/test_checker_in_package` and 466 more
 
-No longer match (7):
+No longer match (5):
 
-- `ch16/test_property_declaration_and_argument_forms`: differ — crashed (signal 11)
-- `ch16/test_sequence_default_actuals_and_name_scopes`: differ — crashed (signal 11)
-- `ch16/test_sequence_formal_reference_forms_and_types`: differ — crashed (signal 11)
-- `ch23/test_type_parameter_override_dependent_value`: differ — output differs (exit 139)
-- `ch36/test_vpi_systf_in_generate`: differ — output differs
-- `ch37/test_vpi_case_items_patterns`: differ — output differs
-- `ch37/test_vpi_loop_branch_children`: differ — output differs
+- `ch10/test_unpacked_concat_typed_array_and_string_item`: differ — output differs
+- `ch17/test_illegal_checker_covergroup_in_procedure`: differ — the design was accepted, but it is illegal
+- `ch19/test_cg_cross_select_bins`: differ — output differs
+- `ch4/test_reactive_region_set_order`: differ — output differs
+- `ch8/test_dynamic_cast`: differ — output differs (exit 2)
 
 ## By chapter
 
-![Matching tests by chapter](charts/chapters.svg?v=20261030T014358)
+![Matching tests by chapter](charts/chapters.svg?v=20261031T021644)
 
 ## Each simulator over time
 
-![Icarus Verilog: results by status](charts/status-icarus.svg?v=20261030T014358)
+![Icarus Verilog: results by status](charts/status-icarus.svg?v=20261031T021644)
 
-![Verilator: results by status](charts/status-verilator.svg?v=20261030T014358)
+![Verilator: results by status](charts/status-verilator.svg?v=20261031T021644)
 
-![kirimasim: results by status](charts/status-kirimasim.svg?v=20261030T014358)
+![kirimasim: results by status](charts/status-kirimasim.svg?v=20261031T021644)
 
-![Lyra: results by status](charts/status-lyra.svg?v=20261030T014358)
+![Lyra: results by status](charts/status-lyra.svg?v=20261031T021644)
 
-![Ghost: results by status](charts/status-ghost.svg?v=20261030T014358)
+![Ghost: results by status](charts/status-ghost.svg?v=20261031T021644)
 
 ## Recent runs
 
@@ -84,6 +86,7 @@ Matching tests of each simulator, with the change since its previous run. The ve
 
 | Run (UTC) | Suite | Tests | Icarus Verilog | Verilator | kirimasim | Lyra | Ghost |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [2026-10-31 02:16](https://github.com/kurochan001/kirimasim-tests/actions/runs/41141958886) | [`73af6e9`](https://github.com/kurochan001/kirimasim-tests/commit/73af6e954828221c3c7447dd13cd3a271ae5bb55) | 9203 | 5701 (+199 −0) `14.0 devel 5d04888` | 5265 (+117 −3) `5.053 devel 92ac405` | 6468 (+360 −0) `17b7192b4` | 6933 (+397 −1) `e13a01796` | 8036 (+882 −5) `private build a20e2aaaee3a` |
 | [2026-10-30 01:43](https://github.com/kurochan001/kirimasim-tests/actions/runs/40972765631) | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | 8779 | 5502 (+898 −3) `14.0 devel 6991445` | 5151 (+372 −0) `5.053 devel 453b02a` | 6108 (+1032 −0) `51cda3143` | 6537 (+1037 −1) `8eff7abdc` | 7159 (+1071 −7) `private build 2d76b598f1c1` |
 | [2026-10-29 03:55](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805499579) | [`a594d65`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3) | 7744 | 4607 | 4779 `5.053 devel ad83990` | 5076 (+6 −0) `938d60c83` | 5501 (+9 −6) `ed9515d8e` | 6095 (+12 −0) `private build 5c1261cba4df` |
 | [2026-10-29 00:48](https://github.com/kurochan001/kirimasim-tests/actions/runs/40786512421) | [`248cca8`](https://github.com/kurochan001/kirimasim-tests/commit/248cca894a2607eb6eae0bda3303dc1c7cb130a9) | 7744 | 4607 (+5 −1) `14.0 devel fd8759f` | 4779 (+3 −1) `5.053 devel 375685d` | 5070 (+17 −0) `df25891fa` | 5498 (+19 −0) | 6083 (+143 −3) `private build af267bf4f8b1` |
