@@ -4,10 +4,10 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **要求カバレッジ（テスト設計）: 89.31%。**
-**全規格の要求台帳ベース（確定）: 設計 89.31%、実行 77.47%。**
+**全規格の要求台帳ベース（確定）: 設計 89.31%、実行 77.57%。**
 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
-規格要求の実行確認率: 77.47%。
+規格要求の実行確認率: 77.57%。
 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
@@ -16,7 +16,7 @@
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対する要求カバレッジ（テスト設計）: 10983/12298 (89.31%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9527/12298 (77.47%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9539/12298 (77.57%)。
 - 登録済みだがテスト未対応: 1315 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
@@ -72,6 +72,7 @@
 - `coverage-tests-20261029-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T22:46:15.799172+00:00 / 2/12298 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: unknown SBY version / 2026-10-27T13:59:10.011684+00:00 / 290/12298 動作確認、古い入力との対応 0 件。
 - `ghost-local-20261031-strict.json`: private build 7ed5e63eedf9 / 2026-10-31T10:33:23.126942+00:00 / 7883/12298 動作確認、古い入力との対応 66 件。
+- `ghost-local-20261031-strict2.json`: private build be060962f878 / 2026-10-31T13:37:26.206441+00:00 / 7964/12298 動作確認、古い入力との対応 0 件。
 - `ghost-local-20261031.json`: private build 88d08d9c3441 / 2026-10-31T08:07:21.082572+00:00 / 7866/12298 動作確認、古い入力との対応 66 件。
 - `issues-20261028-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-28T13:33:20.979624+00:00 / 2/12298 動作確認、古い入力との対応 13 件。
 - `issues-20261028-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-28T13:45:50.335531+00:00 / 3795/12298 動作確認、古い入力との対応 278 件。
@@ -6551,7 +6552,7 @@ A driven trireg uses the strength supplied by its driver, such as supply/strong/
 
 ### SV2023-6.6.4.1-EXTRACT-CAPACITIVE-PROPAGATION
 
-6.6.4.1 / normal / テスト対応あり・実行未確認
+6.6.4.1 / normal / 実行確認あり
 
 Connected trireg nets in their capacitive states can propagate logic and charge-strength values under capacitive-network resolution.
 
@@ -6563,7 +6564,7 @@ Connected trireg nets in their capacitive states can propagate logic and charge-
 
 ### SV2023-6.6.4.1-EXTRACT-CHARGE-SHARING-DIRECTION
 
-6.6.4.1 / normal / テスト対応あり・実行未確認
+6.6.4.1 / normal / 実行確認あり
 
 Within a capacitive network, charge strength can propagate from a larger-charge trireg to a smaller-charge trireg.
 
@@ -24155,7 +24156,7 @@ The one/zero strength pair may appear in either order.
 
 ### SV2023-10.3.4-EXTRACT-STRENGTH-POSITION
 
-10.3.4 / normal / テスト対応あり・実行未確認
+10.3.4 / normal / 実行確認あり
 
 A drive strength follows the net type or assign keyword immediately and precedes delay; driven values must use the specified strength.
 
@@ -44464,7 +44465,7 @@ Associative-array size and index values are not randomizable.
 
 ### SV2023-18.4-EXTRACT-ELEMENT-MODE-PRESERVATION
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 Resizing a dynamic array/queue by randomize() or new preserves retained elements rand_mode and sets new elements active.
 
@@ -44476,7 +44477,7 @@ Resizing a dynamic array/queue by randomize() or new preserves retained elements
 
 ### SV2023-18.4-EXTRACT-NO-OBJECT-ALLOCATION
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 randomize() does not allocate class objects: retained handles keep their objects for content randomization, and newly added handle elements remain null.
 
@@ -44599,7 +44600,7 @@ Class properties may be declared rand or randc under Syntax 18-1.
 
 ### SV2023-18.4-EXTRACT-RESIZE-PRESERVATION
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 A randomized dynamic array resizes with original-array initialization; a queue grows/shrinks at its back and newly inserted elements have type defaults.
 
@@ -44635,7 +44636,7 @@ A rand/randc dynamic-array/queue size may be constrained via size; resize accord
 
 ### SV2023-18.4-EXTRACT-SIZE-CONTROL
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 Dynamic-array/queue size may appear in solve before and disable soft constructs.
 
@@ -44647,7 +44648,7 @@ Dynamic-array/queue size may appear in solve before and disable soft constructs.
 
 ### SV2023-18.4-EXTRACT-UNCONSTRAINED-SIZE
 
-18.4 / normal / テスト対応あり・実行未確認
+18.4 / normal / 実行確認あり
 
 An array/queue with no size constraint, or only discarded soft size constraints, is not resized and its existing elements are randomized.
 
@@ -46618,7 +46619,7 @@ disable soft on a random variable, including array.size, discards all lower-prio
 
 ### SV2023-18.5.13.2-EXTRACT-DISABLE-NO-CONTRADICTION
 
-18.5.13.2 / normal / テスト対応あり・実行未確認
+18.5.13.2 / normal / 実行確認あり
 
 disable soft discards applicable lower-priority constraints even when no contradiction exists.
 
@@ -117438,7 +117439,7 @@ The ref port declaration permits ref variable-port type and variable-identifier 
 
 ### SV2023-A.2.1.3-EXTRACT-BUILTIN-NET
 
-A.2.1.3 / normal / テスト対応あり・実行未確認
+A.2.1.3 / normal / 実行確認あり
 
 A built-in net declaration has net type, optional drive/charge strength, optional vectored/scalared, data type or implicit type, optional delay3, net assignments and semicolon, subject to clarification 16.
 
@@ -118159,7 +118160,7 @@ The list of genvar identifiers is one or more comma-separated genvar identifier 
 
 ### SV2023-A.2.3-EXTRACT-LIST-64
 
-A.2.3 / normal / テスト対応あり・実行未確認
+A.2.3 / normal / 実行確認あり
 
 The list of net declaration assignments is one or more comma-separated net declaration assignment entries.
 
@@ -118267,7 +118268,7 @@ A defparam assignment is hierarchical parameter identifier = constant mintypmax 
 
 ### SV2023-A.2.4-EXTRACT-NET
 
-A.2.4 / normal / テスト対応あり・実行未確認
+A.2.4 / normal / 実行確認あり
 
 A net assignment has identifier, repeated unpacked dimensions and optional expression initializer.
 

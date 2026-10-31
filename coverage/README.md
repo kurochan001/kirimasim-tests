@@ -231,7 +231,23 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/test-fixes-20261031-*.json`: §6.21 B007 と §13.5.2 のテスト側修正で変更した20本と、
   §26.2 の集合証跡を揃えるために同時に再実行した2本の結果です。
   Ghost（既定）は22/22、Icarus Verilog 13.0 と Verilator 5.052 は対応するテストのみを実行しています。
-  実行確認率は77.47%を維持しています。
+  この再実行時点の実行確認率は77.47%でした。
+- `results/ghost-local-20261031-strict2.json`: Ghostのローカル全件実行（LRM準拠モード）。
+  対象はスイート`f446a74c`の9,470本、ビルド識別子は`be060962f878`で、8,710 pass・760 fail（91.97%一致）です。
+  同名の`.log`に不一致の一覧を保存しています。実行前後の入力一致とランナーのハッシュを検証済みです。
+  非公開の実行プロファイルや内部診断は含めません。
+  前回のstrict実行（9,211本）から回帰1本・改善26本で、新規テスト259本のうち98本が失敗しました。
+  新規失敗は生成crossテストの6クラスタに分類でき、Ghost側のIssue
+  [#2943](https://github.com/kurochan001/sukimasim/issues/2943)（遅延付き連続代入、60本）、
+  [#2944](https://github.com/kurochan001/sukimasim/issues/2944)（default引数、8本）、
+  [#2945](https://github.com/kurochan001/sukimasim/issues/2945)（暗黙感度、9本）、
+  [#2946](https://github.com/kurochan001/sukimasim/issues/2946)（import shadow、6本）、
+  [#2947](https://github.com/kurochan001/sukimasim/issues/2947)（ループNBA、2本）、
+  [#2949](https://github.com/kurochan001/sukimasim/issues/2949)（event仮引数、13本、spec-only）に記録しています。
+  回帰1本は[#2948](https://github.com/kurochan001/sukimasim/issues/2948)（triregのcharge strength）です。
+  違法設計の受理は102本で、うち1本は
+  [#2900](https://github.com/kurochan001/sukimasim/issues/2900)の更新対象です。
+  保存済みの他の実行結果との和集合で、対応済み要求の実行確認に加わります。
 - `results/quality-persim-20261027-*.json`: シミュレータ別期待値のパイロット実行（19本）。
 - `results/audit-oracle-20261026-icarus13.json`: spec-onlyのうちIcarus 13.0で一致した277本へ`iverilog@13.0`を追加した後の再実行（277/277 pass）。
 - `results/regex-refinement-20261025-*.json`: 判定の正規表現をメッセージの書式に依存しない形に直した`ch16`の2本の再実行。

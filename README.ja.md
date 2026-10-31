@@ -240,8 +240,8 @@ case insideは8,704通りから
 レビューしたのはAIで、人による独立したレビュー・承認ではありません。
 現在の要求カバレッジ（テスト設計）は**89.31%（10,983/12,298）**、
 `coverage/results/`の保存済み証跡による実行確認率は
-**77.47%（9,527/12,298）**で、Icarus Verilog・Verilator・SymbiYosys・Ghostの結果です。
-現在のランナーで保存した[2026-10-31のGhost全件結果](coverage/results/ghost-local-20261031-strict.json)を取り込み、
+**77.57%（9,539/12,298）**で、Icarus Verilog・Verilator・SymbiYosys・Ghostの結果です。
+現在のランナーで保存した[2026-10-31のGhost全件結果](coverage/results/ghost-local-20261031-strict2.json)を取り込み、
 入力ハッシュが一致した成功を実行確認へ反映しています。
 1〜40章だけの要求カバレッジ（テスト設計）は87.37%（8,270/9,465）です。
 測定入力と分母は[生成した要求カバレッジ集計](docs/behavior-coverage-summary.md)を参照してください。
