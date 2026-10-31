@@ -287,22 +287,22 @@ tests/ch5/test_system_function_names_cell_reset_and_attributes.sv",引用探索�
 6,データ型,7,集合データ型,M,モデル登録済み,登録済み,8,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,656,"tests/ch11/test_memory_invalid_address_2state.sv
 tests/ch26/test_package_typedef.sv
 tests/ch37/test_vpi_net_array_members_parents.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,8,クラス,E2,既存検証あり・章対未登録,P2,0,クラス継承と動的キャストが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。,クラス継承と動的キャスト,継承関係 / 実体の動的型 / null/非null / キャスト先の型,成功/失敗、派生メンバの値、nullの保存を確認する。,1,tests/ch8/test_dynamic_cast.sv,43,"tests/ch13/test_evaluation_context_extended.sv
+6,データ型,8,クラス,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,79,"tests/ch13/test_evaluation_context_extended.sv
 tests/ch37/test_vpi_scope_lifetimes.sv
-tests/ch37/test_vpi_typespec_kinds_more.sv",既存テストを再利用し、因子モデル化の要否と不足条件を確認する,2026-10-31,"Codex (GPT-6), AI review"
+tests/ch37/test_vpi_typespec_kinds_more.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,9,プロセス,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,287,"tests/ch12/test_foreach_index_shadows_outer.sv
 tests/ch13/test_local_var.sv
 tests/ch6/test_automatic_data_declarations_in_static_procedural_scopes.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,361,"tests/ch10/test_alias_undeclared_name_implicit_net.sv
 tests/ch10/test_array_pattern_index_type_default_keys.sv
 tests/ch10/test_assignment_like_contexts.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,11,演算子と式,M,モデル登録済み,登録済み,14,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1280,"tests/ch11/test_A_extra_specparam_range.sv
+6,データ型,11,演算子と式,M,モデル登録済み,登録済み,14,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1316,"tests/ch11/test_A_extra_specparam_range.sv
 tests/ch11/test_a8_3_a8_4_constant_primaries.sv
 tests/ch11/test_concatenation_pattern_string_operand_and_replication_once.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,12,手続き型プログラミング文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,42,"tests/ch11/test_propagated_operand_sign.sv
+6,データ型,12,手続き型プログラミング文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,78,"tests/ch11/test_propagated_operand_sign.sv
 tests/ch11/test_real_equality_is_exact.sv
 tests/ch12/test_do_while_edge_cases.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,292,"tests/ch10/test_assignment_like_contexts.sv
+6,データ型,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,364,"tests/ch10/test_assignment_like_contexts.sv
 tests/ch13/test_evaluation_context_extended.sv
 tests/ch13/test_func_static.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,14,クロッキングブロック,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,38,"tests/ch14/test_clocking_output_net_driver.sv
@@ -335,7 +335,7 @@ tests/ch24/test_program_instances.sv",引用探索の候補とソースを確認
 6,データ型,25,インターフェース,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,29,"tests/ch25/test_interface_declaration_all_header_elements.sv
 tests/ch25/test_interface_port_and_modport_names.sv
 tests/ch25/test_interface_port_parameter_per_instance.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-6,データ型,26,パッケージ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,14,"tests/ch23/test_module_declaration_all_header_elements.sv
+6,データ型,26,パッケージ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,50,"tests/ch23/test_module_declaration_all_header_elements.sv
 tests/ch24/test_program_declaration_all_header_elements.sv
 tests/ch25/test_interface_declaration_all_header_elements.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 6,データ型,27,generate構文,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,12,"tests/ch22/test_define_value_in_parameters.sv
@@ -437,9 +437,9 @@ tests/ch3/test_module_contains_classes_subroutines_processes.sv",引用探索の
 8,クラス,12,手続き型プログラミング文,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,4,"tests/ch6/test_ch6_extra_for_loop_automatic.sv
 tests/ch8/test_class_method_control_flow.sv
 tests/ch8/test_class_register_block.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-8,クラス,13,タスクと関数（サブルーチン）,E1,既存検証あり・章対未登録,P1,0,クラスメソッドの再帰とref引数が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。,クラスメソッドの再帰とref引数,task/function / 再帰深さ / 渡し方 / 複数インスタンス,再帰深さ、累積した更新回数と呼出し後の実引数を照合する。,1,tests/ch13/test_recursive_class_task_ref_argument.sv,13,"tests/ch13/test_a2_7_dynamic_override_specifiers.sv
+8,クラス,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,49,"tests/ch13/test_a2_7_dynamic_override_specifiers.sv
 tests/ch13/test_evaluation_context_extended.sv
-tests/ch13/test_parameterized_subroutines.sv",既存テストを再利用し、因子モデル化の要否と不足条件を確認する,2026-10-31,"Codex (GPT-6), AI review"
+tests/ch13/test_parameterized_subroutines.sv",既存モデルの計画・実行証跡を維持する,,
 8,クラス,14,クロッキングブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch37/test_vpi_prefix_kinds_actual.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 8,クラス,15,プロセス間の同期と通信,C1,追加検証候補,P1,0,非同期の受渡しとオブジェクト共有が同じ状態に作用する。値コピーとハンドルコピーの取り違えを狙う。,mailboxを介したクラスハンドルと別名の可視性,typed/typeless mailbox / put/get/peek / 取得前後のメンバ更新 / 複数ハンドル,取得したハンドルの同一性、メンバ値、キュー内個数、peekとgetの違いを観測する。,0,,1,tests/ch6/test_variable_default_values_nonintegral.sv,規格・既存テストを照合して因子と観測を設計する,2026-10-31,"Codex (GPT-6), AI review"
 8,クラス,16,アサーション,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch37/test_vpi_typespec_kinds_more.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -614,10 +614,10 @@ tests/ch37/test_vpi_cont_assign_drivers.sv",引用探索の候補とソースを
 10,代入文,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 10,代入文,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 10,代入文,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-11,演算子と式,12,手続き型プログラミング文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,86,"tests/ch11/test_complex_condition_3.sv
+11,演算子と式,12,手続き型プログラミング文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,122,"tests/ch11/test_complex_condition_3.sv
 tests/ch11/test_mux_edge_cases.sv
 tests/ch11/test_propagated_operand_sign.sv",既存モデルの計画・実行証跡を維持する,,
-11,演算子と式,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,118,"tests/ch11/test_bit_reverse.sv
+11,演算子と式,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,154,"tests/ch11/test_bit_reverse.sv
 tests/ch11/test_ct_eval_side_effects.sv
 tests/ch13/test_abs_func.sv",既存モデルの計画・実行証跡を維持する,,
 11,演算子と式,14,クロッキングブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -642,7 +642,9 @@ tests/ch23/test_port_expression_assignment_rules.sv",引用探索の候補とソ
 11,演算子と式,25,インターフェース,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,9,"tests/gen/ch16/test_gen_cross_assert_129_logic_z_equal_negedge_nba_edge_interface.sv
 tests/gen/ch16/test_gen_cross_assert_1_bit_z_case_equal_negedge_blocking_after_interface.sv
 tests/gen/ch16/test_gen_cross_assert_32_bit_x_reduce_or_negedge_nba_after_interface.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-11,演算子と式,26,パッケージ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch26/test_package_dpi_and_assertion_items.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+11,演算子と式,26,パッケージ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,37,"tests/ch26/test_package_dpi_and_assertion_items.sv
+tests/gen/ch13/test_gen_cross_return_129_bit_known_while_tail_local.sv
+tests/gen/ch13/test_gen_cross_return_129_bit_x_for_middle_package.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 11,演算子と式,27,generate構文,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,3,"tests/ch27/test_gen_ternary.sv
 tests/ch27/test_generate_let_advanced.sv
 tests/ch37/test_vpi_scope_item_back_relations.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -667,9 +669,9 @@ tests/ch38/test_vpi_handle_by_name_scope_index.sv",引用探索の候補とソ�
 11,演算子と式,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 11,演算子と式,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 11,演算子と式,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-12,手続き型プログラミング文,13,タスクと関数（サブルーチン）,E2,既存検証あり・章対未登録,P2,0,制御フローと関数の早期returnが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。,制御フローと関数の早期return,ループ/分岐の種別 / return位置 / 引数値 / 副作用の位置,返り値と、return後の副作用が実行されないことを確認する。,1,tests/ch13/test_function_early_return.sv,12,"tests/ch12/test_case_expr.sv
+12,手続き型プログラミング文,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,48,"tests/ch12/test_case_expr.sv
 tests/ch12/test_return_edge_cases.sv
-tests/ch12/test_return_ops_edge_cases.sv",既存テストを再利用し、因子モデル化の要否と不足条件を確認する,2026-10-31,"Codex (GPT-6), AI review"
+tests/ch12/test_return_ops_edge_cases.sv",既存モデルの計画・実行証跡を維持する,,
 12,手続き型プログラミング文,14,クロッキングブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 12,手続き型プログラミング文,15,プロセス間の同期と通信,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,27,"tests/gen/ch9/test_gen_cross_iff_comma_mixed_change_second_xz_nba.sv
 tests/gen/ch9/test_gen_cross_iff_comma_mixed_negedge_both_known_nba.sv
@@ -688,7 +690,9 @@ tests/ch16/test_nonvacuous_property_case.sv",引用探索の候補とソース�
 12,手続き型プログラミング文,23,モジュールと階層,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 12,手続き型プログラミング文,24,プログラム,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 12,手続き型プログラミング文,25,インターフェース,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-12,手続き型プログラミング文,26,パッケージ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+12,手続き型プログラミング文,26,パッケージ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,36,"tests/gen/ch13/test_gen_cross_return_129_bit_known_while_tail_local.sv
+tests/gen/ch13/test_gen_cross_return_129_bit_x_for_middle_package.sv
+tests/gen/ch13/test_gen_cross_return_129_bit_z_repeat_tail_local.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 12,手続き型プログラミング文,27,generate構文,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch27/test_a4_2_genvar_iteration_and_for_step.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 12,手続き型プログラミング文,28,ゲートレベル・スイッチレベルのモデリング,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 12,手続き型プログラミング文,29,ユーザー定義プリミティブ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -728,9 +732,9 @@ tests/ch13/test_subroutine_forward_reference.sv
 tests/ch23/test_hierarchy_func.sv",既存テストを再利用し、因子モデル化の要否と不足条件を確認する,2026-10-31,"Codex (GPT-6), AI review"
 13,タスクと関数（サブルーチン）,24,プログラム,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch24/test_program_automatic_lifetime.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 13,タスクと関数（サブルーチン）,25,インターフェース,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch37/test_vpi_io_direction_undefined.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-13,タスクと関数（サブルーチン）,26,パッケージ,E2,既存検証あり・章対未登録,P2,0,package内タスクと共有状態が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。,package内タスクと共有状態,import/明示修飾 / 呼出し元数 / 状態型 / input/output/ref,複数回の呼出しでpackageの状態と回数が更新され、outputへ書き戻ることを確認する。,1,tests/ch26/test_package_task_package_state.sv,5,"tests/ch26/test_package_edge_cases_2.sv
+13,タスクと関数（サブルーチン）,26,パッケージ,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,41,"tests/ch26/test_package_edge_cases_2.sv
 tests/ch26/test_package_func.sv
-tests/ch26/test_package_task.sv",既存テストを再利用し、因子モデル化の要否と不足条件を確認する,2026-10-31,"Codex (GPT-6), AI review"
+tests/ch26/test_package_task.sv",既存モデルの計画・実行証跡を維持する,,
 13,タスクと関数（サブルーチン）,27,generate構文,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,6,"tests/ch27/test_gen_cross_call.sv
 tests/ch27/test_gen_function_localparams.sv
 tests/ch27/test_gen_if_case.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,

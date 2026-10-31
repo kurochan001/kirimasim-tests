@@ -1,0 +1,176 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch8/test_gen_cross_class_method_129_bit_known_base_nonvirtual_function_ref_1": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_129_bit_known_base_nonvirtual_function_ref_1.sv:34: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "40d4d85420d23bd03b9375dc6edbf2ef9a1059ad5824be00e64602552f9768aa"
+  },
+  "gen/ch8/test_gen_cross_class_method_129_bit_x_direct_function_input_0": {
+   "status": "pass",
+   "inputs_sha256": "997557ac870c7dd5df4ab970054d5d3cf2dd1d3a6c2271909f70c1dec32becf1"
+  },
+  "gen/ch8/test_gen_cross_class_method_129_bit_z_direct_function_input_0": {
+   "status": "pass",
+   "inputs_sha256": "d889d6a2b193b00041d43b7c49a589219a579c428194995618f2d89f17c791e5"
+  },
+  "gen/ch8/test_gen_cross_class_method_129_logic_known_direct_function_input_0": {
+   "status": "pass",
+   "inputs_sha256": "874df48d0112a3f8c99016c7a9853cb3d866de9c4de13dc4da511aed610ae8ac"
+  },
+  "gen/ch8/test_gen_cross_class_method_129_logic_x_direct_function_input_0": {
+   "status": "pass",
+   "inputs_sha256": "90a4a816a347db8cdc2de3c071673fedfb447783a5b306e78797a685f0f4a8dc"
+  },
+  "gen/ch8/test_gen_cross_class_method_129_logic_z_base_virtual_task_const_ref_3": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_129_logic_z_base_virtual_task_const_ref_3.sv:34: syntax error",
+   "inputs_sha256": "ec1fc4b9f1dc2d4d3a7621a565a4bbc3846d631180131d1201d26010633d016a"
+  },
+  "gen/ch8/test_gen_cross_class_method_1_bit_known_direct_function_ref_3": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_1_bit_known_direct_function_ref_3.sv:34: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "4730978667d06d6559c4c3d499103e2538a890f81cd25d555971935537f3bdff"
+  },
+  "gen/ch8/test_gen_cross_class_method_1_bit_x_base_nonvirtual_task_input_3": {
+   "status": "pass",
+   "inputs_sha256": "448e460cba09d16c1a09a679935fd079ff54a311cb4ab095014d206893a09b05"
+  },
+  "gen/ch8/test_gen_cross_class_method_1_bit_z_base_virtual_task_ref_1": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_1_bit_z_base_virtual_task_ref_1.sv:34: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "fb2478ef292fe14216f3d2d5e020dd80dbbc0abc5d5f0e68dad77f60f8a9c03b"
+  },
+  "gen/ch8/test_gen_cross_class_method_1_logic_known_direct_function_ref_1": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_1_logic_known_direct_function_ref_1.sv:34: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "6c7701479c4e14e982792ea6ec2b84aff756c1f5dcb144787b72fd006d77210b"
+  },
+  "gen/ch8/test_gen_cross_class_method_1_logic_x_direct_task_const_ref_0": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_1_logic_x_direct_task_const_ref_0.sv:34: syntax error",
+   "inputs_sha256": "2104b907eae2ede088ebb8acb07c49f023555c5459fe5081ff1a18b60c870e0f"
+  },
+  "gen/ch8/test_gen_cross_class_method_1_logic_z_direct_function_const_ref_1": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_1_logic_z_direct_function_const_ref_1.sv:34: syntax error",
+   "inputs_sha256": "665a6b16d109fe7bfaeddf7665f6aceec0375d105e4d5cdb718d79c659c622aa"
+  },
+  "gen/ch8/test_gen_cross_class_method_32_bit_known_base_virtual_function_const_ref_0": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_32_bit_known_base_virtual_function_const_ref_0.sv:34: syntax error",
+   "inputs_sha256": "4a151fe1bff3b1ba9d5e9e616141adf4d94d6a7270589de8f1fadfb989bdd0ac"
+  },
+  "gen/ch8/test_gen_cross_class_method_32_bit_x_direct_function_const_ref_3": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_32_bit_x_direct_function_const_ref_3.sv:34: syntax error",
+   "inputs_sha256": "6a4db585dbc89200977a8eb39ab97f5665d2b753fdd83bc28f97e176f52ae1db"
+  },
+  "gen/ch8/test_gen_cross_class_method_32_bit_z_base_virtual_function_input_1": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'who=1 owner=2 d=1 entry=01010101010101010101010101010101 ...', expected 'who=2 owner=2 d=1 entry=01010101010101010101010101010101 ...'",
+   "inputs_sha256": "22886a077cca50ab93bb6a22456a706f130793c207cef5416efb62f62687341f"
+  },
+  "gen/ch8/test_gen_cross_class_method_32_logic_known_base_nonvirtual_task_ref_3": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_32_logic_known_base_nonvirtual_task_ref_3.sv:34: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "187adf16dd272fd7da03f149918d912621d6eb2c5cf8b1efb106def9ea807255"
+  },
+  "gen/ch8/test_gen_cross_class_method_32_logic_x_base_nonvirtual_function_input_0": {
+   "status": "pass",
+   "inputs_sha256": "30b7f0ea7e24374d0e4f0733a0fa80a47eac6d515258f121c4063998e0cebe8e"
+  },
+  "gen/ch8/test_gen_cross_class_method_32_logic_z_base_nonvirtual_function_ref_0": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_32_logic_z_base_nonvirtual_function_ref_0.sv:34: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "00767220513f6ee3558b7fc8f5953a94094909c7bb4536d4d17e03dd8a46d155"
+  },
+  "gen/ch8/test_gen_cross_class_method_33_bit_known_base_nonvirtual_function_const_ref_3": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_33_bit_known_base_nonvirtual_function_const_ref_3.sv:34: syntax error",
+   "inputs_sha256": "7f387624569e67bb1ba196697516d8b3fd6dad60b876e7a6468b6dc415392626"
+  },
+  "gen/ch8/test_gen_cross_class_method_33_bit_x_base_virtual_function_ref_0": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_33_bit_x_base_virtual_function_ref_0.sv:34: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "55361a680dfec203f318753e08dfafae62df60643321df1410fca732778368e1"
+  },
+  "gen/ch8/test_gen_cross_class_method_33_bit_z_direct_function_input_3": {
+   "status": "pass",
+   "inputs_sha256": "1217e17366754f017d718b81556b780e39f44e9dd1715b1a496c66df21855100"
+  },
+  "gen/ch8/test_gen_cross_class_method_33_logic_known_base_nonvirtual_task_const_ref_1": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_33_logic_known_base_nonvirtual_task_const_ref_1.sv:34: syntax error",
+   "inputs_sha256": "d83047f25523a9d9daa7b3f4293b4d79c7762cadf7444da2f5166f94c1f20555"
+  },
+  "gen/ch8/test_gen_cross_class_method_33_logic_x_direct_function_input_0": {
+   "status": "pass",
+   "inputs_sha256": "b20e00c3ff6cc6d58c32025a1d2fbbc6871caf74cd3a654fd0d065172bfd7fc2"
+  },
+  "gen/ch8/test_gen_cross_class_method_33_logic_z_direct_function_input_0": {
+   "status": "pass",
+   "inputs_sha256": "2bbbc5d5b66dea3a4d95b329d0a6546aed2fd0fe6e140c077e75d96fe0bdd660"
+  },
+  "gen/ch8/test_gen_cross_class_method_64_bit_known_direct_function_input_0": {
+   "status": "pass",
+   "inputs_sha256": "4fc453d9acfeca8816065be7f018e46484b60aa821454f35bc1d70c9be1bd6c7"
+  },
+  "gen/ch8/test_gen_cross_class_method_64_bit_x_base_virtual_function_ref_3": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_64_bit_x_base_virtual_function_ref_3.sv:34: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "5934179fe262d7e08d67efa236b58af87026d35c0d5ca1dec99dbdacf05a41d5"
+  },
+  "gen/ch8/test_gen_cross_class_method_64_bit_z_base_nonvirtual_function_const_ref_0": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_64_bit_z_base_nonvirtual_function_const_ref_0.sv:34: syntax error",
+   "inputs_sha256": "4390786530abb2865bae4ed8aacc9963f7927b46412823a73707560a41bcac5c"
+  },
+  "gen/ch8/test_gen_cross_class_method_64_logic_known_direct_task_input_1": {
+   "status": "pass",
+   "inputs_sha256": "5e265c54509e26d1bad46dd129d16b2589f59326a44443df024b3a0db7cedb58"
+  },
+  "gen/ch8/test_gen_cross_class_method_64_logic_x_direct_function_input_0": {
+   "status": "pass",
+   "inputs_sha256": "6b74dad02178260fc2e4e3b02b04978e2b7512cc91413ddca9bcb2d6072b84ce"
+  },
+  "gen/ch8/test_gen_cross_class_method_64_logic_z_direct_function_input_0": {
+   "status": "pass",
+   "inputs_sha256": "a06640212fb17458f4b672ca7064be1f56df393c9d469659fcdfd740cb30a371"
+  },
+  "gen/ch8/test_gen_cross_class_method_65_bit_known_base_virtual_task_input_0": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'who=1 owner=2 d=0 entry=101010101010101010101010101010101...', expected 'who=2 owner=2 d=0 entry=101010101010101010101010101010101...'",
+   "inputs_sha256": "ffde411fc0ee15439e90aaa354e22692241e092991531bf5c9ba68abac4f268d"
+  },
+  "gen/ch8/test_gen_cross_class_method_65_bit_x_base_virtual_function_const_ref_1": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_65_bit_x_base_virtual_function_const_ref_1.sv:34: syntax error",
+   "inputs_sha256": "85742ea854da1c6f5449ced7c42c852dfdd802b154f8369feb9c29e9f6f821c4"
+  },
+  "gen/ch8/test_gen_cross_class_method_65_bit_z_direct_task_ref_0": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch8/test_gen_cross_class_method_65_bit_z_direct_task_ref_0.sv:34: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "9932788bd880fa6724aee3372db07d3cd6c570cfe4536cf74b0171bab4059709"
+  },
+  "gen/ch8/test_gen_cross_class_method_65_logic_known_base_virtual_function_input_3": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'who=1 owner=2 d=3 entry=010101010101010101010101010101010...', expected 'who=2 owner=2 d=3 entry=010101010101010101010101010101010...'",
+   "inputs_sha256": "906437a0af2e608ccce923c768c83afd80596923b17293a9a73b2952132bc48b"
+  },
+  "gen/ch8/test_gen_cross_class_method_65_logic_x_base_nonvirtual_function_input_1": {
+   "status": "pass",
+   "inputs_sha256": "fb26f1480e9c004d874b8192e7e84a7526a01f98ae685bcec5a9c278a9fa0bf4"
+  },
+  "gen/ch8/test_gen_cross_class_method_65_logic_z_direct_function_input_0": {
+   "status": "pass",
+   "inputs_sha256": "56ee7e63619c0832921b98ab3abc13bbfd5e3cb457e1908c6eb377d766da4e72"
+  }
+ },
+ "generated_at": "2026-10-31T08:04:33.728015+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

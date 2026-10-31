@@ -1,0 +1,501 @@
+{
+  "schema": 1,
+  "purpose": "class_method_reference fault controls",
+  "versions": {
+    "verilator": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+    "icarus": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)"
+  },
+  "verilator_seed": 1,
+  "scope": "Verilator known input/ref/const-ref and dispatch/recursion; Icarus X input through direct derived handles only. No qualification of X/Z virtual or ref behavior.",
+  "generator_sha256": "37b92f538d47b281048beeca94afca97605cc88318cc7e9b549d45a123044e25",
+  "qualification_sha256": "9a7245221fac5876860d4f1962efbf7388d46b8bc3d117bdf887d9ac5db43a4e",
+  "runner_sha256": {
+    "icarus": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+    "verilator": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf"
+  },
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_class_method_1_bit_known_direct_function_ref_3",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "dispatch": "direct",
+        "kind": "function",
+        "mode": "ref",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "eaf19db587f5e8462e71adab15e1beb9f6b831000e02fb7d3e2849d228d17fa8",
+      "expected_sha256": "c7eaf32fe99702c70fadaf19f1e1e9d5383e82ce2c320c1d588c5c261275b261"
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_class_method_32_logic_known_base_nonvirtual_task_ref_3",
+      "values": {
+        "width": "32",
+        "state": "logic",
+        "value": "known",
+        "dispatch": "base_nonvirtual",
+        "kind": "task",
+        "mode": "ref",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "1a2c43ec6f25851d7d809f0e2e50c9b780bd2b3a94f997b2d707aada52070a26",
+      "expected_sha256": "6665af79f9eeb46d0a3fe1ea8c0e3a1bf64ac7d793ef11926dce40155d57226f"
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_class_method_65_logic_known_base_virtual_function_input_3",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "known",
+        "dispatch": "base_virtual",
+        "kind": "function",
+        "mode": "input",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "92fb6f4cbfa636467613029d586ec44b888b70de3290e46c444faab444d8732b",
+      "expected_sha256": "bebca7d24a600f1b6768b550758572816162a8a1aa5bf4454537f6b4bd806e94"
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_class_method_32_bit_known_base_virtual_function_const_ref_0",
+      "values": {
+        "width": "32",
+        "state": "bit",
+        "value": "known",
+        "dispatch": "base_virtual",
+        "kind": "function",
+        "mode": "const_ref",
+        "depth": "0"
+      },
+      "simulator": "verilator",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "3f5ece1e99d571a11c2b04556dafbb6f9099e9b4bd85d5fe994b6744ce9ace22",
+      "expected_sha256": "3546168e579bb9f869a72d787418bfd204ac3f0bbb9b285e5de5c2061f560539"
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_class_method_129_logic_x_direct_function_input_0",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "x",
+        "dispatch": "direct",
+        "kind": "function",
+        "mode": "input",
+        "depth": "0"
+      },
+      "simulator": "icarus",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "961f52d8af3dda4e86dd5af93cd35dbcf4493b65c9f319bafb6464b43ce43fe8",
+      "expected_sha256": "4624263219afe841c29b40909b8c7d433aeff356dedc32cd2d4ba1eb01d23536"
+    }
+  ],
+  "faults": [
+    {
+      "name": "ref_becomes_input",
+      "case": "test_gen_cross_class_method_1_bit_known_direct_function_ref_3",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "dispatch": "direct",
+        "kind": "function",
+        "mode": "ref",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'who=2 owner=2 d=3 entry=0 property=1', expected 'who=2 owner=2 d=3 entry=1 property=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "205613fca674127bb2a9e70a4d68babb145d5d2e7bc5edc220cd9bfc77050446",
+      "expected_sha256": "c7eaf32fe99702c70fadaf19f1e1e9d5383e82ce2c320c1d588c5c261275b261",
+      "mutation": {
+        "before": "ref word_t formal",
+        "after": "input word_t formal",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "omit_formal_marker",
+      "case": "test_gen_cross_class_method_1_bit_known_direct_function_ref_3",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "dispatch": "direct",
+        "kind": "function",
+        "mode": "ref",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "fail",
+      "reason": "output differs: line 7 is 'who=2 owner=2 d=0 exit=0 property=0', expected 'who=2 owner=2 d=0 exit=1 property=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "3805912d211848f1a44f730b96a7db1a08bcc625858080aed348bb2924adae26",
+      "expected_sha256": "c7eaf32fe99702c70fadaf19f1e1e9d5383e82ce2c320c1d588c5c261275b261",
+      "mutation": {
+        "before": "formal = this.m",
+        "after": "formal = this.u",
+        "replacements": 8
+      }
+    },
+    {
+      "name": "omit_property_update",
+      "case": "test_gen_cross_class_method_1_bit_known_direct_function_ref_3",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "dispatch": "direct",
+        "kind": "function",
+        "mode": "ref",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'who=2 owner=2 d=3 entry=0 property=0', expected 'who=2 owner=2 d=3 entry=1 property=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "1d4315504d03bbb10f2bc325852d8f3e586c1f28b65b153ad3d63a6dd0f1a9c0",
+      "expected_sha256": "c7eaf32fe99702c70fadaf19f1e1e9d5383e82ce2c320c1d588c5c261275b261",
+      "mutation": {
+        "before": "this.payload = this.u",
+        "after": "this.guard = this.u",
+        "replacements": 8
+      }
+    },
+    {
+      "name": "lose_automatic_depth",
+      "case": "test_gen_cross_class_method_1_bit_known_direct_function_ref_3",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "dispatch": "direct",
+        "kind": "function",
+        "mode": "ref",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "fail",
+      "reason": "output differs: line 11 is 'k0 call=0 total=880', expected 'k0 call=0 total=886'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "b063f0ff1e108bd0df8aa820301f7b5fd30373fc3da5aa9b3c9b99a579bea392",
+      "expected_sha256": "c7eaf32fe99702c70fadaf19f1e1e9d5383e82ce2c320c1d588c5c261275b261",
+      "mutation": {
+        "before": "+ d;",
+        "after": "+ 0;",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "omit_recursion",
+      "case": "test_gen_cross_class_method_1_bit_known_direct_function_ref_3",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "dispatch": "direct",
+        "kind": "function",
+        "mode": "ref",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'who=2 owner=2 d=3 exit=0 property=0', expected 'who=2 owner=2 d=2 entry=0 property=0'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "00f8af9c406f309a9d5f0a6a30c9d3963493d5b3db386c2f453d4cf44686eda5",
+      "expected_sha256": "c7eaf32fe99702c70fadaf19f1e1e9d5383e82ce2c320c1d588c5c261275b261",
+      "mutation": {
+        "before": "if (d > 0)",
+        "after": "if (d > 3)",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "lose_visit_counter",
+      "case": "test_gen_cross_class_method_1_bit_known_direct_function_ref_3",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "dispatch": "direct",
+        "kind": "function",
+        "mode": "ref",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "fail",
+      "reason": "output differs: line 12 is 'k0 saved owner=2 payload=1 guard=1 base=0 leaf=0', expected 'k0 saved owner=2 payload=1 guard=1 base=0 leaf=4'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "0885bf38e4eb6b8b36f2e5dbf3da135eeadca32b22039b7889f0dafd4e4a2290",
+      "expected_sha256": "c7eaf32fe99702c70fadaf19f1e1e9d5383e82ce2c320c1d588c5c261275b261",
+      "mutation": {
+        "before": "this.leaf_visits++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "corrupt_guard",
+      "case": "test_gen_cross_class_method_1_bit_known_direct_function_ref_3",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "dispatch": "direct",
+        "kind": "function",
+        "mode": "ref",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "fail",
+      "reason": "output differs: line 12 is 'k0 saved owner=2 payload=1 guard=0 base=0 leaf=4', expected 'k0 saved owner=2 payload=1 guard=1 base=0 leaf=4'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "b1542c666a67392b88de97a0c37d1d95115ed8be0a8471b738eea20a8707a204",
+      "expected_sha256": "c7eaf32fe99702c70fadaf19f1e1e9d5383e82ce2c320c1d588c5c261275b261",
+      "mutation": {
+        "before": "this.leaf_visits++;",
+        "after": "this.leaf_visits++; this.guard = '0;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "nonvirtual_becomes_virtual",
+      "case": "test_gen_cross_class_method_32_logic_known_base_nonvirtual_task_ref_3",
+      "values": {
+        "width": "32",
+        "state": "logic",
+        "value": "known",
+        "dispatch": "base_nonvirtual",
+        "kind": "task",
+        "mode": "ref",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'who=2 owner=2 d=3 entry=10101010101010101010101010101010 ...', expected 'who=1 owner=2 d=3 entry=10101010101010101010101010101010 ...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "030e22fac330ae7852fd3116d85a61f8630a17cdc7147861c614118f04c8d10e",
+      "expected_sha256": "6665af79f9eeb46d0a3fe1ea8c0e3a1bf64ac7d793ef11926dce40155d57226f",
+      "mutation": {
+        "before": "task automatic walk",
+        "after": "virtual task automatic walk",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "virtual_becomes_nonvirtual",
+      "case": "test_gen_cross_class_method_65_logic_known_base_virtual_function_input_3",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "known",
+        "dispatch": "base_virtual",
+        "kind": "function",
+        "mode": "input",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'who=1 owner=2 d=3 entry=010101010101010101010101010101010...', expected 'who=2 owner=2 d=3 entry=010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "1d2e1749aac91379a1675489c1dc60bd4d13186d4a3d4e29f2c3446a5500e459",
+      "expected_sha256": "bebca7d24a600f1b6768b550758572816162a8a1aa5bf4454537f6b4bd806e94",
+      "mutation": {
+        "before": "virtual function",
+        "after": "function",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "input_becomes_ref",
+      "case": "test_gen_cross_class_method_65_logic_known_base_virtual_function_input_3",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "known",
+        "dispatch": "base_virtual",
+        "kind": "function",
+        "mode": "input",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'who=2 owner=2 d=3 entry=101010101010101010101010101010101...', expected 'who=2 owner=2 d=3 entry=010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "4e41d46e2784c868607f7b42b1f31177dfd7c1ee0b11d4dd090c299fa25c796b",
+      "expected_sha256": "bebca7d24a600f1b6768b550758572816162a8a1aa5bf4454537f6b4bd806e94",
+      "mutation": {
+        "before": "input word_t formal",
+        "after": "ref word_t formal",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "switch_wrong_receiver",
+      "case": "test_gen_cross_class_method_65_logic_known_base_virtual_function_input_3",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "known",
+        "dispatch": "base_virtual",
+        "kind": "function",
+        "mode": "input",
+        "depth": "3"
+      },
+      "simulator": "verilator",
+      "status": "fail",
+      "reason": "output differs: line 14 is 'who=2 owner=2 d=3 entry=101010101010101010101010101010101...', expected 'who=2 owner=5 d=3 entry=101010101010101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "4e492a8a6b926ab3dc9ad4a11f60bbfbf1355468922d083608280931a9d1c70c",
+      "expected_sha256": "bebca7d24a600f1b6768b550758572816162a8a1aa5bf4454537f6b4bd806e94",
+      "mutation": {
+        "before": "view = b;",
+        "after": "view = a;",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "const_ref_becomes_input",
+      "case": "test_gen_cross_class_method_32_bit_known_base_virtual_function_const_ref_0",
+      "values": {
+        "width": "32",
+        "state": "bit",
+        "value": "known",
+        "dispatch": "base_virtual",
+        "kind": "function",
+        "mode": "const_ref",
+        "depth": "0"
+      },
+      "simulator": "verilator",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'who=2 owner=2 d=0 entry=10101010101010101010101010101010 ...', expected 'who=2 owner=2 d=0 entry=01010101010101010101010101010101 ...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "dfb350d78959aa8176e208f2fb795c3a8906580c6c86c1f2b39f6a357d219a40",
+      "expected_sha256": "3546168e579bb9f869a72d787418bfd204ac3f0bbb9b285e5de5c2061f560539",
+      "mutation": {
+        "before": "const ref word_t formal",
+        "after": "input word_t formal",
+        "replacements": 2
+      }
+    },
+    {
+      "name": "logic_becomes_bit",
+      "case": "test_gen_cross_class_method_129_logic_x_direct_function_input_0",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "x",
+        "dispatch": "direct",
+        "kind": "function",
+        "mode": "input",
+        "depth": "0"
+      },
+      "simulator": "icarus",
+      "status": "fail",
+      "reason": "output differs: line 52 is 'u0 init owner=2 payload=000000000000000000000000000000000...', expected 'u0 init owner=2 payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "source_sha256": "4f8143ad4c905671a4e89aee70efbbcc8eb8da83d1d3a6470647cde15dc482d9",
+      "expected_sha256": "4624263219afe841c29b40909b8c7d433aeff356dedc32cd2d4ba1eb01d23536",
+      "mutation": {
+        "before": "typedef logic [128:0] word_t;",
+        "after": "typedef bit [128:0] word_t;",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true
+}

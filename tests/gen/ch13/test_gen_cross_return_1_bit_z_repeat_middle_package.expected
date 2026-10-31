@@ -1,0 +1,72 @@
+k0 call=0 owner=2 input=1 answer=1
+k0 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=1 guard=0
+k0 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=0 guard=1
+k0 pkg calls=1 scanned=1 weight=1 tails=0 dead=0 last=0 runs=0 guard=0
+k0 call=1 owner=5 input=1 answer=1
+k0 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=1 guard=0
+k0 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=1 guard=1
+k0 pkg calls=2 scanned=2 weight=2 tails=0 dead=0 last=0 runs=0 guard=0
+k0 call=2 owner=2 input=1 answer=1
+k0 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=2 guard=0
+k0 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=1 guard=1
+k0 pkg calls=3 scanned=3 weight=3 tails=0 dead=0 last=0 runs=0 guard=0
+k1 call=0 owner=2 input=1 answer=1
+k1 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=1 guard=0
+k1 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=0 guard=1
+k1 pkg calls=1 scanned=1 weight=1 tails=0 dead=0 last=0 runs=0 guard=0
+k1 call=1 owner=5 input=1 answer=1
+k1 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=1 guard=0
+k1 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=1 guard=1
+k1 pkg calls=2 scanned=2 weight=2 tails=0 dead=0 last=0 runs=0 guard=0
+k1 call=2 owner=2 input=1 answer=1
+k1 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=2 guard=0
+k1 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=1 guard=1
+k1 pkg calls=3 scanned=3 weight=3 tails=0 dead=0 last=0 runs=0 guard=0
+k2 call=0 owner=2 input=1 answer=1
+k2 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=1 guard=0
+k2 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=0 guard=1
+k2 pkg calls=1 scanned=1 weight=1 tails=0 dead=0 last=0 runs=0 guard=0
+k2 call=1 owner=5 input=1 answer=1
+k2 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=1 guard=0
+k2 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=1 guard=1
+k2 pkg calls=2 scanned=2 weight=2 tails=0 dead=0 last=0 runs=0 guard=0
+k2 call=2 owner=2 input=1 answer=1
+k2 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=2 guard=0
+k2 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=1 guard=1
+k2 pkg calls=3 scanned=3 weight=3 tails=0 dead=0 last=0 runs=0 guard=0
+u0 call=0 owner=2 input=0 answer=0
+u0 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=1 guard=0
+u0 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=0 guard=1
+u0 pkg calls=1 scanned=1 weight=1 tails=1 dead=0 last=-1 runs=0 guard=0
+u0 call=1 owner=5 input=0 answer=0
+u0 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=1 guard=0
+u0 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=1 guard=1
+u0 pkg calls=2 scanned=2 weight=2 tails=2 dead=0 last=-1 runs=0 guard=0
+u0 call=2 owner=2 input=0 answer=0
+u0 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=2 guard=0
+u0 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=1 guard=1
+u0 pkg calls=3 scanned=3 weight=3 tails=3 dead=0 last=-1 runs=0 guard=0
+u1 call=0 owner=2 input=0 answer=0
+u1 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=1 guard=0
+u1 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=0 guard=1
+u1 pkg calls=1 scanned=1 weight=1 tails=1 dead=0 last=-1 runs=0 guard=0
+u1 call=1 owner=5 input=0 answer=0
+u1 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=1 guard=0
+u1 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=1 guard=1
+u1 pkg calls=2 scanned=2 weight=2 tails=2 dead=0 last=-1 runs=0 guard=0
+u1 call=2 owner=2 input=0 answer=0
+u1 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=2 guard=0
+u1 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=1 guard=1
+u1 pkg calls=3 scanned=3 weight=3 tails=3 dead=0 last=-1 runs=0 guard=0
+u2 call=0 owner=2 input=0 answer=0
+u2 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=1 guard=0
+u2 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=0 guard=1
+u2 pkg calls=1 scanned=1 weight=1 tails=1 dead=0 last=-1 runs=0 guard=0
+u2 call=1 owner=5 input=0 answer=0
+u2 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=1 guard=0
+u2 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=1 guard=1
+u2 pkg calls=2 scanned=2 weight=2 tails=2 dead=0 last=-1 runs=0 guard=0
+u2 call=2 owner=2 input=0 answer=0
+u2 a calls=102 scanned=202 weight=302 tails=402 dead=502 last=-602 runs=2 guard=0
+u2 b calls=105 scanned=205 weight=305 tails=405 dead=505 last=-605 runs=1 guard=1
+u2 pkg calls=3 scanned=3 weight=3 tails=3 dead=0 last=-1 runs=0 guard=0

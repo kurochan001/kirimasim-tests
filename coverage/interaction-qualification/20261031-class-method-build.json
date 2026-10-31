@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "source_commit": "3a31b060c1587967e452008510270ff270f5b828",
+  "upstream_commit": "3a31b060c1587967e452008510270ff270f5b828",
+  "source_clean": true,
+  "version": "kirimasim 0.0.0 (commit 3a31b060c158), built with AppleClang 21.0.0.21000334",
+  "binary_sha256_before": "a231c7f779fdd292641c9d76d92fc69091fe13604f11d4d9b07eaa573da5d4e3",
+  "verified_at": "2026-10-31T08:02:36.055464+00:00",
+  "suite_base_commit": "c53a5603547b013dba37f211c762d730c21801e5",
+  "scope": "All 36 selected interaction models; CMake release reconfigured and rebuilt from verified latest source.",
+  "binary_sha256_after": "a231c7f779fdd292641c9d76d92fc69091fe13604f11d4d9b07eaa573da5d4e3",
+  "binary_unchanged": true,
+  "prior_run_comparison": {
+    "source": "coverage/interaction-results/cross35-kirimasim-3a31b060.json",
+    "tests": 1657,
+    "all_input_fingerprints_unchanged": true,
+    "all_statuses_unchanged": true
+  },
+  "prior_report_comparison": {
+    "source": "c53a5603547b013dba37f211c762d730c21801e5:coverage/interaction-summary.json",
+    "models": 35,
+    "snapshots": 85,
+    "all_plans_unchanged": true,
+    "all_execution_aggregates_unchanged": true
+  }
+}

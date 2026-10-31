@@ -1,0 +1,69 @@
+k0 init owner=2 payload=0 guard=1
+k0 init owner=5 payload=1 guard=0
+who=2 owner=2 d=1 entry=1 property=1
+who=2 owner=2 d=0 entry=0 property=0
+who=2 owner=2 d=0 exit=1 property=1
+who=2 owner=2 d=1 exit=1 property=1
+k0 call=0 total=441
+k0 saved owner=2 payload=1 guard=1 base=0 leaf=2
+k0 saved owner=5 payload=1 guard=0 base=0 leaf=0
+who=2 owner=5 d=1 entry=0 property=0
+who=2 owner=5 d=0 entry=1 property=1
+who=2 owner=5 d=0 exit=0 property=0
+who=2 owner=5 d=1 exit=0 property=0
+k0 call=1 total=501
+k0 saved owner=2 payload=1 guard=1 base=0 leaf=2
+k0 saved owner=5 payload=0 guard=0 base=0 leaf=2
+who=2 owner=2 d=1 entry=1 property=1
+who=2 owner=2 d=0 entry=0 property=0
+who=2 owner=2 d=0 exit=1 property=1
+who=2 owner=2 d=1 exit=1 property=1
+k0 call=2 total=441
+k0 saved owner=2 payload=1 guard=1 base=0 leaf=4
+k0 saved owner=5 payload=0 guard=0 base=0 leaf=2
+k1 init owner=2 payload=1 guard=0
+k1 init owner=5 payload=0 guard=1
+who=2 owner=2 d=1 entry=0 property=0
+who=2 owner=2 d=0 entry=1 property=1
+who=2 owner=2 d=0 exit=0 property=0
+who=2 owner=2 d=1 exit=0 property=0
+k1 call=0 total=441
+k1 saved owner=2 payload=0 guard=0 base=0 leaf=2
+k1 saved owner=5 payload=0 guard=1 base=0 leaf=0
+who=2 owner=5 d=1 entry=1 property=1
+who=2 owner=5 d=0 entry=0 property=0
+who=2 owner=5 d=0 exit=1 property=1
+who=2 owner=5 d=1 exit=1 property=1
+k1 call=1 total=501
+k1 saved owner=2 payload=0 guard=0 base=0 leaf=2
+k1 saved owner=5 payload=1 guard=1 base=0 leaf=2
+who=2 owner=2 d=1 entry=0 property=0
+who=2 owner=2 d=0 entry=1 property=1
+who=2 owner=2 d=0 exit=0 property=0
+who=2 owner=2 d=1 exit=0 property=0
+k1 call=2 total=441
+k1 saved owner=2 payload=0 guard=0 base=0 leaf=4
+k1 saved owner=5 payload=1 guard=1 base=0 leaf=2
+k2 init owner=2 payload=0 guard=1
+k2 init owner=5 payload=1 guard=0
+who=2 owner=2 d=1 entry=1 property=1
+who=2 owner=2 d=0 entry=0 property=0
+who=2 owner=2 d=0 exit=1 property=1
+who=2 owner=2 d=1 exit=1 property=1
+k2 call=0 total=441
+k2 saved owner=2 payload=1 guard=1 base=0 leaf=2
+k2 saved owner=5 payload=1 guard=0 base=0 leaf=0
+who=2 owner=5 d=1 entry=0 property=0
+who=2 owner=5 d=0 entry=1 property=1
+who=2 owner=5 d=0 exit=0 property=0
+who=2 owner=5 d=1 exit=0 property=0
+k2 call=1 total=501
+k2 saved owner=2 payload=1 guard=1 base=0 leaf=2
+k2 saved owner=5 payload=0 guard=0 base=0 leaf=2
+who=2 owner=2 d=1 entry=1 property=1
+who=2 owner=2 d=0 entry=0 property=0
+who=2 owner=2 d=0 exit=1 property=1
+who=2 owner=2 d=1 exit=1 property=1
+k2 call=2 total=441
+k2 saved owner=2 payload=1 guard=1 base=0 leaf=4
+k2 saved owner=5 payload=0 guard=0 base=0 leaf=2

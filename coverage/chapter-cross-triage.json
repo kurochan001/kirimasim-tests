@@ -34,29 +34,6 @@
     {
       "chapters": [
         6,
-        8
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "クラス継承と動的キャストが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "クラス継承と動的キャスト",
-      "factors": [
-        "継承関係",
-        "実体の動的型",
-        "null/非null",
-        "キャスト先の型"
-      ],
-      "observation": "成功/失敗、派生メンバの値、nullの保存を確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch8/test_dynamic_cast.sv",
-          "inputs_sha256": "a3387e534b4357507ad49076dd3c23db565304d19bff856bf6c4360f2f0d202b"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        6,
         15
       ],
       "category": "E",
@@ -253,30 +230,6 @@
           "inputs_sha256": "3b7c1ccdadf6d2cb60b2aa0f79b6f5bbe91814242106bbdfaec0e9c475af67b5"
         }
       ]
-    },
-    {
-      "chapters": [
-        8,
-        13
-      ],
-      "category": "E",
-      "priority": "P1",
-      "reason": "クラスメソッドの再帰とref引数が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "クラスメソッドの再帰とref引数",
-      "factors": [
-        "task/function",
-        "再帰深さ",
-        "渡し方",
-        "複数インスタンス"
-      ],
-      "observation": "再帰深さ、累積した更新回数と呼出し後の実引数を照合する。",
-      "witnesses": [
-        {
-          "test": "tests/ch13/test_recursive_class_task_ref_argument.sv",
-          "inputs_sha256": "8ab07bb858ca936bccbc79575fdc107ca93bf879536f68282191fd1316218c45"
-        }
-      ],
-      "rank": 6
     },
     {
       "chapters": [
@@ -611,29 +564,6 @@
     },
     {
       "chapters": [
-        12,
-        13
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "制御フローと関数の早期returnが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "制御フローと関数の早期return",
-      "factors": [
-        "ループ/分岐の種別",
-        "return位置",
-        "引数値",
-        "副作用の位置"
-      ],
-      "observation": "返り値と、return後の副作用が実行されないことを確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch13/test_function_early_return.sv",
-          "inputs_sha256": "c4b7b101db441a34f54487eebd1ee28f103cb21a293c1db73f82ea2a4dcd9472"
-        }
-      ]
-    },
-    {
-      "chapters": [
         13,
         15
       ],
@@ -675,29 +605,6 @@
         {
           "test": "tests/ch13/test_default_argument_declaring_scope.sv",
           "inputs_sha256": "78ddc5da1c3950415401a3f25e47153bef9b557515fef4720e248dbd5f08e1be"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        13,
-        26
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "package内タスクと共有状態が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "package内タスクと共有状態",
-      "factors": [
-        "import/明示修飾",
-        "呼出し元数",
-        "状態型",
-        "input/output/ref"
-      ],
-      "observation": "複数回の呼出しでpackageの状態と回数が更新され、outputへ書き戻ることを確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch26/test_package_task_package_state.sv",
-          "inputs_sha256": "60c8abad59874798a662d78da9482cfc4d8cc7466316b69cee2084d3962e726b"
         }
       ]
     },

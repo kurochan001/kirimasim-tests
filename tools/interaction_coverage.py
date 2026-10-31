@@ -80,13 +80,14 @@ def outcome(run: dict, path: str, digest: str, problem: str) -> str:
     return status if status in STATES[:4] else "stale"
 
 
-def evaluate(plan, run: dict, digests: dict[str, str]) -> dict:
+def evaluate(plan, run: dict, digests: dict[str, str], universe=None) -> dict:
     problem = run_problem(run)
     states = {row: outcome(run, plan.path(row), digests[plan.path(row)], problem)
               for row in plan.available}
     passed = {t for row, status in states.items() if status == "pass"
               for t in plan.model.targets(row)}
-    universe = plan.model.universe()
+    if universe is None:
+        universe = plan.model.universe()
     strengths = {}
     for strength in sorted({len(t) for t in universe}):
         targets = {t for t in universe if len(t) == strength}
@@ -103,12 +104,16 @@ def evaluate(plan, run: dict, digests: dict[str, str]) -> dict:
 def build(plans, paths: list[Path]) -> dict:
     validate_files()
     models = []
+    universes = {}
     digests = {plan.path(row): suite_results.input_digest(ROOT / plan.path(row))
                for plan in plans for row in plan.available}
     for plan in plans:
         model = plan.model
         selected = model.select()
         targets = model.universe()
+        # The legal target set is invariant across runs of this build. Keep
+        # the cache local: the next build must review its own model definitions.
+        universes[model.name] = targets
         planned = {t for row in selected for t in model.targets(row)}
         if planned != targets or not set(model.anchors) <= set(selected):
             raise ValueError("selection lost a required interaction or witness")
@@ -131,7 +136,8 @@ def build(plans, paths: list[Path]) -> dict:
             else path.name
         runs.append({"source": source, "simulator": run.get("simulator"),
                      "version": run.get("version"), "generated_at": run.get("generated_at"),
-                     "models": {plan.model.name: evaluate(plan, run, digests) for plan in plans}})
+                     "models": {plan.model.name: evaluate(plan, run, digests, universes[plan.model.name])
+                                for plan in plans}})
     return {"schema": 1, "source_sha256": source_digest(), "models": models, "runs": runs}
 
 

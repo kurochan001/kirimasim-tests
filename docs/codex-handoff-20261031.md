@@ -145,8 +145,9 @@ Ghostの全件実行（別リポジトリの監査）が「テスト側の問題
 
 ### 4.3 その他の残件
 
-- **Ghostの結果の復帰**：新しいランナーで動いたGhostの全件結果を`coverage/results/`へ保存すれば、
-  実行確認率が戻る。Nightlyの`results`ブランチの`latest/ghost.json`が使える見込み。
+- **Ghostの結果の復帰（対応済み）**：上流mainの`80f19e33`で保存した
+  [2026-10-31のGhost全件結果](../coverage/results/ghost-local-20261031.json)を取り込み、要求カバレッジを再集計しました。
+  実行確認率は77.33%（9,510/12,298）です。これは保存済みの各シミュレータの成功の和集合で、kirimasim単独の値ではありません。
   取り込みの規則は[Nightlyの説明](nightly-results.md)と`coverage/README.md`を参照。
 - **Ghost側に残る問題**（テスト側ではない。記録のみ）：既定モードで警告にとどまる検査、
   診断の位置を別行や`(file:line)`で出す形式、`$finish(2)`の統計やカバレッジの注記を
@@ -175,8 +176,19 @@ Ghostの全件実行（別リポジトリの監査）が「テスト側の問題
   アサーションのサンプル/action観測とコンテナwaitも34・35番目のモデルとして各36件を追加済みです。
   [アサーション](interaction-verification.md#アサーションのサンプル値とactionのライブ値)は最新照合版
   `3a31b060c158`で36 unsupported、[コンテナwait](interaction-verification.md#コンテナ変更とwaitの起床)は36 passです。
-  現在35モデル・1,657選択ケース、全体は1,557 pass・98 unsupported・既存2 fail、通常スイート9,407件です。
+  この時点では35モデル・1,657選択ケース、全体は1,557 pass・98 unsupported・既存2 fail、通常スイート9,407件でした。
   concurrent assertionの実装が進んだら再実行してください。固定VerilatorのNBA同時更新時のライブ値の差異も記録しています。
+  クラスメソッドの呼出し先・再帰・input/ref/const refも36番目のモデルとして36件を追加しました。
+  [設計と実行記録](interaction-verification.md#クラスメソッドの呼出し先と再帰引数)を参照してください。
+  この時点では36モデル・1,693選択ケース、通常スイート9,443件でした。最新照合版`3a31b060c158`では
+  新規36件がクラス型の未対応で、全体は1,557 pass・134 unsupported・既存2 failです。
+  第6章×第8章・第8章×第13章を有限モデルへ登録し、章対は49対になりました。
+  クラス型・継承の実装が進んだら保存実行を更新してください。固定版での成功をkirimasimの成功に加算しません。
+  ループからの関数returnとインスタンス/packageの状態も、37番目のモデルとして36件を追加しました。
+  [設計と実行記録](interaction-verification.md#ループからの関数returnと状態の共有範囲)を参照してください。
+  現在37モデル・1,729選択ケース、通常スイート9,479件です。最新照合版`3a31b060c158`で新規36件は
+  すべてPASS、全体は1,593 pass・134 unsupported・既存2 failです。従来1,693件の入力と結果は同じです。
+  第12章×第13章・第13章×第26章を登録し、章対は51対、全選択ケースPASSのモデルは31になりました。
 
 ## 5. 実行環境
 
@@ -186,7 +198,7 @@ Ghostの全件実行（別リポジトリの監査）が「テスト側の問題
 | --- | --- | --- |
 | Icarus Verilog 13.0 | 固定oracleの確認 | `../kirimasim-tests-work/50percent-20261023/iverilog13/bin`（版を確認する） |
 | Verilator 5.052 | 固定oracleの確認 | `PATH`上。2状態テストのみ、seed 1・73 |
-| kirimasim | 最新実装の検証 | `../kirimasim-tests-work/cross-20261030-latest`（確認時のビルドは`1004b8d1`。実行直前に上流を取得してビルドし直す） |
+| kirimasim | 最新実装の検証 | `../kirimasim-tests-work/cross30-event-iff-core`（確認時のビルドは`3a31b060c158`。実行直前に上流を取得してビルドし直す） |
 | Lyra | 比較 | x86-64 Linuxのみ。`run_lyra.py --commit`に実際のコミットを渡す |
 | Ghost | 比較（公開前） | 非公開のビルドと実行プロファイルが必要。リポジトリ外に置く（README「Ghost」） |
 | SymbiYosys | formalの268件 | `tools/run_sby.py`。`:formal_case:`で検証ケースを指定 |
@@ -231,7 +243,7 @@ python3 tools/lint_metadata.py
 git diff --check
 ```
 
-確認時はツールの回帰テスト**335件**が通ります。`--check`に対応する更新は`--update`です
+確認時はツールの回帰テスト**413件**が通ります。`--check`に対応する更新は`--update`です
 （`coverage_depth.py`は`--minimum-tests 2`、`behavior_coverage.py`は`--require-source-reviewed`を付ける）。
 
 ### 6.2 テストを直したときの順序

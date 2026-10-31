@@ -985,6 +985,51 @@
           }
         }
       ]
+    },
+    {
+      "id": "class_method_reference",
+      "primary_chapter": 8,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            8
+          ],
+          "reason": "クラスプロパティへのbit/logic格納とX/Z変換を、メソッドの入出力とインスタンス別スナップショットで観測する。"
+        },
+        {
+          "chapters": [
+            8,
+            13
+          ],
+          "reason": "virtual/非virtualのレシーバ選択とautomatic再帰のinput/ref/const ref束縛を、入口・出口・戻り値で組み合わせて観測する。"
+        }
+      ]
+    },
+    {
+      "id": "function_loop_return",
+      "primary_chapter": 13,
+      "pairs": [
+        {
+          "chapters": [
+            12,
+            13
+          ],
+          "reason": "for/while/repeatの走査と関数の早期returnを組み合わせ、返り値・走査済み添字・末尾とreturn後の副作用を観測する。"
+        },
+        {
+          "chapters": [
+            13,
+            26
+          ],
+          "reason": "package関数の共有状態とインスタンス内関数の個別状態をA/B/A呼出しで区別し、呼出し元の同名変数を参照・更新しないことを観測する。",
+          "when": {
+            "scope": [
+              "package"
+            ]
+          }
+        }
+      ]
     }
   ]
 }

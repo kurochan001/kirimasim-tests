@@ -6,7 +6,9 @@ import json
 from itertools import product
 from pathlib import Path
 import sys
+import tempfile
 import unittest
+from unittest import mock
 
 import interaction_coverage as coverage
 import suite_results
@@ -573,6 +575,36 @@ class ExecutionEvidence(unittest.TestCase):
     def test_malformed_snapshot_is_rejected(self):
         with self.assertRaises(ValueError): coverage.run_problem([])
         with self.assertRaises(ValueError): coverage.run_problem({"simulator": "unknown"})
+
+    def test_build_reuses_targets_without_changing_per_run_evidence(self):
+        runs = [deepcopy(self.run) for _ in range(3)]
+        entries = list(runs[1]["tests"].values())
+        entries[0]["status"], entries[1]["status"] = "known", "unsupported"
+        next(iter(runs[2]["tests"].values()))["inputs_sha256"] = "old"
+        expected = [self.evaluate(run) for run in runs]
+        with tempfile.TemporaryDirectory() as directory:
+            paths = [Path(directory) / f"run{i}.json" for i in range(3)]
+            for path, run in zip(paths, runs):
+                path.write_text(json.dumps(run))
+            with mock.patch.object(coverage, "validate_files"), \
+                    mock.patch.object(coverage, "source_digest", return_value="fixture"), \
+                    mock.patch.object(suite_results, "input_digest", side_effect=lambda p:
+                                      self.digests[p.relative_to(coverage.ROOT).as_posix()]), \
+                    mock.patch.object(self.plan.model, "universe", wraps=self.plan.model.universe) as targets:
+                result = coverage.build((self.plan,), paths)
+            self.assertEqual(targets.call_count, 1)
+            self.assertEqual([r["models"]["tiny"] for r in result["runs"]], expected)
+
+    def test_next_build_with_same_model_id_recomputes_its_target_domain(self):
+        model = Model("tiny", (("a", ("0", "1", "2")), ("b", ("0", "1"))), lambda r: True)
+        changed = SuiteModel(model, self.plan.path, model.rows(), "changed fixture")
+        with mock.patch.object(coverage, "validate_files"), \
+                mock.patch.object(coverage, "source_digest", return_value="fixture"), \
+                mock.patch.object(suite_results, "input_digest", return_value="fixture"):
+            first = coverage.build((self.plan,), [])
+            second = coverage.build((changed,), [])
+        self.assertEqual(first["models"][0]["targets_by_strength"], {"2": 4})
+        self.assertEqual(second["models"][0]["targets_by_strength"], {"2": 6})
 
 
 if __name__ == "__main__":

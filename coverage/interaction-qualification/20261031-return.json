@@ -1,0 +1,405 @@
+{
+  "schema": 1,
+  "purpose": "function_loop_return fault controls",
+  "simulator": "kirimasim",
+  "version": "kirimasim 0.0.0 (commit 3a31b060c158), built with AppleClang 21.0.0.21000334",
+  "commit": "3a31b060c1587967e452008510270ff270f5b828",
+  "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+  "binary_sha256": "a231c7f779fdd292641c9d76d92fc69091fe13604f11d4d9b07eaa573da5d4e3",
+  "scope": "one-bit local for/head, 129-bit logic Z package repeat/none, 65-bit logic X local while/middle; all retain known controls",
+  "generator_sha256": "7cfc1e81808758d2967273788777f3fc5dc787e93c9003e033837781ba258ded",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_return_1_bit_known_for_head_local",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "loop": "for",
+        "stop": "head",
+        "scope": "local"
+      },
+      "source_sha256": "3ea41fc3289d7bbf135a6a4e8e497c6999be35be872b20090317ae0f7e8760d8",
+      "expected_sha256": "29a65c41ae1a0af4a34a18b3efa408865c6eb79581c52122356a0b7723617545",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_return_129_logic_z_repeat_none_package",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "stop": "none",
+        "scope": "package"
+      },
+      "source_sha256": "38ab349f5ef1344693183a6aabd4c3d34219c8c339dc2824be3e1f57c6ad1a14",
+      "expected_sha256": "6536f303e15958a5caf17655b2fd75de10d0741bd441cea843cc19e326b1d344",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_return_65_logic_x_while_middle_local",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "loop": "while",
+        "stop": "middle",
+        "scope": "local"
+      },
+      "source_sha256": "185a0e9c293e778b2515f1d8381416816c0f87a862771f277fc43bc1d07b3792",
+      "expected_sha256": "7b70a461ee7522fe016cfb82503927f0be31999915e9d5d7c605ff2f739e6068",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "omit_early_return",
+      "case": "test_gen_cross_return_1_bit_known_for_head_local",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "loop": "for",
+        "stop": "head",
+        "scope": "local"
+      },
+      "source_sha256": "d4714930ed178d1d365b95dbd62bc63d9b798ddf8a1ad8a546ace4cc521f7653",
+      "expected_sha256": "29a65c41ae1a0af4a34a18b3efa408865c6eb79581c52122356a0b7723617545",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a calls=1 scanned=1 weight=1 tails=1 dead=1 last=-1 ru...', expected 'k0 a calls=1 scanned=1 weight=1 tails=0 dead=0 last=0 run...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "return data;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_early_value",
+      "case": "test_gen_cross_return_1_bit_known_for_head_local",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "loop": "for",
+        "stop": "head",
+        "scope": "local"
+      },
+      "source_sha256": "60de2ba3cb27453fad66921e6a72ebf67da5e8264a346f9222e11737080700c4",
+      "expected_sha256": "29a65c41ae1a0af4a34a18b3efa408865c6eb79581c52122356a0b7723617545",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 call=0 owner=2 input=1 answer=0', expected 'k0 call=0 owner=2 input=1 answer=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "return data;",
+        "after": "return '0;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_scan_count",
+      "case": "test_gen_cross_return_1_bit_known_for_head_local",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "loop": "for",
+        "stop": "head",
+        "scope": "local"
+      },
+      "source_sha256": "9c49c12864c03a54cca6dfd51f8af3f82343163f48e837b801caf03f8309c725",
+      "expected_sha256": "29a65c41ae1a0af4a34a18b3efa408865c6eb79581c52122356a0b7723617545",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a calls=1 scanned=0 weight=1 tails=0 dead=0 last=0 run...', expected 'k0 a calls=1 scanned=1 weight=1 tails=0 dead=0 last=0 run...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "scanned++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_index_weight",
+      "case": "test_gen_cross_return_1_bit_known_for_head_local",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "loop": "for",
+        "stop": "head",
+        "scope": "local"
+      },
+      "source_sha256": "f587884c2c78cf17347dd215680c0720fc89d1ac8b965d8a02688674cf0f7e87",
+      "expected_sha256": "29a65c41ae1a0af4a34a18b3efa408865c6eb79581c52122356a0b7723617545",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a calls=1 scanned=1 weight=0 tails=0 dead=0 last=0 run...', expected 'k0 a calls=1 scanned=1 weight=1 tails=0 dead=0 last=0 run...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "weight += i + 1;",
+        "after": "weight += i;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "invoke_wrong_instance",
+      "case": "test_gen_cross_return_1_bit_known_for_head_local",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "loop": "for",
+        "stop": "head",
+        "scope": "local"
+      },
+      "source_sha256": "2d91ce051cdc0433110049fbf5432a04fb64893f84c1cc115257fcd49480843c",
+      "expected_sha256": "29a65c41ae1a0af4a34a18b3efa408865c6eb79581c52122356a0b7723617545",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 call=1 owner=5 input=0 answer=0', expected 'k0 call=1 owner=5 input=1 answer=1'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "b.invoke(",
+        "after": "a.invoke(",
+        "replacements": 3
+      }
+    },
+    {
+      "name": "lose_wrapper_count",
+      "case": "test_gen_cross_return_1_bit_known_for_head_local",
+      "values": {
+        "width": "1",
+        "state": "bit",
+        "value": "known",
+        "loop": "for",
+        "stop": "head",
+        "scope": "local"
+      },
+      "source_sha256": "ed09db4c9c94992babab27d5252d54ed0d689bef9f7729d05ddf948aa7d3cc32",
+      "expected_sha256": "29a65c41ae1a0af4a34a18b3efa408865c6eb79581c52122356a0b7723617545",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a calls=1 scanned=1 weight=1 tails=0 dead=0 last=0 run...', expected 'k0 a calls=1 scanned=1 weight=1 tails=0 dead=0 last=0 run...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "runs++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_tail_count",
+      "case": "test_gen_cross_return_129_logic_z_repeat_none_package",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "stop": "none",
+        "scope": "package"
+      },
+      "source_sha256": "6456d0f0435c10ed3c8eb3683d41e4ffc59d7f657645eab51cf11b1eba14dcaa",
+      "expected_sha256": "6536f303e15958a5caf17655b2fd75de10d0741bd441cea843cc19e326b1d344",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0 pkg calls=1 scanned=129 weight=8385 tails=0 dead=0 las...', expected 'k0 pkg calls=1 scanned=129 weight=8385 tails=1 dead=0 las...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "tails++;",
+        "after": ";",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "wrong_fallback_value",
+      "case": "test_gen_cross_return_129_logic_z_repeat_none_package",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "stop": "none",
+        "scope": "package"
+      },
+      "source_sha256": "a6de8047eacc5f4f869978c41bbabf719df5b0a3058c1f34282de62d9c896ef6",
+      "expected_sha256": "6536f303e15958a5caf17655b2fd75de10d0741bd441cea843cc19e326b1d344",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 call=0 owner=2 input=000000000000000000000000000000000...', expected 'k0 call=0 owner=2 input=000000000000000000000000000000000...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "return backup;",
+        "after": "return data;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "execute_after_return",
+      "case": "test_gen_cross_return_129_logic_z_repeat_none_package",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "stop": "none",
+        "scope": "package"
+      },
+      "source_sha256": "786c339639a7f949ea94f0f51df67a920791b15a49ba55d0ba990477ca56bb9a",
+      "expected_sha256": "6536f303e15958a5caf17655b2fd75de10d0741bd441cea843cc19e326b1d344",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0 pkg calls=1 scanned=129 weight=8385 tails=1 dead=1000 ...', expected 'k0 pkg calls=1 scanned=129 weight=8385 tails=1 dead=0 las...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "return backup;",
+        "after": "dead += 1000; return backup;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "write_caller_shadow",
+      "case": "test_gen_cross_return_129_logic_z_repeat_none_package",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "stop": "none",
+        "scope": "package"
+      },
+      "source_sha256": "463d5772d6fd4b6a3d47f369861e057153b9c72fda454d2624e3180d01e343eb",
+      "expected_sha256": "6536f303e15958a5caf17655b2fd75de10d0741bd441cea843cc19e326b1d344",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 a calls=103 scanned=202 weight=302 tails=402 dead=502 ...', expected 'k0 a calls=102 scanned=202 weight=302 tails=402 dead=502 ...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "answer = return_pkg::pick(data, backup);",
+        "after": "answer = return_pkg::pick(data, backup); calls++;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "corrupt_package_guard",
+      "case": "test_gen_cross_return_129_logic_z_repeat_none_package",
+      "values": {
+        "width": "129",
+        "state": "logic",
+        "value": "z",
+        "loop": "repeat",
+        "stop": "none",
+        "scope": "package"
+      },
+      "source_sha256": "3f7f111644ac82ffcb6099bbbc4b953689ce0d5f53b2febd6bdde74d10d29399",
+      "expected_sha256": "6536f303e15958a5caf17655b2fd75de10d0741bd441cea843cc19e326b1d344",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0 pkg calls=1 scanned=129 weight=8385 tails=1 dead=0 las...', expected 'k0 pkg calls=1 scanned=129 weight=8385 tails=1 dead=0 las...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "calls++; last = -2;",
+        "after": "calls++; guard = '0; last = -2;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "case_inequality_becomes_logical",
+      "case": "test_gen_cross_return_65_logic_x_while_middle_local",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "loop": "while",
+        "stop": "middle",
+        "scope": "local"
+      },
+      "source_sha256": "ead046677a815cf9866e6b8a4c3457810ed7688afca9536232c66530cdd0973c",
+      "expected_sha256": "7b70a461ee7522fe016cfb82503927f0be31999915e9d5d7c605ff2f739e6068",
+      "status": "fail",
+      "reason": "output differs: line 37 is 'u0 call=0 owner=2 input=00000000000000000000000000000000x...', expected 'u0 call=0 owner=2 input=00000000000000000000000000000000x...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "data[i] !== 1'b0",
+        "after": "data[i] != 1'b0",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "logic_storage_becomes_bit",
+      "case": "test_gen_cross_return_65_logic_x_while_middle_local",
+      "values": {
+        "width": "65",
+        "state": "logic",
+        "value": "x",
+        "loop": "while",
+        "stop": "middle",
+        "scope": "local"
+      },
+      "source_sha256": "5daa1f226eb94a04651bfbda4b79a1f282dd85619363fc0949590ad9f76067a1",
+      "expected_sha256": "7b70a461ee7522fe016cfb82503927f0be31999915e9d5d7c605ff2f739e6068",
+      "status": "fail",
+      "reason": "output differs: line 37 is 'u0 call=0 owner=2 input=000000000000000000000000000000000...', expected 'u0 call=0 owner=2 input=00000000000000000000000000000000x...'",
+      "subprocess_returncodes": [
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "typedef logic [64:0] word_t;",
+        "after": "typedef bit [64:0] word_t;",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "316dee2401968b011f3ca362392d223d562d8d693b6d064040ee021c4959e60e",
+  "binary_unchanged": true
+}

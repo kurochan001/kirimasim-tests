@@ -1,0 +1,61 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch13/test_gen_cross_return_129_bit_known_while_tail_local": {
+   "status": "pass",
+   "inputs_sha256": "d66291feecfeb0eae95243529cda55d612e0b2a616dd06049b2fd86dbe747d89"
+  },
+  "gen/ch13/test_gen_cross_return_129_logic_known_repeat_none_local": {
+   "status": "pass",
+   "inputs_sha256": "2a2c2e9142641e0bf61bc83d83ef7ed892c5cfe8eb26a9d353c733f70129c803"
+  },
+  "gen/ch13/test_gen_cross_return_1_bit_known_for_head_local": {
+   "status": "pass",
+   "inputs_sha256": "6a650a73396299c303ec10e04695965317872c27186a3ee8904f02ff4c3445da"
+  },
+  "gen/ch13/test_gen_cross_return_1_logic_known_while_head_local": {
+   "status": "pass",
+   "inputs_sha256": "e6d22a20dcc972d2803fb9d8a40f69043fb654c37daecec1371969bf4beb09b6"
+  },
+  "gen/ch13/test_gen_cross_return_32_bit_known_repeat_middle_local": {
+   "status": "pass",
+   "inputs_sha256": "b4a9bba86a30969a9ae2ee8f0a8f47692a9ee211aaf18f3f59c52e0555dc51a9"
+  },
+  "gen/ch13/test_gen_cross_return_32_logic_known_while_none_package": {
+   "status": "pass",
+   "inputs_sha256": "ed1f4913821d143cb692d0686a3be32c5aae48363984247c98475cdf7d587c50"
+  },
+  "gen/ch13/test_gen_cross_return_33_bit_known_while_middle_package": {
+   "status": "pass",
+   "inputs_sha256": "c4ee45b152edbed6ddffbdeb7e897df6d566f7936d694945be9e824200e5dd22"
+  },
+  "gen/ch13/test_gen_cross_return_33_logic_known_repeat_head_local": {
+   "status": "pass",
+   "inputs_sha256": "b2ac1dff15c36e251e8c629db43e93dc27909b567e4c6a4ace3ad936d06fc292"
+  },
+  "gen/ch13/test_gen_cross_return_64_bit_known_for_tail_package": {
+   "status": "pass",
+   "inputs_sha256": "268071444e4b1b49f54d544376f3aa82f2ac78c49848e9b71b270d0c0602ee03"
+  },
+  "gen/ch13/test_gen_cross_return_64_logic_known_for_middle_local": {
+   "status": "pass",
+   "inputs_sha256": "4104c8625aa3408cd2056f31fd81569c38545bd6dd28f50f7b3e3ebb6e0554a5"
+  },
+  "gen/ch13/test_gen_cross_return_65_bit_known_for_none_local": {
+   "status": "pass",
+   "inputs_sha256": "371cccc9dea5e727f1e1dd4877ac66f40b9bad93ef9086dca19c747adc294875"
+  },
+  "gen/ch13/test_gen_cross_return_65_logic_known_repeat_tail_local": {
+   "status": "pass",
+   "inputs_sha256": "e039b320c04f508c9811de6a46f5b961726710740625e16ead5bab801f96c768"
+  }
+ },
+ "generated_at": "2026-10-31T08:37:10.826475+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

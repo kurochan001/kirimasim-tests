@@ -1,0 +1,155 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch13/test_gen_cross_return_129_bit_known_while_tail_local": {
+   "status": "pass",
+   "inputs_sha256": "d66291feecfeb0eae95243529cda55d612e0b2a616dd06049b2fd86dbe747d89"
+  },
+  "gen/ch13/test_gen_cross_return_129_bit_x_for_middle_package": {
+   "status": "pass",
+   "inputs_sha256": "f9d88b4c753e6b7eb381ef774479458a38daa99d925972e65b69bc46ce2d1b85"
+  },
+  "gen/ch13/test_gen_cross_return_129_bit_z_repeat_tail_local": {
+   "status": "pass",
+   "inputs_sha256": "19c2e4db831551883e0969245e77847ae21cd83aa0ae6ba827e2b21d51920227"
+  },
+  "gen/ch13/test_gen_cross_return_129_logic_known_repeat_none_local": {
+   "status": "pass",
+   "inputs_sha256": "2a2c2e9142641e0bf61bc83d83ef7ed892c5cfe8eb26a9d353c733f70129c803"
+  },
+  "gen/ch13/test_gen_cross_return_129_logic_x_while_head_local": {
+   "status": "pass",
+   "inputs_sha256": "fb32cbad259082c245321b7ccaf262e03e2e5fd301d517ed0ed314e75d1d252f"
+  },
+  "gen/ch13/test_gen_cross_return_129_logic_z_repeat_none_package": {
+   "status": "pass",
+   "inputs_sha256": "39b86910c569bf706ba05d06dd0f76b18d40c5a7b91d6a84a16ae16ddf8d0284"
+  },
+  "gen/ch13/test_gen_cross_return_1_bit_known_for_head_local": {
+   "status": "pass",
+   "inputs_sha256": "6a650a73396299c303ec10e04695965317872c27186a3ee8904f02ff4c3445da"
+  },
+  "gen/ch13/test_gen_cross_return_1_bit_x_while_none_local": {
+   "status": "pass",
+   "inputs_sha256": "b936721dae10ac21133d945c28afbf1e009640e418d259340be03f66247f4f58"
+  },
+  "gen/ch13/test_gen_cross_return_1_bit_z_repeat_middle_package": {
+   "status": "pass",
+   "inputs_sha256": "9e16f1c90898f6ae46fb0593b3276998bda8d347fd03802795a07f4b5eae3fbf"
+  },
+  "gen/ch13/test_gen_cross_return_1_logic_known_while_head_local": {
+   "status": "pass",
+   "inputs_sha256": "e6d22a20dcc972d2803fb9d8a40f69043fb654c37daecec1371969bf4beb09b6"
+  },
+  "gen/ch13/test_gen_cross_return_1_logic_x_while_tail_package": {
+   "status": "pass",
+   "inputs_sha256": "9076e0f19abd8cb90ca6df92eca1a8489fe86730002daba35aa03ceb42e5735d"
+  },
+  "gen/ch13/test_gen_cross_return_1_logic_z_for_middle_local": {
+   "status": "pass",
+   "inputs_sha256": "9fab5068ab22f8250adb6233f2b17a2413b4fa3486610d31985aada36fc4d554"
+  },
+  "gen/ch13/test_gen_cross_return_32_bit_known_repeat_middle_local": {
+   "status": "pass",
+   "inputs_sha256": "b4a9bba86a30969a9ae2ee8f0a8f47692a9ee211aaf18f3f59c52e0555dc51a9"
+  },
+  "gen/ch13/test_gen_cross_return_32_bit_x_repeat_head_package": {
+   "status": "pass",
+   "inputs_sha256": "0f45a1be8a4c3114621af37ac6d873c9662d29225b827b4c7c5bd935277512bd"
+  },
+  "gen/ch13/test_gen_cross_return_32_bit_z_for_tail_local": {
+   "status": "pass",
+   "inputs_sha256": "758b3e534bf4794331025f3ec60078a846816f3752c5fb10b1ff96e1236b116a"
+  },
+  "gen/ch13/test_gen_cross_return_32_logic_known_while_none_package": {
+   "status": "pass",
+   "inputs_sha256": "ed1f4913821d143cb692d0686a3be32c5aae48363984247c98475cdf7d587c50"
+  },
+  "gen/ch13/test_gen_cross_return_32_logic_x_for_head_local": {
+   "status": "pass",
+   "inputs_sha256": "a1057bfe4db54bad1871de06afafc64406f77f895df68dd64a6f20e89088ebc6"
+  },
+  "gen/ch13/test_gen_cross_return_32_logic_z_while_tail_local": {
+   "status": "pass",
+   "inputs_sha256": "78aafd1d48e282e50ff30a2ee489583a7d2df28b1607f555fe07a92bcffb058f"
+  },
+  "gen/ch13/test_gen_cross_return_33_bit_known_while_middle_package": {
+   "status": "pass",
+   "inputs_sha256": "c4ee45b152edbed6ddffbdeb7e897df6d566f7936d694945be9e824200e5dd22"
+  },
+  "gen/ch13/test_gen_cross_return_33_bit_x_repeat_tail_package": {
+   "status": "pass",
+   "inputs_sha256": "e46ad1be533cd19fd58a6c4e4289552f1fd70ab8fab2e38306ea4584723f6cfd"
+  },
+  "gen/ch13/test_gen_cross_return_33_bit_z_for_none_local": {
+   "status": "pass",
+   "inputs_sha256": "33b57a11c1024d809bc292a60649b5713e112a2805375dfff80c0a9ce656efe5"
+  },
+  "gen/ch13/test_gen_cross_return_33_logic_known_repeat_head_local": {
+   "status": "pass",
+   "inputs_sha256": "b2ac1dff15c36e251e8c629db43e93dc27909b567e4c6a4ace3ad936d06fc292"
+  },
+  "gen/ch13/test_gen_cross_return_33_logic_x_for_tail_local": {
+   "status": "pass",
+   "inputs_sha256": "b6bb125dc6e1f37a22b580306695da01d5b582da158bca586c219e4ec6a14799"
+  },
+  "gen/ch13/test_gen_cross_return_33_logic_z_while_middle_local": {
+   "status": "pass",
+   "inputs_sha256": "a4d499a4640d49184006165f09f900c10910240aba793dff40b48cb2a8cbeb2d"
+  },
+  "gen/ch13/test_gen_cross_return_64_bit_known_for_tail_package": {
+   "status": "pass",
+   "inputs_sha256": "268071444e4b1b49f54d544376f3aa82f2ac78c49848e9b71b270d0c0602ee03"
+  },
+  "gen/ch13/test_gen_cross_return_64_bit_x_repeat_middle_local": {
+   "status": "pass",
+   "inputs_sha256": "e1c62a929298164ea9c8b8f47ca23787628ad7c148abfede79162541f27cff70"
+  },
+  "gen/ch13/test_gen_cross_return_64_bit_z_while_head_package": {
+   "status": "pass",
+   "inputs_sha256": "12ec98dec7d52e737a68628221b4afd5f0f52b5472a2afab4cb927403b598ffd"
+  },
+  "gen/ch13/test_gen_cross_return_64_logic_known_for_middle_local": {
+   "status": "pass",
+   "inputs_sha256": "4104c8625aa3408cd2056f31fd81569c38545bd6dd28f50f7b3e3ebb6e0554a5"
+  },
+  "gen/ch13/test_gen_cross_return_64_logic_x_repeat_none_local": {
+   "status": "pass",
+   "inputs_sha256": "32015a83eb7e9856dc3a26b3474da4ecab8be2217a85e300560d4f465a0e66be"
+  },
+  "gen/ch13/test_gen_cross_return_64_logic_z_while_none_local": {
+   "status": "pass",
+   "inputs_sha256": "fbfb00168f2aaa95c4498add2a55c2dc786d2a7e377dc31e11d515e2769d0b25"
+  },
+  "gen/ch13/test_gen_cross_return_65_bit_known_for_none_local": {
+   "status": "pass",
+   "inputs_sha256": "371cccc9dea5e727f1e1dd4877ac66f40b9bad93ef9086dca19c747adc294875"
+  },
+  "gen/ch13/test_gen_cross_return_65_bit_x_for_none_package": {
+   "status": "pass",
+   "inputs_sha256": "198d5d07bff29c8cdc4e3ffc41904775022a19345338b9b79f84391a9461d534"
+  },
+  "gen/ch13/test_gen_cross_return_65_bit_z_repeat_head_local": {
+   "status": "pass",
+   "inputs_sha256": "0dd313c5d97df25c413276948ce2ed3389f011208b662f889399634da1aab4db"
+  },
+  "gen/ch13/test_gen_cross_return_65_logic_known_repeat_tail_local": {
+   "status": "pass",
+   "inputs_sha256": "e039b320c04f508c9811de6a46f5b961726710740625e16ead5bab801f96c768"
+  },
+  "gen/ch13/test_gen_cross_return_65_logic_x_while_middle_local": {
+   "status": "pass",
+   "inputs_sha256": "489232e2f87564567bf7620f7258b07dfc2f5b614e76b135f5eced5b721c5831"
+  },
+  "gen/ch13/test_gen_cross_return_65_logic_z_for_head_package": {
+   "status": "pass",
+   "inputs_sha256": "c96bad3195e2923cf1d029d769d3d3d626eb55fa2dd4cddf05f606154f3c95eb"
+  }
+ },
+ "generated_at": "2026-10-31T08:36:17.749620+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

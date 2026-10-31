@@ -36,6 +36,8 @@ import interaction_iff
 import interaction_clocking
 import interaction_assertion
 import interaction_wait
+import interaction_class_method
+import interaction_return
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -54,7 +56,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_concat, interaction_logic,
               interaction_shortcircuit, interaction_edge, interaction_iff, combination_monitors,
               interaction_clocking,
-              interaction_assertion, interaction_wait,
+              interaction_assertion, interaction_wait, interaction_class_method, interaction_return,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -329,5 +331,21 @@ def registered() -> tuple[SuiteModel, ...]:
             "サイズ・先頭要素・両条件を待ち、動的配列とキューの作成・拡大・縮小・削除・"
             "同サイズ置換の前後で起床時刻・回数と全要素を観測する。無関係なコンテナ変更での"
             "早期起床を区別し、既に真の場合と、型変換後のX/Zをcase等価で待つ場合も確認する。",
+        ),
+        SuiteModel(
+            interaction_class_method.MODEL,
+            lambda row: "tests/gen/ch8/" + interaction_class_method.case_name(row) + ".sv",
+            interaction_class_method.MODEL.select(),
+            "2個の派生インスタンスをA/B/A順に呼び、virtual/非virtualの実行本体と所有者、"
+            "再帰の入口・出口の仮引数とプロパティ、戻り値・カウンタ・ガードを観測する。"
+            "inputのフレーム別コピーとref/const refの同一実体への参照、2状態変換を確認する。",
+        ),
+        SuiteModel(
+            interaction_return.MODEL,
+            lambda row: "tests/gen/ch13/" + interaction_return.case_name(row) + ".sv",
+            interaction_return.MODEL.select(),
+            "for/while/repeat内で最初の非0ビットからreturnし、戻り値・走査回数と添字の総和・"
+            "末尾到達・return後の副作用を観測する。A/B/A呼出しでインスタンス別状態と"
+            "packageの共有状態、呼出し元の同名変数の保持、X/Zの2状態変換も確認する。",
         ),
     )
