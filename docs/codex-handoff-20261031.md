@@ -1,7 +1,8 @@
 # Codexへの引き継ぎ：テスト側指摘の対応とクロス検証（2026-10-31）
 
 外部状態の確認：2026-10-30 21:05 UTC（10-31 06:05 JST）。
-ローカル状態・クロス検証の更新：2026-11-01 JST。Issueなど外部状態の確認日は上記のままです。
+ローカル状態・クロス検証・文書の更新：2026-11-01 JST。Issueなど外部状態の確認日は上記のままです。
+GitHub Actionsと公開Nightlyの再確認日は2026-11-01 JSTです。
 この資料は`kirimasim-tests`の作業を引き継ぐためのものです。
 コマンドは、断りがなければ`kirimasim-tests`リポジトリのルートで実行します。
 
@@ -14,14 +15,20 @@
 
 ## 1. 最初に把握すること
 
-- この更新の基点はmainの`cb976dfc`です。interfaceヘッダimportの新モデル36件と関連文書を今回の反映対象としています。
-  反映後のコミットは`git log -1`と`git rev-parse origin/main`で照合してください。
-  基点の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41244082915)は成功を確認しました。
-  ローカルのツール回帰539件と整合性検査11項目は成功しました。
-  GitHub Check・Nightlyの結果は、プッシュしたコミットの実行を別途確認します。
+- 文書レビューの基点はmainの`605cc868`です。interfaceヘッダimportの新モデル36件はこのコミットで反映済みです。
+  基点の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41246319544)は確認時点で実行中（in_progress）です。
+  ローカルのツール回帰539件と整合性検査11項目の成功は、直前のモデル追加時に確認した結果です。
+  今回はREADME・用語集・FAQ等の文書を更新し、シミュレータの新規実行は行っていません。
+  文書更新後も整合性検査11項目、ローカルリンク601件、FAQの保存結果評価コマンドを確認し、すべて成功しました。
+  文書更新後のコミット状態は`git status`、`git log -1`と`git rev-parse origin/main`で照合してください。
+- 確認済みの[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41141958886)はスイート`73af6e95`の9,203本が対象で、
+  5環境とpublishが成功しました。これは現mainより前の記録です。
+  各ランナーはformalの268本を除く8,935本を対象にしています。
+  [公開時の記録と版](nightly-results.md#確認例2026年10月31日の公開)を参照してください。
 - スイートは**10,042件、生成3,605件**。機能間クロスの短時間実行は**53モデル・2,292件**です。
 - 全体回帰前の上流更新を取り込んだkirimasim `4fb5f6b1aec8`で、全クロスは
-  **2,170 pass・116 unsupported・既存6 fail**です。新規36件はすべてPASSです。
+  **2,170 pass・116 unsupported・既存6 fail**です。interface importの36件はすべてPASSです。
+  クラスメソッドは18 pass・18 unsupportedで、初回追加時の全36 unsupportedから改善しています。
   従来2,256件の入力と結果分類は同じです。
   [最新記録](interaction-verification.md#interfaceヘッダのimportとpackage関数の型変換)を参照してください。
 - 要求カバレッジは、テスト設計**89.31%（10,983/12,298）**、実行確認**77.57%（9,539/12,298）**です。
@@ -155,7 +162,8 @@ Ghostの全件実行（別リポジトリの監査）が「テスト側の問題
 - **Ghostの結果の復帰（対応済み）**：上流mainの`80f19e33`で保存した
   [2026-10-31のGhost全件結果](../coverage/results/ghost-local-20261031.json)を取り込み、要求カバレッジを再集計しました。
   続く上流mainの`bfa43fea`で[strict LRMの全件結果](../coverage/results/ghost-local-20261031-strict.json)も取り込み、
-  現在の実行確認率は77.47%（9,527/12,298）です。これは保存済みの各シミュレータの成功の和集合で、kirimasim単独の値ではありません。
+  この取り込み時点の実行確認率は77.47%（9,527/12,298）でした。現在値は§1を参照してください。
+  これは保存済みの各シミュレータの成功の和集合で、kirimasim単独の値ではありません。
   取り込みの規則は[Nightlyの説明](nightly-results.md)と`coverage/README.md`を参照。
   上流mainの`a3edb14a`による既存テストの変数・タスクの寿命指定の修正と、
   [修正分のGhost実行](../coverage/results/test-fixes-20261031-ghost.json)・固定版の実行・要求対応も取り込み済みです。
@@ -356,8 +364,10 @@ python3 tools/run_ghost.py --simulator BIN --profile PRIVATE.json --include DIR 
 python3 tools/run_sby.py --sby "$SBY_BIN" --json FILE
 ```
 
-どのランナーも`:type: formal`を除きます。`--json`を付けた結果だけが証跡になります。
-`zsh`では変数が空白で分かれないため、テスト一覧は`$(cat list.txt)`や配列で渡してください。
+シミュレーション用ランナーは`:type: formal`を除き、フォーマル検証用の`run_sby.py`はformalを選びます。
+`--json`を付けた結果だけが証跡になります。
+`zsh`では変数が空白で分かれないため、テスト一覧は配列などで渡してください。
+一覧が空なら実行を止めます。位置引数なしでは通常の全件選択になるためです。
 
 ## 6. 変更後の更新・確認手順
 
@@ -379,7 +389,8 @@ python3 tools/lint_metadata.py
 git diff --check
 ```
 
-確認時はツールの回帰テスト**473件**が通ります。`--check`に対応する更新は`--update`です
+直近のモデル追加時点では、ツールの回帰テスト**539件**が成功しました。件数はツール追加により変わります。
+`--check`に対応する更新は`--update`です
 （`coverage_depth.py`は`--minimum-tests 2`、`behavior_coverage.py`は`--require-source-reviewed`を付ける）。
 
 ### 6.2 テストを直したときの順序

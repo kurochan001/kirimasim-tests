@@ -7,11 +7,17 @@
 
 設計思想、選択アルゴリズム、モデルの追加手順、他プロジェクトやLSIへの適用方法は、
 [考え方と実践手順](interaction-verification-method.md)を参照してください。
+[用語集](glossary.md#8-機能間クロス検証)と[FAQ](faq.md#7-機能間クロス検証)では、
+章間表、実行充足、対照・故障注入、保存記録の読み方を説明しています。
 Issue #21で追加した境界条件の回帰テストと、保留した解釈・別APIの範囲は
 [回帰取り込みレポート](p1-combination-regressions-20261030.md)と
 [照合台帳](../coverage/combination-gaps.json)にまとめています。
 
 ## 保存実行の概要
+
+各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・
+検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と
+[生成レポート](interaction-coverage.md)を参照してください。
 
 2026-11-01のinterface import追加：現在は**53モデル・2,292件**です。
 全体回帰前の上流更新へ合わせてビルドしたkirimasim `4fb5f6b1aec8`で、新規36件はすべてPASSしました。
@@ -1622,7 +1628,7 @@ X/Z行では、未知値から既知値と、その逆の変化も与えます�
 全2,592行を照合しました。program、clocking変数、automatic変数、disable iff、
 アサーション制御、時間演算、履歴関数は対象外です。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross35-kirimasim-3a31b060.json)では36 unsupportedで、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross35-kirimasim-3a31b060.json)では36 unsupportedで、
 診断は`statement 'ConcurrentAssertion' (not implemented yet)`です。
 計画から除外せず、成功の組合せ数は0として記録しています。
 [Icarus 13.0](../coverage/interaction-results/assertion-wait-20261031-icarus13.json)も36 knownでした。
@@ -1679,7 +1685,7 @@ delete／全体代入で変更します。別コンテナだけを+1 tickで変�
 全1,440行を照合しました。サイズが変わらない置換でも要素条件は起床し、空への削除ではサイズ0を待ちます。
 連想配列、無効な添字、参照引数、同時刻の複数の変更元は対象外です。
 
-[最新kirimasim](../coverage/interaction-results/cross35-kirimasim-3a31b060.json)は36 passで、
+[追加時のkirimasim](../coverage/interaction-results/cross35-kirimasim-3a31b060.json)は36 passで、
 214ペア・3因子88組・必須6件すべてを成功で充足しました。
 固定版の[Icarus 13.0](../coverage/interaction-results/assertion-wait-20261031-icarus13.json)は
 26 pass・10 knownでした。サイズ変更後も起床しない差異や、期待した行まで出力しない差異があります。
@@ -1742,9 +1748,11 @@ bitでのX/Z→0変換も、初期状態とフレーム内の更新の両方で�
 ref/const ref用の共有セルを使い、全1,944行を照合しました。
 タスクも時間を消費しません。並行呼出し、配列、時間制御、super呼出し、output/inoutの復帰先評価は別の範囲です。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross36-kirimasim-3a31b060.json)は
-新規36件とも`type 'leaf_t' (not implemented yet)`によるunsupportedです。
-全選択ケースが未対応のため、kirimasimで成功したペア・3因子・必須ケースは0として保持します。
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross36-kirimasim-3a31b060.json)は
+新規36件とも`type 'leaf_t' (not implemented yet)`によるunsupportedでした。
+その時点の成功ペア・3因子・必須ケースは0として記録しています。
+その後の[kirimasim `4fb5f6b1aec8`の全体回帰](../coverage/interaction-results/cross53-kirimasim-4fb5f6b1.json)では
+18 pass・18 unsupportedへ改善しています。初回の証跡は書き換えず、実行回ごとに区別します。
 固定版[Icarus 13.0](../coverage/interaction-results/class-method-20261031-icarus13.json)は15 pass・21 knownです。
 参照引数の未対応に加え、virtualの3件で派生側でなく基底側の本体を呼ぶ出力差があります。
 Verilator 5.052の[seed 1](../coverage/interaction-results/class-method-20261031-verilator5.052-seed1.json)・
@@ -1803,14 +1811,14 @@ packageの行では、呼出し元にある同名の変数を識別用の異な�
 [独立した逐次走査モデル](../tools/test_interaction_return.py)で全864行を照合しました。
 再帰、break／continue、並行呼出し、時間制御、異なる幅の返り値変換は対象外です。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross37-kirimasim-3a31b060.json)は追加36件すべてPASSで、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross37-kirimasim-3a31b060.json)は追加36件すべてPASSで、
 161ペア・3因子120組・必須6件すべてを成功で充足しました。
 固定版[Icarus 13.0](../coverage/interaction-results/return-20261031-icarus13.json)もX/Zを含む36件が一致しました。
 Verilator 5.052の[seed 1](../coverage/interaction-results/return-20261031-verilator5.052-seed1.json)・
 [seed 73](../coverage/interaction-results/return-20261031-verilator5.052-seed73.json)は、既知値12件がすべて一致しました。
 X/Zの24件は固定Verilatorの確認対象外です。
 
-[故障注入](../coverage/interaction-qualification/20261031-return.json)は最新kirimasimを使い、
+[故障注入](../coverage/interaction-qualification/20261031-return.json)は実行時のkirimasimを使い、
 1ビットの先頭復帰、129ビットlogic Zのpackage内全走査、65ビットlogic Xの中間復帰の正の対照3件が一致しました。
 早期returnの欠落、誤った返り値、走査回数・添字重み・呼出し回数・末尾到達回数の欠落や誤り、
 別インスタンスの呼出し、return後の実行、呼出し元の同名変数の更新、ガード破壊、
@@ -1872,7 +1880,7 @@ NBAの左辺は静的なスカラまたは固定配列要素で、automatic変�
 複数プロセスの競合、遅延付きNBA、modport、interface外の手続きからのNBA直接駆動は対象外です。
 既存の[内外からのinterface配列へのNBAテスト](../tests/ch10/test_nba_interface_array_element.sv)は維持します。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross38-kirimasim-95eefebe.json)は追加36件すべてPASSで、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross38-kirimasim-95eefebe.json)は追加36件すべてPASSで、
 246ペア・3因子111組・必須6件をすべて成功で充足しました。
 固定版[Icarus 13.0](../coverage/interaction-results/loop-nba-20261031-icarus13.json)もX/Zを含む36件が一致しました。
 Verilator 5.052の[seed 1](../coverage/interaction-results/loop-nba-20261031-verilator5.052-seed1.json)・
@@ -1937,7 +1945,7 @@ latchの出力はNBAで代入し、全観測はその完了後に行います。
 [独立したActive／NBAのイベントキューモデル](../tools/test_interaction_process.py)で全1,728行を照合しました。
 関数内の遅延、複数の駆動プロセス、動的な添字、データパスのフィードバック、modportは対象外です。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross39-kirimasim-95eefebe.json)は追加36件すべてPASSで、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross39-kirimasim-95eefebe.json)は追加36件すべてPASSで、
 242ペア・3因子96組・必須6件をすべて成功で充足しました。
 固定版[Icarus 13.0](../coverage/interaction-results/process-20261031-icarus13.json)も36件が一致しました。
 固定Verilator 5.052の[seed 1](../coverage/interaction-results/process-20261031-verilator5.052-seed1.json)・
@@ -1949,7 +1957,7 @@ latchの出力はNBAで代入し、全観測はその完了後に行います。
 このカウンタはプロセス内だけで増加するため、時刻0で上限へ達する評価回数の差異を示します。
 9.2.2.2.1 bに基づく期待値は維持し、このモデルにVerilatorのoracleを登録していません。
 
-[故障注入](../coverage/interaction-qualification/20261031-process.json)は最新kirimasimを使い、
+[故障注入](../coverage/interaction-qualification/20261031-process.json)は実行時のkirimasimを使い、
 1ビットのmodule内direct comb、129ビットlogic Zのinterface内function latch、
 65ビットlogic Xのinterface内function combの正の対照3件が一致しました。
 combの既定値の欠落、latchの保持の欠落、未知のイネーブルを真とする誤り、
@@ -2009,14 +2017,14 @@ config、defparam、無名generate、動的な階層添字、相対名による�
 既存の[上位スコープも探索する相対階層名参照](../tests/ch23/test_generate_upward_scope_name.sv)や
 [配列要素への連続代入](../tests/ch27/test_generate_assign.sv)は維持しています。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross40-kirimasim-4b58e29f.json)は追加36件すべてPASSで、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross40-kirimasim-4b58e29f.json)は追加36件すべてPASSで、
 148ペア・3因子68組・必須6件をすべて成功で充足しました。
 固定版[Icarus 13.0](../coverage/interaction-results/generate-20261031-icarus13.json)もX/Zを含む36件が一致しました。
 Verilator 5.052の[seed 1](../coverage/interaction-results/generate-20261031-verilator5.052-seed1.json)・
 [seed 73](../coverage/interaction-results/generate-20261031-verilator5.052-seed73.json)では、既知値12件がすべて一致しました。
 X/Zの24件は固定Verilatorの確認対象外です。
 
-[故障注入](../coverage/interaction-qualification/20261031-generate.json)は最新kirimasimを使い、
+[故障注入](../coverage/interaction-qualification/20261031-generate.json)は実行時のkirimasimを使い、
 1ビットのimport/隠蔽なし、129ビットlogic Zの入れ子case/import/局所宣言、
 65ビットlogic Xの入れ子if/明示修飾/局所宣言の正の対照3件が一致しました。
 packageと局所の幅・定数の誤り、genvarの固定、分岐選択からのgenvarの欠落、インスタンスパラメータの誤り、
@@ -2071,7 +2079,7 @@ bitへの未知値変換はsourceへの格納時に行い、その後で既定�
 既存の[省略時だけの評価](../tests/ch13/test_default_argument_only_when_omitted.sv)と
 [宣言スコープ](../tests/ch13/test_default_argument_declaring_scope.sv)の通常テストは変更していません。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross41-kirimasim-4b58e29f.json)は追加36件すべてPASSで、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross41-kirimasim-4b58e29f.json)は追加36件すべてPASSで、
 159ペア・3因子128組・必須6件をすべて成功で充足しました。
 固定版[Icarus 13.0](../coverage/interaction-results/default-20261031-icarus13.json)もX/Zを含む36件が一致しました。
 Verilator 5.052の[seed 1](../coverage/interaction-results/default-20261031-verilator5.052-seed1.json)・
@@ -2139,9 +2147,9 @@ NBAの左辺はautomatic変数ではありません。遅延のないNBAトリ�
 イベント変数の再結合・比較・nullへの待機、triggered、wait_order、virtual interface、
 自動変数のイベントの寿命は対象外です。input/refの再結合時の差を確認したとは扱いません。
 [事前照合](../coverage/interaction-qualification/20261031-event-task-preflight.json)では、既存のイベント再結合・マージは
-最新kirimasimでも未対応でした。第6章×第15章・第7章×第15章の既存の検証は台帳に残しています。
+追加時のkirimasimでも未対応でした。第6章×第15章・第7章×第15章の既存の検証は台帳に残しています。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross42-kirimasim-4b58e29f.json)は追加13件すべてPASSで、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross42-kirimasim-4b58e29f.json)は追加13件すべてPASSで、
 109ペア・3因子52組・必須6件をすべて成功で充足しました。
 固定版[Icarus 13.0](../coverage/interaction-results/event-task-20261031-icarus13.json)は13件とも
 イベント引数を含むタスクをビルドできず、oracleを登録していません。
@@ -2208,7 +2216,7 @@ net宣言の遅延、強度、複数ドライバ、SDF、min/typ/max、未知値
 [独立したイベントヒープ・世代番号による取消し・4状態の符号化](../tools/test_interaction_delay.py)で全504行を照合しました。
 スカラのfrom/to表とベクタ全体の分類を分け、2状態変換・反転の順序も独立に計算しています。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross43-kirimasim-4b58e29f.json)は追加63件すべてPASSで、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross43-kirimasim-4b58e29f.json)は追加63件すべてPASSで、
 141ペア・3因子129組・必須7件をすべて成功で充足しました。
 固定版[Icarus 13.0](../coverage/interaction-results/delay-20261031-icarus13.json)は57件が一致し、6件は遷移時刻などが異なりました。
 Verilator 5.052の[seed 1](../coverage/interaction-results/delay-20261031-verilator5.052-seed1.json)・
@@ -2218,7 +2226,7 @@ Verilator 5.052の[seed 1](../coverage/interaction-results/delay-20261031-verila
 保存JSONでは一時ビルドディレクトリのパスだけを伏字化し、結果分類と入力・ランナーの指紋は変更していません。
 差異のケースはknownとして保存し、固定版のoracleを登録せず、期待値と合法なモデル範囲を維持しています。
 
-[故障注入](../coverage/interaction-qualification/20261031-delay.json)は最新kirimasimを使い、必須7件の正の対照が一致しました。
+[故障注入](../coverage/interaction-qualification/20261031-delay.json)は実行時のkirimasimを使い、必須7件の正の対照が一致しました。
 スカラ最小遅延、ターンオフ指定、立上り/立下り、単一遅延、反転、bit/logic型、元変数の更新、
 遅延ドライバの値、短パルスの幅、遷移の二重計数・計数漏れ、時刻、ベクタ幅、トランスポート遅延への置換、
 ベクタの立上り遅延の16種類を、正常終了後の出力差として検出しました。
@@ -2281,7 +2289,7 @@ packageの現在値、局所への刺激、各子の入力ポート、親側の�
 期待値は[生成器の接続元の選択とサンプル変換](../generators/interaction_import.py)で計算し、
 [独立した遅延importのシンボル表とライブ値の結合](../tools/test_interaction_import.py)で全540行を照合しました。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross44-kirimasim-4b58e29f.json)は追加39件すべてPASSで、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross44-kirimasim-4b58e29f.json)は追加39件すべてPASSで、
 158ペア・3因子141組・必須6件をすべて成功で充足しました。
 固定版[Icarus 13.0](../coverage/interaction-results/import-20261031-icarus13.json)は38件が一致しました。
 残る129ビットlogic Z・wildcard import・局所宣言なし・`.p`の1件は、pを結合できずビルドに失敗します。
@@ -2291,7 +2299,7 @@ Verilator 5.052の[seed 1](../coverage/interaction-results/import-20261031-veril
 このモデルにはVerilatorのoracleを登録していません。X/Zの26件は固定Verilatorの確認対象外です。
 差異のケースはknownとして保存し、固定版のoracleを登録せず、期待値と合法なモデル範囲を維持しています。
 
-[故障注入](../coverage/interaction-qualification/20261031-import.json)は最新kirimasimを使い、
+[故障注入](../coverage/interaction-qualification/20261031-import.json)は実行時のkirimasimを使い、
 必須6件と選択された名前付き接続1件の正の対照が一致しました。
 `.*`だけのDUTへの強制参照、guardへの明示importの混入、明示importのwildcard化、`.p`・`.p(p)`の欠落、
 明示修飾・局所宣言の無視、明示0のpackage値への置換、対になる既定値の同一化、package更新の欠落、
@@ -2358,7 +2366,7 @@ X/Z行にもこの既知値の対照を残し、未知値で要素順序の誤�
 期待値は[生成器の格納値と添字対応](../generators/interaction_memfile.py)で計算し、
 [独立した整数/X/Zマスク・トークン復号・配列対応表](../tools/test_interaction_memfile.py)で全2,880行を照合しました。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross45-kirimasim-4b58e29f.json)は追加36件すべてPASSで、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross45-kirimasim-4b58e29f.json)は追加36件すべてPASSで、
 248ペア・3因子82組・必須6件をすべて成功で充足しました。
 固定版[Icarus 13.0](../coverage/interaction-results/memfile-20261031-icarus13.json)は35件が一致しました。
 65ビットbit基底の列挙型・既知値・binary・単一範囲の1件は、コンパイル時の内部アサーションで失敗しました。
@@ -2435,7 +2443,7 @@ finalはmoduleの一つだけにし、複数finalの実行順に期待値を依�
 待機イベントを時刻順に処理し、終了したprogramの予定処理を捨て、最後のprogramが終わるまで
 moduleの観測を継続する構造で、生成器の閉じた式とは分けて実装しています。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross46-kirimasim-4b58e29f.json)では18件すべてPASSし、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross46-kirimasim-4b58e29f.json)では18件すべてPASSし、
 109ペア・3因子38組・必須4件をすべて成功で充足しています。
 固定[Icarus 13.0](../coverage/interaction-results/program-20261031-icarus13.json)は18件ともknownです。
 自然終了の6件は出力が異なり、`$exit`を使う12件は未定義のシステムタスクとして実行できません。
@@ -2524,7 +2532,7 @@ wire/triの競合によるXと、wired-AND／ORの0/1による支配、X/Zの扱
 同義のnet型の意味上の一致と字句の違い、設定を戻す二つの方法の結果の一致、
 0/1入力でも4状態として分類する必要があることも検査しています。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross47-kirimasim-4b58e29f.json)では40件すべてPASSし、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross47-kirimasim-4b58e29f.json)では40件すべてPASSし、
 156ペア・3因子72組・必須6件をすべて成功で充足しています。
 固定[Icarus 13.0](../coverage/interaction-results/nettype-20261031-icarus13.json)はwire/triの14件が一致し、
 wand/triand/wor/triorの26件はknownとして保存しています。
@@ -2608,14 +2616,14 @@ a・bどちらの分岐でもすべて異なることを独立に検算してい
 独立検算は整数の値/X/Zマスクで入力を作り、生成要素ごとの二つのオブジェクトへ格納してから、
 readerが参照するオブジェクトの値と型を観測します。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross48-kirimasim-4b58e29f.json)では36件すべてPASSし、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross48-kirimasim-4b58e29f.json)では36件すべてPASSし、
 165ペア・3因子74組・必須6件をすべて成功で充足しています。
 固定[Icarus 13.0](../coverage/interaction-results/ifgenerate-20261101-icarus13.json)は、interfaceポートの宣言を
 構文エラーとするため36件ともビルドできず、knownとして保存しています。合法な範囲と期待値は維持しています。
 固定Verilator 5.052の[seed 1](../coverage/interaction-results/ifgenerate-20261101-verilator5.052-seed1.json)・
 [seed 73](../coverage/interaction-results/ifgenerate-20261101-verilator5.052-seed73.json)は、既知値12件が両方で一致しました。
 X/Zの24件は固定Verilatorの確認対象外です。固定版のoracleは両seedで一致した12件だけに登録しています。
-別々の実行の部分的な成功を合わせてモデル全体のPASSにはせず、最新kirimasimの全36件の実行で判定しています。
+別々の実行の部分的な成功を合わせてモデル全体のPASSにはせず、上記のkirimasimの全36件の保存実行で判定しています。
 
 [故障注入](../coverage/interaction-qualification/20261101-ifgenerate.json)は正常対照6件が一致し、
 分岐の誤選択、反転の欠落・強制、bit/logicの交換、変換と反転の順序違い、対照側へのreaderの誤接続、
@@ -2691,7 +2699,7 @@ logicのまま反転してXになる順序を区別できます。段内のXOR�
 独立モデルはActiveでの評価、NBAの各段更新、Reactiveでの採取、Re-NBAでの出力更新を別のイベントとして処理します。
 全選択ケースではActive内の処理順を逆にした場合も同じ観測列になることを確認しています。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross49-kirimasim-4b58e29f.json)では36件すべてPASSし、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross49-kirimasim-4b58e29f.json)では36件すべてPASSし、
 183ペア・3因子84組・必須6件をすべて成功で充足しています。
 固定[Icarus 13.0](../coverage/interaction-results/reactive-20261101-icarus13.json)は36件ともknownです。
 固定Verilator 5.052の[seed 1](../coverage/interaction-results/reactive-20261101-verilator5.052-seed1.json)・
@@ -2783,7 +2791,7 @@ MODEの表示だけが正しくて処理は違う故障も検出します。
 全1,056行の一致、整理した1,536行の同値性、選択の網羅、807位置の識別、
 if/case・通常階層の違いで定義済み動作が変わらないことを確認しています。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross50-kirimasim-4b58e29f.json)では、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross50-kirimasim-4b58e29f.json)では、
 41件中37件がPASSし、4件が出力差で失敗しました。成功で充足した対象は213ペア中207組、
 3因子80組中72組で、必須6件はすべてPASSです。計画上の網羅と実行成功の範囲を分けています。
 失敗した4件は、事前指定がdefparamまたは両方で、config操作が全体リセットの場合です。
@@ -2877,7 +2885,7 @@ python3 tools/qualify_config.py --kirimasim BIN --commit VERIFIED_COMMIT \
 全16入力対と競合の6組がすべてのビットで成立すること、位置履歴と反転の識別、
 因子対・重点3因子・必須ケースの保持、宣言方向による外部動作の同値性も確認しています。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross51-kirimasim-4b58e29f.json)では25件すべてPASSし、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross51-kirimasim-4b58e29f.json)では25件すべてPASSし、
 182ペア・3因子80組・必須6件をすべて成功で充足しています。
 固定[Icarus 13.0](../coverage/interaction-results/udp-20261101-icarus13.json)は、
 要素数1・既定強度の必須ケース1件が一致し、24件は明示強度またはUDPの配列に関するビルド時の拒否でknownです。
@@ -2967,7 +2975,7 @@ guardが実際に動いて全ビットを採取することと、その間target
 全864行の一致、全1の準備、2個の部分集合による全ビットの採取、258履歴の識別、
 guardの保持と後の動作、型変換の順序、if/caseの同値性を確認しています。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross52-kirimasim-3550d774.json)では36件すべてPASSし、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross52-kirimasim-3550d774.json)では36件すべてPASSし、
 165ペア・3因子68組・必須6件をすべて成功で充足しています。
 固定[Icarus 13.0](../coverage/interaction-results/udpstate-20261101-icarus13.json)も36件すべて一致しました。
 固定Verilator 5.052は対象の2件が[seed 1](../coverage/interaction-results/udpstate-20261101-verilator5.052-seed1.json)・
@@ -3063,7 +3071,7 @@ X/Zのケースでは、保持する範囲の最下位・最上位・中央と�
 全1,296行の一致、524履歴の識別、スコープの違い、再exportした宣言の参照、
 ANSI/非ANSIの同値性、guardの独立性、捨てた未知ビットの影響がないことを確認しています。
 
-[最新kirimasimの保存実行](../coverage/interaction-results/cross53-kirimasim-4fb5f6b1.json)では36件すべてPASSし、
+[追加時のkirimasimの保存実行](../coverage/interaction-results/cross53-kirimasim-4fb5f6b1.json)では36件すべてPASSし、
 183ペア・3因子78組・必須6件をすべて成功で充足しています。
 固定[Icarus 13.0](../coverage/interaction-results/ifimport-20261101-icarus13.json)も36件すべて一致しました。
 固定Verilator 5.052は対象の既知値12件が[seed 1](../coverage/interaction-results/ifimport-20261101-verilator5.052-seed1.json)・
@@ -3071,7 +3079,7 @@ ANSI/非ANSIの同値性、guardの独立性、捨てた未知ビットの影響
 X/Zの24件は4状態テストとして比較対象外です。36件へIcarus、両seedが一致した12件へVerilatorのoracleを登録し、
 最終生成物で実行し直しました。期待値と合法な対象範囲は維持しています。
 
-[故障注入](../coverage/interaction-qualification/20261101-ifimport.json)は、最新`4fb5f6b1aec8`で正常対照6件が一致しました。
+[故障注入](../coverage/interaction-qualification/20261101-ifimport.json)は、`4fb5f6b1aec8`で正常対照6件が一致しました。
 import・再export・内部型・関数の結合先の誤り、既定値と実引数のスコープの混同、
 幅指定の欠落・guardへの波及・入力型への誤適用、仮引数変換の迂回・bit/logicの交換・ポート型の交換、
 packageの演算の誤り、符号拡張・64ビットへの切捨て、タグの欠落、両入力の誤った共通接続・上位ビットの再利用の

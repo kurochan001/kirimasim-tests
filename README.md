@@ -170,149 +170,43 @@ Collective witnesses require every member test to pass in one simulator snapshot
 partial successes from separate runs are not combined into a successful requirement.
 
 [Feature-interaction verification](docs/interaction-verification.md) uses constrained
-pairwise coverage, selected three-factor groups and mandatory boundary witnesses.
-Its focused selection has 2,292 tests across fifty-three models: scheduling, NBA capture,
-arithmetic context, packed part-selects, conditional merging, shifts, cast pipelines
-and task argument visibility, packed structures, case matching, port connections,
-unpacked array copies, bit-vector queries, streaming permutations, comparisons,
-array reduction pipelines, variable bit indices, queue updates with capacity limits,
-division/remainder context, dynamic-array resizing, concatenated assignments,
-packed logical/reduction pipelines, short-circuit side effects, event-edge expressions,
-heap-backed file monitors across registration contexts, compound shifts with
-selected targets, integral set membership across typed containers, value ranges
-with typed bounds, case-inside item selection, event OR with per-term iff guards,
-queue element reference lifetimes, argument binding across later selector changes,
-clocking input sampling through local, interface and virtual-modport access,
-concurrent assertion sample/action visibility, container changes that resume level-sensitive waits,
-class receiver dispatch with recursive input/ref/const-ref arguments, and early
-function return across loop forms and local/package state, plus looped assignment
-ordering across module/interface instances, and implicit comb/latch sensitivity
-with direct or function reads, generate hierarchy with package/local type lookup,
-default argument evaluation through hierarchical module/interface calls, and scoped
-named events shared through input/ref task arguments, and continuous-assignment
-delay selection with inertial pulse rejection, plus package import visibility in
-wildcard/defaulted port connections, typed memory-file transfers, and program
-completion with descendant cancellation, default net types on implicit port nets,
-generated interface bindings, module-to-program region handoffs, configuration-driven generated shapes,
-UDP arrays with drive-strength contention, generated sequential UDP state,
-and interface header imports with package formal conversion.
-The interface-import model selects 36 tests from 1,296 assignments, retaining 183 pairs,
-78 focused triples and six mandatory cases. It checks header import/export paths, lexical
-parameter binding and conversion before package operations; see the
-[design and evidence](docs/interaction-verification.md#interfaceヘッダのimportとpackage関数の型変換).
-Latest kirimasim and fixed Icarus pass all 36; fixed Verilator passes all 12 eligible cases
-at each of seeds 1 and 73. The other 24 cases require four-state observation.
-The sequential-UDP model selects 36 tests from 864 assignments, retaining 165 pairs,
-68 focused triples and six mandatory cases. It checks generated initial states, shared/masked
-clocks, per-instance holds and bit/logic conversion; see the
-[design and evidence](docs/interaction-verification.md#generateで生成した逐次udpの状態と入力変換).
-Latest kirimasim and fixed Icarus pass all 36; fixed Verilator passes both eligible cases
-at each of seeds 1 and 73. The other 34 cases require four-state observation.
-The UDP model selects 25 tests from 1,152 assignments, retaining 182 pairs, 80 focused
-triples and six mandatory cases. It compares isolated and contended arrays, scalar broadcast,
-vector terminal ordering and all four-state input pairs; see the
-[design and evidence](docs/interaction-verification.md#udpの配列接続と駆動強度の解決).
-Latest kirimasim passes all 25; fixed Icarus passes one and rejects the other 24 at build time.
-All cases require four-state observation, so Verilator is outside this comparison.
-The configuration model selects 41 tests from 1,056 distinct assignments, retaining 213 pairs,
-80 focused triples and six mandatory cases. It checks parameter precedence, selective/full
-resets, generated widths/counts/branches and an untouched sibling; see the
-[design and evidence](docs/interaction-verification.md#configのパラメータ設定とgenerateの形状).
-Latest kirimasim passes 37 cases; four expose defparam values surviving a reset
-of all instance parameters. Expected defaults are retained. Both fixed simulators reject all 41 cases at build time.
-The Reactive-handoff model selects 36 tests from 1,296 assignments, covering 183 pairs,
-84 triples and six mandatory witnesses. It compares an early module expression with
-continuous/blocking/NBA program outputs after one/two/three NBA stages. Stage values,
-reservation counts, exported sampling context and readback before the Re-NBA update are
-checked separately; all 36 pass on verified latest kirimasim.
-The interface-generate model selects 36 tests from 864 assignments, covering 165 pairs,
-74 triples and six mandatory witnesses. It checks per-element widths through 131 bits,
-if/case branch selection, whole-interface/modport connections and bit/logic conversion.
-Active and guard interfaces have distinct histories and tags; all 36 pass on verified
-latest kirimasim.
-The net-type model selects 40 tests from 576 assignments, covering 156 pairs,
-72 triples and six mandatory witnesses. It compares ANSI/non-ANSI port defaults,
-an explicit vector-wire override, scalar controls, and modules defined after a
-directive reset. Every bit sees all driver pairs. All 40 pass on verified latest
-kirimasim; binary inputs can still resolve to X, so all cases require four states.
-The program model selects 18 tests from 288 assignments, covering 109 pairs,
-38 triples and four mandatory witnesses. Natural completion, direct/task `$exit`,
-multiple initials, fork joins and grandchildren are checked against a live wait
-in another program and the final simulation time. All 18 pass on verified latest
-kirimasim; fixed-engine differences retain the standard-derived expectations.
-The memory-file model selects 36 tests from 2,880 constrained assignments, covering
-248 pairs, 82 triples and six mandatory witnesses. It checks enum/integral words,
-source/target state conversion, binary/hex files, explicit ranges and read direction.
-An independently specified input file exposes compensating writer/reader errors;
-all 36 pass on verified latest kirimasim.
-The import-scope model selects 39 tests from 540 legal assignments, covering 158 pairs,
-141 triples and six mandatory witnesses. It checks explicit/wildcard imports, local
-shadows, implicit/named/qualified connections and final bit/logic sampling. Opposite
-child defaults and an independent guard scope prevent accidental value matches and
-cross-scope import leakage; all 39 pass on verified latest kirimasim.
-The continuous-delay model selects 63 tests from 504 assignments, covering 141 pairs,
-129 triples and seven mandatory witnesses. It checks scalar/vector delay choices,
-bit/logic conversion before optional inversion, short/long pulses, pending-update
-replacement and per-tick values, transition counts and timestamps. All 63 pass on
-verified latest kirimasim; fixed-simulator differences retain the standard expectations.
-The event-task model selects 13 tests from 288 assignments, covering 109 pairs,
-52 triples and six mandatory witnesses. It checks module/interface/package sources,
-early/late listeners, one-to-many wakeups, direct/task triggers, rearming and Active/NBA
-payload visibility. All 13 pass on verified latest kirimasim. Fixed Verilator matches
-three tests in both seeds; ten retain observed differences, with unchanged expectations.
-The default-argument model selects 36 tests from 720 assignments, covering 159 pairs,
-128 triples and six mandatory witnesses. It checks declaring-instance scope,
-call-time evaluation, empty/named actuals and suppression of unused defaults,
-observing both formals, getter counts and separate instance state.
-The generate-scope model selects 36 tests from 576 assignments, covering 148 pairs,
-68 triples and six mandatory witnesses. It observes conditional branches, genvar
-constants, wildcard-import shadows, qualified package names and separate cells.
-The implicit-process model selects 36 tests from 1,728 legal assignments, covering
-242 pairs, 96 triples and six mandatory witnesses. It checks startup execution,
-disabled and X/Z gates, latch retention, function sensitivity and instance isolation.
-The loop-assignment model selects 36 tests from 3,888 assignments, covering 246 pairs,
-111 triples and six mandatory witnesses. It observes blocking feedback, NBA old-value
-reads and final write order, rotated destinations and separate instance state.
-The function-return model selects 36 tests from 864 assignments, covering 161 pairs,
-120 triples and six mandatory witnesses; all 36 pass on verified latest kirimasim.
-The class-method model selects 36 tests from 1,944 assignments, covering 202 pairs,
-99 triples and six mandatory witnesses. Latest kirimasim retains all 36 as unsupported
-class types; these are planned interactions, not executed passes.
-The assertion model selects 36 tests from 2,592 assignments, covering 225 pairs,
-96 triples and seven mandatory witnesses. The container-wait model selects 36 tests
-from 1,440 legal assignments, covering 214 pairs, 88 triples and six mandatory witnesses.
-The clocking model selects 36 tests from 864 assignments, covering 165 pairs,
-72 triples and five mandatory witnesses, including legal paths not yet supported by kirimasim.
-The binding model selects 36 tests from 972 assignments, covering 162 pairs,
-63 triples and five mandatory witnesses. The queue-reference model selects 60 tests
-from 2,160 assignments, covering 257 pairs, 96 triples and five mandatory witnesses.
-The event-OR model selects 27 tests from 252 legal assignments, covering 104 pairs,
-59 triples and four mandatory witnesses. The case-inside model selects 34
-tests from 8,704 assignments, covering 315 pairs, 154 triples and seven mandatory
-witnesses. The range model selects 46 tests from 5,680 assignments, covering
-303 pairs, 178 triples and six mandatory witnesses. Membership
-selects 46 tests from 5,984 assignments, covering 305 pairs, 174 triples and five
-mandatory witnesses. The compound-shift model selects 40 tests from 7,560 assignments,
-covering 308 pairs, 90 triples and four mandatory witnesses. The file-monitor model
-selects 18 tests from 36 assignments, covering all 40 pairs and three mandatory
-witnesses. The short-circuit and event-edge models select 156 tests from 6,184
-assignments that satisfy their constraints. The full suite retains all existing tests.
-The [interaction report](docs/interaction-coverage.md) separates the selection plan
-from fingerprint-qualified passes in each individual run; it does not change the
-whole-standard requirement denominator.
-The [chapter interaction matrices](docs/chapter-cross-matrix.md) show which pairs
-of IEEE 1800-2023 chapters these models exercise, with CSVs for registered models,
-models whose full selection passed, and the underlying test and run evidence.
-The [zero-cell triage](docs/chapter-cross-triage.md) distinguishes reviewed existing
-tests, proposed additions, scope exclusions and pairs awaiting review, with priorities and CSVs.
-The [design rationale and practical methodology](docs/interaction-verification-method.md)
-(Japanese) explain model selection, implementation and evidence, how to add new
-models, and how to apply the approach to other projects and LSI verification.
+pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
+The focused selection contains **2,292 tests across 53 models**; the normal full-suite
+run retains all existing tests. Models cover value/type conversion, scheduling,
+argument and reference binding, scope and hierarchy, state retention and I/O.
+The selection plan does not change the whole-standard requirement denominator.
 
-The [saved-run summary](docs/interaction-verification.md#保存実行の概要) records the
-build revision, execution scope and pass/unsupported/fail counts. A complete
-selection plan and a successful Check do not mean all crosses passed on every
-simulator. These saved cross runs are separate from the full Nightly suite.
+The [saved full cross run](coverage/interaction-results/cross53-kirimasim-4fb5f6b1.json)
+uses kirimasim **`4fb5f6b1aec8`** and records **2,170 pass, 116 unsupported and 6 fail**.
+The class-method model accounts for 18 passes and 18 unsupported cases. The six failures
+are two `inside`/`case inside` width/sign cases and four configuration parameter-reset
+cases; standard-derived expectations are retained. These are saved observations of
+that build, separate from the full Nightly suite and any later upstream revision.
+
+The newest model exercises interface header imports, parameter scope and conversion
+before package-function operations. Its 36 tests retain 183 pairs, 78 focused triples
+and six mandatory cases from 1,296 legal assignments. All 36 pass in the saved
+kirimasim run and fixed Icarus 13.0; fixed Verilator 5.052 matches the 12 eligible
+tests at both seeds 1 and 73. The other 24 require four-state observation. See the
+[design and evidence](docs/interaction-verification.md#interfaceヘッダのimportとpackage関数の型変換)
+for intermediate observations, guard instances and fault-injection checks.
+
+- The [interaction report](docs/interaction-coverage.md) separates the selection plan
+  from fingerprint-qualified passes in each saved execution.
+- The [chapter interaction matrices](docs/chapter-cross-matrix.md) map **84 distinct
+  chapter pairs**, with separate CSVs for registered models, models whose full selection
+  passed (**46 models** in the saved run), and detailed test/run evidence.
+- The [zero-cell triage](docs/chapter-cross-triage.md) records reviewed existing tests,
+  proposed additions, scope exclusions and pairs awaiting review. A zero is not a claim
+  that no tests exist for that chapter pair.
+- The [design rationale and practical methodology](docs/interaction-verification-method.md)
+  (Japanese) explain how to select, implement and extend models, including application
+  to other projects and LSI verification. The [glossary](docs/glossary.md#8-機能間クロス検証)
+  and [FAQ](docs/faq.md#7-機能間クロス検証) explain the metrics and common review questions.
+
+A complete selection plan and a successful Check do not mean all crosses passed on
+every simulator. Use the [saved-run summary](docs/interaction-verification.md#保存実行の概要)
+for the build revision, execution scope and status counts.
 
 To continue this work, see the [2026-10-31 handoff](docs/codex-handoff-20261031.md)
 for the repository state, the open issues and the resumption commands, and the
@@ -372,22 +266,26 @@ allows and how the results of the coverage functions relate.
 ## Nightly results
 
 <!-- workflow-verification:begin -->
-**Latest Nightly:** [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/40972765631) completed all five simulator jobs and published the
-[results snapshot](https://github.com/kurochan001/kirimasim-tests/blob/87b351e63412292ce137361c0ebd610b6522f8e1/README.md) for suite [`360ef70c`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) (8,779 tests) at
-10:43 JST (01:43 UTC) on 2026-10-30; the [Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/40965048026) of that commit also succeeded.
-Lyra was built from [`8eff7abdc335`](https://github.com/hankhsu1996/lyra/commit/8eff7abdc335).
+**Verified Nightly (2026-10-31):** [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41141958886)
+completed all five simulator jobs and `publish`. The
+[results snapshot](https://github.com/kurochan001/kirimasim-tests/blob/a587ba92e91e4fe2217710c7408614c6649d84e7/README.md)
+was generated at 11:16 JST (02:16 UTC) for suite
+[`73af6e95`](https://github.com/kurochan001/kirimasim-tests/commit/73af6e954828221c3c7447dd13cd3a271ae5bb55)
+(**9,203 tests**). Lyra was built from
+[`e13a017966a5`](https://github.com/hankhsu1996/lyra/commit/e13a017966a5).
+This snapshot predates the current suite; use the [live report](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)
+for subsequent published runs.
 Matching tests / recorded results:
 
-- Icarus Verilog: **5,502 / 8,511**.
-- Verilator: **5,151 / 8,511**.
-- kirimasim: **6,108 / 8,511**.
-- Lyra: **6,537 / 8,511**.
-- Ghost: **7,159 / 8,779**.
+- Icarus Verilog: **5,701 / 8,935**.
+- Verilator: **5,265 / 8,935**.
+- kirimasim: **6,468 / 8,935**.
+- Lyra: **6,933 / 8,935**.
+- Ghost: **8,036 / 8,935**.
 
 `differ`, `known difference` and `unsupported` results remain in the denominator.
-The first four runners exclude the 268 formal tests; in this run Ghost still
-selected the full catalogue (its runner now excludes them too). The SymbiYosys
-results are reported separately above.
+All five runners exclude the 268 formal tests in this run. Workflow success does
+not mean every test matched. The SymbiYosys results are reported separately above.
 <!-- workflow-verification:end -->
 
 Every night, a [GitHub Actions workflow](.github/workflows/nightly.yml) runs
@@ -424,7 +322,7 @@ results appear after a subsequent workflow runs that commit and publishes
 its results. Check `suite commit` and the test count before comparing a chart
 with the current suite.
 
-![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=nightly-40972765631)
+![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=nightly-41141958886)
 
 Each simulator has its own marker: a circle for Icarus Verilog, a square for
 Verilator, a diamond for kirimasim, a downward triangle for Lyra and an orange
@@ -443,7 +341,7 @@ denominator. This table updates with the Nightly charts;
 its date and simulator versions are shown at the top. Click it to view the
 full-size image.
 
-[![Matching tests by chapter](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40972765631)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40972765631)
+[![Matching tests by chapter](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-41141958886)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-41141958886)
 
 ### Result statuses
 

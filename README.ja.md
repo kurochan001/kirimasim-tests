@@ -147,109 +147,37 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 すべて合格する必要があります。別々の実行の部分的な成功を合わせて要求の成功にはしません。
 
 [機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
-指定した3因子群と必須の境界ケースを併用します。短時間実行用の2,292件は、
-スケジューリング、NBA、演算コンテキスト、パック配列の部分選択、条件演算、シフト、
-キャスト、タスク引数、パック構造体、case、ポート接続、アンパック配列のコピー、
-ビットベクタの集計・判定関数、ストリーミング演算、比較演算、配列リダクション、
-可変ビット選択、キュー操作と容量制限、除算・剰余のコンテキスト、動的配列の
-サイズ変更、連結した左辺への代入、パックベクタの論理・リダクション演算、
-短絡評価と副作用、イベント式のエッジ判定、キュー・動的配列のファイル監視と登録元の
-記述位置、複合シフト代入と左辺選択、集合所属判定と集合の格納形式、集合所属判定の範囲指定と
-端点の型、case insideの項目の種類と選択、イベントORと項ごとのiff条件、
-キュー要素への参照と寿命、呼出し後の添字変更と引数の結合、参照経路別のクロッキング入力、
-アサーションのサンプル値とactionのライブ値、コンテナ変更とwaitの起床、
-クラスメソッドの呼出し先と再帰引数、ループからの関数returnと状態の共有範囲、
-module/interface内のループ代入と更新順序、comb/latchの暗黙の感度と出力保持、
-generate階層とpackage/局所宣言の名前探索、デフォルト引数の評価と階層呼出し、
-イベント引数によるスコープ間の同期、連続代入の遅延と短パルスの除去、
-packageのimportとワイルドカードポート接続、型と範囲を組み合わせたメモリファイル入出力、
-program終了と子プロセスの取消し、default_nettypeとポートnetの解決、generateで生成したinterfaceとmodport接続、
-moduleからprogramへのイベント領域の受け渡し、configのパラメータ設定とgenerateの形状、
-UDPの配列接続と駆動強度の解決、generateで生成した逐次UDPの状態と入力変換、
-interfaceヘッダのimportとpackage関数の型変換の53モデルを対象にします。
-interfaceヘッダのimportは1,296通りから36件を選び、全因子対183組・3因子78組・必須6件を保持します。
-[既定値・実引数のスコープとpackage関数の型変換](docs/interaction-verification.md#interfaceヘッダのimportとpackage関数の型変換)を、
-呼出し側の同名宣言と既定値を保つ対照インスタンスも含めて確認します。最新kirimasimと固定Icarusで36件すべてPASSです。
-固定Verilatorは対象12件が両seedで一致し、4状態の24件は比較対象外です。
-逐次UDPとgenerateは864通りから36件を選び、全因子対165組・3因子68組・必須6件を保持します。
-[生成要素の初期値・クロック別の状態保持・bit/logic変換](docs/interaction-verification.md#generateで生成した逐次udpの状態と入力変換)を、
-別クロックの対照の保持と後の更新も含めて確認します。最新kirimasimと固定Icarusで36件すべてPASSです。
-固定Verilatorは対象の2状態テスト2件が両seedで一致し、4状態の34件は比較対象外です。
-UDPと強度は1,152通りから25件を選び、全因子対182組・3因子80組・必須6件を保持します。
-[ベクタ分配・スカラー共通接続・競合時の解決値](docs/interaction-verification.md#udpの配列接続と駆動強度の解決)を、
-単独出力と全4状態の入力対も含めて確認します。最新kirimasimでは25件すべてPASSです。
-固定Icarusは1件が一致し、24件をビルド時に拒否しました。全件が4状態のためVerilatorは比較対象外です。
-configとgenerateは、重複を整理した1,056通りから41件を選び、全因子対213組・3因子80組・必須6件を保持します。
-[設定の優先関係・単独/全体リセットと生成形状](docs/interaction-verification.md#configのパラメータ設定とgenerateの形状)を、
-設定対象外の兄弟インスタンスも含めて確認します。最新kirimasimでは37件PASS、4件で全体リセット後もdefparamの値が残りました。
-期待する既定値は維持しています。固定IcarusとVerilatorは、全41件ともビルド時に拒否しました。
-programのイベント領域は1,296通りから36件を選び、全因子対183組・3因子84組・必須6件を保持します。
-[NBA連鎖完了前後の値・予約回数とReactive/Re-NBA](docs/interaction-verification.md#programのイベント領域と非ブロッキング代入)を、
-module側の先行観測とprogramの出力・採取値で照合します。最新kirimasimでは36件すべてPASSです。
-generateとinterfaceは864通りから36件を選び、全因子対165組・3因子74組・必須6件を保持します。
-[生成要素ごとの幅・分岐・接続先と状態変換](docs/interaction-verification.md#generateで生成したinterfaceとmodport接続)を、
-選択した側と対照側のデータ・識別タグ・reader出力で照合します。最新kirimasimでは36件すべてPASSです。
-default_nettypeは576通りから40件を選び、全因子対156組・3因子72組・必須6件を保持します。
-[net型を省略したポートの解決値・幅と指示の適用範囲](docs/interaction-verification.md#default_nettypeとポートnetの解決)を、
-ANSI/非ANSI、vectorだけの明示wire、設定を戻した後のmoduleで比較します。最新kirimasimでは40件すべてPASSです。
-0/1入力でもwireの競合でXが出るため、全件を4状態テストとして扱います。
-program終了は288通りから18件を選び、全因子対109組・3因子38組・必須4件を保持します。
-[自然終了・$exit・複数initial・子/孫プロセスの取消し](docs/interaction-verification.md#program終了と子孫プロセスの取消し)を、
-同じ待機条件を持つ別programの起床とシミュレーション終了時刻も含めて確認します。
-最新kirimasimでは18件すべてPASSです。固定版の差異は仕様由来の期待値を維持して保存しています。
-メモリファイルは制約を満たす2,880通りから36件を選び、全因子対248組・3因子82組・必須6件を保持します。
-[列挙型の数値・状態変換・範囲と読込み方向](docs/interaction-verification.md#型と範囲を組み合わせたメモリファイル入出力)を、
-書き出したファイルと独立に用意した入力ファイルの両方で確認します。最新kirimasimでは36件すべてPASSです。
-importとポート接続は合法な540通りから39件を選び、全因子対158組・3因子141組・必須6件を保持します。
-[名前の可視性・局所宣言・既定値とスコープの独立性](docs/interaction-verification.md#packageのimportとワイルドカードポート接続)を、
-異なる既定値を持つ2個の子と独立した対照スコープで確認します。最新kirimasimでは39件すべてPASSです。
-連続代入の遅延は504通りから63件を選び、全因子対141組・3因子129組・必須7件を保持します。
-[スカラ/ベクタの遅延選択と予約の取消し](docs/interaction-verification.md#連続代入の遅延と短パルスの除去)を、
-元変数のbit/logic型への変換・反転、出力値・遷移時刻・回数まで含めて確認します。最新kirimasimでは63件すべてPASSです。
-イベント引数は288通りから13件を選び、全因子対109組・3因子52組・必須6件を保持します。
-[待機の開始時点・複数待機者・Active/NBAの値](docs/interaction-verification.md#イベント引数によるスコープ間の同期)を確認します。
-最新kirimasimでは13件すべてPASSです。固定Verilatorは3件が両seedで一致し、10件の差異は期待値を維持して記録します。
-デフォルト引数は720通りから36件を選び、全因子対159組・3因子128組・必須6件を保持します。
-[宣言元のスコープと呼出しごとの評価](docs/interaction-verification.md#デフォルト引数と階層呼出しのスコープ)、
-空の位置引数・名前付き引数、明示指定による既定値の評価抑制を、仮引数と評価回数も含めて確認します。
-generateの名前探索は576通りから36件を選び、全因子対148組・3因子68組・必須6件を保持します。
-選択分岐、genvar定数、importした名前の隠蔽と明示修飾、型幅と各生成要素の独立性を確認します。
-暗黙の感度は合法な1,728通りから36件を選び、全因子対242組・3因子96組・必須6件を保持します。
-時刻0の起動、0/1/X/Zのイネーブル、関数内部の読取り、ラッチ保持、インスタンスの独立性を確認します。
-ループ代入は3,888通りから36件を選び、全因子対246組・3因子111組・必須6件を保持します。
-blockingの途中結果の利用、NBAの旧値参照と予約順序、代入先の巡回、インスタンスの独立性を確認します。
-関数returnは864通りから36件を選び、全因子対161組・3因子120組・必須6件を保持します。
-最新コミットと照合したkirimasimでは追加36件がすべてPASSしました。
-クラスメソッドは1,944通りから36件を選び、全因子対202組・3因子99組・必須6件を保持します。
-最新kirimasimでは36件ともクラス型が未対応で、計画上の網羅と実行による成功を分けて記録しています。
-アサーションは2,592通りから36件を選び、全因子対225組・3因子96組・必須7件を保持します。
-コンテナwaitは合法な1,440通りから36件を選び、全因子対214組・3因子88組・必須6件を保持します。
-クロッキング入力は864通りから36件を選び、全因子対165組・3因子72組・必須ケース5件を保持します。
-kirimasimで未対応の合法な条件も、計画の対象に含めています。
-引数の結合は972通りから36件を選び、全因子対162組・3因子63組・必須ケース5件を保持します。
-キュー要素の参照は2,160通りから60件を選び、全因子対257組・3因子96組・必須ケース5件を保持します。
-イベントORは合法な252通りから27件を選び、全因子対104組・3因子59組・必須ケース4件を保持します。
-case insideは8,704通りから
-34件を選び、全因子対315組・3因子154組・必須ケース7件を保持します。範囲指定は5,680通りから46件を選び、全因子対303組・
-3因子178組・必須ケース6件を保持します。集合所属判定は5,984通りから46件を選び、
-全因子対305組・3因子174組・必須ケース5件を
-保持します。複合シフト代入は7,560通りから40件を選び、全因子対308組・3因子90組・
-必須ケース4件を保持します。
-ファイル監視のモデルは36通りから18件を選び、
-全因子対40組と必須ケース3件を保持します。短絡評価とエッジ判定の2モデルは、
-制約を満たす6,184通りから156件を選びます。
-通常の全件実行では既存テストをすべて保持します。[クロス検証レポート](docs/interaction-coverage.md)は
-計画上の網羅と、入力ハッシュが一致した実行の合格を分けて集計します。規格要求の分母は変更しません。
-[章間クロス検証マトリクス](docs/chapter-cross-matrix.md)では、どの章とどの章を組み合わせているかを
-41章×41章のCSVで確認できます。登録モデル数、全選択ケースPASSのモデル数、根拠の明細を分けています。
-[0セルの仕分けと優先候補](docs/chapter-cross-triage.md)では、既存検証あり・追加検証候補・対象外・要精査を
-区別し、根拠のテスト、因子案、観測目標をCSVから辿れます。
-設計思想、モデルの選び方、追加・再実行手順、他プロジェクトやLSIへの適用方法は、
-[機能間クロス検証の考え方と実践手順](docs/interaction-verification-method.md)にまとめています。
+重点的に確認する高次因子群と必須の境界ケースを併用します。短時間実行用の選択は
+**53モデル・2,292件**です。値・型の変換、スケジューリング、引数・参照の結合先、
+スコープ・階層、状態保持、I/Oなどの相互作用を扱います。通常の全件実行では既存テストを
+すべて保持し、規格要求の分母は変更しません。
 
-[保存実行の概要](docs/interaction-verification.md#保存実行の概要)には、ビルド版・実行範囲と
-合格／未対応／不一致の内訳をまとめています。計画上の網羅とCheckの成功を、
-各シミュレータでの全クロス合格とは扱いません。Nightlyの全件実行とも範囲を区別します。
+[kirimasim **`4fb5f6b1aec8`**での全クロス保存実行](coverage/interaction-results/cross53-kirimasim-4fb5f6b1.json)は、
+**2,170 pass・116 unsupported・6 fail**です。クラスメソッドは18件PASS・18件未対応です。
+不一致6件は、`inside`／`case inside`の幅・符号の2件と、configのパラメータリセットの4件で、
+規格に基づく期待値を維持しています。これは記載した版の保存結果で、Nightlyの全件実行や
+その後の上流更新での結果とは区別します。
+
+直近に追加したinterfaceヘッダのimportは、1,296通りの合法な組合せから36件を選び、
+全因子対183組・重点3因子78組・必須6件を保持します。パラメータの参照スコープと、
+package関数の演算前の型変換を確認します。保存したkirimasimと固定Icarus 13.0で全36件がPASSです。
+固定Verilator 5.052は対象12件がseed 1・73の両方で一致し、4状態の24件は比較対象外です。
+途中の値、対照インスタンス、故障注入の確認は
+[設計と証跡](docs/interaction-verification.md#interfaceヘッダのimportとpackage関数の型変換)から辿れます。
+
+- [クロス検証レポート](docs/interaction-coverage.md)：計画上の網羅と、入力・ランナーのハッシュが
+  一致した保存実行の合格を分けて集計します。
+- [章間クロス検証マトリクス](docs/chapter-cross-matrix.md)：重複を除く**84章対**を対応付けています。
+  登録モデル数、全選択ケースPASSのモデル数（上記の保存実行では**46モデル**）、
+  テスト・実行の明細を41章×41章のCSVから確認できます。
+- [0セルの仕分けと優先候補](docs/chapter-cross-triage.md)：既存検証あり・追加検証候補・対象外・
+  要精査を区別し、根拠と次の観測目標を記録しています。0は既存テストがないという意味ではありません。
+- [考え方と実践手順](docs/interaction-verification-method.md)：設計思想、モデルの選び方、追加・再実行、
+  他プロジェクトやLSIへの適用方法を説明します。[用語集](docs/glossary.md#8-機能間クロス検証)と
+  [FAQ](docs/faq.md#7-機能間クロス検証)には、指標の意味とレビュー時の確認事項をまとめています。
+
+計画上の網羅とCheckの成功を、各シミュレータでの全クロス合格とは扱いません。
+ビルド版・実行範囲・結果の内訳は[保存実行の概要](docs/interaction-verification.md#保存実行の概要)を確認してください。
 
 作業を引き継ぐ場合は、まず[2026-10-31のハンドオフ資料](docs/codex-handoff-20261031.md)を
 参照してください。リポジトリの状態、未着手のIssue、再開コマンドをまとめています。
@@ -300,22 +228,23 @@ Icarus VerilogもVerilatorもエンベロープを復号しないためで、監
 ## Nightlyの結果
 
 <!-- workflow-verification:begin -->
-**最新のNightly：** [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/40972765631)は
-5環境すべての実行と結果公開が成功しました。対象はスイート[`360ef70c`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537)（8,779本）で、
-同じコミットの[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/40965048026)も成功しています。
-[この回の公開結果](https://github.com/kurochan001/kirimasim-tests/blob/87b351e63412292ce137361c0ebd610b6522f8e1/README.md)の生成時刻は2026-10-30 10:43 JST（01:43 UTC）です。
-Lyraは[`8eff7abdc335`](https://github.com/hankhsu1996/lyra/commit/8eff7abdc335)からビルドしました。
+**確認済みのNightly（2026-10-31）：** [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41141958886)は
+5環境すべての実行と`publish`が成功しました。
+[この回の公開結果](https://github.com/kurochan001/kirimasim-tests/blob/a587ba92e91e4fe2217710c7408614c6649d84e7/README.md)の生成時刻は11:16 JST（02:16 UTC）です。
+対象はスイート[`73af6e95`](https://github.com/kurochan001/kirimasim-tests/commit/73af6e954828221c3c7447dd13cd3a271ae5bb55)（**9,203本**）、
+Lyraは[`e13a017966a5`](https://github.com/hankhsu1996/lyra/commit/e13a017966a5)からビルドしました。
+現在のスイートへの追加前の記録です。その後の公開実行は
+[随時更新のレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)を確認してください。
 期待結果に一致したテスト数／結果が記録されたテスト数は次のとおりです。
 
-- Icarus Verilog：**5,502 / 8,511**
-- Verilator：**5,151 / 8,511**
-- kirimasim：**6,108 / 8,511**
-- Lyra：**6,537 / 8,511**
-- Ghost：**7,159 / 8,779**
+- Icarus Verilog：**5,701 / 8,935**
+- Verilator：**5,265 / 8,935**
+- kirimasim：**6,468 / 8,935**
+- Lyra：**6,933 / 8,935**
+- Ghost：**8,036 / 8,935**
 
-不一致・既知の差異・未対応も分母に含みます。最初の4ランナーはformalの268本を除き、
-この回のGhostは全テストファイルを選びました（現在はGhostのランナーも除きます）。
-SymbiYosysの検証結果は上記の別集計です。
+不一致・既知の差異・未対応も分母に含みます。この回は5ランナーともformalの268本を除きます。
+ワークフローの成功は全テストの一致を意味しません。SymbiYosysの検証結果は上記の別集計です。
 <!-- workflow-verification:end -->
 
 毎晩、[GitHub Actionsワークフロー](.github/workflows/nightly.yml)が、各シミュレータで
@@ -344,7 +273,7 @@ Ghostは非公開のビルドで参加します。
 後続のワークフローが実行して公開するまで変わりません。現在のスイートと比較するときは、
 `suite commit`とテスト数を確認してください。
 
-![期待結果に一致するテスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=nightly-40972765631)
+![期待結果に一致するテスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=nightly-41141958886)
 
 シミュレータごとに、Icarus Verilogは丸、Verilatorは四角、kirimasimはひし形、
 Lyraは下向き三角、Ghostはオレンジの上向き三角を使います。
@@ -358,7 +287,7 @@ Lyraは下向き三角、Ghostはオレンジの上向き三角を使います�
 表はNightlyのグラフとともに更新し、上部に日付とシミュレータの版を表示します。
 クリックすると原寸の画像を開けます。
 
-[![章別の一致テスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40972765631)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-40972765631)
+[![章別の一致テスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-41141958886)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-41141958886)
 
 ### 結果の分類
 
