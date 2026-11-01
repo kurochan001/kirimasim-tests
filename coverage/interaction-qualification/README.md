@@ -208,3 +208,14 @@ ABIスタブは離れた要素とcanaryを使い、シミュレータの動的�
 [`randreduce-build.json`](randreduce-build.json)に実行直前に確認した上流コミット、ビルド版、バイナリ指紋、解析を記録します。
 解析は13件とも成功し、固定8件はrandomize、動的5件はクラス内配列操作が未対応です。通常の保存実行は`interaction-results/cross65-*.json`です。
 [設計と確認限界](../../docs/interaction-verification.md#array-reduction-constraints-and-retention)を参照してください。
+
+<a id="bounded-random-comparison-qualification"></a>
+
+## 件数制限付きランダム比較の導入確認
+
+[`random-cross.json`](random-cross.json)は、上流mainを実行直前に確認してビルドしたkirimasim `866abf4d86d1`でのローカル検証です。
+seed 1・73の各96ケースとseed 20261102の256ケース、計448件がPASSし、保存刺激からの1件再現はSV・期待値がバイト一致しました。
+演算子を意図的に変更したSVは正常終了して出力差で検出されました。固定Icarus Verilog 13.0でも3プロファイルの計12サンプルが一致しました。
+[`random-cross-manifest.json`](random-cross-manifest.json)に96ケースの実際の刺激を保存しています。
+ランダム実行、再現、故障注入を固定スイートの本数や合格モデル数へ加算せず、GitHub Nightly成功とも読み替えません。
+[対象・制限・再現手順](../../docs/random-cross-verification.md)を参照してください。

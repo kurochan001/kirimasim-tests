@@ -195,6 +195,8 @@ The array-reduction constraint model (chapters 7×18) checks element-width arith
   to other projects and LSI verification. The [glossary](docs/glossary.en.md#8-機能間クロス検証)
   and [FAQ](docs/faq.en.md#7-機能間クロス検証) explain the metrics and common review questions.
 
+[Model-based random cross comparisons](docs/random-cross-verification.en.md) also run in Nightly: a default 96 cases cover arithmetic, division/remainder and indexed-write sequences, saving seeds and actual stimuli in a dedicated artifact. These samples remain separate from fixed-suite counts and coverage.
+
 A complete selection plan and a successful Check do not mean all crosses passed on
 every simulator. Use the [saved-run summary](docs/interaction-verification.en.md#保存実行の概要)
 for the build revision, execution scope and status counts.
@@ -316,11 +318,11 @@ An untagged test that now matches is a candidate for review, including the
 reason for any rejection; the result alone does not certify a fix or add an
 oracle token.
 
-The nightly results are reported, and with one exception a test that does not
-match does not make the workflow fail: the kirimasim job fails when a test
-that matched in the previous night's results differs now (a ratchet, see
-"Workflows"). New tests and tests that kirimasim does not support yet do not
-fail it. The expected outputs recorded with Icarus Verilog
+Fixed-suite Nightly results are reported without requiring every test to match.
+The kirimasim ratchet fails when a previously matching fixed test differs; new or unsupported
+fixed tests do not trigger it by themselves. Separate bounded random comparisons require
+every case to pass: differences, unsupported features, timeouts or changed evidence fail
+that step. See [verdicts and replay](docs/random-cross-verification.en.md). The expected outputs recorded with Icarus Verilog
 13.0 and Verilator 5.052 are checked with those releases by a
 [second workflow](.github/workflows/check.yml) whenever the tests or the
 tools change (see "Workflows").
@@ -875,7 +877,8 @@ suite has a problem:
   interaction models, selected witnesses and saved execution report
   (`tools/interaction_coverage.py --check`). It also checks the complete generator
   catalog and every English/Japanese document pair, including handwritten-page
-  fingerprints and generated translations.
+  fingerprints and generated translations. It also checks random stimulus generation
+  and saved-manifest replay, requiring byte-identical SV and expectations.
 
 `.github/workflows/nightly.yml` is scheduled at 19:23 UTC every day
 (04:23 JST the following day), and can be
@@ -883,7 +886,8 @@ started by hand as well. For a fresh run of the latest suite and settings,
 [dispatch it on `main`](docs/nightly-results.en.md#最新のmainで手動実行する).
 GitHub can start a scheduled run hours late when it is busy. Runs do not overlap: one that starts while another is running waits
 for it, and a newer one replaces a run that is still waiting. Its results are
-only reported, except for the ratchet of the kirimasim job. It has six jobs:
+reported for the fixed suite, with the kirimasim ratchet and bounded random comparisons
+as additional gates. It has six jobs:
 
 - **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
   by its commit) and runs every non-formal test.
@@ -899,7 +903,9 @@ only reported, except for the ratchet of the kirimasim job. It has six jobs:
   `tools/results_ratchet.py`, and fails when a test that matched there differs
   now; tests that are new or unsupported, and a night without previous
   results, do not count. The results are uploaded before, so the night's
-  entry has them either way.
+  entry has them either way. After the fixed suite it fetches/builds upstream main again
+  and runs bounded random comparisons, failing on any non-pass. Replay data uses the
+  separate `random-cross-kirimasim` artifact and does not enter fixed-result publication.
 - **lyra** resolves the latest `main` commit at the start of every job and
   sets `LYRA_COMMIT` to that SHA. The same SHA selects the source checkout,
   build cache and commit recorded with the results. An uncached commit is

@@ -52,6 +52,20 @@ GitHubの[Re-runは元の実行と同じコミット・refを使います](https
 `workflow_dispatch`で`main`を選ぶと、起動時の`main`先端のスイートと設定が対象になります。
 Lyraはそのジョブ開始時に上流の`main`先端を取得し、実行に使ったSHAを結果へ記録します。
 
+<a id="random-comparisons"></a>
+
+<a id="additional-random-comparisons"></a>
+
+## 追加のランダム比較
+
+kirimasimジョブは固定スイートと別に、[モデルに基づくランダム比較](random-cross-verification.md)を既定96ケース実行します。
+固定スイートの終了後、上流mainを再取得・ビルドしてから比較します。seedはGitHubのrun IDで、入力値と操作列も保存します。
+全ケースの有効なPASSが必要で、不一致・未対応・時間切れ・証跡の変化はステップの失敗になります。
+
+結果と再現用のmanifest・SV・期待値・出力は`random-cross-kirimasim`という専用artifactにあります。英語レポートはStep Summaryにも載ります。
+このartifactは固定スイートの`results-*`から外し、公開グラフや章別の一致数、要求カバレッジへ加算しません。
+ローカルでの成功と、GitHubでこのステップが実行されて成功したことは別に確認します。
+
 <a id="recorded-example-publication-on-2026-10-31"></a>
 
 ## 確認例：2026年10月31日の公開

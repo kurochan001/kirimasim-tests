@@ -26,6 +26,7 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Introducing cross-feature verification | [English](interaction-verification.en.md) | [日本語](interaction-verification.md) |
 | Nightly results: update times and interpretation | [English](nightly-results.en.md) | [日本語](nightly-results.md) |
 | IEEE 1800-2023 Chapter 34 (Protection Envelope) 215 Requirement Boundary Audit | [English](protected-envelope-boundary.en.md) | [日本語](protected-envelope-boundary.md) |
+| Model-based random cross comparisons | [English](random-cross-verification.en.md) | [日本語](random-cross-verification.md) |
 | IEEE 1800-2023 Interpretation and re-examination of requirement extraction record | [English](requirement-extraction-notes.en.md) | [日本語](requirement-extraction-notes.md) |
 | IEEE 1800-2023 Complete requirement-extraction results | [English](requirement-extraction.en.md) | [日本語](requirement-extraction.md) |
 | Extracting requirements from the PDF of IEEE 1800-2023 and verifying them with tests | [English](requirements-to-tests-method.en.md) | [日本語](requirements-to-tests-method.md) |
@@ -49,6 +50,7 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | IEEE 1800-2023 Requested coverage | [English](behavior-coverage.en.md) | [日本語](behavior-coverage.md) |
 | The 0 cell ordering of the chapter cross. | [English](chapter-cross-triage.en.md) | [日本語](chapter-cross-triage.md) |
 | Coverage depth | [English](coverage-depth.md) | [日本語](coverage-depth.ja.md) |
+| Generator catalog | [English](generators.md) | [日本語](generators.ja.md) |
 | Plan and execution of cross‐functionality verification. | [English](interaction-coverage.en.md) | [日本語](interaction-coverage.md) |
 | Issue # 21: Regression in the combination boundary | [English](p1-combination-regressions-20261030.en.md) | [日本語](p1-combination-regressions-20261030.md) |
 | Comparison of existing tests with the standard requirements | [English](test-requirement-matching.en.md) | [日本語](test-requirement-matching.md) |
@@ -92,7 +94,6 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Clause 8: Classes | [English](tests/ch8.md) | [日本語](tests/ch8.ja.md) |
 | Clause 9: Processes | [English](tests/ch9.md) | [日本語](tests/ch9.ja.md) |
 | Clauses cited by the tests | [English](tests/clauses.md) | [日本語](tests/clauses.ja.md) |
-| Generator catalog | [English](generators.md) | [日本語](generators.ja.md) |
 
 <a id="過去の作業測定記録"></a>
 

@@ -31,6 +31,20 @@ gh workflow run nightly.yml --repo kurochan001/kirimasim-tests --ref main
 
 [GitHub Re-run uses the original commit and ref](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs). A new `workflow_dispatch` on main uses its tip when dispatched. Lyra independently resolves its upstream main when that job starts and records the SHA actually executed.
 
+<a id="random-comparisons"></a>
+
+<a id="追加のランダム比較"></a>
+
+## Additional random comparisons
+
+The kirimasim job executes a default 96 [model-based random comparison](random-cross-verification.en.md) cases separately from the fixed suite.
+After the fixed suite, it fetches/builds upstream main again before comparison. The GitHub run ID is the seed, and actual values/operation sequences are also saved.
+Every case must be a valid pass; differences, unsupported features, timeouts or changed evidence fail the step.
+
+The dedicated `random-cross-kirimasim` artifact contains results, replay manifest, SV, expectations and output. Its English report also enters Step Summary.
+This artifact is outside fixed-suite `results-*` publication and does not increase public graphs, chapter match counts or requirement coverage.
+Local success and successful execution of this GitHub step must be checked separately.
+
 <a id="確認例2026年10月31日の公開"></a>
 
 ## Recorded example: publication on 2026-10-31

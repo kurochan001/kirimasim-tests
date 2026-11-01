@@ -193,6 +193,18 @@ jobs:
       - name: Check interaction models and execution evidence
         run: python3 tools/interaction_coverage.py --check
 
+      - name: Check deterministic random corpus generation
+        run: |
+          python3 tools/run_random_cross.py --generate-only --seed 1 --cases 12 --vectors 4 \
+            --output "$RUNNER_TEMP/random-cross-generated"
+          python3 tools/run_random_cross.py --generate-only \
+            --replay "$RUNNER_TEMP/random-cross-generated/manifest.json" --case case_0003 \
+            --output "$RUNNER_TEMP/random-cross-replayed"
+          cmp "$RUNNER_TEMP/random-cross-generated/cases/case_0003.sv" \
+            "$RUNNER_TEMP/random-cross-replayed/cases/case_0003.sv"
+          cmp "$RUNNER_TEMP/random-cross-generated/cases/case_0003.expected" \
+            "$RUNNER_TEMP/random-cross-replayed/cases/case_0003.expected"
+
       - name: Check the chapter interaction matrices
         run: |
           python3 tools/chapter_cross_matrix.py --check

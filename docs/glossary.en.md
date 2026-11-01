@@ -153,6 +153,9 @@ See the [guide](sva-reference-formal-verification.en.md), [boundary sweep](sva-f
 | --- | --- |
 | Fixed release / development version / commit | An oracle's selected release / evolving development code / a source snapshot identifier. The same tool name does not ensure the same behavior. |
 | Seed | An input selecting a random stream. The same number does not guarantee the same behavior after version, settings or test changes. |
+| Model-based random comparison | Generate legal values/operation lists and compare a design with reference expectations for the same stimuli. Measure separately from fixed combination coverage. |
+| Stimulus manifest | JSON retaining actual parameters, values and operations as well as the seed; replay reads these stimuli without redrawing after generator changes. |
+| Execution time budget | A case/run limit. Timeouts and cases not started are not passes; retain stimuli and explicit statuses for replay. |
 | DPI-C | Direct Programming Interface between SystemVerilog and C. Tests require their C files and corresponding runner/tool support. |
 | VPI | Verilog Procedural Interface for C observation/manipulation of simulation objects/events. `:vpi_c:` identifies test C code. |
 | Evidence / snapshot | A record of inputs, versions, settings, execution and judgment / all results from that run. |

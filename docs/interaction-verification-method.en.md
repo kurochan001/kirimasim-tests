@@ -131,6 +131,8 @@ When crossing query APIs, observe the type domain separately from current occupa
 
 To cross constraints with arithmetic types, pin variables uniquely and make only the aggregate condition contradictory. The reduction-constraint model distinguishes element-width overflow from extension before arithmetic, also observing every element and size after failure. It checks satisfiability and retention without comparing random streams. State which difference an auxiliary control bypasses and which array shapes it does not qualify. LSI constrained-random verification can apply this to generator self-checks and scoreboard retention. See [example and limits](interaction-verification.en.md#array-reduction-constraints-and-retention).
 
+Retain fixed boundary witnesses and low-order coverage, supplementing scopes whose references accept arbitrary inputs with bounded random comparisons. Share actual values and operation lists between implementation and model; save stimuli themselves as well as seeds, revisions and fingerprints. Unsupported/unexecuted samples are not passes and do not increase fixed-regression coverage. See [random cross comparisons](random-cross-verification.en.md) for the initial three profiles, CI integration and replay.
+
 ## 3. How to select a small case set
 
 `Model` in [interaction_cover.py](../generators/interaction_cover.py) selects cases in the following order.

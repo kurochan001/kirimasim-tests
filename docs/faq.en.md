@@ -20,6 +20,7 @@ Its scope is kirimasim-tests. Simulator design and installation, and general LSI
 - [Changes and evidence](#6-changes-and-evidence)
 - [Feature interactions](#7-feature-interactions)
 - [Commercial simulators](#8-commercial-simulators)
+- [Model-based random comparisons](#model-based-random-comparisons)
 
 <a id="1-導入と実行"></a>
 
@@ -111,6 +112,8 @@ It counts failing tests. One defect may affect many tests, and a test may have a
 ### Q11. Why can Nightly be green with Differ results?
 
 Nightly records support status and does not require every test to match. kirimasim's current ratchet fails when a previous `pass` becomes `fail`. New tests and existing failures do not themselves trigger that regression rule. A separate Check workflow maintains fixed oracles and registry consistency; see [workflows](../README.md#workflows).
+
+This describes fixed-suite aggregation. Additional [random comparisons](random-cross-verification.en.md) require every case to be a valid pass; unsupported features and timeouts are not successes. A separate artifact retains replay evidence outside fixed-suite results.
 
 The current ratchet also excludes `pass` to `unsupported` transitions. Review status changes and logs alongside the green workflow indicator.
 
@@ -316,6 +319,8 @@ They alone do not demonstrate the intended observable difference. Require matchi
 
 They establish reproduction under two execution conditions, not all initial states or random streams. Do not generalize one successful seed to both, or two-state output to four-state confirmation. Save seeds separately and check that tests observe specified values without accidental reliance on uninitialized data or races. See [fixed-release checks](../README.md#where-the-expected-outputs-come-from).
 
+Generating actual values and operation sequences in [bounded random comparisons](random-cross-verification.en.md) is a separate path.
+
 <a id="q40-最新コミットでの実行と保存結果の再確認はどう違いますか"></a>
 
 ### Q40. How does a latest-commit run differ from checking saved results?
@@ -374,3 +379,28 @@ This project does not accept them. The policy covers issue bodies/comments, logs
 Describe expected behavior using IEEE 1800-2023 clause numbers, your own explanation and an independently written minimal reproducer. If supplying execution results, use Icarus Verilog, Verilator, kirimasim, Lyra, SymbiYosys, or Ghost results prepared for publication, and record tool version and suite commit. Exclude copied standard text, private Ghost information and personal data.
 
 The [issue form](../.github/ISSUE_TEMPLATE/report.yml) provides instructions and required confirmations. [Template configuration](../.github/ISSUE_TEMPLATE/config.yml) disables blank issues for ordinary contributors. These do not automatically inspect content or fully prevent privileged blank issues, API/CLI posts, later comments or attachments. See [GitHub's template documentation](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository). If prohibited material appears, do not reproduce, summarize or incorporate it into expectations; request action from its author or a maintainer.
+
+<a id="model-based-random-comparisons"></a>
+
+<a id="9-モデルに基づくランダム比較"></a>
+
+## 9. Model-based random comparisons
+
+<a id="q46-モデルがあればランダム検証で比較できますか"></a>
+
+### Q46. Can existing models support random verification comparisons?
+
+Yes: drive a design and reference with identical stimuli. The initial implementation covers arithmetic expressions, division/remainder and indexed-write sequences.
+References must accept the generated values and operation lists within their legal scope; not every finite model accepts arbitrary inputs.
+This differs from matching random streams. Multiple-solution `randomize()` checks should validate constraints rather than require identical generated values.
+See [scope and limits](random-cross-verification.en.md#scope).
+
+<a id="q47-ランダム比較が失敗したらどこから再現しますか"></a>
+
+### Q47. How do I reproduce a random-comparison failure?
+
+Open Nightly's `random-cross-kirimasim` artifact. Inspect verdicts, versions and fingerprints in `run.json`, and the case's SV, expectation and output.
+`manifest.json` records actual inputs and operations; `--replay` plus `--case` reruns them without redrawing.
+Again fetch/build immediately before execution, identify that revision and record differences from the original build. A seed alone does not guarantee identical stimuli.
+A mismatch can also indicate a reference or observation error, so review the standard before attributing it. Unsupported/unexecuted cases are not passes; do not hide differences by changing expectations.
+See [saved data and replay](random-cross-verification.en.md#replay).

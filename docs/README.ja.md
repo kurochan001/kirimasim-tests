@@ -26,6 +26,7 @@
 | 機能間クロス検証の導入 | [日本語](interaction-verification.md) | [English](interaction-verification.en.md) |
 | Nightly resultsの更新時刻と見方 | [日本語](nightly-results.md) | [English](nightly-results.en.md) |
 | IEEE 1800-2023 第34章（保護エンベロープ）215 要求の境界監査 | [日本語](protected-envelope-boundary.md) | [English](protected-envelope-boundary.en.md) |
+| モデルに基づくランダムクロス比較 | [日本語](random-cross-verification.md) | [English](random-cross-verification.en.md) |
 | IEEE 1800-2023 要求抽出の解釈・再検討記録 | [日本語](requirement-extraction-notes.md) | [English](requirement-extraction-notes.en.md) |
 | IEEE 1800-2023 全要求の洗い出し結果 | [日本語](requirement-extraction.md) | [English](requirement-extraction.en.md) |
 | IEEE 1800-2023のPDFから要求を抽出し、テストで検証する手順 | [日本語](requirements-to-tests-method.md) | [English](requirements-to-tests-method.en.md) |
@@ -49,6 +50,7 @@
 | IEEE 1800-2023 要求カバレッジ | [日本語](behavior-coverage.md) | [English](behavior-coverage.en.md) |
 | 章間クロスの0セルの仕分け | [日本語](chapter-cross-triage.md) | [English](chapter-cross-triage.en.md) |
 | カバレッジの深さ | [日本語](coverage-depth.ja.md) | [English](coverage-depth.md) |
+| 生成器カタログ | [日本語](generators.ja.md) | [English](generators.md) |
 | 機能間クロスの計画と実行確認 | [日本語](interaction-coverage.md) | [English](interaction-coverage.en.md) |
 | Issue #21：組合せ境界の回帰取り込み | [日本語](p1-combination-regressions-20261030.md) | [English](p1-combination-regressions-20261030.en.md) |
 | 既存テストと規格要求の照合 | [日本語](test-requirement-matching.md) | [English](test-requirement-matching.en.md) |
@@ -92,7 +94,6 @@
 | 8 条項: クラス | [日本語](tests/ch8.ja.md) | [English](tests/ch8.md) |
 | 9 条項: プロセス | [日本語](tests/ch9.ja.md) | [English](tests/ch9.md) |
 | テストで引用された文 | [日本語](tests/clauses.ja.md) | [English](tests/clauses.md) |
-| 生成器カタログ | [日本語](generators.ja.md) | [English](generators.md) |
 
 <a id="historical-records"></a>
 

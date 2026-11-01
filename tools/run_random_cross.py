@@ -1,0 +1,260 @@
+#!/usr/bin/env python3
+"""Generate, run and replay bounded random comparisons against Python models.
+
+Results have a separate schema and are not fixed-suite coverage evidence.
+The caller resolves/builds the latest kirimasim commit immediately before a
+run; --commit verifies that the supplied executable identifies that build.
+"""
+
+import argparse
+from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import datetime
+import hashlib
+import json
+from pathlib import Path
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+import time
+
+import normalize_output
+import random_cross_models as models
+import suite_results
+
+ROOT = models.ROOT
+SOURCES = ('tools/run_random_cross.py', 'tools/random_cross_models.py', 'tools/normalize_output.py',
+           'tools/suite_results.py', 'generators/interaction_expr.py', 'generators/interaction_divide.py',
+           'generators/interaction_bits.py', 'generators/interaction_cond.py',
+           'generators/interaction_cover.py', 'generators/common.py')
+STATES = ('pass', 'fail', 'unsupported', 'not_run', 'stale')
+
+
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def source_hashes():
+    return {name: sha(ROOT/name) for name in SOURCES}
+
+
+def repository_revision():
+    try:
+        commit = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True,
+                                text=True, timeout=5, check=True).stdout.strip()
+        changed = subprocess.run(['git', 'status', '--porcelain', '--', *SOURCES], cwd=ROOT,
+                                 capture_output=True, text=True, timeout=5, check=True).stdout
+        return {'commit': commit, 'source_changes': bool(changed.strip())}
+    except (OSError, subprocess.SubprocessError):
+        return {'commit': None, 'source_changes': None}
+
+
+def normalize(text):
+    return ''.join(line+'\n' for line in text.splitlines()
+                   if line.strip() and not normalize_output.FINISH.match(line))
+
+
+def write_json(path, value):
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2)+'\n')
+
+
+def prepare(manifest, output):
+    models.validate(manifest)
+    if output.exists() and (not output.is_dir() or any(output.iterdir())):
+        raise ValueError('output must be a new or empty directory; preserve previous evidence')
+    output.mkdir(parents=True, exist_ok=True)
+    (output/'cases').mkdir()
+    write_json(output/'manifest.json', manifest)
+    records = {}
+    for case in manifest['cases']:
+        source, expected = models.materialize(case)
+        stem = output/'cases'/case['id']
+        stem.with_suffix('.sv').write_text(source)
+        stem.with_suffix('.expected').write_text(expected)
+        records[case['id']] = {'profile': case['profile'],
+            'source': 'cases/'+case['id']+'.sv', 'expected': 'cases/'+case['id']+'.expected',
+            'source_sha256': sha(stem.with_suffix('.sv')),
+            'expected_sha256': sha(stem.with_suffix('.expected')),
+            'stimulus_sha256': hashlib.sha256(models.canonical(case).encode()).hexdigest()}
+    return records
+
+
+def verify_binary(binary, commit):
+    if not re.fullmatch(r'[0-9a-f]{40}', commit or ''):
+        raise ValueError('--commit must be the verified full upstream commit')
+    resolved = shutil.which(str(binary))
+    if not resolved:
+        raise ValueError('cannot find kirimasim executable')
+    executable = str(Path(resolved).resolve())
+    result = subprocess.run([executable, '--version'], capture_output=True, text=True, timeout=15)
+    version = (result.stdout or result.stderr).strip().splitlines()
+    version = version[0] if version else ''
+    found = re.search(r'\bcommit ([0-9a-f]{7,40})\b', version)
+    if result.returncode or not version.startswith('kirimasim ') or not found or not commit.startswith(found[1]):
+        raise ValueError('executable version does not identify --commit: '+version)
+    return {'executable': executable, 'version': version, 'commit': commit,
+            'binary_sha256': sha(executable)}
+
+
+def execute(record, output, executable, timeout, deadline):
+    remaining = deadline-time.monotonic()
+    if remaining <= 0:
+        return {'status': 'not_run', 'reason': 'run time budget exhausted', 'returncode': None}
+    source = (output/record['source']).resolve()
+    started = time.monotonic()
+    with tempfile.TemporaryDirectory() as directory:
+        try:
+            result = subprocess.run([executable, str(source)], cwd=directory,
+                                    capture_output=True, text=True, errors='replace',
+                                    timeout=min(timeout, remaining))
+            stdout, stderr, code = result.stdout, result.stderr, result.returncode
+            unsupported = re.search(r'error: unsupported: (.*)', stderr)
+            if code == 2 and unsupported:
+                status, reason = 'unsupported', unsupported[1].strip()
+            elif code != 0:
+                status, reason = 'fail', f'exit code {code}'
+            elif re.search(r'(?:^|\s)(?:error|fatal):', stderr):
+                status, reason = 'fail', 'error diagnostic despite zero exit status'
+            else:
+                got, want = normalize(stdout), (output/record['expected']).read_text()
+                status = 'pass' if got == want else 'fail'
+                reason = '' if status == 'pass' else 'output differs: '+suite_results.first_difference(got, want)
+        except subprocess.TimeoutExpired as error:
+            stdout = error.stdout or b''
+            stderr = error.stderr or b''
+            stdout = stdout.decode(errors='replace') if isinstance(stdout, bytes) else stdout
+            stderr = stderr.decode(errors='replace') if isinstance(stderr, bytes) else stderr
+            code, status, reason = None, 'fail', 'timed out'
+        except OSError as error:
+            stdout, stderr, code, status, reason = '', str(error), None, 'fail', 'could not execute simulator'
+    stem = source.with_suffix('')
+    stem.with_suffix('.stdout').write_text(stdout)
+    stem.with_suffix('.stderr').write_text(stderr)
+    return {'status': status, 'reason': reason, 'returncode': code,
+            'seconds': round(time.monotonic()-started, 6),
+            'stdout': 'cases/'+stem.name+'.stdout', 'stderr': 'cases/'+stem.name+'.stderr'}
+
+
+def markdown(report, japanese):
+    counts = report['counts']
+    lines = ['# 件数制限付きランダムクロス比較' if japanese else '# Bounded random cross comparison', '',
+             ('実行していません。刺激と期待値の生成だけです。' if japanese else
+              'Not executed: stimulus and expectation generation only.') if report['mode'] == 'generate-only' else
+             ('全ケースの実行完了: ' if japanese else 'All cases completed: ')+str(report['completed']), '',
+             f'Seed: `{report["seed"]}`', f'Cases: {report["case_count"]}',
+             ' / '.join(f'{status}={counts[status]}' for status in STATES), '',
+             ('固定回帰の本数・合格数・要求カバレッジには加算しません。' if japanese else
+              'These samples are not added to fixed-suite counts, passes or requirement coverage.'),
+             ('再現にはmanifest.jsonとcases/内のSV・期待値・出力を使います。' if japanese else
+              'Replay uses manifest.json and the SV, expectations and output in cases/.'), '']
+    if report.get('build'):
+        lines += ['Commit: `'+report['build']['commit']+'`', 'Version: `'+report['build']['version']+'`', '']
+    for name, result in report['results'].items():
+        if result['status'] != 'pass':
+            lines.append(f'- `{name}`: {result["status"]}; `cases/{name}.sv`')
+    return '\n'.join(lines).rstrip()+'\n'
+
+
+def run(manifest, output, binary=None, commit=None, jobs=4, timeout=5, budget=120, generate_only=False):
+    models.integer(jobs, 1, 8, 'jobs')
+    models.integer(timeout, 1, 30, 'timeout')
+    models.integer(budget, 1, 600, 'time budget')
+    before_sources = source_hashes()
+    records = prepare(manifest, output)
+    manifest_hash = sha(output/'manifest.json')
+    report = {'schema': 'bounded-random-cross-run@1', 'mode': 'generate-only' if generate_only else 'comparison',
+              'generated_at': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              'seed': manifest['seed'], 'generator': models.GENERATOR, 'case_count': len(records),
+              'test_repository': repository_revision(),
+              'manifest_sha256': manifest_hash, 'sources_sha256': before_sources,
+              'limits': {'jobs': jobs, 'case_timeout_seconds': timeout, 'time_budget_seconds': budget},
+              'completed': False, 'valid': True, 'counts': {state: 0 for state in STATES},
+              'results': {}, 'inputs': records}
+    if generate_only:
+        report['counts']['not_run'] = len(records)
+    else:
+        build = verify_binary(binary, commit)
+        report['build'] = build
+        deadline = time.monotonic()+budget
+        with (output/'events.jsonl').open('w') as events, ThreadPoolExecutor(max_workers=jobs) as pool:
+            futures = {pool.submit(execute, record, output, build['executable'], timeout, deadline): name
+                       for name, record in records.items()}
+            for future in as_completed(futures):
+                name = futures[future]
+                report['results'][name] = future.result()
+                events.write(json.dumps({'case': name, **report['results'][name]}, ensure_ascii=False)+'\n')
+                events.flush()
+        report['results'] = {name: report['results'][name] for name in records}
+        report['binary_changed'] = sha(build['executable']) != build['binary_sha256']
+        report['sources_changed'] = source_hashes() != before_sources
+        report['manifest_changed'] = sha(output/'manifest.json') != manifest_hash
+        changed = [name for name, record in records.items()
+                   if sha(output/record['source']) != record['source_sha256']
+                   or sha(output/record['expected']) != record['expected_sha256']]
+        report['changed_inputs'] = changed
+        global_change = any(report[key] for key in ('binary_changed', 'sources_changed', 'manifest_changed'))
+        report['valid'] = not (global_change or changed)
+        for name, result in report['results'].items():
+            if global_change or name in changed:
+                result['observed_status'] = result['status']
+                result['status'], result['reason'] = 'stale', 'inputs, runner or executable changed during execution'
+        counts = Counter(result['status'] for result in report['results'].values())
+        report['counts'] = {state: counts[state] for state in STATES}
+        report['completed'] = counts['not_run'] == 0 and len(report['results']) == len(records)
+    write_json(output/'run.json', report)
+    for name, japanese in [('report.md', False), ('report.ja.md', True)]:
+        (output/name).write_text(markdown(report, japanese))
+    return report
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--seed', type=int)
+    parser.add_argument('--cases', type=int)
+    parser.add_argument('--vectors', type=int)
+    parser.add_argument('--models', nargs='+', choices=models.PROFILES)
+    parser.add_argument('--replay', type=Path)
+    parser.add_argument('--case', help='one saved case id; requires --replay')
+    parser.add_argument('--generate-only', action='store_true')
+    parser.add_argument('--kirimasim')
+    parser.add_argument('--commit')
+    parser.add_argument('-j', '--jobs', type=int, default=4)
+    parser.add_argument('--timeout', type=int, default=5)
+    parser.add_argument('--time-budget', type=int, default=120)
+    args = parser.parse_args()
+    try:
+        if args.replay:
+            if any(value is not None for value in (args.seed, args.cases, args.vectors, args.models)):
+                raise ValueError('replay uses saved stimuli; do not supply generation options')
+            if args.replay.stat().st_size > 8*1024*1024:
+                raise ValueError('manifest exceeds 8 MiB')
+            manifest = json.loads(args.replay.read_text())
+            models.validate(manifest)
+            if args.case:
+                manifest['cases'] = [case for case in manifest['cases'] if case['id'] == args.case]
+                if not manifest['cases']:
+                    raise ValueError('case id is absent from replay manifest')
+        else:
+            if args.case:
+                raise ValueError('--case requires --replay')
+            manifest = models.generate(args.seed if args.seed is not None else 0,
+                                       args.cases if args.cases is not None else 96,
+                                       args.vectors if args.vectors is not None else 8,
+                                       args.models if args.models is not None else models.PROFILES)
+        if not args.generate_only and (not args.kirimasim or not args.commit):
+            raise ValueError('execution requires --kirimasim and the verified --commit')
+        report = run(manifest, args.output.resolve(), args.kirimasim, args.commit,
+                     args.jobs, args.timeout, args.time_budget, args.generate_only)
+    except (ValueError, OSError, subprocess.SubprocessError) as error:
+        parser.exit(2, 'random cross: '+str(error)+'\n')
+    print(f'Random cross seed={report["seed"]} cases={report["case_count"]}: '
+          +' '.join(f'{name}={count}' for name, count in report['counts'].items()))
+    return 0 if args.generate_only or (report['valid'] and report['completed']
+                                      and report['counts']['pass'] == report['case_count']) else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

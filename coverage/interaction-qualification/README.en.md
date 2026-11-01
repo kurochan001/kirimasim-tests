@@ -208,3 +208,14 @@ These are neither original-case passes nor execution qualification of dynamic si
 [`randreduce-build.json`](randreduce-build.json) records the upstream commit verified immediately before execution, build version, binary fingerprint and parsing.
 All 13 parse: 8 fixed cases encounter unsupported randomize, and 5 dynamic cases encounter unsupported class-array operations. Normal saved runs are `interaction-results/cross65-*.json`.
 See [design and limits](../../docs/interaction-verification.en.md#array-reduction-constraints-and-retention).
+
+<a id="件数制限付きランダム比較の導入確認"></a>
+
+## Bounded random comparison qualification
+
+[`random-cross.json`](random-cross.json) records local validation on kirimasim `866abf4d86d1`, built after verifying upstream main immediately before execution.
+Seeds 1/73 pass 96 cases each and seed 20261102 passes 256: 448 total. One saved-stimulus replay has byte-identical SV/expectations.
+An intentional SV operator change terminates normally and is detected by output difference. Fixed Icarus Verilog 13.0 also matches 12 samples across the three profiles.
+[`random-cross-manifest.json`](random-cross-manifest.json) retains the actual 96-case corpus.
+Random runs, replay and fault injection do not increase fixed-suite counts or passing-model counts and are not successful GitHub Nightly execution.
+See [scope, limits and replay](../../docs/random-cross-verification.en.md).

@@ -4,8 +4,10 @@ name: Nightly
 # each simulator, resolving each upstream commit for the run, and adds
 # the results to the history on the results branch,
 # which tools/results_history.py draws as charts (see "Nightly results" in
-# README.md). The results are only reported, except that the kirimasim job
-# fails when a test that matched the night before differs now; the expected
+# README.md). Fixed-suite results are reported, with a kirimasim regression
+# ratchet. Separately, bounded random comparisons fail on any non-pass and
+# retain their own replay artifact; they do not enter fixed-suite history.
+# The expected
 # outputs recorded with Icarus Verilog 13.0 and Verilator 5.052 are checked by
 # check.yml.
 #
@@ -223,8 +225,13 @@ jobs:
       - name: Build kirimasim
         working-directory: kirimasim
         run: |
+          set -euo pipefail
+          git fetch -q --depth 1 origin main
+          build_commit=$(git rev-parse FETCH_HEAD)
+          git checkout -q --detach "$build_commit"
           cmake --preset release
           cmake --build --preset release
+          echo "KIRIMASIM_COMMIT=$build_commit" >> "$GITHUB_ENV"
 
       - name: Run the suite
         run: |
@@ -233,6 +240,44 @@ jobs:
             -j "$(nproc)" --json results/kirimasim.json > results/kirimasim.log || true
           cat results/kirimasim.log
           tail -n 1 results/kirimasim.log >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Run bounded random cross comparisons
+        timeout-minutes: 15
+        env:
+          RANDOM_CROSS_SEED: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          # The full suite can take time: refresh and build again immediately
+          # before the random run, even if upstream moved during that suite.
+          cd kirimasim
+          git fetch -q --depth 1 origin main
+          random_commit=$(git rev-parse FETCH_HEAD)
+          git checkout -q --detach "$random_commit"
+          cmake --preset release
+          cmake --build --preset release
+          cd ..
+          status=0
+          python3 tools/run_random_cross.py \
+            --kirimasim kirimasim/build/release/src/driver/kirimasim \
+            --commit "$random_commit" --seed "$RANDOM_CROSS_SEED" \
+            --cases 96 --vectors 8 --jobs 4 --timeout 5 --time-budget 120 \
+            --output random-results > random-cross.log 2>&1 || status=$?
+          cat random-cross.log
+          if [ -f random-results/report.md ]; then
+            cat random-results/report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo 'Replay data: `random-cross-kirimasim` artifact.' >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+      - name: Save random cross replay data
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ !cancelled() }}
+        with:
+          name: random-cross-kirimasim
+          path: |
+            random-results/
+            random-cross.log
+          if-no-files-found: warn
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}
@@ -247,6 +292,7 @@ jobs:
       # job of this run needs this job, so the results branch still holds the
       # previous night here; publish runs even when this job fails.
       - name: Compare with the previous night
+        if: ${{ !cancelled() }}
         run: |
           if [ ! -f results/kirimasim.json ]; then
             echo "No results of kirimasim: the comparison is skipped."

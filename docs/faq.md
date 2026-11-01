@@ -20,6 +20,7 @@
 - [テストの修正と記録](#6-テストの修正と記録)
 - [機能間クロス検証](#7-機能間クロス検証)
 - [商用シミュレータでの確認状況](#8-商用シミュレータでの確認状況)
+- [モデルに基づくランダム比較](#model-based-random-comparisons)
 
 <a id="1-getting-started"></a>
 
@@ -111,6 +112,8 @@ Matchには規格違反のコードを適切に拒否した結果も含みます
 ### Q11. Nightlyが緑なのにDifferが残るのはなぜですか
 
 Nightlyは各シミュレータの対応状況を記録するため、全テストの一致を成功条件にはしていません。現在のkirimasimのratchetは、前回`pass`だったテストが今回`fail`になった場合に失敗します。新規テストや前回から失敗していたテストは、その条件だけでは回帰失敗になりません。固定バージョンoracleの維持や台帳の整合性は別のCheckワークフローで確認します。[ワークフロー](../README.ja.md#workflows)を参照してください。
+
+この説明は固定スイートの集計です。追加の[ランダム比較](random-cross-verification.md)は全ケースの有効なPASSを要求し、未対応・時間切れも成功にはしません。専用artifactに再現資料を保存し、固定スイートの結果へ混ぜません。
 
 現在のratchetでは、前回`pass`から今回`unsupported`への変化も失敗の対象外です。緑の表示に加え、結果区分の変化と個別ログを確認してください。
 
@@ -364,6 +367,7 @@ Nightlyはその回のスイートと各ツールの版・対象範囲を持つ�
 片方だけ一致した結果や、2状態の結果を4状態の確認へ読み替えず、各seedの実行を別々に保存します。
 テストは規格が定める値を観測し、未初期化値や競合へ偶然依存していないかも確認します。
 [固定版の確認方法](../README.ja.md#where-the-expected-outputs-come-from)を参照してください。
+実際の入力値・操作列を生成する[件数制限付きランダム比較](random-cross-verification.md)は別の経路です。
 
 <a id="q40-how-does-a-latest-commit-run-differ-from-checking-saved-results"></a>
 
@@ -466,3 +470,28 @@ Icarus Verilog・Verilatorで確認できた範囲を`:oracle:`へ記録しま�
 投稿後のコメントや添付まで完全に防げるものではありません。
 [GitHubのテンプレート設定の説明](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)も参照してください。
 該当内容を見つけても転載・要約・期待値への取り込みは行わず、投稿者または管理者による対応を求めます。
+
+<a id="model-based-random-comparisons"></a>
+
+<a id="9-model-based-random-comparisons"></a>
+
+## 9. モデルに基づくランダム比較
+
+<a id="q46-can-existing-models-support-random-verification-comparisons"></a>
+
+### Q46. モデルがあればランダム検証で比較できますか
+
+同じ刺激を設計と参照モデルへ与えて比較できます。現在の初期導入は算術式、除算／剰余、添字付き書込み列の3プロファイルです。
+任意の値・操作列に対応する参照計算を用意し、合法な範囲で生成します。すべての有限モデルが任意の入力を扱えるわけではありません。
+乱数列の一致を確認する検査とも区別します。`randomize()`に複数解がある場合は、生成値の完全一致ではなく制約の充足を確認します。
+[対象と制限](random-cross-verification.md#scope)を参照してください。
+
+<a id="q47-how-do-i-reproduce-a-random-comparison-failure"></a>
+
+### Q47. ランダム比較が失敗したら、どこから再現しますか
+
+Nightlyの`random-cross-kirimasim` artifactを開き、`run.json`の判定・版・指紋と、該当ケースのSV・期待値・出力を確認します。
+`manifest.json`には実際の入力と操作列があるため、`--replay`と`--case`で再抽選せず実行できます。
+再実行時も直前に取得・ビルドした版を指定し、元の版との違いを記録します。seedだけで同じ刺激を保証しません。
+不一致は参照モデルや観測の誤りでも起こるので、規格と照合して原因を切り分けます。未対応や未実行は合格にせず、期待値を変えて隠しません。
+[保存形式と再現手順](random-cross-verification.md#replay)を参照してください。

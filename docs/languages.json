@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "0f53fa6e4eb6155138a6c413b22ab23d8c00052011b5a6cdee1fb81556bf6678",
-        "ja": "f2113087f069e1e102590b48debb6e5bcc2218208dcbea001a03db52fda0f8da"
+        "en": "d252facb9dea104bc50bfc9e4a0ce5f75a955e8588d37b2a2d6fa9fb1c08ae93",
+        "ja": "516f9810b8559789c994c4e74fd1ee11ca167efe345ef1ee02dc7e399b440b3c"
       }
     },
     {
@@ -31,8 +31,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "c5c6f92e89508bb2c0af36ccd75964ba87fd001d805bcfcd7529358ff403dd61",
-        "ja": "a6df30721443ccf9bc5b2dd4fa5173ecc5c596588af0903b11d86f12b4a0c991"
+        "en": "1054a7483258fb6692f6fecfe46407ab987ac5dfd8340578acbb197fe71100d4",
+        "ja": "9a15ad58b8070072841b64085e67a8d60111e760642452eb02128f23e891ae67"
       }
     },
     {
@@ -319,8 +319,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "13a75600ac4d9fe72cb6029e101d7611c0a7d902918ed4d3d7c540e0267a70fe",
-        "ja": "1bf66b80fff169305bb81f4fc5a2c778e0aa1a249a4230da48c8cb06499e2dde"
+        "en": "e2b3a4552e32d4b2a8268662c967c77a3f8cb63750289811de3f55246e2fe89b",
+        "ja": "61c725f4c3f851b37a613b4fdbb6eb784453d2e99b53110cd07fa4de36f7880d"
       }
     },
     {
@@ -357,14 +357,21 @@
       }
     },
     {
+      "en": "docs/generators.md",
+      "ja": "docs/generators.ja.md",
+      "source": "docs/generators.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
       "en": "docs/glossary.en.md",
       "ja": "docs/glossary.md",
       "source": "docs/glossary.md",
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "87dbaaf2a44fb32b4bb9547d3519ef67f0b33fbb9c9881ece61c8a5e666b4a92",
-        "ja": "158661f6d76459f31242f0e20e4782f584ef3cfbbd6e0accf0c06b7ac68dc68b"
+        "en": "e717c5c37096d0569ec7a3aa8a63af1d60a6b9bc497214f0bad07b10964bfbec",
+        "ja": "cc451fc4a1ec3aa24d5272e9b29dcc072bf65a1044be4768b0f0bce3d75aeebd"
       }
     },
     {
@@ -396,8 +403,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "52f8f813dd7aef0e7c55d6c2b4d6652057ed87b31ee9561553c53960e4bdc860",
-        "ja": "fe7ec3a7a5f21b9fa93e9d5da5dace1c68f43e83abb027b73888eac0f01d7810"
+        "en": "5ba2dd76f3f9f17224ca4c5400dd924fa9d1056ef987611a269b194edee18e03",
+        "ja": "a853e9bf5fb7e9614ae4fa149c358748ea7c2116e2b10ca16e15a4b457d21a7c"
       }
     },
     {
@@ -414,8 +421,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "2197b1acfaff5e9331663d30889e995495e15c8f0f0d380e138350334c8b9c13",
-        "ja": "180d998b1981a10ad1f4d897b03b98023074d5a245e7b0011ead63eb03e05576"
+        "en": "a6453295dac317b51c408233264258701acc18c8043a58e35f4c24c4aeb08adc",
+        "ja": "490274b3fb27ec7e4eb988aeae99add1e19ed71c645424d76cba538fe04f71da"
       }
     },
     {
@@ -480,8 +487,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "22831aa4167bc7fa0b3a98dda25a25aad60c19302a7f50bb8b3ff6fa97da5f10",
-        "ja": "20c50db1dec05dad09a02cec91fd4f3baeb6438f1f9bc3fb87537aecf3fd980a"
+        "en": "62b677caaade171126a809754a795037a9f096ca34066c59521bb53e37edd100",
+        "ja": "30cb699757f707d8507ecb9d897fa9122c40a5c12ed0cad6026df5bc11ddaec5"
       }
     },
     {
@@ -533,6 +540,17 @@
       "sha256": {
         "en": "4c6f136e66c7c87cce7d6b13aec7292d0ba25cf730c1400d33e784df39899f97",
         "ja": "f30c37a2dbe49fe8dc9b27a6bbdac7e63c23e04b5b41afb3928376777f46c07c"
+      }
+    },
+    {
+      "en": "docs/random-cross-verification.en.md",
+      "ja": "docs/random-cross-verification.md",
+      "source": "docs/random-cross-verification.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "46fe89d0af155967842ca6228c747eb132771edbfaf3651c65d72c897a86a828",
+        "ja": "f352ce8f904c13488b642fc7f4019aea0411077eea44e9de6bd04ebe20abce45"
       }
     },
     {
@@ -1030,13 +1048,6 @@
         "en": "983a524f036b111b66fe16dfac42ae81a807499c6169390fb5cff6bc8e560695",
         "ja": "46ad80d1acf704d364b40195aacfcc016cbcefbeae70803917ead5bbf01968eb"
       }
-    },
-    {
-      "en": "docs/generators.md",
-      "ja": "docs/generators.ja.md",
-      "source": "docs/generators.md",
-      "source_language": "en",
-      "generated": true
     }
   ]
 }
