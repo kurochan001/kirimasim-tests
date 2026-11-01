@@ -120,3 +120,21 @@ The behavior is unsupported by kirimasim and fails to build with fixed Icarus / 
 [`dpi-nba-build.json`](dpi-nba-build.json) records the latest kirimasim commit verified before execution, the binary fingerprint, 18 successful parses and the full cross-run location.
 Both fixed Verilator seeds have 14 pass and 4 known; the 18 new cases need unsupported C loading in kirimasim. Partial successes are not merged, and auxiliary experiments are not added to normal pass counts.
 See [scope and reproduction](../../docs/interaction-verification.en.md#dpi-copyback-and-nba-capture).
+
+<a id="継承制約と失敗時の値の保持の確認"></a>
+
+## Constraint inheritance and failure-retention checks
+
+[`constraint-inheritance.json`](constraint-inheritance.json) records independent named-block composition/candidate enumeration for all 96 rows, two passing controls and five faults detected by output differences.
+[`constraint-inheritance-build.json`](constraint-inheritance-build.json) records the verified latest upstream kirimasim commit, binary fingerprint, 13 successful parses and full-run location.
+Both fixed Verilator seeds pass all 13 cases; randomize is unsupported in kirimasim. Auxiliary experiments are not added to normal pass counts.
+See [scope and reproduction](../../docs/interaction-verification.en.md#constraint-inheritance-and-failure-retention).
+
+<a id="clocking変数とアサーションの確認"></a>
+
+## Clocking-input and assertion checks
+
+[`clockassert.json`](clockassert.json) records an independent time/region-history comparison for all 288 rows, two passing controls and five faults detected by output differences.
+[`clockassert-build.json`](clockassert-build.json) records the verified latest upstream kirimasim commit, binary fingerprint, 18 successful parses and full-run location.
+Both fixed Verilator seeds pass all 18 cases; concurrent assertions are unsupported in kirimasim. Auxiliary experiments are not added to normal pass counts.
+See [scope and reproduction](../../docs/interaction-verification.en.md#clocking-inputs-and-assertion-clocks).

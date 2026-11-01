@@ -1515,6 +1515,32 @@
           "reason": "DPI復帰直後の書戻しと、呼出し前後で予約したNBAの値・配列要素の確定を同じ観測で照合する"
         }
       ]
+    },
+    {
+      "id": "constraint_inheritance",
+      "primary_chapter": 18,
+      "pairs": [
+        {
+          "chapters": [
+            8,
+            18
+          ],
+          "reason": "同じ派生オブジェクトの制約を基底/派生ハンドルから解き、継承・置換・追加と失敗後の状態保持を照合する"
+        }
+      ]
+    },
+    {
+      "id": "clocking_assertion_sampling",
+      "primary_chapter": 16,
+      "pairs": [
+        {
+          "chapters": [
+            14,
+            16
+          ],
+          "reason": "clocking入力の1stepサンプルを、そのイベントと後続の別クロックのアサーションで照合し、再サンプリングと生信号を区別する"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,6 @@
+phase=0 fail=1 ok=0 a=252 b=253
+guard=0 fail=0 ok=1 a=65 b=68
+phase=1 fail=0 ok=1 a=65 b=68
+guard=1 fail=0 ok=1 a=65 b=68
+phase=2 fail=1 ok=0 a=65 b=68
+guard=2 fail=0 ok=1 a=65 b=68

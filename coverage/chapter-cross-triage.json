@@ -167,30 +167,6 @@
     {
       "chapters": [
         8,
-        18
-      ],
-      "category": "E",
-      "priority": "P1",
-      "reason": "クラス継承と制約の置換・追加が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "クラス継承と制約の置換・追加",
-      "factors": [
-        "基底/派生ハンドル",
-        "制約の置換/追加",
-        "pure/extern定義",
-        "解あり/矛盾"
-      ],
-      "observation": "唯一解や不変条件で動的な制約選択を確認し、失敗時の既存値の保持も観測する。",
-      "witnesses": [
-        {
-          "test": "tests/ch18/test_constraint_inherit_add_and_pure_chain.sv",
-          "inputs_sha256": "eaea5f70f6bcdf449cb2d8821944bc274339eb23b83f6bc17a3303f3c5afff23"
-        }
-      ],
-      "rank": 7
-    },
-    {
-      "chapters": [
-        8,
         21
       ],
       "category": "C",
@@ -337,30 +313,6 @@
       ],
       "observation": "通知と待機の順序、起床回数、読めるサンプル値を観測する。未規定の同時実行順序は期待値にしない。",
       "witnesses": []
-    },
-    {
-      "chapters": [
-        14,
-        16
-      ],
-      "category": "E",
-      "priority": "P1",
-      "reason": "異なるclockingサンプルとアサーションのクロックが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "異なるclockingサンプルとアサーションのクロック",
-      "factors": [
-        "サンプルするエッジ",
-        "propertyのクロック",
-        "入力スキュー",
-        "入力遷移時点"
-      ],
-      "observation": "ライブ値、別エッジのclockingサンプル、cbをクロックとするassertionの失敗時刻を区別する。",
-      "witnesses": [
-        {
-          "test": "tests/ch16/test_clocking_block_other_clock_assertion.sv",
-          "inputs_sha256": "4e204ef512c935ad2dd4279bae2f99dfd898b60379c43c117a5b7171baf1bc9f"
-        }
-      ],
-      "rank": 8
     },
     {
       "chapters": [

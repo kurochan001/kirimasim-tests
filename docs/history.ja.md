@@ -129,3 +129,7 @@
   カバレッジ資料・グラフを生成する経路を追加しました。
 
 - 第10章×第35章のP1、DPI/NBAモデルを追加しました。合法144通りから18件を選び、全因子対81組・重点3因子48組・必須4件を保持します。全144行とC ABIの独立照合、4故障の検出を確認しました。固定Verilatorは両seedとも14 pass・4 knownです。最新kirimasim `1144b2acab1e`の全2,373件は2,170 pass・197 unsupported・既存6 failで、従来2,355件の結果と指紋は同じです。[モデルと保存証跡](interaction-verification.md#dpi-copyback-and-nba-capture)を参照してください。
+
+- 第8章×第18章のP1、継承制約モデルを追加しました。合法96通りから13件を選び、全因子対70組・重点3因子40組・必須4件を保持します。全96行の独立検算、2正常対照と5故障の検出を確認しました。固定Verilatorは両seedとも全13件がPASSです。最新kirimasim `1144b2acab1e`の全2,386件は2,170 pass・210 unsupported・既存6 failで、従来2,373件の結果と指紋は同じです。[モデルと証跡](interaction-verification.md#constraint-inheritance-and-failure-retention)を参照してください。
+
+- 第14章×第16章のP1、clocking/assertionモデルを追加しました。合法288通りから18件を選び、全因子対109組・重点3因子50組・必須4件を保持します。全288行の独立検算、2正常対照と5故障の検出を確認しました。固定Verilatorは両seedとも全18件がPASSです。最新kirimasim `1144b2acab1e`の全2,404件は2,170 pass・228 unsupported・既存6 failで、従来2,386件の結果と指紋は同じです。[モデルと証跡](interaction-verification.md#clocking-inputs-and-assertion-clocks)を参照してください。

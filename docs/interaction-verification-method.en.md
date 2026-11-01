@@ -111,6 +111,10 @@ Construct target denominators from partial combinations that can be extended wit
 
 At a boundary such as DPI, observe synchronous copyback separately from a queued update. The DPI/NBA model compares every element immediately after return, changes the source and indices after scheduling, and checks Postponed and next-time values. Distinguishing immediate update, late capture and missing copyback as separate faults also applies to LSI register writes and queued transactions. See [the example and limits](interaction-verification.en.md#dpi-copyback-and-nba-capture).
 
+Unique constraint solutions let a test cross inheritance, types and state without fixing an RNG sequence. The inheritance model alternates satisfiable and contradictory inputs, distinguishing first-failure sentinels from values retained after success. A separate object succeeds through the opposite static handle type, exposing shared-state or name-resolution leakage. In LSI verification, the same pattern checks an unsuccessful operation's status and state retention together with progress on an independent target. See [the example and limits](interaction-verification.en.md#constraint-inheritance-and-failure-retention).
+
+When sampling and evaluation occur at different times, record sampled values, live signals and execution counts separately. The clocking/assertion model compares the same clockvar at its own event and a later clock, with a raw-signal assertion as control. Delayed reporting avoids action races; fault injection distinguishes resampling, the wrong event and missing actions. In LSI verification, this applies to pipelines that retain inputs while the bus later changes. See [the example and limits](interaction-verification.en.md#clocking-inputs-and-assertion-clocks).
+
 <a id="3-少ないケースを選ぶ仕組み"></a>
 
 ## 3. How to select a small case set

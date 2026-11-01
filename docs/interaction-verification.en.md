@@ -14,7 +14,11 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 Each run's version is recorded in linked JSON. Unless stated otherwise, added/total counts and check results in the model descriptions below record the state when that model was added. See the beginning of this overview and [Generated report](interaction-coverage.en.md) for current aggregates.
 
-DPI/NBA addition on 2026-11-01: the current selection has **56 models and 2,373 tests**. The [full cross run](../coverage/interaction-results/cross56-kirimasim-1144b2ac.json) on kirimasim `1144b2acab1e`, built from upstream main verified immediately before execution, records **2,170 pass, 197 unsupported and the existing 6 fail**. The 18 new cases need unsupported C loading; all 2,355 preceding input fingerprints and outcomes are unchanged. Chapter 10×35 is now registered, bringing the total to 87 chapter pairs; 46 models pass their full selection. Fixed Verilator 5.052 matches 14 new cases at both seeds; four 65-bit output/inout copyback cases stop on internal build errors. See [design and scope](#dpi-copyback-and-nba-capture).
+Clocking/assertion addition on 2026-11-01: the current selection has **58 models and 2,404 tests**. The [full cross run](../coverage/interaction-results/cross58-kirimasim-1144b2ac.json) on kirimasim `1144b2acab1e`, built after verifying upstream main before execution, records **2,170 pass, 228 unsupported and the existing 6 fail**. The 18 new cases require unsupported concurrent assertions; all 2,386 preceding input fingerprints and outcomes are unchanged. Chapter 14×16 is now registered, giving 89 chapter pairs; 46 models pass their full selection. Both fixed Verilator 5.052 seeds pass all 18 new cases. See [design and scope](#clocking-inputs-and-assertion-clocks).
+
+At the constraint-inheritance addition on the same day, the selection had **57 models and 2,386 tests**. The [full cross run](../coverage/interaction-results/cross57-kirimasim-1144b2ac.json) on kirimasim `1144b2acab1e`, built after verifying upstream main before execution, records **2,170 pass, 210 unsupported and the existing 6 fail**. The 13 new cases require unsupported randomize; all 2,373 preceding input fingerprints and outcomes are unchanged. Chapter 8×18 is now registered, bringing the total to 88 chapter pairs; 46 models pass their full selection. All 13 new cases match fixed Verilator 5.052 at both seeds. See [design and scope](#constraint-inheritance-and-failure-retention).
+
+At the DPI/NBA addition on the same day, the selection had **56 models and 2,373 tests**. The [full cross run](../coverage/interaction-results/cross56-kirimasim-1144b2ac.json) on kirimasim `1144b2acab1e`, built from upstream main verified immediately before execution, records **2,170 pass, 197 unsupported and the existing 6 fail**. The 18 new cases need unsupported C loading; all 2,355 preceding input fingerprints and outcomes are unchanged. Chapter 10×35 is now registered, bringing the total to 87 chapter pairs; 46 models pass their full selection. Fixed Verilator 5.052 matches 14 new cases at both seeds; four 65-bit output/inout copyback cases stop on internal build errors. See [design and scope](#dpi-copyback-and-nba-capture).
 
 At the event-rebinding addition on the same day, there were 55 models and 2,355 tests. All 27 new cases had unsupported event-value operations on kirimasim `ddf48e2b0436` built after checking upstream main immediately before execution. [Saved runs of all crosses](../coverage/interaction-results/cross55-kirimasim-ddf48e2b.json) is 2,170 pass, 179 unsupported, and existing 6 fail. Input hashes and result categories for the preceding 2,328 cases are unchanged. Registered Clause 6 × Clause 15, bringing the total to 86 chapter pairs and 46 models with their full selection PASS. See [Event-rebinding design and verification scope](#イベント変数の再結合と登録済み待機の保持).
 
@@ -1502,6 +1506,81 @@ python3 tools/qualify_dpi_nba.py --verilator /path/to/verilator-5.052 --cc cc \
 
 X/Z, open arrays, NBAs into dynamic arrays, C-to-SV reentry, time-consuming DPI tasks, competing processes and scalar-variable
 copyback are outside this model. It does not qualify all of chapter 35 or every DPI boundary.
+
+<a id="継承制約の動的な選択と失敗時の値の保持"></a>
+
+### Constraint inheritance and failure retention
+
+`interaction_constraint.py` implements the chapter 8×18 P1 candidate as `constraint_inheritance@1`.
+Base/derived handles, replacement/addition, pure/concrete constraints, inline/extern leaf definitions,
+success→failure→success/failure→success→failure and widths 4/8/33 define 96 legal rows. The 13 selected cases retain
+all 70 factor pairs, 40 targeted triples and four anchors: 86.46% fewer cases, without a claim about elapsed-time savings.
+
+A root, middle and leaf class inherit an a-value constraint and the relation `b == a + 3`.
+Replacing a same-name block selects the leaf value; adding a new-name block also retains the base value constraint.
+The middle class always implements a pure constraint inline; the extern factor applies to the leaf's replacement/addition.
+A non-rand flag switches between a unique solution and a contradiction. Each call checks its return and all rand fields.
+First failure preserves sentinel words; failure after success preserves the preceding solution. A separate object, called
+through the opposite static handle type, must succeed every time. These are legal simulation tests of unsatisfiable constraints,
+rather than illegal-design rejection tests. Expected output does not depend on RNG sequences or search order.
+Clauses 18.5.1, 18.5.2, 18.6.1, 18.6.3, 8.13 and 8.21 govern the observations.
+
+All 13 cases pass fixed Verilator 5.052 at [seed 1](../coverage/interaction-results/cross57-constraint-verilator5052-seed1.json)
+and [seed 73](../coverage/interaction-results/cross57-constraint-verilator5052-seed73.json), and gain that fixed oracle.
+All 13 parse and type-check in the latest kirimasim build, but randomize is unsupported. Fixed-release success is not
+added to kirimasim success. The [latest-build and parse record](../coverage/interaction-qualification/constraint-inheritance-build.json) is saved.
+
+The [independent checks and fault injection](../coverage/interaction-qualification/constraint-inheritance.json) compose named
+constraint blocks and enumerate candidate values, separately from the closed-form oracle, to check solutions, contradictions
+and state transitions for all 96 rows. After passing replacement and addition controls, five faults—lost override, missing
+added constraint, failure clobbering, aliased guard and use of base constraints instead of leaf constraints—were detected
+by output differences, rather than compilation failures. Reproduce with fixed Verilator 5.052 and Z3, choosing a new output filename:
+
+```sh
+python3 tools/qualify_constraint_inheritance.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-constraint-inheritance.json
+```
+
+X/Z, randc, soft, constraint_mode, rand_mode, callbacks, parallel solvers, RNG sequence matching, re-abstracted pure constraints
+and extern completion in the middle class are outside this model. It does not qualify every class or constraint feature.
+
+<a id="clocking変数とアサーションの評価クロック"></a>
+
+### Clocking inputs and assertion clocks
+
+`interaction_clockassert.py` implements the chapter 14×16 P1 candidate as `clocking_assertion_sampling@1`.
+Widths 1/8/33, bit/logic, independent sample/probe polarities, early/edge/between writes, blocking/NBA and default/explicit
+input skew define 288 legal rows. The 18 selected cases retain all 109 pairs, 50 targeted triples and four anchors: 93.75% fewer rows.
+The width×state×timing projection alone has 18 combinations, requiring at least 18 rows for this plan; the selection meets that lower bound.
+This is neither an elapsed-time saving nor a claim that other models' selections are minimal.
+
+Clause 16.5.1 requires #1step sampling for clocking inputs referenced by assertions. Default and explicit #1step are equivalence controls;
+#0 and time skews that are legal for ordinary clocking input use are not legal levels here. In each 20-tick cycle, writes occur at 6, 8 or 10;
+the clocking event is at 8, the independent probe clock at 12 and reporting at 14. Three single-cycle assertions compare the clockvar at
+`@(cb)`, the same clockvar on the other clock, and raw data on that other clock. Both actions save sampled and Reactive live vectors
+separately; delayed reports check counts and every bit. Known zero/ones and complementary patterns provide positive and negative controls,
+distinguishing incorrect resampling and missing actions. Clauses 16.18, 16.5.1, 16.9.3, 16.14.1, 14.13, 14.10 and 14.4 govern the observations.
+Blocking and NBA writes intentionally have the same expected observations here, checking consistency of both paths. This model does not
+observe between Active and NBA or qualify NBA value/destination capture.
+
+Both fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross58-clockassert-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross58-clockassert-verilator5052-seed73.json) pass all 18 cases, which gain that fixed oracle.
+All 18 parse and type-check in the latest kirimasim build, but concurrent assertion statements are unsupported.
+The [latest-build and parse record](../coverage/interaction-qualification/clockassert-build.json) is saved; fixed-version success is not added to kirimasim success.
+
+The [independent checks and fault injection](../coverage/interaction-qualification/clockassert.json) compare all 288 rows with a separate
+history of timed and region-ordered updates. After passing edge-write and between-clock controls, five faults—resampling on the other clock,
+confusing live action data with sampled data, using the wrong clocking-assertion event, reversing the sample polarity and missing a fail action—
+were detected by output differences. Compile failures and illegal non-#1step inputs are not counted as detected faults. Reproduce with fixed
+Verilator 5.052 and a new output filename:
+
+```sh
+python3 tools/qualify_clockassert.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-clockassert.json
+```
+
+X/Z, rejection of non-#1step misuse, output skew, programs, disable iff, temporal operators, simultaneous clocks and virtual interfaces are
+outside this model. It checks separate assertions on different clocks, not temporal properties spanning multiple clocks.
 
 <a id="モデル変更時の更新"></a>
 

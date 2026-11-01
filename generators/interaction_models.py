@@ -57,6 +57,8 @@ import interaction_ifimport
 import interaction_mailbox
 import interaction_event_rebind
 import interaction_dpi_nba
+import interaction_constraint
+import interaction_clockassert
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -90,7 +92,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_udpstate,
               interaction_ifimport,
               interaction_mailbox,
-              interaction_event_rebind, interaction_dpi_nba,
+              interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -505,6 +507,21 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_mailbox.MODEL.select(),
             "classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量制限・nullメッセージと"
             "取得前後の双方向のメンバ更新を確認する。別mailboxの保持と後の更新、空の非ブロッキング戻り値も観測する。",
+        ),
+        SuiteModel(
+            interaction_clockassert.MODEL,
+            lambda row: "tests/gen/ch16/" + interaction_clockassert.case_name(row) + ".sv",
+            interaction_clockassert.MODEL.select(),
+            "既定/明示の#1step clocking入力を、そのイベントと後続の別クロックのアサーションで観測する。"
+            "更新の前後とblocking/NBA、独立したエッジ極性を組み合わせ、sampled値・Reactiveの生信号・"
+            "判定回数を分けて照合し、別クロックでの誤った再サンプリングを検出する。",
+        ),
+        SuiteModel(
+            interaction_constraint.MODEL,
+            lambda row: "tests/gen/ch18/" + interaction_constraint.case_name(row) + ".sv",
+            interaction_constraint.MODEL.select(),
+            "基底/派生ハンドルから3階層の継承制約を解き、同名の置換・別名の追加とpure/externの完了を照合する。"
+            "一意解と矛盾を交互に与え、初回失敗時の初期値・成功後の値の保持と、別オブジェクトの独立した成功を確認する。",
         ),
         SuiteModel(
             interaction_dpi_nba.MODEL,

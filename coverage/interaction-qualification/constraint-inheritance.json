@@ -1,0 +1,35 @@
+{
+  "model": "constraint_inheritance",
+  "version": 1,
+  "generated_at": "2026-11-01T10:37:10.002331+00:00",
+  "independent_rows": 96,
+  "fault_injection": {
+    "replace_control": "pass",
+    "add_control": "pass",
+    "lost_override": "detected",
+    "dropped_added_constraint": "detected",
+    "failure_clobbers_state": "detected",
+    "aliased_guard_object": "detected",
+    "base_constraints_instead_of_leaf": "detected"
+  },
+  "simulator": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "sources_sha256": {
+    "generators/interaction_constraint.py": "4f02d02513e6dd3d94e136d8164ab23a15b1e31dcc95c7b55508dde67c02f224",
+    "tools/qualify_constraint_inheritance.py": "3d1044602a6dfafc9898899d972c93c552e39aa42b596806e248b84741a61844"
+  },
+  "inputs_sha256": {
+    "tests/gen/ch18/test_gen_cross_constraint_base_replace_pure_extern_fail_sat_fail_33.sv": "9c9778539f0b0b7b33af61b35fefffde42d3319742978bfad3ff534a5771e41b",
+    "tests/gen/ch18/test_gen_cross_constraint_derived_add_concrete_inline_sat_fail_sat_4.sv": "0b56531a7ee40832f498d8f439a1fbc110c26be65e521c9907aff5e6933c10f1",
+    "tests/gen/ch18/test_gen_cross_constraint_base_add_pure_inline_fail_sat_fail_8.sv": "3a725b50614564e34e1dd7dc7c19981e411081fc652536e1313fbcf6e8cb4446",
+    "tests/gen/ch18/test_gen_cross_constraint_derived_replace_concrete_extern_sat_fail_sat_33.sv": "d64df00fced83e16cd33d505551ea05c3d90a791ba1e3cad669543d79a02bf62",
+    "tests/gen/ch18/test_gen_cross_constraint_base_replace_concrete_inline_sat_fail_sat_8.sv": "f33a80628c26103df35dc52e672c717f928ea36f4216ac681c17d38d36b5c526",
+    "tests/gen/ch18/test_gen_cross_constraint_derived_add_pure_extern_fail_sat_fail_4.sv": "be9a2902f8c43d44c5785ff6f0c819a46136488083eb9ed4b14914e4a9a596bb",
+    "tests/gen/ch18/test_gen_cross_constraint_base_replace_pure_inline_sat_fail_sat_4.sv": "f242ff38f176324b0eb8f1371401b905c982c2ffa38d3ba80f6cb5fd2b552f0b",
+    "tests/gen/ch18/test_gen_cross_constraint_derived_replace_concrete_extern_fail_sat_fail_8.sv": "2ad1498ebcb756fd28a1ed109b5447cc4159bf6ed7a9e4501c90d901637a2d4f",
+    "tests/gen/ch18/test_gen_cross_constraint_base_add_concrete_inline_sat_fail_sat_33.sv": "659659a637adcef716e45623b5ce4628653c7f3222fa5d8a26063e7e3901ff69",
+    "tests/gen/ch18/test_gen_cross_constraint_base_replace_concrete_extern_fail_sat_fail_4.sv": "da8dc4b7105aa5c768fd0158208c70390aef7bfa03b16d264486a896e5b00413",
+    "tests/gen/ch18/test_gen_cross_constraint_base_add_concrete_extern_sat_fail_sat_8.sv": "bf4831b9da974662db3f06b3e011d19526c9ae29fa911e9cca404ab498150f37",
+    "tests/gen/ch18/test_gen_cross_constraint_base_add_pure_inline_fail_sat_fail_33.sv": "38c669684d04edc5190103ef84db7fb0695472b1c24ef2aad30b9530e2119c70",
+    "tests/gen/ch18/test_gen_cross_constraint_base_replace_pure_extern_sat_fail_sat_8.sv": "8176ece19b265143cd16e1b066cf591621a5acfae5d188b35897c14d4310e2fd"
+  }
+}

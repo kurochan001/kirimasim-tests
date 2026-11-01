@@ -1135,6 +1135,47 @@ classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量
 
 制約: 全3456行が合法。同じpacket型のハンドルだけを送り、型不一致は対象外。満杯/空の確認には非ブロッキングメソッドを使い、get/peekは格納後に呼ぶ。1プロセス内の直列操作で、待機プロセスの選択順や同時実行の競合は対象外。typeless、4状態、nullも未対応を理由に除外しない。
 
+## clocking_assertion_sampling / model 1
+
+- 制約を満たす組合せ数: 288。
+- 利用できる既存・新規テスト: 18。
+- 短時間実行の選択: 18。
+- 個別に保持する必須ケース: 4。
+- 2因子の計画上の網羅: 109/109。
+- 3因子の計画上の網羅: 50/50。
+
+既定/明示の#1step clocking入力を、そのイベントと後続の別クロックのアサーションで観測する。更新の前後とblocking/NBA、独立したエッジ極性を組み合わせ、sampled値・Reactiveの生信号・判定回数を分けて照合し、別クロックでの誤った再サンプリングを検出する。
+
+- width: 1, 8, 33。
+- state: bit, logic。
+- sample_edge: posedge, negedge。
+- probe_edge: posedge, negedge。
+- timing: early, edge, between。
+- update: blocking, nba。
+- declaration: default, explicit。
+
+制約: 全288行が合法。アサーションが参照するclocking入力は16.5.1に従い#1stepだけを使い、既定と明示指定を比較する。サンプル用と評価用のクロックは別信号で、各周期の時刻8と12に駆動する。更新は時刻6/8/10、観測は時刻14に分離する。同じslotの#1step値とReactiveの生信号、後続の別クロックでの保持値を照合する。X/Z、非#1step入力の不正な使用、出力skew、program、時間演算、disable iff、同時クロックは対象外。未対応による除外なし。
+
+## constraint_inheritance / model 1
+
+- 制約を満たす組合せ数: 96。
+- 利用できる既存・新規テスト: 13。
+- 短時間実行の選択: 13。
+- 個別に保持する必須ケース: 4。
+- 2因子の計画上の網羅: 70/70。
+- 3因子の計画上の網羅: 40/40。
+
+基底/派生ハンドルから3階層の継承制約を解き、同名の置換・別名の追加とpure/externの完了を照合する。一意解と矛盾を交互に与え、初回失敗時の初期値・成功後の値の保持と、別オブジェクトの独立した成功を確認する。
+
+- handle: base, derived。
+- rule: replace, add。
+- origin: concrete, pure。
+- definition: inline, extern。
+- sequence: sat_fail_sat, fail_sat_fail。
+- width: 4, 8, 33。
+
+制約: 全96行が合法。3階層の継承でpure制約は中間クラスが実装し、派生クラスの同名制約は置換、別名制約は追加になる。成功時の解は一意で、乱数の値や探索順序に依存しない。非randフラグで充足可能と矛盾を切り替え、失敗時の初期値または直前の解を保持する。別オブジェクトは反対の静的型のハンドルから毎回成功する対照とする。X/Z、randc、soft、constraint_mode、rand_mode、乱数列の一致は対象外。未対応による除外なし。
+
 ## dpi_nba_capture / model 1
 
 - 制約を満たす組合せ数: 144。
@@ -1456,6 +1497,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -1741,6 +1792,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -2026,6 +2087,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -2311,6 +2382,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -2596,6 +2677,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -2881,6 +2972,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -3166,6 +3267,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -3451,6 +3562,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -3736,6 +3857,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -4021,6 +4152,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -4306,6 +4447,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -4591,6 +4742,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -4876,6 +5037,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -5161,6 +5332,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -5446,6 +5627,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -5731,6 +5922,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -6016,6 +6217,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -6301,6 +6512,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -6586,6 +6807,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -6871,6 +7102,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -7156,6 +7397,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -7441,6 +7692,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -7726,6 +7987,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -8011,6 +8282,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -8296,6 +8577,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -8581,6 +8872,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -8866,6 +9167,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -9151,6 +9462,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -9436,6 +9757,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -9721,6 +10052,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -10006,6 +10347,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -10291,6 +10642,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -10576,6 +10937,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -10861,6 +11232,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -11146,6 +11527,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -11431,6 +11822,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -11716,6 +12117,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -12001,6 +12412,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -12286,6 +12707,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -12571,6 +13002,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -12856,6 +13297,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -13141,6 +13592,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -13426,6 +13887,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -13711,6 +14182,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -13996,6 +14477,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -14281,6 +14772,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -14566,6 +15067,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -14851,6 +15362,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -15136,6 +15657,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -15421,6 +15952,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -15706,6 +16247,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -15991,6 +16542,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -16276,6 +16837,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -16561,6 +17132,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -16846,6 +17427,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -17131,6 +17722,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -17416,6 +18017,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -17701,6 +18312,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -17986,6 +18607,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -18271,6 +18902,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -18556,6 +19197,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -18841,6 +19492,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -19126,6 +19787,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -19411,6 +20082,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -19696,6 +20377,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -19981,6 +20672,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -20266,6 +20967,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -20551,6 +21262,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -20836,6 +21557,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -21121,6 +21852,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -21406,6 +22147,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -21691,6 +22442,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -21976,6 +22737,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -22261,6 +23032,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -22546,6 +23327,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -22831,6 +23622,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -23116,6 +23917,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -23401,6 +24212,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -23686,6 +24507,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -23971,6 +24802,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -24256,6 +25097,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -24541,6 +25392,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -24826,6 +25687,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -25111,6 +25982,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -25396,6 +26277,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -25681,6 +26572,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -25966,6 +26867,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -26251,6 +27162,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -26536,6 +27457,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -26821,6 +27752,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -27106,6 +28047,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -27391,6 +28342,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -27676,6 +28637,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -27961,6 +28932,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -28246,6 +29227,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -28531,6 +29522,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -28816,6 +29817,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -29101,6 +30112,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -29386,6 +30407,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -29671,6 +30702,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -29956,6 +30997,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -30241,6 +31292,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -30526,6 +31587,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -30811,6 +31882,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -31096,6 +32177,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -31381,6 +32472,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 79/81。
   - 3因子の合格確認済み組合せ: 37/48。
@@ -31666,6 +32767,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 79/81。
   - 3因子の合格確認済み組合せ: 37/48。
@@ -31951,6 +33062,1786 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- dpi_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/81。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- event_rebinding:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/69。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0。
+
+### coverage/interaction-results/cross57-constraint-verilator5052-seed1.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-11-01T10:37:48.004980+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+- generated_udp_state:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- interface_header_import:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/78。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- mailbox_class_alias:
+  - 2因子の合格確認済み組合せ: 0/245。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 70/70。
+  - 3因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dpi_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/81。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- event_rebinding:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/69。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+
+### coverage/interaction-results/cross57-constraint-verilator5052-seed73.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-11-01T10:37:50.897034+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+- generated_udp_state:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- interface_header_import:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/78。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- mailbox_class_alias:
+  - 2因子の合格確認済み組合せ: 0/245。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 70/70。
+  - 3因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dpi_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/81。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- event_rebinding:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/69。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+
+### coverage/interaction-results/cross57-kirimasim-1144b2ac.json
+
+- 環境: kirimasim 0.0.0 (commit 1144b2acab1e), built with AppleClang 21.0.0.21000401。
+- 実行日時: 2026-11-01T10:38:25.288310+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 3因子の合格確認済み組合せ: 51/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 185/185。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 144/144。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 204/204。
+  - 3因子の合格確認済み組合せ: 56/56。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 285/285。
+  - 3因子の合格確認済み組合せ: 108/108。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 302/302。
+  - 3因子の合格確認済み組合せ: 174/174。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 261/261。
+  - 3因子の合格確認済み組合せ: 162/162。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 253/253。
+  - 3因子の合格確認済み組合せ: 106/106。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 258/258。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 257/257。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- division_context:
+  - 2因子の合格確認済み組合せ: 283/283。
+  - 3因子の合格確認済み組合せ: 98/98。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 219/219。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 265/265。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 218/218。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 236/236。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 260/260。
+  - 3因子の合格確認済み組合せ: 152/152。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 3因子の合格確認済み組合せ: 59/59。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 308/308。
+  - 3因子の合格確認済み組合せ: 90/90。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 208/305。
+  - 3因子の合格確認済み組合せ: 84/174。
+  - 必須ケース: 1/5。
+  - ケース状態: pass=19, fail=1, known=0, unsupported=26, stale=0, not_run=0。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 252/303。
+  - 3因子の合格確認済み組合せ: 117/178。
+  - 必須ケース: 4/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 274/315。
+  - 3因子の合格確認済み組合せ: 115/154。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=25, fail=1, known=0, unsupported=8, stale=0, not_run=0。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 118/165。
+  - 3因子の合格確認済み組合せ: 38/72。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 88/88。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 135/202。
+  - 3因子の合格確認済み組合せ: 39/99。
+  - 必須ケース: 2/6。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 161/161。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 246/246。
+  - 3因子の合格確認済み組合せ: 111/111。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 242/242。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 159/159。
+  - 3因子の合格確認済み組合せ: 128/128。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 141/141。
+  - 3因子の合格確認済み組合せ: 129/129。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=63, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 158/158。
+  - 3因子の合格確認済み組合せ: 141/141。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 248/248。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 38/38。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 156/156。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 74/74。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 84/84。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 207/213。
+  - 3因子の合格確認済み組合せ: 72/80。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=37, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 80/80。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=25, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_udp_state:
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- interface_header_import:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 78/78。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- mailbox_class_alias:
+  - 2因子の合格確認済み組合せ: 0/245。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=13, stale=0, not_run=0。
+- dpi_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/81。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- event_rebinding:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/69。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0。
+
+### coverage/interaction-results/cross58-clockassert-verilator5052-seed1.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-11-01T11:18:12.428989+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+- generated_udp_state:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- interface_header_import:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/78。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- mailbox_class_alias:
+  - 2因子の合格確認済み組合せ: 0/245。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 50/50。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- dpi_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/81。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- event_rebinding:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/69。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+
+### coverage/interaction-results/cross58-clockassert-verilator5052-seed73.json
+
+- 環境: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-11-01T11:18:17.793748+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/260。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+- generated_udp_state:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- interface_header_import:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/78。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- mailbox_class_alias:
+  - 2因子の合格確認済み組合せ: 0/245。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 50/50。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- dpi_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/81。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- event_rebinding:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/69。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+
+### coverage/interaction-results/cross58-kirimasim-1144b2ac.json
+
+- 環境: kirimasim 0.0.0 (commit 1144b2acab1e), built with AppleClang 21.0.0.21000401。
+- 実行日時: 2026-11-01T11:19:22.920853+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 3因子の合格確認済み組合せ: 51/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 185/185。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 144/144。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 204/204。
+  - 3因子の合格確認済み組合せ: 56/56。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 285/285。
+  - 3因子の合格確認済み組合せ: 108/108。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 302/302。
+  - 3因子の合格確認済み組合せ: 174/174。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 261/261。
+  - 3因子の合格確認済み組合せ: 162/162。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 253/253。
+  - 3因子の合格確認済み組合せ: 106/106。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 258/258。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 257/257。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- division_context:
+  - 2因子の合格確認済み組合せ: 283/283。
+  - 3因子の合格確認済み組合せ: 98/98。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 219/219。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 265/265。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 218/218。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 236/236。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 260/260。
+  - 3因子の合格確認済み組合せ: 152/152。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 3因子の合格確認済み組合せ: 59/59。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 308/308。
+  - 3因子の合格確認済み組合せ: 90/90。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 208/305。
+  - 3因子の合格確認済み組合せ: 84/174。
+  - 必須ケース: 1/5。
+  - ケース状態: pass=19, fail=1, known=0, unsupported=26, stale=0, not_run=0。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 252/303。
+  - 3因子の合格確認済み組合せ: 117/178。
+  - 必須ケース: 4/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 274/315。
+  - 3因子の合格確認済み組合せ: 115/154。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=25, fail=1, known=0, unsupported=8, stale=0, not_run=0。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 118/165。
+  - 3因子の合格確認済み組合せ: 38/72。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 88/88。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 135/202。
+  - 3因子の合格確認済み組合せ: 39/99。
+  - 必須ケース: 2/6。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 161/161。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 246/246。
+  - 3因子の合格確認済み組合せ: 111/111。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 242/242。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 159/159。
+  - 3因子の合格確認済み組合せ: 128/128。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 141/141。
+  - 3因子の合格確認済み組合せ: 129/129。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=63, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 158/158。
+  - 3因子の合格確認済み組合せ: 141/141。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 248/248。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 38/38。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 156/156。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 74/74。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 84/84。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 207/213。
+  - 3因子の合格確認済み組合せ: 72/80。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=37, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 80/80。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=25, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_udp_state:
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- interface_header_import:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 78/78。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- mailbox_class_alias:
+  - 2因子の合格確認済み組合せ: 0/245。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=13, stale=0, not_run=0。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -32236,6 +35127,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -32521,6 +35422,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -32806,6 +35717,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -33091,6 +36012,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -33376,6 +36307,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -33661,6 +36602,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -33946,6 +36897,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -34231,6 +37192,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -34516,6 +37487,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -34801,6 +37782,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -35086,6 +38077,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -35371,6 +38372,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -35656,6 +38667,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -35941,6 +38962,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -36226,6 +39257,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -36511,6 +39552,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -36796,6 +39847,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -37081,6 +40142,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -37366,6 +40437,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -37651,6 +40732,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -37936,6 +41027,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -38221,6 +41322,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -38506,6 +41617,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -38791,6 +41912,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -39076,6 +42207,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -39361,6 +42502,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -39646,6 +42797,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -39931,6 +43092,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -40216,6 +43387,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -40501,6 +43682,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -40786,6 +43977,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -41071,6 +44272,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 34/92。
   - 必須ケース: 6/9。
   - ケース状態: pass=11, fail=0, known=1, unsupported=0, stale=0, not_run=24。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -41356,6 +44567,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 34/92。
   - 必須ケース: 6/9。
   - ケース状態: pass=11, fail=0, known=1, unsupported=0, stale=0, not_run=24。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -41641,6 +44862,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -41926,6 +45157,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -42211,6 +45452,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -42496,6 +45747,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -42781,6 +46042,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -43066,6 +46337,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -43351,6 +46632,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -43636,6 +46927,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -43921,6 +47222,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -44206,6 +47517,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -44491,6 +47812,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -44776,6 +48107,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -45061,6 +48402,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -45346,6 +48697,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -45631,6 +48992,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -45916,6 +49287,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -46201,6 +49582,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -46486,6 +49877,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -46771,6 +50172,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -47056,6 +50467,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -47341,6 +50762,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -47626,6 +51057,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。
@@ -47911,6 +51352,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
 - dpi_nba_capture:
   - 2因子の合格確認済み組合せ: 0/81。
   - 3因子の合格確認済み組合せ: 0/48。

@@ -37,7 +37,7 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 附属書はこの表の軸に含めていません。
 
 対象は、[有限の因子モデルとして登録したクロス検証](interaction-verification.md)だけです。
-全10,123テストの集計ではありません。
+全10,154テストの集計ではありません。
 [Issue #21の境界条件の回帰](p1-combination-regressions-20261030.md)のうち、
 有限モデルに登録していない56件や、それ以外の通常テストは加算していません。
 章全体の要求網羅率や、章どうしの全機能の直積の達成率は表していません。
@@ -63,9 +63,15 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 
 ## 実行結果の扱い
 
-生成時点では56モデル・2,373選択ケースを、対角線以外の87組の章対に対応付けています。
-使用した結果は[kirimasim 1144b2acの全56モデルの保存実行](../coverage/interaction-results/cross56-kirimasim-1144b2ac.json)で、
-2,170 pass・197 unsupported・6 fail、全選択ケースPASSは46モデルです。
+生成時点では58モデル・2,404選択ケースを、対角線以外の89組の章対に対応付けています。
+使用した結果は[kirimasim 1144b2acの全58モデルの保存実行](../coverage/interaction-results/cross58-kirimasim-1144b2ac.json)で、
+2,170 pass・228 unsupported・6 fail、全選択ケースPASSは46モデルです。
+clocking/assertionの第14章×第16章は、モデル数1・全選択ケースPASSモデル数0です。
+新規18件は並行アサーション未対応です。固定Verilatorでは両seedとも全18件が一致します。
+[設計と確認記録](interaction-verification.md#clocking-inputs-and-assertion-clocks)を参照してください。
+継承制約の第8章×第18章は、モデル数1・全選択ケースPASSモデル数0です。
+新規13件はrandomize未対応です。固定Verilatorでは両seedとも全13件が一致します。
+[設計と確認記録](interaction-verification.md#constraint-inheritance-and-failure-retention)を参照してください。
 DPI/NBAの第10章×第35章は、モデル数1・全選択ケースPASSモデル数0です。
 新規18件はC読込み未対応です。固定Verilatorの14件の部分成功は加算しません。
 [設計と確認記録](interaction-verification.md#dpi-copyback-and-nba-capture)を参照してください。

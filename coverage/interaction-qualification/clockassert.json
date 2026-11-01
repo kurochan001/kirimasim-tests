@@ -1,0 +1,40 @@
+{
+  "model": "clocking_assertion_sampling",
+  "version": 1,
+  "generated_at": "2026-11-01T11:17:47.946280+00:00",
+  "independent_rows": 288,
+  "fault_injection": {
+    "edge_control": "pass",
+    "between_control": "pass",
+    "resample_on_probe": "detected",
+    "sampled_instead_of_action_live": "detected",
+    "wrong_clocking_assertion_event": "detected",
+    "wrong_sampling_edge": "detected",
+    "missing_failure_action": "detected"
+  },
+  "simulator": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "sources_sha256": {
+    "generators/interaction_clockassert.py": "6a82d5493b8c49d0f382c3a3431edd08b0e2d70f847a9a349e8bef3bfcf6b45d",
+    "tools/qualify_clockassert.py": "44c379d191a50c03ada3825b17f1811bc6612b5b7ac9d7a0c669916071c536ef"
+  },
+  "inputs_sha256": {
+    "tests/gen/ch16/test_gen_cross_clockassert_1_bit_posedge_negedge_edge_nba_explicit.sv": "c55176e97792655640acb1e739e88cf2fb94f7e0e0bdbab7e81ecde488fc9077",
+    "tests/gen/ch16/test_gen_cross_clockassert_33_logic_negedge_posedge_between_blocking_default.sv": "6e957ab6f6495b473bb21cce16c2f8af35e8c1641388514edad4106ac07615f0",
+    "tests/gen/ch16/test_gen_cross_clockassert_8_bit_posedge_posedge_early_nba_default.sv": "c0cf2726bdd2fbdd298327bf91e13c7cb9762b8cb6768b3cea5761ad7b6f2ba4",
+    "tests/gen/ch16/test_gen_cross_clockassert_33_bit_negedge_negedge_edge_blocking_explicit.sv": "b285c47e400c40fccf0255327f2fa0a98acee367b27613ad8c2c3a27b4ec3d89",
+    "tests/gen/ch16/test_gen_cross_clockassert_1_logic_posedge_negedge_early_blocking_default.sv": "a67497296190f7d3f75cd4eab1de01d3da32db62d1ce13eae80afdfc3b3ffa00",
+    "tests/gen/ch16/test_gen_cross_clockassert_8_logic_negedge_negedge_between_nba_explicit.sv": "5e2fdf1e5b835c9e98edb33f3381efcc73d1ed4186939be6841812f86b15845d",
+    "tests/gen/ch16/test_gen_cross_clockassert_1_bit_posedge_posedge_between_blocking_explicit.sv": "8dfa834cfbdf78b4bdebb62d9d4ed18b51f2f043d2c28fa8941d101d21693bab",
+    "tests/gen/ch16/test_gen_cross_clockassert_8_logic_posedge_posedge_edge_blocking_default.sv": "ab8c69fcabc01c5e38d8fe1a2d9d83fcde683d335231f60b89c4bd0191f51014",
+    "tests/gen/ch16/test_gen_cross_clockassert_33_bit_negedge_posedge_early_nba_explicit.sv": "d6ee8c4129895606e6384c9691446dd2f6009a93515d92f61b3119daacfad2e9",
+    "tests/gen/ch16/test_gen_cross_clockassert_1_bit_negedge_negedge_early_blocking_default.sv": "5126258cafd349cbdaed948fd9da2109399039a91edb74c1fc11a63515497797",
+    "tests/gen/ch16/test_gen_cross_clockassert_33_bit_posedge_negedge_between_nba_default.sv": "3f5ecd318cc430e9f40892bdfa4dc652ec2c896cbdd555b65685cbaebdb3bb52",
+    "tests/gen/ch16/test_gen_cross_clockassert_1_logic_negedge_posedge_edge_nba_default.sv": "4b566af5f23f98395aee4e084925001f039ad429efb16e929d52cce3a3540a93",
+    "tests/gen/ch16/test_gen_cross_clockassert_8_logic_posedge_posedge_early_blocking_explicit.sv": "0e15794dba18cec5bbb948286cabf2beec3cead5f0ab125c91a0b9cc0d7dc31d",
+    "tests/gen/ch16/test_gen_cross_clockassert_1_logic_posedge_posedge_between_blocking_default.sv": "6024f952561f9d0d74a0f374c2df7201c59d7d828e73d20224cd896da18dea8c",
+    "tests/gen/ch16/test_gen_cross_clockassert_8_bit_posedge_posedge_edge_blocking_default.sv": "785aae8bda681a08663a567899b7057efa0e1b9d0b1b72f78c428cd0e2a9d018",
+    "tests/gen/ch16/test_gen_cross_clockassert_8_bit_posedge_posedge_between_blocking_default.sv": "00f7deb916d0331462b5be694e720525c47ad8ca3cce981afc62c3b7b6baa1c8",
+    "tests/gen/ch16/test_gen_cross_clockassert_33_logic_posedge_posedge_early_blocking_default.sv": "455a5a20ef8d747e472ca6e4d0c4231e4328d4412078e721884ae5702e82704a",
+    "tests/gen/ch16/test_gen_cross_clockassert_33_logic_posedge_posedge_edge_blocking_default.sv": "5caf01eec6612b8752591c624d8f81d06e166b84004ba4bf52ed608332557201"
+  }
+}

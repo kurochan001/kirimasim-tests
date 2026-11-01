@@ -57,12 +57,12 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **10123 tests** in 38 chapters. 3686 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **10154 tests** in 38 chapters. 3717 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5619 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1705 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1736 |
 | The standard only, with no fixed-release simulator oracle recorded | 2799 |
 
 2385 tests depend on x or z values (`:fourstate: yes`). 636 tests come with C code: 141 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
@@ -82,9 +82,9 @@ The suite has **10123 tests** in 38 chapters. 3686 of them are generated. The [g
 | 13 | Tasks and functions (subroutines) | 352 | 226 | 92 | 34 |
 | 14 | Clocking blocks | 114 | 4 | 72 | 38 |
 | 15 | Interprocess synchronization and communication | 135 | 2 | 50 | 83 |
-| 16 | Assertions | 697 | 104 | 85 | 508 |
+| 16 | Assertions | 715 | 104 | 103 | 508 |
 | 17 | Checkers | 81 |  | 22 | 59 |
-| 18 | Constrained random value generation | 200 | 25 | 95 | 80 |
+| 18 | Constrained random value generation | 213 | 25 | 108 | 80 |
 | 19 | Functional coverage | 157 | 2 | 28 | 127 |
 | 20 | Utility system tasks and system functions | 330 | 239 | 25 | 66 |
 | 21 | Input/output system tasks and system functions | 272 | 180 | 16 | 76 |
@@ -168,23 +168,23 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.en.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
-The focused selection contains **2,373 tests across 56 models**; the normal full-suite
+The focused selection contains **2,404 tests across 58 models**; the normal full-suite
 run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [saved full cross run](coverage/interaction-results/cross56-kirimasim-1144b2ac.json)
-uses kirimasim **`1144b2acab1e`** and records **2,170 pass, 197 unsupported and 6 fail**.
+The [saved full cross run](coverage/interaction-results/cross58-kirimasim-1144b2ac.json)
+uses kirimasim **`1144b2acab1e`** and records **2,170 pass, 228 unsupported and 6 fail**.
 The class-method model retains 18 passes and 18 unsupported cases. The six failures
 remain two `inside`/`case inside` width/sign cases and four configuration parameter-reset
 cases; standard-derived expectations are retained. These are observations of that build,
 separate from the full Nightly suite and any later upstream revision.
 
-The DPI/NBA model (chapters 10×35) checks immediate copyback against queued value and destination capture. Its 18 cases have 14 passes and 4 known build failures in both fixed Verilator seeds; kirimasim cannot load their C helper yet. See the [scope and evidence](docs/interaction-verification.en.md#dpi-copyback-and-nba-capture).
+The clocking/assertion model (chapters 14×16) compares retained clockvar samples, raw signals and action counts on distinct clocks. All 18 cases pass at both fixed Verilator seeds; kirimasim reports concurrent assertions as unsupported. See [scope and evidence](docs/interaction-verification.en.md#clocking-inputs-and-assertion-clocks).
 
 - The [interaction report](docs/interaction-coverage.en.md) separates the selection plan
   from fingerprint-qualified passes in each saved execution.
-- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **87 distinct
+- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **89 distinct
   chapter pairs**, with separate CSVs for registered models, models whose full selection
   passed (**46 models** in the saved run), and detailed test/run evidence.
 - The [zero-cell triage](docs/chapter-cross-triage.en.md) records reviewed existing tests,

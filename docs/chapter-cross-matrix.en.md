@@ -22,7 +22,7 @@ Off-diagonal cells count **models mapped to chapter interactions**. A model can 
 
 The matrix is symmetric. Summing triangles or arbitrary cells gives neither test nor model totals. Zero means no mapped model in this aggregation, not absent tests, unsupported implementation or zero requirement coverage. Annexes are not axes.
 
-The scope is [registered finite interaction models](interaction-verification.en.md), not all 10,123 tests. It excludes ordinary tests and the 56 [issue #21 boundary regressions](p1-combination-regressions-20261030.en.md) not registered as finite models. It measures neither chapter requirement coverage nor the full product of chapter features.
+The scope is [registered finite interaction models](interaction-verification.en.md), not all 10,154 tests. It excludes ordinary tests and the 56 [issue #21 boundary regressions](p1-combination-regressions-20261030.en.md) not registered as finite models. It measures neither chapter requirement coverage nor the full product of chapter features.
 
 <a id="対応付けの根拠"></a>
 
@@ -36,8 +36,10 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The current mapping contains 56 models and 2,373 selected cases across 87 unordered off-diagonal pairs. The [full kirimasim 1144b2ac run](../coverage/interaction-results/cross56-kirimasim-1144b2ac.json) records 2,170 pass, 197 unsupported and 6 fail; 46 models passed their entire selection.
+The current mapping contains 58 models and 2,404 selected cases across 89 unordered off-diagonal pairs. The [full kirimasim 1144b2ac run](../coverage/interaction-results/cross58-kirimasim-1144b2ac.json) records 2,170 pass, 228 unsupported and 6 fail; 46 models passed their entire selection.
 
+- **14×16, clocking/assertion:** one model, zero all-selection-pass models in kirimasim because concurrent assertions are unsupported. Both fixed Verilator seeds pass all 18 cases. See [design/evidence](interaction-verification.en.md#clocking-inputs-and-assertion-clocks).
+- **8×18, inherited constraints:** one model, zero all-selection-pass models in kirimasim because randomize is unsupported. Both fixed Verilator seeds pass all 13 cases. See [design/evidence](interaction-verification.en.md#constraint-inheritance-and-failure-retention).
 - **10×35, DPI/NBA:** one registered model, zero all-selection-pass models. All 18 are unsupported C loading; fixed Verilator's 14 partial passes are not added. See [design/evidence](interaction-verification.en.md#dpi-copyback-and-nba-capture).
 - **6×15, event rebinding:** one registered model, zero all-selection-pass models. Its 27 cases combine rebinding before calls, before registration and after registration with input/ref/direct controls. All parse and type-check, but event-value operations are unsupported. See [design/evidence](interaction-verification.en.md#イベント変数の再結合と登録済み待機の保持).
 - **8×15, mailbox/class handles:** one model, zero all-selection-pass models. All 36 cases combine FIFO, peek/get, capacity, null and bidirectional alias writes. All are unsupported mailbox types in this build. Fixed Verilator partial success is not added to kirimasim success. See [design/evidence](interaction-verification.en.md#mailboxのclassハンドルと別名経由の更新).

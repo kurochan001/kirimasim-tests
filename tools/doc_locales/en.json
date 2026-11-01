@@ -20749,6 +20749,22 @@
     "X/Z、open array、Cからの ZXQPH0QXZ 再入、時間を消費する ZXQPH1QXZ task、競合する別プロセスは対象外。": "X/Z, open arrays, reentry from C into ZXQPH0QXZ, time-consuming ZXQPH1QXZ tasks and competing processes are outside this model.",
     "実行証跡は未登録です。": "No execution evidence is registered.",
     "計画上の ZXQPH0QXZ を実行確認と読み替えません。": "Do not treat planned ZXQPH0QXZ as verified execution.",
-    "ZXQPH0QXZ 復帰直後の書戻しと、呼出し前後で予約した ZXQPH1QXZ の値・配列要素の確定を同じ観測で照合する": "Compare immediate ZXQPH0QXZ copyback and the value and array-element capture of a ZXQPH1QXZ scheduled before or after the call in the same observations"
+    "ZXQPH0QXZ 復帰直後の書戻しと、呼出し前後で予約した ZXQPH1QXZ の値・配列要素の確定を同じ観測で照合する": "Compare immediate ZXQPH0QXZ copyback and the value and array-element capture of a ZXQPH1QXZ scheduled before or after the call in the same observations",
+    "基底/派生ハンドルから ZXQPH0QXZ 階層の継承制約を解き、同名の置換・別名の追加とpure/externの完了を照合する。": "Solve inherited constraints through base/derived handles across ZXQPH0QXZ class levels, comparing same-name replacement, new-name addition, pure implementation and external completion.",
+    "一意解と矛盾を交互に与え、初回失敗時の初期値・成功後の値の保持と、別オブジェクトの独立した成功を確認する。": "Alternate a unique solution with a contradiction, checking initial values on first failure, retention after success, and independent success of a separate object.",
+    "ZXQPH0QXZ 階層の継承でpure制約は中間クラスが実装し、派生クラスの同名制約は置換、別名制約は追加になる。": "Across ZXQPH0QXZ inheritance levels, the middle class implements the pure constraint; a same-name leaf constraint replaces its inherited block and a new-name constraint adds a block.",
+    "成功時の解は一意で、乱数の値や探索順序に依存しない。": "Successful solutions are unique and do not depend on random values or search order.",
+    "非randフラグで充足可能と矛盾を切り替え、失敗時の初期値または直前の解を保持する。": "A non-rand flag switches between satisfiable constraints and a contradiction; failure retains the initial values or the preceding solution.",
+    "別オブジェクトは反対の静的型のハンドルから毎回成功する対照とする。": "A separate object, called through the opposite static handle type, serves as a control that succeeds every time.",
+    "X/Z、 ZXQPH0QXZ 、soft、 ZXQPH1QXZ 、 ZXQPH2QXZ 、乱数列の一致は対象外。": "X/Z, ZXQPH0QXZ, soft constraints, ZXQPH1QXZ, ZXQPH2QXZ and matching RNG sequences are outside the model.",
+    "同じ派生オブジェクトの制約を基底/派生ハンドルから解き、継承・置換・追加と失敗後の状態保持を照合する": "Solve the same derived object through base/derived handles and compare inheritance, replacement, addition and state retention after failure",
+    "既定/明示の# ZXQPH0QXZ clocking入力を、そのイベントと後続の別クロックのアサーションで観測する。": "Observe default/explicit #ZXQPH0QXZ clocking inputs in assertions at their own event and a later independent clock.",
+    "更新の前後とblocking/ ZXQPH0QXZ 、独立したエッジ極性を組み合わせ、sampled値・Reactiveの生信号・判定回数を分けて照合し、別クロックでの誤った再サンプリングを検出する。": "Combine updates before or after sampling, blocking/ZXQPH0QXZ and independent edge polarities. Compare sampled values, Reactive live signals and action counts separately to detect erroneous resampling on the other clock.",
+    "アサーションが参照するclocking入力は ZXQPH0QXZ に従い# ZXQPH1QXZ だけを使い、既定と明示指定を比較する。": "Clocking inputs referenced by assertions use only #ZXQPH1QXZ as required by ZXQPH0QXZ; compare default and explicit declarations.",
+    "サンプル用と評価用のクロックは別信号で、各周期の時刻 ZXQPH0QXZ と ZXQPH1QXZ に駆動する。": "Sampling and evaluation clocks are separate signals, driven at times ZXQPH0QXZ and ZXQPH1QXZ in each cycle.",
+    "更新は時刻 ZXQPH0QXZ 、観測は時刻 ZXQPH1QXZ に分離する。": "Separate updates at times ZXQPH0QXZ from reporting at time ZXQPH1QXZ.",
+    "同じslotの# ZXQPH0QXZ 値とReactiveの生信号、後続の別クロックでの保持値を照合する。": "Compare the same-slot #ZXQPH0QXZ value, Reactive live data and the value retained for a later independent clock.",
+    "X/Z、非# ZXQPH0QXZ 入力の不正な使用、出力skew、program、時間演算、disable iff、同時クロックは対象外。": "X/Z, illegal non-#ZXQPH0QXZ inputs, output skew, programs, temporal operators, disable iff and simultaneous clocks are outside this model.",
+    "clocking入力の ZXQPH0QXZ サンプルを、そのイベントと後続の別クロックのアサーションで照合し、再サンプリングと生信号を区別する": "Compare a clocking input's ZXQPH0QXZ sample in assertions at its own event and a later clock, distinguishing resampling from live data"
   }
 }

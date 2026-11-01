@@ -167,7 +167,7 @@ tests/gen/ch10/test_gen_cross_delay_129_bit_x_three_short_direct.sv",引用探�
 4,スケジューリングの意味論,9,プロセス,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,322,"tests/ch10/test_intra_assignment_delay_nba_concatenation.sv
 tests/ch10/test_nba_then_event_control_same_step.sv
 tests/ch15/test_event_nonblocking_trigger.sv",既存モデルの計画・実行証跡を維持する,,
-4,スケジューリングの意味論,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,653,"tests/ch10/test_assign_nba.sv
+4,スケジューリングの意味論,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,671,"tests/ch10/test_assign_nba.sv
 tests/ch10/test_edge_delta_cycle_chain.sv
 tests/ch10/test_intra_assignment_delay_nba_concatenation.sv",既存モデルの計画・実行証跡を維持する,,
 4,スケジューリングの意味論,11,演算子と式,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,78,"tests/ch4/test_range_select_lhs.sv
@@ -179,13 +179,13 @@ tests/gen/ch10/test_gen_cross_loop_nba_129_bit_x_while_3_scalar_nba_module.sv",�
 4,スケジューリングの意味論,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,198,"tests/ch4/test_sched_deferred_action_arguments.sv
 tests/ch4/test_sched_disable_fork_in_called_task.sv
 tests/ch4/test_sched_fork_join_none_in_function.sv",既存モデルの計画・実行証跡を維持する,,
-4,スケジューリングの意味論,14,クロッキングブロック,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,40,"tests/ch14/test_clocking_block_event_after_nba_before_reactive.sv
+4,スケジューリングの意味論,14,クロッキングブロック,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,58,"tests/ch14/test_clocking_block_event_after_nba_before_reactive.sv
 tests/ch14/test_clocking_future_drive_in_re_nba.sv
 tests/ch14/test_clocking_zero_skew_drive_in_re_nba.sv",既存モデルの計画・実行証跡を維持する,,
 4,スケジューリングの意味論,15,プロセス間の同期と通信,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,44,"tests/ch15/test_event_nonblocking_trigger.sv
 tests/ch15/test_event_ordering.sv
 tests/ch4/test_sched_nonblocking_event_trigger.sv",既存モデルの計画・実行証跡を維持する,,
-4,スケジューリングの意味論,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,45,"tests/ch16/test_concurrent_assert_actions.sv
+4,スケジューリングの意味論,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,63,"tests/ch16/test_concurrent_assert_actions.sv
 tests/ch16/test_cover_pass_statements.sv
 tests/ch16/test_expect_vacuous_and_nonblocking.sv",既存モデルの計画・実行証跡を維持する,,
 4,スケジューリングの意味論,17,チェッカー,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch17/test_checker_reactive_triggered.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -457,9 +457,9 @@ tests/gen/ch15/test_gen_cross_mailbox_129_bit_known_typed_get_before_bounded_obj
 tests/gen/ch15/test_gen_cross_mailbox_129_bit_x_typeless_peek_after_bounded_object.sv",既存モデルの計画・実行証跡を維持する,,
 8,クラス,16,アサーション,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch37/test_vpi_typespec_kinds_more.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 8,クラス,17,チェッカー,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-8,クラス,18,制約付き乱数値の生成,E1,既存検証あり・章対未登録,P1,0,クラス継承と制約の置換・追加が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。,クラス継承と制約の置換・追加,基底/派生ハンドル / 制約の置換/追加 / pure/extern定義 / 解あり/矛盾,唯一解や不変条件で動的な制約選択を確認し、失敗時の既存値の保持も観測する。,1,tests/ch18/test_constraint_inherit_add_and_pure_chain.sv,12,"tests/ch18/test_rand_mode_array_element.sv
-tests/ch26/test_package_item_declaration_kinds.sv
-tests/ch37/test_vpi_class_definitions.sv",既存テストを再利用し、因子モデル化の要否と不足条件を確認する,2026-11-01,"Codex (GPT-6), AI review"
+8,クラス,18,制約付き乱数値の生成,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,25,"tests/ch18/test_constraint_inherit_add_and_pure_chain.sv
+tests/ch18/test_rand_mode_array_element.sv
+tests/ch26/test_package_item_declaration_kinds.sv",既存モデルの計画・実行証跡を維持する,,
 8,クラス,19,機能カバレッジ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch8/test_class_shallow_copy_covergroup_handles.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 8,クラス,20,ユーティリティ用システムタスク・関数,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,5,"tests/ch13/test_parameterized_subroutines.sv
 tests/ch20/test_bits_member_through_null_handle.sv
@@ -573,13 +573,13 @@ tests/ch4/test_sched_nonblocking_loop_last_wins.sv",既存モデルの計画・�
 10,代入文,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,186,"tests/ch10/test_assignment_like_contexts.sv
 tests/ch27/test_gen_function_localparams.sv
 tests/ch27/test_gen_nested_call.sv",既存モデルの計画・実行証跡を維持する,,
-10,代入文,14,クロッキングブロック,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,37,"tests/ch37/test_vpi_module_relations.sv
+10,代入文,14,クロッキングブロック,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,55,"tests/ch37/test_vpi_module_relations.sv
 tests/gen/ch14/test_gen_cross_clock_129_bit_known_interface_step_posedge_blocking.sv
 tests/gen/ch14/test_gen_cross_clock_129_bit_x_local_step_posedge_blocking.sv",既存モデルの計画・実行証跡を維持する,,
 10,代入文,15,プロセス間の同期と通信,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,40,"tests/gen/ch15/test_gen_cross_event_task_interface_input_direct_nba_1_a_b_late.sv
 tests/gen/ch15/test_gen_cross_event_task_interface_input_direct_nba_3_a_b_early.sv
 tests/gen/ch15/test_gen_cross_event_task_interface_input_task_blocking_2_a_b_early.sv",既存モデルの計画・実行証跡を維持する,,
-10,代入文,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,37,"tests/ch37/test_vpi_module_relations.sv
+10,代入文,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,55,"tests/ch37/test_vpi_module_relations.sv
 tests/gen/ch16/test_gen_cross_assert_129_bit_known_case_equal_posedge_blocking_before_module.sv
 tests/gen/ch16/test_gen_cross_assert_129_bit_x_reduce_or_posedge_blocking_before_module.sv",既存モデルの計画・実行証跡を維持する,,
 10,代入文,17,チェッカー,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -782,9 +782,9 @@ tests/ch36/test_vpi_systf_task_function_places.sv",引用探索の候補とソ�
 13,タスクと関数（サブルーチン）,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 13,タスクと関数（サブルーチン）,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 14,クロッキングブロック,15,プロセス間の同期と通信,C2,追加検証候補,P2,0,通常のイベントとObservedでのclocking eventを跨ぐ待機の境界を確認する。,clocking event待機と名前付きイベントの連携,待機先（信号/cb/名前付き） / 通知時点 / エッジ種別 / 条件,通知と待機の順序、起床回数、読めるサンプル値を観測する。未規定の同時実行順序は期待値にしない。,0,,1,tests/ch13/test_function_nonblocking_statements_no_delay.sv,規格・既存テストを照合して因子と観測を設計する,2026-11-01,"Codex (GPT-6), AI review"
-14,クロッキングブロック,16,アサーション,E1,既存検証あり・章対未登録,P1,0,異なるclockingサンプルとアサーションのクロックが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。,異なるclockingサンプルとアサーションのクロック,サンプルするエッジ / propertyのクロック / 入力スキュー / 入力遷移時点,ライブ値、別エッジのclockingサンプル、cbをクロックとするassertionの失敗時刻を区別する。,1,tests/ch16/test_clocking_block_other_clock_assertion.sv,17,"tests/ch16/test_clocking_block_assertions.sv
-tests/ch16/test_default_clocking_assertion_clocks.sv
-tests/ch16/test_global_clock_future_action_delay.sv",既存テストを再利用し、因子モデル化の要否と不足条件を確認する,2026-11-01,"Codex (GPT-6), AI review"
+14,クロッキングブロック,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,35,"tests/ch16/test_clocking_block_assertions.sv
+tests/ch16/test_clocking_block_other_clock_assertion.sv
+tests/ch16/test_default_clocking_assertion_clocks.sv",既存モデルの計画・実行証跡を維持する,,
 14,クロッキングブロック,17,チェッカー,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,4,"tests/ch16/test_default_clocking_assertion_clocks.sv
 tests/ch17/test_checker_concurrent_assertion.sv
 tests/ch17/test_checker_context_inference.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,

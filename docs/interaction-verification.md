@@ -14,7 +14,11 @@
 
 各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・ 検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と [生成レポート](interaction-coverage.md)を参照してください。
 
-2026-11-01のDPI/NBA追加：現在は**56モデル・2,373件**です。実行直前の上流mainからビルドしたkirimasim `1144b2acab1e`の[全クロス保存実行](../coverage/interaction-results/cross56-kirimasim-1144b2ac.json)は**2,170 pass・197 unsupported・既存6 fail**です。新規18件はCコード読込み未対応で、従来2,355件の入力ハッシュと結果区分は同じです。第10章×第35章を登録し、章対は87対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも新規14件が一致し、65ビットのoutput/inout書戻し4件がビルド時の内部エラーです。[設計と確認範囲](#dpi-copyback-and-nba-capture)を参照してください。
+2026-11-01のclocking/assertion追加：現在は**58モデル・2,404件**です。実行直前に上流mainと照合してビルドしたkirimasim `1144b2acab1e`の[全クロス保存実行](../coverage/interaction-results/cross58-kirimasim-1144b2ac.json)は**2,170 pass・228 unsupported・既存6 fail**です。新規18件は並行アサーション未対応で、従来2,386件の入力ハッシュと結果区分は同じです。第14章×第16章を登録し、章対は89対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも新規18件すべてが一致しました。[設計と確認範囲](#clocking-inputs-and-assertion-clocks)を参照してください。
+
+同日の継承制約追加時点では**57モデル・2,386件**でした。実行直前に上流mainと照合してビルドしたkirimasim `1144b2acab1e`の[全クロス保存実行](../coverage/interaction-results/cross57-kirimasim-1144b2ac.json)は**2,170 pass・210 unsupported・既存6 fail**です。新規13件はrandomize未対応で、従来2,373件の入力ハッシュと結果区分は同じです。第8章×第18章を登録し、章対は88対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも新規13件すべてが一致しました。[設計と確認範囲](#constraint-inheritance-and-failure-retention)を参照してください。
+
+同日のDPI/NBA追加時点では**56モデル・2,373件**でした。実行直前の上流mainからビルドしたkirimasim `1144b2acab1e`の[全クロス保存実行](../coverage/interaction-results/cross56-kirimasim-1144b2ac.json)は**2,170 pass・197 unsupported・既存6 fail**です。新規18件はCコード読込み未対応で、従来2,355件の入力ハッシュと結果区分は同じです。第10章×第35章を登録し、章対は87対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも新規14件が一致し、65ビットのoutput/inout書戻し4件がビルド時の内部エラーです。[設計と確認範囲](#dpi-copyback-and-nba-capture)を参照してください。
 
 同日のイベント再結合追加時点では**55モデル・2,355件**でした。 実行直前の上流mainを確認してビルドしたkirimasim `ddf48e2b0436`で、新規27件はすべてイベント値の操作が未対応でした。 [全クロスの保存実行](../coverage/interaction-results/cross55-kirimasim-ddf48e2b.json)は 2,170 pass・179 unsupported・既存6 failです。従来2,328件の入力ハッシュと結果区分は同じです。 第6章×第15章を登録し、章対は86対、全選択ケースPASSは46モデルです。 [イベント再結合の設計・確認範囲](#イベント変数の再結合と登録済み待機の保持)を参照してください。
 
@@ -1503,6 +1507,80 @@ python3 tools/qualify_dpi_nba.py --verilator /path/to/verilator-5.052 --cc cc \
 
 X/Z、open array、動的配列要素へのNBA、CからのSV再入、時間を消費するDPI task、競合する別プロセス、
 スカラ変数への書戻しは対象外です。第35章全体やDPIの全境界を検証済みとは扱いません。
+
+<a id="constraint-inheritance-and-failure-retention"></a>
+
+### 継承制約の動的な選択と失敗時の値の保持
+
+`interaction_constraint.py`の`constraint_inheritance@1`は、第8章×第18章のP1候補を実装します。
+基底／派生ハンドル、同名制約の置換／別名制約の追加、pure／通常制約、葉のクラス内／extern定義、
+成功→失敗→成功／失敗→成功→失敗、幅4・8・33の合法96通りから13件を選びます。
+全因子対70組・重点3因子40組・必須4件を保持し、件数は86.46%削減します。実行時間の削減率とは別です。
+
+基底・中間・葉の3階層を使い、基底の`a`の値制約と`b == a + 3`の関係を継承します。
+同名の制約を置換する場合は葉の値へ変わり、別名制約を追加する場合は基底の値制約も残ります。
+pure制約は中間クラスがクラス内で実装します。externの因子は葉の置換／追加の定義に適用します。
+非randのフラグで唯一解と矛盾を切り替え、戻り値・全rand変数を毎回照合します。
+初回失敗では番兵値を、成功後の失敗では直前の解を保持し、反対の静的型のハンドルを使う別オブジェクトは毎回成功させます。
+不正設計を拒否する負例ではなく、合法な制約の不充足を規格どおり報告する正例です。
+乱数列や探索順序に期待値を置きません。根拠は§18.5.1・18.5.2・18.6.1・18.6.3・8.13・8.21です。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross57-constraint-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross57-constraint-verilator5052-seed73.json)は13件すべてPASSです。
+固定版のoracleを登録しました。最新kirimasimでは13件すべての構文・意味解析が成功しますが、
+`randomize`は未対応です。固定版の成功をkirimasimの成功へ合成しません。
+[最新ビルドと解析の記録](../coverage/interaction-qualification/constraint-inheritance-build.json)を保存しています。
+
+[独立検算と故障注入](../coverage/interaction-qualification/constraint-inheritance.json)は、閉形式の期待値とは別に、
+制約名ごとのブロックを置換・追加して候補値を列挙し、全96行の解・矛盾・状態遷移を確認します。
+置換と追加それぞれの正常対照が一致した上で、置換の喪失・追加制約の欠落・失敗時の値の破壊・
+対照との別名化・基底側の制約による解決の5故障を、ビルド失敗ではなく出力差で検出しました。
+再確認には固定Verilator 5.052とZ3を使い、既存の証跡を上書きしない新しい名前を指定します。
+
+```sh
+python3 tools/qualify_constraint_inheritance.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-constraint-inheritance.json
+```
+
+X/Z、randc、soft、constraint_mode、rand_mode、コールバック、並列実行、乱数列の一致、pureの再抽象化や
+中間クラスでのextern実装は対象外です。クラスや制約の全機能を検証済みとは扱いません。
+
+<a id="clocking-inputs-and-assertion-clocks"></a>
+
+### clocking変数とアサーションの評価クロック
+
+`interaction_clockassert.py`の`clocking_assertion_sampling@1`は、第14章×第16章のP1候補を実装します。
+幅1・8・33、bit／logic、サンプル用と評価用の各エッジ極性、更新時点（前／同時刻／間）、blocking／NBA、
+既定／明示の入力skewの合法288通りから18件を選びます。全因子対109組・重点3因子50組・必須4件を保持し、件数を93.75%削減します。
+幅×状態型×更新時点だけで18組あるため、この計画の網羅には最低18行が必要で、今回の選択はその下限と一致します。
+実行時間の削減率や、他の因子モデルの最小性を表すものではありません。
+
+§16.5.1では、アサーションが参照するclocking入力のサンプリングを#1stepに限定しています。
+既定と明示の#1stepは等価性の対照です。通常のclocking入力では合法な#0や時間skewを、ここで合法な水準として扱いません。
+1周期20tickの中で、入力を時刻6・8・10のいずれかに変更し、clockingイベントを8、別クロックの評価を12、報告を14に分離します。
+`@(cb)`のclocking変数、別クロック上の同じclocking変数、別クロック上の生信号を三つの単一サイクルassertionで比較します。
+両actionでsampled値とReactiveの生信号を別々の領域へ保存し、pass/fail回数と全ビットを後で照合します。
+既知の0/全1と相補パターンで正負の対照を作り、別クロックでの誤った再サンプリングやactionの欠落を区別します。
+根拠は§16.18・16.5.1・16.9.3・16.14.1・14.13・14.10・14.4です。
+この構成ではblocking/NBAの期待値は同じで、両経路の整合性を確認します。ActiveとNBAの間の観測やNBAの値・代入先の確定を保証するモデルではありません。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross58-clockassert-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross58-clockassert-verilator5052-seed73.json)は全18件がPASSです。
+新規18件に固定版のoracleを登録しました。最新kirimasimでは全18件の構文・意味解析が成功しますが、並行アサーションの文が未対応です。
+[最新ビルドと解析の記録](../coverage/interaction-qualification/clockassert-build.json)を保存し、固定版の成功をkirimasimの成功へ合成しません。
+
+[独立検算と故障注入](../coverage/interaction-qualification/clockassert.json)は、時刻とイベント領域を持つ別の履歴モデルで全288行を照合します。
+同時刻更新とクロック間更新の正常対照が一致した上で、別クロックでの再サンプリング、actionでの生信号の取り違え、
+clocking assertionのイベントの取り違え、サンプル極性の取り違え、fail actionの欠落の5故障を出力差として検出しました。
+ビルド失敗や、不正な非#1step入力をこの検出数へ加算していません。再確認は固定Verilator 5.052を使い、新しい出力名を指定します。
+
+```sh
+python3 tools/qualify_clockassert.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-clockassert.json
+```
+
+X/Z、非#1stepの誤用の拒否、出力skew、program、disable iff、時間演算、同時クロック、virtual interfaceは対象外です。
+別々のクロック上のassertionを扱い、複数クロックをまたぐ時間演算のpropertyを検証したとは扱いません。
 
 <a id="updates-after-model-changes"></a>
 

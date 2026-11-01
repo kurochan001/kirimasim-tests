@@ -120,3 +120,21 @@ python3 tools/qualify_mailbox.py --verilator verilator --seed 1 \
 [`dpi-nba-build.json`](dpi-nba-build.json)は、実行直前に確認した最新kirimasimのコミット・バイナリ指紋・18件の解析成功と全クロス実行先です。
 固定Verilatorの両seedは14 pass・4 known、kirimasimでは新規18件がC読込み未対応です。部分成功を合成せず、補助実験は通常の合格数へ加算しません。
 [モデルの範囲と再確認手順](../../docs/interaction-verification.md#dpi-copyback-and-nba-capture)を参照してください。
+
+<a id="constraint-inheritance-and-failure-retention-checks"></a>
+
+## 継承制約と失敗時の値の保持の確認
+
+[`constraint-inheritance.json`](constraint-inheritance.json)は、96行の独立した制約ブロックの合成・候補列挙と、2正常対照・5故障の出力差による検出を記録します。
+[`constraint-inheritance-build.json`](constraint-inheritance-build.json)は、最新kirimasimの上流確認済みコミット・バイナリ指紋・13件の解析成功と全クロス実行先です。
+固定Verilatorの両seedは全13件がPASSで、kirimasimではrandomize未対応です。補助実験は通常の合格数へ加算しません。
+[範囲と再確認手順](../../docs/interaction-verification.md#constraint-inheritance-and-failure-retention)を参照してください。
+
+<a id="clocking-input-and-assertion-checks"></a>
+
+## clocking変数とアサーションの確認
+
+[`clockassert.json`](clockassert.json)は、全288行の独立した時刻・イベント領域の履歴検算と、2正常対照・5故障の出力差による検出を記録します。
+[`clockassert-build.json`](clockassert-build.json)は、最新kirimasimの上流確認済みコミット・バイナリ指紋・18件の解析成功と全クロス実行先です。
+固定Verilatorの両seedで全18件がPASS、kirimasimでは並行アサーションが未対応です。補助実験は通常の合格数へ加算しません。
+[範囲と再確認手順](../../docs/interaction-verification.md#clocking-inputs-and-assertion-clocks)を参照してください。

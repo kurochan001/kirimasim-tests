@@ -1,0 +1,15 @@
+phase=0 before=00000000 source=11111111
+clock pass=0 fail=1 sampled=00000000 live=00000000
+held pass=0 fail=1 sampled=00000000 live=11111111
+raw pass=1 fail=0 sampled=11111111 live=11111111
+final clockvar=00000000 data=11111111
+phase=1 before=11111111 source=00000000
+clock pass=1 fail=1 sampled=11111111 live=11111111
+held pass=1 fail=1 sampled=11111111 live=00000000
+raw pass=1 fail=1 sampled=00000000 live=00000000
+final clockvar=11111111 data=00000000
+phase=2 before=01010101 source=10101010
+clock pass=2 fail=1 sampled=01010101 live=01010101
+held pass=2 fail=1 sampled=01010101 live=10101010
+raw pass=2 fail=1 sampled=10101010 live=10101010
+final clockvar=01010101 data=10101010
