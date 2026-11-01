@@ -290,7 +290,7 @@ tests/ch5/test_system_function_names_cell_reset_and_attributes.sv",引用探索�
 5,字句規則,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 5,字句規則,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch40/test_coverage_fsm_pragmas.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 5,字句規則,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-6,データ型,7,集合データ型,M,モデル登録済み,登録済み,8,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,809,"tests/ch11/test_memory_invalid_address_2state.sv
+6,データ型,7,集合データ型,M,モデル登録済み,登録済み,8,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,822,"tests/ch11/test_memory_invalid_address_2state.sv
 tests/ch26/test_package_typedef.sv
 tests/ch37/test_vpi_net_array_members_parents.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,8,クラス,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,146,"tests/ch13/test_evaluation_context_extended.sv
@@ -321,7 +321,9 @@ tests/ch6/test_event_triggered_state_lasts_time_step.sv",既存モデルの計�
 tests/ch16/test_value_change_first_tick.sv
 tests/ch23/test_module_items_nonport_kinds.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,17,チェッカー,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-6,データ型,18,制約付き乱数値の生成,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch37/test_vpi_variable_class_member_props.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+6,データ型,18,制約付き乱数値の生成,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,14,"tests/ch37/test_vpi_variable_class_member_props.sv
+tests/gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_sat.sv
+tests/gen/ch18/test_gen_cross_randreduce_33_signed_fixed_product_element_2_sat_fail_sat.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 6,データ型,19,機能カバレッジ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 6,データ型,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,99,"tests/ch11/test_const_expr.sv
 tests/ch11/test_real_operand_result_types.sv
@@ -396,9 +398,9 @@ tests/ch6/test_simple_bit_vector_types_and_packed_equivalents.sv",既存モデ�
 tests/ch37/test_vpi_tf_call_kinds_relations.sv",既存テストを再利用し、因子モデル化の要否と不足条件を確認する,2026-11-02,"Codex (GPT-6), AI review"
 7,集合データ型,16,アサーション,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch37/test_vpi_typespec_kinds_more.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 7,集合データ型,17,チェッカー,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-7,集合データ型,18,制約付き乱数値の生成,E2,既存検証あり・章対未登録,P2,0,制約内の配列リダクションと式の型が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。,制約内の配列リダクションと式の型,要素幅/符号 / 集計演算 / with式の型変換 / 要素数,唯一解を使い、要素型での桁あふれとwithで拡張した集計の違いを確認する。,1,tests/ch18/test_array_reduction_element_type.sv,4,"tests/ch18/test_urandom_seed_repeatable.sv
-tests/ch37/test_vpi_struct_union_flags_members.sv
-tests/ch37/test_vpi_tf_call_kinds_relations.sv",既存テストを再利用し、因子モデル化の要否と不足条件を確認する,2026-11-02,"Codex (GPT-6), AI review"
+7,集合データ型,18,制約付き乱数値の生成,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,17,"tests/ch18/test_array_reduction_element_type.sv
+tests/ch18/test_urandom_seed_repeatable.sv
+tests/ch37/test_vpi_struct_union_flags_members.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,19,機能カバレッジ,C2,追加検証候補,P2,0,サイズ・値が同時に変わる観測境界。一般の配列操作とは別にサンプリング時点の設計を確認する。,コンテナ変更前後のcovergroupサンプリング,コンテナ（固定/動的/キュー） / 要素/サイズの変更 / sampleの前後 / bin条件,値・サイズを与えた決定的なsample列とヒット数を照合する。空コンテナの合法な扱いは先に規格照合する。,0,,0,,規格・既存テストを照合して因子と観測を設計する,2026-11-02,"Codex (GPT-6), AI review"
 7,集合データ型,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,68,"tests/ch20/test_array_multidim_query.sv
 tests/ch20/test_array_query_fixed_dimensions.sv

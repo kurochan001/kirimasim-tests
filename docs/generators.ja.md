@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の73生成器から3,839件のテストを生成しています。
+現在の74生成器から3,852件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -63,6 +63,7 @@
 | [`interaction_query`](../generators/interaction_query.py) | 20 | 60 | 引数の実ビット列・幅と各関数の結果を表示し、式の形、状態変換、X/Zの位置、制御ビットの重複除去、one-hot判定と未知値の有無を確認する。 |
 | [`interaction_queue`](../generators/interaction_queue.py) | 7 | 48 | 2組の入力でサイズと全要素、取り出した値、操作前のコピーを観測し、追加位置と容量による破棄、空の既定値、型変換、値コピーの独立性を確認する。 |
 | [`interaction_queue_ref`](../generators/interaction_queue_ref.py) | 7 | 60 | 3組の入力で保持中の参照値・変更後の全要素・2回の書込み後・値コピーを観測し、要素の移動後の同一性、削除・全体代入後の古い参照の存続と書込みの分離、容量超過での末尾要素の破棄、bit/logicの引数変換を確認する。 |
+| [`interaction_randreduce`](../generators/interaction_randreduce.py) | 18 | 13 | 固定配列と動的配列の一意な解と矛盾を切り替え、要素型とwith式の型でのリダクション、演算前の拡張、失敗時の全要素とサイズの保持、独立した対照オブジェクトを照合する。 |
 | [`interaction_range`](../generators/interaction_range.py) | 11 | 46 | 閉区間・逆順・$端点・絶対/相対許容差の範囲で、端点の格納値、各端点の前後の入力、生の判定値・拡張・bit変換と関係演算子での同じ判定を観測し、範囲の比較と集合値のワイルドカードの違い、許容差の端点の入れ替えと切り捨てを確認する。 |
 | [`interaction_reactive`](../generators/interaction_reactive.py) | 24 | 36 | moduleのNBA連鎖の完了前後を、早いmodule内の対照とReactiveで動くprogramで観測する。連続代入・blocking・Re-NBAの出力と採取値、型変換、全段の値・NBA予約回数・採取した文脈を照合する。 |
 | [`interaction_resize`](../generators/interaction_resize.py) | 7 | 38 | 再確保前後のサイズと全要素を観測し、別配列コピー・自己リサイズ・初期化式なしの再生成、切り詰め、追加領域の型別既定値、コピー後の独立性を確認する。 |

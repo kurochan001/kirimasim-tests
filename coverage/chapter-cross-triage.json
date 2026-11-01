@@ -35,29 +35,6 @@
     {
       "chapters": [
         7,
-        18
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "制約内の配列リダクションと式の型が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "制約内の配列リダクションと式の型",
-      "factors": [
-        "要素幅/符号",
-        "集計演算",
-        "with式の型変換",
-        "要素数"
-      ],
-      "observation": "唯一解を使い、要素型での桁あふれとwithで拡張した集計の違いを確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch18/test_array_reduction_element_type.sv",
-          "inputs_sha256": "6dffe0d2ca8b3c47c027e8326dd6e4016e87e60bc99b469d95d0d06a7ce35c9e"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        7,
         19
       ],
       "category": "C",

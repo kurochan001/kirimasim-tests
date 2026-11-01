@@ -12,7 +12,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 10276 |
+| Tests | 10289 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -27,7 +27,7 @@
 | both releases | 768 |
 | Icarus Verilog 13.0 only | 4882 |
 | Verilator 5.052 only | 1789 |
-| standard only | 2837 |
+| standard only | 2850 |
 
 <a id="章別"></a>
 
@@ -50,7 +50,7 @@
 | 15 | Interprocess synchronization and communication | 135 | 21 | 6.4 | 0 | 83 |
 | 16 | Assertions | 715 | 69 | 10.4 | 0 | 508 |
 | 17 | Checkers | 81 | 10 | 8.1 | 0 | 59 |
-| 18 | Constrained random value generation | 213 | 44 | 4.8 | 0 | 80 |
+| 18 | Constrained random value generation | 226 | 44 | 5.1 | 0 | 93 |
 | 19 | Functional coverage | 157 | 24 | 6.5 | 0 | 127 |
 | 20 | Utility system tasks and system functions | 348 | 31 | 11.2 | 0 | 84 |
 | 21 | Input/output system tasks and system functions | 303 | 47 | 6.4 | 0 | 76 |

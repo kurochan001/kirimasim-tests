@@ -1,0 +1,76 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_sat.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "dffab45f5fc7cecb47acffc3a99567f50b968993204a9610e885aa922e917e4f"
+  },
+  "gen/ch18/test_gen_cross_randreduce_33_signed_fixed_product_element_2_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_33_signed_fixed_product_element_2_sat_fail_sat.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "b87fecdde27cb263331522bf8b060713dff327183efa501138781c61d729eb96"
+  },
+  "gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "6e3eee3ae11ecec3091d3cd880832b3687ac64140ed6db0feff8b63ea154c153"
+  },
+  "gen/ch18/test_gen_cross_randreduce_33_unsigned_fixed_sum_element_2_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_33_unsigned_fixed_sum_element_2_sat_fail_sat.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "f419ef114cea229f7344bf65863b7a06f23469c7a8c784f8e8fca5f48bc83419"
+  },
+  "gen/ch18/test_gen_cross_randreduce_4_signed_dynamic_sum_element_2_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_4_signed_dynamic_sum_element_2_sat_fail_sat.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "9692da405207cba3033144588982bec40216e9e56ac411432acd8acd7133070f"
+  },
+  "gen/ch18/test_gen_cross_randreduce_4_signed_fixed_product_wide_2_fail_sat_fail": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_4_signed_fixed_product_wide_2_fail_sat_fail.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "c9cf026cf868264fb326283ab4481c4f19d50f79abc545851495e11c28d7be9c"
+  },
+  "gen/ch18/test_gen_cross_randreduce_4_unsigned_fixed_product_element_2_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_4_unsigned_fixed_product_element_2_sat_fail_sat.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "482dd1202f0503817810fa07ac20cbbcd19fb310208438477d3426cd3dca7b06"
+  },
+  "gen/ch18/test_gen_cross_randreduce_4_unsigned_fixed_sum_element_2_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_4_unsigned_fixed_sum_element_2_sat_fail_sat.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "6c02464fe011b6d1e6ae97539388b6ae7949370550f27553c41f2cc9ec6f2e5c"
+  },
+  "gen/ch18/test_gen_cross_randreduce_4_unsigned_fixed_sum_wide_3_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_4_unsigned_fixed_sum_wide_3_sat_fail_sat.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "a0f538de739d15732c71671a9d291a621b42063b949d5b51fc70996d1ec16a83"
+  },
+  "gen/ch18/test_gen_cross_randreduce_8_signed_dynamic_sum_wide_2_fail_sat_fail": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_8_signed_dynamic_sum_wide_2_fail_sat_fail.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "1a64e8c572c5ab6f99bdfe4a9035a0d4961930bcbaf3b562baeeac651068faf7"
+  },
+  "gen/ch18/test_gen_cross_randreduce_8_signed_fixed_product_element_3_fail_sat_fail": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_8_signed_fixed_product_element_3_fail_sat_fail.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "805d4b0355386676bcbaa3efbb75927a760a69dc98fc994a0995abc1a14dd647"
+  },
+  "gen/ch18/test_gen_cross_randreduce_8_unsigned_dynamic_sum_element_3_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_8_unsigned_dynamic_sum_element_3_sat_fail_sat.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "54e77d8e772bba727cdaa7fe2a7efa516a3d394c07250d8a2886a1f21987b7be"
+  },
+  "gen/ch18/test_gen_cross_randreduce_8_unsigned_fixed_product_wide_2_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_randreduce_8_unsigned_fixed_product_wide_2_sat_fail_sat.sv:37: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "7ef430fa776f7f30dcbabf2c3cbafcc93b7acbe5b4cd5ce40d24e19a7fbb8248"
+  }
+ },
+ "generated_at": "2026-11-01T15:46:13.793624+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

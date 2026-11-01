@@ -20823,6 +20823,15 @@
     "空配列のlow/highとfirst/lastの出力引数は読まない。": "Do not read low/high or first/last output arguments when the array is empty.",
     "連想配列の割当て・削除・再利用と、添字型の範囲および割当て済み範囲を返す問い合わせを同じ ZXQPH0QXZ 時点で照合する": "Compare associative-array allocation, deletion and reuse with queries for the index domain and allocated bounds at the same ZXQPH0QXZ snapshots",
     "連想配列の挿入・上書き・削除・再利用で、添字型の範囲と割当て済みの範囲、問い合わせの ZXQPH0QXZ 変換とfirst/lastの幅・符号、要素数と全キー/値を照合する。": "Across associative-array insertion, overwrite, deletion and reuse, compare the index domain and allocated bounds, query ZXQPH0QXZ conversion, first/last key width and signedness, entry counts and every key/value.",
-    "既知の整数型添字を使い、 ZXQPH0QXZ 個の異なるキーを挿入する。": "Insert ZXQPH0QXZ distinct known integral keys."
+    "既知の整数型添字を使い、 ZXQPH0QXZ 個の異なるキーを挿入する。": "Insert ZXQPH0QXZ distinct known integral keys.",
+    "各要素の制約で成功時の解を一意にし、リダクション条件だけを矛盾させる。": "Per-element constraints make the successful solution unique; only the reduction condition is made contradictory.",
+    "先頭を型の端点、残りを ZXQPH0QXZ または ZXQPH1QXZ にして、要素幅と ZXQPH2QXZ 拡張後の結果を区別する。": "Use a type endpoint first and ZXQPH0QXZ or ZXQPH1QXZ for remaining elements to distinguish element-width results from ZXQPH2QXZ extension before reduction.",
+    "動的配列は初期サイズを要求より ZXQPH0QXZ 要素多くし、失敗時のサイズと値の保持を観測する。": "Dynamic arrays start ZXQPH0QXZ element larger than required; observe size and value retention after failure.",
+    "別オブジェクトは毎回成功する対照とする。": "A separate object is a control that succeeds every time.",
+    "乱数列の一致を要求しない。": "Matching random sequences is not required.",
+    "全演算は拡張後 ZXQPH0QXZ ビットの範囲内。": "All extended arithmetic stays within ZXQPH0QXZ bits.",
+    "空配列、X/Z、キュー、soft制約、継承、コールバック、並行実行は対象外。": "Empty arrays, X/Z, queues, soft constraints, inheritance, callbacks and concurrent execution are outside scope.",
+    "固定配列と動的配列の一意な解と矛盾を切り替え、要素型とwith式の型でのリダクション、演算前の拡張、失敗時の全要素とサイズの保持、独立した対照オブジェクトを照合する。": "Alternate unique solutions and contradictions for fixed and dynamic arrays; compare element-type and with-expression reductions, extension before arithmetic, all values and size after failure, and an independent control object.",
+    "配列のsum/product制約で要素型とwith式の型を区別し、固定/動的配列の一意な解と失敗時の状態保持を照合する": "Distinguish element and with-expression types in sum/product constraints; compare unique solutions and state retention after failure for fixed/dynamic arrays"
   }
 }

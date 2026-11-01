@@ -197,3 +197,14 @@ ABIスタブは離れた要素とcanaryを使い、シミュレータの動的�
 [`assocquery-build.json`](assocquery-build.json)は実行直前に確認した最新kirimasimのコミット・ビルド版・バイナリ指紋と解析結果を記録します。
 解析は18件とも成功し、実行は型付き連想配列変数が未対応です。通常の保存実行は`interaction-results/cross64-*.json`です。
 [設計と限界](../../docs/interaction-verification.md#associative-array-domains-and-allocation)も参照してください。
+
+<a id="array-reduction-constraints-and-auxiliary-controls"></a>
+
+## 配列リダクション制約と補助対照
+
+[`randreduce.json`](randreduce.json)は全192行を端点の定数表とビット単位の演算で独立に照合します。
+固定配列の補助対照4件は、通常の観測値にだけ要素型のキャストを追加し、制約式と期待値を保持します。7故障を正常終了時の出力差で検出しました。
+これは元の13件の実行成功でも、動的配列のサイズ保持の実行確認でもありません。元のケースは固定Verilatorの両seedとも全13件が出力不一致、固定Icarusはビルド時の拒否です。
+[`randreduce-build.json`](randreduce-build.json)に実行直前に確認した上流コミット、ビルド版、バイナリ指紋、解析を記録します。
+解析は13件とも成功し、固定8件はrandomize、動的5件はクラス内配列操作が未対応です。通常の保存実行は`interaction-results/cross65-*.json`です。
+[設計と確認限界](../../docs/interaction-verification.md#array-reduction-constraints-and-retention)を参照してください。

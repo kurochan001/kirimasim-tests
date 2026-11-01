@@ -22,7 +22,7 @@ Off-diagonal cells count **models mapped to chapter interactions**. A model can 
 
 The matrix is symmetric. Summing triangles or arbitrary cells gives neither test nor model totals. Zero means no mapped model in this aggregation, not absent tests, unsupported implementation or zero requirement coverage. Annexes are not axes.
 
-The scope is [registered finite interaction models](interaction-verification.en.md), not all 10,276 tests. It excludes ordinary tests and the 56 [issue #21 boundary regressions](p1-combination-regressions-20261030.en.md) not registered as finite models. It measures neither chapter requirement coverage nor the full product of chapter features.
+The scope is [registered finite interaction models](interaction-verification.en.md), not all 10,289 tests. It excludes ordinary tests and the 56 [issue #21 boundary regressions](p1-combination-regressions-20261030.en.md) not registered as finite models. It measures neither chapter requirement coverage nor the full product of chapter features.
 
 <a id="対応付けの根拠"></a>
 
@@ -36,8 +36,9 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The current mapping contains 64 models and 2,526 selected cases across 95 unordered off-diagonal pairs. The [full kirimasim 80859f34 run](../coverage/interaction-results/cross64-kirimasim-80859f34.json) records 2,207 pass, 313 unsupported and 6 fail; 47 models passed their entire selection.
+The current mapping contains 65 models and 2,539 selected cases across 96 unordered off-diagonal pairs. The [full kirimasim 80859f34 run](../coverage/interaction-results/cross65-kirimasim-80859f34.json) records 2,207 pass, 326 unsupported and 6 fail; 47 models passed their entire selection.
 
+- **7×18, reduction constraints:** one model, zero all-selection-pass models because randomize/class-array operations are unsupported. Both fixed Verilator seeds have output differences on all 13 original cases; auxiliary controls remain separate. See [design/evidence](interaction-verification.en.md#array-reduction-constraints-and-retention).
 - **7×20, associative-array queries:** one model, zero all-selection-pass models because typed associative-array variables are unsupported. Both fixed Verilator seeds have 18 output differences; fixed Icarus rejects all builds. See [design/evidence](interaction-verification.en.md#associative-array-domains-and-allocation).
 - **9×14, clocking iff:** one model, zero all-selection-pass models because guarded clocking events are unsupported. Each fixed Verilator seed has 4 passes and 8 known internal build errors. See [design/evidence](interaction-verification.en.md#clocking-event-guards-and-held-samples).
 - **8×25, class virtual interfaces:** one model, zero all-selection-pass models because the class-held virtual-interface types are unsupported. Both fixed Verilator seeds pass all 13 cases. See [design/evidence](interaction-verification.en.md#class-virtual-interface-rebinding).

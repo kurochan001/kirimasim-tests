@@ -97,6 +97,18 @@
 
 ## Verilator 5.052
 
+<a id="additional-array-reduction-constraint-checks-2026-11-02"></a>
+
+### 配列リダクション制約の追加確認（2026-11-02）
+
+§18.5.7.2・7.12.3の型と演算幅を確認する新規13件は、固定Verilator 5.052の両seedとも元の全出力が一致しません。
+固定配列8件では通常のリダクションを広い観測変数へ代入した結果が狭幅に収まらず、動的配列5件では戻り値や診断を含む出力が異なります。
+[seed 1](../coverage/interaction-results/cross65-randreduce-verilator5052-seed1.json)・
+[seed 73](../coverage/interaction-results/cross65-randreduce-verilator5052-seed73.json)に版と入力ハッシュを保存しています。
+元の期待値とspecを保持し、観測用代入だけへ要素型キャストを加えた固定配列の補助対照は別扱いにします。
+[設計と補助対照の限界](interaction-verification.md#array-reduction-constraints-and-retention)を参照してください。
+
+
 <a id="additional-associative-query-checks-2026-11-02"></a>
 
 ### 連想配列問い合わせの追加確認（2026-11-02）

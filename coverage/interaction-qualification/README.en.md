@@ -197,3 +197,14 @@ Both fixed Verilator seeds have output differences on all 18 cases; fixed Icarus
 [`assocquery-build.json`](assocquery-build.json) records the latest kirimasim commit verified immediately before execution, build version, binary fingerprint and parse results.
 All 18 parse successfully but encounter unsupported typed associative-array variables at runtime. Normal saved runs are `interaction-results/cross64-*.json`.
 See [design and limits](../../docs/interaction-verification.en.md#associative-array-domains-and-allocation).
+
+<a id="配列リダクション制約と補助対照"></a>
+
+## Array-reduction constraints and auxiliary controls
+
+[`randreduce.json`](randreduce.json) independently checks all 192 rows with literal endpoints and bit-serial arithmetic.
+Four fixed-array auxiliary controls add an element-type cast only to the natural observation, preserving constraints and expected output. Seven faults produce output differences after normal termination.
+These are neither original-case passes nor execution qualification of dynamic size retention. Both fixed Verilator seeds differ on all 13 original cases; fixed Icarus rejects the builds.
+[`randreduce-build.json`](randreduce-build.json) records the upstream commit verified immediately before execution, build version, binary fingerprint and parsing.
+All 13 parse: 8 fixed cases encounter unsupported randomize, and 5 dynamic cases encounter unsupported class-array operations. Normal saved runs are `interaction-results/cross65-*.json`.
+See [design and limits](../../docs/interaction-verification.en.md#array-reduction-constraints-and-retention).

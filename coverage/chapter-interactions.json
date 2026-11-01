@@ -1619,6 +1619,19 @@
           "reason": "連想配列の割当て・削除・再利用と、添字型の範囲および割当て済み範囲を返す問い合わせを同じ10時点で照合する"
         }
       ]
+    },
+    {
+      "id": "array_reduction_constraint",
+      "primary_chapter": 18,
+      "pairs": [
+        {
+          "chapters": [
+            7,
+            18
+          ],
+          "reason": "配列のsum/product制約で要素型とwith式の型を区別し、固定/動的配列の一意な解と失敗時の状態保持を照合する"
+        }
+      ]
     }
   ]
 }

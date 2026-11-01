@@ -14,7 +14,9 @@
 
 各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・ 検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と [生成レポート](interaction-coverage.md)を参照してください。
 
-2026-11-02の連想配列問い合わせ追加：現在は**64モデル・2,526件**です。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross64-kirimasim-80859f34.json)は**2,207 pass・313 unsupported・既存6 fail**です。新規18件の解析は成功し、実行は型付き連想配列変数が未対応です。従来2,508件の入力ハッシュと結果区分は同じです。第7章×第20章を登録し、章対は95対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedとも新規18件が出力不一致、固定Icarus Verilog 13.0は全18件をビルド時に拒否しました。固定版oracleは追加せず、規格に基づく期待値を保持しています。[設計と確認範囲](#associative-array-domains-and-allocation)を参照してください。
+2026-11-02の配列リダクション制約追加：現在は**65モデル・2,539件**です。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross65-kirimasim-80859f34.json)は**2,207 pass・326 unsupported・既存6 fail**です。新規13件の解析は成功し、固定配列8件はrandomize、動的配列5件はクラス内配列操作が未対応です。従来2,526件の入力ハッシュと結果区分は同じです。第7章×第18章を登録し、章対は96対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedとも元の13件が出力不一致、固定Icarus Verilog 13.0は全13件をビルド時に拒否しました。固定版oracleは追加していません。[設計と補助対照の確認範囲](#array-reduction-constraints-and-retention)を参照してください。
+
+同日の連想配列問い合わせ追加時点では**64モデル・2,526件**でした。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross64-kirimasim-80859f34.json)は**2,207 pass・313 unsupported・既存6 fail**です。新規18件の解析は成功し、実行は型付き連想配列変数が未対応です。従来2,508件の入力ハッシュと結果区分は同じです。第7章×第20章を登録し、章対は95対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedとも新規18件が出力不一致、固定Icarus Verilog 13.0は全18件をビルド時に拒否しました。固定版oracleは追加せず、規格に基づく期待値を保持しています。[設計と確認範囲](#associative-array-domains-and-allocation)を参照してください。
 
 前日のclocking iff追加時点では**63モデル・2,508件**でした。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross63-kirimasim-80859f34.json)は**2,207 pass・295 unsupported・既存6 fail**です。新規12件はガード付きclocking event未対応で、解析はすべて成功しました。従来2,496件の入力ハッシュと結果区分は同じです。第9章×第14章を登録し、章対は94対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedともスカラ条件4件が一致し、ベクタ条件8件はビルド時内部エラーです。[設計と確認範囲](#clocking-event-guards-and-held-samples)を参照してください。
 
@@ -1843,6 +1845,54 @@ python3 tools/qualify_assocquery.py \
 
 X/Zを含む添字、整数以外の型およびワイルドカードの添字、多次元配列、並行更新、空状態のXを使う問い合わせは対象外です。
 全出力が固定版で再現できていない点を残したまま、規格との照合と独立計算によるテスト設計として登録します。
+
+<a id="array-reduction-constraints-and-retention"></a>
+
+<a id="array-reduction-constraint-types-and-state-retention"></a>
+
+### 配列リダクション制約の型と失敗時の状態保持
+
+`interaction_randreduce.py`の`array_reduction_constraint@1`は、第7章×第18章のP2候補を実装します。
+幅4・8・33、unsigned／signed、固定／動的配列、sum／product、要素型／with内のlongint拡張、要素数2／3、
+成功→失敗→成功／失敗→成功→失敗を組み合わせます。合法192通りから13件を選び、全因子対96組・重点3因子40組・必須4件を保持します。
+選択件数を93.23%削減しました。選択が最小であるとは主張しません。
+
+§18.5.7.2・7.12.3では、withがなければ要素型、あればwith式の型で演算します。
+先頭をunsigned最大値またはsigned最小値、残りを3または-3とし、sumとproductの狭幅での桁あふれを観測します。
+with内のlongintキャストは演算前に全要素を拡張し、このモデルの全合計・積は符号付き64ビット内に収まります。
+通常のリダクションを広い変数へ代入しても演算幅は変わらないという規則も、明示的なwithによる拡張と区別します。
+値だけでなく両リダクション式そのものの$bitsを表示します。
+根拠は§18.5.7.2・7.12.3・18.5.7.1・18.6.1・18.6.3・6.24.1です。
+
+各要素を制約で固定するため、成功時の解は一意です。非randフラグでリダクションの目標だけを1ずらすと矛盾します。
+これは自由な配列から任意の一解を探すモデルではなく、型と演算の条件が解の充足性へ効くことを照合するモデルです。
+各3回の呼出しで戻り値、要素数、全要素のビット列、通常／拡張後の演算結果と式の幅を表示します。
+別オブジェクトは毎回成功する対照です。失敗時は§18.6.3に従って初期値2または直前の解を保持します。
+動的配列は最初に要求より1要素多く確保し、最初の失敗でサイズまで変更されないことと、成功後の要求サイズへの変化を観測します。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross65-randreduce-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross65-randreduce-verilator5052-seed73.json)は、元の13件がすべて出力不一致です。
+固定配列8件では広い観測用変数への代入で狭幅の結果が保持されず、動的配列5件では戻り値や診断を含む出力が一致しません。
+[固定Icarus Verilog 13.0](../coverage/interaction-results/cross65-randreduce-icarus13.json)は全13件をビルド時に拒否しました。
+全件をspecのまま保持し、期待値の変更や合法行の除外、補助対照の成功によるoracle登録はしていません。
+最新kirimasimの[ビルド・解析・実行記録](../coverage/interaction-qualification/randreduce-build.json)では全13件の解析が成功し、
+固定配列8件はrandomize、動的配列5件はクラス内配列操作が未対応です。
+
+[独立検算と補助対照](../coverage/interaction-qualification/randreduce.json)では、端点の定数表とビット単位の加算・乗算で全192行を照合します。
+補助対照4件は固定配列だけを使い、通常の結果を観測する代入にだけ要素型のキャストを追加します。
+規格上の期待値と制約式は変えず、固定版の観測経路の差異を避けて制約処理を確認します。
+この4件は元の13件の実行成功へ加算せず、動的配列のサイズ保持を実行で確認した証拠にも使いません。
+リダクション制約の欠落・要素型の演算の誤拡張・演算後の切捨てを経ての拡張・signed要素のゼロ拡張・
+失敗時の値の破壊・対照オブジェクトの別名化・sum/productの取り違え、の7故障を正常終了時の出力差で検出しました。
+構文エラー・ビルド失敗・タイムアウトを故障検出には加算していません。
+
+```sh
+python3 tools/qualify_randreduce.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-randreduce.json
+```
+
+空配列、X/Z、キュー、soft制約、継承、コールバック、並行randomize、乱数列の一致は対象外です。
+元の全出力の再現と動的配列のサイズ保持の実行確認は未達で、補助対照の確認範囲と分けて残しています。
 
 <a id="updates-after-model-changes"></a>
 

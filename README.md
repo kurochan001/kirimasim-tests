@@ -57,13 +57,13 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **10276 tests** in 38 chapters. 3839 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **10289 tests** in 38 chapters. 3852 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5650 |
 | Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1789 |
-| The standard only, with no fixed-release simulator oracle recorded | 2837 |
+| The standard only, with no fixed-release simulator oracle recorded | 2850 |
 
 2416 tests depend on x or z values (`:fourstate: yes`). 666 tests come with C code: 171 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -84,7 +84,7 @@ The suite has **10276 tests** in 38 chapters. 3839 of them are generated. The [g
 | 15 | Interprocess synchronization and communication | 135 | 2 | 50 | 83 |
 | 16 | Assertions | 715 | 104 | 103 | 508 |
 | 17 | Checkers | 81 |  | 22 | 59 |
-| 18 | Constrained random value generation | 213 | 25 | 108 | 80 |
+| 18 | Constrained random value generation | 226 | 25 | 108 | 93 |
 | 19 | Functional coverage | 157 | 2 | 28 | 127 |
 | 20 | Utility system tasks and system functions | 348 | 239 | 25 | 84 |
 | 21 | Input/output system tasks and system functions | 303 | 211 | 16 | 76 |
@@ -168,23 +168,23 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.en.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
-The focused selection contains **2,526 tests across 64 models**; the normal full-suite
+The focused selection contains **2,539 tests across 65 models**; the normal full-suite
 run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [saved full cross run](coverage/interaction-results/cross64-kirimasim-80859f34.json)
-uses kirimasim **`80859f34f0aa`** and records **2,207 pass, 313 unsupported and 6 fail**.
+The [saved full cross run](coverage/interaction-results/cross65-kirimasim-80859f34.json)
+uses kirimasim **`80859f34f0aa`** and records **2,207 pass, 326 unsupported and 6 fail**.
 The class-method model retains 18 passes and 18 unsupported cases. All 31 strength-format cases pass in this build. The six failures
 remain two `inside`/`case inside` width/sign cases and four configuration parameter-reset
 cases; standard-derived expectations are retained. These are observations of that build,
 separate from the full Nightly suite and any later upstream revision.
 
-The associative-array query model (chapters 7×20) separates the index domain from allocated bounds across insertion, overwrite, deletion and reuse. Both fixed Verilator seeds have output differences on all 18 new cases; fixed Icarus rejects their builds. kirimasim reports unsupported typed associative-array variables. See [scope and evidence](docs/interaction-verification.en.md#associative-array-domains-and-allocation).
+The array-reduction constraint model (chapters 7×18) checks element-width arithmetic, longint extension inside with, and state retention after failure. Both fixed Verilator seeds have output differences on all 13 original cases; fixed Icarus rejects their builds. Four successful auxiliary controls are not original-case passes. kirimasim reports unsupported randomize or class-array operations. See [scope and evidence](docs/interaction-verification.en.md#array-reduction-constraints-and-retention).
 
 - The [interaction report](docs/interaction-coverage.en.md) separates the selection plan
   from fingerprint-qualified passes in each saved execution.
-- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **95 distinct
+- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **96 distinct
   chapter pairs**, with separate CSVs for registered models, models whose full selection
   passed (**47 models** in the saved run), and detailed test/run evidence.
 - The [zero-cell triage](docs/chapter-cross-triage.en.md) records reviewed existing tests,

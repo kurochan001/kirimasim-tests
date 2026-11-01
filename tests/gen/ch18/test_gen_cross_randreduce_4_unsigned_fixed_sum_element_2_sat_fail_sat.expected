@@ -1,0 +1,18 @@
+target phase=0 impossible=0 ok=1 size=2
+values=1111,0011
+natural=2 wide=18 natural_bits=4 wide_bits=64
+guard phase=0 impossible=0 ok=1 size=2
+values=1111,0011
+natural=2 wide=18 natural_bits=4 wide_bits=64
+target phase=1 impossible=1 ok=0 size=2
+values=1111,0011
+natural=2 wide=18 natural_bits=4 wide_bits=64
+guard phase=1 impossible=0 ok=1 size=2
+values=1111,0011
+natural=2 wide=18 natural_bits=4 wide_bits=64
+target phase=2 impossible=0 ok=1 size=2
+values=1111,0011
+natural=2 wide=18 natural_bits=4 wide_bits=64
+guard phase=2 impossible=0 ok=1 size=2
+values=1111,0011
+natural=2 wide=18 natural_bits=4 wide_bits=64

@@ -65,6 +65,7 @@ import interaction_strengthfmt
 import interaction_vif_class
 import interaction_clockiff
 import interaction_assocquery
+import interaction_randreduce
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -98,7 +99,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_udpstate,
               interaction_ifimport,
               interaction_mailbox,
-              interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff, interaction_assocquery,
+              interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff, interaction_assocquery, interaction_randreduce,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -513,6 +514,13 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_mailbox.MODEL.select(),
             "classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量制限・nullメッセージと"
             "取得前後の双方向のメンバ更新を確認する。別mailboxの保持と後の更新、空の非ブロッキング戻り値も観測する。",
+        ),
+        SuiteModel(
+            interaction_randreduce.MODEL,
+            lambda row: "tests/gen/ch18/" + interaction_randreduce.case_name(row) + ".sv",
+            interaction_randreduce.MODEL.select(),
+            "固定配列と動的配列の一意な解と矛盾を切り替え、要素型とwith式の型でのリダクション、"
+            "演算前の拡張、失敗時の全要素とサイズの保持、独立した対照オブジェクトを照合する。",
         ),
         SuiteModel(
             interaction_assocquery.MODEL,

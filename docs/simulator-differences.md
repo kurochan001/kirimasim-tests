@@ -97,6 +97,18 @@ It also rejects some illegal designs for another reason than their error: it doe
 
 ## Verilator 5.052
 
+<a id="配列リダクション制約の追加確認2026-11-02"></a>
+
+### Additional array-reduction constraint checks (2026-11-02)
+
+All 13 new clause 18.5.7.2/7.12.3 cases have original-output differences in both fixed Verilator 5.052 seeds.
+The 8 fixed-array cases do not retain the narrow result on assignment to a wide observation variable; the 5 dynamic cases differ in status or output including diagnostics.
+[Seed 1](../coverage/interaction-results/cross65-randreduce-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross65-randreduce-verilator5052-seed73.json) save versions and input hashes.
+Original expectations and spec oracles are retained. Fixed-array auxiliary controls add an element-type cast only to the observation assignment and remain separate.
+See [design and auxiliary-control limits](interaction-verification.en.md#array-reduction-constraints-and-retention).
+
+
 <a id="連想配列問い合わせの追加確認2026-11-02"></a>
 
 ### Additional associative-query checks (2026-11-02)

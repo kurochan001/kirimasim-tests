@@ -14,7 +14,9 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 Each run's version is recorded in linked JSON. Unless stated otherwise, added/total counts and check results in the model descriptions below record the state when that model was added. See the beginning of this overview and [Generated report](interaction-coverage.en.md) for current aggregates.
 
-Associative-query addition on 2026-11-02: the current selection has **64 models and 2,526 tests**. The [full cross run](../coverage/interaction-results/cross64-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 313 unsupported and the existing 6 fail**. All 18 new cases parse successfully but encounter unsupported typed associative-array variables. All 2,508 preceding input fingerprints and outcomes are unchanged. Chapter 7×20 is registered, giving 95 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds have output differences on all 18 cases; fixed Icarus Verilog 13.0 rejects all 18 builds. No fixed oracle is added; standard-derived expectations are retained. See [design and scope](#associative-array-domains-and-allocation).
+Reduction-constraint addition on 2026-11-02: the current selection has **65 models and 2,539 tests**. The [full cross run](../coverage/interaction-results/cross65-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 326 unsupported and the existing 6 fail**. All 13 new cases parse successfully: 8 fixed-array cases encounter unsupported randomize and 5 dynamic-array cases encounter unsupported class-array operations. All 2,526 preceding input fingerprints and outcomes are unchanged. Chapter 7×18 is registered, giving 96 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds have output differences on all 13 original cases; fixed Icarus Verilog 13.0 rejects all 13 builds. No fixed oracle is added. See [design and auxiliary-control scope](#array-reduction-constraints-and-retention).
+
+At the associative-query addition on the same day, the selection had **64 models and 2,526 tests**. The [full cross run](../coverage/interaction-results/cross64-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 313 unsupported and the existing 6 fail**. All 18 new cases parse successfully but encounter unsupported typed associative-array variables. All 2,508 preceding input fingerprints and outcomes are unchanged. Chapter 7×20 is registered, giving 95 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds have output differences on all 18 cases; fixed Icarus Verilog 13.0 rejects all 18 builds. No fixed oracle is added; standard-derived expectations are retained. See [design and scope](#associative-array-domains-and-allocation).
 
 At the clocking-iff addition on the previous day, the selection had **63 models and 2,508 tests**. The [full cross run](../coverage/interaction-results/cross63-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 295 unsupported and the existing 6 fail**. All 12 new cases parse and type-check but encounter unsupported guarded clocking events. All 2,496 preceding input fingerprints and outcomes are unchanged. Chapter 9×14 is registered, giving 94 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds pass 4 scalar-guard cases; 8 vector-guard cases have internal build errors. See [design and scope](#clocking-event-guards-and-held-samples).
 
@@ -1848,6 +1850,53 @@ python3 tools/qualify_assocquery.py \
 
 X/Z, nonintegral or wildcard keys, multidimensional arrays, concurrent updates and queries of empty-state X values are outside scope.
 The model records standard review and independent expectation checks while retaining the lack of full-output reproduction by fixed tools.
+
+<a id="array-reduction-constraints-and-retention"></a>
+
+<a id="配列リダクション制約の型と失敗時の状態保持"></a>
+
+### Array-reduction constraint types and state retention
+
+`interaction_randreduce.py` implements the chapter 7×18 P2 candidate as `array_reduction_constraint@1`.
+It crosses widths 4/8/33, unsigned/signed elements, fixed/dynamic arrays, sum/product, element type/longint inside with, lengths 2/3,
+and success/failure/success versus failure/success/failure. Thirteen cases retain all 96 pairs, 40 targeted triples and four anchors
+from 192 legal rows: 93.23% fewer cases. No minimum-size claim is made.
+
+Clauses 18.5.7.2 and 7.12.3 use the element type without with, or the with-expression type when present.
+An unsigned maximum or signed minimum followed by 3 or -3 distinguishes narrow overflow in sum/product from extension before arithmetic.
+All wide results fit signed 64 bits. Assigning an ordinary reduction to a wider variable must not widen the reduction itself;
+this path is observed separately from the explicit with cast. Both reduction-expression widths are reported with $bits.
+Clauses 18.5.7.2, 7.12.3, 18.5.7.1, 18.6.1, 18.6.3 and 6.24.1 govern these observations.
+
+Per-element equalities make the successful solution unique. A non-rand flag offsets only the reduction target by one, making it infeasible.
+This model tests how types and arithmetic affect constraint satisfiability; it does not search a free array for an arbitrary solution.
+Each of three calls reports status, size, all element bits, natural/wide results and expression widths. A separate object always succeeds.
+Failure must retain initial twos or the preceding solution under clause 18.6.3. A dynamic array starts one element larger than required:
+first-attempt failure must retain its size, while success must apply the constrained size.
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross65-randreduce-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross65-randreduce-verilator5052-seed73.json) have output differences on all 13 original cases.
+In the 8 fixed cases, assignment to the wide observation variable does not retain the narrow result; the 5 dynamic cases differ in status
+or output including diagnostics. [Fixed Icarus Verilog 13.0](../coverage/interaction-results/cross65-randreduce-icarus13.json) rejects all 13 builds.
+Every oracle remains spec. Expectations and legal rows are retained, and auxiliary success does not register an original-case oracle.
+The latest kirimasim [build, parse and execution record](../coverage/interaction-qualification/randreduce-build.json) shows all 13 parse:
+8 fixed cases use unsupported randomize, and 5 dynamic cases use unsupported class-array operations.
+
+The [independent checks and auxiliary controls](../coverage/interaction-qualification/randreduce.json) compare all 192 rows using literal
+endpoints and bit-serial addition/multiplication. Four auxiliary controls use fixed arrays and add an element-type cast only to the natural
+observation assignment. Expected output and constraint expressions remain unchanged; this avoids the fixed tool's observation-path difference.
+These controls are not passes for the original 13 cases and do not qualify dynamic-array size retention by execution.
+Seven faults are detected by output differences after normal termination: dropped reduction constraint, wrongly widened element arithmetic,
+truncation before a later extension, zero-extension of signed elements, value corruption after failure, aliased guard object and wrong method.
+Syntax errors, build failures and timeouts are not counted as detected faults.
+
+```sh
+python3 tools/qualify_randreduce.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-randreduce.json
+```
+
+Empty arrays, X/Z, queues, soft constraints, inheritance, callbacks, concurrent randomize and matching random streams are outside scope.
+Original full-output reproduction and execution verification of dynamic size retention remain unmet, separate from auxiliary-control results.
 
 <a id="モデル変更時の更新"></a>
 
