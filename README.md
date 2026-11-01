@@ -18,7 +18,7 @@ Each row and chapter-table column uses that simulator's most recent recorded run
 
 Ghost is an unidentified simulator taking part before its public debut. For now, only its test results step out from behind the curtain. Its name, source and build logs remain private; build IDs are executable hashes.
 
-![Tests that match their expected results](charts/overview.svg?v=20261101T023515)
+![Tests that match their expected results](charts/overview.svg?v=20261101T044832)
 
 ![Share of the tests that match](charts/rate.svg?v=20261101T023515)
 
@@ -59,15 +59,15 @@ No longer match (1):
 
 ## Each simulator over time
 
-![Icarus Verilog: results by status](charts/status-icarus.svg?v=20261101T023515)
+![Icarus Verilog: results by status](charts/status-icarus.svg?v=20261101T044832)
 
-![Verilator: results by status](charts/status-verilator.svg?v=20261101T023515)
+![Verilator: results by status](charts/status-verilator.svg?v=20261101T044832)
 
-![kirimasim: results by status](charts/status-kirimasim.svg?v=20261101T023515)
+![kirimasim: results by status](charts/status-kirimasim.svg?v=20261101T044832)
 
-![Lyra: results by status](charts/status-lyra.svg?v=20261101T023515)
+![Lyra: results by status](charts/status-lyra.svg?v=20261101T044832)
 
-![Ghost: results by status](charts/status-ghost.svg?v=20261101T023515)
+![Ghost: results by status](charts/status-ghost.svg?v=20261101T044832)
 
 ## Recent runs
 
