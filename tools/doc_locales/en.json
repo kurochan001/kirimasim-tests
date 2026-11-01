@@ -20816,6 +20816,13 @@
     "通過しないエッジとガードだけの変更では前のサンプルを保持する。": "Rejected edges and guard-only changes retain the previous sample.",
     "blocking/ ZXQPH0QXZ はObservedより後の同じ結果を照合する経路対照。": "Blocking/ZXQPH0QXZ paths are controls for the same settled observations after Observed.",
     "X/Z、同時刻のガード更新、出力skew、program、interface、複数クロック、アサーションは対象外。": "X/Z, same-slot guard updates, output skew, programs, interface paths, multiple clocks and assertions are outside scope.",
-    "iffが通過したrawエッジだけでclocking入力を更新し、ガードだけの変更と不通過時のサンプル保持を照合する": "Update clocking inputs only on iff-accepted raw edges; check guard-only changes and sample retention when the guard rejects the edge"
+    "iffが通過したrawエッジだけでclocking入力を更新し、ガードだけの変更と不通過時のサンプル保持を照合する": "Update clocking inputs only on iff-accepted raw edges; check guard-only changes and sample retention when the guard rejects the edge",
+    "X/Zの添字、文字列/ワイルドカード添字、多次元配列、並行更新は対象外。": "X/Z keys, string or wildcard indices, multidimensional arrays and concurrent updates are outside scope.",
+    "問い合わせの戻り値は ZXQPH0QXZ ビット符号付き ZXQPH1QXZ へ変換する。": "Query results use the ZXQPH0QXZ-bit signed ZXQPH1QXZ return type.",
+    "型の範囲と割当て済みの範囲、上書きと新規割当て、単独削除と全削除を区別する。": "Distinguish the index domain from allocated bounds, overwrite from allocation, and single-key deletion from clearing.",
+    "空配列のlow/highとfirst/lastの出力引数は読まない。": "Do not read low/high or first/last output arguments when the array is empty.",
+    "連想配列の割当て・削除・再利用と、添字型の範囲および割当て済み範囲を返す問い合わせを同じ ZXQPH0QXZ 時点で照合する": "Compare associative-array allocation, deletion and reuse with queries for the index domain and allocated bounds at the same ZXQPH0QXZ snapshots",
+    "連想配列の挿入・上書き・削除・再利用で、添字型の範囲と割当て済みの範囲、問い合わせの ZXQPH0QXZ 変換とfirst/lastの幅・符号、要素数と全キー/値を照合する。": "Across associative-array insertion, overwrite, deletion and reuse, compare the index domain and allocated bounds, query ZXQPH0QXZ conversion, first/last key width and signedness, entry counts and every key/value.",
+    "既知の整数型添字を使い、 ZXQPH0QXZ 個の異なるキーを挿入する。": "Insert ZXQPH0QXZ distinct known integral keys."
   }
 }

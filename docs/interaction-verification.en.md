@@ -14,7 +14,9 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 Each run's version is recorded in linked JSON. Unless stated otherwise, added/total counts and check results in the model descriptions below record the state when that model was added. See the beginning of this overview and [Generated report](interaction-coverage.en.md) for current aggregates.
 
-Clocking-iff addition on 2026-11-01: the current selection has **63 models and 2,508 tests**. The [full cross run](../coverage/interaction-results/cross63-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 295 unsupported and the existing 6 fail**. All 12 new cases parse and type-check but encounter unsupported guarded clocking events. All 2,496 preceding input fingerprints and outcomes are unchanged. Chapter 9×14 is registered, giving 94 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds pass 4 scalar-guard cases; 8 vector-guard cases have internal build errors. See [design and scope](#clocking-event-guards-and-held-samples).
+Associative-query addition on 2026-11-02: the current selection has **64 models and 2,526 tests**. The [full cross run](../coverage/interaction-results/cross64-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 313 unsupported and the existing 6 fail**. All 18 new cases parse successfully but encounter unsupported typed associative-array variables. All 2,508 preceding input fingerprints and outcomes are unchanged. Chapter 7×20 is registered, giving 95 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds have output differences on all 18 cases; fixed Icarus Verilog 13.0 rejects all 18 builds. No fixed oracle is added; standard-derived expectations are retained. See [design and scope](#associative-array-domains-and-allocation).
+
+At the clocking-iff addition on the previous day, the selection had **63 models and 2,508 tests**. The [full cross run](../coverage/interaction-results/cross63-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 295 unsupported and the existing 6 fail**. All 12 new cases parse and type-check but encounter unsupported guarded clocking events. All 2,496 preceding input fingerprints and outcomes are unchanged. Chapter 9×14 is registered, giving 94 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds pass 4 scalar-guard cases; 8 vector-guard cases have internal build errors. See [design and scope](#clocking-event-guards-and-held-samples).
 
 At the preceding class/virtual-interface addition on the same day, the selection had **62 models and 2,496 tests**. The [full cross run](../coverage/interaction-results/cross62-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 283 unsupported and the existing 6 fail**. All 13 new cases parse and type-check but encounter unsupported class-held virtual-interface types. All 2,483 preceding input fingerprints are unchanged: 31 strength-format cases improve from unsupported to pass, while the other 2,452 outcomes are unchanged. Chapter 8×25 is registered, giving 93 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds pass all 13 new cases. See [design and scope](#class-virtual-interface-rebinding).
 
@@ -1799,6 +1801,53 @@ python3 tools/qualify_clockiff.py --verilator /path/to/verilator-5.052 \
 
 X/Z, same-slot guard updates, output skew, programs, interface paths, multiple clocks and assertions are outside scope.
 Guards use known values; the model checks 33-bit truth and event-acceptance boundaries.
+
+<a id="associative-array-domains-and-allocation"></a>
+
+<a id="連想配列の添字型と割当て済み範囲の問い合わせ"></a>
+
+### Associative-array index domains and allocated bounds
+
+`interaction_assocquery.py` models the chapter 7×20 P2 candidate as `associative_array_queries@1`.
+It crosses key widths 4/8/33, unsigned/signed indices, compact/extreme keys, ascending/descending/zigzag insertion, low/middle/high deletion
+and omitted/explicit dimension one. The 18 cases retain all 93 pairs, 54 targeted triples and four anchors from 216 legal rows:
+91.67% fewer cases. The keys×order×delete projection alone needs 18 rows, so this plan meets that lower bound.
+
+Clause 20.7 makes associative-array `$left` return zero, `$right` the index type's maximum and `$increment` minus one.
+`$low`/`$high` describe allocated extrema, while `$size` counts entries. The index domain and allocated bounds are distinct.
+The return type is integer, so 33-bit query results convert to 32 bits: for example, unsigned maximum 8589934591 becomes -1.
+Queries are observed after storage in integer variables. Because this destination also converts to 32 bits, the test does not independently distinguish the return width of the function expression itself.
+In contrast, first/last output arguments and foreach indices keep the key type. Full-width keys and signed ordering under clause 7.8.4
+are checked separately. Clauses 20.7, 7.8, 7.8.4, 7.8.7, 7.9.1, 7.9.2, 7.9.4, 7.9.5 and 12.7.3 govern these observations.
+
+Each case has ten snapshots: empty, three insertions, overwrite, deleting the selected key, deleting a missing key, reinsertion,
+clearing and reuse. Every snapshot reports domain queries, counts via query/num/size, nonempty extrema via query/first/last,
+and every allocated key/value. Overwrite must not allocate another entry, deleting a missing key must preserve others,
+and reuse after clearing must not retain old values. Empty low/high and first/last output arguments are never read.
+The [existing direct test](../tests/ch20/test_associative_array_query_functions.sv) retains the empty-low/high X rule;
+it is not added to this finite model's execution evidence.
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross64-assocquery-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross64-assocquery-verilator5052-seed73.json) execute all 18 cases but have output differences.
+Already in the initial empty state, right=0 and increment=1 differ from the standard-derived values.
+[Fixed Icarus Verilog 13.0](../coverage/interaction-results/cross64-assocquery-icarus13.json) rejects all 18 builds at the typed associative
+declaration. Every oracle remains spec; neither expectations nor legal rows are changed to accommodate differences.
+All 18 new cases parse in latest kirimasim but encounter unsupported typed associative-array variables.
+The [build, parse and execution record](../coverage/interaction-qualification/assocquery-build.json) is saved.
+
+The [independent check](../coverage/interaction-qualification/assocquery.json) compares all 216 rows using a list of entries and literal
+boundary tables, separate from the generator's dictionary. Six Python specification-model mutations use allocated high as domain right,
+reverse extrema, use span as entry count, allocate on overwrite, ignore deletion, or sort signed keys as unsigned.
+Selected cases distinguish every mutation from the expected output. These are Python model mutations, not executed SystemVerilog faults
+or successful simulator normal controls. Correct full-output reproduction and fault detection by simulator execution remain unverified.
+
+```sh
+python3 tools/qualify_assocquery.py \
+  --output coverage/interaction-qualification/NEW-assocquery.json
+```
+
+X/Z, nonintegral or wildcard keys, multidimensional arrays, concurrent updates and queries of empty-state X values are outside scope.
+The model records standard review and independent expectation checks while retaining the lack of full-output reproduction by fixed tools.
 
 <a id="モデル変更時の更新"></a>
 

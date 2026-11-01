@@ -5,7 +5,7 @@
 4,スケジューリングの意味論,N,N,R,D,R,R,R,R,M,M,R,R,M,M,M,M,R,R,R,R,M,R,R,M,M,R,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 5,字句規則,N,N,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 6,データ型,N,N,R,R,R,D,M,M,M,M,M,M,M,M,M,M,R,R,R,M,M,M,M,M,M,M,R,M,M,R,R,R,R,N,R,R,R,R,R,R,R
-7,集合データ型,N,N,R,R,R,M,D,M,M,M,M,M,M,R,E2,R,R,E2,C2,E2,M,R,R,R,R,R,R,R,R,R,R,R,R,N,M,R,R,R,R,R,R
+7,集合データ型,N,N,R,R,R,M,D,M,M,M,M,M,M,R,E2,R,R,E2,C2,M,M,R,R,R,R,R,R,R,R,R,R,R,R,N,M,R,R,R,R,R,R
 8,クラス,N,N,R,R,R,M,M,D,E2,R,R,R,M,R,M,R,R,M,R,R,C2,R,R,R,M,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 9,プロセス,N,N,R,M,R,M,M,E2,D,M,M,M,M,M,M,E2,R,R,R,R,M,R,R,M,M,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 10,代入文,N,N,R,M,R,M,M,R,M,D,M,M,M,M,M,M,R,R,R,R,R,R,M,M,M,R,M,M,R,R,R,R,R,N,M,R,R,R,R,R,R
@@ -18,7 +18,7 @@
 17,チェッカー,N,N,R,R,R,R,R,R,R,R,R,R,R,R,R,E2,D,R,R,R,R,R,R,R,C2,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 18,制約付き乱数値の生成,N,N,R,R,R,R,E2,M,R,R,E2,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 19,機能カバレッジ,N,N,R,R,R,R,C2,R,R,R,E2,R,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
-20,ユーティリティ用システムタスク・関数,N,N,R,R,R,M,E2,R,R,R,M,R,R,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,N,C2,R,R,R,R,R,R
+20,ユーティリティ用システムタスク・関数,N,N,R,R,R,M,M,R,R,R,M,R,R,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,N,C2,R,R,R,R,R,R
 21,入出力用システムタスク・関数,N,N,R,M,R,M,M,C2,M,R,R,R,M,R,R,R,R,R,R,R,D,R,R,M,M,M,M,M,R,R,R,R,R,N,R,R,R,R,R,R,R
 22,コンパイラ指令,N,N,R,R,R,M,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,D,M,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 23,モジュールと階層,N,N,R,R,R,M,R,R,R,M,R,R,M,R,R,R,R,R,R,R,R,M,D,R,M,M,M,R,R,R,R,R,M,N,R,R,R,R,R,R,R

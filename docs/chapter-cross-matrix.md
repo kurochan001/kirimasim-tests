@@ -37,7 +37,7 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 附属書はこの表の軸に含めていません。
 
 対象は、[有限の因子モデルとして登録したクロス検証](interaction-verification.md)だけです。
-全10,258テストの集計ではありません。
+全10,276テストの集計ではありません。
 [Issue #21の境界条件の回帰](p1-combination-regressions-20261030.md)のうち、
 有限モデルに登録していない56件や、それ以外の通常テストは加算していません。
 章全体の要求網羅率や、章どうしの全機能の直積の達成率は表していません。
@@ -63,9 +63,12 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 
 ## 実行結果の扱い
 
-生成時点では63モデル・2,508選択ケースを、対角線以外の94組の章対に対応付けています。
-使用した結果は[kirimasim 80859f34の全63モデルの保存実行](../coverage/interaction-results/cross63-kirimasim-80859f34.json)で、
-2,207 pass・295 unsupported・6 fail、全選択ケースPASSは47モデルです。
+生成時点では64モデル・2,526選択ケースを、対角線以外の95組の章対に対応付けています。
+使用した結果は[kirimasim 80859f34の全64モデルの保存実行](../coverage/interaction-results/cross64-kirimasim-80859f34.json)で、
+2,207 pass・313 unsupported・6 fail、全選択ケースPASSは47モデルです。
+連想配列問い合わせの第7章×第20章は、モデル数1・全選択ケースPASSモデル数0です。
+新規18件は型付き連想配列変数が未対応で、固定Verilatorは両seedとも全18件が出力不一致、固定Icarusはビルド時の拒否です。
+[設計と確認記録](interaction-verification.md#associative-array-domains-and-allocation)を参照してください。
 clocking iffの第9章×第14章は、モデル数1・全選択ケースPASSモデル数0です。
 新規12件はガード付きclocking event未対応で、固定Verilatorは両seedとも4件PASS・8件が既知の内部ビルドエラーです。
 [設計と確認記録](interaction-verification.md#clocking-event-guards-and-held-samples)を参照してください。

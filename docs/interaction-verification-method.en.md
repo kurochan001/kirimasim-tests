@@ -127,6 +127,8 @@ For events with acceptance conditions, count raw occurrences and accepted events
 
 <a id="3-少ないケースを選ぶ仕組み"></a>
 
+When crossing query APIs, observe the type domain separately from current occupancy. The associative-array model compares the domain maximum, allocated extrema, entry count and every key/value across insertion, overwrite, deletion and reuse. It also separates return-type truncation from full-width keys. An LSI scoreboard can apply the same idea to distinguish address-space capacity from registered transaction count. If fixed tools provide no correct normal control, specification-model mutation checks must not be reported as fault detection by execution. See [example and limits](interaction-verification.en.md#associative-array-domains-and-allocation).
+
 ## 3. How to select a small case set
 
 `Model` in [interaction_cover.py](../generators/interaction_cover.py) selects cases in the following order.

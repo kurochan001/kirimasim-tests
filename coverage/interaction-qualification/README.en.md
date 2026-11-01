@@ -186,3 +186,14 @@ Two vector auxiliary controls use an explicit reduction-OR condition; their succ
 [`clockiff-build.json`](clockiff-build.json) records the latest-upstream-verified kirimasim version, binary fingerprint, 12 successful parses and full-run location.
 Each fixed Verilator seed passes 4 scalar-guard cases; 8 vector cases have known internal build errors. kirimasim reports unsupported guarded clocking events.
 See [scope and reproduction](../../docs/interaction-verification.en.md#clocking-event-guards-and-held-samples).
+
+<a id="連想配列問い合わせの独立検算"></a>
+
+## Independent associative-query checks
+
+[`assocquery.json`](assocquery.json) compares all 216 `associative_array_queries@1` rows with a separate entry list and boundary table.
+Selected-case expectations distinguish six Python specification-model mutations. These are neither executed SystemVerilog faults nor successful simulator normal controls.
+Both fixed Verilator seeds have output differences on all 18 cases; fixed Icarus rejects all 18 builds. No fixed oracle is added.
+[`assocquery-build.json`](assocquery-build.json) records the latest kirimasim commit verified immediately before execution, build version, binary fingerprint and parse results.
+All 18 parse successfully but encounter unsupported typed associative-array variables at runtime. Normal saved runs are `interaction-results/cross64-*.json`.
+See [design and limits](../../docs/interaction-verification.en.md#associative-array-domains-and-allocation).

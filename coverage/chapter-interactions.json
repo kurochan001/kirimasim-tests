@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "reviewed_on": "2026-11-01",
+  "reviewed_on": "2026-11-02",
   "reviewer": "Codex (GPT-6), AI review",
   "scope": "Registered finite interaction models only; explicit semantic chapter pairs, not citation co-occurrences. Diagonal entries are primary-chapter model counts.",
   "models": [
@@ -1604,6 +1604,19 @@
             14
           ],
           "reason": "iffが通過したrawエッジだけでclocking入力を更新し、ガードだけの変更と不通過時のサンプル保持を照合する"
+        }
+      ]
+    },
+    {
+      "id": "associative_array_queries",
+      "primary_chapter": 20,
+      "pairs": [
+        {
+          "chapters": [
+            7,
+            20
+          ],
+          "reason": "連想配列の割当て・削除・再利用と、添字型の範囲および割当て済み範囲を返す問い合わせを同じ10時点で照合する"
         }
       ]
     }

@@ -143,3 +143,7 @@
 - 第8章×第25章のP2、クラスvirtual interfaceモデルを追加しました。合法192通りから13件を選び、全因子対96組・重点3因子48組・必須4件を保持します。全192行の独立した結合グラフとの照合、正常対照3件・6故障の検出を確認しました。固定Verilatorは両seedとも全13件がPASSです。最新kirimasim `80859f34f0aa`の全2,496件は2,207 pass・283 unsupported・既存6 failです。従来2,483件の入力は同じで、強度表示31件が未対応からPASSへ改善し、ほかの2,452件の結果は同じです。新規13件の解析は成功し、実行はクラス内のvirtual interface型が未対応です。章対は93対、全選択ケースPASSは47モデルです。[モデルと証跡](interaction-verification.md#class-virtual-interface-rebinding)を参照してください。
 
 - 第9章×第14章のP2、clocking iffモデルを追加しました。合法288通りから12件を選び、全因子対109組・重点3因子44組・必須4件を保持します。全288行の独立イベントキューとの照合、正常対照3件・6故障の検出を確認しました。固定Verilatorは両seedともスカラ条件4件がPASS、元のベクタ条件8件は内部ビルドエラーです。補助対照2件だけは明示的なリダクションORを使い、元のケースの結果と区別します。最新kirimasim `80859f34f0aa`の全2,508件は2,207 pass・295 unsupported・既存6 failで、従来2,496件の記録は同じです。新規12件の解析は成功し、実行はガード付きclocking event未対応です。[モデルと証跡](interaction-verification.md#clocking-event-guards-and-held-samples)を参照してください。
+
+## 2026-11-02
+
+- 第7章×第20章のP2、連想配列問い合わせモデルを18件追加しました。合法216通りから全因子対93組・重点3因子54組・必須4件を保持します。全216行の独立計算と6種類のPython仕様モデル変異の識別を確認しました。これはSVへの故障注入実行ではありません。固定Verilatorは両seedとも全18件が出力不一致、固定Icarusはビルド時に拒否し、全件をspecのまま保持します。最新kirimasim `80859f34f0aa`の全2,526件は2,207 pass・313 unsupported・既存6 failで、従来2,508件の記録は同じです。新規18件は解析成功・型付き連想配列変数未対応です。章対は95対、全選択ケースPASSは47モデルです。[モデルと証跡](interaction-verification.md#associative-array-domains-and-allocation)を参照してください。

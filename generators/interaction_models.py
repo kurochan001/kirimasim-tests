@@ -64,6 +64,7 @@ import interaction_class_array
 import interaction_strengthfmt
 import interaction_vif_class
 import interaction_clockiff
+import interaction_assocquery
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -97,7 +98,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_udpstate,
               interaction_ifimport,
               interaction_mailbox,
-              interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff,
+              interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff, interaction_assocquery,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -512,6 +513,13 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_mailbox.MODEL.select(),
             "classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量制限・nullメッセージと"
             "取得前後の双方向のメンバ更新を確認する。別mailboxの保持と後の更新、空の非ブロッキング戻り値も観測する。",
+        ),
+        SuiteModel(
+            interaction_assocquery.MODEL,
+            lambda row: "tests/gen/ch20/" + interaction_assocquery.case_name(row) + ".sv",
+            interaction_assocquery.MODEL.select(),
+            "連想配列の挿入・上書き・削除・再利用で、添字型の範囲と割当て済みの範囲、"
+            "問い合わせのinteger変換とfirst/lastの幅・符号、要素数と全キー/値を照合する。",
         ),
         SuiteModel(
             interaction_clockiff.MODEL,

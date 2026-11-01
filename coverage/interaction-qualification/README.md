@@ -186,3 +186,14 @@ ABIスタブは離れた要素とcanaryを使い、シミュレータの動的�
 [`clockiff-build.json`](clockiff-build.json)は、最新上流と照合したkirimasimの版・バイナリ指紋・全12件の解析成功と全クロス実行先です。
 固定Verilatorは両seedともスカラ条件4件がPASS、ベクタ条件8件は既知の内部ビルドエラーです。kirimasimではガード付きclocking eventが未対応です。
 [範囲と再確認手順](../../docs/interaction-verification.md#clocking-event-guards-and-held-samples)を参照してください。
+
+<a id="independent-associative-query-checks"></a>
+
+## 連想配列問い合わせの独立検算
+
+[`assocquery.json`](assocquery.json)は`associative_array_queries@1`の全216行を、別のエントリ列と境界値表で照合した記録です。
+6種類のPython仕様モデルの変異を、選択済みケースの期待出力で区別します。SystemVerilogへの故障注入実行や、シミュレータの正常対照成功ではありません。
+固定Verilatorは両seedとも全18件が出力不一致、固定Icarusは全18件をビルド時に拒否し、固定版oracleは追加していません。
+[`assocquery-build.json`](assocquery-build.json)は実行直前に確認した最新kirimasimのコミット・ビルド版・バイナリ指紋と解析結果を記録します。
+解析は18件とも成功し、実行は型付き連想配列変数が未対応です。通常の保存実行は`interaction-results/cross64-*.json`です。
+[設計と限界](../../docs/interaction-verification.md#associative-array-domains-and-allocation)も参照してください。

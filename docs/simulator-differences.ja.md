@@ -97,6 +97,18 @@
 
 ## Verilator 5.052
 
+<a id="additional-associative-query-checks-2026-11-02"></a>
+
+### 連想配列問い合わせの追加確認（2026-11-02）
+
+§20.7の連想配列問い合わせで、新規18件は固定Verilator 5.052の両seedとも出力不一致です。
+最初の空配列で`$right`が0、`$increment`が1となり、添字型の最大値と-1という期待値と異なります。
+[seed 1](../coverage/interaction-results/cross64-assocquery-verilator5052-seed1.json)・
+[seed 73](../coverage/interaction-results/cross64-assocquery-verilator5052-seed73.json)に実行版と入力ハッシュを保存しています。
+固定版oracleは登録せず、合法な正例と規格に基づく期待値を保持しています。
+固定Icarusのビルド拒否、独立計算、Python仕様モデル変異の確認範囲は[モデルの設計](interaction-verification.md#associative-array-domains-and-allocation)を参照してください。
+
+
 <a id="results-1"></a>
 
 ### 結果

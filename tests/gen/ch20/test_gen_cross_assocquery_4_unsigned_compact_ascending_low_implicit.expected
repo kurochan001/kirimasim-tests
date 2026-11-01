@@ -1,0 +1,38 @@
+dimensions=2 unpacked=1
+empty left=0 right=15 increment=-1 size=0 num=0 method_size=0
+bounds=empty first_ok=0 last_ok=0
+insert1 left=0 right=15 increment=-1 size=1 num=1 method_size=1
+low=1 high=1 first_ok=1 first=1 last_ok=1 last=1
+entry key=1 value=11
+insert2 left=0 right=15 increment=-1 size=2 num=2 method_size=2
+low=1 high=3 first_ok=1 first=1 last_ok=1 last=3
+entry key=1 value=11
+entry key=3 value=22
+insert3 left=0 right=15 increment=-1 size=3 num=3 method_size=3
+low=1 high=6 first_ok=1 first=1 last_ok=1 last=6
+entry key=1 value=11
+entry key=3 value=22
+entry key=6 value=33
+overwrite left=0 right=15 increment=-1 size=3 num=3 method_size=3
+low=1 high=6 first_ok=1 first=1 last_ok=1 last=6
+entry key=1 value=11
+entry key=3 value=29
+entry key=6 value=33
+delete left=0 right=15 increment=-1 size=2 num=2 method_size=2
+low=3 high=6 first_ok=1 first=3 last_ok=1 last=6
+entry key=3 value=29
+entry key=6 value=33
+delete_missing left=0 right=15 increment=-1 size=2 num=2 method_size=2
+low=3 high=6 first_ok=1 first=3 last_ok=1 last=6
+entry key=3 value=29
+entry key=6 value=33
+reinsert left=0 right=15 increment=-1 size=3 num=3 method_size=3
+low=1 high=6 first_ok=1 first=1 last_ok=1 last=6
+entry key=1 value=47
+entry key=3 value=29
+entry key=6 value=33
+clear left=0 right=15 increment=-1 size=0 num=0 method_size=0
+bounds=empty first_ok=0 last_ok=0
+reuse left=0 right=15 increment=-1 size=1 num=1 method_size=1
+low=0 high=0 first_ok=1 first=0 last_ok=1 last=0
+entry key=0 value=91

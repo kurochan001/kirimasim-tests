@@ -24495,6 +24495,7 @@
     "Class shallow copies separate array storage while sharing referenced element objects": "クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する",
     "Scalar strength formatting preserves resolved drives through display and string APIs": "スカラの強度表示で、解決済みの駆動強度をdisplayとstring APIへ保持する",
     "Class-held virtual interfaces preserve copied bindings through rebinding and guarded null writes": "クラスに保持したvirtual interfaceのコピー・再結合とnull時の書込み抑止を検証する",
-    "Clocking iff gates sample updates and ignores guard-only changes across skew and update paths": "clockingのiffでサンプル更新を選別し、skewと更新経路をまたいでガードだけの変更を無視する"
+    "Clocking iff gates sample updates and ignores guard-only changes across skew and update paths": "clockingのiffでサンプル更新を選別し、skewと更新経路をまたいでガードだけの変更を無視する",
+    "Associative-array queries separate the index type from live allocation across updates": "連想配列の更新に対する問い合わせで、添字型の範囲と割当て済み要素を区別する"
   }
 }

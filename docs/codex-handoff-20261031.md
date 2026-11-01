@@ -4,7 +4,7 @@
 
 [English](codex-handoff-20261031.en.md) / [日本語](codex-handoff-20261031.md)
 
-追記：clocking iff追加後の現況は63モデル・2,508件・94章対です。[最新の概要](interaction-verification.md#保存実行の概要)と[README](../README.ja.md)を参照してください。以下の件数・実行記録は、各節に示した追加時点の履歴として読みます。
+追記：連想配列問い合わせ追加後の現況は64モデル・2,526件・95章対です。[最新の概要](interaction-verification.md#保存実行の概要)と[README](../README.ja.md)を参照してください。以下の件数・実行記録は、各節に示した追加時点の履歴として読みます。
 
 外部状態の確認：2026-10-30 21:05 UTC（10-31 06:05 JST）。 ローカル状態・クロス検証・文書の更新：2026-11-01 JST。Issueなど外部状態の確認日は上記のままです。 GitHub Actionsと公開Nightlyの再確認日は2026-11-01 JSTです。 この資料は`kirimasim-tests`の作業を引き継ぐためのものです。 コマンドは、断りがなければ`kirimasim-tests`リポジトリのルートで実行します。
 

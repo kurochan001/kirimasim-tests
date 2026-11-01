@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "reviewed_on": "2026-11-01",
+  "reviewed_on": "2026-11-02",
   "reviewer": "Codex (GPT-6), AI review",
   "scope": "Unordered off-diagonal pairs with no registered finite model mapping. Existing witnesses are source/expectation reviews, not new execution passes. Unreviewed pairs stay R.",
   "excluded_chapters": {
@@ -72,29 +72,6 @@
       ],
       "observation": "値・サイズを与えた決定的なsample列とヒット数を照合する。空コンテナの合法な扱いは先に規格照合する。",
       "witnesses": []
-    },
-    {
-      "chapters": [
-        7,
-        20
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "連想配列と配列問い合わせ関数が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "連想配列と配列問い合わせ関数",
-      "factors": [
-        "添字型/符号",
-        "空/非空",
-        "割当て済み添字",
-        "問い合わせ関数"
-      ],
-      "observation": "型の添字範囲と割当て済みの最小/最大、要素数、空の未知値を区別する。",
-      "witnesses": [
-        {
-          "test": "tests/ch20/test_associative_array_query_functions.sv",
-          "inputs_sha256": "8ee1cf8ab1b9d7126c80a7d9a0bf8dc260af1b13ec20ad5df2edea82c79490d1"
-        }
-      ]
     },
     {
       "chapters": [

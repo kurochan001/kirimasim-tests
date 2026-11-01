@@ -1,0 +1,103 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch20/test_gen_cross_assocquery_33_signed_compact_descending_low_explicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=-1 increment=-1 size=0 num=0 method_si...'",
+   "inputs_sha256": "1ea2d0ae9d86dc9b963da3c4acc6511911023632ddfede28d8d1b171bb1e08d1"
+  },
+  "gen/ch20/test_gen_cross_assocquery_33_signed_extreme_ascending_high_implicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=-1 increment=-1 size=0 num=0 method_si...'",
+   "inputs_sha256": "c2e09cd69551c3c74f36243f30f765a7f969396a8ce0b882b879de6c7714d65b"
+  },
+  "gen/ch20/test_gen_cross_assocquery_33_unsigned_compact_zigzag_middle_implicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=-1 increment=-1 size=0 num=0 method_si...'",
+   "inputs_sha256": "4ecc5cf9e1c0a2b176c2c04d139f52aab71446aeadb82e17261ffb492e1cad61"
+  },
+  "gen/ch20/test_gen_cross_assocquery_33_unsigned_extreme_descending_high_explicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=-1 increment=-1 size=0 num=0 method_si...'",
+   "inputs_sha256": "431c102069a095055ab5c5299c730b84dac790d5c896a92770e3eb22ec807b07"
+  },
+  "gen/ch20/test_gen_cross_assocquery_4_signed_compact_zigzag_high_explicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=7 increment=-1 size=0 num=0 method_size=0'",
+   "inputs_sha256": "a789fc85b583dd2e602788a6671160381617ecd653eb6ce51150286717a38f15"
+  },
+  "gen/ch20/test_gen_cross_assocquery_4_signed_extreme_ascending_middle_explicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=7 increment=-1 size=0 num=0 method_size=0'",
+   "inputs_sha256": "071682aa1fd1c330554e69684861063287f0016e932b38974599085091057c6e"
+  },
+  "gen/ch20/test_gen_cross_assocquery_4_unsigned_compact_ascending_high_implicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=15 increment=-1 size=0 num=0 method_si...'",
+   "inputs_sha256": "7a84ff73972b1040af07f9fff9c61eb7ce773e47861834cb6aba37a88c83c822"
+  },
+  "gen/ch20/test_gen_cross_assocquery_4_unsigned_compact_ascending_low_implicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=15 increment=-1 size=0 num=0 method_si...'",
+   "inputs_sha256": "0eabe3bf3a324112d52d09e2e96a59222104ad66f5dfe46bca163725109a854b"
+  },
+  "gen/ch20/test_gen_cross_assocquery_4_unsigned_compact_descending_middle_implicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=15 increment=-1 size=0 num=0 method_si...'",
+   "inputs_sha256": "e8c2599a1326c9c5e4f712b8608af2510c6f0b2654e1c034109ee817feed94c8"
+  },
+  "gen/ch20/test_gen_cross_assocquery_4_unsigned_extreme_ascending_low_implicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=15 increment=-1 size=0 num=0 method_si...'",
+   "inputs_sha256": "42f477769d547c82c1e3204e06845f6b8caea44a00959b03a59602c4e1274c8a"
+  },
+  "gen/ch20/test_gen_cross_assocquery_4_unsigned_extreme_descending_low_implicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=15 increment=-1 size=0 num=0 method_si...'",
+   "inputs_sha256": "eb6ce3202d388951866648f05ee5bf7fb9ed3fff800a012f823fa708a06a680d"
+  },
+  "gen/ch20/test_gen_cross_assocquery_4_unsigned_extreme_descending_middle_implicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=15 increment=-1 size=0 num=0 method_si...'",
+   "inputs_sha256": "5c92776f4961c62adced6c98aba92277ae0104a4264fc8a74341038e525914a1"
+  },
+  "gen/ch20/test_gen_cross_assocquery_4_unsigned_extreme_zigzag_high_implicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=15 increment=-1 size=0 num=0 method_si...'",
+   "inputs_sha256": "433a3b12213e44746276481ab0d4a6ec983cbcf823c9d03d46dd72bf050b154f"
+  },
+  "gen/ch20/test_gen_cross_assocquery_8_signed_compact_zigzag_low_implicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=127 increment=-1 size=0 num=0 method_s...'",
+   "inputs_sha256": "4f6a35f54a15eef09f1cd31877a4dcfa2c90860e51eb26dfe514d78927f73014"
+  },
+  "gen/ch20/test_gen_cross_assocquery_8_signed_extreme_zigzag_middle_implicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=127 increment=-1 size=0 num=0 method_s...'",
+   "inputs_sha256": "717e4d88917957a65a893a8a3bd16e12c8cfb976c239922d0cf7168538eaecd8"
+  },
+  "gen/ch20/test_gen_cross_assocquery_8_unsigned_compact_ascending_middle_explicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=255 increment=-1 size=0 num=0 method_s...'",
+   "inputs_sha256": "193202c2c03885e814d3e50ac11f5c174859620fb2a89444bcdcf90107f4c6c0"
+  },
+  "gen/ch20/test_gen_cross_assocquery_8_unsigned_compact_descending_high_implicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=255 increment=-1 size=0 num=0 method_s...'",
+   "inputs_sha256": "f01487c12dc347c3fd13b10c4e9c464d74588bf312e0d9314c4e273e2f7fedc0"
+  },
+  "gen/ch20/test_gen_cross_assocquery_8_unsigned_extreme_zigzag_low_explicit": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty left=0 right=0 increment=1 size=0 num=0 method_size=0', expected 'empty left=0 right=255 increment=-1 size=0 num=0 method_s...'",
+   "inputs_sha256": "fc9bc06b1e07f1fa9afb43e1f9b364551d53df9c9d9777ec17e485d46236b38b"
+  }
+ },
+ "generated_at": "2026-11-01T15:02:23.553319+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

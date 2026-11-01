@@ -14,7 +14,9 @@
 
 各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・ 検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と [生成レポート](interaction-coverage.md)を参照してください。
 
-2026-11-01のclocking iff追加：現在は**63モデル・2,508件**です。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross63-kirimasim-80859f34.json)は**2,207 pass・295 unsupported・既存6 fail**です。新規12件はガード付きclocking event未対応で、解析はすべて成功しました。従来2,496件の入力ハッシュと結果区分は同じです。第9章×第14章を登録し、章対は94対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedともスカラ条件4件が一致し、ベクタ条件8件はビルド時内部エラーです。[設計と確認範囲](#clocking-event-guards-and-held-samples)を参照してください。
+2026-11-02の連想配列問い合わせ追加：現在は**64モデル・2,526件**です。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross64-kirimasim-80859f34.json)は**2,207 pass・313 unsupported・既存6 fail**です。新規18件の解析は成功し、実行は型付き連想配列変数が未対応です。従来2,508件の入力ハッシュと結果区分は同じです。第7章×第20章を登録し、章対は95対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedとも新規18件が出力不一致、固定Icarus Verilog 13.0は全18件をビルド時に拒否しました。固定版oracleは追加せず、規格に基づく期待値を保持しています。[設計と確認範囲](#associative-array-domains-and-allocation)を参照してください。
+
+前日のclocking iff追加時点では**63モデル・2,508件**でした。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross63-kirimasim-80859f34.json)は**2,207 pass・295 unsupported・既存6 fail**です。新規12件はガード付きclocking event未対応で、解析はすべて成功しました。従来2,496件の入力ハッシュと結果区分は同じです。第9章×第14章を登録し、章対は94対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedともスカラ条件4件が一致し、ベクタ条件8件はビルド時内部エラーです。[設計と確認範囲](#clocking-event-guards-and-held-samples)を参照してください。
 
 同日のクラスvirtual interface追加時点では**62モデル・2,496件**でした。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross62-kirimasim-80859f34.json)は**2,207 pass・283 unsupported・既存6 fail**です。新規13件はクラス内のvirtual interface型が未対応で、解析はすべて成功しました。従来2,483件の入力ハッシュは同じです。うち強度表示31件がunsupportedからPASSへ改善し、ほかの2,452件の結果区分は同じです。第8章×第25章を登録し、章対は93対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedとも新規13件すべてが一致しました。[設計と確認範囲](#class-virtual-interface-rebinding)を参照してください。
 
@@ -1795,6 +1797,52 @@ python3 tools/qualify_clockiff.py --verilator /path/to/verilator-5.052 \
 
 X/Z、同時刻のガード更新、出力skew、program、interface、複数クロック、アサーションは対象外です。
 ガードは既知値に限定し、33ビットの真偽と受理イベントの境界を確認するモデルです。
+
+<a id="associative-array-domains-and-allocation"></a>
+
+<a id="associative-array-index-domains-and-allocated-bounds"></a>
+
+### 連想配列の添字型と割当て済み範囲の問い合わせ
+
+`interaction_assocquery.py`の`associative_array_queries@1`は、第7章×第20章のP2候補をモデル化します。
+添字幅4・8・33、unsigned／signed、近接／端点キー、昇順／降順／中間からの挿入、最小／中間／最大キーの削除、
+次元引数の省略／1の明示指定を組み合わせます。合法216通りから18件を選び、全因子対93組・重点3因子54組・必須4件を保持します。
+選択件数を91.67%削減しました。キー配置×挿入順×削除対象だけで18組あり、この計画の選択は必要行数の下限と一致します。
+
+§20.7では、連想配列の`$left`は0、`$right`は添字型の最大値、`$increment`は-1です。
+`$low`／`$high`は現在割り当てた最小／最大キー、`$size`は要素数です。型の範囲と割当て済み範囲を混同しません。
+戻り型はintegerなので、33ビットの問い合わせ結果は32ビットへ変換します。たとえばunsigned 33ビットの最大値8589934591は-1になります。
+問い合わせ値はいったんinteger変数へ保存して観測します。代入先でも32ビットへ変換されるため、関数式そのものの戻り幅を識別する検査ではありません。
+一方、`first`／`last`の出力引数とforeach添字は元の添字型を保ちます。§7.8.4に従う符号付き順序と、上位ビットの保持を分けて照合します。
+根拠は§20.7・7.8・7.8.4・7.8.7・7.9.1・7.9.2・7.9.4・7.9.5・12.7.3です。
+
+各ケースの10時点は、空状態、3回の挿入、既存キーの上書き、選択キーの削除、存在しないキーの削除、再挿入、全削除、再利用です。
+毎回、型に基づく問い合わせ、要素数とnum/sizeメソッド、非空時のlow/highとfirst/last、全キーと値を観測します。
+上書きで要素数が増えないこと、欠けたキーの削除で他の要素が変わらないこと、全削除後に古い値が残らないことも確認します。
+空配列でlow/highやfirst/lastの出力引数を読まない設計です。空のlow/highがXを返す規則は既存の
+[直接テスト](../tests/ch20/test_associative_array_query_functions.sv)に残し、この有限モデルの実行証拠へは加算しません。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross64-assocquery-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross64-assocquery-verilator5052-seed73.json)は、全18件を実行できましたが出力不一致です。
+最初の空状態ですでにright=0・increment=1となり、規格に基づく値と異なります。
+[固定Icarus Verilog 13.0](../coverage/interaction-results/cross64-assocquery-icarus13.json)は型付き連想配列宣言で全18件をビルド時に拒否しました。
+全件のoracleはspecのままです。差異に合わせた期待値変更や合法行の除外はしていません。
+最新kirimasimは新規18件の解析が成功し、実行は型付き連想配列変数が未対応です。
+[ビルド版・解析・実行の記録](../coverage/interaction-qualification/assocquery-build.json)を保存しています。
+
+[独立検算](../coverage/interaction-qualification/assocquery.json)は、生成器の辞書とは別のエントリ列と境界値の定数表で全216行を照合します。
+添字型の最大値を割当て済み最大値にする、low/highを逆転する、要素数を範囲長にする、上書きを新規割当てにする、削除を無視する、
+符号付きキーを符号なし順にする、の6種類をPythonの仕様モデルで変更し、選択済みケースの期待出力との差を確認しました。
+これはPythonモデルの変異検査であり、SystemVerilogへの故障注入実行やシミュレータの正常対照の成功ではありません。
+このモデルではシミュレータによる正しい全出力の再現と、実行による故障検出は未確認です。
+
+```sh
+python3 tools/qualify_assocquery.py \
+  --output coverage/interaction-qualification/NEW-assocquery.json
+```
+
+X/Zを含む添字、整数以外の型およびワイルドカードの添字、多次元配列、並行更新、空状態のXを使う問い合わせは対象外です。
+全出力が固定版で再現できていない点を残したまま、規格との照合と独立計算によるテスト設計として登録します。
 
 <a id="updates-after-model-changes"></a>
 

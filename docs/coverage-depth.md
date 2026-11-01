@@ -12,7 +12,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 10258 |
+| Tests | 10276 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -27,7 +27,7 @@
 | both releases | 768 |
 | Icarus Verilog 13.0 only | 4882 |
 | Verilator 5.052 only | 1789 |
-| standard only | 2819 |
+| standard only | 2837 |
 
 <a id="章別"></a>
 
@@ -52,7 +52,7 @@
 | 17 | Checkers | 81 | 10 | 8.1 | 0 | 59 |
 | 18 | Constrained random value generation | 213 | 44 | 4.8 | 0 | 80 |
 | 19 | Functional coverage | 157 | 24 | 6.5 | 0 | 127 |
-| 20 | Utility system tasks and system functions | 330 | 31 | 10.6 | 0 | 66 |
+| 20 | Utility system tasks and system functions | 348 | 31 | 11.2 | 0 | 84 |
 | 21 | Input/output system tasks and system functions | 303 | 47 | 6.4 | 0 | 76 |
 | 22 | Compiler directives | 398 | 21 | 19.0 | 0 | 36 |
 | 23 | Modules and hierarchy | 331 | 33 | 10.0 | 0 | 71 |

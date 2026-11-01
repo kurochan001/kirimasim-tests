@@ -4,7 +4,7 @@
 
 [English](codex-handoff-20261031.en.md) / [日本語](codex-handoff-20261031.md)
 
-Update: after the clocking-iff addition, the current selection is 63 models, 2,508 tests and 94 chapter pairs. See the [current summary](interaction-verification.en.md#saved-run-summary) and [README](../README.md). Read the counts and runs below as records of the additions described in each section.
+Update: after the associative-query addition, the current selection is 64 models, 2,526 tests and 95 chapter pairs. See the [current summary](interaction-verification.en.md#saved-run-summary) and [README](../README.md). Read the counts and runs below as records of the additions described in each section.
 
 External-state check: 2026-10-30 21:05 UTC (10-31 06:05 JST). Local state, interaction verification and documentation updated on 2026-11-01 JST. The external-state check date, including Issue status, remains the date above. GitHub Actions and the published Nightly were rechecked on 2026-11-01 JST. This material hands off the `kirimasim-tests` work. Unless otherwise stated, run commands from the root of the `kirimasim-tests` repository.
 

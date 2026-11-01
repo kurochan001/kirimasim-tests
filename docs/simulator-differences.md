@@ -97,6 +97,19 @@ It also rejects some illegal designs for another reason than their error: it doe
 
 ## Verilator 5.052
 
+<a id="連想配列問い合わせの追加確認2026-11-02"></a>
+
+### Additional associative-query checks (2026-11-02)
+
+All 18 new clause 20.7 associative-query cases have output differences in both fixed Verilator 5.052 seeds.
+For the initial empty array, `$right` returns zero and `$increment` one, instead of the index type's maximum and minus one.
+[Seed 1](../coverage/interaction-results/cross64-assocquery-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross64-assocquery-verilator5052-seed73.json) save the actual version and input hashes.
+No fixed oracle is registered; the legal positive cases and standard-derived expectations are retained.
+See [model design](interaction-verification.en.md#associative-array-domains-and-allocation) for fixed Icarus build rejection,
+independent calculations and the limits of Python specification-model mutation checks.
+
+
 <a id="結果-1"></a>
 
 ### Results
