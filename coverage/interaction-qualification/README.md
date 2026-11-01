@@ -111,3 +111,12 @@ python3 tools/qualify_mailbox.py --verilator verilator --seed 1 \
 [`20261101-event-rebind-build.json`](20261101-event-rebind-build.json)は、 [`event_rebinding`](../../docs/interaction-verification.md#イベント変数の再結合と登録済み待機の保持)を実行した kirimasimの上流・ビルド版の一致、バイナリの不変性、27件の構文・意味解析の成功と、 従来2,328件の入力・結果区分の保持を記録します。 [`20261101-event-rebind-prior-digests.json`](20261101-event-rebind-prior-digests.json)は、 従来6,786生成ファイル、54モデルの計画、157保存実行と従来モデル集計の指紋です。
 
 動作はkirimasimで未対応、固定Icarus/Verilatorではビルド失敗なので、 SystemVerilogの故障注入を実行できたとの記録はありません。 独立参照モデルで確認した13種の抽象的な誤りへの観測感度も、実行での故障検出数へ加算しません。
+
+<a id="dpi-copyback-and-nba-checks"></a>
+
+## DPIの書戻しとNBAの確認
+
+[`dpi-nba.json`](dpi-nba.json)は、144行の独立したビット列計算とC ABIの照合、正常対照と4故障の出力差による検出を記録します。
+[`dpi-nba-build.json`](dpi-nba-build.json)は、実行直前に確認した最新kirimasimのコミット・バイナリ指紋・18件の解析成功と全クロス実行先です。
+固定Verilatorの両seedは14 pass・4 known、kirimasimでは新規18件がC読込み未対応です。部分成功を合成せず、補助実験は通常の合格数へ加算しません。
+[モデルの範囲と再確認手順](../../docs/interaction-verification.md#dpi-copyback-and-nba-capture)を参照してください。

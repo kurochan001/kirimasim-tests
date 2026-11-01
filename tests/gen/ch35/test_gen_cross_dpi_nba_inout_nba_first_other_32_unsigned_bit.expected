@@ -1,0 +1,6 @@
+return=-2147483639
+after_call 00000015 ffffffea ffffffc0
+mutated 00000015 ffffffea 0000002b
+indices=0,0 payload=ffffffff
+postponed 00000015 0000000a 0000002b
+settled 00000015 0000000a 0000002b

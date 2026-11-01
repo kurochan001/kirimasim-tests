@@ -14,7 +14,9 @@
 
 各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・ 検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と [生成レポート](interaction-coverage.md)を参照してください。
 
-2026-11-01のイベント再結合追加：現在は**55モデル・2,355件**です。 実行直前の上流mainを確認してビルドしたkirimasim `ddf48e2b0436`で、新規27件はすべてイベント値の操作が未対応でした。 [全クロスの保存実行](../coverage/interaction-results/cross55-kirimasim-ddf48e2b.json)は 2,170 pass・179 unsupported・既存6 failです。従来2,328件の入力ハッシュと結果区分は同じです。 第6章×第15章を登録し、章対は86対、全選択ケースPASSは46モデルです。 [イベント再結合の設計・確認範囲](#イベント変数の再結合と登録済み待機の保持)を参照してください。
+2026-11-01のDPI/NBA追加：現在は**56モデル・2,373件**です。実行直前の上流mainからビルドしたkirimasim `1144b2acab1e`の[全クロス保存実行](../coverage/interaction-results/cross56-kirimasim-1144b2ac.json)は**2,170 pass・197 unsupported・既存6 fail**です。新規18件はCコード読込み未対応で、従来2,355件の入力ハッシュと結果区分は同じです。第10章×第35章を登録し、章対は87対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも新規14件が一致し、65ビットのoutput/inout書戻し4件がビルド時の内部エラーです。[設計と確認範囲](#dpi-copyback-and-nba-capture)を参照してください。
+
+同日のイベント再結合追加時点では**55モデル・2,355件**でした。 実行直前の上流mainを確認してビルドしたkirimasim `ddf48e2b0436`で、新規27件はすべてイベント値の操作が未対応でした。 [全クロスの保存実行](../coverage/interaction-results/cross55-kirimasim-ddf48e2b.json)は 2,170 pass・179 unsupported・既存6 failです。従来2,328件の入力ハッシュと結果区分は同じです。 第6章×第15章を登録し、章対は86対、全選択ケースPASSは46モデルです。 [イベント再結合の設計・確認範囲](#イベント変数の再結合と登録済み待機の保持)を参照してください。
 
 同日のmailbox追加時点では**54モデル・2,328件**でした。 実行直前の上流mainを確認してビルドしたkirimasim `d0865eb65999`で、新規36件はすべてmailbox型未対応でした。 [全クロスの保存実行](../coverage/interaction-results/cross54-kirimasim-d0865eb6.json)は 2,170 pass・152 unsupported・既存6 failです。従来2,292件の入力ハッシュと結果区分は同じです。 第8章×第15章を登録し、章対は85対、全選択ケースPASSは46モデルです。 [mailboxの設計・固定版での確認・適用限界](#mailboxのclassハンドルと別名経由の更新)を参照してください。
 
@@ -1465,6 +1467,42 @@ python3 tools/qualify_mailbox.py --verilator verilator --seed 1 \
 [ビルド・解析記録](../coverage/interaction-qualification/20261101-event-rebind-build.json)と [従来入力・記録の保持](../coverage/interaction-qualification/20261101-event-rebind-prior-digests.json)も保存しています。 全体は55モデル・2,355件で、2,170 pass・179 unsupported・既存6 failです。 従来2,328件の入力と結果区分、54モデルの計画、157保存実行の従来モデル集計、6,786生成ファイルを維持しました。 スイート全体は27件増えて10,105件、生成3,668件です。新しい要求対応付けは登録せず、 要求カバレッジの分母・確認率も維持しています。
 
 ローカルのツール単体552件と整合性検査11項目は成功しました。 メタデータ検査は10,105件で新規問題0件・既知395件です。文書内のローカルリンク765件も問題ありません。 これらはローカルの検査結果で、GitHub CheckやNightlyの全件実行とは区別します。
+
+<a id="dpi-copyback-and-nba-capture"></a>
+
+### DPIの書戻しとNBAの値・代入先の確定
+
+`interaction_dpi_nba.py`の`dpi_nba_capture@1`は、第10章×第35章のP1候補を実装します。
+固定長配列の静的寿命の要素をDPIの`input`・`output`・`inout int`へ渡し、呼出しの前後でNBAを予約します。
+同じ要素／別の要素、幅8・32・65、signed／unsigned、bit／logicを組み合わせた合法144通りから18件を選び、
+全因子対81組・重点3因子48組・必須4件を保持します。件数削減は87.5%で、実行時間の削減率とは別です。
+
+DPIの戻り値と復帰直後の全要素で、コピーイン・書戻しとintへの変換を照合します。
+NBAの右辺はDPI実引数の要素とpayloadのXORなので、output/inoutを呼出してから予約する場合は書戻し後の値を使います。
+その後、元の要素・両添字・payloadを変更し、Postponedと次の時刻で全要素を照合します。
+元の値と代入先の取り違え、別要素の破壊を区別するための観測です。実行は単一moduleプロセスに順序付け、
+`#0`の待機や別プロセスとの競合を使いません。根拠は§35.6.1・35.6.1.1・35.6.2・10.4.2・10.8とイベント領域の規則です。
+outputの初期値は読まず、Cの演算範囲もオーバーフローしない形にします。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross56-dpi-nba-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross56-dpi-nba-verilator5052-seed73.json)は、両方とも14 pass・4 knownです。
+65ビットのoutput/inout実引数4件はビルド時の内部エラーで、規格由来の期待値を維持し、oracleを付けません。
+残る14件だけに固定版のoracleを登録しました。kirimasimの最新版では全18件の構文・意味解析が成功しましたが、
+ランナーはCコード読込み未対応として18件をunsupportedにします。固定版の部分成功をkirimasimの成功へ合成しません。
+
+[独立検算と故障注入](../coverage/interaction-qualification/dpi-nba.json)では、文字列のビット列と実際のC ABIを使って
+全144行を別計算し、期待値と照合しました。正常対照が一致した上で、即時化・遅い値/添字の確定・書戻し欠落・
+符号の取り違えの4故障を、ビルド失敗ではなく出力の相違として検出しました。
+[最新ビルドと解析の記録](../coverage/interaction-qualification/dpi-nba-build.json)も保存しています。
+再確認は固定Verilator 5.052とCコンパイラを指定し、過去の証跡を上書きしない新しい名前で実行します。
+
+```sh
+python3 tools/qualify_dpi_nba.py --verilator /path/to/verilator-5.052 --cc cc \
+  --output coverage/interaction-qualification/NEW-dpi-nba.json
+```
+
+X/Z、open array、動的配列要素へのNBA、CからのSV再入、時間を消費するDPI task、競合する別プロセス、
+スカラ変数への書戻しは対象外です。第35章全体やDPIの全境界を検証済みとは扱いません。
 
 <a id="updates-after-model-changes"></a>
 

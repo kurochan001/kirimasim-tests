@@ -20739,6 +20739,16 @@
     "）は合法。": "It is legal.",
     "）より前にあり、: ZXQPH0QXZ : 付きでその ZXQPH1QXZ 行目の診断を照合している。": "ZXQPH0QXZ: ZXQPH1QXZ is the first line of the diagnosis.",
     "）を使う。": ") is used.",
-    "）現れ、sizetfは呼ばれるたびに数を数えて ZXQPH0QXZ を返す。": "ZXQPH0QXZ is returned every time sizetf is called."
+    "）現れ、sizetfは呼ばれるたびに数を数えて ZXQPH0QXZ を返す。": "ZXQPH0QXZ is returned every time sizetf is called.",
+    "ZXQPH0QXZ のinput/ ZXQPH1QXZ と ZXQPH2QXZ 予約の前後、同じ/別の配列要素を組み合わせる。": "Combine ZXQPH0QXZ input/ZXQPH1QXZ, scheduling the ZXQPH2QXZ before or after the call, and the same or a different array element.",
+    "幅・符号・ ZXQPH0QXZ / ZXQPH1QXZ から ZXQPH2QXZ への変換、復帰直後の書戻し、予約後の添字・値の変更、Postponedと次時刻の全要素を照合し、 ZXQPH3QXZ の値と代入先の確定を確認する。": "Check width, signedness and ZXQPH0QXZ/ZXQPH1QXZ conversion to ZXQPH2QXZ, immediate copyback, changes to indices and values after scheduling, and every element in Postponed and at the next time, to verify ZXQPH3QXZ value and destination capture.",
+    "固定長配列の静的寿命の要素だけを使用する。": "Use only statically allocated elements of a fixed-size array.",
+    "ZXQPH0QXZ の ZXQPH1QXZ 仮引数に既知値を渡し、入力の幅・符号変換と復帰直後の書戻しを観測する。": "Pass known values to the ZXQPH0QXZ ZXQPH1QXZ formal and observe input width/sign conversion and copyback immediately after return.",
+    "同一プロセスで ZXQPH0QXZ 予約と ZXQPH1QXZ 呼出しを順序付け、予約後に添字・右辺・元要素を変更する。": "Order ZXQPH0QXZ scheduling and the ZXQPH1QXZ call in one process, then change the indices, right-hand side inputs and original element after scheduling.",
+    "outputの初期値は読まない。": "Do not read the initial value of an output argument.",
+    "X/Z、open array、Cからの ZXQPH0QXZ 再入、時間を消費する ZXQPH1QXZ task、競合する別プロセスは対象外。": "X/Z, open arrays, reentry from C into ZXQPH0QXZ, time-consuming ZXQPH1QXZ tasks and competing processes are outside this model.",
+    "実行証跡は未登録です。": "No execution evidence is registered.",
+    "計画上の ZXQPH0QXZ を実行確認と読み替えません。": "Do not treat planned ZXQPH0QXZ as verified execution.",
+    "ZXQPH0QXZ 復帰直後の書戻しと、呼出し前後で予約した ZXQPH1QXZ の値・配列要素の確定を同じ観測で照合する": "Compare immediate ZXQPH0QXZ copyback and the value and array-element capture of a ZXQPH1QXZ scheduled before or after the call in the same observations"
   }
 }

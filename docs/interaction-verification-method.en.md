@@ -109,6 +109,8 @@ Do not exclude combinations because the current implementation lacks support, ex
 
 Construct target denominators from partial combinations that can be extended with the remaining factors to a complete legal row. Mechanically multiplying per-factor levels for the pair denominator would incorrectly count unreachable combinations as deficits.
 
+At a boundary such as DPI, observe synchronous copyback separately from a queued update. The DPI/NBA model compares every element immediately after return, changes the source and indices after scheduling, and checks Postponed and next-time values. Distinguishing immediate update, late capture and missing copyback as separate faults also applies to LSI register writes and queued transactions. See [the example and limits](interaction-verification.en.md#dpi-copyback-and-nba-capture).
+
 <a id="3-少ないケースを選ぶ仕組み"></a>
 
 ## 3. How to select a small case set

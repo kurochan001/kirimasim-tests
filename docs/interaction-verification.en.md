@@ -14,7 +14,9 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 Each run's version is recorded in linked JSON. Unless stated otherwise, added/total counts and check results in the model descriptions below record the state when that model was added. See the beginning of this overview and [Generated report](interaction-coverage.en.md) for current aggregates.
 
-Added event recombinance of 2026-11-01: currently 55 model, 2,355 item. All 27 new cases had unsupported event-value operations on kirimasim `ddf48e2b0436` built after checking upstream main immediately before execution. [Saved runs of all crosses](../coverage/interaction-results/cross55-kirimasim-ddf48e2b.json) is 2,170 pass, 179 unsupported, and existing 6 fail. Input hashes and result categories for the preceding 2,328 cases are unchanged. Registered Clause 6 × Clause 15, bringing the total to 86 chapter pairs and 46 models with their full selection PASS. See [Event-rebinding design and verification scope](#イベント変数の再結合と登録済み待機の保持).
+DPI/NBA addition on 2026-11-01: the current selection has **56 models and 2,373 tests**. The [full cross run](../coverage/interaction-results/cross56-kirimasim-1144b2ac.json) on kirimasim `1144b2acab1e`, built from upstream main verified immediately before execution, records **2,170 pass, 197 unsupported and the existing 6 fail**. The 18 new cases need unsupported C loading; all 2,355 preceding input fingerprints and outcomes are unchanged. Chapter 10×35 is now registered, bringing the total to 87 chapter pairs; 46 models pass their full selection. Fixed Verilator 5.052 matches 14 new cases at both seeds; four 65-bit output/inout copyback cases stop on internal build errors. See [design and scope](#dpi-copyback-and-nba-capture).
+
+At the event-rebinding addition on the same day, there were 55 models and 2,355 tests. All 27 new cases had unsupported event-value operations on kirimasim `ddf48e2b0436` built after checking upstream main immediately before execution. [Saved runs of all crosses](../coverage/interaction-results/cross55-kirimasim-ddf48e2b.json) is 2,170 pass, 179 unsupported, and existing 6 fail. Input hashes and result categories for the preceding 2,328 cases are unchanged. Registered Clause 6 × Clause 15, bringing the total to 86 chapter pairs and 46 models with their full selection PASS. See [Event-rebinding design and verification scope](#イベント変数の再結合と登録済み待機の保持).
 
 At the time of the mailbox addition on the same day, there were 54 model and 2,328 items. All 36 new cases had unsupported mailbox types on kirimasim `d0865eb65999` built after checking upstream main immediately before execution. [Saved runs of all crosses](../coverage/interaction-results/cross54-kirimasim-d0865eb6.json) is 2,170 pass, 152 unsupported, and existing 6 fail. Input hashes and result categories for the preceding 2,292 cases are unchanged. Registered Clause 8 × Clause 15, bringing the total to 85 chapter pairs and 46 models with their full selection PASS. See [mailbox design, fixed-version verification, and limits](#mailboxのclassハンドルと別名経由の更新).
 
@@ -1465,6 +1467,41 @@ Fetched and checked upstream main immediately before execution, then built kirim
 I also saved [Build and analysis records](../coverage/interaction-qualification/20261101-event-rebind-build.json) and [Preserving existing inputs and records](../coverage/interaction-qualification/20261101-event-rebind-prior-digests.json). The total is 55 models and 2,355 cases: 2,170 pass, 179 unsupported, and 6 existing failures. Preserved inputs/result classes for the existing 2,328 cases, plans for 54 models, existing-model aggregates for 157 saved runs, and 6,786 generated files. The full suite increased by 27 to 10,105 cases, with 3,668 generated cases. Register no new requirement mappings; retain the requirement-coverage denominator and verification rate.
 
 All 552 local tool unit tests and 11 consistency checks succeeded. Metadata checks cover 10,105 cases with 0 new issues and 395 known issues. All 765 local links in the document are also valid. These are local check results, distinct from full runs of GitHub Check and Nightly.
+
+<a id="dpiの書戻しとnbaの値代入先の確定"></a>
+
+### DPI copyback and NBA capture
+
+`interaction_dpi_nba.py` implements the chapter 10×35 P1 candidate as `dpi_nba_capture@1`.
+It passes static fixed-array elements to DPI `input`, `output` and `inout int` formals and schedules an NBA before or after the call.
+Same/different elements, widths 8/32/65, signed/unsigned and bit/logic define 144 legal rows. The 18 selected cases retain
+all 81 factor pairs, 48 targeted triples and four anchors: 87.5% fewer rows, without a claim about elapsed-time savings.
+
+The return value and all elements immediately after the call expose copy-in, copyback and conversion to int.
+The NBA RHS XORs the DPI actual element with a payload, so scheduling after an output/inout call must use the copied-back value.
+The source element, both indices and payload then change. Postponed and next-time observations check every element,
+distinguishing wrong captured bits, a wrong destination and damaged neighbors. A single module process orders these operations;
+there is no `#0` wait or competing process. Clauses 35.6.1, 35.6.1.1, 35.6.2, 10.4.2, 10.8 and the event-region rules govern the expectations.
+The C helper never reads an output argument's unspecified initial value, and its arithmetic cannot overflow.
+
+Fixed Verilator 5.052 at [seed 1](../coverage/interaction-results/cross56-dpi-nba-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross56-dpi-nba-verilator5052-seed73.json) records 14 pass and 4 known each.
+Four 65-bit output/inout actuals stop on internal build errors. They retain standard-derived expectations and have no fixed oracle;
+only the other 14 gain that oracle. All 18 parse and type-check in the latest kirimasim build, but its runner marks them unsupported
+because C loading is unavailable. Fixed-release partial success is not added to kirimasim success.
+
+The [independent checks and fault injection](../coverage/interaction-qualification/dpi-nba.json) use bit strings and the actual C ABI
+to recalculate all 144 rows. After a passing control, four faults—immediate update, late value/index capture, lost copyback and wrong
+signedness—were detected by output differences, rather than compilation failures. The [latest-build and parse record](../coverage/interaction-qualification/dpi-nba-build.json)
+is also saved. Reproduce with fixed Verilator 5.052 and a C compiler, choosing a new output filename:
+
+```sh
+python3 tools/qualify_dpi_nba.py --verilator /path/to/verilator-5.052 --cc cc \
+  --output coverage/interaction-qualification/NEW-dpi-nba.json
+```
+
+X/Z, open arrays, NBAs into dynamic arrays, C-to-SV reentry, time-consuming DPI tasks, competing processes and scalar-variable
+copyback are outside this model. It does not qualify all of chapter 35 or every DPI boundary.
 
 <a id="モデル変更時の更新"></a>
 

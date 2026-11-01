@@ -276,25 +276,6 @@
     },
     {
       "chapters": [
-        10,
-        35
-      ],
-      "category": "C",
-      "priority": "P1",
-      "reason": "外国語呼出しの同期的な書戻しと遅延する代入が同じ変数に作用する境界。競合のない刺激を設計する。",
-      "objective": "DPIの書戻しとNBAの値・代入先の確定",
-      "factors": [
-        "DPI input/output/inout",
-        "呼出しとNBA予約の前後",
-        "左辺（scalar/要素）",
-        "幅/状態型"
-      ],
-      "observation": "DPI復帰直後・NBA前・NBA後の値と非選択要素を別々に観測する。",
-      "witnesses": [],
-      "rank": 10
-    },
-    {
-      "chapters": [
         11,
         18
       ],

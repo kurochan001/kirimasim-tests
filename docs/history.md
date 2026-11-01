@@ -148,3 +148,5 @@ clause 37.
   were retained.
 - Extended Nightly publication to generate English/Japanese result reports,
   coverage exports and charts from the same recorded execution data.
+
+- Added the chapter 10×35 DPI/NBA P1 model: 144 legal rows reduced to 18 cases, 81 pairs, 48 targeted triples and four anchors. All 144 reference rows and the C ABI were checked independently; four faults were detected. Fixed Verilator seeds each have 14 pass and 4 known build failures. Latest kirimasim `1144b2acab1e` has 2,170 pass, 197 unsupported and the existing 6 fail across 2,373 cases; the preceding 2,355 outcomes and fingerprints are unchanged. See the [model and saved evidence](interaction-verification.en.md#dpi-copyback-and-nba-capture).

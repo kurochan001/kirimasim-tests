@@ -12,13 +12,13 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 10105 |
+| Tests | 10123 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
 | Clauses with at least two direct tests | 1010/1010 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 117 |
+| Clauses with two tests or fewer | 116 |
 | Clauses with only standard-only tests | 200 |
 | Clauses with one test and only a standard-only test | 0 |
 
@@ -26,8 +26,8 @@
 | --- | ---: |
 | both releases | 768 |
 | Icarus Verilog 13.0 only | 4851 |
-| Verilator 5.052 only | 1691 |
-| standard only | 2795 |
+| Verilator 5.052 only | 1705 |
+| standard only | 2799 |
 
 <a id="章別"></a>
 
@@ -67,7 +67,7 @@
 | 32 | Backannotation using the standard delay format | 50 | 11 | 4.5 | 0 | 34 |
 | 33 | Configuring the contents of a design | 84 | 13 | 6.5 | 0 | 67 |
 | 34 | Protected envelopes | 4 | 8 | 0.5 | 0 | 0 |
-| 35 | Direct programming interface | 131 | 21 | 6.2 | 0 | 43 |
+| 35 | Direct programming interface | 149 | 21 | 7.1 | 0 | 47 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 19 | 4.7 | 0 | 36 |
 | 37 | VPI object model diagrams | 227 | 94 | 2.4 | 0 | 208 |
 | 38 | VPI routine definitions | 109 | 46 | 2.4 | 0 | 44 |

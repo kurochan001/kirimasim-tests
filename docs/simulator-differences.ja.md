@@ -103,6 +103,7 @@
 
 |条項|Verilator 5.052 が何をするか|テスト|
 | --- | --- | --- |
+| 35.6.1, 35.6.1.1, 35.6.2 | imported int仮引数へ渡す合法な65ビット配列要素のoutput/inout実引数4件が、両seedでビルド時のサイズ変換の内部エラーとなる。規格由来の変換・書戻しの期待値を維持し、固定oracleを付けない。 | `gen/ch35/test_gen_cross_dpi_nba_*_65_*`; [範囲と両seedの記録](interaction-verification.md#dpi-copyback-and-nba-capture) |
 | 13.5.1, 13.5.2 |refとして渡した129 bit幅のbitベクトルのキュー要素と、const refとして渡した65 bit幅のbitベクトルの動的配列要素は、呼出し側が元の要素を変更した後も、呼出し開始時の値を示す。両方のシードで不一致となる。const ref と ref は呼び出し者の更新を観察しなければなりません。| `gen/ch13/test_gen_cross_bind_w129_b_known_ref_queue_same`, `gen/ch13/test_gen_cross_bind_w65_b_known_const_ref_dynamic_next` |
 | 13.5.2 |型が等価なlogicベクトル要素をconst ref実引数として拒否する。33-bitのキュー要素と64-bitの固定配列要素は、両方のシードでref引数の型に関する診断を生じる。等価な型を持つ配列要素は、正当な実引数である。| `gen/ch13/test_gen_cross_bind_w33_l_known_const_ref_queue_invalid`, `gen/ch13/test_gen_cross_bind_w64_l_known_const_ref_fixed_same`; [モデルと保存実行](interaction-verification.md#引数の結合と呼出し後の添字変更) |
 | 14.16, 4.4.2 |非ゼロ出力スキューを持つクロック出力に対して，将来の駆動時にアクティブ観測が既に新しい値を見る。ドライブは、そのActive領域での観測より後のRe-NBAで更新しなければならない。Postponed領域での観測では、新しい値が見える。両方の固定シードで、時刻8に不一致となる。| `ch14/test_clocking_default_skew`; [レビューと保存実行](issues-40-44-review-20261031.md) |

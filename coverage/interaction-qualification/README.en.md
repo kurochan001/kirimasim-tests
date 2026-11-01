@@ -111,3 +111,12 @@ Please specify a new file as the output destination, which will not overwrite ex
 [ `20261101-event-rebind-build.json` ](20261101-event-rebind-build.json) records agreement between the upstream and built versions of kirimasim used to run [ `event_rebinding` ](../../docs/interaction-verification.en.md#イベント変数の再結合と登録済み待機の保持), binary immutability, successful syntax and semantic analysis for 27 cases, and preservation of the inputs and result categories of the existing 2,328 cases. [ `20261101-event-rebind-prior-digests.json` ](20261101-event-rebind-prior-digests.json) fingerprints the existing 6,786 generated files, plans for 54 models, 157 saved runs, and existing model aggregates.
 
 The behavior is unsupported by kirimasim and fails to build with fixed Icarus / Verilator, so there is no record that SystemVerilog fault injection ran successfully. The observational sensitivity to abstract errors of the 13 species confirmed by the independent reference model is not added to the number of fault detections in the run.
+
+<a id="dpiの書戻しとnbaの確認"></a>
+
+## DPI copyback and NBA checks
+
+[`dpi-nba.json`](dpi-nba.json) records independent bit-string/C ABI checks of all 144 rows, a passing control and four faults detected by output differences.
+[`dpi-nba-build.json`](dpi-nba-build.json) records the latest kirimasim commit verified before execution, the binary fingerprint, 18 successful parses and the full cross-run location.
+Both fixed Verilator seeds have 14 pass and 4 known; the 18 new cases need unsupported C loading in kirimasim. Partial successes are not merged, and auxiliary experiments are not added to normal pass counts.
+See [scope and reproduction](../../docs/interaction-verification.en.md#dpi-copyback-and-nba-capture).

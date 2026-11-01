@@ -1,0 +1,89 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch35/test_gen_cross_dpi_nba_inout_dpi_first_other_8_unsigned_bit": {
+   "status": "pass",
+   "inputs_sha256": "bfedea7dcb63b3c3591c993d75348cea30ceed3332b5a1d17e5654667ec85309"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_inout_dpi_first_same_65_unsigned_bit": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_nba_inout_dpi_first_same_65_unsigned_bit.sv:48:41: ../V3Task.cpp:532: Inout pin resizing should have had extend or select",
+   "inputs_sha256": "42ee2cfaac763f8da18f1d1220f7f7e14f6f587604e96d10b26c614532341d03"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_inout_nba_first_other_32_unsigned_bit": {
+   "status": "pass",
+   "inputs_sha256": "5e5f676ad7b56712f104b70da20d9653ebd4713dbd785c584c58c0ae6f0674dc"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_inout_nba_first_same_32_signed_logic": {
+   "status": "pass",
+   "inputs_sha256": "b74e8e499e460efe3129a3a002c5b951915649cfc28f7d2064b68d75c5a0d95b"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_inout_nba_first_same_65_signed_logic": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_nba_inout_nba_first_same_65_signed_logic.sv:49:41: ../V3Task.cpp:532: Inout pin resizing should have had extend or select",
+   "inputs_sha256": "4b2c6728d2fc465e968a1cdf534375ec10760c675da3b09ba9460205d8848e70"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_inout_nba_first_same_8_signed_logic": {
+   "status": "pass",
+   "inputs_sha256": "e389a13b70d11cc9a11dbd5b0075917df894e05a7efda3c531e788d0707277a8"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_input_dpi_first_other_65_signed_logic": {
+   "status": "pass",
+   "inputs_sha256": "c5c35f728fcb466bf6249441b67b597ad47cdcee330a6bc963d00bd60917e5a3"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_input_dpi_first_same_32_unsigned_logic": {
+   "status": "pass",
+   "inputs_sha256": "2fcea69c16f4eb939c58e949bd78968509086cd9bc44766f5fb55b1ce1629dac"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_input_nba_first_other_32_signed_bit": {
+   "status": "pass",
+   "inputs_sha256": "f3c3ffcf01619c8d1c85b45e151268936c9d59ea50710c55557d3bff364fdba8"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_input_nba_first_same_65_unsigned_bit": {
+   "status": "pass",
+   "inputs_sha256": "817d48db5ef66dba5f92438b695b13506a29010104a03237cf9523552fce03a0"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_input_nba_first_same_8_signed_logic": {
+   "status": "pass",
+   "inputs_sha256": "f464be85cd7767a5ed9de3d750ba0e6dc3d158a2542b9e632128c15820674b6d"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_input_nba_first_same_8_unsigned_bit": {
+   "status": "pass",
+   "inputs_sha256": "e8fc7c97a24b3307591f2b0cbb3770fc93b769d0d9d44a3c228b3c516dd4a9c0"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_output_dpi_first_other_32_unsigned_bit": {
+   "status": "pass",
+   "inputs_sha256": "e86e9d0a05e5b497c732434475a29f94cb474af2ef4a1492a51e1622e4a84910"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_output_dpi_first_same_65_unsigned_logic": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_nba_output_dpi_first_same_65_unsigned_logic.sv:48:42: ../V3Task.cpp:532: Inout pin resizing should have had extend or select",
+   "inputs_sha256": "3ccae699bbc0c0cbec0068e6cf197b887ef46ab8efa53e8d9404380250a9780c"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_output_nba_first_other_65_signed_bit": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_nba_output_nba_first_other_65_signed_bit.sv:49:42: ../V3Task.cpp:532: Inout pin resizing should have had extend or select",
+   "inputs_sha256": "b5897421959c75d010edf9a5adf83ecf785b6b4e104c8547b8170d4414ecca42"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_output_nba_first_same_32_signed_logic": {
+   "status": "pass",
+   "inputs_sha256": "a2dd84edfe7b576541818749b2eb4b5b069cd710a4ae3a99d9aaf682475d6a9b"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_output_nba_first_same_8_signed_logic": {
+   "status": "pass",
+   "inputs_sha256": "f6b24896b7748ec33f6512088b246ff1477b3e31b42410a005fe48dcd43713e3"
+  },
+  "gen/ch35/test_gen_cross_dpi_nba_output_nba_first_same_8_unsigned_bit": {
+   "status": "pass",
+   "inputs_sha256": "0ba8963686dcc1af6f65451b4beed3bb49fdc75ea05137dcdc2996347bef47ac"
+  }
+ },
+ "generated_at": "2026-11-01T09:09:15.991684+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

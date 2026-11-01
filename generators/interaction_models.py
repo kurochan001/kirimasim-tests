@@ -56,6 +56,7 @@ import interaction_udpstate
 import interaction_ifimport
 import interaction_mailbox
 import interaction_event_rebind
+import interaction_dpi_nba
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -89,7 +90,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_udpstate,
               interaction_ifimport,
               interaction_mailbox,
-              interaction_event_rebind,
+              interaction_event_rebind, interaction_dpi_nba,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -504,6 +505,14 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_mailbox.MODEL.select(),
             "classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量制限・nullメッセージと"
             "取得前後の双方向のメンバ更新を確認する。別mailboxの保持と後の更新、空の非ブロッキング戻り値も観測する。",
+        ),
+        SuiteModel(
+            interaction_dpi_nba.MODEL,
+            lambda row: "tests/gen/ch35/" + interaction_dpi_nba.case_name(row) + ".sv",
+            interaction_dpi_nba.MODEL.select(),
+            "DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組み合わせる。"
+            "幅・符号・bit/logicからintへの変換、復帰直後の書戻し、予約後の添字・値の変更、"
+            "Postponedと次時刻の全要素を照合し、NBAの値と代入先の確定を確認する。",
         ),
         SuiteModel(
             interaction_event_rebind.MODEL,
