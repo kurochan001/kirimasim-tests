@@ -39,6 +39,7 @@ REPOSITORY = os.environ.get("GITHUB_REPOSITORY", "kurochan001/kirimasim-tests")
 SERVER = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
 MAX_LISTED = 100       # tests listed per change in history.json
 RECENT_RUNS = 30       # rows of the table of recent runs in the report
+TEST_COUNT_Y_MAX = 12000  # upper limit of the test-count charts
 
 # Simulators in the order they are shown, with their colors in the light and
 # the dark color scheme. Others follow in the order of their ids.
@@ -426,7 +427,7 @@ def stacked_chart(title: str, subtitle: str, runs: list[dict], sim: str) -> str:
     times = [parse_time(r["time"]) for r in runs]
     axis = TimeAxis(times, 64 + 16, width - 40)   # room for half a column at each end
     infos = [r["simulators"].get(sim) for r in runs]
-    y_max = nice_ceiling(max((ran(i) for i in infos if i), default=1) * 1.05)
+    y_max = TEST_COUNT_Y_MAX
     body = [text(20, 28, title, "title"), text(20, 48, subtitle, "muted")]
     used = [s for s in STATUS_LABELS if any(i and i["counts"][s] for i in infos)]
     x = 20
@@ -526,7 +527,8 @@ def render(directory: Path, runs: list[dict]) -> None:
     (charts / "overview.svg").write_text(line_chart(
         "Tests that match their expected results",
         "Recorded runs of the suite; local imports are identified in the report",
-        runs, counts, colors, shown=lambda v: f"{v:.0f}"), encoding="utf-8")
+        runs, counts, colors, y_max=TEST_COUNT_Y_MAX, shown=lambda v: f"{v:.0f}"),
+        encoding="utf-8")
 
     rates = [(sim, label(last[sim]), False, sim_marker(sim, sims),
               [100 * matched(r["simulators"][sim]) / ran(r["simulators"][sim])
