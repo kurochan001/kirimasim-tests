@@ -12,22 +12,22 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 10202 |
+| Tests | 10258 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
 | Clauses with at least two direct tests | 1010/1010 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 115 |
+| Clauses with two tests or fewer | 114 |
 | Clauses with only standard-only tests | 200 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 768 |
-| Icarus Verilog 13.0 only | 4851 |
-| Verilator 5.052 only | 1772 |
-| standard only | 2811 |
+| Icarus Verilog 13.0 only | 4882 |
+| Verilator 5.052 only | 1789 |
+| standard only | 2819 |
 
 <a id="章別"></a>
 
@@ -46,18 +46,18 @@
 | 11 | Operators and expressions | 1644 | 42 | 39.1 | 0 | 250 |
 | 12 | Procedural programming statements | 251 | 19 | 13.2 | 0 | 49 |
 | 13 | Tasks and functions (subroutines) | 352 | 15 | 23.5 | 0 | 34 |
-| 14 | Clocking blocks | 114 | 15 | 7.6 | 0 | 38 |
+| 14 | Clocking blocks | 126 | 15 | 8.4 | 0 | 46 |
 | 15 | Interprocess synchronization and communication | 135 | 21 | 6.4 | 0 | 83 |
 | 16 | Assertions | 715 | 69 | 10.4 | 0 | 508 |
 | 17 | Checkers | 81 | 10 | 8.1 | 0 | 59 |
 | 18 | Constrained random value generation | 213 | 44 | 4.8 | 0 | 80 |
 | 19 | Functional coverage | 157 | 24 | 6.5 | 0 | 127 |
 | 20 | Utility system tasks and system functions | 330 | 31 | 10.6 | 0 | 66 |
-| 21 | Input/output system tasks and system functions | 272 | 47 | 5.8 | 0 | 76 |
+| 21 | Input/output system tasks and system functions | 303 | 47 | 6.4 | 0 | 76 |
 | 22 | Compiler directives | 398 | 21 | 19.0 | 0 | 36 |
 | 23 | Modules and hierarchy | 331 | 33 | 10.0 | 0 | 71 |
 | 24 | Programs | 97 | 7 | 13.9 | 0 | 71 |
-| 25 | Interfaces | 155 | 12 | 12.9 | 0 | 31 |
+| 25 | Interfaces | 168 | 12 | 14.0 | 0 | 31 |
 | 26 | Packages | 83 | 6 | 13.8 | 0 | 14 |
 | 27 | Generate constructs | 175 | 5 | 35.0 | 0 | 26 |
 | 28 | Gate-level and switch-level modeling | 245 | 26 | 9.4 | 0 | 48 |

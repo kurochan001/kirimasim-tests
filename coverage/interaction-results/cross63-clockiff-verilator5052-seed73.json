@@ -1,0 +1,69 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch14/test_gen_cross_clockiff_1_bit_posedge_step_nba_scalar_before": {
+   "status": "pass",
+   "inputs_sha256": "d0f3da9a6283ace988558304a150bbe485a9daaaf1ec352b2e25e2beb9956d44"
+  },
+  "gen/ch14/test_gen_cross_clockiff_1_bit_posedge_zero_blocking_wide_low_after": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch14/test_gen_cross_clockiff_1_bit_posedge_zero_blocking_wide_low_after.sv:35:8: ../V3FuncOpt.cpp:268: Inconsistent assignment",
+   "inputs_sha256": "8a6ffe38e60f8b875aa0689f1b8ed3fe9daa61c3fadd231f7af98ffdd8b881ae"
+  },
+  "gen/ch14/test_gen_cross_clockiff_1_logic_negedge_zero_blocking_scalar_after": {
+   "status": "pass",
+   "inputs_sha256": "e1c799a34d1ebac129660647fd3b696f5e6e039e1372d2216e00dcc2891fd572"
+  },
+  "gen/ch14/test_gen_cross_clockiff_1_logic_posedge_step_blocking_wide_high_before": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch14/test_gen_cross_clockiff_1_logic_posedge_step_blocking_wide_high_before.sv:35:8: ../V3FuncOpt.cpp:268: Inconsistent assignment",
+   "inputs_sha256": "f3b539ac746c91fae0a6646a612b4e9e02ed062a4092794f720d38e1f484342b"
+  },
+  "gen/ch14/test_gen_cross_clockiff_33_bit_negedge_zero_blocking_wide_high_before": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch14/test_gen_cross_clockiff_33_bit_negedge_zero_blocking_wide_high_before.sv:35:8: ../V3FuncOpt.cpp:268: Inconsistent assignment",
+   "inputs_sha256": "f98788b5cd6bd78f98413b307472a04b7f9fd65969a2fcf65e3c7f5363982b8f"
+  },
+  "gen/ch14/test_gen_cross_clockiff_33_bit_posedge_step_blocking_scalar_after": {
+   "status": "pass",
+   "inputs_sha256": "13dea93a2ba65dea072170d1902a2cbf3ba8380a3ac3f5f606c07a158df329bb"
+  },
+  "gen/ch14/test_gen_cross_clockiff_33_logic_negedge_step_nba_wide_low_before": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch14/test_gen_cross_clockiff_33_logic_negedge_step_nba_wide_low_before.sv:35:8: ../V3FuncOpt.cpp:268: Inconsistent assignment",
+   "inputs_sha256": "b231fba92ba2f7f653cc4a8d848a4574c4089ecbc41d7a7bc5db68e9cde26491"
+  },
+  "gen/ch14/test_gen_cross_clockiff_33_logic_posedge_zero_nba_wide_high_after": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch14/test_gen_cross_clockiff_33_logic_posedge_zero_nba_wide_high_after.sv:35:8: ../V3FuncOpt.cpp:268: Inconsistent assignment",
+   "inputs_sha256": "3cf1bd92dfd3c8fec719334dffd9184893ed18c78f5c599a535578f080e0d578"
+  },
+  "gen/ch14/test_gen_cross_clockiff_8_bit_negedge_step_blocking_wide_low_after": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch14/test_gen_cross_clockiff_8_bit_negedge_step_blocking_wide_low_after.sv:35:8: ../V3FuncOpt.cpp:268: Inconsistent assignment",
+   "inputs_sha256": "dbfaf826222189e0370297330bd90aa92f3222da10ba4e3184ce51c11f721d2f"
+  },
+  "gen/ch14/test_gen_cross_clockiff_8_bit_negedge_zero_nba_scalar_before": {
+   "status": "pass",
+   "inputs_sha256": "e73d8908eb0286747016573389bb04d59de396237110c2a349e52965666f714c"
+  },
+  "gen/ch14/test_gen_cross_clockiff_8_logic_negedge_step_nba_wide_high_after": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch14/test_gen_cross_clockiff_8_logic_negedge_step_nba_wide_high_after.sv:35:8: ../V3FuncOpt.cpp:268: Inconsistent assignment",
+   "inputs_sha256": "e14ecbb271ae1798aaae7dedb84dba1842690ae89e6945f6191f76e7db028ff8"
+  },
+  "gen/ch14/test_gen_cross_clockiff_8_logic_posedge_zero_nba_wide_low_before": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch14/test_gen_cross_clockiff_8_logic_posedge_zero_nba_wide_low_before.sv:35:8: ../V3FuncOpt.cpp:268: Inconsistent assignment",
+   "inputs_sha256": "ff5e77357f2ecc7dd9227167b7c29a0d032926f24e0948c79a65d6fd23a6a7b3"
+  }
+ },
+ "generated_at": "2026-11-01T14:32:04.568240+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

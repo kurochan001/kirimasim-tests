@@ -1,0 +1,22 @@
+slot=idle a=z b=z value=1
+strength=Pu1 guard0=Su0 guard1=Su1
+slot=p0_half a=0 b=z value=0
+strength=St0 guard0=Su0 guard1=Su1
+slot=p0_full a=0 b=1 value=x
+strength=StX guard0=Su0 guard1=Su1
+slot=p1_half a=1 b=1 value=1
+strength=St1 guard0=Su0 guard1=Su1
+slot=p1_full a=1 b=0 value=x
+strength=StX guard0=Su0 guard1=Su1
+slot=p2_half a=0 b=0 value=0
+strength=St0 guard0=Su0 guard1=Su1
+slot=p2_full a=0 b=0 value=0
+strength=St0 guard0=Su0 guard1=Su1
+slot=p3_half a=1 b=0 value=x
+strength=StX guard0=Su0 guard1=Su1
+slot=p3_full a=1 b=1 value=1
+strength=St1 guard0=Su0 guard1=Su1
+slot=release_half a=z b=1 value=1
+strength=St1 guard0=Su0 guard1=Su1
+slot=release_full a=z b=z value=1
+strength=Pu1 guard0=Su0 guard1=Su1

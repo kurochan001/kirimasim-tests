@@ -138,52 +138,6 @@
     },
     {
       "chapters": [
-        8,
-        25
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "クラスが保持するvirtual interfaceの接続先が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "クラスが保持するvirtual interfaceの接続先",
-      "factors": [
-        "ハンドル格納場所",
-        "インスタンス数",
-        "再結合/null",
-        "読み書き経路"
-      ],
-      "observation": "直接更新したinterfaceの値をクラス経由で読み、同じ実体を参照することを確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch25/test_virtual_interface.sv",
-          "inputs_sha256": "e2682d3c8dcbd4035e14300be0ab9daf71610a81a5584909b4412fd3d0a4adbd"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        9,
-        14
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "clocking eventのiffとサンプル保持が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "clocking eventのiffとサンプル保持",
-      "factors": [
-        "エッジ種別",
-        "iffの真偽/X/Z",
-        "ガード変更時点",
-        "入力更新時点"
-      ],
-      "observation": "通過したイベントだけでサンプルを更新し、ガード不通過時は前の値を保持する。",
-      "witnesses": [
-        {
-          "test": "tests/ch14/test_clocking_event_iff.sv",
-          "inputs_sha256": "1c7ffa77cadf9a7cf19932de8aa1312ef94e418ccc3b7d3f90e258eab8e8bb0e"
-        }
-      ]
-    },
-    {
-      "chapters": [
         9,
         16
       ],
@@ -372,29 +326,6 @@
       ],
       "observation": "SVの$size/$left/$rightとCのsvSize/svLeft/svRightを同一実引数で照合する。",
       "witnesses": []
-    },
-    {
-      "chapters": [
-        21,
-        28
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "解決済み強度と%vの書式化が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "解決済み強度と%vの書式化",
-      "factors": [
-        "ドライバ強度",
-        "競合の有無",
-        "値（0/1/X/Z）",
-        "net型"
-      ],
-      "observation": "解決後の値と強度をSt/We/Pu/Su/HiZの表示で確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch21/test_display_strength_format.sv",
-          "inputs_sha256": "30c6b4e56b8abba3d022df496316d3480ab3f61e3fa883735f58ba093d548db5"
-        }
-      ]
     },
     {
       "chapters": [

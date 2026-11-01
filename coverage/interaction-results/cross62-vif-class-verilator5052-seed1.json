@@ -1,0 +1,65 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch25/test_gen_cross_vif_class_1_bit_full_a_shallow_copy_method": {
+   "status": "pass",
+   "inputs_sha256": "1b2627dcc3bb804022f1978b04ac1d51ea5995a2445a2dcbc2398bcf91006520"
+  },
+  "gen/ch25/test_gen_cross_vif_class_1_bit_full_b_alias_source_property": {
+   "status": "pass",
+   "inputs_sha256": "65adc99694e122ec88a8248045e1fffd06e85fb1f151037f896bd6d653bcaf0c"
+  },
+  "gen/ch25/test_gen_cross_vif_class_1_bit_modport_a_shallow_source_method": {
+   "status": "pass",
+   "inputs_sha256": "d6d1351f068b0e9184d1d93a0e97ad5d49f27ec7b6ba6d20c51ecd6240bd8b72"
+  },
+  "gen/ch25/test_gen_cross_vif_class_1_logic_full_a_alias_source_property": {
+   "status": "pass",
+   "inputs_sha256": "7ad0cbbce535f097938cb3ceec14ec50c1fa4022138d13a773bff34464880f0e"
+  },
+  "gen/ch25/test_gen_cross_vif_class_1_logic_modport_a_alias_copy_method": {
+   "status": "pass",
+   "inputs_sha256": "f7141a65a7a80e3fc8153c5b6b7d60d300eacaa908e661f02900aaa8367661be"
+  },
+  "gen/ch25/test_gen_cross_vif_class_33_bit_full_a_shallow_source_method": {
+   "status": "pass",
+   "inputs_sha256": "11caaccbebb0c7ddabdd0bbcf4f102aac55aa53eab54b03bccfb53bdbdd49ca7"
+  },
+  "gen/ch25/test_gen_cross_vif_class_33_bit_full_b_alias_copy_property": {
+   "status": "pass",
+   "inputs_sha256": "ffe2adfe7f81b00717baedd0541e9040ac8140ce0836a469331d3f373cf6e5eb"
+  },
+  "gen/ch25/test_gen_cross_vif_class_33_logic_modport_a_alias_source_method": {
+   "status": "pass",
+   "inputs_sha256": "e8ff387eb9aff5de805392515189ae01f369adeac160229678753d45181c462a"
+  },
+  "gen/ch25/test_gen_cross_vif_class_33_logic_modport_b_shallow_source_property": {
+   "status": "pass",
+   "inputs_sha256": "60a68d0509d3066dbfb660d5cb29f56fe621e4216953e0d28b5723eefeafad69"
+  },
+  "gen/ch25/test_gen_cross_vif_class_8_bit_full_a_shallow_copy_property": {
+   "status": "pass",
+   "inputs_sha256": "76c435b2512f1d818638d5faf7ace601cf722522d4aab26108e1c5c3ab09742b"
+  },
+  "gen/ch25/test_gen_cross_vif_class_8_bit_modport_a_alias_source_method": {
+   "status": "pass",
+   "inputs_sha256": "40ed2a8aded5474cfac7730558c416b6ddcee82bb6f6251a3cc0bc301c3c6ca7"
+  },
+  "gen/ch25/test_gen_cross_vif_class_8_logic_full_a_alias_source_property": {
+   "status": "pass",
+   "inputs_sha256": "027346861842c97f54de79b0d3ef26d6a303d51f91a60cc65c73f0e7e49f5963"
+  },
+  "gen/ch25/test_gen_cross_vif_class_8_logic_modport_b_shallow_copy_method": {
+   "status": "pass",
+   "inputs_sha256": "ed80da2cd003ff2efe01d07fcbdc9b46151883598738fc6da14e55b3d36045b6"
+  }
+ },
+ "generated_at": "2026-11-01T13:36:28.898092+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

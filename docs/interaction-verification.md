@@ -14,7 +14,13 @@
 
 各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・ 検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と [生成レポート](interaction-coverage.md)を参照してください。
 
-2026-11-01のクラス配列追加：現在は**60モデル・2,452件**です。実行直前に上流mainと照合してビルドしたkirimasim `f2d9a1136576`の[全クロス保存実行](../coverage/interaction-results/cross60-kirimasim-f2d9a113.json)は**2,176 pass・270 unsupported・既存6 fail**です。新規18件は6 pass・12 unsupportedで、従来2,434件の入力ハッシュと結果区分は同じです。新規18件の構文・意味解析はすべて成功しました。第7章×第8章を登録し、章対は91対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも新規18件すべてが一致しました。[設計と確認範囲](#class-array-storage-and-shared-elements)を参照してください。
+2026-11-01のclocking iff追加：現在は**63モデル・2,508件**です。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross63-kirimasim-80859f34.json)は**2,207 pass・295 unsupported・既存6 fail**です。新規12件はガード付きclocking event未対応で、解析はすべて成功しました。従来2,496件の入力ハッシュと結果区分は同じです。第9章×第14章を登録し、章対は94対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedともスカラ条件4件が一致し、ベクタ条件8件はビルド時内部エラーです。[設計と確認範囲](#clocking-event-guards-and-held-samples)を参照してください。
+
+同日のクラスvirtual interface追加時点では**62モデル・2,496件**でした。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross62-kirimasim-80859f34.json)は**2,207 pass・283 unsupported・既存6 fail**です。新規13件はクラス内のvirtual interface型が未対応で、解析はすべて成功しました。従来2,483件の入力ハッシュは同じです。うち強度表示31件がunsupportedからPASSへ改善し、ほかの2,452件の結果区分は同じです。第8章×第25章を登録し、章対は93対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedとも新規13件すべてが一致しました。[設計と確認範囲](#class-virtual-interface-rebinding)を参照してください。
+
+同日の強度表示追加時点では**61モデル・2,483件**でした。実行直前に上流mainと照合してビルドしたkirimasim `f2d9a1136576`の[全クロス保存実行](../coverage/interaction-results/cross61-kirimasim-f2d9a113.json)は**2,176 pass・301 unsupported・既存6 fail**です。新規31件は`%v`未対応で、従来2,452件の入力ハッシュと結果区分は同じです。新規31件の構文・意味解析はすべて成功しました。第21章×第28章を登録し、章対は92対、全選択ケースPASSは46モデルです。固定Icarus Verilog 13.0は新規31件すべてが一致しました。[設計と確認範囲](#resolved-strength-formatting)を参照してください。
+
+同日のクラス配列追加時点では**60モデル・2,452件**でした。実行直前に上流mainと照合してビルドしたkirimasim `f2d9a1136576`の[全クロス保存実行](../coverage/interaction-results/cross60-kirimasim-f2d9a113.json)は**2,176 pass・270 unsupported・既存6 fail**です。新規18件は6 pass・12 unsupportedで、従来2,434件の入力ハッシュと結果区分は同じです。新規18件の構文・意味解析はすべて成功しました。第7章×第8章を登録し、章対は91対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも新規18件すべてが一致しました。[設計と確認範囲](#class-array-storage-and-shared-elements)を参照してください。
 
 同日のDPI open array追加時点では**59モデル・2,434件**でした。実行直前に上流mainと照合してビルドしたkirimasim `f2d9a1136576`の[全クロス保存実行](../coverage/interaction-results/cross59-kirimasim-f2d9a113.json)は**2,170 pass・258 unsupported・既存6 fail**です。新規30件はランナーのC読込み未対応で、従来2,404件の入力ハッシュと結果区分は同じです。別途行った解析は24件が成功し、合法なキュー6件が引数の型照合で拒否されました。第7章×第35章を登録し、章対は90対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも固定配列18件が一致し、動的配列・キュー12件は既知のビルド失敗です。[設計と確認範囲](#dpi-open-array-shape-and-copyback)を参照してください。
 
@@ -1676,6 +1682,119 @@ python3 tools/qualify_class_array.py --verilator /path/to/verilator-5.052 \
 
 X/Z、空配列、継承・基底ハンドル経由、rand状態、covergroup、ref、並行実行は対象外です。
 独自のdeep copyメソッドやUVMのコピー実装を検証したとは扱いません。
+
+<a id="resolved-strength-formatting"></a>
+
+### 解決済み駆動強度と表示・文字列整形
+
+`interaction_strengthfmt.py`の`resolved_strength_format@1`は、第21章×第28章のP2候補を実装します。
+net型wire／tri0／tri1、5種類のドライバ強度対、更新順AB／BA、display／sformatf／swrite、通常／反転の極性を組み合わせます。
+合法180通りから31件を選び、全因子対87組・重点3因子78組・必須4件を保持します。選択件数を82.78%削減しました。
+固定Icarus Verilog 13.0の[保存実行](../coverage/interaction-results/cross61-strength-format-icarus13.json)は全31件がPASSで、この31件にoracleを登録しました。
+
+各連続代入は0と1に同じ単一強度を使い、強度対は同じweak／pull／strong、または片方がstrongでもう片方がweakです。
+既知の0/1とZを順に与え、等しい最大強度での0/1競合からXを作ります。曖昧な駆動強度を与えるモデルではありません。
+wireの全解放時のHiZ、tri0/tri1のpull既定値、強いドライバの優先、同強度の競合を照合します。
+最初の全解放、4組の0/1入力について片側更新後と両側更新後、2段階の解放の計11時点を観測します。
+各書込みと観測は1tick離し、連続代入が解決してから読みます。極性反転と更新順により、同じ最終値へ至る途中の値も変わります。
+
+同じscalar netを`$display`、`$sformatf`または`$swrite`の`%v`へ直接渡し、値・駆動入力・強度文字列を別々に照合します。
+string APIはpoisonで初期化した変数へ毎回上書きし、`%s`で出力します。独立したsupply0／supply1のSu0／Su1も同時に確認します。
+根拠は§21.2.1.4・21.3.3・28.12.1・28.15.1・6.6.5・10.3.4です。
+We／Pu／Stの既知値・XとHiZを扱い、L/H、強度範囲の数字表示、trireg、wired logic、ベクタ、遅延付きゲート、ファイル出力は対象外です。
+変数を介した強度伝達は正例の対象外で、故障注入では誤った変数渡しを検出できるかを確認します。未対応を理由に合法行を除いていません。
+
+追加時点のkirimasim `f2d9a1136576`では解析は成功し、実行は`%v`未対応でした。[追加時点の記録](../coverage/interaction-qualification/strength-format-build.json)を保持しています。
+今回のkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross62-kirimasim-80859f34.json)では、同じ入力ハッシュの全31件がPASSしました。
+解析や固定版の成功をkirimasimの実行成功へ加算しません。
+
+[独立検算と故障注入](../coverage/interaction-qualification/strength-format.json)では、別の駆動寄与表と優先順位の真理値表で全180行を照合しました。
+3種類のAPIの正常対照が一致し、駆動強度の無視・ドライバ強度の入替え・netの変数への取り違え・format指定の誤り・
+古い文字列の再利用の5故障を出力差で検出しました。ビルド失敗を検出数へ加算していません。
+再確認時は13.0のバイナリディレクトリと新しい出力名を明示します。保存JSONは実際の版表記を保持します。
+
+```sh
+python3 tools/qualify_strength_format.py --iverilog-bin /path/to/icarus-13.0/bin \
+  --output coverage/interaction-qualification/NEW-strength-format.json
+```
+
+<a id="class-virtual-interface-rebinding"></a>
+
+### クラス内virtual interfaceの再結合と保存参照
+
+`interaction_vif_class.py`の`class_virtual_interface@1`は、第8章×第25章のP2候補を実装します。
+幅1・8・33、bit／logic、full／modport型、初期結合A／B、浅いコピー／ハンドル代入、元／コピーの操作、
+メソッド／プロパティからの直接書込みを組み合わせます。合法192通りから13件を選び、全因子対96組・重点3因子48組・必須4件を保持します。
+選択件数を93.23%削減しました。既知値でのbit／logicとfull／modportは等価性の対照で、未対応による除外はありません。
+
+三つのinterfaceは同じ型で、tag 11・22・33と独立したデータを持ちます。modportではdataをref、tagをinputとして公開します。
+クラスの浅いコピーはvirtual interfaceの結合変数を別に持ち、通常のクラスハンドル代入はクラス実体を共有します。
+最初は同じ実interfaceを参照し、片方の結合変数の再指定が他方へ波及するかを区別します。
+コピー直後、最初の書込み、別interfaceへの再結合、そこへの書込み、null時の書込み試行、保存参照からの書込み、
+元の結合への復帰の計7時点で、実interfaceの全ビット、tag、結合とクラスの同一性、成功回数、guardを照合します。
+保存した参照は元のinterfaceを指し続け、操作側がnullの間にも元の実体へ書き込みます。
+
+§25.9は同じ型の結合・比較とnullを定め、nullのメンバ参照を異常終了としています。
+この正例では比較とガードによりnullを扱い、メンバを参照せず、成功回数も増やしません。
+読出しメソッドの中立値0とtag -1、書込みの戻り値0、他方の結合と実体の保持を同時に確認します。
+根拠は§25.9・25.9.2・25.10・25.5・8.4・8.12です。X/Z、型不一致、null参照の異常終了、継承、clocking、時間制御、並行駆動は対象外です。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross62-vif-class-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross62-vif-class-verilator5052-seed73.json)は全13件がPASSで、この13件にoracleを登録しました。
+最新kirimasimでは全13件の解析が成功し、実行時はクラス内のfull／modport virtual interface型が未対応です。
+[最新ビルド・解析・実行の記録](../coverage/interaction-qualification/vif-class-build.json)を保存しています。解析と固定版の成功は実行成功へ合成しません。
+
+[独立検算と故障注入](../coverage/interaction-qualification/vif-class.json)では、別のPythonオブジェクトグラフで全192行を照合しました。
+生成側の時点ごとの式と、独立側のinterface実体・クラスコピー・参照の再指定を順に実行した結果を比較します。
+full／modport／クラス別名の正常対照3件が一致し、浅いコピーの別名化・再結合の欠落・保存参照の誤更新・
+書込みの欠落・null時の状態変更・古い読出し値の6故障を出力差で検出しました。ビルド失敗を検出数へ加算していません。
+
+```sh
+python3 tools/qualify_vif_class.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-vif-class.json
+```
+
+<a id="clocking-event-guards-and-held-samples"></a>
+
+### clocking eventのガードとサンプル保持
+
+`interaction_clockiff.py`の`clocking_event_iff@1`は、第9章×第14章のP2候補を実装します。
+幅1・8・33、bit／logic、posedge／negedge、入力#1step／#0、blocking／NBA、スカラ／33ビット下位1／上位1のガード、
+ガード更新の前／後を組み合わせます。合法288通りから12件を選び、全因子対109組・重点3因子44組・必須4件を保持します。
+選択件数を95.83%削減しました。幅×型×skewだけで12組あり、この計画の選択は必要行数の下限と一致します。
+
+ウォームアップでclockvarを既知の0にし、4回のrawエッジでガードの目標値を0・1・0・1と交互にします。
+ガードはエッジの2tick前または4tick後に更新し、エッジとは同時刻にしません。
+各周期はエッジの1tick前・2tick後・5tick後を観測し、選択したガード更新時刻の1tick後の読出しを含めます。
+ウォームアップを含む13時点でraw回数・cb起床回数・生データ・clockvar・観測器の保存値を照合します。
+§9.4.2.3のiffは元のイベントが生じた時に条件を評価し、ガードだけの変化では起床しません。
+ガードだけの変更による誤起床と、rawエッジ通過時の採取を別々に確認します。
+
+入力は全rawエッジでmoduleから更新します。受理したエッジでは§14.13に従い、#1stepは前の値、#0はObservedの更新後の値を採取します。
+観測器はcbイベントを待ち、clockvar更新後に読みます。不通過のエッジでは前のサンプルを保持します。
+blocking/NBAはこの観測時点では同じ期待値になる経路対照で、ActiveとNBAの間の動作やNBAの値・代入先の確定を保証するモデルではありません。
+アサーションは使わず、#0入力も§14.13の正例として扱います。根拠は§14.3・14.13・14.10・14.4・9.4.2.3・12.4です。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross63-clockiff-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross63-clockiff-verilator5052-seed73.json)は、それぞれスカラ条件4件がPASSです。
+この4件だけに固定版のoracleを登録しました。ベクタを直接`iff enabled`へ渡す合法8件はビルド時の内部エラーで、specの期待値を保持しています。
+未対応を理由に行を除かず、ビルド失敗を動作確認や負例の合格へ読み替えません。
+最新kirimasimでは全12件の解析が成功し、ガード付きclocking eventが未対応です。
+[最新ビルド・解析・実行の記録](../coverage/interaction-qualification/clockiff-build.json)を保存しています。
+
+[独立検算と故障注入](../coverage/interaction-qualification/clockiff.json)では、別の時刻・操作順のイベントキューで全288行を照合しました。
+補助検証の正常対照3件のうち、ベクタの2件だけは`iff (|enabled)`へ変更します。既知値では同じ真偽になり、固定版の内部エラーを避けて時刻・採取の期待値を確認できます。
+これは登録した元の8件の実行成功には加算しません。変換内容はJSONに記録しています。
+iffの削除・ガード変化のクロック化・skewの誤り・ガードの下位ビットだけの評価・観測値の採取欠落・エッジ極性の誤りの6故障を出力差で検出しました。
+ビルド失敗を故障検出数へ加算していません。
+
+```sh
+python3 tools/qualify_clockiff.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-clockiff.json
+```
+
+X/Z、同時刻のガード更新、出力skew、program、interface、複数クロック、アサーションは対象外です。
+ガードは既知値に限定し、33ビットの真偽と受理イベントの境界を確認するモデルです。
 
 <a id="updates-after-model-changes"></a>
 

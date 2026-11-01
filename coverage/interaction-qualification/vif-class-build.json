@@ -1,0 +1,92 @@
+{
+  "upstream_commit": "80859f34f0aab6c3aaa73b92d535f9ea869e64a1",
+  "version": "kirimasim 0.0.0 (commit 80859f34f0aa), built with AppleClang 21.0.0.21000401",
+  "results": "coverage/interaction-results/cross62-kirimasim-80859f34.json",
+  "runner_exit": 1,
+  "binary_sha256": "000490e62cef222fdcd16f220d741b89f87114ec59ba4ce3dd7a5144119609fa",
+  "parse_successes": 13,
+  "parse_rejections": 0,
+  "runner_scope": "Each test is parsed separately before the normal full-selection run.",
+  "parse_results": [
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_1_bit_full_a_shallow_copy_method.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_33_logic_modport_b_shallow_source_property.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_8_bit_modport_a_alias_source_method.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_33_bit_full_b_alias_copy_property.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_1_logic_full_a_alias_source_property.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_8_logic_modport_b_shallow_copy_method.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_33_bit_full_a_shallow_source_method.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_1_logic_modport_a_alias_copy_method.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_8_bit_full_a_shallow_copy_property.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_1_bit_full_b_alias_source_property.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_8_logic_full_a_alias_source_property.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_33_logic_modport_a_alias_source_method.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_vif_class_1_bit_modport_a_shallow_source_method.sv",
+      "returncode": 0,
+      "diagnostic": ""
+    }
+  ],
+  "inputs_sha256": {
+    "tests/gen/ch25/test_gen_cross_vif_class_1_bit_full_a_shallow_copy_method.sv": "1b2627dcc3bb804022f1978b04ac1d51ea5995a2445a2dcbc2398bcf91006520",
+    "tests/gen/ch25/test_gen_cross_vif_class_33_logic_modport_b_shallow_source_property.sv": "60a68d0509d3066dbfb660d5cb29f56fe621e4216953e0d28b5723eefeafad69",
+    "tests/gen/ch25/test_gen_cross_vif_class_8_bit_modport_a_alias_source_method.sv": "40ed2a8aded5474cfac7730558c416b6ddcee82bb6f6251a3cc0bc301c3c6ca7",
+    "tests/gen/ch25/test_gen_cross_vif_class_33_bit_full_b_alias_copy_property.sv": "ffe2adfe7f81b00717baedd0541e9040ac8140ce0836a469331d3f373cf6e5eb",
+    "tests/gen/ch25/test_gen_cross_vif_class_1_logic_full_a_alias_source_property.sv": "7ad0cbbce535f097938cb3ceec14ec50c1fa4022138d13a773bff34464880f0e",
+    "tests/gen/ch25/test_gen_cross_vif_class_8_logic_modport_b_shallow_copy_method.sv": "ed80da2cd003ff2efe01d07fcbdc9b46151883598738fc6da14e55b3d36045b6",
+    "tests/gen/ch25/test_gen_cross_vif_class_33_bit_full_a_shallow_source_method.sv": "11caaccbebb0c7ddabdd0bbcf4f102aac55aa53eab54b03bccfb53bdbdd49ca7",
+    "tests/gen/ch25/test_gen_cross_vif_class_1_logic_modport_a_alias_copy_method.sv": "f7141a65a7a80e3fc8153c5b6b7d60d300eacaa908e661f02900aaa8367661be",
+    "tests/gen/ch25/test_gen_cross_vif_class_8_bit_full_a_shallow_copy_property.sv": "76c435b2512f1d818638d5faf7ace601cf722522d4aab26108e1c5c3ab09742b",
+    "tests/gen/ch25/test_gen_cross_vif_class_1_bit_full_b_alias_source_property.sv": "65adc99694e122ec88a8248045e1fffd06e85fb1f151037f896bd6d653bcaf0c",
+    "tests/gen/ch25/test_gen_cross_vif_class_8_logic_full_a_alias_source_property.sv": "027346861842c97f54de79b0d3ef26d6a303d51f91a60cc65c73f0e7e49f5963",
+    "tests/gen/ch25/test_gen_cross_vif_class_33_logic_modport_a_alias_source_method.sv": "e8ff387eb9aff5de805392515189ae01f369adeac160229678753d45181c462a",
+    "tests/gen/ch25/test_gen_cross_vif_class_1_bit_modport_a_shallow_source_method.sv": "d6d1351f068b0e9184d1d93a0e97ad5d49f27ec7b6ba6d20c51ecd6240bd8b72"
+  }
+}

@@ -24492,6 +24492,9 @@
     "Inherited constraints dispatch dynamically and failed randomization preserves object state": "継承制約の動的な選択とランダム化失敗時の値の保持を確認する",
     "Clocking inputs retain their own samples across concurrent assertion clocks": "clocking入力は別クロックでのアサーション評価でも自身のサンプル値を保持する",
     "Open-array ZXQPH0QXZ calls preserve actual bounds and copy back every legal element": "Open arrayの ZXQPH0QXZ 呼出しで実引数の範囲を保持し、合法な全要素を書き戻す",
-    "Class shallow copies separate array storage while sharing referenced element objects": "クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する"
+    "Class shallow copies separate array storage while sharing referenced element objects": "クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する",
+    "Scalar strength formatting preserves resolved drives through display and string APIs": "スカラの強度表示で、解決済みの駆動強度をdisplayとstring APIへ保持する",
+    "Class-held virtual interfaces preserve copied bindings through rebinding and guarded null writes": "クラスに保持したvirtual interfaceのコピー・再結合とnull時の書込み抑止を検証する",
+    "Clocking iff gates sample updates and ignores guard-only changes across skew and update paths": "clockingのiffでサンプル更新を選別し、skewと更新経路をまたいでガードだけの変更を無視する"
   }
 }

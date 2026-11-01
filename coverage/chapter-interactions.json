@@ -1567,6 +1567,45 @@
           "reason": "浅いコピー後の配列格納領域の独立性と要素ハンドルの共有を、置換・サイズ変更・保存ハンドルの観測で照合する"
         }
       ]
+    },
+    {
+      "id": "resolved_strength_format",
+      "primary_chapter": 21,
+      "pairs": [
+        {
+          "chapters": [
+            21,
+            28
+          ],
+          "reason": "2ドライバとpull既定値の解決後の値・強度を、更新と解放の各時点で3種類のformat APIへ渡して照合する"
+        }
+      ]
+    },
+    {
+      "id": "class_virtual_interface",
+      "primary_chapter": 25,
+      "pairs": [
+        {
+          "chapters": [
+            8,
+            25
+          ],
+          "reason": "クラス内のvirtual interface結合と保存参照を、浅いコピー・別名・再結合・null時の状態保持・実interfaceの読書きで照合する"
+        }
+      ]
+    },
+    {
+      "id": "clocking_event_iff",
+      "primary_chapter": 14,
+      "pairs": [
+        {
+          "chapters": [
+            9,
+            14
+          ],
+          "reason": "iffが通過したrawエッジだけでclocking入力を更新し、ガードだけの変更と不通過時のサンプル保持を照合する"
+        }
+      ]
     }
   ]
 }

@@ -158,3 +158,31 @@ ABIスタブは離れた要素とcanaryを使い、シミュレータの動的�
 [`class-array-build.json`](class-array-build.json)は、最新上流と照合したkirimasimの版・バイナリ指紋・全18件の解析成功と全クロス実行先です。
 固定Verilatorは両seedとも全18件がPASS、kirimasimでは固定配列6件がPASS、動的配列・キュー12件が未対応です。補助実験は通常の合格数へ加算しません。
 [範囲と再確認手順](../../docs/interaction-verification.md#class-array-storage-and-shared-elements)を参照してください。
+
+<a id="resolved-strength-formatting-checks"></a>
+
+## 解決済み駆動強度の表示の確認
+
+[`strength-format.json`](strength-format.json)は、全180行の独立した駆動寄与・優先順位表との照合、3種類のformat APIの正常対照、5故障の出力差による検出を記録します。
+[`strength-format-build.json`](strength-format-build.json)は、最新上流と照合したkirimasimの版・バイナリ指紋・全31件の解析成功と全クロス実行先です。
+固定Icarus Verilog 13.0は全31件がPASSです。追加時点のkirimasim `f2d9a1136576`の`%v`未対応記録を保持し、今回のkirimasim `80859f34f0aa`では全31件がPASSしました。補助実験は通常の合格数へ加算しません。
+[範囲と再確認手順](../../docs/interaction-verification.md#resolved-strength-formatting)を参照してください。
+
+<a id="class-held-virtual-interface-rebinding-checks"></a>
+
+## クラス内virtual interfaceの再結合の確認
+
+[`vif-class.json`](vif-class.json)は、全192行の独立した結合グラフとの照合、正常対照3件、6故障の出力差による検出を記録します。
+[`vif-class-build.json`](vif-class-build.json)は、最新上流と照合したkirimasimの版・バイナリ指紋・全13件の解析成功と全クロス実行先です。
+固定Verilatorは両seedとも全13件がPASS、kirimasimではクラス内のvirtual interface型が未対応です。補助実験は通常の合格数へ加算しません。
+[範囲と再確認手順](../../docs/interaction-verification.md#class-virtual-interface-rebinding)を参照してください。
+
+<a id="clocking-event-iff-and-sample-retention-checks"></a>
+
+## clocking eventのiffとサンプル保持の確認
+
+[`clockiff.json`](clockiff.json)は、全288行の独立イベントキューとの照合、正常対照3件、6故障の出力差による検出を記録します。
+ベクタの補助対照2件では条件を明示的なリダクションORへ変更し、元のケースの合格とは区別します。
+[`clockiff-build.json`](clockiff-build.json)は、最新上流と照合したkirimasimの版・バイナリ指紋・全12件の解析成功と全クロス実行先です。
+固定Verilatorは両seedともスカラ条件4件がPASS、ベクタ条件8件は既知の内部ビルドエラーです。kirimasimではガード付きclocking eventが未対応です。
+[範囲と再確認手順](../../docs/interaction-verification.md#clocking-event-guards-and-held-samples)を参照してください。

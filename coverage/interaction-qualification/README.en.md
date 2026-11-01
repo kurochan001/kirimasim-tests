@@ -158,3 +158,31 @@ See [scope and reproduction](../../docs/interaction-verification.en.md#dpi-open-
 [`class-array-build.json`](class-array-build.json) records the latest-upstream-verified kirimasim version, binary fingerprint, 18 successful parses and full-run location.
 Both fixed Verilator seeds pass all 18 cases; kirimasim passes 6 fixed-array cases and reports 12 unsupported dynamic-array/queue cases. Auxiliary experiments are not added to normal pass counts.
 See [scope and reproduction](../../docs/interaction-verification.en.md#class-array-storage-and-shared-elements).
+
+<a id="解決済み駆動強度の表示の確認"></a>
+
+## Resolved-strength formatting checks
+
+[`strength-format.json`](strength-format.json) records an independent drive-contribution/priority comparison for all 180 rows, three format-API controls and five faults detected by output differences.
+[`strength-format-build.json`](strength-format-build.json) records the latest-upstream-verified kirimasim version, binary fingerprint, 31 successful parses and full-run location.
+Fixed Icarus Verilog 13.0 passes all 31 cases. The addition-time unsupported-`%v` record for kirimasim `f2d9a1136576` is retained; current kirimasim `80859f34f0aa` passes all 31. Auxiliary experiments are not added to normal pass counts.
+See [scope and reproduction](../../docs/interaction-verification.en.md#resolved-strength-formatting).
+
+<a id="クラス内virtual-interfaceの再結合の確認"></a>
+
+## Class-held virtual-interface rebinding checks
+
+[`vif-class.json`](vif-class.json) records independent binding graphs for all 192 rows, three passing controls and six output-difference faults.
+[`vif-class-build.json`](vif-class-build.json) records the latest-upstream-verified kirimasim version, binary fingerprint, 13 successful parses and full-run location.
+Both fixed Verilator seeds pass all 13 cases; kirimasim reports unsupported class-held virtual-interface types. Auxiliary experiments are not added to normal pass counts.
+See [scope and reproduction](../../docs/interaction-verification.en.md#class-virtual-interface-rebinding).
+
+<a id="clocking-eventのiffとサンプル保持の確認"></a>
+
+## Clocking-event iff and sample-retention checks
+
+[`clockiff.json`](clockiff.json) records independent event queues for all 288 rows, three controls and six output-difference faults.
+Two vector auxiliary controls use an explicit reduction-OR condition; their success is separate from the original cases.
+[`clockiff-build.json`](clockiff-build.json) records the latest-upstream-verified kirimasim version, binary fingerprint, 12 successful parses and full-run location.
+Each fixed Verilator seed passes 4 scalar-guard cases; 8 vector cases have known internal build errors. kirimasim reports unsupported guarded clocking events.
+See [scope and reproduction](../../docs/interaction-verification.en.md#clocking-event-guards-and-held-samples).

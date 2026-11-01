@@ -14,7 +14,13 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 Each run's version is recorded in linked JSON. Unless stated otherwise, added/total counts and check results in the model descriptions below record the state when that model was added. See the beginning of this overview and [Generated report](interaction-coverage.en.md) for current aggregates.
 
-Class-array addition on 2026-11-01: the current selection has **60 models and 2,452 tests**. The [full cross run](../coverage/interaction-results/cross60-kirimasim-f2d9a113.json) on kirimasim `f2d9a1136576`, built after verifying upstream main immediately before execution, records **2,176 pass, 270 unsupported and the existing 6 fail**. Six new fixed-array cases pass; the 12 dynamic-array/queue cases encounter unsupported array-property operations; all 2,434 preceding input fingerprints and outcomes are unchanged. All 18 new cases parse and type-check. Chapter 7×8 is registered, giving 91 chapter pairs; 46 models pass their full selection. Both fixed Verilator 5.052 seeds pass all 18 new cases. See [design and scope](#class-array-storage-and-shared-elements).
+Clocking-iff addition on 2026-11-01: the current selection has **63 models and 2,508 tests**. The [full cross run](../coverage/interaction-results/cross63-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 295 unsupported and the existing 6 fail**. All 12 new cases parse and type-check but encounter unsupported guarded clocking events. All 2,496 preceding input fingerprints and outcomes are unchanged. Chapter 9×14 is registered, giving 94 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds pass 4 scalar-guard cases; 8 vector-guard cases have internal build errors. See [design and scope](#clocking-event-guards-and-held-samples).
+
+At the preceding class/virtual-interface addition on the same day, the selection had **62 models and 2,496 tests**. The [full cross run](../coverage/interaction-results/cross62-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 283 unsupported and the existing 6 fail**. All 13 new cases parse and type-check but encounter unsupported class-held virtual-interface types. All 2,483 preceding input fingerprints are unchanged: 31 strength-format cases improve from unsupported to pass, while the other 2,452 outcomes are unchanged. Chapter 8×25 is registered, giving 93 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds pass all 13 new cases. See [design and scope](#class-virtual-interface-rebinding).
+
+At the preceding strength-format addition on the same day, the selection had **61 models and 2,483 tests**. The [full cross run](../coverage/interaction-results/cross61-kirimasim-f2d9a113.json) on kirimasim `f2d9a1136576`, built after verifying upstream main immediately before execution, records **2,176 pass, 301 unsupported and the existing 6 fail**. All 31 new cases encounter unsupported `%v`; all 2,452 preceding input fingerprints and outcomes are unchanged. All new cases parse and type-check. Chapter 21×28 is registered, giving 92 chapter pairs; 46 models pass their full selection. Fixed Icarus Verilog 13.0 passes all 31 new cases. See [design and scope](#resolved-strength-formatting).
+
+At the preceding class-array addition on the same day, the selection had **60 models and 2,452 tests**. The [full cross run](../coverage/interaction-results/cross60-kirimasim-f2d9a113.json) on kirimasim `f2d9a1136576`, built after verifying upstream main immediately before execution, records **2,176 pass, 270 unsupported and the existing 6 fail**. Six new fixed-array cases pass; the 12 dynamic-array/queue cases encounter unsupported array-property operations; all 2,434 preceding input fingerprints and outcomes are unchanged. All 18 new cases parse and type-check. Chapter 7×8 is registered, giving 91 chapter pairs; 46 models pass their full selection. Both fixed Verilator 5.052 seeds pass all 18 new cases. See [design and scope](#class-array-storage-and-shared-elements).
 
 At the preceding DPI open-array addition on the same day, the selection had **59 models and 2,434 tests**. The [full cross run](../coverage/interaction-results/cross59-kirimasim-f2d9a113.json) on kirimasim `f2d9a1136576`, built after verifying upstream main immediately before execution, records **2,170 pass, 258 unsupported and the existing 6 fail**. The runner marks all 30 new cases unsupported because it cannot load their C helper; all 2,404 preceding input fingerprints and outcomes are unchanged. Separate parsing accepts 24 cases and rejects 6 legal queue cases during argument type matching. Chapter 7×35 is registered, giving 90 chapter pairs; 46 models pass their full selection. Both fixed Verilator 5.052 seeds pass the 18 static-array cases; 12 dynamic-array/queue cases have known build failures. See [design and scope](#dpi-open-array-shape-and-copyback).
 
@@ -1674,6 +1680,125 @@ python3 tools/qualify_class_array.py --verilator /path/to/verilator-5.052 \
 
 X/Z, empty arrays, inheritance/base-handle paths, rand state, covergroups, ref arguments and concurrent execution are outside scope.
 This does not qualify custom deep-copy methods or UVM copy implementations.
+
+<a id="解決済み駆動強度と表示文字列整形"></a>
+
+### Resolved strength formatting
+
+`interaction_strengthfmt.py` implements the chapter 21×28 P2 candidate as `resolved_strength_format@1`.
+It crosses wire/tri0/tri1, five drive-strength pairs, AB/BA update order, display/sformatf/swrite and normal/inverted polarity.
+The 31 selected cases retain all 87 pairs, 78 targeted triples and four anchors from 180 legal rows: 82.78% fewer selected cases.
+The [fixed Icarus Verilog 13.0 run](../coverage/interaction-results/cross61-strength-format-icarus13.json) passes all 31, which gain that oracle.
+
+Each continuous assignment has one matching strength for logic zero and one. Pairs use equal weak/pull/strong or strong versus weak.
+Only known 0/1 and Z drive the net; opposite values at equal maximum strength create X. This model does not inject ambiguous strengths.
+Checks cover released-wire HiZ, tri0/tri1 pull defaults, stronger-driver dominance and equal-strength contention. Eleven observations
+cover the initial release, half/full updates for four 0/1 pairs, and two release steps. Every write and observation is separated by one
+tick so continuous assignments settle. Polarity and update order change the intermediate path to the final value.
+
+The same scalar net is passed directly to `%v` in `$display`, `$sformatf` or `$swrite`. Drive inputs, resolved logic and strength strings
+are checked separately. String APIs overwrite a poisoned variable and report it with `%s`; isolated supply0/supply1 nets provide Su0/Su1
+controls. Clauses 21.2.1.4, 21.3.3, 28.12.1, 28.15.1, 6.6.5 and 10.3.4 govern the observations.
+The scope includes known-value/X mnemonics at We/Pu/St and HiZ. L/H, numeric strength ranges, trireg, wired logic, vectors, delayed gates
+and file output are outside scope. Positive cases do not qualify strength propagation through variables; fault injection checks an
+incorrect variable argument. No legal rows are excluded for unsupported tools.
+
+At addition time, kirimasim `f2d9a1136576` parsed all cases but reported unsupported `%v`; that [record](../coverage/interaction-qualification/strength-format-build.json) is retained.
+The current kirimasim `80859f34f0aa` [full cross run](../coverage/interaction-results/cross62-kirimasim-80859f34.json) passes all 31 cases with unchanged input fingerprints.
+Parsing and fixed-version successes are not added to kirimasim execution passes.
+
+The [independent checks and fault injection](../coverage/interaction-qualification/strength-format.json) compare all 180 rows with a
+separate drive-contribution table and priority truth table. All three API controls pass; five faults—ignored strengths, swapped driver
+strengths, a variable in place of the net, the wrong format code and a stale string—are detected by output differences. Build failures
+are not counted as detected faults. Reproduce with an explicit 13.0 binary directory and a new output filename; saved JSON retains the
+actual version string:
+
+```sh
+python3 tools/qualify_strength_format.py --iverilog-bin /path/to/icarus-13.0/bin \
+  --output coverage/interaction-qualification/NEW-strength-format.json
+```
+
+<a id="クラス内virtual-interfaceの再結合と保存参照"></a>
+
+### Class virtual interface rebinding
+
+`interaction_vif_class.py` implements the chapter 8×25 P2 candidate as `class_virtual_interface@1`.
+It crosses widths 1/8/33, bit/logic, full/modport types, initial A/B bindings, shallow copy/class-handle assignment, mutation through
+the source/copy and method/direct-property writes. The 13 selected cases retain all 96 pairs, 48 targeted triples and four anchors
+from 192 legal rows: 93.23% fewer selected cases. Known bit/logic and full/modport paths are equivalence controls; no legal rows are
+excluded for unsupported tools.
+
+Three interface instances share one type and have distinct tags 11/22/33 and independent data. The modport exposes data by ref and tag
+as input. A shallow class copy has a separate virtual-interface binding variable; ordinary class-handle assignment shares the holder.
+Both initially reference the same actual interface, and rebinding one distinguishes independent slots from a shared class object.
+Seven snapshots cover copying, the first write, rebinding, the other-interface write, a guarded null write, a saved-reference write and
+restoration. They check every actual data bit, tags, class/binding identities, successful-write counts and an independent guard.
+The saved reference continues to address the original interface and writes it while the actor is null.
+
+Clause 25.9 defines compatible bindings, comparisons and null, and requires a fatal error for null member access. These positive cases
+use comparisons and guards without dereferencing null or increasing the successful-write count. Read methods return neutral zero and
+tag -1; null writes return zero. The other binding and actual interface data are checked simultaneously.
+Clauses 25.9, 25.9.2, 25.10, 25.5, 8.4 and 8.12 govern the observations. X/Z, incompatible types, fatal null dereferences, inheritance,
+clocking, time controls and concurrent drivers are outside scope.
+
+Both fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross62-vif-class-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross62-vif-class-verilator5052-seed73.json) pass all 13 cases, which gain that oracle.
+All 13 parse and type-check in latest kirimasim but encounter unsupported full/modport virtual-interface types in classes.
+The [latest-build, parse and execution record](../coverage/interaction-qualification/vif-class-build.json) is saved; parsing and
+fixed-version successes are not combined into execution passes.
+
+The [independent checks and fault injection](../coverage/interaction-qualification/vif-class.json) compare all 192 rows with a separate
+Python object graph. Closed-form snapshots are checked against sequential operations on interface objects, class copies and reference
+bindings. Full/modport/class-alias controls pass; six faults—aliasing instead of copying, lost rebinding, an overwritten saved reference,
+lost writes, null-state mutation and stale reads—are detected by output differences. Build failures are not counted as detected faults.
+
+```sh
+python3 tools/qualify_vif_class.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-vif-class.json
+```
+
+<a id="clocking-eventのガードとサンプル保持"></a>
+
+### Clocking event guards and held samples
+
+`interaction_clockiff.py` implements the chapter 9×14 P2 candidate as `clocking_event_iff@1`.
+It crosses widths 1/8/33, bit/logic, posedge/negedge, input #1step/#0, blocking/NBA, scalar/33-bit-low/33-bit-high guards and before/after
+guard updates. The 12 selected cases retain all 109 pairs, 44 targeted triples and four anchors from 288 legal rows: 95.83% fewer cases.
+The width×state×skew projection alone needs 12 rows, so this plan meets that lower bound.
+
+A warm-up establishes a known zero clockvar. Four raw edges alternate desired guards 0/1/0/1. Guards change two ticks before or four
+ticks after an edge, never in the same slot. Each cycle reports one tick before the edge and two/five ticks after it, including a read
+one tick after the selected guard update. Thirteen snapshots including warm-up check raw counts, cb wake counts, live data, clockvar
+and the observer's saved sample. Clause 9.4.2.3 evaluates iff on the original event; changing only the guard does not wake it. The timing
+separates erroneous guard-only wakeups from accepted-edge sampling.
+
+A module writer updates data on every raw edge. On accepted edges, clause 14.13 makes #1step retain the prior value and #0 sample the
+updated Observed value. The observer waits on cb and reads after clockvar updates; rejected edges retain the prior sample.
+Blocking/NBA paths intentionally have the same expected observations here. This model does not observe between Active and NBA or
+qualify NBA value/destination capture. It uses no assertions; #0 input is a legal positive case under clause 14.13.
+Clauses 14.3, 14.13, 14.10, 14.4, 9.4.2.3 and 12.4 govern these observations.
+
+Both fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross63-clockiff-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross63-clockiff-verilator5052-seed73.json) pass the 4 scalar-guard cases, which alone gain the
+fixed oracle. The 8 legal cases passing a vector directly to `iff enabled` have internal build errors and retain spec expectations.
+No legal rows are excluded for unsupported tools; build failures are neither behavior verification nor passes of illegal-design tests.
+All 12 parse and type-check in latest kirimasim but encounter unsupported guarded clocking events.
+The [latest-build, parse and execution record](../coverage/interaction-qualification/clockiff-build.json) is saved.
+
+The [independent checks and fault injection](../coverage/interaction-qualification/clockiff.json) compare all 288 rows with a separate
+time/operation-ordered event queue. Of three auxiliary normal controls, the two vector controls alone use `iff (|enabled)`. This has
+the same known-value truth condition and avoids the fixed tool's internal error to check timing and sampling expectations.
+These controls are not added to execution passes for the original 8 vector cases; the JSON records the transformation.
+Six faults—dropped iff, guard changes becoming clock edges, wrong skew, testing only the low guard bit, missing observer capture and
+wrong clock polarity—are detected by output differences. Build failures are not counted as detected faults.
+
+```sh
+python3 tools/qualify_clockiff.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-clockiff.json
+```
+
+X/Z, same-slot guard updates, output skew, programs, interface paths, multiple clocks and assertions are outside scope.
+Guards use known values; the model checks 33-bit truth and event-acceptance boundaries.
 
 <a id="モデル変更時の更新"></a>
 

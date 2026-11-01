@@ -37,7 +37,7 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 附属書はこの表の軸に含めていません。
 
 対象は、[有限の因子モデルとして登録したクロス検証](interaction-verification.md)だけです。
-全10,202テストの集計ではありません。
+全10,258テストの集計ではありません。
 [Issue #21の境界条件の回帰](p1-combination-regressions-20261030.md)のうち、
 有限モデルに登録していない56件や、それ以外の通常テストは加算していません。
 章全体の要求網羅率や、章どうしの全機能の直積の達成率は表していません。
@@ -63,9 +63,18 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 
 ## 実行結果の扱い
 
-生成時点では60モデル・2,452選択ケースを、対角線以外の91組の章対に対応付けています。
-使用した結果は[kirimasim f2d9a113の全60モデルの保存実行](../coverage/interaction-results/cross60-kirimasim-f2d9a113.json)で、
-2,176 pass・270 unsupported・6 fail、全選択ケースPASSは46モデルです。
+生成時点では63モデル・2,508選択ケースを、対角線以外の94組の章対に対応付けています。
+使用した結果は[kirimasim 80859f34の全63モデルの保存実行](../coverage/interaction-results/cross63-kirimasim-80859f34.json)で、
+2,207 pass・295 unsupported・6 fail、全選択ケースPASSは47モデルです。
+clocking iffの第9章×第14章は、モデル数1・全選択ケースPASSモデル数0です。
+新規12件はガード付きclocking event未対応で、固定Verilatorは両seedとも4件PASS・8件が既知の内部ビルドエラーです。
+[設計と確認記録](interaction-verification.md#clocking-event-guards-and-held-samples)を参照してください。
+クラスvirtual interfaceの第8章×第25章は、モデル数1・全選択ケースPASSモデル数0です。
+新規13件はクラス内のvirtual interface型が未対応で、固定Verilatorは両seedとも全13件が一致します。
+[設計と確認記録](interaction-verification.md#class-virtual-interface-rebinding)を参照してください。
+強度表示の第21章×第28章は、モデル数1・全選択ケースPASSモデル数1です。
+今回のkirimasimと固定Icarus Verilog 13.0は、全31件が一致します。
+[設計と確認記録](interaction-verification.md#resolved-strength-formatting)を参照してください。
 クラス配列の第7章×第8章は、モデル数1・全選択ケースPASSモデル数0です。
 新規18件は6 pass・12 unsupportedで、固定Verilatorは両seedとも全18件が一致します。
 [設計と確認記録](interaction-verification.md#class-array-storage-and-shared-elements)を参照してください。

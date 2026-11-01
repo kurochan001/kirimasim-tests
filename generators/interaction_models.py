@@ -61,6 +61,9 @@ import interaction_constraint
 import interaction_clockassert
 import interaction_dpi_array
 import interaction_class_array
+import interaction_strengthfmt
+import interaction_vif_class
+import interaction_clockiff
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -94,7 +97,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_udpstate,
               interaction_ifimport,
               interaction_mailbox,
-              interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array,
+              interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -509,6 +512,27 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_mailbox.MODEL.select(),
             "classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量制限・nullメッセージと"
             "取得前後の双方向のメンバ更新を確認する。別mailboxの保持と後の更新、空の非ブロッキング戻り値も観測する。",
+        ),
+        SuiteModel(
+            interaction_clockiff.MODEL,
+            lambda row: "tests/gen/ch14/" + interaction_clockiff.case_name(row) + ".sv",
+            interaction_clockiff.MODEL.select(),
+            "iffで選別したclocking eventとrawエッジを別計数し、通過時の採取と不通過時のサンプル保持を照合する。"
+            "ガードだけの前後の変更、33ビットの上位1、入力skew・更新方式を交差し、cbと観測器の値を比較する。",
+        ),
+        SuiteModel(
+            interaction_vif_class.MODEL,
+            lambda row: "tests/gen/ch25/" + interaction_vif_class.case_name(row) + ".sv",
+            interaction_vif_class.MODEL.select(),
+            "クラスのvirtual interfaceの結合を浅いコピー/ハンドル代入で比較し、再結合とnull時の書込み抑止を照合する。"
+            "別に保存した参照・元/コピーの結合先・成功回数・guardを、メソッド/直接経路とfull/modport型で確認する。",
+        ),
+        SuiteModel(
+            interaction_strengthfmt.MODEL,
+            lambda row: "tests/gen/ch21/" + interaction_strengthfmt.case_name(row) + ".sv",
+            interaction_strengthfmt.MODEL.select(),
+            "2ドライバの競合・解放とtri0/tri1のpull既定値を、3種類のformat APIで値と強度を分けて照合する。"
+            "強度差・更新順・極性を交差し、全11観測の上書きと独立したsupply対照を確認する。",
         ),
         SuiteModel(
             interaction_class_array.MODEL,

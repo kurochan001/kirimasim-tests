@@ -119,6 +119,12 @@ At an array/external-API boundary, distinguish combinations forbidden by the sta
 
 When copied data includes handles, observe storage and referenced objects separately. The class-array model checks independent element replacement/resizing across shallow copies while nested object updates remain shared. Equal values alone do not establish identity; combine handle comparisons, constructor counts and later reuse of saved references. In LSI verification environments, this applies to ownership of array data and child objects when cloning transactions or scoreboards. See [the example and limits](interaction-verification.en.md#class-array-storage-and-shared-elements).
 
+At a value/representation boundary, observe inputs, resolved values and formatted strings separately. The strength-format model updates and releases multiple drivers in stages and passes the same scalar net to three formatting APIs. Independent supply controls and per-observation string overwrites detect incorrect arguments and stale results. In LSI verification environments, the same design applies to checking functional values together with monitor displays and logging. See [the example and limits](interaction-verification.en.md#resolved-strength-formatting).
+
+When a class holds references, observe class-object sharing, copied binding variables and referenced instances separately. The virtual-interface model sequences rebinding, guarded null writes and updates through a saved reference, checking actual interface data, tags and successful-write counts. In LSI verification environments, this applies to checking shared configuration objects and saved references when an agent is reconnected. See [the example and limits](interaction-verification.en.md#class-virtual-interface-rebinding).
+
+For events with acceptance conditions, count raw occurrences and accepted events separately. The clocking-iff model separates guard-only changes from raw edges and checks retained values during rejected periods. When a fixed tool cannot process a legal input, preserve the original case and expectations and label any equivalent-condition transformation as an auxiliary control. Its success is not added to the original case. In LSI verification environments, this applies to enabled pipelines and monitor sampling conditions. See [the example and limits](interaction-verification.en.md#clocking-event-guards-and-held-samples).
+
 <a id="3-少ないケースを選ぶ仕組み"></a>
 
 ## 3. How to select a small case set

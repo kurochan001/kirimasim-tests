@@ -1,0 +1,28 @@
+stage=copied ok=-1 object=0 vif=1 saved_source=1 saved_copy=1
+a=0 b=1 guard=0 saved=11:0
+source=11:0 writes=0 copy=11:0 writes=0
+guard=33:0 writes=0
+stage=initial_write ok=1 object=0 vif=1 saved_source=1 saved_copy=1
+a=1 b=1 guard=0 saved=11:1
+source=11:1 writes=1 copy=11:1 writes=0
+guard=33:0 writes=0
+stage=rebound ok=-1 object=0 vif=0 saved_source=0 saved_copy=1
+a=1 b=1 guard=0 saved=11:1
+source=22:1 writes=1 copy=11:1 writes=0
+guard=33:0 writes=0
+stage=other_write ok=1 object=0 vif=0 saved_source=0 saved_copy=1
+a=1 b=0 guard=0 saved=11:1
+source=22:0 writes=2 copy=11:1 writes=0
+guard=33:0 writes=0
+stage=null_write ok=0 object=0 vif=0 saved_source=0 saved_copy=1
+a=1 b=0 guard=0 saved=11:1
+source=-1:0 writes=2 copy=11:1 writes=0
+guard=33:0 writes=0
+stage=saved_write ok=-1 object=0 vif=0 saved_source=0 saved_copy=1
+a=0 b=0 guard=0 saved=11:0
+source=-1:0 writes=2 copy=11:0 writes=0
+guard=33:0 writes=0
+stage=restored ok=-1 object=0 vif=1 saved_source=1 saved_copy=1
+a=0 b=0 guard=0 saved=11:0
+source=11:0 writes=2 copy=11:0 writes=0
+guard=33:0 writes=0
