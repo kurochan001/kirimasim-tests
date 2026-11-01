@@ -106,6 +106,7 @@
 | Claude Codeへのハンドオフ（2026-10-23） | [日本語](claude-code-handoff-20261023.md) | [English](claude-code-handoff-20261023.en.md) |
 | Claude Codeへの引き継ぎ：機能間クロス検証（2026-10-30） | [日本語](claude-code-handoff-20261030-cross-verification.md) | [English](claude-code-handoff-20261030-cross-verification.en.md) |
 | Codexへの引き継ぎ：テスト側指摘の対応とクロス検証（2026-10-31） | [日本語](codex-handoff-20261031.md) | [English](codex-handoff-20261031.en.md) |
+| 引き継ぎ：クロス検証とモデルに基づくランダム比較（2026-11-02） | [日本語](codex-handoff-20261102.md) | [English](codex-handoff-20261102.en.md) |
 | カバレッジギャップ調査と追加テスト候補（2026-10-29） | [日本語](coverage-gap-recommendations-20261029.md) | [English](coverage-gap-recommendations-20261029.en.md) |
 | 規格テストの補強（2026-10-22） | [日本語](coverage-strengthening-20261022.md) | [English](coverage-strengthening-20261022.en.md) |
 | 分母レビュー 2026-10-28 | [日本語](denominator-review-20261028.md) | [English](denominator-review-20261028.en.md) |

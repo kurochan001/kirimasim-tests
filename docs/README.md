@@ -106,6 +106,7 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Handoff to Claude Code (2026-10-23) | [English](claude-code-handoff-20261023.en.md) | [日本語](claude-code-handoff-20261023.md) |
 | Handoff to Claude Code: cross-feature verification (2026-10-30) | [English](claude-code-handoff-20261030-cross-verification.en.md) | [日本語](claude-code-handoff-20261030-cross-verification.md) |
 | Codex handoff: test corrections and interaction verification (2026-10-31) | [English](codex-handoff-20261031.en.md) | [日本語](codex-handoff-20261031.md) |
+| Handoff: interaction verification and model-based random comparisons (2026-11-02) | [English](codex-handoff-20261102.en.md) | [日本語](codex-handoff-20261102.md) |
 | Coverage gap investigation and additional test candidate (2026-10-29) | [English](coverage-gap-recommendations-20261029.en.md) | [日本語](coverage-gap-recommendations-20261029.md) |
 | Strengthening standard tests (2026-10-22) | [English](coverage-strengthening-20261022.en.md) | [日本語](coverage-strengthening-20261022.md) |
 | Denominator review 2026-10-28 | [English](denominator-review-20261028.en.md) | [日本語](denominator-review-20261028.md) |

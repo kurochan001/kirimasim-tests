@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "d252facb9dea104bc50bfc9e4a0ce5f75a955e8588d37b2a2d6fa9fb1c08ae93",
-        "ja": "516f9810b8559789c994c4e74fd1ee11ca167efe345ef1ee02dc7e399b440b3c"
+        "en": "5447716928089eb98c954f4f80dd01db75922b1f664aba9e5a578c821d92de78",
+        "ja": "377f222edfce28336d3bc4d1f4e2d80ca0bc596902aee286cc91e43bf1a78106"
       }
     },
     {
@@ -125,8 +125,19 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "45b92a8e8e251769d06663e8001bfca4794d4c5b372c2334d157ab5a7d1017dc",
-        "ja": "183d8238189f6b2e80ac7e1296029fd23663f215d307516666a928d86bcde602"
+        "en": "cc107fa67c53418597a34fd63c97eec0d60841dbac5d214f87406328fdf230f8",
+        "ja": "205ae16772a3a268dcb2fe8826d47a9c24dbed4fdb844d0f0257e54c97ad13b7"
+      }
+    },
+    {
+      "en": "docs/codex-handoff-20261102.en.md",
+      "ja": "docs/codex-handoff-20261102.md",
+      "source": "docs/codex-handoff-20261102.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "1ba45dc106616a5c71db6c77505b15167e52c41ada65e638a670f519985a5871",
+        "ja": "345ff8c8d87e5400a1c3ee64fcba248f4ac47a53e16f8e1e96d8f42413855ee9"
       }
     },
     {

@@ -15,6 +15,7 @@ statuses, Nightly, coverage and the SVA/formal checks used by this suite.
 This README describes the suite as it is now; records of earlier work and
 measurements are in the [history](docs/history.md).
 The [document index](docs/README.md) links every guide, generated report and historical record in both languages.
+For resuming development, see the [2026-11-02 handoff](docs/codex-handoff-20261102.en.md).
 
 Each simulation test is a small, self-contained design with an expected result.
 A legal design passes when its normalized standard output matches and any specified
