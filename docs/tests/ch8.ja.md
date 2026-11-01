@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .357 36 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .375 54 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 |テスト|チェックするもの|条項|予期した出力を記録|ノート|
 | --- | --- | --- | --- | --- |
@@ -329,6 +329,33 @@
 | [`test_weak_reference_get_clear`](../../tests/ch8/test_weak_reference_get_clear.sv) |weak_reference は get() からその参照を返しますが、 clear() が呼び出されるまでは返しません。その後 get() は null を返します。1つの物体に対する2つの弱い参照は 同じ参照を持つ異なる物体であり| 8.30.3 8.30.2 8.30.4 26.7 |標準のみ||
 | [`test_weak_reference_wait_cleared`](../../tests/ch8/test_weak_reference_wait_cleared.sv) |weak_reference get() が null になるまで待つと、他のプロセスが参照をクリアすると再開します。| 8.30.3 8.30.4 9.4.3 |標準のみ||
 | [`test_weak_reference_get_id`](../../tests/ch8/test_weak_reference_get_id.sv) |weak_reference の static get_id() はオブジェクトの null と非ゼロ値に対して 0 を返します。ハンドルの各クラスタイプを通して、各呼び出しで同じ値を返します。異なるオブジェクトに対しては異なります。| 8.30.5 7.8 |標準のみ||
+
+<a id="generated-by-generatorsinteraction_class_arraypy"></a>
+
+## 生成者: `generators/interaction_class_array.py`
+
+18 テスト;見て "Generated tests" のスイートの README。
+
+|テスト|チェックするもの|条項|予期した出力を記録|ノート|
+| --- | --- | --- | --- | --- |
+| [`test_gen_cross_class_array_dynamic_1_1_first_alias_source_element`](../../tests/gen/ch8/test_gen_cross_class_array_dynamic_1_1_first_alias_source_element.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_dynamic_1_3_first_shallow_source_resize`](../../tests/gen/ch8/test_gen_cross_class_array_dynamic_1_3_first_shallow_source_resize.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_dynamic_33_1_last_shallow_source_element`](../../tests/gen/ch8/test_gen_cross_class_array_dynamic_33_1_last_shallow_source_element.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_dynamic_33_3_first_alias_source_resize`](../../tests/gen/ch8/test_gen_cross_class_array_dynamic_33_3_first_alias_source_resize.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_dynamic_8_1_first_alias_copy_resize`](../../tests/gen/ch8/test_gen_cross_class_array_dynamic_8_1_first_alias_copy_resize.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_dynamic_8_3_last_shallow_copy_resize`](../../tests/gen/ch8/test_gen_cross_class_array_dynamic_8_3_last_shallow_copy_resize.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_fixed_1_1_last_shallow_source_element`](../../tests/gen/ch8/test_gen_cross_class_array_fixed_1_1_last_shallow_source_element.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_fixed_1_3_first_alias_source_element`](../../tests/gen/ch8/test_gen_cross_class_array_fixed_1_3_first_alias_source_element.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_fixed_33_1_first_alias_source_element`](../../tests/gen/ch8/test_gen_cross_class_array_fixed_33_1_first_alias_source_element.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_fixed_33_3_last_shallow_copy_element`](../../tests/gen/ch8/test_gen_cross_class_array_fixed_33_3_last_shallow_copy_element.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_fixed_8_1_first_alias_copy_element`](../../tests/gen/ch8/test_gen_cross_class_array_fixed_8_1_first_alias_copy_element.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_fixed_8_1_first_shallow_source_element`](../../tests/gen/ch8/test_gen_cross_class_array_fixed_8_1_first_shallow_source_element.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_queue_1_1_first_alias_source_resize`](../../tests/gen/ch8/test_gen_cross_class_array_queue_1_1_first_alias_source_resize.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_queue_1_3_first_shallow_copy_element`](../../tests/gen/ch8/test_gen_cross_class_array_queue_1_3_first_shallow_copy_element.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_queue_33_1_first_alias_source_element`](../../tests/gen/ch8/test_gen_cross_class_array_queue_33_1_first_alias_source_element.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_queue_33_1_last_shallow_source_resize`](../../tests/gen/ch8/test_gen_cross_class_array_queue_33_1_last_shallow_source_resize.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_queue_8_1_first_shallow_source_element`](../../tests/gen/ch8/test_gen_cross_class_array_queue_8_1_first_shallow_source_element.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
+| [`test_gen_cross_class_array_queue_8_3_last_alias_source_element`](../../tests/gen/ch8/test_gen_cross_class_array_queue_8_3_last_alias_source_element.sv) |クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する| 8.12 8.8 7.6 7.5.1 7.10.2.5 7.10.2.7 6.11.2 | Verilator 5.052 ||
 
 <a id="generated-by-generatorsinteraction_class_methodpy"></a>
 

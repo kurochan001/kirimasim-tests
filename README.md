@@ -57,15 +57,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **10154 tests** in 38 chapters. 3717 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **10202 tests** in 38 chapters. 3765 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5619 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1736 |
-| The standard only, with no fixed-release simulator oracle recorded | 2799 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1772 |
+| The standard only, with no fixed-release simulator oracle recorded | 2811 |
 
-2385 tests depend on x or z values (`:fourstate: yes`). 636 tests come with C code: 141 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+2385 tests depend on x or z values (`:fourstate: yes`). 666 tests come with C code: 171 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -74,7 +74,7 @@ The suite has **10154 tests** in 38 chapters. 3717 of them are generated. The [g
 | 5 | Lexical conventions | 346 | 325 | 14 | 7 |
 | 6 | Data types | 645 | 396 | 144 | 105 |
 | 7 | Aggregate data types | 772 | 290 | 281 | 201 |
-| 8 | Classes | 357 | 82 | 191 | 84 |
+| 8 | Classes | 375 | 82 | 209 | 84 |
 | 9 | Processes | 383 | 279 | 48 | 56 |
 | 10 | Assignment statements | 353 | 262 | 47 | 44 |
 | 11 | Operators and expressions | 1644 | 1262 | 132 | 250 |
@@ -101,7 +101,7 @@ The suite has **10154 tests** in 38 chapters. 3717 of them are generated. The [g
 | 32 | Backannotation using the standard delay format | 50 | 16 |  | 34 |
 | 33 | Configuring the contents of a design | 84 | 8 | 9 | 67 |
 | 34 | Protected envelopes | 4 | 2 | 2 |  |
-| 35 | Direct programming interface | 149 | 4 | 98 | 47 |
+| 35 | Direct programming interface | 179 | 4 | 116 | 59 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 34 | 19 | 36 |
 | 37 | VPI object model diagrams | 227 | 18 | 1 | 208 |
 | 38 | VPI routine definitions | 109 | 56 | 9 | 44 |
@@ -168,23 +168,23 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.en.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
-The focused selection contains **2,404 tests across 58 models**; the normal full-suite
+The focused selection contains **2,452 tests across 60 models**; the normal full-suite
 run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [saved full cross run](coverage/interaction-results/cross58-kirimasim-1144b2ac.json)
-uses kirimasim **`1144b2acab1e`** and records **2,170 pass, 228 unsupported and 6 fail**.
+The [saved full cross run](coverage/interaction-results/cross60-kirimasim-f2d9a113.json)
+uses kirimasim **`f2d9a1136576`** and records **2,176 pass, 270 unsupported and 6 fail**.
 The class-method model retains 18 passes and 18 unsupported cases. The six failures
 remain two `inside`/`case inside` width/sign cases and four configuration parameter-reset
 cases; standard-derived expectations are retained. These are observations of that build,
 separate from the full Nightly suite and any later upstream revision.
 
-The clocking/assertion model (chapters 14×16) compares retained clockvar samples, raw signals and action counts on distinct clocks. All 18 cases pass at both fixed Verilator seeds; kirimasim reports concurrent assertions as unsupported. See [scope and evidence](docs/interaction-verification.en.md#clocking-inputs-and-assertion-clocks).
+The class/array model (chapters 7×8) distinguishes independent array storage after shallow copying from sharing of objects referenced by element handles. Both fixed Verilator seeds pass all 18 new cases; kirimasim passes 6 fixed-array cases and reports 12 unsupported dynamic-array/queue cases. See [scope and evidence](docs/interaction-verification.en.md#class-array-storage-and-shared-elements).
 
 - The [interaction report](docs/interaction-coverage.en.md) separates the selection plan
   from fingerprint-qualified passes in each saved execution.
-- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **89 distinct
+- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **91 distinct
   chapter pairs**, with separate CSVs for registered models, models whose full selection
   passed (**46 models** in the saved run), and detailed test/run evidence.
 - The [zero-cell triage](docs/chapter-cross-triage.en.md) records reviewed existing tests,

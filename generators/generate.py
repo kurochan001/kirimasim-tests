@@ -65,6 +65,8 @@ import interaction_event_rebind
 import interaction_dpi_nba
 import interaction_constraint
 import interaction_clockassert
+import interaction_dpi_array
+import interaction_class_array
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -107,7 +109,7 @@ GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths, keyw
               interaction_udpstate,
               interaction_ifimport,
               interaction_mailbox,
-              interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert,
+              interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array,
               interaction_compound, interaction_inside,
               interaction_range, interaction_case_inside,
               combination_events, combination_nba, combination_aggregates, combination_io,

@@ -115,6 +115,10 @@ Unique constraint solutions let a test cross inheritance, types and state withou
 
 When sampling and evaluation occur at different times, record sampled values, live signals and execution counts separately. The clocking/assertion model compares the same clockvar at its own event and a later clock, with a raw-signal assertion as control. Delayed reporting avoids action races; fault injection distinguishes resampling, the wrong event and missing actions. In LSI verification, this applies to pipelines that retain inputs while the bus later changes. See [the example and limits](interaction-verification.en.md#clocking-inputs-and-assertion-clocks).
 
+At an array/external-API boundary, distinguish combinations forbidden by the standard from unsupported implementations. The DPI open-array model excludes dynamic-array/queue output from the legal set while retaining unsupported legal input/inout rows. Check shape and every element per call; treat ABI-stub qualification of the C helper, simulator parsing and actual marshalling as separate evidence. In LSI verification, the same design applies to sizes, indices and copyback in DPI reference models and variable-length transactions. See [the example and limits](interaction-verification.en.md#dpi-open-array-shape-and-copyback).
+
+When copied data includes handles, observe storage and referenced objects separately. The class-array model checks independent element replacement/resizing across shallow copies while nested object updates remain shared. Equal values alone do not establish identity; combine handle comparisons, constructor counts and later reuse of saved references. In LSI verification environments, this applies to ownership of array data and child objects when cloning transactions or scoreboards. See [the example and limits](interaction-verification.en.md#class-array-storage-and-shared-elements).
+
 <a id="3-少ないケースを選ぶ仕組み"></a>
 
 ## 3. How to select a small case set

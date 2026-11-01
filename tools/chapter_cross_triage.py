@@ -151,6 +151,8 @@ def guide(rows: list[dict], data: dict) -> str:
              "P2は他の型・階層・API境界、P3は基礎的な展開や拡張です。", ""]
     urgent = sorted((r for r in rows if r["priority"] == "P1"),
                     key=lambda r: (r.get("rank", 999), r["pair"]))
+    if not urgent:
+        lines.extend(["登録済みのP1候補はすべて有限モデルへ移しました。P2/P3候補と未精査のRは残っており、全章対の検証完了を意味しません。", ""])
     for i, row in enumerate(urgent, 1):
         a, b = row["pair"]
         lines.extend([f"{i}. **第{a}章×第{b}章：{row['objective']}**（{row['category']}1）。",

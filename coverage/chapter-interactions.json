@@ -1541,6 +1541,32 @@
           "reason": "clocking入力の1stepサンプルを、そのイベントと後続の別クロックのアサーションで照合し、再サンプリングと生信号を区別する"
         }
       ]
+    },
+    {
+      "id": "dpi_openarray_shape",
+      "primary_chapter": 35,
+      "pairs": [
+        {
+          "chapters": [
+            7,
+            35
+          ],
+          "reason": "DPI open arrayを通る配列の各呼出しの形状・SV添字・全要素と、入力方向に応じた復帰後の書戻しを照合する"
+        }
+      ]
+    },
+    {
+      "id": "class_array_shallow_copy",
+      "primary_chapter": 8,
+      "pairs": [
+        {
+          "chapters": [
+            7,
+            8
+          ],
+          "reason": "浅いコピー後の配列格納領域の独立性と要素ハンドルの共有を、置換・サイズ変更・保存ハンドルの観測で照合する"
+        }
+      ]
     }
   ]
 }

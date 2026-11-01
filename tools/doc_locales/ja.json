@@ -24490,6 +24490,8 @@
     "）で宣言したnet npaがuser-defined net groupの ZXQPH0QXZ array netとして ZXQPH1QXZ が ZXQPH2QXZ になり、net groupのproperty ZXQPH3QXZ が ZXQPH4QXZ を返すことを期待行「npa: ZXQPH5QXZ , ZXQPH6QXZ ZXQPH7QXZ , size ZXQPH8QXZ , ranges ZXQPH9QXZ , left ZXQPH10QXZ right ZXQPH11QXZ 」で照合する。": "例えば、net npa がユーザ定義の net group の ZXQPH0QXZ array net として宣言されたとき、ZXQPH1QXZ が ZXQPH2QXZ になり、net group の property ZXQPH3QXZ が ZXQPH4QXZ を返すことを期待行「npa: ZXQPH5QXZ , ZXQPH6QXZ ZXQPH7QXZ, size ZXQPH8QXZ, ranges ZXQPH9QXZ, left ZXQPH10QXZ right ZXQPH11QXZ」で照合する。",
     "ZXQPH0QXZ copyback and argument conversion cross ZXQPH1QXZ value and destination capture": "ZXQPH0QXZの書戻し・引数変換とZXQPH1QXZの値・代入先の確定を組み合わせて検査する",
     "Inherited constraints dispatch dynamically and failed randomization preserves object state": "継承制約の動的な選択とランダム化失敗時の値の保持を確認する",
-    "Clocking inputs retain their own samples across concurrent assertion clocks": "clocking入力は別クロックでのアサーション評価でも自身のサンプル値を保持する"
+    "Clocking inputs retain their own samples across concurrent assertion clocks": "clocking入力は別クロックでのアサーション評価でも自身のサンプル値を保持する",
+    "Open-array ZXQPH0QXZ calls preserve actual bounds and copy back every legal element": "Open arrayの ZXQPH0QXZ 呼出しで実引数の範囲を保持し、合法な全要素を書き戻す",
+    "Class shallow copies separate array storage while sharing referenced element objects": "クラスの浅いコピーで配列領域を独立させ、要素ハンドルの参照先を共有する"
   }
 }

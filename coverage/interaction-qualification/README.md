@@ -138,3 +138,23 @@ python3 tools/qualify_mailbox.py --verilator verilator --seed 1 \
 [`clockassert-build.json`](clockassert-build.json)は、最新kirimasimの上流確認済みコミット・バイナリ指紋・18件の解析成功と全クロス実行先です。
 固定Verilatorの両seedで全18件がPASS、kirimasimでは並行アサーションが未対応です。補助実験は通常の合格数へ加算しません。
 [範囲と再確認手順](../../docs/interaction-verification.md#clocking-inputs-and-assertion-clocks)を参照してください。
+
+<a id="dpi-open-array-shape-and-copyback-checks"></a>
+
+## DPI open arrayの形状と書戻しの確認
+
+[`dpi-array.json`](dpi-array.json)は全168行の独立検算、実Cヘルパーとテスト専用ABIの全168行×2初期値の照合、正常対照1件と5故障の出力差による検出を記録します。
+ABIスタブは離れた要素とcanaryを使い、シミュレータの動的配列・キューの受渡しを確認した結果には加えません。
+[`dpi-array-build.json`](dpi-array-build.json)は最新上流と照合したkirimasimの版・バイナリ指紋・全30件の解析結果です。
+通常ランナーはC読込み未対応で全30件を実行前に止めますが、別途の解析は24件が成功し、合法なキュー6件が型照合で拒否されました。
+固定Verilatorは両seedとも固定配列18件がPASS、動的配列・キュー12件は既知のビルド失敗です。
+[範囲と再確認手順](../../docs/interaction-verification.md#dpi-open-array-shape-and-copyback)を参照してください。
+
+<a id="class-shallow-copy-and-array-checks"></a>
+
+## クラスの浅いコピーと配列の確認
+
+[`class-array.json`](class-array.json)は、全240行の独立したオブジェクトグラフとの照合、正常対照2件、6故障の出力差による検出を記録します。
+[`class-array-build.json`](class-array-build.json)は、最新上流と照合したkirimasimの版・バイナリ指紋・全18件の解析成功と全クロス実行先です。
+固定Verilatorは両seedとも全18件がPASS、kirimasimでは固定配列6件がPASS、動的配列・キュー12件が未対応です。補助実験は通常の合格数へ加算しません。
+[範囲と再確認手順](../../docs/interaction-verification.md#class-array-storage-and-shared-elements)を参照してください。

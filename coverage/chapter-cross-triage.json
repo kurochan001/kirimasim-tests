@@ -12,28 +12,6 @@
     {
       "chapters": [
         7,
-        8
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "クラスのshallow copyと配列プロパティの独立性が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "クラスのshallow copyと配列プロパティの独立性",
-      "factors": [
-        "プロパティ（固定/動的/キュー）",
-        "コピー方式",
-        "コピー後の要素変更/サイズ変更"
-      ],
-      "observation": "コピー先の変更後もコピー元の値とサイズが保持されることを確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch8/test_shallow_copy_array_properties.sv",
-          "inputs_sha256": "88c693521e4f655ba484613d21003e29fb6f0ffeddf0ca0517b3c9e557b8729f"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        7,
         15
       ],
       "category": "E",
@@ -117,30 +95,6 @@
           "inputs_sha256": "8ee1cf8ab1b9d7126c80a7d9a0bf8dc260af1b13ec20ad5df2edea82c79490d1"
         }
       ]
-    },
-    {
-      "chapters": [
-        7,
-        35
-      ],
-      "category": "E",
-      "priority": "P1",
-      "reason": "DPIをまたぐ配列の形状・値・書戻しが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "DPIをまたぐ配列の形状・値・書戻し",
-      "factors": [
-        "実引数（動的配列/キュー）",
-        "仮引数（open/fixed）",
-        "入出力方向",
-        "要素数/範囲"
-      ],
-      "observation": "C側の形状・総和とSV側の値を照合し、outputの書戻し後の全要素を確認する。",
-      "witnesses": [
-        {
-          "test": "tests/ch35/test_dpi_dynamic_array_actual.sv",
-          "inputs_sha256": "c58fb7ae894cc84c150a22e028f2e90a03e255bd0699f5030decc98c61cd1f53"
-        }
-      ],
-      "rank": 5
     },
     {
       "chapters": [

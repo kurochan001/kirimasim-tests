@@ -14,7 +14,11 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 Each run's version is recorded in linked JSON. Unless stated otherwise, added/total counts and check results in the model descriptions below record the state when that model was added. See the beginning of this overview and [Generated report](interaction-coverage.en.md) for current aggregates.
 
-Clocking/assertion addition on 2026-11-01: the current selection has **58 models and 2,404 tests**. The [full cross run](../coverage/interaction-results/cross58-kirimasim-1144b2ac.json) on kirimasim `1144b2acab1e`, built after verifying upstream main before execution, records **2,170 pass, 228 unsupported and the existing 6 fail**. The 18 new cases require unsupported concurrent assertions; all 2,386 preceding input fingerprints and outcomes are unchanged. Chapter 14×16 is now registered, giving 89 chapter pairs; 46 models pass their full selection. Both fixed Verilator 5.052 seeds pass all 18 new cases. See [design and scope](#clocking-inputs-and-assertion-clocks).
+Class-array addition on 2026-11-01: the current selection has **60 models and 2,452 tests**. The [full cross run](../coverage/interaction-results/cross60-kirimasim-f2d9a113.json) on kirimasim `f2d9a1136576`, built after verifying upstream main immediately before execution, records **2,176 pass, 270 unsupported and the existing 6 fail**. Six new fixed-array cases pass; the 12 dynamic-array/queue cases encounter unsupported array-property operations; all 2,434 preceding input fingerprints and outcomes are unchanged. All 18 new cases parse and type-check. Chapter 7×8 is registered, giving 91 chapter pairs; 46 models pass their full selection. Both fixed Verilator 5.052 seeds pass all 18 new cases. See [design and scope](#class-array-storage-and-shared-elements).
+
+At the preceding DPI open-array addition on the same day, the selection had **59 models and 2,434 tests**. The [full cross run](../coverage/interaction-results/cross59-kirimasim-f2d9a113.json) on kirimasim `f2d9a1136576`, built after verifying upstream main immediately before execution, records **2,170 pass, 258 unsupported and the existing 6 fail**. The runner marks all 30 new cases unsupported because it cannot load their C helper; all 2,404 preceding input fingerprints and outcomes are unchanged. Separate parsing accepts 24 cases and rejects 6 legal queue cases during argument type matching. Chapter 7×35 is registered, giving 90 chapter pairs; 46 models pass their full selection. Both fixed Verilator 5.052 seeds pass the 18 static-array cases; 12 dynamic-array/queue cases have known build failures. See [design and scope](#dpi-open-array-shape-and-copyback).
+
+At the preceding clocking/assertion addition on the same day, the selection had **58 models and 2,404 tests**. The [full cross run](../coverage/interaction-results/cross58-kirimasim-1144b2ac.json) on kirimasim `1144b2acab1e`, built after verifying upstream main before execution, records **2,170 pass, 228 unsupported and the existing 6 fail**. The 18 new cases require unsupported concurrent assertions; all 2,386 preceding input fingerprints and outcomes are unchanged. Chapter 14×16 is now registered, giving 89 chapter pairs; 46 models pass their full selection. Both fixed Verilator 5.052 seeds pass all 18 new cases. See [design and scope](#clocking-inputs-and-assertion-clocks).
 
 At the constraint-inheritance addition on the same day, the selection had **57 models and 2,386 tests**. The [full cross run](../coverage/interaction-results/cross57-kirimasim-1144b2ac.json) on kirimasim `1144b2acab1e`, built after verifying upstream main before execution, records **2,170 pass, 210 unsupported and the existing 6 fail**. The 13 new cases require unsupported randomize; all 2,373 preceding input fingerprints and outcomes are unchanged. Chapter 8×18 is now registered, bringing the total to 88 chapter pairs; 46 models pass their full selection. All 13 new cases match fixed Verilator 5.052 at both seeds. See [design and scope](#constraint-inheritance-and-failure-retention).
 
@@ -1581,6 +1585,95 @@ python3 tools/qualify_clockassert.py --verilator /path/to/verilator-5.052 \
 
 X/Z, rejection of non-#1step misuse, output skew, programs, disable iff, temporal operators, simultaneous clocks and virtual interfaces are
 outside this model. It checks separate assertions on different clocks, not temporal properties spanning multiple clocks.
+
+<a id="dpi-open-arrayの形状と書戻し"></a>
+
+### DPI open array shape and copyback
+
+`interaction_dpi_array.py` implements the chapter 7×35 P1 candidate as `dpi_openarray_shape@1`.
+It crosses ascending/descending fixed arrays, dynamic arrays and queues with input/output/inout, initial sizes 1/3/5,
+positive/mixed-sign words, numerical ascending/descending C traversal, and stable/resized calls.
+Of 288 Cartesian rows, clause 7.7 forbids 48 dynamic-array/queue open-output rows; 72 fixed-array resize rows have no meaning in this model.
+The 30 cases selected from 168 legal rows retain all 100 pairs, 72 targeted triples and four anchors: 82.14% fewer cases.
+The actual×direction×length projection alone has 30 legal combinations, requiring at least 30 rows; this plan meets that lower bound.
+This is not an elapsed-time saving or whole-chapter coverage. No legal rows are excluded for tool limitations.
+
+Every test calls the same import twice and resets all elements for each call. Fixed arrays use negative ascending bounds or descending
+bounds ending above zero. Dynamic arrays and queues resize 1→3, 3→5 or 5→2, checking each call's shape after growth or shrinkage.
+C reports `svLeft`, `svRight`, `svLow`, `svHigh`, `svIncrement`, `svSize` and `svDimensions` and obtains each element pointer by its
+original SV index, without assuming contiguous whole-array layout. Observations include every C before/after value, an order-sensitive
+checksum, every SV element on return and an independent guard array. Input is unchanged; output writes every element without reading
+its initial value; inout combines input values with original indices. Clauses 7.7, 35.5.6.1, 35.6.1.1, H.7.6, H.12.2, H.12.4 and 20.7
+govern these observations.
+
+Both fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross59-dpi-array-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross59-dpi-array-verilator5052-seed73.json) pass the 18 static-array cases.
+Only those 18 gain the fixed oracle. The 12 dynamic-array/queue cases have known internal build errors for unsupported DPI open-array
+actuals and retain spec expectations. Build failures are neither behavior verification nor passes of illegal-design tests.
+
+The normal runner marks all 30 cases unsupported before execution because latest kirimasim `f2d9a1136576` cannot load C code.
+[Separate parsing](../coverage/interaction-qualification/dpi-array-build.json) accepts 24 and rejects 6 queue cases during argument type
+matching. Those 6 remain legal positive cases under clause 7.7. The C-loading preflight prevents these parse errors from appearing in
+the normal runner classification; the 24 successful parses are not counted as DPI execution passes.
+
+The [independent checks and fault injection](../coverage/interaction-qualification/dpi-array.json) compare expectations for all 168 rows
+with a separate explicit stimulus table. The actual C helper also runs all 168 rows against a test-owned ABI stub with two output
+initialization poisons. Separated element slots and canaries check element-wise access and detect out-of-bounds writes.
+These auxiliary checks qualify the C helper and expectations, not simulator marshalling or copyback of dynamic arrays and queues.
+On fixed Verilator, one normal control passes and five faults—wrong bounds, reversed traversal, lost SV copyback, lost input sign and
+reusing the first call's phase—are detected by output differences, not build failures.
+
+```sh
+python3 tools/qualify_dpi_array.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-dpi-array.json
+```
+
+X/Z, empty arrays, multiple dimensions, sized formals, ref arguments, retained element pointers/handles and C reentry are outside scope.
+This model uses only open formals; clause 35.5.6 permits implementation-dependent restrictions on actuals for sized array formals.
+All registered P1 candidates have moved into finite models; P2/P3 candidates and unreviewed pairs remain, so this is not completion of
+verification across all chapter pairs.
+
+<a id="クラスの浅いコピーと配列領域要素ハンドル"></a>
+
+### Class array storage and shared elements
+
+`interaction_class_array.py` implements the chapter 7×8 P2 candidate as `class_array_shallow_copy@1`.
+It crosses fixed/dynamic arrays and queues, widths 1/8/33, initial lengths 1/3, first/last positions, shallow copy/handle assignment,
+mutation through the source/copy, and element replacement/resizing. Excluding 48 meaningless fixed-array resize rows from 288 Cartesian
+rows leaves 240 legal rows. The 18 selected cases retain all 108 pairs, 60 targeted triples and four anchors: 92.5% fewer cases.
+The container×width×copy projection alone needs 18 rows, so this plan meets that lower bound. This is neither an elapsed-time saving
+nor coverage of every class or array feature. No legal rows are excluded for unsupported tools.
+
+Under clause 8.12, shallow copying creates a new holder with independent array-element storage. Objects referenced by element handles
+remain shared. Ordinary handle assignment is the control that shares the holder itself. Each holder has a bit-vector array and a
+same-shaped handle array. Four sequential snapshots observe the copy, a shared element-object update, replacement or resizing in one
+holder, and a later update through a saved element handle. Every vector, null and payload is checked, together with holder/element
+identity and an independent guard. The constructor count remains two and the copied stamp is retained, checking that shallow copy
+does not rerun the constructor.
+
+Dynamic arrays use `new[size](old)`; queues use push_back/pop_back to grow 1→3 or shrink 3→1. Dynamic growth checks zero/null defaults; queue growth explicitly pushes zero/null. Checks also include the preserved prefix,
+unchanged size and values in the other shallow copy, and saved-handle lifetime after shrinking or replacement.
+First/last positions for length one are equivalence controls. Clauses 8.12, 8.8, 7.6, 7.5.1, 7.10.2.5 and 7.10.2.7 govern these observations.
+
+Both fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross60-class-array-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross60-class-array-verilator5052-seed73.json) pass all 18 cases, which gain that fixed oracle.
+All 18 parse and type-check in latest kirimasim; 6 fixed-array cases pass and 12 dynamic-array/queue cases encounter unsupported array-property operations.
+The [latest-build, parse and execution record](../coverage/interaction-qualification/class-array-build.json) is saved; fixed-version
+success and parsing success are not added to kirimasim execution passes.
+
+The [independent checks and fault injection](../coverage/interaction-qualification/class-array.json) compare all 240 rows with a separate
+Python object graph: the generator's closed-form snapshots are checked against actual object identities, lists and copy operations.
+Two fixed-array/resize controls pass. Six faults—aliasing instead of shallow copying, deep-copying referenced elements, omitting vector
+elements, rerunning the constructor, writing the wrong index and leaking a resize into the other holder—are detected by output
+differences. Build failures are not counted as detected faults. Reproduce with fixed Verilator 5.052 and a new output filename:
+
+```sh
+python3 tools/qualify_class_array.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-class-array.json
+```
+
+X/Z, empty arrays, inheritance/base-handle paths, rand state, covergroups, ref arguments and concurrent execution are outside scope.
+This does not qualify custom deep-copy methods or UVM copy implementations.
 
 <a id="モデル変更時の更新"></a>
 

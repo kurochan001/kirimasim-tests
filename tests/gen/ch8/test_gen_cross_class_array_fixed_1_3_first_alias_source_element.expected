@@ -1,0 +1,56 @@
+stage=copied same_holder=1 ctor=2 old=1
+same_first=1 old_source=1 old_copy=1
+source stamp=1 size=3
+source[0] word=0 ref=1
+source[1] word=1 ref=0
+source[2] word=0 ref=1
+copy stamp=1 size=3
+copy[0] word=0 ref=1
+copy[1] word=1 ref=0
+copy[2] word=0 ref=1
+guard stamp=2 size=3
+guard[0] word=1 ref=0
+guard[1] word=0 ref=1
+guard[2] word=1 ref=0
+stage=shared same_holder=1 ctor=2 old=0
+same_first=1 old_source=1 old_copy=1
+source stamp=1 size=3
+source[0] word=0 ref=0
+source[1] word=1 ref=0
+source[2] word=0 ref=1
+copy stamp=1 size=3
+copy[0] word=0 ref=0
+copy[1] word=1 ref=0
+copy[2] word=0 ref=1
+guard stamp=2 size=3
+guard[0] word=1 ref=0
+guard[1] word=0 ref=1
+guard[2] word=1 ref=0
+stage=changed same_holder=1 ctor=2 old=0
+same_first=1 old_source=0 old_copy=0
+source stamp=1 size=3
+source[0] word=1 ref=1
+source[1] word=1 ref=0
+source[2] word=0 ref=1
+copy stamp=1 size=3
+copy[0] word=1 ref=1
+copy[1] word=1 ref=0
+copy[2] word=0 ref=1
+guard stamp=2 size=3
+guard[0] word=1 ref=0
+guard[1] word=0 ref=1
+guard[2] word=1 ref=0
+stage=retained same_holder=1 ctor=2 old=1
+same_first=1 old_source=0 old_copy=0
+source stamp=1 size=3
+source[0] word=1 ref=1
+source[1] word=1 ref=0
+source[2] word=0 ref=1
+copy stamp=1 size=3
+copy[0] word=1 ref=1
+copy[1] word=1 ref=0
+copy[2] word=0 ref=1
+guard stamp=2 size=3
+guard[0] word=1 ref=0
+guard[1] word=0 ref=1
+guard[2] word=1 ref=0

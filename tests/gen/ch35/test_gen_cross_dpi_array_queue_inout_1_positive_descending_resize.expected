@@ -1,0 +1,20 @@
+call phase=0 size=1
+before[0]=11
+c phase=0 dims=1 left=0 right=0 low=0 high=0 inc=1 size=1
+c index=0 before=11 after=111
+returned=111
+after[0]=111
+guard=31,-47,83
+call phase=1 size=3
+before[0]=24
+before[1]=31
+before[2]=38
+c phase=1 dims=1 left=0 right=2 low=0 high=2 inc=-1 size=3
+c index=2 before=38 after=240
+c index=1 before=31 after=232
+c index=0 before=24 after=224
+returned=1376
+after[0]=224
+after[1]=232
+after[2]=240
+guard=31,-47,83

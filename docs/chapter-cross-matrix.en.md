@@ -22,7 +22,7 @@ Off-diagonal cells count **models mapped to chapter interactions**. A model can 
 
 The matrix is symmetric. Summing triangles or arbitrary cells gives neither test nor model totals. Zero means no mapped model in this aggregation, not absent tests, unsupported implementation or zero requirement coverage. Annexes are not axes.
 
-The scope is [registered finite interaction models](interaction-verification.en.md), not all 10,154 tests. It excludes ordinary tests and the 56 [issue #21 boundary regressions](p1-combination-regressions-20261030.en.md) not registered as finite models. It measures neither chapter requirement coverage nor the full product of chapter features.
+The scope is [registered finite interaction models](interaction-verification.en.md), not all 10,202 tests. It excludes ordinary tests and the 56 [issue #21 boundary regressions](p1-combination-regressions-20261030.en.md) not registered as finite models. It measures neither chapter requirement coverage nor the full product of chapter features.
 
 <a id="対応付けの根拠"></a>
 
@@ -36,8 +36,10 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The current mapping contains 58 models and 2,404 selected cases across 89 unordered off-diagonal pairs. The [full kirimasim 1144b2ac run](../coverage/interaction-results/cross58-kirimasim-1144b2ac.json) records 2,170 pass, 228 unsupported and 6 fail; 46 models passed their entire selection.
+The current mapping contains 60 models and 2,452 selected cases across 91 unordered off-diagonal pairs. The [full kirimasim f2d9a113 run](../coverage/interaction-results/cross60-kirimasim-f2d9a113.json) records 2,176 pass, 270 unsupported and 6 fail; 46 models passed their entire selection.
 
+- **7×8, class arrays:** one model, zero all-selection-pass models; 6 fixed-array cases pass and 12 dynamic-array/queue cases encounter unsupported operations. Both fixed Verilator seeds pass all 18 cases. See [design/evidence](interaction-verification.en.md#class-array-storage-and-shared-elements).
+- **7×35, DPI open arrays:** one model, zero all-selection-pass models. The runner marks all 30 unsupported for C loading; separate parsing accepts 24 and rejects 6 queue cases during type matching. Both fixed Verilator seeds pass 18 static-array cases; 12 dynamic-array/queue cases have known build failures. See [design/evidence](interaction-verification.en.md#dpi-open-array-shape-and-copyback).
 - **14×16, clocking/assertion:** one model, zero all-selection-pass models in kirimasim because concurrent assertions are unsupported. Both fixed Verilator seeds pass all 18 cases. See [design/evidence](interaction-verification.en.md#clocking-inputs-and-assertion-clocks).
 - **8×18, inherited constraints:** one model, zero all-selection-pass models in kirimasim because randomize is unsupported. Both fixed Verilator seeds pass all 13 cases. See [design/evidence](interaction-verification.en.md#constraint-inheritance-and-failure-retention).
 - **10×35, DPI/NBA:** one registered model, zero all-selection-pass models. All 18 are unsupported C loading; fixed Verilator's 14 partial passes are not added. See [design/evidence](interaction-verification.en.md#dpi-copyback-and-nba-capture).

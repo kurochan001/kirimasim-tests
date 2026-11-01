@@ -133,3 +133,7 @@
 - 第8章×第18章のP1、継承制約モデルを追加しました。合法96通りから13件を選び、全因子対70組・重点3因子40組・必須4件を保持します。全96行の独立検算、2正常対照と5故障の検出を確認しました。固定Verilatorは両seedとも全13件がPASSです。最新kirimasim `1144b2acab1e`の全2,386件は2,170 pass・210 unsupported・既存6 failで、従来2,373件の結果と指紋は同じです。[モデルと証跡](interaction-verification.md#constraint-inheritance-and-failure-retention)を参照してください。
 
 - 第14章×第16章のP1、clocking/assertionモデルを追加しました。合法288通りから18件を選び、全因子対109組・重点3因子50組・必須4件を保持します。全288行の独立検算、2正常対照と5故障の検出を確認しました。固定Verilatorは両seedとも全18件がPASSです。最新kirimasim `1144b2acab1e`の全2,404件は2,170 pass・228 unsupported・既存6 failで、従来2,386件の結果と指紋は同じです。[モデルと証跡](interaction-verification.md#clocking-inputs-and-assertion-clocks)を参照してください。
+
+- 第7章×第35章のP1、DPI open arrayモデルを追加しました。合法168通りから30件を選び、全因子対100組・重点3因子72組・必須4件を保持します。全168行の独立検算と、実Cヘルパーとテスト専用ABIで2種類のoutput初期値を使った照合、正常対照1件・5故障の検出を確認しました。固定Verilatorは両seedとも固定配列18件がPASS、動的配列・キュー12件は既知のビルド失敗です。最新kirimasim `f2d9a1136576`の全2,434件は2,170 pass・258 unsupported・既存6 failで、従来2,404件の記録は同じです。別途の解析では新規24件が成功し、キュー6件が型照合で拒否されました。登録済みP1候補はすべて有限モデルへ移りましたが、未精査の章対は残ります。[モデルと証跡](interaction-verification.md#dpi-open-array-shape-and-copyback)を参照してください。
+
+- 第7章×第8章のP2、クラス配列モデルを追加しました。合法240通りから18件を選び、全因子対108組・重点3因子60組・必須4件を保持します。全240行の独立したオブジェクトグラフとの照合、正常対照2件・6故障の検出を確認しました。固定Verilatorは両seedとも全18件がPASSです。最新kirimasim `f2d9a1136576`の全2,452件は2,176 pass・270 unsupported・既存6 failで、従来2,434件の記録は同じです。新規18件の解析は成功し、固定配列6件がPASS、動的配列・キュー12件が未対応です。[モデルと証跡](interaction-verification.md#class-array-storage-and-shared-elements)を参照してください。

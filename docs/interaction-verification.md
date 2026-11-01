@@ -14,7 +14,11 @@
 
 各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・ 検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と [生成レポート](interaction-coverage.md)を参照してください。
 
-2026-11-01のclocking/assertion追加：現在は**58モデル・2,404件**です。実行直前に上流mainと照合してビルドしたkirimasim `1144b2acab1e`の[全クロス保存実行](../coverage/interaction-results/cross58-kirimasim-1144b2ac.json)は**2,170 pass・228 unsupported・既存6 fail**です。新規18件は並行アサーション未対応で、従来2,386件の入力ハッシュと結果区分は同じです。第14章×第16章を登録し、章対は89対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも新規18件すべてが一致しました。[設計と確認範囲](#clocking-inputs-and-assertion-clocks)を参照してください。
+2026-11-01のクラス配列追加：現在は**60モデル・2,452件**です。実行直前に上流mainと照合してビルドしたkirimasim `f2d9a1136576`の[全クロス保存実行](../coverage/interaction-results/cross60-kirimasim-f2d9a113.json)は**2,176 pass・270 unsupported・既存6 fail**です。新規18件は6 pass・12 unsupportedで、従来2,434件の入力ハッシュと結果区分は同じです。新規18件の構文・意味解析はすべて成功しました。第7章×第8章を登録し、章対は91対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも新規18件すべてが一致しました。[設計と確認範囲](#class-array-storage-and-shared-elements)を参照してください。
+
+同日のDPI open array追加時点では**59モデル・2,434件**でした。実行直前に上流mainと照合してビルドしたkirimasim `f2d9a1136576`の[全クロス保存実行](../coverage/interaction-results/cross59-kirimasim-f2d9a113.json)は**2,170 pass・258 unsupported・既存6 fail**です。新規30件はランナーのC読込み未対応で、従来2,404件の入力ハッシュと結果区分は同じです。別途行った解析は24件が成功し、合法なキュー6件が引数の型照合で拒否されました。第7章×第35章を登録し、章対は90対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも固定配列18件が一致し、動的配列・キュー12件は既知のビルド失敗です。[設計と確認範囲](#dpi-open-array-shape-and-copyback)を参照してください。
+
+同日のclocking/assertion追加時点では**58モデル・2,404件**でした。実行直前に上流mainと照合してビルドしたkirimasim `1144b2acab1e`の[全クロス保存実行](../coverage/interaction-results/cross58-kirimasim-1144b2ac.json)は**2,170 pass・228 unsupported・既存6 fail**です。新規18件は並行アサーション未対応で、従来2,386件の入力ハッシュと結果区分は同じです。第14章×第16章を登録し、章対は89対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも新規18件すべてが一致しました。[設計と確認範囲](#clocking-inputs-and-assertion-clocks)を参照してください。
 
 同日の継承制約追加時点では**57モデル・2,386件**でした。実行直前に上流mainと照合してビルドしたkirimasim `1144b2acab1e`の[全クロス保存実行](../coverage/interaction-results/cross57-kirimasim-1144b2ac.json)は**2,170 pass・210 unsupported・既存6 fail**です。新規13件はrandomize未対応で、従来2,373件の入力ハッシュと結果区分は同じです。第8章×第18章を登録し、章対は88対、全選択ケースPASSは46モデルです。固定Verilator 5.052は両seedとも新規13件すべてが一致しました。[設計と確認範囲](#constraint-inheritance-and-failure-retention)を参照してください。
 
@@ -1581,6 +1585,97 @@ python3 tools/qualify_clockassert.py --verilator /path/to/verilator-5.052 \
 
 X/Z、非#1stepの誤用の拒否、出力skew、program、disable iff、時間演算、同時クロック、virtual interfaceは対象外です。
 別々のクロック上のassertionを扱い、複数クロックをまたぐ時間演算のpropertyを検証したとは扱いません。
+
+<a id="dpi-open-array-shape-and-copyback"></a>
+
+### DPI open arrayの形状と書戻し
+
+`interaction_dpi_array.py`の`dpi_openarray_shape@1`は、第7章×第35章のP1候補を実装します。
+実引数（昇順固定／降順固定／動的配列／キュー）、input／output／inout、初回要素数1・3・5、
+正値／正負混在、Cでの数値順の昇順／降順走査、同じサイズ／サイズ変更を組み合わせます。
+直積288行から、§7.7で禁止された動的配列・キューのopen output 48行と、意味を持たない固定配列のresize 72行を除きます。
+合法168行から30件を選び、全因子対100組・重点3因子72組・必須4件を保持します。件数は82.14%削減します。
+実引数×方向×要素数の合法30組だけで最低30行が必要なため、この計画の選択はその下限と一致します。
+実行時間の削減率や、章全体の網羅率ではありません。ツール未対応を理由に合法行を除いていません。
+
+各テストは同じimportを2回呼び出し、呼出しごとに全要素を再設定します。
+固定配列は負の開始添字を持つ昇順範囲か、0以外で終わる降順範囲を使います。
+動的配列・キューのresizeは1→3、3→5、5→2で、拡大と縮小後の各呼出しの形状を照合します。
+Cは`svLeft`／`svRight`／`svLow`／`svHigh`／`svIncrement`／`svSize`／`svDimensions`を報告し、
+元のSV添字を使って要素ポインタを一つずつ取得します。全体が連続配置であるとは仮定しません。
+全要素の前後の値と走査順に依存するチェックサム、SV復帰後の全要素、別のguard配列を照合します。
+inputでは変更せず、outputでは初期値を読まずに全要素を設定し、inoutでは入力値と実添字を使って更新します。
+根拠は§7.7・35.5.6.1・35.6.1.1・H.7.6・H.12.2・H.12.4・20.7です。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross59-dpi-array-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross59-dpi-array-verilator5052-seed73.json)は、それぞれ固定配列18件がPASSです。
+この18件だけに固定版のoracleを登録しました。動的配列・キュー12件は、DPI open array実引数未対応のビルド時内部エラーで、
+specの期待値を保持します。ビルド失敗を動作確認や負例の合格へ読み替えません。
+
+最新kirimasim `f2d9a1136576`の通常ランナーは、Cコード読込み未対応により全30件を実行前にunsupportedとします。
+[別途の解析結果](../coverage/interaction-qualification/dpi-array-build.json)は24件が成功し、キュー6件は引数の型照合で拒否されました。
+この6件も§7.7の合法な正例として維持します。C読込みの事前判定により解析エラーが通常ランナーの区分へ現れないことを明記し、
+解析成功24件をDPI実行の成功として数えません。
+
+[独立検算と故障注入](../coverage/interaction-qualification/dpi-array.json)では、別の明示的な刺激表から全168行の期待値を照合し、
+実際のCヘルパーをテスト専用ABIスタブへ接続して全168行を2種類のoutput初期値で実行しました。
+要素間にcanaryを置いた配置で、全体ポインタの仮定や範囲外の書込みを避けることを確認します。
+これはCコードと期待値の補助検算で、シミュレータの動的配列・キューの受渡しや書戻しを確認した結果ではありません。
+固定Verilator上では正常対照1件が一致し、範囲の取り違え・走査方向の反転・SV書戻しの欠落・入力符号の欠落・
+2回目の呼出しに古いphaseを使う5故障を、ビルド失敗ではなく出力差で検出しました。
+
+```sh
+python3 tools/qualify_dpi_array.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-dpi-array.json
+```
+
+X/Z、空配列、多次元、sized formal、ref、要素のポインタ・ハンドルの持越し、Cからの再入は対象外です。
+sized formalへの実引数には§35.5.6の実装依存の制限があるため、このモデルはopen formalに限定します。
+登録済みP1候補はすべて有限モデルへ移りましたが、P2/P3候補と未精査の章対は残り、全章対の検証完了を意味しません。
+
+<a id="class-array-storage-and-shared-elements"></a>
+
+### クラスの浅いコピーと配列領域・要素ハンドル
+
+`interaction_class_array.py`の`class_array_shallow_copy@1`は、第7章×第8章のP2候補を実装します。
+固定配列／動的配列／キュー、幅1・8・33、初回長1・3、先頭／末尾、浅いコピー／ハンドル代入、
+元／コピーからの変更、要素置換／サイズ変更を組み合わせます。
+直積288行から意味を持たない固定配列のresize 48行を除き、合法240行から18件を選びます。
+全因子対108組・重点3因子60組・必須4件を保持し、件数を92.5%削減します。
+コンテナ×幅×コピー方式だけで18組あるため、この計画の選択は必要行数の下限と一致します。
+実行時間の削減率や、クラス・配列の全機能の網羅率ではありません。未対応を理由に合法行を除いていません。
+
+§8.12の浅いコピーは新しいholderを作り、配列変数の要素格納領域を独立させます。
+要素がクラスハンドルの場合、そのハンドルが指すオブジェクトは共有します。通常のハンドル代入はholder自体を共有する対照です。
+各holderにbitベクタ配列と同じ形状のハンドル配列を持たせ、次の四つの時点を順序付けて観測します。
+コピー直後、共有する要素オブジェクトの更新後、片方の配列の要素置換またはサイズ変更後、保存済みハンドルからの再更新後です。
+全要素のビット列・null・参照先の値、holderと要素の同一性、別のguardを照合します。
+浅いコピーでコンストラクタを再実行しないことを、holderのコンストラクタ呼出し回数が2のままであることと、コピーされたstampでも確認します。
+
+動的配列は`new[size](old)`、キューはpush_back／pop_backで1→3または3→1へ変更します。
+動的配列では追加要素の既定値0／null、キューでは明示的に追加した0／nullを照合します。
+接頭部の保持、他方の浅いコピーのサイズと値の保持、縮小や置換後の保存ハンドルの存続も確認します。
+初回長1の先頭／末尾は等価な対照です。根拠は§8.12・8.8・7.6・7.5.1・7.10.2.5・7.10.2.7です。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross60-class-array-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross60-class-array-verilator5052-seed73.json)は全18件がPASSで、この18件に固定版のoracleを登録しました。
+最新kirimasimでは全18件の解析が成功し、固定配列6件がPASSです。動的配列・キュー12件は配列プロパティの操作が未対応です。
+[最新ビルド・解析・実行の記録](../coverage/interaction-qualification/class-array-build.json)を保存しています。
+固定版の成功や解析成功をkirimasimの実行成功へ加算しません。
+
+[独立検算と故障注入](../coverage/interaction-qualification/class-array.json)では、別のPythonオブジェクトグラフで全240行を照合しました。
+生成側の時点ごとの閉形式と、独立側の実際のオブジェクト同一性・リスト・コピー操作を比較します。
+固定配列とサイズ変更の正常対照2件が一致し、浅いコピーの別名化・要素オブジェクトの過剰な複製・ベクタ要素のコピー欠落・
+コンストラクタの再実行・書込み添字の誤り・サイズ変更の他holderへの波及の6故障を出力差で検出しました。
+ビルド失敗を故障検出へ加算していません。再確認では固定Verilator 5.052と新しい出力名を指定します。
+
+```sh
+python3 tools/qualify_class_array.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-class-array.json
+```
+
+X/Z、空配列、継承・基底ハンドル経由、rand状態、covergroup、ref、並行実行は対象外です。
+独自のdeep copyメソッドやUVMのコピー実装を検証したとは扱いません。
 
 <a id="updates-after-model-changes"></a>
 

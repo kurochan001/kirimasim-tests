@@ -59,6 +59,8 @@ import interaction_event_rebind
 import interaction_dpi_nba
 import interaction_constraint
 import interaction_clockassert
+import interaction_dpi_array
+import interaction_class_array
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -92,7 +94,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_udpstate,
               interaction_ifimport,
               interaction_mailbox,
-              interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert,
+              interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -507,6 +509,20 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_mailbox.MODEL.select(),
             "classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量制限・nullメッセージと"
             "取得前後の双方向のメンバ更新を確認する。別mailboxの保持と後の更新、空の非ブロッキング戻り値も観測する。",
+        ),
+        SuiteModel(
+            interaction_class_array.MODEL,
+            lambda row: "tests/gen/ch8/" + interaction_class_array.case_name(row) + ".sv",
+            interaction_class_array.MODEL.select(),
+            "クラスの浅いコピーとハンドル代入を対照に、配列領域の独立性と要素ハンドルの参照先の共有を照合する。"
+            "元/コピーからの要素置換・拡大/縮小、保存ハンドルの存続、コンストラクタ回数と別guardの保持を確認する。",
+        ),
+        SuiteModel(
+            interaction_dpi_array.MODEL,
+            lambda row: "tests/gen/ch35/" + interaction_dpi_array.case_name(row) + ".sv",
+            interaction_dpi_array.MODEL.select(),
+            "固定/動的配列/キューをopen arrayとしてDPIへ渡し、各呼出しの範囲・全要素・復帰後の書戻しを照合する。"
+            "入力方向・数値順の走査方向・符号パターン・繰返し前の拡大/縮小を交差し、別のguard配列の保持も確認する。",
         ),
         SuiteModel(
             interaction_clockassert.MODEL,

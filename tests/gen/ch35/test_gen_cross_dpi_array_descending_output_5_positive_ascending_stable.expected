@@ -1,0 +1,38 @@
+call phase=0 size=5
+before[7]=39
+before[6]=32
+before[5]=25
+before[4]=18
+before[3]=11
+c phase=0 dims=1 left=7 right=3 low=3 high=7 inc=1 size=5
+c index=3 before=0 after=-91
+c index=4 before=0 after=-88
+c index=5 before=0 after=-85
+c index=6 before=0 after=-82
+c index=7 before=0 after=-79
+returned=-1245
+after[7]=-79
+after[6]=-82
+after[5]=-85
+after[4]=-88
+after[3]=-91
+guard=31,-47,83
+call phase=1 size=5
+before[7]=52
+before[6]=45
+before[5]=38
+before[4]=31
+before[3]=24
+c phase=1 dims=1 left=7 right=3 low=3 high=7 inc=1 size=5
+c index=3 before=0 after=-191
+c index=4 before=0 after=-188
+c index=5 before=0 after=-185
+c index=6 before=0 after=-182
+c index=7 before=0 after=-179
+returned=-2745
+after[7]=-179
+after[6]=-182
+after[5]=-185
+after[4]=-188
+after[3]=-191
+guard=31,-47,83

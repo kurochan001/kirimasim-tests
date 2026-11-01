@@ -15,7 +15,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 5 | [Lexical conventions](ch5.md) | 346 | 248 |
 | 6 | [Data types](ch6.md) | 645 | 43 |
 | 7 | [Aggregate data types](ch7.md) | 772 | 304 |
-| 8 | [Classes](ch8.md) | 357 | 36 |
+| 8 | [Classes](ch8.md) | 375 | 54 |
 | 9 | [Processes](ch9.md) | 383 | 173 |
 | 10 | [Assignment statements](ch10.md) | 353 | 149 |
 | 11 | [Operators and expressions](ch11.md) | 1644 | 1122 |
@@ -42,7 +42,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 32 | [Backannotation using the standard delay format](ch32.md) | 50 ||
 | 33 | [Configuring the contents of a design](ch33.md) | 84 | 41 |
 | 34 | [Protected envelopes](ch34.md) | 4 ||
-| 35 | [Direct programming interface](ch35.md) | 149 | 18 |
+| 35 | [Direct programming interface](ch35.md) | 179 | 48 |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 89 ||
 | 37 | [VPI object model diagrams](ch37.md) | 227 ||
 | 38 | [VPI routine definitions](ch38.md) | 109 ||

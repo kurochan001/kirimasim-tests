@@ -12,7 +12,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 10154 |
+| Tests | 10202 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -26,8 +26,8 @@
 | --- | ---: |
 | both releases | 768 |
 | Icarus Verilog 13.0 only | 4851 |
-| Verilator 5.052 only | 1736 |
-| standard only | 2799 |
+| Verilator 5.052 only | 1772 |
+| standard only | 2811 |
 
 <a id="章別"></a>
 
@@ -40,7 +40,7 @@
 | 5 | Lexical conventions | 346 | 16 | 21.6 | 0 | 7 |
 | 6 | Data types | 645 | 76 | 8.5 | 0 | 105 |
 | 7 | Aggregate data types | 772 | 49 | 15.8 | 0 | 201 |
-| 8 | Classes | 357 | 43 | 8.3 | 0 | 84 |
+| 8 | Classes | 375 | 43 | 8.7 | 0 | 84 |
 | 9 | Processes | 383 | 25 | 15.3 | 0 | 56 |
 | 10 | Assignment statements | 353 | 18 | 19.6 | 0 | 44 |
 | 11 | Operators and expressions | 1644 | 42 | 39.1 | 0 | 250 |
@@ -67,7 +67,7 @@
 | 32 | Backannotation using the standard delay format | 50 | 11 | 4.5 | 0 | 34 |
 | 33 | Configuring the contents of a design | 84 | 13 | 6.5 | 0 | 67 |
 | 34 | Protected envelopes | 4 | 8 | 0.5 | 0 | 0 |
-| 35 | Direct programming interface | 149 | 21 | 7.1 | 0 | 47 |
+| 35 | Direct programming interface | 179 | 21 | 8.5 | 0 | 59 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 19 | 4.7 | 0 | 36 |
 | 37 | VPI object model diagrams | 227 | 94 | 2.4 | 0 | 208 |
 | 38 | VPI routine definitions | 109 | 46 | 2.4 | 0 | 44 |

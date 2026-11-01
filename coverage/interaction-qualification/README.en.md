@@ -138,3 +138,23 @@ See [scope and reproduction](../../docs/interaction-verification.en.md#constrain
 [`clockassert-build.json`](clockassert-build.json) records the verified latest upstream kirimasim commit, binary fingerprint, 18 successful parses and full-run location.
 Both fixed Verilator seeds pass all 18 cases; concurrent assertions are unsupported in kirimasim. Auxiliary experiments are not added to normal pass counts.
 See [scope and reproduction](../../docs/interaction-verification.en.md#clocking-inputs-and-assertion-clocks).
+
+<a id="dpi-open-arrayの形状と書戻しの確認"></a>
+
+## DPI open-array shape and copyback checks
+
+[`dpi-array.json`](dpi-array.json) records independent checks of all 168 rows, the real C helper against a test ABI for all rows at two output initialization poisons, one passing control and five output-difference faults.
+The ABI stub uses separated elements and canaries; it does not verify simulator marshalling of dynamic arrays or queues.
+[`dpi-array-build.json`](dpi-array-build.json) records the latest-upstream-verified kirimasim version, binary fingerprint and all 30 parse outcomes.
+The normal runner stops all 30 before execution for unsupported C loading; separate parsing accepts 24 and rejects 6 legal queue cases during type matching.
+Both fixed Verilator seeds pass 18 static-array cases; 12 dynamic-array/queue cases have known build failures.
+See [scope and reproduction](../../docs/interaction-verification.en.md#dpi-open-array-shape-and-copyback).
+
+<a id="クラスの浅いコピーと配列の確認"></a>
+
+## Class shallow-copy and array checks
+
+[`class-array.json`](class-array.json) records an independent object-graph comparison for all 240 rows, two passing controls and six faults detected by output differences.
+[`class-array-build.json`](class-array-build.json) records the latest-upstream-verified kirimasim version, binary fingerprint, 18 successful parses and full-run location.
+Both fixed Verilator seeds pass all 18 cases; kirimasim passes 6 fixed-array cases and reports 12 unsupported dynamic-array/queue cases. Auxiliary experiments are not added to normal pass counts.
+See [scope and reproduction](../../docs/interaction-verification.en.md#class-array-storage-and-shared-elements).
