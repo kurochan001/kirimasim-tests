@@ -137,3 +137,36 @@ python3 tools/qualify_binding.py --kirimasim BIN --commit VERIFIED_COMMIT \
 
 通常の保存実行は`interaction-results/cross32-kirimasim-a08e3489.json`と
 `interaction-results/binding-20261031-*.json`です。
+
+## mailboxのclassハンドルと別名経由の更新
+
+[`20261101-mailbox.json`](20261101-mailbox.json)は、
+[`mailbox_class_alias`](../../docs/interaction-verification.md#mailboxのclassハンドルと別名経由の更新)の補助記録です。
+固定Verilator 5.052の既知値・typedの必須6ケースが正常対照として一致し、FIFO・ハンドルの共有・
+双方向の更新、容量・null、別mailboxの独立性など19種類の誤りを正常終了後の出力差として検出しました。
+コンパイルエラー・異常終了だけを故障検出へ数えません。typelessやX/Zはこの故障注入の対象外です。
+
+[`20261101-mailbox-build.json`](20261101-mailbox-build.json)は、全体回帰直前に確認したkirimasimの
+上流コミット・ビルド版・バイナリ指紋と、従来2,292件の入力・結果区分を保持したことの記録です。
+[`20261101-mailbox-prior-digests.json`](20261101-mailbox-prior-digests.json)には、従来の生成物・保存実行・
+モデル計画・集計結果を変更していないことの指紋を記録します。補助記録を通常の合格数へ加算しません。
+
+```sh
+python3 tools/qualify_mailbox.py --verilator verilator --seed 1 \
+  --output coverage/interaction-qualification/NEW-mailbox.json
+```
+
+出力先は既存の証跡を上書きしない新規ファイルを指定してください。
+
+## イベント変数の再結合と登録済み待機の保持
+
+[`20261101-event-rebind-build.json`](20261101-event-rebind-build.json)は、
+[`event_rebinding`](../../docs/interaction-verification.md#イベント変数の再結合と登録済み待機の保持)を実行した
+kirimasimの上流・ビルド版の一致、バイナリの不変性、27件の構文・意味解析の成功と、
+従来2,328件の入力・結果区分の保持を記録します。
+[`20261101-event-rebind-prior-digests.json`](20261101-event-rebind-prior-digests.json)は、
+従来6,786生成ファイル、54モデルの計画、157保存実行と従来モデル集計の指紋です。
+
+動作はkirimasimで未対応、固定Icarus/Verilatorではビルド失敗なので、
+SystemVerilogの故障注入を実行できたとの記録はありません。
+独立参照モデルで確認した13種の抽象的な誤りへの観測感度も、実行での故障検出数へ加算しません。

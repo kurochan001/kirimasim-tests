@@ -54,6 +54,8 @@ import interaction_config
 import interaction_udp
 import interaction_udpstate
 import interaction_ifimport
+import interaction_mailbox
+import interaction_event_rebind
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -86,6 +88,8 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_udp,
               interaction_udpstate,
               interaction_ifimport,
+              interaction_mailbox,
+              interaction_event_rebind,
               interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
@@ -493,5 +497,19 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_ifimport.MODEL.select(),
             "interfaceヘッダのimportでパラメータ既定値・型・package関数を結合し、targetだけの幅/タグ変更をguardと比較する。"
             "同名の呼出し側宣言を対照に、bit/logicの仮引数変換がpackage関数の演算前に行われる順序と実際の幅・中間値を照合する。",
+        ),
+        SuiteModel(
+            interaction_mailbox.MODEL,
+            lambda row: "tests/gen/ch15/" + interaction_mailbox.case_name(row) + ".sv",
+            interaction_mailbox.MODEL.select(),
+            "classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量制限・nullメッセージと"
+            "取得前後の双方向のメンバ更新を確認する。別mailboxの保持と後の更新、空の非ブロッキング戻り値も観測する。",
+        ),
+        SuiteModel(
+            interaction_event_rebind.MODEL,
+            lambda row: "tests/gen/ch15/" + interaction_event_rebind.case_name(row) + ".sv",
+            interaction_event_rebind.MODEL.select(),
+            "静的イベントをタスク呼出し前・待機登録前・登録後に再結合し、inputのコピーとref/直接参照、"
+            "登録済み待機の保持、複数待機者、後着待機者、別名の独立性とActive/NBAの観測値を照合する。",
         ),
     )

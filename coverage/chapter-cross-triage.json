@@ -11,28 +11,6 @@
   "pairs": [
     {
       "chapters": [
-        6,
-        15
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "イベント変数の再結合と待機先の保持が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "イベント変数の再結合と待機先の保持",
-      "factors": [
-        "別名の数",
-        "再結合時点",
-        "トリガ対象（旧/新）"
-      ],
-      "observation": "再結合後の別イベントでは起床せず、元のイベントで起床することを区別する。",
-      "witnesses": [
-        {
-          "test": "tests/ch6/test_event_rebinding_retains_old_wait.sv",
-          "inputs_sha256": "8dcf75f093490e97829be6b75a59bc5cecc6a278f8801ffe579f33d9b1707f7d"
-        }
-      ]
-    },
-    {
-      "chapters": [
         7,
         8
       ],
@@ -185,25 +163,6 @@
           "inputs_sha256": "3b7c1ccdadf6d2cb60b2aa0f79b6f5bbe91814242106bbdfaec0e9c475af67b5"
         }
       ]
-    },
-    {
-      "chapters": [
-        8,
-        15
-      ],
-      "category": "C",
-      "priority": "P1",
-      "reason": "非同期の受渡しとオブジェクト共有が同じ状態に作用する。値コピーとハンドルコピーの取り違えを狙う。",
-      "objective": "mailboxを介したクラスハンドルと別名の可視性",
-      "factors": [
-        "typed/typeless mailbox",
-        "put/get/peek",
-        "取得前後のメンバ更新",
-        "複数ハンドル"
-      ],
-      "observation": "取得したハンドルの同一性、メンバ値、キュー内個数、peekとgetの違いを観測する。",
-      "witnesses": [],
-      "rank": 9
     },
     {
       "chapters": [

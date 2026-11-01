@@ -1,0 +1,191 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch15/test_gen_cross_mailbox_129_bit_known_typed_get_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_129_bit_known_typed_get_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "bc3594686d0628b820b73b6d9ed525f8ad0fa864f6d7fbafd1df89e2b76af9f9"
+  },
+  "gen/ch15/test_gen_cross_mailbox_129_bit_x_typeless_peek_after_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_129_bit_x_typeless_peek_after_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "7e8863a2353f2da59423fa63d6bb62dc9c1f80b699e4a77d51785b1292089273"
+  },
+  "gen/ch15/test_gen_cross_mailbox_129_bit_z_typed_try_get_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_129_bit_z_typed_try_get_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "d84b7139aff5cd3ce6fac608083f8ca85ad99cf34a019f19ea3b2885d1751ec1"
+  },
+  "gen/ch15/test_gen_cross_mailbox_129_logic_known_typed_peek_both_unbounded_null": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_129_logic_known_typed_peek_both_unbounded_null.sv:37: syntax error",
+   "inputs_sha256": "58950f34a245e5bcf21025beed24141f3170bf6291fa6d5d3660ed4dcca7efdf"
+  },
+  "gen/ch15/test_gen_cross_mailbox_129_logic_x_typed_get_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_129_logic_x_typed_get_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "adb047595a9bdca011d4c30182e2aa099fdc592aa0ab7cd294d8f732cbebd236"
+  },
+  "gen/ch15/test_gen_cross_mailbox_129_logic_z_typeless_try_peek_both_unbounded_null": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_129_logic_z_typeless_try_peek_both_unbounded_null.sv:37: syntax error",
+   "inputs_sha256": "f4ce8d064e175c531063ab4bbbd6c9cd2d5e6084daa4f54c9dbc5d0f556f8cb9"
+  },
+  "gen/ch15/test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "547287f53fec15ead3e036bd075136b03ac122056c33b716daee2df6652a8d6d"
+  },
+  "gen/ch15/test_gen_cross_mailbox_1_bit_x_typed_try_peek_after_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_1_bit_x_typed_try_peek_after_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "197acdcc1b27b1dd08f03e2585564b63f60a9cbce0fab718ce895d18e3c0c8a7"
+  },
+  "gen/ch15/test_gen_cross_mailbox_1_bit_z_typeless_peek_after_unbounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_1_bit_z_typeless_peek_after_unbounded_object.sv:37: syntax error",
+   "inputs_sha256": "bbdbcafe51b687acfea51dd0ec2dfff87010656a12d8ad396ce54b718417119c"
+  },
+  "gen/ch15/test_gen_cross_mailbox_1_logic_known_typed_get_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_1_logic_known_typed_get_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "a91102bfff8cfda7dc1a382c1a2fc733684980ab4c0c4d4bfbf5e04c5a832dbb"
+  },
+  "gen/ch15/test_gen_cross_mailbox_1_logic_x_typed_try_get_both_unbounded_null": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_1_logic_x_typed_try_get_both_unbounded_null.sv:37: syntax error",
+   "inputs_sha256": "33fac02c38b02a60fc8fbfcd12d20e18b78c1629c6951e25c509b202fd977883"
+  },
+  "gen/ch15/test_gen_cross_mailbox_1_logic_z_typed_get_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_1_logic_z_typed_get_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "a3b8464e3e7172cb08fd993a212d827986b42027bcbda6254687249a5b6f7ca2"
+  },
+  "gen/ch15/test_gen_cross_mailbox_32_bit_known_typeless_try_get_both_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_32_bit_known_typeless_try_get_both_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "6af2cbe2c10de39d01b7b3c6c7ee03dc98821f017538d18ecd167f835af5d7a2"
+  },
+  "gen/ch15/test_gen_cross_mailbox_32_bit_x_typed_peek_before_unbounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_32_bit_x_typed_peek_before_unbounded_object.sv:37: syntax error",
+   "inputs_sha256": "9bd5872f42b050b110e20a6a365b4b27e707413d580d522df3357d7099efd878"
+  },
+  "gen/ch15/test_gen_cross_mailbox_32_bit_z_typeless_try_peek_before_bounded_null": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_32_bit_z_typeless_try_peek_before_bounded_null.sv:37: syntax error",
+   "inputs_sha256": "a6c9da01d74098d7a723ae2d2ad9ea21b3a611de4d33f6dc0966427379e19ff9"
+  },
+  "gen/ch15/test_gen_cross_mailbox_32_logic_known_typed_get_after_unbounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_32_logic_known_typed_get_after_unbounded_object.sv:37: syntax error",
+   "inputs_sha256": "e1796304561b46bc2eb4639511f541f34fdcdd1492f93187528f847e07dd0da5"
+  },
+  "gen/ch15/test_gen_cross_mailbox_32_logic_x_typed_get_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_32_logic_x_typed_get_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "13755acf8a01b27b843dd9383b34a5eb156c936ef2e3aceb58269aa70b2e63ff"
+  },
+  "gen/ch15/test_gen_cross_mailbox_32_logic_z_typed_get_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_32_logic_z_typed_get_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "b74522f8ac416fc659f0b933742817903d647a18a53c05110ae522604e288201"
+  },
+  "gen/ch15/test_gen_cross_mailbox_33_bit_known_typed_try_peek_both_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_33_bit_known_typed_try_peek_both_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "1d1114c058049e9b529f9398bd5d497f89c9d0988b92a03729f481a00b7a403e"
+  },
+  "gen/ch15/test_gen_cross_mailbox_33_bit_x_typed_get_after_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_33_bit_x_typed_get_after_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "54fe4d2f61be6edd4786ecad0556ea6d41f5508b59b7c2882b4fed86ef90086e"
+  },
+  "gen/ch15/test_gen_cross_mailbox_33_bit_z_typeless_try_get_before_unbounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_33_bit_z_typeless_try_get_before_unbounded_object.sv:37: syntax error",
+   "inputs_sha256": "1eb614bc44e3b5a5ddbbfdcfa980c0808024424155c34f2312c4283649ca4a97"
+  },
+  "gen/ch15/test_gen_cross_mailbox_33_logic_known_typed_peek_both_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_33_logic_known_typed_peek_both_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "c9e5c716d4821c69824acd33d4092c145da81dae4cc29e4cc390803fb3fdb797"
+  },
+  "gen/ch15/test_gen_cross_mailbox_33_logic_x_typeless_try_get_after_bounded_null": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_33_logic_x_typeless_try_get_after_bounded_null.sv:37: syntax error",
+   "inputs_sha256": "9a5faf18cd8483b14682641865c2b65d0d5ea40f3059a58a30e1b14470e87551"
+  },
+  "gen/ch15/test_gen_cross_mailbox_33_logic_z_typed_get_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_33_logic_z_typed_get_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "6709b6e598cdd3b08b89e74bda292db3491f8a983b92368c38fb9ecd174a973e"
+  },
+  "gen/ch15/test_gen_cross_mailbox_64_bit_known_typed_peek_before_bounded_null": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_64_bit_known_typed_peek_before_bounded_null.sv:37: syntax error",
+   "inputs_sha256": "4e03e48579753d49b06d0775c6fdc4bdcc4ede54028b15c6be15fef27fbe7e88"
+  },
+  "gen/ch15/test_gen_cross_mailbox_64_bit_x_typed_get_both_unbounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_64_bit_x_typed_get_both_unbounded_object.sv:37: syntax error",
+   "inputs_sha256": "e6ef77415339475b261cf95d6dc340888d8b5d73b5b48db337c64d5aa37b1f06"
+  },
+  "gen/ch15/test_gen_cross_mailbox_64_bit_z_typed_try_peek_after_unbounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_64_bit_z_typed_try_peek_after_unbounded_object.sv:37: syntax error",
+   "inputs_sha256": "7ed49eb5e2cb5cb3a40fb21ac9d30bdd9b82dbbf0bc7959bc059814cc039392f"
+  },
+  "gen/ch15/test_gen_cross_mailbox_64_logic_known_typed_try_get_after_unbounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_64_logic_known_typed_try_get_after_unbounded_object.sv:37: syntax error",
+   "inputs_sha256": "9414c8a0571c03b19f9ee670fc1fa268dcaa5337e56801ac7beb37fb0adbbbe7"
+  },
+  "gen/ch15/test_gen_cross_mailbox_64_logic_x_typeless_get_before_unbounded_null": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_64_logic_x_typeless_get_before_unbounded_null.sv:37: syntax error",
+   "inputs_sha256": "6d4cc1b556ee8bb83cf8de0469a2ab97e8e9f76cc922279ad067d2ec8c59fc15"
+  },
+  "gen/ch15/test_gen_cross_mailbox_64_logic_z_typed_get_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_64_logic_z_typed_get_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "02ca3ebeeb85741474272a600f2c0cf6912eea805f762d2da8e936e722c9781d"
+  },
+  "gen/ch15/test_gen_cross_mailbox_65_bit_known_typed_peek_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_65_bit_known_typed_peek_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "08fe11ffcc20a709eecadebf87078769e013cb44a690e4df382d4dedb407b0fe"
+  },
+  "gen/ch15/test_gen_cross_mailbox_65_bit_x_typed_try_get_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_65_bit_x_typed_try_get_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "a22a27e801f76f8d334ed35720c777045dae332b43491255d85094b1bc85ab35"
+  },
+  "gen/ch15/test_gen_cross_mailbox_65_bit_z_typeless_get_both_bounded_null": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_65_bit_z_typeless_get_both_bounded_null.sv:37: syntax error",
+   "inputs_sha256": "92938d5955de655f943d81208f5e2f7db57c41fc80aba91d23abe50a7b0b900e"
+  },
+  "gen/ch15/test_gen_cross_mailbox_65_logic_known_typed_try_get_after_bounded_null": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_65_logic_known_typed_try_get_after_bounded_null.sv:37: syntax error",
+   "inputs_sha256": "e7a8a7f47e0f25ff6a7563ad18b7f6cd9e27eee8e6022cb6a03210cf41cd4531"
+  },
+  "gen/ch15/test_gen_cross_mailbox_65_logic_x_typed_try_peek_before_unbounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_65_logic_x_typed_try_peek_before_unbounded_object.sv:37: syntax error",
+   "inputs_sha256": "4a9cb812de319c657c1b08f8432ffab8809541719cc38af98ad924ec00b15f4e"
+  },
+  "gen/ch15/test_gen_cross_mailbox_65_logic_z_typed_get_before_bounded_object": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch15/test_gen_cross_mailbox_65_logic_z_typed_get_before_bounded_object.sv:37: syntax error",
+   "inputs_sha256": "a183699a7915c3d082c8276256549ef6c55a2c2fc412496c51dac4c133f4e1b7"
+  }
+ },
+ "generated_at": "2026-10-31T23:30:13.281548+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,135 @@
+k0 put ok=0 num=2 guard=1
+k0 source a=0 b=0 c=1 guard=0
+k0 fetch ok=1 same=1 tag=11 value=0 num=1
+k0 through source=1 received=1 other=0 guard=0
+k0 after source=1 received=1 num=1
+k0 drain0 null=0 tag=22 value=0
+k0 empty get=0 peek=0 num=0
+k0 guard ok=1 same=1 tag=99 value=0 num=0
+k0 guard_update source=1 received=1 other=0
+k1 put ok=0 num=2 guard=1
+k1 source a=1 b=1 c=1 guard=0
+k1 fetch ok=1 same=1 tag=11 value=1 num=1
+k1 through source=0 received=0 other=1 guard=0
+k1 after source=0 received=0 num=1
+k1 drain0 null=0 tag=22 value=1
+k1 empty get=0 peek=0 num=0
+k1 guard ok=1 same=1 tag=99 value=0 num=0
+k1 guard_update source=1 received=1 other=1
+k2 put ok=0 num=2 guard=1
+k2 source a=1 b=0 c=0 guard=1
+k2 fetch ok=1 same=1 tag=11 value=1 num=1
+k2 through source=1 received=1 other=0 guard=1
+k2 after source=1 received=1 num=1
+k2 drain0 null=0 tag=22 value=0
+k2 empty get=0 peek=0 num=0
+k2 guard ok=1 same=1 tag=99 value=1 num=0
+k2 guard_update source=0 received=0 other=0
+k3 put ok=0 num=2 guard=1
+k3 source a=1 b=0 c=0 guard=0
+k3 fetch ok=1 same=1 tag=11 value=1 num=1
+k3 through source=1 received=1 other=0 guard=0
+k3 after source=1 received=1 num=1
+k3 drain0 null=0 tag=22 value=0
+k3 empty get=0 peek=0 num=0
+k3 guard ok=1 same=1 tag=99 value=0 num=0
+k3 guard_update source=1 received=1 other=0
+k4 put ok=0 num=2 guard=1
+k4 source a=1 b=0 c=0 guard=0
+k4 fetch ok=1 same=1 tag=11 value=1 num=1
+k4 through source=1 received=1 other=0 guard=0
+k4 after source=1 received=1 num=1
+k4 drain0 null=0 tag=22 value=0
+k4 empty get=0 peek=0 num=0
+k4 guard ok=1 same=1 tag=99 value=0 num=0
+k4 guard_update source=1 received=1 other=0
+k5 put ok=0 num=2 guard=1
+k5 source a=1 b=0 c=0 guard=0
+k5 fetch ok=1 same=1 tag=11 value=1 num=1
+k5 through source=1 received=1 other=0 guard=0
+k5 after source=1 received=1 num=1
+k5 drain0 null=0 tag=22 value=0
+k5 empty get=0 peek=0 num=0
+k5 guard ok=1 same=1 tag=99 value=0 num=0
+k5 guard_update source=1 received=1 other=0
+k6 put ok=0 num=2 guard=1
+k6 source a=1 b=0 c=0 guard=0
+k6 fetch ok=1 same=1 tag=11 value=1 num=1
+k6 through source=1 received=1 other=0 guard=0
+k6 after source=1 received=1 num=1
+k6 drain0 null=0 tag=22 value=0
+k6 empty get=0 peek=0 num=0
+k6 guard ok=1 same=1 tag=99 value=0 num=0
+k6 guard_update source=1 received=1 other=0
+k7 put ok=0 num=2 guard=1
+k7 source a=1 b=0 c=0 guard=0
+k7 fetch ok=1 same=1 tag=11 value=1 num=1
+k7 through source=1 received=1 other=0 guard=0
+k7 after source=1 received=1 num=1
+k7 drain0 null=0 tag=22 value=0
+k7 empty get=0 peek=0 num=0
+k7 guard ok=1 same=1 tag=99 value=0 num=0
+k7 guard_update source=1 received=1 other=0
+k8 put ok=0 num=2 guard=1
+k8 source a=1 b=0 c=0 guard=0
+k8 fetch ok=1 same=1 tag=11 value=1 num=1
+k8 through source=1 received=1 other=0 guard=0
+k8 after source=1 received=1 num=1
+k8 drain0 null=0 tag=22 value=0
+k8 empty get=0 peek=0 num=0
+k8 guard ok=1 same=1 tag=99 value=0 num=0
+k8 guard_update source=1 received=1 other=0
+k9 put ok=0 num=2 guard=1
+k9 source a=1 b=0 c=0 guard=0
+k9 fetch ok=1 same=1 tag=11 value=1 num=1
+k9 through source=1 received=1 other=0 guard=0
+k9 after source=1 received=1 num=1
+k9 drain0 null=0 tag=22 value=0
+k9 empty get=0 peek=0 num=0
+k9 guard ok=1 same=1 tag=99 value=0 num=0
+k9 guard_update source=1 received=1 other=0
+k10 put ok=0 num=2 guard=1
+k10 source a=1 b=0 c=0 guard=0
+k10 fetch ok=1 same=1 tag=11 value=1 num=1
+k10 through source=1 received=1 other=0 guard=0
+k10 after source=1 received=1 num=1
+k10 drain0 null=0 tag=22 value=0
+k10 empty get=0 peek=0 num=0
+k10 guard ok=1 same=1 tag=99 value=0 num=0
+k10 guard_update source=1 received=1 other=0
+k11 put ok=0 num=2 guard=1
+k11 source a=0 b=1 c=1 guard=1
+k11 fetch ok=1 same=1 tag=11 value=0 num=1
+k11 through source=0 received=0 other=1 guard=1
+k11 after source=0 received=0 num=1
+k11 drain0 null=0 tag=22 value=1
+k11 empty get=0 peek=0 num=0
+k11 guard ok=1 same=1 tag=99 value=1 num=0
+k11 guard_update source=0 received=0 other=1
+u0 put ok=0 num=2 guard=1
+u0 source a=x b=z c=z guard=z
+u0 fetch ok=1 same=1 tag=11 value=x num=1
+u0 through source=x received=x other=z guard=z
+u0 after source=x received=x num=1
+u0 drain0 null=0 tag=22 value=z
+u0 empty get=0 peek=0 num=0
+u0 guard ok=1 same=1 tag=99 value=z num=0
+u0 guard_update source=x received=x other=z
+u1 put ok=0 num=2 guard=1
+u1 source a=x b=z c=z guard=z
+u1 fetch ok=1 same=1 tag=11 value=x num=1
+u1 through source=x received=x other=z guard=z
+u1 after source=x received=x num=1
+u1 drain0 null=0 tag=22 value=z
+u1 empty get=0 peek=0 num=0
+u1 guard ok=1 same=1 tag=99 value=z num=0
+u1 guard_update source=x received=x other=z
+u2 put ok=0 num=2 guard=1
+u2 source a=x b=z c=z guard=z
+u2 fetch ok=1 same=1 tag=11 value=x num=1
+u2 through source=x received=x other=z guard=z
+u2 after source=x received=x num=1
+u2 drain0 null=0 tag=22 value=z
+u2 empty get=0 peek=0 num=0
+u2 guard ok=1 same=1 tag=99 value=z num=0
+u2 guard_update source=x received=x other=z

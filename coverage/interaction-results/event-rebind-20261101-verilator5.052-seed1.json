@@ -1,0 +1,148 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch15/test_gen_cross_event_rebind_interface_direct_after_arm_nba_chain_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_interface_direct_after_arm_nba_chain_old_new_1.sv:53:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "078c6b9ccbd6a2e148fbbac2b1191c7229e3a7d7190592d42a53144cd0a3076c"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_interface_direct_before_arm_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_interface_direct_before_arm_blocking_single_old_new_1.sv:53:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "a4585002a491ef226e6dbd16a91e920ce6d46f8a3ac5a2f20b27c42e31135403"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_interface_direct_before_call_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_interface_direct_before_call_blocking_single_old_new_1.sv:53:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "74aa869207f4b54fb481eb5349787c111070f41b0e77a97f62893ff17b0bea5c"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_interface_input_after_arm_blocking_single_new_old_2": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_interface_input_after_arm_blocking_single_new_old_2.sv:58:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "c0f069c07160e880a23d7611d4ed0baf79d5647bd97773767e72c328ada95279"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_interface_input_before_arm_nba_chain_new_old_3": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_interface_input_before_arm_nba_chain_new_old_3.sv:58:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "381d3c39a3f91dfc215b853488c9102555cb9e38b0e6c15a2884f16e5bd973ea"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_interface_input_before_call_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_interface_input_before_call_blocking_single_old_new_1.sv:58:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "aa3c8ca9b8fb4412d4591fda73a16f07927f23eac5806d1f0ac28adc7c402f60"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_interface_ref_after_arm_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_interface_ref_after_arm_blocking_single_old_new_1.sv:58:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "82ff3f4487c3800208d49e45091f97a2094bbbe0aa2333e3174d10c9ba62c408"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_interface_ref_before_arm_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_interface_ref_before_arm_blocking_single_old_new_1.sv:58:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "a8d44a4672a91e94b8f6d9d37397fb40690dd5cd1f1ea1d8561e19bc3c9aef74"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_interface_ref_before_call_nba_chain_new_old_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_interface_ref_before_call_nba_chain_new_old_1.sv:58:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "4ace031610c71f3563a3e89b981f1344da7b8470478a02e4e90c218f641f33ac"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_module_direct_after_arm_blocking_single_old_new_3": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_module_direct_after_arm_blocking_single_old_new_3.sv:53:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "8c76bf1d409a6ee6f590ec414ddb3857af9ae7f6345a2563d1c68189c8fab41a"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_module_direct_before_arm_nba_single_old_new_2": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_module_direct_before_arm_nba_single_old_new_2.sv:53:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "91cf0e2abaae1621adfd6e7120a80b68bd7698e9287ded78c69e1fc7c9ddaabf"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_module_direct_before_call_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_module_direct_before_call_blocking_single_old_new_1.sv:53:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "c72b42acd7716279922354cc97217803658028cfa41b828fb4fe1c3e55f439aa"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_module_input_after_arm_nba_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_module_input_after_arm_nba_single_old_new_1.sv:58:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "db340f49cd922b11dabf97c15809166ba970de3dac3ee9dc1f8e7e52c9f5859d"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_module_input_before_arm_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_module_input_before_arm_blocking_single_old_new_1.sv:58:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "3e2a539a511e9d3ac0d4e0087caa3f319bf2adac5ac18397c48130f5d567f85c"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_module_input_before_call_nba_chain_old_new_3": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_module_input_before_call_nba_chain_old_new_3.sv:58:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "db6f344e6162acd9251c389a0eb57d8555f206f282806a7cb6bcddbfa76f16bf"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_module_ref_after_arm_nba_single_new_old_3": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_module_ref_after_arm_nba_single_new_old_3.sv:58:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "2f7f5f1fd6910063a0eba8014377dbd91909e96323b7849d1d2896c0461310c8"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_module_ref_before_arm_nba_single_new_old_2": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_module_ref_before_arm_nba_single_new_old_2.sv:58:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "758698b4877af393b3af1759c1d4159a513d9faa52e85b76b4dc73d9e4009cfa"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_module_ref_before_call_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_module_ref_before_call_blocking_single_old_new_1.sv:58:17: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "d296c516e17502255cc51579d69c52544f2c0df2ab588331924d5db220b5dbad"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_package_direct_after_arm_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_package_direct_after_arm_blocking_single_old_new_1.sv:52:24: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "4e8fc1f5a36ce8b4c22c7dc3194c1866b4c6e4f52e1eae7f5d7ce86174c24559"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_package_direct_before_arm_blocking_single_new_old_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_package_direct_before_arm_blocking_single_new_old_1.sv:52:24: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "69b2ccd99f9a42cb4edcb31579be252d09aa5f3c17a73b3f0afdfc9477c67805"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_package_direct_before_call_nba_chain_new_old_2": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_package_direct_before_call_nba_chain_new_old_2.sv:52:24: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "4b7e610638cb44ed181c47e5087dd421ad1ab7b17e35a372a1a50a49e79ae043"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_package_input_after_arm_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_package_input_after_arm_blocking_single_old_new_1.sv:57:24: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "f67234aa9b5f63c07cb6a76de568ca0f405786e25139a200ce91ce6516b0626e"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_package_input_before_arm_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_package_input_before_arm_blocking_single_old_new_1.sv:57:24: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "8944b7150003f00fa2553d447e1e2d1129386be5d5814095a58226559cb69603"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_package_input_before_call_blocking_single_new_old_3": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_package_input_before_call_blocking_single_new_old_3.sv:57:24: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "99be62fbb82cd9bc631688210a157c10bbd9d84e72e1b0cc7e8926e7a5bcb3cd"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_package_ref_after_arm_blocking_chain_old_new_2": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_package_ref_after_arm_blocking_chain_old_new_2.sv:57:24: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "9452bff60fc3aaa2d1e5fb39b2a2a970e626a7945f5219676f57c2950395843f"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_package_ref_before_arm_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_package_ref_before_arm_blocking_single_old_new_1.sv:57:24: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "cbfaabc4cf1b8aed0117de0e4c580965e30847c5d748fef8d7d719e1b9ec9b7d"
+  },
+  "gen/ch15/test_gen_cross_event_rebind_package_ref_before_call_blocking_single_old_new_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch15/test_gen_cross_event_rebind_package_ref_before_call_blocking_single_old_new_1.sv:57:24: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "0f2b25c988f9051171bd643baf513bcb5b8c6a455926fa969489211d94f4d477"
+  }
+ },
+ "generated_at": "2026-11-01T00:01:15.369069+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

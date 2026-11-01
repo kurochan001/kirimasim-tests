@@ -1,0 +1,62 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch15/test_gen_cross_mailbox_129_bit_known_typed_get_before_bounded_object": {
+   "status": "pass",
+   "inputs_sha256": "bc3594686d0628b820b73b6d9ed525f8ad0fa864f6d7fbafd1df89e2b76af9f9"
+  },
+  "gen/ch15/test_gen_cross_mailbox_129_logic_known_typed_peek_both_unbounded_null": {
+   "status": "pass",
+   "inputs_sha256": "58950f34a245e5bcf21025beed24141f3170bf6291fa6d5d3660ed4dcca7efdf"
+  },
+  "gen/ch15/test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object": {
+   "status": "pass",
+   "inputs_sha256": "547287f53fec15ead3e036bd075136b03ac122056c33b716daee2df6652a8d6d"
+  },
+  "gen/ch15/test_gen_cross_mailbox_1_logic_known_typed_get_before_bounded_object": {
+   "status": "pass",
+   "inputs_sha256": "a91102bfff8cfda7dc1a382c1a2fc733684980ab4c0c4d4bfbf5e04c5a832dbb"
+  },
+  "gen/ch15/test_gen_cross_mailbox_32_bit_known_typeless_try_get_both_bounded_object": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch15/test_gen_cross_mailbox_32_bit_known_typeless_try_get_both_bounded_object.sv:37:9: Class parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'T'",
+   "inputs_sha256": "6af2cbe2c10de39d01b7b3c6c7ee03dc98821f017538d18ecd167f835af5d7a2"
+  },
+  "gen/ch15/test_gen_cross_mailbox_32_logic_known_typed_get_after_unbounded_object": {
+   "status": "pass",
+   "inputs_sha256": "e1796304561b46bc2eb4639511f541f34fdcdd1492f93187528f847e07dd0da5"
+  },
+  "gen/ch15/test_gen_cross_mailbox_33_bit_known_typed_try_peek_both_bounded_object": {
+   "status": "pass",
+   "inputs_sha256": "1d1114c058049e9b529f9398bd5d497f89c9d0988b92a03729f481a00b7a403e"
+  },
+  "gen/ch15/test_gen_cross_mailbox_33_logic_known_typed_peek_both_bounded_object": {
+   "status": "pass",
+   "inputs_sha256": "c9e5c716d4821c69824acd33d4092c145da81dae4cc29e4cc390803fb3fdb797"
+  },
+  "gen/ch15/test_gen_cross_mailbox_64_bit_known_typed_peek_before_bounded_null": {
+   "status": "pass",
+   "inputs_sha256": "4e03e48579753d49b06d0775c6fdc4bdcc4ede54028b15c6be15fef27fbe7e88"
+  },
+  "gen/ch15/test_gen_cross_mailbox_64_logic_known_typed_try_get_after_unbounded_object": {
+   "status": "pass",
+   "inputs_sha256": "9414c8a0571c03b19f9ee670fc1fa268dcaa5337e56801ac7beb37fb0adbbbe7"
+  },
+  "gen/ch15/test_gen_cross_mailbox_65_bit_known_typed_peek_before_bounded_object": {
+   "status": "pass",
+   "inputs_sha256": "08fe11ffcc20a709eecadebf87078769e013cb44a690e4df382d4dedb407b0fe"
+  },
+  "gen/ch15/test_gen_cross_mailbox_65_logic_known_typed_try_get_after_bounded_null": {
+   "status": "pass",
+   "inputs_sha256": "e7a8a7f47e0f25ff6a7563ad18b7f6cd9e27eee8e6022cb6a03210cf41cd4531"
+  }
+ },
+ "generated_at": "2026-10-31T23:32:55.159014+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

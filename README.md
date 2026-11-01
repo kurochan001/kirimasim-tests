@@ -54,15 +54,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **10042 tests** in 38 chapters. 3605 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_assertion`, 36 by `interaction_binding`, 36 by `interaction_case`, 34 by `interaction_case_inside`, 32 by `interaction_cast`, 36 by `interaction_class_method`, 36 by `interaction_clocking`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 41 by `interaction_config`, 36 by `interaction_default`, 63 by `interaction_delay`, 72 by `interaction_divide`, 64 by `interaction_edge`, 13 by `interaction_event_task`, 51 by `interaction_expr`, 36 by `interaction_generate`, 27 by `interaction_iff`, 36 by `interaction_ifgenerate`, 36 by `interaction_ifimport`, 39 by `interaction_import`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 36 by `interaction_loop_nba`, 36 by `interaction_memfile`, 72 by `interaction_method`, 36 by `interaction_nba`, 40 by `interaction_nettype`, 36 by `interaction_port`, 36 by `interaction_process`, 18 by `interaction_program`, 60 by `interaction_query`, 48 by `interaction_queue`, 60 by `interaction_queue_ref`, 46 by `interaction_range`, 36 by `interaction_reactive`, 38 by `interaction_resize`, 36 by `interaction_return`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 25 by `interaction_udp`, 36 by `interaction_udpstate`, 36 by `interaction_wait`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **10105 tests** in 38 chapters. 3668 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_assertion`, 36 by `interaction_binding`, 36 by `interaction_case`, 34 by `interaction_case_inside`, 32 by `interaction_cast`, 36 by `interaction_class_method`, 36 by `interaction_clocking`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 41 by `interaction_config`, 36 by `interaction_default`, 63 by `interaction_delay`, 72 by `interaction_divide`, 64 by `interaction_edge`, 27 by `interaction_event_rebind`, 13 by `interaction_event_task`, 51 by `interaction_expr`, 36 by `interaction_generate`, 27 by `interaction_iff`, 36 by `interaction_ifgenerate`, 36 by `interaction_ifimport`, 39 by `interaction_import`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 36 by `interaction_loop_nba`, 36 by `interaction_mailbox`, 36 by `interaction_memfile`, 72 by `interaction_method`, 36 by `interaction_nba`, 40 by `interaction_nettype`, 36 by `interaction_port`, 36 by `interaction_process`, 18 by `interaction_program`, 60 by `interaction_query`, 48 by `interaction_queue`, 60 by `interaction_queue_ref`, 46 by `interaction_range`, 36 by `interaction_reactive`, 38 by `interaction_resize`, 36 by `interaction_return`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 25 by `interaction_udp`, 36 by `interaction_udpstate`, 36 by `interaction_wait`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5619 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1680 |
-| The standard only, with no fixed-release simulator oracle recorded | 2743 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1691 |
+| The standard only, with no fixed-release simulator oracle recorded | 2795 |
 
-2361 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+2385 tests depend on x or z values (`:fourstate: yes`). 618 tests come with C code: 123 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -78,7 +78,7 @@ The suite has **10042 tests** in 38 chapters. 3605 of them are generated (`tests
 | 12 | Procedural programming statements | 251 | 169 | 33 | 49 |
 | 13 | Tasks and functions (subroutines) | 352 | 226 | 92 | 34 |
 | 14 | Clocking blocks | 114 | 4 | 72 | 38 |
-| 15 | Interprocess synchronization and communication | 72 | 2 | 39 | 31 |
+| 15 | Interprocess synchronization and communication | 135 | 2 | 50 | 83 |
 | 16 | Assertions | 697 | 104 | 85 | 508 |
 | 17 | Checkers | 81 |  | 22 | 59 |
 | 18 | Constrained random value generation | 200 | 25 | 95 | 80 |
@@ -171,29 +171,39 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
-The focused selection contains **2,292 tests across 53 models**; the normal full-suite
+The focused selection contains **2,355 tests across 55 models**; the normal full-suite
 run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [saved full cross run](coverage/interaction-results/cross53-kirimasim-4fb5f6b1.json)
-uses kirimasim **`4fb5f6b1aec8`** and records **2,170 pass, 116 unsupported and 6 fail**.
-The class-method model accounts for 18 passes and 18 unsupported cases. The six failures
-are two `inside`/`case inside` width/sign cases and four configuration parameter-reset
-cases; standard-derived expectations are retained. These are saved observations of
-that build, separate from the full Nightly suite and any later upstream revision.
+The [saved full cross run](coverage/interaction-results/cross55-kirimasim-ddf48e2b.json)
+uses kirimasim **`ddf48e2b0436`** and records **2,170 pass, 179 unsupported and 6 fail**.
+The class-method model retains 18 passes and 18 unsupported cases. The six failures
+remain two `inside`/`case inside` width/sign cases and four configuration parameter-reset
+cases; standard-derived expectations are retained. All previous 2,328 input hashes
+and status classifications are unchanged. These are observations of that build,
+separate from the full Nightly suite and any later upstream revision.
 
-The newest model exercises interface header imports, parameter scope and conversion
-before package-function operations. Its 36 tests retain 183 pairs, 78 focused triples
-and six mandatory cases from 1,296 legal assignments. All 36 pass in the saved
-kirimasim run and fixed Icarus 13.0; fixed Verilator 5.052 matches the 12 eligible
-tests at both seeds 1 and 73. The other 24 require four-state observation. See the
-[design and evidence](docs/interaction-verification.md#interfaceヘッダのimportとpackage関数の型変換)
-for intermediate observations, guard instances and fault-injection checks.
+The newest model crosses event-handle rebinding with event-control registration,
+task input/ref arguments and wakeup regions (chapters 6 and 15). It selects **27
+tests from 648 legal assignments**, preserving 138 pairs, 69 focused triples and
+six mandatory cases. All 27 parse, but kirimasim cannot execute their event-value
+operations. Fixed Icarus 13.0 and Verilator 5.052 reject them at build time, so
+there are no confirmed execution passes for this model. See the
+[design and limitations](docs/interaction-verification.md#イベント変数の再結合と登録済み待機の保持).
+
+The mailbox model crosses class-handle identity with mailbox FIFO operations,
+peek/get, bounded capacity, alias writes and null messages. It selects **36 tests
+from 3,456 legal assignments**, retaining 245 pairs, 92 focused triples and nine
+mandatory cases. kirimasim reports all 36 as unsupported mailbox types. Fixed
+Verilator 5.052 matches 11 of the 12 known-input cases at both seeds 1 and 73;
+it rejects the remaining legal typeless case at build time. The other 24 cases
+require four-state observation. See the
+[design, scope and evidence](docs/interaction-verification.md#mailboxのclassハンドルと別名経由の更新).
 
 - The [interaction report](docs/interaction-coverage.md) separates the selection plan
   from fingerprint-qualified passes in each saved execution.
-- The [chapter interaction matrices](docs/chapter-cross-matrix.md) map **84 distinct
+- The [chapter interaction matrices](docs/chapter-cross-matrix.md) map **86 distinct
   chapter pairs**, with separate CSVs for registered models, models whose full selection
   passed (**46 models** in the saved run), and detailed test/run evidence.
 - The [zero-cell triage](docs/chapter-cross-triage.md) records reviewed existing tests,

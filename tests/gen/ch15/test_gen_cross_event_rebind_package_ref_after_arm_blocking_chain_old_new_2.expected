@@ -1,0 +1,56 @@
+initial time=0 old=1 new=0 null=0 copy_old=1 bridge_noise=0 second_new=1
+initial slot=0 hits=0 at=-1 value=0
+initial slot=1 hits=0 at=-1 value=0
+initial slot=2 hits=0 at=-1 value=0
+initial slot=3 hits=0 at=-1 value=0
+initial slot=4 hits=0 at=-1 value=0
+initial slot=5 hits=0 at=-1 value=0
+rebound time=6 old=0 new=1 null=0 copy_old=1 bridge_noise=0 second_new=1
+rebound slot=0 hits=0 at=-1 value=0
+rebound slot=1 hits=0 at=-1 value=0
+rebound slot=2 hits=0 at=-1 value=0
+rebound slot=3 hits=0 at=-1 value=0
+rebound slot=4 hits=0 at=-1 value=0
+rebound slot=5 hits=0 at=-1 value=0
+bridge_changed time=8 old=0 new=1 null=0 copy_old=1 bridge_noise=1 second_new=1
+bridge_changed slot=0 hits=0 at=-1 value=0
+bridge_changed slot=1 hits=0 at=-1 value=0
+bridge_changed slot=2 hits=0 at=-1 value=0
+bridge_changed slot=3 hits=0 at=-1 value=0
+bridge_changed slot=4 hits=0 at=-1 value=0
+bridge_changed slot=5 hits=0 at=-1 value=0
+noise time=10 old=0 new=1 null=0 copy_old=1 bridge_noise=1 second_new=1
+noise slot=0 hits=0 at=-1 value=0
+noise slot=1 hits=0 at=-1 value=0
+noise slot=2 hits=0 at=-1 value=0
+noise slot=3 hits=0 at=-1 value=0
+noise slot=4 hits=0 at=-1 value=0
+noise slot=5 hits=1 at=9 value=90
+first time=12 old=0 new=1 null=0 copy_old=1 bridge_noise=1 second_new=1
+first slot=0 hits=1 at=11 value=110
+first slot=1 hits=1 at=11 value=110
+first slot=2 hits=0 at=-1 value=0
+first slot=3 hits=0 at=-1 value=0
+first slot=4 hits=1 at=11 value=110
+first slot=5 hits=1 at=9 value=90
+pair time=14 old=0 new=1 null=0 copy_old=1 bridge_noise=1 second_new=1
+pair slot=0 hits=1 at=11 value=110
+pair slot=1 hits=1 at=11 value=110
+pair slot=2 hits=0 at=-1 value=0
+pair slot=3 hits=1 at=13 value=130
+pair slot=4 hits=1 at=11 value=110
+pair slot=5 hits=1 at=9 value=90
+repeated time=18 old=0 new=1 null=0 copy_old=1 bridge_noise=1 second_new=1
+repeated slot=0 hits=1 at=11 value=110
+repeated slot=1 hits=1 at=11 value=110
+repeated slot=2 hits=0 at=-1 value=0
+repeated slot=3 hits=1 at=13 value=130
+repeated slot=4 hits=1 at=11 value=110
+repeated slot=5 hits=1 at=9 value=90
+cleared time=21 old=0 new=0 null=1 copy_old=1 bridge_noise=1 second_new=1
+cleared slot=0 hits=1 at=11 value=110
+cleared slot=1 hits=1 at=11 value=110
+cleared slot=2 hits=0 at=-1 value=0
+cleared slot=3 hits=1 at=13 value=130
+cleared slot=4 hits=1 at=11 value=110
+cleared slot=5 hits=1 at=9 value=90

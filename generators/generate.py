@@ -60,6 +60,8 @@ import interaction_config
 import interaction_udp
 import interaction_udpstate
 import interaction_ifimport
+import interaction_mailbox
+import interaction_event_rebind
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -101,6 +103,8 @@ GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths, keyw
               interaction_udp,
               interaction_udpstate,
               interaction_ifimport,
+              interaction_mailbox,
+              interaction_event_rebind,
               interaction_compound, interaction_inside,
               interaction_range, interaction_case_inside,
               combination_events, combination_nba, combination_aggregates, combination_io,

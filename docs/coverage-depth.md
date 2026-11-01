@@ -6,7 +6,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 10042 |
+| Tests | 10105 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -20,8 +20,8 @@
 | --- | ---: |
 | both releases | 768 |
 | Icarus Verilog 13.0 only | 4851 |
-| Verilator 5.052 only | 1680 |
-| standard only | 2743 |
+| Verilator 5.052 only | 1691 |
+| standard only | 2795 |
 
 ## By chapter
 
@@ -39,7 +39,7 @@
 | 12 | Procedural programming statements | 251 | 19 | 13.2 | 0 | 49 |
 | 13 | Tasks and functions (subroutines) | 352 | 15 | 23.5 | 0 | 34 |
 | 14 | Clocking blocks | 114 | 15 | 7.6 | 0 | 38 |
-| 15 | Interprocess synchronization and communication | 72 | 21 | 3.4 | 0 | 31 |
+| 15 | Interprocess synchronization and communication | 135 | 21 | 6.4 | 0 | 83 |
 | 16 | Assertions | 697 | 69 | 10.1 | 0 | 508 |
 | 17 | Checkers | 81 | 10 | 8.1 | 0 | 59 |
 | 18 | Constrained random value generation | 200 | 44 | 4.5 | 0 | 80 |

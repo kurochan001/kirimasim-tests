@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "purpose": "event rebinding cross-model build and parse checks",
+  "upstream_commit": "ddf48e2b043665a59fef3e8b1eda2eb150ba3cf9",
+  "build_commit": "ddf48e2b043665a59fef3e8b1eda2eb150ba3cf9",
+  "version": "kirimasim 0.0.0 (commit ddf48e2b0436), built with AppleClang 21.0.0.21000334",
+  "source_clean": true,
+  "upstream_checked_before_execution": true,
+  "binary_sha256_before": "b11ed0504d3bdd3228322dbbd286002903e3ab1d180488468ef2e0e58c7046d8",
+  "binary_sha256_after": "b11ed0504d3bdd3228322dbbd286002903e3ab1d180488468ef2e0e58c7046d8",
+  "generated_at": "2026-11-01T00:02:06.981558+00:00",
+  "results": "coverage/interaction-results/cross55-kirimasim-ddf48e2b.json",
+  "new_parse_cases": 27,
+  "all_new_cases_parse": true,
+  "prior_selected_cases": 2328,
+  "prior_inputs_identical": true,
+  "prior_statuses_identical": true
+}

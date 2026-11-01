@@ -1,0 +1,688 @@
+{
+  "schema": 1,
+  "purpose": "mailbox_class_alias fault controls",
+  "simulator": "verilator",
+  "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "seed": 1,
+  "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+  "scope": "six typed, known-input selected controls; no typeless or four-state qualification",
+  "generator_sha256": "95c11eb22cb4d0585aa1528a892c34aecaa8f88ffc7779ac50608a0f71db62b2",
+  "controls": [
+    {
+      "name": "control",
+      "case": "test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "get",
+        "update": "before",
+        "capacity": "bounded",
+        "tail": "object"
+      },
+      "source_sha256": "f66b592ea7fcbb9f0624ea34fc753a634bcc98244a334e6ed6bd3dff08ed261b",
+      "expected_sha256": "7e10ab1b51c7d00c4fa399e827ab33af9c13427923cd074421703fd225825bd7",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_mailbox_129_logic_known_typed_peek_both_unbounded_null",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "known",
+        "typing": "typed",
+        "operation": "peek",
+        "update": "both",
+        "capacity": "unbounded",
+        "tail": "null"
+      },
+      "source_sha256": "059f5dd216ec9da1ad0a2b623780805ab5d59caebbadc1e56d164bd072a6cdd2",
+      "expected_sha256": "3987d0195ceebf84fb60272758579c183da713bf9a7838bda76d728e00a564a3",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_mailbox_65_logic_known_typed_try_get_after_bounded_null",
+      "values": {
+        "width": "65",
+        "storage": "logic",
+        "value": "known",
+        "typing": "typed",
+        "operation": "try_get",
+        "update": "after",
+        "capacity": "bounded",
+        "tail": "null"
+      },
+      "source_sha256": "4564654db2d6f63075429a29874dc9dc854f95e51ea5ef1e17797209b947ccb0",
+      "expected_sha256": "caecad67515477ad1ddbdb4d09501d34f504b246b1107ac3317189fd1571a37a",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_mailbox_33_bit_known_typed_try_peek_both_bounded_object",
+      "values": {
+        "width": "33",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "try_peek",
+        "update": "both",
+        "capacity": "bounded",
+        "tail": "object"
+      },
+      "source_sha256": "814c32eaa86eb31f447c8e76bd071ab6ffbcc8aa5e1052c0d7506abdac203888",
+      "expected_sha256": "46ce370898e5183325d644f64283eb5820cc0b1a7214f81cba009961572c9f24",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_mailbox_32_logic_known_typed_get_after_unbounded_object",
+      "values": {
+        "width": "32",
+        "storage": "logic",
+        "value": "known",
+        "typing": "typed",
+        "operation": "get",
+        "update": "after",
+        "capacity": "unbounded",
+        "tail": "object"
+      },
+      "source_sha256": "414bdc85be6b30a6983feb8dea7bbac7d8c8af5dbf288d583ba04a4f5b1a467e",
+      "expected_sha256": "2195270df9d4cd6ddc26093c06ddc191fb889b52a61e3ad2b33b55f3a2f5e5d1",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control",
+      "case": "test_gen_cross_mailbox_64_bit_known_typed_peek_before_bounded_null",
+      "values": {
+        "width": "64",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "peek",
+        "update": "before",
+        "capacity": "bounded",
+        "tail": "null"
+      },
+      "source_sha256": "8e61870c064dc4c26723e3cb3b9d731e923a213954b732995acc7988bf5947be",
+      "expected_sha256": "ebca634d20db3f92b2f44a7d4094486e71f6ab7363736c40c389b54b2a6cdb40",
+      "status": "pass",
+      "reason": "",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "name": "clone_queued_object",
+      "case": "test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "get",
+        "update": "before",
+        "capacity": "bounded",
+        "tail": "object"
+      },
+      "source_sha256": "f6c1798399a2dacd0a95df572f2ffb1231c052134723be738922adb4e0906209",
+      "expected_sha256": "7e10ab1b51c7d00c4fa399e827ab33af9c13427923cd074421703fd225825bd7",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 fetch ok=1 same=0 tag=11 value=1 num=1', expected 'k0 fetch ok=1 same=1 tag=11 value=0 num=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    target_box.put(a);",
+        "after": "    tail_item = new;\n    tail_item.payload = a.payload;\n    tail_item.tag = a.tag;\n    target_box.put(tail_item);",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "reverse_fifo_order",
+      "case": "test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "get",
+        "update": "before",
+        "capacity": "bounded",
+        "tail": "object"
+      },
+      "source_sha256": "0e8802b71be54c4fb32af2292426b9209e4e86fb5d2b7ef652033eb4823254b9",
+      "expected_sha256": "7e10ab1b51c7d00c4fa399e827ab33af9c13427923cd074421703fd225825bd7",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 fetch ok=1 same=0 tag=22 value=0 num=1', expected 'k0 fetch ok=1 same=1 tag=11 value=0 num=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    target_box.put(a);\n    target_box.put(b);",
+        "after": "    target_box.put(b);\n    target_box.put(a);",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "bounded_becomes_unbounded",
+      "case": "test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "get",
+        "update": "before",
+        "capacity": "bounded",
+        "tail": "object"
+      },
+      "source_sha256": "c8136648dcd738389d0e01792742456aa252e06da6cae9b3132a283367367595",
+      "expected_sha256": "7e10ab1b51c7d00c4fa399e827ab33af9c13427923cd074421703fd225825bd7",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 put ok=1 num=3 guard=1', expected 'k0 put ok=0 num=2 guard=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "localparam int BOUND = 2;",
+        "after": "localparam int BOUND = 0;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "get_retains_message",
+      "case": "test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "get",
+        "update": "before",
+        "capacity": "bounded",
+        "tail": "object"
+      },
+      "source_sha256": "fb34ae5936d85d8122e3d6709de81041460ef1149c776acea537b64c7904e1a3",
+      "expected_sha256": "7e10ab1b51c7d00c4fa399e827ab33af9c13427923cd074421703fd225825bd7",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 fetch ok=1 same=1 tag=11 value=0 num=2', expected 'k0 fetch ok=1 same=1 tag=11 value=0 num=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    target_box.get(r);",
+        "after": "    target_box.peek(r);",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_before_alias_write",
+      "case": "test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "get",
+        "update": "before",
+        "capacity": "bounded",
+        "tail": "object"
+      },
+      "source_sha256": "f3fbfffac27ed4fdb1cf7fee70aeaa8b713037d2e82e61e9738b9ebdbde47734",
+      "expected_sha256": "7e10ab1b51c7d00c4fa399e827ab33af9c13427923cd074421703fd225825bd7",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 source a=1 b=0 c=1 guard=0', expected 'k0 source a=0 b=0 c=1 guard=0'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    a.payload = before_value;",
+        "after": "    ;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_received_writeback",
+      "case": "test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "get",
+        "update": "before",
+        "capacity": "bounded",
+        "tail": "object"
+      },
+      "source_sha256": "bd2414ef0b99f64be323d0776d5610db3f0ae08e681871419ed355471f9604eb",
+      "expected_sha256": "7e10ab1b51c7d00c4fa399e827ab33af9c13427923cd074421703fd225825bd7",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0 through source=0 received=0 other=0 guard=0', expected 'k0 through source=1 received=1 other=0 guard=0'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    r.payload = through_value;",
+        "after": "    ;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "clone_received_object",
+      "case": "test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "get",
+        "update": "before",
+        "capacity": "bounded",
+        "tail": "object"
+      },
+      "source_sha256": "81bd4175a9ec1bba8320fa341b5efaff53cef93f844ec6de857b7c6f063c2e1b",
+      "expected_sha256": "7e10ab1b51c7d00c4fa399e827ab33af9c13427923cd074421703fd225825bd7",
+      "status": "fail",
+      "reason": "output differs: line 4 is 'k0 through source=0 received=1 other=0 guard=0', expected 'k0 through source=1 received=1 other=0 guard=0'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    r.payload = through_value;",
+        "after": "    tail_item = new;\n    tail_item.payload = r.payload;\n    tail_item.tag = r.tag;\n    r = tail_item;\n    r.payload = through_value;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "fetch_uses_sibling_handle",
+      "case": "test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "get",
+        "update": "before",
+        "capacity": "bounded",
+        "tail": "object"
+      },
+      "source_sha256": "040154681cd1d77057ed7a9cfeeca4d36a1edd4f3e633d07fdcc8a65391d9303",
+      "expected_sha256": "7e10ab1b51c7d00c4fa399e827ab33af9c13427923cd074421703fd225825bd7",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 fetch ok=1 same=0 tag=22 value=0 num=2', expected 'k0 fetch ok=1 same=1 tag=11 value=0 num=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    target_box.get(r);",
+        "after": "    r = b;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "guard_input_aliases_target",
+      "case": "test_gen_cross_mailbox_1_bit_known_typed_get_before_bounded_object",
+      "values": {
+        "width": "1",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "get",
+        "update": "before",
+        "capacity": "bounded",
+        "tail": "object"
+      },
+      "source_sha256": "784bcf8e926183436de7ce709fb1eb10d53582d0f547ed8a7ae3816ca6f95996",
+      "expected_sha256": "7e10ab1b51c7d00c4fa399e827ab33af9c13427923cd074421703fd225825bd7",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 source a=0 b=0 c=1 guard=1', expected 'k0 source a=0 b=0 c=1 guard=0'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "g.payload = init_g;",
+        "after": "g.payload = init_a;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "peek_consumes_message",
+      "case": "test_gen_cross_mailbox_129_logic_known_typed_peek_both_unbounded_null",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "known",
+        "typing": "typed",
+        "operation": "peek",
+        "update": "both",
+        "capacity": "unbounded",
+        "tail": "null"
+      },
+      "source_sha256": "3bf5ba756d3f7c85de36a2968ffccb255b4e452041cc250326a4d5f5be0247d2",
+      "expected_sha256": "3987d0195ceebf84fb60272758579c183da713bf9a7838bda76d728e00a564a3",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 fetch ok=1 same=1 tag=11 value=01010101010101010101010...', expected 'k0 fetch ok=1 same=1 tag=11 value=01010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    target_box.peek(r);",
+        "after": "    target_box.get(r);",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "guard_shares_target_queue",
+      "case": "test_gen_cross_mailbox_129_logic_known_typed_peek_both_unbounded_null",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "known",
+        "typing": "typed",
+        "operation": "peek",
+        "update": "both",
+        "capacity": "unbounded",
+        "tail": "null"
+      },
+      "source_sha256": "a73687176a1aaaee5278803f81f57eb86c9b93941591ea955ed22c9773c23680",
+      "expected_sha256": "3987d0195ceebf84fb60272758579c183da713bf9a7838bda76d728e00a564a3",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 put ok=1 num=4 guard=4', expected 'k0 put ok=1 num=3 guard=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "guard_box = new();",
+        "after": "guard_box = target_box;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "null_message_becomes_object",
+      "case": "test_gen_cross_mailbox_129_logic_known_typed_peek_both_unbounded_null",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "known",
+        "typing": "typed",
+        "operation": "peek",
+        "update": "both",
+        "capacity": "unbounded",
+        "tail": "null"
+      },
+      "source_sha256": "c60750b6b307d3af759d94b4c4db762fc6e1f12eda4f59d4406c3e0263b1fdd7",
+      "expected_sha256": "3987d0195ceebf84fb60272758579c183da713bf9a7838bda76d728e00a564a3",
+      "status": "fail",
+      "reason": "output differs: line 8 is 'k0 drain2 null=0 tag=33 value=101010101010101010101010101...', expected 'k0 drain2 null=1 tag=0 value=-'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "message = null;",
+        "after": "message = c;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "truncate_payload_above_64",
+      "case": "test_gen_cross_mailbox_129_logic_known_typed_peek_both_unbounded_null",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "known",
+        "typing": "typed",
+        "operation": "peek",
+        "update": "both",
+        "capacity": "unbounded",
+        "tail": "null"
+      },
+      "source_sha256": "73241061450d0181672f09f9ae10778103fb28376d842b1f1c926cb3aee51617",
+      "expected_sha256": "3987d0195ceebf84fb60272758579c183da713bf9a7838bda76d728e00a564a3",
+      "status": "fail",
+      "reason": "output differs: line 2 is 'k0 source a=010101010101010101010101010101010101010101010...', expected 'k0 source a=010101010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "b.payload = init_b;",
+        "after": "b.payload = word_t'(64'(init_b));",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "drop_admitted_third_message",
+      "case": "test_gen_cross_mailbox_129_logic_known_typed_peek_both_unbounded_null",
+      "values": {
+        "width": "129",
+        "storage": "logic",
+        "value": "known",
+        "typing": "typed",
+        "operation": "peek",
+        "update": "both",
+        "capacity": "unbounded",
+        "tail": "null"
+      },
+      "source_sha256": "d80027cf515aa55c75ef11d1047a60aa56a6caab9224fd32523b56883e9a4271",
+      "expected_sha256": "3987d0195ceebf84fb60272758579c183da713bf9a7838bda76d728e00a564a3",
+      "status": "fail",
+      "reason": "output differs: line 1 is 'k0 put ok=0 num=2 guard=1', expected 'k0 put ok=1 num=3 guard=1'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "result = target_box.try_put(message);",
+        "after": "result = 0;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "try_get_retains_message",
+      "case": "test_gen_cross_mailbox_65_logic_known_typed_try_get_after_bounded_null",
+      "values": {
+        "width": "65",
+        "storage": "logic",
+        "value": "known",
+        "typing": "typed",
+        "operation": "try_get",
+        "update": "after",
+        "capacity": "bounded",
+        "tail": "null"
+      },
+      "source_sha256": "dc13eb46ebcdbd38b7b4176b7bd2e1d138e57c1814d24ab5592222019ba0fe3a",
+      "expected_sha256": "caecad67515477ad1ddbdb4d09501d34f504b246b1107ac3317189fd1571a37a",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 fetch ok=1 same=1 tag=11 value=10101010101010101010101...', expected 'k0 fetch ok=1 same=1 tag=11 value=10101010101010101010101...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "result = target_box.try_get(r);",
+        "after": "result = target_box.try_peek(r);",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "lose_after_alias_write",
+      "case": "test_gen_cross_mailbox_65_logic_known_typed_try_get_after_bounded_null",
+      "values": {
+        "width": "65",
+        "storage": "logic",
+        "value": "known",
+        "typing": "typed",
+        "operation": "try_get",
+        "update": "after",
+        "capacity": "bounded",
+        "tail": "null"
+      },
+      "source_sha256": "2c9f22bc779f58209ad3a18d7b6a08451c17ae68f89c5491d6460eef9ace9fc2",
+      "expected_sha256": "caecad67515477ad1ddbdb4d09501d34f504b246b1107ac3317189fd1571a37a",
+      "status": "fail",
+      "reason": "output differs: line 5 is 'k0 after source=10101010101010101010101010101010101010101...', expected 'k0 after source=01010101010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "    a.payload = after_value;",
+        "after": "    ;",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "try_peek_consumes_message",
+      "case": "test_gen_cross_mailbox_33_bit_known_typed_try_peek_both_bounded_object",
+      "values": {
+        "width": "33",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "try_peek",
+        "update": "both",
+        "capacity": "bounded",
+        "tail": "object"
+      },
+      "source_sha256": "dc975ff4fc9805c8d160336a8c1ee500c1e7e05e729432affb50bb06f338817d",
+      "expected_sha256": "46ce370898e5183325d644f64283eb5820cc0b1a7214f81cba009961572c9f24",
+      "status": "fail",
+      "reason": "output differs: line 3 is 'k0 fetch ok=1 same=1 tag=11 value=01010101010101010101010...', expected 'k0 fetch ok=1 same=1 tag=11 value=01010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "result = target_box.try_peek(r);",
+        "after": "result = target_box.try_get(r);",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "guard_carries_sibling",
+      "case": "test_gen_cross_mailbox_32_logic_known_typed_get_after_unbounded_object",
+      "values": {
+        "width": "32",
+        "storage": "logic",
+        "value": "known",
+        "typing": "typed",
+        "operation": "get",
+        "update": "after",
+        "capacity": "unbounded",
+        "tail": "object"
+      },
+      "source_sha256": "142a91bb6c3698d635c68cff9193d418ebbd653ceefc0048725b77a88cd66023",
+      "expected_sha256": "2195270df9d4cd6ddc26093c06ddc191fb889b52a61e3ad2b33b55f3a2f5e5d1",
+      "status": "fail",
+      "reason": "output differs: line 9 is 'k0 guard ok=1 same=0 tag=22 value=01010101010101010101010...', expected 'k0 guard ok=1 same=1 tag=99 value=01010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "guard_box.put(g);",
+        "after": "guard_box.put(b);",
+        "replacements": 1
+      }
+    },
+    {
+      "name": "guard_write_hits_sibling",
+      "case": "test_gen_cross_mailbox_64_bit_known_typed_peek_before_bounded_null",
+      "values": {
+        "width": "64",
+        "storage": "bit",
+        "value": "known",
+        "typing": "typed",
+        "operation": "peek",
+        "update": "before",
+        "capacity": "bounded",
+        "tail": "null"
+      },
+      "source_sha256": "0a6ad85affe4e9e2303584205bb0e454025d4992058f9d8c644131e90347a571",
+      "expected_sha256": "ebca634d20db3f92b2f44a7d4094486e71f6ab7363736c40c389b54b2a6cdb40",
+      "status": "fail",
+      "reason": "output differs: line 10 is 'k0 guard_update source=0101010101010101010101010101010101...', expected 'k0 guard_update source=1010101010101010101010101010101010...'",
+      "subprocess_returncodes": [
+        0,
+        0,
+        0
+      ],
+      "mutation": {
+        "before": "held_guard.payload = guard_value;",
+        "after": "b.payload = guard_value;",
+        "replacements": 1
+      }
+    }
+  ],
+  "all_controls_pass": true,
+  "all_faults_detected": true,
+  "qualification_helper_sha256": "0b1ebaa188e14e00e12d4aa31792cbd8414ffe42faa3af84ecb721e84a87f5b4",
+  "qualification_sha256": "3e1e4e4fff6fdc9867c4f20b8480c4327ca6d5e14e590ba11097f39cb621b015"
+}

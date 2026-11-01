@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "purpose": "mailbox class-handle cross-model build and prior-result preservation",
+  "upstream_commit": "d0865eb65999f0057989368d208c9a51a914c1de",
+  "build_commit": "d0865eb65999f0057989368d208c9a51a914c1de",
+  "version": "kirimasim 0.0.0 (commit d0865eb65999), built with AppleClang 21.0.0.21000334",
+  "source_clean": true,
+  "upstream_checked_before_execution": true,
+  "binary_sha256_before": "fd9f00f1871ffa5315e453617d2dd03802a7f789f285b50a15afdfbde96bf66f",
+  "binary_sha256_after": "fd9f00f1871ffa5315e453617d2dd03802a7f789f285b50a15afdfbde96bf66f",
+  "generated_at": "2026-10-31T23:32:55.186352+00:00",
+  "results": "coverage/interaction-results/cross54-kirimasim-d0865eb6.json",
+  "prior_selected_cases": 2292,
+  "prior_inputs_identical": true,
+  "prior_statuses_identical": true
+}

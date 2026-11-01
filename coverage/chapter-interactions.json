@@ -1476,6 +1476,32 @@
           "reason": "logic入力をpackageのbit/logic型の仮引数へ変換してから演算し、interface内の同型変数への代入と別に観測する。X/Z保持・変換・破棄ビット・演算後の幅変更の順序を照合する。"
         }
       ]
+    },
+    {
+      "id": "mailbox_class_alias",
+      "primary_chapter": 15,
+      "pairs": [
+        {
+          "chapters": [
+            8,
+            15
+          ],
+          "reason": "mailboxに格納するclassハンドルの同一性と別名経由のメンバ更新、FIFO・peek/get・容量制限・nullメッセージの関係"
+        }
+      ]
+    },
+    {
+      "id": "event_rebinding",
+      "primary_chapter": 15,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            15
+          ],
+          "reason": "イベント型の同期オブジェクトの同一性・別名・再結合と、登録済みイベント待機・タスク引数経由の後続登録の関係"
+        }
+      ]
     }
   ]
 }
