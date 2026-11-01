@@ -1,4 +1,8 @@
+<a id="existing-test-requirement-matching-vpi-and-10-milestones-reached-2026-10-23"></a>
+
 # 既存テストの要求照合：VPIと10%到達（2026-10-23）
+
+[English](existing-test-matching-vpi-20261023.en.md) / [日本語](existing-test-matching-vpi-20261023.md)
 
 > この文書の件数・割合・保留状態は、各作業時点の記録です。
 > 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
@@ -6,10 +10,9 @@
 
 [現在の集計](behavior-coverage-summary.md) / [照合台帳](test-requirement-matching.md) / [累積の進捗・指摘](existing-test-matching-review-20261022.md)
 
-暫定の要求カバレッジ（テスト設計）が10%を超えるまで、既存テストの照合を繰り返しました。
-最終値は **10.081987%（1,242/12,319要求）** です。表示用の丸め値は **10.08%** です。
-固定分母12,319では1,232行から10%を超えます。最終監査で不十分な仮対応を除外し、追加の証拠を確認した結果、1,242行になりました。
-これは重複整理前の要求台帳に対する暫定値で、全入力の組合せを試した割合や、単一シミュレータの規格適合率ではありません。
+暫定の要求カバレッジ（テスト設計）が10%を超えるまで、既存テストの照合を繰り返しました。 最終値は **10.081987%（1,242/12,319要求）** です。表示用の丸め値は **10.08%** です。 固定分母12,319では1,232行から10%を超えます。最終監査で不十分な仮対応を除外し、追加の証拠を確認した結果、1,242行になりました。 これは重複整理前の要求台帳に対する暫定値で、全入力の組合せを試した割合や、単一シミュレータの規格適合率ではありません。
+
+<a id="final-results"></a>
 
 ## 最終結果
 
@@ -23,22 +26,15 @@
 - 集合証拠：50要求 → **55要求**。今回の5要求も全メンバーをANDで扱います。
 - 保留判断：39件を追加し、台帳は345本・465件 → **372本・504件**。
 
-対応追加または保留を記録した57本の、確認した観測の範囲を対象としています。
-55本の全機能を精査済みという意味ではありません。担当はCodex（AI）で、独立した人による確認済みではありません。
+対応追加または保留を記録した57本の、確認した観測の範囲を対象としています。 55本の全機能を精査済みという意味ではありません。担当はCodex（AI）で、独立した人による確認済みではありません。
+
+<a id="repetition-of-comparison-and-adoption-criteria"></a>
 
 ## 照合の反復と採用基準
 
-最初に変数・net・parameter・型名・属性を確認し、866行まで進めました。
-型情報・unpacked/packed配列・構造体・memoryでは942行、port・subroutine・clocking・selectでは1,028行、
-generate・階層・class・constraintでは1,096行、property/sequence・let・文では1,179行となりました。
-最後にdynamic prefix・frame・interface・VPI API・IO declarationを確認し、最終監査後の1,242行で到達を確認しました。
-途中の仮登録は最終監査で見直し、誤った取得元やAPIの代用、親を識別しない3件は最終集計へ含めていません。
-履歴には監査後の最終計測を追加し、今回作業前の履歴は全て保持しています。
+最初に変数・net・parameter・型名・属性を確認し、866行まで進めました。 型情報・unpacked/packed配列・構造体・memoryでは942行、port・subroutine・clocking・selectでは1,028行、 generate・階層・class・constraintでは1,096行、property/sequence・let・文では1,179行となりました。 最後にdynamic prefix・frame・interface・VPI API・IO declarationを確認し、最終監査後の1,242行で到達を確認しました。 途中の仮登録は最終監査で見直し、誤った取得元やAPIの代用、親を識別しない3件は最終集計へ含めていません。 履歴には監査後の最終計測を追加し、今回作業前の履歴は全て保持しています。
 
-提供資料の `IEEE_Std_1800-2023_SystemVerilog.pdf` と抽出済み本文の該当節を読み、関係図はPDFを描画して確認しました。
-C helperが呼ぶAPI・property・relationと、SVの刺激、期待出力の実値を対応付けています。
-要求ID・合格基準・分母を変えて件数を増やしていません。単なる引用、定義だけ、固定ラベルだけの表示は採用していません。
-図のgroup memberとしての一般的な所属を、vpiTypeを一度読むだけで網羅した扱いにすることも避けています。
+提供資料の `IEEE_Std_1800-2023_SystemVerilog.pdf` と抽出済み本文の該当節を読み、関係図はPDFを描画して確認しました。 C helperが呼ぶAPI・property・relationと、SVの刺激、期待出力の実値を対応付けています。 要求ID・合格基準・分母を変えて件数を増やしていません。単なる引用、定義だけ、固定ラベルだけの表示は採用していません。 図のgroup memberとしての一般的な所属を、vpiTypeを一度読むだけで網羅した扱いにすることも避けています。
 
 例えば以下を実際の取得結果として確認しました。
 
@@ -46,12 +42,14 @@ C helperが呼ぶAPI・property・relationと、SVの刺激、期待出力の実
 - 多次元packed arrayの一段ずつのElement遷移、内側からのIndex順、直接struct memberと孫要素のflag差。
 - typedef名・alias先・enum定数の名前と値、typespec memberの型・既定値、空rangeの両NULL境界とsize0。
 - portの順・名前・方向・幅と上下接続、null formalの両NULL handleとsize0。
-- clockingのblock既定skewと個別IO skew/edge、virtual prefixのnull時と代入後のActual。
+- clockingのblock既定のskewと個別のIO skew/edge、virtual prefixのnull時と代入後のActual。
 - class/constraintの実名・宣言順、extern prototype位置、static keyword、solve順、dist種別・範囲・weight。
-- property/sequenceのoperatorとoperand順、strong/weak、clock名、letの実argument順と未指定argumentの既定値。
-- assignmentのLHS/RHS・blocking/compound operator、delay実値、force/release/assign/deassignの対象。
+- プロパティ/シーケンスのオペレータとオペランド順、strong/weak、clock名、letの実引数順と未指定引数の既定値。
+- 代入のLHS／RHS、ブロッキング／複合演算子、遅延の実値、およびforce／release／assign／deassignの対象。
 - frameからのautomatic variableと宣言の違い、allocation schemeの全3値、HasActualの条件別値。
 - VPI registration情報の実routine pointer・NULL・user data、scaled time、負数/降順のmulti-index経由書込みとSV側読出し。
+
+<a id="added-and-collection-evidence"></a>
 
 ## 追加したAND集合証拠
 
@@ -59,76 +57,61 @@ C helperが呼ぶAPI・property・relationと、SVの刺激、期待出力の実
 - 37.19のconstant select：定数/変数indexと、static/dynamic親の条件を分担する2本。
 - 37.58のbit-select constant：index条件と、非定数parent selectからの伝播を分担する2本。
 - 37.34のconstraint順：extern prototypeの宣言位置と、内部itemの実内容順を分担する2本。
-- 37.48のclocking defaults：block/IOのinput/output skewとedgeを分担する2本。
+- 37.48のクロッキングの既定値：ブロック／IOの入力／出力スキューとエッジを分担する2本。
 
-実行確認は、同じシミュレータ・同じ実行スナップショット内で全メンバーがfresh passの場合だけです。
-異なる実行回の部分成功を合成しません。設計対応と実行成功も区別しています。
+実行確認は、同じシミュレータ・同じ実行スナップショット内で全メンバーがfresh passの場合だけです。 異なる実行回の部分成功を合成しません。設計対応と実行成功も区別しています。
+
+<a id="m59-does-not-check-null-itself"></a>
 
 ## M59：NULLそのものを検査していない
 
-`test_vpi_parameters`の `if (left && right)` のelseは、一方だけNULLでもno rangeになります。
-nettype、virtual interface、interface typespecの一部helperは、NULL handleと有効handleのNULL名を同じnoneへ変換します。
-case/defaultの式0件も、非NULLで直ちにscan終端になるiteratorと区別しません。
-これらを「両境界NULL」「With/Expr/Parent/iteratorがNULL」という義務の証拠には使っていません。
-一方、typespecの空rangeは片方欠落を別表示し、size0も読むため、その要求には採用しました。
+`test_vpi_parameters`の `if (left && right)` のelseは、一方だけNULLでもno rangeになります。 nettype、virtual interface、interface typespecの一部helperは、NULL handleと有効handleのNULL名を同じnoneへ変換します。 case/defaultの式0件も、非NULLで直ちにscan終端になるiteratorと区別しません。 これらを「両境界NULL」「With/Expr/Parent/iteratorがNULL」という義務の証拠には使っていません。 一方、typespecの空rangeは片方欠落を別表示し、size0も読むため、その要求には採用しました。
+
+<a id="m60-existencecount-alone-does-not-establish-correct-retrieval-targets"></a>
 
 ## M60：存在や個数だけでは取得対象が正しいといえない
 
-control statementの多くのchild relationとdo-whileは、handleの存在しか検査しません。
-instance-arrayの全element、Use集合、waiting-process集合なども個数または型別個数だけの検査があります。
-親frameの非active・同じthreadという条件も、正しいactivating frameの識別としては不十分です。
-また、module hierarchyの `vpiModule` 取得を、netから `vpiInstance` への別relationの証拠にはできません。
-実値・名前・型・同一性で識別できる個別の関係へ限定し、これらの広い主張を保留しました。
+control statementの多くのchild relationとdo-whileは、handleの存在しか検査しません。 instance-arrayの全element、Use集合、waiting-process集合なども個数または型別個数だけの検査があります。 親frameの非active・同じthreadという条件も、正しいactivating frameの識別としては不十分です。 また、module hierarchyの `vpiModule` 取得を、netから `vpiInstance` への別relationの証拠にはできません。 実値・名前・型・同一性で識別できる個別の関係へ限定し、これらの広い主張を保留しました。
+
+<a id="m61-the-reference-section-number-does-not-match-the-version-of-the-2023"></a>
 
 ## M61：提供2023版と参照節番号が合わない
 
-`test_vpi_delay_expressions`は37.75をcontinuous assignment、37.80をprimitiveとして説明していますが、
-提供PDFではそれぞれDo-while/foreachとCallbackです。対応するモデルは37.47と37.35です。
-`test_vpi_time_queue`のget_time引用も38.11で、提供版のAPI定義は38.13です。
-今回は既存メタデータ・入力ハッシュを保つため引用を変更せず、その節への対応を保留しています。
-参照番号を直す場合は、更新後の入力に対する証跡の再取得も必要です。
+`test_vpi_delay_expressions`は37.75をcontinuous assignment、37.80をprimitiveとして説明していますが、 提供PDFではそれぞれDo-while/foreachとCallbackです。対応するモデルは37.47と37.35です。 `test_vpi_time_queue`のget_time引用も38.11で、提供版のAPI定義は38.13です。 今回は既存メタデータ・入力ハッシュを保つため引用を変更せず、その節への対応を保留しています。 参照番号を直す場合は、更新後の入力に対する証跡の再取得も必要です。
+
+<a id="m62-do-not-extend-part-of-the-compound-requirement-to-the-entire-row"></a>
 
 ## M62：複合要求の一部を行全体へ広げない
 
-scalar/vectorの全種別、packed-arrayの親と全leafのflag、bit幅とrange積による要素数、
-typespecの全unwind終端、queueを含む全range順、struct/union双方のmember型、
-DPI import/export/pure/context、関数自身のsizeとreturn-variableのsize、
-classのstatic/automatic/event/built-in除外などを分けて確認しました。
-部分的な観測は、そのまま複合行全体に対応付けていません。成立する図中property/relationの個別行か、AND集合へ限定しています。
-constraintの非externも、`!= vpiExternAcc`を0表示するだけでは実取得値0の証明になりません。
+scalar/vectorの全種別、 packed -arrayの親と全leafのflag、 bit 幅とrange積による要素数、 typespecの全unwind終端、queueを含む全range順、struct/union双方のmember型、 DPI import/export/pure/context、関数自身のsizeとreturn-variableのsize、 classのstatic/automatic/event/built-in除外などを分けて確認しました。部分的な観測は、そのまま複合行全体に対応付けていません。成立する図中property/relationの個別行か、 AND 集合へ限定しています。constraintの非externも、 `!= vpiExternAcc` を 0 表示するだけでは実取得値 0 の証明になりません。
+
+<a id="m63-does-not-check-object-ids-64bit-value"></a>
 
 ## M63：Object IDの64bit値を検査していない
 
-`test_vpi_class_obj_id.c`は `vpi_get(vpiObjId, ...)` と `PLI_INT32` を使います。
-規格の64bit propertyを低位だけの比較で検証した扱いにはできないため、Object IDの行は登録していません。
-同じテストが実名itemを取得するclass-variable→typespec relationは、別の観測として採用しました。
+`test_vpi_class_obj_id.c`は `vpi_get(vpiObjId, ...)` と `PLI_INT32` を使います。 規格の64bit propertyを低位だけの比較で検証した扱いにはできないため、Object IDの行は登録していません。 同じテストが実名itemを取得するclass-variable→typespec relationは、別の観測として採用しました。
+
+<a id="m64-a-lhs-query-inappropriate-for-the-object-kind"></a>
 
 ## M64：kindに合わないLHS問い合わせ
 
-`test_vpi_case_loop_force_stmts.c`のdescribe_stmtは、switch前に全statementへLhs queryを行います。
-LHSを持たないcase/foreach/do-whileにも問い合わせる構造なので、対応するkindの分岐内へ移す整理が必要です。
-今回の照合では刺激・helperを変更せず、do-whileの非NULLだけの観測も承認しませんでした。
+`test_vpi_case_loop_force_stmts.c`のdescribe_stmtは、switch前に全statementへLhs queryを行います。 LHSを持たないcase/foreach/do-whileにも問い合わせる構造なので、対応するkindの分岐内へ移す整理が必要です。 今回の照合では刺激・helperを変更せず、do-whileの非NULLだけの観測も承認しませんでした。
+
+<a id="execution-evidence-preservation-and-checks"></a>
 
 ## 実行証跡・保全・検査
 
-元のシミュレーションテストは今回再実行していません。
-保存済みのIcarus 13.0／Verilator 5.052と部分実行の結果に、現在の入力SHA-256とランナー識別子を照合しました。
-新規432行のうち実行確認が増えたのは36行です。known・未対応・古い結果をpassへ読み替えていません。
-全754行の実行確認率と1,242行の要求カバレッジ（テスト設計）の差には、この未成功分も含まれます。
+元のシミュレーションテストは今回再実行していません。 保存済みのIcarus 13.0／Verilator 5.052と部分実行の結果に、現在の入力SHA-256とランナー識別子を照合しました。 新規432行のうち実行確認が増えたのは36行です。known・未対応・古い結果をpassへ読み替えていません。 全754行の実行確認率と1,242行の要求カバレッジ（テスト設計）の差には、この未成功分も含まれます。
 
-要求12,319行の定義、分母識別子、資料監査結果、既存checks/check_groups、既存保留判断を機械的に比較し保持しました。
-既存テスト・期待値・メタデータ・C helper・ランナーは変更せず、新規テストも追加していません。
-分母SHA-256は `d9e94724b317c8668673f4f4883c4923bf94caad46d79ba7c79e1fd16302e6ac`、計測規則は版3です。
+要求12,319行の定義、分母識別子、資料監査結果、既存checks/check_groups、既存保留判断を機械的に比較し保持しました。 既存テスト・期待値・メタデータ・C helper・ランナーは変更せず、新規テストも追加していません。 分母SHA-256は `d9e94724b317c8668673f4f4883c4923bf94caad46d79ba7c79e1fd16302e6ac`、計測規則は版3です。
 
-管理ツールの74テスト、提供資料ハッシュ、要求対応・判断台帳・保存済み実行証跡の整合性、
-カタログ・統計・depth・生成物・メタデータ、およびdiffの整合検査を実施しました。
-未登録2,908本と保留504件は完了扱いにせず、次回の照合対象として残しています。
+管理ツールの74テスト、提供資料ハッシュ、要求対応・判断台帳・保存済み実行証跡の整合性、 カタログ・統計・depth・生成物・メタデータ、およびdiffの整合検査を実施しました。 未登録2,908本と保留504件は完了扱いにせず、次回の照合対象として残しています。
+
+<a id="index-of-mappings-added-in-this-round"></a>
 
 ## 今回追加した対応の索引
 
-以下は今回追加した442件の索引です。各要求の完全なIDには `SV2023-` が付きます。
-刺激・期待出力・Cアンカー・入力SHA-256・担当・日付は [behaviors.json](../coverage/behaviors.json) のchecksにあります。
-索引はファイル全体の精査完了を意味しません。
+以下は今回追加した442件の索引です。各要求の完全なIDには `SV2023-` が付きます。 刺激・期待出力・Cアンカー・入力SHA-256・担当・日付は [behaviors.json](../coverage/behaviors.json) のchecksにあります。 索引はファイル全体の精査完了を意味しません。
 
 - [test_vpi_array_var](../tests/ch37/test_vpi_array_var.sv) / [C](../tests/ch37/test_vpi_array_var.c): `37.17-EXTRACT-ARRAY-SIZE`, `37.17-EXTRACT-DIAGRAM-039`, `37.17-EXTRACT-DIAGRAM-040`, `37.17-EXTRACT-DIAGRAM-041`, `37.17-EXTRACT-DIAGRAM-045`, `37.17-EXTRACT-DIAGRAM-046`, `37.17-EXTRACT-DIAGRAM-074`, `37.17-EXTRACT-DIAGRAM-075`, `37.17-EXTRACT-DIAGRAM-076`, `37.17-EXTRACT-VARIABLE-ARRAY-INDICES`.
 - [test_vpi_attribute_object](../tests/ch37/test_vpi_attribute_object.sv) / [C](../tests/ch37/test_vpi_attribute_object.c): `37.83-EXTRACT-DIAGRAM-001`, `37.83-EXTRACT-DIAGRAM-049`, `37.83-EXTRACT-DIAGRAM-050`, `37.83-EXTRACT-DIAGRAM-053`.

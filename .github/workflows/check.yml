@@ -18,11 +18,8 @@ on:
       - "tests/**"
       - "tools/**"
       - "generators/**"
-      - "docs/tests/**"
+      - "docs/**"
       - "coverage/**"
-      - "docs/behavior-coverage.md"
-      - "docs/coverage-depth.md"
-      - "docs/interaction-*.md"
       - "README.md"
       - "README.ja.md"
       - ".github/workflows/check.yml"
@@ -31,11 +28,8 @@ on:
       - "tests/**"
       - "tools/**"
       - "generators/**"
-      - "docs/tests/**"
+      - "docs/**"
       - "coverage/**"
-      - "docs/behavior-coverage.md"
-      - "docs/coverage-depth.md"
-      - "docs/interaction-*.md"
       - "README.md"
       - "README.ja.md"
       - ".github/workflows/check.yml"
@@ -206,6 +200,11 @@ jobs:
 
       - name: Check combination gap bindings and execution evidence
         run: python3 tools/combination_gaps.py --check
+
+      - name: Check bilingual documentation and generator catalog
+        run: |
+          python3 tools/generator_catalog.py --check
+          python3 tools/documentation_languages.py --check
 
       - name: Check the coverage depth report
         run: |

@@ -26,6 +26,7 @@ from pathlib import Path
 import suite_catalog
 import suite_results
 import suite_stats
+import doc_localization
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = ROOT / "docs" / "tests"
@@ -205,15 +206,18 @@ def main() -> int:
         ap.error("--minimum-tests must be positive")
     data = collect()
     text = report(data)
+    outputs = doc_localization.versions(DEPTH, text)
     shallow = shallow_clauses(data, args.minimum_tests) if args.minimum_tests else []
     if shallow:
         print(f"{len(shallow)} clauses have fewer than {args.minimum_tests} direct tests: "
               + clause_list(shallow), file=sys.stderr)
     if args.check:
-        return 0 if not shallow and DEPTH.is_file() and DEPTH.read_text() == text else 1
+        return 0 if not shallow and all(path.is_file() and path.read_text() == content
+                                       for path, content in outputs.items()) else 1
     if args.update:
-        DEPTH.write_text(text)
-        print(f"wrote {DEPTH.relative_to(ROOT)}")
+        for path, content in outputs.items():
+            path.write_text(content)
+            print(f"wrote {path.relative_to(ROOT)}")
     else:
         print(text, end="")
     return 1 if shallow else 0

@@ -41,7 +41,9 @@ class BilingualStatsTests(unittest.TestCase):
             self.assertEqual(chapter_rows[34], ["—", "", "", ""])
         self.assertIn("**3 tests** in 3 chapters", english)
         self.assertIn("3章にわたり**3本のテスト**", japanese)
-        self.assertIn("`width_sign`が1本", japanese)
+        self.assertEqual(self.stats['totals']['generated'], {'width_sign': 1})
+        self.assertIn('[生成器カタログ](docs/generators.ja.md)', japanese)
+        self.assertIn('[generator catalog](docs/generators.md)', english)
         self.assertIn("1本は人が規格と照合済み", japanese)
 
     def test_japanese_drift_is_rejected_and_update_preserves_both_prose_sections(self):

@@ -1,6 +1,12 @@
+<a id="nightly-results-update-times-and-interpretation"></a>
+
 # Nightly resultsの更新時刻と見方
 
-[READMEのグラフ](../README.md#nightly-results) / [公開結果](https://github.com/kurochan001/kirimasim-tests/tree/results#readme) / [実行一覧](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)
+[English](nightly-results.en.md)
+
+[READMEのグラフ](../README.ja.md#nightly-results) / [公開結果](https://github.com/kurochan001/kirimasim-tests/tree/results#readme) / [実行一覧](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)
+
+<a id="when-results-update-in-japan"></a>
 
 ## 日本時間ではいつ更新されるか
 
@@ -31,6 +37,8 @@ Lyraは各ジョブの開始時に`main`先端のコミットを取得します�
 開始時刻・待機状態・終了状態は、レポートの`workflow run`リンク先で確認できます。
 
 
+<a id="starting-a-new-run-on-current-main"></a>
+
 ## 最新のmainで手動実行する
 
 再実行時もスイートとワークフローの最新版を使うには、`main`を指定して新しい実行を起動します。
@@ -43,6 +51,8 @@ gh workflow run nightly.yml --repo kurochan001/kirimasim-tests --ref main
 GitHubの[Re-runは元の実行と同じコミット・refを使います](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs)。
 `workflow_dispatch`で`main`を選ぶと、起動時の`main`先端のスイートと設定が対象になります。
 Lyraはそのジョブ開始時に上流の`main`先端を取得し、実行に使ったSHAを結果へ記録します。
+
+<a id="recorded-example-publication-on-2026-10-31"></a>
 
 ## 確認例：2026年10月31日の公開
 
@@ -59,6 +69,8 @@ Lyraはそのジョブ開始時に上流の`main`先端を取得し、実行に�
 置き換えません。その後の公開状況は[随時更新のレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)を確認してください。
 ワークフローの成功と、全テストの期待結果への一致は別です。
 
+<a id="recorded-example-manual-execution-on-2026-10-24"></a>
+
 ## 確認例：2026年10月24日の手動実行
 
 比較対象を5つにした後の最初の公開です。定時の実行ではなく、`main`で手動実行しました。
@@ -70,6 +82,8 @@ Lyraはそのジョブ開始時に上流の`main`先端を取得し、実行に�
 - 対象：[suite commit `0073c69`](https://github.com/kurochan001/kirimasim-tests/commit/0073c6947bc210d7b928d0d651ef34d5095b5999)、6,009本。
 - 公開：[resultsの更新コミット](https://github.com/kurochan001/kirimasim-tests/commit/71908d7e3482f16c25dfad95ff52478faa6f040d)。
 - 一致した本数：Icarus 4,018、Verilator 4,023、kirimasim 4,235、nvc 1,611、Lyra 4,607。
+
+<a id="recorded-example-update-on-2026-10-22"></a>
 
 ## 確認例：2026年10月22日の更新
 
@@ -85,6 +99,8 @@ Lyraはそのジョブ開始時に上流の`main`先端を取得し、実行に�
 07:27という開始時刻は結果READMEには表示されません。
 07:46という更新時刻は、前日のUTC日付で表示されています。
 これは上記の確認時点の記録です。現在の最新結果は公開レポートと実行一覧を確認してください。
+
+<a id="historical-duration-estimates"></a>
 
 ## 所要時間の目安
 
@@ -106,9 +122,11 @@ Verilatorのジョブでは、各プロセスのアドレス空間を6GBに制�
 名前付きシーケンスが互いを参照する規格違反のコード（`tests/ch16/test_illegal_sequence_cycle_through_bodies.sv`）で、Verilatorが再帰を止めずにランナーのメモリ（16GB）を使い切り、GitHubがジョブを止めたためです。
 制限の下では、そのテストだけが失敗します。
 
+<a id="when-current-and-nightly-test-counts-differ"></a>
+
 ## 現在のテスト数とNightlyの本数が違う場合
 
-現在の本数は[READMEの自動集計](../README.md#contents)と[テストカタログ](tests/README.md)、
+現在の本数は[READMEの自動集計](../README.ja.md#contents)と[テストカタログ](tests/README.ja.md)、
 実行した本数は公開レポートの`tests`と`suite commit`を確認してください。
 上記の10月31日の9,203本、10月24日の6,009本、10月22日の3,719本は、それぞれ異なるコミットの記録です。
 また、スイート全体の本数と各ランナーの対象本数は、formalなどの選択条件により異なります。
@@ -117,6 +135,8 @@ Verilatorのジョブでは、各プロセスのアドレス空間を6GBに制�
 レポートの`Match`の割合は、そのシミュレータで期待結果と一致したテストの割合です。
 IEEE 1800-2023の全動作に対する網羅率とは別の指標です。
 後者は刺激・期待結果と要求台帳の対応を確認したうえで計測します。
+
+<a id="where-to-find-requirement-coverage"></a>
 
 ## 要求カバレッジを確認する場所
 
@@ -139,10 +159,17 @@ IEEE 1800-2023の全動作に対する網羅率とは別の指標です。
 未対応・既知の差異・未実行のケースを合格に含めず、別々の実行の部分成功も合成しません。
 [mainの保存済み集計](interaction-coverage.md)と[導入手順](interaction-verification.md)を参照してください。
 
+公開処理は`README.md`を英語、`README.ja.md`を日本語で生成し、グラフも日英を揃えます。
+3種類のカバレッジMarkdownは日本語の`.md`と英語の`.en.md`を生成し、相互リンクで切り替えます。
+両言語は同じ保存結果を使い、公開処理でシミュレータを再実行したり、生のJSONを変更したりはしません。
+公開ブランチへの追加ファイルの反映は、更新後のツールを使った公開処理が完了してからです。
+
 mainの保存済み証跡には固定バージョンの実行、部分再実行、Ghostのローカル全件実行があり、
 Nightlyは各シミュレータの開発版で実行します。
 対象コミット・実行範囲・版が異なるため、両者の割合を同一条件の結果として比較しないでください。
 集合証拠は同じ実行回の全メンバーの成功を必要とし、別実行の部分成功は合成しません。
+
+<a id="troubleshooting-missing-updates"></a>
 
 ## 更新されていないときの確認順
 
@@ -158,12 +185,16 @@ Nightlyは各シミュレータの開発版で実行します。
 推移図と結果レポートには、このリポジトリにランナー（`tools/run_<simulator>.py`）があるシミュレータだけを描きます。
 2026年10月25日に比較対象から外したnvcなどの過去の結果は、`history.json`と`latest/`に残っていますが、描きません。
 
+<a id="investigating-differ-as-a-defect"></a>
+
 ## Differをバグとして調べるとき
 
 Differは失敗したテストの本数で、出力差分・コンパイル失敗・規格違反のコードの受理・診断や終了コードの不一致を含みます。
 原因の判断には個別ログ、テストの規格適合性、期待値の規格根拠、診断位置と内容の確認が必要です。
 同じ実装上の問題が複数テストに現れる場合や、テスト側に誤りがある場合もあります。
 [2026年10月27日の修正](nightly-suite-corrections-20261027.md)では、kirimasimの174 Differから、診断位置の不一致27本とpacked unionの正常系1本を見直しました。
+
+<a id="comparing-saved-cross-runs"></a>
 
 ## 保存クロス実行との比較
 

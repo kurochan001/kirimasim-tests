@@ -1,3 +1,5 @@
+<a id="履歴"></a>
+
 # History
 
 [日本語](history.ja.md) / [README](../README.md)
@@ -6,7 +8,7 @@ The [README](../README.md) describes the suite as it is now. Records of earlier
 work, earlier measurements and the results of earlier checks have moved here.
 The figures on this page are those of their dates, not current values; for
 those, see the README and the generated reports (the
-[behavior summary](behavior-coverage-summary.md), the
+[behavior summary](behavior-coverage-summary.en.md), the
 [depth report](coverage-depth.md) and the [catalog](tests/README.md)).
 
 ## 2026-10-21
@@ -24,45 +26,47 @@ those, see the README and the generated reports (the
 
 ## 2026-10-22
 
-- The [extension](coverage-strengthening-20261022.md) adds distinct cases for
+- The [extension](coverage-strengthening-20261022.en.md) adds distinct cases for
   all 187 clauses that previously had one test.
 
 ## 2026-10-23
 
 The updates are documented in the
-[matching progress and findings](existing-test-matching-review-20261022.md),
-the [matching result exceeding 20% provisional design coverage](existing-test-matching-20percent-20261023.md),
-the [VPI review and 10.08% milestone](existing-test-matching-vpi-20261023.md),
-the [compiler-directive review](existing-test-matching-preprocessor-20261023.md),
-the [11 expression gap tests](expression-gap-tests-20261023.md),
-the [15 associative-array gap tests](associative-gap-tests-20261023.md) and the
-[header and VPI model tests with further matching](header-vpi-tests-and-matching-20261023.md),
+[matching progress and findings](existing-test-matching-review-20261022.en.md),
+the [matching result exceeding 20% provisional design coverage](existing-test-matching-20percent-20261023.en.md),
+the [VPI review and 10.08% milestone](existing-test-matching-vpi-20261023.en.md),
+the [compiler-directive review](existing-test-matching-preprocessor-20261023.en.md),
+the [11 expression gap tests](expression-gap-tests-20261023.en.md),
+the [15 associative-array gap tests](associative-gap-tests-20261023.en.md) and the
+[header and VPI model tests with further matching](header-vpi-tests-and-matching-20261023.en.md),
 which add 24 tests of the C headers of Annexes I, K, L and M and 24 VPI tests of
 clause 37.
 
 ## 2026-10-24
 
-- The [requirement extraction](requirement-extraction.md) recast the
+- The [requirement extraction](requirement-extraction.en.md) recast the
   keyword-reservation rows as error cases and resolved 27 interpretation
   issues.
-- The [generated keyword tests](keyword-tests-20261024.md) add 496 illegal
+- The [generated keyword tests](keyword-tests-20261024.en.md) add 496 illegal
   designs that use a reserved keyword as a name.
-- The [gap tests](gap-tests-20261024.md) then add 594 independently verified
+- The [gap tests](gap-tests-20261024.en.md) then add 594 independently verified
   tests for requirements that had none, and their
-  [second run](gap-tests-2-20261024.md) adds 933 more.
+  [second run](gap-tests-2-20261024.en.md) adds 933 more.
 - Simulation speed: a run with the releases Icarus Verilog 13.0 and
   Verilator 5.050, and nvc 1.23.0, which could not analyse the designs and is
   no longer compared, is kept in kirimasim's raw data.
 
 ## 2026-10-25
 
-- The [first pass over the unregistered tests](existing-test-matching-unregistered-20261025.md)
+- The [first pass over the unregistered tests](existing-test-matching-unregistered-20261025.en.md)
   linked 45 tests to 99 requirements: six new tests written for stimuli that
   the existing tests lacked, and 23 imported from the CTest suite of the
   simulator repository.
-- Simulation speed: in the 2026-10-25 run shown in the README, kirimasim took
+- Simulation speed: in the [2026-10-25 archived run](readme-records-20261101.md#simulation-speed), kirimasim took
   1.08–1.14 times as long on the first four designs as at `8a8607690aa6` in a
   run earlier that day; kirimasim traces the change to `b17234e420b6`.
+
+<a id="2026-10-2526"></a>
 
 ## 2026-10-25 and 2026-10-26
 
@@ -81,14 +85,14 @@ clause 37.
 
 ## 2026-10-27
 
-- The [Nightly test corrections and oracle review](nightly-suite-corrections-20261027.md)
+- The [Nightly test corrections and oracle review](nightly-suite-corrections-20261027.en.md)
   record the corrections made up to then.
 
 ## 2026-10-28
 
 - The requirement ledger was reviewed as the denominator: 21 duplicate rows
   were merged into others, leaving 12,298 requirements, and the
-  [denominator review](denominator-review-20261028.md) approved them. The
+  [denominator review](denominator-review-20261028.en.md) approved them. The
   reviewer was an AI, not an independent human.
 
 ## 2026-10-29
@@ -113,6 +117,10 @@ clause 37.
 
 ## 2026-10-31
 
+- The [archived README records](readme-records-20261101.md) retain the
+  verified Nightly snapshot for this date, dated speed measurements, and
+  the subsequent mailbox/event-rebinding additions and handoff references.
+
 - `tools/run_ghost.py` now leaves out `:type: formal` tests, like the other
   simulation runners (issue #22). Earlier Ghost results count the 268 formal
   tests as failures. As the runner's fingerprint changed, the Ghost results
@@ -123,3 +131,20 @@ clause 37.
   59.60% (7,330/12,298), or 51.00% (6,272/12,298) counting only Icarus
   Verilog, Verilator and SymbiYosys, and clauses 1 to 40 were at 87.40%
   (8,272/9,465) design coverage.
+
+## 2026-11-01
+
+- Paired all repository Markdown documentation in English and Japanese, including
+  generated reports, test catalogs and historical handoffs. The
+  [documentation index](README.md) provides both language links; the chapter
+  exports also have English CSV counterparts.
+- Replaced the README's dated run narratives and manual generator enumeration
+  with current scope and links to the [archived records](readme-records-20261101.md)
+  and the complete [generated catalog](generators.md).
+- Added offline translation dictionaries and checks for paired publication,
+  language links, technical literals and missing translations. See the
+  [maintenance guide](../tools/doc_locales/README.md) for update procedures and
+  translation provenance. Test inputs, expectations and saved simulator results
+  were retained.
+- Extended Nightly publication to generate English/Japanese result reports,
+  coverage exports and charts from the same recorded execution data.

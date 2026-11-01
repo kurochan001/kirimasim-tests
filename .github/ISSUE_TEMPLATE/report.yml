@@ -14,7 +14,8 @@ body:
         この報告のために商用シミュレータを実行しないでください。
         IEEE 1800-2023の条項番号と自作の再現例を使い、期待する動作を自分の言葉で説明してください。
 
-        [Posting policy / 投稿方針](https://github.com/kurochan001/kirimasim-tests/blob/main/docs/faq.md#8-商用シミュレータでの確認状況)
+        [Posting policy](https://github.com/kurochan001/kirimasim-tests/blob/main/docs/faq.en.md#8-commercial-simulators) /
+        [投稿方針](https://github.com/kurochan001/kirimasim-tests/blob/main/docs/faq.md#8-商用シミュレータでの確認状況)
   - type: checkboxes
     id: posting-policy
     attributes:

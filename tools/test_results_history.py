@@ -1,6 +1,7 @@
 """Partial/local imports keep each simulator's real date, source and denominator."""
 
 import copy
+import io
 import json
 import tempfile
 import unittest
@@ -62,6 +63,9 @@ class ResultsHistoryTests(unittest.TestCase):
         self.assertIn("2026-10-27 16:21", ghost)
         self.assertIn("| local | 1 (50.0%)", ghost)
         self.assertIn("b" * 40, ghost)
+        japanese = history.latest_results_table(history.load_history(self.directory), language="ja")
+        self.assertIn("| シミュレータ | バージョン | 実行 (UTC)", japanese)
+        self.assertEqual(japanese.splitlines()[2:], table.splitlines()[2:])
 
     def test_chapter_image_keeps_older_simulators_with_explicit_provenance(self):
         self.import_local()
@@ -77,6 +81,8 @@ class ResultsHistoryTests(unittest.TestCase):
         runs = history.load_history(self.directory)
         runs[0]["simulators"]["retired"] = history.summarize(
             result("retired", "Retired Simulator", {"ch6/test_one": "pass"}), None)
+        for name in ("status-retired.svg", "status-retired.ja.svg"):
+            (self.directory / "charts" / name).write_text("<svg/>")
         history.render(self.directory, runs)
         report = (self.directory / "README.md").read_text()
         self.assertIn("[local result](https://example.test/local-result.json)", report)
@@ -85,8 +91,99 @@ class ResultsHistoryTests(unittest.TestCase):
         self.assertIn("Icarus Verilog", report)
         self.assertIn("Ghost", report)
         self.assertNotIn("Retired Simulator", report)
+        japanese = (self.directory / "README.ja.md").read_text()
+        self.assertIn("[ローカル実行結果](https://example.test/local-result.json)", japanese)
+        self.assertNotIn("Retired Simulator", japanese)
+        for name in ("status-retired.svg", "status-retired.ja.svg"):
+            self.assertFalse((self.directory / "charts" / name).exists())
         for path in (self.directory / "charts").glob("*.svg"):
             ET.parse(path)
+
+    def test_bilingual_render_preserves_json_and_each_chart_has_localized_labels(self):
+        self.import_local()
+        runs = history.load_history(self.directory)
+        before = copy.deepcopy(runs)
+        paths = [self.directory / "history.json", *sorted((self.directory / "latest").glob("*.json"))]
+        raw = {path: path.read_bytes() for path in paths}
+        history.render(self.directory, runs)
+        self.assertEqual(runs, before)
+        self.assertEqual({path: path.read_bytes() for path in paths}, raw)
+        english = (self.directory / "README.md").read_text()
+        japanese = (self.directory / "README.ja.md").read_text()
+        for report in (english, japanese):
+            self.assertIn("[English](README.md) / [日本語](README.ja.md)", report)
+            self.assertIn("2026-10-26 00:00", report)
+            self.assertIn("2026-10-27 16:21", report)
+            self.assertIn("| local | 1 (50.0%)", report)
+            self.assertIn("| nightly | 1 (100.0%)", report)
+        self.assertIn("charts/chapters.svg?v=20261027T162103", english)
+        self.assertIn("charts/chapters.ja.svg?v=20261027T162103", japanese)
+        for name in ("overview", "rate", "chapters", "status-icarus", "status-ghost"):
+            for suffix in ("", ".ja"):
+                self.assertTrue((self.directory / "charts" / f"{name}{suffix}.svg").is_file())
+        chapter = (self.directory / "charts/chapters.ja.svg").read_text()
+        for value in ("章別の一致テスト数", "データ型", "スイート aaaaaaa / nightly",
+                      "スイート bbbbbbb / local", "0/1  0%"):
+            self.assertIn(value, chapter)
+        status = (self.directory / "charts/status-ghost.ja.svg").read_text()
+        self.assertIn("一致 (pass)", status)
+        self.assertIn("不一致 (fail)", status)
+        self.assertEqual(history.TEST_COUNT_Y_MAX, 12000)
+        for name in ("overview.svg", "overview.ja.svg", "status-ghost.svg", "status-ghost.ja.svg"):
+            root = ET.fromstring((self.directory / "charts" / name).read_text())
+            self.assertIn("12000", [node.text for node in root.iter("{http://www.w3.org/2000/svg}text")])
+
+    def test_japanese_changes_and_summaries_keep_raw_reasons_statuses_and_counts(self):
+        reasons = ["value x != 0; 42.0ns", 'raw | <value> "日本語"', "feature_not_supported"]
+        now = result("ghost", "Ghost", {"ch6/recovered": "pass", "ch6/failed": "fail",
+                     "ch6/known": "known", "ch6/unsupported": "unsupported", "ch6/new": "pass"})
+        for test, reason in zip(("ch6/failed", "ch6/known", "ch6/unsupported"), reasons):
+            now["tests"][test]["reason"] = reason
+        before = {"ch6/recovered": "fail", "ch6/failed": "pass", "ch6/known": "pass",
+                  "ch6/unsupported": "pass", "ch6/removed": "pass"}
+        run = {**self.nightly, "tests": 5, "simulators": {"ghost": history.summarize(now, before)}}
+        original = copy.deepcopy(run)
+        changes = history.changes_section(run, language="ja")
+        for reason in reasons:
+            self.assertIn(reason, changes)
+        for code in ("fail", "known", "unsupported"):
+            self.assertIn(f"({code})", changes)
+        text = history.change_text(run["simulators"]["ghost"]["changes"], "ja")
+        for expected in ("新たに一致 1件", "一致しなくなったテスト 3件", "新規テスト 1件（一致 1件）",
+                         "削除されたテスト 1件"):
+            self.assertIn(expected, text)
+        self.assertIn("2 (40.0%)", history.latest_table(run, "ja"))
+        english = history.summary(run)
+        japanese = history.summary(run, language="ja")
+        self.assertIn("## Nightly results", english)
+        self.assertIn("## 夜間実行結果", japanese)
+        self.assertIn("テスト5件", japanese)
+        for reason in reasons:
+            self.assertIn(reason, english)
+            self.assertIn(reason, japanese)
+        self.assertEqual(run, original)
+        svg = history.stacked_chart("ステータス別の結果", "全ステータスの凡例", [run], "ghost", "ja")
+        root = ET.fromstring(svg)
+        labels = [node for node in root.iter("{http://www.w3.org/2000/svg}text")
+                  if node.get("y") == "74.0"]
+        self.assertEqual(len(labels), 4)
+        for left, right in zip(labels, labels[1:]):
+            # A full-width glyph at 12px is roughly twice an ASCII glyph.
+            width = sum(12 if ord(c) > 127 else 7 for c in left.text)
+            self.assertLess(float(left.get("x")) + width, float(right.get("x")) - 18)
+
+    def test_cli_job_summary_includes_english_and_collapsible_japanese(self):
+        output = io.StringIO()
+        args = ["results_history.py", "update", "--history", str(self.directory),
+                "--suite-commit", "a" * 40, "--time", self.nightly["time"], "fixture.json"]
+        with mock.patch.object(history.sys, "argv", args), \
+             mock.patch.object(history, "update", return_value=self.nightly), \
+             mock.patch.object(history.sys, "stdout", output):
+            self.assertEqual(history.main(), 0)
+        shown = output.getvalue()
+        self.assertTrue(shown.startswith(history.summary(self.nightly)))
+        self.assertIn("<details>\n<summary>日本語</summary>", shown)
+        self.assertIn(history.summary(self.nightly, "ja"), shown)
 
 
 if __name__ == "__main__":

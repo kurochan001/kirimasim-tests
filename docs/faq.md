@@ -1,8 +1,14 @@
+<a id="kirimasim-tests-faq"></a>
+
 # kirimasim-testsのFAQ
 
-テストの読み方、期待値の根拠、Nightly、網羅率、SVA・フォーマル検証、変更後の確認についてまとめています。用語の意味は[用語集](glossary.md)、全体像と実行手順は[README](../README.md)を参照してください。
+[English](faq.en.md) / [README](../README.ja.md)
+
+テストの読み方、期待値の根拠、Nightly、網羅率、SVA・フォーマル検証、変更後の確認についてまとめています。用語の意味は[用語集](glossary.md)、全体像と実行手順は[README](../README.ja.md)を参照してください。
 
 対象はkirimasim-testsです。シミュレータ本体の設計・導入や、一般的なLSI検証手法の説明は、それぞれの資料を参照してください。変動するテスト本数・割合はここへ転記せず、対応する集計へリンクしています。
+
+<a id="contents"></a>
 
 ## 目次
 
@@ -15,15 +21,23 @@
 - [機能間クロス検証](#7-機能間クロス検証)
 - [商用シミュレータでの確認状況](#8-商用シミュレータでの確認状況)
 
+<a id="1-getting-started"></a>
+
 ## 1. 導入と実行
+
+<a id="q1-what-does-this-repository-test"></a>
 
 ### Q1. このリポジトリは何を検査するものですか
 
-SystemVerilogのシミュレータがIEEE 1800-2023の規定どおりに動くかを調べるテスト集です。小さな設計に入力を与え、出力や診断・終了条件を期待結果と比較します。名前にkirimasimが付いていますが、Icarus Verilog、Verilator、Lyra、Ghostのランナーと、SymbiYosysによるフォーマル検証のランナーもあります。製品RTLの機能を網羅的に検証するテストベンチや、シミュレータ本体を配布するリポジトリではありません。[全体説明](../README.md)と[実行方法](../README.md#running-the-suite)を参照してください。
+SystemVerilogのシミュレータがIEEE 1800-2023の規定どおりに動くかを調べるテスト集です。小さな設計に入力を与え、出力や診断・終了条件を期待結果と比較します。名前にkirimasimが付いていますが、Icarus Verilog、Verilator、Lyra、Ghostのランナーと、SymbiYosysによるフォーマル検証のランナーもあります。製品RTLの機能を網羅的に検証するテストベンチや、シミュレータ本体を配布するリポジトリではありません。[全体説明](../README.ja.md)と[実行方法](../README.ja.md#running-the-suite)を参照してください。
+
+<a id="q2-where-should-i-start"></a>
 
 ### Q2. どこから読み始めればよいですか
 
-実行するなら[Running the suite](../README.md#running-the-suite)、個別のテストを探すなら[テストカタログ](tests/README.md)、結果を読むなら[Nightlyの見方](nightly-results.md)から始めてください。規格の要求からテスト・証跡までの対応を知りたい場合は[要求からテストへの手順](requirements-to-tests-method.md)に全体の流れがあります。
+実行するなら[Running the suite](../README.ja.md#running-the-suite)、個別のテストを探すなら[テストカタログ](tests/README.ja.md)、結果を読むなら[Nightlyの見方](nightly-results.md)から始めてください。規格の要求からテスト・証跡までの対応を知りたい場合は[要求からテストへの手順](requirements-to-tests-method.md)に全体の流れがあります。
+
+<a id="q3-can-i-run-just-one-test"></a>
 
 ### Q3. まず1本だけ実行できますか
 
@@ -34,69 +48,101 @@ python3 tools/run_icarus.py --iverilog-bin "$IVERILOG13_BIN" \
   tests/ch10/test_nonblocking_assign.sv
 ```
 
-ランナーにはPython 3.10以上が必要です。複数本の指定、並列数の`-j N`、記録先の`--json FILE`も使えます。シミュレータやCコードのビルドに必要なものはツールごとに異なります。全件を回す前に[各ランナーの前提条件](../README.md#running-the-suite)を確認してください。
+ランナーにはPython 3.10以上が必要です。複数本の指定、並列数の`-j N`、記録先の`--json FILE`も使えます。シミュレータやCコードのビルドに必要なものはツールごとに異なります。全件を回す前に[各ランナーの前提条件](../README.ja.md#running-the-suite)を確認してください。
 
-Icarus・Verilator・kirimasim・Lyraは、明示指定でも`:type: formal`を除外します。その範囲で、テストを指定しない場合はIcarus・kirimasim・Lyraが全件、Verilatorが`:oracle:`に`verilator@5.052`があるテストを選び、Verilatorの`--all`はformal以外の全件を選びます。formalは`:formal_case:`を指定したモデル検査で、`tools/run_sby.py`を使います。[SymbiYosysの実行方法](../README.md#symbiyosys)を参照してください。
+Icarus・Verilator・kirimasim・Lyra・Ghostは、明示指定でも`:type: formal`を除外します。その範囲で、テストを指定しない場合はIcarus・kirimasim・Lyra・Ghostが全件、Verilatorが`:oracle:`に`verilator@5.052`があるテストを選び、Verilatorの`--all`はformal以外の全件を選びます。formalは`:formal_case:`を指定したモデル検査で、`tools/run_sby.py`を使います。[SymbiYosysの実行方法](../README.ja.md#symbiyosys)を参照してください。
+
+<a id="2-expectations-and-metadata"></a>
 
 ## 2. 期待結果とメタデータ
 
+<a id="q4-are-expected-outputs-copied-from-a-simulator"></a>
+
 ### Q4. 期待出力はシミュレータの結果をコピーして決めていますか
 
-引用条文から先に期待結果を決め、固定バージョンシミュレータで確認できた場合にその版を`:oracle:`へ記録します。食い違ったときはテスト・規格解釈・実装のどこに原因があるか調べます。複数ツールが同じ値を出すことだけで正解を決めません。[期待値の決め方](../README.md#where-the-expected-outputs-come-from)を参照してください。
+引用条文から先に期待結果を決め、固定バージョンシミュレータで確認できた場合にその版を`:oracle:`へ記録します。食い違ったときはテスト・規格解釈・実装のどこに原因があるか調べます。複数ツールが同じ値を出すことだけで正解を決めません。[期待値の決め方](../README.ja.md#where-the-expected-outputs-come-from)を参照してください。
 
 出力比較では空行やツール固有の表示を除きますが、文字のある行の空白は詰めません。空白だけの違いでも不一致になる場合があります。[正規化処理](../tools/normalize_output.py)と各ランナーが除く表示を確認してください。
 
+<a id="q5-is-a-test-with-only-oracle-spec-unreliable"></a>
+
 ### Q5. `:oracle: spec`だけなら、そのテストは信用できないのでしょうか
 
-規格を根拠に期待結果を記録していますが、固定バージョンシミュレータでの確認は記録していない状態です。未対応機能やツール側の規格との差が理由になる場合があります。根拠の条文、テスト冒頭の説明、観測する条件、`:spec_check:`を確認してください。`spec`というラベル自体が期待値の無誤りを保証するものでもありません。[メタデータ](../README.md#metadata)と[固定バージョンの相違点](simulator-differences.md)に詳しく説明しています。
+規格を根拠に期待結果を記録していますが、固定バージョンシミュレータでの確認は記録していない状態です。未対応機能やツール側の規格との差が理由になる場合があります。根拠の条文、テスト冒頭の説明、観測する条件、`:spec_check:`を確認してください。`spec`というラベル自体が期待値の無誤りを保証するものでもありません。[メタデータ](../README.ja.md#metadata)と[固定バージョンの相違点](simulator-differences.ja.md)に詳しく説明しています。
+
+<a id="q6-why-distinguish-fixed-releases-from-nightly-development-versions"></a>
 
 ### Q6. 固定バージョンとNightlyの開発版は、なぜ分けるのですか
 
-固定バージョンはoracleに記録した期待結果を継続して再現するため、開発版は機能追加や回帰を追うためです。`iverilog@13.0`の確認を別リリースへ読み替えたり、Nightlyで一致しただけでその固定バージョンの確認済みとしたりはしません。Verilator 5.052のoracle確認では、初期値の乱数seedを変えた実行も行います。[期待値の決め方](../README.md#where-the-expected-outputs-come-from)と[ワークフロー](../README.md#workflows)を参照してください。
+固定バージョンはoracleに記録した期待結果を継続して再現するため、開発版は機能追加や回帰を追うためです。`iverilog@13.0`の確認を別リリースへ読み替えたり、Nightlyで一致しただけでその固定バージョンの確認済みとしたりはしません。Verilator 5.052のoracle確認では、初期値の乱数seedを変えた実行も行います。[期待値の決め方](../README.ja.md#where-the-expected-outputs-come-from)と[ワークフロー](../README.ja.md#workflows)を参照してください。
+
+<a id="q7-does-any-error-make-an-illegal-design-test-pass"></a>
 
 ### Q7. 規格違反のコードなら、何らかのエラーが出れば合格ですか
 
-意図した規格違反を検出したかを確認します。先に別の構文誤りで止まった場合や、未対応機能として拒否された場合は、その規格違反を検査した証拠にはできません。診断が宣言・使用箇所・展開先のどこへ付くかも確認し、妥当な位置と必要な診断内容をパターンへ反映します。エラー位置だけでは誤って成功扱いすることもあるため、oracle登録には診断のレビューが必要です。[判定方法](../README.md#how-a-test-is-judged)と[診断テストの修正例](nightly-suite-corrections-20261027.md)を参照してください。
+意図した規格違反を検出したかを確認します。先に別の構文誤りで止まった場合や、未対応機能として拒否された場合は、その規格違反を検査した証拠にはできません。診断が宣言・使用箇所・展開先のどこへ付くかも確認し、妥当な位置と必要な診断内容をパターンへ反映します。エラー位置だけでは誤って成功扱いすることもあるため、oracle登録には診断のレビューが必要です。[判定方法](../README.ja.md#how-a-test-is-judged)と[診断テストの修正例](nightly-suite-corrections-20261027.md)を参照してください。
+
+<a id="q8-can-verilator-alone-confirm-fourstate-yes"></a>
 
 ### Q8. `:fourstate: yes`をVerilatorだけで確認できますか
 
-このスイートでVerilatorの固定バージョンoracleに使うのは、X/Zに依存しないテストです。2値化した結果では、未知値や高インピーダンスを含む演算・分岐・ネットの振る舞いを同等に確認できません。`:fourstate:`と、実際に比較している値を確認してください。[メタデータ](../README.md#metadata)と[Verilatorの実行条件](../README.md#verilator)を参照してください。
+このスイートでVerilatorの固定バージョンoracleに使うのは、X/Zに依存しないテストです。2値化した結果では、未知値や高インピーダンスを含む演算・分岐・ネットの振る舞いを同等に確認できません。`:fourstate:`と、実際に比較している値を確認してください。[メタデータ](../README.ja.md#metadata)と[Verilatorの実行条件](../README.ja.md#verilator)を参照してください。
+
+<a id="3-reading-nightly-results"></a>
 
 ## 3. Nightlyと結果の見方
 
+<a id="q9-what-do-match-differ-known-difference-and-unsupported-mean"></a>
+
 ### Q9. Match、Differ、Known difference、Unsupportedは何が違いますか
 
-Matchは期待結果との一致、Differは判定条件の不一致です。Known differenceはIcarus・Verilatorの固定バージョンoracleがないテストの不一致を分ける区分で、成功には数えません。kirimasimでも、使える共通・専用の期待出力がなく、他ツール専用の期待出力だけがある場合はKnown differenceになります。Unsupportedはランナーが認識する未対応機能や実行できないテストの区分です。未対応と認識されないコンパイル失敗がDifferになる場合もあります。ランナーによって区分の条件が異なるので、同じ列名の件数だけで比較せず、[結果の定義](../README.md#result-statuses)と個別ログを確認してください。
+Matchは期待結果との一致、Differは判定条件の不一致です。Known differenceはIcarus・Verilatorの固定バージョンoracleがないテストの不一致を分ける区分で、成功には数えません。kirimasimでも、使える共通・専用の期待出力がなく、他ツール専用の期待出力だけがある場合はKnown differenceになります。Unsupportedはランナーが認識する未対応機能や実行できないテストの区分です。未対応と認識されないコンパイル失敗がDifferになる場合もあります。ランナーによって区分の条件が異なるので、同じ列名の件数だけで比較せず、[結果の定義](../README.ja.md#result-statuses)と個別ログを確認してください。
 
 Matchには規格違反のコードを適切に拒否した結果も含みます。また、Icarus・Verilatorの端末の要約は、その固定バージョンoracleが付いたテストを分母にします。`--json`ではoracle未登録でも判定に一致すれば`pass`となり、Nightlyはその結果も数えます。`NOW MATCHES`はIcarusランナーがこの一致を知らせる表示で、oracleの自動認定ではありません。
+
+<a id="q10-is-the-differ-count-the-simulators-bug-count"></a>
 
 ### Q10. Differの件数は、そのシミュレータのバグ数ですか
 
 失敗したテストの本数です。1つの不具合が複数テストに現れる場合も、テストの期待値・規格適合性・診断条件に誤りがある場合もあります。規格と照合し、原因を切り分けてから不具合を報告します。[Nightlyから見つかったテスト側の修正例](nightly-suite-corrections-20261027.md)には、診断位置の問題と、本体側に残った不具合のIssueを分けて記録しています。
 
+<a id="q11-why-can-nightly-be-green-with-differ-results"></a>
+
 ### Q11. Nightlyが緑なのにDifferが残るのはなぜですか
 
-Nightlyは各シミュレータの対応状況を記録するため、全テストの一致を成功条件にはしていません。現在のkirimasimのratchetは、前回`pass`だったテストが今回`fail`になった場合に失敗します。新規テストや前回から失敗していたテストは、その条件だけでは回帰失敗になりません。固定バージョンoracleの維持や台帳の整合性は別のCheckワークフローで確認します。[ワークフロー](../README.md#workflows)を参照してください。
+Nightlyは各シミュレータの対応状況を記録するため、全テストの一致を成功条件にはしていません。現在のkirimasimのratchetは、前回`pass`だったテストが今回`fail`になった場合に失敗します。新規テストや前回から失敗していたテストは、その条件だけでは回帰失敗になりません。固定バージョンoracleの維持や台帳の整合性は別のCheckワークフローで確認します。[ワークフロー](../README.ja.md#workflows)を参照してください。
 
 現在のratchetでは、前回`pass`から今回`unsupported`への変化も失敗の対象外です。緑の表示に加え、結果区分の変化と個別ログを確認してください。
 
+<a id="q12-what-percentage-does-by-chapter-show"></a>
+
 ### Q12. READMEのBy chapterの割合は何を表しますか
 
-同じNightly実行で、各章の一致したテスト数を、そのシミュレータの結果が記録された対象テスト数で割った割合です。Known differenceとUnsupportedも分母に含み、未対応として実行を省略したCコード付きテストなども含みます。図には実行日とシミュレータの版があり、[公開レポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にはsuite commitへのリンクがあります。この割合は規格要求の網羅率ではありません。[章別比較](../README.md#by-chapter)を参照してください。
+章別・環境別に、そのシミュレータの最新の保存結果に含まれる一致数を、その結果で記録されたテスト数で割った割合です。環境間で取得日・スイートのコミット・シミュレータの版が異なる場合があります。Known differenceとUnsupportedも分母に含み、未対応として実行を省略したCコード付きテストなども含みます。図には実行日とシミュレータの版があり、[公開レポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にはsuite commitへのリンクがあります。この割合は規格要求の網羅率ではありません。[章別比較](../README.ja.md#by-chapter)を参照してください。
+
+<a id="q13-why-did-graphs-or-counts-not-change-after-a-main-push"></a>
 
 ### Q13. mainへpushしたのにグラフや件数が変わりません
 
 mainの更新とNightly結果の公開は別の処理です。その変更を含む実行とpublishが完了して初めて図が更新されます。開始予定は毎日04:23 JSTですが、待機・開始遅延・ビルド時間で公開時刻は変わります。結果の時刻はUTC表示なのでJSTでは9時間を加えます。suite commitとテスト数、各ジョブとpublishの状態を確認してください。[更新時刻の説明](nightly-results.md)に確認手順があります。
 
+<a id="q14-why-do-main-results-or-simulator-totals-differ"></a>
+
 ### Q14. `main`と`results`、または各シミュレータで集計が違うのはなぜですか
 
 mainは現在のテスト・ツールと保存済み証跡、resultsはNightlyで公開した実行回を表します。対象コミット、ツール版、テスト数、記録の範囲が異なり得ます。また`latest/<simulator>.json`は環境ごとの最後の結果なので、結果を出す前にジョブが失敗すると更新元の実行回が揃わないことがあります。欠けた環境へ過去の成功を補って、その回の成功とは扱いません。[mainとNightlyの計測規則](../coverage/README.md#mainの集計とnightlyの集計)を参照してください。
 
+<a id="4-requirements-and-coverage"></a>
+
 ## 4. 要求とカバレッジ
+
+<a id="q15-is-the-nightly-match-rate-requirement-coverage"></a>
 
 ### Q15. Nightlyの一致率と要求カバレッジは同じですか
 
 分母が異なります。Nightlyの一致率はテスト本数に対する割合です。要求カバレッジは、規格から抽出した要求・条件・観測の登録行に対し、レビュー済みの対応やパス結果の記録がある割合です。1本のテストが複数要求に対応する場合も、1要求を複数テストで分担する場合もあります。[集計概要](behavior-coverage-summary.md)と[計測規則](../coverage/README.md#計測の意味)を参照してください。
+
+<a id="q16-how-do-design-and-execution-coverage-differ"></a>
 
 ### Q16. 要求カバレッジ（テスト設計）と実行確認率は何が違いますか
 
@@ -104,9 +150,13 @@ mainは現在のテスト・ツールと保存済み証跡、resultsはNightly�
 
 規格違反テストでは構文未対応を誤って成功扱いする可能性があるため、固定バージョンoracleをレビュー済みのIcarus・Verilatorの結果だけを実行証拠に採用します。NightlyのMatch件数をそのまま実行確認済み要求の件数にはしません。
 
+<a id="q17-do-two-tests-per-clause-cover-every-behavior"></a>
+
 ### Q17. 全節にテストが2本あれば、規格の全動作を網羅していますか
 
-節の直接引用本数を満たしたという意味です。同じ節には複数の条件・分岐・例外があり、本数だけではどれを観測したかが分かりません。引用の分布は[条項別テスト数](coverage-depth.md)、具体的な対応は[要求照合](test-requirement-matching.md)で確認します。未登録のテストも動作を検査している可能性がありますが、内容をレビューする前に要求網羅率へ加えません。
+節の直接引用本数を満たしたという意味です。同じ節には複数の条件・分岐・例外があり、本数だけではどれを観測したかが分かりません。引用の分布は[条項別テスト数](coverage-depth.ja.md)、具体的な対応は[要求照合](test-requirement-matching.md)で確認します。未登録のテストも動作を検査している可能性がありますが、内容をレビューする前に要求網羅率へ加えません。
+
+<a id="q18-when-is-coverage-confirmed-and-does-100-finish-verification"></a>
 
 ### Q18. 暫定値は、いつ確定値になりますか。100%なら検証完了ですか
 
@@ -114,19 +164,29 @@ mainは現在のテスト・ツールと保存済み証跡、resultsはNightly�
 
 現在の分母12,298要求は、2026-10-28のAIレビューで承認済みです。解釈保留は0件ですが、人による独立したレビュー・承認や全テストの内容レビュー完了を示すものではありません。[分母レビュー](denominator-review-20261028.md)に根拠と限界を記録しています。
 
+<a id="q19-can-partial-successes-from-different-simulators-satisfy-an-and-group"></a>
+
 ### Q19. 複数シミュレータの成功を集めて、AND集合を合格にできますか
 
 複合証拠の各グループは、同じ実行回・同じ環境で全メンバーが成功する必要があります。別ツールや別実行回の部分成功を寄せ集めて、そのグループを成功にはしません。代替グループがある場合は、いずれかのグループの全条件を満たせば採用できます。[`check_groups`の規則](../coverage/README.md#台帳と証跡)を参照してください。
 
+<a id="5-sva-and-formal-verification"></a>
+
 ## 5. SVAとフォーマル検証
+
+<a id="q20-does-the-sva-reference-evaluator-execute-original-sva-in-a-simulator"></a>
 
 ### Q20. SVA参照評価器は、シミュレータで元のSVAを実行するものですか
 
 規格からシーケンス・プロパティ・サンプル値関数の意味をPythonで実装し、入力トレースから結果を計算します。対象は監査した単一クロック等の範囲です。フォーマル検査では評価器の計算を検証用回路へ変換し、別に書いたRTLモデルと比較します。Yosysが元の未対応SVAをそのまま読む構成ではありません。[図付きの全体ガイド](sva-reference-formal-verification.md)を参照してください。
 
+<a id="q21-do-bmc-and-pdr-pass-mean-the-same-thing"></a>
+
 ### Q21. BMCとPDRは、どちらも同じPASSですか
 
 BMCは指定した有限深度まで、PDRは対象の安全性について有限深度に限定しない証明です。このスイートのシーケンスPDRでは、固定した式・数値パラメータ・入力条件での一致を確認します。任意の式や整数パラメータへの一般化ではありません。また、有限入力を結果表に展開するモデルのソルバー深度と、意味論上のサンプル数も区別します。[結果と証明範囲の説明](sva-reference-formal-verification.md)を参照してください。
+
+<a id="q22-do-40-models-plus-111-cases-mean-151-proved-tests"></a>
 
 ### Q22. 40モデルと111ケースを足して、151本のテストを証明したのですか
 
@@ -134,37 +194,53 @@ BMCは指定した有限深度まで、PDRは対象の安全性について有�
 
 実テストとの対応付けも、0／1の条件からシーケンスの一致を求める部分式の範囲であり、アサーション全体・スケジューリング・表示までの証明ではありません。参照評価器との一致やモデル検査を`:oracle:`やシミュレータ実行確認率へ自動加算しません。[拡張の対象と対応付け](sva-formal-expansion-20261026.md)を参照してください。
 
+<a id="q23-is-a-formal-fail-necessarily-a-problem"></a>
+
 ### Q23. フォーマル検証の結果にFAILがあるのは問題ではありませんか
 
 意図的に誤りを入れた負例は、反例が見つかるFAILを期待しています。正しいモデルの失敗と分け、期待する結果、終了コード、反例・到達例の証跡を確認します。UNKNOWN・TIMEOUT・ERRORを成功へ含めるものではありません。保存済み結果への`--check-results`も、ソース等との対応を調べる処理で、ソルバーの再実行ではありません。[検査と再実行の手順](sva-reference-formal-verification.md#再実行)を参照してください。
 
+<a id="6-changes-and-evidence"></a>
+
 ## 6. テストの修正と記録
+
+<a id="q24-does-even-a-small-test-or-expectation-correction-require-a-rerun"></a>
 
 ### Q24. テストや期待値を少し直しただけでも、再実行が必要ですか
 
 刺激・期待値・診断条件・関連ファイルが変わると、以前のパス結果の記録との入力ハッシュが合わなくなります。内容を規格と再照合し、対応・観測の根拠を見直したうえで、固定バージョンシミュレータの再実行を別の記録として保存します。ハッシュだけを現在値へ書き換えて、過去の実行を現在の成功にはしません。[台帳の更新手順](../coverage/README.md#日常の更新)と[修正記録の例](nightly-suite-corrections-20261027.md)を参照してください。
 
+<a id="q25-may-i-change-only-an-expectation-under-testsgen"></a>
+
 ### Q25. `tests/gen/`の期待値だけを直してもよいですか
 
-生成器と規格由来の参照モデルを修正し、再生成します。生成ファイルだけを直接変えると、再生成時に失われ、生成物の整合性検査でも差分になります。[生成テストの説明](../README.md#generated-tests)に構成があり、次のコマンドで生成物との一致を確認できます。
+生成器と規格由来の参照モデルを修正し、再生成します。生成ファイルだけを直接変えると、再生成時に失われ、生成物の整合性検査でも差分になります。[生成テストの説明](../README.ja.md#generated-tests)に構成があり、次のコマンドで生成物との一致を確認できます。
 
 ```sh
 python3 generators/generate.py --check
 ```
 
+<a id="q26-how-are-ai-and-human-reviews-distinguished"></a>
+
 ### Q26. AIによる規格確認と、人によるレビューはどう区別していますか
 
-`:spec_check: ai`と`human`で区別します。AIによる期待値の照合、別モデルとの一致、ツールの成功は、人による確認を意味しません。要求の対応や保留判断にもレビューの主体・日付・入力ハッシュを記録し、確認した範囲をたどれるようにしています。[メタデータ](../README.md#metadata)と[照合の手順](requirements-to-tests-method.md)を参照してください。
+`:spec_check: ai`と`human`で区別します。AIによる期待値の照合、別モデルとの一致、ツールの成功は、人による確認を意味しません。要求の対応や保留判断にもレビューの主体・日付・入力ハッシュを記録し、確認した範囲をたどれるようにしています。[メタデータ](../README.ja.md#metadata)と[照合の手順](requirements-to-tests-method.md)を参照してください。
+
+<a id="q27-what-should-i-check-and-where-should-i-report-a-mismatch"></a>
 
 ### Q27. 不一致を見つけたら、何を確認し、どこへ報告しますか
 
 スイートのコミット、シミュレータの版、テストと関連入力、引数、実出力・診断・終了コードを揃え、同じ条件で再現させます。引用条文と期待値、テストコードが規格に適合するか、診断判定も確認し、原因が分かる最小例へ絞ります。テストの誤りは[このスイートのIssue](https://github.com/kurochan001/kirimasim-tests/issues)で管理し、シミュレータ側の原因とは分けます。
 
-このプロジェクトでは、Icarus・Verilatorの固定版との差異を[差異一覧](simulator-differences.md)とテストのコメントへ記録し、上流への報告は行わない方針です。他の実装の課題も既存Issueと担当範囲を確認して扱い、レビューだけで外部へ自動投稿しません。記録には根拠となる節番号と自分の言葉での説明を付け、規格本文・図・例のコードは転載しません。[作業方針](codex-handoff-20261031.md#2-ユーザーの方針と作業上の注意)と[Contributing](../README.md#contributing)を参照してください。
+このプロジェクトでは、Icarus・Verilatorの固定版との差異を[差異一覧](simulator-differences.ja.md)とテストのコメントへ記録し、上流への報告は行わない方針です。他の実装の課題も既存Issueと担当範囲を確認して扱い、レビューだけで外部へ自動投稿しません。記録には根拠となる節番号と自分の言葉での説明を付け、規格本文・図・例のコードは転載しません。[作業方針](codex-handoff-20261031.md#2-ユーザーの方針と作業上の注意)と[Contributing](../README.ja.md#contributing)を参照してください。
 
 商用シミュレータの出力・診断は報告へ含めません。[Q45の投稿方針](#q45-issueに商用シミュレータの出力診断を載せてもよいですか)を確認してください。
 
+<a id="7-feature-interactions"></a>
+
 ## 7. 機能間クロス検証
+
+<a id="q28-why-not-simply-cross-every-feature"></a>
 
 ### Q28. どうして全機能を単純に掛け合わせないのですか
 
@@ -172,6 +248,8 @@ python3 generators/generate.py --check
 故障の起こり方に直結する3因子以上の群と、必須の境界ケースを別に保持します。
 単独機能の合格だけでは分からない受渡し部分を狙いますが、任意の高次の不具合をすべて検出する
 保証ではありません。[設計思想と追加手順](interaction-verification-method.md)を参照してください。
+
+<a id="q29-can-a-complete-plan-still-have-unsupported-or-failing-execution"></a>
 
 ### Q29. 計画上は網羅していても、未対応や不一致が残るのですか
 
@@ -181,6 +259,8 @@ known・unsupported・fail・未実行・古い証跡は成功にしません。
 分母から除くこともしません。[保存実行の概要](interaction-verification.md#保存実行の概要)と
 [モデル別レポート](interaction-coverage.md)で両者を分けて確認できます。
 
+<a id="q30-does-a-successful-check-mean-every-cross-passed"></a>
+
 ### Q30. Checkが成功したら、全クロスが合格したことになりますか
 
 固定oracle対象の継続確認や生成物・台帳の整合性などを確認した結果です。
@@ -188,6 +268,8 @@ known・unsupported・fail・未実行・古い証跡は成功にしません。
 実行の充足には`--model`と`--results`で範囲・記録を選び、`--require-pass`を使います。
 これは保存したJSONを評価する処理で、シミュレータを起動しません。
 [コマンドと証跡の役割](../coverage/README.md#機能間クロスの計画と証跡)を参照してください。
+
+<a id="q31-how-do-saved-cross-runs-qualification-evidence-and-nightly-differ"></a>
 
 ### Q31. 保存クロス実行、補助証跡、Nightlyをどう区別しますか
 
@@ -198,12 +280,16 @@ Nightlyはその回のスイートと各ツールの版・対象範囲を持つ�
 意味ではありません。[補助証跡の説明](../coverage/interaction-qualification/README.md)と
 [Nightlyの見方](nightly-results.md)を参照してください。
 
+<a id="q32-can-i-sum-matrix-cells-to-get-the-cross-test-total"></a>
+
 ### Q32. 章間表の数字を合計すれば、クロステストの総数になりますか
 
 [章間表](chapter-cross-matrix.md)の数字はモデル数です。上下対称なので、一つの章対が二つのマスに現れます。
 また、一つのモデルを複数の章対へ対応付ける場合もあるため、マスを合計してモデル総数やテスト本数にはしません。
 対角線は主題章ごとのモデル数で、その合計がモデル総数です。個々のテストは
 [計画JSON](../coverage/interaction-summary.json)の`selection`、実行区分は明細CSVから確認できます。
+
+<a id="q33-do-zero-cells-and-mecnr-indicate-missing-tests-or-passes"></a>
 
 ### Q33. 0セルやM・E・C・N・Rは、未検証や合格を表しますか
 
@@ -212,6 +298,8 @@ Nightlyはその回のスイートと各ツールの版・対象範囲を持つ�
 `N`は現計画の対象外、`R`は後回し・要精査です。`E1`などの数字はモデル化を検討する優先度です。
 これらは実行の合否を示しません。`E`には根拠のテスト、`C`には因子と観測の仮説があり、
 `R`を低リスクとして除外しません。[分類と次の候補](chapter-cross-triage.md)を確認してください。
+
+<a id="q34-are-complete-and-all-selected-tests-pass-the-same-judgment"></a>
 
 ### Q34. completeと、全選択ケースPASSのモデル数は同じ判定ですか
 
@@ -222,6 +310,8 @@ Nightlyはその回のスイートと各ツールの版・対象範囲を持つ�
 章間表の「全選択ケースPASS」は、短時間選択の全テストが同じ保存実行で成功することを要求します。
 章対の`when`条件に該当するケースだけの成功を、モデル全体の成功へ読み替えません。
 [実行集計の実装](../tools/interaction_coverage.py)と[章間表の規則](chapter-cross-matrix.md#実行結果の扱い)に対応しています。
+
+<a id="q35-how-should-i-add-the-next-model"></a>
 
 ### Q35. 次のクロスモデルは、どのような順序で追加しますか
 
@@ -234,6 +324,8 @@ Nightlyはその回のスイートと各ツールの版・対象範囲を持つ�
 その後、章対の台帳と生成レポートを更新します。要求への対応は別途内容をレビューして登録します。
 [追加手順とチェックリスト](interaction-verification-method.md)に具体的な順序があります。
 
+<a id="q36-why-observe-guard-instances-and-intermediate-values"></a>
+
 ### Q36. 対照インスタンスと途中の値も、なぜ確認するのですか
 
 最終値だけでは、二つの誤りが相殺されたり、誤って共通の状態を使ったりしても一致する場合があります。
@@ -243,6 +335,8 @@ Nightlyはその回のスイートと各ツールの版・対象範囲を持つ�
 [interfaceの変換](interaction-verification.md#interfaceヘッダのimportとpackage関数の型変換)と
 [逐次UDPの状態保持](interaction-verification.md#generateで生成した逐次udpの状態と入力変換)が具体例です。
 
+<a id="q37-why-can-01-inputs-still-require-four-state-observation"></a>
+
 ### Q37. 入力が0/1だけなのに、fourstateがyesになるのはなぜですか
 
 入力だけでなく、観測結果がX/Zに依存するかで決めます。複数ドライバの競合でnetがXになったり、
@@ -250,6 +344,8 @@ Nightlyはその回のスイートと各ツールの版・対象範囲を持つ�
 一律にVerilatorの比較対象へ入れません。初期値、更新前後、強度の表示など、実際の観測を確認します。
 [UDPの配列と強度](interaction-verification.md#udpの配列接続と駆動強度の解決)と
 [逐次UDP](interaction-verification.md#generateで生成した逐次udpの状態と入力変換)を参照してください。
+
+<a id="q38-do-mutation-build-failures-or-crashes-count-as-detections"></a>
 
 ### Q38. 故障注入でコンパイル失敗やクラッシュが出れば、検出に数えますか
 
@@ -260,12 +356,16 @@ Nightlyはその回のスイートと各ツールの版・対象範囲を持つ�
 故障注入の件数は、生成テスト数や通常回帰のPASS数へ加算しません。
 [設計・故障注入の記録](interaction-verification.md#interfaceヘッダのimportとpackage関数の型変換)を参照してください。
 
+<a id="q39-do-matching-verilator-seeds-1-and-73-cover-every-random-condition"></a>
+
 ### Q39. Verilatorでseed 1と73が一致すれば、乱数条件をすべて確認済みですか
 
 二つの実行条件で再現したという証拠です。すべての初期値や乱数系列を網羅した証明ではありません。
 片方だけ一致した結果や、2状態の結果を4状態の確認へ読み替えず、各seedの実行を別々に保存します。
 テストは規格が定める値を観測し、未初期化値や競合へ偶然依存していないかも確認します。
-[固定版の確認方法](../README.md#where-the-expected-outputs-come-from)を参照してください。
+[固定版の確認方法](../README.ja.md#where-the-expected-outputs-come-from)を参照してください。
+
+<a id="q40-how-does-a-latest-commit-run-differ-from-checking-saved-results"></a>
 
 ### Q40. 最新コミットでの実行と、保存結果の再確認はどう違いますか
 
@@ -277,6 +377,8 @@ kirimasim・Lyraなどの開発版を新たに実行するときは、実行直�
 GitHub Actionsでも、古い実行のRe-runは元のスイートのコミットを使います。最新mainを対象にする場合は
 mainを指定して新しく起動し、suite commitと各シミュレータの版を結果から確認します。
 [手動実行の説明](nightly-results.md#最新のmainで手動実行する)を参照してください。
+
+<a id="q41-can-i-check-one-models-saved-results-without-running-a-simulator"></a>
 
 ### Q41. シミュレータを動かさず、1モデルの保存結果だけ確認できますか
 
@@ -293,14 +395,18 @@ python3 tools/interaction_coverage.py --model interface_header_import \
 パス一覧をランナーへ渡す際は、空でないことを確認してください。位置引数なしのランナーは
 通常の全件選択になるため、空の一覧をそのまま渡すと意図した範囲になりません。
 
+<a id="q42-does-a-spec-only-kirimasim-pass-change-the-oracle"></a>
+
 ### Q42. specだけのテストがkirimasimでPASSしたら、oracleも変更しますか
 
 その実行で期待結果に一致したことを保存しますが、固定版oracleは自動追加しません。
 固定版の未対応や出力差が残る場合は、規格に基づく共通期待値を維持して差異を記録します。
 例えばconfigのモデルには、固定版が構文を拒否してもkirimasimで期待値と一致するケースがあります。
 `spec`・固定版oracle・保存実行の`pass`はそれぞれ役割が異なります。
-[期待値の方針](../README.md#where-the-expected-outputs-come-from)と
+[期待値の方針](../README.ja.md#where-the-expected-outputs-come-from)と
 [configモデルの結果](interaction-verification.md#configのパラメータ設定とgenerateの形状)を参照してください。
+
+<a id="q43-do-documentation-only-edits-require-full-simulator-reruns"></a>
 
 ### Q43. 文書だけを直す場合も、全シミュレータの再実行が必要ですか
 
@@ -309,7 +415,11 @@ python3 tools/interaction_coverage.py --model interface_header_import \
 刺激・期待値・ランナーも直した場合は、その変更が影響する範囲を別途再実行します。
 ローカル検査の成功、GitHub Check、Nightlyの公開状況は対象コミットと範囲を添えて区別します。
 
+<a id="8-commercial-simulators"></a>
+
 ## 8. 商用シミュレータでの確認状況
+
+<a id="q44-has-the-suite-been-checked-with-commercial-simulators"></a>
 
 ### Q44. 商用シミュレータでも確認していますか
 
@@ -334,8 +444,10 @@ python3 tools/interaction_coverage.py --model interface_header_import \
 Icarus Verilog・Verilatorで確認できた範囲を`:oracle:`へ記録します。kirimasim・Lyra・Ghostなどの
 保存結果も、記録した版と実行条件での結果です。商用シミュレータでの実行可否や期待結果との一致は未確認です。
 確認方法は
-[期待値の決め方](../README.md#where-the-expected-outputs-come-from)と
+[期待値の決め方](../README.ja.md#where-the-expected-outputs-come-from)と
 [保存実行の概要](interaction-verification.md#保存実行の概要)を参照してください。
+
+<a id="q45-may-i-post-commercial-simulator-output-or-diagnostics-in-an-issue"></a>
 
 ### Q45. Issueに商用シミュレータの出力・診断を載せてもよいですか
 

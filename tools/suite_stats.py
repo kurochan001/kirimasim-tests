@@ -167,9 +167,8 @@ def markdown(stats: dict, language: str = "en") -> str:
     t = stats["totals"]
     lines = [
         f"The suite has **{t['tests']} tests** in {len(stats['chapters'])} chapters."
-        + (f" {sum(t['generated'].values())} of them are generated (`tests/gen/`, see "
-           "\"Generated tests\"): "
-           + ", ".join(f"{n} by `{g}`" for g, n in sorted(t["generated"].items())) + "."
+        + (f" {sum(t['generated'].values())} of them are generated. "
+           "The [generator catalog](docs/generators.md) lists their current counts and scope."
            if t["generated"] else ""),
         "",
         "| Expected result recorded with | Tests |",
@@ -216,9 +215,8 @@ def markdown_ja(stats: dict) -> str:
         f"スイートには{len(stats['chapters'])}章にわたり**{t['tests']}本のテスト**があります。",
     ]
     if t["generated"]:
-        lines[0] += (f" うち{sum(t['generated'].values())}本は自動生成です"
-                     "（`tests/gen/`。「自動生成テスト」を参照）："
-                     + "、".join(f"`{g}`が{n}本" for g, n in sorted(t["generated"].items())) + "。")
+        lines[0] += (f" うち{sum(t['generated'].values())}本は自動生成です。"
+                     "生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。")
     lines += ["", "| 期待結果の確認元 | テスト数 |", "| --- | ---: |",
               f"| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | {t['icarus']} |",
               f"| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | {t['verilator']} |",

@@ -1,11 +1,16 @@
+<a id="denominator-review-2026-10-28"></a>
+
 # 分母レビュー 2026-10-28
+
+[English](denominator-review-20261028.en.md) / [日本語](denominator-review-20261028.md)
 
 > この文書の件数・割合・保留状態は、各作業時点の記録です。
 > 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
 > [要求抽出の結果](requirement-extraction.md)を参照してください。
 
-IEEE 1800-2023 の要求台帳を「意味的に一意な分母」として承認した記録です。
-**AIによるレビューであり、人による独立したレビュー・承認ではありません。**
+IEEE 1800-2023 の要求台帳を「意味的に一意な分母」として承認した記録です。 **AIによるレビューであり、人による独立したレビュー・承認ではありません。**
+
+<a id="input-identity"></a>
 
 ## 入力の同一性
 
@@ -13,8 +18,10 @@ IEEE 1800-2023 の要求台帳を「意味的に一意な分母」として承�
   - SHA-256 `43d042a2…d1a14`（`requirement-audit.json` の `pdf_sha256` と一致）
 - 抽出テキスト: `lrm_pdftotext_layout.txt`
   - SHA-256 `ee84b2d1…56dc`（`text_sha256` と一致）
-- 節: 1,740（normative 1,703、no_behavior 37）
+- 節：1,740（規定の1,703、no_behavior 37）
 - 登録行: 12,319 → **12,298**
+
+<a id="1-interpretation-resolutions-21-rows-19-issues"></a>
 
 ## 1. 解釈の解決（21行・19論点）
 
@@ -37,8 +44,9 @@ IEEE 1800-2023 の要求台帳を「意味的に一意な分母」として承�
 - **N.2**: 32ビット固定幅・mod 2^32。
 - **31.4.4**: 異なる時刻のパルスだけを対象とし、同時エッジは precondition violation とする。
 
-引用は抽出テキストへの部分一致で機械検証した。図（37.80 など）は PDF を
-400dpi で描画して目視確認した。
+引用は抽出テキストへの部分一致で機械検証した。図（37.80 など）は PDF を 400dpi で描画して目視確認した。
+
+<a id="2-duplicate-integration-25-candidate"></a>
 
 ## 2. 重複の統合（25候補）
 
@@ -48,13 +56,12 @@ IEEE 1800-2023 の要求台帳を「意味的に一意な分母」として承�
 | 保持 | 4 | 5行（kind または出典が異なる） |
 | 完全一致の保持 | 3組 | 6行（観測対象が異なる） |
 
-- 統合は、同じ clause・同じ kind・同じ義務で、survivor の `source_spans` と
-  `checks` に旧行の情報を移せる場合だけ行った。
+- 統合は、同じ clause・同じ kind・同じ義務で、survivor の `source_spans` と `checks` に旧行の情報を移せる場合だけ行った。
 - 初期行は `source_spans` を持たないため、失われる出典はない。
-- 保持した例: `7.8.6`（boundary と normal が異なる）、`19.7 CROSS-RETAIN`
-  （normal と error の合成）、`34.5.12.2` / `34.5.25.2`（暗号化と復号で義務が異なる）。
-- `37.85` の完全一致2行は、`vpiRegArray` と `vpiMemory` の観測差を behavior に
-  明記する残課題付きで保持した。
+- 保持した例: `7.8.6`（boundary と normal が異なる）、`19.7 CROSS-RETAIN` （normal と error の合成）、`34.5.12.2` / `34.5.25.2`（暗号化と復号で義務が異なる）。
+- `37.85` の完全一致2行は、`vpiRegArray` と `vpiMemory` の観測差を behavior に 明記する残課題付きで保持した。
+
+<a id="3-restore-source-92-line"></a>
 
 ## 3. 出典の復元（92行）
 
@@ -69,8 +76,9 @@ IEEE 1800-2023 の要求台帳を「意味的に一意な分母」として承�
 - `SV2023-20.3.2-STIME-ROUNDING`（$stime への丸めの明示文がない）
 - `SV2023-20.14.2-UNIFORM-SINGLETON`（等しい境界の singleton を定めるブロックがない）
 
-この3行は削除せず、clause 単位の出典だけを持つ行として残した。分母の
-「ブロック単位で一意」という主張からは除外される。
+この3行は削除せず、clause 単位の出典だけを持つ行として残した。分母の 「ブロック単位で一意」という主張からは除外される。
+
+<a id="4-approval"></a>
 
 ## 4. 承認
 
@@ -83,6 +91,8 @@ IEEE 1800-2023 の要求台帳を「意味的に一意な分母」として承�
 - 登録行: **12,298**
 - 確定値: **設計 89.28%（10,980 / 12,298）**
 - 実行: **59.44%（7,310 / 12,298、Ghost含む）**／Ghost除外 **50.83%（6,251）**
+
+<a id="5-reproduction-procedure"></a>
 
 ## 5. 再現手順
 
@@ -100,6 +110,8 @@ python3 tools/suite_catalog.py --check
 python3 tools/coverage_depth.py --check --minimum-tests 2
 python3 generators/generate.py --check
 ```
+
+<a id="6-limits"></a>
 
 ## 6. 限界
 

@@ -9,11 +9,12 @@
 A conformance test suite for the simulation semantics of IEEE 1800-2023
 SystemVerilog.
 
-For terminology and common questions, see the [glossary](docs/glossary.md)
-and [FAQ](docs/faq.md) (Japanese). They explain test expectations, result
+For terminology and common questions, see the [glossary](docs/glossary.en.md)
+and [FAQ](docs/faq.en.md). They explain test expectations, result
 statuses, Nightly, coverage and the SVA/formal checks used by this suite.
 This README describes the suite as it is now; records of earlier work and
 measurements are in the [history](docs/history.md).
+The [document index](docs/README.md) links every guide, generated report and historical record in both languages.
 
 Each simulation test is a small, self-contained design with an expected result.
 A legal design passes when its normalized standard output matches and any specified
@@ -29,7 +30,7 @@ format is that of
 
 Most simulation expectations follow simulator-independent standard rules.
 Tests of implementation-defined behavior state the assumed format explicitly;
-the [FST waveform tests](docs/fst-tests-20261029.md) target kirimasim's planned
+the [FST waveform tests](docs/fst-tests-20261029.md) target kirimasim's
 FST backend and are not requirements to use FST in every simulator.
 
 What sets the suite apart:
@@ -51,10 +52,12 @@ What sets the suite apart:
 > AI model, and none by a person yet (`:spec_check: ai`).
 > Reports of wrong expectations are welcome.
 
+<a id="収録内容"></a>
+
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **10105 tests** in 38 chapters. 3668 of them are generated (`tests/gen/`, see "Generated tests"): 18 by `combination_aggregates`, 9 by `combination_events`, 13 by `combination_io`, 18 by `combination_monitors`, 16 by `combination_nba`, 36 by `interaction_array`, 36 by `interaction_assertion`, 36 by `interaction_binding`, 36 by `interaction_case`, 34 by `interaction_case_inside`, 32 by `interaction_cast`, 36 by `interaction_class_method`, 36 by `interaction_clocking`, 100 by `interaction_compare`, 40 by `interaction_compound`, 72 by `interaction_concat`, 32 by `interaction_cond`, 41 by `interaction_config`, 36 by `interaction_default`, 63 by `interaction_delay`, 72 by `interaction_divide`, 64 by `interaction_edge`, 27 by `interaction_event_rebind`, 13 by `interaction_event_task`, 51 by `interaction_expr`, 36 by `interaction_generate`, 27 by `interaction_iff`, 36 by `interaction_ifgenerate`, 36 by `interaction_ifimport`, 39 by `interaction_import`, 44 by `interaction_index`, 46 by `interaction_inside`, 70 by `interaction_logic`, 36 by `interaction_loop_nba`, 36 by `interaction_mailbox`, 36 by `interaction_memfile`, 72 by `interaction_method`, 36 by `interaction_nba`, 40 by `interaction_nettype`, 36 by `interaction_port`, 36 by `interaction_process`, 18 by `interaction_program`, 60 by `interaction_query`, 48 by `interaction_queue`, 60 by `interaction_queue_ref`, 46 by `interaction_range`, 36 by `interaction_reactive`, 38 by `interaction_resize`, 36 by `interaction_return`, 36 by `interaction_select`, 56 by `interaction_shift`, 92 by `interaction_shortcircuit`, 36 by `interaction_stream`, 36 by `interaction_struct`, 36 by `interaction_task`, 25 by `interaction_udp`, 36 by `interaction_udpstate`, 36 by `interaction_wait`, 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **10105 tests** in 38 chapters. 3668 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
@@ -110,20 +113,14 @@ The total includes 268 `:type: formal` tests. They are checked with SymbiYosys
 through `:formal_case:` rather than by comparing simulator standard output;
 see [running formal tests](#symbiyosys).
 
-Additional SVA validation is recorded separately from these oracle counts:
-the reference evaluator reproduces **45 test outputs**. The latest formal
-rerun (2026-10-29) covers the full **267-case catalogue**: **267 BMC checks**, **44 unbounded
-PDR proofs**, **267 covers** and five expected deliberate-error failures.
-A separate parameter-boundary sweep has **111 cases**, all passing both BMC and PDR;
-its suite bindings identify **127 sequence fragments in 91 directives across
-28 tests**. The two formal sets overlap and are not added as distinct models.
-These model counts are not added to the suite total, and these results do not
-reclassify tests in the tables above. Both saved reports were regenerated on
-2026-10-29 and pass their current-source and task-completeness checks; see the
-guide for execution and validation commands.
-See the [SVA reference and formal verification guide](docs/sva-reference-formal-verification.md)
-and [boundary-sweep results](docs/sva-formal-expansion-20261026.md) for the
-scope, evidence and reproduction commands.
+Additional SVA validation is recorded separately: the reference evaluator
+reproduces **45 test outputs**; formal evidence covers the **267-case catalogue**
+and a separate **111-case parameter-boundary sweep**. These overlapping model
+sets are not added to the suite total or the oracle counts above.
+The [SVA reference and formal verification guide](docs/sva-reference-formal-verification.en.md)
+provides scope, evidence and reproduction commands. Detailed counts and rerun
+dates are in the [archived SVA record](docs/readme-records-20261101.md#sva-verification-record-2026-10-29)
+and [boundary-sweep report](docs/sva-formal-expansion-20261026.en.md).
 
 The [catalog](docs/tests/README.md) lists every test, chapter by chapter,
 with what it checks and the clauses it cites, and
@@ -147,10 +144,10 @@ claim about the entire standard. CI enforces the
 two-test floor with `tools/coverage_depth.py --check --minimum-tests 2`;
 parent-clause citations do not satisfy that floor for a child clause.
 
-The [behavior summary](docs/behavior-coverage-summary.md) and
-[detailed report](docs/behavior-coverage.md) measure explicitly reviewed
+The [behavior summary](docs/behavior-coverage-summary.en.md) and
+[detailed report](docs/behavior-coverage.en.md) measure explicitly reviewed
 requirements and observable test outcomes. Their
-[registry and workflow](coverage/README.md) inventory clauses 1–41 and annexes
+[registry and workflow](coverage/README.en.md) inventory clauses 1–41 and annexes
 A–Q, including parent introductions and previously excluded material. The
 source review covers all 1,740 sections. Provisional percentages use every
 registered requirement/condition/observation row, including interpretation
@@ -164,12 +161,12 @@ Existing tests contribute only after their stimuli and expected outcomes have
 been linked to requirements. The summary shows how many test files have at least
 one reviewed link; unlinked tests may exercise additional requirements that are
 not yet counted. Review existing tests before adding new ones for an unmapped row.
-The [existing-test matching inventory](docs/test-requirement-matching.md) lists
+The [existing-test matching inventory](docs/test-requirement-matching.en.md) lists
 chapter progress and links to the complete candidate worklist and content findings.
 Collective witnesses require every member test to pass in one simulator snapshot;
 partial successes from separate runs are not combined into a successful requirement.
 
-[Feature-interaction verification](docs/interaction-verification.md) uses constrained
+[Feature-interaction verification](docs/interaction-verification.en.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
 The focused selection contains **2,355 tests across 55 models**; the normal full-suite
 run retains all existing tests. Models cover value/type conversion, scheduling,
@@ -180,78 +177,40 @@ The [saved full cross run](coverage/interaction-results/cross55-kirimasim-ddf48e
 uses kirimasim **`ddf48e2b0436`** and records **2,170 pass, 179 unsupported and 6 fail**.
 The class-method model retains 18 passes and 18 unsupported cases. The six failures
 remain two `inside`/`case inside` width/sign cases and four configuration parameter-reset
-cases; standard-derived expectations are retained. All previous 2,328 input hashes
-and status classifications are unchanged. These are observations of that build,
+cases; standard-derived expectations are retained. These are observations of that build,
 separate from the full Nightly suite and any later upstream revision.
 
-The newest model crosses event-handle rebinding with event-control registration,
-task input/ref arguments and wakeup regions (chapters 6 and 15). It selects **27
-tests from 648 legal assignments**, preserving 138 pairs, 69 focused triples and
-six mandatory cases. All 27 parse, but kirimasim cannot execute their event-value
-operations. Fixed Icarus 13.0 and Verilator 5.052 reject them at build time, so
-there are no confirmed execution passes for this model. See the
-[design and limitations](docs/interaction-verification.md#イベント変数の再結合と登録済み待機の保持).
-
-The mailbox model crosses class-handle identity with mailbox FIFO operations,
-peek/get, bounded capacity, alias writes and null messages. It selects **36 tests
-from 3,456 legal assignments**, retaining 245 pairs, 92 focused triples and nine
-mandatory cases. kirimasim reports all 36 as unsupported mailbox types. Fixed
-Verilator 5.052 matches 11 of the 12 known-input cases at both seeds 1 and 73;
-it rejects the remaining legal typeless case at build time. The other 24 cases
-require four-state observation. See the
-[design, scope and evidence](docs/interaction-verification.md#mailboxのclassハンドルと別名経由の更新).
-
-- The [interaction report](docs/interaction-coverage.md) separates the selection plan
+- The [interaction report](docs/interaction-coverage.en.md) separates the selection plan
   from fingerprint-qualified passes in each saved execution.
-- The [chapter interaction matrices](docs/chapter-cross-matrix.md) map **86 distinct
+- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **86 distinct
   chapter pairs**, with separate CSVs for registered models, models whose full selection
   passed (**46 models** in the saved run), and detailed test/run evidence.
-- The [zero-cell triage](docs/chapter-cross-triage.md) records reviewed existing tests,
+- The [zero-cell triage](docs/chapter-cross-triage.en.md) records reviewed existing tests,
   proposed additions, scope exclusions and pairs awaiting review. A zero is not a claim
   that no tests exist for that chapter pair.
-- The [design rationale and practical methodology](docs/interaction-verification-method.md)
-  (Japanese) explain how to select, implement and extend models, including application
-  to other projects and LSI verification. The [glossary](docs/glossary.md#8-機能間クロス検証)
-  and [FAQ](docs/faq.md#7-機能間クロス検証) explain the metrics and common review questions.
+- The [design rationale and practical methodology](docs/interaction-verification-method.en.md)
+  explain how to select, implement and extend models, including application
+  to other projects and LSI verification. The [glossary](docs/glossary.en.md#8-機能間クロス検証)
+  and [FAQ](docs/faq.en.md#7-機能間クロス検証) explain the metrics and common review questions.
 
 A complete selection plan and a successful Check do not mean all crosses passed on
-every simulator. Use the [saved-run summary](docs/interaction-verification.md#保存実行の概要)
+every simulator. Use the [saved-run summary](docs/interaction-verification.en.md#保存実行の概要)
 for the build revision, execution scope and status counts.
 
-To continue this work, see the [2026-10-31 handoff](docs/codex-handoff-20261031.md)
-for the repository state, the open issues and the resumption commands, and the
-[2026-10-30 handoff](docs/claude-code-handoff-20261030-cross-verification.md) for
-the cross-model procedure and the verified builds behind it.
-The [follow-up review of issues #40–#44](docs/issues-40-44-review-20261031.md)
-records the test corrections, fixed-tool results and remaining implementation limits.
-
-[Issue #21's regression report](docs/p1-combination-regressions-20261030.md) and
-[reviewed registry](coverage/combination-gaps.json) link existing witnesses to 74 new
-tests: nine event, sixteen NBA, eighteen aggregate, thirteen I/O and eighteen
-file-monitor cases. Only the eighteen file-monitor cases join a registered finite
-interaction model; the other 56 exercise mechanism boundaries and are kept outside
-the t-way coverage totals. The report records unresolved interpretations, separate
-native-API work and results for each saved simulator run.
-Use `python3 tools/combination_gaps.py --check` to check registry/report consistency,
-and `python3 tools/combination_gaps.py --list-tests` to list all bound regression
-tests, including reused tests. The consistency check does not require simulator passes.
-
-The [method from the PDF to tests](docs/requirements-to-tests-method.md) describes,
+The [method from the PDF to tests](docs/requirements-to-tests-method.en.md) describes,
 step by step, how the requirements were extracted from the standard, how existing
 tests are matched to them and new tests written, how an independent reviewer checks
 both, and how the results are merged and measured, with the
 [matching kit](tools/matching_kit/README.md) that the steps use.
 
 The requirement denominator is **12,298 requirements**, after duplicate rows
-were merged; the [denominator review](docs/denominator-review-20261028.md)
+were merged; the [denominator review](docs/denominator-review-20261028.en.md)
 approved it. The reviewer was an AI, not an independent human.
 Design coverage is **89.31% (10,983/12,298)**;
 execution coverage from the saved `coverage/results/` evidence is
 **77.57% (9,539/12,298)**, from Icarus Verilog, Verilator, SymbiYosys and Ghost.
-The [Ghost full-suite snapshot from 2026-10-31](coverage/results/ghost-local-20261031-strict2.json)
-was saved with the current runner and contributes matching pass evidence.
 Clauses 1 to 40 alone are at 87.37% (8,270/9,465) design coverage.
-See the [generated behavior summary](docs/behavior-coverage-summary.md) for the
+See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.
 The reports of each extraction, matching and test-addition step are linked
@@ -266,37 +225,18 @@ was recorded, as in the first table. Clauses 1 and 2 set out no behavior to
 test. Clause 34 (protected envelopes) has only four tests, of the envelope
 syntax and of Verilator leaving a data block out of the source: neither
 Icarus Verilog nor Verilator decrypts an envelope, and the
-[protected-envelope boundary](docs/protected-envelope-boundary.md) gives the
+[protected-envelope boundary](docs/protected-envelope-boundary.en.md) gives the
 audit-time reasons for the untested requirements; after the denominator review,
 209 of the 214 clause-34 requirements remain unmapped. Which parts of a design
 have coverage depends on the tool and its options, so the tests of clause 40
 print only what holds for every result, such as the values the standard
 allows and how the results of the coverage functions relate.
 
+<a id="nightlyの結果"></a>
+
 ## Nightly results
 
-<!-- workflow-verification:begin -->
-**Verified Nightly (2026-10-31):** [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41141958886)
-completed all five simulator jobs and `publish`. The
-[results snapshot](https://github.com/kurochan001/kirimasim-tests/blob/a587ba92e91e4fe2217710c7408614c6649d84e7/README.md)
-was generated at 11:16 JST (02:16 UTC) for suite
-[`73af6e95`](https://github.com/kurochan001/kirimasim-tests/commit/73af6e954828221c3c7447dd13cd3a271ae5bb55)
-(**9,203 tests**). Lyra was built from
-[`e13a017966a5`](https://github.com/hankhsu1996/lyra/commit/e13a017966a5).
-This snapshot predates the current suite; use the [live report](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)
-for subsequent published runs.
-Matching tests / recorded results:
 
-- Icarus Verilog: **5,701 / 8,935**.
-- Verilator: **5,265 / 8,935**.
-- kirimasim: **6,468 / 8,935**.
-- Lyra: **6,933 / 8,935**.
-- Ghost: **8,036 / 8,935**.
-
-`differ`, `known difference` and `unsupported` results remain in the denominator.
-All five runners exclude the 268 formal tests in this run. Workflow success does
-not mean every test matched. The SymbiYosys results are reported separately above.
-<!-- workflow-verification:end -->
 
 Every night, a [GitHub Actions workflow](.github/workflows/nightly.yml) runs
 the applicable tests of `main` with the latest development version of each simulator:
@@ -324,7 +264,7 @@ timestamps are in **UTC** and record when the report is generated, rather
 than when the workflow starts. Add nine hours to read them in JST. Actual
 start times and pending runs are shown in
 [GitHub Actions](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml).
-See the [Japanese guide to update times and report versions](docs/nightly-results.md).
+See the [guide to update times and report versions](docs/nightly-results.en.md).
 
 The chart represents the suite commit and test count named in that report.
 Adding tests to `main` updates the catalog and suite statistics; their nightly
@@ -332,7 +272,7 @@ results appear after a subsequent workflow runs that commit and publishes
 its results. Check `suite commit` and the test count before comparing a chart
 with the current suite.
 
-![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=nightly-41141958886)
+![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
 
 Each simulator has its own marker: a circle for Icarus Verilog, a square for
 Verilator, a diamond for kirimasim, a downward triangle for Lyra and an orange
@@ -341,6 +281,8 @@ markers
 are drawn as outlines that fit inside each other, so simulators with the same
 or close counts stay visible together, and the legend gives each one's count
 in the latest run.
+
+<a id="章別の結果"></a>
 
 ### By chapter
 
@@ -351,7 +293,9 @@ denominator. This table updates with the Nightly charts;
 its date and simulator versions are shown at the top. Click it to view the
 full-size image.
 
-[![Matching tests by chapter](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-41141958886)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-41141958886)
+[![Matching tests by chapter](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)
+
+<a id="結果の分類"></a>
 
 ### Result statuses
 
@@ -379,75 +323,15 @@ fail it. The expected outputs recorded with Icarus Verilog
 [second workflow](.github/workflows/check.yml) whenever the tests or the
 tools change (see "Workflows").
 
+<a id="シミュレーション速度"></a>
+
 ## Simulation speed
 
-The suite checks what simulators compute, not how fast. For reference, the
-kirimasim repository keeps a comparison of their speed on small designs of
-its own ([bench/](https://github.com/kurochan001/kirimasim/tree/main/bench)).
-Its latest run, on Linux under WSL2 (AMD Ryzen 9 7950X) on 2026-10-25, used
-each simulator's newest development commit and eleven designs, and gave the
-times in the first four columns: the median of five runs at the stated count
-less the median of five runs with `+n=1`. The Ghost column is a later
-measurement on the same machine (2026-10-28); because a full run takes much
-longer, it is extrapolated as described in the notes.
+This suite checks simulation results. Dated speed measurements are in the
+[measurement archive](docs/readme-records-20261101.md#simulation-speed).
+The simulator repository maintains the [benchmark code and commands](https://github.com/kurochan001/kirimasim/tree/main/bench).
 
-| Design | `+n=` | kirimasim | Icarus Verilog 14.0 devel | Verilator 5.053 devel | Lyra (LLVM backend) | Ghost* |
-| --- | :---: | :---: | :---: | :---: | :---: | :---: |
-| `comb_chain` | 3,000,000 | 9.249 s | 9.796 s | 0.223 s | 2.878 s | 1,153 s* |
-| `nba_shift` | 1,000,000 | 25.486 s | 26.585 s | 0.196 s | 5.900 s | 2,707 s* |
-| `proc_wait` | 1,000,000 | 6.786 s | 5.688 s | 2.283 s | 6.164 s | 1,816 s* |
-| `fork_join` | 4,000,000 | 4.837 s | 5.023 s | 1.190 s | 4.860 s | 909 s* |
-| `wide_arith` | 1,500,000 | 4.944 s | 2.036 s | 0.086 s | 0.380 s | 131.4 s |
-| `mem_rw` | 4,000,000 | 4.937 s | 3.645 s | 0.696 s | 2.705 s | 1,258 s* |
-| `func_call` | 1,500,000 | 4.917 s | 7.511 s | 0.005 s | 0.395 s | 291 s* |
-| `string_fmt` | 500,000 | 5.003 s | 8.080 s | 0.135 s | 0.279 s | 477 s* |
-| `dyn_queue` | 4,000,000 | 4.112 s | 6.686 s | 0.083 s | 0.412 s | 400 s* |
-| `gate_udp` | 400,000 | 5.378 s | 3.517 s | 0.046 s | not supported | 835 s* |
-| `casez_struct` | 5,000,000 | 3.976 s | 4.117 s | 0.018 s | 0.466 s | 525 s* |
-
-`*` Full count for `wide_arith`; otherwise extrapolated from reduced counts.
-
-- kirimasim was at commit `b66834254c65`, Icarus Verilog at 14.0 devel
-  `2b8d42dc088f`, Verilator at 5.053 devel `1838b6ed035c` and Lyra at
-  `63922502ff0a`, built with `bazel build -c opt`. These benchmark measurements
-  use the recorded commits; Nightly resolves the latest upstream commits for
-  each run. The Lyra column uses its LLVM backend at `-O 0`. In these
-  measurements, omitting `--backend` selected its C++ backend: on these
-  designs it was 3.3 to 67 times slower than the LLVM backend, and its times
-  are in kirimasim's benchmark details linked below.
-  Every measured run gave the expected result; Lyra does not support gates or
-  UDPs yet, so it built no program for `gate_udp`. The times do not include
-  building a design (Verilator's C++, Lyra's program).
-- Ghost was at commit `a2420294`, measured on
-  2026-10-28 on the same WSL2/Ryzen 9 7950X machine. A full run takes 2 to
-  45 minutes per run for Ghost, so most of its column is extrapolated: three
-  runs at each of two reduced counts, the second twice the first
-  (10,000/20,000, 2,000/4,000, or 1,000/2,000); the larger count took 1.97 to
-  2.09 times as long as the smaller, and the slope was applied to the stated
-  count.
-  The full-count `wide_arith` run (131.4 s) matches its extrapolation within
-  about 2% and its result line was checked. The other columns are the
-  2026-10-25 medians.
-- Ghost was 27 to 268 times slower than kirimasim on these designs (the
-  smallest gap is `wide_arith`, the largest `proc_wait`) and 39 to 345 times
-  slower than Icarus Verilog. These are the default runtime options of its
-  release build; the column shows a large performance gap, not a functional
-  difference.
-- The first four designs exercise `always_comb` chains, nonblocking
-  assignments, waiting processes and `fork`/`join`. The other seven use
-  256-bit arithmetic (`wide_arith`), a 1024-word memory (`mem_rw`), task and
-  recursive function calls (`func_call`), `$sformatf` (`string_fmt`), a queue
-  and a dynamic array (`dyn_queue`), gates and a UDP (`gate_udp`), and `casez`
-  into a packed struct (`casez_struct`).
-- kirimasim was slower than Icarus Verilog on `proc_wait`, `wide_arith` (2.4
-  times), `mem_rw` and `gate_udp`, clearly faster on `func_call`,
-  `string_fmt` and `dyn_queue`, and within about 6% on the other four. On
-  `dyn_queue` its peak memory grows with the count (547 MiB at 4,000,000).
-  Comparisons with earlier runs are in the [history](docs/history.md).
-- Small designs on one machine do not stand for the speed of real designs.
-  Build times, startup, memory and the commands that reproduce the runs are
-  in kirimasim's
-  [benchmark details](https://github.com/kurochan001/kirimasim/blob/main/docs/BENCHMARKS.md#development-versions-on-linux-wsl2-2026-10-25).
+<a id="ディレクトリ構成"></a>
 
 ## Layout
 
@@ -463,17 +347,19 @@ generators/generate.py          writes tests/gen/, or checks it with --check
 generators/oracles.txt          which releases produce each generated test's output
 docs/simulator-differences.md   where Icarus Verilog 13.0 and Verilator 5.052 differ from the standard
 docs/history.md                 records of earlier work, measurements and checks
+docs/README.md                  bilingual document index
+docs/generators.md              complete generated-test inventory and observation scopes
 docs/tests/                     the catalog: every test with what it checks, by chapter
 docs/tests/clauses.md           which clauses of the standard the tests cite
-docs/glossary.md               terminology and abbreviations used by this suite (Japanese)
-docs/faq.md                    questions about expectations, results, coverage and verification (Japanese)
+docs/glossary.en.md            terminology and abbreviations used by this suite
+docs/faq.en.md                 questions about expectations, results, coverage and verification
 docs/coverage-depth.md          how many tests each clause has, and the priority gaps
-docs/behavior-coverage-summary.md provisional and confirmed behavior coverage, by chapter and simulator
-docs/interaction-verification.md feature-interaction models, focused execution and evidence rules
-docs/interaction-coverage.md     planned and executed coverage of registered interaction models
-docs/p1-combination-regressions-20261030.md reviewed boundaries and run evidence for Issue #21
+docs/behavior-coverage-summary.en.md requirement coverage, by chapter and simulator
+docs/interaction-verification.en.md feature-interaction models, focused execution and evidence rules
+docs/interaction-coverage.en.md     planned and executed coverage of registered interaction models
+docs/p1-combination-regressions-20261030.en.md reviewed boundaries and run evidence for Issue #21
 coverage/combination-gaps.json   reviewed links from Issue #21 candidates to regression tests
-docs/requirements-to-tests-method.md the method from the standard's PDF to requirements, tests and coverage
+docs/requirements-to-tests-method.en.md the method from the standard's PDF to requirements, tests and coverage
 coverage/behavior-summary.json  the current behavior measurements and denominator identity
 coverage/behavior-history.json  saved measurement history with denominator identities
 tools/run_icarus.py             runs the suite with Icarus Verilog
@@ -500,19 +386,24 @@ tools/matching_kit/             proposes, checks, judges and merges links betwee
 ```
 
 The `results` branch holds
-`history.json` (one entry per run), `latest/<simulator>.json` (the result of
-every test in each simulator's latest run), `charts/*.svg` and the report,
-`README.md`. The charts and the report show only the simulators that `tools/`
+`history.json` (one entry per run), `latest/<simulator>.json` (test-by-test
+results from each simulator's latest saved run), `charts/*.svg` and the report,
+`README.md` (English) and `README.ja.md` (Japanese). Charts have matching
+Japanese `.ja.svg` versions. The charts and the report show only the simulators that `tools/`
 has a runner for; the history keeps the runs of a simulator whose runner was
 removed, but they are not drawn. The publish job also writes `behavior-coverage-summary.md`,
 `behavior-coverage.md`, `behavior-summary.json`, `behavior-coverage.json`
 and `behavior-history.json` for behavioral coverage of that run, plus
 `interaction-coverage.md` and `interaction-coverage.json` for each simulator's
-feature-interaction coverage. The
-[Japanese guide](docs/nightly-results.md) explains how these differ from the
+feature-interaction coverage. These three coverage Markdown reports retain
+Japanese `.md` filenames and have English `.en.md` counterparts, linked in both
+directions. Both languages use the same execution data. The
+[Nightly guide](docs/nightly-results.en.md) explains how these differ from the
 saved evidence on `main`.
 The Nightly publish job normally updates this branch. Local results can also
 be imported with their execution time, suite commit and `--source local`.
+
+<a id="テストの形式"></a>
 
 ## Test format
 
@@ -552,6 +443,8 @@ endmodule
 
 with `test_nonblocking_swap.expected` holding the line `a=2 b=1`.
 
+<a id="メタデータ"></a>
+
 ### Metadata
 
 The metadata comment is compatible with sv-tests, which ignores the fields
@@ -585,6 +478,8 @@ it does not know.
 | `:incdirs:` | Include directories, relative to the directory of the test, separated by spaces, where `` `include "<file>" `` looks after the current working directory (22.4); a runner gives them to the simulator after the directories of the include files in `:files:` |
 | `:top_module:` | The top-level module or configuration to elaborate. Without it, every module that nothing instantiates is a top-level module (23.3.1). A module selects it and its hierarchy; a configuration selects the design and binding rules it declares (33.4, 33.5.3) |
 
+<a id="合否の判定方法"></a>
+
 ### How a test is judged
 
 A test passes when the simulator's standard output, after removing empty
@@ -602,7 +497,7 @@ The new associative-array diagnostic tests therefore detect a missing warning,
 or an unwanted warning, even when the normalized standard output matches.
 They recognize warning severity markers without fixing the complete message
 wording or a source location; see the
-[test addition report](docs/associative-gap-tests-20261023.md).
+[test addition report](docs/associative-gap-tests-20261023.en.md).
 
 An illegal design (`:should_fail_because:`) passes when the simulator rejects
 it with an error at the place that `:expected_stderr_regex:` names, and fails
@@ -622,6 +517,8 @@ named after the test in the current directory, and `$coverage_save`
 (40.3.2.5) can store coverage data there. The runners run every test in a
 temporary directory.
 
+<a id="cコードを伴うテスト"></a>
+
 ### Tests with C code
 
 A test with `:dpi_c:` or `:vpi_c:` is the SystemVerilog file together with
@@ -636,6 +533,8 @@ possible; C code that prints uses `vpi_printf`, or `printf` followed by
 registers are named `$vt_...`, except in the test of overriding built-in ones.
 sv-tests' runners do not know these fields and compile only
 the SystemVerilog file, so such a test fails there.
+
+<a id="期待出力の決め方"></a>
 
 ### Where the expected outputs come from
 
@@ -677,6 +576,8 @@ by copying the simulator's output: the clause decides. The places found so
 far where Icarus Verilog 13.0 or Verilator 5.052 differs from the standard are
 listed in [docs/simulator-differences.md](docs/simulator-differences.md).
 
+<a id="svaの独立確認とフォーマルモデル"></a>
+
 ### Independent SVA checks and formal models
 
 The [SVA reference evaluator](tools/sva_reference/README.md) independently
@@ -684,15 +585,17 @@ reproduces 45 selected test outputs from sampled input traces. An optional
 Yosys/SymbiYosys suite additionally compares its semantics with separately
 written RTL models under unconstrained inputs. The current 267-case catalogue
 passed 267 BMC checks and 44 unbounded streaming PDR proofs on 2026-10-29. The
-[boundary sweep](docs/sva-formal-expansion-20261026.md) passed BMC and PDR for
+[boundary sweep](docs/sva-formal-expansion-20261026.en.md) passed BMC and PDR for
 all 111 cases, with bindings to 127 sequence fragments in 28 suite tests.
 These sets overlap; the bindings cover Boolean sequence calculations, not
 whole assertions or simulator behavior. Both sets include reachability
 witnesses and deliberate-error counterexamples. They do not change oracle
 metadata or simulator execution coverage. The
-[Japanese guide](docs/sva-reference-formal-verification.md)
+[SVA verification guide](docs/sva-reference-formal-verification.en.md)
 explains the scope, results and reproduction commands; the
 [technical report](tools/sva_reference/FORMAL_REVIEW.md) links the saved evidence.
+
+<a id="自動生成テスト"></a>
 
 ### Generated tests
 
@@ -701,66 +604,7 @@ Each generator has a reference model of the clauses it tests, written from the
 standard in Python without the help of any simulator, which gives the expected
 outputs, and it writes many small variations of one kind of test:
 
-| Generator | Chapter | What it varies |
-| --- | ---: | --- |
-| `scheduling` | 4 | How a variable is written (blocking, nonblocking, nonblocking with an intra-assignment delay, through a continuous assignment, by `force`), how it is read (in the same process, by another process waiting for it, `$strobe`, `$monitor`), where the write is (initial, always, task, function, fork branch, interface, generate block) and after which delay (none, `#0`, `#1`); only the combinations whose result the standard fixes |
-| `interaction_nba` | 10 | Constrained pairwise combinations of width (1, 32, 33, 64, 65, 129), bit/logic, known/X/Z values, scalar/fixed unpacked array, array direction, initial/automatic task and immediate/delayed NBA; selected triples and boundary witnesses additionally check value/index capture before mutation and task return |
-| `interaction_expr` | 11 | Operand widths/signs, destination width and add/subtract/multiply; 51 selected cases with four input pairs each check context extension, carries and truncation |
-| `interaction_select` | 11 | Packed-vector width/direction, +:/-: indexed slices, span/position, bit/logic and known/X/Z data; 36 selected cases check reads, writes and unselected-bit preservation |
-| `interaction_cond` | 11 | Branch signs, condition 0/1/X/Z, known/X/Z branch patterns, destination width and bit/logic; 32 selected cases check selection, bitwise merge and conversion |
-| `interaction_shift` | 11 | Operator/count/sign, source and destination width, known/X/Z values and bit/logic; 56 selected cases check context extension, boundary counts, X/Z sign fill and unknown counts |
-| `interaction_compound` | 11 | Width/state/sign, scalar/array-element/packed-slice targets, three compound shifts and signed 8/65-bit counts; 40 cases check once-only LHS evaluation, full containers, guard bits and widened reads |
-| `interaction_inside` | 11 | Set/needle widths and signs, bit/logic set elements, explicit list/fixed/dynamic/queue storage, size and X/Z patterns; 46 cases check wildcard comparison before four-state OR, empty sets, reverse lists and result conversion |
-| `interaction_range` | 11 | Bound/needle widths and signs, bit/logic bounds, closed/reversed/`$`-bounded/absolute- and relative-tolerance ranges, X/Z and ranges mixed with values; 46 cases check bound extension at the comparison type, empty ranges, swapped and truncated tolerance bounds, and X/Z in a range against X/Z in a value |
-| `interaction_case_inside` | 12 | Case-expression/item widths and signs, bit/logic items, a first item that is a value, range, fixed array or list, X/Z, no qualifier or `unique0`, and a third item held in a variable or returned by a counting call; 34 cases check that an X comparison moves on to later items, item extension, one evaluation of the case expression and evaluation after a match |
-| `interaction_cast` | 6 | Source sign/value, size/signing/typed casts, cast width, later addition and destination state; 32 selected cases distinguish intermediate conversion from final conversion |
-| `interaction_task` | 13 | Width/state/value, input/output/inout/ref, scalar/array-element actuals and immediate/delayed return; 36 selected cases check copy-in, copy-out, immediate reference updates and neighbor preservation |
-| `interaction_binding` | 13 | Width/state/value, input/ref/const ref, fixed/dynamic/queue elements and later selector changes; 36 cases check original-element binding, private input copies, live reference reads, bidirectional updates and guard preservation |
-| `interaction_clocking` | 14 | Width/state/value, local/interface/virtual-modport access, #1step/#0 input skew, clock edge and blocking/NBA updates; 36 cases distinguish pre-edge samples from Observed values, state conversion, live values and clocking wake counts |
-| `interaction_assertion` | 16 | Width/state/value, Boolean expression, clock edge, blocking/NBA, update before/at/after the edge and module/interface; 36 cases check sampled predicates, pass/fail actions, Reactive live values and final values |
-| `interaction_wait` | 9 | Width/state/value, dynamic array/queue, create/grow/shrink/clear/replace, size/element/both predicates and already-true/blocked waits; 36 cases check resumption time, unrelated changes and captured contents |
-| `interaction_class_method` | 8 | Width/state/value, direct/virtual/nonvirtual receiver dispatch, function/task, input/ref/const-ref and recursive depth; 36 cases observe private frames, property aliases and A/B/A receiver identity |
-| `interaction_return` | 13 | Width/state/value, for/while/repeat, head/middle/tail/no hit, and local/package function state; 36 cases check early return, scan effects, unreachable statements and shared-state ownership |
-| `interaction_loop_nba` | 10 | Width/state/value, for/while/repeat, 2/3/5 iterations, scalar/same/rotated array targets, blocking/NBA and module/interface; 36 cases check feedback, queued write order and per-instance state |
-| `interaction_process` | 9 | Width/state/value, comb/latch, direct/function, module/interface, 0/1/X/Z enable and idle value/hold; 36 cases observe implicit sensitivity, startup, disabled updates, unrelated changes and separate instance state |
-| `interaction_generate` | 27 | Width/state/value, wildcard import/package qualification, optional local type/constant shadows, nesting and if/case generate; 36 cases check hierarchical paths, selected widths, genvar constants and continuous updates |
-| `interaction_default` | 13 | Width/state/value, module/interface, variable/function defaults and five omitted/empty/named/explicit passing forms; 36 cases check declaring-instance scope, call-time values, formal binding and default evaluation counts |
-| `interaction_event_task` | 15 | Module/interface/package event sources, input/ref tasks, direct/task blocking/NBA triggers, 1/2/3 listeners, source order and early/late arrival; 13 cases check event identity, fanout, rearming and Active/NBA payload visibility |
-| `interaction_delay` | 10 | Scalar and 2/32/33/64/65/129-bit vectors, bit/logic, known/X/Z, one/two/three delays, short/long pulses and direct/inverted sources; 63 cases check delay selection, inertial cancellation, values and transition times/counts |
-| `interaction_import` | 23 | Width/sample state/value, wildcard/explicit package imports, optional local shadow and five wildcard/named/qualified/constant connections; 39 cases check source selection, child defaults, live updates and scope isolation |
-| `interaction_memfile` | 21 | Width, source/target bit/logic, plain/enum words, known/X/Z, binary/hex, full/middle/single ranges, declaration and read direction; 36 cases check snapshots, independent input, guards, overwrite and comment-aware address checks |
-| `interaction_program` | 24 | Natural/direct/task exit, one/two initials, delay/event/level waits, children/grandchildren, partial progress, join_none/join_any and independent program lifetimes; 18 cases check cancellation, live counterparts and implicit finish |
-| `interaction_nettype` | 22 | Six default net keywords, widths through 129 bits, ANSI/non-ANSI declarations, implicit/explicit vector wire, binary/four-state drivers and two reset forms; 40 cases compare resolved values and scalar/vector widths before and after the directive reset |
-| `interaction_ifgenerate` | 27 | Per-element interface widths, one/two/three generate elements, if/case-selected routes, whole/modport access, bit/logic and known/X/Z data; 36 cases check active/guard identity, conversion order, widths and reader bindings |
-| `interaction_reactive` | 24 | Width/state/value, one/two/three module NBA stages, blocking/NBA source updates, continuous/blocking/NBA program producers and direct/inverted output; 36 cases compare early/settled values, reservation counts, sampled context and readback before Re-NBA updates |
-| `interaction_struct` | 7 | Member order, whole/member signs, width/state/value, member/whole writes and blocking/NBA updates; 36 selected cases check tag preservation, packed layout and independent sign extension |
-| `interaction_case` | 12 | Selector/item widths and signs, case/casez/casex, X/Z and item patterns; 36 selected cases check exact/wildcard matching, duplicate-item priority and fallback branches |
-| `interaction_port` | 23 | Source width/sign/value, input/output, sink width, named/positional binding, ANSI/non-ANSI declaration and sample state; 36 selected cases check values through hierarchy and final sampling conversion |
-| `interaction_array` | 7 | Equivalent array element types, width/sign/state, source/destination index order, value and whole/slice copy; 36 cases observe declaration order, source independence and an untouched guard element |
-| `interaction_query` | 20 | Width, state, argument shape, value/position and countbits controls; 60 cases check bit counts, one-hot/unknown predicates and duplicate controls |
-| `interaction_stream` | 11 | Width, direction, slice size, tag, pack/unpack, target state and value; 36 cases check partial blocks and inverse unpack permutations |
-| `interaction_compare` | 11 | Operand widths/signs, ten comparison operators and known/X/Z patterns; 100 cases check extension, asymmetric wildcards and one-bit results stored into wider logic/bit variables |
-| `interaction_method` | 7 | Element width/state/sign, fixed/dynamic/queue storage, five reduction methods and four conversion forms; 72 cases check conversion before reduction, overflow and return-type extension |
-| `interaction_index` | 11 | Width, range origin/direction, bit/logic, index sign/class and write value; 44 cases check variable reads/writes, invalid-access defaults and preservation of other bits |
-| `interaction_queue` | 7 | Element width/state/sign, capacity, initial size, six operations and value; 48 cases check ordering, overflow warnings/discard, empty-pop defaults and independent copies |
-| `interaction_queue_ref` | 7 | Width/state, capacity, held position, ten operations and known/X/Z writes; 60 cases check persistent element identity, outdated references after removal or replacement, two writes and independent value copies |
-| `interaction_divide` | 11 | Operand widths/signs, assignment width/state, division/remainder and zero/X/Z values; 72 cases check rounding toward zero, remainder signs and context before final conversion |
-| `interaction_resize` | 7 | Element width/state/sign/value, old/new sizes and copy/self/reset construction; 38 cases check retained prefixes, type defaults, truncation and independent copies |
-| `interaction_concat` | 11 | Total/split/RHS widths, source/member signs, mixed bit/logic fields, blocking/NBA and known/X/Z values; 72 cases check resizing before partition, per-field conversion, capture and member/concatenation extension |
-| `interaction_logic` | 11 | Width, input/result state, expression shape, value and position; 70 cases each observe six packed reductions and logical negation, controlling bits, state conversion order and unsigned one-bit result extension |
-| `interaction_shortcircuit` | 11 | Operand widths/states/truth classes and result state; 92 cases each check four binary logical operators, call counts, independent side effects, X/Z truth and conversion order |
-| `interaction_edge` | 9 | Width/state, event expression, changed position, before/after values and blocking/NBA; 64 cases each observe both backgrounds and three event counts after setup has settled |
-| `interaction_iff` | 9 | Event OR spelling, signal/named/mixed sources, edge, guarded term, known/X/Z/mixed guards and blocking/NBA; 27 cases check per-term filtering, guard-only silence and repeated named triggers |
-| `combination_events` | 6, 9, 15 | Nine mechanism-boundary cases for automatic event lifetimes, returned/selected event handles, computed event controls, `iff`, deferred triggers and named-fork cleanup |
-| `combination_nba` | 10, 13 | Sixteen mechanism-boundary cases for delayed/event-controlled NBA through `ref static`, captured indices and values, string characters and array-slice copyback |
-| `combination_aggregates` | 6, 11, 13 | Eighteen mechanism-boundary cases for unpacked-structure references and lifetimes, array input copies, nested packed selections and streaming into strings/nested targets |
-| `combination_io` | 9, 10, 21 | Thirteen mechanism-boundary cases for `$fread` destinations and byte order, heap-backed implicit sensitivity and VCD contents read back inside SV |
-| `combination_monitors` | 21 | Eighteen selected cases for `heap_file_monitor_context@1`: registration context × queue/dynamic array × MCD/FD; file readback checks Postponed values, selectors, size, replacement, `$monitoroff` independence and cancellation after close |
-| `width_sign` | 11 | Operands and targets of 63 to 1000 bits, signed and unsigned, with the operators whose result size and sign 11.6 to 11.8 decide |
-| `xz_propagation` | 11 | Operands with x and z bits for every operator of 11.4 that has rules for them |
-| `strength` | 28 | Two drivers of a net with different strengths and values, on wire, tri, wand, triand, wor, trior, tri0 and tri1 nets and through bufif gates, shown with `%v` |
-| `wide_paths` | 6, 7, 11, 13 | Values of 63, 64, 65, 127, 128, 129 and 200 bits, 2-state and 4-state with x and z above bit 64, signed and unsigned, on the paths a value takes: assignments to wider, narrower and 2-state targets, part-selects and slices of packed arrays and writes to them, concatenation, replication, shifts past the width, comparisons and `?:` with an x condition, `$bits`, and function results, task inputs, output and ref arguments; shown with `%h`, `%b` and `%0d` |
-| `keywords` | 5, 22 | Illegal designs: each reserved keyword of IEEE 1800-2023 (Annex B) declared as a variable name under ``begin_keywords "1800-2023"``, and each keyword that a version of 22.14 adds declared so under ``begin_keywords`` of that version; a tool has to reject the declaration |
+The [generator catalog](docs/generators.md) lists every current generator, its test count, chapters and observation scope. Counts and both language versions are generated from current metadata.
 
 The docstring of each generator says which rules its model follows and which
 combinations it leaves out because the standard does not decide them. A
@@ -779,6 +623,8 @@ and Verilator 5.052, and `generators/record_oracles.py` records which of them
 produce them in `generators/oracles.txt`, from which `:oracle:` is written. A
 test that neither release produces follows the model alone (`:oracle: spec`);
 where the model and a simulator differ, the clause decides, as above.
+
+<a id="スイートの実行"></a>
 
 ## Running the suite
 
@@ -910,7 +756,7 @@ on standard output itself, which open with the place they are about (such as
 the count of a cover statement), are removed before comparing, and the lines
 that the test prints are kept. An illegal design
 is checked with `lyra check`. Lyra has no VPI, so the tests with `:vpi_c:`
-are unsupported. No expected output was recorded with Lyra, so every test
+are unsupported. No expected output was recorded with Lyra, so every non-formal test
 counts.
 
 ### Ghost
@@ -925,7 +771,7 @@ Ghost is a temporary alias for an unreleased simulator. The private runtime
 profile supplies `arguments`, `environment`, `include_subdirs`, `trailer`,
 `banner_pattern` and `severity_pattern`; it stays outside this repository.
 The runner uses the common `:expected_stdout:`, checks exit codes and required
-diagnostics, and compiles DPI/VPI C sources into shared libraries. Every test
+diagnostics, and compiles DPI/VPI C sources into shared libraries. Every non-formal test
 counts; there are no known-difference exclusions. Tool banners and severity
 messages are removed as the profile specifies, while test output is kept.
 Only generic failure reasons and a hash identifying the executable enter
@@ -955,8 +801,10 @@ This runner needs Python 3.10 or later and a working SymbiYosys/Yosys/solver
 environment. It runs cases sequentially. `--no-prove` omits PDR proofs;
 BMC, registered cover jobs and deliberate-error checks still run.
 `--timeout N` is passed as the timeout for each formal job. See the
-[runner selection record](docs/runner-selection-20261028.md) and
-[formal verification guide](docs/sva-reference-formal-verification.md).
+[runner selection record](docs/runner-selection-20261028.en.md) and
+[formal verification guide](docs/sva-reference-formal-verification.en.md).
+
+<a id="他のシミュレータ"></a>
 
 ### Other simulators
 
@@ -968,6 +816,8 @@ standard output by itself, pass the rest through `tools/normalize_output.py`,
 and compare the result with the expected output. The runners above are short
 and can serve as templates; with `--json` and `tools/suite_results.py`, the
 results of a new runner can be added to the nightly history as well.
+
+<a id="ローカルでの結果記録とグラフ生成"></a>
 
 ### Recording and drawing results locally
 
@@ -981,20 +831,22 @@ python3 tools/results_history.py update --history my-results --source local out/
 ```
 
 `update` compares each simulator with its previous run in the same history,
-adds the run to `my-results/history.json`, and draws `my-results/charts/*.svg`
-and `my-results/README.md`. A simulator that `tools/` no longer has a runner
+adds the run to `my-results/history.json`, and draws English/Japanese charts
+and `my-results/README.md` / `my-results/README.ja.md`. The example directory
+`my-results/` is ignored by Git. A simulator that `tools/` no longer has a runner
 for stays in the history but is not drawn. `python3 tools/results_history.py render
 --history my-results` draws them again from the history alone.
 The defaults use the current time and suite `HEAD`. When importing earlier
 results, pass `--time`, `--suite-commit` and `--run-url` with the actual
 execution time, suite commit and result location.
 
+<a id="ワークフロー"></a>
+
 ## Workflows
 
 `.github/workflows/check.yml` runs on every push to `main` and every pull
-request that changes `tests/`, `tools/`, `generators/`, `docs/tests/`, this
-README or its Japanese version, `coverage/`, `docs/behavior-coverage.md`,
-`docs/coverage-depth.md`, `docs/interaction-*.md`
+request that changes `tests/`, `tools/`, `generators/`, `docs/`, this
+README or its Japanese version, `coverage/`
 or the workflow itself, and can be started by hand from the Actions
 tab (`workflow_dispatch`). Its jobs fail when the
 suite has a problem:
@@ -1019,12 +871,14 @@ suite has a problem:
   validates behavioral coverage and its baseline with source review required,
   checks the freshness of the requirement-matching inventory, and validates the
   interaction models, selected witnesses and saved execution report
-  (`tools/interaction_coverage.py --check`).
+  (`tools/interaction_coverage.py --check`). It also checks the complete generator
+  catalog and every English/Japanese document pair, including handwritten-page
+  fingerprints and generated translations.
 
 `.github/workflows/nightly.yml` is scheduled at 19:23 UTC every day
 (04:23 JST the following day), and can be
 started by hand as well. For a fresh run of the latest suite and settings,
-[dispatch it on `main`](docs/nightly-results.md#最新のmainで手動実行する).
+[dispatch it on `main`](docs/nightly-results.en.md#最新のmainで手動実行する).
 GitHub can start a scheduled run hours late when it is busy. Runs do not overlap: one that starts while another is running waits
 for it, and a newer one replaces a run that is still waiting. Its results are
 only reported, except for the ratchet of the kirimasim job. It has six jobs:
@@ -1047,11 +901,10 @@ only reported, except for the ratchet of the kirimasim job. It has six jobs:
 - **lyra** resolves the latest `main` commit at the start of every job and
   sets `LYRA_COMMIT` to that SHA. The same SHA selects the source checkout,
   build cache and commit recorded with the results. An uncached commit is
-  built with Bazel, including LLVM; earlier hosted builds took 42 to 89
-  minutes. The executable and its runfiles are copied out of Bazel's tree
-  without its location-dependent manifest. It runs every non-formal test;
-  earlier test runs took 35 to 70 minutes.
-- **ghost** privately builds the unreleased guest and runs every test. Its
+  built with Bazel, including LLVM. The executable and its runfiles are copied out of Bazel's tree
+  without its location-dependent manifest. It runs every non-formal test.
+  Historical timings are in the [archived Lyra notes](docs/readme-records-20261101.md#lyra-runtime-records).
+- **ghost** privately builds the unreleased guest and runs every non-formal test. Its
   checkout locations and runtime profile come from secrets. Only the public
   alias, build hash and test verdicts are uploaded; source and build output
   stay on the runner.
@@ -1068,12 +921,14 @@ only reported, except for the ratchet of the kirimasim job. It has six jobs:
 A simulator whose nightly job fails before it has results is left out of
 that night's entry, and its next run is compared with its last results.
 
+<a id="変更への参加"></a>
+
 ## Contributing
 
 Do not include commercial simulator outputs or diagnostics in issues or comments,
 including attachments, screenshots, waveforms, external links, anonymized excerpts
 or summaries. Use IEEE 1800-2023 clause references and independently written examples
-to explain expected behavior. See the [issue posting policy](docs/faq.md#q45-issueに商用シミュレータの出力診断を載せてもよいですか).
+to explain expected behavior. See the [issue posting policy](docs/faq.en.md#q45-issueに商用シミュレータの出力診断を載せてもよいですか).
 The [issue form](.github/ISSUE_TEMPLATE/report.yml) presents this policy before submission.
 
 Changes that modify, remove, or relax an existing expected result must say
@@ -1105,7 +960,7 @@ A new test should:
   in the same time step, so print such values at fixed times instead;
 - be a legal design apart from the one error of an illegal design. In
   particular, an input port in an ANSI port list needs the keyword `var`
-  (`input var int d`) when a net cannot have its type, such as a two-state
+  (`input var bit d`) when a net cannot have its type, such as a two-state
   type or a virtual interface: an input port without a port kind is a net,
   and a net has a four-state integral type or an array or structure of them
   (23.2.2.3, 6.7.1);
@@ -1137,8 +992,18 @@ python3 tools/coverage_depth.py --update
 python3 tools/behavior_coverage.py --update
 python3 tools/requirement_matching.py --update
 python3 tools/interaction_coverage.py --update
+python3 tools/chapter_cross_matrix.py --update
+python3 tools/chapter_cross_triage.py --update
+python3 tools/combination_gaps.py --update
+python3 tools/generator_catalog.py --update
+python3 tools/documentation_languages.py --update
 python3 tools/lint_metadata.py
 ```
+
+Update both language versions of handwritten documents, then run
+`python3 tools/documentation_languages.py --record` and `--check`. See the
+[translation guide](tools/doc_locales/README.md) and [document index](docs/README.md).
+Keep current status here; put dated work and measurements in the [history](docs/history.md).
 
 `tools/lint_metadata.py` reports what a script can check of the rules above:
 the fields and their values, `:lrm:` and the directory, x or z literals in a
@@ -1147,9 +1012,11 @@ design, the files that the metadata names, the line lengths, comment lines
 that start with the word Verilator, a `` `timescale `` when a time is printed,
 and TODO left from the skeleton. Its docstring lists the rules.
 
-Most of the material here was produced with AI assistance (Claude Code
-and OpenCode); people are responsible for checking the expected results
+Most of the material here was produced with AI assistance (Claude Code,
+Codex and OpenCode); people are responsible for checking the expected results
 against the standard.
+
+<a id="ライセンス"></a>
 
 ## License
 

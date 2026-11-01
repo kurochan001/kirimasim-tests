@@ -1,10 +1,14 @@
+<a id="extracting-requirements-from-the-pdf-of-ieee-1800-2023-and-verifying-them-with-tests"></a>
+
 # IEEE 1800-2023のPDFから要求を抽出し、テストで検証する手順
 
-この文書は、規格のPDFを出発点に、要求台帳を作り、既存テストとの照合と新規テストの作成で検証を積み上げ、網羅率を計測するまでの手順をまとめたものです。
-2026-10-22〜24の作業（要求の全抽出、20%→52.2%までの照合・テスト追加、台帳の見直し）で使った方法を、別の担当者が同じ結果を再現できる形で書いています。
-作業はまだ途中で、未完了の部分は「既知の限界」に書いています。
+[English](requirements-to-tests-method.en.md) / [日本語](requirements-to-tests-method.md)
 
-関連資料: [要求抽出の結果](requirement-extraction.md) / [解釈・再検討記録](requirement-extraction-notes.md) / [計測規則と更新手順](../coverage/README.md) / [テストの書式](../README.md#test-format) / [半導体の仕様書への一般化](spec-to-verification-method.md) / [SVA参照評価器とフォーマル検証](sva-reference-formal-verification.md)
+この文書は、規格のPDFを出発点に、要求台帳を作り、既存テストとの照合と新規テストの作成で検証を積み上げ、網羅率を計測するまでの手順をまとめたものです。 2026-10-22〜24の作業（要求の全抽出、20%→52.2%までの照合・テスト追加、台帳の見直し）で使った方法を、別の担当者が同じ結果を再現できる形で書いています。 作業はまだ途中で、未完了の部分は「既知の限界」に書いています。
+
+関連資料: [要求抽出の結果](requirement-extraction.md) / [解釈・再検討記録](requirement-extraction-notes.md) / [計測規則と更新手順](../coverage/README.md) / [テストの書式](../README.ja.md#test-format) / [半導体の仕様書への一般化](spec-to-verification-method.md) / [SVA参照評価器とフォーマル検証](sva-reference-formal-verification.md)
+
+<a id="1-premises-and-principles"></a>
 
 ## 1. 前提と原則
 
@@ -13,6 +17,8 @@
 - **作成担当とレビュー担当を分ける。** 照合案と新規テストは、作成者とは別のレビュー担当者が仕様上の反例や見落としがないかを確認し、合格したものだけを台帳へ取り込みます。不確かなものは却下します。
 - **AIのレビューは人の承認ではない。** 台帳の`reviewer`欄と資料に、その旨を必ず書きます。
 - **数値を守るより正しい集計を優先する。** 誤りが分かった対応は取り下げ、基準値は理由を付けて書き直します。
+
+<a id="2-the-whole-flow"></a>
 
 ## 2. 全体の流れ
 
@@ -29,13 +35,18 @@ PDF ─┬─> A. 出典索引・節台帳（位置とハッシュだけ）
 
 各段階の成果物は`coverage/`の台帳と`docs/`の資料で、Gの統合時にまとめて検査します。
 
+<a id="3-preparation"></a>
+
 ## 3. 準備
+
+<a id="31-data"></a>
 
 ### 3.1 資料
 
 - 規格のPDFと、`pdftotext -layout`で抽出したテキスト（`out/lrm_pdftotext_layout.txt`）を、1つの資料ディレクトリに置きます。ツールの既定の場所は`tools/requirement_source.py`の`DEFAULT_SOURCE`です。
-- PDFと抽出テキストのSHA-256は、`coverage/standard-sections.json`と`coverage/requirement-source-index.json`に固定されています。
-  `python3 tools/behavior_coverage.py --check --verify-source <資料dir>`で、手元の資料が同じ版であることを確かめます。
+- PDFと抽出テキストのSHA-256は、`coverage/standard-sections.json`と`coverage/requirement-source-index.json`に固定されています。 `python3 tools/behavior_coverage.py --check --verify-source <資料dir>`で、手元の資料が同じ版であることを確かめます。
+
+<a id="32-simulators"></a>
 
 ### 3.2 シミュレータ
 
@@ -51,8 +62,9 @@ Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2�
 - Homebrewのbison（`PATH=/opt/homebrew/opt/bison/bin:$PATH`）を使う。
 - `driver/main.c`の`#include "ivl_alloc.h"`の後に、`#if defined(__APPLE__)` `#include <mach-o/dyld.h>` `#endif`を足す。
 
-ビルドしたものは、実行ファイルの位置からライブラリを探すので、場所を移しても動きます。
-`run_icarus.py --iverilog-bin <dir>/bin`で指定します。Verilatorは`OBJCACHE=ccache`を付けるとビルドが速くなります。
+ビルドしたものは、実行ファイルの位置からライブラリを探すので、場所を移しても動きます。 `run_icarus.py --iverilog-bin <dir>/bin`で指定します。Verilatorは`OBJCACHE=ccache`を付けるとビルドが速くなります。
+
+<a id="33-repository-tools"></a>
 
 ### 3.3 リポジトリのツール
 
@@ -70,10 +82,11 @@ Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2�
 | `tools/suite_stats.py`、`suite_catalog.py`、`coverage_depth.py` | READMEの表、カタログ、深さの集計 |
 | `generators/` | 表形式の要求を網羅する生成テスト |
 
+<a id="34-reference-kit-toolsmatching_kit"></a>
+
 ### 3.4 照合キット（`tools/matching_kit/`）
 
-照合案の受付、レビュー担当者の判定、統合を機械化した補助スクリプトです。使い方は[キットのREADME](../tools/matching_kit/README.md)にあります。
-照合案・判定・メモは、リポジトリ外の作業ディレクトリに追記型のJSONLとして置きます。リポジトリを変えるのは`merge.py`だけです。
+照合案の受付、レビュー担当者の判定、統合を機械化した補助スクリプトです。使い方は[キットのREADME](../tools/matching_kit/README.ja.md)にあります。 照合案・判定・メモは、リポジトリ外の作業ディレクトリに追記型のJSONLとして置きます。リポジトリを変えるのは`merge.py`だけです。
 
 | スクリプト | 役割 |
 | --- | --- |
@@ -84,6 +97,8 @@ Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2�
 | `workflows/*.js` | Claude CodeのWorkflowで、区間ごとに作成担当とレビュー担当を流すスクリプト（10章）。指示文に判断基準が入っている。 |
 
 `tools/test_matching_kit.py`が、検査の主な条件をCIで確かめます。
+
+<a id="4-stages-a-and-b-extraction-of-the-requirement-and-source-verification"></a>
 
 ## 4. 段階A・B：要求の抽出と出典監査
 
@@ -106,12 +121,15 @@ Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2�
 - **使い方の規則（アプリケーション側の義務）や値の意味づけは、ヘッダの宣言を述べる行と分ける。** 例：「各値形式に対応するメンバー」「ユーザーは直接インクルードしないこと」。宣言は宣言の行に、使い方は使い方の行にします。
 - **既存の行と意味が重なる行を増やさない。** 分母が膨らみ、確定値の承認が難しくなります。
 
+<a id="5-stage-c-re-examination-of-the-register"></a>
+
 ## 5. 段階C：台帳の見直し
+
+<a id="51-transformation-to-observable-form"></a>
 
 ### 5.1 観測可能な形への組み替え
 
-要求IDと`source_spans`を保ったまま、`kind`、`behavior`、`acceptance`を書き直し、`source_note`に変更の日付と理由を追記します。
-要求の内容が変わるので、基準値を理由付きで書き直します。
+要求IDと`source_spans`を保ったまま、`kind`、`behavior`、`acceptance`を書き直し、`source_note`に変更の日付と理由を追記します。 要求の内容が変わるので、基準値を理由付きで書き直します。
 
 ```sh
 python3 tools/behavior_coverage.py --write-baseline --update --require-source-reviewed \
@@ -119,6 +137,8 @@ python3 tools/behavior_coverage.py --write-baseline --update --require-source-re
 ```
 
 分母のSHA-256は変わります。変更前後の割合を比べるときは、分母を明記します。
+
+<a id="52-resolving-pending-interpretations"></a>
 
 ### 5.2 解釈保留の解消
 
@@ -129,10 +149,7 @@ python3 tools/behavior_coverage.py --write-baseline --update --require-source-re
   - 式の誤りが、同じ概念を定める本文や他の式から一意に復元できる場合。
 - **保留を続ける**：規範どうしが実質的に衝突し、どちらを採っても他方を捨てる場合。根拠が推測にとどまる場合。
 
-2026-10-28の分母レビューでは、本文から一意に決まる解釈に加え、規範の衝突に対する
-明示的な方針選択も記録して、残る19論点・21行を解決しました。現在の解釈保留は0件です。
-方針選択をIEEE公式の訂正とは扱いません。[採用した解釈と限界](denominator-review-20261028.md)を参照し、
-新たな衝突を見つけた場合も根拠と選択を明記してください。
+2026-10-28の分母レビューでは、本文から一意に決まる解釈に加え、規範の衝突に対する 明示的な方針選択も記録して、残る19論点・21行を解決しました。現在の解釈保留は0件です。 方針選択をIEEE公式の訂正とは扱いません。[採用した解釈と限界](denominator-review-20261028.md)を参照し、 新たな衝突を見つけた場合も根拠と選択を明記してください。
 
 手順：
 
@@ -144,13 +161,19 @@ python3 tools/behavior_coverage.py --write-baseline --update --require-source-re
 
 書き直した要求文が、正常系テストと規格違反テストの混在を新たに作っていないかも確認します（4章）。
 
+<a id="6-step-d-comparison-with-existing-tests"></a>
+
 ## 6. 段階D：既存テストとの照合
+
+<a id="61-candidates-and-constraints"></a>
 
 ### 6.1 候補と制約
 
 - 候補は、要求の節を`:lrm:`で引用しているテストに限られます（`behavior_coverage.validate()`の制約）。
 - 規格違反の検出を求める要求（`kind: error`）には、`:should_fail_because:`付きの規格違反テストだけを対応付けられます。
 - 解釈保留の行、既存の保留判断がある組、取り下げ済みの組、利用禁止のテストは使えません。
+
+<a id="62-criteria-for-registering-mappings"></a>
 
 ### 6.2 対応を登録する基準
 
@@ -166,6 +189,8 @@ python3 tools/behavior_coverage.py --write-baseline --update --require-source-re
 5. 独立した複数条件の一部しか見ていなければ登録しません。全条件を複数のテストで分担できるなら、`check_groups`（グループ内はAND、グループ間はOR）にします。
 6. `checks`には、テスト、日本語の観測内容と誤実装との区別、日付、担当、入力digest、`evidence`（テスト刺激（スティミュラス）の行と期待出力の行の文字列anchor）を残します。
 
+<a id="63-decisions-to-hold-mappings"></a>
+
 ### 6.3 保留判断
 
 対応を見送った理由が後の作業に役立つ場合は、`test-matching-reviews.json`に記録します。
@@ -174,16 +199,21 @@ python3 tools/behavior_coverage.py --write-baseline --update --require-source-re
 - 説明文の先頭に、通し番号（M01、M02…）を付けます。
 - 期待値が規格と矛盾するテストや、正常系なのに規格違反を含む構文を含むテストは`oracle_issue`です。テスト自体はこの作業では直しません。
 
+<a id="64-results"></a>
+
 ### 6.4 実績
 
-照合だけでは、区間あたり8〜35要求（未対応要求の約6〜15%）しか採用されませんでした。
-主な理由は、要求の条件を刺激する既存テストがそもそも無いことです。まず既存テストとの対応を確認し、不足分は新規テストで埋めます。
+照合だけでは、区間あたり8〜35要求（未対応要求の約6〜15%）しか採用されませんでした。 主な理由は、要求の条件を刺激する既存テストがそもそも無いことです。まず既存テストとの対応を確認し、不足分は新規テストで埋めます。
+
+<a id="7-step-e-creating-a-new-test"></a>
 
 ## 7. 段階E：新規テストの作成
 
+<a id="71-common-rules"></a>
+
 ### 7.1 共通の規則
 
-READMEの「Test format」「Metadata」「How a test is judged」「Tests with C code」「Where the expected outputs come from」「Contributing」に従います。要点は次のとおりです。
+README の「テストフォーマット」「メタデータ」「テストの判断方法」「Cコードでのテスト」「期待される出力の出所」「貢献」に従います。要点は次のとおりです。
 
 - `tools/new_test.py chNN test_<内容> --lrm "節 ..."`で雛形を作ります。置き場所は、先頭の引用節の章のディレクトリです。対応付ける要求の節は、必ず`:lrm:`に含めます。
 - 期待出力の表示形式がシミュレータごとに異なる場合は、`:expected_stdout_icarus:`・`:expected_stdout_verilator:`・`:expected_stdout_kirimasim:`・`:expected_stdout_lyra:`を追加し、共通の`:expected_stdout:`は残します。シミュレータ別のフィールドが優先されます。追加してよいのは、`%p`の空白など、規格がツールに委ねた表示形式だけが異なり、両方の出力が規格に適合する場合です。両方の出力を実際に記録し、差分の理由をテストのコメントと作業ノートに書きます。規格が実行順序を定めない場合は、その順序をシミュレータ別の期待値として固定せず、順序に依存しない結果を観測します。参照する全期待値ファイルは入力ハッシュに含まれ、どれを変えても実行証跡は無効になります。
@@ -198,12 +228,16 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
 - 規格違反テストは、`kind: error`の要求にだけ使います。意図した違反を1つだけ含め、`:expected_stderr_regex:`で妥当な診断位置と必要な診断内容を指定します。複数の報告位置が妥当なら、それらを許容します。未対応構文のエラーを、規格違反の検出と取り違えないようにします。
 - コメント行を「Verilator」という語で始めないでください（BADVLTPRAGMAになる）。実行に数秒以上かかるテストや、巨大なメモリを使うテストは避けます。
 
+<a id="tests-of-72-vpi-dpi"></a>
+
 ### 7.2 VPI・DPIのテスト
 
 - CとC++の両方でコンパイルできるように書きます。C++でコンパイルする場合だけ、`#ifdef __cplusplus`で囲んだ`extern "C" {`と対応する`}`を有効にします（VerilatorはC++としてコンパイルします）。
 - Verilatorは、`vpi_register_systf`で登録したシステムタスクを呼べません。Verilatorでも動かしたい出力は、`cbStartOfSimulation`などのコールバックか、`vlog_startup_routines`から出します。
 - 標準ヘッダだけをインクルードします（`vpi_user.h`、`sv_vpi_user.h`、`svdpi.h`、Cライブラリ）。
 - どちらのシミュレータでも動かない`:oracle: spec`のテストは、1800-2023版の標準ヘッダ（Verilator同梱の`vltstd`）に対して、CとC++の両方でコンパイルできることを確かめます。
+
+<a id="73-technique-for-verifying-the-specification-of-headers"></a>
 
 ### 7.3 ヘッダの規定を検証する技法
 
@@ -216,6 +250,8 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
 - **マクロの値**：`#if`は未定義の名前を0として扱うので、`defined()`も確かめるか、Cの定数式へ退避して比べます。式そのものが規定されている場合は、展開結果を文字列化して比較します。
 - **自己確認**：規格本文のソースから復元した参照ヘッダに対して、テストをネイティブでコンパイル・実行し、期待出力と一致することを確かめます。
 
+<a id="74-table-format-requirements-are-generated-by-the-generator"></a>
+
 ### 7.4 表形式の要求は生成器で作る
 
 1行が「表の1セル」に当たる要求（予約語、定数など）は、`generators/`に生成器を書きます。
@@ -225,6 +261,8 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
 - 実行結果から`generators/oracles.txt`に`:oracle:`を記録し、`generate.py`で書き直します。`record_oracles.py`は、`--verilator`を付けると対象外の生成テストまで`spec`に戻すので、新しいケースだけを同じ規則で追記します。
 - 生成器のコメントを直すと、エラーの行番号が変わることがあります。照合案のanchorも合わせて直します。
 
+<a id="8-stage-f-independent-review"></a>
+
 ## 8. 段階F：独立レビュー
 
 レビュー担当者は、作成者の説明を鵜呑みにせず、規格本文とテストを自分で読んで仕様上の反例や見落としがないかを確認します。
@@ -233,10 +271,8 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
 - **照合案の判定**（`verdict`）：刺激が要求の全条件を起こし、期待出力が誤実装と区別できる場合だけ`accept`にします。テストが`defective`なら`reject`、不確かなら`reject`です。
 - **故障注入による検出確認**：規格どおりのヘッダや入力を1か所ずつ誤らせ、出力が変わるかビルドが止まることを確かめます（ミューテーションテスト）。
 - **大量の機械的な案**：独立に抽出した値（例：PDFの表から別の方法で取り出した一覧）との照合結果に基づいて、スクリプトで一括判定してよいことにします。
-- **横展開**：レビュー担当者がある種類の欠陥を見つけたら、採用済みの全件を同じ観点で点検します。
-  2026-10-24には、`input int`で欠陥とされた3本をもとに点検し、採用済みの1本と既存テスト7本に同じ形が見つかりました。
-- **実績**：2026-10-24の13区間では、新規テスト624本のうち30本（約5%）が欠陥、照合案2,215件のうち166件（約7%）が却下でした。
-  欠陥30本のうち、期待値そのものの誤りは4本でした。残りは、規格が決めない値の出力（7本）、設計の規格適合性（7本）、規格違反テストのエラー行（6本）、メタデータ（5本）、書きかけ（1本）です。
+- **横展開**：レビュー担当者がある種類の欠陥を見つけたら、採用済みの全件を同じ観点で点検します。 2026-10-24には、`input int`で欠陥とされた3本をもとに点検し、採用済みの1本と既存テスト7本に同じ形が見つかりました。
+- **実績**：2026-10-24の13区間では、新規テスト624本のうち30本（約5%）が欠陥、照合案2,215件のうち166件（約7%）が却下でした。 欠陥30本のうち、期待値そのものの誤りは4本でした。残りは、規格が決めない値の出力（7本）、設計の規格適合性（7本）、規格違反テストのエラー行（6本）、メタデータ（5本）、書きかけ（1本）です。
 
 これまでの検証で見つかった穴（同じ種類の誤りを最初から避けるためのチェックリスト）：
 
@@ -258,11 +294,12 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
 | 強度やtri-stateを出力するのに`:fourstate: no`になっている | 強度の構文を使うテストは`:fourstate: yes`にする |
 | 未サイズの値の`$bits`、同時刻の事象の順序、VPIの反復順や要素名のように、規格が決めない値を出力する | 出力しないか、規格が決める形に変える |
 
+<a id="9-stage-g-integration-measurement-and-recording"></a>
+
 ## 9. 段階G：統合・計測・記録
 
 1. `defective`のテストと、判定のないテストを取り除きます（または、リポジトリ外へ退避します）。生成物は`tests/`を全件走査するので、未検証のテストを作業ツリーに残したまま再生成しないでください。
-2. 残ったテストのlintを通し、事前実行で`:oracle:`の記載と実際の結果が食い違わないことを確かめます。
-   新しいテストが、ほかに引用するテストのない節を1本だけで引用していないかも、ここで`coverage_depth.py --check --minimum-tests 2`で確かめます。引用した節には2本以上のテストが必要です。背景として引いただけの節なら、`:lrm:`から外します。
+2. 残ったテストのlintを通し、事前実行で`:oracle:`の記載と実際の結果が食い違わないことを確かめます。 新しいテストが、ほかに引用するテストのない節を1本だけで引用していないかも、ここで`coverage_depth.py --check --minimum-tests 2`で確かめます。引用した節には2本以上のテストが必要です。背景として引いただけの節なら、`:lrm:`から外します。
 3. 記録用に本実行し、`coverage/results/<名前>-<日付>-icarus13.json`、`-verilator-seed1.json`、`-verilator-seed73.json`として保存します。全件の結果は上書きしません。部分実行の結果も合成しません。
 4. 採用された案を統合します。統合は「未対応の要求」だけを受け付けます。入力digestは統合の時点で計算するので、テストを確定させてから行います。
 
@@ -302,16 +339,17 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
    git diff --check
    ```
 
-8. push した後、最初のnightly（または手動実行）で、すべてのシミュレータのジョブが最後まで走ったことを確かめます。
-   新しいテストが、シミュレータを暴走させることがあるためです。2026-10-24には、規格違反を含むシーケンスの循環でVerilatorが再帰を止めず、ランナーのメモリを使い切ってジョブが止まりました。いまはVerilatorのジョブでプロセスごとのメモリを制限しています。
+8. push した後、最初のnightly（または手動実行）で、すべてのシミュレータのジョブが最後まで走ったことを確かめます。 新しいテストが、シミュレータを暴走させることがあるためです。2026-10-24には、規格違反を含むシーケンスの循環でVerilatorが再帰を止めず、ランナーのメモリを使い切ってジョブが止まりました。いまはVerilatorのジョブでプロセスごとのメモリを制限しています。
+
+<a id="reading-measurements"></a>
 
 ### 計測の読み方
 
 - **暫定値**：全登録行を同じ重みで数えます。附属書の定数や予約語は、1個が1行です。このため、それらの行で値が大きく動きます。全体の値と並べて、本文（1〜40章）だけの値と章別の内訳を必ず載せます。
-- **実行確認**：入力とランナーのハッシュが一致する`pass`だけを数えます。`known`、`unsupported`、`fail`、古い入力は数えません。
-  規格違反の検出を求める要求は、`:oracle:`に固定バージョンのトークンがあるシミュレータの結果だけを数えます。
-  AND集合は、同じシミュレータの同じ実行回でグループ内の全テストが成功した場合だけ数えます。
+- **実行確認**：入力とランナーのハッシュが一致する`pass`だけを数えます。`known`、`unsupported`、`fail`、古い入力は数えません。 規格違反の検出を求める要求は、`:oracle:`に固定バージョンのトークンがあるシミュレータの結果だけを数えます。 AND集合は、同じシミュレータの同じ実行回でグループ内の全テストが成功した場合だけ数えます。
 - **確定値**：分母の承認（意味上の重複整理と解釈保留の解決）までは出しません。
+
+<a id="10-parallelization-and-cost"></a>
 
 ## 10. 並列化と費用
 
@@ -326,8 +364,9 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
 
 - 同時に動かす担当は、マシンの負荷（シミュレータのビルド）を見て決めます。今回は18コアで、load average 6〜9程度でした。
 - **中断と再開**：照合案・判定・テストの一覧は、すべて追記型のファイルに残します。中断時は、未検証のテストをリポジトリ外へ退避します。再開時は、まず検証だけを行い、足りなければ作成を再開します。
-- **費用の目安**：附属書ヘッダの検証は3回で約130万トークン、解釈保留46件の見直しは約110万、予約語の生成テストの検証は約15万でした。
-  13区間の検証だけ（照合案2,215件、新規テスト624本、2026-10-24）は約560万トークンで、1区間あたり約43万でした。
+- **費用の目安**：附属書ヘッダの検証は3回で約130万トークン、解釈保留46件の見直しは約110万、予約語の生成テストの検証は約15万でした。 13区間の検証だけ（照合案2,215件、新規テスト624本、2026-10-24）は約560万トークンで、1区間あたり約43万でした。
+
+<a id="11-fixed-for-reproducibility"></a>
 
 ## 11. 再現性のために固定するもの
 
@@ -336,6 +375,8 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
 - テスト：入力digest（テスト本体、期待値、C、include、`:files:`）、ランナーのSHA-256、シミュレータの版とseed。
 - 判断：照合案と判定のJSONL、レビュー担当者の識別子、日付、担当、使った指示文（Workflowスクリプト）。
 - 生成テスト：生成器の`VERSION`と`oracles.txt`。
+
+<a id="12-known-limits-and-incompleteness"></a>
 
 ## 12. 既知の限界と未完了
 
@@ -346,6 +387,6 @@ READMEの「Test format」「Metadata」「How a test is judged」「Tests with 
 - 未対応要求の中には、既存テストで観測できても対応を未登録のものがあります。新規テストを書く前に刺激と期待結果を照合してください。
 - `:oracle: spec`だけのテストは、固定バージョンシミュレータでの期待結果の再現を登録していません。開発版や別ツールで一致する場合もあるため、「どのシミュレータでも動かない」とは限りません。期待値の規格照合はAIによるもので、人による確認は未実施です。
 - 比較用のLyra（2026-10-24追加）は、独立した裏付けとしては限られます。Lyraとkirimasimはフロントエンドにslangを共有しているので、構文解析や展開に関する両者の一致は、独立した裏付けになりません。同時に加えたnvcは、SystemVerilogへの対応が少なく（合格は6,009本中1,611本）、DPI・VPIのテストも実行できないため、2026-10-25に外しました。
-- 比較で見つかった`test_readmemh_address_range`の期待値は、規格に合わせて修正し、`:oracle:`を`spec`だけにしました。テストは保持しています。[修正内容と各ツールの結果](simulator-differences.md#a-test-whose-expected-output-followed-both-releases-rather-than-the-standard)を参照してください。
+- 比較で見つかった`test_readmemh_address_range`の期待値は、規格に合わせて修正し、`:oracle:`を`spec`だけにしました。テストは保持しています。[修正内容と各ツールの結果](simulator-differences.ja.md#a-test-whose-expected-output-followed-both-releases-rather-than-the-standard)を参照してください。
 - 照合キットのWorkflowスクリプトは、Claude CodeのWorkflowツールを前提にしています。ほかの環境では、指示文を同じ基準で使う必要があります。
 - 附属書ヘッダのテスト24本を作った生成スクリプトは、使い捨てとしてリポジトリに入れていません。コミット済みのテストと、7.3節の技法が基準です。

@@ -16,6 +16,7 @@ from pathlib import Path
 import sys
 
 import suite_results
+import doc_localization
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "generators"))
@@ -196,36 +197,46 @@ def main() -> int:
     ap.add_argument("--output", type=Path, help="Markdown output for an explicit execution report")
     ap.add_argument("--json", type=Path, help="JSON output for an explicit execution report")
     ap.add_argument("--source-url", help="repository blob URL for an exported guide link")
+    ap.add_argument("--bilingual-export", action="store_true",
+                    help="write Japanese and .en.md exports using the registered report translations")
     ap.add_argument("--require-pass", action="store_true")
     args = ap.parse_args()
     plans = tuple(p for p in interaction_models.registered()
                   if not args.model or p.model.name in args.model)
     if args.list_tests:
-        if args.results or args.require_pass or args.output or args.json or args.source_url:
+        if (args.results or args.require_pass or args.output or args.json or args.source_url
+                or args.bilingual_export):
             ap.error("--list-tests only selects paths; it does not evaluate executions")
         for path in sorted({p.path(row) for p in plans for row in p.model.select()}):
             print(path)
         return 0
     if (args.check or args.update) and (args.results or args.model or args.output or args.json
-                                      or args.source_url):
+                                      or args.source_url or args.bilingual_export):
         ap.error("committed reports always use all models and coverage/interaction-results")
+    if args.bilingual_export and not args.output:
+        ap.error("--bilingual-export requires --output")
     try:
         paths = args.results if args.results is not None else sorted(RESULTS.glob("*.json"))
         data = build(plans, paths)
         rendered = markdown(data, args.source_url)
         encoded = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
+        committed_outputs = doc_localization.expand({DATA: encoded, REPORT: rendered}) \
+            if args.check or args.update else None
         if args.check:
-            if not DATA.is_file() or DATA.read_text() != encoded or not REPORT.is_file() \
-                    or REPORT.read_text() != rendered:
+            if any(not path.is_file() or path.read_text() != content
+                   for path, content in committed_outputs.items()):
                 raise ValueError("interaction reports are stale; run --update")
             print("Interaction models, selected witnesses and execution reports are current.")
         elif args.update:
-            DATA.write_text(encoded)
-            REPORT.write_text(rendered)
+            for path, content in committed_outputs.items():
+                path.write_text(content)
         else:
             if args.output:
-                args.output.parent.mkdir(parents=True, exist_ok=True)
-                args.output.write_text(rendered)
+                outputs = doc_localization.export_versions(args.output, rendered, REPORT,
+                              source_url=args.source_url) if args.bilingual_export else {args.output: rendered}
+                for path, content in outputs.items():
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_text(content)
             else:
                 print(rendered, end="")
             if args.json:

@@ -26,6 +26,7 @@ from pathlib import Path
 
 import suite_results
 import suite_stats
+import doc_localization
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = ROOT / "docs" / "tests"
@@ -257,7 +258,7 @@ def main() -> int:
                        help="exit with 1 if docs/tests/ is out of date")
     args = ap.parse_args()
 
-    files = pages()
+    files = doc_localization.expand(pages())
     if not (args.update or args.check):
         for path, text in sorted(files.items()):
             sys.stdout.write(f"==> {path.relative_to(ROOT)} <==\n{text}\n")

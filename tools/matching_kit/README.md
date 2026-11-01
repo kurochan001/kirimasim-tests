@@ -1,10 +1,10 @@
+<a id="マッチングキット"></a>
+
 # Matching kit
 
-Tools to link IEEE 1800-2023 requirements (`coverage/behaviors.json`) to
-tests by proposal, independent verdict and merge, as described in
-[the method from the PDF to tests](../../docs/requirements-to-tests-method.md).
-The repository is only read until `merge.py` applies accepted proposals; the
-proposals, verdicts and notes live in a work directory outside it.
+[English](README.md) / [日本語](README.ja.md)
+
+Tools to link IEEE 1800-2023 requirements (`coverage/behaviors.json`) to tests by proposal, independent verdict and merge, as described in [the method from the PDF to tests](../../docs/requirements-to-tests-method.en.md). The repository is only read until `merge.py` applies accepted proposals; the proposals, verdicts and notes live in a work directory outside it.
 
 | File | What it does |
 | --- | --- |
@@ -16,6 +16,8 @@ proposals, verdicts and notes live in a work directory outside it.
 | `workflows/match.js` | Claude Code Workflow: one matcher and one verifier per partition |
 | `workflows/gap.js` | Claude Code Workflow: one writer (new tests, or matching first in `combined` mode) and one verifier per partition |
 | `workflows/interpretation-review.js` | Claude Code Workflow: analysts propose resolutions of interpretation issues, verifiers challenge them |
+
+<a id="ワークディレクトリ"></a>
 
 ## Work directory
 
@@ -29,6 +31,8 @@ proposals, verdicts and notes live in a work directory outside it.
   notes/<label>-simdiff.md            simulator differences a writer found
 ```
 
+<a id="提案記録"></a>
+
 ## Proposal records
 
 A check (`propose.py add --out FILE`, JSON on standard input):
@@ -41,18 +45,13 @@ A check (`propose.py add --out FILE`, JSON on standard input):
               {"file": "tests/chN/test_x.expected", "contains": "<the output that shows the result>"}]}
 ```
 
-An error-kind requirement needs a test with `:should_fail_because:`, and one
-anchor that contains its `:expected_stderr_regex:` line instead of the
-expected output. A group (`group`) has `group_id`, `collective_observation`,
-`rationale` and `members`, each a test with `observation` and `evidence`. A
-hold (`hold`) has `test`, `requirement_ids`, `disposition`
-(`partial_observation`, `oracle_issue`, `citation_refinement`,
-`compound_requirement`), `explanation` and `evidence`.
+An error-kind requirement needs a test with `:should_fail_because:`, and one anchor that contains its `:expected_stderr_regex:` line instead of the expected output. A group (`group`) has `group_id`, `collective_observation`, `rationale` and `members`, each a test with `observation` and `evidence`. A hold (`hold`) has `test`, `requirement_ids`, `disposition` (`partial_observation`, `oracle_issue`, `citation_refinement`, `compound_requirement`), `explanation` and `evidence`.
+
+<a id="ワークフロー"></a>
 
 ## Workflows
 
-The scripts are inputs of the Workflow tool of Claude Code. Their prompts are
-in Japanese and hold the review criteria. Typical arguments:
+The scripts are inputs of the Workflow tool of Claude Code. Their prompts are in Japanese and hold the review criteria. Typical arguments:
 
 ```js
 {repo: "<repository root>", work: "<work directory>", pdf: "<the IEEE 1800-2023 PDF>",
@@ -66,5 +65,4 @@ in Japanese and hold the review criteria. Typical arguments:
  batches: [{label: "A", issues: ["ISSUE-NAME", ...]}]}
 ```
 
-After the verifiers finish, merge, then regenerate and check as in section 9
-of the method.
+After the verifiers finish, merge, then regenerate and check as in section 9 of the method.

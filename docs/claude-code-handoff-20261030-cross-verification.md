@@ -1,9 +1,12 @@
+<a id="handoff-to-claude-code-cross-feature-verification-2026-10-30"></a>
+
 # Claude Codeへの引き継ぎ：機能間クロス検証（2026-10-30）
 
-外部状態の確認：2026-10-30 14:15 UTC（23:15 JST）。
-初版は同日09:31:59 UTCの状態で書き、その後のクロス再実行、insideの再確認、範囲指定とcase insideのモデルの追加を反映しました。
-この資料は`kirimasim-tests`の作業を引き継ぐためのものです。
-以下のコマンドは、通常の`kirimasim-tests`リポジトリのルートで実行します。
+[English](claude-code-handoff-20261030-cross-verification.en.md) / [日本語](claude-code-handoff-20261030-cross-verification.md)
+
+外部状態の確認：2026-10-30 14:15 UTC（23:15 JST）。 初版は同日09:31:59 UTCの状態で書き、その後のクロス再実行、insideの再確認、範囲指定とcase insideのモデルの追加を反映しました。 この資料は`kirimasim-tests`の作業を引き継ぐためのものです。 以下のコマンドは、通常の`kirimasim-tests`リポジトリのルートで実行します。
+
+<a id="1-what-to-understand-first"></a>
 
 ## 1. 最初に把握すること
 
@@ -15,8 +18,9 @@
 - 最新の保存クロス実行はkirimasim **`f303becad9ca`**（確認時の上流main）で、1,426件中1,368 pass・56 unsupported・2 failです。保存結果を新しい本体の結果へ読み替えないでください。
 - insideの不一致1件は`fc4cc356`で再確認し、配列集合の符号付き要素を0拡張せず符号拡張する形だと絞り込みました。本体は変更していません。`f303beca`のクロス実行でも同じ1件が不一致で、case insideの配列項目でも同じ形の不一致1件が見つかりました。
 
-まず[保存実行の概要](interaction-verification.md#保存実行の概要)、
-[設計思想・追加手順](interaction-verification-method.md)、本書を読んでください。
+まず[保存実行の概要](interaction-verification.md#保存実行の概要)、 [設計思想・追加手順](interaction-verification-method.md)、本書を読んでください。
+
+<a id="2-users-policy-and-precautions-during-operation"></a>
 
 ## 2. ユーザーの方針と作業上の注意
 
@@ -27,7 +31,7 @@
 - Icarus 13.0・Verilator 5.052は固定oracleの確認用。開発版の一致を、これら固定版のoracleへ読み替えない。Verilatorの確認では2状態テストをseed 1・73で別々に実行する。
 - 既存テスト・期待値・oracle・過去の実行証跡を保持する。未対応を成功の期待値にせず、合格率のために合法な因子を削らない。
 - Icarus・VerilatorなどGPL/LGPLの実装ソースを読まず、他プロジェクトの再現コードをコピーしない。規格、独立計算、実行結果から検証する。
-- Icarus・Verilatorとの差異は上流へ報告せず、[固定版の差異一覧](simulator-differences.md)へ記録する。テストのコメントに他のシミュレータの出力を書くときは、実行して確かめてから書く。
+- Icarus・Verilatorとの差異は上流へ報告せず、[固定版の差異一覧](simulator-differences.ja.md)へ記録する。テストのコメントに他のシミュレータの出力を書くときは、実行して確かめてから書く。
 - コメント行を`Verilator`という語で始めない。Verilatorが指示として読むため、`tools/lint_metadata.py`が`verilator-comment`として検出する。
 - Icarus・Verilatorのoracleが付いていないテストの不一致は、ランナーがknownとして数え、failにしない。
 - 規格本文・図表の転載、ホームの絶対パス、個人情報、非公開資料を公開ファイルへ入れない。
@@ -36,7 +40,11 @@
 - 本体を変更する場合は、隣接`kirimasim`のCLAUDE.md・AGENTS.mdを読む。仕様変更、期待値変更、依存追加、ローカルCIの規則は、その作業範囲に適用する。
 - コミットは英語の短い件名、GitHub noreplyの作者情報、実際の支援モデルを記すトレーラーを使用してきた。次の担当者は対象リポジトリの規約に従う。
 
+<a id="3-recently-completed-changes"></a>
+
 ## 3. 直近に完了した変更
+
+<a id="2026-10-31-issue-handling-in-this-commit"></a>
 
 ### 2026-10-31：Issue の対応（このコミット）
 
@@ -47,6 +55,8 @@
 - 未対応の構文で拒否しているだけの不正テスト7件から `iverilog@13.0` を外した（README の規則）。同じ問題は ch8 などの不正テストにも残り、`test-matching-reviews.json` に oracle_issue として記録がある。FST の2件は、`$dumpfile` が VCD を名指すこと（21.7.1.1）をコメントに正し、拡張のテストとして残した。
 - 残件：DPI の未定義動作・非推奨の2件（規格から期待値が決まらない）、不正テストの判定が `file:line:` を1行に求める書式、`scheduling` 生成器の時刻0の競合（14件）、読み方の分かれるテスト（ポート強制、コンパイル単位、config の use 節、X/Z の bin、チェッカーの空の出力接続、param assign など）。
 - kirimasim：inside・case inside の配列要素の符号拡張を、別の作業ツリーのブランチ `fix/inside-array-element-extension` で直した（未プッシュ。local_ci 通過、クロスの不一致2件が解消）。
+
+<a id="after-the-first-edition-2026-10-30"></a>
 
 ### 初版の後（2026-10-30）
 
@@ -71,8 +81,10 @@
   - 上流main `fc4cc356`で再ビルドし、保存済みの最小例2件（bit・logic）が前回と同じ出力で再現した。
   - 左辺の値を変えた最小例で、kirimasimが配列集合の符号付き要素を符号拡張して比較していることがわかった。0拡張が正しい。localparamの定数として評価すると正しい結果になる。
   - 2状態だけの手書きテスト`tests/ch11/test_inside_array_set_mixed_sign_width.sv`を追加した（`:oracle: spec`）。要求との対応は登録しておらず、カバー率は変わらない。
-  - Verilator 5.052の新しい逸脱を[固定版の差異一覧](simulator-differences.md)へ記録した。
+  - Verilator 5.052の新しい逸脱を[固定版の差異一覧](simulator-differences.ja.md)へ記録した。
   - 証跡は`coverage/interaction-qualification/20261030-inside-fc4cc356.json`。
+
+<a id="work-complete-at-the-first-edition"></a>
 
 ### 初版の時点で完了していたもの
 
@@ -93,18 +105,20 @@
   - README両言語、検証ガイド、手法資料、FAQ、用語集、固定版の差異一覧、Nightly・証跡管理の説明を更新。
   - 新しい保存実行の概要、Checkと実行充足の違い、補助証跡の扱いを整理した。
 
-[Issue #21](https://github.com/kurochan001/kirimasim-tests/issues/21)はclosed。
-完了したのは回帰取り込み・合法性の分類・証跡整備で、本体の全未対応機能の実装完了ではありません。
-[対応表](p1-combination-regressions-20261030.md)と[照合台帳](../coverage/combination-gaps.json)を参照してください。
+[Issue #21](https://github.com/kurochan001/kirimasim-tests/issues/21)はクローズ済み。完了したのは回帰取り込み・合法性の分類・証跡整備で、本体の全未対応機能の実装完了ではありません。[対応表](p1-combination-regressions-20261030.md) と [照合台帳](../coverage/combination-gaps.json) を参照してください。
+
+<a id="4-verified-status-and-remaining-items"></a>
 
 ## 4. 検証済みの状態と残件
+
+<a id="latest-saved-interaction-run"></a>
 
 ### 最新の保存クロス実行
 
 `coverage/interaction-results/cross29-kirimasim-f303beca.json`：
 
 - 本体`f303becad9ca`、1,426件中**1,368 pass・56 unsupported・2 fail**。従来の1,392件の状態は28モデルの`cross28-kirimasim-f303beca.json`と同じ。
-- case inside：**25 pass・8 unsupported・1 fail**。315ペア中274組、3因子154組中115組、必須7件中3件。
+- case inside：25 pass・8 unsupported・1 fail。315 ペア中 274 組、 3 因子 154 組中 115 組、必須 7 件中 3 件。
 - 範囲指定：**30 pass・16 unsupported**（許容差の範囲）。303ペア中252組、3因子178組中117組、必須6件中4件。
 - 27モデルの`cross27-kirimasim-fb79248e.json`（`fb79248e46f6`）と`cross27-kirimasim-latest.json`（`74fb2340925a`）は、どちらも1,313 pass・32 unsupported・1 fail。すべて保持する。
 - 複合シフト代入：**40件すべてpass**。
@@ -112,19 +126,15 @@
 - 集合所属判定の実行で確認できた対象は、305ペア中208組、3因子174組中84組。必須5件は1 pass・3 unsupported・1 failで、`complete`はfalse。
 - 56件のunsupportedは、従来の配列スライス代入6件、集合として動的配列・キューを読む26件、許容差の範囲16件、副作用のある関数呼び出しのcase inside項目8件。2件のfailは、insideの配列集合とcase insideの配列項目。
 
-`f303beca`より新しい版では、クロス全体を実行していません。手書きテスト`test_inside_array_set_mixed_sign_width`はクロスの対象外で、最後に実行したのは`fc4cc356`です。
-次の実行では新しい結果名を使い、古いJSONを上書きしないでください。
+`f303beca`より新しい版では、クロス全体を実行していません。手書きテスト`test_inside_array_set_mixed_sign_width`はクロスの対象外で、最後に実行したのは`fc4cc356`です。 次の実行では新しい結果名を使い、古いJSONを上書きしないでください。
+
+<a id="reproduction-points-for-1-disagreements"></a>
 
 ### 不一致1件の再現箇所
 
-[固定配列の幅・符号・RHS Xのケース](../tests/gen/ch11/test_gen_cross_inside_w33_w_us_l_fixed_n3_rhs_x.sv)。
-34ビットunsignedの全1を33ビットsignedの要素と比較すると、配列形式は1、同じ要素の個別列挙は0。
-11.4.13・11.4.6・11.8.2に従う共通unsigned型への0拡張では、期待値は0です。
+[固定配列の幅・符号・RHS Xのケース](../tests/gen/ch11/test_gen_cross_inside_w33_w_us_l_fixed_n3_rhs_x.sv)。 34ビットunsignedの全1を33ビットsignedの要素と比較すると、配列形式は1、同じ要素の個別列挙は0。 11.4.13・11.4.6・11.8.2に従う共通unsigned型への0拡張では、期待値は0です。
 
-[切り分けJSON](../coverage/interaction-qualification/20261030-inside.json)に、
-2/3ビットの既知値だけの最小例、bit/logicと同符号の対照条件、実測値とビルド指紋を保存しています。
-最小例でも配列=1・個別列挙=0・直接の`==?`=0を確認しました。
-正常な個別列挙に「先頭の要素しか比較しない」故障を入れた場合は、不一致を検出しています。
+[切り分けJSON](../coverage/interaction-qualification/20261030-inside.json)に、 2/3ビットの既知値だけの最小例、bit/logicと同符号の対照条件、実測値とビルド指紋を保存しています。 最小例でも配列=1・個別列挙=0・直接の`==?`=0を確認しました。 正常な個別列挙に「先頭の要素しか比較しない」故障を入れた場合は、不一致を検出しています。
 
 `fc4cc356`での再確認（[証跡](../coverage/interaction-qualification/20261030-inside-fc4cc356.json)）：
 
@@ -134,9 +144,11 @@
 - 個別列挙の形は、すべて期待値どおり。
 - 手書きテストでkirimasimが期待値と異なるのは、1〜3行目の配列形式だけ（1/0/1、期待値は0/1/0）。signedの左辺を使う4・5行目は正しい。
 
+<a id="fixed-reference-versions"></a>
+
 ### 固定参照版
 
-- `cross29-icarus-13.json`：全1,426件で1,007 pass・419 known。case inside 34件はすべてknown。変動を記録しているビット関数の1件が再びknownになった。
+- `cross29-icarus-13.json` ：全 1,426 件で 1,007 pass・ 419 known。case insideの34件はすべてknown。変動を記録しているビット関数の 1 件が再びknownになった。
 - `cross29-verilator-5.052-seed1.json`と`seed73.json`：各517件中438 pass・79 known。case insideの2状態9件は各4 pass・5 known（配列項目のC++ビルド失敗2件、変数の4状態RHSの`==?`2件、一致後の項目評価1件）。
 - `cross28-icarus-13.json`：全1,392件で1,008 pass・384 known。範囲指定46件はすべてknown。以前から変動を記録しているビット関数の2件がknownからpassに変わったが、oracleは変えていない。
 - `cross28-verilator-5.052-seed1.json`と`seed73.json`：各508件中434 pass・74 known。範囲指定の2状態16件は各7 pass・9 known（許容差の構文4件、変数の4状態RHSの`==?`3件、`$`端点の結果2件）。
@@ -147,36 +159,38 @@
 - 手書きテスト`test_inside_array_set_mixed_sign_width`：Icarus 13.0は`inside`が未対応。Verilator 5.052は両seedで同じ出力。1・3行目は配列形式が1で、個別列挙は正しい0。4行目は配列・個別列挙とも1で、signedの左辺を幅の広いunsignedの要素に対して符号拡張している。どちらのoracleも付けていない。
 - ビット関数には以前から変動を記録したoracle未登録ケースがある。全体の実測pass数の変化だけで、期待値やoracleを付け替えない。
 
-具体例と根拠は[固定版の差異一覧](simulator-differences.md)、
-[補助証跡の説明](../coverage/interaction-qualification/README.md)を参照してください。
+具体例と根拠は[固定版の差異一覧](simulator-differences.ja.md)、 [補助証跡の説明](../coverage/interaction-qualification/README.md)を参照してください。
+
+<a id="check-nightly-and-local-checks"></a>
 
 ### Check・Nightly・ローカル検査
 
-- `4469ee37`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41041450032)はcompleted / success。
+- `4469ee37` の [Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41041450032) はcompleted/successである。
 - `b52cebd4`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41038897723)、`6dccebdd`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41035144950)もsuccess。
 - `4469ee37`の状態で、ローカルのツール回帰**324件がPASS**。生成物・集計・メタデータ・要求照合の検査も成功。
 - 確認できた最新の[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/40972765631)はsuccessだが、対象スイートは**`360ef70c`**。現在のmain全件のNightly成功という意味ではない。
 - 本書を更新したコミットのCheck結果は、別途そのコミットで確認する。
 
-Checkの成功、テストの一致数、クロスの対象網羅、要求カバレッジは別の指標です。
-`interaction_coverage.py --check`は整合性検査。
-`--require-pass`は指定した保存実行の全対象組合せと必須ケースの成功を判定し、現在の集合所属判定では非ゼロを返します。
+Checkの成功、テストの一致数、クロスの対象網羅、要求カバレッジは別の指標です。 `interaction_coverage.py --check`は整合性検査。 `--require-pass`は指定した保存実行の全対象組合せと必須ケースの成功を判定し、現在の集合所属判定では非ゼロを返します。
+
+<a id="5-adjacent-repositories-and-local-workspaces"></a>
 
 ## 5. 隣接リポジトリとローカル作業場所
 
+<a id="kirimasim-body"></a>
+
 ### kirimasim本体
 
-確認時の`../kirimasim`はmain **`f303becad9cafcb96221bcfd4321a92341bab4ff`**でorigin/mainと一致し、未pushのコミットはありませんでした。
-本体側の作業は続いていて、本書の初版の後に次の5コミットが入りました。
+確認時の`../kirimasim`はmain **`f303becad9cafcb96221bcfd4321a92341bab4ff`**でorigin/mainと一致し、未pushのコミットはありませんでした。 本体側の作業は続いていて、本書の初版の後に次の5コミットが入りました。
 
 - `b64f3781`：文字列の文字へのNBA。
 - `fc4cc356`：その測定値の更新。insideの再確認に使った版。
 - `a7ee20a4`・`a8566e8b`：NBAアリーナを解放する時期。
 - `f303beca`：その測定値の更新。
 
-本体には未追跡の`docs/CLAUDE_CODE_HANDOFF_2026-10-30.md`が残っています。
-その冒頭の基準は`74fb2340`だったため、実際のGit状態と内容を照合してください。
-隣接リポジトリや既存worktreeの作業を、このテストリポジトリの変更と混ぜないでください。
+本体には未追跡の`docs/CLAUDE_CODE_HANDOFF_2026-10-30.md`が残っています。 その冒頭の基準は`74fb2340`だったため、実際のGit状態と内容を照合してください。 隣接リポジトリや既存worktreeの作業を、このテストリポジトリの変更と混ぜないでください。
+
+<a id="working-directory"></a>
 
 ### 作業用ディレクトリ
 
@@ -186,6 +200,8 @@ Checkの成功、テストの一致数、クロスの対象網羅、要求カバ
 - ほかにも古いworktreeがある。`git worktree list`で確認し、由来を調べてから利用する。
 - 一時ログや調査スクリプトは継続の前提にしない。正式な入力・結果・最小例はGit内の資料とJSONを使う。
 - LSIへの一般化提案は`../lsi-verification-method/docs/feature-interaction-coverage-proposal.md`。同リポジトリには`docs/method/feature-interaction-verification.md`と`docs/templates/interaction-coverage-plan.md`もある。
+
+<a id="6-checks-and-execution-when-resuming"></a>
 
 ## 6. 再開時の確認と実行
 
@@ -202,9 +218,7 @@ git -C ../kirimasim log -5 --oneline
 git -C ../kirimasim rev-parse HEAD origin/main
 ```
 
-未保存・未push・並行作業を確認してから検証対象を選び、必要なら隔離worktreeを作ります。
-本体のbuild手順はそのリポジトリの指示に従い、CMakeの再構成後にビルドしてください。
-`kirimasim --version`のコミットを、選んだ最新ソースのコミットと一致させます。
+未保存・未push・並行作業を確認してから検証対象を選び、必要なら隔離worktreeを作ります。 本体のbuild手順はそのリポジトリの指示に従い、CMakeの再構成後にビルドしてください。 `kirimasim --version`のコミットを、選んだ最新ソースのコミットと一致させます。
 
 規格資料の既存配置は`../IEEE_1800-2023_SystemVerilog`です。
 
@@ -236,11 +250,9 @@ run = subprocess.run([
 print("runner exit:", run.returncode)
 ```
 
-保存先は`coverage/interaction-results/`内で、版や再確認回を識別できる新しい名前にします。
-不一致や未対応が残ればランナーは非ゼロになり得ます。結果の区分とJSONを確認してください。
-Icarusは`--iverilog-bin`、Verilatorは`--verilator --all --seed`で実行します。
-Verilatorへ渡すパスは、ヘッダの`fourstate`が`no`のものだけに絞ってください。
-Lyraは最新のmainを取得してビルドし、`run_lyra.py --commit`に実際のコミットを渡します。
+保存先は`coverage/interaction-results/`内で、版や再確認回を識別できる新しい名前にします。 不一致や未対応が残ればランナーは非ゼロになり得ます。結果の区分とJSONを確認してください。 Icarusは`--iverilog-bin`、Verilatorは`--verilator --all --seed`で実行します。 Verilatorへ渡すパスは、ヘッダの`fourstate`が`no`のものだけに絞ってください。 Lyraは最新のmainを取得してビルドし、`run_lyra.py --commit`に実際のコミットを渡します。
+
+<a id="7-update-and-confirm-command-after-change"></a>
 
 ## 7. 変更後の更新・確認コマンド
 
@@ -266,9 +278,9 @@ python3 tools/lint_metadata.py
 git diff --check
 ```
 
-変更したテストの再実行を保存してから、対応する集計を更新します。
-資料だけの変更では、入力・期待値・証跡を不要に更新しません。
-集計や共通回帰には時間がかかる場合があるため、処理の重複起動を避け、進捗を共有してください。
+変更したテストの再実行を保存してから、対応する集計を更新します。 資料だけの変更では、入力・期待値・証跡を不要に更新しません。 集計や共通回帰には時間がかかる場合があるため、処理の重複起動を避け、進捗を共有してください。
+
+<a id="8-points-to-consider-when-adding-a-new-cross"></a>
 
 ## 8. 新しいクロスを追加する際の要点
 
@@ -284,9 +296,9 @@ git diff --check
 - README両言語、検証ガイド、固定版の差異一覧、補助証跡の説明を更新する。READMEには現時点の情報だけを書き、置き換えた以前の記録や測定は[履歴](history.ja.md)（英語版は`docs/history.md`）へ移す。
 - `combination_gap`はIssue #21の20候補の台帳と結び付く。別の新規モデルへ形式的に付けない。
 
-Issue #21で分離した`fread`のrealメンバー表現、再帰VCDのprogram/interface範囲、
-automatic strobeの解釈、ネイティブcallback再入・実GC回収量の未確認範囲は、
-[照合台帳](../coverage/combination-gaps.json)の根拠を読まずに合格・違法へ読み替えないでください。
+Issue #21で分離した`fread`のrealメンバー表現、再帰VCDのprogram/interface範囲、 automatic strobeの解釈、ネイティブcallback再入・実GC回収量の未確認範囲は、 [照合台帳](../coverage/combination-gaps.json)の根拠を読まずに合格・違法へ読み替えないでください。
+
+<a id="9-recommended-order-for-the-next-person-in-charge"></a>
 
 ## 9. 次の担当者への推奨順序
 
@@ -303,13 +315,15 @@ automatic strobeの解釈、ネイティブcallback再入・実GC回収量の未
 - このリポジトリのopen issue #22〜#36。#36（ch21の`"\60x"`が5.9.1で違法なエスケープになる）は2026-10-30に作成された。
 - slangへのストリーミングの不具合の報告案。`../kirimasim-tests-work/slang-issue-streaming-20261028/`にあり、ユーザーの以前の報告slang #2072（確認時はOPEN）が処理されてから提出する。kirimasim-testsへのリンクは付けない。
 
+<a id="10-material-and-code-to-read"></a>
+
 ## 10. 読む資料とコード
 
 - [検証ガイド・保存実行の概要](interaction-verification.md)
 - [考え方・追加手順・他プロジェクトへの適用](interaction-verification-method.md)
 - [生成したクロス計画・実行レポート](interaction-coverage.md)
 - [FAQ](faq.md#7-機能間クロス検証)・[用語集](glossary.md#8-機能間クロス検証)
-- [固定版の差異一覧](simulator-differences.md)
+- [固定版の差異一覧](simulator-differences.ja.md)
 - [証跡の管理](../coverage/README.md#機能間クロスの計画と証跡)
 - [補助証跡](../coverage/interaction-qualification/README.md)・[insideの再確認](../coverage/interaction-qualification/20261030-inside-fc4cc356.json)
 - [inside生成器](../generators/interaction_inside.py)・[独立検算](../tools/test_interaction_inside.py)
@@ -317,6 +331,8 @@ automatic strobeの解釈、ネイティブcallback再入・実GC回収量の未
 - [選択器](../generators/interaction_cover.py)・[モデル登録](../generators/interaction_models.py)・[集計ツール](../tools/interaction_coverage.py)
 - [要求カバレッジ集計](behavior-coverage-summary.md)：12,298要求、設計対応10,986（89.33%）、実行確認7,330（59.60%、複数環境の和集合）。テスト追加とこの割合の増加は別。
 - [過去の引き継ぎ](handover-20261028.md)：2026-10-29時点の要求台帳・残件。古いテスト本数を現在値にしない。
+
+<a id="example-of-a-start-instruction-to-pass-to-claude-code"></a>
 
 ## Claude Codeへ渡す開始指示の例
 

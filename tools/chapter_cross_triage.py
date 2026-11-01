@@ -15,6 +15,7 @@ import sys
 
 import chapter_cross_matrix as chapters
 import suite_results
+import doc_localization
 
 ROOT = chapters.ROOT
 REGISTRY = "coverage/chapter-cross-triage.json"
@@ -233,6 +234,7 @@ def main() -> int:
     args = parser.parse_args()
     try:
         outputs, stats = build()
+        outputs = doc_localization.expand(outputs, root=ROOT)
         stale = []
         for name, content in outputs.items():
             path = ROOT / name

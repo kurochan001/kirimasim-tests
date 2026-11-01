@@ -11,6 +11,7 @@ IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認す�
 用語やよくある質問は、[用語集](docs/glossary.md)と[FAQ](docs/faq.md)を参照してください。
 期待値、結果の分類、Nightly、網羅率、SVA・フォーマル検証について説明しています。
 このREADMEには現時点の情報だけを載せます。以前の作業の記録や測定は[履歴](docs/history.ja.md)にあります。
+[資料一覧](docs/README.ja.md)から、ガイド・生成レポート・過去の記録の日英両版を辿れます。
 
 各シミュレーションテストは、期待結果を持つ小さな独立した設計です。規格上正しいコードは、正規化した標準出力が
 期待出力に一致し、指定された終了コード・診断の検査にも通れば合格です。
@@ -24,7 +25,7 @@ Icarus Verilog、Verilator、kirimasim、
 
 通常のシミュレーションの期待値は、シミュレータに依存しない規格の規則に基づきます。
 実装依存の形式を確認するテストでは前提を明記します。
-[FST波形テスト](docs/fst-tests-20261029.md)はkirimasimの予定するFSTバックエンド向けで、
+[FST波形テスト](docs/fst-tests-20261029.ja.md)はkirimasimのFSTバックエンド向けで、
 すべてのシミュレータにFST形式を要求するものではありません。
 
 このスイートには、次の特徴があります。
@@ -41,10 +42,12 @@ Icarus Verilog、Verilator、kirimasim、
 > **開発の初期段階です。** すべてのテストをAIモデルが規格と照合していますが、
 > 人による照合はまだありません（`:spec_check: ai`）。期待値の誤りの報告を歓迎します。
 
+<a id="contents"></a>
+
 ## 収録内容
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**10105本のテスト**があります。 うち3668本は自動生成です（`tests/gen/`。「自動生成テスト」を参照）：`combination_aggregates`が18本、`combination_events`が9本、`combination_io`が13本、`combination_monitors`が18本、`combination_nba`が16本、`interaction_array`が36本、`interaction_assertion`が36本、`interaction_binding`が36本、`interaction_case`が36本、`interaction_case_inside`が34本、`interaction_cast`が32本、`interaction_class_method`が36本、`interaction_clocking`が36本、`interaction_compare`が100本、`interaction_compound`が40本、`interaction_concat`が72本、`interaction_cond`が32本、`interaction_config`が41本、`interaction_default`が36本、`interaction_delay`が63本、`interaction_divide`が72本、`interaction_edge`が64本、`interaction_event_rebind`が27本、`interaction_event_task`が13本、`interaction_expr`が51本、`interaction_generate`が36本、`interaction_iff`が27本、`interaction_ifgenerate`が36本、`interaction_ifimport`が36本、`interaction_import`が39本、`interaction_index`が44本、`interaction_inside`が46本、`interaction_logic`が70本、`interaction_loop_nba`が36本、`interaction_mailbox`が36本、`interaction_memfile`が36本、`interaction_method`が72本、`interaction_nba`が36本、`interaction_nettype`が40本、`interaction_port`が36本、`interaction_process`が36本、`interaction_program`が18本、`interaction_query`が60本、`interaction_queue`が48本、`interaction_queue_ref`が60本、`interaction_range`が46本、`interaction_reactive`が36本、`interaction_resize`が38本、`interaction_return`が36本、`interaction_select`が36本、`interaction_shift`が56本、`interaction_shortcircuit`が92本、`interaction_stream`が36本、`interaction_struct`が36本、`interaction_task`が36本、`interaction_udp`が25本、`interaction_udpstate`が36本、`interaction_wait`が36本、`keywords`が496本、`scheduling`が325本、`strength`が136本、`wide_paths`が49本、`width_sign`が144本、`xz_propagation`が158本。
+スイートには38章にわたり**10105本のテスト**があります。 うち3668本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
@@ -99,20 +102,16 @@ Icarus Verilog、Verilator、kirimasim、
 総数には`:type: formal`の268本を含みます。これらはシミュレータの標準出力を比較せず、
 `:formal_case:`を使ってSymbiYosysで検査します。[実行方法](#symbiyosys)を参照してください。
 
-SVAの追加検証は、上のoracle別の件数とは別に記録しています。
-参照評価器は**45本のテスト出力**を再現します。最新の再実行（2026-10-29）では、現行の全267ケースについて
-**267件のBMC、44件のPDR証明、267件のcover**が成功し、意図的な誤り5件も反例を生成しました。
-別の境界値の組合せ検査では、**111ケースすべてでBMC・PDRが成功**し、
-28本のテストの91指令に含まれる**127個のシーケンス部分式**と対応付けています。
-二つのセットには重複があるので、異なるモデルの数として足し合わせません。
-267・111というモデル数を収録済みのテスト本数へ別途加算したり、上の表のoracle分類を変更したりはしません。
-この2セットの保存済み証跡は2026-10-29に再生成し、現行ソースとの対応と必要ジョブの整合性検査も成功しました。実行・証跡の整合性検査の手順は下記ガイドを参照してください。
-範囲・証跡・再実行方法は、[SVA参照評価器とフォーマル検証](docs/sva-reference-formal-verification.md)と
+SVAの追加検証は別に記録しています。参照評価器は**45本のテスト出力**を再現し、
+フォーマル検証の証跡は**267ケースのカタログ**と、別の**111ケースの境界値検査**を対象とします。
+二つのモデル集合には重複があり、収録済みのテスト本数や上のoracle別件数へ加算しません。
+範囲・証跡・再実行手順は[SVA参照評価器とフォーマル検証](docs/sva-reference-formal-verification.md)、
+詳しい件数と再実行日は[過去のSVA検証記録](docs/readme-records-20261101.ja.md#sva-verification-record-2026-10-29)と
 [境界値の拡張結果](docs/sva-formal-expansion-20261026.md)を参照してください。
 
-[テストカタログ](docs/tests/README.md)は、各テストが何を確かめ、どの条項を引用するかを
-章ごとに示します。[条項一覧](docs/tests/clauses.md)では、各章のどの条項をテストが引用しているかを
-確認できます。[条項別テスト数レポート](docs/coverage-depth.md)は、条項ごとのテスト数と、
+[テストカタログ](docs/tests/README.ja.md)は、各テストが何を確かめ、どの条項を引用するかを
+章ごとに示します。[条項一覧](docs/tests/clauses.ja.md)では、各章のどの条項をテストが引用しているかを
+確認できます。[条項別テスト数レポート](docs/coverage-depth.ja.md)は、条項ごとのテスト数と、
 規格のみから決めた期待出力を持つ1本のテストしかない条項を示します。
 3〜40章の対象範囲内の末端条項には、それぞれ2本以上の直接引用するテストがあります。
 対象外の条項とその理由も同じページに記載しています（`tools/clauses.txt`のタグ）：
@@ -122,7 +121,7 @@ SVAの追加検証は、上のoracle別の件数とは別に記録していま�
 
 これは条項の引用網羅率であり、IEEE 1800-2023のすべての要求や組合せを検査した証明ではありません。
 条項別テスト数の範囲は`tools/clauses.txt`が選ぶ3〜40章の末端条項で、現在の件数と除外理由は
-[条項別テスト数レポート](docs/coverage-depth.md)に記載しています。
+[条項別テスト数レポート](docs/coverage-depth.ja.md)に記載しています。
 附属書や明示的な除外条項を、規格全体を網羅したという主張に暗黙に含めることはしません。
 CIは`tools/coverage_depth.py --check --minimum-tests 2`で2本以上を必須にします。
 親条項の引用だけでは、その子条項の本数を満たしません。
@@ -155,22 +154,8 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 [kirimasim **`ddf48e2b0436`**での全クロス保存実行](coverage/interaction-results/cross55-kirimasim-ddf48e2b.json)は、
 **2,170 pass・179 unsupported・6 fail**です。クラスメソッドは18件PASS・18件未対応です。
 不一致6件は、`inside`／`case inside`の幅・符号の2件と、configのパラメータリセットの4件で、
-規格に基づく期待値を維持しています。従来2,328件の入力ハッシュと結果区分は同じです。
+規格に基づく期待値を維持しています。
 これは記載した版の保存結果で、Nightlyの全件実行や、その後の上流更新の結果とは区別します。
-
-今回追加したイベント再結合のモデル（第6章×第15章）は、合法648通りから27件を選び、
-全因子対138組・重点3因子69組・必須6件を保持します。タスクのinput/ref、待機登録の前後、
-別名と複数待機者、起床するイベント領域を組み合わせます。全27件の構文・意味解析は通過しますが、
-kirimasimはイベント値の操作が未対応です。固定Icarus 13.0とVerilator 5.052もビルド時に拒否し、
-このモデルの実行で確認済みの合格は0件です。
-[設計・確認範囲・証跡](docs/interaction-verification.md#イベント変数の再結合と登録済み待機の保持)を参照してください。
-
-mailboxとclassハンドルのモデルは、3,456通りの合法な組合せから36件を選び、
-全因子対245組・重点3因子92組・必須9件を保持します。FIFO・peek/get・容量・nullと、
-送受信ハンドルを通じた双方向の更新を確認します。kirimasimでは全36件がmailbox型未対応です。
-固定Verilator 5.052は既知値12件中11件がseed 1・73の両方で一致し、合法なtypelessの1件を
-ビルド時に拒否しました。4状態の24件は比較対象外です。
-[設計・確認範囲・証跡](docs/interaction-verification.md#mailboxのclassハンドルと別名経由の更新)を参照してください。
 
 - [クロス検証レポート](docs/interaction-coverage.md)：計画上の網羅と、入力・ランナーのハッシュが
   一致した保存実行の合格を分けて集計します。
@@ -186,26 +171,9 @@ mailboxとclassハンドルのモデルは、3,456通りの合法な組合せか
 計画上の網羅とCheckの成功を、各シミュレータでの全クロス合格とは扱いません。
 ビルド版・実行範囲・結果の内訳は[保存実行の概要](docs/interaction-verification.md#保存実行の概要)を確認してください。
 
-作業を引き継ぐ場合は、まず[2026-10-31のハンドオフ資料](docs/codex-handoff-20261031.md)を
-参照してください。リポジトリの状態、未着手のIssue、再開コマンドをまとめています。
-クロスのモデル追加手順と検証済みの版は
-[2026-10-30のハンドオフ資料](docs/claude-code-handoff-20261030-cross-verification.md)にあります。
-[Issue #40〜#44の照合記録](docs/issues-40-44-review-20261031.md)には、引き継ぎ後の
-テスト修正、固定版での実行結果、実装側に残る制限をまとめています。
-
-[Issue #21の回帰取り込みレポート](docs/p1-combination-regressions-20261030.md)と
-[確認済みの照合台帳](coverage/combination-gaps.json)には、既存テストの再利用と、
-新規74件（イベント9件、NBA16件、複合型18件、I/O13件、ファイル監視18件）を記載しています。
-このうち有限のクロスモデルへ登録するのはファイル監視の18件です。残る56件は機構の境界条件を
-確認する回帰テストとして扱い、t-wayの達成率へ混ぜません。規格解釈の保留、
-別のネイティブAPI試験で確認する範囲、保存した実行ごとの結果もレポートから確認できます。
-`python3 tools/combination_gaps.py --check`で台帳とレポートの整合性を、
-`python3 tools/combination_gaps.py --list-tests`で再利用分を含む回帰対象の全パスを確認します。
-この整合性検査は、シミュレータの全件合格を要求するものではありません。
-
 [規格PDFからテストに至る方法](docs/requirements-to-tests-method.md)は、要求の抽出、
 既存テストとの照合と追加テストの作成、独立したレビュー、統合と測定までを順に説明します。
-作業には[照合キット](tools/matching_kit/README.md)を使います。
+作業には[照合キット](tools/matching_kit/README.ja.md)を使います。
 
 要求カバレッジの分母は、重複を統合した**12,298要求**です。
 [分母レビュー](docs/denominator-review-20261028.md)で承認しました。
@@ -213,8 +181,6 @@ mailboxとclassハンドルのモデルは、3,456通りの合法な組合せか
 現在の要求カバレッジ（テスト設計）は**89.31%（10,983/12,298）**、
 `coverage/results/`の保存済み証跡による実行確認率は
 **77.57%（9,539/12,298）**で、Icarus Verilog・Verilator・SymbiYosys・Ghostの結果です。
-現在のランナーで保存した[2026-10-31のGhost全件結果](coverage/results/ghost-local-20261031-strict2.json)を取り込み、
-入力ハッシュが一致した成功を実行確認へ反映しています。
 1〜40章だけの要求カバレッジ（テスト設計）は87.37%（8,270/9,465）です。
 測定入力と分母は[生成した要求カバレッジ集計](docs/behavior-coverage-summary.md)を参照してください。
 既存テスト全体の検証内容のレビューはまだ完了していません。
@@ -232,27 +198,11 @@ Icarus VerilogもVerilatorもエンベロープを復号しないためで、監
 ツールとオプションに依存するので、40章のテストは、許される値やカバレッジ関数の結果同士の
 関係など、すべての結果に共通して成り立つことだけを出力します。
 
+<a id="nightly-results"></a>
+
 ## Nightlyの結果
 
-<!-- workflow-verification:begin -->
-**確認済みのNightly（2026-10-31）：** [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41141958886)は
-5環境すべての実行と`publish`が成功しました。
-[この回の公開結果](https://github.com/kurochan001/kirimasim-tests/blob/a587ba92e91e4fe2217710c7408614c6649d84e7/README.md)の生成時刻は11:16 JST（02:16 UTC）です。
-対象はスイート[`73af6e95`](https://github.com/kurochan001/kirimasim-tests/commit/73af6e954828221c3c7447dd13cd3a271ae5bb55)（**9,203本**）、
-Lyraは[`e13a017966a5`](https://github.com/hankhsu1996/lyra/commit/e13a017966a5)からビルドしました。
-現在のスイートへの追加前の記録です。その後の公開実行は
-[随時更新のレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)を確認してください。
-期待結果に一致したテスト数／結果が記録されたテスト数は次のとおりです。
 
-- Icarus Verilog：**5,701 / 8,935**
-- Verilator：**5,265 / 8,935**
-- kirimasim：**6,468 / 8,935**
-- Lyra：**6,933 / 8,935**
-- Ghost：**8,036 / 8,935**
-
-不一致・既知の差異・未対応も分母に含みます。この回は5ランナーともformalの268本を除きます。
-ワークフローの成功は全テストの一致を意味しません。SymbiYosysの検証結果は上記の別集計です。
-<!-- workflow-verification:end -->
 
 毎晩、[GitHub Actionsワークフロー](.github/workflows/nightly.yml)が、各シミュレータで
 `main`の各ランナーの対象テストを実行します。Icarus VerilogとVerilatorは`master`、kirimasimは`main`の
@@ -280,12 +230,14 @@ Ghostは非公開のビルドで参加します。
 後続のワークフローが実行して公開するまで変わりません。現在のスイートと比較するときは、
 `suite commit`とテスト数を確認してください。
 
-![期待結果に一致するテスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg?v=nightly-41141958886)
+![期待結果に一致するテスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
 
 シミュレータごとに、Icarus Verilogは丸、Verilatorは四角、kirimasimはひし形、
 Lyraは下向き三角、Ghostはオレンジの上向き三角を使います。
 一致数が同じ、または近い場合も見えるように、マーカーは互いに重ねて収まる輪郭で描きます。
 凡例には、最新の実行の件数も示します。
+
+<a id="by-chapter"></a>
 
 ### 章別の結果
 
@@ -294,7 +246,9 @@ Lyraは下向き三角、Ghostはオレンジの上向き三角を使います�
 表はNightlyのグラフとともに更新し、上部に日付とシミュレータの版を表示します。
 クリックすると原寸の画像を開けます。
 
-[![章別の一致テスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-41141958886)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg?v=nightly-41141958886)
+[![章別の一致テスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)
+
+<a id="result-statuses"></a>
 
 ### 結果の分類
 
@@ -317,60 +271,15 @@ Nightlyでは結果を報告し、不一致だけでは原則としてワーク�
 Icarus Verilog 13.0とVerilator 5.052で記録した期待結果は、テストやツールの変更時に
 [別のワークフロー](.github/workflows/check.yml)で同じリリースを使って確認します。
 
+<a id="simulation-speed"></a>
+
 ## シミュレーション速度
 
-このスイートが確かめるのは計算結果です。速度の参考として、kirimasimリポジトリには
-独自の小さな設計による[ベンチマーク](https://github.com/kurochan001/kirimasim/tree/main/bench)があります。
-2026-10-25にWSL2上のLinux（AMD Ryzen 9 7950X）で行った実行では、
-各シミュレータの最新開発コミットと11設計を使い、次の時間になりました。
-最初の4列は、示す回数での5回の中央値から、`+n=1`での5回の中央値を引いた値です。
-Ghost列は同じマシンで2026-10-28に測ったもので、フル実行は非常に長いため、
-注記のとおり外挿しています。
+このスイートはシミュレーション結果を検査します。過去の速度測定は
+[測定記録](docs/readme-records-20261101.ja.md#シミュレーション速度)へまとめています。
+実行コードと手順は[シミュレータのベンチマーク](https://github.com/kurochan001/kirimasim/tree/main/bench)を参照してください。
 
-| 設計 | `+n=` | kirimasim | Icarus Verilog 14.0 devel | Verilator 5.053 devel | Lyra（LLVMバックエンド） | Ghost* |
-| --- | :---: | :---: | :---: | :---: | :---: | :---: |
-| `comb_chain` | 3,000,000 | 9.249 s | 9.796 s | 0.223 s | 2.878 s | 1,153 s* |
-| `nba_shift` | 1,000,000 | 25.486 s | 26.585 s | 0.196 s | 5.900 s | 2,707 s* |
-| `proc_wait` | 1,000,000 | 6.786 s | 5.688 s | 2.283 s | 6.164 s | 1,816 s* |
-| `fork_join` | 4,000,000 | 4.837 s | 5.023 s | 1.190 s | 4.860 s | 909 s* |
-| `wide_arith` | 1,500,000 | 4.944 s | 2.036 s | 0.086 s | 0.380 s | 131.4 s |
-| `mem_rw` | 4,000,000 | 4.937 s | 3.645 s | 0.696 s | 2.705 s | 1,258 s* |
-| `func_call` | 1,500,000 | 4.917 s | 7.511 s | 0.005 s | 0.395 s | 291 s* |
-| `string_fmt` | 500,000 | 5.003 s | 8.080 s | 0.135 s | 0.279 s | 477 s* |
-| `dyn_queue` | 4,000,000 | 4.112 s | 6.686 s | 0.083 s | 0.412 s | 400 s* |
-| `gate_udp` | 400,000 | 5.378 s | 3.517 s | 0.046 s | 未対応 | 835 s* |
-| `casez_struct` | 5,000,000 | 3.976 s | 4.117 s | 0.018 s | 0.466 s | 525 s* |
-
-`*` `wide_arith` はフルカウント、それ以外は縮小カウントからの外挿値です。
-
-- kirimasimは`b66834254c65`、Icarus Verilogは14.0 develの`2b8d42dc088f`、
-  Verilatorは5.053 develの`1838b6ed035c`、Lyraは`63922502ff0a`です。
-  Lyraは`bazel build -c opt`でビルドしました。ベンチマークはこれらのコミットでの測定で、
-  Nightlyは毎回上流の最新コミットを取得します。Lyra列はLLVMバックエンド、`-O 0`での測定です。
-  当該測定では`--backend`省略時にC++バックエンドを使用し、この設計群ではLLVMより3.3〜67倍遅くなりました。
-  その時間も下記のベンチマーク詳細にあります。測定できたすべての実行で結果は期待どおりでした。
-  LyraはゲートとUDPが未対応なので、`gate_udp`の実行プログラムは生成していません。
-  時間には設計のビルド（VerilatorのC++、Lyraのプログラム）は含めません。
-- Ghostは`a2420294`で、同じWSL2/Ryzen 9 7950X上で2026-10-28に測定しました。
-  フルカウントの1回は2〜45分かかるため、Ghost列の大部分は、示す回数より小さい2つの
-  カウント（2つ目は1つ目の2倍。10,000/20,000、2,000/4,000、1,000/2,000）で3回ずつ測り、
-  2倍で1.97〜2.09倍になることを確認して、傾きをフルカウントへ適用した外挿値です。
-  `wide_arith`のフルカウント（131.4 s）は外挿値と約2%以内で一致し、結果行も確認しました。
-  他の列は2026-10-25の中央値です。
-- Ghostはこれらの設計でkirimasimより27〜268倍遅く（最小は`wide_arith`、最大は`proc_wait`）、
-  Icarus Verilogより39〜345倍遅い結果です。Releaseビルドの既定実行オプションによるもので、
-  機能差ではなく性能差を示します。
-- 最初の4設計は、`always_comb`の連鎖、ノンブロッキング代入、待機プロセス、`fork`/`join`を使います。
-  残り7設計は、256ビット演算（`wide_arith`）、1024ワードメモリ（`mem_rw`）、
-  タスク・再帰関数呼び出し（`func_call`）、`$sformatf`（`string_fmt`）、
-  キュー・動的配列（`dyn_queue`）、ゲート・UDP（`gate_udp`）、
-  パック構造体への`casez`（`casez_struct`）です。
-- kirimasimはIcarus Verilogに比べ、`proc_wait`、`wide_arith`（2.4倍）、`mem_rw`、`gate_udp`で遅く、
-  `func_call`、`string_fmt`、`dyn_queue`で明確に速く、残り4設計では約6%以内でした。
-  `dyn_queue`ではピークメモリが回数とともに増えます（4,000,000回で547 MiB）。
-  以前の測定との比較は[履歴](docs/history.ja.md)にあります。
-- 1台のマシンの小さな設計は、実際の設計の速度を代表しません。ビルド時間、起動時間、メモリ、
-  再現コマンドは[kirimasimのベンチマーク詳細](https://github.com/kurochan001/kirimasim/blob/main/docs/BENCHMARKS.md#development-versions-on-linux-wsl2-2026-10-25)を参照してください。
+<a id="layout"></a>
 
 ## ディレクトリ構成
 
@@ -384,13 +293,15 @@ tests/gen/chNN/<name>.sv        自動生成テスト（直接編集しない）
 generators/<generator>.py       テスト生成器と参照モデル
 generators/generate.py          tests/gen/の生成、--checkによる検査
 generators/oracles.txt          各生成テストの期待出力を再現したリリース
-docs/simulator-differences.md   Icarus Verilog 13.0・Verilator 5.052と規格との差
+docs/simulator-differences.ja.md   Icarus Verilog 13.0・Verilator 5.052と規格との差
 docs/history.ja.md              以前の作業の記録・測定・確認結果
+docs/README.ja.md               日英の全資料への入口
+docs/generators.ja.md           全生成器の件数と観測対象
 docs/tests/                     章ごとのテストカタログ
-docs/tests/clauses.md           テストが引用する規格の条項
+docs/tests/clauses.ja.md           テストが引用する規格の条項
 docs/glossary.md               このスイートの用語・略語
 docs/faq.md                    期待値・結果・網羅率・検証のFAQ
-docs/coverage-depth.md          条項ごとの本数と優先して補う不足
+docs/coverage-depth.ja.md          条項ごとの本数と優先して補う不足
 docs/behavior-coverage-summary.md 章別・シミュレータ別の要求カバレッジの集計
 docs/interaction-verification.md 機能間クロスのモデル・短時間実行・証跡の扱い
 docs/interaction-coverage.md     登録したクロスモデルの計画と実行確認
@@ -423,16 +334,21 @@ tools/matching_kit/             要求とテストの対応の提案・検査・
 ```
 
 `results`ブランチには、`history.json`（1実行1エントリ）、
-`latest/<simulator>.json`（各シミュレータの最新の全テスト結果）、`charts/*.svg`、
-レポートの`README.md`があります。グラフとレポートには`tools/`に実行スクリプトがある
+`latest/<simulator>.json`（各シミュレータの最新の保存実行のテスト別結果）、`charts/*.svg`、
+レポートの`README.md`（英語）と`README.ja.md`（日本語）があります。
+グラフにも`.ja.svg`の日本語版を生成します。グラフとレポートには`tools/`に実行スクリプトがある
 シミュレータだけを表示します。実行スクリプトがなくなったものも履歴には残しますが、描画しません。
 publishジョブは、その実行の要求カバレッジとして`behavior-coverage-summary.md`、
 `behavior-coverage.md`、`behavior-summary.json`、`behavior-coverage.json`、`behavior-history.json`も
 書き出します。機能間クロスのシミュレータ別の実行確認は`interaction-coverage.md`と
-`interaction-coverage.json`に書き出します。`main`の保存済み証跡との違いは
+`interaction-coverage.json`に書き出します。3種類のカバレッジMarkdownは日本語の`.md`に
+英語の`.en.md`を併設し、相互リンクで切り替えます。両言語は同じ実行データを使います。
+`main`の保存済み証跡との違いは
 [Nightlyの説明](docs/nightly-results.md)を参照してください。
 通常はNightlyのpublishジョブが更新します。ローカル結果を取り込む場合も、
 実行日時・スイートのコミットと`--source local`を指定して履歴へ追加します。
+
+<a id="test-format"></a>
 
 ## テストの形式
 
@@ -471,6 +387,8 @@ endmodule
 
 `test_nonblocking_swap.expected`には`a=2 b=1`の1行を置きます。
 
+<a id="metadata"></a>
+
 ### メタデータ
 
 メタデータコメントはsv-testsと互換で、sv-testsが知らないフィールドは無視されます。
@@ -503,6 +421,8 @@ endmodule
 | `:incdirs:` | テストのディレクトリを基準としたインクルードディレクトリ。空白区切り。`` `include "<file>" ``が作業ディレクトリの後に探す場所（22.4）。`:files:`のインクルードファイルのディレクトリより後に渡す |
 | `:top_module:` | エラボレーション対象のトップレベルモジュールまたは構成。未指定なら、他からインスタンス化されないすべてのモジュールがトップレベル（23.3.1）。モジュールはその階層、構成は宣言した設計とバインド規則を選ぶ（33.4、33.5.3） |
 
+<a id="how-a-test-is-judged"></a>
+
 ### 合否の判定方法
 
 標準出力から空行とシミュレータ自身のバナーを取り除き、期待出力と完全一致すれば合格です
@@ -528,6 +448,8 @@ Icarus VerilogとVerilatorが標準出力に出すため、取り除きます。
 テストは、作業ディレクトリにテスト名由来のファイルを作ります。`$coverage_save`（40.3.2.5）も
 同じ場所にデータを保存できます。各実行スクリプトは、テストごとに一時ディレクトリで実行します。
 
+<a id="tests-with-c-code"></a>
+
 ### Cコードを伴うテスト
 
 `:dpi_c:`や`:vpi_c:`を持つテストは、SystemVerilogと同名のCファイルが一組です。
@@ -540,6 +462,8 @@ CとしてもC++としてもコンパイルできるようにします（Verilat
 VPIが登録するシステムタスク・関数は、組み込みの上書きテストを除き、`$vt_...`という名前にします。
 sv-testsの実行スクリプトはこれらのフィールドを知らず、SystemVerilogだけをコンパイルするため、
 こうしたテストはsv-testsでは失敗します。
+
+<a id="where-the-expected-outputs-come-from"></a>
 
 ### 期待出力の決め方
 
@@ -568,11 +492,13 @@ sv-testsの実行スクリプトはこれらのフィールドを知らず、Sys
 
 シミュレータと期待出力が異なる場合に、出力をコピーして解決することはしません。判断基準は条項です。
 見つかったIcarus Verilog 13.0・Verilator 5.052と規格との差は
-[差異一覧](docs/simulator-differences.md)に記録しています。
+[差異一覧](docs/simulator-differences.ja.md)に記録しています。
+
+<a id="independent-sva-checks-and-formal-models"></a>
 
 ### SVAの独立確認とフォーマルモデル
 
-[SVA参照評価器](tools/sva_reference/README.md)は、サンプル済みの入力トレースから、
+[SVA参照評価器](tools/sva_reference/README.ja.md)は、サンプル済みの入力トレースから、
 選択した45本のテスト出力を独立に再現します。任意で実行するYosys/SymbiYosysの検査は、
 入力を固定せず、別に書いたRTLモデルと計算規則を比較します。
 2026-10-29の現行カタログの再実行は267件のBMCと、入力長の上限を置かない44件のPDR証明に成功しました。
@@ -582,73 +508,16 @@ sv-testsの実行スクリプトはこれらのフィールドを知らず、Sys
 両セットは到達例と、意図的な誤りに対する反例も含みます。
 oracleメタデータやシミュレータ実行確認率は変更しません。
 [日本語ガイド](docs/sva-reference-formal-verification.md)に範囲・結果・再実行方法、
-[技術報告](tools/sva_reference/FORMAL_REVIEW.md)に保存済み証跡へのリンクがあります。
+[技術報告](tools/sva_reference/FORMAL_REVIEW.ja.md)に保存済み証跡へのリンクがあります。
+
+<a id="generated-tests"></a>
 
 ### 自動生成テスト
 
 `tests/gen/`は`generators/`の生成器が作ります。各生成器には、シミュレータを使わず
 規格からPythonで書いた参照モデルがあり、期待出力を計算して、一つの種類の小さな変形を多数作ります。
 
-| 生成器 | 章 | 変えるもの |
-| --- | ---: | --- |
-| `scheduling` | 4 | 書き込み（ブロッキング・ノンブロッキング・代入内遅延付きノンブロッキング・継続代入経由・`force`）、読み取り（同一プロセス・待機中の別プロセス・`$strobe`・`$monitor`）、場所（initial・always・タスク・関数・fork分岐・インターフェース・generateブロック）、遅延（なし・`#0`・`#1`）。規格が結果を決める組合せだけ |
-| `interaction_nba` | 10 | 幅（1・32・33・64・65・129）、bit/logic、既知値/X/Z、スカラ/固定長アンパック配列、添字方向、initial/automaticタスク、遅延なし/遅延付きNBAの制約付き2因子網羅。指定した3因子群と境界ケースも保持し、値・添字の変更とタスク復帰前にNBAの値と代入先が確定することを確認 |
-| `interaction_expr` | 11 | 両オペランドの幅と符号、代入先の幅、加減乗算。選択した51件で各4組の入力を使い、コンテキストによる拡張・桁上がり・切り捨てを確認 |
-| `interaction_select` | 11 | パックベクタの幅と添字方向、`+:`/`-:`、選択幅と位置、bit/logic、既知値/X/Z。選択した36件で読み書きと非選択ビットの保持を確認 |
-| `interaction_cond` | 11 | 両分岐の符号、条件0/1/X/Z、既知値・X/Zの分岐パターン、代入先の幅とbit/logic。選択した32件で分岐選択・ビットごとの結合・変換を確認 |
-| `interaction_shift` | 11 | 演算子・シフト量・符号、元の幅と代入先幅、既知値/X/Z、bit/logic。選択した56件で幅の拡張、境界シフト、X/Z符号の複製、未知のシフト量を確認 |
-| `interaction_compound` | 11 | 幅・状態型・符号、スカラ/配列要素/部分選択、3種の複合シフト、signedな8/65ビットのシフト量をクロス。40件で左辺の1回評価、全格納先と非選択ビット、読出し時の拡張を確認 |
-| `interaction_inside` | 11 | 集合要素と左辺の幅・符号、集合要素のbit/logic、個別列挙/固定配列/動的配列/キュー、要素数とX/Zをクロス。46件で比較後の4状態OR、空集合、逆順リスト、結果の型変換を確認 |
-| `interaction_range` | 11 | 端点と左辺の幅・符号、端点のbit/logic、閉区間/逆順/`$`端点/絶対・相対許容差、X/Z、値との混在をクロス。46件で比較時の型での端点の拡張、空の範囲、許容差の端点の入れ替えと切り捨て、範囲と値でのX/Zの違いを確認 |
-| `interaction_case_inside` | 12 | ケース式と項目の幅・符号、項目のbit/logic、先頭項目（値/範囲/固定配列/リスト）、X/Z、修飾子なし/`unique0`、3番目の項目（変数/数える関数）をクロス。34件でXの比較を不一致として後続へ進むこと、項目の拡張、ケース式の1回評価、一致後の項目の評価を確認 |
-| `interaction_cast` | 6 | 元の符号と値、サイズ・符号・型のキャスト、キャスト幅、後続加算、代入先の状態。選択した32件で中間変換と最終変換の違いを確認 |
-| `interaction_task` | 13 | 幅・状態・値、input/output/inout/ref、スカラ/配列要素の実引数、遅延なし/遅延付き復帰。選択した36件でコピーイン・コピーアウト・参照先の即時更新・隣接要素の保持を確認 |
-| `interaction_binding` | 13 | 幅・状態型・値、input/ref/const ref、固定配列/動的配列/キュー、呼出し後の添字変更。36件で元の要素への結合、inputの値コピー、参照のライブな読取り、双方向の更新、隣接要素の保持を確認 |
-| `interaction_clocking` | 14 | 幅・状態型・値、local/interface/virtual modport、入力スキュー#1step/#0、エッジ方向、blocking/NBAをクロス。36件でエッジ前とObservedの値、状態変換、ライブ値、cb起床回数を確認 |
-| `interaction_assertion` | 16 | 幅・状態型・値、式、エッジ、blocking/NBA、エッジ前/同時/後の更新、module/interface。36件でサンプルした式・値、pass/fail回数、Reactiveのライブ値と最終値を確認 |
-| `interaction_wait` | 9 | 幅・状態型・値、動的配列/キュー、作成/拡大/縮小/削除/同サイズ置換、サイズ/要素/両条件、待機前の条件成立。36件で起床時刻・回数、無関係な変更、捕捉内容を確認 |
-| `interaction_class_method` | 8 | 幅・状態型・値、派生ハンドル直呼び/基底ハンドル経由のvirtual/非virtual、関数/タスク、input/ref/const ref、再帰の深さ。36件でフレーム別コピー・プロパティ参照・A/B/Aの実体切替えを確認 |
-| `interaction_return` | 13 | 幅・状態型・値、for/while/repeat、先頭/中間/末尾/該当なし、インスタンス内/package内の関数。36件で早期return・走査の副作用・到達しない文・共有状態の更新先を確認 |
-| `interaction_loop_nba` | 10 | 幅・状態型・値、for/while/repeat、反復2/3/5回、スカラ/同一要素/巡回する要素、blocking/NBA、module/interface。36件で値の依存・予約順序・インスタンス別の状態を確認 |
-| `interaction_process` | 9 | 幅・状態型・値、comb/latch、直接読取り/関数、module/interface、0/1/X/Zのイネーブル、無効時の既定値/保持。36件で暗黙の感度・時刻0の起動・保持・無関係な変更と各インスタンスの独立性を確認 |
-| `interaction_generate` | 27 | 幅・状態型・値、ワイルドカードimport/明示修飾、局所の同名型・定数、入れ子、if/case generate。36件で階層パス・型幅・genvar定数・生成要素ごとの連続代入を確認 |
-| `interaction_default` | 13 | 幅・状態型・値、module/interface、変数/関数の既定値、省略・空・名前付き・明示指定の5形式。36件で宣言元のスコープ・呼出し時の値・仮引数の結合・既定値の評価回数を確認 |
-| `interaction_event_task` | 15 | module/interface/packageのイベント、input/ref、直接/タスク経由の通常/NBAトリガ、待機者1/2/3、起床順・早い/遅い待機。13件で同期対象・全待機者の起床・再待機・Active/NBAの値を確認 |
-| `interaction_delay` | 10 | スカラ・2/32/33/64/65/129ビットのベクタ、bit/logic、既知値/X/Z、1/2/3遅延、短い/長いパルス、直接/反転。63件で遅延選択・予約取消し・値・遷移時刻と回数を確認 |
-| `interaction_import` | 23 | 幅・サンプル型・値、wildcard/明示import、局所の同名宣言、.*・.name・名前付き・修飾名・定数の接続。39件で接続先・既定値・ライブ値への追従・スコープの独立性を確認 |
-| `interaction_memfile` | 21 | 幅・元/読込み先のbit/logic、通常/列挙型、既知値/X/Z、bin/hex、全/部分/単一範囲、宣言方向・読込み方向。36件で保存値・独立入力・範囲外保持・上書き・コメント中の@の扱いを確認 |
-| `interaction_program` | 24 | 自然終了/直接・タスク内の$exit、initial数、遅延/イベント/条件待ち、子/孫、待機前の進捗、join_none/join_any、別programの寿命。18件で取消し・対照の起床・暗黙終了を確認 |
-| `interaction_nettype` | 22 | 既定net型6種類、1〜129ビット、ANSI/非ANSI、vectorの暗黙型/明示wire、2値/4値の入力、指示の戻し方2種類。40件で解決後の値・scalar/vectorの幅・定義時の適用範囲を確認 |
-| `interaction_ifgenerate` | 27 | 生成要素ごとのinterface幅、要素数1/2/3、if/caseの分岐、whole/modport接続、bit/logic・既知値/X/Z。36件で選択側・対照側の識別、変換順、幅、readerの接続先を確認 |
-| `interaction_reactive` | 24 | 幅・bit/logic・入力値、moduleのNBA段数、sourceのblocking/NBA更新、programの連続/blocking/NBA出力と反転。36件で完了前後の値・予約回数・採取文脈・NBA予約直後の旧値を確認 |
-| `interaction_struct` | 7 | メンバ順序、全体とメンバの符号、幅・状態・値、メンバ/全体の書き込み、ブロッキング/NBA。選択した36件でタグの保持、配置、独立した符号拡張を確認 |
-| `interaction_case` | 12 | セレクタと項目の幅・符号、case/casez/casex、X/Zと項目パターン。選択した36件で完全一致・ワイルドカード・重複項目の優先・フォールバック分岐を確認 |
-| `interaction_port` | 23 | 元の幅・符号・値、input/output、接続先幅、名前/位置指定、ANSI/非ANSI、サンプル型。選択した36件で階層を通過する値と最終サンプル変換を確認 |
-| `interaction_array` | 7 | 同じ要素型の配列について、幅・符号・状態型、コピー元/先の添字方向、値、全体/スライス代入をクロス。36件で宣言順の対応、コピー後の独立性、非選択要素の保持を確認 |
-| `interaction_query` | 20 | 幅・状態型・引数の形・値と位置・countbitsの制御集合をクロス。60件でビット集計、one-hot/未知値の判定、制御ビットの重複除去を確認 |
-| `interaction_stream` | 11 | 幅・方向・スライス幅・タグ・pack/unpack・格納先の状態型・値をクロス。36件で端数ブロックとunpackの逆変換を確認 |
-| `interaction_compare` | 11 | 両オペランドの幅・符号、10種の比較演算子、既知値/X/Zをクロス。100件で拡張、右辺だけのワイルドカード、1ビットの比較結果を広いlogic/bitへ代入する変換を確認 |
-| `interaction_method` | 7 | 要素の幅・状態型・符号、固定長配列/動的配列/キュー、5種の集計、変換方法4種をクロス。72件で集計前の型変換、オーバーフロー、戻り値の拡張を確認 |
-| `interaction_index` | 11 | 幅、添字範囲の始点・向き、bit/logic、インデックスの符号と値、書き込み値をクロス。44件で可変ビット選択の読み書き、無効アクセスの既定値、非選択ビットの保持を確認 |
-| `interaction_queue` | 7 | 要素の幅・状態型・符号、容量、初期サイズ、6種の操作、値をクロス。48件で要素順、容量超過時の警告と破棄、空キューの既定値、コピー後の独立性を確認 |
-| `interaction_queue_ref` | 7 | 幅・状態型・容量・保持する位置・10種の操作・既知値/X/Zの書込みをクロス。60件で移動後の要素の同一性、削除・全体代入後の参照の分離、2回の書込み、値コピーの独立性を確認 |
-| `interaction_divide` | 11 | 両オペランドの幅・符号、代入先の幅・状態型、除算/剰余、ゼロ/X/Zをクロス。72件で商の0方向への丸め、剰余の符号、演算前の拡張と演算後の変換を確認 |
-| `interaction_resize` | 7 | 要素の幅・状態型・符号・値、変更前後のサイズ、別配列コピー/自己リサイズ/初期化式なしの再生成をクロス。38件で先頭要素の保持、型別既定値、切り詰め、コピーの独立性を確認 |
-| `interaction_concat` | 11 | 連結全体と分割位置・右辺の幅、右辺と各項の符号、bit/logicの混在、ブロッキング/NBA、既知値/X/Zをクロス。72件で分割前の幅変換、各項の状態変換、値の確定、各項と連結の符号の違いを確認 |
-| `interaction_logic` | 11 | 幅、入力と結果の状態型、式の形、値と位置をクロス。70件それぞれで6種のリダクションと論理否定を実行し、支配値、状態変換の順序、unsignedの1ビット結果の拡張を確認 |
-| `interaction_shortcircuit` | 11 | 左右の幅・状態型・真偽値の分類、結果の状態型をクロス。92件それぞれで4種の二項論理演算を実行し、呼出し回数、独立した副作用、X/Zの真偽変換、状態変換の順序を確認 |
-| `interaction_edge` | 9 | 幅・状態型、イベント式、変更位置、遷移前後の値、ブロッキング/NBAをクロス。64件それぞれで背景0/1を使い、初期設定が収束した後の3種のイベント回数を確認 |
-| `interaction_iff` | 9 | イベントORの表記、信号/名前付き/混在の発火元、エッジ、条件を付ける項、既知値/X/Z/混在条件、ブロッキング/NBA。27件で項ごとの条件判定、条件だけの変化による起床の抑止、名前付きイベントの再発火を確認 |
-| `combination_events` | 6, 9, 15 | 境界条件9件。自動変数のeventの寿命、戻り値・条件式で選択したevent、計算したイベント制御、`iff`、遅延トリガ、名前付きforkの終了処理を確認 |
-| `combination_nba` | 10, 13 | 境界条件16件。`ref static`経由の遅延・イベント制御付きNBA、値と添字の確定、文字列の文字要素、配列スライスのコピーアウトを確認 |
-| `combination_aggregates` | 6, 11, 13 | 境界条件18件。アンパック構造体の参照渡しと寿命、配列のinputコピー、ネストしたパック選択、文字列やネストした代入先へのストリーミングを確認 |
-| `combination_io` | 9, 10, 21 | 境界条件13件。`$fread`の格納先とバイト順、キュー・動的配列の暗黙感度、SV内で読み戻したVCDの内容を確認 |
-| `combination_monitors` | 21 | `heap_file_monitor_context@1`の18件。登録元の記述位置×キュー/動的配列×MCD/FDをクロスし、ファイルの読み戻しでPostponedの最終値、選択添字、サイズ、コンテナ置換、`$monitoroff`との非干渉、close後の出力停止を確認 |
-| `width_sign` | 11 | 63〜1000ビットの符号付き・符号なしのオペランドと代入先。11.6〜11.8が結果の幅と符号を決める演算子 |
-| `xz_propagation` | 11 | 11.4でx/zの規則が定まる各演算子について、x/zを含むオペランド |
-| `strength` | 28 | 異なる強度と値を持つ二つのドライバ。wire・tri・wand・triand・wor・trior・tri0・tri1とbufifゲートを通し、`%v`で表示 |
-| `wide_paths` | 6, 7, 11, 13 | 63・64・65・127・128・129・200ビット、2値・4値、64ビットより上のx/z、符号の有無。広い・狭い・2値の代入先、パック配列の部分選択・スライスと書き込み、連結・反復連結、幅を超えるシフト、比較、x条件の`?:`、`$bits`、関数結果、タスク入力、output・ref引数。`%h`・`%b`・`%0d`で表示 |
-| `keywords` | 5, 22 | 不正な設計。附属書Bの各予約語を``begin_keywords "1800-2023"``の下で変数名として宣言し、22.14で各版が追加する予約語もその版の``begin_keywords``の下で宣言する。ツールは拒否する必要がある |
+[生成器カタログ](docs/generators.ja.md)に、現在の全生成器、テスト本数、章、観測範囲をまとめています。本数と両言語の資料は、現在のメタデータから生成します。
 
 各生成器のdocstringに、従う規則と、規格が結果を定めないため除いた組合せを記載しています。
 変更するのは生成器であり、生成済みファイルを直接編集しません。
@@ -663,6 +532,8 @@ python3 generators/generate.py --check    # 生成内容が最新か検査
 `generators/record_oracles.py`が再現できたリリースを`generators/oracles.txt`に記録します。
 そこから`:oracle:`を書き出します。どちらも再現しないものはモデルだけが根拠の`:oracle: spec`です。
 モデルとシミュレータが異なる場合は、ここでも条項で判断します。
+
+<a id="running-the-suite"></a>
 
 ## スイートの実行
 
@@ -769,7 +640,7 @@ x86-64 Linuxだけでビルドでき、リリースがないため、`--commit`�
 Lyraは標準エラーに診断を出し、未対応の機能を"is not yet supported"と示すので、未対応に分類します。
 標準出力のうち、Lyra自身が出す位置情報で始まる行（cover文の回数など）を除去し、
 テストが出した行を残して比較します。不正な設計は`lyra check`で確認します。
-VPIがないため`:vpi_c:`は未対応です。Lyraを根拠に記録した期待出力はなく、全テストを集計対象にします。
+VPIがないため`:vpi_c:`は未対応です。Lyraを根拠に記録した期待出力はなく、formal以外の全テストを集計対象にします。
 
 ### Ghost
 
@@ -783,7 +654,7 @@ Ghostは、公開前のシミュレータが当面使う仮名です。非公開
 `arguments`、`environment`、`include_subdirs`、`trailer`、`banner_pattern`、
 `severity_pattern`を指定し、このリポジトリの外に置きます。
 共通の`:expected_stdout:`を使い、終了コードと必要な診断も確認します。
-DPI/VPIのCコードは共有ライブラリにビルドします。全テストを集計対象とし、既知の差異として除外しません。
+DPI/VPIのCコードは共有ライブラリにビルドします。formal以外の全テストを集計対象とし、既知の差異として除外しません。
 プロファイルに従ってツール自身のバナーとseverityメッセージを除き、テストの出力は残します。
 公開結果に含めるのは、一般化した不一致理由と、実行ファイルを識別するハッシュです。
 実行ファイルの版表示と内部の診断は公開しません。実行中に実行ファイルやプロファイルが変わった場合、結果は破棄します。
@@ -811,6 +682,8 @@ Python 3.10以上と、動作するSymbiYosys・Yosys・ソルバーの環境が
 [ランナーの選択規則](docs/runner-selection-20261028.md)と
 [フォーマル検証のガイド](docs/sva-reference-formal-verification.md)も参照してください。
 
+<a id="other-simulators"></a>
+
 ### 他のシミュレータ
 
 別のシミュレータの実行スクリプトは、テストごとに次を行います。
@@ -818,6 +691,8 @@ Python 3.10以上と、動作するSymbiYosys・Yosys・ソルバーの環境が
 シミュレータ自身の標準出力の行を除去し、残りを`tools/normalize_output.py`で正規化して期待出力と比較します。
 既存の短い実行スクリプトをひな型にできます。`--json`と`tools/suite_results.py`を使えば、
 新しい実行スクリプトの結果もNightly履歴に追加できます。
+
+<a id="recording-and-drawing-results-locally"></a>
 
 ### ローカルでの結果記録とグラフ生成
 
@@ -830,17 +705,19 @@ python3 tools/results_history.py update --history my-results --source local out/
 ```
 
 `update`は同じ履歴内の各シミュレータの前回と比較して`my-results/history.json`に追加し、
-`my-results/charts/*.svg`と`my-results/README.md`を生成します。
+日英の`my-results/charts/*.svg`と`my-results/README.md`・`my-results/README.ja.md`を生成します。
+実行例の保存先`my-results/`はGitの管理対象外です。
 既定では実行日時に現在時刻、スイートのコミットに`HEAD`を使います。過去の結果を取り込む場合は、
 `--time`、`--suite-commit`、`--run-url`で実際の実行日時・コミット・結果の参照先を指定します。
 `tools/`から実行スクリプトがなくなったシミュレータも履歴には残しますが、描画しません。
 `python3 tools/results_history.py render --history my-results`で履歴だけから再生成できます。
 
+<a id="workflows"></a>
+
 ## ワークフロー
 
-`.github/workflows/check.yml`は、`tests/`、`tools/`、`generators/`、`docs/tests/`、
-英語版または日本語版README、`coverage/`、`docs/behavior-coverage.md`、
-`docs/coverage-depth.md`、`docs/interaction-*.md`、またはワークフロー自身を変更するmainへのpushとプルリクエストで動きます。
+`.github/workflows/check.yml`は、`tests/`、`tools/`、`generators/`、`docs/`、
+英語版または日本語版README、`coverage/`、またはワークフロー自身を変更するmainへのpushとプルリクエストで動きます。
 Actionsタブから手動実行もできます（`workflow_dispatch`）。スイートに問題がある場合に失敗します。
 
 - **icarus**：Icarus Verilog 13.0を`v13_0`タグからビルドし、Actionsのキャッシュに保存してformal以外の全件を実行します。
@@ -856,6 +733,8 @@ Actionsタブから手動実行もできます（`workflow_dispatch`）。スイ
   ツールの単体テスト、原文レビュー必須での要求カバレッジとベースラインの検査、
   要求照合一覧の更新状況の確認も行います。クロスのモデル・選択ケース・保存済み実行集計は
   `tools/interaction_coverage.py --check`で検査します。
+  全生成器のカタログと日英の全資料も検査し、手書き資料の更新漏れをハッシュで検出し、
+  自動生成資料の両言語版が最新の状態であることを確認します。
 
 `.github/workflows/nightly.yml`は毎日19:23 UTC（翌日の04:23 JST）に予定され、手動実行もできます。
 最新のスイートと設定で再実行するときは、
@@ -874,10 +753,10 @@ GitHubが混雑していると数時間遅れることがあります。実行�
   結果は先にアップロードするので、ジョブの成否によらずその晩の履歴に含められます。
 - **lyra**：ジョブ開始時に`main`の最新コミットを取得し、そのSHAを`LYRA_COMMIT`に設定します。
   ソースの取得・ビルドキャッシュ・結果に記録するコミットには、同じSHAを使います。
-  未キャッシュのコミットはBazelでLLVMを含めてビルドします。過去のホストランナーでは42〜89分かかりました。
+  未キャッシュのコミットはBazelでLLVMを含めてビルドします。
   実行ファイルとrunfilesをBazelのツリーからコピーし、場所に依存するrunfilesマニフェストを除いて保存します。
-  formal以外の全テストを実行します。過去のテスト実行時間は35〜70分でした。
-- **ghost**：公開前のゲストを非公開でビルドし、全テストを実行します。
+  formal以外の全テストを実行します。過去の所要時間は[Lyraの実行記録](docs/readme-records-20261101.ja.md#lyra-runtime-records)を参照してください。
+- **ghost**：公開前のゲストを非公開でビルドし、formal以外の全テストを実行します。
   取得先と実行プロファイルはSecretsから読みます。公開するのは仮名・ビルドのハッシュ・テスト結果で、
   ソースやビルド出力はランナー内に留めます。
 - **publish**：完了したジョブの`--json`結果を集め、`tools/results_history.py update`で
@@ -889,6 +768,8 @@ GitHubが混雑していると数時間遅れることがあります。実行�
 
 結果を作る前にNightlyジョブが失敗したシミュレータは、その晩の履歴から除きます。
 次の実行では最後に保存できた結果と比較します。
+
+<a id="contributing"></a>
 
 ## 変更への参加
 
@@ -919,13 +800,13 @@ python3 tools/new_test.py ch9 test_illegal_always_comb_delay --lrm "9.2.2.2" --i
   信号と、その信号から計算した値（継続代入の出力など）の両方を待つイベント制御は、
   同じ時間ステップに1回または2回起動し得るので、そのような値は固定時刻に出力します。
 - 不正な設計の意図した一つの誤りを除き、規格上正しいコードにします。特にANSI形式の入力ポートで、
-  2値型や仮想インターフェースなどネットにできない型を使うなら、`var`を付けます（`input var int d`）。
+  2値型や仮想インターフェースなどネットにできない型を使うなら、`var`を付けます（`input var bit d`）。
   ポート種別を省略した入力はネットであり、ネットの型は4値の整数型か、その配列・構造体です（23.2.2.3、6.7.1）。
 - 不正な設計は`:should_fail_because:`に理由、`:expected_stderr_regex:`にエラーのファイルと行を
   指定します。妥当な報告位置が複数あればすべてを許容し、他の誤りを含めません。
   リリースが未対応の構文だけを理由にその行で拒否する場合は、コメントに明記します。
 - 「期待出力の決め方」に従って規格から期待値を決め、可能ならIcarus Verilog 13.0かVerilator 5.052で
-  確認します。規格と異なる箇所は[差異一覧](docs/simulator-differences.md)とテストのコメントに記録します。
+  確認します。規格と異なる箇所は[差異一覧](docs/simulator-differences.ja.md)とテストのコメントに記録します。
 
 新しくレビューした要求ごとに、境界値・不正ケースも含め、要求と観測を
 [`coverage/behaviors.json`](coverage/behaviors.json)に記録します。
@@ -941,16 +822,28 @@ python3 tools/coverage_depth.py --update
 python3 tools/behavior_coverage.py --update
 python3 tools/requirement_matching.py --update
 python3 tools/interaction_coverage.py --update
+python3 tools/chapter_cross_matrix.py --update
+python3 tools/chapter_cross_triage.py --update
+python3 tools/combination_gaps.py --update
+python3 tools/generator_catalog.py --update
+python3 tools/documentation_languages.py --update
 python3 tools/lint_metadata.py
 ```
+
+手書き資料は日英の両方を更新してから、
+`python3 tools/documentation_languages.py --record`と`--check`を実行してください。
+[翻訳の保守手順](tools/doc_locales/README.ja.md)と[資料一覧](docs/README.ja.md)を参照してください。
+現在の状態はREADMEに記載し、日付付きの作業・測定記録は[履歴](docs/history.ja.md)に残します。
 
 `tools/lint_metadata.py`は、上のルールのうちスクリプトで確認できるものを報告します。
 フィールドと値、`:lrm:`とディレクトリ、`:fourstate: no`でのx/zリテラル、期待出力、
 不正な設計のフィールド、指定ファイル、行長、`Verilator`で始まるコメント、
 時刻を出力する場合の`` `timescale ``、ひな型のTODO残りなどです。ルールの一覧はdocstringにあります。
 
-このリポジトリの資料の多くはAI（Claude Code、OpenCode）の支援で作りました。
+このリポジトリの資料の多くはAI（Claude Code、Codex、OpenCode）の支援で作りました。
 期待結果を規格と照合する責任は人にあります。
+
+<a id="license"></a>
 
 ## ライセンス
 

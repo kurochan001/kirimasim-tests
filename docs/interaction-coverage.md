@@ -1,8 +1,10 @@
+<a id="plan-and-execution-of-crossfunctionality-verification"></a>
+
 # 機能間クロスの計画と実行確認
 
-このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の
-組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。
-既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
+[English](interaction-coverage.en.md) / [日本語](interaction-coverage.md)
+
+このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
 生成元・利用手順・適用限界は[導入手順](interaction-verification.md)を参照してください。
 
@@ -147,7 +149,7 @@
 - operation: plain, add。
 - state: bit, logic。
 
-制約: signing castは幅を変えないのでcast_width=same。幅1のnarrowは除外。代入先は元の幅+2。typed castの型はunsigned
+制約: signing castは幅を変えないので cast_width =same。幅 1 のnarrowは除外。代入先は元の幅 +2 。typed castの型はunsigned
 
 ## task_argument_visibility / model 1
 
@@ -293,7 +295,7 @@
 - position: none, low, middle, high。
 - controls: zero, one, unknown, mixed, duplicate。
 
-制約: zeroの位置はnone。他の値はlow/middle/high。幅1ではlowだけを使い、many/mixedとhalfを除外。halfは下位半分。制御ビットは1ビット定数
+制約: zeroの位置はnone。その他の値はlow/middle/high。幅 1 ではlowだけを使い、many/mixedとhalfを除外。halfは下位半分。制御ビットは 1 ビット定数
 
 ## streaming_permutation / model 1
 
@@ -502,7 +504,7 @@
 - position: none, low, middle, high。
 - result_state: bit, logic。
 
-制約: zero/onesの位置はnone、他はlow/middle/high。幅1はlowだけを使い、mixedと幅0になるhalfを除外。halfは下位半分。各行で全6リダクションと!を観測。入力と代入先の状態型を分け、全行で既知の全1入力も観測する。入力はsignedに固定し、演算結果がunsignedであることを確認する
+制約: zero/onesの位置はnone、他はlow/middle/high。幅 1 はlowだけを使い、mixedと幅 0 になるhalfを除外。halfは下位半分。各行で全 6 リダクションと!を観測。入力と代入先の状態型を分け、全行で既知の全 1 入力も観測する。入力はsignedに固定し、演算結果がunsignedであることを確認する
 
 ## logical_short_circuit / model 1
 
@@ -1154,11 +1156,11 @@ classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量
 
 制約: 全648行が合法。静的寿命のイベントを使用し、呼出しは時刻2、待機登録は時刻4、再結合は時刻1/3/5に分離する。inputは呼出し時のハンドルをコピーし、refと直接参照は待機登録時の値を用いる。登録済みの@は再結合後も元の同期オブジェクトを待つ。nullは全待機完了後の代入・比較・無効果のトリガだけに使用する。nullへの待機、triggered、wait_order、自動イベントの回収、同一tickの再結合と登録の競合は対象外。未対応による除外なし。
 
+<a id="verify-that-the-input-fingerprint-matches-the-execution"></a>
+
 ## 入力指紋が一致した実行の確認
 
-各スナップショットを独立に評価します。複数の版・実行の部分成功を合成しません。
-passだけを合格の証跡とし、known・unsupported・staleを合格へ含めません。
-この集計は期待値との一致を確認した組合せの割合です。失敗実行からの生の到達率は未計測です。
+各スナップショットを独立に評価します。複数の版・実行の部分成功を合成しません。 passだけを合格の証跡とし、known・unsupported・staleを合格へ含めません。 この集計は期待値との一致を確認した組合せの割合です。失敗実行からの生の到達率は未計測です。
 
 ### coverage/interaction-results/assertion-wait-20261031-icarus13.json
 

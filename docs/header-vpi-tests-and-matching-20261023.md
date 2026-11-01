@@ -1,14 +1,18 @@
+<a id="adding-annex-header--vpi-tests-and-mapping-existing-tests-2026-10-23"></a>
+
 # 附属書ヘッダ・VPIテストの追加と既存テストの照合（2026-10-23）
+
+[English](header-vpi-tests-and-matching-20261023.en.md) / [日本語](header-vpi-tests-and-matching-20261023.md)
 
 > この文書の件数・割合・保留状態は、各作業時点の記録です。
 > 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
 > [要求抽出の結果](requirement-extraction.md)を参照してください。
 
-[現在の集計](behavior-coverage-summary.md) / [照合台帳](test-requirement-matching.md) / [累積の進捗・指摘](existing-test-matching-review-20261022.md) / [シミュレータと規格の差異](simulator-differences.md)
+[現在の集計](behavior-coverage-summary.md) / [照合台帳](test-requirement-matching.md) / [累積の進捗・指摘](existing-test-matching-review-20261022.md) / [シミュレータと規格の差異](simulator-differences.ja.md)
 
-20%超過の後、50%を目標に作業を続け、途中で区切りました。
-この記録は、そのうち独立した検証を終えた部分だけを台帳へ取り込んだ結果です。
-検証が済んでいない新規テストと照合案は取り込んでいません。
+20%超過の後、50%を目標に作業を続け、途中で区切りました。 この記録は、そのうち独立した検証を終えた部分だけを台帳へ取り込んだ結果です。 検証が済んでいない新規テストと照合案は取り込んでいません。
+
+<a id="aggregation"></a>
 
 ## 集計
 
@@ -23,12 +27,15 @@
 | 対応のあるテスト | 1,386 | 1,539 |
 
 - 追加した対応根拠は1,465件、対応要求は1,424件増えました。
-- **増分の大半は附属書のCヘッダです。** K.2とM.2では定数1個が1要求行として登録されており、定数だけで855行あります。
-  暫定値はすべての登録行を同じ重みで数えるので、本文だけの値も併記しました。
+- **増分の大半は附属書のCヘッダです。** K.2とM.2では定数1個が1要求行として登録されており、定数だけで855行あります。 暫定値はすべての登録行を同じ重みで数えるので、本文だけの値も併記しました。
 - 確定値（設計・実行とも）は引き続き未確定です。分母の承認、意味上の重複整理、解釈保留が残っています。
 - 担当はAI（Claude Opus 5.5）です。作成者とは別の検証用エージェントが反証を試みましたが、独立した人による確認ではありません。
 
+<a id="breakdown"></a>
+
 ## 内訳
+
+<a id="1-new-tests-for-annex-c-headers-24-tests-1081-requirements"></a>
 
 ### 1. 附属書のCヘッダを検証する新規テスト（24本、1,081要求）
 
@@ -44,15 +51,11 @@
 
 確認方法:
 
-- 定数の値は、規格本文の`#define`から求めて期待出力にしました。シミュレータの出力は使っていません。
-  検証担当も、本文とPDFから3通りで値を独自に抽出して照合しています。
-- 定数は`#ifdef`で囲んで出力するので、未定義なら行が欠けます。値は`enum`の初期化子に使うので、整数定数式でなければコンパイルが止まります。intの範囲外でもゼロ除算でコンパイルが止まります。
-  検証担当は855定数のそれぞれについて8種類の変異（+1、浮動小数、±2^32、u接尾辞、文字列、空定義、未定義）を試しました。clang/gccとC/C++の計27,360ビルドのうち、期待出力と一致したものは0件です。
-- 宣言は、C11の`_Generic`とC++の`decltype`で、規格の型と完全一致するかを評価されない式で比べます。このため、シミュレータが実装していないルーチンでもリンクは不要です。
-  戻り値型、引数型、ポインタの段数、const、可変長引数の有無を1つずつ誤らせると、該当行が0になることを確認しました。
+- 定数の値は、規格本文の`#define`から求めて期待出力にしました。シミュレータの出力は使っていません。 検証担当も、本文とPDFから3通りで値を独自に抽出して照合しています。
+- 定数は`#ifdef`で囲んで出力するので、未定義なら行が欠けます。値は`enum`の初期化子に使うので、整数定数式でなければコンパイルが止まります。intの範囲外でもゼロ除算でコンパイルが止まります。 検証担当は855定数のそれぞれについて8種類の変異（+1、浮動小数、±2^32、u接尾辞、文字列、空定義、未定義）を試しました。clang/gccとC/C++の計27,360ビルドのうち、期待出力と一致したものは0件です。
+- 宣言は、C11の`_Generic`とC++の`decltype`で、規格の型と完全一致するかを評価されない式で比べます。このため、シミュレータが実装していないルーチンでもリンクは不要です。 戻り値型、引数型、ポインタの段数、const、可変長引数の有無を1つずつ誤らせると、該当行が0になることを確認しました。
 - 互換テストは、規格本文から復元したvpi_compatibility.hとvpi_user.hに対して、CとC++の両方で期待出力と一致することを確認しました。
-- 検証は3回行いました。1回目は、`(int)`キャストで浮動小数の定義を区別できないとして定数が全件却下されました。2回目は、intの範囲外の値が切り詰められるとして再び全件却下されました。どちらもテストを直しています。
-  ガードの働き、共用体であること、`SV_MASK`の式、インクルードの位置についても、指摘を受けてテストを直しています。
+- 検証は3回行いました。1回目は、`(int)`キャストで浮動小数の定義を区別できないとして定数が全件却下されました。2回目は、intの範囲外の値が切り詰められるとして再び全件却下されました。どちらもテストを直しています。 ガードの働き、共用体であること、`SV_MASK`の式、インクルードの位置についても、指摘を受けてテストを直しています。
 - 対応付けを見送った行は次のとおりです。いずれもヘッダの宣言だけでは観測できない条件を含みます。
   - 使い方の規則や値の意味を含む行：DELAY-FIELD、VALUE・ARRAYの各メンバー、STEP-STRUCT、TIME、VECTOR、STRENGTH、SYSTF、L.1 INCLUSION。
   - Windows専用の分岐を含むSIZE-TYPES。
@@ -64,14 +67,15 @@
   - Icarus Verilog 13.0：ヘッダが一部の定数と宣言しか持たないため、どれも一致しません。
   - 互換テスト6本と`test_svdpi_h_sv_mask`は、どちらのシミュレータとも一致しないため`:oracle: spec`だけにしています。
 
+<a id="2--new-tests-of-the-vpi-object-model-in-the-37-chapter-24-tests-193-requirement"></a>
+
 ### 2. 37章のVPIオブジェクトモデルの新規テスト（24本、193要求）
 
 - instance・scope・block・net・port・ref objなどの関係図と詳細規則を、C helperで実際に辿って値を比較するテストです。
-- 作成担当が26本を書き、別の検証担当が全テストと全照合案を確認しました。テスト24本が合格、照合案は195件が採用、36件が却下です。
-  欠陥ありとされた2本（`test_vpi_io_decl_relations_props`、`test_vpi_nettype_net_select_kind`）は、期待値の一部が規格から導けないため取り込んでいません。
-- 23本は`:oracle: spec`だけです。Icarus 13.0はヘッダに定数が足りずC helperをコンパイルできず、Verilator 5.052はVPIで登録したシステムタスクを呼べません。
-  C helperは、1800-2023版の標準ヘッダに対してCでは警告なし、C++では文字列リテラルの変換警告だけでコンパイルできることを確認しました。
-  `test_vpi_def_line_directive`はIcarus 13.0と一致します。
+- 作成担当が26本を書き、別の検証担当が全テストと全照合案を確認しました。テスト24本が合格、照合案は195件が採用、36件が却下です。 欠陥ありとされた2本（`test_vpi_io_decl_relations_props`、`test_vpi_nettype_net_select_kind`）は、期待値の一部が規格から導けないため取り込んでいません。
+- 23本は`:oracle: spec`だけです。Icarus 13.0はヘッダに定数が足りずC helperをコンパイルできず、Verilator 5.052はVPIで登録したシステムタスクを呼べません。 C helperは、1800-2023版の標準ヘッダに対してCでは警告なし、C++では文字列リテラルの変換警告だけでコンパイルできることを確認しました。 `test_vpi_def_line_directive`はIcarus 13.0と一致します。
+
+<a id="3-compare-to-existing-test-150-requirement"></a>
 
 ### 3. 既存テストの照合（150要求）
 
@@ -81,6 +85,8 @@
   - 要求の条件を刺激する既存テストがそもそも無い。
   - 型・符号・境界の片側しか観測していない。
   - 引用節が足りず、照合の対象外になる（引用を足せば対応できる例が多数あったが、テストの入力が変わり実行証跡が古くなるため、今回は見送った）。
+
+<a id="added-findings-and-holds-m98m129"></a>
 
 ## 追加した指摘と保留（M98–M129）
 
@@ -114,18 +120,21 @@
 | M126 | `ch14/test_clocking_input_with_expression` | 引用 | 1stepの直前値を観測しているが（M71の不足を補う）、引用節が対応していない。 |
 | M127–M129 | `ch28/test_primitives_multi_input`、`test_gate_primitives`、`test_gate_primitives_2` | 期待値 | ゲートの出力端子に変数を接続している。28.3の文法ではnet_lvalueが必要。 |
 
-区分の「期待値」は`oracle_issue`、「部分観測」は`partial_observation`、「複合要求」は`compound_requirement`、「引用」は`citation_refinement`です。
-これらのテストの入力と期待値はこの作業では変更していません。
+区分の「期待値」は`oracle_issue`、「部分観測」は`partial_observation`、「複合要求」は`compound_requirement`、「引用」は`citation_refinement`です。 これらのテストの入力と期待値はこの作業では変更していません。
+
+<a id="execution-evidence"></a>
 
 ## 実行証跡
 
 新規48本は、次の3つの実行回として別々に保存しました。全件の結果は上書きしていません。
 
 - `coverage/results/header-vpi-tests-20261023-icarus13.json`：Icarus Verilog 13.0（v13_0-dirty）。1 pass、47 known。
-- `coverage/results/header-vpi-tests-20261023-verilator-seed1.json`：Verilator 5.052（seed 1）。17 pass、31 known。
-- `coverage/results/header-vpi-tests-20261023-verilator-seed73.json`：Verilator 5.052（seed 73）。17 pass、31 known。
+- `coverage/results/header-vpi-tests-20261023-verilator-seed1.json` ： Verilator 5.052 （seed 1 ）。17 pass、31 known。
+- `coverage/results/header-vpi-tests-20261023-verilator-seed73.json` ： Verilator 5.052 （seed 73 ）。17 pass、31 known。
 
 `known`は成功に数えていません。照合で対応付けた既存テストは、保存済みの実行結果の入力ハッシュとランナーの整合性を照合しています。
+
+<a id="remaining-work"></a>
 
 ## 残っている作業
 

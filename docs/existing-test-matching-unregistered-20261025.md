@@ -1,4 +1,8 @@
+<a id="unregistered-test-comparison-round-1-2026-10-25"></a>
+
 # 未登録テストの照合：第1回（2026-10-25）
+
+[English](existing-test-matching-unregistered-20261025.en.md) / [日本語](existing-test-matching-unregistered-20261025.md)
 
 > この文書の件数・割合・保留状態は、各作業時点の記録です。
 > 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
@@ -6,9 +10,7 @@
 
 [現在のカバレッジ](behavior-coverage-summary.md) / [全テストの照合台帳](test-requirement-matching.md) / [照合の方法](requirements-to-tests-method.md) / [前回までの指摘](existing-test-matching-review-20261022.md)
 
-この文書は、対応登録のない既存テスト2,514本を対象に始めた照合の、最初の区間の記録です。
-テストの刺激と期待出力をIEEE 1800-2023の本文に照らし、独立した検証担当の反証を経て、
-合格した対応だけを台帳へ取り込みました。
+この文書は、対応登録のない既存テスト2,514本を対象に始めた照合の、最初の区間の記録です。 テストの刺激と期待出力をIEEE 1800-2023の本文に照らし、独立した検証担当の反証を経て、 合格した対応だけを台帳へ取り込みました。
 
 - 新たに対応登録したテスト：45本（未登録2,514本 → 2,498本）。内訳は、刺激が足りず保留にしていた要求のために新しく書いた6本と、シミュレータ側のCTestスイートから取り込んだ23本です。
 - 新たに対応した要求：99行（7,341行 → 7,440行）。
@@ -16,27 +18,25 @@
 - 暫定実行確認率：33.566036%（4,135/12,319）のまま。シミュレータは再実行していません。
 - 対応を保留した判断：490本・1,061ペア（`citation_refinement` 33、`compound_requirement` 109、`oracle_issue` 49、`partial_observation` 530）。
 
-登録済み本数は、少なくとも一つの要求との対応がある本数です。
-16本すべての観測を精査し終えたという意味ではなく、全テストの検証内容に基づく対応付けは未完了です。
+登録済み本数は、少なくとも一つの要求との対応がある本数です。 16本すべての観測を精査し終えたという意味ではなく、全テストの検証内容に基づく対応付けは未完了です。
+
+<a id="method"></a>
 
 ## 方法
 
-[照合キット](../tools/matching_kit/README.md)の`propose.py`で候補を読み、`add`・`hold`で提案し、
-別の担当が`verdict`で反証し、`merge.py`が合格分だけを台帳へ適用しました。
-提案・判定・作業メモはリポジトリ外（`/tmp/opencode/matching/`）に置き、リポジトリ内は
-`merge.py`と生成ツールだけが更新しています。
+[照合キット](../tools/matching_kit/README.ja.md)の`propose.py`で候補を読み、`add`・`hold`で提案し、 別の担当が`verdict`で反証し、`merge.py`が合格分だけを台帳へ適用しました。 提案・判定・作業メモはリポジトリ外（`/tmp/opencode/matching/`）に置き、リポジトリ内は `merge.py`と生成ツールだけが更新しています。
 
 登録の基準は[方法文書](requirements-to-tests-method.md)の6章のとおりです。
 
 - 刺激が要求の**全条件**を起こすこと。
 - 期待出力が、その要求にだけ反する実装を区別できること。
 - 名前・説明・引用節・API呼び出しの事実だけを根拠にしないこと。
-- 非NULLだけの確認、常に同じ値でも通る検査、自己比較、個数だけの確認、
-  規格が順序を決めない観測に依存しないこと。
+- 非NULLだけの確認、常に同じ値でも通る検査、自己比較、個数だけの確認、 規格が順序を決めない観測に依存しないこと。
 - 規格違反の検出を求める要求には`:should_fail_because:`と`:expected_stderr_regex:`を持つテストだけを使うこと。
 
-迷った場合は登録せず、範囲を限定した保留として記録しました。
-保留はテスト全体の承認ではなく、その要求との対応を保留した記録です。
+迷った場合は登録せず、範囲を限定した保留として記録しました。 保留はテスト全体の承認ではなく、その要求との対応を保留した記録です。
+
+<a id="registered-mappings"></a>
 
 ## 登録した対応
 
@@ -64,39 +64,29 @@
 | 6.18 / 8.27 | [test_typedef_declaration_forms](../tests/ch6/test_typedef_declaration_forms.sv) | `CLASS-FORWARD-OMISSION` |
 | A.2.1.3 | [test_typedef_declaration_forms](../tests/ch6/test_typedef_declaration_forms.sv) | `TYPEDEF`、`FORWARD-TYPES` |
 
-上記16本に、次の2節の新規29本を加えた45本が今回の登録です。
-主な観測は次のとおりです。
+上記16本に、次の2節の新規29本を加えた45本が今回の登録です。 主な観測は次のとおりです。
 
-- **36.3 / 5.6.3**：大文字小文字だけが違う2名、名前に`$`を含む名、数字を含む名、
-  最後の1文字だけが違う72文字の2名をPLIで登録し、6名がそれぞれの登録名で実行されること。
-  名前の大小区別・任意長・全文字有意と、PLIによる追加のシステムタスクを同時に観測します。
-- **19.11.3**：`merge_instances`で単一ビン（`one_t` 100.00）、遷移配列（`t` 50.00）、
-  自動ビン（33.33 → 66.67）が名前で重なることを、被覆率の数値から確認します。
-- **19.8.1**：引数付きに上書きした`sample`が、automatic関数（1/8）、forkした2プロセス（3/8）、
-  sequenceのmatch item（4/8）からデータを受け取ること。sequenceの値がPreponedの
-  `d`（2と6）であり、NBA後の`d`（6と7）なら5/8になることを区別します。
-- **38.10 / 38.32**：`mtm_flag=FALSE`・`pulsere_flag=FALSE`で`da[0]`が1番目、
-  `da[1]`が2番目の遅延になること。読み出しの`3 5`と、設定後の立ち上がり17・立ち下がり39で
-  順序の入れ替えを区別します。
-- **6.18 / 8.27 / A.2.1.3**：`typedef Fwd;`が後続の`class Fwd;`に解決すること、
-  typedefの3代替と4種のunpacked次元、5種の前方型キーワードを、`deep_t=32`・`w5_t=5`・
-  `p=3,4/2`などの値で確認します。
-- **18.5.10**：`static constraint`の宣言と、constraint_modeが全オブジェクトで共有されること。
-  通常制約`c_d`が共有されない対照も同じ出力に含みます。
+- **36.3 / 5.6.3**：大文字小文字だけが違う2名、名前に`$`を含む名、数字を含む名、 最後の1文字だけが違う72文字の2名をPLIで登録し、6名がそれぞれの登録名で実行されること。 名前の大小区別・任意長・全文字有意と、PLIによる追加のシステムタスクを同時に観測します。
+- **19.11.3**：`merge_instances`で単一ビン（`one_t` 100.00）、遷移配列（`t` 50.00）、 自動ビン（33.33 → 66.67）が名前で重なることを、被覆率の数値から確認します。
+- **19.8.1**：引数付きに上書きした`sample`が、automatic関数（1/8）、forkした2プロセス（3/8）、 sequenceのmatch item（4/8）からデータを受け取ること。sequenceの値がPreponedの `d`（2と6）であり、NBA後の`d`（6と7）なら5/8になることを区別します。
+- **38.10 / 38.32**：`mtm_flag=FALSE`・`pulsere_flag=FALSE`で`da[0]`が1番目、 `da[1]`が2番目の遅延になること。読み出しの`3 5`と、設定後の立ち上がり17・立ち下がり39で 順序の入れ替えを区別します。
+- **6.18 / 8.27 / A.2.1.3**：`typedef Fwd;`が後続の`class Fwd;`に解決すること、 typedefの3代替と4種のunpacked次元、5種の前方型キーワードを、`deep_t=32`・`w5_t=5`・ `p=3,4/2`などの値で確認します。
+- **18.5.10**：`static constraint`の宣言と、constraint_modeが全オブジェクトで共有されること。 通常制約`c_d`が共有されない対照も同じ出力に含みます。
+
+<a id="pending-items-resolved-by-added-stimulus-6-new-tests"></a>
 
 ## 刺激の追記で解消した保留（新規テスト6本）
 
-既存テストの刺激が要求の全条件に届かず保留にしていた13要求について、新しいテスト6本を追加しました。
-期待値は規格本文から先に導き、Icarus Verilog 13.0（一部は Verilator 5.052 も）で一致を確認しています。
+既存テストの刺激が要求の全条件に届かず保留にしていた13要求について、新しいテスト6本を追加しました。 期待値は規格本文から先に導き、Icarus Verilog 13.0（一部は Verilator 5.052 も）で一致を確認しています。
 
 | 要求 | 新規テスト | 追加した刺激 | `:oracle:` |
 |---|---|---|---|
-| 5.6.1 `ESCAPE-CHARACTER-DOMAIN` | [test_escaped_identifier_character_domain](../tests/ch5/test_escaped_identifier_character_domain.sv) | 印刷可能ASCII 33〜126の各文字、標準例の複数文字名、エスケープしたキーワード`\net` | iverilog + verilator |
-| 5.7.1 `FILL-CONTEXT` | [test_unsized_fill_all_values](../tests/ch5/test_unsized_fill_all_values.sv) | `'0`/`'1`/`'x`/`'z` × 8/33/65ビット、自己決定幅の`$bits('1)` | iverilog |
-| 5.8 `TIME-NUMERIC-FORM` | [test_time_literal_units_and_fraction](../tests/ch5/test_time_literal_units_and_fraction.sv) | `fs/ps/ns/us/ms/s`の6単位と固定小数点`3.5ns` | iverilog + verilator |
-| 11.4.6 `RIGHT-ONLY-WILDCARD` | [test_wildcard_lhs_unknown](../tests/ch11/test_wildcard_lhs_unknown.sv) | LHSのx/z（非ワイルド）、RHSの`?`/x/zがLHSの0/1/x/zに一致、既知不一致による0確定 | iverilog |
-| 20.7 `DIMENSION-NUMBERING`、`PREDEFINED-INTEGER-DIMENSION`、`DIMENSIONS`、`UNPACKED-DIMENSIONS` | [test_array_query_functions](../tests/ch20/test_array_query_functions.sv) | 4次元配列の次元番号、typedef展開、整数型の単一packed次元、packed/unpacked/動的/string/realの次元数 | verilator |
-| 20.7 `ARRAY-QUERY-SYNTAX`、`CONSTANT-ARRAY-QUERY`、`INCREMENT`、`RIGHT-BOUND`、`INVALID-DIMENSION` | [test_array_query_types_and_invalid](../tests/ch20/test_array_query_types_and_invalid.sv) | 型引数、定数式、空キュー/動的配列の-1、無効次元の全x | spec |
+| 5.6.1 `ESCAPE-CHARACTER-DOMAIN` | [test_escaped_identifier_character_domain](../tests/ch5/test_escaped_identifier_character_domain.sv) | 印刷可能ASCII 33〜126の各文字、標準例の複数文字名、エスケープしたキーワード`\net` |iverilog + verilator|
+| 5.7.1 `FILL-CONTEXT` | [test_unsized_fill_all_values](../tests/ch5/test_unsized_fill_all_values.sv) | `'0`/`'1`/`'x`/`'z` × 8/33/65ビット、自己決定幅の`$bits('1)` |iverilog|
+| 5.8 `TIME-NUMERIC-FORM` | [test_time_literal_units_and_fraction](../tests/ch5/test_time_literal_units_and_fraction.sv) | `fs/ps/ns/us/ms/s`の6単位と固定小数点`3.5ns` |iverilog + verilator|
+| 11.4.6 `RIGHT-ONLY-WILDCARD` | [test_wildcard_lhs_unknown](../tests/ch11/test_wildcard_lhs_unknown.sv) | LHSのx/z（非ワイルド）、RHSの`?`/x/zがLHSの0/1/x/zに一致、既知不一致による0確定 |iverilog|
+| 20.7 `DIMENSION-NUMBERING`、`PREDEFINED-INTEGER-DIMENSION`、`DIMENSIONS`、`UNPACKED-DIMENSIONS` | [test_array_query_functions](../tests/ch20/test_array_query_functions.sv) | 4次元配列の次元番号、typedef展開、整数型の単一packed次元、packed/unpacked/動的/string/realの次元数 |verilator|
+| 20.7 `ARRAY-QUERY-SYNTAX`、`CONSTANT-ARRAY-QUERY`、`INCREMENT`、`RIGHT-BOUND`、`INVALID-DIMENSION` | [test_array_query_types_and_invalid](../tests/ch20/test_array_query_types_and_invalid.sv) | 型引数、定数式、空キュー/動的配列の-1、無効次元の全x |スペック|
 
 - **5.6.1**：Icarus 13.0は1文字名`\#`を特別な名前として誤解析するため、`#`は`\a#b`の内部で刺激しています。他の93文字は単独名で宣言し、文字コードを連結表示して1文字ずつ解決を確認します。
 - **5.7.1**：既存テストは`'0`/`'1`だけだったため、`'x`/`'z`と33/65ビットの文脈、自己決定幅1を追加しました。
@@ -105,10 +95,11 @@
 - **20.7**：配列クエリは、Icarus 13.0が型引数と定数式を受理せず、空キューの`$right`/`$increment`に0を返し、`int dyn[]`を0次元と数えるため、実行可能な4要求と仕様専用の5要求に分けました。実行可能側はVerilator 5.052で一致し、Icarusは動的配列の次元数だけ異なります。
 - 6本とも`lint_metadata.py`を通し、`runsim.py`で`:oracle:`の記載どおりの結果を確認しました。Verilatorは2値なので`'x`/`'z`のテストと、4値のRHSを定数以外に持つワイルドカード比較は実行できません。
 
+<a id="import-from-the-simulator-side-ctest-suite-23-tests"></a>
+
 ## シミュレータ側の CTest スイートからの取り込み（23本）
 
-`../kirimasim` の `tests/suite` には、同じメタデータ形式（`:lrm:`、`:oracle:`、`:expected_stdout:`）を持つ SystemVerilog テストが2,818本あります。
-既存スイートとはファイル名・内容の重複がなく、そのまま取り込める形式です。ただし次の制約があります。
+`../kirimasim` の `tests/suite` には、同じメタデータ形式（`:lrm:`、`:oracle:`、`:expected_stdout:`）を持つ SystemVerilog テストが2,818本あります。 既存スイートとはファイル名・内容の重複がなく、そのまま取り込める形式です。ただし次の制約があります。
 
 - 2,125本は `:expected_stderr:`（警告・エラー文字列の完全一致）を持ち、このスイートの `:expected_stderr_regex:` 形式ではないため、そのままでは取り込めません。
 - 57本の規格違反テストは `:expected_stderr_regex:` がありません。
@@ -116,8 +107,7 @@
 - 26本は最初の引用節が附属書Aで、ディレクトリ規約（`chNN`）に合いません。
 - `:tags:` は `proc` や `sched` などの分類なので `chNN` へ書き換え、`:generator:` はこのリポジトリに生成器がないため外し、ファイル名には `test_` を付けます。
 
-このうち540本を一括で取り込み、要求優先で照合しました。未対応要求の候補は641行あり、**すべてリンクできれば65.13%** に届く計算でした。
-実際に登録できたのは21本・58行で、残りは部分観測・複合要求・診断未検査として保留しました。登録に至らなかった519本は、未登録テストを増やさないため取り下げました（元の kirimasim 側に残っています）。
+このうち540本を一括で取り込み、要求優先で照合しました。未対応要求の候補は641行あり、**すべてリンクできれば65.13%** に届く計算でした。 実際に登録できたのは21本・58行で、残りは部分観測・複合要求・診断未検査として保留しました。登録に至らなかった519本は、未登録テストを増やさないため取り下げました（元の kirimasim 側に残っています）。
 
 | 章 | 取り込んで登録したテストの例 | 主な要求 |
 |---|---|---|
@@ -133,11 +123,15 @@
 - `test_always_star` は `always @*` 本体の自己読みで規格上も非収束になるため却下しました。
 - `test_instance_arrays` と `test_net_port_merge_kinds` は `:oracle:` が実際のシミュレータ結果と一致しません。期待値は規格どおりなのでリンクは成立しますが、`:oracle:` の修正候補です。
 
+<a id="the-prospect-of-65"></a>
+
 ### 65% への見通し
 
 - 現在60.39%。65%には残り568行が必要です。
 - 取り込み候補の上限は65.13%で、残る候補をすべて完全観測できた場合のぎりぎりです。実際の登録率は約24%なので、この pool だけでは62%前後が現実的な到達点です。
 - 65%に届かせるには、`:expected_stderr:` を持つ2,125本の警告系テストの正規化、または未対応要求（約4,900行）への新規テスト作成が必要です。
+
+<a id="rejected-mapping-proposals"></a>
 
 ## 却下した対応案
 
@@ -161,37 +155,30 @@
 | 39.5.1 `CONTROL-VPIASSERTIONSYSEND` | test_vpi_assertion_sys_end_discards_and_blocks | SysEnd後の破棄・新規停止・後続制御を1本で観測したという主張を確認できない |
 | 40.3.2.1 `RETURN-SV-COV-CHECK-SV-COV-NOCOV` | test_coverage_uninstantiated_module | 常にNOCOVを返す実装でも通り、OK/PARTIALとの対比がない |
 
+<a id="patterns-in-pending-mappings"></a>
+
 ## 保留の傾向
 
 1,061ペアの保留を、次の4種類に分けています。
 
-- `partial_observation`：要求の複数条件の一部だけを刺激している。
-  例：`$bits`の幅だけを出してbit-stream castをしない、VPIの保護フラグがfalse側だけ、
-  シフトのsigned側だけ、制約の`get`だけを刺激する。
-- `compound_requirement`：1行に独立した複数条件が束ねられている。
-  例：`16.12.17`の6演算子、`19.11.3`の複数のビン同一性、`23.2.1`のヘッダ7項目。
-  要求を条件ごとに分割するか、複数テストのAND集合が必要です。
-- `oracle_issue`：期待値が実装の選択に依存する、または規格が順序・時刻を一意に決めない。
-  例：`cbReadWriteSynch`のPre/Post-NBA、同時刻のコールバック順、VPIハンドル解放後の値。
-- `citation_refinement`：テストの`:lrm:`が参照する節と、実際に呼ぶAPIの節が違う。
-  例：`38.16`（配列取得）を引用して`vpi_get`だけを呼ぶ、`38.31`（put_data）を引用して
-  `vpi_release_handle`だけを呼ぶ。
+- `partial_observation`：要求の複数条件の一部だけを刺激している。 例：`$bits`の幅だけを出してbit-stream castをしない、VPIの保護フラグがfalse側だけ、 シフトのsigned側だけ、制約の`get`だけを刺激する。
+- `compound_requirement`：1行に独立した複数条件が束ねられている。 例：`16.12.17`の6演算子、`19.11.3`の複数のビン同一性、`23.2.1`のヘッダ7項目。 要求を条件ごとに分割するか、複数テストのAND集合が必要です。
+- `oracle_issue`：期待値が実装の選択に依存する、または規格が順序・時刻を一意に決めない。 例：`cbReadWriteSynch`のPre/Post-NBA、同時刻のコールバック順、VPIハンドル解放後の値。
+- `citation_refinement`：テストの`:lrm:`が参照する節と、実際に呼ぶAPIの節が違う。 例：`38.16`（配列取得）を引用して`vpi_get`だけを呼ぶ、`38.31`（put_data）を引用して `vpi_release_handle`だけを呼ぶ。
 
-保留は`propose.py`が自動で除外するため、同じテスト・要求の組を再提案するときは、
-先に保留理由を解消する必要があります。
+保留は`propose.py`が自動で除外するため、同じテスト・要求の組を再提案するときは、 先に保留理由を解消する必要があります。
+
+<a id="the-remaining-and-next-candidates"></a>
 
 ## 残りと次の候補
 
-- テスト総数は6,038本（今回の新規29本を含む）。未登録は2,498本で、このうち候補要求が全くないテストが約380本あり、
-  要求台帳側の分割・観測可能化が必要です。
-- 未対応要求4,952行のうち、未登録テストが候補になるのは約1,970行です。
-  残りは候補テスト自体がなく、新規テストの対象です。
-- 197本は、いずれかの未対応要求の**唯一の候補テスト**です。
-  1本で複数要求を満たせるものは限られますが、優先して確認する価値があります。
-- 次の区間の候補：`ch6`の型変換、`ch38`のVPI配列・ハンドル、`ch20`の`$bits`、
-  `ch23`の非ANSIポート、`ch19`のカバレッジ残り。
-- 生成テスト（`tests/gen/`）は、同じ要求を複数テストが観測できるため、
-  最も完全な1本だけを登録し、残りは保留にしています。
+- テスト総数は6,038本（今回の新規29本を含む）。未登録は2,498本で、このうち候補要求が全くないテストが約380本あり、 要求台帳側の分割・観測可能化が必要です。
+- 未対応要求4,952行のうち、未登録テストが候補になるのは約1,970行です。 残りは候補テスト自体がなく、新規テストの対象です。
+- 197本は、いずれかの未対応要求の**唯一の候補テスト**です。 1本で複数要求を満たせるものは限られますが、優先して確認する価値があります。
+- 次の区間の候補：`ch6`の型変換、`ch38`のVPI配列・ハンドル、`ch20`の`$bits`、 `ch23`の非ANSIポート、`ch19`のカバレッジ残り。
+- 生成テスト（`tests/gen/`）は、同じ要求を複数テストが観測できるため、 最も完全な1本だけを登録し、残りは保留にしています。
+
+<a id="reproduction"></a>
 
 ## 再現
 
@@ -209,13 +196,11 @@ python3 tools/requirement_matching.py --check
 python3 -m unittest discover -s tools -p 'test_*.py'
 ```
 
+<a id="attention"></a>
+
 ## 注意
 
-- 照合と検証はAIが行ったもので、人による独立レビューではありません。
-  台帳の`reviewer`欄にもその旨を記録しています。
-- 今回、テスト本体・期待値・要求定義・保存済み実行結果は変更していません。
-  期待値は規格本文から導き、シミュレータの出力を期待値に写していません。
-- シミュレータを再実行していないため、新しい26要求には現行入力に対応するパス結果の記録がありません。
-  設計対応だけを登録し、実行確認率は増やしていません。
-- `:oracle: spec`のテスト（ch19のカバレッジ、ch23のinterconnect、ch36のVPIシステムタスクなど）は、
-  Icarus 13.0とVerilator 5.052のどちらも一致しないため、実行による裏付けはありません。
+- 照合と検証はAIが行ったもので、人による独立レビューではありません。 台帳の`reviewer`欄にもその旨を記録しています。
+- 今回、テスト本体・期待値・要求定義・保存済み実行結果は変更していません。 期待値は規格本文から導き、シミュレータの出力を期待値に写していません。
+- シミュレータを再実行していないため、新しい26要求には現行入力に対応するパス結果の記録がありません。 設計対応だけを登録し、実行確認率は増やしていません。
+- `:oracle: spec`のテスト（ch19のカバレッジ、ch23のinterconnect、ch36のVPIシステムタスクなど）は、 Icarus 13.0とVerilator 5.052のどちらも一致しないため、実行による裏付けはありません。

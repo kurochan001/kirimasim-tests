@@ -1,4 +1,8 @@
+<a id="existing-test-requirement-mapping-results-exceeding-20-2026-10-23"></a>
+
 # 既存テストの要求照合：20%超過の結果（2026-10-23）
+
+[English](existing-test-matching-20percent-20261023.en.md) / [日本語](existing-test-matching-20percent-20261023.md)
 
 > この文書の件数・割合・保留状態は、各作業時点の記録です。
 > 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
@@ -6,8 +10,9 @@
 
 [現在の集計](behavior-coverage-summary.md) / [照合台帳](test-requirement-matching.md) / [累積の進捗・指摘](existing-test-matching-review-20261022.md)
 
-既存テストの照合を繰り返し、**暫定の要求カバレッジ（テスト設計）20.009741%（2,465/12,319要求）となりました。20%を超える目標を達成しました。**
-固定分母12,319では2,464要求から20%を超えます。現在の2桁表示は20.01%で、正確な増分を確認できるよう6桁でも併記しています。
+既存テストの照合を繰り返し、**暫定の要求カバレッジ（テスト設計）20.009741%（2,465/12,319要求）となりました。20%を超える目標を達成しました。** 固定分母12,319では2,464要求から20%を超えます。現在の2桁表示は20.01%で、正確な増分を確認できるよう6桁でも併記しています。
+
+<a id="aggregation"></a>
 
 ## 集計
 
@@ -21,18 +26,17 @@
 - AND集合証拠：55 → **126要求**。別実行回の部分成功は合成しません。
 - 保留台帳：372本・504件 → **406本・546件（42判断追加）**。
 
-既存テスト、期待出力、C helper、引用メタデータ、要求定義、分母は変更していません。
-開始時に存在した未コミットの10%到達作業も保持しています。今回も元テストは再実行せず、保存済み結果の入力・ランナーのハッシュを照合しています。
-担当はCodex（AI）で、独立した人による確認済みではありません。ファイル全体のレビュー完了数や、全入力の組合せを試した割合ではありません。
+既存テスト、期待出力、C helper、引用メタデータ、要求定義、分母は変更していません。 開始時に存在した未コミットの10%到達作業も保持しています。今回も元テストは再実行せず、保存済み結果の入力・ランナーのハッシュを照合しています。 担当はCodex（AI）で、独立した人による確認済みではありません。ファイル全体のレビュー完了数や、全入力の組合せを試した割合ではありません。
+
+<a id="scope-checked-in-this-work"></a>
 
 ## 今回確認した範囲
 
-数値・文字列リテラル、生成済みbufif強度テスト、演算子、VPI UDP/値取得/配列API/登録情報、乱数分布、PLA、covergroup、randomize、表示・入力形式、SVA property/sequence、clocking、checker、assertion VPI、coverage API、FSM認識、SDF注釈、specify path、timing check、interface、DPIとAnnex Hの型・配列・context API、整数型、文字列、クラスとweak reference、配列/bit照会、process API、enum/typedef、soft制約、UDP、covergroupの継承とcross選択、subroutineのlifetime、VCD、program終了/exit、config binding、sampled-value functions、assertion制御、短絡/等価演算子、VPIのvariables/net/instance/scope/expression/atomic-statement/process/primitive/assertion model、package初期化・std、generate外部名、interface class、文字列の詰め方、SVA local variable、file positioning/binary fread、net真理値表、VPI handleの生成・解放、interface/modport、statement child、specify path/timing checkの観測を確認しました。
-Annex Nの19組の戻り値と更新seedは、LCG・IEEE float変換・各分布変換・丸めを独立に再計算して一致を確認しました。分布の平均や広がりの統計的収束は別の未対応要求です。
+数値・文字列リテラル、生成済みbufif強度テスト、演算子、 VPI UDP /値取得/配列 API /登録情報、乱数分布、 PLA 、 covergroup 、randomize、表示・入力形式、 SVA property/sequence、clocking、checker、assertion VPI 、coverage API 、 FSM 認識、 SDF 注釈、specify path、timing check、interface、 DPI とAnnex H の型・配列・context API 、整数型、文字列、クラスとweak reference、配列/ bit 照会、process API 、 enum / typedef 、soft制約、 UDP 、 covergroup の継承とcross選択、subroutineのlifetime、 VCD 、program終了/exit、config binding、sampled-value functions、assertion制御、短絡/等価演算子、 VPI のvariables/net/instance/scope/expression/atomic-statement/process/primitive/assertion model、package初期化・std、generate外部名、interface class、文字列の詰め方、 SVA local variable、file positioning/binary fread、net真理値表、 VPI handleの生成・解放、interface/modport、statement child、specify path/timing checkの観測を確認しました。Annex N の 19 組の戻り値と更新seedは、 LCG ・ IEEE float変換・各分布変換・丸めを独立に再計算して一致を確認しました。分布の平均や広がりの統計的収束は別の未対応要求です。
 
-例えば、bufifのL/Hは%bのxだけではなく%vのStL/PuHまで比較します。
-SVAは異なる時刻の真偽、複数matchの多重性、first_matchの同時最早match、含意の全matchとfollowed-byの存在条件を、具体的な終了時刻・pass/fail queueから確認します。
-複合行の一部しか観測しないものは、個別要求への対応、必要な全テストを含むAND集合、理由付き保留に分けます。
+例えば、bufifのL/Hは%bのxだけではなく%vのStL/PuHまで比較します。 SVAは異なる時刻の真偽、複数matchの多重性、first_matchの同時最早match、含意の全matchとfollowed-byの存在条件を、具体的な終了時刻・pass/fail queueから確認します。 複合行の一部しか観測しないものは、個別要求への対応、必要な全テストを含むAND集合、理由付き保留に分けます。
+
+<a id="added-findings-and-pending-assessments"></a>
 
 ## 追加した指摘・保留
 
@@ -52,7 +56,7 @@ SVAは異なる時刻の真偽、複数matchの多重性、first_matchの同時�
 - **M77：収集開始の未成功時に検査を省略。** `test_vpi_coverage_assertion`と`test_coverage_fsm_pragma_states`は開始がOKでない場合も期待出力となります。無条件のVPI最大値など、実際に比較する範囲に限定します。
 - **M78：VPI制御も全0で通る。** `test_vpi_coverage_control`と`test_vpi_coverage_instance_control`はreset/stop前の収集を確認せず、常に0でも通るため制御効果を保留しました。
 
-- **M79：generic interfaceをordered接続。** `test_generic_interface_parameterized_instances`は25.3.3が要求するnamed port connectionを使用していません。幅の期待値にかかわらず正常caseとしての対応は保留しました。
+- M79：generic interfaceをordered接続。`test_generic_interface_parameterized_instances` は 25.3.3 が要求するnamed port connectionを使用していません。幅の期待値にかかわらず正常caseとしての対応は保留しました。
 - **M80：DPI export taskのstatusを非零とだけ比較。** `test_dpi_disable_import_task`は`!=0`のため、規格の返値1を2等に誤っても通ります。disable stateは観測できますが、厳密なexport statusの行は保留しました。
 - **M81：DPI input formalの変更を使う。** `test_dpi_input_inout_semantics`はC側でinputの数値・pointerを進めます。35.5.1.2のformal変更禁止と変更時のactual保護、H.8.7のconst規定の関係を整理するまで、入力保護の全要求を承認しません。
 - **M82：scope APIの複合条件が未観測。** `test_dpi_context_scope`はunknown-name、previous scopeの返値自体、userdata未登録・エラー時の戻り値を比較しません。実際に確認するcurrent scopeとfull nameを登録し、これらを含む全条件は保留しました。
@@ -80,6 +84,8 @@ SVAは異なる時刻の真偽、複数matchの多重性、first_matchの同時�
 
 M84のタグ符号化の保留も再確認し、同じfileの幅・配置に対する仮対応3件を最終集計から除外しました。一方、M92のclass-object関係は、別fixtureの`c.v=7`と別objectの既定値0を区別する観測で対応付けました。保留した元fixtureの判断は変更していません。
 
+<a id="final-pending-status-consistency-audit"></a>
+
 ## 最終の保留整合監査
 
 既存の保留台帳と、今回追加した全対応を再照合しました。保留理由を解消していなかった仮対応20件・16要求を除外し、別の既存テストから20件・17要求を追加した後の値が、冒頭の2,465要求です。途中集計の2,464要求をそのまま確定させていません。
@@ -97,14 +103,14 @@ M84のタグ符号化の保留も再確認し、同じfileの幅・配置に対�
 
 判断の対象ID、入力ハッシュ、刺激anchorは`coverage/test-matching-reviews.json`に記録しています。
 
+<a id="preserving-the-denominator-and-evidence"></a>
+
 ## 分母・証跡の保全
 
-分母は12,319、分母識別子は`d9e94724b317c8668673f4f4883c4923bf94caad46d79ba7c79e1fd16302e6ac`です。
-要求定義、既存checks/AND集合、以前の保留判断を保持し、資料索引・PDF/抽出本文の識別子も変えていません。
-解釈保留49行を含む未対応要求を分母から除外していません。
+分母は12,319、分母識別子は`d9e94724b317c8668673f4f4883c4923bf94caad46d79ba7c79e1fd16302e6ac`です。 要求定義、既存checks/AND集合、以前の保留判断を保持し、資料索引・PDF/抽出本文の識別子も変えていません。 解釈保留49行を含む未対応要求を分母から除外していません。
+
+<a id="verification"></a>
 
 ## 検証
 
-管理ツールの74テスト、要求カバレッジと資料ハッシュの検証、照合台帳、suiteの統計・catalog・条項別テスト数（最低2本）、生成テストの再現性、メタデータlint、`git diff --check`を確認しました。
-開始時snapshotとの比較で、要求定義、既存checks/AND集合、既存保留判断、履歴の既存部分、固定分母と資料索引を保持していることも検証しました。
-元のSystemVerilog/Cテストの再実行や新規テスト追加による到達ではありません。
+管理ツールの74テスト、要求カバレッジと資料ハッシュの検証、照合台帳、suiteの統計・catalog・条項別テスト数（最低2本）、生成テストの再現性、メタデータlint、`git diff --check`を確認しました。 開始時snapshotとの比較で、要求定義、既存checks/AND集合、既存保留判断、履歴の既存部分、固定分母と資料索引を保持していることも検証しました。 元のSystemVerilog/Cテストの再実行や新規テスト追加による到達ではありません。

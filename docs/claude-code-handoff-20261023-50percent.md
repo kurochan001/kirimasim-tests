@@ -1,9 +1,15 @@
+<a id="handoff-to-claude-code-work-toward-50-started-at-2026-10-23-reached-50-at-2026-10-24"></a>
+
 # Claude Codeへのハンドオフ：50%到達作業（2026-10-23開始、2026-10-24に50%到達）
+
+[English](claude-code-handoff-20261023-50percent.en.md) / [日本語](claude-code-handoff-20261023-50percent.md)
 
 > **履歴資料**
 > 本文は各作業時点の記録です。現在の分母・対応・実行証跡は
 > [生成した集計概要](behavior-coverage-summary.md)、最新の引き継ぎと残件は
 > [2026-10-29更新の引き継ぎ](handover-20261028.md)を参照してください。
+
+<a id="nightly-and-simulator-changes-2026-10-24"></a>
 
 ## nightly とシミュレータの変更（2026-10-24）
 
@@ -12,6 +18,8 @@
 - 新規テストを統合したら、最初の nightly で全ジョブが最後まで走ったかを確かめる。1回目で入れた `ch16/test_illegal_sequence_cycle_through_bodies` で Verilator が暴走し、ランナーが止まったことがある（いまは `ulimit -v` で制限）。
 - 規格PDFの置き場所は `../IEEE_1800-2023_SystemVerilog`（手元では元の場所へのシンボリックリンク）、または `$IEEE1800_SOURCE`。Workflow の `pdf` 引数も、このパスで渡せる。
 - 期待値が規格と食い違う疑いのあるテスト（除外の候補）は `docs/simulator-differences.md` の最後の節にある。
+
+<a id="resuming-toward-75-2026-10-24-integrated-through-round-1"></a>
 
 ## 75%を目指す再開（2026-10-24、1回目まで統合）
 
@@ -27,6 +35,8 @@
 - `tools/matching_kit/workflows/gap.js`の指示文に、欠陥とされた理由の一覧を足した（`` `line ``と同じ行のコメント、仮想インターフェースの入力ポートを含む）。
 - `tests/ch22`に新しいテストを足すと、`tests/ch22`をインクルード検索ディレクトリにする既存4本の入力ハッシュが変わる。統合時に一緒に再実行し、台帳と保留の入力ハッシュを付け直すこと。
 
+<a id="preparation-records-through-round-1"></a>
+
 ### 1回目までの準備の記録
 
 - 目標：75%超過 ＝ 9,240要求（`b13204c`時点の6,430から、あと2,810）。
@@ -39,18 +49,18 @@
   - 足りなければ、検証済みの区間（p02〜p24）の残りの未対応要求で作成を続ける。
 - Workflowが止まった場合は、同じ`scriptPath`と引数で`resumeFromRunId`を付けて再開する。
 
+<a id="state-after-resuming-2026-10-24"></a>
+
 ## 2026-10-24の再開後の状態
 
-- **50%に到達**：13区間（p02、p03、p04、p06、p11、p16〜p19、p21〜p24）の独立検証を終え、新規テスト594本と照合案を取り込んだ。
-  **6,430 / 12,319要求（52.195795%）**、暫定実行確認率30.310902%（3,734）、本文（1〜40章）だけで53.47%（5,072/9,486）。
+- **50%に到達**：13区間（p02、p03、p04、p06、p11、p16〜p19、p21〜p24）の独立検証を終え、新規テスト594本と照合案を取り込んだ。 **6,430 / 12,319要求（52.195795%）**、暫定実行確認率30.310902%（3,734）、本文（1〜40章）だけで53.47%（5,072/9,486）。
 - 記録：[gap-tests-20261024.md](gap-tests-20261024.md)（集計、章別、検証結果、欠陥30本の内訳、`input int`の指摘、残り）。
 - コミット：取り込み分はコミット`0ab9e18`として`main`へpush済み（2026-10-24）。
 - 取り込んだテストの一覧：作業ディレクトリの`usable2-tests.txt`（594本）。実行証跡は`coverage/results/gap-tests-20261024-*.json`と、取り込み後に直した3本の`gap-refinement-20261024-*.json`。
-- 未検証のテストは作業ディレクトリの`parked2/`（1,893ファイル、うちテスト1,117本。欠陥とされた30本も含む。一覧`parked2-files.txt`）。
-  再開時は`rsync -a <作業dir>/parked2/tests/ tests/`で戻す。欠陥の30本は`notes/*-testverdicts.jsonl`の最後の判定が`defective`のもの。
+- 未検証のテストは作業ディレクトリの`parked2/`（1,893ファイル、うちテスト1,117本。欠陥とされた30本も含む。一覧`parked2-files.txt`）。 再開時は`rsync -a <作業dir>/parked2/tests/ tests/`で戻す。欠陥の30本は`notes/*-testverdicts.jsonl`の最後の判定が`defective`のもの。
 - 未検証の照合案（1,752件）：
 
-| wave | 区間（未判定の案の数） |
+|ラウンド（wave）| 区間（未判定の案の数） |
 | --- | --- |
 | wave1 | p12-gap（110） |
 | wave2 | p01-gap（107）、p05-gap（110）、p07-gap（75） |
@@ -65,23 +75,24 @@
 
 以下は、2026-10-24の再開前の記録です。
 
+<a id="records-at-interruption-2026-10-23"></a>
+
 ## 中断時の記録（2026-10-23）
+
+<a id="what-to-understand-first"></a>
 
 ### 最初に把握すること
 
-「暫定の要求カバレッジ（テスト設計）を50%まで進める」作業を、トークン消費が大きいため途中で中断しました。
-中断後、**独立検証を終えた分だけを台帳へ取り込みました**（附属書ヘッダテスト24本、37章VPIテスト24本、既存テストの照合）。
-取り込み後の値は3,889 / 12,319要求、暫定の要求カバレッジ（テスト設計）31.569121%、暫定実行確認率19.449631%（2,396）です。
-取り込み分はコミット`ba54eb3`として`main`へpush済みです（2026-10-24）。
-検証前の新規テスト約1,711本はリポジトリの外へ退避しています。再開時は作業ディレクトリから戻してから始めてください。
+「暫定の要求カバレッジ（テスト設計）を50%まで進める」作業を、トークン消費が大きいため途中で中断しました。 中断後、**独立検証を終えた分だけを台帳へ取り込みました**（附属書ヘッダテスト24本、37章VPIテスト24本、既存テストの照合）。 取り込み後の値は3,889 / 12,319要求、暫定の要求カバレッジ（テスト設計）31.569121%、暫定実行確認率19.449631%（2,396）です。 取り込み分はコミット`ba54eb3`として`main`へpush済みです（2026-10-24）。 検証前の新規テスト約1,711本はリポジトリの外へ退避しています。再開時は作業ディレクトリから戻してから始めてください。
 
 - リポジトリ：kirimasim-tests（`main`、HEAD `af50ecf`＝10%・20%到達分。push済み）
 - 正本の値：`ba54eb3`で3,889要求（31.57%）。その後の台帳見直し（`721db37`）と予約語の生成テスト（`1f9efc5`、2026-10-24）で **4,386 / 12,319 要求、35.60%**
 - 目標：50%超過 ＝ 6,160 要求（`1f9efc5`時点であと1,774）
 - 取り込みの記録：[header-vpi-tests-and-matching-20261023.md](header-vpi-tests-and-matching-20261023.md)
-- 作業ディレクトリ（リポジトリ外、再開に必須）：
-  リポジトリの隣の`kirimasim-tests-work/50percent-20261023/`
+- 作業ディレクトリ（リポジトリ外、再開に必須）： リポジトリの隣の`kirimasim-tests-work/50percent-20261023/`
 - 前回の引き継ぎ（照合の判断基準など）は [claude-code-handoff-20261023.md](claude-code-handoff-20261023.md) を参照。基準はそのまま有効です。
+
+<a id="interrupted-value"></a>
 
 ## 中断時点の数値
 
@@ -95,28 +106,27 @@
 - 検証待ち：3,958要求分の対応案（3,967件）。これまでの検証では2〜4割が却下されている。50%には、このうち2,271要求（57%）の採用が必要。
 - 採用は附属書ヘッダ（定数1個＝1要求行）に偏っている。本文（1〜40章、分母9,486）だけで数えると、コミット済み25.6% → 採用済み込み29.3%。最終報告では全体値と本文のみの値・章別内訳を併記する予定。
 
+<a id="working-tree-state-before-integration-immediately-after-interruption"></a>
+
 ## 取り込み前（中断直後）の作業ツリーの状態
 
-以下は中断直後の記録です。その後の取り込みで、検証済みの48本（`usable-tests.txt`）だけを`tests/`に残し、
-それ以外の未追跡のテストファイル3,069個を作業ディレクトリの`parked/`へパスを保ったまま移しました（一覧`parked-files.txt`）。
-再開時は、リポジトリルートで`rsync -a <作業dir>/parked/tests/ tests/`を実行して戻します。
-p20で欠陥ありとされた2本と、lint違反の13本も`parked/`に入っています。
+以下は中断直後の記録です。その後の取り込みで、検証済みの48本（`usable-tests.txt`）だけを`tests/`に残し、 それ以外の未追跡のテストファイル3,069個を作業ディレクトリの`parked/`へパスを保ったまま移しました（一覧`parked-files.txt`）。 再開時は、リポジトリルートで`rsync -a <作業dir>/parked/tests/ tests/`を実行して戻します。 p20で欠陥ありとされた2本と、lint違反の13本も`parked/`に入っています。
 
 
-- 未追跡の新規テスト：**1,759本**（`tests/` 以下、`.sv`/`.expected`/`.c` 等、計3,214ファイル）。
-  一覧：作業ディレクトリの `new-tests.txt`、全未追跡ファイルの一覧 `untracked-files.txt`、
-  バックアップ `untracked-worktree.tgz`（`tar xzf <tgz>` をリポジトリルートで実行すると復元）。
+- 未追跡の新規テスト：**1,759本**（`tests/` 以下、`.sv`/`.expected`/`.c` 等、計3,214ファイル）。 一覧：作業ディレクトリの `new-tests.txt`、全未追跡ファイルの一覧 `untracked-files.txt`、 バックアップ `untracked-worktree.tgz`（`tar xzf <tgz>` をリポジトリルートで実行すると復元）。
 - うち24本は私（Claude）が書いた附属書ヘッダテスト（検証済み、下記）。残りは担当エージェントが書いたもので、**p20の26本（合格24・欠陥2）以外は未検証**。
 - lint違反13本（書きかけ）：作業ディレクトリの `new-tests-lint.txt`。TODO残り・期待出力が空/なし・行長。
 - 変更済みtracked：`coverage/test-matching.json`、`docs/test-requirement-matching.md`（新規テストを含めて再生成しただけ。最終統合時にもう一度再生成する）。
 - このハンドオフ資料自体も未追跡。
+
+<a id="contents-of-the-working-directory"></a>
 
 ## 作業ディレクトリの中身
 
 | パス | 内容 |
 | --- | --- |
 | `kit/propose.py` | 照合案の照会・登録・判定のCLI。`req`/`test`/`scope`/`add`/`group`/`hold`/`show`/`verdict`/`testverdict`。登録時に`validate()`相当（節の引用、正負の種別、anchorの実在、入力ファイル、既存の保留・20%監査の取り下げ・BLOCKED）を検査する。新規テストはファイルシステムから自動で認識する。 |
-| `kit/merge.py` | 最新の判定がacceptの案だけを`behaviors.json`と`test-matching-reviews.json`へ統合（`--dry-run`あり）。統合時に再検査し、入力digestを計算する。reviewerは`Claude Opus 5.5 (AI); not an independent human review`。 |
+| `kit/merge.py` |最新の判定がacceptの案だけを `behaviors.json` と `test-matching-reviews.json` へ統合（ `--dry-run` あり）。統合時に再検査し、入力digestを計算する。レビュー担当者は`Claude Opus 5.5 (AI); not an independent human review`。|
 | `kit/runsim.py` | Icarus 13.0とVerilator 5.052（seed 1/73）で実行し一致を表示（ccache使用）。 |
 | `iverilog13/` | Icarus Verilog 13.0（`v13_0-dirty`、保存済み証跡と同じ版表記）。移動しても動く。再ビルドは`iverilog13-source.txt`のタグ`v13_0`に`iverilog13-macos.patch`を当て、`PATH=/opt/homebrew/opt/bison/bin:$PATH`で`sh autoconf.sh && ./configure --prefix=... && make && make install`。 |
 | `assign/*.json` | 担当範囲（要求IDの一覧）。`p01`〜`p25`：引用テストのある要求、`g01`〜`g09`：引用テストのない本文の要求、`a01`〜`a05`：附属書A、`h01`〜`h02`：附属書C/G/H/J/N。 |
@@ -130,11 +140,12 @@ p20で欠陥ありとされた2本と、lint違反の13本も`parked/`に入っ�
 | `start/` | 作業開始時の`behaviors.json`等のコピー。 |
 | `verifier-artifacts/` | 検証担当が規格本文から再構成したヘッダとミューテーションテストの作業物。 |
 
-**2026-10-24以降は、リポジトリに取り込んだ`tools/matching_kit/`を使います**（作業ディレクトリの`kit/`と`wf-*.js`は中断時点の古い版）。
-違いは次のとおりです。照合案と判定のファイル形式は同じで、そのまま使えます。
+**2026-10-24以降は、リポジトリに取り込んだ`tools/matching_kit/`を使います**（作業ディレクトリの`kit/`と`wf-*.js`は中断時点の古い版）。 違いは次のとおりです。照合案と判定のファイル形式は同じで、そのまま使えます。
 - `merge.py`は`--reviewer`と`--date`が必須。
 - `runsim.py`は`--iverilog-bin <作業dir>/iverilog13/bin`を指定する。
 - Workflowは`tools/matching_kit/workflows/gap.js`を使い、`args = {repo, work: "<作業dir>", pdf, iverilogBin, parts, verifyOnly?, resume?}`を渡す。
+
+<a id="what-we-have-decided-and-discovered-in-this-work"></a>
 
 ## この作業で決めたこと・判明したこと
 
@@ -145,15 +156,12 @@ p20で欠陥ありとされた2本と、lint違反の13本も`parked/`に入っ�
 - Icarus 13.0のヘッダはK.2/M.2の855定数のうち218個だけを定義（値はすべて正しい）。両シミュレータとも`vpi_compatibility.h`を持たない。Verilator 5.052の`svdpi.h`は`SV_MASK`を`~(0xffffffffU << (N))`（unsigned）にしている。`notes/annex-simdiff.md`に`docs/simulator-differences.md`向けの下書きあり。
 - 規格ヘッダの所見（検証担当報告）：K.2/I.3の非Linux分岐は`<sys/types.h>`だけでmacOSでは`uint64_t`等が無い。L.2の`1800v2017`/`1800v2023`は`VPI_COMPATIBILITY_VERSION_1800v2012`を空で定義し、後の`#elif`がエラーになる。
 
+<a id="resumption-procedure"></a>
+
 ## 再開手順
 
-1. 取り込み分がコミット済みかを`git log`で確認する。`parked/`のテストを`tests/`へ戻す（`rsync -a <作業dir>/parked/tests/ tests/`）。作業ディレクトリが残っていることも確認する。
-   附属書（`proposals/annex`）、wave1/wave2の照合、p20の新規テストは取り込み済みなので、検証も統合もやり直さない（`merge.py`は統合済みの案をスキップする）。
-2. **安い順に進める。まず検証だけ。** 検証待ちの案（3,967件）と新規テストを、`wf-gap.js`の`verifyOnly`で検証する。
-   `Workflow({scriptPath: "tools/matching_kit/workflows/gap.js", args: {repo, work: "<作業dir>", pdf, iverilogBin: "<作業dir>/iverilog13/bin", verifyOnly: true, parts: [...]}})`。
-   `parts`は`parts.json`の`pending_proposals > 0`の区間から、1回あたり8区間程度を選ぶ。
-   p20は検証と取り込みまで完了、p04は作成済みで未検証。
-   要求単位の採用率が57%以上なら、検証だけで50%を超える。
+1. 取り込み分がコミット済みかを`git log`で確認する。`parked/`のテストを`tests/`へ戻す（`rsync -a <作業dir>/parked/tests/ tests/`）。作業ディレクトリが残っていることも確認する。 附属書（`proposals/annex`）、wave1/wave2の照合、p20の新規テストは取り込み済みなので、検証も統合もやり直さない（`merge.py`は統合済みの案をスキップする）。
+2. **安い順に進める。まず検証だけ。** 検証待ちの案（3,967件）と新規テストを、`wf-gap.js`の`verifyOnly`で検証する。 `Workflow({scriptPath: "tools/matching_kit/workflows/gap.js", args: {repo, work: "<作業dir>", pdf, iverilogBin: "<作業dir>/iverilog13/bin", verifyOnly: true, parts: [...]}})`。 `parts`は`parts.json`の`pending_proposals > 0`の区間から、1回あたり8区間程度を選ぶ。 p20は検証と取り込みまで完了、p04は作成済みで未検証。 要求単位の採用率が57%以上なら、検証だけで50%を超える。
 3. 50%に届かなければ、`resume: true`（verifyOnlyなし）で作成担当を再開する。中断時の作成担当は、全区間とも書きかけの状態で止まっている。
 4. 統合（全検証の後）：
    1. `testverdict`がdefectiveのテストと、判定の無いテストを削除する（未追跡ファイルのみ。`.expected`/`.c`/補助ファイルも）。lint違反の13本も同様に扱う。
@@ -163,6 +171,8 @@ p20で欠陥ありとされた2本と、lint違反の13本も`parked/`に入っ�
    5. `requirement_matching.py --update`、`behavior_coverage.py --update --require-source-reviewed --history coverage/behavior-history.json`、`suite_stats.py --update`、`suite_catalog.py --update`、`coverage_depth.py --update`を実行する。
    6. 文書を更新する：`docs/simulator-differences.md`（`notes/*-simdiff.md`を確認のうえ）、README、`coverage/README.md`の結果ファイル一覧、結果報告（新規）、`docs/nightly-results.md`のmain集計欄。
    7. 前回の引き継ぎにある全検査を通してからコミットする。
+
+<a id="cost-estimate"></a>
 
 ## 費用の目安
 

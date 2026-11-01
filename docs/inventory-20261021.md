@@ -1,12 +1,16 @@
+<a id="スイートの棚卸し2026-10-21"></a>
+
 # Inventory of the suite, 2026-10-21
 
-> Counts, percentages and open findings below describe the recorded stages of the work.
-> See the [generated behavior summary](behavior-coverage-summary.md) and
-> [updated handover](handover-20261028.md) for the current suite and remaining work.
+[English](inventory-20261021.md) / [日本語](inventory-20261021.ja.md)
 
-Phase 0 of the extension work: what the suite already has, before anything
-is added. Nothing outside this file was changed for it. The counts are those
-of `main` at commit 6177339 (3403 tests).
+> Counts, percentages and open findings below describe the recorded stages of the work.
+> See the [generated behavior summary](behavior-coverage-summary.en.md) and
+> [updated handover](handover-20261028.en.md) for the current suite and remaining work.
+
+Phase 0 of the extension work: what the suite already has, before anything is added. Nothing outside this file was changed for it. The counts are those of `main` at commit 6177339 (3403 tests).
+
+<a id="バージョン"></a>
 
 ## Versions
 
@@ -16,13 +20,13 @@ of `main` at commit 6177339 (3403 tests).
 | Icarus Verilog used for the oracle | 13.0 (stable) (v13_0), Homebrew's 13.0 keg, given to the runner with `--iverilog-bin` |
 | `verilator` | 5.052 2026-09-05 |
 
-The `iverilog` on `PATH` is a development version, so every run of the
-oracle names the directory of 13.0 with `--iverilog-bin`, as README.md says.
+The `iverilog` on `PATH` is a development version, so every run of the oracle names the directory of 13.0 with `--iverilog-bin`, as README.md says.
+
+<a id="依頼と既存の慣習が異なる箇所"></a>
 
 ## Where the request and the existing conventions differ
 
-The request says that the existing conventions win where they differ from
-it. These are the places, with what the later phases will do:
+The request says that the existing conventions win where they differ from it. These are the places, with what the later phases will do:
 
 | Request | Existing convention | Plan |
 | --- | --- | --- |
@@ -38,6 +42,8 @@ it. These are the places, with what the later phases will do:
 | `tests/ch04` | Directories are `tests/chNN` without a leading zero (`tests/ch4`) | `tests/ch4` |
 | `tools/gen_wide_tests.py`, output next to hand-written tests | Generators live in `generators/`, write `tests/gen/chNN/`, and record oracles in `generators/oracles.txt`; `width_sign` already covers widths 63 to 1000 | A new generator in `generators/` that writes `tests/gen/`, without repeating what `width_sign` does |
 | A function cannot contain fork-join_none (3-2) | IEEE 1800-2023 13.4.4 allows fork-join_none in a function; fork-join and fork-join_any are illegal there (`ch13/test_illegal_function_fork_join`) | Test the legal fork-join_none; the clause decides |
+
+<a id="ieee-1800-2023の機能"></a>
 
 ## IEEE 1800-2023 features
 
@@ -63,8 +69,9 @@ Searched in the code of every test, outside comments.
 | `union soft` (7.3.1) | 0 | — |
 | covergroup `extends` (19.4.1) | 1 | `ch19/test_cg_embedded_inheritance` |
 
-Comparison results with x and z (11.4.4 to 11.4.6) are covered by the
-`xz_propagation` generator and by hand-written tests of chapter 11.
+Comparison results with x and z (11.4.4 to 11.4.6) are covered by the `xz_propagation` generator and by hand-written tests of chapter 11.
+
+<a id="フェーズ3-1で要求される規格違反の設計"></a>
 
 ## Illegal designs that phase 3-1 asks for
 
@@ -84,11 +91,11 @@ Comparison results with x and z (11.4.4 to 11.4.6) are covered by the
 | Assignment of an integer or another enum to an enum (6.19.3) | `ch6/test_illegal_enum_from_int`, `ch6/test_illegal_enum_from_other_enum` |
 | Undeclared net under `` `default_nettype none `` (22.8) | `ch22/test_illegal_default_nettype_none_assign`, `ch22/test_illegal_default_nettype_none_port` |
 
+<a id="フェーズ3-2のスケジューリング項目"></a>
+
 ## Scheduling items of phase 3-2
 
-Matched by the descriptions of the hand-written tests; the 325 generated
-tests of `scheduling` add the combinations of write, read and place that
-README.md lists. Phase 3-2 looks at each item closely before adding tests.
+Matched by the descriptions of the hand-written tests; the 325 generated tests of `scheduling` add the combinations of write, read and place that README.md lists. Phase 3-2 looks at each item closely before adding tests.
 
 | Item | Existing tests |
 | --- | --- |
@@ -105,12 +112,13 @@ README.md lists. Phase 3-2 looks at each item closely before adding tests.
 | fork-join_none in a function (13.4.4) | none for the legal use |
 | A loop of zero delays, `$time` stays | none |
 
+<a id="4章1419章22章24章35章のテスト"></a>
+
 ## Tests of chapters 4, 14 to 19, 22, 24 and 35
 
-Every clause of these chapters that sets out observable behavior is cited by
-a test ([docs/tests/clauses.md](tests/clauses.md)); the clauses cited by one
-test only are the thinnest. The catalog ([docs/tests/](tests/README.md)) has
-the description of every test.
+Every clause of these chapters that sets out observable behavior is cited by a test ([docs/tests/clauses.md](tests/clauses.md)); the clauses cited by one test only are the thinnest. The catalog ([docs/tests/](tests/README.md)) has the description of every test.
+
+<a id="章-4"></a>
 
 ### Chapter 4
 
@@ -146,6 +154,8 @@ the description of every test.
 | `test_pli_region_callbacks` | 4.10 4.4.3 38.36.2 | iverilog@13.0 |
 
 The 325 generated tests (`tests/gen/ch4/`) come from the `scheduling` generator (README.md, "Generated tests").
+
+<a id="章-14"></a>
 
 ### Chapter 14
 
@@ -183,6 +193,8 @@ The 325 generated tests (`tests/gen/ch4/`) come from the `scheduling` generator 
 | `test_clocking_drive_last_wins` | 14.16.2 14.16.1 14.16 14.3 | verilator@5.052 |
 | `test_clocking_two_blocks_one_output` | 14.16.2 14.6 14.16 | verilator@5.052 |
 
+<a id="章-15"></a>
+
 ### Chapter 15
 
 26 hand-written tests; 20 clauses in scope, every one cited, 12 of them by one test only: 15.4.2, 15.4.3, 15.4.4, 15.4.5, 15.4.6, 15.4.7, 15.4.8, 15.4.9, 15.5.2, 15.5.4, 15.5.5.2, 15.5.5.3.
@@ -215,6 +227,8 @@ The 325 generated tests (`tests/gen/ch4/`) come from the `scheduling` generator 
 | `test_wait_order` | 15.5.4 15.5.1 | standard only |
 | `test_event_merge` | 15.5.5.1 15.5.5 15.5.1 | standard only |
 | `test_event_null_compare` | 15.5.5.3 15.5.5.2 15.5.5.1 | standard only |
+
+<a id="章-16"></a>
 
 ### Chapter 16
 
@@ -296,6 +310,8 @@ The 325 generated tests (`tests/gen/ch4/`) come from the `scheduling` generator 
 | `test_expect_statement` | 16.17 | standard only |
 | `test_clocking_block_assertions` | 16.18 14.3 14.4 16.5.1 16.14.1 | standard only |
 
+<a id="章-17"></a>
+
 ### Chapter 17
 
 20 hand-written tests; 9 clauses in scope, every one cited, 4 of them by one test only: 17.4, 17.6, 17.7.2, 17.7.3.
@@ -322,6 +338,8 @@ The 325 generated tests (`tests/gen/ch4/`) come from the `scheduling` generator 
 | `test_illegal_checker_variable_initial_assignment` (illegal) | 17.7.1 17.5 | standard only |
 | `test_checker_reactive_triggered` | 17.7.3 17.5 16.13.6 4.4.2.5 | standard only |
 | `test_checker_default_arg_function` | 17.8 17.2 17.3 17.7.1 | standard only |
+
+<a id="章-18"></a>
 
 ### Chapter 18
 
@@ -366,6 +384,8 @@ The 325 generated tests (`tests/gen/ch4/`) come from the `scheduling` generator 
 | `test_rand_join_interleaving` | 18.17.5 18.17 | verilator@5.052 |
 | `test_randsequence_return_values` | 18.17.7 18.17 18.17.6 | standard only |
 
+<a id="章-19"></a>
+
 ### Chapter 19
 
 26 hand-written tests; 22 clauses in scope, every one cited, 15 of them by one test only: 19.4.1, 19.5.1.1, 19.5.1.2, 19.5.2, 19.5.4, 19.5.5, 19.5.6, 19.5.7, 19.6.1.3, 19.6.1.4, 19.6.3, 19.8.1, 19.9, 19.10, 19.11.3.
@@ -398,6 +418,8 @@ The 325 generated tests (`tests/gen/ch4/`) come from the `scheduling` generator 
 | `test_option_struct_members` | 19.10 19.7 19.7.1 | standard only |
 | `test_cg_item_weighted_average` | 19.11 19.11.1 19.7 | standard only |
 | `test_cg_type_coverage_merge` | 19.11.3 19.7 19.7.1 19.8 19.5.1 | standard only |
+
+<a id="章-22"></a>
 
 ### Chapter 22
 
@@ -436,6 +458,8 @@ The 325 generated tests (`tests/gen/ch4/`) come from the `scheduling` generator 
 | `test_begin_keywords_1364_2005` | 22.14 22.14.5 | iverilog@13.0 verilator@5.052 |
 | `test_begin_keywords_versions` | 22.14 22.14.2 22.14.3 22.14.4 22.14.5 22.14.6 22.14.7 22.14.8 22.14.9 | iverilog@13.0 verilator@5.052 |
 
+<a id="章-24"></a>
+
 ### Chapter 24
 
 18 hand-written tests; 6 clauses in scope, every one cited, 1 of them by one test only: 24.3.2.
@@ -460,6 +484,8 @@ The 325 generated tests (`tests/gen/ch4/`) come from the `scheduling` generator 
 | `test_anonymous_program` | 24.6 24.3 3.12.1 | standard only |
 | `test_exit_outside_program_ignored` | 24.7 24.3 | standard only |
 | `test_program_exit` | 24.7 24.3 9.2.3 | standard only |
+
+<a id="章-35"></a>
 
 ### Chapter 35
 
@@ -490,12 +516,11 @@ The 325 generated tests (`tests/gen/ch4/`) come from the `scheduling` generator 
 | `test_dpi_logic_values` | H.10.1.1 H.10.1.2 H.7.7 H.8.8 | standard only |
 
 
+<a id="期待出力の根拠が規格のみのテスト"></a>
+
 ## Tests whose expected output follows the standard only
 
-For review by a person: `:oracle: spec` alone, that is, neither Icarus
-Verilog 13.0 nor Verilator 5.052 produces the expected output. Why each
-release differs is in [docs/simulator-differences.md](simulator-differences.md)
-and in the comment of each test.
+For review by a person: `:oracle: spec` alone, that is, neither Icarus Verilog 13.0 nor Verilator 5.052 produces the expected output. Why each release differs is in [docs/simulator-differences.md](simulator-differences.md) and in the comment of each test.
 
 | Chapter | Tests | Names |
 | ---: | ---: | --- |
@@ -537,139 +562,92 @@ and in the comment of each test.
 | 40 | 11 | `test_coverage_api_minimum_types`, `test_coverage_control_bad_arguments`, `test_coverage_control_results`, `test_coverage_get_values`, `test_coverage_reset_and_stop`, `test_coverage_root_hierarchy`, `test_coverage_save_merge`, `test_coverage_scope_sums`, `test_vpi_coverage_assertion`, `test_vpi_coverage_control`, `test_vpi_fsm_from_pragmas` |
 
 
+<a id="段階計画14"></a>
+
 ## Plan for phases 1 to 4
+
+<a id="フェーズ1ランナー"></a>
 
 ### Phase 1: runners
 
-- Add `:defines:` (`NAME` or `NAME=VALUE`, separated by spaces),
-  `:incdirs:` (directories relative to the test) and `:top_module:` to
-  `tools/suite_results.py`, and pass them in every runner: Icarus Verilog
-  `-D`, `-I`, `-s`; Verilator `-D`, `-I`, `--top-module`; kirimasim
-  `+define+`, `+incdir+`, `--top=` (its CLI.md lists them). `:args:`,
-  `:files:`, `:expected_exit:` and the illegal
-  designs stay as they are.
+- Add `:defines:` (`NAME` or `NAME=VALUE`, separated by spaces), `:incdirs:` (directories relative to the test) and `:top_module:` to `tools/suite_results.py`, and pass them in every runner: Icarus Verilog `-D`, `-I`, `-s`; Verilator `-D`, `-I`, `--top-module`; kirimasim `+define+`, `+incdir+`, `--top=` (its CLI.md lists them). `:args:`, `:files:`, `:expected_exit:` and the illegal designs stay as they are.
 - README.md: the new fields in "Metadata", and how runners use them.
-- One small test for each new field: a macro value from `:defines:`, an
-  `` `include `` found through `:incdirs:`, and a design with two top-level
-  candidates where `:top_module:` picks one. The other fields already have
-  tests.
+- One small test for each new field: a macro value from `:defines:`, an `` `include `` found through `:incdirs:`, and a design with two top-level candidates where `:top_module:` picks one. The other fields already have tests.
+
+<a id="フェーズ-2--リントとテンプレート"></a>
 
 ### Phase 2: lint and template
 
-- `tools/lint_metadata.py`, run by the readme job of check.yml: required
-  fields, allowed values, `:lrm:` of the form `1800-2023 N.N...` whose first
-  chapter is the directory, `:tags:`, `:fourstate: no` with x or z literals,
-  `:expected_stdout:` naming a file that exists and is not empty,
-  `:should_fail_because:` only with `:type: elaboration` and with
-  `:expected_stderr_regex:`, and the rules of "Contributing" that a script
-  can check (line lengths, no comment line starting with the word
-  Verilator, a `` `timescale `` when a time is printed). Existing tests that
-  it flags are listed, not changed.
-- `tools/new_test.py ch16 test_name --lrm "16.9.3"` writes the header and an
-  empty `.expected`; README.md, "Contributing", says how to use it.
+- `tools/lint_metadata.py`, run by the readme job of check.yml: required fields, allowed values, `:lrm:` of the form `1800-2023 N.N...` whose first chapter is the directory, `:tags:`, `:fourstate: no` with x or z literals, `:expected_stdout:` naming a file that exists and is not empty, `:should_fail_because:` only with `:type: elaboration` and with `:expected_stderr_regex:`, and the rules of "Contributing" that a script can check (line lengths, no comment line starting with the word Verilator, a `` `timescale `` when a time is printed). Existing tests that it flags are listed, not changed.
+- `tools/new_test.py ch16 test_name --lrm "16.9.3"` writes the header and an empty `.expected`; README.md, "Contributing", says how to use it.
+
+<a id="フェーズ3テスト"></a>
 
 ### Phase 3: tests
 
-- 3-1: at least 20 illegal designs, first the three rules above that have
-  none (`:final`, real in a packed array, delay in always_comb), then other
-  rules of the same kind, written from the standard. kirimasim's
-  `tests/suite/` has illegal designs with expected errors; where one is
-  ported, it is rewritten in the form of this suite.
-- 3-2: at least 30 tests in `tests/ch4` of the items above, in particular
-  `wait` with nonblocking updates, chains of `#0`, a loop of zero delays, and
-  fork-join_none in a function, all with an order that the standard fixes.
-- 3-3: a generator in `generators/` for values wider than 64 bits through
-  paths that `width_sign` does not use (function results, both arms of `?:`,
-  ref and output arguments, task arguments, part selects with `+:`, `-:`
-  and variable indices, partial writes, concatenation and replication,
-  shifts by more than 64, comparisons, `%h`, `%b`, `%d`, `$bits`), 2-state
-  and 4-state, signed and unsigned, with x and z in the upper chunk; about 40
-  files in `tests/gen/`, with the generator kept for regeneration.
-- 3-4: the features of the table above that no test uses: triple-quoted
-  strings, `` `ifdef `` expressions, `:final`, `:initial` and `:extends`,
-  the index argument of array methods, `rand real`, `[a +/- b]` and
-  `[a +%- b]`, `type(this)`, `default :/` in dist, `super.new(default)`,
-  `union soft`; each with a legal test and, where the clause has a rule, an
-  illegal design. The features that already have tests (`map()`,
-  `$timeunit`, `$timeprecision`, `$stacktrace`, `weak_reference`,
-  covergroup `extends`) get more only where a clause has no test yet.
-- 3-5: about 10 tests of `:args:` (each format of `$value$plusargs`, the
-  first of several matches, 0 when nothing matches), `:defines:`,
-  `:incdirs:`, `:files:` (packages and interfaces in separate files, `$unit`
-  with several compilation units, 3.12.1, without depending on how a tool
-  groups files) and `:top_module:`.
+- 3-1: at least 20 illegal designs, first the three rules above that have none (`:final`, real in a packed array, delay in always_comb), then other rules of the same kind, written from the standard. kirimasim's `tests/suite/` has illegal designs with expected errors; where one is ported, it is rewritten in the form of this suite.
+- 3-2: at least 30 tests in `tests/ch4` of the items above, in particular `wait` with nonblocking updates, chains of `#0`, a loop of zero delays, and fork-join_none in a function, all with an order that the standard fixes.
+- 3-3: a generator in `generators/` for values wider than 64 bits through paths that `width_sign` does not use (function results, both arms of `?:`, ref and output arguments, task arguments, part selects with `+:`, `-:` and variable indices, partial writes, concatenation and replication, shifts by more than 64, comparisons, `%h`, `%b`, `%d`, `$bits`), 2-state and 4-state, signed and unsigned, with x and z in the upper chunk; about 40 files in `tests/gen/`, with the generator kept for regeneration.
+- 3-4: the features of the table above that no test uses: triple-quoted strings, `` `ifdef `` expressions, `:final`, `:initial` and `:extends`, the index argument of array methods, `rand real`, `[a +/- b]` and `[a +%- b]`, `type(this)`, `default :/` in dist, `super.new(default)`, `union soft`; each with a legal test and, where the clause has a rule, an illegal design. The features that already have tests (`map()`, `$timeunit`, `$timeprecision`, `$stacktrace`, `weak_reference`, covergroup `extends`) get more only where a clause has no test yet.
+- 3-5: about 10 tests of `:args:` (each format of `$value$plusargs`, the first of several matches, 0 when nothing matches), `:defines:`, `:incdirs:`, `:files:` (packages and interfaces in separate files, `$unit` with several compilation units, 3.12.1, without depending on how a tool groups files) and `:top_module:`.
+
+<a id="フェーズ4nightlyの回帰検知任意"></a>
 
 ### Phase 4: nightly ratchet (optional)
 
-A job in nightly.yml that fails when a kirimasim test that matched in the
-previous run on the `results` branch (`latest/kirimasim.json`) no longer
-matches; new tests and unsupported ones do not fail it, and it is skipped
-when there is no previous run.
+A job in nightly.yml that fails when a kirimasim test that matched in the previous run on the `results` branch (`latest/kirimasim.json`) no longer matches; new tests and unsupported ones do not fail it, and it is skipped when there is no previous run.
 
-Each phase runs the Icarus Verilog and Verilator runners on every test,
-updates the README tables and the catalog with their scripts, and becomes one
-commit; nothing is pushed until asked.
+Each phase runs the Icarus Verilog and Verilator runners on every test, updates the README tables and the catalog with their scripts, and becomes one commit; nothing is pushed until asked.
+
+<a id="最終報告書"></a>
 
 ## Final report
 
-The phases above were carried out on 2026-10-21, each as local commits:
-ce32c60 (this inventory), b82e845 (phase 1), 5a86259 (phase 2), 59d87b3,
-afc9988, 78194e0, 05507ef and 87fbcac (phases 3-1 to 3-5), 66fa34f (phase 4),
-and the commit that adds this report.
+The phases above were carried out on 2026-10-21, each as local commits: ce32c60 (this inventory), b82e845 (phase 1), 5a86259 (phase 2), 59d87b3, afc9988, 78194e0, 05507ef and 87fbcac (phases 3-1 to 3-5), 66fa34f (phase 4), and the commit that adds this report.
+
+<a id="追加されたテスト"></a>
 
 ### Tests added
 
-136 tests, 87 of them run (simulation) and 49 generated by
-`generators/wide_paths.py`, of which 47 are illegal designs. The oracle
-columns follow `:oracle:`: "both" is `iverilog@13.0 verilator@5.052`.
+136 tests, 87 of them run (simulation) and 49 generated by `generators/wide_paths.py`, of which 47 are illegal designs. The oracle columns follow `:oracle:`: "both" is `iverilog@13.0 verilator@5.052`.
 
 | Chapter | Tests | Both | Icarus Verilog 13.0 only | Verilator 5.052 only | Standard only | Illegal designs | Generated |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 4 | 30 | 24 | 2 | 2 | 2 | | |
-| 5 | 2 | 1 | | 1 | | 1 | |
-| 6 | 11 | 1 | 8 | 2 | | 4 | 7 |
+| 4 | 30 | 24 | 2 | 2 | 2 |||
+| 5 | 2 | 1 || 1 || 1 ||
+| 6 | 11 | 1 | 8 | 2 || 4 | 7 |
 | 7 | 19 | 1 | 8 | 8 | 2 | 3 | 14 |
-| 8 | 16 | 2 | 1 | 8 | 5 | 12 | |
-| 9 | 4 | | 4 | | | 4 | |
-| 11 | 15 | | 14 | | 1 | | 14 |
-| 12 | 1 | | | | 1 | 1 | |
+| 8 | 16 | 2 | 1 | 8 | 5 | 12 ||
+| 9 | 4 || 4 ||| 4 ||
+| 11 | 15 || 14 || 1 || 14 |
+| 12 | 1 |||| 1 | 1 ||
 | 13 | 18 | 2 | 6 | 8 | 2 | 4 | 14 |
-| 18 | 4 | | | 1 | 3 | 2 | |
-| 21 | 2 | 2 | | | | | |
-| 22 | 9 | 7 | | 2 | | 2 | |
-| 23 | 2 | 2 | | | | | |
-| 25 | 1 | | | 1 | | | |
-| 26 | 2 | 1 | 1 | | | 1 | |
+| 18 | 4 ||| 1 | 3 | 2 ||
+| 21 | 2 | 2 ||||||
+| 22 | 9 | 7 || 2 || 2 ||
+| 23 | 2 | 2 ||||||
+| 25 | 1 ||| 1 ||||
+| 26 | 2 | 1 | 1 ||| 1 ||
 | All | 136 | 43 | 44 | 33 | 16 | 34 | 49 |
 
-The illegal designs of the table are those of phases 3-1 (22) and 3-4
-(12). Besides the tests, the work added three metadata fields
-(`:defines:`, `:incdirs:`, `:top_module:`) to every runner,
-`tools/lint_metadata.py` with `tools/lint_baseline.txt`, `tools/new_test.py`,
-`tools/results_ratchet.py`, and the ratchet step of the nightly kirimasim
-job.
+The illegal designs of the table are those of phases 3-1 (22) and 3-4 (12). Besides the tests, the work added three metadata fields (`:defines:`, `:incdirs:`, `:top_module:`) to every runner, `tools/lint_metadata.py` with `tools/lint_baseline.txt`, `tools/new_test.py`, `tools/results_ratchet.py`, and the ratchet step of the nightly kirimasim job.
+
+<a id="この作業で既存の慣習に従った箇所"></a>
 
 ### Where the work followed the existing conventions
 
 Besides the table at the top of this file:
 
 - Phase 3 became five commits, one for each of its parts, instead of one.
-- Phase 3-3 has 49 files, seven widths for each of seven families, rather
-  than about 40.
-- Phase 3-5 did not repeat what tests of 21.6 already covered: each format of
-  `$value$plusargs`, the first match, no match, and prefix matches of
-  `$test$plusargs`. `$unit` across files was left out, since how a tool groups
-  files into compilation units is its own (3.12.1), and the suite does not
-  depend on it.
-- The lint fails only on problems that `tools/lint_baseline.txt` does not
-  list, so that the existing tests that break a rule are reported without
-  being changed.
+- Phase 3-3 has 49 files, seven widths for each of seven families, rather than about 40.
+- Phase 3-5 did not repeat what tests of 21.6 already covered: each format of `$value$plusargs`, the first match, no match, and prefix matches of `$test$plusargs`. `$unit` across files was left out, since how a tool groups files into compilation units is its own (3.12.1), and the suite does not depend on it.
+- The lint fails only on problems that `tools/lint_baseline.txt` does not list, so that the existing tests that break a rule are reported without being changed.
+
+<a id="icarus-verilog-130とverilator-5052が不一致となった箇所"></a>
 
 ### Where Icarus Verilog 13.0 and Verilator 5.052 disagreed
 
-Tests that both releases ran to an output or a verdict, and where they gave
-different ones; the clause decided, and docs/simulator-differences.md lists
-each place.
+Tests that both releases ran to an output or a verdict, and where they gave different ones; the clause decided, and docs/simulator-differences.md lists each place.
 
 | Test | Icarus Verilog 13.0 | Verilator 5.052 | Clause |
 | --- | --- | --- | --- |
@@ -679,109 +657,57 @@ each place.
 | `ch4/test_sched_disable_fork_in_called_task` | disable fork in a task does not end the caller's child | follows the standard | 9.6.3 |
 | `ch8/test_type_this` | does not support type(this) | rejects type(this) in a static method | 6.23, 8.11 |
 | `gen/ch7/test_gen_wide_select_*_2state` | rejects a write through a variable index of a packed array, then stops on an internal assertion | follows the standard | 7.4.5, 11.5.1 |
-| `ch13/test_illegal_function_fork_join_any`, `ch12/test_illegal_break_in_fork_to_outer_loop` and the others of the next list | accept or reject as listed there | | |
+| `ch13/test_illegal_function_fork_join_any`, `ch12/test_illegal_break_in_fork_to_outer_loop` and the others of the next list | accept or reject as listed there |||
 
-Two more disagreements did not become tests as first written. In
-`ch4/test_sched_deferred_action_arguments` the first expectation was wrong:
-by 16.4 the by-value arguments of the action block of a deferred assertion
-are evaluated with its expression, and the test was rewritten to show that
-and a const ref argument; Verilator runs the action block at once, and Icarus
-Verilog does not support deferred assertions. A test that redefined in the
-source a macro that a tool option had defined was dropped: Icarus Verilog
-keeps the source's definition and Verilator (and kirimasim) the option's, and
-the standard leaves options to the tool.
+Two more disagreements did not become tests as first written. In `ch4/test_sched_deferred_action_arguments` the first expectation was wrong: by 16.4 the by-value arguments of the action block of a deferred assertion are evaluated with its expression, and the test was rewritten to show that and a const ref argument; Verilator runs the action block at once, and Icarus Verilog does not support deferred assertions. A test that redefined in the source a macro that a tool option had defined was dropped: Icarus Verilog keeps the source's definition and Verilator (and kirimasim) the option's, and the standard leaves options to the tool.
+
+<a id="リリース版が受理する規格違反の設計"></a>
 
 ### Illegal designs that a release accepts
 
-- Icarus Verilog 13.0: `ch13/test_illegal_function_fork_join_any` and
-  `ch12/test_illegal_break_in_fork_to_outer_loop`; it stops on an internal
-  assertion for `ch6/test_illegal_dynamic_array_element_continuous`.
-- Verilator 5.052: `ch7/test_illegal_packed_array_of_real`,
-  `ch9/test_illegal_always_comb_delay`,
-  `ch9/test_illegal_always_comb_event_control`,
-  `ch9/test_illegal_always_comb_fork_join`,
-  `ch9/test_illegal_always_latch_delay`,
-  `ch13/test_illegal_ref_in_static_function`,
-  `ch8/test_illegal_global_constant_assigned_in_constructor`,
-  `ch8/test_illegal_static_instance_constant`,
-  `ch6/test_illegal_enum_sized_literal_width`,
-  `ch12/test_illegal_break_in_fork_to_outer_loop`,
-  `ch26/test_illegal_local_declaration_after_import` and
-  `ch8/test_illegal_final_pure_virtual`.
+- Icarus Verilog 13.0: `ch13/test_illegal_function_fork_join_any` and `ch12/test_illegal_break_in_fork_to_outer_loop`; it stops on an internal assertion for `ch6/test_illegal_dynamic_array_element_continuous`.
+- Verilator 5.052: `ch7/test_illegal_packed_array_of_real`, `ch9/test_illegal_always_comb_delay`, `ch9/test_illegal_always_comb_event_control`, `ch9/test_illegal_always_comb_fork_join`, `ch9/test_illegal_always_latch_delay`, `ch13/test_illegal_ref_in_static_function`, `ch8/test_illegal_global_constant_assigned_in_constructor`, `ch8/test_illegal_static_instance_constant`, `ch6/test_illegal_enum_sized_literal_width`, `ch12/test_illegal_break_in_fork_to_outer_loop`, `ch26/test_illegal_local_declaration_after_import` and `ch8/test_illegal_final_pure_virtual`.
 
-Twelve rejections by Icarus Verilog 13.0 come from constructs that it does not
-support and fall on the line the test names (`:final`, `:initial`,
-`:extends`, `type(this)`, `static const`, ref arguments, `` `ifdef ``
-expressions, constraints, `sum` of a queue, `default` in `super.new`). The
-comments of the tests say so, and the check workflow shows them as NOW
-MATCHES, 38 lines now.
+Twelve rejections by Icarus Verilog 13.0 come from constructs that it does not support and fall on the line the test names (`:final`, `:initial`, `:extends`, `type(this)`, `static const`, ref arguments, `` `ifdef `` expressions, constraints, `sum` of a queue, `default` in `super.new`). The comments of the tests say so, and the check workflow shows them as NOW MATCHES, 38 lines now.
+
+<a id="リントがフラグ付けする既存のテスト"></a>
 
 ### Existing tests that the lint flags
 
 `tools/lint_baseline.txt` lists 378 problems, none of them changed:
 
-- width: 368 tests with comment lines over 80 or code lines over 100 columns,
-  written before that rule of Contributing;
-- fourstate: `ch5/test_operator_token_lengths`, `ch19/test_cg_wildcard_bins`,
-  `ch20/test_pla_async_array_plane` and `ch37/test_vpi_case_loop_force_stmts`
-  have `:fourstate: no` and an x, z or `?` literal;
-- chapter: `ch35/test_dpi_context_scope`, `ch35/test_dpi_logic_values` and
-  `ch35/test_dpi_packed_canonical` cite a clause of Annex H first, and
-  `ch36/test_vpi_systf_argument_on_demand` one of chapter 37;
-- timescale: `ch21/test_display_format_edge_cases` prints `%t` of time 0 and
-  `ch37/test_vpi_active_time_format` calls `$timeformat` without a
-  `` `timescale ``; the check is a heuristic, and neither output seems to
-  depend on the time unit.
+- width: 368 tests with comment lines over 80 or code lines over 100 columns, written before that rule of Contributing;
+- fourstate: `ch5/test_operator_token_lengths`, `ch19/test_cg_wildcard_bins`, `ch20/test_pla_async_array_plane` and `ch37/test_vpi_case_loop_force_stmts` have `:fourstate: no` and an x, z or `?` literal;
+- chapter: `ch35/test_dpi_context_scope`, `ch35/test_dpi_logic_values` and `ch35/test_dpi_packed_canonical` cite a clause of Annex H first, and `ch36/test_vpi_systf_argument_on_demand` one of chapter 37;
+- timescale: `ch21/test_display_format_edge_cases` prints `%t` of time 0 and `ch37/test_vpi_active_time_format` calls `$timeformat` without a `` `timescale ``; the check is a heuristic, and neither output seems to depend on the time unit.
+
+<a id="期待出力の根拠が規格のみのテスト-1"></a>
 
 ### Tests whose expected output follows the standard only
 
-The existing ones are listed by chapter above. The work adds 16:
-`ch4/test_sched_deferred_action_arguments`,
-`ch4/test_sched_nonblocking_event_trigger`,
-`ch7/test_array_method_index_argument`,
-`ch7/test_illegal_iterator_argument_without_with`,
-`ch8/test_illegal_final_pure_virtual`,
-`ch8/test_illegal_static_instance_constant`,
-`ch8/test_illegal_super_new_default_without_default`,
-`ch8/test_super_new_default`,
-`ch8/test_type_this`, `ch11/test_inside_tolerance_ranges`,
-`ch12/test_illegal_break_in_fork_to_outer_loop`,
-`ch13/test_illegal_ref_in_static_function`, `ch18/test_dist_default_weight`,
-`ch18/test_illegal_dist_two_defaults`, `ch18/test_rand_real_constraint` and
-`gen/ch13/test_gen_wide_subroutine_w65_4state`.
+The existing ones are listed by chapter above. The work adds 16: `ch4/test_sched_deferred_action_arguments`, `ch4/test_sched_nonblocking_event_trigger`, `ch7/test_array_method_index_argument`, `ch7/test_illegal_iterator_argument_without_with`, `ch8/test_illegal_final_pure_virtual`, `ch8/test_illegal_static_instance_constant`, `ch8/test_illegal_super_new_default_without_default`, `ch8/test_super_new_default`, `ch8/test_type_this`, `ch11/test_inside_tolerance_ranges`, `ch12/test_illegal_break_in_fork_to_outer_loop`, `ch13/test_illegal_ref_in_static_function`, `ch18/test_dist_default_weight`, `ch18/test_illegal_dist_two_defaults`, `ch18/test_rand_real_constraint` and `gen/ch13/test_gen_wide_subroutine_w65_4state`.
+
+<a id="新しいテストのkirimasim"></a>
 
 ### kirimasim on the new tests
 
-A local build of kirimasim (commit 8b23f517c274) matches 125 of the 136; 8
-use what it does not support yet, and 3 differ:
+A local build of kirimasim (commit 8b23f517c274) matches 125 of the 136; 8 use what it does not support yet, and 3 differ:
 
-- `ch13/test_illegal_function_fork_join_any`: kirimasim reports the error at
-  `join_any` (line 25), not at `fork` (line 22), which the test names.
-  The test was not changed to follow kirimasim: the place of the error is
-  the fork that starts the statement, and `ch13/test_illegal_function_fork_join`
-  was changed afterwards to name only its fork as well. kirimasim reports
-  that one at its `join` too, so it no longer matches it; kirimasim issue
-  [#34](https://github.com/kurochan001/kirimasim/issues/34) asks for both
-  errors at the fork.
-- `ch26/test_illegal_local_declaration_after_import`: kirimasim reports the
-  reference that imports `limit` (line 25); 26.3 makes the later local
-  declaration (line 26) the illegal one.
-- `ch21/test_plusargs_key_from_variable`: kirimasim does not accept an
-  integral variable as the plusarg string, which 21.6 allows.
+- `ch13/test_illegal_function_fork_join_any`: kirimasim reports the error at `join_any` (line 25), not at `fork` (line 22), which the test names. The test was not changed to follow kirimasim: the place of the error is the fork that starts the statement, and `ch13/test_illegal_function_fork_join` was changed afterwards to name only its fork as well. kirimasim reports that one at its `join` too, so it no longer matches it; kirimasim issue [#34](https://github.com/kurochan001/kirimasim/issues/34) asks for both errors at the fork.
+- `ch26/test_illegal_local_declaration_after_import`: kirimasim reports the reference that imports `limit` (line 25); 26.3 makes the later local declaration (line 26) the illegal one.
+- `ch21/test_plusargs_key_from_variable`: kirimasim does not accept an integral variable as the plusarg string, which 21.6 allows.
+
+<a id="ローカルシミュレータのバージョン"></a>
 
 ### Versions of the local simulators
 
-`iverilog` on `PATH` is 14.0 (devel); every oracle run used Icarus Verilog
-13.0 (stable) (v13_0) through `--iverilog-bin`. Verilator is 5.052
-2026-09-05.
+`iverilog` on `PATH` is 14.0 (devel); every oracle run used Icarus Verilog 13.0 (stable) (v13_0) through `--iverilog-bin`. Verilator is 5.052 2026-09-05.
+
+<a id="この報告後に追加されたテスト"></a>
 
 ## Tests added after this report
 
-The tests below were added on 2026-10-22, after the report above. The work
-of the report left chapters 3, 14, 17, 24, 26, 29, 32, 33, 36, 39 and 40
-with the fewest tests. Two later commits added 19 tests to them,
-`b43cfa4` (12 tests) and `3c2472f` (7 tests). The suite then had 3699
-tests.
+The tests below were added on 2026-10-22, after the report above. The work of the report left chapters 3, 14, 17, 24, 26, 29, 32, 33, 36, 39 and 40 with the fewest tests. Two later commits added 19 tests to them, `b43cfa4` (12 tests) and `3c2472f` (7 tests). The suite then had 3699 tests.
 
 | Chapter | Tests | Which |
 | ---: | ---: | --- |
@@ -797,28 +723,20 @@ tests.
 | 39 | 1 | the `cbAssertionSuccess` callback of a cover property |
 | 40 | 1 | an interface instance as the scope of the coverage calls |
 
-By `:oracle:`, Icarus Verilog 13.0 recorded 7 of them, Verilator 5.052
-(seeds 1 and 7) 7, and 5 follow the standard only. One is an illegal
-design, two have VPI C code, and two depend on x or z values.
+By `:oracle:`, Icarus Verilog 13.0 recorded 7 of them, Verilator 5.052 (seeds 1 and 7) 7, and 5 follow the standard only. One is an illegal design, two have VPI C code, and two depend on x or z values.
 
-The tests found four places where a release differs from the standard,
-all listed in [simulator-differences.md](simulator-differences.md):
+The tests found four places where a release differs from the standard, all listed in [simulator-differences.md](simulator-differences.md):
 
-- Verilator 5.052: `$exit` called in a task returns from the task instead
-  of ending the initial procedures of the program (24.7).
-- Verilator 5.052: a sequential UDP instance with two delays changes its
-  output at the clock edge and uses neither delay (29.8).
-- Icarus Verilog 13.0: it ignores the `TIMESCALE` of an SDF file and reads
-  its delay values in the time unit of the design (32.3).
-- Icarus Verilog 13.0: it treats the unknown condition of an SDF `COND`
-  entry as false; such a condition is true (30.4.4.1, 32.4.1).
+- Verilator 5.052: `$exit` called in a task returns from the task instead of ending the initial procedures of the program (24.7).
+- Verilator 5.052: a sequential UDP instance with two delays changes its output at the clock edge and uses neither delay (29.8).
+- Icarus Verilog 13.0: it ignores the `TIMESCALE` of an SDF file and reads its delay values in the time unit of the design (32.3).
+- Icarus Verilog 13.0: it treats the unknown condition of an SDF `COND` entry as false; such a condition is true (30.4.4.1, 32.4.1).
+
+<a id="もう6つのテスト"></a>
 
 ### Six more tests
 
-A third commit, `b0994fd`, added 6 more tests to the thinnest chapters;
-the suite then had 3705 tests. `0641d74` initialized the output port of
-`test_program_clocking_output`, because Verilator gives an uninitialized
-variable a random initial value, which changed the result with seed 7.
+A third commit, `b0994fd`, added 6 more tests to the thinnest chapters; the suite then had 3705 tests. `0641d74` initialized the output port of `test_program_clocking_output`, because Verilator gives an uninitialized variable a random initial value, which changed the result with seed 7.
 
 | Chapter | Tests | Which |
 | ---: | ---: | --- |
@@ -828,15 +746,13 @@ variable a random initial value, which changed the result with seed 7.
 | 39 | 1 | the `cbAssertionStart` callback of every attempt of a cover property |
 | 40 | 1 | a program instance as the scope of the coverage calls |
 
-The two chapter 3 tests list both Icarus Verilog 13.0 and Verilator
-5.052; the chapter 36 test lists Icarus Verilog 13.0, the chapter 24
-test Verilator 5.052, and the chapter 39 and 40 tests follow the
-standard only. No new simulator difference was found.
+The two chapter 3 tests list both Icarus Verilog 13.0 and Verilator 5.052; the chapter 36 test lists Icarus Verilog 13.0, the chapter 24 test Verilator 5.052, and the chapter 39 and 40 tests follow the standard only. No new simulator difference was found.
+
+<a id="もう5つのテスト"></a>
 
 ### Five more tests
 
-A fourth commit, `fea36a2`, added 5 more tests; the suite then had 3710
-tests.
+A fourth commit, `fea36a2`, added 5 more tests; the suite then had 3710 tests.
 
 | Chapter | Tests | Which |
 | ---: | ---: | --- |
@@ -846,15 +762,13 @@ tests.
 | 39 | 1 | the disable of an immediate assertion through VPI |
 | 40 | 1 | a package as the scope of the coverage calls |
 
-The chapter 3 test lists both Icarus Verilog 13.0 and Verilator 5.052;
-the chapter 36 test lists Icarus Verilog 13.0, the chapter 24 test
-Verilator 5.052, and the chapter 39 and 40 tests follow the standard
-only. No new simulator difference was found.
+The chapter 3 test lists both Icarus Verilog 13.0 and Verilator 5.052; the chapter 36 test lists Icarus Verilog 13.0, the chapter 24 test Verilator 5.052, and the chapter 39 and 40 tests follow the standard only. No new simulator difference was found.
+
+<a id="もう3つのテスト"></a>
 
 ### Three more tests
 
-A fifth commit, `4ff57d6`, added 3 more tests; the suite then had 3713
-tests.
+A fifth commit, `4ff57d6`, added 3 more tests; the suite then had 3713 tests.
 
 | Chapter | Tests | Which |
 | ---: | ---: | --- |
@@ -862,14 +776,13 @@ tests.
 | 33 | 1 | a cell rule that binds its instances with parameter overrides |
 | 39 | 1 | the VPI handles of immediate assert, assume and cover statements |
 
-None of the three is produced by Icarus Verilog 13.0 or Verilator
-5.052, so all follow the standard only. No new simulator difference was
-found.
+None of the three is produced by Icarus Verilog 13.0 or Verilator 5.052, so all follow the standard only. No new simulator difference was found.
+
+<a id="さらに3つの試験"></a>
 
 ### Three further tests
 
-A sixth commit, `c7d3edb`, added 3 more tests; the suite then had 3716
-tests.
+A sixth commit, `c7d3edb`, added 3 more tests; the suite then had 3716 tests.
 
 | Chapter | Tests | Which |
 | ---: | ---: | --- |
@@ -877,13 +790,13 @@ tests.
 | 39 | 1 | the absence of a failure callback for a cover that does not match |
 | 40 | 1 | saving coverage after a stop |
 
-Verilator 5.052 produces the chapter 3 test; the chapter 39 and 40
-tests follow the standard only. No new simulator difference was found.
+Verilator 5.052 produces the chapter 3 test; the chapter 39 and 40 tests follow the standard only. No new simulator difference was found.
+
+<a id="sdfvpiおよびカバレッジの3つのテスト"></a>
 
 ### Three tests of SDF, VPI and coverage
 
-A seventh commit, `f6b1fab`, added 3 more tests; the suite then had 3719
-tests.
+A seventh commit, `f6b1fab`, added 3 more tests; the suite then had 3719 tests.
 
 | Chapter | Tests | Which |
 | ---: | ---: | --- |
@@ -891,13 +804,13 @@ tests.
 | 36 | 1 | a user-defined system task called from a generate block |
 | 40 | 1 | the `NOCOV` answer for a module definition with no instances |
 
-Icarus Verilog 13.0 produces the chapter 36 test; the chapter 32 and 40
-tests follow the standard only. No new simulator difference was found.
+Icarus Verilog 13.0 produces the chapter 36 test; the chapter 32 and 40 tests follow the standard only. No new simulator difference was found.
+
+<a id="61-もっとテスト"></a>
 
 ### 61 more tests
 
-A final batch of 61 tests brought the additions to 100 (39 + 61). They
-were written in the thinnest chapters:
+A final batch of 61 tests brought the additions to 100 (39 + 61). They were written in the thinnest chapters:
 
 | Chapter | Tests | Which |
 | ---: | ---: | --- |
@@ -911,17 +824,13 @@ were written in the thinnest chapters:
 | 39 | 3 | assertion system controls, procedural callbacks and per-instance controls |
 | 40 | 2 | coverage reset/merge and control by definition or instance |
 
-By `:oracle:`, Icarus Verilog 13.0 recorded 33 of them, Verilator 5.052
-21, and 7 follow the standard only. Two are illegal designs. The tests
-found three further places where a release differs, all in
-[simulator-differences.md](simulator-differences.md): Verilator's
-explicit-import precedence (26.3) and `$exit` from a program fork
-(24.7), and Icarus Verilog's named wildcard export (26.5).
+By `:oracle:`, Icarus Verilog 13.0 recorded 33 of them, Verilator 5.052 21, and 7 follow the standard only. Two are illegal designs. The tests found three further places where a release differs, all in [simulator-differences.md](simulator-differences.md): Verilator's explicit-import precedence (26.3) and `$exit` from a program fork (24.7), and Icarus Verilog's named wildcard export (26.5).
+
+<a id="12-優先キューの第二テスト"></a>
 
 ### 12 second tests for the priority queue
 
-The depth report found 68 clauses with one test and only a standard-only
-expectation. A first slice adds a second test for 12 of them:
+The depth report found 68 clauses with one test and only a standard-only expectation. A first slice adds a second test for 12 of them:
 
 | Clause | New test | Oracle |
 | ---: | --- | --- |
@@ -938,221 +847,116 @@ expectation. A first slice adds a second test for 12 of them:
 | 21.4.3 | `ch21/test_readmemh_address_range` | both |
 | 33.7 | `ch33/test_config_binding_nested` | Verilator |
 
-The priority queue fell from 68 to 55 clauses, the clauses with one test
-from 191 to 177, and the clauses with only standard-only tests from 265
-to 252. The tests with both releases rose from 164 to 171. The next
-slice should continue with the remaining 55.
+The priority queue fell from 68 to 55 clauses, the clauses with one test from 191 to 177, and the clauses with only standard-only tests from 265 to 252. The tests with both releases rose from 164 to 171. The next slice should continue with the remaining 55.
 
-The clause text also requires `%L`; `ch33/test_config_binding_upper`
-adds it, recorded with Verilator, so the suite then had 3793 tests.
+The clause text also requires `%L`; `ch33/test_config_binding_upper` adds it, recorded with Verilator, so the suite then had 3793 tests.
+
+<a id="条文の記述に基づく修正"></a>
 
 ### Clause-text corrections
 
-Reading the clause text in the IEEE 1800-2023 PDF found three
-corrections to the metadata:
+Reading the clause text in the IEEE 1800-2023 PDF found three corrections to the metadata:
 
-- `3.11` is “Overview of hierarchy”, not the behavior of top-level
-  modules. `test_top_level_instances` moved to `ch23`, cites `23.3.1`,
-  and `3.11` is tagged `none` again. This is one of the reasons the
-  one-test count is 177 rather than 178.
-- `37.69` is “Repeat control”; the test that cites it is right, and the
-  clause list now has it.
-- `21.7.1.1` to `21.7.1.4` and `21.7.1.6` name the `$dumpfile`,
-  `$dumpvars`, `$dumpoff`/`$dumpon`, `$dumpall` and `$dumpflush`
-  controls, not the content of a VCD file. They are in scope again; only
-  `21.7.1.5` (`$dumplimit`) and the VCD content clauses that no test reads
-  keep the `dump` tag.
-- `21.7.2.1` to `21.7.2.3` and `21.7.5` are VCD content clauses that
-  `test_vcd_dump_readback` does read back, so their `dump` tag goes as
-  well. The README says that these four are in scope.
-- `8.30.1` is an overview, but it also says that the parameter type of
-  `weak_reference` shall be a class type, which is behavior. Its `none`
-  tag goes. `25.3.3` is called an example, but it also says that a
-  generic interface reference in a non-ANSI port list is illegal; its
-  `none` tag goes too.
-- `25.7.2` and `25.7.3` are examples of tasks in modports and of
-  exporting tasks, not behavior. The two tests that cited them now cite
-  25.5 instead.
-- `25.3.1` is an example without interfaces and `34.5.x.1` are the
-  syntax subclauses of the excluded clause 34; both are in the clause
-  list now, tagged `none` and `excluded`.
+- `3.11` is “Overview of hierarchy”, not the behavior of top-level modules. `test_top_level_instances` moved to `ch23`, cites `23.3.1`, and `3.11` is tagged `none` again. This is one of the reasons the one-test count is 177 rather than 178.
+- `37.69` is “Repeat control”; the test that cites it is right, and the clause list now has it.
+- `21.7.1.1` to `21.7.1.4` and `21.7.1.6` name the `$dumpfile`, `$dumpvars`, `$dumpoff`/`$dumpon`, `$dumpall` and `$dumpflush` controls, not the content of a VCD file. They are in scope again; only `21.7.1.5` (`$dumplimit`) and the VCD content clauses that no test reads keep the `dump` tag.
+- `21.7.2.1` to `21.7.2.3` and `21.7.5` are VCD content clauses that `test_vcd_dump_readback` does read back, so their `dump` tag goes as well. The README says that these four are in scope.
+- `8.30.1` is an overview, but it also says that the parameter type of `weak_reference` shall be a class type, which is behavior. Its `none` tag goes. `25.3.3` is called an example, but it also says that a generic interface reference in a non-ANSI port list is illegal; its `none` tag goes too.
+- `25.7.2` and `25.7.3` are examples of tasks in modports and of exporting tasks, not behavior. The two tests that cited them now cite 25.5 instead.
+- `25.3.1` is an example without interfaces and `34.5.x.1` are the syntax subclauses of the excluded clause 34; both are in the clause list now, tagged `none` and `excluded`.
+
+<a id="vpi-オブジェクトモデルとバインド属性"></a>
 
 ### VPI object model and binding properties
 
-The eleven VPI statement clauses 37.55, 37.62, 37.66, 37.67, 37.70,
-37.71, 37.73, 37.74, 37.77, 37.78 and 37.83, and the 33.7 properties
-`vpiLibrary`, `vpiCell` and `vpiConfig`, have no release that can run
-them. They are covered by three spec-only tests: one lists the statement
-types, one reads an attribute object, and one reads the three module
-properties. `tools/clauses.txt` has the eleven clauses again. The depth
-report therefore counts eleven new one-test spec-only clauses; a second
-test for them needs a VPI-capable simulator.
+The eleven VPI statement clauses 37.55, 37.62, 37.66, 37.67, 37.70, 37.71, 37.73, 37.74, 37.77, 37.78 and 37.83, and the 33.7 properties `vpiLibrary`, `vpiCell` and `vpiConfig`, have no release that can run them. They are covered by three spec-only tests: one lists the statement types, one reads an attribute object, and one reads the three module properties. `tools/clauses.txt` has the eleven clauses again. The depth report therefore counts eleven new one-test spec-only clauses; a second test for them needs a VPI-capable simulator.
+
+<a id="2026-10-22のレビュー修正"></a>
 
 ### Review fixes of 2026-10-22
 
-The content review in [test-content-review-20261022.md](test-content-review-20261022.md)
-found twelve problems in twenty-four tests. They are fixed:
+The content review in [test-content-review-20261022.md](test-content-review-20261022.en.md) found twelve problems in twenty-four tests. They are fixed:
 
-- F01: the procedural assign to a part-select is now an illegal design in
-  `ch10/test_sched_procedural_assign_part_select`; the clause list and the
-  simulator differences say that Icarus Verilog 13.0 and Verilator 5.052
-  accept it.
-- F02: the two package export tests now import the names they re-export
-  explicitly; both releases reproduce them, and they cite 26.6.
-- F03: the output-driven variables of the program and checker tests no
-  longer have declaration initializers.
-- F04: the program tests keep a second initial procedure alive past the
-  module observation, so the implicit finish of 24.3 does not cut it off.
-- F05: `before`, a reserved word, is renamed to `value_before` in the
-  coverage save test.
-- F06: the expect statement in the VPI statement test has an explicit
-  `@(posedge en)` clock.
-- F07: the fast checker in the context test keeps `fast_ok` low through
-  the edge at 42.
-- F08: the nine VPI C files copy each `vpi_get_str()` result before the
-  next call, as 38.11 requires.
+- F01: the procedural assign to a part-select is now an illegal design in `ch10/test_sched_procedural_assign_part_select`; the clause list and the simulator differences say that Icarus Verilog 13.0 and Verilator 5.052 accept it.
+- F02: the two package export tests now import the names they re-export explicitly; both releases reproduce them, and they cite 26.6.
+- F03: the output-driven variables of the program and checker tests no longer have declaration initializers.
+- F04: the program tests keep a second initial procedure alive past the module observation, so the implicit finish of 24.3 does not cut it off.
+- F05: `before`, a reserved word, is renamed to `value_before` in the coverage save test.
+- F06: the expect statement in the VPI statement test has an explicit `@(posedge en)` clock.
+- F07: the fast checker in the context test keeps `fast_ok` low through the edge at 42.
+- F08: the nine VPI C files copy each `vpi_get_str()` result before the next call, as 38.11 requires.
 - F09: the exported wait task of the reentrant DPI test is automatic.
-- F10: the setup violation is reported at the reference edge, 10, not at
-  the data change, 7.
-- F11: the recrem checks use `(d, posedge clk, ...)`, and the RECREM entry
-  annotates the separate `$removal` check too; the expected notifiers are
-  updated.
-- F12: the coverage definition test rejects `SV_COV_ERROR` from every
-  control and query; `SV_COV_NOCOV` and `SV_COV_PARTIAL` stay allowed.
-  An all-ERROR implementation can no longer pass.
+- F10: the setup violation is reported at the reference edge, 10, not at the data change, 7.
+- F11: the recrem checks use `(d, posedge clk, ...)`, and the RECREM entry annotates the separate `$removal` check too; the expected notifiers are updated.
+- F12: the coverage definition test rejects `SV_COV_ERROR` from every control and query; `SV_COV_NOCOV` and `SV_COV_PARTIAL` stay allowed. An all-ERROR implementation can no longer pass.
 
-The follow-up review in
-[test-content-review-followup-20261022.md](test-content-review-followup-20261022.md)
-found three remaining points, all fixed:
+The follow-up review in [test-content-review-followup-20261022.md](test-content-review-followup-20261022.en.md) found three remaining points, all fixed:
 
-- R01: the two program clocking tests give the program output formal a
-  default initial value, so they see q=0 at 6 and q=1 at 8 again.
-- R02: the coverage definition test accepts NOCOV/PARTIAL from START and
-  only fails on ERROR.
-- R03: its comparisons check that both query values are not ERROR before
-  comparing them; the start and stop of the whole definition are checked
-  too.
+- R01: the two program clocking tests give the program output formal a default initial value, so they see q=0 at 6 and q=1 at 8 again.
+- R02: the coverage definition test accepts NOCOV/PARTIAL from START and only fails on ERROR.
+- R03: its comparisons check that both query values are not ERROR before comparing them; the start and stop of the whole definition are checked too.
+
+<a id="2026-10-25と2026-10-26の対応付けラウンド"></a>
 
 ### Matching rounds of 2026-10-25 and 2026-10-26
 
-Thirteen pending batches (p01, p05, p07, p12, p09, p10, p13, p15 and
-the annex batches a01-a05, g05, g08, g09, h01, h02) were independently
-verified and merged. Of 1388 proposals, 1365 were accepted and 23
-rejected; 620 new tests were added. Eighteen tests found defective were
-repaired (eight `input var` ports, four diagnostic locations, a comment
-width, three `:oracle:` entries and a clause citation) before the merge.
-Four tests with remaining semantic defects stayed out. Restoring the ch22
-include fixtures changed the include-directory digest of ten existing
-mappings; they were rehashed and re-run, and the baseline updates record
-why.
+Thirteen pending batches (p01, p05, p07, p12, p09, p10, p13, p15 and the annex batches a01-a05, g05, g08, g09, h01, h02) were independently verified and merged. Of 1388 proposals, 1365 were accepted and 23 rejected; 620 new tests were added. The record reports 18 defective tests repaired before the merge. Its listed categories total 17: eight `input var` ports, four diagnostic locations, one comment-width correction, three `:oracle:` entries and one clause citation. The original record does not explain the difference. Four tests with remaining semantic defects stayed out. Restoring the ch22 include fixtures changed the include-directory digest of ten existing mappings; they were rehashed and re-run, and the baseline updates record why.
 
-A further creation round added header and distribution tests: K.2 (31
-accepted), I.3 (55) and N.2 (7), 18 tests. One I.3 test with a reversed
-array-pattern expectation was excluded.
+A further creation round added header and distribution tests: K.2 (31 accepted), I.3 (55) and N.2 (7), 18 tests. One I.3 test with a reversed array-pattern expectation was excluded.
 
-Another creation round added assertion control (20.11, 42 accepted),
-coverage control and VPI coverage (40.3.2.1/40.5.2, 20), checker
-declarations (17.2/17.3/17.7.2, 29) and 1364 compatibility (36.12.1, 8),
-30 tests. One checker test that relied on a program's implicit finish was
-excluded.
+Another creation round added assertion control (20.11, 42 accepted), coverage control and VPI coverage (40.3.2.1/40.5.2, 20), checker declarations (17.2/17.3/17.7.2, 29) and 1364 compatibility (36.12.1, 8), 30 tests. One checker test that relied on a program's implicit finish was excluded.
 
-The final round covered Annex A grammar in four partitions: 369 links
-were applied from the 517 proposals, with 93 tests kept after the
-independent review. Fifteen tests with wrong expectations or illegal
-syntax stayed out; five repaired tests were re-verified first. This
-takes the ledger past the 75% target: 9244 of 12319 rows (75.04%).
+The final round covered Annex A grammar in four partitions: 369 links were applied from the 517 proposals, with 93 tests kept after the independent review. Fifteen tests with wrong expectations or illegal syntax stayed out; five repaired tests were re-verified first. This takes the ledger past the 75% target: 9244 of 12319 rows (75.04%).
 
-An execution audit then ran the whole suite and found 277 spec-only
-tests whose output or diagnostic already matches Icarus Verilog 13.0.
-They now list iverilog@13.0, and their requirements count as executed.
-Verilator matched none of the spec-only tests.
+An execution audit then ran the whole suite and found 277 spec-only tests whose output or diagnostic already matches Icarus Verilog 13.0. They now list iverilog@13.0, and their requirements count as executed. Verilator matched none of the spec-only tests.
 
-A further matching pass over four partitions with candidate tests
-(33.4.1-37.10, 37.12-37.32, 37.33-38.31, 38.32-40.4.5) accepted 60
-links and held 275 observations.
+A further matching pass over four partitions with candidate tests (33.4.1-37.10, 37.12-37.32, 37.33-38.31, 38.32-40.4.5) accepted 60 links and held 275 observations.
 
-Another pass over p01-p04 (3.4-6.11.1, 6.12-7.7, 7.8-9.2.2.2,
-9.2.2.2.1-11.5.1) accepted 99 links and held 334 observations.
+Another pass over p01-p04 (3.4-6.11.1, 6.12-7.7, 7.8-9.2.2.2, 9.2.2.2.1-11.5.1) accepted 99 links and held 334 observations.
 
-A pass over p05-p08 (11.5.2-14.16, 14.16.1-16.13.5, 16.13.6-18.5.6,
-18.5.7.1-19.7) accepted 89 links and held 388 observations.
+A pass over p05-p08 (11.5.2-14.16, 14.16.1-16.13.5, 16.13.6-18.5.6, 18.5.7.1-19.7) accepted 89 links and held 388 observations.
 
-A pass over p09-p12 (19.7.1-21.7.1.1, 21.7.1.2-23.3.2, 23.3.3-26.5,
-27.3-33.3.1) accepted 93 links and held 395 observations.
+A pass over p09-p12 (19.7.1-21.7.1.1, 21.7.1.2-23.3.2, 23.3.3-26.5, 27.3-33.3.1) accepted 93 links and held 395 observations.
 
-The 90% round started with p17-p18 matching and new tests for the g and
-h partitions. It accepted 320 links and added 137 tests.
+The 90% round started with p17-p18 matching and new tests for the g and h partitions. It accepted 320 links and added 137 tests.
 
-A second wave covered the 16, 19 and 21 chapters: 98 links accepted and
-57 tests kept after review.
+A second wave covered the 16, 19 and 21 chapters: 98 links accepted and 57 tests kept after review.
 
-A third wave finished the draft tests for the 18, 23 and 37 chapters:
-181 links accepted and 65 tests kept.
+A third wave finished the draft tests for the 18, 23 and 37 chapters: 181 links accepted and 65 tests kept.
 
-A fourth wave covered the 38, 6/7/8, 11/9/4 and 20/31/32/33/35/40
-chapters: 157 links accepted, 51 observations held and 93 tests kept.
+A fourth wave covered the 38, 6/7/8, 11/9/4 and 20/31/32/33/35/40 chapters: 157 links accepted, 51 observations held and 93 tests kept.
 
-A fifth wave covered the remaining 37, 38/17, 16/18, A/H and 6/7/8/9
-requirements: 144 links accepted and 97 tests kept.
+A fifth wave covered the remaining 37, 38/17, 16/18, A/H and 6/7/8/9 requirements: 144 links accepted and 97 tests kept.
 
-A sixth wave covered the remaining 37, 38/17, 16/12, A/H, 21/19 and
-6/35/23 requirements: 91 links accepted and 51 tests kept.
+A sixth wave covered the remaining 37, 38/17, 16/12, A/H, 21/19 and 6/35/23 requirements: 91 links accepted and 51 tests kept.
 
-A seventh wave reviewed the partial drafts of the 6/8/11/13, 19/21/40,
-37/17 and 38/16 clusters: 40 links accepted and 35 tests kept.
+A seventh wave reviewed the partial drafts of the 6/8/11/13, 19/21/40, 37/17 and 38/16 clusters: 40 links accepted and 35 tests kept.
 
-An eighth wave wrote companion tests for requirements whose existing
-tests observed only part of the conditions: 29 links accepted and 18
-tests kept.
+An eighth wave wrote companion tests for requirements whose existing tests observed only part of the conditions: 29 links accepted and 18 tests kept.
 
-A formal wave added :type: formal, the run_sby.py runner and 40 existing
-SymbiYosys cases mapped to F requirements. A second formal wave added 21
-F.3.4.3 cases; 18 new links were accepted.
+A formal wave added :type: formal, the run_sby.py runner and 40 existing SymbiYosys cases mapped to F requirements. A second formal wave added 21 F.3.4.3 cases; 18 new links were accepted.
 
-A third formal wave added 20 cases for F.3.4.2 and F.5.2; 19 new links
-were accepted.
+A third formal wave added 20 cases for F.3.4.2 and F.5.2; 19 new links were accepted.
 
-A fourth formal wave added 17 cases for F.5.3.1; 16 new links were
-accepted.
+A fourth formal wave added 17 cases for F.5.3.1; 16 new links were accepted.
 
-A fifth formal wave added a nonvacuity relation and 9 F.5.3.3 cases; 9
-new links were accepted.
+A fifth formal wave added a nonvacuity relation and 9 F.5.3.3 cases; 9 new links were accepted.
 
-A sixth formal wave added 93 cases for F.3, F.5.1, F.5.4-F.5.6, F.6 and
-F.7; 91 new links were accepted.
+A sixth formal wave added 93 cases for F.3, F.5.1, F.5.4-F.5.6, F.6 and F.7; 91 new links were accepted.
 
-A seventh formal wave completed F.4 with 40 cases for the F.4.1/F.4.2
-flattening rules and the F.4/F.4.3 declaration-assignment rewriting; 40
-new links were accepted.
+A seventh formal wave completed F.4 with 40 cases for the F.4.1/F.4.2 flattening rules and the F.4/F.4.3 declaration-assignment rewriting; 40 new links were accepted.
 
-An eighth formal wave closed Annex F: 19 cases for the F.2 model, the
-F.3.2/F.3.3 notation, the F.5 word operations, the remaining assignment
-and declaration rules, accept_on and the F.3.4.6 free-checker rewrites.
-All 253 F requirements are now mapped.
+An eighth formal wave closed Annex F: 19 cases for the F.2 model, the F.3.2/F.3.3 notation, the F.5 word operations, the remaining assignment and declaration rules, accept_on and the F.3.4.6 free-checker rewrites. All 253 F requirements are now mapped.
 
-A quality audit then checked all 13214 links for missing tests, stale
-evidence and cross-chapter over-linking, sampled the annex, VPI and ch16
-links, and reviewed every formal case. Every formal case now carries a
-reachable cover witness; the formal catalogue reports 518 PASS and the
-five expected mutant failures. Two VPI header tests were extended to
-include both normative headers. A ninth wave closed 37 of the 69 remaining Chapter 16 requirements, reusing
-31 existing formal cases and adding eight new ones. A denominator review
-found that the denominator cannot yet be approved: 21 interpretation rows,
-92 rows without source spans and 20 unaudited sections remain. Runners now
-accept simulator-specific expected outputs, and the execution evidence was
-refreshed with the pinned Icarus 13.0 and Verilator 5.052 releases.
-The ledger maps 10793 of 12319 rows (87.61%), with 6117 executed (49.66%).
+A quality audit then checked all 13214 links for missing tests, stale evidence and cross-chapter over-linking, sampled the annex, VPI and ch16 links, and reviewed every formal case. Every formal case now carries a reachable cover witness; the formal catalogue reports 518 PASS and the five expected mutant failures. Two VPI header tests were extended to include both normative headers. A ninth wave closed 37 of the 69 remaining Chapter 16 requirements, reusing 31 existing formal cases and adding eight new ones. A denominator review found that the denominator cannot yet be approved: 21 interpretation rows, 92 rows without source spans and 20 unaudited sections remain. Runners now accept simulator-specific expected outputs, and the execution evidence was refreshed with the pinned Icarus 13.0 and Verilator 5.052 releases. The ledger maps 10793 of 12319 rows (87.61%), with 6117 executed (49.66%).
+
+<a id="これらのコミット後の状態履歴"></a>
 
 ### State after these commits (historical)
 
-After these commits the suite has 6799 tests in 37 chapters, 1308 of them
-generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
-Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
-x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
-designs, and 33 set an expected exit code. These counts describe the suite
-at this stage of the work. Subsequent additions and the approved denominator
-are recorded in the [generated behavior summary](behavior-coverage-summary.md)
-and the [updated handover](handover-20261028.md).
+After these commits the suite has 6799 tests in 37 chapters, 1308 of them generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list Verilator 5.052, and 1368 follow the standard only. 855 tests depend on x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal designs, and 33 set an expected exit code. These counts describe the suite at this stage of the work. Subsequent additions and the approved denominator are recorded in the [generated behavior summary](behavior-coverage-summary.en.md) and the [updated handover](handover-20261028.en.md).
+
+<a id="ここで追加したテスト"></a>
 
 ### Tests added in this work
 
@@ -1171,14 +975,10 @@ and the [updated handover](handover-20261028.md).
 | 40 | 7 |
 | **All** | **100** |
 
-The 12 second tests in the depth follow-up, the `%L` test, the five
-illegal clocking tests, and the three spec-only VPI tests bring the
-total added in this work to 121.
+The 12 second tests in the depth follow-up, the `%L` test, the five illegal clocking tests, and the three spec-only VPI tests bring the total added in this work to 121.
+
+<a id="147の不正な配置"></a>
 
 ### 14.7 illegal placements
 
-The clause text also fixes where a clocking block may be declared. Five
-illegal designs add the missing negative cases: in a function, in a task,
-in a package, nested in another clocking block, and at the compilation-unit
-scope. Verilator 5.052 rejects each at the named line; Icarus Verilog
-13.0 rejects them too, but because it does not support clocking blocks.
+The clause text also fixes where a clocking block may be declared. Five illegal designs add the missing negative cases: in a function, in a task, in a package, nested in another clocking block, and at the compilation-unit scope. Verilator 5.052 rejects each at the named line; Icarus Verilog 13.0 rejects them too, but because it does not support clocking blocks.

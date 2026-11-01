@@ -1,0 +1,212 @@
+<a id="規格要求のカバレッジを管理する"></a>
+
+# Managing the coverage of the standard requirements.
+
+[English](README.en.md) / [日本語](README.md)
+
+[Current aggregate summary](../docs/behavior-coverage-summary.en.md) and [Details of all items](../docs/behavior-coverage.en.md) report metrics independent of clause-citation counts. They show both provisional and finalized values for the requirement ledger covering the entire standard. The investigation ledger contains 1,740 headings from Chapters 1–41 and Annexes A–Q of IEEE 1800-2023. Source review and requirement extraction are complete for all 1,740 sections, and the denominator of 12,298 requirements was approved on 2026-10-28. There are 0 pending interpretation issues. The rationale is recorded in [Extraction results](../docs/requirement-extraction.en.md) and [Denominator review](../docs/denominator-review-20261028.en.md). This approval is based on AI review; it does not constitute independent human review or approval. The initially registered 105 items do not form the denominator for all behaviors defined by the standard. Nor does this mean that behavior mappings have been verified for every test.
+
+See [Coverage gap survey](../docs/coverage-gap-recommendations-20261029.en.md) for the latest additions to requirement mappings and remaining work, and [Comparison list](../docs/test-requirement-matching.en.md) for the matching status by chapter.
+
+Combination boundaries for Issue #21 are tracked in the [Regression incorporation report](../docs/p1-combination-regressions-20261030.en.md) and `combination-gaps.json`. Link each candidate ID to existing or new tests, its basis in the standard, observation points, and input fingerprints; save each run's results in `combination-results/`. `combination-qualification/` contains evidence of the build version and fault injection into the checker. Registration in this ledger neither approves a requirement mapping nor adds to requirement coverage. `python3 tools/combination_gaps.py --check` checks consistency between the ledger and generated report; it does not reclassify unsupported cases or mismatches as passes.
+
+<a id="機能間クロスの計画と証跡"></a>
+
+## Plans and evidence for feature interactions
+
+Feature interactions are tracked separately from requirement coverage in the following files. See the [Saved-run summary](../docs/interaction-verification.en.md#保存実行の概要) for the versions covered and remaining work.
+
+- `interaction-summary.json` and [Interaction verification report](../docs/interaction-coverage.en.md): the registered models' factors, constraints, target combinations, and required cases, together with the extent to which each run covers them.
+- `interaction-results/`: results saved by the runner. Check hashes for inputs, expected values, and the runner, along with timestamps and simulator versions. Do not combine partial successes from different runs.
+- `interaction-qualification/`: auxiliary evidence for selecting verification sources, minimal examples, independent recalculation, fault injection, and builds. Do not import this JSON as evidence of a successful regression run or add it to the test count.
+
+```sh
+python3 tools/interaction_coverage.py --check
+python3 tools/interaction_coverage.py --list-tests --model membership_container
+python3 tools/interaction_coverage.py --model membership_container \
+  --results coverage/interaction-results/cross27-kirimasim-latest.json --require-pass
+```
+
+`--check` checks consistency among the plan, generated artifacts, and aggregates. The final `--require-pass` checks that the target combinations and required cases passed in the specified saved run, so it returns a nonzero exit status for the set-membership check in this record. Neither command starts a simulator. Follow the [Introduction and update procedure](../docs/interaction-verification-method.en.md) to rerun tests and save new evidence. A record made after checking the latest commit at save time does not automatically track subsequent upstream updates.
+
+<a id="mainの集計とnightlyの集計"></a>
+
+## Aggregation of main and aggregation of Nightly
+
+On `main`, `docs/behavior-coverage-summary.md` uses evidence stored in `coverage/results/`. This includes full runs with fixed versions Icarus 13.0 / Verilator 5.052 and subsequent partial reruns. Full local runs of Ghost are also saved. Each run is retained separately, and only passes matching the current input hash are accepted.
+
+Nightly runs use each simulator's development version. The `publish` step uses only that run's results to write `behavior-coverage-summary.md` and the related JSON and history files at the root of the `results` branch. These outputs may not exist until the first Nightly run containing this publication step has been published. Nightly's `Match` ratio measures agreement with expected test output. It is separate from requirement coverage (test design) and the verified-execution rate for the requirement ledger. Check the target commit, simulator version, and execution scope before comparing results.
+
+Nightly is scheduled to start daily at 04:23 JST. Results are published after all jobs finish, and report timestamps use UTC. See [How to check the conversion to Japanese time and the status of the update](../docs/nightly-results.en.md).
+
+<a id="計測の意味"></a>
+
+## Meaning of measurement
+
+- Provisional values based on the requirement ledger for the entire standard: only after all materials have been reviewed, use all registered rows as the denominator and display the design-mapped and execution-verified row ratios separately. Include pending interpretations, unmapped requirements, and unimplemented behavior in the denominator. Because occurrences of requirement text, conditions, and initial observation cases overlap, do not treat this as the proportion of semantically unique requirements.
+- Finalized values for the whole standard: do not publish finalized ratios until source review is complete, pending interpretations and duplicate requirement units have been resolved, and `denominator_review` in `behaviors.json` has been approved with supporting rationale. Review also covers parent headings' introductory text, figures and tables, syntax constraints, exceptions, errors, and references to other clauses. Tool dependencies, unimplemented behavior, and expected values based solely on the standard do not justify exclusion or a pass.
+- Requirement coverage of registered behaviors (test design): behaviors with test mappings whose observation points have been reviewed ÷ registered behaviors. Do not infer a mapping from a test's name, description, or `:lrm:` citation alone.
+- Verified-execution rate: behaviors with recorded passes for the current inputs/runner ÷ registered behaviors. Display per-environment values separately from the union across environments. The union is not a single tool's conformance rate.
+- Material-review rate: clauses with all source blocks classified and mapped to requirements ÷ target clauses. Also extract and record requirements whose interpretations remain pending. Both normative and informative parts are currently 100%.
+- Ratio without pending interpretations: normative clauses marked `complete` / `no_behavior` ÷ normative clauses. Even after all source materials have been reviewed, clauses with pending interpretations remain `in_progress`. This ratio and the material-review rate are separate from the tests' behavioral coverage.
+
+Requirement coverage (test design) of 100% means that every item in the requirement ledger has a reviewed test mapping. A verified-execution rate of 100% additionally requires acceptable pass evidence for every item. A material-review rate of 100% means source checking and classification are complete; it does not imply test mappings or successful execution. None of these metrics proves that every combination of values, widths, and programs from an unbounded space has been tested. Register positive cases, boundaries, errors, conditional branches, and exceptions separately.
+
+<a id="台帳と証跡"></a>
+
+## The logbook and the evidence
+
+- `standard-sections.json`: each heading's number, title, physical PDF page number (starting at 1), normative/informative designation, and investigation status. Status progresses from `unreviewed` → `in_progress` → `complete`. Use `complete` only after decomposing every requirement in that heading's own text. If the text defines no behavior, record the reason and date and use `no_behavior`. Keep informative annexes in the ledger, but exclude them from the normative-requirement denominator.
+- `behaviors.json`: stable ID, supporting clauses, specific behavior, condition kind, pass criteria, rationale, mapped tests, observation points for stimuli and expected values, reviewer, date, and input SHA-256. 1 entry represents an observation unit for an individual requirement or condition. Assign separate IDs to multiple requirements observed by the same test. `checks: []` denotes requirements whose mappings have not been verified; existing tests may already contain the relevant cases. Before adding new tests, compare existing tests' stimuli and expected results and register their mappings. The "Aggregation Status of Existing Tests" section in the summary shows the numbers of tests with and without registered mappings. A test with a registered mapping has been verified to cover at least one requirement; this count does not measure reviews of entire tests or the suite's coverage rate. For requirements covered jointly by multiple tests, register the group ID, all members, the conditions jointly satisfied, reviewer, and date in `check_groups`. If groups are specified, every check must belong to one. Checks within a group use AND; groups use OR.
+- `requirement-source-index.json`: the span of each section's own text across all 1,740 sections, and the position and SHA-256 of all 15,846 blocks. Keep parent sections' own text separate from child sections, and preserve text and footnotes across page boundaries. Also record the PDF and extracted-text hashes. The standard text itself is not included.
+- `requirement-audit.json`: for every source block in each reviewed section, record its classification as a requirement mapping, heading, explanation, example, or reference, with a reason. Also record how figures and tables were checked and the scope of those checks. Cross-check these records in both directions against `source_spans` in `behaviors.json`. Sections with unresolved interpretations remain `in_progress`.
+- `behavior-baseline.json`: baselines for the heading set, normative designations, standard sources, requirement IDs and pass criteria, mapped IDs, headings with finalized interpretations, and headings with verified sources. CI detects deletions, removed mappings, relaxed requirements, reopened investigations, and reduced scope. The baseline also fixes the definition of composite evidence and the input hash, detecting changes that remove a group and substitute partial success.
+- Tests can specify expected output in `:expected_stdout:` (shared) and `:expected_stdout_<simulator>:` (`icarus`, `verilator`, `kirimasim`, `lyra`). Simulator-specific fields take priority; the shared `:expected_stdout:` applies to the remaining simulators. Both forms can refer to `@<file>`. The input SHA-256 includes every expected-output file referenced by the test, not just the file selected for that run. Changing even a simulator-specific file therefore makes previous results stale, and those results no longer count toward verified execution of the requirement. Add simulator-specific expected values only when the difference follows from the standard. Record both outputs and verify that neither conflicts with the standard.
+- `test-matching.json`: comparison ledger recording every existing test's input hash, cited clauses, registered ID mappings, unapproved candidates, pending interpretations, differences between positive/standard-violation test categories, and citations to parent clauses. [Comparison status](../docs/test-requirement-matching.en.md) displays registered/unregistered test counts by chapter. Enumerating all candidates does not complete mappings based on verification content, and candidates alone do not increase behavioral coverage.
+- `test-matching-reviews.json`: reviewed scope, requirement ID, reason, stimulus/expected-value rationale, owner, date, and input hash for mappings on hold. Distinguish partial observation, expected-value/diagnostic problems, citation clarification, and reorganization of composite requirements. `requirement_matching.py` imports these into the comparison ledger and rejects stale inputs or nonexistent supporting evidence. This decision record neither approves a mapping nor completes review of the whole file, and is not used in the behavioral-coverage numerator.
+- `results/icarus.json` and `results/verilator.json`: measured results for all 3,912 tests in the suite at that time. Each runner's `--json` output records comparisons with expected values, verification that inputs match before and after execution, the runner hash, execution timestamp, simulator version, and settings. `results/citation-refinement-*.json` contains reruns of the 7 tests whose citation metadata changed. Retain full-suite results as a separate run; do not overwrite them with partial runs or merge partial results into them. Treat results with pre-update input hashes as stale evidence, and accept composite evidence only when all required tests pass in the same run.
+- `results/expression-gaps-20261023-*.json`: execution results for 11 tests added after the expression review. Save runs of Icarus 13.0 and Verilator 5.052 with seeds 1/73 as separate executions. Keep all previous 3,912 results, and do not treat partial executions as full executions.
+- `results/associative-matching-20261023-*.json`: reruns of 7 tests with corrected associative-array citations and 40 tests covering set members and related features. Verilator 5.052 recorded 37 pass and 3 known results; Icarus 13.0 recorded 40 known results. Known results do not count as successful execution. [Match results](../docs/existing-test-matching-associative-arrays-20261023.en.md) records the mapped scope and gaps in collective evidence.
+- `results/associative-gaps-20261023-*.json`: execution results for 15 tests added after the associative-array review. The subsequently changed wildcard/count tests, 1 each, were saved as separate runs in `associative-wildcard-refinement-20261023-*.json` and `associative-count-refinement-20261023-*.json`. In the saved runs, Verilator 5.052 has 8 passes and 7 known results for seeds 1/73; Icarus 13.0 has 15 known results. See [Additional content and remaining items](../docs/associative-gap-tests-20261023.en.md).
+- `results/header-vpi-tests-20261023-*.json`: execution results for 24 C-header tests covering Annex I/K/L/M and 24 VPI tests from Chapter 37. Icarus 13.0 (v13_0-dirty) recorded 1 pass and 47 known results; Verilator 5.052 recorded 17 pass and 31 known results for both seeds 1/73. See [Additional content and comparison results](../docs/header-vpi-tests-and-matching-20261023.en.md).
+- `results/keyword-tests-20261024-*.json`: execution results for 496 standard-violation tests of reserved words generated by `generators/keywords.py`. Icarus 13.0 recorded 496 pass results; Verilator 5.052 recorded 493 pass and 3 known results for both seeds 1/73. See [Content and correspondence](../docs/keyword-tests-20261024.en.md).
+- `results/gap-tests-20261024-*.json`: execution results for 594 independently verified new tests written for requirements with no mapped tests. Icarus 13.0 recorded 239 pass and 355 known results; Verilator 5.052 recorded 203 pass and 391 known results for both seeds 1/73. After incorporation, 3 tests were corrected (1 port-declaration test and 2 tests with `:lrm:` citation changes). Their reruns were saved separately in `gap-refinement-20261024-*.json` (3 known results in each run). See [Additional content and comparison results](../docs/gap-tests-20261024.en.md).
+- `results/gap-tests-2-20261024-*.json`: execution results for 933 new tests independently verified in round 2 of the same work, and 4 existing tests in `tests/ch22` whose input hashes changed. Icarus 13.0 recorded 529 pass and 408 known results; Verilator 5.052 recorded 504 pass and 433 known results for both seeds 1/73. See [Additional content and comparison results](../docs/gap-tests-2-20261024.en.md).
+- `results/gap4-20261025-*.json`: execution results for 256 tests incorporated after independent verification of 4 previously deferred matching ranges: p01, p05, p07, and p12. Icarus 13.0 recorded 132 pass and 124 known results; Verilator 5.052 recorded 129 pass and 127 known results for both seeds 1/73.
+- `results/gap5-20261026-*.json`: execution results for 188 tests incorporated after verifying p09, p10, p13, and p15 in round 2 of the same matching work. Icarus 13.0 recorded 62 pass and 126 known results; Verilator 5.052 recorded 49 pass and 139 known results for both seeds 1/73.
+- `results/ch22-rehash-20261026-*.json` and `results/p10-refinement-20261026-*.json`: reruns of 10 existing tests whose input hashes changed after restoring the ch22 include fixture, and 1 test with background clauses removed from `:lrm:`.
+- `results/gap6-20261026-*.json`: execution results for 176 tests incorporated after verification of a01–a05, g05, g08, g09, h01, and h02 in wave4. Icarus 13.0 has 49 passes and 127 known results; Verilator 5.052 has 82 passes and 94 known results for seeds 1/73.
+- `results/ch37-depth-20261026-*.json`: rerun after adding a citation to an existing VPI test, making it the 2nd test for 37.4.2 used to check depth.
+- `results/gap7-20261026-*.json`: execution results for 18 tests written for requirements concerning K.2 headers (31), I.3 DPI (55), and N.2 distribution (7). Icarus 13.0 recorded 3 pass and 15 known results; Verilator 5.052 recorded 14 pass and 4 known results for both seeds 1/73.
+- `results/gap8-20261026-*.json`: execution results for 30 tests written for 42 assertion-control requirements in 20.11, 20 coverage requirements in Chapter 40, 29 checker requirements in Chapter 17, and 8 compatibility requirements in 36.12.1. All are `:oracle: spec`; Icarus 13.0 has 0 pass and 30 known, while Verilator 5.052 has 4 pass and 26 known for both seeds 1/73.
+- `results/gap9-20261026-*.json`: execution results for 93 tests written to cover the syntax requirements of Annex A and independently verified. Icarus 13.0 has 17 passes and 76 known results; Verilator 5.052 has 44 passes and 49 known results for seeds 1/73.
+- `results/ch5-rehash-20261026-*.json` and `results/ch19-depth-20261026-*.json`: rerun after include-directory input changes and removal of background clauses for depth checking.
+- `results/audit-full-20261026-icarus13.json` and `results/audit-spec-20261026-verilator-*.json`: results of running all 6799 tests with Icarus and the 1645 spec-only tests with Verilator (seeds 1/73).
+- `results/quality-20261027-verilator-*.json`: Verilator reruns of 68 linked tests left unexecuted in the quality audit (seeds 1/73).
+- `results/quality-vpi-20261027-verilator-*.json`: reruns of 2 VPI header tests corrected to include both headers.
+- `results/refresh-20261027-icarus13.json`: full run with Icarus Verilog 13.0 after the runner refresh (VPI build corrected).
+- `results/refresh-20261027-verilator-seed1.json`: rerun of 2,706 previously unexecuted linked tests with Verilator 5.052 seed 1 after the runner refresh.
+- `results/ch16-sim-20261028-*.json` and `results/ch16-edge-20261028-*.json`: results of simulation tests verifying the 16 remaining requirements from ch16.
+- `results/ch6-extra-20261028-*.json`, `results/ch9-extra-20261028-*.json`, `results/ch21-extra-20261028-*.json`: execution results for additional simulation tests in Chapters 6, 9, and 21.
+- `results/ch37-extra-20261028-*.json`, `results/ch38-extra-20261028-*.json`, `results/ch38-reuse-20261028-*.json`: execution results for additional and reused VPI tests in Chapters 37 and 38.
+- `results/ch22-extra-20261028-*.json`, `results/ch23-extra-20261028-*.json`, `results/ch31-extra-20261028-*.json`: execution results for added/reused tests in Chapters 22, 23, and 31.
+- `results/ch19-extra-20261028-*.json`: Verilator results and Icarus known results for Chapter 19 covergroup tests.
+- `results/chA-extra-20261028-*.json`, `results/chH-extra-20261028-*.json` and `results/ch36-extra-20261028-*.json`: results for additional and reused tests from Annexes A/H and Chapters 35/36.
+- `results/ch34-extra-20261028-*.json`, `results/ch19-rest-20261028-*.json`, `results/ch35-rest-20261028-*.json`: results for Chapter 34 boundary tests and tests of the remaining requirements in Chapters 19/35.
+- Runner-selection correction on 2026-10-28: excluded `:type: formal` from simulation targets. The result-classification logic (`run()`) was unchanged, so only `runner_sha256` was updated in the Icarus / Verilator snapshots used as evidence; result statuses were retained. See [Record](../docs/runner-selection-20261028.en.md).
+- `results/issues-20261028-icarus13.json` and `results/issues-20261028-verilator.json`: reruns of 46 tests changed by test-side fixes for Issues #6–#19 with Icarus Verilog 13.0, and a full 7,472-test rerun with Verilator 5.052. For the test-side fixes and provenance updates, see [Record](../docs/test-side-fixes-20261028.en.md).
+- `results/ghost-local-20261028.json`: a full local run of Ghost covering 7,629 tests from suite `23b4c542` with build `d59b7c7f8feb`, recording 5,823 pass and 1,806 fail results (76.3% matched). Execution took approximately 3 minutes 25 seconds. Mismatches are listed in the `.log` file with the same basename. Input consistency before and after execution and the runner hash were verified. Private execution profiles and internal diagnostics are not included. Requirements that call for detecting standard violations continue to use only evidence from fixed-version oracles; Ghost passes do not increase their verified-execution count.
+- `results/ghost-local-20261031.json`: a full local run of Ghost covering 9,139 tests from suite `c53a5603` with build `88d08d9c3441`, recording 8,382 pass and 757 fail results (91.72% matched). Execution took approximately 2 minutes 7 seconds. Mismatches are listed in the `.log` file with the same basename. Input consistency before and after execution and the runner hash were verified. Private execution profiles and internal diagnostics are not included. This run used a reconstructed local profile and is not official Nightly evidence, so it does not count toward the verified-execution rate. The 8 regressions are recorded in sukimasim Issues [#1909](https://github.com/kurochan001/sukimasim/issues/1909), [#1913](https://github.com/kurochan001/sukimasim/issues/1913), and [#2641](https://github.com/kurochan001/sukimasim/issues/2641) (all reopened), and [#2888](https://github.com/kurochan001/sukimasim/issues/2888)–[#2892](https://github.com/kurochan001/sukimasim/issues/2892).
+- `results/ghost-local-20261031-strict.json`: a full local run of Ghost using a private profile with LRM compliance mode enabled. The run covered 9,211 tests from suite `c0f9905b` with build `7ed5e63eedf9`, recording 8,524 pass and 687 fail results (92.54% matched). Mismatches are listed in the `.log` file with the same basename. Input consistency before and after execution and the runner hash were verified. Private execution profiles and internal diagnostics are not included. Compared with the default profile on the same 9,211 tests (8,427 pass), accepted standard violations decreased from 223 tests to 101. The remaining 101 tests are classified by cause in Ghost Issues [#2897](https://github.com/kurochan001/sukimasim/issues/2897) to [#2939](https://github.com/kurochan001/sukimasim/issues/2939). The 10 tests that were rejected but whose diagnostic location format did not match are recorded in [#2899](https://github.com/kurochan001/sukimasim/issues/2899) and [#2900](https://github.com/kurochan001/sukimasim/issues/2900). Of the 22 tests that newly failed in LRM compliance mode, 20 had test-side noncompliance (18 in §6.21 B007 and 2 in §13.5.2); these were corrected by adding explicit `static` / `automatic`. The remaining 2 cases have also been fixed in Ghost (§6.5 independent-element driver classification and the strict-parser difference for `with (...).size()`). These results contribute to verified execution of mapped requirements as part of the union with other saved runs.
+- `results/test-fixes-20261031-*.json`: results for 20 tests changed by test-side fixes in §6.21 B007 and §13.5.2, plus 2 tests rerun alongside them to complete the collective evidence for §26.2. Ghost (default) recorded 22/22 passes; Icarus Verilog 13.0 and Verilator 5.052 ran only the applicable tests. The verified-execution rate at the time of this rerun was 77.47%.
+- `results/ghost-local-20261031-strict2.json`: a full local run of Ghost in LRM compliance mode. The run covered 9,470 tests from suite `f446a74c` with build `be060962f878`, recording 8,710 pass and 760 fail results (91.97% matched). Mismatches are listed in the `.log` file with the same basename. Input consistency before and after execution and the runner hash were verified. Private execution profiles and internal diagnostics are not included. Compared with the previous strict run (9,211 tests), 1 test regressed and 26 improved; 98 of the 259 new tests failed. The new failures fall into 6 clusters of generated cross tests, recorded in Ghost Issues [#2943](https://github.com/kurochan001/sukimasim/issues/2943) (delayed continuous assignments, 60 tests), [#2944](https://github.com/kurochan001/sukimasim/issues/2944) (default arguments, 8), [#2945](https://github.com/kurochan001/sukimasim/issues/2945) (implicit sensitivity, 9), [#2946](https://github.com/kurochan001/sukimasim/issues/2946) (import shadowing, 6), [#2947](https://github.com/kurochan001/sukimasim/issues/2947) (loop NBA, 2) and [#2949](https://github.com/kurochan001/sukimasim/issues/2949) (event formals, 13, spec-only). The 1 regression is recorded in [#2948](https://github.com/kurochan001/sukimasim/issues/2948) (trireg charge strength). Illegal designs were accepted in 102 tests; 1 of these is identified for an update to [#2900](https://github.com/kurochan001/sukimasim/issues/2900). These results contribute to verified execution of mapped requirements as part of the union with other saved runs.
+- `results/quality-persim-20261027-*.json`: pilot run of simulator-specific expected values (19 tests).
+- `results/audit-oracle-20261026-icarus13.json`: rerun after adding `iverilog@13.0` to 277 spec-only tests whose output matched on Icarus 13.0 (277/277 pass).
+- `results/regex-refinement-20261025-*.json`: reruns of 2 `ch16` tests after making diagnostic regular expressions independent of message formatting. Icarus 13.0 recorded 2 known results; Verilator 5.052 recorded 1 pass and 1 known result for both seeds 1/73. See [Revision records](../docs/lyra-disagreement-review-20261025.en.md).
+- `results/oracle-refinement-20261025-*.json`: rerun after correcting `:oracle:` from `iverilog@13.0` to `spec` in 3 imported tests (`tests/imported/`). Icarus 13.0 and Verilator 5.052 (seeds 1/73) each recorded 3 known results.
+- `results/sva-m3-corrections-20261026-*.json`: reruns of 2 tests whose expected-value and description errors were found by the independent SVA reference evaluator and corrected after user approval. Icarus 13.0 and Verilator 5.052 each recorded 2 known results for both seeds 1/73. Agreement with the reference evaluator does not count toward the verified-execution rate.
+- `results/nightly-suite-corrections-20261027-*.json`: reruns of 28 tests corrected for Nightly diagnostic mismatches and other issues, plus 1 existing packed union negative test. Icarus 13.0 recorded 9 pass and 20 known results; Verilator 5.052 recorded 8 pass and 21 known results for both seeds 1/73. Local kirimasim recorded 27 pass, 1 unsupported, and 1 fail result; it is not approved as a fixed-version oracle for tests of standard violations. See [Correction rationale, oracle withdrawal for 11 tests, and remaining work](../docs/nightly-suite-corrections-20261027.en.md).
+- `behavior-summary.json`: current provisional/finalized values, per-chapter ratios, denominator SHA-256, and per-simulator breakdowns of failures, known mismatches, unsupported/unexecuted cases, stale evidence, and related statuses. Regenerate it with the summary Markdown using `--update`, and check consistency between the two with `--check`.
+- `behavior-history.json`: measurement history, saved with the denominator and measurement-rule version. Do not interpret a change in ratios across a denominator change directly as an improvement or regression.
+
+Input hashes include the test itself, expected values, `:files:`, DPI / VPI C sources, includes specified as string literals, and files in include search directories. Always declare macro-selected includes and external data in `:files:`. These hashes do not establish reproducibility of the entire compiler installation or operating system. Include search directories are handled conservatively by hashing every file.
+
+Count only `pass` as successful execution. `known`, `unsupported`, `fail`, results from old runners or changed inputs, and legacy results without provenance do not count. A standard-violation test can be mistaken for an unsupported-syntax error, so use only results from the fixed versions Icarus 13.0 / Verilator 5.052 whose eligibility has been reviewed in the metadata. The diagnostic's meaning and error location still require review. Do not count rejection due merely to unsupported syntax as success.
+
+Requirement mappings and extraction were reviewed by AI; they have not received independent human verification. After reviewing all source materials, we resolved pending interpretations, consolidated 21 duplicate rows, and approved the denominator. The registered units are requirements, conditions, and observation cases. This does not mean that all input combinations have been covered. See [Denominator review](../docs/denominator-review-20261028.en.md) and [Interpretation and Re-examination Record](../docs/requirement-extraction-notes.en.md) for the adopted interpretations and limitations, including 3 rows with only clause-level sources.
+
+<a id="日常の更新"></a>
+
+## Daily updates
+
+First read the target clause's text and related figures, tables, syntax, and references, then decompose the requirements in your own words. Do not reproduce the standard text or sample code verbatim. Use the following command to inspect the source clause's own text. By default, the tool uses the supplied materials in a sibling directory.
+
+```sh
+python3 tools/requirement_source.py --show 10.9.1 10.9.2
+```
+
+Keyword extraction alone cannot capture every definition, table cell, syntax rule, and exception. Classify every source block, and register each requirement's clause and block ID in `source_spans`. An audit record for every block is required before marking a clause `complete` or `no_behavior`. Add `interpretation_issue` to requirements with unresolved interpretations and leave their clauses `in_progress`. Test mappings cannot be approved in this state. Use `modality: recommendation` for recommendations, distinguishing them from requirements and permissions. Automated checks validate the audit records' consistency; they do not approve semantic correctness.
+
+Use the following command to list candidate existing tests. Listing candidates alone does not establish a mapping.
+
+```sh
+python3 tools/behavior_coverage.py --candidates 11.3.5
+```
+
+Check each requirement's stimuli and observations, then register the test and its evidence string in `checks`. Verify that each test directly cites its supporting clause, checks expected output for positive cases, and checks the intended diagnostic for standard-violation tests. After changing a test, review its mapping again before updating the hash and date.
+
+```sh
+python3 tools/behavior_coverage.py --test-digest tests/ch11/test_short_circuit_side_effects.sv
+python3 tools/run_icarus.py --json /tmp/icarus.json tests/ch11/test_short_circuit_side_effects.sv
+python3 tools/behavior_coverage.py --results /tmp/icarus.json \
+  --output /tmp/behavior-coverage.md --json /tmp/behavior-coverage.json
+```
+
+`--results` replaces the default saved snapshots for that measurement and measures only the results supplied as arguments. Do not combine passes from different versions or runs of a simulator into a single-environment conformance rate. Add `--history /tmp/behavior-history.json` to append denominator identifiers and counts. When comparing ratios before and after requirement-ledger changes, check the denominators too. The denominator SHA-256 is calculated from requirement content and scope; changes only to mapped tests or execution results do not alter it. In the detailed JSON, use `requirements[].status` and each run's `outcomes` to extract outstanding requirement IDs. If multiple reviewed tests independently verify the same requirement, at least one valid pass is sufficient. For requirements split across multiple cases in `check_groups`, accept a group only when all its tests pass with the same simulator in the same run. Do not combine partial successes from different versions or runs. This extension is recorded in measurement-rule version 3; account for the rule change when comparing values with version 2. If no pass is available, choose the representative per-environment status in this order: failure, known mismatch, unsupported, unapproved judgment rationale for a standard-violation test, stale evidence, unexecuted. Count each registered row in exactly one status per environment.
+
+```sh
+python3 tools/behavior_coverage.py --update
+python3 tools/requirement_matching.py --update
+python3 tools/behavior_coverage.py --check --require-source-reviewed
+python3 tools/requirement_matching.py --check
+python3 -m unittest discover -s tools -p 'test_*.py'
+```
+
+To also record the measured state in the history:
+
+```sh
+python3 tools/behavior_coverage.py --update --json /tmp/behavior-coverage.json \
+  --history coverage/behavior-history.json
+```
+
+Use `--summary-output` and `--summary-json` to specify summary output paths. Updating or checking the default detailed report also covers the summary Markdown and `coverage/behavior-summary.json`. Remeasuring without `--results` uses saved evidence; it does not run a new simulation.
+
+The check does not fail merely because requirements lack mappings. It fails for invalid or stale records, regressed mappings, or stale generated reports. To require 100% for both requirement coverage (test design) and verified execution across the entire standard, use the following command. It also fails if the denominator has not been finalized. The denominator is now approved, but unmapped requirements and requirements without recorded passes remain, so a nonzero exit status is expected. `--require-source-reviewed` requires review of all source materials; it does not approve pending interpretations or test mappings.
+
+```sh
+python3 tools/behavior_coverage.py --check --require-complete
+```
+
+When a justified requirement correction or scope change requires a baseline update, review the diff and record the reason. Adding requirements, mappings, or completed investigations automatically raises the baseline through `--update`. `--check` also fails when additions have not been saved in the baseline, preventing later deletions from being missed. Regressions or corrections to requirement text require an explicit update with a reason. Do not lower the baseline merely to pass the check.
+
+```sh
+python3 tools/behavior_coverage.py --write-baseline --reason '具体的な規格根拠と変更理由' --update
+```
+
+<a id="規格資料の再照合"></a>
+
+## Rechecking the standard materials
+
+The source materials are not copied into the repository. You can check the supplied PDF's hash; `--verify-source` also checks the extracted-text hash. During the initial review, we confirmed that text freshly extracted from the PDF with `pdftotext -layout` matched the supplied extracted text.
+
+The commands below use `IEEE_1800-2023_SystemVerilog` next to the repository as the source-material directory. This is also the default for `tools/requirement_source.py`; override it with the `IEEE1800_SOURCE` environment variable.
+
+```sh
+python3 tools/behavior_coverage.py --check \
+  --verify-source ../IEEE_1800-2023_SystemVerilog
+python3 tools/import_standard_sections.py ../IEEE_1800-2023_SystemVerilog --check
+python3 tools/requirement_source.py --index /tmp/requirement-source-index.json
+```
+
+If you regenerate the source index, verify that its JSON content matches the saved index. Use `--cache /tmp/requirement-source.json` if a source-text cache is needed. The tool refuses to write that cache inside the repository. The baseline hash also fixes the set of source blocks, preventing changes that inflate the apparent completion rate by dropping source text from the index.
+
+We corrected 5 index misidentifications and the omission of Section 8.23 using the text and table of contents, and included Chapter 41 and annexes without subheadings. Annex C is marked informative in the overview and table of contents but normative in its main-text heading; we conservatively use the main text's normative designation. After checking the text stating that Chapter 41 is withdrawn, we marked it `no_behavior` with supporting rationale. The 227 sections excluded from the earlier citation-coverage metric are not automatically excluded here.
+
+<a id="ciとnightly"></a>
+
+<a id="ci-とナイトリー"></a>
+
+## CI and nightly
+
+Check verifies consistency among the ledger, baselines, hashes, observation points, and reports, and runs the aggregator's regression tests. Nightly recomputes metrics from all runner JSON files for that run and saves the following to the `results` branch:
+
+- `behavior-coverage.md`: results by behavior and environment for that run. Test links point to the commit used for execution.
+- `behavior-coverage.json`: aggregates, denominator identification, and mapping/verified-execution status for each behavior ID.
+- `behavior-coverage-summary.md` / `behavior-summary.json`: provisional and finalized values, aggregated by chapter and environment.
+- `behavior-history.json`: counts, denominator identifiers, and execution environments for each run.
+
+The history stores aggregates; the detailed JSON for each run stores the status of every registered row. GitHub Actions run summaries also show provisional and finalized values and the number of outstanding items.
+
+Nightly measures the suite commit used for that run. Changes on `main` appear in results only after a run using that commit has completed and its results have been published.
+
+The finalized denominator is 12,298 requirements. See [Aggregated Summary](../docs/behavior-coverage-summary.en.md) for current design and verified-execution rates and their evidence, and [Denominator review](../docs/denominator-review-20261028.en.md) for the approval rationale.

@@ -1,0 +1,1042 @@
+{
+  "schema": 1,
+  "scope": "All repository Markdown documentation, including generated reports and historical records. Code, identifiers, raw evidence and legal license texts retain their original form.",
+  "documents": [
+    {
+      "en": "README.md",
+      "ja": "README.ja.md",
+      "source": "README.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "0423f4e91908a340138994321d209cae6d7966274268e6a228f564122469620e",
+        "ja": "b1cba06d29aa87e10cbd28e52394c19c8ebb6b598412cb2dfcd9cb8d7ce4530b"
+      }
+    },
+    {
+      "en": "coverage/README.en.md",
+      "ja": "coverage/README.md",
+      "source": "coverage/README.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "9d3b4101f0b22b3c59ab05a9155c27d404b14b0089a74f25f8a91aa2e54a1024",
+        "ja": "8cb10fe3408134d4d71a608d25445b9d98ca2bea42f21cac0468659a28ddad71"
+      }
+    },
+    {
+      "en": "coverage/interaction-qualification/README.en.md",
+      "ja": "coverage/interaction-qualification/README.md",
+      "source": "coverage/interaction-qualification/README.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "009c1ac3e52bd38cd16940f1e4740fecc2b6b4a661230ac8355784f71574e9ae",
+        "ja": "6159f59ee7f1937f1ac1432d7f703a3e1b58cad7a1662917f3bf908ff19c79f7"
+      }
+    },
+    {
+      "en": "docs/README.md",
+      "ja": "docs/README.ja.md",
+      "source": "docs/README.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/associative-gap-tests-20261023.en.md",
+      "ja": "docs/associative-gap-tests-20261023.md",
+      "source": "docs/associative-gap-tests-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "4410f6ad8994c07ec3c77b36298ed84580b133469f055c11b3f46e6b450d5c77",
+        "ja": "00347281bb3157533d860415a2e58bf549e5c17b8d6793973714d9dc6fff863f"
+      }
+    },
+    {
+      "en": "docs/behavior-coverage-summary.en.md",
+      "ja": "docs/behavior-coverage-summary.md",
+      "source": "docs/behavior-coverage-summary.md",
+      "source_language": "ja",
+      "generated": true
+    },
+    {
+      "en": "docs/behavior-coverage.en.md",
+      "ja": "docs/behavior-coverage.md",
+      "source": "docs/behavior-coverage.md",
+      "source_language": "ja",
+      "generated": true
+    },
+    {
+      "en": "docs/chapter-cross-matrix.en.md",
+      "ja": "docs/chapter-cross-matrix.md",
+      "source": "docs/chapter-cross-matrix.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "11633dc8c116cc131a66ce40d032ec0dfbab9976e427362746f879571be123ed",
+        "ja": "05f43c95a5685c49faa5c23d816cd13537d50989421a4d7e5058872955d9a36e"
+      }
+    },
+    {
+      "en": "docs/chapter-cross-triage.en.md",
+      "ja": "docs/chapter-cross-triage.md",
+      "source": "docs/chapter-cross-triage.md",
+      "source_language": "ja",
+      "generated": true
+    },
+    {
+      "en": "docs/claude-code-handoff-20261023-50percent.en.md",
+      "ja": "docs/claude-code-handoff-20261023-50percent.md",
+      "source": "docs/claude-code-handoff-20261023-50percent.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "4659bbf789fd4bb4b18438a48cc7a1cf9d673d6f6d0fc2cd1d386a8bab612f59",
+        "ja": "4078c0e565b39b605b38cadcb73b6240f5794a3389e603f4201673569c40c55d"
+      }
+    },
+    {
+      "en": "docs/claude-code-handoff-20261023.en.md",
+      "ja": "docs/claude-code-handoff-20261023.md",
+      "source": "docs/claude-code-handoff-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "4a6ddde52e981b70356eb10de98746f741eae393419211a11a6846f68c8514b5",
+        "ja": "a6849c415b606e58245c675cb5e5ba5c804814bd59e1feb77f20e2690112f4dd"
+      }
+    },
+    {
+      "en": "docs/claude-code-handoff-20261030-cross-verification.en.md",
+      "ja": "docs/claude-code-handoff-20261030-cross-verification.md",
+      "source": "docs/claude-code-handoff-20261030-cross-verification.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "6ed039fae8627c01ccca12197541be5538e452132e4a74634ccc3385c1828f93",
+        "ja": "7e272f9ee5d75c2c056ca62d6f655c954917292e70ed9447d51a1b37bbc5483f"
+      }
+    },
+    {
+      "en": "docs/codex-handoff-20261031.en.md",
+      "ja": "docs/codex-handoff-20261031.md",
+      "source": "docs/codex-handoff-20261031.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "4ea5182705832381844f25ffe56d53c75070435028077b30bc9850255477b6b6",
+        "ja": "325a7b9e9674b54c1ac58b68282d9e21955ca03eab7af897aa3833bdfb89e271"
+      }
+    },
+    {
+      "en": "docs/coverage-depth.md",
+      "ja": "docs/coverage-depth.ja.md",
+      "source": "docs/coverage-depth.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/coverage-gap-recommendations-20261029.en.md",
+      "ja": "docs/coverage-gap-recommendations-20261029.md",
+      "source": "docs/coverage-gap-recommendations-20261029.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "5b7e81aec28550b34d4e796800a77d5d779691692792f5f653d6c9405a4e8ce3",
+        "ja": "08186640c22bfcd08440ead097049ae9663f9ac9fda8b7bf0cd1a3ebc27b0386"
+      }
+    },
+    {
+      "en": "docs/coverage-strengthening-20261022.en.md",
+      "ja": "docs/coverage-strengthening-20261022.md",
+      "source": "docs/coverage-strengthening-20261022.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "6651057ce292287e0e06a96f7abb88fd5078c253cf34cba0c7b9437a8aa3a5ea",
+        "ja": "611f82da06ee0087b9747f44aa5c3adbda9d748ace51bd5f8dbab926383c27b0"
+      }
+    },
+    {
+      "en": "docs/denominator-review-20261028.en.md",
+      "ja": "docs/denominator-review-20261028.md",
+      "source": "docs/denominator-review-20261028.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "1149867175e883c9439a4aa364b1b283ef3f8af6201b315f3f89a1bcaf8dfbd7",
+        "ja": "d69d59b7504721348935f4e03ab59ea29597d6e45f03daf999e01cc139234e4b"
+      }
+    },
+    {
+      "en": "docs/existing-test-matching-20percent-20261023.en.md",
+      "ja": "docs/existing-test-matching-20percent-20261023.md",
+      "source": "docs/existing-test-matching-20percent-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "f5d9277861448d5e4794818e58adac0b8e66d778a7018abb6e334f813d264330",
+        "ja": "c1aa48c1576df631d20349875fff649bc9e0cf5a84d7415f24550ba213caf845"
+      }
+    },
+    {
+      "en": "docs/existing-test-matching-array-methods-20261023.en.md",
+      "ja": "docs/existing-test-matching-array-methods-20261023.md",
+      "source": "docs/existing-test-matching-array-methods-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "5ff83b4c7fb1dacd724c73fc28eadd97d9b87a216d693508d1588b37a39c0d88",
+        "ja": "641c16b53009bea0de0e958ec5120e4dc899b00a70f845404fa458187c774852"
+      }
+    },
+    {
+      "en": "docs/existing-test-matching-associative-arrays-20261023.en.md",
+      "ja": "docs/existing-test-matching-associative-arrays-20261023.md",
+      "source": "docs/existing-test-matching-associative-arrays-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "aae4dfe70281ff1edb7ef8d677cfa45ff9f29d81c1a312278ed35e7cceeb0477",
+        "ja": "a864f045dbab189ea9d23670fef01d10054764455e43c8361d26b14ca3ea4257"
+      }
+    },
+    {
+      "en": "docs/existing-test-matching-classes-20261023.en.md",
+      "ja": "docs/existing-test-matching-classes-20261023.md",
+      "source": "docs/existing-test-matching-classes-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "03ccf170570c183845df17309c3a0f1187a4160f2b6c27a404fb4f11950ba63e",
+        "ja": "2f51a008dbcedc01db3d66df4bd5c316ffe2b01ddbe30a0dd91d2ebb4656622f"
+      }
+    },
+    {
+      "en": "docs/existing-test-matching-control-flow-20261023.en.md",
+      "ja": "docs/existing-test-matching-control-flow-20261023.md",
+      "source": "docs/existing-test-matching-control-flow-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "fe55a7a0d3f7c0acd669c5615c2d33d07005479354e5daff9add2e114c442a24",
+        "ja": "7da1187db524d98fe7d536085b7a5e954d872ea8bd702a6c4beb1b6686290d73"
+      }
+    },
+    {
+      "en": "docs/existing-test-matching-expressions-20261023.en.md",
+      "ja": "docs/existing-test-matching-expressions-20261023.md",
+      "source": "docs/existing-test-matching-expressions-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "f5898558ede1e8dda087a684e0380ba6a31547d6b6848c4b95744c50ae3172f7",
+        "ja": "469d90d941a3e2c328da0c9c29cd1d793cec2d5c9bcf39924dca0400321c4236"
+      }
+    },
+    {
+      "en": "docs/existing-test-matching-preprocessor-20261023.en.md",
+      "ja": "docs/existing-test-matching-preprocessor-20261023.md",
+      "source": "docs/existing-test-matching-preprocessor-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "3a28f14f83ad542c929f4c039d959e07061132da47edb2b1d99d2efe2f0c805f",
+        "ja": "93cc367ac7347ae7e50f1166473ece6e848e217f0046bb2b2ed95ca3e8fe2bcf"
+      }
+    },
+    {
+      "en": "docs/existing-test-matching-review-20261022.en.md",
+      "ja": "docs/existing-test-matching-review-20261022.md",
+      "source": "docs/existing-test-matching-review-20261022.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "38a5e2f28b173d5115338435dd38024c218822f68547da9cde02ec44d32f4a9d",
+        "ja": "2899f05edda83a336f1759ddd93c482acf1845f0f212737faf939d26182b5522"
+      }
+    },
+    {
+      "en": "docs/existing-test-matching-review-20261023.en.md",
+      "ja": "docs/existing-test-matching-review-20261023.md",
+      "source": "docs/existing-test-matching-review-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "8dabc26fe90aabc32fb847fc44b31ccff6c8bf8d46ae13734168a54aea1a6f6a",
+        "ja": "8405d9d4dd21a2eae65971c9d74061f7f062d14a8c03e35d7224a7c833a17a97"
+      }
+    },
+    {
+      "en": "docs/existing-test-matching-subroutines-20261023.en.md",
+      "ja": "docs/existing-test-matching-subroutines-20261023.md",
+      "source": "docs/existing-test-matching-subroutines-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "edc10490789cd25a4cf7e21f5b68ec6c574a4de39576f4a07ef67dd52934adc1",
+        "ja": "38a33573fed97c9a1f865867c867df631fb029fb1fa5f91655a4623f5d7ee96c"
+      }
+    },
+    {
+      "en": "docs/existing-test-matching-unregistered-20261025.en.md",
+      "ja": "docs/existing-test-matching-unregistered-20261025.md",
+      "source": "docs/existing-test-matching-unregistered-20261025.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "71a479fe0f8ff73f679800063f6bc0e6cdd563378f4a7355c075411234657d6b",
+        "ja": "ff0b25ac6446429706841f407b72cd4b4fc1d7b142bb29b710a193173aaa7b86"
+      }
+    },
+    {
+      "en": "docs/existing-test-matching-vpi-20261023.en.md",
+      "ja": "docs/existing-test-matching-vpi-20261023.md",
+      "source": "docs/existing-test-matching-vpi-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "c68ef8f8466bf41cf1451da9e31362be01805020652f5575a9ca879dad8b9b99",
+        "ja": "e51db11ba18f11a63c2c0ad1e59e228a73b827fb4086c0b93f113e4a3e1b8b51"
+      }
+    },
+    {
+      "en": "docs/expression-gap-tests-20261023.en.md",
+      "ja": "docs/expression-gap-tests-20261023.md",
+      "source": "docs/expression-gap-tests-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "f9a62c9a30595fcf7fe0501a7032922b79ca24faa5cca49340401d35eeadc4cf",
+        "ja": "3a65ac4a531c91783dfe25f48e856f326192811b3309dd053dde0031d94e6b6b"
+      }
+    },
+    {
+      "en": "docs/faq.en.md",
+      "ja": "docs/faq.md",
+      "source": "docs/faq.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "13a75600ac4d9fe72cb6029e101d7611c0a7d902918ed4d3d7c540e0267a70fe",
+        "ja": "1bf66b80fff169305bb81f4fc5a2c778e0aa1a249a4230da48c8cb06499e2dde"
+      }
+    },
+    {
+      "en": "docs/fst-tests-20261029.md",
+      "ja": "docs/fst-tests-20261029.ja.md",
+      "source": "docs/fst-tests-20261029.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "c2bec7dc8ccecb3ccbf34a56b9e1099191d181c6fd019f2bc215a547b03adaa5",
+        "ja": "d28e8d08faa74e598ef2318c3892bec10364ad8c6d00e1ca50f912b49d540dfa"
+      }
+    },
+    {
+      "en": "docs/gap-tests-2-20261024.en.md",
+      "ja": "docs/gap-tests-2-20261024.md",
+      "source": "docs/gap-tests-2-20261024.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "bc98f8a24e01f97cbea6264e78748ab87632abac379e2af38e85f6d0208f540b",
+        "ja": "4b19b601db7fc08e437b7f42beb6ec3d77788c70832f98b7e1528756d7dd63d1"
+      }
+    },
+    {
+      "en": "docs/gap-tests-20261024.en.md",
+      "ja": "docs/gap-tests-20261024.md",
+      "source": "docs/gap-tests-20261024.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "bc37ca5243279c8a27ee7ef73d18cc1d1821b9a4fd5d8d060a60e5f22609005a",
+        "ja": "b398b943b55ec55e74fc8777d8b6f6887b5570e6198be495ad3f9d7deb5b753d"
+      }
+    },
+    {
+      "en": "docs/glossary.en.md",
+      "ja": "docs/glossary.md",
+      "source": "docs/glossary.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "87dbaaf2a44fb32b4bb9547d3519ef67f0b33fbb9c9881ece61c8a5e666b4a92",
+        "ja": "158661f6d76459f31242f0e20e4782f584ef3cfbbd6e0accf0c06b7ac68dc68b"
+      }
+    },
+    {
+      "en": "docs/handover-20261028.en.md",
+      "ja": "docs/handover-20261028.md",
+      "source": "docs/handover-20261028.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "7e0f3d963ee9d7b084a1d6e3bcbecc97175d6e4d76779a8571bd811fb696a128",
+        "ja": "9bd7fd5dbde8cee90eed015c10bc2087bb43e0989a8c27a22377f56a1c67f059"
+      }
+    },
+    {
+      "en": "docs/header-vpi-tests-and-matching-20261023.en.md",
+      "ja": "docs/header-vpi-tests-and-matching-20261023.md",
+      "source": "docs/header-vpi-tests-and-matching-20261023.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "8da0a7cb23aa09f311f45323954f5de281826ba71255fd33c5a2bbebae1fdff3",
+        "ja": "bedff31a5f4fd4f1117e9853fa9bb161f35fc90a2713bd8d2026b864baf14da0"
+      }
+    },
+    {
+      "en": "docs/history.md",
+      "ja": "docs/history.ja.md",
+      "source": "docs/history.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "e91717278a7b3fb0ac0a17e9c18778786594716781abebde718a2f029a139abf",
+        "ja": "651e4e20a84322a9f19583b964a19d9d49aeee11fb4a41dc2fc0e59e0ea42cf8"
+      }
+    },
+    {
+      "en": "docs/interaction-coverage.en.md",
+      "ja": "docs/interaction-coverage.md",
+      "source": "docs/interaction-coverage.md",
+      "source_language": "ja",
+      "generated": true
+    },
+    {
+      "en": "docs/interaction-verification-method.en.md",
+      "ja": "docs/interaction-verification-method.md",
+      "source": "docs/interaction-verification-method.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "137ebe420ca2159d5689f654a842018d8b8bbe18cfe1ca8f855c32134bcbe558",
+        "ja": "47a897450259cafec03e30a15656cc4603b6064bddf7d7e210c28a13a4cbdb6e"
+      }
+    },
+    {
+      "en": "docs/interaction-verification.en.md",
+      "ja": "docs/interaction-verification.md",
+      "source": "docs/interaction-verification.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "ad700c8a6b7f3c122d07cb7d9744ed3c4b3d6adee4a7dd7bcca6dcc79cdaecc4",
+        "ja": "5b4c4d6e01048b5a76ceccaa00df60a7af9ca7f60787b0d8fa8b343b81f0b338"
+      }
+    },
+    {
+      "en": "docs/inventory-20261021.md",
+      "ja": "docs/inventory-20261021.ja.md",
+      "source": "docs/inventory-20261021.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "64663db1d3a7d34d55b84921fb92fb6fe6fdb9c137d26185a9c848783fa397fd",
+        "ja": "bcd2c366005c86dca5a34c5d6e1d2169e6e8c1663277607a783c0b8f60128e95"
+      }
+    },
+    {
+      "en": "docs/issues-40-44-review-20261031.en.md",
+      "ja": "docs/issues-40-44-review-20261031.md",
+      "source": "docs/issues-40-44-review-20261031.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "d701a4dd51f2ea97e99efea8642ced3d2b10c394e7c5763cba3f1e4b542905c5",
+        "ja": "a053421790f47288851ddd558ccaf5efcc9bc8603fcf071d02040329a09e3f9d"
+      }
+    },
+    {
+      "en": "docs/keyword-tests-20261024.en.md",
+      "ja": "docs/keyword-tests-20261024.md",
+      "source": "docs/keyword-tests-20261024.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "045ba22c8827de437b1ae34e39bdd2792df5d6762e2b056fb5ec96f3ce58c0a0",
+        "ja": "af504959f1a0505f056a92c602474a6e30d36ef2b8e49821975a3e7b586813f6"
+      }
+    },
+    {
+      "en": "docs/lyra-disagreement-review-20261025.en.md",
+      "ja": "docs/lyra-disagreement-review-20261025.md",
+      "source": "docs/lyra-disagreement-review-20261025.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "a9dadde08e08ce64547d2aeeadcf0f8a398cec4b31e1d19b2a5a0db0c6492f02",
+        "ja": "b4009ae61f1412a228a6db35f5f3ed2b70bbf9f5088286e52cb5b06a928786f0"
+      }
+    },
+    {
+      "en": "docs/nightly-results.en.md",
+      "ja": "docs/nightly-results.md",
+      "source": "docs/nightly-results.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "22831aa4167bc7fa0b3a98dda25a25aad60c19302a7f50bb8b3ff6fa97da5f10",
+        "ja": "20c50db1dec05dad09a02cec91fd4f3baeb6438f1f9bc3fb87537aecf3fd980a"
+      }
+    },
+    {
+      "en": "docs/nightly-suite-corrections-20261027.en.md",
+      "ja": "docs/nightly-suite-corrections-20261027.md",
+      "source": "docs/nightly-suite-corrections-20261027.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "2c5ea6e4b4549630450ae0da4e44edece1be9e23e4de0238be1d559fae9e1e58",
+        "ja": "bac7db18c431a23cbe1a3d58cfeab2b7225fdcdc87b635c8e35a21b279093652"
+      }
+    },
+    {
+      "en": "docs/p1-combination-gaps-20261030.en.md",
+      "ja": "docs/p1-combination-gaps-20261030.md",
+      "source": "docs/p1-combination-gaps-20261030.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "25d8aab0f8d9c398617d402163f9126a65230954c36b4affe3678c5b77888472",
+        "ja": "221c136a3ae57a191a4cb2f95f64503bc7017157e95c489df2e6db66505d380b"
+      }
+    },
+    {
+      "en": "docs/p1-combination-regressions-20261030.en.md",
+      "ja": "docs/p1-combination-regressions-20261030.md",
+      "source": "docs/p1-combination-regressions-20261030.md",
+      "source_language": "ja",
+      "generated": true
+    },
+    {
+      "en": "docs/protected-envelope-boundary.en.md",
+      "ja": "docs/protected-envelope-boundary.md",
+      "source": "docs/protected-envelope-boundary.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "35e71e3c310df9ea6353bf90f3f875cc5d18185dce0cbafb295672b7bdfca1bb",
+        "ja": "42e6a515d92c3dbd680ccbf263213d3c2adf22399052663119f36610675e37ec"
+      }
+    },
+    {
+      "en": "docs/quality-audit-20261027.en.md",
+      "ja": "docs/quality-audit-20261027.md",
+      "source": "docs/quality-audit-20261027.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "4c6f136e66c7c87cce7d6b13aec7292d0ba25cf730c1400d33e784df39899f97",
+        "ja": "f30c37a2dbe49fe8dc9b27a6bbdac7e63c23e04b5b41afb3928376777f46c07c"
+      }
+    },
+    {
+      "en": "docs/readme-records-20261101.md",
+      "ja": "docs/readme-records-20261101.ja.md",
+      "source": "docs/readme-records-20261101.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "129b15a40a5592b63f90c4f71995bf4c989adf5648de3f343027e80a73bf95ec",
+        "ja": "15a9ad0c9e87190df8448b248e28df104ace3472e7ff72ce55a80b02b18472e8"
+      }
+    },
+    {
+      "en": "docs/requirement-extraction-notes.en.md",
+      "ja": "docs/requirement-extraction-notes.md",
+      "source": "docs/requirement-extraction-notes.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "88cf4a85743b20ada9aae972f1351590900f3a3eaacb032eef885adf19dfb7af",
+        "ja": "dcf2b314deb2916035f4cecd46be3d26c74462c60a714d74b23008d81b52fa10"
+      }
+    },
+    {
+      "en": "docs/requirement-extraction.en.md",
+      "ja": "docs/requirement-extraction.md",
+      "source": "docs/requirement-extraction.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "3c43b5047384387396817aaf28771b2af20714c84788b0d662947ce3a0e7806e",
+        "ja": "7e813862095aaa276c84314352f47e345f609b63610782d0e27e67d92a1a5725"
+      }
+    },
+    {
+      "en": "docs/requirements-to-tests-method.en.md",
+      "ja": "docs/requirements-to-tests-method.md",
+      "source": "docs/requirements-to-tests-method.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "d5bbb3fc411985ed5d26721b28a49cba873d03068ccd615027e5fd3b8b071b67",
+        "ja": "565c56c613dd7b3cd0b39152576bd2abf8bf8c3ff7a38e2d1d4a9d4c37eef642"
+      }
+    },
+    {
+      "en": "docs/runner-selection-20261028.en.md",
+      "ja": "docs/runner-selection-20261028.md",
+      "source": "docs/runner-selection-20261028.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "f88d35c70fb2ae5de25ce75fc5d059ff6fea674346be0400e22e67ed6d3c700e",
+        "ja": "23fb4994e598b25092b10ad4cebbba10236c84c186ed2b6ff7b0e2cef265b2c2"
+      }
+    },
+    {
+      "en": "docs/simulator-differences.md",
+      "ja": "docs/simulator-differences.ja.md",
+      "source": "docs/simulator-differences.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "1c6cee2b2295aa680a164764bee7e1299a62803ad281f3f3245923c17407eb4d",
+        "ja": "fb65be1c0fb041ad1203099b3568bdfb07faeb6d2d65837b701efe91838ba12e"
+      }
+    },
+    {
+      "en": "docs/spec-to-verification-method.en.md",
+      "ja": "docs/spec-to-verification-method.md",
+      "source": "docs/spec-to-verification-method.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "7fd6a083812fd4e780984b38776fd8c4d97c2163eb812d08efbea3c4aa1dbf01",
+        "ja": "c443c01041b912346bd603560c71ca8048b10aec8dfc05006405f0c949d6d9af"
+      }
+    },
+    {
+      "en": "docs/sva-formal-expansion-20261026.en.md",
+      "ja": "docs/sva-formal-expansion-20261026.md",
+      "source": "docs/sva-formal-expansion-20261026.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "b9f2de56836d3ef87ab9b4bac75421a0c3fa27a4908e8446caba967508cab983",
+        "ja": "e7495bf4318a6ca8b94a3dde1326ee3d5bf75bf04040892be4d75aa7b95b65f0"
+      }
+    },
+    {
+      "en": "docs/sva-reference-formal-verification.en.md",
+      "ja": "docs/sva-reference-formal-verification.md",
+      "source": "docs/sva-reference-formal-verification.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "68b26559b5fac9c36da03ca2c3bc26b942b3b8d6dd852a2decc26b5efbbb8064",
+        "ja": "459a779e32dc82713bc87e8bd80864d4eebe4a0c1ea18fca487a143c05f2a059"
+      }
+    },
+    {
+      "en": "docs/test-content-review-20261022.en.md",
+      "ja": "docs/test-content-review-20261022.md",
+      "source": "docs/test-content-review-20261022.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "ca3ff6cdc0994ad77e9428dc2c4bf1d54f2d0dace8cddea8d16417c55f754e9d",
+        "ja": "32ec0fd6b28420c51cc2124667e16443955284ecbd1d9d87cda5c1cdfcbc479f"
+      }
+    },
+    {
+      "en": "docs/test-content-review-followup-20261022.en.md",
+      "ja": "docs/test-content-review-followup-20261022.md",
+      "source": "docs/test-content-review-followup-20261022.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "013fe34705a0af140179b2d4721ccc697fb08de038b99940fdf635cf589a23a9",
+        "ja": "7441f8b3ae6d3fa5e70345f5811fbe41bd03a677972054c097eaeb1b145d1ea3"
+      }
+    },
+    {
+      "en": "docs/test-failure-triage-20261028.en.md",
+      "ja": "docs/test-failure-triage-20261028.md",
+      "source": "docs/test-failure-triage-20261028.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "02eb9122f87e6fd5acb9894a213ebf904ec2f57af5806bad7045ffda0660caa4",
+        "ja": "600b2191bb4de67f0cad3a372fb84aad4745682f1239f581e151c98e3515b648"
+      }
+    },
+    {
+      "en": "docs/test-requirement-matching.en.md",
+      "ja": "docs/test-requirement-matching.md",
+      "source": "docs/test-requirement-matching.md",
+      "source_language": "ja",
+      "generated": true
+    },
+    {
+      "en": "docs/test-side-fixes-20261028.en.md",
+      "ja": "docs/test-side-fixes-20261028.md",
+      "source": "docs/test-side-fixes-20261028.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "b185cb524bfb6abe65ecb45014c513214ef3d716f5067c309da76ce7c2fdb501",
+        "ja": "a2e503e49dd1ecd34b437c0b0bcab6757f9a3260311c63b1e6f4d293f0bcbc7b"
+      }
+    },
+    {
+      "en": "docs/tests/README.md",
+      "ja": "docs/tests/README.ja.md",
+      "source": "docs/tests/README.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch10.md",
+      "ja": "docs/tests/ch10.ja.md",
+      "source": "docs/tests/ch10.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch11.md",
+      "ja": "docs/tests/ch11.ja.md",
+      "source": "docs/tests/ch11.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch12.md",
+      "ja": "docs/tests/ch12.ja.md",
+      "source": "docs/tests/ch12.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch13.md",
+      "ja": "docs/tests/ch13.ja.md",
+      "source": "docs/tests/ch13.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch14.md",
+      "ja": "docs/tests/ch14.ja.md",
+      "source": "docs/tests/ch14.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch15.md",
+      "ja": "docs/tests/ch15.ja.md",
+      "source": "docs/tests/ch15.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch16.md",
+      "ja": "docs/tests/ch16.ja.md",
+      "source": "docs/tests/ch16.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch17.md",
+      "ja": "docs/tests/ch17.ja.md",
+      "source": "docs/tests/ch17.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch18.md",
+      "ja": "docs/tests/ch18.ja.md",
+      "source": "docs/tests/ch18.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch19.md",
+      "ja": "docs/tests/ch19.ja.md",
+      "source": "docs/tests/ch19.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch20.md",
+      "ja": "docs/tests/ch20.ja.md",
+      "source": "docs/tests/ch20.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch21.md",
+      "ja": "docs/tests/ch21.ja.md",
+      "source": "docs/tests/ch21.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch22.md",
+      "ja": "docs/tests/ch22.ja.md",
+      "source": "docs/tests/ch22.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch23.md",
+      "ja": "docs/tests/ch23.ja.md",
+      "source": "docs/tests/ch23.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch24.md",
+      "ja": "docs/tests/ch24.ja.md",
+      "source": "docs/tests/ch24.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch25.md",
+      "ja": "docs/tests/ch25.ja.md",
+      "source": "docs/tests/ch25.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch26.md",
+      "ja": "docs/tests/ch26.ja.md",
+      "source": "docs/tests/ch26.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch27.md",
+      "ja": "docs/tests/ch27.ja.md",
+      "source": "docs/tests/ch27.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch28.md",
+      "ja": "docs/tests/ch28.ja.md",
+      "source": "docs/tests/ch28.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch29.md",
+      "ja": "docs/tests/ch29.ja.md",
+      "source": "docs/tests/ch29.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch3.md",
+      "ja": "docs/tests/ch3.ja.md",
+      "source": "docs/tests/ch3.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch30.md",
+      "ja": "docs/tests/ch30.ja.md",
+      "source": "docs/tests/ch30.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch31.md",
+      "ja": "docs/tests/ch31.ja.md",
+      "source": "docs/tests/ch31.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch32.md",
+      "ja": "docs/tests/ch32.ja.md",
+      "source": "docs/tests/ch32.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch33.md",
+      "ja": "docs/tests/ch33.ja.md",
+      "source": "docs/tests/ch33.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch34.md",
+      "ja": "docs/tests/ch34.ja.md",
+      "source": "docs/tests/ch34.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch35.md",
+      "ja": "docs/tests/ch35.ja.md",
+      "source": "docs/tests/ch35.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch36.md",
+      "ja": "docs/tests/ch36.ja.md",
+      "source": "docs/tests/ch36.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch37.md",
+      "ja": "docs/tests/ch37.ja.md",
+      "source": "docs/tests/ch37.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch38.md",
+      "ja": "docs/tests/ch38.ja.md",
+      "source": "docs/tests/ch38.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch39.md",
+      "ja": "docs/tests/ch39.ja.md",
+      "source": "docs/tests/ch39.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch4.md",
+      "ja": "docs/tests/ch4.ja.md",
+      "source": "docs/tests/ch4.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch40.md",
+      "ja": "docs/tests/ch40.ja.md",
+      "source": "docs/tests/ch40.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch5.md",
+      "ja": "docs/tests/ch5.ja.md",
+      "source": "docs/tests/ch5.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch6.md",
+      "ja": "docs/tests/ch6.ja.md",
+      "source": "docs/tests/ch6.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch7.md",
+      "ja": "docs/tests/ch7.ja.md",
+      "source": "docs/tests/ch7.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch8.md",
+      "ja": "docs/tests/ch8.ja.md",
+      "source": "docs/tests/ch8.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/ch9.md",
+      "ja": "docs/tests/ch9.ja.md",
+      "source": "docs/tests/ch9.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "docs/tests/clauses.md",
+      "ja": "docs/tests/clauses.ja.md",
+      "source": "docs/tests/clauses.md",
+      "source_language": "en",
+      "generated": true
+    },
+    {
+      "en": "tools/doc_locales/README.md",
+      "ja": "tools/doc_locales/README.ja.md",
+      "source": "tools/doc_locales/README.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "e6425a21eec29c56864afb3b01724399424d912f5b42e78279a5398e69d73cab",
+        "ja": "4eaf21ca429faf4b251b39e13e7a799efea12d2e8eb9706395b383b646a788e5"
+      }
+    },
+    {
+      "en": "tools/matching_kit/README.md",
+      "ja": "tools/matching_kit/README.ja.md",
+      "source": "tools/matching_kit/README.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "6faeff419dc90609fbede2e5546599bd6d36425100c1fc6b7a0e3c083c4c16e5",
+        "ja": "6c2ca08789a5c1b0e8f62e5f716f3dfff236f84888e0c1d297948bb4d47e3bed"
+      }
+    },
+    {
+      "en": "tools/sva_reference/FORMAL_REVIEW.md",
+      "ja": "tools/sva_reference/FORMAL_REVIEW.ja.md",
+      "source": "tools/sva_reference/FORMAL_REVIEW.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "0d0fa39d621c7ff0edac7d5e005499d6884129f4a4b50f473d85da6f8f5b4503",
+        "ja": "fc0cb7d21db8920d1db22a1adc99deb3aa5d0c659986d95a3b652c01d6f3fca9"
+      }
+    },
+    {
+      "en": "tools/sva_reference/M3_REVIEW.md",
+      "ja": "tools/sva_reference/M3_REVIEW.ja.md",
+      "source": "tools/sva_reference/M3_REVIEW.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "21fdb4f007b0d6875f2f9f0dff4189758ee46f737f3788ae67feb310a86a1a87",
+        "ja": "96267d56eb481c78300db806f0f5e0c2ea818dc932c0d45e76149a7e8886167d"
+      }
+    },
+    {
+      "en": "tools/sva_reference/M4_REVIEW.md",
+      "ja": "tools/sva_reference/M4_REVIEW.ja.md",
+      "source": "tools/sva_reference/M4_REVIEW.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "cc808ef9624a6f7cfeab6046017635d5910d3e21a71dc14543259800256132e2",
+        "ja": "8ea3da6a16188280a20314d1aae28600e14d4d1a83f25eaba6d07acc35eaee4b"
+      }
+    },
+    {
+      "en": "tools/sva_reference/README.md",
+      "ja": "tools/sva_reference/README.ja.md",
+      "source": "tools/sva_reference/README.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "983a524f036b111b66fe16dfac42ae81a807499c6169390fb5cff6bc8e560695",
+        "ja": "46ad80d1acf704d364b40195aacfcc016cbcefbeae70803917ead5bbf01968eb"
+      }
+    },
+    {
+      "en": "docs/generators.md",
+      "ja": "docs/generators.ja.md",
+      "source": "docs/generators.md",
+      "source_language": "en",
+      "generated": true
+    }
+  ]
+}

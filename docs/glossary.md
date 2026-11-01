@@ -1,8 +1,14 @@
+<a id="kirimasim-tests-glossary"></a>
+
 # kirimasim-testsの用語集
 
-このテストスイートのREADME、テストのヘッダ、実行結果、網羅率の資料で使う用語を、役割ごとにまとめています。運用上の疑問は[FAQ](faq.md)、全体の入口は[README](../README.md)を参照してください。
+[English](glossary.en.md) / [README](../README.ja.md)
+
+このテストスイートのREADME、テストのヘッダ、実行結果、網羅率の資料で使う用語を、役割ごとにまとめています。運用上の疑問は[FAQ](faq.md)、全体の入口は[README](../README.ja.md)を参照してください。
 
 ここでいう「要求カバレッジ（テスト設計）」「実行確認率」は、このリポジトリの要求台帳と集計ルールに基づく指標です。RTLのコードカバレッジやSystemVerilogの機能カバレッジ、Nightlyのテスト一致率とは区別します。
+
+<a id="contents"></a>
 
 ## 目次
 
@@ -15,6 +21,8 @@
 - [実行環境と証跡](#7-実行環境と証跡)
 - [機能間クロス検証](#8-機能間クロス検証)
 - [クロステストで使う言語機能](#9-クロステストで使う言語機能)
+
+<a id="1-test-basics"></a>
 
 ## 1. テストの基本
 
@@ -31,7 +39,9 @@
 | 正規化（normalization） | 空行やツール固有の終了表示などを比較対象から除く処理。文字のある行の空白・桁・値はそのまま比較する。除去する診断やバナーはランナーごとに決めている |
 | 標準出力／標準エラー／終了コード | プロセスの通常の出力先／診断などに使う出力先／プロセスの終了状態。シミュレータの診断が標準出力に出る場合もあるため、ランナーごとの比較・診断検査の対象を確認する |
 
-参照：[テスト形式](../README.md#test-format)、[判定方法](../README.md#how-a-test-is-judged)、[テストカタログ](tests/README.md)。
+参照：[テスト形式](../README.ja.md#test-format)、[判定方法](../README.ja.md#how-a-test-is-judged)、[テストカタログ](tests/README.ja.md)。
+
+<a id="2-metadata-and-expectation-provenance"></a>
 
 ## 2. メタデータと期待値の根拠
 
@@ -50,7 +60,9 @@
 | `:files:`／`:incdirs:`／`:defines:` | 追加の入力ファイル／includeの検索先／コンパイル時のマクロ。テスト本体以外の再現条件にもなる |
 | `:top_module:`／`:args:` | トップとして選ぶモジュールまたはconfig／実行時の引数。各ランナーがツールに合う形式へ変換する |
 
-参照：[メタデータ一覧](../README.md#metadata)、[期待値の決め方](../README.md#where-the-expected-outputs-come-from)。
+参照：[メタデータ一覧](../README.ja.md#metadata)、[期待値の決め方](../README.ja.md#where-the-expected-outputs-come-from)。
+
+<a id="3-results-and-nightly"></a>
 
 ## 3. 結果とNightly
 
@@ -71,7 +83,9 @@
 | `main`／`results`／suite commit | テストとツールを管理するブランチ／Nightlyの結果を公開するブランチ／その実行で使ったスイートのコミット |
 | UTC／JST | 協定世界時／日本標準時。公開結果のUTC表示へ9時間を加えるとJSTになる |
 
-参照：[Nightlyの見方](nightly-results.md)、[実行結果の形式](../tools/suite_results.py)、[ワークフロー](../README.md#workflows)。
+参照：[Nightlyの見方](nightly-results.md)、[実行結果の形式](../tools/suite_results.py)、[ワークフロー](../README.ja.md#workflows)。
+
+<a id="4-requirements-mappings-and-coverage"></a>
 
 ## 4. 要求・対応付け・カバレッジ
 
@@ -91,6 +105,8 @@
 
 参照：[集計概要](behavior-coverage-summary.md)、[計測規則](../coverage/README.md)、[要求からテストへの手順](requirements-to-tests-method.md)、[照合状況](test-requirement-matching.md)。
 
+<a id="5-sva-and-reference-evaluation"></a>
+
 ## 5. SVAと参照評価器
 
 | 用語 | 意味・このスイートでの使い方 |
@@ -109,7 +125,9 @@
 | 2値／4値／X・Z | 0・1だけを表す値／0・1・X・Zを表す値／未知値・高インピーダンス。検査対象の型・演算・入力範囲を確認する |
 | VCD（Value Change Dump）／トレース | 信号値と時刻を記録する波形形式／値や状態の時系列。通常のVCDだけでは同一時刻内のすべてのイベント領域の値を区別できない |
 
-参照：[SVA参照評価器とフォーマル検証](sva-reference-formal-verification.md)、[参照評価器の技術資料](../tools/sva_reference/README.md)。
+参照：[SVA参照評価器とフォーマル検証](sva-reference-formal-verification.md)、[参照評価器の技術資料](../tools/sva_reference/README.ja.md)。
+
+<a id="6-formal-verification"></a>
 
 ## 6. フォーマル検証
 
@@ -125,7 +143,9 @@
 | 証明範囲／シーケンス部分式との対応付け | 証明で固定した式・幅・初期状態・入力等の条件／実テストの部分式と検証モデルの関係。部分式の一致からアサーション全体の実行まで証明済みとは広げない |
 | 証跡検査（`--check-results`） | 保存結果が現在のソース・モデル・必要な実行計画に対応するか確認する処理。ソルバーの再実行ではない |
 
-参照：[全体ガイド](sva-reference-formal-verification.md)、[境界値の拡張と実テストとの対応](sva-formal-expansion-20261026.md)、[技術報告](../tools/sva_reference/FORMAL_REVIEW.md)。
+参照：[全体ガイド](sva-reference-formal-verification.md)、[境界値の拡張と実テストとの対応](sva-formal-expansion-20261026.md)、[技術報告](../tools/sva_reference/FORMAL_REVIEW.ja.md)。
+
+<a id="7-execution-and-evidence"></a>
 
 ## 7. 実行環境と証跡
 
@@ -141,9 +161,11 @@
 | 生成テスト／生成器（generator） | `tests/gen/`に書き出すテスト／規格由来の参照モデルから入力・期待値を作るPythonコード。生成ファイルは生成器から更新する |
 | lint／単体テスト／CI | ヘッダや形式等の機械検査／ツール等の個別機能の検査／設定した検査を継続実行する仕組み。何を検査する設定かと併せて結果を読む |
 
-参照：[実行方法](../README.md#running-the-suite)、[生成テスト](../README.md#generated-tests)、[証跡の計測規則](../coverage/README.md#台帳と証跡)。
+参照：[実行方法](../README.ja.md#running-the-suite)、[生成テスト](../README.ja.md#generated-tests)、[証跡の計測規則](../coverage/README.md#台帳と証跡)。
 
 用語の参考例：[PALTEKの検証環境・スティミュラスの解説](https://www.paltek.co.jp/techblog/techinfo/220125-01)、[プロパティとVacuous Successの解説](https://www.paltek.co.jp/techblog/techinfo/210816-02)、[Synopsysのフォーマル・プロパティ検証の説明](https://www.synopsys.com/ja-jp/verification/static-and-formal-verification/vc-formal.html)。
+
+<a id="8-feature-interaction-verification"></a>
 
 ## 8. 機能間クロス検証
 
@@ -171,6 +193,8 @@
 [クロス検証レポート](interaction-coverage.md)、[章間表](chapter-cross-matrix.md)、
 [0セルの分類](chapter-cross-triage.md)、[FAQ](faq.md#7-機能間クロス検証)。
 
+<a id="9-language-features-used-in-cross-tests"></a>
+
 ## 9. クロステストで使う言語機能
 
 以下は、モデルの刺激・観測を読むための用語です。個々の規則と対象範囲は、
@@ -183,6 +207,9 @@
 | スコープ／名前の遮蔽（shadowing） | 宣言が属し、名前探索の対象となる範囲／内側の同名宣言などにより、別の宣言が選ばれる関係。表記が同じでも参照先は同じとは限らない |
 | `import`／`export` | packageの名前を利用できるようにする記述／importした名前を別のpackageから再公開する記述。ワイルドカードの候補と実際に取り込んだ宣言を区別する |
 | 仮引数／実引数／既定引数 | サブルーチン側の引数宣言／呼出し側から与える式や参照／省略時に使う式。型変換、参照先の確定、既定式の評価時点・スコープを分けて確認する |
+| 関数（function）／タスク（task）／メソッド（method） | 言語上のサブルーチン／クラスや配列などの対象を通じて呼ぶ操作。関数を一般的な「機能」、メソッドを一般的な「方法」と読み替えない。引数方向、戻り値、時間制御の制約は各宣言形式に従う |
+| 一次式（primary）／定数一次式（constant primary） | 数値・識別子・括弧付きの式など、式の文法を構成する基本単位／定数式に使える形式。一般語の「主な」や、積和の次数の「一次」とは区別し、附属書Aの文法で許される形を確認する |
+| キャスト（cast）／キャスト型（casting type） | 型・幅・符号などを明示的に指定して値を扱う式／キャストで指定する型などの構文。サイズキャスト、符号キャスト、型キャストを区別し、状態変換・拡張・切捨ての順序を観測する |
 | packed／unpacked（パック／アンパック） | データ型側（変数名より前）の次元で一体のビット列を構成する配列／変数名の後側に次元を置く配列。全体コピー、要素選択、ストリーミングの並びを区別する |
 | `bit`／`logic` | 2状態／4状態の整数型の基本要素。`bit`への変換でX/Zは0になるため、変換と演算の順序を入れ替えると結果が変わる場合がある。netかvariableかは別の指定 |
 | 切捨て／ゼロ拡張／符号拡張 | 幅を縮める／上位側を0で埋める／符号ビットを複製して広げる処理。適用方法は式の幅・符号の規則で決まり、代入先の幅だけでは判断しない |

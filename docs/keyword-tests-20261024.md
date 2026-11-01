@@ -1,13 +1,18 @@
+<a id="generating-standard-violation-tests-for-reserved-words-2026-10-24"></a>
+
 # 予約語の規格違反テストの生成（2026-10-24）
+
+[English](keyword-tests-20261024.en.md) / [日本語](keyword-tests-20261024.md)
 
 > この文書の件数・割合・保留状態は、各作業時点の記録です。
 > 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
 > [要求抽出の結果](requirement-extraction.md)を参照してください。
 
-[現在の集計](behavior-coverage-summary.md) / [要求抽出と台帳見直し](requirement-extraction.md) / [シミュレータと規格の差異](simulator-differences.md)
+[現在の集計](behavior-coverage-summary.md) / [要求抽出と台帳見直し](requirement-extraction.md) / [シミュレータと規格の差異](simulator-differences.ja.md)
 
-2026-10-24の台帳見直しで、予約語の行を「その語をエスケープしない識別子として使うと拒否される」という規格違反の検出を求める要求に組み替えました。
-その要求を検証するテストを、生成スクリプトで作りました。
+2026-10-24の台帳見直しで、予約語の行を「その語をエスケープしない識別子として使うと拒否される」という規格違反の検出を求める要求に組み替えました。 その要求を検証するテストを、生成スクリプトで作りました。
+
+<a id="aggregation"></a>
 
 ## 集計
 
@@ -24,6 +29,8 @@
 - 22.14.9（1800-2017と1800-2023は新しい予約語を加えない）も対象外です。
 - 確定値（設計・実行とも）は未確定のままです。
 
+<a id="generator"></a>
+
 ## 生成器
 
 `generators/keywords.py`が496本の規格違反テストを`tests/gen/`へ書き出します。
@@ -31,42 +38,42 @@
 - `tests/gen/ch5/test_gen_kw_2023_<語>`（248本）：附属書Bの各予約語。
 - `tests/gen/ch22/test_gen_kw_<版>_<語>`（248本）：22.14.2〜22.14.8の各版が追加する予約語。
 
-各テストは`begin_keywords "版"`の中で`reg <語>;`と宣言し、`:expected_stderr_regex:`でその行のエラーを求めます。
-`begin_keywords`を置くのは、それを書かないときのキーワード集合が実装依存だからです（22.14）。
+各テストは`begin_keywords "版"`の中で`reg <語>;`と宣言し、`:expected_stderr_regex:`でその行のエラーを求めます。 `begin_keywords`を置くのは、それを書かないときのキーワード集合が実装依存だからです（22.14）。
 
 規格違反テストを生成できるよう、`generators/common.py`も拡張しました。`should_fail_because`を持つケースは、期待出力ファイルを持ちません。エラーの行は、本文の「`// illegal`」で終わる行から求めます。
 
 予約語の一覧は、22.14の各表から作った版ごとの追加分です。生成器は、それらを合わせると附属書Bの248語と一致することを検査します。
 
+<a id="verification-method"></a>
+
 ## 確認方法
 
-- 独立した検証用エージェントが、PDFの表から2通りの方法で予約語の一覧を独自に抽出しました。
-  生成器の版ごとの一覧（102、21、1、97、23、4語）と附属書Bの248語が、どちらも完全に一致しました。
-- 496本すべての本文が5行（`begin_keywords`、module、`reg <語>;`、endmodule、`end_keywords`）だけであることを確認しました。
-  エラーの原因が予約語の宣言だけであることと、`:expected_stderr_regex:`の行番号が`// illegal`の行と一致することも確認しました。
+- 独立した検証用エージェントが、PDFの表から2通りの方法で予約語の一覧を独自に抽出しました。 生成器の版ごとの一覧（102、21、1、97、23、4語）と附属書Bの248語が、どちらも完全に一致しました。
+- 496本すべての本文が5行（`begin_keywords`、module、`reg <語>;`、endmodule、`end_keywords`）だけであることを確認しました。 エラーの原因が予約語の宣言だけであることと、`:expected_stderr_regex:`の行番号が`// illegal`の行と一致することも確認しました。
 - 照合案497件は、すべて採用です。
   - 生成器のコメントの文言を直したため、附属書Bの190件ではエラーの行番号が変わりました。
   - その190件は、根拠として記録した行を新しい行番号に付け直し、元の採用判定を引き継いでいます。
+
+<a id="execution-evidence"></a>
 
 ## 実行証跡
 
 | 実行回 | 結果 |
 | --- | --- |
-| `coverage/results/keyword-tests-20261024-icarus13.json`（Icarus Verilog 13.0、v13_0-dirty） | 496 pass |
-| `coverage/results/keyword-tests-20261024-verilator-seed1.json`（Verilator 5.052、seed 1） | 493 pass、3 known |
-| `coverage/results/keyword-tests-20261024-verilator-seed73.json`（Verilator 5.052、seed 73） | 493 pass、3 known |
+|`coverage/results/keyword-tests-20261024-icarus13.json`（Icarus Verilog 13.0、v13_0-dirty）|496 pass|
+| `coverage/results/keyword-tests-20261024-verilator-seed1.json`（Verilator 5.052、seed 1） |493 pass、3 known|
+| `coverage/results/keyword-tests-20261024-verilator-seed73.json`（Verilator 5.052、seed 73） |493 pass、3 known|
 
 - 生成テストの決まりに従い、`:oracle:`はIcarus 13.0だけを記録しています（`spec iverilog@13.0`）。
 - Verilator 5.052は、次の3つの宣言を受理しました。
   - `begin_keywords "1800-2023"`と`"1800-2009"`の下での`global`
   - `begin_keywords "1364-1995"`の下での`ifnone`
-- Icarus 13.0は、`"1800-2017"`と`"1800-2023"`を知らない版として無視し、既定のキーワード集合を使います。
-  既定の集合が附属書Bと同じ語を予約しているので、附属書Bの248本は一致します。
-  ただし、Icarusの結果からは、`begin_keywords "1800-2023"`の効果そのものは確かめられていません。
-- どちらの差異も[シミュレータと規格の差異](simulator-differences.md)に記録しました。
+- Icarus 13.0は、`"1800-2017"`と`"1800-2023"`を知らない版として無視し、既定のキーワード集合を使います。 既定の集合が附属書Bと同じ語を予約しているので、附属書Bの248本は一致します。 ただし、Icarusの結果からは、`begin_keywords "1800-2023"`の効果そのものは確かめられていません。
+- どちらの差異も[シミュレータと規格の差異](simulator-differences.ja.md)に記録しました。
+
+<a id="unverified-range"></a>
 
 ## 確かめていない範囲
 
 - テストが確かめるのは、「指定した版でその語が予約されている」ことだけです。
-- 「指定した版がそれ以外の語を予約しない」ことや、既定の集合ではなく`begin_keywords`が効いていることは確かめていません。
-  これらは別の要求（22.14.4の除外語、22.14の各行）です。
+- 「指定した版がそれ以外の語を予約しない」ことや、既定の集合ではなく`begin_keywords`が効いていることは確かめていません。 これらは別の要求（22.14.4の除外語、22.14の各行）です。

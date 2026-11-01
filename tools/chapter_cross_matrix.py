@@ -16,6 +16,7 @@ import re
 import sys
 
 import interaction_coverage
+import doc_localization
 import suite_results
 from suite_stats import CHAPTERS_JA
 
@@ -175,11 +176,12 @@ def build(root: Path = ROOT) -> tuple[dict[str, bytes], dict]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group()
-    mode.add_argument("--update", action="store_true", help="rewrite the three committed CSV files")
+    mode.add_argument("--update", action="store_true", help="rewrite the Japanese and English CSV files")
     mode.add_argument("--check", action="store_true", help="reject missing or out-of-date CSV files")
     args = parser.parse_args()
     try:
         outputs, stats = build()
+        outputs = doc_localization.expand(outputs, root=ROOT)
         stale = []
         for name, content in outputs.items():
             path = ROOT / name

@@ -1,12 +1,16 @@
+<a id="quality-audit-2026-10-27"></a>
+
 # 品質監査 2026-10-27
+
+[English](quality-audit-20261027.en.md) / [日本語](quality-audit-20261027.md)
 
 > この文書の件数・割合・保留状態は、各作業時点の記録です。
 > 現在の値は[生成した集計概要](behavior-coverage-summary.md)、分母と解釈の承認経緯は
 > [要求抽出の結果](requirement-extraction.md)を参照してください。
 
-87.31%（F完了）到達後の品質優先フェーズとして、既存リンクの意味的妥当性と
-実行証跡の強さを監査し、修正可能な欠陥を直した記録です。新しい要求の追加は
-行っていません。
+87.31%（F完了）到達後の品質優先フェーズとして、既存リンクの意味的妥当性と 実行証跡の強さを監査し、修正可能な欠陥を直した記録です。新しい要求の追加は 行っていません。
+
+<a id="scope-and-method"></a>
 
 ## 対象と方法
 
@@ -15,6 +19,8 @@
 - 意味監査: 3クラスタの層化サンプル（サブエージェント3体）
 - formal: 259ケース全件の参照RTL・cover・単純な転記の有無の機械監査＋30件の読解
 - 実行: 未実行リンク先のVerilator 5.052再実行（seed 1/73）
+
+<a id="automated-check-results"></a>
 
 ## 機械検査の結果
 
@@ -27,79 +33,79 @@
 
 台帳の機械的な整合性は保たれていました。
 
+<a id="results-of-semantic-audit"></a>
+
 ## 意味監査の結果
+
+<a id="anneximported-tests-stratified-sample-of-80-links"></a>
 
 ### 附属書・imported（80リンクの層化サンプル）
 
 | 判定 | 件数 |
 |---|---:|
-| supported | 67 |
-| weak | 13 |
-| wrong | 0 |
-| unverifiable | 0 |
+|対応| 67 |
+|weak| 13 |
+|誤り| 0 |
+|確認できない| 0 |
 
-主な weak は I.3 の `const svOpenArrayHandle`（61リンクに波及）と、附属書Aの
-文法代替を1つしか使っていないテストです。ABIの型・引数順は強く観測できて
-いるため、リンク自体は維持し、限界をここに記録します。
+主な weak は I.3 の `const svOpenArrayHandle`（61リンクに波及）と、附属書Aの 文法代替を1つしか使っていないテストです。ABIの型・引数順は強く観測できて いるため、リンク自体は維持し、限界をここに記録します。
+
+<a id="vpi--dpi-headers-all-items-in-22-test-and-1132-link"></a>
 
 ### VPI/DPIヘッダ（22テスト・1,132リンクの全件）
 
 | 判定 | 件数 |
 |---|---:|
-| covered | 1,129 |
-| partial | 3 |
-| missing | 0 |
+|検証済み| 1,129 |
+|部分的| 3 |
+|欠落| 0 |
 
-partial は `36.7 INCLUDE-HEADERS` の2テストと、`36.12.2.1 BOUND-RETARGET` の
-1テストです。さらに、既存のmapped要求に対する**リンクの欠落**が15件見つかり
-ました（COMPATIBILITY-DEFINE 5、K.2-COMPATIBILITY 5、BOUND-RETARGET 5）。
-照合キットは未対応要求しか受け付けないため、これらは台帳ポリシーの変更なし
-には追加できません。
+partial は `36.7 INCLUDE-HEADERS` の2テストと、`36.12.2.1 BOUND-RETARGET` の 1テストです。さらに、既存のmapped要求に対する**リンクの欠落**が15件見つかり ました（COMPATIBILITY-DEFINE 5、K.2-COMPATIBILITY 5、BOUND-RETARGET 5）。 照合キットは未対応要求しか受け付けないため、これらは台帳ポリシーの変更なし には追加できません。
+
+<a id="ch16-simulation-stratified-sample-of-50-links"></a>
 
 ### ch16シミュレーション（50リンクの層化サンプル）
 
 | 判定 | 件数 |
 |---|---:|
-| supported | 38 |
-| weak | 12 |
-| wrong | 0 |
-| unverifiable | 0 |
+|対応| 38 |
+|weak| 12 |
+|誤り| 0 |
+|確認できない| 0 |
 
-weak 12件は「要求の一部の条件だけを刺激している」型です。例: deferred assertion
-のmature後flush、future sampled value、`and`/`intersect`の左結合連鎖、ranged
-sequenceの空・非空両分岐など。
+weak 12件は「要求の一部の条件だけを刺激している」型です。例: deferred assertion のmature後flush、future sampled value、`and`/`intersect`の左結合連鎖、ranged sequenceの空・非空両分岐など。
+
+<a id="formal-259-all-cases"></a>
 
 ### formal（259ケース全件）
 
 | 判定 | 件数 |
 |---|---:|
-| strong | 107 |
-| acceptable | 134 |
-| weak | 19 |
-| broken | 0 |
+|strong| 107 |
+|受け入れられる| 134 |
+|weak| 19 |
+|不備あり| 0 |
 
-weakの内訳は、充足不能なcover 9件、定数参照14件、期待値ルックアップ表1件など
-（重複あり）。参照RTLがPython評価器を呼ぶ例は0件でした。
+weakの内訳は、充足不能なcover 9件、定数参照14件、期待値ルックアップ表1件など （重複あり）。参照RTLがPython評価器を呼ぶ例は0件でした。
+
+<a id="corrections-made"></a>
 
 ## 実施した修正
 
 1. **formalの非空虚性を全件で証跡化**
-   - cover式を、そのモデルで実際に到達可能な値から生成するよう変更した
-     （sequence / property / table / nonvacuity / clocking）。
-   - 充足不能だった9件を解消し、**全259ケースにcoverジョブを追加**した。
-     実行結果は518 PASS＋期待FAIL 5で、`ok: true`。
+   - cover式を、そのモデルで実際に到達可能な値から生成するよう変更した （sequence / property / table / nonvacuity / clocking）。
+   - 充足不能だった9件を解消し、**全259ケースにcoverジョブを追加**した。 実行結果は518 PASS＋期待FAIL 5で、`ok: true`。
    - `task_plan` の変更に合わせてformalランナーの回帰テストを更新した。
 
 2. **VPI 36.7 の部分リンクを解消**
-   - `test_vpi_user_h_structure_constants` と
-     `test_vpi_user_h_routine_declarations` のCアプリが
-     `vpi_user.h` と `sv_vpi_user.h` の両方をincludeするようにした。
-   - Verilator 5.052（seed 1/73）で出力が変わらないことを確認し、97チェックの
-     入力digestを再レビューして更新した。
+   - `test_vpi_user_h_structure_constants` と `test_vpi_user_h_routine_declarations` のCアプリが `vpi_user.h` と `sv_vpi_user.h` の両方をincludeするようにした。
+   - Verilator 5.052（seed 1/73）で出力が変わらないことを確認し、97チェックの 入力digestを再レビューして更新した。
 
 3. **実行証跡の再取得**
    - 未実行リンク先のVerilator再実行を保存した。
    - 実行確認は 5,994 → **6,002 / 12,319（48.72%）**（当時）。
+
+<a id="remaining-weakness-not-corrected"></a>
 
 ## 残る弱点（修正しないもの）
 
@@ -111,156 +117,125 @@ weakの内訳は、充足不能なcover 9件、定数参照14件、期待値ル�
 | 定数参照のformalケース | 14件 | 定義上定数（end-of-word、静的グラフ解析など） |
 | 附属書Aの文法代替 | 6/23リンク | 1テストが正例1代替のみ |
 | ch16の部分刺激 | 12/50リンク | 追加の対照ケースが必要 |
-| spec-only oracleのテスト | 1,372テスト / 4,559要求 | シミュレータ出力を未記録。一括blessはしない |
+|スペックのみのオラクルのテスト| 1,372テスト / 4,559要求 | シミュレータ出力を未記録。一括blessはしない |
+
+<a id="structure-of-execution-confirmation-rate"></a>
 
 ## 実行確認率の構造
 
-未実行のmapped要求4,559件の大半は、期待出力が規格から導出された
-「spec-only」テストにリンクされています。実行確認率を上げるには、各テストの
-出力が規格に適合することをレビューした上で、シミュレータ別の期待値を記録する
-必要があります。今回のような一括再実行では増えません。
+未実行のmapped要求4,559件の大半は、期待出力が規格から導出された 「spec-only」テストにリンクされています。実行確認率を上げるには、各テストの 出力が規格に適合することをレビューした上で、シミュレータ別の期待値を記録する 必要があります。今回のような一括再実行では増えません。
+
+<a id="recommendations"></a>
 
 ## 推奨
 
-1. 実行確認率を重視するなら、spec-onlyテストを章単位でレビューし、
-   シミュレータ期待値を記録する（一括処理はしない）。
-2. リンクの欠落15件を埋めるなら、照合キットに「既存mappedへの証跡追加」
-   コマンドを設け、未対応要求の追加とは別のレビュー経路にする。
+1. 実行確認率を重視するなら、spec-onlyテストを章単位でレビューし、 シミュレータ期待値を記録する（一括処理はしない）。
+2. リンクの欠落15件を埋めるなら、照合キットに「既存mappedへの証跡追加」 コマンドを設け、未対応要求の追加とは別のレビュー経路にする。
 3. 附属書Aとch16のweakは、対照ケースを1本ずつ追加するのが最も費用対効果が高い。
-4. 定数参照のformalケースは、リンクを維持するなら「定義上定数」であることを
-   ケース定義のコメントと本レポートで明示し、独立RTLの主張を過大にしない。
+4. 定数参照のformalケースは、リンクを維持するなら「定義上定数」であることを ケース定義のコメントと本レポートで明示し、独立RTLの主張を過大にしない。
+
+<a id="addendum-denominator-review-2026-10-27"></a>
 
 ## 追補: 分母レビュー（2026-10-27）
 
-分母の承認可否を、`interpretation_issue` 21行、意味上の重複、初期観測ケースの3観点で
-監査した。結論は**今すぐは承認できない**。
+分母の承認可否を、`interpretation_issue` 21行、意味上の重複、初期観測ケースの3観点で 監査した。結論は**今すぐは承認できない**。
 
-- 解釈の衝突は **19論点・21行**。うち方針決定が6行、規格本文の記述待ちが15行で、
-  リポジトリ内の本文・テスト・docs だけで一意に決められるものは **0行**。
-- 分母を `approved` にしても確定値は出ない。`summarize()` は節の監査完了も要求するが、
-  現状は **1,683 / 1,703節（98.83%）** で、20節が `in_progress` のまま。
+- 解釈の衝突は **19論点・21行**。うち方針決定が6行、規格本文の記述待ちが15行で、 リポジトリ内の本文・テスト・docs だけで一意に決められるものは **0行**。
+- 分母を `approved` にしても確定値は出ない。`summarize()` は節の監査完了も要求するが、 現状は **1,683 / 1,703節（98.83%）** で、20節が `in_progress` のまま。
 - 初期104行のうち **92行に `source_spans` がない**。出典ブロックとの対応が未復元。
-- 意味上の重複は、完全一致3組は観測対象が異なるため統合不可。初期行→抽出行20組と
-  `-TEXT` 5行は統合候補で、分母は **12,279〜12,319** の幅を残す。
+- 意味上の重複は、完全一致3組は観測対象が異なるため統合不可。初期行→抽出行20組と `-TEXT` 5行は統合候補で、分母は **12,279〜12,319** の幅を残す。
 
 したがって、正確な表現は次である。
 
 > 登録行12,319（暫定分母）／設計87.3%／実行48.7%／確定値なし／
 > 重複統合後の分母は12,279〜12,319。
 
-確定値を出すための残作業は、20節の監査完了、6つの方針決定、92行の出典復元、
-25件の重複統合である。
+確定値を出すための残作業は、20節の監査完了、6つの方針決定、92行の出典復元、 25件の重複統合である。
+
+<a id="addendum-69-remaining-items-in-ch16"></a>
 
 ## 追補: ch16の残り69件
 
-69件を、既存formalケースの再利用31件、新規formal 10件（8ケース）、
-シミュレーションが必要なもの15件、テスト不能13件に分類した。
+69件を、既存formalケースの再利用31件、新規formal 10件（8ケース）、 シミュレーションが必要なもの15件、テスト不能13件に分類した。
 
-- 新規8ケース: local flow、ranged always、until/impliesの右結合、adjoint ##1/##0、
-  semantic-leading-clockのprefix/遅延/inherited。
-- 再利用は、要求の条件を実際に覆う27件だけを統合した。名称が近いだけの4件
-  （implicit strength、holds、implicationのclock集合、parens/notのclock集合）は除外した。
-- シミュレーション15件とテスト不能13件は、刺激・期待値・理由を監査ノートに記録し、
-  今回はリンクしていない。
+- 新規8ケース：ローカルフロー、範囲付きalways、until／impliesの右結合、adjoint ##1／##0、semantic-leading-clockのプレフィックス／遅延／継承。
+- 再利用は、要求の条件を実際に覆う27件だけを統合した。名称が近いだけの4件 （implicit strength、holds、implicationのclock集合、parens/notのclock集合）は除外した。
+- シミュレーション15件とテスト不能13件は、刺激・期待値・理由を監査ノートに記録し、 今回はリンクしていない。
+
+<a id="revision-expected-values-by-simulator"></a>
 
 ## 追補: シミュレータ別期待値
 
-`:expected_stdout_<simulator>:` を追加し、シミュレータごとに期待出力を持てるようにした。
-共通キーとの併用時はsim別が優先され、入力指纹は参照される全期待値ファイルを含む。
-既存の `:expected_stdout:` だけのテストは従来どおり動く。
+`:expected_stdout_<simulator>:` を追加し、シミュレータごとに期待出力を持てるようにした。 共通キーとの併用時はsim別が優先され、入力指纹は参照される全期待値ファイルを含む。 既存の `:expected_stdout:` だけのテストは従来どおり動く。
 
-パイロットでは、IcarusとVerilatorで合格集合が異なる10要求・19テストを実行した。
-両方が走った6要求の差は、表示形式ではなくシミュレータの非適合（x/zの2値化、
-経路遅延の欠落、VPIのx/z欠落、関係演算のx伝播欠落）または未対応構文だった。
-このため**期待値を追加して合格にしたテストは0件**である。実行確認率の上限は
-メタデータの表現力ではなく、シミュレータの適合性と未対応構文にある。
+パイロットでは、IcarusとVerilatorで合格集合が異なる10要求・19テストを実行した。 両方が走った6要求の差は、表示形式ではなくシミュレータの非適合（x/zの2値化、 経路遅延の欠落、VPIのx/z欠落、関係演算のx伝播欠落）または未対応構文だった。 このため**期待値を追加して合格にしたテストは0件**である。実行確認率の上限は メタデータの表現力ではなく、シミュレータの適合性と未対応構文にある。
+
+<a id="final-values-late-on-2026-10-27"></a>
 
 ## 最終値（2026-10-27 深夜）
 
-ランナー変更で旧い実行証跡がすべてstaleになったため、pinned releaseで全件を
-再取得した。
+ランナー変更で旧い実行証跡がすべてstaleになったため、pinned releaseで全件を 再取得した。
 
-- Icarus Verilog 13.0（Homebrew bottle、VPIのincludeパスを隔離prefix向けに修正）
-  で全7,613本を実行: 4,169 pass / 3,444 known。
+- Icarus Verilog 13.0（Homebrew bottle、VPIのincludeパスを隔離prefix向けに修正） で全7,613本を実行: 4,169 pass / 3,444 known。
 - Verilator 5.052 seed 1で、未実行リンク先2,706本を実行: 1,023 pass。
 - formal 268本をcover付きで再実行: 268 pass。
 
-最終値は **設計10,793 / 12,319（87.61%）**、**実行6,117 / 12,319（49.66%）**。
-旧値6,002は、異なるIcarusビルドや過去の部分実行を含む和集合だった。現在の値は
-pinned releaseの証跡だけを数えている。
+最終値は **設計10,793 / 12,319（87.61%）**、**実行6,117 / 12,319（49.66%）**。 旧値6,002は、異なるIcarusビルドや過去の部分実行を含む和集合だった。現在の値は pinned releaseの証跡だけを数えている。
+
+<a id="addendum-ch16-completion-status-2026-10-28"></a>
 
 ## 追補: ch16の完了状況（2026-10-28）
 
-追加の16テストで、ch16の残り69件のうち **53件** をリンクした（既存formal再利用27、
-新規formal 10、シミュレーション16）。残り16件は次の理由で未対応とする。
+追加の16テストで、ch16の残り69件のうち **53件** をリンクした（既存formal再利用27、 新規formal 10、シミュレーション16）。残り16件は次の理由で未対応とする。
 
-- テスト不能（12）: 未定義動作、`should`の推奨、ツールが構文自体を拒否する
-  （`.triggered`、`$inferred_clock`、sequence型formal、multiclock、`strong`）、
-  または規格が結合則・観測点を定めない。
-- リンク見送り（4）: 暗黙strength、holds、implication/parensのclock集合。
-  名称が近い既存ケースでは要求の条件を覆えないため、誤リンクを避けた。
+- テスト不能（12）: 未定義動作、`should`の推奨、ツールが構文自体を拒否する （`.triggered`、`$inferred_clock`、sequence型formal、multiclock、`strong`）、 または規格が結合則・観測点を定めない。
+- リンク見送り（4）: 暗黙strength、holds、implication/parensのclock集合。 名称が近い既存ケースでは要求の条件を覆えないため、誤リンクを避けた。
 
-シミュレーション16件のうち、Verilator 5.052で10件がpass、6件はツール非対応のため
-spec-only（実行証跡なし）である。Icarus 13.0はconcurrent assertionを実行できない
-ため、ch16の同時アサーションはVerilator単独の証跡になる。
+シミュレーション16件のうち、Verilator 5.052で10件がpass、6件はツール非対応のため spec-only（実行証跡なし）である。Icarus 13.0はconcurrent assertionを実行できない ため、ch16の同時アサーションはVerilator単独の証跡になる。
 
 最終値は **設計10,809 / 12,319（87.74%）**、**実行6,127 / 12,319（49.74%）**。
 
+<a id="supplement-chapters-6-9-and-21-2026-10-28"></a>
+
 ## 追補: 6章・9章・21章（2026-10-28）
 
-3章の未対応133件を並行監査し、新規26テストと既存テストの再利用候補を整理した。
-照合キットの品質ガード（normal要求に規格違反テストを付けない、既存mappedの
-scopeを再評価する）により、**35件**だけを統合した。
+3章の未対応133件を並行監査し、新規26テストと既存テストの再利用候補を整理した。 照合キットの品質ガード（normal要求に規格違反テストを付けない、既存mappedの scopeを再評価する）により、**35件**だけを統合した。
 
 - 6章: 新規15テスト、再利用候補27、統合は新規中心。
-- 9章: 新規7テスト、再利用15。プロセスAPIの署名・スケジューリング順序は
-  実装依存・未規定のため、多くを not_testable とした。
+- 9章: 新規7テスト、再利用15。プロセスAPIの署名・スケジューリング順序は 実装依存・未規定のため、多くを not_testable とした。
 - 21章: 新規4テスト、再利用30。VCD/EVCDの実装定義形式は固定しない。
 
-normal要求を規格違反テストで観測する案は、品質ガードが一貫して拒否した。
-これは「要求の条件を正の刺激で観測する」という方針の帰結であり、誤リンクを
-避けるために受け入れた。
+normal要求を規格違反テストで観測する案は、品質ガードが一貫して拒否した。 これは「要求の条件を正の刺激で観測する」という方針の帰結であり、誤リンクを 避けるために受け入れた。
 
-並行してGhostシミュレータの証跡が追加された。公式値はGhostを含む
-**実行7,214 / 12,319（58.56%）**、Ghostを除くIcarus/Verilator/SymbiYosysのみでは
-**6,154 / 12,319（49.96%）**である。本監査の対象は後者である。
+並行してGhostシミュレータの証跡が追加された。公式値はGhostを含む **実行7,214 / 12,319（58.56%）**、Ghostを除くIcarus/Verilator/SymbiYosysのみでは **6,154 / 12,319（49.96%）**である。本監査の対象は後者である。
+
+<a id="supplement-chapters-37-and-38-vpi-2026-10-28"></a>
 
 ## 追補: 37章・38章 VPI（2026-10-28）
 
-196件のVPI要求を、既存VPIテスト330本の再利用監査と新規VPIテストで検証した。
-Icarus 13.0が公開するVPIオブジェクトモデルは狭く、次の理由で165件を
-not_testable とした。
+196件のVPI要求を、既存VPIテスト330本の再利用監査と新規VPIテストで検証した。 Icarus 13.0が公開するVPIオブジェクトモデルは狭く、次の理由で165件を not_testable とした。
 
-- オブジェクト種別そのものがない: attribute、assertion/property/sequence、
-  typespec/nettype、modport/interface port、delay terminal、frame/thread。
-- 未実装のプロパティ/ルーチン: `vpiExpanded`、`vpiIsProtected`、`vpiSimNet`、
-  `vpiDelayType`、`vpiResolvedNetType`、`vpi_get_value_array`、
-  `vpi_put_value_array`、`vpi_get_data`、`vpi_put_data`。
-- 保護オブジェクト、save/restart、bulk array、reset、SV object callback、
-  cbStmt、timing check、primitive/UDP。
+- オブジェクト種別そのものがない: attribute、assertion/property/sequence、 typespec/nettype、modport/interface port、delay terminal、frame/thread。
+- 未実装のプロパティ/ルーチン: `vpiExpanded`、`vpiIsProtected`、`vpiSimNet`、 `vpiDelayType`、`vpiResolvedNetType`、`vpi_get_value_array`、 `vpi_put_value_array`、`vpi_get_data`、`vpi_put_data`。
+- 保護オブジェクト、save／restart、一括配列操作、reset、SVオブジェクトのコールバック、cbStmt、タイミングチェック、primitive／UDP。
 
-品質ガードを通ったのは9リンク（37章4、38章5）だけである。VPIの再利用候補の
-多くは「要求の一部だけを観測」「エラー時の値が規格で未定義」「実装依存の
-反復順・ハンドル値に依存」として拒否された。
+品質ガードを通ったのは9リンク（37章4、38章5）だけである。VPIの再利用候補の 多くは「要求の一部だけを観測」「エラー時の値が規格で未定義」「実装依存の 反復順・ハンドル値に依存」として拒否された。
 
-この結果は、VPIの未対応を隠して数字を上げるより、ツールの実装境界を明示する
-方が正確だと判断した帰結である。
+この結果は、VPIの未対応を隠して数字を上げるより、ツールの実装境界を明示する 方が正確だと判断した帰結である。
+
+<a id="supplement-chapters-22-23-and-31-2026-10-28"></a>
 
 ## 追補: 22章・23章・31章（2026-10-28）
 
-コンパイラ指令・モジュール規則・タイミングチェックの106件を3分割で監査した。
-新規35テスト、再利用候補26件を整理し、品質ガードを通った**51件**を統合した。
+コンパイラ指令・モジュール規則・タイミングチェックの106件を3分割で監査した。 新規35テスト、再利用候補26件を整理し、品質ガードを通った**51件**を統合した。
 
-- 22章: マクロ展開、条件付きコンパイル、`line`、キーワード版、`default_nettype`
-  などを観測。山括弧include・マクロ再帰・実装定義の既定値は not_testable。
-- 23章: ANSI/非ANSIポート、パラメータ上書き、bind、階層名、uwire、net collapse。
-  同型netのcollapseは値で区別できないため、再利用候補を棄却。
-- 31章: timing event、setuphold/recremの負limitとdelayed data/reference、
-  fullskewのactive flag。Icarusは「Timing checks are not supported」と明示するため、
-  違反時刻・notifierトグル・負チェック内部遅延の多くは not_testable。
+- 22章: マクロ展開、条件付きコンパイル、`line`、キーワード版、`default_nettype` などを観測。山括弧include・マクロ再帰・実装定義の既定値は not_testable。
+- 23章: ANSI/非ANSIポート、パラメータ上書き、bind、階層名、uwire、net collapse。 同型netのcollapseは値で区別できないため、再利用候補を棄却。
+- 31 章：タイミングイベント，setuphold／recremの負限界とdelayed data／reference，fullskewのアクティブフラグ。Icarus は「Timing checks are not supported」と明示するため、 違反時刻・notifierトグル・負チェック内部遅延の多くは not_testable 。
 
-公式値は **設計10,904 / 12,319（88.51%）**、実行 **7,254（58.88%、Ghost含む）**、
-Ghostを除くIcarus/Verilator/SymbiYosysのみでは **6,192（50.26%）**。
+公式値は **設計10,904 / 12,319（88.51%）**、実行 **7,254（58.88%、Ghost含む）**、 Ghostを除くIcarus/Verilator/SymbiYosysのみでは **6,192（50.26%）**。
+
+<a id="supplement-chapter-19-chapter-40-coverage-2026-10-28"></a>
 
 ## 追補: 19章・40章カバレッジ（2026-10-28）
 
@@ -268,55 +243,43 @@ covergroupとcoverage APIを最小例でプローブした。
 
 - **Icarus 13.0はcovergroup構文を拒否**する（covergroup/coverpointが構文エラー）。
 - **Verilator 5.052はcovergroupを実行**でき、`get_inst_coverage()` が動く。
-- **第40章のcoverage APIは両ツールとも未実装**。`$coverage_control` 等は
-  "reserved word not implemented"、VPI coverage extensionはNULLを返す。
+- **第40章のcoverage APIは両ツールとも未実装**。`$coverage_control` 等は "reserved word not implemented"、VPI coverage extensionはNULLを返す。
 
-19章は9リンク（新規8・再利用1）を統合し、43件を not_testable とした。
-40章は46件すべて not_testable である。カバレッジ率の丸め・自動ビン数・
-レポート形式は実装定義なので、0/100が規格から一意な場合だけ期待値にした。
+19章は9リンク（新規8・再利用1）を統合し、43件を not_testable とした。 40章は46件すべて not_testable である。カバレッジ率の丸め・自動ビン数・ レポート形式は実装定義なので、0/100が規格から一意な場合だけ期待値にした。
 
-公式値は **設計10,913 / 12,319（88.59%）**、実行 **7,262（58.95%、Ghost含む）**、
-Ghostを除くIcarus/Verilator/SymbiYosysのみでは **6,200（50.33%）**。
+公式値は **設計10,913 / 12,319（88.59%）**、実行 **7,262（58.95%、Ghost含む）**、 Ghostを除くIcarus/Verilator/SymbiYosysのみでは **6,200（50.33%）**。
+
+<a id="supplement-annexes-a-and-h-clauses-35-and-36-2026-10-28"></a>
 
 ## 追補: 附属書A・H、35章・36章（2026-10-28）
 
 文法（A 48）、DPI（H 48・35章43）、システムタスク/VPI（36章26）を監査した。
 
-- **附属書A**: 16の新規テストを構文を所有する章に配置し、24要求を観測。
-  11件はlibrary mapやbind instance-target、DPI文字列などツール未対応で不能。
-- **附属書H・35章**: VerilatorのDPI-Cで6要求を新規に、25要求を既存テストの
-  再利用で観測。60件はABI・未定義・deprecated（svdpi_src.h不在）・
-  Verilatorの内部エラーで不能。
-- **36章**: ユーザシステムタスク名・VPIコールバック・起動APIを11要求で観測。
-  15件はvpi_get_dataのsegfault、互換ヘッダ不在、実装裁量で不能。
+- **附属書A**: 16の新規テストを構文を所有する章に配置し、24要求を観測。 11件はlibrary mapやbind instance-target、DPI文字列などツール未対応で不能。
+- **附属書H・35章**: VerilatorのDPI-Cで6要求を新規に、25要求を既存テストの 再利用で観測。60件はABI・未定義・deprecated（svdpi_src.h不在）・ Verilatorの内部エラーで不能。
+- **36章**: ユーザシステムタスク名・VPIコールバック・起動APIを11要求で観測。 15件はvpi_get_dataのsegfault、互換ヘッダ不在、実装裁量で不能。
 
-品質ガードを通ったのは**70リンク**。公式値は **設計10,982 / 12,319（89.15%）**、
-実行 **7,325（59.46%、Ghost含む）**、Ghostを除くIcarus/Verilator/SymbiYosysのみでは
-**6,264（50.85%）**。
+品質ガードを通ったのは**70リンク**。公式値は **設計10,982 / 12,319（89.15%）**、 実行 **7,325（59.46%、Ghost含む）**、Ghostを除くIcarus/Verilator/SymbiYosysのみでは **6,264（50.85%）**。
+
+<a id="addendum-chapter-34-boundaries-and-remaining-chapter-193536-items-2026-10-28"></a>
 
 ## 追補: 34章の境界と19/35/36章の残り（2026-10-28）
 
-第34章215件を監査し、**5件だけ**をテスト化、210件を not_testable として
-`docs/protected-envelope-boundary.md` に境界を記録した。
+第34章215件を監査し、**5件だけ**をテスト化、210件を not_testable として `docs/protected-envelope-boundary.md` に境界を記録した。
 
-- Icarusは`` `pragma protect ``を全行無視し、エンベロープ内の平文をそのまま
-  コンパイルする。
-- Verilatorは32語のうち12語だけ受理し、base64本体を読み捨てる。復号・鍵選択・
-  digest照合・可視性制御は行わない。
-- テスト化した5件も「delimiterが受理される」「data_blockが解析対象から外れる」
-  範囲に限り、保護が機能したとは主張しない。
+- Icarusは`` `pragma protect ``を全行無視し、エンベロープ内の平文をそのまま コンパイルする。
+- Verilatorは32語のうち12語だけ受理し、base64本体を読み捨てる。復号・鍵選択・ digest照合・可視性制御は行わない。
+- テスト化した5件も「delimiterが受理される」「data_blockが解析対象から外れる」 範囲に限り、保護が機能したとは主張しない。
 
-19章の残り48件は1件を新規、17件を再利用候補として監査したが、品質ガードは
-主に「要求の一部のみ」「実装定義の率」として棄却した。35/36章の残り46件は
-3件を新規、4件を再利用で統合した。
+19章の残り48件は1件を新規、17件を再利用候補として監査したが、品質ガードは 主に「要求の一部のみ」「実装定義の率」として棄却した。35/36章の残り46件は 3件を新規、4件を再利用で統合した。
 
-公式値は **設計11,000 / 12,319（89.29%）**、実行 **7,329（59.49%、Ghost含む）**、
-Ghostを除くIcarus/Verilator/SymbiYosysのみでは **6270（50.87%）**。
+公式値は **設計11,000 / 12,319（89.29%）**、実行 **7,329（59.49%、Ghost含む）**、 Ghostを除くIcarus/Verilator/SymbiYosysのみでは **6270（50.87%）**。
+
+<a id="2026-10-28-denominator-review-completed"></a>
 
 ## 分母レビュー完了（2026-10-28）
 
-21の解釈行、25の重複候補、92の出典なし行を監査し、分母を承認した。
-詳細は `docs/denominator-review-20261028.md`。
+21の解釈行、25の重複候補、92の出典なし行を監査し、分母を承認した。 詳細は `docs/denominator-review-20261028.md`。
 
 - 解釈: 本文11、方針選択9、31.4.4は同時エッジを前提違反として限定。
 - 重複: 21行を統合、5行を保持、完全一致6行を保持。

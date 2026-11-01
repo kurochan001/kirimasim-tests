@@ -13,6 +13,7 @@ from pathlib import Path
 
 import interaction_coverage
 import suite_results
+import doc_localization
 
 ROOT = Path(__file__).resolve().parent.parent
 REGISTRY = ROOT / "coverage/combination-gaps.json"
@@ -197,11 +198,12 @@ def main() -> int:
         data, summary = build()
         text = markdown(data, summary)
         encoded = json.dumps(summary, ensure_ascii=False, indent=2) + "\n"
+        outputs = doc_localization.expand({SUMMARY: encoded, REPORT: text})
         if args.update:
-            SUMMARY.write_text(encoded)
-            REPORT.write_text(text)
+            for path, content in outputs.items():
+                path.write_text(content)
         elif args.check:
-            require(SUMMARY.read_text() == encoded and REPORT.read_text() == text,
+            require(all(path.is_file() and path.read_text() == content for path, content in outputs.items()),
                     "combination gap reports are stale; run --update")
             print("Combination gap bindings and execution evidence are current.")
         else:

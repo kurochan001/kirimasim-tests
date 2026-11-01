@@ -13,6 +13,7 @@ from pathlib import Path
 
 import behavior_coverage as coverage
 import suite_results
+import doc_localization
 
 OUTPUT = coverage.DATA / "test-matching.json"
 REPORT = coverage.ROOT / "docs/test-requirement-matching.md"
@@ -204,8 +205,9 @@ def main() -> int:
         data["registry_sha256"] = hashlib.sha256(registry_bytes).hexdigest()
         data["inventory_sha256"] = hashlib.sha256(source_bytes).hexdigest()
         data["review_ledger_sha256"] = hashlib.sha256(review_bytes).hexdigest()
-        for path, text in [(OUTPUT, json.dumps(data, ensure_ascii=False, indent=2) + "\n"),
-                           (REPORT, report(data))]:
+        artifacts = doc_localization.expand({OUTPUT: json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+                                             REPORT: report(data)})
+        for path, text in artifacts.items():
             if args.check:
                 coverage.require(path.is_file() and path.read_text() == text,
                                  f"stale test matching: {path}; run --update")

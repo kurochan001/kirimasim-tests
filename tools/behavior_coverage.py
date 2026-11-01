@@ -22,6 +22,7 @@ import sys
 from pathlib import Path
 
 import suite_results
+import doc_localization
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "coverage"
@@ -589,6 +590,8 @@ def main() -> int:
     ap.add_argument("--results", type=Path, nargs="+", help="replace the saved execution snapshots")
     ap.add_argument("--output", type=Path, default=REPORT)
     ap.add_argument("--source-url", help="repository blob URL for links in an exported report")
+    ap.add_argument("--bilingual-export", action="store_true",
+                    help="write Japanese and .en.md exports using the registered report translations")
     ap.add_argument("--json", type=Path, help="also write a machine-readable summary")
     ap.add_argument("--summary-output", type=Path, help="compact Markdown; defaults beside the standard report")
     ap.add_argument("--summary-json", type=Path, help="compact JSON; defaults to coverage/behavior-summary.json")
@@ -603,6 +606,19 @@ def main() -> int:
     ap.add_argument("--write-baseline", action="store_true")
     ap.add_argument("--reason", help="reason for an intentional baseline change")
     args = ap.parse_args()
+    if args.bilingual_export and args.output == REPORT:
+        ap.error("--bilingual-export requires a separate --output path")
+    summary_output = args.summary_output or (SUMMARY_REPORT if args.output == REPORT else None)
+    export_siblings = {REPORT: args.output}
+    if summary_output is not None:
+        export_siblings[SUMMARY_REPORT] = summary_output
+
+    def markdown_versions(path, content, canonical):
+        if args.bilingual_export:
+            return doc_localization.export_versions(path, content, canonical,
+                       source_url=args.source_url, siblings=export_siblings)
+        return doc_localization.versions(path, content)
+
     if args.test_digest:
         print(suite_results.input_digest(args.test_digest))
         return 0
@@ -675,21 +691,30 @@ def main() -> int:
                                                               for r in rows]},
                                             ensure_ascii=False, indent=2) + "\n")
         if args.check:
-            require(args.output.is_file() and args.output.read_text() == text,
+            require(all(path.is_file() and path.read_text() == content
+                        for path, content in markdown_versions(args.output, text, REPORT).items()),
                     f"stale report: run python3 tools/behavior_coverage.py --update")
         elif args.update or args.output != REPORT:
             args.output.parent.mkdir(parents=True, exist_ok=True)
-            args.output.write_text(text)
+            for path, content in markdown_versions(args.output, text, REPORT).items():
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(content)
             print(f"wrote {args.output}")
         else:
             print(text, end="")
         compact = summary_data(snapshot)
-        summary_output = args.summary_output or (SUMMARY_REPORT if args.output == REPORT else None)
         summary_json = args.summary_json or (SUMMARY_JSON if args.output == REPORT else None)
         detail_link = os.path.relpath(args.output, summary_output.parent) if summary_output else args.output.name
         artifacts = [(summary_output, compact_report(compact, args.source_url, detail_link)),
                      (summary_json, json.dumps(compact, ensure_ascii=False, indent=2) + "\n")]
-        for path, content in artifacts:
+        artifacts = {path: content for path, content in artifacts if path is not None}
+        if args.bilingual_export:
+            if summary_output is not None:
+                artifacts.update(markdown_versions(summary_output, artifacts.pop(summary_output),
+                                                   SUMMARY_REPORT))
+        else:
+            artifacts = doc_localization.expand(artifacts)
+        for path, content in artifacts.items():
             if path is None:
                 continue
             if args.check:
