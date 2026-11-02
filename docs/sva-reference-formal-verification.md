@@ -429,7 +429,24 @@ M4の既存アダプタによる対応範囲を広げず、入力ハッシュ・
 [`m4_deferred.json`](../tools/sva_reference/fixtures/m4_deferred.json)へ登録しました。
 入力が変更された場合は、ハッシュ不一致により未処理へ戻して再監査を要求します。
 
-検証済みの既存入力トレースを使う今回の[M4再照合](../coverage/interaction-qualification/checksample-m4.json)は、7一致・44明示保留・未処理0件です。
+検証済みの既存入力トレースを使うchecker追加時点の[M4再照合](../coverage/interaction-qualification/checksample-m4.json)は、7一致・44明示保留・未処理0件です。
 新たなシミュレータ実行の記録ではありません。従来42件の保留と7件の監査済み入力は維持し、checkerの2件を一致へ加算しません。
 別のクロス専用モデルは全1,296行を独立に検算し、固定Verilatorで正常対照5件・故障注入7件・不一致再現2件を実行しています。
 これはM4対応の追加とは区別します。[クロスの設計と実行範囲](interaction-verification.md#checker-assertion-sampling)を参照してください。
+
+<a id="m4-program-cross-scope-2026-11-03"></a>
+
+<a id="m4-scope-and-program-crosses-2026-11-03"></a>
+
+## M4の対象範囲とprogramクロス（2026-11-03）
+
+spec-onlyの`program_assertion_attempts@1` 9件には、programのポート・出力結合、2クロック、
+未完了の次サイクル試行、後の時刻に報告するサンプル値総和について別途監査が必要です。
+既存のM4評価器と監査済み範囲は維持します。
+[`m4_deferred.json`](../tools/sva_reference/fixtures/m4_deferred.json)へ、ソースハッシュと明示的な保留理由を9件追加し、
+従来44件はそのまま保持します。ソースが変わると再監査までunhandledへ戻ります。
+
+既存の検証済み入力トレースを使う[現在の照合](../coverage/interaction-qualification/progassert-m4.json)は、
+7 match・53 deferred・0 unhandledです。新しいシミュレータ実行や9件の新規一致ではありません。
+クロス専用の独立解釈による648行の検算、正常対照6件、実際のSV故障7件、既知差の再実行2件は、
+M4の対応とは別に扱います。[設計と実行限界](interaction-verification.md#program-assertion-attempts)を参照してください。

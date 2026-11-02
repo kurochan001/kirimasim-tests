@@ -273,3 +273,20 @@ kirimasimの実行はcheckerインスタンスが未対応です。[設計と共
 
 [`checksample-m4.json`](checksample-m4.json)は、M4の既存トレースによる再照合で7一致・44明示保留を記録します。
 追加したchecker候補2件は、入力ハッシュと理由付きでM4では保留とし、クロス専用の検算やシミュレータ再現とは区別します。
+
+<a id="program-assertion-attempt-checks"></a>
+
+<a id="independent-program-assertion-attempt-checks-and-execution"></a>
+
+## programアサーション試行の独立検算と実行
+
+[`progassert.json`](progassert.json)は、生成された接続・刺激・property・アクションを独立に解析する全648行の検算です。
+単周期/同サイクル含意の正常対照6件と実際のSV故障7件は終了コード0で実行し、出力差で故障を検出します。
+次サイクル含意の既知差2件の再実行は、正常対照や故障検出には数えません。
+固定Verilatorは両seedで18 pass・9 knownです。別途再実行した2件ではprogramとmoduleの両方が最初の次サイクル試行の完了前に成功を数えるため、
+実装同士の比較に加えて独立した試行開始・完了の期待値を使います。
+[`progassert-build.json`](progassert-build.json)に、実行直前の上流取得・版・バイナリハッシュ・解析と全クロス結果を保存します。
+[設計と確認範囲](../../docs/interaction-verification.md#program-assertion-attempts)を参照してください。
+
+[`progassert-m4.json`](progassert-m4.json)は既存入力トレースによる7 match・53 deferredです。
+新規9候補にはソースハッシュ付き保留理由を追加し、M4成功や新規シミュレータ実行に数えません。

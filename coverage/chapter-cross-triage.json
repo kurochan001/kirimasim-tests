@@ -132,29 +132,6 @@
     },
     {
       "chapters": [
-        16,
-        24
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "program内アサーションの試行が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "program内アサーションの試行",
-      "factors": [
-        "配置（module/program）",
-        "クロック数",
-        "property種別",
-        "アクションの観測時点"
-      ],
-      "observation": "program内assertionの試行回数を与えたクロック数と照合する。",
-      "witnesses": [
-        {
-          "test": "tests/ch16/test_assertions_in_interface_and_program.sv",
-          "inputs_sha256": "835cad065b644cc99cc6cf115e8b044d85a30302a3a65ce014cecc7e2cc978bf"
-        }
-      ]
-    },
-    {
-      "chapters": [
         31,
         32
       ],

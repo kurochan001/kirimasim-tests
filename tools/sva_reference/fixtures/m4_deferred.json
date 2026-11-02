@@ -456,5 +456,113 @@
     ],
     "reviewed_on": "2026-11-03",
     "reviewer": "Codex (GPT-6), AI scope review"
+  },
+  "tests/gen/ch24/test_gen_cross_progassert_1_next_after_blocking_negedge_named_5.sv": {
+    "source_sha256": "e572d79b1620c812df77a06ed6442f214973c22e9a2e0edcd01dd4c221904dbd",
+    "reason": "program_assertion_attempts@1 needs a new M4 input/report audit: program port binding/output propagation, two clocks, pending next-cycle attempts, commutative sampled-value sums and delayed reports exceed the audited single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific checks do not extend M4 scope.",
+    "evidence": [
+      "interaction_model=program_assertion_attempts@1",
+      "program/module output connections with per-instance pending attempts",
+      "p0.clk/p1.clk at ticks 8/12 of each period; commutative action counts/sums reported at tick 16",
+      "independent interpretation in tools/qualify_progassert.py; coverage/interaction-qualification/progassert.json"
+    ],
+    "reviewed_on": "2026-11-03",
+    "reviewer": "Codex (GPT-6), AI scope review"
+  },
+  "tests/gen/ch24/test_gen_cross_progassert_1_next_before_blocking_posedge_named_3.sv": {
+    "source_sha256": "1da0e0bfd0990fad6a65b7d06177cc37dbac6ec451972e5e1fab9366cdbcb351",
+    "reason": "program_assertion_attempts@1 needs a new M4 input/report audit: program port binding/output propagation, two clocks, pending next-cycle attempts, commutative sampled-value sums and delayed reports exceed the audited single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific checks do not extend M4 scope.",
+    "evidence": [
+      "interaction_model=program_assertion_attempts@1",
+      "program/module output connections with per-instance pending attempts",
+      "p0.clk/p1.clk at ticks 8/12 of each period; commutative action counts/sums reported at tick 16",
+      "independent interpretation in tools/qualify_progassert.py; coverage/interaction-qualification/progassert.json"
+    ],
+    "reviewed_on": "2026-11-03",
+    "reviewer": "Codex (GPT-6), AI scope review"
+  },
+  "tests/gen/ch24/test_gen_cross_progassert_1_next_edge_nba_posedge_wildcard_3.sv": {
+    "source_sha256": "4b8ef76a6601677af944fd9cf8248b9ba8664ff2bbd9d5864961a4d203e29673",
+    "reason": "program_assertion_attempts@1 needs a new M4 input/report audit: program port binding/output propagation, two clocks, pending next-cycle attempts, commutative sampled-value sums and delayed reports exceed the audited single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific checks do not extend M4 scope.",
+    "evidence": [
+      "interaction_model=program_assertion_attempts@1",
+      "program/module output connections with per-instance pending attempts",
+      "p0.clk/p1.clk at ticks 8/12 of each period; commutative action counts/sums reported at tick 16",
+      "independent interpretation in tools/qualify_progassert.py; coverage/interaction-qualification/progassert.json"
+    ],
+    "reviewed_on": "2026-11-03",
+    "reviewer": "Codex (GPT-6), AI scope review"
+  },
+  "tests/gen/ch24/test_gen_cross_progassert_33_next_after_blocking_posedge_positional_3.sv": {
+    "source_sha256": "ed74a378798abe00f446a277830b8ff2b800342d83febc2a4213a7e774ce6b46",
+    "reason": "program_assertion_attempts@1 needs a new M4 input/report audit: program port binding/output propagation, two clocks, pending next-cycle attempts, commutative sampled-value sums and delayed reports exceed the audited single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific checks do not extend M4 scope.",
+    "evidence": [
+      "interaction_model=program_assertion_attempts@1",
+      "program/module output connections with per-instance pending attempts",
+      "p0.clk/p1.clk at ticks 8/12 of each period; commutative action counts/sums reported at tick 16",
+      "independent interpretation in tools/qualify_progassert.py; coverage/interaction-qualification/progassert.json"
+    ],
+    "reviewed_on": "2026-11-03",
+    "reviewer": "Codex (GPT-6), AI scope review"
+  },
+  "tests/gen/ch24/test_gen_cross_progassert_33_next_before_blocking_posedge_positional_3.sv": {
+    "source_sha256": "cb812f7502455295e0d7cb80ecc2452010c9985755af78833bf2f801acca4297",
+    "reason": "program_assertion_attempts@1 needs a new M4 input/report audit: program port binding/output propagation, two clocks, pending next-cycle attempts, commutative sampled-value sums and delayed reports exceed the audited single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific checks do not extend M4 scope.",
+    "evidence": [
+      "interaction_model=program_assertion_attempts@1",
+      "program/module output connections with per-instance pending attempts",
+      "p0.clk/p1.clk at ticks 8/12 of each period; commutative action counts/sums reported at tick 16",
+      "independent interpretation in tools/qualify_progassert.py; coverage/interaction-qualification/progassert.json"
+    ],
+    "reviewed_on": "2026-11-03",
+    "reviewer": "Codex (GPT-6), AI scope review"
+  },
+  "tests/gen/ch24/test_gen_cross_progassert_33_next_edge_blocking_negedge_positional_3.sv": {
+    "source_sha256": "873df1ef6bdc802394c7a0151a46c1f95837c8e1207ba66009cee4caaeaa2074",
+    "reason": "program_assertion_attempts@1 needs a new M4 input/report audit: program port binding/output propagation, two clocks, pending next-cycle attempts, commutative sampled-value sums and delayed reports exceed the audited single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific checks do not extend M4 scope.",
+    "evidence": [
+      "interaction_model=program_assertion_attempts@1",
+      "program/module output connections with per-instance pending attempts",
+      "p0.clk/p1.clk at ticks 8/12 of each period; commutative action counts/sums reported at tick 16",
+      "independent interpretation in tools/qualify_progassert.py; coverage/interaction-qualification/progassert.json"
+    ],
+    "reviewed_on": "2026-11-03",
+    "reviewer": "Codex (GPT-6), AI scope review"
+  },
+  "tests/gen/ch24/test_gen_cross_progassert_8_next_after_nba_posedge_wildcard_5.sv": {
+    "source_sha256": "1de032fa3e4dd30f425952494e08737b704b5bc20559e855fbe6944f7c4e90fd",
+    "reason": "program_assertion_attempts@1 needs a new M4 input/report audit: program port binding/output propagation, two clocks, pending next-cycle attempts, commutative sampled-value sums and delayed reports exceed the audited single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific checks do not extend M4 scope.",
+    "evidence": [
+      "interaction_model=program_assertion_attempts@1",
+      "program/module output connections with per-instance pending attempts",
+      "p0.clk/p1.clk at ticks 8/12 of each period; commutative action counts/sums reported at tick 16",
+      "independent interpretation in tools/qualify_progassert.py; coverage/interaction-qualification/progassert.json"
+    ],
+    "reviewed_on": "2026-11-03",
+    "reviewer": "Codex (GPT-6), AI scope review"
+  },
+  "tests/gen/ch24/test_gen_cross_progassert_8_next_before_nba_posedge_wildcard_3.sv": {
+    "source_sha256": "b39f6c2c05eddd68b2fba6c9b5a642fba99c54d91e59a43fd0645ab1c8e90345",
+    "reason": "program_assertion_attempts@1 needs a new M4 input/report audit: program port binding/output propagation, two clocks, pending next-cycle attempts, commutative sampled-value sums and delayed reports exceed the audited single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific checks do not extend M4 scope.",
+    "evidence": [
+      "interaction_model=program_assertion_attempts@1",
+      "program/module output connections with per-instance pending attempts",
+      "p0.clk/p1.clk at ticks 8/12 of each period; commutative action counts/sums reported at tick 16",
+      "independent interpretation in tools/qualify_progassert.py; coverage/interaction-qualification/progassert.json"
+    ],
+    "reviewed_on": "2026-11-03",
+    "reviewer": "Codex (GPT-6), AI scope review"
+  },
+  "tests/gen/ch24/test_gen_cross_progassert_8_next_edge_blocking_posedge_positional_3.sv": {
+    "source_sha256": "09b63e2cf87ef80eadfaac13af649c5bcd912148735aa5ca3984a98bf6373085",
+    "reason": "program_assertion_attempts@1 needs a new M4 input/report audit: program port binding/output propagation, two clocks, pending next-cycle attempts, commutative sampled-value sums and delayed reports exceed the audited single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific checks do not extend M4 scope.",
+    "evidence": [
+      "interaction_model=program_assertion_attempts@1",
+      "program/module output connections with per-instance pending attempts",
+      "p0.clk/p1.clk at ticks 8/12 of each period; commutative action counts/sums reported at tick 16",
+      "independent interpretation in tools/qualify_progassert.py; coverage/interaction-qualification/progassert.json"
+    ],
+    "reviewed_on": "2026-11-03",
+    "reviewer": "Codex (GPT-6), AI scope review"
   }
 }

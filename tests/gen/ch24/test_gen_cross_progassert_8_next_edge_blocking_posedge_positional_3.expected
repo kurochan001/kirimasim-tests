@@ -1,0 +1,15 @@
+phase=0 time=16
+site0 program pass=1 fail=0 reqsum=0 acksum=255
+site0 module pass=1 fail=0 reqsum=0 acksum=255
+site1 program pass=0 fail=0 reqsum=0 acksum=0
+site1 module pass=0 fail=0 reqsum=0 acksum=0
+phase=1 time=36
+site0 program pass=1 fail=0 reqsum=0 acksum=255
+site0 module pass=1 fail=0 reqsum=0 acksum=255
+site1 program pass=2 fail=0 reqsum=0 acksum=510
+site1 module pass=2 fail=0 reqsum=0 acksum=510
+phase=2 time=56
+site0 program pass=2 fail=0 reqsum=128 acksum=383
+site0 module pass=2 fail=0 reqsum=128 acksum=383
+site1 program pass=2 fail=0 reqsum=0 acksum=510
+site1 module pass=2 fail=0 reqsum=0 acksum=510

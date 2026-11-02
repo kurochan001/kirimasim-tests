@@ -14,7 +14,9 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 Each run's version is recorded in linked JSON. Unless stated otherwise, added/total counts and check results in the model descriptions below record the state when that model was added. See the beginning of this overview and [Generated report](interaction-coverage.en.md) for current aggregates.
 
-Checker-sampling addition on 2026-11-03: the current selection has **71 models, 2,670 tests and 103 chapter pairs**. The [full cross run](../coverage/interaction-results/cross71-kirimasim-2ffb5ddd.json) on kirimasim `2ffb5dddca04`, fetched and built immediately before execution, records **2,207 pass, 457 unsupported and six existing fail results**. All 27 new inputs parse; execution lacks checker instances. All 2,643 preceding fingerprints and status categories are unchanged; 47 models still pass their full selection. Both fixed Verilator seeds record 25 pass and two known results; fixed Icarus rejects all 27 builds. Chapter 16×17 is registered, with Chapter 17×25 for seven interface cases, leaving five E and three C candidate pairs. See [design, independent model and limits](#checker-assertion-sampling).
+Program-assertion attempt addition on 2026-11-03: the current selection has **72 models, 2,697 tests and 104 chapter pairs**. The [full cross run](../coverage/interaction-results/cross72-kirimasim-786c94bb.json) on kirimasim `786c94bbeafb`, fetched and built immediately before execution, records **2,207 pass, 484 unsupported and six existing fail results**. All 27 new inputs parse; concurrent assertions remain unsupported. All preceding 2,670 fingerprints and status categories are unchanged; 47 models pass their full selection. Both fixed Verilator seeds record 18 pass and nine known results; fixed Icarus rejects all 27 builds. Chapter 16×24 is registered, leaving four E and three C candidate pairs. See [design, independent checks and limits](#program-assertion-attempts).
+
+At the checker-sampling addition on the same day, the selection had **71 models, 2,670 tests and 103 chapter pairs**. The [full cross run](../coverage/interaction-results/cross71-kirimasim-2ffb5ddd.json) on kirimasim `2ffb5dddca04`, fetched and built immediately before execution, records **2,207 pass, 457 unsupported and six existing fail results**. All 27 new inputs parse; execution lacks checker instances. All 2,643 preceding fingerprints and status categories are unchanged; 47 models still pass their full selection. Both fixed Verilator seeds record 25 pass and two known results; fixed Icarus rejects all 27 builds. Chapter 16×17 is registered, with Chapter 17×25 for seven interface cases, leaving five E and three C candidate pairs. See [design, independent model and limits](#checker-assertion-sampling).
 
 At the SDF conditional-path addition on the same day, the selection had **70 models, 2,643 tests and 101 chapter pairs**. The [full cross run](../coverage/interaction-results/cross70-kirimasim-2ffb5ddd.json) on kirimasim `2ffb5dddca04`, fetched and built immediately before execution, records **2,207 pass, 430 unsupported and six existing fail results**. All 18 new inputs parse; execution reports unsupported conditional paths for 12 cases and unsupported $sdf_annotate for six. All 2,625 preceding fingerprints and status categories are unchanged; 47 models still pass their full selection. Fixed Icarus records three pass and 15 known results; both fixed Verilator seeds record 18 known results. Chapter 30×32 is registered, leaving six E candidate pairs. See [design, controls, faults and limits](#sdf-conditional-paths).
 
@@ -2360,6 +2362,97 @@ These are local validation results, separate from GitHub Check/Nightly results f
 ```sh
 python3 tools/qualify_checksample.py --verilator /path/to/verilator-5.052 \
   --output coverage/interaction-qualification/NEW-checksample.json
+```
+
+<a id="program-assertion-attempts"></a>
+
+<a id="programとmodule参照モデルのアサーション試行"></a>
+
+### Program and module-reference assertion attempts
+
+`program_assertion_attempts@1` adds 27 cases for Chapters 16×24.
+The generator is [`interaction_progassert.py`](../generators/interaction_progassert.py).
+Program assertions retain invariant sampling/evaluation under 24.3.1; new attempts on each leading clock follow 16.14.5.
+Sampling follows 16.5.1/16.9.3, implication completion follows 16.12.7,
+actions follow 16.14.1 and default vacuous-success actions follow 20.11.
+
+<a id="因子と観測-6"></a>
+
+#### Factors and observations
+
+Seven factors cover width 1/8/33, plain/overlapped/nonoverlapped properties,
+updates two ticks before/on/two ticks after the clock, blocking/NBA assignment,
+posedge/negedge, positional/named/wildcard connections and three/five clock ticks per instance.
+From 648 legal combinations, 27 cases retain all 138 factor pairs, 75 targeted triples and six anchors.
+The width×property×timing group has 27 combinations, so this finite plan reaches its 27-case lower bound.
+This is not a minimum test count for the entire language.
+
+Each case has two program instances and two module references receiving the same actuals per site.
+Known complementary stimuli include the high bit of each width.
+Distinct clocks occur at ticks 8/12 of each 20-tick period; observations at tick 16 use output arguments only.
+No external hierarchical reference enters a program. Programs have no initial procedures,
+keeping implicit simulation termination from completed program procedures outside the stimulus.
+
+Both action branches record decision counts and 64-bit sums of action-time `$sampled(req/ack)` for
+`(|ack)`, `(|req) |-> (|ack)` and `(|req) |=> (|ack)`.
+Vacuous success executes the default pass action, but expectations distinguish it from nonvacuous success.
+A nonoverlapped consequence and a current vacuous success can complete on the same tick.
+Use commutative counts/sums instead of an order-dependent last value.
+Do not count a final pending attempt as successful before its consequent clock.
+X/Z, disable iff, history functions, program procedures/termination, clocking blocks, checkers, bind,
+multiclock properties and action controls are outside scope.
+
+<a id="独立検算故障注入と確認範囲"></a>
+
+#### Independent checks, fault injection and limits
+
+[`qualify_progassert.py`](../tools/qualify_progassert.py) parses emitted program/module declarations,
+connections, properties, actions and stimulus. Separate Preponed/Active/NBA state and per-instance pending attempts
+check all 648 rows without reusing generator stimulus or expected-output calculations.
+
+Six original plain/overlapped controls and seven actual SV faults execute on fixed Verilator.
+Faults replace samples with live data, invert the predicate, swap output counters, delay an overlapped consequence,
+alias a reference instance, reverse the clock or swap req/ack.
+All 13 executions exit zero; faults are detected through output differences.
+Two separate known nonoverlapped differences are replayed and are not counted as controls or detected faults.
+These controls/mutations do not establish correct runtime nonoverlap behavior.
+See the separate categories in the [independent/runtime record](../coverage/interaction-qualification/progassert.json).
+
+<a id="保存実行と未確認の範囲-2"></a>
+
+#### Saved runs and unconfirmed scope
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross72-progassert-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross72-progassert-verilator5052-seed73.json) each record 18 pass and nine known results.
+Only the 18 matching cases receive oracle entries.
+All nine nonoverlapped cases record a success while the first nonvacuous attempt is still awaiting its consequent clock.
+Both program and module reference show this difference in the two separate replays, so comparing them alone misses it.
+Independent specification-derived attempt starts/completions expose the discrepancy; expectations are retained.
+The internal cause is unconfirmed.
+See [fixed Icarus Verilog 13.0](../coverage/interaction-results/cross72-progassert-icarus13.json) and the
+[build record](../coverage/interaction-qualification/progassert-build.json) for Icarus results and kirimasim revision, parsing and execution from latest upstream.
+
+kirimasim `786c94bbeafb`, built from upstream main fetched immediately before execution, parses all 27 new inputs.
+Execution lacks concurrent assertions for all 27. The [full 2,697-case run](../coverage/interaction-results/cross72-kirimasim-786c94bb.json)
+records 2,207 pass, 484 unsupported and six existing failures. All preceding 2,670 input fingerprints and status categories are unchanged.
+47 models pass their full selection. Plan coverage and execution fulfillment remain separate; unsupported rows remain legal combinations.
+Fixed Icarus rejects all 27 new builds.
+
+The M4 reference evaluator retains its audited input/report scope.
+Nine new spec-only candidates require separate auditing of program connections, two clocks, pending attempts and sum reports;
+register [source-hashed deferral reasons](../tools/sva_reference/fixtures/m4_deferred.json).
+The [current M4 comparison](../coverage/interaction-qualification/progassert-m4.json), using existing input traces,
+records seven matches, 53 deferrals and zero unhandled cases. All previous 44 deferrals and seven matches are retained.
+This is not a new simulator execution or an M4 support pass.
+Source changes fail the deferral hash check and return to unhandled until re-audited, with regression checks enforcing this.
+
+Local validation at introduction passed all 700 tool unit tests and 13 consistency checks.
+Metadata checks cover 10,447 tests with zero new problems (395 known); 114 language pairs and 52,661 local links were also checked.
+These are local validation results, separate from GitHub Check/Nightly results for this addition.
+
+```sh
+python3 tools/qualify_progassert.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-progassert.json
 ```
 
 <a id="モデル変更時の更新"></a>

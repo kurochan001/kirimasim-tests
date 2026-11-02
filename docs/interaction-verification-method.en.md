@@ -142,6 +142,8 @@ When external configuration changes behavior, separate target instance, conditio
 
 When two implementations agree, also compare them with independently derived specification expectations. Checker/module comparison found a one-bit-vector same-slot NBA where both recorded the same old live value while final data had changed. Separate decision, sampled, live-action and final observations expose this common error. For LSI, the same principle applies when a DUT and reference share libraries or conversion logic: add known specification examples or calculations using a different method. See [example and execution scope](interaction-verification.en.md#checker-assertion-sampling).
 
+When multiple assertion attempts complete on one clock, choose observations that do not impose an action order. In the program cross, a prior consequence can coincide with a current vacuous success, so use counts and sampled-value sums instead of a last-written value. Separately check before the first completion and the final pending attempt to detect fictitious startup successes. For LSI, if completion order is unspecified, correlate by transaction ID or use order-independent aggregates; pending requests do not count as successful. See the [example](interaction-verification.en.md#program-assertion-attempts).
+
 <a id="3-少ないケースを選ぶ仕組み"></a>
 
 ## 3. How to select a small case set

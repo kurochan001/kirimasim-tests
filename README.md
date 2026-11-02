@@ -58,13 +58,13 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **10420 tests** in 38 chapters. 3983 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **10447 tests** in 38 chapters. 4010 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5653 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1849 |
-| The standard only, with no fixed-release simulator oracle recorded | 2918 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1867 |
+| The standard only, with no fixed-release simulator oracle recorded | 2927 |
 
 2416 tests depend on x or z values (`:fourstate: yes`). 685 tests come with C code: 190 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -91,7 +91,7 @@ The suite has **10420 tests** in 38 chapters. 3983 of them are generated. The [g
 | 21 | Input/output system tasks and system functions | 303 | 211 | 16 | 76 |
 | 22 | Compiler directives | 398 | 349 | 13 | 36 |
 | 23 | Modules and hierarchy | 331 | 215 | 45 | 71 |
-| 24 | Programs | 97 | 21 | 5 | 71 |
+| 24 | Programs | 124 | 21 | 23 | 80 |
 | 25 | Interfaces | 168 | 67 | 70 | 31 |
 | 26 | Packages | 83 | 53 | 16 | 14 |
 | 27 | Generate constructs | 175 | 129 | 20 | 26 |
@@ -169,23 +169,23 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.en.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
-The focused selection contains **2,670 tests across 71 models**; the normal full-suite
+The focused selection contains **2,697 tests across 72 models**; the normal full-suite
 run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [saved full cross run](coverage/interaction-results/cross71-kirimasim-2ffb5ddd.json)
-uses kirimasim **`2ffb5dddca04`** and records **2,207 pass, 457 unsupported and 6 fail**.
+The [saved full cross run](coverage/interaction-results/cross72-kirimasim-786c94bb.json)
+uses kirimasim **`786c94bbeafb`** and records **2,207 pass, 484 unsupported and 6 fail**.
 The class-method model retains 18 passes and 18 unsupported cases. All 31 strength-format cases pass in this build. The six failures
 remain two `inside`/`case inside` width/sign cases and four configuration parameter-reset
 cases; standard-derived expectations are retained. These are observations of that build,
 separate from the full Nightly suite and any later upstream revision.
 
-Checker/module-reference sampling (Chapters 16×17, plus 17×25 for interface placement) selects 27 of 1,296 combinations. Both fixed Verilator seeds match 25 cases and differ on two. A one-bit-vector edge/NBA case can make both implementations report the same wrong live value, so an independent specification model also checks them. kirimasim parses all inputs but checker instances are unsupported. See [scope and evidence](docs/interaction-verification.en.md#checker-assertion-sampling).
+Program/module-reference assertion attempts (Chapters 16×24) select 27 of 648 combinations. Both fixed Verilator seeds match 18 cases; nine nonoverlapped cases count an early success. Separate replays show the same difference in both program and module, so independent specification expectations also check them. kirimasim parses all 27 inputs; concurrent assertions remain unsupported. See [scope and evidence](docs/interaction-verification.en.md#program-assertion-attempts).
 
 - The [interaction report](docs/interaction-coverage.en.md) separates the selection plan
   from fingerprint-qualified passes in each saved execution.
-- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **103 distinct
+- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **104 distinct
   chapter pairs**, with separate CSVs for registered models, models whose full selection
   passed (**47 models** in the saved run), and detailed test/run evidence.
 - The [zero-cell triage](docs/chapter-cross-triage.en.md) records reviewed existing tests,

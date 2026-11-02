@@ -273,3 +273,20 @@ kirimasim execution lacks checker instances. See [design and common-error detect
 
 [`checksample-m4.json`](checksample-m4.json) records seven matches and 44 explicit deferrals using existing M4 input traces.
 The two new checker candidates remain source-hashed, reasoned M4 deferrals, separate from cross-specific checks or simulator replays.
+
+<a id="program-assertion-attempt-checks"></a>
+
+<a id="programアサーション試行の独立検算と実行"></a>
+
+## Independent program-assertion attempt checks and execution
+
+[`progassert.json`](progassert.json) records independent interpretation of all 648 emitted connection/stimulus/property/action rows.
+Six original plain/overlapped controls and seven actual SV faults execute with exit zero; output differences detect faults.
+Two known nonoverlapped replays are not controls or detected faults.
+Both fixed Verilator seeds record 18 pass and nine known results. In the two separate replays, program and module both count a success before the first
+next-cycle attempt completes, so independent attempt-start/completion expectations supplement implementation comparison.
+[`progassert-build.json`](progassert-build.json) records upstream fetched immediately before execution, revision, binary hash,
+parsing and full cross-run results. See [design and limits](../../docs/interaction-verification.en.md#program-assertion-attempts).
+
+[`progassert-m4.json`](progassert-m4.json) records seven matches and 53 deferrals using existing input traces.
+Nine new candidates receive source-hashed deferral reasons, not M4 passes or new simulator executions.

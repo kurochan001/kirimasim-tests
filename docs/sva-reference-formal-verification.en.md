@@ -429,7 +429,24 @@ The existing adapter's scope is retained; source hashes, deferral reasons and se
 [`m4_deferred.json`](../tools/sva_reference/fixtures/m4_deferred.json).
 Changed inputs fail the hash check and return to unhandled until re-audited.
 
-The [current M4 comparison](../coverage/interaction-qualification/checksample-m4.json), using validated existing input traces, records seven matches, 44 explicit deferrals and zero unhandled cases.
+At the checker addition, the [M4 comparison](../coverage/interaction-qualification/checksample-m4.json), using validated existing input traces, records seven matches, 44 explicit deferrals and zero unhandled cases.
 This is not a new simulator execution. The previous 42 deferrals and seven audited inputs are retained; the two checker cases are not added to matches.
 A separate cross-specific model independently checks all 1,296 rows and runs five controls, seven injected faults and two known-difference replays on fixed Verilator.
 That does not extend M4 support. See [cross design and execution scope](interaction-verification.en.md#checker-assertion-sampling).
+
+<a id="m4-program-cross-scope-2026-11-03"></a>
+
+<a id="m4の対象範囲とprogramクロス2026-11-03"></a>
+
+## M4 scope and program crosses (2026-11-03)
+
+Nine spec-only `program_assertion_attempts@1` cases need separate auditing of program port/output binding,
+two clocks, pending next-cycle attempts and commutative sampled-value sums reported at a later tick.
+The existing M4 evaluator and audited scope are retained.
+[`m4_deferred.json`](../tools/sva_reference/fixtures/m4_deferred.json) adds nine explicit source-hashed deferrals;
+all preceding 44 entries remain unchanged. Source changes return to unhandled until re-audited.
+
+The [current comparison](../coverage/interaction-qualification/progassert-m4.json), using validated existing input traces,
+records seven matches, 53 deferrals and zero unhandled cases. This is not a new simulator execution or nine new matches.
+Separate cross-specific interpretation checks all 648 rows; six original controls, seven actual SV faults and two known-difference
+replays remain separate from M4 support. See [design and runtime limits](interaction-verification.en.md#program-assertion-attempts).

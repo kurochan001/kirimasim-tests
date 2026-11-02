@@ -20890,6 +20890,15 @@
     "checkerとmodule参照モデルで、判定・サンプル値・Reactiveの値・実行時刻を照合する。": "Compare checker and module reference decisions, sampled values, Reactive values and execution times.",
     "接続形式と配置を変え、 ZXQPH0QXZ 実体の独立性と出力引数の伝播も観測する。": "Vary connection forms and placement; observe independence of ZXQPH0QXZ instances and output-argument propagation.",
     "checker内とmodule参照モデルのアサーションで、Preponedのサンプル値とReactiveの生値・判定・実行時刻を照合する": "Compare Preponed samples, Reactive live values, decisions and action times in checker and module reference assertions",
-    "interface内の静的checkerについて、接続形式と ZXQPH0QXZ 実体の独立性・出力引数を通る観測を照合する": "Compare interface-hosted static checker connections, independence of ZXQPH0QXZ instances and observations through output arguments"
+    "interface内の静的checkerについて、接続形式と ZXQPH0QXZ 実体の独立性・出力引数を通る観測を照合する": "Compare interface-hosted static checker connections, independence of ZXQPH0QXZ instances and observations through output arguments",
+    "programとmodule参照モデルの各 ZXQPH0QXZ 実体へ同じ入力を渡す。": "Pass the same inputs to ZXQPH0QXZ instances each of a program and module reference.",
+    "programにinitialを置かず、外部からの階層参照も行わない。": "Programs have no initial procedures and are never entered through external hierarchical references.",
+    "各 ZXQPH0QXZ tick周期の時刻 ZXQPH1QXZ をクロックとし、入力を ZXQPH2QXZ tick前/同時刻/ ZXQPH3QXZ tick後に更新する。": "Clocks occur at ZXQPH1QXZ in each ZXQPH0QXZ-tick period; inputs update ZXQPH2QXZ ticks before, on, or ZXQPH3QXZ ticks after the clock.",
+    "単周期判定と同サイクル/次サイクル含意について、空虚な成功を含むpass/fail数と、アクション時のサンプル値の総和を時刻 ZXQPH0QXZ に照合する。": "For plain predicates and overlapped/nonoverlapped implication, compare pass/fail counts including vacuous successes and sums of action-time sampled values at tick ZXQPH0QXZ.",
+    "最後の次サイクル試行は未完了なら集計しない。": "Do not count a final next-cycle attempt before it completes.",
+    "X/Z、disable iff、履歴関数、programの手続きと終了、clocking block、checker、bind、複数クロックproperty、アクション制御は対象外。": "X/Z, disable iff, history functions, program procedures and termination, clocking blocks, checkers, bind, multiclock properties and action controls are outside scope.",
+    "programとmodule参照モデルの各クロック試行を、単周期判定・同サイクル/次サイクル含意で照合する。": "Compare each program and module-reference clock attempt using plain predicates and overlapped/nonoverlapped implication.",
+    "空虚な成功と未完了の試行を区別し、判定数と完了時のサンプル値総和を出力引数から観測する。": "Distinguish vacuous successes from pending attempts, observing decision counts and completion-time sampled-value sums through output arguments.",
+    "program内とmodule参照モデルのアサーションで、クロックごとの試行、空虚な成功、次サイクルの完了とサンプル値総和を同じ入力から照合する。": "Compare program and module-reference assertions on identical inputs for clock attempts, vacuous successes, next-cycle completion and sampled-value sums."
   }
 }

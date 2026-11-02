@@ -1,0 +1,130 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch24/test_gen_cross_progassert_1_next_after_blocking_negedge_named_5": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'site1 program pass=1 fail=0 reqsum=1 acksum=0', expected 'site1 program pass=0 fail=0 reqsum=0 acksum=0'",
+   "inputs_sha256": "5260a0d86fd56a1dfe9f7bc6103a88360c268e6763980f8275bd1c75f178fde3"
+  },
+  "gen/ch24/test_gen_cross_progassert_1_next_before_blocking_posedge_named_3": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'site0 program pass=1 fail=0 reqsum=1 acksum=0', expected 'site0 program pass=0 fail=0 reqsum=0 acksum=0'",
+   "inputs_sha256": "7548d2e77ca3287cfc7b885d8c9217cd47a265fed267ff61d335b19d3c95700d"
+  },
+  "gen/ch24/test_gen_cross_progassert_1_next_edge_nba_posedge_wildcard_3": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'site1 program pass=1 fail=0 reqsum=1 acksum=0', expected 'site1 program pass=0 fail=0 reqsum=0 acksum=0'",
+   "inputs_sha256": "924d1015684f4a92a4193ef4bc368dd22412ab3b9884b178dfa4e553170ec3b6"
+  },
+  "gen/ch24/test_gen_cross_progassert_1_overlap_after_blocking_posedge_wildcard_3": {
+   "status": "pass",
+   "inputs_sha256": "6880c3fbc55b3e612163c4716766e49b46a98af628e79f7f2293d17ba003e328"
+  },
+  "gen/ch24/test_gen_cross_progassert_1_overlap_before_blocking_posedge_positional_3": {
+   "status": "pass",
+   "inputs_sha256": "3f0e9fe43486e14234b580d63f8c92e2caa6df4c1089b0afa235c1087307b364"
+  },
+  "gen/ch24/test_gen_cross_progassert_1_overlap_edge_nba_posedge_named_5": {
+   "status": "pass",
+   "inputs_sha256": "c2dc8cbcf6803029fd5d71f2fb9a2e3380634489efd9116e287f30a113ae49e5"
+  },
+  "gen/ch24/test_gen_cross_progassert_1_plain_after_blocking_posedge_positional_3": {
+   "status": "pass",
+   "inputs_sha256": "488ef0cf7805c12f6951bff4055253e1c0c88bb54c3fdca4e3a2b5135f539502"
+  },
+  "gen/ch24/test_gen_cross_progassert_1_plain_before_blocking_posedge_positional_3": {
+   "status": "pass",
+   "inputs_sha256": "620d22747ea77588718f12b867f5e2ffceb31f0e73c5f9615fc73dd6437b8435"
+  },
+  "gen/ch24/test_gen_cross_progassert_1_plain_edge_nba_posedge_positional_3": {
+   "status": "pass",
+   "inputs_sha256": "2cdc97984f74194ef41d4f78a0a1af32c1b7515d9dafdb15fe3e4bb3643ffe5c"
+  },
+  "gen/ch24/test_gen_cross_progassert_33_next_after_blocking_posedge_positional_3": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'site1 program pass=1 fail=0 reqsum=8589934591 acksum=0', expected 'site1 program pass=0 fail=0 reqsum=0 acksum=0'",
+   "inputs_sha256": "3bcc1fa63c18f8cdbc27f2d279b2d037bb84723b930e4d6c1e40a9d4a407aff2"
+  },
+  "gen/ch24/test_gen_cross_progassert_33_next_before_blocking_posedge_positional_3": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'site0 program pass=1 fail=0 reqsum=8589934591 acksum=0', expected 'site0 program pass=0 fail=0 reqsum=0 acksum=0'",
+   "inputs_sha256": "9ba3bd8d7583c05ee5a20c97521d7309f9203df06832964d1ec3e2f82a948ff7"
+  },
+  "gen/ch24/test_gen_cross_progassert_33_next_edge_blocking_negedge_positional_3": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'site1 program pass=1 fail=0 reqsum=8589934591 acksum=0', expected 'site1 program pass=0 fail=0 reqsum=0 acksum=0'",
+   "inputs_sha256": "fbdf06a6910a8e3005749bda8020c35bc6a243fa246a64114e1f618fb04fcdec"
+  },
+  "gen/ch24/test_gen_cross_progassert_33_overlap_after_blocking_posedge_positional_3": {
+   "status": "pass",
+   "inputs_sha256": "fd9cfbba288321bf45378463fce1787eb09c36b60bd5619ad475a9b2ef5155eb"
+  },
+  "gen/ch24/test_gen_cross_progassert_33_overlap_before_blocking_negedge_named_5": {
+   "status": "pass",
+   "inputs_sha256": "d91aa12c10757e31a15e81b864e456b8bed66cc7b1ea7919bc0e888b160454c8"
+  },
+  "gen/ch24/test_gen_cross_progassert_33_overlap_edge_blocking_posedge_positional_3": {
+   "status": "pass",
+   "inputs_sha256": "990cf4017667675015e05deb1d511f906fbfc1ae15d16480f6cc68f18e46f41e"
+  },
+  "gen/ch24/test_gen_cross_progassert_33_plain_after_nba_posedge_positional_5": {
+   "status": "pass",
+   "inputs_sha256": "732ddd857ab087321e770c02b03cb89c39cf01f2a3b1a971cf1e8f878f807c13"
+  },
+  "gen/ch24/test_gen_cross_progassert_33_plain_before_blocking_posedge_wildcard_3": {
+   "status": "pass",
+   "inputs_sha256": "db39b5dfe7e49fda3f214d4da478df841af0348713403164dd13b47eeaff5fd1"
+  },
+  "gen/ch24/test_gen_cross_progassert_33_plain_edge_blocking_posedge_positional_3": {
+   "status": "pass",
+   "inputs_sha256": "72d17f88607c2841b8d9a7131c11ac4838d78070c1e99c2915f4d2c9705d623c"
+  },
+  "gen/ch24/test_gen_cross_progassert_8_next_after_nba_posedge_wildcard_5": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'site1 program pass=1 fail=0 reqsum=255 acksum=0', expected 'site1 program pass=0 fail=0 reqsum=0 acksum=0'",
+   "inputs_sha256": "f9f814a93fa5a37c9e0974f9aada20b1b8b06ae8bc646ab89321a139c277a983"
+  },
+  "gen/ch24/test_gen_cross_progassert_8_next_before_nba_posedge_wildcard_3": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'site0 program pass=1 fail=0 reqsum=255 acksum=0', expected 'site0 program pass=0 fail=0 reqsum=0 acksum=0'",
+   "inputs_sha256": "ee4e3ce5c5db895fa9abc2912cd79f3a066ea8cda296b094dd93ebd082951bb6"
+  },
+  "gen/ch24/test_gen_cross_progassert_8_next_edge_blocking_posedge_positional_3": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'site1 program pass=1 fail=0 reqsum=255 acksum=0', expected 'site1 program pass=0 fail=0 reqsum=0 acksum=0'",
+   "inputs_sha256": "3bf86e317abbb6c1302905987b237a4e2eaabfc61e3a2e826a8d6f41ec85ed2a"
+  },
+  "gen/ch24/test_gen_cross_progassert_8_overlap_after_nba_posedge_named_3": {
+   "status": "pass",
+   "inputs_sha256": "63b0407ab1d9ad7abf4c7b8e5e69aaf1ec23cd21697998fe9af5dea777b8ec84"
+  },
+  "gen/ch24/test_gen_cross_progassert_8_overlap_before_nba_negedge_positional_3": {
+   "status": "pass",
+   "inputs_sha256": "31f9a3b32222f314e7d26c277bc6053e2cbec7fe3d62beecc18c0555f3d1f562"
+  },
+  "gen/ch24/test_gen_cross_progassert_8_overlap_edge_blocking_posedge_named_3": {
+   "status": "pass",
+   "inputs_sha256": "25b3d01b7020e6b4196266133fb6c5a4dc8bc9435537210f8e740a15aaa80e5b"
+  },
+  "gen/ch24/test_gen_cross_progassert_8_plain_after_blocking_posedge_positional_3": {
+   "status": "pass",
+   "inputs_sha256": "ceaefa6bff8899eff7949340f70775ec93a44b64c7fc13ba331cf1fe47bc3289"
+  },
+  "gen/ch24/test_gen_cross_progassert_8_plain_before_nba_negedge_named_5": {
+   "status": "pass",
+   "inputs_sha256": "44d063ba0018727c5a2df184d2c84b2545aac7d5df4912aec47bf40304fa0f97"
+  },
+  "gen/ch24/test_gen_cross_progassert_8_plain_edge_blocking_negedge_wildcard_3": {
+   "status": "pass",
+   "inputs_sha256": "60aed083adc255a807664f783189d8db32dbecce3becb9b58ea0fac2ee635806"
+  }
+ },
+ "generated_at": "2026-11-02T21:43:48.001872+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

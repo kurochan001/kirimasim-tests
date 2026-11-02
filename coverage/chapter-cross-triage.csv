@@ -582,7 +582,7 @@ tests/gen/ch14/test_gen_cross_clock_129_bit_x_local_step_posedge_blocking.sv",�
 10,代入文,15,プロセス間の同期と通信,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,58,"tests/gen/ch15/test_gen_cross_event_task_interface_input_direct_nba_1_a_b_late.sv
 tests/gen/ch15/test_gen_cross_event_task_interface_input_direct_nba_3_a_b_early.sv
 tests/gen/ch15/test_gen_cross_event_task_interface_input_task_blocking_2_a_b_early.sv",既存モデルの計画・実行証跡を維持する,,
-10,代入文,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,88,"tests/ch37/test_vpi_module_relations.sv
+10,代入文,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,115,"tests/ch37/test_vpi_module_relations.sv
 tests/gen/ch16/test_gen_cross_assert_129_bit_known_case_equal_posedge_blocking_before_module.sv
 tests/gen/ch16/test_gen_cross_assert_129_bit_x_reduce_or_posedge_blocking_before_module.sv",既存モデルの計画・実行証跡を維持する,,
 10,代入文,17,チェッカー,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,27,"tests/gen/ch17/test_gen_cross_checksample_1_interface_named_edge_blocking_posedge_explicit_parity.sv
@@ -590,7 +590,7 @@ tests/gen/ch17/test_gen_cross_checksample_1_interface_positional_after_blocking_
 tests/gen/ch17/test_gen_cross_checksample_1_interface_wildcard_edge_nba_negedge_explicit_zero.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 10,代入文,18,制約付き乱数値の生成,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 10,代入文,19,機能カバレッジ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-10,代入文,20,ユーティリティ用システムタスク・関数,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,5,"tests/ch10/test_contassign_system_function_operand.sv
+10,代入文,20,ユーティリティ用システムタスク・関数,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,32,"tests/ch10/test_contassign_system_function_operand.sv
 tests/ch23/test_module_common_item_kinds.sv
 tests/ch7/test_array_init.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 10,代入文,21,入出力用システムタスク・関数,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,302,"tests/ch10/test_alias_bidirectional_shared_drivers.sv
@@ -600,9 +600,9 @@ tests/ch28/test_drive_strength_components_on_gates_and_assigns.sv",引用探索�
 10,代入文,23,モジュールと階層,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,86,"tests/ch10/test_nba_interface_array_element.sv
 tests/ch10/test_net_delay_port_driver_and_undriven.sv
 tests/ch23/test_hierarchical_name_as_assignment_target.sv",既存モデルの計画・実行証跡を維持する,,
-10,代入文,24,プログラム,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,36,"tests/gen/ch24/test_gen_cross_reactive_129_bit_known_1_blocking_blocking_direct.sv
-tests/gen/ch24/test_gen_cross_reactive_129_bit_x_2_blocking_continuous_direct.sv
-tests/gen/ch24/test_gen_cross_reactive_129_bit_z_1_blocking_continuous_direct.sv",既存モデルの計画・実行証跡を維持する,,
+10,代入文,24,プログラム,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,63,"tests/gen/ch24/test_gen_cross_progassert_1_next_after_blocking_negedge_named_5.sv
+tests/gen/ch24/test_gen_cross_progassert_1_next_before_blocking_posedge_named_3.sv
+tests/gen/ch24/test_gen_cross_progassert_1_next_edge_nba_posedge_wildcard_3.sv",既存モデルの計画・実行証跡を維持する,,
 10,代入文,25,インターフェース,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,133,"tests/ch10/test_nba_interface_array_element.sv
 tests/ch10/test_nba_then_event_control_same_step.sv
 tests/ch10/test_nba_verification.sv",既存モデルの計画・実行証跡を維持する,,
@@ -870,7 +870,7 @@ tests/ch16/test_default_clocking_assertion_clocks.sv",既存モデルの計画�
 16,アサーション,18,制約付き乱数値の生成,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch16/test_assertion_dist_as_inside.sv
 tests/ch16/test_ch16_sim_bias_no_relaxation.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 16,アサーション,19,機能カバレッジ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch19/test_cg_sample_from_contexts.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-16,アサーション,20,ユーティリティ用システムタスク・関数,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,35,"tests/ch16/test_assume_property_actions.sv
+16,アサーション,20,ユーティリティ用システムタスク・関数,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,62,"tests/ch16/test_assume_property_actions.sv
 tests/ch16/test_concurrent_assert_actions.sv
 tests/ch16/test_concurrent_assertion_names_and_control.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 16,アサーション,21,入出力用システムタスク・関数,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch16/test_immediate_assertion_label_scope.sv
@@ -879,9 +879,9 @@ tests/ch21/test_strobe_sampled_value_current_step.sv",引用探索の候補と�
 16,アサーション,23,モジュールと階層,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,5,"tests/ch16/test_default_disable_iff_nested_module.sv
 tests/ch23/test_bind_assertion_basic.sv
 tests/ch23/test_module_items_nonport_kinds.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-16,アサーション,24,プログラム,E2,既存検証あり・章対未登録,P2,0,program内アサーションの試行が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。,program内アサーションの試行,配置（module/program） / クロック数 / property種別 / アクションの観測時点,program内assertionの試行回数を与えたクロック数と照合する。,1,tests/ch16/test_assertions_in_interface_and_program.sv,12,"tests/ch16/test_concurrent_assertion_places_and_kinds.sv
-tests/ch16/test_default_clocking_assertion_clocks.sv
-tests/ch16/test_default_disable_iff_scopes.sv",既存テストを再利用し、因子モデル化の要否と不足条件を確認する,2026-11-03,"Codex (GPT-6), AI review"
+16,アサーション,24,プログラム,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,39,"tests/ch16/test_assertions_in_interface_and_program.sv
+tests/ch16/test_concurrent_assertion_places_and_kinds.sv
+tests/ch16/test_default_clocking_assertion_clocks.sv",既存モデルの計画・実行証跡を維持する,,
 16,アサーション,25,インターフェース,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,20,"tests/ch16/test_assertions_in_interface_and_program.sv
 tests/ch16/test_concurrent_assertion_places_and_kinds.sv
 tests/ch16/test_default_clocking_assertion_clocks.sv",既存モデルの計画・実行証跡を維持する,,
@@ -998,7 +998,7 @@ tests/ch20/test_comb_sysfunc_edge.sv",引用探索の候補とソースを確認
 tests/ch20/test_severity_tasks_report_contents.sv
 tests/ch22/test_timescale_child_units_in_parent.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 20,ユーティリティ用システムタスク・関数,23,モジュールと階層,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch23/test_module_common_item_kinds.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-20,ユーティリティ用システムタスク・関数,24,プログラム,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,4,"tests/ch20/test_exit_waits_for_programs.sv
+20,ユーティリティ用システムタスク・関数,24,プログラム,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,31,"tests/ch20/test_exit_waits_for_programs.sv
 tests/ch24/test_program_attributed_and_generate_items.sv
 tests/ch24/test_program_final_procedure.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 20,ユーティリティ用システムタスク・関数,25,インターフェース,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch23/test_module_common_item_kinds.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,

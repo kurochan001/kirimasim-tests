@@ -14,7 +14,9 @@
 
 各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・ 検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と [生成レポート](interaction-coverage.md)を参照してください。
 
-2026-11-03のcheckerサンプリング追加：現在は**71モデル・2,670件・103章対**です。実行直前に上流mainを取得・ビルドしたkirimasim `2ffb5dddca04`の[全クロス保存実行](../coverage/interaction-results/cross71-kirimasim-2ffb5ddd.json)は**2,207 pass・457 unsupported・既存6 fail**です。新規27件の解析は成功し、実行はcheckerインスタンスが未対応でした。従来2,643件の入力ハッシュと結果区分はすべて同じで、全選択ケースPASSは47モデルのままです。固定Verilatorは両seedで25 pass・2 known、固定Icarusは27件ともビルド拒否です。第16章×第17章と、interface配置7件に第17章×第25章を登録し、E候補5対・C候補3対です。[設計・独立モデル・実行限界](#checker-assertion-sampling)を参照してください。
+2026-11-03のprogramアサーション試行追加：現在は**72モデル・2,697件・104章対**です。実行直前に上流mainを取得・ビルドしたkirimasim `786c94bbeafb`の[全クロス保存実行](../coverage/interaction-results/cross72-kirimasim-786c94bb.json)は**2,207 pass・484 unsupported・既存6 fail**です。新規27件はすべて解析成功・並行アサーション未対応です。従来2,670件の入力ハッシュと結果区分は同じで、全選択ケースPASSは47モデルです。固定Verilatorは両seedで18 pass・9 known、固定Icarusは27件ともビルド拒否でした。第16章×第24章を登録し、E候補4対・C候補3対です。[設計・独立検算・実行限界](#program-assertion-attempts)を参照してください。
+
+同日のcheckerサンプリング追加時点では**71モデル・2,670件・103章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `2ffb5dddca04`の[全クロス保存実行](../coverage/interaction-results/cross71-kirimasim-2ffb5ddd.json)は**2,207 pass・457 unsupported・既存6 fail**です。新規27件の解析は成功し、実行はcheckerインスタンスが未対応でした。従来2,643件の入力ハッシュと結果区分はすべて同じで、全選択ケースPASSは47モデルのままです。固定Verilatorは両seedで25 pass・2 known、固定Icarusは27件ともビルド拒否です。第16章×第17章と、interface配置7件に第17章×第25章を登録し、E候補5対・C候補3対です。[設計・独立モデル・実行限界](#checker-assertion-sampling)を参照してください。
 
 同日のSDF条件付きパス追加時点では**70モデル・2,643件・101章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `2ffb5dddca04`の[全クロス保存実行](../coverage/interaction-results/cross70-kirimasim-2ffb5ddd.json)は**2,207 pass・430 unsupported・既存6 fail**です。新規18件の解析は成功し、実行は条件付きパス12件・$sdf_annotate 6件で未対応の診断でした。従来2,625件の入力ハッシュと結果区分はすべて同じで、全選択ケースPASSは47モデルのままです。固定Icarusは3 pass・15 known、固定Verilatorは両seedで18 knownです。第30章×第32章を登録し、E候補は6対です。[設計・正常対照・故障注入・限界](#sdf-conditional-paths)を参照してください。
 
@@ -2351,6 +2353,95 @@ M4の新規保留は、元の一致7件と既存保留42件を維持し、入力
 ```sh
 python3 tools/qualify_checksample.py --verilator /path/to/verilator-5.052 \
   --output coverage/interaction-qualification/NEW-checksample.json
+```
+
+<a id="program-assertion-attempts"></a>
+
+<a id="program-and-module-reference-assertion-attempts"></a>
+
+### programとmodule参照モデルのアサーション試行
+
+`program_assertion_attempts@1`は、第16章×第24章の27件です。
+生成器は[`interaction_progassert.py`](../generators/interaction_progassert.py)です。
+program内でもアサーションのサンプリング・評価時点は変わらないことを24.3.1、
+クロックごとの新しい試行を16.14.5、サンプリングを16.5.1/16.9.3、
+含意の完了時点を16.12.7、アクションを16.14.1、空虚な成功の既定アクションを20.11から確認します。
+
+<a id="factors-and-observations-6"></a>
+
+#### 因子と観測
+
+幅1/8/33、単周期判定/同サイクル含意/次サイクル含意、クロックの2 tick前/同時刻/2 tick後の更新、
+blocking/NBA、posedge/negedge、位置/名前/wildcard接続、実体ごとに3/5回のクロックという7因子です。
+合法な648通りから、138因子ペア・重点の75組の3因子組合せ・必須6行を保持する27件を選びます。
+幅×property種別×更新時点の27組を持つため、この有限計画の下限27件に到達します。
+これは言語全体の最小テスト数を意味しません。
+
+各ケースにprogramとmodule参照モデルを各2実体置き、同じ実引数を渡します。
+刺激は既知値の相補パターンで、幅の上位ビットも使います。
+各20 tick周期の時刻8/12を別のクロックとし、時刻16に出力引数だけを観測します。
+program内部への外部階層参照は行いません。programにinitialを置かず、
+program手続きの終了による暗黙のシミュレーション終了も刺激から切り離します。
+
+`(|ack)`、`(|req) |-> (|ack)`、`(|req) |=> (|ack)`の判定数と、
+アクション時点での`$sampled(req/ack)`の64ビット総和を両アクションから記録します。
+空虚な成功は既定のpassアクションとして集計しますが、非空虚な成功とは区別して期待値を計算します。
+次サイクル含意は前の試行の完了と現在の空虚な成功が同じtickに起こり得ます。
+実行順に依存する最後の値を使わず、可換な回数・総和を照合します。
+最終クロックで開始した未完了の試行は、後件のクロック前には成功数へ含めません。
+X/Z、disable iff、履歴関数、programの手続きと終了、clocking block、checker、bind、
+複数クロックproperty、アクション制御は対象外です。
+
+<a id="independent-checks-fault-injection-and-limits"></a>
+
+#### 独立検算・故障注入と確認範囲
+
+[`qualify_progassert.py`](../tools/qualify_progassert.py)は、生成されたprogram/module宣言、
+接続、property、アクション、刺激列を解析します。Preponed/Active/NBAと、
+実体ごとに保持する未完了試行を別に解釈し、生成器の刺激・期待値計算を再利用せず全648行を検算します。
+
+単周期/同サイクル含意の正常対照6件と、実際のSV故障7件を固定Verilatorで実行します。
+サンプルを生値へ置換、判定の反転、出力カウンタの交換、同サイクル含意を次サイクルへ変更、
+参照先の別実体への誤接続、クロックの反転、req/ack交換を検出します。
+全13実行が終了コード0で終わり、故障は出力差で検出します。
+別に次サイクル含意の既知差2件を再実行し、正常対照や故障検出には数えません。
+これらの正常対照・故障注入によって次サイクル含意の正しい実行まで確認したとは扱いません。
+[独立検算・実行出力](../coverage/interaction-qualification/progassert.json)に区分して記録します。
+
+<a id="saved-runs-and-unconfirmed-scope-2"></a>
+
+#### 保存実行と未確認の範囲
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross72-progassert-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross72-progassert-verilator5052-seed73.json)は、各18 pass・9 knownです。
+一致した18件だけにoracleを登録します。
+次サイクル含意9件では、最初の非空虚な試行が後件のクロックを待っている時点で成功が記録されます。
+別途再実行した2件ではprogramとmodule参照の両方に同じ差があるため、両者の一致だけでは検出できません。
+規格から独立に計算した試行の開始・完了と照合し、期待値は保持します。内部原因は未確認です。
+固定[Icarus Verilog 13.0](../coverage/interaction-results/cross72-progassert-icarus13.json)の結果と、
+最新上流からのkirimasimの版・解析・実行は[ビルド記録](../coverage/interaction-qualification/progassert-build.json)を参照してください。
+
+kirimasim `786c94bbeafb`は、実行直前に取得した上流mainからビルドし、新規27件をすべて解析しました。
+実行は27件とも並行アサーション未対応です。[全2,697件の保存実行](../coverage/interaction-results/cross72-kirimasim-786c94bb.json)は、
+2,207 pass・484 unsupported・既存6 failで、従来2,670件の入力ハッシュと結果区分は同じです。
+全選択ケースPASSは47モデルです。計画上の網羅と実行による充足は分け、未対応の行も合法な組合せに残します。
+固定Icarusは新規27件をすべてビルド時に拒否しました。
+
+M4参照評価器の監査済み入力・報告形式の範囲は拡張しません。
+新しいspec-only候補9件には、programの接続・2クロック・未完了試行・総和の報告を別途監査する必要があるため、
+[ソースハッシュ付き保留理由](../tools/sva_reference/fixtures/m4_deferred.json)を登録します。
+[現在のM4照合](../coverage/interaction-qualification/progassert-m4.json)は、既存の入力トレースを使い、
+7 match・53 deferred・0 unhandledです。以前の44保留と7一致は保持します。
+これは新しいシミュレータ実行やM4対応の成功を表すものではありません。
+ソースが変わると保留ハッシュの照合が失敗し、再監査までunhandledへ戻る回帰も確認します。
+
+追加時のローカル検査は、ツール単体テスト700件と整合性13項目がすべてPASSです。
+メタデータ検査は10,447件で新規問題0件（既知395件）、日英114組とローカルリンク52,661件も確認しました。
+これは、この追加分のGitHub Check/Nightlyとは別のローカル検査記録です。
+
+```sh
+python3 tools/qualify_progassert.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-progassert.json
 ```
 
 <a id="updates-after-model-changes"></a>

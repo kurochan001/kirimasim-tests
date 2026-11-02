@@ -1722,6 +1722,19 @@
           "reason": "interface内の静的checkerについて、接続形式と2実体の独立性・出力引数を通る観測を照合する"
         }
       ]
+    },
+    {
+      "id": "program_assertion_attempts",
+      "primary_chapter": 24,
+      "pairs": [
+        {
+          "chapters": [
+            16,
+            24
+          ],
+          "reason": "program内とmodule参照モデルのアサーションで、クロックごとの試行、空虚な成功、次サイクルの完了とサンプル値総和を同じ入力から照合する。"
+        }
+      ]
     }
   ]
 }
