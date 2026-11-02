@@ -45,6 +45,32 @@ The dedicated `random-cross-kirimasim` artifact contains results, replay manifes
 This artifact is outside fixed-suite `results-*` publication and does not increase public graphs, chapter match counts or requirement coverage.
 Local success and successful execution of this GitHub step must be checked separately.
 
+<a id="2026-11-02の公開処理失敗と対策"></a>
+
+## Publication failure on 2026-11-02
+
+[Run 41359514776](https://github.com/kurochan001/kirimasim-tests/actions/runs/41359514776), targeting suite `4e9c89c4`,
+completed all five simulator jobs successfully but failed while generating requirement-coverage documents in `publish`.
+The kirimasim random comparisons also had 96 valid passes on revision `2c81a591105b` with seed `41359514776`.
+Successful fixed-suite jobs do not imply that every test matched.
+
+The cause was treating the latest Verilator version string as prose requiring a cached translation.
+The unseen form `Verilator 5.055 devel rev v5.054-25-g1b275150` stopped localization.
+Replaying subsequent processing with the same artifacts also exposed a missing translation for an Annex B negative requirement
+whose test was mapped but execution remained unconfirmed.
+
+The fix renders versions, execution timestamps, clause identifiers and requirement kinds as literal Markdown code,
+translating only the requirement-state prose. This removes dictionary entries specific to individual versions, times or clauses
+while retaining checks for untranslated prose.
+A negative test matching a development build still receives `unreviewed_oracle` when it lacks an approved fixed-version oracle.
+Expectations, oracles, verdicts and coverage measurement rules are unchanged.
+
+The fix was verified locally by generating history, detailed and summary requirement coverage in both languages,
+and interaction reports in both languages from the failed run's five result JSON files.
+Report generation is distinct from simulator execution and GitHub publication.
+After integrating the fix into main, start a new Nightly using [current-main dispatch](#starting-a-new-run-on-current-main).
+Re-running the original failed execution uses the suite and tools from before the fix.
+
 <a id="確認例2026年10月31日の公開"></a>
 
 ## Recorded example: publication on 2026-10-31

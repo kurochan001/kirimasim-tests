@@ -12,6 +12,7 @@ from pathlib import Path
 from unittest import mock
 
 import behavior_coverage as coverage
+import doc_localization
 import suite_results
 
 
@@ -142,6 +143,55 @@ class BehaviorCoverageTests(unittest.TestCase):
                 text = coverage.compact_report({**snapshot, "whole_standard_status": status})
                 self.assertIn(heading + "\n", text)
                 self.assertEqual("意味の重複整理前" in text, status != "confirmed")
+
+    def test_bilingual_reports_preserve_unseen_build_versions_and_timestamps(self):
+        sections, rows = self.validated()
+        for version, timestamp in (
+                ("Verilator 5.055 devel rev v5.054-25-g1b275150",
+                 "2026-11-01T23:50:27.425685+00:00"),
+                ("Future build `candidate` (custom label: 日本語)",
+                 "2026-12-03T04:05:06.789123-09:30")):
+            with self.subTest(version=version), tempfile.TemporaryDirectory() as directory:
+                result = self.result()
+                result.update(version=version, generated_at=timestamp)
+                runs, ignored = self.execute(result)
+                original = copy.deepcopy(runs)
+                snapshot = json.loads((coverage.DATA / "behavior-summary.json").read_text())
+                snapshot["execution"] = runs
+                full = coverage.report(self.inv, sections, rows, runs, ignored)
+                # Isolate execution evidence from unrelated fixture-only prose.
+                evidence = full.split("## 実行証跡\n", 1)[1].split("\n## 章・附属書別", 1)[0]
+                for canonical, text in (
+                        (coverage.REPORT, "# IEEE 1800-2023 要求カバレッジ\n\n" + evidence),
+                        (coverage.SUMMARY_REPORT, coverage.compact_report(snapshot))):
+                    target = Path(directory) / canonical.name
+                    outputs = doc_localization.export_versions(target, text, canonical)
+                    self.assertEqual(len(outputs), 2)
+                    for output in outputs.values():
+                        self.assertIn(version, output)
+                        self.assertIn(timestamp, output)
+                        self.assertNotRegex(output, r"ZXQPH\d+QXZ")
+                self.assertEqual(runs, original)
+
+    def test_bilingual_annex_negative_with_unreviewed_development_oracle(self):
+        row = next(r for r in self.registry["requirements"]
+                   if r["clause"] == "B" and r["kind"] == "error" and r["checks"])
+        self.reg["requirements"] = [copy.deepcopy(row)]
+        sections, rows = self.validated()
+        result = self.result(simulator="verilator", row=rows[0])
+        result["version"] = "Verilator 5.055 devel rev v5.054-25-g1b275150"
+        runs, ignored = self.execute(result, rows)
+        self.assertEqual(runs["snapshots"][0]["outcomes"][row["id"]], "unreviewed_oracle")
+        full = coverage.report(self.inv, sections, rows, runs, ignored)
+        requirement = full.split("### " + row["id"] + "\n", 1)[1]
+        with tempfile.TemporaryDirectory() as directory:
+            outputs = doc_localization.export_versions(Path(directory)/"annex.md",
+                "# IEEE 1800-2023 要求カバレッジ\n\n" + requirement, coverage.REPORT)
+            self.assertIn("テスト対応あり・実行未確認", outputs[Path(directory)/"annex.md"])
+            english = outputs[Path(directory)/"annex.en.md"]
+            self.assertIn("execution unconfirmed", english)
+            self.assertIn("`B` / `error`", english)
+        self.assertEqual(runs["executed"], [])
 
     def test_linked_file_count_deduplicates_requirements_without_inferring_unlinked_tests(self):
         _, rows = self.validated()

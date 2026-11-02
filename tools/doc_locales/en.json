@@ -20832,6 +20832,10 @@
     "全演算は拡張後 ZXQPH0QXZ ビットの範囲内。": "All extended arithmetic stays within ZXQPH0QXZ bits.",
     "空配列、X/Z、キュー、soft制約、継承、コールバック、並行実行は対象外。": "Empty arrays, X/Z, queues, soft constraints, inheritance, callbacks and concurrent execution are outside scope.",
     "固定配列と動的配列の一意な解と矛盾を切り替え、要素型とwith式の型でのリダクション、演算前の拡張、失敗時の全要素とサイズの保持、独立した対照オブジェクトを照合する。": "Alternate unique solutions and contradictions for fixed and dynamic arrays; compare element-type and with-expression reductions, extension before arithmetic, all values and size after failure, and an independent control object.",
-    "配列のsum/product制約で要素型とwith式の型を区別し、固定/動的配列の一意な解と失敗時の状態保持を照合する": "Distinguish element and with-expression types in sum/product constraints; compare unique solutions and state retention after failure for fixed/dynamic arrays"
+    "配列のsum/product制約で要素型とwith式の型を区別し、固定/動的配列の一意な解と失敗時の状態保持を照合する": "Distinguish element and with-expression types in sum/product constraints; compare unique solutions and state retention after failure for fixed/dynamic arrays",
+    "ZXQPH0QXZ : ZXQPH1QXZ / ZXQPH2QXZ / ZXQPH3QXZ 動作確認、古い入力との対応 ZXQPH4QXZ 件。": "ZXQPH0QXZ: ZXQPH1QXZ / ZXQPH2QXZ / ZXQPH3QXZ execution checked; ZXQPH4QXZ entries refer to older inputs.",
+    "ZXQPH0QXZ / ZXQPH1QXZ / 実行確認あり": "ZXQPH0QXZ / ZXQPH1QXZ / Execution confirmed",
+    "ZXQPH0QXZ / ZXQPH1QXZ / テスト対応あり・実行未確認": "ZXQPH0QXZ / ZXQPH1QXZ / Test mapped; execution unconfirmed",
+    "ZXQPH0QXZ / ZXQPH1QXZ / テスト未対応": "ZXQPH0QXZ / ZXQPH1QXZ / No mapped test"
   }
 }

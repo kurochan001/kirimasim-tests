@@ -26,6 +26,13 @@ class MissingTranslation(ValueError):
     """Do not silently publish source-language prose as a completed translation."""
 
 
+def code_span(value):
+    """Quote single-line report metadata literally, including embedded backticks."""
+    fence='`'*(1+max((len(m[0]) for m in re.finditer(r'`+',value)),default=0))
+    padding=' ' if value.startswith('`') or value.endswith('`') else ''
+    return fence+padding+value+padding+fence
+
+
 @lru_cache(maxsize=1)
 def documents():
     return json.loads(MANIFEST.read_text(encoding='utf-8'))['documents']

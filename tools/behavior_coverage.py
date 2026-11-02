@@ -412,8 +412,8 @@ def compact_report(snapshot: dict, source_url: str | None = None,
              "## シミュレータ別の実行確認率", ""]
     for run in snapshot["execution"]["snapshots"]:
         detail = run["status_counts"]
-        lines += [f"- `{run['simulator']}` / {run['version']}: {ratio(len(run['executed']), total)}。",
-                  f"  計測元: {run['generated_at']} / `{run['file']}`。",
+        lines += [f"- `{run['simulator']}` / {doc_localization.code_span(run['version'])}: {ratio(len(run['executed']), total)}。",
+                  f"  計測元: {doc_localization.code_span(run['generated_at'])} / `{run['file']}`。",
                   f"  失敗 {detail['fail']}、既知不一致 {detail['known']}、未対応 {detail['unsupported']}、"
                   f"未実行 {detail['not_run']}、古い証跡 {detail['stale']}、"
                   f"規格違反テストの判定根拠が未承認 {detail['unreviewed_oracle']} 行。"]
@@ -547,7 +547,8 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
     if not runs["snapshots"]:
         lines.append("採用可能な実行証跡なし。")
     for s in runs["snapshots"]:
-        lines.append(f"- `{s['file']}`: {s['version']} / {s['generated_at']} / "
+        lines.append(f"- `{s['file']}`: {doc_localization.code_span(s['version'])} / "
+                     f"{doc_localization.code_span(s['generated_at'])} / "
                      f"{len(s['executed'])}/{total} 動作確認、古い入力との対応 {s['stale_links']} 件。")
     for reason in ignored:
         lines.append(f"- 不採用: {reason}。")
@@ -568,7 +569,8 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
     executed = set(runs["executed"])
     for r in sorted(rows, key=lambda r: (section_key(r["clause"]), r["id"])):
         state = "実行確認あり" if r["id"] in executed else "テスト対応あり・実行未確認" if r["mapped"] else "テスト未対応"
-        lines += [f"### {r['id']}", "", f"{r['clause']} / {r['kind']} / {state}", "",
+        lines += [f"### {r['id']}", "",
+                  f"{doc_localization.code_span(r['clause'])} / {doc_localization.code_span(r['kind'])} / {state}", "",
                   markdown_prose(r["behavior"], r["clause"]), "",
                   f"合格基準: {markdown_prose(r['acceptance'], r['clause'])}", ""]
         if r.get("modality"):
