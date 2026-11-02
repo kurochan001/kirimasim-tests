@@ -24505,6 +24505,7 @@
     "ZXQPH0QXZ annotations select conditional paths and instances without changing sibling delays": "ZXQPH0QXZ 注釈は兄弟の遅延を変えずに条件付きパスとインスタンスを選択する",
     "Static checker assertions and module references share sampling across connections and homes": "静的checkerのアサーションとmodule参照モデルは、接続形式と配置を変えても同じサンプリングを行う",
     "Program and module assertions retain sampling and implication attempts across clock counts": "programとmoduleのアサーションについて、クロック数を変えてもサンプリングと含意の試行を保持する",
-    "Container updates and guarded coverage samples preserve size value and instance history": "コンテナ更新とガード付きカバレッジsampleはサイズ・値・実体ごとの履歴を保持する"
+    "Container updates and guarded coverage samples preserve size value and instance history": "コンテナ更新とガード付きカバレッジsampleはサイズ・値・実体ごとの履歴を保持する",
+    "Disable scopes distinguish deferred report cancellation from captured inputs and live actions": "disableのスコープに応じた遅延報告の取消しと、取得済み引数・アクションの生値を区別する"
   }
 }

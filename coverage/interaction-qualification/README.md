@@ -303,3 +303,18 @@ kirimasimの実行はcheckerインスタンスが未対応です。[設計と共
 単一coverpointのgroupから割合を取得するため、coverpoint単位の問い合わせやref出力・既定値継承は確認範囲に含めません。
 [`cgsample-build.json`](cgsample-build.json)に、実行直前の上流取得・版・バイナリハッシュ・解析33件と全クロス結果を保存します。
 kirimasimのcovergroup実行は未対応です。[設計と確認範囲](../../docs/interaction-verification.md#container-coverage-sampling)を参照してください。
+
+<a id="deferred-disable-report-checks"></a>
+
+<a id="independent-disabledeferred-report-checks-and-replays"></a>
+
+## disableと遅延報告の独立検算・再現
+
+[`deferdis.json`](deferdis.json)はAST・制御移動・プロセス別キューと引数取得を別に解釈する全720行の検算です。
+固定Verilatorの正常対照6件・SV故障7件・既知差3件は全16実行が終了コード0です。既知差は正常対照や検出故障には数えません。
+両seedの通常実行は13 pass・18 knownで、この対照だけではラベル取消し・最外flush・Reactive実行時点を確認できません。
+[`deferdis-build.json`](deferdis-build.json)は最新上流からのビルド・解析31件と、26 pass・ラベル取消し5 failの記録です。
+[`deferdis-native.json`](deferdis-native.json)は、改めて最新を取得・ビルドし、5件を出力差として再現した全出力です。
+他サイトと引数評価回数は一致し、内側/task/最外/liveの正常対照4件もPASSしました。stderrの実行パスのみ公開用に置換しています。
+別の対象報告がないcover対照1件は、ラベル取消しの成功を示しません。
+[設計と確認範囲](../../docs/interaction-verification.md#deferred-disable-reports)を参照してください。

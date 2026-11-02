@@ -20910,6 +20910,16 @@
     "固定配列の長さと長さ ZXQPH0QXZ のreverseは不変の対照。": "Fixed-array length and reversal at length ZXQPH0QXZ are unchanged controls.",
     "X/Z、並行更新、イベント駆動sample、cross bin、型集計、 ZXQPH0QXZ のref引数、start/stop、自動bin、default/ignore/illegal binは対象外。": "X/Z, concurrent updates, event-driven sampling, cross bins, type aggregation, ref arguments to ZXQPH0QXZ, start/stop, automatic bins and default/ignore/illegal bins are outside scope.",
     "配列・キューの変更前後でサイズ・先頭/末尾値をsampleし、直接参照と引数、空のガード、必要ヒット数と対象/対照それぞれのbin履歴を照合する。": "Sample size and first/last values around array/queue changes; compare live/argument binding, empty guards, hit thresholds and separate target/control bin histories.",
-    "配列・キューのサイズと要素の変更を、変更前後のsample、空のガード、必要ヒット数、独立した対照のbin履歴と照合する。": "Compare array/queue size and element changes with samples before/after mutation, empty guards, hit thresholds and independent control bin histories."
+    "配列・キューのサイズと要素の変更を、変更前後のsample、空のガード、必要ヒット数、独立した対照のbin履歴と照合する。": "Compare array/queue size and element changes with samples before/after mutation, empty guards, hit thresholds and independent control bin histories.",
+    "observed deferredのassert/assume/cover # ZXQPH0QXZ を使い、workerの各 ZXQPH1QXZ tickと、別プロセスの対照を ZXQPH2QXZ tick後に評価し、さらに ZXQPH3QXZ tick後に観測する。": "Use observed deferred assert/assume/cover # ZXQPH0QXZ; evaluate the worker every ZXQPH1QXZ ticks and a separate-process control ZXQPH2QXZ ticks later, observing after another ZXQPH3QXZ tick.",
+    "ラベル指定は対象だけ、最外workerスコープはそのプロセスの全未成熟報告を取り消す。": "A label cancels only its target; the outermost worker scope cancels all immature reports of that process.",
+    "内側ブロック/taskのdisableでは報告を消さない。": "Disabling an inner block or task does not remove reports.",
+    "ZXQPH0QXZ 回の処理で奇数回/偶数回にdisableし、通常の制御移動と既に報告済みの履歴を別に観測する。": "Disable on odd/even activations across ZXQPH0QXZ iterations, observing ordinary control transfer separately from previously reported history.",
+    "入力引数は登録時に値を取得し、関数引数の副作用は報告が取り消されても残る。": "Input arguments capture values on registration; argument-function side effects remain even when a report is cancelled.",
+    "報告関数内の生値はReactiveで読む。": "Read live data in the report function in Reactive.",
+    "noneのcancel因子は同じ結果となる対照。": "The cancel factor is an equivalent-result control for none.",
+    "final/Postponed、 ZXQPH0QXZ 、再開によるflush、同時刻の複数起動、task出力/ref引数、 ZXQPH1QXZ 、assertion control、X/Zは対象外。": "Final/Postponed, ZXQPH0QXZ, flush on resumption, multiple activations in one time slot, task outputs/ref arguments, ZXQPH1QXZ, assertion controls and X/Z are outside scope.",
+    "disable対象のスコープと未成熟の遅延報告を、兄弟・別プロセスの対照、引数取得と副作用、報告時の生値・通常の制御移動・報告済み履歴の保持と照合する。": "Compare disable scope and immature deferred reports with sibling/separate-process controls, input capture and side effects, live action data, ordinary control transfer and retained report history.",
+    "disableによる制御移動と遅延報告の取消しを区別し、対象・兄弟・別プロセスの履歴、引数評価の副作用、取得値と生値を照合する。": "Distinguish disable control transfer from deferred report cancellation; compare target, sibling and separate-process histories, input-evaluation side effects, captured values and live data."
   }
 }

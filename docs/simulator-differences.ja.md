@@ -820,3 +820,20 @@ checkerとmodule参照の両方が生値0を記録し、時刻16の最終デー�
 二つの実装が一致するだけでは合格とせず、独立した仕様モデルと比較し、期待値を維持します。一致した25件だけにoracleを追加しました。
 固定Icarus 13.0は全27件をビルド時に拒否します。kirimasim `2ffb5dddca04`は解析成功・checkerインスタンス未対応です。
 [設計・正常対照・全出力の再現記録](interaction-verification.md#checker-assertion-sampling)を参照してください。
+
+<a id="deferred-disable-reports-2026-11-03"></a>
+
+<a id="2026-11-03-deferred-reports-and-disable-scopes"></a>
+
+## 2026-11-03：遅延報告とdisableのスコープ
+
+固定Verilator 5.052は`deferred_disable_reports@1`で両seedとも13 pass・18 knownです。
+ラベル/最外取消し12件と、それ以外のpayload変更6件が不一致で、一致した13件だけにoracleを登録します。
+元のpayload保持none/内側/taskの正常対照6件とSV故障7件は終了コード0で実行し、既知差3件は別に再現しました。
+この対照だけではラベル取消し・最外キュー消去・Reactive実行時点を確認できません。
+固定Icarus 13.0は23件ビルド拒否・8件出力不一致で、後者ではcoverアクションの回数・入力評価などが異なりました。
+
+kirimasim `786c94bbeafb`は26 pass・新規5 failで、5件はすべて待機報告があるアサーションラベル取消しです。
+全出力の再実行では、対象以外の出力と対象の引数評価回数は一致し、取消すべき対象報告だけが残りました。
+正常対照4件はPASS、追加の対象報告なしcover対照は取消し成功の証拠には数えません。内部原因は未確認です。
+期待値は保持します。[設計と実行出力](interaction-verification.md#deferred-disable-reports)を参照してください。

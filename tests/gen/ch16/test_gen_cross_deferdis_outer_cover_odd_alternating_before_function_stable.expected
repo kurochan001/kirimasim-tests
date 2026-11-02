@@ -1,0 +1,12 @@
+phase=1 time=13 target_tail=0 worker_tail=0 wdata=11 gdata=12
+item=0 pass=0 fail=0 captured=0 live=0 eval=1 last=-1
+item=1 pass=0 fail=0 captured=0 live=0 eval=0 last=-1
+item=2 pass=0 fail=0 captured=0 live=0 eval=0 last=-1
+phase=2 time=23 target_tail=1 worker_tail=1 wdata=21 gdata=22
+item=0 pass=0 fail=0 captured=0 live=0 eval=1 last=-1
+item=1 pass=1 fail=0 captured=21 live=21 eval=1 last=20
+item=2 pass=1 fail=0 captured=22 live=22 eval=1 last=22
+phase=3 time=33 target_tail=1 worker_tail=1 wdata=31 gdata=32
+item=0 pass=0 fail=0 captured=0 live=0 eval=2 last=-1
+item=1 pass=1 fail=0 captured=21 live=21 eval=1 last=20
+item=2 pass=1 fail=0 captured=22 live=22 eval=1 last=22

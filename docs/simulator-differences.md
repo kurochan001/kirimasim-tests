@@ -821,3 +821,20 @@ both checker and module reference record live zero, while final data at tick 16 
 Agreement between the two is insufficient; independent specification expectations are retained. Only the 25 matching cases receive oracle entries.
 Fixed Icarus 13.0 rejects all 27 builds. kirimasim `2ffb5dddca04` parses all inputs but checker instances are unsupported.
 See [design, controls and full-output replays](interaction-verification.en.md#checker-assertion-sampling).
+
+<a id="deferred-disable-reports-2026-11-03"></a>
+
+<a id="2026-11-03遅延報告とdisableのスコープ"></a>
+
+## 2026-11-03: deferred reports and disable scopes
+
+Both fixed Verilator 5.052 seeds record 13 pass and 18 known results for `deferred_disable_reports@1`.
+Twelve label/outer-cancellation cases and six other changed-payload cases differ; only 13 matching cases receive oracle entries.
+Six original stable-payload none/inner/task controls and seven SV faults execute with exit zero; three known replays remain separate.
+Those controls do not qualify label cancellation, outer queue flushing or Reactive phase timing.
+Fixed Icarus 13.0 records 23 build rejections and eight cover-action count/input-evaluation output differences.
+
+kirimasim `786c94bbeafb` records 26 pass and five new failures, all on nonempty assertion-label cancellation.
+Separate complete-output replays preserve all non-target output and target input-evaluation counts while the cancelled target report remains.
+Four normal controls pass; an additional empty-target-report cover control is not cancellation evidence. The internal cause is unconfirmed.
+Expectations are retained. See [design and raw outputs](interaction-verification.en.md#deferred-disable-reports).

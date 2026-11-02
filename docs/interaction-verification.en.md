@@ -14,7 +14,9 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 Each run's version is recorded in linked JSON. Unless stated otherwise, added/total counts and check results in the model descriptions below record the state when that model was added. See the beginning of this overview and [Generated report](interaction-coverage.en.md) for current aggregates.
 
-Container-sampling addition on 2026-11-03: the current selection has **73 models, 2,730 tests and 105 chapter pairs**. The [full cross run](../coverage/interaction-results/cross73-kirimasim-786c94bb.json) on kirimasim `786c94bbeafb`, fetched and built immediately before execution, records **2,207 pass, 517 unsupported and six existing fail results**. All 33 new inputs parse; covergroups remain unsupported. All preceding 2,697 fingerprints and status categories are unchanged; 47 models pass their full selection. Both fixed Verilator seeds match all 33 cases; fixed Icarus rejects all 33 builds. Chapter 7×19 is registered, leaving four E and two C candidate pairs. See [design, independent checks and limits](#container-coverage-sampling).
+Deferred-report disable addition on 2026-11-03: the current selection has **74 models, 2,761 tests and 106 chapter pairs**. The [full cross run](../coverage/interaction-results/cross74-kirimasim-786c94bb.json) on kirimasim `786c94bbeafb`, fetched and built immediately before execution, records **2,233 pass, 517 unsupported and 11 failures**. All 31 new inputs parse; 26 pass and five label-cancellation cases fail. All preceding 2,730 fingerprints and status categories are unchanged. Five output differences are replayed with four passing controls and a separately identified empty-target-report control. 47 models pass their full selection. Both fixed Verilator seeds record 13 pass and 18 known results; fixed Icarus records 23 build rejections and eight output differences. Chapter 9×16 is registered, leaving three E and two C candidate pairs. See [design, independent checks and complete-output replays](#deferred-disable-reports).
+
+At the container-sampling addition on the same day, the selection had **73 models, 2,730 tests and 105 chapter pairs**. The [full cross run](../coverage/interaction-results/cross73-kirimasim-786c94bb.json) on kirimasim `786c94bbeafb`, fetched and built immediately before execution, records **2,207 pass, 517 unsupported and six existing fail results**. All 33 new inputs parse; covergroups remain unsupported. All preceding 2,697 fingerprints and status categories are unchanged; 47 models pass their full selection. Both fixed Verilator seeds match all 33 cases; fixed Icarus rejects all 33 builds. Chapter 7×19 is registered, leaving four E and two C candidate pairs. See [design, independent checks and limits](#container-coverage-sampling).
 
 At the program-assertion attempt addition on the same day, the selection had **72 models, 2,697 tests and 104 chapter pairs**. The [full cross run](../coverage/interaction-results/cross72-kirimasim-786c94bb.json) on kirimasim `786c94bbeafb`, fetched and built immediately before execution, records **2,207 pass, 484 unsupported and six existing fail results**. All 27 new inputs parse; concurrent assertions remain unsupported. All preceding 2,670 fingerprints and status categories are unchanged; 47 models pass their full selection. Both fixed Verilator seeds record 18 pass and nine known results; fixed Icarus rejects all 27 builds. Chapter 16×24 is registered, leaving four E and three C candidate pairs. See [design, independent checks and limits](#program-assertion-attempts).
 
@@ -2542,6 +2544,97 @@ These are local validation results, separate from GitHub Check/Nightly results f
 ```sh
 python3 tools/qualify_cgsample.py --verilator /path/to/verilator-5.052 \
   --output coverage/interaction-qualification/NEW-cgsample.json
+```
+
+<a id="deferred-disable-reports"></a>
+
+<a id="disableと遅延報告引数取得"></a>
+
+### Disable, deferred reports and input capture
+
+`deferred_disable_reports@1` adds 31 cases for Chapters 9×16.
+The generator is [`interaction_deferdis.py`](../generators/interaction_deferdis.py).
+Ordinary control transfer follows 9.6.2; deferred assert/assume/cover and input capture follow 16.4;
+maturity/execution follow 16.4.1, flush points follow 16.4.2 and disable-specific cancellation follows 16.4.4.
+
+<a id="因子と観測-8"></a>
+
+#### Factors and observations
+
+Seven factors cover none/assertion-label/outer-worker/inner-block/task targets, assert/assume/cover,
+odd/even cancellation, alternating/inverse/always-true predicates, sibling before/after,
+variable/function inputs and stable/changed payload.
+31 cases retain all 151 factor pairs, 92 targeted triples and ten anchors from 720 legal combinations.
+The scope×cancel×predicate lower bound is 30. Greedy selection retains mandatory rows;
+this is not a proof that 31 is minimal. No rows are excluded because of implementation support.
+
+Worker activations occur at ticks 10/20/30, control-process activations at 12/22/32 and observations at 13/23/33.
+Distinguish a sibling in the same worker from the separate-process control.
+A label cancels only its target's pending reports; outer-worker disable clears all immature reports of that process.
+Inner-block and task disable skip the local tail but retain pending reports.
+Outer disable may skip a later sibling entirely, so count local/worker tail visits as well.
+Previously reported history remains intact.
+
+Record pass/fail counts, captured-input sums, live-data sums read inside the report function,
+argument-function evaluation counts and last report times for each site.
+Input capture and argument-function side effects occur when the directive is processed and are not rolled back by cancellation.
+Changed-payload cases add 100 after the target directive, separating captured input from Reactive live data.
+A later sibling captures the changed value. Failed cover has neither a report nor action-argument evaluation.
+
+Only observed deferred `#0` is used. Final/Postponed, always_comb, flush on resumption,
+same-slot repeated activations, task outputs/ref arguments, NBA, assertion controls and X/Z are outside scope.
+The offset separate-process control does not qualify interference between simultaneously pending queues in multiple processes.
+
+<a id="独立検算固定版の実行と限界"></a>
+
+#### Independent checks, fixed tools and limits
+
+[`qualify_deferdis.py`](../tools/qualify_deferdis.py) parses emitted statements into an AST and interprets
+block/task unwinding, per-process report queues, input capture/side effects, Observed maturity and Reactive actions.
+All 720 rows are checked without reusing generator predicate or expected-output calculations.
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross74-deferdis-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross74-deferdis-verilator5052-seed73.json) each record 13 pass and 18 known results.
+Only the 13 matching cases receive oracle entries. Twelve label/outer-cancellation cases and six other changed-payload cases differ.
+Fixed [Icarus Verilog 13.0](../coverage/interaction-results/cross74-deferdis-icarus13.json) records 31 known results: 23 build rejections and eight output differences involving cover action counts/input evaluations.
+
+Six original stable-payload none/inner/task controls and seven actual SV faults execute on fixed Verilator.
+Faults omit fail counts, invert a predicate, capture another payload, omit input-evaluation side effects,
+replace inner with outer disable, omit the target task or alias the control report.
+Three known label/outer/live differences are replayed separately. All 16 executions exit zero;
+known replays are not controls or detected faults. See the [independent/runtime record](../coverage/interaction-qualification/deferdis.json).
+These controls alone do not qualify fixed-Verilator label cancellation, outer flushing or Reactive phase timing.
+
+<a id="最新kirimasimで検出したラベル取消しの不一致"></a>
+
+#### Label-cancellation differences found on latest kirimasim
+
+kirimasim `786c94bbeafb`, fetched from upstream main and built immediately before execution, parses all 31 inputs
+and records 26 pass and five fail results. The [build record](../coverage/interaction-qualification/deferdis-build.json) and
+[full 2,761-case run](../coverage/interaction-results/cross74-kirimasim-786c94bb.json) record
+2,233 pass, 517 unsupported and 11 failures. All preceding 2,730 input fingerprints and status categories are unchanged.
+The 11 failures are five new label-cancellation cases plus six existing failures; 47 models still pass their full selection.
+
+All five new differences disable a deferred directive's label inside an inner block, yet its report remains.
+They span assert/assume/cover, odd/even cancellation, variable/function inputs and stable/changed payloads.
+Using the same fresh-fetch/build procedure, [complete-output replays](../coverage/interaction-qualification/deferdis-native.json)
+reproduce all five with exit zero. Headers, sibling/control outputs and target argument-evaluation counts match expectations.
+Four inner/task/outer/live controls pass. Only stderr execution paths are replaced with public test paths.
+
+One further cover control passes, but the target is false on cancellation activations, so no report is pending.
+It is an empty-target-report control and does not establish successful label cancellation. A sibling report is pending, so the whole process queue is not empty.
+The internal cause is unconfirmed. Expectations and existing regressions are retained.
+
+Local validation at introduction passed all 714 tool unit tests and 13 consistency checks.
+Metadata checks cover 10,511 tests with zero new problems (395 known); 114 language pairs and 52,855 local links were also checked.
+These are local validation results, separate from GitHub Check/Nightly results for this addition.
+
+```sh
+# Use a build fetched from upstream main immediately before execution.
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim \
+  tests/gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_inverse_before_function_change.sv
+python3 tools/qualify_deferdis.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-deferdis.json
 ```
 
 <a id="モデル変更時の更新"></a>

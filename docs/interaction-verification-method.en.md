@@ -146,6 +146,8 @@ When multiple assertion attempts complete on one clock, choose observations that
 
 Observe state updates separately from coverage collection. The container cross reports values and bin histories around mutations, detecting history advancement without a sample or fulfillment after one hit when two are required. Make empty-queue value readers safe themselves; do not assume iff alone prevents out-of-bounds reads. For an LSI FIFO, first define acceptance, depth-update and observation order plus target/control independence, then count only accepted requests toward coverage. See the [example](interaction-verification.en.md#container-coverage-sampling).
 
+When checking cancellation, abort or flush, separately verify that an unfinished target exists. A deferred-report case passes when cover is false on cancellation activations and no target report is pending; this does not establish successful label cancellation. Separate input-evaluation counts from actual report counts to check that cancelled reports can leave input evaluation and side effects intact. For LSI, distinguish reset/abort with zero outstanding transactions from reset/abort with outstanding work. See the [example and complete-output replays](interaction-verification.en.md#deferred-disable-reports).
+
 <a id="3-少ないケースを選ぶ仕組み"></a>
 
 ## 3. How to select a small case set

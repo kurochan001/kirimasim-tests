@@ -14,7 +14,9 @@
 
 各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・ 検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と [生成レポート](interaction-coverage.md)を参照してください。
 
-2026-11-03のコンテナsample追加：現在は**73モデル・2,730件・105章対**です。実行直前に上流mainを取得・ビルドしたkirimasim `786c94bbeafb`の[全クロス保存実行](../coverage/interaction-results/cross73-kirimasim-786c94bb.json)は**2,207 pass・517 unsupported・既存6 fail**です。新規33件はすべて解析成功・covergroup未対応です。従来2,697件の入力ハッシュと結果区分は同じで、全選択ケースPASSは47モデルです。固定Verilatorは両seedで33件すべて一致し、固定Icarusは33件ともビルド拒否でした。第7章×第19章を登録し、E候補4対・C候補2対です。[設計・独立検算・実行限界](#container-coverage-sampling)を参照してください。
+2026-11-03の遅延報告disable追加：現在は**74モデル・2,761件・106章対**です。実行直前に上流mainを取得・ビルドしたkirimasim `786c94bbeafb`の[全クロス保存実行](../coverage/interaction-results/cross74-kirimasim-786c94bb.json)は**2,233 pass・517 unsupported・11 fail**です。新規31件はすべて解析成功、26 pass・ラベル取消し5 failでした。従来2,730件の入力ハッシュと結果区分は同じです。新規5件を出力差として再現し、正常対照4件と対象報告がない別対照1件も保存しました。全選択ケースPASSは47モデルです。固定Verilatorは両seedで13 pass・18 known、固定Icarusは23件ビルド拒否・8件出力不一致です。第9章×第16章を登録し、E候補3対・C候補2対です。[設計・独立検算・再現出力](#deferred-disable-reports)を参照してください。
+
+同日のコンテナsample追加時点では**73モデル・2,730件・105章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `786c94bbeafb`の[全クロス保存実行](../coverage/interaction-results/cross73-kirimasim-786c94bb.json)は**2,207 pass・517 unsupported・既存6 fail**です。新規33件はすべて解析成功・covergroup未対応です。従来2,697件の入力ハッシュと結果区分は同じで、全選択ケースPASSは47モデルです。固定Verilatorは両seedで33件すべて一致し、固定Icarusは33件ともビルド拒否でした。第7章×第19章を登録し、E候補4対・C候補2対です。[設計・独立検算・実行限界](#container-coverage-sampling)を参照してください。
 
 同日のprogramアサーション試行追加時点では**72モデル・2,697件・104章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `786c94bbeafb`の[全クロス保存実行](../coverage/interaction-results/cross72-kirimasim-786c94bb.json)は**2,207 pass・484 unsupported・既存6 fail**です。新規27件はすべて解析成功・並行アサーション未対応です。従来2,670件の入力ハッシュと結果区分は同じで、全選択ケースPASSは47モデルです。固定Verilatorは両seedで18 pass・9 known、固定Icarusは27件ともビルド拒否でした。第16章×第24章を登録し、E候補4対・C候補3対です。[設計・独立検算・実行限界](#program-assertion-attempts)を参照してください。
 
@@ -2528,6 +2530,96 @@ kirimasim `786c94bbeafb`は、実行直前に取得した上流mainからビル�
 ```sh
 python3 tools/qualify_cgsample.py --verilator /path/to/verilator-5.052 \
   --output coverage/interaction-qualification/NEW-cgsample.json
+```
+
+<a id="deferred-disable-reports"></a>
+
+<a id="disable-deferred-reports-and-input-capture"></a>
+
+### disableと遅延報告・引数取得
+
+`deferred_disable_reports@1`は第9章×第16章の31件です。
+生成器は[`interaction_deferdis.py`](../generators/interaction_deferdis.py)です。
+通常の制御移動は9.6.2、遅延即時assert/assume/coverと引数取得は16.4、報告の成熟と実行は16.4.1、
+flush点は16.4.2、disable対象に応じた取消しは16.4.4から確認します。
+
+<a id="factors-and-observations-8"></a>
+
+#### 因子と観測
+
+取消し対象none/アサーションラベル/最外worker/内側ブロック/task、assert/assume/cover、
+奇数回/偶数回の取消し、交互/逆交互/常に真の条件、兄弟文の前/後、変数/関数の入力引数、
+payload保持/変更の7因子です。合法な720通りから151因子ペア・重点の92組の3因子組合せ・
+必須10行を保持する31件を選びます。scope×cancel×predicateの下限は30件です。
+選択は必須行を残す貪欲法で、この計画の最小件数を証明したものではありません。未対応による除外はありません。
+
+workerは時刻10/20/30に処理し、対照プロセスは12/22/32、観測は13/23/33です。
+同じworkerの兄弟文と、別プロセスの対照を区別します。
+ラベル指定は対象の待機報告だけを取り消し、最外workerのdisableはそのプロセスの未成熟報告をすべて消します。
+内側ブロックとtaskのdisableは局所の末尾を飛ばしますが、待機報告を消しません。
+最外スコープでは後置の兄弟文自体を飛ばす場合があるため、局所末尾・worker末尾の通過回数も観測します。
+以前の周期で報告済みの履歴は消しません。
+
+各文のpass/fail回数、入力取得値の総和、報告関数内で読む生値の総和、引数関数の評価回数、
+最終報告時刻を記録します。入力引数は文を処理した時点で取得し、関数引数の副作用もその時点で起きます。
+報告を取り消しても、その評価を巻き戻しません。payload変更では対象文の直後に100を加え、
+取得済みの値とReactiveの生値を区別します。兄弟を後置した場合、その入力は変更後の値です。
+失敗したcoverには報告もアクション引数評価もありません。
+
+対象はobserved deferredの`#0`です。final/Postponed、always_comb、再開時のflush、
+同時刻の複数起動、task出力/ref引数、NBA、アサーション制御、X/Zは対象外です。
+時刻をずらした別プロセスの対照は、同時刻に複数プロセスが持つ待機キューの相互干渉までを確認しません。
+
+<a id="independent-checks-fixed-tools-and-limits"></a>
+
+#### 独立検算・固定版の実行と限界
+
+[`qualify_deferdis.py`](../tools/qualify_deferdis.py)は生成された文をASTへ読み、
+ブロック/taskの制御移動、プロセス別の報告キュー、引数取得・副作用、Observedでの成熟とReactiveの実行を解釈します。
+生成器の条件関数・期待値計算を再利用せず、全720行を照合します。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross74-deferdis-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross74-deferdis-verilator5052-seed73.json)は各13 pass・18 knownです。
+13件だけにoracleを登録します。ラベル/最外取消しの12件と、それ以外のpayload変更6件は不一致でした。
+固定[Icarus Verilog 13.0](../coverage/interaction-results/cross74-deferdis-icarus13.json)は31 knownで、23件はビルド拒否、8件はcoverアクションの回数・入力評価などの出力不一致でした。
+
+元の正常対照6件（payload保持、none/内側/task）と、実際のSV故障7件を固定Verilatorで実行します。
+fail回数の欠落、条件反転、別payloadの取得、引数評価の副作用欠落、内側を最外disableへ変更、
+task呼出し欠落、対照報告の誤接続を出力差で検出しました。別途、ラベル取消し・最外flush・生値の既知差3件を再実行します。
+全16実行が終了コード0です。既知差は正常対照や故障検出に数えません。
+[独立検算・実行出力](../coverage/interaction-qualification/deferdis.json)に区分して保存します。
+この正常対照だけで、固定Verilatorのラベル取消し・最外flush・Reactive実行時点を確認したとは扱いません。
+
+<a id="label-cancellation-differences-found-on-latest-kirimasim"></a>
+
+#### 最新kirimasimで検出したラベル取消しの不一致
+
+実行直前に上流mainを取得・ビルドしたkirimasim `786c94bbeafb`は新規31件をすべて解析し、26 pass・5 failでした。
+[ビルド記録](../coverage/interaction-qualification/deferdis-build.json)と
+[全2,761件の保存実行](../coverage/interaction-results/cross74-kirimasim-786c94bb.json)は、
+2,233 pass・517 unsupported・11 failです。従来2,730件の入力ハッシュと結果区分はすべて同じです。
+11件の内訳は新規ラベル取消し5件と既存6件で、全選択ケースPASSは47モデルのままです。
+
+5件はいずれも内側ブロックの遅延文ラベルをdisableするケースで、取消し対象の報告が残りました。
+assert/assume/cover、奇数/偶数、変数/関数、payload保持/変更にまたがります。
+同じ最新取得・ビルド手順で[出力を再採取](../coverage/interaction-qualification/deferdis-native.json)し、
+5件を終了コード0の出力差として再現しました。観測ヘッダ・兄弟・別プロセスの出力と、対象の引数評価回数は一致しています。
+比較対象の内側/task/最外/liveの正常対照4件はPASSです。stderrの実行パスだけを公開用のテストパスへ置換しています。
+
+別のcover対照1件もPASSですが、取消しが働く周期には対象が偽で、取り消す報告がありません。
+これは取消し対象の報告がない対照であり、ラベル取消し成功の証拠には数えません。兄弟の報告は待機するため、プロセス全体のキューが空という意味ではありません。
+内部原因は未確認です。期待値や既存の回帰テストは変更しません。
+
+追加時のローカル検査は、ツール単体テスト714件と整合性13項目がすべてPASSです。
+メタデータ検査は10,511件で新規問題0件（既知395件）、日英114組とローカルリンク52,855件も確認しました。
+これは、この追加分のGitHub Check/Nightlyとは別のローカル検査記録です。
+
+```sh
+# 実行直前に上流mainからビルドした版を指定する
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim \
+  tests/gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_inverse_before_function_change.sv
+python3 tools/qualify_deferdis.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-deferdis.json
 ```
 
 <a id="updates-after-model-changes"></a>

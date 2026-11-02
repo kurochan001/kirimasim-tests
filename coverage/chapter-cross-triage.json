@@ -51,28 +51,6 @@
     },
     {
       "chapters": [
-        9,
-        16
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "disableと遅延即時アサーションのアクションが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "disableと遅延即時アサーションのアクション",
-      "factors": [
-        "disable対象（assert/block/task）",
-        "条件変更",
-        "遅延assert種別"
-      ],
-      "observation": "アサーションラベルをdisableした場合と周辺スコープをdisableした場合のアクション回数を区別する。",
-      "witnesses": [
-        {
-          "test": "tests/ch16/test_deferred_assertion_disable_inner_scope.sv",
-          "inputs_sha256": "6202fb6b559d7f15edd32f0a94833c5f611a07b0472b175bf6faa50f4ce2ede7"
-        }
-      ]
-    },
-    {
-      "chapters": [
         11,
         19
       ],

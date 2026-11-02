@@ -74,6 +74,7 @@ import interaction_sdfpath
 import interaction_checksample
 import interaction_progassert
 import interaction_cgsample
+import interaction_deferdis
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -108,7 +109,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_ifimport,
               interaction_mailbox,
               interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff, interaction_assocquery, interaction_randreduce,
-              interaction_gendisable, interaction_dist, interaction_eventlife, interaction_dpiquery, interaction_sdfpath, interaction_checksample, interaction_progassert, interaction_cgsample, interaction_compound, interaction_inside, interaction_range,
+              interaction_gendisable, interaction_dist, interaction_eventlife, interaction_dpiquery, interaction_sdfpath, interaction_checksample, interaction_progassert, interaction_cgsample, interaction_deferdis, interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
 
@@ -651,6 +652,13 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_cgsample.MODEL.select(),
             "配列・キューの変更前後でサイズ・先頭/末尾値をsampleし、直接参照と引数、空のガード、"
             "必要ヒット数と対象/対照それぞれのbin履歴を照合する。",
+        ),
+        SuiteModel(
+            interaction_deferdis.MODEL,
+            lambda row: "tests/gen/ch16/" + interaction_deferdis.case_name(row) + ".sv",
+            interaction_deferdis.MODEL.select(),
+            "disable対象のスコープと未成熟の遅延報告を、兄弟・別プロセスの対照、引数取得と副作用、"
+            "報告時の生値・通常の制御移動・報告済み履歴の保持と照合する。",
         ),
         SuiteModel(
             interaction_event_rebind.MODEL,

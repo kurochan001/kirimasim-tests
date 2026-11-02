@@ -518,9 +518,9 @@ tests/ch16/test_procedural_assertion_clock_inference.sv",既存モデルの計�
 9,プロセス,15,プロセス間の同期と通信,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,90,"tests/ch13/test_function_nonblocking_statements_no_delay.sv
 tests/ch15/test_event_nonblocking_trigger.sv
 tests/ch15/test_event_ordering.sv",既存モデルの計画・実行証跡を維持する,,
-9,プロセス,16,アサーション,E2,既存検証あり・章対未登録,P2,0,disableと遅延即時アサーションのアクションが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。,disableと遅延即時アサーションのアクション,disable対象（assert/block/task） / 条件変更 / 遅延assert種別,アサーションラベルをdisableした場合と周辺スコープをdisableした場合のアクション回数を区別する。,1,tests/ch16/test_deferred_assertion_disable_inner_scope.sv,17,"tests/ch16/test_assertion_gated_clock_current_value.sv
+9,プロセス,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,48,"tests/ch16/test_assertion_gated_clock_current_value.sv
 tests/ch16/test_assertion_sequence_clock_delay.sv
-tests/ch16/test_deferred_assertion_forked_processes.sv",既存テストを再利用し、因子モデル化の要否と不足条件を確認する,2026-11-03,"Codex (GPT-6), AI review"
+tests/ch16/test_deferred_assertion_disable_inner_scope.sv",既存モデルの計画・実行証跡を維持する,,
 9,プロセス,17,チェッカー,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 9,プロセス,18,制約付き乱数値の生成,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch26/test_std_package_access.sv
 tests/ch9/test_process_random_state.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,

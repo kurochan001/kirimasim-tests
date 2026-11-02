@@ -1,0 +1,181 @@
+{
+  "model": "deferred_disable_reports",
+  "generated_at": "2026-11-02T22:45:38.611911+00:00",
+  "commit": "786c94bbeafbabff723eb0bfd680b4ebde7ea630",
+  "version": "kirimasim 0.0.0 (commit 786c94bbeafb), built with AppleClang 21.0.0.21000401",
+  "binary_sha256": "d9f8c230c5a6409918cd52d168ac4add3e9a5cd1553ea2e679d756e8164d9d16",
+  "binary_unchanged": true,
+  "source_clean": true,
+  "latest_main_fetched_before_build": true,
+  "run": "coverage/interaction-results/cross74-kirimasim-786c94bb.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2233,
+    "unsupported": 517,
+    "fail": 11
+  },
+  "new_cases": {
+    "pass": 26,
+    "fail": 5
+  },
+  "previous_cases": 2730,
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": {
+    "tests/gen/ch16/test_gen_cross_deferdis_none_assert_odd_alternating_before_function_stable.sv": {
+      "inputs_sha256": "c6f9c7266c93f85afbf35a41540bd79ad7a355455c55569298fd2aedad4950c0",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_inner_assume_even_inverse_after_variable_stable.sv": {
+      "inputs_sha256": "d4bf14f26331bbebb0cc66e0ac6ba2741cb2664df8f80b849c0ed7789333c553",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_task_cover_odd_positive_before_function_stable.sv": {
+      "inputs_sha256": "1f20deb75df54e2f1997e76b541f9ba2c3078dc3b701e9c2f52e14775b37cb0e",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_none_cover_even_inverse_after_variable_stable.sv": {
+      "inputs_sha256": "9988f9bf37c960764ff9f6cce0bb201717f58e85831f72e7ae220a5826d18c81",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_task_assert_even_alternating_after_function_stable.sv": {
+      "inputs_sha256": "9f154a881e0d10fbd228bef4b56eebe7bd2486374d056bf886b66544ad0de0e1",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_inner_cover_odd_alternating_before_function_stable.sv": {
+      "inputs_sha256": "5f46863e043bd4ee890fdec74aac85ff3c1f714aa0b4befd9ae1d13a94fc00a7",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_inverse_before_function_change.sv": {
+      "inputs_sha256": "aa26cce37199bb64bd3e3981a5e8b4bcb7cd5d93c43506884e65c0ee6dac423a",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_outer_assume_even_positive_after_variable_stable.sv": {
+      "inputs_sha256": "67823d826684603e9191338d815f2b9fc2f3da15e4a7aa2acb3553c0bf95d067",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_none_assert_even_positive_before_function_change.sv": {
+      "inputs_sha256": "f215ed75d6c854b182dd2b2db918c574d855608c25ce79e9a014314584ea4d9d",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_outer_cover_odd_alternating_before_function_stable.sv": {
+      "inputs_sha256": "cbe0b838b0760c9b2684cc43e8bc74c8da52d9741d3f9c700b1914fc735e888a",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_assertion_assume_odd_alternating_after_variable_change.sv": {
+      "inputs_sha256": "17d7a16506e6406c4da7fd140775e055fa9138ffed1bd7dd95e9a015eaf50758",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_assertion_assume_even_positive_before_function_stable.sv": {
+      "inputs_sha256": "8615cc10083dfe802cc4ca4d85bce651ddfc3327acc760b2d964c442844d868a",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_outer_assert_odd_inverse_before_variable_change.sv": {
+      "inputs_sha256": "d0dc45ee5fbfc1ed99c6a9a398cc617775c2d7cd9c9358a003365764b636b3dc",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_task_cover_odd_inverse_after_variable_change.sv": {
+      "inputs_sha256": "fe520a04822b68dd0cadb583101e19c0115e0abca8bfce196539ae1e1a29eb8b",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_inner_assert_odd_positive_before_variable_change.sv": {
+      "inputs_sha256": "6b3691a96c0afc15f55ac23c99d5df8d36110dd03667067113f838a7ef07459d",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_task_assume_odd_alternating_before_function_change.sv": {
+      "inputs_sha256": "a5fcf889424c73071b311d70986ae82beb85d55156f0108c230e5a0d50543cb9",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_none_assume_odd_inverse_before_variable_change.sv": {
+      "inputs_sha256": "ad76c6c49278d303966ace50ecb4c75f026bb91083651acdfe40a364fddb91d0",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_positive_after_variable_stable.sv": {
+      "inputs_sha256": "2a77fe69f28d2e581ec923491b1d08dbe48b17263dee1cc28ae87581d92a3df5",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_assertion_cover_even_alternating_before_function_change.sv": {
+      "inputs_sha256": "916443a655a06b13bc6345a4cb8ce4ead971f40bef94d0790446bab1075bdae7",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_outer_assert_odd_positive_after_function_change.sv": {
+      "inputs_sha256": "8db5753823bb725b0a7903f1c190747b34f2039edaa0023b7e5b5fde78d32c0f",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_inner_assert_odd_inverse_after_function_change.sv": {
+      "inputs_sha256": "a450290205644ce42bbb87e2285bc8efc1838a4c56c5e2f89ea76a387f802da9",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_task_assert_even_inverse_before_variable_stable.sv": {
+      "inputs_sha256": "e6765aaf9f2c6c4ea6ec52364523883452be5b72073febad34e6fe994255b9ad",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_none_assert_odd_positive_after_variable_stable.sv": {
+      "inputs_sha256": "76ce841c0c4fce036c7138e48bbb53c47c8019279770b7b17d8e37ecf9ddbc62",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_none_assume_even_alternating_after_variable_stable.sv": {
+      "inputs_sha256": "8aea9c5d1f4afd49c53b54d2109e2c3bd5ee0a95215b80494e34fac7a7493648",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_assertion_cover_even_inverse_after_variable_stable.sv": {
+      "inputs_sha256": "e5c37a9b40e9d3eec4456c362649882f86c02d6acb3f80f0e338a9a7cb408a21",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_outer_assume_even_alternating_before_variable_stable.sv": {
+      "inputs_sha256": "0efd216439c8145b268ae5271d3737f487a29c6cfe78804629c44adec7b51db5",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_outer_cover_even_inverse_after_variable_stable.sv": {
+      "inputs_sha256": "61f8f778116c434b1024c6e8604d1bca6892b1cd87c940b5135ab5992b643995",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_inner_assume_even_alternating_before_variable_stable.sv": {
+      "inputs_sha256": "0dac4f6ca8a7f74280e04a2c984cef7cd5737874981973435817159d217846e6",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_inner_cover_even_positive_after_variable_stable.sv": {
+      "inputs_sha256": "1bcb8f03f3327fcbbfaff1d6ff8d5bae51f05d6c9ec4f4fad022ebae54149034",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_task_assume_even_positive_after_variable_stable.sv": {
+      "inputs_sha256": "5aa1f93521ff2d8a8a67c201cbbe26bc61b8ccbde2e92963a7236c2bcb2ca190",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_deferdis_none_cover_odd_alternating_before_variable_stable.sv": {
+      "inputs_sha256": "dfd59890cdf50f73fd346c8769b8c8e98f2a0f113292edc261b23fb16b5382d8",
+      "returncode": 0,
+      "stderr": ""
+    }
+  }
+}

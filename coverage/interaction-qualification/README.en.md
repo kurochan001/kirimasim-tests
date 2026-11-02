@@ -303,3 +303,18 @@ Both fixed Verilator seeds match all 33 cases. Use a singleton empty-container b
 Single-coverpoint groups expose percentages; coverpoint-query APIs, ref outputs and group-default inheritance are outside scope.
 [`cgsample-build.json`](cgsample-build.json) records upstream fetched immediately before execution, revision, binary hash, 33 successful parses and full cross results.
 kirimasim covergroup execution remains unsupported. See [design and limits](../../docs/interaction-verification.en.md#container-coverage-sampling).
+
+<a id="deferred-disable-report-checks"></a>
+
+<a id="disableと遅延報告の独立検算再現"></a>
+
+## Independent disable/deferred-report checks and replays
+
+[`deferdis.json`](deferdis.json) records independent AST/control-flow/per-process queue and input-capture checks for all 720 rows.
+Six fixed-Verilator controls, seven SV faults and three known replays all exit zero; known differences are not controls or detected faults.
+Both normal seeds record 13 pass and 18 known results. These controls do not qualify label cancellation, outer flushing or Reactive timing.
+[`deferdis-build.json`](deferdis-build.json) records latest-upstream build/parsing of all 31 inputs, 26 pass and five label-cancellation failures.
+[`deferdis-native.json`](deferdis-native.json) records a fresh-fetch/build replay of all five output differences, with complete outputs.
+Other sites and input-evaluation counts match; four inner/task/outer/live controls pass. Only stderr execution paths are replaced for publication.
+A separate empty-target-report cover control does not establish successful label cancellation.
+See [design and limits](../../docs/interaction-verification.en.md#deferred-disable-reports).
