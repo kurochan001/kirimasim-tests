@@ -219,3 +219,57 @@ seed 1・73の各96ケースとseed 20261102の256ケース、計448件がPASS�
 [`random-cross-manifest.json`](random-cross-manifest.json)に96ケースの実際の刺激を保存しています。
 ランダム実行、再現、故障注入を固定スイートの本数や合格モデル数へ加算せず、GitHub Nightly成功とも読み替えません。
 [対象・制限・再現手順](../../docs/random-cross-verification.md)を参照してください。
+
+<a id="aggregate-event-lifetime-checks"></a>
+
+<a id="independent-aggregate-event-lifetime-checks"></a>
+
+## 構造体内イベントの寿命の独立検算
+
+[`eventlife.json`](eventlife.json)は全432行のSV刺激を独立したオブジェクト・フレーム・イベントキューで解釈し、期待値と照合した記録です。
+8種類のソース変異を解釈上の出力差・残存待機で識別します。SVの故障注入実行や正常対照の実行成功ではありません。
+固定Icarus／Verilatorは全18件をビルド時に拒否し、oracleは追加していません。
+[`eventlife-build.json`](eventlife-build.json)は実行直前に確認した上流コミット、ビルド版、バイナリ指紋、解析成功18件と全クロス実行先を記録します。
+kirimasimの実行はイベント値操作が未対応です。[設計と限界](../../docs/interaction-verification.md#aggregate-event-lifetime)を参照してください。
+
+<a id="sv-dpi-array-query-checks"></a>
+
+<a id="independent-svdpi-array-query-checks-and-execution"></a>
+
+## SV/DPI配列問い合わせの独立検算と実行
+
+[`dpiquery.json`](dpiquery.json)は、生成宣言・問い合わせ式による全1,152行の独立検算と、実際のCプローブをテスト専用ABIスタブで2,304回呼び出した照合を記録します。
+合成した形状のスタブは、シミュレータのマーシャリングの確認ではありません。元の正規化済みpackedの対照3件と、SV/Cの6故障は全て実行し、終了コード0で出力差を検出しました。
+オフセット付きpackedとopen packedの実行確認はこの対照の範囲外です。通常の固定Verilator実行は11 pass・8 knownです。
+[`dpiquery-build.json`](dpiquery-build.json)は最新上流と照合したビルド版・バイナリ指紋・19件の解析成功・全クロス実行先を記録します。
+kirimasimランナーはCコード付きテストを実行前に未対応へ分類するため、DPI実行は未確認です。
+[設計と限界](../../docs/interaction-verification.md#sv-dpi-array-queries)を参照してください。
+
+<a id="sdf-conditional-path-checks"></a>
+
+<a id="sdf-conditional-path-checks-and-execution"></a>
+
+## SDF条件付きパスの検算と実行
+
+[`sdfpath.json`](sdfpath.json)は、生成specify・SDF・刺激列を独立したパーサとイベントヒープで全288行照合した記録です。
+元の通常パス・ABSOLUTEの正常対照3件とSV/SDFの6故障は、固定Icarusで全て終了コード0となり、故障を出力差で検出しました。
+COND／CONDELSE／INCREMENTに関する3変異は独立解釈だけで、実行による故障検出とは分けます。
+通常の固定Icarus実行は3 pass・15 known、固定Verilatorは両seedで18 knownです。
+[`sdfpath-build.json`](sdfpath-build.json)は実行直前に確認した上流コミット・ビルド版・バイナリ指紋・18件の解析成功・全クロス実行先を記録します。
+kirimasimの実行は条件付きパスまたは$sdf_annotateが未対応です。[設計と限界](../../docs/interaction-verification.md#sdf-conditional-paths)を参照してください。
+
+<a id="checker-assertion-sampling-checks"></a>
+
+<a id="independent-checker-sampling-checks-and-execution"></a>
+
+## checkerサンプリングの独立検算と実行
+
+[`checksample.json`](checksample.json)は、生成した接続・clocking・刺激を別の領域モデルで全1,296行照合した記録です。
+元の正常対照5件とSVの7故障は全て終了コード0で、故障を出力差として検出しました。
+別の2件の不一致再現は、正常対照や故障検出に加算しません。1ビットベクタの同時刻NBAでは、checkerとmodule参照が同じ古い生値を返しました。
+通常の固定Verilator実行は両seedで25 pass・2 known、固定Icarusは全27件をビルド時に拒否しています。
+[`checksample-build.json`](checksample-build.json)は最新上流と照合したビルド版・バイナリ指紋・27件の解析成功・全クロス実行先を記録します。
+kirimasimの実行はcheckerインスタンスが未対応です。[設計と共通の誤りの検出](../../docs/interaction-verification.md#checker-assertion-sampling)を参照してください。
+
+[`checksample-m4.json`](checksample-m4.json)は、M4の既存トレースによる再照合で7一致・44明示保留を記録します。
+追加したchecker候補2件は、入力ハッシュと理由付きでM4では保留とし、クロス専用の検算やシミュレータ再現とは区別します。

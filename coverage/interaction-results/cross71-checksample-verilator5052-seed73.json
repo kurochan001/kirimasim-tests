@@ -1,0 +1,123 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch17/test_gen_cross_checksample_1_interface_named_edge_blocking_posedge_explicit_parity": {
+   "status": "pass",
+   "inputs_sha256": "21e6eb65518f7c2aa589cc1c4dac2a14da54aa23981bf6745ddb6eedb625be4c"
+  },
+  "gen/ch17/test_gen_cross_checksample_1_interface_positional_after_blocking_posedge_explicit_zero": {
+   "status": "pass",
+   "inputs_sha256": "eec20c62c7e796de6b5453596ec306db1d2d5d7907e18491d651f06bc08a643e"
+  },
+  "gen/ch17/test_gen_cross_checksample_1_interface_wildcard_edge_nba_negedge_explicit_zero": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'site0 checker pass=1 fail=0 pred=1 sampled=0 live=0 at=8', expected 'site0 checker pass=1 fail=0 pred=1 sampled=0 live=1 at=8'",
+   "inputs_sha256": "25cbff545a759b892537ffdf8954618ed73d5ef03b70030e4f3d614b21240d48"
+  },
+  "gen/ch17/test_gen_cross_checksample_1_module_named_before_blocking_posedge_default_parity": {
+   "status": "pass",
+   "inputs_sha256": "6197e22065d026b4305613787fc33b567f8cb0eabeba01cfbab92384d0dcc2b3"
+  },
+  "gen/ch17/test_gen_cross_checksample_1_module_positional_after_blocking_posedge_explicit_nonzero": {
+   "status": "pass",
+   "inputs_sha256": "908cb026a1ccdd386fbcbe7ce7697c6ef3ebd2e2149411cc01e814f42c944a8a"
+  },
+  "gen/ch17/test_gen_cross_checksample_1_module_positional_after_blocking_posedge_explicit_parity": {
+   "status": "pass",
+   "inputs_sha256": "228c173b355c41ac802ce24b338480ff16450caa4558288ff4444b38c9c1f551"
+  },
+  "gen/ch17/test_gen_cross_checksample_1_module_positional_before_blocking_posedge_explicit_zero": {
+   "status": "pass",
+   "inputs_sha256": "87a87eb52bcd29cb8135c06599d54d81606aa7173d68518af6ac8997e20fa9dd"
+  },
+  "gen/ch17/test_gen_cross_checksample_1_module_positional_edge_nba_posedge_explicit_nonzero": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'site0 checker pass=0 fail=1 pred=0 sampled=0 live=0 at=8', expected 'site0 checker pass=0 fail=1 pred=0 sampled=0 live=1 at=8'",
+   "inputs_sha256": "e1a404bbd528988892528ba3e462db7ea1a31e3c0e373e969db65da3c02fb192"
+  },
+  "gen/ch17/test_gen_cross_checksample_1_module_wildcard_before_blocking_posedge_explicit_nonzero": {
+   "status": "pass",
+   "inputs_sha256": "3ed2faa3f1596de71d26465957b2fdd014de54cbfa991c2aacf8c6506f220746"
+  },
+  "gen/ch17/test_gen_cross_checksample_33_interface_named_before_blocking_negedge_default_zero": {
+   "status": "pass",
+   "inputs_sha256": "69ecf8aa57836679f77a276e6097121d26a53fc3e95fc7908fbf3a92579c24f6"
+  },
+  "gen/ch17/test_gen_cross_checksample_33_interface_positional_before_nba_posedge_explicit_parity": {
+   "status": "pass",
+   "inputs_sha256": "b9c8468d383f01c0a0bd727c0347a12554bfac0dad85ecab457d7ebd97cbf2cf"
+  },
+  "gen/ch17/test_gen_cross_checksample_33_module_positional_after_blocking_negedge_default_nonzero": {
+   "status": "pass",
+   "inputs_sha256": "a6dbc4f74523be374fb1f4322bcf48a77cdf37e61577a60d68e24ce5f305534c"
+  },
+  "gen/ch17/test_gen_cross_checksample_33_module_positional_after_blocking_posedge_explicit_parity": {
+   "status": "pass",
+   "inputs_sha256": "2b0a1260d009458d973662a98b5918f62b51525047634e6e51c8e7a7d3cda782"
+  },
+  "gen/ch17/test_gen_cross_checksample_33_module_positional_after_blocking_posedge_explicit_zero": {
+   "status": "pass",
+   "inputs_sha256": "b0809bd58aec353c72ee65619b8277c630a27b34d13987934d7dbd65b8abcf20"
+  },
+  "gen/ch17/test_gen_cross_checksample_33_module_positional_before_blocking_posedge_explicit_nonzero": {
+   "status": "pass",
+   "inputs_sha256": "02277327485e8a0f909a04edd16659071b138186c9234c716b16411466338036"
+  },
+  "gen/ch17/test_gen_cross_checksample_33_module_positional_edge_blocking_posedge_explicit_nonzero": {
+   "status": "pass",
+   "inputs_sha256": "df5505ab06329e9489f96c9189187f2c23a41a716d2efe133f8f30f602088b38"
+  },
+  "gen/ch17/test_gen_cross_checksample_33_module_positional_edge_blocking_posedge_explicit_zero": {
+   "status": "pass",
+   "inputs_sha256": "5d9fae8b7da7b9a7cd7031f4f02dd4fa85c45ef87210b32fafa8f49340c600f7"
+  },
+  "gen/ch17/test_gen_cross_checksample_33_module_wildcard_edge_blocking_negedge_default_parity": {
+   "status": "pass",
+   "inputs_sha256": "90ca9fb9d6b3ed84aa0078f73725ed3be1a6c79761441f0a769220913ea8910e"
+  },
+  "gen/ch17/test_gen_cross_checksample_8_interface_positional_edge_blocking_posedge_default_nonzero": {
+   "status": "pass",
+   "inputs_sha256": "2f9fed4d1b6c2445387f913db321518e205b012c0d5789d1b28fdbbbe50babe9"
+  },
+  "gen/ch17/test_gen_cross_checksample_8_interface_wildcard_after_nba_posedge_default_parity": {
+   "status": "pass",
+   "inputs_sha256": "05b31b502fb9a900eb8f6e859f7f6e725ea8be131e674c00a2dbd22998a1e754"
+  },
+  "gen/ch17/test_gen_cross_checksample_8_module_named_after_nba_negedge_explicit_zero": {
+   "status": "pass",
+   "inputs_sha256": "ed8a07911814b8b08948a0262e298193f7d5e82284ab9e35a0e8b30397427657"
+  },
+  "gen/ch17/test_gen_cross_checksample_8_module_named_before_nba_negedge_explicit_nonzero": {
+   "status": "pass",
+   "inputs_sha256": "09fe57e8dd94f5a255d64ab6985fca538ef38624039c2f2986e150f4c8c745bf"
+  },
+  "gen/ch17/test_gen_cross_checksample_8_module_positional_after_blocking_posedge_explicit_nonzero": {
+   "status": "pass",
+   "inputs_sha256": "2c08e387b7258c54a2d144fbf972219b21b1a42024e50639384580cefe871819"
+  },
+  "gen/ch17/test_gen_cross_checksample_8_module_positional_before_blocking_posedge_explicit_parity": {
+   "status": "pass",
+   "inputs_sha256": "50cfa1967cf6e43d2d5e367e9356e6854d479f5f6c5e3c701735362bfc93582b"
+  },
+  "gen/ch17/test_gen_cross_checksample_8_module_positional_before_blocking_posedge_explicit_zero": {
+   "status": "pass",
+   "inputs_sha256": "3e3c6cc746e4de889e2471e90ac2a7e64a2711c29b1782c3d23db1d8bacccd26"
+  },
+  "gen/ch17/test_gen_cross_checksample_8_module_positional_edge_blocking_posedge_explicit_parity": {
+   "status": "pass",
+   "inputs_sha256": "feb87012756ca0ff21e97ba311ac9168ba8d7aa05a99f4e472c1c7263ce86a6b"
+  },
+  "gen/ch17/test_gen_cross_checksample_8_module_positional_edge_blocking_posedge_explicit_zero": {
+   "status": "pass",
+   "inputs_sha256": "5e6d060ec69156329c6121cedc319ca6da7ac04018ef56ebfe3e8658539a27ca"
+  }
+ },
+ "generated_at": "2026-11-02T21:01:18.644881+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

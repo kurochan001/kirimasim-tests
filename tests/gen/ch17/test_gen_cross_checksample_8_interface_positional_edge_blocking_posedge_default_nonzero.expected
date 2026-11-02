@@ -1,0 +1,42 @@
+phase=0 time=16
+site0 checker pass=0 fail=1 pred=0 sampled=00000000 live=11111111 at=8
+site0 module pass=0 fail=1 pred=0 sampled=00000000 live=11111111 at=8
+site0 final=11111111
+site1 checker pass=1 fail=0 pred=1 sampled=11111111 live=00000000 at=12
+site1 module pass=1 fail=0 pred=1 sampled=11111111 live=00000000 at=12
+site1 final=00000000
+phase=1 time=36
+site0 checker pass=1 fail=1 pred=1 sampled=11111111 live=00000000 at=28
+site0 module pass=1 fail=1 pred=1 sampled=11111111 live=00000000 at=28
+site0 final=00000000
+site1 checker pass=1 fail=1 pred=0 sampled=00000000 live=11111111 at=32
+site1 module pass=1 fail=1 pred=0 sampled=00000000 live=11111111 at=32
+site1 final=11111111
+phase=2 time=56
+site0 checker pass=2 fail=1 pred=1 sampled=00000001 live=10000000 at=48
+site0 module pass=2 fail=1 pred=1 sampled=00000001 live=10000000 at=48
+site0 final=10000000
+site1 checker pass=2 fail=1 pred=1 sampled=11111110 live=01111111 at=52
+site1 module pass=2 fail=1 pred=1 sampled=11111110 live=01111111 at=52
+site1 final=01111111
+phase=3 time=76
+site0 checker pass=3 fail=1 pred=1 sampled=10000000 live=00000001 at=68
+site0 module pass=3 fail=1 pred=1 sampled=10000000 live=00000001 at=68
+site0 final=00000001
+site1 checker pass=3 fail=1 pred=1 sampled=01111111 live=11111110 at=72
+site1 module pass=3 fail=1 pred=1 sampled=01111111 live=11111110 at=72
+site1 final=11111110
+phase=4 time=96
+site0 checker pass=4 fail=1 pred=1 sampled=01010101 live=10101010 at=88
+site0 module pass=4 fail=1 pred=1 sampled=01010101 live=10101010 at=88
+site0 final=10101010
+site1 checker pass=4 fail=1 pred=1 sampled=10101010 live=01010101 at=92
+site1 module pass=4 fail=1 pred=1 sampled=10101010 live=01010101 at=92
+site1 final=01010101
+phase=5 time=116
+site0 checker pass=5 fail=1 pred=1 sampled=00000001 live=00000000 at=108
+site0 module pass=5 fail=1 pred=1 sampled=00000001 live=00000000 at=108
+site0 final=00000000
+site1 checker pass=5 fail=1 pred=1 sampled=11111110 live=11111111 at=112
+site1 module pass=5 fail=1 pred=1 sampled=11111110 live=11111111 at=112
+site1 final=11111111

@@ -432,5 +432,29 @@
     ],
     "reviewed_on": "2026-10-31",
     "reviewer": "Codex (GPT-6), AI scope review"
+  },
+  "tests/gen/ch17/test_gen_cross_checksample_1_interface_wildcard_edge_nba_negedge_explicit_zero.sv": {
+    "source_sha256": "145c324bdb2fd98c9784e31a7ea6cc1c4ecf87b27895bd05a5b1be7a9e7f97e4",
+    "reason": "checker_assertion_sampling@1 needs a new M4 input/report audit: checker argument substitution, initialized checker state, output propagation, two clocks and delayed reports are outside the approved single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific verification does not extend M4 scope.",
+    "evidence": [
+      "interaction_model=checker_assertion_sampling@1",
+      "static checker instances with output connections and separate module references",
+      "p0.clk/p1.clk at ticks 8/12 of each period; reports at tick 16",
+      "independent interpretation in tools/qualify_checksample.py; coverage/interaction-qualification/checksample.json"
+    ],
+    "reviewed_on": "2026-11-03",
+    "reviewer": "Codex (GPT-6), AI scope review"
+  },
+  "tests/gen/ch17/test_gen_cross_checksample_1_module_positional_edge_nba_posedge_explicit_nonzero.sv": {
+    "source_sha256": "eda94bbdc69c693ef482f8f7fc4f372458e23b2025a9bae4a312477dddb8b6f2",
+    "reason": "checker_assertion_sampling@1 needs a new M4 input/report audit: checker argument substitution, initialized checker state, output propagation, two clocks and delayed reports are outside the approved single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific verification does not extend M4 scope.",
+    "evidence": [
+      "interaction_model=checker_assertion_sampling@1",
+      "static checker instances with output connections and separate module references",
+      "p0.clk/p1.clk at ticks 8/12 of each period; reports at tick 16",
+      "independent interpretation in tools/qualify_checksample.py; coverage/interaction-qualification/checksample.json"
+    ],
+    "reviewed_on": "2026-11-03",
+    "reviewer": "Codex (GPT-6), AI scope review"
   }
 }

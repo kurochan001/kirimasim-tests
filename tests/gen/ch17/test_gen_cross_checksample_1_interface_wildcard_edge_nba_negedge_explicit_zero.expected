@@ -1,0 +1,42 @@
+phase=0 time=16
+site0 checker pass=1 fail=0 pred=1 sampled=0 live=1 at=8
+site0 module pass=1 fail=0 pred=1 sampled=0 live=1 at=8
+site0 final=1
+site1 checker pass=0 fail=1 pred=0 sampled=1 live=0 at=12
+site1 module pass=0 fail=1 pred=0 sampled=1 live=0 at=12
+site1 final=0
+phase=1 time=36
+site0 checker pass=1 fail=1 pred=0 sampled=1 live=0 at=28
+site0 module pass=1 fail=1 pred=0 sampled=1 live=0 at=28
+site0 final=0
+site1 checker pass=1 fail=1 pred=1 sampled=0 live=1 at=32
+site1 module pass=1 fail=1 pred=1 sampled=0 live=1 at=32
+site1 final=1
+phase=2 time=56
+site0 checker pass=1 fail=2 pred=0 sampled=1 live=1 at=48
+site0 module pass=1 fail=2 pred=0 sampled=1 live=1 at=48
+site0 final=1
+site1 checker pass=2 fail=1 pred=1 sampled=0 live=0 at=52
+site1 module pass=2 fail=1 pred=1 sampled=0 live=0 at=52
+site1 final=0
+phase=3 time=76
+site0 checker pass=1 fail=3 pred=0 sampled=1 live=1 at=68
+site0 module pass=1 fail=3 pred=0 sampled=1 live=1 at=68
+site0 final=1
+site1 checker pass=3 fail=1 pred=1 sampled=0 live=0 at=72
+site1 module pass=3 fail=1 pred=1 sampled=0 live=0 at=72
+site1 final=0
+phase=4 time=96
+site0 checker pass=1 fail=4 pred=0 sampled=1 live=0 at=88
+site0 module pass=1 fail=4 pred=0 sampled=1 live=0 at=88
+site0 final=0
+site1 checker pass=4 fail=1 pred=1 sampled=0 live=1 at=92
+site1 module pass=4 fail=1 pred=1 sampled=0 live=1 at=92
+site1 final=1
+phase=5 time=116
+site0 checker pass=1 fail=5 pred=0 sampled=1 live=0 at=108
+site0 module pass=1 fail=5 pred=0 sampled=1 live=0 at=108
+site0 final=0
+site1 checker pass=5 fail=1 pred=1 sampled=0 live=1 at=112
+site1 module pass=5 fail=1 pred=1 sampled=0 live=1 at=112
+site1 final=1

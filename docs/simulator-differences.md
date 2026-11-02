@@ -750,3 +750,74 @@ See [design and limits](interaction-verification.en.md#generate-default-disable-
 Only the five matches receive a fixed-Verilator oracle; the other 13 retain standard-derived expectations.
 Four successful before-launch controls and six detected SV faults do not qualify those 13 cases.
 These are recorded as fixed-version differences here; no upstream Issues were posted.
+
+<a id="distribution-precedence-20261103"></a>
+
+<a id="distと演算子の優先順位2026-11-03"></a>
+
+## Distribution and operator precedence (2026-11-03)
+
+The 31 selections of `distribution_expression_binding@1` were checked on fixed versions.
+See [design and limits](interaction-verification.en.md#distribution-expression-binding),
+[Verilator seed 1](../coverage/interaction-results/cross67-dist-verilator5052-seed1.json),
+[seed 73](../coverage/interaction-results/cross67-dist-verilator5052-seed73.json), and
+[Icarus 13.0](../coverage/interaction-results/cross67-dist-icarus13.json).
+
+- Verilator 5.052: both seeds match 19 success-only cases and differ on 12 alternating success/failure cases. Randomize returns one even when every candidate's total weight is zero. Clause 18.5.3 excludes candidates with zero total weight, leaving no solution here; expectations require failure and value retention. The internal implementation cause is unverified.
+- Icarus Verilog 13.0: all 31 builds are rejected, so output agreement is unverified.
+
+Only the 19 matches receive a fixed-Verilator oracle; original failure expectations and candidate sets are unchanged.
+Failure observed with an auxiliary independent contradiction does not qualify all-zero-weight failure itself or first-failure observations.
+Singleton ranges and unique solutions do not verify multi-value range probability ratios or statistical distribution conformance.
+These fixed-version differences are recorded here; no upstream Issues were posted.
+
+<a id="aggregate-event-lifetime-2026-11-03"></a>
+
+<a id="2026-11-03構造体内イベントと自動タスクの寿命"></a>
+
+## 2026-11-03: aggregate events and automatic task lifetime
+
+The 18 `aggregate_event_lifetime@1` cases combine whole-structure copying and automatic-scope lifetime with alias release, delayed wait registration and multiple calls.
+Fixed Verilator 5.052 rejects every build in both seeds because event assignment is unsupported; fixed Icarus 13.0 also rejects every build. No fixed-release oracle is added.
+kirimasim `50f1f77b8c94` parses every input but event-value operations are unsupported on execution.
+An independent model checks all 432 rows; successful simulator controls and runtime fault detection remain unconfirmed.
+See [design, raw evidence and limits](interaction-verification.en.md#aggregate-event-lifetime). No commercial simulator comparison or external Issue posting was performed.
+
+<a id="sv-dpi-array-queries-2026-11-03"></a>
+
+<a id="2026-11-03svとdpi-cの配列問い合わせ"></a>
+
+## 2026-11-03: SV and DPI-C array queries
+
+Both fixed Verilator 5.052 seeds record 11 pass and eight known results for `sv_dpi_array_queries@1`.
+The 11 sized/normalized-packed cases match. Two offset-packed cases report C dimension zero differently from the normalized range.
+For an actual `[4:7]`, reported endpoints/direction differ from expected `[3:0]`. The internal cause is unconfirmed.
+Six open-packed cases and all 19 fixed Icarus 13.0 cases are build rejections. Expectations are retained; only the 11 matching cases receive oracle entries.
+kirimasim `50f1f77b8c94` parses every input, but its runner classifies C-backed tests as unsupported before execution.
+See [design, controls and raw evidence](interaction-verification.en.md#sv-dpi-array-queries).
+
+<a id="sdf-conditional-paths-2026-11-03"></a>
+
+<a id="2026-11-03条件付きspecifyパスとsdf注釈"></a>
+
+## 2026-11-03: conditional specify paths and SDF annotation
+
+Fixed Icarus 13.0 records three pass and 15 known results for `sdf_conditional_paths@1`.
+Plain/ABSOLUTE cases match; rows containing COND/CONDELSE/INCREMENT differ in output values, change counts or times.
+Both fixed Verilator 5.052 seeds differ on all 18 cases. Only the three matching plain Icarus cases receive oracle entries.
+Three original controls and six SV/SDF mutants execute on fixed Icarus; these do not qualify runtime conditional annotation or addition.
+kirimasim `2ffb5dddca04` parses all 18 inputs; the first unsupported feature is conditional paths for 12 cases and $sdf_annotate for six.
+See [design, controls and raw evidence](interaction-verification.en.md#sdf-conditional-paths).
+
+<a id="checker-assertion-sampling-2026-11-03"></a>
+
+<a id="2026-11-03checkerとmodule参照のサンプリング"></a>
+
+## 2026-11-03: checker and module-reference sampling
+
+Both fixed Verilator 5.052 seeds record 25 pass and two known results for `checker_assertion_sampling@1`.
+Both remaining cases use a one-bit vector, same-slot NBA and explicit clock. In the first period Preponed samples zero and the post-NBA live expectation is one;
+both checker and module reference record live zero, while final data at tick 16 is one. The internal cause is unconfirmed.
+Agreement between the two is insufficient; independent specification expectations are retained. Only the 25 matching cases receive oracle entries.
+Fixed Icarus 13.0 rejects all 27 builds. kirimasim `2ffb5dddca04` parses all inputs but checker instances are unsupported.
+See [design, controls and full-output replays](interaction-verification.en.md#checker-assertion-sampling).

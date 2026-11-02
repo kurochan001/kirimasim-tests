@@ -14,7 +14,17 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 Each run's version is recorded in linked JSON. Unless stated otherwise, added/total counts and check results in the model descriptions below record the state when that model was added. See the beginning of this overview and [Generated report](interaction-coverage.en.md) for current aggregates.
 
-Generate/default-disable addition on 2026-11-02: the current selection has **66 models, 2,557 tests and 97 chapter pairs**. The [full cross run](../coverage/interaction-results/cross66-kirimasim-2edfebbc.json) on kirimasim `2edfebbc6270`, fetched and built immediately before execution, records **2,207 pass, 344 unsupported and six existing fail results**. All 18 new cases parse, but concurrent assertions are unsupported on execution. All 2,539 preceding input fingerprints and outcomes are unchanged; 47 models still pass their full selection. Both fixed Verilator seeds match five cases and differ on 13. Chapter 16×27 is registered, reducing E candidates to nine pairs. See [design, controls and limits](#generate-default-disable-scopes).
+Checker-sampling addition on 2026-11-03: the current selection has **71 models, 2,670 tests and 103 chapter pairs**. The [full cross run](../coverage/interaction-results/cross71-kirimasim-2ffb5ddd.json) on kirimasim `2ffb5dddca04`, fetched and built immediately before execution, records **2,207 pass, 457 unsupported and six existing fail results**. All 27 new inputs parse; execution lacks checker instances. All 2,643 preceding fingerprints and status categories are unchanged; 47 models still pass their full selection. Both fixed Verilator seeds record 25 pass and two known results; fixed Icarus rejects all 27 builds. Chapter 16×17 is registered, with Chapter 17×25 for seven interface cases, leaving five E and three C candidate pairs. See [design, independent model and limits](#checker-assertion-sampling).
+
+At the SDF conditional-path addition on the same day, the selection had **70 models, 2,643 tests and 101 chapter pairs**. The [full cross run](../coverage/interaction-results/cross70-kirimasim-2ffb5ddd.json) on kirimasim `2ffb5dddca04`, fetched and built immediately before execution, records **2,207 pass, 430 unsupported and six existing fail results**. All 18 new inputs parse; execution reports unsupported conditional paths for 12 cases and unsupported $sdf_annotate for six. All 2,625 preceding fingerprints and status categories are unchanged; 47 models still pass their full selection. Fixed Icarus records three pass and 15 known results; both fixed Verilator seeds record 18 known results. Chapter 30×32 is registered, leaving six E candidate pairs. See [design, controls, faults and limits](#sdf-conditional-paths).
+
+At the SV/DPI array-query addition on the same day, the selection had **69 models, 2,625 tests and 100 chapter pairs**. The [full cross run](../coverage/interaction-results/cross69-kirimasim-50f1f77b.json) on kirimasim `50f1f77b8c94`, fetched and built immediately before execution, records **2,207 pass, 412 unsupported and six existing fail results**. All 19 new inputs parse; the runner classifies C-backed tests as unsupported, so DPI execution is unconfirmed. All 2,606 preceding fingerprints and status categories are unchanged; 47 models still pass their full selection. Both fixed Verilator seeds record 11 pass and eight known results (two range differences and six build rejections). Chapter 20×35 is registered, leaving four C candidate pairs. See [design, controls and limits](#sv-dpi-array-queries).
+
+At the automatic-event lifetime addition on the same day, the selection had **68 models, 2,606 tests and 99 chapter pairs**. The [full cross run](../coverage/interaction-results/cross68-kirimasim-50f1f77b.json) on kirimasim `50f1f77b8c94`, fetched and built immediately before execution, records **2,207 pass, 393 unsupported and six existing fail results**. All 18 new cases parse but event-value operations are unsupported on execution. All 2,588 preceding input fingerprints and outcomes are unchanged; 47 models still pass their full selection. Fixed Icarus/Verilator reject all 18 new builds. Chapter 7×15 is registered, leaving seven E candidate pairs. See [design, independent checks and limits](#aggregate-event-lifetime).
+
+At the distribution-precedence addition on the same day, the selection had **67 models, 2,588 tests and 98 chapter pairs**. The [full cross run](../coverage/interaction-results/cross67-kirimasim-50f1f77b.json) on kirimasim `50f1f77b8c94`, fetched and built immediately before execution, records **2,207 pass, 375 unsupported and six existing fail results**. All 31 new cases parse but randomize is unsupported on execution. All 2,557 preceding input fingerprints and outcomes are unchanged; 47 models still pass their full selection. Both fixed Verilator seeds match 19 cases and differ on 12 containing all-zero weights. Chapter 11×18 is registered, reducing E candidates to eight pairs. See [design, auxiliary controls and limits](#distribution-expression-binding).
+
+At the generate/default-disable addition on the previous day, the selection had **66 models, 2,557 tests and 97 chapter pairs**. The [full cross run](../coverage/interaction-results/cross66-kirimasim-2edfebbc.json) on kirimasim `2edfebbc6270`, fetched and built immediately before execution, records **2,207 pass, 344 unsupported and six existing fail results**. All 18 new cases parse, but concurrent assertions are unsupported on execution. All 2,539 preceding input fingerprints and outcomes are unchanged; 47 models still pass their full selection. Both fixed Verilator seeds match five cases and differ on 13. Chapter 16×27 is registered, reducing E candidates to nine pairs. See [design, controls and limits](#generate-default-disable-scopes).
 
 At the reduction-constraint addition on the same day, the selection had **65 models and 2,539 tests**. The [full cross run](../coverage/interaction-results/cross65-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 326 unsupported and the existing 6 fail**. All 13 new cases parse successfully: 8 fixed-array cases encounter unsupported randomize and 5 dynamic-array cases encounter unsupported class-array operations. All 2,526 preceding input fingerprints and outcomes are unchanged. Chapter 7×18 is registered, giving 96 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds have output differences on all 13 original cases; fixed Icarus Verilog 13.0 rejects all 13 builds. No fixed oracle is added. See [design and auxiliary-control scope](#array-reduction-constraints-and-retention).
 
@@ -1965,6 +1975,391 @@ Check GitHub Check/Nightly status against each execution's commit separately.
 ```sh
 python3 tools/qualify_gendisable.py --verilator /path/to/verilator-5.052 \
   --output coverage/interaction-qualification/NEW-gendisable.json
+```
+
+<a id="distribution-expression-binding"></a>
+
+<a id="dist制約と演算子の優先順位"></a>
+
+### Distribution constraints and operator precedence
+
+`distribution_expression_binding@1` in `interaction_dist.py` extends the existing Chapter 11 × 18 precedence witness into a factor model.
+It crosses precedence and left associativity (11.3.2), expression widths/signedness (11.6.1 and 11.8), and distribution support/weights (18.5.3).
+A unique positive-weight solution permits exact checks of randomize status and every bit without statistical frequency assumptions.
+
+<a id="因子と観測-1"></a>
+
+#### Factors and observations
+
+Factors are widths 4/8/33, signed/unsigned words, addition with shift/multiplication/comparison, implicit/whole/altered grouping,
+`:=`/`:/`, singleton/zero-alternative/overlapping items, and repeated success/success-failure-success/failure-success-failure.
+The selection preserves 154 factor pairs, 81 targeted three-factor combinations and eight mandatory cases in 31 of 972 legal rows.
+
+Expression shapes are `x + 1 << 1`, `x + 1 * 2` and `x + 1 < threshold`.
+Actual literals for one, two and threshold have the same width and signedness as x.
+Parentheses changing them to `x + (1 << 1)`, `(x + 1) * 2` or `x + (1 < threshold)` are separate levels.
+In the last form, the unsigned one-bit comparison also makes the surrounding sum unsigned.
+Two or three candidates per width expose negative values, high bits, the 32-bit boundary and overflow before comparison.
+This does not cover every representable input value.
+
+Overlapping zero and positive weights are added; a zero item alone does not exclude a value that also has a positive item.
+Ranges contain a single value. Multi-value range probability ratios and statistical differences between `:=` and `:/` are outside scope.
+All-zero weights leave no solution; failed randomization retains initial all-one bits or the previous solution (18.5.3, 18.6.3).
+A separate object always succeeds as a control. Every call prints status, all bits, typed decimal values, expression results and widths.
+X/Z, real values, randc, default distributions, inheritance, callbacks and concurrent randomize are outside scope.
+
+<a id="保存実行と確認範囲-1"></a>
+
+#### Saved runs and verification limits
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross67-dist-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross67-dist-verilator5052-seed73.json) each record 19 pass and 12 known.
+Only the 19 repeated-success cases receive an oracle. In the 12 alternating success/failure cases, randomize returns one even with all weights zero,
+differing from the standard-derived failure and retention expectations. The internal implementation cause is unverified.
+[Fixed Icarus Verilog 13.0](../coverage/interaction-results/cross67-dist-icarus13.json) rejects all 31 builds.
+
+The [build and parse record](../coverage/interaction-qualification/dist-build.json) on kirimasim `50f1f77b8c94` confirms all 31 parse successfully;
+execution reports unsupported randomize. The [full 2,588-case run](../coverage/interaction-results/cross67-kirimasim-50f1f77b.json)
+has 2,207 pass, 375 unsupported and six existing fail results. All 2,557 preceding input fingerprints and outcomes are unchanged.
+The legal space and expectations are retained; unsupported and known differences are not PASS.
+
+<a id="独立した検算と故障注入-1"></a>
+
+#### Independent calculations and fault injection
+
+The [independent checks and executions](../coverage/interaction-qualification/dist.json) read the generated declarations, expressions,
+candidates, distribution items and call order. A separate typed-expression parser, candidate enumeration and additive weights check all 972 rows.
+The generator's solution and arithmetic functions are not reused.
+
+Controls are four original success-only cases and one auxiliary failure-after-success case.
+The auxiliary adds the independent contradiction `if (impossible) x != x;`. The standard already leaves no solution in that condition,
+but this addition bypasses fixed Verilator's all-zero-weight difference to observe failure status and retained values.
+It does not qualify rejection due to all-zero weights themselves or first-failure observations.
+
+Seven SV mutations detect wrong grouping for the three operations, a wrong positive-weight candidate, a wrong overlapping range,
+clobbering after failure and sharing the control object. All 12 control/mutant executions exit zero;
+detection does not rely on build rejection or execution failure. Auxiliary success does not qualify the original 12 differences or add duplicate tests.
+
+Local validation at addition passed 667 tool tests and 13 consistency checks.
+Metadata validation covered 10,338 tests with no new issues (395 known); 114 language pairs and 52,291 local links also passed validation.
+Check GitHub Check/Nightly status against each execution's commit separately.
+
+```sh
+python3 tools/qualify_dist.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-dist.json
+```
+
+<a id="aggregate-event-lifetime"></a>
+
+<a id="構造体内イベントと自動タスクの寿命"></a>
+
+### Aggregate events and automatic task lifetime
+
+`aggregate_event_lifetime@1` selects 18 cases for the Chapter 7×15 interaction.
+The generator is [`interaction_eventlife.py`](../generators/interaction_eventlife.py).
+Structure members and whole assignments follow 7.2/7.2.2; default event initialization follows 6.8/6.17;
+the scope lifetime that includes children after task return follows 6.21/9.3.2.
+Waits, triggers, aliases, null and comparisons follow 15.5.1/15.5.2/15.5.5.1–15.5.5.3.
+
+<a id="因子と観測-2"></a>
+
+#### Factors and observations
+
+Storage is scalar/struct/nested struct; capture is direct/copy; call count is 1/2/3.
+Alias release occurs before registration/after registration/after wakeup; triggers are blocking/NBA;
+call trigger order is forward/reverse; listener count is 1/2.
+The selection retains all 123 factor pairs, 54 targeted triples and six anchors from 432 legal combinations in 18 cases.
+
+Each automatic task creates a fresh event and a `100 + tag` payload, then returns with children outstanding.
+Children register their wait two ticks later and read the local payload after waking.
+Copy rows assign the whole structure, then rebind the original event to noise and overwrite its payload.
+Scalar rows copy the event and integer separately as controls.
+Clearing one caller alias to null leaves the trigger alias and waiting children holding the original object.
+
+Observe identity across calls, null state, each listener's hit count, wake time, automatic payload and static stamp.
+An NBA to stamp is queued before the event trigger to distinguish Active and NBA wakeup reads.
+Stimulus, registration, release and observation occur in separate ticks; listeners update separate array slots.
+Noise, repeated pulses after completion and a fresh call after clearing all retained aliases are included.
+Null waits, triggered, ref arguments, delayed NBA triggers, GC timing and physical memory reclamation are outside scope.
+
+<a id="独立検算と実行の限界"></a>
+
+#### Independent checks and execution limits
+
+[`qualify_eventlife.py`](../tools/qualify_eventlife.py) reads the emitted SV task and straight-line driver.
+It independently models object identities, automatic frames, structure copies, wait registrations and an ordered NBA queue.
+It does not reuse the generator's expected-output calculation or timetable; all 432 rows match.
+The [check record](../coverage/interaction-qualification/eventlife.json) also records eight source mutations:
+a missing copy, reading the overwritten original, sharing events across calls, late registration,
+early release of the trigger alias, the wrong trigger target, double counting and a missing scalar payload copy.
+These produce output differences or stranded registrations in the independent interpreter; they are not executed SV fault injections.
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross68-eventlife-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross68-eventlife-verilator5052-seed73.json) reject all 18 builds because event assignment is unsupported.
+[Fixed Icarus Verilog 13.0](../coverage/interaction-results/cross68-eventlife-icarus13.json) also rejects all 18 builds.
+No fixed-release oracle is added; standard-derived expectations are retained.
+Successful simulator controls and runtime mutation detection remain unconfirmed.
+
+kirimasim `50f1f77b8c94` parses all 18 inputs in the [build/parse record](../coverage/interaction-qualification/eventlife-build.json)
+but event-value operations are unsupported on execution.
+The [full 2,606-case run](../coverage/interaction-results/cross68-kirimasim-50f1f77b.json) records
+2,207 pass, 393 unsupported and six existing failures. All preceding 2,588 input fingerprints and status categories are unchanged.
+Plan completion is not execution fulfillment; unsupported rows remain in the legal universe.
+
+Local validation at introduction passed all 673 tool unit tests and 13 consistency checks.
+Metadata checks cover 10,356 tests with zero new problems (395 known); 114 language pairs and 52,327 local links were also checked.
+These are local validation results, separate from GitHub Check/Nightly results for this addition.
+
+```sh
+python3 tools/qualify_eventlife.py \
+  --output coverage/interaction-qualification/NEW-eventlife.json
+```
+
+<a id="sv-dpi-array-queries"></a>
+
+<a id="svとdpi-cの配列問い合わせ"></a>
+
+### SV and DPI-C array queries
+
+`sv_dpi_array_queries@1` selects 19 cases for the Chapter 20×35 interaction.
+The generator is [`interaction_dpiquery.py`](../generators/interaction_dpiquery.py);
+the C probe is [`cross_dpiquery.c`](../tests/ch35/cross_dpiquery.c).
+SV queries follow 20.7; open-array matching and ranges follow 35.5.6.1/35.6.1.1/H.7.5/H.7.6/H.12.1;
+C queries follow H.12.2.
+
+<a id="因子と観測-3"></a>
+
+#### Factors and observations
+
+Combine 1/2/3 unpacked dimensions, ascending/descending/mixed directions, negative/positive index offsets,
+singleton/distinct dimension sizes, packed widths 4/33, sized/open packed formals,
+normalized/offset packed actual ranges, the same/different actual on the second call and literal/variable dimension queries.
+The selection retains all 177 factor pairs, 66 targeted triples and seven anchors from 1,152 legal combinations in 19 cases.
+
+For the same actual, display SV `$dimensions`/`$unpacked_dimensions` and
+`$left/$right/$low/$high/$increment/$size` on every dimension, then call the same import for C queries.
+C `svDimensions` counts unpacked dimensions; dimension zero is packed and positive dimensions are unpacked.
+SV numbers unpacked dimensions before packed dimensions, so its last dimension maps to C dimension zero.
+The C packed range is normalized to `[width-1:0]`; unpacked ranges retain the actual indices.
+A fixed singleton has `increment=1` even in rows intended as ascending.
+C prints every query result and returns a checksum with distinct dimension weights.
+
+Switching actuals changes each unpacked endpoint, direction and size; singleton rows retain size one.
+Open packed formals also change width between 4 and 33; sized packed formals retain their declared width.
+Dynamic, queue or empty arrays, multiple packed dimensions, X/Z, invalid dimension numbers, sized unpacked formals,
+C callbacks and retained C handles are outside scope. Element access and copyback are not verified here.
+
+<a id="独立検算と実際の故障注入"></a>
+
+#### Independent checks and actual fault injection
+
+[`qualify_dpiquery.py`](../tools/qualify_dpiquery.py) reads emitted SV declarations, query expressions and actual-argument call order.
+It uses separate index enumeration and dimension tables without reusing generator shape/query calculations; all 1,152 rows match.
+The actual C probe is also checked over 2,304 calls through a test-owned DPI ABI stub.
+The stub supplies synthetic shapes and does not qualify simulator DPI marshalling.
+
+Three original sized/normalized-packed anchors cover 1/2/3 unpacked dimensions as successful runtime controls.
+Six injected faults swap C endpoints, negate increment, use the wrong packed dimension, omit the last dimension,
+use the wrong SV packed dimension or query the old SV shape on the second call.
+All nine executions exit zero; detection is through output differences, not unsupported input or build rejection.
+The [check/runtime record](../coverage/interaction-qualification/dpiquery.json) retains source fingerprints, output and exit codes.
+These controls do not qualify offset-packed normalization or execution of open packed formals.
+
+<a id="保存実行と未確認の範囲"></a>
+
+#### Saved runs and unconfirmed scope
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross69-dpiquery-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross69-dpiquery-verilator5052-seed73.json) each record 11 pass and eight known results.
+Only the 11 sized/normalized-packed cases receive oracle entries.
+Two offset-packed cases report C dimension-zero ranges differing from the normalized range; for example an actual `[4:7]`
+reports endpoints/direction different from the expected `[3:0]`. The internal cause is unconfirmed.
+Six open-packed cases are rejected during build parsing.
+[Fixed Icarus Verilog 13.0](../coverage/interaction-results/cross69-dpiquery-icarus13.json) rejects all 19 builds.
+
+The kirimasim `50f1f77b8c94` [build/parse record](../coverage/interaction-qualification/dpiquery-build.json) records 19 successful parses.
+The normal runner classifies C-backed tests as `unsupported` before execution; this record does not establish DPI execution success or failure.
+The [full 2,625-case run](../coverage/interaction-results/cross69-kirimasim-50f1f77b.json) records
+2,207 pass, 412 unsupported and six existing failures. All preceding 2,606 input fingerprints and status categories are unchanged.
+Plan completion and execution fulfillment remain separate; unsupported/known rows and standard-derived expectations are retained.
+
+Local validation at introduction passed all 679 tool unit tests and 13 consistency checks.
+Metadata checks cover 10,375 tests with zero new problems (395 known); 114 language pairs and 52,399 local links were also checked.
+These are local validation results, separate from GitHub Check/Nightly results for this addition.
+
+```sh
+python3 tools/qualify_dpiquery.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-dpiquery.json
+```
+
+<a id="sdf-conditional-paths"></a>
+
+<a id="条件付きspecifyパスとsdfバックアノテーション"></a>
+
+### Conditional specify paths and SDF back-annotation
+
+`sdf_conditional_paths@1` selects 18 cases for the Chapter 30×32 interaction.
+The generator is [`interaction_sdfpath.py`](../generators/interaction_sdfpath.py).
+State-dependent paths follow 30.4.4/30.4.4.2; SDF/path matching follows 32.4.1;
+replacement/addition follows 32.5; rise/fall mapping follows 32.8; annotation scope follows 32.9.
+Annotation here means back-annotation of delay values from SDF.
+
+<a id="因子と観測-4"></a>
+
+#### Factors and observations
+
+Seven factors cover plain IOPATH/COND/CONDELSE, ABSOLUTE/INCREMENT, balanced/slow-rise/slow-fall delays,
+explicit cell scope versus child instance relative to the caller, target v/g, initial condition 1/0
+and identical/opposite sibling conditions. The selection retains all 109 factor pairs, 46 targeted triples
+and seven anchors from 288 legal combinations in 18 cases.
+The targeted path×mode×profile group has 18 combinations; each test covers one, so this finite plan reaches its 18-case lower bound.
+This is not a minimum test count for the entire language.
+
+Both instances receive the same input; annotate only one instance's y path.
+Both z outputs and the unannotated sibling's y are delay-retention controls.
+The plain y path uses rise/fall 2/4; conditional y uses 2/4 for condition one and 6/2 for condition zero or ifnone.
+The z paths retain 4/6. SDF values are 4/4, 8/2 or 2/8; ABSOLUTE replaces defaults and INCREMENT adds to them.
+COND matches only the same condition; CONDELSE matches only ifnone.
+Plain IOPATH rows also use a plain cell path; applying plain IOPATH to every path of a conditional cell is outside this model.
+
+Each condition receives one rise and one fall. Change selects two ticks before the next data transition.
+All delays are positive even numbers up to 14; data transitions are 20 ticks apart;
+observations occur 1/3/5/7/9/11/13/15 ticks after each transition.
+Record each of four output values, change counts and exact last-change times separately, avoiding observation/update races.
+Short pulses, X/Z, edge-qualified paths, equivalent conditions, repeated annotations, min/typ/max, timescale conversion,
+INTERCONNECT and TIMINGCHECK are outside scope.
+
+<a id="独立検算と故障注入"></a>
+
+#### Independent checks and fault injection
+
+[`qualify_sdfpath.py`](../tools/qualify_sdfpath.py) reads emitted specify declarations, the SDF actually written by SV,
+the annotation call and the stimulus/observation sequence. A separate S-expression parser, conditional path table
+and chronological event heap check all 288 rows without reusing generator condition, delay, SDF or expected-output functions.
+
+Three original plain/ABSOLUTE controls execute successfully on fixed Icarus.
+Six SV/SDF mutations use the wrong cell scope, swap rise/fall, omit annotation, select the wrong output path,
+annotate both instances or corrupt the unannotated z default delay.
+All nine executions exit zero; detection is through output differences, not warnings, build rejection or abnormal termination.
+
+Three additional source mutations replace COND with plain IOPATH to match both branches,
+replace INCREMENT with replacement semantics or map CONDELSE to condition one.
+These produce interpreted output differences and are not executed SV fault injections.
+See the [check/runtime record](../coverage/interaction-qualification/sdfpath.json).
+The executed controls/mutants do not qualify runtime COND/CONDELSE/INCREMENT behavior.
+
+<a id="保存実行と未確認の範囲-1"></a>
+
+#### Saved runs and unconfirmed scope
+
+[Fixed Icarus Verilog 13.0](../coverage/interaction-results/cross70-sdfpath-icarus13.json) records three pass and 15 known results.
+Only the three plain/ABSOLUTE cases receive oracle entries. The other 15 conditional-annotation/INCREMENT cases differ in output.
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross70-sdfpath-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross70-sdfpath-verilator5052-seed73.json) each record 18 known output differences.
+These are not passes; standard-derived expectations and legal rows are retained.
+
+The kirimasim `2ffb5dddca04` [build/parse record](../coverage/interaction-qualification/sdfpath-build.json) records 18 successful parses.
+The first unsupported feature reported on execution is conditional specify paths for 12 cases and system task $sdf_annotate for six.
+The [full 2,643-case run](../coverage/interaction-results/cross70-kirimasim-2ffb5ddd.json) records
+2,207 pass, 430 unsupported and six existing failures. All preceding 2,625 input fingerprints and status categories are unchanged.
+Implementation revision and model additions are recorded separately; plan completion is not execution fulfillment.
+
+Local validation at introduction passed all 685 tool unit tests and 13 consistency checks.
+Metadata checks cover 10,393 tests with zero new problems (395 known); 114 language pairs and 52,467 local links were also checked.
+These are local validation results, separate from GitHub Check/Nightly results for this addition.
+
+```sh
+python3 tools/qualify_sdfpath.py --iverilog-bin /path/to/iverilog-13.0/bin \
+  --output coverage/interaction-qualification/NEW-sdfpath.json
+```
+
+<a id="checker-assertion-sampling"></a>
+
+<a id="checkerとmodule参照モデルのサンプリング"></a>
+
+### Checker and module-reference sampling
+
+`checker_assertion_sampling@1` selects 27 cases for Chapter 16×17, plus Chapter 17×25 with interface placement.
+The generator is [`interaction_checksample.py`](../generators/interaction_checksample.py).
+Invariant assertion scheduling between checkers and design code follows 17.7.3;
+checker declarations, input substitution and outputs follow 17.2/17.3/17.7.1;
+sampling/actions follow 16.5.1/16.9.3/16.14.1; default clocking follows 14.12 and interface placement follows 25.3.
+
+<a id="因子と観測-5"></a>
+
+#### Factors and observations
+
+Eight factors cover width 1/8/33, module/interface placement, positional/named/wildcard connections,
+updates before/on/after the clock, blocking/NBA assignments, posedge/negedge,
+explicit event/checker-local default clocking and nonzero/zero/reduction-XOR predicates.
+The selection retains all 174 factor pairs, 63 targeted triples and six anchors from 1,296 legal combinations in 27 cases.
+The width×predicate×timing group has 27 combinations, so this finite plan reaches its 27-case lower bound.
+This is not a minimum test count for the entire language.
+
+Two instances receive complementary known data; clocks occur at ticks 8/12 of each 20-tick period.
+Separate top-level module reference assertions receive the same actuals as each checker.
+Checker output arguments expose decision counts, sampled data, sampled predicate, live action data and action time;
+no hierarchical references enter a checker. Internal state is initialized in declarations and continuously assigned to outputs.
+Output-port default initialization is not required, preventing an unrelated observation feature from blocking every case.
+Output-port initialization semantics themselves are outside this model's qualification scope.
+
+Six periods use zeros, ones, single-bit values and complementary backgrounds.
+Data updates occur two ticks before, on or two ticks after each clock; final observation is at tick 16.
+Properties evaluate Preponed values; both action branches separately record `$sampled(data)` and Reactive `data`.
+Final data is also printed to distinguish sampled/live/final values around a same-slot NBA.
+X/Z, procedural checker instances, bind, checker procedures, free variables, output NBA, disable iff,
+multicycle properties, history functions and programs are outside scope.
+
+<a id="独立検算と実際の故障注入-1"></a>
+
+#### Independent checks and actual fault injection
+
+[`qualify_checksample.py`](../tools/qualify_checksample.py) reads emitted predicates, clocking, connections, output bindings and stimulus.
+Separate Preponed/Active/NBA/Reactive state checks all 1,296 rows without reusing generator input, predicate or expected-output calculations.
+Agreement between two implementations alone is insufficient; both are compared with independent specification expectations.
+
+Five original controls and seven SV mutations execute: replacing samples with live data, replacing live data with samples,
+inverting the checker predicate, swapping output counters, aliasing a reference instance, reversing the explicit clock edge and omitting fail counts.
+All 12 executions exit zero; faults are detected through output differences.
+Two known differences are replayed separately with complete output and are not counted as controls or detected faults.
+See the [independent/fault/replay record](../coverage/interaction-qualification/checksample.json).
+
+<a id="保存実行と共通の誤りを見逃さない照合"></a>
+
+#### Saved runs and checking for common errors
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross71-checksample-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross71-checksample-verilator5052-seed73.json) each record 25 pass and two known results.
+Only the 25 matching cases receive oracle entries. Both remaining cases use a one-bit vector, same-slot NBA and explicit clock:
+module placement with posedge/nonzero, and interface placement with negedge/zero.
+
+In the first period, Preponed at tick 8 samples zero; after an NBA updates data to one, the Reactive action should read live value one.
+Saved output instead records live zero in both checker and module reference, while final data at tick 16 is one.
+The two implementations agree, so comparing them alone misses the error. Independent specification expectations expose the difference.
+The internal cause is unconfirmed. These expectations are retained rather than being changed to require only agreement.
+[Fixed Icarus Verilog 13.0](../coverage/interaction-results/cross71-checksample-icarus13.json) rejects all 27 builds.
+
+The kirimasim `2ffb5dddca04` [build/parse record](../coverage/interaction-qualification/checksample-build.json) records 27 successful parses.
+Execution lacks checker instances. The [full 2,670-case run](../coverage/interaction-results/cross71-kirimasim-2ffb5ddd.json) records
+2,207 pass, 457 unsupported and six existing failures. All preceding 2,643 input fingerprints and status categories are unchanged.
+Chapter 16×17 maps to all 27 cases; Chapter 17×25 maps to the seven interface cases.
+Plan coverage and execution fulfillment remain separate; unsupported/known rows remain in the legal universe.
+
+The existing M4 sampled-function evaluator covers audited single-clock static inputs and report protocols.
+The two new spec-only candidates use checker input substitution/output connections and two clocks, so reasons are recorded in the
+[source-hashed deferral ledger](../tools/sva_reference/fixtures/m4_deferred.json).
+The [current M4 inventory](../coverage/interaction-qualification/checksample-m4.json) records seven matches, 44 deferrals and zero unhandled cases.
+These two are not M4 matches; cross-specific independent checks remain separate.
+A changed source fails the deferral hash check and returns to unhandled until re-audited.
+
+Local validation at introduction passed all 692 tool unit tests and 13 consistency checks.
+Metadata checks cover 10,420 tests with zero new problems (395 known); 114 language pairs and 52,565 local links were also checked.
+M4 deferrals retain the previous seven matches and 42 deferrals, with regression checks returning changed inputs to unhandled.
+These are local validation results, separate from GitHub Check/Nightly results for this addition.
+
+```sh
+python3 tools/qualify_checksample.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-checksample.json
 ```
 
 <a id="モデル変更時の更新"></a>

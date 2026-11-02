@@ -67,6 +67,11 @@ import interaction_clockiff
 import interaction_assocquery
 import interaction_randreduce
 import interaction_gendisable
+import interaction_dist
+import interaction_eventlife
+import interaction_dpiquery
+import interaction_sdfpath
+import interaction_checksample
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -101,7 +106,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_ifimport,
               interaction_mailbox,
               interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff, interaction_assocquery, interaction_randreduce,
-              interaction_gendisable, interaction_compound, interaction_inside, interaction_range,
+              interaction_gendisable, interaction_dist, interaction_eventlife, interaction_dpiquery, interaction_sdfpath, interaction_checksample, interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
 
@@ -517,6 +522,13 @@ def registered() -> tuple[SuiteModel, ...]:
             "取得前後の双方向のメンバ更新を確認する。別mailboxの保持と後の更新、空の非ブロッキング戻り値も観測する。",
         ),
         SuiteModel(
+            interaction_dist.MODEL,
+            lambda row: "tests/gen/ch18/" + interaction_dist.case_name(row) + ".sv",
+            interaction_dist.MODEL.select(),
+            "演算子の優先順位と括弧、幅・符号、distの重みと重複項目を照合する。"
+            "候補値から解を一意にし、全重みゼロによる失敗時の値保持を、毎回成功する別実体と比較する。",
+        ),
+        SuiteModel(
             interaction_gendisable.MODEL,
             lambda row: "tests/gen/ch16/" + interaction_gendisable.case_name(row) + ".sv",
             interaction_gendisable.MODEL.select(),
@@ -595,6 +607,34 @@ def registered() -> tuple[SuiteModel, ...]:
             "DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組み合わせる。"
             "幅・符号・bit/logicからintへの変換、復帰直後の書戻し、予約後の添字・値の変更、"
             "Postponedと次時刻の全要素を照合し、NBAの値と代入先の確定を確認する。",
+        ),
+        SuiteModel(
+            interaction_eventlife.MODEL,
+            lambda row: "tests/gen/ch15/" + interaction_eventlife.case_name(row) + ".sv",
+            interaction_eventlife.MODEL.select(),
+            "自動タスク復帰後の構造体内イベントの同一性・別名解放・遅延した待機登録と、"
+            "別呼出しの独立性・全体コピー後のpayload・起床時刻を照合する。",
+        ),
+        SuiteModel(
+            interaction_dpiquery.MODEL,
+            lambda row: "tests/gen/ch20/" + interaction_dpiquery.case_name(row) + ".sv",
+            interaction_dpiquery.MODEL.select(),
+            "同じ実引数のSV/DPI-C問い合わせを、次元番号の対応・packed範囲の正規化・"
+            "各次元の範囲とincrement・呼出しごとの形状更新で照合する。",
+        ),
+        SuiteModel(
+            interaction_sdfpath.MODEL,
+            lambda row: "tests/gen/ch32/" + interaction_sdfpath.case_name(row) + ".sv",
+            interaction_sdfpath.MODEL.select(),
+            "SDFの条件・注釈範囲・置換/加算と、立上り/立下りの遅延を照合する。"
+            "兄弟インスタンスと別出力を対照とし、値・変化回数・最終変化時刻を観測する。",
+        ),
+        SuiteModel(
+            interaction_checksample.MODEL,
+            lambda row: "tests/gen/ch17/" + interaction_checksample.case_name(row) + ".sv",
+            interaction_checksample.MODEL.select(),
+            "checkerとmodule参照モデルで、判定・サンプル値・Reactiveの値・実行時刻を照合する。"
+            "接続形式と配置を変え、2実体の独立性と出力引数の伝播も観測する。",
         ),
         SuiteModel(
             interaction_event_rebind.MODEL,

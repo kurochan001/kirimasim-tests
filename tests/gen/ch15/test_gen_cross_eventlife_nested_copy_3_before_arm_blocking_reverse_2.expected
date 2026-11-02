@@ -1,0 +1,132 @@
+created nonnull=1 independent=1
+returned time=0
+returned tag=0 pnull=0 bnull=0 same=1
+returned tag=0 slot=0 hits=0 at=-1 value=0 stamp=0
+returned tag=0 slot=1 hits=0 at=-1 value=0 stamp=0
+returned tag=1 pnull=0 bnull=0 same=1
+returned tag=1 slot=0 hits=0 at=-1 value=0 stamp=0
+returned tag=1 slot=1 hits=0 at=-1 value=0 stamp=0
+returned tag=2 pnull=0 bnull=0 same=1
+returned tag=2 slot=0 hits=0 at=-1 value=0 stamp=0
+returned tag=2 slot=1 hits=0 at=-1 value=0 stamp=0
+returned tag=3 pnull=1 bnull=1 same=1
+returned tag=3 slot=0 hits=0 at=-1 value=0 stamp=0
+returned tag=3 slot=1 hits=0 at=-1 value=0 stamp=0
+armed time=5
+armed tag=0 pnull=1 bnull=0 same=0
+armed tag=0 slot=0 hits=0 at=-1 value=0 stamp=0
+armed tag=0 slot=1 hits=0 at=-1 value=0 stamp=0
+armed tag=1 pnull=1 bnull=0 same=0
+armed tag=1 slot=0 hits=0 at=-1 value=0 stamp=0
+armed tag=1 slot=1 hits=0 at=-1 value=0 stamp=0
+armed tag=2 pnull=1 bnull=0 same=0
+armed tag=2 slot=0 hits=0 at=-1 value=0 stamp=0
+armed tag=2 slot=1 hits=0 at=-1 value=0 stamp=0
+armed tag=3 pnull=1 bnull=1 same=1
+armed tag=3 slot=0 hits=0 at=-1 value=0 stamp=0
+armed tag=3 slot=1 hits=0 at=-1 value=0 stamp=0
+first time=7
+first tag=0 pnull=1 bnull=0 same=0
+first tag=0 slot=0 hits=0 at=-1 value=0 stamp=0
+first tag=0 slot=1 hits=0 at=-1 value=0 stamp=0
+first tag=1 pnull=1 bnull=0 same=0
+first tag=1 slot=0 hits=0 at=-1 value=0 stamp=0
+first tag=1 slot=1 hits=0 at=-1 value=0 stamp=0
+first tag=2 pnull=1 bnull=0 same=0
+first tag=2 slot=0 hits=1 at=6 value=102 stamp=60
+first tag=2 slot=1 hits=1 at=6 value=102 stamp=60
+first tag=3 pnull=1 bnull=1 same=1
+first tag=3 slot=0 hits=0 at=-1 value=0 stamp=0
+first tag=3 slot=1 hits=0 at=-1 value=0 stamp=0
+second time=9
+second tag=0 pnull=1 bnull=0 same=0
+second tag=0 slot=0 hits=0 at=-1 value=0 stamp=0
+second tag=0 slot=1 hits=0 at=-1 value=0 stamp=0
+second tag=1 pnull=1 bnull=0 same=0
+second tag=1 slot=0 hits=1 at=8 value=101 stamp=80
+second tag=1 slot=1 hits=1 at=8 value=101 stamp=80
+second tag=2 pnull=1 bnull=0 same=0
+second tag=2 slot=0 hits=1 at=6 value=102 stamp=60
+second tag=2 slot=1 hits=1 at=6 value=102 stamp=60
+second tag=3 pnull=1 bnull=1 same=1
+second tag=3 slot=0 hits=0 at=-1 value=0 stamp=0
+second tag=3 slot=1 hits=0 at=-1 value=0 stamp=0
+third time=11
+third tag=0 pnull=1 bnull=0 same=0
+third tag=0 slot=0 hits=1 at=10 value=100 stamp=100
+third tag=0 slot=1 hits=1 at=10 value=100 stamp=100
+third tag=1 pnull=1 bnull=0 same=0
+third tag=1 slot=0 hits=1 at=8 value=101 stamp=80
+third tag=1 slot=1 hits=1 at=8 value=101 stamp=80
+third tag=2 pnull=1 bnull=0 same=0
+third tag=2 slot=0 hits=1 at=6 value=102 stamp=60
+third tag=2 slot=1 hits=1 at=6 value=102 stamp=60
+third tag=3 pnull=1 bnull=1 same=1
+third tag=3 slot=0 hits=0 at=-1 value=0 stamp=0
+third tag=3 slot=1 hits=0 at=-1 value=0 stamp=0
+repeated time=17
+repeated tag=0 pnull=1 bnull=0 same=0
+repeated tag=0 slot=0 hits=1 at=10 value=100 stamp=100
+repeated tag=0 slot=1 hits=1 at=10 value=100 stamp=100
+repeated tag=1 pnull=1 bnull=0 same=0
+repeated tag=1 slot=0 hits=1 at=8 value=101 stamp=80
+repeated tag=1 slot=1 hits=1 at=8 value=101 stamp=80
+repeated tag=2 pnull=1 bnull=0 same=0
+repeated tag=2 slot=0 hits=1 at=6 value=102 stamp=60
+repeated tag=2 slot=1 hits=1 at=6 value=102 stamp=60
+repeated tag=3 pnull=1 bnull=1 same=1
+repeated tag=3 slot=0 hits=0 at=-1 value=0 stamp=0
+repeated tag=3 slot=1 hits=0 at=-1 value=0 stamp=0
+fresh nonnull=1 independent=1
+released time=19
+released tag=0 pnull=1 bnull=1 same=1
+released tag=0 slot=0 hits=1 at=10 value=100 stamp=100
+released tag=0 slot=1 hits=1 at=10 value=100 stamp=100
+released tag=1 pnull=1 bnull=1 same=1
+released tag=1 slot=0 hits=1 at=8 value=101 stamp=80
+released tag=1 slot=1 hits=1 at=8 value=101 stamp=80
+released tag=2 pnull=1 bnull=1 same=1
+released tag=2 slot=0 hits=1 at=6 value=102 stamp=60
+released tag=2 slot=1 hits=1 at=6 value=102 stamp=60
+released tag=3 pnull=0 bnull=0 same=1
+released tag=3 slot=0 hits=0 at=-1 value=0 stamp=0
+released tag=3 slot=1 hits=0 at=-1 value=0 stamp=0
+fresh_armed time=23
+fresh_armed tag=0 pnull=1 bnull=1 same=1
+fresh_armed tag=0 slot=0 hits=1 at=10 value=100 stamp=100
+fresh_armed tag=0 slot=1 hits=1 at=10 value=100 stamp=100
+fresh_armed tag=1 pnull=1 bnull=1 same=1
+fresh_armed tag=1 slot=0 hits=1 at=8 value=101 stamp=80
+fresh_armed tag=1 slot=1 hits=1 at=8 value=101 stamp=80
+fresh_armed tag=2 pnull=1 bnull=1 same=1
+fresh_armed tag=2 slot=0 hits=1 at=6 value=102 stamp=60
+fresh_armed tag=2 slot=1 hits=1 at=6 value=102 stamp=60
+fresh_armed tag=3 pnull=0 bnull=0 same=1
+fresh_armed tag=3 slot=0 hits=0 at=-1 value=0 stamp=0
+fresh_armed tag=3 slot=1 hits=0 at=-1 value=0 stamp=0
+fresh_woke time=25
+fresh_woke tag=0 pnull=1 bnull=1 same=1
+fresh_woke tag=0 slot=0 hits=1 at=10 value=100 stamp=100
+fresh_woke tag=0 slot=1 hits=1 at=10 value=100 stamp=100
+fresh_woke tag=1 pnull=1 bnull=1 same=1
+fresh_woke tag=1 slot=0 hits=1 at=8 value=101 stamp=80
+fresh_woke tag=1 slot=1 hits=1 at=8 value=101 stamp=80
+fresh_woke tag=2 pnull=1 bnull=1 same=1
+fresh_woke tag=2 slot=0 hits=1 at=6 value=102 stamp=60
+fresh_woke tag=2 slot=1 hits=1 at=6 value=102 stamp=60
+fresh_woke tag=3 pnull=0 bnull=0 same=1
+fresh_woke tag=3 slot=0 hits=1 at=24 value=103 stamp=240
+fresh_woke tag=3 slot=1 hits=1 at=24 value=103 stamp=240
+final time=27
+final tag=0 pnull=1 bnull=1 same=1
+final tag=0 slot=0 hits=1 at=10 value=100 stamp=100
+final tag=0 slot=1 hits=1 at=10 value=100 stamp=100
+final tag=1 pnull=1 bnull=1 same=1
+final tag=1 slot=0 hits=1 at=8 value=101 stamp=80
+final tag=1 slot=1 hits=1 at=8 value=101 stamp=80
+final tag=2 pnull=1 bnull=1 same=1
+final tag=2 slot=0 hits=1 at=6 value=102 stamp=60
+final tag=2 slot=1 hits=1 at=6 value=102 stamp=60
+final tag=3 pnull=1 bnull=1 same=1
+final tag=3 slot=0 hits=1 at=24 value=103 stamp=240
+final tag=3 slot=1 hits=1 at=24 value=103 stamp=240

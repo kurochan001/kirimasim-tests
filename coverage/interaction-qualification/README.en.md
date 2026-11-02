@@ -219,3 +219,57 @@ An intentional SV operator change terminates normally and is detected by output 
 [`random-cross-manifest.json`](random-cross-manifest.json) retains the actual 96-case corpus.
 Random runs, replay and fault injection do not increase fixed-suite counts or passing-model counts and are not successful GitHub Nightly execution.
 See [scope, limits and replay](../../docs/random-cross-verification.en.md).
+
+<a id="aggregate-event-lifetime-checks"></a>
+
+<a id="構造体内イベントの寿命の独立検算"></a>
+
+## Independent aggregate-event lifetime checks
+
+[`eventlife.json`](eventlife.json) records independent interpretation of all 432 SV stimulus rows using objects, frames and an event queue, checked against expected output.
+Eight source mutations produce interpreted output differences or stranded waits. These are not executed SV faults or successful runtime controls.
+Fixed Icarus/Verilator reject all 18 builds; no oracle is added.
+[`eventlife-build.json`](eventlife-build.json) records the upstream commit checked immediately before execution, build version, binary fingerprint, 18 successful parses and the full cross-run location.
+kirimasim execution lacks event-value operations. See [design and limits](../../docs/interaction-verification.en.md#aggregate-event-lifetime).
+
+<a id="sv-dpi-array-query-checks"></a>
+
+<a id="svdpi配列問い合わせの独立検算と実行"></a>
+
+## Independent SV/DPI array-query checks and execution
+
+[`dpiquery.json`](dpiquery.json) records independent declaration/query checks for all 1,152 rows and 2,304 calls to the actual C probe through a test-owned ABI stub.
+Synthetic shapes do not qualify simulator marshalling. Three original normalized-packed controls and six SV/C mutants all execute with exit zero; faults are detected through output differences.
+These controls do not qualify offset-packed or open-packed execution. Normal fixed Verilator runs record 11 pass and eight known results.
+[`dpiquery-build.json`](dpiquery-build.json) records the build checked against latest upstream, binary fingerprint, 19 successful parses and full cross-run location.
+The kirimasim runner classifies C-backed tests as unsupported before execution, leaving DPI execution unconfirmed.
+See [design and limits](../../docs/interaction-verification.en.md#sv-dpi-array-queries).
+
+<a id="sdf-conditional-path-checks"></a>
+
+<a id="sdf条件付きパスの検算と実行"></a>
+
+## SDF conditional-path checks and execution
+
+[`sdfpath.json`](sdfpath.json) records independent parsing/event-heap checks for all 288 emitted specify/SDF/stimulus rows.
+Three original plain/ABSOLUTE controls and six SV/SDF mutants execute on fixed Icarus with exit zero; faults are detected through output differences.
+Three COND/CONDELSE/INCREMENT mutations are interpreted only and are kept separate from runtime fault detection.
+Normal fixed Icarus runs record three pass and 15 known results; both fixed Verilator seeds record 18 known results.
+[`sdfpath-build.json`](sdfpath-build.json) records the upstream commit checked immediately before execution, build version, binary fingerprint, 18 successful parses and full cross-run location.
+kirimasim execution lacks conditional paths or $sdf_annotate. See [design and limits](../../docs/interaction-verification.en.md#sdf-conditional-paths).
+
+<a id="checker-assertion-sampling-checks"></a>
+
+<a id="checkerサンプリングの独立検算と実行"></a>
+
+## Independent checker-sampling checks and execution
+
+[`checksample.json`](checksample.json) records independent region-model checks of all 1,296 emitted connection/clocking/stimulus rows.
+Five original controls and seven SV mutants all execute with exit zero; faults are detected through output differences.
+Two separate known-difference replays are not counted as controls or detected faults. A one-bit-vector same-slot NBA makes checker and module reference record the same old live value.
+Both fixed Verilator seeds record 25 pass and two known results; fixed Icarus rejects all 27 builds.
+[`checksample-build.json`](checksample-build.json) records the build checked against latest upstream, binary fingerprint, 27 successful parses and full cross-run location.
+kirimasim execution lacks checker instances. See [design and common-error detection](../../docs/interaction-verification.en.md#checker-assertion-sampling).
+
+[`checksample-m4.json`](checksample-m4.json) records seven matches and 44 explicit deferrals using existing M4 input traces.
+The two new checker candidates remain source-hashed, reasoned M4 deferrals, separate from cross-specific checks or simulator replays.

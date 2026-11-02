@@ -1,0 +1,181 @@
+{
+  "model": "distribution_expression_binding",
+  "version": 1,
+  "generated_at": "2026-11-02T15:22:53.139461+00:00",
+  "scope": "Independent typed-expression parser and finite-domain enumeration. Four original sat_only controls and one auxiliary failure-after-success control with a redundant contradiction. The auxiliary does not qualify all-zero-weight infeasibility or first-failure observations. No statistical ratio claims.",
+  "independent_rows": 972,
+  "simulator_version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "sources_sha256": {
+    "generators/interaction_dist.py": "3537ab924f3534bc5347c49d0dfdd8f580256d93e9c4125f1817190b30d2676a",
+    "tools/qualify_dist.py": "764084ba91d80c998ce0bd62366b40661284042a364b72792318ad346963a609"
+  },
+  "controls": {
+    "shift_control": "tests/gen/ch18/test_gen_cross_dist_4_signed_add_shift_implicit_each_singleton_sat_only.sv",
+    "mul_control": "tests/gen/ch18/test_gen_cross_dist_33_unsigned_add_mul_implicit_total_zero_sat_only.sv",
+    "rel_control": "tests/gen/ch18/test_gen_cross_dist_8_signed_add_rel_implicit_each_singleton_sat_only.sv",
+    "overlap_control": "tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_mul_altered_each_overlap_sat_only.sv",
+    "auxiliary_failure_control": "tests/gen/ch18/test_gen_cross_dist_33_unsigned_add_mul_implicit_total_zero_sat_fail_sat.sv"
+  },
+  "executions": {
+    "shift_control": {
+      "status": "pass",
+      "control": "shift_control",
+      "returncode": 0,
+      "source_sha256": "9f8e7b4fdea6a9013a164be40bea3df4070857bdc75e0bc88903d3e06319876b",
+      "stdout": "target phase=0 impossible=0 ok=1 x=-3 bits=1101 expr=-4 expr_bits=4\nguard phase=0 impossible=0 ok=1 x=-3 bits=1101 expr=-4 expr_bits=4\ntarget phase=1 impossible=0 ok=1 x=-3 bits=1101 expr=-4 expr_bits=4\nguard phase=1 impossible=0 ok=1 x=-3 bits=1101 expr=-4 expr_bits=4\ntarget phase=2 impossible=0 ok=1 x=-3 bits=1101 expr=-4 expr_bits=4\nguard phase=2 impossible=0 ok=1 x=-3 bits=1101 expr=-4 expr_bits=4\n",
+      "stderr": "",
+      "reason": "",
+      "constraint_diagnostics": []
+    },
+    "mul_control": {
+      "status": "pass",
+      "control": "mul_control",
+      "returncode": 0,
+      "source_sha256": "4cab3d2773475bd89561ff05b83b3ce64f5bf375621135a69d9a4693226a08d1",
+      "stdout": "target phase=0 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\nguard phase=0 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\ntarget phase=1 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\nguard phase=1 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\ntarget phase=2 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\nguard phase=2 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\n",
+      "stderr": "",
+      "reason": "",
+      "constraint_diagnostics": []
+    },
+    "rel_control": {
+      "status": "pass",
+      "control": "rel_control",
+      "returncode": 0,
+      "source_sha256": "473e1d35156ac58fe792b5b0783f55df27715037079e7054f232d0ce4f694c00",
+      "stdout": "target phase=0 impossible=0 ok=1 x=-63 bits=11000001 expr=0 expr_bits=1\nguard phase=0 impossible=0 ok=1 x=-63 bits=11000001 expr=0 expr_bits=1\ntarget phase=1 impossible=0 ok=1 x=-63 bits=11000001 expr=0 expr_bits=1\nguard phase=1 impossible=0 ok=1 x=-63 bits=11000001 expr=0 expr_bits=1\ntarget phase=2 impossible=0 ok=1 x=-63 bits=11000001 expr=0 expr_bits=1\nguard phase=2 impossible=0 ok=1 x=-63 bits=11000001 expr=0 expr_bits=1\n",
+      "stderr": "",
+      "reason": "",
+      "constraint_diagnostics": []
+    },
+    "overlap_control": {
+      "status": "pass",
+      "control": "overlap_control",
+      "returncode": 0,
+      "source_sha256": "3643a2e4fa88ff3753dd6dde8ed152ae1eb470136cbfbe8a160d524337965543",
+      "stdout": "target phase=0 impossible=0 ok=1 x=9 bits=1001 expr=4 expr_bits=4\nguard phase=0 impossible=0 ok=1 x=9 bits=1001 expr=4 expr_bits=4\ntarget phase=1 impossible=0 ok=1 x=9 bits=1001 expr=4 expr_bits=4\nguard phase=1 impossible=0 ok=1 x=9 bits=1001 expr=4 expr_bits=4\ntarget phase=2 impossible=0 ok=1 x=9 bits=1001 expr=4 expr_bits=4\nguard phase=2 impossible=0 ok=1 x=9 bits=1001 expr=4 expr_bits=4\n",
+      "stderr": "",
+      "reason": "",
+      "constraint_diagnostics": []
+    },
+    "auxiliary_failure_control": {
+      "status": "pass",
+      "control": "auxiliary_failure_control",
+      "returncode": 0,
+      "source_sha256": "2bec0bdc6793ef64f54f85f4db036734f0173fbdeed4d0c9c6355d9b77b11646",
+      "stdout": "target phase=0 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\nguard phase=0 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\ntarget phase=1 impossible=1 ok=0 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\nguard phase=1 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\ntarget phase=2 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\nguard phase=2 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\n",
+      "stderr": "",
+      "reason": "",
+      "constraint_diagnostics": [
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/auxiliary_failure_control.sv:34: Unsatisfied constraint: 'constraint c_aux_fail { if (impossible) x != x; }'"
+      ]
+    },
+    "wrong_shift_grouping": {
+      "status": "detected",
+      "control": "shift_control",
+      "returncode": 0,
+      "source_sha256": "b484947638b1b443168e908455b7dd32e51995b16c41d509965d6683f5b361eb",
+      "stdout": "target phase=0 impossible=0 ok=0 x=-1 bits=1111 expr=32 expr_bits=4\nguard phase=0 impossible=0 ok=0 x=0 bits=0000 expr=2 expr_bits=4\ntarget phase=1 impossible=0 ok=0 x=-1 bits=1111 expr=32 expr_bits=4\nguard phase=1 impossible=0 ok=0 x=0 bits=0000 expr=2 expr_bits=4\ntarget phase=2 impossible=0 ok=0 x=-1 bits=1111 expr=32 expr_bits=4\nguard phase=2 impossible=0 ok=0 x=0 bits=0000 expr=2 expr_bits=4\n",
+      "stderr": "",
+      "reason": "output differs: line 1 is 'target phase=0 impossible=0 ok=0 x=-1 bits=1111 expr=32 e...', expected 'target phase=0 impossible=0 ok=1 x=-3 bits=1101 expr=-4 e...'",
+      "constraint_diagnostics": [
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'"
+      ]
+    },
+    "wrong_multiply_grouping": {
+      "status": "detected",
+      "control": "mul_control",
+      "returncode": 0,
+      "source_sha256": "12bbd61b0e16bf629243bc6b3031b449c493ac28d99e22236da3caa5942ad1bd",
+      "stdout": "target phase=0 impossible=0 ok=0 x=8589934591 bits=111111111111111111111111111111111 expr=1 expr_bits=33\nguard phase=0 impossible=0 ok=0 x=0 bits=000000000000000000000000000000000 expr=2 expr_bits=33\ntarget phase=1 impossible=0 ok=0 x=8589934591 bits=111111111111111111111111111111111 expr=1 expr_bits=33\nguard phase=1 impossible=0 ok=0 x=0 bits=000000000000000000000000000000000 expr=2 expr_bits=33\ntarget phase=2 impossible=0 ok=0 x=8589934591 bits=111111111111111111111111111111111 expr=1 expr_bits=33\nguard phase=2 impossible=0 ok=0 x=0 bits=000000000000000000000000000000000 expr=2 expr_bits=33\n",
+      "stderr": "",
+      "reason": "output differs: line 1 is 'target phase=0 impossible=0 ok=0 x=8589934591 bits=111111...', expected 'target phase=0 impossible=0 ok=1 x=4294967297 bits=100000...'",
+      "constraint_diagnostics": [
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'"
+      ]
+    },
+    "wrong_relation_grouping": {
+      "status": "detected",
+      "control": "rel_control",
+      "returncode": 0,
+      "source_sha256": "73dfe754adddbf21563e47b27f0b503aa137c0d171cd65e86e4e0427301e69e7",
+      "stdout": "target phase=0 impossible=0 ok=0 x=-1 bits=11111111 expr=0 expr_bits=1\nguard phase=0 impossible=0 ok=0 x=0 bits=00000000 expr=0 expr_bits=1\ntarget phase=1 impossible=0 ok=0 x=-1 bits=11111111 expr=0 expr_bits=1\nguard phase=1 impossible=0 ok=0 x=0 bits=00000000 expr=0 expr_bits=1\ntarget phase=2 impossible=0 ok=0 x=-1 bits=11111111 expr=0 expr_bits=1\nguard phase=2 impossible=0 ok=0 x=0 bits=00000000 expr=0 expr_bits=1\n",
+      "stderr": "",
+      "reason": "output differs: line 1 is 'target phase=0 impossible=0 ok=0 x=-1 bits=11111111 expr=...', expected 'target phase=0 impossible=0 ok=1 x=-63 bits=11000001 expr...'",
+      "constraint_diagnostics": [
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'"
+      ]
+    },
+    "swap_positive_support": {
+      "status": "detected",
+      "control": "mul_control",
+      "returncode": 0,
+      "source_sha256": "c4bf55a481f3297029a4a338f786b5dd1805d45ba6ae1ea13d02c7c3bc4a002c",
+      "stdout": "target phase=0 impossible=0 ok=1 x=4294967296 bits=100000000000000000000000000000000 expr=4294967298 expr_bits=33\nguard phase=0 impossible=0 ok=1 x=4294967296 bits=100000000000000000000000000000000 expr=4294967298 expr_bits=33\ntarget phase=1 impossible=0 ok=1 x=4294967296 bits=100000000000000000000000000000000 expr=4294967298 expr_bits=33\nguard phase=1 impossible=0 ok=1 x=4294967296 bits=100000000000000000000000000000000 expr=4294967298 expr_bits=33\ntarget phase=2 impossible=0 ok=1 x=4294967296 bits=100000000000000000000000000000000 expr=4294967298 expr_bits=33\nguard phase=2 impossible=0 ok=1 x=4294967296 bits=100000000000000000000000000000000 expr=4294967298 expr_bits=33\n",
+      "stderr": "",
+      "reason": "output differs: line 1 is 'target phase=0 impossible=0 ok=1 x=4294967296 bits=100000...', expected 'target phase=0 impossible=0 ok=1 x=4294967297 bits=100000...'",
+      "constraint_diagnostics": []
+    },
+    "wrong_overlap_range": {
+      "status": "detected",
+      "control": "overlap_control",
+      "returncode": 0,
+      "source_sha256": "c02d2402b6830477bd5f74b39bbe3a983a479ae04c12cffeb6953a0e1733592d",
+      "stdout": "target phase=0 impossible=0 ok=1 x=8 bits=1000 expr=2 expr_bits=4\nguard phase=0 impossible=0 ok=1 x=8 bits=1000 expr=2 expr_bits=4\ntarget phase=1 impossible=0 ok=1 x=8 bits=1000 expr=2 expr_bits=4\nguard phase=1 impossible=0 ok=1 x=8 bits=1000 expr=2 expr_bits=4\ntarget phase=2 impossible=0 ok=1 x=8 bits=1000 expr=2 expr_bits=4\nguard phase=2 impossible=0 ok=1 x=8 bits=1000 expr=2 expr_bits=4\n",
+      "stderr": "",
+      "reason": "output differs: line 1 is 'target phase=0 impossible=0 ok=1 x=8 bits=1000 expr=2 exp...', expected 'target phase=0 impossible=0 ok=1 x=9 bits=1001 expr=4 exp...'",
+      "constraint_diagnostics": []
+    },
+    "clobber_failed_value": {
+      "status": "detected",
+      "control": "auxiliary_failure_control",
+      "returncode": 0,
+      "source_sha256": "ef54f603b1ff40d354ef6386b854915b4ad98dd2e2ce8e9299c8737e08ff5e52",
+      "stdout": "target phase=0 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\nguard phase=0 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\ntarget phase=1 impossible=1 ok=0 x=0 bits=000000000000000000000000000000000 expr=2 expr_bits=33\nguard phase=1 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\ntarget phase=2 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\nguard phase=2 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\n",
+      "stderr": "",
+      "reason": "output differs: line 3 is 'target phase=1 impossible=1 ok=0 x=0 bits=000000000000000...', expected 'target phase=1 impossible=1 ok=0 x=4294967297 bits=100000...'",
+      "constraint_diagnostics": [
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/clobber_failed_value.sv:34: Unsatisfied constraint: 'constraint c_aux_fail { if (impossible) x != x; }'"
+      ]
+    },
+    "alias_guard": {
+      "status": "detected",
+      "control": "auxiliary_failure_control",
+      "returncode": 0,
+      "source_sha256": "336753b294199abe726c121608bd8b01bb2d82eb87d7b6d1c35361b4b5b3ebf4",
+      "stdout": "target phase=0 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\nguard phase=0 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\ntarget phase=1 impossible=1 ok=0 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\nguard phase=1 impossible=1 ok=0 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\ntarget phase=2 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\nguard phase=2 impossible=0 ok=1 x=4294967297 bits=100000000000000000000000000000001 expr=4294967299 expr_bits=33\n",
+      "stderr": "",
+      "reason": "output differs: line 4 is 'guard phase=1 impossible=1 ok=0 x=4294967297 bits=1000000...', expected 'guard phase=1 impossible=0 ok=1 x=4294967297 bits=1000000...'",
+      "constraint_diagnostics": [
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/alias_guard.sv:34: Unsatisfied constraint: 'constraint c_aux_fail { if (impossible) x != x; }'",
+        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/alias_guard.sv:34: Unsatisfied constraint: 'constraint c_aux_fail { if (impossible) x != x; }'"
+      ]
+    }
+  }
+}

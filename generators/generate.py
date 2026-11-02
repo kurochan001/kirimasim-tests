@@ -73,6 +73,11 @@ import interaction_clockiff
 import interaction_assocquery
 import interaction_randreduce
 import interaction_gendisable
+import interaction_dist
+import interaction_eventlife
+import interaction_dpiquery
+import interaction_sdfpath
+import interaction_checksample
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -116,7 +121,7 @@ GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths, keyw
               interaction_ifimport,
               interaction_mailbox,
               interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff, interaction_assocquery, interaction_randreduce,
-              interaction_gendisable, interaction_compound, interaction_inside,
+              interaction_gendisable, interaction_dist, interaction_eventlife, interaction_dpiquery, interaction_sdfpath, interaction_checksample, interaction_compound, interaction_inside,
               interaction_range, interaction_case_inside,
               combination_events, combination_nba, combination_aggregates, combination_io,
               combination_monitors]

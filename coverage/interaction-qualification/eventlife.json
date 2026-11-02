@@ -1,0 +1,55 @@
+{
+  "model": "aggregate_event_lifetime",
+  "version": 1,
+  "generated_at": "2026-11-02T16:34:17.533725+00:00",
+  "scope": "Independent interpretation of emitted SV stimulus: object identities, automatic frames, whole copies, registrations and ordered NBA updates. Source faults are interpreted, not compiled or executed. All pinned simulator selections reject the original input; no simulator-qualified oracle or runtime fault-detection claim.",
+  "independent_rows": 432,
+  "sources_sha256": {
+    "generators/interaction_eventlife.py": "c11d5e173d1ad8608a03263698f4aa0b71cc31697c440281b8b5452ce587a1cb",
+    "tools/qualify_eventlife.py": "bb6a217aa016c6d95231e78e4c64fedfdd6ae5df86a1c6ec4df0d9b735b163d7"
+  },
+  "source_faults": {
+    "drop_whole_copy": {
+      "control": "nested_copy",
+      "source_sha256": "6507234864f172506f72f888bcd4da3418b0f7a220005c72946caf176c1e2d20",
+      "source_check": "output differs"
+    },
+    "read_overwritten_payload": {
+      "control": "nested_copy",
+      "source_sha256": "5d41b1e38e7b30bbac33b567db9512d631dcf116c458d52842cfdcd107de3e51",
+      "source_check": "output differs"
+    },
+    "share_event_between_calls": {
+      "control": "nested_copy",
+      "source_sha256": "b17aa08f162952c06b69ec1dc44ec17832492cbb5387dd191aa336f862deadf4",
+      "source_check": "output differs"
+    },
+    "late_registration": {
+      "control": "nested_copy",
+      "source_sha256": "15463842d32fb836dbbcb925b3cf551ce4f9ec0718143a0d97d804637468bb9b",
+      "source_check": "stranded registration"
+    },
+    "release_trigger_alias_early": {
+      "control": "nested_copy",
+      "source_sha256": "9ab368765a9c709f87c6d8d7c31ba2af4f3e440a0f25f0493c30515f5f90dd18",
+      "source_check": "stranded registration"
+    },
+    "wrong_trigger": {
+      "control": "nested_copy",
+      "source_sha256": "f5e8de10678cb83d063c8b02d977da2497074505ec166877ac7aefd5739fbdd6",
+      "source_check": "stranded registration"
+    },
+    "double_count": {
+      "control": "nested_copy",
+      "source_sha256": "2d66c82f7c4bc6739051ad5b2cbfc4fe2833d246fa0f3e066ec25cd65a485736",
+      "source_check": "output differs"
+    },
+    "lose_scalar_payload_copy": {
+      "control": "scalar_copy",
+      "source_sha256": "17247b7843b0d8e8bdb25882c208d01d276f1bb881d6cf0d2f92090ffe0a354e",
+      "source_check": "output differs"
+    }
+  },
+  "runtime_controls": 0,
+  "runtime_faults": 0
+}

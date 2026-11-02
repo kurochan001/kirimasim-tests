@@ -749,3 +749,74 @@ M3の期待値・説明の2件の修正をユーザーが承認した後、`ch16
 一致した5件だけに固定Verilatorのoracleを追加しました。残る13件は規格から決めた期待値を保持しています。
 開始前条件の正常対照4件とSV故障注入6件の成功は、これらの13件を確認済みとする根拠ではありません。
 固定版の差異としてこの資料に記録し、上流へのIssue投稿は行っていません。
+
+<a id="distribution-precedence-20261103"></a>
+
+<a id="distribution-and-operator-precedence-2026-11-03"></a>
+
+## distと演算子の優先順位（2026-11-03）
+
+`distribution_expression_binding@1`の31選択ケースを固定版で確認しました。
+[設計と確認範囲](interaction-verification.md#distribution-expression-binding)、
+[Verilator seed 1](../coverage/interaction-results/cross67-dist-verilator5052-seed1.json)、
+[seed 73](../coverage/interaction-results/cross67-dist-verilator5052-seed73.json)、
+[Icarus 13.0](../coverage/interaction-results/cross67-dist-icarus13.json)に記録しています。
+
+- Verilator 5.052：両seedで正常系19件が一致し、成功と失敗を交互に行う12件は出力不一致です。全候補の合計重みがゼロでもrandomizeが1を返します。18.5.3は候補の合計重みゼロを禁止条件とするため、この場合の解はなく、期待出力は失敗と値保持です。内部実装の原因は未確認です。
+- Icarus Verilog 13.0：全31件をビルド時に拒否し、出力の確認には至りません。
+
+一致した19件だけに固定Verilatorのoracleを追加しました。元の失敗系の期待値と候補集合は変更していません。
+独立した矛盾を追加した補助対照での失敗確認を、全重みゼロそのものの確認や初回失敗時の確認へ読み替えません。
+単一値範囲と一意な解を使っており、多値範囲の確率比や分布の統計的な適合は未検証です。
+固定版の差異としてこの資料に記録し、上流へのIssue投稿は行っていません。
+
+<a id="aggregate-event-lifetime-2026-11-03"></a>
+
+<a id="2026-11-03-aggregate-events-and-automatic-task-lifetime"></a>
+
+## 2026-11-03：構造体内イベントと自動タスクの寿命
+
+`aggregate_event_lifetime@1`の18件は、構造体の全体コピーと自動スコープの寿命を、別名解除・遅延した待機登録・複数呼出しで組み合わせます。
+固定Verilator 5.052は両seedともイベント代入が未対応で全件ビルド拒否、固定Icarus 13.0も全件ビルド拒否でした。固定版oracleは追加していません。
+kirimasim `50f1f77b8c94`は全件解析成功・イベント値操作未対応です。
+独立モデルで全432行を検算していますが、シミュレータ上での正常対照・故障検出は未確認です。
+[設計・生の証跡・限界](interaction-verification.md#aggregate-event-lifetime)を参照してください。商用シミュレータとの照合や外部Issueへの投稿は行っていません。
+
+<a id="sv-dpi-array-queries-2026-11-03"></a>
+
+<a id="2026-11-03-sv-and-dpi-c-array-queries"></a>
+
+## 2026-11-03：SVとDPI-Cの配列問い合わせ
+
+`sv_dpi_array_queries@1`の固定Verilator 5.052実行は両seedとも11 pass・8 knownです。
+サイズ固定・正規化済みpackedの11件は一致します。オフセット付きpackedの2件では、Cの次元0が正規化範囲と異なります。
+実引数`[4:7]`に対して期待値`[3:0]`と異なる端点・方向が出力されました。内部実装の原因は未確認です。
+open packedの6件と固定Icarus 13.0の全19件はビルド拒否です。期待値を維持し、一致した11件だけにoracleを登録しました。
+kirimasim `50f1f77b8c94`の解析は全件成功しますが、ランナーがCコード付きテストを実行前に未対応へ分類します。
+[設計・対照・生の証跡](interaction-verification.md#sv-dpi-array-queries)を参照してください。
+
+<a id="sdf-conditional-paths-2026-11-03"></a>
+
+<a id="2026-11-03-conditional-specify-paths-and-sdf-annotation"></a>
+
+## 2026-11-03：条件付きspecifyパスとSDF注釈
+
+`sdf_conditional_paths@1`の固定Icarus 13.0実行は3 pass・15 knownです。
+通常パス・ABSOLUTEは一致し、COND／CONDELSE／INCREMENTを含む行は、値・変化回数・時刻の出力が一致しません。
+固定Verilator 5.052は両seedとも全18件が出力不一致です。通常パスで一致したIcarusの3件だけにoracleを追加しました。
+元の正常対照3件とSV/SDFの6故障は固定Icarusで実行していますが、条件付き注釈と加算の実行確認ではありません。
+kirimasim `2ffb5dddca04`では全18件が解析成功、実行で最初に報告される未対応は条件付きパス12件・$sdf_annotate 6件です。
+[設計・対照・生の証跡](interaction-verification.md#sdf-conditional-paths)を参照してください。
+
+<a id="checker-assertion-sampling-2026-11-03"></a>
+
+<a id="2026-11-03-checker-and-module-reference-sampling"></a>
+
+## 2026-11-03：checkerとmodule参照のサンプリング
+
+`checker_assertion_sampling@1`の固定Verilator 5.052実行は両seedとも25 pass・2 knownです。
+残る2件は、1ビットベクタ・同時刻NBA・明示クロックです。最初の周期ではPreponedで0をサンプルし、NBA更新後の生値は1の期待ですが、
+checkerとmodule参照の両方が生値0を記録し、時刻16の最終データは1でした。内部実装の原因は未確認です。
+二つの実装が一致するだけでは合格とせず、独立した仕様モデルと比較し、期待値を維持します。一致した25件だけにoracleを追加しました。
+固定Icarus 13.0は全27件をビルド時に拒否します。kirimasim `2ffb5dddca04`は解析成功・checkerインスタンス未対応です。
+[設計・正常対照・全出力の再現記録](interaction-verification.md#checker-assertion-sampling)を参照してください。

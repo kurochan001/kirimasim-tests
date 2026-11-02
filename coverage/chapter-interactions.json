@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "reviewed_on": "2026-11-02",
+  "reviewed_on": "2026-11-03",
   "reviewer": "Codex (GPT-6), AI review",
   "scope": "Registered finite interaction models only; explicit semantic chapter pairs, not citation co-occurrences. Diagonal entries are primary-chapter model counts.",
   "models": [
@@ -1643,6 +1643,83 @@
             27
           ],
           "reason": "generateスコープのdefault disable iffの継承・上書き・名前解決と、実体ごとの無効化"
+        }
+      ]
+    },
+    {
+      "id": "distribution_expression_binding",
+      "primary_chapter": 18,
+      "pairs": [
+        {
+          "chapters": [
+            11,
+            18
+          ],
+          "reason": "演算子の優先順位・括弧・幅と符号がdistの候補集合と重みに与える影響"
+        }
+      ]
+    },
+    {
+      "id": "aggregate_event_lifetime",
+      "primary_chapter": 15,
+      "pairs": [
+        {
+          "chapters": [
+            7,
+            15
+          ],
+          "reason": "自動タスク復帰後の構造体内イベントの同一性と全体コピーを、別名解放・遅延した待機登録・別呼出しの独立性で照合する"
+        }
+      ]
+    },
+    {
+      "id": "sv_dpi_array_queries",
+      "primary_chapter": 20,
+      "pairs": [
+        {
+          "chapters": [
+            20,
+            35
+          ],
+          "reason": "同じ実引数のSV配列問い合わせとDPI-C問い合わせを、次元番号・packed範囲の正規化・呼出しごとの形状で照合する"
+        }
+      ]
+    },
+    {
+      "id": "sdf_conditional_paths",
+      "primary_chapter": 32,
+      "pairs": [
+        {
+          "chapters": [
+            30,
+            32
+          ],
+          "reason": "条件付きspecifyパスとSDF注釈の条件・階層範囲を、注釈対象と非対象の立上り/立下り遅延で照合する"
+        }
+      ]
+    },
+    {
+      "id": "checker_assertion_sampling",
+      "primary_chapter": 17,
+      "pairs": [
+        {
+          "chapters": [
+            16,
+            17
+          ],
+          "reason": "checker内とmodule参照モデルのアサーションで、Preponedのサンプル値とReactiveの生値・判定・実行時刻を照合する"
+        },
+        {
+          "chapters": [
+            17,
+            25
+          ],
+          "when": {
+            "home": [
+              "interface"
+            ]
+          },
+          "reason": "interface内の静的checkerについて、接続形式と2実体の独立性・出力引数を通る観測を照合する"
         }
       ]
     }

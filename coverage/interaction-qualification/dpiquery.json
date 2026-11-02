@@ -1,0 +1,112 @@
+{
+  "model": "sv_dpi_array_queries",
+  "version": 1,
+  "generated_at": "2026-11-02T17:38:47.245502+00:00",
+  "scope": "Independent emitted-declaration/query interpretation; actual C probe on test-owned ABI shapes (not simulator marshalling); three original normalized/sized-packed SV controls and six actual SV/C mutants. No runtime qualification of offset packed normalization or open packed formals.",
+  "independent_rows": 1152,
+  "c_stub_calls": 2304,
+  "simulator_version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+  "sources_sha256": {
+    "generators/interaction_dpiquery.py": "8b655a15346afdb84b6e989463796422becdbb666c2e1636cc1aacd0955f3ba1",
+    "tests/ch35/cross_dpiquery.c": "82e0892d916d4cae34b90206ed3a9ffd6e339758123ee1281c94eecac30c9e79",
+    "tools/qualify_dpiquery.py": "f9e2ed1d3e2c1bd5e3dceec256f56f70d7e33ccb7a1e5bedd92838fe3e3e5514"
+  },
+  "controls": {
+    "rank1_control": "tests/gen/ch20/test_gen_cross_dpiquery_1_up_neg_varied_33_sized_normal_switch_literal.sv",
+    "rank3_control": "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_pos_varied_4_sized_normal_switch_variable.sv",
+    "rank2_control": "tests/gen/ch20/test_gen_cross_dpiquery_2_down_neg_one_33_sized_normal_same_literal.sv"
+  },
+  "executions": {
+    "rank1_control": {
+      "control": "rank1_control",
+      "status": "pass",
+      "returncode": 0,
+      "source_sha256": "8bee60bdf03e5c741cd4cb15d259b86a462891442b79e78314fd965020893d02",
+      "c_source_sha256": "82e0892d916d4cae34b90206ed3a9ffd6e339758123ee1281c94eecac30c9e79",
+      "stdout": "sv phase=0 dims=2 unpacked=1\nsv dim=1 left=-7 right=-6 low=-7 high=-6 increment=-1 size=2\nsv dim=2 left=32 right=0 low=0 high=32 increment=1 size=33\nc phase=0 dims=1\nc dim=0 left=32 right=0 low=0 high=32 increment=1 size=33\nc dim=1 left=-7 right=-6 low=-7 high=-6 increment=-1 size=2\nreturned=984\nsv phase=1 dims=2 unpacked=1\nsv dim=1 left=9 right=7 low=7 high=9 increment=1 size=3\nsv dim=2 left=32 right=0 low=0 high=32 increment=1 size=33\nc phase=1 dims=1\nc dim=0 left=32 right=0 low=0 high=32 increment=1 size=33\nc dim=1 left=9 right=7 low=7 high=9 increment=1 size=3\nreturned=2490\n",
+      "stderr": "",
+      "reason": ""
+    },
+    "rank3_control": {
+      "control": "rank3_control",
+      "status": "pass",
+      "returncode": 0,
+      "source_sha256": "d90728e76e3334ae659bd7aa72f3c45162d04fed0d67f24886ee7e89946b9b22",
+      "c_source_sha256": "82e0892d916d4cae34b90206ed3a9ffd6e339758123ee1281c94eecac30c9e79",
+      "stdout": "sv phase=0 dims=4 unpacked=3\nsv dim=1 left=3 right=4 low=3 high=4 increment=-1 size=2\nsv dim=2 left=9 right=7 low=7 high=9 increment=1 size=3\nsv dim=3 left=11 right=14 low=11 high=14 increment=-1 size=4\nsv dim=4 left=3 right=0 low=0 high=3 increment=1 size=4\nc phase=0 dims=3\nc dim=0 left=3 right=0 low=0 high=3 increment=1 size=4\nc dim=1 left=3 right=4 low=3 high=4 increment=-1 size=2\nc dim=2 left=9 right=7 low=7 high=9 increment=1 size=3\nc dim=3 left=11 right=14 low=11 high=14 increment=-1 size=4\nreturned=4737\nsv phase=1 dims=4 unpacked=3\nsv dim=1 left=-1 right=-3 low=-3 high=-1 increment=1 size=3\nsv dim=2 left=-7 right=-4 low=-7 high=-4 increment=-1 size=4\nsv dim=3 left=-7 right=-11 low=-11 high=-7 increment=1 size=5\nsv dim=4 left=3 right=0 low=0 high=3 increment=1 size=4\nc phase=1 dims=3\nc dim=0 left=3 right=0 low=0 high=3 increment=1 size=4\nc dim=1 left=-1 right=-3 low=-3 high=-1 increment=1 size=3\nc dim=2 left=-7 right=-4 low=-7 high=-4 increment=-1 size=4\nc dim=3 left=-7 right=-11 low=-11 high=-7 increment=1 size=5\nreturned=-1562\n",
+      "stderr": "",
+      "reason": ""
+    },
+    "rank2_control": {
+      "control": "rank2_control",
+      "status": "pass",
+      "returncode": 0,
+      "source_sha256": "490c3806185e517af2bbe3c599ad1b5b202a8966f3fede9e1d19d784c1c84e80",
+      "c_source_sha256": "82e0892d916d4cae34b90206ed3a9ffd6e339758123ee1281c94eecac30c9e79",
+      "stdout": "sv phase=0 dims=3 unpacked=2\nsv dim=1 left=-7 right=-7 low=-7 high=-7 increment=1 size=1\nsv dim=2 left=-10 right=-10 low=-10 high=-10 increment=1 size=1\nsv dim=3 left=32 right=0 low=0 high=32 increment=1 size=33\nc phase=0 dims=2\nc dim=0 left=32 right=0 low=0 high=32 increment=1 size=33\nc dim=1 left=-7 right=-7 low=-7 high=-7 increment=1 size=1\nc dim=2 left=-10 right=-10 low=-10 high=-10 increment=1 size=1\nreturned=-356\nsv phase=1 dims=3 unpacked=2\nsv dim=1 left=-7 right=-7 low=-7 high=-7 increment=1 size=1\nsv dim=2 left=-10 right=-10 low=-10 high=-10 increment=1 size=1\nsv dim=3 left=32 right=0 low=0 high=32 increment=1 size=33\nc phase=1 dims=2\nc dim=0 left=32 right=0 low=0 high=32 increment=1 size=33\nc dim=1 left=-7 right=-7 low=-7 high=-7 increment=1 size=1\nc dim=2 left=-10 right=-10 low=-10 high=-10 increment=1 size=1\nreturned=-356\n",
+      "stderr": "",
+      "reason": ""
+    },
+    "swap_c_bounds": {
+      "control": "rank1_control",
+      "status": "detected",
+      "returncode": 0,
+      "source_sha256": "8bee60bdf03e5c741cd4cb15d259b86a462891442b79e78314fd965020893d02",
+      "c_source_sha256": "d031395bcb3f946ee3f05f1f5890969fe16ae420e996ba9d0c3cbdca59952706",
+      "stdout": "sv phase=0 dims=2 unpacked=1\nsv dim=1 left=-7 right=-6 low=-7 high=-6 increment=-1 size=2\nsv dim=2 left=32 right=0 low=0 high=32 increment=1 size=33\nc phase=0 dims=1\nc dim=0 left=0 right=32 low=0 high=32 increment=1 size=33\nc dim=1 left=-6 right=-7 low=-7 high=-6 increment=-1 size=2\nreturned=984\nsv phase=1 dims=2 unpacked=1\nsv dim=1 left=9 right=7 low=7 high=9 increment=1 size=3\nsv dim=2 left=32 right=0 low=0 high=32 increment=1 size=33\nc phase=1 dims=1\nc dim=0 left=0 right=32 low=0 high=32 increment=1 size=33\nc dim=1 left=7 right=9 low=7 high=9 increment=1 size=3\nreturned=2490\n",
+      "stderr": "",
+      "reason": "output differs: line 5 is 'c dim=0 left=0 right=32 low=0 high=32 increment=1 size=33', expected 'c dim=0 left=32 right=0 low=0 high=32 increment=1 size=33'"
+    },
+    "negate_increment": {
+      "control": "rank3_control",
+      "status": "detected",
+      "returncode": 0,
+      "source_sha256": "d90728e76e3334ae659bd7aa72f3c45162d04fed0d67f24886ee7e89946b9b22",
+      "c_source_sha256": "dd6ff278a4a5cc370ed496d8ec7c6a692b36add0e5bd49a28257c9eb9d8ac7b0",
+      "stdout": "sv phase=0 dims=4 unpacked=3\nsv dim=1 left=3 right=4 low=3 high=4 increment=-1 size=2\nsv dim=2 left=9 right=7 low=7 high=9 increment=1 size=3\nsv dim=3 left=11 right=14 low=11 high=14 increment=-1 size=4\nsv dim=4 left=3 right=0 low=0 high=3 increment=1 size=4\nc phase=0 dims=3\nc dim=0 left=3 right=0 low=0 high=3 increment=-1 size=4\nc dim=1 left=3 right=4 low=3 high=4 increment=1 size=2\nc dim=2 left=9 right=7 low=7 high=9 increment=-1 size=3\nc dim=3 left=11 right=14 low=11 high=14 increment=1 size=4\nreturned=4813\nsv phase=1 dims=4 unpacked=3\nsv dim=1 left=-1 right=-3 low=-3 high=-1 increment=1 size=3\nsv dim=2 left=-7 right=-4 low=-7 high=-4 increment=-1 size=4\nsv dim=3 left=-7 right=-11 low=-11 high=-7 increment=1 size=5\nsv dim=4 left=3 right=0 low=0 high=3 increment=1 size=4\nc phase=1 dims=3\nc dim=0 left=3 right=0 low=0 high=3 increment=-1 size=4\nc dim=1 left=-1 right=-3 low=-3 high=-1 increment=-1 size=3\nc dim=2 left=-7 right=-4 low=-7 high=-4 increment=1 size=4\nc dim=3 left=-7 right=-11 low=-11 high=-7 increment=-1 size=5\nreturned=-1714\n",
+      "stderr": "",
+      "reason": "output differs: line 7 is 'c dim=0 left=3 right=0 low=0 high=3 increment=-1 size=4', expected 'c dim=0 left=3 right=0 low=0 high=3 increment=1 size=4'"
+    },
+    "wrong_c_packed_dimension": {
+      "control": "rank1_control",
+      "status": "detected",
+      "returncode": 0,
+      "source_sha256": "8bee60bdf03e5c741cd4cb15d259b86a462891442b79e78314fd965020893d02",
+      "c_source_sha256": "6928c303626c458e5bf3c8572e9ea8066b5269699fb249506797e0a7aeb63214",
+      "stdout": "sv phase=0 dims=2 unpacked=1\nsv dim=1 left=-7 right=-6 low=-7 high=-6 increment=-1 size=2\nsv dim=2 left=32 right=0 low=0 high=32 increment=1 size=33\nc phase=0 dims=1\nc dim=0 left=32 right=0 low=0 high=32 increment=1 size=2\nc dim=1 left=-7 right=-6 low=-7 high=-6 increment=-1 size=2\nreturned=271\nsv phase=1 dims=2 unpacked=1\nsv dim=1 left=9 right=7 low=7 high=9 increment=1 size=3\nsv dim=2 left=32 right=0 low=0 high=32 increment=1 size=33\nc phase=1 dims=1\nc dim=0 left=32 right=0 low=0 high=32 increment=1 size=3\nc dim=1 left=9 right=7 low=7 high=9 increment=1 size=3\nreturned=1800\n",
+      "stderr": "",
+      "reason": "output differs: line 5 is 'c dim=0 left=32 right=0 low=0 high=32 increment=1 size=2', expected 'c dim=0 left=32 right=0 low=0 high=32 increment=1 size=33'"
+    },
+    "omit_last_dimension": {
+      "control": "rank3_control",
+      "status": "detected",
+      "returncode": 0,
+      "source_sha256": "d90728e76e3334ae659bd7aa72f3c45162d04fed0d67f24886ee7e89946b9b22",
+      "c_source_sha256": "d7fb5c6a2775b32a37e8d62ef26c8b22c837abab71b7d19ef219637af43640b0",
+      "stdout": "sv phase=0 dims=4 unpacked=3\nsv dim=1 left=3 right=4 low=3 high=4 increment=-1 size=2\nsv dim=2 left=9 right=7 low=7 high=9 increment=1 size=3\nsv dim=3 left=11 right=14 low=11 high=14 increment=-1 size=4\nsv dim=4 left=3 right=0 low=0 high=3 increment=1 size=4\nc phase=0 dims=3\nc dim=0 left=3 right=0 low=0 high=3 increment=1 size=4\nc dim=1 left=3 right=4 low=3 high=4 increment=-1 size=2\nc dim=2 left=9 right=7 low=7 high=9 increment=1 size=3\nreturned=1997\nsv phase=1 dims=4 unpacked=3\nsv dim=1 left=-1 right=-3 low=-3 high=-1 increment=1 size=3\nsv dim=2 left=-7 right=-4 low=-7 high=-4 increment=-1 size=4\nsv dim=3 left=-7 right=-11 low=-11 high=-7 increment=1 size=5\nsv dim=4 left=3 right=0 low=0 high=3 increment=1 size=4\nc phase=1 dims=3\nc dim=0 left=3 right=0 low=0 high=3 increment=1 size=4\nc dim=1 left=-1 right=-3 low=-3 high=-1 increment=1 size=3\nc dim=2 left=-7 right=-4 low=-7 high=-4 increment=-1 size=4\nreturned=-370\n",
+      "stderr": "",
+      "reason": "output differs: line 10 is 'returned=1997', expected 'c dim=3 left=11 right=14 low=11 high=14 increment=-1 size=4'"
+    },
+    "wrong_sv_packed_dimension": {
+      "control": "rank1_control",
+      "status": "detected",
+      "returncode": 0,
+      "source_sha256": "8ee8336986b3fff2b4419cc8f958c360e73bd8a00f9cf7d548dca554fbab6d33",
+      "c_source_sha256": "82e0892d916d4cae34b90206ed3a9ffd6e339758123ee1281c94eecac30c9e79",
+      "stdout": "sv phase=0 dims=2 unpacked=1\nsv dim=1 left=-7 right=-6 low=-7 high=-6 increment=-1 size=2\nsv dim=2 left=32 right=0 low=0 high=32 increment=1 size=2\nc phase=0 dims=1\nc dim=0 left=32 right=0 low=0 high=32 increment=1 size=33\nc dim=1 left=-7 right=-6 low=-7 high=-6 increment=-1 size=2\nreturned=984\nsv phase=1 dims=2 unpacked=1\nsv dim=1 left=9 right=7 low=7 high=9 increment=1 size=3\nsv dim=2 left=32 right=0 low=0 high=32 increment=1 size=33\nc phase=1 dims=1\nc dim=0 left=32 right=0 low=0 high=32 increment=1 size=33\nc dim=1 left=9 right=7 low=7 high=9 increment=1 size=3\nreturned=2490\n",
+      "stderr": "",
+      "reason": "output differs: line 3 is 'sv dim=2 left=32 right=0 low=0 high=32 increment=1 size=2', expected 'sv dim=2 left=32 right=0 low=0 high=32 increment=1 size=33'"
+    },
+    "stale_sv_shape": {
+      "control": "rank3_control",
+      "status": "detected",
+      "returncode": 0,
+      "source_sha256": "c2d8a63fedef4b2ee480b2071261d189e4ccd59e1cb4aae554615c6fe2f16218",
+      "c_source_sha256": "82e0892d916d4cae34b90206ed3a9ffd6e339758123ee1281c94eecac30c9e79",
+      "stdout": "sv phase=0 dims=4 unpacked=3\nsv dim=1 left=3 right=4 low=3 high=4 increment=-1 size=2\nsv dim=2 left=9 right=7 low=7 high=9 increment=1 size=3\nsv dim=3 left=11 right=14 low=11 high=14 increment=-1 size=4\nsv dim=4 left=3 right=0 low=0 high=3 increment=1 size=4\nc phase=0 dims=3\nc dim=0 left=3 right=0 low=0 high=3 increment=1 size=4\nc dim=1 left=3 right=4 low=3 high=4 increment=-1 size=2\nc dim=2 left=9 right=7 low=7 high=9 increment=1 size=3\nc dim=3 left=11 right=14 low=11 high=14 increment=-1 size=4\nreturned=4737\nsv phase=1 dims=4 unpacked=3\nsv dim=1 left=3 right=4 low=3 high=4 increment=-1 size=2\nsv dim=2 left=9 right=7 low=7 high=9 increment=1 size=3\nsv dim=3 left=11 right=14 low=11 high=14 increment=-1 size=4\nsv dim=4 left=3 right=0 low=0 high=3 increment=1 size=4\nc phase=1 dims=3\nc dim=0 left=3 right=0 low=0 high=3 increment=1 size=4\nc dim=1 left=-1 right=-3 low=-3 high=-1 increment=1 size=3\nc dim=2 left=-7 right=-4 low=-7 high=-4 increment=-1 size=4\nc dim=3 left=-7 right=-11 low=-11 high=-7 increment=1 size=5\nreturned=-1562\n",
+      "stderr": "",
+      "reason": "output differs: line 13 is 'sv dim=1 left=3 right=4 low=3 high=4 increment=-1 size=2', expected 'sv dim=1 left=-1 right=-3 low=-3 high=-1 increment=1 size=3'"
+    }
+  }
+}

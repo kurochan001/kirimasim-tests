@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の75生成器から3,870件のテストを生成しています。
+現在の80生成器から3,983件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -23,6 +23,7 @@
 | [`interaction_case`](../generators/interaction_case.py) | 12 | 36 | セレクタと項目値を表示し、重複項目とフォールバック項目の2回の分岐結果から、幅・符号の統一、X/Zの扱い、最初に一致した項目の優先を確認する。 |
 | [`interaction_case_inside`](../generators/interaction_case_inside.py) | 12 | 34 | 値・範囲・固定配列・2値のリストを先頭項目にしたcase insideで、各項目とdefaultを狙う4組のケース式、格納後の項目値、選ばれた分岐、ケース式と数える項目の評価回数を観測し、Xの比較を不一致として後続へ進むこと、端点の拡張、unique0の評価を確認する。 |
 | [`interaction_cast`](../generators/interaction_cast.py) | 6 | 32 | 元の値・キャスト直後の値・後続演算の結果を分けて表示し、キャストの幅と符号、演算前のX/Z変換、外側の代入コンテキストと最終変換の順序を確認する。 |
+| [`interaction_checksample`](../generators/interaction_checksample.py) | 17 | 27 | checkerとmodule参照モデルで、判定・サンプル値・Reactiveの値・実行時刻を照合する。接続形式と配置を変え、2実体の独立性と出力引数の伝播も観測する。 |
 | [`interaction_class_array`](../generators/interaction_class_array.py) | 8 | 18 | クラスの浅いコピーとハンドル代入を対照に、配列領域の独立性と要素ハンドルの参照先の共有を照合する。元/コピーからの要素置換・拡大/縮小、保存ハンドルの存続、コンストラクタ回数と別guardの保持を確認する。 |
 | [`interaction_class_method`](../generators/interaction_class_method.py) | 8 | 36 | 2個の派生インスタンスをA/B/A順に呼び、virtual/非virtualの実行本体と所有者、再帰の入口・出口の仮引数とプロパティ、戻り値・カウンタ・ガードを観測する。inputのフレーム別コピーとref/const refの同一実体への参照、2状態変換を確認する。 |
 | [`interaction_clockassert`](../generators/interaction_clockassert.py) | 16 | 18 | 既定/明示の#1step clocking入力を、そのイベントと後続の別クロックのアサーションで観測する。更新の前後とblocking/NBA、独立したエッジ極性を組み合わせ、sampled値・Reactiveの生信号・判定回数を分けて照合し、別クロックでの誤った再サンプリングを検出する。 |
@@ -36,12 +37,15 @@
 | [`interaction_constraint`](../generators/interaction_constraint.py) | 18 | 13 | 基底/派生ハンドルから3階層の継承制約を解き、同名の置換・別名の追加とpure/externの完了を照合する。一意解と矛盾を交互に与え、初回失敗時の初期値・成功後の値の保持と、別オブジェクトの独立した成功を確認する。 |
 | [`interaction_default`](../generators/interaction_default.py) | 13 | 36 | A/B/Aの階層呼出しで既定値の元を毎回変え、両仮引数・戻り値と宣言側/呼出し元の関数評価回数を観測する。省略・空欄・名前付き・明示0での評価抑止、呼出し時の宣言スコープへの束縛、型変換とmodule/interfaceの各インスタンスの独立性を確認する。 |
 | [`interaction_delay`](../generators/interaction_delay.py) | 10 | 63 | 幅1のスカラと幅2以上のベクタで1/2/3個の遅延を使い、短パルスの除去と予約の取消しを観測する。bit/logic格納と反転後の値、X/Zの遅延選択、全体値の更新時刻・回数・最終変化時刻を毎tick照合する。 |
+| [`interaction_dist`](../generators/interaction_dist.py) | 18 | 31 | 演算子の優先順位と括弧、幅・符号、distの重みと重複項目を照合する。候補値から解を一意にし、全重みゼロによる失敗時の値保持を、毎回成功する別実体と比較する。 |
 | [`interaction_divide`](../generators/interaction_divide.py) | 11 | 72 | 両オペランドと演算結果を観測し、演算前の幅・符号の統一、商の0方向への丸め、剰余の符号、ゼロ除算とX/Zの伝播、最終的な2状態変換を確認する。 |
 | [`interaction_dpi_array`](../generators/interaction_dpi_array.py) | 35 | 30 | 固定/動的配列/キューをopen arrayとしてDPIへ渡し、各呼出しの範囲・全要素・復帰後の書戻しを照合する。入力方向・数値順の走査方向・符号パターン・繰返し前の拡大/縮小を交差し、別のguard配列の保持も確認する。 |
 | [`interaction_dpi_nba`](../generators/interaction_dpi_nba.py) | 35 | 18 | DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組み合わせる。幅・符号・bit/logicからintへの変換、復帰直後の書戻し、予約後の添字・値の変更、Postponedと次時刻の全要素を照合し、NBAの値と代入先の確定を確認する。 |
+| [`interaction_dpiquery`](../generators/interaction_dpiquery.py) | 20 | 19 | 同じ実引数のSV/DPI-C問い合わせを、次元番号の対応・packed範囲の正規化・各次元の範囲とincrement・呼出しごとの形状更新で照合する。 |
 | [`interaction_edge`](../generators/interaction_edge.py) | 9 | 64 | 両背景で初期イベントを除外し、更新直後の値と次時刻の3カウンタを観測して、X/Z遷移、式の変化、ベクタのLSB規則、状態変換、NBAの更新時点を確認する。 |
 | [`interaction_event_rebind`](../generators/interaction_event_rebind.py) | 15 | 27 | 静的イベントをタスク呼出し前・待機登録前・登録後に再結合し、inputのコピーとref/直接参照、登録済み待機の保持、複数待機者、後着待機者、別名の独立性とActive/NBAの観測値を照合する。 |
 | [`interaction_event_task`](../generators/interaction_event_task.py) | 15 | 13 | module/interfaceの別インスタンスまたはpackageの2イベントをinput/refで渡し、1/2/3待機者の時刻・回数・値を観測する。待機前のトリガの不保持、通常/NBA起床の値の可視性、トリガ経路、逆順での再待機、noiseと完了後の余計な起動を区別する。 |
+| [`interaction_eventlife`](../generators/interaction_eventlife.py) | 15 | 18 | 自動タスク復帰後の構造体内イベントの同一性・別名解放・遅延した待機登録と、別呼出しの独立性・全体コピー後のpayload・起床時刻を照合する。 |
 | [`interaction_expr`](../generators/interaction_expr.py) | 11 | 51 | 4組の入力で加減乗算の結果を確認する。演算前の符号・ゼロ拡張、代入先からの幅の伝播、キャリー、最終的な切り捨てを組み合わせる。 |
 | [`interaction_gendisable`](../generators/interaction_gendisable.py) | 16 | 18 | generate内でのdefault disable iffの継承・上書き・名前解決・宣言位置と、明示条件・ゼロによる取消しを照合する。二つの実体を独立に無効化し、開始前・クロック間・終了クロックのNBAで、無効化と成功・失敗の回数を対照と比較する。 |
 | [`interaction_generate`](../generators/interaction_generate.py) | 27 | 36 | 2インスタンスのgenerate要素を階層名で読み、選択分岐・局所宣言・genvar定数・型幅・package定数と連続代入の値を観測する。importと明示修飾、入れ子、型と定数の隠蔽、X/Zを含む入力変更への追従と各スコープの独立性を確認する。 |
@@ -69,6 +73,7 @@
 | [`interaction_reactive`](../generators/interaction_reactive.py) | 24 | 36 | moduleのNBA連鎖の完了前後を、早いmodule内の対照とReactiveで動くprogramで観測する。連続代入・blocking・Re-NBAの出力と採取値、型変換、全段の値・NBA予約回数・採取した文脈を照合する。 |
 | [`interaction_resize`](../generators/interaction_resize.py) | 7 | 38 | 再確保前後のサイズと全要素を観測し、別配列コピー・自己リサイズ・初期化式なしの再生成、切り詰め、追加領域の型別既定値、コピー後の独立性を確認する。 |
 | [`interaction_return`](../generators/interaction_return.py) | 13 | 36 | for/while/repeat内で最初の非0ビットからreturnし、戻り値・走査回数と添字の総和・末尾到達・return後の副作用を観測する。A/B/A呼出しでインスタンス別状態とpackageの共有状態、呼出し元の同名変数の保持、X/Zの2状態変換も確認する。 |
+| [`interaction_sdfpath`](../generators/interaction_sdfpath.py) | 32 | 18 | SDFの条件・注釈範囲・置換/加算と、立上り/立下りの遅延を照合する。兄弟インスタンスと別出力を対照とし、値・変化回数・最終変化時刻を観測する。 |
 | [`interaction_select`](../generators/interaction_select.py) | 11 | 36 | 部分選択への書き込み前後にベクタ全体と選択範囲を表示し、添字方向・選択方向・X/Z変換に加え、選択していないビットの保持も確認する。 |
 | [`interaction_shift`](../generators/interaction_shift.py) | 11 | 56 | シフト前の値・シフト量・結果を表示し、代入先から伝わる幅、符号付きの埋め込み、X/Zの移動、未知のシフト量、最後の2状態変換を確認する。 |
 | [`interaction_shortcircuit`](../generators/interaction_shortcircuit.py) | 11 | 92 | 4演算ごとに左右の関数の呼出し回数・観測値・独立した副作用を表示し、短絡による右辺の評価抑止、未知値の真偽変換、結果と最終格納先の状態変換を確認する。 |

@@ -1,0 +1,810 @@
+{
+  "schema": 1,
+  "scope": "M4 approved single-clock static sampled functions; mixed features explicitly deferred",
+  "counts": {
+    "deferred": 44,
+    "match": 7
+  },
+  "tests": [
+    {
+      "test": "tests/ch16/test_ch16_sim_checker_history.sv",
+      "chapter": "ch16",
+      "source_sha256": "a8bed05e96a10a0410961f59deb52cb4967177d01a48f4d0c817b0005d2d7de5",
+      "functions": [
+        "$future_gclk",
+        "$past"
+      ],
+      "status": "deferred",
+      "reason": "Free checker variables with global-clock past/future sampling need a global clock history and checker model",
+      "evidence": [
+        "$future_gclk",
+        "$past",
+        "free checker variable"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_global_clock_future_action_delay.sv",
+      "chapter": "ch16",
+      "source_sha256": "0f4c93d9c88ae528421d040fb72040bacb74cfe66a42c5c30e2612b8399a3913",
+      "functions": [
+        "$future_gclk"
+      ],
+      "status": "deferred",
+      "reason": "Global-clock future functions with action scheduling need a global clock history and action-delay model",
+      "evidence": [
+        "$future_gclk",
+        "action delay"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_global_clock_future_functions_action_delay.sv",
+      "chapter": "ch16",
+      "source_sha256": "f57add9d53ad412ae11b1fc336fb802c7c351c764f157a54f301b58fa9ea032c",
+      "functions": [
+        "$future_gclk",
+        "$stable"
+      ],
+      "status": "deferred",
+      "reason": "Global-clock future functions and action scheduling need another history model",
+      "evidence": [
+        "$global_clock",
+        "$future_gclk"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_global_clocking_sampled_functions.sv",
+      "chapter": "ch16",
+      "source_sha256": "3df109e251afc175bc143b69480e97d2fdb28a69e8934e3db0385e847e6eb790",
+      "functions": [
+        "$future_gclk",
+        "$past_gclk"
+      ],
+      "status": "deferred",
+      "reason": "Global clocking sampled functions need a global clock history model",
+      "evidence": [
+        "$future_gclk",
+        "$past_gclk",
+        "global clocking"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_past_gating_expression.sv",
+      "chapter": "ch16",
+      "source_sha256": "f1a0c5b309861b6d78cbc2ac54d5dd47e3d4f8d7c1fac26034be998cc08f16c4",
+      "functions": [
+        "$past"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 6,
+      "actions": 0,
+      "report_lines": 6,
+      "actual_sha256": "04de04ff1e58750418ece6f0bb703d9930f07bffc22c0664789a0fc425d158c0",
+      "diff": "",
+      "expected_sha256": "04de04ff1e58750418ece6f0bb703d9930f07bffc22c0664789a0fc425d158c0"
+    },
+    {
+      "test": "tests/ch16/test_procedural_assertion_queue_rules.sv",
+      "chapter": "ch16",
+      "source_sha256": "08673d30c94a06feab2a65e4b5b6530f466c8bc1fa3e633f022cda410246ffc9",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "Procedural concurrent assertion queues and flush points remain outside this extension",
+      "evidence": [
+        "procedural assertion",
+        "wait",
+        "automatic capture"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_rose_fell_lsb_four_state.sv",
+      "chapter": "ch16",
+      "source_sha256": "631d8fd06650098f18e4c7ab097c53cb9c3fa811df0281583dc860a1a3884803",
+      "functions": [
+        "$fell",
+        "$rose",
+        "$sampled"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 18,
+      "actions": 0,
+      "report_lines": 18,
+      "actual_sha256": "a4ca5cbe02e3ec6654ef155d8c19aec74914db147b61561493e46f19dab1b0b6",
+      "diff": "",
+      "expected_sha256": "a4ca5cbe02e3ec6654ef155d8c19aec74914db147b61561493e46f19dab1b0b6"
+    },
+    {
+      "test": "tests/ch16/test_sampled_automatic_and_const_current.sv",
+      "chapter": "ch16",
+      "source_sha256": "68dd093a1873ea8f50d7de807840070d6b77252a3d9f6a3e9a230e25aec9388e",
+      "functions": [
+        "$changed",
+        "$past",
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "Automatic/const-current operand exceptions need capture/lifetime/current-region modeling",
+      "evidence": [
+        "automatic",
+        "const cast"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_automatic_const_current.sv",
+      "chapter": "ch16",
+      "source_sha256": "ddedd6a0a3d93e037839ca8fb96f9d2462fda4ca4208da5b1ec055e69c03aedd",
+      "functions": [
+        "$past",
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "Automatic/const-current operand exceptions need capture/lifetime/current-region modeling",
+      "evidence": [
+        "automatic",
+        "const cast"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_defaults_and_methods.sv",
+      "chapter": "ch16",
+      "source_sha256": "58f128a1646ed150861082de79f06b0752f28fcf35af8f26e173f971f65e5c4f",
+      "functions": [
+        "$past",
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "Event and sequence methods require Observed/Postponed histories",
+      "evidence": [
+        "event.triggered",
+        "sequence.triggered"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_function_arguments.sv",
+      "chapter": "ch16",
+      "source_sha256": "402170ac756c0667e15c4bda36334ddd86104a2a2c84cbc6a8d702c4f1448ea1",
+      "functions": [
+        "$changed",
+        "$fell",
+        "$past",
+        "$rose",
+        "$sampled",
+        "$stable"
+      ],
+      "status": "deferred",
+      "reason": "Two clock histories and default/procedural inference across contexts are deferred",
+      "evidence": [
+        "posedge clk",
+        "posedge clk2"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_function_clock_inference.sv",
+      "chapter": "ch16",
+      "source_sha256": "16c67c9015621dc4d38c28884f5c666f87431121bdcfcf4aa97024774ae31825",
+      "functions": [
+        "$past"
+      ],
+      "status": "deferred",
+      "reason": "Two clock histories and default/procedural inference across contexts are deferred",
+      "evidence": [
+        "posedge clk",
+        "posedge clk2"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_in_action_block.sv",
+      "chapter": "ch16",
+      "source_sha256": "f1ec69a752d89a7e43db8add0984869f88306f91f674aa1bec9bfca6cb9506b6",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 1,
+      "actions": 1,
+      "report_lines": 1,
+      "actual_sha256": "729f1756bb7520fba7e7c57f8ab7a0022fb5567793c8ec4788a1a0a5f03e7fd0",
+      "diff": "",
+      "expected_sha256": "729f1756bb7520fba7e7c57f8ab7a0022fb5567793c8ec4788a1a0a5f03e7fd0"
+    },
+    {
+      "test": "tests/ch16/test_sampled_value_functions_with_clocking_event.sv",
+      "chapter": "ch16",
+      "source_sha256": "c291eb28d0d0a8bb97e71ca7a29846599ac0f9a8434ae7bfa28c75c6c6fd7735",
+      "functions": [
+        "$past",
+        "$stable"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 3,
+      "actions": 0,
+      "report_lines": 2,
+      "actual_sha256": "80d1f1279e03dcd2f0fb7869c79b5de66bb693beebbd44eb3c911f8dd44a936e",
+      "diff": "",
+      "expected_sha256": "80d1f1279e03dcd2f0fb7869c79b5de66bb693beebbd44eb3c911f8dd44a936e"
+    },
+    {
+      "test": "tests/ch16/test_sampled_value_time_zero_defaults.sv",
+      "chapter": "ch16",
+      "source_sha256": "a1bcba1c508b1deb89c139991c9c463af85fbd0fcf7f6cdcd2e01a634741b741",
+      "functions": [
+        "$past",
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "Time-zero VCD edge discovery and user-function live free-variable evaluation need additional input/expression support",
+      "evidence": [
+        "time-zero selected edge",
+        "scaled(a) reads current k"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_without_clocking_event.sv",
+      "chapter": "ch16",
+      "source_sha256": "3e87b288f547e4b1dd95ac4aa1a6604a1450e980c17feb8636efe279bf0eb2be",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 4,
+      "actions": 4,
+      "report_lines": 5,
+      "actual_sha256": "93f71b7bfc5b2c398d6755ac07e555508df538d44a57bd6ce3ea021227091da7",
+      "diff": "",
+      "expected_sha256": "93f71b7bfc5b2c398d6755ac07e555508df538d44a57bd6ce3ea021227091da7"
+    },
+    {
+      "test": "tests/ch16/test_value_change_first_tick.sv",
+      "chapter": "ch16",
+      "source_sha256": "9b9e654910b816a7247c6b3e8c3432a0cbf16cc10cf7b6f192bd6f945387b988",
+      "functions": [
+        "$changed",
+        "$fell",
+        "$past",
+        "$rose",
+        "$stable"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 2,
+      "actions": 0,
+      "report_lines": 6,
+      "actual_sha256": "421957dc3206e4cdc34131cf55ddbfdf85c0c9c1c8eb1f0ac9705b604f5a07da",
+      "diff": "",
+      "expected_sha256": "421957dc3206e4cdc34131cf55ddbfdf85c0c9c1c8eb1f0ac9705b604f5a07da"
+    },
+    {
+      "test": "tests/ch17/test_checker_in_package.sv",
+      "chapter": "ch17",
+      "source_sha256": "8c2aa2c1750a9577b474bfc8d678949c90ae446370cd32b972865fe13be119ed",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "Checker context/elaboration remains outside this extension",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_kill_keeps_past_sampling.sv",
+      "chapter": "ch39",
+      "source_sha256": "fc697f65a2e3f155d2fc26e1c2b8eb4c66271bd1800451484b1acbd64e36064e",
+      "functions": [
+        "$past"
+      ],
+      "status": "deferred",
+      "reason": "VPI assertion controls and simulator API are outside this extension",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_sys_vacuous_action_controls_running_attempts.sv",
+      "chapter": "ch39",
+      "source_sha256": "e6d8150f7e8a5b464d7bea5d53bdc028d6a84a2b681ee334022dfdaedf693512",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "VPI assertion controls and simulator API are outside this extension",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_system_vacuous_actions.sv",
+      "chapter": "ch39",
+      "source_sha256": "1bbc8707b13a80add70d7f48702abc143b745623f8cb5fe2d2bd596aa53b0db7",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "VPI assertion controls and simulator API are outside this extension",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv",
+      "chapter": "ch39",
+      "source_sha256": "2cee62c63b4bbd52d9ac1efdf148408eecd80156aadcf436e5e9614064e0fc10",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "VPI assertion controls and simulator API are outside this extension",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_future_success_callback_time.sv",
+      "chapter": "ch39",
+      "source_sha256": "f9ac85d46eafcab0e46fcf4727e91b1224c52f9b38ecafe7cbc322f0acef2e79",
+      "functions": [
+        "$future_gclk"
+      ],
+      "status": "deferred",
+      "reason": "The VPI future-success callback schedule is outside the M4 single-clock static audit",
+      "evidence": [
+        "$future_gclk",
+        "VPI callback"
+      ]
+    },
+    {
+      "test": "tests/ch4/test_preponed_sample_observed_before_action.sv",
+      "chapter": "ch4",
+      "source_sha256": "d1d56fd2b209e5553bfc0684fe0a70e7ac22006a469307cc55dd84d0cfc4c581",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 1,
+      "actions": 1,
+      "report_lines": 1,
+      "actual_sha256": "6478d3c1acb601a827e862e1a5f890030b5aa63dda1d1d66b69242e0f6293038",
+      "diff": "",
+      "expected_sha256": "6478d3c1acb601a827e862e1a5f890030b5aa63dda1d1d66b69242e0f6293038"
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_129_bit_x_reduce_or_posedge_blocking_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "07a31dc28bda6ffeedd3aea3fdfc47c526e1372c0e781d36d5608119dcfcd262",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_129_bit_z_reduce_or_posedge_blocking_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "b73b28b64ea3a2a1c02186e358a2b116b92ea10e493e3ead82543ad604d24f05",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_129_logic_x_reduce_or_posedge_blocking_after_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "6bd2190502de759879a00d60c89c5f1ecf376e620f3a0d965f824e44a562976c",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_129_logic_z_equal_negedge_nba_edge_interface.sv",
+      "chapter": "ch16",
+      "source_sha256": "6ca39868dbea53172b5407acacf7fd61ef42e68db6ed3b4b579609b4d0512ca5",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_1_bit_known_reduce_or_posedge_nba_edge_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "d636a5dc0cd27b5649c7c65261b33dac381668b62720d424e8e84b7d8de93349",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_1_bit_x_reduce_or_posedge_blocking_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "beebf9f432dad421e3b2487624bddb5a924aa643c4c2ad93eae2f25946f0c9e4",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_1_bit_z_case_equal_negedge_blocking_after_interface.sv",
+      "chapter": "ch16",
+      "source_sha256": "366d404d4c70fd4554c1ddd0e172dbda037d9316b2937d76a95476fccda4f5a5",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_1_logic_x_equal_negedge_nba_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "335a0f285bb17805058b7dab2aa8e120fc56ffd37567d57a7c04660f6b900f71",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_1_logic_z_reduce_or_posedge_blocking_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "2b14e6866b63401e2425eb8aad7a83c1e74868d74feab6166bdad3b8c471cd34",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_32_bit_x_reduce_or_negedge_nba_after_interface.sv",
+      "chapter": "ch16",
+      "source_sha256": "3a40fbb7b34a14764218b023cc9dc4a9d9d356b9e0d6de7857165d1cd0e0716b",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_32_bit_z_reduce_or_posedge_blocking_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "8addaea82b983af2f67b06c3000ff49c40608353f9a54d06538ff7e2e71fe2db",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_32_logic_x_reduce_or_posedge_blocking_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "859378f37d78979ef2f16ef5f050bfc2a3d1d8ddb506582b980c0c532afe491d",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_32_logic_z_case_equal_posedge_nba_before_interface.sv",
+      "chapter": "ch16",
+      "source_sha256": "d30d284abc2e5a2a637c9480995ac5275155fe885407417212fc04602b8f05e9",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_33_bit_x_equal_negedge_blocking_before_interface.sv",
+      "chapter": "ch16",
+      "source_sha256": "6bd7cccc310aca7df0356eb70339af881171ecb31975cf895266c91f457aa197",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_33_bit_z_case_equal_posedge_blocking_edge_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "427dda4c3cd9827774410148599c83c66599145177654375751c25f81cf10d1d",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_33_logic_x_reduce_or_posedge_blocking_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "9781c6ce7f0c3d90eb913288dad24a9b57bb88466951f21441076bc387a2da8c",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_33_logic_z_reduce_or_posedge_nba_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "3d7908a11a351ae5468b0f9e9c2f5f21419bd03ae9382948de3a9a931f220275",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_64_bit_x_case_equal_posedge_blocking_edge_interface.sv",
+      "chapter": "ch16",
+      "source_sha256": "1ebc6d8bb46c9aec8445ce89d9b9e4c7b17090fe9ba9a7aa884d0055919de3d7",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_64_bit_z_equal_negedge_nba_after_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "512b9b8ea295b0dec11d67842f4503e43a120c9e91abc7f8877b79844bd0ff71",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_64_logic_x_reduce_or_posedge_blocking_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "4f4e67cb4b3fa01e257dca92168e620b22d7425e591e3ae7acbdadfee08ee3ac",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_64_logic_z_reduce_or_posedge_blocking_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "1ffba2b0d847a980fe193c85eb90a1461597d1c979fa71d2b50ffe4de168d961",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_65_bit_x_reduce_or_posedge_blocking_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "915855944588a38c1eb46aa11cb584cd51a482822a50716d63c580ab505d7cef",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_65_bit_z_reduce_or_negedge_blocking_edge_interface.sv",
+      "chapter": "ch16",
+      "source_sha256": "3ac5344031166a4bda9c570bfb37baff89bf3dff0de64b1e4d7efa0a82816188",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_65_logic_x_case_equal_posedge_blocking_after_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "e6912ddfc85f66230894866a61949f9753aea84171db65f113ba73122372de41",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assert_65_logic_z_reduce_or_posedge_blocking_before_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "e7ee5a85b91a87c5817ce61200ac5005d26f2177eb9aea25dc120d3891fb6dbb",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "assertion_sample_visibility@1 needs a new M4 input/report audit: both actions save sampled data, predicate and live values for delayed procedural reports; the approved M4 display/counter adapter does not model this reporting protocol. Deferred, not evaluated or counted as a match.",
+      "evidence": [
+        "interaction_model=assertion_sample_visibility@1",
+        "both actions assign seen_sample/seen_predicate/seen_live",
+        "procedural reports two ticks after the clock",
+        "independent generation in generators/interaction_assertion.py and timeline checks in tools/test_interaction_assertion_wait.py"
+      ]
+    },
+    {
+      "test": "tests/gen/ch17/test_gen_cross_checksample_1_interface_wildcard_edge_nba_negedge_explicit_zero.sv",
+      "chapter": "ch17",
+      "source_sha256": "145c324bdb2fd98c9784e31a7ea6cc1c4ecf87b27895bd05a5b1be7a9e7f97e4",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "checker_assertion_sampling@1 needs a new M4 input/report audit: checker argument substitution, initialized checker state, output propagation, two clocks and delayed reports are outside the approved single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific verification does not extend M4 scope.",
+      "evidence": [
+        "interaction_model=checker_assertion_sampling@1",
+        "static checker instances with output connections and separate module references",
+        "p0.clk/p1.clk at ticks 8/12 of each period; reports at tick 16",
+        "independent interpretation in tools/qualify_checksample.py; coverage/interaction-qualification/checksample.json"
+      ]
+    },
+    {
+      "test": "tests/gen/ch17/test_gen_cross_checksample_1_module_positional_edge_nba_posedge_explicit_nonzero.sv",
+      "chapter": "ch17",
+      "source_sha256": "eda94bbdc69c693ef482f8f7fc4f372458e23b2025a9bae4a312477dddb8b6f2",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "checker_assertion_sampling@1 needs a new M4 input/report audit: checker argument substitution, initialized checker state, output propagation, two clocks and delayed reports are outside the approved single-clock M4 adapter. Deferred here, not evaluated or counted as a match; separate cross-specific verification does not extend M4 scope.",
+      "evidence": [
+        "interaction_model=checker_assertion_sampling@1",
+        "static checker instances with output connections and separate module references",
+        "p0.clk/p1.clk at ticks 8/12 of each period; reports at tick 16",
+        "independent interpretation in tools/qualify_checksample.py; coverage/interaction-qualification/checksample.json"
+      ]
+    }
+  ]
+}

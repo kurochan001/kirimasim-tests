@@ -1,0 +1,6 @@
+target phase=0 impossible=0 ok=1 x=9 bits=1001 expr=4 expr_bits=4
+guard phase=0 impossible=0 ok=1 x=9 bits=1001 expr=4 expr_bits=4
+target phase=1 impossible=0 ok=1 x=9 bits=1001 expr=4 expr_bits=4
+guard phase=1 impossible=0 ok=1 x=9 bits=1001 expr=4 expr_bits=4
+target phase=2 impossible=0 ok=1 x=9 bits=1001 expr=4 expr_bits=4
+guard phase=2 impossible=0 ok=1 x=9 bits=1001 expr=4 expr_bits=4

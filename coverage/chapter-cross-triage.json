@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "reviewed_on": "2026-11-02",
+  "reviewed_on": "2026-11-03",
   "reviewer": "Codex (GPT-6), AI review",
   "scope": "Unordered off-diagonal pairs with no registered finite model mapping. Existing witnesses are source/expectation reviews, not new execution passes. Unreviewed pairs stay R.",
   "excluded_chapters": {
@@ -9,29 +9,6 @@
     "34": "保護エンベロープは本スイートの動作検証の対象範囲外。対応方針が変わるときに再確認する。"
   },
   "pairs": [
-    {
-      "chapters": [
-        7,
-        15
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "struct内イベントの識別と所有タスク復帰後の寿命が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "struct内イベントの識別と所有タスク復帰後の寿命",
-      "factors": [
-        "格納先（scalar/struct）",
-        "呼出し回数",
-        "別名解除の順序",
-        "トリガ順序"
-      ],
-      "observation": "別呼出しのイベントの独立性、復帰後の起床と保持値、別名解除後の他の待機の存続を確認する。",
-      "witnesses": [
-        {
-          "test": "tests/gen/ch6/test_gen_combo_event_automatic_struct_capture.sv",
-          "inputs_sha256": "59b9ed298c9d09eb12c579964b15b95f6cf73bca386c67f2ef4b6e0fda0c9d6c"
-        }
-      ]
-    },
     {
       "chapters": [
         7,
@@ -115,29 +92,6 @@
     {
       "chapters": [
         11,
-        18
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "dist制約と演算子の優先順位が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "dist制約と演算子の優先順位",
-      "factors": [
-        "演算子の組",
-        "括弧の有無",
-        "幅/符号",
-        "distの水準"
-      ],
-      "observation": "唯一解にして、distの左辺をどの範囲の式として評価したかを区別する。",
-      "witnesses": [
-        {
-          "test": "tests/ch11/test_precedence_dist_takes_whole_expression.sv",
-          "inputs_sha256": "137134c642e42d5c78034dce570d58b765239fa90628f7e04e3b6ed41d08ce38"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        11,
         19
       ],
       "category": "E",
@@ -179,29 +133,6 @@
     {
       "chapters": [
         16,
-        17
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "checker内アサーションとmodule側のサンプリング一致が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "checker内アサーションとmodule側のサンプリング一致",
-      "factors": [
-        "checkerの接続",
-        "データ変更時点",
-        "クロックの渡し方",
-        "assertion種別"
-      ],
-      "observation": "同じ刺激に対するcheckerとmoduleの判定列を比較する。",
-      "witnesses": [
-        {
-          "test": "tests/ch17/test_checker_assertion_sampling_as_module.sv",
-          "inputs_sha256": "e17f99392bb9dd5564bcea6b9fe27fcbee92aa58c5aabbdad339d4408a123420"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        16,
         24
       ],
       "category": "E",
@@ -219,65 +150,6 @@
         {
           "test": "tests/ch16/test_assertions_in_interface_and_program.sv",
           "inputs_sha256": "835cad065b644cc99cc6cf115e8b044d85a30302a3a65ce014cecc7e2cc978bf"
-        }
-      ]
-    },
-    {
-      "chapters": [
-        17,
-        25
-      ],
-      "category": "C",
-      "priority": "P2",
-      "reason": "checkerへの接続とinterface固有の状態が同じサンプリングに作用する。",
-      "objective": "interface内checkerの接続とサンプリング",
-      "factors": [
-        "配置",
-        "interfaceインスタンス数",
-        "形式引数の接続",
-        "データ変更時点"
-      ],
-      "observation": "合法な配置と接続を規格照合した後、checkerと対照assertionの判定列・インスタンス独立性を比較する。",
-      "witnesses": []
-    },
-    {
-      "chapters": [
-        20,
-        35
-      ],
-      "category": "C",
-      "priority": "P2",
-      "reason": "二つのAPIが同じ配列形状を別の表現で扱う境界。方向と空配列の規則を先に照合する。",
-      "objective": "SV問い合わせとDPIの配列形状問い合わせの整合",
-      "factors": [
-        "配列範囲/方向",
-        "open/fixed formal",
-        "要素型",
-        "要素数"
-      ],
-      "observation": "SVの$size/$left/$rightとCのsvSize/svLeft/svRightを同一実引数で照合する。",
-      "witnesses": []
-    },
-    {
-      "chapters": [
-        30,
-        32
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "条件付きspecifyパスとSDF注釈が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "条件付きspecifyパスとSDF注釈",
-      "factors": [
-        "COND/CONDELSE",
-        "条件の真偽",
-        "パス選択",
-        "遷移方向/遅延"
-      ],
-      "observation": "注釈対象と非対象のパスを区別して、出力が変わる時刻を照合する。",
-      "witnesses": [
-        {
-          "test": "tests/ch32/test_sdf_cond_iopath.sv",
-          "inputs_sha256": "a2852e95a9d71a335e4b78ff9c3939145eb3ad31b39a07009ebdbbcedc0773e5"
         }
       ]
     },

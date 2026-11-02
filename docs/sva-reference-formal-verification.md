@@ -416,3 +416,20 @@ python3 tools/sva_formal_sweep.py \
 基本セットの10件に加え、境界値の拡張と実テストへの対応付けを確認する12件の回帰検査を追加しました。これらは外部フォーマルツールを実行せず、生成処理・入力の自由度・負例・結果判定・証跡の整合性などを確認します。2026-10-26の拡張時点では全205件の単体テスト、既存45本の具体的な出力照合、両セットの証跡検査、既存の整合性検査が成功しました。
 
 2026-10-29の再確認では、全263件の単体テストと既存45本（M2 10本、M3 28本、M4 7本）の 出力照合が成功しました。M3の全体走査は、この28本の一致とは別に `test_ch16_sim_prop_inherited_eventually.sv`と`test_dollar_cycle_delay_and_actual.sv`を `in_scope_unhandled`と分類し、終了コード2になります。この2本の実行確認は今回の結果に含めません。
+
+<a id="m4-checker-cross-scope-2026-11-03"></a>
+
+<a id="m4-scope-and-checker-crosses-2026-11-03"></a>
+
+## M4の対象範囲とcheckerクロス（2026-11-03）
+
+M4は、個別に監査した単一クロックの静的入力とレポート形式を対象にします。
+新しい`checker_assertion_sampling@1`の規格のみの2件は、checkerの入力置換・出力引数と、時刻8／12の2クロックを使います。
+M4の既存アダプタによる対応範囲を広げず、入力ハッシュ・対象外の理由・別の検算の根拠を
+[`m4_deferred.json`](../tools/sva_reference/fixtures/m4_deferred.json)へ登録しました。
+入力が変更された場合は、ハッシュ不一致により未処理へ戻して再監査を要求します。
+
+検証済みの既存入力トレースを使う今回の[M4再照合](../coverage/interaction-qualification/checksample-m4.json)は、7一致・44明示保留・未処理0件です。
+新たなシミュレータ実行の記録ではありません。従来42件の保留と7件の監査済み入力は維持し、checkerの2件を一致へ加算しません。
+別のクロス専用モデルは全1,296行を独立に検算し、固定Verilatorで正常対照5件・故障注入7件・不一致再現2件を実行しています。
+これはM4対応の追加とは区別します。[クロスの設計と実行範囲](interaction-verification.md#checker-assertion-sampling)を参照してください。

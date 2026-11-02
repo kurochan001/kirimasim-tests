@@ -14,7 +14,17 @@
 
 各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・ 検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と [生成レポート](interaction-coverage.md)を参照してください。
 
-2026-11-02のgenerate default disable追加：現在は**66モデル・2,557件・97章対**です。実行直前に上流mainを取得・ビルドしたkirimasim `2edfebbc6270`の[全クロス保存実行](../coverage/interaction-results/cross66-kirimasim-2edfebbc.json)は**2,207 pass・344 unsupported・既存6 fail**です。新規18件は解析が成功し、実行は並行アサーション未対応です。従来2,539件の入力ハッシュと結果区分はすべて同じで、全選択ケースPASSは47モデルのままです。固定Verilatorは両seedで5件が一致し、13件は出力不一致です。第16章×第27章を登録し、E候補を9対へ減らしました。[設計・対照・確認範囲](#generate-default-disable-scopes)を参照してください。
+2026-11-03のcheckerサンプリング追加：現在は**71モデル・2,670件・103章対**です。実行直前に上流mainを取得・ビルドしたkirimasim `2ffb5dddca04`の[全クロス保存実行](../coverage/interaction-results/cross71-kirimasim-2ffb5ddd.json)は**2,207 pass・457 unsupported・既存6 fail**です。新規27件の解析は成功し、実行はcheckerインスタンスが未対応でした。従来2,643件の入力ハッシュと結果区分はすべて同じで、全選択ケースPASSは47モデルのままです。固定Verilatorは両seedで25 pass・2 known、固定Icarusは27件ともビルド拒否です。第16章×第17章と、interface配置7件に第17章×第25章を登録し、E候補5対・C候補3対です。[設計・独立モデル・実行限界](#checker-assertion-sampling)を参照してください。
+
+同日のSDF条件付きパス追加時点では**70モデル・2,643件・101章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `2ffb5dddca04`の[全クロス保存実行](../coverage/interaction-results/cross70-kirimasim-2ffb5ddd.json)は**2,207 pass・430 unsupported・既存6 fail**です。新規18件の解析は成功し、実行は条件付きパス12件・$sdf_annotate 6件で未対応の診断でした。従来2,625件の入力ハッシュと結果区分はすべて同じで、全選択ケースPASSは47モデルのままです。固定Icarusは3 pass・15 known、固定Verilatorは両seedで18 knownです。第30章×第32章を登録し、E候補は6対です。[設計・正常対照・故障注入・限界](#sdf-conditional-paths)を参照してください。
+
+同日のSV/DPI配列問い合わせ追加時点では**69モデル・2,625件・100章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `50f1f77b8c94`の[全クロス保存実行](../coverage/interaction-results/cross69-kirimasim-50f1f77b.json)は**2,207 pass・412 unsupported・既存6 fail**です。新規19件は解析が成功しましたが、ランナーがCコード付きテストを未対応に分類し、DPI実行は未確認です。従来2,606件の入力ハッシュと結果区分はすべて同じで、全選択ケースPASSは47モデルのままです。固定Verilatorは両seedで11 pass・8 known（範囲の不一致2件・ビルド拒否6件）でした。第20章×第35章を登録し、C候補は4対です。[設計・対照・確認限界](#sv-dpi-array-queries)を参照してください。
+
+同日の自動イベント寿命追加時点では**68モデル・2,606件・99章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `50f1f77b8c94`の[全クロス保存実行](../coverage/interaction-results/cross68-kirimasim-50f1f77b.json)は**2,207 pass・393 unsupported・既存6 fail**です。新規18件は解析が成功し、実行はイベント値操作が未対応です。従来2,588件の入力ハッシュと結果区分はすべて同じで、全選択ケースPASSは47モデルのままです。固定Icarus／Verilatorは新規18件をビルド時に拒否しました。第7章×第15章を登録し、E候補は7対です。[設計・独立検算・確認限界](#aggregate-event-lifetime)を参照してください。
+
+同日のdist優先順位追加時点では**67モデル・2,588件・98章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `50f1f77b8c94`の[全クロス保存実行](../coverage/interaction-results/cross67-kirimasim-50f1f77b.json)は**2,207 pass・375 unsupported・既存6 fail**です。新規31件は解析が成功し、実行はrandomize未対応です。従来2,557件の入力ハッシュと結果区分はすべて同じで、全選択ケースPASSは47モデルのままです。固定Verilatorは両seedで19件が一致し、全重みゼロを含む12件は不一致です。第11章×第18章を登録し、E候補を8対へ減らしました。[設計・補助対照・確認範囲](#distribution-expression-binding)を参照してください。
+
+前日のgenerate default disable追加時点では**66モデル・2,557件・97章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `2edfebbc6270`の[全クロス保存実行](../coverage/interaction-results/cross66-kirimasim-2edfebbc.json)は**2,207 pass・344 unsupported・既存6 fail**です。新規18件は解析が成功し、実行は並行アサーション未対応です。従来2,539件の入力ハッシュと結果区分はすべて同じで、全選択ケースPASSは47モデルのままです。固定Verilatorは両seedで5件が一致し、13件は出力不一致です。第16章×第27章を登録し、E候補を9対へ減らしました。[設計・対照・確認範囲](#generate-default-disable-scopes)を参照してください。
 
 同日の配列リダクション制約追加時点では**65モデル・2,539件**でした。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross65-kirimasim-80859f34.json)は**2,207 pass・326 unsupported・既存6 fail**です。新規13件の解析は成功し、固定配列8件はrandomize、動的配列5件はクラス内配列操作が未対応です。従来2,526件の入力ハッシュと結果区分は同じです。第7章×第18章を登録し、章対は96対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedとも元の13件が出力不一致、固定Icarus Verilog 13.0は全13件をビルド時に拒否しました。固定版oracleは追加していません。[設計と補助対照の確認範囲](#array-reduction-constraints-and-retention)を参照してください。
 
@@ -1960,6 +1970,387 @@ GitHub Check/Nightlyの状態は、各実行のコミットと別途確認して
 ```sh
 python3 tools/qualify_gendisable.py --verilator /path/to/verilator-5.052 \
   --output coverage/interaction-qualification/NEW-gendisable.json
+```
+
+<a id="distribution-expression-binding"></a>
+
+<a id="distribution-constraints-and-operator-precedence"></a>
+
+### dist制約と演算子の優先順位
+
+`interaction_dist.py`の`distribution_expression_binding@1`は、第11章×第18章の既存の優先順位テストを因子モデルへ拡張します。
+11.3.2の優先順位と左結合、11.6.1・11.8の幅と符号、18.5.3の分布の候補集合と重みを同時に照合します。
+乱数の出現頻度ではなく、正の合計重みを持つ解を一意にして、randomizeの戻り値と全ビットを確認します。
+
+<a id="factors-and-observations-1"></a>
+
+#### 因子と観測
+
+幅4/8/33、signed/unsigned、加算とシフト／乗算／比較、暗黙の結合／式全体の括弧／結合を変える括弧、
+`:=`／`:/`、単一項目／他候補のゼロ重み／重複項目、正常系の反復／成功→失敗→成功／失敗→成功→失敗を組み合わせます。
+合法972通りから31件を選び、全因子対154組・重点3因子81組・必須8件を保持します。
+
+式の概形は`x + 1 << 1`、`x + 1 * 2`、`x + 1 < threshold`です。
+実際の1・2・thresholdは、xと同じ幅・符号を持つリテラルで生成します。
+括弧で`x + (1 << 1)`、`(x + 1) * 2`、`x + (1 < threshold)`へ変えた場合も別の水準とします。
+最後の形では、比較結果が1ビットunsignedなので、その外側の加算もunsignedになります。
+各幅で二つまたは三つの候補値を定め、負数、上位ビット、32ビット境界、比較前の桁あふれを観測します。
+全ての表現可能な入力値を網羅したという意味ではありません。
+
+ゼロ重みと正の重みが同じ値に重複する場合は合計を使い、ゼロ項目だけでその値を禁止しません。
+範囲は単一値範囲に限定し、多値範囲の確率比や`:=`と`:/`の統計的な違いは確認しません。
+全重みをゼロにした場合は解がなく、失敗時には初期の全1ビット列または直前の解を保持します（18.5.3、18.6.3）。
+独立した別オブジェクトは毎回成功する対照です。全ての呼出しで、状態・全ビット・型に従う10進値・式の結果と幅を出力します。
+X/Z、実数、randc、default分布、継承、コールバック、並行randomizeは対象外です。
+
+<a id="saved-runs-and-verification-limits-1"></a>
+
+#### 保存実行と確認範囲
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross67-dist-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross67-dist-verilator5052-seed73.json)は、各19 pass・12 knownです。
+正常系を反復する19件だけにoracleを追加しました。成功と失敗を交互に行う12件では、全重みゼロでもrandomizeが1を返し、
+規格から決めた失敗・値保持の期待出力と異なります。内部実装の原因は未確認です。
+[固定Icarus Verilog 13.0](../coverage/interaction-results/cross67-dist-icarus13.json)は全31件をビルド時に拒否しました。
+
+kirimasim `50f1f77b8c94`の[ビルド・解析記録](../coverage/interaction-qualification/dist-build.json)では、全31件の解析が成功し、
+実行はrandomize未対応です。[全2,588件の保存実行](../coverage/interaction-results/cross67-kirimasim-50f1f77b.json)は
+2,207 pass・375 unsupported・既存6 failで、従来2,557件の入力ハッシュと結果区分はすべて同じです。
+合法集合と期待値を保持し、未対応やknownをPASSへ含めません。
+
+<a id="independent-calculations-and-fault-injection-1"></a>
+
+#### 独立した検算と故障注入
+
+[独立検算と実行記録](../coverage/interaction-qualification/dist.json)では、生成した宣言・式・候補・分布項目・試行順序を読み取り、
+型を持つ式の別のパーサと、候補列挙・重みの加算によって全972行を検算します。
+生成器の解や算術の関数は再利用しません。
+
+元の正常系4件に加え、成功後の失敗を確認する補助対照1件を使いました。
+補助対照は`if (impossible) x != x;`という独立した矛盾を追加します。規格上は既に解がない条件への追加ですが、
+固定Verilatorにおける全重みゼロの差異を回避して失敗の戻り値と保持値を観測できます。
+この対照は全重みゼロそのものの拒否や、初回失敗時の観測を確認したものではありません。
+
+三つの演算の誤った結合、正の重みを与える候補の取り違え、重複範囲の取り違え、失敗後の値の破壊、
+対照オブジェクトの共有という7種類のSV変異を検出しました。正常対照・変異の全12実行は終了コード0で、
+ビルド拒否や実行異常による検出ではありません。補助対照の成功を元の12件の成功へ読み替えず、テスト数へ重複加算しません。
+
+追加時のローカル検査は、ツール単体667件と整合性13項目がすべて成功しました。
+メタデータは10,338件で新規問題0件（既知395件）、日英114組とローカルリンク52,291件も検査済みです。
+GitHub Check/Nightlyの状態は、各実行のコミットと別途確認してください。
+
+```sh
+python3 tools/qualify_dist.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-dist.json
+```
+
+<a id="aggregate-event-lifetime"></a>
+
+<a id="aggregate-events-and-automatic-task-lifetime"></a>
+
+### 構造体内イベントと自動タスクの寿命
+
+`aggregate_event_lifetime@1`は、第7章×第15章の相互作用を確認する18件の選択です。
+生成器は[`interaction_eventlife.py`](../generators/interaction_eventlife.py)です。
+構造体のメンバと全体の代入は7.2・7.2.2、イベントの既定初期値は6.8・6.17、
+タスク復帰後も子プロセスを含むスコープが存続する規則は6.21・9.3.2に基づきます。
+待機・トリガ・別名・null・比較は15.5.1・15.5.2・15.5.5.1〜15.5.5.3を参照します。
+
+<a id="factors-and-observations-2"></a>
+
+#### 因子と観測
+
+格納先はscalar／struct／入れ子struct、取得方法は直接参照／コピー、呼出し数は1／2／3です。
+別名の解除は待機登録前／登録後／起床後、トリガはblocking／NBA、呼出しへのトリガ順は順方向／逆方向、
+待機者数は1／2とします。合法432通りから18件を選び、因子対123組・重点3因子54組・必須6件を保持します。
+
+各automatic taskは、新しいイベントと`100 + tag`のpayloadを作り、子プロセスを残して復帰します。
+子は2 tick後に待機を登録し、起床後にローカルのpayloadを読みます。
+コピーの行では構造体全体を代入した後、コピー元のイベントをnoiseへ再結合し、payloadを別の値へ変更します。
+scalarの行ではイベントと整数を個別にコピーして対照とします。
+呼出し側の一つの別名をnullへ解除しても、トリガ用の別名と待機中の子が元のオブジェクトを保持します。
+
+呼出し間の同一性、null状態、各待機者の起床回数・時刻・自動変数の値・静的stampを観測します。
+stampへのNBAをイベントのトリガより先に予約し、Active起床とNBA起床の読取りを区別します。
+刺激・登録・解除・観測は別tickとし、待機者は別の配列要素だけを更新します。
+noise、完了後の再トリガ、別名を全て解除した後の新しい呼出しも含めます。
+nullへの待機、triggered、ref引数、遅延付きNBAトリガ、GC実行時期・物理的なメモリ回収は対象外です。
+
+<a id="independent-checks-and-execution-limits"></a>
+
+#### 独立検算と実行の限界
+
+[`qualify_eventlife.py`](../tools/qualify_eventlife.py)は、生成したSVのタスクと直線的なドライバを読み取り、
+オブジェクト識別子・自動フレーム・構造体コピー・待機登録・順序付きNBAキューを別にモデル化します。
+生成器の期待値計算や時刻表は再利用せず、全432行の出力を照合しました。
+[検算記録](../coverage/interaction-qualification/eventlife.json)には、コピー欠落、コピー元の値の誤読、呼出し間のイベント共有、
+遅すぎる登録、トリガ別名の早すぎる解放、発火先の取り違え、二重計数、scalarのコピー欠落の8変異も記録します。
+これらは独立インタプリタ上の出力差または残存待機で識別したもので、SVの故障注入実行ではありません。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross68-eventlife-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross68-eventlife-verilator5052-seed73.json)は、全18件がイベント代入の未対応によるビルド拒否です。
+[固定Icarus Verilog 13.0](../coverage/interaction-results/cross68-eventlife-icarus13.json)も全18件をビルド時に拒否しました。
+固定版oracleは追加せず、規格から決めた期待値を保持します。シミュレータ上での正常対照や変異検出は未確認です。
+
+kirimasim `50f1f77b8c94`は、[ビルド・解析記録](../coverage/interaction-qualification/eventlife-build.json)の全18件を解析でき、
+実行はイベント値操作が未対応です。[全2,606件の保存実行](../coverage/interaction-results/cross68-kirimasim-50f1f77b.json)は
+2,207 pass・393 unsupported・既存6 failで、従来2,588件の入力ハッシュと結果区分はすべて同じです。
+計画の達成を実行の充足へ読み替えず、未対応を合法集合から除外しません。
+
+追加時のローカル検査は、ツール単体673件・整合性13項目がすべて成功しました。
+メタデータ10,356件は新規問題0件（既知395件）、日英114組とローカルリンク52,327件も検査済みです。
+この追加分のGitHub Check/Nightlyの結果とは別の、ローカル検査記録です。
+
+```sh
+python3 tools/qualify_eventlife.py \
+  --output coverage/interaction-qualification/NEW-eventlife.json
+```
+
+<a id="sv-dpi-array-queries"></a>
+
+<a id="sv-and-dpi-c-array-queries"></a>
+
+### SVとDPI-Cの配列問い合わせ
+
+`sv_dpi_array_queries@1`は、第20章×第35章の相互作用を確認する19件の選択です。
+生成器は[`interaction_dpiquery.py`](../generators/interaction_dpiquery.py)、
+C側は[`cross_dpiquery.c`](../tests/ch35/cross_dpiquery.c)です。
+SVの問い合わせは20.7、open arrayの照合と範囲は35.5.6.1・35.6.1.1・H.7.5・H.7.6・H.12.1、
+C側の問い合わせはH.12.2に基づきます。
+
+<a id="factors-and-observations-3"></a>
+
+#### 因子と観測
+
+unpacked次元数1/2/3、昇順／降順／混在、負／正の添字オフセット、全次元1要素／次元ごとに異なる要素数、
+packed幅4/33、packed仮引数のサイズ固定／open、実引数のpacked範囲の正規化済み／オフセット付き、
+同一実引数の再使用／別形状への切替え、定数次元指定／変数次元指定を組み合わせます。
+合法1,152通りから19件を選び、全因子対177組・重点3因子66組・必須7件を保持します。
+
+同じ実引数について、SVの`$dimensions`・`$unpacked_dimensions`と、各次元の
+`$left/$right/$low/$high/$increment/$size`を表示した後、同じimportでCの問い合わせを行います。
+Cの`svDimensions`はunpacked次元数で、次元0がpacked部、正の次元がunpacked部です。
+SVはunpacked部に続いてpacked部を番号付けするため、SVの最後の次元をCの次元0に対応付けます。
+packed範囲はC側で`[幅-1:0]`へ正規化し、unpacked範囲は実引数の添字を保持します。
+1要素の固定範囲は、昇順を意図した行でも`increment=1`です。
+Cは全問い合わせ値と次元ごとに重みを変えたチェックサムを出力・返却します。
+
+切替え時には各unpacked範囲の端点・方向・要素数を変えます。1要素の行では要素数は維持します。
+open packedでは幅も4と33の間で変え、サイズ固定のpacked仮引数では宣言幅を保持します。
+動的配列・キュー・空配列・複数packed次元・X/Z・範囲外の次元指定・sized unpacked・Cからの再入・
+Cハンドルの持越しは対象外です。要素値のアクセスや書戻しの検証ではありません。
+
+<a id="independent-checks-and-actual-fault-injection"></a>
+
+#### 独立検算と実際の故障注入
+
+[`qualify_dpiquery.py`](../tools/qualify_dpiquery.py)は、生成SVの宣言・問い合わせ式・実引数の呼出し列を読み取ります。
+別の添字列挙と次元表を使い、生成器の形状計算・問い合わせ計算を再利用せず全1,152行を照合しました。
+テスト専用のDPI ABIスタブでも、実際のCプローブを全2,304呼出しで照合しました。
+このスタブは合成した形状を与えるもので、シミュレータのDPIマーシャリングを確認するものではありません。
+
+必須ケースの1/2/3次元から、サイズ固定・正規化済みpackedの正常対照3件を実行しました。
+Cの左右端点の入替え、incrementの反転、packed次元の取り違え、最終次元の欠落、
+SVのpacked次元指定の取り違え、二度目に古いSV形状を問い合わせる誤りの6故障を検出しました。
+全9実行は終了コード0で、未対応やビルド拒否による検出ではありません。
+[検算と実行記録](../coverage/interaction-qualification/dpiquery.json)にソース指紋・出力・終了コードを保存しています。
+この実行対照は、オフセット付きpacked範囲の正規化やopen packedの実行を認定するものではありません。
+
+<a id="saved-runs-and-unconfirmed-scope"></a>
+
+#### 保存実行と未確認の範囲
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross69-dpiquery-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross69-dpiquery-verilator5052-seed73.json)は、各11 pass・8 knownです。
+サイズ固定・正規化済みpackedの11件だけにoracleを追加しました。
+オフセット付きpackedの2件ではCの次元0が正規化した範囲と異なり、例えば`[4:7]`に対して
+期待する`[3:0]`と異なる端点・方向が表示されます。内部実装の原因は未確認です。
+open packedの6件は構文解析時のビルド拒否です。
+[固定Icarus Verilog 13.0](../coverage/interaction-results/cross69-dpiquery-icarus13.json)は全19件をビルド時に拒否しました。
+
+kirimasim `50f1f77b8c94`の[ビルド・解析記録](../coverage/interaction-qualification/dpiquery-build.json)では全19件が解析成功です。
+通常のランナーはCコード付きテストを実行前に`unsupported`へ分類します。この記録はDPI実行の成否を示しません。
+[全2,625件の保存実行](../coverage/interaction-results/cross69-kirimasim-50f1f77b.json)は
+2,207 pass・412 unsupported・既存6 failで、従来2,606件の入力ハッシュと結果区分はすべて同じです。
+計画の達成と実行の充足を分け、未対応・knownの行や規格から決めた期待値を保持します。
+
+追加時のローカル検査は、ツール単体679件・整合性13項目がすべて成功しました。
+メタデータ10,375件は新規問題0件（既知395件）、日英114組とローカルリンク52,399件も検査済みです。
+この追加分のGitHub Check/Nightlyの結果とは別の、ローカル検査記録です。
+
+```sh
+python3 tools/qualify_dpiquery.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-dpiquery.json
+```
+
+<a id="sdf-conditional-paths"></a>
+
+<a id="conditional-specify-paths-and-sdf-back-annotation"></a>
+
+### 条件付きspecifyパスとSDFバックアノテーション
+
+`sdf_conditional_paths@1`は、第30章×第32章の相互作用を確認する18件の選択です。
+生成器は[`interaction_sdfpath.py`](../generators/interaction_sdfpath.py)です。
+状態依存パスは30.4.4・30.4.4.2、SDF構文とパスの対応は32.4.1、
+遅延の置換／加算は32.5、立上り／立下り値の対応は32.8、注釈の階層範囲は32.9に基づきます。
+ここで注釈は、SDFから遅延値を反映するバックアノテーションを指します。
+
+<a id="factors-and-observations-4"></a>
+
+#### 因子と観測
+
+通常IOPATH／COND／CONDELSE、ABSOLUTE／INCREMENT、同一遅延／立上りが遅い／立下りが遅い、
+明示したセルからの相対指定／呼出し元からの子インスタンス指定、注釈対象v／g、条件の開始値1／0、
+兄弟の条件が同じ／反対という7因子です。合法288通りから18件を選び、
+全因子対109組・重点3因子46組・必須7件を保持します。
+重点群「path×mode×profile」は18組あり、各テストが担うのは1組なので、この有限計画の選択数18件はその下限に達しています。
+全規格に対する最小テスト数を意味するものではありません。
+
+同じ入力を2インスタンスへ与え、片方のyパスだけを注釈します。
+両インスタンスのzと、注釈しない兄弟のyは、遅延が保持される対照です。
+通常パスのyは立上り2／立下り4、条件付きでは条件1が2／4、条件0またはifnoneが6／2です。
+zは4／6を保持します。SDF値は4／4・8／2・2／8で、ABSOLUTEは置換し、INCREMENTは既定値へ加算します。
+CONDは同じ条件のパスだけ、CONDELSEはifnoneだけへ対応付けます。
+通常IOPATHの行では、セルも通常パスとし、条件付きセルの全パスへ通常IOPATHを適用する場合は含めません。
+
+各条件で立上りと立下りを1回ずつ与えます。条件だけを変える時刻を次の入力遷移の2 tick前へ分けます。
+全遅延は正の偶数で最大14、入力間隔は20 tick、観測は入力後1/3/5/7/9/11/13/15 tickです。
+4出力の値・変化回数・最終変化時刻を別々に記録し、更新と同時刻の観測競合を避けながら遷移時刻も照合します。
+短パルス、X/Z、edge-qualified path、条件式の同値変形、複数注釈、min/typ/max、timescale変換、
+INTERCONNECT、TIMINGCHECKは対象外です。
+
+<a id="independent-checks-and-fault-injection"></a>
+
+#### 独立検算と故障注入
+
+[`qualify_sdfpath.py`](../tools/qualify_sdfpath.py)は、生成したspecify宣言、SVが実際に書き出すSDF、
+注釈呼出し、刺激・観測列を読み取ります。別のS式パーサ、条件別のパス表、時刻順のイベントヒープで全288行を照合しました。
+生成器の条件選択・遅延計算・SDF組立て・期待値の関数は再利用しません。
+
+固定Icarusで、元の通常パス・ABSOLUTEの正常対照3件を実行しました。
+セル範囲の取り違え、立上り／立下りの入替え、注釈呼出しの欠落、出力パスの取り違え、
+両インスタンスへの誤った注釈、注釈しないzの既定遅延の破壊という6種類のSV/SDF変異を検出しました。
+全9実行は終了コード0で、警告・ビルド拒否・実行異常による検出ではありません。
+
+CONDを通常IOPATHへ変更して両分岐に注釈する誤り、INCREMENTを置換にする誤り、
+CONDELSEを条件1へ対応付ける誤りの3種類も、独立インタプリタで出力差を確認しています。
+この3種類はソースの独立解釈であり、SVの故障注入実行ではありません。
+[検算と実行記録](../coverage/interaction-qualification/sdfpath.json)を参照してください。
+実行した正常対照・変異は、COND／CONDELSE／INCREMENTの実行動作を認定するものではありません。
+
+<a id="saved-runs-and-unconfirmed-scope-1"></a>
+
+#### 保存実行と未確認の範囲
+
+[固定Icarus Verilog 13.0](../coverage/interaction-results/cross70-sdfpath-icarus13.json)は3 pass・15 knownです。
+通常パス・ABSOLUTEの3件だけにoracleを登録しました。条件付き注釈とINCREMENTを含む15件は出力不一致です。
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross70-sdfpath-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross70-sdfpath-verilator5052-seed73.json)は、各18 knownで全件出力不一致でした。
+これらをPASSへ読み替えず、規格から決めた期待値と合法集合を維持します。
+
+kirimasim `2ffb5dddca04`の[ビルド・解析記録](../coverage/interaction-qualification/sdfpath-build.json)では全18件が解析成功です。
+実行で最初に報告された未対応は、条件付きspecifyパス12件、システムタスク$sdf_annotate 6件です。
+[全2,643件の保存実行](../coverage/interaction-results/cross70-kirimasim-2ffb5ddd.json)は
+2,207 pass・430 unsupported・既存6 failで、従来2,625件の入力ハッシュと結果区分はすべて同じです。
+実装版の更新とモデルの追加を分けて記録し、計画の達成を実行の充足へ読み替えません。
+
+追加時のローカル検査は、ツール単体685件・整合性13項目がすべて成功しました。
+メタデータ10,393件は新規問題0件（既知395件）、日英114組とローカルリンク52,467件も検査済みです。
+この追加分のGitHub Check/Nightlyの結果とは別の、ローカル検査記録です。
+
+```sh
+python3 tools/qualify_sdfpath.py --iverilog-bin /path/to/iverilog-13.0/bin \
+  --output coverage/interaction-qualification/NEW-sdfpath.json
+```
+
+<a id="checker-assertion-sampling"></a>
+
+<a id="checker-and-module-reference-sampling"></a>
+
+### checkerとmodule参照モデルのサンプリング
+
+`checker_assertion_sampling@1`は、第16章×第17章と、interface配置での第17章×第25章を確認する27件の選択です。
+生成器は[`interaction_checksample.py`](../generators/interaction_checksample.py)です。
+checkerと設計コードのアサーションで同じスケジューリングを適用する根拠は17.7.3、
+checker宣言・入力置換・出力引数は17.2・17.3・17.7.1、サンプリングとactionは16.5.1・16.9.3・16.14.1、
+default clockingは14.12、interface配置は25.3に基づきます。
+
+<a id="factors-and-observations-5"></a>
+
+#### 因子と観測
+
+幅1/8/33、module／interface配置、位置／名前／wildcard接続、更新時点はクロック前／同時刻／後、
+blocking／NBA、posedge／negedge、明示イベント／checker内のdefault clocking、
+非ゼロ／ゼロ一致／リダクションXORという8因子です。
+合法1,296通りから27件を選び、全因子対174組・重点3因子63組・必須6件を保持します。
+「幅×判定式×更新時点」の重点群に27組あり、この有限計画の選択数はその下限27件に達しています。
+全規格に対する最小テスト数を意味しません。
+
+2実体へ相補の既知値を与え、クロックは各20 tick周期の時刻8／12に分けます。
+各checkerと同じ実引数を、トップ階層の別module参照アサーションにも接続します。
+checkerの出力引数から判定回数・サンプル値・サンプルした判定値・action内の生値・実行時刻を観測し、
+checker内部への階層参照は行いません。内部状態は宣言時に初期化し、continuous assignmentで出力へ渡します。
+checker出力引数そのものの初期値指定を必須にしないため、観測に不要な機能の未対応で全ケースを止めません。
+出力引数の初期値指定自体の動作は、このモデルの確認範囲ではありません。
+
+6周期で全0・全1・単一ビット・相補パターンを与えます。
+データ更新は各クロックの2 tick前／同時刻／2 tick後、最終観測は時刻16です。
+propertyはPreponedの値で判定し、両action枝が`$sampled(data)`とReactiveの`data`を別々に記録します。
+更新後の最終データも出力し、同時刻NBAでサンプル値・生値・最終値がどう異なるかを確認します。
+X/Z、手続き内checker、bind、checker手続き、free variable、出力NBA、disable iff、
+複数サイクルproperty、履歴関数、programは対象外です。
+
+<a id="independent-checks-and-actual-fault-injection-1"></a>
+
+#### 独立検算と実際の故障注入
+
+[`qualify_checksample.py`](../tools/qualify_checksample.py)は、生成した判定式・clocking・接続・出力対応・刺激列を読み取り、
+別々のPreponed／Active／NBA／Reactive状態を使って全1,296行を照合します。
+生成器の入力列・判定計算・期待値計算は再利用しません。二つの実装の一致だけを合格の根拠にせず、
+両方を独立した仕様の期待値と比較します。
+
+元の正常対照5件と、サンプル値を生値にする誤り、生値をサンプル値にする誤り、checker判定の反転、
+出力計数の入替え、参照インスタンスの別名化、明示クロックのエッジ反転、fail計数の欠落という7種類のSV変異を実行しました。
+全12実行は終了コード0で、故障は出力差として検出しました。
+別に不一致の2件も再実行して全出力を保存しています。この2実行は、正常対照や故障検出へ加算しません。
+[検算・故障注入・不一致再現の記録](../coverage/interaction-qualification/checksample.json)を参照してください。
+
+<a id="saved-runs-and-checking-for-common-errors"></a>
+
+#### 保存実行と共通の誤りを見逃さない照合
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross71-checksample-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross71-checksample-verilator5052-seed73.json)は、各25 pass・2 knownです。
+一致した25件だけにoracleを登録しました。残る2件は1ビットベクタ・同時刻NBA・明示クロックで、
+module配置のposedge／非ゼロ判定と、interface配置のnegedge／ゼロ判定です。
+
+最初の周期では、時刻8のPreponedで0をサンプルし、NBAで1へ更新した後のReactive actionは生値1を読む期待値です。
+実際の保存出力ではcheckerとmodule参照の両方が生値0を記録し、時刻16の最終データは1です。
+checkerと参照が同じ結果なので、両者を比較するだけでは誤りを見逃します。独立した仕様モデルとの照合で不一致を検出します。
+内部実装の原因は未確認です。この2件の期待値を変更したり、単に二つの実装が一致する期待へ置き換えたりしません。
+[固定Icarus Verilog 13.0](../coverage/interaction-results/cross71-checksample-icarus13.json)は全27件をビルド時に拒否しました。
+
+kirimasim `2ffb5dddca04`の[ビルド・解析記録](../coverage/interaction-qualification/checksample-build.json)では全27件が解析成功です。
+実行はcheckerインスタンスが未対応です。[全2,670件の保存実行](../coverage/interaction-results/cross71-kirimasim-2ffb5ddd.json)は
+2,207 pass・457 unsupported・既存6 failで、従来2,643件の入力ハッシュと結果区分はすべて同じです。
+第16章×第17章は27件、第17章×第25章はinterface配置の7件へ対応付けます。
+計画の網羅と実行の充足を分け、未対応やknownの行も合法集合へ保持します。
+
+既存のM4サンプル値関数評価器は、監査済みの単一クロック・静的入力・レポート形式を対象とします。
+今回の規格のみの2候補は、checkerの入力置換・出力接続と2クロックを使うため、
+[ソースハッシュ付き保留台帳](../tools/sva_reference/fixtures/m4_deferred.json)へ理由を記録しました。
+[M4の再集計](../coverage/interaction-qualification/checksample-m4.json)は7一致・44保留・未処理0件です。
+今回の2件をM4の一致へ数えず、クロス専用モデルでの独立検算と区別します。
+入力が変わると保留のハッシュ照合も失敗し、再監査まで未処理へ戻ります。
+
+追加時のローカル検査は、ツール単体692件・整合性13項目がすべて成功しました。
+メタデータ10,420件は新規問題0件（既知395件）、日英114組とローカルリンク52,565件も検査済みです。
+M4の新規保留は、元の一致7件と既存保留42件を維持し、入力変更時に未処理へ戻す回帰テストも追加しました。
+この追加分のGitHub Check/Nightlyの結果とは別の、ローカル検査記録です。
+
+```sh
+python3 tools/qualify_checksample.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-checksample.json
 ```
 
 <a id="updates-after-model-changes"></a>

@@ -1,0 +1,113 @@
+{
+  "model": "aggregate_event_lifetime",
+  "generated_at": "2026-11-02T16:35:22.944424+00:00",
+  "commit": "50f1f77b8c94454514634c0197d1089dcf714873",
+  "version": "kirimasim 0.0.0 (commit 50f1f77b8c94), built with AppleClang 21.0.0.21000401",
+  "binary_sha256": "110096dcf69aa1a0634babdd150228ed47bb59be4a8d787586473a00bc88c929",
+  "binary_unchanged": true,
+  "run": "coverage/interaction-results/cross68-kirimasim-50f1f77b.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2207,
+    "unsupported": 393,
+    "fail": 6
+  },
+  "new_cases": {
+    "unsupported": 18
+  },
+  "previous_cases": 2588,
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": {
+    "tests/gen/ch15/test_gen_cross_eventlife_nested_copy_1_before_arm_blocking_forward_1.sv": {
+      "inputs_sha256": "9c55b35616478c60243d5fdcaef0265c09a04e073865e6aaefb3a2af56e2dc11",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_nested_copy_2_before_arm_nba_reverse_1.sv": {
+      "inputs_sha256": "119a071b3af0915b696d5c8e3482091505ffe71858b2512c24b77f88e1ce4934",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_nested_copy_3_before_arm_blocking_reverse_2.sv": {
+      "inputs_sha256": "0c206b22543011238589e342d2e266b5be2f1b9e5121a737b19c3ceed39b439a",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_nested_direct_1_after_arm_blocking_reverse_1.sv": {
+      "inputs_sha256": "edce21e8ec0f9de60b66780a4b698f997ff675be8b136d69de73dcf1c0fde982",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_nested_direct_2_after_wake_blocking_forward_2.sv": {
+      "inputs_sha256": "be825bc9ff1dabfc088e764aecaa473a61a86ae1c9199bf6a0bf429bc40c346e",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_nested_direct_3_after_wake_blocking_forward_1.sv": {
+      "inputs_sha256": "f4b97ccfa4ca62245dc02bb0cbe8745e69df6b8325654f49108a199721aa99a2",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_scalar_copy_1_after_wake_nba_reverse_2.sv": {
+      "inputs_sha256": "713f8786966efa010bb83d63a73c123892b3723336412c2599442bdabd79887c",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_scalar_copy_2_after_arm_nba_forward_1.sv": {
+      "inputs_sha256": "e46987c715795e1c4e14cd68c683e803dac0e8011d8ae8a36ad3883dee52b897",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_scalar_copy_3_after_arm_nba_reverse_1.sv": {
+      "inputs_sha256": "1ae7eef0b7b21ca4378a14339ab3c806b466292a4d76b650950e2e029d9f5107",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_scalar_direct_1_before_arm_blocking_forward_1.sv": {
+      "inputs_sha256": "d38b88ab4c048ab4dc809044e23257ce824ef1ca46015a7c413733a3bef21b14",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_scalar_direct_2_after_arm_blocking_reverse_2.sv": {
+      "inputs_sha256": "3e5bba5b9bb3f1796eb414efd5692fcc0b9feaba00e26694ca30a5dda28a9a4e",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_scalar_direct_3_before_arm_nba_forward_2.sv": {
+      "inputs_sha256": "69b4c18e5c1223555a842d436cbe70c38c585ba34dfaeddd095127fdded80ab7",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_struct_copy_1_after_arm_blocking_forward_2.sv": {
+      "inputs_sha256": "7cbb8ed2fe19aad958bb2afbf6ed86867c8fab11745ca025eaaf731d72214fad",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_struct_copy_2_after_wake_nba_forward_1.sv": {
+      "inputs_sha256": "c162a258fca0e749b2b686e69f7d71148d0494bfa38a81b76caa708fe69600df",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_struct_copy_3_before_arm_blocking_forward_1.sv": {
+      "inputs_sha256": "6832897b37cd7af3ab5dee6b29a605d9c78b9f3ff1f786e2796845704977d237",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_struct_direct_1_before_arm_blocking_forward_1.sv": {
+      "inputs_sha256": "b4a46c9cbb4f373438ee714511fa04f50eb6e0644f02da09451d72246b1e2bd0",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_struct_direct_2_after_wake_blocking_reverse_1.sv": {
+      "inputs_sha256": "6fb00a88073e99bd1d87bb638f69e1e17df2ef9a24bc134f3333c0589f25d76c",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch15/test_gen_cross_eventlife_struct_direct_3_after_arm_nba_reverse_2.sv": {
+      "inputs_sha256": "ac704b8f3a883e9e81a60eb17b85a0dd5a2a409c59ed7987eea6fa2bf38056bd",
+      "returncode": 0,
+      "stderr": ""
+    }
+  }
+}

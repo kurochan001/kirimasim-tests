@@ -12,7 +12,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 10307 |
+| Tests | 10420 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -25,9 +25,9 @@
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 768 |
-| Icarus Verilog 13.0 only | 4882 |
-| Verilator 5.052 only | 1794 |
-| standard only | 2863 |
+| Icarus Verilog 13.0 only | 4885 |
+| Verilator 5.052 only | 1849 |
+| standard only | 2918 |
 
 <a id="章別"></a>
 
@@ -47,12 +47,12 @@
 | 12 | Procedural programming statements | 251 | 19 | 13.2 | 0 | 49 |
 | 13 | Tasks and functions (subroutines) | 352 | 15 | 23.5 | 0 | 34 |
 | 14 | Clocking blocks | 126 | 15 | 8.4 | 0 | 46 |
-| 15 | Interprocess synchronization and communication | 135 | 21 | 6.4 | 0 | 83 |
+| 15 | Interprocess synchronization and communication | 153 | 21 | 7.3 | 0 | 101 |
 | 16 | Assertions | 733 | 69 | 10.6 | 0 | 521 |
-| 17 | Checkers | 81 | 10 | 8.1 | 0 | 59 |
-| 18 | Constrained random value generation | 226 | 44 | 5.1 | 0 | 93 |
+| 17 | Checkers | 108 | 10 | 10.8 | 0 | 61 |
+| 18 | Constrained random value generation | 257 | 44 | 5.8 | 0 | 105 |
 | 19 | Functional coverage | 157 | 24 | 6.5 | 0 | 127 |
-| 20 | Utility system tasks and system functions | 348 | 31 | 11.2 | 0 | 84 |
+| 20 | Utility system tasks and system functions | 367 | 31 | 11.8 | 0 | 92 |
 | 21 | Input/output system tasks and system functions | 303 | 47 | 6.4 | 0 | 76 |
 | 22 | Compiler directives | 398 | 21 | 19.0 | 0 | 36 |
 | 23 | Modules and hierarchy | 331 | 33 | 10.0 | 0 | 71 |
@@ -64,7 +64,7 @@
 | 29 | User-defined primitives | 142 | 14 | 10.1 | 0 | 36 |
 | 30 | Specify blocks | 60 | 22 | 2.7 | 0 | 24 |
 | 31 | Timing checks | 66 | 20 | 3.3 | 0 | 48 |
-| 32 | Backannotation using the standard delay format | 50 | 11 | 4.5 | 0 | 34 |
+| 32 | Backannotation using the standard delay format | 68 | 11 | 6.2 | 0 | 49 |
 | 33 | Configuring the contents of a design | 84 | 13 | 6.5 | 0 | 67 |
 | 34 | Protected envelopes | 4 | 8 | 0.5 | 0 | 0 |
 | 35 | Direct programming interface | 179 | 21 | 8.5 | 0 | 59 |

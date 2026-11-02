@@ -1,0 +1,113 @@
+{
+  "model": "sdf_conditional_paths",
+  "generated_at": "2026-11-02T20:30:27.980888+00:00",
+  "commit": "2ffb5dddca047df916958738038cd569b575ff0a",
+  "version": "kirimasim 0.0.0 (commit 2ffb5dddca04), built with AppleClang 21.0.0.21000401",
+  "binary_sha256": "95de6c861347015444615dc991b595bcc3bba07485f3a949744bcfb2d1490e6c",
+  "binary_unchanged": true,
+  "run": "coverage/interaction-results/cross70-kirimasim-2ffb5ddd.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2207,
+    "unsupported": 430,
+    "fail": 6
+  },
+  "new_cases": {
+    "unsupported": 18
+  },
+  "previous_cases": 2625,
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": {
+    "tests/gen/ch32/test_gen_cross_sdfpath_cond_absolute_balanced_parent_v_high_same.sv": {
+      "inputs_sha256": "d97a1b3aaffa1fcfbe858f12575fe03dba7c131e8a76113150c415db977c5de7",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_cond_absolute_fall_cell_v_high_same.sv": {
+      "inputs_sha256": "1e5211fbbb31eb2827c0ebd675fe9ed208c197d76781fe85eaef4e2cb97ff30f",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_cond_absolute_rise_cell_v_low_same.sv": {
+      "inputs_sha256": "3eeb33a74b316418feeea9fc75f754aeb9b1654687466ae3c7720aa289af62f7",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_cond_increment_balanced_parent_g_high_opposite.sv": {
+      "inputs_sha256": "fa9241449472cbdd22033ee063e2e809e733596fda658fb0b7e1843ef1fcbd6b",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_cond_increment_fall_cell_g_low_same.sv": {
+      "inputs_sha256": "450700babd734b56af01ae2a936949f55e2de07e529881d8c516b67f29c13624",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_cond_increment_rise_cell_v_high_same.sv": {
+      "inputs_sha256": "04c87a264646dc715a5872e67dd22a857891188fd8431ac42e5e909b411fae86",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_else_absolute_balanced_parent_v_low_opposite.sv": {
+      "inputs_sha256": "7bdc08a03dbdba6fedb42edf747c24465238ccb745719cd40a5ef4d9afb37469",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_else_absolute_fall_cell_v_high_same.sv": {
+      "inputs_sha256": "b008b88e1b637ee64d09e4ad275d1c299f81ff8f76f15d744d4fafdda8b490b2",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_else_absolute_rise_parent_g_high_same.sv": {
+      "inputs_sha256": "ec6d76426b909a9d9efbce5c5f3d7efe382b6761b58369ec0fe83c853e07a5d8",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_else_increment_balanced_cell_v_high_same.sv": {
+      "inputs_sha256": "fbeb0a35bb175a747e2f198ead5fa3fa634ff202e01ff8c70cfc2293c8b6e50b",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_else_increment_fall_cell_g_high_same.sv": {
+      "inputs_sha256": "c760fcfebd88b540eb9aa0e3629e0d9362921cb208ba879c5248d7bf54eabae1",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_else_increment_rise_cell_v_high_opposite.sv": {
+      "inputs_sha256": "150ed8778f34d57bc7c9ead6afe873bc67c3e8f1c5aeb143f7643f49b042594a",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_plain_absolute_balanced_cell_v_high_same.sv": {
+      "inputs_sha256": "265652c78c73bf655c3ac01b7ddfa002274c937274438b891a0346e328f3fb9a",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_plain_absolute_fall_cell_g_high_opposite.sv": {
+      "inputs_sha256": "bbd3d48786a267ce195095ba9f663b978f5ee1f3279b4fa56e53930a1a424a9f",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_plain_absolute_rise_parent_g_low_opposite.sv": {
+      "inputs_sha256": "0d5e9b80d459b552f43daf0b0728000310ca624a43132b8cbe43b0632938ea8c",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_plain_increment_balanced_cell_v_high_same.sv": {
+      "inputs_sha256": "fb95a09b25e2b8eaba221eacfd96e76be5c14e06e1d78dda106a00c31a407716",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_plain_increment_fall_parent_v_low_same.sv": {
+      "inputs_sha256": "3b165087ecf678352480d3638234ae4166028918b5d704cc071e51956cb130a6",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch32/test_gen_cross_sdfpath_plain_increment_rise_cell_v_high_same.sv": {
+      "inputs_sha256": "85f266cbca73aaf6d10f33fce66bd9636bbdce486c11469808e16d7a6cd58ed9",
+      "returncode": 0,
+      "stderr": ""
+    }
+  }
+}

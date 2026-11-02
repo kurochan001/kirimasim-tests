@@ -416,3 +416,20 @@ Subsequently, registered 268 tests with `:type: formal` and `:formal_case:` in t
 In addition to the 10 case of the basic set, we have added a regression check of the 12 case to verify the extension of the boundary value and the correspondence to the actual test. These are not executed by external formal tools, and they verify the generation processing, the degree of freedom of input, the negative example, the result judgment, and the consistency of evidence, etc. At the 2026-10-26 expansion, all 205 unit tests, concrete output comparisons for 45 existing tests, evidence checks for both sets, and existing consistency checks passed.
 
 Rechecking 2026-10-29 passed all 263 unit tests and output comparisons for 45 existing tests (10 M2 tests, 28 M3 tests, and 7 M4 tests). The whole scan of M3 would classify `test_ch16_sim_prop_inherited_eventually.sv` and `test_dollar_cycle_delay_and_actual.sv` as `in_scope_unhandled`, and the exit code would be 2, apart from the 28 tests match. The execution verification of this 2 tests is not included in this result.
+
+<a id="m4-checker-cross-scope-2026-11-03"></a>
+
+<a id="m4の対象範囲とcheckerクロス2026-11-03"></a>
+
+## M4 scope and checker crosses (2026-11-03)
+
+M4 covers individually audited single-clock static inputs and report protocols.
+The two new spec-only `checker_assertion_sampling@1` cases use checker input substitution/output arguments and two clocks at ticks 8/12.
+The existing adapter's scope is retained; source hashes, deferral reasons and separate verification evidence are registered in
+[`m4_deferred.json`](../tools/sva_reference/fixtures/m4_deferred.json).
+Changed inputs fail the hash check and return to unhandled until re-audited.
+
+The [current M4 comparison](../coverage/interaction-qualification/checksample-m4.json), using validated existing input traces, records seven matches, 44 explicit deferrals and zero unhandled cases.
+This is not a new simulator execution. The previous 42 deferrals and seven audited inputs are retained; the two checker cases are not added to matches.
+A separate cross-specific model independently checks all 1,296 rows and runs five controls, seven injected faults and two known-difference replays on fixed Verilator.
+That does not extend M4 support. See [cross design and execution scope](interaction-verification.en.md#checker-assertion-sampling).

@@ -1,0 +1,166 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "gen/ch18/test_gen_cross_dist_33_signed_add_mul_whole_each_zero_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_33_signed_add_mul_whole_each_zero_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "cb7d457d6e889ca982c6ea813629031b5f4e1194fceb798f578eb897f1c8264c"
+  },
+  "gen/ch18/test_gen_cross_dist_33_signed_add_rel_whole_total_overlap_fail_sat_fail": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_33_signed_add_rel_whole_total_overlap_fail_sat_fail.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "66a67b5abce8c446596288e3f6d803245722b81017474aebc6d97ad313dad5b4"
+  },
+  "gen/ch18/test_gen_cross_dist_33_signed_add_shift_whole_each_overlap_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_33_signed_add_shift_whole_each_overlap_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "68b37605ee0d9cd06e8f8852f2f9e6ff78d716736ffaeeb1144acaf9ace6431a"
+  },
+  "gen/ch18/test_gen_cross_dist_33_unsigned_add_mul_implicit_total_zero_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_33_unsigned_add_mul_implicit_total_zero_sat_fail_sat.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "86f7f9e423018fceafb8b5c12034e9fd92d4d602afe9fb1b3a97c9062d33f9f7"
+  },
+  "gen/ch18/test_gen_cross_dist_33_unsigned_add_mul_implicit_total_zero_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_33_unsigned_add_mul_implicit_total_zero_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "3c3d88f1f8dcfff28fd5123926543549d9bd50a820b7538dbfad68d153ce61a7"
+  },
+  "gen/ch18/test_gen_cross_dist_33_unsigned_add_rel_whole_each_zero_fail_sat_fail": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_33_unsigned_add_rel_whole_each_zero_fail_sat_fail.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "189883cc573777cbec960e76577f7bdb328e6b7068e128d1e8358046a7c8f585"
+  },
+  "gen/ch18/test_gen_cross_dist_33_unsigned_add_shift_altered_total_singleton_fail_sat_fail": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_33_unsigned_add_shift_altered_total_singleton_fail_sat_fail.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "929f9d942093c7411f2e7c360e35bdce46e1abcb2a0c7df55900a8158f7dfb8e"
+  },
+  "gen/ch18/test_gen_cross_dist_33_unsigned_add_shift_implicit_each_overlap_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_33_unsigned_add_shift_implicit_each_overlap_sat_fail_sat.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "2c52cad617b465120c247ce33343de1d64504daf4ad178a3d19084e08ebae0eb"
+  },
+  "gen/ch18/test_gen_cross_dist_4_signed_add_mul_whole_total_singleton_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_signed_add_mul_whole_total_singleton_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "3e608451bc70afa42a867b995909436c19b80dcda6ded0e3cf2d3f274e96772d"
+  },
+  "gen/ch18/test_gen_cross_dist_4_signed_add_rel_implicit_each_zero_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_signed_add_rel_implicit_each_zero_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "913fa8c0810292704ad167e59a65de524efc33f92062f509a916aca1c65ef730"
+  },
+  "gen/ch18/test_gen_cross_dist_4_signed_add_shift_implicit_each_singleton_fail_sat_fail": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_signed_add_shift_implicit_each_singleton_fail_sat_fail.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "c6398c4315a7d925008db512977748555c59e76dc687215cd51136441caa71a2"
+  },
+  "gen/ch18/test_gen_cross_dist_4_signed_add_shift_implicit_each_singleton_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_signed_add_shift_implicit_each_singleton_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "73355b7cd6e624519472d7f5ea64eeac727e131d7bdfc4e2663904bbd9391d6b"
+  },
+  "gen/ch18/test_gen_cross_dist_4_unsigned_add_mul_altered_each_overlap_fail_sat_fail": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_mul_altered_each_overlap_fail_sat_fail.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "7919aef1d55180fc2a8bb5a8ad91d96567da5cca13c0027ec50a13910737d05e"
+  },
+  "gen/ch18/test_gen_cross_dist_4_unsigned_add_mul_altered_each_overlap_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_mul_altered_each_overlap_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "233e2dcd697a3d9f9e29e7d58caf59e91d633721da381e25e1928524cfcad0e5"
+  },
+  "gen/ch18/test_gen_cross_dist_4_unsigned_add_mul_altered_each_singleton_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_mul_altered_each_singleton_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "c0793c5d28e59047591956c0ec288cf9d53d6575c5c463064cf218d01a26c20b"
+  },
+  "gen/ch18/test_gen_cross_dist_4_unsigned_add_mul_altered_each_zero_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_mul_altered_each_zero_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "d69fbc4a174a8a0ac872ddbb60303eb33b72607fe9cb142d7cf2b1a3dbbe1c9f"
+  },
+  "gen/ch18/test_gen_cross_dist_4_unsigned_add_mul_whole_each_overlap_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_mul_whole_each_overlap_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "7ae0290b0afcae689189d0d45d959da4e2d09598cbb5a0ca68af32887f2e70d9"
+  },
+  "gen/ch18/test_gen_cross_dist_4_unsigned_add_rel_altered_each_overlap_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_rel_altered_each_overlap_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "15e401927cb690fab3531a1f0c08cf84f9bef548a0fc0ef1863f82809cc81afc"
+  },
+  "gen/ch18/test_gen_cross_dist_4_unsigned_add_rel_altered_each_zero_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_rel_altered_each_zero_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "d2fb462921eb4d6cab6640b3962b7fd93d2b233a7aa98f4d311d6f31af99907f"
+  },
+  "gen/ch18/test_gen_cross_dist_4_unsigned_add_rel_altered_total_singleton_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_rel_altered_total_singleton_sat_fail_sat.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "7c63da49992833fadd720061f30e1593926c7027e407df654545fdc6f5602885"
+  },
+  "gen/ch18/test_gen_cross_dist_4_unsigned_add_rel_whole_each_singleton_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_rel_whole_each_singleton_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "57688f6e7a19cce0c561e0b51c4920475a2da5477549d2aaecb3e9d95927e094"
+  },
+  "gen/ch18/test_gen_cross_dist_4_unsigned_add_shift_altered_each_overlap_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_shift_altered_each_overlap_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "822c01b8334bad34d7fe991c54ff600a7ecc20925dbd002de748ba019e2bb67c"
+  },
+  "gen/ch18/test_gen_cross_dist_4_unsigned_add_shift_implicit_each_zero_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_shift_implicit_each_zero_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "a5c84e6018f07cfead7b00bcc021d1672d72f439c0f9fd424f12d21504bb6fdd"
+  },
+  "gen/ch18/test_gen_cross_dist_4_unsigned_add_shift_whole_each_singleton_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_4_unsigned_add_shift_whole_each_singleton_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "7de5bbb0a205d175204994ecfd7a5a975ef6d0134aead54639dd438e1cdc26c2"
+  },
+  "gen/ch18/test_gen_cross_dist_8_signed_add_mul_implicit_total_overlap_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_8_signed_add_mul_implicit_total_overlap_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "f9137d116518d2becdfd72a578d906e6cf49b173584962f77aa5e1ea7dae9897"
+  },
+  "gen/ch18/test_gen_cross_dist_8_signed_add_rel_implicit_each_singleton_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_8_signed_add_rel_implicit_each_singleton_sat_fail_sat.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "fa7a2c15a8e45999127040a8dc9e11c6a485af2ca2ca93e377b0c23e2829c467"
+  },
+  "gen/ch18/test_gen_cross_dist_8_signed_add_rel_implicit_each_singleton_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_8_signed_add_rel_implicit_each_singleton_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "7f968224613cae02850a289dad7bf488fe94b7c011e7496ae6818e9228c27552"
+  },
+  "gen/ch18/test_gen_cross_dist_8_signed_add_shift_altered_total_zero_fail_sat_fail": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_8_signed_add_shift_altered_total_zero_fail_sat_fail.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "7ab103c1e5e46ddf3323fcbadc8b7992a628088225cfe4ba8d5a80a6a9ddf47c"
+  },
+  "gen/ch18/test_gen_cross_dist_8_unsigned_add_mul_implicit_each_singleton_sat_only": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_8_unsigned_add_mul_implicit_each_singleton_sat_only.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "efcfc7d838fec4aa764f1618f74517a89587c9764bbe24d49f68f36784a553e2"
+  },
+  "gen/ch18/test_gen_cross_dist_8_unsigned_add_rel_implicit_total_overlap_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_8_unsigned_add_rel_implicit_total_overlap_sat_fail_sat.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "658e3b8c30d0451b3c8d750168fb0c7e43ac92a3ac50381c7c56010ada7f05d5"
+  },
+  "gen/ch18/test_gen_cross_dist_8_unsigned_add_shift_whole_each_zero_sat_fail_sat": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch18/test_gen_cross_dist_8_unsigned_add_shift_whole_each_zero_sat_fail_sat.sv:33: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "5868a9434c4cc3f8e1a2fb9242d920a99b2ed16bf55b2b77ae8622fd1cdb8b05"
+  }
+ },
+ "generated_at": "2026-11-02T15:21:40.534969+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}
