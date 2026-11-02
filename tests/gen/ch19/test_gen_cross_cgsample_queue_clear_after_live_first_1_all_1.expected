@@ -1,0 +1,18 @@
+phase=0 stage=before repeat=-1 a_size=1 a_value=0 b_size=1 b_value=0
+g size=0.00 value=0.00 h size=0.00 value=0.00
+phase=0 stage=after repeat=0 a_size=0 a_value=-1 b_size=1 b_value=0
+g size=25.00 value=20.00 h size=25.00 value=20.00
+phase=0 stage=after repeat=1 a_size=0 a_value=-1 b_size=1 b_value=0
+g size=25.00 value=20.00 h size=25.00 value=20.00
+phase=1 stage=before repeat=-1 a_size=0 a_value=-1 b_size=1 b_value=0
+g size=25.00 value=20.00 h size=25.00 value=20.00
+phase=1 stage=after repeat=0 a_size=3 a_value=2 b_size=1 b_value=0
+g size=50.00 value=40.00 h size=25.00 value=20.00
+phase=1 stage=after repeat=1 a_size=3 a_value=2 b_size=1 b_value=0
+g size=50.00 value=40.00 h size=25.00 value=20.00
+phase=2 stage=before repeat=-1 a_size=3 a_value=2 b_size=1 b_value=0
+g size=50.00 value=40.00 h size=25.00 value=20.00
+phase=2 stage=after repeat=0 a_size=0 a_value=-1 b_size=1 b_value=0
+g size=50.00 value=40.00 h size=25.00 value=20.00
+phase=2 stage=after repeat=1 a_size=0 a_value=-1 b_size=1 b_value=0
+g size=50.00 value=40.00 h size=25.00 value=20.00

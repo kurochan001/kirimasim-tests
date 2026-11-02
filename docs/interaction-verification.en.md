@@ -14,7 +14,9 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 Each run's version is recorded in linked JSON. Unless stated otherwise, added/total counts and check results in the model descriptions below record the state when that model was added. See the beginning of this overview and [Generated report](interaction-coverage.en.md) for current aggregates.
 
-Program-assertion attempt addition on 2026-11-03: the current selection has **72 models, 2,697 tests and 104 chapter pairs**. The [full cross run](../coverage/interaction-results/cross72-kirimasim-786c94bb.json) on kirimasim `786c94bbeafb`, fetched and built immediately before execution, records **2,207 pass, 484 unsupported and six existing fail results**. All 27 new inputs parse; concurrent assertions remain unsupported. All preceding 2,670 fingerprints and status categories are unchanged; 47 models pass their full selection. Both fixed Verilator seeds record 18 pass and nine known results; fixed Icarus rejects all 27 builds. Chapter 16×24 is registered, leaving four E and three C candidate pairs. See [design, independent checks and limits](#program-assertion-attempts).
+Container-sampling addition on 2026-11-03: the current selection has **73 models, 2,730 tests and 105 chapter pairs**. The [full cross run](../coverage/interaction-results/cross73-kirimasim-786c94bb.json) on kirimasim `786c94bbeafb`, fetched and built immediately before execution, records **2,207 pass, 517 unsupported and six existing fail results**. All 33 new inputs parse; covergroups remain unsupported. All preceding 2,697 fingerprints and status categories are unchanged; 47 models pass their full selection. Both fixed Verilator seeds match all 33 cases; fixed Icarus rejects all 33 builds. Chapter 7×19 is registered, leaving four E and two C candidate pairs. See [design, independent checks and limits](#container-coverage-sampling).
+
+At the program-assertion attempt addition on the same day, the selection had **72 models, 2,697 tests and 104 chapter pairs**. The [full cross run](../coverage/interaction-results/cross72-kirimasim-786c94bb.json) on kirimasim `786c94bbeafb`, fetched and built immediately before execution, records **2,207 pass, 484 unsupported and six existing fail results**. All 27 new inputs parse; concurrent assertions remain unsupported. All preceding 2,670 fingerprints and status categories are unchanged; 47 models pass their full selection. Both fixed Verilator seeds record 18 pass and nine known results; fixed Icarus rejects all 27 builds. Chapter 16×24 is registered, leaving four E and three C candidate pairs. See [design, independent checks and limits](#program-assertion-attempts).
 
 At the checker-sampling addition on the same day, the selection had **71 models, 2,670 tests and 103 chapter pairs**. The [full cross run](../coverage/interaction-results/cross71-kirimasim-2ffb5ddd.json) on kirimasim `2ffb5dddca04`, fetched and built immediately before execution, records **2,207 pass, 457 unsupported and six existing fail results**. All 27 new inputs parse; execution lacks checker instances. All 2,643 preceding fingerprints and status categories are unchanged; 47 models still pass their full selection. Both fixed Verilator seeds record 25 pass and two known results; fixed Icarus rejects all 27 builds. Chapter 16×17 is registered, with Chapter 17×25 for seven interface cases, leaving five E and three C candidate pairs. See [design, independent model and limits](#checker-assertion-sampling).
 
@@ -2453,6 +2455,93 @@ These are local validation results, separate from GitHub Check/Nightly results f
 ```sh
 python3 tools/qualify_progassert.py --verilator /path/to/verilator-5.052 \
   --output coverage/interaction-qualification/NEW-progassert.json
+```
+
+<a id="container-coverage-sampling"></a>
+
+<a id="コンテナ更新前後のカバレッジサンプリング"></a>
+
+### Coverage sampling around container mutations
+
+`container_coverage_sampling@1` adds 33 cases for Chapters 7×19.
+The generator is [`interaction_cgsample.py`](../generators/interaction_cgsample.py).
+Storage/copies follow 7.4.1/7.5/7.10; dynamic allocation/deletion follow 7.5.1/7.5.2;
+reverse follows 7.12.2; coverpoints/bins follow 19.5/19.5.1; options follow 19.7;
+queries/sample arguments follow 19.8/19.8.1 and percentages follow 19.11.1.
+
+<a id="因子と観測-7"></a>
+
+#### Factors and observations
+
+Eight factors cover fixed/dynamic/queue storage, overwrite/reverse/replacement/clear-and-recreate,
+samples before/after/both sides, live/sample-argument binding, first/last position,
+one/two required hits, all/nonempty samples and initial length one/three.
+Of 1,152 combinations, only 96 illegal fixed-array clear rows are excluded, leaving 1,056 legal rows.
+33 cases retain all 172 factor pairs, 79 targeted triples and six anchors.
+The 33 legal container×operation×sampling triples establish this finite plan's 33-case lower bound.
+No rows are excluded because of implementation support.
+
+Copy a container into a same-type control; mutate only target a through three stages while control b remains unchanged.
+Replacement changes dynamic/queue lengths between one and three, retaining fixed-array length.
+Clear cases delete, recreate and delete again. Single-element reversal and fixed-array size are unchanged controls.
+Sample twice at each selected boundary and report both containers' size/first-or-last value and coverage percentages
+after each sample and at unsampled boundaries. Check that an unsampled mutation alone does not advance bin history
+and distinguish the first from the second hit.
+
+Size has four bins for zero through three. Value has four bins for zero through three plus a regular singleton bin
+for the empty-container sentinel -1. A function checks size before returning -1, avoiding any element read when empty.
+Do not assume iff alone prevents an out-of-bounds read. The nonempty guard suppresses both coverpoints for empty samples.
+Set `option.at_least` directly on each coverpoint, separating it from group-default inheritance.
+Each group contains a single coverpoint, so group `get_inst_coverage()` exposes that point's percentage.
+Keep separate target/control and size/value histories across four instances.
+Some bins, such as other sizes for fixed storage, are unreachable; attaining 100% of SV bins is not the test objective.
+Those percentages are distinct from finite-factor plan coverage.
+
+Live expressions select a target/control lane via constructor input and read functions at sample time.
+Sample-argument cases evaluate size, value and guard on every call. One procedure orders mutations and samples.
+X/Z, concurrency, event-driven sampling, cross bins, type aggregation, coverpoint-query APIs,
+query ref outputs, start/stop, automatic bins and default/ignore/illegal bins are outside scope.
+
+<a id="独立検算と実際の故障注入-2"></a>
+
+#### Independent checks and actual fault injection
+
+[`qualify_cgsample.py`](../tools/qualify_cgsample.py) parses emitted declarations, storage, copies, mutations,
+functions, constructor/sample arguments, call order, bins, guards and hit thresholds.
+A separate sequential interpreter and per-instance bin counters check all 1,056 rows without reusing generator update
+or expected-output calculations.
+
+Six original controls and seven actual SV faults execute on fixed Verilator.
+Faults omit a target sample, supply control values to a target, ignore the empty guard, lower the hit threshold,
+select the wrong endpoint, alias the control lane or unintentionally update the control copy.
+All 13 executions exit zero; output differences detect faults.
+See the [independent/runtime record](../coverage/interaction-qualification/cgsample.json).
+This does not qualify excluded APIs, group-default inheritance or expansion of negative-valued range bins.
+
+<a id="保存実行と実行限界"></a>
+
+#### Saved runs and execution limits
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross73-cgsample-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross73-cgsample-verilator5052-seed73.json) each match all 33 cases.
+Only these 33 matching cases receive fixed-version oracle entries.
+See [fixed Icarus Verilog 13.0](../coverage/interaction-results/cross73-cgsample-icarus13.json) and the
+[build record](../coverage/interaction-qualification/cgsample-build.json) for Icarus results and kirimasim revision, parsing and execution
+from upstream main fetched and built immediately before execution.
+Unsupported cases remain legal plan rows; completing the plan is not an implementation pass.
+
+kirimasim `786c94bbeafb`, built from upstream main fetched immediately before execution, parses all 33 new inputs.
+Execution lacks covergroups for all 33. The [full 2,730-case run](../coverage/interaction-results/cross73-kirimasim-786c94bb.json)
+records 2,207 pass, 517 unsupported and six existing failures. All preceding 2,697 input fingerprints and status categories are unchanged.
+47 models pass their full selection. Fixed Icarus rejects all 33 new builds.
+
+Local validation at introduction passed all 707 tool unit tests and 13 consistency checks.
+Metadata checks cover 10,480 tests with zero new problems (395 known); 114 language pairs and 52,757 local links were also checked.
+These are local validation results, separate from GitHub Check/Nightly results for this addition.
+
+```sh
+python3 tools/qualify_cgsample.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-cgsample.json
 ```
 
 <a id="モデル変更時の更新"></a>

@@ -290,3 +290,16 @@ parsing and full cross-run results. See [design and limits](../../docs/interacti
 
 [`progassert-m4.json`](progassert-m4.json) records seven matches and 53 deferrals using existing input traces.
 Nine new candidates receive source-hashed deferral reasons, not M4 passes or new simulator executions.
+
+<a id="container-coverage-sampling-checks"></a>
+
+<a id="コンテナ更新とsampleの独立検算実行"></a>
+
+## Independent container-mutation and sample checks
+
+[`cgsample.json`](cgsample.json) records separate interpretation of storage, copies, mutations, sample order, arguments, guards and bin histories for all 1,056 rows.
+Six original controls and seven actual SV faults execute with exit zero; output differences detect faults.
+Both fixed Verilator seeds match all 33 cases. Use a singleton empty-container bin and set at_least directly on each coverpoint.
+Single-coverpoint groups expose percentages; coverpoint-query APIs, ref outputs and group-default inheritance are outside scope.
+[`cgsample-build.json`](cgsample-build.json) records upstream fetched immediately before execution, revision, binary hash, 33 successful parses and full cross results.
+kirimasim covergroup execution remains unsupported. See [design and limits](../../docs/interaction-verification.en.md#container-coverage-sampling).

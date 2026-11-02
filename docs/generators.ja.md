@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の81生成器から4,010件のテストを生成しています。
+現在の82生成器から4,043件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -23,6 +23,7 @@
 | [`interaction_case`](../generators/interaction_case.py) | 12 | 36 | セレクタと項目値を表示し、重複項目とフォールバック項目の2回の分岐結果から、幅・符号の統一、X/Zの扱い、最初に一致した項目の優先を確認する。 |
 | [`interaction_case_inside`](../generators/interaction_case_inside.py) | 12 | 34 | 値・範囲・固定配列・2値のリストを先頭項目にしたcase insideで、各項目とdefaultを狙う4組のケース式、格納後の項目値、選ばれた分岐、ケース式と数える項目の評価回数を観測し、Xの比較を不一致として後続へ進むこと、端点の拡張、unique0の評価を確認する。 |
 | [`interaction_cast`](../generators/interaction_cast.py) | 6 | 32 | 元の値・キャスト直後の値・後続演算の結果を分けて表示し、キャストの幅と符号、演算前のX/Z変換、外側の代入コンテキストと最終変換の順序を確認する。 |
+| [`interaction_cgsample`](../generators/interaction_cgsample.py) | 19 | 33 | 配列・キューの変更前後でサイズ・先頭/末尾値をsampleし、直接参照と引数、空のガード、必要ヒット数と対象/対照それぞれのbin履歴を照合する。 |
 | [`interaction_checksample`](../generators/interaction_checksample.py) | 17 | 27 | checkerとmodule参照モデルで、判定・サンプル値・Reactiveの値・実行時刻を照合する。接続形式と配置を変え、2実体の独立性と出力引数の伝播も観測する。 |
 | [`interaction_class_array`](../generators/interaction_class_array.py) | 8 | 18 | クラスの浅いコピーとハンドル代入を対照に、配列領域の独立性と要素ハンドルの参照先の共有を照合する。元/コピーからの要素置換・拡大/縮小、保存ハンドルの存続、コンストラクタ回数と別guardの保持を確認する。 |
 | [`interaction_class_method`](../generators/interaction_class_method.py) | 8 | 36 | 2個の派生インスタンスをA/B/A順に呼び、virtual/非virtualの実行本体と所有者、再帰の入口・出口の仮引数とプロパティ、戻り値・カウンタ・ガードを観測する。inputのフレーム別コピーとref/const refの同一実体への参照、2状態変換を確認する。 |

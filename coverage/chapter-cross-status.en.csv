@@ -5,7 +5,7 @@
 4,Scheduling semantics,N,N,R,D,R,R,R,R,M,M,R,R,M,M,M,M,R,R,R,R,M,R,R,M,M,R,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 5,Lexical conventions,N,N,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 6,Data types,N,N,R,R,R,D,M,M,M,M,M,M,M,M,M,M,R,R,R,M,M,M,M,M,M,M,R,M,M,R,R,R,R,N,R,R,R,R,R,R,R
-7,Aggregate data types,N,N,R,R,R,M,D,M,M,M,M,M,M,R,M,R,R,M,C2,M,M,R,R,R,R,R,R,R,R,R,R,R,R,N,M,R,R,R,R,R,R
+7,Aggregate data types,N,N,R,R,R,M,D,M,M,M,M,M,M,R,M,R,R,M,M,M,M,R,R,R,R,R,R,R,R,R,R,R,R,N,M,R,R,R,R,R,R
 8,Classes,N,N,R,R,R,M,M,D,E2,R,R,R,M,R,M,R,R,M,R,R,C2,R,R,R,M,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 9,Processes,N,N,R,M,R,M,M,E2,D,M,M,M,M,M,M,E2,R,R,R,R,M,R,R,M,M,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 10,Assignment statements,N,N,R,M,R,M,M,R,M,D,M,M,M,M,M,M,R,R,R,R,R,R,M,M,M,R,M,M,R,R,R,R,R,N,M,R,R,R,R,R,R
@@ -17,7 +17,7 @@
 16,Assertions,N,N,R,M,R,M,R,R,E2,M,M,R,R,M,R,D,M,R,R,R,R,R,R,M,M,R,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 17,Checkers,N,N,R,R,R,R,R,R,R,R,R,R,R,R,R,M,D,R,R,R,R,R,R,R,M,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 18,Constrained random value generation,N,N,R,R,R,R,M,M,R,R,M,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
-19,Functional coverage,N,N,R,R,R,R,C2,R,R,R,E2,R,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
+19,Functional coverage,N,N,R,R,R,R,M,R,R,R,E2,R,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 20,Utility system tasks and system functions,N,N,R,R,R,M,M,R,R,R,M,R,R,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,N,M,R,R,R,R,R,R
 21,Input/output system tasks and system functions,N,N,R,M,R,M,M,C2,M,R,R,R,M,R,R,R,R,R,R,R,D,R,R,M,M,M,M,M,R,R,R,R,R,N,R,R,R,R,R,R,R
 22,Compiler directives,N,N,R,R,R,M,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,D,M,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R

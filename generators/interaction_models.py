@@ -73,6 +73,7 @@ import interaction_dpiquery
 import interaction_sdfpath
 import interaction_checksample
 import interaction_progassert
+import interaction_cgsample
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -107,7 +108,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_ifimport,
               interaction_mailbox,
               interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff, interaction_assocquery, interaction_randreduce,
-              interaction_gendisable, interaction_dist, interaction_eventlife, interaction_dpiquery, interaction_sdfpath, interaction_checksample, interaction_progassert, interaction_compound, interaction_inside, interaction_range,
+              interaction_gendisable, interaction_dist, interaction_eventlife, interaction_dpiquery, interaction_sdfpath, interaction_checksample, interaction_progassert, interaction_cgsample, interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
 
@@ -643,6 +644,13 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_progassert.MODEL.select(),
             "programとmodule参照モデルの各クロック試行を、単周期判定・同サイクル/次サイクル含意で照合する。"
             "空虚な成功と未完了の試行を区別し、判定数と完了時のサンプル値総和を出力引数から観測する。",
+        ),
+        SuiteModel(
+            interaction_cgsample.MODEL,
+            lambda row: "tests/gen/ch19/" + interaction_cgsample.case_name(row) + ".sv",
+            interaction_cgsample.MODEL.select(),
+            "配列・キューの変更前後でサイズ・先頭/末尾値をsampleし、直接参照と引数、空のガード、"
+            "必要ヒット数と対象/対照それぞれのbin履歴を照合する。",
         ),
         SuiteModel(
             interaction_event_rebind.MODEL,

@@ -1,0 +1,145 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch19/test_gen_cross_cgsample_dynamic_clear_after_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "83a75cac9a67fb8c5bfb03b525b13f3f9f12cac89fe4913d42e6373306d49121"
+  },
+  "gen/ch19/test_gen_cross_cgsample_dynamic_clear_before_live_last_2_all_1": {
+   "status": "pass",
+   "inputs_sha256": "2bd8b98bef6e3934b2abca0cb054686217e108d9678d51d69b3ad91366a887b4"
+  },
+  "gen/ch19/test_gen_cross_cgsample_dynamic_clear_both_arguments_first_2_nonempty_1": {
+   "status": "pass",
+   "inputs_sha256": "74f031ac0f36b71f1e0f79cbff798e3221c86609cf939f33ce2c3eee014a1cbc"
+  },
+  "gen/ch19/test_gen_cross_cgsample_dynamic_overwrite_after_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "20abda9f49e658126aac8158fdf25041dccde56c9b34be0444985440b5fa7a4a"
+  },
+  "gen/ch19/test_gen_cross_cgsample_dynamic_overwrite_before_arguments_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "287c42b727bb45947b297ef3bbf399588699443a53a028576957e1e7b4f52576"
+  },
+  "gen/ch19/test_gen_cross_cgsample_dynamic_overwrite_both_live_first_1_nonempty_1": {
+   "status": "pass",
+   "inputs_sha256": "4d1514c2a0b6e063cc23a1d2c39e9b745c431809ad8031b986c9b57e1a7b458f"
+  },
+  "gen/ch19/test_gen_cross_cgsample_dynamic_replace_after_arguments_last_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "44fcb2578e0ce1f771eab91cc017cb0ab741edc660d62f40f3bbb7017e4394e7"
+  },
+  "gen/ch19/test_gen_cross_cgsample_dynamic_replace_before_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "b18b1fbeb7abd16245bb5b6b4c4a3334ea26157100c673bd521ad02104cd3d68"
+  },
+  "gen/ch19/test_gen_cross_cgsample_dynamic_replace_both_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "d76084dcb471943a2afbac91cab513a8756441149c347291c6ddcbf7e3dd31c5"
+  },
+  "gen/ch19/test_gen_cross_cgsample_dynamic_reverse_after_arguments_first_2_nonempty_3": {
+   "status": "pass",
+   "inputs_sha256": "47f5b1051379fa5a0104b214fe025e0fa761366449b81417157d152ba4b680e1"
+  },
+  "gen/ch19/test_gen_cross_cgsample_dynamic_reverse_before_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "306547cc61666e6ff6cdb11e045df4468dc438dadbbdace7b3070718732d7c6c"
+  },
+  "gen/ch19/test_gen_cross_cgsample_dynamic_reverse_both_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "6c9c2f379445f35be60f39365f3cee425f9d1f266b076bc65e4030f9b626dc4c"
+  },
+  "gen/ch19/test_gen_cross_cgsample_fixed_overwrite_after_live_last_2_nonempty_1": {
+   "status": "pass",
+   "inputs_sha256": "b58d28632aa33c24c5e83a974981117ded093a8536703c0b2b737148d42a3282"
+  },
+  "gen/ch19/test_gen_cross_cgsample_fixed_overwrite_before_arguments_first_1_all_3": {
+   "status": "pass",
+   "inputs_sha256": "6e25f46ad97e12101749668ba5ab0863ea2fc8e72f9177d515782250b9a360d6"
+  },
+  "gen/ch19/test_gen_cross_cgsample_fixed_overwrite_both_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "6dd36c6f7fe3b9a10a51aa1cd3d05e9272c720cd3fda48feeae11c476427e25b"
+  },
+  "gen/ch19/test_gen_cross_cgsample_fixed_replace_after_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "55be8c9434fc1355c8a410339546c757e8d84f4e68ff2efc96d5fb69eba6948c"
+  },
+  "gen/ch19/test_gen_cross_cgsample_fixed_replace_before_live_first_1_nonempty_1": {
+   "status": "pass",
+   "inputs_sha256": "79eef5e23140782294395536f7139eb6d92bd235d055a5a7f8ef6bf272f457d2"
+  },
+  "gen/ch19/test_gen_cross_cgsample_fixed_replace_both_arguments_last_2_all_1": {
+   "status": "pass",
+   "inputs_sha256": "03c322956dcb418c13543bd5ebfaea37ee53a08b4756823f2929ce6dd67e40a9"
+  },
+  "gen/ch19/test_gen_cross_cgsample_fixed_reverse_after_arguments_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "a3b9548566bef05e4c36e69b9ee8f50b954ef425877a38276ba48b322fc3c476"
+  },
+  "gen/ch19/test_gen_cross_cgsample_fixed_reverse_before_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "9ca2281a62f742766f4896917b83cea333b0de47cb6ddbb96bef68edbe3bff05"
+  },
+  "gen/ch19/test_gen_cross_cgsample_fixed_reverse_both_live_last_2_all_3": {
+   "status": "pass",
+   "inputs_sha256": "70e689ad8df3fa5431acb2555d2e411f1b90595134f0c6b01a96175d8bc46887"
+  },
+  "gen/ch19/test_gen_cross_cgsample_queue_clear_after_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "1d8aabbe81918146ade5ad7e2ab64db1edcb64e9f47b2c0ca3aab48fbccc92a5"
+  },
+  "gen/ch19/test_gen_cross_cgsample_queue_clear_before_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "1e6dac69aae68e5dd6c196185d6e6109d79293e197b4672da7f1f3b3ab476f80"
+  },
+  "gen/ch19/test_gen_cross_cgsample_queue_clear_both_arguments_first_1_nonempty_3": {
+   "status": "pass",
+   "inputs_sha256": "140c980640843d0f1a09d7b02fc49085c884c2025c33ced507392a9ca5e5193c"
+  },
+  "gen/ch19/test_gen_cross_cgsample_queue_overwrite_after_arguments_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "405de5f10110449b6e69396c2d8f5538481b395976562543314cb530fda7e484"
+  },
+  "gen/ch19/test_gen_cross_cgsample_queue_overwrite_before_live_first_2_all_1": {
+   "status": "pass",
+   "inputs_sha256": "097943aaddd94e34c84cfff37c1ea792de38615288d2af3ca6f3e6febcd26e9a"
+  },
+  "gen/ch19/test_gen_cross_cgsample_queue_overwrite_both_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "70144a129bece35155739aefbdcc89e29f32abbe9c52b7b6de112671e929c455"
+  },
+  "gen/ch19/test_gen_cross_cgsample_queue_replace_after_live_first_2_nonempty_3": {
+   "status": "pass",
+   "inputs_sha256": "2e762245a2e5729ad95f5d6e05e660f4d00bb05f1a44a92cc0aa92d0a738f089"
+  },
+  "gen/ch19/test_gen_cross_cgsample_queue_replace_before_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "0466423fd7b642b5d0b6bbcf6bb3be3161cf254899edd9062770cab3676c70ef"
+  },
+  "gen/ch19/test_gen_cross_cgsample_queue_replace_both_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "7cd7e7697510dae5c5cb42a7a096be05b44c56a19e149b7a62146028f8a55dfc"
+  },
+  "gen/ch19/test_gen_cross_cgsample_queue_reverse_after_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "fdc93e171cc79f224bff9948f1b4367109e19b5be8892822ca56eb256597bd71"
+  },
+  "gen/ch19/test_gen_cross_cgsample_queue_reverse_before_arguments_last_1_nonempty_1": {
+   "status": "pass",
+   "inputs_sha256": "8ed1931370980aaf70eeeddeb71c4b8ce705676e79a83371206612583aad4c2e"
+  },
+  "gen/ch19/test_gen_cross_cgsample_queue_reverse_both_live_first_1_all_1": {
+   "status": "pass",
+   "inputs_sha256": "273b63123cf5c630e0bf3887196f02e5d7828abeabf05b7bb9a26800719599ef"
+  }
+ },
+ "generated_at": "2026-11-02T22:10:22.164575+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

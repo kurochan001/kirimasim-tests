@@ -1735,6 +1735,19 @@
           "reason": "program内とmodule参照モデルのアサーションで、クロックごとの試行、空虚な成功、次サイクルの完了とサンプル値総和を同じ入力から照合する。"
         }
       ]
+    },
+    {
+      "id": "container_coverage_sampling",
+      "primary_chapter": 19,
+      "pairs": [
+        {
+          "chapters": [
+            7,
+            19
+          ],
+          "reason": "配列・キューのサイズと要素の変更を、変更前後のsample、空のガード、必要ヒット数、独立した対照のbin履歴と照合する。"
+        }
+      ]
     }
   ]
 }

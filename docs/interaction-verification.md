@@ -14,7 +14,9 @@
 
 各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・ 検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と [生成レポート](interaction-coverage.md)を参照してください。
 
-2026-11-03のprogramアサーション試行追加：現在は**72モデル・2,697件・104章対**です。実行直前に上流mainを取得・ビルドしたkirimasim `786c94bbeafb`の[全クロス保存実行](../coverage/interaction-results/cross72-kirimasim-786c94bb.json)は**2,207 pass・484 unsupported・既存6 fail**です。新規27件はすべて解析成功・並行アサーション未対応です。従来2,670件の入力ハッシュと結果区分は同じで、全選択ケースPASSは47モデルです。固定Verilatorは両seedで18 pass・9 known、固定Icarusは27件ともビルド拒否でした。第16章×第24章を登録し、E候補4対・C候補3対です。[設計・独立検算・実行限界](#program-assertion-attempts)を参照してください。
+2026-11-03のコンテナsample追加：現在は**73モデル・2,730件・105章対**です。実行直前に上流mainを取得・ビルドしたkirimasim `786c94bbeafb`の[全クロス保存実行](../coverage/interaction-results/cross73-kirimasim-786c94bb.json)は**2,207 pass・517 unsupported・既存6 fail**です。新規33件はすべて解析成功・covergroup未対応です。従来2,697件の入力ハッシュと結果区分は同じで、全選択ケースPASSは47モデルです。固定Verilatorは両seedで33件すべて一致し、固定Icarusは33件ともビルド拒否でした。第7章×第19章を登録し、E候補4対・C候補2対です。[設計・独立検算・実行限界](#container-coverage-sampling)を参照してください。
+
+同日のprogramアサーション試行追加時点では**72モデル・2,697件・104章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `786c94bbeafb`の[全クロス保存実行](../coverage/interaction-results/cross72-kirimasim-786c94bb.json)は**2,207 pass・484 unsupported・既存6 fail**です。新規27件はすべて解析成功・並行アサーション未対応です。従来2,670件の入力ハッシュと結果区分は同じで、全選択ケースPASSは47モデルです。固定Verilatorは両seedで18 pass・9 known、固定Icarusは27件ともビルド拒否でした。第16章×第24章を登録し、E候補4対・C候補3対です。[設計・独立検算・実行限界](#program-assertion-attempts)を参照してください。
 
 同日のcheckerサンプリング追加時点では**71モデル・2,670件・103章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `2ffb5dddca04`の[全クロス保存実行](../coverage/interaction-results/cross71-kirimasim-2ffb5ddd.json)は**2,207 pass・457 unsupported・既存6 fail**です。新規27件の解析は成功し、実行はcheckerインスタンスが未対応でした。従来2,643件の入力ハッシュと結果区分はすべて同じで、全選択ケースPASSは47モデルのままです。固定Verilatorは両seedで25 pass・2 known、固定Icarusは27件ともビルド拒否です。第16章×第17章と、interface配置7件に第17章×第25章を登録し、E候補5対・C候補3対です。[設計・独立モデル・実行限界](#checker-assertion-sampling)を参照してください。
 
@@ -2442,6 +2444,90 @@ M4参照評価器の監査済み入力・報告形式の範囲は拡張しませ
 ```sh
 python3 tools/qualify_progassert.py --verilator /path/to/verilator-5.052 \
   --output coverage/interaction-qualification/NEW-progassert.json
+```
+
+<a id="container-coverage-sampling"></a>
+
+<a id="coverage-sampling-around-container-mutations"></a>
+
+### コンテナ更新前後のカバレッジサンプリング
+
+`container_coverage_sampling@1`は、第7章×第19章の33件です。
+生成器は[`interaction_cgsample.py`](../generators/interaction_cgsample.py)です。
+固定配列・動的配列・キューの格納とコピーは7.4.1/7.5/7.10、動的配列の確保・削除は7.5.1/7.5.2、
+reverseは7.12.2、coverpointとbinは19.5/19.5.1、オプションは19.7、
+問い合わせとsample引数は19.8/19.8.1、割合は19.11.1から確認します。
+
+<a id="factors-and-observations-7"></a>
+
+#### 因子と観測
+
+固定/動的/キュー、要素上書き/reverse/全体置換/clearと再確保、変更前/変更後/両方のsample、
+直接参照/sample引数、先頭/末尾、必要ヒット数1/2、全sample/空を除外、初期長1/3の8因子です。
+全1,152通りから、固定配列をclearする不正な96通りだけを除外し、合法な1,056通りを作ります。
+172因子ペア・重点の79組の3因子組合せ・必須6行を保持する33件を選びます。
+container×operation×samplingの合法な33組が下限を与えるため、この有限計画では33件に到達します。
+未対応だから除外した行はありません。
+
+同じ型のコンテナへ全体コピーを行い、対象aだけを3段階で変更します。対照bは変更しません。
+全体置換では動的配列・キューを長さ1/3の間で変更し、固定配列の長さは保持します。
+clearでは削除・再確保・再削除を行います。長さ1のreverseと固定配列のサイズは、不変であるべき対照です。
+変更前後の指定した境界で各2回sampleし、各回とsampleしない境界にも、
+両コンテナのサイズ・先頭/末尾値・各カバレッジ割合を出力します。
+未sampleの変更だけではbin履歴が進まないことと、1回目/2回目のヒットの違いを照合します。
+
+サイズのbinは0〜3の4個、値は0〜3と空コンテナ用の通常bin（値-1）の計5個です。
+空の値は関数内でサイズを確認して-1を返し、要素を読みません。
+iffだけで範囲外読みを防げるとは仮定しません。nonemptyガードは空のsampleで両coverpointの収集を抑止します。
+必要ヒット数`option.at_least`は各coverpointに直接指定し、covergroup既定値の継承とは切り離します。
+各covergroupにはcoverpointを1個だけ置き、groupの`get_inst_coverage()`から個別の割合を得ます。
+対象/対照・サイズ/値の4インスタンスの履歴を別に保持します。
+固定サイズなど到達しないbinがあるため、このテストでSVの全binを100%にすることは目標にしていません。
+有限因子計画の網羅とは別の値です。
+
+直接参照ではコンストラクタ引数のlaneで対象/対照を選び、sample時に関数から値を読みます。
+sample引数では各呼出しでサイズ・値・ガードを評価して渡します。更新とsampleは1手続き内で順序付けます。
+X/Z、並行更新、イベント駆動sample、cross bin、型集計、coverpoint単位の問い合わせAPI、
+問い合わせのref出力、start/stop、自動bin、default/ignore/illegal binは対象外です。
+
+<a id="independent-checks-and-actual-fault-injection-2"></a>
+
+#### 独立検算と実際の故障注入
+
+[`qualify_cgsample.py`](../tools/qualify_cgsample.py)は、生成された宣言・格納領域・コピー・更新・関数、
+コンストラクタとsample引数、呼出し順序、bin定義・ガード・必要ヒット数を解析します。
+生成器の更新関数や期待値計算を再利用せず、別の逐次インタプリタとインスタンス別binカウンタで全1,056行を照合します。
+
+固定Verilatorで元の正常対照6件と、実際のSV故障7件を実行します。
+対象sampleの欠落、対象への対照値の入力、空のガードの無視、ヒット数閾値の早期到達、
+先頭/末尾の取り違え、対照laneの誤接続、対照コピーの意図しない更新を、終了コード0の後の出力差で検出します。
+全13実行を[独立検算・実行出力](../coverage/interaction-qualification/cgsample.json)へ保存します。
+これは、対象外に挙げたAPI・既定値継承・負数範囲binの展開までを確認した記録ではありません。
+
+<a id="saved-runs-and-execution-limits"></a>
+
+#### 保存実行と実行限界
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross73-cgsample-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross73-cgsample-verilator5052-seed73.json)は、各33件すべて一致しました。
+一致した33件だけに固定版oracleを登録します。
+固定[Icarus Verilog 13.0](../coverage/interaction-results/cross73-cgsample-icarus13.json)と、
+実行直前に上流mainを取得・ビルドしたkirimasimの版・解析・実行結果は
+[ビルド記録](../coverage/interaction-qualification/cgsample-build.json)を参照してください。
+未対応のケースも合法な因子計画に残し、計画の完了を実装の合格とは扱いません。
+
+kirimasim `786c94bbeafb`は、実行直前に取得した上流mainからビルドし、新規33件をすべて解析しました。
+実行は33件ともcovergroup未対応です。[全2,730件の保存実行](../coverage/interaction-results/cross73-kirimasim-786c94bb.json)は、
+2,207 pass・517 unsupported・既存6 failで、従来2,697件の入力ハッシュと結果区分は同じです。
+全選択ケースPASSは47モデルです。固定Icarusは新規33件をすべてビルド時に拒否しました。
+
+追加時のローカル検査は、ツール単体テスト707件と整合性13項目がすべてPASSです。
+メタデータ検査は10,480件で新規問題0件（既知395件）、日英114組とローカルリンク52,757件も確認しました。
+これは、この追加分のGitHub Check/Nightlyとは別のローカル検査記録です。
+
+```sh
+python3 tools/qualify_cgsample.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-cgsample.json
 ```
 
 <a id="updates-after-model-changes"></a>

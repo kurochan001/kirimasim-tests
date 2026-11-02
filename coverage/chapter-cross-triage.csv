@@ -402,7 +402,9 @@ tests/gen/ch15/test_gen_cross_eventlife_nested_copy_1_before_arm_blocking_forwar
 7,集合データ型,18,制約付き乱数値の生成,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,17,"tests/ch18/test_array_reduction_element_type.sv
 tests/ch18/test_urandom_seed_repeatable.sv
 tests/ch37/test_vpi_struct_union_flags_members.sv",既存モデルの計画・実行証跡を維持する,,
-7,集合データ型,19,機能カバレッジ,C2,追加検証候補,P2,0,サイズ・値が同時に変わる観測境界。一般の配列操作とは別にサンプリング時点の設計を確認する。,コンテナ変更前後のcovergroupサンプリング,コンテナ（固定/動的/キュー） / 要素/サイズの変更 / sampleの前後 / bin条件,値・サイズを与えた決定的なsample列とヒット数を照合する。空コンテナの合法な扱いは先に規格照合する。,0,,0,,規格・既存テストを照合して因子と観測を設計する,2026-11-03,"Codex (GPT-6), AI review"
+7,集合データ型,19,機能カバレッジ,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,33,"tests/gen/ch19/test_gen_cross_cgsample_dynamic_clear_after_live_first_1_all_1.sv
+tests/gen/ch19/test_gen_cross_cgsample_dynamic_clear_before_live_last_2_all_1.sv
+tests/gen/ch19/test_gen_cross_cgsample_dynamic_clear_both_arguments_first_2_nonempty_1.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,68,"tests/ch20/test_array_multidim_query.sv
 tests/ch20/test_array_query_fixed_dimensions.sv
 tests/ch20/test_associative_array_query_functions.sv",既存モデルの計画・実行証跡を維持する,,

@@ -20899,6 +20899,17 @@
     "X/Z、disable iff、履歴関数、programの手続きと終了、clocking block、checker、bind、複数クロックproperty、アクション制御は対象外。": "X/Z, disable iff, history functions, program procedures and termination, clocking blocks, checkers, bind, multiclock properties and action controls are outside scope.",
     "programとmodule参照モデルの各クロック試行を、単周期判定・同サイクル/次サイクル含意で照合する。": "Compare each program and module-reference clock attempt using plain predicates and overlapped/nonoverlapped implication.",
     "空虚な成功と未完了の試行を区別し、判定数と完了時のサンプル値総和を出力引数から観測する。": "Distinguish vacuous successes from pending attempts, observing decision counts and completion-time sampled-value sums through output arguments.",
-    "program内とmodule参照モデルのアサーションで、クロックごとの試行、空虚な成功、次サイクルの完了とサンプル値総和を同じ入力から照合する。": "Compare program and module-reference assertions on identical inputs for clock attempts, vacuous successes, next-cycle completion and sampled-value sums."
+    "program内とmodule参照モデルのアサーションで、クロックごとの試行、空虚な成功、次サイクルの完了とサンプル値総和を同じ入力から照合する。": "Compare program and module-reference assertions on identical inputs for clock attempts, vacuous successes, next-cycle completion and sampled-value sums.",
+    "全 ZXQPH0QXZ 行のうち固定配列のclearに当たる ZXQPH1QXZ 行を除く ZXQPH2QXZ 行が合法。": "Of ZXQPH0QXZ rows, excluding ZXQPH1QXZ fixed-array clear rows leaves ZXQPH2QXZ legal rows.",
+    "コンテナは ZXQPH0QXZ 始まりの既知 ZXQPH1QXZ 要素で、初期長は ZXQPH2QXZ 。": "Containers hold known ZXQPH1QXZ elements indexed from ZXQPH0QXZ, with initial length ZXQPH2QXZ.",
+    "同じ型の対照へ全体コピー後、対象だけを ZXQPH0QXZ 段階で更新する。": "After a whole-container copy to a same-type control, update only the target through ZXQPH0QXZ stages.",
+    "変更前/変更後/両方で各 ZXQPH0QXZ 回sampleし、各回のサイズ・先頭/末尾値と個別 ZXQPH1QXZ の割合を観測する。": "Sample ZXQPH0QXZ times before, after or on both sides of each change; observe size, first/last value and individual ZXQPH1QXZ percentages after each call.",
+    "空コンテナの値は要素を読まず ZXQPH0QXZ にする。": "Use ZXQPH0QXZ for an empty container value without reading an element.",
+    "nonemptyガードは空のsampleだけを抑止する。": "The nonempty guard suppresses only empty samples.",
+    "直接参照とsample引数、 ZXQPH0QXZ ZXQPH1QXZ を比較する。": "Compare live references and sample arguments, including ZXQPH0QXZ ZXQPH1QXZ.",
+    "固定配列の長さと長さ ZXQPH0QXZ のreverseは不変の対照。": "Fixed-array length and reversal at length ZXQPH0QXZ are unchanged controls.",
+    "X/Z、並行更新、イベント駆動sample、cross bin、型集計、 ZXQPH0QXZ のref引数、start/stop、自動bin、default/ignore/illegal binは対象外。": "X/Z, concurrent updates, event-driven sampling, cross bins, type aggregation, ref arguments to ZXQPH0QXZ, start/stop, automatic bins and default/ignore/illegal bins are outside scope.",
+    "配列・キューの変更前後でサイズ・先頭/末尾値をsampleし、直接参照と引数、空のガード、必要ヒット数と対象/対照それぞれのbin履歴を照合する。": "Sample size and first/last values around array/queue changes; compare live/argument binding, empty guards, hit thresholds and separate target/control bin histories.",
+    "配列・キューのサイズと要素の変更を、変更前後のsample、空のガード、必要ヒット数、独立した対照のbin履歴と照合する。": "Compare array/queue size and element changes with samples before/after mutation, empty guards, hit thresholds and independent control bin histories."
   }
 }

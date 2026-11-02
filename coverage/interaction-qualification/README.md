@@ -290,3 +290,16 @@ kirimasimの実行はcheckerインスタンスが未対応です。[設計と共
 
 [`progassert-m4.json`](progassert-m4.json)は既存入力トレースによる7 match・53 deferredです。
 新規9候補にはソースハッシュ付き保留理由を追加し、M4成功や新規シミュレータ実行に数えません。
+
+<a id="container-coverage-sampling-checks"></a>
+
+<a id="independent-container-mutation-and-sample-checks"></a>
+
+## コンテナ更新とsampleの独立検算・実行
+
+[`cgsample.json`](cgsample.json)は、格納・コピー・更新・sample順序・引数・ガード・bin履歴を別に解釈した全1,056行の検算です。
+正常対照6件と実際のSV故障7件はすべて終了コード0で実行し、出力差で故障を検出しました。
+固定Verilatorは両seedで33件すべて一致しました。空コンテナ用の単独binを使い、at_leastは各coverpointへ直接指定します。
+単一coverpointのgroupから割合を取得するため、coverpoint単位の問い合わせやref出力・既定値継承は確認範囲に含めません。
+[`cgsample-build.json`](cgsample-build.json)に、実行直前の上流取得・版・バイナリハッシュ・解析33件と全クロス結果を保存します。
+kirimasimのcovergroup実行は未対応です。[設計と確認範囲](../../docs/interaction-verification.md#container-coverage-sampling)を参照してください。

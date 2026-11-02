@@ -144,6 +144,8 @@ When two implementations agree, also compare them with independently derived spe
 
 When multiple assertion attempts complete on one clock, choose observations that do not impose an action order. In the program cross, a prior consequence can coincide with a current vacuous success, so use counts and sampled-value sums instead of a last-written value. Separately check before the first completion and the final pending attempt to detect fictitious startup successes. For LSI, if completion order is unspecified, correlate by transaction ID or use order-independent aggregates; pending requests do not count as successful. See the [example](interaction-verification.en.md#program-assertion-attempts).
 
+Observe state updates separately from coverage collection. The container cross reports values and bin histories around mutations, detecting history advancement without a sample or fulfillment after one hit when two are required. Make empty-queue value readers safe themselves; do not assume iff alone prevents out-of-bounds reads. For an LSI FIFO, first define acceptance, depth-update and observation order plus target/control independence, then count only accepted requests toward coverage. See the [example](interaction-verification.en.md#container-coverage-sampling).
+
 <a id="3-少ないケースを選ぶ仕組み"></a>
 
 ## 3. How to select a small case set

@@ -24504,6 +24504,7 @@
     "ZXQPH0QXZ and ZXQPH1QXZ array queries agree after dimension mapping and refresh each call": "ZXQPH0QXZ と ZXQPH1QXZ の配列問い合わせは、次元の対応付け後に一致し、呼出しごとに更新される",
     "ZXQPH0QXZ annotations select conditional paths and instances without changing sibling delays": "ZXQPH0QXZ 注釈は兄弟の遅延を変えずに条件付きパスとインスタンスを選択する",
     "Static checker assertions and module references share sampling across connections and homes": "静的checkerのアサーションとmodule参照モデルは、接続形式と配置を変えても同じサンプリングを行う",
-    "Program and module assertions retain sampling and implication attempts across clock counts": "programとmoduleのアサーションについて、クロック数を変えてもサンプリングと含意の試行を保持する"
+    "Program and module assertions retain sampling and implication attempts across clock counts": "programとmoduleのアサーションについて、クロック数を変えてもサンプリングと含意の試行を保持する",
+    "Container updates and guarded coverage samples preserve size value and instance history": "コンテナ更新とガード付きカバレッジsampleはサイズ・値・実体ごとの履歴を保持する"
   }
 }
