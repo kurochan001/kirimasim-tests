@@ -167,7 +167,7 @@ tests/gen/ch10/test_gen_cross_delay_129_bit_x_three_short_direct.sv","The candid
 4,Scheduling semantics,9,Processes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,322,"tests/ch10/test_intra_assignment_delay_nba_concatenation.sv
 tests/ch10/test_nba_then_event_control_same_step.sv
 tests/ch15/test_event_nonblocking_trigger.sv",Maintaining the planning and execution evidence of existing models.,,
-4,Scheduling semantics,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,671,"tests/ch10/test_assign_nba.sv
+4,Scheduling semantics,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,677,"tests/ch10/test_assign_nba.sv
 tests/ch10/test_edge_delta_cycle_chain.sv
 tests/ch10/test_intra_assignment_delay_nba_concatenation.sv",Maintaining the planning and execution evidence of existing models.,,
 4,Scheduling semantics,11,Operators and expressions,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,78,"tests/ch4/test_range_select_lhs.sv
@@ -185,7 +185,7 @@ tests/ch14/test_clocking_zero_skew_drive_in_re_nba.sv",Maintaining the planning 
 4,Scheduling semantics,15,Interprocess synchronization and communication,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,44,"tests/ch15/test_event_nonblocking_trigger.sv
 tests/ch15/test_event_ordering.sv
 tests/ch4/test_sched_nonblocking_event_trigger.sv",Maintaining the planning and execution evidence of existing models.,,
-4,Scheduling semantics,16,Assertions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,63,"tests/ch16/test_concurrent_assert_actions.sv
+4,Scheduling semantics,16,Assertions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,81,"tests/ch16/test_concurrent_assert_actions.sv
 tests/ch16/test_cover_pass_statements.sv
 tests/ch16/test_expect_vacuous_and_nonblocking.sv",Maintaining the planning and execution evidence of existing models.,,
 4,Scheduling semantics,17,Checkers,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,1,tests/ch17/test_checker_reactive_triggered.sv,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
@@ -209,9 +209,9 @@ tests/ch25/test_interface_parameter_corner.sv",Maintaining the planning and exec
 4,Scheduling semantics,26,Packages,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,41,"tests/ch26/test_package_variable_nba.sv
 tests/gen/ch15/test_gen_cross_event_rebind_interface_direct_after_arm_nba_chain_old_new_1.sv
 tests/gen/ch15/test_gen_cross_event_rebind_interface_direct_before_arm_blocking_single_old_new_1.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-4,Scheduling semantics,27,Generate constructs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,51,"tests/gen/ch4/test_gen_sched_assign_monitor_generate_delay0.sv
-tests/gen/ch4/test_gen_sched_assign_monitor_generate_delay1.sv
-tests/gen/ch4/test_gen_sched_assign_monitor_generate_nodelay.sv",Maintaining the planning and execution evidence of existing models.,,
+4,Scheduling semantics,27,Generate constructs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,69,"tests/gen/ch16/test_gen_cross_gendisable_case_inherit_absent_default_at_start_after.sv
+tests/gen/ch16/test_gen_cross_gendisable_case_inherit_absent_zero_between_before.sv
+tests/gen/ch16/test_gen_cross_gendisable_case_inherit_present_explicit_between_before.sv",Maintaining the planning and execution evidence of existing models.,,
 4,Scheduling semantics,28,Gate-level and switch-level modeling,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,73,"tests/ch28/test_pass_switch_control_delay_forms.sv
 tests/ch28/test_tranif0_control_turn_on_off_delays.sv
 tests/ch28/test_user_nettype_switch_and_driver_strength.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
@@ -581,7 +581,7 @@ tests/gen/ch14/test_gen_cross_clock_129_bit_x_local_step_posedge_blocking.sv",Ma
 10,Assignment statements,15,Interprocess synchronization and communication,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,40,"tests/gen/ch15/test_gen_cross_event_task_interface_input_direct_nba_1_a_b_late.sv
 tests/gen/ch15/test_gen_cross_event_task_interface_input_direct_nba_3_a_b_early.sv
 tests/gen/ch15/test_gen_cross_event_task_interface_input_task_blocking_2_a_b_early.sv",Maintaining the planning and execution evidence of existing models.,,
-10,Assignment statements,16,Assertions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,55,"tests/ch37/test_vpi_module_relations.sv
+10,Assignment statements,16,Assertions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,61,"tests/ch37/test_vpi_module_relations.sv
 tests/gen/ch16/test_gen_cross_assert_129_bit_known_case_equal_posedge_blocking_before_module.sv
 tests/gen/ch16/test_gen_cross_assert_129_bit_x_reduce_or_posedge_blocking_before_module.sv",Maintaining the planning and execution evidence of existing models.,,
 10,Assignment statements,17,Checkers,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
@@ -606,7 +606,7 @@ tests/ch10/test_nba_verification.sv",Maintaining the planning and execution evid
 10,Assignment statements,26,Packages,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,52,"tests/ch26/test_package_variable_nba.sv
 tests/ch26/test_package_variable_wakes_processes.sv
 tests/gen/ch15/test_gen_cross_event_task_interface_input_direct_nba_1_a_b_late.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-10,Assignment statements,27,Generate constructs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,96,"tests/ch10/test_force_deep_generate_scope.sv
+10,Assignment statements,27,Generate constructs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,102,"tests/ch10/test_force_deep_generate_scope.sv
 tests/ch23/test_module_common_item_kinds.sv
 tests/ch27/test_gen_assign_complex.sv",Maintaining the planning and execution evidence of existing models.,,
 10,Assignment statements,28,Gate-level and switch-level modeling,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,111,"tests/ch10/test_comb_strength_multi.sv
@@ -882,9 +882,9 @@ tests/ch16/test_default_disable_iff_scopes.sv",The test is designed to reuse exi
 tests/ch16/test_concurrent_assertion_places_and_kinds.sv
 tests/ch16/test_default_clocking_assertion_clocks.sv",Maintaining the planning and execution evidence of existing models.,,
 16,Assertions,26,Packages,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,1,tests/ch26/test_package_dpi_and_assertion_items.sv,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-16,Assertions,27,Generate constructs,E2,Existing verification; chapter pair not registered,P2,0,The default disable iff of the generate scope is confirmed by stimulation and observation of the same test. The object level of the factor model is undefined.,generate scope default disable iff,Parent/ Child,Inheritance from the parent and internal overwrite are identified by a set of failed assay.,1,tests/ch16/test_default_disable_iff_scopes.sv,5,"tests/ch16/test_concurrent_assertion_places_and_kinds.sv
-tests/ch23/test_module_items_nonport_kinds.sv
-tests/ch24/test_program_attributed_and_generate_items.sv",The test is designed to reuse existing tests and to verify the need for factor modeling and the shortcomings.,2026-11-02,"Codex (GPT-6), AI review"
+16,Assertions,27,Generate constructs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,23,"tests/ch16/test_concurrent_assertion_places_and_kinds.sv
+tests/ch16/test_default_disable_iff_scopes.sv
+tests/ch23/test_module_items_nonport_kinds.sv",Maintaining the planning and execution evidence of existing models.,,
 16,Assertions,28,Gate-level and switch-level modeling,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 16,Assertions,29,User-defined primitives,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 16,Assertions,30,Specify blocks,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,1,tests/ch23/test_module_items_nonport_kinds.sv,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,

@@ -20836,6 +20836,14 @@
     "ZXQPH0QXZ : ZXQPH1QXZ / ZXQPH2QXZ / ZXQPH3QXZ 動作確認、古い入力との対応 ZXQPH4QXZ 件。": "ZXQPH0QXZ: ZXQPH1QXZ / ZXQPH2QXZ / ZXQPH3QXZ execution checked; ZXQPH4QXZ entries refer to older inputs.",
     "ZXQPH0QXZ / ZXQPH1QXZ / 実行確認あり": "ZXQPH0QXZ / ZXQPH1QXZ / Execution confirmed",
     "ZXQPH0QXZ / ZXQPH1QXZ / テスト対応あり・実行未確認": "ZXQPH0QXZ / ZXQPH1QXZ / Test mapped; execution unconfirmed",
-    "ZXQPH0QXZ / ZXQPH1QXZ / テスト未対応": "ZXQPH0QXZ / ZXQPH1QXZ / No mapped test"
+    "ZXQPH0QXZ / ZXQPH1QXZ / テスト未対応": "ZXQPH0QXZ / ZXQPH1QXZ / No mapped test",
+    "二つのgenerate実体の子スコープで、親のdefaultの継承、外側generateでの上書き、内側の同名信号、明示disableとゼロによる取消しを比較する。": "Compare inherited parent defaults, outer-generate overrides, inner same-name signals, explicit disable conditions and cancellation by zero in child scopes of two generate instances.",
+    "各行は無効化なし・親・各実体の局所条件・各実体の明示条件と正常終了の ZXQPH0QXZ フェーズ。": "Each row has ZXQPH0QXZ phases covering no disable, parent conditions, each instance's local and explicit conditions, and a successful completion.",
+    "開始前の条件、クロック間だけのパルス、終了クロックの ZXQPH0QXZ 更新を区別する。": "Distinguish conditions before launch, pulses only between clock ticks, and ZXQPH0QXZ updates on the final clock.",
+    "vacuous passも計数し、無効化された試行は成功にも失敗にも含めない。": "Count vacuous passes too; disabled attempts count as neither successes nor failures.",
+    "X/Z、複数クロック、ネストしたmodule宣言、interface/program、property内の明示disable、アサーション制御は対象外。": "X/Z, multiple clocks, nested module declarations, interface/program, explicit disable inside a property, and assertion control are outside scope.",
+    "generate内でのdefault disable iffの継承・上書き・名前解決・宣言位置と、明示条件・ゼロによる取消しを照合する。": "Compare default disable iff inheritance, override, name resolution and declaration placement inside generate scopes, including explicit conditions and cancellation by zero.",
+    "二つの実体を独立に無効化し、開始前・クロック間・終了クロックの ZXQPH0QXZ で、無効化と成功・失敗の回数を対照と比較する。": "Disable two instances independently before launch, between clocks or by ZXQPH0QXZ at the final clock, comparing disable effects and success/failure counts with controls.",
+    "generateスコープのdefault disable iffの継承・上書き・名前解決と、実体ごとの無効化": "Default disable iff inheritance, override and name resolution in generate scopes, with independent disabling of each instance"
   }
 }

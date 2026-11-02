@@ -66,6 +66,7 @@ import interaction_vif_class
 import interaction_clockiff
 import interaction_assocquery
 import interaction_randreduce
+import interaction_gendisable
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -100,7 +101,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_ifimport,
               interaction_mailbox,
               interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff, interaction_assocquery, interaction_randreduce,
-              interaction_compound, interaction_inside, interaction_range,
+              interaction_gendisable, interaction_compound, interaction_inside, interaction_range,
               interaction_case_inside)
 
 
@@ -514,6 +515,14 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_mailbox.MODEL.select(),
             "classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量制限・nullメッセージと"
             "取得前後の双方向のメンバ更新を確認する。別mailboxの保持と後の更新、空の非ブロッキング戻り値も観測する。",
+        ),
+        SuiteModel(
+            interaction_gendisable.MODEL,
+            lambda row: "tests/gen/ch16/" + interaction_gendisable.case_name(row) + ".sv",
+            interaction_gendisable.MODEL.select(),
+            "generate内でのdefault disable iffの継承・上書き・名前解決・宣言位置と、"
+            "明示条件・ゼロによる取消しを照合する。二つの実体を独立に無効化し、"
+            "開始前・クロック間・終了クロックのNBAで、無効化と成功・失敗の回数を対照と比較する。",
         ),
         SuiteModel(
             interaction_randreduce.MODEL,

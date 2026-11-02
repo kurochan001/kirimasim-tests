@@ -224,29 +224,6 @@
     },
     {
       "chapters": [
-        16,
-        27
-      ],
-      "category": "E",
-      "priority": "P2",
-      "reason": "generateスコープのdefault disable iffが同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。",
-      "objective": "generateスコープのdefault disable iff",
-      "factors": [
-        "親/子generate",
-        "同名変数の隠蔽",
-        "disable条件の上書き",
-        "条件を立てる時点"
-      ],
-      "observation": "親からの継承と内側の上書きを失敗したアサーションの集合で識別する。",
-      "witnesses": [
-        {
-          "test": "tests/ch16/test_default_disable_iff_scopes.sv",
-          "inputs_sha256": "563437eff834fe0e78dbb865492aecab27dbb7115663aa159475db523ccb9ec5"
-        }
-      ]
-    },
-    {
-      "chapters": [
         17,
         25
       ],

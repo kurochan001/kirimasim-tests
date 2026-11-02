@@ -1,0 +1,113 @@
+{
+  "model": "generate_default_disable",
+  "generated_at": "2026-11-02T14:20:40.263781+00:00",
+  "commit": "2edfebbc6270d11a39ae97c1247c137496606175",
+  "version": "kirimasim 0.0.0 (commit 2edfebbc6270), built with AppleClang 21.0.0.21000401",
+  "binary_sha256": "5a769cb9b17ac36d0d06ce3de3abc31424eaeaa319bde23a4ddb75cca7333031",
+  "binary_unchanged": true,
+  "run": "coverage/interaction-results/cross66-kirimasim-2edfebbc.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2207,
+    "unsupported": 344,
+    "fail": 6
+  },
+  "new_cases": {
+    "unsupported": 18
+  },
+  "previous_cases": 2539,
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": {
+    "tests/gen/ch16/test_gen_cross_gendisable_if_inherit_present_default_between_after.sv": {
+      "inputs_sha256": "22fd548a1eadc098e396a6c8f0b82663b15082f1e2b0e173c3823f26d04f6606",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_case_override_present_default_at_end_before.sv": {
+      "inputs_sha256": "2381cf8a9c3ff6d31df879148eee82ab921aaadfd3b7291f4430349cc3da21cf",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_loop_override_absent_zero_at_start_after.sv": {
+      "inputs_sha256": "db459a444a2cd63f0a9140bcf3ca2df113cb7034f4f9b0f24d71f3eec17891b6",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_loop_inherit_present_explicit_at_end_after.sv": {
+      "inputs_sha256": "6e18c877bc7ee31befa6837e87b298082c33388b07f83c0f12ebdfe042644ef4",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_if_inherit_absent_explicit_at_start_before.sv": {
+      "inputs_sha256": "28c3bba6448befe5160e347a0bf7d1b26b4167b66208ac6b0940be885439e9bb",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_case_inherit_absent_zero_between_before.sv": {
+      "inputs_sha256": "c63e83f4ff2be5cf15d0fb651a8f1903d009d4d87dee4c034dcd7026801f1189",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_if_override_present_zero_at_end_before.sv": {
+      "inputs_sha256": "c0af680da1e1070fb655a324b66ed9aaba66ba52d558151b1a4343dc546fcca1",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_case_override_present_explicit_at_start_after.sv": {
+      "inputs_sha256": "7830c3c62b1e2cd3ef54c5e0185bc6d038bd7f902fa5fa8e9a83e9c4fb4004fb",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_loop_override_absent_default_between_before.sv": {
+      "inputs_sha256": "f54509fb968f0913cb30e3ac7a4e414d28fe3c44b349d59962b1232ea7dc303e",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_if_override_absent_explicit_between_after.sv": {
+      "inputs_sha256": "84f4bed60be6da4556d3f48f43bfea1a7abd0e2f8062263064d8d9b453cdcfcf",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_case_inherit_absent_default_at_start_after.sv": {
+      "inputs_sha256": "8d23ef1f4b97afbc3c985aa39fd681fdc5cca692f6eec787ab5cc3d36c35be5a",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_loop_inherit_absent_default_at_end_before.sv": {
+      "inputs_sha256": "9d02a9694fc19d18f9bf14056a6e5b9752dd738ba5292fb4aaccf782fb132e9b",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_if_inherit_present_zero_at_start_before.sv": {
+      "inputs_sha256": "03d07c61846cdb70bab49e3a9fe4405b6d6e4c1fb932a457821e9ddfa4df42e7",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_if_inherit_absent_zero_at_end_before.sv": {
+      "inputs_sha256": "eaae3959d260b4ad0bc7af02d41d6811d2c7b8950e10ae663d29e01c705fec11",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_case_inherit_present_explicit_between_before.sv": {
+      "inputs_sha256": "9460cade5f725c026998aea6df98769908b5e2807519edd9da37613ca4d317cc",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_case_override_absent_explicit_at_end_before.sv": {
+      "inputs_sha256": "c5d54308e73147d8f04308b3b590c0e4b934f48466cd0e9df5a162c48262e97b",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_loop_override_present_default_at_start_before.sv": {
+      "inputs_sha256": "b24fa04f394898cff57d659d25c1a43b7242cfdfd39c3427154916927572e152",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch16/test_gen_cross_gendisable_loop_override_present_zero_between_before.sv": {
+      "inputs_sha256": "fb6b4fa11a38f79953be4391f7ea99656acdbbe7c23c9bfffc5f50589fe95a73",
+      "returncode": 0,
+      "stderr": ""
+    }
+  }
+}

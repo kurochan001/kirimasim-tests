@@ -1,0 +1,110 @@
+{
+  "model": "generate_default_disable",
+  "version": 1,
+  "generated_at": "2026-11-02T14:21:20.934648+00:00",
+  "scope": "Independent lexical/event scoreboard and actual SV controls/faults. Controls use four matching at_start selections; they do not qualify the implicit generate override, interclock cancellation or end-clock NBA cases.",
+  "independent_rows": 216,
+  "simulator_version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "sources_sha256": {
+    "generators/interaction_gendisable.py": "97d045562daf27bcd47d026083258ed0f9bb6525de8108953f0f91d8d3884d21",
+    "tools/qualify_gendisable.py": "d1ada4dc63c73aad7288abc108067469456c3ad72cf6b90723ab0b633b811956"
+  },
+  "controls": {
+    "inherit_control": "tests/gen/ch16/test_gen_cross_gendisable_case_inherit_absent_default_at_start_after.sv",
+    "shadow_zero_control": "tests/gen/ch16/test_gen_cross_gendisable_if_inherit_present_zero_at_start_before.sv",
+    "zero_control": "tests/gen/ch16/test_gen_cross_gendisable_loop_override_absent_zero_at_start_after.sv",
+    "explicit_control": "tests/gen/ch16/test_gen_cross_gendisable_case_override_present_explicit_at_start_after.sv"
+  },
+  "executions": {
+    "inherit_control": {
+      "status": "pass",
+      "control": "inherit_control",
+      "source_sha256": "016715695c3857a1e4fbd0f2986ea3f020de366033443d8f7b7af4a2f6f5c967",
+      "returncode": 0,
+      "stdout": "phase=0 pulse=none data=0\nroot pass=1 fail=1\nlane0 pass=1 fail=1 guard_pass=1 guard_fail=1\nlane1 pass=1 fail=1 guard_pass=1 guard_fail=1\nphase=1 pulse=root data=0\nroot pass=2 fail=1\nlane0 pass=2 fail=1 guard_pass=2 guard_fail=2\nlane1 pass=2 fail=1 guard_pass=2 guard_fail=2\nphase=2 pulse=local0 data=0\nroot pass=3 fail=2\nlane0 pass=3 fail=2 guard_pass=3 guard_fail=3\nlane1 pass=3 fail=2 guard_pass=3 guard_fail=3\nphase=3 pulse=local1 data=0\nroot pass=4 fail=3\nlane0 pass=4 fail=3 guard_pass=4 guard_fail=4\nlane1 pass=4 fail=3 guard_pass=4 guard_fail=4\nphase=4 pulse=manual0 data=0\nroot pass=5 fail=4\nlane0 pass=5 fail=4 guard_pass=5 guard_fail=5\nlane1 pass=5 fail=4 guard_pass=5 guard_fail=5\nphase=5 pulse=manual1 data=0\nroot pass=6 fail=5\nlane0 pass=6 fail=5 guard_pass=6 guard_fail=6\nlane1 pass=6 fail=5 guard_pass=6 guard_fail=6\nphase=6 pulse=none data=1\nroot pass=8 fail=5\nlane0 pass=8 fail=5 guard_pass=8 guard_fail=6\nlane1 pass=8 fail=5 guard_pass=8 guard_fail=6\n",
+      "stderr": "",
+      "reason": ""
+    },
+    "shadow_zero_control": {
+      "status": "pass",
+      "control": "shadow_zero_control",
+      "source_sha256": "b464e187fc715d6374128b68fe353de9b9db45f0c4feac6299b27bd8344a2499",
+      "returncode": 0,
+      "stdout": "phase=0 pulse=none data=0\nroot pass=1 fail=1\nlane0 pass=1 fail=1 guard_pass=1 guard_fail=1\nlane1 pass=1 fail=1 guard_pass=1 guard_fail=1\nphase=1 pulse=root data=0\nroot pass=2 fail=1\nlane0 pass=2 fail=2 guard_pass=2 guard_fail=2\nlane1 pass=2 fail=2 guard_pass=2 guard_fail=2\nphase=2 pulse=local0 data=0\nroot pass=3 fail=2\nlane0 pass=3 fail=3 guard_pass=3 guard_fail=3\nlane1 pass=3 fail=3 guard_pass=3 guard_fail=3\nphase=3 pulse=local1 data=0\nroot pass=4 fail=3\nlane0 pass=4 fail=4 guard_pass=4 guard_fail=4\nlane1 pass=4 fail=4 guard_pass=4 guard_fail=4\nphase=4 pulse=manual0 data=0\nroot pass=5 fail=4\nlane0 pass=5 fail=5 guard_pass=5 guard_fail=5\nlane1 pass=5 fail=5 guard_pass=5 guard_fail=5\nphase=5 pulse=manual1 data=0\nroot pass=6 fail=5\nlane0 pass=6 fail=6 guard_pass=6 guard_fail=6\nlane1 pass=6 fail=6 guard_pass=6 guard_fail=6\nphase=6 pulse=none data=1\nroot pass=8 fail=5\nlane0 pass=8 fail=6 guard_pass=8 guard_fail=6\nlane1 pass=8 fail=6 guard_pass=8 guard_fail=6\n",
+      "stderr": "",
+      "reason": ""
+    },
+    "zero_control": {
+      "status": "pass",
+      "control": "zero_control",
+      "source_sha256": "9104b8e17a7c0a99090c78c23f17835de60d00f5b6c5292e3668668f35a2bcc1",
+      "returncode": 0,
+      "stdout": "phase=0 pulse=none data=0\nroot pass=1 fail=1\nlane0 pass=1 fail=1 guard_pass=1 guard_fail=1\nlane1 pass=1 fail=1 guard_pass=1 guard_fail=1\nphase=1 pulse=root data=0\nroot pass=2 fail=1\nlane0 pass=2 fail=2 guard_pass=2 guard_fail=2\nlane1 pass=2 fail=2 guard_pass=2 guard_fail=2\nphase=2 pulse=local0 data=0\nroot pass=3 fail=2\nlane0 pass=3 fail=3 guard_pass=3 guard_fail=3\nlane1 pass=3 fail=3 guard_pass=3 guard_fail=3\nphase=3 pulse=local1 data=0\nroot pass=4 fail=3\nlane0 pass=4 fail=4 guard_pass=4 guard_fail=4\nlane1 pass=4 fail=4 guard_pass=4 guard_fail=4\nphase=4 pulse=manual0 data=0\nroot pass=5 fail=4\nlane0 pass=5 fail=5 guard_pass=5 guard_fail=5\nlane1 pass=5 fail=5 guard_pass=5 guard_fail=5\nphase=5 pulse=manual1 data=0\nroot pass=6 fail=5\nlane0 pass=6 fail=6 guard_pass=6 guard_fail=6\nlane1 pass=6 fail=6 guard_pass=6 guard_fail=6\nphase=6 pulse=none data=1\nroot pass=8 fail=5\nlane0 pass=8 fail=6 guard_pass=8 guard_fail=6\nlane1 pass=8 fail=6 guard_pass=8 guard_fail=6\n",
+      "stderr": "",
+      "reason": ""
+    },
+    "explicit_control": {
+      "status": "pass",
+      "control": "explicit_control",
+      "source_sha256": "f8388e8946520773772918bc6d13ea75ca56ba5ee417cd4fce98488a586c5294",
+      "returncode": 0,
+      "stdout": "phase=0 pulse=none data=0\nroot pass=1 fail=1\nlane0 pass=1 fail=1 guard_pass=1 guard_fail=1\nlane1 pass=1 fail=1 guard_pass=1 guard_fail=1\nphase=1 pulse=root data=0\nroot pass=2 fail=1\nlane0 pass=2 fail=2 guard_pass=2 guard_fail=2\nlane1 pass=2 fail=2 guard_pass=2 guard_fail=2\nphase=2 pulse=local0 data=0\nroot pass=3 fail=2\nlane0 pass=3 fail=3 guard_pass=3 guard_fail=3\nlane1 pass=3 fail=3 guard_pass=3 guard_fail=3\nphase=3 pulse=local1 data=0\nroot pass=4 fail=3\nlane0 pass=4 fail=4 guard_pass=4 guard_fail=4\nlane1 pass=4 fail=4 guard_pass=4 guard_fail=4\nphase=4 pulse=manual0 data=0\nroot pass=5 fail=4\nlane0 pass=5 fail=4 guard_pass=5 guard_fail=5\nlane1 pass=5 fail=5 guard_pass=5 guard_fail=5\nphase=5 pulse=manual1 data=0\nroot pass=6 fail=5\nlane0 pass=6 fail=5 guard_pass=6 guard_fail=6\nlane1 pass=6 fail=5 guard_pass=6 guard_fail=6\nphase=6 pulse=none data=1\nroot pass=8 fail=5\nlane0 pass=8 fail=5 guard_pass=8 guard_fail=6\nlane1 pass=8 fail=5 guard_pass=8 guard_fail=6\n",
+      "stderr": "",
+      "reason": ""
+    },
+    "drop_inherited_disable": {
+      "status": "detected",
+      "control": "inherit_control",
+      "source_sha256": "e9edf483eeb5ae2eace72fb45ec2c01c5016d2f212c54b7dc1ccdb762e947e81",
+      "returncode": 0,
+      "stdout": "phase=0 pulse=none data=0\nroot pass=1 fail=1\nlane0 pass=1 fail=1 guard_pass=1 guard_fail=1\nlane1 pass=1 fail=1 guard_pass=1 guard_fail=1\nphase=1 pulse=root data=0\nroot pass=2 fail=1\nlane0 pass=2 fail=2 guard_pass=2 guard_fail=2\nlane1 pass=2 fail=2 guard_pass=2 guard_fail=2\nphase=2 pulse=local0 data=0\nroot pass=3 fail=2\nlane0 pass=3 fail=3 guard_pass=3 guard_fail=3\nlane1 pass=3 fail=3 guard_pass=3 guard_fail=3\nphase=3 pulse=local1 data=0\nroot pass=4 fail=3\nlane0 pass=4 fail=4 guard_pass=4 guard_fail=4\nlane1 pass=4 fail=4 guard_pass=4 guard_fail=4\nphase=4 pulse=manual0 data=0\nroot pass=5 fail=4\nlane0 pass=5 fail=5 guard_pass=5 guard_fail=5\nlane1 pass=5 fail=5 guard_pass=5 guard_fail=5\nphase=5 pulse=manual1 data=0\nroot pass=6 fail=5\nlane0 pass=6 fail=6 guard_pass=6 guard_fail=6\nlane1 pass=6 fail=6 guard_pass=6 guard_fail=6\nphase=6 pulse=none data=1\nroot pass=8 fail=5\nlane0 pass=8 fail=6 guard_pass=8 guard_fail=6\nlane1 pass=8 fail=6 guard_pass=8 guard_fail=6\n",
+      "stderr": "",
+      "reason": "output differs: line 7 is 'lane0 pass=2 fail=2 guard_pass=2 guard_fail=2', expected 'lane0 pass=2 fail=1 guard_pass=2 guard_fail=2'"
+    },
+    "wrong_default_source": {
+      "status": "detected",
+      "control": "inherit_control",
+      "source_sha256": "aaadee2a73e9252d2b9f37c57a1428bad91a777c58779bdbb823989baf5514d9",
+      "returncode": 0,
+      "stdout": "phase=0 pulse=none data=0\nroot pass=1 fail=1\nlane0 pass=1 fail=1 guard_pass=1 guard_fail=1\nlane1 pass=1 fail=1 guard_pass=1 guard_fail=1\nphase=1 pulse=root data=0\nroot pass=2 fail=1\nlane0 pass=2 fail=2 guard_pass=2 guard_fail=2\nlane1 pass=2 fail=2 guard_pass=2 guard_fail=2\nphase=2 pulse=local0 data=0\nroot pass=3 fail=2\nlane0 pass=3 fail=3 guard_pass=3 guard_fail=3\nlane1 pass=3 fail=3 guard_pass=3 guard_fail=3\nphase=3 pulse=local1 data=0\nroot pass=4 fail=3\nlane0 pass=4 fail=4 guard_pass=4 guard_fail=4\nlane1 pass=4 fail=4 guard_pass=4 guard_fail=4\nphase=4 pulse=manual0 data=0\nroot pass=5 fail=4\nlane0 pass=5 fail=4 guard_pass=5 guard_fail=5\nlane1 pass=5 fail=4 guard_pass=5 guard_fail=5\nphase=5 pulse=manual1 data=0\nroot pass=6 fail=5\nlane0 pass=6 fail=5 guard_pass=6 guard_fail=6\nlane1 pass=6 fail=5 guard_pass=6 guard_fail=6\nphase=6 pulse=none data=1\nroot pass=8 fail=5\nlane0 pass=8 fail=5 guard_pass=8 guard_fail=6\nlane1 pass=8 fail=5 guard_pass=8 guard_fail=6\n",
+      "stderr": "",
+      "reason": "output differs: line 7 is 'lane0 pass=2 fail=2 guard_pass=2 guard_fail=2', expected 'lane0 pass=2 fail=1 guard_pass=2 guard_fail=2'"
+    },
+    "ignore_explicit_zero": {
+      "status": "detected",
+      "control": "zero_control",
+      "source_sha256": "07cd2e8a92a16d051080cf712035250953bd8765b1cc4698e228323ea36a9588",
+      "returncode": 0,
+      "stdout": "phase=0 pulse=none data=0\nroot pass=1 fail=1\nlane0 pass=1 fail=1 guard_pass=1 guard_fail=1\nlane1 pass=1 fail=1 guard_pass=1 guard_fail=1\nphase=1 pulse=root data=0\nroot pass=2 fail=1\nlane0 pass=2 fail=2 guard_pass=2 guard_fail=2\nlane1 pass=2 fail=2 guard_pass=2 guard_fail=2\nphase=2 pulse=local0 data=0\nroot pass=3 fail=2\nlane0 pass=3 fail=2 guard_pass=3 guard_fail=3\nlane1 pass=4 fail=2 guard_pass=3 guard_fail=3\nphase=3 pulse=local1 data=0\nroot pass=4 fail=3\nlane0 pass=4 fail=3 guard_pass=4 guard_fail=4\nlane1 pass=4 fail=3 guard_pass=4 guard_fail=4\nphase=4 pulse=manual0 data=0\nroot pass=5 fail=4\nlane0 pass=5 fail=4 guard_pass=5 guard_fail=5\nlane1 pass=5 fail=4 guard_pass=5 guard_fail=5\nphase=5 pulse=manual1 data=0\nroot pass=6 fail=5\nlane0 pass=6 fail=5 guard_pass=6 guard_fail=6\nlane1 pass=6 fail=5 guard_pass=6 guard_fail=6\nphase=6 pulse=none data=1\nroot pass=8 fail=5\nlane0 pass=8 fail=5 guard_pass=8 guard_fail=6\nlane1 pass=8 fail=5 guard_pass=8 guard_fail=6\n",
+      "stderr": "",
+      "reason": "output differs: line 11 is 'lane0 pass=3 fail=2 guard_pass=3 guard_fail=3', expected 'lane0 pass=3 fail=3 guard_pass=3 guard_fail=3'"
+    },
+    "ignore_explicit_condition": {
+      "status": "detected",
+      "control": "explicit_control",
+      "source_sha256": "9b21a468c1f2e8863317e32ef007d9e3a2ff58ef6248921d8460d1dd14535cf7",
+      "returncode": 0,
+      "stdout": "phase=0 pulse=none data=0\nroot pass=1 fail=1\nlane0 pass=1 fail=1 guard_pass=1 guard_fail=1\nlane1 pass=1 fail=1 guard_pass=1 guard_fail=1\nphase=1 pulse=root data=0\nroot pass=2 fail=1\nlane0 pass=2 fail=2 guard_pass=2 guard_fail=2\nlane1 pass=2 fail=2 guard_pass=2 guard_fail=2\nphase=2 pulse=local0 data=0\nroot pass=3 fail=2\nlane0 pass=3 fail=2 guard_pass=3 guard_fail=3\nlane1 pass=4 fail=2 guard_pass=3 guard_fail=3\nphase=3 pulse=local1 data=0\nroot pass=4 fail=3\nlane0 pass=4 fail=3 guard_pass=4 guard_fail=4\nlane1 pass=4 fail=3 guard_pass=4 guard_fail=4\nphase=4 pulse=manual0 data=0\nroot pass=5 fail=4\nlane0 pass=5 fail=4 guard_pass=5 guard_fail=5\nlane1 pass=5 fail=4 guard_pass=5 guard_fail=5\nphase=5 pulse=manual1 data=0\nroot pass=6 fail=5\nlane0 pass=6 fail=5 guard_pass=6 guard_fail=6\nlane1 pass=6 fail=5 guard_pass=6 guard_fail=6\nphase=6 pulse=none data=1\nroot pass=8 fail=5\nlane0 pass=8 fail=5 guard_pass=8 guard_fail=6\nlane1 pass=8 fail=5 guard_pass=8 guard_fail=6\n",
+      "stderr": "",
+      "reason": "output differs: line 11 is 'lane0 pass=3 fail=2 guard_pass=3 guard_fail=3', expected 'lane0 pass=3 fail=3 guard_pass=3 guard_fail=3'"
+    },
+    "alias_explicit_instances": {
+      "status": "detected",
+      "control": "explicit_control",
+      "source_sha256": "0734d6d6f3111f962f14e044c9f53108c6bcd474ba3029cbd716ea76fda1b237",
+      "returncode": 0,
+      "stdout": "phase=0 pulse=none data=0\nroot pass=1 fail=1\nlane0 pass=1 fail=1 guard_pass=1 guard_fail=1\nlane1 pass=1 fail=1 guard_pass=1 guard_fail=1\nphase=1 pulse=root data=0\nroot pass=2 fail=1\nlane0 pass=2 fail=2 guard_pass=2 guard_fail=2\nlane1 pass=2 fail=2 guard_pass=2 guard_fail=2\nphase=2 pulse=local0 data=0\nroot pass=3 fail=2\nlane0 pass=3 fail=3 guard_pass=3 guard_fail=3\nlane1 pass=3 fail=3 guard_pass=3 guard_fail=3\nphase=3 pulse=local1 data=0\nroot pass=4 fail=3\nlane0 pass=4 fail=4 guard_pass=4 guard_fail=4\nlane1 pass=4 fail=4 guard_pass=4 guard_fail=4\nphase=4 pulse=manual0 data=0\nroot pass=5 fail=4\nlane0 pass=5 fail=4 guard_pass=5 guard_fail=5\nlane1 pass=5 fail=4 guard_pass=5 guard_fail=5\nphase=5 pulse=manual1 data=0\nroot pass=6 fail=5\nlane0 pass=6 fail=5 guard_pass=6 guard_fail=6\nlane1 pass=6 fail=5 guard_pass=6 guard_fail=6\nphase=6 pulse=none data=1\nroot pass=8 fail=5\nlane0 pass=8 fail=5 guard_pass=8 guard_fail=6\nlane1 pass=8 fail=5 guard_pass=8 guard_fail=6\n",
+      "stderr": "",
+      "reason": "output differs: line 20 is 'lane1 pass=5 fail=4 guard_pass=5 guard_fail=5', expected 'lane1 pass=5 fail=5 guard_pass=5 guard_fail=5'"
+    },
+    "missing_guard_action": {
+      "status": "detected",
+      "control": "zero_control",
+      "source_sha256": "3263dd203f182df8b5a0f768be1f3cd4dcf5d121ce72336afd6e18aa3cdc9e82",
+      "returncode": 0,
+      "stdout": "phase=0 pulse=none data=0\nroot pass=1 fail=1\nlane0 pass=1 fail=1 guard_pass=1 guard_fail=0\nlane1 pass=1 fail=1 guard_pass=1 guard_fail=0\nphase=1 pulse=root data=0\nroot pass=2 fail=1\nlane0 pass=2 fail=2 guard_pass=2 guard_fail=0\nlane1 pass=2 fail=2 guard_pass=2 guard_fail=0\nphase=2 pulse=local0 data=0\nroot pass=3 fail=2\nlane0 pass=3 fail=3 guard_pass=3 guard_fail=0\nlane1 pass=3 fail=3 guard_pass=3 guard_fail=0\nphase=3 pulse=local1 data=0\nroot pass=4 fail=3\nlane0 pass=4 fail=4 guard_pass=4 guard_fail=0\nlane1 pass=4 fail=4 guard_pass=4 guard_fail=0\nphase=4 pulse=manual0 data=0\nroot pass=5 fail=4\nlane0 pass=5 fail=5 guard_pass=5 guard_fail=0\nlane1 pass=5 fail=5 guard_pass=5 guard_fail=0\nphase=5 pulse=manual1 data=0\nroot pass=6 fail=5\nlane0 pass=6 fail=6 guard_pass=6 guard_fail=0\nlane1 pass=6 fail=6 guard_pass=6 guard_fail=0\nphase=6 pulse=none data=1\nroot pass=8 fail=5\nlane0 pass=8 fail=6 guard_pass=8 guard_fail=0\nlane1 pass=8 fail=6 guard_pass=8 guard_fail=0\n",
+      "stderr": "",
+      "reason": "output differs: line 3 is 'lane0 pass=1 fail=1 guard_pass=1 guard_fail=0', expected 'lane0 pass=1 fail=1 guard_pass=1 guard_fail=1'"
+    }
+  }
+}

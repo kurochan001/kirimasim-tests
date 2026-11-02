@@ -731,3 +731,22 @@ After the user approved two M3 expectation/explanation corrections, both `ch16/t
 | Clause | What it does | Tests |
 | --- | --- | --- |
 | 23.3.3.7 (Table 23-1), 28.12.4 | When a port connects a wand or wor net with a supply net, it applies the wired logic of the wand or wor although the strengths differ, and when it connects supply0 with supply1 it keeps both supplies and gives x, where Table 23-1 makes one net of the external net's kind. Six of the merged pairs of the test differ. | `imported/ch23/test_net_port_merge_kinds` |
+
+<a id="generate-default-disable-20261102"></a>
+
+<a id="generateとdefault-disable-iff2026-11-02"></a>
+
+## Generate and default disable iff (2026-11-02)
+
+The 18 selections of `generate_default_disable@1` were executed on fixed versions.
+See [design and limits](interaction-verification.en.md#generate-default-disable-scopes),
+[Verilator seed 1](../coverage/interaction-results/cross66-gendisable-verilator5052-seed1.json),
+[seed 73](../coverage/interaction-results/cross66-gendisable-verilator5052-seed73.json), and
+[Icarus 13.0](../coverage/interaction-results/cross66-gendisable-icarus13.json).
+
+- Verilator 5.052: both seeds match five cases and have output differences on 13. In six interclock-pulse cases and six final-clock NBA cases, even the module-scope control action counts differ from the standard-derived expectations. In one before-launch local-default case, pulsing one instance's local condition changes the other instance's observed counts relative to expectations. The internal implementation cause is unverified.
+- Icarus Verilog 13.0: all 18 builds reject concurrent assertion or related syntax, so output agreement is unverified.
+
+Only the five matches receive a fixed-Verilator oracle; the other 13 retain standard-derived expectations.
+Four successful before-launch controls and six detected SV faults do not qualify those 13 cases.
+These are recorded as fixed-version differences here; no upstream Issues were posted.

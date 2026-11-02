@@ -730,3 +730,22 @@ M3の期待値・説明の2件の修正をユーザーが承認した後、`ch16
 |条項|何をするのか|テスト|
 | --- | --- | --- |
 |23.3.3.7（表23-1）、28.12.4|ポートでwandまたはworとsupplyネットを接続すると、強度が異なっていてもwand/worのwiredなlogicを適用します。また、supply0とsupply1を接続すると両方のsupplyを保持してxになります。表23-1では、外側ネットの種類による1つのネットにする規定です。テストの合成対のうち6対は異なった。| `imported/ch23/test_net_port_merge_kinds` |
+
+<a id="generate-default-disable-20261102"></a>
+
+<a id="generate-and-default-disable-iff-2026-11-02"></a>
+
+## generateとdefault disable iff（2026-11-02）
+
+`generate_default_disable@1`の18選択ケースを固定版で実行しました。
+[設計と確認範囲](interaction-verification.md#generate-default-disable-scopes)、
+[Verilator seed 1](../coverage/interaction-results/cross66-gendisable-verilator5052-seed1.json)、
+[seed 73](../coverage/interaction-results/cross66-gendisable-verilator5052-seed73.json)、
+[Icarus 13.0](../coverage/interaction-results/cross66-gendisable-icarus13.json)に記録しています。
+
+- Verilator 5.052：両seedで5件が一致し、13件が出力不一致です。クロック間だけの条件パルス6件と終了クロックのNBA6件では、module直下の対照のアクション回数から規格由来の期待値と異なります。局所defaultを使う開始前条件の1件では、一方の実体の局所条件を立てたとき、他方の実体の回数が異なります。実装内部の原因は未確認です。
+- Icarus Verilog 13.0：全18件が並行アサーションなどの構文をビルド時に拒否し、出力の確認には至りません。
+
+一致した5件だけに固定Verilatorのoracleを追加しました。残る13件は規格から決めた期待値を保持しています。
+開始前条件の正常対照4件とSV故障注入6件の成功は、これらの13件を確認済みとする根拠ではありません。
+固定版の差異としてこの資料に記録し、上流へのIssue投稿は行っていません。

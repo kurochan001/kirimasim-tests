@@ -1,0 +1,28 @@
+phase=0 pulse=none data=0
+root pass=1 fail=1
+lane0 pass=1 fail=1 guard_pass=1 guard_fail=1
+lane1 pass=1 fail=1 guard_pass=1 guard_fail=1
+phase=1 pulse=root data=0
+root pass=1 fail=1
+lane0 pass=1 fail=1 guard_pass=2 guard_fail=2
+lane1 pass=1 fail=1 guard_pass=2 guard_fail=2
+phase=2 pulse=local0 data=0
+root pass=2 fail=2
+lane0 pass=2 fail=2 guard_pass=3 guard_fail=3
+lane1 pass=2 fail=2 guard_pass=3 guard_fail=3
+phase=3 pulse=local1 data=0
+root pass=3 fail=3
+lane0 pass=3 fail=3 guard_pass=4 guard_fail=4
+lane1 pass=3 fail=3 guard_pass=4 guard_fail=4
+phase=4 pulse=manual0 data=0
+root pass=4 fail=4
+lane0 pass=4 fail=4 guard_pass=5 guard_fail=5
+lane1 pass=4 fail=4 guard_pass=5 guard_fail=5
+phase=5 pulse=manual1 data=0
+root pass=5 fail=5
+lane0 pass=5 fail=5 guard_pass=6 guard_fail=6
+lane1 pass=5 fail=5 guard_pass=6 guard_fail=6
+phase=6 pulse=none data=1
+root pass=7 fail=5
+lane0 pass=7 fail=5 guard_pass=8 guard_fail=6
+lane1 pass=7 fail=5 guard_pass=8 guard_fail=6

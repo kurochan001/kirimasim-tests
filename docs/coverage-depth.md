@@ -12,7 +12,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 10289 |
+| Tests | 10307 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -26,8 +26,8 @@
 | --- | ---: |
 | both releases | 768 |
 | Icarus Verilog 13.0 only | 4882 |
-| Verilator 5.052 only | 1789 |
-| standard only | 2850 |
+| Verilator 5.052 only | 1794 |
+| standard only | 2863 |
 
 <a id="章別"></a>
 
@@ -48,7 +48,7 @@
 | 13 | Tasks and functions (subroutines) | 352 | 15 | 23.5 | 0 | 34 |
 | 14 | Clocking blocks | 126 | 15 | 8.4 | 0 | 46 |
 | 15 | Interprocess synchronization and communication | 135 | 21 | 6.4 | 0 | 83 |
-| 16 | Assertions | 715 | 69 | 10.4 | 0 | 508 |
+| 16 | Assertions | 733 | 69 | 10.6 | 0 | 521 |
 | 17 | Checkers | 81 | 10 | 8.1 | 0 | 59 |
 | 18 | Constrained random value generation | 226 | 44 | 5.1 | 0 | 93 |
 | 19 | Functional coverage | 157 | 24 | 6.5 | 0 | 127 |

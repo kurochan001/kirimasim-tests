@@ -133,6 +133,8 @@ To cross constraints with arithmetic types, pin variables uniquely and make only
 
 Retain fixed boundary witnesses and low-order coverage, supplementing scopes whose references accept arbitrary inputs with bounded random comparisons. Share actual values and operation lists between implementation and model; save stimuli themselves as well as seeds, revisions and fingerprints. Unsupported/unexecuted samples are not passes and do not increase fixed-regression coverage. See [random cross comparisons](random-cross-verification.en.md) for the initial three profiles, CI integration and replay.
 
+At a boundary that distributes settings through hierarchy, distinguish a condition bound at its declaration from same-name signals visible at its use. The generate/default-disable model pulses conditions independently for two instances, checking inheritance and override together with cancellation of pending attempts. Undisabled guards and a successful consequent provide controls; count actions including vacuous successes explicitly. In LSI verification, this applies to reset or enable distribution, per-channel cancellation and continued progress on other channels. Separate conditions verified by execution from those checked only by a reference model. See [the example and limits](interaction-verification.en.md#generate-default-disable-scopes).
+
 ## 3. How to select a small case set
 
 `Model` in [interaction_cover.py](../generators/interaction_cover.py) selects cases in the following order.

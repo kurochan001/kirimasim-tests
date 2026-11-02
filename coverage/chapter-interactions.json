@@ -1632,6 +1632,19 @@
           "reason": "配列のsum/product制約で要素型とwith式の型を区別し、固定/動的配列の一意な解と失敗時の状態保持を照合する"
         }
       ]
+    },
+    {
+      "id": "generate_default_disable",
+      "primary_chapter": 16,
+      "pairs": [
+        {
+          "chapters": [
+            16,
+            27
+          ],
+          "reason": "generateスコープのdefault disable iffの継承・上書き・名前解決と、実体ごとの無効化"
+        }
+      ]
     }
   ]
 }

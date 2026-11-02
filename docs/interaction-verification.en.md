@@ -14,7 +14,9 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 Each run's version is recorded in linked JSON. Unless stated otherwise, added/total counts and check results in the model descriptions below record the state when that model was added. See the beginning of this overview and [Generated report](interaction-coverage.en.md) for current aggregates.
 
-Reduction-constraint addition on 2026-11-02: the current selection has **65 models and 2,539 tests**. The [full cross run](../coverage/interaction-results/cross65-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 326 unsupported and the existing 6 fail**. All 13 new cases parse successfully: 8 fixed-array cases encounter unsupported randomize and 5 dynamic-array cases encounter unsupported class-array operations. All 2,526 preceding input fingerprints and outcomes are unchanged. Chapter 7×18 is registered, giving 96 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds have output differences on all 13 original cases; fixed Icarus Verilog 13.0 rejects all 13 builds. No fixed oracle is added. See [design and auxiliary-control scope](#array-reduction-constraints-and-retention).
+Generate/default-disable addition on 2026-11-02: the current selection has **66 models, 2,557 tests and 97 chapter pairs**. The [full cross run](../coverage/interaction-results/cross66-kirimasim-2edfebbc.json) on kirimasim `2edfebbc6270`, fetched and built immediately before execution, records **2,207 pass, 344 unsupported and six existing fail results**. All 18 new cases parse, but concurrent assertions are unsupported on execution. All 2,539 preceding input fingerprints and outcomes are unchanged; 47 models still pass their full selection. Both fixed Verilator seeds match five cases and differ on 13. Chapter 16×27 is registered, reducing E candidates to nine pairs. See [design, controls and limits](#generate-default-disable-scopes).
+
+At the reduction-constraint addition on the same day, the selection had **65 models and 2,539 tests**. The [full cross run](../coverage/interaction-results/cross65-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 326 unsupported and the existing 6 fail**. All 13 new cases parse successfully: 8 fixed-array cases encounter unsupported randomize and 5 dynamic-array cases encounter unsupported class-array operations. All 2,526 preceding input fingerprints and outcomes are unchanged. Chapter 7×18 is registered, giving 96 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds have output differences on all 13 original cases; fixed Icarus Verilog 13.0 rejects all 13 builds. No fixed oracle is added. See [design and auxiliary-control scope](#array-reduction-constraints-and-retention).
 
 At the associative-query addition on the same day, the selection had **64 models and 2,526 tests**. The [full cross run](../coverage/interaction-results/cross64-kirimasim-80859f34.json) on kirimasim `80859f34f0aa`, built after verifying upstream main immediately before execution, records **2,207 pass, 313 unsupported and the existing 6 fail**. All 18 new cases parse successfully but encounter unsupported typed associative-array variables. All 2,508 preceding input fingerprints and outcomes are unchanged. Chapter 7×20 is registered, giving 95 chapter pairs; 47 models pass their full selection. Both fixed Verilator 5.052 seeds have output differences on all 18 cases; fixed Icarus Verilog 13.0 rejects all 18 builds. No fixed oracle is added; standard-derived expectations are retained. See [design and scope](#associative-array-domains-and-allocation).
 
@@ -1897,6 +1899,73 @@ python3 tools/qualify_randreduce.py --verilator /path/to/verilator-5.052 \
 
 Empty arrays, X/Z, queues, soft constraints, inheritance, callbacks, concurrent randomize and matching random streams are outside scope.
 Original full-output reproduction and execution verification of dynamic size retention remain unmet, separate from auxiliary-control results.
+
+<a id="generate-default-disable-scopes"></a>
+
+<a id="generateスコープのdefault-disable-iff"></a>
+
+### Default disable iff across generate scopes
+
+`generate_default_disable@1` in `interaction_gendisable.py` extends the reviewed Chapter 16 × 27 witness into a factor model.
+Under 16.15, a default's names resolve in its declaration scope, its condition extends into child generate scopes,
+and an inner default or an explicit condition takes precedence. The model also checks same-name child signals and declarations after assertions.
+
+<a id="因子と観測"></a>
+
+#### Factors and observations
+
+Factors are if/case/loop generate form, parent-default inheritance versus outer-generate override, inner shadow signals,
+default/explicit-zero/explicit-condition selection, condition updates before launch/between clocks/by NBA at the final clock, and declaration order.
+The selection preserves all 93 factor pairs, 60 targeted three-factor combinations and four mandatory cases in 18 of 216 legal rows.
+Two instances have separate local and explicit conditions and independent counters.
+
+Each case has seven phases: no condition, parent condition, each instance's local and explicit conditions, and a successful consequent.
+`start |=> datum` launches at time 5 and concludes at 15. Conditions are asserted from time 2 to 12, from 8 to 12, or by NBA at 15.
+A pulse entirely between clocks also disables a pending attempt; a final-clock condition uses its current unsampled value (16.12).
+`start` falls at time 10. Counts distinguish the new vacuous success at the final clock from the earlier attempt's success or failure.
+Disabled attempts execute neither success nor failure actions.
+
+Explicit-zero guards at both sites and a module-scope assertion provide controls; reports occur at time 19.
+Same-name signals invert the original conditions, making incorrect rebinding observable.
+X/Z, multiple clocks, nested module declarations, interface/program, explicit disable inside a property and assertion control are outside scope.
+
+<a id="保存実行と確認範囲"></a>
+
+#### Saved runs and verification limits
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross66-gendisable-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross66-gendisable-verilator5052-seed73.json) each record 5 pass and 13 known.
+Only the five matches receive an oracle. Output differences affect six interclock-pulse cases, six final-clock NBA cases,
+and one before-launch case using a local default. In the last case, pulsing one local condition changes the other instance's
+observed action counts relative to expectations. The internal implementation cause is unverified.
+[Fixed Icarus Verilog 13.0](../coverage/interaction-results/cross66-gendisable-icarus13.json) rejects all 18 builds.
+
+The [build and parse record](../coverage/interaction-qualification/gendisable-build.json) on kirimasim `2edfebbc6270` confirms all 18 parse successfully;
+execution reports unsupported `ConcurrentAssertion`. The [full 2,557-case run](../coverage/interaction-results/cross66-kirimasim-2edfebbc.json)
+has 2,207 pass, 344 unsupported and six existing fail results. All 2,539 preceding input fingerprints and outcomes are unchanged.
+Unsupported and known differences are not PASS; standard-derived expectations and the legal space are retained.
+
+<a id="独立した検算と故障注入"></a>
+
+#### Independent calculations and fault injection
+
+The [independent checks and executions](../coverage/interaction-qualification/gendisable.json) compare the generator's closed-form counts
+against a separate scope-tree resolver and a scoreboard that advances pending attempts one time step at a time, covering all 216 rows.
+Four selected before-launch cases that match fixed Verilator are normal controls. Six SV mutations detect a dropped inherited condition,
+wrong condition source, ignored explicit zero, ignored explicit condition, shared conditions between instances and a missing guard action.
+All ten control/mutant executions exit zero; detection does not rely on build rejection or execution failure.
+
+These controls do not qualify implicit generate-default overrides, interclock cancellation or final-clock NBA through execution.
+They do not resolve the original 13 differences or kirimasim's 18 unsupported cases. Repeating selected cases as controls does not add tests.
+
+Local validation at addition passed 661 tool tests and 13 consistency checks.
+Metadata validation covered 10,307 tests with no new issues (395 known); 114 language pairs and 52,201 local links also passed validation.
+Check GitHub Check/Nightly status against each execution's commit separately.
+
+```sh
+python3 tools/qualify_gendisable.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-gendisable.json
+```
 
 <a id="モデル変更時の更新"></a>
 

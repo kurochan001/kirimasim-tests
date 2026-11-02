@@ -15,7 +15,7 @@ fixed-suite test counts, chapter-matrix pass counts or requirement coverage.
 
 ## Scope and generation
 
-The initial implementation has three profiles. It does not generalize all current 65 models to arbitrary inputs.
+The initial implementation has three profiles. It does not generalize every finite model to arbitrary inputs.
 
 - `expression_context` crosses widths, signedness, destination width and addition/subtraction/multiplication with arbitrary known input bits.
   It reuses the reference in `generators/interaction_expr.py`.

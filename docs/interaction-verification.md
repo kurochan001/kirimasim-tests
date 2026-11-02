@@ -14,7 +14,9 @@
 
 各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・ 検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と [生成レポート](interaction-coverage.md)を参照してください。
 
-2026-11-02の配列リダクション制約追加：現在は**65モデル・2,539件**です。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross65-kirimasim-80859f34.json)は**2,207 pass・326 unsupported・既存6 fail**です。新規13件の解析は成功し、固定配列8件はrandomize、動的配列5件はクラス内配列操作が未対応です。従来2,526件の入力ハッシュと結果区分は同じです。第7章×第18章を登録し、章対は96対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedとも元の13件が出力不一致、固定Icarus Verilog 13.0は全13件をビルド時に拒否しました。固定版oracleは追加していません。[設計と補助対照の確認範囲](#array-reduction-constraints-and-retention)を参照してください。
+2026-11-02のgenerate default disable追加：現在は**66モデル・2,557件・97章対**です。実行直前に上流mainを取得・ビルドしたkirimasim `2edfebbc6270`の[全クロス保存実行](../coverage/interaction-results/cross66-kirimasim-2edfebbc.json)は**2,207 pass・344 unsupported・既存6 fail**です。新規18件は解析が成功し、実行は並行アサーション未対応です。従来2,539件の入力ハッシュと結果区分はすべて同じで、全選択ケースPASSは47モデルのままです。固定Verilatorは両seedで5件が一致し、13件は出力不一致です。第16章×第27章を登録し、E候補を9対へ減らしました。[設計・対照・確認範囲](#generate-default-disable-scopes)を参照してください。
+
+同日の配列リダクション制約追加時点では**65モデル・2,539件**でした。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross65-kirimasim-80859f34.json)は**2,207 pass・326 unsupported・既存6 fail**です。新規13件の解析は成功し、固定配列8件はrandomize、動的配列5件はクラス内配列操作が未対応です。従来2,526件の入力ハッシュと結果区分は同じです。第7章×第18章を登録し、章対は96対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedとも元の13件が出力不一致、固定Icarus Verilog 13.0は全13件をビルド時に拒否しました。固定版oracleは追加していません。[設計と補助対照の確認範囲](#array-reduction-constraints-and-retention)を参照してください。
 
 同日の連想配列問い合わせ追加時点では**64モデル・2,526件**でした。実行直前に上流mainと照合してビルドしたkirimasim `80859f34f0aa`の[全クロス保存実行](../coverage/interaction-results/cross64-kirimasim-80859f34.json)は**2,207 pass・313 unsupported・既存6 fail**です。新規18件の解析は成功し、実行は型付き連想配列変数が未対応です。従来2,508件の入力ハッシュと結果区分は同じです。第7章×第20章を登録し、章対は95対、全選択ケースPASSは47モデルです。固定Verilator 5.052は両seedとも新規18件が出力不一致、固定Icarus Verilog 13.0は全18件をビルド時に拒否しました。固定版oracleは追加せず、規格に基づく期待値を保持しています。[設計と確認範囲](#associative-array-domains-and-allocation)を参照してください。
 
@@ -1893,6 +1895,72 @@ python3 tools/qualify_randreduce.py --verilator /path/to/verilator-5.052 \
 
 空配列、X/Z、キュー、soft制約、継承、コールバック、並行randomize、乱数列の一致は対象外です。
 元の全出力の再現と動的配列のサイズ保持の実行確認は未達で、補助対照の確認範囲と分けて残しています。
+
+<a id="generate-default-disable-scopes"></a>
+
+<a id="default-disable-iff-across-generate-scopes"></a>
+
+### generateスコープのdefault disable iff
+
+`interaction_gendisable.py`の`generate_default_disable@1`は、第16章×第27章の既存テストを因子モデルへ拡張します。
+16.15に基づき、defaultの条件は宣言スコープで名前解決し、子generateへ継承し、内側のdefaultや明示条件があれば置き換えます。
+同名信号を子スコープへ置いた場合と、宣言をアサーションの後へ置いた場合も照合します。
+
+<a id="factors-and-observations"></a>
+
+#### 因子と観測
+
+if/case/loopのgenerate形式、親defaultの継承／外側generateでの上書き、内側の同名信号の有無、
+default／明示ゼロ／明示条件、開始前／クロック間／終了クロックのNBAによる条件更新、宣言の前後を組み合わせます。
+合法216通りから18件を選び、全因子対93組・重点3因子60組・必須4件を保持します。
+二つの実体に別々の局所条件と明示条件を与え、独立したカウンタで確認します。
+
+各ケースは、条件なし、親条件、各実体の局所条件と明示条件、成立する後件を使った7フェーズです。
+`start |=> datum`の開始クロックは時刻5、終了は15です。条件は時刻2から12、8から12、または15のNBAで立てます。
+クロック間だけのパルスも進行中の試行を無効化し、終了クロックの条件は未サンプルの現在値で判定します（16.12）。
+`start`は時刻10に下げ、終了クロックに始まる新しい試行のvacuous passと、先の試行の成功・失敗を区別して計数します。
+無効化された試行には成功・失敗のアクションがありません。
+
+各実体の明示ゼロによるguardと、module直下のアサーションを対照とし、時刻19に報告します。
+同名信号には元の条件を反転した値を与え、誤ったスコープでの再結合を観測可能にします。
+X/Z、複数クロック、入れ子のmodule宣言、interface/program、property内の明示disable、アサーション制御は対象外です。
+
+<a id="saved-runs-and-verification-limits"></a>
+
+#### 保存実行と確認範囲
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross66-gendisable-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross66-gendisable-verilator5052-seed73.json)は、各5 pass・13 knownです。
+一致した5件だけにoracleを追加しました。クロック間パルス6件、終了クロックのNBA6件、局所defaultを使う開始前条件1件は出力不一致です。
+最後の1件では、一方の局所条件を立てたときの、他方の実体のアクション回数が期待値と異なります。実装内部の原因は未確認です。
+[固定Icarus Verilog 13.0](../coverage/interaction-results/cross66-gendisable-icarus13.json)は全18件をビルド時に拒否します。
+
+kirimasim `2edfebbc6270`の[ビルド・解析記録](../coverage/interaction-qualification/gendisable-build.json)では、全18件の解析が成功し、
+実行は`ConcurrentAssertion`未対応です。[全2,557件の保存実行](../coverage/interaction-results/cross66-kirimasim-2edfebbc.json)は
+2,207 pass・344 unsupported・既存6 failで、従来2,539件の入力ハッシュと結果区分はすべて同じです。
+未対応やknownをPASSへ含めず、規格に基づく期待値と合法集合を保持しています。
+
+<a id="independent-calculations-and-fault-injection"></a>
+
+#### 独立した検算と故障注入
+
+[独立検算と実行記録](../coverage/interaction-qualification/gendisable.json)では、閉じた式による生成器の計算に対し、
+別のスコープ木で宣言元を探索し、時刻ごとに進行中の試行を更新する参照モデルを使って全216行を照合します。
+固定Verilatorで一致する開始前条件の4選択ケースを正常対照とし、継承条件の欠落、誤った条件の使用、明示ゼロの無視、
+明示条件の無視、実体間の明示条件の取り違え、guardアクションの欠落という6種類のSV変異を検出しました。
+正常対照・変異の全10実行は終了コード0です。ビルド拒否や実行異常による検出ではありません。
+
+この対照は暗黙のgenerate default上書き、クロック間の無効化、終了クロックのNBAを実行確認したものではありません。
+元の13件の不一致やkirimasimの18件の未対応を解消したとは扱わず、同じケースの対照実行を新しいテスト数へ加算しません。
+
+追加時のローカル検査は、ツール単体661件と整合性13項目がすべて成功しました。
+メタデータは10,307件で新規問題0件（既知395件）、日英114組とローカルリンク52,201件も検査済みです。
+GitHub Check/Nightlyの状態は、各実行のコミットと別途確認してください。
+
+```sh
+python3 tools/qualify_gendisable.py --verilator /path/to/verilator-5.052 \
+  --output coverage/interaction-qualification/NEW-gendisable.json
+```
 
 <a id="updates-after-model-changes"></a>
 

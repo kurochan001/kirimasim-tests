@@ -48,13 +48,13 @@ Icarus Verilog、Verilator、kirimasim、
 ## 収録内容
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**10289本のテスト**があります。 うち3852本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
+スイートには38章にわたり**10307本のテスト**があります。 うち3870本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
 | Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 5650 |
-| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1789 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2850 |
+| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1794 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 2863 |
 
 2416本はx/z値に依存します（`:fourstate: yes`）。666本にはCコードがあり、内訳はDPIが171本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1931本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。34本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定40本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
@@ -73,7 +73,7 @@ Icarus Verilog、Verilator、kirimasim、
 | 13 | タスクと関数（サブルーチン） | 352 | 226 | 92 | 34 |
 | 14 | クロッキングブロック | 126 | 4 | 76 | 46 |
 | 15 | プロセス間の同期と通信 | 135 | 2 | 50 | 83 |
-| 16 | アサーション | 715 | 104 | 103 | 508 |
+| 16 | アサーション | 733 | 104 | 108 | 521 |
 | 17 | チェッカー | 81 |  | 22 | 59 |
 | 18 | 制約付き乱数値の生成 | 226 | 25 | 108 | 93 |
 | 19 | 機能カバレッジ | 157 | 2 | 28 | 127 |
@@ -148,21 +148,21 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 
 [機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
 重点的に確認する高次因子群と必須の境界ケースを併用します。短時間実行用の選択は
-**65モデル・2,539件**です。値・型の変換、スケジューリング、引数・参照の結合先、
+**66モデル・2,557件**です。値・型の変換、スケジューリング、引数・参照の結合先、
 スコープ・階層、状態保持、I/Oなどの相互作用を扱います。通常の全件実行では既存テストを
 すべて保持し、規格要求の分母は変更しません。
 
-[kirimasim **`80859f34f0aa`**での全クロス保存実行](coverage/interaction-results/cross65-kirimasim-80859f34.json)は、
-**2,207 pass・326 unsupported・6 fail**です。クラスメソッドは18件PASS・18件未対応です。強度表示31件はすべてPASSです。
+[kirimasim **`2edfebbc6270`**での全クロス保存実行](coverage/interaction-results/cross66-kirimasim-2edfebbc.json)は、
+**2,207 pass・344 unsupported・6 fail**です。クラスメソッドは18件PASS・18件未対応です。強度表示31件はすべてPASSです。
 不一致6件は、`inside`／`case inside`の幅・符号の2件と、configのパラメータリセットの4件で、
 規格に基づく期待値を維持しています。
 これは記載した版の保存結果で、Nightlyの全件実行や、その後の上流更新の結果とは区別します。
 
-配列リダクション制約モデル（第7章×第18章）は、要素幅での演算とwith内のlongint拡張、失敗時の配列状態保持を照合します。固定Verilatorは両seedとも元の13件が出力不一致、固定Icarusはビルド時の拒否です。補助対照4件の成功は元のケースの合格へ加算しません。kirimasimではrandomizeまたはクラス内配列操作が未対応です。[範囲と証跡](docs/interaction-verification.md#array-reduction-constraints-and-retention)を参照してください。
+generateとdefault disable iffのモデル（第16章×第27章）は、216通りから18件を選び、設定の継承・上書き・名前解決と無効化の時点を照合します。固定Verilatorは両seedで5件が一致し、13件は不一致です。kirimasimは全18件の解析が成功し、実行は並行アサーション未対応です。[範囲と証跡](docs/interaction-verification.md#generate-default-disable-scopes)を参照してください。
 
 - [クロス検証レポート](docs/interaction-coverage.md)：計画上の網羅と、入力・ランナーのハッシュが
   一致した保存実行の合格を分けて集計します。
-- [章間クロス検証マトリクス](docs/chapter-cross-matrix.md)：重複を除く**96章対**を対応付けています。
+- [章間クロス検証マトリクス](docs/chapter-cross-matrix.md)：重複を除く**97章対**を対応付けています。
   登録モデル数、全選択ケースPASSのモデル数（上記の保存実行では**47モデル**）、
   テスト・実行の明細を41章×41章のCSVから確認できます。
 - [0セルの仕分けと優先候補](docs/chapter-cross-triage.md)：既存検証あり・追加検証候補・対象外・
