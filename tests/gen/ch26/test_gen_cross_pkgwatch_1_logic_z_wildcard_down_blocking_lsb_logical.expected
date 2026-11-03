@@ -1,0 +1,48 @@
+snap tag=armed t=2 drive=1 neighbor=1 other_guard=1
+o name=a data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+o name=b data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+o name=g data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+drive step=1 t=5 raw=1 active=1
+snap tag=1 t=6 drive=1 neighbor=1 other_guard=1
+o name=a data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+o name=b data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+o name=g data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+drive step=2 t=10 raw=1 active=1
+snap tag=2 t=11 drive=1 neighbor=1 other_guard=1
+o name=a data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+o name=b data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+o name=g data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+drive step=3 t=15 raw=z active=z
+snap tag=3 t=16 drive=z neighbor=1 other_guard=1
+o name=a data=z copy=z hits=1 last=z at=15 pred=x wakes=0 wt=-1 held=0
+o name=b data=z copy=z hits=1 last=z at=15 pred=x wakes=0 wt=-1 held=0
+o name=g data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+drive step=4 t=20 raw=1 active=1
+snap tag=4 t=21 drive=1 neighbor=1 other_guard=1
+o name=a data=1 copy=1 hits=2 last=1 at=20 pred=0 wakes=0 wt=-1 held=0
+o name=b data=1 copy=1 hits=2 last=1 at=20 pred=0 wakes=0 wt=-1 held=0
+o name=g data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+drive step=5 t=25 raw=0 active=0
+snap tag=5 t=26 drive=0 neighbor=1 other_guard=1
+o name=a data=0 copy=0 hits=3 last=0 at=25 pred=1 wakes=1 wt=25 held=0
+o name=b data=0 copy=0 hits=3 last=0 at=25 pred=1 wakes=1 wt=25 held=0
+o name=g data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+drive step=6 t=30 raw=0 active=0
+snap tag=6 t=31 drive=0 neighbor=1 other_guard=1
+o name=a data=0 copy=0 hits=3 last=0 at=25 pred=1 wakes=1 wt=25 held=0
+o name=b data=0 copy=0 hits=3 last=0 at=25 pred=1 wakes=1 wt=25 held=0
+o name=g data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+drive step=7 t=35 raw=0 active=0
+snap tag=7 t=36 drive=0 neighbor=0 other_guard=1
+o name=a data=0 copy=0 hits=3 last=0 at=25 pred=1 wakes=1 wt=25 held=0
+o name=b data=0 copy=0 hits=3 last=0 at=25 pred=1 wakes=1 wt=25 held=0
+o name=g data=1 copy=1 hits=0 last=0 at=-1 pred=0 wakes=0 wt=-1 held=0
+drive step=8 t=40 raw=0 active=0
+snap tag=8 t=41 drive=0 neighbor=0 other_guard=1
+o name=a data=0 copy=0 hits=3 last=0 at=25 pred=1 wakes=1 wt=25 held=0
+o name=b data=0 copy=0 hits=3 last=0 at=25 pred=1 wakes=1 wt=25 held=0
+o name=g data=0 copy=0 hits=1 last=0 at=40 pred=1 wakes=1 wt=40 held=0
+snap tag=idle t=45 drive=0 neighbor=0 other_guard=1
+o name=a data=0 copy=0 hits=3 last=0 at=25 pred=1 wakes=1 wt=25 held=0
+o name=b data=0 copy=0 hits=3 last=0 at=25 pred=1 wakes=1 wt=25 held=0
+o name=g data=0 copy=0 hits=1 last=0 at=40 pred=1 wakes=1 wt=40 held=0

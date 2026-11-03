@@ -20978,6 +20978,18 @@
     "値と代入先の取得、予約順序、別名での読出し、隣接要素と別packageの保持をActiveと ZXQPH0QXZ 後で照合する。": "Compare captured values and targets, reservation order, alias reads and retained neighbors/other packages in Active and after ZXQPH0QXZ updates.",
     "複数モジュールから参照する同じpackage変数への ZXQPH0QXZ で、値・代入先の取得と順序、別名の読出しを照合する。": "Check captured ZXQPH0QXZ values, targets and order on one package variable referenced by multiple modules, including alias reads.",
     "package共有状態をActiveと ZXQPH0QXZ 後で読み、遅延の到来時刻にも更新前の値を観測して領域の順序を照合する。": "Read shared package state in Active and after ZXQPH0QXZ updates, including the old value in Active at the due time, to check region ordering.",
-    "packageの昇順・降順配列で予約時の添字が選ぶ要素を更新し、添字変更後も隣接要素と別packageを保持する。": "Update the package array element selected at reservation across ascending/descending bounds, retaining neighbors and another package after index changes."
+    "packageの昇順・降順配列で予約時の添字が選ぶ要素を更新し、添字変更後も隣接要素と別packageを保持する。": "Update the package array element selected at reservation across ascending/descending bounds, retaining neighbors and another package after index changes.",
+    "初期化は時刻零、待機の登録は時刻一、最初の変更は時刻五として登録競合を避ける。": "Initialization at time zero, observer registration at time one and the first change at time five avoid registration races.",
+    "二つの観測モジュールは同じpackage変数、対照は別packageの同名変数を読む。": "Two observer modules read the same package variable; the control reads an identically named variable in another package.",
+    "イベントは全体または最下位ビットの変化だけを数え、 ZXQPH0QXZ は関数内の外部参照を追う。": "Events count changes to the whole word or its least significant bit; ZXQPH0QXZ follows external references inside a function.",
+    "waitはゼロとの等価または等価性で一回だけ完了し、現在の条件値と保持した起床履歴を別に読む。": "A wait using logical or case equality to zero completes once; the current condition and retained wake history are read separately.",
+    "配列の負の昇順添字と非零の降順添字、再書込み、隣接要素、対照の後続更新も確認する。": "Checks also cover negative ascending and nonzero descending array indices, repeated writes, neighbors and later control updates.",
+    "可変の監視添字、クラス、動的配列、独立writer間の順序、XからZへの直接遷移は対象外。": "Variable observer indices, classes, dynamic arrays, ordering between independent writers and direct X-to-Z transitions are outside scope.",
+    "同じpackage変数への複数のイベント待機とwait、関数内の外部参照を読む ZXQPH0QXZ を照合する。": "Checks multiple event and wait observers of the same package variable and ZXQPH0QXZ reading an external reference inside a function.",
+    "全体と最下位ビットの感度、条件のX、再書込み・隣接要素・別packageの通知と起床履歴を観測する。": "Observes whole-word and least-significant-bit sensitivity, X conditions, notifications and wake history across repeated writes, neighbors and another package.",
+    "同じpackage変数へのイベント待機とwaitの起床、関数内の外部参照を読む ZXQPH0QXZ の更新を複数モジュールで照合する。": "Checks event and wait wakeups on the same package variable and ZXQPH0QXZ updates from external function references across multiple modules.",
+    "packageの未知値をゼロと比較し、等価のXと等価性の零、waitが起床しない状態と既知値復帰後の起床履歴を照合する。": "Compares unknown package values to zero, observing X for logical equality, zero for case equality, a blocked wait and wake history after known-value recovery.",
+    "packageへのブロッキング代入直後の新値と ZXQPH0QXZ 直後の旧値を読み、次時刻に通知と起床の結果を照合する。": "Reads new package values immediately after blocking assignments and old values immediately after ZXQPH0QXZ scheduling, then checks notifications and wakeups at the next time.",
+    "packageの昇順・降順配列の選択要素を監視し、隣接要素への書込みがイベント回数や保持した起床履歴を変えないことを照合する。": "Observes selected elements of ascending and descending package arrays and checks that neighboring writes preserve event counts and retained wake history."
   }
 }

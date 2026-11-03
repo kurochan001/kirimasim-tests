@@ -12,7 +12,14 @@
 
 ## 保存実行の概要
 
-packageのNBA追加（2026-11-03）：現在は**78モデル・2,886件・112章対**です。
+package変更の観測追加（2026-11-03）：現在は**79モデル・2,922件・114章対**です。
+実行直前に上流mainを取得・構成・ビルドしたkirimasim `a682e19e3238`の
+[全クロス保存実行](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json)は
+**2,389 pass・529 unsupported・既存configの4 fail**です。追加36件は全て解析成功・PASSで、
+従来2,886件の入力fingerprintと状態分類は不変、全選択ケースPASSは52モデルです。
+本体の変更はなく、正式Nightlyとは別のローカル実行です。[設計・独立検算・制限](#package-change-observers)を参照してください。
+
+packageのNBA追加（2026-11-03）：当時は**78モデル・2,886件・112章対**です。
 実行直前に上流mainを取得・構成・ビルドしたkirimasim `7554bb47`の
 [全クロス保存実行](../coverage/interaction-results/cross78-kirimasim-7554bb47-pkgnba.json)は
 **2,353 pass・529 unsupported・既存configの4 fail**です。追加36件は全て解析成功・PASSで、
@@ -2924,6 +2931,83 @@ python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 8 \
   --json my-results/pkgnba-native-new.json tests/gen/ch26/test_gen_cross_pkgnba_*.sv
 python3 tools/run_verilator.py --verilator /path/to/verilator-5.052 --seed 1 -j 4 \
   --json my-results/pkgnba-verilator-new.json tests/gen/ch26/test_gen_cross_pkgnba_*.sv
+```
+
+<a id="package-change-observers"></a>
+
+### package変数の変更通知と独立した観測プロセス
+
+`package_change_observers@1`は、同じpackage変数を読む二つのモジュールと、別packageの同名変数を読む対照を組み合わせます。
+[生成器](../generators/interaction_pkgwatch.py)は幅1/32/33/64/65/129、bit/logic、既知値/X/Z、
+修飾名/ワイルドカードimport/明示import、スカラー/昇順配列/降順配列、ブロッキング/NBA、
+全体/最下位ビットのイベント感度、論理等価/等価性によるwait条件を因子にします。
+合法な直積2,592通りから**36件**を選び、2因子225目標・重点3因子122目標・必須6ケースを保持します。
+選択件数は直積より約98.61%少なく、実行時間の削減率や一般的な最小性を保証するものではありません。
+未対応を理由に合法な行を除いていません。
+
+IEEE 1800-2023の26.3/26.4を結合先、9.4.2をイベント、9.4.3をwait、
+9.2.2.2.1を関数内の外部参照を含むalways_comb感度、11.4.6を比較の根拠とします。
+時刻零に全ビットを1へ初期化し、時刻1にイベント待機とwaitを登録、時刻2に登録後の状態を観測します。
+最初の書込みは時刻5で、登録と変更の競合を避けます。
+単一の書込みプロセスが5刻みで、最下位ビットのみ1、同値再書込み、全1またはX/Z、最上位ビットのみ1、
+ゼロ、ゼロの再書込み、隣接要素の変更、対照packageの変更を行います。
+直後には実際の入力と書込み対象だけを表示し、各1刻み後に観測プロセスの状態を読みます。
+ブロッキング直後の新値とNBA予約直後の旧値を区別し、観測プロセス同士の実行順序は期待しません。
+
+各観測モジュールは、関数経由でpackage変数を読むalways_combの値、イベント回数・最終通知時刻・通知時の全体値、
+現在のwait条件、一回だけ完了するwaitの起床回数・時刻・保持値を出します。
+幅が複数ビットなら、全1から最下位ビットのみ1への変化は全体の監視だけを起こします。
+最下位ビット監視の最終通知値は、上位ビットだけが変わった後も古い全体値を保持し、現在値と区別できます。
+logicのX/Zとゼロの論理等価はX、等価性は0で、ともにwaitを起こしません。
+bitへのX/Z書込みはゼロへ変換されるため最初の起床は時刻15、logicは既知ゼロへ戻る時刻25です。
+起床後に条件が偽へ戻っても、最初の起床履歴を保持します。
+再書込みや隣接要素の更新で余計な通知がないこと、二つの観測先への通知、別packageの独立性と時刻40の後続進行も確認します。
+
+[独立検算器](../tools/qualify_pkgwatch.py)は生成済みSVの型・参照先・関数・イベント式・wait式・
+コールバック・実際の代入列と表示を解釈します。生成器の操作列・添字・参照期待値の関数は呼ばず、
+全2,592通りで期待値と一致しました。観測プロセスの処理順を逆にしても出力は同じです。
+共有するのは既存の[値デコーダ](../tools/qualify_pkgnba.py)のWordとliteralだけです。
+一般的な並行スケジューラの証明ではなく、単一writerと読取り専用の独立した観測プロセスに限定します。
+可変の監視添字、class、動的配列、独立writer間の順序、XからZへの直接遷移は対象外です。
+
+[実行した対照と故障注入](../coverage/interaction-qualification/pkgwatch.json)は正常対照4件がPASS、
+実際のSVを変更した故障8件すべてがコンパイル・正常終了の後に元の期待値との差として検出されました。
+変更は関数のpackage参照先、通知先の欠落、全体イベントから部分選択への誤変更、通知回数の欠落、
+早すぎるwait起床、誤った保持値、未知状態の欠落、NBAからブロッキングへの誤変更です。
+元の刺激・期待値は保持し、故障ケースを固定suite件数へ加算しません。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross79-pkgwatch-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross79-pkgwatch-verilator5052-seed73.json)は各12 pass・24 knownです。
+X/Zを使わない12件だけを固定版oracleへ登録し、実際のX/Z入力も表示する24件はbit宛先でもfourstateのままです。
+[Icarus Verilog 13.0](../coverage/interaction-results/cross79-pkgwatch-icarus13.json)は36件ともコンパイル段階のknownです。
+[元のSVの再実行](../coverage/interaction-qualification/pkgwatch-fixed-replays.json)に、X/Zの2件のVerilator出力と
+2件のIcarus診断を保存しています。内部原因を断定せず、knownを正常対照や故障検出成功へ数えません。
+入力や期待値、oracleを差異に合わせて弱めていません。
+
+元の2件では、最初の既知値の入力表示にも差がありました。[X/Z入力だけを既知ゼロへ置換した診断用対照](../coverage/interaction-qualification/pkgwatch-known-input-controls.json)は、実際の変更済みSVを独立に解釈した期待値でkirimasimと固定Verilatorの両方に一致しました。元の失敗記録は保持し、これだけで内部原因を断定しません。この対照は固定suite、モデル件数、正常対照4件へ加算しません。
+
+[ビルド・解析・安定性の記録](../coverage/interaction-qualification/pkgwatch-build.json)と
+[全2,922件の単一実行](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json)は、
+直前に取得・構成・ビルドした上流main `a682e19e3238`、実バイナリ、未改変slang pin、runnerを識別します。
+新規36件は解析成功・PASSで、従来2,886件の入力と状態分類は同じです。
+全体は2,389 pass・529 unsupported・既存configの4 failです。本体コードの変更はありません。
+章間表は9×26と4×26に全36件、11×26にlogicのX/Zを扱う12件、7×26に配列24件を対応付けます。
+各章対の全選択ケースPASSは一つの実行でモデル全体36件の合格を必要とします。
+規格要求との新しい対応付けや分母変更はありません。
+
+導入時のローカル検査はツール回帰811件と整合性13項目が全PASSです。固定suiteは36件増えて10,672件、うち生成4,235件・生成器88個です。メタデータは新規問題0件・既知395件、日英115組とローカルリンク53,265件も確認しました。既存78モデルの計画と過去250実行の既存モデル集計、既存テストの入力・期待値は保持しています。GitHub Check・正式Nightlyは今回の変更では未実行です。
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_pkgwatch.py
+# 実行直前に上流mainを確認し、最新kirimasimを再構成・ビルドする。
+python3 tools/qualify_pkgwatch.py --kirimasim /path/to/latest/kirimasim \
+  --output my-results/pkgwatch-qualification-new.json
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 8 \
+  --json my-results/pkgwatch-native-new.json tests/gen/ch26/test_gen_cross_pkgwatch_*.sv
+python3 tools/run_verilator.py --verilator /path/to/verilator-5.052 --seed 1 -j 4 \
+  --json my-results/pkgwatch-verilator-new.json tests/gen/ch26/test_gen_cross_pkgwatch_*.sv
+python3 tools/run_icarus.py --iverilog-bin /path/to/iverilog-13/bin -j 4 \
+  --json my-results/pkgwatch-icarus-new.json tests/gen/ch26/test_gen_cross_pkgwatch_*.sv
 ```
 
 ### モデル変更時の更新

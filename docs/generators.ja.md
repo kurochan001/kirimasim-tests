@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の87生成器から4,199件のテストを生成しています。
+現在の88生成器から4,235件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -68,6 +68,7 @@
 | [`interaction_nba`](../generators/interaction_nba.py) | 10 | 36 | 代入直後・刺激変更後・時刻1・最終結果の出力で、値と代入先の確定、隣接要素の保持、Active領域とNBA領域の順序、automaticタスクからの復帰後の更新を確認する。 |
 | [`interaction_nettype`](../generators/interaction_nettype.py) | 22 | 40 | ANSI/非ANSIのポート宣言でnet型を省略し、default_nettypeによるvectorとscalarの解決値・幅を親子で照合する。vectorだけの明示wireによる上書きと、指示解除後の別moduleを同じ刺激で比較し、既定型の適用範囲を確認する。 |
 | [`interaction_pkgnba`](../generators/interaction_pkgnba.py) | 26 | 36 | 二つのモジュールから同じpackage変数へ順にNBAを予約し、参照方法・配列添字・遅延・状態型を交差する。値と代入先の取得、予約順序、別名での読出し、隣接要素と別packageの保持をActiveとNBA後で照合する。 |
+| [`interaction_pkgwatch`](../generators/interaction_pkgwatch.py) | 26 | 36 | 同じpackage変数への複数のイベント待機とwait、関数内の外部参照を読むalways_combを照合する。全体と最下位ビットの感度、条件のX、再書込み・隣接要素・別packageの通知と起床履歴を観測する。 |
 | [`interaction_port`](../generators/interaction_port.py) | 23 | 36 | 親と子の間で幅が変わる接続を使い、元の値・4状態の接続線・サンプル変数を観測して、接続方向、駆動元の符号、宣言と接続形式、最後の2状態変換を確認する。 |
 | [`interaction_process`](../generators/interaction_process.py) | 9 | 36 | 宣言時初期値による時刻0の起動、data/maskと関数内部の読取りによる再実行、0/X/Zでのcombの既定値とlatchの保持を観測する。1変数ずつ変更して両インスタンスの出力・評価回数を確認し、無関係なnoiseと自己更新による余分な起動も区別する。 |
 | [`interaction_progassert`](../generators/interaction_progassert.py) | 24 | 27 | programとmodule参照モデルの各クロック試行を、単周期判定・同サイクル/次サイクル含意で照合する。空虚な成功と未完了の試行を区別し、判定数と完了時のサンプル値総和を出力引数から観測する。 |

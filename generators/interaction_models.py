@@ -79,6 +79,7 @@ import interaction_clockevent
 import interaction_deferarg
 import interaction_genenum
 import interaction_pkgnba
+import interaction_pkgwatch
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -114,7 +115,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_mailbox,
               interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff, interaction_assocquery, interaction_randreduce,
               interaction_gendisable, interaction_dist, interaction_eventlife, interaction_dpiquery, interaction_sdfpath, interaction_checksample, interaction_progassert, interaction_cgsample, interaction_deferdis, interaction_compound, interaction_inside, interaction_range,
-              interaction_case_inside, interaction_clockevent, interaction_deferarg, interaction_genenum, interaction_pkgnba)
+              interaction_case_inside, interaction_clockevent, interaction_deferarg, interaction_genenum, interaction_pkgnba, interaction_pkgwatch)
 
 
 @dataclass
@@ -698,5 +699,12 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_pkgnba.MODEL.select(),
             "二つのモジュールから同じpackage変数へ順にNBAを予約し、参照方法・配列添字・遅延・状態型を交差する。"
             "値と代入先の取得、予約順序、別名での読出し、隣接要素と別packageの保持をActiveとNBA後で照合する。",
+        ),
+        SuiteModel(
+            interaction_pkgwatch.MODEL,
+            lambda row: "tests/gen/ch26/" + interaction_pkgwatch.case_name(row) + ".sv",
+            interaction_pkgwatch.MODEL.select(),
+            "同じpackage変数への複数のイベント待機とwait、関数内の外部参照を読むalways_combを照合する。"
+            "全体と最下位ビットの感度、条件のX、再書込み・隣接要素・別packageの通知と起床履歴を観測する。",
         ),
     )

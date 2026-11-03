@@ -12,7 +12,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 10636 |
+| Tests | 10672 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -26,8 +26,8 @@
 | --- | ---: |
 | both releases | 768 |
 | Icarus Verilog 13.0 only | 4885 |
-| Verilator 5.052 only | 1955 |
-| standard only | 3028 |
+| Verilator 5.052 only | 1967 |
+| standard only | 3052 |
 
 <a id="章別"></a>
 
@@ -58,7 +58,7 @@
 | 23 | Modules and hierarchy | 331 | 33 | 10.0 | 0 | 71 |
 | 24 | Programs | 124 | 7 | 17.7 | 0 | 80 |
 | 25 | Interfaces | 168 | 12 | 14.0 | 0 | 31 |
-| 26 | Packages | 119 | 6 | 19.8 | 0 | 38 |
+| 26 | Packages | 155 | 6 | 25.8 | 0 | 62 |
 | 27 | Generate constructs | 175 | 5 | 35.0 | 0 | 26 |
 | 28 | Gate-level and switch-level modeling | 245 | 26 | 9.4 | 0 | 48 |
 | 29 | User-defined primitives | 142 | 14 | 10.1 | 0 | 36 |

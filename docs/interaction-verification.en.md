@@ -12,7 +12,14 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 ## Saved-run summary
 
-At the package-NBA addition on 2026-11-03, the current selection has **78 models, 2,886 tests and 112 chapter pairs**.
+At the package-observer addition on 2026-11-03, the current selection has **79 models, 2,922 tests and 114 chapter pairs**.
+The [complete saved run](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json) records
+**2,389 pass, 529 unsupported and four existing config failures** on kirimasim `a682e19e3238`, fetched, configured and built immediately before execution.
+All 36 additions parse and pass; all preceding 2,886 input fingerprints and status categories are unchanged.
+52 models pass their entire selection. No core change is introduced; this local run is separate from formal Nightly.
+See [design, independent checks and limits](#package-change-observers).
+
+At the package-NBA addition on 2026-11-03, the selection had **78 models, 2,886 tests and 112 chapter pairs**.
 The [complete saved run](../coverage/interaction-results/cross78-kirimasim-7554bb47-pkgnba.json) records **2,353 pass, 529 unsupported and four existing config failures**
 on upstream kirimasim `7554bb47`, fetched, configured and built immediately before execution. All 36 additions parse and pass;
 all preceding 2,850 input fingerprints and status categories remain unchanged. 51 models pass their entire selection.
@@ -2943,6 +2950,86 @@ python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 8 \
   --json my-results/pkgnba-native-new.json tests/gen/ch26/test_gen_cross_pkgnba_*.sv
 python3 tools/run_verilator.py --verilator /path/to/verilator-5.052 --seed 1 -j 4 \
   --json my-results/pkgnba-verilator-new.json tests/gen/ch26/test_gen_cross_pkgnba_*.sv
+```
+
+<a id="package-change-observers"></a>
+
+### Package changes and independent observer processes
+
+`package_change_observers@1` combines two modules reading one package variable with a control reading an identically named variable in another package.
+The [generator](../generators/interaction_pkgwatch.py) crosses widths 1/32/33/64/65/129, bit/logic, known/X/Z values,
+qualified/wildcard/explicit imports, scalar/ascending/descending storage, blocking/NBA updates,
+whole-word/least-significant-bit event sensitivity and logical/case-equality wait conditions.
+**36 selected cases** retain all 225 factor pairs, 122 targeted triples and six anchors from 2,592 legal combinations:
+98.61% fewer selected cases, without a claim about elapsed time or general minimality.
+No legal row is excluded for unsupported behavior.
+
+IEEE 1800-2023 26.3/26.4 ground name binding, 9.4.2 event controls, 9.4.3 waits,
+9.2.2.2.1 always_comb sensitivity including external references inside functions, and 11.4.6 equality.
+Initialization sets all bits to one at time zero; event/wait observers arm at time one and are sampled at time two.
+The first write at time five avoids a registration race.
+One producer writes every five ticks: low-bit-only one, its repeat, all ones or X/Z, high-bit-only one,
+zero, repeated zero, a neighbor update and a control-package update.
+Immediately after each write it displays only the actual input and destination; observer state is sampled one tick later.
+This distinguishes a blocking assignment's new value from the old value immediately after NBA scheduling,
+without expecting an order between observer processes.
+
+Each observer exposes the always_comb value read through a function; event count, last notification time and whole-word value;
+the current wait condition; and a one-shot wait's count, time and held value.
+For multi-bit widths, all ones to low-bit-only one wakes only the whole-word event observer.
+A low-bit observer can retain an older whole-word event value after an upper-only change, distinct from live data.
+Logical equality of logic X/Z to zero is X; case equality is zero. Neither wakes the wait.
+Conversion of X/Z into bit storage produces zero and first wakes at time 15; logic first wakes on known zero at time 25.
+The first wake history persists after the condition becomes false again.
+Checks also cover no extra notification from repeated/neighbor writes, fanout to both observers,
+independent packages and the control's later progress at time 40.
+
+The [independent interpreter](../tools/qualify_pkgwatch.py) reads emitted SV types, bindings, functions, event/wait expressions,
+callbacks, actual assignments and displays. It calls no generator operation-sequence, index or expected-value helpers.
+All 2,592 emitted legal programs agree with the reference. Reversing observer execution order also preserves output.
+Only Word and literal from the existing [value decoder](../tools/qualify_pkgnba.py) are shared.
+This is bounded to one producer and independent read-only observers, not a general concurrent-scheduler proof.
+Variable observer indices, classes, dynamic arrays, ordering between independent writers and direct X-to-Z transitions are excluded.
+
+[Executed controls and fault injections](../coverage/interaction-qualification/pkgwatch.json) record four passing originals
+and eight actual SV mutations, each compiled and exited normally before differing from the original expectation.
+Faults change the function's package binding, remove a notification recipient, project a whole-word event,
+omit event counts, wake a wait early, retain the wrong value, lose unknown state or replace NBA with blocking.
+Original inputs and expectations remain intact; fault variants are not added to fixed-suite counts.
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross79-pkgwatch-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross79-pkgwatch-verilator5052-seed73.json) each record 12 pass and 24 known.
+Only the 12 cases without X/Z are registered as fixed-release oracles. All 24 displaying actual X/Z inputs remain fourstate,
+including those with bit destinations.
+[Icarus Verilog 13.0](../coverage/interaction-results/cross79-pkgwatch-icarus13.json) records 36 known compilation differences.
+[Original-input replays](../coverage/interaction-qualification/pkgwatch-fixed-replays.json) preserve Verilator output for two X/Z cases
+and diagnostics for two Icarus cases. These observations do not identify an internal cause or count as successful controls/fault detection.
+No input, expectation or oracle is weakened to match a difference.
+
+The two originals also differ at the first known-valued input display. [Diagnostic copies replacing only X/Z inputs with known zero](../coverage/interaction-qualification/pkgwatch-known-input-controls.json) match on kirimasim and fixed Verilator against independent interpretations of the actual modified SV. Original differences remain preserved; this does not identify an internal cause. These diagnostics are not added to the fixed suite, model counts or four original qualification controls.
+
+The [build/parse/stability record](../coverage/interaction-qualification/pkgwatch-build.json) and
+[single complete 2,922-case run](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json) identify upstream main
+`a682e19e3238`, fetched, configured and built immediately before execution, the actual binary, unmodified slang pin and runner.
+All 36 additions parse and pass; all preceding 2,886 inputs and status categories are unchanged.
+Overall results are 2,389 pass, 529 unsupported and four existing config failures. No core code changes are introduced.
+The matrix maps all 36 cases to Chapters 9×26 and 4×26, the 12 logic X/Z cases to 11×26, and the 24 array cases to 7×26.
+Each pair's all-selection-pass result requires all 36 model cases to pass in one execution.
+No new requirement bindings or denominator changes are introduced.
+
+Local introduction checks pass all 811 tool regressions and 13 consistency checks. The fixed suite grows by 36 to 10,672 tests, including 4,235 generated cases from 88 generators. Metadata has zero new problems and 395 known; 115 language pairs and 53,265 local links were checked. All preceding 78 plans, existing-model aggregates in the previous 250 saved runs and existing test inputs/expectations are retained. GitHub Check and formal Nightly have not run for these changes.
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_pkgwatch.py
+# Check upstream main, reconfigure and build latest kirimasim immediately before execution.
+python3 tools/qualify_pkgwatch.py --kirimasim /path/to/latest/kirimasim \
+  --output my-results/pkgwatch-qualification-new.json
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 8 \
+  --json my-results/pkgwatch-native-new.json tests/gen/ch26/test_gen_cross_pkgwatch_*.sv
+python3 tools/run_verilator.py --verilator /path/to/verilator-5.052 --seed 1 -j 4 \
+  --json my-results/pkgwatch-verilator-new.json tests/gen/ch26/test_gen_cross_pkgwatch_*.sv
+python3 tools/run_icarus.py --iverilog-bin /path/to/iverilog-13/bin -j 4 \
+  --json my-results/pkgwatch-icarus-new.json tests/gen/ch26/test_gen_cross_pkgwatch_*.sv
 ```
 
 ### Updates after model changes

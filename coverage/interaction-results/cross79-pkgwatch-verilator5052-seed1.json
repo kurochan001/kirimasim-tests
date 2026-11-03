@@ -1,0 +1,186 @@
+{
+  "simulator": "verilator",
+  "name": "Verilator",
+  "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "tests": {
+    "gen/ch26/test_gen_cross_pkgwatch_129_bit_known_wildcard_scalar_blocking_full_logical": {
+      "status": "pass",
+      "inputs_sha256": "7aee64dd2df7fd8f6511646e081040988d944f1c5911f75a89453420d651635a"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_129_bit_x_qualified_up_blocking_full_case": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=11100010000100001001100010011000010...', expected 'drive step=3 t=15 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+      "inputs_sha256": "f9b06ac4722d0ead53b29ef6abe84c9ccb23a0bbee0c1edbbdceb8b5e5427ab4"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_129_bit_z_qualified_scalar_nba_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 5 is 'drive step=1 t=5 raw=111111111111111111111111111111111111...', expected 'drive step=1 t=5 raw=000000000000000000000000000000000000...'",
+      "inputs_sha256": "a9fb40d3052f0c75c4fc364811920e97dd7e3def6be1e848d31af47968b4190b"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_129_logic_known_qualified_up_nba_full_logical": {
+      "status": "pass",
+      "inputs_sha256": "7d3b08bc5cd659de655a335cc351dd7e1aa1d95395f848a41763b9f9a2330067"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_129_logic_x_qualified_down_blocking_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=10110110010001101010001110001011010...', expected 'drive step=3 t=15 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+      "inputs_sha256": "6b9c1425fefd6b06c1b1d297b6f5f8ff7322cdccf8ba33d74b3fe46f7c72a83e"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_129_logic_z_explicit_down_nba_lsb_case": {
+      "status": "known",
+      "reason": "output differs: line 5 is 'drive step=1 t=5 raw=111111111111111111111111111111111111...', expected 'drive step=1 t=5 raw=000000000000000000000000000000000000...'",
+      "inputs_sha256": "591f378e396e9dce1bc7f9dbd23c5e2eb3f55cc87a28f21a8ceaf61898689354"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_1_bit_known_qualified_scalar_blocking_full_logical": {
+      "status": "pass",
+      "inputs_sha256": "d9e7226c2a4597eaf14f5908155c51fb5141eb275b8dbb112e7b3f33177adc81"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_1_bit_x_explicit_scalar_nba_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=0 active=1', expected 'drive step=3 t=15 raw=x active=1'",
+      "inputs_sha256": "b346f7625771f4adbd22ede4a54ebc447303e363b8ad31b0994d3afdbae201ed"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_1_bit_z_qualified_up_blocking_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=1 active=1', expected 'drive step=3 t=15 raw=z active=0'",
+      "inputs_sha256": "b7d4500df4c32c5d19f4761b94ce6c398e88c51c77d67bbdde2104613d26f582"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_1_logic_known_qualified_down_nba_full_logical": {
+      "status": "pass",
+      "inputs_sha256": "06673441d6394ce187f595c11e60c63a18bd0ba7652cbe08392cb9c003531e47"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_1_logic_x_qualified_up_nba_lsb_case": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=1 active=1', expected 'drive step=3 t=15 raw=x active=1'",
+      "inputs_sha256": "54277bbc5c6ec4530474da81d6e360d9dd22e8ffb6e44bedbc2175ec88e35079"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_1_logic_z_wildcard_down_blocking_lsb_logical": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=1 active=1', expected 'drive step=3 t=15 raw=z active=z'",
+      "inputs_sha256": "c84d8bdcf84b6981cfbf07f9bcf8621be4dc7da6f3ae39b15d971a5971678c0c"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_32_bit_known_wildcard_scalar_nba_full_logical": {
+      "status": "pass",
+      "inputs_sha256": "fc5d801932a5c88c83a0762d9438a851ec027e155c0c5d97a0a48e2ebc1a5f69"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_32_bit_x_explicit_scalar_blocking_lsb_logical": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=11111001111010000100101010111101 ac...', expected 'drive step=3 t=15 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ac...'",
+      "inputs_sha256": "129fa8dead42b9111bfd52c5916cbec0c7f9dc0ad1e6b9cf0c08ae0fba3b1502"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_32_bit_z_qualified_down_blocking_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 5 is 'drive step=1 t=5 raw=11111111111111111111111111111111 act...', expected 'drive step=1 t=5 raw=00000000000000000000000000000001 act...'",
+      "inputs_sha256": "bc68893208015e6d2013e444a5253ab72c440c145df6508ad5fd34283262e1d2"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_32_logic_known_explicit_up_nba_full_case": {
+      "status": "pass",
+      "inputs_sha256": "5687a67a5696e32d0bc5dffd558c96c1d726c08af38e2b130a48c00f623f1ea2"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_32_logic_x_qualified_up_blocking_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=01011101101111101100010111101011 ac...', expected 'drive step=3 t=15 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ac...'",
+      "inputs_sha256": "2547ebcd120c4a3c97577404de8a47fe32cc030b9cb0ba03617dac04be32103b"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_32_logic_z_qualified_down_nba_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 5 is 'drive step=1 t=5 raw=11111111111111111111111111111111 act...', expected 'drive step=1 t=5 raw=00000000000000000000000000000001 act...'",
+      "inputs_sha256": "e520aa67dcd429c19199982eb2b89c930dfc24a3e014ff6e997f7643322945e6"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_33_bit_known_wildcard_up_blocking_lsb_logical": {
+      "status": "pass",
+      "inputs_sha256": "5b0061029f82751166a92e5d914f9ab1e65cd277508c1a3ae520373416c9113d"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_33_bit_x_explicit_down_blocking_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=110101110110100001000011000011101 a...', expected 'drive step=3 t=15 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx a...'",
+      "inputs_sha256": "7d2a9b5a4047598ae56d69cb27a4747e511633daf50462c4bc8bef95be718222"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_33_bit_z_qualified_down_nba_lsb_logical": {
+      "status": "known",
+      "reason": "output differs: line 5 is 'drive step=1 t=5 raw=111111111111111111111111111111111 ac...', expected 'drive step=1 t=5 raw=000000000000000000000000000000001 ac...'",
+      "inputs_sha256": "992babb809f8752916b7127d675b9f52315985510b20252c2bd77ae57cc73c8d"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_33_logic_known_qualified_scalar_nba_full_logical": {
+      "status": "pass",
+      "inputs_sha256": "c05193e82ed211993cacb0e74b2b42f69aa3b7adb2d507cdda470576404ab205"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_33_logic_x_qualified_up_nba_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=001110110001010010100111110111011 a...', expected 'drive step=3 t=15 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx a...'",
+      "inputs_sha256": "937402a20e71327eee80a5de171085cb803720a94b3bd4c596622948253064de"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_33_logic_z_wildcard_scalar_blocking_full_case": {
+      "status": "known",
+      "reason": "output differs: line 5 is 'drive step=1 t=5 raw=111111111111111111111111111111111 ac...', expected 'drive step=1 t=5 raw=000000000000000000000000000000001 ac...'",
+      "inputs_sha256": "58f8486aefb39afcdc728209c7ae5de047879749fd9f18dd4e0c972e17a0740b"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_64_bit_known_wildcard_scalar_blocking_lsb_case": {
+      "status": "pass",
+      "inputs_sha256": "d7c27b35a0f506be876bf1d01b477bf45d6cc0953adc36703349a6965ca1fe8f"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_64_bit_x_qualified_scalar_nba_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=00010000011111010010101001000001000...', expected 'drive step=3 t=15 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+      "inputs_sha256": "318da031e28887d10bb6dd42cc688078f56d8cec8e249e7a4d05917a60c85cc5"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_64_bit_z_explicit_up_blocking_lsb_logical": {
+      "status": "known",
+      "reason": "output differs: line 5 is 'drive step=1 t=5 raw=111111111111111111111111111111111111...', expected 'drive step=1 t=5 raw=000000000000000000000000000000000000...'",
+      "inputs_sha256": "1f88491c047653817194235a0fe2387e26fdfc934aa7356d1145a42ea27a0b2a"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_64_logic_known_wildcard_down_nba_full_logical": {
+      "status": "pass",
+      "inputs_sha256": "cbc1a18b81dc874add4e424df3a44f4c94751d083c44c7116ccd56f70bf96a68"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_64_logic_x_qualified_up_nba_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=00011011110000001111011100111011001...', expected 'drive step=3 t=15 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+      "inputs_sha256": "b87051c71dc3974ca8203b64883f3747d267d254e2c23b5a411f27e35ba7e2fe"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_64_logic_z_qualified_down_blocking_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 5 is 'drive step=1 t=5 raw=111111111111111111111111111111111111...', expected 'drive step=1 t=5 raw=000000000000000000000000000000000000...'",
+      "inputs_sha256": "f7369cbfde38f7f6d5fdd4751b15f49e5f950b1ae8913c10c30c91d403bd7da9"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_65_bit_known_explicit_scalar_blocking_full_logical": {
+      "status": "pass",
+      "inputs_sha256": "078c37ee308b214997d719e942350319027c435f26c508672b6e8442a0357f84"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_65_bit_x_qualified_down_blocking_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=11010000011101000100100010000111100...', expected 'drive step=3 t=15 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+      "inputs_sha256": "0fe7d5fc92af688aef4d42127f8f38775576971d9991aa7035b58e66d7fca081"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_65_bit_z_qualified_scalar_nba_lsb_case": {
+      "status": "known",
+      "reason": "output differs: line 5 is 'drive step=1 t=5 raw=111111111111111111111111111111111111...', expected 'drive step=1 t=5 raw=000000000000000000000000000000000000...'",
+      "inputs_sha256": "678f0ac0fd9518f935a7319a4bf806386b210ed59fb3c8dd9e0ec3828caf3574"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_65_logic_known_qualified_up_nba_full_logical": {
+      "status": "pass",
+      "inputs_sha256": "97ad34fdd3e671e7e77c6585eebf8fd4015123087401beab45c0b16b1eff3f69"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_65_logic_x_wildcard_up_blocking_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 15 is 'drive step=3 t=15 raw=01111010010001001101110001100101011...', expected 'drive step=3 t=15 raw=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+      "inputs_sha256": "52055d6d088b4d2aed8c844f0fd1d7175b103860dd36ce06312a5ab30b5e4b9d"
+    },
+    "gen/ch26/test_gen_cross_pkgwatch_65_logic_z_qualified_down_nba_full_logical": {
+      "status": "known",
+      "reason": "output differs: line 5 is 'drive step=1 t=5 raw=111111111111111111111111111111111111...', expected 'drive step=1 t=5 raw=000000000000000000000000000000000000...'",
+      "inputs_sha256": "2b1959491cd51c68e03decaac90900626e40c6d9912448531cea40db9892d231"
+    }
+  },
+  "generated_at": "2026-11-03T10:12:55.281422+00:00",
+  "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+  "runner_changed": false,
+  "configuration": {
+    "seed": 1
+  },
+  "publication_privacy": {
+    "paths_redacted": true,
+    "original_sha256": "b51751580f7f7499bb0c6f7f214e1b8bccf7a7e5727b6c497170061f6e169ad3",
+    "scope": "Only diagnostic paths; status and execution fingerprints retained."
+  }
+}

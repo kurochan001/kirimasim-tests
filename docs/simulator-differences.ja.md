@@ -884,3 +884,7 @@ kirimasim `7554bb47`は36件とも解析成功・PASSで、本体の変更はあ
 [全出力・診断](../coverage/interaction-qualification/pkgnba-fixed-replays.json)ではローカルパスを伏せ、元バイト列のハッシュを保持します。
 kirimasim `7554bb47`は追加36件すべて解析成功・PASSで、本体の変更はありません。
 [設計・独立検算・制限](interaction-verification.md#package-nba-capture)を参照してください。
+
+## package変数の変更通知（2026-11-03）
+
+[package変更のクロス](interaction-verification.md#package-change-observers)は共有変数のイベント待機・waitの通知先と関数経由のalways_comb感度を36件で確認します。固定Verilator 5.052のseed 1/73はX/Zを使わない12件に一致し、残る24件はknownのままで4状態oracleへ登録しません。固定Icarus 13.0は全36件をコンパイル段階で拒否します。[元のSVの再実行](../coverage/interaction-qualification/pkgwatch-fixed-replays.json)にVerilatorの全出力2件とIcarusの診断2件を保存しました。元のVerilator 2件は先行する既知値の入力表示から差があり、[X/Z入力だけをゼロへ置き換えた別の診断用対照](../coverage/interaction-qualification/pkgwatch-known-input-controls.json)は独立した期待値でkirimasimと固定Verilatorの両方に一致しました。内部原因、言語機能全体の制限、以後の開発版の結果を断定するものではありません。元の期待値とknown分類は維持しています。

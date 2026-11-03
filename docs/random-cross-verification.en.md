@@ -29,7 +29,7 @@ Preserve failures as reproducible evidence and carry confirmed mechanisms into f
   See the [core validation policy](https://github.com/kurochan001/kirimasim/blob/main/docs/VALIDATION.md).
 
 Passing samples do not prove correctness for all inputs/sequences, coverage of every factor combination or absence of undiscovered bugs.
-Features outside the three supported profiles are not automatically explored.
+Features outside the five supported profiles are not automatically explored.
 Generation uses a distribution defined in code and a seed; automatic adaptation using coverage feedback is not implemented.
 Some reference calculations share functions with fixed interaction tests, so repeated random comparisons alone cannot rule out oracle defects.
 Combine standard review, hand-calculated boundaries and [reference/runner regressions](../tools/test_random_cross.py).
@@ -64,7 +64,7 @@ fixed regressions, formal Nightly and explicit replay execute again.
 
 ## Scope and generation
 
-Three profiles are currently supported. This does not generalize every finite model to arbitrary inputs.
+Five profiles are currently supported. This does not generalize every finite model to arbitrary inputs.
 
 - `expression_context` crosses widths, signedness, destination width and addition/subtraction/multiplication with arbitrary known input bits.
   It reuses the reference in `generators/interaction_expr.py`.
@@ -75,14 +75,40 @@ Three profiles are currently supported. This does not generalize every finite mo
   Each case fixes its slice width, varying legal positions, data and read/write sequences.
   Whole-vector observations also check preservation of unselected bits and conversion of X/Z in two-state storage.
 
+- `conditional_context` supplies arbitrary four-state branch values to `?:`, crossing signs, destination width (including ±1 bit) and bit/logic storage.
+  Known conditions select one branch; X/Z conditions merge bits after context extension, including Z/Z becoming X.
+  Truncation and bit-storage conversion happen afterwards. Original branch values and conditions are displayed.
+  Branches have equal original widths; one-bit narrow destinations are excluded.
+- `package_change_sequence` crosses width, bit/logic, qualified/wildcard/explicit imports, scalar/fixed-array storage,
+  blocking/NBA, whole-word/low-bit event sensitivity and logical/case-equality wait conditions.
+  It varies initial shared/neighbor/control values and write sequences, comparing two observers and an independent control.
+  Observations include always_comb sensitivity through external function reads, notification counts/times/whole-word history,
+  current wait predicates and retained wake history. It shares the [fixed cross's mechanism and standard basis](interaction-verification.en.md#package-change-observers)
+  without being limited to its eight fixed operations.
+
 Widths are 1/32/33/64/65/129, with the arithmetic models' legal one-bit operand/destination width differences.
-Arithmetic mixes random values with zero, one and type boundaries; write sequences also generate X/Z.
+Arithmetic mixes random values with zero, one and type boundaries; write, conditional and package profiles also generate X/Z.
 Profiles receive approximately equal case counts; a seed chooses their order and legal parameters.
-The first operation is a write, the second a read when present, and subsequent operations choose read/write.
+For packed_write_sequence, the first operation is a write, the second a read when present, and subsequent operations choose read/write.
 Combinations can repeat. Random sampling is not a guarantee of pairwise or three-factor coverage.
 
-Out-of-range indices, empty containers, concurrent scheduling, classes, constraint solving and `randomize()` itself are outside scope.
+The package profile initializes at time zero, arms observers at time one and first writes at time five. One producer updates every five ticks; the immediate destination and next-tick observer state are sampled separately. An initially zero target completes its wait at time one; later changes do not overwrite that first wake history. The sequence starts with a shared-target write, mixes shared/neighbor/control writes with approximately one-quarter repeated writes, and ends with a known-zero shared-target write to check progress. A one-operation case contains only that final write.
+
+Out-of-range or variable observer indices, empty containers, races between independent writers, arbitrary concurrent scheduling, classes, constraint solving and `randomize()` itself are outside scope.
 Random generation with multiple legal solutions needs a separate constraint-satisfaction check rather than exact output equality.
+
+The 2026-11-03 addition expands the default allocation from three to five profiles. At 96 cases the ordered counts above are 20/19/19/19/19, reducing each original profile's samples from 32 while retaining the total case/vector budget and exploring more mechanisms. Default generation therefore produces different stimuli for the same seed.
+To regenerate the old allocation, specify `--models expression_context division_context packed_write_sequence`.
+Use `--replay` for saved stimuli rather than regenerating them. The manifest format and original profiles' materialized bytes remain compatible; existing source hashes and reference-drift reporting identify code changes.
+
+```sh
+# Explore only the two new profiles; fetch/build latest main immediately beforehand.
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --seed 731 --models conditional_context package_change_sequence \
+  --cases 96 --vectors 8 --jobs 4 --timeout 5 --time-budget 120 \
+  --output my-results/new-profiles-731
+```
 
 <a id="limits-and-verdicts"></a>
 
@@ -200,6 +226,38 @@ See [qualification evidence](../coverage/interaction-qualification/random-cross.
 fingerprints and fault detection. The [saved 96-case manifest](../coverage/interaction-qualification/random-cross-manifest.json)
 can be supplied to `--replay`. These are not fixed-suite passes. Boundary witnesses and low-order coverage remain in fixed regressions.
 
+<a id="five-profile-validation"></a>
+
+### Five-profile extension and validation (2026-11-03)
+
+The [new qualification record](../coverage/interaction-qualification/random-cross-five-profiles.json) and
+[saved 96-case five-profile manifest](../coverage/interaction-qualification/random-cross-five-profiles-manifest.json) retain this extension's evidence.
+Upstream main `d73d8922dfa2`, fetched, configured and built immediately before execution, passes 352 cases:
+96 mixed cases at each of seeds 1/731/20261103 and 32 cases per new profile at the maximum 32 vectors/operations.
+No core code changes are introduced. Explicitly selecting the original three profiles retains their previous manifest/SV/expectation hashes at three seeds.
+Unit tests independently interpret 216 actual package programs using the [fixed cross's interpreter](../tools/qualify_pkgwatch.py),
+in both forward and reverse observer-processing order. Conditional checks include all fixed-model boundary rows,
+all single-bit input pairs and hand-calculated context-extension, Z/Z merge and bit-conversion examples.
+
+Saved replay of one case from each new profile passes with identical original SV/expectation bytes and no reference drift.
+Four separate saved controls all pass on kirimasim. Fixed Verilator 5.052 passes two known-input cases and excludes two requiring X/Z as unsupported;
+fixed Icarus 13.0 passes one and retains three known differences: one conditional X/Z merge and two package compilation rejections.
+Original outputs/diagnostics remain in local artifacts. These are not all-simulator successes or automatic fixed-oracle registrations.
+Four actual SV faults also exit normally and differ from their original expectations: a wrong conditional branch,
+function package binding, early wait and lost notification counts. Preserve original failures and expectations.
+Local artifacts are under `my-results/random-profiles-20261103/`.
+
+All 830 tool regressions, including 80 random-related checks, and 13 consistency checks pass. The Check generation/single-case-replay CLI and explicit new-profile selection also pass. All 115 language pairs and 53,273 local links are current. Random additions do not increase fixed-suite, chapter-matrix or requirement-coverage counts. Formal GitHub Check and Nightly have not run for these changes.
+
+```sh
+# Replay the published stimuli; fetch/build latest main immediately beforehand.
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --replay coverage/interaction-qualification/random-cross-five-profiles-manifest.json \
+  --output my-results/five-profiles-saved-replay
+python3 -m unittest discover -s tools -p 'test_random_cross*.py'
+```
+
 <a id="exploration-admission"></a>
 
 ## Additional exploration admission
@@ -207,8 +265,7 @@ can be supplied to `--replay`. These are not fixed-suite passes. Boundary witnes
 The policy is to repeat fixed regressions and formal Nightly, and prevent only
 identical completed **additional exploration jobs** from being submitted again.
 No parameter tuple, width, sign, input value or operation is permanently removed
-from generation. The three profiles, random streams, distributions and limits
-are unchanged. Ordered operations, repeated writes and initial state are input;
+from generation. Explicitly selecting the original three profiles in their original order preserves their random streams and distributions; overall limits are unchanged. Ordered operations, repeated writes and initial state are input;
 equal parameter tuples do not imply equal verification.
 
 ```sh

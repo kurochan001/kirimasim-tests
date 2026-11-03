@@ -1833,6 +1833,55 @@
           }
         }
       ]
+    },
+    {
+      "id": "package_change_observers",
+      "primary_chapter": 26,
+      "pairs": [
+        {
+          "chapters": [
+            9,
+            26
+          ],
+          "reason": "同じpackage変数へのイベント待機とwaitの起床、関数内の外部参照を読むalways_combの更新を複数モジュールで照合する。"
+        },
+        {
+          "chapters": [
+            11,
+            26
+          ],
+          "reason": "packageの未知値をゼロと比較し、等価のXと等価性の零、waitが起床しない状態と既知値復帰後の起床履歴を照合する。",
+          "when": {
+            "state": [
+              "logic"
+            ],
+            "value": [
+              "x",
+              "z"
+            ]
+          }
+        },
+        {
+          "chapters": [
+            4,
+            26
+          ],
+          "reason": "packageへのブロッキング代入直後の新値とNBA直後の旧値を読み、次時刻に通知と起床の結果を照合する。"
+        },
+        {
+          "chapters": [
+            7,
+            26
+          ],
+          "reason": "packageの昇順・降順配列の選択要素を監視し、隣接要素への書込みがイベント回数や保持した起床履歴を変えないことを照合する。",
+          "when": {
+            "storage": [
+              "up",
+              "down"
+            ]
+          }
+        }
+      ]
     }
   ]
 }

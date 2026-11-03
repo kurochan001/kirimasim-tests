@@ -884,3 +884,7 @@ Fixed Icarus 13.0 records 36 known build differences; syntax diagnostics from tw
 [Complete outputs/diagnostics](../coverage/interaction-qualification/pkgnba-fixed-replays.json) redact local paths and retain original-byte hashes.
 Kirimasim `7554bb47` parses and passes all 36 additions without core changes.
 See [design, independent checks and limits](interaction-verification.en.md#package-nba-capture).
+
+## Package change observers (2026-11-03)
+
+The [package-observer cross](interaction-verification.en.md#package-change-observers) selects 36 cases covering shared-variable event/wait fanout and function-sensitive always_comb. Fixed Verilator 5.052 seeds 1 and 73 each match 12 cases without X/Z; the other 24 remain known and are not registered as four-state oracles. Fixed Icarus 13.0 rejects all 36 during compilation. [Original-input replays](../coverage/interaction-qualification/pkgwatch-fixed-replays.json) retain two full Verilator outputs and two Icarus diagnostics. The two Verilator originals already differ at an earlier known-valued input display; [separate copies replacing only X/Z inputs with zero](../coverage/interaction-qualification/pkgwatch-known-input-controls.json) match independent expectations on both native kirimasim and fixed Verilator. The observations do not establish an internal cause, a language-wide limitation, or results on a newer development build. Original expectations and known statuses remain unchanged.

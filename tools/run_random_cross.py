@@ -36,6 +36,7 @@ SOURCES = ('tools/run_random_cross.py', 'tools/random_cross_models.py', 'tools/n
            'tools/run_icarus.py', 'tools/run_verilator.py', 'tools/run_kirimasim.py',
            'tools/suite_results.py', 'generators/interaction_expr.py', 'generators/interaction_divide.py',
            'generators/interaction_bits.py', 'generators/interaction_cond.py',
+           'generators/interaction_pkgwatch.py',
            'generators/interaction_cover.py', 'generators/common.py')
 STATES = ('pass', 'fail', 'known', 'unsupported', 'not_run', 'stale')
 

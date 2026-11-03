@@ -1,4 +1,4 @@
-"""Bounded replayable stimuli for three model-based random comparison profiles.
+"""Bounded replayable stimuli for model-based random comparison profiles.
 
 These runtime cases do not enter the registered fixed suite or its coverage
 denominators. Arithmetic reuses the existing standard-derived references;
@@ -16,9 +16,12 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT/'generators'))
 import interaction_divide as divide
 import interaction_expr as expression
+import interaction_cond as conditional
+import interaction_pkgwatch as package_watch
 
 GENERATOR = 'bounded_random_cross@1'
-PROFILES = ('expression_context', 'division_context', 'packed_write_sequence')
+LEGACY_PROFILES = ('expression_context', 'division_context', 'packed_write_sequence')
+PROFILES = LEGACY_PROFILES + ('conditional_context', 'package_change_sequence')
 MAX_CASES = 256
 MAX_STIMULI = 32
 WIDTHS = (1, 32, 33, 64, 65, 129)
@@ -74,6 +77,10 @@ def generate(seed, count=96, steps=8, profiles=PROFILES):
                     b = f'{rng.randrange(1, 1 << wb):0{wb}b}'
                 stimuli.append({'a': a, 'b': b})
             parameters = {'row': list(row)}
+        elif profile == 'conditional_context':
+            parameters, stimuli = generate_conditional(rng, steps)
+        elif profile == 'package_change_sequence':
+            parameters, stimuli = generate_package(rng, steps)
         else:
             width = rng.choice(WIDTHS)
             span = rng.randint(1, width)
@@ -119,6 +126,10 @@ def validate_case(case):
             bits(vector['b'], wb)
             if profile == PROFILES[1] and int(vector['b'], 2) == 0:
                 raise ValueError('division profile requires a nonzero known divisor')
+    elif profile == 'conditional_context':
+        validate_conditional(parameters, stimuli)
+    elif profile == 'package_change_sequence':
+        validate_package(parameters, stimuli)
     else:
         keys(parameters, ('width', 'span', 'direction', 'select', 'state'))
         width = integer(parameters['width'], 1, 129, 'width')
@@ -176,6 +187,11 @@ def content_digest(case):
 
 def requires_fourstate(case):
     validate_case(case)
+    if case['profile'] == 'conditional_context':
+        return any(set(v['a']+v['b']+v['condition']) & set('xz') for v in case['stimuli'])
+    if case['profile'] == 'package_change_sequence':
+        return any(set(v) & set('xz') for v in case['stimuli']['initial'].values()) or any(
+            set(op['data']) & set('xz') for op in case['stimuli']['operations'])
     if case['profile'] != 'packed_write_sequence':
         return False
     stimuli = case['stimuli']
@@ -214,6 +230,12 @@ def materialize(case):
                 expected += [f'v{index}_raw={divide.reference(row, a, b, natural)} '
                              f'result={divide.reference(row, a, b, wr)} bits={natural}']
         clauses = '11.6.1 11.8.1 11.8.2'+(' 11.4.3' if profile == PROFILES[1] else '')
+    elif profile == 'conditional_context':
+        lines, expected = materialize_conditional(case)
+        clauses = '11.4.11 11.6.1 11.8.1 11.8.2 6.11.2'
+    elif profile == 'package_change_sequence':
+        lines, expected = materialize_package(case)
+        clauses = '26.3 26.4 9.4.2 9.4.3 9.2.2.2.1 11.4.6 4.4.2.2 4.4.2.4 7.4.1'
     else:
         w, span = p['width'], p['span']
         ascending = p['direction'] == 'ascending'
@@ -244,3 +266,154 @@ def materialize(case):
               ':description: Bounded random comparison; replay the saved manifest.', '*/',
               '// Runtime-only case; not part of the registered fixed suite.']
     return '\n'.join(header+lines)+'\n', '\n'.join(expected)+'\n'
+
+
+def generate_conditional(rng, steps):
+    width = rng.choice(WIDTHS)
+    p = {'width': width, 'relation': rng.choice(('same', 'wide') if width == 1 else ('narrow', 'same', 'wide')),
+         'sign_a': rng.choice(('signed', 'unsigned')), 'sign_b': rng.choice(('signed', 'unsigned')),
+         'state': rng.choice(('bit', 'logic'))}
+    vectors = []
+    for _ in range(steps):
+        a = word(rng, width, True)
+        # Equal branches exercise identical X/Z merging; independent branches
+        # explore arbitrary differing bits rather than fixed pattern names.
+        b = a if rng.randrange(4) == 0 else word(rng, width, True)
+        vectors.append({'a': a, 'b': b, 'condition': rng.choice('01xz')})
+    return p, vectors
+
+
+def validate_conditional(p, vectors):
+    keys(p, ('width', 'relation', 'sign_a', 'sign_b', 'state'))
+    width = integer(p['width'], 1, 129, 'width')
+    if width not in WIDTHS or p['relation'] not in ('narrow', 'same', 'wide') or (
+            width == 1 and p['relation'] == 'narrow') or p['sign_a'] not in ('signed', 'unsigned') or (
+            p['sign_b'] not in ('signed', 'unsigned')) or p['state'] not in ('bit', 'logic'):
+        raise ValueError('invalid conditional-context parameter')
+    if not isinstance(vectors, list):
+        raise ValueError('vectors must be a list')
+    integer(len(vectors), 1, MAX_STIMULI, 'vectors')
+    for vector in vectors:
+        keys(vector, ('a', 'b', 'condition'))
+        bits(vector['a'], width, True);bits(vector['b'], width, True);bits(vector['condition'], 1, True)
+
+
+def materialize_conditional(case):
+    p = case['parameters'];w = p['width'];wr = w + {'narrow': -1, 'same': 0, 'wide': 1}[p['relation']]
+    lines = [f'module random_cross_{case["id"]};', f'  logic {p["sign_a"]} [{w-1}:0] a;',
+             f'  logic {p["sign_b"]} [{w-1}:0] b;', '  logic condition;',
+             f'  {p["state"]} [{wr-1}:0] result;', '  initial begin']
+    expected = []
+    for index, vector in enumerate(case['stimuli']):
+        a, b, condition = vector['a'], vector['b'], vector['condition']
+        lines += [f'    a = {conditional.literal(a)}; b = {conditional.literal(b)};',
+                  f"    condition = 1'b{condition};", '    result = condition ? a : b;',
+                  f'    $display("v{index}_inputs=%b %b condition=%b", a, b, condition);',
+                  f'    $display("v{index}_result=%b", result);']
+        n = max(w, wr)
+        signed = p['sign_a'] == p['sign_b'] == 'signed'
+        a_ext = (a[0] if signed else '0')*(n-w)+a
+        b_ext = (b[0] if signed else '0')*(n-w)+b
+        value = a_ext if condition == '1' else b_ext if condition == '0' else ''.join(
+            x if x == y and x in '01' else 'x' for x, y in zip(a_ext, b_ext))
+        value = value[-wr:]
+        if p['state'] == 'bit':value = value.replace('x', '0').replace('z', '0')
+        expected += [f'v{index}_inputs={a} {b} condition={condition}', f'v{index}_result={value}']
+    return lines, expected
+
+
+def generate_package(rng, steps):
+    width = rng.choice(WIDTHS)
+    p = {'width': width, 'state': rng.choice(('bit', 'logic')),
+         'access': rng.choice(('qualified', 'wildcard', 'explicit')),
+         'storage': rng.choice(('scalar', 'up', 'down')), 'update': rng.choice(('blocking', 'nba')),
+         'event': rng.choice(('full', 'lsb')), 'wait': rng.choice(('logical', 'case'))}
+    initial = {name: word(rng, width, True) for name in ('payload', 'neighbor', 'control', 'other_guard')}
+    operations = []
+    for index in range(steps):
+        if index == steps-1:
+            operation = {'target': 'payload', 'data': '0'*width}  # eventual progress
+        elif operations and rng.randrange(4) == 0:
+            operation = dict(operations[-1])  # do not collapse repeated writes
+        else:
+            target = 'payload' if index == 0 else rng.choice(('payload', 'payload', 'payload', 'payload', 'neighbor', 'control'))
+            operation = {'target': target, 'data': word(rng, width, True)}
+        operations.append(operation)
+    return p, {'initial': initial, 'operations': operations}
+
+
+def validate_package(p, stimuli):
+    choices = {'state': ('bit', 'logic'), 'access': ('qualified', 'wildcard', 'explicit'),
+               'storage': ('scalar', 'up', 'down'), 'update': ('blocking', 'nba'),
+               'event': ('full', 'lsb'), 'wait': ('logical', 'case')}
+    keys(p, ('width', *choices))
+    width = integer(p['width'], 1, 129, 'width')
+    if width not in WIDTHS or any(p[name] not in values for name, values in choices.items()):
+        raise ValueError('invalid package-sequence parameter')
+    keys(stimuli, ('initial', 'operations'))
+    keys(stimuli['initial'], ('payload', 'neighbor', 'control', 'other_guard'))
+    for value in stimuli['initial'].values():bits(value, width, True)
+    operations = stimuli['operations']
+    if not isinstance(operations, list):raise ValueError('operations must be a list')
+    integer(len(operations), 1, MAX_STIMULI, 'operations')
+    for operation in operations:
+        keys(operation, ('target', 'data'))
+        if operation['target'] not in ('payload', 'neighbor', 'control'):
+            raise ValueError('invalid package target')
+        bits(operation['data'], width, True)
+
+
+def materialize_package(case):
+    p, stimuli = case['parameters'], case['stimuli'];w = p['width'];zero = '0'*w
+    row = (str(w), p['state'], 'known', p['access'], p['storage'], p['update'], p['event'], p['wait'])
+    address = lambda name: package_watch.address(row, 'control_pkg' if name in ('control', 'other_guard') else 'payload_pkg',
+                                                name in ('neighbor', 'other_guard'))
+    lines = ['`timescale 1ns/1ns']
+    for package in ('payload_pkg', 'control_pkg'):
+        left, right = package_watch.indices(row)
+        lines += [f'package {package};', f'  typedef {p["state"]} [{w-1}:0] word_t;']
+        lines += ['  word_t target, neighbor;'] if p['storage'] == 'scalar' else [f'  word_t target[{left}:{right}];']
+        lines += ['endpackage']
+    lines += package_watch.observer(row, 'payload_pkg', 'payload_watch')
+    lines += package_watch.observer(row, 'control_pkg', 'control_watch')
+    lines += [f'module random_cross_{case["id"]};', f'  logic [{w-1}:0] drive;',
+              '  payload_watch a();', '  payload_watch b();', '  control_watch g();', '  initial begin']
+    convert = lambda value: value.replace('x', '0').replace('z', '0') if p['state'] == 'bit' else value
+    values = {name: convert(value) for name, value in stimuli['initial'].items()}
+    history = {name: {'hits': 0, 'last': zero, 'at': -1, 'wakes': int(values[name] == zero),
+                      'wt': 1 if values[name] == zero else -1, 'held': zero} for name in ('payload', 'control')}
+    for name, value in stimuli['initial'].items():lines += [f'    {address(name)} = {conditional.literal(value)};']
+    drive = stimuli['initial']['payload']
+    lines += [f'    drive = {conditional.literal(drive)};', '    #2;']
+    expected = []
+
+    def snapshot(tag, tick):
+        lines.extend([f'    $display("snap tag={tag} t=%0d drive=%b neighbor=%b other_guard=%b",',
+                      f'             $time, drive, {address("neighbor")}, {address("other_guard")});'])
+        expected.append(f'snap tag={tag} t={tick} drive={drive} neighbor={values["neighbor"]} other_guard={values["other_guard"]}')
+        for name, target in (('a', 'payload'), ('b', 'payload'), ('g', 'control')):
+            value = values[target];state = history[target]
+            predicate = '1' if value == zero else 'x' if p['wait'] == 'logical' and '1' not in value and set(value)&set('xz') else '0'
+            lines.extend([f'    $write("o name={name} data=%b copy=%b hits=%0d last=%b at=%0d pred=%b ",',
+                          f'             {address(target)}, {name}.copy, {name}.hits, {name}.last, {name}.at, {name}.predicate_now());',
+                          '    $display("wakes=%0d wt=%0d held=%b",', f'             {name}.wakes, {name}.wt, {name}.held);'])
+            expected.append(f'o name={name} data={value} copy={value} hits={state["hits"]} last={state["last"]} '
+                            f'at={state["at"]} pred={predicate} wakes={state["wakes"]} wt={state["wt"]} held={state["held"]}')
+    snapshot('armed', 2)
+    for step, operation in enumerate(stimuli['operations'], 1):
+        target, drive = operation['target'], operation['data'];tick = step*5
+        lines += ['    #3;' if step == 1 else '    #4;', f'    drive = {conditional.literal(drive)};',
+                  f'    {address(target)} '+('<=' if p['update'] == 'nba' else '=')+' drive;',
+                  f'    $display("drive step={step} t=%0d raw=%b active=%b", $time, drive, {address(target)});', '    #1;']
+        old, value = values[target], convert(drive)
+        expected.append(f'drive step={step} t={tick} raw={drive} active={value if p["update"] == "blocking" else old}')
+        values[target] = value
+        if target in history:
+            state = history[target]
+            if (old if p['event'] == 'full' else old[-1]) != (value if p['event'] == 'full' else value[-1]):
+                state.update(hits=state['hits']+1, last=value, at=tick)
+            if value == zero and not state['wakes']:state.update(wakes=1, wt=tick, held=value)
+        snapshot(str(step), tick+1)
+    lines += ['    #4;']
+    snapshot('idle', len(stimuli['operations'])*5+5)
+    return lines, expected

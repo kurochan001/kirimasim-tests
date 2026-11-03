@@ -1,0 +1,447 @@
+{
+  "generated_at": "2026-11-03T10:28:23.708516+00:00",
+  "scope": "Local tests of five bounded profiles; separate from fixed suite, registered chapter coverage, Check and formal Nightly. Actual immutable run artifacts are retained locally; the representative manifest is published for regeneration-free replay.",
+  "build": {
+    "revision": "d73d8922dfa20e19ccb9411adbe42a6d258bb49d",
+    "version": "kirimasim 0.0.0 (commit d73d8922dfa2), built with AppleClang 21.0.0.21000334",
+    "binary_sha256": "2b5ca541d394d8c11d2763fe5c88fef6138ed23d5fc47ef74bdbbf3b9134aa0d",
+    "upstream_main": "d73d8922dfa20e19ccb9411adbe42a6d258bb49d"
+  },
+  "sources_sha256": {
+    "tools/run_random_cross.py": "bdb7b44236e1d6525b09c2f15dd3e6acfbca30af6a9ae0eb177d9f6f0ccc7255",
+    "tools/random_cross_models.py": "bc020778ffeb7d47257001812d1ce49cd915ecb27c7eb8da82ecf79c93659e91",
+    "tools/normalize_output.py": "81841d0dd7a9b47cc4570a87e3e50756b4ae5f1269aaebb7e3666abaa45b2d36",
+    "tools/random_cross_compare.py": "a7f128efe6d55c284bf7ba28d65ee20ab91d823fa662d40c12ceb368691c0d1b",
+    "tools/random_cross_evidence.py": "d8d8a002928491d78a6058035908f6f9c9f67eb810471b1a05400f41ffc66128",
+    "tools/random_cross_history.py": "64e4c4409cbc4a3f1562d18a9cedbe1c5bb6690ec6d0082d5fae1f4e471985b2",
+    "tools/random_cross_identity.py": "cead239118fcfc983743d96d0b786d4bc7e4160255bfbd7028e4927ba64d6b6c",
+    "tools/run_icarus.py": "7a090fd04718b47b6b136a3b8dbc22aec79246f79a45cacc1681e9acfab28f09",
+    "tools/run_verilator.py": "1fb2ccf7e478997987d030cfd497ad7ed54a50bec7dfedad27787a981d7556d6",
+    "tools/run_kirimasim.py": "4561f60341b97deea116f0c7fe6416ff5a8918f721e7661209cd6dc88e1bad96",
+    "tools/suite_results.py": "78beab44a69aa9eb13db4f44dd9c0c933a0b06ed16213be7087218a79d4b918d",
+    "generators/interaction_expr.py": "3b71306d54dbe2476ae38aa363c3e04b4df42a56079abeab28b007b9912cb684",
+    "generators/interaction_divide.py": "6dd614a0ab46204ae519843cc1c9da33f13df48fcb6fa03c65ecfc9d85d44891",
+    "generators/interaction_bits.py": "13ef2b3f91d78a7d1b19a8014948c41c6059e2d4d0955b0b64bb85d900ac3c15",
+    "generators/interaction_cond.py": "2465534054b7c1fb2c5f3937b41e8f8bb74d70464bf1b84a3790aaaa94f41647",
+    "generators/interaction_pkgwatch.py": "f7ab9cc605a67413b236749c6bfde3f2076988b924227acfaef94273e9586dfa",
+    "generators/interaction_cover.py": "bde3c87cb89b26ba99648ea4c5c4e62d669ccacba72e00e3adb763649fee9552",
+    "generators/common.py": "ca76d919859caeaf97863a45e8679eea6d15a51cc29ce31221ec53e09146e8c0"
+  },
+  "runs": [
+    {
+      "seed": 1,
+      "count": 96,
+      "vectors": 8,
+      "profiles": [
+        "expression_context",
+        "division_context",
+        "packed_write_sequence",
+        "conditional_context",
+        "package_change_sequence"
+      ],
+      "counts": {
+        "pass": 96,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "expression_context": {
+          "pass": 20
+        },
+        "division_context": {
+          "pass": 19
+        },
+        "packed_write_sequence": {
+          "pass": 19
+        },
+        "conditional_context": {
+          "pass": 19
+        },
+        "package_change_sequence": {
+          "pass": 19
+        }
+      },
+      "manifest_sha256": "e41b4a670b53273201162f3cecc335813885bf521e5b07de2f15f1c0c44a3b72",
+      "run_sha256": "08cf8c845903ba0aa497ff8c0750bdb90467a259a8edb6d959b5eda0f52dc386",
+      "artifact": "my-results/random-profiles-20261103/run-0",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    },
+    {
+      "seed": 731,
+      "count": 96,
+      "vectors": 8,
+      "profiles": [
+        "expression_context",
+        "division_context",
+        "packed_write_sequence",
+        "conditional_context",
+        "package_change_sequence"
+      ],
+      "counts": {
+        "pass": 96,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "expression_context": {
+          "pass": 20
+        },
+        "division_context": {
+          "pass": 19
+        },
+        "packed_write_sequence": {
+          "pass": 19
+        },
+        "conditional_context": {
+          "pass": 19
+        },
+        "package_change_sequence": {
+          "pass": 19
+        }
+      },
+      "manifest_sha256": "21b1d9aa1283caf5737243bd925ec120ce14459e09e0f860d277d312d704d776",
+      "run_sha256": "b511b5ec213e5a284760431eb04976e8240b2b3eb840916bb127f70b0f3db846",
+      "artifact": "my-results/random-profiles-20261103/run-1",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    },
+    {
+      "seed": 20261103,
+      "count": 96,
+      "vectors": 8,
+      "profiles": [
+        "expression_context",
+        "division_context",
+        "packed_write_sequence",
+        "conditional_context",
+        "package_change_sequence"
+      ],
+      "counts": {
+        "pass": 96,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "expression_context": {
+          "pass": 20
+        },
+        "division_context": {
+          "pass": 19
+        },
+        "packed_write_sequence": {
+          "pass": 19
+        },
+        "conditional_context": {
+          "pass": 19
+        },
+        "package_change_sequence": {
+          "pass": 19
+        }
+      },
+      "manifest_sha256": "3f60ee8132d7892e22c4007a6cb10bb587da28e5ce5b95b885947b9a74b8ad6b",
+      "run_sha256": "414397f78e59fb66d981af8c04713f314cee5822b8f6b59281b9cf98fc6f5696",
+      "artifact": "my-results/random-profiles-20261103/run-2",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    },
+    {
+      "seed": 731,
+      "count": 32,
+      "vectors": 32,
+      "profiles": [
+        "conditional_context"
+      ],
+      "counts": {
+        "pass": 32,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "conditional_context": {
+          "pass": 32
+        }
+      },
+      "manifest_sha256": "e80a1e5548055e3621e7f5dfef74afcd139a12777f2c874cba615a7ea4ad640a",
+      "run_sha256": "0f1898a51cecd938bc6dd972c03d61ef46ebcdf7cd971fe13801c50fff377bc7",
+      "artifact": "my-results/random-profiles-20261103/run-3",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    },
+    {
+      "seed": 731,
+      "count": 32,
+      "vectors": 32,
+      "profiles": [
+        "package_change_sequence"
+      ],
+      "counts": {
+        "pass": 32,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "package_change_sequence": {
+          "pass": 32
+        }
+      },
+      "manifest_sha256": "6d3d3c72f55b3de3d5d4d37aa2efec01f146440f0efbcc2d24e0ba3d610c54ac",
+      "run_sha256": "503d296c4491270f62a1bf60611e7f625f7c3c60cf8d74ec15f774119a401642",
+      "artifact": "my-results/random-profiles-20261103/run-4",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    }
+  ],
+  "replay": {
+    "counts": {
+      "pass": 2,
+      "fail": 0,
+      "known": 0,
+      "unsupported": 0,
+      "not_run": 0,
+      "stale": 0
+    },
+    "reference_drift": [],
+    "saved_bytes_identical": true,
+    "run_sha256": "a16b35b391dbec885e574c6975e22cdb5cff9c13e2c6247547298a7facc96011"
+  },
+  "public_comparison": {
+    "counts": {
+      "kirimasim": {
+        "pass": 4
+      },
+      "icarus": {
+        "known": 3,
+        "pass": 1
+      },
+      "verilator": {
+        "unsupported": 2,
+        "pass": 2
+      }
+    },
+    "native_counts": {
+      "pass": 4,
+      "fail": 0,
+      "known": 0,
+      "unsupported": 0,
+      "not_run": 0,
+      "stale": 0
+    },
+    "simulator_seed": 1,
+    "versions": {
+      "verilator": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "icarus": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)"
+    },
+    "manifest": {
+      "schema": 1,
+      "generator": "bounded_random_cross@1",
+      "seed": 731,
+      "cases": [
+        {
+          "id": "case_0000",
+          "profile": "conditional_context",
+          "parameters": {
+            "width": 32,
+            "relation": "same",
+            "sign_a": "unsigned",
+            "sign_b": "unsigned",
+            "state": "logic"
+          },
+          "stimuli": [
+            {
+              "a": "11111111111111111111111111111111",
+              "b": "00000000000000000000000000000000",
+              "condition": "1"
+            }
+          ]
+        },
+        {
+          "id": "case_0001",
+          "profile": "conditional_context",
+          "parameters": {
+            "width": 32,
+            "relation": "same",
+            "sign_a": "unsigned",
+            "sign_b": "unsigned",
+            "state": "logic"
+          },
+          "stimuli": [
+            {
+              "a": "000000000000000000000000000000zz",
+              "b": "000000000000000000000000000000zz",
+              "condition": "x"
+            }
+          ]
+        },
+        {
+          "id": "case_0002",
+          "profile": "package_change_sequence",
+          "parameters": {
+            "width": 32,
+            "state": "logic",
+            "access": "qualified",
+            "storage": "scalar",
+            "update": "nba",
+            "event": "lsb",
+            "wait": "logical"
+          },
+          "stimuli": {
+            "initial": {
+              "payload": "11111111111111111111111111111111",
+              "neighbor": "11111111111111111111111111111111",
+              "control": "11111111111111111111111111111111",
+              "other_guard": "11111111111111111111111111111111"
+            },
+            "operations": [
+              {
+                "target": "payload",
+                "data": "00000000000000000000000000000001"
+              },
+              {
+                "target": "payload",
+                "data": "00000000000000000000000000000001"
+              },
+              {
+                "target": "payload",
+                "data": "11111111111111111111111111111111"
+              },
+              {
+                "target": "payload",
+                "data": "10000000000000000000000000000000"
+              },
+              {
+                "target": "payload",
+                "data": "00000000000000000000000000000000"
+              },
+              {
+                "target": "neighbor",
+                "data": "00000000000000000000000000000000"
+              },
+              {
+                "target": "control",
+                "data": "00000000000000000000000000000000"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_0003",
+          "profile": "package_change_sequence",
+          "parameters": {
+            "width": 32,
+            "state": "logic",
+            "access": "qualified",
+            "storage": "scalar",
+            "update": "nba",
+            "event": "lsb",
+            "wait": "logical"
+          },
+          "stimuli": {
+            "initial": {
+              "payload": "11111111111111111111111111111111",
+              "neighbor": "11111111111111111111111111111111",
+              "control": "11111111111111111111111111111111",
+              "other_guard": "11111111111111111111111111111111"
+            },
+            "operations": [
+              {
+                "target": "payload",
+                "data": "00000000000000000000000000000001"
+              },
+              {
+                "target": "payload",
+                "data": "00000000000000000000000000000001"
+              },
+              {
+                "target": "payload",
+                "data": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+              },
+              {
+                "target": "payload",
+                "data": "10000000000000000000000000000000"
+              },
+              {
+                "target": "payload",
+                "data": "00000000000000000000000000000000"
+              },
+              {
+                "target": "neighbor",
+                "data": "00000000000000000000000000000000"
+              },
+              {
+                "target": "control",
+                "data": "00000000000000000000000000000000"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "manifest_sha256": "363f923ec480cf2b5ad4eaa7b13fdc406f320f1e227e318204a715c197c52bb2",
+    "run_sha256": "84196e54d3328f507b67f1ebb00a2d469094e537f2f6eea3e7824affe2449c59",
+    "all_comparators_pass": false
+  },
+  "faults": [
+    {
+      "name": "conditional_wrong_branch",
+      "status": "detected",
+      "returncode": 0,
+      "reason": "output differs: line 2 is 'v0_result=00000000000000000000000000000000', expected 'v0_result=11111111111111111111111111111111'",
+      "source_sha256": "3b46fa83d8910a50011921b4508932f5afae2de907ac99d9b3eee6ec969e66e5",
+      "expected_sha256": "1ce876413c4ca659abb7c0e764a94ce0d505bacca5bd5cb2d4c600468585ce75",
+      "stdout_sha256": "32e915f903b9c2cb279eb6d127d3b2f8d39caa81784c37ddfc4963b54a978c6c",
+      "stderr_sha256": "f90df9878e2b3273338394a61769d46bd62c286617702f4498e722144e2148bf"
+    },
+    {
+      "name": "package_wrong_function",
+      "status": "detected",
+      "returncode": 0,
+      "reason": "output differs: line 7 is 'o name=a data=00000000000000000000000000000001 copy=11111...', expected 'o name=a data=00000000000000000000000000000001 copy=00000...'",
+      "source_sha256": "c280844f5eb9a1767f01f758066d59135a2b5f0de43d9272524961e2d15048dc",
+      "expected_sha256": "238863b9bb9e40208195b5b7848657f6d9d5266be50388f1d13bae17cedfe0e5",
+      "stdout_sha256": "9a16779019747dc5eba8bf5ba0c86958ebba4e7f90c75ba1a058a031f143d706",
+      "stderr_sha256": "86a63454ffc221952c4c038a1c11aa089b1d5b3d0908917b68714153c7e30fc9"
+    },
+    {
+      "name": "package_early_wait",
+      "status": "detected",
+      "returncode": 0,
+      "reason": "output differs: line 2 is 'o name=a data=11111111111111111111111111111111 copy=11111...', expected 'o name=a data=11111111111111111111111111111111 copy=11111...'",
+      "source_sha256": "ca38dfaf1a763f1c70280a15d80fe0666f365bc6b6a65ea180780ce2e0a0ff85",
+      "expected_sha256": "238863b9bb9e40208195b5b7848657f6d9d5266be50388f1d13bae17cedfe0e5",
+      "stdout_sha256": "c111fa5c0cffc6df38797baa9df7be3f042f09de63a87c3f598a2c0161706093",
+      "stderr_sha256": "82075504119ba22c2089613a71424ae5d6af9cf5a42716597c90c8624a31135c"
+    },
+    {
+      "name": "package_lost_count",
+      "status": "detected",
+      "returncode": 0,
+      "reason": "output differs: line 22 is 'o name=a data=10000000000000000000000000000000 copy=10000...', expected 'o name=a data=10000000000000000000000000000000 copy=10000...'",
+      "source_sha256": "34594d9bab4d4516deea16d5057486501f08988ad8f21c6f1b7a52eb60fe4bd5",
+      "expected_sha256": "238863b9bb9e40208195b5b7848657f6d9d5266be50388f1d13bae17cedfe0e5",
+      "stdout_sha256": "d9347bdd307e70d86af74f303faa7c236dcdebe6acfcc68b05b01f4b90d8cf3b",
+      "stderr_sha256": "37dd6c1cdf3d80711e5b8f3e4545a8735d01ef218a911d9b46c3e40c6b951cef"
+    }
+  ],
+  "sources_unchanged": true
+}

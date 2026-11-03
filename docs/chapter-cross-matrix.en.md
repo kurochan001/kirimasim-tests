@@ -36,7 +36,7 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The 2026-11-03 mapping contains 78 models and 2,886 selected cases across 112 unordered off-diagonal pairs. The [complete kirimasim 7554bb47 run](../coverage/interaction-results/cross78-kirimasim-7554bb47-pkgnba.json) records 2,353 pass, 529 unsupported and four failures; 51 models passed their entire selection.
+The 2026-11-03 mapping contains 79 models and 2,922 selected cases across 112 unordered off-diagonal pairs. The [complete kirimasim a682e19e run](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json) records 2,389 pass, 529 unsupported and four failures; 52 models passed their entire selection.
 
 - **14×15, clocking inputs and named-event waiters:** one model, zero all-selection-pass models. Of 24 cases, the 12 `#1step` cases pass and the 12 `#0` cases are unsupported. Both fixed Verilator seeds record 12 pass and 12 known nonblocking-notification differences; fixed Icarus rejects all 24 builds. See [design, controls and limits](interaction-verification.en.md#clocking-named-event).
 - **9×16, deferred reports:** all 31 cases pass, giving one all-selection-pass model. The other four failures are configuration parameter-reset cases; the two inside cases pass after the repair. This is not an upstream release; see [triage and source identity](cross-verification-followup.en.md).
@@ -82,7 +82,9 @@ See [design and evidence](interaction-verification.en.md#deferred-argument-captu
 
 Enum/generate maps **6×27** with one model and one all-selection-pass model. All 36 cases compare per-generated-element widths, tables, signedness, declaration-order navigation, wraparound and held state. See [design and evidence](interaction-verification.en.md#generated-enum-navigation) for targets and exclusions.
 
-Package NBA maps **10×26, 4×26 and 7×26**, each with one model and one all-selection-pass model. The first two map all 36 cases; 7×26 maps 24 array cases. Observations cover shared-object references, Active/NBA ordering, captured indices and retained neighbors/other packages. See [design, evidence and limits](interaction-verification.en.md#package-nba-capture).
+The package-NBA model itself maps **10×26, 4×26 and 7×26** and passes its entire selection. The first two map all 36 cases; 7×26 maps 24 array cases. Observations cover shared-object references, Active/NBA ordering, captured indices and retained neighbors/other packages. See [design, evidence and limits](interaction-verification.en.md#package-nba-capture).
+
+Package observers add **9×26 and 11×26**, each with one model and one all-selection-pass model. The former maps all 36 cases, the latter the 12 logic X/Z cases. Existing 4×26 and 7×26 now each have two models and two all-selection-pass models including package NBA; the new array mapping uses 24 cases. Observations distinguish sensitivity, notifications, wake history, live data and retained values. See [design, evidence and limits](interaction-verification.en.md#package-change-observers).
 
 The tool chooses one latest admissible kirimasim run containing all current selections. It checks input/expectation and runner fingerprints and runner stability during execution. Unsupported/failing cases remain, and partial successes from separate runs are never merged. If a newer run covers only some models, an older complete admissible snapshot is used. Every detail row identifies JSON path, version and execution timestamp.
 

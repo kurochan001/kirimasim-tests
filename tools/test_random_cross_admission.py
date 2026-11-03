@@ -92,7 +92,7 @@ class AdmissionTests(Fixture):
                   20261103: ('d896e2b76dc28b090692e8543418fedd93f9ccd895681d2e5ae0f9043765f3a1',
                              '63fe530b9a46a6db782b326cfe6c5a73e87372c9e69d98a70468f077fba1c87c')}
         for seed, (manifest_hash, source_hash) in hashes.items():
-            manifest = models.generate(seed, 96, 8)
+            manifest = models.generate(seed, 96, 8, models.LEGACY_PROFILES)
             self.assertEqual(evidence.digest(manifest), manifest_hash)
             self.assertEqual(hashlib.sha256(''.join(source+expected for source, expected in
                                                    map(models.materialize, manifest['cases'])).encode()).hexdigest(), source_hash)
