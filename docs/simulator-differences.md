@@ -855,3 +855,32 @@ The internal implementation cause is unconfirmed. This stimulus does not disting
 Known replays are not counted as passing controls or detected faults.
 Fixed Icarus 13.0 rejects all 29 builds. Kirimasim `7654825d` with the preserved uncommitted repairs passes all 29 additions;
 this addition changes no core code. See [design, independent checks and execution records](interaction-verification.en.md#deferred-argument-capture).
+
+<a id="generated-enum-navigation-2026-11-03"></a>
+
+## 2026-11-03: generated-scope enums and methods
+
+Chapters 6×27 add 36 cases in `generated_enum_navigation@1`. Fixed Verilator 5.052 seeds 1/73 each record 18 pass and 18 known results.
+Only the 18 matching base-width 1/32/33 cases receive its fixed oracle; final inputs are re-executed after registration.
+The 18 base-width 64/65/129 cases retain build diagnostics for enum values whose actual generated type width exceeds 64 bits.
+Widths, signedness and standard-derived common expectations remain unchanged.
+Fixed Icarus 13.0 records 36 known build differences; two original-case replays return compiler Bus errors (exit 138).
+The internal cause is unconfirmed. [Complete diagnostics](../coverage/interaction-qualification/genenum-fixed-replays.json) retain these and two original Verilator cases;
+known replays are not controls or detected faults. Local-path redaction and original-byte hashes are explicit.
+Kirimasim `7554bb47` parses and passes all 36 cases without core changes.
+See [design, independent checks and execution evidence](interaction-verification.en.md#generated-enum-navigation).
+
+<a id="package-nba-capture-2026-11-03"></a>
+
+## 2026-11-03: package NBA and reference spellings
+
+Fixed Verilator 5.052 seeds 1/73 each record 12 pass and 24 known results for `package_nba_capture@1`.
+Only the 12 known-value cases receive its fixed oracle; the 24 requiring X/Z input logs do not.
+Two originals also differ in their first known-valued input log. [Two diagnostic controls](../coverage/interaction-qualification/pkgnba-known-input-controls.json),
+replacing only X/Z source assignments with known zero, match on kirimasim and fixed Verilator.
+Retain original inputs/expectations. Two-state execution and these controls do not identify the original internal cause or establish four-state correctness.
+Diagnostics are not added to fixed-suite/model counts or the four native controls.
+Fixed Icarus 13.0 records 36 known build differences; syntax diagnostics from two originals are retained.
+[Complete outputs/diagnostics](../coverage/interaction-qualification/pkgnba-fixed-replays.json) redact local paths and retain original-byte hashes.
+Kirimasim `7554bb47` parses and passes all 36 additions without core changes.
+See [design, independent checks and limits](interaction-verification.en.md#package-nba-capture).

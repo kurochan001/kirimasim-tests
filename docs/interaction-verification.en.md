@@ -12,7 +12,20 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 ## Saved-run summary
 
-At the deferred-argument addition on 2026-11-03, the current selection has **76 models, 2,814 tests and 108 chapter pairs**.
+At the package-NBA addition on 2026-11-03, the current selection has **78 models, 2,886 tests and 112 chapter pairs**.
+The [complete saved run](../coverage/interaction-results/cross78-kirimasim-7554bb47-pkgnba.json) records **2,353 pass, 529 unsupported and four existing config failures**
+on upstream kirimasim `7554bb47`, fetched, configured and built immediately before execution. All 36 additions parse and pass;
+all preceding 2,850 input fingerprints and status categories remain unchanged. 51 models pass their entire selection.
+No core change is introduced; this local run is separate from formal Nightly. See [package NBA design and limits](#package-nba-capture).
+
+At the enum/generate addition on 2026-11-03, the selection had **77 models, 2,850 tests and 109 chapter pairs**.
+The [complete saved run](../coverage/interaction-results/cross77-kirimasim-7554bb47-genenum.json) records
+**2,317 pass, 529 unsupported and four existing config failures** on kirimasim `7554bb47`, fetched, configured and built immediately before execution.
+All 36 additions parse and pass; all preceding 2,814 input fingerprints and status categories are unchanged.
+50 models pass their entire selection. No core change is introduced; this local run is separate from formal Nightly.
+See [design, independent checks and limits for Chapters 6×27](#generated-enum-navigation).
+
+At the deferred-argument addition on 2026-11-03, the selection had **76 models, 2,814 tests and 108 chapter pairs**.
 The [full cross run](../coverage/interaction-results/cross76-kirimasim-7654825d-deferarg.json) records
 **2,281 pass, 529 unsupported and four existing config failures**, using kirimasim `7654825d`
 fetched and rebuilt immediately before execution with the preserved uncommitted repairs.
@@ -2783,6 +2796,153 @@ python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 4 \
   --json my-results/deferarg-kirimasim-new.json tests/gen/ch13/test_gen_cross_deferarg_*.sv
 python3 tools/run_verilator.py --verilator /path/to/verilator-5.052 --seed 1 -j 4 \
   --json my-results/deferarg-verilator-new.json tests/gen/ch13/test_gen_cross_deferarg_*.sv
+```
+
+<a id="generated-enum-navigation"></a>
+
+### Generated enum tables and navigation methods
+
+`generated_enum_navigation@1` adds 36 cases for Chapters 6×27.
+The generator is [`interaction_genenum.py`](../generators/interaction_genenum.py).
+IEEE 1800-2023 6.19, 6.19.1, 6.19.5, 27.4 and 27.5 establish the per-generated-scope types and enum tables.
+The existing generate model focuses on lookup and excludes signed arithmetic, so this is a separate finite model.
+
+Factors are base width 1/32/33/64/65/129, unsigned/signed, if/case generate,
+consecutive/MSB-containing/descending encodings, two/three members, next/prev,
+and zero/one/cycle/beyond step counts. Of 1,152 Cartesian rows, exclude only width-one three-member rows.
+Select **36 of 1,056 legal rows: 96.59% fewer rows**, without unsupported-based exclusions.
+Retain 181 pair targets, 110 targeted triples and six mandatory boundaries. Triple groups are:
+
+- Width×signedness×encoding; width×generate form×member count
+- Encoding×method×step; member count×method×step
+- Generate form×encoding×member count
+
+Two instances choose opposite branches and each creates two elements. Local widths add the implicit genvar
+localparam and branch value to base width, reaching 131 bits; branch one rotates declaration-order values by one.
+Compare first/last/num, next/prev, name, binary values and signed/unsigned decimals, checking declaration-order rather than numeric-order navigation.
+Every case starts at both first and last. Re-read the resulting value and held copy after other elements operate and at idle.
+Step counts are 0, 1, member count and member count+2. Keep zero and full-cycle inputs distinct even when observations coincide.
+
+Scope includes a signed one-bit value, 32/33 and 64/65 boundaries, base width 129, wraparound,
+and independent tables/state across instances and generated elements.
+X/Z members, nonmembers, negative counts, config, defparam and rejection of incompatible assignments are outside scope.
+These are positive type-method observations, not a proof of assignment compatibility between distinct generated types.
+
+[`qualify_genenum.py`](../tools/qualify_genenum.py) reads actual SV instances, generate loops/branches,
+constant expressions, widths/signs, declaration-order members, task bodies and top-level calls.
+It independently matches all 1,056 legal rows without the generator's expectation, table or step-calculation helpers.
+Four latest-native controls pass; eight real SV faults compile and exit normally but produce detected output differences.
+Faults lose genvar-dependent width, choose another instance's branch, change direction/count/signedness,
+drop high bits, overwrite a held copy or misname a member.
+The [independent/control/fault record](../coverage/interaction-qualification/genenum.json) retains complete outputs;
+[13 dedicated regressions](../tools/test_interaction_genenum.py) cover boundaries and interpreter independence.
+Unsupported expressions/statements are rejected, not ignored. Interpreting all legal expectations and natively executing the selected 36 are separate checks.
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross77-genenum-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross77-genenum-verilator5052-seed73.json) each record 18 pass and 18 known results.
+Only the 18 base-width 1/32/33 cases receive its fixed-version oracle. Base widths 64/65/129 produce actual types
+wider than 64 bits and build diagnostics limiting enum values to 64 bits. Widths are retained.
+Fixed [Icarus Verilog 13.0](../coverage/interaction-results/cross77-genenum-icarus13.json) records 36 known build differences.
+[Complete-diagnostic replays of four original cases](../coverage/interaction-qualification/genenum-fixed-replays.json)
+retain Verilator's width diagnostics and Icarus Bus error exits (138). The internal cause is unconfirmed.
+Known replays are not controls or detected faults. Only local diagnostic paths are redacted, retaining original-byte hashes.
+
+The [build/parse/stability record](../coverage/interaction-qualification/genenum-build.json) and
+[single complete 2,850-case run](../coverage/interaction-results/cross77-kirimasim-7554bb47-genenum.json) identify upstream main
+`7554bb47` and the actual binary, all 36 new parse/pass results and unchanged preceding 2,814 inputs/statuses.
+No core changes, automatic requirement bindings or existing expectation changes are introduced.
+
+Local introduction checks pass 779 tool regressions and 13 checks covering statistics, generated artifacts,
+catalogs, interactions, matrices, triage, the combination ledger, languages, requirement matching/coverage and metadata.
+Metadata covers 10,600 tests with zero new problems (395 known); 115 language pairs and 52,729 local links were checked.
+GitHub Check and formal Nightly have not run for these uncommitted changes.
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_genenum.py
+# Check upstream main, reconfigure and build latest kirimasim immediately before execution.
+python3 tools/qualify_genenum.py --kirimasim /path/to/latest/kirimasim \
+  --output my-results/genenum-qualification-new.json
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 8 \
+  --json my-results/genenum-native-new.json tests/gen/ch6/test_gen_cross_genenum_*.sv
+python3 tools/run_verilator.py --verilator /path/to/verilator-5.052 --seed 1 -j 4 \
+  --json my-results/genenum-verilator-new.json tests/gen/ch6/test_gen_cross_genenum_*.sv
+```
+
+<a id="package-nba-capture"></a>
+
+### Shared package NBA capture and ordered updates
+
+`package_nba_capture@1` adds 36 cases from [`interaction_pkgnba.py`](../generators/interaction_pkgnba.py).
+IEEE 1800-2023 26.3/26.4, 10.4.2, 4.6/4.4.2.2/4.4.2.4, 7.4.1 and 13.5.1 establish shared package objects,
+reservation-time NBA value/target capture and ordering.
+
+Factors are width 1/32/33/64/65/129, bit/logic, known/X/Z values, qualified/wildcard/explicit references,
+scalar/ascending-array/descending-array storage, immediate/delayed NBA and a→b/b→a call order.
+**All 1,296 rows are legal**; none is excluded for unsupported behavior. Select **36 cases: 97.22% fewer rows**,
+retaining 183 pair targets, 126 targeted triples and six mandatory boundaries. Triple groups are:
+
+- Width×state type×input; reference×storage×order
+- Storage×delay×order; width×storage×delay
+- State type×input×order; reference×delay×order
+
+**One initial thread sequentially calls** automatic tasks in two writer modules. No ordering of independent concurrent processes is assumed.
+Both tasks reserve NBAs on one static package object, mutate their input data/index and return; the caller also changes source/index.
+A probe reads the same object with another reference spelling. A neighbor and a same-named variable in another package are controls.
+Arrays use ascending negative bounds [-2:-1] and descending nonzero bounds [2:1].
+
+Each of two input frames compares reservation-time Active, Active one tick later, settled data two ticks later and idle data three ticks later.
+A one-tick delayed NBA still has its old value during Active at its due time. Input logs preserve X/Z;
+only assignment to a bit destination converts them to zero. Conflicting values/order, retained neighbors and alias reads affect one observation sequence.
+Dynamic arrays, real values, nets, force, VPI, independent-writer ordering and more general delay expressions are outside scope.
+
+[`qualify_pkgnba.py`](../tools/qualify_pkgnba.py) parses actual SV package types, bindings, task bodies,
+literals, indices, displays and call order into an independent event queue.
+It matches all 1,296 legal rows without generator expectation, stimulus or address-calculation helpers.
+Unsupported expressions/statements and extra producers are rejected. Four latest-native controls pass;
+eight real SV faults compile and exit normally but produce detected output differences.
+Faults change package/import bindings, make writes blocking, omit delay, reverse reservation order,
+write a neighboring element, lose four-state data or overwrite an input before reservation.
+The [complete control/fault record](../coverage/interaction-qualification/pkgnba.json) and
+[14 dedicated regressions](../tools/test_interaction_pkgnba.py) retain these checks.
+Independent interpretation of all legal rows and native execution of the selected 36 are separate checks.
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross78-pkgnba-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross78-pkgnba-verilator5052-seed73.json) each record 12 pass and 24 known results.
+Only the 12 known-value cases requiring no X/Z observations receive its fixed oracle; final inputs are re-executed after registration.
+The other 24 require X/Z input logs, so two-state differences establish neither a functional defect nor a correctness oracle.
+Fixed [Icarus Verilog 13.0](../coverage/interaction-results/cross78-pkgnba-icarus13.json) records 36 known build differences.
+[Complete outputs/diagnostics from four original cases](../coverage/interaction-qualification/pkgnba-fixed-replays.json)
+retain two Verilator X/Z differences and two Icarus build diagnostics. Known replays are not controls or detected faults.
+Local-path redaction and original-byte hashes are explicit.
+The two originals also differ in their first known-valued input log. [Separate diagnostic controls](../coverage/interaction-qualification/pkgnba-known-input-controls.json),
+replacing only their X/Z source assignments with known zero, match on kirimasim and fixed Verilator.
+Retain their actual SV and independently interpreted expectations, without changing original expectations or oracles.
+This does not identify the original internal cause. These two diagnostics are not added to the fixed suite, finite-model count or four native controls.
+
+The [build/parse/stability record](../coverage/interaction-qualification/pkgnba-build.json) and
+[single complete 2,886-case run](../coverage/interaction-results/cross78-kirimasim-7554bb47-pkgnba.json) identify upstream main
+`7554bb47`, fetched, configured and built immediately before execution. All 36 additions parse and pass;
+all preceding 2,850 inputs/statuses remain unchanged. Overall results are 2,353 pass, 529 unsupported and four existing config failures.
+No core code or existing expectation changes and no automatic requirement bindings are introduced.
+
+The matrix maps all 36 cases to Chapters 10×26 and 4×26, and the 24 array cases to 7×26.
+Each pair's all-selection-pass result requires all 36 model cases to pass in one execution.
+The registry records how package references, region observations and reservation-time array indices affect actual outputs.
+
+Local introduction checks pass 793 tool regressions and 13 checks covering statistics, generated artifacts,
+catalogs, interactions, matrices, triage, the combination ledger, languages, requirement matching/coverage and metadata.
+Metadata covers 10,636 tests with zero new problems (395 known); 115 language pairs and 52,839 local links were checked.
+GitHub Check and formal Nightly have not run for these uncommitted changes.
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_pkgnba.py
+# Check upstream main, reconfigure and build latest kirimasim immediately before execution.
+python3 tools/qualify_pkgnba.py --kirimasim /path/to/latest/kirimasim \
+  --output my-results/pkgnba-qualification-new.json
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 8 \
+  --json my-results/pkgnba-native-new.json tests/gen/ch26/test_gen_cross_pkgnba_*.sv
+python3 tools/run_verilator.py --verilator /path/to/verilator-5.052 --seed 1 -j 4 \
+  --json my-results/pkgnba-verilator-new.json tests/gen/ch26/test_gen_cross_pkgnba_*.sv
 ```
 
 ### Updates after model changes

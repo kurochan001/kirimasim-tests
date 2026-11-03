@@ -20958,6 +20958,26 @@
     "最終報告の動作は表示だけで、Postponedの静的変数へ書かない。": "Final report actions only display and do not write static variables in Postponed.",
     "自動変数の参照渡し、動的な実引数の選択、出力引数、取消し、flush、X/Zは対象外。": "Automatic ref actuals, dynamic actual selection, output arguments, cancellation, flushing and X/Z are outside scope.",
     "遅延報告の値渡しと静的な参照渡しを、登録時の取得値・報告時の生値・幅変換と照合する。": "Compare deferred value and static-reference arguments with registration-time captures, report-time live values and width conversions.",
-    "関数とタスク、報告領域、更新方式、幅と符号を交差し、引数評価の副作用と実行時刻も観測する。": "Cross functions/tasks, report regions, update modes, widths and signedness, also observing argument-evaluation side effects and execution time."
+    "関数とタスク、報告領域、更新方式、幅と符号を交差し、引数評価の副作用と実行時刻も観測する。": "Cross functions/tasks, report regions, update modes, widths and signedness, also observing argument-evaluation side effects and execution time.",
+    "幅一の生成要素には三つの異なる列挙値を表せないためcountは二に限る。": "Restrict count to two at base width one because its narrowest generated type cannot represent three distinct members.",
+    "他の全行は合法で、未対応による除外なし。": "All other rows are legal; none is excluded because of unsupported behavior.",
+    "二つのインスタンスは反対の分岐を選び、それぞれ二つの生成要素を持つ。": "Two instances choose opposite branches, each containing two generated elements.",
+    "局所幅は基底幅に ZXQPH0QXZ と分岐値を加え、分岐一では列挙値の宣言順を一つ回す。": "Local width adds ZXQPH0QXZ and the branch value to base width; branch one rotates the declaration-order values by one.",
+    "各ケースで先頭と末尾の二初期状態を実行し、他要素の操作後とアイドル時にも値を読む。": "Each case starts at both first and last and reads state after other elements operate and again at idle.",
+    "X/Zの列挙子、非メンバ値、型不一致の代入、負の移動数、config、 ZXQPH0QXZ は対象外。": "X/Z members, nonmember values, incompatible assignments, negative counts, config and ZXQPH0QXZ are outside scope.",
+    "generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言順・巡回数とnext/prevの観測へ反映される。": "Generate iterations and branches determine enum widths and value tables, observed through signedness, declaration order and next/prev counts.",
+    "二初期状態と別要素の操作後・アイドル時の読出しで、値と保持したコピーの独立性も照合する。": "Two starting states and reads after other elements operate and at idle also check independent values and retained copies.",
+    "生成反復と条件分岐によって列挙型の幅・値表が変わり、メソッドの巡回・符号付き表示・保持値へ反映されることを照合する。": "Check how generated iterations and conditional branches change enum widths and tables, navigation, signed display and retained values.",
+    "全行が合法で、未対応による除外なし。": "All rows are legal; none is excluded for unsupported behavior.",
+    "同じinitialから二つのモジュールのautomaticタスクを順に呼ぶため、 ZXQPH0QXZ の予約順序が定まる。": "The same initial thread calls automatic tasks in two modules sequentially, defining ZXQPH0QXZ reservation order.",
+    "対象は静的なpackage変数で、入力引数と添字は予約後に書き換え、タスク復帰後に反映する。": "Targets are static package variables; inputs and indices change after reservation, and updates follow task return.",
+    "別の参照方法で読むprobe、隣接要素、同名変数を持つ別packageを対照にする。": "Controls are a probe using another reference spelling, a neighboring element and a same-named variable in another package.",
+    "昇順配列は負の添字、降順配列は非零の添字を使う。": "Ascending arrays use negative indices; descending arrays use nonzero indices.",
+    "独立した並行writer間の順序、動的な配列、実数、net、force、 ZXQPH0QXZ は対象外。": "Ordering of independent concurrent writers, dynamic arrays, real values, nets, force and ZXQPH0QXZ are outside scope.",
+    "二つのモジュールから同じpackage変数へ順に ZXQPH0QXZ を予約し、参照方法・配列添字・遅延・状態型を交差する。": "Two modules sequentially reserve ZXQPH0QXZs on one package variable, crossing reference spellings, array indices, delays and state types.",
+    "値と代入先の取得、予約順序、別名での読出し、隣接要素と別packageの保持をActiveと ZXQPH0QXZ 後で照合する。": "Compare captured values and targets, reservation order, alias reads and retained neighbors/other packages in Active and after ZXQPH0QXZ updates.",
+    "複数モジュールから参照する同じpackage変数への ZXQPH0QXZ で、値・代入先の取得と順序、別名の読出しを照合する。": "Check captured ZXQPH0QXZ values, targets and order on one package variable referenced by multiple modules, including alias reads.",
+    "package共有状態をActiveと ZXQPH0QXZ 後で読み、遅延の到来時刻にも更新前の値を観測して領域の順序を照合する。": "Read shared package state in Active and after ZXQPH0QXZ updates, including the old value in Active at the due time, to check region ordering.",
+    "packageの昇順・降順配列で予約時の添字が選ぶ要素を更新し、添字変更後も隣接要素と別packageを保持する。": "Update the package array element selected at reservation across ascending/descending bounds, retaining neighbors and another package after index changes."
   }
 }

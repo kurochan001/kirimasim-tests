@@ -1,0 +1,195 @@
+{
+  "simulator": "icarus",
+  "name": "Icarus Verilog",
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+  "tests": {
+    "gen/ch6/test_gen_cross_genenum_129_signed_case_high_3_prev_beyond": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19731 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "8ae1b135d107aacecd29f91285f61fb8d16f1d90aa2c38ba459c37a021ab8458"
+    },
+    "gen/ch6/test_gen_cross_genenum_129_signed_if_dense_2_prev_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19735 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "b6ee3cac5d85d68972342f33b23b04c188d0adb7cc51dd989a36209afc39e594"
+    },
+    "gen/ch6/test_gen_cross_genenum_129_signed_if_descending_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19728 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "48e61562881edc29b898d05763000903fea01de703616a130ed537a8c53c077d"
+    },
+    "gen/ch6/test_gen_cross_genenum_129_unsigned_case_high_2_prev_cycle": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19737 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "c37672e1f27634bbb18085f4683062239faac3ca7a0c8452c49262bad846b9eb"
+    },
+    "gen/ch6/test_gen_cross_genenum_129_unsigned_if_dense_2_next_beyond": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19767 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "d27c43d038ae2f80fb0a3991e13f3137a161b188d4ba1783352e4c0d6b800a57"
+    },
+    "gen/ch6/test_gen_cross_genenum_129_unsigned_if_descending_3_prev_one": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19782 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "7c770b56572cc5f5d1eb557bf4ddc7fd07d5c0c6b14c73b97218d62194c0036c"
+    },
+    "gen/ch6/test_gen_cross_genenum_1_signed_if_dense_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19792 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "9f7f1516aa47280f5d363a62e5a383f6ffad4e40ac0ae4d3b2fdaa6601a1ff1d"
+    },
+    "gen/ch6/test_gen_cross_genenum_1_signed_if_descending_2_next_one": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19818 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "23f033e38592a90d2e9280474f4d77c32b2985ad403494c521a3f3d70acce2c9"
+    },
+    "gen/ch6/test_gen_cross_genenum_1_signed_if_high_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19833 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "21a49ab6915039f2710182b5fb2b5fd21876982eb175f889560d6401bb97c783"
+    },
+    "gen/ch6/test_gen_cross_genenum_1_unsigned_case_dense_2_prev_cycle": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19894 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "03a9b0bfc5cfa54e632fc42d76e3bb29d31128b9420f62ebf3cc8d80d6764fd8"
+    },
+    "gen/ch6/test_gen_cross_genenum_1_unsigned_if_descending_2_prev_beyond": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19909 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "9d460f59e6b2b3db4dc87ad68072f71377d13994ba861f7a12a30801978254e1"
+    },
+    "gen/ch6/test_gen_cross_genenum_1_unsigned_if_high_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19958 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "668c4c58c57bca618cf0a524569f1631449ab60a974a7e183cdf106352bdd81f"
+    },
+    "gen/ch6/test_gen_cross_genenum_32_signed_case_dense_3_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19964 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "7fe4a309c6cd6a110d0bfa9fe1eecd381729cc04c01270f3b2924160593c7189"
+    },
+    "gen/ch6/test_gen_cross_genenum_32_signed_if_descending_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19968 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "70ceeb984f0f080d903fa29a7c9c2172896e1a6cd20757ec3246489391e8ebe5"
+    },
+    "gen/ch6/test_gen_cross_genenum_32_signed_if_high_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19973 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "2a67ef38b7a45c30be0237928dc0c81599b67e9b6fc2a38304880c78e5daee03"
+    },
+    "gen/ch6/test_gen_cross_genenum_32_unsigned_case_high_2_next_beyond": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19979 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "36eae6823220e32be11719520d4840d9cd95ddf9584afecf9fc2de3146ce28d0"
+    },
+    "gen/ch6/test_gen_cross_genenum_32_unsigned_if_dense_3_prev_one": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19987 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "f1b8eac007618155be033600bc2be360f5318e983c77c4a18b609c39334d606a"
+    },
+    "gen/ch6/test_gen_cross_genenum_32_unsigned_if_descending_2_next_cycle": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19993 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "15246ff85ec3bb413f009a41bb047714b5a401673b2838e01ef8f2e3e74649ba"
+    },
+    "gen/ch6/test_gen_cross_genenum_33_signed_if_dense_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 19998 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "41b665053550dd86a6f6e41c43a4753b328abccdfff29f68242148d4e4cbb900"
+    },
+    "gen/ch6/test_gen_cross_genenum_33_signed_if_descending_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20002 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "6ab0185acaa536ffa390726213251441797617243d1befe10155590f61e5d641"
+    },
+    "gen/ch6/test_gen_cross_genenum_33_signed_if_high_3_next_cycle": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20006 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "aa1833b2972c64887209bee321d6e9f3895f2506abb3c990597462f354ab5acf"
+    },
+    "gen/ch6/test_gen_cross_genenum_33_unsigned_case_descending_3_prev_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20010 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "b65709c610784d55a5b370e92f78f14bd688a77f2624a99a6b87b57dde7033ea"
+    },
+    "gen/ch6/test_gen_cross_genenum_33_unsigned_case_high_2_prev_one": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20014 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "ba04aff30c51c2c89ce5217397c1fd603c20450db203599e839ab506efc3770e"
+    },
+    "gen/ch6/test_gen_cross_genenum_33_unsigned_if_dense_2_prev_beyond": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20018 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "240449ecacf90a10712f60b93dc6cf065eb37c010f1e3a4bf461c839293ca697"
+    },
+    "gen/ch6/test_gen_cross_genenum_64_signed_case_dense_2_next_cycle": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20022 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "c1afcfbecaa849a16420abdcb79d114630478e4be0cbfc297f70964e0daf800e"
+    },
+    "gen/ch6/test_gen_cross_genenum_64_signed_case_descending_3_next_beyond": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20026 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "104240f569d0c18cc101fb23afb1778610c9865abb23ddc33af7ac14b4c5d69f"
+    },
+    "gen/ch6/test_gen_cross_genenum_64_signed_if_high_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20031 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "33c04a320e12c40ee5a28a6ff1009d4d9d302716ab1aec4deb3da6102efcd27f"
+    },
+    "gen/ch6/test_gen_cross_genenum_64_unsigned_if_dense_3_next_one": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20036 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "bc9b299f34bdd1153352b157c855b44e622a7a6ca18c277ca0e05db798652691"
+    },
+    "gen/ch6/test_gen_cross_genenum_64_unsigned_if_descending_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20043 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "308ae79e80fcd0f8f3f9d62133b924563dacf66c38620526dd6f50480355f34c"
+    },
+    "gen/ch6/test_gen_cross_genenum_64_unsigned_if_high_2_prev_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20050 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "9abc576b8ba66d4c733dbfb9edeee968e0189212fe9cb57058115fd767a98ec2"
+    },
+    "gen/ch6/test_gen_cross_genenum_65_signed_if_dense_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20055 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "26832446eab8f8294506b126b826f3403f6d1b952464c6020b27b51ee6eba890"
+    },
+    "gen/ch6/test_gen_cross_genenum_65_signed_if_descending_3_prev_cycle": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20059 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "980b8fb078bbdb0f7dc05b3b139ec3008774a3983e8df66dd2ffeb33104db2d0"
+    },
+    "gen/ch6/test_gen_cross_genenum_65_signed_if_high_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20063 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "380df0d171992ea0d4d622bf23e451d636a6d8762e6e7e81f07f9fc79199245c"
+    },
+    "gen/ch6/test_gen_cross_genenum_65_unsigned_case_dense_3_next_beyond": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20067 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "8bab3febe5588cc5d34202a5544487f46dce33bc53d9b679af50fa2682b1822b"
+    },
+    "gen/ch6/test_gen_cross_genenum_65_unsigned_case_descending_2_next_zero": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20071 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "ae86b5b964dd28f5a8214ea8d8213db6e50dd5e2b459cf0ada191211d49a1bcd"
+    },
+    "gen/ch6/test_gen_cross_genenum_65_unsigned_if_high_2_next_one": {
+      "status": "known",
+      "reason": "compile failed: sh: line 1: 20075 Done                    <icarus-prefix>/lib/ivl/ivlpp -L -F\"<temporary-path>\" -f\"<temporary-path>\" -p\"<temporary-path>\"",
+      "inputs_sha256": "8450ad21f7df1b6dedd0bf807413c8decd03ebc3647d5e88de41e3a573637300"
+    }
+  },
+  "generated_at": "2026-11-03T07:04:01.811733+00:00",
+  "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+  "runner_changed": false,
+  "configuration": {},
+  "privacy": {
+    "redacted_fields": "Local install, suite-root and temporary paths in diagnostic reasons only; test IDs, fingerprints, statuses and classifications are unchanged.",
+    "original_bytes_sha256": "850184797e52b75612b65a8eddf57f16261c4ebe808d770cd8b28cfa981a95bc"
+  }
+}

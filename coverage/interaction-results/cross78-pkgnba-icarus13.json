@@ -1,0 +1,195 @@
+{
+  "simulator": "icarus",
+  "name": "Icarus Verilog",
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+  "tests": {
+    "gen/ch26/test_gen_cross_pkgnba_129_bit_known_qualified_up_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_129_bit_known_qualified_up_now_a_b.sv:42: syntax error",
+      "inputs_sha256": "39494d845e7dec485670cee07ef82d49b6734ad4329308656e2933495e159922"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_129_bit_x_wildcard_scalar_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_129_bit_x_wildcard_scalar_now_a_b.sv:61: syntax error",
+      "inputs_sha256": "e461e3a925c5f841e24a3239367492425c04f8c117cdd49a26cce88d06b2d15d"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_129_bit_z_qualified_scalar_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_129_bit_z_qualified_scalar_delayed_a_b.sv:42: syntax error",
+      "inputs_sha256": "d217ef474178fde147b0e053bdae0cf0d816f2ee85deb6d7146f3f182218c9f3"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_129_logic_known_qualified_up_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_129_logic_known_qualified_up_delayed_a_b.sv:42: syntax error",
+      "inputs_sha256": "c679aaefe722e2e092aacd04c062dca4185262492fa3929d578c0c7817a033a5"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_129_logic_x_qualified_down_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_129_logic_x_qualified_down_now_a_b.sv:42: syntax error",
+      "inputs_sha256": "9adfae0469391fc490c9e7e2b490efeccfe9748698f4df84a35f34c3727f953a"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_129_logic_z_explicit_down_delayed_b_a": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_129_logic_z_explicit_down_delayed_b_a.sv:60: syntax error",
+      "inputs_sha256": "447d34c7b834e31bde060fd637cc66c80fbb13cbf3a86713c46711a2bd7eae5d"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_1_bit_known_qualified_scalar_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_1_bit_known_qualified_scalar_now_a_b.sv:42: syntax error",
+      "inputs_sha256": "fdbdaf2ec1b50a23c28a145db327562de54a8219a058d868723ea66937410a9b"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_1_bit_x_qualified_scalar_delayed_b_a": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_1_bit_x_qualified_scalar_delayed_b_a.sv:42: syntax error",
+      "inputs_sha256": "55369b1e4cb5574f95a0636f5c65379c7c95de43602badff37569453f381b507"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_1_bit_z_qualified_up_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_1_bit_z_qualified_up_delayed_a_b.sv:42: syntax error",
+      "inputs_sha256": "4c04c61c8dd7ca76731b7301016494c8e24359e96dc2c7330bcd548951e7fe2a"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_1_logic_known_explicit_down_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_1_logic_known_explicit_down_now_a_b.sv:60: syntax error",
+      "inputs_sha256": "7740e076b2f6eea7d39fe670651120e2eb119b23303ef770d7eb26845c25945b"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_1_logic_x_qualified_down_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_1_logic_x_qualified_down_delayed_a_b.sv:42: syntax error",
+      "inputs_sha256": "9a54062a127155f3618d42590becb3188a20fa9512fd4408b0fe1ffe1b72a9cc"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_1_logic_z_wildcard_up_now_b_a": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_1_logic_z_wildcard_up_now_b_a.sv:61: syntax error",
+      "inputs_sha256": "1e2642d9c42b7f3591b1768bd1dbf55a1fc83b4ef5c7d20b6207cc324b2a2b41"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_32_bit_known_wildcard_scalar_delayed_b_a": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_32_bit_known_wildcard_scalar_delayed_b_a.sv:61: syntax error",
+      "inputs_sha256": "0a1a7ce96a01cc7cd5c538d086486012d254ef852bc1d8263f1f5979bce03195"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_32_bit_x_qualified_down_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_32_bit_x_qualified_down_delayed_a_b.sv:42: syntax error",
+      "inputs_sha256": "c0f260e7995b01f8ee0b3f97ae997134600ccac489b78ecd6f9413ab12ae42d7"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_32_bit_z_wildcard_down_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_32_bit_z_wildcard_down_now_a_b.sv:61: syntax error",
+      "inputs_sha256": "bf64a4a3db4923956defe2a576cffe9013d9de737519ddfcc632dc0fa502974d"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_32_logic_known_explicit_up_delayed_b_a": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_32_logic_known_explicit_up_delayed_b_a.sv:60: syntax error",
+      "inputs_sha256": "44f1aadc12a223bd5354b34302f35e18e92727f518cc45b078e8b7d872966501"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_32_logic_x_qualified_scalar_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_32_logic_x_qualified_scalar_now_a_b.sv:42: syntax error",
+      "inputs_sha256": "140fe085376655af0b0c2f04dc7e55e9b31fe200d782afa5731be81a02dbf867"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_32_logic_z_qualified_up_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_32_logic_z_qualified_up_now_a_b.sv:42: syntax error",
+      "inputs_sha256": "33017dcd2736cacc37dd607e9aa1a053d379214092c41c379492f39ca8582e32"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_33_bit_known_wildcard_up_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_33_bit_known_wildcard_up_now_a_b.sv:61: syntax error",
+      "inputs_sha256": "d0be32752fe003f75577d1ba7652b91b3072ad075446df425e609f0aa5a25700"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_33_bit_x_explicit_up_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_33_bit_x_explicit_up_delayed_a_b.sv:60: syntax error",
+      "inputs_sha256": "f4cabf844a03aa75de8b0754019459ee18d4f7fdd4ff16452050ce814cb3ddfa"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_33_bit_z_qualified_down_now_b_a": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_33_bit_z_qualified_down_now_b_a.sv:42: syntax error",
+      "inputs_sha256": "d0db39d3e32797b4fe752156d042a8377fcf37c67658117bcd491a41b8427658"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_33_logic_known_qualified_scalar_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_33_logic_known_qualified_scalar_now_a_b.sv:42: syntax error",
+      "inputs_sha256": "4729df23918fb7b2510bc29cb720118c85dad19a9f33ff2fff8736e03ecb8967"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_33_logic_x_qualified_down_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_33_logic_x_qualified_down_delayed_a_b.sv:42: syntax error",
+      "inputs_sha256": "0301f482b7e79c4025ac6cce2258fdbfced2985a0c00578fe070c3dead5584e4"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_33_logic_z_explicit_scalar_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_33_logic_z_explicit_scalar_delayed_a_b.sv:60: syntax error",
+      "inputs_sha256": "3fe631c8376e03e00c622b5f94a73e66a071387cbfa718db1b7b50ced52aac71"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_64_bit_known_wildcard_scalar_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_64_bit_known_wildcard_scalar_now_a_b.sv:61: syntax error",
+      "inputs_sha256": "395b735881ed21142e656a80c2753aaa8f1417d8d868c976df577198bc348b46"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_64_bit_x_explicit_scalar_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_64_bit_x_explicit_scalar_delayed_a_b.sv:60: syntax error",
+      "inputs_sha256": "f8cd31d785cef4b5661ab5d29822e84bd2cf502ba2453ea8729a8acf311c18fb"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_64_bit_z_wildcard_down_now_b_a": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_64_bit_z_wildcard_down_now_b_a.sv:61: syntax error",
+      "inputs_sha256": "ce814ea1f32e2f5bc5c5dbe64e907f6ba9c0305414650698af7410ce2fe65ad1"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_64_logic_known_qualified_up_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_64_logic_known_qualified_up_now_a_b.sv:42: syntax error",
+      "inputs_sha256": "77786b629ada5a879eed7c7c6567294790a7259034b76bbe3acaca519bbc6ce7"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_64_logic_x_qualified_up_delayed_b_a": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_64_logic_x_qualified_up_delayed_b_a.sv:42: syntax error",
+      "inputs_sha256": "9365d77c359c8caed7d7e562aeb3e74e26cefac932b075da6743244a9bc2f5d0"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_64_logic_z_qualified_down_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_64_logic_z_qualified_down_delayed_a_b.sv:42: syntax error",
+      "inputs_sha256": "6bf850f188a57acdbfff4ecd27035fec12bcafa352923c5ddfa06f4580939dcb"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_65_bit_known_qualified_down_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_65_bit_known_qualified_down_now_a_b.sv:42: syntax error",
+      "inputs_sha256": "bffd5539642ff177b4325283046e66e801461d889e4d0857d054a71d04a40797"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_65_bit_x_explicit_scalar_now_b_a": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_65_bit_x_explicit_scalar_now_b_a.sv:60: syntax error",
+      "inputs_sha256": "3053829f865deb109eb6f2ae342823923ae7305117bfaf49ecebca62cc6ca00b"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_65_bit_z_qualified_scalar_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_65_bit_z_qualified_scalar_delayed_a_b.sv:42: syntax error",
+      "inputs_sha256": "733fb62b896756e820758760a5d8238f7e313fc53f99b7997e9597825cc5fa64"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_65_logic_known_qualified_up_now_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_65_logic_known_qualified_up_now_a_b.sv:42: syntax error",
+      "inputs_sha256": "6e12f5e3c823752111434340522cf0e58473f6edfd1ddcd513d5462e1fa6acac"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_65_logic_x_wildcard_up_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_65_logic_x_wildcard_up_delayed_a_b.sv:61: syntax error",
+      "inputs_sha256": "393cd10c5e6cc5815251e750d552db65606bb418fe0c64b3ed0ea17ff5fda013"
+    },
+    "gen/ch26/test_gen_cross_pkgnba_65_logic_z_qualified_down_delayed_a_b": {
+      "status": "known",
+      "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgnba_65_logic_z_qualified_down_delayed_a_b.sv:42: syntax error",
+      "inputs_sha256": "96289fd56368543e374d77cc96626796a55ee96f9da849d78aab2e5a0ae3527b"
+    }
+  },
+  "generated_at": "2026-11-03T07:53:50.935648+00:00",
+  "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+  "runner_changed": false,
+  "configuration": {},
+  "privacy": {
+    "redacted_fields": "Local install/suite/temp paths in reasons only, if present. IDs, input hashes, statuses and classifications are unchanged.",
+    "original_bytes_sha256": "11559937a30364755267a40d70e1d51dd11a307a42182bbbd2f904ba4720d3e6"
+  }
+}

@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .645 43 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .681 79 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 |テスト|チェックするもの|条項|予期した出力を記録|ノート|
 | --- | --- | --- | --- | --- |
@@ -673,6 +673,51 @@
 | [`test_gen_cross_cast_w65_u_k_typed_bit_s_plain_l`](../../tests/gen/ch6/test_gen_cross_cast_w65_u_k_typed_bit_s_plain_l.sv) |明示的なキャストによる変換は、外側の算術演算と格納先への変換より前に行われる| 6.24.1 6.11.2 11.6.1 11.8.1 11.8.2 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_cast_w65_u_x_typed_logic_n_add_b`](../../tests/gen/ch6/test_gen_cross_cast_w65_u_x_typed_logic_n_add_b.sv) |明示的なキャストによる変換は、外側の算術演算と格納先への変換より前に行われる| 6.24.1 6.11.2 11.6.1 11.8.1 11.8.2 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_cast_w65_u_z_unsigned_s_add_b`](../../tests/gen/ch6/test_gen_cross_cast_w65_u_z_unsigned_s_add_b.sv) |明示的なキャストによる変換は、外側の算術演算と格納先への変換より前に行われる| 6.24.1 6.11.2 11.6.1 11.8.1 11.8.2 | Icarus Verilog 13.0 | x/z |
+
+<a id="generated-by-generatorsinteraction_genenumpy"></a>
+
+## 生成者: `generators/interaction_genenum.py`
+
+36 テスト;見て "Generated tests" のスイートの README。
+
+|テスト|チェックするもの|条項|予期した出力を記録|ノート|
+| --- | --- | --- | --- | --- |
+| [`test_gen_cross_genenum_129_signed_case_high_3_prev_beyond`](../../tests/gen/ch6/test_gen_cross_genenum_129_signed_case_high_3_prev_beyond.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_129_signed_if_dense_2_prev_zero`](../../tests/gen/ch6/test_gen_cross_genenum_129_signed_if_dense_2_prev_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_129_signed_if_descending_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_129_signed_if_descending_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_129_unsigned_case_high_2_prev_cycle`](../../tests/gen/ch6/test_gen_cross_genenum_129_unsigned_case_high_2_prev_cycle.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_129_unsigned_if_dense_2_next_beyond`](../../tests/gen/ch6/test_gen_cross_genenum_129_unsigned_if_dense_2_next_beyond.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_129_unsigned_if_descending_3_prev_one`](../../tests/gen/ch6/test_gen_cross_genenum_129_unsigned_if_descending_3_prev_one.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_1_signed_if_dense_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_1_signed_if_dense_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_1_signed_if_descending_2_next_one`](../../tests/gen/ch6/test_gen_cross_genenum_1_signed_if_descending_2_next_one.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_1_signed_if_high_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_1_signed_if_high_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_1_unsigned_case_dense_2_prev_cycle`](../../tests/gen/ch6/test_gen_cross_genenum_1_unsigned_case_dense_2_prev_cycle.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_1_unsigned_if_descending_2_prev_beyond`](../../tests/gen/ch6/test_gen_cross_genenum_1_unsigned_if_descending_2_prev_beyond.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_1_unsigned_if_high_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_1_unsigned_if_high_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_32_signed_case_dense_3_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_32_signed_case_dense_3_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_32_signed_if_descending_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_32_signed_if_descending_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_32_signed_if_high_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_32_signed_if_high_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_32_unsigned_case_high_2_next_beyond`](../../tests/gen/ch6/test_gen_cross_genenum_32_unsigned_case_high_2_next_beyond.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_32_unsigned_if_dense_3_prev_one`](../../tests/gen/ch6/test_gen_cross_genenum_32_unsigned_if_dense_3_prev_one.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_32_unsigned_if_descending_2_next_cycle`](../../tests/gen/ch6/test_gen_cross_genenum_32_unsigned_if_descending_2_next_cycle.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_33_signed_if_dense_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_33_signed_if_dense_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_33_signed_if_descending_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_33_signed_if_descending_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_33_signed_if_high_3_next_cycle`](../../tests/gen/ch6/test_gen_cross_genenum_33_signed_if_high_3_next_cycle.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_33_unsigned_case_descending_3_prev_zero`](../../tests/gen/ch6/test_gen_cross_genenum_33_unsigned_case_descending_3_prev_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_33_unsigned_case_high_2_prev_one`](../../tests/gen/ch6/test_gen_cross_genenum_33_unsigned_case_high_2_prev_one.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_33_unsigned_if_dense_2_prev_beyond`](../../tests/gen/ch6/test_gen_cross_genenum_33_unsigned_if_dense_2_prev_beyond.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 | Verilator 5.052 ||
+| [`test_gen_cross_genenum_64_signed_case_dense_2_next_cycle`](../../tests/gen/ch6/test_gen_cross_genenum_64_signed_case_dense_2_next_cycle.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_64_signed_case_descending_3_next_beyond`](../../tests/gen/ch6/test_gen_cross_genenum_64_signed_case_descending_3_next_beyond.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_64_signed_if_high_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_64_signed_if_high_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_64_unsigned_if_dense_3_next_one`](../../tests/gen/ch6/test_gen_cross_genenum_64_unsigned_if_dense_3_next_one.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_64_unsigned_if_descending_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_64_unsigned_if_descending_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_64_unsigned_if_high_2_prev_zero`](../../tests/gen/ch6/test_gen_cross_genenum_64_unsigned_if_high_2_prev_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_65_signed_if_dense_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_65_signed_if_dense_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_65_signed_if_descending_3_prev_cycle`](../../tests/gen/ch6/test_gen_cross_genenum_65_signed_if_descending_3_prev_cycle.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_65_signed_if_high_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_65_signed_if_high_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_65_unsigned_case_dense_3_next_beyond`](../../tests/gen/ch6/test_gen_cross_genenum_65_unsigned_case_dense_3_next_beyond.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_65_unsigned_case_descending_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_65_unsigned_case_descending_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
+| [`test_gen_cross_genenum_65_unsigned_if_high_2_next_one`](../../tests/gen/ch6/test_gen_cross_genenum_65_unsigned_if_high_2_next_one.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |標準のみ||
 
 <a id="generated-by-generatorswide_pathspy"></a>
 

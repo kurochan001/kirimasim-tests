@@ -9,13 +9,62 @@ The same stimulus drives a SystemVerilog design and a Python reference, comparin
 Existing cases, oracles and finite-model denominators remain intact. Random samples and their successes do not increase
 fixed-suite test counts, chapter-matrix pass counts or requirement coverage.
 
+<a id="purpose-and-roles"></a>
+
+## Purpose and roles
+
+The goal is to search for counterexamples involving data-dependent bugs and feature interactions by varying
+concrete input values, initial states and operation histories beyond the fixed representative cases.
+With the same widths, signs and indexing forms, different values can expose overflow or extension errors;
+different write orders can change later reads and observations of untouched bits.
+Preserve failures as reproducible evidence and carry confirmed mechanisms into fixed regressions.
+
+- **Fixed regressions and finite interaction models** repeatedly check selected factor combinations and mandatory boundaries.
+  Do not replace them with a hope that random sampling will select those boundaries.
+- **These random comparisons** explore additional values and sequences within supported profiles. Python generates randomness;
+  simulators and references receive the same concrete stimuli. This does not test agreement between simulator random streams
+  or the constraint solver behind `randomize()`.
+- **Internal-model comparisons and libFuzzer in kirimasim** use the core repository's infrastructure for value semantics,
+  scheduling, compilation and related mechanisms. Maintain them separately from this external comparison of SV inputs.
+  See the [core validation policy](https://github.com/kurochan001/kirimasim/blob/main/docs/VALIDATION.md).
+
+Passing samples do not prove correctness for all inputs/sequences, coverage of every factor combination or absence of undiscovered bugs.
+Features outside the three supported profiles are not automatically explored.
+Generation uses a distribution defined in code and a seed; automatic adaptation using coverage feedback is not implemented.
+Some reference calculations share functions with fixed interaction tests, so repeated random comparisons alone cannot rule out oracle defects.
+Combine standard review, hand-calculated boundaries and [reference/runner regressions](../tools/test_random_cross.py).
+
+<a id="verification-process"></a>
+
+## Verification process
+
+1. **Choose legal conditions.** Allocate approximately equal case counts to supported profiles; the seed selects order and legal parameters.
+   The [generator and reference module](../tools/random_cross_models.py) define scope and constraints.
+2. **Materialize values and history.** For each arithmetic value, choose a boundary candidate with probability 1/4:
+   zero, one, all-one bits, the MSB-only pattern or that pattern minus one. Otherwise draw a bit pattern of the selected width.
+   Redraw a zero divisor as nonzero; choose array positions within the legal range for the selected slice width.
+   Write sequences generate initial state, positions, data and operation order, also injecting X/Z.
+   Writing A→reading→writing B→reading in one slice is distinct from reversing A and B.
+3. **Create SV and expectations from identical stimuli.** Expose arithmetic results or whole-vector state after operations for comparison
+   against standard-derived reference calculations. Check intermediate reads and untouched bits, not just a final value.
+4. **Record execution conditions and compare.** Use kirimasim fetched/built immediately before execution and existing normalization/verdict logic.
+   Optional comparators receive the same saved SV; compare each tool individually with its expectation.
+   Simulator agreement or a majority vote alone is not a pass criterion.
+5. **Save and replay.** Keep actual stimuli, SV, expectations, outputs, versions and fingerprints as well as the seed.
+   Use [saved-stimulus replay](#immutable-replay) without redrawing. Unsupported, timed-out, unexecuted or stale evidence is not success.
+6. **Carry failures into fixed regressions.** Distinguish specification, reference, runner and simulator problems;
+   move confirmed mechanisms toward [fixed regression candidates](#failure-regression). Preserve original failure evidence after a successful retry.
+
+Previously used widths or signedness remain eligible. [Duplicate admission](#exploration-admission) applies only to identical optional exploration jobs;
+fixed regressions, formal Nightly and explicit replay execute again.
+
 <a id="scope"></a>
 
 <a id="対象と生成方法"></a>
 
 ## Scope and generation
 
-The initial implementation has three profiles. It does not generalize every finite model to arbitrary inputs.
+Three profiles are currently supported. This does not generalize every finite model to arbitrary inputs.
 
 - `expression_context` crosses widths, signedness, destination width and addition/subtraction/multiplication with arbitrary known input bits.
   It reuses the reference in `generators/interaction_expr.py`.
@@ -110,8 +159,10 @@ python3 tools/run_random_cross.py \
 ```
 
 Omit `--case` to rerun all saved cases. Replay rejects generation options such as seed, count or model selection.
-It does not redraw stimuli. Changed reference code may produce changed expectations; compare code hashes and expectations
-with the original artifact. Automatic counterexample minimization is not implemented.
+It does not redraw stimuli. With the complete original artifact available, default to its SV and expectations and record differences from current reference materializations separately.
+Explicitly select `--reference-policy current` to execute expectations from the current reference.
+Manifest-only replay uses current materializations and cannot verify original SV/expectation bytes.
+See [reference-change handling](#immutable-replay). Automatic counterexample minimization is not implemented.
 
 Generation and inspection need no simulator:
 

@@ -77,6 +77,8 @@ import interaction_cgsample
 import interaction_deferdis
 import interaction_clockevent
 import interaction_deferarg
+import interaction_genenum
+import interaction_pkgnba
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -112,7 +114,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_mailbox,
               interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff, interaction_assocquery, interaction_randreduce,
               interaction_gendisable, interaction_dist, interaction_eventlife, interaction_dpiquery, interaction_sdfpath, interaction_checksample, interaction_progassert, interaction_cgsample, interaction_deferdis, interaction_compound, interaction_inside, interaction_range,
-              interaction_case_inside, interaction_clockevent, interaction_deferarg)
+              interaction_case_inside, interaction_clockevent, interaction_deferarg, interaction_genenum, interaction_pkgnba)
 
 
 @dataclass
@@ -682,5 +684,19 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_deferarg.MODEL.select(),
             "遅延報告の値渡しと静的な参照渡しを、登録時の取得値・報告時の生値・幅変換と照合する。"
             "関数とタスク、報告領域、更新方式、幅と符号を交差し、引数評価の副作用と実行時刻も観測する。",
+        ),
+        SuiteModel(
+            interaction_genenum.MODEL,
+            lambda row: "tests/gen/ch6/" + interaction_genenum.case_name(row) + ".sv",
+            interaction_genenum.MODEL.select(),
+            "generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言順・巡回数とnext/prevの観測へ反映される。"
+            "二初期状態と別要素の操作後・アイドル時の読出しで、値と保持したコピーの独立性も照合する。",
+        ),
+        SuiteModel(
+            interaction_pkgnba.MODEL,
+            lambda row: "tests/gen/ch26/" + interaction_pkgnba.case_name(row) + ".sv",
+            interaction_pkgnba.MODEL.select(),
+            "二つのモジュールから同じpackage変数へ順にNBAを予約し、参照方法・配列添字・遅延・状態型を交差する。"
+            "値と代入先の取得、予約順序、別名での読出し、隣接要素と別packageの保持をActiveとNBA後で照合する。",
         ),
     )

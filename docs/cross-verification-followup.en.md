@@ -68,7 +68,7 @@ majorities alone determine neither implementation priority, correctness nor P1 c
 
 ## Unexamined pairs and future test additions
 
-Two R pairs were reviewed; 590 remain unassessed.
+At the initial review, two R pairs were reviewed and 590 remained unassessed.
 
 - **Chapters 13×16: E at review, now M.** An existing deferred-action argument test observes registration-time
   pass-by-value and post-NBA reference values in the same stimulus and expectation. Source and
@@ -83,7 +83,11 @@ Two R pairs were reviewed; 590 remain unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M108, E3, C2, N117 and R590. See the
+The current triage is M112, E3, C2, N117 and R586. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
+
+The subsequent [enum/generate model](interaction-verification.en.md#generated-enum-navigation) reviews the previously unassessed Chapters 6×27 pair and registers it as M. All 36 additions pass in the single complete 2,850-case run on upstream `7554bb47`; the remaining four config failures and 529 unsupported cases are unchanged. That addition left 589 R pairs. Earlier counts in this record describe their dated review checkpoints.
+
+The subsequent [package-NBA model](interaction-verification.en.md#package-nba-capture) moves previously unassessed Chapters 10×26, 4×26 and 7×26 to M. All 36 additions pass in one 2,886-case run on upstream `7554bb47`; existing config failures and unsupported cases are unchanged. The array mapping uses 24 cases and the full-model PASS still requires all 36. This leaves 586 R pairs.

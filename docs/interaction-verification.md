@@ -12,7 +12,22 @@
 
 ## 保存実行の概要
 
-遅延報告引数の追加（2026-11-03）：現在は**76モデル・2,814件・108章対**です。
+packageのNBA追加（2026-11-03）：現在は**78モデル・2,886件・112章対**です。
+実行直前に上流mainを取得・構成・ビルドしたkirimasim `7554bb47`の
+[全クロス保存実行](../coverage/interaction-results/cross78-kirimasim-7554bb47-pkgnba.json)は
+**2,353 pass・529 unsupported・既存configの4 fail**です。追加36件は全て解析成功・PASSで、
+従来2,850件の入力fingerprintと状態分類は不変、全選択ケースPASSは51モデルです。
+本体の変更はなく、正式Nightlyとは別のローカル実行です。[設計・独立検算・制限](#package-nba-capture)を参照してください。
+
+列挙型とgenerateの追加（2026-11-03）：当時は**77モデル・2,850件・109章対**です。
+実行直前に上流mainを取得・構成・ビルドしたkirimasim `7554bb47`の
+[全クロス保存実行](../coverage/interaction-results/cross77-kirimasim-7554bb47-genenum.json)は
+**2,317 pass・529 unsupported・既存configの4 fail**です。追加36件は全て解析成功・PASSで、
+従来2,814件の入力fingerprintと状態分類は不変、全選択ケースPASSは50モデルです。
+本体の変更はなく、正式Nightlyとは別のローカル実行です。
+[第6章×第27章の設計・独立検算・制限](#generated-enum-navigation)を参照してください。
+
+遅延報告引数の追加（2026-11-03）：当時は**76モデル・2,814件・108章対**です。
 実行直前に上流mainを取得・再ビルドしたkirimasim `7654825d`＋保持中の未コミット修正で、
 [全クロス保存実行](../coverage/interaction-results/cross76-kirimasim-7654825d-deferarg.json)は
 **2,281 pass・529 unsupported・既存configの4 fail**です。新規29件はすべて解析成功・PASSで、
@@ -2758,6 +2773,157 @@ python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 4 \
   --json my-results/deferarg-kirimasim-new.json tests/gen/ch13/test_gen_cross_deferarg_*.sv
 python3 tools/run_verilator.py --verilator /path/to/verilator-5.052 --seed 1 -j 4 \
   --json my-results/deferarg-verilator-new.json tests/gen/ch13/test_gen_cross_deferarg_*.sv
+```
+
+<a id="generated-enum-navigation"></a>
+
+### generateごとの列挙型とメソッドの巡回
+
+`generated_enum_navigation@1`は第6章×第27章に36件を追加します。
+生成器は[`interaction_genenum.py`](../generators/interaction_genenum.py)です。
+IEEE 1800-2023の6.19・6.19.1・6.19.5と27.4・27.5を根拠に、生成要素ごとの型と列挙値表を観測します。
+既存のgenerateモデルは名前解決を中心に扱い、符号付き演算を対象外としていたため、別の有限モデルにしました。
+
+因子は基底幅1/32/33/64/65/129、unsigned/signed、if/case generate、
+連続値／最上位ビットを含む値／降順の符号化、列挙子数2/3、next/prev、
+移動数zero/one/cycle/beyondです。直積1,152通りから、幅1で列挙子3個の行だけを除き、
+**1,056合法行から36件を選択（96.59%削減）**します。未対応による除外はありません。
+2因子181目標、重点3因子110目標、必須境界6件を保持します。重点群は次のとおりです。
+
+- 幅×符号×符号化、幅×generate形式×列挙子数
+- 符号化×メソッド×移動数、列挙子数×メソッド×移動数
+- generate形式×符号化×列挙子数
+
+各ケースは、分岐選択が反対の2インスタンスで、それぞれ2生成要素を作ります。
+局所幅は基底幅に暗黙のgenvarローカルパラメータと分岐値を加え、最大131ビットになります。
+分岐1では、宣言順に割り当てる値の列を一つ回します。first/last/num、next/prev、name、2進値と符号付き／符号なし10進値を比較し、
+数値の大小順ではなく宣言順で巡回することを確認します。全ケースで先頭・末尾の両方から操作し、
+別要素を操作した後とアイドル時に、操作後の値と保持コピーを読み直します。
+移動数は0、1、列挙子数、列挙子数+2です。0と一周で観測が一致しても、異なる入力として保持します。
+
+1ビットの負数、32/33・64/65ビット境界、129ビット基底幅、先頭・末尾での巡回、
+複数インスタンス・生成要素の値表と状態の独立性が対象です。
+X/Z列挙子、非メンバ値、負の移動数、config、defparam、型不一致代入の拒否は対象外です。
+型メソッドの正例の値を観測する検証であり、異なる生成型どうしの代入互換性を証明するものではありません。
+
+[`qualify_genenum.py`](../tools/qualify_genenum.py)は実際のSVを読み、インスタンス、ループ生成、分岐、
+定数式、幅・符号、列挙子の宣言順、タスク本体とトップからの呼出しを独立に解釈します。
+生成器の期待値・値表・移動数の計算関数に依存せず、全1,056行を照合しました。
+正常対照4件は最新kirimasimでPASSし、実際のSV故障8件は正常終了後の出力不一致として検出しました。
+故障はgenvarの幅への反映欠落、別インスタンスの分岐誤り、巡回方向・移動数・符号の誤り、
+上位ビット欠落、保持コピーの上書き、列挙子名の取り違えです。
+[独立検算・正常対照・故障の全出力](../coverage/interaction-qualification/genenum.json)と
+[専用回帰テスト13件](../tools/test_interaction_genenum.py)を保存しています。
+解釈器の対応外の式や文は無視せず拒否します。合法全行の期待値の照合と、選択36件のネイティブ実行は別の検証です。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross77-genenum-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross77-genenum-verilator5052-seed73.json)は各18 pass・18 knownです。
+基底幅1/32/33の18件だけに固定版oracleを登録しました。基底幅64/65/129では実際の型幅が64ビットを超え、
+列挙値を64ビット以内に制限するビルド診断が出ます。幅を減らして合格させる変更はしていません。
+固定[Icarus Verilog 13.0](../coverage/interaction-results/cross77-genenum-icarus13.json)は全36件でビルド時の既知差です。
+[元ケース4件の全診断再実行](../coverage/interaction-qualification/genenum-fixed-replays.json)では、
+Verilatorの幅に関する診断とIcarusのBus error（終了コード138）を保存しています。
+この異常終了から内部原因は断定しません。既知差の再実行は正常対照や故障検出数へ加算しません。
+診断中のローカルパスだけを伏せ、元バイト列のハッシュを保持しています。
+
+[ビルド・解析・不変性の記録](../coverage/interaction-qualification/genenum-build.json)と
+[全2,850件の単一実行](../coverage/interaction-results/cross77-kirimasim-7554bb47-genenum.json)は、
+上流main `7554bb47`と実バイナリを識別し、追加36件の解析・PASS、従来2,814件の入力・判定不変を確認します。
+本体コードの変更、要求台帳への自動加算、既存期待値の変更はありません。
+
+導入時のローカル検査は、ツール回帰779件と統計・生成物・カタログ・クロス・章間表・仕分け・
+組合せ台帳・日英資料・要求照合・要求カバレッジ・メタデータの13検査がPASSです。
+メタデータ10,600件で新規問題0件（既知395件）、日英115組とローカルリンク52,729件も確認しました。
+この未コミット変更に対するGitHub Checkと正式Nightlyは未実行です。
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_genenum.py
+# 実行直前に上流mainを確認し、構成し直して最新kirimasimをビルドする
+python3 tools/qualify_genenum.py --kirimasim /path/to/latest/kirimasim \
+  --output my-results/genenum-qualification-new.json
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 8 \
+  --json my-results/genenum-native-new.json tests/gen/ch6/test_gen_cross_genenum_*.sv
+python3 tools/run_verilator.py --verilator /path/to/verilator-5.052 --seed 1 -j 4 \
+  --json my-results/genenum-verilator-new.json tests/gen/ch6/test_gen_cross_genenum_*.sv
+```
+
+<a id="package-nba-capture"></a>
+
+### package共有変数のNBA予約と反映
+
+`package_nba_capture@1`は[`interaction_pkgnba.py`](../generators/interaction_pkgnba.py)が生成する36件です。
+IEEE 1800-2023の26.3・26.4、10.4.2、4.6・4.4.2.2・4.4.2.4、7.4.1・13.5.1を根拠に、
+複数モジュールが同じpackageオブジェクトを参照し、予約済みのNBAが値と代入先を保持することを確認します。
+
+因子は幅1/32/33/64/65/129、bit/logic、既知値/X/Z、明示修飾/ワイルドカードimport/明示import、
+スカラ/昇順配列/降順配列、即時/遅延NBA、a→b/b→aの呼出し順序です。
+**全1,296行が合法**で、未対応を理由に除外していません。2因子183目標・重点3因子126目標・必須境界6件を保持し、
+**36件を選択（97.22%削減）**します。重点群は次のとおりです。
+
+- 幅×状態型×入力値、参照方法×格納先×予約順序
+- 格納先×遅延×予約順序、幅×格納先×遅延
+- 状態型×入力値×予約順序、参照方法×遅延×予約順序
+
+二つのwriterモジュールのautomaticタスクを、**同じinitialから順に呼びます**。
+独立した並行プロセス間の競合順序を仮定していません。両タスクは同じ静的package変数へNBAを予約し、
+予約後に入力引数と添字を変更して復帰します。呼出し元もsourceと添字を変更します。
+別の参照方法を使うprobeからも同じ対象を読み、隣接要素と別packageの同名変数を対照にします。
+配列は昇順の負添字[-2:-1]と降順の非零添字[2:1]を使います。
+
+二つの入力フレームそれぞれで、予約直後のActive、1時刻後のActive、2時刻後の反映済み状態、
+3時刻後のアイドル状態を比較します。遅延NBAの反映予定は1時刻後のため、その時刻のActiveではまだ旧値です。
+タスクの入力ログはX/Zを保持し、bit型の格納先への代入だけで0へ変換します。
+相反する予約値と順序、隣接要素の保持、別名読出しが同じ観測列に効くようにしています。
+動的配列、実数、net、force、VPI、独立writer間の順序、より一般的な遅延式は対象外です。
+
+[`qualify_pkgnba.py`](../tools/qualify_pkgnba.py)は、実際のSVのpackage型、参照先、タスク本体、
+入力リテラル、添字、表示と呼出し列を読み取る独立のイベントキューです。
+生成器の期待値・刺激・アドレス計算関数に依存せず、全1,296行を照合しました。
+解釈範囲外の式・文と追加のproducerは拒否します。正常対照4件は最新kirimasimでPASSし、
+実際のSV故障8件は全て正常終了後の出力不一致として検出しました。
+故障はpackage／import先の誤り、blocking化、遅延欠落、予約順序の逆転、別要素への書込み、
+4値情報の欠落、引数の早すぎる上書きです。
+[正常対照・故障の全出力](../coverage/interaction-qualification/pkgnba.json)と
+[専用回帰テスト14件](../tools/test_interaction_pkgnba.py)を保存しています。
+全合法行の独立検算と、選択36件のネイティブ実行は分けて扱います。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross78-pkgnba-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross78-pkgnba-verilator5052-seed73.json)は各12 pass・24 knownです。
+X/Zの観測が不要な既知値の12件だけに固定oracleを登録し、登録後の最終入力も再実行しました。
+残る24件はX/Zの入力ログなどを必要とするため、2値実行の差を機能不正の根拠や正しさのoracleにはしません。
+固定[Icarus Verilog 13.0](../coverage/interaction-results/cross78-pkgnba-icarus13.json)は36件ともビルド時の既知差です。
+[原ケース4件の全出力・診断](../coverage/interaction-qualification/pkgnba-fixed-replays.json)は、VerilatorのX/Z差2件と
+Icarusのビルド診断2件を保存します。既知差の再実行は正常対照や故障検出に加算しません。
+ローカルパスの伏字と元バイト列のハッシュを明示しています。
+原ケース2件では、最初の既知値の入力ログにも差がありました。両ケースのX/Z入力箇所だけを既知の0にした
+[別の診断対照](../coverage/interaction-qualification/pkgnba-known-input-controls.json)は、kirimasimと固定Verilatorで一致しました。
+対照の実際のSVと独立に解釈した期待値を保存し、元ケースの期待値・oracleは変更していません。
+この対照だけで元の差の内部原因は断定せず、対照2件を固定スイート・有限モデル・正常対照4件へ加算しません。
+
+[ビルド・解析・不変性の記録](../coverage/interaction-qualification/pkgnba-build.json)と
+[全2,886件の単一実行](../coverage/interaction-results/cross78-kirimasim-7554bb47-pkgnba.json)は、
+実行直前に取得・構成・ビルドした上流main `7554bb47`を識別します。追加36件は解析成功・PASSで、
+従来2,850件の入力と判定は不変です。全体は2,353 pass・529 unsupported・既存configの4 failです。
+本体コードと既存期待値は変更せず、要求台帳へ自動加算していません。
+
+章間表では第10章×第26章と第4章×第26章に全36件、第7章×第26章に配列の24件を対応付けます。
+各章対の全選択ケースPASS判定はモデル全体の36件が同じ実行で合格したことに基づきます。
+packageの参照、領域の観測、予約時の配列添字が実際の観測へ影響する根拠を台帳に登録しました。
+
+導入時のローカル検査は、ツール回帰793件と、統計・生成物・カタログ・クロス・章間表・仕分け・
+組合せ台帳・日英資料・要求照合・要求カバレッジ・メタデータの13検査がPASSです。
+メタデータ10,636件で新規問題0件（既知395件）、日英115組とローカルリンク52,839件も確認しました。
+この未コミット変更に対するGitHub Checkと正式Nightlyは未実行です。
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_pkgnba.py
+# 実行直前に上流mainを確認し、構成し直して最新kirimasimをビルドする
+python3 tools/qualify_pkgnba.py --kirimasim /path/to/latest/kirimasim \
+  --output my-results/pkgnba-qualification-new.json
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 8 \
+  --json my-results/pkgnba-native-new.json tests/gen/ch26/test_gen_cross_pkgnba_*.sv
+python3 tools/run_verilator.py --verilator /path/to/verilator-5.052 --seed 1 -j 4 \
+  --json my-results/pkgnba-verilator-new.json tests/gen/ch26/test_gen_cross_pkgnba_*.sv
 ```
 
 ### モデル変更時の更新

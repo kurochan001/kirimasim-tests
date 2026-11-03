@@ -1,0 +1,44 @@
+h phase=0 id=0 lane=0 kind=0 bits=1 num=2 first=0 last=1
+v phase=0 id=0 lane=0 k=0 value=0 dec=0 name=E0 next=0 prev=0
+v phase=0 id=0 lane=0 k=1 value=0 dec=0 name=E0 next=0 prev=0
+v phase=0 id=0 lane=0 k=2 value=0 dec=0 name=E0 next=0 prev=0
+h phase=0 id=0 lane=1 kind=1 bits=3 num=2 first=100 last=000
+v phase=0 id=0 lane=1 k=0 value=100 dec=4 name=E0 next=100 prev=100
+v phase=0 id=0 lane=1 k=1 value=100 dec=4 name=E0 next=100 prev=100
+v phase=0 id=0 lane=1 k=2 value=100 dec=4 name=E0 next=100 prev=100
+h phase=0 id=1 lane=0 kind=1 bits=2 num=2 first=10 last=00
+v phase=0 id=1 lane=0 k=0 value=10 dec=2 name=E0 next=10 prev=10
+v phase=0 id=1 lane=0 k=1 value=10 dec=2 name=E0 next=10 prev=10
+v phase=0 id=1 lane=0 k=2 value=10 dec=2 name=E0 next=10 prev=10
+h phase=0 id=1 lane=1 kind=0 bits=2 num=2 first=00 last=10
+v phase=0 id=1 lane=1 k=0 value=00 dec=0 name=E0 next=00 prev=00
+v phase=0 id=1 lane=1 k=1 value=00 dec=0 name=E0 next=00 prev=00
+v phase=0 id=1 lane=1 k=2 value=00 dec=0 name=E0 next=00 prev=00
+p phase=0 id=0 lane=0 value=0 name=E0 held=0 held_name=E0
+p phase=0 id=0 lane=1 value=100 name=E0 held=100 held_name=E0
+p phase=0 id=1 lane=0 value=10 name=E0 held=10 held_name=E0
+p phase=0 id=1 lane=1 value=00 name=E0 held=00 held_name=E0
+h phase=1 id=0 lane=0 kind=0 bits=1 num=2 first=0 last=1
+v phase=1 id=0 lane=0 k=0 value=1 dec=1 name=E1 next=1 prev=1
+v phase=1 id=0 lane=0 k=1 value=1 dec=1 name=E1 next=1 prev=1
+v phase=1 id=0 lane=0 k=2 value=1 dec=1 name=E1 next=1 prev=1
+h phase=1 id=0 lane=1 kind=1 bits=3 num=2 first=100 last=000
+v phase=1 id=0 lane=1 k=0 value=000 dec=0 name=E1 next=000 prev=000
+v phase=1 id=0 lane=1 k=1 value=000 dec=0 name=E1 next=000 prev=000
+v phase=1 id=0 lane=1 k=2 value=000 dec=0 name=E1 next=000 prev=000
+h phase=1 id=1 lane=0 kind=1 bits=2 num=2 first=10 last=00
+v phase=1 id=1 lane=0 k=0 value=00 dec=0 name=E1 next=00 prev=00
+v phase=1 id=1 lane=0 k=1 value=00 dec=0 name=E1 next=00 prev=00
+v phase=1 id=1 lane=0 k=2 value=00 dec=0 name=E1 next=00 prev=00
+h phase=1 id=1 lane=1 kind=0 bits=2 num=2 first=00 last=10
+v phase=1 id=1 lane=1 k=0 value=10 dec=2 name=E1 next=10 prev=10
+v phase=1 id=1 lane=1 k=1 value=10 dec=2 name=E1 next=10 prev=10
+v phase=1 id=1 lane=1 k=2 value=10 dec=2 name=E1 next=10 prev=10
+p phase=1 id=0 lane=0 value=1 name=E1 held=1 held_name=E1
+p phase=1 id=0 lane=1 value=000 name=E1 held=000 held_name=E1
+p phase=1 id=1 lane=0 value=00 name=E1 held=00 held_name=E1
+p phase=1 id=1 lane=1 value=10 name=E1 held=10 held_name=E1
+p phase=2 id=0 lane=0 value=1 name=E1 held=1 held_name=E1
+p phase=2 id=0 lane=1 value=000 name=E1 held=000 held_name=E1
+p phase=2 id=1 lane=0 value=00 name=E1 held=00 held_name=E1
+p phase=2 id=1 lane=1 value=10 name=E1 held=10 held_name=E1

@@ -1,0 +1,12 @@
+put phase=0 who=0 t=0 index=-2 data=z
+put phase=0 who=1 t=0 index=-2 data=1
+s phase=0 at=active t=0 value=0 guard=0 other=1 og=1 alias=0
+s phase=0 at=edge t=1 value=0 guard=0 other=1 og=1 alias=0
+s phase=0 at=after t=2 value=1 guard=0 other=1 og=1 alias=1
+s phase=0 at=idle t=3 value=1 guard=0 other=1 og=1 alias=1
+put phase=1 who=0 t=3 index=-2 data=z
+put phase=1 who=1 t=3 index=-2 data=1
+s phase=1 at=active t=3 value=0 guard=0 other=1 og=1 alias=0
+s phase=1 at=edge t=4 value=0 guard=0 other=1 og=1 alias=0
+s phase=1 at=after t=5 value=1 guard=0 other=1 og=1 alias=1
+s phase=1 at=idle t=6 value=1 guard=0 other=1 og=1 alias=1

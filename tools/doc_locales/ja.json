@@ -24508,6 +24508,8 @@
     "Container updates and guarded coverage samples preserve size value and instance history": "コンテナ更新とガード付きカバレッジsampleはサイズ・値・実体ごとの履歴を保持する",
     "Disable scopes distinguish deferred report cancellation from captured inputs and live actions": "disableのスコープに応じた遅延報告の取消しと、取得済み引数・アクションの生値を区別する",
     "Named-event consumers retain clocking samples while live inputs change": "名前付きイベントの待機者は、生信号が変化してもclocking入力の採取値を保持する",
-    "Deferred report arguments preserve input capture, static references and formal conversion": "遅延報告の引数で、入力値の取得・静的な参照・仮引数への変換を照合する"
+    "Deferred report arguments preserve input capture, static references and formal conversion": "遅延報告の引数で、入力値の取得・静的な参照・仮引数への変換を照合する",
+    "Generated scopes keep distinct ZXQPH0QXZ tables, navigation and retained values": "生成スコープごとに異なるZXQPH0QXZの値表・巡回・保持値を照合する",
+    "Package ZXQPH0QXZ updates share one object and preserve captured values, targets and order": "packageのZXQPH0QXZ更新で同じ実体・取得済み値と代入先・予約順序を照合する"
   }
 }

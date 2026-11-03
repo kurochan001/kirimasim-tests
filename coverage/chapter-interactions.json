@@ -1787,6 +1787,52 @@
           "reason": "遅延アサーションの引数を、登録時の値渡しと報告時の静的な参照渡しで比較し、幅変換と入力評価の副作用も照合する。"
         }
       ]
+    },
+    {
+      "id": "generated_enum_navigation",
+      "primary_chapter": 6,
+      "pairs": [
+        {
+          "chapters": [
+            6,
+            27
+          ],
+          "reason": "生成反復と条件分岐によって列挙型の幅・値表が変わり、メソッドの巡回・符号付き表示・保持値へ反映されることを照合する。"
+        }
+      ]
+    },
+    {
+      "id": "package_nba_capture",
+      "primary_chapter": 26,
+      "pairs": [
+        {
+          "chapters": [
+            10,
+            26
+          ],
+          "reason": "複数モジュールから参照する同じpackage変数へのNBAで、値・代入先の取得と順序、別名の読出しを照合する。"
+        },
+        {
+          "chapters": [
+            4,
+            26
+          ],
+          "reason": "package共有状態をActiveとNBA後で読み、遅延の到来時刻にも更新前の値を観測して領域の順序を照合する。"
+        },
+        {
+          "chapters": [
+            7,
+            26
+          ],
+          "reason": "packageの昇順・降順配列で予約時の添字が選ぶ要素を更新し、添字変更後も隣接要素と別packageを保持する。",
+          "when": {
+            "storage": [
+              "up",
+              "down"
+            ]
+          }
+        }
+      ]
     }
   ]
 }

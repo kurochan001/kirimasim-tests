@@ -855,3 +855,32 @@ ready=0と更新前の生値を報告しています。producerとNBAの更新�
 固定Icarus 13.0は29件ともコンパイル拒否です。
 kirimasim `7654825d`＋保持中の未コミット修正は追加29件すべてPASSで、本体の追加変更はありません。
 [設計・独立検算・実行記録](interaction-verification.md#deferred-argument-capture)を参照してください。
+
+<a id="generated-enum-navigation-2026-11-03"></a>
+
+## 2026-11-03：生成スコープの列挙型とメソッド
+
+第6×27章の`generated_enum_navigation@1`は36件です。固定Verilator 5.052のseed 1/73は各18 pass・18 knownです。
+基底幅1/32/33で一致した18件だけに固定oracleを登録し、登録後の最終入力も再実行しました。
+基底幅64/65/129の18件は、生成要素の実際の型幅が64を超える列挙値のビルド診断を保存しています。
+幅・符号・規格由来の共通期待値を保持します。
+固定Icarus 13.0は36件ともビルド時の既知差で、原ケース2件の再実行ではコンパイラがBus error（終了コード138）でした。
+内部原因は未確認です。Verilatorの原ケース2件と合わせて[全診断を保存](../coverage/interaction-qualification/genenum-fixed-replays.json)し、
+既知差の再現を正常対照や故障検出へ加算していません。ローカルパスの伏字と元バイト列のハッシュを明示しています。
+kirimasim `7554bb47`は36件とも解析成功・PASSで、本体の変更はありません。
+[設計・独立検算・実行記録](interaction-verification.md#generated-enum-navigation)を参照してください。
+
+<a id="package-nba-capture-2026-11-03"></a>
+
+## 2026-11-03：package変数へのNBAと参照方法
+
+`package_nba_capture@1`の固定Verilator 5.052（seed 1/73）は各12 pass・24 knownです。
+既知値の12件だけに固定oracleを登録し、X/Zの入力ログを必要とする24件へは登録しません。
+原ケース2件では最初の既知値の入力ログにも差がありました。X/Zのsource代入だけを既知の0へ置き換えた
+[診断対照2件](../coverage/interaction-qualification/pkgnba-known-input-controls.json)は、kirimasimと固定Verilatorで一致しました。
+元の入力・期待値を保持し、2値実行とこの対照だけから元の差の内部原因や4値動作の正しさを断定しません。
+診断対照は固定スイートやモデル件数、正常対照4件へ加算しません。
+固定Icarus 13.0は36件ともビルド時の既知差で、代表2件の構文診断を保存しています。
+[全出力・診断](../coverage/interaction-qualification/pkgnba-fixed-replays.json)ではローカルパスを伏せ、元バイト列のハッシュを保持します。
+kirimasim `7554bb47`は追加36件すべて解析成功・PASSで、本体の変更はありません。
+[設計・独立検算・制限](interaction-verification.md#package-nba-capture)を参照してください。

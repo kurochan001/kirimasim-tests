@@ -1,0 +1,207 @@
+{
+  "model": "package_nba_capture",
+  "generated_at": "2026-11-03T07:54:39.710813+00:00",
+  "scope": "Final generated headers after fixed-Verilator oracle registration. Upstream main fetched, configured and built immediately before one complete fixed-cross execution. No core change; formal Nightly is separate.",
+  "base_revision": "7554bb47bd2357da129ff7c2cf74b299ac69530a",
+  "upstream_main_revision": "7554bb47bd2357da129ff7c2cf74b299ac69530a",
+  "tracked_worktree_clean": true,
+  "binary_sha256": "00d4c831294fe4ed840d165e6f3b4f58639994fca404ae09ffb9c6df42bb07df",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit 7554bb47bd23), built with AppleClang 21.0.0.21000334",
+  "run": "coverage/interaction-results/cross78-kirimasim-7554bb47-pkgnba.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2353,
+    "unsupported": 529,
+    "fail": 4
+  },
+  "new_cases": {
+    "pass": 36
+  },
+  "previous_cases": 2850,
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": {
+    "tests/gen/ch26/test_gen_cross_pkgnba_1_bit_known_qualified_scalar_now_a_b.sv": {
+      "inputs_sha256": "fdbdaf2ec1b50a23c28a145db327562de54a8219a058d868723ea66937410a9b",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_129_logic_z_explicit_down_delayed_b_a.sv": {
+      "inputs_sha256": "447d34c7b834e31bde060fd637cc66c80fbb13cbf3a86713c46711a2bd7eae5d",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_65_logic_x_wildcard_up_delayed_a_b.sv": {
+      "inputs_sha256": "393cd10c5e6cc5815251e750d552db65606bb418fe0c64b3ed0ea17ff5fda013",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_33_bit_z_qualified_down_now_b_a.sv": {
+      "inputs_sha256": "d0db39d3e32797b4fe752156d042a8377fcf37c67658117bcd491a41b8427658",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_32_logic_known_explicit_up_delayed_b_a.sv": {
+      "inputs_sha256": "44f1aadc12a223bd5354b34302f35e18e92727f518cc45b078e8b7d872966501",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_64_bit_known_wildcard_scalar_now_a_b.sv": {
+      "inputs_sha256": "395b735881ed21142e656a80c2753aaa8f1417d8d868c976df577198bc348b46",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_65_bit_x_explicit_scalar_now_b_a.sv": {
+      "inputs_sha256": "3053829f865deb109eb6f2ae342823923ae7305117bfaf49ecebca62cc6ca00b",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_32_bit_x_qualified_down_delayed_a_b.sv": {
+      "inputs_sha256": "c0f260e7995b01f8ee0b3f97ae997134600ccac489b78ecd6f9413ab12ae42d7",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_33_logic_z_explicit_scalar_delayed_a_b.sv": {
+      "inputs_sha256": "3fe631c8376e03e00c622b5f94a73e66a071387cbfa718db1b7b50ced52aac71",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_1_logic_z_wildcard_up_now_b_a.sv": {
+      "inputs_sha256": "1e2642d9c42b7f3591b1768bd1dbf55a1fc83b4ef5c7d20b6207cc324b2a2b41",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_64_logic_x_qualified_up_delayed_b_a.sv": {
+      "inputs_sha256": "9365d77c359c8caed7d7e562aeb3e74e26cefac932b075da6743244a9bc2f5d0",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_129_bit_known_qualified_up_now_a_b.sv": {
+      "inputs_sha256": "39494d845e7dec485670cee07ef82d49b6734ad4329308656e2933495e159922",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_1_logic_known_explicit_down_now_a_b.sv": {
+      "inputs_sha256": "7740e076b2f6eea7d39fe670651120e2eb119b23303ef770d7eb26845c25945b",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_32_bit_known_wildcard_scalar_delayed_b_a.sv": {
+      "inputs_sha256": "0a1a7ce96a01cc7cd5c538d086486012d254ef852bc1d8263f1f5979bce03195",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_32_bit_z_wildcard_down_now_a_b.sv": {
+      "inputs_sha256": "bf64a4a3db4923956defe2a576cffe9013d9de737519ddfcc632dc0fa502974d",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_1_bit_x_qualified_scalar_delayed_b_a.sv": {
+      "inputs_sha256": "55369b1e4cb5574f95a0636f5c65379c7c95de43602badff37569453f381b507",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_33_bit_known_wildcard_up_now_a_b.sv": {
+      "inputs_sha256": "d0be32752fe003f75577d1ba7652b91b3072ad075446df425e609f0aa5a25700",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_64_bit_z_wildcard_down_now_b_a.sv": {
+      "inputs_sha256": "ce814ea1f32e2f5bc5c5dbe64e907f6ba9c0305414650698af7410ce2fe65ad1",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_65_bit_known_qualified_down_now_a_b.sv": {
+      "inputs_sha256": "bffd5539642ff177b4325283046e66e801461d889e4d0857d054a71d04a40797",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_129_bit_x_wildcard_scalar_now_a_b.sv": {
+      "inputs_sha256": "e461e3a925c5f841e24a3239367492425c04f8c117cdd49a26cce88d06b2d15d",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_33_bit_x_explicit_up_delayed_a_b.sv": {
+      "inputs_sha256": "f4cabf844a03aa75de8b0754019459ee18d4f7fdd4ff16452050ce814cb3ddfa",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_64_bit_x_explicit_scalar_delayed_a_b.sv": {
+      "inputs_sha256": "f8cd31d785cef4b5661ab5d29822e84bd2cf502ba2453ea8729a8acf311c18fb",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_65_bit_z_qualified_scalar_delayed_a_b.sv": {
+      "inputs_sha256": "733fb62b896756e820758760a5d8238f7e313fc53f99b7997e9597825cc5fa64",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_1_bit_z_qualified_up_delayed_a_b.sv": {
+      "inputs_sha256": "4c04c61c8dd7ca76731b7301016494c8e24359e96dc2c7330bcd548951e7fe2a",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_1_logic_x_qualified_down_delayed_a_b.sv": {
+      "inputs_sha256": "9a54062a127155f3618d42590becb3188a20fa9512fd4408b0fe1ffe1b72a9cc",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_32_logic_x_qualified_scalar_now_a_b.sv": {
+      "inputs_sha256": "140fe085376655af0b0c2f04dc7e55e9b31fe200d782afa5731be81a02dbf867",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_32_logic_z_qualified_up_now_a_b.sv": {
+      "inputs_sha256": "33017dcd2736cacc37dd607e9aa1a053d379214092c41c379492f39ca8582e32",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_33_logic_known_qualified_scalar_now_a_b.sv": {
+      "inputs_sha256": "4729df23918fb7b2510bc29cb720118c85dad19a9f33ff2fff8736e03ecb8967",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_33_logic_x_qualified_down_delayed_a_b.sv": {
+      "inputs_sha256": "0301f482b7e79c4025ac6cce2258fdbfced2985a0c00578fe070c3dead5584e4",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_64_logic_known_qualified_up_now_a_b.sv": {
+      "inputs_sha256": "77786b629ada5a879eed7c7c6567294790a7259034b76bbe3acaca519bbc6ce7",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_64_logic_z_qualified_down_delayed_a_b.sv": {
+      "inputs_sha256": "6bf850f188a57acdbfff4ecd27035fec12bcafa352923c5ddfa06f4580939dcb",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_65_logic_known_qualified_up_now_a_b.sv": {
+      "inputs_sha256": "6e12f5e3c823752111434340522cf0e58473f6edfd1ddcd513d5462e1fa6acac",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_65_logic_z_qualified_down_delayed_a_b.sv": {
+      "inputs_sha256": "96289fd56368543e374d77cc96626796a55ee96f9da849d78aab2e5a0ae3527b",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_129_bit_z_qualified_scalar_delayed_a_b.sv": {
+      "inputs_sha256": "d217ef474178fde147b0e053bdae0cf0d816f2ee85deb6d7146f3f182218c9f3",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_129_logic_known_qualified_up_delayed_a_b.sv": {
+      "inputs_sha256": "c679aaefe722e2e092aacd04c062dca4185262492fa3929d578c0c7817a033a5",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch26/test_gen_cross_pkgnba_129_logic_x_qualified_down_now_a_b.sv": {
+      "inputs_sha256": "9adfae0469391fc490c9e7e2b490efeccfe9748698f4df84a35f34c3727f953a",
+      "returncode": 0,
+      "stderr": ""
+    }
+  }
+}

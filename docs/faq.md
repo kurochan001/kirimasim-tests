@@ -481,10 +481,12 @@ Icarus Verilog・Verilatorで確認できた範囲を`:oracle:`へ記録しま�
 
 ### Q46. モデルがあればランダム検証で比較できますか
 
-同じ刺激を設計と参照モデルへ与えて比較できます。現在の初期導入は算術式、除算／剰余、添字付き書込み列の3プロファイルです。
+固定クロスの代表ケースに加え、対応範囲内の入力値・初期状態・操作履歴を変えて、取りこぼした相互作用の反例を探します。
+固定境界や組合せ網羅の回帰は維持し、見つけた失敗を再現・切り分けて固定回帰へ引き継ぐのが目的です。
+同じ刺激を設計と参照モデルへ与えて比較できます。現在対応するのは算術式、除算／剰余、添字付き書込み列の3プロファイルです。
 任意の値・操作列に対応する参照計算を用意し、合法な範囲で生成します。すべての有限モデルが任意の入力を扱えるわけではありません。
 乱数列の一致を確認する検査とも区別します。`randomize()`に複数解がある場合は、生成値の完全一致ではなく制約の充足を確認します。
-[対象と制限](random-cross-verification.md#scope)を参照してください。
+[目的と役割分担](random-cross-verification.md#purpose-and-roles)、[検証の流れ](random-cross-verification.md#verification-process)、[対象と制限](random-cross-verification.md#scope)を参照してください。
 
 <a id="q47-how-do-i-reproduce-a-random-comparison-failure"></a>
 
