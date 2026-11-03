@@ -5,6 +5,7 @@ denominators. Arithmetic reuses the existing standard-derived references;
 packed writes extend their significance-based state model to operation lists.
 """
 
+import hashlib
 import json
 from pathlib import Path
 import random
@@ -160,6 +161,26 @@ def validate(manifest):
 
 def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(',', ':'), ensure_ascii=True)
+
+
+def content_digest(case):
+    """Actual ordered stimulus/parameters, excluding only the administrative ID.
+
+    Keep canonical(case) and the old stimulus_sha256 unchanged. In particular,
+    do not sort, collapse or discard writes, reads or repeated operations.
+    """
+    validate_case(case)
+    return hashlib.sha256(canonical({key: value for key, value in case.items()
+                                     if key != 'id'}).encode()).hexdigest()
+
+
+def requires_fourstate(case):
+    validate_case(case)
+    if case['profile'] != 'packed_write_sequence':
+        return False
+    stimuli = case['stimuli']
+    words = [stimuli['initial'], *(op['data'] for op in stimuli['operations'] if op['kind'] == 'write')]
+    return any(set(word) & set('xz') for word in words)
 
 
 def materialize(case):

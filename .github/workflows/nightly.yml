@@ -260,6 +260,7 @@ jobs:
           python3 tools/run_random_cross.py \
             --kirimasim kirimasim/build/release/src/driver/kirimasim \
             --commit "$random_commit" --seed "$RANDOM_CROSS_SEED" \
+            --run-kind nightly --workflow-run-id "$GITHUB_RUN_ID" --workflow-run-attempt "$GITHUB_RUN_ATTEMPT" \
             --cases 96 --vectors 8 --jobs 4 --timeout 5 --time-budget 120 \
             --output random-results > random-cross.log 2>&1 || status=$?
           cat random-cross.log

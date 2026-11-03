@@ -46,6 +46,7 @@ CLIの上限は256ケース、各32ベクトル／操作、8並列、1ケース3
 
 - `pass`：終了コード0、エラー診断なし、正規化した標準出力が期待値と一致。
 - `fail`：出力差、非ゼロ終了、異常終了、エラー診断、実行時間切れなど。
+- `known`：固定版oracleの登録がないIcarus／Verilatorでの不一致。passにはしません。
 - `unsupported`：kirimasimが終了コード2と未対応の診断を返した。
 - `not_run`：全体の時間制限までに着手できなかった。
 - `stale`：実行中にSV・期待値・manifest・参照コード・実行ファイルが変化した。
@@ -147,3 +148,127 @@ Checkに最新kirimasimでのランダム実行を追加してはいません。
 実際の版・件数・seed・指紋と故障検出の記録は[補助証跡](../coverage/interaction-qualification/random-cross.json)を参照してください。
 [保存した96ケースのmanifest](../coverage/interaction-qualification/random-cross-manifest.json)は、CLIの`--replay`で読み込めます。
 固定スイートの合格数へは加算しません。通常の境界ケースと少数因子網羅は引き続き固定回帰で保持します。
+
+<a id="exploration-admission"></a>
+
+## 追加探索の投入管理
+
+固定回帰と正式Nightlyは再実行し、**完全に同じ条件で完了した追加探索ジョブ**だけを
+重複投入から省く方針です。幅・符号・パラメータ・値・操作を生成対象から恒久除外しません。
+3プロファイルの乱数列・分布・上限は変更していません。操作順、繰返し書込み、初期状態も
+入力なので、パラメータの組合せが等しくても同じ検証とは限りません。
+
+```sh
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --seed 731 --explore --history my-results/exploration.sqlite3 \
+  --output my-results/exploration-731-first
+# 再投入は別の出力先へ。必ず実行する場合は --force を追加します。
+```
+
+標準ライブラリのSQLiteでジョブ全体の投入を排他管理します。実行中なら`in_flight`、
+同じホストの所有プロセスが終了済みなら中断として再投入できます。PIDの開始時刻も照合します。
+履歴DBはローカルで使ってください。生存を確認できない別ホストの所有権は自動で奪いません。
+`--force`は意図的な並列再試行も可能にしますが、過去の結果は流用しません。中断資料は残し、
+新規の出力先で再試行します。固定runnerは履歴DBを使いません。`--run-kind nightly`と
+明示的な`--replay`は、探索オプションを併用しても省略しません。
+
+必要な全シミュレータ・全ケースが終了コード0の有効なpassで完了した場合だけが対象です。
+省略前に保存証拠の全ファイルを再照合します。最新の試行が失敗・中断・証拠不正なら、
+それより前の成功へ戻りません。fail・known・unsupported・not_run・stale・起動失敗・
+部分的な比較を再利用しません。重複／実行中の場合は`admission-only`のrunと日英レポートを
+保存し、今回のpassは0件、実行結果は空にします。終了コードは**3が投入省略**、
+**0が全比較成功（または生成のみの成功）**、**1が非pass**、**2が指定・準備の異常**です。
+3を検証成功として扱わないでください。
+
+入力と実行条件は別々に識別します。既存の`stimulus_sha256`はケースIDを含む意味を維持し、
+追加の`content_sha256`だけがIDを除きます。操作列の全要素と順序は保持します。
+ジョブ全体では管理IDも含め、SV・期待値のバイト列、artifactを基準にした既存の
+`suite_results.input_digest`、既存の`runner_digest`、生成器・参照・正規化・adapterのコード指紋、
+全シミュレータの実バイナリと依存物、版・コミット、各seed、制限・オプション・選択、
+OS・Python・継承環境変数全体のハッシュまで保守的に照合します。環境変数の値は保存しません。
+結果に無関係な環境変化でも再実行することがあります。出力先・履歴DB・forceは投入管理の指定です。
+
+ネイティブ共有ライブラリは`otool`／`ldd`で調べ、macOSの共有キャッシュはOSの正確なbuildで
+識別します。依存証拠が不十分なら必ず実行します。Icarusのバックエンド・設定やVerilatorの
+C++ツールチェーンを含む完全な依存一覧には、繰返し指定の`--dependency FILE`と、
+一覧の完全性を宣言する`--dependencies-complete`が必要です。依存物を特定せずに宣言しないでください。
+外部比較のジョブは、一覧が完全でも必ず実行します。生成される実行物はコンパイル後にしか
+同定できないため、投入時に以前と完全に同じ実行とは判断しません。一覧は由来の記録とstale検出に使います。
+外部実装ソースを読む必要はありません。実行後も入力・コード・環境・実行物を照合し、変更はstaleにします。
+
+<a id="immutable-replay"></a>
+
+## 元の証拠を保持して参照変更を識別する
+
+元の`run.json`と`cases/`を隣に保持した、**元artifactの**`manifest.json`を`--replay`へ渡します。
+まず元の指紋を照合します。新artifactの`origin/`に元の証拠をコピーし、`current-reference/`に
+現在の参照によるSV・期待値、`run.json.replay`に差分を記録します。既定では保存SV・期待値の
+バイト列で実行し、現在の生成結果が違う場合は観測した状態を`observed_status`に残してstaleにします。
+生成結果が同じでも、コード指紋の変更は別に表示します。
+
+`--reference-policy current`を明示すると、保存刺激を現在の参照で評価します。元の証拠と差分は
+保持し、元の失敗を修正・上書きしません。manifest単体からも再抽選なしで再現できますが、
+`manifest_only`と表示し、過去のSV・期待値のバイト列は確認できません。失敗調査ではartifact全体を残してください。
+
+<a id="saved-stimulus-comparison"></a>
+
+## 保存した同じ刺激を他シミュレータで確認する
+
+```sh
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --replay my-results/random-cross-731/manifest.json --case case_0007 \
+  --icarus /path/to/icarus/bin/iverilog --verilator /path/to/verilator \
+  --simulator-seed 1 --timeout 30 --time-budget 120 \
+  --output my-results/random-cross-731-public-check
+```
+
+既存の`run_icarus.run`／`run_verilator.run`を、時間を制限した独立workerから呼びます。
+保存SVのバイト列と元の補助ファイル参照をそのまま渡し、既存の期待値メタデータを優先します。
+メタデータがない場合だけ保存済みの期待値ファイルを使い、刺激・期待値は再抽選しません。
+コンパイル・実行コマンド、stdout/stderr（時間切れまでの部分出力を含む）、終了コードと実行物の
+指紋を`comparisons/SIMULATOR/CASE/`へ残します。`builds`と`comparisons`でツールを区別し、
+既存互換の`results`／`counts`はkirimasimの結果です。終了コード0には全ツールの個別成功が必要です。
+シミュレータ固有期待値の優先順位とknownの分類を維持します。一致や多数決だけで正しさを判断せず、
+規格由来のモデルと照合します。固定版oracleは自動登録しません。
+
+パック配列の保存刺激にX/Zが一つでもあれば、bitへの変換も含めてVerilatorは保守的にunsupportedにします。
+2値の結果から4値の動作を合格にしません。Verilatorの初期化seedは刺激seedと別に記録します。
+各ツールの乱数列や制約解の一致は仮定しません。将来randomize()を扱う場合は、制約充足や状態保持を
+検査します。Lyra／Ghostのrunnerと外部シミュレータの利用方針は維持し、今回のadapterはGhostを扱わず、
+非公開のbuild・profile・診断を公開しません。過去の他ツール結果はその版・日時の観測であり、
+今回のkirimasimのpassとして流用しません。
+
+<a id="failure-regression"></a>
+
+## 失敗を切り分けて機構別の固定回帰候補を作る
+
+再試行がpassでも、元の失敗artifactは残します。まず規格解釈・参照モデル・runner・シミュレータの
+どの問題かを分けます。言語仕様に関するシミュレータの問題を確認できた場合の例です。
+
+```sh
+python3 tools/promote_random_cross.py \
+  --artifact my-results/FAILED_RUN --case case_0007 --simulator kirimasim \
+  --classification simulator --confirmed --mechanism context_width \
+  --chapter ch11 --lrm '1800-2023 11.8.2' \
+  --explanation '確認した規格上の規則と、観測した違反を記載' \
+  --output my-results/context-width-draft
+```
+
+元入力を検証し、`triage.json`と`tests/chNN`用の候補を作ります。HDL本体・期待値と由来を残し、
+自動導入・期待値の緩和・oracle登録はしません。規格の根拠と機構をレビューしてから既存の章／generatorへ
+反映し、metadata・generator・該当シミュレータで検証します。候補の`lint_problems`と標準出力に
+書式の要修正箇所も示します。長いリテラルは、書換えによって失敗条件を消さないよう維持します。
+レビューして書式を整えた後も不具合を再現できることを確認してから導入します。有効な記録のfail／knownで、現在の参照と
+差がないものだけを候補にできます。pass／unsupported／not_run／staleは拒否します。
+他の分類では切り分け資料だけを作ります。参照・runnerの問題は所有するPythonテストへ、本体内部の
+値演算・scheduler・libFuzzerの問題はkirimasimのunit／機構別matrixへ追加します。
+ツール検査用の模擬失敗から、新しい実シミュレータの不具合が確認されたとは判断しません。
+
+正式Checkは固定Icarus 13.0／Verilator 5.052を、Nightlyは開発版を比較します。
+ビルドキャッシュ・ccacheで減らすのはコンパイルであり、実行は省略しません。
+Nightlyのrun ID・再試行番号と、直前のランダム用buildコミットを別に記録します。
+同じNightlyでも、その前の固定スイートは以前のkirimasim版の場合があるため、固定結果自身の版を確認します。
+`results_ratchet.py`のゲートは引き続きpass→failだけです。pass→unsupportedなどを黙って追加しません。
+固定境界ケース、指紋付きのクロス実行証拠、固定履歴はそれぞれ維持します。

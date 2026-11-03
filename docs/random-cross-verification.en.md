@@ -48,6 +48,7 @@ Build time is outside that comparison budget; the complete additional Nightly st
 
 - `pass`: zero exit, no error diagnostic, and normalized stdout equals the expectation.
 - `fail`: output difference, nonzero exit, crash, error diagnostic, timeout or other execution failure.
+- `known`: an Icarus/Verilator mismatch without a registered fixed-version oracle; never a pass.
 - `unsupported`: kirimasim exits 2 with an unsupported diagnostic.
 - `not_run`: the overall budget expires before starting the case.
 - `stale`: SV, expectations, manifest, reference code or executable changes during execution.
@@ -147,3 +148,159 @@ Local success or saved evidence is not a successful GitHub Nightly execution.
 See [qualification evidence](../coverage/interaction-qualification/random-cross.json) for actual revisions, counts, seeds,
 fingerprints and fault detection. The [saved 96-case manifest](../coverage/interaction-qualification/random-cross-manifest.json)
 can be supplied to `--replay`. These are not fixed-suite passes. Boundary witnesses and low-order coverage remain in fixed regressions.
+
+<a id="exploration-admission"></a>
+
+## Additional exploration admission
+
+The policy is to repeat fixed regressions and formal Nightly, and prevent only
+identical completed **additional exploration jobs** from being submitted again.
+No parameter tuple, width, sign, input value or operation is permanently removed
+from generation. The three profiles, random streams, distributions and limits
+are unchanged. Ordered operations, repeated writes and initial state are input;
+equal parameter tuples do not imply equal verification.
+
+```sh
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --seed 731 --explore --history my-results/exploration.sqlite3 \
+  --output my-results/exploration-731-first
+# Repeat with a new output directory. Add --force to execute it anyway.
+```
+
+The standard-library SQLite database serializes admission of the entire job.
+A live owner produces `in_flight`; a dead local owner is marked interrupted and
+can be retried. PID start time guards against PID reuse. Use a local database;
+an unknown remote owner is never automatically displaced. `--force` permits an
+intentional concurrent retry without borrowing any result. Keep interrupted
+artifacts; a new run always uses another directory. Fixed-suite runners do not
+use this database. `--run-kind nightly` and explicit `--replay` bypass it even
+when exploration options are supplied.
+
+Only a valid, complete run with every required simulator/case at `pass` and exit
+0 is eligible. Before omission, all saved evidence bytes are checked again.
+The latest failed/interrupted/invalid attempt prevents fallback to an older
+success. `fail`, `known`, `unsupported`, `not_run`, `stale`, launch failures and
+partial comparisons are never reusable. A duplicate or in-flight submission
+writes an `admission-only` run and English/Japanese reports, with zero current
+passes and no execution results. CLI exit **3** means admission omission, **0**
+means all required comparisons passed (or generation-only succeeded), **1**
+means a comparison did not pass, and **2** means an invalid request/setup.
+Do not treat exit 3 as a successful verification.
+
+Input identity and execution identity are separate. Existing
+`stimulus_sha256` still includes the case ID; additive `content_sha256` excludes
+only that ID and retains all ordered stimulus. Exact job matching conservatively
+also includes administrative IDs, generated SV/expectation bytes, artifact-local
+`suite_results.input_digest`, existing `runner_digest`, generator/reference/
+normalizer/adapter code hashes, every selected simulator, actual executable and
+dependency hashes, version/commit, seed and initialization seed, limits/options,
+selection, OS/Python and a hash of the entire inherited environment. Environment
+values are not saved. Even irrelevant environment changes may cause a rerun.
+Output directory, history database and force are admission controls, not input.
+
+Native shared libraries are discovered with `otool`/`ldd`; macOS shared-cache
+libraries use the exact OS build identity. Incomplete dependency evidence always
+causes execution, never omission. Icarus compiler backends/configuration and
+Verilator's C++ toolchain require a complete inventory: repeated `--dependency
+FILE` arguments and `--dependencies-complete` explicitly attest that closure.
+Do not attest completeness without identifying those resources. External comparison jobs always execute even with that inventory: their generated
+simulation binaries are identified only after compilation, so they cannot establish
+an exact prior execution identity at admission. The inventory still strengthens
+provenance and stale checks. No external implementation source inspection is needed. Files, code, environment and
+executables are checked again after execution; changes invalidate the result.
+
+<a id="immutable-replay"></a>
+
+## Preserve replay evidence and identify reference changes
+
+Supply the **original artifact's** `manifest.json` to `--replay`, with its
+`run.json` and `cases/` beside it. Original hashes are verified first. The new
+artifact keeps copies under `origin/`, current materializations under
+`current-reference/`, and structured differences in `run.json.replay`. Saved SV
+and expected bytes are executed by default; changed current SV/expectations
+make that observation `stale`, preserving its `observed_status`. Code-hash
+changes are separately reported even when materialization is identical.
+
+`--reference-policy current` explicitly tests the saved stimulus against the
+current materialization and expectations, while retaining the original evidence
+and differences. It does not repair or overwrite the original failure. A lone
+manifest can still be replayed without redrawing, but its baseline is
+`manifest_only`: it cannot establish what SV/expectation bytes an older run used.
+Keep the complete artifact when investigating a failure.
+
+<a id="saved-stimulus-comparison"></a>
+
+## Check the same saved stimulus with public simulators
+
+```sh
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --replay my-results/random-cross-731/manifest.json --case case_0007 \
+  --icarus /path/to/icarus/bin/iverilog --verilator /path/to/verilator \
+  --simulator-seed 1 --timeout 30 --time-budget 120 \
+  --output my-results/random-cross-731-public-check
+```
+
+The optional adapters invoke existing `run_icarus.run`/`run_verilator.run` in
+isolated, time-bounded workers. The saved SV bytes go directly to each runner, including its original helper
+paths. Existing expectation metadata keeps priority; only absent metadata uses
+the saved sidecar expectation. Stimuli and expectations are not redrawn. Compiler/runtime commands,
+stdout/stderr (including partial timeout logs), exit codes and executable hashes
+are retained under `comparisons/SIMULATOR/CASE/`. `builds` and `comparisons`
+identify each tool; `results`/`counts` remain the kirimasim view for compatibility.
+Every required simulator must independently satisfy its expectation for CLI 0.
+The shared simulator-specific expectation precedence and known-difference
+classification remain intact. Matching tools or a majority vote prove nothing
+without the standard-derived model. No fixed-version oracle is auto-registered.
+
+Any saved packed stimulus containing X/Z, including conversion to `bit`, is
+conservatively `unsupported` for Verilator. Its two-state output cannot prove
+four-state behavior. The Verilator initialization seed is recorded separately;
+it does not generate the SV stimuli. No assumption is made about equal tool
+PRNG streams or equal constraint solutions. Future `randomize()` exploration
+must check constraint satisfaction/state retention instead of solution equality.
+Lyra/Ghost runners and external-simulator policy are unchanged; these adapters
+do not handle Ghost or expose its private build/profile/diagnostics. Past tool
+observations remain dated/versioned evidence, never a current kirimasim pass.
+
+<a id="failure-regression"></a>
+
+## Triage failures and prepare mechanism regressions
+
+Retain the original failed artifact even when a later replay passes. First
+separate specification interpretation, reference-model errors, runner errors
+and simulator errors. For a reviewed language-level simulator defect:
+
+```sh
+python3 tools/promote_random_cross.py \
+  --artifact my-results/FAILED_RUN --case case_0007 --simulator kirimasim \
+  --classification simulator --confirmed --mechanism context_width \
+  --chapter ch11 --lrm '1800-2023 11.8.2' \
+  --explanation 'Describe the reviewed rule and observed violation' \
+  --output my-results/context-width-draft
+```
+
+This verifies original inputs and creates `triage.json` and a fixed `tests/chNN`
+draft, retaining the HDL body/expectation and provenance. It does not install the
+draft, weaken expectations or register an oracle. Review the cited clauses and
+mechanism before moving the draft into the existing chapter/generator, then
+run metadata, generator and the relevant simulator checks. The draft reports
+`lint_problems` (also on stdout); long literals remain unchanged so formatting
+cannot silently remove the failure trigger. Resolve those issues under review
+and reconfirm the defect before installing the candidate. Only a valid recorded
+fail/known observation with unchanged current reference can become that draft;
+pass/unsupported/not_run/stale are rejected. Other classifications create triage
+only. Reference/runner defects need tests in their owning Python components;
+internal value/scheduler/libFuzzer findings belong to kirimasim's unit/mechanism
+matrices, not an unrelated language test. No newly confirmed simulator defect
+is implied by the tooling's synthetic failure fixtures.
+
+Formal Check still executes pinned Icarus 13.0 / Verilator 5.052; Nightly uses
+development builds. Build caches/ccache save compilation, not execution.
+Nightly records workflow run ID/attempt separately from the fresh random build
+commit. The preceding fixed suite can use an earlier kirimasim revision in the
+same workflow; inspect its own result version, not the later random build.
+`results_ratchet.py` still gates only pass→fail; pass→unsupported and other
+transitions are not silently added to that gate. Fixed boundary witnesses,
+fingerprint-qualified interaction snapshots and fixed history remain separate.
