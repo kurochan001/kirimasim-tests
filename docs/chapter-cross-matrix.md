@@ -64,15 +64,21 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 ## 実行結果の扱い
 
 2026-11-03の更新では79モデル・2,922選択ケースを、対角線以外の114組の章対に対応付けています。
-使用した結果は[最新kirimasim a682e19eの全79モデルの保存実行](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json)で、
+CSVに使用した結果は[kirimasim a682e19eの全79モデルの保存実行](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json)で、
 2,389 pass・529 unsupported・4 fail、全選択ケースPASSは52モデルです。
+
+2026-11-04（日本時間）に確認したsuite `e8d991a9`の[正式Nightly](nightly-results.md#latest-verified-checkpoint)でも、
+kirimasim `d73d8922dfa2`で全2,922件の入力・状態分類が一致しています。
+CSVは引き続き保存済み`a682e19e`を出典とし、この別途確認によって出典を置き換えたり、部分実行を合成したりはしません。
+13プロファイルのランダム比較や、そのNightlyの96 PASSも章間表へ加算しません。
+
 新規の第14章×第15章は、モデル数1・全選択ケースPASSモデル数0です。
 採取値とイベント待機の24件中、`#1step`の12件はPASS、`#0`の12件は未対応です。
 固定Verilatorの両seedは各12 pass・非ブロッキング通知の既知差12件、固定Icarusは24件ビルド拒否です。
 [設計・対照・制限](interaction-verification.md#clocking-named-event)を参照してください。
 第9章×第16章の遅延報告モデルは31件すべてPASSで、全選択ケースPASSモデル数1です。
 残る4 failはconfigのパラメータリセットです。insideの2件は修正後にPASSです。
-これはupstream公開版ではありません。[切り分けと修正の版](cross-verification-followup.md)を参照してください。
+保存実行の`a682e19e`と正式実行の`d73d8922dfa2`は上流コミットのビルドです。[切り分けと当時の修正ビルドの版](cross-verification-followup.md)を参照してください。
 配列リダクション制約の第7章×第18章は、モデル数1・全選択ケースPASSモデル数0です。
 新規13件はrandomizeまたはクラス内配列操作が未対応で、固定Verilatorは両seedとも元の全13件が出力不一致です。
 [設計と補助対照の確認範囲](interaction-verification.md#array-reduction-constraints-and-retention)を参照してください。

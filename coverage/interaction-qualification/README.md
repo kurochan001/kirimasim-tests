@@ -6,6 +6,34 @@
 
 このディレクトリは、固定版の確認元選別、独立検算、最小例、故障注入、ビルド版の確認記録を 保存します。現在の入力に対応する回帰実行は[`interaction-results/`](../interaction-results/)、 充足状況は[クロス検証レポート](../../docs/interaction-coverage.md)を参照してください。 補助証跡の正常・故障条件の件数を、スイートの合格数や要求カバレッジへ加算しません。 入力ハッシュが古くなった記録は履歴として残し、新しいハッシュへ書き換えず再確認を別途記録します。 「最新」のビルドは各記録の確認時点での意味です。コミットと日時を確認してください。
 
+<a id="current-evidence-checkpoint"></a>
+
+## 最新証跡の確認（2026-11-04 日本時間）
+
+[`formal-ci-e8d991a9-20261104.json`](formal-ci-e8d991a9-20261104.json)に、suite `e8d991a9`のCheck・Nightly・公開処理の成功を記録しています。
+kirimasim `d73d8922dfa2`の有限クロス全2,922件はcross79と入力ハッシュ・状態分類が一致し、
+2,389 pass・529 unsupported・configの4 fail、全選択ケースPASSは52モデル、対応する章対は114組です。
+13プロファイルのランダム96件はすべて有効なPASSで、固定suiteの証跡とは区別します。
+記録には元artifactのハッシュと全ランダム出力の照合を含み、保存SVの独立解釈は配列14件・package 8件です。
+既存証跡の読取りによる確認であり、シミュレータの新しい実行やカバレッジの追加ではありません。
+版・日時・workflowのリンクは[最新の正式確認](../../docs/nightly-results.md#latest-verified-checkpoint)を参照してください。
+
+ランダム検証の開発時の証跡は、日時を付けて別に保持します。
+
+- 拡張記録と実際のreplay manifest：[5個](random-cross-five-profiles.json)／[manifest](random-cross-five-profiles-manifest.json)、
+  [7個](random-cross-seven-profiles.json)／[manifest](random-cross-seven-profiles-manifest.json)、
+  [9個](random-cross-nine-profiles.json)／[manifest](random-cross-nine-profiles-manifest.json)、
+  [11個](random-cross-eleven-profiles.json)／[manifest](random-cross-eleven-profiles-manifest.json)、
+  [13個](random-cross-thirteen-profiles.json)／[manifest](random-cross-thirteen-profiles-manifest.json)。
+- [13プロファイルの安定化](random-stabilization-20261103.json)：ローカル1,152 PASS、保存済み配列・packageの864件を独立解釈しています。
+  パック書込み288件は既存の実行・参照比較です。[範囲とコマンド](../../docs/random-cross-verification.md#thirteen-profile-stabilization)を参照してください。
+
+直近の有限モデルの追加は、[遅延報告の引数](deferarg.json)、[generate内enum](genenum.json)、
+[packageのNBA取得](pkgnba.json)、[package変更の観測](pkgwatch.json)です。
+それぞれの`*-build.json`と`*-fixed-replays.json`もこのディレクトリで別に保持します。
+設計・対照・固定版の既知差・制限は[モデル別ガイド](../../docs/interaction-verification.md)を参照してください。
+以下の元の失敗や導入時の未コミットビルドの記録は、当時の証跡として保持します。
+
 <a id="selecting-verification-sources-from-fixed-releases"></a>
 
 ## 固定リリースの確認元選別

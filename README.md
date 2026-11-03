@@ -15,7 +15,10 @@ statuses, Nightly, coverage and the SVA/formal checks used by this suite.
 This README describes the suite as it is now; records of earlier work and
 measurements are in the [history](docs/history.md).
 The [document index](docs/README.md) links every guide, generated report and historical record in both languages.
-For resuming development, see the [2026-11-02 handoff](docs/codex-handoff-20261102.en.md).
+The [latest verified checkpoint](docs/nightly-results.en.md#latest-verified-checkpoint), checked on 2026-11-04 JST,
+records successful [Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180)
+and [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801) runs for `e8d991a9`.
+For resuming development, use the current guides with the dated [2026-11-02 handoff](docs/codex-handoff-20261102.en.md).
 
 Each simulation test is a small, self-contained design with an expected result.
 A legal design passes when its normalized standard output matches and any specified
@@ -174,13 +177,14 @@ run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [saved full cross run](coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json)
-uses upstream main **`a682e19e`**, fetched, configured and built immediately before execution:
-**2,389 pass, 529 unsupported and four fail**. All inputs retain their original expectations;
-the remaining failures are config parameter resets localized to pinned slang. The
+The latest verified formal Nightly on kirimasim **`d73d8922dfa2`** confirms the entire selection:
+**2,389 pass, 529 unsupported and four fail**, with the same input fingerprints and statuses as the
+[saved full cross run](coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json) on **`a682e19e`**.
+The [checkpoint](docs/nightly-results.en.md#latest-verified-checkpoint) identifies each run and build.
+All inputs retain their original expectations; the remaining failures are config parameter resets localized to pinned slang. The
 [follow-up record](docs/cross-verification-followup.en.md) retains the earlier 11→9→4 history,
 complete-output replays, the 19-mechanism unsupported inventory and reviewed chapter pairs.
-This local execution is separate from formal Nightly.
+The chapter CSVs retain the saved local run as their source; formal confirmation is recorded separately.
 
 Disable and deferred reports (Chapters 9×16) select 31 of 720 combinations. Check cancellation scope, input capture/side effects, live action data and ordinary control transfer. Latest kirimasim matches all 31 cases, retaining sibling reports, captured-input side effects and settled history. Both fixed Verilator seeds record 13 pass and 18 known results. See [scope and complete-output replays](docs/interaction-verification.en.md#deferred-disable-reports).
 
@@ -207,7 +211,7 @@ Clocking inputs and named-event waiters (Chapters 14×15) select 24 of 192 combi
   to other projects and LSI verification. The [glossary](docs/glossary.en.md#8-機能間クロス検証)
   and [FAQ](docs/faq.en.md#7-機能間クロス検証) explain the metrics and common review questions.
 
-[Model-based random cross comparisons](docs/random-cross-verification.en.md) also run in Nightly: a default 96 cases cover arithmetic, division/remainder and indexed-write sequences, saving seeds and actual stimuli in a dedicated artifact. These samples remain separate from fixed-suite counts and coverage.
+[Model-based random cross comparisons](docs/random-cross-verification.en.md) also run in Nightly: a default 96 cases cover thirteen profiles, saving seeds and actual stimuli in a dedicated artifact. The latest verified Nightly records **96 valid passes** on `d73d8922dfa2`, with seed `41650010801`. These samples remain separate from fixed-suite counts and coverage.
 The [purpose and roles](docs/random-cross-verification.en.md#purpose-and-roles) and [verification process](docs/random-cross-verification.en.md#verification-process) explain how exploration supplements fixed cases through generation, model comparison, saved replay and fixed regression follow-up.
 The thirteen profiles cover arithmetic, division/remainder, indexed writes, conditional context/X/Z merging, package change observers, shifts, cast pipelines, streaming, concatenated-assignment sequences, comparisons, packed reductions, array reductions and array copy sequences within the same default total of 96 cases.
 Profile additions are paused at thirteen while [targeted exploration and independent checks](docs/random-cross-verification.en.md#thirteen-profile-stabilization) deepen validation within unchanged default Nightly limits.

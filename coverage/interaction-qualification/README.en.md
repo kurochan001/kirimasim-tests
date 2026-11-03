@@ -6,6 +6,34 @@
 
 This directory stores records of fixed-version verification-source selection, independent recalculation, minimal examples, fault injection, and build-version checks. See [ `interaction-results/` ](../interaction-results/) for regression runs matching the current inputs and [Interaction verification report](../../docs/interaction-coverage.en.md) for qualification status. The number of normal and fault conditions of the auxiliary evidence is not added to the number of suites that pass and the requirement coverage. The record of the input hash that has become old is kept as a history, and the re-verification is recorded separately without being written over to the new hash. The "latest" build is the one at the time of verification of each record. Please check the commit and the time.
 
+<a id="current-evidence-checkpoint"></a>
+
+## Current evidence checkpoint (2026-11-04 JST)
+
+[`formal-ci-e8d991a9-20261104.json`](formal-ci-e8d991a9-20261104.json) records successful Check and Nightly on suite `e8d991a9`,
+including successful publication. All 2,922 finite selected cases on kirimasim `d73d8922dfa2` retain the input fingerprints and statuses
+of cross79: 2,389 pass, 529 unsupported and four config failures; 52 full-selection-pass models across 114 mapped chapter pairs.
+All 96 random cases across thirteen profiles are valid passes, separately from fixed-suite evidence.
+The record hashes the original artifacts and verifies all saved random outputs; independent saved-SV interpretation covers 14 array and eight package programs.
+These are read-only checks of existing evidence, not new simulator executions or additional coverage.
+See the [current formal checkpoint](../../docs/nightly-results.en.md#latest-verified-checkpoint) for versions, times and workflow links.
+
+Random development evidence remains dated and separate:
+
+- Extension records and actual replay manifests: [five](random-cross-five-profiles.json) / [manifest](random-cross-five-profiles-manifest.json),
+  [seven](random-cross-seven-profiles.json) / [manifest](random-cross-seven-profiles-manifest.json),
+  [nine](random-cross-nine-profiles.json) / [manifest](random-cross-nine-profiles-manifest.json),
+  [eleven](random-cross-eleven-profiles.json) / [manifest](random-cross-eleven-profiles-manifest.json),
+  [thirteen](random-cross-thirteen-profiles.json) / [manifest](random-cross-thirteen-profiles-manifest.json).
+- [Thirteen-profile stabilization](random-stabilization-20261103.json): 1,152 local passes, 864 independently interpreted saved array/package programs;
+  288 packed-write programs use the existing execution/reference comparison. See [scope and commands](../../docs/random-cross-verification.en.md#thirteen-profile-stabilization).
+
+The latest finite-model additions are [deferred arguments](deferarg.json), [generated enums](genenum.json),
+[package NBA capture](pkgnba.json) and [package change observers](pkgwatch.json).
+Each retains separate `*-build.json` and `*-fixed-replays.json` records in this directory.
+Their designs, controls, fixed-release known differences and limits are in the [model guide](../../docs/interaction-verification.en.md).
+Original failures and introduction-time uncommitted-build records below remain historical evidence.
+
 <a id="固定リリースの確認元選別"></a>
 
 ## Selecting verification sources from fixed releases

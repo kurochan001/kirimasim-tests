@@ -12,7 +12,10 @@ IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認す�
 期待値、結果の分類、Nightly、網羅率、SVA・フォーマル検証について説明しています。
 このREADMEには現時点の情報だけを載せます。以前の作業の記録や測定は[履歴](docs/history.ja.md)にあります。
 [資料一覧](docs/README.ja.md)から、ガイド・生成レポート・過去の記録の日英両版を辿れます。
-開発を引き継ぐ場合は、[2026-11-02の引き継ぎ資料](docs/codex-handoff-20261102.md)を参照してください。
+2026-11-04（日本時間）に確認した[最新の検証状況](docs/nightly-results.md#latest-verified-checkpoint)では、
+`e8d991a9`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180)と
+[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801)が成功しています。
+開発を引き継ぐ場合は、現行ガイドと、当時の状態を記録した[2026-11-02の引き継ぎ資料](docs/codex-handoff-20261102.md)を参照してください。
 
 各シミュレーションテストは、期待結果を持つ小さな独立した設計です。規格上正しいコードは、正規化した標準出力が
 期待出力に一致し、指定された終了コード・診断の検査にも通れば合格です。
@@ -152,12 +155,14 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 スコープ・階層、状態保持、I/Oなどの相互作用を扱います。通常の全件実行では既存テストを
 すべて保持し、規格要求の分母は変更しません。
 
-[最新の全クロス保存実行](coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json)は、
-実行直前に取得・構成・ビルドした**upstream main `a682e19e`**で、
-**2,389 pass・529 unsupported・4 fail**です。入力と元の期待値を保持し、残る4件は固定版slangへ
+最新の確認済み正式Nightlyでは、**kirimasim `d73d8922dfa2`**で全選択ケースを確認しました。
+**2,389 pass・529 unsupported・4 fail**で、**`a682e19e`**の
+[全クロス保存実行](coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json)と入力ハッシュ・状態分類が一致しています。
+[確認済み状態](docs/nightly-results.md#latest-verified-checkpoint)に各実行とビルドを記録しています。
+入力と元の期待値を保持し、残る4件は固定版slangへ
 切り分けたconfigのパラメータリセットです。11→9→4の履歴、全出力の再現、未対応19機構の内訳、
 章対の精査は[不一致対応と次の優先順位](docs/cross-verification-followup.md)に記録しています。
-正式Nightlyとは別のローカル実行です。
+章間CSVの出典は元のローカル保存実行のままとし、正式実行による確認は別に記録しています。
 
 disableと遅延報告（第9章×第16章）は、720通りから31件を選びます。取消し対象、引数取得と副作用、報告時の生値、通常の制御移動を照合します。最新kirimasimは31件すべてPASSで、兄弟報告・入力取得の副作用・成熟済み履歴を保持します。固定Verilatorは両seedで13 pass・18 knownです。[範囲と再現出力](docs/interaction-verification.md#deferred-disable-reports)を参照してください。
 
@@ -182,7 +187,7 @@ clocking入力と名前付きイベントの待機（第14×15章）は192通り
   他プロジェクトやLSIへの適用方法を説明します。[用語集](docs/glossary.md#8-機能間クロス検証)と
   [FAQ](docs/faq.md#7-機能間クロス検証)には、指標の意味とレビュー時の確認事項をまとめています。
 
-[モデルに基づくランダムクロス比較](docs/random-cross-verification.md)も導入しています。Nightlyで算術式・除算／剰余・添字付き書込み列・条件演算子・package変更通知・シフト・キャスト・ストリーミング・連結代入・比較・リダクション・配列リダクション・配列コピー列の13プロファイルを合計96ケース比較し、seedと実際の刺激を専用artifactへ保存します。固定回帰の本数やカバレッジとは別集計です。
+[モデルに基づくランダムクロス比較](docs/random-cross-verification.md)も導入しています。Nightlyで算術式・除算／剰余・添字付き書込み列・条件演算子・package変更通知・シフト・キャスト・ストリーミング・連結代入・比較・リダクション・配列リダクション・配列コピー列の13プロファイルを合計96ケース比較し、seedと実際の刺激を専用artifactへ保存します。最新の確認済みNightlyは`d73d8922dfa2`・seed `41650010801`で**96件すべて有効なPASS**です。固定回帰の本数やカバレッジとは別集計です。
 [目的と役割分担](docs/random-cross-verification.md#purpose-and-roles)と[検証の流れ](docs/random-cross-verification.md#verification-process)に、固定ケースを補う探索の狙い、入力生成・モデル比較・保存再現・固定回帰化をまとめています。
 現在は13プロファイルで追加を区切り、[重点探索と独立検算](docs/random-cross-verification.md#thirteen-profile-stabilization)を優先します。既定のNightly予算を保ち、追加探索の結果は別に記録します。
 同資料に、任意の追加探索の投入管理、参照変更を明示する保存刺激の再実行、同じ刺激でのIcarus／Verilator確認、レビュー済み失敗からの固定回帰候補の作成手順を記載しています。固定回帰・正式Nightly・明示的なreplayは毎回実行します。

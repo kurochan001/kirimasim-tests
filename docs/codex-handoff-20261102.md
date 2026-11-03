@@ -7,6 +7,10 @@
 この資料は`kirimasim-tests`の作業を引き継ぐためのものです。コマンドは、このリポジトリのルートで実行します。
 以下の数値は基点コミットの記録です。再開時にはGitHubの状態と最新コミットを確認してください。
 
+その後の状態は[2026-11-04の確認済み状態](nightly-results.md#latest-verified-checkpoint)、
+[現在のクロス検証の優先事項](cross-verification-followup.md)、[13プロファイルの安定化](random-cross-verification.md#thirteen-profile-stabilization)を参照してください。
+現在の件数・着手状況はそちらを優先し、以下は当時の基点の記録として保持します。
+
 <a id="1-baseline-and-current-request"></a>
 
 ## 1. 基点と今回の依頼

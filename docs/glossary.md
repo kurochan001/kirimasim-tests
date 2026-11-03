@@ -155,6 +155,9 @@
 | seed（シード） | 乱数系列を選ぶ入力の一部。版・設定・テストが変われば、同じ数値だけで同じ動作を保証できない |
 | モデルに基づくランダム比較 | 合法な入力値・操作列を生成し、同じ刺激に対する設計の結果を参照モデルの期待値と照合する。固定の組合せ網羅とは別に測定する |
 | 刺激manifest | seedに加え、実際のパラメータ・入力値・操作列を保存するJSON。生成器が変わった後も再抽選せず刺激を読み直すために使う |
+| 保存証跡を保持するreplay／参照の差分（reference drift） | 保存SV・期待値を使う再実行／現在の参照コードで生成し直した場合の差分の記録。現在の参照を使う場合は`--reference-policy current`を明示し、元の証跡を保持する |
+| 追加探索の投入管理（exploration admission） | 任意の`--explore`で、入力と実行条件の識別値により同一の完了ジョブの再投入を管理すること。有効・完了した比較だけを再利用対象とし、省略を今回のPASSに加算しない。固定回帰・正式Nightly・明示replayは実行する |
+| 保存SVの独立検算器 | 生成パラメータや参照関数から独立に、実際の保存ソースを解釈する限定範囲の検算器。配列・package用の検算器は未知構文を拒否する。一致しても全言語への適合や全プロファイルの独立確認を意味しない |
 | 実行時間予算 | 1ケースや実行全体に設ける上限。時間切れや未着手を合格に読み替えず、再現用の刺激と区分を残す |
 | DPI-C（Direct Programming Interface） | SystemVerilogとCコードを呼び合う仕組み。テストのCファイルと、ランナー・ツールの対応が必要 |
 | VPI（Verilog Procedural Interface） | シミュレーションのオブジェクトやイベントをCから操作・観測するAPI。`:vpi_c:`に実行するCファイルを記録する |
@@ -164,7 +167,7 @@
 | 生成テスト／生成器（generator） | `tests/gen/`に書き出すテスト／規格由来の参照モデルから入力・期待値を作るPythonコード。生成ファイルは生成器から更新する |
 | lint／単体テスト／CI | ヘッダや形式等の機械検査／ツール等の個別機能の検査／設定した検査を継続実行する仕組み。何を検査する設定かと併せて結果を読む |
 
-参照：[実行方法](../README.ja.md#running-the-suite)、[生成テスト](../README.ja.md#generated-tests)、[証跡の計測規則](../coverage/README.md#台帳と証跡)。
+参照：[実行方法](../README.ja.md#running-the-suite)、[生成テスト](../README.ja.md#generated-tests)、[ランダム比較とreplay](random-cross-verification.md)、[証跡の計測規則](../coverage/README.md#台帳と証跡)。
 
 用語の参考例：[PALTEKの検証環境・スティミュラスの解説](https://www.paltek.co.jp/techblog/techinfo/220125-01)、[プロパティとVacuous Successの解説](https://www.paltek.co.jp/techblog/techinfo/210816-02)、[Synopsysのフォーマル・プロパティ検証の説明](https://www.synopsys.com/ja-jp/verification/static-and-formal-verification/vc-formal.html)。
 

@@ -12,7 +12,18 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 ## Saved-run summary
 
-At the package-observer addition on 2026-11-03, the current selection has **79 models, 2,922 tests and 114 chapter pairs**.
+The [latest verified checkpoint](nightly-results.en.md#latest-verified-checkpoint), checked on 2026-11-04 JST,
+confirms successful Check and Nightly on suite `e8d991a9`.
+The formal kirimasim `d73d8922dfa2` run includes all **2,922 selected cases in 79 models**:
+**2,389 pass, 529 unsupported and four config failures**, with **52 full-selection-pass models** and **114 mapped chapter pairs**.
+All selected input fingerprints and status categories agree with the saved cross79 snapshot below.
+The [verification record](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json) keeps this formal confirmation separate from the CSVs' local evidence.
+Random thirteen-profile validation also has 96 valid passes in that Nightly; it does not increase these finite counts.
+
+The following dated snapshots describe each addition and repair at the time it was executed.
+References to uncommitted repairs apply to those historical builds, not the current upstream state.
+
+At the package-observer addition on 2026-11-03, the selection had **79 models, 2,922 tests and 114 chapter pairs**.
 The [complete saved run](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json) records
 **2,389 pass, 529 unsupported and four existing config failures** on kirimasim `a682e19e3238`, fetched, configured and built immediately before execution.
 All 36 additions parse and pass; all preceding 2,886 input fingerprints and status categories are unchanged.

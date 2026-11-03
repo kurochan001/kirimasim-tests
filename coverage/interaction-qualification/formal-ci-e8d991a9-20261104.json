@@ -1,0 +1,205 @@
+{
+  "schema": 1,
+  "kind": "documentation-checkpoint",
+  "verified_at": "2026-11-03T20:53:50.717326+00:00",
+  "suite_commit": "e8d991a97b2abb12a41a1fb6b89c2406f9aa7292",
+  "workflows": {
+    "Check": {
+      "run_id": 41649940180,
+      "conclusion": "success",
+      "createdAt": "2026-11-03T14:03:23Z",
+      "headSha": "e8d991a97b2abb12a41a1fb6b89c2406f9aa7292",
+      "status": "completed",
+      "updatedAt": "2026-11-03T14:27:03Z",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180",
+      "jobs": {
+        "readme": {
+          "status": "completed",
+          "conclusion": "success"
+        },
+        "verilator": {
+          "status": "completed",
+          "conclusion": "success"
+        },
+        "icarus": {
+          "status": "completed",
+          "conclusion": "success"
+        }
+      }
+    },
+    "Nightly": {
+      "run_id": 41650010801,
+      "conclusion": "success",
+      "createdAt": "2026-11-03T14:03:49Z",
+      "headSha": "e8d991a97b2abb12a41a1fb6b89c2406f9aa7292",
+      "status": "completed",
+      "updatedAt": "2026-11-03T16:16:05Z",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801",
+      "jobs": {
+        "lyra": {
+          "status": "completed",
+          "conclusion": "success"
+        },
+        "ghost": {
+          "status": "completed",
+          "conclusion": "success"
+        },
+        "icarus": {
+          "status": "completed",
+          "conclusion": "success"
+        },
+        "verilator": {
+          "status": "completed",
+          "conclusion": "success"
+        },
+        "kirimasim": {
+          "status": "completed",
+          "conclusion": "success"
+        },
+        "publish": {
+          "status": "completed",
+          "conclusion": "success"
+        }
+      }
+    }
+  },
+  "publication": {
+    "commit": "6722914378e3758387157e8c5f5eb31cdcd3d7cf",
+    "report_generated_utc": "2026-11-03T16:13:32Z",
+    "url": "https://github.com/kurochan001/kirimasim-tests/blob/6722914378e3758387157e8c5f5eb31cdcd3d7cf/README.md"
+  },
+  "artifacts": [
+    {
+      "id": 13237666409,
+      "name": "random-cross-kirimasim",
+      "digest": "sha256:00493444b2f4715a6f8496e1427c3494ecc76ff66b23cd37f1882928b2a70cf8",
+      "expired": false
+    },
+    {
+      "id": 13236449850,
+      "name": "results-kirimasim",
+      "digest": "sha256:f05274d53c8b93531d37872aa4001dda1cad7aac211c3328ac5ea251e17b6ba1",
+      "expired": false
+    }
+  ],
+  "fixed": {
+    "file": "kirimasim.json",
+    "sha256": "43ddb8020479c2783549f5550096eb5a27b6d6a72665523c2256866b39da44e5",
+    "generated_at": "2026-11-03T14:14:01.360649+00:00",
+    "version": "kirimasim 0.0.0 (commit d73d8922dfa2), built with GNU 13.3.0",
+    "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+    "counts": {
+      "pass": 7863,
+      "unsupported": 2408,
+      "fail": 133
+    },
+    "selected_cases": 10404
+  },
+  "finite_interactions": {
+    "baseline": "coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json",
+    "baseline_sha256": "0235455d1b59abb7ce69e49482dc96c6f9b705da294836e314b59433a1c20ad8",
+    "models": 79,
+    "cases": 2922,
+    "chapter_pairs": 114,
+    "counts": {
+      "pass": 2389,
+      "unsupported": 529,
+      "fail": 4
+    },
+    "all_selection_pass_models": 52,
+    "missing_inputs": [],
+    "changed_input_fingerprints": [],
+    "changed_statuses": [],
+    "runner_fingerprint_matches_baseline": true,
+    "csv_source_unchanged": true
+  },
+  "random": {
+    "manifest_sha256": "6a1f2ea9d1879f4eb1e2cdcfa350de88239ee5eba92199ee339eb8f61a99f39d",
+    "run_json_sha256": "2b2aa958f2b59122e71c796777d2ebaa132b0d89775a18f0fedddfee5d691719",
+    "generated_at": "2026-11-03T14:14:03.035093+00:00",
+    "build": {
+      "executable": "/home/runner/work/kirimasim-tests/kirimasim-tests/kirimasim/build/release/src/driver/kirimasim",
+      "version": "kirimasim 0.0.0 (commit d73d8922dfa2), built with GNU 13.3.0",
+      "commit": "d73d8922dfa20e19ccb9411adbe42a6d258bb49d",
+      "binary_sha256": "fbb76100230ade68528d41159d445307da453794f7dda40511e067b0a4bcc351"
+    },
+    "workflow": {
+      "run_id": "41650010801",
+      "run_attempt": "1"
+    },
+    "seed": 41650010801,
+    "limits": {
+      "jobs": 4,
+      "case_timeout_seconds": 5,
+      "time_budget_seconds": 120
+    },
+    "counts": {
+      "pass": 96,
+      "fail": 0,
+      "known": 0,
+      "unsupported": 0,
+      "not_run": 0,
+      "stale": 0
+    },
+    "valid": true,
+    "completed": true,
+    "admission": {
+      "decision": "always_execute",
+      "reason": "explicit replay or formal comparison/Nightly"
+    },
+    "profile_counts": {
+      "unpacked_array_copy_sequence": 7,
+      "packed_write_sequence": 8,
+      "division_context": 8,
+      "conditional_context": 8,
+      "concat_assignment_sequence": 7,
+      "shift_context": 7,
+      "streaming_context": 7,
+      "cast_pipeline": 7,
+      "expression_context": 8,
+      "array_reduction_context": 7,
+      "comparison_context": 7,
+      "packed_logic_context": 7,
+      "package_change_sequence": 8
+    },
+    "sources_sha256": {
+      "tools/run_random_cross.py": "18165c15b421f49d6f59a78d7c4668def3686e40a44f87e3c47be3b41823154d",
+      "tools/random_cross_models.py": "3011d36b3c794c3d293a5e886fd60f93b55147526ab494b49c4df095e23299be",
+      "tools/normalize_output.py": "81841d0dd7a9b47cc4570a87e3e50756b4ae5f1269aaebb7e3666abaa45b2d36",
+      "tools/random_cross_compare.py": "a7f128efe6d55c284bf7ba28d65ee20ab91d823fa662d40c12ceb368691c0d1b",
+      "tools/random_cross_evidence.py": "d8d8a002928491d78a6058035908f6f9c9f67eb810471b1a05400f41ffc66128",
+      "tools/random_cross_history.py": "64e4c4409cbc4a3f1562d18a9cedbe1c5bb6690ec6d0082d5fae1f4e471985b2",
+      "tools/random_cross_identity.py": "cead239118fcfc983743d96d0b786d4bc7e4160255bfbd7028e4927ba64d6b6c",
+      "tools/run_icarus.py": "7a090fd04718b47b6b136a3b8dbc22aec79246f79a45cacc1681e9acfab28f09",
+      "tools/run_verilator.py": "1fb2ccf7e478997987d030cfd497ad7ed54a50bec7dfedad27787a981d7556d6",
+      "tools/run_kirimasim.py": "4561f60341b97deea116f0c7fe6416ff5a8918f721e7661209cd6dc88e1bad96",
+      "tools/suite_results.py": "78beab44a69aa9eb13db4f44dd9c0c933a0b06ed16213be7087218a79d4b918d",
+      "generators/interaction_expr.py": "3b71306d54dbe2476ae38aa363c3e04b4df42a56079abeab28b007b9912cb684",
+      "generators/interaction_divide.py": "6dd614a0ab46204ae519843cc1c9da33f13df48fcb6fa03c65ecfc9d85d44891",
+      "generators/interaction_bits.py": "13ef2b3f91d78a7d1b19a8014948c41c6059e2d4d0955b0b64bb85d900ac3c15",
+      "generators/interaction_cond.py": "2465534054b7c1fb2c5f3937b41e8f8bb74d70464bf1b84a3790aaaa94f41647",
+      "generators/interaction_pkgwatch.py": "f7ab9cc605a67413b236749c6bfde3f2076988b924227acfaef94273e9586dfa",
+      "generators/interaction_shift.py": "98d17b9f8176bde88632dacbccdb7b0244ae627852712f33c9db8746b878d582",
+      "generators/interaction_stream.py": "367f07f7e4cb69b65deea363c2ba1a55e3b69a45a2a790c1606f7c2b604d14b4",
+      "generators/interaction_concat.py": "a8bcd7455ee478b6d125b741c2234af8b185d82d844b3f7531594c88f389a6fc",
+      "generators/interaction_compare.py": "84a39dc21602bb49b6d8f0271f448ef1b67c887ee711fc5f9d0ea80ce3ef9ca3",
+      "generators/interaction_logic.py": "b6be9acfd7781370a869e6a3ee27d99e4882f3a65bd901e9fb16198a9ba178b2",
+      "generators/interaction_method.py": "e56cc05c38c9deed8203a6ab843f56fc33a07becfdfbc1ac2f77f5103695e60a",
+      "generators/interaction_cover.py": "bde3c87cb89b26ba99648ea4c5c4e62d669ccacba72e00e3adb763649fee9552",
+      "generators/common.py": "ca76d919859caeaf97863a45e8679eea6d15a51cc29ce31221ec53e09146e8c0"
+    },
+    "source_and_expectation_hashes_verified": 96,
+    "saved_stdout_matches_verified": 96,
+    "independent_saved_sv_checks": {
+      "arrays": 14,
+      "packages": 8
+    }
+  },
+  "scope": [
+    "Read-only verification of existing artifacts; no simulator was executed for this documentation update.",
+    "CI success preserves the existing fixed-suite ratchet; fixed failures and unsupported results remain.",
+    "Random results and independent checks do not increase fixed-suite, chapter-matrix or requirement coverage counts.",
+    "CSV evidence still identifies the saved cross79 baseline; the formal run is a separate full-selection confirmation.",
+    "Workflow conclusions identify these exact commits; later commits and upstream builds are not verified by this record."
+  ]
+}

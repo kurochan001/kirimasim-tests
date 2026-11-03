@@ -155,6 +155,9 @@ See the [guide](sva-reference-formal-verification.en.md), [boundary sweep](sva-f
 | Seed | An input selecting a random stream. The same number does not guarantee the same behavior after version, settings or test changes. |
 | Model-based random comparison | Generate legal values/operation lists and compare a design with reference expectations for the same stimuli. Measure separately from fixed combination coverage. |
 | Stimulus manifest | JSON retaining actual parameters, values and operations as well as the seed; replay reads these stimuli without redrawing after generator changes. |
+| Immutable replay / reference drift | Replay using saved SV and expectations / recorded differences from materializing with current reference code. `--reference-policy current` is explicit; retain the original evidence. |
+| Exploration admission | Optional `--explore` management of identical completed jobs using input and execution identities. Only valid complete comparisons qualify; a skipped submission is not a new pass. Fixed regressions, formal Nightly and explicit replay execute. |
+| Independent saved-SV qualifier | A bounded interpreter of actual saved source, separate from generator parameters and reference helpers. Array/package qualifiers reject unknown syntax; agreement is not full-language conformance or an independent check of every profile. |
 | Execution time budget | A case/run limit. Timeouts and cases not started are not passes; retain stimuli and explicit statuses for replay. |
 | DPI-C | Direct Programming Interface between SystemVerilog and C. Tests require their C files and corresponding runner/tool support. |
 | VPI | Verilog Procedural Interface for C observation/manipulation of simulation objects/events. `:vpi_c:` identifies test C code. |
@@ -164,7 +167,7 @@ See the [guide](sva-reference-formal-verification.en.md), [boundary sweep](sva-f
 | Generated test / generator | A test written under `tests/gen/` / Python deriving inputs and expectations from a standard-based reference. Update generated files through generators. |
 | Lint / unit tests / CI | Mechanical header/format checks / checks of individual tool functions / continuous execution of configured checks. Interpret success together with checked scope. |
 
-See [execution](../README.md#running-the-suite), [generated tests](../README.md#generated-tests) and [evidence rules](../coverage/README.en.md#台帳と証跡).
+See [execution](../README.md#running-the-suite), [generated tests](../README.md#generated-tests), [random comparison and replay](random-cross-verification.en.md) and [evidence rules](../coverage/README.en.md#台帳と証跡).
 
 Terminology examples: [PALTEK on verification environments and stimulus](https://www.paltek.co.jp/techblog/techinfo/220125-01), [properties and vacuous success](https://www.paltek.co.jp/techblog/techinfo/210816-02), and [Synopsys on formal property verification](https://www.synopsys.com/ja-jp/verification/static-and-formal-verification/vc-formal.html).
 

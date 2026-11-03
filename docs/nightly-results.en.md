@@ -4,6 +4,38 @@
 
 [日本語](nightly-results.md) / [README charts](../README.md#nightly-results) / [Published results](https://github.com/kurochan001/kirimasim-tests/tree/results#readme) / [Workflow runs](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)
 
+<a id="latest-verified-checkpoint"></a>
+
+## Latest verified checkpoint (2026-11-04 JST)
+
+For suite commit `e8d991a97b2abb12a41a1fb6b89c2406f9aa7292`, both
+[Check 41649940180](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180)
+and [Nightly 41650010801](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801)
+completed successfully. Check's readme, pinned Icarus 13.0 and Verilator 5.052 jobs succeeded;
+Nightly's five simulator jobs and `publish` succeeded.
+The [published snapshot](https://github.com/kurochan001/kirimasim-tests/blob/6722914378e3758387157e8c5f5eb31cdcd3d7cf/README.md)
+was generated on 2026-11-03 at 16:13 UTC (2026-11-04 at 01:13 JST).
+This is a dated verification checkpoint, not a guarantee for later commits or upstream builds.
+
+- **Fixed suite:** 10,672 registered tests, including 268 formal tests; the simulator runs selected 10,404.
+  kirimasim `d73d8922dfa2` recorded **7,863 pass, 2,408 unsupported and 133 fail**.
+  The existing pass→fail ratchet succeeded; CI success does not mean every fixed test passed.
+- **Finite interaction selection:** all 2,922 selected inputs in 79 models are present in that single kirimasim run.
+  Input fingerprints and status categories match the [saved cross79 snapshot](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json):
+  **2,389 pass, 529 unsupported and four config failures**; 52 models pass their full selection.
+  The mapping has 114 chapter pairs. The CSVs still identify their original saved snapshot;
+  the formal run is a separate confirmation, not a merge of partial results.
+- **Random comparisons:** all **96 cases across thirteen profiles pass**, with valid, complete evidence.
+  Seed `41650010801` is the workflow run ID; the separately recorded random build is
+  kirimasim `d73d8922dfa20e19ccb9411adbe42a6d258bb49d` (GNU 13.3.0), fetched and built again before comparison.
+  Its binary SHA-256 is `fbb76100230ade68528d41159d445307da453794f7dda40511e067b0a4bcc351`.
+  Fixed and random phases happened to use the same core revision in this run; they need not do so in future runs.
+
+The [verification record](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json)
+identifies workflow conclusions, artifact fingerprints, the full-selection comparison and independent checks of saved random SV.
+The random evidence remains in `random-cross-kirimasim`, outside fixed history and coverage.
+Profile additions remain paused at thirteen; next work is targeted exploration, independent checks and confirmed failure-to-regression follow-up.
+
 <a id="日本時間ではいつ更新されるか"></a>
 
 ## When results update in Japan
@@ -68,7 +100,8 @@ Expectations, oracles, verdicts and coverage measurement rules are unchanged.
 The fix was verified locally by generating history, detailed and summary requirement coverage in both languages,
 and interaction reports in both languages from the failed run's five result JSON files.
 Report generation is distinct from simulator execution and GitHub publication.
-After integrating the fix into main, start a new Nightly using [current-main dispatch](#starting-a-new-run-on-current-main).
+The subsequent [verified Nightly checkpoint](#latest-verified-checkpoint) completed publication successfully.
+For later changes, start a new Nightly using [current-main dispatch](#starting-a-new-run-on-current-main).
 Re-running the original failed execution uses the suite and tools from before the fix.
 
 <a id="確認例2026年10月31日の公開"></a>

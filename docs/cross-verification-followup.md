@@ -2,13 +2,22 @@
 
 [English](cross-verification-followup.en.md) / [日本語](cross-verification-followup.md)
 
-2026-11-03の対応記録です。固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
+2026-11-04（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-## 不一致11件の切り分け
+[最新の正式確認](nightly-results.md#latest-verified-checkpoint)では、上流kirimasim `d73d8922dfa2`で全選択2,922件を実行し、
+2,389 pass・529 unsupported・configの4 failでした。修正したinside・ラベル取消しは引き続きPASSです。
+全選択ケースの入力・状態分類は保存済みcross79と一致しています。suite `e8d991a9`のCheck、Nightlyの5シミュレータ、公開処理はすべて成功しました。
+以下の未コミットビルドは修正過程の記録であり、現在の上流の状態を示すものではありません。
+kirimasim-testsのNightlyの1回の成功と、本体リポジトリの7連続Nightly条件は分けて扱います。
+
+<a id="triage-of-the-eleven-failures"></a>
+<a id="不一致11件の切り分け"></a>
+
+## 当初の不一致11件の切り分け
 
 - **inside比較の2件：修正を取り込み、PASSを確認。** kirimasimの既存ブランチの
-  `b16163c7`にあった修正と機構別matrixを、現在のmain作業ツリーへ反映しました。
+  `b16163c7`にあった修正と機構別matrixを、2026-11-03の取り込み時点のmain作業ツリーへ反映しました。
   配列要素を自身の符号ではなく比較の共通型の符号で拡張する規則です。
   規則の実装箇所は`Lowerer::memberMatch`と`Lowerer::propagate`で、通常のinside、
   配列要素、case insideが同じ経路を使います。新しいアルゴリズムを別に作ったものではありません。
@@ -27,7 +36,7 @@
 **2,247 pass・529 unsupported・9 fail**でした。全2,785件の入力fingerprintは不変で、
 状態の変化は上記2件のfail→passだけです。[11件の全出力再現](../coverage/interaction-qualification/cross-failures-20261103.json)も保持します。
 
-修正版はローカルmain `26a3e5a3`に未コミットの修正を加えたビルドです。
+当時記録したinside修正版はローカルmain `26a3e5a3`に未コミットの修正を加えたビルドです。
 upstream mainの公開済み修正ではありません。[版・修正元・ソース・バイナリの記録](../coverage/interaction-qualification/insidefix-build.json)を併読してください。
 機構別matrixはinitial/task/always/forkの4入力で各120出力行を比較し、関連12検査がPASSしました。
 本体の全local CIもPASSしました。正式Nightlyと7連続Nightlyの証拠を更新したものではありません。
@@ -73,7 +82,7 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
   この単独再実行を有限モデルの章間登録や、ラベル取消し全体のPASSへは加算していません。
   続く[遅延報告引数モデル](interaction-verification.md#deferred-argument-capture)で、
   幅・符号・渡し方・仮引数幅・サブルーチン・報告キュー・更新方式を明示し、29件を追加しました。
-  最新の全2,814件の単一snapshotで追加29件がPASSし、第13×16章をMへ移しました。
+  この追加時点の全2,814件の単一snapshotで追加29件がPASSし、第13×16章をMへ移しました。
 - **第11×33章：C。** 設定式の幅・符号と生成形状を追加候補にしました。
   現行configモデルの名前解決・優先順位の確認を保ち、語境界、式の型・符号、
   演算・条件式を将来の独立因子として検討します。合法な式と正の寸法の確定、

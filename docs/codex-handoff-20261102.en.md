@@ -7,6 +7,10 @@
 This document hands off work on `kirimasim-tests`. Run commands from the repository root.
 Counts below describe the baseline commit. Check GitHub state and current revisions when resuming.
 
+For subsequent work, use the [2026-11-04 verified checkpoint](nightly-results.en.md#latest-verified-checkpoint),
+[current interaction follow-up](cross-verification-followup.en.md) and [thirteen-profile stabilization](random-cross-verification.en.md#thirteen-profile-stabilization).
+They supersede this handoff's counts and unstarted-work descriptions; this dated baseline remains unchanged below.
+
 <a id="1-基点と今回の依頼"></a>
 
 ## 1. Baseline and current request

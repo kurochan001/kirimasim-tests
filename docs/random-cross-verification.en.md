@@ -9,6 +9,10 @@ The same stimulus drives a SystemVerilog design and a Python reference, comparin
 Existing cases, oracles and finite-model denominators remain intact. Random samples and their successes do not increase
 fixed-suite test counts, chapter-matrix pass counts or requirement coverage.
 
+As verified on 2026-11-04 JST, [Check and Nightly on `e8d991a9`](nightly-results.en.md#latest-verified-checkpoint)
+both succeeded. Nightly's thirteen profiles recorded **96 valid passes** on kirimasim `d73d8922dfa2`, seed `41650010801`.
+Profile additions are paused at thirteen; [targeted exploration and independent checks](#thirteen-profile-stabilization) supply further depth.
+
 <a id="purpose-and-roles"></a>
 
 ## Purpose and roles
@@ -274,15 +278,37 @@ Local success or saved evidence is not a successful GitHub Nightly execution.
 
 ## Initial validation
 
+The dated subsections below preserve introduction-time local evidence and its limits.
+Their old counts and statements that formal CI had not yet run describe those checkpoints;
+the current formal result is recorded separately below.
+
 See [qualification evidence](../coverage/interaction-qualification/random-cross.json) for actual revisions, counts, seeds,
 fingerprints and fault detection. The [saved 96-case manifest](../coverage/interaction-qualification/random-cross-manifest.json)
 can be supplied to `--replay`. These are not fixed-suite passes. Boundary witnesses and low-order coverage remain in fixed regressions.
+
+<a id="formal-thirteen-profile-checkpoint"></a>
+
+### Formal thirteen-profile verification (checked 2026-11-04 JST)
+
+[Check 41649940180](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180) and
+[Nightly 41650010801](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801) succeeded on suite `e8d991a9`.
+The Nightly random step actually executed all 96 cases, using seed/run ID `41650010801` and attempt 1;
+admission was `always_execute`. All thirteen profiles are represented: eight cases per profile for the first five, seven each for the other eight.
+Evidence is valid and complete, with zero fail, known, unsupported, not_run or stale results.
+
+The independently fetched/rebuilt random binary is kirimasim `d73d8922dfa20e19ccb9411adbe42a6d258bb49d`, GNU 13.3.0;
+its SHA-256 is `fbb76100230ade68528d41159d445307da453794f7dda40511e067b0a4bcc351`.
+The [verification record](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json) records this build separately from the workflow seed,
+artifact hashes, all 96 saved-source/expectation/output checks, and independent interpretation of 14 array and eight package SV programs.
+Those checks read existing evidence without running a simulator again. The remaining profiles were not independently interpreted by these bounded qualifiers.
+Use the run's `random-cross-kirimasim` artifact with `--replay`; do not regenerate its inputs from the seed.
+This result does not increase fixed counts or replace the [fixed-suite verdicts](nightly-results.en.md#latest-verified-checkpoint).
 
 <a id="thirteen-profile-stabilization"></a>
 
 ### Stabilizing thirteen profiles and targeted exploration (2026-11-03)
 
-Pause profile additions and prioritize formal Check/Nightly, deeper targeted exploration, independent checks and failure-to-regression follow-up.
+Pause profile additions, maintain formal Check/Nightly, and prioritize deeper targeted exploration, independent checks and failure-to-regression follow-up.
 The default 96 cases, eight vectors/operations and allocation remain unchanged; additional exploration supplies depth separately.
 The [saved targeted-exploration record](../coverage/interaction-qualification/random-stabilization-20261103.json) runs array reductions,
 array-copy sequences, package-change sequences and packed-write sequences at each of seeds 1/731/20261103, with 96 cases and 32 vectors/operations per job.
@@ -302,7 +328,7 @@ For a future difference, replay the saved manifest with the same SV, expectation
 and carry confirmed mechanisms into the existing fixed regressions without weakening expectations.
 Full local artifacts remain under `my-results/random-stabilization-20261103/`, outside fixed-suite, chapter-matrix and requirement coverage counts.
 
-All 901 tool regressions and 13 consistency checks pass. The seven independent-qualifier tests forbid generator/reference helper calls during interpretation, detect changes to actual declarations/assignments and reject unknown syntax. All 115 language pairs and 53,301 local links were checked. Confirm formal [Check](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml) and [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml) results against their target commits separately from these local results.
+All 901 tool regressions and 13 consistency checks pass. The seven independent-qualifier tests forbid generator/reference helper calls during interpretation, detect changes to actual declarations/assignments and reject unknown syntax. All 115 language pairs and 53,301 local links were checked. These are the local checks at this stabilization checkpoint; the subsequent [formal confirmation](#formal-thirteen-profile-checkpoint) is recorded separately by suite and build revision.
 
 ```sh
 # Fetch/build latest main immediately beforehand; choose a new output directory.
@@ -346,7 +372,7 @@ Four actual SV mutations all exit normally and differ from original expectations
 wrong source-position mapping and a destroyed partial-copy guard.
 Full local artifacts are under `my-results/random-array-20261103/`, outside fixed-suite, chapter-matrix and requirement-coverage counts.
 
-All 894 tool regressions, including 144 random-related tests, and 13 consistency checks pass. The Check generation/single-case-replay CLI, explicit new-profile selection, 115 language pairs and 53,293 local links were checked. Formal GitHub Check and Nightly have not run for these changes.
+All 894 tool regressions, including 144 random-related tests, and 13 consistency checks pass. The Check generation/single-case-replay CLI, explicit new-profile selection, 115 language pairs and 53,293 local links were checked. Formal GitHub Check and Nightly had not yet run at this introduction checkpoint; see the current formal verification above.
 
 ```sh
 # Fetch/build latest main immediately beforehand; replay saved stimuli.
@@ -381,7 +407,7 @@ early source bit conversion and incorrect sign extension of a one-bit result.
 The qualification embeds the actual control manifest; full local artifacts are under `my-results/random-predicate-20261103/`.
 Original inputs, expectations and failure outputs remain intact, outside fixed-suite, chapter-matrix and requirement-coverage counts.
 
-All 878 tool regressions, including 128 random-related tests, and 13 consistency checks pass. The Check generation/single-case-replay CLI, explicit new-profile selection, 115 language pairs and 53,289 local links were checked. Formal GitHub Check and Nightly have not run for these changes.
+All 878 tool regressions, including 128 random-related tests, and 13 consistency checks pass. The Check generation/single-case-replay CLI, explicit new-profile selection, 115 language pairs and 53,289 local links were checked. Formal GitHub Check and Nightly had not yet run at this introduction checkpoint; see the current formal verification above.
 
 ```sh
 # Fetch/build latest main immediately beforehand; replay saved stimuli.
@@ -419,7 +445,7 @@ inputs and expectations are not weakened to match differences.
 The qualification includes the actual control manifest; full local artifacts are under `my-results/random-struct-20261103/`.
 These samples do not enter fixed-suite, chapter-matrix or requirement-coverage counts and are distinct from formal Check/Nightly runs.
 
-All 862 tool regressions, including 112 random-related tests, and 13 consistency checks pass. The Check generation/single-case-replay CLI, explicit new-profile selection, 115 language pairs and 53,285 local links were checked. Formal GitHub Check and Nightly have not run for these changes.
+All 862 tool regressions, including 112 random-related tests, and 13 consistency checks pass. The Check generation/single-case-replay CLI, explicit new-profile selection, 115 language pairs and 53,285 local links were checked. Formal GitHub Check and Nightly had not yet run at this introduction checkpoint; see the current formal verification above.
 
 ```sh
 # Fetch/build latest main immediately beforehand; replay saved stimuli.
@@ -453,7 +479,7 @@ fixed Verilator 5.052 passes two known-input cases and excludes two requiring X/
 These are not all-simulator successes or automatic fixed-oracle registrations.
 Local artifacts are under `my-results/random-bits-20261103/`, outside fixed-suite, chapter-matrix and requirement-coverage counts.
 
-All 846 tool regressions, including 96 random-related tests, and 13 consistency checks pass. The Check generation/single-case-replay CLI, explicit new-profile selection, 115 language pairs and 53,277 local links were checked. Formal GitHub Check and Nightly have not run for these changes.
+All 846 tool regressions, including 96 random-related tests, and 13 consistency checks pass. The Check generation/single-case-replay CLI, explicit new-profile selection, 115 language pairs and 53,277 local links were checked. Formal GitHub Check and Nightly had not yet run at this introduction checkpoint; see the current formal verification above.
 
 ```sh
 # Fetch/build latest main immediately beforehand; rerun saved stimuli.
@@ -485,7 +511,7 @@ Four actual SV faults also exit normally and differ from their original expectat
 function package binding, early wait and lost notification counts. Preserve original failures and expectations.
 Local artifacts are under `my-results/random-profiles-20261103/`.
 
-All 830 tool regressions, including 80 random-related checks, and 13 consistency checks pass. The Check generation/single-case-replay CLI and explicit new-profile selection also pass. All 115 language pairs and 53,273 local links are current. Random additions do not increase fixed-suite, chapter-matrix or requirement-coverage counts. Formal GitHub Check and Nightly have not run for these changes.
+All 830 tool regressions, including 80 random-related checks, and 13 consistency checks pass. The Check generation/single-case-replay CLI and explicit new-profile selection also pass. All 115 language pairs and 53,273 local links were checked at this introduction checkpoint. Random additions do not increase fixed-suite, chapter-matrix or requirement-coverage counts. Formal GitHub Check and Nightly had not yet run at this introduction checkpoint; see the current formal verification above.
 
 ```sh
 # Replay the published stimuli; fetch/build latest main immediately beforehand.

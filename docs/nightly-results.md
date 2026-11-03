@@ -6,6 +6,37 @@
 
 [READMEのグラフ](../README.ja.md#nightly-results) / [公開結果](https://github.com/kurochan001/kirimasim-tests/tree/results#readme) / [実行一覧](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)
 
+<a id="latest-verified-checkpoint"></a>
+
+## 最新の確認済み状態（2026-11-04 日本時間）
+
+suiteのコミット`e8d991a97b2abb12a41a1fb6b89c2406f9aa7292`を対象とする
+[Check 41649940180](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180)と
+[Nightly 41650010801](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801)は、ともに成功しました。
+Checkのreadme・固定Icarus 13.0・Verilator 5.052の各ジョブ、Nightlyの5シミュレータと`publish`の各ジョブが成功しています。
+[公開スナップショット](https://github.com/kurochan001/kirimasim-tests/blob/6722914378e3758387157e8c5f5eb31cdcd3d7cf/README.ja.md)の生成時刻は、
+2026-11-03 16:13 UTC（日本時間2026-11-04 01:13）です。
+この記録は当該コミット・ビルドでの確認であり、その後の変更まで成功を保証するものではありません。
+
+- **固定suite：** 登録10,672件のうち268件はformalで、シミュレータの実行対象は10,404件です。
+  kirimasim `d73d8922dfa2`の結果は**7,863 pass・2,408 unsupported・133 fail**です。
+  既存のpass→failを検出するratchetは成功しましたが、CI成功は固定テスト全件PASSを意味しません。
+- **有限クロスの選択：** この単一kirimasim実行に79モデルの全2,922件が含まれます。
+  入力ハッシュ・状態分類とも[保存済みcross79](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json)と一致し、
+  **2,389 pass・529 unsupported・configの4 fail**、全選択ケースPASSは52モデルです。
+  対応付けた章対は114組です。CSVは引き続き元の保存実行を示し、正式実行はその別途確認として扱います。
+  複数実行の部分成功を合成した結果ではありません。
+- **ランダム比較：** 13プロファイルの**全96件がPASS**し、証跡は有効・完了です。
+  seed `41650010801`はworkflow run IDです。それと別に記録したランダム比較のビルドは、
+  比較直前に再取得・再ビルドしたkirimasim `d73d8922dfa20e19ccb9411adbe42a6d258bb49d`（GNU 13.3.0）です。
+  実行バイナリのSHA-256は`fbb76100230ade68528d41159d445307da453794f7dda40511e067b0a4bcc351`です。
+  この実行では固定suiteとランダム比較の本体revisionが一致しましたが、今後も一致するとは限りません。
+
+[確認記録](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json)に、workflowの結論・artifactのハッシュ・
+全選択ケースの照合・保存済みランダムSVの独立検算を記載しています。
+ランダム結果は専用の`random-cross-kirimasim`に保持し、固定履歴・カバレッジへ加算しません。
+プロファイルの追加はいったん13個で区切り、重点領域の追加探索・独立検算・確認済み不具合の固定回帰化を進めます。
+
 <a id="when-results-update-in-japan"></a>
 
 ## 日本時間ではいつ更新されるか
@@ -86,7 +117,8 @@ kirimasimのランダム比較も、版`2c81a591105b`、seed `41359514776`で96�
 
 失敗時の5環境の結果JSONを使い、履歴生成、要求カバレッジの日英詳細・概要、機能間クロスの日英レポートをローカルで生成して対策を確認しました。
 生成結果の確認は、シミュレータの再実行やGitHubへの公開とは別です。
-修正をmainへ反映した後は、[最新mainでの手動実行](#starting-a-new-run-on-current-main)で新しいNightlyを起動します。
+その後の[確認済みNightly](#latest-verified-checkpoint)では、公開処理も成功しました。
+今後の変更を検証する際は、[最新mainでの手動実行](#starting-a-new-run-on-current-main)で新しいNightlyを起動します。
 元の失敗実行のRe-runは、修正前のスイート・ツールを使います。
 
 <a id="recorded-example-publication-on-2026-10-31"></a>

@@ -2,15 +2,24 @@
 
 [English](cross-verification-followup.en.md) / [日本語](cross-verification-followup.md)
 
-Recorded on 2026-11-03. Preserve fixed regressions, formal Nightly, existing expectations
+Updated on 2026-11-04 JST, retaining the repair records from 2026-11-03. Preserve fixed regressions, formal Nightly, existing expectations
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-## Triage of the eleven failures
+The [latest formal checkpoint](nightly-results.en.md#latest-verified-checkpoint) confirms all 2,922 selected cases on upstream kirimasim `d73d8922dfa2`:
+2,389 pass, 529 unsupported and the four config failures. The repaired inside and label-cancellation cases remain PASS.
+All selected inputs and statuses match the saved cross79 snapshot. Check, all five Nightly simulator jobs and publication succeeded on suite `e8d991a9`.
+The historical uncommitted builds below explain the repair process; they do not describe the current upstream state.
+One successful kirimasim-tests Nightly is separate from the core repository's seven-consecutive-Nightly condition.
+
+<a id="triage-of-the-eleven-failures"></a>
+<a id="不一致11件の切り分け"></a>
+
+## Triage of the original eleven failures
 
 - **Two inside comparisons: integrated repair and confirmed PASS.** The existing kirimasim
-  branch commit `b16163c7` already contained the fix and mechanism matrix. They are now applied
-  to the current main working tree. Array members extend by the common comparison type's sign,
+  branch commit `b16163c7` already contained the fix and mechanism matrix. They were applied
+  to the then-current main working tree in the 2026-11-03 integration snapshot. Array members extend by the common comparison type's sign,
   rather than their own. `Lowerer::memberMatch` and `Lowerer::propagate` implement the rule;
   ordinary inside, array members and case inside share that path. No separate new algorithm was created.
 - **Five deferred assertions: approved and repaired.** The maintainer approved the contract
@@ -29,7 +38,7 @@ records **2,247 pass, 529 unsupported and 9 fail**. All 2,785 input fingerprints
 the only status transitions are those two fail→pass cases.
 [Complete-output replays of the eleven inputs](../coverage/interaction-qualification/cross-failures-20261103.json) are retained.
 
-The repaired binary uses local main `26a3e5a3` plus uncommitted changes, not an upstream-main release.
+The recorded inside-repair binary used local main `26a3e5a3` plus uncommitted changes, not an upstream-main release.
 Consult the [revision, reused fix, source and binary record](../coverage/interaction-qualification/insidefix-build.json).
 The mechanism matrix compares 120 output lines in each of four initial/task/always/fork inputs;
 12 related checks pass. Full core local CI also passes. This does not update formal Nightly
@@ -76,7 +85,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   That individual replay added no finite-model chapter mapping or complete label-cancellation PASS claim.
   The subsequent [deferred-argument model](interaction-verification.en.md#deferred-argument-capture)
   explicitly crosses width, signedness, passing, formal width, routine, report queue and update mode in 29 new cases.
-  All 29 pass in the latest single 2,814-case snapshot, moving Chapters 13×16 to M.
+  All 29 passed in the single 2,814-case snapshot at that addition, moving Chapters 13×16 to M.
 - **Chapters 11×33: C.** Configuration expression width and signedness versus generated shape
   is a candidate. Retain the existing model's name-resolution and precedence checks; consider
   word boundaries, expression types, signedness, operators and conditional expressions as future

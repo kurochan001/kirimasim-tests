@@ -172,3 +172,25 @@ clause 37.
 - Added 13 cases in the chapter 7×18 P2 reduction-constraint model, retaining all 96 pairs, 40 targeted triples and four anchors from 192 legal rows. Independent calculations agree on every row; four fixed-array auxiliary controls and seven output-difference faults are verified. Controls add an element-type cast only to the observation assignment, and are neither original-case passes nor dynamic-size-retention qualification. Both fixed Verilator seeds differ on all 13 original cases; fixed Icarus rejects the builds. Latest kirimasim `80859f34f0aa` records 2,207 pass, 326 unsupported and the existing 6 fail; all 2,526 preceding records are unchanged. All new cases parse: 8 fixed cases encounter unsupported randomize, and 5 dynamic cases use unsupported class-array operations. Totals are 65 models, 2,539 cases and 96 chapter pairs, with 47 models passing their full selection. See [design and evidence](interaction-verification.en.md#array-reduction-constraints-and-retention).
 
 - Retained Check's fixed regressions and added three-profile, default-96-case model-based random comparisons to Nightly. A dedicated artifact retains seeds, actual stimuli, SV/expectations/output, commits and code fingerprints for single-case replay. Latest-verified build `866abf4d86d1` passes 448 samples and one saved-stimulus replay; an intentional wrong operator is detected by output difference after normal termination. Fixed Icarus 13.0 matches 12 samples. These do not increase fixed-suite counts, chapter pass counts or requirement coverage, and are distinct from execution success in CI. See [usage and scope](random-cross-verification.en.md).
+
+## 2026-11-03
+
+- Expanded the fixed suite to 10,672 tests, including 4,235 generated cases from 88 generators. Finite interactions reached
+  79 models, 2,922 selected cases and 114 mapped chapter pairs. Triage was M114 / E3 / C2 / N117 / R584.
+  The [follow-up record](cross-verification-followup.en.md) retains the inside and approved label-cancellation repairs,
+  unchanged expectations and the original 11→9→4 failure history. On upstream `a682e19e`, 2,389 cases pass, 529 are unsupported
+  and four config parameter-reset cases still fail; 52 models pass their full selection.
+- Extended bounded random comparisons to thirteen profiles, preserving explicit legacy selections' reproducibility and the default 96-case budget.
+  Retained immutable saved replay, optional exact-completed-job exploration admission, reference-drift reporting and same-stimulus comparisons.
+  The [random guide](random-cross-verification.en.md) records the scope, saved manifests, code/build identities and failure-to-regression procedure.
+  Array reduction reference qualification corrected singleton Z handling while retaining the original five prototype failures and separate replays.
+- Paused profile additions and deepened four profiles across three seeds and 32 vectors/operations per case:
+  [1,152 local passes](../coverage/interaction-qualification/random-stabilization-20261103.json), including 864 independently interpreted
+  array/package programs. The other 288 packed-write programs used the existing execution/reference comparison.
+  Local validation passed 901 tool tests and 13 consistency checks. Exploration found no new discrepancy to promote to fixed regression.
+- [Check 41649940180](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180) and
+  [Nightly 41650010801](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801) succeeded on suite `e8d991a9`,
+  including all five Nightly simulator jobs and publication. Results were checked on 2026-11-04 JST.
+  The formal kirimasim `d73d8922dfa2` run confirms all 2,922 finite inputs/statuses and separately records 96 valid random passes
+  with seed `41650010801`. See the [dated checkpoint](nightly-results.en.md#latest-verified-checkpoint) for full fixed-suite outcomes,
+  build fingerprints and the immutable published snapshot. Random results remain outside fixed counts and coverage.

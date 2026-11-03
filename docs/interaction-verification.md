@@ -12,6 +12,17 @@
 
 ## 保存実行の概要
 
+2026-11-04（日本時間）に照合した[最新の確認済み状態](nightly-results.md#latest-verified-checkpoint)では、
+suite `e8d991a9`のCheck・Nightlyがともに成功しています。
+正式Nightlyのkirimasim `d73d8922dfa2`実行には、**79モデルの全2,922件**が含まれ、
+**2,389 pass・529 unsupported・configの4 fail**、**全選択ケースPASSは52モデル**、**章対は114組**です。
+全選択ケースの入力ハッシュ・状態分類は、以下の保存済みcross79と一致しています。
+[確認記録](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json)では、正式確認とCSVの元になるローカル証跡を分けています。
+同じNightlyの13プロファイルのランダム比較も96件すべて有効なPASSですが、有限クロスの件数へ加算しません。
+
+以下の日時付きスナップショットは、各追加・修正を実行した当時の記録です。
+未コミットの修正という記述は、その時点のビルド条件を示し、現在の上流の状態を示すものではありません。
+
 package変更の観測追加（2026-11-03）：現在は**79モデル・2,922件・114章対**です。
 実行直前に上流mainを取得・構成・ビルドしたkirimasim `a682e19e3238`の
 [全クロス保存実行](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json)は

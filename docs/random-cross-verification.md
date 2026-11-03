@@ -9,6 +9,10 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
 固定回帰のケース、oracle、有限モデルの分母は維持します。ランダム実行の本数や成功を、
 固定スイートのテスト数・章間マトリクスの合格数・要求カバレッジへ加算しません。
 
+2026-11-04（日本時間）に確認した[`e8d991a9`のCheck・Nightly](nightly-results.md#latest-verified-checkpoint)は、ともに成功しました。
+Nightlyの13プロファイルはkirimasim `d73d8922dfa2`・seed `41650010801`で**96件すべて有効なPASS**です。
+プロファイル追加はいったん13個で区切り、[重点探索と独立検算](#thirteen-profile-stabilization)で検証を深めます。
+
 <a id="purpose-and-roles"></a>
 
 ## 目的と役割分担
@@ -281,11 +285,32 @@ Checkに最新kirimasimでのランダム実行を追加してはいません。
 [保存した96ケースのmanifest](../coverage/interaction-qualification/random-cross-manifest.json)は、CLIの`--replay`で読み込めます。
 固定スイートの合格数へは加算しません。通常の境界ケースと少数因子網羅は引き続き固定回帰で保持します。
 
+以下の日時付きの節は、導入時のローカル確認とその制限を保持しています。
+過去の件数や「正式CI未実行」は当時の確認時点の記録であり、現在の正式結果は次の節に分けて記載します。
+
+<a id="formal-thirteen-profile-checkpoint"></a>
+
+### 13プロファイルの正式確認（2026-11-04 日本時間に照合）
+
+suite `e8d991a9`の[Check 41649940180](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180)と
+[Nightly 41650010801](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801)は、ともに成功しました。
+Nightlyのランダム比較はseed／run ID `41650010801`・attempt 1で、96件すべてを実際に実行しています。
+投入判定は`always_execute`です。先行5プロファイルは各8件、残る8プロファイルは各7件で、13個すべてを含みます。
+証跡は有効・完了で、fail・known・unsupported・not_run・staleはいずれも0件です。
+
+別途取得・再ビルドしたランダム比較のバイナリは、kirimasim `d73d8922dfa20e19ccb9411adbe42a6d258bb49d`・GNU 13.3.0です。
+SHA-256は`fbb76100230ade68528d41159d445307da453794f7dda40511e067b0a4bcc351`です。
+[確認記録](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json)に、workflowのseedと区別したビルド情報、
+artifactのハッシュ、全96件の保存SV・期待値・出力の照合、配列14件・package 8件の保存SVの独立解釈を記載しています。
+これらの照合は既存証跡を読み直したもので、シミュレータを再実行していません。他のプロファイルは、この限定構文の検算器による独立解釈の対象外です。
+再現には実行の`random-cross-kirimasim` artifactを`--replay`で使い、seedから再生成しません。
+この結果を固定件数へ加算したり、[固定suiteの判定](nightly-results.md#latest-verified-checkpoint)に置き換えたりはしません。
+
 <a id="thirteen-profile-stabilization"></a>
 
 ### 13プロファイルの安定化と重点探索（2026-11-03）
 
-プロファイルの追加はいったん区切り、正式Check／Nightly、重点領域の追加探索、独立検算と失敗の固定回帰化を優先します。
+プロファイルの追加はいったん区切り、正式Check／Nightlyを継続し、重点領域の追加探索、独立検算と失敗の固定回帰化を優先します。
 既定96件・各8ベクトル／操作とプロファイルの割当ては変更せず、追加探索だけで深さを確保します。
 [重点探索の保存記録](../coverage/interaction-qualification/random-stabilization-20261103.json)では、
 配列リダクション、配列コピー列、package変更列、パック部分書込み列の4プロファイルを各3シード（1/731/20261103）、
@@ -304,7 +329,7 @@ Checkに最新kirimasimでのランダム実行を追加してはいません。
 確認できた機構を既存の固定回帰へ取り込みます。入力・期待値を弱めてPASSへ変更しません。
 ローカルの完全な資料は`my-results/random-stabilization-20261103/`に保存し、固定suite・章別表・要求カバレッジへ加算しません。
 
-ツール回帰901件と整合性13項目が全PASSです。独立検算器の7件には、保存SVの解釈中に生成器・参照関数を呼ぶと失敗する検査、実際の宣言・代入変更による検出、未知の構文の拒否を含めています。日英115組とローカルリンク53,301件も確認しました。正式CIの結果は[Check](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml)・[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)の対象コミットと合わせて確認し、これらのローカル結果と分けます。
+ツール回帰901件と整合性13項目が全PASSです。独立検算器の7件には、保存SVの解釈中に生成器・参照関数を呼ぶと失敗する検査、実際の宣言・代入変更による検出、未知の構文の拒否を含めています。日英115組とローカルリンク53,301件も確認しました。これらは安定化時点のローカル検査です。その後の[正式確認](#formal-thirteen-profile-checkpoint)はsuiteとビルドのrevisionを添えて別に記録しています。
 
 ```sh
 # 直前に最新mainを取得・ビルドする。出力先には新しいディレクトリを使う。
@@ -346,7 +371,7 @@ python3 -m unittest discover -s tools -p test_qualify_random_arrays.py
 実際のSV変更4件（集約の戻り幅の誤変更、単要素への余分な演算、コピー元位置の誤対応、部分コピーのガード破壊）も、正常終了後の出力差として全て検出しました。
 完全なローカル実行資料は`my-results/random-array-20261103/`に保存し、固定suite・章間表・要求カバレッジの件数へ加算しません。
 
-関連144件を含むツール回帰894件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、新プロファイルの明示指定、日英115組、ローカルリンク53,293件も確認しました。GitHubの正式Check・Nightlyは今回未実行です。
+関連144件を含むツール回帰894件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、新プロファイルの明示指定、日英115組、ローカルリンク53,293件も確認しました。この導入時点ではGitHubの正式Check・Nightlyは未実行でした。現在の正式結果は上の確認節を参照してください。
 
 ```sh
 # 実行直前に最新mainを取得・ビルドし、保存刺激を再実行する。
@@ -380,7 +405,7 @@ signed入力からunsignedの1ビット結果を130ビットへ拡張する例�
 検証記録には実際の対照manifestを収録し、完全なローカル実行資料は`my-results/random-predicate-20261103/`に保存しています。
 元の入力・期待値・失敗出力を保持し、固定suite・章間表・要求カバレッジの件数へ加算しません。
 
-関連128件を含むツール回帰878件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、新プロファイルの明示指定、日英115組、ローカルリンク53,289件も確認しました。GitHubの正式Check・Nightlyは今回未実行です。
+関連128件を含むツール回帰878件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、新プロファイルの明示指定、日英115組、ローカルリンク53,289件も確認しました。この導入時点ではGitHubの正式Check・Nightlyは未実行でした。現在の正式結果は上の確認節を参照してください。
 
 ```sh
 # 実行直前に最新mainを取得・ビルドし、保存刺激を再実行する。
@@ -414,7 +439,7 @@ python3 -m unittest discover -s tools -p 'test_random_cross*.py'
 検証記録には対照の実際のmanifestも収録し、完全なローカル実行資料は`my-results/random-struct-20261103/`に保存しています。
 固定suite・章間表・要求カバレッジの件数へ加算せず、正式Check／Nightlyの実行とは区別します。
 
-関連112件を含むツール回帰862件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、新プロファイルの明示指定、日英115組、ローカルリンク53,285件も確認しました。GitHubの正式Check・Nightlyは今回未実行です。
+関連112件を含むツール回帰862件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、新プロファイルの明示指定、日英115組、ローカルリンク53,285件も確認しました。この導入時点ではGitHubの正式Check・Nightlyは未実行でした。現在の正式結果は上の確認節を参照してください。
 
 ```sh
 # 実行直前に最新mainを取得・ビルドし、保存刺激を再実行する。
@@ -447,7 +472,7 @@ bit変換の遅延）は正常終了後の出力差として全て検出しま�
 全シミュレータで全件成功とは扱わず、固定版oracleへ自動登録しません。
 実行資料は`my-results/random-bits-20261103/`に保存し、固定suite・章間表・要求カバレッジへ加算しません。
 
-関連96件を含むツール回帰846件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、新プロファイルの明示指定、日英115組、ローカルリンク53,277件も確認しました。GitHubの正式Check・Nightlyは今回未実行です。
+関連96件を含むツール回帰846件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、新プロファイルの明示指定、日英115組、ローカルリンク53,277件も確認しました。この導入時点ではGitHubの正式Check・Nightlyは未実行でした。現在の正式結果は上の確認節を参照してください。
 
 ```sh
 # 実行直前に最新mainを取得・ビルドし、保存済み刺激を再実行する。
@@ -478,7 +503,7 @@ python3 -m unittest discover -s tools -p 'test_random_cross*.py'
 誤った条件分岐、関数のpackage参照先、早すぎるwait、通知回数の欠落という実際のSV変更4件も、正常終了後の出力差として検出しました。
 元の失敗・期待値は保持します。ローカルartifactは`my-results/random-profiles-20261103/`です。
 
-関連80件を含むツール回帰830件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、および新プロファイルの明示指定も確認しました。日英115組とローカルリンク53,273件は整合しています。固定suite・章間表・要求カバレッジの件数はランダム追加によって増やしていません。正式GitHub CheckとNightlyは今回未実行です。
+関連80件を含むツール回帰830件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、および新プロファイルの明示指定も確認しました。日英115組とローカルリンク53,273件は整合しています。固定suite・章間表・要求カバレッジの件数はランダム追加によって増やしていません。この導入時点では正式GitHub Check・Nightlyは未実行でした。現在の正式結果は上の確認節を参照してください。
 
 ```sh
 # 公開した保存刺激を使う。実行直前に最新mainを取得・ビルドする。
