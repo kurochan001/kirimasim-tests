@@ -29,7 +29,7 @@ Preserve failures as reproducible evidence and carry confirmed mechanisms into f
   See the [core validation policy](https://github.com/kurochan001/kirimasim/blob/main/docs/VALIDATION.md).
 
 Passing samples do not prove correctness for all inputs/sequences, coverage of every factor combination or absence of undiscovered bugs.
-Features outside the eleven supported profiles are not automatically explored.
+Features outside the thirteen supported profiles are not automatically explored.
 Generation uses a distribution defined in code and a seed; automatic adaptation using coverage feedback is not implemented.
 Some reference calculations share functions with fixed interaction tests, so repeated random comparisons alone cannot rule out oracle defects.
 Combine standard review, hand-calculated boundaries and [reference/runner regressions](../tools/test_random_cross.py).
@@ -64,7 +64,7 @@ fixed regressions, formal Nightly and explicit replay execute again.
 
 ## Scope and generation
 
-Eleven profiles are currently supported. This does not generalize every finite model to arbitrary inputs.
+Thirteen profiles are currently supported. This does not generalize every finite model to arbitrary inputs.
 
 - `expression_context` crosses widths, signedness, destination width and addition/subtraction/multiplication with arbitrary known input bits.
   It reuses the reference in `generators/interaction_expr.py`.
@@ -120,8 +120,18 @@ Eleven profiles are currently supported. This does not generalize every finite m
   Unsigned one-bit results are extended before destination bit conversion. Grounds are IEEE 1800-2023 11.4.9, 11.4.7, 11.6.1, 11.8.1 and 6.11.2.
   Binary logical operators, short-circuit side effects and out-of-range slices are excluded.
 
+- `array_reduction_context` reduces 1–5 elements of fixed/dynamic arrays or queues using sum/product/and/or/xor.
+  It crosses element width/sign/state and plain/width+1/int/integer with transformations, observing actual size, supplied/stored inputs, returned/widened values and expression width.
+  Element conversion precedes with conversion, reduction in the return type and destination extension. A wider destination alone cannot prevent reduction overflow.
+  A singleton returns its transformed element without introducing an extra operation that would turn Z into X. Grounds are IEEE 1800-2023 7.12.3, 6.24.1, 11.8.2 and 6.11.2.
+- `unpacked_array_copy_sequence` combines whole/arbitrary legal partial copies between fixed arrays with individual source/target writes.
+  It crosses 1–5 elements, nonzero ascending/descending indices and element width/sign/state, using equivalent element types.
+  Saved positions are declaration-order ordinals mapped to actual indices. Whole arrays and widened reads expose untouched guards and independent value copies.
+  Generation starts with a copy, then changes a copied source element when a second operation exists, followed by copies/writes/repetitions. Initial state and all ordered operations are retained.
+  Grounds are IEEE 1800-2023 7.6, 7.4.6, 6.11.2 and 11.8.2. Different element types, overlapping self-copies and dynamic-array copies are excluded.
+
 Most widths are 1/32/33/64/65/129; concatenated assignments start at total width 2. This includes the arithmetic models' legal one-bit operand/destination width differences.
-Arithmetic mixes random values with zero, one and type boundaries; write, conditional, package, shift, cast, streaming, concatenation, comparison and reduction profiles also generate X/Z.
+Arithmetic mixes random values with zero, one and type boundaries; write, conditional, package, shift, cast, streaming, concatenation, comparison, reduction and array profiles also generate X/Z.
 Profiles receive approximately equal case counts; a seed chooses their order and legal parameters.
 For packed_write_sequence, the first operation is a write, the second a read when present, and subsequent operations choose read/write.
 Combinations can repeat. Random sampling is not a guarantee of pairwise or three-factor coverage.
@@ -134,7 +144,9 @@ Random generation with multiple legal solutions needs a separate constraint-sati
 The first 2026-11-03 addition expanded the default allocation from three to five profiles. That checkpoint allocated 96 cases as 20/19/19/19/19 to the first five profiles listed above, down from 32 each with three profiles. It retained the total case/vector budget while exploring more mechanisms and changed the default stimulus stream for the same seed.
 The subsequent shift/cast checkpoint had seven profiles: 96 cases allocated 14 to each earlier profile and 13 to each new one. At that checkpoint each earlier profile received fewer samples and the default corpus changed from five profiles, while total case/vector, worker and timeout limits were retained.
 The streaming/concatenation checkpoint had nine profiles: 96 cases allocated 11 to each of the first six and 10 to each remaining profile. It retained total case/vector, worker and timeout limits while extending scope and changing the default stimulus stream.
-The comparison/reduction addition brings the current total to eleven profiles. The default 96 cases allocate nine to each of the first eight profiles above and eight to each remaining profile. Each earlier profile receives fewer samples; total case/vector, worker and timeout limits remain unchanged. Default generation changes its stimulus stream for the same seed.
+The comparison/reduction checkpoint had eleven profiles: 96 cases allocated nine to each of the first eight and eight to each remaining profile. It retained total case/vector, worker and timeout limits while extending scope and changing the default stimulus stream.
+The array addition brings the current total to thirteen profiles. The default 96 cases allocate eight to each of the first five profiles above and seven to each remaining profile. Each earlier profile receives fewer samples; total case/vector, worker and timeout limits remain unchanged. Default generation changes its stimulus stream for the same seed.
+To regenerate the previous eleven-profile corpus, append `comparison_context packed_logic_context` to the nine-profile list below and pass it to `--models`. This explicit selection retains its previous streams, distribution and generated bytes.
 To regenerate the previous nine-profile corpus, specify `--models expression_context division_context packed_write_sequence conditional_context package_change_sequence shift_context cast_pipeline streaming_context concat_assignment_sequence`. This explicit selection retains its previous streams, distribution and generated bytes.
 To regenerate the previous seven-profile corpus, specify `--models expression_context division_context packed_write_sequence conditional_context package_change_sequence shift_context cast_pipeline`. This explicit selection retains its previous streams, distribution and generated bytes.
 To regenerate the previous five-profile corpus, specify `--models expression_context division_context packed_write_sequence conditional_context package_change_sequence`. This explicit selection, like the original three-profile selection, preserves its previous streams, distribution and generated bytes.
@@ -142,12 +154,12 @@ To regenerate the old allocation, specify `--models expression_context division_
 Use `--replay` for saved stimuli rather than regenerating them. The manifest format and original profiles' materialized bytes remain compatible; existing source hashes and reference-drift reporting identify code changes.
 
 ```sh
-# Explore only comparisons and reductions; fetch/build latest main immediately beforehand.
+# Explore only array reductions and copy sequences; fetch/build latest main immediately beforehand.
 python3 tools/run_random_cross.py \
   --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
-  --seed 731 --models comparison_context packed_logic_context \
+  --seed 731 --models array_reduction_context unpacked_array_copy_sequence \
   --cases 96 --vectors 8 --jobs 4 --timeout 5 --time-budget 120 \
-  --output my-results/predicate-profiles-731
+  --output my-results/array-profiles-731
 ```
 
 <a id="limits-and-verdicts"></a>
@@ -265,6 +277,85 @@ Local success or saved evidence is not a successful GitHub Nightly execution.
 See [qualification evidence](../coverage/interaction-qualification/random-cross.json) for actual revisions, counts, seeds,
 fingerprints and fault detection. The [saved 96-case manifest](../coverage/interaction-qualification/random-cross-manifest.json)
 can be supplied to `--replay`. These are not fixed-suite passes. Boundary witnesses and low-order coverage remain in fixed regressions.
+
+<a id="thirteen-profile-stabilization"></a>
+
+### Stabilizing thirteen profiles and targeted exploration (2026-11-03)
+
+Pause profile additions and prioritize formal Check/Nightly, deeper targeted exploration, independent checks and failure-to-regression follow-up.
+The default 96 cases, eight vectors/operations and allocation remain unchanged; additional exploration supplies depth separately.
+The [saved targeted-exploration record](../coverage/interaction-qualification/random-stabilization-20261103.json) runs array reductions,
+array-copy sequences, package-change sequences and packed-write sequences at each of seeds 1/731/20261103, with 96 cases and 32 vectors/operations per job.
+All 1,152 cases pass on kirimasim `d73d8922dfa2`, fetched, configured and built immediately beforehand.
+Every job actually executed and retained admission history; no admission skip counts as a pass.
+
+The new [independent array-SV qualifier](../tools/qualify_random_arrays.py) reads saved declarations, index directions, assignments,
+partial copies, with casts, reductions and display expressions, without generator parameters, operation lists or reference helpers.
+Only the existing literal decoder is shared; types, widths, signedness, value copies and singleton-aware reduction are implemented separately.
+It matches all 576 array programs. The existing [package interpreter](../tools/qualify_pkgwatch.py) matches another 288,
+for 864 independently checked actual saved programs. The other 288 packed-write cases use the existing execution/reference comparison,
+not these array/package interpreters. The qualifier handles bounded emitted syntax and rejects unknown expressions, extra processes and out-of-range arrays;
+it is not a general SystemVerilog implementation.
+
+Original differences and fixed regressions remain intact. This exploration found no new discrepancy, so no fixed regression was added.
+For a future difference, replay the saved manifest with the same SV, expectations and stdout/stderr, classify standard/reference/runner/simulator causes,
+and carry confirmed mechanisms into the existing fixed regressions without weakening expectations.
+Full local artifacts remain under `my-results/random-stabilization-20261103/`, outside fixed-suite, chapter-matrix and requirement coverage counts.
+
+All 901 tool regressions and 13 consistency checks pass. The seven independent-qualifier tests forbid generator/reference helper calls during interpretation, detect changes to actual declarations/assignments and reject unknown syntax. All 115 language pairs and 53,301 local links were checked. Confirm formal [Check](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml) and [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml) results against their target commits separately from these local results.
+
+```sh
+# Fetch/build latest main immediately beforehand; choose a new output directory.
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --models array_reduction_context --seed 731 --cases 96 --vectors 32 \
+  --jobs 4 --timeout 5 --time-budget 120 \
+  --explore --history my-results/deep-history.sqlite3 --output my-results/deep-array-731
+python3 tools/qualify_random_arrays.py my-results/deep-array-731 \
+  --output my-results/deep-array-independent-new.json
+python3 -m unittest discover -s tools -p test_qualify_random_arrays.py
+```
+
+<a id="thirteen-profile-validation"></a>
+
+### Array reduction/copy extension and validation (2026-11-03)
+
+The [thirteen-profile qualification record](../coverage/interaction-qualification/random-cross-thirteen-profiles.json) and
+[saved 96-case manifest](../coverage/interaction-qualification/random-cross-thirteen-profiles-manifest.json) preserve this addition.
+kirimasim `d73d8922dfa2`, fetched, configured and built from upstream main immediately before execution, passes 352 cases:
+96 mixed cases at each of seeds 1/731/20261103 and 32 cases per new profile at the maximum 32 vectors/operations.
+No core code changes are introduced. Explicit selection of the previous three, five, seven, nine or eleven profiles retains previous
+manifest/SV/expectation hashes at three seeds each. One saved replay per new profile passes with identical original bytes and no reference drift.
+
+Reference checks cover both backgrounds of every fixed array-reduction row and both input phases of every fixed array-copy row.
+Separate checks use integer calculations on arbitrary known values, four-state binary-operation tables, singleton X/Z values,
+overflow and with-conversion order. Copy checks observe declaration-order mapping across opposite directions,
+untouched guards, independence of source/target updates and sign extension. Empty-array results are outside this profile; zero elements are not generated.
+
+Initial direct use of the three-element reduction helper on singletons produced five reference differences, turning Z into X.
+Review of the element-value reduction definition in 7.12.3 and the same methods' joined-element expressions in 18.5.7.2 supports
+folding only actual binary operations starting from the first element. This corrects the new reference, not kirimasim.
+Original failing manifests, SV, expectations, output and reference code remain under `my-results/random-array-singleton-reference-20261103/`.
+The same five saved programs pass with the current reference, recording unchanged SV and changed expectations for every case.
+Default saved-expectation replay instead records five stale cases and zero passes; original failures are not rewritten as successes.
+The qualification includes audit hashes and counts.
+
+Four saved public-tool controls all pass on kirimasim. Fixed Icarus 13.0 records four known compilation rejections;
+fixed Verilator 5.052 passes two known-input cases and excludes two X/Z cases as unsupported. No fixed oracles are registered automatically.
+Four actual SV mutations all exit normally and differ from original expectations: wrong return width, an extra singleton operation,
+wrong source-position mapping and a destroyed partial-copy guard.
+Full local artifacts are under `my-results/random-array-20261103/`, outside fixed-suite, chapter-matrix and requirement-coverage counts.
+
+All 894 tool regressions, including 144 random-related tests, and 13 consistency checks pass. The Check generation/single-case-replay CLI, explicit new-profile selection, 115 language pairs and 53,293 local links were checked. Formal GitHub Check and Nightly have not run for these changes.
+
+```sh
+# Fetch/build latest main immediately beforehand; replay saved stimuli.
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --replay coverage/interaction-qualification/random-cross-thirteen-profiles-manifest.json \
+  --output my-results/thirteen-profiles-saved-replay
+python3 -m unittest discover -s tools -p 'test_random_cross*.py'
+```
 
 <a id="eleven-profile-validation"></a>
 
@@ -412,7 +503,7 @@ python3 -m unittest discover -s tools -p 'test_random_cross*.py'
 The policy is to repeat fixed regressions and formal Nightly, and prevent only
 identical completed **additional exploration jobs** from being submitted again.
 No parameter tuple, width, sign, input value or operation is permanently removed
-from generation. Explicitly selecting the original three, five, seven or nine profiles in their original order preserves their random streams and distributions; overall limits are unchanged. Ordered operations, repeated writes and initial state are input;
+from generation. Explicitly selecting the original three, five, seven, nine or eleven profiles in their original order preserves their random streams and distributions; overall limits are unchanged. Ordered operations, repeated writes and initial state are input;
 equal parameter tuples do not imply equal verification.
 
 ```sh

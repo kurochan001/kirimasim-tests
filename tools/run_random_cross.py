@@ -39,6 +39,7 @@ SOURCES = ('tools/run_random_cross.py', 'tools/random_cross_models.py', 'tools/n
            'generators/interaction_pkgwatch.py', 'generators/interaction_shift.py',
            'generators/interaction_stream.py', 'generators/interaction_concat.py',
            'generators/interaction_compare.py', 'generators/interaction_logic.py',
+           'generators/interaction_method.py',
            'generators/interaction_cover.py', 'generators/common.py')
 STATES = ('pass', 'fail', 'known', 'unsupported', 'not_run', 'stale')
 

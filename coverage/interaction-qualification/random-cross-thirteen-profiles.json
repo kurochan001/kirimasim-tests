@@ -1,0 +1,588 @@
+{
+  "generated_at": "2026-11-03T13:24:18.526613+00:00",
+  "scope": "Local tests of thirteen bounded profiles; separate from fixed suite, registered chapter coverage, Check and formal Nightly. Actual immutable run artifacts are retained locally; the representative manifest is published for regeneration-free replay.",
+  "build": {
+    "revision": "d73d8922dfa20e19ccb9411adbe42a6d258bb49d",
+    "version": "kirimasim 0.0.0 (commit d73d8922dfa2), built with AppleClang 21.0.0.21000334",
+    "binary_sha256": "2b5ca541d394d8c11d2763fe5c88fef6138ed23d5fc47ef74bdbbf3b9134aa0d",
+    "upstream_main": "d73d8922dfa20e19ccb9411adbe42a6d258bb49d"
+  },
+  "sources_sha256": {
+    "tools/run_random_cross.py": "18165c15b421f49d6f59a78d7c4668def3686e40a44f87e3c47be3b41823154d",
+    "tools/random_cross_models.py": "3011d36b3c794c3d293a5e886fd60f93b55147526ab494b49c4df095e23299be",
+    "tools/normalize_output.py": "81841d0dd7a9b47cc4570a87e3e50756b4ae5f1269aaebb7e3666abaa45b2d36",
+    "tools/random_cross_compare.py": "a7f128efe6d55c284bf7ba28d65ee20ab91d823fa662d40c12ceb368691c0d1b",
+    "tools/random_cross_evidence.py": "d8d8a002928491d78a6058035908f6f9c9f67eb810471b1a05400f41ffc66128",
+    "tools/random_cross_history.py": "64e4c4409cbc4a3f1562d18a9cedbe1c5bb6690ec6d0082d5fae1f4e471985b2",
+    "tools/random_cross_identity.py": "cead239118fcfc983743d96d0b786d4bc7e4160255bfbd7028e4927ba64d6b6c",
+    "tools/run_icarus.py": "7a090fd04718b47b6b136a3b8dbc22aec79246f79a45cacc1681e9acfab28f09",
+    "tools/run_verilator.py": "1fb2ccf7e478997987d030cfd497ad7ed54a50bec7dfedad27787a981d7556d6",
+    "tools/run_kirimasim.py": "4561f60341b97deea116f0c7fe6416ff5a8918f721e7661209cd6dc88e1bad96",
+    "tools/suite_results.py": "78beab44a69aa9eb13db4f44dd9c0c933a0b06ed16213be7087218a79d4b918d",
+    "generators/interaction_expr.py": "3b71306d54dbe2476ae38aa363c3e04b4df42a56079abeab28b007b9912cb684",
+    "generators/interaction_divide.py": "6dd614a0ab46204ae519843cc1c9da33f13df48fcb6fa03c65ecfc9d85d44891",
+    "generators/interaction_bits.py": "13ef2b3f91d78a7d1b19a8014948c41c6059e2d4d0955b0b64bb85d900ac3c15",
+    "generators/interaction_cond.py": "2465534054b7c1fb2c5f3937b41e8f8bb74d70464bf1b84a3790aaaa94f41647",
+    "generators/interaction_pkgwatch.py": "f7ab9cc605a67413b236749c6bfde3f2076988b924227acfaef94273e9586dfa",
+    "generators/interaction_shift.py": "98d17b9f8176bde88632dacbccdb7b0244ae627852712f33c9db8746b878d582",
+    "generators/interaction_stream.py": "367f07f7e4cb69b65deea363c2ba1a55e3b69a45a2a790c1606f7c2b604d14b4",
+    "generators/interaction_concat.py": "a8bcd7455ee478b6d125b741c2234af8b185d82d844b3f7531594c88f389a6fc",
+    "generators/interaction_compare.py": "84a39dc21602bb49b6d8f0271f448ef1b67c887ee711fc5f9d0ea80ce3ef9ca3",
+    "generators/interaction_logic.py": "b6be9acfd7781370a869e6a3ee27d99e4882f3a65bd901e9fb16198a9ba178b2",
+    "generators/interaction_method.py": "e56cc05c38c9deed8203a6ab843f56fc33a07becfdfbc1ac2f77f5103695e60a",
+    "generators/interaction_cover.py": "bde3c87cb89b26ba99648ea4c5c4e62d669ccacba72e00e3adb763649fee9552",
+    "generators/common.py": "ca76d919859caeaf97863a45e8679eea6d15a51cc29ce31221ec53e09146e8c0"
+  },
+  "runs": [
+    {
+      "seed": 1,
+      "count": 96,
+      "vectors": 8,
+      "profiles": [
+        "expression_context",
+        "division_context",
+        "packed_write_sequence",
+        "conditional_context",
+        "package_change_sequence",
+        "shift_context",
+        "cast_pipeline",
+        "streaming_context",
+        "concat_assignment_sequence",
+        "comparison_context",
+        "packed_logic_context",
+        "array_reduction_context",
+        "unpacked_array_copy_sequence"
+      ],
+      "counts": {
+        "pass": 96,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "expression_context": {
+          "pass": 8
+        },
+        "division_context": {
+          "pass": 8
+        },
+        "packed_write_sequence": {
+          "pass": 8
+        },
+        "conditional_context": {
+          "pass": 8
+        },
+        "package_change_sequence": {
+          "pass": 8
+        },
+        "shift_context": {
+          "pass": 7
+        },
+        "cast_pipeline": {
+          "pass": 7
+        },
+        "streaming_context": {
+          "pass": 7
+        },
+        "concat_assignment_sequence": {
+          "pass": 7
+        },
+        "comparison_context": {
+          "pass": 7
+        },
+        "packed_logic_context": {
+          "pass": 7
+        },
+        "array_reduction_context": {
+          "pass": 7
+        },
+        "unpacked_array_copy_sequence": {
+          "pass": 7
+        }
+      },
+      "manifest_sha256": "cf0fef57a74c09f0ced3fef71e1294f2b026fd90562cea61128b39113b5b29b1",
+      "run_sha256": "8108537817eb8872b6165b9adc01ee56ff8b4b386d6d23eaae05a53888f58a91",
+      "artifact": "my-results/random-array-20261103/run-0",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    },
+    {
+      "seed": 731,
+      "count": 96,
+      "vectors": 8,
+      "profiles": [
+        "expression_context",
+        "division_context",
+        "packed_write_sequence",
+        "conditional_context",
+        "package_change_sequence",
+        "shift_context",
+        "cast_pipeline",
+        "streaming_context",
+        "concat_assignment_sequence",
+        "comparison_context",
+        "packed_logic_context",
+        "array_reduction_context",
+        "unpacked_array_copy_sequence"
+      ],
+      "counts": {
+        "pass": 96,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "expression_context": {
+          "pass": 8
+        },
+        "division_context": {
+          "pass": 8
+        },
+        "packed_write_sequence": {
+          "pass": 8
+        },
+        "conditional_context": {
+          "pass": 8
+        },
+        "package_change_sequence": {
+          "pass": 8
+        },
+        "shift_context": {
+          "pass": 7
+        },
+        "cast_pipeline": {
+          "pass": 7
+        },
+        "streaming_context": {
+          "pass": 7
+        },
+        "concat_assignment_sequence": {
+          "pass": 7
+        },
+        "comparison_context": {
+          "pass": 7
+        },
+        "packed_logic_context": {
+          "pass": 7
+        },
+        "array_reduction_context": {
+          "pass": 7
+        },
+        "unpacked_array_copy_sequence": {
+          "pass": 7
+        }
+      },
+      "manifest_sha256": "68637a9217eabd7f673d66ee8b56a490a71cce45c141080838e6962dc81e21ee",
+      "run_sha256": "19f147d6dfc606e663e463e2d6a47f053b122b5dee39bab4ec3491ea9a32544a",
+      "artifact": "my-results/random-array-20261103/run-1",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    },
+    {
+      "seed": 20261103,
+      "count": 96,
+      "vectors": 8,
+      "profiles": [
+        "expression_context",
+        "division_context",
+        "packed_write_sequence",
+        "conditional_context",
+        "package_change_sequence",
+        "shift_context",
+        "cast_pipeline",
+        "streaming_context",
+        "concat_assignment_sequence",
+        "comparison_context",
+        "packed_logic_context",
+        "array_reduction_context",
+        "unpacked_array_copy_sequence"
+      ],
+      "counts": {
+        "pass": 96,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "expression_context": {
+          "pass": 8
+        },
+        "division_context": {
+          "pass": 8
+        },
+        "packed_write_sequence": {
+          "pass": 8
+        },
+        "conditional_context": {
+          "pass": 8
+        },
+        "package_change_sequence": {
+          "pass": 8
+        },
+        "shift_context": {
+          "pass": 7
+        },
+        "cast_pipeline": {
+          "pass": 7
+        },
+        "streaming_context": {
+          "pass": 7
+        },
+        "concat_assignment_sequence": {
+          "pass": 7
+        },
+        "comparison_context": {
+          "pass": 7
+        },
+        "packed_logic_context": {
+          "pass": 7
+        },
+        "array_reduction_context": {
+          "pass": 7
+        },
+        "unpacked_array_copy_sequence": {
+          "pass": 7
+        }
+      },
+      "manifest_sha256": "14241c79a2b1d52bfcba17349ba4628b115530f21e2e22787f0dd49a59bec212",
+      "run_sha256": "60090f578be4d21af6ce531f02f7ec2aaca5bfff214b9a1ee0b6bb3574008ccd",
+      "artifact": "my-results/random-array-20261103/run-2",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    },
+    {
+      "seed": 731,
+      "count": 32,
+      "vectors": 32,
+      "profiles": [
+        "array_reduction_context"
+      ],
+      "counts": {
+        "pass": 32,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "array_reduction_context": {
+          "pass": 32
+        }
+      },
+      "manifest_sha256": "590d29b1537aa4b9e0e7b90729e7a6e7023add2eab5d9e8d842f6c1458ea6b6a",
+      "run_sha256": "4d1db45c11374d5d816eafdbb71a019a481662bf4aa673927d0234cc69536b45",
+      "artifact": "my-results/random-array-20261103/run-3",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    },
+    {
+      "seed": 731,
+      "count": 32,
+      "vectors": 32,
+      "profiles": [
+        "unpacked_array_copy_sequence"
+      ],
+      "counts": {
+        "pass": 32,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "unpacked_array_copy_sequence": {
+          "pass": 32
+        }
+      },
+      "manifest_sha256": "4b89ea29571c3e303f2a9bac98f33fd8f73f8990896a3269fad4b2d16de35b86",
+      "run_sha256": "8c1116e8ad17387e70c63eddeb391c02716c07f2fe908fba9bdb4cda76dca463",
+      "artifact": "my-results/random-array-20261103/run-4",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    }
+  ],
+  "replay": {
+    "counts": {
+      "pass": 2,
+      "fail": 0,
+      "known": 0,
+      "unsupported": 0,
+      "not_run": 0,
+      "stale": 0
+    },
+    "reference_drift": [],
+    "saved_bytes_identical": true,
+    "run_sha256": "6dd18b8f2d1bd6eae4bdff407ebff1d92aa4036f6f810cdc440389c75ac73816"
+  },
+  "singleton_reference_review": {
+    "standard_basis": "IEEE 1800-2023 7.12.3; element expressions joined by the operator, as described for the same methods in 18.5.7.2. No extra identity operand for a singleton. No simulator implementation change.",
+    "original_counts": {
+      "pass": 0,
+      "fail": 5,
+      "known": 0,
+      "unsupported": 0,
+      "not_run": 0,
+      "stale": 0
+    },
+    "original_run_sha256": "23ebb74871ae62619d3ad2c531c3ea58a188f0671686005ac12dc346170217e3",
+    "old_reference_sha256": "716281f9fe76962775850841a18517b38b1ae882e3703409ed1aec634811b5b0",
+    "current_counts": {
+      "pass": 5,
+      "fail": 0,
+      "known": 0,
+      "unsupported": 0,
+      "not_run": 0,
+      "stale": 0
+    },
+    "default_saved_counts": {
+      "pass": 0,
+      "fail": 0,
+      "known": 0,
+      "unsupported": 0,
+      "not_run": 0,
+      "stale": 5
+    },
+    "source_unchanged": true,
+    "expected_changed_cases": [
+      "case_0000",
+      "case_0001",
+      "case_0002",
+      "case_0003",
+      "case_0004"
+    ],
+    "original_evidence_preserved": true,
+    "current_run_sha256": "8fbb479d50b8cf9ef91b547dc62c4fff131875a8a8b04e36905560177e6b948d",
+    "saved_run_sha256": "6a5dc00d18e0d39dfc1561edff3b46955839c2fe421099f36ead77ec0449eece"
+  },
+  "public_comparison": {
+    "counts": {
+      "kirimasim": {
+        "pass": 4
+      },
+      "icarus": {
+        "known": 4
+      },
+      "verilator": {
+        "unsupported": 2,
+        "pass": 2
+      }
+    },
+    "native_counts": {
+      "pass": 4,
+      "fail": 0,
+      "known": 0,
+      "unsupported": 0,
+      "not_run": 0,
+      "stale": 0
+    },
+    "simulator_seed": 1,
+    "versions": {
+      "verilator": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "icarus": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)"
+    },
+    "manifest": {
+      "schema": 1,
+      "generator": "bounded_random_cross@1",
+      "seed": 731,
+      "cases": [
+        {
+          "id": "case_0000",
+          "profile": "array_reduction_context",
+          "parameters": {
+            "width": 1,
+            "state": "logic",
+            "sign": "unsigned",
+            "storage": "fixed",
+            "count": 3,
+            "method": "sum",
+            "transform": "widen"
+          },
+          "stimuli": [
+            {
+              "values": [
+                "1",
+                "1",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "case_0001",
+          "profile": "unpacked_array_copy_sequence",
+          "parameters": {
+            "width": 32,
+            "count": 3,
+            "state": "logic",
+            "sign": "signed",
+            "source_order": "descending",
+            "target_order": "ascending"
+          },
+          "stimuli": {
+            "source": [
+              "00000000000000000000000000000001",
+              "11111111111111111111111111111111",
+              "00000000000000000000000000000000"
+            ],
+            "target": [
+              "11111111111111111111111111111111",
+              "00000000000000000000000000000000",
+              "00000000000000000000000000000000"
+            ],
+            "operations": [
+              {
+                "kind": "copy",
+                "source_start": 0,
+                "target_start": 1,
+                "length": 2
+              },
+              {
+                "kind": "write_source",
+                "index": 0,
+                "data": "00000000000000000000000000000000"
+              },
+              {
+                "kind": "write_target",
+                "index": 0,
+                "data": "00000000000000000000000000000000"
+              },
+              {
+                "kind": "copy",
+                "source_start": 1,
+                "target_start": 0,
+                "length": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_0002",
+          "profile": "array_reduction_context",
+          "parameters": {
+            "width": 1,
+            "state": "logic",
+            "sign": "unsigned",
+            "storage": "fixed",
+            "count": 1,
+            "method": "or",
+            "transform": "plain"
+          },
+          "stimuli": [
+            {
+              "values": [
+                "z"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "case_0003",
+          "profile": "unpacked_array_copy_sequence",
+          "parameters": {
+            "width": 32,
+            "count": 3,
+            "state": "logic",
+            "sign": "signed",
+            "source_order": "descending",
+            "target_order": "ascending"
+          },
+          "stimuli": {
+            "source": [
+              "00000000000000000000000000000001",
+              "11111111111111111111111111111111",
+              "z0000000000000000000000000000000"
+            ],
+            "target": [
+              "11111111111111111111111111111111",
+              "00000000000000000000000000000000",
+              "00000000000000000000000000000000"
+            ],
+            "operations": [
+              {
+                "kind": "copy",
+                "source_start": 0,
+                "target_start": 1,
+                "length": 2
+              },
+              {
+                "kind": "write_source",
+                "index": 0,
+                "data": "00000000000000000000000000000000"
+              },
+              {
+                "kind": "write_target",
+                "index": 0,
+                "data": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+              },
+              {
+                "kind": "copy",
+                "source_start": 1,
+                "target_start": 0,
+                "length": 2
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "manifest_sha256": "aa3d724511ca6cf55eae64bdf0a3e364e5090ea0ec74c715bf80471e50b17e26",
+    "run_sha256": "6ba2e1799b50fb67e675717c6d5886e95e629e572c7f542789ec5ad5e93c16f0",
+    "all_comparators_pass": false
+  },
+  "faults": [
+    {
+      "name": "wrong_reduction_return_width",
+      "status": "detected",
+      "returncode": 0,
+      "reason": "output differs: line 5 is 'v0_value=01 direct=011 saved=001 bits=2', expected 'v0_value=11 direct=011 saved=011 bits=2'",
+      "source_sha256": "723e45c21c9afda67cf18387af7ae3f4f7f0302d909d6a3d451208bf81edd33d",
+      "expected_sha256": "c7c8fdb2f760a407fe1c243fbae403efe9bd4ff7e6ec35697d8ca642ae826f1c",
+      "stdout_sha256": "0fa0f9aec5c4fe1faa0c03ed30386e6df7cf7ad173436e6f7f08806dcf47907f",
+      "stderr_sha256": "e824380766f8ae18856d27da5f147c391f3a7acbc51c3db6bad358f5901af1ce"
+    },
+    {
+      "name": "extra_singleton_operation",
+      "status": "detected",
+      "returncode": 0,
+      "reason": "output differs: line 3 is 'v0_value=x direct=0z saved=0x bits=1', expected 'v0_value=z direct=0z saved=0z bits=1'",
+      "source_sha256": "2a55f497d6c3fb704c25b092f83b88ddbc60dae5e4fb6cba9b3981473666d88a",
+      "expected_sha256": "5d164d9afbfc457b49df85ada60b4e6e941e2dfbadea1b82a58754d61d7da352",
+      "stdout_sha256": "23433f867c75ce0ba91c30fc35ccfbd592615bae81b79a5e51c18a98b5cfdbd0",
+      "stderr_sha256": "4bd0ed85865ec650714f76596620e15373764fbf62a76bf8a64d514fda1a9985"
+    },
+    {
+      "name": "wrong_copy_declaration_order",
+      "status": "detected",
+      "returncode": 0,
+      "reason": "output differs: line 5 is 'v0_target=11111111111111111111111111111111 11111111111111...', expected 'v0_target=11111111111111111111111111111111 00000000000000...'",
+      "source_sha256": "8fef3291fcfb6b3864277fea7997576e9b0601f4ba7af996f09ddcfc0750d2dc",
+      "expected_sha256": "4e6ca19fb1183673724b589a1ad56e7b8095ec633062f3b528080777c402db5c",
+      "stdout_sha256": "87b3ea422e9d35fdc03e7e8579d422d59c7101006a7bd6f02a911661d6c51f7c",
+      "stderr_sha256": "e16da6ebce2239d0ed8160053e03acd8e09e64146505de0337f94b4de1ad09d0"
+    },
+    {
+      "name": "lost_slice_guard",
+      "status": "detected",
+      "returncode": 0,
+      "reason": "output differs: line 5 is 'v0_target=00000000000000000000000000000001 11111111111111...', expected 'v0_target=11111111111111111111111111111111 00000000000000...'",
+      "source_sha256": "bbd196de307984719d262919fc3b2a488fd1ed4cbad7f205f96441cd2f7e0858",
+      "expected_sha256": "5bf59408139145c51f106f895d0e7bbf453f8e250a26158603a3f4bbaf9b1d1e",
+      "stdout_sha256": "c617d3566c19fb831150eccf9f191664363b2198b8b0bf3627cc1186bb01e5d3",
+      "stderr_sha256": "fd9906c15b990a55043b3382fa7892d0a2e902bf8e252ac76ed8106bf78ac89a"
+    }
+  ],
+  "sources_unchanged": true
+}

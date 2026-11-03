@@ -29,7 +29,7 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
   [本体の検証方針](https://github.com/kurochan001/kirimasim/blob/main/docs/VALIDATION.ja.md)を参照してください。
 
 ランダム比較の成功は、全入力や全操作列の正しさ、全因子の組合せ網羅、未検出不具合がないことの証明にはなりません。
-現在の11プロファイルが扱わない機能も自動的には探索しません。
+現在の13プロファイルが扱わない機能も自動的には探索しません。
 生成分布はコードで定義したseed付き抽出です。カバレッジのフィードバックによる分布の自動調整は未実装です。
 参照計算の一部は固定クロスの関数と共用するため、ランダムに繰り返すだけでは参照モデル自体の誤りを排除できません。
 規格との照合、手計算した境界、[参照と実行基盤の回帰テスト](../tools/test_random_cross.py)を併用します。
@@ -66,7 +66,7 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
 
 ## 対象と生成方法
 
-現在対応しているのは、次の11プロファイルです。既存の有限モデル全体を任意の入力に対応させたものではありません。
+現在対応しているのは、次の13プロファイルです。既存の有限モデル全体を任意の入力に対応させたものではありません。
 
 - `expression_context`：幅・符号・代入先の幅・加減乗算を組み合わせ、任意の既知の入力ビット列を比較します。
   既存の`generators/interaction_expr.py`の参照関数を使います。
@@ -123,8 +123,18 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
   1ビットのunsigned結果を拡張してから出力のbit変換を行い、IEEE 1800-2023の11.4.9・11.4.7・11.6.1・11.8.1・6.11.2に基づきます。
   二項論理演算、短絡評価の副作用、範囲外の部分選択は対象外です。
 
+- `array_reduction_context`：固定配列／動的配列／キューの1～5要素を、sum／product／and／or／xorで集約します。
+  要素の幅・符号・bit／logic、withなし／幅+1／int／integerの変換を交差し、実際の要素数、供給値と格納値、戻り値・拡張値・式の幅を観測します。
+  要素型への変換、with式の変換、戻り型の幅での演算、代入先への拡張の順に照合します。広い代入先だけでは集約中の桁あふれを防げません。
+  要素数1ではwith変換後の単一要素を返し、ZをXへ変える余分な演算を加えません。IEEE 1800-2023の7.12.3・6.24.1・11.8.2・6.11.2に基づきます。
+- `unpacked_array_copy_sequence`：同じ要素型の固定配列同士で、全体／任意の合法な部分コピーと、コピー元・コピー先の個別更新を組み合わせます。
+  要素数1～5、非ゼロの昇順／降順添字、要素幅・符号・bit／logicを交差します。
+  開始位置は宣言順の位置で保存し、生成時に実際の添字へ写像します。配列全体と拡張読出しを毎回表示して、コピー範囲外の保持と値コピーの独立性を照合します。
+  最初はコピー、2操作目があればコピーした元要素を更新し、以降はコピー／更新／繰返しを生成します。初期値と全操作の順序を保持します。
+  IEEE 1800-2023の7.6・7.4.6・6.11.2・11.8.2に基づき、異なる要素型、重複する同一配列内のコピー、動的配列のコピーは対象外です。
+
 原則の幅は1・32・33・64・65・129で、連結代入の全体幅は最小2です。算術式のオペランドと代入先にはモデルが許す±1ビットの差も含めます。
-算術値は一様なランダム値と0・1・型の端点などを混ぜます。書込み・条件演算子・package・シフト・キャスト・ストリーミング・連結代入・比較・リダクションのプロファイルではX/Zも生成します。
+算術値は一様なランダム値と0・1・型の端点などを混ぜます。書込み・条件演算子・package・シフト・キャスト・ストリーミング・連結代入・比較・リダクション・配列操作のプロファイルではX/Zも生成します。
 各プロファイルをほぼ同数ずつ割り当て、順番と合法なパラメータをseedで選びます。
 packed_write_sequenceの先頭は書込み、2操作目があれば読出しとし、以降は読出し／書込みを選びます。
 同じ組合せが再び選ばれることはあります。ランダム抽出を2因子・3因子網羅の保証には使いません。
@@ -137,7 +147,9 @@ packageは時刻零に初期化、時刻1に待機を登録し、最初の書込
 2026-11-03の最初の追加では、既定の割当てを3から5プロファイルへ変えました。当時の96件は上記の最初の5種類に20/19/19/19/19件を割り当て、以前の各32件より各既存プロファイルの抽出数を減らしました。総件数と反復数を保って探索する機構を広げた変更で、既定の同じseedから生成する刺激列も変わりました。
 続くシフトとキャストの追加時点では7プロファイルで、96件は従来5種類が各14件、新しい2種類が各13件でした。この時点で各既存プロファイルの抽出数は減り、既定の刺激列も5種類の時から変わりました。総件数・反復数・並列数・時間制限は維持しました。
 ストリーミングと連結代入を加えた時点では9プロファイルで、96件は最初の6種類が各11件、残る3種類が各10件でした。総件数・反復数・並列数・時間制限を保って探索対象を増やし、既定の刺激列を変更した記録です。
-比較とリダクションを加えた現在は11プロファイルです。既定96件は上記の最初の8種類が各9件、残る3種類が各8件です。既存プロファイルごとの抽出数は減りますが、総件数・反復数・並列数・時間制限は維持します。既定の同じseedから生成する刺激列は変わります。
+比較とリダクションの追加時点では11プロファイルで、96件は最初の8種類が各9件、残る3種類が各8件でした。総件数・反復数・並列数・時間制限を維持して探索対象を広げ、既定の刺激列を変更した記録です。
+配列操作を加えた現在は13プロファイルです。既定96件は上記の最初の5種類が各8件、残る8種類が各7件です。既存プロファイルごとの抽出数は減りますが、総件数・反復数・並列数・時間制限は維持します。既定の同じseedから生成する刺激列は変わります。
+直前の11種類を再生成する場合は、既存9種類の指定に`comparison_context packed_logic_context`を加えて`--models`へ渡します。この明示指定の乱数列・分布・生成結果は維持しています。
 直前の9種類を再生成する場合は`--models expression_context division_context packed_write_sequence conditional_context package_change_sequence shift_context cast_pipeline streaming_context concat_assignment_sequence`を指定します。この明示指定の乱数列・分布・生成結果は維持しています。
 直前の7種類を再生成する場合は`--models expression_context division_context packed_write_sequence conditional_context package_change_sequence shift_context cast_pipeline`を指定します。この明示指定の乱数列・分布・生成結果は維持しています。
 直前の5種類を再生成する場合は`--models expression_context division_context packed_write_sequence conditional_context package_change_sequence`を指定します。この明示指定では、旧3種類の明示指定と同様に従来の乱数列・分布・生成結果を維持しています。
@@ -145,12 +157,12 @@ packageは時刻零に初期化、時刻1に待機を登録し、最初の書込
 保存済み刺激の再実行には再生成を使わず、これまでどおり`--replay`を使ってください。manifestの形式と旧ケースのmaterialize結果は維持し、コード変更は既存のハッシュと期待値ドリフトの記録で区別します。
 
 ```sh
-# 比較とリダクションだけを探索する。直前に最新mainを取得・ビルドする。
+# 配列リダクションとコピー列だけを探索する。直前に最新mainを取得・ビルドする。
 python3 tools/run_random_cross.py \
   --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
-  --seed 731 --models comparison_context packed_logic_context \
+  --seed 731 --models array_reduction_context unpacked_array_copy_sequence \
   --cases 96 --vectors 8 --jobs 4 --timeout 5 --time-budget 120 \
-  --output my-results/predicate-profiles-731
+  --output my-results/array-profiles-731
 ```
 
 <a id="limits-and-verdicts"></a>
@@ -268,6 +280,82 @@ Checkに最新kirimasimでのランダム実行を追加してはいません。
 実際の版・件数・seed・指紋と故障検出の記録は[補助証跡](../coverage/interaction-qualification/random-cross.json)を参照してください。
 [保存した96ケースのmanifest](../coverage/interaction-qualification/random-cross-manifest.json)は、CLIの`--replay`で読み込めます。
 固定スイートの合格数へは加算しません。通常の境界ケースと少数因子網羅は引き続き固定回帰で保持します。
+
+<a id="thirteen-profile-stabilization"></a>
+
+### 13プロファイルの安定化と重点探索（2026-11-03）
+
+プロファイルの追加はいったん区切り、正式Check／Nightly、重点領域の追加探索、独立検算と失敗の固定回帰化を優先します。
+既定96件・各8ベクトル／操作とプロファイルの割当ては変更せず、追加探索だけで深さを確保します。
+[重点探索の保存記録](../coverage/interaction-qualification/random-stabilization-20261103.json)では、
+配列リダクション、配列コピー列、package変更列、パック部分書込み列の4プロファイルを各3シード（1/731/20261103）、
+各96件・32ベクトル／操作で実行しました。直前に取得・構成・ビルドしたkirimasim `d73d8922dfa2`で計1,152件が全PASSです。
+各ジョブは実際に実行し、投入管理の履歴も保存しています。省略を今回のPASSとして数えていません。
+
+[独立した配列SV検算器](../tools/qualify_random_arrays.py)を追加しました。生成器のパラメータ・操作列・参照関数を使わず、
+保存SVの宣言・添字方向・代入・部分コピー・withキャスト・リダクション・表示式から出力を求めます。
+既存の文字列リテラルデコーダだけを共有し、型・幅・符号、配列の値コピー、単要素を含む集約は別実装です。
+この検算は配列576件に一致し、既存の[package用検算器](../tools/qualify_pkgwatch.py)も288件で一致しました。
+合計864件の実際の保存プログラムを照合しています。パック部分書込み288件は既存参照との実行比較で、今回の配列／package検算器の対象には含めません。
+検算器は生成する限定構文を扱い、未知の式・別プロセス・範囲外の配列を拒否します。一般的なSystemVerilog処理系ではありません。
+
+元の不一致記録と固定回帰は保持します。今回の追加探索では新しい差異は見つからず、固定回帰への追加は発生していません。
+差異が出た場合は、保存manifestと同じSV・期待値・stdout/stderrから再現し、規格・参照・runner・処理系を切り分け、
+確認できた機構を既存の固定回帰へ取り込みます。入力・期待値を弱めてPASSへ変更しません。
+ローカルの完全な資料は`my-results/random-stabilization-20261103/`に保存し、固定suite・章別表・要求カバレッジへ加算しません。
+
+ツール回帰901件と整合性13項目が全PASSです。独立検算器の7件には、保存SVの解釈中に生成器・参照関数を呼ぶと失敗する検査、実際の宣言・代入変更による検出、未知の構文の拒否を含めています。日英115組とローカルリンク53,301件も確認しました。正式CIの結果は[Check](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml)・[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)の対象コミットと合わせて確認し、これらのローカル結果と分けます。
+
+```sh
+# 直前に最新mainを取得・ビルドする。出力先には新しいディレクトリを使う。
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --models array_reduction_context --seed 731 --cases 96 --vectors 32 \
+  --jobs 4 --timeout 5 --time-budget 120 \
+  --explore --history my-results/deep-history.sqlite3 --output my-results/deep-array-731
+python3 tools/qualify_random_arrays.py my-results/deep-array-731 \
+  --output my-results/deep-array-independent-new.json
+python3 -m unittest discover -s tools -p test_qualify_random_arrays.py
+```
+
+<a id="thirteen-profile-validation"></a>
+
+### 配列リダクション・コピー列の追加と検証（2026-11-03）
+
+[13プロファイルの検証記録](../coverage/interaction-qualification/random-cross-thirteen-profiles.json)と
+[保存済み96ケース](../coverage/interaction-qualification/random-cross-thirteen-profiles-manifest.json)を追加しました。
+直前に上流mainを取得・構成・ビルドしたkirimasim `d73d8922dfa2`で、seed 1/731/20261103の混在各96件と、
+新プロファイルの最大32ベクトル／操作各32件、計352件が全PASSです。本体コードは変更していません。
+従来3・5・7・9・11種類の明示指定時のmanifest・SV・期待値は、各3シードの変更前ハッシュに一致します。
+新しい各1件の保存replayも元のバイト列と一致し、参照ドリフトなしでPASSしました。
+
+参照モデルは固定配列リダクション全合法行の両背景、固定配列コピー全合法行の両入力段階と照合しています。
+任意の既知値の独立した整数計算、4状態のビットごとの二項演算表、単要素のX/Z、桁あふれとwith変換の順序も確認しました。
+コピー列では宣言順に対応する異方向の添字、範囲外の保持、コピー元・コピー先更新の独立性、符号拡張を観測します。
+空配列の結果はこのプロファイルで定義せず、要素数0は生成しません。
+
+導入時には、3要素用の集約関数を単要素へ直接適用するとZをXへ変える参照差が5件ありました。
+7.12.3の要素値を集約する定義と、同じメソッドを要素式の演算列で説明する18.5.7.2を確認し、
+先頭要素から実際の二項演算だけを畳み込む参照へ修正しました。これはkirimasim本体の修正ではありません。
+元の失敗manifest・SV・期待値・出力・参照コードは`my-results/random-array-singleton-reference-20261103/`に保持しています。
+同じ保存SV5件を現在の参照で実行するとPASSし、SVの変更なし・期待値変更ありを全件で記録します。
+既定の保存期待値でのreplayは5件ともstale・pass 0で、元の失敗を成功へ書き換えません。監査のハッシュと件数は上記検証記録に収録しています。
+
+同じ保存刺激の対照4件はkirimasimで全PASSです。固定Icarus 13.0は4件ともコンパイル段階のknown、
+固定Verilator 5.052は既知値2件PASS・X/Zを必要とする2件unsupportedです。固定版oracleへの自動登録はありません。
+実際のSV変更4件（集約の戻り幅の誤変更、単要素への余分な演算、コピー元位置の誤対応、部分コピーのガード破壊）も、正常終了後の出力差として全て検出しました。
+完全なローカル実行資料は`my-results/random-array-20261103/`に保存し、固定suite・章間表・要求カバレッジの件数へ加算しません。
+
+関連144件を含むツール回帰894件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、新プロファイルの明示指定、日英115組、ローカルリンク53,293件も確認しました。GitHubの正式Check・Nightlyは今回未実行です。
+
+```sh
+# 実行直前に最新mainを取得・ビルドし、保存刺激を再実行する。
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --replay coverage/interaction-qualification/random-cross-thirteen-profiles-manifest.json \
+  --output my-results/thirteen-profiles-saved-replay
+python3 -m unittest discover -s tools -p 'test_random_cross*.py'
+```
 
 <a id="eleven-profile-validation"></a>
 
@@ -407,7 +495,7 @@ python3 -m unittest discover -s tools -p 'test_random_cross*.py'
 
 固定回帰と正式Nightlyは再実行し、**完全に同じ条件で完了した追加探索ジョブ**だけを
 重複投入から省く方針です。幅・符号・パラメータ・値・操作を生成対象から恒久除外しません。
-既存3・5・7・9プロファイルを同じ順序で明示指定した場合の乱数列と分布、全体の上限は維持しています。操作順、繰返し書込み、初期状態も
+既存3・5・7・9・11プロファイルを同じ順序で明示指定した場合の乱数列と分布、全体の上限は維持しています。操作順、繰返し書込み、初期状態も
 入力なので、パラメータの組合せが等しくても同じ検証とは限りません。
 
 ```sh

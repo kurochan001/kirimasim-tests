@@ -24,13 +24,15 @@ import interaction_stream as streams
 import interaction_concat as concatenation
 import interaction_compare as comparisons
 import interaction_logic as logical
+import interaction_method as array_methods
 
 GENERATOR = 'bounded_random_cross@1'
 LEGACY_PROFILES = ('expression_context', 'division_context', 'packed_write_sequence')
 FIVE_PROFILES = LEGACY_PROFILES + ('conditional_context', 'package_change_sequence')
 SEVEN_PROFILES = FIVE_PROFILES + ('shift_context', 'cast_pipeline')
 NINE_PROFILES = SEVEN_PROFILES + ('streaming_context', 'concat_assignment_sequence')
-PROFILES = NINE_PROFILES + ('comparison_context', 'packed_logic_context')
+ELEVEN_PROFILES = NINE_PROFILES + ('comparison_context', 'packed_logic_context')
+PROFILES = ELEVEN_PROFILES + ('array_reduction_context', 'unpacked_array_copy_sequence')
 MAX_CASES = 256
 MAX_STIMULI = 32
 WIDTHS = (1, 32, 33, 64, 65, 129)
@@ -102,6 +104,10 @@ def generate(seed, count=96, steps=8, profiles=PROFILES):
             parameters, stimuli = generate_comparison(rng, steps)
         elif profile == 'packed_logic_context':
             parameters, stimuli = generate_logic(rng, steps)
+        elif profile == 'array_reduction_context':
+            parameters, stimuli = generate_array_reduction(rng, steps)
+        elif profile == 'unpacked_array_copy_sequence':
+            parameters, stimuli = generate_array_copy(rng, steps)
         else:
             width = rng.choice(WIDTHS)
             span = rng.randint(1, width)
@@ -161,6 +167,10 @@ def validate_case(case):
         validate_comparison(parameters, stimuli)
     elif profile == 'packed_logic_context':
         validate_logic(parameters, stimuli)
+    elif profile == 'array_reduction_context':
+        validate_array_reduction(parameters, stimuli)
+    elif profile == 'unpacked_array_copy_sequence':
+        validate_array_copy(parameters, stimuli)
     else:
         keys(parameters, ('width', 'span', 'direction', 'select', 'state'))
         width = integer(parameters['width'], 1, 129, 'width')
@@ -218,6 +228,11 @@ def content_digest(case):
 
 def requires_fourstate(case):
     validate_case(case)
+    if case['profile'] == 'array_reduction_context':
+        return any(set(''.join(vector['values'])) & set('xz') for vector in case['stimuli'])
+    if case['profile'] == 'unpacked_array_copy_sequence':
+        s = case['stimuli']
+        return bool(set(''.join(s['source']+s['target'])+''.join(op.get('data', '') for op in s['operations'])) & set('xz'))
     if case['profile'] in ('comparison_context', 'packed_logic_context'):
         return any(set(''.join(v.values())) & set('xz') for v in case['stimuli'])
     if case['profile'] == 'streaming_context':
@@ -271,6 +286,12 @@ def materialize(case):
                 expected += [f'v{index}_raw={divide.reference(row, a, b, natural)} '
                              f'result={divide.reference(row, a, b, wr)} bits={natural}']
         clauses = '11.6.1 11.8.1 11.8.2'+(' 11.4.3' if profile == PROFILES[1] else '')
+    elif profile == 'array_reduction_context':
+        lines, expected = materialize_array_reduction(case)
+        clauses = '7.12.3 7.5 7.10 6.24.1 11.4.3 11.4.8 11.8.2 6.11.2 20.7'
+    elif profile == 'unpacked_array_copy_sequence':
+        lines, expected = materialize_array_copy(case)
+        clauses = '7.6 7.4.6 6.11.2 11.8.2'
     elif profile == 'comparison_context':
         lines, expected = materialize_comparison(case)
         clauses = '11.4.4 11.4.5 11.4.6 11.6.1 11.8.2 6.11.2'
@@ -785,3 +806,154 @@ def materialize_logic(case):
                       f'    $display("v{index}_{op}=%b wide=%b bits=%0d", r_{op}, wide_{op}, $bits({operation}));']
             expected += [f'v{index}_{op}={r} wide={wide} bits=1']
     return lines, expected
+
+
+def generate_array_reduction(rng, steps):
+    w = rng.choice(WIDTHS)
+    p = {'width': w, 'state': rng.choice(('bit', 'logic')), 'sign': rng.choice(('signed', 'unsigned')),
+         'storage': rng.choice(('fixed', 'dynamic', 'queue')), 'count': rng.randint(1, 5),
+         'method': rng.choice(('sum', 'product', 'and', 'or', 'xor')),
+         'transform': rng.choice(('plain', 'widen', 'int', 'integer'))}
+    return p, [{'values': [word(rng, w, True) for _ in range(p['count'])]} for _ in range(steps)]
+
+
+def validate_array_reduction(p, vectors):
+    keys(p, ('width', 'state', 'sign', 'storage', 'count', 'method', 'transform'))
+    w = integer(p['width'], 1, 129, 'width');count = integer(p['count'], 1, 5, 'element count')
+    if w not in WIDTHS or p['state'] not in ('bit', 'logic') or p['sign'] not in ('signed', 'unsigned') or (
+            p['storage'] not in ('fixed', 'dynamic', 'queue')) or p['method'] not in ('sum', 'product', 'and', 'or', 'xor') or (
+            p['transform'] not in ('plain', 'widen', 'int', 'integer')):
+        raise ValueError('invalid array-reduction parameter')
+    if not isinstance(vectors, list):raise ValueError('vectors must be a list')
+    integer(len(vectors), 1, MAX_STIMULI, 'vectors')
+    for vector in vectors:
+        keys(vector, ('values',))
+        if not isinstance(vector['values'], list) or len(vector['values']) != count:raise ValueError('wrong element count')
+        for value in vector['values']:bits(value, w, True)
+
+
+def materialize_array_reduction(case):
+    p = case['parameters'];w, count = p['width'], p['count']
+    row = (str(w), p['state'], p['sign'], p['storage'], p['method'], p['transform'], 'known')
+    n, rs, sign = array_methods.return_type(row)
+    indices = list(range(count, 0, -1)) if p['storage'] == 'fixed' else list(range(count))
+    suffix = f'[{count}:1]' if p['storage'] == 'fixed' else '[]' if p['storage'] == 'dynamic' else '[$]'
+    expr = f'a.{p["method"]}()'
+    if p['transform'] != 'plain':
+        cast = f"{w+1}'(item)" if p['transform'] == 'widen' else f"{p['transform']}'(item)"
+        expr += f' with ({cast})'
+    size = '$size(a)' if p['storage'] == 'fixed' else 'a.size()'
+    lines = [f'module random_cross_{case["id"]};', f'  typedef {p["state"]} {p["sign"]} [{w-1}:0] word_t;',
+             f'  word_t a{suffix};', f'  logic [{w-1}:0] supplied[0:{count-1}];',
+             f'  {rs} {sign} [{n-1}:0] reduced;', f'  logic [{n}:0] direct, saved;', '  initial begin']
+    expected = []
+    for index, vector in enumerate(case['stimuli']):
+        raw = vector['values'];stored = [bit_values.two_state(v) if p['state'] == 'bit' else v for v in raw]
+        transformed = [bit_values.resize(v, n, p['sign'] == 'signed') for v in stored]
+        if rs == 'bit':transformed = [bit_values.two_state(v) for v in transformed]
+        value = reduce_array_elements(transformed, p['method']);wide = bit_values.resize(value, n+1, sign == 'signed')
+        if p['storage'] == 'dynamic':lines += [f'    a = new[{count}];']
+        elif p['storage'] == 'queue':lines += ['    a = {};']
+        for ordinal, (location, value_raw, value_stored) in enumerate(zip(indices, raw, stored)):
+            lines += [f'    supplied[{ordinal}] = {conditional.literal(value_raw)};']
+            lines += [f'    a.push_back(supplied[{ordinal}]);'] if p['storage'] == 'queue' else [f'    a[{location}] = supplied[{ordinal}];']
+            lines += [f'    $display("v{index}_input{ordinal} supplied=%b stored=%b", supplied[{ordinal}], a[{location}]);']
+            expected += [f'v{index}_input{ordinal} supplied={value_raw} stored={value_stored}']
+        lines += [f'    $display("v{index}_size=%0d", {size});', f'    reduced = {expr}; direct = {expr}; saved = reduced;',
+                  f'    $display("v{index}_value=%b direct=%b saved=%b bits=%0d", reduced, direct, saved, $bits({expr}));']
+        expected += [f'v{index}_size={count}', f'v{index}_value={value} direct={wide} saved={wide} bits={n}']
+    return lines, expected
+
+
+def array_copy_indices(p):
+    count = p['count']
+    source = list(range(2, count+2));target = list(range(5, count+5))
+    return (source if p['source_order'] == 'ascending' else source[::-1],
+            target if p['target_order'] == 'ascending' else target[::-1])
+
+
+def generate_array_copy(rng, steps):
+    w, count = rng.choice(WIDTHS), rng.randint(1, 5)
+    p = {'width': w, 'count': count, 'state': rng.choice(('bit', 'logic')), 'sign': rng.choice(('signed', 'unsigned')),
+         'source_order': rng.choice(('ascending', 'descending')), 'target_order': rng.choice(('ascending', 'descending'))}
+    source, target = ([word(rng, w, True) for _ in range(count)] for _ in range(2))
+    operations = []
+    for index in range(steps):
+        if index == 1:
+            op = {'kind': 'write_source', 'index': operations[0]['source_start'], 'data': word(rng, w, True)}
+        elif index > 1 and rng.randrange(4) == 0:
+            op = dict(operations[-1])
+        elif index == 0 or rng.randrange(2) == 0:
+            length = rng.randint(1, count)
+            op = {'kind': 'copy', 'source_start': rng.randrange(count-length+1),
+                  'target_start': rng.randrange(count-length+1), 'length': length}
+        else:
+            op = {'kind': rng.choice(('write_source', 'write_target')), 'index': rng.randrange(count), 'data': word(rng, w, True)}
+        operations.append(op)
+    return p, {'source': source, 'target': target, 'operations': operations}
+
+
+def validate_array_copy(p, stimuli):
+    keys(p, ('width', 'count', 'state', 'sign', 'source_order', 'target_order'))
+    w = integer(p['width'], 1, 129, 'width');count = integer(p['count'], 1, 5, 'element count')
+    if w not in WIDTHS or p['state'] not in ('bit', 'logic') or p['sign'] not in ('signed', 'unsigned') or (
+            p['source_order'] not in ('ascending', 'descending')) or p['target_order'] not in ('ascending', 'descending'):
+        raise ValueError('invalid array-copy parameter')
+    keys(stimuli, ('source', 'target', 'operations'))
+    for name in ('source', 'target'):
+        if not isinstance(stimuli[name], list) or len(stimuli[name]) != count:raise ValueError('wrong element count')
+        for value in stimuli[name]:bits(value, w, True)
+    operations = stimuli['operations']
+    if not isinstance(operations, list):raise ValueError('operations must be a list')
+    integer(len(operations), 1, MAX_STIMULI, 'operations')
+    for op in operations:
+        if not isinstance(op, dict) or op.get('kind') not in ('copy', 'write_source', 'write_target'):raise ValueError('invalid array-copy operation')
+        if op['kind'] == 'copy':
+            keys(op, ('kind', 'source_start', 'target_start', 'length'));length = integer(op['length'], 1, count, 'copy length')
+            integer(op['source_start'], 0, count-length, 'source start');integer(op['target_start'], 0, count-length, 'target start')
+        else:
+            keys(op, ('kind', 'index', 'data'));integer(op['index'], 0, count-1, 'element index');bits(op['data'], w, True)
+
+
+def materialize_array_copy(case):
+    p, stimuli = case['parameters'], case['stimuli'];w, count = p['width'], p['count'];src, dst = array_copy_indices(p)
+    lines = [f'module random_cross_{case["id"]};', f'  typedef {p["state"]} {p["sign"]} [{w-1}:0] word_t;',
+             f'  word_t source[{src[0]}:{src[-1]}], target[{dst[0]}:{dst[-1]}];', f'  logic [{w-1}:0] data;']
+    lines += [f'  logic [{w}:0] extended{i};' for i in range(count)];lines += ['  initial begin']
+    convert = lambda value: bit_values.two_state(value) if p['state'] == 'bit' else value
+    source, target = [list(map(convert, stimuli[name])) for name in ('source', 'target')];expected = []
+    for name, indices in (('source', src), ('target', dst)):
+        for location, value in zip(indices, stimuli[name]):lines += [f'    {name}[{location}] = {conditional.literal(value)};']
+    def snapshot(tag):
+        for name, indices, values in (('source', src, source), ('target', dst, target)):
+            lines.append(f'    $display("{tag}_{name}='+ ' '.join(['%b']*count)+'", '+', '.join(f'{name}[{i}]' for i in indices)+');')
+            expected.append(f'{tag}_{name}='+' '.join(values))
+        for i, location in enumerate(dst):lines.append(f'    extended{i} = target[{location}];')
+        lines.append(f'    $display("{tag}_wide='+' '.join(['%b']*count)+'", '+', '.join(f'extended{i}' for i in range(count))+');')
+        expected.append(f'{tag}_wide='+' '.join(bit_values.resize(v,w+1,p['sign']=='signed') for v in target))
+    snapshot('initial')
+    for index, op in enumerate(stimuli['operations']):
+        if op['kind'] == 'copy':
+            s, t, n = op['source_start'], op['target_start'], op['length']
+            lhs, rhs = (f'target[{dst[t]}:{dst[t+n-1]}]', f'source[{src[s]}:{src[s+n-1]}]')
+            if n == count:lhs, rhs = 'target', 'source'
+            lines += [f'    {lhs} = {rhs};'];target[t:t+n] = source[s:s+n]
+        else:
+            is_source = op['kind'] == 'write_source';name, indices, values = ('source', src, source) if is_source else ('target', dst, target)
+            lines += [f'    data = {conditional.literal(op["data"])};', f'    {name}[{indices[op["index"]]}] = data;',
+                      f'    $display("v{index}_write={name} index={op["index"]} data=%b", data);']
+            expected += [f'v{index}_write={name} index={op["index"]} data={op["data"]}'];values[op['index']] = convert(op['data'])
+        snapshot(f'v{index}')
+    return lines, expected
+
+
+def reduce_array_elements(values, method):
+    """Join element expressions without introducing an extra identity operand.
+
+    A singleton returns its converted element, including Z. Only actual binary
+    operations combine two words and turn participating unknown bits into X.
+    """
+    if not values:raise ValueError('empty reductions are outside this profile')
+    result = values[0]
+    for value in values[1:]:result = array_methods.reduce_values([result, value], method)
+    return result
