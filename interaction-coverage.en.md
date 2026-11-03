@@ -6,7 +6,7 @@
 
 This report is only for registered finite models. The coverage of the requirements and the combination of all languages is not the same. The coverage on the plan and the confirmation of the pass based on the execution result are divided. The existing test is not reduced. A reduction in selected case count is not a measured reduction in runtime.
 
-For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/9064ac95375dae023c6128b1ef30ac464715009c/docs/interaction-verification.en.md).
+For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/e8d991a97b2abb12a41a1fb6b89c2406f9aa7292/docs/interaction-verification.en.md).
 
 ## scheduling_visibility / model 1
 
@@ -1552,6 +1552,111 @@ Rebind static events before task calls, before wait registration and after regis
 
 Constraints: All 648 lines are valid. Using static life events, we separate call at time 2, standby registration at time 4, and recoupling at time 1/3/5. Input copies the handle at call, and ref and direct reference use the value at standby registration. The registered @ waits for the original synchronous object even after re-association. The null is used only for assignment, comparison, and null triggers after all waiting is completed. Waiting for null, triggered, wait_order, automatic event recovery, and the re-association of the same tick and registration competition are excluded. No exclusions for unsupported behavior.
 
+## clocking_named_event / model 1
+
+- The number of combinations satisfying the constraint is 192.
+- Existing and new tests available: 24.
+- Short run options: 24.
+- The case must be kept separate: 6.
+- The plan of the factor 2: 100/100.
+- The plan of the factor 3: 40/40.
+
+Notify waiters through a named event after clocking input sampling, comparing sampled and live values immediately after notification and after the live signal changes. Cross input skew, edge, update mode, notification mode, listener count and width; also observe spurious wakeups from another event and rearming across repetitions.
+
+- width: 1, 32, 33, 64, 65, 129。
+- skew: step, zero。
+- edge: posedge, negedge。
+- update: blocking, nba。
+- trigger: blocking, nba。
+- listeners: 1, 2。
+
+Constraints: All 192 lines are valid. Use only known values and notify waiters through a named event after each clock. Change only the live signal on the next tick; observe sampled and live values separately immediately after notification and two ticks later. Trigger a distinct event between periods to detect spurious wakeups. Waiter ordering within a tick, distinguishing notification regions, X/Z, event rebinding, virtual interfaces, output skew and programs are outside scope. No exclusions for unsupported behavior.
+
+## deferred_argument_capture / model 1
+
+- The number of combinations satisfying the constraint is 368.
+- Existing and new tests available: 29.
+- Short run options: 29.
+- The case must be kept separate: 7.
+- The plan of the factor 2: 145/145.
+- The plan of the factor 3: 71/71.
+
+Compare deferred value and static-reference arguments with registration-time captures, report-time live values and width conversions. Cross functions/tasks, report regions, update modes, widths and signedness, also observing argument-evaluation side effects and execution time.
+
+- width: 1, 32, 33, 64, 65, 129。
+- sign: unsigned, signed。
+- passing: input, constref。
+- formal: same, narrow, wide。
+- routine: function, task。
+- queue: observed, final。
+- update: blocking, nba。
+
+Constraints: Use equivalent-type static variables for const ref, restricting formal to same. Exclude narrow at width one because it cannot yield a positive formal width. All remaining rows are legal. Use three known-value frames; capture input arguments at registration and read references and live values at reporting. Final report actions only display and do not write static variables in Postponed. Automatic ref actuals, dynamic actual selection, output arguments, cancellation, flushing and X/Z are outside scope. No exclusions for unsupported behavior.
+
+## generated_enum_navigation / model 1
+
+- The number of combinations satisfying the constraint is 1056.
+- Existing and new tests available: 36.
+- Short run options: 36.
+- The case must be kept separate: 6.
+- The plan of the factor 2: 181/181.
+- The plan of the factor 3: 110/110.
+
+Generate iterations and branches determine enum widths and value tables, observed through signedness, declaration order and next/prev counts. Two starting states and reads after other elements operate and at idle also check independent values and retained copies.
+
+- width: 1, 32, 33, 64, 65, 129。
+- sign: unsigned, signed。
+- form: if, case。
+- encoding: dense, high, descending。
+- count: 2, 3。
+- method: next, prev。
+- step: zero, one, cycle, beyond。
+
+Constraints: Restrict count to two at base width one because its narrowest generated type cannot represent three distinct members. All other rows are legal; none is excluded because of unsupported behavior. Two instances choose opposite branches, each containing two generated elements. Local width adds genvar and the branch value to base width; branch one rotates the declaration-order values by one. Each case starts at both first and last and reads state after other elements operate and again at idle. X/Z members, nonmember values, incompatible assignments, negative counts, config and defparam are outside scope.
+
+## package_nba_capture / model 1
+
+- The number of combinations satisfying the constraint is 1296.
+- Existing and new tests available: 36.
+- Short run options: 36.
+- The case must be kept separate: 6.
+- The plan of the factor 2: 183/183.
+- The plan of the factor 3: 126/126.
+
+Two modules sequentially reserve NBAs on one package variable, crossing reference spellings, array indices, delays and state types. Compare captured values and targets, reservation order, alias reads and retained neighbors/other packages in Active and after NBA updates.
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- access: qualified, wildcard, explicit。
+- storage: scalar, up, down。
+- timing: now, delayed。
+- order: a_b, b_a。
+
+Constraints: All rows are legal; none is excluded for unsupported behavior. The same initial thread calls automatic tasks in two modules sequentially, defining NBA reservation order. Targets are static package variables; inputs and indices change after reservation, and updates follow task return. Controls are a probe using another reference spelling, a neighboring element and a same-named variable in another package. Ascending arrays use negative indices; descending arrays use nonzero indices. Ordering of independent concurrent writers, dynamic arrays, real values, nets, force and VPI are outside scope.
+
+## package_change_observers / model 1
+
+- The number of combinations satisfying the constraint is 2592.
+- Existing and new tests available: 36.
+- Short run options: 36.
+- The case must be kept separate: 6.
+- The plan of the factor 2: 225/225.
+- The plan of the factor 3: 122/122.
+
+Checks multiple event and wait observers of the same package variable and always_comb reading an external reference inside a function. Observes whole-word and least-significant-bit sensitivity, X conditions, notifications and wake history across repeated writes, neighbors and another package.
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- access: qualified, wildcard, explicit。
+- storage: scalar, up, down。
+- update: blocking, nba。
+- event: full, lsb。
+- wait: logical, case。
+
+Constraints: All rows are legal; none is excluded for unsupported behavior. Initialization at time zero, observer registration at time one and the first change at time five avoid registration races. Two observer modules read the same package variable; the control reads an identically named variable in another package. Events count changes to the whole word or its least significant bit; always_comb follows external references inside a function. A wait using logical or case equality to zero completes once; the current condition and retained wake history are read separately. Checks also cover negative ascending and nonzero descending array indices, repeated writes, neighbors and later control updates. Variable observer indices, classes, dynamic arrays, ordering between independent writers and direct X-to-Z transitions are outside scope.
+
 <a id="入力指紋が一致した実行の確認"></a>
 
 ## Verify that the input fingerprint matches the execution.
@@ -1560,8 +1665,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/ghost.json
 
-- Environment: private build 3499c4a8842c.
-- Execution timestamp: 2026-11-03T02:34:48.875144+00:00.
+- Environment: private build e629cbd964b4.
+- Execution timestamp: 2026-11-03T14:27:22.606665+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -1689,15 +1794,15 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 5/5.
   - Case statuses: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - edge_event_expression:
-  - The confirmed combination of the 2 factor: 235/260.
-  - The confirmed combination of the 3 factor: 121/152.
-  - Mandatory case: 4/5.
-  - Case statuses: pass=48, fail=16, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 260/260.
+  - The confirmed combination of the 3 factor: 152/152.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - event_or_iff:
-  - The confirmed combination of the 2 factor: 85/104.
-  - The confirmed combination of the 3 factor: 32/59.
-  - Mandatory case: 2/4.
-  - Case statuses: pass=12, fail=15, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 104/104.
+  - The confirmed combination of the 3 factor: 59/59.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - heap_file_monitor_context:
   - The confirmed combination of the 2 factor: 40/40.
   - Mandatory case: 3/3.
@@ -1743,10 +1848,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 6/6.
   - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - function_loop_return:
-  - The confirmed combination of the 2 factor: 157/161.
-  - The confirmed combination of the 3 factor: 91/120.
-  - Mandatory case: 5/6.
-  - Case statuses: pass=27, fail=9, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 161/161.
+  - The confirmed combination of the 3 factor: 120/120.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - loop_assignment_order:
   - The confirmed combination of the 2 factor: 246/246.
   - The confirmed combination of the 3 factor: 111/111.
@@ -1798,10 +1903,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 6/6.
   - Case statuses: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - generated_interface_binding:
-  - The confirmed combination of the 2 factor: 0/165.
-  - The confirmed combination of the 3 factor: 0/74.
-  - Mandatory case: 0/6.
-  - Case statuses: pass=0, fail=36, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 165/165.
+  - The confirmed combination of the 3 factor: 74/74.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - program_reactive_handoff:
   - The confirmed combination of the 2 factor: 183/183.
   - The confirmed combination of the 3 factor: 84/84.
@@ -1838,10 +1943,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 8/8.
   - Case statuses: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - generate_default_disable:
-  - The confirmed combination of the 2 factor: 92/93.
-  - The confirmed combination of the 3 factor: 52/60.
-  - Mandatory case: 3/4.
-  - Case statuses: pass=15, fail=3, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 93/93.
+  - The confirmed combination of the 3 factor: 60/60.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - array_reduction_constraint:
   - The confirmed combination of the 2 factor: 50/96.
   - The confirmed combination of the 3 factor: 13/40.
@@ -1893,10 +1998,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 1/4.
   - Case statuses: pass=6, fail=12, known=0, unsupported=0, stale=0, not_run=0.
 - aggregate_event_lifetime:
-  - The confirmed combination of the 2 factor: 0/123.
-  - The confirmed combination of the 3 factor: 0/54.
-  - Mandatory case: 0/6.
-  - Case statuses: pass=0, fail=18, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 123/123.
+  - The confirmed combination of the 3 factor: 54/54.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - sv_dpi_array_queries:
   - The confirmed combination of the 2 factor: 177/177.
   - The confirmed combination of the 3 factor: 66/66.
@@ -1932,11 +2037,36 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 69/69.
   - Mandatory case: 6/6.
   - Case statuses: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- clocking_named_event:
+  - The confirmed combination of the 2 factor: 100/100.
+  - The confirmed combination of the 3 factor: 40/40.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- deferred_argument_capture:
+  - The confirmed combination of the 2 factor: 145/145.
+  - The confirmed combination of the 3 factor: 71/71.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_enum_navigation:
+  - The confirmed combination of the 2 factor: 0/181.
+  - The confirmed combination of the 3 factor: 0/110.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=36, known=0, unsupported=0, stale=0, not_run=0.
+- package_nba_capture:
+  - The confirmed combination of the 2 factor: 148/183.
+  - The confirmed combination of the 3 factor: 65/126.
+  - Mandatory case: 2/6.
+  - Case statuses: pass=18, fail=18, known=0, unsupported=0, stale=0, not_run=0.
+- package_change_observers:
+  - The confirmed combination of the 2 factor: 210/225.
+  - The confirmed combination of the 3 factor: 93/122.
+  - Mandatory case: 3/6.
+  - Case statuses: pass=29, fail=7, known=0, unsupported=0, stale=0, not_run=0.
 
 ### results/icarus.json
 
 - Environment: Icarus Verilog version 14.0 (devel) (s20260301-802-g61dbc3c2).
-- Execution timestamp: 2026-11-03T02:05:08.151585+00:00.
+- Execution timestamp: 2026-11-03T14:05:52.634278+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2307,11 +2437,36 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/69.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=27, unsupported=0, stale=0, not_run=0.
+- clocking_named_event:
+  - The confirmed combination of the 2 factor: 0/100.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0.
+- deferred_argument_capture:
+  - The confirmed combination of the 2 factor: 0/145.
+  - The confirmed combination of the 3 factor: 0/71.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=29, unsupported=0, stale=0, not_run=0.
+- generated_enum_navigation:
+  - The confirmed combination of the 2 factor: 181/181.
+  - The confirmed combination of the 3 factor: 110/110.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_nba_capture:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/126.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- package_change_observers:
+  - The confirmed combination of the 2 factor: 0/225.
+  - The confirmed combination of the 3 factor: 0/122.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
 
 ### results/kirimasim.json
 
-- Environment: kirimasim 0.0.0 (commit f3ea0379a7e5), built with GNU 13.3.0.
-- Execution timestamp: 2026-11-03T02:04:59.304717+00:00.
+- Environment: kirimasim 0.0.0 (commit d73d8922dfa2), built with GNU 13.3.0.
+- Execution timestamp: 2026-11-03T14:14:01.360649+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2458,20 +2613,20 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 4/4.
   - Case statuses: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - membership_container:
-  - The confirmed combination of the 2 factor: 208/305.
-  - The confirmed combination of the 3 factor: 84/174.
-  - Mandatory case: 1/5.
-  - Case statuses: pass=19, fail=1, known=0, unsupported=26, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 214/305.
+  - The confirmed combination of the 3 factor: 89/174.
+  - Mandatory case: 2/5.
+  - Case statuses: pass=20, fail=0, known=0, unsupported=26, stale=0, not_run=0.
 - membership_range:
   - The confirmed combination of the 2 factor: 252/303.
   - The confirmed combination of the 3 factor: 117/178.
   - Mandatory case: 4/6.
   - Case statuses: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0.
 - case_inside_selection:
-  - The confirmed combination of the 2 factor: 274/315.
-  - The confirmed combination of the 3 factor: 115/154.
-  - Mandatory case: 3/7.
-  - Case statuses: pass=25, fail=1, known=0, unsupported=8, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 277/315.
+  - The confirmed combination of the 3 factor: 120/154.
+  - Mandatory case: 4/7.
+  - Case statuses: pass=26, fail=0, known=0, unsupported=8, stale=0, not_run=0.
 - clocking_input_sampling:
   - The confirmed combination of the 2 factor: 118/165.
   - The confirmed combination of the 3 factor: 38/72.
@@ -2673,20 +2828,45 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=33, stale=0, not_run=0.
 - deferred_disable_reports:
-  - The confirmed combination of the 2 factor: 143/151.
-  - The confirmed combination of the 3 factor: 78/92.
-  - Mandatory case: 9/10.
-  - Case statuses: pass=26, fail=5, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 151/151.
+  - The confirmed combination of the 3 factor: 92/92.
+  - Mandatory case: 10/10.
+  - Case statuses: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - event_rebinding:
   - The confirmed combination of the 2 factor: 0/138.
   - The confirmed combination of the 3 factor: 0/69.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0.
+- clocking_named_event:
+  - The confirmed combination of the 2 factor: 78/100.
+  - The confirmed combination of the 3 factor: 22/40.
+  - Mandatory case: 3/6.
+  - Case statuses: pass=12, fail=0, known=0, unsupported=12, stale=0, not_run=0.
+- deferred_argument_capture:
+  - The confirmed combination of the 2 factor: 145/145.
+  - The confirmed combination of the 3 factor: 71/71.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_enum_navigation:
+  - The confirmed combination of the 2 factor: 181/181.
+  - The confirmed combination of the 3 factor: 110/110.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_nba_capture:
+  - The confirmed combination of the 2 factor: 183/183.
+  - The confirmed combination of the 3 factor: 126/126.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_change_observers:
+  - The confirmed combination of the 2 factor: 225/225.
+  - The confirmed combination of the 3 factor: 122/122.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 
 ### results/lyra.json
 
-- Environment: Lyra (commit 554db457ac73).
-- Execution timestamp: 2026-11-03T05:41:17.710075+00:00.
+- Environment: Lyra (commit fff84e924071).
+- Execution timestamp: 2026-11-03T16:13:07.422811+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 111/126.
@@ -3057,11 +3237,36 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 69/69.
   - Mandatory case: 6/6.
   - Case statuses: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- clocking_named_event:
+  - The confirmed combination of the 2 factor: 0/100.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=24, stale=0, not_run=0.
+- deferred_argument_capture:
+  - The confirmed combination of the 2 factor: 145/145.
+  - The confirmed combination of the 3 factor: 71/71.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_enum_navigation:
+  - The confirmed combination of the 2 factor: 181/181.
+  - The confirmed combination of the 3 factor: 110/110.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_nba_capture:
+  - The confirmed combination of the 2 factor: 183/183.
+  - The confirmed combination of the 3 factor: 126/126.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_change_observers:
+  - The confirmed combination of the 2 factor: 225/225.
+  - The confirmed combination of the 3 factor: 122/122.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 
 ### results/verilator.json
 
-- Environment: Verilator 5.055 devel rev v5.054-39-g094b04d7.
-- Execution timestamp: 2026-11-03T03:17:51.317336+00:00.
+- Environment: Verilator 5.055 devel rev v5.054-46-ga9e5a51f.
+- Execution timestamp: 2026-11-03T14:37:38.651336+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -3432,3 +3637,28 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/69.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=27, unsupported=0, stale=0, not_run=0.
+- clocking_named_event:
+  - The confirmed combination of the 2 factor: 100/100.
+  - The confirmed combination of the 3 factor: 40/40.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- deferred_argument_capture:
+  - The confirmed combination of the 2 factor: 0/145.
+  - The confirmed combination of the 3 factor: 0/71.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=29, unsupported=0, stale=0, not_run=0.
+- generated_enum_navigation:
+  - The confirmed combination of the 2 factor: 133/181.
+  - The confirmed combination of the 3 factor: 61/110.
+  - Mandatory case: 3/6.
+  - Case statuses: pass=18, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- package_nba_capture:
+  - The confirmed combination of the 2 factor: 113/183.
+  - The confirmed combination of the 3 factor: 48/126.
+  - Mandatory case: 3/6.
+  - Case statuses: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0.
+- package_change_observers:
+  - The confirmed combination of the 2 factor: 151/225.
+  - The confirmed combination of the 3 factor: 48/122.
+  - Mandatory case: 3/6.
+  - Case statuses: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0.

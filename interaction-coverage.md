@@ -6,7 +6,7 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/9064ac95375dae023c6128b1ef30ac464715009c/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/e8d991a97b2abb12a41a1fb6b89c2406f9aa7292/docs/interaction-verification.md)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -1552,6 +1552,111 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
 
 制約: 全648行が合法。静的寿命のイベントを使用し、呼出しは時刻2、待機登録は時刻4、再結合は時刻1/3/5に分離する。inputは呼出し時のハンドルをコピーし、refと直接参照は待機登録時の値を用いる。登録済みの@は再結合後も元の同期オブジェクトを待つ。nullは全待機完了後の代入・比較・無効果のトリガだけに使用する。nullへの待機、triggered、wait_order、自動イベントの回収、同一tickの再結合と登録の競合は対象外。未対応による除外なし。
 
+## clocking_named_event / model 1
+
+- 制約を満たす組合せ数: 192。
+- 利用できる既存・新規テスト: 24。
+- 短時間実行の選択: 24。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 100/100。
+- 3因子の計画上の網羅: 40/40。
+
+clocking入力から名前付きイベントで待機者へ通知し、受信直後と生信号変更後の採取値・生値を照合する。入力skew・エッジ・更新方式・通知方式・待機者数・幅を交差し、別イベントによる誤起床と反復時の再待機も観測する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- skew: step, zero。
+- edge: posedge, negedge。
+- update: blocking, nba。
+- trigger: blocking, nba。
+- listeners: 1, 2。
+
+制約: 全192行が合法。既知値だけを使い、各クロック後に名前付きイベントで待機者へ通知する。生信号だけを翌tickに変更し、受信直後と二tick後の採取値・生値を分けて観測する。別イベントを周期間に発火して誤起床を検出する。同一tick内の待機者の順序と通知領域の区別、X/Z、イベント再結合、仮想interface、出力skew、programは対象外。未対応による除外なし。
+
+## deferred_argument_capture / model 1
+
+- 制約を満たす組合せ数: 368。
+- 利用できる既存・新規テスト: 29。
+- 短時間実行の選択: 29。
+- 個別に保持する必須ケース: 7。
+- 2因子の計画上の網羅: 145/145。
+- 3因子の計画上の網羅: 71/71。
+
+遅延報告の値渡しと静的な参照渡しを、登録時の取得値・報告時の生値・幅変換と照合する。関数とタスク、報告領域、更新方式、幅と符号を交差し、引数評価の副作用と実行時刻も観測する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- sign: unsigned, signed。
+- passing: input, constref。
+- formal: same, narrow, wide。
+- routine: function, task。
+- queue: observed, final。
+- update: blocking, nba。
+
+制約: const refは型が同値の静的変数だけを渡すためformalはsameに限る。幅一のnarrowは正の幅にならないため除外する。残る全行が合法。既知値の三組を使い、入力引数は登録時に取得し、参照引数と生値は報告時に読む。最終報告の動作は表示だけで、Postponedの静的変数へ書かない。自動変数の参照渡し、動的な実引数の選択、出力引数、取消し、flush、X/Zは対象外。未対応による除外なし。
+
+## generated_enum_navigation / model 1
+
+- 制約を満たす組合せ数: 1056。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 181/181。
+- 3因子の計画上の網羅: 110/110。
+
+generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言順・巡回数とnext/prevの観測へ反映される。二初期状態と別要素の操作後・アイドル時の読出しで、値と保持したコピーの独立性も照合する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- sign: unsigned, signed。
+- form: if, case。
+- encoding: dense, high, descending。
+- count: 2, 3。
+- method: next, prev。
+- step: zero, one, cycle, beyond。
+
+制約: 幅一の生成要素には三つの異なる列挙値を表せないためcountは二に限る。他の全行は合法で、未対応による除外なし。二つのインスタンスは反対の分岐を選び、それぞれ二つの生成要素を持つ。局所幅は基底幅にgenvarと分岐値を加え、分岐一では列挙値の宣言順を一つ回す。各ケースで先頭と末尾の二初期状態を実行し、他要素の操作後とアイドル時にも値を読む。X/Zの列挙子、非メンバ値、型不一致の代入、負の移動数、config、defparamは対象外。
+
+## package_nba_capture / model 1
+
+- 制約を満たす組合せ数: 1296。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 183/183。
+- 3因子の計画上の網羅: 126/126。
+
+二つのモジュールから同じpackage変数へ順にNBAを予約し、参照方法・配列添字・遅延・状態型を交差する。値と代入先の取得、予約順序、別名での読出し、隣接要素と別packageの保持をActiveとNBA後で照合する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- access: qualified, wildcard, explicit。
+- storage: scalar, up, down。
+- timing: now, delayed。
+- order: a_b, b_a。
+
+制約: 全行が合法で、未対応による除外なし。同じinitialから二つのモジュールのautomaticタスクを順に呼ぶため、NBAの予約順序が定まる。対象は静的なpackage変数で、入力引数と添字は予約後に書き換え、タスク復帰後に反映する。別の参照方法で読むprobe、隣接要素、同名変数を持つ別packageを対照にする。昇順配列は負の添字、降順配列は非零の添字を使う。独立した並行writer間の順序、動的な配列、実数、net、force、VPIは対象外。
+
+## package_change_observers / model 1
+
+- 制約を満たす組合せ数: 2592。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 225/225。
+- 3因子の計画上の網羅: 122/122。
+
+同じpackage変数への複数のイベント待機とwait、関数内の外部参照を読むalways_combを照合する。全体と最下位ビットの感度、条件のX、再書込み・隣接要素・別packageの通知と起床履歴を観測する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- access: qualified, wildcard, explicit。
+- storage: scalar, up, down。
+- update: blocking, nba。
+- event: full, lsb。
+- wait: logical, case。
+
+制約: 全行が合法で、未対応による除外なし。初期化は時刻零、待機の登録は時刻一、最初の変更は時刻五として登録競合を避ける。二つの観測モジュールは同じpackage変数、対照は別packageの同名変数を読む。イベントは全体または最下位ビットの変化だけを数え、always_combは関数内の外部参照を追う。waitはゼロとの等価または等価性で一回だけ完了し、現在の条件値と保持した起床履歴を別に読む。配列の負の昇順添字と非零の降順添字、再書込み、隣接要素、対照の後続更新も確認する。可変の監視添字、クラス、動的配列、独立writer間の順序、XからZへの直接遷移は対象外。
+
 <a id="verify-that-the-input-fingerprint-matches-the-execution"></a>
 
 ## 入力指紋が一致した実行の確認
@@ -1560,8 +1665,8 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
 
 ### results/ghost.json
 
-- 環境: private build 3499c4a8842c。
-- 実行日時: 2026-11-03T02:34:48.875144+00:00。
+- 環境: private build e629cbd964b4。
+- 実行日時: 2026-11-03T14:27:22.606665+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -1689,15 +1794,15 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
   - 必須ケース: 5/5。
   - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - edge_event_expression:
-  - 2因子の合格確認済み組合せ: 235/260。
-  - 3因子の合格確認済み組合せ: 121/152。
-  - 必須ケース: 4/5。
-  - ケース状態: pass=48, fail=16, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 260/260。
+  - 3因子の合格確認済み組合せ: 152/152。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - event_or_iff:
-  - 2因子の合格確認済み組合せ: 85/104。
-  - 3因子の合格確認済み組合せ: 32/59。
-  - 必須ケース: 2/4。
-  - ケース状態: pass=12, fail=15, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 3因子の合格確認済み組合せ: 59/59。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - heap_file_monitor_context:
   - 2因子の合格確認済み組合せ: 40/40。
   - 必須ケース: 3/3。
@@ -1743,10 +1848,10 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
   - 必須ケース: 6/6。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - function_loop_return:
-  - 2因子の合格確認済み組合せ: 157/161。
-  - 3因子の合格確認済み組合せ: 91/120。
-  - 必須ケース: 5/6。
-  - ケース状態: pass=27, fail=9, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 161/161。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - loop_assignment_order:
   - 2因子の合格確認済み組合せ: 246/246。
   - 3因子の合格確認済み組合せ: 111/111。
@@ -1798,10 +1903,10 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
   - 必須ケース: 6/6。
   - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - generated_interface_binding:
-  - 2因子の合格確認済み組合せ: 0/165。
-  - 3因子の合格確認済み組合せ: 0/74。
-  - 必須ケース: 0/6。
-  - ケース状態: pass=0, fail=36, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 74/74。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - program_reactive_handoff:
   - 2因子の合格確認済み組合せ: 183/183。
   - 3因子の合格確認済み組合せ: 84/84。
@@ -1838,10 +1943,10 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
   - 必須ケース: 8/8。
   - ケース状態: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - generate_default_disable:
-  - 2因子の合格確認済み組合せ: 92/93。
-  - 3因子の合格確認済み組合せ: 52/60。
-  - 必須ケース: 3/4。
-  - ケース状態: pass=15, fail=3, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 93/93。
+  - 3因子の合格確認済み組合せ: 60/60。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - array_reduction_constraint:
   - 2因子の合格確認済み組合せ: 50/96。
   - 3因子の合格確認済み組合せ: 13/40。
@@ -1893,10 +1998,10 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
   - 必須ケース: 1/4。
   - ケース状態: pass=6, fail=12, known=0, unsupported=0, stale=0, not_run=0。
 - aggregate_event_lifetime:
-  - 2因子の合格確認済み組合せ: 0/123。
-  - 3因子の合格確認済み組合せ: 0/54。
-  - 必須ケース: 0/6。
-  - ケース状態: pass=0, fail=18, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 123/123。
+  - 3因子の合格確認済み組合せ: 54/54。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - sv_dpi_array_queries:
   - 2因子の合格確認済み組合せ: 177/177。
   - 3因子の合格確認済み組合せ: 66/66。
@@ -1932,11 +2037,36 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
   - 3因子の合格確認済み組合せ: 69/69。
   - 必須ケース: 6/6。
   - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- clocking_named_event:
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 3因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- deferred_argument_capture:
+  - 2因子の合格確認済み組合せ: 145/145。
+  - 3因子の合格確認済み組合せ: 71/71。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_enum_navigation:
+  - 2因子の合格確認済み組合せ: 0/181。
+  - 3因子の合格確認済み組合せ: 0/110。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=36, known=0, unsupported=0, stale=0, not_run=0。
+- package_nba_capture:
+  - 2因子の合格確認済み組合せ: 148/183。
+  - 3因子の合格確認済み組合せ: 65/126。
+  - 必須ケース: 2/6。
+  - ケース状態: pass=18, fail=18, known=0, unsupported=0, stale=0, not_run=0。
+- package_change_observers:
+  - 2因子の合格確認済み組合せ: 210/225。
+  - 3因子の合格確認済み組合せ: 93/122。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=29, fail=7, known=0, unsupported=0, stale=0, not_run=0。
 
 ### results/icarus.json
 
 - 環境: Icarus Verilog version 14.0 (devel) (s20260301-802-g61dbc3c2)。
-- 実行日時: 2026-11-03T02:05:08.151585+00:00。
+- 実行日時: 2026-11-03T14:05:52.634278+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2307,11 +2437,36 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
   - 3因子の合格確認済み組合せ: 0/69。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=27, unsupported=0, stale=0, not_run=0。
+- clocking_named_event:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- deferred_argument_capture:
+  - 2因子の合格確認済み組合せ: 0/145。
+  - 3因子の合格確認済み組合せ: 0/71。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=29, unsupported=0, stale=0, not_run=0。
+- generated_enum_navigation:
+  - 2因子の合格確認済み組合せ: 181/181。
+  - 3因子の合格確認済み組合せ: 110/110。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
+- package_change_observers:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/122。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.0.0 (commit f3ea0379a7e5), built with GNU 13.3.0。
-- 実行日時: 2026-11-03T02:04:59.304717+00:00。
+- 環境: kirimasim 0.0.0 (commit d73d8922dfa2), built with GNU 13.3.0。
+- 実行日時: 2026-11-03T14:14:01.360649+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2458,20 +2613,20 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
   - 必須ケース: 4/4。
   - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - membership_container:
-  - 2因子の合格確認済み組合せ: 208/305。
-  - 3因子の合格確認済み組合せ: 84/174。
-  - 必須ケース: 1/5。
-  - ケース状態: pass=19, fail=1, known=0, unsupported=26, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 214/305。
+  - 3因子の合格確認済み組合せ: 89/174。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=20, fail=0, known=0, unsupported=26, stale=0, not_run=0。
 - membership_range:
   - 2因子の合格確認済み組合せ: 252/303。
   - 3因子の合格確認済み組合せ: 117/178。
   - 必須ケース: 4/6。
   - ケース状態: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0。
 - case_inside_selection:
-  - 2因子の合格確認済み組合せ: 274/315。
-  - 3因子の合格確認済み組合せ: 115/154。
-  - 必須ケース: 3/7。
-  - ケース状態: pass=25, fail=1, known=0, unsupported=8, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 277/315。
+  - 3因子の合格確認済み組合せ: 120/154。
+  - 必須ケース: 4/7。
+  - ケース状態: pass=26, fail=0, known=0, unsupported=8, stale=0, not_run=0。
 - clocking_input_sampling:
   - 2因子の合格確認済み組合せ: 118/165。
   - 3因子の合格確認済み組合せ: 38/72。
@@ -2673,20 +2828,45 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=33, stale=0, not_run=0。
 - deferred_disable_reports:
-  - 2因子の合格確認済み組合せ: 143/151。
-  - 3因子の合格確認済み組合せ: 78/92。
-  - 必須ケース: 9/10。
-  - ケース状態: pass=26, fail=5, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 151/151。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - event_rebinding:
   - 2因子の合格確認済み組合せ: 0/138。
   - 3因子の合格確認済み組合せ: 0/69。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0。
+- clocking_named_event:
+  - 2因子の合格確認済み組合せ: 78/100。
+  - 3因子の合格確認済み組合せ: 22/40。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- deferred_argument_capture:
+  - 2因子の合格確認済み組合せ: 145/145。
+  - 3因子の合格確認済み組合せ: 71/71。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_enum_navigation:
+  - 2因子の合格確認済み組合せ: 181/181。
+  - 3因子の合格確認済み組合せ: 110/110。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_nba_capture:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_change_observers:
+  - 2因子の合格確認済み組合せ: 225/225。
+  - 3因子の合格確認済み組合せ: 122/122。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 
 ### results/lyra.json
 
-- 環境: Lyra (commit 554db457ac73)。
-- 実行日時: 2026-11-03T05:41:17.710075+00:00。
+- 環境: Lyra (commit fff84e924071)。
+- 実行日時: 2026-11-03T16:13:07.422811+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 111/126。
@@ -3057,11 +3237,36 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
   - 3因子の合格確認済み組合せ: 69/69。
   - 必須ケース: 6/6。
   - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- clocking_named_event:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=24, stale=0, not_run=0。
+- deferred_argument_capture:
+  - 2因子の合格確認済み組合せ: 145/145。
+  - 3因子の合格確認済み組合せ: 71/71。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_enum_navigation:
+  - 2因子の合格確認済み組合せ: 181/181。
+  - 3因子の合格確認済み組合せ: 110/110。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_nba_capture:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_change_observers:
+  - 2因子の合格確認済み組合せ: 225/225。
+  - 3因子の合格確認済み組合せ: 122/122。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-39-g094b04d7。
-- 実行日時: 2026-11-03T03:17:51.317336+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-46-ga9e5a51f。
+- 実行日時: 2026-11-03T14:37:38.651336+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3432,3 +3637,28 @@ disable対象のスコープと未成熟の遅延報告を、兄弟・別プロ�
   - 3因子の合格確認済み組合せ: 0/69。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=27, unsupported=0, stale=0, not_run=0。
+- clocking_named_event:
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 3因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- deferred_argument_capture:
+  - 2因子の合格確認済み組合せ: 0/145。
+  - 3因子の合格確認済み組合せ: 0/71。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=29, unsupported=0, stale=0, not_run=0。
+- generated_enum_navigation:
+  - 2因子の合格確認済み組合せ: 133/181。
+  - 3因子の合格確認済み組合せ: 61/110。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=18, fail=0, known=18, unsupported=0, stale=0, not_run=0。
+- package_nba_capture:
+  - 2因子の合格確認済み組合せ: 113/183。
+  - 3因子の合格確認済み組合せ: 48/126。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- package_change_observers:
+  - 2因子の合格確認済み組合せ: 151/225。
+  - 3因子の合格確認済み組合せ: 48/122。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0。
