@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-11-03T03:32:42.691419+00:00",
+  "scope": "Latest upstream main plus uncommitted inside and approved label-cancellation implementations; not a formal Nightly or published release.",
+  "base_revision": "7654825d11bf3eb66c5f985d344be19f0fc00b3a",
+  "upstream_main_revision": "7654825d11bf3eb66c5f985d344be19f0fc00b3a",
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "binary_version": "kirimasim 0.0.0 (commit 7654825d11bf), built with AppleClang 21.0.0.21000334",
+  "binary_sha256": "d355dd6e217c7399c2c74ec24e25996028f07c26e58099fdca93eabdc1b2c9e5",
+  "binary_unchanged": true,
+  "files_sha256": {
+    "src/front/lower_stmt.cpp": "a76a98041b3212d35f27d4b1d952efbbd514f24c3df323f106e9aa387b370740",
+    "src/front/lowerer.h": "4be8b0d0497bc49104e0a660ae82611a2889ce7e99f2fb3f6c14344f80ff9fde",
+    "src/sir/include/kirimasim/sir/design.h": "99d3dfb69e618ee4bac9741f16ca7c866f81e796a3609e6713bc4b40d4b8e7d8",
+    "src/sir/types.cpp": "263df4c38aae25621372c27bff8379ab3f3f3bdb4e136246b7cb7b685d92fd03",
+    "src/sir/verify.cpp": "d778ddc9d5894c09abb032e815d38e0ad4c08b3dbe2f0213e74dafa331b184a3",
+    "src/kernel/include/kirimasim/kernel/sim.h": "28d58c76cb792b9128bedb044bcbaad81c677170fe416c55f06bc112974d88b8",
+    "src/kernel/sim.cpp": "e330cec09ebcd9aa68ef0735e6a030ee8ca47d7e118a792b6096d930b77e2fdd",
+    "src/vm/vm.cpp": "6e4d30669bc030134270cf866872077a4c183b91159c3e6453268872d0f386de",
+    "tools/gen_deferred_label_matrix.py": "1513a12f323af827766b19134e64dbff568da95651a44501f5253a8880ca3e2c"
+  },
+  "run": "coverage/interaction-results/cross75-kirimasim-7654825d-labelcancel-final.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2252,
+    "unsupported": 529,
+    "fail": 4
+  },
+  "previous_run": "coverage/interaction-results/cross75-kirimasim-26a3e5a3-insidefix.json",
+  "inputs_changed": [],
+  "status_changes": [
+    {
+      "test": "gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_inverse_before_function_change",
+      "before": "fail",
+      "after": "pass"
+    },
+    {
+      "test": "gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_positive_after_variable_stable",
+      "before": "fail",
+      "after": "pass"
+    },
+    {
+      "test": "gen/ch16/test_gen_cross_deferdis_assertion_assume_even_positive_before_function_stable",
+      "before": "fail",
+      "after": "pass"
+    },
+    {
+      "test": "gen/ch16/test_gen_cross_deferdis_assertion_assume_odd_alternating_after_variable_change",
+      "before": "fail",
+      "after": "pass"
+    },
+    {
+      "test": "gen/ch16/test_gen_cross_deferdis_assertion_cover_even_inverse_after_variable_stable",
+      "before": "fail",
+      "after": "pass"
+    }
+  ]
+}

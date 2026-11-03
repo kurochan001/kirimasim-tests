@@ -1,0 +1,35 @@
+{
+  "scope": "Local uncommitted inside-member repair on the latest local main; not an upstream-main release or a formal Nightly.",
+  "base_revision": "26a3e5a3656a24b9aa9a5d17c317a4377e252213",
+  "upstream_main_revision": "f3ea0379a7e567a46b961f8d05e8b847e8117e6e",
+  "reused_fix_commit": "b16163c7d638098806e571dd4c75d98be6a8338c",
+  "source_patch_sha256": "c16de27d827a96cfee88ac28a5d2894576b4b19a770506ee7efee282cabb931b",
+  "files_sha256": {
+    "src/front/lower_expr.cpp": "124a480eeabd79b2339526d7d55f166dc4ab6e8661dd1f3e86e0b6584dd55d76",
+    "src/front/lowerer.h": "9c44b3e3e3ad9eb70a47f8c246742b0dde806b91e3ff973fffbe1fa98cbd3274",
+    "tools/gen_inside_member_matrix.py": "174b3dbff6c783eaed5b4e3d5c9a8560fd7517477194cfbdce43cd9f065fbff2",
+    "tools/mutants.py": "468a01216636c44cc63e371a4aef0f140e1d7101150d03a59b1ee235e78812f0"
+  },
+  "binary_sha256": "034bc5397e4480c462a1a4ab60a8d7ac3e2e47cf4265e47984bd65d663934eda",
+  "binary_version": "kirimasim 0.0.0 (commit 26a3e5a3656a), built with AppleClang 21.0.0.21000334",
+  "run": "coverage/interaction-results/cross75-kirimasim-26a3e5a3-insidefix.json",
+  "generated_at": "2026-11-03T02:39:24.670824+00:00",
+  "counts": {
+    "pass": 2247,
+    "unsupported": 529,
+    "fail": 9
+  },
+  "inputs_changed": [],
+  "status_changes": [
+    {
+      "test": "gen/ch11/test_gen_cross_inside_w33_w_us_l_fixed_n3_rhs_x",
+      "before": "fail",
+      "after": "pass"
+    },
+    {
+      "test": "gen/ch12/test_gen_cross_caseinside_w33_w_us_l_array_known_pv",
+      "before": "fail",
+      "after": "pass"
+    }
+  ]
+}

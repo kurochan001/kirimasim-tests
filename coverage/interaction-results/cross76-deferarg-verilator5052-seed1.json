@@ -1,0 +1,158 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch13/test_gen_cross_deferarg_129_signed_constref_same_task_final_nba": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "3cf37116ccfac7dfe5c220d0cb70b8b8defad52de9a9713bc6f52b1d8973afbb"
+  },
+  "gen/ch13/test_gen_cross_deferarg_129_signed_input_narrow_function_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "34fef88921e90870d4e10b91df3d6ffa05a515b8c8f849ffb2399f1bf885257b"
+  },
+  "gen/ch13/test_gen_cross_deferarg_129_unsigned_constref_same_function_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "916d65350382775c124d453ff429e7e2d74c7c794bd97470da4a47201a3b0743"
+  },
+  "gen/ch13/test_gen_cross_deferarg_129_unsigned_input_same_function_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "7b27bccde4e888eebd240a9e2b80c8fd43c5aee0a4b3b73863f256d490441ed1"
+  },
+  "gen/ch13/test_gen_cross_deferarg_129_unsigned_input_wide_function_final_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "0cca839f043891005c6e288ce7bad20d9eea8d6941e0afaa8e87f03b0bfcbe2c"
+  },
+  "gen/ch13/test_gen_cross_deferarg_1_signed_input_wide_function_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1 arg=11 live=1 dec=-1 bits=2 ready=0 calls=1', expected 'r p=0 t=2 cap=1 arg=11 live=0 dec=-1 bits=2 ready=1 calls=1'",
+   "inputs_sha256": "df9ce8921355ceca0e7c10266b267d61dc9347d679361d31b1e936872c73a533"
+  },
+  "gen/ch13/test_gen_cross_deferarg_1_unsigned_constref_same_function_final_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1 arg=1 live=1 dec=1 bits=1 ready=0 calls=1', expected 'r p=0 t=2 cap=1 arg=0 live=0 dec=0 bits=1 ready=1 calls=1'",
+   "inputs_sha256": "6a582a1146a333b627e8119c61b42ad60e18fb8f70f2d3c3bdb666ab410b7ca1"
+  },
+  "gen/ch13/test_gen_cross_deferarg_1_unsigned_constref_same_function_observed_nba": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1 arg=1 live=1 dec=1 bits=1 ready=0 calls=1', expected 'r p=0 t=2 cap=1 arg=0 live=0 dec=0 bits=1 ready=1 calls=1'",
+   "inputs_sha256": "b2b01a96f3ec8f838b6fae4a6778eb57bb218174b960aed644362d2c53fc7ef8"
+  },
+  "gen/ch13/test_gen_cross_deferarg_1_unsigned_input_same_task_final_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1 arg=1 live=1 dec=1 bits=1 ready=0 calls=1', expected 'r p=0 t=2 cap=1 arg=1 live=0 dec=1 bits=1 ready=1 calls=1'",
+   "inputs_sha256": "ef99c733b07e79e5299f6fe7b5735e99e12db7c1847a3c147f0e89f154bf9082"
+  },
+  "gen/ch13/test_gen_cross_deferarg_32_signed_constref_same_task_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=10101010101010101010101010101010 arg=101010...', expected 'r p=0 t=2 cap=10101010101010101010101010101010 arg=010101...'",
+   "inputs_sha256": "d79fa3a578f49062d205c9f2594631056e6eadf37713aa35ef1993764bb18dbe"
+  },
+  "gen/ch13/test_gen_cross_deferarg_32_signed_input_same_function_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=10101010101010101010101010101010 arg=101010...', expected 'r p=0 t=2 cap=10101010101010101010101010101010 arg=101010...'",
+   "inputs_sha256": "307d87a53a33b0f979190664e934f6cc29090026109f47860d9addda5eb3520d"
+  },
+  "gen/ch13/test_gen_cross_deferarg_32_unsigned_constref_same_function_final_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=10101010101010101010101010101010 arg=101010...', expected 'r p=0 t=2 cap=10101010101010101010101010101010 arg=010101...'",
+   "inputs_sha256": "30c8a900914d295baa8bda76c41eb48bf9af9e7616ad3688ae566d40ee057f94"
+  },
+  "gen/ch13/test_gen_cross_deferarg_32_unsigned_input_narrow_function_final_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=10101010101010101010101010101010 arg=010101...', expected 'r p=0 t=2 cap=10101010101010101010101010101010 arg=010101...'",
+   "inputs_sha256": "fe9637791d42752d2e706f7ef1e5017171ef75e55b8cf0e9b1370a75b72e3033"
+  },
+  "gen/ch13/test_gen_cross_deferarg_32_unsigned_input_wide_task_final_nba": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=10101010101010101010101010101010 arg=010101...', expected 'r p=0 t=2 cap=10101010101010101010101010101010 arg=010101...'",
+   "inputs_sha256": "033e2f4ef3a5b03b59ada1fd13923a381df98adf7f1b0f3c5108fdc987db4d4d"
+  },
+  "gen/ch13/test_gen_cross_deferarg_33_signed_input_wide_function_final_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=101010101010101010101010101010101 arg=11010...', expected 'r p=0 t=2 cap=101010101010101010101010101010101 arg=11010...'",
+   "inputs_sha256": "9ddfee9651a8bc297f572bb05e4cd051a6871fd0553659285799395ec4d3ce6c"
+  },
+  "gen/ch13/test_gen_cross_deferarg_33_unsigned_constref_same_function_final_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=101010101010101010101010101010101 arg=10101...', expected 'r p=0 t=2 cap=101010101010101010101010101010101 arg=01010...'",
+   "inputs_sha256": "a59304ade6f6636ec9c988c92306e7c7bc422930ff36a4ce2d956211773037f4"
+  },
+  "gen/ch13/test_gen_cross_deferarg_33_unsigned_constref_same_function_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=101010101010101010101010101010101 arg=10101...', expected 'r p=0 t=2 cap=101010101010101010101010101010101 arg=01010...'",
+   "inputs_sha256": "5c008a249fb18fb21a4cec1991d9d04fccd978646e97f9373dbec4eb035d99f0"
+  },
+  "gen/ch13/test_gen_cross_deferarg_33_unsigned_input_narrow_task_observed_nba": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=101010101010101010101010101010101 arg=01010...', expected 'r p=0 t=2 cap=101010101010101010101010101010101 arg=01010...'",
+   "inputs_sha256": "3ce0287e4e5399e7f2abaf75e840e51e07937a72a4ea88a0aaf6cba828a78482"
+  },
+  "gen/ch13/test_gen_cross_deferarg_33_unsigned_input_same_function_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=101010101010101010101010101010101 arg=10101...', expected 'r p=0 t=2 cap=101010101010101010101010101010101 arg=10101...'",
+   "inputs_sha256": "c0e4dfbf5d1832950d1befadfdc25a1a2407cf42b630d687ca6be663e1138591"
+  },
+  "gen/ch13/test_gen_cross_deferarg_64_signed_input_narrow_task_observed_nba": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "58fbc5583fbddd16d96fc7cc70973b87a195679b8bf2f08710b387094e96b998"
+  },
+  "gen/ch13/test_gen_cross_deferarg_64_unsigned_constref_same_function_final_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "f604a708925923b18a20045b976075071c376c6f49b2aa2c43838b269f03be5b"
+  },
+  "gen/ch13/test_gen_cross_deferarg_64_unsigned_constref_same_function_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "b70549b4a6d04fe54ad7cf1fa8c1a6175b081285c4e67ab24b8a86874dafc7fa"
+  },
+  "gen/ch13/test_gen_cross_deferarg_64_unsigned_input_same_function_final_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "95298ee789d8a18162ce6e3d8f1f244bd106ef86894469ff25100735965d2626"
+  },
+  "gen/ch13/test_gen_cross_deferarg_64_unsigned_input_wide_function_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "e2f7e7a76474fbbd1f48da582dea252fa2774b82fe2a46d5169246a6a3f7bc9a"
+  },
+  "gen/ch13/test_gen_cross_deferarg_65_signed_input_wide_function_final_nba": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "210218073cad66020513a1b57bff0149ef856c9be47f2d8e59f3e807cc16b7e2"
+  },
+  "gen/ch13/test_gen_cross_deferarg_65_unsigned_constref_same_function_final_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "cf3d3cdb2f335be817a867516f380a8ffa18e8b29338c0ab7b458f4976037da6"
+  },
+  "gen/ch13/test_gen_cross_deferarg_65_unsigned_constref_same_task_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "8a8ad9d30ba8b190f9e3f7348e982f92cd720e8c4991254de431e4490bab02f6"
+  },
+  "gen/ch13/test_gen_cross_deferarg_65_unsigned_input_narrow_function_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "e02d9b4f19009a6bb127425ceaebf17f635c9ed5e3a7ef939785559309a3b376"
+  },
+  "gen/ch13/test_gen_cross_deferarg_65_unsigned_input_same_function_observed_blocking": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...', expected 'r p=0 t=2 cap=1010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "f8839be06cc4e7d6143f667037ee75255b7f74428bf108a03c02e436535d32da"
+  }
+ },
+ "generated_at": "2026-11-03T04:18:58.267076+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

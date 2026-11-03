@@ -22,7 +22,7 @@ Off-diagonal cells count **models mapped to chapter interactions**. A model can 
 
 The matrix is symmetric. Summing triangles or arbitrary cells gives neither test nor model totals. Zero means no mapped model in this aggregation, not absent tests, unsupported implementation or zero requirement coverage. Annexes are not axes.
 
-The scope is [registered finite interaction models](interaction-verification.en.md), not all 10,289 tests. It excludes ordinary tests and the 56 [issue #21 boundary regressions](p1-combination-regressions-20261030.en.md) not registered as finite models. It measures neither chapter requirement coverage nor the full product of chapter features.
+The scope is [registered finite interaction models](interaction-verification.en.md), not an aggregation of all tests. It excludes ordinary tests and the 56 [issue #21 boundary regressions](p1-combination-regressions-20261030.en.md) not registered as finite models. It measures neither chapter requirement coverage nor the full product of chapter features.
 
 <a id="対応付けの根拠"></a>
 
@@ -36,7 +36,10 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The current mapping contains 65 models and 2,539 selected cases across 96 unordered off-diagonal pairs. The [full kirimasim 80859f34 run](../coverage/interaction-results/cross65-kirimasim-80859f34.json) records 2,207 pass, 326 unsupported and 6 fail; 47 models passed their entire selection.
+The 2026-11-03 mapping contains 76 models and 2,814 selected cases across 108 unordered off-diagonal pairs. The [full local kirimasim 7654825d plus uncommitted inside and label-repair run](../coverage/interaction-results/cross76-kirimasim-7654825d-deferarg.json) records 2,281 pass, 529 unsupported and four failures; 49 models passed their entire selection.
+
+- **14×15, clocking inputs and named-event waiters:** one model, zero all-selection-pass models. Of 24 cases, the 12 `#1step` cases pass and the 12 `#0` cases are unsupported. Both fixed Verilator seeds record 12 pass and 12 known nonblocking-notification differences; fixed Icarus rejects all 24 builds. See [design, controls and limits](interaction-verification.en.md#clocking-named-event).
+- **9×16, deferred reports:** all 31 cases pass, giving one all-selection-pass model. The other four failures are configuration parameter-reset cases; the two inside cases pass after the repair. This is not an upstream release; see [triage and source identity](cross-verification-followup.en.md).
 
 - **7×18, reduction constraints:** one model, zero all-selection-pass models because randomize/class-array operations are unsupported. Both fixed Verilator seeds have output differences on all 13 original cases; auxiliary controls remain separate. See [design/evidence](interaction-verification.en.md#array-reduction-constraints-and-retention).
 - **7×20, associative-array queries:** one model, zero all-selection-pass models because typed associative-array variables are unsupported. Both fixed Verilator seeds have 18 output differences; fixed Icarus rejects all builds. See [design/evidence](interaction-verification.en.md#associative-array-domains-and-allocation).
@@ -72,6 +75,10 @@ The current mapping contains 65 models and 2,539 selected cases across 96 unorde
 - Assertions map **4/6/10/11/25×16**, with zero all-selection-pass models for these five pairs because unsupported cases remain.
 - **7×9, container waits:** one model and one all-selection-pass model.
 - The four clocking-input pairs **4/6/10/25×14** also retain unsupported cases. Reporting them does not claim a simulator rerun after the saved record.
+
+Deferred report arguments map **13×16** with one model and one all-selection-pass model.
+All 29 cases compare registration-time input capture, action-time static-reference reads, formal width/signedness conversion and input-evaluation side effects.
+See [design and evidence](interaction-verification.en.md#deferred-argument-capture) for selection targets and exclusions.
 
 The tool chooses one latest admissible kirimasim run containing all current selections. It checks input/expectation and runner fingerprints and runner stability during execution. Unsupported/failing cases remain, and partial successes from separate runs are never merged. If a newer run covers only some models, an older complete admissible snapshot is used. Every detail row identifies JSON path, version and execution timestamp.
 

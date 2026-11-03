@@ -75,6 +75,8 @@ import interaction_checksample
 import interaction_progassert
 import interaction_cgsample
 import interaction_deferdis
+import interaction_clockevent
+import interaction_deferarg
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -110,7 +112,7 @@ GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select,
               interaction_mailbox,
               interaction_event_rebind, interaction_dpi_nba, interaction_constraint, interaction_clockassert, interaction_dpi_array, interaction_class_array, interaction_strengthfmt, interaction_vif_class, interaction_clockiff, interaction_assocquery, interaction_randreduce,
               interaction_gendisable, interaction_dist, interaction_eventlife, interaction_dpiquery, interaction_sdfpath, interaction_checksample, interaction_progassert, interaction_cgsample, interaction_deferdis, interaction_compound, interaction_inside, interaction_range,
-              interaction_case_inside)
+              interaction_case_inside, interaction_clockevent, interaction_deferarg)
 
 
 @dataclass
@@ -666,5 +668,19 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_event_rebind.MODEL.select(),
             "静的イベントをタスク呼出し前・待機登録前・登録後に再結合し、inputのコピーとref/直接参照、"
             "登録済み待機の保持、複数待機者、後着待機者、別名の独立性とActive/NBAの観測値を照合する。",
+        ),
+        SuiteModel(
+            interaction_clockevent.MODEL,
+            lambda row: "tests/gen/ch14/" + interaction_clockevent.case_name(row) + ".sv",
+            interaction_clockevent.MODEL.select(),
+            "clocking入力から名前付きイベントで待機者へ通知し、受信直後と生信号変更後の採取値・生値を照合する。"
+            "入力skew・エッジ・更新方式・通知方式・待機者数・幅を交差し、別イベントによる誤起床と反復時の再待機も観測する。",
+        ),
+        SuiteModel(
+            interaction_deferarg.MODEL,
+            lambda row: "tests/gen/ch13/" + interaction_deferarg.case_name(row) + ".sv",
+            interaction_deferarg.MODEL.select(),
+            "遅延報告の値渡しと静的な参照渡しを、登録時の取得値・報告時の生値・幅変換と照合する。"
+            "関数とタスク、報告領域、更新方式、幅と符号を交差し、引数評価の副作用と実行時刻も観測する。",
         ),
     )

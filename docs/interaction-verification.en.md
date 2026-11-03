@@ -12,9 +12,23 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 ## Saved-run summary
 
+At the deferred-argument addition on 2026-11-03, the current selection has **76 models, 2,814 tests and 108 chapter pairs**.
+The [full cross run](../coverage/interaction-results/cross76-kirimasim-7654825d-deferarg.json) records
+**2,281 pass, 529 unsupported and four existing config failures**, using kirimasim `7654825d`
+fetched and rebuilt immediately before execution with the preserved uncommitted repairs.
+All 29 additions parse and pass. All preceding 2,785 input fingerprints and status categories remain unchanged;
+49 models pass their entire selection. This addition changes no core code. The local result is separate
+from formal Nightly and upstream releases. See [design, independent checks and limits for Chapters 13×16](#deferred-argument-capture).
+
 Each run's version is recorded in linked JSON. Unless stated otherwise, added/total counts and check results in the model descriptions below record the state when that model was added. See the beginning of this overview and [Generated report](interaction-coverage.en.md) for current aggregates.
 
-Deferred-report disable addition on 2026-11-03: the current selection has **74 models, 2,761 tests and 106 chapter pairs**. The [full cross run](../coverage/interaction-results/cross74-kirimasim-786c94bb.json) on kirimasim `786c94bbeafb`, fetched and built immediately before execution, records **2,233 pass, 517 unsupported and 11 failures**. All 31 new inputs parse; 26 pass and five label-cancellation cases fail. All preceding 2,730 fingerprints and status categories are unchanged. Five output differences are replayed with four passing controls and a separately identified empty-target-report control. 47 models pass their full selection. Both fixed Verilator seeds record 13 pass and 18 known results; fixed Icarus records 23 build rejections and eight output differences. Chapter 9×16 is registered, leaving three E and two C candidate pairs. See [design, independent checks and complete-output replays](#deferred-disable-reports).
+Approved label-cancellation implementation on 2026-11-03: the [full 2,785-case run](../coverage/interaction-results/cross75-kirimasim-7654825d-labelcancel-final.json) on upstream main `7654825d` plus uncommitted changes records **2,252 pass, 529 unsupported and four config failures**. All 31 deferred-disable cases pass; 48 models pass their full selection. Input fingerprints are unchanged; only the five label failures change to pass relative to the inside-repair snapshot. See [approved implementation and replays](cross-verification-followup.en.md).
+
+Inside-repair integration on 2026-11-03: the [full 2,785-case run](../coverage/interaction-results/cross75-kirimasim-26a3e5a3-insidefix.json) on local main `26a3e5a3` plus uncommitted changes records **2,247 pass, 529 unsupported and nine fail**. Only the two inside failures change to pass; all input fingerprints are unchanged. Original failing snapshots remain separate from formal Nightly and upstream releases. See [triage, the 19-mechanism inventory and next chapter pairs](cross-verification-followup.en.md).
+
+At the clocking-notification addition on 2026-11-03, the selection had **75 models, 2,785 tests and 107 chapter pairs**. The [full cross run](../coverage/interaction-results/cross75-kirimasim-f3ea0379.json) on kirimasim `f3ea0379a7e5`, fetched and built immediately before execution, records **2,245 pass, 529 unsupported and 11 existing failures**. All 24 new inputs parse: 12 pass and 12 `input #0` cases are unsupported. All preceding 2,761 input fingerprints and status categories are unchanged; 47 models pass their full selection. Both fixed Verilator seeds record 12 pass and 12 known results; fixed Icarus rejects all 24 builds. Chapter 14×15 is registered, leaving three E and one C candidate pairs. See [design, independent checks and limits](#clocking-named-event).
+
+At the deferred-report disable addition on 2026-11-03, the selection had **74 models, 2,761 tests and 106 chapter pairs**. The [full cross run](../coverage/interaction-results/cross74-kirimasim-786c94bb.json) on kirimasim `786c94bbeafb`, fetched and built immediately before execution, records **2,233 pass, 517 unsupported and 11 failures**. All 31 new inputs parse; 26 pass and five label-cancellation cases fail. All preceding 2,730 fingerprints and status categories are unchanged. Five output differences are replayed with four passing controls and a separately identified empty-target-report control. 47 models pass their full selection. Both fixed Verilator seeds record 13 pass and 18 known results; fixed Icarus records 23 build rejections and eight output differences. Chapter 9×16 is registered, leaving three E and two C candidate pairs. See [design, independent checks and complete-output replays](#deferred-disable-reports).
 
 At the container-sampling addition on the same day, the selection had **73 models, 2,730 tests and 105 chapter pairs**. The [full cross run](../coverage/interaction-results/cross73-kirimasim-786c94bb.json) on kirimasim `786c94bbeafb`, fetched and built immediately before execution, records **2,207 pass, 517 unsupported and six existing fail results**. All 33 new inputs parse; covergroups remain unsupported. All preceding 2,697 fingerprints and status categories are unchanged; 47 models pass their full selection. Both fixed Verilator seeds match all 33 cases; fixed Icarus rejects all 33 builds. Chapter 7×19 is registered, leaving four E and two C candidate pairs. See [design, independent checks and limits](#container-coverage-sampling).
 
@@ -2638,6 +2652,138 @@ python3 tools/qualify_deferdis.py --verilator /path/to/verilator-5.052 \
 ```
 
 <a id="モデル変更時の更新"></a>
+
+<a id="clocking-named-event"></a>
+
+### Clocking inputs and named-event waiters
+
+Added `clocking_named_event@1` on 2026-11-03, connecting Chapter 14 input sampling
+to Chapter 15 named-event notification and waiting through shared stimuli and observations.
+The generator is [`interaction_clockevent.py`](../generators/interaction_clockevent.py).
+Expectations follow sampled values and clocking events in §§14.4, 14.10 and 14.13,
+notifications in §§15.5.1–15.5.2, and updates in §§10.4.1–10.4.2.
+
+Factors are width (1/32/33/64/65/129), input skew (`#1step`/`#0`), posedge/negedge,
+input update (blocking/NBA), event notification (`->`/`->>`), and listener count (1/2).
+All 192 combinations are legal, without exclusions for unsupported tools. A deterministic
+24-case selection satisfies 100 pair targets, 40 triple targets for width×skew×notification,
+skew×update×notification and edge×notification×listeners, and six mandatory boundaries.
+Width×skew×notification alone requires 24 cases, so this model meets that lower bound
+(87.5% reduction from the product). Minimum selections for other models are not guaranteed.
+
+Each case has three known-value periods. Data before and after the clock differ at every bit.
+A process notifies the event after `@(cb)`. Listeners save sampled and live values immediately
+and two ticks later; only the live signal is restored on the intervening tick. `#1step` samples
+before the update, `#0` after it, retaining the sample until the next clock. Observations cover
+wakeup counts and times, independent listener storage and the final idle interval. A distinct
+event between periods checks spurious wakeups and rearming. Waiter order within a tick and
+notification regions themselves are not distinguished; there are no procedural `#0` observation
+checkpoints. X/Z, rebinding, virtual interfaces, output skew and programs are outside scope.
+Complete coverage of Chapters 14×15 is not claimed.
+
+[`qualify_clockevent.py`](../tools/qualify_clockevent.py) interprets emitted SV values,
+assignments, waits, notifications and displays using a separate event queue, without using
+the generator's expected output, and checks all 192 rows. Four normal controls and nine
+actual SV faults execute on fixed Verilator, all with exit zero; controls match and faults cause
+output differences. Faults substitute live data, lose retention, change skew, notify the wrong
+event, move the second waiter, omit input updates, change the writer edge, lose high bits or omit
+rearming. See the [independent/runtime record](../coverage/interaction-qualification/clockevent.json).
+The normal controls use blocking notifications; they do not qualify `->>` success or distinguish notification regions.
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross75-clockevent-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross75-clockevent-verilator5052-seed73.json) each record 12 pass and 12 known results.
+Only the 12 blocking-notification matches receive fixed oracle entries. The 12 `->>` cases have
+matching bridge counts and samples but do not wake the listeners. Original SV and expectations
+are retained; representative `#1step` and `#0` cases also have separate
+[complete-output replays](../coverage/interaction-qualification/clockevent-notification-replays.json).
+Fixed [Icarus Verilog 13.0](../coverage/interaction-results/cross75-clockevent-icarus13.json) rejects all 24 builds.
+
+kirimasim `f3ea0379a7e5`, fetched from upstream main and built immediately before execution,
+parses all 24 inputs: 12 `#1step` cases pass and 12 `#0` cases are unsupported.
+The [build record](../coverage/interaction-qualification/clockevent-build.json) and
+[full 2,785-case run](../coverage/interaction-results/cross75-kirimasim-f3ea0379.json) record
+2,245 pass, 529 unsupported and 11 existing failures. All preceding 2,761 input fingerprints
+and status categories are unchanged. Partial successes from different simulators or cases are
+not combined. The requirement-ledger denominator and random-exploration counts do not change.
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_clockevent.py
+python3 tools/qualify_clockevent.py --verilator /path/to/verilator-5.052 \
+  --output my-results/clockevent-qualification-new.json
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 4 \
+  --json my-results/clockevent-kirimasim-new.json tests/gen/ch14/test_gen_cross_clockevent_*.sv
+```
+
+<a id="deferred-argument-capture"></a>
+
+### Deferred argument capture, static references and formal conversion
+
+`deferred_argument_capture@1` adds 29 cases for Chapters 13×16.
+The generator is [`interaction_deferarg.py`](../generators/interaction_deferarg.py).
+IEEE 1800-2023 13.5.1, 13.5.2, 16.4 and 16.4.1 establish registration-time input capture,
+including function calls during actual-expression evaluation, and action-time reference reads.
+All reference actuals are whole, equivalent-type module-static variables; subroutines are automatic.
+Input conversion, sign extension and truncation follow 10.4 and 11.8.2.
+
+Factors are source width 1/32/33/64/65/129, unsigned/signed, input/constref, same/narrow/wide formal width,
+function/task, observed/final and blocking/NBA updates. Formal widths equal the source width or differ by one, reaching 130 bits.
+The 576-row Cartesian product excludes only non-equivalent reference types and width-one narrowing, leaving **368 legal rows**.
+No exclusion is based on unsupported behavior. Retain 145 pair targets, 71 targeted triples in the following groups
+and seven mandatory boundaries with **29 selected cases: 92.12% fewer legal rows**. Minimality is not proved.
+
+- Width×passing×formal width; width×passing×report queue
+- Passing×update×report queue; routine×passing×report queue
+- Signedness×passing×formal width
+
+Each case uses alternating bits, MSB-only and all-zero frames, then complements every bit after registration.
+Observe an always-captured control, the input or const-ref argument and the live source together.
+Compare binary data, signed/unsigned decimal data, formal width, time, the post-update ready marker and input-evaluation call count.
+Mandatory boundaries include signed one-bit extension, 33→32 truncation, 65-bit extension, a 129-bit reference and a same-width signed-input control.
+Reports at times 2/12/22, subsequent observations at 3/13/23 and an idle observation at 30 retain later-state checks.
+
+Observed deferred actions display in Reactive; final actions display in Postponed, without static-variable writes.
+Both report after producer and NBA updates in this stimulus, so **this does not distinguish Reactive versus Postponed relative ordering**.
+No ordering of unrelated same-slot processes is assumed. Changed reference selectors, automatic/dynamic reference actuals,
+output/inout, X/Z, failing conditions, cancellation, flushing and waiting actions are outside scope.
+Retain the [existing cancellation model](#deferred-disable-reports).
+
+[`qualify_deferarg.py`](../tools/qualify_deferarg.py) interprets actual emitted SV types, literals, assignments, calls and displays
+with a separate event queue. It matches all 368 legal rows without using the generator's expectation or conversion functions.
+Four selected native controls pass; ten real SV faults compile and exit successfully but produce detected output differences.
+Faults swap passing modes, confuse captured/live data, remove a side effect, drop upper bits, change formal width/signedness,
+remove ready, make a call immediate or omit an NBA update. The [independent/control/fault record](../coverage/interaction-qualification/deferarg.json) retains complete outputs.
+The [12 dedicated regression tests](../tools/test_interaction_deferarg.py) check legal rows and selection, independence,
+hand-calculated boundaries, sensitivity to actual emitted-source mutations and rejection of unknown syntax.
+
+Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross76-deferarg-verilator5052-seed1.json) and
+[seed 73](../coverage/interaction-results/cross76-deferarg-verilator5052-seed73.json) each record 29 known and zero pass results.
+[Complete-output replays](../coverage/interaction-qualification/deferarg-fixed-replays.json) of four original cases,
+one per function/task×observed/final pair, report ready=0 and pre-update live data.
+This observes an early action after input capture and before producer updates; it does not identify an internal implementation cause.
+Known replays are not passing controls or detected faults.
+Fixed [Icarus Verilog 13.0](../coverage/interaction-results/cross76-deferarg-icarus13.json) rejects all 29 builds.
+Common standard-derived expectations are retained, and this addition registers no fixed-version oracle.
+
+The [build, parse and stability record](../coverage/interaction-qualification/deferarg-build.json) saves upstream revision,
+the preserved core-patch hash, slang `d02b7cda`, actual binary and runner hashes, all 29 parse results and comparison with the preceding 2,785 cases.
+The 29 new passes are not automatically added to fixed requirement fulfillment. Existing inputs and expectations,
+529 unsupported cases and four config failures remain.
+
+Local introduction checks pass all 766 tool regressions and 13 checks covering statistics, generated artifacts,
+catalogs, interaction plans, matrices, triage, the combination ledger, languages, requirement matching/coverage and metadata.
+Metadata covers 10,564 tests with zero new problems (395 known); 115 language pairs and 52,623 local links were also checked.
+GitHub Check and formal Nightly have not run for these uncommitted changes.
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_deferarg.py
+# Check latest upstream and rebuild kirimasim immediately before execution.
+python3 tools/qualify_deferarg.py --kirimasim /path/to/latest/kirimasim \
+  --output my-results/deferarg-qualification-new.json
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 4 \
+  --json my-results/deferarg-kirimasim-new.json tests/gen/ch13/test_gen_cross_deferarg_*.sv
+python3 tools/run_verilator.py --verilator /path/to/verilator-5.052 --seed 1 -j 4 \
+  --json my-results/deferarg-verilator-new.json tests/gen/ch13/test_gen_cross_deferarg_*.sv
+```
 
 ### Updates after model changes
 

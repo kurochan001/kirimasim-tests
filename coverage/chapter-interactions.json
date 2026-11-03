@@ -1761,6 +1761,32 @@
           "reason": "disableによる制御移動と遅延報告の取消しを区別し、対象・兄弟・別プロセスの履歴、引数評価の副作用、取得値と生値を照合する。"
         }
       ]
+    },
+    {
+      "id": "clocking_named_event",
+      "primary_chapter": 14,
+      "pairs": [
+        {
+          "chapters": [
+            14,
+            15
+          ],
+          "reason": "clocking入力の採取値と名前付きイベントの通知・待機を結び、受信時と生信号変更後の保持値・生値・起床回数を照合する。"
+        }
+      ]
+    },
+    {
+      "id": "deferred_argument_capture",
+      "primary_chapter": 13,
+      "pairs": [
+        {
+          "chapters": [
+            13,
+            16
+          ],
+          "reason": "遅延アサーションの引数を、登録時の値渡しと報告時の静的な参照渡しで比較し、幅変換と入力評価の副作用も照合する。"
+        }
+      ]
     }
   ]
 }

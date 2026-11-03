@@ -1,0 +1,121 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch14/test_gen_cross_clockevent_129_step_posedge_blocking_blocking_1": {
+   "status": "pass",
+   "inputs_sha256": "0a917142ccc7680940d05ffbc2721a201b3ca2683cb2518acef71b348dc171ef"
+  },
+  "gen/ch14/test_gen_cross_clockevent_129_step_posedge_blocking_nba_1": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'slot=0 hits=0 woke=-1 late_at=-1 seen=0000000000000000000...', expected 'slot=0 hits=1 woke=2 late_at=4 seen=010101010101010101010...'",
+   "inputs_sha256": "437eab4f878b6aa48cb2e56c9523601fc749b40e0f02a681fc9ac2decd91fc1d"
+  },
+  "gen/ch14/test_gen_cross_clockevent_129_zero_negedge_nba_nba_2": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'slot=0 hits=0 woke=-1 late_at=-1 seen=0000000000000000000...', expected 'slot=0 hits=1 woke=2 late_at=4 seen=101010101010101010101...'",
+   "inputs_sha256": "a74e8e3ca22b3984bf80faee725e0a39880d167c2118328bd575e8bc66fb0a33"
+  },
+  "gen/ch14/test_gen_cross_clockevent_129_zero_posedge_blocking_blocking_1": {
+   "status": "pass",
+   "inputs_sha256": "e5c720711f4043b6638cb6b2eacd4c5f880ccf985044a157690f069ec7af50b8"
+  },
+  "gen/ch14/test_gen_cross_clockevent_1_step_negedge_nba_nba_2": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'slot=0 hits=0 woke=-1 late_at=-1 seen=0 raw=0 held=0 late...', expected 'slot=0 hits=1 woke=2 late_at=4 seen=0 raw=1 held=0 late_r...'",
+   "inputs_sha256": "7888babd961bf866d65309114a855b0b39e2ab815f21da671ba032b3aadd9ce6"
+  },
+  "gen/ch14/test_gen_cross_clockevent_1_step_posedge_blocking_blocking_1": {
+   "status": "pass",
+   "inputs_sha256": "1ad5dbd5339c8d53eed0162e9aaf4bbc76537cfc05407d03cbc30bf9268eb0e5"
+  },
+  "gen/ch14/test_gen_cross_clockevent_1_zero_negedge_blocking_blocking_2": {
+   "status": "pass",
+   "inputs_sha256": "87344a2e8eaf875bda797cd24a206e6a7bc4fcb36a39058609e9db04c67fee57"
+  },
+  "gen/ch14/test_gen_cross_clockevent_1_zero_posedge_blocking_nba_1": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'slot=0 hits=0 woke=-1 late_at=-1 seen=0 raw=0 held=0 late...', expected 'slot=0 hits=1 woke=2 late_at=4 seen=1 raw=1 held=1 late_r...'",
+   "inputs_sha256": "12529d2b4212aa80eb35e594304bdeb901ce3971ea964a9c2279c1dc34662c67"
+  },
+  "gen/ch14/test_gen_cross_clockevent_32_step_negedge_blocking_nba_1": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'slot=0 hits=0 woke=-1 late_at=-1 seen=0000000000000000000...', expected 'slot=0 hits=1 woke=2 late_at=4 seen=010101010101010101010...'",
+   "inputs_sha256": "447295d5a53d29b39cdb6806a0d1c0ce46b50945af00f82566dccee02bed814b"
+  },
+  "gen/ch14/test_gen_cross_clockevent_32_step_posedge_blocking_blocking_1": {
+   "status": "pass",
+   "inputs_sha256": "7827a14804627cac6b60a281962a43d50c6fd4f26f555dbac790848e5f7ad110"
+  },
+  "gen/ch14/test_gen_cross_clockevent_32_zero_posedge_blocking_nba_1": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'slot=0 hits=0 woke=-1 late_at=-1 seen=0000000000000000000...', expected 'slot=0 hits=1 woke=2 late_at=4 seen=101010101010101010101...'",
+   "inputs_sha256": "9693dbdeee64e0c226acb6cf9c7eeeb8dc7887285e980710638b38c3eca41141"
+  },
+  "gen/ch14/test_gen_cross_clockevent_32_zero_posedge_nba_blocking_2": {
+   "status": "pass",
+   "inputs_sha256": "58cc10f55e2189e45c799111a856be597ced95be48ea2e1ff83e1f1ad8747a99"
+  },
+  "gen/ch14/test_gen_cross_clockevent_33_step_negedge_nba_blocking_1": {
+   "status": "pass",
+   "inputs_sha256": "cc545e861c8294eb21626762ecf480ff4c056c6123c1e41173873f1ac4970e76"
+  },
+  "gen/ch14/test_gen_cross_clockevent_33_step_posedge_blocking_nba_2": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'slot=0 hits=0 woke=-1 late_at=-1 seen=0000000000000000000...', expected 'slot=0 hits=1 woke=2 late_at=4 seen=010101010101010101010...'",
+   "inputs_sha256": "d58900d1a786b680bd1f0afe65979576e9f7139f03edb11de8386e94f9906d97"
+  },
+  "gen/ch14/test_gen_cross_clockevent_33_zero_posedge_blocking_blocking_1": {
+   "status": "pass",
+   "inputs_sha256": "9649ad4867b528770e1696f2463be724c31e61b98aba1baa8a7d3d947f2a8e46"
+  },
+  "gen/ch14/test_gen_cross_clockevent_33_zero_posedge_blocking_nba_1": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'slot=0 hits=0 woke=-1 late_at=-1 seen=0000000000000000000...', expected 'slot=0 hits=1 woke=2 late_at=4 seen=101010101010101010101...'",
+   "inputs_sha256": "a1d82a566438646cac4460a3510538337e1f610370c45b2aba91e7ca49895d58"
+  },
+  "gen/ch14/test_gen_cross_clockevent_64_step_negedge_blocking_nba_1": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'slot=0 hits=0 woke=-1 late_at=-1 seen=0000000000000000000...', expected 'slot=0 hits=1 woke=2 late_at=4 seen=010101010101010101010...'",
+   "inputs_sha256": "d2dd19ebdebf13530fde377219b21e8d609052fe02176450de832d4aebe01bf6"
+  },
+  "gen/ch14/test_gen_cross_clockevent_64_step_posedge_nba_blocking_1": {
+   "status": "pass",
+   "inputs_sha256": "96e5692a954a7c7855fe71d4828f0397e4f57e2f5522c72bdb11edc823ae9b4a"
+  },
+  "gen/ch14/test_gen_cross_clockevent_64_zero_posedge_blocking_blocking_2": {
+   "status": "pass",
+   "inputs_sha256": "bf652792e16f1401360d55d1846cdeaf42a7552d4605aab8671681eaf0f0d5e9"
+  },
+  "gen/ch14/test_gen_cross_clockevent_64_zero_posedge_blocking_nba_1": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'slot=0 hits=0 woke=-1 late_at=-1 seen=0000000000000000000...', expected 'slot=0 hits=1 woke=2 late_at=4 seen=101010101010101010101...'",
+   "inputs_sha256": "96b7a76fe2021d5a88e1882dee421e2c8764967cd18efa417a2a68f0be8f1372"
+  },
+  "gen/ch14/test_gen_cross_clockevent_65_step_negedge_nba_blocking_1": {
+   "status": "pass",
+   "inputs_sha256": "8b6d1d9ecb763052becaed47328e48dfedc2cb6020c1e5de8beb2fb3d3804d82"
+  },
+  "gen/ch14/test_gen_cross_clockevent_65_step_posedge_blocking_nba_1": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'slot=0 hits=0 woke=-1 late_at=-1 seen=0000000000000000000...', expected 'slot=0 hits=1 woke=2 late_at=4 seen=010101010101010101010...'",
+   "inputs_sha256": "e75a4eee6915db95312c1f4cfbceb9bbcc4d56b4b3c69e6cf2a0c8fd6248e0f3"
+  },
+  "gen/ch14/test_gen_cross_clockevent_65_zero_posedge_blocking_blocking_1": {
+   "status": "pass",
+   "inputs_sha256": "3f119e34c224d6cb6c0f076e897f14687964995229fa0d1d684110732cdece8f"
+  },
+  "gen/ch14/test_gen_cross_clockevent_65_zero_posedge_blocking_nba_2": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'slot=0 hits=0 woke=-1 late_at=-1 seen=0000000000000000000...', expected 'slot=0 hits=1 woke=2 late_at=4 seen=101010101010101010101...'",
+   "inputs_sha256": "e738ad45ea9cc1496dc976e99193f891aa6b3c61d8deb7fd961ae278253f4209"
+  }
+ },
+ "generated_at": "2026-11-03T02:02:40.913829+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

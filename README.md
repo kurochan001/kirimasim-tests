@@ -58,13 +58,13 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **10511 tests** in 38 chapters. 4074 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **10564 tests** in 38 chapters. 4127 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5653 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1913 |
-| The standard only, with no fixed-release simulator oracle recorded | 2945 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1925 |
+| The standard only, with no fixed-release simulator oracle recorded | 2986 |
 
 2416 tests depend on x or z values (`:fourstate: yes`). 685 tests come with C code: 190 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -80,8 +80,8 @@ The suite has **10511 tests** in 38 chapters. 4074 of them are generated. The [g
 | 10 | Assignment statements | 353 | 262 | 47 | 44 |
 | 11 | Operators and expressions | 1644 | 1262 | 132 | 250 |
 | 12 | Procedural programming statements | 251 | 169 | 33 | 49 |
-| 13 | Tasks and functions (subroutines) | 352 | 226 | 92 | 34 |
-| 14 | Clocking blocks | 126 | 4 | 76 | 46 |
+| 13 | Tasks and functions (subroutines) | 381 | 226 | 92 | 63 |
+| 14 | Clocking blocks | 150 | 4 | 88 | 58 |
 | 15 | Interprocess synchronization and communication | 153 | 2 | 50 | 101 |
 | 16 | Assertions | 764 | 104 | 121 | 539 |
 | 17 | Checkers | 108 |  | 47 | 61 |
@@ -169,25 +169,30 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.en.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
-The focused selection contains **2,761 tests across 74 models**; the normal full-suite
+The focused selection contains **2,814 tests across 76 models**; the normal full-suite
 run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [saved full cross run](coverage/interaction-results/cross74-kirimasim-786c94bb.json)
-uses kirimasim **`786c94bbeafb`** and records **2,233 pass, 517 unsupported and 11 fail**.
-The class-method model retains 18 passes and 18 unsupported cases. All 31 strength-format cases pass in this build. The eleven failures
-comprise five new deferred assertion label-cancellation cases, two existing `inside`/`case inside` width/sign cases
-and four existing configuration parameter-reset cases; standard-derived expectations are retained. These are observations of that build,
-separate from the full Nightly suite and any later upstream revision.
+The [saved full cross run](coverage/interaction-results/cross76-kirimasim-7654825d-deferarg.json)
+uses latest upstream main **`7654825d` plus uncommitted inside and approved label-cancellation repairs**:
+**2,281 pass, 529 unsupported and four fail**. All inputs retain their original expectations;
+the remaining failures are config parameter resets localized to pinned slang. The
+[follow-up record](docs/cross-verification-followup.en.md) retains the earlier 11→9→4 history,
+complete-output replays, the 19-mechanism unsupported inventory and reviewed chapter pairs.
+This local working-tree result is separate from an upstream release and formal Nightly.
 
-Disable and deferred reports (Chapters 9×16) select 31 of 720 combinations. Check cancellation scope, input capture/side effects, live action data and ordinary control transfer. Latest kirimasim records 26 pass and five label-cancellation differences; non-target outputs and input-evaluation counts match. Both fixed Verilator seeds record 13 pass and 18 known results. See [scope and complete-output replays](docs/interaction-verification.en.md#deferred-disable-reports).
+Disable and deferred reports (Chapters 9×16) select 31 of 720 combinations. Check cancellation scope, input capture/side effects, live action data and ordinary control transfer. The current local repair matches all 31 cases, retaining sibling reports, captured-input side effects and settled history. Both fixed Verilator seeds record 13 pass and 18 known results. See [scope and complete-output replays](docs/interaction-verification.en.md#deferred-disable-reports).
+
+Deferred report arguments (Chapters 13×16) select 29 of 368 legal combinations, checking input capture, static references, width/signedness conversion and input-evaluation side effects. All 29 additions pass on latest kirimasim. Both fixed Verilator seeds record 29 known results; fixed Icarus rejects all 29 builds. Common expectations remain unchanged. See [design, independent checks and limits](docs/interaction-verification.en.md#deferred-argument-capture).
+
+Clocking inputs and named-event waiters (Chapters 14×15) select 24 of 192 combinations. Check sample retention, live values, notification counts, fanout and rearming. Latest kirimasim records 12 pass and 12 unsupported `input #0` cases; fixed Verilator seeds each record 12 pass and 12 known nonblocking-notification differences. See [design, controls and limits](docs/interaction-verification.en.md#clocking-named-event).
 
 - The [interaction report](docs/interaction-coverage.en.md) separates the selection plan
   from fingerprint-qualified passes in each saved execution.
-- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **106 distinct
+- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **108 distinct
   chapter pairs**, with separate CSVs for registered models, models whose full selection
-  passed (**47 models** in the saved run), and detailed test/run evidence.
+  passed (**49 models** in the local repair run), and detailed test/run evidence.
 - The [zero-cell triage](docs/chapter-cross-triage.en.md) records reviewed existing tests,
   proposed additions, scope exclusions and pairs awaiting review. A zero is not a claim
   that no tests exist for that chapter pair.

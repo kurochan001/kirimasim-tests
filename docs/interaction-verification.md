@@ -12,9 +12,23 @@
 
 ## 保存実行の概要
 
+遅延報告引数の追加（2026-11-03）：現在は**76モデル・2,814件・108章対**です。
+実行直前に上流mainを取得・再ビルドしたkirimasim `7654825d`＋保持中の未コミット修正で、
+[全クロス保存実行](../coverage/interaction-results/cross76-kirimasim-7654825d-deferarg.json)は
+**2,281 pass・529 unsupported・既存configの4 fail**です。新規29件はすべて解析成功・PASSで、
+従来2,785件の入力fingerprintと状態分類は不変、全選択ケースPASSは49モデルです。
+本体コードの追加変更はありません。正式Nightly・upstream公開版の結果とは区別します。
+[第13章×第16章の設計・独立検算・制限](#deferred-argument-capture)を参照してください。
+
 各実行の版はリンク先JSONに記録しています。以下のモデル別説明にある追加件数・全体件数・ 検査結果は、断りがなければそのモデルを追加した時点の記録です。現在の集計はこの概要の先頭と [生成レポート](interaction-coverage.md)を参照してください。
 
-2026-11-03の遅延報告disable追加：現在は**74モデル・2,761件・106章対**です。実行直前に上流mainを取得・ビルドしたkirimasim `786c94bbeafb`の[全クロス保存実行](../coverage/interaction-results/cross74-kirimasim-786c94bb.json)は**2,233 pass・517 unsupported・11 fail**です。新規31件はすべて解析成功、26 pass・ラベル取消し5 failでした。従来2,730件の入力ハッシュと結果区分は同じです。新規5件を出力差として再現し、正常対照4件と対象報告がない別対照1件も保存しました。全選択ケースPASSは47モデルです。固定Verilatorは両seedで13 pass・18 known、固定Icarusは23件ビルド拒否・8件出力不一致です。第9章×第16章を登録し、E候補3対・C候補2対です。[設計・独立検算・再現出力](#deferred-disable-reports)を参照してください。
+承認済みラベル取消しの実装（2026-11-03）：upstream main `7654825d`＋未コミット修正で[全2,785件](../coverage/interaction-results/cross75-kirimasim-7654825d-labelcancel-final.json)を実行し、**2,252 pass・529 unsupported・configの4 fail**でした。遅延報告31件は全PASSで、全選択ケースPASSは48モデルです。入力fingerprintは不変で、inside修正時点からの変化はラベル取消し5件のfail→passだけです。[承認後の実装・再現記録](cross-verification-followup.md)を参照してください。
+
+inside修正の取り込み（2026-11-03）：ローカルmain `26a3e5a3`に未コミット修正を加えた[全2,785件](../coverage/interaction-results/cross75-kirimasim-26a3e5a3-insidefix.json)は**2,247 pass・529 unsupported・9 fail**です。従来のinside不一致2件だけがPASSへ変わり、入力fingerprintは不変です。元の失敗snapshotは保持し、正式Nightly・upstream公開版とは区別します。[切り分け・19機構の一覧・次の章対](cross-verification-followup.md)を参照してください。
+
+clocking通知追加（2026-11-03）：当時は**75モデル・2,785件・107章対**です。実行直前に取得・ビルドしたkirimasim `f3ea0379a7e5`の[全クロス実行](../coverage/interaction-results/cross75-kirimasim-f3ea0379.json)は**2,245 pass・529 unsupported・既存11 fail**でした。新規24件は全てparse可能で、12件PASS・`input #0`未対応12件です。従来2,761件の入力fingerprintと状態分類は不変で、全選択ケースPASSは47モデルです。固定Verilatorの両seedは各12 pass・12 known、固定Icarusは24件ビルド拒否です。章14×15を登録し、E候補3章対・C候補1章対が残ります。[設計・独立照合・制限](#clocking-named-event)を参照してください。
+
+2026-11-03の遅延報告disable追加：当時は**74モデル・2,761件・106章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `786c94bbeafb`の[全クロス保存実行](../coverage/interaction-results/cross74-kirimasim-786c94bb.json)は**2,233 pass・517 unsupported・11 fail**です。新規31件はすべて解析成功、26 pass・ラベル取消し5 failでした。従来2,730件の入力ハッシュと結果区分は同じです。新規5件を出力差として再現し、正常対照4件と対象報告がない別対照1件も保存しました。全選択ケースPASSは47モデルです。固定Verilatorは両seedで13 pass・18 known、固定Icarusは23件ビルド拒否・8件出力不一致です。第9章×第16章を登録し、E候補3対・C候補2対です。[設計・独立検算・再現出力](#deferred-disable-reports)を参照してください。
 
 同日のコンテナsample追加時点では**73モデル・2,730件・105章対**でした。実行直前に上流mainを取得・ビルドしたkirimasim `786c94bbeafb`の[全クロス保存実行](../coverage/interaction-results/cross73-kirimasim-786c94bb.json)は**2,207 pass・517 unsupported・既存6 fail**です。新規33件はすべて解析成功・covergroup未対応です。従来2,697件の入力ハッシュと結果区分は同じで、全選択ケースPASSは47モデルです。固定Verilatorは両seedで33件すべて一致し、固定Icarusは33件ともビルド拒否でした。第7章×第19章を登録し、E候補4対・C候補2対です。[設計・独立検算・実行限界](#container-coverage-sampling)を参照してください。
 
@@ -2623,6 +2637,128 @@ python3 tools/qualify_deferdis.py --verilator /path/to/verilator-5.052 \
 ```
 
 <a id="updates-after-model-changes"></a>
+
+<a id="clocking-named-event"></a>
+
+### clocking入力と名前付きイベントの待機
+
+2026-11-03に`clocking_named_event@1`を追加しました。第14章の入力サンプリングと、
+第15章の名前付きイベントによる通知・待機を一つの刺激と観測で結ぶモデルです。
+生成器は[`interaction_clockevent.py`](../generators/interaction_clockevent.py)です。
+期待値の根拠は§14.4・14.10・14.13の採取値とclocking event、
+§15.5.1・15.5.2の通知、§10.4.1・10.4.2の更新です。
+
+因子は幅（1/32/33/64/65/129）、入力skew（`#1step`/`#0`）、posedge/negedge、
+入力更新（ブロッキング/NBA）、イベント通知（`->`/`->>`）、待機者数（1/2）です。
+全192通りが合法で、未対応による除外はありません。決定的な24件で2因子100目標、
+幅×skew×通知・skew×更新×通知・エッジ×通知×待機者数の3因子40目標と必須境界6件を満たします。
+幅×skew×通知だけで24件を要するため、このモデルは下限に達しています（直積から87.5%削減）。
+他のモデルでの最小件数は保証しません。
+
+各ケースは既知値だけの3周期です。クロック前後のデータを全bitで反転させ、
+`@(cb)`からイベントを通知します。待機者は受信直後と二tick後の採取値・生値を保存し、
+その間の翌tickで生信号だけを戻します。`#1step`は更新前、`#0`は更新後を採取し、
+次のクロックまで保持します。起床回数・時刻・各待機者の保存先・最終アイドル期間を照合し、
+周期間の別イベントで誤起床がないことと再待機も確認します。
+同一tick内の待機者の順序や通知領域そのものの区別は判定せず、手続き的な`#0`観測も使いません。
+X/Z、再結合、virtual interface、出力skew、programは対象外です。章14×15全体の網羅は主張しません。
+
+[`qualify_clockevent.py`](../tools/qualify_clockevent.py)は生成器の期待値関数を使わず、
+出力SVの値・代入・待機・通知・表示を別のイベントキューで解釈し、全192行を照合します。
+固定Verilatorで正常対照4件と実際のSV故障9件を実行し、終了コード0で正常対照の一致と故障の出力不一致を確認しました。
+故障は生値との取り違え、保持失敗、skew違い、通知先違い、2人目の待機先違い、入力更新欠落、
+更新エッジ違い、上位bit欠落、再待機欠落です。[独立照合・実行記録](../coverage/interaction-qualification/clockevent.json)を参照してください。
+正常対照はブロッキング通知に限り、`->>`の成功や通知領域の区別を証明しません。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross75-clockevent-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross75-clockevent-verilator5052-seed73.json)は各12 pass・12 knownです。
+ブロッキング通知の12件だけを固定oracleに登録しました。`->>`の12件はbridge回数と採取値が一致する一方、
+待機者が起床しません。元のSV・期待値を保持し、`#1step`と`#0`の代表例は
+[全出力の再実行](../coverage/interaction-qualification/clockevent-notification-replays.json)にも記録します。
+固定[Icarus Verilog 13.0](../coverage/interaction-results/cross75-clockevent-icarus13.json)は24件ともビルド拒否です。
+
+upstream mainを実行直前に取得・ビルドしたkirimasim `f3ea0379a7e5`は全24入力をparseでき、
+`#1step`の12件はPASS、`#0`の12件は未対応です。[ビルド記録](../coverage/interaction-qualification/clockevent-build.json)と
+[全2,785件の実行](../coverage/interaction-results/cross75-kirimasim-f3ea0379.json)は2,245 pass・529 unsupported・既存11 failです。
+従来2,761件の入力fingerprintと状態分類は不変です。異なるシミュレータやケースの部分的成功は合成しません。
+要求台帳の分母やランダム探索の件数も変更しません。
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_clockevent.py
+python3 tools/qualify_clockevent.py --verilator /path/to/verilator-5.052 \
+  --output my-results/clockevent-qualification-new.json
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 4 \
+  --json my-results/clockevent-kirimasim-new.json tests/gen/ch14/test_gen_cross_clockevent_*.sv
+```
+
+<a id="deferred-argument-capture"></a>
+
+### 遅延報告の引数取得・静的参照・幅変換
+
+`deferred_argument_capture@1`は第13章×第16章に29件を追加します。
+生成器は[`interaction_deferarg.py`](../generators/interaction_deferarg.py)です。
+IEEE 1800-2023の13.5.1・13.5.2・16.4・16.4.1を根拠に、入力引数とその評価中の
+関数呼出しはアサーション登録時、参照引数は報告動作の実行時に読むことを確認します。
+参照先は型が同値のモジュール内の静的変数全体に限り、サブルーチンはautomaticです。
+値渡しの幅変換・符号拡張・切捨ては10.4・11.8.2に従います。
+
+因子は入力幅1/32/33/64/65/129、unsigned/signed、input/constref、仮引数幅same/narrow/wide、
+function/task、observed/final、blocking/NBA更新です。仮引数幅は入力幅または±1、最大130ビットです。
+直積576通りから、型が異なる参照渡しと幅1のnarrowだけを合法性の理由で除き、**368通り**にします。
+未対応を理由に除外していません。2因子145目標と次の重点3因子71目標、必須境界7件を保持し、
+**29件に選択（合法全行に比べ92.12%削減）**します。最小件数の証明ではありません。
+
+- 幅×渡し方×仮引数幅、幅×渡し方×報告キュー
+- 渡し方×更新方式×報告キュー、サブルーチン×渡し方×報告キュー
+- 符号×渡し方×仮引数幅
+
+各ケースは交互ビット・最上位ビットのみ・全0の三組を使い、登録後に全ビットを反転します。
+常に値渡しする対照引数、inputまたはconst refの検査対象、報告時の元変数を同時表示します。
+仮引数の2進値・符号付きまたは符号なし10進値・幅、時刻、更新後のready、引数評価関数の呼出し回数も比較します。
+幅1の符号拡張、33→32の切捨て、65ビットの拡張、129ビット参照、signed inputの同一幅対照などを必須境界に含めます。
+時刻2/12/22の報告、3/13/23の後続観測、30のアイドル観測で後続状態も確認します。
+
+Observed遅延アサーションの動作はReactive、finalの動作はPostponedで表示だけを行い、静的変数を書き換えません。
+この刺激ではproducerとNBAの更新後に両方が報告するため、**ReactiveとPostponedの相対順序自体は識別しません**。
+同一時刻の無関係なプロセス間の順序も仮定しません。参照先の添字変更、自動変数・動的要素の参照渡し、
+output/inout、X/Z、失敗条件、取消し、flush、報告中の待機は対象外です。
+取消しは[既存モデル](#deferred-disable-reports)を保持します。
+
+[`qualify_deferarg.py`](../tools/qualify_deferarg.py)は、実際に生成したSVの型・リテラル・代入・呼出し・表示を
+別のイベントキューで解釈します。生成器の期待値関数や幅変換関数を使わず、全368通りを照合しました。
+選択済みの正常対照4件は最新kirimasimでPASSし、SVを実際に変更する故障10件はすべてコンパイル・正常終了後の
+出力不一致として検出しました。渡し方の入替え、取得値と生値の混同、副作用欠落、上位ビット欠落、仮引数幅・符号の誤り、
+ready欠落、即時呼出し化、NBA更新欠落が対象です。[独立検算・正常対照・故障の全出力](../coverage/interaction-qualification/deferarg.json)を保存しています。
+専用の[回帰テスト12件](../tools/test_interaction_deferarg.py)は合法領域と選択、独立性、手計算した境界、
+生成SVの実変化への感度、未知構文の拒否を確認します。
+
+固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross76-deferarg-verilator5052-seed1.json)と
+[seed 73](../coverage/interaction-results/cross76-deferarg-verilator5052-seed73.json)は各29 known・0 passです。
+function/task×observed/finalの原ケース4件の[全出力再実行](../coverage/interaction-qualification/deferarg-fixed-replays.json)では、
+ready=0と更新前の生値を報告しています。入力取得後・producer更新前の早い報告という観測であり、内部実装の原因は断定しません。
+既知差の再実行を正常対照や故障検出件数へ加算しません。
+固定[Icarus Verilog 13.0](../coverage/interaction-results/cross76-deferarg-icarus13.json)は全29件でコンパイル拒否です。
+共通期待値は規格由来のまま維持し、この追加で固定版oracleは登録していません。
+
+[ビルド・解析・不変性の記録](../coverage/interaction-qualification/deferarg-build.json)には上流revision、
+保持中の本体パッチのハッシュ、slang `d02b7cda`、実バイナリ・runnerのハッシュ、全29件の解析結果、従来2,785件との比較を保存しています。
+追加29件のPASSを固定要求の達成率へ自動加算せず、既存入力と期待値、529 unsupportedとconfigの4 failを保持します。
+
+導入時のローカル検査はツール回帰766件と、統計・生成物・カタログ・クロス計画・章間表・仕分け・
+組合せ台帳・日英資料・要求照合・要求カバレッジ・メタデータの13検査がPASSです。
+メタデータは10,564件で新規問題0件（既知395件）、日英115組とローカルリンク52,623件も確認しました。
+この未コミット変更に対するGitHub Checkと正式Nightlyは未実行です。
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_deferarg.py
+# 実行直前に最新upstreamを確認してkirimasimを再ビルドする
+python3 tools/qualify_deferarg.py --kirimasim /path/to/latest/kirimasim \
+  --output my-results/deferarg-qualification-new.json
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest/kirimasim -j 4 \
+  --json my-results/deferarg-kirimasim-new.json tests/gen/ch13/test_gen_cross_deferarg_*.sv
+python3 tools/run_verilator.py --verilator /path/to/verilator-5.052 --seed 1 -j 4 \
+  --json my-results/deferarg-verilator-new.json tests/gen/ch13/test_gen_cross_deferarg_*.sv
+```
 
 ### モデル変更時の更新
 

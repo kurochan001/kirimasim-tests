@@ -20,6 +20,7 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Managing the coverage of the standard requirements. | [English](../coverage/README.en.md) | [日本語](../coverage/README.md) |
 | Auxiliary evidence for cross-functional verification | [English](../coverage/interaction-qualification/README.en.md) | [日本語](../coverage/interaction-qualification/README.md) |
 | Chapter interaction matrix | [English](chapter-cross-matrix.en.md) | [日本語](chapter-cross-matrix.md) |
+| Cross-verification failures and follow-up priorities | [English](cross-verification-followup.en.md) | [日本語](cross-verification-followup.md) |
 | kirimasim-tests FAQ | [English](faq.en.md) | [日本語](faq.md) |
 | kirimasim-tests glossary | [English](glossary.en.md) | [日本語](glossary.md) |
 | Feature interaction verification: rationale and practice | [English](interaction-verification-method.en.md) | [日本語](interaction-verification-method.md) |

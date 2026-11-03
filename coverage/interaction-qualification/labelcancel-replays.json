@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-11-03T03:41:32.928166+00:00",
+  "scope": "Original five failure inputs replayed without regeneration or changed expectations; complete outputs match on the local approved implementation. Absolute test-repository paths are redacted.",
+  "original_failure_evidence": "coverage/interaction-qualification/cross-failures-20261103.json",
+  "build_record": "coverage/interaction-qualification/labelcancel-build.json",
+  "binary_sha256": "d355dd6e217c7399c2c74ec24e25996028f07c26e58099fdca93eabdc1b2c9e5",
+  "cases": [
+    {
+      "test": "tests/gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_inverse_before_function_change.sv",
+      "inputs_sha256": "aa26cce37199bb64bd3e3981a5e8b4bcb7cd5d93c43506884e65c0ee6dac423a",
+      "status": "pass",
+      "reason": "",
+      "returncode": 0,
+      "expected_stdout": "phase=1 time=13 target_tail=1 worker_tail=1 wdata=111 gdata=12\nitem=0 pass=0 fail=0 captured=0 live=0 eval=1 last=-1\nitem=1 pass=1 fail=0 captured=11 live=111 eval=1 last=10\nitem=2 pass=1 fail=0 captured=12 live=12 eval=1 last=12\nphase=2 time=23 target_tail=2 worker_tail=2 wdata=121 gdata=22\nitem=0 pass=1 fail=0 captured=21 live=121 eval=2 last=20\nitem=1 pass=1 fail=1 captured=32 live=232 eval=2 last=20\nitem=2 pass=1 fail=1 captured=34 live=34 eval=2 last=22\nphase=3 time=33 target_tail=3 worker_tail=3 wdata=131 gdata=32\nitem=0 pass=1 fail=0 captured=21 live=121 eval=3 last=20\nitem=1 pass=2 fail=1 captured=63 live=363 eval=3 last=30\nitem=2 pass=2 fail=1 captured=66 live=66 eval=3 last=32\n",
+      "stdout": "phase=1 time=13 target_tail=1 worker_tail=1 wdata=111 gdata=12\nitem=0 pass=0 fail=0 captured=0 live=0 eval=1 last=-1\nitem=1 pass=1 fail=0 captured=11 live=111 eval=1 last=10\nitem=2 pass=1 fail=0 captured=12 live=12 eval=1 last=12\nphase=2 time=23 target_tail=2 worker_tail=2 wdata=121 gdata=22\nitem=0 pass=1 fail=0 captured=21 live=121 eval=2 last=20\nitem=1 pass=1 fail=1 captured=32 live=232 eval=2 last=20\nitem=2 pass=1 fail=1 captured=34 live=34 eval=2 last=22\nphase=3 time=33 target_tail=3 worker_tail=3 wdata=131 gdata=32\nitem=0 pass=1 fail=0 captured=21 live=121 eval=3 last=20\nitem=1 pass=2 fail=1 captured=63 live=363 eval=3 last=30\nitem=2 pass=2 fail=1 captured=66 live=66 eval=3 last=32\n",
+      "stderr": "kirimasim: info: kirimasim 0.0.0 (commit 7654825d11bf) seed=0 args: <kirimasim-tests>/tests/gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_inverse_before_function_change.sv\n../../../../../../..<kirimasim-tests>/tests/gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_inverse_before_function_change.sv:100: $finish at 33 ns\nkirimasim: info: finish at 33 ns\n"
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_positive_after_variable_stable.sv",
+      "inputs_sha256": "2a77fe69f28d2e581ec923491b1d08dbe48b17263dee1cc28ae87581d92a3df5",
+      "status": "pass",
+      "reason": "",
+      "returncode": 0,
+      "expected_stdout": "phase=1 time=13 target_tail=1 worker_tail=1 wdata=11 gdata=12\nitem=0 pass=0 fail=0 captured=0 live=0 eval=0 last=-1\nitem=1 pass=0 fail=1 captured=11 live=11 eval=0 last=10\nitem=2 pass=0 fail=1 captured=12 live=12 eval=0 last=12\nphase=2 time=23 target_tail=2 worker_tail=2 wdata=21 gdata=22\nitem=0 pass=1 fail=0 captured=21 live=21 eval=0 last=20\nitem=1 pass=0 fail=2 captured=32 live=32 eval=0 last=20\nitem=2 pass=0 fail=2 captured=34 live=34 eval=0 last=22\nphase=3 time=33 target_tail=3 worker_tail=3 wdata=31 gdata=32\nitem=0 pass=1 fail=0 captured=21 live=21 eval=0 last=20\nitem=1 pass=0 fail=3 captured=63 live=63 eval=0 last=30\nitem=2 pass=0 fail=3 captured=66 live=66 eval=0 last=32\n",
+      "stdout": "phase=1 time=13 target_tail=1 worker_tail=1 wdata=11 gdata=12\nitem=0 pass=0 fail=0 captured=0 live=0 eval=0 last=-1\nitem=1 pass=0 fail=1 captured=11 live=11 eval=0 last=10\nitem=2 pass=0 fail=1 captured=12 live=12 eval=0 last=12\nphase=2 time=23 target_tail=2 worker_tail=2 wdata=21 gdata=22\nitem=0 pass=1 fail=0 captured=21 live=21 eval=0 last=20\nitem=1 pass=0 fail=2 captured=32 live=32 eval=0 last=20\nitem=2 pass=0 fail=2 captured=34 live=34 eval=0 last=22\nphase=3 time=33 target_tail=3 worker_tail=3 wdata=31 gdata=32\nitem=0 pass=1 fail=0 captured=21 live=21 eval=0 last=20\nitem=1 pass=0 fail=3 captured=63 live=63 eval=0 last=30\nitem=2 pass=0 fail=3 captured=66 live=66 eval=0 last=32\n",
+      "stderr": "kirimasim: info: kirimasim 0.0.0 (commit 7654825d11bf) seed=0 args: <kirimasim-tests>/tests/gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_positive_after_variable_stable.sv\n../../../../../../..<kirimasim-tests>/tests/gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_positive_after_variable_stable.sv:99: $finish at 33 ns\nkirimasim: info: finish at 33 ns\n"
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_deferdis_assertion_assume_even_positive_before_function_stable.sv",
+      "inputs_sha256": "8615cc10083dfe802cc4ca4d85bce651ddfc3327acc760b2d964c442844d868a",
+      "status": "pass",
+      "reason": "",
+      "returncode": 0,
+      "expected_stdout": "phase=1 time=13 target_tail=1 worker_tail=1 wdata=11 gdata=12\nitem=0 pass=1 fail=0 captured=11 live=11 eval=1 last=10\nitem=1 pass=0 fail=1 captured=11 live=11 eval=1 last=10\nitem=2 pass=0 fail=1 captured=12 live=12 eval=1 last=12\nphase=2 time=23 target_tail=2 worker_tail=2 wdata=21 gdata=22\nitem=0 pass=1 fail=0 captured=11 live=11 eval=2 last=10\nitem=1 pass=0 fail=2 captured=32 live=32 eval=2 last=20\nitem=2 pass=0 fail=2 captured=34 live=34 eval=2 last=22\nphase=3 time=33 target_tail=3 worker_tail=3 wdata=31 gdata=32\nitem=0 pass=2 fail=0 captured=42 live=42 eval=3 last=30\nitem=1 pass=0 fail=3 captured=63 live=63 eval=3 last=30\nitem=2 pass=0 fail=3 captured=66 live=66 eval=3 last=32\n",
+      "stdout": "phase=1 time=13 target_tail=1 worker_tail=1 wdata=11 gdata=12\nitem=0 pass=1 fail=0 captured=11 live=11 eval=1 last=10\nitem=1 pass=0 fail=1 captured=11 live=11 eval=1 last=10\nitem=2 pass=0 fail=1 captured=12 live=12 eval=1 last=12\nphase=2 time=23 target_tail=2 worker_tail=2 wdata=21 gdata=22\nitem=0 pass=1 fail=0 captured=11 live=11 eval=2 last=10\nitem=1 pass=0 fail=2 captured=32 live=32 eval=2 last=20\nitem=2 pass=0 fail=2 captured=34 live=34 eval=2 last=22\nphase=3 time=33 target_tail=3 worker_tail=3 wdata=31 gdata=32\nitem=0 pass=2 fail=0 captured=42 live=42 eval=3 last=30\nitem=1 pass=0 fail=3 captured=63 live=63 eval=3 last=30\nitem=2 pass=0 fail=3 captured=66 live=66 eval=3 last=32\n",
+      "stderr": "kirimasim: info: kirimasim 0.0.0 (commit 7654825d11bf) seed=0 args: <kirimasim-tests>/tests/gen/ch16/test_gen_cross_deferdis_assertion_assume_even_positive_before_function_stable.sv\n../../../../../../..<kirimasim-tests>/tests/gen/ch16/test_gen_cross_deferdis_assertion_assume_even_positive_before_function_stable.sv:99: $finish at 33 ns\nkirimasim: info: finish at 33 ns\n"
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_deferdis_assertion_assume_odd_alternating_after_variable_change.sv",
+      "inputs_sha256": "17d7a16506e6406c4da7fd140775e055fa9138ffed1bd7dd95e9a015eaf50758",
+      "status": "pass",
+      "reason": "",
+      "returncode": 0,
+      "expected_stdout": "phase=1 time=13 target_tail=1 worker_tail=1 wdata=111 gdata=12\nitem=0 pass=0 fail=0 captured=0 live=0 eval=0 last=-1\nitem=1 pass=0 fail=1 captured=111 live=111 eval=0 last=10\nitem=2 pass=0 fail=1 captured=12 live=12 eval=0 last=12\nphase=2 time=23 target_tail=2 worker_tail=2 wdata=121 gdata=22\nitem=0 pass=0 fail=1 captured=21 live=121 eval=0 last=20\nitem=1 pass=1 fail=1 captured=232 live=232 eval=0 last=20\nitem=2 pass=1 fail=1 captured=34 live=34 eval=0 last=22\nphase=3 time=33 target_tail=3 worker_tail=3 wdata=131 gdata=32\nitem=0 pass=0 fail=1 captured=21 live=121 eval=0 last=20\nitem=1 pass=1 fail=2 captured=363 live=363 eval=0 last=30\nitem=2 pass=1 fail=2 captured=66 live=66 eval=0 last=32\n",
+      "stdout": "phase=1 time=13 target_tail=1 worker_tail=1 wdata=111 gdata=12\nitem=0 pass=0 fail=0 captured=0 live=0 eval=0 last=-1\nitem=1 pass=0 fail=1 captured=111 live=111 eval=0 last=10\nitem=2 pass=0 fail=1 captured=12 live=12 eval=0 last=12\nphase=2 time=23 target_tail=2 worker_tail=2 wdata=121 gdata=22\nitem=0 pass=0 fail=1 captured=21 live=121 eval=0 last=20\nitem=1 pass=1 fail=1 captured=232 live=232 eval=0 last=20\nitem=2 pass=1 fail=1 captured=34 live=34 eval=0 last=22\nphase=3 time=33 target_tail=3 worker_tail=3 wdata=131 gdata=32\nitem=0 pass=0 fail=1 captured=21 live=121 eval=0 last=20\nitem=1 pass=1 fail=2 captured=363 live=363 eval=0 last=30\nitem=2 pass=1 fail=2 captured=66 live=66 eval=0 last=32\n",
+      "stderr": "kirimasim: info: kirimasim 0.0.0 (commit 7654825d11bf) seed=0 args: <kirimasim-tests>/tests/gen/ch16/test_gen_cross_deferdis_assertion_assume_odd_alternating_after_variable_change.sv\n../../../../../../..<kirimasim-tests>/tests/gen/ch16/test_gen_cross_deferdis_assertion_assume_odd_alternating_after_variable_change.sv:100: $finish at 33 ns\nkirimasim: info: finish at 33 ns\n"
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_deferdis_assertion_cover_even_inverse_after_variable_stable.sv",
+      "inputs_sha256": "e5c37a9b40e9d3eec4456c362649882f86c02d6acb3f80f0e338a9a7cb408a21",
+      "status": "pass",
+      "reason": "",
+      "returncode": 0,
+      "expected_stdout": "phase=1 time=13 target_tail=1 worker_tail=1 wdata=11 gdata=12\nitem=0 pass=0 fail=0 captured=0 live=0 eval=0 last=-1\nitem=1 pass=1 fail=0 captured=11 live=11 eval=0 last=10\nitem=2 pass=1 fail=0 captured=12 live=12 eval=0 last=12\nphase=2 time=23 target_tail=2 worker_tail=2 wdata=21 gdata=22\nitem=0 pass=0 fail=0 captured=0 live=0 eval=0 last=-1\nitem=1 pass=1 fail=0 captured=11 live=11 eval=0 last=10\nitem=2 pass=1 fail=0 captured=12 live=12 eval=0 last=12\nphase=3 time=33 target_tail=3 worker_tail=3 wdata=31 gdata=32\nitem=0 pass=0 fail=0 captured=0 live=0 eval=0 last=-1\nitem=1 pass=2 fail=0 captured=42 live=42 eval=0 last=30\nitem=2 pass=2 fail=0 captured=44 live=44 eval=0 last=32\n",
+      "stdout": "phase=1 time=13 target_tail=1 worker_tail=1 wdata=11 gdata=12\nitem=0 pass=0 fail=0 captured=0 live=0 eval=0 last=-1\nitem=1 pass=1 fail=0 captured=11 live=11 eval=0 last=10\nitem=2 pass=1 fail=0 captured=12 live=12 eval=0 last=12\nphase=2 time=23 target_tail=2 worker_tail=2 wdata=21 gdata=22\nitem=0 pass=0 fail=0 captured=0 live=0 eval=0 last=-1\nitem=1 pass=1 fail=0 captured=11 live=11 eval=0 last=10\nitem=2 pass=1 fail=0 captured=12 live=12 eval=0 last=12\nphase=3 time=33 target_tail=3 worker_tail=3 wdata=31 gdata=32\nitem=0 pass=0 fail=0 captured=0 live=0 eval=0 last=-1\nitem=1 pass=2 fail=0 captured=42 live=42 eval=0 last=30\nitem=2 pass=2 fail=0 captured=44 live=44 eval=0 last=32\n",
+      "stderr": "kirimasim: info: kirimasim 0.0.0 (commit 7654825d11bf) seed=0 args: <kirimasim-tests>/tests/gen/ch16/test_gen_cross_deferdis_assertion_cover_even_inverse_after_variable_stable.sv\n../../../../../../..<kirimasim-tests>/tests/gen/ch16/test_gen_cross_deferdis_assertion_cover_even_inverse_after_variable_stable.sv:96: $finish at 33 ns\nkirimasim: info: finish at 33 ns\n"
+    }
+  ]
+}

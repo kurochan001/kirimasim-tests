@@ -837,3 +837,21 @@ kirimasim `786c94bbeafb`は26 pass・新規5 failで、5件はすべて待機報
 全出力の再実行では、対象以外の出力と対象の引数評価回数は一致し、取消すべき対象報告だけが残りました。
 正常対照4件はPASS、追加の対象報告なしcover対照は取消し成功の証拠には数えません。内部原因は未確認です。
 期待値は保持します。[設計と実行出力](interaction-verification.md#deferred-disable-reports)を参照してください。
+
+## 2026-11-03：clocking入力と名前付きイベントの通知
+
+第14×15章の選択24件は既知値と通知前から待機しているプロセスを使います。固定Verilator 5.052（seed 1/73）はブロッキング通知12件に一致します。`->>`の12件ではbridge回数と採取値は一致しますが、待機者が起床しません。元のSVと規格由来の期待値は保持し、固定oracleを登録しない既知の出力差として扱います。固定Icarus 13.0は24件ともビルド拒否です。最新kirimasim `f3ea0379a7e5`は`#1step`の12件がPASS、`#0`の12件は入力skew未対応です。部分的成功だけでモデル全体の検証完了とはしません。[範囲・対照・全出力の再実行](interaction-verification.md#clocking-named-event)を参照してください。
+
+<a id="deferred-argument-capture-2026-11-03"></a>
+
+## 2026-11-03：遅延報告の値渡しと静的参照
+
+第13×16章の`deferred_argument_capture@1`は29件です。固定Verilator 5.052のseed 1/73は各29 known・0 passで、
+共通期待値を変更せず、固定oracleを登録していません。function/task×observed/finalの原ケース4件の
+[全出力再実行](../coverage/interaction-qualification/deferarg-fixed-replays.json)では、引数評価の副作用は発生していますが、
+ready=0と更新前の生値を報告しています。producerとNBAの更新後に報告する規格由来の期待値との差です。
+内部実装の原因は未確認です。この刺激ではReactiveとPostponedの相対順序は識別しません。
+既知差の再実行を正常対照・故障検出として数えません。
+固定Icarus 13.0は29件ともコンパイル拒否です。
+kirimasim `7654825d`＋保持中の未コミット修正は追加29件すべてPASSで、本体の追加変更はありません。
+[設計・独立検算・実行記録](interaction-verification.md#deferred-argument-capture)を参照してください。

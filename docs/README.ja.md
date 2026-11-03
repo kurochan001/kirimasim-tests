@@ -20,6 +20,7 @@
 | 規格要求のカバレッジを管理する | [日本語](../coverage/README.md) | [English](../coverage/README.en.md) |
 | 機能間クロス検証の補助証跡 | [日本語](../coverage/interaction-qualification/README.md) | [English](../coverage/interaction-qualification/README.en.md) |
 | 章間クロス検証マトリクス | [日本語](chapter-cross-matrix.md) | [English](chapter-cross-matrix.en.md) |
+| クロス検証の不一致対応と次の優先順位 | [日本語](cross-verification-followup.md) | [English](cross-verification-followup.en.md) |
 | kirimasim-testsのFAQ | [日本語](faq.md) | [English](faq.en.md) |
 | kirimasim-testsの用語集 | [日本語](glossary.md) | [English](glossary.en.md) |
 | 機能間クロス検証の考え方と実践手順 | [日本語](interaction-verification-method.md) | [English](interaction-verification-method.en.md) |

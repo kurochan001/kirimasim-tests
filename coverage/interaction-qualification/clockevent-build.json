@@ -1,0 +1,146 @@
+{
+  "model": "clocking_named_event",
+  "generated_at": "2026-11-03T02:02:57.747362+00:00",
+  "commit": "f3ea0379a7e567a46b961f8d05e8b847e8117e6e",
+  "version": "kirimasim 0.0.0 (commit f3ea0379a7e5), built with AppleClang 21.0.0.21000401",
+  "binary_sha256": "857186a3ffec0720825dbf1ee3b8d2993816d65bfcef8d0d967a45bd31f0c707",
+  "binary_unchanged": true,
+  "source_clean": true,
+  "latest_main_fetched_before_build": true,
+  "run": "coverage/interaction-results/cross75-kirimasim-f3ea0379.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2245,
+    "unsupported": 529,
+    "fail": 11
+  },
+  "new_cases": {
+    "pass": 12,
+    "unsupported": 12
+  },
+  "previous_cases": 2761,
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": {
+    "tests/gen/ch14/test_gen_cross_clockevent_129_step_posedge_blocking_blocking_1.sv": {
+      "inputs_sha256": "0a917142ccc7680940d05ffbc2721a201b3ca2683cb2518acef71b348dc171ef",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_129_step_posedge_blocking_nba_1.sv": {
+      "inputs_sha256": "437eab4f878b6aa48cb2e56c9523601fc749b40e0f02a681fc9ac2decd91fc1d",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_129_zero_negedge_nba_nba_2.sv": {
+      "inputs_sha256": "a74e8e3ca22b3984bf80faee725e0a39880d167c2118328bd575e8bc66fb0a33",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_129_zero_posedge_blocking_blocking_1.sv": {
+      "inputs_sha256": "e5c720711f4043b6638cb6b2eacd4c5f880ccf985044a157690f069ec7af50b8",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_1_step_negedge_nba_nba_2.sv": {
+      "inputs_sha256": "7888babd961bf866d65309114a855b0b39e2ab815f21da671ba032b3aadd9ce6",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_1_step_posedge_blocking_blocking_1.sv": {
+      "inputs_sha256": "1ad5dbd5339c8d53eed0162e9aaf4bbc76537cfc05407d03cbc30bf9268eb0e5",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_1_zero_negedge_blocking_blocking_2.sv": {
+      "inputs_sha256": "87344a2e8eaf875bda797cd24a206e6a7bc4fcb36a39058609e9db04c67fee57",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_1_zero_posedge_blocking_nba_1.sv": {
+      "inputs_sha256": "12529d2b4212aa80eb35e594304bdeb901ce3971ea964a9c2279c1dc34662c67",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_32_step_negedge_blocking_nba_1.sv": {
+      "inputs_sha256": "447295d5a53d29b39cdb6806a0d1c0ce46b50945af00f82566dccee02bed814b",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_32_step_posedge_blocking_blocking_1.sv": {
+      "inputs_sha256": "7827a14804627cac6b60a281962a43d50c6fd4f26f555dbac790848e5f7ad110",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_32_zero_posedge_blocking_nba_1.sv": {
+      "inputs_sha256": "9693dbdeee64e0c226acb6cf9c7eeeb8dc7887285e980710638b38c3eca41141",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_32_zero_posedge_nba_blocking_2.sv": {
+      "inputs_sha256": "58cc10f55e2189e45c799111a856be597ced95be48ea2e1ff83e1f1ad8747a99",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_33_step_negedge_nba_blocking_1.sv": {
+      "inputs_sha256": "cc545e861c8294eb21626762ecf480ff4c056c6123c1e41173873f1ac4970e76",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_33_step_posedge_blocking_nba_2.sv": {
+      "inputs_sha256": "d58900d1a786b680bd1f0afe65979576e9f7139f03edb11de8386e94f9906d97",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_33_zero_posedge_blocking_blocking_1.sv": {
+      "inputs_sha256": "9649ad4867b528770e1696f2463be724c31e61b98aba1baa8a7d3d947f2a8e46",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_33_zero_posedge_blocking_nba_1.sv": {
+      "inputs_sha256": "a1d82a566438646cac4460a3510538337e1f610370c45b2aba91e7ca49895d58",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_64_step_negedge_blocking_nba_1.sv": {
+      "inputs_sha256": "d2dd19ebdebf13530fde377219b21e8d609052fe02176450de832d4aebe01bf6",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_64_step_posedge_nba_blocking_1.sv": {
+      "inputs_sha256": "96e5692a954a7c7855fe71d4828f0397e4f57e2f5522c72bdb11edc823ae9b4a",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_64_zero_posedge_blocking_blocking_2.sv": {
+      "inputs_sha256": "bf652792e16f1401360d55d1846cdeaf42a7552d4605aab8671681eaf0f0d5e9",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_64_zero_posedge_blocking_nba_1.sv": {
+      "inputs_sha256": "96b7a76fe2021d5a88e1882dee421e2c8764967cd18efa417a2a68f0be8f1372",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_65_step_negedge_nba_blocking_1.sv": {
+      "inputs_sha256": "8b6d1d9ecb763052becaed47328e48dfedc2cb6020c1e5de8beb2fb3d3804d82",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_65_step_posedge_blocking_nba_1.sv": {
+      "inputs_sha256": "e75a4eee6915db95312c1f4cfbceb9bbcc4d56b4b3c69e6cf2a0c8fd6248e0f3",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_65_zero_posedge_blocking_blocking_1.sv": {
+      "inputs_sha256": "3f119e34c224d6cb6c0f076e897f14687964995229fa0d1d684110732cdece8f",
+      "returncode": 0,
+      "stderr": ""
+    },
+    "tests/gen/ch14/test_gen_cross_clockevent_65_zero_posedge_blocking_nba_2.sv": {
+      "inputs_sha256": "e738ad45ea9cc1496dc976e99193f891aa6b3c61d8deb7fd961ae278253f4209",
+      "returncode": 0,
+      "stderr": ""
+    }
+  }
+}

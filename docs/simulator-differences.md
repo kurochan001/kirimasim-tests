@@ -838,3 +838,20 @@ kirimasim `786c94bbeafb` records 26 pass and five new failures, all on nonempty 
 Separate complete-output replays preserve all non-target output and target input-evaluation counts while the cancelled target report remains.
 Four normal controls pass; an additional empty-target-report cover control is not cancellation evidence. The internal cause is unconfirmed.
 Expectations are retained. See [design and raw outputs](interaction-verification.en.md#deferred-disable-reports).
+
+## 2026-11-03: clocking inputs and named-event notifications
+
+The 24 selected Chapter 14×15 cases use known data and already armed event waiters. Fixed Verilator 5.052 (seeds 1 and 73) matches the 12 blocking-notification cases. In the 12 `->>` cases, the bridge count and clocking sample match but the listeners do not wake. The original SV and specification-derived expectations are retained; these are known output differences, without fixed oracle registration. Fixed Icarus 13.0 rejects all 24 builds. Latest kirimasim `f3ea0379a7e5` passes the 12 `#1step` cases and reports unsupported input skew for the 12 `#0` cases. These partial results do not establish complete model coverage. See [scope, controls and complete-output replays](interaction-verification.en.md#clocking-named-event).
+
+<a id="deferred-argument-capture-2026-11-03"></a>
+
+## 2026-11-03: deferred report inputs and static references
+
+Chapters 13×16 add 29 cases in `deferred_argument_capture@1`. Fixed Verilator 5.052 seeds 1/73 each record 29 known and zero pass results.
+Common expectations remain unchanged and no fixed oracle is registered. [Complete-output replays](../coverage/interaction-qualification/deferarg-fixed-replays.json)
+of four original cases, one per function/task×observed/final pair, show input-evaluation side effects but report ready=0 and pre-update live data.
+This differs from the standard-derived expectation of reporting after producer and NBA updates.
+The internal implementation cause is unconfirmed. This stimulus does not distinguish Reactive versus Postponed relative ordering.
+Known replays are not counted as passing controls or detected faults.
+Fixed Icarus 13.0 rejects all 29 builds. Kirimasim `7654825d` with the preserved uncommitted repairs passes all 29 additions;
+this addition changes no core code. See [design, independent checks and execution records](interaction-verification.en.md#deferred-argument-capture).

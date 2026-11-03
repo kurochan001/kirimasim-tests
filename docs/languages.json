@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "b50b5b60281a06a74896088d8f1f10cf3e46989fc8d83a6b810efa3dbfed1dda",
-        "ja": "9e9c199c4ba8910b1af0344cb63bd68b526348a1af76f3043a5e9b78d2188f00"
+        "en": "7c3768705b5fe369a62eeb427444c018d1c464091b9dc24fe2b20bffa6b3f9b5",
+        "ja": "7587cdf43d924dad169c17144e1bc369fc627dd3f83e683f409dead5b15e4560"
       }
     },
     {
@@ -74,8 +74,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "8479d8e3d664114dd363e2ac3dc5b7ad180ee9aa41e1e522c3a46e4a4668ebe2",
-        "ja": "2ff159a8bfc92ed6983611067cff35f5da0190edc1405fe5f9d60398a906e38c"
+        "en": "0ed519e961c696c3a1065269a3678ede01b3d9877d1105139c9d6f7fbefeb94b",
+        "ja": "83c9aac93f9624f3f550fe0b45b1a03ee46d68fc231eaf317c49aaa9f798fc66"
       }
     },
     {
@@ -167,6 +167,17 @@
       "sha256": {
         "en": "6651057ce292287e0e06a96f7abb88fd5078c253cf34cba0c7b9437a8aa3a5ea",
         "ja": "611f82da06ee0087b9747f44aa5c3adbda9d748ace51bd5f8dbab926383c27b0"
+      }
+    },
+    {
+      "en": "docs/cross-verification-followup.en.md",
+      "ja": "docs/cross-verification-followup.md",
+      "source": "docs/cross-verification-followup.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "0861d2e4ec071f56391beab4afb5360abda16a1948e0ffd4179ea7817fbf5d8f",
+        "ja": "ef0fde5a5315610856dfd0625d42cbb25a9c725ac2ec0beff44b840b7ce251d2"
       }
     },
     {
@@ -443,8 +454,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "6746eb10f759d1291c7f5ede08588242b53d8c01f27ed96b4db04d101738769f",
-        "ja": "ee3434f8a2502688b6a33c4eed76e8e5449aa3d60db6937dbe45a7e12ef29481"
+        "en": "2a88b4cf213dbf3d83364325f9f9da048bf4ccedf522e924b5d23a30fec74231",
+        "ja": "82bf9694247f34948fcb310db103cc5358edaa15b4cfabd4e1a82f62547eb3fc"
       }
     },
     {
@@ -626,8 +637,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "eae3746c77e9635a305f30bf305ba4589f9064f5f58314c7725551f0040c4f8b",
-        "ja": "da7ab0b836819f8d72ea1d8b8e5b72518f90d651426daa2fe037b66520d9c394"
+        "en": "13522c9bc3373a0ef444da58aebf8aba5a8380f7766b9964ed26c67d7905ce6b",
+        "ja": "6d422cc17ffe211bbeedb63d42edb96ab965cfe876619133eccfb0ae92318652"
       }
     },
     {

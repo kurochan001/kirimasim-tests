@@ -1,0 +1,19 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.0.0 (commit 26a3e5a3656a), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch4/test_sched_deferred_action_arguments": {
+   "status": "pass",
+   "inputs_sha256": "40f25e51ae9cb1a567e5e5b9bbf0d7c754cbaa7cbec7b2382b12a6e5d3753484"
+  },
+  "gen/ch16/test_gen_cross_deferdis_task_assert_even_alternating_after_function_stable": {
+   "status": "pass",
+   "inputs_sha256": "9f154a881e0d10fbd228bef4b56eebe7bd2486374d056bf886b66544ad0de0e1"
+  }
+ },
+ "generated_at": "2026-11-03T02:47:42.487777+00:00",
+ "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+ "runner_changed": false,
+ "configuration": {}
+}

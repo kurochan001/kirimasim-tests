@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の83生成器から4,074件のテストを生成しています。
+現在の85生成器から4,127件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -28,6 +28,7 @@
 | [`interaction_class_array`](../generators/interaction_class_array.py) | 8 | 18 | クラスの浅いコピーとハンドル代入を対照に、配列領域の独立性と要素ハンドルの参照先の共有を照合する。元/コピーからの要素置換・拡大/縮小、保存ハンドルの存続、コンストラクタ回数と別guardの保持を確認する。 |
 | [`interaction_class_method`](../generators/interaction_class_method.py) | 8 | 36 | 2個の派生インスタンスをA/B/A順に呼び、virtual/非virtualの実行本体と所有者、再帰の入口・出口の仮引数とプロパティ、戻り値・カウンタ・ガードを観測する。inputのフレーム別コピーとref/const refの同一実体への参照、2状態変換を確認する。 |
 | [`interaction_clockassert`](../generators/interaction_clockassert.py) | 16 | 18 | 既定/明示の#1step clocking入力を、そのイベントと後続の別クロックのアサーションで観測する。更新の前後とblocking/NBA、独立したエッジ極性を組み合わせ、sampled値・Reactiveの生信号・判定回数を分けて照合し、別クロックでの誤った再サンプリングを検出する。 |
+| [`interaction_clockevent`](../generators/interaction_clockevent.py) | 14 | 24 | clocking入力から名前付きイベントで待機者へ通知し、受信直後と生信号変更後の採取値・生値を照合する。入力skew・エッジ・更新方式・通知方式・待機者数・幅を交差し、別イベントによる誤起床と反復時の再待機も観測する。 |
 | [`interaction_clockiff`](../generators/interaction_clockiff.py) | 14 | 12 | iffで選別したclocking eventとrawエッジを別計数し、通過時の採取と不通過時のサンプル保持を照合する。ガードだけの前後の変更、33ビットの上位1、入力skew・更新方式を交差し、cbと観測器の値を比較する。 |
 | [`interaction_clocking`](../generators/interaction_clocking.py) | 14 | 36 | 3組の背景値でクロック前の値と更新後の値、cbでのサンプルとライブ値、起床回数を観測し、#1step/#0、blocking/NBA、状態型、クロック方向とlocal/interface/virtual modportの参照経路の相互作用を確認する。X/Z行にも既知値の対照を保持する。 |
 | [`interaction_compare`](../generators/interaction_compare.py) | 11 | 100 | 4組の入力で幅・符号の統一、未知値と既知の不一致、右辺だけのワイルドカードを確認し、1ビットの比較結果を広いlogic/bitへ直接代入して変換順序を観測する。 |
@@ -37,6 +38,7 @@
 | [`interaction_config`](../generators/interaction_config.py) | 33 | 41 | configの設定・Wだけのリセット・全パラメータのリセットを、既定値・インスタンス指定・defparamと比較する。通常階層の親パラメータとconfig localparamの隠蔽、生成した幅・個数・if/case分岐、対象外の兄弟を観測する。 |
 | [`interaction_constraint`](../generators/interaction_constraint.py) | 18 | 13 | 基底/派生ハンドルから3階層の継承制約を解き、同名の置換・別名の追加とpure/externの完了を照合する。一意解と矛盾を交互に与え、初回失敗時の初期値・成功後の値の保持と、別オブジェクトの独立した成功を確認する。 |
 | [`interaction_default`](../generators/interaction_default.py) | 13 | 36 | A/B/Aの階層呼出しで既定値の元を毎回変え、両仮引数・戻り値と宣言側/呼出し元の関数評価回数を観測する。省略・空欄・名前付き・明示0での評価抑止、呼出し時の宣言スコープへの束縛、型変換とmodule/interfaceの各インスタンスの独立性を確認する。 |
+| [`interaction_deferarg`](../generators/interaction_deferarg.py) | 13 | 29 | 遅延報告の値渡しと静的な参照渡しを、登録時の取得値・報告時の生値・幅変換と照合する。関数とタスク、報告領域、更新方式、幅と符号を交差し、引数評価の副作用と実行時刻も観測する。 |
 | [`interaction_deferdis`](../generators/interaction_deferdis.py) | 16 | 31 | disable対象のスコープと未成熟の遅延報告を、兄弟・別プロセスの対照、引数取得と副作用、報告時の生値・通常の制御移動・報告済み履歴の保持と照合する。 |
 | [`interaction_delay`](../generators/interaction_delay.py) | 10 | 63 | 幅1のスカラと幅2以上のベクタで1/2/3個の遅延を使い、短パルスの除去と予約の取消しを観測する。bit/logic格納と反転後の値、X/Zの遅延選択、全体値の更新時刻・回数・最終変化時刻を毎tick照合する。 |
 | [`interaction_dist`](../generators/interaction_dist.py) | 18 | 31 | 演算子の優先順位と括弧、幅・符号、distの重みと重複項目を照合する。候補値から解を一意にし、全重みゼロによる失敗時の値保持を、毎回成功する別実体と比較する。 |
