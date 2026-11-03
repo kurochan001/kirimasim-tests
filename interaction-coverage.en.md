@@ -6,7 +6,7 @@
 
 This report is only for registered finite models. The coverage of the requirements and the combination of all languages is not the same. The coverage on the plan and the confirmation of the pass based on the execution result are divided. The existing test is not reduced. A reduction in selected case count is not a measured reduction in runtime.
 
-For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/0afc89659c16a22f88c82816358e305de3f34d93/docs/interaction-verification.en.md).
+For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/9064ac95375dae023c6128b1ef30ac464715009c/docs/interaction-verification.en.md).
 
 ## scheduling_visibility / model 1
 
@@ -1135,6 +1135,47 @@ Pass class handles through typed/typeless mailboxes and check FIFO, get/peek, ca
 
 Constraints: All 3456 lines are valid. Only handles of the same packet type are sent, and type mismatch is excluded. The full/empty verification is done by a non-blocking method, and get/peek is called after storage. The 1 process is a sequential operation, and the order of selection of waiting processes and concurrent execution competitions are excluded. The typeless, 4 state, and null are not excluded for non-support.
 
+## distribution_expression_binding / model 1
+
+- The number of combinations satisfying the constraint is 972.
+- Existing and new tests available: 31.
+- Short run options: 31.
+- The case must be kept separate: 8.
+- The plan of the factor 2: 154/154.
+- The plan of the factor 3: 81/81.
+
+Compare operator precedence and parentheses, widths and signedness, and dist weights and overlapping items. Make the candidate solution unique and compare value retention after all-zero-weight failure against a separate instance that always succeeds.
+
+- width: 4, 8, 33。
+- sign: unsigned, signed。
+- operation: add_shift, add_mul, add_rel。
+- grouping: implicit, whole, altered。
+- weight: each, total。
+- layout: singleton, zero, overlap。
+- sequence: sat_only, sat_fail_sat, fail_sat_fail。
+
+Constraints: All 972 lines are valid. Define two or three candidate values per width so positive weights leave exactly one solution. Compare default arithmetic/shift/comparison precedence, whole-expression parentheses and parentheses that change grouping. Check singleton items, zero-weight alternatives, and overlap between a zero item and a positive singleton range. Set every weight to zero to make constraints infeasible and observe retention of initial values or the previous solution after failure. A separate object is a control that succeeds every time. Probability ratios and matching random sequences are not required. Separate repeated success from both orders of alternating success and failure. X/Z, real values, randc, default distributions, inheritance, callbacks and concurrent randomize are outside scope. No exclusions for unsupported behavior.
+
+## generate_default_disable / model 1
+
+- The number of combinations satisfying the constraint is 216.
+- Existing and new tests available: 18.
+- Short run options: 18.
+- The case must be kept separate: 4.
+- The plan of the factor 2: 93/93.
+- The plan of the factor 3: 60/60.
+
+Compare default disable iff inheritance, override, name resolution and declaration placement inside generate scopes, including explicit conditions and cancellation by zero. Disable two instances independently before launch, between clocks or by NBA at the final clock, comparing disable effects and success/failure counts with controls.
+
+- form: if, case, loop。
+- default: inherit, override。
+- shadow: absent, present。
+- mode: default, zero, explicit。
+- timing: at_start, between, at_end。
+- order: before, after。
+
+Constraints: All 216 lines are valid. Compare inherited parent defaults, outer-generate overrides, inner same-name signals, explicit disable conditions and cancellation by zero in child scopes of two generate instances. Each row has 7 phases covering no disable, parent conditions, each instance's local and explicit conditions, and a successful completion. Distinguish conditions before launch, pulses only between clock ticks, and NBA updates on the final clock. Count vacuous passes too; disabled attempts count as neither successes nor failures. X/Z, multiple clocks, nested module declarations, interface/program, explicit disable inside a property, and assertion control are outside scope. No exclusions for unsupported behavior.
+
 ## array_reduction_constraint / model 1
 
 - The number of combinations satisfying the constraint is 192.
@@ -1339,6 +1380,157 @@ Combine DPI input/output/inout, scheduling the NBA before or after the call, and
 
 Constraints: All 144 lines are valid. Use only statically allocated elements of a fixed-size array. Pass known values to the DPI int formal and observe input width/sign conversion and copyback immediately after return. Order NBA scheduling and the DPI call in one process, then change the indices, right-hand side inputs and original element after scheduling. Do not read the initial value of an output argument. X/Z, open arrays, reentry from C into SV, time-consuming DPI tasks and competing processes are outside this model. No exclusions for unsupported behavior.
 
+## aggregate_event_lifetime / model 1
+
+- The number of combinations satisfying the constraint is 432.
+- Existing and new tests available: 18.
+- Short run options: 18.
+- The case must be kept separate: 6.
+- The plan of the factor 2: 123/123.
+- The plan of the factor 3: 54/54.
+
+Compare aggregate event identity after automatic task return, alias release and delayed registration with independent calls, copied payloads and wake times.
+
+- storage: scalar, struct, nested。
+- capture: direct, copy。
+- calls: 1, 2, 3。
+- release: before_arm, after_arm, after_wake。
+- trigger: blocking, nba。
+- order: forward, reverse。
+- listeners: 1, 2。
+
+Constraints: All 432 lines are valid. Each automatic task owns a fresh event and payload; children wait 2 ticks after the owner returns. Scalar storage is a control; flat and nested structs distinguish member access from whole-structure copying. After copying, rebind the original event to noise and change its payload. Clear the caller alias to null before registration, after registration or after wakeup, while retaining a trigger alias until all wakeups finish. Place registration, release, triggers and observations in separate ticks. Null waits, triggered, GC timing, physical memory reclamation, delayed nonblocking triggers and ref arguments are outside scope. No exclusions for unsupported behavior.
+
+## sv_dpi_array_queries / model 1
+
+- The number of combinations satisfying the constraint is 1152.
+- Existing and new tests available: 19.
+- Short run options: 19.
+- The case must be kept separate: 7.
+- The plan of the factor 2: 177/177.
+- The plan of the factor 3: 66/66.
+
+Compare SV/DPI-C queries of the same actual through dimension mapping, normalized packed ranges, each dimension range and increment, and shape refresh on every call.
+
+- rank: 1, 2, 3。
+- bounds: up, down, mixed。
+- origin: neg, pos。
+- extent: one, varied。
+- width: 4, 33。
+- formal: sized, open。
+- packed: normal, offset。
+- calls: same, switch。
+- query: literal, variable。
+
+Constraints: All 1152 lines are valid. Use 1/2/3 fixed unpacked dimensions and a packed dimension of bit; query the same actual through SV and DPI-C. Distinguish normalized and offset ranges of the packed actual. C dimension 0 is the normalized packed range; positive dimensions retain the actual unpacked ranges. The switch case changes actual arguments and ranges; only open packed also changes width between 4 and 33. Sized packed keeps its width. Singleton increment is 1 regardless of direction. Dynamic, queue or empty arrays, X/Z, element values or copyback, sized unpacked, invalid dimensions, C callbacks and retained handles are outside scope. No exclusions for unsupported behavior.
+
+## sdf_conditional_paths / model 1
+
+- The number of combinations satisfying the constraint is 288.
+- Existing and new tests available: 18.
+- Short run options: 18.
+- The case must be kept separate: 7.
+- The plan of the factor 2: 109/109.
+- The plan of the factor 3: 46/46.
+
+Compare SDF conditions, annotation scope, replacement/addition and rise/fall delays. Use sibling instances and separate outputs as controls; observe values, change counts and last-change times.
+
+- path: plain, cond, else。
+- mode: absolute, increment。
+- profile: balanced, rise, fall。
+- scope: cell, parent。
+- target: v, g。
+- first: high, low。
+- guard: same, opposite。
+
+Constraints: All 288 lines are valid. Annotate IOPATH/COND/CONDELSE 1 time using one SDF file. ABSOLUTE replaces the delay; INCREMENT adds to the default rise/fall delay. Select only one of 2 instances; the other instance and a separate output of each are controls. Change selects 2 ticks before the input transition. All delays are positive even numbers up to 14; input transitions are 20 ticks apart and observations occur 1/3/5/7/9/11/13/15 ticks after each transition. Short pulses, X/Z, edge-qualified paths, equivalent condition expressions, repeated annotations, min/typ/max, timescale conversion, INTERCONNECT and TIMINGCHECK are outside scope. No exclusions for unsupported behavior.
+
+## checker_assertion_sampling / model 1
+
+- The number of combinations satisfying the constraint is 1296.
+- Existing and new tests available: 27.
+- Short run options: 27.
+- The case must be kept separate: 6.
+- The plan of the factor 2: 174/174.
+- The plan of the factor 3: 63/63.
+
+Compare checker and module reference decisions, sampled values, Reactive values and execution times. Vary connection forms and placement; observe independence of 2 instances and output-argument propagation.
+
+- width: 1, 8, 33。
+- home: module, interface。
+- connection: positional, named, wildcard。
+- timing: before, edge, after。
+- update: blocking, nba。
+- edge: posedge, negedge。
+- clocking: explicit, default。
+- predicate: nonzero, zero, parity。
+
+Constraints: All 1296 lines are valid. Place static checkers in 2 module/interface instances and pass the same actuals to separate module reference assertions. Observe only checker output arguments; do not use hierarchical references into checker internals. The 2 clocks occur at 8/12 within each period; update data 2 ticks before, on the clock or 2 ticks after, then observe at 16. Use 6 known-data periods and a complementary second instance. Compare Preponed samples and Reactive action observations. X/Z, procedural checkers, bind, checker procedures, free variables, output NBA, disable iff, multicycle properties, history functions and programs are outside scope. No exclusions for unsupported behavior.
+
+## program_assertion_attempts / model 1
+
+- The number of combinations satisfying the constraint is 648.
+- Existing and new tests available: 27.
+- Short run options: 27.
+- The case must be kept separate: 6.
+- The plan of the factor 2: 138/138.
+- The plan of the factor 3: 75/75.
+
+Compare each program and module-reference clock attempt using plain predicates and overlapped/nonoverlapped implication. Distinguish vacuous successes from pending attempts, observing decision counts and completion-time sampled-value sums through output arguments.
+
+- width: 1, 8, 33。
+- property: plain, overlap, next。
+- timing: before, edge, after。
+- update: blocking, nba。
+- edge: posedge, negedge。
+- connection: positional, named, wildcard。
+- ticks: 3, 5。
+
+Constraints: All 648 lines are valid. Pass the same inputs to 2 instances each of a program and module reference. Programs have no initial procedures and are never entered through external hierarchical references. Clocks occur at 8/12 in each 20-tick period; inputs update 2 ticks before, on, or 2 ticks after the clock. For plain predicates and overlapped/nonoverlapped implication, compare pass/fail counts including vacuous successes and sums of action-time sampled values at tick 16. Do not count a final next-cycle attempt before it completes. X/Z, disable iff, history functions, program procedures and termination, clocking blocks, checkers, bind, multiclock properties and action controls are outside scope. No exclusions for unsupported behavior.
+
+## container_coverage_sampling / model 1
+
+- The number of combinations satisfying the constraint is 1056.
+- Existing and new tests available: 33.
+- Short run options: 33.
+- The case must be kept separate: 6.
+- The plan of the factor 2: 172/172.
+- The plan of the factor 3: 79/79.
+
+Sample size and first/last values around array/queue changes; compare live/argument binding, empty guards, hit thresholds and separate target/control bin histories.
+
+- container: fixed, dynamic, queue。
+- operation: overwrite, reverse, replace, clear。
+- sampling: before, after, both。
+- binding: live, arguments。
+- position: first, last。
+- threshold: 1, 2。
+- guard: all, nonempty。
+- length: 1, 3。
+
+Constraints: Of 1152 rows, excluding 96 fixed-array clear rows leaves 1056 legal rows. Containers hold known int elements indexed from 0, with initial length 1/3. After a whole-container copy to a same-type control, update only the target through 3 stages. Sample 2 times before, after or on both sides of each change; observe size, first/last value and individual coverpoint percentages after each call. Use -1 for an empty container value without reading an element. The nonempty guard suppresses only empty samples. Compare live references and sample arguments, including at_least 1/2. Fixed-array length and reversal at length 1 are unchanged controls. X/Z, concurrent updates, event-driven sampling, cross bins, type aggregation, ref arguments to get_inst_coverage, start/stop, automatic bins and default/ignore/illegal bins are outside scope. No exclusions for unsupported behavior.
+
+## deferred_disable_reports / model 1
+
+- The number of combinations satisfying the constraint is 720.
+- Existing and new tests available: 31.
+- Short run options: 31.
+- The case must be kept separate: 10.
+- The plan of the factor 2: 151/151.
+- The plan of the factor 3: 92/92.
+
+Compare disable scope and immature deferred reports with sibling/separate-process controls, input capture and side effects, live action data, ordinary control transfer and retained report history.
+
+- scope: none, assertion, outer, inner, task。
+- directive: assert, assume, cover。
+- cancel: odd, even。
+- predicate: alternating, inverse, positive。
+- sibling: before, after。
+- argument: variable, function。
+- payload: stable, change。
+
+Constraints: All 720 lines are valid. Use observed deferred assert/assume/cover # 0; evaluate the worker every 10 ticks and a separate-process control 2 ticks later, observing after another 1 tick. A label cancels only its target; the outermost worker scope cancels all immature reports of that process. Disabling an inner block or task does not remove reports. Disable on odd/even activations across 3 iterations, observing ordinary control transfer separately from previously reported history. Input arguments capture values on registration; argument-function side effects remain even when a report is cancelled. Read live data in the report function in Reactive. The cancel factor is an equivalent-result control for none. Final/Postponed, always_comb, flush on resumption, multiple activations in one time slot, task outputs/ref arguments, NBA, assertion controls and X/Z are outside scope. No exclusions for unsupported behavior.
+
 ## event_rebinding / model 1
 
 - The number of combinations satisfying the constraint is 648.
@@ -1368,8 +1560,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/ghost.json
 
-- Environment: private build 4d414f2efa2c.
-- Execution timestamp: 2026-11-02T14:07:17.692135+00:00.
+- Environment: private build 3499c4a8842c.
+- Execution timestamp: 2026-11-03T02:34:48.875144+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -1452,10 +1644,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 4/4.
   - Case statuses: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - array_reduction_pipeline:
-  - The confirmed combination of the 2 factor: 260/261.
-  - The confirmed combination of the 3 factor: 154/162.
-  - Mandatory case: 7/8.
-  - Case statuses: pass=69, fail=3, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 261/261.
+  - The confirmed combination of the 3 factor: 162/162.
+  - Mandatory case: 8/8.
+  - Case statuses: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - variable_bit_index:
   - The confirmed combination of the 2 factor: 253/253.
   - The confirmed combination of the 3 factor: 106/106.
@@ -1482,10 +1674,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 5/5.
   - Case statuses: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - concatenated_assignment:
-  - The confirmed combination of the 2 factor: 254/265.
-  - The confirmed combination of the 3 factor: 108/126.
+  - The confirmed combination of the 2 factor: 265/265.
+  - The confirmed combination of the 3 factor: 126/126.
   - Mandatory case: 5/5.
-  - Case statuses: pass=60, fail=12, known=0, unsupported=0, stale=0, not_run=0.
+  - Case statuses: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - packed_logical_reduction:
   - The confirmed combination of the 2 factor: 218/218.
   - The confirmed combination of the 3 factor: 142/142.
@@ -1511,25 +1703,25 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 3/3.
   - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - compound_shift_target:
-  - The confirmed combination of the 2 factor: 271/308.
-  - The confirmed combination of the 3 factor: 72/90.
-  - Mandatory case: 2/4.
-  - Case statuses: pass=33, fail=7, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 308/308.
+  - The confirmed combination of the 3 factor: 90/90.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - membership_container:
   - The confirmed combination of the 2 factor: 305/305.
   - The confirmed combination of the 3 factor: 174/174.
   - Mandatory case: 5/5.
   - Case statuses: pass=46, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - membership_range:
-  - The confirmed combination of the 2 factor: 301/303.
-  - The confirmed combination of the 3 factor: 175/178.
+  - The confirmed combination of the 2 factor: 303/303.
+  - The confirmed combination of the 3 factor: 178/178.
   - Mandatory case: 6/6.
-  - Case statuses: pass=45, fail=1, known=0, unsupported=0, stale=0, not_run=0.
+  - Case statuses: pass=46, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - case_inside_selection:
-  - The confirmed combination of the 2 factor: 306/315.
-  - The confirmed combination of the 3 factor: 128/154.
-  - Mandatory case: 6/7.
-  - Case statuses: pass=28, fail=6, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 315/315.
+  - The confirmed combination of the 3 factor: 154/154.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=34, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - clocking_input_sampling:
   - The confirmed combination of the 2 factor: 165/165.
   - The confirmed combination of the 3 factor: 72/72.
@@ -1546,10 +1738,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 6/6.
   - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - class_method_reference:
-  - The confirmed combination of the 2 factor: 172/202.
-  - The confirmed combination of the 3 factor: 65/99.
-  - Mandatory case: 3/6.
-  - Case statuses: pass=26, fail=10, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 202/202.
+  - The confirmed combination of the 3 factor: 99/99.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - function_loop_return:
   - The confirmed combination of the 2 factor: 157/161.
   - The confirmed combination of the 3 factor: 91/120.
@@ -1640,11 +1832,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 92/92.
   - Mandatory case: 9/9.
   - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- distribution_expression_binding:
+  - The confirmed combination of the 2 factor: 154/154.
+  - The confirmed combination of the 3 factor: 81/81.
+  - Mandatory case: 8/8.
+  - Case statuses: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generate_default_disable:
+  - The confirmed combination of the 2 factor: 92/93.
+  - The confirmed combination of the 3 factor: 52/60.
+  - Mandatory case: 3/4.
+  - Case statuses: pass=15, fail=3, known=0, unsupported=0, stale=0, not_run=0.
 - array_reduction_constraint:
-  - The confirmed combination of the 2 factor: 44/96.
-  - The confirmed combination of the 3 factor: 11/40.
+  - The confirmed combination of the 2 factor: 50/96.
+  - The confirmed combination of the 3 factor: 13/40.
   - Mandatory case: 1/4.
-  - Case statuses: pass=3, fail=10, known=0, unsupported=0, stale=0, not_run=0.
+  - Case statuses: pass=4, fail=9, known=0, unsupported=0, stale=0, not_run=0.
 - associative_array_queries:
   - The confirmed combination of the 2 factor: 93/93.
   - The confirmed combination of the 3 factor: 54/54.
@@ -1690,16 +1892,51 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 16/48.
   - Mandatory case: 1/4.
   - Case statuses: pass=6, fail=12, known=0, unsupported=0, stale=0, not_run=0.
-- event_rebinding:
-  - The confirmed combination of the 2 factor: 0/138.
-  - The confirmed combination of the 3 factor: 0/69.
+- aggregate_event_lifetime:
+  - The confirmed combination of the 2 factor: 0/123.
+  - The confirmed combination of the 3 factor: 0/54.
   - Mandatory case: 0/6.
-  - Case statuses: pass=0, fail=27, known=0, unsupported=0, stale=0, not_run=0.
+  - Case statuses: pass=0, fail=18, known=0, unsupported=0, stale=0, not_run=0.
+- sv_dpi_array_queries:
+  - The confirmed combination of the 2 factor: 177/177.
+  - The confirmed combination of the 3 factor: 66/66.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=19, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- sdf_conditional_paths:
+  - The confirmed combination of the 2 factor: 82/109.
+  - The confirmed combination of the 3 factor: 22/46.
+  - Mandatory case: 3/7.
+  - Case statuses: pass=6, fail=12, known=0, unsupported=0, stale=0, not_run=0.
+- checker_assertion_sampling:
+  - The confirmed combination of the 2 factor: 120/174.
+  - The confirmed combination of the 3 factor: 30/63.
+  - Mandatory case: 1/6.
+  - Case statuses: pass=17, fail=10, known=0, unsupported=0, stale=0, not_run=0.
+- program_assertion_attempts:
+  - The confirmed combination of the 2 factor: 129/138.
+  - The confirmed combination of the 3 factor: 54/75.
+  - Mandatory case: 4/6.
+  - Case statuses: pass=21, fail=6, known=0, unsupported=0, stale=0, not_run=0.
+- container_coverage_sampling:
+  - The confirmed combination of the 2 factor: 172/172.
+  - The confirmed combination of the 3 factor: 79/79.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=33, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- deferred_disable_reports:
+  - The confirmed combination of the 2 factor: 137/151.
+  - The confirmed combination of the 3 factor: 76/92.
+  - Mandatory case: 8/10.
+  - Case statuses: pass=25, fail=6, known=0, unsupported=0, stale=0, not_run=0.
+- event_rebinding:
+  - The confirmed combination of the 2 factor: 138/138.
+  - The confirmed combination of the 3 factor: 69/69.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 
 ### results/icarus.json
 
 - Environment: Icarus Verilog version 14.0 (devel) (s20260301-802-g61dbc3c2).
-- Execution timestamp: 2026-11-02T13:43:50.902943+00:00.
+- Execution timestamp: 2026-11-03T02:05:08.151585+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -1970,6 +2207,16 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/92.
   - Mandatory case: 0/9.
   - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- distribution_expression_binding:
+  - The confirmed combination of the 2 factor: 0/154.
+  - The confirmed combination of the 3 factor: 0/81.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=31, unsupported=0, stale=0, not_run=0.
+- generate_default_disable:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/60.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
 - array_reduction_constraint:
   - The confirmed combination of the 2 factor: 0/96.
   - The confirmed combination of the 3 factor: 0/40.
@@ -2020,6 +2267,41 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/48.
   - Mandatory case: 0/4.
   - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- aggregate_event_lifetime:
+  - The confirmed combination of the 2 factor: 0/123.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- sv_dpi_array_queries:
+  - The confirmed combination of the 2 factor: 0/177.
+  - The confirmed combination of the 3 factor: 0/66.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=19, unsupported=0, stale=0, not_run=0.
+- sdf_conditional_paths:
+  - The confirmed combination of the 2 factor: 51/109.
+  - The confirmed combination of the 3 factor: 11/46.
+  - Mandatory case: 3/7.
+  - Case statuses: pass=3, fail=0, known=15, unsupported=0, stale=0, not_run=0.
+- checker_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/174.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=27, unsupported=0, stale=0, not_run=0.
+- program_assertion_attempts:
+  - The confirmed combination of the 2 factor: 0/138.
+  - The confirmed combination of the 3 factor: 0/75.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=27, unsupported=0, stale=0, not_run=0.
+- container_coverage_sampling:
+  - The confirmed combination of the 2 factor: 0/172.
+  - The confirmed combination of the 3 factor: 0/79.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=33, unsupported=0, stale=0, not_run=0.
+- deferred_disable_reports:
+  - The confirmed combination of the 2 factor: 0/151.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/10.
+  - Case statuses: pass=0, fail=0, known=31, unsupported=0, stale=0, not_run=0.
 - event_rebinding:
   - The confirmed combination of the 2 factor: 0/138.
   - The confirmed combination of the 3 factor: 0/69.
@@ -2028,8 +2310,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/kirimasim.json
 
-- Environment: kirimasim 0.0.0 (commit 2edfebbc6270), built with GNU 13.3.0.
-- Execution timestamp: 2026-11-02T13:52:52.499974+00:00.
+- Environment: kirimasim 0.0.0 (commit f3ea0379a7e5), built with GNU 13.3.0.
+- Execution timestamp: 2026-11-03T02:04:59.304717+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2300,6 +2582,16 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/92.
   - Mandatory case: 0/9.
   - Case statuses: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0.
+- distribution_expression_binding:
+  - The confirmed combination of the 2 factor: 0/154.
+  - The confirmed combination of the 3 factor: 0/81.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=31, stale=0, not_run=0.
+- generate_default_disable:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/60.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0.
 - array_reduction_constraint:
   - The confirmed combination of the 2 factor: 0/96.
   - The confirmed combination of the 3 factor: 0/40.
@@ -2350,6 +2642,41 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/48.
   - Mandatory case: 0/4.
   - Case statuses: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0.
+- aggregate_event_lifetime:
+  - The confirmed combination of the 2 factor: 0/123.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0.
+- sv_dpi_array_queries:
+  - The confirmed combination of the 2 factor: 0/177.
+  - The confirmed combination of the 3 factor: 0/66.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=19, stale=0, not_run=0.
+- sdf_conditional_paths:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/46.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0.
+- checker_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/174.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0.
+- program_assertion_attempts:
+  - The confirmed combination of the 2 factor: 0/138.
+  - The confirmed combination of the 3 factor: 0/75.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0.
+- container_coverage_sampling:
+  - The confirmed combination of the 2 factor: 0/172.
+  - The confirmed combination of the 3 factor: 0/79.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=33, stale=0, not_run=0.
+- deferred_disable_reports:
+  - The confirmed combination of the 2 factor: 143/151.
+  - The confirmed combination of the 3 factor: 78/92.
+  - Mandatory case: 9/10.
+  - Case statuses: pass=26, fail=5, known=0, unsupported=0, stale=0, not_run=0.
 - event_rebinding:
   - The confirmed combination of the 2 factor: 0/138.
   - The confirmed combination of the 3 factor: 0/69.
@@ -2358,8 +2685,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/lyra.json
 
-- Environment: Lyra (commit 099acd527059).
-- Execution timestamp: 2026-11-02T15:45:56.045037+00:00.
+- Environment: Lyra (commit 554db457ac73).
+- Execution timestamp: 2026-11-03T05:41:17.710075+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 111/126.
@@ -2630,6 +2957,16 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 92/92.
   - Mandatory case: 9/9.
   - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- distribution_expression_binding:
+  - The confirmed combination of the 2 factor: 154/154.
+  - The confirmed combination of the 3 factor: 81/81.
+  - Mandatory case: 8/8.
+  - Case statuses: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generate_default_disable:
+  - The confirmed combination of the 2 factor: 93/93.
+  - The confirmed combination of the 3 factor: 60/60.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - array_reduction_constraint:
   - The confirmed combination of the 2 factor: 96/96.
   - The confirmed combination of the 3 factor: 40/40.
@@ -2680,6 +3017,41 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 48/48.
   - Mandatory case: 4/4.
   - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- aggregate_event_lifetime:
+  - The confirmed combination of the 2 factor: 123/123.
+  - The confirmed combination of the 3 factor: 54/54.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- sv_dpi_array_queries:
+  - The confirmed combination of the 2 factor: 151/177.
+  - The confirmed combination of the 3 factor: 42/66.
+  - Mandatory case: 5/7.
+  - Case statuses: pass=10, fail=9, known=0, unsupported=0, stale=0, not_run=0.
+- sdf_conditional_paths:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/46.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0.
+- checker_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/174.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0.
+- program_assertion_attempts:
+  - The confirmed combination of the 2 factor: 138/138.
+  - The confirmed combination of the 3 factor: 75/75.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- container_coverage_sampling:
+  - The confirmed combination of the 2 factor: 172/172.
+  - The confirmed combination of the 3 factor: 79/79.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=33, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- deferred_disable_reports:
+  - The confirmed combination of the 2 factor: 151/151.
+  - The confirmed combination of the 3 factor: 92/92.
+  - Mandatory case: 10/10.
+  - Case statuses: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - event_rebinding:
   - The confirmed combination of the 2 factor: 138/138.
   - The confirmed combination of the 3 factor: 69/69.
@@ -2688,8 +3060,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/verilator.json
 
-- Environment: Verilator 5.055 devel rev v5.054-30-g4298d7b7.
-- Execution timestamp: 2026-11-02T14:53:51.526605+00:00.
+- Environment: Verilator 5.055 devel rev v5.054-39-g094b04d7.
+- Execution timestamp: 2026-11-03T03:17:51.317336+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2960,6 +3332,16 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 34/92.
   - Mandatory case: 6/9.
   - Case statuses: pass=11, fail=0, known=25, unsupported=0, stale=0, not_run=0.
+- distribution_expression_binding:
+  - The confirmed combination of the 2 factor: 111/154.
+  - The confirmed combination of the 3 factor: 53/81.
+  - Mandatory case: 4/8.
+  - Case statuses: pass=19, fail=0, known=12, unsupported=0, stale=0, not_run=0.
+- generate_default_disable:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/60.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=5, known=13, unsupported=0, stale=0, not_run=0.
 - array_reduction_constraint:
   - The confirmed combination of the 2 factor: 0/96.
   - The confirmed combination of the 3 factor: 0/40.
@@ -3010,6 +3392,41 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 37/48.
   - Mandatory case: 3/4.
   - Case statuses: pass=14, fail=0, known=4, unsupported=0, stale=0, not_run=0.
+- aggregate_event_lifetime:
+  - The confirmed combination of the 2 factor: 0/123.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- sv_dpi_array_queries:
+  - The confirmed combination of the 2 factor: 148/177.
+  - The confirmed combination of the 3 factor: 45/66.
+  - Mandatory case: 4/7.
+  - Case statuses: pass=14, fail=0, known=5, unsupported=0, stale=0, not_run=0.
+- sdf_conditional_paths:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/46.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- checker_assertion_sampling:
+  - The confirmed combination of the 2 factor: 170/174.
+  - The confirmed combination of the 3 factor: 56/63.
+  - Mandatory case: 5/6.
+  - Case statuses: pass=25, fail=0, known=2, unsupported=0, stale=0, not_run=0.
+- program_assertion_attempts:
+  - The confirmed combination of the 2 factor: 138/138.
+  - The confirmed combination of the 3 factor: 75/75.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- container_coverage_sampling:
+  - The confirmed combination of the 2 factor: 172/172.
+  - The confirmed combination of the 3 factor: 79/79.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=33, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- deferred_disable_reports:
+  - The confirmed combination of the 2 factor: 103/151.
+  - The confirmed combination of the 3 factor: 36/92.
+  - Mandatory case: 6/10.
+  - Case statuses: pass=13, fail=0, known=18, unsupported=0, stale=0, not_run=0.
 - event_rebinding:
   - The confirmed combination of the 2 factor: 0/138.
   - The confirmed combination of the 3 factor: 0/69.

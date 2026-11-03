@@ -6,7 +6,7 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/0afc89659c16a22f88c82816358e305de3f34d93/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/9064ac95375dae023c6128b1ef30ac464715009c/docs/interaction-verification.md)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -1135,6 +1135,47 @@ classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量
 
 制約: 全3456行が合法。同じpacket型のハンドルだけを送り、型不一致は対象外。満杯/空の確認には非ブロッキングメソッドを使い、get/peekは格納後に呼ぶ。1プロセス内の直列操作で、待機プロセスの選択順や同時実行の競合は対象外。typeless、4状態、nullも未対応を理由に除外しない。
 
+## distribution_expression_binding / model 1
+
+- 制約を満たす組合せ数: 972。
+- 利用できる既存・新規テスト: 31。
+- 短時間実行の選択: 31。
+- 個別に保持する必須ケース: 8。
+- 2因子の計画上の網羅: 154/154。
+- 3因子の計画上の網羅: 81/81。
+
+演算子の優先順位と括弧、幅・符号、distの重みと重複項目を照合する。候補値から解を一意にし、全重みゼロによる失敗時の値保持を、毎回成功する別実体と比較する。
+
+- width: 4, 8, 33。
+- sign: unsigned, signed。
+- operation: add_shift, add_mul, add_rel。
+- grouping: implicit, whole, altered。
+- weight: each, total。
+- layout: singleton, zero, overlap。
+- sequence: sat_only, sat_fail_sat, fail_sat_fail。
+
+制約: 全972行が合法。幅ごとに二つまたは三つの候補値を定め、正の重みを持つ解を一意にする。算術・シフト・比較の既定の優先順位、全体を囲む括弧、結合を変える括弧を比較する。単一項目、他候補のゼロ重み、ゼロ項目と正の単一値範囲の重複を確認する。重みを全てゼロにして矛盾を作り、失敗時の初期値または直前の解の保持を観測する。別オブジェクトは毎回成功する対照とする。確率比や乱数列の一致は要求しない。正常系の反復と、成功・失敗を交互に行う二つの順序を分ける。X/Z、実数、randc、default分布、継承、コールバック、並行randomizeは対象外。未対応による除外なし。
+
+## generate_default_disable / model 1
+
+- 制約を満たす組合せ数: 216。
+- 利用できる既存・新規テスト: 18。
+- 短時間実行の選択: 18。
+- 個別に保持する必須ケース: 4。
+- 2因子の計画上の網羅: 93/93。
+- 3因子の計画上の網羅: 60/60。
+
+generate内でのdefault disable iffの継承・上書き・名前解決・宣言位置と、明示条件・ゼロによる取消しを照合する。二つの実体を独立に無効化し、開始前・クロック間・終了クロックのNBAで、無効化と成功・失敗の回数を対照と比較する。
+
+- form: if, case, loop。
+- default: inherit, override。
+- shadow: absent, present。
+- mode: default, zero, explicit。
+- timing: at_start, between, at_end。
+- order: before, after。
+
+制約: 全216行が合法。二つのgenerate実体の子スコープで、親のdefaultの継承、外側generateでの上書き、内側の同名信号、明示disableとゼロによる取消しを比較する。各行は無効化なし・親・各実体の局所条件・各実体の明示条件と正常終了の7フェーズ。開始前の条件、クロック間だけのパルス、終了クロックのNBA更新を区別する。vacuous passも計数し、無効化された試行は成功にも失敗にも含めない。X/Z、複数クロック、ネストしたmodule宣言、interface/program、property内の明示disable、アサーション制御は対象外。未対応による除外なし。
+
 ## array_reduction_constraint / model 1
 
 - 制約を満たす組合せ数: 192。
@@ -1339,6 +1380,157 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
 
 制約: 全144行が合法。固定長配列の静的寿命の要素だけを使用する。DPIのint仮引数に既知値を渡し、入力の幅・符号変換と復帰直後の書戻しを観測する。同一プロセスでNBA予約とDPI呼出しを順序付け、予約後に添字・右辺・元要素を変更する。outputの初期値は読まない。X/Z、open array、CからのSV再入、時間を消費するDPI task、競合する別プロセスは対象外。未対応による除外なし。
 
+## aggregate_event_lifetime / model 1
+
+- 制約を満たす組合せ数: 432。
+- 利用できる既存・新規テスト: 18。
+- 短時間実行の選択: 18。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 123/123。
+- 3因子の計画上の網羅: 54/54。
+
+自動タスク復帰後の構造体内イベントの同一性・別名解放・遅延した待機登録と、別呼出しの独立性・全体コピー後のpayload・起床時刻を照合する。
+
+- storage: scalar, struct, nested。
+- capture: direct, copy。
+- calls: 1, 2, 3。
+- release: before_arm, after_arm, after_wake。
+- trigger: blocking, nba。
+- order: forward, reverse。
+- listeners: 1, 2。
+
+制約: 全432行が合法。各automatic taskが新しいイベントとpayloadを持ち、復帰後に子プロセスが2 tick遅れて待機する。scalarを対照とし、struct/入れ子structではメンバ参照と構造体全体のコピーを区別する。コピー後は元のイベントをnoiseへ再結合しpayloadも変更する。呼出し側の別名は待機登録前・登録後・起床後にnullへ解放するが、トリガ用の別名は全起床後まで保持する。待機登録・解放・トリガ・観測は別tickに置く。null待機、triggered、GC実行時期、物理的なメモリ回収、遅延付き非ブロッキングトリガ、ref引数は対象外。未対応による除外なし。
+
+## sv_dpi_array_queries / model 1
+
+- 制約を満たす組合せ数: 1152。
+- 利用できる既存・新規テスト: 19。
+- 短時間実行の選択: 19。
+- 個別に保持する必須ケース: 7。
+- 2因子の計画上の網羅: 177/177。
+- 3因子の計画上の網羅: 66/66。
+
+同じ実引数のSV/DPI-C問い合わせを、次元番号の対応・packed範囲の正規化・各次元の範囲とincrement・呼出しごとの形状更新で照合する。
+
+- rank: 1, 2, 3。
+- bounds: up, down, mixed。
+- origin: neg, pos。
+- extent: one, varied。
+- width: 4, 33。
+- formal: sized, open。
+- packed: normal, offset。
+- calls: same, switch。
+- query: literal, variable。
+
+制約: 全1152行が合法。固定配列の1/2/3次元とbitのpacked次元を使い、同じ実引数をSVの配列問い合わせとDPI-Cの問い合わせで観測する。packed実引数は正規化済み範囲とオフセット付き範囲を区別する。Cの次元0は正規化したpacked範囲で、正の次元は実引数のunpacked範囲を保持する。switchでは別の実引数へ切り替えて範囲を変更し、open packedだけは幅も4と33の間で変える。sized packedは幅を保持する。singletonのincrementは方向にかかわらず1。動的配列、キュー、空配列、X/Z、要素の値・書戻し、sized unpacked、範囲外の次元、Cからの再入、ハンドルの持越しは対象外。未対応による除外なし。
+
+## sdf_conditional_paths / model 1
+
+- 制約を満たす組合せ数: 288。
+- 利用できる既存・新規テスト: 18。
+- 短時間実行の選択: 18。
+- 個別に保持する必須ケース: 7。
+- 2因子の計画上の網羅: 109/109。
+- 3因子の計画上の網羅: 46/46。
+
+SDFの条件・注釈範囲・置換/加算と、立上り/立下りの遅延を照合する。兄弟インスタンスと別出力を対照とし、値・変化回数・最終変化時刻を観測する。
+
+- path: plain, cond, else。
+- mode: absolute, increment。
+- profile: balanced, rise, fall。
+- scope: cell, parent。
+- target: v, g。
+- first: high, low。
+- guard: same, opposite。
+
+制約: 全288行が合法。単一のSDFファイルでIOPATH/COND/CONDELSEを1回注釈する。ABSOLUTEは置換し、INCREMENTは既定の立上り/立下り遅延へ加算する。2インスタンスの片方だけを選び、もう片方と各インスタンスの別出力を対照にする。条件変更は入力遷移の2 tick前に行う。全遅延は正の偶数で最大14、入力遷移は20 tick間隔、観測は遷移後1/3/5/7/9/11/13/15 tickに置く。短パルス、X/Z、edge-qualified path、条件式の同値変形、複数注釈、min/typ/max、timescale変換、INTERCONNECT、TIMINGCHECKは対象外。未対応による除外なし。
+
+## checker_assertion_sampling / model 1
+
+- 制約を満たす組合せ数: 1296。
+- 利用できる既存・新規テスト: 27。
+- 短時間実行の選択: 27。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 174/174。
+- 3因子の計画上の網羅: 63/63。
+
+checkerとmodule参照モデルで、判定・サンプル値・Reactiveの値・実行時刻を照合する。接続形式と配置を変え、2実体の独立性と出力引数の伝播も観測する。
+
+- width: 1, 8, 33。
+- home: module, interface。
+- connection: positional, named, wildcard。
+- timing: before, edge, after。
+- update: blocking, nba。
+- edge: posedge, negedge。
+- clocking: explicit, default。
+- predicate: nonzero, zero, parity。
+
+制約: 全1296行が合法。静的checkerをmodule/interfaceの2実体に配置し、同じ実引数を別のmodule参照アサーションへ渡す。checker出力引数だけで観測し、checker内部への階層参照は行わない。2クロックは各周期の時刻8/12、データ更新は各クロックの2 tick前/同時刻/2 tick後、観測は時刻16に分離する。既知値の6周期と相補の別実体を使う。サンプルはPreponed、actionはReactiveで比較する。X/Z、手続き内checker、bind、checker手続き、free variable、出力NBA、disable iff、複数サイクルproperty、履歴関数、programは対象外。未対応による除外なし。
+
+## program_assertion_attempts / model 1
+
+- 制約を満たす組合せ数: 648。
+- 利用できる既存・新規テスト: 27。
+- 短時間実行の選択: 27。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 138/138。
+- 3因子の計画上の網羅: 75/75。
+
+programとmodule参照モデルの各クロック試行を、単周期判定・同サイクル/次サイクル含意で照合する。空虚な成功と未完了の試行を区別し、判定数と完了時のサンプル値総和を出力引数から観測する。
+
+- width: 1, 8, 33。
+- property: plain, overlap, next。
+- timing: before, edge, after。
+- update: blocking, nba。
+- edge: posedge, negedge。
+- connection: positional, named, wildcard。
+- ticks: 3, 5。
+
+制約: 全648行が合法。programとmodule参照モデルの各2実体へ同じ入力を渡す。programにinitialを置かず、外部からの階層参照も行わない。各20 tick周期の時刻8/12をクロックとし、入力を2 tick前/同時刻/2 tick後に更新する。単周期判定と同サイクル/次サイクル含意について、空虚な成功を含むpass/fail数と、アクション時のサンプル値の総和を時刻16に照合する。最後の次サイクル試行は未完了なら集計しない。X/Z、disable iff、履歴関数、programの手続きと終了、clocking block、checker、bind、複数クロックproperty、アクション制御は対象外。未対応による除外なし。
+
+## container_coverage_sampling / model 1
+
+- 制約を満たす組合せ数: 1056。
+- 利用できる既存・新規テスト: 33。
+- 短時間実行の選択: 33。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 172/172。
+- 3因子の計画上の網羅: 79/79。
+
+配列・キューの変更前後でサイズ・先頭/末尾値をsampleし、直接参照と引数、空のガード、必要ヒット数と対象/対照それぞれのbin履歴を照合する。
+
+- container: fixed, dynamic, queue。
+- operation: overwrite, reverse, replace, clear。
+- sampling: before, after, both。
+- binding: live, arguments。
+- position: first, last。
+- threshold: 1, 2。
+- guard: all, nonempty。
+- length: 1, 3。
+
+制約: 全1152行のうち固定配列のclearに当たる96行を除く1056行が合法。コンテナは0始まりの既知int要素で、初期長は1/3。同じ型の対照へ全体コピー後、対象だけを3段階で更新する。変更前/変更後/両方で各2回sampleし、各回のサイズ・先頭/末尾値と個別coverpointの割合を観測する。空コンテナの値は要素を読まず-1にする。nonemptyガードは空のsampleだけを抑止する。直接参照とsample引数、at_least 1/2を比較する。固定配列の長さと長さ1のreverseは不変の対照。X/Z、並行更新、イベント駆動sample、cross bin、型集計、get_inst_coverageのref引数、start/stop、自動bin、default/ignore/illegal binは対象外。未対応による除外なし。
+
+## deferred_disable_reports / model 1
+
+- 制約を満たす組合せ数: 720。
+- 利用できる既存・新規テスト: 31。
+- 短時間実行の選択: 31。
+- 個別に保持する必須ケース: 10。
+- 2因子の計画上の網羅: 151/151。
+- 3因子の計画上の網羅: 92/92。
+
+disable対象のスコープと未成熟の遅延報告を、兄弟・別プロセスの対照、引数取得と副作用、報告時の生値・通常の制御移動・報告済み履歴の保持と照合する。
+
+- scope: none, assertion, outer, inner, task。
+- directive: assert, assume, cover。
+- cancel: odd, even。
+- predicate: alternating, inverse, positive。
+- sibling: before, after。
+- argument: variable, function。
+- payload: stable, change。
+
+制約: 全720行が合法。observed deferredのassert/assume/cover #0を使い、workerの各10 tickと、別プロセスの対照を2 tick後に評価し、さらに1 tick後に観測する。ラベル指定は対象だけ、最外workerスコープはそのプロセスの全未成熟報告を取り消す。内側ブロック/taskのdisableでは報告を消さない。3回の処理で奇数回/偶数回にdisableし、通常の制御移動と既に報告済みの履歴を別に観測する。入力引数は登録時に値を取得し、関数引数の副作用は報告が取り消されても残る。報告関数内の生値はReactiveで読む。noneのcancel因子は同じ結果となる対照。final/Postponed、always_comb、再開によるflush、同時刻の複数起動、task出力/ref引数、NBA、assertion control、X/Zは対象外。未対応による除外なし。
+
 ## event_rebinding / model 1
 
 - 制約を満たす組合せ数: 648。
@@ -1368,8 +1560,8 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
 
 ### results/ghost.json
 
-- 環境: private build 4d414f2efa2c。
-- 実行日時: 2026-11-02T14:07:17.692135+00:00。
+- 環境: private build 3499c4a8842c。
+- 実行日時: 2026-11-03T02:34:48.875144+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -1452,10 +1644,10 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 必須ケース: 4/4。
   - ケース状態: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - array_reduction_pipeline:
-  - 2因子の合格確認済み組合せ: 260/261。
-  - 3因子の合格確認済み組合せ: 154/162。
-  - 必須ケース: 7/8。
-  - ケース状態: pass=69, fail=3, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 261/261。
+  - 3因子の合格確認済み組合せ: 162/162。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - variable_bit_index:
   - 2因子の合格確認済み組合せ: 253/253。
   - 3因子の合格確認済み組合せ: 106/106。
@@ -1482,10 +1674,10 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 必須ケース: 5/5。
   - ケース状態: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - concatenated_assignment:
-  - 2因子の合格確認済み組合せ: 254/265。
-  - 3因子の合格確認済み組合せ: 108/126。
+  - 2因子の合格確認済み組合せ: 265/265。
+  - 3因子の合格確認済み組合せ: 126/126。
   - 必須ケース: 5/5。
-  - ケース状態: pass=60, fail=12, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - packed_logical_reduction:
   - 2因子の合格確認済み組合せ: 218/218。
   - 3因子の合格確認済み組合せ: 142/142。
@@ -1511,25 +1703,25 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 必須ケース: 3/3。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - compound_shift_target:
-  - 2因子の合格確認済み組合せ: 271/308。
-  - 3因子の合格確認済み組合せ: 72/90。
-  - 必須ケース: 2/4。
-  - ケース状態: pass=33, fail=7, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 308/308。
+  - 3因子の合格確認済み組合せ: 90/90。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - membership_container:
   - 2因子の合格確認済み組合せ: 305/305。
   - 3因子の合格確認済み組合せ: 174/174。
   - 必須ケース: 5/5。
   - ケース状態: pass=46, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - membership_range:
-  - 2因子の合格確認済み組合せ: 301/303。
-  - 3因子の合格確認済み組合せ: 175/178。
+  - 2因子の合格確認済み組合せ: 303/303。
+  - 3因子の合格確認済み組合せ: 178/178。
   - 必須ケース: 6/6。
-  - ケース状態: pass=45, fail=1, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=46, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - case_inside_selection:
-  - 2因子の合格確認済み組合せ: 306/315。
-  - 3因子の合格確認済み組合せ: 128/154。
-  - 必須ケース: 6/7。
-  - ケース状態: pass=28, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 315/315。
+  - 3因子の合格確認済み組合せ: 154/154。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=34, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - clocking_input_sampling:
   - 2因子の合格確認済み組合せ: 165/165。
   - 3因子の合格確認済み組合せ: 72/72。
@@ -1546,10 +1738,10 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 必須ケース: 6/6。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - class_method_reference:
-  - 2因子の合格確認済み組合せ: 172/202。
-  - 3因子の合格確認済み組合せ: 65/99。
-  - 必須ケース: 3/6。
-  - ケース状態: pass=26, fail=10, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 202/202。
+  - 3因子の合格確認済み組合せ: 99/99。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - function_loop_return:
   - 2因子の合格確認済み組合せ: 157/161。
   - 3因子の合格確認済み組合せ: 91/120。
@@ -1640,11 +1832,21 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 92/92。
   - 必須ケース: 9/9。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- distribution_expression_binding:
+  - 2因子の合格確認済み組合せ: 154/154。
+  - 3因子の合格確認済み組合せ: 81/81。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_default_disable:
+  - 2因子の合格確認済み組合せ: 92/93。
+  - 3因子の合格確認済み組合せ: 52/60。
+  - 必須ケース: 3/4。
+  - ケース状態: pass=15, fail=3, known=0, unsupported=0, stale=0, not_run=0。
 - array_reduction_constraint:
-  - 2因子の合格確認済み組合せ: 44/96。
-  - 3因子の合格確認済み組合せ: 11/40。
+  - 2因子の合格確認済み組合せ: 50/96。
+  - 3因子の合格確認済み組合せ: 13/40。
   - 必須ケース: 1/4。
-  - ケース状態: pass=3, fail=10, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=4, fail=9, known=0, unsupported=0, stale=0, not_run=0。
 - associative_array_queries:
   - 2因子の合格確認済み組合せ: 93/93。
   - 3因子の合格確認済み組合せ: 54/54。
@@ -1690,16 +1892,51 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 16/48。
   - 必須ケース: 1/4。
   - ケース状態: pass=6, fail=12, known=0, unsupported=0, stale=0, not_run=0。
-- event_rebinding:
-  - 2因子の合格確認済み組合せ: 0/138。
-  - 3因子の合格確認済み組合せ: 0/69。
+- aggregate_event_lifetime:
+  - 2因子の合格確認済み組合せ: 0/123。
+  - 3因子の合格確認済み組合せ: 0/54。
   - 必須ケース: 0/6。
-  - ケース状態: pass=0, fail=27, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=0, fail=18, known=0, unsupported=0, stale=0, not_run=0。
+- sv_dpi_array_queries:
+  - 2因子の合格確認済み組合せ: 177/177。
+  - 3因子の合格確認済み組合せ: 66/66。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=19, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- sdf_conditional_paths:
+  - 2因子の合格確認済み組合せ: 82/109。
+  - 3因子の合格確認済み組合せ: 22/46。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=6, fail=12, known=0, unsupported=0, stale=0, not_run=0。
+- checker_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 120/174。
+  - 3因子の合格確認済み組合せ: 30/63。
+  - 必須ケース: 1/6。
+  - ケース状態: pass=17, fail=10, known=0, unsupported=0, stale=0, not_run=0。
+- program_assertion_attempts:
+  - 2因子の合格確認済み組合せ: 129/138。
+  - 3因子の合格確認済み組合せ: 54/75。
+  - 必須ケース: 4/6。
+  - ケース状態: pass=21, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+- container_coverage_sampling:
+  - 2因子の合格確認済み組合せ: 172/172。
+  - 3因子の合格確認済み組合せ: 79/79。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=33, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- deferred_disable_reports:
+  - 2因子の合格確認済み組合せ: 137/151。
+  - 3因子の合格確認済み組合せ: 76/92。
+  - 必須ケース: 8/10。
+  - ケース状態: pass=25, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+- event_rebinding:
+  - 2因子の合格確認済み組合せ: 138/138。
+  - 3因子の合格確認済み組合せ: 69/69。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 
 ### results/icarus.json
 
 - 環境: Icarus Verilog version 14.0 (devel) (s20260301-802-g61dbc3c2)。
-- 実行日時: 2026-11-02T13:43:50.902943+00:00。
+- 実行日時: 2026-11-03T02:05:08.151585+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -1970,6 +2207,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
+- distribution_expression_binding:
+  - 2因子の合格確認済み組合せ: 0/154。
+  - 3因子の合格確認済み組合せ: 0/81。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=31, unsupported=0, stale=0, not_run=0。
+- generate_default_disable:
+  - 2因子の合格確認済み組合せ: 0/93。
+  - 3因子の合格確認済み組合せ: 0/60。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0。
 - array_reduction_constraint:
   - 2因子の合格確認済み組合せ: 0/96。
   - 3因子の合格確認済み組合せ: 0/40。
@@ -2020,6 +2267,41 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/48。
   - 必須ケース: 0/4。
   - ケース状態: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0。
+- aggregate_event_lifetime:
+  - 2因子の合格確認済み組合せ: 0/123。
+  - 3因子の合格確認済み組合せ: 0/54。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0。
+- sv_dpi_array_queries:
+  - 2因子の合格確認済み組合せ: 0/177。
+  - 3因子の合格確認済み組合せ: 0/66。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=19, unsupported=0, stale=0, not_run=0。
+- sdf_conditional_paths:
+  - 2因子の合格確認済み組合せ: 51/109。
+  - 3因子の合格確認済み組合せ: 11/46。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=3, fail=0, known=15, unsupported=0, stale=0, not_run=0。
+- checker_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/174。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=27, unsupported=0, stale=0, not_run=0。
+- program_assertion_attempts:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/75。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=27, unsupported=0, stale=0, not_run=0。
+- container_coverage_sampling:
+  - 2因子の合格確認済み組合せ: 0/172。
+  - 3因子の合格確認済み組合せ: 0/79。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=33, unsupported=0, stale=0, not_run=0。
+- deferred_disable_reports:
+  - 2因子の合格確認済み組合せ: 0/151。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/10。
+  - ケース状態: pass=0, fail=0, known=31, unsupported=0, stale=0, not_run=0。
 - event_rebinding:
   - 2因子の合格確認済み組合せ: 0/138。
   - 3因子の合格確認済み組合せ: 0/69。
@@ -2028,8 +2310,8 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.0.0 (commit 2edfebbc6270), built with GNU 13.3.0。
-- 実行日時: 2026-11-02T13:52:52.499974+00:00。
+- 環境: kirimasim 0.0.0 (commit f3ea0379a7e5), built with GNU 13.3.0。
+- 実行日時: 2026-11-03T02:04:59.304717+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2300,6 +2582,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/92。
   - 必須ケース: 0/9。
   - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- distribution_expression_binding:
+  - 2因子の合格確認済み組合せ: 0/154。
+  - 3因子の合格確認済み組合せ: 0/81。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=31, stale=0, not_run=0。
+- generate_default_disable:
+  - 2因子の合格確認済み組合せ: 0/93。
+  - 3因子の合格確認済み組合せ: 0/60。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
 - array_reduction_constraint:
   - 2因子の合格確認済み組合せ: 0/96。
   - 3因子の合格確認済み組合せ: 0/40。
@@ -2350,6 +2642,41 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 0/48。
   - 必須ケース: 0/4。
   - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- aggregate_event_lifetime:
+  - 2因子の合格確認済み組合せ: 0/123。
+  - 3因子の合格確認済み組合せ: 0/54。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- sv_dpi_array_queries:
+  - 2因子の合格確認済み組合せ: 0/177。
+  - 3因子の合格確認済み組合せ: 0/66。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=19, stale=0, not_run=0。
+- sdf_conditional_paths:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/46。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- checker_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/174。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0。
+- program_assertion_attempts:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/75。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0。
+- container_coverage_sampling:
+  - 2因子の合格確認済み組合せ: 0/172。
+  - 3因子の合格確認済み組合せ: 0/79。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=33, stale=0, not_run=0。
+- deferred_disable_reports:
+  - 2因子の合格確認済み組合せ: 143/151。
+  - 3因子の合格確認済み組合せ: 78/92。
+  - 必須ケース: 9/10。
+  - ケース状態: pass=26, fail=5, known=0, unsupported=0, stale=0, not_run=0。
 - event_rebinding:
   - 2因子の合格確認済み組合せ: 0/138。
   - 3因子の合格確認済み組合せ: 0/69。
@@ -2358,8 +2685,8 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
 
 ### results/lyra.json
 
-- 環境: Lyra (commit 099acd527059)。
-- 実行日時: 2026-11-02T15:45:56.045037+00:00。
+- 環境: Lyra (commit 554db457ac73)。
+- 実行日時: 2026-11-03T05:41:17.710075+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 111/126。
@@ -2630,6 +2957,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 92/92。
   - 必須ケース: 9/9。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- distribution_expression_binding:
+  - 2因子の合格確認済み組合せ: 154/154。
+  - 3因子の合格確認済み組合せ: 81/81。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_default_disable:
+  - 2因子の合格確認済み組合せ: 93/93。
+  - 3因子の合格確認済み組合せ: 60/60。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - array_reduction_constraint:
   - 2因子の合格確認済み組合せ: 96/96。
   - 3因子の合格確認済み組合せ: 40/40。
@@ -2680,6 +3017,41 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 48/48。
   - 必須ケース: 4/4。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- aggregate_event_lifetime:
+  - 2因子の合格確認済み組合せ: 123/123。
+  - 3因子の合格確認済み組合せ: 54/54。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- sv_dpi_array_queries:
+  - 2因子の合格確認済み組合せ: 151/177。
+  - 3因子の合格確認済み組合せ: 42/66。
+  - 必須ケース: 5/7。
+  - ケース状態: pass=10, fail=9, known=0, unsupported=0, stale=0, not_run=0。
+- sdf_conditional_paths:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/46。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- checker_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/174。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0。
+- program_assertion_attempts:
+  - 2因子の合格確認済み組合せ: 138/138。
+  - 3因子の合格確認済み組合せ: 75/75。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- container_coverage_sampling:
+  - 2因子の合格確認済み組合せ: 172/172。
+  - 3因子の合格確認済み組合せ: 79/79。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=33, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- deferred_disable_reports:
+  - 2因子の合格確認済み組合せ: 151/151。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - event_rebinding:
   - 2因子の合格確認済み組合せ: 138/138。
   - 3因子の合格確認済み組合せ: 69/69。
@@ -2688,8 +3060,8 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-30-g4298d7b7。
-- 実行日時: 2026-11-02T14:53:51.526605+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-39-g094b04d7。
+- 実行日時: 2026-11-03T03:17:51.317336+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2960,6 +3332,16 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 34/92。
   - 必須ケース: 6/9。
   - ケース状態: pass=11, fail=0, known=25, unsupported=0, stale=0, not_run=0。
+- distribution_expression_binding:
+  - 2因子の合格確認済み組合せ: 111/154。
+  - 3因子の合格確認済み組合せ: 53/81。
+  - 必須ケース: 4/8。
+  - ケース状態: pass=19, fail=0, known=12, unsupported=0, stale=0, not_run=0。
+- generate_default_disable:
+  - 2因子の合格確認済み組合せ: 0/93。
+  - 3因子の合格確認済み組合せ: 0/60。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=5, known=13, unsupported=0, stale=0, not_run=0。
 - array_reduction_constraint:
   - 2因子の合格確認済み組合せ: 0/96。
   - 3因子の合格確認済み組合せ: 0/40。
@@ -3010,6 +3392,41 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
   - 3因子の合格確認済み組合せ: 37/48。
   - 必須ケース: 3/4。
   - ケース状態: pass=14, fail=0, known=4, unsupported=0, stale=0, not_run=0。
+- aggregate_event_lifetime:
+  - 2因子の合格確認済み組合せ: 0/123。
+  - 3因子の合格確認済み組合せ: 0/54。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0。
+- sv_dpi_array_queries:
+  - 2因子の合格確認済み組合せ: 148/177。
+  - 3因子の合格確認済み組合せ: 45/66。
+  - 必須ケース: 4/7。
+  - ケース状態: pass=14, fail=0, known=5, unsupported=0, stale=0, not_run=0。
+- sdf_conditional_paths:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/46。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0。
+- checker_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 170/174。
+  - 3因子の合格確認済み組合せ: 56/63。
+  - 必須ケース: 5/6。
+  - ケース状態: pass=25, fail=0, known=2, unsupported=0, stale=0, not_run=0。
+- program_assertion_attempts:
+  - 2因子の合格確認済み組合せ: 138/138。
+  - 3因子の合格確認済み組合せ: 75/75。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- container_coverage_sampling:
+  - 2因子の合格確認済み組合せ: 172/172。
+  - 3因子の合格確認済み組合せ: 79/79。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=33, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- deferred_disable_reports:
+  - 2因子の合格確認済み組合せ: 103/151。
+  - 3因子の合格確認済み組合せ: 36/92。
+  - 必須ケース: 6/10。
+  - ケース状態: pass=13, fail=0, known=18, unsupported=0, stale=0, not_run=0。
 - event_rebinding:
   - 2因子の合格確認済み組合せ: 0/138。
   - 3因子の合格確認済み組合せ: 0/69。
