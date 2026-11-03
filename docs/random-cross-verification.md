@@ -29,7 +29,7 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
   [本体の検証方針](https://github.com/kurochan001/kirimasim/blob/main/docs/VALIDATION.ja.md)を参照してください。
 
 ランダム比較の成功は、全入力や全操作列の正しさ、全因子の組合せ網羅、未検出不具合がないことの証明にはなりません。
-現在の5プロファイルが扱わない機能も自動的には探索しません。
+現在の11プロファイルが扱わない機能も自動的には探索しません。
 生成分布はコードで定義したseed付き抽出です。カバレッジのフィードバックによる分布の自動調整は未実装です。
 参照計算の一部は固定クロスの関数と共用するため、ランダムに繰り返すだけでは参照モデル自体の誤りを排除できません。
 規格との照合、手計算した境界、[参照と実行基盤の回帰テスト](../tools/test_random_cross.py)を併用します。
@@ -66,7 +66,7 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
 
 ## 対象と生成方法
 
-現在対応しているのは、次の5プロファイルです。既存の有限モデル全体を任意の入力に対応させたものではありません。
+現在対応しているのは、次の11プロファイルです。既存の有限モデル全体を任意の入力に対応させたものではありません。
 
 - `expression_context`：幅・符号・代入先の幅・加減乗算を組み合わせ、任意の既知の入力ビット列を比較します。
   既存の`generators/interaction_expr.py`の参照関数を使います。
@@ -87,8 +87,44 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
   関数内の外部参照に対するalways_comb感度、通知回数・時刻・通知時の全体値、現在のwait条件と保持した起床履歴を比較します。
   機構と規格の根拠は[固定クロスの設計](interaction-verification.md#package-change-observers)を共有し、固定8操作だけに限定しません。
 
-幅は1・32・33・64・65・129を使い、算術式のオペランドと代入先にはモデルが許す±1ビットの差も含めます。
-算術値は一様なランダム値と0・1・型の端点などを混ぜます。書込み・条件演算子・packageのプロファイルではX/Zも生成します。
+- `shift_context`：任意の4状態ビット列に、`<<`／`>>`／`<<<`／`>>>`を適用します。
+  左オペランドの符号、代入先の幅（±1ビット）、bit／logic、シフト量の幅8/32/65ビットと符号を交差します。
+  0/1・元の幅と評価幅の前後・全1・ランダム値・部分的なX/Zを含むシフト量を生成します。
+  代入文脈による拡張後にシフトし、算術右シフトでは符号ビットのX/Zも複製します。
+  シフト量は自己決定で、signed宣言の全1も大きな非負の量として扱い、式の符号・幅へ伝播させません。
+  X/Zを含む量は結果を全Xにし、その後に切詰めとbit変換を行います。
+  IEEE 1800-2023の11.4.10・11.6.1・11.8.1/2・6.11.2に基づきます。
+- `cast_pipeline`：サイズキャスト、signed／unsigned、型付きbit／logicキャストの中間値を観測します。
+  元の符号、キャスト幅の±1ビット、元の幅+2ビットの代入先、後続演算の有無、bit／logicを交差します。
+  signing castは幅を変えず、型付きキャストの型はunsignedです。幅1のnarrowは除外します。
+  後続演算は符号付き2ビットの正の1を加える範囲に限定し、型付きbitへの変換が演算より前に起きることを照合します。
+  実入力・キャスト結果・最終値を分けて表示し、IEEE 1800-2023の6.24.1・6.11.2・11.6.1・11.8.1/2に基づきます。
+
+- `streaming_context`：左右のストリーム方向、pack／unpack、正のスライス幅、3ビットのタグの有無、bit／logicを交差します。
+  任意の入力・タグを使い、1/2/3/4/7/8/16/17/32/33ビットや入力幅の前後のスライス幅を選びます。
+  端の部分ブロックをパディングせずに並べ替え、unpackにはpackの逆置換を適用します。
+  入出力の全体幅は同じで、IEEE 1800-2023の11.4.14.1/2/3・6.11.2に基づきます。
+  動的配列、with指定、サイズ不一致による拡張や切詰めは対象外です。
+- `concat_assignment_sequence`：連結左辺への書込み列で、全体幅2/32/33/64/65/129と任意の正幅の二分割を交差します。
+  RHSの幅±1ビットと符号、各項のbit／logic、項の符号、ブロッキング／NBAを組み合わせます。
+  初期値、入力値、予約直後に変更するRHSの値、操作順、繰返し書込みを保存します。
+  RHSを連結全体の幅へ合わせてから分割・各項の変換を行い、直後と次時刻の値、符号拡張した項、unsignedの連結読出しを照合します。
+  IEEE 1800-2023の11.4.12・10.7・10.4.1/2・6.11.2・11.8.1/2に基づきます。
+  代入先は別々の静的な全体変数で、重複左辺・部分選択・複数writerの競合は対象外です。
+
+- `comparison_context`：関係演算子4種、論理等価／不等価、等価性／非等価性、ワイルドカード等価／不等価の計10種を扱います。
+  両オペランドの符号、RHSの幅±1ビット、代入先の幅1/7/33/65/130ビットを交差します。
+  任意の4状態入力に、約1/4のRHSを左辺から幅合わせして作る入力も混ぜます。
+  比較の共通幅・符号はオペランドから決め、unsignedの1ビット結果をlogic／bitの代入先へ別々に拡張します。
+  既知の不一致による論理等価の確定と、右辺だけのX/Zワイルドカードを照合し、IEEE 1800-2023の11.4.4/5/6・11.6.1・11.8.2・6.11.2に基づきます。
+- `packed_logic_context`：各入力で6種の単項リダクションと論理否定を全て観測します。
+  入力のbit／logicと符号、直接参照／任意の連続部分選択／既知0または1の付加、出力のbit／logicと幅を交差します。
+  入力のbit変換を式の形成より前に行い、既知0がANDを、既知1がORを確定することと、XORへの未知値伝播を照合します。
+  1ビットのunsigned結果を拡張してから出力のbit変換を行い、IEEE 1800-2023の11.4.9・11.4.7・11.6.1・11.8.1・6.11.2に基づきます。
+  二項論理演算、短絡評価の副作用、範囲外の部分選択は対象外です。
+
+原則の幅は1・32・33・64・65・129で、連結代入の全体幅は最小2です。算術式のオペランドと代入先にはモデルが許す±1ビットの差も含めます。
+算術値は一様なランダム値と0・1・型の端点などを混ぜます。書込み・条件演算子・package・シフト・キャスト・ストリーミング・連結代入・比較・リダクションのプロファイルではX/Zも生成します。
 各プロファイルをほぼ同数ずつ割り当て、順番と合法なパラメータをseedで選びます。
 packed_write_sequenceの先頭は書込み、2操作目があれば読出しとし、以降は読出し／書込みを選びます。
 同じ組合せが再び選ばれることはあります。ランダム抽出を2因子・3因子網羅の保証には使いません。
@@ -98,17 +134,23 @@ packageは時刻零に初期化、時刻1に待機を登録し、最初の書込
 範囲外・可変の監視添字、空コンテナ、独立writer同士の競合や任意の並行スケジューリング、クラス、制約ソルバ、`randomize()`自体は今回の対象外です。
 複数解のある乱数生成を確認するときは、生成値の完全一致ではなく制約の充足を判定する別の検査が必要です。
 
-2026-11-03の追加で、既定の割当ては3から5プロファイルへ変わりました。既定96件では上記の順に20/19/19/19/19件となり、以前の各32件より各既存プロファイルの抽出数は減ります。総件数と反復数は維持し、探索する機構を広げた変更です。既定値では同じseedでも以前と異なる刺激列になります。
+2026-11-03の最初の追加では、既定の割当てを3から5プロファイルへ変えました。当時の96件は上記の最初の5種類に20/19/19/19/19件を割り当て、以前の各32件より各既存プロファイルの抽出数を減らしました。総件数と反復数を保って探索する機構を広げた変更で、既定の同じseedから生成する刺激列も変わりました。
+続くシフトとキャストの追加時点では7プロファイルで、96件は従来5種類が各14件、新しい2種類が各13件でした。この時点で各既存プロファイルの抽出数は減り、既定の刺激列も5種類の時から変わりました。総件数・反復数・並列数・時間制限は維持しました。
+ストリーミングと連結代入を加えた時点では9プロファイルで、96件は最初の6種類が各11件、残る3種類が各10件でした。総件数・反復数・並列数・時間制限を保って探索対象を増やし、既定の刺激列を変更した記録です。
+比較とリダクションを加えた現在は11プロファイルです。既定96件は上記の最初の8種類が各9件、残る3種類が各8件です。既存プロファイルごとの抽出数は減りますが、総件数・反復数・並列数・時間制限は維持します。既定の同じseedから生成する刺激列は変わります。
+直前の9種類を再生成する場合は`--models expression_context division_context packed_write_sequence conditional_context package_change_sequence shift_context cast_pipeline streaming_context concat_assignment_sequence`を指定します。この明示指定の乱数列・分布・生成結果は維持しています。
+直前の7種類を再生成する場合は`--models expression_context division_context packed_write_sequence conditional_context package_change_sequence shift_context cast_pipeline`を指定します。この明示指定の乱数列・分布・生成結果は維持しています。
+直前の5種類を再生成する場合は`--models expression_context division_context packed_write_sequence conditional_context package_change_sequence`を指定します。この明示指定では、旧3種類の明示指定と同様に従来の乱数列・分布・生成結果を維持しています。
 旧割当てを再生成する場合は`--models expression_context division_context packed_write_sequence`を指定します。
 保存済み刺激の再実行には再生成を使わず、これまでどおり`--replay`を使ってください。manifestの形式と旧ケースのmaterialize結果は維持し、コード変更は既存のハッシュと期待値ドリフトの記録で区別します。
 
 ```sh
-# 新しい2プロファイルだけを探索する。直前に最新mainを取得・ビルドする。
+# 比較とリダクションだけを探索する。直前に最新mainを取得・ビルドする。
 python3 tools/run_random_cross.py \
   --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
-  --seed 731 --models conditional_context package_change_sequence \
+  --seed 731 --models comparison_context packed_logic_context \
   --cases 96 --vectors 8 --jobs 4 --timeout 5 --time-budget 120 \
-  --output my-results/new-profiles-731
+  --output my-results/predicate-profiles-731
 ```
 
 <a id="limits-and-verdicts"></a>
@@ -227,6 +269,107 @@ Checkに最新kirimasimでのランダム実行を追加してはいません。
 [保存した96ケースのmanifest](../coverage/interaction-qualification/random-cross-manifest.json)は、CLIの`--replay`で読み込めます。
 固定スイートの合格数へは加算しません。通常の境界ケースと少数因子網羅は引き続き固定回帰で保持します。
 
+<a id="eleven-profile-validation"></a>
+
+### 比較・リダクションの追加と検証（2026-11-03）
+
+[11プロファイルの検証記録](../coverage/interaction-qualification/random-cross-eleven-profiles.json)と
+[保存済み96ケース](../coverage/interaction-qualification/random-cross-eleven-profiles-manifest.json)を追加しました。
+直前に上流mainを取得・構成・ビルドしたkirimasim `d73d8922dfa2`で、seed 1/731/20261103の混在各96件と、
+新プロファイルの最大32ベクトル各32件、計352件が全PASSです。本体コードは変更していません。
+従来3・5・7・9種類の明示指定時のmanifest・SV・期待値は、各3シードの変更前ハッシュに一致します。
+新しい各1件の保存replayも元のバイト列と一致し、参照ドリフトなしでPASSしました。
+
+参照モデルは固定比較モデルの全合法行・各4入力と、固定リダクションモデルの全合法行・既知基準入力で照合しています。
+任意の既知値による独立した整数比較、1ビットの等価系真理値表、長さ1～4の全4状態入力列を別の畳み込みで求めたリダクションも照合しました。
+右辺だけのワイルドカード、既知不一致と未知値、AND/ORの制御値、部分選択と入力bit変換の順序、
+signed入力からunsignedの1ビット結果を130ビットへ拡張する例も確認しています。
+リダクションでは各ベクトルに7演算の観測があり、別々の固定テストとして件数へ加算しません。
+
+同じ保存刺激の対照4件はkirimasimと固定Icarus 13.0で全PASSです。固定Verilator 5.052は既知値2件PASS・X/Zを必要とする2件unsupportedです。
+全シミュレータで全件成功とは扱わず、固定版oracleへ自動登録しません。
+実際のSV変更4件（オペランドの符号変更、ワイルドカードの左右交換、早すぎる入力のbit変換、1ビット結果の誤った符号拡張）も、正常終了後の出力差として全て検出しました。
+検証記録には実際の対照manifestを収録し、完全なローカル実行資料は`my-results/random-predicate-20261103/`に保存しています。
+元の入力・期待値・失敗出力を保持し、固定suite・章間表・要求カバレッジの件数へ加算しません。
+
+関連128件を含むツール回帰878件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、新プロファイルの明示指定、日英115組、ローカルリンク53,289件も確認しました。GitHubの正式Check・Nightlyは今回未実行です。
+
+```sh
+# 実行直前に最新mainを取得・ビルドし、保存刺激を再実行する。
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --replay coverage/interaction-qualification/random-cross-eleven-profiles-manifest.json \
+  --output my-results/eleven-profiles-saved-replay
+python3 -m unittest discover -s tools -p 'test_random_cross*.py'
+```
+
+<a id="nine-profile-validation"></a>
+
+### ストリーミング・連結代入の追加と検証（2026-11-03）
+
+[9プロファイルの検証記録](../coverage/interaction-qualification/random-cross-nine-profiles.json)と
+[保存済み96ケース](../coverage/interaction-qualification/random-cross-nine-profiles-manifest.json)を追加しました。
+直前に上流mainを取得・構成・ビルドしたkirimasim `d73d8922dfa2`で、seed 1/731/20261103の混在各96件と、
+新プロファイルの最大32ベクトル／操作各32件、計352件が全PASSです。本体コードは変更していません。
+従来3・5・7種類の明示指定時のmanifest・SV・期待値は、各3シードの変更前ハッシュに一致します。
+新しい各1件の保存replayも元のバイト列と一致し、参照ドリフトなしでPASSしました。
+
+参照モデルは固定ストリーミング全合法行、固定連結代入全合法行の両入力段階、任意の連結分割と既知値の整数計算で照合しています。
+ストリーミングは長さ1～132の値を別のブロック分解・復元方式でも照合し、往復一致だけに頼りません。
+部分ブロックのpackとunpackが異なる手計算例、NBA前の過去状態とRHS変更後の保持値、混在するbit/logic変換と項の符号拡張も確認しています。
+実際のSV変更4件（ストリーム方向、逆置換の欠落、連結代入の早すぎる更新、項のbit変換の欠落）を、正常終了後の出力差として全て検出しました。
+
+同じ保存刺激を使う対照5件はkirimasimで全PASSです。固定Icarus 13.0は1 pass・4 knownで、
+ストリーミング3件のコンパイル拒否と、連結のbit項にZが残る1件を保持します。
+固定Verilator 5.052は2 pass・1 known・2 unsupportedで、部分ブロックのunpackがpackの置換になる1件と、X/Zを必要とする2件を成功へ変換しません。
+固定版oracleへの自動登録はなく、入力・期待値を差異に合わせて弱めていません。
+検証記録には対照の実際のmanifestも収録し、完全なローカル実行資料は`my-results/random-struct-20261103/`に保存しています。
+固定suite・章間表・要求カバレッジの件数へ加算せず、正式Check／Nightlyの実行とは区別します。
+
+関連112件を含むツール回帰862件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、新プロファイルの明示指定、日英115組、ローカルリンク53,285件も確認しました。GitHubの正式Check・Nightlyは今回未実行です。
+
+```sh
+# 実行直前に最新mainを取得・ビルドし、保存刺激を再実行する。
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --replay coverage/interaction-qualification/random-cross-nine-profiles-manifest.json \
+  --output my-results/nine-profiles-saved-replay
+python3 -m unittest discover -s tools -p 'test_random_cross*.py'
+```
+
+<a id="seven-profile-validation"></a>
+
+### シフト・キャストの追加と検証（2026-11-03）
+
+[7プロファイルの検証記録](../coverage/interaction-qualification/random-cross-seven-profiles.json)と
+[保存済み96ケース](../coverage/interaction-qualification/random-cross-seven-profiles-manifest.json)を追加しました。
+直前に上流mainを取得・構成・ビルドしたkirimasim `d73d8922dfa2`で、seed 1/731/20261103の混在各96件と、
+新プロファイルの最大32ベクトル各32件、計352件が全PASSです。本体コードは変更していません。
+従来3種類に加え、従来5種類を明示指定した場合のmanifest・SV・期待値も3シードの変更前ハッシュに一致します。
+新しいケースのreplayは各1件がPASSし、元のSV・期待値とバイト一致、参照ドリフトなしです。
+
+参照モデルは固定のシフト・キャスト全合法行との一致に加え、任意の既知値を使う独立した整数計算と照合しました。
+評価幅を先に決める左シフト、65ビット全1のシフト量、X/Zを複製する算術右シフト、未知のシフト量、
+キャストの符号保持と型付きbit変換が加算より前に起きる境界も手計算例で確認しています。
+実際のSVを変更した4件（算術右シフトを論理右シフトへ変更、シフト量の無視、キャストの符号変更、
+bit変換の遅延）は正常終了後の出力差として全て検出しました。元の入力・期待値・失敗出力を保持します。
+
+同じ保存刺激を使う4件の公開ツール比較は、kirimasimが全PASS、固定Icarus 13.0が全PASS、
+固定Verilator 5.052は既知値2件PASS・X/Zを必要とする2件unsupportedです。
+全シミュレータで全件成功とは扱わず、固定版oracleへ自動登録しません。
+実行資料は`my-results/random-bits-20261103/`に保存し、固定suite・章間表・要求カバレッジへ加算しません。
+
+関連96件を含むツール回帰846件と整合性13項目が全PASSです。Checkと同じ生成・単一ケースreplayのCLI、新プロファイルの明示指定、日英115組、ローカルリンク53,277件も確認しました。GitHubの正式Check・Nightlyは今回未実行です。
+
+```sh
+# 実行直前に最新mainを取得・ビルドし、保存済み刺激を再実行する。
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --replay coverage/interaction-qualification/random-cross-seven-profiles-manifest.json \
+  --output my-results/seven-profiles-saved-replay
+python3 -m unittest discover -s tools -p 'test_random_cross*.py'
+```
+
 <a id="five-profile-validation"></a>
 
 ### 5プロファイルへの拡張と検証（2026-11-03）
@@ -264,7 +407,7 @@ python3 -m unittest discover -s tools -p 'test_random_cross*.py'
 
 固定回帰と正式Nightlyは再実行し、**完全に同じ条件で完了した追加探索ジョブ**だけを
 重複投入から省く方針です。幅・符号・パラメータ・値・操作を生成対象から恒久除外しません。
-既存3プロファイルを同じ順序で明示指定した場合の乱数列と分布、全体の上限は維持しています。操作順、繰返し書込み、初期状態も
+既存3・5・7・9プロファイルを同じ順序で明示指定した場合の乱数列と分布、全体の上限は維持しています。操作順、繰返し書込み、初期状態も
 入力なので、パラメータの組合せが等しくても同じ検証とは限りません。
 
 ```sh

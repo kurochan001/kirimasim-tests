@@ -1,0 +1,459 @@
+{
+  "generated_at": "2026-11-03T12:08:37.938775+00:00",
+  "scope": "Local tests of eleven bounded profiles; separate from fixed suite, registered chapter coverage, Check and formal Nightly. Actual immutable run artifacts are retained locally; the representative manifest is published for regeneration-free replay.",
+  "build": {
+    "revision": "d73d8922dfa20e19ccb9411adbe42a6d258bb49d",
+    "version": "kirimasim 0.0.0 (commit d73d8922dfa2), built with AppleClang 21.0.0.21000334",
+    "binary_sha256": "2b5ca541d394d8c11d2763fe5c88fef6138ed23d5fc47ef74bdbbf3b9134aa0d",
+    "upstream_main": "d73d8922dfa20e19ccb9411adbe42a6d258bb49d"
+  },
+  "sources_sha256": {
+    "tools/run_random_cross.py": "e1bb8fe9a8e2153380a4216dbe51f378bd13c1c1928738f43e00d3f1a67b5eb0",
+    "tools/random_cross_models.py": "a9cd2e886537dc6efe3ec024eaa765d3b71f9ea4340e9f14a40600f3aa1d2e3b",
+    "tools/normalize_output.py": "81841d0dd7a9b47cc4570a87e3e50756b4ae5f1269aaebb7e3666abaa45b2d36",
+    "tools/random_cross_compare.py": "a7f128efe6d55c284bf7ba28d65ee20ab91d823fa662d40c12ceb368691c0d1b",
+    "tools/random_cross_evidence.py": "d8d8a002928491d78a6058035908f6f9c9f67eb810471b1a05400f41ffc66128",
+    "tools/random_cross_history.py": "64e4c4409cbc4a3f1562d18a9cedbe1c5bb6690ec6d0082d5fae1f4e471985b2",
+    "tools/random_cross_identity.py": "cead239118fcfc983743d96d0b786d4bc7e4160255bfbd7028e4927ba64d6b6c",
+    "tools/run_icarus.py": "7a090fd04718b47b6b136a3b8dbc22aec79246f79a45cacc1681e9acfab28f09",
+    "tools/run_verilator.py": "1fb2ccf7e478997987d030cfd497ad7ed54a50bec7dfedad27787a981d7556d6",
+    "tools/run_kirimasim.py": "4561f60341b97deea116f0c7fe6416ff5a8918f721e7661209cd6dc88e1bad96",
+    "tools/suite_results.py": "78beab44a69aa9eb13db4f44dd9c0c933a0b06ed16213be7087218a79d4b918d",
+    "generators/interaction_expr.py": "3b71306d54dbe2476ae38aa363c3e04b4df42a56079abeab28b007b9912cb684",
+    "generators/interaction_divide.py": "6dd614a0ab46204ae519843cc1c9da33f13df48fcb6fa03c65ecfc9d85d44891",
+    "generators/interaction_bits.py": "13ef2b3f91d78a7d1b19a8014948c41c6059e2d4d0955b0b64bb85d900ac3c15",
+    "generators/interaction_cond.py": "2465534054b7c1fb2c5f3937b41e8f8bb74d70464bf1b84a3790aaaa94f41647",
+    "generators/interaction_pkgwatch.py": "f7ab9cc605a67413b236749c6bfde3f2076988b924227acfaef94273e9586dfa",
+    "generators/interaction_shift.py": "98d17b9f8176bde88632dacbccdb7b0244ae627852712f33c9db8746b878d582",
+    "generators/interaction_stream.py": "367f07f7e4cb69b65deea363c2ba1a55e3b69a45a2a790c1606f7c2b604d14b4",
+    "generators/interaction_concat.py": "a8bcd7455ee478b6d125b741c2234af8b185d82d844b3f7531594c88f389a6fc",
+    "generators/interaction_compare.py": "84a39dc21602bb49b6d8f0271f448ef1b67c887ee711fc5f9d0ea80ce3ef9ca3",
+    "generators/interaction_logic.py": "b6be9acfd7781370a869e6a3ee27d99e4882f3a65bd901e9fb16198a9ba178b2",
+    "generators/interaction_cover.py": "bde3c87cb89b26ba99648ea4c5c4e62d669ccacba72e00e3adb763649fee9552",
+    "generators/common.py": "ca76d919859caeaf97863a45e8679eea6d15a51cc29ce31221ec53e09146e8c0"
+  },
+  "runs": [
+    {
+      "seed": 1,
+      "count": 96,
+      "vectors": 8,
+      "profiles": [
+        "expression_context",
+        "division_context",
+        "packed_write_sequence",
+        "conditional_context",
+        "package_change_sequence",
+        "shift_context",
+        "cast_pipeline",
+        "streaming_context",
+        "concat_assignment_sequence",
+        "comparison_context",
+        "packed_logic_context"
+      ],
+      "counts": {
+        "pass": 96,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "expression_context": {
+          "pass": 9
+        },
+        "division_context": {
+          "pass": 9
+        },
+        "packed_write_sequence": {
+          "pass": 9
+        },
+        "conditional_context": {
+          "pass": 9
+        },
+        "package_change_sequence": {
+          "pass": 9
+        },
+        "shift_context": {
+          "pass": 9
+        },
+        "cast_pipeline": {
+          "pass": 9
+        },
+        "streaming_context": {
+          "pass": 9
+        },
+        "concat_assignment_sequence": {
+          "pass": 8
+        },
+        "comparison_context": {
+          "pass": 8
+        },
+        "packed_logic_context": {
+          "pass": 8
+        }
+      },
+      "manifest_sha256": "61ab23cdf0343d73e78a3654f50c8b751564504cdd0d1362696027eb7f9e300b",
+      "run_sha256": "b2aa65554b33c423b7949d46ba3cd4ee6eefcad5bc586022738f6b31b0f617ab",
+      "artifact": "my-results/random-predicate-20261103/run-0",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    },
+    {
+      "seed": 731,
+      "count": 96,
+      "vectors": 8,
+      "profiles": [
+        "expression_context",
+        "division_context",
+        "packed_write_sequence",
+        "conditional_context",
+        "package_change_sequence",
+        "shift_context",
+        "cast_pipeline",
+        "streaming_context",
+        "concat_assignment_sequence",
+        "comparison_context",
+        "packed_logic_context"
+      ],
+      "counts": {
+        "pass": 96,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "expression_context": {
+          "pass": 9
+        },
+        "division_context": {
+          "pass": 9
+        },
+        "packed_write_sequence": {
+          "pass": 9
+        },
+        "conditional_context": {
+          "pass": 9
+        },
+        "package_change_sequence": {
+          "pass": 9
+        },
+        "shift_context": {
+          "pass": 9
+        },
+        "cast_pipeline": {
+          "pass": 9
+        },
+        "streaming_context": {
+          "pass": 9
+        },
+        "concat_assignment_sequence": {
+          "pass": 8
+        },
+        "comparison_context": {
+          "pass": 8
+        },
+        "packed_logic_context": {
+          "pass": 8
+        }
+      },
+      "manifest_sha256": "7df3e1342367cef782d06eccbe961eb36c7dee4cfc0b288b23a06bfb4109ab2b",
+      "run_sha256": "28d2a1c2e24d137be36b9f9b8f97b1b3e44d3a8ce621883e7e546c9efa1bcd18",
+      "artifact": "my-results/random-predicate-20261103/run-1",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    },
+    {
+      "seed": 20261103,
+      "count": 96,
+      "vectors": 8,
+      "profiles": [
+        "expression_context",
+        "division_context",
+        "packed_write_sequence",
+        "conditional_context",
+        "package_change_sequence",
+        "shift_context",
+        "cast_pipeline",
+        "streaming_context",
+        "concat_assignment_sequence",
+        "comparison_context",
+        "packed_logic_context"
+      ],
+      "counts": {
+        "pass": 96,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "expression_context": {
+          "pass": 9
+        },
+        "division_context": {
+          "pass": 9
+        },
+        "packed_write_sequence": {
+          "pass": 9
+        },
+        "conditional_context": {
+          "pass": 9
+        },
+        "package_change_sequence": {
+          "pass": 9
+        },
+        "shift_context": {
+          "pass": 9
+        },
+        "cast_pipeline": {
+          "pass": 9
+        },
+        "streaming_context": {
+          "pass": 9
+        },
+        "concat_assignment_sequence": {
+          "pass": 8
+        },
+        "comparison_context": {
+          "pass": 8
+        },
+        "packed_logic_context": {
+          "pass": 8
+        }
+      },
+      "manifest_sha256": "9871cba292282b68cc72b85f8ea3496d9cb89cf7079bb1fcffa065c24f4b4ceb",
+      "run_sha256": "63ff7ddfe0dcc041cf2b6f26ec8d6b1d5b1672152272d4ebfd72139548ed9df9",
+      "artifact": "my-results/random-predicate-20261103/run-2",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    },
+    {
+      "seed": 731,
+      "count": 32,
+      "vectors": 32,
+      "profiles": [
+        "comparison_context"
+      ],
+      "counts": {
+        "pass": 32,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "comparison_context": {
+          "pass": 32
+        }
+      },
+      "manifest_sha256": "eb4cd82a959e9a6621b5fb0620fa37e83032f1211deadb23372a221a9dea4140",
+      "run_sha256": "6dfa150ce1f38ff73d9565da94196101b80e69b23445a8997f5ecdf7351ed948",
+      "artifact": "my-results/random-predicate-20261103/run-3",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    },
+    {
+      "seed": 731,
+      "count": 32,
+      "vectors": 32,
+      "profiles": [
+        "packed_logic_context"
+      ],
+      "counts": {
+        "pass": 32,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "not_run": 0,
+        "stale": 0
+      },
+      "by_profile": {
+        "packed_logic_context": {
+          "pass": 32
+        }
+      },
+      "manifest_sha256": "cec4cad0ce38c91f4a2e61ee066d6e7369918015d8c126a804359681199de8b4",
+      "run_sha256": "19bd545bade8b43c888c52fd5ee7181c8bdabd7dcb185d7e3df6600c6752e570",
+      "artifact": "my-results/random-predicate-20261103/run-4",
+      "seconds": null,
+      "valid": true,
+      "completed": true
+    }
+  ],
+  "replay": {
+    "counts": {
+      "pass": 2,
+      "fail": 0,
+      "known": 0,
+      "unsupported": 0,
+      "not_run": 0,
+      "stale": 0
+    },
+    "reference_drift": [],
+    "saved_bytes_identical": true,
+    "run_sha256": "887dabe1845986b545858a584247402281e712cdb05d50dc000571a9a92152c2"
+  },
+  "public_comparison": {
+    "counts": {
+      "kirimasim": {
+        "pass": 4
+      },
+      "icarus": {
+        "pass": 4
+      },
+      "verilator": {
+        "unsupported": 2,
+        "pass": 2
+      }
+    },
+    "native_counts": {
+      "pass": 4,
+      "fail": 0,
+      "known": 0,
+      "unsupported": 0,
+      "not_run": 0,
+      "stale": 0
+    },
+    "simulator_seed": 1,
+    "versions": {
+      "verilator": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "icarus": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)"
+    },
+    "manifest": {
+      "schema": 1,
+      "generator": "bounded_random_cross@1",
+      "seed": 731,
+      "cases": [
+        {
+          "id": "case_0000",
+          "profile": "comparison_context",
+          "parameters": {
+            "width": 33,
+            "rhs_relation": "wide",
+            "sign_a": "signed",
+            "sign_b": "signed",
+            "operator": "lt",
+            "result_width": 7
+          },
+          "stimuli": [
+            {
+              "a": "111111111111111111111111111111111",
+              "b": "0000000000000000000000000000000000"
+            }
+          ]
+        },
+        {
+          "id": "case_0001",
+          "profile": "packed_logic_context",
+          "parameters": {
+            "width": 32,
+            "state": "logic",
+            "sign": "signed",
+            "shape": "direct",
+            "span": 32,
+            "offset": 0,
+            "result_state": "logic",
+            "result_width": 130
+          },
+          "stimuli": [
+            {
+              "source": "11111111111111111111111111111111"
+            }
+          ]
+        },
+        {
+          "id": "case_0002",
+          "profile": "comparison_context",
+          "parameters": {
+            "width": 32,
+            "rhs_relation": "same",
+            "sign_a": "signed",
+            "sign_b": "signed",
+            "operator": "weq",
+            "result_width": 7
+          },
+          "stimuli": [
+            {
+              "a": "x0000000000000000000000000000000",
+              "b": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+            }
+          ]
+        },
+        {
+          "id": "case_0003",
+          "profile": "packed_logic_context",
+          "parameters": {
+            "width": 32,
+            "state": "logic",
+            "sign": "signed",
+            "shape": "direct",
+            "span": 32,
+            "offset": 0,
+            "result_state": "logic",
+            "result_width": 7
+          },
+          "stimuli": [
+            {
+              "source": "0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1"
+            }
+          ]
+        }
+      ]
+    },
+    "manifest_sha256": "03dc129b33d284d796d652766bb801482ab78e34e603e56889d7287e66a0c12b",
+    "run_sha256": "32b0dfc1d2f9810edf07f79b2b75041d242e553a6c7593d033c1dbff7ad287ea",
+    "all_comparators_pass": false
+  },
+  "faults": [
+    {
+      "name": "wrong_operand_signedness",
+      "status": "detected",
+      "returncode": 0,
+      "reason": "output differs: line 2 is 'v0_result=0 wide=0000000 binary=0000000 bits=1', expected 'v0_result=1 wide=0000001 binary=0000001 bits=1'",
+      "source_sha256": "e3e24fca3691bf11eabe93646235a0475598c2c04bb24e0b60e97337b497a61c",
+      "expected_sha256": "945561261f0ef1413d1059feaff17feff8868524c134cec0c6666c418c1cc4c2",
+      "stdout_sha256": "b53ecad36d10f8b93c342080a83e00d25089a8dba235e5e53d12f5d5d2798890",
+      "stderr_sha256": "1c933ebd8b6c80ad77a8f9508452fc0ab91cfc0552af0d275c94cbaf49dfa1b5"
+    },
+    {
+      "name": "left_sided_wildcards",
+      "status": "detected",
+      "returncode": 0,
+      "reason": "output differs: line 2 is 'v0_result=x wide=0000001 binary=0000001 bits=1', expected 'v0_result=1 wide=0000001 binary=0000001 bits=1'",
+      "source_sha256": "ff48be85c8d624a07ba652e679f1bf30ff10a1d0d2304d666b43ee955225e08a",
+      "expected_sha256": "16684e387d00bdf0807bf93576743b8ed0c912c639d269365ac898eba56b2f64",
+      "stdout_sha256": "e06ad8cd727333695136151a80866b84bd3727e0494304c52ca3ba07fb7bbe5c",
+      "stderr_sha256": "1e6d2ff9b5b5f3be39e899d3e2d3898f6d8c78edf297d924011e41e8134b391e"
+    },
+    {
+      "name": "early_source_conversion",
+      "status": "detected",
+      "returncode": 0,
+      "reason": "output differs: line 1 is 'v0_input=0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1 source=00000000...', expected 'v0_input=0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1 source=0xxxxxxx...'",
+      "source_sha256": "b03dbe89573cc4c9c2ef63036baf0e521b7c744297c0d5d298f9caf5420ca963",
+      "expected_sha256": "20ed49f988acc1ab992b7aad3b17e81050cddfe62e4906c4cdcf5efaf14dddc4",
+      "stdout_sha256": "3ca2621b9cbaec77da1ecbf20863a2c4136f0283abfbaea08545fdd84a89bc37",
+      "stderr_sha256": "42af8b806dbb62dc03edfdfe6c4759922be80e712dd238ee7e98f5141b3df73e"
+    },
+    {
+      "name": "signed_one_bit_result",
+      "status": "detected",
+      "returncode": 0,
+      "reason": "output differs: line 2 is 'v0_and=1 wide=1111111111111111111111111111111111111111111...', expected 'v0_and=1 wide=0000000000000000000000000000000000000000000...'",
+      "source_sha256": "0b9ade7aa8eece9fc08630f43955a432ff645c4df2390afd04edf3c8f46301d1",
+      "expected_sha256": "31acc34600dbc482ae3f449dfa3ce2346515d4c858d74613966d79f51d6aa6c7",
+      "stdout_sha256": "5ac16e99691d7542b378c9f7f942bc3489258f2911f70324c4804b44a3fe20bb",
+      "stderr_sha256": "62ef6b1c7562fb789ba4e6bf766ef9fa1c4b79c0a91e89e05f3df7add0638c81"
+    }
+  ],
+  "sources_unchanged": true
+}

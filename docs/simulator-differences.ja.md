@@ -888,3 +888,7 @@ kirimasim `7554bb47`は追加36件すべて解析成功・PASSで、本体の変
 ## package変数の変更通知（2026-11-03）
 
 [package変更のクロス](interaction-verification.md#package-change-observers)は共有変数のイベント待機・waitの通知先と関数経由のalways_comb感度を36件で確認します。固定Verilator 5.052のseed 1/73はX/Zを使わない12件に一致し、残る24件はknownのままで4状態oracleへ登録しません。固定Icarus 13.0は全36件をコンパイル段階で拒否します。[元のSVの再実行](../coverage/interaction-qualification/pkgwatch-fixed-replays.json)にVerilatorの全出力2件とIcarusの診断2件を保存しました。元のVerilator 2件は先行する既知値の入力表示から差があり、[X/Z入力だけをゼロへ置き換えた別の診断用対照](../coverage/interaction-qualification/pkgwatch-known-input-controls.json)は独立した期待値でkirimasimと固定Verilatorの両方に一致しました。内部原因、言語機能全体の制限、以後の開発版の結果を断定するものではありません。元の期待値とknown分類は維持しています。
+
+## ストリーミングと混在型の連結代入のランダム対照（2026-11-03）
+
+[新しいランダムプロファイルの対照](random-cross-verification.md#nine-profile-validation)は、同じ保存刺激と規格由来の期待値5件を使います。固定Icarus 13.0はストリーミング3入力をコンパイル段階で拒否し、bit/logicが混在する連結左辺へのNBAの1件でbit項にZを残します。同じ既知値の連結対照はPASSです。固定Verilator 5.052はpackと既知値の連結対照がPASS、部分ブロックのunpackは逆置換1001ではなくpackと同じ0110を返し、X/Z対照2件は2値で判定しません。固定ビルドの観測に限定し、内部原因や新しい開発版の結果は断定しません。元の入力・期待値は維持し、[検証記録](../coverage/interaction-qualification/random-cross-nine-profiles.json)に実際の対照manifestと版・実行ハッシュを保存しています。

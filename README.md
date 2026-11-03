@@ -209,7 +209,7 @@ Clocking inputs and named-event waiters (Chapters 14×15) select 24 of 192 combi
 
 [Model-based random cross comparisons](docs/random-cross-verification.en.md) also run in Nightly: a default 96 cases cover arithmetic, division/remainder and indexed-write sequences, saving seeds and actual stimuli in a dedicated artifact. These samples remain separate from fixed-suite counts and coverage.
 The [purpose and roles](docs/random-cross-verification.en.md#purpose-and-roles) and [verification process](docs/random-cross-verification.en.md#verification-process) explain how exploration supplements fixed cases through generation, model comparison, saved replay and fixed regression follow-up.
-The five profiles cover arithmetic, division/remainder, indexed writes, conditional context/X/Z merging and package change observers within the same default total of 96 cases.
+The eleven profiles cover arithmetic, division/remainder, indexed writes, conditional context/X/Z merging, package change observers, shifts, cast pipelines, streaming, concatenated-assignment sequences, comparisons and packed reductions within the same default total of 96 cases.
 The guide also covers optional exploration admission, immutable replay with reference-drift reporting, checks of the same saved stimulus with Icarus/Verilator, and reviewed failure-to-regression drafts. Fixed regressions, formal Nightly and explicit replay always execute.
 
 A complete selection plan and a successful Check do not mean all crosses passed on

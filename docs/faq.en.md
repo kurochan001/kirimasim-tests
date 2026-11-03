@@ -392,7 +392,7 @@ The [issue form](../.github/ISSUE_TEMPLATE/report.yml) provides instructions and
 
 Explore different input values, initial states and operation histories within supported scopes to find counterexamples missed by fixed representative cases.
 Retain fixed boundaries and combination regressions, reproduce and classify discoveries, and carry confirmed failures into fixed regressions.
-Yes: drive a design and reference with identical stimuli. Five profiles cover arithmetic expressions, division/remainder, indexed-write sequences, conditional context/X/Z merging and package change observers.
+Yes: drive a design and reference with identical stimuli. Eleven profiles cover arithmetic expressions, division/remainder, indexed-write sequences, conditional context/X/Z merging, package change observers, shift contexts, cast pipelines, streaming pack/unpack, concatenated-assignment sequences, comparisons and packed reductions/logical negation.
 References must accept the generated values and operation lists within their legal scope; not every finite model accepts arbitrary inputs.
 This differs from matching random streams. Multiple-solution `randomize()` checks should validate constraints rather than require identical generated values.
 See [purpose and roles](random-cross-verification.en.md#purpose-and-roles), [the verification process](random-cross-verification.en.md#verification-process) and [scope and limits](random-cross-verification.en.md#scope).

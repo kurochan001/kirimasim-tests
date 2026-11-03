@@ -18,10 +18,19 @@ import interaction_divide as divide
 import interaction_expr as expression
 import interaction_cond as conditional
 import interaction_pkgwatch as package_watch
+import interaction_bits as bit_values
+import interaction_shift as shifts
+import interaction_stream as streams
+import interaction_concat as concatenation
+import interaction_compare as comparisons
+import interaction_logic as logical
 
 GENERATOR = 'bounded_random_cross@1'
 LEGACY_PROFILES = ('expression_context', 'division_context', 'packed_write_sequence')
-PROFILES = LEGACY_PROFILES + ('conditional_context', 'package_change_sequence')
+FIVE_PROFILES = LEGACY_PROFILES + ('conditional_context', 'package_change_sequence')
+SEVEN_PROFILES = FIVE_PROFILES + ('shift_context', 'cast_pipeline')
+NINE_PROFILES = SEVEN_PROFILES + ('streaming_context', 'concat_assignment_sequence')
+PROFILES = NINE_PROFILES + ('comparison_context', 'packed_logic_context')
 MAX_CASES = 256
 MAX_STIMULI = 32
 WIDTHS = (1, 32, 33, 64, 65, 129)
@@ -81,6 +90,18 @@ def generate(seed, count=96, steps=8, profiles=PROFILES):
             parameters, stimuli = generate_conditional(rng, steps)
         elif profile == 'package_change_sequence':
             parameters, stimuli = generate_package(rng, steps)
+        elif profile == 'shift_context':
+            parameters, stimuli = generate_shift(rng, steps)
+        elif profile == 'cast_pipeline':
+            parameters, stimuli = generate_cast(rng, steps)
+        elif profile == 'streaming_context':
+            parameters, stimuli = generate_stream(rng, steps)
+        elif profile == 'concat_assignment_sequence':
+            parameters, stimuli = generate_concat(rng, steps)
+        elif profile == 'comparison_context':
+            parameters, stimuli = generate_comparison(rng, steps)
+        elif profile == 'packed_logic_context':
+            parameters, stimuli = generate_logic(rng, steps)
         else:
             width = rng.choice(WIDTHS)
             span = rng.randint(1, width)
@@ -130,6 +151,16 @@ def validate_case(case):
         validate_conditional(parameters, stimuli)
     elif profile == 'package_change_sequence':
         validate_package(parameters, stimuli)
+    elif profile in ('shift_context', 'cast_pipeline'):
+        validate_bit_profile(profile, parameters, stimuli)
+    elif profile == 'streaming_context':
+        validate_stream(parameters, stimuli)
+    elif profile == 'concat_assignment_sequence':
+        validate_concat(parameters, stimuli)
+    elif profile == 'comparison_context':
+        validate_comparison(parameters, stimuli)
+    elif profile == 'packed_logic_context':
+        validate_logic(parameters, stimuli)
     else:
         keys(parameters, ('width', 'span', 'direction', 'select', 'state'))
         width = integer(parameters['width'], 1, 129, 'width')
@@ -187,6 +218,16 @@ def content_digest(case):
 
 def requires_fourstate(case):
     validate_case(case)
+    if case['profile'] in ('comparison_context', 'packed_logic_context'):
+        return any(set(''.join(v.values())) & set('xz') for v in case['stimuli'])
+    if case['profile'] == 'streaming_context':
+        return any(set(''.join(v.values())) & set('xz') for v in case['stimuli'])
+    if case['profile'] == 'concat_assignment_sequence':
+        s = case['stimuli']
+        return bool(set(s['initial_left']+s['initial_right']+''.join(
+            op['source']+op['after'] for op in s['operations'])) & set('xz'))
+    if case['profile'] in ('shift_context', 'cast_pipeline'):
+        return any(set(v['source']+v.get('count', '')) & set('xz') for v in case['stimuli'])
     if case['profile'] == 'conditional_context':
         return any(set(v['a']+v['b']+v['condition']) & set('xz') for v in case['stimuli'])
     if case['profile'] == 'package_change_sequence':
@@ -230,6 +271,24 @@ def materialize(case):
                 expected += [f'v{index}_raw={divide.reference(row, a, b, natural)} '
                              f'result={divide.reference(row, a, b, wr)} bits={natural}']
         clauses = '11.6.1 11.8.1 11.8.2'+(' 11.4.3' if profile == PROFILES[1] else '')
+    elif profile == 'comparison_context':
+        lines, expected = materialize_comparison(case)
+        clauses = '11.4.4 11.4.5 11.4.6 11.6.1 11.8.2 6.11.2'
+    elif profile == 'packed_logic_context':
+        lines, expected = materialize_logic(case)
+        clauses = '11.4.9 11.4.7 11.6.1 11.8.1 6.11.2 11.5.1 11.4.12'
+    elif profile == 'streaming_context':
+        lines, expected = materialize_stream(case)
+        clauses = '11.4.14.1 11.4.14.2 11.4.14.3 6.11.2'
+    elif profile == 'concat_assignment_sequence':
+        lines, expected = materialize_concat(case)
+        clauses = '11.4.12 10.7 10.4.1 10.4.2 6.11.2 11.8.1 11.8.2'
+    elif profile == 'shift_context':
+        lines, expected = materialize_shift(case)
+        clauses = '11.4.10 11.6.1 11.8.1 11.8.2 6.11.2'
+    elif profile == 'cast_pipeline':
+        lines, expected = materialize_cast(case)
+        clauses = '6.24.1 6.11.2 11.6.1 11.8.1 11.8.2'
     elif profile == 'conditional_context':
         lines, expected = materialize_conditional(case)
         clauses = '11.4.11 11.6.1 11.8.1 11.8.2 6.11.2'
@@ -416,4 +475,313 @@ def materialize_package(case):
         snapshot(str(step), tick+1)
     lines += ['    #4;']
     snapshot('idle', len(stimuli['operations'])*5+5)
+    return lines, expected
+
+
+def generate_shift(rng, steps):
+    w = rng.choice(WIDTHS)
+    p = {'width': w, 'sign': rng.choice(('signed', 'unsigned')), 'operator': rng.choice(tuple(shifts.OPS)),
+         'relation': rng.choice(('same', 'wide') if w == 1 else ('narrow', 'same', 'wide')),
+         'state': rng.choice(('bit', 'logic')), 'count_width': rng.choice((8, 32, 65)),
+         'count_sign': rng.choice(('signed', 'unsigned'))}
+    n = w + int(p['relation'] == 'wide')
+    vectors = []
+    for _ in range(steps):
+        # Counts are self-determined. Include huge known counts without any
+        # allocation proportional to their value, plus partially unknown counts.
+        count = (f'{rng.choice((0, 1, w-1, w, w+1, n, n+1, (1 << p["count_width"])-1)):0{p["count_width"]}b}'
+                 if rng.randrange(2) == 0 else word(rng, p['count_width'], True))
+        vectors.append({'source': word(rng, w, True), 'count': count})
+    return p, vectors
+
+
+def generate_cast(rng, steps):
+    w = rng.choice(WIDTHS);kind = rng.choice(('size', 'signed', 'unsigned', 'typed_bit', 'typed_logic'))
+    p = {'width': w, 'sign': rng.choice(('signed', 'unsigned')), 'cast': kind,
+         'relation': 'same' if kind in ('signed', 'unsigned') else rng.choice(
+             ('same', 'wide') if w == 1 else ('narrow', 'same', 'wide')),
+         'operation': rng.choice(('plain', 'add')), 'state': rng.choice(('bit', 'logic'))}
+    return p, [{'source': word(rng, w, True)} for _ in range(steps)]
+
+
+def validate_bit_profile(profile, p, vectors):
+    shift = profile == 'shift_context'
+    keys(p, ('width', 'sign', 'operator', 'relation', 'state', 'count_width', 'count_sign') if shift else
+         ('width', 'sign', 'cast', 'relation', 'operation', 'state'))
+    w = integer(p['width'], 1, 129, 'width')
+    if w not in WIDTHS or p['sign'] not in ('signed', 'unsigned') or p['state'] not in ('bit', 'logic') or (
+            p['relation'] not in ('narrow', 'same', 'wide')) or (w == 1 and p['relation'] == 'narrow'):
+        raise ValueError('invalid bit-profile parameter')
+    if shift:
+        cw = integer(p['count_width'], 8, 65, 'count width')
+        if cw not in (8, 32, 65) or p['count_sign'] not in ('signed', 'unsigned') or p['operator'] not in tuple(shifts.OPS):
+            raise ValueError('invalid shift parameter')
+    elif p['cast'] not in ('size', 'signed', 'unsigned', 'typed_bit', 'typed_logic') or (
+            p['cast'] in ('signed', 'unsigned') and p['relation'] != 'same') or p['operation'] not in ('plain', 'add'):
+        raise ValueError('invalid cast parameter')
+    if not isinstance(vectors, list):raise ValueError('vectors must be a list')
+    integer(len(vectors), 1, MAX_STIMULI, 'vectors')
+    for vector in vectors:
+        keys(vector, ('source', 'count') if shift else ('source',))
+        bits(vector['source'], w, True)
+        if shift:bits(vector['count'], p['count_width'], True)
+
+
+def materialize_shift(case):
+    p = case['parameters'];w = p['width'];wr = w + {'narrow': -1, 'same': 0, 'wide': 1}[p['relation']]
+    lines = [f'module random_cross_{case["id"]};', f'  logic {p["sign"]} [{w-1}:0] source;',
+             f'  logic {p["count_sign"]} [{p["count_width"]-1}:0] count;',
+             f'  {p["state"]} [{wr-1}:0] result;', '  initial begin']
+    expected = []
+    for index, vector in enumerate(case['stimuli']):
+        source, count = vector['source'], vector['count']
+        lines += [f'    source = {conditional.literal(source)};', f'    count = {conditional.literal(count)};',
+                  f'    result = source {shifts.OPS[p["operator"]]} count;',
+                  f'    $display("v{index}_source=%b count=%b", source, count);',
+                  f'    $display("v{index}_result=%b", result);']
+        operand = bit_values.resize(source, max(w, wr), p['sign'] == 'signed')
+        if set(count) & set('xz'):
+            value = 'x'*len(operand)
+        else:
+            amount = int(count, 2)
+            fill = operand[0] if p['operator'] == 'ashr' and p['sign'] == 'signed' else '0'
+            def at(position):
+                origin = position+amount if p['operator'] in ('shl', 'ashl') else position-amount
+                return operand[origin] if 0 <= origin < len(operand) else fill
+            value = ''.join(at(i) for i in range(len(operand)))
+        value = value[-wr:]
+        if p['state'] == 'bit':value = bit_values.two_state(value)
+        expected += [f'v{index}_source={source} count={count}', f'v{index}_result={value}']
+    return lines, expected
+
+
+def materialize_cast(case):
+    p = case['parameters'];w = p['width'];cw = w + {'narrow': -1, 'same': 0, 'wide': 1}[p['relation']]
+    kind = p['cast']
+    expression = f"{cw}'(source)" if kind == 'size' else "cast_t'(source)" if kind.startswith('typed_') else f"{kind}'(source)"
+    lines = [f'module random_cross_{case["id"]};', f'  logic {p["sign"]} [{w-1}:0] source;',
+             f'  {p["state"]} [{w+1}:0] result;']
+    if kind.startswith('typed_'):lines += [f'  typedef {kind[6:]} [{cw-1}:0] cast_t;']
+    lines += ['  initial begin'];expected = []
+    for index, vector in enumerate(case['stimuli']):
+        source = vector['source'];signed = p['sign'] == 'signed'
+        if kind in ('signed', 'unsigned'):
+            intermediate = source;signed = kind == 'signed'
+        else:
+            intermediate = bit_values.resize(source, cw, signed)
+            if kind.startswith('typed_'):
+                signed = False
+                if kind == 'typed_bit':intermediate = bit_values.two_state(intermediate)
+        value = bit_values.resize(intermediate, w+2, signed)
+        if p['operation'] == 'add':
+            value = 'x'*(w+2) if set(value)&set('xz') else f'{(int(value,2)+1) % (1 << (w+2)):0{w+2}b}'
+        if p['state'] == 'bit':value = bit_values.two_state(value)
+        lines += [f'    source = {conditional.literal(source)};',
+                  f'    result = {expression}'+(" + 2'sb01;" if p['operation'] == 'add' else ';'),
+                  f'    $display("v{index}_source=%b", source);', f'    $display("v{index}_cast=%b", {expression});',
+                  f'    $display("v{index}_result=%b", result);']
+        expected += [f'v{index}_source={source}', f'v{index}_cast={intermediate}', f'v{index}_result={value}']
+    return lines, expected
+
+
+def generate_stream(rng, steps):
+    w = rng.choice(WIDTHS)
+    p = {'width': w, 'direction': rng.choice(('left', 'right')),
+         'slice': rng.choice((1, 2, 3, 4, 7, 8, 16, 17, 32, 33, w, w+1, w+3)),
+         'form': rng.choice(('plain', 'tagged')), 'operation': rng.choice(('pack', 'unpack')),
+         'state': rng.choice(('bit', 'logic'))}
+    vectors = []
+    for _ in range(steps):
+        vector = {'source': word(rng, w, True)}
+        if p['form'] == 'tagged':vector['tag'] = word(rng, 3, True)
+        vectors.append(vector)
+    return p, vectors
+
+
+def validate_stream(p, vectors):
+    keys(p, ('width', 'direction', 'slice', 'form', 'operation', 'state'))
+    w = integer(p['width'], 1, 129, 'width');integer(p['slice'], 1, 132, 'slice')
+    if w not in WIDTHS or p['direction'] not in ('left', 'right') or p['form'] not in ('plain', 'tagged') or (
+            p['operation'] not in ('pack', 'unpack')) or p['state'] not in ('bit', 'logic'):
+        raise ValueError('invalid streaming parameter')
+    if not isinstance(vectors, list):raise ValueError('vectors must be a list')
+    integer(len(vectors), 1, MAX_STIMULI, 'vectors')
+    for vector in vectors:
+        keys(vector, ('source', 'tag') if p['form'] == 'tagged' else ('source',))
+        bits(vector['source'], w, True)
+        if p['form'] == 'tagged':bits(vector['tag'], 3, True)
+
+
+def materialize_stream(case):
+    p = case['parameters'];w = p['width'];tagged = p['form'] == 'tagged';n = w+3*tagged
+    symbol = '<<' if p['direction'] == 'left' else '>>';size = p['slice']
+    operands = 'tag, source' if tagged else 'source'
+    lines = [f'module random_cross_{case["id"]};', f'  logic [{w-1}:0] source;', '  logic [2:0] tag;',
+             f'  logic [{n-1}:0] incoming;', f'  {p["state"]} [{n-1}:0] result;', '  initial begin']
+    expected = []
+    for index, vector in enumerate(case['stimuli']):
+        source = vector['source'];incoming = vector.get('tag', '')+source
+        lines += [f'    source = {conditional.literal(source)};']
+        if tagged:lines += [f'    tag = {conditional.literal(vector["tag"])};']
+        lines += [f'    incoming = {{{operands}}};']
+        lines += [f'    result = {{{symbol}{size}{{{operands}}}}};'] if p['operation'] == 'pack' else [
+            f'    {{{symbol}{size}{{result}}}} = incoming;']
+        lines += [f'    $display("v{index}_source=%b incoming=%b", source, incoming);',
+                  f'    $display("v{index}_result=%b", result);']
+        value = streams.reorder(incoming, p['direction'], size, p['operation'] == 'unpack')
+        if p['state'] == 'bit':value = bit_values.two_state(value)
+        expected += [f'v{index}_source={source} incoming={incoming}', f'v{index}_result={value}']
+    return lines, expected
+
+
+def generate_concat(rng, steps):
+    w = rng.choice((2, 32, 33, 64, 65, 129));left = rng.randrange(1, w)
+    relation = rng.choice(('narrow', 'same', 'wide'));sw = w+{'narrow': -1, 'same': 0, 'wide': 1}[relation]
+    p = {'width': w, 'left_width': left, 'rhs_relation': relation, 'rhs_sign': rng.choice(('signed', 'unsigned')),
+         'states': rng.choice(tuple(concatenation.STATES)), 'member_sign': rng.choice(('signed', 'unsigned')),
+         'update': rng.choice(('blocking', 'nba'))}
+    initial_left, initial_right = word(rng, left, True), word(rng, w-left, True)
+    operations = []
+    for _ in range(steps):
+        operations.append(dict(operations[-1]) if operations and rng.randrange(4) == 0 else
+                          {'source': word(rng, sw, True), 'after': word(rng, sw, True)})
+    return p, {'initial_left': initial_left, 'initial_right': initial_right, 'operations': operations}
+
+
+def validate_concat(p, stimuli):
+    keys(p, ('width', 'left_width', 'rhs_relation', 'rhs_sign', 'states', 'member_sign', 'update'))
+    w = integer(p['width'], 2, 129, 'width');left = integer(p['left_width'], 1, w-1, 'left width')
+    if w not in (2, 32, 33, 64, 65, 129) or p['rhs_relation'] not in ('narrow', 'same', 'wide') or (
+            p['rhs_sign'] not in ('signed', 'unsigned')) or p['states'] not in tuple(concatenation.STATES) or (
+            p['member_sign'] not in ('signed', 'unsigned')) or p['update'] not in ('blocking', 'nba'):
+        raise ValueError('invalid concatenation parameter')
+    sw = w+{'narrow': -1, 'same': 0, 'wide': 1}[p['rhs_relation']]
+    keys(stimuli, ('initial_left', 'initial_right', 'operations'))
+    bits(stimuli['initial_left'], left, True);bits(stimuli['initial_right'], w-left, True)
+    if not isinstance(stimuli['operations'], list):raise ValueError('operations must be a list')
+    integer(len(stimuli['operations']), 1, MAX_STIMULI, 'operations')
+    for op in stimuli['operations']:
+        keys(op, ('source', 'after'));bits(op['source'], sw, True);bits(op['after'], sw, True)
+
+
+def materialize_concat(case):
+    p, stimuli = case['parameters'], case['stimuli'];w = p['width'];left = p['left_width'];right = w-left
+    sw = w+{'narrow': -1, 'same': 0, 'wide': 1}[p['rhs_relation']];ls, rs = concatenation.STATES[p['states']]
+    convert = lambda value, state: bit_values.two_state(value) if state == 'bit' else value
+    a, b = convert(stimuli['initial_left'], ls), convert(stimuli['initial_right'], rs)
+    lines = ['`timescale 1ns/1ns', f'module random_cross_{case["id"]};',
+             f'  {ls} {p["member_sign"]} [{left-1}:0] left;', f'  {rs} {p["member_sign"]} [{right-1}:0] right;',
+             f'  logic {p["rhs_sign"]} [{sw-1}:0] source;', f'  logic [{left}:0] left_wide;',
+             f'  logic [{right}:0] right_wide;', f'  logic [{w}:0] concat_wide;', '  initial begin',
+             f'    left = {conditional.literal(stimuli["initial_left"])};',
+             f'    right = {conditional.literal(stimuli["initial_right"])};', '    $display("initial=%b %b", left, right);']
+    expected = [f'initial={a} {b}']
+    for index, op in enumerate(stimuli['operations']):
+        fitted = bit_values.resize(op['source'], w, p['rhs_sign'] == 'signed')
+        na, nb = convert(fitted[:left], ls), convert(fitted[left:], rs)
+        immediate = (a, b) if p['update'] == 'nba' else (na, nb)
+        lines += [f'    source = {conditional.literal(op["source"])};', f'    $display("v{index}_input=%b", source);',
+                  '    {left, right} '+('<=' if p['update'] == 'nba' else '=')+' source;',
+                  f'    $display("v{index}_scheduled=%b %b", left, right);',
+                  f'    source = {conditional.literal(op["after"])};', f'    $display("v{index}_changed=%b", source);', '    #1;',
+                  '    left_wide = left; right_wide = right; concat_wide = {left, right};',
+                  f'    $display("v{index}_final=%b %b", left, right);',
+                  f'    $display("v{index}_wide=%b %b concat=%b", left_wide, right_wide, concat_wide);']
+        a, b = na, nb;signed = p['member_sign'] == 'signed'
+        expected += [f'v{index}_input={op["source"]}', f'v{index}_scheduled={immediate[0]} {immediate[1]}',
+                     f'v{index}_changed={op["after"]}', f'v{index}_final={a} {b}',
+                     f'v{index}_wide={bit_values.resize(a,left+1,signed)} {bit_values.resize(b,right+1,signed)} concat=0{a}{b}']
+    return lines, expected
+
+
+def generate_comparison(rng, steps):
+    w = rng.choice(WIDTHS)
+    p = {'width': w, 'rhs_relation': rng.choice(('same', 'wide') if w == 1 else ('narrow', 'same', 'wide')),
+         'sign_a': rng.choice(('signed', 'unsigned')), 'sign_b': rng.choice(('signed', 'unsigned')),
+         'operator': rng.choice(tuple(comparisons.OPERATORS)), 'result_width': rng.choice((1, 7, 33, 65, 130))}
+    wb = w+{'narrow': -1, 'same': 0, 'wide': 1}[p['rhs_relation']]
+    vectors = []
+    for _ in range(steps):
+        a = word(rng, w, True)
+        b = bit_values.resize(a, wb, p['sign_a'] == p['sign_b'] == 'signed') if rng.randrange(4) == 0 else word(rng, wb, True)
+        vectors.append({'a': a, 'b': b})
+    return p, vectors
+
+
+def validate_comparison(p, vectors):
+    keys(p, ('width', 'rhs_relation', 'sign_a', 'sign_b', 'operator', 'result_width'))
+    w = integer(p['width'], 1, 129, 'width');integer(p['result_width'], 1, 130, 'result width')
+    if w not in WIDTHS or p['rhs_relation'] not in ('narrow', 'same', 'wide') or (
+            w == 1 and p['rhs_relation'] == 'narrow') or p['sign_a'] not in ('signed', 'unsigned') or (
+            p['sign_b'] not in ('signed', 'unsigned')) or p['operator'] not in tuple(comparisons.OPERATORS):
+        raise ValueError('invalid comparison parameter')
+    wb = w+{'narrow': -1, 'same': 0, 'wide': 1}[p['rhs_relation']]
+    if not isinstance(vectors, list):raise ValueError('vectors must be a list')
+    integer(len(vectors), 1, MAX_STIMULI, 'vectors')
+    for vector in vectors:
+        keys(vector, ('a', 'b'));bits(vector['a'], w, True);bits(vector['b'], wb, True)
+
+
+def materialize_comparison(case):
+    p = case['parameters'];w = p['width'];wb = w+{'narrow': -1, 'same': 0, 'wide': 1}[p['rhs_relation']];wr = p['result_width']
+    expr = 'a '+comparisons.OPERATORS[p['operator']]+' b'
+    lines = [f'module random_cross_{case["id"]};', f'  logic {p["sign_a"]} [{w-1}:0] a;',
+             f'  logic {p["sign_b"]} [{wb-1}:0] b;', '  logic raw;',
+             f'  logic [{wr-1}:0] wide;', f'  bit [{wr-1}:0] binary;', '  initial begin']
+    expected = []
+    for index, vector in enumerate(case['stimuli']):
+        a, b = vector['a'], vector['b'];r = comparisons.compare(a, b, p['sign_a'], p['sign_b'], p['operator'])
+        lines += [f'    a = {conditional.literal(a)}; b = {conditional.literal(b)};',
+                  f'    raw = {expr}; wide = {expr}; binary = {expr};',
+                  f'    $display("v{index}_inputs=%b %b", a, b);',
+                  f'    $display("v{index}_result=%b wide=%b binary=%b bits=%0d", raw, wide, binary, $bits({expr}));']
+        expected += [f'v{index}_inputs={a} {b}',
+                     f'v{index}_result={r} wide={"0"*(wr-1)+r} binary={"0"*(wr-1)+bit_values.two_state(r)} bits=1']
+    return lines, expected
+
+
+def generate_logic(rng, steps):
+    w = rng.choice(WIDTHS);shape = rng.choice(('direct', 'slice', 'prefix_zero', 'prefix_one'))
+    span = rng.randint(1, w) if shape == 'slice' else w
+    p = {'width': w, 'state': rng.choice(('bit', 'logic')), 'sign': rng.choice(('signed', 'unsigned')),
+         'shape': shape, 'span': span, 'offset': rng.randrange(w-span+1) if shape == 'slice' else 0,
+         'result_state': rng.choice(('bit', 'logic')), 'result_width': rng.choice((1, 7, 33, 65, 130))}
+    return p, [{'source': word(rng, w, True)} for _ in range(steps)]
+
+
+def validate_logic(p, vectors):
+    keys(p, ('width', 'state', 'sign', 'shape', 'span', 'offset', 'result_state', 'result_width'))
+    w = integer(p['width'], 1, 129, 'width');span = integer(p['span'], 1, w, 'span')
+    integer(p['offset'], 0, w-span, 'offset');integer(p['result_width'], 1, 130, 'result width')
+    if w not in WIDTHS or p['state'] not in ('bit', 'logic') or p['result_state'] not in ('bit', 'logic') or (
+            p['sign'] not in ('signed', 'unsigned')) or p['shape'] not in ('direct', 'slice', 'prefix_zero', 'prefix_one') or (
+            p['shape'] != 'slice' and (span != w or p['offset'] != 0)):
+        raise ValueError('invalid logical-reduction parameter')
+    if not isinstance(vectors, list):raise ValueError('vectors must be a list')
+    integer(len(vectors), 1, MAX_STIMULI, 'vectors')
+    for vector in vectors:keys(vector, ('source',));bits(vector['source'], w, True)
+
+
+def materialize_logic(case):
+    p = case['parameters'];w, span, offset, wr = (p[key] for key in ('width', 'span', 'offset', 'result_width'))
+    shape = p['shape']
+    expr = f'source[{offset+span-1}:{offset}]' if shape == 'slice' else "{1'b0, source}" if shape == 'prefix_zero' else "{1'b1, source}" if shape == 'prefix_one' else 'source'
+    ew = span if shape == 'slice' else w+int(shape.startswith('prefix'))
+    lines = [f'module random_cross_{case["id"]};', f'  logic [{w-1}:0] raw_input;',
+             f'  {p["state"]} {p["sign"]} [{w-1}:0] source;', f'  logic [{ew-1}:0] expression_bits;']
+    for op in logical.OPERATORS:lines += [f'  logic r_{op};', f'  {p["result_state"]} [{wr-1}:0] wide_{op};']
+    lines += ['  initial begin'];expected = []
+    for index, vector in enumerate(case['stimuli']):
+        raw = vector['source'];source = bit_values.two_state(raw) if p['state'] == 'bit' else raw
+        operand = source[w-offset-span:w-offset] if shape == 'slice' else '0'+source if shape == 'prefix_zero' else '1'+source if shape == 'prefix_one' else source
+        lines += [f'    raw_input = {conditional.literal(raw)};', '    source = raw_input;',
+                  f'    expression_bits = {expr};', f'    $display("v{index}_input=%b source=%b expr=%b", raw_input, source, expression_bits);']
+        expected += [f'v{index}_input={raw} source={source} expr={operand}']
+        reductions = logical.evaluate(operand)
+        for op, symbol in logical.OPERATORS.items():
+            operation = f'{symbol}({expr})';r = reductions[op];wide = '0'*(wr-1)+r
+            if p['result_state'] == 'bit':wide = bit_values.two_state(wide)
+            lines += [f'    r_{op} = {operation}; wide_{op} = {operation};',
+                      f'    $display("v{index}_{op}=%b wide=%b bits=%0d", r_{op}, wide_{op}, $bits({operation}));']
+            expected += [f'v{index}_{op}={r} wide={wide} bits=1']
     return lines, expected

@@ -76,9 +76,9 @@ class RandomModelTests(unittest.TestCase):
         self.assertEqual(len(expectations), 1)
 
     def test_seed_is_deterministic_and_profiles_are_balanced(self):
-        first = models.generate(731, 20, 4)
-        self.assertEqual(first, models.generate(731, 20, 4))
-        self.assertNotEqual(first['cases'], models.generate(732, 20, 4)['cases'])
+        first = models.generate(731, 44, 4)
+        self.assertEqual(first, models.generate(731, 44, 4))
+        self.assertNotEqual(first['cases'], models.generate(732, 44, 4)['cases'])
         self.assertEqual({profile: sum(c['profile'] == profile for c in first['cases'])
                           for profile in models.PROFILES}, {profile: 4 for profile in models.PROFILES})
 

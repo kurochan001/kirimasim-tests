@@ -42,11 +42,11 @@ def observation(expected, tag, name='a'):
 
 
 class RandomProfileTests(unittest.TestCase):
-    def test_default_five_profile_allocation_is_balanced_at_original_nightly_size(self):
+    def test_default_profile_allocation_is_balanced_at_original_nightly_size(self):
         manifest=m.generate(731,96,8)
         counts={profile:sum(c['profile']==profile for c in manifest['cases']) for profile in m.PROFILES}
-        self.assertEqual(len(counts),5)
-        self.assertEqual(sorted(counts.values()),[19,19,19,19,20])
+        self.assertEqual(len(counts),11)
+        self.assertEqual(sorted(counts.values()),[8,8,8,9,9,9,9,9,9,9,9])
         self.assertEqual(manifest,m.generate(731,96,8))
 
     def test_arbitrary_conditional_inputs_follow_fixed_standard_reference_boundaries(self):
