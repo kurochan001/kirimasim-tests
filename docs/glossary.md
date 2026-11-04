@@ -171,6 +171,18 @@
 
 用語の参考例：[PALTEKの検証環境・スティミュラスの解説](https://www.paltek.co.jp/techblog/techinfo/220125-01)、[プロパティとVacuous Successの解説](https://www.paltek.co.jp/techblog/techinfo/210816-02)、[Synopsysのフォーマル・プロパティ検証の説明](https://www.synopsys.com/ja-jp/verification/static-and-formal-verification/vc-formal.html)。
 
+<a id="reference-model-and-scoreboard"></a>
+
+### 参照モデルと照合の役割
+
+| 用語 | 意味・このスイートとの対応 |
+| --- | --- |
+| DUT（Design Under Test）／検査対象 | 一般のRTL検証では設計本体。この適合性スイートでは、SVの言語動作を実行するシミュレータが検査対象 |
+| 参照モデル／predictor | 入力と初期状態・操作履歴から期待動作を計算するもの。ランダム比較ではPythonモデルが担当する |
+| スコアボード／checker | 観測結果が期待動作を満たすか照合する役割。このランダム比較では既存runnerの正規化・比較処理に対応し、UVMコンポーネントを実装しているという意味ではない |
+
+[具体例と一般のRTL検証との対応](faq.md#q46-can-existing-models-support-random-verification-comparisons)を参照してください。
+
 <a id="8-feature-interaction-verification"></a>
 
 ## 8. 機能間クロス検証

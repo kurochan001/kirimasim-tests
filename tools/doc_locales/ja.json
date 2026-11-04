@@ -24515,6 +24515,17 @@
     "Method-local package lookup preserves lexical scope, typed results and object aliases": "メソッド内のpackage参照で、字句スコープ・型付きの結果・オブジェクトの別名を保持する",
     "Method-local package lookup preserves lexical scope, typed results and object aliases ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "メソッド内のpackage参照で、字句スコープ・型付きの結果・オブジェクトの別名を保持する（ZXQPH0QXZ ZXQPH1QXZ 第ZXQPH2QXZ節）",
     "Generated subroutines bind defaults and typed array state to their own elaborated scope": "生成スコープのサブルーチンが既定引数と型付き配列の状態を自身の展開先へ結び付ける",
-    "Class dispatch and early typed returns preserve four-state selection and retained receiver identity": "クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する"
+    "Class dispatch and early typed returns preserve four-state selection and retained receiver identity": "クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する",
+    "First reading: ZXQPH0QXZ .": "初めて読む場合は、ZXQPH0QXZを参照してください。",
+    "The oracle column records fixed-release confirmation;": "oracle欄は固定版による確認の記録です。",
+    "follow a real test from input to expectation": "実在テストを入力から期待値まで読み解く",
+    "A cited clause is a navigation aid, not proof of all its behaviors: ZXQPH0QXZ .": "引用条項は探す手掛かりです。節の全動作を証明するものではないため、ZXQPH0QXZを確認してください。",
+    "what a citation count can establish": "引用本数から判断できる範囲",
+    "These are citation counts, not passing behavior counts: ZXQPH0QXZ .": "これは引用の本数です。動作の合格件数とは異なるため、ZXQPH0QXZを確認してください。",
+    "For requirement numerators and denominators, see ZXQPH0QXZ .": "要求の分子と分母については、ZXQPH0QXZを参照してください。",
+    "design versus execution coverage": "設計と実行確認のカバレッジの違い",
+    "what two tests per clause establish": "条項ごとに2本ある場合に判断できること",
+    "see ZXQPH0QXZ .": "ZXQPH0QXZを確認してください。",
+    "what this does not certify": "現在のビルドの合格を保証しない理由"
   }
 }

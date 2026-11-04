@@ -6,6 +6,8 @@
 
 [すべての章](README.ja.md) .88 テストテストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
+初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
+
 |テスト|チェックするもの|条項|予期した出力を記録|ノート|
 | --- | --- | --- | --- | --- |
 | [`test_module_contains_classes_subroutines_processes`](../../tests/ch3/test_module_contains_classes_subroutines_processes.sv) |モジュールに、class宣言、宣言時・手続き内で生成するクラスオブジェクト、関数、時間を消費するタスク、継続代入、initial・always・always_ff・always_comb・final手続き、およびループ・if・caseのgenerateブロックを記述し、各要素の動作を確認します。| 3.3 8.3 8.7 13.3 13.4 10.3 9.2 27.4 27.5 | Icarus Verilog 13.0 ||

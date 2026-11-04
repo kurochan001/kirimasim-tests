@@ -171,6 +171,18 @@ See [execution](../README.md#running-the-suite), [generated tests](../README.md#
 
 Terminology examples: [PALTEK on verification environments and stimulus](https://www.paltek.co.jp/techblog/techinfo/220125-01), [properties and vacuous success](https://www.paltek.co.jp/techblog/techinfo/210816-02), and [Synopsys on formal property verification](https://www.synopsys.com/ja-jp/verification/static-and-formal-verification/vc-formal.html).
 
+<a id="reference-model-and-scoreboard"></a>
+
+### Reference models and checking roles
+
+| Term | Meaning and role in this suite |
+| --- | --- |
+| DUT (Design Under Test) / verification target | Usually product RTL in RTL verification; here the target is the simulator executing SV language behavior |
+| Reference model / predictor | Computes expected behavior from inputs, initial state and operation history; Python performs this role in random comparisons |
+| Scoreboard / checker | Compares observations with expected behavior; here existing runner normalization/comparison supplies that role, without implementing a UVM component |
+
+See [the worked example and RTL-verification correspondence](faq.en.md#q46-can-existing-models-support-random-verification-comparisons).
+
 <a id="8-機能間クロス検証"></a>
 
 ## 8. Feature-interaction verification

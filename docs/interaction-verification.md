@@ -8,6 +8,8 @@
 
 設計思想、選択アルゴリズム、モデルの追加手順、他プロジェクトやLSIへの適用方法は、 [考え方と実践手順](interaction-verification-method.md)を参照してください。 [用語集](glossary.md#8-機能間クロス検証)と[FAQ](faq.md#7-機能間クロス検証)では、 章間表、実行充足、対照・故障注入、保存記録の読み方を説明しています。 Issue #21で追加した境界条件の回帰テストと、保留した解釈・別APIの範囲は [回帰取り込みレポート](p1-combination-regressions-20261030.md)と [照合台帳](../coverage/combination-gaps.json)にまとめています。
 
+初めて読む場合は[2因子100%でも欠ける3因子条件](faq.md#q28-why-not-simply-cross-every-feature)と、[計画と実行PASSの違い](faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を確認してから、モデル別の数字を読んでください。
+
 <a id="saved-run-summary"></a>
 
 ## 保存実行の概要

@@ -4,6 +4,15 @@
 
 [日本語](nightly-results.md) / [README charts](../README.md#nightly-results) / [Published results](https://github.com/kurochan001/kirimasim-tests/tree/results#readme) / [Workflow runs](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)
 
+<a id="read-a-result-row"></a>
+
+## Start with one result row
+
+1. Read its date, suite commit and simulator version. Before comparing dates or current main, check that versions and test populations match.
+2. Read the green workflow indicator separately from Match/Differ columns. [Why Differ can coexist with green](faq.en.md#q11-why-can-nightly-be-green-with-differ-results) uses the saved run below as a concrete example.
+3. For individual mismatches or unsupported tests, follow [statuses to per-test JSON and logs](faq.en.md#q9-what-do-match-differ-known-difference-and-unsupported-mean) in the same workflow run.
+4. Interpret chapter percentages using [the 8/10 example](faq.en.md#q12-what-percentage-does-by-chapter-show), and verified requirements using [requirement numerators/denominators](faq.en.md#q16-how-do-design-and-execution-coverage-differ).
+
 <a id="latest-verified-checkpoint"></a>
 
 ## Latest verified checkpoint (2026-11-04 JST)

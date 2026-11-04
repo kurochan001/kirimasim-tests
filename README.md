@@ -56,9 +56,13 @@ What sets the suite apart:
 > AI model, and none by a person yet (`:spec_check: ai`).
 > Reports of wrong expectations are welcome.
 
+For a first test, [walk through 24 real lines](docs/faq.en.md#q49-read-a-real-test); for results, read [why green can coexist with Differ](docs/faq.en.md#q11-why-can-nightly-be-green-with-differ-results); for verified scope, start with [numerator/denominator examples](docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ).
+
 <a id="収録内容"></a>
 
 ## Contents
+
+These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
 The suite has **10778 tests** in 38 chapters. 4341 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
@@ -117,6 +121,8 @@ The total includes 268 `:type: formal` tests. They are checked with SymbiYosys
 through `:formal_case:` rather than by comparing simulator standard output;
 see [running formal tests](#symbiyosys).
 
+SVA/formal PASS has a different scope from simulation: read [real BMC, PDR, cover and counterexample results](docs/faq.en.md#q21-do-bmc-and-pdr-pass-mean-the-same-thing).
+
 Additional SVA validation is recorded separately: the reference evaluator
 reproduces **45 test outputs**; formal evidence covers the **267-case catalogue**
 and a separate **111-case parameter-boundary sweep**. These overlapping model
@@ -148,6 +154,8 @@ claim about the entire standard. CI enforces the
 two-test floor with `tools/coverage_depth.py --check --minimum-tests 2`;
 parent-clause citations do not satisfy that floor for a child clause.
 
+Read [designed, executed and passed](docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish the numerators and denominators below.
+
 The [behavior summary](docs/behavior-coverage-summary.en.md) and
 [detailed report](docs/behavior-coverage.en.md) measure explicitly reviewed
 requirements and observable test outcomes. Their
@@ -169,6 +177,8 @@ The [existing-test matching inventory](docs/test-requirement-matching.en.md) lis
 chapter progress and links to the complete candidate worklist and content findings.
 Collective witnesses require every member test to pass in one simulator snapshot;
 partial successes from separate runs are not combined into a successful requirement.
+
+100% pairwise coverage does not mean every full combination ran: see [four rows covering pairs of three factors](docs/faq.en.md#q28-why-not-simply-cross-every-feature).
 
 [Feature-interaction verification](docs/interaction-verification.en.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
@@ -232,11 +242,15 @@ Clocking inputs and named-event waiters (Chapters 14×15) select 24 of 192 combi
   to other projects and LSI verification. The [glossary](docs/glossary.en.md#8-機能間クロス検証)
   and [FAQ](docs/faq.en.md#7-機能間クロス検証) explain the metrics and common review questions.
 
+See [Q32](docs/faq.en.md#q32-can-i-sum-matrix-cells-to-get-the-cross-test-total) for why matrix counts cannot be summed as test counts, and [Q34](docs/faq.en.md#q34-are-complete-and-all-selected-tests-pass-the-same-judgment) for passing models versus complete.
+
 [Model-based random cross comparisons](docs/random-cross-verification.en.md) also run in Nightly: a default 96 cases cover thirteen profiles, saving seeds and actual stimuli in a dedicated artifact. The latest verified Nightly records **96 valid passes** on `9113955914d8`, with seed `41743702063`. These samples remain separate from fixed-suite counts and coverage.
 The [purpose and roles](docs/random-cross-verification.en.md#purpose-and-roles) and [verification process](docs/random-cross-verification.en.md#verification-process) explain how exploration supplements fixed cases through generation, model comparison, saved replay and fixed regression follow-up.
 The thirteen profiles cover arithmetic, division/remainder, indexed writes, conditional context/X/Z merging, package change observers, shifts, cast pipelines, streaming, concatenated-assignment sequences, comparisons, packed reductions, array reductions and array copy sequences within the same default total of 96 cases.
 Profile additions are paused at thirteen while [targeted exploration and independent checks](docs/random-cross-verification.en.md#thirteen-profile-stabilization) deepen validation within unchanged default Nightly limits.
 The guide also covers optional exploration admission, immutable replay with reference-drift reporting, checks of the same saved stimulus with Icarus/Verilator, and reviewed failure-to-regression drafts. Fixed regressions, formal Nightly and explicit replay always execute.
+
+For why random inputs have defined expectations and how Python, generated SV and comparison divide the work, see [the A5 low-nibble example](docs/faq.en.md#q46-can-existing-models-support-random-verification-comparisons).
 
 A complete selection plan and a successful Check do not mean all crosses passed on
 every simulator. Use the [saved-run summary](docs/interaction-verification.en.md#保存実行の概要)
@@ -317,6 +331,8 @@ results appear after a subsequent workflow runs that commit and publishes
 its results. Check `suite commit` and the test count before comparing a chart
 with the current suite.
 
+Before reading the chart, see [why a green Nightly can still contain Differ](docs/faq.en.md#q11-why-can-nightly-be-green-with-differ-results); workflow success and individual outcomes answer different questions.
+
 ![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
 
 Each simulator has its own marker: a circle for Icarus Verilog, a square for
@@ -337,6 +353,8 @@ unsupported tests, including those skipped before execution, remain in the
 denominator. This table updates with the Nightly charts;
 its date and simulator versions are shown at the top. Click it to view the
 full-size image.
+
+See [the 8/10 = 80% example](docs/faq.en.md#q12-what-percentage-does-by-chapter-show) for unsupported cases in the denominator, and [Q15](docs/faq.en.md#q15-is-the-nightly-match-rate-requirement-coverage) for the distinction from requirement coverage.
 
 [![Matching tests by chapter](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)
 
@@ -367,6 +385,8 @@ that step. See [verdicts and replay](docs/random-cross-verification.en.md). The 
 13.0 and Verilator 5.052 are checked with those releases by a
 [second workflow](.github/workflows/check.yml) whenever the tests or the
 tools change (see "Workflows").
+
+Use [Q9](docs/faq.en.md#q9-what-do-match-differ-known-difference-and-unsupported-mean) to trace statuses to per-test evidence, and [Q11](docs/faq.en.md#q11-why-can-nightly-be-green-with-differ-results) for the scope of green Check/Nightly indicators.
 
 <a id="シミュレーション速度"></a>
 
@@ -456,37 +476,9 @@ A test is one SystemVerilog file (a few also have C code, other source files
 or include files next to them, see `:dpi_c:`, `:vpi_c:`, `:files:` and
 `:incdirs:`). It starts with a
 metadata comment, followed by a comment that explains what the test checks,
-and then the design. For example (an illustration, not a test of the suite):
+and then the design.
 
-```systemverilog
-/*
-:name: test_nonblocking_swap
-:description: two nonblocking assignments that read each other's target exchange their values
-:tags: ch10
-:type: simulation
-:lrm: 1800-2023 10.4.2
-:oracle: spec iverilog@13.0
-:spec_check: ai
-:fourstate: no
-:nondeterministic: no
-:expected_stdout: @test_nonblocking_swap.expected
-*/
-// IEEE 1800-2023 §10.4.2: the right-hand sides of nonblocking assignments are
-// evaluated before any of their targets is updated, so a <= b and b <= a
-// exchange the values of a and b.
-
-module test_nonblocking_swap;
-  int a = 1, b = 2;
-
-  initial begin
-    a <= b;
-    b <= a;
-    #1 $display("a=%0d b=%0d", a, b);
-  end
-endmodule
-```
-
-with `test_nonblocking_swap.expected` holding the line `a=2 b=1`.
+Start with [this real short test](tests/ch10/test_declaration_initialization_is_not_driver.sv) and the [input→observation→expectation walkthrough](docs/faq.en.md#q49-read-a-real-test). It explains how the runner can pass a test that never prints PASS.
 
 <a id="メタデータ"></a>
 
@@ -526,6 +518,8 @@ it does not know.
 <a id="合否の判定方法"></a>
 
 ### How a test is judged
+
+For how X/Z, bit/logic, width and signedness change observations, see [small SV examples](docs/faq.en.md#q50-sv-values-change-observations); [Q4](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator) explains `:lrm:` versus `:oracle:`.
 
 A test passes when the simulator's standard output, after removing empty
 lines and the simulator's own banners (see `tools/normalize_output.py` and the
@@ -832,6 +826,8 @@ the job and its entry in `publish.needs`, and remove the runner. Its history
 will remain saved, following the same rules as other retired participants.
 
 ### SymbiYosys
+
+Check [bounded, proof and cover PASS versus expected FAIL](docs/faq.en.md#q21-do-bmc-and-pdr-pass-mean-the-same-thing) before selecting a model and verification scope.
 
 The suite includes 268 tests with `:type: formal`. They name a `:formal_case:`
 and are run by `tools/run_sby.py`, which compares the reference evaluator with

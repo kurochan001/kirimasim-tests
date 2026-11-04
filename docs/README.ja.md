@@ -10,6 +10,14 @@
 
 [章間マトリクス](chapter-cross-matrix.md)と[未登録章対の仕分け](chapter-cross-triage.md)からは、日英のCSVにも辿れます。
 
+<a id="read-by-purpose"></a>
+
+## 目的から読む
+
+- 初めてテストを1本読む：[実在する短いテストの読み解き](faq.md#q49-read-a-real-test) → [テストカタログ](tests/README.ja.md)。
+- Nightlyの結果を読む：[緑でもDifferが残る理由](faq.md#q11-why-can-nightly-be-green-with-differ-results) → [版・日時と結果の確認手順](nightly-results.md#read-a-result-row)。
+- 何が検証済みか調べる：[設計と実行確認の違い](faq.md#q16-how-do-design-and-execution-coverage-differ) → [要求の集計](behavior-coverage-summary.md)／[章間表](chapter-cross-matrix.md)。
+
 <a id="guides-and-technical-references"></a>
 
 ## ガイド・技術資料

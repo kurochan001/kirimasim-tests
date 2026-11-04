@@ -8,14 +8,16 @@ This report is only for registered finite models. The coverage of the requiremen
 
 For the source, use, and limits of application, see [Import procedure](interaction-verification.en.md).
 
+See [a 4-row example](faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
+
 ## scheduling_visibility / model 1
 
 - The number of combinations satisfying the constraint is 325.
 - Existing and new tests available: 325.
-- Short run options: 51.
-- The case must be kept separate: 0.
-- The plan of the factor 2: 126/126.
-- The plan of the factor 3: 51/51.
+- Selected cases for focused execution: 51.
+- Mandatory cases retained individually: 0.
+- Planned 2-factor coverage: 126/126.
+- Planned 3-factor coverage: 51/51.
 
 Observe the existing 8-bit writes at specified times and event regions from the writing process, a separate waiting process, strobe and monitor. Keep the existing generated tests and expected values unchanged.
 
@@ -30,10 +32,10 @@ Constraints: The existing scheduling.allowed is followed, and the combinations w
 
 - The number of combinations satisfying the constraint is 432.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 3.
-- The plan of the factor 2: 162/162.
-- The plan of the factor 3: 44/44.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 3.
+- Planned 2-factor coverage: 162/162.
+- Planned 3-factor coverage: 44/44.
 
 Use outputs immediately after assignment, after stimulus changes, at time 1 and at completion to check value and target capture, preservation of adjacent elements, ordering between the Active and NBA regions, and updates after an automatic task returns.
 
@@ -51,10 +53,10 @@ Constraints: The direction of the addition of the scale is not appropriate. In t
 
 - The number of combinations satisfying the constraint is 588.
 - Existing and new tests available: 51.
-- Short run options: 51.
-- The case must be kept separate: 3.
-- The plan of the factor 2: 143/143.
-- The plan of the factor 3: 63/63.
+- Selected cases for focused execution: 51.
+- Mandatory cases retained individually: 3.
+- Planned 2-factor coverage: 143/143.
+- Planned 3-factor coverage: 63/63.
 
 Check addition, subtraction and multiplication with 4 input sets. Combine sign/zero extension before the operation, destination-driven width propagation, carry and final truncation.
 
@@ -71,10 +73,10 @@ Constraints: The narrow for width 1 is excluded because the width is 0. The diff
 
 - The number of combinations satisfying the constraint is 744.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 3.
-- The plan of the factor 2: 162/162.
-- The plan of the factor 3: 48/48.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 3.
+- Planned 2-factor coverage: 162/162.
+- Planned 3-factor coverage: 48/48.
 
 Display the whole vector and selected range before and after writing a part-select to check index direction, selection direction, X/Z conversion and preservation of unselected bits.
 
@@ -92,10 +94,10 @@ Constraints: Excludes the selection of width 0. The combination where high/inter
 
 - The number of combinations satisfying the constraint is 1408.
 - Existing and new tests available: 32.
-- Short run options: 32.
-- The case must be kept separate: 3.
-- The plan of the factor 2: 185/185.
-- The plan of the factor 3: 76/76.
+- Selected cases for focused execution: 32.
+- Mandatory cases retained individually: 3.
+- Planned 2-factor coverage: 185/185.
+- Planned 3-factor coverage: 76/76.
 
 Display both branch inputs and the conditional result to check branch selection, bitwise merging under X/Z, sign extension, destination width and 2-state conversion in one expression pipeline.
 
@@ -113,10 +115,10 @@ Constraints: The narrow of width 1 is excluded because it is width 0. The source
 
 - The number of combinations satisfying the constraint is 5520.
 - Existing and new tests available: 56.
-- Short run options: 56.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 298/298.
-- The plan of the factor 3: 92/92.
+- Selected cases for focused execution: 56.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 298/298.
+- Planned 3-factor coverage: 92/92.
 
 Display the pre-shift value, shift amount and result to check destination-driven width, signed fill, X/Z movement, unknown shift amounts and final 2-state conversion.
 
@@ -134,10 +136,10 @@ Constraints: The narrow of width 1 is excluded because the width is 0. The one/l
 
 - The number of combinations satisfying the constraint is 1512.
 - Existing and new tests available: 32.
-- Short run options: 32.
-- The case must be kept separate: 3.
-- The plan of the factor 2: 214/214.
-- The plan of the factor 3: 76/76.
+- Selected cases for focused execution: 32.
+- Mandatory cases retained individually: 3.
+- Planned 2-factor coverage: 214/214.
+- Planned 3-factor coverage: 76/76.
 
 Display the original value, immediate cast result and subsequent arithmetic result separately to check cast width/sign, X/Z conversion before arithmetic, outer assignment context and final conversion order.
 
@@ -155,10 +157,10 @@ Constraints: The signing cast does not change the width, so cast_width =same. Th
 
 - The number of combinations satisfying the constraint is 576.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 3.
-- The plan of the factor 2: 144/144.
-- The plan of the factor 3: 52/52.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 3.
+- Planned 2-factor coverage: 144/144.
+- Planned 3-factor coverage: 52/52.
 
 Observe actual arguments inside the task, immediately before return and after return to check update timing for copy and reference arguments, values and preservation of adjacent elements.
 
@@ -175,10 +177,10 @@ Constraints: Use the automatic task on all lines, and make the real and temporar
 
 - The number of combinations satisfying the constraint is 972.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 5.
-- The plan of the factor 2: 162/162.
-- The plan of the factor 3: 63/63.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 5.
+- Planned 2-factor coverage: 162/162.
+- Planned 3-factor coverage: 63/63.
 
 After the call, change the index to an equal value, the next element and -1, then observe actual/formal values at multiple times to check binding to the original element, input value copying, bidirectional ref visibility, live reads through const ref, absence of return-time writeback and preservation of adjacent elements.
 
@@ -195,10 +197,10 @@ Constraints: Use automatic tasks for all lines. The fixed array is [ 2:4 ], and 
 
 - The number of combinations satisfying the constraint is 1152.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 3.
-- The plan of the factor 2: 186/186.
-- The plan of the factor 3: 52/52.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 3.
+- Planned 2-factor coverage: 186/186.
+- Planned 3-factor coverage: 52/52.
 
 Observe all structure bits, payload, tag and the extended results of members and the whole structure to check layout, the updated region, NBA value capture and signedness of each expression.
 
@@ -217,10 +219,10 @@ Constraints: The tag of the payload and the 3 bit is the same 2/4 state type. Th
 
 - The number of combinations satisfying the constraint is 2448.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 3.
-- The plan of the factor 2: 220/220.
-- The plan of the factor 3: 82/82.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 3.
+- Planned 2-factor coverage: 220/220.
+- Planned 3-factor coverage: 82/82.
 
 Display selector and item values and observe 2 branch outcomes with overlapping and fallback items to check width/sign unification, X/Z handling and first-match priority.
 
@@ -238,10 +240,10 @@ Constraints: The narrow of width 1 is excluded because it is width 0. 2 items ar
 
 - The number of combinations satisfying the constraint is 1632.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 5.
-- The plan of the factor 2: 204/204.
-- The plan of the factor 3: 56/56.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 5.
+- Planned 2-factor coverage: 204/204.
+- Planned 3-factor coverage: 56/56.
 
 Use width-changing parent/child connections and observe the source value, 4-state connection and sampled variable to check connection direction, source signedness, declaration/connection forms and final 2-state conversion.
 
@@ -260,10 +262,10 @@ Constraints: The narrow of width 1 is excluded. The port and the connection line
 
 - The number of combinations satisfying the constraint is 576.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 3.
-- The plan of the factor 2: 148/148.
-- The plan of the factor 3: 52/52.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 3.
+- Planned 2-factor coverage: 148/148.
+- Planned 3-factor coverage: 52/52.
 
 Copy 2 input sets to whole arrays or slices to check declaration-order correspondence, preservation of unselected elements, independence after source updates and sign extension of read elements.
 
@@ -281,10 +283,10 @@ Constraints: The element type of both arrays is the same typedef. Each 3 element
 
 - The number of combinations satisfying the constraint is 3320.
 - Existing and new tests available: 60.
-- Short run options: 60.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 285/285.
-- The plan of the factor 3: 108/108.
+- Selected cases for focused execution: 60.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 285/285.
+- Planned 3-factor coverage: 108/108.
 
 Display actual argument bits/width and function results to check expression form, state conversion, X/Z position, deduplication of control bits, one-hot classification and unknown detection.
 
@@ -301,10 +303,10 @@ Constraints: The position of zero is none. Other values are low/middle/high. In 
 
 - The number of combinations satisfying the constraint is 1152.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 182/182.
-- The plan of the factor 3: 68/68.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 182/182.
+- Planned 3-factor coverage: 68/68.
 
 Compare the input stream and result to check block order, partial blocks, concatenation of multiple items, inverse pack/unpack transformations and conversion to 2-state storage.
 
@@ -322,10 +324,10 @@ Constraints: The slice width is a positive constant. tagged adds 101 to the pref
 
 - The number of combinations satisfying the constraint is 3400.
 - Existing and new tests available: 100.
-- Short run options: 100.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 302/302.
-- The plan of the factor 3: 174/174.
+- Selected cases for focused execution: 100.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 302/302.
+- Planned 3-factor coverage: 174/174.
 
 Use 4 input sets to check width/sign unification, unknowns versus known mismatches and right-hand-only wildcards, then assign the 1-bit comparison result directly to wide logic/bit destinations to observe conversion order.
 
@@ -342,10 +344,10 @@ Constraints: The narrow for width 1 is excluded because the width is 0. The comp
 
 - The number of combinations satisfying the constraint is 4320.
 - Existing and new tests available: 72.
-- Short run options: 72.
-- The case must be kept separate: 8.
-- The plan of the factor 2: 261/261.
-- The plan of the factor 3: 162/162.
+- Selected cases for focused execution: 72.
+- Mandatory cases retained individually: 8.
+- Planned 2-factor coverage: 261/261.
+- Planned 3-factor coverage: 162/162.
 
 Observe fixed-array, dynamic-array and queue reductions under 2 background input sets to check element conversion in the with expression, result width, overflow, X/Z propagation and extension after the call.
 
@@ -363,10 +365,10 @@ Constraints: Each container is a 3 element. The fixed length sequence is [3:1 ].
 
 - The number of combinations satisfying the constraint is 2880.
 - Existing and new tests available: 44.
-- Short run options: 44.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 253/253.
-- The plan of the factor 3: 106/106.
+- Selected cases for focused execution: 44.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 253/253.
+- Planned 3-factor coverage: 106/106.
 
 Observe variable-index bits and the whole value before/after writes to check index signedness, range origin/direction, default values for invalid reads and preservation under invalid writes.
 
@@ -384,10 +386,10 @@ Constraints: The range is 0 starting point, 5 starting point and 3 species with 
 
 - The number of combinations satisfying the constraint is 3456.
 - Existing and new tests available: 48.
-- Short run options: 48.
-- The case must be kept separate: 5.
-- The plan of the factor 2: 258/258.
-- The plan of the factor 3: 120/120.
+- Selected cases for focused execution: 48.
+- Mandatory cases retained individually: 5.
+- Planned 2-factor coverage: 258/258.
+- Planned 3-factor coverage: 120/120.
 
 Use 2 input sets to observe size, every element, popped values and a pre-operation copy, checking insertion position, capacity-driven discard, empty defaults, type conversion and independence of value copies.
 
@@ -405,10 +407,10 @@ Constraints: The initial sizes were 0, 2, and 3. The size of the capacity 2 is e
 
 - The number of combinations satisfying the constraint is 2160.
 - Existing and new tests available: 60.
-- Short run options: 60.
-- The case must be kept separate: 5.
-- The plan of the factor 2: 257/257.
-- The plan of the factor 3: 96/96.
+- Selected cases for focused execution: 60.
+- Mandatory cases retained individually: 5.
+- Planned 2-factor coverage: 257/257.
+- Planned 3-factor coverage: 96/96.
 
 Use 3 input sets to observe retained references, all elements after changes, the result after 2 writes and a value copy, checking identity after element movement, survival and isolated writes of old references after deletion/whole assignment, tail discard on capacity overflow and bit/logic argument conversion.
 
@@ -425,10 +427,10 @@ Constraints: The initial number of elements is 3, and the capacity is unlimited 
 
 - The number of combinations satisfying the constraint is 4704.
 - Existing and new tests available: 72.
-- Short run options: 72.
-- The case must be kept separate: 5.
-- The plan of the factor 2: 283/283.
-- The plan of the factor 3: 98/98.
+- Selected cases for focused execution: 72.
+- Mandatory cases retained individually: 5.
+- Planned 2-factor coverage: 283/283.
+- Planned 3-factor coverage: 98/98.
 
 Observe both operands and the result to check width/sign unification before arithmetic, quotient rounding toward 0, remainder sign, division by zero, X/Z propagation and final 2-state conversion.
 
@@ -447,10 +449,10 @@ Constraints: The narrow for width 1 is excluded because the width is 0. Both inp
 
 - The number of combinations satisfying the constraint is 2016.
 - Existing and new tests available: 38.
-- Short run options: 38.
-- The case must be kept separate: 5.
-- The plan of the factor 2: 219/219.
-- The plan of the factor 3: 96/96.
+- Selected cases for focused execution: 38.
+- Mandatory cases retained individually: 5.
+- Planned 2-factor coverage: 219/219.
+- Planned 3-factor coverage: 96/96.
 
 Observe size and all elements before/after allocation to check copying another array, self-resizing, reconstruction without an initializer, truncation, type-specific defaults in added elements and independence after copying.
 
@@ -468,10 +470,10 @@ Constraints: Initial size 0 fixes the value factor to known and excludes the dup
 
 - The number of combinations satisfying the constraint is 4608.
 - Existing and new tests available: 72.
-- Short run options: 72.
-- The case must be kept separate: 5.
-- The plan of the factor 2: 265/265.
-- The plan of the factor 3: 126/126.
+- Selected cases for focused execution: 72.
+- Mandatory cases retained individually: 5.
+- Planned 2-factor coverage: 265/265.
+- Planned 3-factor coverage: 126/126.
 
 Use 2 sets of known and X/Z inputs to check extension/splitting of the whole concatenation, state conversion of each item, immediate updates versus NBA value capture, and signedness when reading individual items versus the concatenation.
 
@@ -490,10 +492,10 @@ Constraints: The width is the minimum width of the whole link 2, and each elemen
 
 - The number of combinations satisfying the constraint is 1180.
 - Existing and new tests available: 70.
-- Short run options: 70.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 218/218.
-- The plan of the factor 3: 142/142.
+- Selected cases for focused execution: 70.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 218/218.
+- Planned 3-factor coverage: 142/142.
 
 For every row, observe inputs, actual expressions and results for all 6 reductions and logical negation to check controlling values and X/Z, state conversion before/after the operation, extension of the 1-bit unsigned result and self-determined input width.
 
@@ -510,10 +512,10 @@ Constraints: The position of zero/ones is none, and the other is low/middle/high
 
 - The number of combinations satisfying the constraint is 2088.
 - Existing and new tests available: 92.
-- Short run options: 92.
-- The case must be kept separate: 5.
-- The plan of the factor 2: 214/214.
-- The plan of the factor 3: 236/236.
+- Selected cases for focused execution: 92.
+- Mandatory cases retained individually: 5.
+- Planned 2-factor coverage: 214/214.
+- Planned 3-factor coverage: 236/236.
 
 For each 4 operation, display left/right function call counts, observed values and independent side effects to check short-circuit suppression of the right operand, truth conversion of unknowns, the result and state conversion at final storage.
 
@@ -530,10 +532,10 @@ Constraints: Exclude the right input of width 0. The mixed is the topmost X/Z an
 
 - The number of combinations satisfying the constraint is 4096.
 - Existing and new tests available: 64.
-- Short run options: 64.
-- The case must be kept separate: 5.
-- The plan of the factor 2: 260/260.
-- The plan of the factor 3: 152/152.
+- Selected cases for focused execution: 64.
+- Mandatory cases retained individually: 5.
+- Planned 2-factor coverage: 260/260.
+- Planned 3-factor coverage: 152/152.
 
 Exclude the initial event under both backgrounds and observe values immediately after updates and 3 counters in the next time step to check X/Z transitions, expression changes, vector LSB rules, state conversion and NBA update timing.
 
@@ -551,10 +553,10 @@ Constraints: The focus position of the width 1 is unified to low. In each row, t
 
 - The number of combinations satisfying the constraint is 252.
 - Existing and new tests available: 27.
-- Short run options: 27.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 104/104.
-- The plan of the factor 3: 59/59.
+- Selected cases for focused execution: 27.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 104/104.
+- Planned 3-factor coverage: 59/59.
 
 Observe independent left/right event counts, wakeups of conditional OR controls and preservation after condition-only changes to check per-term iff binding, equivalence of or/comma, repeated named-event triggering, truth of conditions containing X/Z and blocking/NBA update timing.
 
@@ -571,9 +573,9 @@ Constraints: The rows for named events only are unified to edge =change. Mixed i
 
 - The number of combinations satisfying the constraint is 36.
 - Existing and new tests available: 18.
-- Short run options: 18.
-- The case must be kept separate: 3.
-- The plan of the factor 2: 40/40.
+- Selected cases for focused execution: 18.
+- Mandatory cases retained individually: 3.
+- Planned 2-factor coverage: 40/40.
 
 Cross 9 registration locations with 2 container/descriptor kinds, then read files back to check final Postponed values, unselected elements, selection/replacement, monitoroff and output suppression after closing.
 
@@ -587,10 +589,10 @@ Constraints: All 36 lines are valid. The context is where the registration is do
 
 - The number of combinations satisfying the constraint is 7560.
 - Existing and new tests available: 40.
-- Short run options: 40.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 308/308.
-- The plan of the factor 3: 90/90.
+- Selected cases for focused execution: 40.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 308/308.
+- Planned 3-factor coverage: 90/90.
 
 Observe scalars, every array element, parent vectors, extended values and index-function call counts before/after compound shift assignments to check 1-time evaluation of the left operand, part-select signedness, independent shift-amount width and type conversion.
 
@@ -609,10 +611,10 @@ Constraints: Exclude only the rows where last is zero with width 1. The left-han
 
 - The number of combinations satisfying the constraint is 5984.
 - Existing and new tests available: 46.
-- Short run options: 46.
-- The case must be kept separate: 5.
-- The plan of the factor 2: 305/305.
-- The plan of the factor 3: 174/174.
+- Selected cases for focused execution: 46.
+- Mandatory cases retained individually: 5.
+- Planned 2-factor coverage: 305/305.
+- Planned 3-factor coverage: 174/174.
 
 Observe individual lists, fixed arrays, dynamic arrays and queues, including their elements/sizes, inputs of differing widths/signs, raw membership results, extension, bit conversion and reversed lists to check one-sided wildcards and OR.
 
@@ -631,10 +633,10 @@ Constraints: The narrow of width 1 is excluded because it is width 0. The empty 
 
 - The number of combinations satisfying the constraint is 5680.
 - Existing and new tests available: 46.
-- Short run options: 46.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 303/303.
-- The plan of the factor 3: 178/178.
+- Selected cases for focused execution: 46.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 303/303.
+- Planned 3-factor coverage: 178/178.
 
 For closed/reversed ranges, $ endpoints and absolute/relative tolerance ranges, observe stored endpoints, inputs around each endpoint, raw membership results, extension, bit conversion and equivalent relational comparisons to distinguish range comparison from set-value wildcard matching and check tolerance-endpoint swapping and truncation.
 
@@ -653,10 +655,10 @@ Constraints: The narrow of width 1 is excluded because it is width 0. 2 3 and 1 
 
 - The number of combinations satisfying the constraint is 8704.
 - Existing and new tests available: 34.
-- Short run options: 34.
-- The case must be kept separate: 7.
-- The plan of the factor 2: 315/315.
-- The plan of the factor 3: 154/154.
+- Selected cases for focused execution: 34.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 315/315.
+- Planned 3-factor coverage: 154/154.
 
 In case inside with a leading item containing values, ranges, fixed arrays or 2 values, observe 4 case-expression sets targeting every item/default, stored item values, selected branches and evaluation counts for the case expression and counted items to check continuation after X comparisons, endpoint extension and unique0 evaluation.
 
@@ -676,10 +678,10 @@ Constraints: The narrow of width 1 is excluded because it is width 0. All items 
 
 - The number of combinations satisfying the constraint is 864.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 5.
-- The plan of the factor 2: 165/165.
-- The plan of the factor 3: 72/72.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 5.
+- Planned 2-factor coverage: 165/165.
+- Planned 3-factor coverage: 72/72.
 
 Use 3 background sets to observe pre-clock and updated values, cb samples/live values and wakeup counts, checking interactions among #1step/#0, blocking/NBA updates, state types, clock direction and local/interface/virtual-modport reference paths. Retain known-value controls for X/Z rows.
 
@@ -697,10 +699,10 @@ Constraints: All 864 lines are valid. The update is done at the module-side cloc
 
 - The number of combinations satisfying the constraint is 2592.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 7.
-- The plan of the factor 2: 225/225.
-- The plan of the factor 3: 96/96.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 225/225.
+- Planned 3-factor coverage: 96/96.
 
 For known and X/Z values before/after updates, observe assertion pass/fail counts, sampled values, 1-bit expression values, Reactive live values and final values. Cross types, expressions, edges, blocking/NBA updates, update timing and module/interface contexts to distinguish sampling from action execution.
 
@@ -719,10 +721,10 @@ Constraints: All 2592 lines are valid. A single cycle Boolean property of a sing
 
 - The number of combinations satisfying the constraint is 1440.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 214/214.
-- The plan of the factor 3: 88/88.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 214/214.
+- Planned 3-factor coverage: 88/88.
 
 Wait on size, first element or both, then observe wakeup times/counts and all elements before/after creation, growth, shrinkage, deletion and same-size replacement of dynamic arrays and queues. Distinguish premature wakeups from unrelated container updates, and check already-true conditions and case-equality waits on converted X/Z values.
 
@@ -740,10 +742,10 @@ Constraints: The create/clear with empty values only uses the size condition and
 
 - The number of combinations satisfying the constraint is 1944.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 202/202.
-- The plan of the factor 3: 99/99.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 202/202.
+- Planned 3-factor coverage: 99/99.
 
 Call 2 derived instances in A/B/A order and observe virtual/nonvirtual bodies and owners, recursive entry/exit formals and properties, return values, counters and guards. Check per-frame input copies, ref/const ref references to the same object and 2-state conversion.
 
@@ -761,10 +763,10 @@ Constraints: The same typedef property and temporary arguments are used, and no 
 
 - The number of combinations satisfying the constraint is 864.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 161/161.
-- The plan of the factor 3: 120/120.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 161/161.
+- Planned 3-factor coverage: 120/120.
 
 Return from for/while/repeat at the first non-0 bit and observe the return value, scan count, index sum, tail reachability and side effects after return. With A/B/A calls, also check per-instance state, shared package state, preservation of same-named caller variables and X/Z-to-2-state conversion.
 
@@ -781,10 +783,10 @@ Constraints: Using input and return values of the same width and state type, the
 
 - The number of combinations satisfying the constraint is 3888.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 246/246.
-- The plan of the factor 3: 111/111.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 246/246.
+- Planned 3-factor coverage: 111/111.
 
 Use multiple assignments inside for/while/repeat to distinguish blocking updates that consume intermediate values from NBA scheduling based on old values. Observe per-iteration values/indices in A/B/A calls and all elements, counters and guards in Active and after NBA to check write order, state conversion and independent module/interface storage.
 
@@ -803,10 +805,10 @@ Constraints: All of them were legal. The left-hand side of NBA is only static sc
 
 - The number of combinations satisfying the constraint is 1728.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 242/242.
-- The plan of the factor 3: 96/96.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 242/242.
+- Planned 3-factor coverage: 96/96.
 
 Observe startup at time 0 from declaration initialization, reevaluation after data/mask changes and function-internal reads, comb defaults and latch retention for 0/X/Z. Change 1 variable at a time to check both instances' outputs/evaluation counts and distinguish extra activations from unrelated noise or self-updates.
 
@@ -825,10 +827,10 @@ Constraints: Comb will replace the disabled output with zero/one, and only latch
 
 - The number of combinations satisfying the constraint is 576.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 148/148.
-- The plan of the factor 3: 68/68.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 148/148.
+- Planned 3-factor coverage: 68/68.
 
 Read generate elements of 2 instances by hierarchical name and observe selected branches, local declarations, genvar constants, type widths, package constants and continuous-assignment values. Check imports versus explicit qualification, nesting, type/constant shadowing, tracking of X/Z input changes and scope independence.
 
@@ -846,10 +848,10 @@ Constraints: All 576 lines are valid. The method uses the hidden wildcard import
 
 - The number of combinations satisfying the constraint is 720.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 159/159.
-- The plan of the factor 3: 128/128.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 159/159.
+- Planned 3-factor coverage: 128/128.
 
 Change default-value sources on every A/B/A hierarchical call and observe both formals, the return value and function evaluation counts at declaration/caller sites. Check omitted/empty/named arguments, evaluation suppression for explicit 0 arguments, call-time binding to declaration scope, type conversion and independent module/interface instances.
 
@@ -866,10 +868,10 @@ Constraints: All 720 lines are valid. The default value is defined in the 2 argu
 
 - The number of combinations satisfying the constraint is 288.
 - Existing and new tests available: 13.
-- Short run options: 13.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 109/109.
-- The plan of the factor 3: 52/52.
+- Selected cases for focused execution: 13.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 109/109.
+- Planned 3-factor coverage: 52/52.
 
 Pass 2 events from separate module/interface instances or a package through input/ref arguments and observe 1/2/3 waiters' times, counts and values. Distinguish nonretention of pre-wait triggers, value visibility at ordinary/NBA wakeups, trigger paths, reverse-order re-waiting, noise and extra activations after completion.
 
@@ -887,10 +889,10 @@ Constraints: All 288 lines are valid. The static life event is passed to the aut
 
 - The number of combinations satisfying the constraint is 504.
 - Existing and new tests available: 63.
-- Short run options: 63.
-- The case must be kept separate: 7.
-- The plan of the factor 2: 141/141.
-- The plan of the factor 3: 129/129.
+- Selected cases for focused execution: 63.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 141/141.
+- Planned 3-factor coverage: 129/129.
 
 Use 1/2/3 delay values with 1-wide scalars and vectors of width 2 or greater to observe short-pulse rejection and cancellation of scheduled updates. At every tick, check bit/logic storage, values after inversion, X/Z delay selection, whole-value update times/counts and last-change times.
 
@@ -907,10 +909,10 @@ Constraints: All 504 lines are valid. Scalar nets with widths 1 and above are us
 
 - The number of combinations satisfying the constraint is 540.
 - Existing and new tests available: 39.
-- Short run options: 39.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 158/158.
-- The plan of the factor 3: 141/141.
+- Selected cases for focused execution: 39.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 158/158.
+- Planned 3-factor coverage: 141/141.
 
 Distinguish input connections and defaults under package wildcard/explicit imports, local declarations and .* / .name / explicit connections. Observe 2 children with 0/all-1 defaults and an independent control scope to check live tracking, shadowing and type conversion.
 
@@ -927,10 +929,10 @@ Constraints: The 180 line is excluded because it is invalid in 26.3 and the vali
 
 - The number of combinations satisfying the constraint is 2880.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 248/248.
-- The plan of the factor 3: 82/82.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 248/248.
+- Planned 3-factor coverage: 82/82.
 
 Write bit/logic and enumeration memory files, change the source array, then read into a different index range. Also read independently prepared input files and check element values, out-of-range preservation, declaration direction versus read order and overwriting.
 
@@ -950,10 +952,10 @@ Constraints: The fixed 1 dimension array is used. The reverse order of single is
 
 - The number of combinations satisfying the constraint is 288.
 - Existing and new tests available: 18.
-- Short run options: 18.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 109/109.
-- The plan of the factor 3: 38/38.
+- Selected cases for focused execution: 18.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 109/109.
+- Planned 3-factor coverage: 38/38.
 
 Cross natural program termination and direct/task-internal $exit with multiple initial processes and waiting children/grandchildren. Observe progress before termination, cancellation of later writes, wakeups in another program with the same wait condition and implicit termination by the last program.
 
@@ -971,10 +973,10 @@ Constraints: All 288 rows are legal; none are excluded because a simulator lacks
 
 - The number of combinations satisfying the constraint is 576.
 - Existing and new tests available: 40.
-- Short run options: 40.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 156/156.
-- The plan of the factor 3: 72/72.
+- Selected cases for focused execution: 40.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 156/156.
+- Planned 3-factor coverage: 72/72.
 
 Omit the net type in ANSI/non-ANSI port declarations and compare parent/child vector/scalar resolved values and widths under default_nettype. Under the same stimulus, compare vector-only explicit wire overrides and a separate module after directive reset to check default-type scope.
 
@@ -991,10 +993,10 @@ Constraints: All 576 rows are legal; none are excluded because a simulator lacks
 
 - The number of combinations satisfying the constraint is 864.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 165/165.
-- The plan of the factor 3: 74/74.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 165/165.
+- Planned 3-factor coverage: 74/74.
 
 Create 2 interfaces of differing widths per generate element and connect the if/case-selected side to whole-interface/modport writers/readers. Observe inversion before bit/logic storage, unselected-side controls, actual widths, identifying tags, bindings and independence of all elements.
 
@@ -1012,10 +1014,10 @@ Constraints: All 864 rows are legal; none are excluded because a simulator lacks
 
 - The number of combinations satisfying the constraint is 1296.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 183/183.
-- The plan of the factor 3: 84/84.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 183/183.
+- Planned 3-factor coverage: 84/84.
 
 Observe before/after completion of a module NBA chain using an early module control and a program running in Reactive. Check continuous/blocking/Re-NBA outputs and captures, type conversion, every stage's value, NBA scheduling counts and capture contexts.
 
@@ -1033,10 +1035,10 @@ Constraints: All 1296 rows are legal; none are excluded because a simulator lack
 
 - The number of combinations satisfying the constraint is 1056.
 - Existing and new tests available: 41.
-- Short run options: 41.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 213/213.
-- The plan of the factor 3: 80/80.
+- Selected cases for focused execution: 41.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 213/213.
+- Planned 3-factor coverage: 80/80.
 
 Compare config overrides, W-only reset and reset of all parameters with defaults, instance overrides and defparam. Observe normal-hierarchy parent parameters, config localparam shadowing, generated widths/counts/if-case branches and unaffected siblings.
 
@@ -1054,10 +1056,10 @@ Constraints: In the total Cartesian product 2592 row, mode/rhs not used in reset
 
 - The number of combinations satisfying the constraint is 1152.
 - Existing and new tests available: 25.
-- Short run options: 25.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 182/182.
-- The plan of the factor 3: 80/80.
+- Selected cases for focused execution: 25.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 182/182.
+- Planned 3-factor coverage: 80/80.
 
 Distribute vector bits to an array of combinational UDP instances and connect a scalar in common. Compare isolated outputs, outputs with a competing driver and an unnamed single UDP to check strengths, all 4-state input pairs and positional identification.
 
@@ -1075,10 +1077,10 @@ Constraints: All 1152 lines are valid. Only the combination UDP is used. Both ar
 
 - The number of combinations satisfying the constraint is 864.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 165/165.
-- The plan of the factor 3: 68/68.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 165/165.
+- Planned 3-factor coverage: 68/68.
 
 Use generate to select sequential UDP instances with differing initial values per bit, and sample/retain individual states under common/alternating clocks. Check X/Z storage into bit/logic, all 1 preparation states before unknown inputs, recovery to known values, retention of the other-clock control and its later sampling.
 
@@ -1096,10 +1098,10 @@ Constraints: All 864 lines are valid. For each bit of generate, select initial v
 
 - The number of combinations satisfying the constraint is 1296.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 183/183.
-- The plan of the factor 3: 78/78.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 183/183.
+- Planned 3-factor coverage: 78/78.
 
 Bind parameter defaults, types and package functions through interface-header imports and compare target-only width/tag changes with a guard. Against same-named caller declarations, check bit/logic formal conversion before package-function operations, actual widths and intermediate values.
 
@@ -1117,10 +1119,10 @@ Constraints: All 1296 lines are valid. The import header provides the parameter 
 
 - The number of combinations satisfying the constraint is 3456.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 9.
-- The plan of the factor 2: 245/245.
-- The plan of the factor 3: 92/92.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 9.
+- Planned 2-factor coverage: 245/245.
+- Planned 3-factor coverage: 92/92.
 
 Pass class handles through typed/typeless mailboxes and check FIFO, get/peek, capacity limits, null messages and bidirectional member updates before/after retrieval. Also observe preservation and later updates of another mailbox and empty nonblocking return values.
 
@@ -1139,10 +1141,10 @@ Constraints: All 3456 lines are valid. Only handles of the same packet type are 
 
 - The number of combinations satisfying the constraint is 972.
 - Existing and new tests available: 31.
-- Short run options: 31.
-- The case must be kept separate: 8.
-- The plan of the factor 2: 154/154.
-- The plan of the factor 3: 81/81.
+- Selected cases for focused execution: 31.
+- Mandatory cases retained individually: 8.
+- Planned 2-factor coverage: 154/154.
+- Planned 3-factor coverage: 81/81.
 
 Compare operator precedence and parentheses, widths and signedness, and dist weights and overlapping items. Make the candidate solution unique and compare value retention after all-zero-weight failure against a separate instance that always succeeds.
 
@@ -1160,10 +1162,10 @@ Constraints: All 972 lines are valid. Define two or three candidate values per w
 
 - The number of combinations satisfying the constraint is 216.
 - Existing and new tests available: 18.
-- Short run options: 18.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 93/93.
-- The plan of the factor 3: 60/60.
+- Selected cases for focused execution: 18.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 93/93.
+- Planned 3-factor coverage: 60/60.
 
 Compare default disable iff inheritance, override, name resolution and declaration placement inside generate scopes, including explicit conditions and cancellation by zero. Disable two instances independently before launch, between clocks or by NBA at the final clock, comparing disable effects and success/failure counts with controls.
 
@@ -1180,10 +1182,10 @@ Constraints: All 216 lines are valid. Compare inherited parent defaults, outer-g
 
 - The number of combinations satisfying the constraint is 192.
 - Existing and new tests available: 13.
-- Short run options: 13.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 96/96.
-- The plan of the factor 3: 40/40.
+- Selected cases for focused execution: 13.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 96/96.
+- Planned 3-factor coverage: 40/40.
 
 Alternate unique solutions and contradictions for fixed and dynamic arrays; compare element-type and with-expression reductions, extension before arithmetic, all values and size after failure, and an independent control object.
 
@@ -1201,10 +1203,10 @@ Constraints: All 192 lines are valid. Per-element constraints make the successfu
 
 - The number of combinations satisfying the constraint is 216.
 - Existing and new tests available: 18.
-- Short run options: 18.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 93/93.
-- The plan of the factor 3: 54/54.
+- Selected cases for focused execution: 18.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 93/93.
+- Planned 3-factor coverage: 54/54.
 
 Across associative-array insertion, overwrite, deletion and reuse, compare the index domain and allocated bounds, query integer conversion, first/last key width and signedness, entry counts and every key/value.
 
@@ -1221,10 +1223,10 @@ Constraints: All 216 lines are valid. Insert 3 distinct known integral keys. Dis
 
 - The number of combinations satisfying the constraint is 288.
 - Existing and new tests available: 12.
-- Short run options: 12.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 109/109.
-- The plan of the factor 3: 44/44.
+- Selected cases for focused execution: 12.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 109/109.
+- Planned 3-factor coverage: 44/44.
 
 Count iff-qualified clocking events separately from raw edges, checking sampling on accepted edges and sample retention on rejected edges. Cross guard-only changes before/after an edge, a high 1 in 33 bits, input skew and update path; compare clockvar and observer samples.
 
@@ -1242,10 +1244,10 @@ Constraints: All 288 lines are valid. Use only known 0/1 guards, including 33-bi
 
 - The number of combinations satisfying the constraint is 192.
 - Existing and new tests available: 13.
-- Short run options: 13.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 96/96.
-- The plan of the factor 3: 48/48.
+- Selected cases for focused execution: 13.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 96/96.
+- Planned 3-factor coverage: 48/48.
 
 Compare class-held virtual-interface bindings under shallow copies and class-handle assignment, checking rebinding and guarded null writes. Check saved references, source/copy bindings, successful-write counts and a guard through method/direct paths and full/modport types.
 
@@ -1263,10 +1265,10 @@ Constraints: All 192 lines are valid. The 3 interfaces have the same type and ta
 
 - The number of combinations satisfying the constraint is 180.
 - Existing and new tests available: 31.
-- Short run options: 31.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 87/87.
-- The plan of the factor 3: 78/78.
+- Selected cases for focused execution: 31.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 87/87.
+- Planned 3-factor coverage: 78/78.
 
 Check resolved logic and strength from 2-driver contention/release and tri0/tri1 pull defaults through 3 format API families. Cross strength asymmetry, update order and polarity, checking overwrite behavior across 11 observations and isolated supply controls.
 
@@ -1282,10 +1284,10 @@ Constraints: All 180 lines are valid. Each of the 2 continuous assignments uses 
 
 - The number of combinations satisfying the constraint is 240.
 - Existing and new tests available: 18.
-- Short run options: 18.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 108/108.
-- The plan of the factor 3: 60/60.
+- Selected cases for focused execution: 18.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 108/108.
+- Planned 3-factor coverage: 60/60.
 
 Compare class shallow copies with handle-assignment controls to distinguish independent array storage from sharing of objects referenced by element handles. Check element replacement, growth/shrinkage through the source or copy, retained element handles, constructor counts and an independent guard.
 
@@ -1303,10 +1305,10 @@ Constraints: 240 of the 288 Cartesian rows are legal. Exclude only fixed-array r
 
 - The number of combinations satisfying the constraint is 168.
 - Existing and new tests available: 30.
-- Short run options: 30.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 100/100.
-- The plan of the factor 3: 72/72.
+- Selected cases for focused execution: 30.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 100/100.
+- Planned 3-factor coverage: 72/72.
 
 Pass fixed arrays, dynamic arrays and queues through open-array DPI formals, checking bounds and every element at each call and copyback on return. Cross argument direction, numerical traversal order, sign patterns and growth/shrinkage between calls; also check that a separate guard array is unchanged.
 
@@ -1323,10 +1325,10 @@ Constraints: 168 of the 288 Cartesian rows are legal. Exclude dynamic-array/queu
 
 - The number of combinations satisfying the constraint is 288.
 - Existing and new tests available: 18.
-- Short run options: 18.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 109/109.
-- The plan of the factor 3: 50/50.
+- Selected cases for focused execution: 18.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 109/109.
+- Planned 3-factor coverage: 50/50.
 
 Observe default/explicit #1step clocking inputs in assertions at their own event and a later independent clock. Combine updates before or after sampling, blocking/NBA and independent edge polarities. Compare sampled values, Reactive live signals and action counts separately to detect erroneous resampling on the other clock.
 
@@ -1344,10 +1346,10 @@ Constraints: All 288 lines are valid. Clocking inputs referenced by assertions u
 
 - The number of combinations satisfying the constraint is 96.
 - Existing and new tests available: 13.
-- Short run options: 13.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 70/70.
-- The plan of the factor 3: 40/40.
+- Selected cases for focused execution: 13.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 70/70.
+- Planned 3-factor coverage: 40/40.
 
 Solve inherited constraints through base/derived handles across 3 class levels, comparing same-name replacement, new-name addition, pure implementation and external completion. Alternate a unique solution with a contradiction, checking initial values on first failure, retention after success, and independent success of a separate object.
 
@@ -1364,10 +1366,10 @@ Constraints: All 96 lines are valid. Across 3 inheritance levels, the middle cla
 
 - The number of combinations satisfying the constraint is 144.
 - Existing and new tests available: 18.
-- Short run options: 18.
-- The case must be kept separate: 4.
-- The plan of the factor 2: 81/81.
-- The plan of the factor 3: 48/48.
+- Selected cases for focused execution: 18.
+- Mandatory cases retained individually: 4.
+- Planned 2-factor coverage: 81/81.
+- Planned 3-factor coverage: 48/48.
 
 Combine DPI input/output/inout, scheduling the NBA before or after the call, and the same or a different array element. Check width, signedness and bit/logic conversion to int, immediate copyback, changes to indices and values after scheduling, and every element in Postponed and at the next time, to verify NBA value and destination capture.
 
@@ -1384,10 +1386,10 @@ Constraints: All 144 lines are valid. Use only statically allocated elements of 
 
 - The number of combinations satisfying the constraint is 432.
 - Existing and new tests available: 18.
-- Short run options: 18.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 123/123.
-- The plan of the factor 3: 54/54.
+- Selected cases for focused execution: 18.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 123/123.
+- Planned 3-factor coverage: 54/54.
 
 Compare aggregate event identity after automatic task return, alias release and delayed registration with independent calls, copied payloads and wake times.
 
@@ -1405,10 +1407,10 @@ Constraints: All 432 lines are valid. Each automatic task owns a fresh event and
 
 - The number of combinations satisfying the constraint is 1152.
 - Existing and new tests available: 19.
-- Short run options: 19.
-- The case must be kept separate: 7.
-- The plan of the factor 2: 177/177.
-- The plan of the factor 3: 66/66.
+- Selected cases for focused execution: 19.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 177/177.
+- Planned 3-factor coverage: 66/66.
 
 Compare SV/DPI-C queries of the same actual through dimension mapping, normalized packed ranges, each dimension range and increment, and shape refresh on every call.
 
@@ -1428,10 +1430,10 @@ Constraints: All 1152 lines are valid. Use 1/2/3 fixed unpacked dimensions and a
 
 - The number of combinations satisfying the constraint is 288.
 - Existing and new tests available: 18.
-- Short run options: 18.
-- The case must be kept separate: 7.
-- The plan of the factor 2: 109/109.
-- The plan of the factor 3: 46/46.
+- Selected cases for focused execution: 18.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 109/109.
+- Planned 3-factor coverage: 46/46.
 
 Compare SDF conditions, annotation scope, replacement/addition and rise/fall delays. Use sibling instances and separate outputs as controls; observe values, change counts and last-change times.
 
@@ -1449,10 +1451,10 @@ Constraints: All 288 lines are valid. Annotate IOPATH/COND/CONDELSE 1 time using
 
 - The number of combinations satisfying the constraint is 1296.
 - Existing and new tests available: 27.
-- Short run options: 27.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 174/174.
-- The plan of the factor 3: 63/63.
+- Selected cases for focused execution: 27.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 174/174.
+- Planned 3-factor coverage: 63/63.
 
 Compare checker and module reference decisions, sampled values, Reactive values and execution times. Vary connection forms and placement; observe independence of 2 instances and output-argument propagation.
 
@@ -1471,10 +1473,10 @@ Constraints: All 1296 lines are valid. Place static checkers in 2 module/interfa
 
 - The number of combinations satisfying the constraint is 648.
 - Existing and new tests available: 27.
-- Short run options: 27.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 138/138.
-- The plan of the factor 3: 75/75.
+- Selected cases for focused execution: 27.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 138/138.
+- Planned 3-factor coverage: 75/75.
 
 Compare each program and module-reference clock attempt using plain predicates and overlapped/nonoverlapped implication. Distinguish vacuous successes from pending attempts, observing decision counts and completion-time sampled-value sums through output arguments.
 
@@ -1492,10 +1494,10 @@ Constraints: All 648 lines are valid. Pass the same inputs to 2 instances each o
 
 - The number of combinations satisfying the constraint is 1056.
 - Existing and new tests available: 33.
-- Short run options: 33.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 172/172.
-- The plan of the factor 3: 79/79.
+- Selected cases for focused execution: 33.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 172/172.
+- Planned 3-factor coverage: 79/79.
 
 Sample size and first/last values around array/queue changes; compare live/argument binding, empty guards, hit thresholds and separate target/control bin histories.
 
@@ -1514,10 +1516,10 @@ Constraints: Of 1152 rows, excluding 96 fixed-array clear rows leaves 1056 legal
 
 - The number of combinations satisfying the constraint is 720.
 - Existing and new tests available: 31.
-- Short run options: 31.
-- The case must be kept separate: 10.
-- The plan of the factor 2: 151/151.
-- The plan of the factor 3: 92/92.
+- Selected cases for focused execution: 31.
+- Mandatory cases retained individually: 10.
+- Planned 2-factor coverage: 151/151.
+- Planned 3-factor coverage: 92/92.
 
 Compare disable scope and immature deferred reports with sibling/separate-process controls, input capture and side effects, live action data, ordinary control transfer and retained report history.
 
@@ -1535,10 +1537,10 @@ Constraints: All 720 lines are valid. Use observed deferred assert/assume/cover 
 
 - The number of combinations satisfying the constraint is 648.
 - Existing and new tests available: 27.
-- Short run options: 27.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 138/138.
-- The plan of the factor 3: 69/69.
+- Selected cases for focused execution: 27.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 138/138.
+- Planned 3-factor coverage: 69/69.
 
 Rebind static events before task calls, before wait registration and after registration, then check input copies versus ref/direct references, retention of registered waits, multiple and late waiters, independent aliases and values observed in Active/NBA.
 
@@ -1556,10 +1558,10 @@ Constraints: All 648 lines are valid. Using static life events, we separate call
 
 - The number of combinations satisfying the constraint is 192.
 - Existing and new tests available: 24.
-- Short run options: 24.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 100/100.
-- The plan of the factor 3: 40/40.
+- Selected cases for focused execution: 24.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 100/100.
+- Planned 3-factor coverage: 40/40.
 
 Notify waiters through a named event after clocking input sampling, comparing sampled and live values immediately after notification and after the live signal changes. Cross input skew, edge, update mode, notification mode, listener count and width; also observe spurious wakeups from another event and rearming across repetitions.
 
@@ -1576,10 +1578,10 @@ Constraints: All 192 lines are valid. Use only known values and notify waiters t
 
 - The number of combinations satisfying the constraint is 368.
 - Existing and new tests available: 29.
-- Short run options: 29.
-- The case must be kept separate: 7.
-- The plan of the factor 2: 145/145.
-- The plan of the factor 3: 71/71.
+- Selected cases for focused execution: 29.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 145/145.
+- Planned 3-factor coverage: 71/71.
 
 Compare deferred value and static-reference arguments with registration-time captures, report-time live values and width conversions. Cross functions/tasks, report regions, update modes, widths and signedness, also observing argument-evaluation side effects and execution time.
 
@@ -1597,10 +1599,10 @@ Constraints: Use equivalent-type static variables for const ref, restricting for
 
 - The number of combinations satisfying the constraint is 1056.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 181/181.
-- The plan of the factor 3: 110/110.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 181/181.
+- Planned 3-factor coverage: 110/110.
 
 Generate iterations and branches determine enum widths and value tables, observed through signedness, declaration order and next/prev counts. Two starting states and reads after other elements operate and at idle also check independent values and retained copies.
 
@@ -1618,10 +1620,10 @@ Constraints: Restrict count to two at base width one because its narrowest gener
 
 - The number of combinations satisfying the constraint is 1296.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 183/183.
-- The plan of the factor 3: 126/126.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 183/183.
+- Planned 3-factor coverage: 126/126.
 
 Two modules sequentially reserve NBAs on one package variable, crossing reference spellings, array indices, delays and state types. Compare captured values and targets, reservation order, alias reads and retained neighbors/other packages in Active and after NBA updates.
 
@@ -1639,10 +1641,10 @@ Constraints: All rows are legal; none is excluded for unsupported behavior. The 
 
 - The number of combinations satisfying the constraint is 2592.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 225/225.
-- The plan of the factor 3: 122/122.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 225/225.
+- Planned 3-factor coverage: 122/122.
 
 Checks multiple event and wait observers of the same package variable and always_comb reading an external reference inside a function. Observes whole-word and least-significant-bit sensitivity, X conditions, notifications and wake history across repeated writes, neighbors and another package.
 
@@ -1661,10 +1663,10 @@ Constraints: All rows are legal; none is excluded for unsupported behavior. Init
 
 - The number of combinations satisfying the constraint is 3264.
 - Existing and new tests available: 34.
-- Short run options: 34.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 244/244.
-- The plan of the factor 3: 110/110.
+- Selected cases for focused execution: 34.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 244/244.
+- Planned 3-factor coverage: 110/110.
 
 Check resolution of method-local imports, class properties and same-named declarations in the enclosing module. Cross width, signedness, state type, function/task and retained versus rebound handles; observe updates and retention separately for shared package values, individual objects and another method.
 
@@ -1683,10 +1685,10 @@ Constraints: The package width is one bit narrower than, equal to or one bit wid
 
 - The number of combinations satisfying the constraint is 2304.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 228/228.
-- The plan of the factor 3: 112/112.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 228/228.
+- Planned 3-factor coverage: 112/112.
 
 Declare arrays and subroutines with per-generated-scope types and ranges; check default-argument binding and reevaluation. Observe function/task input/output conversions, call order, calls after external updates, and retention of neighbors and other scopes.
 
@@ -1706,10 +1708,10 @@ Constraints: All rows are legal; none is excluded for unsupported behavior. Use 
 
 - The number of combinations satisfying the constraint is 1296.
 - Existing and new tests available: 36.
-- Short run options: 36.
-- The case must be kept separate: 6.
-- The plan of the factor 2: 183/183.
-- The plan of the factor 3: 135/135.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 183/183.
+- Planned 3-factor coverage: 135/135.
 
 Compare conditional selection, update targets and early returns through direct class calls and base handles. Observe X/Z behavior of if/case and conditional expressions, typed-result sign extension, retained aliases and object independence after rebinding.
 

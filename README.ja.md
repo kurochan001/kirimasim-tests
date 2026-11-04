@@ -46,9 +46,13 @@ Icarus Verilog、Verilator、kirimasim、
 > **開発の初期段階です。** すべてのテストをAIモデルが規格と照合していますが、
 > 人による照合はまだありません（`:spec_check: ai`）。期待値の誤りの報告を歓迎します。
 
+初めてテストを読むなら[実在する24行の読み解き](docs/faq.md#q49-read-a-real-test)、結果を読むなら[緑でもDifferが残る理由](docs/faq.md#q11-why-can-nightly-be-green-with-differ-results)、検証済みの範囲を調べるなら[分子と分母の具体例](docs/faq.md#q16-how-do-design-and-execution-coverage-differ)から始められます。
+
 <a id="contents"></a>
 
 ## 収録内容
+
+以下は収録本数と確認元の内訳で、現在のシミュレータのPASS数ではありません。[`:lrm:`と`:oracle:`が記録すること](docs/faq.md#q4-are-expected-outputs-copied-from-a-simulator)を参照してください。
 
 <!-- suite-stats:begin -->
 スイートには38章にわたり**10778本のテスト**があります。 うち4341本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
@@ -106,6 +110,8 @@ Icarus Verilog、Verilator、kirimasim、
 総数には`:type: formal`の268本を含みます。これらはシミュレータの標準出力を比較せず、
 `:formal_case:`を使ってSymbiYosysで検査します。[実行方法](#symbiyosys)を参照してください。
 
+SVAやformalのPASSは、通常のシミュレーションと確認範囲が異なります。[BMC・PDR・cover・反例の実レポートの読み方](docs/faq.md#q21-do-bmc-and-pdr-pass-mean-the-same-thing)を参照してください。
+
 SVAの追加検証は別に記録しています。参照評価器は**45本のテスト出力**を再現し、
 フォーマル検証の証跡は**267ケースのカタログ**と、別の**111ケースの境界値検査**を対象とします。
 二つのモデル集合には重複があり、収録済みのテスト本数や上のoracle別件数へ加算しません。
@@ -130,6 +136,8 @@ SVAの追加検証は別に記録しています。参照評価器は**45本の�
 CIは`tools/coverage_depth.py --check --minimum-tests 2`で2本以上を必須にします。
 親条項の引用だけでは、その子条項の本数を満たしません。
 
+[設計した・実行した・期待どおりだったの違い](docs/faq.md#q16-how-do-design-and-execution-coverage-differ)を読むと、以下の割合の分子と分母を区別できます。
+
 [要求カバレッジの要約](docs/behavior-coverage-summary.md)と
 [詳細レポート](docs/behavior-coverage.md)では、明示的にレビューした要求と、
 テストで観測する結果を測定します。[台帳と作業手順](coverage/README.md)は、
@@ -148,6 +156,8 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 候補の全作業リスト・内容の指摘へのリンクがあります。
 複数テストを一組の証拠とする場合は、同じシミュレータの同じ実行スナップショットで
 すべて合格する必要があります。別々の実行の部分的な成功を合わせて要求の成功にはしません。
+
+2因子100%は全因子の全組合せを試した意味ではありません。[3因子を4行で覆う具体例](docs/faq.md#q28-why-not-simply-cross-every-feature)で確認できます。
 
 [機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
 重点的に確認する高次因子群と必須の境界ケースを併用します。短時間実行用の選択は
@@ -205,10 +215,14 @@ clocking入力と名前付きイベントの待機（第14×15章）は192通り
   他プロジェクトやLSIへの適用方法を説明します。[用語集](docs/glossary.md#8-機能間クロス検証)と
   [FAQ](docs/faq.md#7-機能間クロス検証)には、指標の意味とレビュー時の確認事項をまとめています。
 
+章間表の数字をテスト本数として合計できない理由は[Q32](docs/faq.md#q32-can-i-sum-matrix-cells-to-get-the-cross-test-total)、合格モデル数とcompleteの違いは[Q34](docs/faq.md#q34-are-complete-and-all-selected-tests-pass-the-same-judgment)を参照してください。
+
 [モデルに基づくランダムクロス比較](docs/random-cross-verification.md)も導入しています。Nightlyで算術式・除算／剰余・添字付き書込み列・条件演算子・package変更通知・シフト・キャスト・ストリーミング・連結代入・比較・リダクション・配列リダクション・配列コピー列の13プロファイルを合計96ケース比較し、seedと実際の刺激を専用artifactへ保存します。最新の確認済みNightlyは`9113955914d8`・seed `41743702063`で**96件すべて有効なPASS**です。固定回帰の本数やカバレッジとは別集計です。
 [目的と役割分担](docs/random-cross-verification.md#purpose-and-roles)と[検証の流れ](docs/random-cross-verification.md#verification-process)に、固定ケースを補う探索の狙い、入力生成・モデル比較・保存再現・固定回帰化をまとめています。
 現在は13プロファイルで追加を区切り、[重点探索と独立検算](docs/random-cross-verification.md#thirteen-profile-stabilization)を優先します。既定のNightly予算を保ち、追加探索の結果は別に記録します。
 同資料に、任意の追加探索の投入管理、参照変更を明示する保存刺激の再実行、同じ刺激でのIcarus／Verilator確認、レビュー済み失敗からの固定回帰候補の作成手順を記載しています。固定回帰・正式Nightly・明示的なreplayは毎回実行します。
+
+ランダムでも期待値が分かる理由とPythonモデル・生成SV・照合処理の役割は、[A5の下位4ビットを書き換える具体例](docs/faq.md#q46-can-existing-models-support-random-verification-comparisons)を参照してください。
 
 計画上の網羅とCheckの成功を、各シミュレータでの全クロス合格とは扱いません。
 ビルド版・実行範囲・結果の内訳は[保存実行の概要](docs/interaction-verification.md#保存実行の概要)を確認してください。
@@ -272,6 +286,8 @@ Ghostは非公開のビルドで参加します。
 後続のワークフローが実行して公開するまで変わりません。現在のスイートと比較するときは、
 `suite commit`とテスト数を確認してください。
 
+[Nightlyが緑でもDifferが残る理由](docs/faq.md#q11-why-can-nightly-be-green-with-differ-results)を先に確認し、各テストの結果とworkflow全体の成功を分けて読んでください。
+
 ![期待結果に一致するテスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
 
 シミュレータごとに、Icarus Verilogは丸、Verilatorは四角、kirimasimはひし形、
@@ -287,6 +303,8 @@ Lyraは下向き三角、Ghostはオレンジの上向き三角を使います�
 既知の差異と未対応のテストは、実行前にスキップしたものも含めて分母に残します。
 表はNightlyのグラフとともに更新し、上部に日付とシミュレータの版を表示します。
 クリックすると原寸の画像を開けます。
+
+この分母に未対応も残る理由は[8/10＝80%の具体例](docs/faq.md#q12-what-percentage-does-by-chapter-show)、規格要求の割合との違いは[Q15](docs/faq.md#q15-is-the-nightly-match-rate-requirement-coverage)を参照してください。
 
 [![章別の一致テスト数](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)
 
@@ -313,6 +331,8 @@ kirimasimでは、前夜に一致した固定テストが今回は不一致に�
 不一致・未対応・時間切れ・証跡の変化などで失敗します。[判定と再現手順](docs/random-cross-verification.md)を参照してください。
 Icarus Verilog 13.0とVerilator 5.052で記録した期待結果は、テストやツールの変更時に
 [別のワークフロー](.github/workflows/check.yml)で同じリリースを使って確認します。
+
+表の区分から個別の原因を確認する手順は[Q9](docs/faq.md#q9-what-do-match-differ-known-difference-and-unsupported-mean)、緑のCheck/Nightlyが保証する範囲は[Q11](docs/faq.md#q11-why-can-nightly-be-green-with-differ-results)を参照してください。
 
 <a id="simulation-speed"></a>
 
@@ -398,37 +418,7 @@ publishジョブは、その実行の要求カバレッジとして`behavior-cov
 一つのテストは一つのSystemVerilogファイルです。一部は隣にCコード、別のソース、
 インクルードファイルも持ちます（`:dpi_c:`、`:vpi_c:`、`:files:`、`:incdirs:`）。
 冒頭のメタデータコメント、何を確認するかの説明コメント、設計本体の順に書きます。
-次は説明用の例で、スイート内のテストではありません。
-
-```systemverilog
-/*
-:name: test_nonblocking_swap
-:description: two nonblocking assignments that read each other's target exchange their values
-:tags: ch10
-:type: simulation
-:lrm: 1800-2023 10.4.2
-:oracle: spec iverilog@13.0
-:spec_check: ai
-:fourstate: no
-:nondeterministic: no
-:expected_stdout: @test_nonblocking_swap.expected
-*/
-// IEEE 1800-2023 §10.4.2: the right-hand sides of nonblocking assignments are
-// evaluated before any of their targets is updated, so a <= b and b <= a
-// exchange the values of a and b.
-
-module test_nonblocking_swap;
-  int a = 1, b = 2;
-
-  initial begin
-    a <= b;
-    b <= a;
-    #1 $display("a=%0d b=%0d", a, b);
-  end
-endmodule
-```
-
-`test_nonblocking_swap.expected`には`a=2 b=1`の1行を置きます。
+初めて読む際は、[実在する短いテスト](tests/ch10/test_declaration_initialization_is_not_driver.sv)を開き、[入力・観測・期待値・合格条件の読み解き](docs/faq.md#q49-read-a-real-test)と照合してください。コードにPASS表示がなくても、ランナーが期待出力と比較して判定することが分かります。
 
 <a id="metadata"></a>
 
@@ -467,6 +457,8 @@ endmodule
 <a id="how-a-test-is-judged"></a>
 
 ### 合否の判定方法
+
+X/Z・bit/logic・幅と符号で観測が変わる理由は[SVの小さな具体例](docs/faq.md#q50-sv-values-change-observations)、`:lrm:`と`:oracle:`の役割は[Q4](docs/faq.md#q4-are-expected-outputs-copied-from-a-simulator)を参照してください。
 
 標準出力から空行とシミュレータ自身のバナーを取り除き、期待出力と完全一致すれば合格です
 （`tools/normalize_output.py`と各実行スクリプト）。空でない行の空白は保持します。
@@ -710,6 +702,8 @@ NightlyはリポジトリのSecretsから`GHOST_REPOSITORY`、`GHOST_DEPLOY_KEY`
 過去の履歴は、他の比較対象を外した場合と同じ仕組みで残ります。
 
 ### SymbiYosys
+
+[BMC・証明・coverのPASSと予定したFAILの違い](docs/faq.md#q21-do-bmc-and-pdr-pass-mean-the-same-thing)を確認してから、モデル名と検証範囲を選んでください。
 
 スイートには`:type: formal`のテストが268本あります。`:formal_case:`に検証ケース名を
 指定し、`tools/run_sby.py`が参照評価器と独立したRTLモデルを比較します。

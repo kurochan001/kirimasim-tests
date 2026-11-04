@@ -377,6 +377,7 @@ def compact_report(snapshot: dict, source_url: str | None = None,
              f"[全項目の詳細]({detailed_report}) / "
              f"[管理手順]({link('coverage/README.md')}) / "
              f"[解釈・再検討記録]({link('docs/requirement-extraction-notes.md')})", "",
+             f"割合の分母は要求台帳の行で、テスト本数ではありません。[設計・実行・PASSの違い]({link('docs/faq.md')}#q16-how-do-design-and-execution-coverage-differ)を具体例で確認できます。", "",
              "## 全規格の要求台帳に対する値" if confirmed else "## 全規格の要求台帳に対する暫定値", "",
              f"- 要求カバレッジ（テスト設計）: **{percent(snapshot['provisional_design_percent'])}** "
              f"({snapshot['mapped']}/{total})。",
@@ -409,7 +410,8 @@ def compact_report(snapshot: dict, source_url: str | None = None,
              f"- テスト対応未確認（解釈保留以外）: {counts['unmapped']} 行。",
              f"- 解釈保留: {counts['interpretation_pending']} 行。",
              "", "未対応は、既存テストが存在しないという判定ではありません。", "",
-             "## シミュレータ別の実行確認率", ""]
+             "## シミュレータ別の実行確認率", "",
+             f"各行は独立した保存実行です。小範囲の実行で未実行が多い場合もあるため、[日時・版・対象範囲の読み方]({link('docs/faq.md')}#q14-why-do-main-results-or-simulator-totals-differ)と計測元を確認してください。", ""]
     for run in snapshot["execution"]["snapshots"]:
         detail = run["status_counts"]
         lines += [f"- `{run['simulator']}` / {doc_localization.code_span(run['version'])}: {ratio(len(run['executed']), total)}。",
@@ -497,6 +499,7 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
              f"[全要求の抽出結果]({link('docs/requirement-extraction.md')}) / "
              f"[管理手順]({link('coverage/README.md')}) / "
              f"[節の引用数]({link('docs/coverage-depth.md')})", "",
+             f"要求行の対応とPASSの証拠を数えています。[設計と実行の違い]({link('docs/faq.md')}#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。", "",
              f"**要求カバレッジ（テスト設計）: {pending if whole is None else f'{whole:.2f}%'}。**",
              f"規格要求の実行確認率: {'未確定' if executed_whole is None else f'{executed_whole:.2f}%'}。",
              "節の引用やテスト本数を、全動作の網羅率に換算しません。", "",

@@ -6,6 +6,8 @@
 
 [All chapters](README.md). 681 tests, 79 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
+First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
+
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
 | [`test_local_var_edge_cases`](../../tests/ch6/test_local_var_edge_cases.sv) | Local variable edge cases | 6 | Icarus Verilog 13.0 ||

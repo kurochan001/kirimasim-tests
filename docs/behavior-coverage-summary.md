@@ -6,6 +6,8 @@
 
 [全項目の詳細](behavior-coverage.md) / [管理手順](../coverage/README.md) / [解釈・再検討記録](requirement-extraction-notes.md)
 
+割合の分母は要求台帳の行で、テスト本数ではありません。[設計・実行・PASSの違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を具体例で確認できます。
+
 <a id="value-for-all-standards-in-the-required-table"></a>
 
 ## 全規格の要求台帳に対する値
@@ -48,6 +50,8 @@
 <a id="execution-confirmation-rate-by-simulator"></a>
 
 ## シミュレータ別の実行確認率
+
+各行は独立した保存実行です。小範囲の実行で未実行が多い場合もあるため、[日時・版・対象範囲の読み方](faq.md#q14-why-do-main-results-or-simulator-totals-differ)と計測元を確認してください。
 
 - `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)`: 0/12298 (0.00%)。 計測元: `2026-10-27T15:43:04.210115+00:00` / `ch16-edge-20261028-icarus13.json`。 失敗 0、既知不一致 1、未対応 0、未実行 10982、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
 - `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905`: 1/12298 (0.01%)。 計測元: `2026-10-27T15:43:15.726452+00:00` / `ch16-edge-20261028-verilator.json`。 失敗 0、既知不一致 0、未対応 0、未実行 10982、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。

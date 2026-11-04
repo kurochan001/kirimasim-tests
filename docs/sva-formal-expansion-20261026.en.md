@@ -14,6 +14,8 @@ This is a separate verification set containing expressions overlapping the basic
 
 The relationship between matching 45 test outputs, the basic 40 models, and these 111 cases is documented in [Overall-guide comparison table](sva-reference-formal-verification.en.md#結果の見方).
 
+These job counts include normal models and intentional negative controls. See [expected FAIL versus a problem](faq.en.md#q23-is-a-formal-fail-necessarily-a-problem) and [bounded checks versus proofs](faq.en.md#q21-do-bmc-and-pdr-pass-mean-the-same-thing).
+
 <a id="何を広げたか"></a>
 
 ## What was expanded

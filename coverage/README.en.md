@@ -43,6 +43,8 @@ Nightly is scheduled to start daily at 04:23 JST. Results are published after al
 
 ## Meaning of measurement
 
+[Numerator/denominator examples](../docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) distinguish mapped requirements, mere execution and admissible passes. For collective requirements, check [why all member tests must pass in one run](../docs/faq.en.md#q19-can-partial-successes-from-different-simulators-satisfy-an-and-group).
+
 - Provisional values based on the requirement ledger for the entire standard: only after all materials have been reviewed, use all registered rows as the denominator and display the design-mapped and execution-verified row ratios separately. Include pending interpretations, unmapped requirements, and unimplemented behavior in the denominator. Because occurrences of requirement text, conditions, and initial observation cases overlap, do not treat this as the proportion of semantically unique requirements.
 - Finalized values for the whole standard: do not publish finalized ratios until source review is complete, pending interpretations and duplicate requirement units have been resolved, and `denominator_review` in `behaviors.json` has been approved with supporting rationale. Review also covers parent headings' introductory text, figures and tables, syntax constraints, exceptions, errors, and references to other clauses. Tool dependencies, unimplemented behavior, and expected values based solely on the standard do not justify exclusion or a pass.
 - Requirement coverage of registered behaviors (test design): behaviors with test mappings whose observation points have been reviewed ÷ registered behaviors. Do not infer a mapping from a test's name, description, or `:lrm:` citation alone.

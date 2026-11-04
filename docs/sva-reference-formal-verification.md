@@ -132,6 +132,8 @@ Aの変換処理は[formal.py](../tools/sva_reference/formal.py)、Bの計算規
 
 ### 正しいモデルと、わざと間違えたモデルの結果を読む
 
+表のPASS/FAILを読む前に、[BMC・PDR・coverで確認する範囲の違い](faq.md#q21-do-bmc-and-pdr-pass-mean-the-same-thing)と[用語](glossary.md#6-formal-verification)を参照できます。
+
 「同じtickの一致は1件にまとめる」と間違えると、この例で2対1の差が出ます。基本セットでは、比較用モデルBにその誤りを入れて、検査が見逃さないことも確かめています。
 
 [保存済み結果](../tools/sva_reference/fixtures/formal_symbolic_results.json)の該当4ジョブは、次の結果です。再実行すると同名の行がログに出ます。

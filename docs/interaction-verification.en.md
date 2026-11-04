@@ -8,6 +8,8 @@ Instead of executing the full Cartesian product of all features, use small model
 
 See [Principles and practical procedure](interaction-verification-method.en.md) for design principles, selection algorithms, model-addition procedures, and application to other projects or LSI. [Glossary](glossary.en.md#8-機能間クロス検証) and [FAQ](faq.en.md#7-機能間クロス検証) explain the cross-chapter table, execution satisfaction, controls / fault injection, and how to read saved records. The boundary-condition regression tests added in Issue #21, pending interpretations, and the scope of separate API work are summarized in [Regression incorporation report](p1-combination-regressions-20261030.en.md) and [Mapping registry](../coverage/combination-gaps.json).
 
+Before reading model counts, see [a three-way condition missing from 100% pairwise coverage](faq.en.md#q28-why-not-simply-cross-every-feature) and [planned coverage versus passing execution](faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution).
+
 <a id="保存実行の概要"></a>
 
 ## Saved-run summary

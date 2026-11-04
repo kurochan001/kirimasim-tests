@@ -6,7 +6,7 @@
 
 テストの読み方、期待値の根拠、Nightly、網羅率、SVA・フォーマル検証、変更後の確認についてまとめています。用語の意味は[用語集](glossary.md)、全体像と実行手順は[README](../README.ja.md)を参照してください。
 
-対象はkirimasim-testsです。シミュレータ本体の設計・導入や、一般的なLSI検証手法の説明は、それぞれの資料を参照してください。変動するテスト本数・割合はここへ転記せず、対応する集計へリンクしています。
+対象はkirimasim-testsです。シミュレータ本体の設計・導入や、一般的なLSI検証手法の説明は、それぞれの資料を参照してください。変動する最新件数は集計へリンクします。以下の数値例は、説明用か、日付・実行回を明記した保存記録です。
 
 <a id="contents"></a>
 
@@ -21,6 +21,8 @@
 - [機能間クロス検証](#7-機能間クロス検証)
 - [商用シミュレータでの確認状況](#8-商用シミュレータでの確認状況)
 - [モデルに基づくランダム比較](#model-based-random-comparisons)
+
+- [初めて読むための具体例](#10-reading-examples)
 
 <a id="1-getting-started"></a>
 
@@ -46,12 +48,14 @@ SystemVerilogのシミュレータがIEEE 1800-2023の規定どおりに動く�
 
 ```sh
 python3 tools/run_icarus.py --iverilog-bin "$IVERILOG13_BIN" \
-  tests/ch10/test_nonblocking_assign.sv
+  tests/ch10/test_declaration_initialization_is_not_driver.sv
 ```
 
 ランナーにはPython 3.10以上が必要です。複数本の指定、並列数の`-j N`、記録先の`--json FILE`も使えます。シミュレータやCコードのビルドに必要なものはツールごとに異なります。全件を回す前に[各ランナーの前提条件](../README.ja.md#running-the-suite)を確認してください。
 
 Icarus・Verilator・kirimasim・Lyra・Ghostは、明示指定でも`:type: formal`を除外します。その範囲で、テストを指定しない場合はIcarus・kirimasim・Lyra・Ghostが全件、Verilatorが`:oracle:`に`verilator@5.052`があるテストを選び、Verilatorの`--all`はformal以外の全件を選びます。formalは`:formal_case:`を指定したモデル検査で、`tools/run_sby.py`を使います。[SymbiYosysの実行方法](../README.ja.md#symbiyosys)を参照してください。
+
+初めてコードを読む場合は、[Q49の実在テストの読み解き](#q49-read-a-real-test)で、入力・観測・期待値の順に確認できます。
 
 <a id="2-expectations-and-metadata"></a>
 
@@ -64,6 +68,10 @@ Icarus・Verilator・kirimasim・Lyra・Ghostは、明示指定でも`:type: for
 引用条文から先に期待結果を決め、固定バージョンシミュレータで確認できた場合にその版を`:oracle:`へ記録します。食い違ったときはテスト・規格解釈・実装のどこに原因があるか調べます。複数ツールが同じ値を出すことだけで正解を決めません。[期待値の決め方](../README.ja.md#where-the-expected-outputs-come-from)を参照してください。
 
 出力比較では空行やツール固有の表示を除きますが、文字のある行の空白は詰めません。空白だけの違いでも不一致になる場合があります。[正規化処理](../tools/normalize_output.py)と各ランナーが除く表示を確認してください。
+
+`:lrm:`は「どの規則を検査するか」、`:oracle:`は「どの規格照合・固定版で期待結果を確認したか」を記録します。後者のツール名は、現在の開発版の成功や、節全体の検証完了を意味しません。実際のヘッダと期待値の対応は[Q49](#q49-read-a-real-test)で確認できます。専用期待値がある場合は共通期待値より優先しますが、規格が許すツール依存の表示等に限り、理由を記録します。多数決で期待値を変える規則ではありません。
+
+実際の[符号付きtask出力の差異](simulator-differences.ja.md#generated-subroutine-copyout)では、固定Verilatorの上位ビットが規格由来の符号拡張と異なりました。元の期待値を保持し、同じ期待値になるfunction対照と実出力を記録しています。ツールに合わせて期待値を緩める対応ではありません。
 
 <a id="q5-is-a-test-with-only-oracle-spec-unreliable"></a>
 
@@ -101,6 +109,8 @@ Matchは期待結果との一致、Differは判定条件の不一致です。Kno
 
 Matchには規格違反のコードを適切に拒否した結果も含みます。また、Icarus・Verilatorの端末の要約は、その固定バージョンoracleが付いたテストを分母にします。`--json`ではoracle未登録でも判定に一致すれば`pass`となり、Nightlyはその結果も数えます。`NOW MATCHES`はIcarusランナーがこの一致を知らせる表示で、oracleの自動認定ではありません。
 
+表から原因へ進むには、まず行の日時・suite commit・シミュレータ版を確認し、[公開レポートの`latest/kirimasim.json`](https://github.com/kurochan001/kirimasim-tests/blob/results/latest/kirimasim.json)等でテストID別の区分を調べます。この公開JSONは区分の索引です。理由は同じworkflow runの`results-kirimasim` artifactにある`kirimasim.json`の`reason`と`kirimasim.log`で確認します。Ghostの非公開診断を求めたり投稿したりする手順には読み替えません。
+
 <a id="q10-is-the-differ-count-the-simulators-bug-count"></a>
 
 ### Q10. Differの件数は、そのシミュレータのバグ数ですか
@@ -117,11 +127,15 @@ Nightlyは各シミュレータの対応状況を記録するため、全テス�
 
 現在のratchetでは、前回`pass`から今回`unsupported`への変化も失敗の対象外です。緑の表示に加え、結果区分の変化と個別ログを確認してください。
 
+具体例は[2026-11-04に確認した保存レポート](nightly-results.md#latest-verified-checkpoint)です。この回のkirimasim固定suiteは7,868 pass・2,403 unsupported・133 failで、Check・Nightlyは成功しています。これは当該回の規定ゲートが成功したという記録であり、133件が合格したことにはなりません。個別テストを判断するには[Q9の区分とログの確認先](#q9-what-do-match-differ-known-difference-and-unsupported-mean)へ進みます。
+
 <a id="q12-what-percentage-does-by-chapter-show"></a>
 
 ### Q12. READMEのBy chapterの割合は何を表しますか
 
 章別・環境別に、そのシミュレータの最新の保存結果に含まれる一致数を、その結果で記録されたテスト数で割った割合です。環境間で取得日・スイートのコミット・シミュレータの版が異なる場合があります。Known differenceとUnsupportedも分母に含み、未対応として実行を省略したCコード付きテストなども含みます。図には実行日とシミュレータの版があり、[公開レポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にはsuite commitへのリンクがあります。この割合は規格要求の網羅率ではありません。[章別比較](../README.ja.md#by-chapter)を参照してください。
+
+説明用に、ある章の保存結果が8 pass・1 known・1 unsupportedなら、表示は8/10＝80%です。unsupportedの1件を除いた8/9ではありません。この10件は「結果が登録されたテスト」であり、10件すべてがシミュレータ内部まで実行されたという意味ではありません。
 
 <a id="q13-why-did-graphs-or-counts-not-change-after-a-main-push"></a>
 
@@ -145,6 +159,8 @@ mainは現在のテスト・ツールと保存済み証跡、resultsはNightly�
 
 分母が異なります。Nightlyの一致率はテスト本数に対する割合です。要求カバレッジは、規格から抽出した要求・条件・観測の登録行に対し、レビュー済みの対応やパス結果の記録がある割合です。1本のテストが複数要求に対応する場合も、1要求を複数テストで分担する場合もあります。[集計概要](behavior-coverage-summary.md)と[計測規則](../coverage/README.md#計測の意味)を参照してください。
 
+第19章のcovergroupを試すテストの件数とも異なります。covergroupはSVの機能カバレッジ機能そのものを試す対象で、そのbinのヒット数をこの要求台帳のPASS数へ転記する仕組みではありません。何を数える割合かを、指標名と対象集合で確認してください。
+
 <a id="q16-how-do-design-and-execution-coverage-differ"></a>
 
 ### Q16. 要求カバレッジ（テスト設計）と実行確認率は何が違いますか
@@ -152,6 +168,10 @@ mainは現在のテスト・ツールと保存済み証跡、resultsはNightly�
 要求カバレッジ（テスト設計）は、要求の観測点を確認してテスト対応を登録できた割合です。実行確認率は、現在の入力・ランナーに対応する、採用可能なパス結果の記録がある割合です。説明用に要求100件のうち60件へ対応し、40件にパス結果の記録があれば、前者60%、後者40%となります。複数環境の成功の和集合は、1つのシミュレータの適合率ではありません。実際の値と分母は[集計概要](behavior-coverage-summary.md)で確認してください。
 
 規格違反テストでは構文未対応を誤って成功扱いする可能性があるため、固定バージョンoracleをレビュー済みのIcarus・Verilatorの結果だけを実行証拠に採用します。NightlyのMatch件数をそのまま実行確認済み要求の件数にはしません。
+
+「実行した」だけでは分子へ入りません。説明用に、対応済み60要求のうち40要求に有効なPASS、10要求にfail、10要求にunsupportedがあるなら、実行確認済みは40要求です。ランナーが起動した件数やテストファイル数とは別です。集計上の「複数環境の成功の和集合」は、要求ごとに採用可能な成功があるという意味で、[一つのAND集合の部分成功を別実行から合成してよいわけではありません](#q19-can-partial-successes-from-different-simulators-satisfy-an-and-group)。
+
+シミュレータ別の欄には、小範囲だけ実行した保存記録も並びます。計測元・版・未実行数を読み、低い割合を「そのツールでは残りが全て不正動作する」という意味にしないでください。
 
 <a id="q17-do-two-tests-per-clause-cover-every-behavior"></a>
 
@@ -183,11 +203,17 @@ mainは現在のテスト・ツールと保存済み証跡、resultsはNightly�
 
 規格からシーケンス・プロパティ・サンプル値関数の意味をPythonで実装し、入力トレースから結果を計算します。対象は監査した単一クロック等の範囲です。フォーマル検査では評価器の計算を検証用回路へ変換し、別に書いたRTLモデルと比較します。Yosysが元の未対応SVAをそのまま読む構成ではありません。[図付きの全体ガイド](sva-reference-formal-verification.md)を参照してください。
 
+説明用に`req |=> ack`を考えると、reqが一度も1にならないシミュレーションの入力では、応答ackを試さずに空虚成功となり得ます。したがって「失敗がない」だけで要求した応答を観測できたとは言えません。先行条件の到達をcover等で別に確認しますが、その到達例だけも全入力での正しさの証明にはなりません。[SVAの用語](glossary.md#5-sva-and-reference-evaluation)も参照してください。
+
 <a id="q21-do-bmc-and-pdr-pass-mean-the-same-thing"></a>
 
 ### Q21. BMCとPDRは、どちらも同じPASSですか
 
 BMCは指定した有限深度まで、PDRは対象の安全性について有限深度に限定しない証明です。このスイートのシーケンスPDRでは、固定した式・数値パラメータ・入力条件での一致を確認します。任意の式や整数パラメータへの一般化ではありません。また、有限入力を結果表に展開するモデルのソルバー深度と、意味論上のサンプル数も区別します。[結果と証明範囲の説明](sva-reference-formal-verification.md)を参照してください。
+
+実際の`first_match_tie`は、同じtickに二つのシーケンスが終わる場合の一致数を比較します。`first_match_tie_bmc`のPASSは深度8まで、`first_match_tie_prove`のPASSは式とパラメータを固定したモデルに許した0/1入力系列について、長さの上限を置かない一致です。`first_match_tie_cover`のPASSは一致数2への到達例があるという意味です。`first_match_tie_mutant_bmc`のFAILは、二つの一致を一つに潰す意図的な誤りの反例です。[実レポートの4行と反例の読み方](sva-reference-formal-verification.md#read-the-results-of-the-correct-model-and-the-intentionally-wrong-model)を参照してください。
+
+一般的なモードの定義は[SBYのoptionsリファレンス](https://symbiyosys.readthedocs.io/en/latest/reference.html#options-section)を参照してください。証明はモデルの入力・初期状態・仮定を前提とし、任意の4値SVAやシミュレータ全体を証明した記録ではありません。
 
 <a id="q22-do-40-models-plus-111-cases-mean-151-proved-tests"></a>
 
@@ -251,6 +277,8 @@ python3 generators/generate.py --check
 故障の起こり方に直結する3因子以上の群と、必須の境界ケースを別に保持します。
 単独機能の合格だけでは分からない受渡し部分を狙いますが、任意の高次の不具合をすべて検出する
 保証ではありません。[設計思想と追加手順](interaction-verification-method.md)を参照してください。
+
+説明用に「幅＝8/33」「型＝bit/logic」「格納先＝scalar/array」という3因子を考えます。`(8,bit,scalar)`、`(8,logic,array)`、`(33,bit,array)`、`(33,logic,scalar)`の4行には、どの2因子を選んでも全4組が現れます。しかし`(33,logic,array)`の3因子同時条件はありません。したがって2因子100%は3因子の全8行の実行を意味しません。この同時条件が重要なら3因子群や必須ケースへ追加し、実行PASSの網羅は計画とは別に数えます。
 
 <a id="q29-can-a-complete-plan-still-have-unsupported-or-failing-execution"></a>
 
@@ -488,6 +516,12 @@ Icarus Verilog・Verilatorで確認できた範囲を`:oracle:`へ記録しま�
 乱数列の一致を確認する検査とも区別します。`randomize()`に複数解がある場合は、生成値の完全一致ではなく制約の充足を確認します。
 [目的と役割分担](random-cross-verification.md#purpose-and-roles)、[検証の流れ](random-cross-verification.md#verification-process)、[対象と制限](random-cross-verification.md#scope)を参照してください。
 
+一般的なRTL検証では、参照モデルが入力から期待動作を計算し、スコアボードが観測結果と照合します（[Accellera UVM 1.2 User’s Guide §1.1.4](https://www.accellera.org/images/downloads/standards/uvm/uvm_users_guide_1.2.pdf)）。このリポジトリはUVM環境の実装ではありませんが、役割は対応します。`random_cross_models.py`のPythonモデルが具体的な刺激と期待値を作り、生成したSVがその刺激をシミュレータへ与えて観測値を表示し、既存runnerの正規化・比較が照合を担当します。検査対象は製品RTLではなく、そのSVを実行するシミュレータの言語動作です。他シミュレータも同じSVを実行し、Pythonの期待値と個別に比較します。
+
+説明用に、8ビットの初期値`8'hA5`の下位4ビットへ`4'h3`を書くと、期待値は`8'hA3`です。参照モデルは上位のAを保持して全8ビットを計算します。仮の実測値が`8'h03`なら下位4ビットは3でも上位が壊れているため不一致です。このため[packed_write_sequenceの生成・参照処理](../tools/random_cross_models.py)は操作後の全体と途中経過を観測します。これは説明用の値で、保存済み失敗を報告したものではありません。8ビットは手計算用で、現行プロファイルが生成する幅は[対象と生成方法](random-cross-verification.md#scope)を参照してください。ランダムなのは入力の選択であり、選ばれた入力への正解の計算規則までランダムにするわけではありません。
+
+参照モデルにも誤りはあり得るため、規格・手計算の境界例・独立検算を併用します。スコアボード等の[用語](glossary.md#reference-model-and-scoreboard)と、[生成→照合→保存の操作手順](random-cross-verification.md#verification-process)を参照してください。
+
 <a id="q47-how-do-i-reproduce-a-random-comparison-failure"></a>
 
 ### Q47. ランダム比較が失敗したら、どこから再現しますか
@@ -514,3 +548,92 @@ SV・期待値・参照コードのハッシュの変化を確認します。元
 任意の`--explore`の投入管理は、完全に同じ条件で有効に完了したジョブだけを省略し、省略をPASSとは別に記録します。
 固定回帰・正式Nightly・明示replayは再実行します。新しい相互作用を独立したモデルで扱う必要が具体化したときに、
 合法範囲・規格由来の期待値・確認方法を決めてから追加を検討します。
+
+<a id="10-reading-examples"></a>
+
+## 10. 初めて読むための具体例
+
+<a id="q49-read-a-real-test"></a>
+
+### Q49. 実在する短いテストは、どの順に読めば期待値を説明できますか
+
+[test_declaration_initialization_is_not_driver.sv](../tests/ch10/test_declaration_initialization_is_not_driver.sv)は、宣言時の初期化が、その後の入力変化に追従するドライバではないことを確認する24行のテストです。
+
+1. **目的と規格。** 冒頭の`:description:`と説明コメントを読み、`:lrm: 1800-2023 10.5`の宣言時初期化を確認します。`:type: simulation`なので、このテストは標準出力を比較します。
+2. **入力と操作。** `int source = 5;`に対し、`int captured = source + 2;`が一度だけ値を取り込みます。その後`initial`内で`source = 40;`に変えます。
+3. **観測。** 最初の`$display`は`captured`を表示します。`#1`は1シミュレーション時間単位待ってから、同じ変数を再表示します。時間単位を明記していないので「1ns」と読み替えません。
+4. **期待値。** 最初は5＋2＝7。その後も`captured`を代入し直していないため7です。40＋2＝42には追従しません。[ヘッダが参照する.expected](../tests/ch10/test_declaration_initialization_is_not_driver.expected)の全内容は次の2行です。
+
+```text
+entry=7
+after_source_change=7
+```
+
+5. **合格条件。** テスト内に`PASS`という表示はありません。ランナーがこの2行を期待値と比較し、終了条件・診断の検査も満たすと`pass`です。このテストは追加の終了・診断フィールドを指定していません。表示が`after_source_change=42`なら不一致です。文字を含む行の空白や値は正規化で都合よく書き換えません。
+
+`:expected_stdout: @test_declaration_initialization_is_not_driver.expected`の`@`は、同じディレクトリのファイルを読む指定です。`:oracle: spec iverilog@13.0 verilator@5.052`は、規格との照合と、その固定版での確認を記録します。現在の開発版の実行結果は別に確認します。`:spec_check: ai`は人のレビュー済みを意味しません。
+
+Icarus 13.0の実行ファイルのディレクトリを`IVERILOG13_BIN`へ設定し、リポジトリのルートから実行できます。
+
+```sh
+python3 tools/run_icarus.py --iverilog-bin "$IVERILOG13_BIN" \
+  tests/ch10/test_declaration_initialization_is_not_driver.sv
+```
+
+このテストのPASSで確認するのは、この入力・観測の宣言時初期化です。10.5の全条件を検査したという意味ではありません。別のテストを読む際も、[メタデータ](../README.ja.md#metadata)と[判定方法](../README.ja.md#how-a-test-is-judged)へ同じ順に当てはめます。
+
+<a id="q50-sv-values-change-observations"></a>
+
+### Q50. X/Z・状態型・幅・符号・NBAで、観測値はどう変わりますか
+
+以下は自作の説明用コード片です。各片を別のブロックに置いた場合の表示を示し、実テストの期待値を変更する提案ではありません。規則の名前は[用語集](glossary.md#9-language-features-used-in-cross-tests)、テストの根拠は各`:lrm:`で確認します。
+
+**X/Zとbit/logic。** Xは未知、Zは高インピーダンスを表す4値の要素です。自動的に「ランダムな0/1」と読むものではありません。bitへ代入するとX/Zが0へ変換されます。
+
+```systemverilog
+logic [3:0] four;
+bit [3:0] two;
+four = 4'b10xz;
+two = four;
+$display("four=%b two=%b", four, two);
+$display("eq=%b case_eq=%b", four == four, four === four);
+```
+
+表示は`four=10xz two=1000`と`eq=x case_eq=1`です。`==`は未知を返し得ますが、`===`はX/Zも状態として比較します。演算子の置換は検査内容を変えるため、合格させる目的だけでは行いません。2値の実行で何を判断できないかは[Q8](#q8-can-verilator-alone-confirm-fourstate-yes)を参照してください。
+
+**符号拡張。** 同じ4ビットの1111でも、signedは−1、unsignedは15です。8ビットへ広げると上位が変わります。
+
+```systemverilog
+logic signed [3:0] s;
+logic [3:0] u;
+logic [7:0] from_s, from_u;
+s = 4'b1111; u = 4'b1111;
+from_s = s; from_u = u;
+$display("signed=%h unsigned=%h", from_s, from_u);
+```
+
+表示は`signed=ff unsigned=0f`です。代入先がunsignedでも、元のsigned値の符号拡張は観測に現れます。
+
+**式の幅。** この加算では代入先の幅も式へ伝わります。小さい変数に一度格納した値を後で広げても、失った桁上がりは戻りません。
+
+```systemverilog
+logic [3:0] a, b, narrow;
+logic [4:0] wide;
+a = 4'hf; b = 4'h1;
+narrow = a + b; wide = a + b;
+$display("narrow=%0d wide=%0d", narrow, wide);
+```
+
+表示は`narrow=0 wide=16`です。「足し算は常に元の4ビット幅」とは判断できません。文脈・キャスト・演算子により規則が変わるため、[ランダム検証のexpression_context](random-cross-verification.md#scope)もこれを因子にしています。
+
+**ノンブロッキング代入。** `<=`は右辺を評価して更新を予約します。同じプロセス内の次の表示までに、その更新が終わるとは限りません。
+
+```systemverilog
+int p, q;
+p = 1; q = 2;
+p <= q; q <= p;
+$display("before p=%0d q=%0d", p, q);
+#1 $display("after p=%0d q=%0d", p, q);
+```
+
+表示は`before p=1 q=2`、1時間単位後は`after p=2 q=1`です。`p = q; q = p;`というブロッキング代入なら、この順では両方2になります。`#0`をNBA完了待ちとは考えません。[実在する遅延NBAテスト](../tests/ch10/test_intra_assignment_delay_nba_concatenation.sv)は、Active・`#0`後では旧値、後続時刻では更新値を[期待出力](../tests/ch10/test_intra_assignment_delay_nba_concatenation.expected)に記録しています。

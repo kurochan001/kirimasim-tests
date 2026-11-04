@@ -6,6 +6,8 @@
 
 [すべての章](README.ja.md) .772 304 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
+初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
+
 |テスト|チェックするもの|条項|予期した出力を記録|ノート|
 | --- | --- | --- | --- | --- |
 | [`test_assign_struct`](../../tests/ch7/test_assign_struct.sv) |構造代入のテスト| 7.2 10.9.2 | Verilator 5.052 ||

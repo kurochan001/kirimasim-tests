@@ -6,13 +6,15 @@
 
 [Details of all items](behavior-coverage.en.md) / [Management procedures](../coverage/README.en.md) / [Interpretation and Re-examination Record](requirement-extraction-notes.en.md)
 
+The denominator counts requirement-ledger rows, not test files. See [Design, execution and PASS distinctions](faq.en.md#q16-how-do-design-and-execution-coverage-differ) for concrete examples.
+
 <a id="全規格の要求台帳に対する値"></a>
 
 ## Value for all standards in the required table
 
-- The required coverage (test design): 89.31% ( 10983/12298 ).
-- The execution confirmation rate is 77.57% ( 9539/12298 ). The sum of successes of multiple environments.
-- The denominator also includes interpretation reservation and non-coordination. We do not exclude non-implemented and non-supported.
+- Requirement coverage (test design): 89.31% ( 10983/12298 ).
+- The execution confirmation rate is 77.57% ( 9539/12298 ). Union of successes across environments.
+- The denominator includes pending interpretations and items without test mappings. We do not exclude non-implemented and non-supported.
 - The registration unit is the occurrence point, condition, and observation case of the requirement, and the duplication of meaning is integrated by the review of the denominator. This is neither the fraction of all program/input combinations tested nor a single simulator's standard conformance rate.
 
 <a id="既存テストの集計状況"></a>
@@ -29,8 +31,8 @@
 
 ## Definite value
 
-- The required coverage (test design): 89.31%.
-- The verification rate of the standard requirements is 77.57%.
+- Requirement coverage (test design): 89.31%.
+- Requirement execution-confirmation rate: 77.57%.
 - Approval of denominator: Approval. The measured state is `confirmed`.
 - The method was confirmed after document verification, resolution of the reservation interpretation, duplication of the requirement unit, and review of the denominator.
 
@@ -48,6 +50,8 @@ Unsupported behavior does not mean that no existing test is available.
 <a id="シミュレータ別の実行確認率"></a>
 
 ## Execution confirmation rate by simulator
+
+Each row is a separate saved run. A narrow run can leave many tests unexecuted; check [how to read dates, versions and scope](faq.en.md#q14-why-do-main-results-or-simulator-totals-differ) and the measurement source.
 
 - `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 0/12298 ( 0.00% )。 Measurement source: `2026-10-27T15:43:04.210115+00:00` / `ch16-edge-20261028-icarus13.json` 。 Failures 0; known mismatches 1; unsupported 0; not run 10982; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
 - `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 1/12298 ( 0.01% )。 Measurement source: `2026-10-27T15:43:15.726452+00:00` / `ch16-edge-20261028-verilator.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 10982; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.

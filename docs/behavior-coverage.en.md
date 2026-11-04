@@ -6,9 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-The required coverage (test design): 89.31%. The requirements table base of all standards (confirmation): design 89.31%, execution 77.57%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. The requirements table base of all standards (confirmation): design 89.31%, execution 77.57%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
-The verification rate of the standard requirements is 77.57%. The citation of the section and the number of tests are not converted to the coverage of all actions.
+
+Requirement coverage (test design): 89.31%. Requirement execution-confirmation rate: 77.57%. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.

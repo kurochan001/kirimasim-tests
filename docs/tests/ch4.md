@@ -6,6 +6,8 @@
 
 [All chapters](README.md). 412 tests, 325 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
+First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
+
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
 | [`test_nba_cross_module`](../../tests/ch4/test_nba_cross_module.sv) | Test: NBA cross-module visibility | 4.3 10.4.2 4.6 | Icarus Verilog 13.0 ||

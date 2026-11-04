@@ -6,6 +6,8 @@
 
 [All chapters](README.md). 411 tests, 90 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
+First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
+
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
 | [`test_class_handle_argument_directions`](../../tests/ch8/test_class_handle_argument_directions.sv) | a class variable holds a handle to an object with properties and methods, and an object passed as an input, output, inout or ref argument passes its handle, not a copy of the object | 8.2 6.15 | Verilator 5.052 ||

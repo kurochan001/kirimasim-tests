@@ -26,6 +26,8 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 
 ## 数字の読み方
 
+セルはテスト数ではなくモデル数です。[合計してはいけない理由](faq.md#q32-can-i-sum-matrix-cells-to-get-the-cross-test-total)、[0やM/E/C/N/Rの意味](faq.md#q33-do-zero-cells-and-mecnr-indicate-missing-tests-or-passes)、[completeと全選択ケースPASSの違い](faq.md#q34-are-complete-and-all-selected-tests-pass-the-same-judgment)を参照してください。
+
 対角線以外は**章間クロスに対応付けたモデル数**です。同じモデルが複数の章対に
 対応する場合があります。対角線は**その章を主題とするモデル数**で、テストの先頭の
 `:lrm:`参照に合わせています。対角線だけを合計すると全モデル数になります。

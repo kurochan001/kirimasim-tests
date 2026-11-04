@@ -106,6 +106,11 @@ def report(data: dict) -> str:
     lines = [
         "# Coverage depth",
         "",
+        "These are citation counts, not passing behavior counts: "
+        "[what two tests per clause establish](faq.en.md#q17-do-two-tests-per-clause-cover-every-behavior). "
+        "For requirement numerators and denominators, see "
+        "[design versus execution coverage](faq.en.md#q16-how-do-design-and-execution-coverage-differ).",
+        "",
         "[All chapters](tests/README.md). This page is written by "
         "`tools/coverage_depth.py` from the metadata of the tests; edit the "
         "tests, not this page. It counts how many tests cite each clause in "

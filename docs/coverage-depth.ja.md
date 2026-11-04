@@ -4,6 +4,8 @@
 
 [English](coverage-depth.md) / [日本語](coverage-depth.ja.md)
 
+これは引用の本数です。動作の合格件数とは異なるため、[条項ごとに2本ある場合に判断できること](faq.md#q17-do-two-tests-per-clause-cover-every-behavior)を確認してください。要求の分子と分母については、[設計と実行確認のカバレッジの違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を参照してください。
+
 [すべての章](tests/README.ja.md) .テストのメタデータから `tools/coverage_depth.py` がこのページを書きました。テストを編集しろ このページじゃない`:lrm:`の各条項を引用するテストの本数と、期待出力を再現するリリースを集計します。引用は行動がどれだけ深く行われているかの測定ではない。
 
 <a id="summary"></a>

@@ -4,6 +4,8 @@
 
 [English](README.md) / [日本語](README.ja.md)
 
+初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
+
 IEEE 1800-2023のうちテストがある条項ごとにページを用意し、全テストについて確認内容（`:description:`）、引用条項（`:lrm:`）、期待出力を記録したリリース（`:oracle:`；Icarus Verilog 13.0でもVerilator 5.052でも再現できない場合は"standard only"）を列挙します。規格違反の設計、終了コードのテスト、Cコード（DPI、VPI）、複数ソース、マクロ、インクルードディレクトリ、トップ名、plusargsを使うテスト、x/z値に依存するテストには、その注記も示します。各テストの最上部のコメントは，引用された条項が何を要求し，テストがそれをどのように観察するかを詳細に説明する。
 
 `tools/suite_catalog.py` `python3 tools/suite_catalog.py --update` はテストのメタデータからこれらのページを書き込み，チェックワークフローはこれらのページが時代遅れになったときに失敗する。[テストで引用された文](clauses.ja.md)は，テストが引用する規格の条項と，まだ引用していない条項を示す。

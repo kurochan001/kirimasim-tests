@@ -6,6 +6,8 @@
 
 [All chapters](README.md). 772 tests, 304 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
+First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
+
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
 | [`test_assign_struct`](../../tests/ch7/test_assign_struct.sv) | Test for struct assignment | 7.2 10.9.2 | Verilator 5.052 ||

@@ -4,6 +4,8 @@
 
 [English](clauses.md) / [日本語](clauses.ja.md)
 
+A cited clause is a navigation aid, not proof of all its behaviors: [what a citation count can establish](../faq.en.md#q17-do-two-tests-per-clause-cover-every-behavior).
+
 [All chapters](README.md). For each clause of IEEE 1800-2023 from 3 to 40, this page counts the clauses without subclauses of its own, the numbers in `tools/clauses.txt`, by whether a test cites them in `:lrm:`. A clause can also be cited only through a parent clause, which says less about what is tested. Clauses that set out no behavior of their own, clause 34, behavior left to the tool or its setup, and the content of VCD files are out of scope (the tags of `tools/clauses.txt`). The page is written by `tools/suite_catalog.py`.
 
 Of 1010 clauses in scope, 1010 are cited by a test, 0 only through a parent clause, and 0 not at all; 149 are out of scope.

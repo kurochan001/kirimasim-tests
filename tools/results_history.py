@@ -678,12 +678,31 @@ def changes_section(run: dict, language: str = "en") -> str:
     return "\n".join(out)
 
 
+def reader_note(run: dict, language: str = "en", chapter: bool = False) -> str:
+    """Link explanations beside the numbers, in the report's own language."""
+    page = "faq.md" if language == "ja" else "faq.en.md"
+    faq = f"{SERVER}/{REPOSITORY}/blob/{run['suite_commit']}/docs/{page}"
+    if chapter:
+        return localized(language,
+            f"Cells show matching tests / recorded results, including known and unsupported in the denominator: "
+            f"[8/10 example]({faq}#q12-what-percentage-does-by-chapter-show). "
+            f"This is [not requirement coverage]({faq}#q15-is-the-nightly-match-rate-requirement-coverage).",
+            f"各セルは一致数／結果登録数で、known・unsupportedも分母に含みます。[8/10の具体例]({faq}#q12-what-percentage-does-by-chapter-show)と、"
+            f"[要求カバレッジとの違い]({faq}#q15-is-the-nightly-match-rate-requirement-coverage)を確認してください。")
+    return localized(language,
+        f"A green workflow does not mean every test passed: "
+        f"[why Differ can remain]({faq}#q11-why-can-nightly-be-green-with-differ-results). "
+        f"Read [status meanings and per-test evidence]({faq}#q9-what-do-match-differ-known-difference-and-unsupported-mean) before comparing totals.",
+        f"緑のworkflowは全テストの合格を意味しません。[Nightlyが緑でもDifferが残る理由]({faq}#q11-why-can-nightly-be-green-with-differ-results)と、"
+        f"[区分・個別テストの確認先]({faq}#q9-what-do-match-differ-known-difference-and-unsupported-mean)を読んでから件数を比較してください。")
+
+
 def summary(run: dict, language: str = "en") -> str:
     """The Markdown that the nightly workflow adds to its job summary."""
     heading = localized(language,
         f"## Nightly results\n\nSuite commit {commit_link(run['suite_commit'])}, {run['tests']} tests.",
         f"## 夜間実行結果\n\nスイートのコミット {commit_link(run['suite_commit'])}、テスト{run['tests']}件。")
-    return (f"{heading}\n\n{latest_table(run, language)}\n\n"
+    return (f"{heading}\n\n{reader_note(run, language)}\n\n{latest_table(run, language)}\n\n"
             + localized(language, "## Changes\n\n", "## 変更点\n\n")
             + changes_section(run, language))
 
@@ -729,6 +748,8 @@ def report(runs: list[dict], sims: list[str], language: str = "en") -> str:
         "実行日時、スイートのコミット、テスト数は異なる場合があります。"
         "古い結果の日時はそのまま保持し、最新の実行に含まれる結果としては扱いません。"),
         "",
+        reader_note(run, language),
+        "",
         latest_results_table(runs, language),
         "",
         *[f"{(NOTES_JA if language == 'ja' else NOTES)[sim]}\n" for sim in sims if sim in NOTES],
@@ -746,6 +767,8 @@ def report(runs: list[dict], sims: list[str], language: str = "en") -> str:
         "",
         changes_section(run, language),
         tr("## By chapter", "## 章別の結果"),
+        "",
+        reader_note(run, language, chapter=True),
         "",
         f"![{tr('Matching tests by chapter', '章別の一致テスト数')}]({chart('chapters.svg')})",
         "",

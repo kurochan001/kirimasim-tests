@@ -8,6 +8,8 @@
 
 生成元・利用手順・適用限界は[導入手順](interaction-verification.md)を参照してください。
 
+2因子100%で何を判断できるかは[4行の具体例](faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
+
 ## scheduling_visibility / model 1
 
 - 制約を満たす組合せ数: 325。

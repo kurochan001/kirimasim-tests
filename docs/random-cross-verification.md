@@ -17,6 +17,8 @@ Nightlyの13プロファイルはkirimasim `9113955914d8`・seed `41743702063`�
 
 ## 目的と役割分担
 
+入力がランダムでも期待値を決められる理由と、RTLの参照モデル・スコアボードとの対応は[具体例A5→A3](faq.md#q46-can-existing-models-support-random-verification-comparisons)、役割の定義は[用語集](glossary.md#reference-model-and-scoreboard)を参照してください。
+
 目的は、固定クロスの代表ケースに加え、具体的な入力値・初期状態・操作履歴を変えて、
 まだ観測していないデータ依存の不具合や機能間の相互作用の反例を探すことです。
 例えば同じ幅・符号・添字方式でも、値が違えば桁あふれや符号拡張の結果が変わり、
@@ -69,6 +71,8 @@ Nightlyの13プロファイルはkirimasim `9113955914d8`・seed `41743702063`�
 <a id="scope-and-generation"></a>
 
 ## 対象と生成方法
+
+X/Z、bit/logic、幅・符号の違いが以下の期待値を変える理由は、[小さなSVの表示例](faq.md#q50-sv-values-change-observations)で確認できます。
 
 現在対応しているのは、次の13プロファイルです。既存の有限モデル全体を任意の入力に対応させたものではありません。
 

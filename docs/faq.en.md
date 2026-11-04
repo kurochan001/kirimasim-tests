@@ -6,7 +6,7 @@
 
 This FAQ explains tests, expectations, Nightly, coverage, SVA/formal verification and checks after changes. See the [glossary](glossary.en.md) for terminology and the [README](../README.md) for an overview and commands.
 
-Its scope is kirimasim-tests. Simulator design and installation, and general LSI verification methods, have their own documentation. Changing test counts and percentages are linked to their reports rather than repeated here.
+Its scope is kirimasim-tests. Simulator design and installation, and general LSI verification methods, have their own documentation. Current changing counts are linked to reports. Numerical examples below are either illustrative or explicitly dated saved-run observations.
 
 <a id="目次"></a>
 
@@ -21,6 +21,8 @@ Its scope is kirimasim-tests. Simulator design and installation, and general LSI
 - [Feature interactions](#7-feature-interactions)
 - [Commercial simulators](#8-commercial-simulators)
 - [Model-based random comparisons](#model-based-random-comparisons)
+
+- [First-reading examples](#10-reading-examples)
 
 <a id="1-導入と実行"></a>
 
@@ -46,12 +48,14 @@ Pass its path to a runner. For example, set `IVERILOG13_BIN` to the directory co
 
 ```sh
 python3 tools/run_icarus.py --iverilog-bin "$IVERILOG13_BIN" \
-  tests/ch10/test_nonblocking_assign.sv
+  tests/ch10/test_declaration_initialization_is_not_driver.sv
 ```
 
 The runners require Python 3.10 or later. They also accept multiple paths, `-j N` for concurrency and `--json FILE` for evidence. Simulator and C build prerequisites vary; check [each runner's requirements](../README.md#running-the-suite) before running the full suite.
 
 Icarus, Verilator, kirimasim, Lyra and Ghost exclude `:type: formal` even when a test is explicitly named. Without paths, Icarus, kirimasim, Lyra and Ghost select all remaining tests, while Verilator selects tests with the `verilator@5.052` oracle. Its `--all` selects every non-formal test. Formal tests name a `:formal_case:` and use `tools/run_sby.py`; see [SymbiYosys](../README.md#symbiyosys).
+
+For a first code reading, [Q49 walks through a real test](#q49-read-a-real-test) in input, observation and expectation order.
 
 <a id="2-期待結果とメタデータ"></a>
 
@@ -64,6 +68,10 @@ Icarus, Verilator, kirimasim, Lyra and Ghost exclude `:type: formal` even when a
 Expectations are derived from the cited clauses first. A fixed simulator release is recorded in `:oracle:` when it confirms them. A disagreement requires investigating the test, interpretation and implementation; agreement between tools alone does not decide correctness. See [expectation policy](../README.md#where-the-expected-outputs-come-from).
 
 Comparison removes empty lines and selected tool banners, but does not collapse spaces on nonempty lines. Whitespace differences can therefore fail. Check [normalization](../tools/normalize_output.py) and the banners each runner removes.
+
+`:lrm:` identifies the rule being tested; `:oracle:` records standard review and fixed-release confirmation of the expectation. A tool name does not certify its current development build or every requirement in that clause. [Q49](#q49-read-a-real-test) connects a real header to its expected output. A simulator-specific expectation takes precedence over the common one only for justified standard-permitted differences, such as tool-dependent formatting; it is not a majority-vote rule.
+
+In the actual [signed task-copy-out difference](simulator-differences.md#generated-subroutine-copyout), pinned Verilator’s upper bits differed from standard-derived sign extension. The original expectation, actual outputs and a function control with the same expectation are retained; the expectation was not weakened to match the tool.
 
 <a id="q5-oracle-specだけならそのテストは信用できないのでしょうか"></a>
 
@@ -101,6 +109,8 @@ Match meets the expected result; Differ fails a judgment condition. Known differ
 
 Match includes correctly rejected illegal designs. Terminal summaries for Icarus/Verilator use fixed-oracle tests as their denominator; `--json` can record `pass` for a mechanically matching test without an oracle, and Nightly counts it. Icarus prints `NOW MATCHES` for such matches; this does not automatically certify an oracle.
 
+To investigate a table row, check its date, suite commit and simulator version first, then find test IDs in the [published `latest/kirimasim.json`](https://github.com/kurochan001/kirimasim-tests/blob/results/latest/kirimasim.json), for example. That public JSON indexes statuses. For reasons, use `reason` in `kirimasim.json` and `kirimasim.log` in the same workflow run's `results-kirimasim` artifact. This does not authorize requesting or publishing Ghost's private diagnostics.
+
 <a id="q10-differの件数はそのシミュレータのバグ数ですか"></a>
 
 ### Q10. Is the Differ count the simulator's bug count?
@@ -117,11 +127,15 @@ This describes fixed-suite aggregation. Additional [random comparisons](random-c
 
 The current ratchet also excludes `pass` to `unsupported` transitions. Review status changes and logs alongside the green workflow indicator.
 
+The [checkpoint verified on 2026-11-04](nightly-results.en.md#latest-verified-checkpoint) is a concrete example: its fixed kirimasim suite had 7,868 pass, 2,403 unsupported and 133 fail while Check/Nightly succeeded. The configured gates succeeded in that run; those 133 tests did not pass. Use [Q9's status and log path](#q9-what-do-match-differ-known-difference-and-unsupported-mean) to assess individual tests.
+
 <a id="q12-readmeのby-chapterの割合は何を表しますか"></a>
 
 ### Q12. What percentage does By chapter show?
 
 For each chapter and simulator, it divides matching tests in that simulator's latest saved result by tests recorded in that result. Dates, suite revisions and simulator versions may differ between environments. Known differences and unsupported tests remain in the denominator, including C-backed tests skipped as unsupported. The chart identifies the date and versions, and the [published report](https://github.com/kurochan001/kirimasim-tests/tree/results#readme) links the suite commit. This is not requirement coverage. See [By chapter](../README.md#by-chapter).
+
+For illustration, a chapter with eight pass, one known and one unsupported shows 8/10 = 80%, not 8/9 after dropping the unsupported test. These are ten registered results; that does not mean all ten reached simulator execution.
 
 <a id="q13-mainへpushしたのにグラフや件数が変わりません"></a>
 
@@ -145,6 +159,8 @@ main contains current tests, tools and saved evidence; results represents publis
 
 They use different denominators. Nightly counts test files. Requirement coverage counts registered requirements, conditions and observations with reviewed mappings or admissible pass evidence. One test may cover multiple requirements, and several tests may jointly cover one requirement. See the [summary](behavior-coverage-summary.en.md) and [measurement policy](../coverage/README.en.md#計測の意味).
 
+This also differs from counts of Chapter 19 covergroup tests. Those tests exercise the SV functional-coverage language feature; their bin hits do not become passed rows in this requirement ledger. Identify the metric and its population before interpreting a percentage.
+
 <a id="q16-要求カバレッジテスト設計と実行確認率は何が違いますか"></a>
 
 ### Q16. How do design and execution coverage differ?
@@ -152,6 +168,10 @@ They use different denominators. Nightly counts test files. Requirement coverage
 Design coverage counts requirements with reviewed mappings to test observations. Execution coverage counts requirements with admissible pass evidence matching current inputs and runners. For illustration, 60 mapped requirements and 40 with passes out of 100 produce 60% and 40%. A union of environments is not one simulator's conformance rate. The [summary](behavior-coverage-summary.en.md) gives actual values and denominators.
 
 Illegal-design tests can falsely pass through unsupported-syntax rejection. Their Icarus/Verilator execution evidence therefore requires reviewed fixed-release oracles. Nightly Match counts do not directly become confirmed requirements.
+
+Execution alone does not enter the numerator. For illustration, among 60 mapped requirements, 40 with admissible passes, ten with fail and ten with unsupported yield 40 execution-confirmed requirements. This differs from runner invocations or test-file counts. A union across environments means each counted requirement has admissible evidence; it [does not combine parts of one AND group across runs](#q19-can-partial-successes-from-different-simulators-satisfy-an-and-group).
+
+Per-simulator rows also include saved runs of narrow subsets. Read the source, version and not-run counts; a low fraction does not mean the tool produced incorrect behavior for every remaining requirement.
 
 <a id="q17-全節にテストが2本あれば規格の全動作を網羅していますか"></a>
 
@@ -183,11 +203,17 @@ Every member of a collective group must pass in the same run and environment. Pa
 
 It implements standard-derived sequence, property and sampled-value semantics in Python and computes results from input traces, within its audited scope such as single-clock models. Formal checks translate its computation into a verification circuit and compare independently written RTL. They do not ask Yosys to directly parse unsupported original SVA. See the [illustrated guide](sva-reference-formal-verification.en.md).
 
+For illustration, a simulation trace where req never becomes one can satisfy `req |=> ack` vacuously without testing the ack response. Absence of failure alone therefore does not establish that the response was observed. Check antecedent reachability separately, for example with cover; a reachable example alone still does not prove correctness for all inputs. See [SVA terminology](glossary.en.md#5-sva-and-reference-evaluation).
+
 <a id="q21-bmcとpdrはどちらも同じpassですか"></a>
 
 ### Q21. Do BMC and PDR PASS mean the same thing?
 
 BMC searches through a specified finite depth. PDR proves the modeled safety property without that finite-depth limit. These sequence PDR checks fix expressions, numeric parameters and input assumptions; they do not generalize to arbitrary expressions or integer parameters. Solver depth and semantic sample length are also distinct for models that tabulate finite inputs. See [proof scope](sva-reference-formal-verification.en.md).
+
+The actual `first_match_tie` case compares match counts when two sequences end on the same tick. `first_match_tie_bmc` PASS covers depth eight; `first_match_tie_prove` PASS establishes unbounded agreement for that fixed two-state model. `first_match_tie_cover` PASS establishes a reachable count of two. `first_match_tie_mutant_bmc` FAIL supplies a counterexample to intentionally collapsing two matches into one. See [the four real report rows and trace](sva-reference-formal-verification.en.md#read-the-results-of-the-correct-model-and-the-intentionally-wrong-model).
+
+General mode definitions are in the [SBY options reference](https://symbiyosys.readthedocs.io/en/latest/reference.html#options-section). A proof is relative to the modeled inputs, initialization and assumptions; these records do not prove arbitrary four-state SVA or the simulator as a whole.
 
 <a id="q22-40モデルと111ケースを足して151本のテストを証明したのですか"></a>
 
@@ -248,6 +274,8 @@ Exclude commercial simulator output and diagnostics; see [Q45](#q45-may-i-post-c
 ### Q28. Why not simply cross every feature?
 
 Split the problem into small models sharing values, types, state or time. Use constrained pairwise coverage, then retain higher-order groups tied to likely failure mechanisms and mandatory boundaries. This targets handoff defects missed by isolated feature tests, without guaranteeing detection of every higher-order fault. See [rationale and extension procedure](interaction-verification-method.en.md).
+
+For illustration, use width 8/33, type bit/logic and storage scalar/array. Four rows `(8,bit,scalar)`, `(8,logic,array)`, `(33,bit,array)` and `(33,logic,scalar)` contain all four combinations of every factor pair. They omit the three-way condition `(33,logic,array)`. Thus 100% pairwise coverage is not execution of all eight full rows. Add a targeted triple or anchor when that simultaneous condition matters, and count passing execution separately from the plan.
 
 <a id="q29-計画上は網羅していても未対応や不一致が残るのですか"></a>
 
@@ -397,6 +425,12 @@ References must accept the generated values and operation lists within their leg
 This differs from matching random streams. Multiple-solution `randomize()` checks should validate constraints rather than require identical generated values.
 See [purpose and roles](random-cross-verification.en.md#purpose-and-roles), [the verification process](random-cross-verification.en.md#verification-process) and [scope and limits](random-cross-verification.en.md#scope).
 
+In general RTL verification, a reference model predicts behavior from inputs and a scoreboard compares predictions with observations ([Accellera UVM 1.2 User’s Guide §1.1.4](https://www.accellera.org/images/downloads/standards/uvm/uvm_users_guide_1.2.pdf)). This repository does not implement a UVM environment, but its roles correspond: Python in `random_cross_models.py` creates concrete stimuli and expectations; generated SV applies those stimuli and prints observations; existing runner normalization and comparison perform the check. The target is the simulator’s language behavior, rather than product RTL. Other simulators execute the same saved SV and are individually compared with the Python expectation.
+
+For illustration, writing `4'h3` into the low four bits of `8'hA5` should produce `8'hA3`. The model retains the high A and predicts the entire word. A hypothetical observed `8'h03` has the correct low nibble but damaged upper bits, so it must differ. [The packed_write_sequence generator/reference](../tools/random_cross_models.py) therefore observes the whole word after operations and intermediate steps. These values illustrate the method, not a recorded failure. Eight bits keep the hand calculation small; actual generated widths are listed in [scope](random-cross-verification.en.md#scope). Input selection is random; the rule computing the expected result for each chosen input is defined.
+
+Reference models can also be wrong: combine standard review, hand-calculated boundaries and independent qualification. See [terminology](glossary.en.md#reference-model-and-scoreboard) and the [generate→compare→save procedure](random-cross-verification.en.md#verification-process).
+
 <a id="q47-ランダム比較が失敗したらどこから再現しますか"></a>
 
 ### Q47. How do I reproduce a random-comparison failure?
@@ -423,3 +457,92 @@ The [formal checkpoint](nightly-results.en.md#latest-verified-checkpoint) separa
 Optional `--explore` admission can omit only identical valid completed jobs, recording skips separately from passes.
 Fixed regressions, formal Nightly and explicit replay always execute. Reconsider additions when a concrete new interaction needs its own model,
 with legal scope, standard-derived expectations and validation planned before increasing breadth.
+
+<a id="10-reading-examples"></a>
+
+## 10. First-reading examples
+
+<a id="q49-read-a-real-test"></a>
+
+### Q49. How can I explain the expectation of one real short test?
+
+[test_declaration_initialization_is_not_driver.sv](../tests/ch10/test_declaration_initialization_is_not_driver.sv) is a 24-line test of declaration initialization: it captures a value once rather than continuously following later input changes.
+
+1. **Purpose and rule.** Read `:description:` and the explanatory comment. `:lrm: 1800-2023 10.5` identifies declaration initialization; `:type: simulation` makes this an output-comparison test.
+2. **Input and operation.** `int source = 5;` supplies the input to `int captured = source + 2;`, which initializes once. The `initial` block later assigns `source = 40;`.
+3. **Observation.** The first `$display` prints `captured`. `#1` waits one simulation time unit before printing it again. No time unit is declared, so do not reinterpret this as 1ns.
+4. **Expectation.** First, 5 + 2 = 7. With no subsequent assignment to `captured`, it stays seven rather than following 40 + 2 = 42. The [header's .expected file](../tests/ch10/test_declaration_initialization_is_not_driver.expected) contains exactly these two lines:
+
+```text
+entry=7
+after_source_change=7
+```
+
+5. **Pass condition.** The test never prints `PASS`. The runner compares these two lines and checks termination/diagnostic conditions to produce `pass`; this test specifies no extra exit/diagnostic fields. `after_source_change=42` would differ. Normalization does not rewrite values or whitespace within nonempty lines to make them match.
+
+The `@` in `:expected_stdout: @test_declaration_initialization_is_not_driver.expected` selects a file in the same directory. `:oracle: spec iverilog@13.0 verilator@5.052` records standard review and confirmation with those fixed releases, separately from current development results. `:spec_check: ai` does not mean human-reviewed.
+
+Set `IVERILOG13_BIN` to the Icarus 13.0 executable directory and run from the repository root:
+
+```sh
+python3 tools/run_icarus.py --iverilog-bin "$IVERILOG13_BIN" \
+  tests/ch10/test_declaration_initialization_is_not_driver.sv
+```
+
+A pass confirms declaration initialization for these inputs and observations, not every condition in 10.5. Apply the same reading order to [metadata](../README.md#metadata) and [judgment rules](../README.md#how-a-test-is-judged) for other tests.
+
+<a id="q50-sv-values-change-observations"></a>
+
+### Q50. How do X/Z, state types, width, signedness and NBA change observations?
+
+The following original explanatory snippets show output when each is placed in a separate block; they do not propose changes to existing expectations. See [terminology](glossary.en.md#9-language-features-used-in-cross-tests) and each test's `:lrm:` for the applicable rules.
+
+**X/Z and bit/logic.** X denotes unknown and Z high impedance in four-state values; neither automatically means a random 0/1. Assignment to bit converts X/Z to zero.
+
+```systemverilog
+logic [3:0] four;
+bit [3:0] two;
+four = 4'b10xz;
+two = four;
+$display("four=%b two=%b", four, two);
+$display("eq=%b case_eq=%b", four == four, four === four);
+```
+
+Output is `four=10xz two=1000` and `eq=x case_eq=1`. `==` can return unknown; `===` compares X/Z as states. Replacing one operator with the other changes the check and is not a way to make a test pass. See [Q8](#q8-can-verilator-alone-confirm-fourstate-yes) for two-state limits.
+
+**Sign extension.** The same four-bit 1111 represents −1 when signed and 15 when unsigned; widening changes the upper bits.
+
+```systemverilog
+logic signed [3:0] s;
+logic [3:0] u;
+logic [7:0] from_s, from_u;
+s = 4'b1111; u = 4'b1111;
+from_s = s; from_u = u;
+$display("signed=%h unsigned=%h", from_s, from_u);
+```
+
+Output is `signed=ff unsigned=0f`. An unsigned destination still exposes sign extension of the signed source.
+
+**Expression width.** Assignment context propagates width into this addition. Widening a value after storing it in a narrow variable cannot restore a lost carry.
+
+```systemverilog
+logic [3:0] a, b, narrow;
+logic [4:0] wide;
+a = 4'hf; b = 4'h1;
+narrow = a + b; wide = a + b;
+$display("narrow=%0d wide=%0d", narrow, wide);
+```
+
+Output is `narrow=0 wide=16`. Addition is not always performed at the operands' original four-bit width. Context, casts and operators affect the rule; [random expression_context](random-cross-verification.en.md#scope) varies these conditions.
+
+**Nonblocking assignment.** `<=` evaluates its right-hand side and schedules the update; the next display in the same process need not see the update.
+
+```systemverilog
+int p, q;
+p = 1; q = 2;
+p <= q; q <= p;
+$display("before p=%0d q=%0d", p, q);
+#1 $display("after p=%0d q=%0d", p, q);
+```
+
+Output is `before p=1 q=2`, then `after p=2 q=1` one time unit later. Blocking assignments `p = q; q = p;` in that order instead leave both at two. `#0` does not wait for NBA completion. The [real delayed-NBA test](../tests/ch10/test_intra_assignment_delay_nba_concatenation.sv) records old values in Active and after `#0`, and updated values later, in its [expected output](../tests/ch10/test_intra_assignment_delay_nba_concatenation.expected).

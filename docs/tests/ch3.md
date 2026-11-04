@@ -6,6 +6,8 @@
 
 [All chapters](README.md). 88 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
+First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
+
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
 | [`test_module_contains_classes_subroutines_processes`](../../tests/ch3/test_module_contains_classes_subroutines_processes.sv) | A module holds a class declaration, class objects constructed in a declaration and in a procedure, a function and a time-consuming task, a continuous assignment, initial, always, always_ff, always_comb and final procedures, and loop, if and case generate blocks, and each of them works | 3.3 8.3 8.7 13.3 13.4 10.3 9.2 27.4 27.5 | Icarus Verilog 13.0 ||

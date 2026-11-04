@@ -6,6 +6,8 @@
 
 [すべての章](README.ja.md) .346 248 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
+初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
+
 |テスト|チェックするもの|条項|予期した出力を記録|ノート|
 | --- | --- | --- | --- | --- |
 | [`test_lexical_comments_and_keyword_identifiers`](../../tests/ch5/test_lexical_comments_and_keyword_identifiers.sv) |コメントとスペースはトークンを分離しますが、エスクアードキーワードと大文字識別子は使えます。| 5.2 5.3 5.6.2 | Icarus Verilog 13.0 ||

@@ -6,6 +6,8 @@
 
 [All chapters](README.md). 346 tests, 248 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
+First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
+
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
 | [`test_lexical_comments_and_keyword_identifiers`](../../tests/ch5/test_lexical_comments_and_keyword_identifiers.sv) | Comments and whitespace separate tokens while escaped keywords and uppercase identifiers remain usable | 5.2 5.3 5.6.2 | Icarus Verilog 13.0 ||

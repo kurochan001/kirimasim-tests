@@ -6,6 +6,15 @@
 
 [READMEのグラフ](../README.ja.md#nightly-results) / [公開結果](https://github.com/kurochan001/kirimasim-tests/tree/results#readme) / [実行一覧](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)
 
+<a id="read-a-result-row"></a>
+
+## 結果表の1行から確認する
+
+1. 行の日時・suite commit・シミュレータ版を読みます。別の日の行や現在のmainと比較する前に、対象テストと版が同じか確認します。
+2. 緑のチェックとMatch/Differの列は別に読みます。[緑でもDifferが残る理由](faq.md#q11-why-can-nightly-be-green-with-differ-results)に、下の保存実行の具体例があります。
+3. 不一致や未対応のテストを調べるときは、[区分から個別JSON・ログへ進む手順](faq.md#q9-what-do-match-differ-known-difference-and-unsupported-mean)で、同じworkflow runの記録を開きます。
+4. 章別の割合は[8/10の読み方](faq.md#q12-what-percentage-does-by-chapter-show)、検証済み要求は[要求カバレッジの分子・分母](faq.md#q16-how-do-design-and-execution-coverage-differ)で判断します。
+
 <a id="latest-verified-checkpoint"></a>
 
 ## 最新の確認済み状態（2026-11-04 日本時間）

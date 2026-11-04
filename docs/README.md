@@ -10,6 +10,14 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 
 [Chapter matrices](chapter-cross-matrix.en.md) and [unregistered-pair triage](chapter-cross-triage.en.md) also link to English and Japanese CSV exports.
 
+<a id="目的から読む"></a>
+
+## Read by purpose
+
+- Read one test: [walk through a real short test](faq.en.md#q49-read-a-real-test) → [test catalog](tests/README.md).
+- Read Nightly: [why green can coexist with Differ](faq.en.md#q11-why-can-nightly-be-green-with-differ-results) → [check versions, dates and outcomes](nightly-results.en.md#read-a-result-row).
+- Find what is verified: [design versus confirmed execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) → [requirement summary](behavior-coverage-summary.en.md) / [chapter matrix](chapter-cross-matrix.en.md).
+
 <a id="ガイド技術資料"></a>
 
 ## Guides and technical references

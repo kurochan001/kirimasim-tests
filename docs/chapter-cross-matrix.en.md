@@ -18,6 +18,8 @@ For example, chapter 7 (aggregate data types) × 13 (tasks and functions) has fo
 
 ## Reading the counts
 
+Cells count models, not tests. Read [why cells cannot be summed](faq.en.md#q32-can-i-sum-matrix-cells-to-get-the-cross-test-total), [zero and M/E/C/N/R](faq.en.md#q33-do-zero-cells-and-mecnr-indicate-missing-tests-or-passes), and [complete versus every selected case passing](faq.en.md#q34-are-complete-and-all-selected-tests-pass-the-same-judgment).
+
 Off-diagonal cells count **models mapped to chapter interactions**. A model can map to several pairs. Diagonal cells count **models whose primary chapter is that chapter**, following the test's first `:lrm:` clause. Only the diagonal sums to the model total; it does not establish exhaustive crossing within a chapter.
 
 The matrix is symmetric. Summing triangles or arbitrary cells gives neither test nor model totals. Zero means no mapped model in this aggregation, not absent tests, unsupported implementation or zero requirement coverage. Annexes are not axes.

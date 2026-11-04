@@ -145,11 +145,13 @@ def build(plans, paths: list[Path]) -> dict:
 def markdown(data: dict, source_url: str | None = None) -> str:
     guide = source_url.rstrip("/") + "/docs/interaction-verification.md" if source_url \
         else "interaction-verification.md"
+    faq = source_url.rstrip("/") + "/docs/faq.md" if source_url else "faq.md"
     lines = ["# 機能間クロスの計画と実行確認", "",
              "このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の",
              "組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。",
              "既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。", "",
-             f"生成元・利用手順・適用限界は[導入手順]({guide})を参照してください。", ""]
+             f"生成元・利用手順・適用限界は[導入手順]({guide})を参照してください。", "",
+             f"2因子100%で何を判断できるかは[4行の具体例]({faq}#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明]({faq}#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。", ""]
     for model in data["models"]:
         lines += [f"## {model['id']} / model {model['version']}", "",
                   f"- 制約を満たす組合せ数: {model['legal_rows']}。",

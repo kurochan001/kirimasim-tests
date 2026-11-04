@@ -112,7 +112,10 @@ def chapter_page(chapter: int, entries: list[dict]) -> str:
              f"[All chapters](README.md). {len(entries)} tests"
              + (f", {len(generated)} of them generated" if generated else "") + ". "
              "This page is written by `tools/suite_catalog.py` from the metadata of the "
-             "tests; edit the tests, not this page.", ""]
+             "tests; edit the tests, not this page.", "",
+             "First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). "
+             "The oracle column records fixed-release confirmation; "
+             "see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).", ""]
     if written:
         lines += table(written) + [""]
     for g in sorted({e["generator"] for e in generated}):
@@ -168,6 +171,8 @@ def clauses_page(coverage: dict) -> str:
                                                                       "out")}
     in_scope = total["cited"] + total["parent"] + total["missing"]
     lines = ["# Clauses cited by the tests", "",
+             "A cited clause is a navigation aid, not proof of all its behaviors: "
+             "[what a citation count can establish](../faq.en.md#q17-do-two-tests-per-clause-cover-every-behavior).", "",
              "[All chapters](README.md). For each clause of IEEE 1800-2023 from 3 to 40, this "
              "page counts the clauses without subclauses of its own, the numbers in "
              "`tools/clauses.txt`, by whether a test cites them in `:lrm:`. A clause can also "
@@ -213,6 +218,9 @@ def clauses_page(coverage: dict) -> str:
 
 def index_page(by_chapter: dict[int, list[dict]]) -> str:
     lines = ["# Catalog of the tests", "",
+             "First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). "
+             "The oracle column records fixed-release confirmation; "
+             "see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).", "",
              "One page for each clause of IEEE 1800-2023 that has tests, listing every test "
              "with what it checks (`:description:`), the clauses it cites (`:lrm:`), the "
              "release its expected output was recorded with (`:oracle:`; \"standard only\" "

@@ -132,6 +132,8 @@ The conversion procedure of A is [formal.py](../tools/sva_reference/formal.py), 
 
 ### Read the results of the correct model and the intentionally wrong model
 
+Before interpreting PASS/FAIL, read [the different scope of BMC, PDR and cover](faq.en.md#q21-do-bmc-and-pdr-pass-mean-the-same-thing) and [terminology](glossary.en.md#6-formal-verification).
+
 If you say "group matches of the same tick into 1", you will get a difference of 2 versus 1 in this example. In the basic set, we have also verified that the inspection does not miss the error by putting it in the comparison model B.
 
 The relevant 4 job in [Saved results](../tools/sva_reference/fixtures/formal_symbolic_results.json) has the following results. If you rerun it, a row with the same name will be logged.

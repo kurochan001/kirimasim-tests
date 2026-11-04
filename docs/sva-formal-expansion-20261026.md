@@ -14,6 +14,8 @@
 
 テスト出力45本の照合、基本40モデル、今回の111ケースの関係は、[全体ガイドの比較表](sva-reference-formal-verification.md#結果の見方)で確認できます。
 
+上のジョブ数は、通常モデルと意図的な負例を含みます。[期待どおりのFAILと異常の違い](faq.md#q23-is-a-formal-fail-necessarily-a-problem)、[BMCと証明の読み方](faq.md#q21-do-bmc-and-pdr-pass-mean-the-same-thing)を参照してください。
+
 <a id="what-was-expanded"></a>
 
 ## 何を広げたか

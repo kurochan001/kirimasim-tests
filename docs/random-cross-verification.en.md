@@ -17,6 +17,8 @@ Profile additions are paused at thirteen; [targeted exploration and independent 
 
 ## Purpose and roles
 
+For why random inputs still have defined expectations and how this corresponds to an RTL predictor/scoreboard, see [the A5→A3 example](faq.en.md#q46-can-existing-models-support-random-verification-comparisons); [terminology](glossary.en.md#reference-model-and-scoreboard) defines the roles.
+
 The goal is to search for counterexamples involving data-dependent bugs and feature interactions by varying
 concrete input values, initial states and operation histories beyond the fixed representative cases.
 With the same widths, signs and indexing forms, different values can expose overflow or extension errors;
@@ -67,6 +69,8 @@ fixed regressions, formal Nightly and explicit replay execute again.
 <a id="対象と生成方法"></a>
 
 ## Scope and generation
+
+The [small SV observation examples](faq.en.md#q50-sv-values-change-observations) explain how X/Z, bit/logic, width and signedness change these expectations.
 
 Thirteen profiles are currently supported. This does not generalize every finite model to arbitrary inputs.
 
