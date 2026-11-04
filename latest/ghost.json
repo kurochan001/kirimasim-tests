@@ -1,8 +1,8 @@
 {
  "name": "Ghost",
- "version": "private build e629cbd964b4",
- "time": "2026-11-03T16:13:32Z",
- "suite_commit": "e8d991a97b2abb12a41a1fb6b89c2406f9aa7292",
+ "version": "private build 1c85ee891430",
+ "time": "2026-11-04T03:25:35Z",
+ "suite_commit": "9926160a1397f514cdd09f84384392c832de2cc5",
  "tests": {
   "ch10/test_a6_7_1_assignment_pattern_keys": "pass",
   "ch10/test_adder_edge_cases": "pass",
@@ -1705,7 +1705,7 @@
   "ch18/test_array_reduction_element_type": "fail",
   "ch18/test_array_reduction_with_size": "pass",
   "ch18/test_constraint_bidirectional_solver": "fail",
-  "ch18/test_constraint_block_all_forms": "pass",
+  "ch18/test_constraint_block_all_forms": "fail",
   "ch18/test_constraint_foreach_scope_dimensions": "pass",
   "ch18/test_constraint_foreach_sum": "pass",
   "ch18/test_constraint_function_order": "pass",

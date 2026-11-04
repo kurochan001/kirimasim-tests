@@ -6,7 +6,7 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/e8d991a97b2abb12a41a1fb6b89c2406f9aa7292/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/9926160a1397f514cdd09f84384392c832de2cc5/docs/interaction-verification.md)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -1665,8 +1665,8 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
 
 ### results/ghost.json
 
-- 環境: private build e629cbd964b4。
-- 実行日時: 2026-11-03T14:27:22.606665+00:00。
+- 環境: private build 1c85ee891430。
+- 実行日時: 2026-11-04T02:43:45.269283+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2065,8 +2065,8 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
 
 ### results/icarus.json
 
-- 環境: Icarus Verilog version 14.0 (devel) (s20260301-802-g61dbc3c2)。
-- 実行日時: 2026-11-03T14:05:52.634278+00:00。
+- 環境: Icarus Verilog version 14.0 (devel) (s20260301-809-g16efc8c4)。
+- 実行日時: 2026-11-04T00:25:05.302970+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2465,8 +2465,8 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.0.0 (commit d73d8922dfa2), built with GNU 13.3.0。
-- 実行日時: 2026-11-03T14:14:01.360649+00:00。
+- 環境: kirimasim 0.0.0 (commit 9113955914d8), built with GNU 13.3.0。
+- 実行日時: 2026-11-04T00:53:33.579193+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2865,8 +2865,8 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
 
 ### results/lyra.json
 
-- 環境: Lyra (commit fff84e924071)。
-- 実行日時: 2026-11-03T16:13:07.422811+00:00。
+- 環境: Lyra (commit 7c55e9f93a34)。
+- 実行日時: 2026-11-04T02:52:40.489267+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 111/126。
@@ -3265,8 +3265,8 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-46-ga9e5a51f。
-- 実行日時: 2026-11-03T14:37:38.651336+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-55-gc0e51cad。
+- 実行日時: 2026-11-04T01:16:31.135040+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。

@@ -4,7 +4,7 @@
 
 [English](behavior-coverage-summary.en.md) / [日本語](behavior-coverage-summary.md)
 
-[Details of all items](behavior-coverage.en.md) / [Management procedures](https://github.com/kurochan001/kirimasim-tests/blob/e8d991a97b2abb12a41a1fb6b89c2406f9aa7292/coverage/README.en.md) / [Interpretation and Re-examination Record](https://github.com/kurochan001/kirimasim-tests/blob/e8d991a97b2abb12a41a1fb6b89c2406f9aa7292/docs/requirement-extraction-notes.en.md)
+[Details of all items](behavior-coverage.en.md) / [Management procedures](https://github.com/kurochan001/kirimasim-tests/blob/9926160a1397f514cdd09f84384392c832de2cc5/coverage/README.en.md) / [Interpretation and Re-examination Record](https://github.com/kurochan001/kirimasim-tests/blob/9926160a1397f514cdd09f84384392c832de2cc5/docs/requirement-extraction-notes.en.md)
 
 <a id="全規格の要求台帳に対する値"></a>
 
@@ -49,11 +49,11 @@ Unsupported behavior does not mean that no existing test is available.
 
 ## Execution confirmation rate by simulator
 
-- `ghost` / `private build e629cbd964b4` : 8127/12298 ( 66.08% )。 Measurement source: `2026-11-03T14:27:22.606665+00:00` / `ghost.json` 。 Failures 1365; known mismatches 0; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1201 rows.
-- `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-802-g61dbc3c2)` : 2526/12298 ( 20.54% )。 Measurement source: `2026-11-03T14:05:52.634278+00:00` / `icarus.json` 。 Failures 16; known mismatches 7110; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1041 rows.
-- `kirimasim` / `kirimasim 0.0.0 (commit d73d8922dfa2), built with GNU 13.3.0` : 2914/12298 ( 23.69% )。 Measurement source: `2026-11-03T14:14:01.360649+00:00` / `kirimasim.json` 。 Failures 221; known mismatches 0; unsupported 6299; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1259 rows.
-- `lyra` / `Lyra (commit fff84e924071)` : 3242/12298 ( 26.36% )。 Measurement source: `2026-11-03T16:13:07.422811+00:00` / `lyra.json` 。 Failures 1032; known mismatches 0; unsupported 5164; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1255 rows.
-- `verilator` / `Verilator 5.055 devel rev v5.054-46-ga9e5a51f` : 3692/12298 ( 30.02% )。 Measurement source: `2026-11-03T14:37:38.651336+00:00` / `verilator.json` 。 Failures 13; known mismatches 6027; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 961 rows.
+- `ghost` / `private build 1c85ee891430` : 8126/12298 ( 66.08% )。 Measurement source: `2026-11-04T02:43:45.269283+00:00` / `ghost.json` 。 Failures 1366; known mismatches 0; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1201 rows.
+- `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-809-g16efc8c4)` : 2526/12298 ( 20.54% )。 Measurement source: `2026-11-04T00:25:05.302970+00:00` / `icarus.json` 。 Failures 16; known mismatches 7109; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1042 rows.
+- `kirimasim` / `kirimasim 0.0.0 (commit 9113955914d8), built with GNU 13.3.0` : 2938/12298 ( 23.89% )。 Measurement source: `2026-11-04T00:53:33.579193+00:00` / `kirimasim.json` 。 Failures 221; known mismatches 0; unsupported 6275; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1259 rows.
+- `lyra` / `Lyra (commit 7c55e9f93a34)` : 3242/12298 ( 26.36% )。 Measurement source: `2026-11-04T02:52:40.489267+00:00` / `lyra.json` 。 Failures 1032; known mismatches 0; unsupported 5164; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1255 rows.
+- `verilator` / `Verilator 5.055 devel rev v5.054-55-gc0e51cad` : 3695/12298 ( 30.05% )。 Measurement source: `2026-11-04T01:16:31.135040+00:00` / `verilator.json` 。 Failures 15; known mismatches 6024; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 959 rows.
 - The result file of the rejection: 0.
 
 <a id="章附属書別登録項目に対する割合"></a>
