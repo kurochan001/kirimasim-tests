@@ -81,6 +81,7 @@ import interaction_genenum
 import interaction_pkgnba
 import interaction_pkgwatch
 import interaction_class_import
+import interaction_gensub
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -89,7 +90,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -715,5 +716,12 @@ def registered() -> tuple[SuiteModel, ...]:
             "メソッド内のimportとクラスプロパティ、外側moduleの同名宣言の名前解決を照合する。"
             "幅・符号・状態型、function/task、別名とハンドル再束縛を交差し、"
             "package共有値・個別オブジェクト・別メソッドの更新と保持を分けて観測する。",
+        ),
+        SuiteModel(
+            interaction_gensub.MODEL,
+            lambda row: "tests/gen/ch27/" + interaction_gensub.case_name(row) + ".sv",
+            interaction_gensub.MODEL.select(),
+            "生成スコープごとに異なる型・範囲の配列とサブルーチンを宣言し、既定引数の結合先と再評価を照合する。"
+            "function/taskの入出力変換、呼出し順序、外部更新後の再呼出し、隣接要素と別スコープの状態保持を観測する。",
         ),
     )

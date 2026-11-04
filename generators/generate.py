@@ -87,6 +87,7 @@ import interaction_genenum
 import interaction_pkgnba
 import interaction_pkgwatch
 import interaction_class_import
+import interaction_gensub
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -103,7 +104,7 @@ import wide_paths
 import width_sign
 import xz_propagation
 
-GENERATORS = [interaction_class_import, scheduling, width_sign, xz_propagation, strength, wide_paths, keywords,
+GENERATORS = [interaction_gensub, interaction_class_import, scheduling, width_sign, xz_propagation, strength, wide_paths, keywords,
               interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,

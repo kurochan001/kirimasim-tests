@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "reviewed_on": "2026-11-04",
+  "reviewed_on": "2026-11-05",
   "reviewer": "Codex (GPT-6), AI review",
   "scope": "Registered finite interaction models only; explicit semantic chapter pairs, not citation co-occurrences. Diagonal entries are primary-chapter model counts.",
   "models": [
@@ -1893,6 +1893,33 @@
             26
           ],
           "reason": "クラスメソッド内のimportと同名プロパティ、外側moduleのimportを区別し、package共有値とオブジェクト別状態を別名・再束縛・型変換後に観測する。"
+        }
+      ]
+    },
+    {
+      "id": "generated_subroutine_binding",
+      "primary_chapter": 27,
+      "pairs": [
+        {
+          "chapters": [
+            13,
+            27
+          ],
+          "reason": "生成スコープの暗黙定数と局所型を使うサブルーチンを呼び、既定引数の再評価と入出力変換を照合する。"
+        },
+        {
+          "chapters": [
+            7,
+            27
+          ],
+          "reason": "生成スコープごとに変わる配列の幅と添字範囲を実際の境界問い合わせ・要素更新・隣接保持で照合する。"
+        },
+        {
+          "chapters": [
+            7,
+            13
+          ],
+          "reason": "既定引数の配列要素を呼出しごとに取得し、関数の戻り値とtaskのcopy-outを更新前後の配列状態・隣接保持と照合する。"
         }
       ]
     }

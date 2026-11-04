@@ -24513,6 +24513,7 @@
     "Package ZXQPH0QXZ updates share one object and preserve captured values, targets and order": "packageのZXQPH0QXZ更新で同じ実体・取得済み値と代入先・予約順序を照合する",
     "Package changes wake independent event and wait observers and function-sensitive combinational ZXQPH0QXZ": "package変数の変更による独立したイベント待機とwaitの起床、関数内の参照から感度を得る組合せロジック（ZXQPH0QXZ）",
     "Method-local package lookup preserves lexical scope, typed results and object aliases": "メソッド内のpackage参照で、字句スコープ・型付きの結果・オブジェクトの別名を保持する",
-    "Method-local package lookup preserves lexical scope, typed results and object aliases ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "メソッド内のpackage参照で、字句スコープ・型付きの結果・オブジェクトの別名を保持する（ZXQPH0QXZ ZXQPH1QXZ 第ZXQPH2QXZ節）"
+    "Method-local package lookup preserves lexical scope, typed results and object aliases ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "メソッド内のpackage参照で、字句スコープ・型付きの結果・オブジェクトの別名を保持する（ZXQPH0QXZ ZXQPH1QXZ 第ZXQPH2QXZ節）",
+    "Generated subroutines bind defaults and typed array state to their own elaborated scope": "生成スコープのサブルーチンが既定引数と型付き配列の状態を自身の展開先へ結び付ける"
   }
 }

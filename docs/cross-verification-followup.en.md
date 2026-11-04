@@ -2,12 +2,12 @@
 
 [English](cross-verification-followup.en.md) / [日本語](cross-verification-followup.md)
 
-Updated on 2026-11-04 JST, retaining the repair records from 2026-11-03. Preserve fixed regressions, formal Nightly, existing expectations
+Updated on 2026-11-05 JST, retaining the repair records from 2026-11-03. Preserve fixed regressions, formal Nightly, existing expectations
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json) has 80 models and 2,956 cases:
-2,423 pass, 529 unsupported and four config failures. All 34 class/package additions pass; all preceding inputs and statuses are unchanged.
+The current [complete local selection](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json) has 81 models and 2,992 cases:
+2,459 pass, 529 unsupported and four config failures. All 36 generated-subroutine additions pass; all preceding 2,956 inputs and statuses are unchanged.
 The new model is not yet included in formal Check/Nightly.
 
 The [latest formal checkpoint](nightly-results.en.md#latest-verified-checkpoint) confirms the preceding 2,922 selected cases on upstream kirimasim `9113955914d8`:
@@ -100,7 +100,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M115, E3, C2, N117 and R583. See the
+The current triage is M117, E3, C2, N117 and R581. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -113,5 +113,11 @@ The subsequent [package-observer model](interaction-verification.en.md#package-c
 
 The [class method/package model](interaction-verification.en.md#class-method-package-lookup) on 2026-11-04 moves the previously unassessed Chapters 8×26 pair to M.
 All 34 additions pass in one complete 2,956-case run on upstream `9113955914d8`; all preceding 2,922 inputs and statuses are unchanged.
-There are now 80 models, 115 chapter pairs and 53 full-selection-pass models, with 2,423 pass, 529 unsupported and four config failures.
-R remains at 583 pairs. This local result is separate from formal Check/Nightly and does not establish complete class/package coverage.
+At that addition there were 80 models, 115 chapter pairs and 53 full-selection-pass models, with 2,423 pass, 529 unsupported and four config failures.
+That checkpoint left 583 R pairs. This local result is separate from formal Check/Nightly and does not establish complete class/package coverage.
+
+The 2026-11-05 [generated-subroutine model](interaction-verification.en.md#generated-subroutine-binding) moves Chapters 13×27 and 7×27 from R to M and strengthens existing 7×13.
+All 36 additions pass in one complete 2,992-case run on upstream `162222153c57`; all preceding 2,956 input fingerprints and statuses are unchanged.
+There are 81 models, 117 chapter pairs and 54 full-selection-pass models; 581 pairs remain R. Pinned Icarus matches all 36,
+while pinned Verilator seeds 1/73 each record 11 pass and 25 known. Preserve the signed task-copy-out difference and its function control;
+this comparison does not change expectations, the regression ratchet, random profiles or requirement bindings.

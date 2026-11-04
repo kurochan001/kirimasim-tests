@@ -1,0 +1,170 @@
+{
+  "model": "generated_subroutine_binding",
+  "generated_at": "2026-11-04T20:36:55.251397+00:00",
+  "scope": "Final generated headers with pinned-Icarus oracle registration. Upstream main fetched/configured/built immediately before one full finite-cross batch, parsing and auxiliary qualification. No core source change; formal CI is separate.",
+  "base_revision": "162222153c5711f51c01478c04e34c65a8549303",
+  "upstream_main_revision": "162222153c5711f51c01478c04e34c65a8549303",
+  "tracked_worktree_clean": true,
+  "binary_sha256": "34481080886d26d6064d349cd850d0dee5418dd5d58e552bd5ced4500e9a192f",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit 162222153c57), built with AppleClang 21.0.0.21000334",
+  "run": "coverage/interaction-results/cross81-kirimasim-16222215-gensub.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2459,
+    "unsupported": 529,
+    "fail": 4
+  },
+  "new_cases": 36,
+  "previous_cases": 2956,
+  "previous_run": "coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json",
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": [
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_1_bit_u_if_default_function_forward_known_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_129_logic_s_case_default_task_reverse_z_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_65_logic_u_if_explicit_function_reverse_x_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_33_bit_s_case_explicit_task_forward_z_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_32_logic_s_if_default_task_reverse_known_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_64_logic_u_case_explicit_function_forward_known_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_64_bit_s_case_default_function_reverse_x_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_129_bit_u_if_explicit_task_forward_x_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_1_logic_u_if_explicit_function_reverse_z_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_65_bit_s_case_default_task_forward_z_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_32_bit_u_case_default_function_forward_x_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_33_logic_u_if_default_function_reverse_known_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_1_bit_s_case_default_task_forward_x_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_64_bit_u_if_default_task_forward_z_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_65_bit_s_if_explicit_function_reverse_known_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_32_bit_u_if_explicit_function_forward_z_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_129_bit_u_if_default_function_forward_known_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_33_bit_u_if_explicit_function_forward_x_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_1_bit_s_case_explicit_function_forward_z_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_32_bit_s_case_explicit_function_forward_known_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_33_bit_s_case_default_function_forward_known_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_64_bit_s_if_explicit_function_forward_known_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_65_bit_u_case_default_function_forward_x_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_129_bit_s_case_explicit_function_forward_z_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_1_logic_u_if_default_function_forward_known_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_1_logic_u_if_default_function_forward_x_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_32_logic_u_if_default_function_forward_x_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_32_logic_u_if_default_function_forward_z_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_33_logic_u_if_default_function_forward_x_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_33_logic_u_if_default_function_forward_z_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_64_logic_u_if_default_function_forward_x_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_64_logic_u_if_default_function_forward_z_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_65_logic_u_if_default_function_forward_known_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_65_logic_u_if_default_function_forward_z_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_129_logic_u_if_default_function_forward_known_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_gensub_129_logic_u_if_default_function_forward_x_up.sv",
+      "returncode": 0
+    }
+  ]
+}

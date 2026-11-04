@@ -10,7 +10,7 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-04 JST)
 
-The current finite selection has 80 models and 2,956 cases; see the [new local qualification](#class-method-package-lookup-checks). The formal record below predates this addition and covers 79 models.
+The current finite selection has 81 models and 2,992 cases; see the [new local qualification](#generated-subroutine-qualification). The formal record below predates this addition and covers 79 models.
 
 [`formal-ci-9926160a-20261104.json`](formal-ci-9926160a-20261104.json) records successful Check and Nightly on suite `9926160a`,
 including successful publication. All 2,922 finite selected cases on kirimasim `9113955914d8` retain the input fingerprints and statuses
@@ -369,3 +369,20 @@ Only the 18 non-fourstate cases matching both fixed Verilator seeds gain its ora
 See [design, limits and rerun commands](../../docs/interaction-verification.en.md#class-method-package-lookup).
 
 [`classimp-metadata-correction.json`](classimp-metadata-correction.json) preserves eight required four-state input-tag corrections. SV bodies/expectations are unchanged; earlier snapshots retain their old fingerprints and are not merged into final successes.
+
+<a id="generated-subroutine-qualification"></a>
+
+## Generated subroutine/array binding qualification
+
+[`gensub.json`](gensub.json) independently elaborates and interprets all 2,304 legal emitted programs.
+Four native controls and nine real SV faults terminate normally, and all faults are detected by output differences.
+Source, input and binary fingerprints are stable across qualification. [`gensub-build.json`](gensub-build.json) identifies
+latest-main core `162222153c57`, 36 successful parses and a single complete 2,992-case run:
+2,459 pass, 529 unsupported and four existing config failures. All 36 additions pass; the preceding 2,956 inputs/statuses are unchanged.
+Matrices now use this run: 81 models, 117 chapter pairs and 54 full-selection-pass models.
+[`gensub-fixed-replays.json`](gensub-fixed-replays.json) records pinned Icarus 13.0 (36 pass) and Verilator 5.052 seeds 1/73 (11 pass, 25 known each).
+All 36 receive Icarus oracles; two-state observations are not four-state qualification.
+[`gensub-known-replays.json`](gensub-known-replays.json) retains full original-task outputs and an
+[exact function control](gensub-function-control/) with unchanged expectations. Only retained results differ in the original task case;
+Icarus and both Verilator seeds match the function control. These controls are outside the fixed suite and add no pass or coverage counts.
+See [design, limits and rerun commands](../../docs/interaction-verification.en.md#generated-subroutine-binding).

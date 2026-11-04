@@ -12,7 +12,7 @@ The CSV matrices show which IEEE 1800-2023 chapters are crossed. Both axes cover
 
 See [zero-cell triage](chapter-cross-triage.en.md) for reasons and next candidates. A separate 41×41 CSV shows classification codes, with rationales, priorities, factor proposals and observations. Unreviewed cells remain awaiting review rather than being declared out of scope or low risk.
 
-For example, chapter 7 (aggregate data types) × 13 (tasks and functions) has three models covering array-element argument passing, binding after index changes and queue-element references. Chapters 11 (operators/expressions) × 12 (procedural statements) have two models for ordinary case matching and case-inside selection; one of these two models passed its full selection.
+For example, chapter 7 (aggregate data types) × 13 (tasks and functions) has four models covering array-element argument passing, binding after index changes, queue-element references and generated-scope array defaults. Chapters 11 (operators/expressions) × 12 (procedural statements) have two models for ordinary case matching and case-inside selection; one of these two models passed its full selection.
 
 <a id="数字の読み方"></a>
 
@@ -36,13 +36,15 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The 2026-11-04 mapping contains 80 models and 2,956 selected cases across 115 unordered off-diagonal pairs. The [complete kirimasim 9113955914d8 local run](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json) records 2,423 pass, 529 unsupported and four failures; 53 models passed their entire selection.
+The 2026-11-05 mapping contains 81 models and 2,992 selected cases across 117 unordered off-diagonal pairs. The [complete kirimasim 162222153c57 local run](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json) records 2,459 pass, 529 unsupported and four failures; 54 models passed their entire selection.
 
 The [formal Nightly checkpoint](nightly-results.en.md#latest-verified-checkpoint), verified on 2026-11-04 JST for suite `9926160a`,
 confirms the preceding 79-model, 2,922-case selection on kirimasim `9113955914d8`.
-The new 34 cases have local evidence and have not run in formal Check/Nightly.
-The CSVs use the complete 2,956-case local cross80 run; partial successes from different runs are not combined.
+The [Check on fd140002](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183) passed on the preceding 80-model suite. The new 36 cases have local evidence and have not run in formal Check/Nightly.
+The CSVs use the complete 2,992-case local cross81 run; partial successes from different runs are not combined.
 The thirteen random profiles and their 96 Nightly passes do not enter these matrices.
+
+- **13×27 and 7×27, generated subroutine/array binding:** one model and one full-selection-pass model each, using all 36 cases. The existing **7×13** mapping gains this fourth model. Observe per-scope widths/ranges, default reevaluation, function/task results, neighbor retention and repeated calls. See [design and independent evidence](interaction-verification.en.md#generated-subroutine-binding).
 
 - **8×26, class method/package lookup:** one model and one full-selection-pass model. All 34 cases check lexical import scope, typed function/task results, object identity and state retention through aliasing/rebinding. See [design, independent checks and limits](interaction-verification.en.md#class-method-package-lookup).
 

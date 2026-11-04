@@ -12,6 +12,16 @@
 
 ## 保存実行の概要
 
+2026-11-05の生成スコープのサブルーチンの追加で、**81モデル・2,992選択ケース・117章対**になりました。
+実行直前に上流mainを取得・構成・ビルドしたkirimasim `162222153c57`の
+[全クロスのローカル実行](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json)は、
+**2,459 pass・529 unsupported・configの4 fail**です。追加36件は解析成功・全PASSで、
+従来2,956件の入力ハッシュ・状態分類は不変、**全選択ケースPASSは54モデル**です。
+第13章×第27章・第7章×第27章を追加し、既存の第7章×第13章も補強しました。
+[生成スコープのサブルーチン](#generated-subroutine-binding)に範囲・独立確認・固定版の差異を記載しています。
+基点[`fd140002`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183)は成功していますが、
+新しい36件は正式Check・Nightlyでは未実行です。
+
 2026-11-04のクラス×packageの追加で、**80モデル・2,956選択ケース・115章対**になりました。
 実行直前に上流mainを取得・構成・ビルドしたkirimasim `9113955914d8`の
 [単一の全クロス保存実行](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json)は、
@@ -3092,7 +3102,8 @@ knownの全16件はX/Z入力が必要で、bit型への変換を調べる8件も
 固定Icarus 13.0は、package修飾付きの書込みで全34件のビルドを拒否し、knownとして保持します。
 [固定版の確認記録](../coverage/interaction-qualification/classimp-fixed-replays-final.json)に各実行と実行ファイルを記録し、
 4値を必要とせず固定Verilatorの両seedに一致した18件だけに、そのoracleを登録しています。
-期待値は規格から独立に導いたままです。追加ケースの正式Check・Nightlyは未実行です。
+期待値は規格から独立に導いたままです。この導入時点では正式Check・Nightlyは未実行でした。
+その後の[`fd140002`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183)は成功していますが、正式Nightlyはこのクラス×package追加前のままです。
 
 [メタデータ修正の記録](../coverage/interaction-qualification/classimp-metadata-correction.json)に、bitのX/Zを使う8件の`fourstate`だけをnoからyesへ直した履歴を保持します。SV本体・期待値のバイト列は不変です。先行スナップショットは別に保持し、その8件のハッシュは古い証跡として扱います。最終実行は修正後のメタデータを使っています。
 
@@ -3108,3 +3119,61 @@ python3 tools/qualify_class_import.py --kirimasim /path/to/latest-build/kirimasi
 クラスの宣言場所は一つのmodule内に固定し、package内で宣言したクラス型は対象外です。
 継承、staticメソッド、浅いコピー、null/GC、並行呼出し、時間制御、入出力の混合符号、クラス直下のimportは対象外です。
 有限モデル一つの確認であり、クラス×package全体の網羅を示すものではありません。ランダムプロファイルや要求の対応付けも追加しません。
+
+<a id="generated-subroutine-binding"></a>
+
+## 生成スコープのサブルーチン・既定引数・配列状態（第13章×第27章・第7章×第27章）
+
+[interaction_gensub.py](../generators/interaction_gensub.py)の`generated_subroutine_binding@1`で、合法2,304通りから選んだ36件を追加しました。
+全因子対228組・重点3因子112組・必須6件を保持し、合法な全組合せから98.44%削減します。
+因子は基底幅（1/32/33/64/65/129）、bit/logic、符号、if/case generate、既定/明示入力、function/task、呼出し順序、
+既知値/X/Z、配列範囲の昇順/降順です。未対応による除外はありません。
+未精査だった第13章×第27章・第7章×第27章を追加し、既存の第7章×第13章も補強します。
+
+IEEE 1800-2023 §27.4の各ループ生成スコープの暗黙の局所パラメータと、§27.5の条件分岐を使います。
+二つのインスタンスが各二つの生成要素を持ち、選択した分岐が局所幅・定数・配列境界・サブルーチンを宣言します。
+§13.5.3に従い、省略引数を毎回、宣言スコープで評価します。入出力の変換は§13.5.2・§11.8.2、
+固定配列の負・非零の添字を含む範囲は§7.4.2に基づきます。実際の境界問い合わせと要素更新で、その相互作用を観測します。
+
+全ケースで、最初に既知値、次に既知値またはX/Zの二つの相を実行します。単一initialで全スコープを初期化し、
+指定順に呼出した後、呼出し元の入力と一つの呼出し先要素を外部更新し、逆順で再呼出しします。
+隣接要素だけの更新後にもプローブ呼出しと保持確認を行います。各段階で全スコープの実際の両境界、要素幅、局所更新定数、
+対象/隣接要素の値、保持した型付き結果を表示します。functionの戻り値とtaskの出力を同じ広い変数へ渡し、
+更新前の値と更新後の配列を別々に観測します。bit型への変換でもX/Z入力のタグを保持します。
+並行プロセス間の呼出し順序には依存しません。
+
+[独立解釈器](../tools/qualify_gensub.py)は、実際のSVのworkerパラメータ・ループ/条件生成・局所宣言・既定式・
+サブルーチン文・呼出し元の代入・表示を読みます。各スコープを別に展開し、既存の独立な定数式評価器と値/X/Zのビット面の処理を再利用します。
+生成器の配置・刺激・参照の関数は呼ばず、全2,304プログラムが参照値に一致しました。未知構文や範囲外アクセスも拒否します。
+[確認記録](../coverage/interaction-qualification/gensub.json)には、正常対照4件と**実際のSVへの9故障**を保持します。
+スコープ定数、既定値の要素、書込み要素、functionでの取得値、taskのcopy-out、戻り値の符号、生成幅、呼出し先、配列範囲の向きを誤らせ、
+全て終了コード0の実行後の出力差で検出しました。コード・入力・バイナリのハッシュは確認前後で照合しています。
+これらの補助実行や全合法行の解釈を、スイート件数・カバレッジへ加算しません。
+
+実行直前に上流mainを取得・構成・ビルドした`162222153c57`の
+[単一の全クロス実行](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json)は、81モデル・2,992件で
+**2,459 pass・529 unsupported・既存configの4 fail**です。追加36件は解析成功・全PASS、従来2,956件の入力・状態分類は不変です。
+対応は117章対、全選択ケースPASSは54モデルです。[ビルド記録](../coverage/interaction-qualification/gensub-build.json)に
+本体revision・依存の固定版・バイナリの不変を保持しています。本体コードの変更はありません。
+
+固定Icarus 13.0は、X/Zを使う24件を含めて36件すべて一致し、全件にその固定版oracleを登録しました。
+固定Verilator 5.052のseed 1/73は、どちらも**11 pass・25 known**で、knownはX/Zの24件と既知値の不一致1件です。
+[固定版の結果](../coverage/interaction-qualification/gensub-fixed-replays.json)を別に保持し、2値の出力を4値動作の確認として使いません。
+既知値の1件は、33ビットの符号付きtask出力を36ビットの呼出し元変数へ渡すとき、両seedとも、期待した符号拡張に対して上位3ビットが0になります。
+配列と隣接要素の観測値は一致し、差異は保持した結果に限られます。
+[全出力の再現記録](../coverage/interaction-qualification/gensub-known-replays.json)には、両seed・元のIcarusの一致と、
+期待値のバイト列が同じ[functionへの置換対照](../coverage/interaction-qualification/gensub-function-control/)を保持しています。
+IcarusとVerilatorの両seedは、このfunction対照に一致しました。観測上の差をtaskのcopy-out経路へ絞る対照であり、
+シミュレータ実装のソース解析、通常のPASS件数の追加、期待値を弱める根拠とはしません。
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model generated_subroutine_binding
+python3 -m unittest discover -s tools -p test_interaction_gensub.py
+# 実行直前に本体の最新mainを取得・構成・ビルドし、未使用の出力先を指定します。
+python3 tools/qualify_gensub.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/gensub-qualification-new.json
+```
+
+対象は二moduleインスタンスの各二つの生成要素、固定配列、ANSI形式のinput既定値、時間を消費しないautomaticサブルーチン、
+既知の定数による分岐です。再帰・ref・並行性・時間制御・動的配列・オブジェクト経由の呼出し・既定値の関数による副作用は対象外です。
+ランダムプロファイルや要求の対応付けは追加しません。新しいケースの正式Check・Nightlyは未実行です。

@@ -21002,6 +21002,19 @@
     "外側moduleのwildcard import、別メソッド、別オブジェクトの参照先も観測する。": "Also observe the enclosing module wildcard import, another method and an independent object.",
     "幅ゼロだけを除外する。": "Exclude only zero-width packages.",
     "幅・符号・状態型、function/task、別名とハンドル再束縛を交差し、package共有値・個別オブジェクト・別メソッドの更新と保持を分けて観測する。": "Cross width, signedness, state type, function/task and retained versus rebound handles; observe updates and retention separately for shared package values, individual objects and another method.",
-    "継承、static、浅いコピーnew handle、null、並行呼出し、時間制御、 ZXQPH0QXZ 、混合符号と直接のclass内importは対象外。": "Inheritance, static methods, shallow-copy construction, null handles, concurrent calls, timing controls, ZXQPH0QXZ, mixed signedness and direct imports in class scope are outside this model."
+    "継承、static、浅いコピーnew handle、null、並行呼出し、時間制御、 ZXQPH0QXZ 、混合符号と直接のclass内importは対象外。": "Inheritance, static methods, shallow-copy construction, null handles, concurrent calls, timing controls, ZXQPH0QXZ, mixed signedness and direct imports in class scope are outside this model.",
+    "二インスタンスと各二つの生成要素を使う。": "Use two instances, each with two generated elements.",
+    "ZXQPH0QXZ と条件分岐が局所幅・負や非零の添字を含む配列範囲・更新定数を決める。": "ZXQPH0QXZ and conditional branches determine local widths, array ranges including negative/nonzero indices, and update constants.",
+    "既定引数は宣言スコープの現在の配列要素を毎回読み、明示引数は呼出し元の値を渡す。": "Default arguments read the current array element in the declaring scope on each call; explicit arguments pass the caller value.",
+    "全ケースで既知値の相と、既知値またはX/Zの相を実行する。": "Every case runs a known-value phase followed by a known-value or X/Z phase.",
+    "各呼出し後に全スコープの配列要素・隣接要素・型付き結果を観測する。": "After every call, observe array elements, neighbors and typed results in every scope.",
+    "途中の外部更新と再呼出し、隣接要素だけの更新と再呼出し、最終保持も照合する。": "Also check a mid-run external update followed by calls, a neighbor-only update followed by a call, and final retention.",
+    "単一initialで呼び、時間制御・再帰・ref・並行呼出し・動的配列は対象外。": "One initial process makes the calls; timing controls, recursion, ref arguments, concurrent calls and dynamic arrays are outside scope.",
+    "X/Z入力を使う場合は ZXQPH0QXZ 型への変換でもfourstateを指定する。": "Cases using X/Z inputs specify fourstate even for conversion into ZXQPH0QXZ types.",
+    "生成スコープごとに異なる型・範囲の配列とサブルーチンを宣言し、既定引数の結合先と再評価を照合する。": "Declare arrays and subroutines with per-generated-scope types and ranges; check default-argument binding and reevaluation.",
+    "function/taskの入出力変換、呼出し順序、外部更新後の再呼出し、隣接要素と別スコープの状態保持を観測する。": "Observe function/task input/output conversions, call order, calls after external updates, and retention of neighbors and other scopes.",
+    "生成スコープの暗黙定数と局所型を使うサブルーチンを呼び、既定引数の再評価と入出力変換を照合する。": "Call subroutines using generated-scope constants and local types; check default-argument reevaluation and input/output conversion.",
+    "生成スコープごとに変わる配列の幅と添字範囲を実際の境界問い合わせ・要素更新・隣接保持で照合する。": "Check per-generated-scope array widths and index ranges through actual bound queries, element updates and neighbor retention.",
+    "既定引数の配列要素を呼出しごとに取得し、関数の戻り値とtaskのcopy-outを更新前後の配列状態・隣接保持と照合する。": "Capture array-element defaults on each call and compare function returns and task copy-out with array states before/after updates and retained neighbors."
   }
 }

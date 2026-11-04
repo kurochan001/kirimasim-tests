@@ -2,11 +2,11 @@
 
 [English](cross-verification-followup.en.md) / [日本語](cross-verification-followup.md)
 
-2026-11-04（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
+2026-11-05（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json)は80モデル・2,956件で、
-2,423 pass・529 unsupported・configの4 failです。クラス×packageの追加34件は全PASSで、従来の入力・状態分類は不変です。
+現在の[全クロスのローカル選択](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json)は81モデル・2,992件で、
+2,459 pass・529 unsupported・configの4 failです。生成サブルーチンの追加36件は全PASSで、従来2,956件の入力・状態分類は不変です。
 新しいモデルは正式Check・Nightlyの対象にはまだ含まれていません。
 
 [最新の正式確認](nightly-results.md#latest-verified-checkpoint)では、上流kirimasim `9113955914d8`で追加前の選択2,922件を実行し、
@@ -96,7 +96,7 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
   演算・条件式を将来の独立因子として検討します。合法な式と正の寸法の確定、
   既知のconfigリセット不一致の修正を先に行います。
 
-現在の仕分けはM115・E3・C2・N117・R583です。
+現在の仕分けはM117・E3・C2・N117・R581です。
 [章対の根拠と指紋](chapter-cross-triage.md)を参照してください。
 既存の回帰matrixを先に活用し、原因が確定した機構に境界・操作列・故障対照を追加します。
 同じ目的の別runnerや、ランダム結果を固定要求カバレッジへ加算する仕組みは追加していません。
@@ -109,5 +109,11 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
 
 2026-11-04の[クラスメソッド×packageのモデル](interaction-verification.md#class-method-package-lookup)で、未精査だった第8章×第26章をMへ移しました。
 上流`9113955914d8`の全2,956件の単一実行で追加34件がPASSし、従来2,922件の入力・状態分類は不変です。
-現在は80モデル・115章対、全選択ケースPASSは53モデルで、2,423 pass・529 unsupported・configの4 failです。
-要精査Rは583章対です。このローカル結果は正式Check・Nightlyと区別し、クラス×package全体の網羅を示すものではありません。
+この追加時点では80モデル・115章対、全選択ケースPASSは53モデルで、2,423 pass・529 unsupported・configの4 failです。
+この時点の要精査Rは583章対です。このローカル結果は正式Check・Nightlyと区別し、クラス×package全体の網羅を示すものではありません。
+
+2026-11-05の[生成サブルーチンモデル](interaction-verification.md#generated-subroutine-binding)で、第13章×第27章・第7章×第27章をRからMへ移し、既存の第7章×第13章も補強しました。
+上流`162222153c57`の全2,992件の単一実行で追加36件は全PASS、従来2,956件の入力ハッシュ・状態分類は不変です。
+81モデル・117章対・全選択ケースPASS 54モデルで、要精査Rは581章対です。固定Icarusは全36件が一致し、
+固定Verilatorのseed 1/73は各11 pass・25 knownです。符号付きtaskのcopy-outの差異とfunction対照を保持し、
+この比較によって期待値・回帰ゲート・ランダムプロファイル・要求の対応付けは変更しません。

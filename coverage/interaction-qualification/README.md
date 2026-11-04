@@ -10,7 +10,7 @@
 
 ## 最新証跡の確認（2026-11-04 日本時間）
 
-現行の有限クロスは80モデル・2,956件で、[今回のローカル確認](#class-method-package-lookup-checks)を参照してください。以下の正式記録は追加前の79モデルが対象です。
+現行の有限クロスは81モデル・2,992件で、[今回のローカル確認](#generated-subroutine-qualification)を参照してください。以下の正式記録は追加前の79モデルが対象です。
 
 [`formal-ci-9926160a-20261104.json`](formal-ci-9926160a-20261104.json)に、suite `9926160a`のCheck・Nightly・公開処理の成功を記録しています。
 kirimasim `9113955914d8`の有限クロス全2,922件はcross79と入力ハッシュ・状態分類が一致し、
@@ -369,3 +369,20 @@ kirimasimのcovergroup実行は未対応です。[設計と確認範囲](../../d
 [設計・制限・再実行コマンド](../../docs/interaction-verification.md#class-method-package-lookup)を参照してください。
 
 [`classimp-metadata-correction.json`](classimp-metadata-correction.json)に、4値入力が必要な8件のタグ修正を保持します。SV本体・期待値は不変で、先行スナップショットの古いハッシュを最終の成功へ合成しません。
+
+<a id="generated-subroutine-qualification"></a>
+
+## 生成サブルーチンと配列結合の独立確認
+
+[`gensub.json`](gensub.json)は、実際のSVから全合法2,304プログラムを独立に展開・解釈しています。
+正常対照4件と実際のSVへの9故障は全て正常終了し、全故障を出力差で検出しました。
+確認中のソース・入力・バイナリのハッシュの不変も照合しています。[`gensub-build.json`](gensub-build.json)に、
+最新main `162222153c57`、36件の解析成功、単一の全2,992件の実行を記録しています。
+2,459 pass・529 unsupported・既存configの4 failで、追加36件は全PASS、従来2,956件の入力・状態分類は不変です。
+章間表はこの実行を使い、81モデル・117章対・全選択ケースPASS 54モデルになりました。
+[`gensub-fixed-replays.json`](gensub-fixed-replays.json)に、固定Icarus 13.0（36 pass）と固定Verilator 5.052のseed 1/73（各11 pass・25 known）を保持します。
+全36件にIcarusのoracleを登録し、2値での観測を4値の確認に使いません。
+[`gensub-known-replays.json`](gensub-known-replays.json)には、元のtaskの全出力と、期待値が変わらない[function対照の実際のSV](gensub-function-control/)を保持します。
+元のtaskの差異は保持した結果だけで、IcarusとVerilatorの両seedはfunction対照に一致します。
+これらは固定suiteの外の対照であり、PASS件数・カバレッジへ加算しません。
+[設計・制限・再実行コマンド](../../docs/interaction-verification.md#generated-subroutine-binding)を参照してください。

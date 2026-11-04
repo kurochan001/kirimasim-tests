@@ -38,10 +38,15 @@ identifies workflow conclusions, artifact fingerprints, the full-selection compa
 The random evidence remains in `random-cross-kirimasim`, outside fixed history and coverage.
 Profile additions remain paused at thirteen; next work is targeted exploration, independent checks and confirmed failure-to-regression follow-up.
 
-The current working tree subsequently adds 34 [class/package cases](interaction-verification.en.md#class-method-package-lookup),
-bringing the suite to 10,706 tests and the finite selection to 80 models / 2,956 cases.
-The [complete local run](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json) records 2,423 pass, 529 unsupported and four fail.
-Those new cases are outside the formal `9926160a` checkpoint above; they have not run in formal Check/Nightly yet.
+### Current local additions (2026-11-05)
+
+The class/package addition subsequently entered [Check on fd140002](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183), which passed.
+The working tree now adds 36 [generated-subroutine cases](interaction-verification.en.md#generated-subroutine-binding),
+bringing the suite to 10,742 tests and the finite selection to 81 models / 2,992 cases.
+The [single complete local run](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json) on latest-built `162222153c57`
+records 2,459 pass, 529 unsupported and four fail; all preceding 2,956 inputs/statuses are unchanged.
+These new 36 cases have not run in formal Check/Nightly. The latest formal Nightly remains the `9926160a` checkpoint above,
+which predates both the class/package and generated-subroutine additions.
 
 <a id="previous-verified-checkpoint"></a>
 

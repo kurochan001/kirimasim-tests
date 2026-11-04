@@ -39,10 +39,15 @@ Checkのreadme・固定Icarus 13.0・Verilator 5.052の各ジョブ、Nightlyの
 ランダム結果は専用の`random-cross-kirimasim`に保持し、固定履歴・カバレッジへ加算しません。
 プロファイルの追加はいったん13個で区切り、重点領域の追加探索・独立検算・確認済み不具合の固定回帰化を進めます。
 
-その後、現在の作業ツリーには[クラス×packageの34件](interaction-verification.md#class-method-package-lookup)を追加し、
-suiteは10,706件、有限クロスは80モデル・2,956件になっています。
-[単一の全クロスローカル実行](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json)は、2,423 pass・529 unsupported・4 failです。
-新しいケースは上の正式`9926160a`の確認範囲には含まれず、正式Check・Nightlyでは未実行です。
+### 現在のローカル追加（2026-11-05）
+
+その後、クラス×packageの追加は[`fd140002`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183)で確認済みです。
+現在の作業ツリーには[生成サブルーチンの36件](interaction-verification.md#generated-subroutine-binding)を追加し、
+suiteは10,742件、有限クロスは81モデル・2,992件になっています。
+最新取得・ビルドの`162222153c57`による[単一の全クロス実行](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json)は、
+2,459 pass・529 unsupported・4 failで、従来2,956件の入力・状態分類は不変です。
+新しい36件は正式Check・Nightlyでは未実行です。最新の正式Nightlyは上の`9926160a`で、
+クラス×package・生成サブルーチンのどちらの追加も、その確認範囲より後です。
 
 <a id="previous-verified-checkpoint"></a>
 

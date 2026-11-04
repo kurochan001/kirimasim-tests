@@ -892,3 +892,15 @@ kirimasim `7554bb47`は追加36件すべて解析成功・PASSで、本体の変
 ## ストリーミングと混在型の連結代入のランダム対照（2026-11-03）
 
 [新しいランダムプロファイルの対照](random-cross-verification.md#nine-profile-validation)は、同じ保存刺激と規格由来の期待値5件を使います。固定Icarus 13.0はストリーミング3入力をコンパイル段階で拒否し、bit/logicが混在する連結左辺へのNBAの1件でbit項にZを残します。同じ既知値の連結対照はPASSです。固定Verilator 5.052はpackと既知値の連結対照がPASS、部分ブロックのunpackは逆置換1001ではなくpackと同じ0110を返し、X/Z対照2件は2値で判定しません。固定ビルドの観測に限定し、内部原因や新しい開発版の結果は断定しません。元の入力・期待値は維持し、[検証記録](../coverage/interaction-qualification/random-cross-nine-profiles.json)に実際の対照manifestと版・実行ハッシュを保存しています。
+
+<a id="generated-subroutine-copyout"></a>
+
+## 生成スコープの符号付きtask出力のcopy-out（2026-11-05）
+
+[生成サブルーチンのモデル](interaction-verification.md#generated-subroutine-binding)の36件は、固定Icarus 13.0と最新取得・ビルドのkirimasim `162222153c57`で全て一致します。
+固定Verilator 5.052のseed 1/73は各11 pass・25 knownです。既知値の1件で、33ビットの符号付きtask出力を36ビットの変数へ渡すとき、
+符号拡張されるべき上位3ビットが0になります。配列・隣接要素の値は一致し、差異は保持した結果だけです。
+functionへの置換対照は期待値のバイト列が同じで、IcarusとVerilatorの両seedに一致します。
+[全出力の記録](../coverage/interaction-qualification/gensub-known-replays.json)と[対照のSV・期待値](../coverage/interaction-qualification/gensub-function-control/)を保持しています。
+観測上の差をtaskのcopy-out経路へ絞るもので、内部原因や新しいビルドの動作を確定するものではありません。
+残るknownの24件はX/Z入力が必要で、2値出力では確認できません。元の期待値とknown分類は維持します。

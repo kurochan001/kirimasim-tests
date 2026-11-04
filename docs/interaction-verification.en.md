@@ -12,6 +12,15 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 ## Saved-run summary
 
+The 2026-11-05 generated-subroutine addition gives **81 models, 2,992 selected cases and 117 chapter pairs**.
+The [complete local run](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json), using upstream kirimasim `162222153c57`
+fetched/configured/built immediately beforehand, records **2,459 pass, 529 unsupported and four config failures**.
+All 36 additions parse and pass; all preceding 2,956 input fingerprints and statuses are unchanged.
+**54 models** pass their full selection. The new model covers Chapters 13×27 and 7×27 and extends the existing 7×13 mapping.
+See [generated subroutine binding](#generated-subroutine-binding) for scope, independent qualification and fixed-release differences.
+The [Check on baseline `fd140002`](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183) succeeded;
+these 36 additions have not run in formal Check/Nightly.
+
 The class/package addition on 2026-11-04 gives **80 models, 2,956 selected cases and 115 chapter pairs**.
 The [single complete local run](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json) on upstream kirimasim `9113955914d8`,
 fetched, configured and built immediately before execution, records **2,423 pass, 529 unsupported and four config failures**.
@@ -3115,7 +3124,8 @@ All 16 known cases require X/Z inputs, including eight that check conversion int
 Pinned Icarus 13.0 rejects all 34 builds at package-qualified writes, retaining known status.
 [Fixed-release records](../coverage/interaction-qualification/classimp-fixed-replays-final.json) identify each run and executable;
 only the 18 non-fourstate cases matching both fixed Verilator seeds receive its oracle.
-Expectations remain standard-derived. Formal Check/Nightly on the new cases has not run.
+Expectations remain standard-derived. At this introduction, formal Check/Nightly had not run; the subsequent
+[Check on `fd140002`](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183) passed. Formal Nightly still predates this class/package addition.
 
 The [metadata correction](../coverage/interaction-qualification/classimp-metadata-correction.json) records eight bit X/Z cases changing only `fourstate` from no to yes. Their SV bodies and expectations are byte-identical. Earlier snapshots remain separate and stale for those eight fingerprints; final runs use the corrected metadata.
 
@@ -3132,3 +3142,62 @@ The class is declared inside one module; package-declared class types are outsid
 Scope excludes inheritance, static methods, shallow-copy construction, null/GC behavior, concurrent calls,
 timing controls, mixed input/result signedness and direct imports in class scope. This is one finite cross,
 not a proof of every class/package interaction, and it adds no random profile or requirement binding.
+
+<a id="generated-subroutine-binding"></a>
+
+## Generated subroutines, defaults and array state (Chapters 13×27 and 7×27)
+
+The `generated_subroutine_binding@1` model in [interaction_gensub.py](../generators/interaction_gensub.py)
+adds 36 tests selected from 2,304 legal rows. All 228 pair targets, 112 targeted triples and six mandatory cases remain,
+a 98.44% reduction from the legal product. Factors are base width (1/32/33/64/65/129), bit/logic, signedness,
+if/case generate, default/explicit input, function/task, call order, known/X/Z data and ascending/descending array ranges.
+There are no simulator-support exclusions. Chapters 13×27 and 7×27 were unassessed; the model also strengthens the existing 7×13 mapping.
+
+IEEE 1800-2023 §27.4 supplies the implicit local parameter for each loop-generated scope; §27.5 selects one conditional block.
+Each of two instances has two generated elements. Their branches declare local widths, constants, array bounds and routines.
+Section 13.5.3 evaluates an omitted argument in the declaring scope on every call; §13.5.2 and §11.8.2 govern input/output conversion.
+The fixed arrays use §7.4.2 ranges, including negative and nonzero indices. Actual bound queries and element updates observe this interaction.
+
+Each case runs two phases, with known data first and then known or X/Z data. One initial process initializes all scopes,
+calls every routine in the selected order, changes the caller input and one callee element, and calls again in reverse order.
+A neighbor-only update is followed by a probe call and a retention snapshot. Every step prints both actual bounds, element width,
+local update constant, target/neighbor values and the retained typed result in every scope. Function returns and task outputs widen
+into the same destination. Observe the pre-write value separately from the updated array, and keep X/Z input tags even for bit conversion.
+No call order between concurrent processes is assumed.
+
+The [independent interpreter](../tools/qualify_gensub.py) reads the actual worker parameters, loop/conditional generation,
+local declarations, default expressions, routine statements, caller writes and displays. It elaborates each scope separately and
+uses existing independent constant-expression and value/X/Z-plane helpers; it never calls generator layout, stimulus or reference helpers.
+All 2,304 emitted programs agree with the reference. Tests reject unknown syntax and out-of-range accesses.
+The [qualification record](../coverage/interaction-qualification/gensub.json) retains four native controls and **nine actual SV faults**,
+all exiting zero and detected by output differences: wrong scope constant, default element, write element, function capture,
+task copy-out, signed return, generated width, called scope and array-range direction. Code, input and binary fingerprints are checked before/after qualification.
+These executions and the full legal-row interpretation do not increase suite or coverage counts.
+
+The [single full native cross run](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json), on upstream `162222153c57`
+fetched/configured/built immediately before the batch, records **2,459 pass, 529 unsupported and four existing config failures**
+across 81 models and 2,992 cases. All 36 additions parse and pass, and all preceding 2,956 inputs and status categories are unchanged.
+There are 117 chapter pairs and 54 full-selection-pass models. The [build record](../coverage/interaction-qualification/gensub-build.json)
+identifies the core revision, dependency pin and unchanged binary. Core source is unchanged.
+
+Pinned Icarus 13.0 matches all 36 cases, including the 24 using X/Z; all receive its fixed-release oracle.
+Pinned Verilator 5.052 at seeds 1/73 records **11 pass and 25 known** each: 24 X/Z cases and one known-value difference.
+Keep those [separate fixed-release results](../coverage/interaction-qualification/gensub-fixed-replays.json); two-state output does not establish four-state correctness.
+The known-value case has a 33-bit signed task output copied into a 36-bit producer variable: both seeds put zero in the upper three bits
+where the standard-derived expectation has sign extension. Array data and neighbor observations agree; the mismatches are confined to retained results.
+[Full-output replays](../coverage/interaction-qualification/gensub-known-replays.json) retain both seeds, the original Icarus match and
+an [exact function counterpart](../coverage/interaction-qualification/gensub-function-control/) with byte-identical expectations.
+Icarus and both Verilator seeds match that function control. This contrast narrows the observed difference to the task copy-out path;
+it is not an inspection of simulator implementation code, an extra ordinary pass or a reason to weaken the expectation.
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model generated_subroutine_binding
+python3 -m unittest discover -s tools -p test_interaction_gensub.py
+# Fetch/configure/build current core main immediately before execution; use a new output path.
+python3 tools/qualify_gensub.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/gensub-qualification-new.json
+```
+
+Scope is two finite generated elements in each of two module instances, fixed arrays, ANSI input defaults, automatic zero-time routines
+and known constant branch conditions. Recursion, ref arguments, concurrency, timing controls, dynamic arrays, callable objects and function-default side effects are excluded.
+No random profile or requirement binding is added. New cases have not run in formal Check/Nightly yet.

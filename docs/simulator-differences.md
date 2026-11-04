@@ -892,3 +892,15 @@ The [package-observer cross](interaction-verification.en.md#package-change-obser
 ## Streaming and mixed-state concatenation random controls (2026-11-03)
 
 The [new random-profile controls](random-cross-verification.en.md#nine-profile-validation) use five saved standard-derived cases. Fixed Icarus 13.0 rejects three streaming inputs at compilation and retains Z in the bit item of one mixed bit/logic concatenation NBA; the same known-input concatenation control passes. Fixed Verilator 5.052 passes the pack and known concatenation controls; its partial-block unpack returns the pack permutation (0110 rather than 1001), while two X/Z controls are excluded from two-state judging. These are observations of these pinned builds, not claims about an internal cause or newer development versions. Original inputs and expectations remain unchanged; the [qualification](../coverage/interaction-qualification/random-cross-nine-profiles.json) embeds the actual control manifest and records versions and execution hashes.
+
+<a id="generated-subroutine-copyout"></a>
+
+## Generated-scope signed task copy-out (2026-11-05)
+
+The [generated-subroutine model](interaction-verification.en.md#generated-subroutine-binding) has 36 cases matching pinned Icarus 13.0 and latest-built kirimasim `162222153c57`.
+Pinned Verilator 5.052 seeds 1/73 each record 11 pass and 25 known. In one known-value case, a 33-bit signed task output copied into a 36-bit variable
+has zeros in the upper three bits instead of sign extension. The array/neighbor fields agree, and all differences are confined to retained results.
+An exact function counterpart uses byte-identical expectations and matches Icarus and both Verilator seeds.
+The [full-output record](../coverage/interaction-qualification/gensub-known-replays.json) and [control SV/expectation](../coverage/interaction-qualification/gensub-function-control/)
+retain this observation. It narrows the difference to the task copy-out path without establishing an internal cause or behavior of newer builds.
+The other 24 known cases require X/Z inputs; two-state output does not qualify them. Original expectations and known statuses remain intact.
