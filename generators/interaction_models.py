@@ -80,6 +80,7 @@ import interaction_deferarg
 import interaction_genenum
 import interaction_pkgnba
 import interaction_pkgwatch
+import interaction_class_import
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -88,7 +89,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -706,5 +707,13 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_pkgwatch.MODEL.select(),
             "同じpackage変数への複数のイベント待機とwait、関数内の外部参照を読むalways_combを照合する。"
             "全体と最下位ビットの感度、条件のX、再書込み・隣接要素・別packageの通知と起床履歴を観測する。",
+        ),
+        SuiteModel(
+            interaction_class_import.MODEL,
+            lambda row: "tests/gen/ch26/" + interaction_class_import.case_name(row) + ".sv",
+            interaction_class_import.MODEL.select(),
+            "メソッド内のimportとクラスプロパティ、外側moduleの同名宣言の名前解決を照合する。"
+            "幅・符号・状態型、function/task、別名とハンドル再束縛を交差し、"
+            "package共有値・個別オブジェクト・別メソッドの更新と保持を分けて観測する。",
         ),
     )

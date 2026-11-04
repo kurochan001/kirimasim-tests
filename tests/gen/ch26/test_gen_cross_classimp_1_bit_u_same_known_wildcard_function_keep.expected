@@ -1,0 +1,8 @@
+phase=init outer=1 inner=1 a=0 old=0 b=0 read_a=1 read_old=1 read_b=1 same=1
+phase=property outer=1 inner=1 a=1 old=1 b=0 read_a=1 read_old=1 read_b=1 same=1
+phase=package outer=1 inner=0 a=1 old=1 b=0 read_a=0 read_old=0 read_b=0 same=1
+phase=rebind outer=1 inner=0 a=1 old=1 b=0 read_a=0 read_old=0 read_b=0 same=1
+phase=alias outer=1 inner=0 a=1 old=1 b=0 read_a=0 read_old=0 read_b=0 same=1
+phase=outer outer=0 inner=0 a=1 old=1 b=0 read_a=0 read_old=0 read_b=0 same=1
+phase=guard outer=0 inner=0 a=1 old=1 b=1 read_a=0 read_old=0 read_b=0 same=1
+phase=recover outer=0 inner=1 a=0 old=0 b=1 read_a=1 read_old=1 read_b=1 same=1

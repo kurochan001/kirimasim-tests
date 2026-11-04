@@ -63,14 +63,19 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 
 ## 実行結果の扱い
 
-2026-11-03の更新では79モデル・2,922選択ケースを、対角線以外の114組の章対に対応付けています。
-CSVに使用した結果は[kirimasim a682e19eの全79モデルの保存実行](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json)で、
-2,389 pass・529 unsupported・4 fail、全選択ケースPASSは52モデルです。
+2026-11-04の更新では80モデル・2,956選択ケースを、対角線以外の115組の章対に対応付けています。
+CSVに使用した結果は[kirimasim 9113955914d8の全80モデルのローカル保存実行](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json)で、
+2,423 pass・529 unsupported・4 fail、全選択ケースPASSは53モデルです。
 
-2026-11-04（日本時間）に確認したsuite `e8d991a9`の[正式Nightly](nightly-results.md#latest-verified-checkpoint)でも、
-kirimasim `d73d8922dfa2`で全2,922件の入力・状態分類が一致しています。
-CSVは引き続き保存済み`a682e19e`を出典とし、この別途確認によって出典を置き換えたり、部分実行を合成したりはしません。
+2026-11-04（日本時間）に確認したsuite `9926160a`の[正式Nightly](nightly-results.md#latest-verified-checkpoint)でも、
+kirimasim `9113955914d8`で追加前の79モデル・2,922件を確認しています。
+新しい34件はローカル証跡があり、正式Check・Nightlyでは未実行です。
+CSVの出典は全2,956件の単一ローカル実行cross80とし、別の実行の部分成功を合成しません。
 13プロファイルのランダム比較や、そのNightlyの96 PASSも章間表へ加算しません。
+
+第8章×第26章のメソッド内package参照は、モデル数1・全選択ケースPASSモデル数1です。
+全34件でimportの字句スコープ、型付きfunction/taskの結果、別名・再束縛を経たオブジェクトの同一性と状態保持を確認します。
+[設計・独立検算・制限](interaction-verification.md#class-method-package-lookup)を参照してください。
 
 新規の第14章×第15章は、モデル数1・全選択ケースPASSモデル数0です。
 採取値とイベント待機の24件中、`#1step`の12件はPASS、`#0`の12件は未対応です。
@@ -78,7 +83,7 @@ CSVは引き続き保存済み`a682e19e`を出典とし、この別途確認に�
 [設計・対照・制限](interaction-verification.md#clocking-named-event)を参照してください。
 第9章×第16章の遅延報告モデルは31件すべてPASSで、全選択ケースPASSモデル数1です。
 残る4 failはconfigのパラメータリセットです。insideの2件は修正後にPASSです。
-保存実行の`a682e19e`と正式実行の`d73d8922dfa2`は上流コミットのビルドです。[切り分けと当時の修正ビルドの版](cross-verification-followup.md)を参照してください。
+[切り分けと当時の修正ビルドの版](cross-verification-followup.md)を参照してください。
 配列リダクション制約の第7章×第18章は、モデル数1・全選択ケースPASSモデル数0です。
 新規13件はrandomizeまたはクラス内配列操作が未対応で、固定Verilatorは両seedとも元の全13件が出力不一致です。
 [設計と補助対照の確認範囲](interaction-verification.md#array-reduction-constraints-and-retention)を参照してください。

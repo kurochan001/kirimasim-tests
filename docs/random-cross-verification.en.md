@@ -9,8 +9,8 @@ The same stimulus drives a SystemVerilog design and a Python reference, comparin
 Existing cases, oracles and finite-model denominators remain intact. Random samples and their successes do not increase
 fixed-suite test counts, chapter-matrix pass counts or requirement coverage.
 
-As verified on 2026-11-04 JST, [Check and Nightly on `e8d991a9`](nightly-results.en.md#latest-verified-checkpoint)
-both succeeded. Nightly's thirteen profiles recorded **96 valid passes** on kirimasim `d73d8922dfa2`, seed `41650010801`.
+As verified on 2026-11-04 JST, [Check and Nightly on `9926160a`](nightly-results.en.md#latest-verified-checkpoint)
+both succeeded. Nightly's thirteen profiles recorded **96 valid passes** on kirimasim `9113955914d8`, seed `41743702063`.
 Profile additions are paused at thirteen; [targeted exploration and independent checks](#thirteen-profile-stabilization) supply further depth.
 
 <a id="purpose-and-roles"></a>
@@ -290,19 +290,21 @@ can be supplied to `--replay`. These are not fixed-suite passes. Boundary witnes
 
 ### Formal thirteen-profile verification (checked 2026-11-04 JST)
 
-[Check 41649940180](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180) and
-[Nightly 41650010801](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801) succeeded on suite `e8d991a9`.
-The Nightly random step actually executed all 96 cases, using seed/run ID `41650010801` and attempt 1;
+[Check 41718590448](https://github.com/kurochan001/kirimasim-tests/actions/runs/41718590448) and
+[Nightly 41743702063](https://github.com/kurochan001/kirimasim-tests/actions/runs/41743702063) succeeded on suite `9926160a`.
+The Nightly random step actually executed all 96 cases, using seed/run ID `41743702063` and attempt 1;
 admission was `always_execute`. All thirteen profiles are represented: eight cases per profile for the first five, seven each for the other eight.
 Evidence is valid and complete, with zero fail, known, unsupported, not_run or stale results.
 
-The independently fetched/rebuilt random binary is kirimasim `d73d8922dfa20e19ccb9411adbe42a6d258bb49d`, GNU 13.3.0;
-its SHA-256 is `fbb76100230ade68528d41159d445307da453794f7dda40511e067b0a4bcc351`.
-The [verification record](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json) records this build separately from the workflow seed,
+The independently fetched/rebuilt random binary is kirimasim `9113955914d878437074f0e3b86a8dca38438080`, GNU 13.3.0;
+its SHA-256 is `b348f74d38baa8da4e0d9fdb87c40966b3f6397328408bb340aec477a47f3852`.
+The [verification record](../coverage/interaction-qualification/formal-ci-9926160a-20261104.json) records this build separately from the workflow seed,
 artifact hashes, all 96 saved-source/expectation/output checks, and independent interpretation of 14 array and eight package SV programs.
 Those checks read existing evidence without running a simulator again. The remaining profiles were not independently interpreted by these bounded qualifiers.
 Use the run's `random-cross-kirimasim` artifact with `--replay`; do not regenerate its inputs from the seed.
 This result does not increase fixed counts or replace the [fixed-suite verdicts](nightly-results.en.md#latest-verified-checkpoint).
+
+The [previous checkpoint](nightly-results.en.md#previous-verified-checkpoint) retains the earlier `e8d991a9` run and its original evidence.
 
 <a id="thirteen-profile-stabilization"></a>
 

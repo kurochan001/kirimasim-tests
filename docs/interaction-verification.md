@@ -12,12 +12,20 @@
 
 ## 保存実行の概要
 
+2026-11-04のクラス×packageの追加で、**80モデル・2,956選択ケース・115章対**になりました。
+実行直前に上流mainを取得・構成・ビルドしたkirimasim `9113955914d8`の
+[単一の全クロス保存実行](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json)は、
+**2,423 pass・529 unsupported・configの4 fail**です。追加34件は全て解析成功・PASSで、
+従来2,922件の入力ハッシュ・状態分類は不変、**全選択ケースPASSは53モデル**です。
+以下の正式確認は追加前の状態を記録しており、今回のローカル結果とは別です。
+[メソッド内のpackage参照](#class-method-package-lookup)に設計と独立確認を記載しています。
+
 2026-11-04（日本時間）に照合した[最新の確認済み状態](nightly-results.md#latest-verified-checkpoint)では、
-suite `e8d991a9`のCheck・Nightlyがともに成功しています。
-正式Nightlyのkirimasim `d73d8922dfa2`実行には、**79モデルの全2,922件**が含まれ、
+suite `9926160a`のCheck・Nightlyがともに成功しています。
+この正式Nightlyのkirimasim `9113955914d8`実行には、追加前の**79モデルの全2,922件**が含まれ、
 **2,389 pass・529 unsupported・configの4 fail**、**全選択ケースPASSは52モデル**、**章対は114組**です。
 全選択ケースの入力ハッシュ・状態分類は、以下の保存済みcross79と一致しています。
-[確認記録](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json)では、正式確認とCSVの元になるローカル証跡を分けています。
+[確認記録](../coverage/interaction-qualification/formal-ci-9926160a-20261104.json)では、正式確認とCSVの元になるローカル証跡を分けています。
 同じNightlyの13プロファイルのランダム比較も96件すべて有効なPASSですが、有限クロスの件数へ加算しません。
 
 以下の日時付きスナップショットは、各追加・修正を実行した当時の記録です。
@@ -3040,3 +3048,63 @@ python3 -m unittest discover -s tools -p test_interaction_coverage.py
 生成テスト追加時はREADMEの統計、カタログ、条項別テスト数、要求照合一覧、要求カバレッジの 生成物も通常どおり更新します。新しいクロスモデルは要求台帳の分母を変更しません。 章間の対応は[章間クロス検証マトリクス](chapter-cross-matrix.md)の台帳にも登録し、CSVを更新します。 [0セルの仕分け](chapter-cross-triage.md)に該当章対の既存検証や候補がある場合は、登録後の扱いを再確認します。 新規テストを要求カバレッジに算入するには、別途、刺激・観測・期待値と要求の対応を レビューして登録する必要があります。既存テスト、負例、期待値は維持します。
 
 方式の背景は[NIST SP 800-142，実践的組合せテスト](https://csrc.nist.gov/pubs/sp/800/142/final) を参照してください。ここでは2因子だけで十分とは仮定せず、指定した3因子群と 必須ケースを併用します。
+
+<a id="class-method-package-lookup"></a>
+
+## クラスメソッド・package参照・保持した別名（第8章×第26章）
+
+[interaction_class_import.py](../generators/interaction_class_import.py)の`class_method_package_lookup@1`で34件を追加しました。
+因子の直積3,456通りから、packageの型幅がゼロになる192通りだけを除き、合法3,264通りを定義します。
+選択34件で全因子対244組、重点3因子110組、必須6件を保持し、合法な全組合せから98.96%削減します。
+因子は戻り値の幅（1/32/33/64/65/129）、bit/logic、符号、戻り値に対するpackageの幅、既知値/X/Z、
+wildcard/明示/qualified/外側の名前解決、function/task、別名の保持/ハンドル再束縛です。
+
+IEEE 1800-2023 §26.3のpackage修飾とスコープ内import、§8.6のオブジェクトごとのメソッド、
+§8.7の割当て、§8.12のハンドル代入と新規割当てを組み合わせます。代入変換の根拠は§10.8・§11.8.2です。
+importはメソッド内か外側moduleに置き、クラス直下には置きません。
+メソッド内のimportはそのメソッドの`data`を参照元packageへ結び、修飾参照もそのpackageを選びます。
+内側importがない場合は、クラスのプロパティが外側moduleのimportした同名宣言を隠します。
+別メソッドとmodule自身の結合先も、それぞれ保持されることを確認します。
+
+各テストで、初期化、プロパティ更新、package更新、任意のハンドル置換、保持した別名の更新、
+外側package更新、独立オブジェクトの後続更新、既知値への回復の8段階を観測します。
+各段階で両packageの値、3オブジェクトのプロパティ、型付きメソッド結果3個、ハンドルの同一性を照合します。
+再束縛後も別名は元のオブジェクトを参照し、import経由の読出しは共通packageを参照します。
+packageと結果の幅の違いで拡張・切詰めを、別オブジェクトと別packageで誤った共有を識別します。
+操作は単一initialで行い、メソッドは時間を消費しないため、並行呼出しの順序を期待値に持ち込みません。
+
+[独立検算器](../tools/qualify_class_import.py)は、実際のSVの宣言・import・メソッド・割当て・代入・呼出し・表示を解釈します。
+生成器のビット列変換と操作スケジュールとは別に、整数の値/X/Zの各ビット面とオブジェクト識別で計算し、
+全3,264プログラムが参照値と一致しました。保存SVの解釈中に生成器・参照・刺激の関数を呼ばない検査と、未知構文を拒否する検査を含みます。
+[確認記録](../coverage/interaction-qualification/classimp-final.json)には、ネイティブの正常対照4件と、
+**実際のSVへの8故障**も保持します。参照package、プロパティ参照、別名の対象、別メソッドのスコープ、
+符号、参照元の幅、状態型、moduleへのimportの漏出を誤らせ、全て正常終了後の出力差で検出しました。
+これらの補助実行を通常のPASS件数へ加算しません。
+
+実行直前に上流mainを取得・構成・ビルドした`9113955914d8`の
+[全クロス実行](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json)は、80モデル・2,956件で
+**2,423 pass・529 unsupported・既存configの4 fail**です。追加34件は全て解析成功・PASSで、
+従来2,922件の入力ハッシュ・状態分類は不変です。対応付けは115章対、全選択ケースPASSは53モデルです。
+[ビルド記録](../coverage/interaction-qualification/classimp-build-final.json)に実行ファイル・依存の固定版・解析結果を記載しています。本体コードの変更はありません。
+
+固定Verilator 5.052は、両seed（1/73）で元の同一入力に対して**18 pass・16 known**です。
+knownの全16件はX/Z入力が必要で、bit型への変換を調べる8件も含みます。両seedともZ入力8件はビルド拒否、X入力8件は出力不一致でした。この2値での観測を4値動作の適合確認に使わず、16件にはVerilatorのoracleを登録しません。
+固定Icarus 13.0は、package修飾付きの書込みで全34件のビルドを拒否し、knownとして保持します。
+[固定版の確認記録](../coverage/interaction-qualification/classimp-fixed-replays-final.json)に各実行と実行ファイルを記録し、
+4値を必要とせず固定Verilatorの両seedに一致した18件だけに、そのoracleを登録しています。
+期待値は規格から独立に導いたままです。追加ケースの正式Check・Nightlyは未実行です。
+
+[メタデータ修正の記録](../coverage/interaction-qualification/classimp-metadata-correction.json)に、bitのX/Zを使う8件の`fourstate`だけをnoからyesへ直した履歴を保持します。SV本体・期待値のバイト列は不変です。先行スナップショットは別に保持し、その8件のハッシュは古い証跡として扱います。最終実行は修正後のメタデータを使っています。
+
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model class_method_package_lookup
+python3 -m unittest discover -s tools -p test_interaction_class_import.py
+# 実行直前に本体の最新mainを取得・構成・ビルドし、未使用の証跡出力先を指定します。
+python3 tools/qualify_class_import.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/classimp-qualification-new.json
+```
+
+クラスの宣言場所は一つのmodule内に固定し、package内で宣言したクラス型は対象外です。
+継承、staticメソッド、浅いコピー、null/GC、並行呼出し、時間制御、入出力の混合符号、クラス直下のimportは対象外です。
+有限モデル一つの確認であり、クラス×package全体の網羅を示すものではありません。ランダムプロファイルや要求の対応付けも追加しません。

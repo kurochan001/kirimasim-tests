@@ -5,11 +5,19 @@
 2026-11-04（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-[最新の正式確認](nightly-results.md#latest-verified-checkpoint)では、上流kirimasim `d73d8922dfa2`で全選択2,922件を実行し、
+現在の[全クロスのローカル選択](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json)は80モデル・2,956件で、
+2,423 pass・529 unsupported・configの4 failです。クラス×packageの追加34件は全PASSで、従来の入力・状態分類は不変です。
+新しいモデルは正式Check・Nightlyの対象にはまだ含まれていません。
+
+[最新の正式確認](nightly-results.md#latest-verified-checkpoint)では、上流kirimasim `9113955914d8`で追加前の選択2,922件を実行し、
 2,389 pass・529 unsupported・configの4 failでした。修正したinside・ラベル取消しは引き続きPASSです。
-全選択ケースの入力・状態分類は保存済みcross79と一致しています。suite `e8d991a9`のCheck、Nightlyの5シミュレータ、公開処理はすべて成功しました。
+全選択ケースの入力・状態分類は保存済みcross79と一致しています。suite `9926160a`のCheck、Nightlyの5シミュレータ、公開処理はすべて成功しました。
 以下の未コミットビルドは修正過程の記録であり、現在の上流の状態を示すものではありません。
 kirimasim-testsのNightlyの1回の成功と、本体リポジトリの7連続Nightly条件は分けて扱います。
+
+最新の固定suite全体では、第30章の通常のspecify条件テスト5件がunsupportedからPASSへ改善しています。
+この5件は有限クロスの選択外です。選択内の状態依存specifyパス12件・SDF注釈6件の未対応は変わっていません。
+[今回の確認記録](../coverage/interaction-qualification/formal-ci-9926160a-20261104.json)に5件の識別と固定入力の不変を記載しています。
 
 <a id="triage-of-the-eleven-failures"></a>
 <a id="不一致11件の切り分け"></a>
@@ -88,7 +96,7 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
   演算・条件式を将来の独立因子として検討します。合法な式と正の寸法の確定、
   既知のconfigリセット不一致の修正を先に行います。
 
-現在の仕分けはM114・E3・C2・N117・R584です。
+現在の仕分けはM115・E3・C2・N117・R583です。
 [章対の根拠と指紋](chapter-cross-triage.md)を参照してください。
 既存の回帰matrixを先に活用し、原因が確定した機構に境界・操作列・故障対照を追加します。
 同じ目的の別runnerや、ランダム結果を固定要求カバレッジへ加算する仕組みは追加していません。
@@ -97,4 +105,9 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
 
 続く[packageのNBAモデル](interaction-verification.md#package-nba-capture)では、未精査の第10章×第26章・第4章×第26章・第7章×第26章をMへ移しました。上流`7554bb47`の全2,886件の単一実行で追加36件がPASSし、既存configの不一致と未対応は不変です。配列の対応は24件で、全選択ケースPASSはモデル全体36件の合格を必要とします。その時点の要精査Rは586章対でした。
 
-続く[package変更の観測モデル](interaction-verification.md#package-change-observers)で、未精査の第9章×第26章と第11章×第26章をMへ移しました。前者は全36件、後者はlogicのX/Zを扱う12件に対応します。既登録の第4章×第26章・第7章×第26章にも観測を追加しました。上流`a682e19e3238`の全2,922件の単一実行で追加36件がPASSし、従来2,886件の入力と状態分類は不変です。要精査Rは584章対で、残る章対すべてを検証済みとするものではありません。
+続く[package変更の観測モデル](interaction-verification.md#package-change-observers)で、未精査の第9章×第26章と第11章×第26章をMへ移しました。前者は全36件、後者はlogicのX/Zを扱う12件に対応します。既登録の第4章×第26章・第7章×第26章にも観測を追加しました。上流`a682e19e3238`の全2,922件の単一実行で追加36件がPASSし、従来2,886件の入力と状態分類は不変です。この追加時点で要精査Rは584章対で、残る章対すべてを検証済みとするものではありません。
+
+2026-11-04の[クラスメソッド×packageのモデル](interaction-verification.md#class-method-package-lookup)で、未精査だった第8章×第26章をMへ移しました。
+上流`9113955914d8`の全2,956件の単一実行で追加34件がPASSし、従来2,922件の入力・状態分類は不変です。
+現在は80モデル・115章対、全選択ケースPASSは53モデルで、2,423 pass・529 unsupported・configの4 failです。
+要精査Rは583章対です。このローカル結果は正式Check・Nightlyと区別し、クラス×package全体の網羅を示すものではありません。

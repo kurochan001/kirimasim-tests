@@ -1,0 +1,162 @@
+{
+  "model": "class_method_package_lookup",
+  "generated_at": "2026-11-04T14:40:00.067524+00:00",
+  "scope": "Final generated headers and fixed-release oracle selections. Upstream main fetched, configured and built immediately before one complete finite-cross batch, including parsing and qualification controls. No core source change; separate from formal Nightly.",
+  "base_revision": "9113955914d878437074f0e3b86a8dca38438080",
+  "upstream_main_revision": "9113955914d878437074f0e3b86a8dca38438080",
+  "tracked_worktree_clean": true,
+  "binary_sha256": "f514271439d7a8d85dd240fd6dfb323b219f67f0afc910bcdde29f4449ba4519",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit 9113955914d8), built with AppleClang 21.0.0.21000334",
+  "run": "coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2423,
+    "unsupported": 529,
+    "fail": 4
+  },
+  "new_cases": 34,
+  "previous_cases": 2922,
+  "previous_run": "coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json",
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": [
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_129_bit_s_same_known_wildcard_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_129_bit_s_wide_x_wildcard_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_129_bit_u_narrow_known_wildcard_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_129_bit_u_same_known_qualified_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_129_bit_u_wide_x_enclosing_function_replace.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_129_logic_s_narrow_z_explicit_task_replace.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_1_bit_s_wide_z_qualified_task_replace.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_1_bit_u_same_known_wildcard_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_1_bit_u_wide_known_explicit_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_1_logic_s_same_x_enclosing_task_replace.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_32_bit_s_same_x_explicit_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_32_bit_s_wide_z_explicit_task_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_32_bit_u_wide_known_wildcard_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_32_logic_s_narrow_known_wildcard_task_replace.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_32_logic_u_narrow_z_qualified_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_32_logic_u_same_known_enclosing_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_33_bit_s_narrow_known_wildcard_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_33_bit_s_wide_z_enclosing_task_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_33_bit_u_same_known_wildcard_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_33_bit_u_wide_known_explicit_function_replace.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_33_logic_s_same_known_qualified_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_33_logic_u_narrow_x_wildcard_task_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_64_bit_s_narrow_x_qualified_task_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_64_bit_s_same_known_wildcard_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_64_bit_s_wide_known_wildcard_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_64_logic_u_narrow_z_enclosing_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_64_logic_u_same_known_explicit_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_64_logic_u_wide_z_wildcard_function_replace.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_65_bit_s_narrow_known_enclosing_task_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_65_bit_s_same_z_wildcard_function_replace.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_65_bit_s_wide_known_wildcard_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_65_bit_u_same_known_wildcard_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_65_logic_u_narrow_x_explicit_function_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_65_logic_u_wide_x_qualified_function_replace.sv",
+      "returncode": 0
+    }
+  ]
+}

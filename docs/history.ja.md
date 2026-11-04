@@ -170,5 +170,29 @@
   [Nightly 41650010801](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801)が成功し、Nightlyの5シミュレータと公開処理も成功しました。
   結果は日本時間2026-11-04に照合しました。正式kirimasim `d73d8922dfa2`で有限クロス全2,922件の入力・状態分類が一致し、
   別枠のランダム比較もseed `41650010801`で96件すべて有効なPASSです。
-  固定suite全体の結果、ビルドのハッシュ、変更されない公開スナップショットは[日時付きの確認記録](nightly-results.md#latest-verified-checkpoint)を参照してください。
+  固定suite全体の結果、ビルドのハッシュ、変更されない公開スナップショットは[日時付きの確認記録](nightly-results.md#previous-verified-checkpoint)を参照してください。
   ランダム結果は固定件数・カバレッジへ加算しません。
+
+## 2026-11-04
+
+- suite `9926160a`の[Check 41718590448](https://github.com/kurochan001/kirimasim-tests/actions/runs/41718590448)と
+  [Nightly 41743702063](https://github.com/kurochan001/kirimasim-tests/actions/runs/41743702063)が成功し、Nightlyの5シミュレータと公開処理も成功しました。
+  レポートの生成は03:25 UTC（日本時間12:25）です。
+- kirimasim `9113955914d8`の固定suiteは7,868 pass・2,403 unsupported・133 failです。
+  第30章の通常のspecify条件テスト5件がunsupportedからPASSへ改善し、その他の状態分類と全10,404件の入力ハッシュは不変です。
+  この5件は有限クロスの選択外で、選択2,922件の入力・状態分類は2,389 pass・529 unsupported・4 failのままです。
+  対応付けは79モデル・114章対、全選択ケースPASSは52モデルで、章間CSVの出典も保存済みcross79のままです。
+- 13プロファイルのランダム比較は新しいseed／run ID `41743702063`で96件すべて実際に実行し、別途再ビルドした本体
+  `9113955914d878437074f0e3b86a8dca38438080`で有効なPASSでした。この実行の保存SVから配列14件・package 8件を独立検算しています。
+  [新しい確認記録](../coverage/interaction-qualification/formal-ci-9926160a-20261104.json)にartifact・ビルドのハッシュと固定状態の観測を保持し、前回の記録は変更していません。
+  文書更新時の照合は保存証跡の読取りであり、シミュレータの再実行やカバレッジの追加ではありません。
+
+- 未精査だった第8章×第26章へ[クラスメソッド×package参照モデル](interaction-verification.md#class-method-package-lookup)を追加しました。
+  合法3,264通りから全因子対244組・重点3因子110組・必須6件を保持する34件を選択しています。
+  全行の独立解釈が一致し、ネイティブの正常対照4件・実際のSVへの8故障は正常終了し、全故障を出力差で検出しました。
+  最新mainのkirimasim `9113955914d8`による全2,956件の単一実行で追加34件は全PASS、従来2,922件の入力・状態分類は不変です。
+  合計80モデル・115章対・全選択ケースPASS 53モデル、仕分けはM115 / E3 / C2 / N117 / R583です。
+  固定Verilatorのseed 1/73は各18 pass・16 known、固定Icarusは全34件のビルドを拒否します。
+  4値を必要とせずVerilatorの両seedに一致した18件だけに、そのoracleを登録しています。
+  suiteは10,706件、うち89生成器による生成テストは4,269件です。新規の重点確認15件を含むツール回帰916件が全PASSでした。
+  本体は変更せず、新しいケースを正式CI・ランダムプロファイル・要求の対応付けとは分けて扱います。

@@ -6,11 +6,19 @@ Updated on 2026-11-04 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The [latest formal checkpoint](nightly-results.en.md#latest-verified-checkpoint) confirms all 2,922 selected cases on upstream kirimasim `d73d8922dfa2`:
+The current [complete local selection](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json) has 80 models and 2,956 cases:
+2,423 pass, 529 unsupported and four config failures. All 34 class/package additions pass; all preceding inputs and statuses are unchanged.
+The new model is not yet included in formal Check/Nightly.
+
+The [latest formal checkpoint](nightly-results.en.md#latest-verified-checkpoint) confirms the preceding 2,922 selected cases on upstream kirimasim `9113955914d8`:
 2,389 pass, 529 unsupported and the four config failures. The repaired inside and label-cancellation cases remain PASS.
-All selected inputs and statuses match the saved cross79 snapshot. Check, all five Nightly simulator jobs and publication succeeded on suite `e8d991a9`.
+All selected inputs and statuses match the saved cross79 snapshot. Check, all five Nightly simulator jobs and publication succeeded on suite `9926160a`.
 The historical uncommitted builds below explain the repair process; they do not describe the current upstream state.
 One successful kirimasim-tests Nightly is separate from the core repository's seven-consecutive-Nightly condition.
+
+The latest full fixed suite has five ordinary Chapter 30 specify-condition tests improving from unsupported to pass.
+They are outside this finite selection; its 12 state-dependent specify-path and six SDF-annotation unsupported cases retain their statuses.
+The [current verification record](../coverage/interaction-qualification/formal-ci-9926160a-20261104.json) lists the five test identities and confirms unchanged fixed inputs.
 
 <a id="triage-of-the-eleven-failures"></a>
 <a id="不一致11件の切り分け"></a>
@@ -92,7 +100,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M114, E3, C2, N117 and R584. See the
+The current triage is M115, E3, C2, N117 and R583. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -101,4 +109,9 @@ The subsequent [enum/generate model](interaction-verification.en.md#generated-en
 
 The subsequent [package-NBA model](interaction-verification.en.md#package-nba-capture) moves previously unassessed Chapters 10×26, 4×26 and 7×26 to M. All 36 additions pass in one 2,886-case run on upstream `7554bb47`; existing config failures and unsupported cases are unchanged. The array mapping uses 24 cases and the full-model PASS still requires all 36. That checkpoint left 586 R pairs.
 
-The subsequent [package-observer model](interaction-verification.en.md#package-change-observers) moves previously unassessed Chapters 9×26 and 11×26 to M. The former maps all 36 cases; the latter maps the 12 logic X/Z cases. It also adds observations to existing Chapters 4×26 and 7×26 mappings. All 36 additions pass in the single complete 2,922-case run on upstream `a682e19e3238`; all preceding 2,886 inputs and statuses are unchanged. There are now 584 R pairs; this does not claim verification of every remaining pair.
+The subsequent [package-observer model](interaction-verification.en.md#package-change-observers) moves previously unassessed Chapters 9×26 and 11×26 to M. The former maps all 36 cases; the latter maps the 12 logic X/Z cases. It also adds observations to existing Chapters 4×26 and 7×26 mappings. All 36 additions pass in the single complete 2,922-case run on upstream `a682e19e3238`; all preceding 2,886 inputs and statuses are unchanged. That checkpoint left 584 R pairs; it did not claim verification of every remaining pair.
+
+The [class method/package model](interaction-verification.en.md#class-method-package-lookup) on 2026-11-04 moves the previously unassessed Chapters 8×26 pair to M.
+All 34 additions pass in one complete 2,956-case run on upstream `9113955914d8`; all preceding 2,922 inputs and statuses are unchanged.
+There are now 80 models, 115 chapter pairs and 53 full-selection-pass models, with 2,423 pass, 529 unsupported and four config failures.
+R remains at 583 pairs. This local result is separate from formal Check/Nightly and does not establish complete class/package coverage.

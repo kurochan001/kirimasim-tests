@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "reviewed_on": "2026-11-03",
+  "reviewed_on": "2026-11-04",
   "reviewer": "Codex (GPT-6), AI review",
   "scope": "Unordered off-diagonal pairs with no registered finite model mapping. Existing witnesses are source/expectation reviews, not new execution passes. Unreviewed pairs stay R.",
   "excluded_chapters": {

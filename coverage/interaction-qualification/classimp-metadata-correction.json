@@ -1,0 +1,64 @@
+{
+  "model": "class_method_package_lookup",
+  "scope": "Eight newly added bit X/Z cases require four-state inputs despite two-state observations. Correct only fourstate metadata from no to yes. Saved SV bodies and expectations are unchanged. Prior snapshots remain separate; they are stale for these eight input fingerprints and are not merged into final PASS counts.",
+  "initial_native_run": "coverage/interaction-results/cross80-kirimasim-91139559-classimp.json",
+  "final_native_run": "coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json",
+  "corrected": [
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_129_bit_s_wide_x_wildcard_function_keep.sv",
+      "initial_input_sha256": "e7f2a943c7c163e5b8d407d8ebde8872ce40a2f120ed205a42a911b157812bea",
+      "final_input_sha256": "92a3903bc77b27f44a80df1e35642b317cbc848317c7e7c8bea957b97b71f6c0",
+      "sv_after_header_sha256": "8b84974f2f8ace176117e30030aed86960ee64c0c58ce0b0d4705fa79892d79a",
+      "expected_sha256": "31aee65461c1d75d13c49d2143534520671dadf53dc91b83e0cbc823a46999aa"
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_129_bit_u_wide_x_enclosing_function_replace.sv",
+      "initial_input_sha256": "c66e70a5999b70516bdd74f49a57a886350c3a38d02bdc008c318fe0f8616e76",
+      "final_input_sha256": "01981d288e7f69d3e59259e284f256dd401f6ad60f107957e4b0f9440c054c2a",
+      "sv_after_header_sha256": "047d50d0c6a8bfcb9fe52ea31f34bc90d4bcfdf9468d87564ae18b1bc7c9b6b9",
+      "expected_sha256": "4834adb142903e8cdf0e08dbb1d7cd0d585da228f35d7fa09a3f8c83eae43a6d"
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_1_bit_s_wide_z_qualified_task_replace.sv",
+      "initial_input_sha256": "150e35520d0b37904fdcf9fa41c90d2d6f367eea6844ca3709b4ee316ca2a12a",
+      "final_input_sha256": "2f2c2942c3cc14414065bf1ac82db4a8cd17dbdc6a99e19381e60b4460c7fdcd",
+      "sv_after_header_sha256": "0fd294ac272bce090375f2a7c1597417fa68bbd4783fb9743436beaeccfd6b26",
+      "expected_sha256": "42f5bcb1e4a40a70aa51d829dd47fde4bf974f4097ab2c2eaa9408f6c50af650"
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_32_bit_s_same_x_explicit_function_keep.sv",
+      "initial_input_sha256": "de0a5f63dbd82c46d587d0d2be4cd97e0f3dd2e536b064afb8913e79e65d50fd",
+      "final_input_sha256": "56399af0aad3163839a4fc80641e8b6cffd98100089b36336a2fefb1da41c252",
+      "sv_after_header_sha256": "4fcb03b47545d4eda99756d0e74b21cf9bf8377308f829f2c077181ce03885cb",
+      "expected_sha256": "03a7f58c5273d2c399830d62095f71ef482625e5d6c3df1a15f2193b1398ede6"
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_32_bit_s_wide_z_explicit_task_keep.sv",
+      "initial_input_sha256": "2ccd1df53f77b10dc8d4477865e74876f5ff71246d076a952ac5d7f2528664f8",
+      "final_input_sha256": "9661464c39a3f0615bca7ee2f6b32a3570b6c3827e4ab974570e55fb1342e650",
+      "sv_after_header_sha256": "7e38fab19c6dafacded5101cc6d641ec58e0a33c4874d545e795a009d064ed1d",
+      "expected_sha256": "a47ad41a55907d6b5a43d0cde2ef1ea79d98fe7558ef7a41a1c485e0c044e512"
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_33_bit_s_wide_z_enclosing_task_keep.sv",
+      "initial_input_sha256": "4e1929f8c3a41e8c1b19c63f4f0c3726ef5626f35d8f5925703f41a223445a5d",
+      "final_input_sha256": "6a82380582b87fd6fb5c17b53166df766042821eb0221501e9eb5d85e36d212c",
+      "sv_after_header_sha256": "cc770fe47e81634f08bcb2c50e7d6bb4c77cb4c1f7735d862355c9a2e34c98dd",
+      "expected_sha256": "8f52978f4ee06a2113b6332c2e0eb653d4552a7c9f72646dea729d0c6a677c78"
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_64_bit_s_narrow_x_qualified_task_keep.sv",
+      "initial_input_sha256": "37ec5d800a376cf83d72b754256610cada4ae904607a2722cc7fcfd8ffd17080",
+      "final_input_sha256": "2300b6c20388e433702ce91c0dff196123c62f8af92e6240b664b7a1c5ba1565",
+      "sv_after_header_sha256": "c66bb4052efef5c1916f1725d42ae044e8ecc60ff73ac93cece8dd5edcf427be",
+      "expected_sha256": "90a7ebb3a8500f329dade98e3b7ccc40d0f73bfb745fdb6c2c0d5b75a2155f7d"
+    },
+    {
+      "test": "tests/gen/ch26/test_gen_cross_classimp_65_bit_s_same_z_wildcard_function_replace.sv",
+      "initial_input_sha256": "036a3f2b2e89182772e3878dc5414c260d05df1a8b1269da5d16b67155996b5d",
+      "final_input_sha256": "7dfd7bb0bb092e993da387eba135e41ca7cf94b93bd95e9b030dc4496240038f",
+      "sv_after_header_sha256": "d2098b6f341a323338d4f4767c464ea672bf733ef5ce2f9f3eed71f9a132772b",
+      "expected_sha256": "5010e0b2745744c44a3195d50978deeeebda473d8118670271c7500e532c236a"
+    }
+  ]
+}

@@ -8,33 +8,52 @@
 
 ## Latest verified checkpoint (2026-11-04 JST)
 
-For suite commit `e8d991a97b2abb12a41a1fb6b89c2406f9aa7292`, both
-[Check 41649940180](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180)
-and [Nightly 41650010801](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801)
+For suite commit `9926160a1397f514cdd09f84384392c832de2cc5`, both
+[Check 41718590448](https://github.com/kurochan001/kirimasim-tests/actions/runs/41718590448)
+and [Nightly 41743702063](https://github.com/kurochan001/kirimasim-tests/actions/runs/41743702063)
 completed successfully. Check's readme, pinned Icarus 13.0 and Verilator 5.052 jobs succeeded;
 Nightly's five simulator jobs and `publish` succeeded.
-The [published snapshot](https://github.com/kurochan001/kirimasim-tests/blob/6722914378e3758387157e8c5f5eb31cdcd3d7cf/README.md)
-was generated on 2026-11-03 at 16:13 UTC (2026-11-04 at 01:13 JST).
+The [published snapshot](https://github.com/kurochan001/kirimasim-tests/blob/d86edcb61af0d54b0a8cff910a8757cc67c257bf/README.md)
+was generated on 2026-11-04 at 03:25 UTC (12:25 JST).
 This is a dated verification checkpoint, not a guarantee for later commits or upstream builds.
 
 - **Fixed suite:** 10,672 registered tests, including 268 formal tests; the simulator runs selected 10,404.
-  kirimasim `d73d8922dfa2` recorded **7,863 pass, 2,408 unsupported and 133 fail**.
+  kirimasim `9113955914d8` recorded **7,868 pass, 2,403 unsupported and 133 fail**.
   The existing pass→fail ratchet succeeded; CI success does not mean every fixed test passed.
+  Compared with the preceding Nightly, five ordinary Chapter 30 specify-condition tests changed from unsupported to pass;
+  all other fixed statuses and all 10,404 input fingerprints are unchanged. Those five tests are outside the finite interaction selection.
 - **Finite interaction selection:** all 2,922 selected inputs in 79 models are present in that single kirimasim run.
   Input fingerprints and status categories match the [saved cross79 snapshot](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json):
   **2,389 pass, 529 unsupported and four config failures**; 52 models pass their full selection.
   The mapping has 114 chapter pairs. The CSVs still identify their original saved snapshot;
   the formal run is a separate confirmation, not a merge of partial results.
 - **Random comparisons:** all **96 cases across thirteen profiles pass**, with valid, complete evidence.
-  Seed `41650010801` is the workflow run ID; the separately recorded random build is
-  kirimasim `d73d8922dfa20e19ccb9411adbe42a6d258bb49d` (GNU 13.3.0), fetched and built again before comparison.
-  Its binary SHA-256 is `fbb76100230ade68528d41159d445307da453794f7dda40511e067b0a4bcc351`.
+  Seed `41743702063` is the workflow run ID; the separately recorded random build is
+  kirimasim `9113955914d878437074f0e3b86a8dca38438080` (GNU 13.3.0), fetched and built again before comparison.
+  Its binary SHA-256 is `b348f74d38baa8da4e0d9fdb87c40966b3f6397328408bb340aec477a47f3852`.
   Fixed and random phases happened to use the same core revision in this run; they need not do so in future runs.
 
-The [verification record](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json)
+The [verification record](../coverage/interaction-qualification/formal-ci-9926160a-20261104.json)
 identifies workflow conclusions, artifact fingerprints, the full-selection comparison and independent checks of saved random SV.
 The random evidence remains in `random-cross-kirimasim`, outside fixed history and coverage.
 Profile additions remain paused at thirteen; next work is targeted exploration, independent checks and confirmed failure-to-regression follow-up.
+
+The current working tree subsequently adds 34 [class/package cases](interaction-verification.en.md#class-method-package-lookup),
+bringing the suite to 10,706 tests and the finite selection to 80 models / 2,956 cases.
+The [complete local run](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json) records 2,423 pass, 529 unsupported and four fail.
+Those new cases are outside the formal `9926160a` checkpoint above; they have not run in formal Check/Nightly yet.
+
+<a id="previous-verified-checkpoint"></a>
+
+### Previous checkpoint (suite e8d991a9)
+
+The preceding [Check 41649940180](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180) and
+[Nightly 41650010801](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801) also succeeded, including publication.
+On kirimasim `d73d8922dfa2`, the fixed suite recorded 7,863 pass, 2,408 unsupported and 133 fail;
+the finite selection recorded 2,389 pass, 529 unsupported and four fail, and random comparisons recorded 96 valid passes with seed `41650010801`.
+The [original verification record](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json) and
+[published snapshot](https://github.com/kurochan001/kirimasim-tests/blob/6722914378e3758387157e8c5f5eb31cdcd3d7cf/README.md)
+remain unchanged. These are observations of the earlier run, not results from the latest build.
 
 <a id="日本時間ではいつ更新されるか"></a>
 

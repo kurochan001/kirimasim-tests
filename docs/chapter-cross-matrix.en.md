@@ -36,15 +36,18 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The 2026-11-03 mapping contains 79 models and 2,922 selected cases across 114 unordered off-diagonal pairs. The [complete kirimasim a682e19e run](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json) records 2,389 pass, 529 unsupported and four failures; 52 models passed their entire selection.
+The 2026-11-04 mapping contains 80 models and 2,956 selected cases across 115 unordered off-diagonal pairs. The [complete kirimasim 9113955914d8 local run](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json) records 2,423 pass, 529 unsupported and four failures; 53 models passed their entire selection.
 
-The [formal Nightly checkpoint](nightly-results.en.md#latest-verified-checkpoint), verified on 2026-11-04 JST for suite `e8d991a9`,
-confirms all 2,922 inputs and the same statuses on kirimasim `d73d8922dfa2`.
-The CSVs continue to identify the saved `a682e19e` run; this separate confirmation does not replace their source or combine partial runs.
+The [formal Nightly checkpoint](nightly-results.en.md#latest-verified-checkpoint), verified on 2026-11-04 JST for suite `9926160a`,
+confirms the preceding 79-model, 2,922-case selection on kirimasim `9113955914d8`.
+The new 34 cases have local evidence and have not run in formal Check/Nightly.
+The CSVs use the complete 2,956-case local cross80 run; partial successes from different runs are not combined.
 The thirteen random profiles and their 96 Nightly passes do not enter these matrices.
 
+- **8×26, class method/package lookup:** one model and one full-selection-pass model. All 34 cases check lexical import scope, typed function/task results, object identity and state retention through aliasing/rebinding. See [design, independent checks and limits](interaction-verification.en.md#class-method-package-lookup).
+
 - **14×15, clocking inputs and named-event waiters:** one model, zero all-selection-pass models. Of 24 cases, the 12 `#1step` cases pass and the 12 `#0` cases are unsupported. Both fixed Verilator seeds record 12 pass and 12 known nonblocking-notification differences; fixed Icarus rejects all 24 builds. See [design, controls and limits](interaction-verification.en.md#clocking-named-event).
-- **9×16, deferred reports:** all 31 cases pass, giving one all-selection-pass model. The other four failures are configuration parameter-reset cases; the two inside cases pass after the repair. The saved `a682e19e` and formal `d73d8922dfa2` runs use upstream commits; see [triage and historical repair-build identities](cross-verification-followup.en.md).
+- **9×16, deferred reports:** all 31 cases pass, giving one all-selection-pass model. The other four failures are configuration parameter-reset cases; the two inside cases pass after the repair. See [triage and historical repair-build identities](cross-verification-followup.en.md).
 
 - **7×18, reduction constraints:** one model, zero all-selection-pass models because randomize/class-array operations are unsupported. Both fixed Verilator seeds have output differences on all 13 original cases; auxiliary controls remain separate. See [design/evidence](interaction-verification.en.md#array-reduction-constraints-and-retention).
 - **7×20, associative-array queries:** one model, zero all-selection-pass models because typed associative-array variables are unsupported. Both fixed Verilator seeds have 18 output differences; fixed Icarus rejects all builds. See [design/evidence](interaction-verification.en.md#associative-array-domains-and-allocation).

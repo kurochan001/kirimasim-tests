@@ -12,12 +12,19 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 ## Saved-run summary
 
+The class/package addition on 2026-11-04 gives **80 models, 2,956 selected cases and 115 chapter pairs**.
+The [single complete local run](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json) on upstream kirimasim `9113955914d8`,
+fetched, configured and built immediately before execution, records **2,423 pass, 529 unsupported and four config failures**.
+All 34 additions parse and pass. The preceding 2,922 input fingerprints and status categories are unchanged;
+**53 models** pass their full selection. This is separate from the formal checkpoint below, which predates the additions.
+See [class method/package lookup](#class-method-package-lookup) for design and qualification.
+
 The [latest verified checkpoint](nightly-results.en.md#latest-verified-checkpoint), checked on 2026-11-04 JST,
-confirms successful Check and Nightly on suite `e8d991a9`.
-The formal kirimasim `d73d8922dfa2` run includes all **2,922 selected cases in 79 models**:
+confirms successful Check and Nightly on suite `9926160a`.
+That formal kirimasim `9113955914d8` run includes the preceding **2,922 selected cases in 79 models**:
 **2,389 pass, 529 unsupported and four config failures**, with **52 full-selection-pass models** and **114 mapped chapter pairs**.
 All selected input fingerprints and status categories agree with the saved cross79 snapshot below.
-The [verification record](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json) keeps this formal confirmation separate from the CSVs' local evidence.
+The [verification record](../coverage/interaction-qualification/formal-ci-9926160a-20261104.json) keeps this formal confirmation separate from the CSVs' local evidence.
 Random thirteen-profile validation also has 96 valid passes in that Nightly; it does not increase these finite counts.
 
 The following dated snapshots describe each addition and repair at the time it was executed.
@@ -3062,3 +3069,66 @@ python3 -m unittest discover -s tools -p test_interaction_coverage.py
 When adding generated tests, update README statistics, catalogs, per-clause test counts, requirement-mapping lists, and requirement-coverage artifacts as usual. New cross models do not change the requirement-ledger denominator. Also register cross-chapter mappings in the [Cross-chapter verification matrix](chapter-cross-matrix.en.md) ledger and update CSV. If [0-cell triage](chapter-cross-triage.en.md) already lists verification or candidates for the chapter pair, review their disposition after registration. Counting new tests toward requirement coverage requires separate review and registration of mappings between requirements and stimulus, observations, and expected values. Retain existing tests, negative cases, and expected values.
 
 See [NIST SP 800-142, Practical Combinatorial Testing](https://csrc.nist.gov/pubs/sp/800/142/final) for the approach's background. Do not assume that 2 factors alone suffice; also use the specified 3-factor groups and mandatory cases.
+
+<a id="class-method-package-lookup"></a>
+
+## Class methods, package lookup and retained aliases (Chapters 8×26)
+
+The `class_method_package_lookup@1` model in [interaction_class_import.py](../generators/interaction_class_import.py)
+adds 34 tests. From 3,456 parameter combinations, exclude only the 192 producing a zero-width package type:
+3,264 legal rows remain. The 34 selected rows retain all 244 pair targets, 110 targeted triples and six mandatory witnesses,
+a 98.96% reduction from the legal product. The factors are result width (1/32/33/64/65/129), bit/logic,
+signedness, package width relative to the result, known/X/Z values, wildcard/explicit/qualified/enclosing lookup,
+function/task and retained/rebound handles.
+
+IEEE 1800-2023 §26.3 defines package qualification and scope-local imports; §8.6 binds methods to their own objects,
+§8.7 defines allocation and §8.12 distinguishes handle assignment from new allocation. Assignment conversion follows
+§10.8 and §11.8.2. Imports appear in method bodies or the enclosing module, never directly in class scope.
+An inner import resolves its method's `data` to the source package; qualification selects that package directly.
+Without an inner import, the class property hides the enclosing module's imported declaration.
+A second method and the module keep their own bindings.
+
+Each test observes eight phases: initialization, property update, package update, optional handle replacement,
+retained-alias update, outer-package update, independent-object progress and recovery to known data.
+Compare both package values, three object properties, three typed method results and handle identity at every phase.
+A retained alias follows the original object after rebinding; imported reads continue to see the common package.
+Distinct package/result widths expose extension or truncation, and separate objects/packages expose accidental sharing.
+One initial process performs all operations, and methods consume no time, so the expected output imposes no concurrent-call ordering.
+
+The [independent qualifier](../tools/qualify_class_import.py) parses the actual emitted declarations, imports, methods,
+allocations, assignments, calls and displays. It uses integer value/X/Z planes and object identities, separately from
+the generator's string conversions and operation schedule. All 3,264 programs agree with the reference.
+Tests prohibit generator/reference/stimulus helper calls while interpreting saved SV and reject unrecognized syntax.
+The [qualification record](../coverage/interaction-qualification/classimp-final.json) also retains four native controls and
+**eight actual SV faults**, all terminating normally and detected by output differences: wrong package, property lookup,
+alias target, ordinary-method scope, signedness, source width, state type and leaked module import.
+These auxiliary executions do not increase ordinary pass counts.
+
+The [complete native run](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json) on upstream
+`9113955914d8`, fetched/configured/built immediately beforehand, records **2,423 pass, 529 unsupported and four existing config failures**
+across 80 models and 2,956 selected tests. All 34 additions parse and pass; all preceding 2,922 input fingerprints and statuses are unchanged.
+There are 115 mapped chapter pairs and 53 full-selection-pass models. The [build record](../coverage/interaction-qualification/classimp-build-final.json)
+identifies the binary, dependency pin and parsing results. No core code changed.
+
+Both pinned Verilator 5.052 seeds (1/73) record **18 pass and 16 known** on the same original inputs.
+All 16 known cases require X/Z inputs, including eight that check conversion into bit types. Both seeds record eight Z-input build rejections and eight X-input output differences. These two-state observations do not establish four-state conformance, and none of the 16 receives a Verilator oracle.
+Pinned Icarus 13.0 rejects all 34 builds at package-qualified writes, retaining known status.
+[Fixed-release records](../coverage/interaction-qualification/classimp-fixed-replays-final.json) identify each run and executable;
+only the 18 non-fourstate cases matching both fixed Verilator seeds receive its oracle.
+Expectations remain standard-derived. Formal Check/Nightly on the new cases has not run.
+
+The [metadata correction](../coverage/interaction-qualification/classimp-metadata-correction.json) records eight bit X/Z cases changing only `fourstate` from no to yes. Their SV bodies and expectations are byte-identical. Earlier snapshots remain separate and stale for those eight fingerprints; final runs use the corrected metadata.
+
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model class_method_package_lookup
+python3 -m unittest discover -s tools -p test_interaction_class_import.py
+# Fetch/configure/build latest core main immediately before execution; keep an unused evidence path.
+python3 tools/qualify_class_import.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/classimp-qualification-new.json
+```
+
+The class is declared inside one module; package-declared class types are outside this model.
+Scope excludes inheritance, static methods, shallow-copy construction, null/GC behavior, concurrent calls,
+timing controls, mixed input/result signedness and direct imports in class scope. This is one finite cross,
+not a proof of every class/package interaction, and it adds no random profile or requirement binding.

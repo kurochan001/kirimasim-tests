@@ -1,0 +1,165 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch26/test_gen_cross_classimp_129_bit_s_same_known_wildcard_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "2afa4175afe9f957fa172035ea7bceee005d3d8d8331b50703af192c246884da"
+  },
+  "gen/ch26/test_gen_cross_classimp_129_bit_s_wide_x_wildcard_function_keep": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'phase=property outer=000000000000000000000000000000000000...', expected 'phase=property outer=000000000000000000000000000000000000...'",
+   "inputs_sha256": "92a3903bc77b27f44a80df1e35642b317cbc848317c7e7c8bea957b97b71f6c0"
+  },
+  "gen/ch26/test_gen_cross_classimp_129_bit_u_narrow_known_wildcard_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "3408c1afa11540400db624fa42f3d08db4fd814481c7053611badf94631b578d"
+  },
+  "gen/ch26/test_gen_cross_classimp_129_bit_u_same_known_qualified_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "327de8dffdaff1f35538b8ef67aa4eebeb29473e42f0a04f7a972ab5c28824a1"
+  },
+  "gen/ch26/test_gen_cross_classimp_129_bit_u_wide_x_enclosing_function_replace": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'phase=property outer=000000000000000000000000000000000000...', expected 'phase=property outer=000000000000000000000000000000000000...'",
+   "inputs_sha256": "01981d288e7f69d3e59259e284f256dd401f6ad60f107957e4b0f9440c054c2a"
+  },
+  "gen/ch26/test_gen_cross_classimp_129_logic_s_narrow_z_explicit_task_replace": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch26/test_gen_cross_classimp_129_logic_s_narrow_z_explicit_task_replace.sv:64:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "3f4c3708c68629afa134dc9d4aa24643d6baab7b88f9dbd0681137c0d5d47b15"
+  },
+  "gen/ch26/test_gen_cross_classimp_1_bit_s_wide_z_qualified_task_replace": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch26/test_gen_cross_classimp_1_bit_s_wide_z_qualified_task_replace.sv:63:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "2f2c2942c3cc14414065bf1ac82db4a8cd17dbdc6a99e19381e60b4460c7fdcd"
+  },
+  "gen/ch26/test_gen_cross_classimp_1_bit_u_same_known_wildcard_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "fcbeb8c9040c9aec13aaf9c64909a6fbb5414ce403fa1dda72c3590f690b5904"
+  },
+  "gen/ch26/test_gen_cross_classimp_1_bit_u_wide_known_explicit_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "c7a168d455191ea0eccf5f9d182dde9d8d7b3f034efbe3cb5139b93c8241eba7"
+  },
+  "gen/ch26/test_gen_cross_classimp_1_logic_s_same_x_enclosing_task_replace": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'phase=property outer=1 inner=1 a=0 old=0 b=0 read_a=0 rea...', expected 'phase=property outer=1 inner=1 a=x old=x b=0 read_a=x rea...'",
+   "inputs_sha256": "d7fcc689aeede722d538a6e3ee6a94f798ae723aec9a842fd650207738fbc968"
+  },
+  "gen/ch26/test_gen_cross_classimp_32_bit_s_same_x_explicit_function_keep": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'phase=property outer=00000000000000000000000000000001 inn...', expected 'phase=property outer=00000000000000000000000000000001 inn...'",
+   "inputs_sha256": "56399af0aad3163839a4fc80641e8b6cffd98100089b36336a2fefb1da41c252"
+  },
+  "gen/ch26/test_gen_cross_classimp_32_bit_s_wide_z_explicit_task_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch26/test_gen_cross_classimp_32_bit_s_wide_z_explicit_task_keep.sv:64:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "9661464c39a3f0615bca7ee2f6b32a3570b6c3827e4ab974570e55fb1342e650"
+  },
+  "gen/ch26/test_gen_cross_classimp_32_bit_u_wide_known_wildcard_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "0aa28a7fdb0f864b16d87e642cd570f838bfc8307fc89b1da0cdb8f20ae41dd6"
+  },
+  "gen/ch26/test_gen_cross_classimp_32_logic_s_narrow_known_wildcard_task_replace": {
+   "status": "pass",
+   "inputs_sha256": "8acbba4f7976ca28c2d32d436e3a7a281e31f27a5b6a26862910ada8b8e57538"
+  },
+  "gen/ch26/test_gen_cross_classimp_32_logic_u_narrow_z_qualified_function_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch26/test_gen_cross_classimp_32_logic_u_narrow_z_qualified_function_keep.sv:63:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "cb350c146d44f834c5f6351d13840e2a4047947892119aac32246b4c40707bad"
+  },
+  "gen/ch26/test_gen_cross_classimp_32_logic_u_same_known_enclosing_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "4c405b7c594cd588192e7224d5cfee9dee07670f9d14fcfe8caafe19b3eaae95"
+  },
+  "gen/ch26/test_gen_cross_classimp_33_bit_s_narrow_known_wildcard_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "578435328c43cd16c5f49f640194fb7cdb71b6cb181f866eedd38b1d0399fe2d"
+  },
+  "gen/ch26/test_gen_cross_classimp_33_bit_s_wide_z_enclosing_task_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch26/test_gen_cross_classimp_33_bit_s_wide_z_enclosing_task_keep.sv:63:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "6a82380582b87fd6fb5c17b53166df766042821eb0221501e9eb5d85e36d212c"
+  },
+  "gen/ch26/test_gen_cross_classimp_33_bit_u_same_known_wildcard_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "000857d213dc2a453b24eb2ed533da3b852c938424ddadc4629ecf6043673293"
+  },
+  "gen/ch26/test_gen_cross_classimp_33_bit_u_wide_known_explicit_function_replace": {
+   "status": "pass",
+   "inputs_sha256": "5614154cfaef02d628d46a393cfbc878c739711a49322db33c8f4a42ae8f9add"
+  },
+  "gen/ch26/test_gen_cross_classimp_33_logic_s_same_known_qualified_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "3d3212813b7f3ad9fbca08f0cb86c086759ab7f9754e5cf260030b9bb9592a25"
+  },
+  "gen/ch26/test_gen_cross_classimp_33_logic_u_narrow_x_wildcard_task_keep": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'phase=property outer=00000000000000000000000000000001 inn...', expected 'phase=property outer=00000000000000000000000000000001 inn...'",
+   "inputs_sha256": "63cac643ef763f00fd30e0111b694a71b8b72525d35fe52ae7df67825195643b"
+  },
+  "gen/ch26/test_gen_cross_classimp_64_bit_s_narrow_x_qualified_task_keep": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'phase=property outer=000000000000000000000000000000000000...', expected 'phase=property outer=000000000000000000000000000000000000...'",
+   "inputs_sha256": "2300b6c20388e433702ce91c0dff196123c62f8af92e6240b664b7a1c5ba1565"
+  },
+  "gen/ch26/test_gen_cross_classimp_64_bit_s_same_known_wildcard_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "3e7215359f3f32b742fd301195a99d114fc837ccb52eb0c4a56d4617d225a0d2"
+  },
+  "gen/ch26/test_gen_cross_classimp_64_bit_s_wide_known_wildcard_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "fb7896d08c7ec42d4df2d9d3204482de3dba3a4ebb81a9056ed8773e0ad06a36"
+  },
+  "gen/ch26/test_gen_cross_classimp_64_logic_u_narrow_z_enclosing_function_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch26/test_gen_cross_classimp_64_logic_u_narrow_z_enclosing_function_keep.sv:63:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "4df810cdca755e652f80080f6dd07b17516d4ffaf5bdf0c042cf705ec4dd4605"
+  },
+  "gen/ch26/test_gen_cross_classimp_64_logic_u_same_known_explicit_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "88ffd9795ca6cddbdfe963f9be7122d2a77ec51b5b7dddad8195be5be29cf9a0"
+  },
+  "gen/ch26/test_gen_cross_classimp_64_logic_u_wide_z_wildcard_function_replace": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch26/test_gen_cross_classimp_64_logic_u_wide_z_wildcard_function_replace.sv:64:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "abf6503832d793350b9bfd5afed9d0aab44d202ba069572e41cb413489cf8cfd"
+  },
+  "gen/ch26/test_gen_cross_classimp_65_bit_s_narrow_known_enclosing_task_keep": {
+   "status": "pass",
+   "inputs_sha256": "bfb24578b211a4e045fde0c6fad82d31e65c25a83a1767bc1ed72238ce351235"
+  },
+  "gen/ch26/test_gen_cross_classimp_65_bit_s_same_z_wildcard_function_replace": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch26/test_gen_cross_classimp_65_bit_s_same_z_wildcard_function_replace.sv:64:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "7dfd7bb0bb092e993da387eba135e41ca7cf94b93bd95e9b030dc4496240038f"
+  },
+  "gen/ch26/test_gen_cross_classimp_65_bit_s_wide_known_wildcard_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "8827cd2cd50a1c3a33b09687e299288f3e280bce5390d413256c48db9af7935d"
+  },
+  "gen/ch26/test_gen_cross_classimp_65_bit_u_same_known_wildcard_function_keep": {
+   "status": "pass",
+   "inputs_sha256": "fdb1db108fdce62e48a6b29e84c95fc000a6261b8e0e4eed50a92fdc6122bf3c"
+  },
+  "gen/ch26/test_gen_cross_classimp_65_logic_u_narrow_x_explicit_function_keep": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'phase=property outer=000000000000000000000000000000000000...', expected 'phase=property outer=000000000000000000000000000000000000...'",
+   "inputs_sha256": "ec2354134dc4ddac189e3b6629163c455345c6522bcaf8b16c49280b5f3d9433"
+  },
+  "gen/ch26/test_gen_cross_classimp_65_logic_u_wide_x_qualified_function_replace": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'phase=property outer=000000000000000000000000000000000000...', expected 'phase=property outer=000000000000000000000000000000000000...'",
+   "inputs_sha256": "08f1a398505352def1af8348e1ee1efd7003a44b0d00e2b433104eb06565b602"
+  }
+ },
+ "generated_at": "2026-11-04T14:40:15.762039+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

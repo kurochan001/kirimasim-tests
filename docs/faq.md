@@ -510,7 +510,7 @@ SV・期待値・参照コードのハッシュの変化を確認します。元
 実際の保存SVの独立検算、確認済み不具合の固定回帰化を優先します。
 [安定化の記録](random-cross-verification.md#thirteen-profile-stabilization)にはローカル1,152 PASSを保持し、
 うち配列・packageの864件を独立解釈しています。残るパック書込み288件は既存の実行・参照比較です。
-[正式確認](nightly-results.md#latest-verified-checkpoint)では、これとは別に`e8d991a9`のNightlyで96 PASSを確認しました。
+[正式確認](nightly-results.md#latest-verified-checkpoint)では、これとは別に`9926160a`のNightlyで96 PASSを確認しました。
 任意の`--explore`の投入管理は、完全に同じ条件で有効に完了したジョブだけを省略し、省略をPASSとは別に記録します。
 固定回帰・正式Nightly・明示replayは再実行します。新しい相互作用を独立したモデルで扱う必要が具体化したときに、
 合法範囲・規格由来の期待値・確認方法を決めてから追加を検討します。

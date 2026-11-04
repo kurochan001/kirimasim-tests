@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "reviewed_on": "2026-11-03",
+  "reviewed_on": "2026-11-04",
   "reviewer": "Codex (GPT-6), AI review",
   "scope": "Registered finite interaction models only; explicit semantic chapter pairs, not citation co-occurrences. Diagonal entries are primary-chapter model counts.",
   "models": [
@@ -1880,6 +1880,19 @@
               "down"
             ]
           }
+        }
+      ]
+    },
+    {
+      "id": "class_method_package_lookup",
+      "primary_chapter": 26,
+      "pairs": [
+        {
+          "chapters": [
+            8,
+            26
+          ],
+          "reason": "クラスメソッド内のimportと同名プロパティ、外側moduleのimportを区別し、package共有値とオブジェクト別状態を別名・再束縛・型変換後に観測する。"
         }
       ]
     }

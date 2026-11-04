@@ -10,12 +10,17 @@
 
 ## 最新証跡の確認（2026-11-04 日本時間）
 
-[`formal-ci-e8d991a9-20261104.json`](formal-ci-e8d991a9-20261104.json)に、suite `e8d991a9`のCheck・Nightly・公開処理の成功を記録しています。
-kirimasim `d73d8922dfa2`の有限クロス全2,922件はcross79と入力ハッシュ・状態分類が一致し、
+現行の有限クロスは80モデル・2,956件で、[今回のローカル確認](#class-method-package-lookup-checks)を参照してください。以下の正式記録は追加前の79モデルが対象です。
+
+[`formal-ci-9926160a-20261104.json`](formal-ci-9926160a-20261104.json)に、suite `9926160a`のCheck・Nightly・公開処理の成功を記録しています。
+kirimasim `9113955914d8`の有限クロス全2,922件はcross79と入力ハッシュ・状態分類が一致し、
 2,389 pass・529 unsupported・configの4 fail、全選択ケースPASSは52モデル、対応する章対は114組です。
 13プロファイルのランダム96件はすべて有効なPASSで、固定suiteの証跡とは区別します。
 記録には元artifactのハッシュと全ランダム出力の照合を含み、保存SVの独立解釈は配列14件・package 8件です。
 既存証跡の読取りによる確認であり、シミュレータの新しい実行やカバレッジの追加ではありません。
+固定suiteでは、通常のspecify条件テスト5件がunsupportedからPASSへ改善しています。
+テストの識別と入力ハッシュの不変を、有限クロスの選択やratchetのゲートとは別に記録しています。
+[前回の確認記録](formal-ci-e8d991a9-20261104.json)も変更せず保持します。
 版・日時・workflowのリンクは[最新の正式確認](../../docs/nightly-results.md#latest-verified-checkpoint)を参照してください。
 
 ランダム検証の開発時の証跡は、日時を付けて別に保持します。
@@ -346,3 +351,21 @@ kirimasimのcovergroup実行は未対応です。[設計と確認範囲](../../d
 他サイトと引数評価回数は一致し、内側/task/最外/liveの正常対照4件もPASSしました。stderrの実行パスのみ公開用に置換しています。
 別の対象報告がないcover対照1件は、ラベル取消しの成功を示しません。
 [設計と確認範囲](../../docs/interaction-verification.md#deferred-disable-reports)を参照してください。
+
+<a id="class-method-package-lookup-checks"></a>
+
+## クラスメソッド×package参照の独立確認
+
+[`classimp-final.json`](classimp-final.json)では、実際に生成した合法3,264プログラムを、宣言型・字句スコープのimport・
+オブジェクト識別・整数の値/X/Zの各ビット面で独立に解釈しています。ネイティブの正常対照4件・実際のSVへの8故障は全て正常終了し、
+全故障を出力差で検出しました。補助確認であり、スイートのPASS件数へ加算しません。
+[`classimp-build-final.json`](classimp-build-final.json)に、最新mainの取得・構成・ビルド、新規34件の解析成功、
+単一の全2,956件のネイティブ実行を記録しています。結果は2,423 pass・529 unsupported・既存configの4 failです。
+追加34件は全PASS、従来2,922件の入力・状態分類は不変です。章間表はこの単一ローカル実行を使い、
+80モデル・115章対・全選択ケースPASS 53モデルです。正式CIの範囲は追加前の選択のままです。
+[`classimp-fixed-replays-final.json`](classimp-fixed-replays-final.json)に固定Verilatorのseed 1/73（各18 pass・16 known）、
+固定Icarus 13.0（34件ともビルド拒否のknown）、driver/runtimeの実行ファイルのハッシュを保持します。
+4値を必要とせず固定Verilatorの両seedに一致した18件だけに、そのoracleを登録し、他の期待値は維持しています。
+[設計・制限・再実行コマンド](../../docs/interaction-verification.md#class-method-package-lookup)を参照してください。
+
+[`classimp-metadata-correction.json`](classimp-metadata-correction.json)に、4値入力が必要な8件のタグ修正を保持します。SV本体・期待値は不変で、先行スナップショットの古いハッシュを最終の成功へ合成しません。

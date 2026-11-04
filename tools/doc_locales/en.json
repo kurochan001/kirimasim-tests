@@ -20990,6 +20990,18 @@
     "同じpackage変数へのイベント待機とwaitの起床、関数内の外部参照を読む ZXQPH0QXZ の更新を複数モジュールで照合する。": "Checks event and wait wakeups on the same package variable and ZXQPH0QXZ updates from external function references across multiple modules.",
     "packageの未知値をゼロと比較し、等価のXと等価性の零、waitが起床しない状態と既知値復帰後の起床履歴を照合する。": "Compares unknown package values to zero, observing X for logical equality, zero for case equality, a blocked wait and wake history after known-value recovery.",
     "packageへのブロッキング代入直後の新値と ZXQPH0QXZ 直後の旧値を読み、次時刻に通知と起床の結果を照合する。": "Reads new package values immediately after blocking assignments and old values immediately after ZXQPH0QXZ scheduling, then checks notifications and wakeups at the next time.",
-    "packageの昇順・降順配列の選択要素を監視し、隣接要素への書込みがイベント回数や保持した起床履歴を変えないことを照合する。": "Observes selected elements of ascending and descending package arrays and checks that neighboring writes preserve event counts and retained wake history."
+    "packageの昇順・降順配列の選択要素を監視し、隣接要素への書込みがイベント回数や保持した起床履歴を変えないことを照合する。": "Observes selected elements of ascending and descending package arrays and checks that neighboring writes preserve event counts and retained wake history.",
+    "ZXQPH0QXZ / ZXQPH1QXZ と符号は入出力で同じ。": "Input and result use the same ZXQPH0QXZ / ZXQPH1QXZ state type and signedness.",
+    "package幅は戻り値の幅より一つ狭い・同じ・一つ広い。": "The package width is one bit narrower than, equal to or one bit wider than the result width.",
+    "qualifiedはpackageを直接参照し、enclosingは内側importなしでクラスの同名プロパティを読む。": "Qualified access reads the package directly; enclosing access has no inner import and reads the same-named class property.",
+    "クラスメソッド内のimportと同名プロパティ、外側moduleのimportを区別し、package共有値とオブジェクト別状態を別名・再束縛・型変換後に観測する。": "Distinguish method-local imports, same-named properties and enclosing-module imports; observe shared package values and per-object state after aliasing, rebinding and type conversion.",
+    "シミュレータの未対応による除外はしない。": "Do not exclude rows for simulator limitations.",
+    "メソッド内だけに明示またはwildcard importを置き、クラス直下には置かない。": "Place explicit or wildcard imports inside methods, never directly in class scope.",
+    "メソッド内のimportとクラスプロパティ、外側moduleの同名宣言の名前解決を照合する。": "Check resolution of method-local imports, class properties and same-named declarations in the enclosing module.",
+    "単一initialで別名取得、プロパティ更新、package更新、ハンドル再束縛、別名更新、外側packageと独立オブジェクトの後続更新、既知値への回復を順に行う。": "One initial process successively creates aliases, updates properties and packages, rebinds a handle, updates the retained alias, advances the outer package and independent object, and recovers known values.",
+    "外側moduleのwildcard import、別メソッド、別オブジェクトの参照先も観測する。": "Also observe the enclosing module wildcard import, another method and an independent object.",
+    "幅ゼロだけを除外する。": "Exclude only zero-width packages.",
+    "幅・符号・状態型、function/task、別名とハンドル再束縛を交差し、package共有値・個別オブジェクト・別メソッドの更新と保持を分けて観測する。": "Cross width, signedness, state type, function/task and retained versus rebound handles; observe updates and retention separately for shared package values, individual objects and another method.",
+    "継承、static、浅いコピーnew handle、null、並行呼出し、時間制御、 ZXQPH0QXZ 、混合符号と直接のclass内importは対象外。": "Inheritance, static methods, shallow-copy construction, null handles, concurrent calls, timing controls, ZXQPH0QXZ, mixed signedness and direct imports in class scope are outside this model."
   }
 }

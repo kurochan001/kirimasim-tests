@@ -9,8 +9,8 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
 固定回帰のケース、oracle、有限モデルの分母は維持します。ランダム実行の本数や成功を、
 固定スイートのテスト数・章間マトリクスの合格数・要求カバレッジへ加算しません。
 
-2026-11-04（日本時間）に確認した[`e8d991a9`のCheck・Nightly](nightly-results.md#latest-verified-checkpoint)は、ともに成功しました。
-Nightlyの13プロファイルはkirimasim `d73d8922dfa2`・seed `41650010801`で**96件すべて有効なPASS**です。
+2026-11-04（日本時間）に確認した[`9926160a`のCheck・Nightly](nightly-results.md#latest-verified-checkpoint)は、ともに成功しました。
+Nightlyの13プロファイルはkirimasim `9113955914d8`・seed `41743702063`で**96件すべて有効なPASS**です。
 プロファイル追加はいったん13個で区切り、[重点探索と独立検算](#thirteen-profile-stabilization)で検証を深めます。
 
 <a id="purpose-and-roles"></a>
@@ -292,19 +292,21 @@ Checkに最新kirimasimでのランダム実行を追加してはいません。
 
 ### 13プロファイルの正式確認（2026-11-04 日本時間に照合）
 
-suite `e8d991a9`の[Check 41649940180](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180)と
-[Nightly 41650010801](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801)は、ともに成功しました。
-Nightlyのランダム比較はseed／run ID `41650010801`・attempt 1で、96件すべてを実際に実行しています。
+suite `9926160a`の[Check 41718590448](https://github.com/kurochan001/kirimasim-tests/actions/runs/41718590448)と
+[Nightly 41743702063](https://github.com/kurochan001/kirimasim-tests/actions/runs/41743702063)は、ともに成功しました。
+Nightlyのランダム比較はseed／run ID `41743702063`・attempt 1で、96件すべてを実際に実行しています。
 投入判定は`always_execute`です。先行5プロファイルは各8件、残る8プロファイルは各7件で、13個すべてを含みます。
 証跡は有効・完了で、fail・known・unsupported・not_run・staleはいずれも0件です。
 
-別途取得・再ビルドしたランダム比較のバイナリは、kirimasim `d73d8922dfa20e19ccb9411adbe42a6d258bb49d`・GNU 13.3.0です。
-SHA-256は`fbb76100230ade68528d41159d445307da453794f7dda40511e067b0a4bcc351`です。
-[確認記録](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json)に、workflowのseedと区別したビルド情報、
+別途取得・再ビルドしたランダム比較のバイナリは、kirimasim `9113955914d878437074f0e3b86a8dca38438080`・GNU 13.3.0です。
+SHA-256は`b348f74d38baa8da4e0d9fdb87c40966b3f6397328408bb340aec477a47f3852`です。
+[確認記録](../coverage/interaction-qualification/formal-ci-9926160a-20261104.json)に、workflowのseedと区別したビルド情報、
 artifactのハッシュ、全96件の保存SV・期待値・出力の照合、配列14件・package 8件の保存SVの独立解釈を記載しています。
 これらの照合は既存証跡を読み直したもので、シミュレータを再実行していません。他のプロファイルは、この限定構文の検算器による独立解釈の対象外です。
 再現には実行の`random-cross-kirimasim` artifactを`--replay`で使い、seedから再生成しません。
 この結果を固定件数へ加算したり、[固定suiteの判定](nightly-results.md#latest-verified-checkpoint)に置き換えたりはしません。
+
+先行する`e8d991a9`の実行と元の証跡は、[前回の確認](nightly-results.md#previous-verified-checkpoint)に保持しています。
 
 <a id="thirteen-profile-stabilization"></a>
 

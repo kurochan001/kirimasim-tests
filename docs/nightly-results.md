@@ -10,32 +10,51 @@
 
 ## 最新の確認済み状態（2026-11-04 日本時間）
 
-suiteのコミット`e8d991a97b2abb12a41a1fb6b89c2406f9aa7292`を対象とする
-[Check 41649940180](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180)と
-[Nightly 41650010801](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801)は、ともに成功しました。
+suiteのコミット`9926160a1397f514cdd09f84384392c832de2cc5`を対象とする
+[Check 41718590448](https://github.com/kurochan001/kirimasim-tests/actions/runs/41718590448)と
+[Nightly 41743702063](https://github.com/kurochan001/kirimasim-tests/actions/runs/41743702063)は、ともに成功しました。
 Checkのreadme・固定Icarus 13.0・Verilator 5.052の各ジョブ、Nightlyの5シミュレータと`publish`の各ジョブが成功しています。
-[公開スナップショット](https://github.com/kurochan001/kirimasim-tests/blob/6722914378e3758387157e8c5f5eb31cdcd3d7cf/README.ja.md)の生成時刻は、
-2026-11-03 16:13 UTC（日本時間2026-11-04 01:13）です。
+[公開スナップショット](https://github.com/kurochan001/kirimasim-tests/blob/d86edcb61af0d54b0a8cff910a8757cc67c257bf/README.ja.md)の生成時刻は、
+2026-11-04 03:25 UTC（日本時間12:25）です。
 この記録は当該コミット・ビルドでの確認であり、その後の変更まで成功を保証するものではありません。
 
 - **固定suite：** 登録10,672件のうち268件はformalで、シミュレータの実行対象は10,404件です。
-  kirimasim `d73d8922dfa2`の結果は**7,863 pass・2,408 unsupported・133 fail**です。
+  kirimasim `9113955914d8`の結果は**7,868 pass・2,403 unsupported・133 fail**です。
   既存のpass→failを検出するratchetは成功しましたが、CI成功は固定テスト全件PASSを意味しません。
+  前回Nightlyから、第30章の通常のspecify条件テスト5件がunsupportedからPASSへ変わりました。
+  その他の状態分類と全10,404件の入力ハッシュは不変です。この5件は有限クロスの選択には含まれません。
 - **有限クロスの選択：** この単一kirimasim実行に79モデルの全2,922件が含まれます。
   入力ハッシュ・状態分類とも[保存済みcross79](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json)と一致し、
   **2,389 pass・529 unsupported・configの4 fail**、全選択ケースPASSは52モデルです。
   対応付けた章対は114組です。CSVは引き続き元の保存実行を示し、正式実行はその別途確認として扱います。
   複数実行の部分成功を合成した結果ではありません。
 - **ランダム比較：** 13プロファイルの**全96件がPASS**し、証跡は有効・完了です。
-  seed `41650010801`はworkflow run IDです。それと別に記録したランダム比較のビルドは、
-  比較直前に再取得・再ビルドしたkirimasim `d73d8922dfa20e19ccb9411adbe42a6d258bb49d`（GNU 13.3.0）です。
-  実行バイナリのSHA-256は`fbb76100230ade68528d41159d445307da453794f7dda40511e067b0a4bcc351`です。
+  seed `41743702063`はworkflow run IDです。それと別に記録したランダム比較のビルドは、
+  比較直前に再取得・再ビルドしたkirimasim `9113955914d878437074f0e3b86a8dca38438080`（GNU 13.3.0）です。
+  実行バイナリのSHA-256は`b348f74d38baa8da4e0d9fdb87c40966b3f6397328408bb340aec477a47f3852`です。
   この実行では固定suiteとランダム比較の本体revisionが一致しましたが、今後も一致するとは限りません。
 
-[確認記録](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json)に、workflowの結論・artifactのハッシュ・
+[確認記録](../coverage/interaction-qualification/formal-ci-9926160a-20261104.json)に、workflowの結論・artifactのハッシュ・
 全選択ケースの照合・保存済みランダムSVの独立検算を記載しています。
 ランダム結果は専用の`random-cross-kirimasim`に保持し、固定履歴・カバレッジへ加算しません。
 プロファイルの追加はいったん13個で区切り、重点領域の追加探索・独立検算・確認済み不具合の固定回帰化を進めます。
+
+その後、現在の作業ツリーには[クラス×packageの34件](interaction-verification.md#class-method-package-lookup)を追加し、
+suiteは10,706件、有限クロスは80モデル・2,956件になっています。
+[単一の全クロスローカル実行](../coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json)は、2,423 pass・529 unsupported・4 failです。
+新しいケースは上の正式`9926160a`の確認範囲には含まれず、正式Check・Nightlyでは未実行です。
+
+<a id="previous-verified-checkpoint"></a>
+
+### 前回の確認（suite e8d991a9）
+
+先行する[Check 41649940180](https://github.com/kurochan001/kirimasim-tests/actions/runs/41649940180)と
+[Nightly 41650010801](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801)も、公開処理を含め成功しました。
+kirimasim `d73d8922dfa2`の固定suiteは7,863 pass・2,408 unsupported・133 fail、
+有限クロスは2,389 pass・529 unsupported・4 fail、ランダム比較はseed `41650010801`で96件すべて有効なPASSでした。
+[元の確認記録](../coverage/interaction-qualification/formal-ci-e8d991a9-20261104.json)と
+[公開スナップショット](https://github.com/kurochan001/kirimasim-tests/blob/6722914378e3758387157e8c5f5eb31cdcd3d7cf/README.ja.md)は書き換えず保持しています。
+これらは先行実行での観測であり、最新ビルドの結果として扱いません。
 
 <a id="when-results-update-in-japan"></a>
 

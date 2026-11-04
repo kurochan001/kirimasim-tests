@@ -419,7 +419,7 @@ more profiles would reduce the samples per profile. Prioritize targeted seeds an
 independent checking of actual saved SV, and promotion of confirmed failures into fixed regressions.
 The [stabilization record](random-cross-verification.en.md#thirteen-profile-stabilization) has 1,152 local passes,
 including 864 independently interpreted array/package programs; the remaining 288 packed-write programs used the existing execution/reference comparison.
-The [formal checkpoint](nightly-results.en.md#latest-verified-checkpoint) separately confirms 96 Nightly passes on `e8d991a9`.
+The [formal checkpoint](nightly-results.en.md#latest-verified-checkpoint) separately confirms 96 Nightly passes on `9926160a`.
 Optional `--explore` admission can omit only identical valid completed jobs, recording skips separately from passes.
 Fixed regressions, formal Nightly and explicit replay always execute. Reconsider additions when a concrete new interaction needs its own model,
 with legal scope, standard-derived expectations and validation planned before increasing breadth.

@@ -10,12 +10,17 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-04 JST)
 
-[`formal-ci-e8d991a9-20261104.json`](formal-ci-e8d991a9-20261104.json) records successful Check and Nightly on suite `e8d991a9`,
-including successful publication. All 2,922 finite selected cases on kirimasim `d73d8922dfa2` retain the input fingerprints and statuses
+The current finite selection has 80 models and 2,956 cases; see the [new local qualification](#class-method-package-lookup-checks). The formal record below predates this addition and covers 79 models.
+
+[`formal-ci-9926160a-20261104.json`](formal-ci-9926160a-20261104.json) records successful Check and Nightly on suite `9926160a`,
+including successful publication. All 2,922 finite selected cases on kirimasim `9113955914d8` retain the input fingerprints and statuses
 of cross79: 2,389 pass, 529 unsupported and four config failures; 52 full-selection-pass models across 114 mapped chapter pairs.
 All 96 random cases across thirteen profiles are valid passes, separately from fixed-suite evidence.
 The record hashes the original artifacts and verifies all saved random outputs; independent saved-SV interpretation covers 14 array and eight package programs.
 These are read-only checks of existing evidence, not new simulator executions or additional coverage.
+The fixed suite also records five ordinary specify-condition tests improving from unsupported to pass;
+their identities and unchanged input fingerprints are recorded separately from the finite selection and ratchet gate.
+The [previous checkpoint](formal-ci-e8d991a9-20261104.json) remains unchanged.
 See the [current formal checkpoint](../../docs/nightly-results.en.md#latest-verified-checkpoint) for versions, times and workflow links.
 
 Random development evidence remains dated and separate:
@@ -346,3 +351,21 @@ Both normal seeds record 13 pass and 18 known results. These controls do not qua
 Other sites and input-evaluation counts match; four inner/task/outer/live controls pass. Only stderr execution paths are replaced for publication.
 A separate empty-target-report cover control does not establish successful label cancellation.
 See [design and limits](../../docs/interaction-verification.en.md#deferred-disable-reports).
+
+<a id="class-method-package-lookup-checks"></a>
+
+## Class method/package lookup qualification
+
+[`classimp-final.json`](classimp-final.json) independently interprets all 3,264 legal emitted programs using declared types,
+lexical imports, object identities and integer value/X/Z planes. Four native controls and eight actual SV faults
+all terminate normally; output differences detect every fault. These are auxiliary checks, not extra suite passes.
+[`classimp-build-final.json`](classimp-build-final.json) records a latest-main fetch/configure/build, 34 successful parses and
+one complete 2,956-case native run: 2,423 pass, 529 unsupported and four existing config failures.
+All 34 additions pass; the preceding 2,922 inputs and statuses are unchanged. Matrices use this single local snapshot,
+with 80 models / 115 chapter pairs and 53 full-selection-pass models; formal CI still covers the preceding selection.
+[`classimp-fixed-replays-final.json`](classimp-fixed-replays-final.json) identifies pinned Verilator seeds 1/73 (18 pass, 16 known each)
+and pinned Icarus 13.0 (34 known build rejections), along with driver/runtime executable fingerprints.
+Only the 18 non-fourstate cases matching both fixed Verilator seeds gain its oracle; other expectations are unchanged.
+See [design, limits and rerun commands](../../docs/interaction-verification.en.md#class-method-package-lookup).
+
+[`classimp-metadata-correction.json`](classimp-metadata-correction.json) preserves eight required four-state input-tag corrections. SV bodies/expectations are unchanged; earlier snapshots retain their old fingerprints and are not merged into final successes.
