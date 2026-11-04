@@ -5,8 +5,8 @@
 2026-11-05（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json)は81モデル・2,992件で、
-2,459 pass・529 unsupported・configの4 failです。生成サブルーチンの追加36件は全PASSで、従来2,956件の入力・状態分類は不変です。
+現在の[全クロスのローカル選択](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json)は82モデル・3,028件で、
+2,495 pass・529 unsupported・configの4 failです。クラスの条件選択の追加36件は全PASSで、従来2,992件の入力・状態分類は不変です。
 新しいモデルは正式Check・Nightlyの対象にはまだ含まれていません。
 
 [最新の正式確認](nightly-results.md#latest-verified-checkpoint)では、上流kirimasim `9113955914d8`で追加前の選択2,922件を実行し、
@@ -96,7 +96,7 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
   演算・条件式を将来の独立因子として検討します。合法な式と正の寸法の確定、
   既知のconfigリセット不一致の修正を先に行います。
 
-現在の仕分けはM117・E3・C2・N117・R581です。
+現在の仕分けはM119・E3・C2・N117・R579です。
 [章対の根拠と指紋](chapter-cross-triage.md)を参照してください。
 既存の回帰matrixを先に活用し、原因が確定した機構に境界・操作列・故障対照を追加します。
 同じ目的の別runnerや、ランダム結果を固定要求カバレッジへ加算する仕組みは追加していません。
@@ -117,3 +117,10 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
 81モデル・117章対・全選択ケースPASS 54モデルで、要精査Rは581章対です。固定Icarusは全36件が一致し、
 固定Verilatorのseed 1/73は各11 pass・25 knownです。符号付きtaskのcopy-outの差異とfunction対照を保持し、
 この比較によって期待値・回帰ゲート・ランダムプロファイル・要求の対応付けは変更しません。
+
+続く2026-11-05の[クラスの条件選択モデル](interaction-verification.md#class-conditional-return)で、第8章×第11章・第8章×第12章をRからMへ移しました。
+上流`162222153c57`の全3,028件の単一実行で追加36件は全PASS、従来2,992件の入力・状態分類は不変です。
+82モデル・119章対・全選択ケースPASSは55モデル、2,495 pass・529 unsupported・既存configの4 failです。
+要精査Rは579章対です。合法1,296プログラムの独立解釈が一致し、正常対照5件・SVへの9故障で観測を検算しました。
+固定Verilatorのseed 1/73は各12 pass・24 known、固定Icarusは全36件のクラスハンドル比較を拒否します。
+X/Zの期待値と[knownの全出力再実行](../coverage/interaction-qualification/classsel-known-replays.json)を保持し、nativeのPASSや4値oracleとは分けます。

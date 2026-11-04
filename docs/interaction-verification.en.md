@@ -12,6 +12,14 @@ See [Principles and practical procedure](interaction-verification-method.en.md) 
 
 ## Saved-run summary
 
+The 2026-11-05 class-selection addition gives **82 models, 3,028 selected cases and 119 chapter pairs**.
+The [complete local run](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json) on upstream kirimasim `162222153c57`,
+fetched/configured/built immediately beforehand, records **2,495 pass, 529 unsupported and four existing config failures**.
+All 36 additions parse and pass; all preceding 2,992 input fingerprints and statuses are unchanged.
+**55 models** pass their full selection. The new model maps 8×11 with all 36 cases and 8×12 with 24 if/case cases.
+See [class conditional returns](#class-conditional-return) for design, independent checks and fixed-version observations.
+The new cases have not run in formal Check/Nightly. The dated generated-subroutine record below describes the preceding addition.
+
 The 2026-11-05 generated-subroutine addition gives **81 models, 2,992 selected cases and 117 chapter pairs**.
 The [complete local run](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json), using upstream kirimasim `162222153c57`
 fetched/configured/built immediately beforehand, records **2,459 pass, 529 unsupported and four config failures**.
@@ -3201,3 +3209,69 @@ python3 tools/qualify_gensub.py --kirimasim /path/to/latest-build/kirimasim \
 Scope is two finite generated elements in each of two module instances, fixed arrays, ANSI input defaults, automatic zero-time routines
 and known constant branch conditions. Recursion, ref arguments, concurrency, timing controls, dynamic arrays, callable objects and function-default side effects are excluded.
 No random profile or requirement binding is added. New cases have not run in formal Check/Nightly yet.
+
+<a id="class-conditional-return"></a>
+
+## Class selection, early typed returns and retained receiver identity
+
+[`interaction_class_select.py`](../generators/interaction_class_select.py) implements `class_conditional_return@1`.
+All 1,296 rows are legal; 36 selected cases retain **183 pair targets, 135 targeted triples and six anchors** (97.22% fewer cases).
+The factors are width 1/32/33/64/65/129, bit/logic, unsigned/signed, direct/virtual/nonvirtual dispatch,
+if/ordinary-case/conditional-expression selection, known/X/Z inputs and retained/rebound handles.
+Relevant rules are class receiver dispatch and handle identity (8.6, 8.12, 8.20), conditional merging (11.4.11),
+assignment sizing/sign extension (11.8.2), if/case (12.4, 12.5) and function return (13.4.1).
+No support-based exclusions or old-test changes are introduced.
+
+Two derived objects share a base class with data, backup and guard properties and separate base/leaf invocation counters.
+The derived method reverses the base method's true/false operands and uses a different XOR update constant.
+A direct or virtual-base call must choose the derived body; a nonvirtual-base call must choose the base body.
+Each body saves the selected value, updates only its receiver's data and returns the saved typed word.
+Statements after the return must not execute. A wider unsigned logic destination exposes the function return's sign extension.
+If and ordinary case use the false/default path for X/Z selectors; a conditional expression instead merges corresponding bits.
+The selector stays logic even for bit properties, so conversion of the selected value to bit cannot justify removing four-state metadata.
+
+Every case first executes known inputs, then known or X/Z inputs. A retained alias initially names object A.
+Calls to A and B, an external alias write, optional rebinding of A's handle to B, calls through both the rebound and retained handles,
+a guard-only write, repeated calls and a final idle observation expose receiver identity and state retention.
+After every step, the test displays all three handles, both identity comparisons, all properties, invocation/dead-effect counters and retained results.
+No observation depends on concurrent process ordering or simulator-generated random values.
+
+[`qualify_class_select.py`](../tools/qualify_class_select.py) independently reads actual SV declarations, static handle types,
+virtual-method declarations, control statements, typed expressions, writes, calls and displays.
+It reuses the independent value/X/Z bit-plane implementation and XOR evaluator, not the generator's string-based selection or reference functions.
+All 1,296 programs match the reference. Unknown syntax and extra processes are rejected.
+[`classsel.json`](../coverage/interaction-qualification/classsel.json) records five normal native controls and **nine real SV faults**:
+lost virtual dispatch, wrong selected property, wrong update constant, wrong captured return, effects moved before return,
+lost sign extension, lost unknown merging, wrong retained alias and wrong called receiver.
+All exit normally; every fault is detected by output difference. Code, input, runner and executable hashes remain unchanged during qualification.
+These auxiliary executions do not add fixed-suite passes or requirement coverage.
+
+The [single complete native run](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json) uses a fresh main fetch/configure/build,
+kirimasim `162222153c57`, and records **2,495 pass, 529 unsupported and four existing config failures** across 82 models / 3,028 cases.
+All 36 new inputs parse and pass; the preceding 2,992 input fingerprints and classifications are unchanged.
+[`classsel-build.json`](../coverage/interaction-qualification/classsel-build.json) records the actual revision, binary and parse results.
+The chapter table has 119 mapped pairs and 55 full-selection-pass models. Chapter 8×11 maps all 36 cases;
+8×12 maps only the 24 if/case cases, while model-level success still requires all 36 to pass together.
+
+[Pinned-release comparisons](../coverage/interaction-qualification/classsel-fixed-replays.json) preserve separate simulator identities.
+Verilator 5.052 seeds 1/73 each record **12 pass and 24 known**. Only the 12 known-input tests receive its oracle after both seed runs agree.
+The X cases differ under its two-state unknown handling; the Z cases reject a tristate class-member assignment during the build.
+Icarus 13.0 rejects all 36 builds with an unimplemented class-handle comparison diagnostic.
+[Full saved-input replays](../coverage/interaction-qualification/classsel-known-replays.json) retain representative X outputs for both seeds,
+Z build diagnostics and an Icarus rejection, alongside unchanged expectations.
+No two-state observation validates four-state behavior. External four-state confirmation of these X/Z cases remains unverified;
+native agreement and independent interpretation are the available evidence. Known outcomes and expected values are retained.
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model class_conditional_return
+python3 -m unittest discover -s tools -p test_interaction_class_select.py
+# Fetch/configure/build current core main immediately before native execution.
+python3 tools/qualify_class_select.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/classsel-qualification-new.json
+python3 tools/run_verilator.py --all --seed 1 \
+  tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind.sv
+```
+
+Scope is two derived objects, one inheritance level, inherited properties, a retained alias, same-sign integral words and time-free automatic functions.
+Recursion, ref, null dereferences, property hiding, super, mixed-sign operations, concurrency, garbage collection and allocation stress are outside scope.
+Random profiles remain thirteen; requirement bindings and core source are unchanged. Formal Check/Nightly for the new cases have not run.

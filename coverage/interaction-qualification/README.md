@@ -10,7 +10,7 @@
 
 ## 最新証跡の確認（2026-11-04 日本時間）
 
-現行の有限クロスは81モデル・2,992件で、[今回のローカル確認](#generated-subroutine-qualification)を参照してください。以下の正式記録は追加前の79モデルが対象です。
+現行の有限クロスは82モデル・3,028件で、[今回のローカル確認](#class-selection-qualification)を参照してください。以下の正式記録は追加前の79モデルが対象です。
 
 [`formal-ci-9926160a-20261104.json`](formal-ci-9926160a-20261104.json)に、suite `9926160a`のCheck・Nightly・公開処理の成功を記録しています。
 kirimasim `9113955914d8`の有限クロス全2,922件はcross79と入力ハッシュ・状態分類が一致し、
@@ -379,10 +379,27 @@ kirimasimのcovergroup実行は未対応です。[設計と確認範囲](../../d
 確認中のソース・入力・バイナリのハッシュの不変も照合しています。[`gensub-build.json`](gensub-build.json)に、
 最新main `162222153c57`、36件の解析成功、単一の全2,992件の実行を記録しています。
 2,459 pass・529 unsupported・既存configの4 failで、追加36件は全PASS、従来2,956件の入力・状態分類は不変です。
-章間表はこの実行を使い、81モデル・117章対・全選択ケースPASS 54モデルになりました。
+この追加時点の章間表はこの実行を使い、81モデル・117章対・全選択ケースPASS 54モデルでした。
 [`gensub-fixed-replays.json`](gensub-fixed-replays.json)に、固定Icarus 13.0（36 pass）と固定Verilator 5.052のseed 1/73（各11 pass・25 known）を保持します。
 全36件にIcarusのoracleを登録し、2値での観測を4値の確認に使いません。
 [`gensub-known-replays.json`](gensub-known-replays.json)には、元のtaskの全出力と、期待値が変わらない[function対照の実際のSV](gensub-function-control/)を保持します。
 元のtaskの差異は保持した結果だけで、IcarusとVerilatorの両seedはfunction対照に一致します。
 これらは固定suiteの外の対照であり、PASS件数・カバレッジへ加算しません。
 [設計・制限・再実行コマンド](../../docs/interaction-verification.md#generated-subroutine-binding)を参照してください。
+
+<a id="class-selection-qualification"></a>
+
+## クラスの条件選択とreturnの独立確認
+
+[`classsel.json`](classsel.json)は合法1,296行の実際のSVを独立に解釈します。
+主参照の関数を使わず、静的/virtualな呼出し先、型付き戻り値、X/Zのマージ、制御文、ハンドルの同一性を追います。
+正常対照5件・SVへの9故障は全て正常終了し、全故障を出力差で検出しました。
+[`classsel-build.json`](classsel-build.json)は、最新main取得・構成・ビルドの`162222153c57`、parse成功36件、
+全3,028件の単一実行（2,495 pass・529 unsupported・既存configの4 fail）を記録します。追加は全PASS、従来2,992件の入力・状態分類は不変です。
+82モデル・119章対・全選択ケースPASSは55モデルで、第8章×第12章の対応はif/caseの24件です。
+[`classsel-fixed-replays.json`](classsel-fixed-replays.json)は固定Icarusのクラスハンドル比較の拒否36 knownと、
+Verilatorのseed 1/73の各12 pass・24 knownを識別します。既知値で一致したものだけにVerilatorのoracleを登録します。
+[`classsel-known-replays.json`](classsel-known-replays.json)には、変更していない期待値、代表X入力の両seedの出力、
+Zのビルド診断、Icarusの拒否を保持します。2値の観測でX/Zの動作を検証済みとはせず、外部4値の確認は未確認です。
+これらはローカル/補助の記録で、正式CI・固定要求カバレッジ・13ランダムプロファイルと分けます。
+[設計・コマンド・制限](../../docs/interaction-verification.md#class-conditional-return)を参照してください。

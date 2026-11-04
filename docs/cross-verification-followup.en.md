@@ -6,8 +6,8 @@ Updated on 2026-11-05 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json) has 81 models and 2,992 cases:
-2,459 pass, 529 unsupported and four config failures. All 36 generated-subroutine additions pass; all preceding 2,956 inputs and statuses are unchanged.
+The current [complete local selection](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json) has 82 models and 3,028 cases:
+2,495 pass, 529 unsupported and four config failures. All 36 class-selection additions pass; all preceding 2,992 inputs and statuses are unchanged.
 The new model is not yet included in formal Check/Nightly.
 
 The [latest formal checkpoint](nightly-results.en.md#latest-verified-checkpoint) confirms the preceding 2,922 selected cases on upstream kirimasim `9113955914d8`:
@@ -100,7 +100,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M117, E3, C2, N117 and R581. See the
+The current triage is M119, E3, C2, N117 and R579. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -121,3 +121,10 @@ All 36 additions pass in one complete 2,992-case run on upstream `162222153c57`;
 There are 81 models, 117 chapter pairs and 54 full-selection-pass models; 581 pairs remain R. Pinned Icarus matches all 36,
 while pinned Verilator seeds 1/73 each record 11 pass and 25 known. Preserve the signed task-copy-out difference and its function control;
 this comparison does not change expectations, the regression ratchet, random profiles or requirement bindings.
+
+The next 2026-11-05 [class-selection model](interaction-verification.en.md#class-conditional-return) moves 8×11 and 8×12 from R to M.
+All 36 additions pass in one complete 3,028-case run on upstream `162222153c57`; all preceding 2,992 inputs/statuses are unchanged.
+There are 82 models, 119 chapter pairs and 55 full-selection-pass models, with 2,495 pass / 529 unsupported / four existing config failures.
+Triage now leaves 579 R pairs. All 1,296 legal programs agree under independent interpretation; five native controls and nine source faults validate the observations.
+Pinned Verilator seeds 1/73 each give 12 pass / 24 known; pinned Icarus rejects all 36 class-handle comparisons.
+The unchanged X/Z expectations and [full known-outcome replays](../coverage/interaction-qualification/classsel-known-replays.json) remain separate from native passes and four-state oracle claims.

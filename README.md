@@ -61,15 +61,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **10742 tests** in 38 chapters. 4305 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **10778 tests** in 38 chapters. 4341 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5689 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1985 |
-| The standard only, with no fixed-release simulator oracle recorded | 3068 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1997 |
+| The standard only, with no fixed-release simulator oracle recorded | 3092 |
 
-2504 tests depend on x or z values (`:fourstate: yes`). 685 tests come with C code: 190 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+2528 tests depend on x or z values (`:fourstate: yes`). 685 tests come with C code: 190 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -78,7 +78,7 @@ The suite has **10742 tests** in 38 chapters. 4305 of them are generated. The [g
 | 5 | Lexical conventions | 346 | 325 | 14 | 7 |
 | 6 | Data types | 681 | 396 | 162 | 123 |
 | 7 | Aggregate data types | 772 | 290 | 281 | 201 |
-| 8 | Classes | 375 | 82 | 209 | 84 |
+| 8 | Classes | 411 | 82 | 221 | 108 |
 | 9 | Processes | 383 | 279 | 48 | 56 |
 | 10 | Assignment statements | 353 | 262 | 47 | 44 |
 | 11 | Operators and expressions | 1644 | 1262 | 132 | 250 |
@@ -172,22 +172,28 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.en.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
-The focused selection contains **2,992 tests across 81 models**; the normal full-suite
+The focused selection contains **3,028 tests across 82 models**; the normal full-suite
 run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [latest complete local cross run](coverage/interaction-results/cross81-kirimasim-16222215-gensub.json),
+The [latest complete local cross run](coverage/interaction-results/cross82-kirimasim-16222215-classsel.json),
 on kirimasim **`162222153c57`** fetched, configured and built immediately before execution, records
-**2,459 pass, 529 unsupported and four fail**. All 36 generated-subroutine additions pass;
-the preceding 2,956 input fingerprints and status categories are unchanged.
+**2,495 pass, 529 unsupported and four fail**. All 36 class-selection additions pass;
+the preceding 2,992 input fingerprints and status categories are unchanged.
 [Check on `fd140002`](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183) passed before this addition.
 The [formal Nightly checkpoint](docs/nightly-results.en.md#latest-verified-checkpoint) covers 79 models;
 the new 36 cases have local evidence and have not yet run in formal Check/Nightly.
 All inputs retain their original expectations; the remaining failures are config parameter resets localized to pinned slang. The
 [follow-up record](docs/cross-verification-followup.en.md) retains the earlier 11→9→4 history,
 complete-output replays, the 19-mechanism unsupported inventory and reviewed chapter pairs.
-The chapter CSVs use the single complete local cross81 run; formal confirmation is recorded separately.
+The chapter CSVs use the single complete local cross82 run; formal confirmation is recorded separately.
+
+Class selection and early return (Chapters 8×11 and 8×12) select 36 of 1,296 legal combinations.
+They distinguish direct/virtual/nonvirtual calls, if/case versus X/Z conditional merging,
+receiver-only updates, typed-result extension and retained aliases after handle rebinding.
+All 36 pass on latest kirimasim; pinned Verilator seeds 1/73 each give 12 pass and 24 known.
+See [design, independent checks and limits](docs/interaction-verification.en.md#class-conditional-return).
 
 Generated subroutines and array state (Chapters 13×27 and 7×27, also 7×13) select 36 of 2,304 legal combinations.
 They check default-argument reevaluation, local types/constants, function returns versus task copy-out,
@@ -215,9 +221,9 @@ Clocking inputs and named-event waiters (Chapters 14×15) select 24 of 192 combi
 
 - The [interaction report](docs/interaction-coverage.en.md) separates the selection plan
   from fingerprint-qualified passes in each saved execution.
-- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **117 distinct
+- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **119 distinct
   chapter pairs**, with separate CSVs for registered models, models whose full selection
-  passed (**54 models** in this run), and detailed test/run evidence.
+  passed (**55 models** in this run), and detailed test/run evidence.
 - The [zero-cell triage](docs/chapter-cross-triage.en.md) records reviewed existing tests,
   proposed additions, scope exclusions and pairs awaiting review. A zero is not a claim
   that no tests exist for that chapter pair.

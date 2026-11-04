@@ -904,3 +904,15 @@ An exact function counterpart uses byte-identical expectations and matches Icaru
 The [full-output record](../coverage/interaction-qualification/gensub-known-replays.json) and [control SV/expectation](../coverage/interaction-qualification/gensub-function-control/)
 retain this observation. It narrows the difference to the task copy-out path without establishing an internal cause or behavior of newer builds.
 The other 24 known cases require X/Z inputs; two-state output does not qualify them. Original expectations and known statuses remain intact.
+
+<a id="class-selection-fixed-limits"></a>
+
+## Fixed-release class selection observations (2026-11-05)
+
+The [class-selection model](interaction-verification.en.md#class-conditional-return) has 36 native passes and independent agreement on all 1,296 legal rows.
+Pinned Verilator 5.052 seeds 1/73 each give 12 pass / 24 known. Known-input tests match;
+X inputs differ under two-state unknown handling, and Z inputs reject tristate class-member assignments during the build.
+Pinned Icarus 13.0 rejects all 36 with an unimplemented class-handle comparison diagnostic.
+[Full representative replays](../coverage/interaction-qualification/classsel-known-replays.json) preserve original expectations and outputs/diagnostics.
+No two-state result confirms X/Z behavior. External four-state comparison of these inputs remains unverified;
+known classifications stay unchanged, and observations do not establish internal implementation causes or behavior of later tool builds.

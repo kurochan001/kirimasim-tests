@@ -1,0 +1,181 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch8/test_gen_cross_classsel_129_bit_u_direct_conditional_z_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch8/test_gen_cross_classsel_129_bit_u_direct_conditional_z_keep.sv:222:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "babb84ee4dabae1c166c1fa935067530853b8b721f26fefbc90e88e31d79470b"
+  },
+  "gen/ch8/test_gen_cross_classsel_129_bit_u_nonvirtual_case_known_rebind": {
+   "status": "pass",
+   "inputs_sha256": "0bae0bc6b48b49c7229bc94943e51518b4801dae5da587a73071b2e9086e11ff"
+  },
+  "gen/ch8/test_gen_cross_classsel_129_bit_u_virtual_if_x_keep": {
+   "status": "known",
+   "reason": "output differs: line 46 is 'v who=a data=11010111010100101010010101111100010101111011...', expected 'v who=a data=00000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "7dec19bcba87180b83da97ea026f2b39225ac7d3f5e200213c53e7fce220b066"
+  },
+  "gen/ch8/test_gen_cross_classsel_129_logic_s_direct_case_x_keep": {
+   "status": "known",
+   "reason": "output differs: line 46 is 'v who=a data=01111010100111101001001011001111101001011000...', expected 'v who=a data=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+   "inputs_sha256": "7c0fa55528b930b16163b67753128498a81881969c0f53c2ef5143af798fab5b"
+  },
+  "gen/ch8/test_gen_cross_classsel_129_logic_s_direct_if_known_keep": {
+   "status": "pass",
+   "inputs_sha256": "05d3cfd58e31fb676315eb7991ebdd84c4863ba7dc17d9db9641af041ff93862"
+  },
+  "gen/ch8/test_gen_cross_classsel_129_logic_s_virtual_conditional_z_rebind": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch8/test_gen_cross_classsel_129_logic_s_virtual_conditional_z_rebind.sv:229:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "ec18cdba2d92b064724f6c9ee1d79e14c0854b8e8cc1394c251ae17d2742f277"
+  },
+  "gen/ch8/test_gen_cross_classsel_1_bit_s_virtual_if_z_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch8/test_gen_cross_classsel_1_bit_s_virtual_if_z_keep.sv:240:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "b7194a497ca016168467ec01ad3262639c6218087d8867f025d956a8832f0096"
+  },
+  "gen/ch8/test_gen_cross_classsel_1_bit_u_direct_if_known_keep": {
+   "status": "pass",
+   "inputs_sha256": "b6a957c807070b7c43f0548f0959103a0e072b02f4692998befde8a5914cb311"
+  },
+  "gen/ch8/test_gen_cross_classsel_1_bit_u_nonvirtual_conditional_x_keep": {
+   "status": "known",
+   "reason": "output differs: line 46 is 'v who=a data=1 backup=0 guard=1 base=0 leaf=0 dead=0', expected 'v who=a data=0 backup=0 guard=1 base=0 leaf=0 dead=0'",
+   "inputs_sha256": "0fd60ba77cdf43e57e9f8e1718022cdd2557f32815ceb173be31ffe73ed91539"
+  },
+  "gen/ch8/test_gen_cross_classsel_1_logic_s_direct_case_known_keep": {
+   "status": "pass",
+   "inputs_sha256": "b5ed267eb83a4f9b762bee2f99a28417c7f2b71015244821d256c8d6041ee24e"
+  },
+  "gen/ch8/test_gen_cross_classsel_1_logic_s_direct_conditional_x_rebind": {
+   "status": "known",
+   "reason": "output differs: line 46 is 'v who=a data=0 backup=0 guard=1 base=0 leaf=0 dead=0', expected 'v who=a data=x backup=0 guard=1 base=0 leaf=0 dead=0'",
+   "inputs_sha256": "01b4532fb1b3fb662ef58fd330841e7b69fcaf9af76f4ec15d9df8d5715b3f6a"
+  },
+  "gen/ch8/test_gen_cross_classsel_1_logic_u_virtual_case_z_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch8/test_gen_cross_classsel_1_logic_u_virtual_case_z_keep.sv:246:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "9d64635ceffe6792cc7243bdebf9411ac85f635165cfeae489d76b9e62fb6e33"
+  },
+  "gen/ch8/test_gen_cross_classsel_32_bit_u_direct_case_z_rebind": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch8/test_gen_cross_classsel_32_bit_u_direct_case_z_rebind.sv:241:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "a09f10c1e10f31e15ba0d50ca46bb9b80434caf8c80aa3a675187c11fa5f6c47"
+  },
+  "gen/ch8/test_gen_cross_classsel_32_bit_u_direct_conditional_known_keep": {
+   "status": "pass",
+   "inputs_sha256": "bce14be1a0afeb55e352761b009b0e4a48fa9d12009e6a76aa1911370dd607f0"
+  },
+  "gen/ch8/test_gen_cross_classsel_32_bit_u_nonvirtual_if_x_rebind": {
+   "status": "known",
+   "reason": "output differs: line 46 is 'v who=a data=00010110101110011000010111100010 backup=0101...', expected 'v who=a data=00000000000000000000000000000000 backup=0101...'",
+   "inputs_sha256": "0aa7bc5d3a208ec871c1a3685763b80f0a127050b8262117972e9cfda03328e9"
+  },
+  "gen/ch8/test_gen_cross_classsel_32_logic_s_direct_conditional_z_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch8/test_gen_cross_classsel_32_logic_s_direct_conditional_z_keep.sv:222:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "541187fc80477314c684204ed6371973a0ac7260adb5b3507b206af35655c7a9"
+  },
+  "gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_case_x_keep": {
+   "status": "known",
+   "reason": "output differs: line 46 is 'v who=a data=00011011100110000000101010010111 backup=0101...', expected 'v who=a data=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx backup=0101...'",
+   "inputs_sha256": "ac93ba69e0c6f3522be679e79e2ff635c233c03b3a15ac34bb09c6db6a428f02"
+  },
+  "gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind": {
+   "status": "pass",
+   "inputs_sha256": "b2ccd3aa8a4330ffb2249a8b7e5188b600a6f75526fa1ab10c080ad253d05d75"
+  },
+  "gen/ch8/test_gen_cross_classsel_33_bit_s_nonvirtual_if_known_keep": {
+   "status": "pass",
+   "inputs_sha256": "ff50dab81e2ce87037bf2999ba9300de8e622ba82269b8c0f1eccbeec74262f3"
+  },
+  "gen/ch8/test_gen_cross_classsel_33_bit_s_virtual_conditional_x_rebind": {
+   "status": "known",
+   "reason": "output differs: line 46 is 'v who=a data=100110101110100001011110010000010 backup=010...', expected 'v who=a data=000000000000000000000000000000000 backup=010...'",
+   "inputs_sha256": "5a935f7f22d167f896696f5b2f6ff25aa31006ce19e895d03b0ee9a344109b36"
+  },
+  "gen/ch8/test_gen_cross_classsel_33_bit_u_nonvirtual_if_z_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch8/test_gen_cross_classsel_33_bit_u_nonvirtual_if_z_keep.sv:240:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "c4de4470dc16f6e2e75283e3e59ec22ba0a06f4aa3f83542f996209373c841e4"
+  },
+  "gen/ch8/test_gen_cross_classsel_33_logic_s_nonvirtual_case_z_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch8/test_gen_cross_classsel_33_logic_s_nonvirtual_case_z_keep.sv:246:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "66dfc9e5e5746b4d5907766ddafa2fea4598a92e73ad83cad5d095bab5e053d9"
+  },
+  "gen/ch8/test_gen_cross_classsel_33_logic_u_direct_case_known_keep": {
+   "status": "pass",
+   "inputs_sha256": "841c63d0d829b884ce850ff0ab4c8325897aa109486027aa40764babf3a1ce95"
+  },
+  "gen/ch8/test_gen_cross_classsel_33_logic_u_direct_conditional_x_keep": {
+   "status": "known",
+   "reason": "output differs: line 46 is 'v who=a data=001011000101010110010010001101010 backup=010...', expected 'v who=a data=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx backup=010...'",
+   "inputs_sha256": "44cfe620605f1712068e52fddda5c58924a5e43a2a13e84bac1523d6073f1f5b"
+  },
+  "gen/ch8/test_gen_cross_classsel_64_bit_s_direct_conditional_z_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch8/test_gen_cross_classsel_64_bit_s_direct_conditional_z_keep.sv:222:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "936a5bc88d8cf239098567a65fc46238cd08060637f69fa095642e985b0fa5fa"
+  },
+  "gen/ch8/test_gen_cross_classsel_64_bit_s_virtual_case_known_rebind": {
+   "status": "pass",
+   "inputs_sha256": "c3a908e7f57ebdedcfdecd29b5e403dc2493aa593a50f1861d6488c5899de9f7"
+  },
+  "gen/ch8/test_gen_cross_classsel_64_bit_u_direct_case_x_keep": {
+   "status": "known",
+   "reason": "output differs: line 46 is 'v who=a data=10010001010000001000001010011111001000010101...', expected 'v who=a data=00000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "c5b4aa54d98723abca730004069374fbe5ef6559ee6e7cda1dc87681c09bebbf"
+  },
+  "gen/ch8/test_gen_cross_classsel_64_logic_s_direct_if_z_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch8/test_gen_cross_classsel_64_logic_s_direct_if_z_keep.sv:234:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "4595b131e7cca62b7434f9f9a43240c2730719bf744cb4c3bbd851af26a216f5"
+  },
+  "gen/ch8/test_gen_cross_classsel_64_logic_u_direct_if_x_rebind": {
+   "status": "known",
+   "reason": "output differs: line 46 is 'v who=a data=10000001011010000011011100101110101111000001...', expected 'v who=a data=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+   "inputs_sha256": "824bdcccc19bebec3647965c3923aadebd2d2408646cb50ccd830bc6bd2f3c76"
+  },
+  "gen/ch8/test_gen_cross_classsel_64_logic_u_nonvirtual_conditional_known_keep": {
+   "status": "pass",
+   "inputs_sha256": "56e84aa16c958431a4d5bff8dd76855de6947f0c2f6644e7a40890ebeefee80e"
+  },
+  "gen/ch8/test_gen_cross_classsel_65_bit_s_virtual_conditional_known_keep": {
+   "status": "pass",
+   "inputs_sha256": "9cd0c6a4f80e3c663aa4ab4a83f91c2f73f6609b2b409feaf170a8c3b7000721"
+  },
+  "gen/ch8/test_gen_cross_classsel_65_bit_u_direct_case_x_keep": {
+   "status": "known",
+   "reason": "output differs: line 46 is 'v who=a data=10100111101101111100000011100101011110001110...', expected 'v who=a data=00000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "90d984479087c862085600cc27009c00f30c1bb1e3837e22137a53e4dfffafc0"
+  },
+  "gen/ch8/test_gen_cross_classsel_65_bit_u_nonvirtual_conditional_z_rebind": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch8/test_gen_cross_classsel_65_bit_u_nonvirtual_conditional_z_rebind.sv:229:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "f676b36d9a886e478719a3610904d17491f8fb23d8037850f044728fb98aeee5"
+  },
+  "gen/ch8/test_gen_cross_classsel_65_logic_s_direct_if_known_keep": {
+   "status": "pass",
+   "inputs_sha256": "949cf16b7f20ebe5bfaa9a31940d923297beafa0dc92e1cd2311ea80fb007c48"
+  },
+  "gen/ch8/test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep": {
+   "status": "known",
+   "reason": "output differs: line 46 is 'v who=a data=10010011000101001001100111101101111100000001...', expected 'v who=a data=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+   "inputs_sha256": "86268431ead371c5f63e42f835657a19499ce3e8de485fc2eb6952e9a7a85be6"
+  },
+  "gen/ch8/test_gen_cross_classsel_65_logic_u_direct_if_z_keep": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch8/test_gen_cross_classsel_65_logic_u_direct_if_z_keep.sv:234:7: Unsupported LHS tristate construct: MEMBERSEL 'data'",
+   "inputs_sha256": "29d2d1b50a57cade637ab427553996a106ef4c6e704147f895fe2bcae010c109"
+  }
+ },
+ "generated_at": "2026-11-04T21:16:16.096046+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

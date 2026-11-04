@@ -1,0 +1,170 @@
+{
+  "model": "class_conditional_return",
+  "generated_at": "2026-11-04T21:15:47.302311+00:00",
+  "scope": "Final generated headers with pinned-Verilator oracle registration for 12 known-input tests only. Upstream main fetched/configured/built immediately before one full finite-cross batch, parsing and auxiliary qualification. No core source change; formal CI is separate.",
+  "base_revision": "162222153c5711f51c01478c04e34c65a8549303",
+  "upstream_main_revision": "162222153c5711f51c01478c04e34c65a8549303",
+  "tracked_worktree_clean": true,
+  "binary_sha256": "34481080886d26d6064d349cd850d0dee5418dd5d58e552bd5ced4500e9a192f",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit 162222153c57), built with AppleClang 21.0.0.21000334",
+  "run": "coverage/interaction-results/cross82-kirimasim-16222215-classsel.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2495,
+    "unsupported": 529,
+    "fail": 4
+  },
+  "new_cases": 36,
+  "previous_cases": 2992,
+  "previous_run": "coverage/interaction-results/cross81-kirimasim-16222215-gensub.json",
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": [
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_1_bit_u_direct_if_known_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_129_logic_s_virtual_conditional_z_rebind.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_33_bit_s_virtual_conditional_x_rebind.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_64_logic_u_nonvirtual_conditional_known_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_32_bit_u_direct_case_z_rebind.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_33_bit_u_nonvirtual_if_z_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_1_logic_s_direct_conditional_x_rebind.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_129_bit_u_virtual_if_x_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_64_bit_s_virtual_case_known_rebind.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_65_bit_u_nonvirtual_conditional_z_rebind.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_33_logic_u_direct_case_known_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_1_logic_u_virtual_case_z_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_64_logic_u_direct_if_x_rebind.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_32_bit_u_direct_conditional_known_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_129_bit_u_nonvirtual_case_known_rebind.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_32_bit_u_nonvirtual_if_x_rebind.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_65_bit_s_virtual_conditional_known_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_65_logic_u_direct_if_z_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_1_bit_u_nonvirtual_conditional_x_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_64_bit_u_direct_case_x_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_64_bit_s_direct_conditional_z_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_1_bit_s_virtual_if_z_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_case_x_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_33_bit_s_nonvirtual_if_known_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_33_logic_s_nonvirtual_case_z_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_129_bit_u_direct_conditional_z_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_1_logic_s_direct_case_known_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_direct_conditional_z_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_33_logic_u_direct_conditional_x_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_64_logic_s_direct_if_z_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_65_bit_u_direct_case_x_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_65_logic_s_direct_if_known_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_129_logic_s_direct_if_known_keep.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_classsel_129_logic_s_direct_case_x_keep.sv",
+      "returncode": 0
+    }
+  ]
+}

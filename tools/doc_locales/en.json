@@ -21015,6 +21015,18 @@
     "function/taskの入出力変換、呼出し順序、外部更新後の再呼出し、隣接要素と別スコープの状態保持を観測する。": "Observe function/task input/output conversions, call order, calls after external updates, and retention of neighbors and other scopes.",
     "生成スコープの暗黙定数と局所型を使うサブルーチンを呼び、既定引数の再評価と入出力変換を照合する。": "Call subroutines using generated-scope constants and local types; check default-argument reevaluation and input/output conversion.",
     "生成スコープごとに変わる配列の幅と添字範囲を実際の境界問い合わせ・要素更新・隣接保持で照合する。": "Check per-generated-scope array widths and index ranges through actual bound queries, element updates and neighbor retention.",
-    "既定引数の配列要素を呼出しごとに取得し、関数の戻り値とtaskのcopy-outを更新前後の配列状態・隣接保持と照合する。": "Capture array-element defaults on each call and compare function returns and task copy-out with array states before/after updates and retained neighbors."
+    "既定引数の配列要素を呼出しごとに取得し、関数の戻り値とtaskのcopy-outを更新前後の配列状態・隣接保持と照合する。": "Capture array-element defaults on each call and compare function returns and task copy-out with array states before/after updates and retained neighbors.",
+    "二つの派生オブジェクトを使い、直呼び・基底ハンドルのvirtual/非virtualを区別する。": "Two derived objects distinguish direct calls from virtual and nonvirtual base-handle calls.",
+    "ifと通常caseはX/Z条件を偽側へ送り、条件演算子は各ビットをマージする。": "If and ordinary case take the false/default path for X/Z conditions; the conditional operator merges each bit.",
+    "既知値の相と既知値またはX/Z入力の相を実行し、 ZXQPH0QXZ 型でも条件は ZXQPH1QXZ に保つ。": "Run a known-input phase and a known/X/Z phase; keep the selector ZXQPH1QXZ even for ZXQPH0QXZ data.",
+    "返す値を取得してから同じreceiverのdataだけを更新し、早期return後の文は実行しない。": "Capture the returned value before updating only the receiver data; statements after the early return must not execute.",
+    "各呼出し後に両オブジェクトと保持した別名、幅を広げた結果、呼出し数を観測する。": "After each call observe both objects, a retained alias, wider result variables and invocation counts.",
+    "外部更新、別ハンドルへの再束縛、guardだけの更新、反復呼出しと最終保持を確認する。": "Check external updates, handle rebinding, guard-only writes, repeated calls and final retention.",
+    "単一initial、時間を消費しないfunctionのみ。": "Use one initial process and functions that consume no time.",
+    "再帰・ref・null・並行性・ ZXQPH0QXZ ・プロパティの隠蔽・super・混合符号の演算は対象外。": "Recursion, ref, null, concurrency, ZXQPH0QXZ, property hiding, super and mixed-sign arithmetic are outside scope.",
+    "クラスの直呼びと基底ハンドル経由の呼出しで条件選択・更新先・早期returnを照合する。": "Compare conditional selection, update targets and early returns through direct class calls and base handles.",
+    "if/caseと条件演算子のX/Z、型付き結果の符号拡張、別名と再束縛後のオブジェクトの独立性を観測する。": "Observe X/Z behavior of if/case and conditional expressions, typed-result sign extension, retained aliases and object independence after rebinding.",
+    "receiverごとの値を条件演算子と ZXQPH0QXZ で評価し、既知・X/Z条件の分岐と型付き戻り値の符号拡張を別オブジェクトと照合する。": "Evaluate receiver-owned values with conditional expressions and ZXQPH0QXZ; compare known/X/Z selection and typed-return sign extension against the other object.",
+    "クラスメソッドのifまたはcaseによる早期returnが選択した値とreceiverだけを更新し、戻り後の副作用や他オブジェクトへの書込みを生まないことを照合する。": "Check that early returns selected by class-method if/case update only the selected value and receiver, without post-return effects or writes to the other object."
   }
 }

@@ -12,6 +12,15 @@
 
 ## 保存実行の概要
 
+2026-11-05のクラスの条件選択の追加で、**82モデル・3,028選択ケース・119章対**になりました。
+実行直前に上流mainを取得・構成・ビルドしたkirimasim `162222153c57`の
+[全クロスのローカル実行](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json)は、
+**2,495 pass・529 unsupported・既存configの4 fail**です。追加36件は解析成功・全PASSで、
+従来2,992件の入力ハッシュ・状態分類は不変、**全選択ケースPASSは55モデル**です。
+第8章×第11章は全36件、第8章×第12章はif/caseの24件に対応付けます。
+[クラスの条件選択とreturn](#class-conditional-return)に設計・独立確認・固定版の観測を記載しています。
+新しいケースの正式Check・Nightlyは未実行です。以下の生成サブルーチンの記録は、前回の追加時点の結果です。
+
 2026-11-05の生成スコープのサブルーチンの追加で、**81モデル・2,992選択ケース・117章対**になりました。
 実行直前に上流mainを取得・構成・ビルドしたkirimasim `162222153c57`の
 [全クロスのローカル実行](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json)は、
@@ -3177,3 +3186,69 @@ python3 tools/qualify_gensub.py --kirimasim /path/to/latest-build/kirimasim \
 対象は二moduleインスタンスの各二つの生成要素、固定配列、ANSI形式のinput既定値、時間を消費しないautomaticサブルーチン、
 既知の定数による分岐です。再帰・ref・並行性・時間制御・動的配列・オブジェクト経由の呼出し・既定値の関数による副作用は対象外です。
 ランダムプロファイルや要求の対応付けは追加しません。新しいケースの正式Check・Nightlyは未実行です。
+
+<a id="class-conditional-return"></a>
+
+## クラスの条件選択・型付きの早期return・参照先の保持
+
+[`interaction_class_select.py`](../generators/interaction_class_select.py)は`class_conditional_return@1`を実装します。
+全1,296行が合法で、**因子対183組・重点3因子135組・必須6件**を保持する36件を選びます（件数を97.22%削減）。
+因子は幅1/32/33/64/65/129、bit/logic、unsigned/signed、直呼び・virtual/非virtual、
+if・通常case・条件演算子、既知値/X/Z、ハンドルの保持・再束縛です。
+根拠はクラスの呼出し先とハンドル同一性（8.6、8.12、8.20）、条件演算子のマージ（11.4.11）、
+代入の幅と符号拡張（11.8.2）、if/case（12.4、12.5）、functionのreturn（13.4.1）です。
+未対応による除外や既存テストの変更はありません。
+
+二つの派生オブジェクトは、data・backup・guardと基底/派生の別々の呼出し数を持つ基底クラスを共有します。
+派生メソッドは基底メソッドと真偽の選択値を逆にし、XORによる更新定数も変えます。
+直呼びとvirtualな基底ハンドルは派生側、非virtualな基底ハンドルは基底側を呼ぶ必要があります。
+各本体は選択値を保存し、receiverのdataだけを更新して、保存した型付きの値を返します。
+return後の文は実行しません。幅を広げたunsigned logicの受取先で、戻り値の符号拡張を観測します。
+ifと通常caseはX/Z条件を偽側/defaultへ送り、条件演算子は対応するビットをマージします。
+プロパティがbitでも条件はlogicに保つため、選択結果のbitへの変換を理由にfourstateを外すことはできません。
+
+各ケースは既知値の相を先に実行し、次に既知値またはX/Zの相を実行します。保持した別名は最初にオブジェクトAを指します。
+A/Bの呼出し、別名経由の外部更新、AのハンドルをBへ再束縛する選択、再束縛したハンドルと保持した別名からの呼出し、
+guardだけの更新、反復呼出し、最終保持を通じて参照先と状態を観測します。
+各段階で三つのハンドル、二つの同一性比較、全プロパティ、呼出し数・到達してはならない文の回数、保持した結果を表示します。
+並行プロセスの実行順序やシミュレータの乱数値に観測を依存させません。
+
+[`qualify_class_select.py`](../tools/qualify_class_select.py)は、実際のSVの宣言・ハンドルの静的型・virtual宣言・
+制御文・型付き式・代入・呼出し・表示を独立に読みます。
+既存の独立な値/X/Zのビット面とXORの評価器を再利用し、生成器の文字列による選択・参照関数は呼びません。
+全1,296プログラムが参照値に一致し、未知構文や余分なプロセスを拒否します。
+[`classsel.json`](../coverage/interaction-qualification/classsel.json)には正常対照5件と**実際のSVへの9故障**を保持します。
+virtualの喪失、選択プロパティ、更新定数、返す取得値、return前への副作用移動、符号拡張の喪失、
+未知条件マージの喪失、保持した別名、呼出し先receiverを誤らせます。
+全て正常終了し、全故障を出力差で検出しました。確認中のコード・入力・ランナー・実行バイナリのハッシュは不変です。
+補助実行を固定スイートのPASSや要求カバレッジへ加算しません。
+
+実行直前にmainを取得・構成・ビルドしたkirimasim `162222153c57`の
+[単一の全クロス実行](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json)は、82モデル・3,028件で
+**2,495 pass・529 unsupported・既存configの4 fail**です。追加36件は解析成功・全PASSで、従来2,992件の入力ハッシュ・分類は不変です。
+[`classsel-build.json`](../coverage/interaction-qualification/classsel-build.json)に実際のrevision・バイナリ・parseの結果を保持します。
+章間表は119章対、全選択ケースPASSは55モデルです。第8章×第11章は全36件、
+第8章×第12章はif/caseの24件だけに対応付けます。モデル全体の合格には同じ実行で全36件のPASSが必要です。
+
+[固定版の比較](../coverage/interaction-qualification/classsel-fixed-replays.json)は、シミュレータごとに識別しています。
+Verilator 5.052のseed 1/73は各**12 pass・24 known**です。両seedに一致した既知値の12件だけにoracleを登録します。
+Xのケースは2値の未知値処理で出力が異なり、Zのケースはクラスメンバへのトライステート代入をビルド時に拒否します。
+Icarus 13.0は、クラスハンドルの比較が未実装という診断で全36件のビルドを拒否します。
+[保存入力の全出力再実行](../coverage/interaction-qualification/classsel-known-replays.json)には、代表X入力の両seedの全出力、
+Zのビルド診断、Icarusの拒否と、変更していない期待値を保持します。
+2値の観測を4値動作の確認には使いません。このX/Z入力の外部4値シミュレータでの確認は未確認で、
+現在の証跡はnativeの一致と独立解釈です。knownの分類と期待値は維持します。
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model class_conditional_return
+python3 -m unittest discover -s tools -p test_interaction_class_select.py
+# native実行の直前に本体の最新mainを取得・構成・ビルドします。
+python3 tools/qualify_class_select.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/classsel-qualification-new.json
+python3 tools/run_verilator.py --all --seed 1 \
+  tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind.sv
+```
+
+範囲は二つの派生オブジェクト、一段の継承、継承プロパティ、保持した別名、同じ符号の整数型、時間を消費しないautomatic functionです。
+再帰・ref・nullの参照・プロパティの隠蔽・super・混合符号の演算・並行性・GC・大量生成は対象外です。
+ランダムプロファイルは13のままで、要求の対応付け・本体コードは不変です。新しいケースの正式Check・Nightlyは未実行です。

@@ -12,7 +12,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 10742 |
+| Tests | 10778 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -26,8 +26,8 @@
 | --- | ---: |
 | both releases | 768 |
 | Icarus Verilog 13.0 only | 4921 |
-| Verilator 5.052 only | 1985 |
-| standard only | 3068 |
+| Verilator 5.052 only | 1997 |
+| standard only | 3092 |
 
 <a id="章別"></a>
 
@@ -40,7 +40,7 @@
 | 5 | Lexical conventions | 346 | 16 | 21.6 | 0 | 7 |
 | 6 | Data types | 681 | 76 | 9.0 | 0 | 123 |
 | 7 | Aggregate data types | 772 | 49 | 15.8 | 0 | 201 |
-| 8 | Classes | 375 | 43 | 8.7 | 0 | 84 |
+| 8 | Classes | 411 | 43 | 9.6 | 0 | 108 |
 | 9 | Processes | 383 | 25 | 15.3 | 0 | 56 |
 | 10 | Assignment statements | 353 | 18 | 19.6 | 0 | 44 |
 | 11 | Operators and expressions | 1644 | 42 | 39.1 | 0 | 250 |

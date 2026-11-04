@@ -36,13 +36,15 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The 2026-11-05 mapping contains 81 models and 2,992 selected cases across 117 unordered off-diagonal pairs. The [complete kirimasim 162222153c57 local run](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json) records 2,459 pass, 529 unsupported and four failures; 54 models passed their entire selection.
+The 2026-11-05 mapping contains 82 models and 3,028 selected cases across 119 unordered off-diagonal pairs. The [complete kirimasim 162222153c57 local run](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json) records 2,495 pass, 529 unsupported and four failures; 55 models passed their entire selection.
 
 The [formal Nightly checkpoint](nightly-results.en.md#latest-verified-checkpoint), verified on 2026-11-04 JST for suite `9926160a`,
 confirms the preceding 79-model, 2,922-case selection on kirimasim `9113955914d8`.
 The [Check on fd140002](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183) passed on the preceding 80-model suite. The new 36 cases have local evidence and have not run in formal Check/Nightly.
-The CSVs use the complete 2,992-case local cross81 run; partial successes from different runs are not combined.
+The CSVs use the complete 3,028-case local cross82 run; partial successes from different runs are not combined.
 The thirteen random profiles and their 96 Nightly passes do not enter these matrices.
+
+- **8×11 and 8×12, class selection/early return:** one model and one full-selection-pass model each. The former maps all 36 cases; the latter maps the 24 if/case cases. A full model pass still requires all 36 together. Observe dynamic/static dispatch, X/Z selection, typed returns, receiver updates, aliases and dead effects. See [design and independent evidence](interaction-verification.en.md#class-conditional-return).
 
 - **13×27 and 7×27, generated subroutine/array binding:** one model and one full-selection-pass model each, using all 36 cases. The existing **7×13** mapping gains this fourth model. Observe per-scope widths/ranges, default reevaluation, function/task results, neighbor retention and repeated calls. See [design and independent evidence](interaction-verification.en.md#generated-subroutine-binding).
 

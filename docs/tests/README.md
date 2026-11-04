@@ -15,7 +15,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 5 | [Lexical conventions](ch5.md) | 346 | 248 |
 | 6 | [Data types](ch6.md) | 681 | 79 |
 | 7 | [Aggregate data types](ch7.md) | 772 | 304 |
-| 8 | [Classes](ch8.md) | 375 | 54 |
+| 8 | [Classes](ch8.md) | 411 | 90 |
 | 9 | [Processes](ch9.md) | 383 | 173 |
 | 10 | [Assignment statements](ch10.md) | 353 | 149 |
 | 11 | [Operators and expressions](ch11.md) | 1644 | 1122 |

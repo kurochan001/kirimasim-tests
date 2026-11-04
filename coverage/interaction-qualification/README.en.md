@@ -10,7 +10,7 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-04 JST)
 
-The current finite selection has 81 models and 2,992 cases; see the [new local qualification](#generated-subroutine-qualification). The formal record below predates this addition and covers 79 models.
+The current finite selection has 82 models and 3,028 cases; see the [new local qualification](#class-selection-qualification). The formal record below predates this addition and covers 79 models.
 
 [`formal-ci-9926160a-20261104.json`](formal-ci-9926160a-20261104.json) records successful Check and Nightly on suite `9926160a`,
 including successful publication. All 2,922 finite selected cases on kirimasim `9113955914d8` retain the input fingerprints and statuses
@@ -379,10 +379,27 @@ Four native controls and nine real SV faults terminate normally, and all faults 
 Source, input and binary fingerprints are stable across qualification. [`gensub-build.json`](gensub-build.json) identifies
 latest-main core `162222153c57`, 36 successful parses and a single complete 2,992-case run:
 2,459 pass, 529 unsupported and four existing config failures. All 36 additions pass; the preceding 2,956 inputs/statuses are unchanged.
-Matrices now use this run: 81 models, 117 chapter pairs and 54 full-selection-pass models.
+At that addition, matrices used this run: 81 models, 117 chapter pairs and 54 full-selection-pass models.
 [`gensub-fixed-replays.json`](gensub-fixed-replays.json) records pinned Icarus 13.0 (36 pass) and Verilator 5.052 seeds 1/73 (11 pass, 25 known each).
 All 36 receive Icarus oracles; two-state observations are not four-state qualification.
 [`gensub-known-replays.json`](gensub-known-replays.json) retains full original-task outputs and an
 [exact function control](gensub-function-control/) with unchanged expectations. Only retained results differ in the original task case;
 Icarus and both Verilator seeds match the function control. These controls are outside the fixed suite and add no pass or coverage counts.
 See [design, limits and rerun commands](../../docs/interaction-verification.en.md#generated-subroutine-binding).
+
+<a id="class-selection-qualification"></a>
+
+## Class conditional-return qualification
+
+[`classsel.json`](classsel.json) independently interprets the actual SV for all 1,296 legal rows.
+The interpreter follows static/virtual dispatch, typed returns, X/Z merging, control flow and handle identity without primary reference helpers.
+Five native controls and nine real SV faults all exit normally, with every fault detected by output difference.
+[`classsel-build.json`](classsel-build.json) records a fresh main fetch/configure/build on `162222153c57`, 36 successful parses and
+one full 3,028-case snapshot: 2,495 pass / 529 unsupported / four existing config failures. All new cases pass; all preceding 2,992 inputs/statuses are unchanged.
+There are 82 models / 119 mapped pairs / 55 full-selection-pass models; 8×12 maps only the 24 if/case cases.
+[`classsel-fixed-replays.json`](classsel-fixed-replays.json) identifies pinned Icarus (36 known class-handle-comparison build rejections)
+and Verilator seeds 1/73 (12 pass / 24 known each). Only known-input passes obtain Verilator oracles.
+[`classsel-known-replays.json`](classsel-known-replays.json) retains unchanged expectations, representative X outputs for both seeds,
+Z build diagnostics and an Icarus rejection. Two-state observations do not validate X/Z behavior; external four-state confirmation remains unverified.
+These are local/auxiliary records, separate from formal CI, fixed requirement coverage and the thirteen random profiles.
+See [design, commands and limits](../../docs/interaction-verification.en.md#class-conditional-return).

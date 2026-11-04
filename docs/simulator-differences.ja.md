@@ -904,3 +904,15 @@ functionへの置換対照は期待値のバイト列が同じで、IcarusとVer
 [全出力の記録](../coverage/interaction-qualification/gensub-known-replays.json)と[対照のSV・期待値](../coverage/interaction-qualification/gensub-function-control/)を保持しています。
 観測上の差をtaskのcopy-out経路へ絞るもので、内部原因や新しいビルドの動作を確定するものではありません。
 残るknownの24件はX/Z入力が必要で、2値出力では確認できません。元の期待値とknown分類は維持します。
+
+<a id="class-selection-fixed-limits"></a>
+
+## 固定版のクラス条件選択の観測（2026-11-05）
+
+[クラス条件選択モデル](interaction-verification.md#class-conditional-return)は、nativeで36件がPASSし、合法1,296行の独立検算も一致しています。
+固定Verilator 5.052のseed 1/73は各12 pass・24 knownです。既知値のケースは一致し、
+X入力は2値の未知値処理で出力が異なり、Z入力はクラスメンバへのトライステート代入をビルド時に拒否します。
+固定Icarus 13.0は、クラスハンドルの比較が未実装という診断で全36件を拒否します。
+[代表例の全出力再実行](../coverage/interaction-qualification/classsel-known-replays.json)に元の期待値・出力・診断を保持します。
+2値の結果でX/Zの動作を確認済みとはしません。この入力の外部4値比較は未確認で、
+knownの分類は維持します。観測から内部原因や後続ビルドの動作を断定しません。

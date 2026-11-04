@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の90生成器から4,305件のテストを生成しています。
+現在の91生成器から4,341件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -28,6 +28,7 @@
 | [`interaction_class_array`](../generators/interaction_class_array.py) | 8 | 18 | クラスの浅いコピーとハンドル代入を対照に、配列領域の独立性と要素ハンドルの参照先の共有を照合する。元/コピーからの要素置換・拡大/縮小、保存ハンドルの存続、コンストラクタ回数と別guardの保持を確認する。 |
 | [`interaction_class_import`](../generators/interaction_class_import.py) | 26 | 34 | メソッド内のimportとクラスプロパティ、外側moduleの同名宣言の名前解決を照合する。幅・符号・状態型、function/task、別名とハンドル再束縛を交差し、package共有値・個別オブジェクト・別メソッドの更新と保持を分けて観測する。 |
 | [`interaction_class_method`](../generators/interaction_class_method.py) | 8 | 36 | 2個の派生インスタンスをA/B/A順に呼び、virtual/非virtualの実行本体と所有者、再帰の入口・出口の仮引数とプロパティ、戻り値・カウンタ・ガードを観測する。inputのフレーム別コピーとref/const refの同一実体への参照、2状態変換を確認する。 |
+| [`interaction_class_select`](../generators/interaction_class_select.py) | 8 | 36 | クラスの直呼びと基底ハンドル経由の呼出しで条件選択・更新先・早期returnを照合する。if/caseと条件演算子のX/Z、型付き結果の符号拡張、別名と再束縛後のオブジェクトの独立性を観測する。 |
 | [`interaction_clockassert`](../generators/interaction_clockassert.py) | 16 | 18 | 既定/明示の#1step clocking入力を、そのイベントと後続の別クロックのアサーションで観測する。更新の前後とblocking/NBA、独立したエッジ極性を組み合わせ、sampled値・Reactiveの生信号・判定回数を分けて照合し、別クロックでの誤った再サンプリングを検出する。 |
 | [`interaction_clockevent`](../generators/interaction_clockevent.py) | 14 | 24 | clocking入力から名前付きイベントで待機者へ通知し、受信直後と生信号変更後の採取値・生値を照合する。入力skew・エッジ・更新方式・通知方式・待機者数・幅を交差し、別イベントによる誤起床と反復時の再待機も観測する。 |
 | [`interaction_clockiff`](../generators/interaction_clockiff.py) | 14 | 12 | iffで選別したclocking eventとrawエッジを別計数し、通過時の採取と不通過時のサンプル保持を照合する。ガードだけの前後の変更、33ビットの上位1、入力skew・更新方式を交差し、cbと観測器の値を比較する。 |

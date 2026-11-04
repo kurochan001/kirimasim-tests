@@ -41,12 +41,13 @@ Profile additions remain paused at thirteen; next work is targeted exploration, 
 ### Current local additions (2026-11-05)
 
 The class/package addition subsequently entered [Check on fd140002](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183), which passed.
-The working tree now adds 36 [generated-subroutine cases](interaction-verification.en.md#generated-subroutine-binding),
-bringing the suite to 10,742 tests and the finite selection to 81 models / 2,992 cases.
-The [single complete local run](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json) on latest-built `162222153c57`
-records 2,459 pass, 529 unsupported and four fail; all preceding 2,956 inputs/statuses are unchanged.
-These new 36 cases have not run in formal Check/Nightly. The latest formal Nightly remains the `9926160a` checkpoint above,
-which predates both the class/package and generated-subroutine additions.
+Generated-subroutine tests were committed at `b80dcff3`; [its Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41912438985) was in progress when checked for this update.
+The working tree now adds 36 [class-selection cases](interaction-verification.en.md#class-conditional-return),
+bringing the suite to 10,778 tests and the finite selection to 82 models / 3,028 cases.
+The [single complete local run](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json) on latest-built `162222153c57`
+records 2,495 pass, 529 unsupported and four fail; all preceding 2,992 inputs/statuses are unchanged.
+The new class-selection cases have not run in formal Check/Nightly. The latest verified formal Nightly remains `9926160a` above,
+which predates the class/package, generated-subroutine and class-selection additions.
 
 <a id="previous-verified-checkpoint"></a>
 

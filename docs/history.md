@@ -232,3 +232,13 @@ clause 37.
 - The suite has 10,742 tests, including 4,305 generated cases from 90 generators. All 932 tool tests pass, including 16 new focused tests.
   Check on baseline `fd140002` passed before this addition; the new cases remain outside formal Check/Nightly.
   Random profiles, requirement bindings and core source are unchanged.
+
+- Added the [class conditional-return model](interaction-verification.en.md#class-conditional-return) for unreviewed 8×11 and 8×12.
+  All 1,296 rows are legal; 36 cases retain 183 pair targets, 135 targeted triples and six anchors. Independent SV interpretation agrees on all rows;
+  five normal native controls and nine real source faults validate the observations. The 8×12 mapping uses only 24 if/case cases.
+- A fresh upstream `162222153c57` build passes all 36 in one complete 3,028-case run. The preceding 2,992 input fingerprints/statuses are unchanged.
+  Totals are 82 models / 119 mapped pairs / 55 full-selection-pass models; 2,495 pass, 529 unsupported and four existing config failures.
+  Triage is M119 / E3 / C2 / N117 / R579. Suite totals are 10,778 tests and 4,341 generated cases from 91 generators.
+- Fixed Verilator seeds 1/73 each give 12 pass and 24 known; only the known-input passes receive oracles. Icarus rejects all 36 class-handle comparisons.
+  Representative full X outputs, Z diagnostics and unchanged expectations are preserved. External four-state verification of the X/Z inputs is unconfirmed.
+  Random profiles, requirement bindings, old tests and core source remain unchanged; formal Check/Nightly for the new cases have not run.

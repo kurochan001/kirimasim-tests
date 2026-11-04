@@ -63,15 +63,17 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 
 ## 実行結果の扱い
 
-2026-11-05の更新では81モデル・2,992選択ケースを、対角線以外の117組の章対に対応付けています。
-CSVに使用した結果は[kirimasim 162222153c57の全81モデルのローカル保存実行](../coverage/interaction-results/cross81-kirimasim-16222215-gensub.json)で、
-2,459 pass・529 unsupported・4 fail、全選択ケースPASSは54モデルです。
+2026-11-05の更新では82モデル・3,028選択ケースを、対角線以外の119組の章対に対応付けています。
+CSVに使用した結果は[kirimasim 162222153c57の全82モデルのローカル保存実行](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json)で、
+2,495 pass・529 unsupported・4 fail、全選択ケースPASSは55モデルです。
 
 2026-11-04（日本時間）に確認したsuite `9926160a`の[正式Nightly](nightly-results.md#latest-verified-checkpoint)でも、
 kirimasim `9113955914d8`で追加前の79モデル・2,922件を確認しています。
 追加前の80モデルのsuiteは、[`fd140002`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183)で確認済みです。新しい36件はローカル証跡があり、正式Check・Nightlyでは未実行です。
-CSVの出典は全2,992件の単一ローカル実行cross81とし、別の実行の部分成功を合成しません。
+CSVの出典は全3,028件の単一ローカル実行cross82とし、別の実行の部分成功を合成しません。
 13プロファイルのランダム比較や、そのNightlyの96 PASSも章間表へ加算しません。
+
+第8章×第11章・第8章×第12章のクラスの条件選択と早期returnは、各モデル数1・全選択ケースPASSモデル数1です。前者は全36件、後者はif/caseの24件に対応し、モデル全体の合格には全36件の同時PASSが必要です。呼出し先、X/Zの選択、型付き結果、receiverの更新、別名とreturn後の副作用を観測します。[設計と独立証跡](interaction-verification.md#class-conditional-return)を参照してください。
 
 第13章×第27章・第7章×第27章の生成サブルーチンと配列の結合は、各モデル数1・全選択ケースPASSモデル数1で、全36件を使います。既存の第7章×第13章には4番目のモデルとして追加します。局所幅・範囲、既定値の再評価、function/taskの結果、隣接保持と反復呼出しを観測します。[設計と独立証跡](interaction-verification.md#generated-subroutine-binding)を参照してください。
 

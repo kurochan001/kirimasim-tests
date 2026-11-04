@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .375 54 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .411 90 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 |テスト|チェックするもの|条項|予期した出力を記録|ノート|
 | --- | --- | --- | --- | --- |
@@ -401,3 +401,48 @@
 | [`test_gen_cross_class_method_65_logic_known_base_virtual_function_input_3`](../../tests/gen/ch8/test_gen_cross_class_method_65_logic_known_base_virtual_function_input_3.sv) |クラス受信者の発送と自動再帰は値と参照引数の意味を保持する| 8.6 8.20 13.5.1 13.5.2 13.3.1 13.4.2 6.11.2 | Verilator 5.052 ||
 | [`test_gen_cross_class_method_65_logic_x_base_nonvirtual_function_input_1`](../../tests/gen/ch8/test_gen_cross_class_method_65_logic_x_base_nonvirtual_function_input_1.sv) |クラス受信者の発送と自動再帰は値と参照引数の意味を保持する| 8.6 8.20 13.5.1 13.5.2 13.3.1 13.4.2 6.11.2 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_class_method_65_logic_z_direct_function_input_0`](../../tests/gen/ch8/test_gen_cross_class_method_65_logic_z_direct_function_input_0.sv) |クラス受信者の発送と自動再帰は値と参照引数の意味を保持する| 8.6 8.20 13.5.1 13.5.2 13.3.1 13.4.2 6.11.2 | Icarus Verilog 13.0 | x/z |
+
+<a id="generated-by-generatorsinteraction_class_selectpy"></a>
+
+## 生成者: `generators/interaction_class_select.py`
+
+36 テスト;見て "Generated tests" のスイートの README。
+
+|テスト|チェックするもの|条項|予期した出力を記録|ノート|
+| --- | --- | --- | --- | --- |
+| [`test_gen_cross_classsel_129_bit_u_direct_conditional_z_keep`](../../tests/gen/ch8/test_gen_cross_classsel_129_bit_u_direct_conditional_z_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_129_bit_u_nonvirtual_case_known_rebind`](../../tests/gen/ch8/test_gen_cross_classsel_129_bit_u_nonvirtual_case_known_rebind.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
+| [`test_gen_cross_classsel_129_bit_u_virtual_if_x_keep`](../../tests/gen/ch8/test_gen_cross_classsel_129_bit_u_virtual_if_x_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_129_logic_s_direct_case_x_keep`](../../tests/gen/ch8/test_gen_cross_classsel_129_logic_s_direct_case_x_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_129_logic_s_direct_if_known_keep`](../../tests/gen/ch8/test_gen_cross_classsel_129_logic_s_direct_if_known_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
+| [`test_gen_cross_classsel_129_logic_s_virtual_conditional_z_rebind`](../../tests/gen/ch8/test_gen_cross_classsel_129_logic_s_virtual_conditional_z_rebind.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_1_bit_s_virtual_if_z_keep`](../../tests/gen/ch8/test_gen_cross_classsel_1_bit_s_virtual_if_z_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_1_bit_u_direct_if_known_keep`](../../tests/gen/ch8/test_gen_cross_classsel_1_bit_u_direct_if_known_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
+| [`test_gen_cross_classsel_1_bit_u_nonvirtual_conditional_x_keep`](../../tests/gen/ch8/test_gen_cross_classsel_1_bit_u_nonvirtual_conditional_x_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_1_logic_s_direct_case_known_keep`](../../tests/gen/ch8/test_gen_cross_classsel_1_logic_s_direct_case_known_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
+| [`test_gen_cross_classsel_1_logic_s_direct_conditional_x_rebind`](../../tests/gen/ch8/test_gen_cross_classsel_1_logic_s_direct_conditional_x_rebind.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_1_logic_u_virtual_case_z_keep`](../../tests/gen/ch8/test_gen_cross_classsel_1_logic_u_virtual_case_z_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_32_bit_u_direct_case_z_rebind`](../../tests/gen/ch8/test_gen_cross_classsel_32_bit_u_direct_case_z_rebind.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_32_bit_u_direct_conditional_known_keep`](../../tests/gen/ch8/test_gen_cross_classsel_32_bit_u_direct_conditional_known_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
+| [`test_gen_cross_classsel_32_bit_u_nonvirtual_if_x_rebind`](../../tests/gen/ch8/test_gen_cross_classsel_32_bit_u_nonvirtual_if_x_rebind.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_32_logic_s_direct_conditional_z_keep`](../../tests/gen/ch8/test_gen_cross_classsel_32_logic_s_direct_conditional_z_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_32_logic_s_virtual_case_x_keep`](../../tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_case_x_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind`](../../tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
+| [`test_gen_cross_classsel_33_bit_s_nonvirtual_if_known_keep`](../../tests/gen/ch8/test_gen_cross_classsel_33_bit_s_nonvirtual_if_known_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
+| [`test_gen_cross_classsel_33_bit_s_virtual_conditional_x_rebind`](../../tests/gen/ch8/test_gen_cross_classsel_33_bit_s_virtual_conditional_x_rebind.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_33_bit_u_nonvirtual_if_z_keep`](../../tests/gen/ch8/test_gen_cross_classsel_33_bit_u_nonvirtual_if_z_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_33_logic_s_nonvirtual_case_z_keep`](../../tests/gen/ch8/test_gen_cross_classsel_33_logic_s_nonvirtual_case_z_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_33_logic_u_direct_case_known_keep`](../../tests/gen/ch8/test_gen_cross_classsel_33_logic_u_direct_case_known_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
+| [`test_gen_cross_classsel_33_logic_u_direct_conditional_x_keep`](../../tests/gen/ch8/test_gen_cross_classsel_33_logic_u_direct_conditional_x_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_64_bit_s_direct_conditional_z_keep`](../../tests/gen/ch8/test_gen_cross_classsel_64_bit_s_direct_conditional_z_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_64_bit_s_virtual_case_known_rebind`](../../tests/gen/ch8/test_gen_cross_classsel_64_bit_s_virtual_case_known_rebind.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
+| [`test_gen_cross_classsel_64_bit_u_direct_case_x_keep`](../../tests/gen/ch8/test_gen_cross_classsel_64_bit_u_direct_case_x_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_64_logic_s_direct_if_z_keep`](../../tests/gen/ch8/test_gen_cross_classsel_64_logic_s_direct_if_z_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_64_logic_u_direct_if_x_rebind`](../../tests/gen/ch8/test_gen_cross_classsel_64_logic_u_direct_if_x_rebind.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_64_logic_u_nonvirtual_conditional_known_keep`](../../tests/gen/ch8/test_gen_cross_classsel_64_logic_u_nonvirtual_conditional_known_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
+| [`test_gen_cross_classsel_65_bit_s_virtual_conditional_known_keep`](../../tests/gen/ch8/test_gen_cross_classsel_65_bit_s_virtual_conditional_known_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
+| [`test_gen_cross_classsel_65_bit_u_direct_case_x_keep`](../../tests/gen/ch8/test_gen_cross_classsel_65_bit_u_direct_case_x_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_65_bit_u_nonvirtual_conditional_z_rebind`](../../tests/gen/ch8/test_gen_cross_classsel_65_bit_u_nonvirtual_conditional_z_rebind.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_65_logic_s_direct_if_known_keep`](../../tests/gen/ch8/test_gen_cross_classsel_65_logic_s_direct_if_known_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
+| [`test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep`](../../tests/gen/ch8/test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+| [`test_gen_cross_classsel_65_logic_u_direct_if_z_keep`](../../tests/gen/ch8/test_gen_cross_classsel_65_logic_u_direct_if_z_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |

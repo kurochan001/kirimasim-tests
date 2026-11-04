@@ -1922,6 +1922,32 @@
           "reason": "既定引数の配列要素を呼出しごとに取得し、関数の戻り値とtaskのcopy-outを更新前後の配列状態・隣接保持と照合する。"
         }
       ]
+    },
+    {
+      "id": "class_conditional_return",
+      "primary_chapter": 8,
+      "pairs": [
+        {
+          "chapters": [
+            8,
+            11
+          ],
+          "reason": "receiverごとの値を条件演算子とXORで評価し、既知・X/Z条件の分岐と型付き戻り値の符号拡張を別オブジェクトと照合する。"
+        },
+        {
+          "chapters": [
+            8,
+            12
+          ],
+          "when": {
+            "control": [
+              "if",
+              "case"
+            ]
+          },
+          "reason": "クラスメソッドのifまたはcaseによる早期returnが選択した値とreceiverだけを更新し、戻り後の副作用や他オブジェクトへの書込みを生まないことを照合する。"
+        }
+      ]
     }
   ]
 }
