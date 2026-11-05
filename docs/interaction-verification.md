@@ -14,6 +14,12 @@
 
 ## 保存実行の概要
 
+2026-11-06のprogramとtaskの追加で、**87モデル・3,208件・130章対**になりました。
+最新取得・ビルドの`6f5c69841228`による[単一実行](../coverage/interaction-results/cross87-kirimasim-6f5c6984-progframe.json)は、
+**2,675 pass・529 unsupported・既存configの4 fail**です。追加36件は解析成功・全PASS、従来3,172件の入力・状態分類は不変です。
+全選択ケースPASSは60モデルです。[programの終了とautomatic task](#program-task-frame-lifetime)に独立検算と固定版の制約を記録します。
+確認済みCheckは9c39d865の86モデル、確認済み正式Nightlyは19cd790aの82モデルで、今回の36件は両方で未実行です。以下は各追加時点の記録です。
+
 2026-11-05の書式付き読取りの追加で、**86モデル・3,172件・128章対**になりました。
 最新取得・ビルドの`6f5c69841228`による[単一実行](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json)は、
 **2,639 pass・529 unsupported・既存configの4 fail**です。追加36件はparse成功・全PASS、従来3,136件の入力・分類は不変です。
@@ -3534,3 +3540,87 @@ python3 tools/run_verilator.py --all --seed 73 \
 対象は固定した選択添字、先頭bin/hex・第二binary・第三decimalの三変換、既知のASCII文字列、単一initial、有限の入力列です。
 可変添字・変換抑制・既知数字とX/Zの混在・空白やNULの境界・短いX/Z数字の拡張・実数・ファイルI/O・並行性は対象外です。
 要求対応付け・既存テスト・本体コード・ランダム13プロファイルは不変です。
+
+<a id="program-task-frame-lifetime"></a>
+
+## programの終了とautomatic taskの局所値・出力コピー（2026-11-06）
+
+[`interaction_progframe.py`](../generators/interaction_progframe.py)は`program_task_frame_lifetime@1`を定義します。
+第13章×第24章には全36件、第12章×第24章には`completion=return`の8件を対応付けます。
+単にprogram内にtaskを書くためではなく、終了範囲と復帰方法が実際の出力コピー・呼出し履歴を変えるための対応です。
+[呼出しごとの局所値とコピーアウト](glossary.md#9-クロステストで使う言語機能)も参照してください。
+
+### 因子と選択
+
+幅1/32/33/64/65/129、bit/logic、既知/X/Z、unsigned/signed、output/inout、
+スカラー/固定配列要素、最初の復帰前/復帰の間/自然終了、endtask/早期return、呼出し順ab/baを交差します。
+全3,456行が合法です。36件で全因子対249目標・重点3因子100目標・必須6件を保持します（件数98.96%削減）。
+重点群は幅×状態型×入力、終了時期×引数方向×復帰方法、符号×引数方向×格納先、
+終了時期×復帰方法×順序、幅×符号×引数方向、格納先×引数方向×順序です。
+未対応を理由に分母から除外しません。2因子の100%は全3,456行の実行済みを意味しません。
+[数字の読み方](faq.md#q28-why-not-simply-cross-every-feature)を参照してください。
+
+### 刺激・観測・期待値
+
+同じmodule内の独立したprogram `p`と`q`が、automatic taskをそれぞれ二つ重ねて呼び出します。
+開始は1/3、復帰は7/11です。時刻5で元入力と実引数を書き換え、呼出し時に取得した入力・inoutと局所変数が保持されるかを調べます。
+`p`だけが6または9で`$exit`する場合と、自然終了する場合を分けます。
+正常なendtaskとtaskの早期returnは出力を戻し、後者ではreturn後の文を実行しません。
+途中終了したtaskは出力を戻さず、`p`の終了が`q`へ影響しないことも照合します。
+
+実引数は仮引数より3ビット広いlogicで、符号拡張・切詰めと配列の隣接要素も全幅で観測します。
+時刻12の既知値への更新後、生存programは同じtaskを再呼出しし、13で復帰します。
+回数を初期化せず、元のX/Zを保持した別呼出しと既知値への回復を区別します。
+
+実在する[幅1・output・途中終了のケース](../tests/gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab.sv)では、
+1で取得した`sampled=1`に対してtask内の`result`は0になります。
+これは仮引数の値であり、まだ4ビットの実引数へ書き戻しません。5の更新後、`p_a=1011`です。
+6で`p`が終了するため、8の観測でも`p_a=1011`を保持します。生存する`q`は7で正常復帰し、`q_a=0000`になります。
+[期待出力](../tests/gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab.expected)の`entry_first`、`refresh`、`first_return`を順に追えます。
+
+### 競合を避ける範囲と独立確認
+
+出力はmoduleの監視だけで行い、通常の復帰・終了とは異なる時刻で観測します。
+12のmoduleによる更新・表示はActive、programからの再呼出しはReactiveで、更新後の値を取得します。
+相手programのinitialは20まで待ち、moduleは15で明示終了します。暗黙の全体終了は通常ケースの対象外です。
+ref、可変添字、NBA、join_none、再帰、static task、同時刻に競合するwriterは対象外です。
+
+[`qualify_progframe.py`](../tools/qualify_progframe.py)は生成済みSVの型・宣言・task文・呼出し先・待ち時間・表示を解釈します。
+独立した値/X/Zマスク、呼出しごとのフレーム、Active/Reactiveのイベント列を使い、主モデルの入力生成・期待値関数を呼びません。
+全3,456行で期待値と一致しました。[補助証跡](../coverage/interaction-qualification/progframe.json)には、正常対照6件と実行できるSVの誤り9件を保持します。
+終了の除去・遅延、returnから$exitへの置換、return除去、コピーアウト除去、符号拡張の破壊、入力・出力先の誤り、局所値の再取得を、
+すべて正常終了後の出力差として検出しました。これら15実行は固定suite・要求・章間表の件数へ加算しません。
+
+### 実行結果と限界
+
+直前にmainを取得・構成・ビルドしたkirimasim `6f5c69841228`の[全3,208件の単一実行](../coverage/interaction-results/cross87-kirimasim-6f5c6984-progframe.json)では、
+新規36件が解析成功・全PASSです。従来3,172件の入力と状態分類は不変で、全体は2,675 pass・529 unsupported・既存configの4 failです。
+[ビルド記録](../coverage/interaction-qualification/progframe-build.json)に版・バイナリ指紋・解析結果を保持します。
+87モデル・130章対・全選択ケースPASSは60モデルです。一つのモデルの合格には、同じ保存実行で全36件の成功が必要です。
+
+[固定版比較](../coverage/interaction-qualification/progframe-fixed-replays.json)は、Icarus 13.0が6 pass・30 knownです。
+自然終了の一致6件だけにoracleを付けました。残る30件は再現時にコンパイル成功後、`$exit`未定義で実行を拒否しました。
+Reactiveの割当てについても警告があるため、6件の一致をprogram領域全般の保証とはしません。
+Verilator 5.052は両seedとも36 knownで、既知入力の比較でもmodule内program宣言を未対応として拒否しました。
+[全30件のIcarus診断とVerilatorの代表再現](../coverage/interaction-qualification/progframe-known-replays.json)を保存しています。
+X/Zはbitへの変換もfourstateとして保持し、2値の一致や多数決で規格期待値を変更しません。
+
+suiteは36件増えて10,958件、生成4,521件・96生成器です。要求への新規対応付けはなく、要求の分母・確認率と13ランダムプロファイルは維持します。
+今回の追加はローカル確認で、正式Check・Nightlyは未実行です。確認済みCheckは追加前の86モデル、正式Nightlyは82モデルです。
+
+### 再実行
+
+保存したSVと期待値をそのまま使います。補助証跡の出力先には未使用のパスを指定してください。
+本体は[最新コミットの取得とビルド手順](../README.ja.md#kirimasim)に従って準備します。
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_progframe.py
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest-build/kirimasim -j 8 \
+  --json my-results/progframe-native-new.json tests/gen/ch24/test_gen_cross_progframe_*.sv
+python3 tools/qualify_progframe.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/progframe-qualification-new.json
+python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin -j 4 \
+  --json my-results/progframe-icarus-new.json tests/gen/ch24/test_gen_cross_progframe_*.sv
+python3 tools/run_verilator.py --all --seed 1 -j 3 \
+  --json my-results/progframe-verilator-new.json tests/gen/ch24/test_gen_cross_progframe_*.sv
+```

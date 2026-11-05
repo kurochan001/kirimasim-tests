@@ -38,12 +38,14 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The 2026-11-05 mapping contains 86 models and 3,172 selected cases across 128 unordered off-diagonal pairs. The [complete kirimasim 6f5c69841228 local run](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json) records 2,639 pass, 529 unsupported and four failures; 59 models passed their entire selection.
+The 2026-11-06 mapping contains 87 models and 3,208 selected cases across 130 unordered off-diagonal pairs. The [complete kirimasim 6f5c69841228 local run](../coverage/interaction-results/cross87-kirimasim-6f5c6984-progframe.json) records 2,675 pass, 529 unsupported and four failures; 60 models passed their entire selection.
 
-[Check on baseline d98d6e4c](https://github.com/kurochan001/kirimasim-tests/actions/runs/42040601997) passed pinned-release comparisons and static checks for the preceding 85-model suite.
+[Check on baseline 9c39d865](https://github.com/kurochan001/kirimasim-tests/actions/runs/42051092628) passed pinned-release comparisons and static checks for the preceding 86-model suite.
 The [verified formal Nightly](nightly-results.en.md#latest-verified-checkpoint) covers 82 models on 19cd790a; the new 36 cases have not run in either Check or Nightly.
-The CSVs use the complete 3,172-case local cross86 run; partial successes from different runs are not combined.
+The CSVs use the complete 3,208-case local cross87 run; partial successes from different runs are not combined.
 The thirteen random profiles and their 96 Nightly passes do not enter these matrices.
+
+- **13×24 and 12×24, program/task lifetime:** map all 36 cases to 13×24 and the eight early-return cases to 12×24; each has one model and one full-selection-pass model. Full-model success requires all 36 together. See [design and independent evidence](interaction-verification.en.md#program-task-frame-lifetime).
 
 - **11×21 and 20×21, formatted scanning:** map the 24 part-select cases to 11×21 and the twelve runtime-format cases to 20×21; each has one model and one full-selection-pass model. Full-model success still requires all 36 together. See [design and independent evidence](interaction-verification.en.md#formatted-scan-partial-write).
 

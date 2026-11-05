@@ -8,12 +8,12 @@
 
 <a id="current-evidence-checkpoint"></a>
 
-## 最新証跡の確認（2026-11-05 日本時間）
+## 最新証跡の確認（2026-11-06 日本時間）
 
-現行は86モデル・3,172件で、[書式付き読取りの独立確認](#formatted-scan-qualification)を参照してください。
-[`check-d98d6e4c-20261105.json`](check-d98d6e4c-20261105.json)は前回までの85モデルの固定版比較・静的検査のCheck成功を確認します。
+現行は87モデル・3,208件で、[programとtaskの独立確認](#program-task-frame-qualification)を参照してください。
+[`check-9c39d865-20261106.json`](check-9c39d865-20261106.json)は前回までの86モデルの固定版比較・静的検査のCheck成功を確認します。
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は82モデルを対象にした正式Nightly・publish・ランダム96 PASSの記録であり、実行を混同しません。
-今回の36件はCheck・Nightlyでは未実行です。生成ループ以降の144件は、この確認済み正式Nightlyの範囲外です。
+今回の36件はCheck・Nightlyでは未実行です。生成ループ以降の180件は、この確認済み正式Nightlyの範囲外です。
 
 <a id="checkpoint-9926160a"></a>
 
@@ -459,3 +459,15 @@ Zのビルド診断、Icarusの拒否を保持します。2値の観測でX/Zの
 [固定版比較](scansel-fixed-replays.json)はIcarusの17 pass・19 knownと、Verilatorの各seed 3 pass・33 knownを識別します。
 [元の19件とVの3例の全出力](scansel-known-replays.json)、[別の12 literal対照](scansel-literal-controls/)を保持し、対照7件の一致で元の結果を上書きしません。
 86モデル・128章対・全選択ケースPASSは59モデルです。[設計・範囲・コマンド](../../docs/interaction-verification.md#formatted-scan-partial-write)を参照してください。
+
+<a id="program-task-frame-qualification"></a>
+
+## programとautomatic taskの独立確認
+
+[`progframe.json`](progframe.json)は全3,456行の実際のSVを、型付きの局所フレームとイベント列で独立解釈します。
+正常対照6件と実行可能な誤り9件はすべて正常終了し、誤りを出力差で検出しました。
+[ビルド記録](progframe-build.json)は最新取得・ビルドの`6f5c69841228`、36件の解析成功と全3,208件の単一実行を識別します。
+全体は2,675 pass・529 unsupported・既存configの4 failで、追加36件は全PASS、従来3,172件の入力・状態分類は不変です。
+[固定版比較](progframe-fixed-replays.json)はIcarus 6 pass・30 known、Verilator両seedとも36 knownです。
+[全30件のIcarus診断と代表Verilator再現](progframe-known-replays.json)を保持し、既存期待値は変更しません。
+87モデル・130章対・全選択ケースPASSは60モデルです。[設計・制約・再実行](../../docs/interaction-verification.md#program-task-frame-lifetime)を参照してください。

@@ -2053,6 +2053,31 @@
           "reason": "対象または格納語の$bitsを実際の書式変数の最大文字数に使い、その境界での変換数と部分書込みを照合する。"
         }
       ]
+    },
+    {
+      "id": "program_task_frame_lifetime",
+      "primary_chapter": 24,
+      "pairs": [
+        {
+          "chapters": [
+            13,
+            24
+          ],
+          "reason": "重なるautomatic taskの仮引数と局所値を保持し、正常復帰だけがoutput/inoutをコピーアウトすることを、対象programの終了と別programの生存を交差して照合する。"
+        },
+        {
+          "chapters": [
+            12,
+            24
+          ],
+          "when": {
+            "completion": [
+              "return"
+            ]
+          },
+          "reason": "taskの早期returnは出力を戻して呼出し元へ復帰する一方、programの$exitは進行中の呼出しを中断することを、後続文・実引数・復帰数で区別する。"
+        }
+      ]
     }
   ]
 }

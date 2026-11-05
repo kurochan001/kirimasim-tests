@@ -14,6 +14,12 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-06 program/task addition brings totals to **87 models / 3,208 cases / 130 chapter pairs**.
+The [single run](../coverage/interaction-results/cross87-kirimasim-6f5c6984-progframe.json) on freshly fetched/built `6f5c69841228` records
+**2,675 pass / 529 unsupported / four existing config failures**. All 36 additions parse/pass; preceding 3,172 inputs/statuses are unchanged.
+There are 60 full-selection-pass models. See [program termination and automatic tasks](#program-task-frame-lifetime) for independent checks and pinned limitations.
+Verified Check covers 86 models on 9c39d865, and verified formal Nightly covers 82 on 19cd790a; these new 36 cases have not run in either. Records below describe each addition’s checkpoint.
+
 The 2026-11-05 formatted-scan addition brings totals to **86 models / 3,172 cases / 128 chapter pairs**.
 The [single run](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json) on freshly fetched/built `6f5c69841228` records
 **2,639 pass / 529 unsupported / four existing config failures**. All 36 additions parse/pass; preceding 3,136 inputs/statuses are unchanged.
@@ -3560,3 +3566,86 @@ python3 tools/run_verilator.py --all --seed 73 \
 Scope is fixed select indices, a first bin/hex field, a second binary field and a third decimal field, known ASCII strings, one initial block and finite input sequences.
 Variable indices, suppression, mixed known/X/Z tokens, whitespace/NUL boundaries, short X/Z-digit extension, reals, file I/O and concurrency are outside scope.
 Requirement bindings, existing tests, core code and thirteen random profiles are unchanged.
+
+<a id="program-task-frame-lifetime"></a>
+
+## Program termination, private automatic task frames and copyout (2026-11-06)
+
+[`interaction_progframe.py`](../generators/interaction_progframe.py) defines `program_task_frame_lifetime@1`.
+Map all 36 cases to 13×24 and the eight `completion=return` cases to 12×24.
+Termination scope and completion method affect actual copies and call history; merely declaring a task in a program is not the mapping rationale.
+See [private frames and copyout](glossary.en.md#9-クロステストで使う言語機能).
+
+### Factors and selection
+
+Cross widths 1/32/33/64/65/129, bit/logic, known/X/Z, unsigned/signed, output/inout,
+scalar/fixed-array-element actuals, stop before the first return/between returns/natural completion, endtask/early return, and ab/ba call order.
+All 3,456 rows are legal. Select 36, retaining all 249 pair targets, 100 priority triple targets and six anchors (98.96% fewer cases).
+Priority groups are width×state×value, stop×mode×completion, sign×mode×storage,
+stop×completion×order, width×sign×mode and storage×mode×order.
+No support-based denominator exclusions apply. Complete pairs do not mean all 3,456 rows ran; see [how to read these numbers](faq.en.md#q28-why-not-simply-cross-every-feature).
+
+### Stimulus, observations and expectations
+
+Two independent programs `p` and `q` inside one module each overlap two automatic task calls.
+Calls start at 1/3 and return at 7/11. Change original inputs and actuals at 5, then check retention of captured inputs/inout values and private locals.
+Only `p` executes `$exit` at 6 or 9; retain natural completion as a control.
+Normal endtask and early task return copy results out; early return skips subsequent task statements.
+Canceled calls do not copy out, and terminating `p` must leave `q` running.
+
+Actuals are logic words three bits wider than formals. Observe every bit, sign extension, truncation and neighboring array elements.
+After a known reset at 12, surviving programs call the same task again and return at 13.
+Keep counters and the other call's original X/Z history, distinguishing known recovery from erased evidence.
+
+In the actual [one-bit output/cancellation case](../tests/gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab.sv),
+`sampled=1` at 1 produces task-local `result=0`. This does not yet update the four-bit actual.
+After the external update at 5, `p_a=1011`. Terminating `p` at 6 retains `p_a=1011` in the observation at 8.
+Surviving `q` returns normally at 7 and copies `q_a=0000`.
+Follow `entry_first`, `refresh` and `first_return` in the [saved expectation](../tests/gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab.expected).
+
+### Race boundaries and independent checks
+
+Only the module prints, at ticks distinct from normal task returns and cancellation.
+At 12, module reset/observation is Active and program recall is Reactive, capturing updated values.
+The peer program initial waits until 20; the module explicitly finishes at 15. Normal cases exclude implicit global completion.
+Ref, variable indices, NBA, join_none, recursion, static tasks and concurrent same-tick writers are outside scope.
+
+[`qualify_progframe.py`](../tools/qualify_progframe.py) interprets actual SV types, declarations, task statements, bindings, delays and displays.
+It uses independent value/X/Z masks, private invocation frames and Active/Reactive events, without primary stimulus/reference helpers.
+All 3,456 programs match. [Auxiliary evidence](../coverage/interaction-qualification/progframe.json) retains six normal controls and nine executable SV faults.
+Removed/delayed termination, return replaced by $exit, removed return, lost copyout/sign extension, wrong input/destination and resampled locals
+all exit normally and are detected by output difference. These fifteen executions add no fixed-suite, requirement or matrix passes.
+
+### Results and limits
+
+One [complete 3,208-case run](../coverage/interaction-results/cross87-kirimasim-6f5c6984-progframe.json) on kirimasim `6f5c69841228`, fetched/configured/built immediately beforehand,
+records all 36 additions parsing/passing. Preceding 3,172 inputs/statuses are unchanged: totals are 2,675 pass / 529 unsupported / four existing config failures.
+The [build record](../coverage/interaction-qualification/progframe-build.json) identifies revision, binary hashes and parses.
+Totals are 87 models / 130 chapter pairs / 60 full-selection-pass models. A full-model pass requires all 36 together in one saved run.
+
+[Pinned comparisons](../coverage/interaction-qualification/progframe-fixed-replays.json) record Icarus 13.0 at 6 pass / 30 known.
+Only the six matching natural-completion cases receive its oracle. All thirty remaining replays compile, then reject execution because `$exit` is undefined.
+Icarus also warns about Reactive assignment scheduling; six matches do not qualify general program-region behavior.
+Verilator 5.052 records 36 known for each seed, rejecting nested program declarations even for known-input cases.
+Preserve [all thirty Icarus diagnostics and representative Verilator replays](../coverage/interaction-qualification/progframe-known-replays.json).
+Retain fourstate metadata even for X/Z-to-bit conversion; two-state agreement or majority voting does not replace standard expectations.
+
+The suite adds 36 tests, totaling 10,958, including 4,521 generated cases from 96 generators. Requirement bindings/denominators/rates and thirteen random profiles are unchanged.
+These additions have local evidence and have not run in formal Check/Nightly. Verified Check covers the preceding 86 models; formal Nightly covers 82.
+
+### Rerun
+
+Use the saved SV and expectations directly, with unused qualification output paths.
+Prepare the simulator through [latest-commit fetch/build instructions](../README.md#kirimasim).
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_progframe.py
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest-build/kirimasim -j 8 \
+  --json my-results/progframe-native-new.json tests/gen/ch24/test_gen_cross_progframe_*.sv
+python3 tools/qualify_progframe.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/progframe-qualification-new.json
+python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin -j 4 \
+  --json my-results/progframe-icarus-new.json tests/gen/ch24/test_gen_cross_progframe_*.sv
+python3 tools/run_verilator.py --all --seed 1 -j 3 \
+  --json my-results/progframe-verilator-new.json tests/gen/ch24/test_gen_cross_progframe_*.sv
+```

@@ -1,0 +1,30 @@
+{
+  "databaseId": 42051092628,
+  "headSha": "9c39d8657bc97857a48d9d4a5f88ca29c70f25ad",
+  "conclusion": "success",
+  "status": "completed",
+  "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42051092628",
+  "createdAt": "2026-11-05T15:03:38Z",
+  "updatedAt": "2026-11-05T15:34:22Z",
+  "scope": "Check on baseline 9c39d865: preceding 86-model suite, pinned-release Icarus/Verilator and static checks. New program/task cases and native Nightly are outside this run.",
+  "jobs": [
+    {
+      "name": "readme",
+      "conclusion": "success",
+      "status": "completed",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42051092628/job/127327076972"
+    },
+    {
+      "name": "icarus",
+      "conclusion": "success",
+      "status": "completed",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42051092628/job/127327077364"
+    },
+    {
+      "name": "verilator",
+      "conclusion": "success",
+      "status": "completed",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42051092628/job/127327077638"
+    }
+  ]
+}

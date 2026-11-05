@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 10922 |
+| Tests | 10958 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -27,9 +27,9 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 806 |
-| Icarus Verilog 13.0 only | 5003 |
+| Icarus Verilog 13.0 only | 5009 |
 | Verilator 5.052 only | 1997 |
-| standard only | 3116 |
+| standard only | 3146 |
 
 <a id="章別"></a>
 
@@ -58,7 +58,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 21 | Input/output system tasks and system functions | 339 | 47 | 7.2 | 0 | 95 |
 | 22 | Compiler directives | 398 | 21 | 19.0 | 0 | 36 |
 | 23 | Modules and hierarchy | 331 | 33 | 10.0 | 0 | 71 |
-| 24 | Programs | 124 | 7 | 17.7 | 0 | 80 |
+| 24 | Programs | 160 | 7 | 22.9 | 0 | 110 |
 | 25 | Interfaces | 204 | 12 | 17.0 | 0 | 31 |
 | 26 | Packages | 189 | 6 | 31.5 | 0 | 78 |
 | 27 | Generate constructs | 283 | 5 | 56.6 | 0 | 31 |

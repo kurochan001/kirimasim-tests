@@ -65,14 +65,16 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 
 ## 実行結果の扱い
 
-2026-11-05の更新では86モデル・3,172選択ケースを、対角線以外の128組の章対に対応付けています。
-CSVに使用した結果は[kirimasim 6f5c69841228の全86モデルのローカル保存実行](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json)で、
-2,639 pass・529 unsupported・4 fail、全選択ケースPASSは59モデルです。
+2026-11-06の更新では87モデル・3,208選択ケースを、対角線以外の130組の章対に対応付けています。
+CSVに使用した結果は[kirimasim 6f5c69841228の全87モデルのローカル保存実行](../coverage/interaction-results/cross87-kirimasim-6f5c6984-progframe.json)で、
+2,675 pass・529 unsupported・4 fail、全選択ケースPASSは60モデルです。
 
-[基点d98d6e4cのCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42040601997)は成功し、前回までの85モデルの固定版比較・静的検査を確認済みです。
+[基点9c39d865のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42051092628)は成功し、前回までの86モデルの固定版比較・静的検査を確認済みです。
 [確認済み正式Nightly](nightly-results.md#latest-verified-checkpoint)は19cd790aの82モデルが対象で、今回の36件はCheck・Nightlyの両方で未実行です。
-CSVの出典は全3,172件の単一ローカル実行cross86とし、別の実行の部分成功を合成しません。
+CSVの出典は全3,208件の単一ローカル実行cross87とし、別の実行の部分成功を合成しません。
 13プロファイルのランダム比較や、そのNightlyの96 PASSも章間表へ加算しません。
+
+第13章×第24章に全36件、第12章×第24章に早期returnの8件を対応付け、各1モデル・全選択ケースPASS 1モデルを追加します。モデル全体の合格には全36件の同時PASSが必要です。[設計と独立証跡](interaction-verification.md#program-task-frame-lifetime)を参照してください。
 
 第11章×第21章は部分選択の24件、第20章×第21章は実行時書式の12件を対応付け、各1モデル・全選択ケースPASS 1モデルを追加します。モデル全体の合格には全36件の同時PASSが必要です。[設計と独立証跡](interaction-verification.md#formatted-scan-partial-write)を参照してください。
 

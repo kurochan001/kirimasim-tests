@@ -8,12 +8,12 @@ This directory stores records of fixed-version verification-source selection, in
 
 <a id="current-evidence-checkpoint"></a>
 
-## Current evidence checkpoint (2026-11-05 JST)
+## Current evidence checkpoint (2026-11-06 JST)
 
-The selection now contains 86 models / 3,172 cases; see [formatted-scan qualification](#formatted-scan-qualification).
-[`check-d98d6e4c-20261105.json`](check-d98d6e4c-20261105.json) confirms Check’s pinned comparisons/static checks for the preceding 85-model suite.
+The selection now contains 87 models / 3,208 cases; see [program/task qualification](#program-task-frame-qualification).
+[`check-9c39d865-20261106.json`](check-9c39d865-20261106.json) confirms Check’s pinned comparisons/static checks for the preceding 86-model suite.
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
-The new 36 cases have not run in Check/Nightly. The 144 cases added since generated loops remain outside this verified formal Nightly.
+The new 36 cases have not run in Check/Nightly. The 180 cases added since generated loops remain outside this verified formal Nightly.
 
 <a id="checkpoint-9926160a"></a>
 
@@ -460,3 +460,15 @@ Six normal controls and nine faults exit normally; every fault is detected by ou
 Preserve [all nineteen original differences and three Verilator examples](scansel-known-replays.json), plus [twelve separate literal controls](scansel-literal-controls/);
 seven control matches do not replace original results. Totals: 86 models / 128 chapter pairs / 59 full-selection-pass models.
 See [design, limits and commands](../../docs/interaction-verification.en.md#formatted-scan-partial-write).
+
+<a id="program-task-frame-qualification"></a>
+
+## Program/task-frame qualification
+
+[`progframe.json`](progframe.json) independently interprets all 3,456 actual SV programs using typed private frames and event queues.
+Six normal controls and nine executable faults exit normally; every fault is detected by output difference.
+The [build record](progframe-build.json) identifies freshly fetched/built `6f5c69841228`, 36 successful parses and one complete 3,208-case run.
+Totals are 2,675 pass / 529 unsupported / four existing config failures; all additions pass and preceding 3,172 inputs/statuses are unchanged.
+[Pinned comparisons](progframe-fixed-replays.json) record Icarus at 6 pass / 30 known and Verilator at 36 known for both seeds.
+Preserve [all thirty Icarus diagnostics and representative Verilator replays](progframe-known-replays.json), retaining original expectations.
+Totals are 87 models / 130 chapter pairs / 60 full-selection-pass models. See [design, limits and reruns](../../docs/interaction-verification.en.md#program-task-frame-lifetime).

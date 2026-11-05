@@ -21102,6 +21102,21 @@
     "文字列の読取りが途中で止まる位置と成功した書込みだけを、戻り値・全語・部分選択外の保持で照合する。": "Check scan stopping and successful writes through return counts, full words and retention outside part-selects.",
     "ZXQPH0QXZ を使う実行時書式、文字数としてのフィールド幅、既知 ZXQPH1QXZ のX/Z数字と格納時の変換を観測する。": "Observe runtime formats using ZXQPH0QXZ, character-count field widths, known ZXQPH1QXZ X/Z digits and destination conversion.",
     "走査の成功位置ごとに+:または-:の選択領域だけを書き換え、後続出力と両側の非選択ビットを保持することを全語で照合する。": "At each successful scan conversion, update only the +: or -: selected region and check later outputs and both sides of unselected storage through full words.",
-    "対象または格納語の ZXQPH0QXZ を実際の書式変数の最大文字数に使い、その境界での変換数と部分書込みを照合する。": "Use ZXQPH0QXZ of the target or storage word as the actual format variable’s maximum character count; check boundary conversion counts and partial writes."
+    "対象または格納語の ZXQPH0QXZ を実際の書式変数の最大文字数に使い、その境界での変換数と部分書込みを照合する。": "Use ZXQPH0QXZ of the target or storage word as the actual format variable’s maximum character count; check boundary conversion counts and partial writes.",
+    "二つの独立programが各二つのautomatic task呼出しを重ねる。": "Two independent programs each overlap two automatic task calls.",
+    "開始は ZXQPH0QXZ 、復帰は ZXQPH1QXZ 、外部入力と実引数の更新は ZXQPH2QXZ とする。": "Calls start at ZXQPH0QXZ, return at ZXQPH1QXZ, and external inputs and actuals change at ZXQPH2QXZ.",
+    "対象programだけを ZXQPH0QXZ または ZXQPH1QXZ で ZXQPH2QXZ し、自然終了の対照も保持する。": "Apply ZXQPH2QXZ only to the target program at ZXQPH0QXZ or ZXQPH1QXZ, retaining a natural-completion control.",
+    "ZXQPH0QXZ の仮引数と局所語は呼出しごとに保持し、正常なendtaskまたはreturnでだけコピーアウトする。": "Keep ZXQPH0QXZ formals and local words private to each call; copy out only on normal endtask or return.",
+    "実引数は ZXQPH0QXZ ビット広い ZXQPH1QXZ で、符号拡張と固定配列[ ZXQPH2QXZ ]の非選択要素も観測する。": "Actuals are ZXQPH0QXZ-bit-wider ZXQPH1QXZ words; observe sign extension and unselected elements of fixed arrays [ZXQPH2QXZ].",
+    "ZXQPH0QXZ で既知値に更新し、生存するprogramが同じtaskを再呼出しして ZXQPH1QXZ で復帰する。": "Reset to known values at ZXQPH0QXZ; surviving programs call the same task again and return at ZXQPH1QXZ.",
+    "監視はmoduleだけで行い、programの書込みと同時刻の観測順序に依存しない。": "Only the module observes output, avoiding observation-order dependence at program write times.",
+    "相手programのinitialは ZXQPH0QXZ まで待ち、moduleは ZXQPH1QXZ で明示終了する。": "The counterpart program initial waits until ZXQPH0QXZ; the module finishes explicitly at ZXQPH1QXZ.",
+    "暗黙の全体終了は主対象にしない。": "Implicit global completion is outside the main scope.",
+    "ref・可変添字・ ZXQPH0QXZ ・ ZXQPH1QXZ ・再帰・同時刻の競合writer・static taskは主対象外。": "Ref arguments, variable indices, ZXQPH0QXZ, ZXQPH1QXZ, recursion, concurrent same-tick writers and static tasks are outside the main scope.",
+    "入力X/Zから ZXQPH0QXZ への変換でもfourstateを指定する。": "Retain fourstate metadata even when input X/Z converts into ZXQPH0QXZ.",
+    "重なるautomatic taskの局所値と ZXQPH0QXZ のコピーを、programの終了範囲と復帰方法を変えて照合する。": "Check overlapping automatic task locals and ZXQPH0QXZ copying across program termination scope and return methods.",
+    "途中終了時のコピー抑止、生存する別program、符号拡張、配列の隣接要素と再呼出しの履歴を観測する。": "Observe suppressed copies on cancellation, the surviving peer program, sign extension, neighboring array elements and recall history.",
+    "重なるautomatic taskの仮引数と局所値を保持し、正常復帰だけが ZXQPH0QXZ をコピーアウトすることを、対象programの終了と別programの生存を交差して照合する。": "Check private formals/locals of overlapping automatic tasks and normal-return-only ZXQPH0QXZ copying across target-program termination and peer survival.",
+    "taskの早期returnは出力を戻して呼出し元へ復帰する一方、programの ZXQPH0QXZ は進行中の呼出しを中断することを、後続文・実引数・復帰数で区別する。": "Distinguish early task return with copyout and caller continuation from program ZXQPH0QXZ cancellation through later statements, actuals and return counts."
   }
 }

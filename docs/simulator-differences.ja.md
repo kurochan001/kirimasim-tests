@@ -945,3 +945,13 @@ Xをbitへ格納する入力で、2値の乱数化結果の一度の一致を4�
 再実行で17件は正常終了、2件はreturncode -10/-11でした。保存入力と期待値を保持した別のliteral対照12件は7件が一致し、5件にbit/X/Zの差が残ります。
 Verilator両seedは各3 pass・33 knownで、既知値2件だけにoracleを登録します。runtime書式の構文拒否、literalの64ビット選択の生成C++ビルド失敗、129ビット選択の出力差を全診断で記録しています。
 元の失敗や期待値を対照の成功で置き換えず、2値の追加一致をlogicの4値検証へ流用しません。実装ソースを読んで内部原因や後続版の動作を断定しません。
+
+<a id="program-task-frame-differences"></a>
+
+## program内のautomatic taskと途中終了（2026-11-06）
+
+固定Icarus 13.0は自然終了6件が一致し、$exitを含む30件はコンパイル後に実行を拒否します。
+固定Verilator 5.052は両seedとも36件のmodule内program宣言を未対応として拒否します。
+最新kirimasimは全36件で規格期待値と一致しました。[モデルの範囲](interaction-verification.md#program-task-frame-lifetime)と
+[保存済みの全Icarus診断・代表Verilator再現](../coverage/interaction-qualification/progframe-known-replays.json)を参照してください。
+未対応やknownをPASSへ読み替えず、期待値は維持しています。

@@ -1,0 +1,193 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch24/test_gen_cross_progframe_129_bit_known_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_129_bit_known_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "02e519e36813b9854c612ba450a34f4112a1cc01c2968f7b47e22dc352be36d7"
+  },
+  "gen/ch24/test_gen_cross_progframe_129_bit_x_u_inout_scalar_natural_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_129_bit_x_u_inout_scalar_natural_end_ab.sv:122:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "94fd25864cd285b44dd3d15799d628379bb373d666ad050a0ac52b5a3f4d92d1"
+  },
+  "gen/ch24/test_gen_cross_progframe_129_bit_z_s_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_129_bit_z_s_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "1214a9394fc760ea342a26010f9e1391041a6dbf43f810489a3f0472440186b6"
+  },
+  "gen/ch24/test_gen_cross_progframe_129_logic_known_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_129_logic_known_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "0cfcf1d5abf926240d0a17af6b0179b562d5ed6828713aebf502eed8461aedbc"
+  },
+  "gen/ch24/test_gen_cross_progframe_129_logic_x_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_129_logic_x_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "d1e5335aea177902c557cf2d67fa2d8f70e3de0de6a8db456854494d4282e9ed"
+  },
+  "gen/ch24/test_gen_cross_progframe_129_logic_z_s_inout_element_between_return_ba": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_129_logic_z_s_inout_element_between_return_ba.sv:125:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "b2cf5d23c8f4df3e21269efb11ef1a85e0fd0931a5db3c47c2229991d7dee564"
+  },
+  "gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "e73da5b032489e9d318a459b23770d408fa77e202fa3f4441239ef00e0b721d3"
+  },
+  "gen/ch24/test_gen_cross_progframe_1_bit_x_s_output_element_natural_end_ba": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_1_bit_x_s_output_element_natural_end_ba.sv:122:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "4c4145057ee4a915d97e7b81422cb930cadbd4e4304ab228a5d1b34a77fcf5c8"
+  },
+  "gen/ch24/test_gen_cross_progframe_1_bit_z_s_inout_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_1_bit_z_s_inout_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "2b77ca1f880820332a5e0df1534c34165e047c261a092c146a86c19886a97aa0"
+  },
+  "gen/ch24/test_gen_cross_progframe_1_logic_known_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_1_logic_known_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "6f32eaaad9478cd602b2d20a37fcd6755e588f7a8d0fcaf319150c2b8b8ca734"
+  },
+  "gen/ch24/test_gen_cross_progframe_1_logic_x_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_1_logic_x_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "123399e21b38c594129f1d1de518047ad518f2442a6dc634cd27064c1b9db489"
+  },
+  "gen/ch24/test_gen_cross_progframe_1_logic_z_u_inout_scalar_between_return_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_1_logic_z_u_inout_scalar_between_return_ab.sv:125:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "9e643d3fe76ba06cd4b0902ab74c815674337ba098ce7c0f44fc90202b7d668e"
+  },
+  "gen/ch24/test_gen_cross_progframe_32_bit_known_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_32_bit_known_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "cdad2822105e9d9c220dd46641c0adb58d8c64ff19a2936f2055d77afc8f2fb4"
+  },
+  "gen/ch24/test_gen_cross_progframe_32_bit_x_u_inout_scalar_between_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_32_bit_x_u_inout_scalar_between_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "17618cb8adbe36175c42c228527d48d57b67096b45ebd10daf499a70cbdc1ea1"
+  },
+  "gen/ch24/test_gen_cross_progframe_32_bit_z_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_32_bit_z_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "bcefc77c56ea657dc7061afc96264700d8911afcad7d485290cd46b13ea93d5a"
+  },
+  "gen/ch24/test_gen_cross_progframe_32_logic_known_s_output_scalar_natural_return_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_32_logic_known_s_output_scalar_natural_return_ab.sv:123:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "9475fee2e61b8f4f30b1f5727313769399007b59b1cabd5b8777b18d4fb7434e"
+  },
+  "gen/ch24/test_gen_cross_progframe_32_logic_x_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_32_logic_x_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "2d7aba6f15c5d99340a11f3663a5cdf8739e4fab9dc79a6b82d3a395c52682e4"
+  },
+  "gen/ch24/test_gen_cross_progframe_32_logic_z_s_inout_element_before_end_ba": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_32_logic_z_s_inout_element_before_end_ba.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "6cb994381b6aa415051e521968c6ec2cd23cbe0774da165cd463b12cc42a8319"
+  },
+  "gen/ch24/test_gen_cross_progframe_33_bit_known_u_output_scalar_between_return_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_33_bit_known_u_output_scalar_between_return_ab.sv:125:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "faa4ce16b032ea5f3d787c95fb2922906531cd541945de23e93e793b4a54f734"
+  },
+  "gen/ch24/test_gen_cross_progframe_33_bit_x_s_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_33_bit_x_s_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "15fb49a17c75fbbf5f471521c2b4483b2c8231e0a85835ccdcbb8a681b66a4f6"
+  },
+  "gen/ch24/test_gen_cross_progframe_33_bit_z_s_inout_scalar_before_return_ba": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_33_bit_z_s_inout_scalar_before_return_ba.sv:125:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "ce88fcc336f3ac64e20cdee36f496817bf7f8566c6dcbea56a0fb1465fcfabea"
+  },
+  "gen/ch24/test_gen_cross_progframe_33_logic_known_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_33_logic_known_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "4b9f0e671b0c3baac838bc44e081e76ebf106626e5402024faab239b9ec1f809"
+  },
+  "gen/ch24/test_gen_cross_progframe_33_logic_x_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_33_logic_x_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "8994403364f0ce32469fb018787d6613dc03809bea7cf466cc30dabb1bcf34dc"
+  },
+  "gen/ch24/test_gen_cross_progframe_33_logic_z_u_inout_element_natural_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_33_logic_z_u_inout_element_natural_end_ab.sv:122:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "e480ac57dfd1169bb9862b7fd02c2767b2767977ea41f4b16404ff39d4aa2cfb"
+  },
+  "gen/ch24/test_gen_cross_progframe_64_bit_known_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_64_bit_known_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "a2bfa6ae5011352d7867f25fe214732d5a667b2218f5e4e6fec16f4316258a87"
+  },
+  "gen/ch24/test_gen_cross_progframe_64_bit_x_s_output_scalar_before_return_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_64_bit_x_s_output_scalar_before_return_ab.sv:125:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "aae352ddb695d1d1858fbe7560675e26a1659c7cbea46d9877160ae476221060"
+  },
+  "gen/ch24/test_gen_cross_progframe_64_bit_z_s_inout_scalar_natural_return_ba": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_64_bit_z_s_inout_scalar_natural_return_ba.sv:123:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "67d9b33a7f178cd1401c76865bd0c74dbb5950b1133c7c18b7243124cb4ebe5f"
+  },
+  "gen/ch24/test_gen_cross_progframe_64_logic_known_u_inout_element_between_end_ba": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_64_logic_known_u_inout_element_between_end_ba.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "f9bab5bd5654ce3289053960f9d9c32c4b672d6dc443007bb04aa3799c0ec0f6"
+  },
+  "gen/ch24/test_gen_cross_progframe_64_logic_x_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_64_logic_x_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "235d217e37d82b76a37486c7da8ed2a3afba5db01ef43277d1864edc49aa2895"
+  },
+  "gen/ch24/test_gen_cross_progframe_64_logic_z_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_64_logic_z_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "df30ccf1d4dcba26740dfabb10bf963fbe31adc380b14b0682d5edb5492f0970"
+  },
+  "gen/ch24/test_gen_cross_progframe_65_bit_known_u_inout_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_65_bit_known_u_inout_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "0da4731a6accc61df9904b4188783623e21ab4e84f514b437e44dedeb385ffad"
+  },
+  "gen/ch24/test_gen_cross_progframe_65_bit_x_s_inout_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_65_bit_x_s_inout_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "91e4c3aa298034f12ef6faafa264fd4bcaca2e7e0f8ee47083eaee3b06ffca75"
+  },
+  "gen/ch24/test_gen_cross_progframe_65_bit_z_s_output_scalar_between_end_ba": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_65_bit_z_s_output_scalar_between_end_ba.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "6b316bf1d8da587f317a590b91c987f2f5cd716197e28fef0500da4db9db96cd"
+  },
+  "gen/ch24/test_gen_cross_progframe_65_logic_known_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_65_logic_known_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "3b87887fccabf3f91196603c840a2e44582f41c406fd96bc25a56f5d680aa8c9"
+  },
+  "gen/ch24/test_gen_cross_progframe_65_logic_x_u_output_element_natural_return_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_65_logic_x_u_output_element_natural_return_ab.sv:123:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "10c4fa883d5939c92542219e73c7722869875e79588923817ae45e235ec8628a"
+  },
+  "gen/ch24/test_gen_cross_progframe_65_logic_z_u_output_scalar_before_end_ab": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progframe_65_logic_z_u_output_scalar_before_end_ab.sv:124:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "8ad0730f8014452fab9127eccf44d035caf94981b1038918ebe7316e28ef39ee"
+  }
+ },
+ "generated_at": "2026-11-05T15:36:17.134075+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

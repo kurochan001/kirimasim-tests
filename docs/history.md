@@ -290,3 +290,13 @@ clause 37.
   The new 36 cases have not run in formal Check/Nightly.
   All 1,014 tool tests pass, including seventeen new focused tests.
   Verified successful Check on baseline d98d6e4c; the new 36 cases are outside that run.
+
+### 2026-11-06
+
+- Added 36 program-termination/automatic-task cases, independently interpreting all 3,456 actual SV programs and executing six normal controls plus nine source faults.
+- One complete 3,208-case run on freshly fetched/built `6f5c69841228` records 2,675 pass / 529 unsupported / four existing config failures.
+  Preceding 3,172 inputs/statuses are unchanged. Totals: 87 models / 130 chapter pairs / 60 full-selection-pass models; triage M130/E3/C2/N117/R568.
+- Pinned Icarus records 6 pass / 30 known; Verilator records 36 known at both seeds. Only six matching Icarus cases obtain its oracle.
+  Prior evidence/expectations/requirement bindings and thirteen random profiles are unchanged. Suite totals: 10,958, including 4,521 generated cases from 96 generators.
+- Verified successful Check on baseline 9c39d865, covering the preceding 86-model suite's pinned comparisons/static checks.
+  The new 36 cases have not run in formal Check/Nightly. See [design and evidence](interaction-verification.en.md#program-task-frame-lifetime).

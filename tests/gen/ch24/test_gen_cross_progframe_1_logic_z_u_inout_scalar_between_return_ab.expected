@@ -1,0 +1,81 @@
+h step=entry_first t=2
+p a=1001 b=0010 guard=1011 src_a=z src_b=0
+p lane=a entry=x late=0 local=x entered=1 done=0 returned=0 tail=0
+p lane=b entry=0 late=0 local=0 entered=0 done=0 returned=0 tail=0
+p parent=0 recovered=0 stop=0 after=0 natural=0
+q a=1101 b=0110 guard=1111 src_a=1 src_b=x
+q lane=a entry=0 late=0 local=1 entered=1 done=0 returned=0 tail=0
+q lane=b entry=0 late=0 local=0 entered=0 done=0 returned=0 tail=0
+q parent=0 recovered=0 stop=0 after=0 natural=0
+h step=entry_both t=4
+p a=1001 b=0010 guard=1011 src_a=z src_b=0
+p lane=a entry=x late=0 local=x entered=1 done=0 returned=0 tail=0
+p lane=b entry=0 late=0 local=0 entered=1 done=0 returned=0 tail=0
+p parent=0 recovered=0 stop=0 after=0 natural=0
+q a=1101 b=0110 guard=1111 src_a=1 src_b=x
+q lane=a entry=0 late=0 local=1 entered=1 done=0 returned=0 tail=0
+q lane=b entry=x late=0 local=x entered=1 done=0 returned=0 tail=0
+q parent=0 recovered=0 stop=0 after=0 natural=0
+h step=refresh t=5
+p a=1011 b=0100 guard=1011 src_a=0 src_b=1
+p lane=a entry=x late=0 local=x entered=1 done=0 returned=0 tail=0
+p lane=b entry=0 late=0 local=0 entered=1 done=0 returned=0 tail=0
+p parent=0 recovered=0 stop=0 after=0 natural=0
+q a=1111 b=0000 guard=1111 src_a=0 src_b=1
+q lane=a entry=0 late=0 local=1 entered=1 done=0 returned=0 tail=0
+q lane=b entry=x late=0 local=x entered=1 done=0 returned=0 tail=0
+q parent=0 recovered=0 stop=0 after=0 natural=0
+h step=first_return t=8
+p a=000x b=0100 guard=1011 src_a=0 src_b=1
+p lane=a entry=x late=x local=x entered=1 done=1 returned=1 tail=0
+p lane=b entry=0 late=0 local=0 entered=1 done=0 returned=0 tail=0
+p parent=0 recovered=0 stop=0 after=0 natural=0
+q a=0001 b=0000 guard=1111 src_a=0 src_b=1
+q lane=a entry=0 late=0 local=1 entered=1 done=1 returned=1 tail=0
+q lane=b entry=x late=0 local=x entered=1 done=0 returned=0 tail=0
+q parent=0 recovered=0 stop=0 after=0 natural=0
+h step=after_stop t=10
+p a=000x b=0100 guard=1011 src_a=0 src_b=1
+p lane=a entry=x late=x local=x entered=1 done=1 returned=1 tail=0
+p lane=b entry=0 late=0 local=0 entered=1 done=0 returned=0 tail=0
+p parent=0 recovered=0 stop=1 after=0 natural=0
+q a=0001 b=0000 guard=1111 src_a=0 src_b=1
+q lane=a entry=0 late=0 local=1 entered=1 done=1 returned=1 tail=0
+q lane=b entry=x late=0 local=x entered=1 done=0 returned=0 tail=0
+q parent=0 recovered=0 stop=0 after=0 natural=0
+h step=complete t=12
+p a=000x b=0100 guard=1011 src_a=0 src_b=1
+p lane=a entry=x late=x local=x entered=1 done=1 returned=1 tail=0
+p lane=b entry=0 late=0 local=0 entered=1 done=0 returned=0 tail=0
+p parent=0 recovered=0 stop=1 after=0 natural=0
+q a=0001 b=000x guard=1111 src_a=0 src_b=1
+q lane=a entry=0 late=0 local=1 entered=1 done=1 returned=1 tail=0
+q lane=b entry=x late=x local=x entered=1 done=1 returned=1 tail=0
+q parent=1 recovered=0 stop=0 after=0 natural=0
+h step=reset t=12
+p a=0110 b=1111 guard=1011 src_a=1 src_b=0
+p lane=a entry=x late=x local=x entered=1 done=1 returned=1 tail=0
+p lane=b entry=0 late=0 local=0 entered=1 done=0 returned=0 tail=0
+p parent=0 recovered=0 stop=1 after=0 natural=0
+q a=0010 b=1011 guard=1111 src_a=1 src_b=0
+q lane=a entry=0 late=0 local=1 entered=1 done=1 returned=1 tail=0
+q lane=b entry=x late=x local=x entered=1 done=1 returned=1 tail=0
+q parent=1 recovered=0 stop=0 after=0 natural=0
+h step=recovered t=14
+p a=0110 b=1111 guard=1011 src_a=1 src_b=0
+p lane=a entry=x late=x local=x entered=1 done=1 returned=1 tail=0
+p lane=b entry=0 late=0 local=0 entered=1 done=0 returned=0 tail=0
+p parent=0 recovered=0 stop=1 after=0 natural=0
+q a=0000 b=1011 guard=1111 src_a=1 src_b=0
+q lane=a entry=1 late=1 local=0 entered=2 done=2 returned=2 tail=0
+q lane=b entry=x late=x local=x entered=1 done=1 returned=1 tail=0
+q parent=1 recovered=1 stop=0 after=0 natural=0
+h step=idle t=15
+p a=0110 b=1111 guard=1011 src_a=1 src_b=0
+p lane=a entry=x late=x local=x entered=1 done=1 returned=1 tail=0
+p lane=b entry=0 late=0 local=0 entered=1 done=0 returned=0 tail=0
+p parent=0 recovered=0 stop=1 after=0 natural=0
+q a=0000 b=1011 guard=1111 src_a=1 src_b=0
+q lane=a entry=1 late=1 local=0 entered=2 done=2 returned=2 tail=0
+q lane=b entry=x late=x local=x entered=1 done=1 returned=1 tail=0
+q parent=1 recovered=1 stop=0 after=0 natural=0

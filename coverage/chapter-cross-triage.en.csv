@@ -290,25 +290,25 @@ tests/ch5/test_system_function_names_cell_reset_and_attributes.sv","The candidat
 5,Lexical conventions,39,Assertion API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 5,Lexical conventions,40,Code coverage control and API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,1,tests/ch40/test_coverage_fsm_pragmas.sv,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 5,Lexical conventions,41,Data read API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-6,Data types,7,Aggregate data types,M,Modeling licensed,登録済み,8,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,948,"tests/ch11/test_memory_invalid_address_2state.sv
+6,Data types,7,Aggregate data types,M,Modeling licensed,登録済み,8,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,984,"tests/ch11/test_memory_invalid_address_2state.sv
 tests/ch26/test_package_typedef.sv
 tests/ch37/test_vpi_net_array_members_parents.sv",Maintaining the planning and execution evidence of existing models.,,
 6,Data types,8,Classes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,180,"tests/ch13/test_evaluation_context_extended.sv
 tests/ch37/test_vpi_scope_lifetimes.sv
 tests/ch37/test_vpi_typespec_kinds_more.sv",Maintaining the planning and execution evidence of existing models.,,
-6,Data types,9,Processes,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,389,"tests/ch12/test_foreach_index_shadows_outer.sv
+6,Data types,9,Processes,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,425,"tests/ch12/test_foreach_index_shadows_outer.sv
 tests/ch13/test_local_var.sv
 tests/ch6/test_automatic_data_declarations_in_static_procedural_scopes.sv",Maintaining the planning and execution evidence of existing models.,,
 6,Data types,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,692,"tests/ch10/test_alias_undeclared_name_implicit_net.sv
 tests/ch10/test_array_pattern_index_type_default_keys.sv
 tests/ch10/test_assignment_like_contexts.sv",Maintaining the planning and execution evidence of existing models.,,
-6,Data types,11,Operators and expressions,M,Modeling licensed,登録済み,14,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1595,"tests/ch11/test_A_extra_specparam_range.sv
+6,Data types,11,Operators and expressions,M,Modeling licensed,登録済み,14,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1631,"tests/ch11/test_A_extra_specparam_range.sv
 tests/ch11/test_a8_3_a8_4_constant_primaries.sv
 tests/ch11/test_concatenation_pattern_string_operand_and_replication_once.sv",Maintaining the planning and execution evidence of existing models.,,
-6,Data types,12,Procedural programming statements,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,198,"tests/ch11/test_propagated_operand_sign.sv
+6,Data types,12,Procedural programming statements,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,234,"tests/ch11/test_propagated_operand_sign.sv
 tests/ch11/test_real_equality_is_exact.sv
 tests/ch12/test_do_while_edge_cases.sv",Maintaining the planning and execution evidence of existing models.,,
-6,Data types,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,636,"tests/ch10/test_assignment_like_contexts.sv
+6,Data types,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,672,"tests/ch10/test_assignment_like_contexts.sv
 tests/ch13/test_evaluation_context_extended.sv
 tests/ch13/test_func_static.sv",Maintaining the planning and execution evidence of existing models.,,
 6,Data types,14,Clocking blocks,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,50,"tests/ch14/test_clocking_output_net_driver.sv
@@ -337,7 +337,7 @@ tests/ch5/test_literals_macros_specify.sv",Maintaining the planning and executio
 6,Data types,23,Modules and hierarchy,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,274,"tests/ch10/test_net_delay_port_driver_and_undriven.sv
 tests/ch23/test_23_extra_param_expressions.sv
 tests/ch23/test_23_extra_parameter_locations.sv",Maintaining the planning and execution evidence of existing models.,,
-6,Data types,24,Programs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,40,"tests/ch24/test_program_automatic_lifetime.sv
+6,Data types,24,Programs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,76,"tests/ch24/test_program_automatic_lifetime.sv
 tests/ch24/test_program_declaration_all_header_elements.sv
 tests/ch24/test_program_instances.sv",Maintaining the planning and execution evidence of existing models.,,
 6,Data types,25,Interfaces,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,285,"tests/ch25/test_interface_declaration_all_header_elements.sv
@@ -378,19 +378,19 @@ tests/ch38/test_38_extra_scalar_val.sv","The candidates and sources of the citat
 7,Aggregate data types,8,Classes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,51,"tests/ch10/test_assignment_deep.sv
 tests/ch37/test_vpi_typespec_kinds_more.sv
 tests/ch37/test_vpi_variable_kinds_flags_sizes.sv",Maintaining the planning and execution evidence of existing models.,,
-7,Aggregate data types,9,Processes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,317,"tests/ch12/test_foreach_block_scope.sv
+7,Aggregate data types,9,Processes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,353,"tests/ch12/test_foreach_block_scope.sv
 tests/ch7/test_array_access.sv
 tests/ch7/test_assignment_forms.sv",Maintaining the planning and execution evidence of existing models.,,
 7,Aggregate data types,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,285,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_assignment_deep.sv
 tests/ch10/test_contassign_pattern_to_net_array.sv",Maintaining the planning and execution evidence of existing models.,,
-7,Aggregate data types,11,Operators and expressions,M,Modeling licensed,登録済み,10,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,637,"tests/ch10/test_assign_lhs_forms.sv
+7,Aggregate data types,11,Operators and expressions,M,Modeling licensed,登録済み,10,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,673,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_contassign_select_of_struct_member.sv
 tests/ch10/test_lvalue_scopes_selects_and_concatenation_forms.sv",Maintaining the planning and execution evidence of existing models.,,
-7,Aggregate data types,12,Procedural programming statements,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,97,"tests/ch11/test_tagged_union_expression_and_matches_precedence.sv
+7,Aggregate data types,12,Procedural programming statements,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,133,"tests/ch11/test_tagged_union_expression_and_matches_precedence.sv
 tests/ch12/test_foreach_block_scope.sv
 tests/ch12/test_pattern_matching.sv",Maintaining the planning and execution evidence of existing models.,,
-7,Aggregate data types,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,4,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,339,"tests/ch13/test_task_fifo.sv
+7,Aggregate data types,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,4,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,375,"tests/ch13/test_task_fifo.sv
 tests/ch37/test_vpi_tf_call_kinds_relations.sv
 tests/ch6/test_simple_bit_vector_types_and_packed_equivalents.sv",Maintaining the planning and execution evidence of existing models.,,
 7,Aggregate data types,14,Clocking blocks,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
@@ -414,7 +414,9 @@ tests/gen/ch10/test_gen_cross_delay_129_bit_known_one_long_direct.sv",Maintainin
 7,Aggregate data types,22,Compiler directives,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 7,Aggregate data types,23,Modules and hierarchy,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,2,"tests/ch23/test_root_and_array_scope_hierarchical_names.sv
 tests/ch6/test_vector_ranges_bit_order_and_arithmetic.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-7,Aggregate data types,24,Programs,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
+7,Aggregate data types,24,Programs,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,36,"tests/gen/ch24/test_gen_cross_progframe_129_bit_known_u_output_scalar_before_end_ab.sv
+tests/gen/ch24/test_gen_cross_progframe_129_bit_x_u_inout_scalar_natural_end_ab.sv
+tests/gen/ch24/test_gen_cross_progframe_129_bit_z_s_output_scalar_before_end_ab.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 7,Aggregate data types,25,Interfaces,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,73,"tests/ch37/test_vpi_variable_kinds_flags_sizes.sv
 tests/gen/ch10/test_gen_cross_loop_nba_129_bit_known_for_2_same_blocking_module.sv
 tests/gen/ch10/test_gen_cross_loop_nba_129_bit_x_while_3_scalar_nba_module.sv",Maintaining the planning and execution evidence of existing models.,,
@@ -508,13 +510,13 @@ tests/ch37/test_vpi_variable_parent_prefixes.sv","The candidates and sources of 
 9,Processes,10,Assignment statements,M,Modeling licensed,登録済み,3,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,438,"tests/ch10/test_assignment_delays_with_time_units.sv
 tests/ch10/test_blocking_assignment_sequential_not_parallel.sv
 tests/ch10/test_intra_assignment_delay_nba_concatenation.sv",Maintaining the planning and execution evidence of existing models.,,
-9,Processes,11,Operators and expressions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,176,"tests/ch11/test_divider_edge_cases.sv
+9,Processes,11,Operators and expressions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,212,"tests/ch11/test_divider_edge_cases.sv
 tests/ch11/test_mintypmax_expressions.sv
 tests/ch11/test_part_select_variable_base.sv",Maintaining the planning and execution evidence of existing models.,,
-9,Processes,12,Procedural programming statements,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,127,"tests/ch12/test_for_declared_variables_local_automatic.sv
+9,Processes,12,Procedural programming statements,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,163,"tests/ch12/test_for_declared_variables_local_automatic.sv
 tests/ch12/test_for_loop_bitsel_accumulate.sv
 tests/ch12/test_foreach_block_scope.sv",Maintaining the planning and execution evidence of existing models.,,
-9,Processes,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,266,"tests/ch13/test_function_in_always_comb.sv
+9,Processes,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,302,"tests/ch13/test_function_in_always_comb.sv
 tests/ch13/test_function_nonblocking_statements_no_delay.sv
 tests/ch13/test_local_var.sv",Maintaining the planning and execution evidence of existing models.,,
 9,Processes,14,Clocking blocks,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,16,"tests/ch13/test_function_nonblocking_statements_no_delay.sv
@@ -540,7 +542,7 @@ tests/ch4/test_sched_comb_follows_nba_in_same_step.sv",Maintaining the planning 
 9,Processes,23,Modules and hierarchy,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,11,"tests/ch23/test_module_common_item_kinds.sv
 tests/ch24/test_program_final_after_initial_ends.sv
 tests/ch26/test_scope_resolution.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-9,Processes,24,Programs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,29,"tests/ch16/test_sequence_triggered.sv
+9,Processes,24,Programs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,65,"tests/ch16/test_sequence_triggered.sv
 tests/ch24/test_program_attributed_and_generate_items.sv
 tests/ch24/test_program_end_kills_descendants.sv",Maintaining the planning and execution evidence of existing models.,,
 9,Processes,25,Interfaces,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,74,"tests/ch10/test_nba_then_event_control_same_step.sv
@@ -641,10 +643,10 @@ tests/ch37/test_vpi_cont_assign_drivers.sv","The candidates and sources of the c
 10,Assignment statements,39,Assertion API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 10,Assignment statements,40,Code coverage control and API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 10,Assignment statements,41,Data read API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-11,Operators and expressions,12,Procedural programming statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,194,"tests/ch11/test_complex_condition_3.sv
+11,Operators and expressions,12,Procedural programming statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,230,"tests/ch11/test_complex_condition_3.sv
 tests/ch11/test_mux_edge_cases.sv
 tests/ch11/test_propagated_operand_sign.sv",Maintaining the planning and execution evidence of existing models.,,
-11,Operators and expressions,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,291,"tests/ch11/test_bit_reverse.sv
+11,Operators and expressions,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,327,"tests/ch11/test_bit_reverse.sv
 tests/ch11/test_ct_eval_side_effects.sv
 tests/ch13/test_abs_func.sv",Maintaining the planning and execution evidence of existing models.,,
 11,Operators and expressions,14,Clocking blocks,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
@@ -666,9 +668,9 @@ tests/ch21/test_display_arguments_without_format.sv",Maintaining the planning an
 11,Operators and expressions,22,Compiler directives,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,1,tests/ch22/test_ifdef_expression.sv,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 11,Operators and expressions,23,Modules and hierarchy,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,2,"tests/ch23/test_defparam_assignment_lists.sv
 tests/ch23/test_port_expression_assignment_rules.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-11,Operators and expressions,24,Programs,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,36,"tests/gen/ch24/test_gen_cross_reactive_129_bit_known_1_blocking_blocking_direct.sv
-tests/gen/ch24/test_gen_cross_reactive_129_bit_x_2_blocking_continuous_direct.sv
-tests/gen/ch24/test_gen_cross_reactive_129_bit_z_1_blocking_continuous_direct.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
+11,Operators and expressions,24,Programs,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,72,"tests/gen/ch24/test_gen_cross_progframe_129_bit_known_u_output_scalar_before_end_ab.sv
+tests/gen/ch24/test_gen_cross_progframe_129_bit_x_u_inout_scalar_natural_end_ab.sv
+tests/gen/ch24/test_gen_cross_progframe_129_bit_z_s_output_scalar_before_end_ab.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 11,Operators and expressions,25,Interfaces,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,81,"tests/gen/ch16/test_gen_cross_assert_129_logic_z_equal_negedge_nba_edge_interface.sv
 tests/gen/ch16/test_gen_cross_assert_1_bit_z_case_equal_negedge_blocking_after_interface.sv
 tests/gen/ch16/test_gen_cross_assert_32_bit_x_reduce_or_negedge_nba_after_interface.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
@@ -699,7 +701,7 @@ tests/ch38/test_vpi_handle_by_name_scope_index.sv","The candidates and sources o
 11,Operators and expressions,39,Assertion API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 11,Operators and expressions,40,Code coverage control and API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 11,Operators and expressions,41,Data read API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-12,Procedural programming statements,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,156,"tests/ch12/test_case_expr.sv
+12,Procedural programming statements,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,192,"tests/ch12/test_case_expr.sv
 tests/ch12/test_return_edge_cases.sv
 tests/ch12/test_return_ops_edge_cases.sv",Maintaining the planning and execution evidence of existing models.,,
 12,Procedural programming statements,14,Clocking blocks,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,12,"tests/gen/ch14/test_gen_cross_clockiff_1_bit_posedge_step_nba_scalar_before.sv
@@ -720,7 +722,9 @@ tests/ch16/test_nonvacuous_property_case.sv","The candidates and sources of the 
 12,Procedural programming statements,21,Input/output system tasks and system functions,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 12,Procedural programming statements,22,Compiler directives,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 12,Procedural programming statements,23,Modules and hierarchy,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-12,Procedural programming statements,24,Programs,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
+12,Procedural programming statements,24,Programs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,36,"tests/gen/ch24/test_gen_cross_progframe_129_bit_known_u_output_scalar_before_end_ab.sv
+tests/gen/ch24/test_gen_cross_progframe_129_bit_x_u_inout_scalar_natural_end_ab.sv
+tests/gen/ch24/test_gen_cross_progframe_129_bit_z_s_output_scalar_before_end_ab.sv",Maintaining the planning and execution evidence of existing models.,,
 12,Procedural programming statements,25,Interfaces,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,72,"tests/gen/ch10/test_gen_cross_loop_nba_129_bit_known_for_2_same_blocking_module.sv
 tests/gen/ch10/test_gen_cross_loop_nba_129_bit_x_while_3_scalar_nba_module.sv
 tests/gen/ch10/test_gen_cross_loop_nba_129_bit_z_for_2_scalar_blocking_module.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
@@ -767,7 +771,9 @@ tests/gen/ch4/test_gen_sched_assign_monitor_function_delay1.sv",Maintaining the 
 13,Tasks and functions (subroutines),23,Modules and hierarchy,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,45,"tests/ch13/test_default_argument_declaring_scope.sv
 tests/ch13/test_hierarchical_task_call_without_parentheses.sv
 tests/ch13/test_subroutine_forward_reference.sv",Maintaining the planning and execution evidence of existing models.,,
-13,Tasks and functions (subroutines),24,Programs,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,1,tests/ch24/test_program_automatic_lifetime.sv,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
+13,Tasks and functions (subroutines),24,Programs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,37,"tests/ch24/test_program_automatic_lifetime.sv
+tests/gen/ch24/test_gen_cross_progframe_129_bit_known_u_output_scalar_before_end_ab.sv
+tests/gen/ch24/test_gen_cross_progframe_129_bit_x_u_inout_scalar_natural_end_ab.sv",Maintaining the planning and execution evidence of existing models.,,
 13,Tasks and functions (subroutines),25,Interfaces,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,221,"tests/ch37/test_vpi_io_direction_undefined.sv
 tests/gen/ch10/test_gen_cross_loop_nba_129_bit_known_for_2_same_blocking_module.sv
 tests/gen/ch10/test_gen_cross_loop_nba_129_bit_x_while_3_scalar_nba_module.sv",Maintaining the planning and execution evidence of existing models.,,

@@ -233,5 +233,6 @@ These terms help read model stimuli and observations. Check [model scope](intera
 | Continuous-assignment inertial delay / pulse rejection | Canceling a pending continuous update through a later input change. Check transition times and intermediate pulses, not only final values. |
 | UDP / combinational and sequential UDP | User-defined primitives with table-defined behavior / forms using only inputs or also retained output state. Initialization, input edges and retention affect sequential observations. |
 | Drive strength / resolved value / `%v` | Net driver strength / combined-driver value / display including strength. Observe separately from `%b` logic values; even 0/1 drivers can resolve to X. |
+| Automatic task frame / copy-in and copyout | Private formals/locals for each invocation / value transfers at entry and normal return. Updating a formal need not immediately update its actual. See [the program-termination example](interaction-verification.en.md#program-task-frame-lifetime). |
 
 See [interface import/formal conversion](interaction-verification.en.md#interfaceヘッダのimportとpackage関数の型変換), [program regions](interaction-verification.en.md#programのイベント領域と非ブロッキング代入) and [sequential UDPs](interaction-verification.en.md#generateで生成した逐次udpの状態と入力変換).

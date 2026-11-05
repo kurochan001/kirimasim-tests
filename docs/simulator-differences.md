@@ -946,3 +946,13 @@ Replay observes seventeen normal exits and two returncodes -10/-11. Twelve separ
 Both Verilator seeds give 3 pass / 33 known; only two known-input cases receive oracles. Full records retain runtime-format syntax rejection,
 a generated-C++ build failure for a 64-bit literal-format selection, and a 129-bit selection’s output difference.
 Controls do not replace original failures or expectations; extra two-state agreement does not qualify logic four-state behavior. No implementation-source or later-version cause is asserted.
+
+<a id="program-task-frame-differences"></a>
+
+## Automatic tasks in programs and cancellation (2026-11-06)
+
+Pinned Icarus 13.0 matches six natural-completion cases; thirty containing $exit compile but reject execution.
+Pinned Verilator 5.052 rejects nested program declarations for all 36 cases at both seeds.
+Latest kirimasim matches standard expectations for all 36. See [model scope](interaction-verification.en.md#program-task-frame-lifetime)
+and [all saved Icarus diagnostics and representative Verilator replays](../coverage/interaction-qualification/progframe-known-replays.json).
+Unsupported/known results remain distinct from passes; expectations are unchanged.

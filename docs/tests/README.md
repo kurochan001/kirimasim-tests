@@ -33,7 +33,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 21 | [Input/output system tasks and system functions](ch21.md) | 339 | 126 |
 | 22 | [Compiler directives](ch22.md) | 398 | 288 |
 | 23 | [Modules and hierarchy](ch23.md) | 331 | 75 |
-| 24 | [Programs](ch24.md) | 124 | 81 |
+| 24 | [Programs](ch24.md) | 160 | 117 |
 | 25 | [Interfaces](ch25.md) | 204 | 85 |
 | 26 | [Packages](ch26.md) | 189 | 106 |
 | 27 | [Generate constructs](ch27.md) | 283 | 180 |

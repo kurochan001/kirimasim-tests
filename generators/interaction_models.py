@@ -87,6 +87,7 @@ import interaction_genloop
 import interaction_ifquery
 import interaction_genexpr
 import interaction_scansel
+import interaction_progframe
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -95,7 +96,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -763,5 +764,12 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_scansel.MODEL.select(),
             "文字列の読取りが途中で止まる位置と成功した書込みだけを、戻り値・全語・部分選択外の保持で照合する。"
             "$bitsを使う実行時書式、文字数としてのフィールド幅、既知ASCIIのX/Z数字と格納時の変換を観測する。",
+        ),
+        SuiteModel(
+            interaction_progframe.MODEL,
+            lambda row: "tests/gen/ch24/" + interaction_progframe.case_name(row) + ".sv",
+            interaction_progframe.MODEL.select(),
+            "重なるautomatic taskの局所値とoutput/inoutのコピーを、programの終了範囲と復帰方法を変えて照合する。"
+            "途中終了時のコピー抑止、生存する別program、符号拡張、配列の隣接要素と再呼出しの履歴を観測する。",
         ),
     )
