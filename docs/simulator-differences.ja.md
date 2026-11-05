@@ -916,3 +916,22 @@ X入力は2値の未知値処理で出力が異なり、Z入力はクラスメ�
 [代表例の全出力再実行](../coverage/interaction-qualification/classsel-known-replays.json)に元の期待値・出力・診断を保持します。
 2値の結果でX/Zの動作を確認済みとはしません。この入力の外部4値比較は未確認で、
 knownの分類は維持します。観測から内部原因や後続ビルドの動作を断定しません。
+
+<a id="generated-repeat-one-transfer"></a>
+
+## 生成スコープのrepeat回数1の制御移動（2026-11-05）
+
+[生成ループモデル](interaction-verification.md#generated-process-loop-transfer)はnativeで36件がPASSし、6,912行の独立検算も一致します。
+固定Icarus 13.0はX/Zの19入力を含む31件に一致し、合法なrepeat回数1の5件ではbreak/continueをビルド時に拒否します。
+[全診断と別の回数3対照](../coverage/interaction-qualification/genloop-known-replays.json)を保持し、対照は両方とも独立に解釈した期待値に一致します。
+内部原因や後続版の動作を断定せず、元のテストと期待値は保持します。
+固定Verilatorのseed 1/73は各12 pass・24 knownで、残るX/Zの5入力は2値観測だけでは確認済みにしません。
+
+<a id="interface-query-two-state-match"></a>
+
+## interface配列問い合わせのbit/X入力と2値の偶然の一致（2026-11-05）
+
+[interface配列問い合わせモデル](interaction-verification.md#interface-array-query-walk)は、nativeと固定Icarus 13.0で全36件に一致します。
+固定Verilator 5.052のseed 1は12 pass・24 known、73は13 pass・23 knownです。[実行を区別した記録](../coverage/interaction-qualification/ifquery-fixed-replays.json)を保存しています。
+両seedで一致する既知値12件にだけVerilatorのoracleを登録します。追加一致した`33_bit_x_up_negative_one_explicit_function_ab_down`は
+Xをbitへ格納する入力で、2値の乱数化結果の一度の一致を4値動作の確認には使いません。既存の分類処理・期待値・seedは変更しません。

@@ -127,7 +127,7 @@ Nightlyは各シミュレータの対応状況を記録するため、全テス�
 
 現在のratchetでは、前回`pass`から今回`unsupported`への変化も失敗の対象外です。緑の表示に加え、結果区分の変化と個別ログを確認してください。
 
-具体例は[2026-11-04に確認した保存レポート](nightly-results.md#latest-verified-checkpoint)です。この回のkirimasim固定suiteは7,868 pass・2,403 unsupported・133 failで、Check・Nightlyは成功しています。これは当該回の規定ゲートが成功したという記録であり、133件が合格したことにはなりません。個別テストを判断するには[Q9の区分とログの確認先](#q9-what-do-match-differ-known-difference-and-unsupported-mean)へ進みます。
+具体例は[2026-11-04に確認した保存レポート](nightly-results.md#checkpoint-9926160a)です。この回のkirimasim固定suiteは7,868 pass・2,403 unsupported・133 failで、Check・Nightlyは成功しています。これは当該回の規定ゲートが成功したという記録であり、133件が合格したことにはなりません。個別テストを判断するには[Q9の区分とログの確認先](#q9-what-do-match-differ-known-difference-and-unsupported-mean)へ進みます。
 
 <a id="q12-what-percentage-does-by-chapter-show"></a>
 
@@ -544,7 +544,7 @@ SV・期待値・参照コードのハッシュの変化を確認します。元
 実際の保存SVの独立検算、確認済み不具合の固定回帰化を優先します。
 [安定化の記録](random-cross-verification.md#thirteen-profile-stabilization)にはローカル1,152 PASSを保持し、
 うち配列・packageの864件を独立解釈しています。残るパック書込み288件は既存の実行・参照比較です。
-[正式確認](nightly-results.md#latest-verified-checkpoint)では、これとは別に`9926160a`のNightlyで96 PASSを確認しました。
+[正式確認](nightly-results.md#latest-verified-checkpoint)では、これとは別に`19cd790a`のNightlyで96 PASSを確認しました。
 任意の`--explore`の投入管理は、完全に同じ条件で有効に完了したジョブだけを省略し、省略をPASSとは別に記録します。
 固定回帰・正式Nightly・明示replayは再実行します。新しい相互作用を独立したモデルで扱う必要が具体化したときに、
 合法範囲・規格由来の期待値・確認方法を決めてから追加を検討します。

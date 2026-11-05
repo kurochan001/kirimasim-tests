@@ -1,0 +1,231 @@
+h p=0 step=before
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=0 visited=0 weight=0 terminal=0
+d id=0 0=0 1=1 2=0
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=010 checksum=000 result=00000 calls=0 visited=0 weight=0 terminal=0
+d id=1 0=000 1=101 2=010 3=111
+h p=0 step=first0
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=1 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=0
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=010 checksum=000 result=00000 calls=0 visited=0 weight=0 terminal=0
+d id=1 0=000 1=101 2=010 3=111
+h p=0 step=first1
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=1 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=0
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=010 checksum=111 result=00111 calls=1 visited=4 weight=70 terminal=9
+d id=1 0=000 1=101 2=010 3=111
+h p=0 step=refresh
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=1 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=1
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=101 checksum=111 result=00111 calls=1 visited=4 weight=70 terminal=9
+d id=1 0=000 1=101 2=010 3=111
+h p=0 step=again1
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=1 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=1
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=101 checksum=111 result=00111 calls=2 visited=4 weight=70 terminal=9
+d id=1 0=000 1=101 2=010 3=111
+h p=0 step=again0
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=1 result=00001 calls=2 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=1
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=101 checksum=111 result=00111 calls=2 visited=4 weight=70 terminal=9
+d id=1 0=000 1=101 2=010 3=111
+h p=0 step=idle
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=1 result=00001 calls=2 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=1
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=101 checksum=111 result=00111 calls=2 visited=4 weight=70 terminal=9
+d id=1 0=000 1=101 2=010 3=111
+h p=1 step=before
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=1 result=00001 calls=2 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=0 2=0
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=101 checksum=111 result=00111 calls=2 visited=4 weight=70 terminal=9
+d id=1 0=000 1=000 2=010 3=010
+h p=1 step=first0
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=3 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=0 2=0
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=101 checksum=111 result=00111 calls=2 visited=4 weight=70 terminal=9
+d id=1 0=000 1=000 2=010 3=010
+h p=1 step=first1
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=3 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=0 2=0
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=101 checksum=110 result=00110 calls=3 visited=4 weight=70 terminal=9
+d id=1 0=000 1=000 2=010 3=010
+h p=1 step=refresh
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=3 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=0 2=1
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=010 checksum=110 result=00110 calls=3 visited=4 weight=70 terminal=9
+d id=1 0=000 1=000 2=010 3=010
+h p=1 step=again1
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=3 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=0 2=1
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=010 checksum=110 result=00110 calls=4 visited=4 weight=70 terminal=9
+d id=1 0=000 1=000 2=010 3=010
+h p=1 step=again0
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=1 result=00001 calls=4 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=0 2=1
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=010 checksum=110 result=00110 calls=4 visited=4 weight=70 terminal=9
+d id=1 0=000 1=000 2=010 3=010
+h p=1 step=idle
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=1 result=00001 calls=4 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=0 2=1
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=010 checksum=110 result=00110 calls=4 visited=4 weight=70 terminal=9
+d id=1 0=000 1=000 2=010 3=010
+h p=2 step=before
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=1 result=00001 calls=4 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=0
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=010 checksum=110 result=00110 calls=4 visited=4 weight=70 terminal=9
+d id=1 0=000 1=101 2=010 3=111
+h p=2 step=first0
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=5 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=0
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=010 checksum=110 result=00110 calls=4 visited=4 weight=70 terminal=9
+d id=1 0=000 1=101 2=010 3=111
+h p=2 step=first1
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=5 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=0
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=010 checksum=111 result=00111 calls=5 visited=4 weight=70 terminal=9
+d id=1 0=000 1=101 2=010 3=111
+h p=2 step=refresh
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=5 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=1
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=101 checksum=111 result=00111 calls=5 visited=4 weight=70 terminal=9
+d id=1 0=000 1=101 2=010 3=111
+h p=2 step=again1
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=0 result=00000 calls=5 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=1
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=101 checksum=111 result=00111 calls=6 visited=4 weight=70 terminal=9
+d id=1 0=000 1=101 2=010 3=111
+h p=2 step=again0
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=1 result=00001 calls=6 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=1
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=101 checksum=111 result=00111 calls=6 visited=4 weight=70 terminal=9
+d id=1 0=000 1=101 2=010 3=111
+h p=2 step=idle
+q id=0 bits=3 dims=2 unpacked=1
+q id=0 dim=1 left=-4 right=-6 low=-6 high=-4 increment=1 size=3
+q id=0 dim=2 left=3 right=3 low=3 high=3 increment=1 size=1
+v id=0 guard=0 checksum=1 result=00001 calls=6 visited=3 weight=-32 terminal=-7
+d id=0 0=0 1=1 2=1
+q id=1 bits=12 dims=2 unpacked=1
+q id=1 dim=1 left=5 right=8 low=5 high=8 increment=-1 size=4
+q id=1 dim=2 left=-2 right=0 low=-2 high=0 increment=-1 size=3
+v id=1 guard=101 checksum=111 result=00111 calls=6 visited=4 weight=70 terminal=9
+d id=1 0=000 1=101 2=010 3=111

@@ -1,0 +1,170 @@
+{
+  "model": "generated_process_loop_transfer",
+  "generated_at": "2026-11-05T11:59:14.640637+00:00",
+  "scope": "Final generated headers with pinned-Verilator oracle registration for 12 known-input tests only. Upstream main fetched/configured/built immediately before one full finite-cross batch, parsing and auxiliary qualification. No core source change; formal CI is separate.",
+  "base_revision": "50a897dee62af605c02f5ddcee10f25645abc77d",
+  "upstream_main_revision": "50a897dee62af605c02f5ddcee10f25645abc77d",
+  "tracked_worktree_clean": true,
+  "binary_sha256": "8a78df886a96077076c187109ee86fa45591a01079ffe1c90a6d1a23dd41b254",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit 50a897dee62a), built with AppleClang 21.0.0.21000334",
+  "run": "coverage/interaction-results/cross83-kirimasim-50a897de-genloop.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2531,
+    "unsupported": 529,
+    "fail": 4
+  },
+  "new_cases": 36,
+  "previous_cases": 3028,
+  "previous_run": "coverage/interaction-results/cross82-kirimasim-16222215-classsel.json",
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": [
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_1_bit_known_for_break_head_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_129_logic_z_repeat_continue_miss_case_down_3.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_65_logic_x_while_break_middle_if_down_3.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_33_bit_z_repeat_break_tail_case_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_32_logic_known_for_continue_tail_case_down_3.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_64_bit_known_while_continue_middle_if_up_3.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_1_logic_x_while_continue_head_case_down_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_32_bit_x_repeat_break_miss_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_64_bit_z_for_break_middle_case_down_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_33_logic_known_repeat_continue_head_if_up_3.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_65_bit_known_for_continue_miss_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_129_bit_x_for_break_tail_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_1_bit_z_while_break_miss_if_up_3.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_32_bit_z_while_break_head_case_up_3.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_33_bit_x_while_continue_tail_if_down_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_64_logic_x_repeat_continue_middle_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_65_bit_z_repeat_continue_tail_case_down_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_129_bit_known_while_break_tail_if_up_3.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_1_logic_known_repeat_break_middle_if_down_3.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_33_bit_known_for_break_miss_if_down_3.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_64_bit_x_while_continue_miss_if_down_3.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_129_bit_z_for_continue_head_if_down_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_32_logic_x_repeat_break_head_if_down_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_32_logic_z_for_continue_middle_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_65_bit_x_for_break_head_if_up_3.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_1_bit_x_for_break_tail_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_33_logic_x_for_break_middle_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_64_logic_known_for_break_head_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_64_logic_z_for_break_tail_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_129_logic_known_for_break_middle_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_1_logic_z_for_break_head_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_32_bit_known_for_break_head_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_33_logic_z_for_break_head_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_65_logic_known_for_break_head_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_65_logic_z_for_break_head_if_up_1.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genloop_129_logic_x_for_break_head_if_up_1.sv",
+      "returncode": 0
+    }
+  ]
+}

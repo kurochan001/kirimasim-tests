@@ -12,9 +12,9 @@ IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認す�
 期待値、結果の分類、Nightly、網羅率、SVA・フォーマル検証について説明しています。
 このREADMEには現時点の情報だけを載せます。以前の作業の記録や測定は[履歴](docs/history.ja.md)にあります。
 [資料一覧](docs/README.ja.md)から、ガイド・生成レポート・過去の記録の日英両版を辿れます。
-2026-11-04（日本時間）に確認した[最新の検証状況](docs/nightly-results.md#latest-verified-checkpoint)では、
-`9926160a`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41718590448)と
-[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41743702063)が成功しています。
+2026-11-05（日本時間）に確認した[最新の検証状況](docs/nightly-results.md#latest-verified-checkpoint)では、
+`19cd790a`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41927001926)と
+[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616)が成功しています。
 開発を引き継ぐ場合は、現行ガイドと、当時の状態を記録した[2026-11-02の引き継ぎ資料](docs/codex-handoff-20261102.md)を参照してください。
 
 各シミュレーションテストは、期待結果を持つ小さな独立した設計です。規格上正しいコードは、正規化した標準出力が
@@ -55,15 +55,15 @@ Icarus Verilog、Verilator、kirimasim、
 以下は収録本数と確認元の内訳で、現在のシミュレータのPASS数ではありません。[`:lrm:`と`:oracle:`が記録すること](docs/faq.md#q4-are-expected-outputs-copied-from-a-simulator)を参照してください。
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**10778本のテスト**があります。 うち4341本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
+スイートには38章にわたり**10850本のテスト**があります。 うち4413本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
-| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 5689 |
+| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 5756 |
 | Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 1997 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3092 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3097 |
 
-2528本はx/z値に依存します（`:fourstate: yes`）。685本にはCコードがあり、内訳はDPIが190本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1931本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。34本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定40本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+2576本はx/z値に依存します（`:fourstate: yes`）。685本にはCコードがあり、内訳はDPIが190本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1931本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。34本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定40本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -89,9 +89,9 @@ Icarus Verilog、Verilator、kirimasim、
 | 22 | コンパイラ指令 | 398 | 349 | 13 | 36 |
 | 23 | モジュールと階層 | 331 | 215 | 45 | 71 |
 | 24 | プログラム | 124 | 21 | 23 | 80 |
-| 25 | インターフェース | 168 | 67 | 70 | 31 |
+| 25 | インターフェース | 204 | 103 | 70 | 31 |
 | 26 | パッケージ | 189 | 53 | 58 | 78 |
-| 27 | generate構文 | 211 | 165 | 20 | 26 |
+| 27 | generate構文 | 247 | 196 | 20 | 31 |
 | 28 | ゲートレベル・スイッチレベルのモデリング | 245 | 194 | 3 | 48 |
 | 29 | ユーザー定義プリミティブ | 142 | 95 | 11 | 36 |
 | 30 | specifyブロック | 60 | 35 | 1 | 24 |
@@ -161,21 +161,29 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 
 [機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
 重点的に確認する高次因子群と必須の境界ケースを併用します。短時間実行用の選択は
-**82モデル・3,028件**です。値・型の変換、スケジューリング、引数・参照の結合先、
+**84モデル・3,100件**です。値・型の変換、スケジューリング、引数・参照の結合先、
 スコープ・階層、状態保持、I/Oなどの相互作用を扱います。通常の全件実行では既存テストを
 すべて保持し、規格要求の分母は変更しません。
 
-実行直前に上流mainを取得・構成・ビルドした**kirimasim `162222153c57`**の
-[最新の全クロス保存実行](coverage/interaction-results/cross82-kirimasim-16222215-classsel.json)は、
-**2,495 pass・529 unsupported・4 fail**です。クラスの条件選択の追加36件が全PASSし、
-従来2,992件の入力ハッシュ・状態分類は不変です。
-追加前の[`fd140002`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183)は成功しています。
-[正式Nightlyの確認](docs/nightly-results.md#latest-verified-checkpoint)は79モデルが対象で、
-新しい36件はローカルで確認済み、正式Check・Nightlyでは未実行です。
+実行直前に上流mainを取得・構成・ビルドした**kirimasim `50a897dee62a`**の
+[最新の全クロス保存実行](coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json)は、
+**2,567 pass・529 unsupported・4 fail**です。interface配列問い合わせの追加36件が全PASSし、
+従来3,064件の入力ハッシュ・状態分類は不変です。
+基点`19cd790a`の[正式Check・Nightly](docs/nightly-results.md#latest-verified-checkpoint)は成功し、追加前の82モデル・3,028件を確認済みです。
+生成ループとinterface配列問い合わせの合計72件はローカルで確認済み、正式Check・Nightlyでは未実行です。
 入力と元の期待値を保持し、残る4件は固定版slangへ
 切り分けたconfigのパラメータリセットです。11→9→4の履歴、全出力の再現、未対応19機構の内訳、
 章対の精査は[不一致対応と次の優先順位](docs/cross-verification-followup.md)に記録しています。
-章間CSVの出典は単一の全クロスローカル実行cross82とし、正式実行による確認は別に記録しています。
+章間CSVの出典は単一の全クロスローカル実行cross84とし、正式実行による確認は別に記録しています。
+
+interface内の配列問い合わせ（第7章×第25章・第20章×第25章・第13章×第20章）は、合法4,608通りから36件を選びます。
+問い合わせの値で走査の開始位置・回数・方向を決め、順序依存の全幅チェックサムと、呼出し後の別実体の保持を観測します。
+最新kirimasimと固定Icarusは全36件PASSです。[設計・独立検算・固定版比較](docs/interaction-verification.md#interface-array-query-walk)を参照してください。
+
+生成プロセスとループ制御（第12章×第27章・第9章×第27章、および第7章×第27章）は、合法6,912通りから36件を選びます。
+各スコープのbreak/continue、全配列要素と結果、入力変更後の再起動、立下り・待機中の保持を確認します。
+最新kirimasimは全36件PASS、固定Icarusは31 pass・5 known、固定Verilatorの両seedは各12 pass・24 knownです。
+[設計・独立検算・repeat回数1の差異](docs/interaction-verification.md#generated-process-loop-transfer)を参照してください。
 
 クラスの条件選択と早期return（第8章×第11章・第8章×第12章）は、合法1,296通りから36件を選びます。
 直呼び・virtual/非virtual、if/caseと条件演算子のX/Z、receiverだけの更新、型付き結果の拡張、再束縛後の別名を区別します。
@@ -206,8 +214,8 @@ clocking入力と名前付きイベントの待機（第14×15章）は192通り
 
 - [クロス検証レポート](docs/interaction-coverage.md)：計画上の網羅と、入力・ランナーのハッシュが
   一致した保存実行の合格を分けて集計します。
-- [章間クロス検証マトリクス](docs/chapter-cross-matrix.md)：重複を除く**119章対**を対応付けています。
-  登録モデル数、全選択ケースPASSのモデル数（上記の実行では**55モデル**）、
+- [章間クロス検証マトリクス](docs/chapter-cross-matrix.md)：重複を除く**124章対**を対応付けています。
+  登録モデル数、全選択ケースPASSのモデル数（上記の実行では**57モデル**）、
   テスト・実行の明細を41章×41章のCSVから確認できます。
 - [0セルの仕分けと優先候補](docs/chapter-cross-triage.md)：既存検証あり・追加検証候補・対象外・
   要精査を区別し、根拠と次の観測目標を記録しています。0は既存テストがないという意味ではありません。
@@ -217,7 +225,7 @@ clocking入力と名前付きイベントの待機（第14×15章）は192通り
 
 章間表の数字をテスト本数として合計できない理由は[Q32](docs/faq.md#q32-can-i-sum-matrix-cells-to-get-the-cross-test-total)、合格モデル数とcompleteの違いは[Q34](docs/faq.md#q34-are-complete-and-all-selected-tests-pass-the-same-judgment)を参照してください。
 
-[モデルに基づくランダムクロス比較](docs/random-cross-verification.md)も導入しています。Nightlyで算術式・除算／剰余・添字付き書込み列・条件演算子・package変更通知・シフト・キャスト・ストリーミング・連結代入・比較・リダクション・配列リダクション・配列コピー列の13プロファイルを合計96ケース比較し、seedと実際の刺激を専用artifactへ保存します。最新の確認済みNightlyは`9113955914d8`・seed `41743702063`で**96件すべて有効なPASS**です。固定回帰の本数やカバレッジとは別集計です。
+[モデルに基づくランダムクロス比較](docs/random-cross-verification.md)も導入しています。Nightlyで算術式・除算／剰余・添字付き書込み列・条件演算子・package変更通知・シフト・キャスト・ストリーミング・連結代入・比較・リダクション・配列リダクション・配列コピー列の13プロファイルを合計96ケース比較し、seedと実際の刺激を専用artifactへ保存します。最新の確認済みNightlyは`50a897dee62a`・seed `41941310616`で**96件すべて有効なPASS**です。固定回帰の本数やカバレッジとは別集計です。
 [目的と役割分担](docs/random-cross-verification.md#purpose-and-roles)と[検証の流れ](docs/random-cross-verification.md#verification-process)に、固定ケースを補う探索の狙い、入力生成・モデル比較・保存再現・固定回帰化をまとめています。
 現在は13プロファイルで追加を区切り、[重点探索と独立検算](docs/random-cross-verification.md#thirteen-profile-stabilization)を優先します。既定のNightly予算を保ち、追加探索の結果は別に記録します。
 同資料に、任意の追加探索の投入管理、参照変更を明示する保存刺激の再実行、同じ刺激でのIcarus／Verilator確認、レビュー済み失敗からの固定回帰候補の作成手順を記載しています。固定回帰・正式Nightly・明示的なreplayは毎回実行します。

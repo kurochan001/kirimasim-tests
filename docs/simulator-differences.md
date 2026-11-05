@@ -916,3 +916,22 @@ Pinned Icarus 13.0 rejects all 36 with an unimplemented class-handle comparison 
 [Full representative replays](../coverage/interaction-qualification/classsel-known-replays.json) preserve original expectations and outputs/diagnostics.
 No two-state result confirms X/Z behavior. External four-state comparison of these inputs remains unverified;
 known classifications stay unchanged, and observations do not establish internal implementation causes or behavior of later tool builds.
+
+<a id="generated-repeat-one-transfer"></a>
+
+## Generated repeat-count-one transfers (2026-11-05)
+
+The [generated-loop model](interaction-verification.en.md#generated-process-loop-transfer) has 36 native passes and independent agreement on 6,912 rows.
+Pinned Icarus 13.0 matches 31, including 19 X/Z inputs. Five legal repeat-count-one cases reject break/continue at the build.
+[Every diagnostic and separate count-three controls](../coverage/interaction-qualification/genloop-known-replays.json) are retained; both controls match their independently interpreted expectations.
+This does not identify internal causes or later-version behavior. Original tests/expectations remain unchanged.
+Pinned Verilator seeds 1/73 each record 12 pass / 24 known; two-state observations do not confirm the remaining five X/Z inputs.
+
+<a id="interface-query-two-state-match"></a>
+
+## Incidental two-state agreement for interface-query bit/X input (2026-11-05)
+
+The [interface-query model](interaction-verification.en.md#interface-array-query-walk) matches all 36 cases on native and pinned Icarus 13.0.
+Pinned Verilator 5.052 seed 1 gives 12 pass / 24 known; seed 73 gives 13 pass / 23 known. [Records identify each run separately](../coverage/interaction-qualification/ifquery-fixed-replays.json).
+Only the twelve known-input cases matching both seeds obtain Verilator oracles. The extra match, `33_bit_x_up_negative_one_explicit_function_ab_down`,
+stores X into bit. A single agreement under two-state randomization does not validate four-state behavior. Existing classification, expectations and seeds are unchanged.

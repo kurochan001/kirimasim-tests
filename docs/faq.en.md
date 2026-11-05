@@ -127,7 +127,7 @@ This describes fixed-suite aggregation. Additional [random comparisons](random-c
 
 The current ratchet also excludes `pass` to `unsupported` transitions. Review status changes and logs alongside the green workflow indicator.
 
-The [checkpoint verified on 2026-11-04](nightly-results.en.md#latest-verified-checkpoint) is a concrete example: its fixed kirimasim suite had 7,868 pass, 2,403 unsupported and 133 fail while Check/Nightly succeeded. The configured gates succeeded in that run; those 133 tests did not pass. Use [Q9's status and log path](#q9-what-do-match-differ-known-difference-and-unsupported-mean) to assess individual tests.
+The [checkpoint verified on 2026-11-04](nightly-results.en.md#checkpoint-9926160a) is a concrete example: its fixed kirimasim suite had 7,868 pass, 2,403 unsupported and 133 fail while Check/Nightly succeeded. The configured gates succeeded in that run; those 133 tests did not pass. Use [Q9's status and log path](#q9-what-do-match-differ-known-difference-and-unsupported-mean) to assess individual tests.
 
 <a id="q12-readmeのby-chapterの割合は何を表しますか"></a>
 
@@ -453,7 +453,7 @@ more profiles would reduce the samples per profile. Prioritize targeted seeds an
 independent checking of actual saved SV, and promotion of confirmed failures into fixed regressions.
 The [stabilization record](random-cross-verification.en.md#thirteen-profile-stabilization) has 1,152 local passes,
 including 864 independently interpreted array/package programs; the remaining 288 packed-write programs used the existing execution/reference comparison.
-The [formal checkpoint](nightly-results.en.md#latest-verified-checkpoint) separately confirms 96 Nightly passes on `9926160a`.
+The [formal checkpoint](nightly-results.en.md#latest-verified-checkpoint) separately confirms 96 Nightly passes on `19cd790a`.
 Optional `--explore` admission can omit only identical valid completed jobs, recording skips separately from passes.
 Fixed regressions, formal Nightly and explicit replay always execute. Reconsider additions when a concrete new interaction needs its own model,
 with legal scope, standard-derived expectations and validation planned before increasing breadth.

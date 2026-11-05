@@ -9,8 +9,8 @@ The same stimulus drives a SystemVerilog design and a Python reference, comparin
 Existing cases, oracles and finite-model denominators remain intact. Random samples and their successes do not increase
 fixed-suite test counts, chapter-matrix pass counts or requirement coverage.
 
-As verified on 2026-11-04 JST, [Check and Nightly on `9926160a`](nightly-results.en.md#latest-verified-checkpoint)
-both succeeded. Nightly's thirteen profiles recorded **96 valid passes** on kirimasim `9113955914d8`, seed `41743702063`.
+As verified on 2026-11-05 JST, [Check and Nightly on `19cd790a`](nightly-results.en.md#latest-verified-checkpoint)
+both succeeded. Nightly's thirteen profiles recorded **96 valid passes** on kirimasim `50a897dee62a`, seed `41941310616`.
 Profile additions are paused at thirteen; [targeted exploration and independent checks](#thirteen-profile-stabilization) supply further depth.
 
 <a id="purpose-and-roles"></a>

@@ -17,7 +17,24 @@
 
 <a id="latest-verified-checkpoint"></a>
 
-## 最新の確認済み状態（2026-11-04 日本時間）
+## 最新の確認状況（2026-11-05 日本時間）
+
+suite `19cd790a5f639348ad67fd63959dce9811d3ab56`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41927001926)と
+[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616)は、5シミュレータとpublishを含め成功しました。
+[確認記録](../coverage/interaction-qualification/formal-ci-19cd790a-20261105.json)にartifactのハッシュと入力・結果の照合を保持します。
+
+- 固定suiteは登録10,778件、うちformal 268件を除く10,510件です。kirimasim `50a897dee62a`（GNU 13.3.0）は7,975 pass・2,402 unsupported・133 failです。緑の意味は[Q11](faq.md#q11-why-can-nightly-be-green-with-differ-results)を参照してください。
+- 有限クロスは追加前の82モデル・3,028件で、2,495 pass・529 unsupported・configの4 failです。cross82と全入力ハッシュ・状態分類が一致します。119章対・全選択ケースPASSは55モデルです。
+- ランダム比較は13プロファイル・96件すべて有効なPASSです。seedはworkflow run IDの`41941310616`で、実行直前に再取得・ビルドした本体revisionは`50a897dee62af605c02f5ddcee10f25645abc77d`です。バイナリSHA-256は`666c1f8cf1432a5789b32090e7d40d934b0a9a72801d50233024337dbf2b737a`です。固定結果へ加算しません。
+
+現在のローカル追加は[生成プロセスの36件](interaction-verification.md#generated-process-loop-transfer)と
+[interface配列問い合わせの36件](interaction-verification.md#interface-array-query-walk)で、84モデル・3,100件です。
+[単一の全クロス実行](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json)は2,567 pass・529 unsupported・4 failです。
+今回の36件は全PASSで、直前の3,064件の入力・分類は不変です。二モデル合計72件の正式Check・Nightlyは未実行です。以下は以前の確認時点の記録です。
+
+<a id="checkpoint-9926160a"></a>
+
+## 前回の確認済み状態（2026-11-04 日本時間）
 
 suiteのコミット`9926160a1397f514cdd09f84384392c832de2cc5`を対象とする
 [Check 41718590448](https://github.com/kurochan001/kirimasim-tests/actions/runs/41718590448)と
@@ -48,7 +65,7 @@ Checkのreadme・固定Icarus 13.0・Verilator 5.052の各ジョブ、Nightlyの
 ランダム結果は専用の`random-cross-kirimasim`に保持し、固定履歴・カバレッジへ加算しません。
 プロファイルの追加はいったん13個で区切り、重点領域の追加探索・独立検算・確認済み不具合の固定回帰化を進めます。
 
-### 現在のローカル追加（2026-11-05）
+### 前回のローカル追加時点（2026-11-05）
 
 クラス×packageの追加は、成功した[`fd140002`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183)で確認済みです。
 生成サブルーチンの追加は`b80dcff3`にコミット済みで、[そのCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/41912438985)は今回の更新の確認時点で実行中でした。
@@ -56,7 +73,7 @@ Checkのreadme・固定Icarus 13.0・Verilator 5.052の各ジョブ、Nightlyの
 suiteは10,778件、有限クロスは82モデル・3,028件になっています。
 最新取得・ビルドの`162222153c57`による[単一の全クロス実行](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json)は、
 2,495 pass・529 unsupported・4 failで、従来2,992件の入力・状態分類は不変です。
-新しいクラスの条件選択は正式Check・Nightlyでは未実行です。最新の確認済み正式Nightlyは上の`9926160a`で、
+新しいクラスの条件選択は正式Check・Nightlyでは未実行です。この記録時点の確認済み正式Nightlyは上の`9926160a`で、
 クラス×package・生成サブルーチン・クラスの条件選択のいずれの追加も、その確認範囲より後です。
 
 <a id="previous-verified-checkpoint"></a>

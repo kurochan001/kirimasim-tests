@@ -9,8 +9,8 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
 固定回帰のケース、oracle、有限モデルの分母は維持します。ランダム実行の本数や成功を、
 固定スイートのテスト数・章間マトリクスの合格数・要求カバレッジへ加算しません。
 
-2026-11-04（日本時間）に確認した[`9926160a`のCheck・Nightly](nightly-results.md#latest-verified-checkpoint)は、ともに成功しました。
-Nightlyの13プロファイルはkirimasim `9113955914d8`・seed `41743702063`で**96件すべて有効なPASS**です。
+2026-11-05（日本時間）に確認した[`19cd790a`のCheck・Nightly](nightly-results.md#latest-verified-checkpoint)は、ともに成功しました。
+Nightlyの13プロファイルはkirimasim `50a897dee62a`・seed `41941310616`で**96件すべて有効なPASS**です。
 プロファイル追加はいったん13個で区切り、[重点探索と独立検算](#thirteen-profile-stabilization)で検証を深めます。
 
 <a id="purpose-and-roles"></a>

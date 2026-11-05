@@ -14,6 +14,20 @@
 
 ## 保存実行の概要
 
+2026-11-05のinterface配列問い合わせの追加で、**84モデル・3,100件・124章対**になりました。
+最新mainを取得・構成・ビルドした`50a897dee62a`の[単一実行](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json)は、
+**2,567 pass・529 unsupported・既存configの4 fail**です。追加36件はparse成功・全PASSで、従来3,064件の入力・分類は不変です。
+全選択ケースPASSは57モデルです。[interface配列問い合わせ](#interface-array-query-walk)に独立検算と固定版の比較を記録しています。
+基点`19cd790a`の[正式Check・Nightly](nightly-results.md#latest-verified-checkpoint)は82モデルを確認済みで、
+生成ループとinterface配列問い合わせの計72件は正式CIでは未実行です。以下は各追加時点の記録です。
+
+2026-11-05の生成プロセスの追加で、**83モデル・3,064件・121章対**になりました。
+最新mainを取得・構成・ビルドした`50a897dee62a`の[単一実行](../coverage/interaction-results/cross83-kirimasim-50a897de-genloop.json)は、
+**2,531 pass・529 unsupported・既存configの4 fail**です。追加36件はparse成功・全PASSで、従来3,028件の入力・分類は不変です。
+全選択ケースPASSは56モデルです。[生成プロセスのループ制御](#generated-process-loop-transfer)に独立検算と固定版の差異を記録しています。
+基点`19cd790a`の[正式Check・Nightly](nightly-results.md#latest-verified-checkpoint)は、追加前の82モデルを確認済みです。
+新しい36件の正式CIは未実行です。以下の追加ごとの記録は、それぞれの確認時点を示します。
+
 2026-11-05のクラスの条件選択の追加で、**82モデル・3,028選択ケース・119章対**になりました。
 実行直前に上流mainを取得・構成・ビルドしたkirimasim `162222153c57`の
 [全クロスのローカル実行](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json)は、
@@ -3254,3 +3268,123 @@ python3 tools/run_verilator.py --all --seed 1 \
 範囲は二つの派生オブジェクト、一段の継承、継承プロパティ、保持した別名、同じ符号の整数型、時間を消費しないautomatic functionです。
 再帰・ref・nullの参照・プロパティの隠蔽・super・混合符号の演算・並行性・GC・大量生成は対象外です。
 ランダムプロファイルは13のままで、要求の対応付け・本体コードは不変です。新しいケースの正式Check・Nightlyは未実行です。
+
+<a id="generated-process-loop-transfer"></a>
+
+## 生成プロセスのループ制御と局所配列の保持
+
+[`interaction_genloop.py`](../generators/interaction_genloop.py)は`generated_process_loop_transfer@1`を定義します。
+全**6,912行**が合法で、**因子対293組・重点3因子160組・必須6件**を保持する**36件**を選びます（件数を99.48%削減）。
+因子は幅1/32/33/64/65/129、bit/logic、既知値/X/Z、for/while/repeat、break/continue、
+head/middle/tail/miss、if/caseの生成、昇順/降順の範囲、長さ1/3です。
+根拠はgenerate（27.4/27.5）、alwaysとエッジ（9.2.2.1/9.4.2）、ループと制御移動（12.7.1/12.7.2/12.7.4/12.8）、
+アンパック範囲（7.4.2）、等価性の不一致（11.4.6）、状態型の変換（6.11.2）です。未対応による除外はありません。
+
+異なるパラメータの二workerは、それぞれ二つの独立したposedgeプロセスを展開します。分岐とgenvarが幅と境界を決め、
+負の昇順添字・非零の降順添字を含みます。論理位置順に配列を走査し、最下位ビットのマーカーでbreak/continueします。
+logicのX/Zは!==0でヒットし、bit格納では先に0へ変換されるため条件が変わります。
+while/repeatは条件による移動前に添字を進め、continueでも停止性を保ちます。forはヘッダで進めるため、
+同じ要素まで読んだbreakでも最終添字は異なる場合があります。
+
+各ケースは既知値・既知値またはX/Z・既知への回復の三相を実行し、それぞれ二回立ち上げます。
+間にa0の先頭要素とb1のguardだけを変えます。全幅のXORによる入力更新では上位のZもXになるため、
+単に最下位ビットだけを変えたとみなさず独立に計算します。次の立上りまでは前回の結果を保持します。
+全要素、境界・幅、チェックサム、訪問/保持数と順序の重み、ヒット数、現在/最終添字、起動/完了数を各段階で読みます。
+立下りと待機中には再実行されないことを確認します。各プロセスが自身の状態を所有し、独立writer間の競合はありません。
+
+[`qualify_genloop.py`](../tools/qualify_genloop.py)は実際のSVのパラメータ・分岐・型・配列境界・エッジ宣言・
+ループ文・制御移動・代入・表示を読みます。限定した整数ASTと独立な値/X/Zのビット面を使い、主生成器の配置・刺激・参照関数は呼びません。
+全6,912プログラムが一致しました。[`genloop.json`](../coverage/interaction-qualification/genloop.json)は正常対照5件と、
+生成幅、break/continueの喪失、誤ったマーカー要素、最終反復の欠落、集約の喪失、クロックエッジ、guard破損、範囲反転の9故障を記録します。
+全て正常終了し、全故障を出力差で検出しました。コード・入力・ランナー・バイナリの前後ハッシュを照合し、補助実行を通常PASSへ加算しません。
+
+上流mainを直前に取得・構成・ビルドした`50a897dee62a`では、[全3,064件の単一実行](../coverage/interaction-results/cross83-kirimasim-50a897de-genloop.json)で追加36件がparse成功・全PASSです。
+全体は**2,531 pass・529 unsupported・既存configの4 fail**で、従来3,028件の入力ハッシュ・分類は不変です。
+[`genloop-build.json`](../coverage/interaction-qualification/genloop-build.json)に実ビルドとparse結果を保持します。
+83モデル・121章対・全選択ケースPASSは56モデルです。新規の第12章×第27章・第9章×第27章と、補強した第7章×第27章は全36件を使い、別実行の部分PASSを合成しません。
+
+[固定版の比較](../coverage/interaction-qualification/genloop-fixed-replays.json)は、Icarus 13.0が**31 pass・5 known**で、X/Zの19件も一致します。
+knownの5件は全てrepeat回数1で、break/continueがループにないというビルド診断で拒否されます。
+[全診断と別の回数3対照](../coverage/interaction-qualification/genloop-known-replays.json)に元のケースを保持し、
+独立に解釈した[対照SV・期待値](../coverage/interaction-qualification/genloop-repeat-controls/)は両制御移動でIcarusに一致します。
+固定版の観測範囲を絞る対照であり、実装ソースを読んで内部原因や後続版の動作を断定するものではありません。
+Verilator 5.052のseed 1/73は各**12 pass・24 known**です。Icarusに一致した31件にoracleを登録し、
+既知値12件にはVerilatorのoracleも保持します。残るX/Zの5件は2値の結果だけで検証済みとはしません。
+基点`19cd790a`の正式Check・Nightlyは成功しましたが、この追加36件はその範囲外です。
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model generated_process_loop_transfer
+python3 -m unittest discover -s tools -p test_interaction_genloop.py
+# native実行の直前に本体の最新mainを取得・構成・ビルドします。
+python3 tools/qualify_genloop.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/genloop-qualification-new.json
+```
+
+範囲は局所的な固定配列、一つの共有クロック、単一プロセス内の制御移動、有限のパラメータです。
+符号付き演算・foreach・動的コンテナ・NBA・名前付きdisable・並行writer・可変階層添字は対象外です。
+ランダムプロファイルは13のままで、要求の対応付け・本体実装は変更しません。
+
+<a id="interface-array-query-walk"></a>
+
+## interface内の配列問い合わせによる走査と型付き結果
+
+[`interaction_ifquery.py`](../generators/interaction_ifquery.py)は`interface_array_query_walk@1`を定義します。
+全**4,608行**が合法で、**因子対274組・重点3因子96組・必須6件**を保持する**36件**を選びます（件数を99.22%削減）。
+因子は幅1/32/33/64/65/129、bit/logic、既知値/X/Z、アンパック範囲の昇順/降順、負/正の添字原点、
+長さ1/3、次元の省略/明示、function/task、呼出し順ab/ba、packed範囲の昇順/降順です。
+根拠はinterfaceとサブルーチン（25.2/25.7）、配列問い合わせ（20.7）、$bits（20.6.2）、
+アンパック配列（7.4.2）、関数と引数（13.4/13.5）、bitへの変換（6.11.2）、シフト（11.4.10）です。未対応による除外はありません。
+
+二つのinterfaceは、幅WとW+2、長さNとN+1、異なる原点と逆方向の範囲を持ちます。
+各automatic function/taskが`at=$left(data)`から`$size(data)`回、`at-=$increment(data)`で走査します。
+問い合わせは表示だけでなく、実際に読む要素と回数を決めます。packed次元の原点と方向も変わります。
+配列の次元1はunpacked、次元2はpackedです。長さ1では宣言の向きによらず`$increment`は1です。
+[実際の幅1のケース](../tests/gen/ch25/test_gen_cross_ifquery_1_bit_known_up_negative_one_default_function_ab_up.sv)では、
+aの範囲は[-4:-4]で、最初の値は0です。1回だけ読んでチェックサム0、visited=1、weight=-4、terminal=-5となり、
+末尾の反転後の再呼出しではチェックサム1になります。単に「昇順だからincrementは-1」と実装すると境界を誤ります。
+
+チェックサムは各要素の前に1ビット左シフトし、その後で全幅XORします。要素の下位に位置を識別する値を入れ、
+逆順走査でも同じ結果になり得る対称な刺激だけにしません。各呼出しはaccと添字を初期化し、
+訪問数、添字の重み、最終添字、呼出し数、全幅チェックサムと戻り値/outputコピーを比較します。
+結果は幅W+4のlogicへ格納し、aでは4ビット、bでは2ビットのゼロ拡張を観測します。
+
+既知値・既知値またはX/Z・既知値への回復の三相で、指定順に呼び、毎回両実体の全要素と状態を読みます。
+その後aの末尾要素だけを反転し、bのguardだけを反転します。入力変更直後も計算済みの結果は保持され、
+逆順の再呼出しでのみ更新されます。logicのX/Z、格納時に0になるbit、反転時にZがXになることも区別します。
+最後の同一状態の観測は、時間経過やクロックエッジの検証を意味しません。
+
+[`qualify_ifquery.py`](../tools/qualify_ifquery.py)は実際の宣言・インスタンスのパラメータ・問い合わせ・式・
+ループ・呼出し先・表示を読み、独立な値/X/Zのビット面と限定した整数ASTで解釈します。
+主生成器の配置・刺激・参照・問い合わせ計算関数は使いません。全4,608プログラムが一致しました。
+[`ifquery.json`](../coverage/interaction-qualification/ifquery.json)は正常対照5件と、幅・走査方向・最終要素の欠落・
+シフトの欠落・集約の喪失・最終添字・呼出し数・呼出し先・guardの9故障を実際のSVへ入れた実行を記録します。
+全て正常終了し、全故障を出力差で検出しました。コード・入力・ランナー・バイナリの前後ハッシュを照合し、補助実行を通常PASSへ加算しません。
+
+最新mainを直前に取得・構成・ビルドした`50a897dee62a`では、[単一の全3,100件の実行](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json)で追加36件がparse成功・全PASSです。
+全体は**2,567 pass・529 unsupported・既存configの4 fail**で、従来3,064件の入力・分類は不変です。
+[`ifquery-build.json`](../coverage/interaction-qualification/ifquery-build.json)に実際のビルドとparse結果を記録します。
+第7×25・20×25・13×20章はそれぞれ全36件を対応付け、84モデル・124章対・全選択ケースPASSは57モデルです。
+
+[固定版比較](../coverage/interaction-qualification/ifquery-fixed-replays.json)はIcarus 13.0が**36 pass**で、X/Zを使う24件も一致します。
+Verilator 5.052のseed 1は**12 pass・24 known**、73は**13 pass・23 known**です。
+両seedで一致した既知値12件にだけVerilatorのoracleを登録します。
+seed 73で追加一致した`33_bit_x_up_negative_one_explicit_function_ab_down`はbitへのX変換を含み、
+2値の乱数化結果がこのseedで一致した観測であって、4値動作を検証済みとはしません。Icarusは同じ保存SV・期待値に一致しています。
+36件全てにIcarusのoracleを登録し、既存oracle・期待値・既存ケースは変更しません。
+基点19cd790aの正式Check・Nightlyは追加前の82モデルが対象で、今回と生成ループの計72件は未実行です。
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model interface_array_query_walk
+python3 -m unittest discover -s tools -p test_interaction_ifquery.py
+# native実行の直前に本体の最新mainを取得・構成・ビルドします。
+python3 tools/qualify_ifquery.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/ifquery-qualification-new.json
+python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin \
+  --json my-results/ifquery-icarus-new.json tests/gen/ch25/test_gen_cross_ifquery_*.sv
+python3 tools/run_verilator.py --all --seed 73 \
+  --json my-results/ifquery-verilator-new.json tests/gen/ch25/test_gen_cross_ifquery_*.sv
+```
+
+対象は固定の一段unpacked配列、unsignedの一段packed要素、直接の階層呼出し、一つのinitialです。
+interfaceポート・modport・virtual interface・動的配列・符号付き演算・並行呼出し・時間制御・refは対象外です。
+一般的な配列問い合わせ・interface全体の完了を意味しません。要求の対応付け・本体コード・ランダム13プロファイルは不変です。

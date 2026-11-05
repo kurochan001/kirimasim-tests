@@ -65,19 +65,21 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 
 ## 実行結果の扱い
 
-2026-11-05の更新では82モデル・3,028選択ケースを、対角線以外の119組の章対に対応付けています。
-CSVに使用した結果は[kirimasim 162222153c57の全82モデルのローカル保存実行](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json)で、
-2,495 pass・529 unsupported・4 fail、全選択ケースPASSは55モデルです。
+2026-11-05の更新では84モデル・3,100選択ケースを、対角線以外の124組の章対に対応付けています。
+CSVに使用した結果は[kirimasim 50a897dee62aの全84モデルのローカル保存実行](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json)で、
+2,567 pass・529 unsupported・4 fail、全選択ケースPASSは57モデルです。
 
-2026-11-04（日本時間）に確認したsuite `9926160a`の[正式Nightly](nightly-results.md#latest-verified-checkpoint)でも、
-kirimasim `9113955914d8`で追加前の79モデル・2,922件を確認しています。
-追加前の80モデルのsuiteは、[`fd140002`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183)で確認済みです。新しい36件はローカル証跡があり、正式Check・Nightlyでは未実行です。
-CSVの出典は全3,028件の単一ローカル実行cross82とし、別の実行の部分成功を合成しません。
+基点`19cd790a`の[正式Check・Nightly](nightly-results.md#latest-verified-checkpoint)は成功し、追加前の82モデル・3,028件はcross82と全入力・分類が一致しています。生成ループとinterface配列問い合わせの計72件の正式CIは未実行です。
+CSVの出典は全3,100件の単一ローカル実行cross84とし、別の実行の部分成功を合成しません。
 13プロファイルのランダム比較や、そのNightlyの96 PASSも章間表へ加算しません。
+
+第7章×第25章・第20章×第25章・第13章×第20章はinterface配列問い合わせを各1モデル・全選択ケースPASS 1モデルとして追加し、全36件を対応付けます。[設計と独立証跡](interaction-verification.md#interface-array-query-walk)を参照してください。
+
+第12章×第27章・第9章×第27章は生成プロセスのループ制御で各1モデル・全選択ケースPASS 1モデルを追加し、全36件を対応付けます。第7章×第27章も補強します。[設計と独立証跡](interaction-verification.md#generated-process-loop-transfer)を参照してください。
 
 第8章×第11章・第8章×第12章のクラスの条件選択と早期returnは、各モデル数1・全選択ケースPASSモデル数1です。前者は全36件、後者はif/caseの24件に対応し、モデル全体の合格には全36件の同時PASSが必要です。呼出し先、X/Zの選択、型付き結果、receiverの更新、別名とreturn後の副作用を観測します。[設計と独立証跡](interaction-verification.md#class-conditional-return)を参照してください。
 
-第13章×第27章・第7章×第27章の生成サブルーチンと配列の結合は、各モデル数1・全選択ケースPASSモデル数1で、全36件を使います。既存の第7章×第13章には4番目のモデルとして追加します。局所幅・範囲、既定値の再評価、function/taskの結果、隣接保持と反復呼出しを観測します。[設計と独立証跡](interaction-verification.md#generated-subroutine-binding)を参照してください。
+第13章×第27章・第7章×第27章の生成サブルーチンと配列の結合は、生成サブルーチンの全36件を使います。第13章×第27章は1モデル、第7章×第27章は生成ループを含む2モデルが全選択ケースPASSです。既存の第7章×第13章には4番目のモデルとして追加します。局所幅・範囲、既定値の再評価、function/taskの結果、隣接保持と反復呼出しを観測します。[設計と独立証跡](interaction-verification.md#generated-subroutine-binding)を参照してください。
 
 第8章×第26章のメソッド内package参照は、モデル数1・全選択ケースPASSモデル数1です。
 全34件でimportの字句スコープ、型付きfunction/taskの結果、別名・再束縛を経たオブジェクトの同一性と状態保持を確認します。

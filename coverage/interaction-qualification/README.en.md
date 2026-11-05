@@ -8,9 +8,16 @@ This directory stores records of fixed-version verification-source selection, in
 
 <a id="current-evidence-checkpoint"></a>
 
-## Current evidence checkpoint (2026-11-04 JST)
+## Current evidence checkpoint (2026-11-05 JST)
 
-The current finite selection has 82 models and 3,028 cases; see the [new local qualification](#class-selection-qualification). The formal record below predates this addition and covers 79 models.
+The selection now contains 84 models / 3,100 cases; see [interface-query qualification](#interface-query-qualification) and [generated-loop qualification](#generated-loop-qualification).
+[`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) confirms successful baseline Check/Nightly/publish on 19cd790a.
+All preceding 82 models / 3,028 inputs and statuses match cross82: 2,495 pass / 529 unsupported / four fail.
+All 96 random cases are valid passes; saved SV/expectation fingerprints and every output were checked. The combined 72 generated-loop/interface-query cases are outside formal CI.
+
+<a id="checkpoint-9926160a"></a>
+
+## Previous formal evidence (2026-11-04 JST)
 
 [`formal-ci-9926160a-20261104.json`](formal-ci-9926160a-20261104.json) records successful Check and Nightly on suite `9926160a`,
 including successful publication. All 2,922 finite selected cases on kirimasim `9113955914d8` retain the input fingerprints and statuses
@@ -403,3 +410,30 @@ and Verilator seeds 1/73 (12 pass / 24 known each). Only known-input passes obta
 Z build diagnostics and an Icarus rejection. Two-state observations do not validate X/Z behavior; external four-state confirmation remains unverified.
 These are local/auxiliary records, separate from formal CI, fixed requirement coverage and the thirteen random profiles.
 See [design, commands and limits](../../docs/interaction-verification.en.md#class-conditional-return).
+
+<a id="generated-loop-qualification"></a>
+
+## Generated-loop qualification
+
+[`genloop.json`](genloop.json) independently elaborates and executes the actual SV for all 6,912 legal rows.
+Five normal native controls and nine executable source faults validate private arrays, transfer targets, accumulation, clock edges and guards.
+[`genloop-build.json`](genloop-build.json) identifies freshly fetched/built core `50a897dee62a`, 36 successful parses and one complete 3,064-case run:
+2,531 pass / 529 unsupported / four existing config failures. All additions pass; all preceding 3,028 inputs/statuses are unchanged.
+At that checkpoint, totals were 83 models / 121 chapter pairs / 56 full-selection-pass models.
+[`genloop-fixed-replays.json`](genloop-fixed-replays.json) records Icarus 13.0 at 31 pass / five known and Verilator seeds 1/73 at 12 pass / 24 known each.
+[`genloop-known-replays.json`](genloop-known-replays.json) retains all five repeat-count-one build rejections and two independent count-three controls;
+[control SV/expectations](genloop-repeat-controls/) stay outside fixed tests. No expected value or failure record is replaced.
+See [design, scope and rerun commands](../../docs/interaction-verification.en.md#generated-process-loop-transfer).
+
+<a id="interface-query-qualification"></a>
+
+## Interface-query qualification
+
+[`ifquery.json`](ifquery.json) independently interprets actual SV declarations, queries, typed calls and walks for all 4,608 rows.
+Five normal controls and nine real source faults execute natively, all exit normally and every fault is detected by output difference.
+[`ifquery-build.json`](ifquery-build.json) identifies freshly fetched/built `50a897dee62a`, 36 successful parses and one complete 3,100-case run.
+It records 2,567 pass / 529 unsupported / four existing config failures; all additions pass and preceding 3,064 inputs/statuses are unchanged.
+Totals are 84 models / 124 chapter pairs / 57 full-selection-pass models.
+[`ifquery-fixed-replays.json`](ifquery-fixed-replays.json) identifies Icarus 13.0 (36 pass), Verilator 5.052 seed 1 (12 pass / 24 known) and seed 73 (13 pass / 23 known).
+Only the twelve known-input cases matching both seeds obtain Verilator oracles. The incidental bit/X match at seed 73 does not validate four-state behavior.
+All 36 retain Icarus oracles. See [design, scope and commands](../../docs/interaction-verification.en.md#interface-array-query-walk).

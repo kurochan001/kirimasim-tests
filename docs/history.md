@@ -242,3 +242,28 @@ clause 37.
 - Fixed Verilator seeds 1/73 each give 12 pass and 24 known; only the known-input passes receive oracles. Icarus rejects all 36 class-handle comparisons.
   Representative full X outputs, Z diagnostics and unchanged expectations are preserved. External four-state verification of the X/Z inputs is unconfirmed.
   Random profiles, requirement bindings, old tests and core source remain unchanged; formal Check/Nightly for the new cases have not run.
+
+- Added generated-process loop transfers for previously unreviewed 12×27 and 9×27, strengthening 7×27.
+  All 6,912 rows are legal; 36 retain 293 pairs, 160 targeted triples and six anchors. Independent actual-SV interpretation agrees on all rows;
+  five native controls and nine source faults exit normally and every fault is detected by output difference.
+- A fresh main `50a897dee62a` build records 2,531 pass / 529 unsupported / four existing config failures in one 3,064-case run.
+  All 36 additions parse/pass, and preceding 3,028 inputs/statuses are unchanged. Totals: 83 models / 121 pairs / 56 full-selection-pass models;
+  M121 / E3 / C2 / N117 / R577. Suite: 10,814 tests, including 4,377 generated tests from 92 generators.
+- Fixed Icarus matches 31, including 19 X/Z cases; five repeat-count-one inputs retain build rejections. Both independently interpreted count-three controls match.
+  Verilator seeds 1/73 each give 12 pass / 24 known. Register 31 Icarus oracles and retain 12 matching known-input Verilator oracles.
+- Verified formal Check/Nightly/publish on baseline 19cd790a: fixed 7,975 pass / 2,402 unsupported / 133 fail; all preceding 3,028 finite outcomes match cross82;
+  all 96 random cases are valid passes on separately refreshed core 50a897dee62a. New loop cases have not run in formal CI.
+  Core source, existing tests/expectations, requirement bindings and thirteen random profiles remain unchanged.
+  All 964 tool tests pass, including 16 new focused tests.
+
+- Added the [interface array-query model](interaction-verification.en.md#interface-array-query-walk) for unreviewed 7×25, 20×25 and 13×20.
+  All 4,608 rows are legal; 36 retain 274 pairs, 96 targeted triples and six anchors. Independently interpret every row;
+  five normal controls and nine real source faults exit normally, with every fault detected by output difference.
+- Freshly fetched/configured/built main `50a897dee62a` executes one full 3,100-case snapshot: 2,567 pass / 529 unsupported / four existing config failures.
+  All 36 additions parse/pass, and preceding 3,064 inputs/statuses are unchanged. Totals: 84 models / 124 chapter pairs / 57 full-selection-pass models;
+  triage M124 / E3 / C2 / N117 / R574.
+- Pinned Icarus matches all 36, including X/Z, and supplies their oracles. Both Verilator seeds match the twelve known-input cases.
+  Overall, seed 1 records 12 pass / 24 known and seed 73 13 pass / 23 known. The incidental extra bit/X match does not validate four-state behavior or obtain a Verilator oracle.
+- Suite totals are 10,850 tests, including 4,413 generated cases from 93 generators. Existing regressions/expectations, requirement bindings, core code and thirteen random profiles are unchanged.
+  Verified formal Check/Nightly baseline remains 19cd790a; the combined 72 generated-loop/interface-query cases have not run in formal CI.
+  All 980 tool tests pass, including sixteen new focused tests.

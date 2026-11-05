@@ -38,17 +38,19 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The 2026-11-05 mapping contains 82 models and 3,028 selected cases across 119 unordered off-diagonal pairs. The [complete kirimasim 162222153c57 local run](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json) records 2,495 pass, 529 unsupported and four failures; 55 models passed their entire selection.
+The 2026-11-05 mapping contains 84 models and 3,100 selected cases across 124 unordered off-diagonal pairs. The [complete kirimasim 50a897dee62a local run](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json) records 2,567 pass, 529 unsupported and four failures; 57 models passed their entire selection.
 
-The [formal Nightly checkpoint](nightly-results.en.md#latest-verified-checkpoint), verified on 2026-11-04 JST for suite `9926160a`,
-confirms the preceding 79-model, 2,922-case selection on kirimasim `9113955914d8`.
-The [Check on fd140002](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183) passed on the preceding 80-model suite. The new 36 cases have local evidence and have not run in formal Check/Nightly.
-The CSVs use the complete 3,028-case local cross82 run; partial successes from different runs are not combined.
+Baseline `19cd790a` passed [formal Check/Nightly](nightly-results.en.md#latest-verified-checkpoint); all preceding 82 models / 3,028 inputs and statuses match cross82. Formal CI has not run the combined 72 generated-loop/interface-query cases.
+The CSVs use the complete 3,100-case local cross84 run; partial successes from different runs are not combined.
 The thirteen random profiles and their 96 Nightly passes do not enter these matrices.
+
+- **7×25, 20×25 and 13×20, interface array queries:** one model and one full-selection-pass model each, mapping all 36 cases. See [design and independent evidence](interaction-verification.en.md#interface-array-query-walk).
+
+- **12×27 and 9×27, generated process loops:** one model and one full-selection-pass model each, mapping all 36 cases and strengthening 7×27. See [design and independent evidence](interaction-verification.en.md#generated-process-loop-transfer).
 
 - **8×11 and 8×12, class selection/early return:** one model and one full-selection-pass model each. The former maps all 36 cases; the latter maps the 24 if/case cases. A full model pass still requires all 36 together. Observe dynamic/static dispatch, X/Z selection, typed returns, receiver updates, aliases and dead effects. See [design and independent evidence](interaction-verification.en.md#class-conditional-return).
 
-- **13×27 and 7×27, generated subroutine/array binding:** one model and one full-selection-pass model each, using all 36 cases. The existing **7×13** mapping gains this fourth model. Observe per-scope widths/ranges, default reevaluation, function/task results, neighbor retention and repeated calls. See [design and independent evidence](interaction-verification.en.md#generated-subroutine-binding).
+- **13×27 and 7×27, generated subroutine/array binding:** all 36 subroutine cases map to both pairs. 13×27 has one full-selection-pass model; 7×27 now has two including generated loops. The existing **7×13** mapping gains this fourth model. Observe per-scope widths/ranges, default reevaluation, function/task results, neighbor retention and repeated calls. See [design and independent evidence](interaction-verification.en.md#generated-subroutine-binding).
 
 - **8×26, class method/package lookup:** one model and one full-selection-pass model. All 34 cases check lexical import scope, typed function/task results, object identity and state retention through aliasing/rebinding. See [design, independent checks and limits](interaction-verification.en.md#class-method-package-lookup).
 

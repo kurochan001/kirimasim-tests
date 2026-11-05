@@ -83,6 +83,8 @@ import interaction_pkgwatch
 import interaction_class_import
 import interaction_gensub
 import interaction_class_select
+import interaction_genloop
+import interaction_ifquery
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -91,7 +93,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -731,5 +733,19 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_class_select.MODEL.select(),
             "クラスの直呼びと基底ハンドル経由の呼出しで条件選択・更新先・早期returnを照合する。"
             "if/caseと条件演算子のX/Z、型付き結果の符号拡張、別名と再束縛後のオブジェクトの独立性を観測する。",
+        ),
+        SuiteModel(
+            interaction_genloop.MODEL,
+            lambda row: "tests/gen/ch27/" + interaction_genloop.case_name(row) + ".sv",
+            interaction_genloop.MODEL.select(),
+            "生成プロセスごとの配列走査とbreak/continueを、訪問数・保持数・重み・全幅の結果で照合する。"
+            "一スコープの入力変更、別guardの更新、立上りでの再起動、立下りと待機中の状態保持を観測する。",
+        ),
+        SuiteModel(
+            interaction_ifquery.MODEL,
+            lambda row: "tests/gen/ch25/" + interaction_ifquery.case_name(row) + ".sv",
+            interaction_ifquery.MODEL.select(),
+            "interface内の配列問い合わせが走査の開始位置・回数・方向と型付き結果を決める。"
+            "全要素・両次元の境界・単一要素・別実体の保持・入力変更後の再呼出しを照合する。",
         ),
     )

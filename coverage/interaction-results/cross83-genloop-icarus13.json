@@ -1,0 +1,160 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "gen/ch27/test_gen_cross_genloop_129_bit_known_while_break_tail_if_up_3": {
+   "status": "pass",
+   "inputs_sha256": "aabdebb74db847adafbdded619258f807e3b2a1840d281410ad3aec61f43e44b"
+  },
+  "gen/ch27/test_gen_cross_genloop_129_bit_x_for_break_tail_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "9ee43b520aa70741620303feac47f6d7ff04ba968b667a18ffccd40d639f6476"
+  },
+  "gen/ch27/test_gen_cross_genloop_129_bit_z_for_continue_head_if_down_1": {
+   "status": "pass",
+   "inputs_sha256": "5a4b3f402a5d2ad552eb2a35d559d7b66db40a842eadee15dd919cfba7f8b19c"
+  },
+  "gen/ch27/test_gen_cross_genloop_129_logic_known_for_break_middle_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "bdc0957d7e4a3c0ef1aee7566fa9f36ee9ef8c156d80fbba6173dcd397264c7e"
+  },
+  "gen/ch27/test_gen_cross_genloop_129_logic_x_for_break_head_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "37f6f182c39588a421907449de7ca3fb826c1ef102e239f95371176b5bb54de6"
+  },
+  "gen/ch27/test_gen_cross_genloop_129_logic_z_repeat_continue_miss_case_down_3": {
+   "status": "pass",
+   "inputs_sha256": "b6ab53c96c6e7d8c3cae9a9c33b6cfbc4af67c2bdea09fb007e78fa1271733f8"
+  },
+  "gen/ch27/test_gen_cross_genloop_1_bit_known_for_break_head_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "2ad1033fc907e11e929e089aa36fd1f93241ec4dc87916e824a8947ffe67ffbf"
+  },
+  "gen/ch27/test_gen_cross_genloop_1_bit_x_for_break_tail_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "ae6fe8dfed61c500dbb991f22f26049548f6ac2962521fb91d629399c3ffbbe1"
+  },
+  "gen/ch27/test_gen_cross_genloop_1_bit_z_while_break_miss_if_up_3": {
+   "status": "pass",
+   "inputs_sha256": "8cd8c318324f179af144565fe541261e18f620736749cba766fdd1c2cf6e261b"
+  },
+  "gen/ch27/test_gen_cross_genloop_1_logic_known_repeat_break_middle_if_down_3": {
+   "status": "pass",
+   "inputs_sha256": "ac2e581b961667dd9f5b3b47222de3caac46ef427c70ffdbe0c3f86765b5d032"
+  },
+  "gen/ch27/test_gen_cross_genloop_1_logic_x_while_continue_head_case_down_1": {
+   "status": "pass",
+   "inputs_sha256": "effe222c4813d18fd00095d1e9bc74d3908e6e5751c026bc2860886252a237a5"
+  },
+  "gen/ch27/test_gen_cross_genloop_1_logic_z_for_break_head_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "7753cb45be6b02c6453b9bee19118ee30b4a6f72f80b2e35d14f593001918c01"
+  },
+  "gen/ch27/test_gen_cross_genloop_32_bit_known_for_break_head_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "1812ff22fa9343b0133fec4fa597b9974e978996e9c104684d5056339d2d43b6"
+  },
+  "gen/ch27/test_gen_cross_genloop_32_bit_x_repeat_break_miss_if_up_1": {
+   "status": "known",
+   "reason": "compile failed: vvp.tgt: error: 'break' not in a loop?!",
+   "inputs_sha256": "7abaadfbe2447f24f5f6b6e14fa8118a490422c5704dcd35875d3d06b49790de"
+  },
+  "gen/ch27/test_gen_cross_genloop_32_bit_z_while_break_head_case_up_3": {
+   "status": "pass",
+   "inputs_sha256": "e9ae299dd6834d69becdb96bf27ec5e37ce9c1055a44d0a0cb6bfe827d4b8e50"
+  },
+  "gen/ch27/test_gen_cross_genloop_32_logic_known_for_continue_tail_case_down_3": {
+   "status": "pass",
+   "inputs_sha256": "3fdf19deb423f302c6d79aaee009ff34418054052e0bc582d538c6aa7f71875d"
+  },
+  "gen/ch27/test_gen_cross_genloop_32_logic_x_repeat_break_head_if_down_1": {
+   "status": "known",
+   "reason": "compile failed: vvp.tgt: error: 'break' not in a loop?!",
+   "inputs_sha256": "dc47f8b3a2d457dcda70271550c89161578f583c5e909cba09d1088d9f5dc57e"
+  },
+  "gen/ch27/test_gen_cross_genloop_32_logic_z_for_continue_middle_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "c6e0f764d972d97caf7995ff4aac1475f0a09af32231cb09a6e052a649b04530"
+  },
+  "gen/ch27/test_gen_cross_genloop_33_bit_known_for_break_miss_if_down_3": {
+   "status": "pass",
+   "inputs_sha256": "0bc0ae6844c8cd9ea3546b132f64ed200fba3182d84b81a4f43d65fae738dea9"
+  },
+  "gen/ch27/test_gen_cross_genloop_33_bit_x_while_continue_tail_if_down_1": {
+   "status": "pass",
+   "inputs_sha256": "bb1dedf411827445ac20c7f138416f00abbe031cc72dd64a534e432ca13cc18a"
+  },
+  "gen/ch27/test_gen_cross_genloop_33_bit_z_repeat_break_tail_case_up_1": {
+   "status": "known",
+   "reason": "compile failed: vvp.tgt: error: 'break' not in a loop?!",
+   "inputs_sha256": "1c3fa1dc4c300c5304f14b684adacf29dde491c9b9c49d465fe6bb90cb899be5"
+  },
+  "gen/ch27/test_gen_cross_genloop_33_logic_known_repeat_continue_head_if_up_3": {
+   "status": "pass",
+   "inputs_sha256": "69103e7691f6e2476f7f54b1fef53b171c95e81376d04c00cbec524176985868"
+  },
+  "gen/ch27/test_gen_cross_genloop_33_logic_x_for_break_middle_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "3e5112e42da4256730edd3460509bca60ca49f4988acb9f45fe8df7e899edbc6"
+  },
+  "gen/ch27/test_gen_cross_genloop_33_logic_z_for_break_head_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "0ccdff9bc6172dfda460c9302fcb22a898aaee49d89a4d3077d213669a433372"
+  },
+  "gen/ch27/test_gen_cross_genloop_64_bit_known_while_continue_middle_if_up_3": {
+   "status": "pass",
+   "inputs_sha256": "08f7c8a5de3010f96b3c35055db490b3176ee7e471cf875cdc8fd029268758cc"
+  },
+  "gen/ch27/test_gen_cross_genloop_64_bit_x_while_continue_miss_if_down_3": {
+   "status": "pass",
+   "inputs_sha256": "11bc093456ac7278040d32a39222c66af18a549bdb8aa089668694a11752f33d"
+  },
+  "gen/ch27/test_gen_cross_genloop_64_bit_z_for_break_middle_case_down_1": {
+   "status": "pass",
+   "inputs_sha256": "351caaf3d8c1047c81249f86914cd074b88657e5ef8c58d928f92c1f4848a7d6"
+  },
+  "gen/ch27/test_gen_cross_genloop_64_logic_known_for_break_head_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "261febed5302ea184e5ba71224021911d617e8e874aad2c57df63e2d46408667"
+  },
+  "gen/ch27/test_gen_cross_genloop_64_logic_x_repeat_continue_middle_if_up_1": {
+   "status": "known",
+   "reason": "compile failed: vvp.tgt: error: 'continue' not in a loop?!",
+   "inputs_sha256": "8b0646d862e333cc8db007e9b4e8f324520555370ea81e2ae0ef64d619821da4"
+  },
+  "gen/ch27/test_gen_cross_genloop_64_logic_z_for_break_tail_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "3642d7843ad503869b2727fdb6be82e999c266345a676bc488329684d0e48445"
+  },
+  "gen/ch27/test_gen_cross_genloop_65_bit_known_for_continue_miss_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "25689023bb3e83d2de7b80920b64b5808a6e5e9cd81298789731bb1383468fc1"
+  },
+  "gen/ch27/test_gen_cross_genloop_65_bit_x_for_break_head_if_up_3": {
+   "status": "pass",
+   "inputs_sha256": "3a409b6acd780653ae87d0b775107e857447133b999943e9fc1c27aabd8ada60"
+  },
+  "gen/ch27/test_gen_cross_genloop_65_bit_z_repeat_continue_tail_case_down_1": {
+   "status": "known",
+   "reason": "compile failed: vvp.tgt: error: 'continue' not in a loop?!",
+   "inputs_sha256": "661c86a2252ca3e44914309bbdd86dfdf2679bdee0a6617d4396950285dd4085"
+  },
+  "gen/ch27/test_gen_cross_genloop_65_logic_known_for_break_head_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "f83fe36c42c2a23f2a5c15fe81dabe1b3d9e70274bd856edc96e0074b80afa7b"
+  },
+  "gen/ch27/test_gen_cross_genloop_65_logic_x_while_break_middle_if_down_3": {
+   "status": "pass",
+   "inputs_sha256": "c28b2256b64172c3c457b295be420d1e51a55469801c110b991ba6b78de8c044"
+  },
+  "gen/ch27/test_gen_cross_genloop_65_logic_z_for_break_head_if_up_1": {
+   "status": "pass",
+   "inputs_sha256": "dd240c8bf7121cdef7ad8953dd0ea810fcec0b936bdba98a3a8d9b28c0c789df"
+  }
+ },
+ "generated_at": "2026-11-05T11:57:40.395580+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

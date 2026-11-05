@@ -1,0 +1,87 @@
+{
+  "verified_at": "2026-11-05T11:59:29.084228+00:00",
+  "suite_commit": "19cd790a5f639348ad67fd63959dce9811d3ab56",
+  "scope": "Read-only confirmation of formal Check/Nightly and saved full-suite/random artifacts. No simulator rerun; new generated-loop additions are outside this checkpoint.",
+  "check": {
+    "conclusion": "success",
+    "headSha": "19cd790a5f639348ad67fd63959dce9811d3ab56",
+    "status": "completed",
+    "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/41927001926"
+  },
+  "nightly": {
+    "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616",
+    "headSha": "19cd790a5f639348ad67fd63959dce9811d3ab56",
+    "status": "completed",
+    "conclusion": "success",
+    "createdAt": "2026-11-05T00:26:16Z",
+    "updatedAt": "2026-11-05T04:47:20Z"
+  },
+  "nightly_jobs": [
+    {
+      "name": "icarus",
+      "conclusion": "success"
+    },
+    {
+      "name": "verilator",
+      "conclusion": "success"
+    },
+    {
+      "name": "lyra",
+      "conclusion": "success"
+    },
+    {
+      "name": "kirimasim",
+      "conclusion": "success"
+    },
+    {
+      "name": "ghost",
+      "conclusion": "success"
+    },
+    {
+      "name": "publish",
+      "conclusion": "success"
+    }
+  ],
+  "fixed": {
+    "artifact": "results-kirimasim",
+    "artifact_id": 13385961083,
+    "results_sha256": "a304d416a5203c7a08759f3c857b50aa57b7ff395688317f7db26714a4a6773c",
+    "version": "kirimasim 0.0.0 (commit 50a897dee62a), built with GNU 13.3.0",
+    "tests": 10510,
+    "counts": {
+      "pass": 7975,
+      "unsupported": 2402,
+      "fail": 133
+    }
+  },
+  "finite": {
+    "cases": 3028,
+    "models": 82,
+    "chapter_pairs": 119,
+    "all_pass_models": 55,
+    "counts": {
+      "pass": 2495,
+      "unsupported": 529,
+      "fail": 4
+    },
+    "compared_to": "coverage/interaction-results/cross82-kirimasim-16222215-classsel.json",
+    "inputs_and_statuses_match": true
+  },
+  "random": {
+    "artifact": "random-cross-kirimasim",
+    "artifact_id": 13385821852,
+    "run_sha256": "6defc396d23a5b233a70d863c4b91dcd33e0fea25184c3aaa57917e432e72e47",
+    "manifest_sha256": "0fd74453f6b2720e11695f1539937fd764c84b72d26364fd3d057c598ad8689b",
+    "seed": 41941310616,
+    "cases": 96,
+    "profiles": 13,
+    "completed": true,
+    "valid": true,
+    "all_saved_outputs_match": true,
+    "build": {
+      "commit": "50a897dee62af605c02f5ddcee10f25645abc77d",
+      "version": "kirimasim 0.0.0 (commit 50a897dee62a), built with GNU 13.3.0",
+      "binary_sha256": "666c1f8cf1432a5789b32090e7d40d934b0a9a72801d50233024337dbf2b737a"
+    }
+  }
+}

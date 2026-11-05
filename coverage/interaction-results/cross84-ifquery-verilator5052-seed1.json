@@ -1,0 +1,181 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch25/test_gen_cross_ifquery_129_bit_known_up_negative_one_default_function_ab_up": {
+   "status": "pass",
+   "inputs_sha256": "c9197580695fee07b5eee3ad6c170df1a40e734e8de15495e6d8b9f6d29c4e53"
+  },
+  "gen/ch25/test_gen_cross_ifquery_129_bit_x_up_negative_one_default_function_ab_down": {
+   "status": "known",
+   "reason": "output differs: line 83 is 'd id=0 0=110101010101010101010101010101010101010101010101...', expected 'd id=0 0=010101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "37543604079b17db9e97c9c9fa222c1e1ccaa048569d68b333cf18a6e0b58e59"
+  },
+  "gen/ch25/test_gen_cross_ifquery_129_bit_z_up_negative_one_explicit_function_ab_up": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch25/test_gen_cross_ifquery_129_bit_z_up_negative_one_explicit_function_ab_up.sv:254:11: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "df73d4e9a184c2aef044389dfdf4a5d36fc7a59c5709930f8555e01631d9fcb6"
+  },
+  "gen/ch25/test_gen_cross_ifquery_129_logic_known_up_negative_one_default_function_ab_up": {
+   "status": "pass",
+   "inputs_sha256": "aaf560c3799fa3ed0f16a1757b6231e56f874caa36ad943d2b73cf032db40e7b"
+  },
+  "gen/ch25/test_gen_cross_ifquery_129_logic_x_up_negative_one_default_function_ab_up": {
+   "status": "known",
+   "reason": "output differs: line 83 is 'd id=0 0=010101010101010101010101010101010101010101010101...', expected 'd id=0 0=x10101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "e6b92344f51f276cb91a54ae23499ec5ceb3fb30678f8c06695b715beefde408"
+  },
+  "gen/ch25/test_gen_cross_ifquery_129_logic_z_down_positive_three_explicit_task_ba_down": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch25/test_gen_cross_ifquery_129_logic_z_down_positive_three_explicit_task_ba_down.sv:258:11: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "2be5ba92e7efaf5f0287502b2a11f51833d6ac5fbee005876f10e67649555c99"
+  },
+  "gen/ch25/test_gen_cross_ifquery_1_bit_known_up_negative_one_default_function_ab_up": {
+   "status": "pass",
+   "inputs_sha256": "a6009b041d0b79550cffeef3852c955e0e5e07d618540e34d426f9c5e94342eb"
+  },
+  "gen/ch25/test_gen_cross_ifquery_1_bit_x_up_negative_one_explicit_function_ab_up": {
+   "status": "known",
+   "reason": "output differs: line 88 is 'd id=1 0=001 1=100', expected 'd id=1 0=000 1=000'",
+   "inputs_sha256": "db740f3429f9e6dda2067f1e502aaa32369f55cf13cb0f222a1167eb8c31e287"
+  },
+  "gen/ch25/test_gen_cross_ifquery_1_bit_z_down_negative_three_default_function_ab_down": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch25/test_gen_cross_ifquery_1_bit_z_down_negative_three_default_function_ab_down.sv:258:11: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "b08c58f72c8677126460b6ce567716592ccba1363d0531aa03718df0bcfe3f21"
+  },
+  "gen/ch25/test_gen_cross_ifquery_1_logic_known_up_negative_one_default_function_ab_up": {
+   "status": "pass",
+   "inputs_sha256": "56eda90e8c30f321f61c0fd5f80e6d77a19a808d033bbd65e1870357985fb933"
+  },
+  "gen/ch25/test_gen_cross_ifquery_1_logic_x_up_positive_one_explicit_task_ba_down": {
+   "status": "known",
+   "reason": "output differs: line 83 is 'd id=0 0=0', expected 'd id=0 0=x'",
+   "inputs_sha256": "3deadaf30f5fae0febc1fc22f8ca15103c8fb121a089f9d27ad6ec4405dbf1aa"
+  },
+  "gen/ch25/test_gen_cross_ifquery_1_logic_z_up_negative_one_default_function_ab_up": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch25/test_gen_cross_ifquery_1_logic_z_up_negative_one_default_function_ab_up.sv:254:11: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "cd28ccc65a4967c4c6c8e463b15a9f20e04f5f28e98c7348d5541af6078b6d8c"
+  },
+  "gen/ch25/test_gen_cross_ifquery_32_bit_known_up_negative_one_explicit_function_ab_up": {
+   "status": "pass",
+   "inputs_sha256": "4d13665032d9562089011d644b8e34ae87cd24ab4d84e4d9032d30bce51b77aa"
+  },
+  "gen/ch25/test_gen_cross_ifquery_32_bit_x_down_negative_three_default_function_ba_up": {
+   "status": "known",
+   "reason": "output differs: line 83 is 'd id=0 0=11010101010101010101010101010100 1=0010101010101...', expected 'd id=0 0=01010101010101010101010101010100 1=0010101010101...'",
+   "inputs_sha256": "5b1090b2f87836a7be068abbbb9f060dbe11ce2977176be810fd70c89846cb44"
+  },
+  "gen/ch25/test_gen_cross_ifquery_32_bit_z_up_negative_one_default_task_ab_down": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch25/test_gen_cross_ifquery_32_bit_z_up_negative_one_default_task_ab_down.sv:254:11: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "433d5fa9fc5fea1f41a226567b7a087f79fee67c975b81751a8d19633d7f30d7"
+  },
+  "gen/ch25/test_gen_cross_ifquery_32_logic_known_up_positive_three_explicit_function_ba_down": {
+   "status": "pass",
+   "inputs_sha256": "1580775b913c3d568d6b775ac0d0c699d2009c255c834d07867d712d78d1f3c3"
+  },
+  "gen/ch25/test_gen_cross_ifquery_32_logic_x_up_negative_one_default_function_ab_up": {
+   "status": "known",
+   "reason": "output differs: line 83 is 'd id=0 0=11010101010101010101010101010101', expected 'd id=0 0=x101010101010101010101010101010x'",
+   "inputs_sha256": "72741fa85abe52689d720b594d701d9dd391e590188d3b085623ba1e172fcb54"
+  },
+  "gen/ch25/test_gen_cross_ifquery_32_logic_z_up_negative_one_default_function_ab_up": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch25/test_gen_cross_ifquery_32_logic_z_up_negative_one_default_function_ab_up.sv:254:11: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "95a5ef1ccdb5dc5bb77ae977e8cd4be8745a936d8f493246729ec6aca81f38bb"
+  },
+  "gen/ch25/test_gen_cross_ifquery_33_bit_known_up_negative_one_default_task_ba_down": {
+   "status": "pass",
+   "inputs_sha256": "fa2f37e779579418144bbff7257882d169096011c7fb630d7479a4f50a9bbed1"
+  },
+  "gen/ch25/test_gen_cross_ifquery_33_bit_x_up_negative_one_explicit_function_ab_down": {
+   "status": "known",
+   "reason": "output differs: line 83 is 'd id=0 0=110101010101010101010101010101001', expected 'd id=0 0=010101010101010101010101010101000'",
+   "inputs_sha256": "a5664551b99d48a8ea86b3aa6f57b2960e9309d9dcd56b13ccae20313e19b8f3"
+  },
+  "gen/ch25/test_gen_cross_ifquery_33_bit_z_down_negative_one_explicit_function_ba_up": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch25/test_gen_cross_ifquery_33_bit_z_down_negative_one_explicit_function_ba_up.sv:254:11: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "0bb4859a676b90bc2bbe58c412978fb7a0bba97a7464b09e414ff6911d0c895f"
+  },
+  "gen/ch25/test_gen_cross_ifquery_33_logic_known_up_negative_one_default_function_ab_up": {
+   "status": "pass",
+   "inputs_sha256": "a91fc4698377c3696ead3d488818f13fc9fd822bcc8a069d795eb71bfec9c2ad"
+  },
+  "gen/ch25/test_gen_cross_ifquery_33_logic_x_up_negative_one_default_function_ab_up": {
+   "status": "known",
+   "reason": "output differs: line 83 is 'd id=0 0=010101010101010101010101010101000', expected 'd id=0 0=x1010101010101010101010101010100x'",
+   "inputs_sha256": "72bb32ea656c2eed38edad426ee3532659ce0b69dac2a8317acd4df9764458c0"
+  },
+  "gen/ch25/test_gen_cross_ifquery_33_logic_z_up_positive_three_default_task_ab_up": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch25/test_gen_cross_ifquery_33_logic_z_up_positive_three_default_task_ab_up.sv:258:11: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "1180b395aa4704887f89e9e4b0420b551ab3bd113b8e55c856c0a38a0a8b06a4"
+  },
+  "gen/ch25/test_gen_cross_ifquery_64_bit_known_down_positive_one_default_task_ab_up": {
+   "status": "pass",
+   "inputs_sha256": "b736681c14ac14bcf7acb74d24ba394e7e91586fec5d0186712bd56905465307"
+  },
+  "gen/ch25/test_gen_cross_ifquery_64_bit_x_up_negative_three_explicit_function_ab_down": {
+   "status": "known",
+   "reason": "output differs: line 83 is 'd id=0 0=010101010101010101010101010101010101010101010101...', expected 'd id=0 0=010101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "f2577fa56f57eefb075f7bfd42f0d0b2cb531c6fe71ddd1ba5cc0aff47726056"
+  },
+  "gen/ch25/test_gen_cross_ifquery_64_bit_z_up_negative_one_explicit_function_ab_up": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch25/test_gen_cross_ifquery_64_bit_z_up_negative_one_explicit_function_ab_up.sv:254:11: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "1a6c68c94eadcaea7d8327687038895c01742f11601946ab69c7b638fb8ad04e"
+  },
+  "gen/ch25/test_gen_cross_ifquery_64_logic_known_up_negative_one_default_function_ab_up": {
+   "status": "pass",
+   "inputs_sha256": "9f7853948908959bad44200dac6d6f3dd63a4b33283bf06e9915ca7e11116a3b"
+  },
+  "gen/ch25/test_gen_cross_ifquery_64_logic_x_up_negative_one_default_function_ab_up": {
+   "status": "known",
+   "reason": "output differs: line 83 is 'd id=0 0=110101010101010101010101010101010101010101010101...', expected 'd id=0 0=x10101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "005c33640b03ab832861560a080daaa6923d2d604461306ac339eab476ff7658"
+  },
+  "gen/ch25/test_gen_cross_ifquery_64_logic_z_up_negative_one_default_function_ba_down": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch25/test_gen_cross_ifquery_64_logic_z_up_negative_one_default_function_ba_down.sv:254:11: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "234f1c3bb6ebbb1e1f772b1c829426d145d0222cc7b872338c8a83e9e8203c36"
+  },
+  "gen/ch25/test_gen_cross_ifquery_65_bit_known_down_positive_one_explicit_function_ba_up": {
+   "status": "pass",
+   "inputs_sha256": "8067cb5966bf6476603d075d4ca4e4e758e6a20e425148a60e79c8842c40be2b"
+  },
+  "gen/ch25/test_gen_cross_ifquery_65_bit_x_up_negative_one_explicit_function_ab_down": {
+   "status": "known",
+   "reason": "output differs: line 83 is 'd id=0 0=010101010101010101010101010101010101010101010101...', expected 'd id=0 0=010101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "c950c7e489c42746fb665c06f342e6f5e24e34c68c2abeeae4fa6993db78876e"
+  },
+  "gen/ch25/test_gen_cross_ifquery_65_bit_z_up_negative_one_default_function_ab_up": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch25/test_gen_cross_ifquery_65_bit_z_up_negative_one_default_function_ab_up.sv:254:11: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "ee9019e739001406814b5f22d30b3f9bdf1ccd0639b10f11a1fbf5bb9ba8102d"
+  },
+  "gen/ch25/test_gen_cross_ifquery_65_logic_known_up_negative_one_default_function_ab_up": {
+   "status": "pass",
+   "inputs_sha256": "8852298c1e2e86e5080b9f0daeb182d7a230f83594c710f865b14b6c1d3fba26"
+  },
+  "gen/ch25/test_gen_cross_ifquery_65_logic_x_up_negative_three_default_task_ab_down": {
+   "status": "known",
+   "reason": "output differs: line 83 is 'd id=0 0=010101010101010101010101010101010101010101010101...', expected 'd id=0 0=x10101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "86a6e6106015baf29d0abc64bbd608fc201272f2447e769946783e420d7ef212"
+  },
+  "gen/ch25/test_gen_cross_ifquery_65_logic_z_up_negative_one_default_function_ab_up": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch25/test_gen_cross_ifquery_65_logic_z_up_negative_one_default_function_ab_up.sv:254:11: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "4e99dbf2571bc14021a91c6ce821089f5d6203f11fe60c792833e23dc2bdd5cb"
+  }
+ },
+ "generated_at": "2026-11-05T12:26:34.292201+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

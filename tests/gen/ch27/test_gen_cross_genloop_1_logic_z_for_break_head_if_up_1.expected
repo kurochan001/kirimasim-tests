@@ -1,0 +1,135 @@
+h p=0 step=before t=0
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=0 done=0 visited=0 kept=0 hits=0 weight=0 kept_weight=0 i=0 ordinal=0 at=0
+d id=0 0=1
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=0 done=0 visited=0 kept=0 hits=0 weight=0 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=011
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=0 done=0 visited=0 kept=0 hits=0 weight=0 kept_weight=0 i=0 ordinal=0 at=0
+d id=2 0=11
+v id=3 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=0 done=0 visited=0 kept=0 hits=0 weight=0 kept_weight=0 i=0 ordinal=0 at=0
+d id=3 0=01
+h p=0 step=after t=2
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=1 done=1 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-2
+d id=0 0=1
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=1 done=1 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=011
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=1 done=1 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=11
+v id=3 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=1 done=1 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=01
+h p=0 step=refresh t=2
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=1 done=1 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-2
+d id=0 0=0
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=1 done=1 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=011
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=1 done=1 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=11
+v id=3 bits=2 left=-1 right=-1 guard=11 checksum=00 runs=1 done=1 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=01
+h p=0 step=again t=4
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=2 done=2 visited=1 kept=1 hits=0 weight=1 kept_weight=1 i=1 ordinal=0 at=-2
+d id=0 0=0
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=2 done=2 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=011
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=2 done=2 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=11
+v id=3 bits=2 left=-1 right=-1 guard=11 checksum=00 runs=2 done=2 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=01
+h p=0 step=idle t=5
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=2 done=2 visited=1 kept=1 hits=0 weight=1 kept_weight=1 i=1 ordinal=0 at=-2
+d id=0 0=0
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=2 done=2 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=011
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=2 done=2 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=11
+v id=3 bits=2 left=-1 right=-1 guard=11 checksum=00 runs=2 done=2 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=01
+h p=1 step=before t=5
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=2 done=2 visited=1 kept=1 hits=0 weight=1 kept_weight=1 i=1 ordinal=0 at=-2
+d id=0 0=z
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=2 done=2 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=1zz
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=2 done=2 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=zz
+v id=3 bits=2 left=-1 right=-1 guard=11 checksum=00 runs=2 done=2 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=zz
+h p=1 step=after t=7
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=3 done=3 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-2
+d id=0 0=z
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=3 done=3 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=1zz
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=3 done=3 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=zz
+v id=3 bits=2 left=-1 right=-1 guard=11 checksum=00 runs=3 done=3 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=zz
+h p=1 step=refresh t=7
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=3 done=3 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-2
+d id=0 0=x
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=3 done=3 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=1zz
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=3 done=3 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=zz
+v id=3 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=3 done=3 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=zz
+h p=1 step=again t=9
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=4 done=4 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-2
+d id=0 0=x
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=4 done=4 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=1zz
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=4 done=4 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=zz
+v id=3 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=4 done=4 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=zz
+h p=1 step=idle t=10
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=4 done=4 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-2
+d id=0 0=x
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=4 done=4 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=1zz
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=4 done=4 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=zz
+v id=3 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=4 done=4 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=zz
+h p=2 step=before t=10
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=4 done=4 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-2
+d id=0 0=1
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=4 done=4 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=011
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=4 done=4 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=11
+v id=3 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=4 done=4 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=01
+h p=2 step=after t=12
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=5 done=5 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-2
+d id=0 0=1
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=5 done=5 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=011
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=5 done=5 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=11
+v id=3 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=5 done=5 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=01
+h p=2 step=refresh t=12
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=5 done=5 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-2
+d id=0 0=0
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=5 done=5 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=011
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=5 done=5 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=11
+v id=3 bits=2 left=-1 right=-1 guard=11 checksum=00 runs=5 done=5 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=01
+h p=2 step=again t=14
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=6 done=6 visited=1 kept=1 hits=0 weight=1 kept_weight=1 i=1 ordinal=0 at=-2
+d id=0 0=0
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=6 done=6 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=011
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=6 done=6 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=11
+v id=3 bits=2 left=-1 right=-1 guard=11 checksum=00 runs=6 done=6 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=01
+h p=2 step=idle t=15
+v id=0 bits=1 left=-2 right=-2 guard=1 checksum=0 runs=6 done=6 visited=1 kept=1 hits=0 weight=1 kept_weight=1 i=1 ordinal=0 at=-2
+d id=0 0=0
+v id=1 bits=3 left=0 right=0 guard=101 checksum=000 runs=6 done=6 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=0
+d id=1 0=011
+v id=2 bits=2 left=-1 right=-1 guard=10 checksum=00 runs=6 done=6 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=2 0=11
+v id=3 bits=2 left=-1 right=-1 guard=11 checksum=00 runs=6 done=6 visited=1 kept=0 hits=1 weight=1 kept_weight=0 i=0 ordinal=0 at=-1
+d id=3 0=01

@@ -5,17 +5,15 @@
 2026-11-05（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json)は82モデル・3,028件で、
-2,495 pass・529 unsupported・configの4 failです。クラスの条件選択の追加36件は全PASSで、従来2,992件の入力・状態分類は不変です。
-新しいモデルは正式Check・Nightlyの対象にはまだ含まれていません。
+現在の[全クロスのローカル選択](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json)は84モデル・3,100件で、
+2,567 pass・529 unsupported・configの4 failです。interface配列問い合わせの追加36件は全PASSで、従来3,064件の入力・状態分類は不変です。
+生成ループとinterface配列問い合わせの計72件は正式Check・Nightlyの対象にはまだ含まれていません。
 
-[最新の正式確認](nightly-results.md#latest-verified-checkpoint)では、上流kirimasim `9113955914d8`で追加前の選択2,922件を実行し、
-2,389 pass・529 unsupported・configの4 failでした。修正したinside・ラベル取消しは引き続きPASSです。
-全選択ケースの入力・状態分類は保存済みcross79と一致しています。suite `9926160a`のCheck、Nightlyの5シミュレータ、公開処理はすべて成功しました。
+基点`19cd790a`の[正式Check・Nightly](nightly-results.md#latest-verified-checkpoint)は成功し、追加前の82モデル・3,028件はcross82と全入力・分類が一致しています。上記72件の正式CIは未実行です。
 以下の未コミットビルドは修正過程の記録であり、現在の上流の状態を示すものではありません。
 kirimasim-testsのNightlyの1回の成功と、本体リポジトリの7連続Nightly条件は分けて扱います。
 
-最新の固定suite全体では、第30章の通常のspecify条件テスト5件がunsupportedからPASSへ改善しています。
+2026-11-04の固定suiteの確認時点で、第30章の通常のspecify条件テスト5件がunsupportedからPASSへ改善しました。
 この5件は有限クロスの選択外です。選択内の状態依存specifyパス12件・SDF注釈6件の未対応は変わっていません。
 [今回の確認記録](../coverage/interaction-qualification/formal-ci-9926160a-20261104.json)に5件の識別と固定入力の不変を記載しています。
 
@@ -96,7 +94,7 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
   演算・条件式を将来の独立因子として検討します。合法な式と正の寸法の確定、
   既知のconfigリセット不一致の修正を先に行います。
 
-現在の仕分けはM119・E3・C2・N117・R579です。
+現在の仕分けはM124・E3・C2・N117・R574です。
 [章対の根拠と指紋](chapter-cross-triage.md)を参照してください。
 既存の回帰matrixを先に活用し、原因が確定した機構に境界・操作列・故障対照を追加します。
 同じ目的の別runnerや、ランダム結果を固定要求カバレッジへ加算する仕組みは追加していません。
@@ -124,3 +122,19 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
 要精査Rは579章対です。合法1,296プログラムの独立解釈が一致し、正常対照5件・SVへの9故障で観測を検算しました。
 固定Verilatorのseed 1/73は各12 pass・24 known、固定Icarusは全36件のクラスハンドル比較を拒否します。
 X/Zの期待値と[knownの全出力再実行](../coverage/interaction-qualification/classsel-known-replays.json)を保持し、nativeのPASSや4値oracleとは分けます。
+
+生成ループの追加で第12章×第27章・第9章×第27章を精査し、第7章×第27章も補強しました。合法6,912行から因子対293組・重点3因子160組・必須6件を保持する36件を選びました。
+最新ビルド`50a897dee62a`の全3,064件の単一実行で追加36件は全PASS、従来3,028件の入力ハッシュ・分類は不変です。
+83モデル・121章対・全選択ケースPASS 56モデル、仕分けはM121 / E3 / C2 / N117 / R577です。
+Icarusは31入力に一致し、repeat回数1の5件は拒否を保持して、独立に解釈した回数3対照と分けています。
+全6,912ソースの独立解釈が一致し、正常対照5件・実際のSVへの9故障で観測を検算しました。
+基点19cd790aの正式Check・Nightlyとランダム96 PASSも確認しましたが、新しい有限ケースはローカル証跡です。
+[設計と全記録](interaction-verification.md#generated-process-loop-transfer)を参照してください。
+
+## interface配列問い合わせによる走査（2026-11-05）
+
+[第7×25・20×25・13×20章のモデル](interaction-verification.md#interface-array-query-walk)を追加しました。
+合法4,608通りから36件を選び、全行の独立検算と、正常対照5件・実行可能な9故障を確認しました。
+最新取得・ビルドの`50a897dee62a`で全3,100件を一度に実行し、追加36件はparse成功・全PASS、従来3,064件の入力・分類は不変です。
+固定IcarusはX/Zを含む全36件に一致し、固定Verilatorの既知値12件は両seedで一致しました。2値の偶然の一致を4値の確認やoracle登録に使いません。
+要求対応付け・ランダム13プロファイル・既存回帰・本体コードは不変です。

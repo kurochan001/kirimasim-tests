@@ -1,0 +1,49 @@
+{
+  "model": "generated_process_loop_transfer",
+  "scope": "Pinned-release comparisons of the same final SV and standard expectations. Known differences are retained. 31 Icarus-matching cases receive its oracle, including 19 X/Z cases; all 12 known-input cases also retain matching Verilator 5.052 oracles after two seeds; two-state observations do not qualify four-state behavior. Icarus loop-transfer rejection is retained as known, not pass.",
+  "versions_and_runs": [
+    {
+      "simulator": "icarus",
+      "run": "coverage/interaction-results/cross83-genloop-icarus13.json",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "configuration": {},
+      "counts": {
+        "pass": 31,
+        "known": 5
+      },
+      "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46"
+    },
+    {
+      "simulator": "verilator",
+      "run": "coverage/interaction-results/cross83-genloop-verilator5052-seed1.json",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "configuration": {
+        "seed": 1
+      },
+      "counts": {
+        "pass": 12,
+        "known": 24
+      },
+      "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf"
+    },
+    {
+      "simulator": "verilator",
+      "run": "coverage/interaction-results/cross83-genloop-verilator5052-seed73.json",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "configuration": {
+        "seed": 73
+      },
+      "counts": {
+        "pass": 12,
+        "known": 24
+      },
+      "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf"
+    }
+  ],
+  "executables_sha256": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "verilator_driver": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+    "verilator_binary": "f2ba0ba23efcc197d00b785e9562fc6ae99b6dd7b009f14fefc83c187ed0c15d"
+  }
+}

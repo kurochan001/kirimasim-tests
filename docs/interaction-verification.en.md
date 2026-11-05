@@ -14,6 +14,20 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-05 interface-query addition brings totals to **84 models / 3,100 cases / 124 chapter pairs**.
+The [single run](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json) on freshly fetched/configured/built main `50a897dee62a` records
+**2,567 pass / 529 unsupported / four existing config failures**. All 36 additions parse/pass; preceding 3,064 inputs/statuses are unchanged.
+There are 57 full-selection-pass models. See [interface array queries](#interface-array-query-walk) for independent checks and pinned comparisons.
+[Formal Check/Nightly on baseline `19cd790a`](nightly-results.en.md#latest-verified-checkpoint) confirm 82 models;
+the combined 72 generated-loop/interface-query additions have not run in formal CI. Records below describe each addition’s checkpoint.
+
+The 2026-11-05 generated-process addition gives **83 models / 3,064 cases / 121 chapter pairs**.
+The [single full run](../coverage/interaction-results/cross83-kirimasim-50a897de-genloop.json) on freshly fetched/configured/built main `50a897dee62a`
+records **2,531 pass / 529 unsupported / four existing config failures**. All 36 additions parse and pass; all preceding 3,028 inputs/statuses are unchanged.
+There are 56 full-selection-pass models. See [generated-process loops](#generated-process-loop-transfer) for independent checks and fixed-release differences.
+[Formal Check/Nightly on baseline `19cd790a`](nightly-results.en.md#latest-verified-checkpoint) confirm the preceding 82 models.
+Formal CI has not run the new 36 cases. Dated addition records below describe their own verification points.
+
 The 2026-11-05 class-selection addition gives **82 models, 3,028 selected cases and 119 chapter pairs**.
 The [complete local run](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json) on upstream kirimasim `162222153c57`,
 fetched/configured/built immediately beforehand, records **2,495 pass, 529 unsupported and four existing config failures**.
@@ -38,7 +52,7 @@ All 34 additions parse and pass. The preceding 2,922 input fingerprints and stat
 **53 models** pass their full selection. This is separate from the formal checkpoint below, which predates the additions.
 See [class method/package lookup](#class-method-package-lookup) for design and qualification.
 
-The [latest verified checkpoint](nightly-results.en.md#latest-verified-checkpoint), checked on 2026-11-04 JST,
+The [latest verified checkpoint](nightly-results.en.md#checkpoint-9926160a), checked on 2026-11-04 JST,
 confirms successful Check and Nightly on suite `9926160a`.
 That formal kirimasim `9113955914d8` run includes the preceding **2,922 selected cases in 79 models**:
 **2,389 pass, 529 unsupported and four config failures**, with **52 full-selection-pass models** and **114 mapped chapter pairs**.
@@ -3277,3 +3291,124 @@ python3 tools/run_verilator.py --all --seed 1 \
 Scope is two derived objects, one inheritance level, inherited properties, a retained alias, same-sign integral words and time-free automatic functions.
 Recursion, ref, null dereferences, property hiding, super, mixed-sign operations, concurrency, garbage collection and allocation stress are outside scope.
 Random profiles remain thirteen; requirement bindings and core source are unchanged. Formal Check/Nightly for the new cases have not run.
+
+<a id="generated-process-loop-transfer"></a>
+
+## Generated processes, loop transfers and private array state
+
+[`interaction_genloop.py`](../generators/interaction_genloop.py) defines `generated_process_loop_transfer@1`.
+All **6,912** rows are legal; **36** tests retain **293 pairs, 160 targeted triples and six anchors** (99.48% fewer cases).
+Factors are width 1/32/33/64/65/129, bit/logic, known/X/Z, for/while/repeat, break/continue,
+head/middle/tail/miss, if/case generation, ascending/descending ranges and length 1/3.
+Rules come from generate (27.4/27.5), always/edge control (9.2.2.1/9.4.2), loops/transfers (12.7.1/12.7.2/12.7.4/12.8),
+unpacked ranges (7.4.2), case inequality (11.4.6) and state conversion (6.11.2). No support-based exclusions are used.
+
+Two differently parameterized workers each elaborate two private posedge processes. Branch and genvar constants determine width and bounds,
+including negative ascending and nonzero descending indices. Arrays are scanned in logical order. A low-bit marker triggers break or continue;
+case inequality makes X/Z a hit in logic, while bit storage first converts those inputs to zero.
+While/repeat increment before the conditional transfer, preserving termination on continue; for increments at its header.
+Their final indices can differ on break even when they visited the same elements.
+
+Each case runs known, known/X/Z and known-recovery phases. Every phase has two rising edges.
+Between them, only scope a0's first array word and scope b1's guard change. The full-word XOR refresh converts upper Z bits to X as well;
+this is independently modeled, rather than treating XOR as only a low-bit edit. Results remain retained until the next rising edge.
+Every snapshot reads all array elements, bounds/widths, checksum, visited/kept counts and ordinal weights, hit counts,
+current/final indices and persistent run/completion counts. Falling edges and idle snapshots check that processing does not run again.
+Each process owns its state; there are no races between independent writers.
+
+[`qualify_genloop.py`](../tools/qualify_genloop.py) parses actual SV parameters, branches, types, array bounds, edge declarations,
+loop statements, transfers, writes and displays. Its bounded integer AST and independent value/X/Z bit planes do not call primary layout,
+stimulus or reference helpers. All 6,912 emitted programs agree. [`genloop.json`](../coverage/interaction-qualification/genloop.json)
+records five normal native controls and nine executable SV faults: wrong generated width, lost break/continue, wrong marker element,
+skipped final iteration, lost checksum accumulation, wrong clock edge, guard corruption and reversed range.
+All exit normally and every fault differs in output. Source/input/runner/binary hashes are checked before and after; these auxiliary runs add no suite passes.
+
+A fresh upstream main fetch/configure/build on `50a897dee62a` passes all 36, including parsing, in
+[one 3,064-case run](../coverage/interaction-results/cross83-kirimasim-50a897de-genloop.json): **2,531 pass / 529 unsupported / four existing config failures**.
+All preceding 3,028 fingerprints/statuses remain unchanged. [`genloop-build.json`](../coverage/interaction-qualification/genloop-build.json)
+records the actual build and parse results. Totals are 83 models / 121 pairs / 56 full-selection-pass models.
+The new 12×27 and 9×27 mappings and strengthened 7×27 use all 36 cases; partial results are not combined across snapshots.
+
+[Pinned comparisons](../coverage/interaction-qualification/genloop-fixed-replays.json) give Icarus 13.0 **31 pass / five known**, including 19 passing X/Z inputs.
+The five known inputs all use repeat count one and are rejected at the build with a break/continue-not-in-loop diagnostic.
+[Full diagnostics and separate count-three controls](../coverage/interaction-qualification/genloop-known-replays.json) retain every original;
+independently interpreted [control SV/expectations](../coverage/interaction-qualification/genloop-repeat-controls/) match Icarus for both transfers.
+This bounds an observed release difference; no simulator source was inspected and no internal cause or later-version behavior is asserted.
+Verilator 5.052 seeds 1/73 each give **12 pass / 24 known**. All 31 matching Icarus cases receive its oracle;
+the 12 known-input cases also retain Verilator oracles. Two-state results do not validate the remaining five X/Z cases.
+The current baseline `19cd790a` passed formal Check/Nightly, but these 36 additions have not run there.
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model generated_process_loop_transfer
+python3 -m unittest discover -s tools -p test_interaction_genloop.py
+# Fetch/configure/build current core main immediately before native execution.
+python3 tools/qualify_genloop.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/genloop-qualification-new.json
+```
+
+Scope is private static arrays, one shared clock, single-process loop transfers and bounded parameters. Signed arithmetic, foreach,
+dynamic containers, NBA, named disable, concurrent writers and variable hierarchy indices are outside scope. Random profiles remain thirteen;
+requirement bindings and core implementation are unchanged.
+
+<a id="interface-array-query-walk"></a>
+
+## Interface-local query-driven walks and typed results
+
+[`interaction_ifquery.py`](../generators/interaction_ifquery.py) defines `interface_array_query_walk@1`.
+All **4,608 rows** are legal. **36 cases** retain **274 pair targets, 96 targeted triples and six mandatory anchors**, reducing case count by 99.22%.
+Factors are widths 1/32/33/64/65/129, bit/logic, known/X/Z, ascending/descending unpacked bounds, negative/positive origins,
+length 1/3, omitted/explicit dimension, function/task, call order ab/ba and ascending/descending packed bounds.
+Grounds are interfaces/subroutines (25.2/25.7), array queries (20.7), $bits (20.6.2), unpacked arrays (7.4.2),
+functions/arguments (13.4/13.5), bit conversion (6.11.2) and shifts (11.4.10). No support-based exclusions are applied.
+
+Two interfaces have widths W and W+2, lengths N and N+1, distinct origins and opposite bounds.
+Each automatic function/task starts at `at=$left(data)` and repeats `$size(data)` times, advancing with `at-=$increment(data)`.
+Queries determine the actual element and iteration count, beyond displaying shape metadata. Packed origins and directions also vary.
+Dimension one is unpacked and dimension two is packed. For a singleton, `$increment` is one regardless of declared orientation.
+In the [actual width-one case](../tests/gen/ch25/test_gen_cross_ifquery_1_bit_known_up_negative_one_default_function_ab_up.sv),
+a has bounds [-4:-4] and initial value zero. One visit gives checksum 0, visited=1, weight=-4 and terminal=-5;
+complementing the last element and recalling gives checksum 1. Assuming an ascending declaration always has increment -1 would mishandle this boundary.
+
+Before XORing each full element, shift the checksum left one bit. Low bits identify element positions so a reversed walk cannot hide behind exclusively symmetric stimuli.
+Every call initializes its accumulator/index. Compare visited counts, index weights, terminal index, call counts, full-width checksum and return/output copyout.
+Results are stored in width-W+4 logic, exposing four-bit zero extension for a and two-bit extension for b.
+
+Known, known/X/Z and known-recovery phases call in the selected order, observing every element and both instances after each call.
+Then complement only a’s last element and b’s guard. Computed results remain unchanged immediately after the input update;
+only reverse-order calls refresh them. Distinguish logic X/Z, bit conversion to zero and Z-to-X behavior on complement.
+The final repeated-state observation does not claim elapsed-time or clock-edge verification.
+
+[`qualify_ifquery.py`](../tools/qualify_ifquery.py) reads actual declarations, instance parameters, queries, expressions, loops, receivers and displays.
+Independent value/X/Z bit planes and a bounded integer AST interpret them without primary layout/stimulus/reference/query helpers.
+All 4,608 programs agree. [`ifquery.json`](../coverage/interaction-qualification/ifquery.json) records five normal controls and nine real source faults:
+wrong width, reversed traversal, skipped last element, lost shift, lost accumulation, terminal index, call count, receiver and guard clobber.
+All exit normally; every fault is detected by output difference. Check source/input/runner/binary hashes before and after; auxiliary executions are not fixed passes.
+
+Freshly fetched/configured/built main `50a897dee62a` passes and parses all 36 additions in [one full 3,100-case run](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json).
+Totals are **2,567 pass / 529 unsupported / four existing config failures**, with preceding 3,064 inputs/statuses unchanged.
+[`ifquery-build.json`](../coverage/interaction-qualification/ifquery-build.json) identifies the actual build and parse outcomes.
+Each of 7×25, 20×25 and 13×20 maps all 36 cases; totals are 84 models / 124 chapter pairs / 57 full-selection-pass models.
+
+[Pinned comparisons](../coverage/interaction-qualification/ifquery-fixed-replays.json) record Icarus 13.0 at **36 pass**, including all 24 X/Z-input cases.
+Verilator 5.052 seed 1 records **12 pass / 24 known**, and seed 73 **13 pass / 23 known**.
+Only the twelve known-input cases matching both seeds obtain Verilator oracles.
+The extra seed-73 match, `33_bit_x_up_negative_one_explicit_function_ab_down`, includes X-to-bit conversion;
+this observation under one two-state randomization seed does not validate four-state behavior. Icarus matches the same saved SV and expectation.
+All 36 receive Icarus oracles; existing oracles, expectations and cases are unchanged.
+Formal Check/Nightly on baseline 19cd790a cover the preceding 82 models; the combined 72 generated-loop/interface-query cases have not run there.
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model interface_array_query_walk
+python3 -m unittest discover -s tools -p test_interaction_ifquery.py
+# Fetch/configure/build the latest core main immediately before native execution.
+python3 tools/qualify_ifquery.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/ifquery-qualification-new.json
+python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin \
+  --json my-results/ifquery-icarus-new.json tests/gen/ch25/test_gen_cross_ifquery_*.sv
+python3 tools/run_verilator.py --all --seed 73 \
+  --json my-results/ifquery-verilator-new.json tests/gen/ch25/test_gen_cross_ifquery_*.sv
+```
+
+Scope is one fixed unpacked dimension, unsigned one-dimensional packed elements, direct hierarchical calls and a single initial block.
+Interface ports, modports, virtual interfaces, dynamic arrays, signed arithmetic, concurrent calls, timing controls and ref are outside scope.
+This does not complete general array-query/interface verification. Requirement bindings, core code and the thirteen random profiles are unchanged.

@@ -1,0 +1,170 @@
+{
+  "model": "interface_array_query_walk",
+  "generated_at": "2026-11-05T12:27:50.255363+00:00",
+  "scope": "Final headers after 36 pinned Icarus matches and 12 known-input Verilator matches at two seeds; latest core fetched/configured/built immediately before a single complete finite-cross run. No core source changes. Formal CI remains separate.",
+  "base_revision": "50a897dee62af605c02f5ddcee10f25645abc77d",
+  "upstream_main_revision": "50a897dee62af605c02f5ddcee10f25645abc77d",
+  "tracked_worktree_clean": true,
+  "binary_sha256": "8a78df886a96077076c187109ee86fa45591a01079ffe1c90a6d1a23dd41b254",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit 50a897dee62a), built with AppleClang 21.0.0.21000334",
+  "run": "coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2567,
+    "unsupported": 529,
+    "fail": 4
+  },
+  "new_cases": 36,
+  "previous_cases": 3064,
+  "previous_run": "coverage/interaction-results/cross83-kirimasim-50a897de-genloop.json",
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": [
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_1_bit_known_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_129_logic_z_down_positive_three_explicit_task_ba_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_65_logic_x_up_negative_three_default_task_ab_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_33_bit_z_down_negative_one_explicit_function_ba_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_32_logic_known_up_positive_three_explicit_function_ba_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_64_bit_known_down_positive_one_default_task_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_32_bit_x_down_negative_three_default_function_ba_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_1_logic_x_up_positive_one_explicit_task_ba_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_33_logic_z_up_positive_three_default_task_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_64_bit_x_up_negative_three_explicit_function_ab_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_65_bit_known_down_positive_one_explicit_function_ba_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_129_bit_known_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_1_bit_z_down_negative_three_default_function_ab_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_32_bit_z_up_negative_one_default_task_ab_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_33_bit_known_up_negative_one_default_task_ba_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_64_logic_z_up_negative_one_default_function_ba_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_33_bit_x_up_negative_one_explicit_function_ab_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_65_bit_z_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_129_bit_x_up_negative_one_default_function_ab_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_1_bit_x_up_negative_one_explicit_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_32_bit_known_up_negative_one_explicit_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_64_bit_z_up_negative_one_explicit_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_65_bit_x_up_negative_one_explicit_function_ab_down.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_129_bit_z_up_negative_one_explicit_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_1_logic_known_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_1_logic_z_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_32_logic_x_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_32_logic_z_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_33_logic_known_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_33_logic_x_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_64_logic_known_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_64_logic_x_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_65_logic_known_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_65_logic_z_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_129_logic_known_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifquery_129_logic_x_up_negative_one_default_function_ab_up.sv",
+      "returncode": 0
+    }
+  ]
+}

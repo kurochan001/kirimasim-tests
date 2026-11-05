@@ -1948,6 +1948,60 @@
           "reason": "クラスメソッドのifまたはcaseによる早期returnが選択した値とreceiverだけを更新し、戻り後の副作用や他オブジェクトへの書込みを生まないことを照合する。"
         }
       ]
+    },
+    {
+      "id": "generated_process_loop_transfer",
+      "primary_chapter": 27,
+      "pairs": [
+        {
+          "chapters": [
+            12,
+            27
+          ],
+          "reason": "生成スコープの独立したループでbreak/continueの移動先と反復の継続を、配列走査・訪問数・重み・全幅の結果で照合する。"
+        },
+        {
+          "chapters": [
+            9,
+            27
+          ],
+          "reason": "生成された各posedgeプロセスの局所状態と再起動を、入力変更直後・次の立上り・立下り・待機中に照合する。"
+        },
+        {
+          "chapters": [
+            7,
+            27
+          ],
+          "reason": "生成要素ごとの配列幅・負や非零の添字範囲を実際の問い合わせと全要素の表示で観測し、一要素の更新後も別スコープの配列を保持する。"
+        }
+      ]
+    },
+    {
+      "id": "interface_array_query_walk",
+      "primary_chapter": 25,
+      "pairs": [
+        {
+          "chapters": [
+            7,
+            25
+          ],
+          "reason": "interfaceごとの固定配列の幅・添字範囲・全要素を観測し、一方の要素更新と他方のguard更新を分離して保持する。"
+        },
+        {
+          "chapters": [
+            20,
+            25
+          ],
+          "reason": "interface内の$left/$size/$incrementが実際の走査順序と回数を決め、両次元の問い合わせと型付き結果を照合する。"
+        },
+        {
+          "chapters": [
+            13,
+            20
+          ],
+          "reason": "automatic functionの戻り値とtaskのoutputコピーを、局所配列の問い合わせで計算した全幅チェックサムと呼出しごとの局所変数から照合する。"
+        }
+      ]
     }
   ]
 }

@@ -6,17 +6,15 @@ Updated on 2026-11-05 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json) has 82 models and 3,028 cases:
-2,495 pass, 529 unsupported and four config failures. All 36 class-selection additions pass; all preceding 2,992 inputs and statuses are unchanged.
-The new model is not yet included in formal Check/Nightly.
+The current [complete local selection](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json) has 84 models and 3,100 cases:
+2,567 pass, 529 unsupported and four config failures. All 36 interface-query additions pass; all preceding 3,064 inputs and statuses are unchanged.
+The combined 72 generated-loop/interface-query cases are not yet included in formal Check/Nightly.
 
-The [latest formal checkpoint](nightly-results.en.md#latest-verified-checkpoint) confirms the preceding 2,922 selected cases on upstream kirimasim `9113955914d8`:
-2,389 pass, 529 unsupported and the four config failures. The repaired inside and label-cancellation cases remain PASS.
-All selected inputs and statuses match the saved cross79 snapshot. Check, all five Nightly simulator jobs and publication succeeded on suite `9926160a`.
+Baseline `19cd790a` passed [formal Check/Nightly](nightly-results.en.md#latest-verified-checkpoint); all preceding 82 models / 3,028 inputs and statuses match cross82. Formal CI has not run those 72 cases.
 The historical uncommitted builds below explain the repair process; they do not describe the current upstream state.
 One successful kirimasim-tests Nightly is separate from the core repository's seven-consecutive-Nightly condition.
 
-The latest full fixed suite has five ordinary Chapter 30 specify-condition tests improving from unsupported to pass.
+The 2026-11-04 fixed-suite checkpoint recorded five ordinary Chapter 30 specify-condition tests improving from unsupported to pass.
 They are outside this finite selection; its 12 state-dependent specify-path and six SDF-annotation unsupported cases retain their statuses.
 The [current verification record](../coverage/interaction-qualification/formal-ci-9926160a-20261104.json) lists the five test identities and confirms unchanged fixed inputs.
 
@@ -100,7 +98,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M119, E3, C2, N117 and R579. See the
+The current triage is M124, E3, C2, N117 and R574. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -128,3 +126,19 @@ There are 82 models, 119 chapter pairs and 55 full-selection-pass models, with 2
 Triage now leaves 579 R pairs. All 1,296 legal programs agree under independent interpretation; five native controls and nine source faults validate the observations.
 Pinned Verilator seeds 1/73 each give 12 pass / 24 known; pinned Icarus rejects all 36 class-handle comparisons.
 The unchanged X/Z expectations and [full known-outcome replays](../coverage/interaction-qualification/classsel-known-replays.json) remain separate from native passes and four-state oracle claims.
+
+The generated-loop addition reviews 12×27 and 9×27 and strengthens 7×27. Its 36 cases preserve 293 pairs, 160 targeted triples and six anchors from 6,912 legal rows.
+Freshly built `50a897dee62a` passes all 36 in one full 3,064-case run; the preceding 3,028 fingerprints/statuses are unchanged.
+Totals are 83 models / 121 pairs / 56 full-selection-pass models; triage is M121 / E3 / C2 / N117 / R577.
+Icarus matches 31 inputs; five repeat-count-one cases retain build rejections and independently interpreted count-three controls.
+All 6,912 source interpretations agree; five native controls and nine real source faults validate observations.
+Baseline 19cd790a now has successful formal Check/Nightly and 96 valid random passes; the new finite cases remain local evidence.
+See [design and complete records](interaction-verification.en.md#generated-process-loop-transfer).
+
+## Interface query-driven walks (2026-11-05)
+
+Added the [7×25, 20×25 and 13×20 model](interaction-verification.en.md#interface-array-query-walk).
+Select 36 of 4,608 legal combinations; independently interpret every row and validate five normal controls and nine executable SV faults.
+Freshly fetched/built `50a897dee62a` runs all 3,100 cases together: all 36 additions parse/pass, and preceding 3,064 inputs/statuses are unchanged.
+Pinned Icarus matches all 36 including X/Z; both Verilator seeds match the twelve known-input cases. Incidental two-state matches do not validate four-state behavior or obtain oracles.
+Requirement bindings, thirteen random profiles, existing regressions and core source are unchanged.

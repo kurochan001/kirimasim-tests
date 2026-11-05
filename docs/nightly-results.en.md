@@ -15,7 +15,24 @@
 
 <a id="latest-verified-checkpoint"></a>
 
-## Latest verified checkpoint (2026-11-04 JST)
+## Latest verified checkpoint (2026-11-05 JST)
+
+Suite `19cd790a5f639348ad67fd63959dce9811d3ab56` passed [Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41927001926)
+and [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616), including all five simulators and publish.
+The [verification record](../coverage/interaction-qualification/formal-ci-19cd790a-20261105.json) retains artifact hashes and input/result checks.
+
+- Fixed suite: 10,778 registered tests; excluding 268 formal tests leaves 10,510 simulations. kirimasim `50a897dee62a` (GNU 13.3.0) recorded 7,975 pass / 2,402 unsupported / 133 fail. See [Q11](faq.en.md#q11-why-can-nightly-be-green-with-differ-results) for what green means.
+- Finite selection: the preceding 82 models / 3,028 cases recorded 2,495 pass / 529 unsupported / four config failures. Every input fingerprint/status matches cross82; 119 pairs and 55 full-selection-pass models.
+- Random comparisons: all 96 cases across thirteen profiles are valid passes. Seed `41941310616` is the workflow run ID; the separately refreshed/built core revision is `50a897dee62af605c02f5ddcee10f25645abc77d`, binary SHA-256 `666c1f8cf1432a5789b32090e7d40d934b0a9a72801d50233024337dbf2b737a`. These do not enter fixed counts.
+
+Local additions comprise [36 generated-process cases](interaction-verification.en.md#generated-process-loop-transfer) and
+[36 interface-query cases](interaction-verification.en.md#interface-array-query-walk), totaling 84 models / 3,100 cases.
+The [single full local cross run](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json) records 2,567 pass / 529 unsupported / four fail.
+All 36 newest cases pass and the preceding 3,064 inputs/statuses are unchanged. The combined 72 cases have not run in formal Check/Nightly. Records below describe earlier checkpoints.
+
+<a id="checkpoint-9926160a"></a>
+
+## Previous verified checkpoint (2026-11-04 JST)
 
 For suite commit `9926160a1397f514cdd09f84384392c832de2cc5`, both
 [Check 41718590448](https://github.com/kurochan001/kirimasim-tests/actions/runs/41718590448)
@@ -47,7 +64,7 @@ identifies workflow conclusions, artifact fingerprints, the full-selection compa
 The random evidence remains in `random-cross-kirimasim`, outside fixed history and coverage.
 Profile additions remain paused at thirteen; next work is targeted exploration, independent checks and confirmed failure-to-regression follow-up.
 
-### Current local additions (2026-11-05)
+### At the preceding local addition (2026-11-05)
 
 The class/package addition subsequently entered [Check on fd140002](https://github.com/kurochan001/kirimasim-tests/actions/runs/41852637183), which passed.
 Generated-subroutine tests were committed at `b80dcff3`; [its Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41912438985) was in progress when checked for this update.
@@ -55,7 +72,7 @@ The working tree now adds 36 [class-selection cases](interaction-verification.en
 bringing the suite to 10,778 tests and the finite selection to 82 models / 3,028 cases.
 The [single complete local run](../coverage/interaction-results/cross82-kirimasim-16222215-classsel.json) on latest-built `162222153c57`
 records 2,495 pass, 529 unsupported and four fail; all preceding 2,992 inputs/statuses are unchanged.
-The new class-selection cases have not run in formal Check/Nightly. The latest verified formal Nightly remains `9926160a` above,
+The new class-selection cases have not run in formal Check/Nightly. The verified formal Nightly at that time was `9926160a` above,
 which predates the class/package, generated-subroutine and class-selection additions.
 
 <a id="previous-verified-checkpoint"></a>

@@ -14,22 +14,22 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 10778 |
+| Tests | 10850 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
 | Clauses with at least two direct tests | 1010/1010 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 114 |
+| Clauses with two tests or fewer | 113 |
 | Clauses with only standard-only tests | 197 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 768 |
-| Icarus Verilog 13.0 only | 4921 |
+| both releases | 792 |
+| Icarus Verilog 13.0 only | 4964 |
 | Verilator 5.052 only | 1997 |
-| standard only | 3092 |
+| standard only | 3097 |
 
 <a id="章別"></a>
 
@@ -59,9 +59,9 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 22 | Compiler directives | 398 | 21 | 19.0 | 0 | 36 |
 | 23 | Modules and hierarchy | 331 | 33 | 10.0 | 0 | 71 |
 | 24 | Programs | 124 | 7 | 17.7 | 0 | 80 |
-| 25 | Interfaces | 168 | 12 | 14.0 | 0 | 31 |
+| 25 | Interfaces | 204 | 12 | 17.0 | 0 | 31 |
 | 26 | Packages | 189 | 6 | 31.5 | 0 | 78 |
-| 27 | Generate constructs | 211 | 5 | 42.2 | 0 | 26 |
+| 27 | Generate constructs | 247 | 5 | 49.4 | 0 | 31 |
 | 28 | Gate-level and switch-level modeling | 245 | 26 | 9.4 | 0 | 48 |
 | 29 | User-defined primitives | 142 | 14 | 10.1 | 0 | 36 |
 | 30 | Specify blocks | 60 | 22 | 2.7 | 0 | 24 |

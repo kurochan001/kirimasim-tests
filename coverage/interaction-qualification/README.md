@@ -8,9 +8,16 @@
 
 <a id="current-evidence-checkpoint"></a>
 
-## 最新証跡の確認（2026-11-04 日本時間）
+## 最新証跡の確認（2026-11-05 日本時間）
 
-現行の有限クロスは82モデル・3,028件で、[今回のローカル確認](#class-selection-qualification)を参照してください。以下の正式記録は追加前の79モデルが対象です。
+現行は84モデル・3,100件で、[interface配列問い合わせの独立確認](#interface-query-qualification)と[生成プロセスの独立確認](#generated-loop-qualification)を参照してください。
+[`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は基点19cd790aの正式Check・Nightly・publishの成功を確認しています。
+追加前の82モデル・3,028件はcross82と全入力・分類が一致し、2,495 pass・529 unsupported・4 failです。
+ランダム96件は有効なPASSで、保存SV・期待値の指紋と全出力を照合しました。生成ループとinterface配列問い合わせの計72件は正式CIの範囲外です。
+
+<a id="checkpoint-9926160a"></a>
+
+## 前回の正式証跡（2026-11-04 日本時間）
 
 [`formal-ci-9926160a-20261104.json`](formal-ci-9926160a-20261104.json)に、suite `9926160a`のCheck・Nightly・公開処理の成功を記録しています。
 kirimasim `9113955914d8`の有限クロス全2,922件はcross79と入力ハッシュ・状態分類が一致し、
@@ -403,3 +410,30 @@ Verilatorのseed 1/73の各12 pass・24 knownを識別します。既知値で�
 Zのビルド診断、Icarusの拒否を保持します。2値の観測でX/Zの動作を検証済みとはせず、外部4値の確認は未確認です。
 これらはローカル/補助の記録で、正式CI・固定要求カバレッジ・13ランダムプロファイルと分けます。
 [設計・コマンド・制限](../../docs/interaction-verification.md#class-conditional-return)を参照してください。
+
+<a id="generated-loop-qualification"></a>
+
+## 生成ループの独立確認
+
+[`genloop.json`](genloop.json)は合法6,912行の実際のSVを独立に展開・実行します。
+正常対照5件とSVへの9故障で、局所配列・制御移動先・集約・クロックエッジ・guardの観測を検算します。
+[`genloop-build.json`](genloop-build.json)は直前取得・ビルドの本体`50a897dee62a`、parse成功36件、全3,064件の単一実行を記録します。
+2,531 pass・529 unsupported・既存configの4 failで、追加は全PASS、従来3,028件の入力・分類は不変です。
+現在は83モデル・121章対・全選択ケースPASS 56モデルです。
+[`genloop-fixed-replays.json`](genloop-fixed-replays.json)にIcarus 13.0の31 pass・5 known、Verilatorのseed 1/73の各12 pass・24 knownを保持します。
+[`genloop-known-replays.json`](genloop-known-replays.json)はrepeat回数1の拒否5件と独立に解釈した回数3の対照2件を記録し、
+[対照SV・期待値](genloop-repeat-controls/)を固定テストの外に保存します。期待値や失敗記録は置き換えません。
+[設計・範囲・再実行手順](../../docs/interaction-verification.md#generated-process-loop-transfer)を参照してください。
+
+<a id="interface-query-qualification"></a>
+
+## interface配列問い合わせの独立確認
+
+[`ifquery.json`](ifquery.json)は実際のSVの宣言・問い合わせ・型付き呼出し・走査を全4,608行で独立に解釈します。
+正常対照5件と9種類の実際のソース故障をnativeで実行し、全て正常終了して全故障を出力差で検出しました。
+[`ifquery-build.json`](ifquery-build.json)は直前に取得・ビルドした`50a897dee62a`と、追加36件のparse成功、単一の全3,100件の実行を記録します。
+2,567 pass・529 unsupported・既存configの4 failで、追加は全PASS、従来3,064件の入力・分類は不変です。
+84モデル・124章対・全選択ケースPASSは57モデルです。
+[`ifquery-fixed-replays.json`](ifquery-fixed-replays.json)はIcarus 13.0の36 pass、Verilator 5.052のseed 1（12 pass・24 known）と73（13 pass・23 known）を識別します。
+両seedで一致した既知値12件だけにVerilatorのoracleを登録し、seed 73で偶然一致したbit/X入力は4値の確認とはしません。
+全36件はIcarusの確認元を保持します。[設計・範囲・コマンド](../../docs/interaction-verification.md#interface-array-query-walk)を参照してください。

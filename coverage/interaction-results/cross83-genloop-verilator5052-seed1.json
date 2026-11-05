@@ -1,0 +1,181 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch27/test_gen_cross_genloop_129_bit_known_while_break_tail_if_up_3": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_129_bit_x_for_break_tail_if_up_1": {
+   "status": "known",
+   "reason": "output differs: line 48 is 'd id=0 0=010101010101010101010101010101010101010101010101...', expected 'd id=0 0=010101010101010101010101010101010101010101010101...'",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_129_bit_z_for_continue_head_if_down_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genloop_129_bit_z_for_continue_head_if_down_1.sv:378:21: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_129_logic_known_for_break_middle_if_up_1": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_129_logic_x_for_break_head_if_up_1": {
+   "status": "known",
+   "reason": "output differs: line 48 is 'd id=0 0=010101010101010101010101010101010101010101010101...', expected 'd id=0 0=010101010101010101010101010101010101010101010101...'",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_129_logic_z_repeat_continue_miss_case_down_3": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genloop_129_logic_z_repeat_continue_miss_case_down_3.sv:391:21: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_1_bit_known_for_break_head_if_up_1": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_1_bit_x_for_break_tail_if_up_1": {
+   "status": "known",
+   "reason": "output differs: line 50 is 'd id=1 0=101', expected 'd id=1 0=100'",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_1_bit_z_while_break_miss_if_up_3": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genloop_1_bit_z_while_break_miss_if_up_3.sv:391:21: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_1_logic_known_repeat_break_middle_if_down_3": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_1_logic_x_while_continue_head_case_down_1": {
+   "status": "known",
+   "reason": "output differs: line 48 is 'd id=0 0=0', expected 'd id=0 0=x'",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_1_logic_z_for_break_head_if_up_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genloop_1_logic_z_for_break_head_if_up_1.sv:378:21: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_32_bit_known_for_break_head_if_up_1": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_32_bit_x_repeat_break_miss_if_up_1": {
+   "status": "known",
+   "reason": "output differs: line 50 is 'd id=1 0=1010101010101010101010101010101010', expected 'd id=1 0=1010101010101010001010101010101010'",
+   "inputs_sha256": "7abaadfbe2447f24f5f6b6e14fa8118a490422c5704dcd35875d3d06b49790de"
+  },
+  "gen/ch27/test_gen_cross_genloop_32_bit_z_while_break_head_case_up_3": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genloop_32_bit_z_while_break_head_case_up_3.sv:391:21: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_32_logic_known_for_continue_tail_case_down_3": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_32_logic_x_repeat_break_head_if_down_1": {
+   "status": "known",
+   "reason": "output differs: line 48 is 'd id=0 0=01010101010101000101010101010100', expected 'd id=0 0=010101010101010x010101010101010x'",
+   "inputs_sha256": "dc47f8b3a2d457dcda70271550c89161578f583c5e909cba09d1088d9f5dc57e"
+  },
+  "gen/ch27/test_gen_cross_genloop_32_logic_z_for_continue_middle_if_up_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genloop_32_logic_z_for_continue_middle_if_up_1.sv:378:21: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_33_bit_known_for_break_miss_if_down_3": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_33_bit_x_while_continue_tail_if_down_1": {
+   "status": "known",
+   "reason": "output differs: line 48 is 'd id=0 0=010101010101010111010101010101010', expected 'd id=0 0=010101010101010101010101010101010'",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_33_bit_z_repeat_break_tail_case_up_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genloop_33_bit_z_repeat_break_tail_case_up_1.sv:383:21: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "1c3fa1dc4c300c5304f14b684adacf29dde491c9b9c49d465fe6bb90cb899be5"
+  },
+  "gen/ch27/test_gen_cross_genloop_33_logic_known_repeat_continue_head_if_up_3": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_33_logic_x_for_break_middle_if_up_1": {
+   "status": "known",
+   "reason": "output differs: line 48 is 'd id=0 0=010101010101010111010101010101011', expected 'd id=0 0=0101010101010101x101010101010101x'",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_33_logic_z_for_break_head_if_up_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genloop_33_logic_z_for_break_head_if_up_1.sv:378:21: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_64_bit_known_while_continue_middle_if_up_3": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_64_bit_x_while_continue_miss_if_down_3": {
+   "status": "known",
+   "reason": "output differs: line 48 is 'd id=0 0=010101010101010101010101010101010101010101010101...', expected 'd id=0 0=010101010101010101010101010101000101010101010101...'",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_64_bit_z_for_break_middle_case_down_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genloop_64_bit_z_for_break_middle_case_down_1.sv:381:21: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_64_logic_known_for_break_head_if_up_1": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_64_logic_x_repeat_continue_middle_if_up_1": {
+   "status": "known",
+   "reason": "output differs: line 48 is 'd id=0 0=010101010101010101010101010101000101010101010101...', expected 'd id=0 0=0101010101010101010101010101010x0101010101010101...'",
+   "inputs_sha256": "8b0646d862e333cc8db007e9b4e8f324520555370ea81e2ae0ef64d619821da4"
+  },
+  "gen/ch27/test_gen_cross_genloop_64_logic_z_for_break_tail_if_up_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genloop_64_logic_z_for_break_tail_if_up_1.sv:378:21: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_65_bit_known_for_continue_miss_if_up_1": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_65_bit_x_for_break_head_if_up_3": {
+   "status": "known",
+   "reason": "output differs: line 48 is 'd id=0 0=010101010101010101010101010101011101010101010101...', expected 'd id=0 0=010101010101010101010101010101010101010101010101...'",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_65_bit_z_repeat_continue_tail_case_down_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genloop_65_bit_z_repeat_continue_tail_case_down_1.sv:383:21: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "661c86a2252ca3e44914309bbdd86dfdf2679bdee0a6617d4396950285dd4085"
+  },
+  "gen/ch27/test_gen_cross_genloop_65_logic_known_for_break_head_if_up_1": {
+   "status": "pass",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_65_logic_x_while_break_middle_if_down_3": {
+   "status": "known",
+   "reason": "output differs: line 48 is 'd id=0 0=010101010101010101010101010101011101010101010101...', expected 'd id=0 0=01010101010101010101010101010101x101010101010101...'",
+   "inputs_changed": true
+  },
+  "gen/ch27/test_gen_cross_genloop_65_logic_z_for_break_head_if_up_1": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genloop_65_logic_z_for_break_head_if_up_1.sv:378:21: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_changed": true
+  }
+ },
+ "generated_at": "2026-11-05T11:58:23.571523+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}
