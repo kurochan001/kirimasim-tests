@@ -24531,6 +24531,7 @@
     "Interface-local array queries drive ordered scans and preserve each instance": "interface内の配列問い合わせが順序付きの走査を駆動し、各実体の状態を保持する",
     "Typed constant expressions determine generated branch, count and per-element width": "型付き定数式が生成分岐・個数・要素ごとの幅を決める",
     "Formatted scanning updates only successful destinations and preserves selected-word guards": "書式付き読取りが成功した格納先だけを更新し、選択範囲外を保持する",
-    "Program cancellation preserves automatic task frames and suppresses unfinished copyout": "program終了時のautomatic taskの局所値と未完了コピーアウトの抑止"
+    "Program cancellation preserves automatic task frames and suppresses unfinished copyout": "program終了時のautomatic taskの局所値と未完了コピーアウトの抑止",
+    "Package array query binding controls scans while retaining local namesakes": "package配列の問い合わせ先が走査を決め、同名ローカル配列を保持する"
   }
 }

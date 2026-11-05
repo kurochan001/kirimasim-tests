@@ -10,10 +10,10 @@
 
 ## 最新証跡の確認（2026-11-06 日本時間）
 
-現行は87モデル・3,208件で、[programとtaskの独立確認](#program-task-frame-qualification)を参照してください。
+現行は88モデル・3,244件で、[package問い合わせの独立確認](#package-query-qualification)を参照してください。
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json)は前回までの86モデルの固定版比較・静的検査のCheck成功を確認します。
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は82モデルを対象にした正式Nightly・publish・ランダム96 PASSの記録であり、実行を混同しません。
-今回の36件はCheck・Nightlyでは未実行です。生成ループ以降の180件は、この確認済み正式Nightlyの範囲外です。
+今回の36件はCheck・Nightlyでは未実行です。生成ループ以降の216件は、この確認済み正式Nightlyの範囲外です。
 
 <a id="checkpoint-9926160a"></a>
 
@@ -471,3 +471,15 @@ Zのビルド診断、Icarusの拒否を保持します。2値の観測でX/Zの
 [固定版比較](progframe-fixed-replays.json)はIcarus 6 pass・30 known、Verilator両seedとも36 knownです。
 [全30件のIcarus診断と代表Verilator再現](progframe-known-replays.json)を保持し、既存期待値は変更しません。
 87モデル・130章対・全選択ケースPASSは60モデルです。[設計・制約・再実行](../../docs/interaction-verification.md#program-task-frame-lifetime)を参照してください。
+
+<a id="package-query-qualification"></a>
+
+## package問い合わせの独立確認
+
+[`pkgquery.json`](pkgquery.json)は全3,456行の実際のSVを、別の配列・型・名前解決・問い合わせ・走査として解釈します。
+正常対照6件と実行できる誤り9件はすべて正常終了し、誤りを出力差で検出しました。
+[ビルド記録](pkgquery-build.json)は最新取得・ビルドの`6f5c69841228`、36件の解析成功と単一の全3,244件を識別します。
+追加36件は全PASS、従来3,208件の入力・状態分類は不変で、全体は2,711 pass・529 unsupported・既存configの4 failです。
+[固定版比較](pkgquery-fixed-replays.json)はIcarus 36 known、Verilator seed 1が12 pass・24 known、seed 73が13 pass・23 knownです。
+[全36件のIcarus診断と代表的な両seedのX/Z出力](pkgquery-known-replays.json)を保持し、偶然一致したbit/Xを4状態の確認へ流用しません。
+全体は88モデル・131章対・全選択ケースPASSは61モデルです。[設計・制約・再実行](../../docs/interaction-verification.md#package-array-query-scope)を参照してください。

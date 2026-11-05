@@ -300,3 +300,13 @@ clause 37.
   Prior evidence/expectations/requirement bindings and thirteen random profiles are unchanged. Suite totals: 10,958, including 4,521 generated cases from 96 generators.
 - Verified successful Check on baseline 9c39d865, covering the preceding 86-model suite's pinned comparisons/static checks.
   The new 36 cases have not run in formal Check/Nightly. See [design and evidence](interaction-verification.en.md#program-task-frame-lifetime).
+
+### 2026-11-06 (package-query addition)
+
+- Added 36 Chapter 20×26 cases, independently interpreting all 3,456 legal SV programs and executing six normal controls plus nine source faults.
+- One complete 3,244-case run on freshly fetched/built `6f5c69841228` records 2,711 pass / 529 unsupported / four existing config failures.
+  Preceding 3,208 inputs/statuses are unchanged. Totals: 88 models / 131 chapter pairs / 61 full-selection-pass models; triage M131/E3/C2/N117/R567.
+- Pinned Icarus records 36 known; Verilator seed 1 records 12 pass / 24 known and seed 73 records 13 pass / 23 known.
+  Only twelve known-input matches at both seeds obtain its oracle; accidental bit/X agreement does not qualify four-state behavior.
+- Suite totals: 10,994, including 4,557 generated cases from 97 generators. Existing inputs/expectations/evidence/requirement bindings and thirteen random profiles are unchanged.
+  These 36 cases have not run in formal Check/Nightly. See [design and evidence](interaction-verification.en.md#package-array-query-scope).

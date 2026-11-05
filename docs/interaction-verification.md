@@ -14,6 +14,12 @@
 
 ## 保存実行の概要
 
+2026-11-06のpackage問い合わせの追加で、**88モデル・3,244件・131章対**になりました。
+最新取得・ビルドの`6f5c69841228`による[単一実行](../coverage/interaction-results/cross88-kirimasim-6f5c6984-pkgquery.json)は、
+**2,711 pass・529 unsupported・既存configの4 fail**です。追加36件は解析成功・全PASS、従来3,208件の入力・状態分類は不変です。
+全選択ケースPASSは61モデルです。[packageの配列問い合わせと名前解決](#package-array-query-scope)に独立検算と固定版比較を記録します。
+確認済みCheckは9c39d865の86モデル、確認済み正式Nightlyは19cd790aの82モデルで、今回の36件は両方で未実行です。以下は各追加時点の記録です。
+
 2026-11-06のprogramとtaskの追加で、**87モデル・3,208件・130章対**になりました。
 最新取得・ビルドの`6f5c69841228`による[単一実行](../coverage/interaction-results/cross87-kirimasim-6f5c6984-progframe.json)は、
 **2,675 pass・529 unsupported・既存configの4 fail**です。追加36件は解析成功・全PASS、従来3,172件の入力・状態分類は不変です。
@@ -3623,4 +3629,91 @@ python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin -j 4 \
   --json my-results/progframe-icarus-new.json tests/gen/ch24/test_gen_cross_progframe_*.sv
 python3 tools/run_verilator.py --all --seed 1 -j 3 \
   --json my-results/progframe-verilator-new.json tests/gen/ch24/test_gen_cross_progframe_*.sv
+```
+
+<a id="package-array-query-scope"></a>
+
+## packageの配列問い合わせと名前解決（2026-11-06）
+
+[`interaction_pkgquery.py`](../generators/interaction_pkgquery.py)は`package_array_query_scope@1`を定義します。
+第20章×第26章には全36件を対応付けます。packageを置いただけではなく、関数内の名前解決が問い合わせ対象の型・寸法を決め、
+走査する要素と結果を変えることを確認します。関数は呼出しと観測のための器であり、章対を水増しする根拠にしません。
+[スコープと名前の隠蔽](glossary.md#9-クロステストで使う言語機能)も参照してください。
+
+### 因子・選択と対象範囲
+
+幅1/32/33/64/65/129、bit/logic、既知/X/Z、昇順/降順、負/正の添字原点、長さ1/3、
+明示import/ワイルドカードimport/修飾参照、第一/第二package、省略次元/明示次元1を交差します。
+全3,456行が合法です。36件で全因子対249目標・重点3因子118目標・必須6件を保持します（件数98.96%削減）。
+重点群は幅×状態型×入力、参照方法×選択package×次元指定、向き×原点×長さ、
+幅×選択package×参照方法、向き×長さ×選択package、参照方法×入力×次元指定です。
+未対応を理由に分母から除外しません。[2因子100%の確認範囲](faq.md#q28-why-not-simply-cross-every-feature)を参照してください。
+
+二packageは同名配列`data`を持ち、幅W/W+2、長さ1/3と2/4、異なる原点と逆向きの範囲を使います。
+二つの呼出し元moduleにも、幅W+5/W+7・長さ5の別の`data[7:11]`があります。
+automatic function内の明示importまたはワイルドカードimportが、外側の同名ローカル配列より内側で参照先を決めます。
+修飾参照はpackageを直接指定します。export、動的配列、符号付き演算、task、時間制御、並行呼出しは対象外です。
+
+### 問い合わせが実際の値を変える仕組み
+
+関数は`$left(data)`から開始し、`$size(data)`回走査して、各回で`$increment(data)`を引きます。
+単一要素のincrementは1です。集計は`acc=(acc << 1) ^ data[at]`で、型へ格納するたびに幅と状態型を適用します。
+要素の総和だけでなく順序依存の全幅チェックサム、訪問数、添字の重み付き和、終端添字を観測します。
+戻り値とchecksumは、基準幅より5ビット広いlogicへ格納し、上位ビットも照合します。
+
+`$bits`・`$dimensions`・`$unpacked_dimensions`、両次元のleft/right/low/high/increment/sizeを関数内で記録します。
+たとえば[幅1の実在ケース](../tests/gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default.sv)では、
+選択した`first_pkg::data[-4:-4]`は1ビット×1要素です。最初の呼出し後はbits=1、size=1、left=right=-4、
+increment=1、visited=1、terminal=-5です。時相0の要素は0なので、6ビットへ広げた結果も000000です。
+同名の`a.data[7:11]`は6ビット×5要素で、bits=30・size=5です。ローカル配列を誤って問い合わせると、値が偶然同じでも寸法と訪問数が異なります。
+[期待出力](../tests/gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default.expected)の`before`と`first0`を順に追えます。
+
+### 状態の保持と独立検算
+
+既知値、既知またはX/Z、既知値への回復の三相で、二つのmoduleから順に呼び出します。
+まず非選択packageの末尾だけを更新し、再呼出ししても選択先の問い合わせと結果が変わらないことを確認します。
+次に選択packageの末尾と両moduleの別々のローカル要素だけを更新し、逆順で再呼出しします。
+呼ばれる前の結果を保持し、全配列要素・全幅の結果・呼出し回数を各操作後に表示します。最終的な呼出し回数はa=9、b=6です。
+X/Zからbitへの変換もfourstateとして残し、回復時にも履歴とローカル値を初期化しません。
+
+[`qualify_pkgquery.py`](../tools/qualify_pkgquery.py)は、実際のpackage宣言、型、範囲、関数内import、修飾参照、
+問い合わせの引数、走査文、書込み先と表示を読みます。別の型付き配列と値/X/Zマスクを使い、
+主モデルのlayout・刺激・問い合わせ値・期待値の関数を呼ばず、全3,456プログラムを照合しました。
+[補助証跡](../coverage/interaction-qualification/pkgquery.json)の正常対照6件と誤ったSVの9件は、すべて正常終了しています。
+importの除去・誤ったpackage、逆走査・走査不足、シフトの欠落、次元の取り違え、呼出し先の取り違え、
+ローカル値の破壊、問い合わせの対象誤りを、すべて出力差で検出しました。補助15実行は固定suiteや章間表へ加算しません。
+
+### 結果と確認の限界
+
+実行直前に上流mainを取得・構成・ビルドしたkirimasim `6f5c69841228`の[単一の全3,244件](../coverage/interaction-results/cross88-kirimasim-6f5c6984-pkgquery.json)では、
+新規36件がすべて解析成功・PASSです。従来3,208件の入力と状態分類は不変で、全体は2,711 pass・529 unsupported・既存configの4 failです。
+[ビルド記録](../coverage/interaction-qualification/pkgquery-build.json)は本体revision、同一バイナリの指紋と解析結果を保持します。
+全体は88モデル・131章対・全選択ケースPASSは61モデルです。一つのモデルの成功には、同じ実行で全36件の成功が必要です。
+
+[固定版比較](../coverage/interaction-qualification/pkgquery-fixed-replays.json)では、Icarus 13.0は36件すべてビルド拒否・knownです。
+[元の全36件の診断](../coverage/interaction-qualification/pkgquery-known-replays.json)を保持し、package配列への修飾名付き書込み位置でのsyntax errorを観測しました。
+シミュレータのソースコードは読んでおらず、この観測だけで内部原因や問い合わせ機能全般の未対応を断定しません。
+Verilator 5.052はseed 1が12 pass・24 known、seed 73が13 pass・23 knownです。
+両seedで一致した既知入力12件だけにoracleを付けました。seed 73で一致したbit/Xの1件は4状態の確認に使いません。
+代表的なlogic/X・logic/Z・bit/Zと、このbit/Xの同一入力を両seedで保存し、元の期待値と診断を維持しています。
+外部シミュレータによる全4状態ケースの確認は未確認です。多数決や2値での偶然の一致では期待値を変更しません。
+
+suiteは36件増えて10,994件、生成4,557件・97生成器です。要求の新規対応付けはなく、要求の分母・確認率と13ランダムプロファイルは維持します。
+今回の追加はローカル確認で、正式Check・Nightlyでは未実行です。
+
+### 再実行
+
+保存済みSVと期待値を使います。本体は[最新コミットの取得・ビルド手順](../README.ja.md#kirimasim)に従って準備します。
+補助証跡の出力先には未使用のパスを指定してください。
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_pkgquery.py
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest-build/kirimasim -j 8 \
+  --json my-results/pkgquery-native-new.json tests/gen/ch26/test_gen_cross_pkgquery_*.sv
+python3 tools/qualify_pkgquery.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/pkgquery-qualification-new.json
+python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin -j 4 \
+  --json my-results/pkgquery-icarus-new.json tests/gen/ch26/test_gen_cross_pkgquery_*.sv
+python3 tools/run_verilator.py --all --seed 1 -j 3 \
+  --json my-results/pkgquery-verilator-new.json tests/gen/ch26/test_gen_cross_pkgquery_*.sv
 ```

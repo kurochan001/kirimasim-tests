@@ -955,3 +955,14 @@ Verilator両seedは各3 pass・33 knownで、既知値2件だけにoracleを登�
 最新kirimasimは全36件で規格期待値と一致しました。[モデルの範囲](interaction-verification.md#program-task-frame-lifetime)と
 [保存済みの全Icarus診断・代表Verilator再現](../coverage/interaction-qualification/progframe-known-replays.json)を参照してください。
 未対応やknownをPASSへ読み替えず、期待値は維持しています。
+
+<a id="package-query-differences"></a>
+
+## package配列の問い合わせと修飾名付き書込み（2026-11-06）
+
+固定Icarus 13.0は36件をビルド時に拒否し、package配列への修飾名付き書込み位置でsyntax errorを観測しました。
+内部原因や問い合わせ機能全般の可否は、この診断だけでは断定しません。
+固定Verilator 5.052はseed 1が12 pass・24 known、seed 73が13 pass・23 knownです。
+両seedで一致した既知入力12件だけにoracleを登録し、seed 73だけのbit/Xの一致は4状態の確認に使いません。
+最新kirimasimは全36件で規格期待値と一致しました。[モデルの範囲](interaction-verification.md#package-array-query-scope)と
+[全Icarus診断・両seedの代表出力](../coverage/interaction-qualification/pkgquery-known-replays.json)を参照してください。

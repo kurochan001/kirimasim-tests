@@ -956,3 +956,14 @@ Pinned Verilator 5.052 rejects nested program declarations for all 36 cases at b
 Latest kirimasim matches standard expectations for all 36. See [model scope](interaction-verification.en.md#program-task-frame-lifetime)
 and [all saved Icarus diagnostics and representative Verilator replays](../coverage/interaction-qualification/progframe-known-replays.json).
 Unsupported/known results remain distinct from passes; expectations are unchanged.
+
+<a id="package-query-differences"></a>
+
+## Package-array queries and qualified writes (2026-11-06)
+
+Pinned Icarus 13.0 rejects all 36 builds, reporting syntax errors at qualified package-array writes.
+This diagnostic alone does not establish the internal cause or general query support.
+Pinned Verilator 5.052 records 12 pass / 24 known at seed 1 and 13 pass / 23 known at seed 73.
+Only twelve known-input cases matching both seeds obtain its oracle; seed 73's incidental bit/X match does not qualify four-state behavior.
+Latest kirimasim matches standard expectations for all 36. See [model scope](interaction-verification.en.md#package-array-query-scope)
+and [all Icarus diagnostics plus representative outputs at both seeds](../coverage/interaction-qualification/pkgquery-known-replays.json).

@@ -1,0 +1,69 @@
+{
+  "model": "package_array_query_scope",
+  "scope": "Pinned releases compare identical saved package/query SV against standard expectations. Only twelve known-input cases matching both Verilator seeds obtain its oracle. Icarus rejection and four-state differences remain known; two-state observations do not qualify X/Z.",
+  "versions_and_runs": [
+    {
+      "simulator": "icarus",
+      "run": "coverage/interaction-results/cross88-pkgquery-icarus13.json",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "configuration": {},
+      "counts": {
+        "known": 36
+      },
+      "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46"
+    },
+    {
+      "simulator": "verilator",
+      "run": "coverage/interaction-results/cross88-pkgquery-verilator5052-seed1.json",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "configuration": {
+        "seed": 1
+      },
+      "counts": {
+        "pass": 12,
+        "known": 24
+      },
+      "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf"
+    },
+    {
+      "simulator": "verilator",
+      "run": "coverage/interaction-results/cross88-pkgquery-verilator5052-seed73.json",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "configuration": {
+        "seed": 73
+      },
+      "counts": {
+        "pass": 13,
+        "known": 23
+      },
+      "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf"
+    }
+  ],
+  "executables_sha256": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "verilator_driver": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+    "verilator_binary": "f2ba0ba23efcc197d00b785e9562fc6ae99b6dd7b009f14fefc83c187ed0c15d"
+  },
+  "diagnostic_redaction": {
+    "field": "tests.*.reason",
+    "note": "Machine-specific paths in display-only reason strings are made portable. Statuses, input/runner hashes and expectations are unchanged; original raw artifacts are retained locally.",
+    "runs": [
+      {
+        "run": "coverage/interaction-results/cross88-pkgquery-icarus13.json",
+        "raw_artifact_sha256": "43868f2934af9d201bdfa62f8bbfb5b33d9bd4daf1c46a4914acb1096820b4a6",
+        "fields_redacted": 0
+      },
+      {
+        "run": "coverage/interaction-results/cross88-pkgquery-verilator5052-seed1.json",
+        "raw_artifact_sha256": "5c256bb17b9ba956a7e9948710291c21c6690465cd2babe36489ad88484bd97a",
+        "fields_redacted": 0
+      },
+      {
+        "run": "coverage/interaction-results/cross88-pkgquery-verilator5052-seed73.json",
+        "raw_artifact_sha256": "e34fa9a93c450626cf9b931d141372179802281e25e2079bd1499a994f3c9e3c",
+        "fields_redacted": 0
+      }
+    ]
+  }
+}

@@ -35,7 +35,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 23 | [Modules and hierarchy](ch23.md) | 331 | 75 |
 | 24 | [Programs](ch24.md) | 160 | 117 |
 | 25 | [Interfaces](ch25.md) | 204 | 85 |
-| 26 | [Packages](ch26.md) | 189 | 106 |
+| 26 | [Packages](ch26.md) | 225 | 142 |
 | 27 | [Generate constructs](ch27.md) | 283 | 180 |
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 245 | 136 |
 | 29 | [User-defined primitives](ch29.md) | 142 | 61 |

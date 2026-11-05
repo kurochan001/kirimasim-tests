@@ -18,13 +18,13 @@
 17,チェッカー,N,N,R,R,R,R,R,R,R,R,R,R,R,R,R,M,D,R,R,R,R,R,R,R,M,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 18,制約付き乱数値の生成,N,N,R,R,R,R,M,M,R,R,M,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 19,機能カバレッジ,N,N,R,R,R,R,M,R,R,R,E2,R,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
-20,ユーティリティ用システムタスク・関数,N,N,R,R,R,M,M,R,R,R,M,R,M,R,R,R,R,R,R,D,M,R,R,R,M,R,M,R,R,R,R,R,R,N,M,R,R,R,R,R,R
+20,ユーティリティ用システムタスク・関数,N,N,R,R,R,M,M,R,R,R,M,R,M,R,R,R,R,R,R,D,M,R,R,R,M,M,M,R,R,R,R,R,R,N,M,R,R,R,R,R,R
 21,入出力用システムタスク・関数,N,N,R,M,R,M,M,C2,M,R,M,R,M,R,R,R,R,R,R,M,D,R,R,M,M,M,M,M,R,R,R,R,R,N,R,R,R,R,R,R,R
 22,コンパイラ指令,N,N,R,R,R,M,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,D,M,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 23,モジュールと階層,N,N,R,R,R,M,R,R,R,M,R,R,M,R,R,R,R,R,R,R,R,M,D,R,M,M,M,R,R,R,R,R,M,N,R,R,R,R,R,R,R
 24,プログラム,N,N,R,M,R,M,R,R,M,M,R,M,M,R,M,M,R,R,R,R,M,R,R,D,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 25,インターフェース,N,N,R,M,R,M,M,M,M,M,R,R,M,M,M,M,M,R,R,M,M,R,M,R,D,M,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
-26,パッケージ,N,N,R,M,R,M,M,M,M,M,M,R,M,R,M,R,R,R,R,R,M,R,M,R,M,D,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
+26,パッケージ,N,N,R,M,R,M,M,M,M,M,M,R,M,R,M,R,R,R,R,M,M,R,M,R,M,D,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 27,generate構文,N,N,R,M,R,M,M,R,M,M,M,M,M,R,R,M,R,R,R,M,M,R,M,R,M,M,D,R,M,R,R,R,M,N,R,R,R,R,R,R,R
 28,ゲートレベル・スイッチレベルのモデリング,N,N,R,R,R,M,R,R,R,M,R,R,R,R,R,R,R,R,R,R,M,R,R,R,R,R,R,D,M,R,R,R,R,N,R,R,R,R,R,R,R
 29,ユーザー定義プリミティブ,N,N,R,R,R,M,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,M,M,D,R,R,R,R,N,R,R,R,R,R,R,R

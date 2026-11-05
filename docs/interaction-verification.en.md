@@ -14,6 +14,12 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-06 package-query addition brings totals to **88 models / 3,244 cases / 131 chapter pairs**.
+The [single run](../coverage/interaction-results/cross88-kirimasim-6f5c6984-pkgquery.json) on freshly fetched/built `6f5c69841228` records
+**2,711 pass / 529 unsupported / four existing config failures**. All 36 additions parse/pass; preceding 3,208 inputs/statuses are unchanged.
+There are 61 full-selection-pass models. See [package array queries and name lookup](#package-array-query-scope) for independent checks and pinned comparisons.
+Verified Check covers 86 models on 9c39d865; verified formal Nightly covers 82 on 19cd790a. These new 36 cases have not run in either. Records below describe each addition’s checkpoint.
+
 The 2026-11-06 program/task addition brings totals to **87 models / 3,208 cases / 130 chapter pairs**.
 The [single run](../coverage/interaction-results/cross87-kirimasim-6f5c6984-progframe.json) on freshly fetched/built `6f5c69841228` records
 **2,675 pass / 529 unsupported / four existing config failures**. All 36 additions parse/pass; preceding 3,172 inputs/statuses are unchanged.
@@ -3648,4 +3654,90 @@ python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin -j 4 \
   --json my-results/progframe-icarus-new.json tests/gen/ch24/test_gen_cross_progframe_*.sv
 python3 tools/run_verilator.py --all --seed 1 -j 3 \
   --json my-results/progframe-verilator-new.json tests/gen/ch24/test_gen_cross_progframe_*.sv
+```
+
+<a id="package-array-query-scope"></a>
+
+## Package array queries and name lookup (2026-11-06)
+
+[`interaction_pkgquery.py`](../generators/interaction_pkgquery.py) defines `package_array_query_scope@1`.
+Map all 36 cases to 20×26 because lexical lookup determines query operand types/dimensions and therefore the elements walked and results obtained.
+A function is the call/observation vehicle, not a reason to inflate chapter mappings. See [scope and shadowing](glossary.en.md#9-クロステストで使う言語機能).
+
+### Factors, selection and scope
+
+Cross widths 1/32/33/64/65/129, bit/logic, known/X/Z, ascending/descending bounds, negative/positive origins, lengths one/three,
+explicit import/wildcard import/qualified reference, first/second package, and omitted/explicit dimension one.
+All 3,456 rows are legal. Select 36, retaining all 249 pair targets, 118 priority triple targets and six anchors (98.96% fewer cases).
+Priority groups are width×state×value, binding×source×query, bounds×origin×length,
+width×source×binding, bounds×length×source and binding×value×query.
+No support-based exclusions apply; see [the scope of complete pair coverage](faq.en.md#q28-why-not-simply-cross-every-feature).
+
+The two packages have same-named `data` arrays with widths W/W+2, lengths one/three versus two/four, different origins and opposite directions.
+Both caller modules also declare local `data[7:11]`, five elements wide with word widths W+5/W+7.
+An inner explicit/wildcard import resolves references inside the automatic function ahead of outer local namesakes; qualification selects a package directly.
+Export, dynamic arrays, signed arithmetic, tasks, timing and concurrent calls are outside scope.
+
+### Queries affect actual values
+
+A scan starts at `$left(data)`, repeats `$size(data)` times and subtracts `$increment(data)` each step.
+Singleton increment is one. Accumulation uses `acc=(acc << 1) ^ data[at]`, applying the declared width/state on each store.
+Observe order-sensitive full-width checksums, visits, weighted indices and terminal indices rather than an element sum alone.
+Returns/checksums are stored in logic words five bits wider than the base width, comparing high bits too.
+
+Record `$bits`, `$dimensions`, `$unpacked_dimensions`, and left/right/low/high/increment/size for both dimensions inside each function.
+In the actual [one-bit case](../tests/gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default.sv),
+selected `first_pkg::data[-4:-4]` has one one-bit element. After the first call, bits=1, size=1, left=right=-4,
+increment=1, visited=1 and terminal=-5. Its phase-zero element is 0, so the widened six-bit result is 000000.
+Local `a.data[7:11]` has five six-bit elements: bits=30 and size=5. A mistaken local query changes dimensions/visits even if a value happens to match.
+Follow `before` and `first0` in the [saved expectation](../tests/gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default.expected).
+
+### Retention and independent checks
+
+Call from both modules across known, known/X/Z and known-recovery phases.
+First update only the unselected package's last element; recalling must retain target queries/results.
+Then update the selected package's last element and separate local elements in both modules, calling again in reverse order.
+Retain results until each recall, displaying every array element, full result and call count after each operation. Final call counts are a=9 and b=6.
+Keep fourstate metadata for X/Z-to-bit conversion and retain history/local values during known recovery.
+
+[`qualify_pkgquery.py`](../tools/qualify_pkgquery.py) reads actual package/type/range declarations, imports, qualified references,
+query arguments, scan statements, writes and displays. Independent typed arrays and value/X/Z masks interpret all 3,456 programs
+without primary layout, stimulus, query-value or reference helpers.
+[Auxiliary evidence](../coverage/interaction-qualification/pkgquery.json) retains six normal controls and nine faulty SV programs; all exit normally.
+Removed/wrong imports, reverse/short scans, lost shifts, wrong dimensions/callers, clobbered locals and wrong query operands
+are all detected by output differences. These fifteen auxiliary runs add no fixed-suite or chapter-matrix passes.
+
+### Results and limits
+
+One [complete 3,244-case run](../coverage/interaction-results/cross88-kirimasim-6f5c6984-pkgquery.json) on kirimasim `6f5c69841228`, fetched/configured/built immediately beforehand,
+records all 36 additions parsing/passing. Preceding 3,208 inputs/statuses are unchanged: totals are 2,711 pass / 529 unsupported / four existing config failures.
+The [build record](../coverage/interaction-qualification/pkgquery-build.json) identifies revision, immutable binary hashes and parses.
+Totals are 88 models / 131 chapter pairs / 61 full-selection-pass models. A full-model pass requires all 36 together in one run.
+
+[Pinned comparisons](../coverage/interaction-qualification/pkgquery-fixed-replays.json) record Icarus 13.0 at 36 known build rejections.
+Preserve [all thirty-six original diagnostics](../coverage/interaction-qualification/pkgquery-known-replays.json); syntax errors occur at qualified package-array writes.
+No simulator implementation sources were read; this observation alone does not establish an internal cause or general lack of query support.
+Verilator 5.052 records 12 pass / 24 known at seed 1 and 13 pass / 23 known at seed 73.
+Only the twelve known-input cases matching both seeds receive its oracle. The incidental bit/X match at seed 73 does not qualify four-state behavior.
+Retain representative logic/X, logic/Z and bit/Z outputs, plus this identical bit/X input at both seeds, preserving original expectations and diagnostics.
+External confirmation of all four-state cases remains unverified. Majority voting or accidental two-state agreement does not change expectations.
+
+The suite adds 36 tests, totaling 10,994, including 4,557 generated cases from 97 generators. Requirement bindings/denominators/rates and thirteen random profiles are unchanged.
+These additions have local evidence and have not run in formal Check/Nightly.
+
+### Rerun
+
+Use saved SV and expectations. Prepare the simulator through [latest-commit fetch/build instructions](../README.md#kirimasim).
+Use an unused qualification output path.
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_pkgquery.py
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest-build/kirimasim -j 8 \
+  --json my-results/pkgquery-native-new.json tests/gen/ch26/test_gen_cross_pkgquery_*.sv
+python3 tools/qualify_pkgquery.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/pkgquery-qualification-new.json
+python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin -j 4 \
+  --json my-results/pkgquery-icarus-new.json tests/gen/ch26/test_gen_cross_pkgquery_*.sv
+python3 tools/run_verilator.py --all --seed 1 -j 3 \
+  --json my-results/pkgquery-verilator-new.json tests/gen/ch26/test_gen_cross_pkgquery_*.sv
 ```

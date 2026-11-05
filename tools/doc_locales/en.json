@@ -21117,6 +21117,18 @@
     "重なるautomatic taskの局所値と ZXQPH0QXZ のコピーを、programの終了範囲と復帰方法を変えて照合する。": "Check overlapping automatic task locals and ZXQPH0QXZ copying across program termination scope and return methods.",
     "途中終了時のコピー抑止、生存する別program、符号拡張、配列の隣接要素と再呼出しの履歴を観測する。": "Observe suppressed copies on cancellation, the surviving peer program, sign extension, neighboring array elements and recall history.",
     "重なるautomatic taskの仮引数と局所値を保持し、正常復帰だけが ZXQPH0QXZ をコピーアウトすることを、対象programの終了と別programの生存を交差して照合する。": "Check private formals/locals of overlapping automatic tasks and normal-return-only ZXQPH0QXZ copying across target-program termination and peer survival.",
-    "taskの早期returnは出力を戻して呼出し元へ復帰する一方、programの ZXQPH0QXZ は進行中の呼出しを中断することを、後続文・実引数・復帰数で区別する。": "Distinguish early task return with copyout and caller continuation from program ZXQPH0QXZ cancellation through later statements, actuals and return counts."
+    "taskの早期returnは出力を戻して呼出し元へ復帰する一方、programの ZXQPH0QXZ は進行中の呼出しを中断することを、後続文・実引数・復帰数で区別する。": "Distinguish early task return with copyout and caller continuation from program ZXQPH0QXZ cancellation through later statements, actuals and return counts.",
+    "二packageの同名固定配列は幅・長さ・添字原点・向きが異なる。": "Two packages contain same-named fixed arrays with different widths, lengths, origins and directions.",
+    "各moduleには幅も長さも異なる同名のローカル配列を置く。": "Each module also has a local namesake array with a different width and length.",
+    "automatic function内の明示import・ワイルドカードimport・修飾参照で対象packageを選ぶ。": "An explicit import, wildcard import or qualified reference inside an automatic function selects the target package.",
+    "ZXQPH0QXZ / ZXQPH1QXZ / ZXQPH2QXZ が走査の開始位置・回数・方向を決め、左シフトと ZXQPH3QXZ で全幅を集計する。": "ZXQPH0QXZ / ZXQPH1QXZ / ZXQPH2QXZ determine scan start, count and direction; left shifts and ZXQPH3QXZ accumulate every bit.",
+    "省略次元と明示次元 ZXQPH0QXZ 、 ZXQPH1QXZ 次元 ZXQPH2QXZ 、 ZXQPH3QXZ / ZXQPH4QXZ / ZXQPH5QXZ を観測する。": "Observe omitted and explicit dimension ZXQPH0QXZ, ZXQPH1QXZ dimension ZXQPH2QXZ, and ZXQPH3QXZ / ZXQPH4QXZ / ZXQPH5QXZ.",
+    "既知・既知またはX/Z・既知への回復の三相で、二つの呼出し元と以前の結果を保持する。": "Retain two callers and previous results across known, known/X/Z and known-recovery phases.",
+    "非選択packageの更新後も再呼出しし、次に選択packageと両moduleのローカル配列だけを更新する。": "Call again after updating the unselected package, then update only the selected package and both modules’ local arrays.",
+    "全配列要素・型付き結果・呼出し回数・訪問数・重み・終端添字を各操作後に観測する。": "After each operation observe every array element, typed results, calls, visits, weighted indices and terminal indices.",
+    "export・動的配列・符号付き演算・task・時間制御・並行呼出しは対象外。": "Export, dynamic arrays, signed arithmetic, tasks, timing and concurrent calls are outside scope.",
+    "関数内のimportと修飾参照が配列問い合わせの対象を決め、開始位置・回数・方向と全幅集計を変える。": "Function-local imports and qualified references select query operands, determining scan start, count, direction and full-width accumulation.",
+    "非選択packageと同名ローカル配列の更新後も、対象配列の型・全要素・履歴を保持することを照合する。": "Check target array types, every element and history after updating the unselected package and local namesakes.",
+    "関数内の明示・ワイルドカードimportまたは修飾参照が、配列問い合わせの幅・境界・向きを決め、その結果で走査した全幅集計と呼出し履歴を照合する。": "Explicit/wildcard imports or qualified references inside functions determine array-query widths, bounds and directions; check the resulting full-width scan accumulation and call history."
   }
 }

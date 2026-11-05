@@ -18,13 +18,13 @@
 17,Checkers,N,N,R,R,R,R,R,R,R,R,R,R,R,R,R,M,D,R,R,R,R,R,R,R,M,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 18,Constrained random value generation,N,N,R,R,R,R,M,M,R,R,M,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 19,Functional coverage,N,N,R,R,R,R,M,R,R,R,E2,R,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
-20,Utility system tasks and system functions,N,N,R,R,R,M,M,R,R,R,M,R,M,R,R,R,R,R,R,D,M,R,R,R,M,R,M,R,R,R,R,R,R,N,M,R,R,R,R,R,R
+20,Utility system tasks and system functions,N,N,R,R,R,M,M,R,R,R,M,R,M,R,R,R,R,R,R,D,M,R,R,R,M,M,M,R,R,R,R,R,R,N,M,R,R,R,R,R,R
 21,Input/output system tasks and system functions,N,N,R,M,R,M,M,C2,M,R,M,R,M,R,R,R,R,R,R,M,D,R,R,M,M,M,M,M,R,R,R,R,R,N,R,R,R,R,R,R,R
 22,Compiler directives,N,N,R,R,R,M,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,D,M,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 23,Modules and hierarchy,N,N,R,R,R,M,R,R,R,M,R,R,M,R,R,R,R,R,R,R,R,M,D,R,M,M,M,R,R,R,R,R,M,N,R,R,R,R,R,R,R
 24,Programs,N,N,R,M,R,M,R,R,M,M,R,M,M,R,M,M,R,R,R,R,M,R,R,D,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 25,Interfaces,N,N,R,M,R,M,M,M,M,M,R,R,M,M,M,M,M,R,R,M,M,R,M,R,D,M,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
-26,Packages,N,N,R,M,R,M,M,M,M,M,M,R,M,R,M,R,R,R,R,R,M,R,M,R,M,D,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
+26,Packages,N,N,R,M,R,M,M,M,M,M,M,R,M,R,M,R,R,R,R,M,M,R,M,R,M,D,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 27,Generate constructs,N,N,R,M,R,M,M,R,M,M,M,M,M,R,R,M,R,R,R,M,M,R,M,R,M,M,D,R,M,R,R,R,M,N,R,R,R,R,R,R,R
 28,Gate-level and switch-level modeling,N,N,R,R,R,M,R,R,R,M,R,R,R,R,R,R,R,R,R,R,M,R,R,R,R,R,R,D,M,R,R,R,R,N,R,R,R,R,R,R,R
 29,User-defined primitives,N,N,R,R,R,M,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,M,M,D,R,R,R,R,N,R,R,R,R,R,R,R

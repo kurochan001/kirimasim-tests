@@ -1,0 +1,243 @@
+h p=0 step=before
+p id=0 0=0
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=0 visited=0 weight=0 terminal=0
+q id=0 bits=0 dimensions=0 unpacked_dimensions=0 left=0 right=0 low=0 high=0 increment=0 size=0 pleft=0 pright=0 plow=0 phigh=0 pincrement=0 psize=0
+p id=1 0=001 1=110
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000000 checksum=000000 calls=0 visited=0 weight=0 terminal=0
+q id=1 bits=0 dimensions=0 unpacked_dimensions=0 left=0 right=0 low=0 high=0 increment=0 size=0 pleft=0 pright=0 plow=0 phigh=0 pincrement=0 psize=0
+h p=0 step=first0
+p id=0 0=0
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=1 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=001 1=110
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000000 checksum=000000 calls=0 visited=0 weight=0 terminal=0
+q id=1 bits=0 dimensions=0 unpacked_dimensions=0 left=0 right=0 low=0 high=0 increment=0 size=0 pleft=0 pright=0 plow=0 phigh=0 pincrement=0 psize=0
+h p=0 step=first1
+p id=0 0=0
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=1 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=001 1=110
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000000 checksum=000000 calls=1 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=0 step=unselected
+p id=0 0=0
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=1 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=001 1=001
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000000 checksum=000000 calls=1 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=0 step=recheck
+p id=0 0=0
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=2 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=001 1=001
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000000 checksum=000000 calls=1 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=0 step=refresh
+p id=0 0=1
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=2 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=001 1=001
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000000 checksum=000000 calls=1 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=0 step=again1
+p id=0 0=1
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=2 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=001 1=001
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000001 checksum=000001 calls=2 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=0 step=again0
+p id=0 0=1
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000001 checksum=000001 calls=3 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=001 1=001
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000001 checksum=000001 calls=2 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=0 step=idle
+p id=0 0=1
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000001 checksum=000001 calls=3 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=001 1=001
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000001 checksum=000001 calls=2 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=1 step=before
+p id=0 0=0
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000001 checksum=000001 calls=3 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=010 1=011
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000001 checksum=000001 calls=2 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=1 step=first0
+p id=0 0=0
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=4 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=010 1=011
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000001 checksum=000001 calls=2 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=1 step=first1
+p id=0 0=0
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=4 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=010 1=011
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000000 checksum=000000 calls=3 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=1 step=unselected
+p id=0 0=0
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=4 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=010 1=100
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000000 checksum=000000 calls=3 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=1 step=recheck
+p id=0 0=0
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=5 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=010 1=100
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000000 checksum=000000 calls=3 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=1 step=refresh
+p id=0 0=1
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=5 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=010 1=100
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000000 checksum=000000 calls=3 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=1 step=again1
+p id=0 0=1
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=5 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=010 1=100
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000001 checksum=000001 calls=4 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=1 step=again0
+p id=0 0=1
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000001 checksum=000001 calls=6 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=010 1=100
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000001 checksum=000001 calls=4 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=1 step=idle
+p id=0 0=1
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000001 checksum=000001 calls=6 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=010 1=100
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000001 checksum=000001 calls=4 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=2 step=before
+p id=0 0=0
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000001 checksum=000001 calls=6 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=011 1=100
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000001 checksum=000001 calls=4 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=2 step=first0
+p id=0 0=0
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=7 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=011 1=100
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000001 checksum=000001 calls=4 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=2 step=first1
+p id=0 0=0
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=7 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=011 1=100
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000000 checksum=000000 calls=5 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=2 step=unselected
+p id=0 0=0
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=7 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=011 1=011
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000000 checksum=000000 calls=5 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=2 step=recheck
+p id=0 0=0
+l id=0 0=101000 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=8 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=011 1=011
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=01010101
+v id=1 result=000000 checksum=000000 calls=5 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=2 step=refresh
+p id=0 0=1
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=8 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=011 1=011
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000000 checksum=000000 calls=5 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=2 step=again1
+p id=0 0=1
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000000 checksum=000000 calls=8 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=011 1=011
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000001 checksum=000001 calls=6 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=2 step=again0
+p id=0 0=1
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000001 checksum=000001 calls=9 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=011 1=011
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000001 checksum=000001 calls=6 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+h p=2 step=idle
+p id=0 0=1
+l id=0 0=010111 1=010101 2=101010 3=010111 4=101000
+v id=0 result=000001 checksum=000001 calls=9 visited=1 weight=3 terminal=2
+q id=0 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1
+p id=1 0=011 1=011
+l id=1 0=01010101 1=10101010 2=01010111 3=10101000 4=10101010
+v id=1 result=000001 checksum=000001 calls=6 visited=1 weight=3 terminal=2
+q id=1 bits=1 dimensions=2 unpacked_dimensions=1 left=3 right=3 low=3 high=3 increment=1 size=1 pleft=0 pright=0 plow=0 phigh=0 pincrement=1 psize=1

@@ -219,7 +219,7 @@ These terms help read model stimuli and observations. Check [model scope](intera
 | --- | --- |
 | Elaboration / generate | Determining executable design structure from parameters/hierarchy / constructing that structure by conditions/repetition. Distinguish procedural `for` state updates during simulation. |
 | config / parameter override and reset | Instance configuration / changing to explicit values or restoring defaults. Observe resulting counts, widths and branches as well as unaffected siblings. |
-| Scope / shadowing | A declaration's naming/search region / selection of another declaration through an inner same-name declaration. Identical spelling need not identify the same object. |
+| Scope / shadowing | A declaration's naming/search region / selection of another declaration through an inner same-name declaration. Identical spelling need not identify the same object. See [a query-operand example](interaction-verification.en.md#package-array-query-scope). |
 | import / export | Making package names available / re-exporting imported names from another package. Distinguish wildcard candidates from declarations actually imported. |
 | Formal / actual / default argument | A subroutine declaration / caller expression or reference / expression used when omitted. Separate conversion, reference binding, and default evaluation time/scope. |
 | Function / task / method | Language subroutines / operations invoked through objects such as classes or arrays. Here, function names a language construct rather than a generic feature, and method names an operation rather than a general procedure. Argument directions, returns and timing restrictions depend on the declaration form. |

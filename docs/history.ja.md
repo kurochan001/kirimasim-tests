@@ -274,3 +274,13 @@
   以前の証跡・期待値・要求への対応・13ランダムプロファイルは維持しました。suiteは10,958件、生成4,521件・96生成器です。
 - 基点9c39d865のCheck成功を確認しました。これは追加前の86モデルの固定版比較・静的検査です。
   今回の36件は正式Check・Nightlyで未実行です。[設計と証跡](interaction-verification.md#program-task-frame-lifetime)を参照してください。
+
+### 2026-11-06（package問い合わせの追加）
+
+- 第20章×第26章に36件を追加しました。合法3,456行の独立SV解釈、正常対照6件と実行できる誤り9件を確認しました。
+- 最新取得・ビルドの`6f5c69841228`による単一の全3,244件は2,711 pass・529 unsupported・既存configの4 failです。
+  従来3,208件の入力・状態分類は不変で、88モデル・131章対・全選択ケースPASSは61モデル、仕分けはM131/E3/C2/N117/R567です。
+- 固定Icarusは36 known、Verilator seed 1は12 pass・24 known、seed 73は13 pass・23 knownです。
+  両seedで一致した既知入力12件だけにoracleを登録し、bit/Xの偶然の一致は4状態の確認へ流用しません。
+- suiteは10,994件、生成4,557件・97生成器です。既存の入力・期待値・証跡・要求対応と13ランダムプロファイルは維持しました。
+  今回の36件は正式Check・Nightlyでは未実行です。[設計と証跡](interaction-verification.md#package-array-query-scope)を参照してください。

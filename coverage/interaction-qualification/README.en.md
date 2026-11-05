@@ -10,10 +10,10 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-06 JST)
 
-The selection now contains 87 models / 3,208 cases; see [program/task qualification](#program-task-frame-qualification).
+The selection now contains 88 models / 3,244 cases; see [package-query qualification](#package-query-qualification).
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json) confirms Check’s pinned comparisons/static checks for the preceding 86-model suite.
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
-The new 36 cases have not run in Check/Nightly. The 180 cases added since generated loops remain outside this verified formal Nightly.
+The new 36 cases have not run in Check/Nightly. The 216 cases added since generated loops remain outside this verified formal Nightly.
 
 <a id="checkpoint-9926160a"></a>
 
@@ -472,3 +472,15 @@ Totals are 2,675 pass / 529 unsupported / four existing config failures; all add
 [Pinned comparisons](progframe-fixed-replays.json) record Icarus at 6 pass / 30 known and Verilator at 36 known for both seeds.
 Preserve [all thirty Icarus diagnostics and representative Verilator replays](progframe-known-replays.json), retaining original expectations.
 Totals are 87 models / 130 chapter pairs / 60 full-selection-pass models. See [design, limits and reruns](../../docs/interaction-verification.en.md#program-task-frame-lifetime).
+
+<a id="package-query-qualification"></a>
+
+## Package-query qualification
+
+[`pkgquery.json`](pkgquery.json) independently interprets actual arrays, types, lexical lookup, queries and scans for all 3,456 rows.
+Six normal controls and nine executable faults exit normally; every fault is detected by output difference.
+The [build record](pkgquery-build.json) identifies freshly fetched/built `6f5c69841228`, 36 successful parses and one complete 3,244-case run.
+All additions pass and preceding 3,208 inputs/statuses are unchanged: totals are 2,711 pass / 529 unsupported / four existing config failures.
+[Pinned comparisons](pkgquery-fixed-replays.json) record Icarus at 36 known, Verilator seed 1 at 12 pass / 24 known and seed 73 at 13 pass / 23 known.
+Retain [all thirty-six Icarus diagnostics and representative X/Z outputs at both seeds](pkgquery-known-replays.json); an incidental bit/X match does not qualify four-state behavior.
+Totals are 88 models / 131 chapter pairs / 61 full-selection-pass models. See [design, limits and reruns](../../docs/interaction-verification.en.md#package-array-query-scope).

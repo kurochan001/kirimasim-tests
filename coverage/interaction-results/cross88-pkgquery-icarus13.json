@@ -1,0 +1,191 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "gen/ch26/test_gen_cross_pkgquery_129_bit_known_up_negative_one_qualified_first_explicit": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_129_bit_known_up_negative_one_qualified_first_explicit.sv:151: syntax error",
+   "inputs_sha256": "0d7f6b9531e4183e37d665f55903660d5b82e05bea3ac03d7facdf42a591cd14"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_129_bit_x_up_negative_one_explicit_first_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_129_bit_x_up_negative_one_explicit_first_default.sv:153: syntax error",
+   "inputs_sha256": "58ece81d3a5ab549d126db5008213e98b1e6ecbb4a02b617edfff64bf93e8aee"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_129_bit_z_up_negative_one_explicit_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_129_bit_z_up_negative_one_explicit_second_default.sv:153: syntax error",
+   "inputs_sha256": "8320e96b6d74f3e2f0eaca20df38f938d8396a5624ef21071883beca3d34c970"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_129_logic_known_up_negative_one_wildcard_first_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_129_logic_known_up_negative_one_wildcard_first_default.sv:153: syntax error",
+   "inputs_sha256": "710ca584468ef766fede1794bf917dfa54d600bd26799fe70c72f07c247e6281"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_129_logic_x_up_negative_one_qualified_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_129_logic_x_up_negative_one_qualified_second_default.sv:151: syntax error",
+   "inputs_sha256": "548ec0a64282f234d8183a10c6dba321fe198c32fe15f0012cae81b3fa3b21c8"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_129_logic_z_down_positive_three_wildcard_second_explicit": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_129_logic_z_down_positive_three_wildcard_second_explicit.sv:153: syntax error",
+   "inputs_sha256": "891f8f4e3a8cce666f17f408cc99fd1ea55407a947c5dfc4ff16ea2e1f66f9e1"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default.sv:153: syntax error",
+   "inputs_sha256": "f97d8e3b2cffc5f48623e9ef964a21e6726233d0e4060aee2bf6685ddaa43e6f"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_1_bit_x_down_positive_one_wildcard_first_explicit": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_1_bit_x_down_positive_one_wildcard_first_explicit.sv:153: syntax error",
+   "inputs_sha256": "4a5da5568fe3dbecedc8cd791a3a541a758549a5c5890d4f0d912da0b18f26eb"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_1_bit_z_up_negative_one_explicit_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_1_bit_z_up_negative_one_explicit_second_default.sv:153: syntax error",
+   "inputs_sha256": "733f5863cfb6faaec150f200d4879d3ca4f59d493b880dc4350a6d5b253a757f"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_1_logic_known_up_negative_one_wildcard_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_1_logic_known_up_negative_one_wildcard_second_default.sv:153: syntax error",
+   "inputs_sha256": "ad7e54f8df9bfecb53cc75e86cf66264ddea838542296690aafff83d2bfca27b"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_1_logic_x_up_negative_one_qualified_first_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_1_logic_x_up_negative_one_qualified_first_default.sv:151: syntax error",
+   "inputs_sha256": "d3a285930ea42c3012d9807bfec68b89ae403d3f437d2f90c2ce6c638c88b58a"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_1_logic_z_up_negative_three_qualified_second_explicit": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_1_logic_z_up_negative_three_qualified_second_explicit.sv:151: syntax error",
+   "inputs_sha256": "f01fcd768bcc4abdd2b6f3841322f95214ebf27cd527dcb1912f68d65ff3b491"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_32_bit_known_up_negative_one_explicit_first_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_32_bit_known_up_negative_one_explicit_first_default.sv:153: syntax error",
+   "inputs_sha256": "d20b5b6faeac78b338f8c0ec887ff5f1c70d2bb02762dc6a706c0d16568a96e9"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_32_bit_x_up_negative_one_qualified_first_explicit": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_32_bit_x_up_negative_one_qualified_first_explicit.sv:151: syntax error",
+   "inputs_sha256": "728819c44cd066f1c9f93173a965b54646fb70b0d2b76d267ccb62f302395fa0"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_32_bit_z_down_negative_one_wildcard_first_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_32_bit_z_down_negative_one_wildcard_first_default.sv:153: syntax error",
+   "inputs_sha256": "e5ce646a8a79a63c2a04c8f637ce0c14f547f6cc9103bcdb7e75068c8eb84a55"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_32_logic_known_up_positive_three_explicit_second_explicit": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_32_logic_known_up_positive_three_explicit_second_explicit.sv:153: syntax error",
+   "inputs_sha256": "0494a2e5deaf2ebf8f0d76ff81ee065add5fc7a7ecb5c42cd2ffdbcf91e522d4"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_32_logic_x_up_negative_one_wildcard_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_32_logic_x_up_negative_one_wildcard_second_default.sv:153: syntax error",
+   "inputs_sha256": "c9e08e29fc05823c653974775b80939365063089d94a832cddbe6bd333606e88"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_32_logic_z_up_negative_one_qualified_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_32_logic_z_up_negative_one_qualified_second_default.sv:151: syntax error",
+   "inputs_sha256": "72f2522785c0f57f9ac774a0c3f365fb8e538e45ff6c7a3b1db3478639c99fad"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_33_bit_known_up_negative_three_explicit_first_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_33_bit_known_up_negative_three_explicit_first_default.sv:153: syntax error",
+   "inputs_sha256": "36803d8eafb9114505080c4d9123ea20e383a71ce2bf49c05de874440869f970"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_33_bit_x_up_negative_one_explicit_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_33_bit_x_up_negative_one_explicit_second_default.sv:153: syntax error",
+   "inputs_sha256": "9cfb50e7a12e129d63d8ce054e996ceaecb42869fed2d095634717c0573deaf0"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_33_bit_z_down_negative_one_wildcard_first_explicit": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_33_bit_z_down_negative_one_wildcard_first_explicit.sv:153: syntax error",
+   "inputs_sha256": "3443286d7f8233959e49554cb909e5f6b994ad09cb14132aeb2e1f503b5ace31"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_33_logic_known_up_negative_one_qualified_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_33_logic_known_up_negative_one_qualified_second_default.sv:151: syntax error",
+   "inputs_sha256": "fb7e9dc95c4b851ff9f09e32f1ed5b494f1d6bfcb678901622129144409bda31"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_33_logic_x_up_positive_one_wildcard_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_33_logic_x_up_positive_one_wildcard_second_default.sv:153: syntax error",
+   "inputs_sha256": "11e32ce179a18975d9f2dfef819dec6c9966d1dd18ac5c795f9ac14d75a48872"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_33_logic_z_up_negative_one_qualified_first_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_33_logic_z_up_negative_one_qualified_first_default.sv:151: syntax error",
+   "inputs_sha256": "251ccb3aea30b4e4edff693b4754f6f336f2f0d8656d13534b38fdd3eb0f6bf5"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_64_bit_known_down_positive_one_qualified_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_64_bit_known_down_positive_one_qualified_second_default.sv:151: syntax error",
+   "inputs_sha256": "f4595d2873a2330bc8c309c3530eed241d6f3621e24088827935041a1eebf415"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_64_bit_x_down_negative_three_explicit_first_explicit": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_64_bit_x_down_negative_three_explicit_first_explicit.sv:153: syntax error",
+   "inputs_sha256": "3e323506c4661678338667094e6853cb083b414fccd4986e48197a889a33824d"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_64_bit_z_up_negative_one_wildcard_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_64_bit_z_up_negative_one_wildcard_second_default.sv:153: syntax error",
+   "inputs_sha256": "2b571e0dafd3690f7848a02aab390cec29fd1db345d1b94d564c938622f1d008"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_64_logic_known_up_negative_one_wildcard_first_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_64_logic_known_up_negative_one_wildcard_first_default.sv:153: syntax error",
+   "inputs_sha256": "6da09500d4ba2400a584f3b3634733fc0c6f9ac13bc9a39f1cb80bdb9daca6fb"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_64_logic_x_up_negative_one_qualified_first_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_64_logic_x_up_negative_one_qualified_first_default.sv:151: syntax error",
+   "inputs_sha256": "b6b008f06535fbb9f547f5ff4f688fd88f38ac69fb11f89fd5d08d7517d9cf9f"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_64_logic_z_up_negative_one_explicit_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_64_logic_z_up_negative_one_explicit_second_default.sv:153: syntax error",
+   "inputs_sha256": "20ce2b3e5ec859826aa81d3a7e865d589cc30a4d8a374b119e5d9262d46aaf22"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_65_bit_known_down_positive_one_wildcard_first_explicit": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_65_bit_known_down_positive_one_wildcard_first_explicit.sv:153: syntax error",
+   "inputs_sha256": "8d7ff29d464f6278f68171a80edd67d0ee223d88446d6cafee0993ae2793a69d"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_65_bit_x_up_negative_one_explicit_first_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_65_bit_x_up_negative_one_explicit_first_default.sv:153: syntax error",
+   "inputs_sha256": "b802f4b4bce1fe3a63ab888ad887b195e1db73123d46fe016d77c38d729bf224"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_65_bit_z_up_negative_one_explicit_second_explicit": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_65_bit_z_up_negative_one_explicit_second_explicit.sv:153: syntax error",
+   "inputs_sha256": "c25cd2a304f3d336ab6a8f0f457a4cdd0702666b2fccdcb6d6e475132e3f4efa"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_65_logic_known_up_negative_one_wildcard_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_65_logic_known_up_negative_one_wildcard_second_default.sv:153: syntax error",
+   "inputs_sha256": "bf49200073a52380e86ab78272c97b4e759017de94384f6ccf1cd1ca0a8bfe61"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_65_logic_x_up_negative_three_qualified_first_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_65_logic_x_up_negative_three_qualified_first_default.sv:151: syntax error",
+   "inputs_sha256": "e39ad9f37f07b8102df7dae51da0e4c5671131ee8a0c83f06975c937f38bb1d4"
+  },
+  "gen/ch26/test_gen_cross_pkgquery_65_logic_z_up_negative_one_qualified_second_default": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch26/test_gen_cross_pkgquery_65_logic_z_up_negative_one_qualified_second_default.sv:151: syntax error",
+   "inputs_sha256": "27926b2e9a3300ceddcb16ff7c6e4fc41351ff658e531b58e7c203800e2bfe6b"
+  }
+ },
+ "generated_at": "2026-11-05T22:04:49.061094+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}
