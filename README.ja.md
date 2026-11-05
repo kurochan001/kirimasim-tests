@@ -4,68 +4,74 @@
 
 [kirimasim-tests](https://github.com/kurochan001/kirimasim-tests) の[夜間ワークフロー](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)がこのブランチを更新します。毎晩、main ブランチの全テストを各シミュレータで実行し、結果を `history.json` に追加して、以下の図を生成します。ローカル実行の結果も取り込むことができ、`local` と表示します。出力と指定された検査が期待結果に一致する場合、または不正な設計が必要な診断付きで拒否される場合に、テストを「一致」と数えます。各ステータスの意味はスイートの README を参照してください。
 
-最新の実行: 2026-11-04 03:25 UTC、スイートのコミット [`9926160`](https://github.com/kurochan001/kirimasim-tests/commit/9926160a1397f514cdd09f84384392c832de2cc5)、テスト10672件、[ワークフロー実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/41743702063)。
+最新の実行: 2026-11-05 04:44 UTC、スイートのコミット [`19cd790`](https://github.com/kurochan001/kirimasim-tests/commit/19cd790a5f639348ad67fd63959dce9811d3ab56)、テスト10778件、[ワークフロー実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616)。
 
 ## シミュレータごとの最新結果
 
 各行と章別表の各列には、そのシミュレータの最新の実行記録を使います。実行日時、スイートのコミット、テスト数は異なる場合があります。古い結果の日時はそのまま保持し、最新の実行に含まれる結果としては扱いません。
 
+緑のworkflowは全テストの合格を意味しません。[Nightlyが緑でもDifferが残る理由](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/faq.md#q11-why-can-nightly-be-green-with-differ-results)と、[区分・個別テストの確認先](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/faq.md#q9-what-do-match-differ-known-difference-and-unsupported-mean)を読んでから件数を比較してください。
+
 | シミュレータ | バージョン | 実行 (UTC) | スイート | 取り込み元 | 一致 (pass) | 不一致 (fail) | 既知の差異 (known) | 未対応 (unsupported) |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-809-g16efc8c4) | 2026-11-04 03:25 | [`9926160`](https://github.com/kurochan001/kirimasim-tests/commit/9926160a1397f514cdd09f84384392c832de2cc5) | nightly | 6250 (60.1%) | 16 | 4138 | 0 |
-| Verilator | Verilator 5.055 devel rev v5.054-55-gc0e51cad | 2026-11-04 03:25 | [`9926160`](https://github.com/kurochan001/kirimasim-tests/commit/9926160a1397f514cdd09f84384392c832de2cc5) | nightly | 5767 (55.4%) | 17 | 4620 | 0 |
-| kirimasim | kirimasim 0.0.0 (commit 9113955914d8), built with GNU 13.3.0 | 2026-11-04 03:25 | [`9926160`](https://github.com/kurochan001/kirimasim-tests/commit/9926160a1397f514cdd09f84384392c832de2cc5) | nightly | 7868 (75.6%) | 133 | 0 | 2403 |
-| Lyra | Lyra (commit 7c55e9f93a34) | 2026-11-04 03:25 | [`9926160`](https://github.com/kurochan001/kirimasim-tests/commit/9926160a1397f514cdd09f84384392c832de2cc5) | nightly | 8110 (78.0%) | 565 | 0 | 1729 |
-| Ghost | private build 1c85ee891430 | 2026-11-04 03:25 | [`9926160`](https://github.com/kurochan001/kirimasim-tests/commit/9926160a1397f514cdd09f84384392c832de2cc5) | nightly | 9701 (93.2%) | 703 | 0 | 0 |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-812-g9f260501) | 2026-11-05 04:44 | [`19cd790`](https://github.com/kurochan001/kirimasim-tests/commit/19cd790a5f639348ad67fd63959dce9811d3ab56) | nightly | 6286 (59.8%) | 16 | 4208 | 0 |
+| Verilator | Verilator 5.055 devel rev v5.054-63-g57bbb293 | 2026-11-05 04:44 | [`19cd790`](https://github.com/kurochan001/kirimasim-tests/commit/19cd790a5f639348ad67fd63959dce9811d3ab56) | nightly | 5835 (55.5%) | 23 | 4652 | 0 |
+| kirimasim | kirimasim 0.0.0 (commit 50a897dee62a), built with GNU 13.3.0 | 2026-11-05 04:44 | [`19cd790`](https://github.com/kurochan001/kirimasim-tests/commit/19cd790a5f639348ad67fd63959dce9811d3ab56) | nightly | 7975 (75.9%) | 133 | 0 | 2402 |
+| Lyra | Lyra (commit ccfc8aa4fbd9) | 2026-11-05 04:44 | [`19cd790`](https://github.com/kurochan001/kirimasim-tests/commit/19cd790a5f639348ad67fd63959dce9811d3ab56) | nightly | 8217 (78.2%) | 564 | 0 | 1729 |
+| Ghost | private build 3314f9902a64 | 2026-11-05 04:44 | [`19cd790`](https://github.com/kurochan001/kirimasim-tests/commit/19cd790a5f639348ad67fd63959dce9811d3ab56) | nightly | 9793 (93.2%) | 717 | 0 | 0 |
 
 Ghost は正式公開前に参加している匿名のシミュレータです。現在公開しているのはテスト結果のみです。名称、ソースコード、ビルドログは非公開で、ビルドIDには実行ファイルのハッシュを使用します。
 
-![期待結果に一致するテスト数](charts/overview.ja.svg?v=20261104T032535)
+![期待結果に一致するテスト数](charts/overview.ja.svg?v=20261105T044449)
 
-![一致したテストの割合](charts/rate.ja.svg?v=20261104T032535)
+![一致したテストの割合](charts/rate.ja.svg?v=20261105T044449)
 
 ## 最新の実行での変化
 
 同じシミュレータの前回実行では一致せず今回は一致したテストと、前回は一致したものの今回は一致しなくなったテストです。スイートに追加されたテストの件数は上の表に示します。
 
-### Icarus Verilog
-
-新たに一致（6件）: `ch10/test_illegal_nba_to_dynamic_array_element`, `ch10/test_illegal_nba_to_queue_element`, `ch6/test_illegal_continuous_assign_to_dynamic_element`, `ch6/test_illegal_dynamic_array_element_continuous`, `ch6/test_illegal_force_dynamic_array_element`, `ch6/test_illegal_nonblocking_to_dynamic_array_element`
-
 ### Verilator
 
-新たに一致（1件）: `ch7/test_array_argument_fixed_dynamic_queue_compatibility`
+新たに一致（33件）: `ch16/test_deferred_assertion_default_error`, `ch16/test_illegal_deferred_assertion_action_output_argument`, `ch16/test_illegal_deferred_assertion_const_ref_dynamic_actual`, `ch16/test_illegal_deferred_assertion_ref_automatic_actual`, `ch4/test_sched_deferred_action_arguments`, `ch8/test_interface_class_cast`, `gen/ch13/test_gen_cross_deferarg_129_signed_input_narrow_function_observed_blocking`, `gen/ch13/test_gen_cross_deferarg_129_unsigned_constref_same_function_observed_blocking`, `gen/ch13/test_gen_cross_deferarg_129_unsigned_input_same_function_observed_blocking`, `gen/ch13/test_gen_cross_deferarg_1_signed_input_wide_function_observed_blocking`, `gen/ch13/test_gen_cross_deferarg_1_unsigned_constref_same_function_observed_nba`, `gen/ch13/test_gen_cross_deferarg_32_signed_constref_same_task_observed_blocking`, `gen/ch13/test_gen_cross_deferarg_32_signed_input_same_function_observed_blocking`, `gen/ch13/test_gen_cross_deferarg_33_unsigned_constref_same_function_observed_blocking`, `gen/ch13/test_gen_cross_deferarg_33_unsigned_input_narrow_task_observed_nba`, `gen/ch13/test_gen_cross_deferarg_33_unsigned_input_same_function_observed_blocking`, `gen/ch13/test_gen_cross_deferarg_64_signed_input_narrow_task_observed_nba`, `gen/ch13/test_gen_cross_deferarg_64_unsigned_constref_same_function_observed_blocking`, `gen/ch13/test_gen_cross_deferarg_64_unsigned_input_wide_function_observed_blocking`, `gen/ch13/test_gen_cross_deferarg_65_unsigned_constref_same_task_observed_blocking`, `gen/ch13/test_gen_cross_deferarg_65_unsigned_input_narrow_function_observed_blocking`, `gen/ch13/test_gen_cross_deferarg_65_unsigned_input_same_function_observed_blocking`, `gen/ch16/test_gen_cross_deferdis_assertion_cover_even_alternating_before_function_change`, `gen/ch16/test_gen_cross_deferdis_inner_assert_odd_inverse_after_function_change`, `gen/ch16/test_gen_cross_deferdis_inner_assert_odd_positive_before_variable_change`, `gen/ch16/test_gen_cross_deferdis_none_assert_even_positive_before_function_change`, `gen/ch16/test_gen_cross_deferdis_none_assume_odd_inverse_before_variable_change`, `gen/ch16/test_gen_cross_deferdis_outer_assert_odd_inverse_before_variable_change`, `gen/ch16/test_gen_cross_deferdis_outer_assert_odd_positive_after_function_change`, `gen/ch16/test_gen_cross_deferdis_outer_assume_even_alternating_before_variable_stable`, `gen/ch16/test_gen_cross_deferdis_outer_assume_even_positive_after_variable_stable`, `gen/ch16/test_gen_cross_deferdis_outer_cover_even_inverse_after_variable_stable`, `gen/ch16/test_gen_cross_deferdis_outer_cover_odd_alternating_before_function_stable`
 
-一致しなくなったテスト（2件）:
+一致しなくなったテスト（6件）:
 
-- `ch19/test_illegal_cg_transition_length_zero`: 不一致 (fail) — the design was accepted, but it is illegal
-- `ch7/test_illegal_array_inner_dimension_size_mismatch`: 不一致 (fail) — the design was accepted, but it is illegal
+- `ch16/test_A_extra_assertion_items`: 不一致 (fail) — output differs: line 1 is 'deferred_final', expected 'deferred0'
+- `ch20/test_assertcontrol_assertion_type_bits_fail_off`: 不一致 (fail) — build failed: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch20/test_assertcontrol_assertion_type_bits_fail_off.sv:41:11: Unsupported: Observed deferred immediate assertion in a task or function.
+- `gen/ch16/test_gen_cross_deferdis_task_assert_even_alternating_after_function_stable`: 不一致 (fail) — build failed: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/gen/ch16/test_gen_cross_deferdis_task_assert_even_alternating_after_function_stable.sv:62:17: Unsupported: Observed deferred immediate assertion in a task or function.
+- `gen/ch16/test_gen_cross_deferdis_task_assert_even_inverse_before_variable_stable`: 不一致 (fail) — build failed: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/gen/ch16/test_gen_cross_deferdis_task_assert_even_inverse_before_variable_stable.sv:62:17: Unsupported: Observed deferred immediate assertion in a task or function.
+- `gen/ch16/test_gen_cross_deferdis_task_assume_even_positive_after_variable_stable`: 不一致 (fail) — build failed: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/gen/ch16/test_gen_cross_deferdis_task_assume_even_positive_after_variable_stable.sv:62:17: Unsupported: Observed deferred immediate assertion in a task or function.
+- `gen/ch16/test_gen_cross_deferdis_task_cover_odd_positive_before_function_stable`: 不一致 (fail) — build failed: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/gen/ch16/test_gen_cross_deferdis_task_cover_odd_positive_before_function_stable.sv:62:17: Unsupported: Observed deferred immediate assertion in a task or function.
 
 ### kirimasim
 
-新たに一致（5件）: `ch30/test_specify_condition_lsb`, `ch30/test_specify_condition_operators_each`, `ch30/test_specify_condition_unknown_true`, `ch30/test_specify_conditions_both_true`, `ch30/test_specify_state_dependent_ifnone`
+新たに一致（1件）: `ch9/test_always_comb_class_object_args_only`
+
+### Lyra
+
+新たに一致（1件）: `ch10/test_nba_then_event_control_same_step`
 
 ### Ghost
 
-一致しなくなったテスト（1件）:
-
-- `ch18/test_constraint_block_all_forms`: 不一致 (fail) — output differs (exit 2)
+新たに一致（24件）: `ch16/test_assertion_clock_expressions_global_clock`, `ch18/test_array_reduction_element_type`, `ch18/test_dist_default_complement`, `ch18/test_rand_join_length_bias`, `ch18/test_randsequence_production_heads_rules_and_weights`, `ch18/test_randsequence_result_syntactic_order`, `ch18/test_thread_order_independence`, `ch18/test_unique_array_slice_single`, `ch19/test_cg_coverage_query_methods`, `ch19/test_cg_derived_option_override`, `ch19/test_cg_embedded_inheritance`, `ch19/test_cg_option_levels_readback`, `ch19/test_cg_option_name_unique_and_retain_scope`, `ch19/test_cg_type_and_instance_coverage`, `ch19/test_covergroup_declaration_and_option_forms`, `ch19/test_option_member_defaults`, `gen/ch10/test_gen_ref_static_nested_packed_event_nba_w65_valid`, `gen/ch10/test_gen_ref_static_nested_packed_event_nba_w8_valid`, `gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_sat`, `gen/ch18/test_gen_cross_randreduce_4_signed_dynamic_sum_element_2_sat_fail_sat`, `gen/ch33/test_gen_cross_config_1_both_reset_all_0_if_literal_direct`, `gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_case_literal_wrapped`, `gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_if_literal_direct`, `gen/ch33/test_gen_cross_config_64_both_reset_all_0_if_literal_wrapped`
 
 ## 章別の結果
 
-![章別の一致テスト数](charts/chapters.ja.svg?v=20261104T032535)
+各セルは一致数／結果登録数で、known・unsupportedも分母に含みます。[8/10の具体例](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/faq.md#q12-what-percentage-does-by-chapter-show)と、[要求カバレッジとの違い](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/faq.md#q15-is-the-nightly-match-rate-requirement-coverage)を確認してください。
+
+![章別の一致テスト数](charts/chapters.ja.svg?v=20261105T044449)
 
 ## シミュレータごとの推移
 
-![Icarus Verilog：ステータス別の結果](charts/status-icarus.ja.svg?v=20261104T032535)
+![Icarus Verilog：ステータス別の結果](charts/status-icarus.ja.svg?v=20261105T044449)
 
-![Verilator：ステータス別の結果](charts/status-verilator.ja.svg?v=20261104T032535)
+![Verilator：ステータス別の結果](charts/status-verilator.ja.svg?v=20261105T044449)
 
-![kirimasim：ステータス別の結果](charts/status-kirimasim.ja.svg?v=20261104T032535)
+![kirimasim：ステータス別の結果](charts/status-kirimasim.ja.svg?v=20261105T044449)
 
-![Lyra：ステータス別の結果](charts/status-lyra.ja.svg?v=20261104T032535)
+![Lyra：ステータス別の結果](charts/status-lyra.ja.svg?v=20261105T044449)
 
-![Ghost：ステータス別の結果](charts/status-ghost.ja.svg?v=20261104T032535)
+![Ghost：ステータス別の結果](charts/status-ghost.ja.svg?v=20261105T044449)
 
 ## 最近の実行
 
@@ -73,6 +79,7 @@ Ghost は正式公開前に参加している匿名のシミュレータです�
 
 | 実行 (UTC) | スイート | テスト数 | Icarus Verilog | Verilator | kirimasim | Lyra | Ghost |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [2026-11-05 04:44](https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616) | [`19cd790`](https://github.com/kurochan001/kirimasim-tests/commit/19cd790a5f639348ad67fd63959dce9811d3ab56) | 10778 | 6286 (+36 −0) `14.0 devel 9f26050` | 5835 (+74 −6) `5.055 devel 57bbb29` | 7975 (+107 −0) `50a897dee` | 8217 (+107 −0) `ccfc8aa4f` | 9793 (+92 −0) `private build 3314f9902a64` |
 | [2026-11-04 03:25](https://github.com/kurochan001/kirimasim-tests/actions/runs/41743702063) | [`9926160`](https://github.com/kurochan001/kirimasim-tests/commit/9926160a1397f514cdd09f84384392c832de2cc5) | 10672 | 6250 (+6 −0) `14.0 devel 16efc8c` | 5767 (+1 −2) `5.055 devel c0e51ca` | 7868 (+5 −0) `911395591` | 8110 `7c55e9f93` | 9701 (+0 −1) `private build 1c85ee891430` |
 | [2026-11-03 16:13](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801) | [`e8d991a`](https://github.com/kurochan001/kirimasim-tests/commit/e8d991a97b2abb12a41a1fb6b89c2406f9aa7292) | 10672 | 6244 (+36 −0) | 5768 (+66 −0) `5.055 devel a9e5a51` | 7863 (+160 −0) `d73d8922d` | 8110 (+164 −2) `fff84e924` | 9702 (+248 −2) `private build e629cbd964b4` |
 | [2026-11-03 05:51](https://github.com/kurochan001/kirimasim-tests/actions/runs/41561194045) | [`9064ac9`](https://github.com/kurochan001/kirimasim-tests/commit/9064ac95375dae023c6128b1ef30ac464715009c) | 10511 | 6208 (+3 −0) | 5702 (+135 −0) `5.055 devel 094b04d` | 7703 (+28 −0) `f3ea0379a` | 7948 (+170 −1) `554db457a` | 9456 (+269 −0) `private build 3499c4a8842c` |

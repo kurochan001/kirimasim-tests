@@ -6,7 +6,9 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/9926160a1397f514cdd09f84384392c832de2cc5/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/interaction-verification.md)を参照してください。
+
+2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -1657,6 +1659,72 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
 
 制約: 全行が合法で、未対応による除外なし。初期化は時刻零、待機の登録は時刻一、最初の変更は時刻五として登録競合を避ける。二つの観測モジュールは同じpackage変数、対照は別packageの同名変数を読む。イベントは全体または最下位ビットの変化だけを数え、always_combは関数内の外部参照を追う。waitはゼロとの等価または等価性で一回だけ完了し、現在の条件値と保持した起床履歴を別に読む。配列の負の昇順添字と非零の降順添字、再書込み、隣接要素、対照の後続更新も確認する。可変の監視添字、クラス、動的配列、独立writer間の順序、XからZへの直接遷移は対象外。
 
+## class_method_package_lookup / model 1
+
+- 制約を満たす組合せ数: 3264。
+- 利用できる既存・新規テスト: 34。
+- 短時間実行の選択: 34。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 244/244。
+- 3因子の計画上の網羅: 110/110。
+
+メソッド内のimportとクラスプロパティ、外側moduleの同名宣言の名前解決を照合する。幅・符号・状態型、function/task、別名とハンドル再束縛を交差し、package共有値・個別オブジェクト・別メソッドの更新と保持を分けて観測する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- signed: u, s。
+- relation: narrow, same, wide。
+- value: known, x, z。
+- access: wildcard, explicit, qualified, enclosing。
+- routine: function, task。
+- alias: keep, replace。
+
+制約: package幅は戻り値の幅より一つ狭い・同じ・一つ広い。幅ゼロだけを除外する。メソッド内だけに明示またはwildcard importを置き、クラス直下には置かない。qualifiedはpackageを直接参照し、enclosingは内側importなしでクラスの同名プロパティを読む。外側moduleのwildcard import、別メソッド、別オブジェクトの参照先も観測する。単一initialで別名取得、プロパティ更新、package更新、ハンドル再束縛、別名更新、外側packageと独立オブジェクトの後続更新、既知値への回復を順に行う。bit/logicと符号は入出力で同じ。継承、static、浅いコピーnew handle、null、並行呼出し、時間制御、GC、混合符号と直接のclass内importは対象外。シミュレータの未対応による除外はしない。
+
+## generated_subroutine_binding / model 1
+
+- 制約を満たす組合せ数: 2304。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 228/228。
+- 3因子の計画上の網羅: 112/112。
+
+生成スコープごとに異なる型・範囲の配列とサブルーチンを宣言し、既定引数の結合先と再評価を照合する。function/taskの入出力変換、呼出し順序、外部更新後の再呼出し、隣接要素と別スコープの状態保持を観測する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- sign: u, s。
+- form: if, case。
+- argument: default, explicit。
+- routine: function, task。
+- order: forward, reverse。
+- value: known, x, z。
+- range: up, down。
+
+制約: 全行が合法で、未対応による除外なし。二インスタンスと各二つの生成要素を使う。genvarと条件分岐が局所幅・負や非零の添字を含む配列範囲・更新定数を決める。既定引数は宣言スコープの現在の配列要素を毎回読み、明示引数は呼出し元の値を渡す。全ケースで既知値の相と、既知値またはX/Zの相を実行する。各呼出し後に全スコープの配列要素・隣接要素・型付き結果を観測する。途中の外部更新と再呼出し、隣接要素だけの更新と再呼出し、最終保持も照合する。単一initialで呼び、時間制御・再帰・ref・並行呼出し・動的配列は対象外。X/Z入力を使う場合はbit型への変換でもfourstateを指定する。
+
+## class_conditional_return / model 1
+
+- 制約を満たす組合せ数: 1296。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 183/183。
+- 3因子の計画上の網羅: 135/135。
+
+クラスの直呼びと基底ハンドル経由の呼出しで条件選択・更新先・早期returnを照合する。if/caseと条件演算子のX/Z、型付き結果の符号拡張、別名と再束縛後のオブジェクトの独立性を観測する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- sign: u, s。
+- dispatch: direct, virtual, nonvirtual。
+- control: if, case, conditional。
+- value: known, x, z。
+- alias: keep, rebind。
+
+制約: 全行が合法で、未対応による除外なし。二つの派生オブジェクトを使い、直呼び・基底ハンドルのvirtual/非virtualを区別する。ifと通常caseはX/Z条件を偽側へ送り、条件演算子は各ビットをマージする。既知値の相と既知値またはX/Z入力の相を実行し、bit型でも条件はlogicに保つ。返す値を取得してから同じreceiverのdataだけを更新し、早期return後の文は実行しない。各呼出し後に両オブジェクトと保持した別名、幅を広げた結果、呼出し数を観測する。外部更新、別ハンドルへの再束縛、guardだけの更新、反復呼出しと最終保持を確認する。単一initial、時間を消費しないfunctionのみ。再帰・ref・null・並行性・GC・プロパティの隠蔽・super・混合符号の演算は対象外。
+
 <a id="verify-that-the-input-fingerprint-matches-the-execution"></a>
 
 ## 入力指紋が一致した実行の確認
@@ -1665,8 +1733,8 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
 
 ### results/ghost.json
 
-- 環境: private build 1c85ee891430。
-- 実行日時: 2026-11-04T02:43:45.269283+00:00。
+- 環境: private build 3314f9902a64。
+- 実行日時: 2026-11-05T03:38:28.956402+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -1913,10 +1981,10 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 必須ケース: 6/6。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - configuration_generated_shape:
-  - 2因子の合格確認済み組合せ: 207/213。
-  - 3因子の合格確認済み組合せ: 72/80。
+  - 2因子の合格確認済み組合せ: 213/213。
+  - 3因子の合格確認済み組合せ: 80/80。
   - 必須ケース: 6/6。
-  - ケース状態: pass=37, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=41, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - udp_array_strength:
   - 2因子の合格確認済み組合せ: 182/182。
   - 3因子の合格確認済み組合せ: 80/80。
@@ -1948,10 +2016,10 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 必須ケース: 4/4。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - array_reduction_constraint:
-  - 2因子の合格確認済み組合せ: 50/96。
-  - 3因子の合格確認済み組合せ: 13/40。
-  - 必須ケース: 1/4。
-  - ケース状態: pass=4, fail=9, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 64/96。
+  - 3因子の合格確認済み組合せ: 19/40。
+  - 必須ケース: 2/4。
+  - ケース状態: pass=6, fail=7, known=0, unsupported=0, stale=0, not_run=0。
 - associative_array_queries:
   - 2因子の合格確認済み組合せ: 93/93。
   - 3因子の合格確認済み組合せ: 54/54。
@@ -2062,11 +2130,26 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 3因子の合格確認済み組合せ: 93/122。
   - 必須ケース: 3/6。
   - ケース状態: pass=29, fail=7, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_package_lookup:
+  - 2因子の合格確認済み組合せ: 244/244。
+  - 3因子の合格確認済み組合せ: 110/110。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=34, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_subroutine_binding:
+  - 2因子の合格確認済み組合せ: 0/228。
+  - 3因子の合格確認済み組合せ: 0/112。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=36, known=0, unsupported=0, stale=0, not_run=0。
+- class_conditional_return:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 129/135。
+  - 必須ケース: 5/6。
+  - ケース状態: pass=34, fail=2, known=0, unsupported=0, stale=0, not_run=0。
 
 ### results/icarus.json
 
-- 環境: Icarus Verilog version 14.0 (devel) (s20260301-809-g16efc8c4)。
-- 実行日時: 2026-11-04T00:25:05.302970+00:00。
+- 環境: Icarus Verilog version 14.0 (devel) (s20260301-812-g9f260501)。
+- 実行日時: 2026-11-05T00:38:16.069296+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2462,11 +2545,26 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 3因子の合格確認済み組合せ: 0/122。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
+- class_method_package_lookup:
+  - 2因子の合格確認済み組合せ: 0/244。
+  - 3因子の合格確認済み組合せ: 0/110。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=34, unsupported=0, stale=0, not_run=0。
+- generated_subroutine_binding:
+  - 2因子の合格確認済み組合せ: 228/228。
+  - 3因子の合格確認済み組合せ: 112/112。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_conditional_return:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/135。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.0.0 (commit 9113955914d8), built with GNU 13.3.0。
-- 実行日時: 2026-11-04T00:53:33.579193+00:00。
+- 環境: kirimasim 0.0.0 (commit 50a897dee62a), built with GNU 13.3.0。
+- 実行日時: 2026-11-05T03:26:40.741180+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2862,11 +2960,26 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 3因子の合格確認済み組合せ: 122/122。
   - 必須ケース: 6/6。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_package_lookup:
+  - 2因子の合格確認済み組合せ: 244/244。
+  - 3因子の合格確認済み組合せ: 110/110。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=34, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_subroutine_binding:
+  - 2因子の合格確認済み組合せ: 228/228。
+  - 3因子の合格確認済み組合せ: 112/112。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_conditional_return:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 135/135。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 
 ### results/lyra.json
 
-- 環境: Lyra (commit 7c55e9f93a34)。
-- 実行日時: 2026-11-04T02:52:40.489267+00:00。
+- 環境: Lyra (commit ccfc8aa4fbd9)。
+- 実行日時: 2026-11-05T04:44:28.598954+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 111/126。
@@ -3262,11 +3375,26 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 3因子の合格確認済み組合せ: 122/122。
   - 必須ケース: 6/6。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_package_lookup:
+  - 2因子の合格確認済み組合せ: 244/244。
+  - 3因子の合格確認済み組合せ: 110/110。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=34, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_subroutine_binding:
+  - 2因子の合格確認済み組合せ: 228/228。
+  - 3因子の合格確認済み組合せ: 112/112。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_conditional_return:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 135/135。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-55-gc0e51cad。
-- 実行日時: 2026-11-04T01:16:31.135040+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-63-g57bbb293。
+- 実行日時: 2026-11-05T02:39:00.207229+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3628,10 +3756,10 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 必須ケース: 6/6。
   - ケース状態: pass=33, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - deferred_disable_reports:
-  - 2因子の合格確認済み組合せ: 103/151。
-  - 3因子の合格確認済み組合せ: 36/92。
-  - 必須ケース: 6/10。
-  - ケース状態: pass=13, fail=0, known=18, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 128/151。
+  - 3因子の合格確認済み組合せ: 60/92。
+  - 必須ケース: 7/10。
+  - ケース状態: pass=20, fail=4, known=7, unsupported=0, stale=0, not_run=0。
 - event_rebinding:
   - 2因子の合格確認済み組合せ: 0/138。
   - 3因子の合格確認済み組合せ: 0/69。
@@ -3643,10 +3771,10 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 必須ケース: 6/6。
   - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - deferred_argument_capture:
-  - 2因子の合格確認済み組合せ: 0/145。
-  - 3因子の合格確認済み組合せ: 0/71。
-  - 必須ケース: 0/7。
-  - ケース状態: pass=0, fail=0, known=29, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 113/145。
+  - 3因子の合格確認済み組合せ: 44/71。
+  - 必須ケース: 4/7。
+  - ケース状態: pass=16, fail=0, known=13, unsupported=0, stale=0, not_run=0。
 - generated_enum_navigation:
   - 2因子の合格確認済み組合せ: 133/181。
   - 3因子の合格確認済み組合せ: 61/110。
@@ -3660,5 +3788,20 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
 - package_change_observers:
   - 2因子の合格確認済み組合せ: 151/225。
   - 3因子の合格確認済み組合せ: 48/122。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- class_method_package_lookup:
+  - 2因子の合格確認済み組合せ: 163/244。
+  - 3因子の合格確認済み組合せ: 49/110。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=18, fail=0, known=16, unsupported=0, stale=0, not_run=0。
+- generated_subroutine_binding:
+  - 2因子の合格確認済み組合せ: 146/228。
+  - 3因子の合格確認済み組合せ: 42/112。
+  - 必須ケース: 2/6。
+  - ケース状態: pass=11, fail=0, known=25, unsupported=0, stale=0, not_run=0。
+- class_conditional_return:
+  - 2因子の合格確認済み組合せ: 127/183。
+  - 3因子の合格確認済み組合せ: 48/135。
   - 必須ケース: 3/6。
   - ケース状態: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0。

@@ -21369,6 +21369,1013 @@
      }
     }
    }
+  },
+  {
+   "time": "2026-11-05T04:44:49Z",
+   "suite_commit": "19cd790a5f639348ad67fd63959dce9811d3ab56",
+   "run_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616",
+   "tests": 10778,
+   "chapters": {
+    "10": 353,
+    "11": 1644,
+    "12": 251,
+    "13": 381,
+    "14": 150,
+    "15": 153,
+    "16": 764,
+    "17": 108,
+    "18": 257,
+    "19": 190,
+    "20": 367,
+    "21": 303,
+    "22": 398,
+    "23": 331,
+    "24": 124,
+    "25": 168,
+    "26": 189,
+    "27": 211,
+    "28": 245,
+    "29": 142,
+    "3": 88,
+    "30": 60,
+    "31": 66,
+    "32": 68,
+    "33": 84,
+    "34": 4,
+    "35": 179,
+    "36": 89,
+    "37": 227,
+    "38": 109,
+    "39": 39,
+    "4": 412,
+    "40": 31,
+    "5": 346,
+    "6": 681,
+    "7": 772,
+    "8": 411,
+    "9": 383
+   },
+   "simulators": {
+    "icarus": {
+     "name": "Icarus Verilog",
+     "version": "Icarus Verilog version 14.0 (devel) (s20260301-812-g9f260501)",
+     "counts": {
+      "pass": 6286,
+      "fail": 16,
+      "known": 4208,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       68,
+       88
+      ],
+      "4": [
+       392,
+       412
+      ],
+      "5": [
+       327,
+       346
+      ],
+      "6": [
+       481,
+       681
+      ],
+      "7": [
+       393,
+       772
+      ],
+      "8": [
+       117,
+       411
+      ],
+      "9": [
+       289,
+       383
+      ],
+      "10": [
+       282,
+       353
+      ],
+      "11": [
+       1350,
+       1644
+      ],
+      "12": [
+       172,
+       251
+      ],
+      "13": [
+       237,
+       381
+      ],
+      "14": [
+       18,
+       150
+      ],
+      "15": [
+       7,
+       153
+      ],
+      "16": [
+       144,
+       496
+      ],
+      "17": [
+       0,
+       108
+      ],
+      "18": [
+       56,
+       257
+      ],
+      "19": [
+       51,
+       190
+      ],
+      "20": [
+       262,
+       367
+      ],
+      "21": [
+       218,
+       303
+      ],
+      "22": [
+       351,
+       398
+      ],
+      "23": [
+       235,
+       331
+      ],
+      "24": [
+       21,
+       124
+      ],
+      "25": [
+       80,
+       168
+      ],
+      "26": [
+       58,
+       189
+      ],
+      "27": [
+       166,
+       211
+      ],
+      "28": [
+       202,
+       245
+      ],
+      "29": [
+       99,
+       142
+      ],
+      "30": [
+       36,
+       60
+      ],
+      "31": [
+       17,
+       66
+      ],
+      "32": [
+       20,
+       68
+      ],
+      "33": [
+       12,
+       84
+      ],
+      "34": [
+       2,
+       4
+      ],
+      "35": [
+       14,
+       179
+      ],
+      "36": [
+       34,
+       89
+      ],
+      "37": [
+       18,
+       227
+      ],
+      "38": [
+       56,
+       109
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       1,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 0,
+      "failing": 0,
+      "passing_tests": [],
+      "failing_tests": [],
+      "added": 106,
+      "added_passing": 36,
+      "removed": 0
+     }
+    },
+    "verilator": {
+     "name": "Verilator",
+     "version": "Verilator 5.055 devel rev v5.054-63-g57bbb293",
+     "counts": {
+      "pass": 5835,
+      "fail": 23,
+      "known": 4652,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       56,
+       88
+      ],
+      "4": [
+       350,
+       412
+      ],
+      "5": [
+       326,
+       346
+      ],
+      "6": [
+       477,
+       681
+      ],
+      "7": [
+       481,
+       772
+      ],
+      "8": [
+       287,
+       411
+      ],
+      "9": [
+       194,
+       383
+      ],
+      "10": [
+       200,
+       353
+      ],
+      "11": [
+       871,
+       1644
+      ],
+      "12": [
+       156,
+       251
+      ],
+      "13": [
+       246,
+       381
+      ],
+      "14": [
+       102,
+       150
+      ],
+      "15": [
+       55,
+       153
+      ],
+      "16": [
+       226,
+       496
+      ],
+      "17": [
+       55,
+       108
+      ],
+      "18": [
+       156,
+       257
+      ],
+      "19": [
+       105,
+       190
+      ],
+      "20": [
+       210,
+       367
+      ],
+      "21": [
+       124,
+       303
+      ],
+      "22": [
+       334,
+       398
+      ],
+      "23": [
+       164,
+       331
+      ],
+      "24": [
+       47,
+       124
+      ],
+      "25": [
+       102,
+       168
+      ],
+      "26": [
+       99,
+       189
+      ],
+      "27": [
+       115,
+       211
+      ],
+      "28": [
+       38,
+       245
+      ],
+      "29": [
+       39,
+       142
+      ],
+      "30": [
+       4,
+       60
+      ],
+      "31": [
+       14,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       20,
+       84
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       128,
+       179
+      ],
+      "36": [
+       26,
+       89
+      ],
+      "37": [
+       1,
+       227
+      ],
+      "38": [
+       19,
+       109
+      ],
+      "39": [
+       1,
+       39
+      ],
+      "40": [
+       3,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 33,
+      "failing": 6,
+      "passing_tests": [
+       "ch16/test_deferred_assertion_default_error",
+       "ch16/test_illegal_deferred_assertion_action_output_argument",
+       "ch16/test_illegal_deferred_assertion_const_ref_dynamic_actual",
+       "ch16/test_illegal_deferred_assertion_ref_automatic_actual",
+       "ch4/test_sched_deferred_action_arguments",
+       "ch8/test_interface_class_cast",
+       "gen/ch13/test_gen_cross_deferarg_129_signed_input_narrow_function_observed_blocking",
+       "gen/ch13/test_gen_cross_deferarg_129_unsigned_constref_same_function_observed_blocking",
+       "gen/ch13/test_gen_cross_deferarg_129_unsigned_input_same_function_observed_blocking",
+       "gen/ch13/test_gen_cross_deferarg_1_signed_input_wide_function_observed_blocking",
+       "gen/ch13/test_gen_cross_deferarg_1_unsigned_constref_same_function_observed_nba",
+       "gen/ch13/test_gen_cross_deferarg_32_signed_constref_same_task_observed_blocking",
+       "gen/ch13/test_gen_cross_deferarg_32_signed_input_same_function_observed_blocking",
+       "gen/ch13/test_gen_cross_deferarg_33_unsigned_constref_same_function_observed_blocking",
+       "gen/ch13/test_gen_cross_deferarg_33_unsigned_input_narrow_task_observed_nba",
+       "gen/ch13/test_gen_cross_deferarg_33_unsigned_input_same_function_observed_blocking",
+       "gen/ch13/test_gen_cross_deferarg_64_signed_input_narrow_task_observed_nba",
+       "gen/ch13/test_gen_cross_deferarg_64_unsigned_constref_same_function_observed_blocking",
+       "gen/ch13/test_gen_cross_deferarg_64_unsigned_input_wide_function_observed_blocking",
+       "gen/ch13/test_gen_cross_deferarg_65_unsigned_constref_same_task_observed_blocking",
+       "gen/ch13/test_gen_cross_deferarg_65_unsigned_input_narrow_function_observed_blocking",
+       "gen/ch13/test_gen_cross_deferarg_65_unsigned_input_same_function_observed_blocking",
+       "gen/ch16/test_gen_cross_deferdis_assertion_cover_even_alternating_before_function_change",
+       "gen/ch16/test_gen_cross_deferdis_inner_assert_odd_inverse_after_function_change",
+       "gen/ch16/test_gen_cross_deferdis_inner_assert_odd_positive_before_variable_change",
+       "gen/ch16/test_gen_cross_deferdis_none_assert_even_positive_before_function_change",
+       "gen/ch16/test_gen_cross_deferdis_none_assume_odd_inverse_before_variable_change",
+       "gen/ch16/test_gen_cross_deferdis_outer_assert_odd_inverse_before_variable_change",
+       "gen/ch16/test_gen_cross_deferdis_outer_assert_odd_positive_after_function_change",
+       "gen/ch16/test_gen_cross_deferdis_outer_assume_even_alternating_before_variable_stable",
+       "gen/ch16/test_gen_cross_deferdis_outer_assume_even_positive_after_variable_stable",
+       "gen/ch16/test_gen_cross_deferdis_outer_cover_even_inverse_after_variable_stable",
+       "gen/ch16/test_gen_cross_deferdis_outer_cover_odd_alternating_before_function_stable"
+      ],
+      "failing_tests": [
+       [
+        "ch16/test_A_extra_assertion_items",
+        "fail",
+        "output differs: line 1 is 'deferred_final', expected 'deferred0'"
+       ],
+       [
+        "ch20/test_assertcontrol_assertion_type_bits_fail_off",
+        "fail",
+        "build failed: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch20/test_assertcontrol_assertion_type_bits_fail_off.sv:41:11: Unsupported: Observed deferred immediate assertion in a task or function."
+       ],
+       [
+        "gen/ch16/test_gen_cross_deferdis_task_assert_even_alternating_after_function_stable",
+        "fail",
+        "build failed: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/gen/ch16/test_gen_cross_deferdis_task_assert_even_alternating_after_function_stable.sv:62:17: Unsupported: Observed deferred immediate assertion in a task or function."
+       ],
+       [
+        "gen/ch16/test_gen_cross_deferdis_task_assert_even_inverse_before_variable_stable",
+        "fail",
+        "build failed: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/gen/ch16/test_gen_cross_deferdis_task_assert_even_inverse_before_variable_stable.sv:62:17: Unsupported: Observed deferred immediate assertion in a task or function."
+       ],
+       [
+        "gen/ch16/test_gen_cross_deferdis_task_assume_even_positive_after_variable_stable",
+        "fail",
+        "build failed: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/gen/ch16/test_gen_cross_deferdis_task_assume_even_positive_after_variable_stable.sv:62:17: Unsupported: Observed deferred immediate assertion in a task or function."
+       ],
+       [
+        "gen/ch16/test_gen_cross_deferdis_task_cover_odd_positive_before_function_stable",
+        "fail",
+        "build failed: %Error-UNSUPPORTED: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/gen/ch16/test_gen_cross_deferdis_task_cover_odd_positive_before_function_stable.sv:62:17: Unsupported: Observed deferred immediate assertion in a task or function."
+       ]
+      ],
+      "added": 106,
+      "added_passing": 41,
+      "removed": 0
+     }
+    },
+    "kirimasim": {
+     "name": "kirimasim",
+     "version": "kirimasim 0.0.0 (commit 50a897dee62a), built with GNU 13.3.0",
+     "counts": {
+      "pass": 7975,
+      "fail": 133,
+      "known": 0,
+      "unsupported": 2402
+     },
+     "chapters": {
+      "3": [
+       77,
+       88
+      ],
+      "4": [
+       399,
+       412
+      ],
+      "5": [
+       337,
+       346
+      ],
+      "6": [
+       607,
+       681
+      ],
+      "7": [
+       615,
+       772
+      ],
+      "8": [
+       326,
+       411
+      ],
+      "9": [
+       351,
+       383
+      ],
+      "10": [
+       334,
+       353
+      ],
+      "11": [
+       1555,
+       1644
+      ],
+      "12": [
+       225,
+       251
+      ],
+      "13": [
+       372,
+       381
+      ],
+      "14": [
+       62,
+       150
+      ],
+      "15": [
+       22,
+       153
+      ],
+      "16": [
+       215,
+       496
+      ],
+      "17": [
+       35,
+       108
+      ],
+      "18": [
+       78,
+       257
+      ],
+      "19": [
+       38,
+       190
+      ],
+      "20": [
+       291,
+       367
+      ],
+      "21": [
+       263,
+       303
+      ],
+      "22": [
+       388,
+       398
+      ],
+      "23": [
+       283,
+       331
+      ],
+      "24": [
+       91,
+       124
+      ],
+      "25": [
+       121,
+       168
+      ],
+      "26": [
+       181,
+       189
+      ],
+      "27": [
+       209,
+       211
+      ],
+      "28": [
+       234,
+       245
+      ],
+      "29": [
+       142,
+       142
+      ],
+      "30": [
+       28,
+       60
+      ],
+      "31": [
+       12,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       62,
+       84
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       14,
+       179
+      ],
+      "36": [
+       2,
+       89
+      ],
+      "37": [
+       0,
+       227
+      ],
+      "38": [
+       0,
+       109
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       2,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 1,
+      "failing": 0,
+      "passing_tests": [
+       "ch9/test_always_comb_class_object_args_only"
+      ],
+      "failing_tests": [],
+      "added": 106,
+      "added_passing": 106,
+      "removed": 0
+     }
+    },
+    "lyra": {
+     "name": "Lyra",
+     "version": "Lyra (commit ccfc8aa4fbd9)",
+     "counts": {
+      "pass": 8217,
+      "fail": 564,
+      "known": 0,
+      "unsupported": 1729
+     },
+     "chapters": {
+      "3": [
+       67,
+       88
+      ],
+      "4": [
+       295,
+       412
+      ],
+      "5": [
+       336,
+       346
+      ],
+      "6": [
+       610,
+       681
+      ],
+      "7": [
+       734,
+       772
+      ],
+      "8": [
+       380,
+       411
+      ],
+      "9": [
+       364,
+       383
+      ],
+      "10": [
+       326,
+       353
+      ],
+      "11": [
+       1602,
+       1644
+      ],
+      "12": [
+       244,
+       251
+      ],
+      "13": [
+       377,
+       381
+      ],
+      "14": [
+       20,
+       150
+      ],
+      "15": [
+       144,
+       153
+      ],
+      "16": [
+       327,
+       496
+      ],
+      "17": [
+       35,
+       108
+      ],
+      "18": [
+       198,
+       257
+      ],
+      "19": [
+       152,
+       190
+      ],
+      "20": [
+       315,
+       367
+      ],
+      "21": [
+       173,
+       303
+      ],
+      "22": [
+       385,
+       398
+      ],
+      "23": [
+       275,
+       331
+      ],
+      "24": [
+       119,
+       124
+      ],
+      "25": [
+       146,
+       168
+      ],
+      "26": [
+       182,
+       189
+      ],
+      "27": [
+       207,
+       211
+      ],
+      "28": [
+       15,
+       245
+      ],
+      "29": [
+       29,
+       142
+      ],
+      "30": [
+       13,
+       60
+      ],
+      "31": [
+       19,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       23,
+       84
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       97,
+       179
+      ],
+      "36": [
+       2,
+       89
+      ],
+      "37": [
+       0,
+       227
+      ],
+      "38": [
+       0,
+       109
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       2,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 1,
+      "failing": 0,
+      "passing_tests": [
+       "ch10/test_nba_then_event_control_same_step"
+      ],
+      "failing_tests": [],
+      "added": 106,
+      "added_passing": 106,
+      "removed": 0
+     }
+    },
+    "ghost": {
+     "name": "Ghost",
+     "version": "private build 3314f9902a64",
+     "counts": {
+      "pass": 9793,
+      "fail": 717,
+      "known": 0,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       83,
+       88
+      ],
+      "4": [
+       412,
+       412
+      ],
+      "5": [
+       343,
+       346
+      ],
+      "6": [
+       607,
+       681
+      ],
+      "7": [
+       749,
+       772
+      ],
+      "8": [
+       398,
+       411
+      ],
+      "9": [
+       376,
+       383
+      ],
+      "10": [
+       341,
+       353
+      ],
+      "11": [
+       1624,
+       1644
+      ],
+      "12": [
+       245,
+       251
+      ],
+      "13": [
+       374,
+       381
+      ],
+      "14": [
+       149,
+       150
+      ],
+      "15": [
+       147,
+       153
+      ],
+      "16": [
+       420,
+       496
+      ],
+      "17": [
+       84,
+       108
+      ],
+      "18": [
+       224,
+       257
+      ],
+      "19": [
+       153,
+       190
+      ],
+      "20": [
+       350,
+       367
+      ],
+      "21": [
+       294,
+       303
+      ],
+      "22": [
+       393,
+       398
+      ],
+      "23": [
+       301,
+       331
+      ],
+      "24": [
+       117,
+       124
+      ],
+      "25": [
+       124,
+       168
+      ],
+      "26": [
+       161,
+       189
+      ],
+      "27": [
+       175,
+       211
+      ],
+      "28": [
+       244,
+       245
+      ],
+      "29": [
+       141,
+       142
+      ],
+      "30": [
+       49,
+       60
+      ],
+      "31": [
+       52,
+       66
+      ],
+      "32": [
+       33,
+       68
+      ],
+      "33": [
+       75,
+       84
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       127,
+       179
+      ],
+      "36": [
+       60,
+       89
+      ],
+      "37": [
+       201,
+       227
+      ],
+      "38": [
+       103,
+       109
+      ],
+      "39": [
+       35,
+       39
+      ],
+      "40": [
+       25,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 24,
+      "failing": 0,
+      "passing_tests": [
+       "ch16/test_assertion_clock_expressions_global_clock",
+       "ch18/test_array_reduction_element_type",
+       "ch18/test_dist_default_complement",
+       "ch18/test_rand_join_length_bias",
+       "ch18/test_randsequence_production_heads_rules_and_weights",
+       "ch18/test_randsequence_result_syntactic_order",
+       "ch18/test_thread_order_independence",
+       "ch18/test_unique_array_slice_single",
+       "ch19/test_cg_coverage_query_methods",
+       "ch19/test_cg_derived_option_override",
+       "ch19/test_cg_embedded_inheritance",
+       "ch19/test_cg_option_levels_readback",
+       "ch19/test_cg_option_name_unique_and_retain_scope",
+       "ch19/test_cg_type_and_instance_coverage",
+       "ch19/test_covergroup_declaration_and_option_forms",
+       "ch19/test_option_member_defaults",
+       "gen/ch10/test_gen_ref_static_nested_packed_event_nba_w65_valid",
+       "gen/ch10/test_gen_ref_static_nested_packed_event_nba_w8_valid",
+       "gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_sat",
+       "gen/ch18/test_gen_cross_randreduce_4_signed_dynamic_sum_element_2_sat_fail_sat",
+       "gen/ch33/test_gen_cross_config_1_both_reset_all_0_if_literal_direct",
+       "gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_case_literal_wrapped",
+       "gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_if_literal_direct",
+       "gen/ch33/test_gen_cross_config_64_both_reset_all_0_if_literal_wrapped"
+      ],
+      "failing_tests": [],
+      "added": 106,
+      "added_passing": 68,
+      "removed": 0
+     }
+    }
+   }
   }
  ]
 }

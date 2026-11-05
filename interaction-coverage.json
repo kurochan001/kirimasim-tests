@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_sha256": "73ab4463870d009d386b2d4e0e5f3165bf1dec682b965d188a53bfef384bd5ad",
+  "source_sha256": "bb2426c4b325d5c2869b1338c43bbb3558516ef3d4a5d4a9f123828b1370a165",
   "models": [
     {
       "id": "scheduling_visibility",
@@ -44003,14 +44003,1781 @@
           "inputs_sha256": "6b9c1425fefd6b06c1b1d297b6f5f8ff7322cdccf8ba33d74b3fe46f7c72a83e"
         }
       ]
+    },
+    {
+      "id": "class_method_package_lookup",
+      "version": 1,
+      "factors": {
+        "width": [
+          "1",
+          "32",
+          "33",
+          "64",
+          "65",
+          "129"
+        ],
+        "state": [
+          "bit",
+          "logic"
+        ],
+        "signed": [
+          "u",
+          "s"
+        ],
+        "relation": [
+          "narrow",
+          "same",
+          "wide"
+        ],
+        "value": [
+          "known",
+          "x",
+          "z"
+        ],
+        "access": [
+          "wildcard",
+          "explicit",
+          "qualified",
+          "enclosing"
+        ],
+        "routine": [
+          "function",
+          "task"
+        ],
+        "alias": [
+          "keep",
+          "replace"
+        ]
+      },
+      "constraints": [
+        "package幅は戻り値の幅より一つ狭い・同じ・一つ広い。幅ゼロだけを除外する。メソッド内だけに明示またはwildcard importを置き、クラス直下には置かない。qualifiedはpackageを直接参照し、enclosingは内側importなしでクラスの同名プロパティを読む。外側moduleのwildcard import、別メソッド、別オブジェクトの参照先も観測する。単一initialで別名取得、プロパティ更新、package更新、ハンドル再束縛、別名更新、外側packageと独立オブジェクトの後続更新、既知値への回復を順に行う。bit/logicと符号は入出力で同じ。継承、static、浅いコピーnew handle、null、並行呼出し、時間制御、GC、混合符号と直接のclass内importは対象外。シミュレータの未対応による除外はしない。"
+      ],
+      "higher_strength_groups": [
+        [
+          "width",
+          "signed",
+          "relation"
+        ],
+        [
+          "state",
+          "value",
+          "access"
+        ],
+        [
+          "access",
+          "routine",
+          "alias"
+        ],
+        [
+          "access",
+          "relation",
+          "signed"
+        ],
+        [
+          "alias",
+          "routine",
+          "value"
+        ]
+      ],
+      "witness": "メソッド内のimportとクラスプロパティ、外側moduleの同名宣言の名前解決を照合する。幅・符号・状態型、function/task、別名とハンドル再束縛を交差し、package共有値・個別オブジェクト・別メソッドの更新と保持を分けて観測する。",
+      "legal_rows": 3264,
+      "available_cases": 34,
+      "selected_cases": 34,
+      "targets_by_strength": {
+        "2": 244,
+        "3": 110
+      },
+      "mandatory_witnesses": [
+        "tests/gen/ch26/test_gen_cross_classimp_1_bit_u_same_known_wildcard_function_keep.sv",
+        "tests/gen/ch26/test_gen_cross_classimp_129_logic_s_narrow_z_explicit_task_replace.sv",
+        "tests/gen/ch26/test_gen_cross_classimp_65_logic_u_wide_x_qualified_function_replace.sv",
+        "tests/gen/ch26/test_gen_cross_classimp_33_bit_s_wide_z_enclosing_task_keep.sv",
+        "tests/gen/ch26/test_gen_cross_classimp_32_logic_s_narrow_known_wildcard_task_replace.sv",
+        "tests/gen/ch26/test_gen_cross_classimp_64_logic_u_same_known_explicit_function_keep.sv"
+      ],
+      "selection": [
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_1_bit_u_same_known_wildcard_function_keep.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "signed": "u",
+            "relation": "same",
+            "value": "known",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "fcbeb8c9040c9aec13aaf9c64909a6fbb5414ce403fa1dda72c3590f690b5904"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_129_logic_s_narrow_z_explicit_task_replace.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "signed": "s",
+            "relation": "narrow",
+            "value": "z",
+            "access": "explicit",
+            "routine": "task",
+            "alias": "replace"
+          },
+          "inputs_sha256": "3f4c3708c68629afa134dc9d4aa24643d6baab7b88f9dbd0681137c0d5d47b15"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_65_logic_u_wide_x_qualified_function_replace.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "signed": "u",
+            "relation": "wide",
+            "value": "x",
+            "access": "qualified",
+            "routine": "function",
+            "alias": "replace"
+          },
+          "inputs_sha256": "08f1a398505352def1af8348e1ee1efd7003a44b0d00e2b433104eb06565b602"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_33_bit_s_wide_z_enclosing_task_keep.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "signed": "s",
+            "relation": "wide",
+            "value": "z",
+            "access": "enclosing",
+            "routine": "task",
+            "alias": "keep"
+          },
+          "inputs_sha256": "6a82380582b87fd6fb5c17b53166df766042821eb0221501e9eb5d85e36d212c"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_32_logic_s_narrow_known_wildcard_task_replace.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "signed": "s",
+            "relation": "narrow",
+            "value": "known",
+            "access": "wildcard",
+            "routine": "task",
+            "alias": "replace"
+          },
+          "inputs_sha256": "8acbba4f7976ca28c2d32d436e3a7a281e31f27a5b6a26862910ada8b8e57538"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_64_logic_u_same_known_explicit_function_keep.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "signed": "u",
+            "relation": "same",
+            "value": "known",
+            "access": "explicit",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "88ffd9795ca6cddbdfe963f9be7122d2a77ec51b5b7dddad8195be5be29cf9a0"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_64_bit_s_narrow_x_qualified_task_keep.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "signed": "s",
+            "relation": "narrow",
+            "value": "x",
+            "access": "qualified",
+            "routine": "task",
+            "alias": "keep"
+          },
+          "inputs_sha256": "2300b6c20388e433702ce91c0dff196123c62f8af92e6240b664b7a1c5ba1565"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_1_logic_s_same_x_enclosing_task_replace.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "signed": "s",
+            "relation": "same",
+            "value": "x",
+            "access": "enclosing",
+            "routine": "task",
+            "alias": "replace"
+          },
+          "inputs_sha256": "d7fcc689aeede722d538a6e3ee6a94f798ae723aec9a842fd650207738fbc968"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_33_bit_u_wide_known_explicit_function_replace.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "signed": "u",
+            "relation": "wide",
+            "value": "known",
+            "access": "explicit",
+            "routine": "function",
+            "alias": "replace"
+          },
+          "inputs_sha256": "5614154cfaef02d628d46a393cfbc878c739711a49322db33c8f4a42ae8f9add"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_65_bit_s_same_z_wildcard_function_replace.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "signed": "s",
+            "relation": "same",
+            "value": "z",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "replace"
+          },
+          "inputs_sha256": "7dfd7bb0bb092e993da387eba135e41ca7cf94b93bd95e9b030dc4496240038f"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_129_bit_u_same_known_qualified_function_keep.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "signed": "u",
+            "relation": "same",
+            "value": "known",
+            "access": "qualified",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "327de8dffdaff1f35538b8ef67aa4eebeb29473e42f0a04f7a972ab5c28824a1"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_33_logic_u_narrow_x_wildcard_task_keep.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "signed": "u",
+            "relation": "narrow",
+            "value": "x",
+            "access": "wildcard",
+            "routine": "task",
+            "alias": "keep"
+          },
+          "inputs_sha256": "63cac643ef763f00fd30e0111b694a71b8b72525d35fe52ae7df67825195643b"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_65_bit_s_narrow_known_enclosing_task_keep.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "signed": "s",
+            "relation": "narrow",
+            "value": "known",
+            "access": "enclosing",
+            "routine": "task",
+            "alias": "keep"
+          },
+          "inputs_sha256": "bfb24578b211a4e045fde0c6fad82d31e65c25a83a1767bc1ed72238ce351235"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_1_bit_s_wide_z_qualified_task_replace.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "signed": "s",
+            "relation": "wide",
+            "value": "z",
+            "access": "qualified",
+            "routine": "task",
+            "alias": "replace"
+          },
+          "inputs_sha256": "2f2c2942c3cc14414065bf1ac82db4a8cd17dbdc6a99e19381e60b4460c7fdcd"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_32_bit_s_same_x_explicit_function_keep.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "signed": "s",
+            "relation": "same",
+            "value": "x",
+            "access": "explicit",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "56399af0aad3163839a4fc80641e8b6cffd98100089b36336a2fefb1da41c252"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_64_logic_u_wide_z_wildcard_function_replace.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "signed": "u",
+            "relation": "wide",
+            "value": "z",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "replace"
+          },
+          "inputs_sha256": "abf6503832d793350b9bfd5afed9d0aab44d202ba069572e41cb413489cf8cfd"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_129_bit_u_wide_x_enclosing_function_replace.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "signed": "u",
+            "relation": "wide",
+            "value": "x",
+            "access": "enclosing",
+            "routine": "function",
+            "alias": "replace"
+          },
+          "inputs_sha256": "01981d288e7f69d3e59259e284f256dd401f6ad60f107957e4b0f9440c054c2a"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_32_bit_s_wide_z_explicit_task_keep.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "signed": "s",
+            "relation": "wide",
+            "value": "z",
+            "access": "explicit",
+            "routine": "task",
+            "alias": "keep"
+          },
+          "inputs_sha256": "9661464c39a3f0615bca7ee2f6b32a3570b6c3827e4ab974570e55fb1342e650"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_33_logic_s_same_known_qualified_function_keep.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "signed": "s",
+            "relation": "same",
+            "value": "known",
+            "access": "qualified",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "3d3212813b7f3ad9fbca08f0cb86c086759ab7f9754e5cf260030b9bb9592a25"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_65_logic_u_narrow_x_explicit_function_keep.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "signed": "u",
+            "relation": "narrow",
+            "value": "x",
+            "access": "explicit",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "ec2354134dc4ddac189e3b6629163c455345c6522bcaf8b16c49280b5f3d9433"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_129_bit_s_wide_x_wildcard_function_keep.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "signed": "s",
+            "relation": "wide",
+            "value": "x",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "92a3903bc77b27f44a80df1e35642b317cbc848317c7e7c8bea957b97b71f6c0"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_32_logic_u_narrow_z_qualified_function_keep.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "signed": "u",
+            "relation": "narrow",
+            "value": "z",
+            "access": "qualified",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "cb350c146d44f834c5f6351d13840e2a4047947892119aac32246b4c40707bad"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_32_logic_u_same_known_enclosing_function_keep.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "signed": "u",
+            "relation": "same",
+            "value": "known",
+            "access": "enclosing",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "4c405b7c594cd588192e7224d5cfee9dee07670f9d14fcfe8caafe19b3eaae95"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_64_logic_u_narrow_z_enclosing_function_keep.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "signed": "u",
+            "relation": "narrow",
+            "value": "z",
+            "access": "enclosing",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "4df810cdca755e652f80080f6dd07b17516d4ffaf5bdf0c042cf705ec4dd4605"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_1_bit_u_wide_known_explicit_function_keep.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "signed": "u",
+            "relation": "wide",
+            "value": "known",
+            "access": "explicit",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "c7a168d455191ea0eccf5f9d182dde9d8d7b3f034efbe3cb5139b93c8241eba7"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_32_bit_u_wide_known_wildcard_function_keep.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "signed": "u",
+            "relation": "wide",
+            "value": "known",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "0aa28a7fdb0f864b16d87e642cd570f838bfc8307fc89b1da0cdb8f20ae41dd6"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_33_bit_u_same_known_wildcard_function_keep.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "signed": "u",
+            "relation": "same",
+            "value": "known",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "000857d213dc2a453b24eb2ed533da3b852c938424ddadc4629ecf6043673293"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_33_bit_s_narrow_known_wildcard_function_keep.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "signed": "s",
+            "relation": "narrow",
+            "value": "known",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "578435328c43cd16c5f49f640194fb7cdb71b6cb181f866eedd38b1d0399fe2d"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_64_bit_s_same_known_wildcard_function_keep.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "signed": "s",
+            "relation": "same",
+            "value": "known",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "3e7215359f3f32b742fd301195a99d114fc837ccb52eb0c4a56d4617d225a0d2"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_64_bit_s_wide_known_wildcard_function_keep.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "signed": "s",
+            "relation": "wide",
+            "value": "known",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "fb7896d08c7ec42d4df2d9d3204482de3dba3a4ebb81a9056ed8773e0ad06a36"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_65_bit_u_same_known_wildcard_function_keep.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "signed": "u",
+            "relation": "same",
+            "value": "known",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "fdb1db108fdce62e48a6b29e84c95fc000a6261b8e0e4eed50a92fdc6122bf3c"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_65_bit_s_wide_known_wildcard_function_keep.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "signed": "s",
+            "relation": "wide",
+            "value": "known",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "8827cd2cd50a1c3a33b09687e299288f3e280bce5390d413256c48db9af7935d"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_129_bit_u_narrow_known_wildcard_function_keep.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "signed": "u",
+            "relation": "narrow",
+            "value": "known",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "3408c1afa11540400db624fa42f3d08db4fd814481c7053611badf94631b578d"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_classimp_129_bit_s_same_known_wildcard_function_keep.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "signed": "s",
+            "relation": "same",
+            "value": "known",
+            "access": "wildcard",
+            "routine": "function",
+            "alias": "keep"
+          },
+          "inputs_sha256": "2afa4175afe9f957fa172035ea7bceee005d3d8d8331b50703af192c246884da"
+        }
+      ]
+    },
+    {
+      "id": "generated_subroutine_binding",
+      "version": 1,
+      "factors": {
+        "width": [
+          "1",
+          "32",
+          "33",
+          "64",
+          "65",
+          "129"
+        ],
+        "state": [
+          "bit",
+          "logic"
+        ],
+        "sign": [
+          "u",
+          "s"
+        ],
+        "form": [
+          "if",
+          "case"
+        ],
+        "argument": [
+          "default",
+          "explicit"
+        ],
+        "routine": [
+          "function",
+          "task"
+        ],
+        "order": [
+          "forward",
+          "reverse"
+        ],
+        "value": [
+          "known",
+          "x",
+          "z"
+        ],
+        "range": [
+          "up",
+          "down"
+        ]
+      },
+      "constraints": [
+        "全行が合法で、未対応による除外なし。二インスタンスと各二つの生成要素を使う。genvarと条件分岐が局所幅・負や非零の添字を含む配列範囲・更新定数を決める。既定引数は宣言スコープの現在の配列要素を毎回読み、明示引数は呼出し元の値を渡す。全ケースで既知値の相と、既知値またはX/Zの相を実行する。各呼出し後に全スコープの配列要素・隣接要素・型付き結果を観測する。途中の外部更新と再呼出し、隣接要素だけの更新と再呼出し、最終保持も照合する。単一initialで呼び、時間制御・再帰・ref・並行呼出し・動的配列は対象外。X/Z入力を使う場合はbit型への変換でもfourstateを指定する。"
+      ],
+      "higher_strength_groups": [
+        [
+          "width",
+          "state",
+          "value"
+        ],
+        [
+          "width",
+          "sign",
+          "argument"
+        ],
+        [
+          "form",
+          "argument",
+          "routine"
+        ],
+        [
+          "order",
+          "argument",
+          "value"
+        ],
+        [
+          "width",
+          "form",
+          "range"
+        ],
+        [
+          "argument",
+          "routine",
+          "range"
+        ]
+      ],
+      "witness": "生成スコープごとに異なる型・範囲の配列とサブルーチンを宣言し、既定引数の結合先と再評価を照合する。function/taskの入出力変換、呼出し順序、外部更新後の再呼出し、隣接要素と別スコープの状態保持を観測する。",
+      "legal_rows": 2304,
+      "available_cases": 36,
+      "selected_cases": 36,
+      "targets_by_strength": {
+        "2": 228,
+        "3": 112
+      },
+      "mandatory_witnesses": [
+        "tests/gen/ch27/test_gen_cross_gensub_1_bit_u_if_default_function_forward_known_up.sv",
+        "tests/gen/ch27/test_gen_cross_gensub_129_logic_s_case_default_task_reverse_z_down.sv",
+        "tests/gen/ch27/test_gen_cross_gensub_65_logic_u_if_explicit_function_reverse_x_up.sv",
+        "tests/gen/ch27/test_gen_cross_gensub_33_bit_s_case_explicit_task_forward_z_down.sv",
+        "tests/gen/ch27/test_gen_cross_gensub_32_logic_s_if_default_task_reverse_known_down.sv",
+        "tests/gen/ch27/test_gen_cross_gensub_64_logic_u_case_explicit_function_forward_known_up.sv"
+      ],
+      "selection": [
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_1_bit_u_if_default_function_forward_known_up.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "known",
+            "range": "up"
+          },
+          "inputs_sha256": "8a4a98060fbb3b46a56a202e5d23b6209a94acf264a33a10da0517603614dca5"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_129_logic_s_case_default_task_reverse_z_down.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "sign": "s",
+            "form": "case",
+            "argument": "default",
+            "routine": "task",
+            "order": "reverse",
+            "value": "z",
+            "range": "down"
+          },
+          "inputs_sha256": "b046331ef13a86fca941b575b6d9d5f2ee8173c976d7a6ea213072bd4ca6d0d3"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_65_logic_u_if_explicit_function_reverse_x_up.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "explicit",
+            "routine": "function",
+            "order": "reverse",
+            "value": "x",
+            "range": "up"
+          },
+          "inputs_sha256": "850c78b90aec9dec07e2ff5ba75692773a49980476471b94218713a2ca67abc8"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_33_bit_s_case_explicit_task_forward_z_down.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "sign": "s",
+            "form": "case",
+            "argument": "explicit",
+            "routine": "task",
+            "order": "forward",
+            "value": "z",
+            "range": "down"
+          },
+          "inputs_sha256": "cf7904ea610ce4e91ee9302ea7ae8790ccc04a1af8a18f182977901f1c03287c"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_32_logic_s_if_default_task_reverse_known_down.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "sign": "s",
+            "form": "if",
+            "argument": "default",
+            "routine": "task",
+            "order": "reverse",
+            "value": "known",
+            "range": "down"
+          },
+          "inputs_sha256": "aad578627053d5220e1ed29fe60d123ad08934cf63f2918f8fad0bb53fd047ec"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_64_logic_u_case_explicit_function_forward_known_up.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "sign": "u",
+            "form": "case",
+            "argument": "explicit",
+            "routine": "function",
+            "order": "forward",
+            "value": "known",
+            "range": "up"
+          },
+          "inputs_sha256": "dadfe75bf2ee4539d05e1c8ac822855d6265bc2a5d5303f815c50b753c65fd57"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_64_bit_s_case_default_function_reverse_x_down.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "sign": "s",
+            "form": "case",
+            "argument": "default",
+            "routine": "function",
+            "order": "reverse",
+            "value": "x",
+            "range": "down"
+          },
+          "inputs_sha256": "f6ab43075ce5dcce42a17c985c1a78ca73f24f5ff5c07d248eb9ca0ade451c5c"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_129_bit_u_if_explicit_task_forward_x_up.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "sign": "u",
+            "form": "if",
+            "argument": "explicit",
+            "routine": "task",
+            "order": "forward",
+            "value": "x",
+            "range": "up"
+          },
+          "inputs_sha256": "3ba41f04e0c9a1882bad342fb74ffd0154d4536c6d25b01a84ab061c936b0b27"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_1_logic_u_if_explicit_function_reverse_z_down.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "explicit",
+            "routine": "function",
+            "order": "reverse",
+            "value": "z",
+            "range": "down"
+          },
+          "inputs_sha256": "a554d050d60ed8f764907f01ecf93ab07f6ba2a646d03219c9bd58a0ba39ebd8"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_65_bit_s_case_default_task_forward_z_up.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "sign": "s",
+            "form": "case",
+            "argument": "default",
+            "routine": "task",
+            "order": "forward",
+            "value": "z",
+            "range": "up"
+          },
+          "inputs_sha256": "6ba7d2f31f9ecfe4f5b466b14e0f73bbb41d27311470f1076e4f4a2617fb152f"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_32_bit_u_case_default_function_forward_x_up.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "sign": "u",
+            "form": "case",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "x",
+            "range": "up"
+          },
+          "inputs_sha256": "9def91b1c8723883fda53d1b82afb550c25ac4006a5812e9aa5763d1568b34b8"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_33_logic_u_if_default_function_reverse_known_up.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "reverse",
+            "value": "known",
+            "range": "up"
+          },
+          "inputs_sha256": "0651228a2c66bc73aee2aa258f1a6d7f6e814977d0a635b961d009782a40075c"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_1_bit_s_case_default_task_forward_x_up.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "sign": "s",
+            "form": "case",
+            "argument": "default",
+            "routine": "task",
+            "order": "forward",
+            "value": "x",
+            "range": "up"
+          },
+          "inputs_sha256": "9f336b02b22f6777b38e531edd0a80f5ba9581a6aae062943f3eb81d98fdad4a"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_64_bit_u_if_default_task_forward_z_up.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "task",
+            "order": "forward",
+            "value": "z",
+            "range": "up"
+          },
+          "inputs_sha256": "6fee5e93737dd8bf2cad83d619da8fa19ed3389178e1caf66af0d8c542ac3c48"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_65_bit_s_if_explicit_function_reverse_known_down.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "sign": "s",
+            "form": "if",
+            "argument": "explicit",
+            "routine": "function",
+            "order": "reverse",
+            "value": "known",
+            "range": "down"
+          },
+          "inputs_sha256": "68ce690059b2450a3b653bdf6a5bb3dda46f02e7c3c13300906f92aebf63843b"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_32_bit_u_if_explicit_function_forward_z_up.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "sign": "u",
+            "form": "if",
+            "argument": "explicit",
+            "routine": "function",
+            "order": "forward",
+            "value": "z",
+            "range": "up"
+          },
+          "inputs_sha256": "df32c1c5e9eab4af715a6ac32977ef727e8b02345886179214cca3eb0728d58a"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_129_bit_u_if_default_function_forward_known_down.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "known",
+            "range": "down"
+          },
+          "inputs_sha256": "5876a9f01e5c4d73e7209c3a880de2d1fd85c5dd392b6e6701ff7333a22066f5"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_33_bit_u_if_explicit_function_forward_x_down.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "sign": "u",
+            "form": "if",
+            "argument": "explicit",
+            "routine": "function",
+            "order": "forward",
+            "value": "x",
+            "range": "down"
+          },
+          "inputs_sha256": "e2c4228f8add2b11f10dfcdf8dd699b1d359555bc23185db4277e92618b3ce1b"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_1_bit_s_case_explicit_function_forward_z_down.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "sign": "s",
+            "form": "case",
+            "argument": "explicit",
+            "routine": "function",
+            "order": "forward",
+            "value": "z",
+            "range": "down"
+          },
+          "inputs_sha256": "1066e15b51ec6f81f24e4ec85c9ef40a6ea9ed73f3dd636fc29a37d464b01af3"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_32_bit_s_case_explicit_function_forward_known_down.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "sign": "s",
+            "form": "case",
+            "argument": "explicit",
+            "routine": "function",
+            "order": "forward",
+            "value": "known",
+            "range": "down"
+          },
+          "inputs_sha256": "e438944ba5336e1fd8dcd09a2f2e716064b362a0b35579c202ee1f63e2c9b2a3"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_33_bit_s_case_default_function_forward_known_up.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "sign": "s",
+            "form": "case",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "known",
+            "range": "up"
+          },
+          "inputs_sha256": "dbf192443c0aa00f59ecfd01e64df5c44873129d071045107298b653702eb59f"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_64_bit_s_if_explicit_function_forward_known_down.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "sign": "s",
+            "form": "if",
+            "argument": "explicit",
+            "routine": "function",
+            "order": "forward",
+            "value": "known",
+            "range": "down"
+          },
+          "inputs_sha256": "5d48345e7c6d9287e8fcad889945a19fcff94dedbf739dd67fd7420d39304404"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_65_bit_u_case_default_function_forward_x_down.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "sign": "u",
+            "form": "case",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "x",
+            "range": "down"
+          },
+          "inputs_sha256": "dad664954541861b62a31ed1effe31815fdee3535cc757a93db12757d0e2b935"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_129_bit_s_case_explicit_function_forward_z_up.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "sign": "s",
+            "form": "case",
+            "argument": "explicit",
+            "routine": "function",
+            "order": "forward",
+            "value": "z",
+            "range": "up"
+          },
+          "inputs_sha256": "0ddb25f7fdbe682e17f1423525c9164333ee7568cef17c8452095abdd841f798"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_1_logic_u_if_default_function_forward_known_up.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "known",
+            "range": "up"
+          },
+          "inputs_sha256": "8c762a7114bdee90e81cd263710e6bc965e3ca4012eac48a9d47267e1522041a"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_1_logic_u_if_default_function_forward_x_up.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "x",
+            "range": "up"
+          },
+          "inputs_sha256": "7fa1acaf853799d94e0025feace2078d23bda3d229f45bc82264d52c0066e3d1"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_32_logic_u_if_default_function_forward_x_up.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "x",
+            "range": "up"
+          },
+          "inputs_sha256": "d9f3f1a3ea0d97b9d92738556ae38ac0a101914e7ed54c9f6a6abad222ba8a67"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_32_logic_u_if_default_function_forward_z_up.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "z",
+            "range": "up"
+          },
+          "inputs_sha256": "b7cee2b799d018b5af1051e6bf6958c9d4c36ddffe504052f6a05fd127617c1f"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_33_logic_u_if_default_function_forward_x_up.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "x",
+            "range": "up"
+          },
+          "inputs_sha256": "0cae572f00a584783f14fca03b208b66a865f38c7304718e891a0f825d5229a6"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_33_logic_u_if_default_function_forward_z_up.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "z",
+            "range": "up"
+          },
+          "inputs_sha256": "03cb9db48ed5924b6ae92f053a06d245e3355bd5d4b4d9735c9d992774d268c1"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_64_logic_u_if_default_function_forward_x_up.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "x",
+            "range": "up"
+          },
+          "inputs_sha256": "edbe349b8dc6bf1db999be38278e8444dc33b3d13604d3a9fcc1a56344c91840"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_64_logic_u_if_default_function_forward_z_up.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "z",
+            "range": "up"
+          },
+          "inputs_sha256": "0ac349a0b6474787f98428ff05961dd878fe0bbcfa4de3b9cc68f14e67d2fa7a"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_65_logic_u_if_default_function_forward_known_up.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "known",
+            "range": "up"
+          },
+          "inputs_sha256": "1b2fd6d486c45c27e97e27483a9433fffa19d6b11332fee9a3ebe8a60c141c13"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_65_logic_u_if_default_function_forward_z_up.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "z",
+            "range": "up"
+          },
+          "inputs_sha256": "602307c47297902903e997efb4c4ffab4439ba35b59e5d0ff21d61a921c830c6"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_129_logic_u_if_default_function_forward_known_up.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "known",
+            "range": "up"
+          },
+          "inputs_sha256": "630bb1a4a87c82c55f16fefec7b80bc439c0a5a54268d39e55fc03add4407563"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_gensub_129_logic_u_if_default_function_forward_x_up.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "sign": "u",
+            "form": "if",
+            "argument": "default",
+            "routine": "function",
+            "order": "forward",
+            "value": "x",
+            "range": "up"
+          },
+          "inputs_sha256": "3c200d26706c255d3845b77f915c9a457259e1cf07e248a5b5f1ea26c8132b68"
+        }
+      ]
+    },
+    {
+      "id": "class_conditional_return",
+      "version": 1,
+      "factors": {
+        "width": [
+          "1",
+          "32",
+          "33",
+          "64",
+          "65",
+          "129"
+        ],
+        "state": [
+          "bit",
+          "logic"
+        ],
+        "sign": [
+          "u",
+          "s"
+        ],
+        "dispatch": [
+          "direct",
+          "virtual",
+          "nonvirtual"
+        ],
+        "control": [
+          "if",
+          "case",
+          "conditional"
+        ],
+        "value": [
+          "known",
+          "x",
+          "z"
+        ],
+        "alias": [
+          "keep",
+          "rebind"
+        ]
+      },
+      "constraints": [
+        "全行が合法で、未対応による除外なし。二つの派生オブジェクトを使い、直呼び・基底ハンドルのvirtual/非virtualを区別する。ifと通常caseはX/Z条件を偽側へ送り、条件演算子は各ビットをマージする。既知値の相と既知値またはX/Z入力の相を実行し、bit型でも条件はlogicに保つ。返す値を取得してから同じreceiverのdataだけを更新し、早期return後の文は実行しない。各呼出し後に両オブジェクトと保持した別名、幅を広げた結果、呼出し数を観測する。外部更新、別ハンドルへの再束縛、guardだけの更新、反復呼出しと最終保持を確認する。単一initial、時間を消費しないfunctionのみ。再帰・ref・null・並行性・GC・プロパティの隠蔽・super・混合符号の演算は対象外。"
+      ],
+      "higher_strength_groups": [
+        [
+          "width",
+          "state",
+          "value"
+        ],
+        [
+          "width",
+          "sign",
+          "control"
+        ],
+        [
+          "dispatch",
+          "control",
+          "value"
+        ],
+        [
+          "dispatch",
+          "alias",
+          "control"
+        ],
+        [
+          "state",
+          "control",
+          "value"
+        ]
+      ],
+      "witness": "クラスの直呼びと基底ハンドル経由の呼出しで条件選択・更新先・早期returnを照合する。if/caseと条件演算子のX/Z、型付き結果の符号拡張、別名と再束縛後のオブジェクトの独立性を観測する。",
+      "legal_rows": 1296,
+      "available_cases": 36,
+      "selected_cases": 36,
+      "targets_by_strength": {
+        "2": 183,
+        "3": 135
+      },
+      "mandatory_witnesses": [
+        "tests/gen/ch8/test_gen_cross_classsel_1_bit_u_direct_if_known_keep.sv",
+        "tests/gen/ch8/test_gen_cross_classsel_129_logic_s_virtual_conditional_z_rebind.sv",
+        "tests/gen/ch8/test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep.sv",
+        "tests/gen/ch8/test_gen_cross_classsel_33_bit_s_virtual_conditional_x_rebind.sv",
+        "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind.sv",
+        "tests/gen/ch8/test_gen_cross_classsel_64_logic_u_nonvirtual_conditional_known_keep.sv"
+      ],
+      "selection": [
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_1_bit_u_direct_if_known_keep.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "sign": "u",
+            "dispatch": "direct",
+            "control": "if",
+            "value": "known",
+            "alias": "keep"
+          },
+          "inputs_sha256": "b6a957c807070b7c43f0548f0959103a0e072b02f4692998befde8a5914cb311"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_129_logic_s_virtual_conditional_z_rebind.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "sign": "s",
+            "dispatch": "virtual",
+            "control": "conditional",
+            "value": "z",
+            "alias": "rebind"
+          },
+          "inputs_sha256": "ec18cdba2d92b064724f6c9ee1d79e14c0854b8e8cc1394c251ae17d2742f277"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "sign": "s",
+            "dispatch": "nonvirtual",
+            "control": "case",
+            "value": "x",
+            "alias": "keep"
+          },
+          "inputs_sha256": "86268431ead371c5f63e42f835657a19499ce3e8de485fc2eb6952e9a7a85be6"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_33_bit_s_virtual_conditional_x_rebind.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "sign": "s",
+            "dispatch": "virtual",
+            "control": "conditional",
+            "value": "x",
+            "alias": "rebind"
+          },
+          "inputs_sha256": "5a935f7f22d167f896696f5b2f6ff25aa31006ce19e895d03b0ee9a344109b36"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "sign": "s",
+            "dispatch": "virtual",
+            "control": "if",
+            "value": "known",
+            "alias": "rebind"
+          },
+          "inputs_sha256": "b2ccd3aa8a4330ffb2249a8b7e5188b600a6f75526fa1ab10c080ad253d05d75"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_64_logic_u_nonvirtual_conditional_known_keep.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "sign": "u",
+            "dispatch": "nonvirtual",
+            "control": "conditional",
+            "value": "known",
+            "alias": "keep"
+          },
+          "inputs_sha256": "56e84aa16c958431a4d5bff8dd76855de6947f0c2f6644e7a40890ebeefee80e"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_32_bit_u_direct_case_z_rebind.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "sign": "u",
+            "dispatch": "direct",
+            "control": "case",
+            "value": "z",
+            "alias": "rebind"
+          },
+          "inputs_sha256": "a09f10c1e10f31e15ba0d50ca46bb9b80434caf8c80aa3a675187c11fa5f6c47"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_33_bit_u_nonvirtual_if_z_keep.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "sign": "u",
+            "dispatch": "nonvirtual",
+            "control": "if",
+            "value": "z",
+            "alias": "keep"
+          },
+          "inputs_sha256": "c4de4470dc16f6e2e75283e3e59ec22ba0a06f4aa3f83542f996209373c841e4"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_1_logic_s_direct_conditional_x_rebind.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "sign": "s",
+            "dispatch": "direct",
+            "control": "conditional",
+            "value": "x",
+            "alias": "rebind"
+          },
+          "inputs_sha256": "01b4532fb1b3fb662ef58fd330841e7b69fcaf9af76f4ec15d9df8d5715b3f6a"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_129_bit_u_virtual_if_x_keep.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "sign": "u",
+            "dispatch": "virtual",
+            "control": "if",
+            "value": "x",
+            "alias": "keep"
+          },
+          "inputs_sha256": "7dec19bcba87180b83da97ea026f2b39225ac7d3f5e200213c53e7fce220b066"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_64_bit_s_virtual_case_known_rebind.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "sign": "s",
+            "dispatch": "virtual",
+            "control": "case",
+            "value": "known",
+            "alias": "rebind"
+          },
+          "inputs_sha256": "c3a908e7f57ebdedcfdecd29b5e403dc2493aa593a50f1861d6488c5899de9f7"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_65_bit_u_nonvirtual_conditional_z_rebind.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "sign": "u",
+            "dispatch": "nonvirtual",
+            "control": "conditional",
+            "value": "z",
+            "alias": "rebind"
+          },
+          "inputs_sha256": "f676b36d9a886e478719a3610904d17491f8fb23d8037850f044728fb98aeee5"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_33_logic_u_direct_case_known_keep.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "sign": "u",
+            "dispatch": "direct",
+            "control": "case",
+            "value": "known",
+            "alias": "keep"
+          },
+          "inputs_sha256": "841c63d0d829b884ce850ff0ab4c8325897aa109486027aa40764babf3a1ce95"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_1_logic_u_virtual_case_z_keep.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "sign": "u",
+            "dispatch": "virtual",
+            "control": "case",
+            "value": "z",
+            "alias": "keep"
+          },
+          "inputs_sha256": "9d64635ceffe6792cc7243bdebf9411ac85f635165cfeae489d76b9e62fb6e33"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_64_logic_u_direct_if_x_rebind.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "sign": "u",
+            "dispatch": "direct",
+            "control": "if",
+            "value": "x",
+            "alias": "rebind"
+          },
+          "inputs_sha256": "824bdcccc19bebec3647965c3923aadebd2d2408646cb50ccd830bc6bd2f3c76"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_32_bit_u_direct_conditional_known_keep.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "sign": "u",
+            "dispatch": "direct",
+            "control": "conditional",
+            "value": "known",
+            "alias": "keep"
+          },
+          "inputs_sha256": "bce14be1a0afeb55e352761b009b0e4a48fa9d12009e6a76aa1911370dd607f0"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_129_bit_u_nonvirtual_case_known_rebind.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "sign": "u",
+            "dispatch": "nonvirtual",
+            "control": "case",
+            "value": "known",
+            "alias": "rebind"
+          },
+          "inputs_sha256": "0bae0bc6b48b49c7229bc94943e51518b4801dae5da587a73071b2e9086e11ff"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_32_bit_u_nonvirtual_if_x_rebind.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "sign": "u",
+            "dispatch": "nonvirtual",
+            "control": "if",
+            "value": "x",
+            "alias": "rebind"
+          },
+          "inputs_sha256": "0aa7bc5d3a208ec871c1a3685763b80f0a127050b8262117972e9cfda03328e9"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_65_bit_s_virtual_conditional_known_keep.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "sign": "s",
+            "dispatch": "virtual",
+            "control": "conditional",
+            "value": "known",
+            "alias": "keep"
+          },
+          "inputs_sha256": "9cd0c6a4f80e3c663aa4ab4a83f91c2f73f6609b2b409feaf170a8c3b7000721"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_65_logic_u_direct_if_z_keep.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "sign": "u",
+            "dispatch": "direct",
+            "control": "if",
+            "value": "z",
+            "alias": "keep"
+          },
+          "inputs_sha256": "29d2d1b50a57cade637ab427553996a106ef4c6e704147f895fe2bcae010c109"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_1_bit_u_nonvirtual_conditional_x_keep.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "sign": "u",
+            "dispatch": "nonvirtual",
+            "control": "conditional",
+            "value": "x",
+            "alias": "keep"
+          },
+          "inputs_sha256": "0fd60ba77cdf43e57e9f8e1718022cdd2557f32815ceb173be31ffe73ed91539"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_64_bit_u_direct_case_x_keep.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "sign": "u",
+            "dispatch": "direct",
+            "control": "case",
+            "value": "x",
+            "alias": "keep"
+          },
+          "inputs_sha256": "c5b4aa54d98723abca730004069374fbe5ef6559ee6e7cda1dc87681c09bebbf"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_64_bit_s_direct_conditional_z_keep.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "sign": "s",
+            "dispatch": "direct",
+            "control": "conditional",
+            "value": "z",
+            "alias": "keep"
+          },
+          "inputs_sha256": "936a5bc88d8cf239098567a65fc46238cd08060637f69fa095642e985b0fa5fa"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_1_bit_s_virtual_if_z_keep.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "sign": "s",
+            "dispatch": "virtual",
+            "control": "if",
+            "value": "z",
+            "alias": "keep"
+          },
+          "inputs_sha256": "b7194a497ca016168467ec01ad3262639c6218087d8867f025d956a8832f0096"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_case_x_keep.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "sign": "s",
+            "dispatch": "virtual",
+            "control": "case",
+            "value": "x",
+            "alias": "keep"
+          },
+          "inputs_sha256": "ac93ba69e0c6f3522be679e79e2ff635c233c03b3a15ac34bb09c6db6a428f02"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_33_bit_s_nonvirtual_if_known_keep.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "sign": "s",
+            "dispatch": "nonvirtual",
+            "control": "if",
+            "value": "known",
+            "alias": "keep"
+          },
+          "inputs_sha256": "ff50dab81e2ce87037bf2999ba9300de8e622ba82269b8c0f1eccbeec74262f3"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_33_logic_s_nonvirtual_case_z_keep.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "sign": "s",
+            "dispatch": "nonvirtual",
+            "control": "case",
+            "value": "z",
+            "alias": "keep"
+          },
+          "inputs_sha256": "66dfc9e5e5746b4d5907766ddafa2fea4598a92e73ad83cad5d095bab5e053d9"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_129_bit_u_direct_conditional_z_keep.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "sign": "u",
+            "dispatch": "direct",
+            "control": "conditional",
+            "value": "z",
+            "alias": "keep"
+          },
+          "inputs_sha256": "babb84ee4dabae1c166c1fa935067530853b8b721f26fefbc90e88e31d79470b"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_1_logic_s_direct_case_known_keep.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "sign": "s",
+            "dispatch": "direct",
+            "control": "case",
+            "value": "known",
+            "alias": "keep"
+          },
+          "inputs_sha256": "b5ed267eb83a4f9b762bee2f99a28417c7f2b71015244821d256c8d6041ee24e"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_direct_conditional_z_keep.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "sign": "s",
+            "dispatch": "direct",
+            "control": "conditional",
+            "value": "z",
+            "alias": "keep"
+          },
+          "inputs_sha256": "541187fc80477314c684204ed6371973a0ac7260adb5b3507b206af35655c7a9"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_33_logic_u_direct_conditional_x_keep.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "sign": "u",
+            "dispatch": "direct",
+            "control": "conditional",
+            "value": "x",
+            "alias": "keep"
+          },
+          "inputs_sha256": "44cfe620605f1712068e52fddda5c58924a5e43a2a13e84bac1523d6073f1f5b"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_64_logic_s_direct_if_z_keep.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "sign": "s",
+            "dispatch": "direct",
+            "control": "if",
+            "value": "z",
+            "alias": "keep"
+          },
+          "inputs_sha256": "4595b131e7cca62b7434f9f9a43240c2730719bf744cb4c3bbd851af26a216f5"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_65_bit_u_direct_case_x_keep.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "sign": "u",
+            "dispatch": "direct",
+            "control": "case",
+            "value": "x",
+            "alias": "keep"
+          },
+          "inputs_sha256": "90d984479087c862085600cc27009c00f30c1bb1e3837e22137a53e4dfffafc0"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_65_logic_s_direct_if_known_keep.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "sign": "s",
+            "dispatch": "direct",
+            "control": "if",
+            "value": "known",
+            "alias": "keep"
+          },
+          "inputs_sha256": "949cf16b7f20ebe5bfaa9a31940d923297beafa0dc92e1cd2311ea80fb007c48"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_129_logic_s_direct_if_known_keep.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "sign": "s",
+            "dispatch": "direct",
+            "control": "if",
+            "value": "known",
+            "alias": "keep"
+          },
+          "inputs_sha256": "05d3cfd58e31fb676315eb7991ebdd84c4863ba7dc17d9db9641af041ff93862"
+        },
+        {
+          "test": "tests/gen/ch8/test_gen_cross_classsel_129_logic_s_direct_case_x_keep.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "sign": "s",
+            "dispatch": "direct",
+            "control": "case",
+            "value": "x",
+            "alias": "keep"
+          },
+          "inputs_sha256": "7c0fa55528b930b16163b67753128498a81881969c0f53c2ef5143af798fab5b"
+        }
+      ]
     }
   ],
   "runs": [
     {
       "source": "results/ghost.json",
       "simulator": "ghost",
-      "version": "private build 1c85ee891430",
-      "generated_at": "2026-11-04T02:43:45.269283+00:00",
+      "version": "private build 3314f9902a64",
+      "generated_at": "2026-11-05T03:38:28.956402+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -45518,8 +47285,8 @@
         },
         "configuration_generated_shape": {
           "case_statuses": {
-            "pass": 37,
-            "fail": 4,
+            "pass": 41,
+            "fail": 0,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -45527,14 +47294,14 @@
           },
           "coverage": {
             "2": {
-              "passed": 207,
+              "passed": 213,
               "total": 213,
-              "missing": 6
+              "missing": 0
             },
             "3": {
-              "passed": 72,
+              "passed": 80,
               "total": 80,
-              "missing": 8
+              "missing": 0
             }
           },
           "mandatory_witnesses": {
@@ -45546,7 +47313,7 @@
             "tests/gen/ch33/test_gen_cross_config_64_instance_set_1_if_local_wrapped.sv": "pass"
           },
           "provenance_problem": "",
-          "complete": false
+          "complete": true
         },
         "udp_array_strength": {
           "case_statuses": {
@@ -45745,8 +47512,8 @@
         },
         "array_reduction_constraint": {
           "case_statuses": {
-            "pass": 4,
-            "fail": 9,
+            "pass": 6,
+            "fail": 7,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -45754,21 +47521,21 @@
           },
           "coverage": {
             "2": {
-              "passed": 50,
+              "passed": 64,
               "total": 96,
-              "missing": 46
+              "missing": 32
             },
             "3": {
-              "passed": 13,
+              "passed": 19,
               "total": 40,
-              "missing": 27
+              "missing": 21
             }
           },
           "mandatory_witnesses": {
             "tests/gen/ch18/test_gen_cross_randreduce_4_unsigned_fixed_sum_element_2_sat_fail_sat.sv": "pass",
             "tests/gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail.sv": "fail",
             "tests/gen/ch18/test_gen_cross_randreduce_8_signed_fixed_product_element_3_fail_sat_fail.sv": "fail",
-            "tests/gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_sat.sv": "fail"
+            "tests/gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_sat.sv": "pass"
           },
           "provenance_problem": "",
           "complete": false
@@ -46465,14 +48232,110 @@
           },
           "provenance_problem": "",
           "complete": false
+        },
+        "class_method_package_lookup": {
+          "case_statuses": {
+            "pass": 34,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 244,
+              "total": 244,
+              "missing": 0
+            },
+            "3": {
+              "passed": 110,
+              "total": 110,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch26/test_gen_cross_classimp_1_bit_u_same_known_wildcard_function_keep.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_129_logic_s_narrow_z_explicit_task_replace.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_65_logic_u_wide_x_qualified_function_replace.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_33_bit_s_wide_z_enclosing_task_keep.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_32_logic_s_narrow_known_wildcard_task_replace.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_64_logic_u_same_known_explicit_function_keep.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "generated_subroutine_binding": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 36,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 228,
+              "missing": 228
+            },
+            "3": {
+              "passed": 0,
+              "total": 112,
+              "missing": 112
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_gensub_1_bit_u_if_default_function_forward_known_up.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_gensub_129_logic_s_case_default_task_reverse_z_down.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_gensub_65_logic_u_if_explicit_function_reverse_x_up.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_gensub_33_bit_s_case_explicit_task_forward_z_down.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_gensub_32_logic_s_if_default_task_reverse_known_down.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_gensub_64_logic_u_case_explicit_function_forward_known_up.sv": "fail"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "class_conditional_return": {
+          "case_statuses": {
+            "pass": 34,
+            "fail": 2,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 183,
+              "total": 183,
+              "missing": 0
+            },
+            "3": {
+              "passed": 129,
+              "total": 135,
+              "missing": 6
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch8/test_gen_cross_classsel_1_bit_u_direct_if_known_keep.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_129_logic_s_virtual_conditional_z_rebind.sv": "fail",
+            "tests/gen/ch8/test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_33_bit_s_virtual_conditional_x_rebind.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_64_logic_u_nonvirtual_conditional_known_keep.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
         }
       }
     },
     {
       "source": "results/icarus.json",
       "simulator": "icarus",
-      "version": "Icarus Verilog version 14.0 (devel) (s20260301-809-g16efc8c4)",
-      "generated_at": "2026-11-04T00:25:05.302970+00:00",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-812-g9f260501)",
+      "generated_at": "2026-11-05T00:38:16.069296+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -48927,14 +50790,110 @@
           },
           "provenance_problem": "",
           "complete": false
+        },
+        "class_method_package_lookup": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 34,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 244,
+              "missing": 244
+            },
+            "3": {
+              "passed": 0,
+              "total": 110,
+              "missing": 110
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch26/test_gen_cross_classimp_1_bit_u_same_known_wildcard_function_keep.sv": "known",
+            "tests/gen/ch26/test_gen_cross_classimp_129_logic_s_narrow_z_explicit_task_replace.sv": "known",
+            "tests/gen/ch26/test_gen_cross_classimp_65_logic_u_wide_x_qualified_function_replace.sv": "known",
+            "tests/gen/ch26/test_gen_cross_classimp_33_bit_s_wide_z_enclosing_task_keep.sv": "known",
+            "tests/gen/ch26/test_gen_cross_classimp_32_logic_s_narrow_known_wildcard_task_replace.sv": "known",
+            "tests/gen/ch26/test_gen_cross_classimp_64_logic_u_same_known_explicit_function_keep.sv": "known"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "generated_subroutine_binding": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 228,
+              "total": 228,
+              "missing": 0
+            },
+            "3": {
+              "passed": 112,
+              "total": 112,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_gensub_1_bit_u_if_default_function_forward_known_up.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_129_logic_s_case_default_task_reverse_z_down.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_65_logic_u_if_explicit_function_reverse_x_up.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_33_bit_s_case_explicit_task_forward_z_down.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_32_logic_s_if_default_task_reverse_known_down.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_64_logic_u_case_explicit_function_forward_known_up.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "class_conditional_return": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 36,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 183,
+              "missing": 183
+            },
+            "3": {
+              "passed": 0,
+              "total": 135,
+              "missing": 135
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch8/test_gen_cross_classsel_1_bit_u_direct_if_known_keep.sv": "known",
+            "tests/gen/ch8/test_gen_cross_classsel_129_logic_s_virtual_conditional_z_rebind.sv": "known",
+            "tests/gen/ch8/test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep.sv": "known",
+            "tests/gen/ch8/test_gen_cross_classsel_33_bit_s_virtual_conditional_x_rebind.sv": "known",
+            "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind.sv": "known",
+            "tests/gen/ch8/test_gen_cross_classsel_64_logic_u_nonvirtual_conditional_known_keep.sv": "known"
+          },
+          "provenance_problem": "",
+          "complete": false
         }
       }
     },
     {
       "source": "results/kirimasim.json",
       "simulator": "kirimasim",
-      "version": "kirimasim 0.0.0 (commit 9113955914d8), built with GNU 13.3.0",
-      "generated_at": "2026-11-04T00:53:33.579193+00:00",
+      "version": "kirimasim 0.0.0 (commit 50a897dee62a), built with GNU 13.3.0",
+      "generated_at": "2026-11-05T03:26:40.741180+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -51389,14 +53348,110 @@
           },
           "provenance_problem": "",
           "complete": true
+        },
+        "class_method_package_lookup": {
+          "case_statuses": {
+            "pass": 34,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 244,
+              "total": 244,
+              "missing": 0
+            },
+            "3": {
+              "passed": 110,
+              "total": 110,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch26/test_gen_cross_classimp_1_bit_u_same_known_wildcard_function_keep.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_129_logic_s_narrow_z_explicit_task_replace.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_65_logic_u_wide_x_qualified_function_replace.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_33_bit_s_wide_z_enclosing_task_keep.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_32_logic_s_narrow_known_wildcard_task_replace.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_64_logic_u_same_known_explicit_function_keep.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "generated_subroutine_binding": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 228,
+              "total": 228,
+              "missing": 0
+            },
+            "3": {
+              "passed": 112,
+              "total": 112,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_gensub_1_bit_u_if_default_function_forward_known_up.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_129_logic_s_case_default_task_reverse_z_down.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_65_logic_u_if_explicit_function_reverse_x_up.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_33_bit_s_case_explicit_task_forward_z_down.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_32_logic_s_if_default_task_reverse_known_down.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_64_logic_u_case_explicit_function_forward_known_up.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "class_conditional_return": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 183,
+              "total": 183,
+              "missing": 0
+            },
+            "3": {
+              "passed": 135,
+              "total": 135,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch8/test_gen_cross_classsel_1_bit_u_direct_if_known_keep.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_129_logic_s_virtual_conditional_z_rebind.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_33_bit_s_virtual_conditional_x_rebind.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_64_logic_u_nonvirtual_conditional_known_keep.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
         }
       }
     },
     {
       "source": "results/lyra.json",
       "simulator": "lyra",
-      "version": "Lyra (commit 7c55e9f93a34)",
-      "generated_at": "2026-11-04T02:52:40.489267+00:00",
+      "version": "Lyra (commit ccfc8aa4fbd9)",
+      "generated_at": "2026-11-05T04:44:28.598954+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -53851,14 +55906,110 @@
           },
           "provenance_problem": "",
           "complete": true
+        },
+        "class_method_package_lookup": {
+          "case_statuses": {
+            "pass": 34,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 244,
+              "total": 244,
+              "missing": 0
+            },
+            "3": {
+              "passed": 110,
+              "total": 110,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch26/test_gen_cross_classimp_1_bit_u_same_known_wildcard_function_keep.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_129_logic_s_narrow_z_explicit_task_replace.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_65_logic_u_wide_x_qualified_function_replace.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_33_bit_s_wide_z_enclosing_task_keep.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_32_logic_s_narrow_known_wildcard_task_replace.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_64_logic_u_same_known_explicit_function_keep.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "generated_subroutine_binding": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 228,
+              "total": 228,
+              "missing": 0
+            },
+            "3": {
+              "passed": 112,
+              "total": 112,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_gensub_1_bit_u_if_default_function_forward_known_up.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_129_logic_s_case_default_task_reverse_z_down.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_65_logic_u_if_explicit_function_reverse_x_up.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_33_bit_s_case_explicit_task_forward_z_down.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_32_logic_s_if_default_task_reverse_known_down.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_64_logic_u_case_explicit_function_forward_known_up.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "class_conditional_return": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 183,
+              "total": 183,
+              "missing": 0
+            },
+            "3": {
+              "passed": 135,
+              "total": 135,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch8/test_gen_cross_classsel_1_bit_u_direct_if_known_keep.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_129_logic_s_virtual_conditional_z_rebind.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_33_bit_s_virtual_conditional_x_rebind.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_64_logic_u_nonvirtual_conditional_known_keep.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
         }
       }
     },
     {
       "source": "results/verilator.json",
       "simulator": "verilator",
-      "version": "Verilator 5.055 devel rev v5.054-55-gc0e51cad",
-      "generated_at": "2026-11-04T01:16:31.135040+00:00",
+      "version": "Verilator 5.055 devel rev v5.054-63-g57bbb293",
+      "generated_at": "2026-11-05T02:39:00.207229+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -56087,36 +58238,36 @@
         },
         "deferred_disable_reports": {
           "case_statuses": {
-            "pass": 13,
-            "fail": 0,
-            "known": 18,
+            "pass": 20,
+            "fail": 4,
+            "known": 7,
             "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
           "coverage": {
             "2": {
-              "passed": 103,
+              "passed": 128,
               "total": 151,
-              "missing": 48
+              "missing": 23
             },
             "3": {
-              "passed": 36,
+              "passed": 60,
               "total": 92,
-              "missing": 56
+              "missing": 32
             }
           },
           "mandatory_witnesses": {
             "tests/gen/ch16/test_gen_cross_deferdis_none_assert_odd_alternating_before_function_stable.sv": "pass",
             "tests/gen/ch16/test_gen_cross_deferdis_inner_assume_even_inverse_after_variable_stable.sv": "pass",
-            "tests/gen/ch16/test_gen_cross_deferdis_task_cover_odd_positive_before_function_stable.sv": "pass",
+            "tests/gen/ch16/test_gen_cross_deferdis_task_cover_odd_positive_before_function_stable.sv": "fail",
             "tests/gen/ch16/test_gen_cross_deferdis_none_cover_even_inverse_after_variable_stable.sv": "pass",
-            "tests/gen/ch16/test_gen_cross_deferdis_task_assert_even_alternating_after_function_stable.sv": "pass",
+            "tests/gen/ch16/test_gen_cross_deferdis_task_assert_even_alternating_after_function_stable.sv": "fail",
             "tests/gen/ch16/test_gen_cross_deferdis_inner_cover_odd_alternating_before_function_stable.sv": "pass",
             "tests/gen/ch16/test_gen_cross_deferdis_assertion_assert_odd_inverse_before_function_change.sv": "known",
-            "tests/gen/ch16/test_gen_cross_deferdis_outer_assume_even_positive_after_variable_stable.sv": "known",
-            "tests/gen/ch16/test_gen_cross_deferdis_none_assert_even_positive_before_function_change.sv": "known",
-            "tests/gen/ch16/test_gen_cross_deferdis_outer_cover_odd_alternating_before_function_stable.sv": "known"
+            "tests/gen/ch16/test_gen_cross_deferdis_outer_assume_even_positive_after_variable_stable.sv": "pass",
+            "tests/gen/ch16/test_gen_cross_deferdis_none_assert_even_positive_before_function_change.sv": "pass",
+            "tests/gen/ch16/test_gen_cross_deferdis_outer_cover_odd_alternating_before_function_stable.sv": "pass"
           },
           "provenance_problem": "",
           "complete": false
@@ -56187,33 +58338,33 @@
         },
         "deferred_argument_capture": {
           "case_statuses": {
-            "pass": 0,
+            "pass": 16,
             "fail": 0,
-            "known": 29,
+            "known": 13,
             "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
           "coverage": {
             "2": {
-              "passed": 0,
+              "passed": 113,
               "total": 145,
-              "missing": 145
+              "missing": 32
             },
             "3": {
-              "passed": 0,
+              "passed": 44,
               "total": 71,
-              "missing": 71
+              "missing": 27
             }
           },
           "mandatory_witnesses": {
-            "tests/gen/ch13/test_gen_cross_deferarg_1_signed_input_wide_function_observed_blocking.sv": "known",
+            "tests/gen/ch13/test_gen_cross_deferarg_1_signed_input_wide_function_observed_blocking.sv": "pass",
             "tests/gen/ch13/test_gen_cross_deferarg_129_signed_constref_same_task_final_nba.sv": "known",
-            "tests/gen/ch13/test_gen_cross_deferarg_33_unsigned_input_narrow_task_observed_nba.sv": "known",
+            "tests/gen/ch13/test_gen_cross_deferarg_33_unsigned_input_narrow_task_observed_nba.sv": "pass",
             "tests/gen/ch13/test_gen_cross_deferarg_65_signed_input_wide_function_final_nba.sv": "known",
-            "tests/gen/ch13/test_gen_cross_deferarg_32_signed_constref_same_task_observed_blocking.sv": "known",
+            "tests/gen/ch13/test_gen_cross_deferarg_32_signed_constref_same_task_observed_blocking.sv": "pass",
             "tests/gen/ch13/test_gen_cross_deferarg_64_unsigned_input_same_function_final_blocking.sv": "known",
-            "tests/gen/ch13/test_gen_cross_deferarg_32_signed_input_same_function_observed_blocking.sv": "known"
+            "tests/gen/ch13/test_gen_cross_deferarg_32_signed_input_same_function_observed_blocking.sv": "pass"
           },
           "provenance_problem": "",
           "complete": false
@@ -56310,6 +58461,102 @@
             "tests/gen/ch26/test_gen_cross_pkgwatch_33_bit_z_qualified_down_nba_lsb_logical.sv": "known",
             "tests/gen/ch26/test_gen_cross_pkgwatch_32_logic_known_explicit_up_nba_full_case.sv": "pass",
             "tests/gen/ch26/test_gen_cross_pkgwatch_64_bit_known_wildcard_scalar_blocking_lsb_case.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "class_method_package_lookup": {
+          "case_statuses": {
+            "pass": 18,
+            "fail": 0,
+            "known": 16,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 163,
+              "total": 244,
+              "missing": 81
+            },
+            "3": {
+              "passed": 49,
+              "total": 110,
+              "missing": 61
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch26/test_gen_cross_classimp_1_bit_u_same_known_wildcard_function_keep.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_129_logic_s_narrow_z_explicit_task_replace.sv": "known",
+            "tests/gen/ch26/test_gen_cross_classimp_65_logic_u_wide_x_qualified_function_replace.sv": "known",
+            "tests/gen/ch26/test_gen_cross_classimp_33_bit_s_wide_z_enclosing_task_keep.sv": "known",
+            "tests/gen/ch26/test_gen_cross_classimp_32_logic_s_narrow_known_wildcard_task_replace.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_classimp_64_logic_u_same_known_explicit_function_keep.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "generated_subroutine_binding": {
+          "case_statuses": {
+            "pass": 11,
+            "fail": 0,
+            "known": 25,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 146,
+              "total": 228,
+              "missing": 82
+            },
+            "3": {
+              "passed": 42,
+              "total": 112,
+              "missing": 70
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_gensub_1_bit_u_if_default_function_forward_known_up.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_gensub_129_logic_s_case_default_task_reverse_z_down.sv": "known",
+            "tests/gen/ch27/test_gen_cross_gensub_65_logic_u_if_explicit_function_reverse_x_up.sv": "known",
+            "tests/gen/ch27/test_gen_cross_gensub_33_bit_s_case_explicit_task_forward_z_down.sv": "known",
+            "tests/gen/ch27/test_gen_cross_gensub_32_logic_s_if_default_task_reverse_known_down.sv": "known",
+            "tests/gen/ch27/test_gen_cross_gensub_64_logic_u_case_explicit_function_forward_known_up.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "class_conditional_return": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 24,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 127,
+              "total": 183,
+              "missing": 56
+            },
+            "3": {
+              "passed": 48,
+              "total": 135,
+              "missing": 87
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch8/test_gen_cross_classsel_1_bit_u_direct_if_known_keep.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_129_logic_s_virtual_conditional_z_rebind.sv": "known",
+            "tests/gen/ch8/test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep.sv": "known",
+            "tests/gen/ch8/test_gen_cross_classsel_33_bit_s_virtual_conditional_x_rebind.sv": "known",
+            "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind.sv": "pass",
+            "tests/gen/ch8/test_gen_cross_classsel_64_logic_u_nonvirtual_conditional_known_keep.sv": "pass"
           },
           "provenance_problem": "",
           "complete": false
