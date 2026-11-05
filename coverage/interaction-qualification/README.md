@@ -10,10 +10,10 @@
 
 ## 最新証跡の確認（2026-11-05 日本時間）
 
-現行は84モデル・3,100件で、[interface配列問い合わせの独立確認](#interface-query-qualification)と[生成プロセスの独立確認](#generated-loop-qualification)を参照してください。
-[`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は基点19cd790aの正式Check・Nightly・publishの成功を確認しています。
-追加前の82モデル・3,028件はcross82と全入力・分類が一致し、2,495 pass・529 unsupported・4 failです。
-ランダム96件は有効なPASSで、保存SV・期待値の指紋と全出力を照合しました。生成ループとinterface配列問い合わせの計72件は正式CIの範囲外です。
+現行は85モデル・3,136件で、[定数式とgenerateの独立確認](#generated-expression-qualification)を参照してください。
+[`check-8df0dde9-20261105.json`](check-8df0dde9-20261105.json)は前回までの84モデルの固定版比較・静的検査のCheck成功を確認します。
+[`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は82モデルを対象にした正式Nightly・publish・ランダム96 PASSの記録であり、実行を混同しません。
+今回の36件はCheck・Nightlyでは未実行です。前回の72件はCheck確認済みですが、この確認済み正式Nightlyの範囲外です。
 
 <a id="checkpoint-9926160a"></a>
 
@@ -437,3 +437,14 @@ Zのビルド診断、Icarusの拒否を保持します。2値の観測でX/Zの
 [`ifquery-fixed-replays.json`](ifquery-fixed-replays.json)はIcarus 13.0の36 pass、Verilator 5.052のseed 1（12 pass・24 known）と73（13 pass・23 known）を識別します。
 両seedで一致した既知値12件だけにVerilatorのoracleを登録し、seed 73で偶然一致したbit/X入力は4値の確認とはしません。
 全36件はIcarusの確認元を保持します。[設計・範囲・コマンド](../../docs/interaction-verification.md#interface-array-query-walk)を参照してください。
+
+<a id="generated-expression-qualification"></a>
+
+## 定数式とgenerateの独立確認
+
+[`genexpr.json`](genexpr.json)は型付き定数式・分岐・ループ・連続代入を実際のSVから全6,912行で独立に解釈します。
+正常対照5件と実際のSV故障9件は全て正常終了し、全故障を出力差で検出しました。
+[`genexpr-build.json`](genexpr-build.json)は最新取得・ビルドの`92001039e896`、parse成功36件、単一の全3,136件の実行を記録します。
+2,603 pass・529 unsupported・既存configの4 failで、追加36件は全PASS、従来3,100件の入力・分類は不変です。
+85モデル・126章対・全選択ケースPASSは58モデルです。[固定版比較](genexpr-fixed-replays.json)はIcarusの36 passとVerilatorの両seed各12 pass・24 knownを識別します。
+既存の入力・期待値を変更せず、2値の結果でX/Zを検証済みとはしません。[設計とコマンド](../../docs/interaction-verification.md#generated-constant-expression-shape)を参照してください。

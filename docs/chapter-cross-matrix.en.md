@@ -38,11 +38,14 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The 2026-11-05 mapping contains 84 models and 3,100 selected cases across 124 unordered off-diagonal pairs. The [complete kirimasim 50a897dee62a local run](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json) records 2,567 pass, 529 unsupported and four failures; 57 models passed their entire selection.
+The 2026-11-05 mapping contains 85 models and 3,136 selected cases across 126 unordered off-diagonal pairs. The [complete kirimasim 92001039e896 local run](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json) records 2,603 pass, 529 unsupported and four failures; 58 models passed their entire selection.
 
-Baseline `19cd790a` passed [formal Check/Nightly](nightly-results.en.md#latest-verified-checkpoint); all preceding 82 models / 3,028 inputs and statuses match cross82. Formal CI has not run the combined 72 generated-loop/interface-query cases.
-The CSVs use the complete 3,100-case local cross84 run; partial successes from different runs are not combined.
+[Check on baseline 8df0dde9](https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354) passed pinned-release comparisons and static checks for the preceding 84-model suite.
+The [verified formal Nightly](nightly-results.en.md#latest-verified-checkpoint) covers 82 models on 19cd790a; the new 36 cases have not run in either Check or Nightly.
+The CSVs use the complete 3,136-case local cross85 run; partial successes from different runs are not combined.
 The thirteen random profiles and their 96 Nightly passes do not enter these matrices.
+
+- **11×27 and 20×27, constant-expression/generate shape:** one model and one full-selection-pass model each, mapping all 36 cases. See [design and independent evidence](interaction-verification.en.md#generated-constant-expression-shape).
 
 - **7×25, 20×25 and 13×20, interface array queries:** one model and one full-selection-pass model each, mapping all 36 cases. See [design and independent evidence](interaction-verification.en.md#interface-array-query-walk).
 

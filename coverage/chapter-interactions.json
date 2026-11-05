@@ -2002,6 +2002,26 @@
           "reason": "automatic functionの戻り値とtaskのoutputコピーを、局所配列の問い合わせで計算した全幅チェックサムと呼出しごとの局所変数から照合する。"
         }
       ]
+    },
+    {
+      "id": "generated_constant_expression_shape",
+      "primary_chapter": 27,
+      "pairs": [
+        {
+          "chapters": [
+            11,
+            27
+          ],
+          "reason": "定数式の幅・オペランドの共通符号・格納後の負判定が、generateの選択と反復個数を変えることを実際の階層・全幅結果で照合する。"
+        },
+        {
+          "chapters": [
+            20,
+            27
+          ],
+          "reason": "型付き定数に対する$bitsを生成幅の計算に使い、文脈幅の変更を実際の生成要素の幅と全幅の観測へ伝える。"
+        }
+      ]
     }
   ]
 }

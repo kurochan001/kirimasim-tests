@@ -267,3 +267,14 @@ clause 37.
 - Suite totals are 10,850 tests, including 4,413 generated cases from 93 generators. Existing regressions/expectations, requirement bindings, core code and thirteen random profiles are unchanged.
   Verified formal Check/Nightly baseline remains 19cd790a; the combined 72 generated-loop/interface-query cases have not run in formal CI.
   All 980 tool tests pass, including sixteen new focused tests.
+
+- Added the [typed-constant/generate model](interaction-verification.en.md#generated-constant-expression-shape) for unreviewed 11×27 and 20×27.
+  All 6,912 rows are legal; 36 retain 297 pairs, 132 targeted triples and six anchors. All independent interpretations agree;
+  five normal controls and nine actual SV faults exit normally and every fault is detected by output difference.
+- Freshly fetched/configured/built main `92001039e896` executes one full 3,136-case snapshot: 2,603 pass / 529 unsupported / four existing config failures.
+  All 36 additions parse/pass; preceding 3,100 inputs/statuses are unchanged. Totals: 85 models / 126 chapter pairs / 58 full-selection-pass models;
+  triage M126 / E3 / C2 / N117 / R572.
+- Pinned Icarus matches all 36 including X/Z and supplies their oracles. Verilator seeds 1/73 each give 12 pass / 24 known; only twelve known-input cases obtain its oracles.
+- Suite totals are 10,886 tests, including 4,449 generated cases from 94 generators. Existing inputs/expectations, requirement bindings, core code and thirteen random profiles are unchanged.
+  Verified successful Check on baseline 8df0dde9. Formal Nightly remains 19cd790a; the new 36 cases have not run in Check/Nightly.
+  All 997 tool tests pass, including seventeen new focused tests.

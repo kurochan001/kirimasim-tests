@@ -5,11 +5,12 @@
 2026-11-05（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json)は84モデル・3,100件で、
-2,567 pass・529 unsupported・configの4 failです。interface配列問い合わせの追加36件は全PASSで、従来3,064件の入力・状態分類は不変です。
-生成ループとinterface配列問い合わせの計72件は正式Check・Nightlyの対象にはまだ含まれていません。
+現在の[全クロスのローカル選択](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json)は85モデル・3,136件で、
+2,603 pass・529 unsupported・configの4 failです。定数式とgenerateの追加36件は全PASSで、従来3,100件の入力・状態分類は不変です。
+今回の36件は正式Check・Nightlyでは未実行です。
 
-基点`19cd790a`の[正式Check・Nightly](nightly-results.md#latest-verified-checkpoint)は成功し、追加前の82モデル・3,028件はcross82と全入力・分類が一致しています。上記72件の正式CIは未実行です。
+[基点8df0dde9のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354)は成功し、前回までの84モデルの固定版比較・静的検査を確認済みです。
+[確認済み正式Nightly](nightly-results.md#latest-verified-checkpoint)は19cd790aの82モデルが対象で、今回の36件はCheck・Nightlyの両方で未実行です。
 以下の未コミットビルドは修正過程の記録であり、現在の上流の状態を示すものではありません。
 kirimasim-testsのNightlyの1回の成功と、本体リポジトリの7連続Nightly条件は分けて扱います。
 
@@ -94,7 +95,7 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
   演算・条件式を将来の独立因子として検討します。合法な式と正の寸法の確定、
   既知のconfigリセット不一致の修正を先に行います。
 
-現在の仕分けはM124・E3・C2・N117・R574です。
+現在の仕分けはM126・E3・C2・N117・R572です。
 [章対の根拠と指紋](chapter-cross-triage.md)を参照してください。
 既存の回帰matrixを先に活用し、原因が確定した機構に境界・操作列・故障対照を追加します。
 同じ目的の別runnerや、ランダム結果を固定要求カバレッジへ加算する仕組みは追加していません。

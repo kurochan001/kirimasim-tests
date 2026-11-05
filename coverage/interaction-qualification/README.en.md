@@ -10,10 +10,10 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-05 JST)
 
-The selection now contains 84 models / 3,100 cases; see [interface-query qualification](#interface-query-qualification) and [generated-loop qualification](#generated-loop-qualification).
-[`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) confirms successful baseline Check/Nightly/publish on 19cd790a.
-All preceding 82 models / 3,028 inputs and statuses match cross82: 2,495 pass / 529 unsupported / four fail.
-All 96 random cases are valid passes; saved SV/expectation fingerprints and every output were checked. The combined 72 generated-loop/interface-query cases are outside formal CI.
+The selection now contains 85 models / 3,136 cases; see [generated-expression qualification](#generated-expression-qualification).
+[`check-8df0dde9-20261105.json`](check-8df0dde9-20261105.json) confirms Check’s pinned comparisons/static checks for the preceding 84-model suite.
+[`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
+The new 36 cases have not run in Check/Nightly. The prior 72 passed Check but remain outside this verified formal Nightly.
 
 <a id="checkpoint-9926160a"></a>
 
@@ -437,3 +437,14 @@ Totals are 84 models / 124 chapter pairs / 57 full-selection-pass models.
 [`ifquery-fixed-replays.json`](ifquery-fixed-replays.json) identifies Icarus 13.0 (36 pass), Verilator 5.052 seed 1 (12 pass / 24 known) and seed 73 (13 pass / 23 known).
 Only the twelve known-input cases matching both seeds obtain Verilator oracles. The incidental bit/X match at seed 73 does not validate four-state behavior.
 All 36 retain Icarus oracles. See [design, scope and commands](../../docs/interaction-verification.en.md#interface-array-query-walk).
+
+<a id="generated-expression-qualification"></a>
+
+## Typed-constant/generate qualification
+
+[`genexpr.json`](genexpr.json) independently interprets all 6,912 actual SV programs, including typed constants, branches, loops and continuous assignments.
+Five normal controls and nine real source faults all exit normally; every fault is detected by output difference.
+[`genexpr-build.json`](genexpr-build.json) identifies freshly fetched/built `92001039e896`, 36 successful parses and one full 3,136-case snapshot.
+It records 2,603 pass / 529 unsupported / four existing config failures; additions pass and preceding 3,100 inputs/statuses are unchanged.
+Totals are 85 models / 126 chapter pairs / 58 full-selection-pass models. [Pinned comparisons](genexpr-fixed-replays.json) distinguish Icarus’s 36 pass from each Verilator seed’s 12 pass / 24 known.
+Existing inputs/expectations are unchanged; two-state results do not qualify X/Z behavior. See [design and commands](../../docs/interaction-verification.en.md#generated-constant-expression-shape).

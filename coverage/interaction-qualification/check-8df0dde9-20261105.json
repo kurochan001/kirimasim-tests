@@ -1,0 +1,30 @@
+{
+  "databaseId": 42029700354,
+  "headSha": "8df0dde922f0224e51455125ff67497273431f7c",
+  "conclusion": "success",
+  "status": "completed",
+  "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354",
+  "createdAt": "2026-11-05T12:44:29Z",
+  "updatedAt": "2026-11-05T13:15:59Z",
+  "scope": "Check on the preceding 84-model suite: pinned Icarus/Verilator comparisons and metadata/generator/document checks; this is not a native Nightly run or verification of the new generated-expression cases.",
+  "jobs": [
+    {
+      "name": "icarus",
+      "conclusion": "success",
+      "status": "completed",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354/job/127252696271"
+    },
+    {
+      "name": "verilator",
+      "conclusion": "success",
+      "status": "completed",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354/job/127252696554"
+    },
+    {
+      "name": "readme",
+      "conclusion": "success",
+      "status": "completed",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354/job/127252696600"
+    }
+  ]
+}

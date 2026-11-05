@@ -85,6 +85,7 @@ import interaction_gensub
 import interaction_class_select
 import interaction_genloop
 import interaction_ifquery
+import interaction_genexpr
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -93,7 +94,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -747,5 +748,12 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_ifquery.MODEL.select(),
             "interface内の配列問い合わせが走査の開始位置・回数・方向と型付き結果を決める。"
             "全要素・両次元の境界・単一要素・別実体の保持・入力変更後の再呼出しを照合する。",
+        ),
+        SuiteModel(
+            interaction_genexpr.MODEL,
+            lambda row: "tests/gen/ch27/" + interaction_genexpr.case_name(row) + ".sv",
+            interaction_genexpr.MODEL.select(),
+            "定数式のオペランド符号・代入文脈の幅・結果の宣言符号を分離し、生成分岐・個数・幅を照合する。"
+            "$bitsによる形状、各生成要素の全幅データ、別実体の保持、X/Zと既知値への回復を観測する。",
         ),
     )

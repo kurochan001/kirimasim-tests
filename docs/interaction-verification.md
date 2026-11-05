@@ -14,6 +14,13 @@
 
 ## 保存実行の概要
 
+2026-11-05の定数式とgenerateの追加で、**85モデル・3,136件・126章対**になりました。
+最新mainを取得・構成・ビルドした`92001039e896`の[単一実行](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json)は、
+**2,603 pass・529 unsupported・既存configの4 fail**です。追加36件はparse成功・全PASS、従来3,100件の入力・分類は不変です。
+全選択ケースPASSは58モデルです。[定数式とgenerate](#generated-constant-expression-shape)に独立検算と固定版の比較を記録しています。
+基点8df0dde9のCheckは84モデルの固定版比較・静的検査に成功しました。確認済み正式Nightlyは19cd790aの82モデルです。
+今回の36件はCheck・Nightlyでは未実行です。以下は各追加時点の記録です。
+
 2026-11-05のinterface配列問い合わせの追加で、**84モデル・3,100件・124章対**になりました。
 最新mainを取得・構成・ビルドした`50a897dee62a`の[単一実行](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json)は、
 **2,567 pass・529 unsupported・既存configの4 fail**です。追加36件はparse成功・全PASSで、従来3,064件の入力・分類は不変です。
@@ -3388,3 +3395,69 @@ python3 tools/run_verilator.py --all --seed 73 \
 対象は固定の一段unpacked配列、unsignedの一段packed要素、直接の階層呼出し、一つのinitialです。
 interfaceポート・modport・virtual interface・動的配列・符号付き演算・並行呼出し・時間制御・refは対象外です。
 一般的な配列問い合わせ・interface全体の完了を意味しません。要求の対応付け・本体コード・ランダム13プロファイルは不変です。
+
+<a id="generated-constant-expression-shape"></a>
+
+## 定数式の型と文脈幅によるgenerate形状
+
+[`interaction_genexpr.py`](../generators/interaction_genexpr.py)は`generated_constant_expression_shape@1`を定義します。
+全**6,912行**が合法で、**因子対297組・重点3因子132組・必須6件**を保持する**36件**を選びます（件数を99.48%削減）。
+因子は幅1/32/33/64/65/129、bit/logic、実行時の既知値/X/Z、左右それぞれのsigned/unsigned、結果の宣言符号、
+同幅/一つ広い代入文脈、加算/XOR/条件演算子、if/case generate、名前/位置によるパラメータ指定です。
+根拠は式の幅・符号（11.8.2）、算術・関係・ビット・条件演算（11.4.3/11.4.4/11.4.8/11.4.11）、
+generate（27.4/27.5）、$bits（20.6.2）、bit変換（6.11.2）です。未対応による除外はありません。
+主題章はgenerateです。生成器の`CHAPTER=27`、先頭の`:lrm:`条項27.4、章間台帳の`primary_chapter=27`を揃え、重点テストと章間表のゲートで整合性を検査します。
+
+二つのmoduleはSELECT=0/1です。定数Aは最上位だけが1または値1、Bは全ビット1とし、両オペランドは同じ幅で独立に符号を選びます。
+型付きlocalparam Eの代入文脈が式の計算幅を決めます。このモデルの三演算は、両オペランドがsignedのときだけ符号拡張します。
+格納先Eの宣言がsignedであることだけでは、mixed-sign式を符号拡張しません。格納後のEの宣言符号は、負判定と十進表示を決めます。
+
+[実際の幅1のケース](../tests/gen/ch27/test_gen_cross_genexpr_1_bit_known_s_s_s_wide_add_if_named.sv)では、
+AもBもsignedの1'b1、つまり-1です。2ビットの代入文脈で加算するためEは2'b10（-2）となり、NEG=1、COUNT=3です。
+先に1ビットで加算して0にしてから幅を広げる計算ではありません。同幅の文脈ではE=1'b0、NEG=0、COUNT=1になります。
+この違いで生成する分岐と実際の階層の個数が変わります。
+
+Eの最上位と最下位から個数を1〜4へ制限し、`BASE+1+($bits(E)%3)`で基底の生成幅を決め、genvarで要素ごとの幅も増やします。
+$bitsは1の個数ではなく型のビット数で、表示だけでなく実際の形状計算に使います。
+if/caseの分岐は異なるKIND/TAGを持ち、各生成要素は独立したraw・guard・全幅XORの連続代入結果を持ちます。
+Eのビット列・十進値・負判定・生成個数・基底幅・各要素の実際の幅と全語を観測します。
+
+既知値・既知値またはX/Z・既知値への回復の三相で、全要素へ刺激を設定して1時刻単位待ちます。
+次にaの先頭入力だけ、続いてbの末尾guardだけを更新し、その都度全要素と別実体の保持を読みます。
+bitへのX/Z変換と、全幅XORによるZ→Xを区別します。X/Zは実行時刺激に限り、定数式とgenerate条件は既知値です。
+未知のgenerate条件、全ての定数演算、全ビット位置の独立網羅を検証したとはみなしません。
+
+[`qualify_genexpr.py`](../tools/qualify_genexpr.py)は、実際のtypedef・localparam・型付き式・パラメータ指定・分岐・
+generateループ・連続代入・書込み・表示を読みます。独立なビット面と限定した整数ASTで文脈幅・共通符号・格納後の符号を計算し、
+主生成器の定数・形状・刺激・参照関数は使いません。全6,912プログラムが一致しました。
+[`genexpr.json`](../coverage/interaction-qualification/genexpr.json)は正常対照5件と、オペランド符号・結果宣言符号・文脈幅・演算・
+$bitsの参照先・分岐定数・パラメータ指定・連続代入マスク・書込み先の9故障を実際のSVへ入れた実行を保持します。
+全て正常終了し、全故障を出力差で検出しました。補助実行を通常PASSへ加算しません。
+
+最新mainを直前に取得・構成・ビルドした`92001039e896`では、[単一の全3,136件の実行](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json)で追加36件がparse成功・全PASSです。
+全体は**2,603 pass・529 unsupported・既存configの4 fail**で、従来3,100件の入力・分類は不変です。
+[`genexpr-build.json`](../coverage/interaction-qualification/genexpr-build.json)にビルドとparse結果を保持します。
+実ビルドと同じハッシュのバイナリを固定して使い、共有作業領域での後続ビルドから分離しています。
+コード・入力・ランナー・実行バイナリの前後ハッシュを照合しています。
+
+[固定版の比較](../coverage/interaction-qualification/genexpr-fixed-replays.json)は、Icarus 13.0が**36 pass**で、X/Zの24入力も一致します。
+Verilator 5.052のseed 1/73は各**12 pass・24 known**です。全36件にIcarusのoracleを登録し、両seedで一致した既知値12件にだけVerilatorも登録します。
+2値の結果でX/Zを検証済みとはせず、既存の期待値・分類処理・seedは変更しません。
+第11×27章・第20×27章に各36件を対応付け、85モデル・126章対・全選択ケースPASSは58モデルです。
+[基点8df0dde9のCheck](../coverage/interaction-qualification/check-8df0dde9-20261105.json)は前回までが対象で、この36件はCheck・Nightlyでは未実行です。
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model generated_constant_expression_shape
+python3 -m unittest discover -s tools -p test_interaction_genexpr.py
+# native実行直前に本体の最新mainを取得・構成・ビルドします。
+python3 tools/qualify_genexpr.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/genexpr-qualification-new.json
+python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin \
+  --json my-results/genexpr-icarus-new.json tests/gen/ch27/test_gen_cross_genexpr_*.sv
+python3 tools/run_verilator.py --all --seed 73 \
+  --json my-results/genexpr-verilator-new.json tests/gen/ch27/test_gen_cross_genexpr_*.sv
+```
+
+対象は既知の型付き定数、加算/XOR/条件演算子、有限のif/caseとgenerateループ、直接の階層参照と単一initialです。
+config・defparam・可変階層添字・未知の定数条件・符号付きruntime演算は対象外です。
+既存の回帰・要求対応付け・本体コード・ランダム13プロファイルは不変です。

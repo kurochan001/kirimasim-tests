@@ -1,0 +1,72 @@
+h p=0 step=all id=0 a=1 b=1 e=0 dec=0
+q id=0 neg=0 count=1 width=3 bits=1 kind=0
+v id=0 lane=0 bits=3 raw=100 guard=001 value=001
+h p=0 step=all id=1 a=1 b=1 e=0 dec=0
+q id=1 neg=0 count=1 width=3 bits=1 kind=0
+v id=1 lane=0 bits=3 raw=000 guard=101 value=101
+h p=0 step=input id=0 a=1 b=1 e=0 dec=0
+q id=0 neg=0 count=1 width=3 bits=1 kind=0
+v id=0 lane=0 bits=3 raw=101 guard=001 value=000
+h p=0 step=input id=1 a=1 b=1 e=0 dec=0
+q id=1 neg=0 count=1 width=3 bits=1 kind=0
+v id=1 lane=0 bits=3 raw=000 guard=101 value=101
+h p=0 step=guard id=0 a=1 b=1 e=0 dec=0
+q id=0 neg=0 count=1 width=3 bits=1 kind=0
+v id=0 lane=0 bits=3 raw=101 guard=001 value=000
+h p=0 step=guard id=1 a=1 b=1 e=0 dec=0
+q id=1 neg=0 count=1 width=3 bits=1 kind=0
+v id=1 lane=0 bits=3 raw=000 guard=100 value=101
+h p=0 step=idle id=0 a=1 b=1 e=0 dec=0
+q id=0 neg=0 count=1 width=3 bits=1 kind=0
+v id=0 lane=0 bits=3 raw=101 guard=001 value=000
+h p=0 step=idle id=1 a=1 b=1 e=0 dec=0
+q id=1 neg=0 count=1 width=3 bits=1 kind=0
+v id=1 lane=0 bits=3 raw=000 guard=100 value=101
+h p=1 step=all id=0 a=1 b=1 e=0 dec=0
+q id=0 neg=0 count=1 width=3 bits=1 kind=0
+v id=0 lane=0 bits=3 raw=001 guard=001 value=100
+h p=1 step=all id=1 a=1 b=1 e=0 dec=0
+q id=1 neg=0 count=1 width=3 bits=1 kind=0
+v id=1 lane=0 bits=3 raw=101 guard=100 value=000
+h p=1 step=input id=0 a=1 b=1 e=0 dec=0
+q id=0 neg=0 count=1 width=3 bits=1 kind=0
+v id=0 lane=0 bits=3 raw=000 guard=001 value=101
+h p=1 step=input id=1 a=1 b=1 e=0 dec=0
+q id=1 neg=0 count=1 width=3 bits=1 kind=0
+v id=1 lane=0 bits=3 raw=101 guard=100 value=000
+h p=1 step=guard id=0 a=1 b=1 e=0 dec=0
+q id=0 neg=0 count=1 width=3 bits=1 kind=0
+v id=0 lane=0 bits=3 raw=000 guard=001 value=101
+h p=1 step=guard id=1 a=1 b=1 e=0 dec=0
+q id=1 neg=0 count=1 width=3 bits=1 kind=0
+v id=1 lane=0 bits=3 raw=101 guard=101 value=000
+h p=1 step=idle id=0 a=1 b=1 e=0 dec=0
+q id=0 neg=0 count=1 width=3 bits=1 kind=0
+v id=0 lane=0 bits=3 raw=000 guard=001 value=101
+h p=1 step=idle id=1 a=1 b=1 e=0 dec=0
+q id=1 neg=0 count=1 width=3 bits=1 kind=0
+v id=1 lane=0 bits=3 raw=101 guard=101 value=000
+h p=2 step=all id=0 a=1 b=1 e=0 dec=0
+q id=0 neg=0 count=1 width=3 bits=1 kind=0
+v id=0 lane=0 bits=3 raw=100 guard=001 value=001
+h p=2 step=all id=1 a=1 b=1 e=0 dec=0
+q id=1 neg=0 count=1 width=3 bits=1 kind=0
+v id=1 lane=0 bits=3 raw=000 guard=101 value=101
+h p=2 step=input id=0 a=1 b=1 e=0 dec=0
+q id=0 neg=0 count=1 width=3 bits=1 kind=0
+v id=0 lane=0 bits=3 raw=101 guard=001 value=000
+h p=2 step=input id=1 a=1 b=1 e=0 dec=0
+q id=1 neg=0 count=1 width=3 bits=1 kind=0
+v id=1 lane=0 bits=3 raw=000 guard=101 value=101
+h p=2 step=guard id=0 a=1 b=1 e=0 dec=0
+q id=0 neg=0 count=1 width=3 bits=1 kind=0
+v id=0 lane=0 bits=3 raw=101 guard=001 value=000
+h p=2 step=guard id=1 a=1 b=1 e=0 dec=0
+q id=1 neg=0 count=1 width=3 bits=1 kind=0
+v id=1 lane=0 bits=3 raw=000 guard=100 value=101
+h p=2 step=idle id=0 a=1 b=1 e=0 dec=0
+q id=0 neg=0 count=1 width=3 bits=1 kind=0
+v id=0 lane=0 bits=3 raw=101 guard=001 value=000
+h p=2 step=idle id=1 a=1 b=1 e=0 dec=0
+q id=1 neg=0 count=1 width=3 bits=1 kind=0
+v id=1 lane=0 bits=3 raw=000 guard=100 value=101

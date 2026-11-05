@@ -17,18 +17,19 @@
 
 ## Latest verified checkpoint (2026-11-05 JST)
 
-Suite `19cd790a5f639348ad67fd63959dce9811d3ab56` passed [Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/41927001926)
-and [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616), including all five simulators and publish.
-The [verification record](../coverage/interaction-qualification/formal-ci-19cd790a-20261105.json) retains artifact hashes and input/result checks.
+[Check on suite `8df0dde9`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354) passed all pinned Icarus, Verilator and readme jobs.
+Its [verification record](../coverage/interaction-qualification/check-8df0dde9-20261105.json) covers pinned comparisons/static checks for the preceding 84-model suite, separately from native Nightly.
+[Nightly on suite `19cd790a5f639348ad67fd63959dce9811d3ab56`](https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616) also passed all five simulators and publish.
+The [Nightly record](../coverage/interaction-qualification/formal-ci-19cd790a-20261105.json) retains artifact hashes and input/result checks. Formal Nightly numbers below belong to 19cd790a.
 
 - Fixed suite: 10,778 registered tests; excluding 268 formal tests leaves 10,510 simulations. kirimasim `50a897dee62a` (GNU 13.3.0) recorded 7,975 pass / 2,402 unsupported / 133 fail. See [Q11](faq.en.md#q11-why-can-nightly-be-green-with-differ-results) for what green means.
 - Finite selection: the preceding 82 models / 3,028 cases recorded 2,495 pass / 529 unsupported / four config failures. Every input fingerprint/status matches cross82; 119 pairs and 55 full-selection-pass models.
 - Random comparisons: all 96 cases across thirteen profiles are valid passes. Seed `41941310616` is the workflow run ID; the separately refreshed/built core revision is `50a897dee62af605c02f5ddcee10f25645abc77d`, binary SHA-256 `666c1f8cf1432a5789b32090e7d40d934b0a9a72801d50233024337dbf2b737a`. These do not enter fixed counts.
 
-Local additions comprise [36 generated-process cases](interaction-verification.en.md#generated-process-loop-transfer) and
-[36 interface-query cases](interaction-verification.en.md#interface-array-query-walk), totaling 84 models / 3,100 cases.
-The [single full local cross run](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json) records 2,567 pass / 529 unsupported / four fail.
-All 36 newest cases pass and the preceding 3,064 inputs/statuses are unchanged. The combined 72 cases have not run in formal Check/Nightly. Records below describe earlier checkpoints.
+The newest local addition is [36 constant-expression/generate cases](interaction-verification.en.md#generated-constant-expression-shape), totaling 85 models / 3,136 cases.
+The [single run](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json) on freshly fetched/built `92001039e896` records 2,603 pass / 529 unsupported / four fail.
+All 36 additions pass; preceding 3,100 inputs/statuses are unchanged. The new cases have not run in formal Check/Nightly.
+The prior 72 generated-loop/interface-query cases passed Check but remain outside the 82-model verified formal Nightly. Records below describe earlier checkpoints.
 
 <a id="checkpoint-9926160a"></a>
 

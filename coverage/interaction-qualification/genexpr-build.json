@@ -1,0 +1,170 @@
+{
+  "model": "generated_constant_expression_shape",
+  "generated_at": "2026-11-05T13:45:30.656205+00:00",
+  "scope": "Final headers with pinned-release oracles. Latest core fetched/configured/built immediately before one complete finite-cross run. Execute an identical immutable binary snapshot to isolate later builds in the shared workspace. Formal CI is separate.",
+  "base_revision": "92001039e8962f1f73c9aed03ba0d4ef784fa112",
+  "upstream_main_revision": "92001039e8962f1f73c9aed03ba0d4ef784fa112",
+  "tracked_worktree_clean_at_build": true,
+  "binary_sha256": "f07a81457deacea59531057e32e4c6233eb0403ebaeecdf15675f7c9dc935fa9",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit 92001039e896), built with AppleClang 21.0.0.21000334",
+  "run": "coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2603,
+    "unsupported": 529,
+    "fail": 4
+  },
+  "new_cases": 36,
+  "previous_cases": 3100,
+  "previous_run": "coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json",
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": [
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_1_bit_known_s_s_s_wide_add_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_129_logic_z_s_u_s_wide_conditional_case_positional.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_65_logic_x_u_s_u_same_xor_if_positional.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_33_bit_z_s_s_s_wide_xor_case_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_32_logic_known_s_u_s_wide_add_case_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_64_logic_known_s_s_u_same_conditional_if_positional.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_1_bit_x_u_u_u_same_conditional_case_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_32_bit_z_u_s_u_same_add_if_positional.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_64_bit_x_u_u_s_wide_xor_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_33_logic_known_u_u_s_same_add_if_positional.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_65_bit_known_s_u_u_wide_xor_case_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_129_bit_known_u_s_s_same_conditional_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_1_logic_x_s_s_s_same_xor_case_positional.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_129_bit_x_u_s_u_wide_add_case_positional.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_33_bit_x_u_s_u_wide_conditional_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_64_bit_z_s_s_s_wide_add_case_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_65_bit_z_s_s_s_same_add_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_32_bit_x_s_s_s_same_xor_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_1_bit_z_u_s_s_wide_conditional_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_32_bit_known_u_s_s_wide_conditional_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_65_bit_x_u_s_s_wide_conditional_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_129_bit_z_s_s_s_same_xor_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_33_bit_known_s_s_s_same_add_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_64_bit_known_u_s_s_same_xor_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_1_logic_known_s_u_s_same_add_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_1_logic_z_s_u_s_same_xor_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_32_logic_x_s_u_s_same_xor_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_32_logic_z_s_u_s_same_conditional_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_33_logic_x_s_u_s_same_xor_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_33_logic_z_s_u_s_same_conditional_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_64_logic_x_s_u_s_same_add_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_64_logic_z_s_u_s_same_conditional_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_65_logic_known_s_u_s_same_add_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_65_logic_z_s_u_s_same_conditional_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_129_logic_known_s_u_s_same_add_if_named.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch27/test_gen_cross_genexpr_129_logic_x_s_u_s_same_xor_if_named.sv",
+      "returncode": 0
+    }
+  ]
+}

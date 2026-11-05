@@ -1,0 +1,181 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch27/test_gen_cross_genexpr_129_bit_known_u_s_s_same_conditional_if_named": {
+   "status": "pass",
+   "inputs_sha256": "37c6d86cfeb434500acc1a16536858bf7437c7a12973e0df13fa56c21930bfdc"
+  },
+  "gen/ch27/test_gen_cross_genexpr_129_bit_x_u_s_u_wide_add_case_positional": {
+   "status": "known",
+   "reason": "output differs: line 47 is 'v id=0 lane=0 bits=131 raw=010101010101010101010101010101...', expected 'v id=0 lane=0 bits=131 raw=010101010101010101010101010101...'",
+   "inputs_sha256": "c5212f3d3d3c8b49c94b6b50ca44b96689e57b3f8fdb32a42774cd783a66831b"
+  },
+  "gen/ch27/test_gen_cross_genexpr_129_bit_z_s_s_s_same_xor_if_named": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genexpr_129_bit_z_s_s_s_same_xor_if_named.sv:67:19: Unsupported tristate construct: hierarchical driver of non-interface tri signal: 'choice.g[0].raw'",
+   "inputs_sha256": "76a2a255f3b28fbb3e711d4404de4be123da171a6d20b5f08eaf4b7f4cf31cc8"
+  },
+  "gen/ch27/test_gen_cross_genexpr_129_logic_known_s_u_s_same_add_if_named": {
+   "status": "pass",
+   "inputs_sha256": "9d843cbdd81160def3b83711086d111aaf23aee9891976468aebad8212d9e31a"
+  },
+  "gen/ch27/test_gen_cross_genexpr_129_logic_x_s_u_s_same_xor_if_named": {
+   "status": "known",
+   "reason": "output differs: line 39 is 'v id=0 lane=0 bits=130 raw=010101010101010101010101010101...', expected 'v id=0 lane=0 bits=130 raw=x10101010101010101010101010101...'",
+   "inputs_sha256": "950788dd34e687662b60840cee8b1dc71db2b32256be4a6798556c1f06884abe"
+  },
+  "gen/ch27/test_gen_cross_genexpr_129_logic_z_s_u_s_wide_conditional_case_positional": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genexpr_129_logic_z_s_u_s_wide_conditional_case_positional.sv:69:19: Unsupported tristate construct: hierarchical driver of non-interface tri signal: 'choice.g[0].raw'",
+   "inputs_sha256": "e32278d21774b9952677d4dd2e0395ffe3290f7363149607cc81a16ad16302ea"
+  },
+  "gen/ch27/test_gen_cross_genexpr_1_bit_known_s_s_s_wide_add_if_named": {
+   "status": "pass",
+   "inputs_sha256": "3f38a1a36001ce7caccaf28f2ce9d3c115f463b38442ded6b91a9d45e9d716c3"
+  },
+  "gen/ch27/test_gen_cross_genexpr_1_bit_x_u_u_u_same_conditional_case_named": {
+   "status": "known",
+   "reason": "output differs: line 51 is 'v id=0 lane=0 bits=3 raw=101 guard=001 value=000', expected 'v id=0 lane=0 bits=3 raw=000 guard=001 value=101'",
+   "inputs_sha256": "fc3d572a30de2853a1364f99638aff11ab3748ebcefcfcf5a29396b6a7aaf8eb"
+  },
+  "gen/ch27/test_gen_cross_genexpr_1_bit_z_u_s_s_wide_conditional_if_named": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genexpr_1_bit_z_u_s_s_wide_conditional_if_named.sv:66:19: Unsupported tristate construct: hierarchical driver of non-interface tri signal: 'choice.g[0].raw'",
+   "inputs_sha256": "e9d079e80785954f7086e879772208091543adb558e1303ce07195fc18932cda"
+  },
+  "gen/ch27/test_gen_cross_genexpr_1_logic_known_s_u_s_same_add_if_named": {
+   "status": "pass",
+   "inputs_sha256": "85d45e4ceacca9116cfe61746b4bafe589a4381add24a6572e5fa6cd48c245d8"
+  },
+  "gen/ch27/test_gen_cross_genexpr_1_logic_x_s_s_s_same_xor_case_positional": {
+   "status": "known",
+   "reason": "output differs: line 27 is 'v id=0 lane=0 bits=3 raw=101 guard=001 value=000', expected 'v id=0 lane=0 bits=3 raw=xxx guard=001 value=xxx'",
+   "inputs_sha256": "46cc93b41070f2d2cbdda75aee1ab33d2a813987387f3d86e049a2ef1c2705d1"
+  },
+  "gen/ch27/test_gen_cross_genexpr_1_logic_z_s_u_s_same_xor_if_named": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genexpr_1_logic_z_s_u_s_same_xor_if_named.sv:64:19: Unsupported tristate construct: hierarchical driver of non-interface tri signal: 'choice.g[0].raw'",
+   "inputs_sha256": "57412326caad90260714fa4eb106ae55c5e1a5dd9e8d4764ff60f9dd8fe6b616"
+  },
+  "gen/ch27/test_gen_cross_genexpr_32_bit_known_u_s_s_wide_conditional_if_named": {
+   "status": "pass",
+   "inputs_sha256": "46963580f1a9210194525dcf88ad3b42514b18078863f9c1da53eadffae62b1f"
+  },
+  "gen/ch27/test_gen_cross_genexpr_32_bit_x_s_s_s_same_xor_if_named": {
+   "status": "known",
+   "reason": "output differs: line 39 is 'v id=0 lane=0 bits=35 raw=1101010101010101010101010101010...', expected 'v id=0 lane=0 bits=35 raw=0101010101010101000101010101010...'",
+   "inputs_sha256": "e844743c42fa8fd5dc47e5fd381eb37bcbb4d91d77d17274798fa507f55a762f"
+  },
+  "gen/ch27/test_gen_cross_genexpr_32_bit_z_u_s_u_same_add_if_positional": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genexpr_32_bit_z_u_s_u_same_add_if_positional.sv:65:19: Unsupported tristate construct: hierarchical driver of non-interface tri signal: 'choice.g[0].raw'",
+   "inputs_sha256": "22963313d8ebe884cf2b415c7d7ec9872397c48523e3abfb89b7eb56ffdd110c"
+  },
+  "gen/ch27/test_gen_cross_genexpr_32_logic_known_s_u_s_wide_add_case_named": {
+   "status": "pass",
+   "inputs_sha256": "fa86126b8298991a85dee71b9933a7f197cc21487d5f8eae0e12568599210a04"
+  },
+  "gen/ch27/test_gen_cross_genexpr_32_logic_x_s_u_s_same_xor_if_named": {
+   "status": "known",
+   "reason": "output differs: line 39 is 'v id=0 lane=0 bits=35 raw=0101010101010101000101010101010...', expected 'v id=0 lane=0 bits=35 raw=x1010101010101010x0101010101010...'",
+   "inputs_sha256": "2464b1716037a84c61de8b96b45320388a747a54612944ba6470e0ff26eafad7"
+  },
+  "gen/ch27/test_gen_cross_genexpr_32_logic_z_s_u_s_same_conditional_if_named": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genexpr_32_logic_z_s_u_s_same_conditional_if_named.sv:68:19: Unsupported tristate construct: hierarchical driver of non-interface tri signal: 'choice.g[0].raw'",
+   "inputs_sha256": "c59e9ef716b1a6c59704a7e5f0a2fe72d1cfcecedd758c9ce62e12371bfa2906"
+  },
+  "gen/ch27/test_gen_cross_genexpr_33_bit_known_s_s_s_same_add_if_named": {
+   "status": "pass",
+   "inputs_sha256": "0c0670012a8b5de0c1aa4e56bbe3950b2bf840756ea337b485386c6675c9880c"
+  },
+  "gen/ch27/test_gen_cross_genexpr_33_bit_x_u_s_u_wide_conditional_if_named": {
+   "status": "known",
+   "reason": "output differs: line 35 is 'v id=0 lane=0 bits=35 raw=1101010101010101000101010101010...', expected 'v id=0 lane=0 bits=35 raw=0101010101010101000101010101010...'",
+   "inputs_sha256": "f97b0595d35a17c399023c72b505d60808c9a96fad905e3cc1a7952dd6c7024a"
+  },
+  "gen/ch27/test_gen_cross_genexpr_33_bit_z_s_s_s_wide_xor_case_named": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genexpr_33_bit_z_s_s_s_wide_xor_case_named.sv:70:19: Unsupported tristate construct: hierarchical driver of non-interface tri signal: 'choice.g[0].raw'",
+   "inputs_sha256": "30f43cfec7691f04447f41315aa4896f01e4e853be642b2396e40321d459ff41"
+  },
+  "gen/ch27/test_gen_cross_genexpr_33_logic_known_u_u_s_same_add_if_positional": {
+   "status": "pass",
+   "inputs_sha256": "4060d33e2d74699a3beb6316cbff316fffef4fe64e557225474606f5755f27b8"
+  },
+  "gen/ch27/test_gen_cross_genexpr_33_logic_x_s_u_s_same_xor_if_named": {
+   "status": "known",
+   "reason": "output differs: line 39 is 'v id=0 lane=0 bits=34 raw=1101010101010101000101010101010...', expected 'v id=0 lane=0 bits=34 raw=x1010101010101010x0101010101010...'",
+   "inputs_sha256": "f778e921105ddd2f477ed49d24ce3ff39e039b943c5276486ccb90361412f0c1"
+  },
+  "gen/ch27/test_gen_cross_genexpr_33_logic_z_s_u_s_same_conditional_if_named": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genexpr_33_logic_z_s_u_s_same_conditional_if_named.sv:68:19: Unsupported tristate construct: hierarchical driver of non-interface tri signal: 'choice.g[0].raw'",
+   "inputs_sha256": "2d9810ed32314742b88b1d6d534678e2291269d339b62d134c98dc134dde73f1"
+  },
+  "gen/ch27/test_gen_cross_genexpr_64_bit_known_u_s_s_same_xor_if_named": {
+   "status": "pass",
+   "inputs_sha256": "4e958b908d40e6bc316a56355e081e937a5c1a1aa887694f9c69305191a760d8"
+  },
+  "gen/ch27/test_gen_cross_genexpr_64_bit_x_u_u_s_wide_xor_if_named": {
+   "status": "known",
+   "reason": "output differs: line 31 is 'v id=0 lane=0 bits=67 raw=1101010101010101010101010101010...', expected 'v id=0 lane=0 bits=67 raw=0101010101010101010101010101010...'",
+   "inputs_sha256": "c288547a54882228842670f8fab042a38424f3abaae00c8db950d1fe97e669f1"
+  },
+  "gen/ch27/test_gen_cross_genexpr_64_bit_z_s_s_s_wide_add_case_named": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genexpr_64_bit_z_s_s_s_wide_add_case_named.sv:70:19: Unsupported tristate construct: hierarchical driver of non-interface tri signal: 'choice.g[0].raw'",
+   "inputs_sha256": "bac09ca9443f9275fc702c54bf712c9816739383c1c3bae956cb281a8a9e2f38"
+  },
+  "gen/ch27/test_gen_cross_genexpr_64_logic_known_s_s_u_same_conditional_if_positional": {
+   "status": "pass",
+   "inputs_sha256": "178ef412827513a552d027c1cac03d9aa9222740acce6960d8d7822c04d011af"
+  },
+  "gen/ch27/test_gen_cross_genexpr_64_logic_x_s_u_s_same_add_if_named": {
+   "status": "known",
+   "reason": "output differs: line 31 is 'v id=0 lane=0 bits=66 raw=1101010101010101010101010101010...', expected 'v id=0 lane=0 bits=66 raw=x101010101010101010101010101010...'",
+   "inputs_sha256": "eaf3bf1bb5ff1cd6f5d2a5a2263f0a9bd2acdf209b58627a87736e00fec4bacb"
+  },
+  "gen/ch27/test_gen_cross_genexpr_64_logic_z_s_u_s_same_conditional_if_named": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genexpr_64_logic_z_s_u_s_same_conditional_if_named.sv:68:19: Unsupported tristate construct: hierarchical driver of non-interface tri signal: 'choice.g[0].raw'",
+   "inputs_sha256": "7acc1fa3a02b386c17571046058b0eef608f1d09f3ca3b4912e32aa21c1dd633"
+  },
+  "gen/ch27/test_gen_cross_genexpr_65_bit_known_s_u_u_wide_xor_case_named": {
+   "status": "pass",
+   "inputs_sha256": "1dd8370a6b7b564b4c6557800b31d6fbdade69238fc1da88f9993cff557b14e2"
+  },
+  "gen/ch27/test_gen_cross_genexpr_65_bit_x_u_s_s_wide_conditional_if_named": {
+   "status": "known",
+   "reason": "output differs: line 35 is 'v id=0 lane=0 bits=66 raw=1101010101010101010101010101010...', expected 'v id=0 lane=0 bits=66 raw=0101010101010101010101010101010...'",
+   "inputs_sha256": "ff695dda5bc2b1eb849e5db8b513761ecfc41fd0f60b058d473bc951935a4f91"
+  },
+  "gen/ch27/test_gen_cross_genexpr_65_bit_z_s_s_s_same_add_if_named": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genexpr_65_bit_z_s_s_s_same_add_if_named.sv:65:19: Unsupported tristate construct: hierarchical driver of non-interface tri signal: 'choice.g[0].raw'",
+   "inputs_sha256": "8ece6c43e3ac9f9f24d89e7aa9f77dcbede8e7266f66c2bbb7166025b4517f18"
+  },
+  "gen/ch27/test_gen_cross_genexpr_65_logic_known_s_u_s_same_add_if_named": {
+   "status": "pass",
+   "inputs_sha256": "2b539b511a26f4c742cda7c69bc38e1b46d010d372b6927009addb87a0f5f745"
+  },
+  "gen/ch27/test_gen_cross_genexpr_65_logic_x_u_s_u_same_xor_if_positional": {
+   "status": "known",
+   "reason": "output differs: line 39 is 'v id=0 lane=0 bits=68 raw=0101010101010101010101010101010...', expected 'v id=0 lane=0 bits=68 raw=x101010101010101010101010101010...'",
+   "inputs_sha256": "01442da7921f3da3528d30a793b7cc5e228745ff3ff18388809b08fdb0ab7d6c"
+  },
+  "gen/ch27/test_gen_cross_genexpr_65_logic_z_s_u_s_same_conditional_if_named": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch27/test_gen_cross_genexpr_65_logic_z_s_u_s_same_conditional_if_named.sv:68:19: Unsupported tristate construct: hierarchical driver of non-interface tri signal: 'choice.g[0].raw'",
+   "inputs_sha256": "8596dbb79953a2a87d3e31234eb561d9a7cd9e4999c181693c4f018e2edaa3bb"
+  }
+ },
+ "generated_at": "2026-11-05T13:42:53.467553+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

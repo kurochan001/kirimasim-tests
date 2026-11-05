@@ -14,6 +14,13 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-05 typed-constant/generate addition brings totals to **85 models / 3,136 cases / 126 chapter pairs**.
+The [single run](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json) on freshly fetched/configured/built `92001039e896` records
+**2,603 pass / 529 unsupported / four existing config failures**. All 36 additions parse/pass; preceding 3,100 inputs/statuses are unchanged.
+There are 58 full-selection-pass models. See [typed constants and generate](#generated-constant-expression-shape) for independent checks and pinned comparisons.
+Check on baseline 8df0dde9 passed pinned comparisons/static checks for 84 models; verified formal Nightly covers 82 models on 19cd790a.
+The new 36 cases have not run in Check/Nightly. Records below describe each addition’s checkpoint.
+
 The 2026-11-05 interface-query addition brings totals to **84 models / 3,100 cases / 124 chapter pairs**.
 The [single run](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json) on freshly fetched/configured/built main `50a897dee62a` records
 **2,567 pass / 529 unsupported / four existing config failures**. All 36 additions parse/pass; preceding 3,064 inputs/statuses are unchanged.
@@ -3412,3 +3419,69 @@ python3 tools/run_verilator.py --all --seed 73 \
 Scope is one fixed unpacked dimension, unsigned one-dimensional packed elements, direct hierarchical calls and a single initial block.
 Interface ports, modports, virtual interfaces, dynamic arrays, signed arithmetic, concurrent calls, timing controls and ref are outside scope.
 This does not complete general array-query/interface verification. Requirement bindings, core code and the thirteen random profiles are unchanged.
+
+<a id="generated-constant-expression-shape"></a>
+
+## Typed constant expressions and context-dependent generated shape
+
+[`interaction_genexpr.py`](../generators/interaction_genexpr.py) defines `generated_constant_expression_shape@1`.
+All **6,912 rows** are legal; **36 cases** retain **297 pair targets, 132 targeted triples and six anchors**, a 99.48% case-count reduction.
+Factors are width 1/32/33/64/65/129, bit/logic, known/X/Z runtime inputs, independent left/right signedness, result declaration sign,
+same/one-bit-wider assignment context, addition/XOR/conditional expression, if/case generate and named/positional parameter overrides.
+Grounds are expression width/sign (11.8.2), arithmetic/relational/bitwise/conditional operators (11.4.3/11.4.4/11.4.8/11.4.11),
+generate (27.4/27.5), $bits (20.6.2) and bit conversion (6.11.2). No support-based exclusions are applied.
+Generate is the primary chapter. Align generator `CHAPTER=27`, the first `:lrm:` clause 27.4 and matrix `primary_chapter=27`; focused tests and matrix gates check consistency.
+
+Two modules use SELECT=0/1. Constant A has only its high bit set or value one; B has every bit set. Equally wide operands have independent signs.
+The typed localparam E supplies assignment-context width. For these three operators, sign extension requires both operands to be signed.
+A signed destination declaration alone does not sign-extend a mixed-sign expression. After storage, E’s declaration sign controls negative testing and decimal display.
+
+In the [actual width-one case](../tests/gen/ch27/test_gen_cross_genexpr_1_bit_known_s_s_s_wide_add_if_named.sv),
+A and B are both signed 1'b1, meaning -1. A two-bit assignment context gives E=2'b10 (-2), NEG=1 and COUNT=3.
+It does not first add at one bit to get zero and then widen. At same-width context, E=1'b0, NEG=0 and COUNT=1.
+The difference changes the actual selected branch and elaborated hierarchy count.
+
+E’s high/low bits bound the count to 1–4. `BASE+1+($bits(E)%3)` determines base generated width; genvar further varies each element width.
+$bits measures type width rather than the count of one bits, and participates in shape computation beyond display instrumentation.
+If/case alternatives have different KIND/TAG constants. Each element owns raw/guard words and a full-width XOR continuous-assignment result.
+Observe E’s bits/decimal value, negative test, count, base width, actual element widths and every full word.
+
+Known, known/X/Z and known-recovery phases drive every element and wait one time unit.
+Then update only a’s first input, followed by b’s last guard, observing all elements and the other instance after each update.
+Distinguish X/Z conversion into bit and whole-word XOR converting Z to X. X/Z appear only in runtime stimulus; constant expressions/generate conditions remain known.
+This does not validate unknown generate conditions, all constant operators or independently cover every bit position.
+
+[`qualify_genexpr.py`](../tools/qualify_genexpr.py) reads actual typedefs, localparams, typed expressions, overrides, branches,
+generate loops, continuous assignments, writes and displays. Independent bit planes and a bounded integer AST compute context width,
+common expression sign and post-storage sign without primary constant/layout/stimulus/reference helpers. All 6,912 programs agree.
+[`genexpr.json`](../coverage/interaction-qualification/genexpr.json) records five normal controls and nine real SV faults:
+operand sign, result sign, context width, operator, $bits target, branch tag, override binding, continuous mask and write target.
+All exit normally; every fault is detected by output difference. Auxiliary runs are not additional fixed passes.
+
+Freshly fetched/configured/built `92001039e896` parses and passes all 36 additions in [one complete 3,136-case run](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json).
+Totals are **2,603 pass / 529 unsupported / four existing config failures**, with preceding 3,100 inputs/statuses unchanged.
+[`genexpr-build.json`](../coverage/interaction-qualification/genexpr-build.json) identifies the build and parse outcomes.
+Execute an immutable binary snapshot with the actual build’s identical hash, isolating later builds in the shared workspace.
+Source/input/runner/executable hashes are checked before and after.
+
+[Pinned comparisons](../coverage/interaction-qualification/genexpr-fixed-replays.json) record Icarus 13.0 at **36 pass**, including all 24 X/Z-input cases.
+Verilator 5.052 seeds 1/73 each give **12 pass / 24 known**. All 36 receive Icarus oracles; only twelve known-input cases matching both seeds also receive Verilator oracles.
+Two-state observations do not qualify X/Z behavior; existing expectations, classification and seeds are unchanged.
+Each of 11×27 and 20×27 maps all 36 cases: totals are 85 models / 126 chapter pairs / 58 full-selection-pass models.
+[Check on baseline 8df0dde9](../coverage/interaction-qualification/check-8df0dde9-20261105.json) covers the preceding suite; these 36 cases have not run in Check/Nightly.
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model generated_constant_expression_shape
+python3 -m unittest discover -s tools -p test_interaction_genexpr.py
+# Fetch/configure/build latest core main immediately before native execution.
+python3 tools/qualify_genexpr.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/genexpr-qualification-new.json
+python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin \
+  --json my-results/genexpr-icarus-new.json tests/gen/ch27/test_gen_cross_genexpr_*.sv
+python3 tools/run_verilator.py --all --seed 73 \
+  --json my-results/genexpr-verilator-new.json tests/gen/ch27/test_gen_cross_genexpr_*.sv
+```
+
+Scope is known typed constants, addition/XOR/conditional expressions, finite if/case and generate loops, direct hierarchy references and a single initial block.
+Configuration, defparam, variable hierarchy indices, unknown constant conditions and signed runtime arithmetic are outside scope.
+Existing regressions, requirement bindings, core code and thirteen random profiles are unchanged.

@@ -21071,6 +21071,21 @@
     "全要素・両次元の境界・単一要素・別実体の保持・入力変更後の再呼出しを照合する。": "Check every element, both dimension bounds, singletons, independent-instance retention and repeated calls after input changes.",
     "interfaceごとの固定配列の幅・添字範囲・全要素を観測し、一方の要素更新と他方のguard更新を分離して保持する。": "Observe each interface’s fixed-array width, bounds and every element; distinguish and retain one element update and a separate guard update.",
     "interface内の ZXQPH0QXZ / ZXQPH1QXZ / ZXQPH2QXZ が実際の走査順序と回数を決め、両次元の問い合わせと型付き結果を照合する。": "Interface-local ZXQPH0QXZ / ZXQPH1QXZ / ZXQPH2QXZ determine the actual scan order and count; check both dimension query tuples and the typed result.",
-    "automatic functionの戻り値とtaskのoutputコピーを、局所配列の問い合わせで計算した全幅チェックサムと呼出しごとの局所変数から照合する。": "Check automatic function returns and task output copyout against a full-width checksum computed using local array queries and fresh per-call local variables."
+    "automatic functionの戻り値とtaskのoutputコピーを、局所配列の問い合わせで計算した全幅チェックサムと呼出しごとの局所変数から照合する。": "Check automatic function returns and task output copyout against a full-width checksum computed using local array queries and fresh per-call local variables.",
+    "二moduleの ZXQPH0QXZ は ZXQPH1QXZ で、定数Aは最上位ビットだけが ZXQPH2QXZ または値 ZXQPH3QXZ 、Bは全ビット ZXQPH4QXZ 。": "The two modules use ZXQPH0QXZ values ZXQPH1QXZ; constant A has only its high bit set to ZXQPH2QXZ or value ZXQPH3QXZ, while every bit of B is ZXQPH4QXZ.",
+    "両オペランドの幅は基底幅で独立に符号を選ぶ。": "Both operands have the base width and independently chosen signedness.",
+    "加算・ ZXQPH0QXZ ・条件演算子の結果は基底幅または一つ広い型付き ZXQPH1QXZ へ格納する。": "Store the addition, ZXQPH0QXZ or conditional result in a typed ZXQPH1QXZ of the base width or one bit wider.",
+    "式は両オペランドがsignedのときだけ符号拡張し、結果の宣言符号とは区別する。": "Sign-extend the expression only when both operands are signed, independently of the result declaration’s signedness.",
+    "格納後の負判定がif/case generateを選び、最上位と最下位のビットが生成個数 ZXQPH0QXZ から ZXQPH1QXZ を決める。": "The stored negative test selects if/case generate; high and low bits determine a generated count from ZXQPH0QXZ to ZXQPH1QXZ.",
+    "ZXQPH0QXZ の剰余が生成幅を決め、 ZXQPH1QXZ でさらに幅を変える。": "The remainder of ZXQPH0QXZ determines generated width, which ZXQPH1QXZ varies further.",
+    "各要素は独立したraw・guard・連続代入結果を持つ。": "Every element has independent raw, guard and continuous-assignment result words.",
+    "既知・既知またはX/Z・既知への回復の三相で全要素を読み、一方の先頭入力と他方の末尾guardだけを更新する。": "Observe every element in known, known/X/Z and known-recovery phases, updating only one first input and the other instance’s last guard.",
+    "X/Zは実行時刺激だけに使い、定数式とgenerate条件は既知値。": "Use X/Z only in runtime stimulus; constant expressions and generate conditions remain known.",
+    "ZXQPH0QXZ への変換でもfourstateを指定する。": "Conversion into ZXQPH0QXZ also retains fourstate metadata.",
+    "config・ ZXQPH0QXZ ・未定義の階層参照・動的な生成添字・符号付きruntime演算は対象外。": "Configuration, ZXQPH0QXZ, undefined hierarchy references, dynamic generate indices and signed runtime arithmetic are outside scope.",
+    "定数式のオペランド符号・代入文脈の幅・結果の宣言符号を分離し、生成分岐・個数・幅を照合する。": "Separate constant-expression operand signs, assignment-context width and result declaration sign; check generated branches, counts and widths.",
+    "ZXQPH0QXZ による形状、各生成要素の全幅データ、別実体の保持、X/Zと既知値への回復を観測する。": "Observe ZXQPH0QXZ-driven shape, full-width data in each generated element, independent-instance retention and X/Z followed by known recovery.",
+    "定数式の幅・オペランドの共通符号・格納後の負判定が、generateの選択と反復個数を変えることを実際の階層・全幅結果で照合する。": "Check how constant-expression width, common operand sign and the stored negative test change generate selection/count through actual hierarchy and full-width observations.",
+    "型付き定数に対する ZXQPH0QXZ を生成幅の計算に使い、文脈幅の変更を実際の生成要素の幅と全幅の観測へ伝える。": "Use ZXQPH0QXZ on a typed constant to compute generated width, propagating context-width changes into actual element widths and full-width observations."
   }
 }

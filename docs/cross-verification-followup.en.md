@@ -6,11 +6,12 @@ Updated on 2026-11-05 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json) has 84 models and 3,100 cases:
-2,567 pass, 529 unsupported and four config failures. All 36 interface-query additions pass; all preceding 3,064 inputs and statuses are unchanged.
-The combined 72 generated-loop/interface-query cases are not yet included in formal Check/Nightly.
+The current [complete local selection](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json) has 85 models and 3,136 cases:
+2,603 pass, 529 unsupported and four config failures. All 36 constant-expression/generate additions pass; all preceding 3,100 inputs and statuses are unchanged.
+The new 36 cases have not run in formal Check/Nightly.
 
-Baseline `19cd790a` passed [formal Check/Nightly](nightly-results.en.md#latest-verified-checkpoint); all preceding 82 models / 3,028 inputs and statuses match cross82. Formal CI has not run those 72 cases.
+[Check on baseline 8df0dde9](https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354) passed pinned-release comparisons and static checks for the preceding 84-model suite.
+The [verified formal Nightly](nightly-results.en.md#latest-verified-checkpoint) covers 82 models on 19cd790a; the new 36 cases have not run in either Check or Nightly.
 The historical uncommitted builds below explain the repair process; they do not describe the current upstream state.
 One successful kirimasim-tests Nightly is separate from the core repository's seven-consecutive-Nightly condition.
 
@@ -98,7 +99,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M124, E3, C2, N117 and R574. See the
+The current triage is M126, E3, C2, N117 and R572. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
