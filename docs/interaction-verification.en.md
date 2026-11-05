@@ -14,6 +14,12 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-05 formatted-scan addition brings totals to **86 models / 3,172 cases / 128 chapter pairs**.
+The [single run](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json) on freshly fetched/built `6f5c69841228` records
+**2,639 pass / 529 unsupported / four existing config failures**. All 36 additions parse/pass; preceding 3,136 inputs/statuses are unchanged.
+There are 59 full-selection-pass models. See [formatted scanning and partial writes](#formatted-scan-partial-write) for independent checks and pinned differences.
+Verified Check covers 85 models on d98d6e4c, and verified formal Nightly covers 82 on 19cd790a; the new 36 cases have not run in either. Records below describe each addition’s checkpoint.
+
 The 2026-11-05 typed-constant/generate addition brings totals to **85 models / 3,136 cases / 126 chapter pairs**.
 The [single run](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json) on freshly fetched/configured/built `92001039e896` records
 **2,603 pass / 529 unsupported / four existing config failures**. All 36 additions parse/pass; preceding 3,100 inputs/statuses are unchanged.
@@ -3485,3 +3491,72 @@ python3 tools/run_verilator.py --all --seed 73 \
 Scope is known typed constants, addition/XOR/conditional expressions, finite if/case and generate loops, direct hierarchy references and a single initial block.
 Configuration, defparam, variable hierarchy indices, unknown constant conditions and signed runtime arithmetic are outside scope.
 Existing regressions, requirement bindings, core code and thirteen random profiles are unchanged.
+
+<a id="formatted-scan-partial-write"></a>
+
+## Stopped formatted scans and preservation around partial writes
+
+[`interaction_scansel.py`](../generators/interaction_scansel.py) defines `formatted_scan_partial_write@1`.
+Of 6,912 product rows, represent the 1,152 unused whole-target/high-placement rows with low placement, leaving **5,760 legal representatives**.
+This is not exclusion by support or prior passes. **36 cases** retain **292 pair targets, 142 targeted triples and six anchors**, reducing the representative count by 99.38%.
+Factors are width 1/32/33/64/65/129, bit/logic, known/X/Z digits, bin/hex, full success/overlong first field/second mismatch/empty input,
+whole/+:/-: destinations, target/word-derived field width, low/high placement and literal/runtime formats.
+Grounds are scanning (21.3.4.3), format construction (21.3.3), part-selects (11.5.1), $bits (20.6.2) and two-state conversion (6.11.2).
+Generator CHAPTER, first :lrm: clause and matrix primary chapter all identify chapter 21.
+
+Destinations have widths W and W+1. Part-selects embed them in width-W+7 wa/wb storage words.
+Distinguish low/high placement and +:/-: spelling, observing every a/b/wa/wb word plus selected views after each operation.
+Checking only the successful field could miss damage to bits outside the selection when a scanner overwrites the whole word.
+Runtime format width comes from actual $bits of the target or wa. Literal calls embed the same format contents directly.
+Field width is a **maximum character count**: for illustration, `%2h` reads two characters a5, representing eight bits; a four-bit destination receives low bits 5.
+Using $bits to choose that number does not make a hexadecimal field’s width a bit count.
+
+For an illustrative example, start with 8'hA5 and scan into its low four bits, with another output 8'h5A and marker=-91.
+Scanning `0011|!|7` with `%4b|%b|%d` assigns only the first output: return 1, whole word 8'hA3, other output 8'h5A, marker=-91.
+Empty input returns -1 and writes nothing. With `00111|...`, the extra 1 after four consumed characters fails the following literal separator and retains later outputs.
+This is an explanatory example, not another fixed-suite case.
+
+Each known, known/X/Z and known-recovery phase performs a selected trial followed immediately by a completely successful call.
+Do not reset outputs: check the history of the assigned first field, unassigned later field and previous marker. Finally change only an unscanned guard.
+X/Z are known ASCII digit characters, not unknown bits in the input string. Distinguish X/Z stored in logic from conversion to zero in bit; retain fourstate metadata for bit as well.
+
+[`qualify_scansel.py`](../tools/qualify_scansel.py) reads actual declarations, string concatenations, $bits, format construction, calls, select ranges and displays.
+An independent character cursor implements widths and stopping at failed conversions/literals; value/X/Z bit planes merge only the selected region.
+It does not use primary stimulus/reference/conversion/index helpers. All 5,760 programs agree.
+[`scansel.json`](../coverage/interaction-qualification/scansel.json) records six normal controls and nine actual SV faults:
+query target, select position, destination, failed-word/marker clobber, lost partial preservation, literal width, guard target and input digit.
+All exit normally and every fault is detected by output difference. Auxiliary runs are not additional fixed passes.
+
+Freshly fetched/configured/built `6f5c69841228` parses and passes all 36 additions in [one full 3,172-case run](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json).
+Totals are 2,639 pass / 529 unsupported / four existing config failures, with preceding 3,136 inputs/statuses unchanged.
+[`scansel-build.json`](../coverage/interaction-qualification/scansel-build.json) identifies the revision, binary fingerprint and parse outcomes; execute an immutable copy with the actual build’s identical hash.
+Source/input/runner/binary hashes are checked before and after. Map only the 24 part-select cases to 11×21 and twelve runtime-format cases to 20×21;
+full-model success requires all 36 together. Totals are 86 models / 128 chapter pairs / 59 full-selection-pass models.
+
+[Pinned comparisons](../coverage/interaction-qualification/scansel-fixed-replays.json) record Icarus 13.0 at **17 pass / 19 known**.
+Only those seventeen matches, including nine X/Z cases, obtain its oracle. Differences are twelve runtime-format cases and seven literal-format bit/X/Z cases.
+[All nineteen outputs/diagnostics](../coverage/interaction-qualification/scansel-known-replays.json) are retained: replay observes seventeen normal exits and two abnormal exits with returncodes -10/-11.
+[Twelve separate literal-format controls](../coverage/interaction-qualification/scansel-literal-controls/) retain saved inputs/expectations and change only the call’s format argument:
+seven match; five retain bit/X/Z differences. Controls never overwrite the original failure or count as suite passes.
+
+Verilator 5.052 seeds 1/73 each record **3 pass / 33 known**. Only two known-input cases matching both seeds receive its oracle.
+Record the extra bit/X match without treating it as evidence for logic four-state behavior.
+Three unchanged saved-SV replays retain full diagnostics for runtime-format syntax rejection, a generated-C++ build failure for a 64-bit literal-format selection,
+and output differences for a 129-bit selection. Do not infer internal causes from implementation source; standard-derived expectations, seeds and existing classification are unchanged.
+The new 36 cases have not run in formal Check/Nightly.
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model formatted_scan_partial_write
+python3 -m unittest discover -s tools -p test_interaction_scansel.py
+# Fetch/configure/build latest core main immediately before native execution.
+python3 tools/qualify_scansel.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/scansel-qualification-new.json
+python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin \
+  --json my-results/scansel-icarus-new.json tests/gen/ch21/test_gen_cross_scansel_*.sv
+python3 tools/run_verilator.py --all --seed 73 \
+  --json my-results/scansel-verilator-new.json tests/gen/ch21/test_gen_cross_scansel_*.sv
+```
+
+Scope is fixed select indices, a first bin/hex field, a second binary field and a third decimal field, known ASCII strings, one initial block and finite input sequences.
+Variable indices, suppression, mixed known/X/Z tokens, whitespace/NUL boundaries, short X/Z-digit extension, reals, file I/O and concurrency are outside scope.
+Requirement bindings, existing tests, core code and thirteen random profiles are unchanged.

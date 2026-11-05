@@ -10,10 +10,10 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-05 JST)
 
-The selection now contains 85 models / 3,136 cases; see [generated-expression qualification](#generated-expression-qualification).
-[`check-8df0dde9-20261105.json`](check-8df0dde9-20261105.json) confirms Check’s pinned comparisons/static checks for the preceding 84-model suite.
+The selection now contains 86 models / 3,172 cases; see [formatted-scan qualification](#formatted-scan-qualification).
+[`check-d98d6e4c-20261105.json`](check-d98d6e4c-20261105.json) confirms Check’s pinned comparisons/static checks for the preceding 85-model suite.
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
-The new 36 cases have not run in Check/Nightly. The prior 72 passed Check but remain outside this verified formal Nightly.
+The new 36 cases have not run in Check/Nightly. The 144 cases added since generated loops remain outside this verified formal Nightly.
 
 <a id="checkpoint-9926160a"></a>
 
@@ -448,3 +448,15 @@ Five normal controls and nine real source faults all exit normally; every fault 
 It records 2,603 pass / 529 unsupported / four existing config failures; additions pass and preceding 3,100 inputs/statuses are unchanged.
 Totals are 85 models / 126 chapter pairs / 58 full-selection-pass models. [Pinned comparisons](genexpr-fixed-replays.json) distinguish Icarus’s 36 pass from each Verilator seed’s 12 pass / 24 known.
 Existing inputs/expectations are unchanged; two-state results do not qualify X/Z behavior. See [design and commands](../../docs/interaction-verification.en.md#generated-constant-expression-shape).
+
+<a id="formatted-scan-qualification"></a>
+
+## Formatted-scan qualification
+
+[`scansel.json`](scansel.json) independently interprets actual strings/formats, stopping points and typed partial writes for all 5,760 rows.
+Six normal controls and nine faults exit normally; every fault is detected by output difference. The [build record](scansel-build.json) identifies one full 3,172-case run:
+2,639 pass / 529 unsupported / four existing config failures. All 36 additions parse/pass and preceding 3,136 inputs/statuses are unchanged.
+[Pinned comparisons](scansel-fixed-replays.json) distinguish Icarus’s 17 pass / 19 known from each Verilator seed’s 3 pass / 33 known.
+Preserve [all nineteen original differences and three Verilator examples](scansel-known-replays.json), plus [twelve separate literal controls](scansel-literal-controls/);
+seven control matches do not replace original results. Totals: 86 models / 128 chapter pairs / 59 full-selection-pass models.
+See [design, limits and commands](../../docs/interaction-verification.en.md#formatted-scan-partial-write).

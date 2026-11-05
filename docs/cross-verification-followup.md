@@ -5,11 +5,11 @@
 2026-11-05（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json)は85モデル・3,136件で、
-2,603 pass・529 unsupported・configの4 failです。定数式とgenerateの追加36件は全PASSで、従来3,100件の入力・状態分類は不変です。
+現在の[全クロスのローカル選択](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json)は86モデル・3,172件で、
+2,639 pass・529 unsupported・configの4 failです。書式付き読取りの追加36件は全PASSで、従来3,136件の入力・状態分類は不変です。
 今回の36件は正式Check・Nightlyでは未実行です。
 
-[基点8df0dde9のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354)は成功し、前回までの84モデルの固定版比較・静的検査を確認済みです。
+[基点d98d6e4cのCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42040601997)は成功し、前回までの85モデルの固定版比較・静的検査を確認済みです。
 [確認済み正式Nightly](nightly-results.md#latest-verified-checkpoint)は19cd790aの82モデルが対象で、今回の36件はCheck・Nightlyの両方で未実行です。
 以下の未コミットビルドは修正過程の記録であり、現在の上流の状態を示すものではありません。
 kirimasim-testsのNightlyの1回の成功と、本体リポジトリの7連続Nightly条件は分けて扱います。
@@ -95,7 +95,7 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
   演算・条件式を将来の独立因子として検討します。合法な式と正の寸法の確定、
   既知のconfigリセット不一致の修正を先に行います。
 
-現在の仕分けはM126・E3・C2・N117・R572です。
+現在の仕分けはM128・E3・C2・N117・R570です。
 [章対の根拠と指紋](chapter-cross-triage.md)を参照してください。
 既存の回帰matrixを先に活用し、原因が確定した機構に境界・操作列・故障対照を追加します。
 同じ目的の別runnerや、ランダム結果を固定要求カバレッジへ加算する仕組みは追加していません。
@@ -139,3 +139,12 @@ Icarusは31入力に一致し、repeat回数1の5件は拒否を保持して、�
 最新取得・ビルドの`50a897dee62a`で全3,100件を一度に実行し、追加36件はparse成功・全PASS、従来3,064件の入力・分類は不変です。
 固定IcarusはX/Zを含む全36件に一致し、固定Verilatorの既知値12件は両seedで一致しました。2値の偶然の一致を4値の確認やoracle登録に使いません。
 要求対応付け・ランダム13プロファイル・既存回帰・本体コードは不変です。
+
+- [書式付き読取りと部分書込み](interaction-verification.md#formatted-scan-partial-write)を第11×21章・第20×21章へ追加しました。
+  代表化後の合法5,760行から36件を選び、因子対292組・重点3因子142組・必須6件を保持します。独立解釈と正常対照6件・実際の9故障を確認しました。
+- 最新取得・ビルドの`6f5c69841228`による全3,172件の単一実行は、2,639 pass・529 unsupported・既存configの4 failです。
+  追加36件はparse成功・全PASS、従来3,136件の入力・分類は不変です。86モデル・128章対・全選択ケースPASSは59モデル、M128・E3・C2・N117・R570です。
+- 固定Icarusは17 pass・19 known、Verilator両seedは各3 pass・33 knownです。元の差と同一刺激のliteral対照を別に保持し、期待値・分類を弱めません。
+  第11×21章の対応は部分選択24件、第20×21章は実行時書式12件で、モデル全体は全36件の同時成功を要求します。
+- 固定suiteは10,922件、うち4,485件は95生成器による自動生成です。要求対応付け・既存回帰・本体コード・ランダム13プロファイルは不変です。
+  今回の36件は正式Check・Nightlyでは未実行です。

@@ -1,0 +1,49 @@
+{
+  "model": "formatted_scan_partial_write",
+  "scope": "Pinned-release runs of identical saved inputs and standard expectations. Only matching Icarus cases receive its oracle; known runtime-format differences are retained. Only known-input cases matching both Verilator seeds receive Verilator oracles; incidental matches do not qualify four-state behavior.",
+  "versions_and_runs": [
+    {
+      "simulator": "icarus",
+      "run": "coverage/interaction-results/cross86-scansel-icarus13.json",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "configuration": {},
+      "counts": {
+        "known": 19,
+        "pass": 17
+      },
+      "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46"
+    },
+    {
+      "simulator": "verilator",
+      "run": "coverage/interaction-results/cross86-scansel-verilator5052-seed1.json",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "configuration": {
+        "seed": 1
+      },
+      "counts": {
+        "known": 33,
+        "pass": 3
+      },
+      "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf"
+    },
+    {
+      "simulator": "verilator",
+      "run": "coverage/interaction-results/cross86-scansel-verilator5052-seed73.json",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "configuration": {
+        "seed": 73
+      },
+      "counts": {
+        "known": 33,
+        "pass": 3
+      },
+      "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf"
+    }
+  ],
+  "executables_sha256": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "verilator_driver": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+    "verilator_binary": "f2ba0ba23efcc197d00b785e9562fc6ae99b6dd7b009f14fefc83c187ed0c15d"
+  }
+}

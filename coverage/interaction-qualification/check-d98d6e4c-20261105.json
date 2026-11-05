@@ -1,0 +1,30 @@
+{
+  "databaseId": 42040601997,
+  "headSha": "d98d6e4cfd963672de61144b8e7ddede2c9dfa08",
+  "conclusion": "success",
+  "status": "completed",
+  "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42040601997",
+  "createdAt": "2026-11-05T13:58:51Z",
+  "updatedAt": "2026-11-05T14:30:24Z",
+  "scope": "Check on the preceding 85-model suite: pinned Icarus/Verilator and static checks; not native Nightly or verification of the new formatted-scan cases.",
+  "jobs": [
+    {
+      "name": "icarus",
+      "conclusion": "success",
+      "status": "completed",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42040601997/job/127290111009"
+    },
+    {
+      "name": "verilator",
+      "conclusion": "success",
+      "status": "completed",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42040601997/job/127290111522"
+    },
+    {
+      "name": "readme",
+      "conclusion": "success",
+      "status": "completed",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42040601997/job/127290111537"
+    }
+  ]
+}

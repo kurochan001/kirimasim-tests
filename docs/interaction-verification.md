@@ -14,6 +14,12 @@
 
 ## 保存実行の概要
 
+2026-11-05の書式付き読取りの追加で、**86モデル・3,172件・128章対**になりました。
+最新取得・ビルドの`6f5c69841228`による[単一実行](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json)は、
+**2,639 pass・529 unsupported・既存configの4 fail**です。追加36件はparse成功・全PASS、従来3,136件の入力・分類は不変です。
+全選択ケースPASSは59モデルです。[書式付き読取りと部分書込み](#formatted-scan-partial-write)に独立検算と固定版の差を記録します。
+確認済みCheckはd98d6e4cの85モデル、確認済み正式Nightlyは19cd790aの82モデルで、今回の36件は両方で未実行です。以下は各追加時点の記録です。
+
 2026-11-05の定数式とgenerateの追加で、**85モデル・3,136件・126章対**になりました。
 最新mainを取得・構成・ビルドした`92001039e896`の[単一実行](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json)は、
 **2,603 pass・529 unsupported・既存configの4 fail**です。追加36件はparse成功・全PASS、従来3,100件の入力・分類は不変です。
@@ -3461,3 +3467,70 @@ python3 tools/run_verilator.py --all --seed 73 \
 対象は既知の型付き定数、加算/XOR/条件演算子、有限のif/caseとgenerateループ、直接の階層参照と単一initialです。
 config・defparam・可変階層添字・未知の定数条件・符号付きruntime演算は対象外です。
 既存の回帰・要求対応付け・本体コード・ランダム13プロファイルは不変です。
+
+<a id="formatted-scan-partial-write"></a>
+
+## 書式付き読取りの途中停止と部分書込みの保持
+
+[`interaction_scansel.py`](../generators/interaction_scansel.py)は`formatted_scan_partial_write@1`を定義します。
+直積6,912行のうち、whole対象では使わないplacementのhigh 1,152行をlowへ代表化し、**合法5,760行**を対象にします。
+未対応や過去のPASSによる除外ではありません。**因子対292組・重点3因子142組・必須6件**を保持する**36件**を選びます（代表化後から99.38%削減）。
+因子は幅1/32/33/64/65/129、bit/logic、既知値/X/Z数字、bin/hex、全成功/先頭の余分な文字/第二変換不一致/空入力、
+whole/+:型/-:型の格納先、対象/格納語からのフィールド幅、低位/高位の配置、literal/runtimeの書式です。
+根拠は読取り（21.3.4.3）、書式文字列の生成（21.3.3）、部分選択（11.5.1）、$bits（20.6.2）、2値変換（6.11.2）です。
+生成器のCHAPTER、先頭の:lrm:条項、章間台帳の主題章は全て21へ揃えます。
+
+二つの格納先は幅WとW+1で、部分選択では幅W+7のwa/wbへ埋め込みます。
+低位/高位、+:と-:を区別し、全変数a/b/wa/wbと選択ビューを毎回読みます。成功した部分だけの比較では、
+走査が格納語全体を上書きして非選択ビットを壊した不具合を見逃すためです。
+実行時書式の先頭フィールド幅は、実際の対象またはwaへの$bitsから作ります。literalは同じ内容を呼出しへ直接埋めます。
+書式の幅は**最大文字数**です。例えば説明用の`%2h`はa5という2文字から8ビットを読みます。格納先が4ビットなら低位の5だけを格納します。
+$bitsを数値の選び方に使っても、hexのフィールド幅がビット数になるわけではありません。
+
+説明用に、8'hA5の下位4ビット、別の出力8'h5A、marker=-91を考えます。
+`0011|!|7`を`%4b|%b|%d`で読むと、一つ目だけ成功し、戻り値1・格納語8'hA3・別の出力8'h5A・marker=-91です。
+空入力なら戻り値-1で何も書きません。先頭が`00111|...`なら最大4文字の後に余った1で区切り文字との一致が止まり、後続出力を保持します。
+この例は説明用で、固定スイートの追加件数には含めません。
+
+各ケースは既知値・既知値またはX/Z・既知値への回復の三相で、指定した試行と、その直後の全成功の再呼出しを行います。
+値を初期化し直さず、変換済みの先頭・未変換の後続・以前のmarkerを保持する履歴を検査します。最後に走査対象外のguardだけを変えます。
+入力は既知ASCIIのx/z文字であり、string自体のビットが未知なのではありません。logicへのX/Z格納と、bitなら0になる変換を区別し、bitでもfourstateを指定します。
+
+[`qualify_scansel.py`](../tools/qualify_scansel.py)は実際の宣言・文字列連結・$bits・書式生成・呼出し・選択範囲・表示を読みます。
+独立した文字カーソルで最大幅と変換/区切りの停止を処理し、値/X/Zのビット面で選択領域だけを書き戻します。主生成器の刺激・参照・変換・添字関数は使いません。
+全5,760プログラムが一致しました。[`scansel.json`](../coverage/interaction-qualification/scansel.json)には正常対照6件と、
+問い合わせ先・選択位置・格納先・失敗後の語/markerの破壊・部分保持の喪失・literalの幅・guard更新先・入力数字の9故障を記録します。
+全て正常終了し、全故障を出力差で検出しました。補助実行を通常PASSへ加算しません。
+
+最新mainを直前に取得・構成・ビルドした`6f5c69841228`では、[単一の全3,172件の実行](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json)で追加36件がparse成功・全PASSです。
+全体は2,639 pass・529 unsupported・既存configの4 fail、従来3,136件の入力・分類は不変です。
+[`scansel-build.json`](../coverage/interaction-qualification/scansel-build.json)に版・バイナリ指紋・parse結果を保持し、実ビルドと同じハッシュのバイナリを固定して実行します。
+コード・入力・runner・バイナリの前後ハッシュを照合します。第11×21章は部分選択24件、第20×21章はruntime書式12件に限定し、
+モデル全体のPASSには全36件の同時成功が必要です。86モデル・128章対・全選択ケースPASSは59モデルです。
+
+[固定版比較](../coverage/interaction-qualification/scansel-fixed-replays.json)はIcarus 13.0が**17 pass・19 known**です。
+一致した17件（うちX/Zは9件）だけにIcarusのoracleを登録します。差はruntime書式の12件と、literalでbitへX/Zを格納する7件です。
+[全19件の出力と診断](../coverage/interaction-qualification/scansel-known-replays.json)を保持し、再実行では17件が正常終了、2件はreturncode -10/-11を観測しました。
+[別のliteral書式対照](../coverage/interaction-qualification/scansel-literal-controls/)は保存入力と期待値を保持し、書式引数だけを変えた12件で、7件が一致、bit/X/Zの5件には差が残ります。
+元の失敗を対照の成功で上書きしたり、スイートの合格へ加算したりしません。
+
+Verilator 5.052のseed 1/73は各**3 pass・33 known**です。両seedで一致した既知値2件だけにoracleを登録します。
+追加1件のbit/X入力の一致は記録しますが、logicの4値動作の根拠へ流用しません。
+同じ保存SVの再実行で、runtime書式の構文拒否、literalの64ビット選択の生成C++ビルド失敗、129ビット選択の出力差の3例を全診断付きで保持します。
+実装ソースを読んで内部原因を断定せず、規格に基づく期待値・seed・既存の分類を維持します。今回の36件は正式Check・Nightlyでは未実行です。
+
+```sh
+python3 tools/interaction_coverage.py --list-tests --model formatted_scan_partial_write
+python3 -m unittest discover -s tools -p test_interaction_scansel.py
+# native実行の直前に本体の最新mainを取得・構成・ビルドします。
+python3 tools/qualify_scansel.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/scansel-qualification-new.json
+python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin \
+  --json my-results/scansel-icarus-new.json tests/gen/ch21/test_gen_cross_scansel_*.sv
+python3 tools/run_verilator.py --all --seed 73 \
+  --json my-results/scansel-verilator-new.json tests/gen/ch21/test_gen_cross_scansel_*.sv
+```
+
+対象は固定した選択添字、先頭bin/hex・第二binary・第三decimalの三変換、既知のASCII文字列、単一initial、有限の入力列です。
+可変添字・変換抑制・既知数字とX/Zの混在・空白やNULの境界・短いX/Z数字の拡張・実数・ファイルI/O・並行性は対象外です。
+要求対応付け・既存テスト・本体コード・ランダム13プロファイルは不変です。

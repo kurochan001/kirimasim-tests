@@ -19,8 +19,8 @@
 
 ## 最新の確認状況（2026-11-05 日本時間）
 
-suite `8df0dde9`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354)は、固定Icarus・Verilator・readmeの全ジョブが成功しました。
-[確認記録](../coverage/interaction-qualification/check-8df0dde9-20261105.json)は前回までの84モデルの固定版比較・静的検査で、nativeのNightlyとは区別します。
+suite `d98d6e4c`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/42040601997)は、固定Icarus・Verilator・readmeの全ジョブが成功しました。
+[確認記録](../coverage/interaction-qualification/check-d98d6e4c-20261105.json)は前回までの85モデルの固定版比較・静的検査で、nativeのNightlyとは区別します。
 suite `19cd790a5f639348ad67fd63959dce9811d3ab56`の[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616)も5シミュレータとpublishを含め成功しています。
 [その確認記録](../coverage/interaction-qualification/formal-ci-19cd790a-20261105.json)にartifactのハッシュと入力・結果の照合を保持します。以下の正式Nightlyの数字は19cd790aのものです。
 
@@ -28,10 +28,10 @@ suite `19cd790a5f639348ad67fd63959dce9811d3ab56`の[Nightly](https://github.com/
 - 有限クロスは追加前の82モデル・3,028件で、2,495 pass・529 unsupported・configの4 failです。cross82と全入力ハッシュ・状態分類が一致します。119章対・全選択ケースPASSは55モデルです。
 - ランダム比較は13プロファイル・96件すべて有効なPASSです。seedはworkflow run IDの`41941310616`で、実行直前に再取得・ビルドした本体revisionは`50a897dee62af605c02f5ddcee10f25645abc77d`です。バイナリSHA-256は`666c1f8cf1432a5789b32090e7d40d934b0a9a72801d50233024337dbf2b737a`です。固定結果へ加算しません。
 
-最新のローカル追加は[定数式とgenerateの36件](interaction-verification.md#generated-constant-expression-shape)で、85モデル・3,136件です。
-最新取得・ビルドの`92001039e896`による[単一実行](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json)は2,603 pass・529 unsupported・4 failです。
-追加36件は全PASS、従来3,100件の入力・分類は不変です。今回の36件は正式Check・Nightlyでは未実行です。
-前回の生成ループとinterface配列問い合わせの72件はCheck確認済みですが、確認済み正式Nightlyの82モデルにはまだ含まれません。以下は以前の確認時点の記録です。
+最新のローカル追加は[書式付き読取りの36件](interaction-verification.md#formatted-scan-partial-write)で、86モデル・3,172件です。
+最新取得・ビルドの`6f5c69841228`による[単一実行](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json)は2,639 pass・529 unsupported・4 failです。
+追加36件は全PASS、従来3,136件の入力・分類は不変です。今回の36件は正式Check・Nightlyでは未実行です。
+生成ループ以降の144件は、上記の82モデルを対象にした確認済み正式Nightlyの範囲外です。以下は以前の確認時点の記録です。
 
 <a id="checkpoint-9926160a"></a>
 

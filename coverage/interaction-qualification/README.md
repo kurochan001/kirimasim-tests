@@ -10,10 +10,10 @@
 
 ## 最新証跡の確認（2026-11-05 日本時間）
 
-現行は85モデル・3,136件で、[定数式とgenerateの独立確認](#generated-expression-qualification)を参照してください。
-[`check-8df0dde9-20261105.json`](check-8df0dde9-20261105.json)は前回までの84モデルの固定版比較・静的検査のCheck成功を確認します。
+現行は86モデル・3,172件で、[書式付き読取りの独立確認](#formatted-scan-qualification)を参照してください。
+[`check-d98d6e4c-20261105.json`](check-d98d6e4c-20261105.json)は前回までの85モデルの固定版比較・静的検査のCheck成功を確認します。
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は82モデルを対象にした正式Nightly・publish・ランダム96 PASSの記録であり、実行を混同しません。
-今回の36件はCheck・Nightlyでは未実行です。前回の72件はCheck確認済みですが、この確認済み正式Nightlyの範囲外です。
+今回の36件はCheck・Nightlyでは未実行です。生成ループ以降の144件は、この確認済み正式Nightlyの範囲外です。
 
 <a id="checkpoint-9926160a"></a>
 
@@ -448,3 +448,14 @@ Zのビルド診断、Icarusの拒否を保持します。2値の観測でX/Zの
 2,603 pass・529 unsupported・既存configの4 failで、追加36件は全PASS、従来3,100件の入力・分類は不変です。
 85モデル・126章対・全選択ケースPASSは58モデルです。[固定版比較](genexpr-fixed-replays.json)はIcarusの36 passとVerilatorの両seed各12 pass・24 knownを識別します。
 既存の入力・期待値を変更せず、2値の結果でX/Zを検証済みとはしません。[設計とコマンド](../../docs/interaction-verification.md#generated-constant-expression-shape)を参照してください。
+
+<a id="formatted-scan-qualification"></a>
+
+## 書式付き読取りの独立確認
+
+[`scansel.json`](scansel.json)は実際の文字列と書式、停止位置、型付きの部分書込みを全5,760行で独立に解釈します。
+正常対照6件と9故障は全て正常終了し、全故障を出力差で検出しました。[ビルド記録](scansel-build.json)は単一の全3,172件で
+2,639 pass・529 unsupported・既存configの4 failを記録し、追加36件はparse成功・全PASS、従来3,136件の入力・分類は不変です。
+[固定版比較](scansel-fixed-replays.json)はIcarusの17 pass・19 knownと、Verilatorの各seed 3 pass・33 knownを識別します。
+[元の19件とVの3例の全出力](scansel-known-replays.json)、[別の12 literal対照](scansel-literal-controls/)を保持し、対照7件の一致で元の結果を上書きしません。
+86モデル・128章対・全選択ケースPASSは59モデルです。[設計・範囲・コマンド](../../docs/interaction-verification.md#formatted-scan-partial-write)を参照してください。

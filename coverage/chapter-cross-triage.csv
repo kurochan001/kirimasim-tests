@@ -302,7 +302,7 @@ tests/ch6/test_automatic_data_declarations_in_static_procedural_scopes.sv",既�
 6,データ型,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,692,"tests/ch10/test_alias_undeclared_name_implicit_net.sv
 tests/ch10/test_array_pattern_index_type_default_keys.sv
 tests/ch10/test_assignment_like_contexts.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,11,演算子と式,M,モデル登録済み,登録済み,14,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1559,"tests/ch11/test_A_extra_specparam_range.sv
+6,データ型,11,演算子と式,M,モデル登録済み,登録済み,14,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1595,"tests/ch11/test_A_extra_specparam_range.sv
 tests/ch11/test_a8_3_a8_4_constant_primaries.sv
 tests/ch11/test_concatenation_pattern_string_operand_and_replication_once.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,12,手続き型プログラミング文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,198,"tests/ch11/test_propagated_operand_sign.sv
@@ -325,10 +325,10 @@ tests/ch23/test_module_items_nonport_kinds.sv",既存モデルの計画・実行
 tests/gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_sat.sv
 tests/gen/ch18/test_gen_cross_randreduce_33_signed_fixed_product_element_2_sat_fail_sat.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 6,データ型,19,機能カバレッジ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-6,データ型,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,171,"tests/ch11/test_const_expr.sv
+6,データ型,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,207,"tests/ch11/test_const_expr.sv
 tests/ch11/test_real_operand_result_types.sv
 tests/ch11/test_shortreal_result_and_condition_types.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,198,"tests/ch21/test_comb_systask_string_format.sv
+6,データ型,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,234,"tests/ch21/test_comb_systask_string_format.sv
 tests/ch21/test_writemem_two_state_enum.sv
 tests/ch23/test_port_collapse_trireg_charge_strength.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,22,コンパイラ指令,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,85,"tests/ch22/test_define_value_in_parameters.sv
@@ -657,12 +657,12 @@ tests/ch16/test_assertion_dist_as_inside.sv",既存モデルの計画・実行�
 tests/ch16/test_assertion_dist_as_inside.sv
 tests/ch18/test_rand_constraints_hold.sv",既存モデルの計画・実行証跡を維持する,,
 11,演算子と式,19,機能カバレッジ,E2,既存検証あり・章対未登録,P2,0,実数binの許容差式とbinの併合が同じテストの刺激と観測で確認できる。因子モデルの対象水準は未定義。,実数binの許容差式とbinの併合,絶対/相対許容差 / 端点/外側 / bin配列/単一bin / 重複範囲の順序,決定的な入力列に対するヒット数と総bin数を直接照合する。,1,tests/ch19/test_cg_real_bins_tolerance_and_merge.sv,1,,既存テストを再利用し、因子モデル化の要否と不足条件を確認する,2026-11-05,"Codex (GPT-6), AI review"
-11,演算子と式,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,181,"tests/ch10/test_contassign_system_function_operand.sv
+11,演算子と式,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,217,"tests/ch10/test_contassign_system_function_operand.sv
 tests/ch11/test_arithmetic_wider_than_64_bits.sv
 tests/ch11/test_bit_manip.sv",既存モデルの計画・実行証跡を維持する,,
-11,演算子と式,21,入出力用システムタスク・関数,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,4,"tests/ch11/test_bit_slicing.sv
+11,演算子と式,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,40,"tests/ch11/test_bit_slicing.sv
 tests/ch11/test_ternary.sv
-tests/ch21/test_display_arguments_without_format.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+tests/ch21/test_display_arguments_without_format.sv",既存モデルの計画・実行証跡を維持する,,
 11,演算子と式,22,コンパイラ指令,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch22/test_ifdef_expression.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 11,演算子と式,23,モジュールと階層,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch23/test_defparam_assignment_lists.sv
 tests/ch23/test_port_expression_assignment_rules.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -1003,9 +1003,9 @@ tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",引用探索
 19,機能カバレッジ,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 19,機能カバレッジ,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 19,機能カバレッジ,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-20,ユーティリティ用システムタスク・関数,21,入出力用システムタスク・関数,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,16,"tests/ch20/test_array_query_invalid_dimension_all_x.sv
+20,ユーティリティ用システムタスク・関数,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,52,"tests/ch20/test_array_query_invalid_dimension_all_x.sv
 tests/ch20/test_assertion_control_levels_and_scopes.sv
-tests/ch20/test_comb_sysfunc_edge.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+tests/ch20/test_comb_sysfunc_edge.sv",既存モデルの計画・実行証跡を維持する,,
 20,ユーティリティ用システムタスク・関数,22,コンパイラ指令,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,7,"tests/ch20/test_printtimescale_other_module.sv
 tests/ch20/test_severity_tasks_report_contents.sv
 tests/ch22/test_timescale_child_units_in_parent.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,

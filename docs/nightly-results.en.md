@@ -17,8 +17,8 @@
 
 ## Latest verified checkpoint (2026-11-05 JST)
 
-[Check on suite `8df0dde9`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354) passed all pinned Icarus, Verilator and readme jobs.
-Its [verification record](../coverage/interaction-qualification/check-8df0dde9-20261105.json) covers pinned comparisons/static checks for the preceding 84-model suite, separately from native Nightly.
+[Check on suite `d98d6e4c`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42040601997) passed all pinned Icarus, Verilator and readme jobs.
+Its [verification record](../coverage/interaction-qualification/check-d98d6e4c-20261105.json) covers pinned comparisons/static checks for the preceding 85-model suite, separately from native Nightly.
 [Nightly on suite `19cd790a5f639348ad67fd63959dce9811d3ab56`](https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616) also passed all five simulators and publish.
 The [Nightly record](../coverage/interaction-qualification/formal-ci-19cd790a-20261105.json) retains artifact hashes and input/result checks. Formal Nightly numbers below belong to 19cd790a.
 
@@ -26,10 +26,10 @@ The [Nightly record](../coverage/interaction-qualification/formal-ci-19cd790a-20
 - Finite selection: the preceding 82 models / 3,028 cases recorded 2,495 pass / 529 unsupported / four config failures. Every input fingerprint/status matches cross82; 119 pairs and 55 full-selection-pass models.
 - Random comparisons: all 96 cases across thirteen profiles are valid passes. Seed `41941310616` is the workflow run ID; the separately refreshed/built core revision is `50a897dee62af605c02f5ddcee10f25645abc77d`, binary SHA-256 `666c1f8cf1432a5789b32090e7d40d934b0a9a72801d50233024337dbf2b737a`. These do not enter fixed counts.
 
-The newest local addition is [36 constant-expression/generate cases](interaction-verification.en.md#generated-constant-expression-shape), totaling 85 models / 3,136 cases.
-The [single run](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json) on freshly fetched/built `92001039e896` records 2,603 pass / 529 unsupported / four fail.
-All 36 additions pass; preceding 3,100 inputs/statuses are unchanged. The new cases have not run in formal Check/Nightly.
-The prior 72 generated-loop/interface-query cases passed Check but remain outside the 82-model verified formal Nightly. Records below describe earlier checkpoints.
+The newest local addition is [36 formatted-scan cases](interaction-verification.en.md#formatted-scan-partial-write), totaling 86 models / 3,172 cases.
+The [single run](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json) on freshly fetched/built `6f5c69841228` records 2,639 pass / 529 unsupported / four fail.
+All 36 additions pass; preceding 3,136 inputs/statuses are unchanged. These new cases have not run in formal Check/Nightly.
+The 144 cases added since generated loops lie outside the verified 82-model formal Nightly above. Records below describe earlier checkpoints.
 
 <a id="checkpoint-9926160a"></a>
 

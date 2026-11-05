@@ -1,0 +1,30 @@
+h p=0 step=before fmt=[%8h|%b|%d] text=[a5c3a5c3|!|7] rc=-77 tag=-91
+v a=1 b=10 wa=01010011 wb=10101100 seen_a=1 seen_b=00 bits_a=1 bits_b=2 field=8
+h p=0 step=trial fmt=[%8h|%b|%d] text=[a5c3a5c3|!|7] rc=1 tag=-91
+v a=1 b=10 wa=01010011 wb=10101100 seen_a=1 seen_b=00 bits_a=1 bits_b=2 field=8
+h p=0 step=again fmt=[%8h|%b|%d] text=[5c3a5c3a|10|8] rc=3 tag=8
+v a=1 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=8
+h p=0 step=guard fmt=[%8h|%b|%d] text=[5c3a5c3a|10|8] rc=3 tag=8
+v a=0 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=8
+h p=0 step=idle fmt=[%8h|%b|%d] text=[5c3a5c3a|10|8] rc=3 tag=8
+v a=0 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=8
+h p=1 step=before fmt=[%8h|%b|%d] text=[xxxxxxxx|!|17] rc=3 tag=8
+v a=0 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=8
+h p=1 step=trial fmt=[%8h|%b|%d] text=[xxxxxxxx|!|17] rc=1 tag=8
+v a=0 b=10 wa=0101001x wb=10101110 seen_a=x seen_b=10 bits_a=1 bits_b=2 field=8
+h p=1 step=again fmt=[%8h|%b|%d] text=[xxxxxxxx|zz|18] rc=3 tag=18
+v a=0 b=10 wa=0101001x wb=101011zz seen_a=x seen_b=zz bits_a=1 bits_b=2 field=8
+h p=1 step=guard fmt=[%8h|%b|%d] text=[xxxxxxxx|zz|18] rc=3 tag=18
+v a=1 b=10 wa=0101001x wb=101011zz seen_a=x seen_b=zz bits_a=1 bits_b=2 field=8
+h p=1 step=idle fmt=[%8h|%b|%d] text=[xxxxxxxx|zz|18] rc=3 tag=18
+v a=1 b=10 wa=0101001x wb=101011zz seen_a=x seen_b=zz bits_a=1 bits_b=2 field=8
+h p=2 step=before fmt=[%8h|%b|%d] text=[c3a5c3a5|!|27] rc=3 tag=18
+v a=1 b=10 wa=0101001x wb=101011zz seen_a=x seen_b=zz bits_a=1 bits_b=2 field=8
+h p=2 step=trial fmt=[%8h|%b|%d] text=[c3a5c3a5|!|27] rc=1 tag=18
+v a=1 b=10 wa=01010011 wb=101011zz seen_a=1 seen_b=zz bits_a=1 bits_b=2 field=8
+h p=2 step=again fmt=[%8h|%b|%d] text=[3a5c3a5c|10|28] rc=3 tag=28
+v a=1 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=8
+h p=2 step=guard fmt=[%8h|%b|%d] text=[3a5c3a5c|10|28] rc=3 tag=28
+v a=0 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=8
+h p=2 step=idle fmt=[%8h|%b|%d] text=[3a5c3a5c|10|28] rc=3 tag=28
+v a=0 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=8

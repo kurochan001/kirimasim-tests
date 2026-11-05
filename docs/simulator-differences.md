@@ -935,3 +935,14 @@ The [interface-query model](interaction-verification.en.md#interface-array-query
 Pinned Verilator 5.052 seed 1 gives 12 pass / 24 known; seed 73 gives 13 pass / 23 known. [Records identify each run separately](../coverage/interaction-qualification/ifquery-fixed-replays.json).
 Only the twelve known-input cases matching both seeds obtain Verilator oracles. The extra match, `33_bit_x_up_negative_one_explicit_function_ab_down`,
 stores X into bit. A single agreement under two-state randomization does not validate four-state behavior. Existing classification, expectations and seeds are unchanged.
+
+<a id="formatted-scan-partial-write-differences"></a>
+
+## Runtime scan formats, part-selects and two-state conversion (2026-11-05)
+
+The [scan model](interaction-verification.en.md#formatted-scan-partial-write) matches all 36 cases natively. Pinned Icarus 13.0 gives 17 pass / 19 known.
+Differences cover twelve runtime formats and seven literal-format bit/X/Z cases; preserve [every output/diagnostic](../coverage/interaction-qualification/scansel-known-replays.json).
+Replay observes seventeen normal exits and two returncodes -10/-11. Twelve separate literal controls retain inputs/expectations: seven match and five retain bit/X/Z differences.
+Both Verilator seeds give 3 pass / 33 known; only two known-input cases receive oracles. Full records retain runtime-format syntax rejection,
+a generated-C++ build failure for a 64-bit literal-format selection, and a 129-bit selection’s output difference.
+Controls do not replace original failures or expectations; extra two-state agreement does not qualify logic four-state behavior. No implementation-source or later-version cause is asserted.

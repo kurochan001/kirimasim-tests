@@ -1,0 +1,170 @@
+{
+  "model": "formatted_scan_partial_write",
+  "generated_at": "2026-11-05T14:26:27.665164+00:00",
+  "scope": "Final headers with pinned-release oracles. Latest core fetched/configured/built immediately before one complete finite-cross run. Execute an identical immutable binary snapshot to isolate later builds in the shared workspace. Formal CI is separate.",
+  "base_revision": "6f5c69841228257ebad959fef4aded828e781d93",
+  "upstream_main_revision": "6f5c69841228257ebad959fef4aded828e781d93",
+  "tracked_worktree_clean_at_build": true,
+  "binary_sha256": "9137b6756303c86f23c25be40d96c4643544a0225b35f25085cfdc75480f1c01",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit 6f5c69841228), built with AppleClang 21.0.0.21000334",
+  "run": "coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json",
+  "runner_returncode": 1,
+  "counts": {
+    "pass": 2639,
+    "unsupported": 529,
+    "fail": 4
+  },
+  "new_cases": 36,
+  "previous_cases": 3136,
+  "previous_run": "coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json",
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "parse": [
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_1_bit_known_bin_all_whole_target_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_65_logic_x_bin_bad_second_plus_target_high_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_33_bit_z_hex_empty_minus_word_low_runtime.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_32_logic_known_hex_long_first_plus_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_1_bit_x_hex_all_plus_word_high_runtime.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_33_logic_known_bin_empty_minus_target_high_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_65_bit_x_bin_long_first_whole_word_low_runtime.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_64_logic_z_hex_all_plus_target_high_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_32_bit_x_bin_all_minus_target_high_runtime.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_129_bit_z_hex_bad_second_whole_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_129_bit_known_bin_empty_plus_target_low_runtime.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_64_logic_x_hex_empty_whole_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_1_logic_z_bin_long_first_minus_target_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_65_bit_known_hex_all_minus_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_1_logic_x_hex_bad_second_minus_word_low_runtime.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_32_logic_z_bin_empty_whole_target_low_runtime.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_33_bit_x_bin_all_whole_target_low_runtime.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_65_bit_z_bin_empty_plus_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_33_bit_known_bin_long_first_plus_target_low_runtime.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_1_logic_known_bin_long_first_whole_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_32_bit_known_bin_bad_second_plus_target_low_runtime.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_64_bit_x_bin_long_first_minus_target_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_129_bit_x_bin_all_whole_target_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_1_bit_z_bin_empty_plus_target_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_32_bit_z_bin_bad_second_minus_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_33_logic_x_bin_bad_second_whole_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_32_logic_x_bin_all_whole_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_33_logic_z_bin_all_plus_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_64_bit_z_bin_all_plus_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_64_logic_known_bin_all_minus_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_65_logic_known_bin_all_whole_target_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_65_logic_z_bin_all_minus_target_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_129_logic_known_bin_all_plus_word_low_literal.sv",
+      "returncode": 0
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_scansel_129_logic_x_bin_all_minus_target_low_literal.sv",
+      "returncode": 0
+    }
+  ]
+}

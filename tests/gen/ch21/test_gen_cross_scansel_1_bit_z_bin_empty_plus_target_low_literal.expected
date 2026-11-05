@@ -1,0 +1,30 @@
+h p=0 step=before fmt=[%1b|%b|%d] text=[] rc=-77 tag=-91
+v a=1 b=10 wa=01010011 wb=10101100 seen_a=1 seen_b=00 bits_a=1 bits_b=2 field=1
+h p=0 step=trial fmt=[%1b|%b|%d] text=[] rc=-1 tag=-91
+v a=1 b=10 wa=01010011 wb=10101100 seen_a=1 seen_b=00 bits_a=1 bits_b=2 field=1
+h p=0 step=again fmt=[%1b|%b|%d] text=[0|10|8] rc=3 tag=8
+v a=1 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=1
+h p=0 step=guard fmt=[%1b|%b|%d] text=[0|10|8] rc=3 tag=8
+v a=0 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=1
+h p=0 step=idle fmt=[%1b|%b|%d] text=[0|10|8] rc=3 tag=8
+v a=0 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=1
+h p=1 step=before fmt=[%1b|%b|%d] text=[] rc=3 tag=8
+v a=0 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=1
+h p=1 step=trial fmt=[%1b|%b|%d] text=[] rc=-1 tag=8
+v a=0 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=1
+h p=1 step=again fmt=[%1b|%b|%d] text=[z|xx|18] rc=3 tag=18
+v a=0 b=10 wa=01010010 wb=10101100 seen_a=0 seen_b=00 bits_a=1 bits_b=2 field=1
+h p=1 step=guard fmt=[%1b|%b|%d] text=[z|xx|18] rc=3 tag=18
+v a=1 b=10 wa=01010010 wb=10101100 seen_a=0 seen_b=00 bits_a=1 bits_b=2 field=1
+h p=1 step=idle fmt=[%1b|%b|%d] text=[z|xx|18] rc=3 tag=18
+v a=1 b=10 wa=01010010 wb=10101100 seen_a=0 seen_b=00 bits_a=1 bits_b=2 field=1
+h p=2 step=before fmt=[%1b|%b|%d] text=[] rc=3 tag=18
+v a=1 b=10 wa=01010010 wb=10101100 seen_a=0 seen_b=00 bits_a=1 bits_b=2 field=1
+h p=2 step=trial fmt=[%1b|%b|%d] text=[] rc=-1 tag=18
+v a=1 b=10 wa=01010010 wb=10101100 seen_a=0 seen_b=00 bits_a=1 bits_b=2 field=1
+h p=2 step=again fmt=[%1b|%b|%d] text=[0|10|28] rc=3 tag=28
+v a=1 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=1
+h p=2 step=guard fmt=[%1b|%b|%d] text=[0|10|28] rc=3 tag=28
+v a=0 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=1
+h p=2 step=idle fmt=[%1b|%b|%d] text=[0|10|28] rc=3 tag=28
+v a=0 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bits_a=1 bits_b=2 field=1

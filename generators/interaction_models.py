@@ -86,6 +86,7 @@ import interaction_class_select
 import interaction_genloop
 import interaction_ifquery
 import interaction_genexpr
+import interaction_scansel
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -94,7 +95,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -755,5 +756,12 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_genexpr.MODEL.select(),
             "定数式のオペランド符号・代入文脈の幅・結果の宣言符号を分離し、生成分岐・個数・幅を照合する。"
             "$bitsによる形状、各生成要素の全幅データ、別実体の保持、X/Zと既知値への回復を観測する。",
+        ),
+        SuiteModel(
+            interaction_scansel.MODEL,
+            lambda row: "tests/gen/ch21/" + interaction_scansel.case_name(row) + ".sv",
+            interaction_scansel.MODEL.select(),
+            "文字列の読取りが途中で止まる位置と成功した書込みだけを、戻り値・全語・部分選択外の保持で照合する。"
+            "$bitsを使う実行時書式、文字数としてのフィールド幅、既知ASCIIのX/Z数字と格納時の変換を観測する。",
         ),
     )

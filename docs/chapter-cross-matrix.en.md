@@ -38,12 +38,14 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The 2026-11-05 mapping contains 85 models and 3,136 selected cases across 126 unordered off-diagonal pairs. The [complete kirimasim 92001039e896 local run](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json) records 2,603 pass, 529 unsupported and four failures; 58 models passed their entire selection.
+The 2026-11-05 mapping contains 86 models and 3,172 selected cases across 128 unordered off-diagonal pairs. The [complete kirimasim 6f5c69841228 local run](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json) records 2,639 pass, 529 unsupported and four failures; 59 models passed their entire selection.
 
-[Check on baseline 8df0dde9](https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354) passed pinned-release comparisons and static checks for the preceding 84-model suite.
+[Check on baseline d98d6e4c](https://github.com/kurochan001/kirimasim-tests/actions/runs/42040601997) passed pinned-release comparisons and static checks for the preceding 85-model suite.
 The [verified formal Nightly](nightly-results.en.md#latest-verified-checkpoint) covers 82 models on 19cd790a; the new 36 cases have not run in either Check or Nightly.
-The CSVs use the complete 3,136-case local cross85 run; partial successes from different runs are not combined.
+The CSVs use the complete 3,172-case local cross86 run; partial successes from different runs are not combined.
 The thirteen random profiles and their 96 Nightly passes do not enter these matrices.
+
+- **11×21 and 20×21, formatted scanning:** map the 24 part-select cases to 11×21 and the twelve runtime-format cases to 20×21; each has one model and one full-selection-pass model. Full-model success still requires all 36 together. See [design and independent evidence](interaction-verification.en.md#formatted-scan-partial-write).
 
 - **11×27 and 20×27, constant-expression/generate shape:** one model and one full-selection-pass model each, mapping all 36 cases. See [design and independent evidence](interaction-verification.en.md#generated-constant-expression-shape).
 

@@ -21086,6 +21086,22 @@
     "定数式のオペランド符号・代入文脈の幅・結果の宣言符号を分離し、生成分岐・個数・幅を照合する。": "Separate constant-expression operand signs, assignment-context width and result declaration sign; check generated branches, counts and widths.",
     "ZXQPH0QXZ による形状、各生成要素の全幅データ、別実体の保持、X/Zと既知値への回復を観測する。": "Observe ZXQPH0QXZ-driven shape, full-width data in each generated element, independent-instance retention and X/Z followed by known recovery.",
     "定数式の幅・オペランドの共通符号・格納後の負判定が、generateの選択と反復個数を変えることを実際の階層・全幅結果で照合する。": "Check how constant-expression width, common operand sign and the stored negative test change generate selection/count through actual hierarchy and full-width observations.",
-    "型付き定数に対する ZXQPH0QXZ を生成幅の計算に使い、文脈幅の変更を実際の生成要素の幅と全幅の観測へ伝える。": "Use ZXQPH0QXZ on a typed constant to compute generated width, propagating context-width changes into actual element widths and full-width observations."
+    "型付き定数に対する ZXQPH0QXZ を生成幅の計算に使い、文脈幅の変更を実際の生成要素の幅と全幅の観測へ伝える。": "Use ZXQPH0QXZ on a typed constant to compute generated width, propagating context-width changes into actual element widths and full-width observations.",
+    "wholeでは使わないplacementをlowに代表させる。": "Use low as the representative placement when whole-target scans do not use that factor.",
+    "他の全行は合法で未対応による除外なし。": "All remaining rows are legal; no support-based exclusions are applied.",
+    "二つの出力幅はWとW+ ZXQPH0QXZ 、格納語の幅はW+ ZXQPH1QXZ 。": "The two destination widths are W and W+ZXQPH0QXZ; guarded storage words have width W+ZXQPH1QXZ.",
+    "部分選択は低位または高位へ置き、+:と-:を区別する。": "Place part-selects in low or high positions and distinguish +: from -:.",
+    "書式の先頭フィールド幅は対象または格納語の ZXQPH0QXZ から作り、最大文字数として使う。": "Derive the first format field width from ZXQPH0QXZ of the target or guarded word and use it as the maximum character count.",
+    "hexでは文字数とビット数は異なる。": "For hexadecimal fields, character count differs from bit count.",
+    "literalでは同じ幅を生成時に埋め、runtimeでは実際の書式変数を渡す。": "Literal formats embed the same width at generation time; runtime calls pass the actual format variable.",
+    "先頭成功後の文字不一致、第二変換の不一致、空入力、全成功を区別する。": "Distinguish a literal mismatch after the first success, second-conversion failure, empty input and complete success.",
+    "成功した変換だけが書き込み、後続出力と選択範囲外を保持する。": "Only successful conversions write; retain later destinations and unselected bits.",
+    "既知・既知またはX/Z・既知への回復の各相で試行と全成功の再呼出しを行い、履歴を保持する。": "In known, known/X/Z and known-recovery phases, make a trial and a fully successful followup while retaining history.",
+    "X/Zは既知 ZXQPH0QXZ の数字として入力し、 ZXQPH1QXZ 格納への変換でもfourstateを指定する。": "Supply X/Z as known ZXQPH0QXZ digits and retain fourstate metadata even for conversion into ZXQPH1QXZ storage.",
+    "可変の選択添字・変換抑制・空白の特殊規則・実数・ファイルI/O・並行実行は対象外。": "Variable select indices, suppressed conversions, special whitespace rules, reals, file I/O and concurrency are outside scope.",
+    "文字列の読取りが途中で止まる位置と成功した書込みだけを、戻り値・全語・部分選択外の保持で照合する。": "Check scan stopping and successful writes through return counts, full words and retention outside part-selects.",
+    "ZXQPH0QXZ を使う実行時書式、文字数としてのフィールド幅、既知 ZXQPH1QXZ のX/Z数字と格納時の変換を観測する。": "Observe runtime formats using ZXQPH0QXZ, character-count field widths, known ZXQPH1QXZ X/Z digits and destination conversion.",
+    "走査の成功位置ごとに+:または-:の選択領域だけを書き換え、後続出力と両側の非選択ビットを保持することを全語で照合する。": "At each successful scan conversion, update only the +: or -: selected region and check later outputs and both sides of unselected storage through full words.",
+    "対象または格納語の ZXQPH0QXZ を実際の書式変数の最大文字数に使い、その境界での変換数と部分書込みを照合する。": "Use ZXQPH0QXZ of the target or storage word as the actual format variable’s maximum character count; check boundary conversion counts and partial writes."
   }
 }

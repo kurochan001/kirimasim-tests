@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の94生成器から4,449件のテストを生成しています。
+現在の95生成器から4,485件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -87,6 +87,7 @@
 | [`interaction_reactive`](../generators/interaction_reactive.py) | 24 | 36 | moduleのNBA連鎖の完了前後を、早いmodule内の対照とReactiveで動くprogramで観測する。連続代入・blocking・Re-NBAの出力と採取値、型変換、全段の値・NBA予約回数・採取した文脈を照合する。 |
 | [`interaction_resize`](../generators/interaction_resize.py) | 7 | 38 | 再確保前後のサイズと全要素を観測し、別配列コピー・自己リサイズ・初期化式なしの再生成、切り詰め、追加領域の型別既定値、コピー後の独立性を確認する。 |
 | [`interaction_return`](../generators/interaction_return.py) | 13 | 36 | for/while/repeat内で最初の非0ビットからreturnし、戻り値・走査回数と添字の総和・末尾到達・return後の副作用を観測する。A/B/A呼出しでインスタンス別状態とpackageの共有状態、呼出し元の同名変数の保持、X/Zの2状態変換も確認する。 |
+| [`interaction_scansel`](../generators/interaction_scansel.py) | 21 | 36 | 文字列の読取りが途中で止まる位置と成功した書込みだけを、戻り値・全語・部分選択外の保持で照合する。$bitsを使う実行時書式、文字数としてのフィールド幅、既知ASCIIのX/Z数字と格納時の変換を観測する。 |
 | [`interaction_sdfpath`](../generators/interaction_sdfpath.py) | 32 | 18 | SDFの条件・注釈範囲・置換/加算と、立上り/立下りの遅延を照合する。兄弟インスタンスと別出力を対照とし、値・変化回数・最終変化時刻を観測する。 |
 | [`interaction_select`](../generators/interaction_select.py) | 11 | 36 | 部分選択への書き込み前後にベクタ全体と選択範囲を表示し、添字方向・選択方向・X/Z変換に加え、選択していないビットの保持も確認する。 |
 | [`interaction_shift`](../generators/interaction_shift.py) | 11 | 56 | シフト前の値・シフト量・結果を表示し、代入先から伝わる幅、符号付きの埋め込み、X/Zの移動、未知のシフト量、最後の2状態変換を確認する。 |

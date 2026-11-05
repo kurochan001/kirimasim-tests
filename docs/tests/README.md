@@ -30,7 +30,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 18 | [Constrained random value generation](ch18.md) | 257 | 57 |
 | 19 | [Functional coverage](ch19.md) | 190 | 33 |
 | 20 | [Utility system tasks and system functions](ch20.md) | 367 | 97 |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 303 | 90 |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 339 | 126 |
 | 22 | [Compiler directives](ch22.md) | 398 | 288 |
 | 23 | [Modules and hierarchy](ch23.md) | 331 | 75 |
 | 24 | [Programs](ch24.md) | 124 | 81 |

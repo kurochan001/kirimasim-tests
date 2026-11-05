@@ -6,11 +6,11 @@ Updated on 2026-11-05 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json) has 85 models and 3,136 cases:
-2,603 pass, 529 unsupported and four config failures. All 36 constant-expression/generate additions pass; all preceding 3,100 inputs and statuses are unchanged.
+The current [complete local selection](../coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json) has 86 models and 3,172 cases:
+2,639 pass, 529 unsupported and four config failures. All 36 formatted-scan additions pass; all preceding 3,136 inputs and statuses are unchanged.
 The new 36 cases have not run in formal Check/Nightly.
 
-[Check on baseline 8df0dde9](https://github.com/kurochan001/kirimasim-tests/actions/runs/42029700354) passed pinned-release comparisons and static checks for the preceding 84-model suite.
+[Check on baseline d98d6e4c](https://github.com/kurochan001/kirimasim-tests/actions/runs/42040601997) passed pinned-release comparisons and static checks for the preceding 85-model suite.
 The [verified formal Nightly](nightly-results.en.md#latest-verified-checkpoint) covers 82 models on 19cd790a; the new 36 cases have not run in either Check or Nightly.
 The historical uncommitted builds below explain the repair process; they do not describe the current upstream state.
 One successful kirimasim-tests Nightly is separate from the core repository's seven-consecutive-Nightly condition.
@@ -99,7 +99,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M126, E3, C2, N117 and R572. See the
+The current triage is M128, E3, C2, N117 and R570. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -143,3 +143,13 @@ Select 36 of 4,608 legal combinations; independently interpret every row and val
 Freshly fetched/built `50a897dee62a` runs all 3,100 cases together: all 36 additions parse/pass, and preceding 3,064 inputs/statuses are unchanged.
 Pinned Icarus matches all 36 including X/Z; both Verilator seeds match the twelve known-input cases. Incidental two-state matches do not validate four-state behavior or obtain oracles.
 Requirement bindings, thirteen random profiles, existing regressions and core source are unchanged.
+
+- Added [formatted scanning/partial writes](interaction-verification.en.md#formatted-scan-partial-write) for 11×21 and 20×21.
+  Select 36 of 5,760 legal representatives, retaining 292 pairs, 142 targeted triples and six anchors. Validate independent interpretation, six normal controls and nine real SV faults.
+- One full 3,172-case run on freshly fetched/built `6f5c69841228` records 2,639 pass / 529 unsupported / four existing config failures.
+  All additions parse/pass and preceding 3,136 inputs/statuses are unchanged. Totals: 86 models / 128 chapter pairs / 59 full-selection-pass models;
+  triage M128 / E3 / C2 / N117 / R570.
+- Pinned Icarus gives 17 pass / 19 known; both Verilator seeds give 3 pass / 33 known. Retain original differences and separate same-stimulus literal controls without weakening expectations/classification.
+  Map 24 part-select cases to 11×21 and twelve runtime-format cases to 20×21; full-model success requires all 36 together.
+- Suite totals: 10,922 tests, including 4,485 generated cases from 95 generators. Requirement bindings, existing regressions, core code and thirteen random profiles are unchanged.
+  The new 36 cases have not run in formal Check/Nightly.

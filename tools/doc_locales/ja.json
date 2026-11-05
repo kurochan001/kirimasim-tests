@@ -24529,6 +24529,7 @@
     "what this does not certify": "現在のビルドの合格を保証しない理由",
     "Generated edge processes keep loop transfers, array observations and retained state local": "生成されたエッジプロセスが、ループの制御移動・配列の観測・保持状態を各スコープに閉じ込める",
     "Interface-local array queries drive ordered scans and preserve each instance": "interface内の配列問い合わせが順序付きの走査を駆動し、各実体の状態を保持する",
-    "Typed constant expressions determine generated branch, count and per-element width": "型付き定数式が生成分岐・個数・要素ごとの幅を決める"
+    "Typed constant expressions determine generated branch, count and per-element width": "型付き定数式が生成分岐・個数・要素ごとの幅を決める",
+    "Formatted scanning updates only successful destinations and preserves selected-word guards": "書式付き読取りが成功した格納先だけを更新し、選択範囲外を保持する"
   }
 }

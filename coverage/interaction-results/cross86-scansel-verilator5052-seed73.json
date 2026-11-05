@@ -1,0 +1,190 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch21/test_gen_cross_scansel_129_bit_known_bin_empty_plus_target_low_runtime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch21/test_gen_cross_scansel_129_bit_known_bin_empty_plus_target_low_runtime.sv:50:22: syntax error, unexpected IDENTIFIER, expecting STRING",
+   "inputs_sha256": "9b382b5eab1e9f264a758b3fb07228cccee026eb0ac40c209f41f8db23743772"
+  },
+  "gen/ch21/test_gen_cross_scansel_129_bit_x_bin_all_whole_target_low_literal": {
+   "status": "pass",
+   "inputs_sha256": "5663afd3771ce4ad7f49f6226d1c6c359ed86d56e4dcc8cc9648f64e5f4b11b1"
+  },
+  "gen/ch21/test_gen_cross_scansel_129_bit_z_hex_bad_second_whole_word_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'v a=11010010111000011101001011100001110100101110000111010...', expected 'v a=11010010111000011101001011100001110100101110000111010...'",
+   "inputs_sha256": "441ad740484f37323ef65241f156db91ea8d7ec6ef3f71da9a421b322c905b30"
+  },
+  "gen/ch21/test_gen_cross_scansel_129_logic_known_bin_all_plus_word_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'v a=10101010101010101010101010101010101010101010101010101...', expected 'v a=10101010101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "0589215df6556ca485603ea85eeb50b4f05b73ea5f694e388e6ff7aad944dff0"
+  },
+  "gen/ch21/test_gen_cross_scansel_129_logic_x_bin_all_minus_target_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'v a=10101010101010101010101010101010101010101010101010101...', expected 'v a=10101010101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "2168d232d36d1919b007c35f28bc3be4f315fa0236dc3d8a1218f9a3aee5f643"
+  },
+  "gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime.sv:57:22: syntax error, unexpected IDENTIFIER, expecting STRING",
+   "inputs_sha256": "64208b64c898ad9555f3decaec086679beb57a14741ccd5b51cce13a7887db1d"
+  },
+  "gen/ch21/test_gen_cross_scansel_1_bit_known_bin_all_whole_target_low_literal": {
+   "status": "pass",
+   "inputs_sha256": "de94779eed34ce6980cff0096430dd1b947896983e678050f10ced5cceec8745"
+  },
+  "gen/ch21/test_gen_cross_scansel_1_bit_x_hex_all_plus_word_high_runtime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch21/test_gen_cross_scansel_1_bit_x_hex_all_plus_word_high_runtime.sv:50:22: syntax error, unexpected IDENTIFIER, expecting STRING",
+   "inputs_sha256": "f3699a9c3480d9374a8bba84028960882aaa3a29144860314924ecc3fe4a5f26"
+  },
+  "gen/ch21/test_gen_cross_scansel_1_bit_z_bin_empty_plus_target_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'v a=1 b=10 wa=00000000 wb=00000010 seen_a=0 seen_b=10 bit...', expected 'v a=1 b=10 wa=01010010 wb=10101110 seen_a=0 seen_b=10 bit...'",
+   "inputs_sha256": "64d5f1a306853008eaf1587b58d8fb2001fc37b8e2d234bfc0697ae255f7200b"
+  },
+  "gen/ch21/test_gen_cross_scansel_1_logic_known_bin_long_first_whole_word_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'h p=0 step=trial fmt=[%8b|%b|%d] text=[101010101|01|7] rc...', expected 'h p=0 step=trial fmt=[%8b|%b|%d] text=[101010101|01|7] rc...'",
+   "inputs_sha256": "cea05171bae8b0aa8fb4682998261ae4975f721a19b7045dc4352d2906d80006"
+  },
+  "gen/ch21/test_gen_cross_scansel_1_logic_x_hex_bad_second_minus_word_low_runtime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch21/test_gen_cross_scansel_1_logic_x_hex_bad_second_minus_word_low_runtime.sv:50:22: syntax error, unexpected IDENTIFIER, expecting STRING",
+   "inputs_sha256": "853d362fc7b0b7e25b0c65d2db141f062337c90fa48bb470b1ff52d43d579c2b"
+  },
+  "gen/ch21/test_gen_cross_scansel_1_logic_z_bin_long_first_minus_target_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'h p=0 step=trial fmt=[%1b|%b|%d] text=[11|01|7] rc=3 tag=7', expected 'h p=0 step=trial fmt=[%1b|%b|%d] text=[11|01|7] rc=1 tag=-91'",
+   "inputs_sha256": "3f70245e3e70fe8132164d31e570cc5d8d79ce79397e7f13186cf10c683eab03"
+  },
+  "gen/ch21/test_gen_cross_scansel_32_bit_known_bin_bad_second_plus_target_low_runtime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch21/test_gen_cross_scansel_32_bit_known_bin_bad_second_plus_target_low_runtime.sv:50:22: syntax error, unexpected IDENTIFIER, expecting STRING",
+   "inputs_sha256": "3aabccce4c38c2def75781dba047c1dd1e3244de2600d22fde77934676ceaa93"
+  },
+  "gen/ch21/test_gen_cross_scansel_32_bit_x_bin_all_minus_target_high_runtime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch21/test_gen_cross_scansel_32_bit_x_bin_all_minus_target_high_runtime.sv:50:22: syntax error, unexpected IDENTIFIER, expecting STRING",
+   "inputs_sha256": "a7bdd77da10412f489d40f7daec6ed988d6e4a5eb511618ed378ab6e86298d12"
+  },
+  "gen/ch21/test_gen_cross_scansel_32_bit_z_bin_bad_second_minus_word_low_literal": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp7qf56mdi/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "03fcc8c2298ffe29da451cd4b38a055f96d5fa7a901b754b0fb3accb54dce91c"
+  },
+  "gen/ch21/test_gen_cross_scansel_32_logic_known_hex_long_first_plus_word_low_literal": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp4pvq3tjt/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "07010b44e7c8febb829a0cc858891e8dd5b0dcbb76982c0e6e94ee44444b0e06"
+  },
+  "gen/ch21/test_gen_cross_scansel_32_logic_x_bin_all_whole_word_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 14 is 'v a=00000000000000000000000000000000 b=000000000000000000...', expected 'v a=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx b=zzzzzzzzzzzzzzzzzz...'",
+   "inputs_sha256": "4431ad9ab9c2adf0395ba68eef1ff70ce9d2744a8fe4c8d096016bddbcaea8b9"
+  },
+  "gen/ch21/test_gen_cross_scansel_32_logic_z_bin_empty_whole_target_low_runtime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch21/test_gen_cross_scansel_32_logic_z_bin_empty_whole_target_low_runtime.sv:50:22: syntax error, unexpected IDENTIFIER, expecting STRING",
+   "inputs_sha256": "c2186bc336197bc37e8ae2b70a2c6c3453fa5c7a258abc1cd036b1dd8d411114"
+  },
+  "gen/ch21/test_gen_cross_scansel_33_bit_known_bin_long_first_plus_target_low_runtime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch21/test_gen_cross_scansel_33_bit_known_bin_long_first_plus_target_low_runtime.sv:53:22: syntax error, unexpected IDENTIFIER, expecting STRING",
+   "inputs_sha256": "7950480306d634051500561f47717756a4fb8ebf3b59609a3ac54da3e535e302"
+  },
+  "gen/ch21/test_gen_cross_scansel_33_bit_x_bin_all_whole_target_low_runtime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch21/test_gen_cross_scansel_33_bit_x_bin_all_whole_target_low_runtime.sv:53:22: syntax error, unexpected IDENTIFIER, expecting STRING",
+   "inputs_sha256": "bf6b5e4619cb653635c80dee2ce2fbf2842fb43fef5bc743a05432fecd27f3b8"
+  },
+  "gen/ch21/test_gen_cross_scansel_33_bit_z_hex_empty_minus_word_low_runtime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch21/test_gen_cross_scansel_33_bit_z_hex_empty_minus_word_low_runtime.sv:50:22: syntax error, unexpected IDENTIFIER, expecting STRING",
+   "inputs_sha256": "1270a8029ff1e1e9d9938e4313b1a993a2a17dd53b265ada5069dcdaf7f45d8d"
+  },
+  "gen/ch21/test_gen_cross_scansel_33_logic_known_bin_empty_minus_target_high_literal": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpz6ubiiqa/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "29a40adb55f88c1c3120ab0b34977cb0c5df148ad8fd10e7cecec18972c03a0f"
+  },
+  "gen/ch21/test_gen_cross_scansel_33_logic_x_bin_bad_second_whole_word_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 14 is 'v a=000000000000000000000000000000000 b=10101010101010101...', expected 'v a=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx b=10101010101010101...'",
+   "inputs_sha256": "2619e1d107b9fa3bf9349a321072227c14ca41279d26b598d68b35ca8796a4a5"
+  },
+  "gen/ch21/test_gen_cross_scansel_33_logic_z_bin_all_plus_word_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'v a=101010101010101010101010101010001 b=10101010101010101...', expected 'v a=101010101010101010101010101010001 b=10101010101010101...'",
+   "inputs_sha256": "e9fe05579205e68d36f12c83aeb1e89265297a017e4ed331d1c88384d13367aa"
+  },
+  "gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime.sv:50:22: syntax error, unexpected IDENTIFIER, expecting STRING",
+   "inputs_sha256": "31575b66ae40eab679edaf5761f6dea6f84d6c705a9c1e0d3d8624f9349c555e"
+  },
+  "gen/ch21/test_gen_cross_scansel_64_bit_x_bin_long_first_minus_target_low_literal": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp_zqi1hgm/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "8e1f1f8ef63881a57b4df7a000ccbebefb59e5fd6fb78cdd11241a506eca657c"
+  },
+  "gen/ch21/test_gen_cross_scansel_64_bit_z_bin_all_plus_word_low_literal": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpp3a593fa/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "97c9fa2685068d0bcaad840450d79aec1b0abb523c3c371c0fd7691634c0090a"
+  },
+  "gen/ch21/test_gen_cross_scansel_64_logic_known_bin_all_minus_word_low_literal": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpgf6c1_le/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "47b9a7f77f192c526c69831415ca6274817d3183c01af7eed4b771fa96432d67"
+  },
+  "gen/ch21/test_gen_cross_scansel_64_logic_x_hex_empty_whole_word_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'v a=00000000000000000000000000000000000000000000000000000...', expected 'v a=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+   "inputs_sha256": "b0b5190d3b1bf53320ef4b353960dd49298581d40a402e23038b94ee7944a1b8"
+  },
+  "gen/ch21/test_gen_cross_scansel_64_logic_z_hex_all_plus_target_high_literal": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpwdli9_m0/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "828677a43c4aa9846b2705741f1adaa9ded01291a5c8be51dadc8ae422c0e6f3"
+  },
+  "gen/ch21/test_gen_cross_scansel_65_bit_known_hex_all_minus_word_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'v a=10101010101010101010101010101010101010101010101010101...', expected 'v a=10101010101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "6c4343d85307556db26d7232740a5fa76bfd74fbf97462a1af807dda63bdcd17"
+  },
+  "gen/ch21/test_gen_cross_scansel_65_bit_x_bin_long_first_whole_word_low_runtime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch21/test_gen_cross_scansel_65_bit_x_bin_long_first_whole_word_low_runtime.sv:54:22: syntax error, unexpected IDENTIFIER, expecting STRING",
+   "inputs_sha256": "50bc79c0d090aceab71e47ca6dd0c5fc40f0ec27c6ce9701b5a70c2b65697f70"
+  },
+  "gen/ch21/test_gen_cross_scansel_65_bit_z_bin_empty_plus_word_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'v a=10101010101010101010101010101010101010101010101010101...', expected 'v a=10101010101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "d5f6e9543739d673d201894bb0175815ef47de420a5f96ed28f0ec17580b82bb"
+  },
+  "gen/ch21/test_gen_cross_scansel_65_logic_known_bin_all_whole_target_low_literal": {
+   "status": "pass",
+   "inputs_sha256": "238b69bb615210cf4459abed185dc72a86adc0def3fdee47e4932f70c33fab2d"
+  },
+  "gen/ch21/test_gen_cross_scansel_65_logic_x_bin_bad_second_plus_target_high_literal": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'v a=10101010101010101010101010101010101010101010101010101...', expected 'v a=10101010101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "a440fac0d92fc82b343d4900419182f347a4e30c0713eb2e131a99f296ea0880"
+  },
+  "gen/ch21/test_gen_cross_scansel_65_logic_z_bin_all_minus_target_low_literal": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'v a=10101010101010101010101010101010101010101010101010101...', expected 'v a=10101010101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "6ee4fe588f66f95556b4fbbd3605f50296cb1d5ca3d2cffeaaa8b2076cbae2d6"
+  }
+ },
+ "generated_at": "2026-11-05T14:25:50.969623+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}
