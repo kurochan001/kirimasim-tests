@@ -6,9 +6,9 @@
 
 This report is only for registered finite models. The coverage of the requirements and the combination of all languages is not the same. The coverage on the plan and the confirmation of the pass based on the execution result are divided. The existing test is not reduced. A reduction in selected case count is not a measured reduction in runtime.
 
-For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/interaction-verification.en.md).
+For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/673210797a4e131a47f75524b4662f93de866206/docs/interaction-verification.en.md).
 
-See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
+See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/673210797a4e131a47f75524b4662f93de866206/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/673210797a4e131a47f75524b4662f93de866206/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
 
 ## scheduling_visibility / model 1
 
@@ -1725,6 +1725,146 @@ Compare conditional selection, update targets and early returns through direct c
 
 Constraints: All rows are legal; none is excluded for unsupported behavior. Two derived objects distinguish direct calls from virtual and nonvirtual base-handle calls. If and ordinary case take the false/default path for X/Z conditions; the conditional operator merges each bit. Run a known-input phase and a known/X/Z phase; keep the selector logic even for bit data. Capture the returned value before updating only the receiver data; statements after the early return must not execute. After each call observe both objects, a retained alias, wider result variables and invocation counts. Check external updates, handle rebinding, guard-only writes, repeated calls and final retention. Use one initial process and functions that consume no time. Recursion, ref, null, concurrency, GC, property hiding, super and mixed-sign arithmetic are outside scope.
 
+## generated_process_loop_transfer / model 1
+
+- The number of combinations satisfying the constraint is 6912.
+- Existing and new tests available: 36.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 293/293.
+- Planned 3-factor coverage: 160/160.
+
+Check each generated process’s array scan and break/continue with visited/kept counts, weights and full-width results. Observe one scope’s input change, a separate guard update, rising-edge rearming and state retention after falling edges and during idle.
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- loop: for, while, repeat。
+- transfer: break, continue。
+- hit: head, middle, tail, miss。
+- form: if, case。
+- range: up, down。
+- count: 1, 3。
+
+Constraints: All rows are legal; no support-based exclusions are applied. Two module instances each contain two generated elements with independent posedge processes, local types, arrays and counters. Branches and genvar determine local widths and array ranges. For/while/repeat scan the same logical positions, using low-bit case inequality against 0 for break/continue. While/repeat advance the index before branching, so continue cannot prevent termination. Head/middle/tail positions reverse in odd scopes and rotate once in the recovery phase. Equivalent positions at length one are retained. Each known, known/X/Z and known-recovery phase triggers twice, changing one scope input and another scope guard between triggers. Check retention after falling edges and during idle. Signed arithmetic, foreach, dynamic arrays, NBA, named disable, concurrent writers and variable hierarchy indices are outside scope. X/Z inputs retain fourstate metadata even when converted into bit storage.
+
+## interface_array_query_walk / model 1
+
+- The number of combinations satisfying the constraint is 4608.
+- Existing and new tests available: 36.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 274/274.
+- Planned 3-factor coverage: 96/96.
+
+Interface-local array queries determine the scan start, count, direction and typed result. Check every element, both dimension bounds, singletons, independent-instance retention and repeated calls after input changes.
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- bounds: up, down。
+- origin: negative, positive。
+- length: one, three。
+- query: default, explicit。
+- routine: function, task。
+- order: ab, ba。
+- packed: up, down。
+
+Constraints: All rows are legal; no support-based exclusions are applied. The two interfaces have different widths, lengths, index origins and directions. The first has width W and length 1/3; the second has width W+2 and length 2/4 with the opposite direction. The packed ranges also have opposite directions and nonzero origins. An automatic function/task inside the interface uses $left / $size / $increment to scan logical positions, computing an order-sensitive full-width checksum with left shifts and XOR. A singleton has increment 1. Distinguish omitted dimensions from explicit dimension 1 and observe every query on packed dimension 2 as well. In known, known/X/Z and known-recovery phases, observe both instances after every call. Update only one last element and the other guard, then call again in reverse order. Store returns and output copyout into width-W+4 logic results. X/Z conversion into bit also retains fourstate metadata. Signed arithmetic, interface ports, modports, virtual interfaces, dynamic arrays, concurrent calls and timing controls are outside scope.
+
+## generated_constant_expression_shape / model 1
+
+- The number of combinations satisfying the constraint is 6912.
+- Existing and new tests available: 36.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 297/297.
+- Planned 3-factor coverage: 132/132.
+
+Separate constant-expression operand signs, assignment-context width and result declaration sign; check generated branches, counts and widths. Observe $bits-driven shape, full-width data in each generated element, independent-instance retention and X/Z followed by known recovery.
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- left_sign: s, u。
+- right_sign: s, u。
+- result_sign: s, u。
+- context: same, wide。
+- operation: add, xor, conditional。
+- form: if, case。
+- binding: named, positional。
+
+Constraints: All rows are legal; no support-based exclusions are applied. The two modules use SELECT values 0/1; constant A has only its high bit set to 1 or value 1, while every bit of B is 1. Both operands have the base width and independently chosen signedness. Store the addition, XOR or conditional result in a typed localparam of the base width or one bit wider. Sign-extend the expression only when both operands are signed, independently of the result declaration’s signedness. The stored negative test selects if/case generate; high and low bits determine a generated count from 1 to 4. The remainder of $bits determines generated width, which genvar varies further. Every element has independent raw, guard and continuous-assignment result words. Observe every element in known, known/X/Z and known-recovery phases, updating only one first input and the other instance’s last guard. Use X/Z only in runtime stimulus; constant expressions and generate conditions remain known. Conversion into bit also retains fourstate metadata. Configuration, defparam, undefined hierarchy references, dynamic generate indices and signed runtime arithmetic are outside scope.
+
+## formatted_scan_partial_write / model 1
+
+- The number of combinations satisfying the constraint is 5760.
+- Existing and new tests available: 36.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 292/292.
+- Planned 3-factor coverage: 142/142.
+
+Check scan stopping and successful writes through return counts, full words and retention outside part-selects. Observe runtime formats using $bits, character-count field widths, known ASCII X/Z digits and destination conversion.
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- radix: bin, hex。
+- outcome: all, long_first, bad_second, empty。
+- target: whole, plus, minus。
+- field: target, word。
+- placement: low, high。
+- format: literal, runtime。
+
+Constraints: Use low as the representative placement when whole-target scans do not use that factor. All remaining rows are legal; no support-based exclusions are applied. The two destination widths are W and W+1; guarded storage words have width W+7. Place part-selects in low or high positions and distinguish +: from -:. Derive the first format field width from $bits of the target or guarded word and use it as the maximum character count. For hexadecimal fields, character count differs from bit count. Literal formats embed the same width at generation time; runtime calls pass the actual format variable. Distinguish a literal mismatch after the first success, second-conversion failure, empty input and complete success. Only successful conversions write; retain later destinations and unselected bits. In known, known/X/Z and known-recovery phases, make a trial and a fully successful followup while retaining history. Supply X/Z as known ASCII digits and retain fourstate metadata even for conversion into bit storage. Variable select indices, suppressed conversions, special whitespace rules, reals, file I/O and concurrency are outside scope.
+
+## program_task_frame_lifetime / model 1
+
+- The number of combinations satisfying the constraint is 3456.
+- Existing and new tests available: 36.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 249/249.
+- Planned 3-factor coverage: 100/100.
+
+Check overlapping automatic task locals and output/inout copying across program termination scope and return methods. Observe suppressed copies on cancellation, the surviving peer program, sign extension, neighboring array elements and recall history.
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- sign: u, s。
+- mode: output, inout。
+- storage: scalar, element。
+- stop: before, between, natural。
+- completion: end, return。
+- order: ab, ba。
+
+Constraints: All rows are legal; no support-based exclusions are applied. Two independent programs each overlap two automatic task calls. Calls start at 1/3, return at 7/11, and external inputs and actuals change at 5. Apply $exit only to the target program at 6 or 9, retaining a natural-completion control. Keep output/inout formals and local words private to each call; copy out only on normal endtask or return. Actuals are 3-bit-wider logic words; observe sign extension and unselected elements of fixed arrays [2:4]. Reset to known values at 12; surviving programs call the same task again and return at 13. Only the module observes output, avoiding observation-order dependence at program write times. The counterpart program initial waits until 20; the module finishes explicitly at 15. Implicit global completion is outside the main scope. Ref arguments, variable indices, NBA, join_none, recursion, concurrent same-tick writers and static tasks are outside the main scope. Retain fourstate metadata even when input X/Z converts into bit.
+
+## package_array_query_scope / model 1
+
+- The number of combinations satisfying the constraint is 3456.
+- Existing and new tests available: 36.
+- Selected cases for focused execution: 36.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 249/249.
+- Planned 3-factor coverage: 118/118.
+
+Function-local imports and qualified references select query operands, determining scan start, count, direction and full-width accumulation. Check target array types, every element and history after updating the unselected package and local namesakes.
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- bounds: up, down。
+- origin: negative, positive。
+- length: one, three。
+- binding: explicit, wildcard, qualified。
+- source: first, second。
+- query: default, explicit。
+
+Constraints: All rows are legal; no support-based exclusions are applied. Two packages contain same-named fixed arrays with different widths, lengths, origins and directions. Each module also has a local namesake array with a different width and length. An explicit import, wildcard import or qualified reference inside an automatic function selects the target package. $left / $size / $increment determine scan start, count and direction; left shifts and XOR accumulate every bit. Observe omitted and explicit dimension 1, packed dimension 2, and $bits / $dimensions / $unpacked_dimensions. Retain two callers and previous results across known, known/X/Z and known-recovery phases. Call again after updating the unselected package, then update only the selected package and both modules’ local arrays. After each operation observe every array element, typed results, calls, visits, weighted indices and terminal indices. X/Z conversion into bit also retains fourstate metadata. Export, dynamic arrays, signed arithmetic, tasks, timing and concurrent calls are outside scope.
+
 <a id="入力指紋が一致した実行の確認"></a>
 
 ## Verify that the input fingerprint matches the execution.
@@ -1733,8 +1873,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/ghost.json
 
-- Environment: private build 3314f9902a64.
-- Execution timestamp: 2026-11-05T03:38:28.956402+00:00.
+- Environment: private build 63199c0a337a.
+- Execution timestamp: 2026-11-06T01:17:12.738295+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2016,10 +2156,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 4/4.
   - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - array_reduction_constraint:
-  - The confirmed combination of the 2 factor: 64/96.
-  - The confirmed combination of the 3 factor: 19/40.
-  - Mandatory case: 2/4.
-  - Case statuses: pass=6, fail=7, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 83/96.
+  - The confirmed combination of the 3 factor: 26/40.
+  - Mandatory case: 3/4.
+  - Case statuses: pass=8, fail=5, known=0, unsupported=0, stale=0, not_run=0.
 - associative_array_queries:
   - The confirmed combination of the 2 factor: 93/93.
   - The confirmed combination of the 3 factor: 54/54.
@@ -2145,11 +2285,41 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 129/135.
   - Mandatory case: 5/6.
   - Case statuses: pass=34, fail=2, known=0, unsupported=0, stale=0, not_run=0.
+- generated_process_loop_transfer:
+  - The confirmed combination of the 2 factor: 0/293.
+  - The confirmed combination of the 3 factor: 0/160.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=36, known=0, unsupported=0, stale=0, not_run=0.
+- interface_array_query_walk:
+  - The confirmed combination of the 2 factor: 254/274.
+  - The confirmed combination of the 3 factor: 83/96.
+  - Mandatory case: 5/6.
+  - Case statuses: pass=30, fail=6, known=0, unsupported=0, stale=0, not_run=0.
+- generated_constant_expression_shape:
+  - The confirmed combination of the 2 factor: 0/297.
+  - The confirmed combination of the 3 factor: 0/132.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=36, known=0, unsupported=0, stale=0, not_run=0.
+- formatted_scan_partial_write:
+  - The confirmed combination of the 2 factor: 292/292.
+  - The confirmed combination of the 3 factor: 142/142.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- program_task_frame_lifetime:
+  - The confirmed combination of the 2 factor: 126/249.
+  - The confirmed combination of the 3 factor: 29/100.
+  - Mandatory case: 1/6.
+  - Case statuses: pass=17, fail=19, known=0, unsupported=0, stale=0, not_run=0.
+- package_array_query_scope:
+  - The confirmed combination of the 2 factor: 249/249.
+  - The confirmed combination of the 3 factor: 118/118.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 
 ### results/icarus.json
 
-- Environment: Icarus Verilog version 14.0 (devel) (s20260301-812-g9f260501).
-- Execution timestamp: 2026-11-05T00:38:16.069296+00:00.
+- Environment: Icarus Verilog version 14.0 (devel) (s20260301-821-g3b5615f5).
+- Execution timestamp: 2026-11-06T01:01:57.285288+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2560,11 +2730,41 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/135.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- generated_process_loop_transfer:
+  - The confirmed combination of the 2 factor: 293/293.
+  - The confirmed combination of the 3 factor: 160/160.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- interface_array_query_walk:
+  - The confirmed combination of the 2 factor: 274/274.
+  - The confirmed combination of the 3 factor: 96/96.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_constant_expression_shape:
+  - The confirmed combination of the 2 factor: 297/297.
+  - The confirmed combination of the 3 factor: 132/132.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- formatted_scan_partial_write:
+  - The confirmed combination of the 2 factor: 222/292.
+  - The confirmed combination of the 3 factor: 67/142.
+  - Mandatory case: 3/6.
+  - Case statuses: pass=17, fail=0, known=19, unsupported=0, stale=0, not_run=0.
+- program_task_frame_lifetime:
+  - The confirmed combination of the 2 factor: 150/249.
+  - The confirmed combination of the 3 factor: 32/100.
+  - Mandatory case: 2/6.
+  - Case statuses: pass=6, fail=0, known=30, unsupported=0, stale=0, not_run=0.
+- package_array_query_scope:
+  - The confirmed combination of the 2 factor: 0/249.
+  - The confirmed combination of the 3 factor: 0/118.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
 
 ### results/kirimasim.json
 
-- Environment: kirimasim 0.0.0 (commit 50a897dee62a), built with GNU 13.3.0.
-- Execution timestamp: 2026-11-05T03:26:40.741180+00:00.
+- Environment: kirimasim 0.0.0 (commit 6f5c69841228), built with GNU 13.3.0.
+- Execution timestamp: 2026-11-06T01:47:52.985134+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2975,11 +3175,41 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 135/135.
   - Mandatory case: 6/6.
   - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_process_loop_transfer:
+  - The confirmed combination of the 2 factor: 293/293.
+  - The confirmed combination of the 3 factor: 160/160.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- interface_array_query_walk:
+  - The confirmed combination of the 2 factor: 274/274.
+  - The confirmed combination of the 3 factor: 96/96.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_constant_expression_shape:
+  - The confirmed combination of the 2 factor: 297/297.
+  - The confirmed combination of the 3 factor: 132/132.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- formatted_scan_partial_write:
+  - The confirmed combination of the 2 factor: 292/292.
+  - The confirmed combination of the 3 factor: 142/142.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- program_task_frame_lifetime:
+  - The confirmed combination of the 2 factor: 249/249.
+  - The confirmed combination of the 3 factor: 100/100.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_array_query_scope:
+  - The confirmed combination of the 2 factor: 249/249.
+  - The confirmed combination of the 3 factor: 118/118.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 
 ### results/lyra.json
 
-- Environment: Lyra (commit ccfc8aa4fbd9).
-- Execution timestamp: 2026-11-05T04:44:28.598954+00:00.
+- Environment: Lyra (commit 3ee7454cc747).
+- Execution timestamp: 2026-11-06T05:05:00.581249+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 111/126.
@@ -3390,17 +3620,47 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 135/135.
   - Mandatory case: 6/6.
   - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_process_loop_transfer:
+  - The confirmed combination of the 2 factor: 293/293.
+  - The confirmed combination of the 3 factor: 160/160.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- interface_array_query_walk:
+  - The confirmed combination of the 2 factor: 274/274.
+  - The confirmed combination of the 3 factor: 96/96.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_constant_expression_shape:
+  - The confirmed combination of the 2 factor: 297/297.
+  - The confirmed combination of the 3 factor: 132/132.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- formatted_scan_partial_write:
+  - The confirmed combination of the 2 factor: 292/292.
+  - The confirmed combination of the 3 factor: 142/142.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- program_task_frame_lifetime:
+  - The confirmed combination of the 2 factor: 249/249.
+  - The confirmed combination of the 3 factor: 100/100.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_array_query_scope:
+  - The confirmed combination of the 2 factor: 249/249.
+  - The confirmed combination of the 3 factor: 118/118.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 
 ### results/verilator.json
 
-- Environment: Verilator 5.055 devel rev v5.054-63-g57bbb293.
-- Execution timestamp: 2026-11-05T02:39:00.207229+00:00.
+- Environment: Verilator 5.055 devel rev v5.054-75-gab53e01d.
+- Execution timestamp: 2026-11-06T02:39:03.102639+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
-  - The confirmed combination of the 3 factor: 48/51.
+  - The confirmed combination of the 3 factor: 51/51.
   - Individual mandatory cases: No objects.
-  - Case statuses: pass=300, fail=0, known=25, unsupported=0, stale=0, not_run=0.
+  - Case statuses: pass=318, fail=0, known=7, unsupported=0, stale=0, not_run=0.
 - nba_capture:
   - The confirmed combination of the 2 factor: 104/162.
   - The confirmed combination of the 3 factor: 18/44.
@@ -3803,5 +4063,35 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 - class_conditional_return:
   - The confirmed combination of the 2 factor: 127/183.
   - The confirmed combination of the 3 factor: 48/135.
+  - Mandatory case: 3/6.
+  - Case statuses: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0.
+- generated_process_loop_transfer:
+  - The confirmed combination of the 2 factor: 193/293.
+  - The confirmed combination of the 3 factor: 65/160.
+  - Mandatory case: 3/6.
+  - Case statuses: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0.
+- interface_array_query_walk:
+  - The confirmed combination of the 2 factor: 189/274.
+  - The confirmed combination of the 3 factor: 37/96.
+  - Mandatory case: 3/6.
+  - Case statuses: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0.
+- generated_constant_expression_shape:
+  - The confirmed combination of the 2 factor: 211/297.
+  - The confirmed combination of the 3 factor: 57/132.
+  - Mandatory case: 3/6.
+  - Case statuses: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0.
+- formatted_scan_partial_write:
+  - The confirmed combination of the 2 factor: 133/292.
+  - The confirmed combination of the 3 factor: 34/142.
+  - Mandatory case: 1/6.
+  - Case statuses: pass=8, fail=0, known=28, unsupported=0, stale=0, not_run=0.
+- program_task_frame_lifetime:
+  - The confirmed combination of the 2 factor: 0/249.
+  - The confirmed combination of the 3 factor: 0/100.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- package_array_query_scope:
+  - The confirmed combination of the 2 factor: 178/249.
+  - The confirmed combination of the 3 factor: 47/118.
   - Mandatory case: 3/6.
   - Case statuses: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0.

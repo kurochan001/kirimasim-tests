@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_sha256": "bb2426c4b325d5c2869b1338c43bbb3558516ef3d4a5d4a9f123828b1370a165",
+  "source_sha256": "2973590662d2bdb88d52e2198584f164a3a5eb07c6844218ff73277b809ff031",
   "models": [
     {
       "id": "scheduling_visibility",
@@ -45770,14 +45770,3948 @@
           "inputs_sha256": "7c0fa55528b930b16163b67753128498a81881969c0f53c2ef5143af798fab5b"
         }
       ]
+    },
+    {
+      "id": "generated_process_loop_transfer",
+      "version": 1,
+      "factors": {
+        "width": [
+          "1",
+          "32",
+          "33",
+          "64",
+          "65",
+          "129"
+        ],
+        "state": [
+          "bit",
+          "logic"
+        ],
+        "value": [
+          "known",
+          "x",
+          "z"
+        ],
+        "loop": [
+          "for",
+          "while",
+          "repeat"
+        ],
+        "transfer": [
+          "break",
+          "continue"
+        ],
+        "hit": [
+          "head",
+          "middle",
+          "tail",
+          "miss"
+        ],
+        "form": [
+          "if",
+          "case"
+        ],
+        "range": [
+          "up",
+          "down"
+        ],
+        "count": [
+          "1",
+          "3"
+        ]
+      },
+      "constraints": [
+        "全行が合法で未対応による除外なし。二moduleインスタンスの各二生成要素が独立したposedgeプロセス、局所型・配列・カウンタを持つ。分岐とgenvarで局所幅・配列範囲が変わる。for/while/repeatは同じ論理位置順に走査し、最下位ビットの!==0でbreak/continueする。while/repeatは分岐前に添字を進めるため、continueでも停止性を保つ。head/middle/tailは奇数スコープで反転し、回復相では一つ回す。長さ一の位置の重複も保持する。既知・既知またはX/Z・既知への回復の各相で二回起動し、その間に一スコープの入力と別スコープのguardだけを変える。クロックを下げた後と待機中も保持を読む。符号付き演算・foreach・動的配列・NBA・名前付きdisable・並行writer・可変階層添字は対象外。X/Z入力ではbit格納への変換でもfourstateを指定する。"
+      ],
+      "higher_strength_groups": [
+        [
+          "width",
+          "state",
+          "value"
+        ],
+        [
+          "form",
+          "loop",
+          "transfer"
+        ],
+        [
+          "loop",
+          "transfer",
+          "hit"
+        ],
+        [
+          "count",
+          "hit",
+          "transfer"
+        ],
+        [
+          "range",
+          "loop",
+          "hit"
+        ],
+        [
+          "width",
+          "count",
+          "range"
+        ],
+        [
+          "value",
+          "transfer",
+          "hit"
+        ]
+      ],
+      "witness": "生成プロセスごとの配列走査とbreak/continueを、訪問数・保持数・重み・全幅の結果で照合する。一スコープの入力変更、別guardの更新、立上りでの再起動、立下りと待機中の状態保持を観測する。",
+      "legal_rows": 6912,
+      "available_cases": 36,
+      "selected_cases": 36,
+      "targets_by_strength": {
+        "2": 293,
+        "3": 160
+      },
+      "mandatory_witnesses": [
+        "tests/gen/ch27/test_gen_cross_genloop_1_bit_known_for_break_head_if_up_1.sv",
+        "tests/gen/ch27/test_gen_cross_genloop_129_logic_z_repeat_continue_miss_case_down_3.sv",
+        "tests/gen/ch27/test_gen_cross_genloop_65_logic_x_while_break_middle_if_down_3.sv",
+        "tests/gen/ch27/test_gen_cross_genloop_33_bit_z_repeat_break_tail_case_up_1.sv",
+        "tests/gen/ch27/test_gen_cross_genloop_32_logic_known_for_continue_tail_case_down_3.sv",
+        "tests/gen/ch27/test_gen_cross_genloop_64_bit_known_while_continue_middle_if_up_3.sv"
+      ],
+      "selection": [
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_1_bit_known_for_break_head_if_up_1.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "known",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "head",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "73afb1bdbb01c6977574a3257f1932957f480c49bfbcdfbac96cb820c4b04e7b"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_129_logic_z_repeat_continue_miss_case_down_3.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "z",
+            "loop": "repeat",
+            "transfer": "continue",
+            "hit": "miss",
+            "form": "case",
+            "range": "down",
+            "count": "3"
+          },
+          "inputs_sha256": "8f67533e019e99235e85e8199117768d0b641d34ef9325aaf991cd7d53404148"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_65_logic_x_while_break_middle_if_down_3.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "x",
+            "loop": "while",
+            "transfer": "break",
+            "hit": "middle",
+            "form": "if",
+            "range": "down",
+            "count": "3"
+          },
+          "inputs_sha256": "0e36a59f28e1a650ae30727372aa1326ad287a013d6dcbe04e7c9ac9729f946d"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_33_bit_z_repeat_break_tail_case_up_1.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "z",
+            "loop": "repeat",
+            "transfer": "break",
+            "hit": "tail",
+            "form": "case",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "1c3fa1dc4c300c5304f14b684adacf29dde491c9b9c49d465fe6bb90cb899be5"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_32_logic_known_for_continue_tail_case_down_3.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "known",
+            "loop": "for",
+            "transfer": "continue",
+            "hit": "tail",
+            "form": "case",
+            "range": "down",
+            "count": "3"
+          },
+          "inputs_sha256": "463fbb04e9d1ce6afcf00c5b30bce710815c145c259cda2cd0d5e45f8c9f653f"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_64_bit_known_while_continue_middle_if_up_3.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "known",
+            "loop": "while",
+            "transfer": "continue",
+            "hit": "middle",
+            "form": "if",
+            "range": "up",
+            "count": "3"
+          },
+          "inputs_sha256": "05f4cb39b8fbd7f8bd14b51993099ab04413c50555e5a28e47a203bd920ea8d2"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_1_logic_x_while_continue_head_case_down_1.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "x",
+            "loop": "while",
+            "transfer": "continue",
+            "hit": "head",
+            "form": "case",
+            "range": "down",
+            "count": "1"
+          },
+          "inputs_sha256": "c5581bca7fc39b0287fc8ab30cfe36175847981e6d605bc828895b7e8daa3b61"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_32_bit_x_repeat_break_miss_if_up_1.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "x",
+            "loop": "repeat",
+            "transfer": "break",
+            "hit": "miss",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "7abaadfbe2447f24f5f6b6e14fa8118a490422c5704dcd35875d3d06b49790de"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_64_bit_z_for_break_middle_case_down_1.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "z",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "middle",
+            "form": "case",
+            "range": "down",
+            "count": "1"
+          },
+          "inputs_sha256": "c3231655178ec067abbd875afd3ac7d5ca245ccdc3b4fa5b88bb849a3c4c40d7"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_33_logic_known_repeat_continue_head_if_up_3.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "known",
+            "loop": "repeat",
+            "transfer": "continue",
+            "hit": "head",
+            "form": "if",
+            "range": "up",
+            "count": "3"
+          },
+          "inputs_sha256": "1e3029bbe60ff3636885968ed80208f3d63707d64a42ddd409651c994e4946a0"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_65_bit_known_for_continue_miss_if_up_1.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "known",
+            "loop": "for",
+            "transfer": "continue",
+            "hit": "miss",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "5fecb905434cac856c158c21bea7a8f5df913ee3b9b3289f4521eb41217722c1"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_129_bit_x_for_break_tail_if_up_1.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "x",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "tail",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "d9d84c6f53011bac31e2fdff2468430fa2b44a315980a21aba3b94d5174c7c1d"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_1_bit_z_while_break_miss_if_up_3.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "z",
+            "loop": "while",
+            "transfer": "break",
+            "hit": "miss",
+            "form": "if",
+            "range": "up",
+            "count": "3"
+          },
+          "inputs_sha256": "df0418123ac93094cb9a3cc7006487fe587c4a9a58762163fa1e50ca74bae6f6"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_32_bit_z_while_break_head_case_up_3.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "z",
+            "loop": "while",
+            "transfer": "break",
+            "hit": "head",
+            "form": "case",
+            "range": "up",
+            "count": "3"
+          },
+          "inputs_sha256": "622d30961dad928668b48f20a87b3d9e6bc7d548f8040fdab266a69c2cd96c0d"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_33_bit_x_while_continue_tail_if_down_1.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "x",
+            "loop": "while",
+            "transfer": "continue",
+            "hit": "tail",
+            "form": "if",
+            "range": "down",
+            "count": "1"
+          },
+          "inputs_sha256": "59aae5bddd26ed26c243f8d10f5345c53dd16d3643f1eb222d31ef9a8935acdc"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_64_logic_x_repeat_continue_middle_if_up_1.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "x",
+            "loop": "repeat",
+            "transfer": "continue",
+            "hit": "middle",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "8b0646d862e333cc8db007e9b4e8f324520555370ea81e2ae0ef64d619821da4"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_65_bit_z_repeat_continue_tail_case_down_1.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "z",
+            "loop": "repeat",
+            "transfer": "continue",
+            "hit": "tail",
+            "form": "case",
+            "range": "down",
+            "count": "1"
+          },
+          "inputs_sha256": "661c86a2252ca3e44914309bbdd86dfdf2679bdee0a6617d4396950285dd4085"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_129_bit_known_while_break_tail_if_up_3.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "known",
+            "loop": "while",
+            "transfer": "break",
+            "hit": "tail",
+            "form": "if",
+            "range": "up",
+            "count": "3"
+          },
+          "inputs_sha256": "d391803fdf4855f8589a6c91f878b55d61a150164333e1a3370a01c0a313db83"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_1_logic_known_repeat_break_middle_if_down_3.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "known",
+            "loop": "repeat",
+            "transfer": "break",
+            "hit": "middle",
+            "form": "if",
+            "range": "down",
+            "count": "3"
+          },
+          "inputs_sha256": "e3d09cfb96a47bc021be4964c3f523dd59abf586d99df20eff1f9e91e00e9096"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_33_bit_known_for_break_miss_if_down_3.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "known",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "miss",
+            "form": "if",
+            "range": "down",
+            "count": "3"
+          },
+          "inputs_sha256": "16356b078f0f102290aa589695ccb6209587ed46721d7fae8ce025b62c6828fa"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_64_bit_x_while_continue_miss_if_down_3.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "x",
+            "loop": "while",
+            "transfer": "continue",
+            "hit": "miss",
+            "form": "if",
+            "range": "down",
+            "count": "3"
+          },
+          "inputs_sha256": "bb2484ef026519235ffce1de32c252044b763b085ee8af09487232b241d83a92"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_129_bit_z_for_continue_head_if_down_1.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "z",
+            "loop": "for",
+            "transfer": "continue",
+            "hit": "head",
+            "form": "if",
+            "range": "down",
+            "count": "1"
+          },
+          "inputs_sha256": "fb51d565fab191cb7d84bcfe4ebfe60aeab97357288d05c40ca3e663c7e9f550"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_32_logic_x_repeat_break_head_if_down_1.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "x",
+            "loop": "repeat",
+            "transfer": "break",
+            "hit": "head",
+            "form": "if",
+            "range": "down",
+            "count": "1"
+          },
+          "inputs_sha256": "dc47f8b3a2d457dcda70271550c89161578f583c5e909cba09d1088d9f5dc57e"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_32_logic_z_for_continue_middle_if_up_1.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "z",
+            "loop": "for",
+            "transfer": "continue",
+            "hit": "middle",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "8179ee0deed19fe2563cac95dfc0b509030c5f09d2f1ca2ed6cf5e6204870eea"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_65_bit_x_for_break_head_if_up_3.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "x",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "head",
+            "form": "if",
+            "range": "up",
+            "count": "3"
+          },
+          "inputs_sha256": "25ef9d95e277b30517f5ac91b995c621e29312067f8efa90c66df484bdf846ff"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_1_bit_x_for_break_tail_if_up_1.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "x",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "tail",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "01f07ad3eab3a2bb806b53658b183cb488a65998758d6ce3817b1db707ae43e6"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_33_logic_x_for_break_middle_if_up_1.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "x",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "middle",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "f180bd56246e423cc7cbf22ce50ffe36c68f5136bf5fdc5d70e27eee4ac3e7aa"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_64_logic_known_for_break_head_if_up_1.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "known",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "head",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "7d851a01419a101b92a0946944f69837e4813d991a2d354b9e228c84ef21752a"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_64_logic_z_for_break_tail_if_up_1.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "z",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "tail",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "7504382b715482b44b7f0cbc573916c09f1f826a27a60adc9c29a714fbfd122a"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_129_logic_known_for_break_middle_if_up_1.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "known",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "middle",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "b7685f76875b16411e7c7723145a3dff64eca9f71d5067d95e204290b92e6ef6"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_1_logic_z_for_break_head_if_up_1.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "z",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "head",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "daec3d8e147a9ece4530b9833f4a6a2243ca3a72effb77ddbbbbd9948c05851f"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_32_bit_known_for_break_head_if_up_1.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "known",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "head",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "58e0f17fb21fcbb0c289d228950f18554029830af9b71ccc9206dca54ae5813e"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_33_logic_z_for_break_head_if_up_1.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "z",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "head",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "1feab3f080c061ac983731873ddfc7996371b95d6f080abd84318741a6725a42"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_65_logic_known_for_break_head_if_up_1.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "known",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "head",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "ab84168d711baef068d3edcdf19018e375919747bb73b945e8c124a12a069373"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_65_logic_z_for_break_head_if_up_1.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "z",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "head",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "da26f5ca3a4a9ba6603337c8a3bf14a9e99860aaf576aac480be08f467a9623c"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genloop_129_logic_x_for_break_head_if_up_1.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "x",
+            "loop": "for",
+            "transfer": "break",
+            "hit": "head",
+            "form": "if",
+            "range": "up",
+            "count": "1"
+          },
+          "inputs_sha256": "35e7b945d3097a07313a79d92475a8428f581328efd0a835016efc6e855dfe8e"
+        }
+      ]
+    },
+    {
+      "id": "interface_array_query_walk",
+      "version": 1,
+      "factors": {
+        "width": [
+          "1",
+          "32",
+          "33",
+          "64",
+          "65",
+          "129"
+        ],
+        "state": [
+          "bit",
+          "logic"
+        ],
+        "value": [
+          "known",
+          "x",
+          "z"
+        ],
+        "bounds": [
+          "up",
+          "down"
+        ],
+        "origin": [
+          "negative",
+          "positive"
+        ],
+        "length": [
+          "one",
+          "three"
+        ],
+        "query": [
+          "default",
+          "explicit"
+        ],
+        "routine": [
+          "function",
+          "task"
+        ],
+        "order": [
+          "ab",
+          "ba"
+        ],
+        "packed": [
+          "up",
+          "down"
+        ]
+      },
+      "constraints": [
+        "全行が合法で未対応による除外なし。二interfaceは幅・長さ・添字原点・向きが異なる。一番目は幅Wと長さ1/3、二番目は幅W+2と長さ2/4で逆向き。packed範囲も逆向きで原点付き。interface内のautomatic function/taskが$left/$size/$incrementで論理位置順に走査し、左シフトとXORで順序依存の全幅チェックサムを計算する。単一要素のincrementは1。省略した次元と明示次元1を区別し、packed次元2も全問い合わせを観測する。既知・既知またはX/Z・既知への回復の三相で、各呼出し後に両実体を読む。一方の末尾要素と他方のguardだけを更新し、逆順で再呼出しする。戻り値とoutputコピーは幅W+4のlogicへ格納する。bitへのX/Z変換もfourstateを指定する。符号付き演算・interfaceポート・modport・virtual interface・動的配列・並行呼出し・時間制御は対象外。"
+      ],
+      "higher_strength_groups": [
+        [
+          "width",
+          "state",
+          "value"
+        ],
+        [
+          "bounds",
+          "length",
+          "query"
+        ],
+        [
+          "origin",
+          "bounds",
+          "length"
+        ],
+        [
+          "routine",
+          "order",
+          "value"
+        ],
+        [
+          "width",
+          "packed",
+          "query"
+        ],
+        [
+          "routine",
+          "length",
+          "query"
+        ]
+      ],
+      "witness": "interface内の配列問い合わせが走査の開始位置・回数・方向と型付き結果を決める。全要素・両次元の境界・単一要素・別実体の保持・入力変更後の再呼出しを照合する。",
+      "legal_rows": 4608,
+      "available_cases": 36,
+      "selected_cases": 36,
+      "targets_by_strength": {
+        "2": 274,
+        "3": 96
+      },
+      "mandatory_witnesses": [
+        "tests/gen/ch25/test_gen_cross_ifquery_1_bit_known_up_negative_one_default_function_ab_up.sv",
+        "tests/gen/ch25/test_gen_cross_ifquery_129_logic_z_down_positive_three_explicit_task_ba_down.sv",
+        "tests/gen/ch25/test_gen_cross_ifquery_65_logic_x_up_negative_three_default_task_ab_down.sv",
+        "tests/gen/ch25/test_gen_cross_ifquery_33_bit_z_down_negative_one_explicit_function_ba_up.sv",
+        "tests/gen/ch25/test_gen_cross_ifquery_32_logic_known_up_positive_three_explicit_function_ba_down.sv",
+        "tests/gen/ch25/test_gen_cross_ifquery_64_bit_known_down_positive_one_default_task_ab_up.sv"
+      ],
+      "selection": [
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_1_bit_known_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "a6009b041d0b79550cffeef3852c955e0e5e07d618540e34d426f9c5e94342eb"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_129_logic_z_down_positive_three_explicit_task_ba_down.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "z",
+            "bounds": "down",
+            "origin": "positive",
+            "length": "three",
+            "query": "explicit",
+            "routine": "task",
+            "order": "ba",
+            "packed": "down"
+          },
+          "inputs_sha256": "2be5ba92e7efaf5f0287502b2a11f51833d6ac5fbee005876f10e67649555c99"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_65_logic_x_up_negative_three_default_task_ab_down.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "three",
+            "query": "default",
+            "routine": "task",
+            "order": "ab",
+            "packed": "down"
+          },
+          "inputs_sha256": "86a6e6106015baf29d0abc64bbd608fc201272f2447e769946783e420d7ef212"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_33_bit_z_down_negative_one_explicit_function_ba_up.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "z",
+            "bounds": "down",
+            "origin": "negative",
+            "length": "one",
+            "query": "explicit",
+            "routine": "function",
+            "order": "ba",
+            "packed": "up"
+          },
+          "inputs_sha256": "0bb4859a676b90bc2bbe58c412978fb7a0bba97a7464b09e414ff6911d0c895f"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_32_logic_known_up_positive_three_explicit_function_ba_down.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "known",
+            "bounds": "up",
+            "origin": "positive",
+            "length": "three",
+            "query": "explicit",
+            "routine": "function",
+            "order": "ba",
+            "packed": "down"
+          },
+          "inputs_sha256": "1580775b913c3d568d6b775ac0d0c699d2009c255c834d07867d712d78d1f3c3"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_64_bit_known_down_positive_one_default_task_ab_up.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "known",
+            "bounds": "down",
+            "origin": "positive",
+            "length": "one",
+            "query": "default",
+            "routine": "task",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "b736681c14ac14bcf7acb74d24ba394e7e91586fec5d0186712bd56905465307"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_32_bit_x_down_negative_three_default_function_ba_up.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "x",
+            "bounds": "down",
+            "origin": "negative",
+            "length": "three",
+            "query": "default",
+            "routine": "function",
+            "order": "ba",
+            "packed": "up"
+          },
+          "inputs_sha256": "5b1090b2f87836a7be068abbbb9f060dbe11ce2977176be810fd70c89846cb44"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_1_logic_x_up_positive_one_explicit_task_ba_down.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "x",
+            "bounds": "up",
+            "origin": "positive",
+            "length": "one",
+            "query": "explicit",
+            "routine": "task",
+            "order": "ba",
+            "packed": "down"
+          },
+          "inputs_sha256": "3deadaf30f5fae0febc1fc22f8ca15103c8fb121a089f9d27ad6ec4405dbf1aa"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_33_logic_z_up_positive_three_default_task_ab_up.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "z",
+            "bounds": "up",
+            "origin": "positive",
+            "length": "three",
+            "query": "default",
+            "routine": "task",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "1180b395aa4704887f89e9e4b0420b551ab3bd113b8e55c856c0a38a0a8b06a4"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_64_bit_x_up_negative_three_explicit_function_ab_down.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "three",
+            "query": "explicit",
+            "routine": "function",
+            "order": "ab",
+            "packed": "down"
+          },
+          "inputs_sha256": "f2577fa56f57eefb075f7bfd42f0d0b2cb531c6fe71ddd1ba5cc0aff47726056"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_65_bit_known_down_positive_one_explicit_function_ba_up.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "known",
+            "bounds": "down",
+            "origin": "positive",
+            "length": "one",
+            "query": "explicit",
+            "routine": "function",
+            "order": "ba",
+            "packed": "up"
+          },
+          "inputs_sha256": "8067cb5966bf6476603d075d4ca4e4e758e6a20e425148a60e79c8842c40be2b"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_129_bit_known_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "c9197580695fee07b5eee3ad6c170df1a40e734e8de15495e6d8b9f6d29c4e53"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_1_bit_z_down_negative_three_default_function_ab_down.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "z",
+            "bounds": "down",
+            "origin": "negative",
+            "length": "three",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "down"
+          },
+          "inputs_sha256": "b08c58f72c8677126460b6ce567716592ccba1363d0531aa03718df0bcfe3f21"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_32_bit_z_up_negative_one_default_task_ab_down.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "task",
+            "order": "ab",
+            "packed": "down"
+          },
+          "inputs_sha256": "433d5fa9fc5fea1f41a226567b7a087f79fee67c975b81751a8d19633d7f30d7"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_33_bit_known_up_negative_one_default_task_ba_down.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "task",
+            "order": "ba",
+            "packed": "down"
+          },
+          "inputs_sha256": "fa2f37e779579418144bbff7257882d169096011c7fb630d7479a4f50a9bbed1"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_64_logic_z_up_negative_one_default_function_ba_down.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ba",
+            "packed": "down"
+          },
+          "inputs_sha256": "234f1c3bb6ebbb1e1f772b1c829426d145d0222cc7b872338c8a83e9e8203c36"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_33_bit_x_up_negative_one_explicit_function_ab_down.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "explicit",
+            "routine": "function",
+            "order": "ab",
+            "packed": "down"
+          },
+          "inputs_sha256": "a5664551b99d48a8ea86b3aa6f57b2960e9309d9dcd56b13ccae20313e19b8f3"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_65_bit_z_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "ee9019e739001406814b5f22d30b3f9bdf1ccd0639b10f11a1fbf5bb9ba8102d"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_129_bit_x_up_negative_one_default_function_ab_down.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "down"
+          },
+          "inputs_sha256": "37543604079b17db9e97c9c9fa222c1e1ccaa048569d68b333cf18a6e0b58e59"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_1_bit_x_up_negative_one_explicit_function_ab_up.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "explicit",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "db740f3429f9e6dda2067f1e502aaa32369f55cf13cb0f222a1167eb8c31e287"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_32_bit_known_up_negative_one_explicit_function_ab_up.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "explicit",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "4d13665032d9562089011d644b8e34ae87cd24ab4d84e4d9032d30bce51b77aa"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_64_bit_z_up_negative_one_explicit_function_ab_up.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "explicit",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "1a6c68c94eadcaea7d8327687038895c01742f11601946ab69c7b638fb8ad04e"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_65_bit_x_up_negative_one_explicit_function_ab_down.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "explicit",
+            "routine": "function",
+            "order": "ab",
+            "packed": "down"
+          },
+          "inputs_sha256": "c950c7e489c42746fb665c06f342e6f5e24e34c68c2abeeae4fa6993db78876e"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_129_bit_z_up_negative_one_explicit_function_ab_up.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "explicit",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "df73d4e9a184c2aef044389dfdf4a5d36fc7a59c5709930f8555e01631d9fcb6"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_1_logic_known_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "56eda90e8c30f321f61c0fd5f80e6d77a19a808d033bbd65e1870357985fb933"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_1_logic_z_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "cd28ccc65a4967c4c6c8e463b15a9f20e04f5f28e98c7348d5541af6078b6d8c"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_32_logic_x_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "72741fa85abe52689d720b594d701d9dd391e590188d3b085623ba1e172fcb54"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_32_logic_z_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "95a5ef1ccdb5dc5bb77ae977e8cd4be8745a936d8f493246729ec6aca81f38bb"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_33_logic_known_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "a91fc4698377c3696ead3d488818f13fc9fd822bcc8a069d795eb71bfec9c2ad"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_33_logic_x_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "72bb32ea656c2eed38edad426ee3532659ce0b69dac2a8317acd4df9764458c0"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_64_logic_known_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "9f7853948908959bad44200dac6d6f3dd63a4b33283bf06e9915ca7e11116a3b"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_64_logic_x_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "005c33640b03ab832861560a080daaa6923d2d604461306ac339eab476ff7658"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_65_logic_known_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "8852298c1e2e86e5080b9f0daeb182d7a230f83594c710f865b14b6c1d3fba26"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_65_logic_z_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "4e99dbf2571bc14021a91c6ce821089f5d6203f11fe60c792833e23dc2bdd5cb"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_129_logic_known_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "aaf560c3799fa3ed0f16a1757b6231e56f874caa36ad943d2b73cf032db40e7b"
+        },
+        {
+          "test": "tests/gen/ch25/test_gen_cross_ifquery_129_logic_x_up_negative_one_default_function_ab_up.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "query": "default",
+            "routine": "function",
+            "order": "ab",
+            "packed": "up"
+          },
+          "inputs_sha256": "e6b92344f51f276cb91a54ae23499ec5ceb3fb30678f8c06695b715beefde408"
+        }
+      ]
+    },
+    {
+      "id": "generated_constant_expression_shape",
+      "version": 1,
+      "factors": {
+        "width": [
+          "1",
+          "32",
+          "33",
+          "64",
+          "65",
+          "129"
+        ],
+        "state": [
+          "bit",
+          "logic"
+        ],
+        "value": [
+          "known",
+          "x",
+          "z"
+        ],
+        "left_sign": [
+          "s",
+          "u"
+        ],
+        "right_sign": [
+          "s",
+          "u"
+        ],
+        "result_sign": [
+          "s",
+          "u"
+        ],
+        "context": [
+          "same",
+          "wide"
+        ],
+        "operation": [
+          "add",
+          "xor",
+          "conditional"
+        ],
+        "form": [
+          "if",
+          "case"
+        ],
+        "binding": [
+          "named",
+          "positional"
+        ]
+      },
+      "constraints": [
+        "全行が合法で未対応による除外なし。二moduleのSELECTは0/1で、定数Aは最上位ビットだけが1または値1、Bは全ビット1。両オペランドの幅は基底幅で独立に符号を選ぶ。加算・XOR・条件演算子の結果は基底幅または一つ広い型付きlocalparamへ格納する。式は両オペランドがsignedのときだけ符号拡張し、結果の宣言符号とは区別する。格納後の負判定がif/case generateを選び、最上位と最下位のビットが生成個数1から4を決める。$bitsの剰余が生成幅を決め、genvarでさらに幅を変える。各要素は独立したraw・guard・連続代入結果を持つ。既知・既知またはX/Z・既知への回復の三相で全要素を読み、一方の先頭入力と他方の末尾guardだけを更新する。X/Zは実行時刺激だけに使い、定数式とgenerate条件は既知値。bitへの変換でもfourstateを指定する。config・defparam・未定義の階層参照・動的な生成添字・符号付きruntime演算は対象外。"
+      ],
+      "higher_strength_groups": [
+        [
+          "width",
+          "state",
+          "value"
+        ],
+        [
+          "width",
+          "left_sign",
+          "context"
+        ],
+        [
+          "left_sign",
+          "right_sign",
+          "operation"
+        ],
+        [
+          "result_sign",
+          "context",
+          "operation"
+        ],
+        [
+          "operation",
+          "form",
+          "binding"
+        ],
+        [
+          "width",
+          "right_sign",
+          "operation"
+        ]
+      ],
+      "witness": "定数式のオペランド符号・代入文脈の幅・結果の宣言符号を分離し、生成分岐・個数・幅を照合する。$bitsによる形状、各生成要素の全幅データ、別実体の保持、X/Zと既知値への回復を観測する。",
+      "legal_rows": 6912,
+      "available_cases": 36,
+      "selected_cases": 36,
+      "targets_by_strength": {
+        "2": 297,
+        "3": 132
+      },
+      "mandatory_witnesses": [
+        "tests/gen/ch27/test_gen_cross_genexpr_1_bit_known_s_s_s_wide_add_if_named.sv",
+        "tests/gen/ch27/test_gen_cross_genexpr_129_logic_z_s_u_s_wide_conditional_case_positional.sv",
+        "tests/gen/ch27/test_gen_cross_genexpr_65_logic_x_u_s_u_same_xor_if_positional.sv",
+        "tests/gen/ch27/test_gen_cross_genexpr_33_bit_z_s_s_s_wide_xor_case_named.sv",
+        "tests/gen/ch27/test_gen_cross_genexpr_32_logic_known_s_u_s_wide_add_case_named.sv",
+        "tests/gen/ch27/test_gen_cross_genexpr_64_logic_known_s_s_u_same_conditional_if_positional.sv"
+      ],
+      "selection": [
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_1_bit_known_s_s_s_wide_add_if_named.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "known",
+            "left_sign": "s",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "wide",
+            "operation": "add",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "3f38a1a36001ce7caccaf28f2ce9d3c115f463b38442ded6b91a9d45e9d716c3"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_129_logic_z_s_u_s_wide_conditional_case_positional.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "z",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "wide",
+            "operation": "conditional",
+            "form": "case",
+            "binding": "positional"
+          },
+          "inputs_sha256": "e32278d21774b9952677d4dd2e0395ffe3290f7363149607cc81a16ad16302ea"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_65_logic_x_u_s_u_same_xor_if_positional.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "x",
+            "left_sign": "u",
+            "right_sign": "s",
+            "result_sign": "u",
+            "context": "same",
+            "operation": "xor",
+            "form": "if",
+            "binding": "positional"
+          },
+          "inputs_sha256": "01442da7921f3da3528d30a793b7cc5e228745ff3ff18388809b08fdb0ab7d6c"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_33_bit_z_s_s_s_wide_xor_case_named.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "z",
+            "left_sign": "s",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "wide",
+            "operation": "xor",
+            "form": "case",
+            "binding": "named"
+          },
+          "inputs_sha256": "30f43cfec7691f04447f41315aa4896f01e4e853be642b2396e40321d459ff41"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_32_logic_known_s_u_s_wide_add_case_named.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "known",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "wide",
+            "operation": "add",
+            "form": "case",
+            "binding": "named"
+          },
+          "inputs_sha256": "fa86126b8298991a85dee71b9933a7f197cc21487d5f8eae0e12568599210a04"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_64_logic_known_s_s_u_same_conditional_if_positional.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "known",
+            "left_sign": "s",
+            "right_sign": "s",
+            "result_sign": "u",
+            "context": "same",
+            "operation": "conditional",
+            "form": "if",
+            "binding": "positional"
+          },
+          "inputs_sha256": "178ef412827513a552d027c1cac03d9aa9222740acce6960d8d7822c04d011af"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_1_bit_x_u_u_u_same_conditional_case_named.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "x",
+            "left_sign": "u",
+            "right_sign": "u",
+            "result_sign": "u",
+            "context": "same",
+            "operation": "conditional",
+            "form": "case",
+            "binding": "named"
+          },
+          "inputs_sha256": "fc3d572a30de2853a1364f99638aff11ab3748ebcefcfcf5a29396b6a7aaf8eb"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_32_bit_z_u_s_u_same_add_if_positional.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "z",
+            "left_sign": "u",
+            "right_sign": "s",
+            "result_sign": "u",
+            "context": "same",
+            "operation": "add",
+            "form": "if",
+            "binding": "positional"
+          },
+          "inputs_sha256": "22963313d8ebe884cf2b415c7d7ec9872397c48523e3abfb89b7eb56ffdd110c"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_64_bit_x_u_u_s_wide_xor_if_named.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "x",
+            "left_sign": "u",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "wide",
+            "operation": "xor",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "c288547a54882228842670f8fab042a38424f3abaae00c8db950d1fe97e669f1"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_33_logic_known_u_u_s_same_add_if_positional.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "known",
+            "left_sign": "u",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "add",
+            "form": "if",
+            "binding": "positional"
+          },
+          "inputs_sha256": "4060d33e2d74699a3beb6316cbff316fffef4fe64e557225474606f5755f27b8"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_65_bit_known_s_u_u_wide_xor_case_named.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "known",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "u",
+            "context": "wide",
+            "operation": "xor",
+            "form": "case",
+            "binding": "named"
+          },
+          "inputs_sha256": "1dd8370a6b7b564b4c6557800b31d6fbdade69238fc1da88f9993cff557b14e2"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_129_bit_known_u_s_s_same_conditional_if_named.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "known",
+            "left_sign": "u",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "conditional",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "37c6d86cfeb434500acc1a16536858bf7437c7a12973e0df13fa56c21930bfdc"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_1_logic_x_s_s_s_same_xor_case_positional.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "x",
+            "left_sign": "s",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "xor",
+            "form": "case",
+            "binding": "positional"
+          },
+          "inputs_sha256": "46cc93b41070f2d2cbdda75aee1ab33d2a813987387f3d86e049a2ef1c2705d1"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_129_bit_x_u_s_u_wide_add_case_positional.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "x",
+            "left_sign": "u",
+            "right_sign": "s",
+            "result_sign": "u",
+            "context": "wide",
+            "operation": "add",
+            "form": "case",
+            "binding": "positional"
+          },
+          "inputs_sha256": "c5212f3d3d3c8b49c94b6b50ca44b96689e57b3f8fdb32a42774cd783a66831b"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_33_bit_x_u_s_u_wide_conditional_if_named.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "x",
+            "left_sign": "u",
+            "right_sign": "s",
+            "result_sign": "u",
+            "context": "wide",
+            "operation": "conditional",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "f97b0595d35a17c399023c72b505d60808c9a96fad905e3cc1a7952dd6c7024a"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_64_bit_z_s_s_s_wide_add_case_named.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "z",
+            "left_sign": "s",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "wide",
+            "operation": "add",
+            "form": "case",
+            "binding": "named"
+          },
+          "inputs_sha256": "bac09ca9443f9275fc702c54bf712c9816739383c1c3bae956cb281a8a9e2f38"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_65_bit_z_s_s_s_same_add_if_named.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "z",
+            "left_sign": "s",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "add",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "8ece6c43e3ac9f9f24d89e7aa9f77dcbede8e7266f66c2bbb7166025b4517f18"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_32_bit_x_s_s_s_same_xor_if_named.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "x",
+            "left_sign": "s",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "xor",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "e844743c42fa8fd5dc47e5fd381eb37bcbb4d91d77d17274798fa507f55a762f"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_1_bit_z_u_s_s_wide_conditional_if_named.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "z",
+            "left_sign": "u",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "wide",
+            "operation": "conditional",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "e9d079e80785954f7086e879772208091543adb558e1303ce07195fc18932cda"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_32_bit_known_u_s_s_wide_conditional_if_named.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "known",
+            "left_sign": "u",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "wide",
+            "operation": "conditional",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "46963580f1a9210194525dcf88ad3b42514b18078863f9c1da53eadffae62b1f"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_65_bit_x_u_s_s_wide_conditional_if_named.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "x",
+            "left_sign": "u",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "wide",
+            "operation": "conditional",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "ff695dda5bc2b1eb849e5db8b513761ecfc41fd0f60b058d473bc951935a4f91"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_129_bit_z_s_s_s_same_xor_if_named.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "z",
+            "left_sign": "s",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "xor",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "76a2a255f3b28fbb3e711d4404de4be123da171a6d20b5f08eaf4b7f4cf31cc8"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_33_bit_known_s_s_s_same_add_if_named.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "known",
+            "left_sign": "s",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "add",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "0c0670012a8b5de0c1aa4e56bbe3950b2bf840756ea337b485386c6675c9880c"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_64_bit_known_u_s_s_same_xor_if_named.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "known",
+            "left_sign": "u",
+            "right_sign": "s",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "xor",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "4e958b908d40e6bc316a56355e081e937a5c1a1aa887694f9c69305191a760d8"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_1_logic_known_s_u_s_same_add_if_named.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "known",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "add",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "85d45e4ceacca9116cfe61746b4bafe589a4381add24a6572e5fa6cd48c245d8"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_1_logic_z_s_u_s_same_xor_if_named.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "z",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "xor",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "57412326caad90260714fa4eb106ae55c5e1a5dd9e8d4764ff60f9dd8fe6b616"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_32_logic_x_s_u_s_same_xor_if_named.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "x",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "xor",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "2464b1716037a84c61de8b96b45320388a747a54612944ba6470e0ff26eafad7"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_32_logic_z_s_u_s_same_conditional_if_named.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "z",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "conditional",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "c59e9ef716b1a6c59704a7e5f0a2fe72d1cfcecedd758c9ce62e12371bfa2906"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_33_logic_x_s_u_s_same_xor_if_named.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "x",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "xor",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "f778e921105ddd2f477ed49d24ce3ff39e039b943c5276486ccb90361412f0c1"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_33_logic_z_s_u_s_same_conditional_if_named.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "z",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "conditional",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "2d9810ed32314742b88b1d6d534678e2291269d339b62d134c98dc134dde73f1"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_64_logic_x_s_u_s_same_add_if_named.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "x",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "add",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "eaf3bf1bb5ff1cd6f5d2a5a2263f0a9bd2acdf209b58627a87736e00fec4bacb"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_64_logic_z_s_u_s_same_conditional_if_named.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "z",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "conditional",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "7acc1fa3a02b386c17571046058b0eef608f1d09f3ca3b4912e32aa21c1dd633"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_65_logic_known_s_u_s_same_add_if_named.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "known",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "add",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "2b539b511a26f4c742cda7c69bc38e1b46d010d372b6927009addb87a0f5f745"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_65_logic_z_s_u_s_same_conditional_if_named.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "z",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "conditional",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "8596dbb79953a2a87d3e31234eb561d9a7cd9e4999c181693c4f018e2edaa3bb"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_129_logic_known_s_u_s_same_add_if_named.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "known",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "add",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "9d843cbdd81160def3b83711086d111aaf23aee9891976468aebad8212d9e31a"
+        },
+        {
+          "test": "tests/gen/ch27/test_gen_cross_genexpr_129_logic_x_s_u_s_same_xor_if_named.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "x",
+            "left_sign": "s",
+            "right_sign": "u",
+            "result_sign": "s",
+            "context": "same",
+            "operation": "xor",
+            "form": "if",
+            "binding": "named"
+          },
+          "inputs_sha256": "950788dd34e687662b60840cee8b1dc71db2b32256be4a6798556c1f06884abe"
+        }
+      ]
+    },
+    {
+      "id": "formatted_scan_partial_write",
+      "version": 1,
+      "factors": {
+        "width": [
+          "1",
+          "32",
+          "33",
+          "64",
+          "65",
+          "129"
+        ],
+        "state": [
+          "bit",
+          "logic"
+        ],
+        "value": [
+          "known",
+          "x",
+          "z"
+        ],
+        "radix": [
+          "bin",
+          "hex"
+        ],
+        "outcome": [
+          "all",
+          "long_first",
+          "bad_second",
+          "empty"
+        ],
+        "target": [
+          "whole",
+          "plus",
+          "minus"
+        ],
+        "field": [
+          "target",
+          "word"
+        ],
+        "placement": [
+          "low",
+          "high"
+        ],
+        "format": [
+          "literal",
+          "runtime"
+        ]
+      },
+      "constraints": [
+        "wholeでは使わないplacementをlowに代表させる。他の全行は合法で未対応による除外なし。二つの出力幅はWとW+1、格納語の幅はW+7。部分選択は低位または高位へ置き、+:と-:を区別する。書式の先頭フィールド幅は対象または格納語の$bitsから作り、最大文字数として使う。hexでは文字数とビット数は異なる。literalでは同じ幅を生成時に埋め、runtimeでは実際の書式変数を渡す。先頭成功後の文字不一致、第二変換の不一致、空入力、全成功を区別する。成功した変換だけが書き込み、後続出力と選択範囲外を保持する。既知・既知またはX/Z・既知への回復の各相で試行と全成功の再呼出しを行い、履歴を保持する。X/Zは既知ASCIIの数字として入力し、bit格納への変換でもfourstateを指定する。可変の選択添字・変換抑制・空白の特殊規則・実数・ファイルI/O・並行実行は対象外。"
+      ],
+      "higher_strength_groups": [
+        [
+          "width",
+          "state",
+          "value"
+        ],
+        [
+          "target",
+          "outcome",
+          "format"
+        ],
+        [
+          "radix",
+          "format",
+          "outcome"
+        ],
+        [
+          "field",
+          "format",
+          "target"
+        ],
+        [
+          "state",
+          "value",
+          "target"
+        ],
+        [
+          "width",
+          "target",
+          "field"
+        ]
+      ],
+      "witness": "文字列の読取りが途中で止まる位置と成功した書込みだけを、戻り値・全語・部分選択外の保持で照合する。$bitsを使う実行時書式、文字数としてのフィールド幅、既知ASCIIのX/Z数字と格納時の変換を観測する。",
+      "legal_rows": 5760,
+      "available_cases": 36,
+      "selected_cases": 36,
+      "targets_by_strength": {
+        "2": 292,
+        "3": 142
+      },
+      "mandatory_witnesses": [
+        "tests/gen/ch21/test_gen_cross_scansel_1_bit_known_bin_all_whole_target_low_literal.sv",
+        "tests/gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime.sv",
+        "tests/gen/ch21/test_gen_cross_scansel_65_logic_x_bin_bad_second_plus_target_high_literal.sv",
+        "tests/gen/ch21/test_gen_cross_scansel_33_bit_z_hex_empty_minus_word_low_runtime.sv",
+        "tests/gen/ch21/test_gen_cross_scansel_32_logic_known_hex_long_first_plus_word_low_literal.sv",
+        "tests/gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime.sv"
+      ],
+      "selection": [
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_1_bit_known_bin_all_whole_target_low_literal.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "known",
+            "radix": "bin",
+            "outcome": "all",
+            "target": "whole",
+            "field": "target",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "de94779eed34ce6980cff0096430dd1b947896983e678050f10ced5cceec8745"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "z",
+            "radix": "hex",
+            "outcome": "long_first",
+            "target": "minus",
+            "field": "word",
+            "placement": "high",
+            "format": "runtime"
+          },
+          "inputs_sha256": "64208b64c898ad9555f3decaec086679beb57a14741ccd5b51cce13a7887db1d"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_65_logic_x_bin_bad_second_plus_target_high_literal.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "x",
+            "radix": "bin",
+            "outcome": "bad_second",
+            "target": "plus",
+            "field": "target",
+            "placement": "high",
+            "format": "literal"
+          },
+          "inputs_sha256": "a440fac0d92fc82b343d4900419182f347a4e30c0713eb2e131a99f296ea0880"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_33_bit_z_hex_empty_minus_word_low_runtime.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "z",
+            "radix": "hex",
+            "outcome": "empty",
+            "target": "minus",
+            "field": "word",
+            "placement": "low",
+            "format": "runtime"
+          },
+          "inputs_sha256": "1270a8029ff1e1e9d9938e4313b1a993a2a17dd53b265ada5069dcdaf7f45d8d"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_32_logic_known_hex_long_first_plus_word_low_literal.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "known",
+            "radix": "hex",
+            "outcome": "long_first",
+            "target": "plus",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "07010b44e7c8febb829a0cc858891e8dd5b0dcbb76982c0e6e94ee44444b0e06"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "known",
+            "radix": "bin",
+            "outcome": "bad_second",
+            "target": "whole",
+            "field": "target",
+            "placement": "low",
+            "format": "runtime"
+          },
+          "inputs_sha256": "31575b66ae40eab679edaf5761f6dea6f84d6c705a9c1e0d3d8624f9349c555e"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_1_bit_x_hex_all_plus_word_high_runtime.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "x",
+            "radix": "hex",
+            "outcome": "all",
+            "target": "plus",
+            "field": "word",
+            "placement": "high",
+            "format": "runtime"
+          },
+          "inputs_sha256": "f3699a9c3480d9374a8bba84028960882aaa3a29144860314924ecc3fe4a5f26"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_33_logic_known_bin_empty_minus_target_high_literal.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "known",
+            "radix": "bin",
+            "outcome": "empty",
+            "target": "minus",
+            "field": "target",
+            "placement": "high",
+            "format": "literal"
+          },
+          "inputs_sha256": "29a40adb55f88c1c3120ab0b34977cb0c5df148ad8fd10e7cecec18972c03a0f"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_65_bit_x_bin_long_first_whole_word_low_runtime.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "x",
+            "radix": "bin",
+            "outcome": "long_first",
+            "target": "whole",
+            "field": "word",
+            "placement": "low",
+            "format": "runtime"
+          },
+          "inputs_sha256": "50bc79c0d090aceab71e47ca6dd0c5fc40f0ec27c6ce9701b5a70c2b65697f70"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_64_logic_z_hex_all_plus_target_high_literal.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "z",
+            "radix": "hex",
+            "outcome": "all",
+            "target": "plus",
+            "field": "target",
+            "placement": "high",
+            "format": "literal"
+          },
+          "inputs_sha256": "828677a43c4aa9846b2705741f1adaa9ded01291a5c8be51dadc8ae422c0e6f3"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_32_bit_x_bin_all_minus_target_high_runtime.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "x",
+            "radix": "bin",
+            "outcome": "all",
+            "target": "minus",
+            "field": "target",
+            "placement": "high",
+            "format": "runtime"
+          },
+          "inputs_sha256": "a7bdd77da10412f489d40f7daec6ed988d6e4a5eb511618ed378ab6e86298d12"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_129_bit_z_hex_bad_second_whole_word_low_literal.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "z",
+            "radix": "hex",
+            "outcome": "bad_second",
+            "target": "whole",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "441ad740484f37323ef65241f156db91ea8d7ec6ef3f71da9a421b322c905b30"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_129_bit_known_bin_empty_plus_target_low_runtime.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "known",
+            "radix": "bin",
+            "outcome": "empty",
+            "target": "plus",
+            "field": "target",
+            "placement": "low",
+            "format": "runtime"
+          },
+          "inputs_sha256": "9b382b5eab1e9f264a758b3fb07228cccee026eb0ac40c209f41f8db23743772"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_64_logic_x_hex_empty_whole_word_low_literal.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "x",
+            "radix": "hex",
+            "outcome": "empty",
+            "target": "whole",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "b0b5190d3b1bf53320ef4b353960dd49298581d40a402e23038b94ee7944a1b8"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_1_logic_z_bin_long_first_minus_target_low_literal.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "z",
+            "radix": "bin",
+            "outcome": "long_first",
+            "target": "minus",
+            "field": "target",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "3f70245e3e70fe8132164d31e570cc5d8d79ce79397e7f13186cf10c683eab03"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_65_bit_known_hex_all_minus_word_low_literal.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "known",
+            "radix": "hex",
+            "outcome": "all",
+            "target": "minus",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "6c4343d85307556db26d7232740a5fa76bfd74fbf97462a1af807dda63bdcd17"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_1_logic_x_hex_bad_second_minus_word_low_runtime.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "x",
+            "radix": "hex",
+            "outcome": "bad_second",
+            "target": "minus",
+            "field": "word",
+            "placement": "low",
+            "format": "runtime"
+          },
+          "inputs_sha256": "853d362fc7b0b7e25b0c65d2db141f062337c90fa48bb470b1ff52d43d579c2b"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_32_logic_z_bin_empty_whole_target_low_runtime.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "z",
+            "radix": "bin",
+            "outcome": "empty",
+            "target": "whole",
+            "field": "target",
+            "placement": "low",
+            "format": "runtime"
+          },
+          "inputs_sha256": "c2186bc336197bc37e8ae2b70a2c6c3453fa5c7a258abc1cd036b1dd8d411114"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_33_bit_x_bin_all_whole_target_low_runtime.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "x",
+            "radix": "bin",
+            "outcome": "all",
+            "target": "whole",
+            "field": "target",
+            "placement": "low",
+            "format": "runtime"
+          },
+          "inputs_sha256": "bf6b5e4619cb653635c80dee2ce2fbf2842fb43fef5bc743a05432fecd27f3b8"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_65_bit_z_bin_empty_plus_word_low_literal.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "z",
+            "radix": "bin",
+            "outcome": "empty",
+            "target": "plus",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "d5f6e9543739d673d201894bb0175815ef47de420a5f96ed28f0ec17580b82bb"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_33_bit_known_bin_long_first_plus_target_low_runtime.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "known",
+            "radix": "bin",
+            "outcome": "long_first",
+            "target": "plus",
+            "field": "target",
+            "placement": "low",
+            "format": "runtime"
+          },
+          "inputs_sha256": "7950480306d634051500561f47717756a4fb8ebf3b59609a3ac54da3e535e302"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_1_logic_known_bin_long_first_whole_word_low_literal.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "known",
+            "radix": "bin",
+            "outcome": "long_first",
+            "target": "whole",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "cea05171bae8b0aa8fb4682998261ae4975f721a19b7045dc4352d2906d80006"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_32_bit_known_bin_bad_second_plus_target_low_runtime.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "known",
+            "radix": "bin",
+            "outcome": "bad_second",
+            "target": "plus",
+            "field": "target",
+            "placement": "low",
+            "format": "runtime"
+          },
+          "inputs_sha256": "3aabccce4c38c2def75781dba047c1dd1e3244de2600d22fde77934676ceaa93"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_64_bit_x_bin_long_first_minus_target_low_literal.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "x",
+            "radix": "bin",
+            "outcome": "long_first",
+            "target": "minus",
+            "field": "target",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "8e1f1f8ef63881a57b4df7a000ccbebefb59e5fd6fb78cdd11241a506eca657c"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_129_bit_x_bin_all_whole_target_low_literal.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "x",
+            "radix": "bin",
+            "outcome": "all",
+            "target": "whole",
+            "field": "target",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "5663afd3771ce4ad7f49f6226d1c6c359ed86d56e4dcc8cc9648f64e5f4b11b1"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_1_bit_z_bin_empty_plus_target_low_literal.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "z",
+            "radix": "bin",
+            "outcome": "empty",
+            "target": "plus",
+            "field": "target",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "64d5f1a306853008eaf1587b58d8fb2001fc37b8e2d234bfc0697ae255f7200b"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_32_bit_z_bin_bad_second_minus_word_low_literal.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "z",
+            "radix": "bin",
+            "outcome": "bad_second",
+            "target": "minus",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "03fcc8c2298ffe29da451cd4b38a055f96d5fa7a901b754b0fb3accb54dce91c"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_33_logic_x_bin_bad_second_whole_word_low_literal.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "x",
+            "radix": "bin",
+            "outcome": "bad_second",
+            "target": "whole",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "2619e1d107b9fa3bf9349a321072227c14ca41279d26b598d68b35ca8796a4a5"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_32_logic_x_bin_all_whole_word_low_literal.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "x",
+            "radix": "bin",
+            "outcome": "all",
+            "target": "whole",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "4431ad9ab9c2adf0395ba68eef1ff70ce9d2744a8fe4c8d096016bddbcaea8b9"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_33_logic_z_bin_all_plus_word_low_literal.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "z",
+            "radix": "bin",
+            "outcome": "all",
+            "target": "plus",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "e9fe05579205e68d36f12c83aeb1e89265297a017e4ed331d1c88384d13367aa"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_64_bit_z_bin_all_plus_word_low_literal.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "z",
+            "radix": "bin",
+            "outcome": "all",
+            "target": "plus",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "97c9fa2685068d0bcaad840450d79aec1b0abb523c3c371c0fd7691634c0090a"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_64_logic_known_bin_all_minus_word_low_literal.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "known",
+            "radix": "bin",
+            "outcome": "all",
+            "target": "minus",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "47b9a7f77f192c526c69831415ca6274817d3183c01af7eed4b771fa96432d67"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_65_logic_known_bin_all_whole_target_low_literal.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "known",
+            "radix": "bin",
+            "outcome": "all",
+            "target": "whole",
+            "field": "target",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "238b69bb615210cf4459abed185dc72a86adc0def3fdee47e4932f70c33fab2d"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_65_logic_z_bin_all_minus_target_low_literal.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "z",
+            "radix": "bin",
+            "outcome": "all",
+            "target": "minus",
+            "field": "target",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "6ee4fe588f66f95556b4fbbd3605f50296cb1d5ca3d2cffeaaa8b2076cbae2d6"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_129_logic_known_bin_all_plus_word_low_literal.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "known",
+            "radix": "bin",
+            "outcome": "all",
+            "target": "plus",
+            "field": "word",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "0589215df6556ca485603ea85eeb50b4f05b73ea5f694e388e6ff7aad944dff0"
+        },
+        {
+          "test": "tests/gen/ch21/test_gen_cross_scansel_129_logic_x_bin_all_minus_target_low_literal.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "x",
+            "radix": "bin",
+            "outcome": "all",
+            "target": "minus",
+            "field": "target",
+            "placement": "low",
+            "format": "literal"
+          },
+          "inputs_sha256": "2168d232d36d1919b007c35f28bc3be4f315fa0236dc3d8a1218f9a3aee5f643"
+        }
+      ]
+    },
+    {
+      "id": "program_task_frame_lifetime",
+      "version": 1,
+      "factors": {
+        "width": [
+          "1",
+          "32",
+          "33",
+          "64",
+          "65",
+          "129"
+        ],
+        "state": [
+          "bit",
+          "logic"
+        ],
+        "value": [
+          "known",
+          "x",
+          "z"
+        ],
+        "sign": [
+          "u",
+          "s"
+        ],
+        "mode": [
+          "output",
+          "inout"
+        ],
+        "storage": [
+          "scalar",
+          "element"
+        ],
+        "stop": [
+          "before",
+          "between",
+          "natural"
+        ],
+        "completion": [
+          "end",
+          "return"
+        ],
+        "order": [
+          "ab",
+          "ba"
+        ]
+      },
+      "constraints": [
+        "全行が合法で未対応による除外なし。二つの独立programが各二つのautomatic task呼出しを重ねる。開始は1/3、復帰は7/11、外部入力と実引数の更新は5とする。対象programだけを6または9で$exitし、自然終了の対照も保持する。output/inoutの仮引数と局所語は呼出しごとに保持し、正常なendtaskまたはreturnでだけコピーアウトする。実引数は3ビット広いlogicで、符号拡張と固定配列[2:4]の非選択要素も観測する。12で既知値に更新し、生存するprogramが同じtaskを再呼出しして13で復帰する。監視はmoduleだけで行い、programの書込みと同時刻の観測順序に依存しない。相手programのinitialは20まで待ち、moduleは15で明示終了する。暗黙の全体終了は主対象にしない。ref・可変添字・NBA・join_none・再帰・同時刻の競合writer・static taskは主対象外。入力X/Zからbitへの変換でもfourstateを指定する。"
+      ],
+      "higher_strength_groups": [
+        [
+          "width",
+          "state",
+          "value"
+        ],
+        [
+          "stop",
+          "mode",
+          "completion"
+        ],
+        [
+          "sign",
+          "mode",
+          "storage"
+        ],
+        [
+          "stop",
+          "completion",
+          "order"
+        ],
+        [
+          "width",
+          "sign",
+          "mode"
+        ],
+        [
+          "storage",
+          "mode",
+          "order"
+        ]
+      ],
+      "witness": "重なるautomatic taskの局所値とoutput/inoutのコピーを、programの終了範囲と復帰方法を変えて照合する。途中終了時のコピー抑止、生存する別program、符号拡張、配列の隣接要素と再呼出しの履歴を観測する。",
+      "legal_rows": 3456,
+      "available_cases": 36,
+      "selected_cases": 36,
+      "targets_by_strength": {
+        "2": 249,
+        "3": 100
+      },
+      "mandatory_witnesses": [
+        "tests/gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab.sv",
+        "tests/gen/ch24/test_gen_cross_progframe_129_logic_z_s_inout_element_between_return_ba.sv",
+        "tests/gen/ch24/test_gen_cross_progframe_65_logic_x_u_output_element_natural_return_ab.sv",
+        "tests/gen/ch24/test_gen_cross_progframe_33_bit_z_s_inout_scalar_before_return_ba.sv",
+        "tests/gen/ch24/test_gen_cross_progframe_32_logic_known_s_output_scalar_natural_return_ab.sv",
+        "tests/gen/ch24/test_gen_cross_progframe_64_logic_known_u_inout_element_between_end_ba.sv"
+      ],
+      "selection": [
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "known",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "e73da5b032489e9d318a459b23770d408fa77e202fa3f4441239ef00e0b721d3"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_129_logic_z_s_inout_element_between_return_ba.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "z",
+            "sign": "s",
+            "mode": "inout",
+            "storage": "element",
+            "stop": "between",
+            "completion": "return",
+            "order": "ba"
+          },
+          "inputs_sha256": "b2cf5d23c8f4df3e21269efb11ef1a85e0fd0931a5db3c47c2229991d7dee564"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_65_logic_x_u_output_element_natural_return_ab.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "x",
+            "sign": "u",
+            "mode": "output",
+            "storage": "element",
+            "stop": "natural",
+            "completion": "return",
+            "order": "ab"
+          },
+          "inputs_sha256": "10c4fa883d5939c92542219e73c7722869875e79588923817ae45e235ec8628a"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_33_bit_z_s_inout_scalar_before_return_ba.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "z",
+            "sign": "s",
+            "mode": "inout",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "return",
+            "order": "ba"
+          },
+          "inputs_sha256": "ce88fcc336f3ac64e20cdee36f496817bf7f8566c6dcbea56a0fb1465fcfabea"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_32_logic_known_s_output_scalar_natural_return_ab.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "known",
+            "sign": "s",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "natural",
+            "completion": "return",
+            "order": "ab"
+          },
+          "inputs_sha256": "9475fee2e61b8f4f30b1f5727313769399007b59b1cabd5b8777b18d4fb7434e"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_64_logic_known_u_inout_element_between_end_ba.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "known",
+            "sign": "u",
+            "mode": "inout",
+            "storage": "element",
+            "stop": "between",
+            "completion": "end",
+            "order": "ba"
+          },
+          "inputs_sha256": "f9bab5bd5654ce3289053960f9d9c32c4b672d6dc443007bb04aa3799c0ec0f6"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_1_bit_x_s_output_element_natural_end_ba.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "x",
+            "sign": "s",
+            "mode": "output",
+            "storage": "element",
+            "stop": "natural",
+            "completion": "end",
+            "order": "ba"
+          },
+          "inputs_sha256": "4c4145057ee4a915d97e7b81422cb930cadbd4e4304ab228a5d1b34a77fcf5c8"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_32_bit_x_u_inout_scalar_between_end_ab.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "x",
+            "sign": "u",
+            "mode": "inout",
+            "storage": "scalar",
+            "stop": "between",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "17618cb8adbe36175c42c228527d48d57b67096b45ebd10daf499a70cbdc1ea1"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_33_logic_z_u_inout_element_natural_end_ab.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "z",
+            "sign": "u",
+            "mode": "inout",
+            "storage": "element",
+            "stop": "natural",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "e480ac57dfd1169bb9862b7fd02c2767b2767977ea41f4b16404ff39d4aa2cfb"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_64_bit_x_s_output_scalar_before_return_ab.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "x",
+            "sign": "s",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "return",
+            "order": "ab"
+          },
+          "inputs_sha256": "aae352ddb695d1d1858fbe7560675e26a1659c7cbea46d9877160ae476221060"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_65_bit_z_s_output_scalar_between_end_ba.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "z",
+            "sign": "s",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "between",
+            "completion": "end",
+            "order": "ba"
+          },
+          "inputs_sha256": "6b316bf1d8da587f317a590b91c987f2f5cd716197e28fef0500da4db9db96cd"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_32_logic_z_s_inout_element_before_end_ba.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "z",
+            "sign": "s",
+            "mode": "inout",
+            "storage": "element",
+            "stop": "before",
+            "completion": "end",
+            "order": "ba"
+          },
+          "inputs_sha256": "6cb994381b6aa415051e521968c6ec2cd23cbe0774da165cd463b12cc42a8319"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_129_bit_known_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "known",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "02e519e36813b9854c612ba450a34f4112a1cc01c2968f7b47e22dc352be36d7"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_1_logic_z_u_inout_scalar_between_return_ab.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "z",
+            "sign": "u",
+            "mode": "inout",
+            "storage": "scalar",
+            "stop": "between",
+            "completion": "return",
+            "order": "ab"
+          },
+          "inputs_sha256": "9e643d3fe76ba06cd4b0902ab74c815674337ba098ce7c0f44fc90202b7d668e"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_33_bit_known_u_output_scalar_between_return_ab.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "known",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "between",
+            "completion": "return",
+            "order": "ab"
+          },
+          "inputs_sha256": "faa4ce16b032ea5f3d787c95fb2922906531cd541945de23e93e793b4a54f734"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_64_bit_z_s_inout_scalar_natural_return_ba.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "z",
+            "sign": "s",
+            "mode": "inout",
+            "storage": "scalar",
+            "stop": "natural",
+            "completion": "return",
+            "order": "ba"
+          },
+          "inputs_sha256": "67d9b33a7f178cd1401c76865bd0c74dbb5950b1133c7c18b7243124cb4ebe5f"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_65_bit_known_u_inout_scalar_before_end_ab.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "known",
+            "sign": "u",
+            "mode": "inout",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "0da4731a6accc61df9904b4188783623e21ab4e84f514b437e44dedeb385ffad"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_129_bit_x_u_inout_scalar_natural_end_ab.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "x",
+            "sign": "u",
+            "mode": "inout",
+            "storage": "scalar",
+            "stop": "natural",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "94fd25864cd285b44dd3d15799d628379bb373d666ad050a0ac52b5a3f4d92d1"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_33_bit_x_s_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "x",
+            "sign": "s",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "15fb49a17c75fbbf5f471521c2b4483b2c8231e0a85835ccdcbb8a681b66a4f6"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_1_bit_z_s_inout_scalar_before_end_ab.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "z",
+            "sign": "s",
+            "mode": "inout",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "2b77ca1f880820332a5e0df1534c34165e047c261a092c146a86c19886a97aa0"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_32_bit_known_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "known",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "cdad2822105e9d9c220dd46641c0adb58d8c64ff19a2936f2055d77afc8f2fb4"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_64_bit_known_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "known",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "a2bfa6ae5011352d7867f25fe214732d5a667b2218f5e4e6fec16f4316258a87"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_65_bit_x_s_inout_scalar_before_end_ab.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "x",
+            "sign": "s",
+            "mode": "inout",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "91e4c3aa298034f12ef6faafa264fd4bcaca2e7e0f8ee47083eaee3b06ffca75"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_129_bit_z_s_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "z",
+            "sign": "s",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "1214a9394fc760ea342a26010f9e1391041a6dbf43f810489a3f0472440186b6"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_1_logic_known_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "known",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "6f32eaaad9478cd602b2d20a37fcd6755e588f7a8d0fcaf319150c2b8b8ca734"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_1_logic_x_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "x",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "123399e21b38c594129f1d1de518047ad518f2442a6dc634cd27064c1b9db489"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_32_bit_z_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "z",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "bcefc77c56ea657dc7061afc96264700d8911afcad7d485290cd46b13ea93d5a"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_32_logic_x_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "x",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "2d7aba6f15c5d99340a11f3663a5cdf8739e4fab9dc79a6b82d3a395c52682e4"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_33_logic_known_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "known",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "4b9f0e671b0c3baac838bc44e081e76ebf106626e5402024faab239b9ec1f809"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_33_logic_x_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "x",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "8994403364f0ce32469fb018787d6613dc03809bea7cf466cc30dabb1bcf34dc"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_64_logic_x_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "x",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "235d217e37d82b76a37486c7da8ed2a3afba5db01ef43277d1864edc49aa2895"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_64_logic_z_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "z",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "df30ccf1d4dcba26740dfabb10bf963fbe31adc380b14b0682d5edb5492f0970"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_65_logic_known_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "known",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "3b87887fccabf3f91196603c840a2e44582f41c406fd96bc25a56f5d680aa8c9"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_65_logic_z_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "z",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "8ad0730f8014452fab9127eccf44d035caf94981b1038918ebe7316e28ef39ee"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_129_logic_known_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "known",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "0cfcf1d5abf926240d0a17af6b0179b562d5ed6828713aebf502eed8461aedbc"
+        },
+        {
+          "test": "tests/gen/ch24/test_gen_cross_progframe_129_logic_x_u_output_scalar_before_end_ab.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "x",
+            "sign": "u",
+            "mode": "output",
+            "storage": "scalar",
+            "stop": "before",
+            "completion": "end",
+            "order": "ab"
+          },
+          "inputs_sha256": "d1e5335aea177902c557cf2d67fa2d8f70e3de0de6a8db456854494d4282e9ed"
+        }
+      ]
+    },
+    {
+      "id": "package_array_query_scope",
+      "version": 1,
+      "factors": {
+        "width": [
+          "1",
+          "32",
+          "33",
+          "64",
+          "65",
+          "129"
+        ],
+        "state": [
+          "bit",
+          "logic"
+        ],
+        "value": [
+          "known",
+          "x",
+          "z"
+        ],
+        "bounds": [
+          "up",
+          "down"
+        ],
+        "origin": [
+          "negative",
+          "positive"
+        ],
+        "length": [
+          "one",
+          "three"
+        ],
+        "binding": [
+          "explicit",
+          "wildcard",
+          "qualified"
+        ],
+        "source": [
+          "first",
+          "second"
+        ],
+        "query": [
+          "default",
+          "explicit"
+        ]
+      },
+      "constraints": [
+        "全行が合法で未対応による除外なし。二packageの同名固定配列は幅・長さ・添字原点・向きが異なる。各moduleには幅も長さも異なる同名のローカル配列を置く。automatic function内の明示import・ワイルドカードimport・修飾参照で対象packageを選ぶ。$left/$size/$incrementが走査の開始位置・回数・方向を決め、左シフトとXORで全幅を集計する。省略次元と明示次元1、packed次元2、$bits/$dimensions/$unpacked_dimensionsを観測する。既知・既知またはX/Z・既知への回復の三相で、二つの呼出し元と以前の結果を保持する。非選択packageの更新後も再呼出しし、次に選択packageと両moduleのローカル配列だけを更新する。全配列要素・型付き結果・呼出し回数・訪問数・重み・終端添字を各操作後に観測する。bitへのX/Z変換もfourstateを指定する。export・動的配列・符号付き演算・task・時間制御・並行呼出しは対象外。"
+      ],
+      "higher_strength_groups": [
+        [
+          "width",
+          "state",
+          "value"
+        ],
+        [
+          "binding",
+          "source",
+          "query"
+        ],
+        [
+          "bounds",
+          "origin",
+          "length"
+        ],
+        [
+          "width",
+          "source",
+          "binding"
+        ],
+        [
+          "bounds",
+          "length",
+          "source"
+        ],
+        [
+          "binding",
+          "value",
+          "query"
+        ]
+      ],
+      "witness": "関数内のimportと修飾参照が配列問い合わせの対象を決め、開始位置・回数・方向と全幅集計を変える。非選択packageと同名ローカル配列の更新後も、対象配列の型・全要素・履歴を保持することを照合する。",
+      "legal_rows": 3456,
+      "available_cases": 36,
+      "selected_cases": 36,
+      "targets_by_strength": {
+        "2": 249,
+        "3": 118
+      },
+      "mandatory_witnesses": [
+        "tests/gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default.sv",
+        "tests/gen/ch26/test_gen_cross_pkgquery_129_logic_z_down_positive_three_wildcard_second_explicit.sv",
+        "tests/gen/ch26/test_gen_cross_pkgquery_65_logic_x_up_negative_three_qualified_first_default.sv",
+        "tests/gen/ch26/test_gen_cross_pkgquery_33_bit_z_down_negative_one_wildcard_first_explicit.sv",
+        "tests/gen/ch26/test_gen_cross_pkgquery_32_logic_known_up_positive_three_explicit_second_explicit.sv",
+        "tests/gen/ch26/test_gen_cross_pkgquery_64_bit_known_down_positive_one_qualified_second_default.sv"
+      ],
+      "selection": [
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "explicit",
+            "source": "first",
+            "query": "default"
+          },
+          "inputs_sha256": "f97d8e3b2cffc5f48623e9ef964a21e6726233d0e4060aee2bf6685ddaa43e6f"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_129_logic_z_down_positive_three_wildcard_second_explicit.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "z",
+            "bounds": "down",
+            "origin": "positive",
+            "length": "three",
+            "binding": "wildcard",
+            "source": "second",
+            "query": "explicit"
+          },
+          "inputs_sha256": "891f8f4e3a8cce666f17f408cc99fd1ea55407a947c5dfc4ff16ea2e1f66f9e1"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_65_logic_x_up_negative_three_qualified_first_default.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "three",
+            "binding": "qualified",
+            "source": "first",
+            "query": "default"
+          },
+          "inputs_sha256": "e39ad9f37f07b8102df7dae51da0e4c5671131ee8a0c83f06975c937f38bb1d4"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_33_bit_z_down_negative_one_wildcard_first_explicit.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "z",
+            "bounds": "down",
+            "origin": "negative",
+            "length": "one",
+            "binding": "wildcard",
+            "source": "first",
+            "query": "explicit"
+          },
+          "inputs_sha256": "3443286d7f8233959e49554cb909e5f6b994ad09cb14132aeb2e1f503b5ace31"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_32_logic_known_up_positive_three_explicit_second_explicit.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "known",
+            "bounds": "up",
+            "origin": "positive",
+            "length": "three",
+            "binding": "explicit",
+            "source": "second",
+            "query": "explicit"
+          },
+          "inputs_sha256": "0494a2e5deaf2ebf8f0d76ff81ee065add5fc7a7ecb5c42cd2ffdbcf91e522d4"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_64_bit_known_down_positive_one_qualified_second_default.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "known",
+            "bounds": "down",
+            "origin": "positive",
+            "length": "one",
+            "binding": "qualified",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "f4595d2873a2330bc8c309c3530eed241d6f3621e24088827935041a1eebf415"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_33_logic_x_up_positive_one_wildcard_second_default.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "x",
+            "bounds": "up",
+            "origin": "positive",
+            "length": "one",
+            "binding": "wildcard",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "11e32ce179a18975d9f2dfef819dec6c9966d1dd18ac5c795f9ac14d75a48872"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_64_bit_x_down_negative_three_explicit_first_explicit.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "x",
+            "bounds": "down",
+            "origin": "negative",
+            "length": "three",
+            "binding": "explicit",
+            "source": "first",
+            "query": "explicit"
+          },
+          "inputs_sha256": "3e323506c4661678338667094e6853cb083b414fccd4986e48197a889a33824d"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_1_logic_z_up_negative_three_qualified_second_explicit.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "three",
+            "binding": "qualified",
+            "source": "second",
+            "query": "explicit"
+          },
+          "inputs_sha256": "f01fcd768bcc4abdd2b6f3841322f95214ebf27cd527dcb1912f68d65ff3b491"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_32_bit_z_down_negative_one_wildcard_first_default.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "z",
+            "bounds": "down",
+            "origin": "negative",
+            "length": "one",
+            "binding": "wildcard",
+            "source": "first",
+            "query": "default"
+          },
+          "inputs_sha256": "e5ce646a8a79a63c2a04c8f637ce0c14f547f6cc9103bcdb7e75068c8eb84a55"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_65_bit_known_down_positive_one_wildcard_first_explicit.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "known",
+            "bounds": "down",
+            "origin": "positive",
+            "length": "one",
+            "binding": "wildcard",
+            "source": "first",
+            "query": "explicit"
+          },
+          "inputs_sha256": "8d7ff29d464f6278f68171a80edd67d0ee223d88446d6cafee0993ae2793a69d"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_129_bit_known_up_negative_one_qualified_first_explicit.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "qualified",
+            "source": "first",
+            "query": "explicit"
+          },
+          "inputs_sha256": "0d7f6b9531e4183e37d665f55903660d5b82e05bea3ac03d7facdf42a591cd14"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_64_logic_z_up_negative_one_explicit_second_default.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "explicit",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "20ce2b3e5ec859826aa81d3a7e865d589cc30a4d8a374b119e5d9262d46aaf22"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_1_bit_x_down_positive_one_wildcard_first_explicit.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "x",
+            "bounds": "down",
+            "origin": "positive",
+            "length": "one",
+            "binding": "wildcard",
+            "source": "first",
+            "query": "explicit"
+          },
+          "inputs_sha256": "4a5da5568fe3dbecedc8cd791a3a541a758549a5c5890d4f0d912da0b18f26eb"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_65_bit_z_up_negative_one_explicit_second_explicit.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "explicit",
+            "source": "second",
+            "query": "explicit"
+          },
+          "inputs_sha256": "c25cd2a304f3d336ab6a8f0f457a4cdd0702666b2fccdcb6d6e475132e3f4efa"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_129_bit_x_up_negative_one_explicit_first_default.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "explicit",
+            "source": "first",
+            "query": "default"
+          },
+          "inputs_sha256": "58ece81d3a5ab549d126db5008213e98b1e6ecbb4a02b617edfff64bf93e8aee"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_32_bit_x_up_negative_one_qualified_first_explicit.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "qualified",
+            "source": "first",
+            "query": "explicit"
+          },
+          "inputs_sha256": "728819c44cd066f1c9f93173a965b54646fb70b0d2b76d267ccb62f302395fa0"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_33_bit_known_up_negative_three_explicit_first_default.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "three",
+            "binding": "explicit",
+            "source": "first",
+            "query": "default"
+          },
+          "inputs_sha256": "36803d8eafb9114505080c4d9123ea20e383a71ce2bf49c05de874440869f970"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_33_logic_z_up_negative_one_qualified_first_default.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "qualified",
+            "source": "first",
+            "query": "default"
+          },
+          "inputs_sha256": "251ccb3aea30b4e4edff693b4754f6f336f2f0d8656d13534b38fdd3eb0f6bf5"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_64_logic_known_up_negative_one_wildcard_first_default.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "wildcard",
+            "source": "first",
+            "query": "default"
+          },
+          "inputs_sha256": "6da09500d4ba2400a584f3b3634733fc0c6f9ac13bc9a39f1cb80bdb9daca6fb"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_1_bit_z_up_negative_one_explicit_second_default.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "explicit",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "733f5863cfb6faaec150f200d4879d3ca4f59d493b880dc4350a6d5b253a757f"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_1_logic_known_up_negative_one_wildcard_second_default.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "wildcard",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "ad7e54f8df9bfecb53cc75e86cf66264ddea838542296690aafff83d2bfca27b"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_1_logic_x_up_negative_one_qualified_first_default.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "qualified",
+            "source": "first",
+            "query": "default"
+          },
+          "inputs_sha256": "d3a285930ea42c3012d9807bfec68b89ae403d3f437d2f90c2ce6c638c88b58a"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_32_bit_known_up_negative_one_explicit_first_default.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "explicit",
+            "source": "first",
+            "query": "default"
+          },
+          "inputs_sha256": "d20b5b6faeac78b338f8c0ec887ff5f1c70d2bb02762dc6a706c0d16568a96e9"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_32_logic_x_up_negative_one_wildcard_second_default.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "wildcard",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "c9e08e29fc05823c653974775b80939365063089d94a832cddbe6bd333606e88"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_32_logic_z_up_negative_one_qualified_second_default.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "qualified",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "72f2522785c0f57f9ac774a0c3f365fb8e538e45ff6c7a3b1db3478639c99fad"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_33_bit_x_up_negative_one_explicit_second_default.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "explicit",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "9cfb50e7a12e129d63d8ce054e996ceaecb42869fed2d095634717c0573deaf0"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_33_logic_known_up_negative_one_qualified_second_default.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "qualified",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "fb7e9dc95c4b851ff9f09e32f1ed5b494f1d6bfcb678901622129144409bda31"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_64_bit_z_up_negative_one_wildcard_second_default.sv",
+          "values": {
+            "width": "64",
+            "state": "bit",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "wildcard",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "2b571e0dafd3690f7848a02aab390cec29fd1db345d1b94d564c938622f1d008"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_64_logic_x_up_negative_one_qualified_first_default.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "qualified",
+            "source": "first",
+            "query": "default"
+          },
+          "inputs_sha256": "b6b008f06535fbb9f547f5ff4f688fd88f38ac69fb11f89fd5d08d7517d9cf9f"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_65_bit_x_up_negative_one_explicit_first_default.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "explicit",
+            "source": "first",
+            "query": "default"
+          },
+          "inputs_sha256": "b802f4b4bce1fe3a63ab888ad887b195e1db73123d46fe016d77c38d729bf224"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_65_logic_known_up_negative_one_wildcard_second_default.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "wildcard",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "bf49200073a52380e86ab78272c97b4e759017de94384f6ccf1cd1ca0a8bfe61"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_65_logic_z_up_negative_one_qualified_second_default.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "qualified",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "27926b2e9a3300ceddcb16ff7c6e4fc41351ff658e531b58e7c203800e2bfe6b"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_129_bit_z_up_negative_one_explicit_second_default.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "value": "z",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "explicit",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "8320e96b6d74f3e2f0eaca20df38f938d8396a5624ef21071883beca3d34c970"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_129_logic_known_up_negative_one_wildcard_first_default.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "known",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "wildcard",
+            "source": "first",
+            "query": "default"
+          },
+          "inputs_sha256": "710ca584468ef766fede1794bf917dfa54d600bd26799fe70c72f07c247e6281"
+        },
+        {
+          "test": "tests/gen/ch26/test_gen_cross_pkgquery_129_logic_x_up_negative_one_qualified_second_default.sv",
+          "values": {
+            "width": "129",
+            "state": "logic",
+            "value": "x",
+            "bounds": "up",
+            "origin": "negative",
+            "length": "one",
+            "binding": "qualified",
+            "source": "second",
+            "query": "default"
+          },
+          "inputs_sha256": "548ec0a64282f234d8183a10c6dba321fe198c32fe15f0012cae81b3fa3b21c8"
+        }
+      ]
     }
   ],
   "runs": [
     {
       "source": "results/ghost.json",
       "simulator": "ghost",
-      "version": "private build 3314f9902a64",
-      "generated_at": "2026-11-05T03:38:28.956402+00:00",
+      "version": "private build 63199c0a337a",
+      "generated_at": "2026-11-06T01:17:12.738295+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -47512,8 +51446,8 @@
         },
         "array_reduction_constraint": {
           "case_statuses": {
-            "pass": 6,
-            "fail": 7,
+            "pass": 8,
+            "fail": 5,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -47521,19 +51455,19 @@
           },
           "coverage": {
             "2": {
-              "passed": 64,
+              "passed": 83,
               "total": 96,
-              "missing": 32
+              "missing": 13
             },
             "3": {
-              "passed": 19,
+              "passed": 26,
               "total": 40,
-              "missing": 21
+              "missing": 14
             }
           },
           "mandatory_witnesses": {
             "tests/gen/ch18/test_gen_cross_randreduce_4_unsigned_fixed_sum_element_2_sat_fail_sat.sv": "pass",
-            "tests/gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail.sv": "fail",
+            "tests/gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail.sv": "pass",
             "tests/gen/ch18/test_gen_cross_randreduce_8_signed_fixed_product_element_3_fail_sat_fail.sv": "fail",
             "tests/gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_sat.sv": "pass"
           },
@@ -48328,14 +52262,206 @@
           },
           "provenance_problem": "",
           "complete": false
+        },
+        "generated_process_loop_transfer": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 36,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 293,
+              "missing": 293
+            },
+            "3": {
+              "passed": 0,
+              "total": 160,
+              "missing": 160
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_genloop_1_bit_known_for_break_head_if_up_1.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_genloop_129_logic_z_repeat_continue_miss_case_down_3.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_genloop_65_logic_x_while_break_middle_if_down_3.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_genloop_33_bit_z_repeat_break_tail_case_up_1.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_genloop_32_logic_known_for_continue_tail_case_down_3.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_genloop_64_bit_known_while_continue_middle_if_up_3.sv": "fail"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "interface_array_query_walk": {
+          "case_statuses": {
+            "pass": 30,
+            "fail": 6,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 254,
+              "total": 274,
+              "missing": 20
+            },
+            "3": {
+              "passed": 83,
+              "total": 96,
+              "missing": 13
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch25/test_gen_cross_ifquery_1_bit_known_up_negative_one_default_function_ab_up.sv": "fail",
+            "tests/gen/ch25/test_gen_cross_ifquery_129_logic_z_down_positive_three_explicit_task_ba_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_65_logic_x_up_negative_three_default_task_ab_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_33_bit_z_down_negative_one_explicit_function_ba_up.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_32_logic_known_up_positive_three_explicit_function_ba_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_64_bit_known_down_positive_one_default_task_ab_up.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "generated_constant_expression_shape": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 36,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 297,
+              "missing": 297
+            },
+            "3": {
+              "passed": 0,
+              "total": 132,
+              "missing": 132
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_genexpr_1_bit_known_s_s_s_wide_add_if_named.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_genexpr_129_logic_z_s_u_s_wide_conditional_case_positional.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_genexpr_65_logic_x_u_s_u_same_xor_if_positional.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_genexpr_33_bit_z_s_s_s_wide_xor_case_named.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_genexpr_32_logic_known_s_u_s_wide_add_case_named.sv": "fail",
+            "tests/gen/ch27/test_gen_cross_genexpr_64_logic_known_s_s_u_same_conditional_if_positional.sv": "fail"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "formatted_scan_partial_write": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 292,
+              "total": 292,
+              "missing": 0
+            },
+            "3": {
+              "passed": 142,
+              "total": 142,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch21/test_gen_cross_scansel_1_bit_known_bin_all_whole_target_low_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_65_logic_x_bin_bad_second_plus_target_high_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_33_bit_z_hex_empty_minus_word_low_runtime.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_32_logic_known_hex_long_first_plus_word_low_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "program_task_frame_lifetime": {
+          "case_statuses": {
+            "pass": 17,
+            "fail": 19,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 126,
+              "total": 249,
+              "missing": 123
+            },
+            "3": {
+              "passed": 29,
+              "total": 100,
+              "missing": 71
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_129_logic_z_s_inout_element_between_return_ba.sv": "fail",
+            "tests/gen/ch24/test_gen_cross_progframe_65_logic_x_u_output_element_natural_return_ab.sv": "fail",
+            "tests/gen/ch24/test_gen_cross_progframe_33_bit_z_s_inout_scalar_before_return_ba.sv": "fail",
+            "tests/gen/ch24/test_gen_cross_progframe_32_logic_known_s_output_scalar_natural_return_ab.sv": "fail",
+            "tests/gen/ch24/test_gen_cross_progframe_64_logic_known_u_inout_element_between_end_ba.sv": "fail"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "package_array_query_scope": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 249,
+              "total": 249,
+              "missing": 0
+            },
+            "3": {
+              "passed": 118,
+              "total": 118,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_129_logic_z_down_positive_three_wildcard_second_explicit.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_65_logic_x_up_negative_three_qualified_first_default.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_33_bit_z_down_negative_one_wildcard_first_explicit.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_32_logic_known_up_positive_three_explicit_second_explicit.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_64_bit_known_down_positive_one_qualified_second_default.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
         }
       }
     },
     {
       "source": "results/icarus.json",
       "simulator": "icarus",
-      "version": "Icarus Verilog version 14.0 (devel) (s20260301-812-g9f260501)",
-      "generated_at": "2026-11-05T00:38:16.069296+00:00",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-821-g3b5615f5)",
+      "generated_at": "2026-11-06T01:01:57.285288+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -50886,14 +55012,206 @@
           },
           "provenance_problem": "",
           "complete": false
+        },
+        "generated_process_loop_transfer": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 293,
+              "total": 293,
+              "missing": 0
+            },
+            "3": {
+              "passed": 160,
+              "total": 160,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_genloop_1_bit_known_for_break_head_if_up_1.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_129_logic_z_repeat_continue_miss_case_down_3.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_65_logic_x_while_break_middle_if_down_3.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_33_bit_z_repeat_break_tail_case_up_1.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_32_logic_known_for_continue_tail_case_down_3.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_64_bit_known_while_continue_middle_if_up_3.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "interface_array_query_walk": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 274,
+              "total": 274,
+              "missing": 0
+            },
+            "3": {
+              "passed": 96,
+              "total": 96,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch25/test_gen_cross_ifquery_1_bit_known_up_negative_one_default_function_ab_up.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_129_logic_z_down_positive_three_explicit_task_ba_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_65_logic_x_up_negative_three_default_task_ab_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_33_bit_z_down_negative_one_explicit_function_ba_up.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_32_logic_known_up_positive_three_explicit_function_ba_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_64_bit_known_down_positive_one_default_task_ab_up.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "generated_constant_expression_shape": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 297,
+              "total": 297,
+              "missing": 0
+            },
+            "3": {
+              "passed": 132,
+              "total": 132,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_genexpr_1_bit_known_s_s_s_wide_add_if_named.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_129_logic_z_s_u_s_wide_conditional_case_positional.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_65_logic_x_u_s_u_same_xor_if_positional.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_33_bit_z_s_s_s_wide_xor_case_named.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_32_logic_known_s_u_s_wide_add_case_named.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_64_logic_known_s_s_u_same_conditional_if_positional.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "formatted_scan_partial_write": {
+          "case_statuses": {
+            "pass": 17,
+            "fail": 0,
+            "known": 19,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 222,
+              "total": 292,
+              "missing": 70
+            },
+            "3": {
+              "passed": 67,
+              "total": 142,
+              "missing": 75
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch21/test_gen_cross_scansel_1_bit_known_bin_all_whole_target_low_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime.sv": "known",
+            "tests/gen/ch21/test_gen_cross_scansel_65_logic_x_bin_bad_second_plus_target_high_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_33_bit_z_hex_empty_minus_word_low_runtime.sv": "known",
+            "tests/gen/ch21/test_gen_cross_scansel_32_logic_known_hex_long_first_plus_word_low_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime.sv": "known"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "program_task_frame_lifetime": {
+          "case_statuses": {
+            "pass": 6,
+            "fail": 0,
+            "known": 30,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 150,
+              "total": 249,
+              "missing": 99
+            },
+            "3": {
+              "passed": 32,
+              "total": 100,
+              "missing": 68
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab.sv": "known",
+            "tests/gen/ch24/test_gen_cross_progframe_129_logic_z_s_inout_element_between_return_ba.sv": "known",
+            "tests/gen/ch24/test_gen_cross_progframe_65_logic_x_u_output_element_natural_return_ab.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_33_bit_z_s_inout_scalar_before_return_ba.sv": "known",
+            "tests/gen/ch24/test_gen_cross_progframe_32_logic_known_s_output_scalar_natural_return_ab.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_64_logic_known_u_inout_element_between_end_ba.sv": "known"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "package_array_query_scope": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 36,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 249,
+              "missing": 249
+            },
+            "3": {
+              "passed": 0,
+              "total": 118,
+              "missing": 118
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default.sv": "known",
+            "tests/gen/ch26/test_gen_cross_pkgquery_129_logic_z_down_positive_three_wildcard_second_explicit.sv": "known",
+            "tests/gen/ch26/test_gen_cross_pkgquery_65_logic_x_up_negative_three_qualified_first_default.sv": "known",
+            "tests/gen/ch26/test_gen_cross_pkgquery_33_bit_z_down_negative_one_wildcard_first_explicit.sv": "known",
+            "tests/gen/ch26/test_gen_cross_pkgquery_32_logic_known_up_positive_three_explicit_second_explicit.sv": "known",
+            "tests/gen/ch26/test_gen_cross_pkgquery_64_bit_known_down_positive_one_qualified_second_default.sv": "known"
+          },
+          "provenance_problem": "",
+          "complete": false
         }
       }
     },
     {
       "source": "results/kirimasim.json",
       "simulator": "kirimasim",
-      "version": "kirimasim 0.0.0 (commit 50a897dee62a), built with GNU 13.3.0",
-      "generated_at": "2026-11-05T03:26:40.741180+00:00",
+      "version": "kirimasim 0.0.0 (commit 6f5c69841228), built with GNU 13.3.0",
+      "generated_at": "2026-11-06T01:47:52.985134+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -53444,14 +57762,206 @@
           },
           "provenance_problem": "",
           "complete": true
+        },
+        "generated_process_loop_transfer": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 293,
+              "total": 293,
+              "missing": 0
+            },
+            "3": {
+              "passed": 160,
+              "total": 160,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_genloop_1_bit_known_for_break_head_if_up_1.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_129_logic_z_repeat_continue_miss_case_down_3.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_65_logic_x_while_break_middle_if_down_3.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_33_bit_z_repeat_break_tail_case_up_1.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_32_logic_known_for_continue_tail_case_down_3.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_64_bit_known_while_continue_middle_if_up_3.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "interface_array_query_walk": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 274,
+              "total": 274,
+              "missing": 0
+            },
+            "3": {
+              "passed": 96,
+              "total": 96,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch25/test_gen_cross_ifquery_1_bit_known_up_negative_one_default_function_ab_up.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_129_logic_z_down_positive_three_explicit_task_ba_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_65_logic_x_up_negative_three_default_task_ab_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_33_bit_z_down_negative_one_explicit_function_ba_up.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_32_logic_known_up_positive_three_explicit_function_ba_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_64_bit_known_down_positive_one_default_task_ab_up.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "generated_constant_expression_shape": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 297,
+              "total": 297,
+              "missing": 0
+            },
+            "3": {
+              "passed": 132,
+              "total": 132,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_genexpr_1_bit_known_s_s_s_wide_add_if_named.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_129_logic_z_s_u_s_wide_conditional_case_positional.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_65_logic_x_u_s_u_same_xor_if_positional.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_33_bit_z_s_s_s_wide_xor_case_named.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_32_logic_known_s_u_s_wide_add_case_named.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_64_logic_known_s_s_u_same_conditional_if_positional.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "formatted_scan_partial_write": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 292,
+              "total": 292,
+              "missing": 0
+            },
+            "3": {
+              "passed": 142,
+              "total": 142,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch21/test_gen_cross_scansel_1_bit_known_bin_all_whole_target_low_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_65_logic_x_bin_bad_second_plus_target_high_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_33_bit_z_hex_empty_minus_word_low_runtime.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_32_logic_known_hex_long_first_plus_word_low_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "program_task_frame_lifetime": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 249,
+              "total": 249,
+              "missing": 0
+            },
+            "3": {
+              "passed": 100,
+              "total": 100,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_129_logic_z_s_inout_element_between_return_ba.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_65_logic_x_u_output_element_natural_return_ab.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_33_bit_z_s_inout_scalar_before_return_ba.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_32_logic_known_s_output_scalar_natural_return_ab.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_64_logic_known_u_inout_element_between_end_ba.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "package_array_query_scope": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 249,
+              "total": 249,
+              "missing": 0
+            },
+            "3": {
+              "passed": 118,
+              "total": 118,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_129_logic_z_down_positive_three_wildcard_second_explicit.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_65_logic_x_up_negative_three_qualified_first_default.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_33_bit_z_down_negative_one_wildcard_first_explicit.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_32_logic_known_up_positive_three_explicit_second_explicit.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_64_bit_known_down_positive_one_qualified_second_default.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
         }
       }
     },
     {
       "source": "results/lyra.json",
       "simulator": "lyra",
-      "version": "Lyra (commit ccfc8aa4fbd9)",
-      "generated_at": "2026-11-05T04:44:28.598954+00:00",
+      "version": "Lyra (commit 3ee7454cc747)",
+      "generated_at": "2026-11-06T05:05:00.581249+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -56002,20 +60512,212 @@
           },
           "provenance_problem": "",
           "complete": true
+        },
+        "generated_process_loop_transfer": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 293,
+              "total": 293,
+              "missing": 0
+            },
+            "3": {
+              "passed": 160,
+              "total": 160,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_genloop_1_bit_known_for_break_head_if_up_1.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_129_logic_z_repeat_continue_miss_case_down_3.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_65_logic_x_while_break_middle_if_down_3.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_33_bit_z_repeat_break_tail_case_up_1.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_32_logic_known_for_continue_tail_case_down_3.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_64_bit_known_while_continue_middle_if_up_3.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "interface_array_query_walk": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 274,
+              "total": 274,
+              "missing": 0
+            },
+            "3": {
+              "passed": 96,
+              "total": 96,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch25/test_gen_cross_ifquery_1_bit_known_up_negative_one_default_function_ab_up.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_129_logic_z_down_positive_three_explicit_task_ba_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_65_logic_x_up_negative_three_default_task_ab_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_33_bit_z_down_negative_one_explicit_function_ba_up.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_32_logic_known_up_positive_three_explicit_function_ba_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_64_bit_known_down_positive_one_default_task_ab_up.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "generated_constant_expression_shape": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 297,
+              "total": 297,
+              "missing": 0
+            },
+            "3": {
+              "passed": 132,
+              "total": 132,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_genexpr_1_bit_known_s_s_s_wide_add_if_named.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_129_logic_z_s_u_s_wide_conditional_case_positional.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_65_logic_x_u_s_u_same_xor_if_positional.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_33_bit_z_s_s_s_wide_xor_case_named.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_32_logic_known_s_u_s_wide_add_case_named.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_64_logic_known_s_s_u_same_conditional_if_positional.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "formatted_scan_partial_write": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 292,
+              "total": 292,
+              "missing": 0
+            },
+            "3": {
+              "passed": 142,
+              "total": 142,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch21/test_gen_cross_scansel_1_bit_known_bin_all_whole_target_low_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_65_logic_x_bin_bad_second_plus_target_high_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_33_bit_z_hex_empty_minus_word_low_runtime.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_32_logic_known_hex_long_first_plus_word_low_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "program_task_frame_lifetime": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 249,
+              "total": 249,
+              "missing": 0
+            },
+            "3": {
+              "passed": 100,
+              "total": 100,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_129_logic_z_s_inout_element_between_return_ba.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_65_logic_x_u_output_element_natural_return_ab.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_33_bit_z_s_inout_scalar_before_return_ba.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_32_logic_known_s_output_scalar_natural_return_ab.sv": "pass",
+            "tests/gen/ch24/test_gen_cross_progframe_64_logic_known_u_inout_element_between_end_ba.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
+        },
+        "package_array_query_scope": {
+          "case_statuses": {
+            "pass": 36,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 249,
+              "total": 249,
+              "missing": 0
+            },
+            "3": {
+              "passed": 118,
+              "total": 118,
+              "missing": 0
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_129_logic_z_down_positive_three_wildcard_second_explicit.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_65_logic_x_up_negative_three_qualified_first_default.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_33_bit_z_down_negative_one_wildcard_first_explicit.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_32_logic_known_up_positive_three_explicit_second_explicit.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_64_bit_known_down_positive_one_qualified_second_default.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": true
         }
       }
     },
     {
       "source": "results/verilator.json",
       "simulator": "verilator",
-      "version": "Verilator 5.055 devel rev v5.054-63-g57bbb293",
-      "generated_at": "2026-11-05T02:39:00.207229+00:00",
+      "version": "Verilator 5.055 devel rev v5.054-75-gab53e01d",
+      "generated_at": "2026-11-06T02:39:03.102639+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
-            "pass": 300,
+            "pass": 318,
             "fail": 0,
-            "known": 25,
+            "known": 7,
             "unsupported": 0,
             "stale": 0,
             "not_run": 0
@@ -56027,14 +60729,14 @@
               "missing": 0
             },
             "3": {
-              "passed": 48,
+              "passed": 51,
               "total": 51,
-              "missing": 3
+              "missing": 0
             }
           },
           "mandatory_witnesses": {},
           "provenance_problem": "",
-          "complete": false
+          "complete": true
         },
         "nba_capture": {
           "case_statuses": {
@@ -58557,6 +63259,198 @@
             "tests/gen/ch8/test_gen_cross_classsel_33_bit_s_virtual_conditional_x_rebind.sv": "known",
             "tests/gen/ch8/test_gen_cross_classsel_32_logic_s_virtual_if_known_rebind.sv": "pass",
             "tests/gen/ch8/test_gen_cross_classsel_64_logic_u_nonvirtual_conditional_known_keep.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "generated_process_loop_transfer": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 24,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 193,
+              "total": 293,
+              "missing": 100
+            },
+            "3": {
+              "passed": 65,
+              "total": 160,
+              "missing": 95
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_genloop_1_bit_known_for_break_head_if_up_1.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_129_logic_z_repeat_continue_miss_case_down_3.sv": "known",
+            "tests/gen/ch27/test_gen_cross_genloop_65_logic_x_while_break_middle_if_down_3.sv": "known",
+            "tests/gen/ch27/test_gen_cross_genloop_33_bit_z_repeat_break_tail_case_up_1.sv": "known",
+            "tests/gen/ch27/test_gen_cross_genloop_32_logic_known_for_continue_tail_case_down_3.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genloop_64_bit_known_while_continue_middle_if_up_3.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "interface_array_query_walk": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 24,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 189,
+              "total": 274,
+              "missing": 85
+            },
+            "3": {
+              "passed": 37,
+              "total": 96,
+              "missing": 59
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch25/test_gen_cross_ifquery_1_bit_known_up_negative_one_default_function_ab_up.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_129_logic_z_down_positive_three_explicit_task_ba_down.sv": "known",
+            "tests/gen/ch25/test_gen_cross_ifquery_65_logic_x_up_negative_three_default_task_ab_down.sv": "known",
+            "tests/gen/ch25/test_gen_cross_ifquery_33_bit_z_down_negative_one_explicit_function_ba_up.sv": "known",
+            "tests/gen/ch25/test_gen_cross_ifquery_32_logic_known_up_positive_three_explicit_function_ba_down.sv": "pass",
+            "tests/gen/ch25/test_gen_cross_ifquery_64_bit_known_down_positive_one_default_task_ab_up.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "generated_constant_expression_shape": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 24,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 211,
+              "total": 297,
+              "missing": 86
+            },
+            "3": {
+              "passed": 57,
+              "total": 132,
+              "missing": 75
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch27/test_gen_cross_genexpr_1_bit_known_s_s_s_wide_add_if_named.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_129_logic_z_s_u_s_wide_conditional_case_positional.sv": "known",
+            "tests/gen/ch27/test_gen_cross_genexpr_65_logic_x_u_s_u_same_xor_if_positional.sv": "known",
+            "tests/gen/ch27/test_gen_cross_genexpr_33_bit_z_s_s_s_wide_xor_case_named.sv": "known",
+            "tests/gen/ch27/test_gen_cross_genexpr_32_logic_known_s_u_s_wide_add_case_named.sv": "pass",
+            "tests/gen/ch27/test_gen_cross_genexpr_64_logic_known_s_s_u_same_conditional_if_positional.sv": "pass"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "formatted_scan_partial_write": {
+          "case_statuses": {
+            "pass": 8,
+            "fail": 0,
+            "known": 28,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 133,
+              "total": 292,
+              "missing": 159
+            },
+            "3": {
+              "passed": 34,
+              "total": 142,
+              "missing": 108
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch21/test_gen_cross_scansel_1_bit_known_bin_all_whole_target_low_literal.sv": "pass",
+            "tests/gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime.sv": "known",
+            "tests/gen/ch21/test_gen_cross_scansel_65_logic_x_bin_bad_second_plus_target_high_literal.sv": "known",
+            "tests/gen/ch21/test_gen_cross_scansel_33_bit_z_hex_empty_minus_word_low_runtime.sv": "known",
+            "tests/gen/ch21/test_gen_cross_scansel_32_logic_known_hex_long_first_plus_word_low_literal.sv": "known",
+            "tests/gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime.sv": "known"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "program_task_frame_lifetime": {
+          "case_statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 36,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 0,
+              "total": 249,
+              "missing": 249
+            },
+            "3": {
+              "passed": 0,
+              "total": 100,
+              "missing": 100
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch24/test_gen_cross_progframe_1_bit_known_u_output_scalar_before_end_ab.sv": "known",
+            "tests/gen/ch24/test_gen_cross_progframe_129_logic_z_s_inout_element_between_return_ba.sv": "known",
+            "tests/gen/ch24/test_gen_cross_progframe_65_logic_x_u_output_element_natural_return_ab.sv": "known",
+            "tests/gen/ch24/test_gen_cross_progframe_33_bit_z_s_inout_scalar_before_return_ba.sv": "known",
+            "tests/gen/ch24/test_gen_cross_progframe_32_logic_known_s_output_scalar_natural_return_ab.sv": "known",
+            "tests/gen/ch24/test_gen_cross_progframe_64_logic_known_u_inout_element_between_end_ba.sv": "known"
+          },
+          "provenance_problem": "",
+          "complete": false
+        },
+        "package_array_query_scope": {
+          "case_statuses": {
+            "pass": 12,
+            "fail": 0,
+            "known": 24,
+            "unsupported": 0,
+            "stale": 0,
+            "not_run": 0
+          },
+          "coverage": {
+            "2": {
+              "passed": 178,
+              "total": 249,
+              "missing": 71
+            },
+            "3": {
+              "passed": 47,
+              "total": 118,
+              "missing": 71
+            }
+          },
+          "mandatory_witnesses": {
+            "tests/gen/ch26/test_gen_cross_pkgquery_1_bit_known_up_negative_one_explicit_first_default.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_129_logic_z_down_positive_three_wildcard_second_explicit.sv": "known",
+            "tests/gen/ch26/test_gen_cross_pkgquery_65_logic_x_up_negative_three_qualified_first_default.sv": "known",
+            "tests/gen/ch26/test_gen_cross_pkgquery_33_bit_z_down_negative_one_wildcard_first_explicit.sv": "known",
+            "tests/gen/ch26/test_gen_cross_pkgquery_32_logic_known_up_positive_three_explicit_second_explicit.sv": "pass",
+            "tests/gen/ch26/test_gen_cross_pkgquery_64_bit_known_down_positive_one_qualified_second_default.sv": "pass"
           },
           "provenance_problem": "",
           "complete": false

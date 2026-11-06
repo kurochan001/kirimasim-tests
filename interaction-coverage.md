@@ -6,9 +6,9 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/673210797a4e131a47f75524b4662f93de866206/docs/interaction-verification.md)を参照してください。
 
-2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
+2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/673210797a4e131a47f75524b4662f93de866206/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/673210797a4e131a47f75524b4662f93de866206/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -1725,6 +1725,146 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
 
 制約: 全行が合法で、未対応による除外なし。二つの派生オブジェクトを使い、直呼び・基底ハンドルのvirtual/非virtualを区別する。ifと通常caseはX/Z条件を偽側へ送り、条件演算子は各ビットをマージする。既知値の相と既知値またはX/Z入力の相を実行し、bit型でも条件はlogicに保つ。返す値を取得してから同じreceiverのdataだけを更新し、早期return後の文は実行しない。各呼出し後に両オブジェクトと保持した別名、幅を広げた結果、呼出し数を観測する。外部更新、別ハンドルへの再束縛、guardだけの更新、反復呼出しと最終保持を確認する。単一initial、時間を消費しないfunctionのみ。再帰・ref・null・並行性・GC・プロパティの隠蔽・super・混合符号の演算は対象外。
 
+## generated_process_loop_transfer / model 1
+
+- 制約を満たす組合せ数: 6912。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 293/293。
+- 3因子の計画上の網羅: 160/160。
+
+生成プロセスごとの配列走査とbreak/continueを、訪問数・保持数・重み・全幅の結果で照合する。一スコープの入力変更、別guardの更新、立上りでの再起動、立下りと待機中の状態保持を観測する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- loop: for, while, repeat。
+- transfer: break, continue。
+- hit: head, middle, tail, miss。
+- form: if, case。
+- range: up, down。
+- count: 1, 3。
+
+制約: 全行が合法で未対応による除外なし。二moduleインスタンスの各二生成要素が独立したposedgeプロセス、局所型・配列・カウンタを持つ。分岐とgenvarで局所幅・配列範囲が変わる。for/while/repeatは同じ論理位置順に走査し、最下位ビットの!==0でbreak/continueする。while/repeatは分岐前に添字を進めるため、continueでも停止性を保つ。head/middle/tailは奇数スコープで反転し、回復相では一つ回す。長さ一の位置の重複も保持する。既知・既知またはX/Z・既知への回復の各相で二回起動し、その間に一スコープの入力と別スコープのguardだけを変える。クロックを下げた後と待機中も保持を読む。符号付き演算・foreach・動的配列・NBA・名前付きdisable・並行writer・可変階層添字は対象外。X/Z入力ではbit格納への変換でもfourstateを指定する。
+
+## interface_array_query_walk / model 1
+
+- 制約を満たす組合せ数: 4608。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 274/274。
+- 3因子の計画上の網羅: 96/96。
+
+interface内の配列問い合わせが走査の開始位置・回数・方向と型付き結果を決める。全要素・両次元の境界・単一要素・別実体の保持・入力変更後の再呼出しを照合する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- bounds: up, down。
+- origin: negative, positive。
+- length: one, three。
+- query: default, explicit。
+- routine: function, task。
+- order: ab, ba。
+- packed: up, down。
+
+制約: 全行が合法で未対応による除外なし。二interfaceは幅・長さ・添字原点・向きが異なる。一番目は幅Wと長さ1/3、二番目は幅W+2と長さ2/4で逆向き。packed範囲も逆向きで原点付き。interface内のautomatic function/taskが$left/$size/$incrementで論理位置順に走査し、左シフトとXORで順序依存の全幅チェックサムを計算する。単一要素のincrementは1。省略した次元と明示次元1を区別し、packed次元2も全問い合わせを観測する。既知・既知またはX/Z・既知への回復の三相で、各呼出し後に両実体を読む。一方の末尾要素と他方のguardだけを更新し、逆順で再呼出しする。戻り値とoutputコピーは幅W+4のlogicへ格納する。bitへのX/Z変換もfourstateを指定する。符号付き演算・interfaceポート・modport・virtual interface・動的配列・並行呼出し・時間制御は対象外。
+
+## generated_constant_expression_shape / model 1
+
+- 制約を満たす組合せ数: 6912。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 297/297。
+- 3因子の計画上の網羅: 132/132。
+
+定数式のオペランド符号・代入文脈の幅・結果の宣言符号を分離し、生成分岐・個数・幅を照合する。$bitsによる形状、各生成要素の全幅データ、別実体の保持、X/Zと既知値への回復を観測する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- left_sign: s, u。
+- right_sign: s, u。
+- result_sign: s, u。
+- context: same, wide。
+- operation: add, xor, conditional。
+- form: if, case。
+- binding: named, positional。
+
+制約: 全行が合法で未対応による除外なし。二moduleのSELECTは0/1で、定数Aは最上位ビットだけが1または値1、Bは全ビット1。両オペランドの幅は基底幅で独立に符号を選ぶ。加算・XOR・条件演算子の結果は基底幅または一つ広い型付きlocalparamへ格納する。式は両オペランドがsignedのときだけ符号拡張し、結果の宣言符号とは区別する。格納後の負判定がif/case generateを選び、最上位と最下位のビットが生成個数1から4を決める。$bitsの剰余が生成幅を決め、genvarでさらに幅を変える。各要素は独立したraw・guard・連続代入結果を持つ。既知・既知またはX/Z・既知への回復の三相で全要素を読み、一方の先頭入力と他方の末尾guardだけを更新する。X/Zは実行時刺激だけに使い、定数式とgenerate条件は既知値。bitへの変換でもfourstateを指定する。config・defparam・未定義の階層参照・動的な生成添字・符号付きruntime演算は対象外。
+
+## formatted_scan_partial_write / model 1
+
+- 制約を満たす組合せ数: 5760。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 292/292。
+- 3因子の計画上の網羅: 142/142。
+
+文字列の読取りが途中で止まる位置と成功した書込みだけを、戻り値・全語・部分選択外の保持で照合する。$bitsを使う実行時書式、文字数としてのフィールド幅、既知ASCIIのX/Z数字と格納時の変換を観測する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- radix: bin, hex。
+- outcome: all, long_first, bad_second, empty。
+- target: whole, plus, minus。
+- field: target, word。
+- placement: low, high。
+- format: literal, runtime。
+
+制約: wholeでは使わないplacementをlowに代表させる。他の全行は合法で未対応による除外なし。二つの出力幅はWとW+1、格納語の幅はW+7。部分選択は低位または高位へ置き、+:と-:を区別する。書式の先頭フィールド幅は対象または格納語の$bitsから作り、最大文字数として使う。hexでは文字数とビット数は異なる。literalでは同じ幅を生成時に埋め、runtimeでは実際の書式変数を渡す。先頭成功後の文字不一致、第二変換の不一致、空入力、全成功を区別する。成功した変換だけが書き込み、後続出力と選択範囲外を保持する。既知・既知またはX/Z・既知への回復の各相で試行と全成功の再呼出しを行い、履歴を保持する。X/Zは既知ASCIIの数字として入力し、bit格納への変換でもfourstateを指定する。可変の選択添字・変換抑制・空白の特殊規則・実数・ファイルI/O・並行実行は対象外。
+
+## program_task_frame_lifetime / model 1
+
+- 制約を満たす組合せ数: 3456。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 249/249。
+- 3因子の計画上の網羅: 100/100。
+
+重なるautomatic taskの局所値とoutput/inoutのコピーを、programの終了範囲と復帰方法を変えて照合する。途中終了時のコピー抑止、生存する別program、符号拡張、配列の隣接要素と再呼出しの履歴を観測する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- sign: u, s。
+- mode: output, inout。
+- storage: scalar, element。
+- stop: before, between, natural。
+- completion: end, return。
+- order: ab, ba。
+
+制約: 全行が合法で未対応による除外なし。二つの独立programが各二つのautomatic task呼出しを重ねる。開始は1/3、復帰は7/11、外部入力と実引数の更新は5とする。対象programだけを6または9で$exitし、自然終了の対照も保持する。output/inoutの仮引数と局所語は呼出しごとに保持し、正常なendtaskまたはreturnでだけコピーアウトする。実引数は3ビット広いlogicで、符号拡張と固定配列[2:4]の非選択要素も観測する。12で既知値に更新し、生存するprogramが同じtaskを再呼出しして13で復帰する。監視はmoduleだけで行い、programの書込みと同時刻の観測順序に依存しない。相手programのinitialは20まで待ち、moduleは15で明示終了する。暗黙の全体終了は主対象にしない。ref・可変添字・NBA・join_none・再帰・同時刻の競合writer・static taskは主対象外。入力X/Zからbitへの変換でもfourstateを指定する。
+
+## package_array_query_scope / model 1
+
+- 制約を満たす組合せ数: 3456。
+- 利用できる既存・新規テスト: 36。
+- 短時間実行の選択: 36。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 249/249。
+- 3因子の計画上の網羅: 118/118。
+
+関数内のimportと修飾参照が配列問い合わせの対象を決め、開始位置・回数・方向と全幅集計を変える。非選択packageと同名ローカル配列の更新後も、対象配列の型・全要素・履歴を保持することを照合する。
+
+- width: 1, 32, 33, 64, 65, 129。
+- state: bit, logic。
+- value: known, x, z。
+- bounds: up, down。
+- origin: negative, positive。
+- length: one, three。
+- binding: explicit, wildcard, qualified。
+- source: first, second。
+- query: default, explicit。
+
+制約: 全行が合法で未対応による除外なし。二packageの同名固定配列は幅・長さ・添字原点・向きが異なる。各moduleには幅も長さも異なる同名のローカル配列を置く。automatic function内の明示import・ワイルドカードimport・修飾参照で対象packageを選ぶ。$left/$size/$incrementが走査の開始位置・回数・方向を決め、左シフトとXORで全幅を集計する。省略次元と明示次元1、packed次元2、$bits/$dimensions/$unpacked_dimensionsを観測する。既知・既知またはX/Z・既知への回復の三相で、二つの呼出し元と以前の結果を保持する。非選択packageの更新後も再呼出しし、次に選択packageと両moduleのローカル配列だけを更新する。全配列要素・型付き結果・呼出し回数・訪問数・重み・終端添字を各操作後に観測する。bitへのX/Z変換もfourstateを指定する。export・動的配列・符号付き演算・task・時間制御・並行呼出しは対象外。
+
 <a id="verify-that-the-input-fingerprint-matches-the-execution"></a>
 
 ## 入力指紋が一致した実行の確認
@@ -1733,8 +1873,8 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
 
 ### results/ghost.json
 
-- 環境: private build 3314f9902a64。
-- 実行日時: 2026-11-05T03:38:28.956402+00:00。
+- 環境: private build 63199c0a337a。
+- 実行日時: 2026-11-06T01:17:12.738295+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2016,10 +2156,10 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 必須ケース: 4/4。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - array_reduction_constraint:
-  - 2因子の合格確認済み組合せ: 64/96。
-  - 3因子の合格確認済み組合せ: 19/40。
-  - 必須ケース: 2/4。
-  - ケース状態: pass=6, fail=7, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 83/96。
+  - 3因子の合格確認済み組合せ: 26/40。
+  - 必須ケース: 3/4。
+  - ケース状態: pass=8, fail=5, known=0, unsupported=0, stale=0, not_run=0。
 - associative_array_queries:
   - 2因子の合格確認済み組合せ: 93/93。
   - 3因子の合格確認済み組合せ: 54/54。
@@ -2145,11 +2285,41 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 3因子の合格確認済み組合せ: 129/135。
   - 必須ケース: 5/6。
   - ケース状態: pass=34, fail=2, known=0, unsupported=0, stale=0, not_run=0。
+- generated_process_loop_transfer:
+  - 2因子の合格確認済み組合せ: 0/293。
+  - 3因子の合格確認済み組合せ: 0/160。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=36, known=0, unsupported=0, stale=0, not_run=0。
+- interface_array_query_walk:
+  - 2因子の合格確認済み組合せ: 254/274。
+  - 3因子の合格確認済み組合せ: 83/96。
+  - 必須ケース: 5/6。
+  - ケース状態: pass=30, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+- generated_constant_expression_shape:
+  - 2因子の合格確認済み組合せ: 0/297。
+  - 3因子の合格確認済み組合せ: 0/132。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=36, known=0, unsupported=0, stale=0, not_run=0。
+- formatted_scan_partial_write:
+  - 2因子の合格確認済み組合せ: 292/292。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_task_frame_lifetime:
+  - 2因子の合格確認済み組合せ: 126/249。
+  - 3因子の合格確認済み組合せ: 29/100。
+  - 必須ケース: 1/6。
+  - ケース状態: pass=17, fail=19, known=0, unsupported=0, stale=0, not_run=0。
+- package_array_query_scope:
+  - 2因子の合格確認済み組合せ: 249/249。
+  - 3因子の合格確認済み組合せ: 118/118。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 
 ### results/icarus.json
 
-- 環境: Icarus Verilog version 14.0 (devel) (s20260301-812-g9f260501)。
-- 実行日時: 2026-11-05T00:38:16.069296+00:00。
+- 環境: Icarus Verilog version 14.0 (devel) (s20260301-821-g3b5615f5)。
+- 実行日時: 2026-11-06T01:01:57.285288+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2560,11 +2730,41 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 3因子の合格確認済み組合せ: 0/135。
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
+- generated_process_loop_transfer:
+  - 2因子の合格確認済み組合せ: 293/293。
+  - 3因子の合格確認済み組合せ: 160/160。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- interface_array_query_walk:
+  - 2因子の合格確認済み組合せ: 274/274。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_constant_expression_shape:
+  - 2因子の合格確認済み組合せ: 297/297。
+  - 3因子の合格確認済み組合せ: 132/132。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- formatted_scan_partial_write:
+  - 2因子の合格確認済み組合せ: 222/292。
+  - 3因子の合格確認済み組合せ: 67/142。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=17, fail=0, known=19, unsupported=0, stale=0, not_run=0。
+- program_task_frame_lifetime:
+  - 2因子の合格確認済み組合せ: 150/249。
+  - 3因子の合格確認済み組合せ: 32/100。
+  - 必須ケース: 2/6。
+  - ケース状態: pass=6, fail=0, known=30, unsupported=0, stale=0, not_run=0。
+- package_array_query_scope:
+  - 2因子の合格確認済み組合せ: 0/249。
+  - 3因子の合格確認済み組合せ: 0/118。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.0.0 (commit 50a897dee62a), built with GNU 13.3.0。
-- 実行日時: 2026-11-05T03:26:40.741180+00:00。
+- 環境: kirimasim 0.0.0 (commit 6f5c69841228), built with GNU 13.3.0。
+- 実行日時: 2026-11-06T01:47:52.985134+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2975,11 +3175,41 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 3因子の合格確認済み組合せ: 135/135。
   - 必須ケース: 6/6。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_process_loop_transfer:
+  - 2因子の合格確認済み組合せ: 293/293。
+  - 3因子の合格確認済み組合せ: 160/160。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- interface_array_query_walk:
+  - 2因子の合格確認済み組合せ: 274/274。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_constant_expression_shape:
+  - 2因子の合格確認済み組合せ: 297/297。
+  - 3因子の合格確認済み組合せ: 132/132。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- formatted_scan_partial_write:
+  - 2因子の合格確認済み組合せ: 292/292。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_task_frame_lifetime:
+  - 2因子の合格確認済み組合せ: 249/249。
+  - 3因子の合格確認済み組合せ: 100/100。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_array_query_scope:
+  - 2因子の合格確認済み組合せ: 249/249。
+  - 3因子の合格確認済み組合せ: 118/118。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 
 ### results/lyra.json
 
-- 環境: Lyra (commit ccfc8aa4fbd9)。
-- 実行日時: 2026-11-05T04:44:28.598954+00:00。
+- 環境: Lyra (commit 3ee7454cc747)。
+- 実行日時: 2026-11-06T05:05:00.581249+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 111/126。
@@ -3390,17 +3620,47 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
   - 3因子の合格確認済み組合せ: 135/135。
   - 必須ケース: 6/6。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_process_loop_transfer:
+  - 2因子の合格確認済み組合せ: 293/293。
+  - 3因子の合格確認済み組合せ: 160/160。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- interface_array_query_walk:
+  - 2因子の合格確認済み組合せ: 274/274。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_constant_expression_shape:
+  - 2因子の合格確認済み組合せ: 297/297。
+  - 3因子の合格確認済み組合せ: 132/132。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- formatted_scan_partial_write:
+  - 2因子の合格確認済み組合せ: 292/292。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_task_frame_lifetime:
+  - 2因子の合格確認済み組合せ: 249/249。
+  - 3因子の合格確認済み組合せ: 100/100。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_array_query_scope:
+  - 2因子の合格確認済み組合せ: 249/249。
+  - 3因子の合格確認済み組合せ: 118/118。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-63-g57bbb293。
-- 実行日時: 2026-11-05T02:39:00.207229+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-75-gab53e01d。
+- 実行日時: 2026-11-06T02:39:03.102639+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
-  - 3因子の合格確認済み組合せ: 48/51。
+  - 3因子の合格確認済み組合せ: 51/51。
   - 個別の必須ケース: 対象なし。
-  - ケース状態: pass=300, fail=0, known=25, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=318, fail=0, known=7, unsupported=0, stale=0, not_run=0。
 - nba_capture:
   - 2因子の合格確認済み組合せ: 104/162。
   - 3因子の合格確認済み組合せ: 18/44。
@@ -3803,5 +4063,35 @@ generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言
 - class_conditional_return:
   - 2因子の合格確認済み組合せ: 127/183。
   - 3因子の合格確認済み組合せ: 48/135。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- generated_process_loop_transfer:
+  - 2因子の合格確認済み組合せ: 193/293。
+  - 3因子の合格確認済み組合せ: 65/160。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- interface_array_query_walk:
+  - 2因子の合格確認済み組合せ: 189/274。
+  - 3因子の合格確認済み組合せ: 37/96。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- generated_constant_expression_shape:
+  - 2因子の合格確認済み組合せ: 211/297。
+  - 3因子の合格確認済み組合せ: 57/132。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- formatted_scan_partial_write:
+  - 2因子の合格確認済み組合せ: 133/292。
+  - 3因子の合格確認済み組合せ: 34/142。
+  - 必須ケース: 1/6。
+  - ケース状態: pass=8, fail=0, known=28, unsupported=0, stale=0, not_run=0。
+- program_task_frame_lifetime:
+  - 2因子の合格確認済み組合せ: 0/249。
+  - 3因子の合格確認済み組合せ: 0/100。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0。
+- package_array_query_scope:
+  - 2因子の合格確認済み組合せ: 178/249。
+  - 3因子の合格確認済み組合せ: 47/118。
   - 必須ケース: 3/6。
   - ケース状態: pass=12, fail=0, known=24, unsupported=0, stale=0, not_run=0。

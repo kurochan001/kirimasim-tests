@@ -4,16 +4,16 @@
 
 [English](behavior-coverage-summary.en.md) / [日本語](behavior-coverage-summary.md)
 
-[Details of all items](behavior-coverage.en.md) / [Management procedures](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/coverage/README.en.md) / [Interpretation and Re-examination Record](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/requirement-extraction-notes.en.md)
+[Details of all items](behavior-coverage.en.md) / [Management procedures](https://github.com/kurochan001/kirimasim-tests/blob/673210797a4e131a47f75524b4662f93de866206/coverage/README.en.md) / [Interpretation and Re-examination Record](https://github.com/kurochan001/kirimasim-tests/blob/673210797a4e131a47f75524b4662f93de866206/docs/requirement-extraction-notes.en.md)
 
-The denominator counts requirement-ledger rows, not test files. See [Design, execution and PASS distinctions](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) for concrete examples.
+The denominator counts requirement-ledger rows, not test files. See [Design, execution and PASS distinctions](https://github.com/kurochan001/kirimasim-tests/blob/673210797a4e131a47f75524b4662f93de866206/docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) for concrete examples.
 
 <a id="全規格の要求台帳に対する値"></a>
 
 ## Value for all standards in the required table
 
 - Requirement coverage (test design): 89.31% ( 10983/12298 ).
-- The execution confirmation rate is 70.20% ( 8633/12298 ). Union of successes across environments.
+- The execution confirmation rate is 70.23% ( 8637/12298 ). Union of successes across environments.
 - The denominator includes pending interpretations and items without test mappings. We do not exclude non-implemented and non-supported.
 - The registration unit is the occurrence point, condition, and observation case of the requirement, and the duplication of meaning is integrated by the review of the denominator. This is neither the fraction of all program/input combinations tested nor a single simulator's standard conformance rate.
 
@@ -21,7 +21,7 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 ## Aggregation of existing tests
 
-- 10778 of 5310 tests have registered the correspondance with the requirements. 5468 tests remain unregistered.
+- 10994 of 5310 tests have registered the correspondance with the requirements. 5684 tests remain unregistered.
 - The above coverage rate is calculated only for the part which registered the response to the demand by confirming the stimulus and the expected result. Existing tests that are not registered are also useful for verification, but their contribution is not yet reflected in the proportion.
 - The number of registered units is the number of units that correspond to at least one requirement, not the number of completed reviews of the whole test.
 
@@ -32,7 +32,7 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 ## Definite value
 
 - Requirement coverage (test design): 89.31%.
-- Requirement execution-confirmation rate: 70.20%.
+- Requirement execution-confirmation rate: 70.23%.
 - Approval of denominator: Approval. The measured state is `confirmed`.
 - The method was confirmed after document verification, resolution of the reservation interpretation, duplication of the requirement unit, and review of the denominator.
 
@@ -40,8 +40,8 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 ## Remains
 
-- There is a record of the path result corresponding to the current input: 8633 line.
-- No record of passed/passout results: 2350 line.
+- There is a record of the path result corresponding to the current input: 8637 line.
+- No record of passed/passout results: 2346 line.
 - Test compatibility not confirmed (except for interpretation reservation): 1315 line.
 - Interpretation reservation: 0 line.
 
@@ -51,13 +51,13 @@ Unsupported behavior does not mean that no existing test is available.
 
 ## Execution confirmation rate by simulator
 
-Each row is a separate saved run. A narrow run can leave many tests unexecuted; check [how to read dates, versions and scope](https://github.com/kurochan001/kirimasim-tests/blob/19cd790a5f639348ad67fd63959dce9811d3ab56/docs/faq.en.md#q14-why-do-main-results-or-simulator-totals-differ) and the measurement source.
+Each row is a separate saved run. A narrow run can leave many tests unexecuted; check [how to read dates, versions and scope](https://github.com/kurochan001/kirimasim-tests/blob/673210797a4e131a47f75524b4662f93de866206/docs/faq.en.md#q14-why-do-main-results-or-simulator-totals-differ) and the measurement source.
 
-- `ghost` / `private build 3314f9902a64` : 8187/12298 ( 66.57% )。 Measurement source: `2026-11-05T03:38:28.956402+00:00` / `ghost.json` 。 Failures 1305; known mismatches 0; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1201 rows.
-- `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-812-g9f260501)` : 2526/12298 ( 20.54% )。 Measurement source: `2026-11-05T00:38:16.069296+00:00` / `icarus.json` 。 Failures 16; known mismatches 7109; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1042 rows.
-- `kirimasim` / `kirimasim 0.0.0 (commit 50a897dee62a), built with GNU 13.3.0` : 2939/12298 ( 23.90% )。 Measurement source: `2026-11-05T03:26:40.741180+00:00` / `kirimasim.json` 。 Failures 221; known mismatches 0; unsupported 6274; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1259 rows.
-- `lyra` / `Lyra (commit ccfc8aa4fbd9)` : 3243/12298 ( 26.37% )。 Measurement source: `2026-11-05T04:44:28.598954+00:00` / `lyra.json` 。 Failures 1031; known mismatches 0; unsupported 5164; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1255 rows.
-- `verilator` / `Verilator 5.055 devel rev v5.054-63-g57bbb293` : 3696/12298 ( 30.05% )。 Measurement source: `2026-11-05T02:39:00.207229+00:00` / `verilator.json` 。 Failures 18; known mismatches 6019; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 960 rows.
+- `ghost` / `private build 63199c0a337a` : 8193/12298 ( 66.62% )。 Measurement source: `2026-11-06T01:17:12.738295+00:00` / `ghost.json` 。 Failures 1299; known mismatches 0; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1201 rows.
+- `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-821-g3b5615f5)` : 2526/12298 ( 20.54% )。 Measurement source: `2026-11-06T01:01:57.285288+00:00` / `icarus.json` 。 Failures 16; known mismatches 7109; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1042 rows.
+- `kirimasim` / `kirimasim 0.0.0 (commit 6f5c69841228), built with GNU 13.3.0` : 2939/12298 ( 23.90% )。 Measurement source: `2026-11-06T01:47:52.985134+00:00` / `kirimasim.json` 。 Failures 221; known mismatches 0; unsupported 6274; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1259 rows.
+- `lyra` / `Lyra (commit 3ee7454cc747)` : 3270/12298 ( 26.59% )。 Measurement source: `2026-11-06T05:05:00.581249+00:00` / `lyra.json` 。 Failures 979; known mismatches 0; unsupported 5190; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1254 rows.
+- `verilator` / `Verilator 5.055 devel rev v5.054-75-gab53e01d` : 3696/12298 ( 30.05% )。 Measurement source: `2026-11-06T02:39:03.102639+00:00` / `verilator.json` 。 Failures 19; known mismatches 6018; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 960 rows.
 - The result file of the rejection: 0.
 
 <a id="章附属書別登録項目に対する割合"></a>
@@ -79,7 +79,7 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - 13 Tasks and functions (subroutines): Test support 92/119 ( 77.31% ), execution confirmation 62/119 ( 52.10% ), interpretation reserve 0.
 - 14 Clocking blocks: test-ready 59/87 ( 67.82% ), execution-confirm 53/87 ( 60.92% ), interpretation-reserved 0 rows.
 - 15 Interprocess synchronization and communication: test support 68/88 ( 77.27% ), execution confirmation 63/88 ( 71.59% ), interpretation reserve 0.
-- 16 Assertions: Test-compliant 539/555 ( 97.12% ), execution-confirming 365/555 ( 65.77% ), interpretation-reserved 0 rows.
+- 16 Assertions: Test-compliant 539/555 ( 97.12% ), execution-confirming 369/555 ( 66.49% ), interpretation-reserved 0 rows.
 - 17 Checkers: Test-ready 59/79 ( 74.68% ), execution-ready 23/79 ( 29.11% ), interpretation-reserved 0 lines.
 - 18 Constrained random value generation: test compatible 300/320 ( 93.75% ), execution confirmation 232/320 ( 72.50% ), interpretation reserve 0 rows.
 - 19 Functional coverage: test compatible 232/271 ( 85.61% ), execution confirmation 180/271 ( 66.42% ), interpretation reserve 0 rows.
