@@ -23,6 +23,12 @@
 // initial procedures of both programs have ended, at 3 (§24.3), so the
 // application runs at 1. vpi_get_str() returns each string in the same
 // buffer (§38.11), so the application copies the strings it prints together.
+//
+// The standard is not consistent on vpiInstance here. §37.10 detail 3 says it
+// always returns the immediate instance in which the object is instantiated,
+// which for b and ba would be the test module. The §37.9 diagram gives the
+// interface a one-to-one vpiInstance relation to the program. The test follows
+// §37.9, the clause written for this relation.
 
 `timescale 1ns/1ns
 

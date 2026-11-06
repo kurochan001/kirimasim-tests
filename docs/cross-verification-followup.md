@@ -5,8 +5,8 @@
 2026-11-06（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json)は89モデル・3,280件で、
-2,747 pass・529 unsupported・configの4 failです。イベント受信ループの追加36件は全PASSで、従来3,244件の入力・状態分類は不変です。
+現在の[全クロスのローカル選択](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json)は89モデル・3,280件で、kirimasim `1e840ea322cc`の保存ビルドで実行しました。
+2,747 pass・529 unsupported・configの4 failです。イベント受信ループの追加36件は全PASSです。`6f5c69841228`の前回の全実行と比べて状態の変化はなく、入力が変わったのはIssue #28で修正した`assign_wait`の選択ケース2件だけです。
 今回の36件は正式Check・Nightlyでは未実行です。
 
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。

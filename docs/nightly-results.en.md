@@ -36,6 +36,7 @@ The [Nightly record](../coverage/interaction-qualification/formal-ci-19cd790a-20
 
 The newest local addition is [36 event-loop cases](interaction-verification.en.md#named-event-loop-transfer), totaling 89 models / 3,280 cases.
 The [single run](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json) on freshly fetched/built `6f5c69841228` records 2,747 pass / 529 unsupported / four fail.
+The [2026-11-07 rerun](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json) on a saved build of `1e840ea322cc` records the same totals.
 All 36 additions pass; preceding 3,244 inputs/statuses are unchanged. These new cases have not run in formal Check/Nightly.
 The 252 cases added since generated loops lie outside the verified 82-model formal Nightly above. Records below describe earlier checkpoints.
 

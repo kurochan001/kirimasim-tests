@@ -14,6 +14,9 @@
 
 ## 保存実行の概要
 
+2026-11-07にIssue #28の修正で`scheduling_visibility`の選択ケース2件の入力が変わったので、kirimasim `1e840ea322cc`の保存ビルドで[全3,280件を再実行](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json)しました。
+**2,747 pass・529 unsupported・既存configの4 fail**で、`6f5c69841228`の前回の全実行から状態の変化はありません。同じモデルの51件は[Icarus 13.0](../coverage/interaction-results/scheduling-20261107-icarus13.json)で全PASS、Verilator 5.052の[seed 1](../coverage/interaction-results/scheduling-20261107-verilator5052-seed1.json)・[seed 73](../coverage/interaction-results/scheduling-20261107-verilator5052-seed73.json)で43 pass・8 knownです。
+
 2026-11-06のイベント受信ループの追加で、**89モデル・3,280件・132章対**になりました。
 最新取得・ビルドの`6f5c69841228`による[単一実行](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json)は、
 **2,747 pass・529 unsupported・既存configの4 fail**です。追加36件は解析成功・全PASS、従来3,244件の入力・状態分類は不変です。

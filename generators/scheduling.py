@@ -25,6 +25,11 @@ next statement, and waiting for @(v) in another process when v changes in the
 Active region of time 0, since that process may not have started waiting
 yet (4.7, 9.4.2). A function cannot contain a nonblocking assignment with a
 delay, and the tests use only blocking writes in functions.
+
+A continuous assignment also changes v from x to 11 at time 0, and 4.7 leaves
+open whether a process that started waiting for @(v) sees that change. The
+reader of such a test therefore waits again until v is 22, so that the first
+update does not decide what it prints.
 """
 
 import itertools
@@ -130,7 +135,12 @@ def body(name: str, w: str, r: str, c: str, d: str) -> str:
 
     ref = "i.v" if c == "interface" else "v"
     readers = []
-    if r == "wait":
+    if r == "wait" and w == "assign":
+        readers = ["initial begin",
+                   f"  do @({ref}); while ({ref} !== 8'd{NEW});",
+                   f'  $display("t=%0t B sees %0d", $time, {ref});',
+                   "end"]
+    elif r == "wait":
         readers = [f'initial @({ref}) $display("t=%0t B sees %0d", $time, {ref});']
     if r == "monitor":
         readers = ["logic [7:0] phase = 8'd0;", "",
@@ -168,7 +178,10 @@ def why(w: str, r: str, d: str) -> str:
            "monitor": "and $monitor prints once at the end of time 0, where phase changes, "
                       + ("with the new value" if change == 0 else
                          f"and again at time {change}")}[r]
-    return f"v changes {when}, {see}."
+    first = (f" The continuous assignment also sets v to {OLD} at time 0, which may wake "
+             f"the process first (4.7), so it waits again until v is {NEW}."
+             if w == "assign" and r == "wait" else "")
+    return f"v changes {when}, {see}.{first}"
 
 
 def cases() -> list[Case]:

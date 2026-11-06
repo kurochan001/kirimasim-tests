@@ -389,6 +389,7 @@ The tests written for open requirements (see the [result report](gap-tests-20261
 
 | Clause | What it does | Tests |
 | --- | --- | --- |
+| 17.3, A.4.1.4 | Accepts an empty actual in a checker instance (an ordered entry with no actual, and `.formal()`), for a checker outside a package. slang rejects it, and 17.3 and 16.8 give grounds for both readings, so the suite accepts either and no test depends on it. | none; see the comment in `ch17/test_checker_instantiation_connection_forms` |
 | 6.16.3 | Gives `getc()` the unsigned type `bit[7:0]` (`$typename` prints `bit[7:0]`, and `s.getc(64'h1_0000_0002)` on the character 8'he9 prints 233) instead of the signed `byte` of its prototype (`byte`, -23). | `ch6/test_string_getc_index_rules` |
 | 6.16.9 | atoi/atohex/atooct skip leading white space and parse a sign like C strtol: `" 12".atoi()=12`, `"-12".atoi()=-12`, `"+12".atoi()=12`, `"-ff".atohex()=-255`, `"-7".atooct()=-7`. The scan takes only leading digits and underscores and does not parse a sign, so all of these are 0. | `ch6/test_string_ato_integer_scan_rules` |
 | 6.19.5.3, 6.19.5.4 | For a value that is not a member (`t_t'(7)` of {A=1,B=2,C=3}), next() returns A, prev() returns B and next(2) returns B, and for `l_t'(3'd6)` of a logic [2:0] enum next() and prev() return P (001); the standard returns the default initial value of the enum, 0 for the int base and xxx for the logic base. (For the default value 0 itself, prev() gives 0.) | `ch6/test_enum_next_prev_from_non_member` |

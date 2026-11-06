@@ -38,7 +38,7 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The 2026-11-06 mapping contains 89 models and 3,280 selected cases across 132 unordered off-diagonal pairs. The [complete kirimasim 6f5c69841228 local run](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json) records 2,747 pass, 529 unsupported and four failures; 62 models passed their entire selection.
+The 2026-11-06 mapping contains 89 models and 3,280 selected cases across 132 unordered off-diagonal pairs. The [complete kirimasim 1e840ea322cc local run](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json) records 2,747 pass, 529 unsupported and four failures; 62 models passed their entire selection.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. These new 36 cases are outside both runs.

@@ -1,0 +1,84 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch17/test_checker_instantiation_connection_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_instantiation_connection_forms.sv:39:11: Unsupported: 'checker' below unit-level",
+   "inputs_sha256": "79a130e316deaa3f2e15486ec0b8a9187af2c2b30c98be9cfd054e7fc7cf4d96"
+  },
+  "ch23/test_23_extra_port_coercion": {
+   "status": "known",
+   "reason": "build failed: %Error-ASSIGNIN: tests/ch23/test_23_extra_port_coercion.sv:25:10: Assigning to input/const variable: 'w'",
+   "inputs_sha256": "4a490c0191d3f5684dcbbd66a0417c93bc13223e2a3c03a7b4813b8d4b8af848"
+  },
+  "ch37/test_vpi_program_interface_relations": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_program_interface_relations.sv:56:14: Unsupported or unknown PLI call: '$vt_program'",
+   "inputs_sha256": "61c838b37298f5772fa9be1914769766b0984dbc08dd6a8f265180d13428a899"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_always_delay0": {
+   "status": "pass",
+   "inputs_sha256": "b31293d4b1b8803fd12ed720272ba50bc9d00bd4167367f3032b1dd18a320509"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_always_delay1": {
+   "status": "pass",
+   "inputs_sha256": "99ad94ec4d6d61f458a712287c0b0848fbc6b5dc07106b5248f16c5cbba20916"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_fork_delay0": {
+   "status": "pass",
+   "inputs_sha256": "5079e03eed217cfed508072f16d660dc55c83d64bdafec0faa8bf0932eeeb3a5"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_fork_delay1": {
+   "status": "pass",
+   "inputs_sha256": "3c58f7e4e3dce3f15ddd82a3097125930f60610846af334d9701a454f7552789"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_function_delay0": {
+   "status": "pass",
+   "inputs_sha256": "0e4d269e44a37ddb4e32fb0a9fe54f90e0a7975ed79355acf6fb55b7e1d52a08"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_function_delay1": {
+   "status": "pass",
+   "inputs_sha256": "71ff405a10324d38cf729e48d5285eccf95cf65c21e8a5257e4346d187c15209"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_generate_delay0": {
+   "status": "pass",
+   "inputs_sha256": "bae68ca1291ed6a042cb807427ceb3608d95811e81a19f3f927d9a3b4cc4f3d2"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_generate_delay1": {
+   "status": "pass",
+   "inputs_sha256": "5326d9c1a8ae0a9276903a00ac84420fba7416be31de4bd8a80ea9efb0d8a78b"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_initial_delay0": {
+   "status": "pass",
+   "inputs_sha256": "b2ce56ba622ac35a7fa5651c7ab9cf5e455ec81a5d473f4586d302b61abde2ea"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_initial_delay1": {
+   "status": "pass",
+   "inputs_sha256": "9ad86600ea20857be949407e51f70f09d97b8b7ba042d02508f86076b2a4e077"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_interface_delay0": {
+   "status": "pass",
+   "inputs_sha256": "725ceacf7127c35fa5dbe0ed4c8a6115283a6efa7193aa03eaddf6180dcf9076"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_interface_delay1": {
+   "status": "pass",
+   "inputs_sha256": "934ec7c9992d2c2d18a730c4ce0168954c21ed16ce6f81e1ab343617e16fc59a"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_task_delay0": {
+   "status": "pass",
+   "inputs_sha256": "547aa2d9440d97b76dcd416877c3ec3eb04297768219a9ef565a1a3c97f6056c"
+  },
+  "gen/ch4/test_gen_sched_assign_wait_task_delay1": {
+   "status": "pass",
+   "inputs_sha256": "a702aca4242bc64a0916b38a2f93f3d2474b7978c66dda278069511007058ec3"
+  }
+ },
+ "generated_at": "2026-11-06T20:31:04.344863+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

@@ -55,15 +55,15 @@ Icarus Verilog、Verilator、kirimasim、
 以下は収録本数と確認元の内訳で、現在のシミュレータのPASS数ではありません。[`:lrm:`と`:oracle:`が記録すること](docs/faq.md#q4-are-expected-outputs-copied-from-a-simulator)を参照してください。
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**11030本のテスト**があります。 うち4593本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
+スイートには38章にわたり**11028本のテスト**があります。 うち4593本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
 | Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 5815 |
-| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 2016 |
+| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 2014 |
 | 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3199 |
 
-2696本はx/z値に依存します（`:fourstate: yes`）。685本にはCコードがあり、内訳はDPIが190本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1931本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。34本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定40本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+2697本はx/z値に依存します（`:fourstate: yes`）。684本にはCコードがあり、内訳はDPIが189本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1930本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。33本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定40本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -99,7 +99,7 @@ Icarus Verilog、Verilator、kirimasim、
 | 32 | 標準遅延形式によるバックアノテーション | 68 | 19 |  | 49 |
 | 33 | 設計内容の構成指定 | 84 | 8 | 9 | 67 |
 | 34 | 保護エンベロープ | 4 | 2 | 2 |  |
-| 35 | 直接プログラミングインターフェース（DPI） | 179 | 4 | 116 | 59 |
+| 35 | 直接プログラミングインターフェース（DPI） | 177 | 4 | 114 | 59 |
 | 36 | プログラミング言語インターフェース（PLI/VPI）の概要 | 89 | 34 | 19 | 36 |
 | 37 | VPIオブジェクトモデル図 | 227 | 18 | 1 | 208 |
 | 38 | VPIルーチンの定義 | 109 | 56 | 9 | 44 |
@@ -165,10 +165,11 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 スコープ・階層、状態保持、I/Oなどの相互作用を扱います。通常の全件実行では既存テストを
 すべて保持し、規格要求の分母は変更しません。
 
-実行直前に上流mainを取得・構成・ビルドした**kirimasim `6f5c69841228`**の
-[最新の全クロス保存実行](coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json)は、
-**2,747 pass・529 unsupported・4 fail**です。イベント受信ループの追加36件が全PASSし、
-従来3,244件の入力ハッシュ・状態分類は不変です。
+保存した**kirimasim `1e840ea322cc`**のビルドによる
+[最新の全クロス保存実行](coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json)は、
+**2,747 pass・529 unsupported・4 fail**です。イベント受信ループの追加36件は全PASSです。
+`6f5c69841228`の[前回の全実行](coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json)と比べて状態の変化はなく、
+入力が変わったのはIssue #28で修正した`assign_wait`の選択ケース2件だけです。
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
 [同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。今回の36件は両実行の対象外です。
 入力と元の期待値を保持し、残る4件は固定版slangへ
@@ -262,10 +263,10 @@ clocking入力と名前付きイベントの待機（第14×15章）は192通り
 要求カバレッジの分母は、重複を統合した**12,298要求**です。
 [分母レビュー](docs/denominator-review-20261028.md)で承認しました。
 レビューしたのはAIで、人による独立したレビュー・承認ではありません。
-現在の要求カバレッジ（テスト設計）は**89.30%（10,982/12,298）**、
+現在の要求カバレッジ（テスト設計）は**89.28%（10,980/12,298）**、
 `coverage/results/`の保存済み証跡による実行確認率は
-**77.56%（9,538/12,298）**で、Icarus Verilog・Verilator・SymbiYosys・Ghostの結果です。
-1〜40章だけの要求カバレッジ（テスト設計）は87.36%（8,269/9,465）です。
+**77.55%（9,537/12,298）**で、Icarus Verilog・Verilator・SymbiYosys・Ghostの結果です。
+1〜40章だけの要求カバレッジ（テスト設計）は87.35%（8,268/9,465）です。
 測定入力と分母は[生成した要求カバレッジ集計](docs/behavior-coverage-summary.md)を参照してください。
 既存テスト全体の検証内容のレビューはまだ完了していません。
 要求の抽出・照合・テスト追加の各回の報告は[履歴](docs/history.ja.md)から辿れます。

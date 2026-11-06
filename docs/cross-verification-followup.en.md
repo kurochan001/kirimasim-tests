@@ -6,8 +6,8 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json) has 89 models and 3,280 cases:
-2,747 pass, 529 unsupported and four config failures. All 36 event-loop additions pass; all preceding 3,244 inputs and statuses are unchanged.
+The current [complete local selection](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json) has 89 models and 3,280 cases, run on a saved build of kirimasim `1e840ea322cc`:
+2,747 pass, 529 unsupported and four config failures. All 36 event-loop additions pass. Compared with the previous complete run on `6f5c69841228`, no status changed, and only the inputs of the two selected `assign_wait` cases corrected for Issue #28 differ.
 The new 36 cases have not run in formal Check/Nightly.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.

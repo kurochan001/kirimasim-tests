@@ -14,6 +14,9 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+On 2026-11-07 the fix for Issue #28 changed the inputs of two selected `scheduling_visibility` cases, so [all 3,280 cases were run again](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json) on a saved build of kirimasim `1e840ea322cc`.
+The run records **2,747 pass / 529 unsupported / four existing config failures**, with no status changed from the previous complete run on `6f5c69841228`. The model's 51 cases all pass on [Icarus 13.0](../coverage/interaction-results/scheduling-20261107-icarus13.json); Verilator 5.052 [seed 1](../coverage/interaction-results/scheduling-20261107-verilator5052-seed1.json) and [seed 73](../coverage/interaction-results/scheduling-20261107-verilator5052-seed73.json) record 43 pass and 8 known.
+
 The 2026-11-06 event-loop addition brings totals to **89 models / 3,280 cases / 132 chapter pairs**.
 The [single run](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json) on freshly fetched/built `6f5c69841228` records
 **2,747 pass / 529 unsupported / four existing config failures**. All 36 additions parse/pass; preceding 3,244 inputs/statuses are unchanged.

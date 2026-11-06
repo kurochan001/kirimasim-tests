@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 11030 |
+| Tests | 11028 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -28,7 +28,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | --- | ---: |
 | both releases | 806 |
 | Icarus Verilog 13.0 only | 5009 |
-| Verilator 5.052 only | 2016 |
+| Verilator 5.052 only | 2014 |
 | standard only | 3199 |
 
 <a id="章別"></a>
@@ -69,7 +69,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 32 | Backannotation using the standard delay format | 68 | 11 | 6.2 | 0 | 49 |
 | 33 | Configuring the contents of a design | 84 | 13 | 6.5 | 0 | 67 |
 | 34 | Protected envelopes | 4 | 8 | 0.5 | 0 | 0 |
-| 35 | Direct programming interface | 179 | 21 | 8.5 | 0 | 59 |
+| 35 | Direct programming interface | 177 | 21 | 8.4 | 0 | 59 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 19 | 4.7 | 0 | 36 |
 | 37 | VPI object model diagrams | 227 | 94 | 2.4 | 0 | 208 |
 | 38 | VPI routine definitions | 109 | 46 | 2.4 | 0 | 44 |

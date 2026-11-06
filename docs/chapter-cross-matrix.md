@@ -66,7 +66,7 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 ## 実行結果の扱い
 
 2026-11-06の更新では89モデル・3,280選択ケースを、対角線以外の132組の章対に対応付けています。
-CSVに使用した結果は[kirimasim 6f5c69841228の全89モデルのローカル保存実行](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json)で、
+CSVに使用した結果は[kirimasim 1e840ea322ccの全89モデルのローカル保存実行](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json)で、
 2,747 pass・529 unsupported・4 fail、全選択ケースPASSは62モデルです。
 
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。

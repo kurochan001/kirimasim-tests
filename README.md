@@ -65,15 +65,15 @@ For a first test, [walk through 24 real lines](docs/faq.en.md#q49-read-a-real-te
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **11030 tests** in 38 chapters. 4593 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **11028 tests** in 38 chapters. 4593 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 5815 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2016 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2014 |
 | The standard only, with no fixed-release simulator oracle recorded | 3199 |
 
-2696 tests depend on x or z values (`:fourstate: yes`). 685 tests come with C code: 190 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1931 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 34 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+2697 tests depend on x or z values (`:fourstate: yes`). 684 tests come with C code: 189 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1930 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 40 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -109,7 +109,7 @@ The suite has **11030 tests** in 38 chapters. 4593 of them are generated. The [g
 | 32 | Backannotation using the standard delay format | 68 | 19 |  | 49 |
 | 33 | Configuring the contents of a design | 84 | 8 | 9 | 67 |
 | 34 | Protected envelopes | 4 | 2 | 2 |  |
-| 35 | Direct programming interface | 179 | 4 | 116 | 59 |
+| 35 | Direct programming interface | 177 | 4 | 114 | 59 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 34 | 19 | 36 |
 | 37 | VPI object model diagrams | 227 | 18 | 1 | 208 |
 | 38 | VPI routine definitions | 109 | 56 | 9 | 44 |
@@ -187,10 +187,11 @@ run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [latest complete local cross run](coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json),
-on kirimasim **`6f5c69841228`** fetched, configured and built immediately before execution, records
-**2,747 pass, 529 unsupported and four fail**. All 36 event-loop additions pass;
-the preceding 3,244 input fingerprints and status categories are unchanged.
+The [latest complete local cross run](coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json),
+on a saved build of kirimasim **`1e840ea322cc`**, records
+**2,747 pass, 529 unsupported and four fail**. All 36 event-loop additions pass.
+Compared with the [previous complete run](coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json) on `6f5c69841228`, no status changed,
+and only the inputs of the two selected `assign_wait` cases corrected for Issue #28 differ.
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. These new 36 cases are outside both runs.
 All inputs retain their original expectations; the remaining failures are config parameter resets localized to pinned slang. The
@@ -293,10 +294,10 @@ both, and how the results are merged and measured, with the
 The requirement denominator is **12,298 requirements**, after duplicate rows
 were merged; the [denominator review](docs/denominator-review-20261028.en.md)
 approved it. The reviewer was an AI, not an independent human.
-Design coverage is **89.30% (10,982/12,298)**;
+Design coverage is **89.28% (10,980/12,298)**;
 execution coverage from the saved `coverage/results/` evidence is
-**77.56% (9,538/12,298)**, from Icarus Verilog, Verilator, SymbiYosys and Ghost.
-Clauses 1 to 40 alone are at 87.36% (8,269/9,465) design coverage.
+**77.55% (9,537/12,298)**, from Icarus Verilog, Verilator, SymbiYosys and Ghost.
+Clauses 1 to 40 alone are at 87.35% (8,268/9,465) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.

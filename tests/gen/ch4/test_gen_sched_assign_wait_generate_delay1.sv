@@ -16,7 +16,9 @@
 // continuous assignment copies to v in an initial procedure inside a generate
 // block after #1, and read by another process that waits for @(v) and then
 // displays v. v changes when the continuous assignment's update runs at time 1,
-// which wakes the waiting process at time 1; it was already waiting.
+// which wakes the waiting process at time 1; it was already waiting. The
+// continuous assignment also sets v to 11 at time 0, which may wake the process
+// first (4.7), so it waits again until v is 22.
 
 `timescale 1ns/1ns
 
@@ -25,7 +27,10 @@ module test_gen_sched_assign_wait_generate_delay1;
   wire [7:0] v;
   assign v = src;
 
-  initial @(v) $display("t=%0t B sees %0d", $time, v);
+  initial begin
+    do @(v); while (v !== 8'd22);
+    $display("t=%0t B sees %0d", $time, v);
+  end
 
   if (1) begin : g
     initial begin

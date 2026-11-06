@@ -388,6 +388,7 @@ Icarus Verilog 13.0安定版（v13_0-dirty）は、連想配列またはunpacked
 
 |条項|何をするのか|テスト|
 | --- | --- | --- |
+| 17.3, A.4.1.4 | パッケージの外に置いたcheckerのインスタンスで、空の実引数（実引数のない位置指定のエントリと`.formal()`）を受理します。slangは拒否し、17.3と16.8はどちらの読みにも根拠を与えるので、スイートはどちらの読みも許容し、これに依存するテストはありません。 | なし（`ch17/test_checker_instantiation_connection_forms`のコメントを参照） |
 | 6.16.3 |`getc()`に、プロトタイプの符号付き`byte`（`byte`、-23）ではなく、符号なし型`bit[7:0]`を与える。`$typename`は`bit[7:0]`を出力し、文字8'he9に対する`s.getc(64'h1_0000_0002)`は233を出力する。| `ch6/test_string_getc_index_rules` |
 | 6.16.9 |atoi／atohex／atooctは、Cのstrtolと同様に、先頭の空白をスキップして符号を解析する。`" 12".atoi()=12`、`"-12".atoi()=-12`、`"+12".atoi()=12`、`"-ff".atohex()=-255`、`"-7".atooct()=-7`。走査は先頭の数字とアンダースコアだけを取り込み、符号を解析しないため、これらはすべて0となる。| `ch6/test_string_ato_integer_scan_rules` |
 | 6.19.5.3, 6.19.5.4 |列挙型のメンバでない値（{A = 1、B = 2、C = 3}に対する`t_t'(7)`）について、next()はA、prev()はB、next(2)はBを返します。また、logic [2:0] enumの`l_t'(3'd6)`に対し、next()とprev()はPを返します（001）。規格ではenumの既定初期値を返す。intの基底型では0、logicの基底型ではxxxとなる。（既定値0自体に対しては、prev()は0を返す。）| `ch6/test_enum_next_prev_from_non_member` |

@@ -2,9 +2,9 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 11030,
-  "linked_test_files": 5310,
-  "unlinked_test_files": 5720,
+  "test_files": 11028,
+  "linked_test_files": 5309,
+  "unlinked_test_files": 5719,
   "chapters": [
     {
       "chapter": "ch3",
@@ -200,9 +200,9 @@
     },
     {
       "chapter": "ch35",
-      "test_files": 179,
-      "linked_test_files": 122,
-      "unlinked_test_files": 57
+      "test_files": 177,
+      "linked_test_files": 121,
+      "unlinked_test_files": 56
     },
     {
       "chapter": "ch36",
@@ -98166,7 +98166,7 @@
     },
     {
       "test": "tests/ch17/test_checker_instantiation_connection_forms.sv",
-      "inputs_sha256": "214f09e1c4cdfbea551578d8aeb49c115ca00e5eb7b0ad9f73f14ec0f72aba46",
+      "inputs_sha256": "79a130e316deaa3f2e15486ec0b8a9187af2c2b30c98be9cfd054e7fc7cf4d96",
       "cited_clauses": [
         "17.3",
         "17.2",
@@ -98174,8 +98174,7 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
-        "SV2023-A.4.1.4-EXTRACT-CHECKER",
-        "SV2023-A.4.1.4-EXTRACT-CHECKER-PORTS"
+        "SV2023-A.4.1.4-EXTRACT-CHECKER"
       ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
@@ -98196,7 +98195,8 @@
         "SV2023-17.3-EXTRACT-OUTPUT-REACTIVE",
         "SV2023-17.3-EXTRACT-STATIC-IN-PROCEDURAL",
         "SV2023-17.3-EXTRACT-STATIC-IN-STATIC",
-        "SV2023-17.3-EXTRACT-STATIC-PROCEDURAL"
+        "SV2023-17.3-EXTRACT-STATIC-PROCEDURAL",
+        "SV2023-A.4.1.4-EXTRACT-CHECKER-PORTS"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -98213,7 +98213,33 @@
         "SV2023-17.3-EXTRACT-ONE-WILDCARD",
         "SV2023-17.3-EXTRACT-OUTPUT-LVALUE"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch17/test_checker_instantiation_connection_forms.sv",
+        "inputs_sha256": "79a130e316deaa3f2e15486ec0b8a9187af2c2b30c98be9cfd054e7fc7cf4d96",
+        "reviewed_on": "2026-11-07",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-A.4.1.4-EXTRACT-CHECKER-PORTS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "位置、属性付きの位置、明示名、暗黙名、.* の接続は観測する。実引数を省略した空の接続は実装間で読みが分かれ、スイートはどちらの読みも許容するので観測しない。",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_instantiation_connection_forms.sv",
+                "contains": "  ck_inst_pkg::ck_add u_named (.a(a), .b(b), .c(c), .sum(s_named), .flag(f_named));"
+              },
+              {
+                "file": "tests/ch17/test_checker_instantiation_connection_forms.expected",
+                "contains": "position: 7/1, attribute: 7/1, named: 7/1, implicit: 7/1, wildcard: 7/1"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch17/test_checker_output_actual.sv",
@@ -151826,7 +151852,7 @@
     },
     {
       "test": "tests/ch23/test_23_extra_port_coercion.sv",
-      "inputs_sha256": "4ca2d332cc24363aa9dd7cd02dcc67731ccf7bddacb6b02745e1813cb4b6a92d",
+      "inputs_sha256": "4a490c0191d3f5684dcbbd66a0417c93bc13223e2a3c03a7b4813b8d4b8af848",
       "cited_clauses": [
         "23.3.3.1"
       ],
@@ -210749,42 +210775,6 @@
       "broader_citations": []
     },
     {
-      "test": "tests/ch35/test_35_rest_deprecated_dpi_diagnostic.sv",
-      "inputs_sha256": "d0f9525d1aac7f3536afe86fdcd4239a2190301656db23ae7f36ecbdb68c70f5",
-      "cited_clauses": [
-        "35.5.4",
-        "35.4"
-      ],
-      "negative_test": true,
-      "registered_requirement_ids": [
-        "SV2023-35.5.4-EXTRACT-DEPRECATED-DIAGNOSTIC"
-      ],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
-        "SV2023-35.4-EXTRACT-C-IDENTIFIER",
-        "SV2023-35.4-EXTRACT-MULTIPLE-EXPORTS",
-        "SV2023-35.5.4-EXTRACT-LINKAGE-NAME-ERROR",
-        "SV2023-35.5.4-EXTRACT-LOCAL-IMPORT-UNIQUE",
-        "SV2023-35.5.4-EXTRACT-NO-REF",
-        "SV2023-35.5.4-EXTRACT-PROTOTYPE-RESTRICTIONS"
-      ],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
-        "SV2023-35.4-EXTRACT-GLOBAL-LINKAGE",
-        "SV2023-35.4-EXTRACT-LOCAL-GLOBAL-NAMES",
-        "SV2023-35.4-EXTRACT-MULTIPLE-IMPORTS",
-        "SV2023-35.4-EXTRACT-VERSION-CONSISTENCY",
-        "SV2023-35.5.4-EXTRACT-ARRAY-FORMAL-NAME",
-        "SV2023-35.5.4-EXTRACT-DECLARE-IMPORT",
-        "SV2023-35.5.4-EXTRACT-DPI-VERSION-FORMAT",
-        "SV2023-35.5.4-EXTRACT-FORMAL-DECLARATION",
-        "SV2023-35.5.4-EXTRACT-FORMAL-NAME-DEFAULT-VARIATION",
-        "SV2023-35.5.4-EXTRACT-IDENTICAL-SIGNATURE",
-        "SV2023-35.5.4-EXTRACT-IMPORT-GRAMMAR"
-      ],
-      "broader_citations": []
-    },
-    {
       "test": "tests/ch35/test_35_rest_dpi_class_formal.sv",
       "inputs_sha256": "da7c8a2b12a79d4f2e57de72067c69b82c9a4e230f02ab614157183a2920b5fd",
       "cited_clauses": [
@@ -210838,50 +210828,6 @@
           "descendant_requirement_count": 4
         }
       ]
-    },
-    {
-      "test": "tests/ch35/test_35_rest_noncontext_export_error.sv",
-      "inputs_sha256": "ac0eace7b51385fc091fce536709bb87024e376adc71f3d96c5acf098e673617",
-      "cited_clauses": [
-        "35.5.3",
-        "35.5.1.3",
-        "35.7"
-      ],
-      "negative_test": false,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
-        "SV2023-35.5.1.3-EXTRACT-ATTRIBUTES",
-        "SV2023-35.5.1.3-EXTRACT-CONTEXT-REQUIRED",
-        "SV2023-35.5.1.3-EXTRACT-DEFAULT-ATTRIBUTES",
-        "SV2023-35.5.1.3-EXTRACT-NONCONTEXT-API",
-        "SV2023-35.5.3-EXTRACT-CHAIN-ATTRIBUTE",
-        "SV2023-35.5.3-EXTRACT-CHAIN-CREATE",
-        "SV2023-35.5.3-EXTRACT-CHAIN-RESTORE",
-        "SV2023-35.5.3-EXTRACT-CHAIN-SET",
-        "SV2023-35.5.3-EXTRACT-CHAIN-UNWIND",
-        "SV2023-35.5.3-EXTRACT-CONTEXT-INSTRUMENT",
-        "SV2023-35.5.3-EXTRACT-DIRECT-EXPORT-SCOPE",
-        "SV2023-35.5.3-EXTRACT-EXPORT-SCOPE",
-        "SV2023-35.5.3-EXTRACT-IMPORT-CHAIN",
-        "SV2023-35.5.3-EXTRACT-LANGUAGE-CALL-KINDS",
-        "SV2023-35.5.3-EXTRACT-OPTIMIZATION-BARRIER",
-        "SV2023-35.5.3-EXTRACT-OTHER-INTERFACE-ENABLE",
-        "SV2023-35.5.3-EXTRACT-OTHER-INTERFACE-SCOPE",
-        "SV2023-35.5.3-EXTRACT-SAFE-CONTEXT-APIS",
-        "SV2023-35.7-EXTRACT-EXPORT-C-NAME",
-        "SV2023-35.7-EXTRACT-EXPORT-GRAMMAR",
-        "SV2023-35.7-EXTRACT-EXPORT-NAME-ORDER"
-      ],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
-        "SV2023-35.5.1.3-EXTRACT-PURE-ELIGIBILITY",
-        "SV2023-35.5.3-EXTRACT-CONTEXT-NONTRANSITIVE",
-        "SV2023-35.7-EXTRACT-EXPORT-SCOPE",
-        "SV2023-35.7-EXTRACT-EXPORT-TYPES",
-        "SV2023-35.7-EXTRACT-NO-CLASS-EXPORT"
-      ],
-      "broader_citations": []
     },
     {
       "test": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv",
@@ -268610,7 +268556,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_program_interface_relations.sv",
-      "inputs_sha256": "676b60be3b58de93da59d82a82be2827044ec8dd7e702815658ce618a995b3c8",
+      "inputs_sha256": "61c838b37298f5772fa9be1914769766b0984dbc08dd6a8f265180d13428a899",
       "cited_clauses": [
         "37.9",
         "25.5",
@@ -694511,7 +694457,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_always_delay0.sv",
-      "inputs_sha256": "e504c9de13a303f1545b8f7f84294d2c00cab7acb4c0b119234083367a72de64",
+      "inputs_sha256": "b31293d4b1b8803fd12ed720272ba50bc9d00bd4167367f3032b1dd18a320509",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -694581,7 +694527,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_always_delay1.sv",
-      "inputs_sha256": "13661825b88f62a7ca3d9a27b44921070b4b7ac4ae12eb2f0e58518c92ab583a",
+      "inputs_sha256": "99ad94ec4d6d61f458a712287c0b0848fbc6b5dc07106b5248f16c5cbba20916",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -694647,7 +694593,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_fork_delay0.sv",
-      "inputs_sha256": "b04a5f2d5970139c56b1f2a6fea4cfbb6312671e940fa27bd1f542bee4e21640",
+      "inputs_sha256": "5079e03eed217cfed508072f16d660dc55c83d64bdafec0faa8bf0932eeeb3a5",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -694723,7 +694669,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_fork_delay1.sv",
-      "inputs_sha256": "14837d00b70eac369728821c3c4338355f4c02ef9e03057a68bd04de2f688d64",
+      "inputs_sha256": "3c58f7e4e3dce3f15ddd82a3097125930f60610846af334d9701a454f7552789",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -694795,7 +694741,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_function_delay0.sv",
-      "inputs_sha256": "acf17cb39440e5bba47769ee7e923199bc59562dd400ee407a97565e61284c29",
+      "inputs_sha256": "0e4d269e44a37ddb4e32fb0a9fe54f90e0a7975ed79355acf6fb55b7e1d52a08",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -694877,7 +694823,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_function_delay1.sv",
-      "inputs_sha256": "cae4bb3689122617383ed62288d5248946099097b2e79c6c9a1992d4442e2994",
+      "inputs_sha256": "71ff405a10324d38cf729e48d5285eccf95cf65c21e8a5257e4346d187c15209",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -694955,7 +694901,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_generate_delay0.sv",
-      "inputs_sha256": "074d617e249dd97759546d49d482fddfb42a8ce18086f3b6e602b0f75c71665c",
+      "inputs_sha256": "bae68ca1291ed6a042cb807427ceb3608d95811e81a19f3f927d9a3b4cc4f3d2",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -695028,7 +694974,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_generate_delay1.sv",
-      "inputs_sha256": "7a1c46e6a0c65bb97c2d60d220c54098f02066b0d0773954236219e729d1e773",
+      "inputs_sha256": "5326d9c1a8ae0a9276903a00ac84420fba7416be31de4bd8a80ea9efb0d8a78b",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -695097,7 +695043,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_initial_delay0.sv",
-      "inputs_sha256": "3aac1ae98ebb293e828ad18e43a974c02f39599bc5ee65c55618cb11391b152f",
+      "inputs_sha256": "b2ce56ba622ac35a7fa5651c7ab9cf5e455ec81a5d473f4586d302b61abde2ea",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -695163,7 +695109,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_initial_delay1.sv",
-      "inputs_sha256": "c401270ebc783c0b93b31a27464272fa074151fc770d67aecd4d93258b5abbbb",
+      "inputs_sha256": "9ad86600ea20857be949407e51f70f09d97b8b7ba042d02508f86076b2a4e077",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -695225,7 +695171,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_interface_delay0.sv",
-      "inputs_sha256": "9cacf633b49324ba001002c122ca80716a1f4fc45d778527b5d3a2ead17a12e0",
+      "inputs_sha256": "725ceacf7127c35fa5dbe0ed4c8a6115283a6efa7193aa03eaddf6180dcf9076",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -695303,7 +695249,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_interface_delay1.sv",
-      "inputs_sha256": "afb79d0ddf043f7c1543d80325d66d5411caf5561f14fe46e73c11c15a7493dd",
+      "inputs_sha256": "934ec7c9992d2c2d18a730c4ce0168954c21ed16ce6f81e1ab343617e16fc59a",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -695377,7 +695323,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_task_delay0.sv",
-      "inputs_sha256": "a62b6cc242a9621c10d3c269121cfc0d97142821092fcd4f1e93eabf5c2aa572",
+      "inputs_sha256": "547aa2d9440d97b76dcd416877c3ec3eb04297768219a9ef565a1a3c97f6056c",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -695463,7 +695409,7 @@
     },
     {
       "test": "tests/gen/ch4/test_gen_sched_assign_wait_task_delay1.sv",
-      "inputs_sha256": "a0590a771c1eb52e805ef87322bd72d48970e9f013e97ececef13f492d19f716",
+      "inputs_sha256": "a702aca4242bc64a0916b38a2f93f3d2474b7978c66dda278069511007058ec3",
       "cited_clauses": [
         "4.4.2",
         "10.3.2",
@@ -844400,14 +844346,14 @@
       }
     }
   ],
-  "scoped_review_test_files": 1360,
+  "scoped_review_test_files": 1361,
   "review_disposition_counts": {
     "citation_refinement": 196,
     "compound_requirement": 176,
     "oracle_issue": 252,
-    "partial_observation": 2132
+    "partial_observation": 2133
   },
-  "registry_sha256": "a4522b5dd7dc76c6e19a2a7a23eb335f899930d65d8591bee6754050ac090437",
+  "registry_sha256": "ef9e15d186aa181d503cb941dbea1ac894454712537af52723b70b40d4c55e42",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "a2297a257e7029fdac33afae1f731ba4d5576bc53c627f044acde5d3f6c54bdd"
+  "review_ledger_sha256": "c3968e8c9a7a241a36c88799693821befdaab351cd07a48ab336e26112282b93"
 }

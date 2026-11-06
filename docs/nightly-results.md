@@ -37,7 +37,7 @@ suite `19cd790a5f639348ad67fd63959dce9811d3ab56`の[Nightly](https://github.com/
 ### 直近のローカル追加
 
 最新のローカル追加は[イベント受信ループの36件](interaction-verification.md#named-event-loop-transfer)で、89モデル・3,280件です。
-最新取得・ビルドの`6f5c69841228`による[単一実行](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json)は2,747 pass・529 unsupported・4 failです。
+最新取得・ビルドの`6f5c69841228`による[単一実行](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json)は2,747 pass・529 unsupported・4 failです。2026-11-07の`1e840ea322cc`の保存ビルドによる[再実行](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json)も同じ内訳です。
 追加36件は全PASS、従来3,244件の入力・分類は不変です。今回の36件は正式Check・Nightlyでは未実行です。
 生成ループ以降の252件は、上記の82モデルを対象にした確認済み正式Nightlyの範囲外です。以下は以前の確認時点の記録です。
 

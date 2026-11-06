@@ -6,7 +6,7 @@
 
 [Requirement-coverage aggregation](behavior-coverage-summary.en.md) / [Comparison ledger for all tests](../coverage/test-matching.json) / [Content check errors](existing-test-matching-review-20261022.en.md)
 
-The reference candidates are listed from the citation section for all 11030 tests. The test which has registered the demand response based on stimulus and expected result is 5310 tests, and the test which is not registered is 5720 tests.
+The reference candidates are listed from the citation section for all 11028 tests. The test which has registered the demand response based on stimulus and expected result is 5309 tests, and the test which is not registered is 5719 tests.
 
 The mapping based on the verification content of all tests is not complete. The list of candidates is an automatic process and does not represent approval of the match. The number of registered units is the number of units that correspond to at least one requirement, and not the number of completed verification of each test. Multiple observations of one test and the response of another test verifying the same requirement are recorded in sequence.
 
@@ -28,12 +28,12 @@ Do not treat a requirement without a candidate or an unregistered test as eviden
 
 ## Reasons for retention of response
 
-1360 The range and judgment of the present paper were recorded in [Review judgement table](../coverage/test-matching-reviews.json). This is a record of the scope-limited judgments, not the number of completed reviews of the whole test. This information is not used as information for the corresponding registration or to increase the operation coverage rate. Checks the input hash, the string base, and the request ID, preventing the reuse of the decision after the change.
+1361 The range and judgment of the present paper were recorded in [Review judgement table](../coverage/test-matching-reviews.json). This is a record of the scope-limited judgments, not the number of completed reviews of the whole test. This information is not used as information for the corresponding registration or to increase the operation coverage rate. Checks the input hash, the string base, and the request ID, preventing the reuse of the decision after the change.
 
 - `citation_refinement` : 196 item.
 - `compound_requirement` : 176 item.
 - `oracle_issue` : 252 item.
-- `partial_observation` : 2132 item.
+- `partial_observation` : 2133 item.
 
 <a id="章別の登録状況"></a>
 
@@ -71,7 +71,7 @@ Do not treat a requirement without a candidate or an unregistered test as eviden
 - ch32 : All 68 tests, registered 37 tests, unregistered 31 tests.
 - ch33 : All 84 tests, registered 29 tests, unregistered 55 tests.
 - ch34 : All 4 tests, registered 4 tests, unregistered 0 tests.
-- ch35 : All 179 tests, registered 122 tests, unregistered 57 tests.
+- ch35 : All 177 tests, registered 121 tests, unregistered 56 tests.
 - ch36 : All 89 tests, registered 75 tests, unregistered 14 tests.
 - ch37 : All 227 tests, registered 218 tests, unregistered 9 tests.
 - ch38 : All 109 tests, registered 82 tests, unregistered 27 tests.

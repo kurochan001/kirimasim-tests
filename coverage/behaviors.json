@@ -6579,10 +6579,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_initial_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "3aac1ae98ebb293e828ad18e43a974c02f39599bc5ee65c55618cb11391b152f",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b2ce56ba622ac35a7fa5651c7ab9cf5e455ec81a5d473f4586d302b61abde2ea",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_initial_delay0.sv",
@@ -6596,10 +6596,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_always_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "e504c9de13a303f1545b8f7f84294d2c00cab7acb4c0b119234083367a72de64",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b31293d4b1b8803fd12ed720272ba50bc9d00bd4167367f3032b1dd18a320509",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_always_delay0.sv",
@@ -6613,10 +6613,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_task_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "a62b6cc242a9621c10d3c269121cfc0d97142821092fcd4f1e93eabf5c2aa572",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "547aa2d9440d97b76dcd416877c3ec3eb04297768219a9ef565a1a3c97f6056c",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_task_delay0.sv",
@@ -6630,10 +6630,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_function_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "acf17cb39440e5bba47769ee7e923199bc59562dd400ee407a97565e61284c29",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "0e4d269e44a37ddb4e32fb0a9fe54f90e0a7975ed79355acf6fb55b7e1d52a08",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_function_delay0.sv",
@@ -6647,10 +6647,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_fork_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "b04a5f2d5970139c56b1f2a6fea4cfbb6312671e940fa27bd1f542bee4e21640",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "5079e03eed217cfed508072f16d660dc55c83d64bdafec0faa8bf0932eeeb3a5",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_fork_delay0.sv",
@@ -6664,10 +6664,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_interface_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "9cacf633b49324ba001002c122ca80716a1f4fc45d778527b5d3a2ead17a12e0",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "725ceacf7127c35fa5dbe0ed4c8a6115283a6efa7193aa03eaddf6180dcf9076",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_interface_delay0.sv",
@@ -6681,10 +6681,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_generate_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "074d617e249dd97759546d49d482fddfb42a8ce18086f3b6e602b0f75c71665c",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "bae68ca1291ed6a042cb807427ceb3608d95811e81a19f3f927d9a3b4cc4f3d2",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_generate_delay0.sv",
@@ -6955,10 +6955,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_initial_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "3aac1ae98ebb293e828ad18e43a974c02f39599bc5ee65c55618cb11391b152f",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b2ce56ba622ac35a7fa5651c7ab9cf5e455ec81a5d473f4586d302b61abde2ea",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_initial_delay0.sv",
@@ -6972,10 +6972,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_always_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "e504c9de13a303f1545b8f7f84294d2c00cab7acb4c0b119234083367a72de64",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b31293d4b1b8803fd12ed720272ba50bc9d00bd4167367f3032b1dd18a320509",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_always_delay0.sv",
@@ -6989,10 +6989,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_task_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "a62b6cc242a9621c10d3c269121cfc0d97142821092fcd4f1e93eabf5c2aa572",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "547aa2d9440d97b76dcd416877c3ec3eb04297768219a9ef565a1a3c97f6056c",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_task_delay0.sv",
@@ -7006,10 +7006,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_function_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "acf17cb39440e5bba47769ee7e923199bc59562dd400ee407a97565e61284c29",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "0e4d269e44a37ddb4e32fb0a9fe54f90e0a7975ed79355acf6fb55b7e1d52a08",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_function_delay0.sv",
@@ -7023,10 +7023,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_fork_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "b04a5f2d5970139c56b1f2a6fea4cfbb6312671e940fa27bd1f542bee4e21640",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "5079e03eed217cfed508072f16d660dc55c83d64bdafec0faa8bf0932eeeb3a5",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_fork_delay0.sv",
@@ -7040,10 +7040,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_interface_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "9cacf633b49324ba001002c122ca80716a1f4fc45d778527b5d3a2ead17a12e0",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "725ceacf7127c35fa5dbe0ed4c8a6115283a6efa7193aa03eaddf6180dcf9076",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_interface_delay0.sv",
@@ -7057,10 +7057,10 @@
         },
         {
           "test": "tests/gen/ch4/test_gen_sched_assign_wait_generate_delay0.sv",
-          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.",
-          "reviewed_on": "2026-10-22",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "074d617e249dd97759546d49d482fddfb42a8ce18086f3b6e602b0f75c71665c",
+          "observation": "Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling. The reader waits again until the value is 22, because the continuous assignment's first update at time 0 may wake it first (4.7); that update does not decide what it prints.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "bae68ca1291ed6a042cb807427ceb3608d95811e81a19f3f927d9a3b4cc4f3d2",
           "evidence": [
             {
               "file": "tests/gen/ch4/test_gen_sched_assign_wait_generate_delay0.sv",
@@ -313329,29 +313329,7 @@
       "acceptance": "Using DPI must generate a compile-time warning or error explaining its deprecation/replacement by DPI-C and that C application changes may be required.",
       "source_note": "IEEE 1800-2023 35.5.4; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [
-        {
-          "test": "tests/ch35/test_35_rest_deprecated_dpi_diagnostic.sv",
-          "observation": "違法系の設計を拒否で35.5.4-EXTRACT-DEPRECATED-DIAGNOSTICを観測する。The import declaration uses the deprecated version string \"DPI\". Verilator 5.052 rejects it at compile time with an error whose text names \"DPI-C\" as the replacement, so the required warning-or-error for the deprecated string is observed at the place of the de 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
-          "reviewed_on": "2026-10-28",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "d0f9525d1aac7f3536afe86fdcd4239a2190301656db23ae7f36ecbdb68c70f5",
-          "evidence": [
-            {
-              "file": "tests/ch35/test_35_rest_deprecated_dpi_diagnostic.sv",
-              "contains": ":name: test_35_rest_deprecated_dpi_diagnostic"
-            },
-            {
-              "file": "tests/ch35/test_35_rest_deprecated_dpi_diagnostic.sv",
-              "contains": ":should_fail_because:"
-            },
-            {
-              "file": "tests/ch35/test_35_rest_deprecated_dpi_diagnostic.sv",
-              "contains": ":expected_stderr_regex:"
-            }
-          ]
-        }
-      ],
+      "checks": [],
       "source_spans": [
         {
           "section": "35.5.4",
@@ -330531,9 +330509,9 @@
         {
           "test": "tests/ch37/test_vpi_program_interface_relations.sv",
           "observation": "Program one takes the scalar interface port b; vpi_iterate(vpiInterface, one) returns b, so the output line is 'one: type vpiProgram, interfaces b'. 区別: A missing program-to-interface relation prints 'interfaces none' instead of b.",
-          "reviewed_on": "2026-10-31",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "676b60be3b58de93da59d82a82be2827044ec8dd7e702815658ce618a995b3c8",
+          "inputs_sha256": "61c838b37298f5772fa9be1914769766b0984dbc08dd6a8f265180d13428a899",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_program_interface_relations.sv",
@@ -330573,9 +330551,9 @@
         {
           "test": "tests/ch37/test_vpi_program_interface_relations.sv",
           "observation": "The interface instance b obtained from program one gives one with vpiInstance: 'b: instance is one 1'. 区別: Returning the top module or NULL changes 'instance is one 1' to 0 or to another name.",
-          "reviewed_on": "2026-10-31",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "676b60be3b58de93da59d82a82be2827044ec8dd7e702815658ce618a995b3c8",
+          "inputs_sha256": "61c838b37298f5772fa9be1914769766b0984dbc08dd6a8f265180d13428a899",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_program_interface_relations.sv",
@@ -330615,9 +330593,9 @@
         {
           "test": "tests/ch37/test_vpi_program_interface_relations.sv",
           "observation": "Program two takes the interface array port ba; vpi_iterate(vpiInterfaceArray, two) returns the vpiInterfaceArray object ba, printed as 'two: ... interface arrays ba'. 区別: A missing interface-array relation prints 'interface arrays none'.",
-          "reviewed_on": "2026-10-31",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "676b60be3b58de93da59d82a82be2827044ec8dd7e702815658ce618a995b3c8",
+          "inputs_sha256": "61c838b37298f5772fa9be1914769766b0984dbc08dd6a8f265180d13428a899",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_program_interface_relations.sv",
@@ -330657,9 +330635,9 @@
         {
           "test": "tests/ch37/test_vpi_program_interface_relations.sv",
           "observation": "Elements 0 and 1 of the interface array ba, obtained with vpi_handle_by_index, each give program two with vpiInstance ('element 0: type vpiInterface, instance is two 1' and the same for 1). 区別: Returning the top module or NULL for an array element changes the element lines to 0.",
-          "reviewed_on": "2026-10-31",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "676b60be3b58de93da59d82a82be2827044ec8dd7e702815658ce618a995b3c8",
+          "inputs_sha256": "61c838b37298f5772fa9be1914769766b0984dbc08dd6a8f265180d13428a899",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_program_interface_relations.sv",
@@ -449614,10 +449592,10 @@
       "checks": [
         {
           "test": "tests/ch17/test_checker_instantiation_connection_forms.sv",
-          "observation": "ck_inst_pkg::ck_add is instantiated five times with one instance name each and a port list; the printed sums are 7, 7, 7, 7 and 7 and the parity of a is 1, which shows all five instances elaborated and computed the sum. 区別: The checker name is package-qualified and each instance has its own name, so a tool that required an unqualified name or rejected the package scope would not compile the test.",
-          "reviewed_on": "2026-10-31",
+          "observation": "ck_inst_pkg::ck_add is instantiated five times with one instance name each and a port list; the printed sums are 7, 7, 7, 7 and 7 and every parity of a is 1, which shows all five instances elaborated and computed the sum. 区別: The checker name is package-qualified and each instance has its own name, so a tool that required an unqualified name or rejected the package scope would not compile the test.",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "214f09e1c4cdfbea551578d8aeb49c115ca00e5eb7b0ad9f73f14ec0f72aba46",
+          "inputs_sha256": "79a130e316deaa3f2e15486ec0b8a9187af2c2b30c98be9cfd054e7fc7cf4d96",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_instantiation_connection_forms.sv",
@@ -449625,7 +449603,7 @@
             },
             {
               "file": "tests/ch17/test_checker_instantiation_connection_forms.expected",
-              "contains": "position: 7/1, omitted: 7, empty: 7, implicit: 7, wildcard: 7"
+              "contains": "position: 7/1, attribute: 7/1, named: 7/1, implicit: 7/1, wildcard: 7/1"
             }
           ]
         }
@@ -449647,25 +449625,7 @@
       "acceptance": "Checker-port list uses either ordered or named entries; ordered entries have attributes and optional property actual; named entries have attributes and .formal identifier optionally followed by parentheses with optional property actual, or wildcard .*, constrained by clarification 34.",
       "source_note": "IEEE 1800-2023 A.4.1.4; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [
-        {
-          "test": "tests/ch17/test_checker_instantiation_connection_forms.sv",
-          "observation": "The five instances connect by position, by position with an attribute and the last actual left empty, by fully explicit names with .flag() empty, by implicit names .a, .b, .c, and by .*; the printed omitted, empty, implicit and wildcard sums are all 7. 区別: Each connection form must bind the same formals to the same actuals; a tool that shifted the empty ordered actual or the .* connections would print a different sum for that instance.",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "214f09e1c4cdfbea551578d8aeb49c115ca00e5eb7b0ad9f73f14ec0f72aba46",
-          "evidence": [
-            {
-              "file": "tests/ch17/test_checker_instantiation_connection_forms.sv",
-              "contains": "  ck_inst_pkg::ck_add u_skip ((* keep = \"yes\" *) a, b, c, s_skip, );"
-            },
-            {
-              "file": "tests/ch17/test_checker_instantiation_connection_forms.expected",
-              "contains": "position: 7/1, omitted: 7, empty: 7, implicit: 7, wildcard: 7"
-            }
-          ]
-        }
-      ],
+      "checks": [],
       "source_spans": [
         {
           "section": "A.4.1.4",

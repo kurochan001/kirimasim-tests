@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "75de53a01de36c20d6f093870c2b241b4d81a70b6dd3bcbf4b7cfae7d47b2f63",
-        "ja": "6d96d9d75964e062a6f7d65e5a5bd4aa605b641305e3626fb8cc16c201373bea"
+        "en": "d459f119db3f5c20e9f08fce87178b1ca369afbf18722c6c7063fcaca8a5a329",
+        "ja": "d6465660db40d29532a65309c179a731415229e8ebd6f1c6253ee342b11f1fb1"
       }
     },
     {
@@ -74,8 +74,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "ae9544f18a1664b94f584dc986850e04ec5de42e5e9fceaafef838402a174410",
-        "ja": "48fecaab8c147daf40c830d0743d500121a5448922acb8de2a8b5dae06f252e4"
+        "en": "1be9dd8ae0bb898a0029ef1438c93246c931ab269779cde311b445cdff071376",
+        "ja": "07adf9ae4f9bb0963330ad3d1a8d1e323cf1f707463dfa3a07e118ac6facbf3f"
       }
     },
     {
@@ -176,8 +176,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "279fde96ac6b0a8b918be528e4576a4b51c99c838a076bc6901613dbe4eef8e4",
-        "ja": "3cbe18b2615ea30f5a513f9e30b7e700cb290603b22d06835e2609275adacd66"
+        "en": "17e6fd744500ad39f2e5674ee1f9208a73a1f35bcd770da1343e0d71865b99ee",
+        "ja": "a8664091fd9090fb524e3c4210ac059eadd9b66540d9befaade5586de4731124"
       }
     },
     {
@@ -454,8 +454,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "3589d3d7cc2805807d4b29b2e396a9d174e9ddeb7b2d08b522dfd9fccc999247",
-        "ja": "b6901ebf1aef4701ba19aa81f63ac3409a9f44b06e598b1867071ad7f6f31b2d"
+        "en": "a71ec4b856c63e28a41a058b98c836a353a96255d7f40c6d0c90870b08ab6321",
+        "ja": "0eefd87b251d640c66e859c0d4a38eb5ffcd4506fa535bf8dd89a26ba7c53be8"
       }
     },
     {
@@ -509,8 +509,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "0acb67ed582ee2f3e1b9d324d5745cb4bf42d69004ce7f198df211843e0f61b7",
-        "ja": "63613e3f0a3d8b547f0ef3264594742f50e8e2f944d40bd68d7cb38b3ecd6d37"
+        "en": "38cd3d843c20c04c1e20e7a6a52f5ce15c6b178b463a354c19e4e47198a9d491",
+        "ja": "0b969b010d2c7877c51e3a3b78260aef4ba006dddf7d9d379691a266cb82ee5f"
       }
     },
     {
@@ -637,8 +637,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "98d24518e60e1d657232cd9d85841ffd534cd676736cd698de08f3f31946b33e",
-        "ja": "5812df1e585ef9f86466687f46aac805d31378c08567d649586e0f2d5f2ec6dd"
+        "en": "3948026df39e81d1d9feb32d18ce9423bc8d6d21205578236c296cf9db2b8bc6",
+        "ja": "970dcf48ed496bc73128b2a2350e6e175b46e886aee30eebcd25354f25e94dc4"
       }
     },
     {
@@ -1091,6 +1091,17 @@
       "sha256": {
         "en": "cb4d3ca93975f3820d150d975ad0958fd51d0dd6fff87e0556024aca5bb1e3c8",
         "ja": "408d5ed769ac686743283a14989fd353909549291cefef7f428340c79d7b8226"
+      }
+    },
+    {
+      "en": "docs/issues-24-27-28-review-20261107.en.md",
+      "ja": "docs/issues-24-27-28-review-20261107.md",
+      "source": "docs/issues-24-27-28-review-20261107.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "e8ffc615cf46992e5563049cb8278efb0adf6388a8745eb0d2809a0bc4d58693",
+        "ja": "026cc2a76d38f7d59865aaafa26e783b481051b2a001c02694ac67a5d6b66674"
       }
     }
   ]

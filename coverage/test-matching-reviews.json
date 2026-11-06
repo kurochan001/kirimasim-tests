@@ -56327,6 +56327,32 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch17/test_checker_instantiation_connection_forms.sv",
+      "inputs_sha256": "79a130e316deaa3f2e15486ec0b8a9187af2c2b30c98be9cfd054e7fc7cf4d96",
+      "reviewed_on": "2026-11-07",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.4.1.4-EXTRACT-CHECKER-PORTS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "位置、属性付きの位置、明示名、暗黙名、.* の接続は観測する。実引数を省略した空の接続は実装間で読みが分かれ、スイートはどちらの読みも許容するので観測しない。",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_instantiation_connection_forms.sv",
+              "contains": "  ck_inst_pkg::ck_add u_named (.a(a), .b(b), .c(c), .sum(s_named), .flag(f_named));"
+            },
+            {
+              "file": "tests/ch17/test_checker_instantiation_connection_forms.expected",
+              "contains": "position: 7/1, attribute: 7/1, named: 7/1, implicit: 7/1, wildcard: 7/1"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

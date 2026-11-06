@@ -33070,7 +33070,6 @@
     "SV2023-35.5.3-EXTRACT-LANGUAGE-CALL-KINDS",
     "SV2023-35.5.3-EXTRACT-SAFE-CONTEXT-APIS",
     "SV2023-35.5.4-EXTRACT-DECLARE-IMPORT",
-    "SV2023-35.5.4-EXTRACT-DEPRECATED-DIAGNOSTIC",
     "SV2023-35.5.4-EXTRACT-FORMAL-DECLARATION",
     "SV2023-35.5.4-EXTRACT-FORMAL-NAME-DEFAULT-VARIATION",
     "SV2023-35.5.4-EXTRACT-IDENTICAL-SIGNATURE",
@@ -37449,7 +37448,6 @@
     "SV2023-A.4.1.2-EXTRACT-INSTANTIATION",
     "SV2023-A.4.1.3-EXTRACT-INSTANTIATION",
     "SV2023-A.4.1.4-EXTRACT-CHECKER",
-    "SV2023-A.4.1.4-EXTRACT-CHECKER-PORTS",
     "SV2023-A.4.2-EXTRACT-BLOCK",
     "SV2023-A.4.2-EXTRACT-CONDITIONAL",
     "SV2023-A.4.2-EXTRACT-FOR",
@@ -43171,5 +43169,5 @@
     "P",
     "Q"
   ],
-  "reason": "Withdraw the block-namespace mapping: the suite accepts either reading of a specparam beside a module item of the same name, so no test observes the specify-block part of this requirement."
+  "reason": "Retire the deprecated DPI diagnostic test and stop relying on empty checker actuals, which implementations read differently (Issues #27, #28)"
 }

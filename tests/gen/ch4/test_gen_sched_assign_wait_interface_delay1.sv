@@ -16,7 +16,9 @@
 // continuous assignment copies to v in an initial procedure of an interface
 // instance after #1, and read by another process that waits for @(v) and then
 // displays v. v changes when the continuous assignment's update runs at time 1,
-// which wakes the waiting process at time 1; it was already waiting.
+// which wakes the waiting process at time 1; it was already waiting. The
+// continuous assignment also sets v to 11 at time 0, which may wake the process
+// first (4.7), so it waits again until v is 22.
 
 `timescale 1ns/1ns
 
@@ -34,5 +36,8 @@ endinterface
 module test_gen_sched_assign_wait_interface_delay1;
   test_gen_sched_assign_wait_interface_delay1_if i();
 
-  initial @(i.v) $display("t=%0t B sees %0d", $time, i.v);
+  initial begin
+    do @(i.v); while (i.v !== 8'd22);
+    $display("t=%0t B sees %0d", $time, i.v);
+  end
 endmodule
