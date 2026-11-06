@@ -8,14 +8,25 @@
 最新依頼は「この後Claude Codeへ引き継ぎたいのでハンドオフ資料を作成」です。
 進行中だったイベント受信ループのクロス追加と、その後の引き継ぎ文書を区別して記録します。
 
+## 引き継ぎ後の更新（2026-11-06）
+
+- イベント受信ループの36件、関連文書、この引き継ぎ資料は`5ff11f58`としてコミットし、`origin/main`へpushしました。
+- `5ff11f58`の[Check 42231314470](https://github.com/kurochan001/kirimasim-tests/actions/runs/42231314470)は全ジョブ（`icarus`、`verilator`、`readme`）がsuccessです。確認したのはworkflow・ジョブの結論だけです。
+  CheckはIcarus・Verilator・整合性検査で、kirimasim・Lyra・GhostはNightlyだけで実行します。`5ff11f58`を含むNightlyは未確認です。
+- 本体`1e840ea322cc58a9b6b6f1cac9fbf2ec0d005335`をビルドし、固定コピー（SHA-256 `a74cf0ecf878a7aa032e340deff0faab362be1395fed33a6588c7692850d0746`、slang `d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae`）で追加36件と独立検算を再実行しました。
+  36件はすべてPASSで、状態と入力fingerprintは`6f5c69841228`の記録と同じです。独立検算は2,016行を解釈し、正常対照6件はPASS、誤り9件はすべて検出しました。
+  対照・誤りの標準出力は前回と同じで、標準エラーの差は本体revisionの表示と一時ディレクトリ名だけです。
+- この再実行の結果は無視対象の`my-results/eventflow-latest-1e840ea3.json`と`my-results/eventflow-qualification-1e840ea3.json`で、この端末だけにあります。全3,280件の基準は引き続き`6f5c69841228`の実行です。
+- コミット前に、第4節の検査コマンドをもう一度実行し、すべて成功しました（ツール回帰1,068件を含む）。
+
 ## 1. 最初に確認する状態
 
-- ブランチは`main`、基点は`673210797a4e131a47f75524b4662f93de866206`です。2026-11-06の引き継ぎ時点にfetchし、`HEAD...origin/main`が`0 / 0`であることを確認しました。
-- **イベント受信ループの追加36件と、この引き継ぎ・関連文書更新は未コミットです。** 今回はcommit/pushを依頼されていません。既存変更を消さず、次の依頼に従ってください。
+- ブランチは`main`、引き継ぎ時の基点は`673210797a4e131a47f75524b4662f93de866206`です。2026-11-06の引き継ぎ時点にfetchし、`HEAD...origin/main`が`0 / 0`であることを確認しました。
+- イベント受信ループの追加36件と、この引き継ぎ・関連文書更新は、引き継ぎ後に`5ff11f58`としてコミット・push済みです。
 - 基点には、直前のpackage配列問い合わせ36件がコミット・push済みです。その前の`98dc6d04`にはprogramとautomatic taskの36件があります。
 - 本体`../kirimasim`は、引き継ぎ時点で**`1e840ea322cc58a9b6b6f1cac9fbf2ec0d005335`**、`origin/main`と一致し、追跡対象はクリーンでした。
-  今回の実行版は**`6f5c69841228257ebad959fef4aded828e781d93`**の固定バイナリです。**本体`1e840ea3`での再検証は未実行です。**
-- 本体には以前から未追跡の`docs/CLAUDE_CODE_HANDOFF_2026-10-30.md`、`docs/CODEX_HANDOFF_2026-10-31.md`があります。触っていません。
+  全選択の実行版は**`6f5c69841228257ebad959fef4aded828e781d93`**の固定バイナリです。追加36件と独立検算は、引き継ぎ後に`1e840ea3`でも再実行しました。
+- 本体には未追跡の`docs/CLAUDE_CODE_HANDOFF_2026-10-30.md`、`docs/CODEX_HANDOFF_2026-10-31.md`、`docs/CLAUDE_CODE_HANDOFF_2026-11-06.md`、`docs/CLAUDE_CODE_HANDOFF_2026-11-06.ja.md`があります。触っていません。
 - 本体の実装・固定期待値・既存テスト・ランダムプロファイルには今回変更していません。既存の過去証跡も保持しています。
 
 ```sh
@@ -28,10 +39,10 @@ git -C ../kirimasim fetch origin main
 git -C ../kirimasim rev-list --left-right --count HEAD...origin/main
 ```
 
-作業ツリーが未コミットなので、reset/cleanや強制的なcheckoutで基点へ戻さないでください。
+作業ツリーに未コミットの変更があれば、reset/cleanや強制的なcheckoutで消さないでください。
 古い引き継ぎの件数・Issue状態は当時の記録です。現在の件数は[README](../README.ja.md)と現行レポートを優先します。
 
-## 2. 未コミットのクロス追加
+## 2. イベント受信ループのクロス追加
 
 [設計・具体例・実行手順](interaction-verification.md#named-event-loop-transfer)を先に読んでください。
 
@@ -72,7 +83,8 @@ late/edge/blockingでは最初の通知を受けず、元のループは三回�
 
 イベント受信ループの実装後、**ツール回帰1,068件がPASS**しました。新規18件の最終focused検査もPASSです。
 引き継ぎ文書を含む整合性検査14項目、日英文書116組、相対リンク・変更アンカーの検査も成功しました。実装の全体回帰は上記の実行で、引き継ぎの文章追加だけを理由に再実行したものではありません。
-本体`1e840ea3`の実行、今回36件の正式CI、今回のランダム再実行は未実施です。
+引き継ぎ時点では、本体`1e840ea3`の実行、今回36件の正式CI（GitHubのCheck・Nightly）、今回のランダム再実行は未実施でした。
+その後、36件の`1e840ea3`実行とCheckは完了しました。Nightlyの確認と今回のランダム再実行は残っています。
 
 この作業環境だけにある無視対象の`my-results/eventflow-final-20261106/`には、`tools-unittest.log`、`verify-native.log`、`verify-fixed.log`、`update-reports.log`、`known-replays.log`、`checks.json`、`check-all.log`、`links.json`、`handoff-links.json`があります。
 固定バイナリsnapshotも同じディレクトリです。公開済みと取り違えず、コード・SV・結果の恒久的な根拠には上記の追跡対象JSONを使います。
@@ -108,7 +120,7 @@ git diff --check
 [Nightly 42136599265](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)、その全ジョブがsuccessでした。
 [確認記録](../coverage/interaction-qualification/handoff-ci-67321079-20261106.json)はworkflow・ジョブの結論です。
 **Nightlyの個別artifact、固定suite/ランダムの入力・結果・本体revision・バイナリfingerprintは未照合です。**
-未コミットのイベント受信ループ36件は両実行に含まれません。
+イベント受信ループ36件は基点より後のコミットなので、両実行に含まれません。
 `98dc6d04`のCheckは後続実行によりcancelledです。失敗したと取り違えないでください。
 以前の`19cd790a`の詳細照合済み数値は[結果の見方](nightly-results.md#latest-verified-checkpoint)に別の基点の記録として保持しました。
 
@@ -119,10 +131,10 @@ Icarusもtriggered等のビルド診断を保存しただけで内部実装は�
 
 ## 6. 再開順と守る方針
 
-1. 現在のdiff、上記の追跡対象証跡と[クロス追加手順](interaction-verification-method.md)を読みます。今回の追加に承認待ちはありません。
+1. `5ff11f58`の変更、上記の追跡対象証跡と[クロス追加手順](interaction-verification-method.md)を読みます。今回の追加に承認待ちはありません。
 2. 新しいNightlyのartifactを照合するなら、テスト側commitと固定/ランダムそれぞれの本体revisionを分けて記録します。workflowの緑を全テストPASSと解釈しません。
 3. 本体最新版で確認するなら、再びfetchし、その時点のmainをビルドして新しい結果名へ全選択を保存します。`1e840ea3`や古いsnapshotを無条件に最新版と呼ばないでください。
-4. commit/pushは次のユーザー依頼に従います。文書・生成物・証跡をまとめて確認し、既存の未コミット変更を尊重します。
+4. 今後のcommit/pushもユーザーの依頼に従います。文書・生成物・証跡をまとめて確認し、作業ツリーに未コミット変更があれば尊重します。
 5. クロス追加は[仕分け台帳](../coverage/chapter-cross-triage.json)のE/C/Rから観測可能な相互作用を選び、合法条件・重点因子・境界対照・独立検算・失敗を検出する観測を先に設計します。
    ランダムプロファイル数はいったん13で維持し、探索の重複管理・replay・失敗の固定回帰化は既存基盤を使います。
 

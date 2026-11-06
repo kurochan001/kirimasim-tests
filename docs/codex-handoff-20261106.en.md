@@ -7,14 +7,25 @@
 Repository: `kurochan001/kirimasim-tests`. Run commands from its root.
 The latest request is to prepare a handoff for Claude Code. Distinguish the ongoing event-loop addition from the subsequent handoff/documentation work.
 
+## Update after the handoff (2026-11-06)
+
+- The 36 event-loop cases, related documents and this handoff were committed as `5ff11f58` and pushed to `origin/main`.
+- [Check 42231314470](https://github.com/kurochan001/kirimasim-tests/actions/runs/42231314470) on `5ff11f58` succeeded in all jobs (`icarus`, `verilator`, `readme`). Only workflow and job conclusions were checked.
+  Check covers Icarus, Verilator and the consistency checks; kirimasim, Lyra and Ghost run only in Nightly. No Nightly containing `5ff11f58` has been checked yet.
+- Core `1e840ea322cc58a9b6b6f1cac9fbf2ec0d005335` was built, and an immutable copy (SHA-256 `a74cf0ecf878a7aa032e340deff0faab362be1395fed33a6588c7692850d0746`, slang `d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae`) reran the 36 additions and the independent qualification.
+  All 36 pass, with statuses and input fingerprints equal to the `6f5c69841228` record. The qualification interprets 2,016 rows, passes six normal controls and detects all nine faults.
+  Control and fault stdout match the previous run; stderr differs only in the core revision banner and temporary directory name.
+- This rerun is saved only on this machine, in ignored `my-results/eventflow-latest-1e840ea3.json` and `my-results/eventflow-qualification-1e840ea3.json`. The complete 3,280-case baseline remains the `6f5c69841228` run.
+- Before the commit, the check commands in section 4 were run again and all succeeded, including the 1,068 tool tests.
+
 ## 1. Check the starting state
 
-- Branch `main`, baseline `673210797a4e131a47f75524b4662f93de866206`. Fetch at handoff on 2026-11-06 confirmed `HEAD...origin/main` at `0 / 0`.
-- **The 36 event-loop additions and these handoff/documentation changes are uncommitted.** This request does not ask for commit/push. Preserve existing changes and follow the next user instruction.
+- Branch `main`, baseline at handoff `673210797a4e131a47f75524b4662f93de866206`. Fetch at handoff on 2026-11-06 confirmed `HEAD...origin/main` at `0 / 0`.
+- The 36 event-loop additions and these handoff/documentation changes were committed and pushed after the handoff as `5ff11f58`.
 - Baseline 67321079 already commits/pushes the preceding 36 package-query cases. Earlier `98dc6d04` adds 36 program/automatic-task cases.
-- Core repository `../kirimasim` is now **`1e840ea322cc58a9b6b6f1cac9fbf2ec0d005335`**, matching `origin/main`, with tracked files clean.
-  The tested immutable binary was **`6f5c69841228257ebad959fef4aded828e781d93`**. **Core `1e840ea3` has not been rerun here.**
-- The core already contains untracked `docs/CLAUDE_CODE_HANDOFF_2026-10-30.md` and `docs/CODEX_HANDOFF_2026-10-31.md`; they were left untouched.
+- Core repository `../kirimasim` was **`1e840ea322cc58a9b6b6f1cac9fbf2ec0d005335`** at handoff, matching `origin/main`, with tracked files clean.
+  The complete-selection binary was **`6f5c69841228257ebad959fef4aded828e781d93`**. The 36 additions and the independent qualification were also rerun on `1e840ea3` after the handoff.
+- The core contains untracked `docs/CLAUDE_CODE_HANDOFF_2026-10-30.md`, `docs/CODEX_HANDOFF_2026-10-31.md`, `docs/CLAUDE_CODE_HANDOFF_2026-11-06.md` and `docs/CLAUDE_CODE_HANDOFF_2026-11-06.ja.md`; they were left untouched.
 - This work changes no core implementation, existing fixed expectations/tests or random profiles. Earlier evidence is preserved.
 
 ```sh
@@ -27,9 +38,9 @@ git -C ../kirimasim fetch origin main
 git -C ../kirimasim rev-list --left-right --count HEAD...origin/main
 ```
 
-Do not reset/clean/force-checkout the uncommitted work. Older handoffs record historical counts/Issue states; prefer the [README](../README.md) and current reports.
+Do not reset/clean/force-checkout away any uncommitted work in the tree. Older handoffs record historical counts/Issue states; prefer the [README](../README.md) and current reports.
 
-## 2. Uncommitted cross addition
+## 2. Event-loop cross addition
 
 Read [design, examples and commands](interaction-verification.en.md#named-event-loop-transfer) first.
 
@@ -70,7 +81,8 @@ Keep thirteen random profiles. Do not add random samples directly to fixed-suite
 
 After implementing the event loop, **all 1,068 tool tests pass**, including the eighteen new checks. The final focused run also passes.
 All fourteen consistency checks, 116 bilingual document pairs, relative links and changed anchors pass with this handoff included. The implementation regression is the run above; it was not repeated solely for handoff prose.
-Core `1e840ea3`, formal CI for these 36 cases and a new random campaign have not been executed here.
+At handoff, core `1e840ea3`, official GitHub CI (Check and Nightly) for these 36 cases and a new random campaign had not been executed.
+The `1e840ea3` rerun of the 36 cases and Check have since completed. Checking Nightly and a new random campaign remain open.
 
 Local ignored `my-results/eventflow-final-20261106/` contains `tools-unittest.log`, `verify-native.log`, `verify-fixed.log`, `update-reports.log`, `known-replays.log`, `checks.json`, `check-all.log`, `links.json` and `handoff-links.json`, plus the immutable binary snapshot.
 These are local aids, not published artifacts. Use the tracked JSON above for lasting source/SV/execution evidence.
@@ -106,7 +118,7 @@ At handoff on 2026-11-06, baseline `67321079` passed [Check 42120289584](https:/
 and [Nightly 42136599265](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265), including all jobs.
 [The record](../coverage/interaction-qualification/handoff-ci-67321079-20261106.json) covers workflow/job conclusions.
 **Individual Nightly artifacts, fixed/random inputs/results, core revisions and binary fingerprints remain uninspected.**
-The uncommitted 36 event-loop cases are outside both runs.
+The 36 event-loop cases were committed after this baseline, so they are outside both runs.
 Check on `98dc6d04` was cancelled by the later run; do not classify it as a failure.
 Keep older artifact-reviewed `19cd790a` figures as a separate checkpoint in [result interpretation](nightly-results.en.md#latest-verified-checkpoint).
 
@@ -117,10 +129,10 @@ Icarus evidence records triggered-related build diagnostics; its implementation 
 
 ## 6. Resume order and policies
 
-1. Read the diff, tracked evidence above and [model-addition procedure](interaction-verification-method.en.md). No approval is pending for this addition.
+1. Read commit `5ff11f58`, tracked evidence above and [model-addition procedure](interaction-verification-method.en.md). No approval is pending for this addition.
 2. If auditing new Nightly artifacts, distinguish the test commit and separate core revisions for fixed/random runs. Workflow success does not mean every test passed.
 3. For current-core verification, fetch again and build that main into a new result name. Do not unconditionally call `1e840ea3` or the old snapshot latest.
-4. Commit/push when subsequently requested, reviewing documents/generated files/evidence together and preserving existing uncommitted work.
+4. Commit/push only when requested, reviewing documents/generated files/evidence together and preserving any uncommitted work in the tree.
 5. Select observable E/C/R interactions from [triage](../coverage/chapter-cross-triage.json); first design legal scope, priority factors, boundaries/controls, independent expectations and fault-sensitive observations.
    Keep random profiles at thirteen for now, reusing existing deduplication, replay and failure-regression infrastructure.
 
