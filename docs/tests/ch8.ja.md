@@ -155,7 +155,7 @@
 | [`test_class_cast_edge_cases`](../../tests/ch8/test_class_cast_edge_cases.sv) |試験：クラスキャストエッジケース| 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_class_cast_forms_null_and_failures`](../../tests/ch8/test_class_cast_forms_null_and_failures.sv) |クラスハンドルの$castを、格納先を先頭にして関数またはタスクとして呼ぶと、アップキャスト、派生オブジェクトを指すハンドルのダウンキャスト、リテラルnullでは成功して代入する。それ以外では、無関係なクラスのnullハンドルも含め、関数形式は0で失敗し、代入しない| 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_class_cast_task_failure_reports_error`](../../tests/ch8/test_class_cast_task_failure_reports_error.sv) |ターゲットクラスではなくベースクラスのオブジェクトを参照するクラスハンドル上のタスクとして呼び出された $cast はランタイムエラーで失敗しました| 8.16 6.24.2 | Verilator 5.052 ||
-| [`test_dynamic_cast`](../../tests/ch8/test_dynamic_cast.sv) |配役・キャスティング| 8.16 6.24.2 | Verilator 5.052 ||
+| [`test_dynamic_cast`](../../tests/ch8/test_dynamic_cast.sv) |配役・キャスティング| 8.16 6.24.2 |標準のみ||
 | [`test_illegal_base_handle_assigned_to_derived`](../../tests/ch8/test_illegal_base_handle_assigned_to_derived.sv) |クラスハンドルはサブクラス変数に直接割り当てられませんが、$castは割り当てられます。| 8.16 6.24.2 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_system_cast`](../../tests/ch8/test_system_cast.sv) |テスト$cast：動的な型キャスト| 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_type_check`](../../tests/ch8/test_type_check.sv) |タイプチェックテスト| 8.16 6.24.2 | Verilator 5.052 ||

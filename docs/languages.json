@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "b5bc34a5a5ac701e0edea0d2155eb4c6f6c8849a0c204c43d580cd533e542e7c",
-        "ja": "b91cbba85e50429431fc1bac7de437ea85a4e079c9a5760d648e16a421650cb9"
+        "en": "4f9e3b95bcd3d7b2eab34db07f077d33552ae1e433e8610407bd1cc2d5a87942",
+        "ja": "8622bfb47231dbc39bad61bc451107c99f27e415bfd1756235652b38472949cd"
       }
     },
     {
@@ -637,8 +637,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "84370c6f1df048583bbe09511a6d0184d5dd11a7a556d2762491a02c3d676dda",
-        "ja": "6dac1f07c18a94170bc00998f252f78b2310ffcf68f4339ecaa166bede6db2d3"
+        "en": "d50f5df3ca680f727a1dd23c2beed407e6e98e834ee706c40e409db41a67a643",
+        "ja": "7f2e0ff5679dcc4c8bb74951b6532820a0375fa70692368110d1fff450dcf4e1"
       }
     },
     {
@@ -1080,6 +1080,17 @@
       "sha256": {
         "en": "6ed6de96ca8df1798a01088af31a0801bcddafc58bf7c60a1abe88ec3fc62dd6",
         "ja": "a86692886f8dcd3cde6f314d8c6598ee4a782547af473d1d3c2e760eb2a325ee"
+      }
+    },
+    {
+      "en": "docs/issues-45-47-review-20261107.en.md",
+      "ja": "docs/issues-45-47-review-20261107.md",
+      "source": "docs/issues-45-47-review-20261107.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "cb4d3ca93975f3820d150d975ad0958fd51d0dd6fff87e0556024aca5bb1e3c8",
+        "ja": "408d5ed769ac686743283a14989fd353909549291cefef7f428340c79d7b8226"
       }
     }
   ]

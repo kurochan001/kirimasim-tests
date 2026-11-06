@@ -11,8 +11,10 @@
 :expected_stdout: @test_cg_transition_syntax_all_forms.expected
 */
 // IEEE 1800-2023 §19.5.2, Syntax 19-3: a bins declaration of a trans_list is a
-// transition bin. A trans_list is one or more trans_set items separated by
-// commas, and a trans_set is a list of trans_range_list items joined by =>.
+// transition bin. A trans_list is one or more parenthesized trans_set items
+// separated by commas, and a trans_set is a list of trans_range_list items
+// joined by =>. A comma inside the parentheses separates the values of a range
+// list, so (1 => 2, 3 => 4) would be 1 => {2, 3} => 4, not two transitions.
 // A trans_range_list item is a value or a range list item (a, b => c), and a
 // repetition is [* n] for n consecutive occurrences, [-> n] for a goto
 // repetition and [= n] for a nonconsecutive repetition. With [] the
@@ -28,7 +30,7 @@ module test_cg_transition_syntax_all_forms;
 
   covergroup cg;
     cp: coverpoint v {
-      bins alt[] = (1 => 2, 3 => 4);
+      bins alt[] = (1 => 2), (3 => 4);
       bins rep = (1 [* 2] => 3);
       bins go = (1 => 2 [-> 1]);
       bins noncon = (1 => 2 [= 1]);

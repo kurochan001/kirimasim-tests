@@ -4,7 +4,7 @@
 :tags: ch8
 :type: simulation
 :lrm: 1800-2023 8.16 6.24.2
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -52,18 +52,28 @@ module test_dynamic_cast;
     end
     $display("  Downcast correctly failed for pure base object");
 
-    // Test null casting. IEEE 1800-2023 §8.16/§8.21: the special value null is
-    // assignable to any class handle, so $cast of a null source SUCCEEDS and
-    // non-conformant behavior.)
+    // IEEE 1800-2023 §8.16: a handle variable holding null is not an object and
+    // is not the literal null, so this downcast fails and, as a function call,
+    // leaves the destination unchanged (6.24.2). The 5.052 release of Verilator
+    // lets it succeed and assign null.
     b_ref = null;
-    d_ref = null;
-    if (!$cast(d_ref, b_ref)) begin
-      $fatal(1, "FAIL: casting null should succeed");
+    d_ref = d;
+    if ($cast(d_ref, b_ref)) begin
+      $fatal(1, "FAIL: casting a null handle should fail");
+    end
+    if (d_ref != d) begin
+      $fatal(1, "FAIL: a failed cast should keep the destination");
+    end
+    $display("  Null handle cast correctly failed and kept the destination");
+
+    // §8.16: the literal null is the case that succeeds, and it assigns null.
+    if (!$cast(d_ref, null)) begin
+      $fatal(1, "FAIL: casting the literal null should succeed");
     end
     if (d_ref != null) begin
-      $fatal(1, "FAIL: casting null should yield null");
+      $fatal(1, "FAIL: casting the literal null should yield null");
     end
-    $display("  Null cast correctly succeeded and yielded null");
+    $display("  Literal null cast correctly succeeded and yielded null");
 
     $display("PASS: Dynamic casting");
     $finish(0);

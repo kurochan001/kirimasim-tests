@@ -28,8 +28,8 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | --- | ---: |
 | both releases | 806 |
 | Icarus Verilog 13.0 only | 5009 |
-| Verilator 5.052 only | 2017 |
-| standard only | 3198 |
+| Verilator 5.052 only | 2016 |
+| standard only | 3199 |
 
 <a id="章別"></a>
 
@@ -42,7 +42,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 5 | Lexical conventions | 346 | 16 | 21.6 | 0 | 7 |
 | 6 | Data types | 681 | 76 | 9.0 | 0 | 123 |
 | 7 | Aggregate data types | 772 | 49 | 15.8 | 0 | 201 |
-| 8 | Classes | 411 | 43 | 9.6 | 0 | 108 |
+| 8 | Classes | 411 | 43 | 9.6 | 0 | 109 |
 | 9 | Processes | 383 | 25 | 15.3 | 0 | 56 |
 | 10 | Assignment statements | 353 | 18 | 19.6 | 0 | 44 |
 | 11 | Operators and expressions | 1644 | 42 | 39.1 | 0 | 250 |

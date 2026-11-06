@@ -1,0 +1,21 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch19/test_cg_transition_syntax_all_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_transition_syntax_all_forms.sv:31: syntax error",
+   "inputs_sha256": "37440200ce9ec2ac2001f12791e7d8870f1bf264b7a81afe66416097773058f3"
+  },
+  "ch8/test_dynamic_cast": {
+   "status": "known",
+   "reason": "compile failed: SORRY: Compare class handles not implemented",
+   "inputs_sha256": "e5a9c7140730f228a3dd1bf63b2360feb2cf1f49099ab2d1253ea6d768c6e15d"
+  }
+ },
+ "generated_at": "2026-11-06T15:47:52.171237+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

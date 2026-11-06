@@ -153,3 +153,4 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Triage of 40 test-side failures (2026-10-28) | [English](test-failure-triage-20261028.en.md) | [日本語](test-failure-triage-20261028.md) |
 | Test side failure and fix for Issue #6 - #19 (2026-10-28) | [English](test-side-fixes-20261028.en.md) | [日本語](test-side-fixes-20261028.md) |
 | Handoff to Claude Code (2026-11-06) | [English](codex-handoff-20261106.en.md) | [日本語](codex-handoff-20261106.md) |
+| Issues #45 and #47: standard matching and test fix (2026-11-07) | [English](issues-45-47-review-20261107.en.md) | [日本語](issues-45-47-review-20261107.md) |

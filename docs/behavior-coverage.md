@@ -67,11 +67,11 @@
 - `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 動作確認、古い入力との対応 1 件。
 - `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7883/12298 動作確認、古い入力との対応 66 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7964/12298 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7866/12298 動作確認、古い入力との対応 66 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7883/12298 動作確認、古い入力との対応 69 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7964/12298 動作確認、古い入力との対応 3 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7866/12298 動作確認、古い入力との対応 69 件。
 - `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 動作確認、古い入力との対応 13 件。
-- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3795/12298 動作確認、古い入力との対応 278 件。
+- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3795/12298 動作確認、古い入力との対応 281 件。
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 動作確認、古い入力との対応 14 件。
 - `issues-20261031-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:31:59.218896+00:00` / 42/12298 動作確認、古い入力との対応 14 件。
 - `issues-20261031-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:32:01.484680+00:00` / 42/12298 動作確認、古い入力との対応 14 件。
@@ -79,11 +79,15 @@
 - `issues-40-44-20261031-kirimasim-83e89bf5.json`: `kirimasim 0.0.0 (commit 83e89bf5e833), built with AppleClang 21.0.0.21000334` / `2026-10-30T21:21:54.084687+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `issues-40-44-20261031-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T21:21:16.188504+00:00` / 3/12298 動作確認、古い入力との対応 0 件。
 - `issues-40-44-20261031-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T21:21:16.245370+00:00` / 3/12298 動作確認、古い入力との対応 0 件。
+- `issues-45-47-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-06T15:47:52.171237+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `issues-45-47-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T15:47:52.084505+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
+- `issues-45-47-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T15:47:55.538904+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `issues-45-47-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T15:47:58.713949+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-icarus14.json`: `Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)` / `2026-10-27T13:37:34.824763+00:00` / 21/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.897897+00:00` / 19/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.973472+00:00` / 19/12298 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3122/12298 動作確認、古い入力との対応 511 件。
-- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2637/12298 動作確認、古い入力との対応 469 件。
+- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3122/12298 動作確認、古い入力との対応 514 件。
+- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2637/12298 動作確認、古い入力との対応 472 件。
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 74/12298 動作確認、古い入力との対応 0 件。
 - `test-fixes-20261031-icarus-include.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:25:03.867848+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
 - `test-fixes-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:23:47.414500+00:00` / 4/12298 動作確認、古い入力との対応 0 件。
@@ -49102,7 +49106,7 @@ trans_list の完全な配列が一致したとき、ビン数は増加します
 
 規定の性質: `definition`。
 
-- [test_cg_transition_syntax_all_forms.sv](../tests/ch19/test_cg_transition_syntax_all_forms.sv) : この coverpoint は bins alt \[ \] = ( 1 =\> 2 , 3 =\> 4 )、rep = ( 1 \[ * 2 \] =\> 3 )、go = ( 1 =\> 2 \[ -\> 1 \] )、noncon = ( 1 =\> 2 \[ = 1 \] )、rng = ( 1 , 2 =\> 3 , 4 )、および guard = ( 5 =\> 6 ) iff (en) を宣言し、bin は合計7つとなる。カバレッジは、順序付きの選択肢、goto繰り返し、非連続遷移で42.86、範囲リストの項目で57.14、2番目の選択肢で71.43、連続繰り返しで85.71へと上がります。5,6では、enが0の間は85.71のままであり、enが1になると100.00に達します。区別: 繰り返しを無視する、rngのコンマ区切りの選択肢を4つのビンに分ける、またはiffを無視するツールでは、7つのステップのいずれかでパーセンテージが変わります。
+- [test_cg_transition_syntax_all_forms.sv](../tests/ch19/test_cg_transition_syntax_all_forms.sv) : この coverpoint は bins alt \[ \] = ( 1 =\> 2 )、( 3 =\> 4 )、rep = ( 1 \[ * 2 \] =\> 3 )、go = ( 1 =\> 2 \[ -\> 1 \] )、noncon = ( 1 =\> 2 \[ = 1 \] )、rng = ( 1 , 2 =\> 3 , 4 )、および guard = ( 5 =\> 6 ) iff (en) を宣言し、bin は合計7つとなる。カバレッジは、順序付きの選択肢、goto繰り返し、非連続遷移で42.86、範囲リストの項目で57.14、2番目の選択肢で71.43、連続繰り返しで85.71へと上がります。5,6では、enが0の間は85.71のままであり、enが1になると100.00に達します。区別: 繰り返しを無視する、rngのコンマ区切りの選択肢を4つのビンに分ける、またはiffを無視するツールでは、7つのステップのいずれかでパーセンテージが変わります。
 
 ### SV2023-19.5.2-EXTRACT-TRANSITION-INTEGRAL
 

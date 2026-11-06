@@ -73542,9 +73542,9 @@
         {
           "test": "tests/ch8/test_dynamic_cast.sv",
           "observation": "base静的型のsourceが実際にはderived objectを保持するとき$castが成功し、derived propertyへアクセスできる。edge-case側は元の更新15がcast先にも見える。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "a3387e534b4357507ad49076dd3c23db565304d19bff856bf6c4360f2f0d202b",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "e5a9c7140730f228a3dd1bf63b2360feb2cf1f49099ab2d1253ea6d768c6e15d",
           "evidence": [
             {
               "file": "tests/ch8/test_dynamic_cast.sv",
@@ -73883,9 +73883,9 @@
         {
           "test": "tests/ch8/test_dynamic_cast.sv",
           "observation": "derived handleをbase handleへ直接代入し、元objectのbase propertyとcast後のderived propertyを確認する。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "a3387e534b4357507ad49076dd3c23db565304d19bff856bf6c4360f2f0d202b",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "e5a9c7140730f228a3dd1bf63b2360feb2cf1f49099ab2d1253ea6d768c6e15d",
           "evidence": [
             {
               "file": "tests/ch8/test_dynamic_cast.sv",
@@ -188272,10 +188272,10 @@
       "checks": [
         {
           "test": "tests/ch19/test_cg_transition_syntax_all_forms.sv",
-          "observation": "The point declares bins alt[] = (1 => 2, 3 => 4), rep = (1 [* 2] => 3), go = (1 => 2 [-> 1]), noncon = (1 => 2 [= 1]), rng = (1, 2 => 3, 4) and guard = (5 => 6) iff (en), seven bins in all. The coverage rises 42.86 for the ordered alternatives, the goto and the nonconsecutive transition, 57.14 for the range-list item, 71.43 for the second alternative, 85.71 for the consecutive repetition, and stays 85.71 for 5,6 while en is 0 and reaches 100.00 when it is 1. 区別: A tool that ignored a repetition, split the comma alternative of rng into four bins, or ignored the iff would print a different percentage at one of the seven steps.",
-          "reviewed_on": "2026-10-27",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "547ce2a6e74ecf4b4b01a0e18c655e17cf508ca2270b4915bfcc37514fc6f3d5",
+          "observation": "The point declares bins alt[] = (1 => 2), (3 => 4), rep = (1 [* 2] => 3), go = (1 => 2 [-> 1]), noncon = (1 => 2 [= 1]), rng = (1, 2 => 3, 4) and guard = (5 => 6) iff (en), seven bins in all. The coverage rises 42.86 for the ordered alternatives, the goto and the nonconsecutive transition, 57.14 for the range-list item, 71.43 for the second alternative, 85.71 for the consecutive repetition, and stays 85.71 for 5,6 while en is 0 and reaches 100.00 when it is 1. 区別: A tool that ignored a repetition, split the comma alternative of rng into four bins, or ignored the iff would print a different percentage at one of the seven steps.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "37440200ce9ec2ac2001f12791e7d8870f1bf264b7a81afe66416097773058f3",
           "evidence": [
             {
               "file": "tests/ch19/test_cg_transition_syntax_all_forms.sv",

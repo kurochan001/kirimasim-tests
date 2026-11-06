@@ -155,7 +155,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_class_cast_edge_cases`](../../tests/ch8/test_class_cast_edge_cases.sv) | Test: Class cast edge cases | 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_class_cast_forms_null_and_failures`](../../tests/ch8/test_class_cast_forms_null_and_failures.sv) | $cast on class handles, called as a function or as a task with the destination first, succeeds and assigns for an upcast, for a downcast of a handle to a derived object and for the literal null, and as a function fails with 0 and no assignment otherwise, also for a null handle of an unrelated class | 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_class_cast_task_failure_reports_error`](../../tests/ch8/test_class_cast_task_failure_reports_error.sv) | $cast called as a task on a class handle that refers to an object of the base class, not of the destination class, fails with a run-time error | 8.16 6.24.2 | Verilator 5.052 ||
-| [`test_dynamic_cast`](../../tests/ch8/test_dynamic_cast.sv) | Assignment and casting | 8.16 6.24.2 | Verilator 5.052 ||
+| [`test_dynamic_cast`](../../tests/ch8/test_dynamic_cast.sv) | Assignment and casting | 8.16 6.24.2 | standard only ||
 | [`test_illegal_base_handle_assigned_to_derived`](../../tests/ch8/test_illegal_base_handle_assigned_to_derived.sv) | a superclass handle cannot be assigned directly to a subclass variable, though $cast may do it | 8.16 6.24.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_system_cast`](../../tests/ch8/test_system_cast.sv) | Test $cast - dynamic type casting | 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_type_check`](../../tests/ch8/test_type_check.sv) | Type Checking Tests | 8.16 6.24.2 | Verilator 5.052 ||

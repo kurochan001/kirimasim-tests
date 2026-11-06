@@ -116099,7 +116099,7 @@
     },
     {
       "test": "tests/ch19/test_cg_transition_syntax_all_forms.sv",
-      "inputs_sha256": "547ce2a6e74ecf4b4b01a0e18c655e17cf508ca2270b4915bfcc37514fc6f3d5",
+      "inputs_sha256": "37440200ce9ec2ac2001f12791e7d8870f1bf264b7a81afe66416097773058f3",
       "cited_clauses": [
         "19.5.2",
         "19.11.1"
@@ -372894,7 +372894,7 @@
     },
     {
       "test": "tests/ch8/test_dynamic_cast.sv",
-      "inputs_sha256": "a3387e534b4357507ad49076dd3c23db565304d19bff856bf6c4360f2f0d202b",
+      "inputs_sha256": "e5a9c7140730f228a3dd1bf63b2360feb2cf1f49099ab2d1253ea6d768c6e15d",
       "cited_clauses": [
         "8.16",
         "6.24.2"
@@ -372930,9 +372930,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch8/test_dynamic_cast.sv",
-        "inputs_sha256": "a3387e534b4357507ad49076dd3c23db565304d19bff856bf6c4360f2f0d202b",
-        "reviewed_on": "2026-10-23",
-        "reviewer": "Codex (AI); not an independent human review",
+        "inputs_sha256": "e5a9c7140730f228a3dd1bf63b2360feb2cf1f49099ab2d1253ea6d768c6e15d",
+        "reviewed_on": "2026-11-07",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -372943,7 +372943,7 @@
               "SV2023-8.16-EXTRACT-CAST-FORMS"
             ],
             "disposition": "compound_requirement",
-            "explanation": "M35: $castはfunction形式のみ。失敗の戻り値0は確認するが、失敗前のdestinationにsentinel handleを置いて保持を検査しない。task形式失敗の診断もない。dynamic_castのnullはBase型variableに格納した値でliteral nullではなく、incompatible静的型のnull sourceも刺激しない。",
+            "explanation": "M35: $castはfunction形式のみ。null handleの失敗は戻り値0とdestinationに置いたsentinel handleの保持まで、literal nullの成功はnullの代入まで確認する。task形式失敗の診断とincompatible静的型のnull sourceは刺激しない。",
             "evidence": [
               {
                 "file": "tests/ch8/test_dynamic_cast.sv",
@@ -844381,7 +844381,7 @@
     "oracle_issue": 252,
     "partial_observation": 2131
   },
-  "registry_sha256": "ea1a1389dd922ab8c38f6b22f1a8681eb3407903bb613cb75232f54e0b5b8f83",
+  "registry_sha256": "6ed36d0ba171b3b35e1f3c7bd0f1b1c99584dbbfd6dcc97409401b8420a60b5e",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "268263abdcd4390e575aa53dcb4ed1a13e8db18b6abaf76e736fade8d646c7bb"
+  "review_ledger_sha256": "c109347d497f83dfbd165e69223f7e0f637c9280d811cb6eb7c0b29b9cf9a616"
 }

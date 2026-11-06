@@ -1,3 +1,4 @@
   Downcast correctly failed for pure base object
-  Null cast correctly succeeded and yielded null
+  Null handle cast correctly failed and kept the destination
+  Literal null cast correctly succeeded and yielded null
 PASS: Dynamic casting
