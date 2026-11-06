@@ -193661,18 +193661,18 @@
     },
     {
       "test": "tests/ch3/test_element_and_block_name_spaces.sv",
-      "inputs_sha256": "86f5095c9692159e309b3783c51bf9a945037dfc9b6a90b12875c8e3697a7327",
+      "inputs_sha256": "940bf96ac815ca2ef4374bb29c1de1624912f3e1928a5305c564bc2e407928f2",
       "cited_clauses": [
         "3.13"
       ],
       "negative_test": false,
       "registered_requirement_ids": [
-        "SV2023-3.13-EXTRACT-BLOCK-NAMESPACE",
         "SV2023-3.13-EXTRACT-ELEMENT-NAMESPACE"
       ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-3.13-EXTRACT-ATTRIBUTE-NAMESPACE",
+        "SV2023-3.13-EXTRACT-BLOCK-NAMESPACE",
         "SV2023-3.13-EXTRACT-MACRO-NAME-SEPARATION",
         "SV2023-3.13-EXTRACT-MACRO-ORDER",
         "SV2023-3.13-EXTRACT-PORT-DIRECTIONS",
@@ -193686,7 +193686,33 @@
         "SV2023-3.13-EXTRACT-NO-REDECLARATION",
         "SV2023-3.13-EXTRACT-PACKAGE-NAMES"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch3/test_element_and_block_name_spaces.sv",
+        "inputs_sha256": "940bf96ac815ca2ef4374bb29c1de1624912f3e1928a5305c564bc2e407928f2",
+        "reviewed_on": "2026-11-07",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-3.13-EXTRACT-BLOCK-NAMESPACE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "名前付きブロック、無名ブロック、関数、タスクの局所名前空間は観測する。specifyブロックのspecparamとモジュール項目の同名宣言は実装間で読みが分かれ、スイートはどちらの読みも許容するので観測しない。",
+            "evidence": [
+              {
+                "file": "tests/ch3/test_element_and_block_name_spaces.sv",
+                "contains": "    begin : named\n      static int x = 2;"
+              },
+              {
+                "file": "tests/ch3/test_element_and_block_name_spaces.expected",
+                "contains": "function x=4 task x=5 module x=1"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch3/test_files_module_in_other_file.sv",
@@ -195145,7 +195171,7 @@
     },
     {
       "test": "tests/ch3/test_include_text_joins_compilation_unit.sv",
-      "inputs_sha256": "a8b24bdc395b85cd9cd146794e67b8006b639adea45d48e959e4572a2a715c18",
+      "inputs_sha256": "d96efdef4262b97e6c788f23c9e718f1cf0ff966903dd922503bad94a096b00a",
       "cited_clauses": [
         "3.12.1",
         "22.4"
@@ -844374,14 +844400,14 @@
       }
     }
   ],
-  "scoped_review_test_files": 1359,
+  "scoped_review_test_files": 1360,
   "review_disposition_counts": {
     "citation_refinement": 196,
     "compound_requirement": 176,
     "oracle_issue": 252,
-    "partial_observation": 2131
+    "partial_observation": 2132
   },
-  "registry_sha256": "6ed36d0ba171b3b35e1f3c7bd0f1b1c99584dbbfd6dcc97409401b8420a60b5e",
+  "registry_sha256": "a4522b5dd7dc76c6e19a2a7a23eb335f899930d65d8591bee6754050ac090437",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "c109347d497f83dfbd165e69223f7e0f637c9280d811cb6eb7c0b29b9cf9a616"
+  "review_ledger_sha256": "a2297a257e7029fdac33afae1f731ba4d5576bc53c627f044acde5d3f6c54bdd"
 }

@@ -471,6 +471,7 @@ The tests written for open requirements (see the [result report](gap-tests-20261
 
 | Clause | What it does | Tests |
 | --- | --- | --- |
+| 3.13 | Rejects a `specparam` in a specify block that has the same name as a module item, as a redefinition. 3.13 f) lists specify blocks as having their own name space, which reads as allowing it. slang rejects it too, so the suite accepts either reading and no test depends on it. | none; see the comment in `ch3/test_element_and_block_name_spaces` |
 | 26.3 | A reference to `y` written before `import lv::y;` gives `lv::y` (7) instead of the compilation-unit `y` (400): an explicit import makes the name locally visible only after it. Verilator also binds `w_first` to the later local `w` (30 instead of 300). | `ch26/test_package_local_visibility` |
 
 <a id="両方のリリース受理される規格違反の設計"></a>

@@ -470,6 +470,7 @@ Icarus Verilog 13.0安定版（v13_0-dirty）は、連想配列またはunpacked
 
 |条項|何をするのか|テスト|
 | --- | --- | --- |
+| 3.13 | specifyブロックの`specparam`がモジュール項目と同名だと、再定義として拒否します。3.13 f)はspecifyブロックも独自の名前空間を持つとしており、素直に読めば許されます。slangも拒否するので、スイートはどちらの読みも許容し、これに依存するテストはありません。 | なし（`ch3/test_element_and_block_name_spaces`のコメントを参照） |
 | 26.3 |`import lv::y;`より前に書いた`y`への参照が、コンパイル単位の`y`（400）ではなく、`lv::y`（7）になります。明示importで名前が局所的に可視になるのは、そのimportより後だけです。Verilatorも、`w_first`を後方の局所`w`へ結合します（300ではなく30）。| `ch26/test_package_local_visibility` |
 
 <a id="both-releases-illegal-designs-that-it-accepts"></a>

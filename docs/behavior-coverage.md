@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 89.31%、実行 77.57%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 89.30%、実行 77.56%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 89.31%。** 規格要求の実行確認率: 77.57%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 89.30%。** 規格要求の実行確認率: 77.56%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 10983/12298 (89.31%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9539/12298 (77.57%)。
-- 登録済みだがテスト未対応: 1315 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 10982/12298 (89.30%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9538/12298 (77.56%)。
+- 登録済みだがテスト未対応: 1316 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -32,6 +32,10 @@
 
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
+- `block-namespace-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-06T16:22:35.529949+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
+- `block-namespace-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T16:22:35.395353+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
+- `block-namespace-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:41.394923+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
+- `block-namespace-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:47.095107+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `ch16-edge-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T15:43:04.210115+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `ch16-edge-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T15:43:15.726452+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
 - `ch16-sim-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T15:42:14.965527+00:00` / 0/12298 動作確認、古い入力との対応 12 件。
@@ -67,11 +71,11 @@
 - `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 動作確認、古い入力との対応 1 件。
 - `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7883/12298 動作確認、古い入力との対応 69 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7964/12298 動作確認、古い入力との対応 3 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7866/12298 動作確認、古い入力との対応 69 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7883/12298 動作確認、古い入力との対応 68 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7962/12298 動作確認、古い入力との対応 5 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7866/12298 動作確認、古い入力との対応 68 件。
 - `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 動作確認、古い入力との対応 13 件。
-- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3795/12298 動作確認、古い入力との対応 281 件。
+- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3795/12298 動作確認、古い入力との対応 280 件。
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 動作確認、古い入力との対応 14 件。
 - `issues-20261031-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:31:59.218896+00:00` / 42/12298 動作確認、古い入力との対応 14 件。
 - `issues-20261031-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:32:01.484680+00:00` / 42/12298 動作確認、古い入力との対応 14 件。
@@ -86,14 +90,14 @@
 - `quality-persim-20261027-icarus14.json`: `Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)` / `2026-10-27T13:37:34.824763+00:00` / 21/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.897897+00:00` / 19/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.973472+00:00` / 19/12298 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3122/12298 動作確認、古い入力との対応 514 件。
-- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2637/12298 動作確認、古い入力との対応 472 件。
-- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 74/12298 動作確認、古い入力との対応 0 件。
-- `test-fixes-20261031-icarus-include.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:25:03.867848+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
-- `test-fixes-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:23:47.414500+00:00` / 4/12298 動作確認、古い入力との対応 0 件。
-- `test-fixes-20261031-verilator-include.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:25:05.281874+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
-- `test-fixes-20261031-verilator-seed1.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:23:57.441797+00:00` / 17/12298 動作確認、古い入力との対応 0 件。
-- `test-fixes-20261031-verilator-seed73.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:24:09.320850+00:00` / 17/12298 動作確認、古い入力との対応 0 件。
+- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3122/12298 動作確認、古い入力との対応 513 件。
+- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2637/12298 動作確認、古い入力との対応 471 件。
+- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 72/12298 動作確認、古い入力との対応 1 件。
+- `test-fixes-20261031-icarus-include.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:25:03.867848+00:00` / 0/12298 動作確認、古い入力との対応 1 件。
+- `test-fixes-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:23:47.414500+00:00` / 4/12298 動作確認、古い入力との対応 1 件。
+- `test-fixes-20261031-verilator-include.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:25:05.281874+00:00` / 0/12298 動作確認、古い入力との対応 1 件。
+- `test-fixes-20261031-verilator-seed1.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:23:57.441797+00:00` / 17/12298 動作確認、古い入力との対応 1 件。
+- `test-fixes-20261031-verilator-seed73.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:24:09.320850+00:00` / 17/12298 動作確認、古い入力との対応 1 件。
 - 採用しません: associative-count-refinement-20261023-icarus13.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: associative-count-refinement-20261023-verilator-seed1.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: associative-count-refinement-20261023-verilator-seed73.json: 古い、未知の、または古いランナーの出身。
@@ -240,7 +244,7 @@
 
 - 1 Overview: 解釈保留なし 12/12、登録 0、テスト対応 0。
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
-- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 119。
+- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 118。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 80。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 136。
 - 6 Data types: 解釈保留なし 92/92、登録 719、テスト対応 680。
@@ -1616,7 +1620,7 @@ PLIは，すべてのコンパイルユニットを横断し，それらのス�
 
 ### SV2023-3.13-EXTRACT-BLOCK-NAMESPACE
 
-`3.13` / `normal` / 実行確認あり
+`3.13` / `normal` / テスト未対応
 
 命名ブロックと名前のないブロック，特定ブロック，関数，タスクは，それらの許容された宣言に対してローカルブロック名前空間を導入する。
 
@@ -1624,7 +1628,6 @@ PLIは，すべてのコンパイルユニットを横断し，それらのス�
 
 規定の性質: `definition`。
 
-- [test_element_and_block_name_spaces.sv](../tests/ch3/test_element_and_block_name_spaces.sv): test モジュールが名前 x をモジュール直下（1）、名前付きブロック named（2）、無名ブロック（3）、関数 read_x（4）、タスク take_x（5）、specify ブロックの specparam（6）に宣言し、名前付きブロックは 2、無名ブロックは 3、関数は 4、タスクは 5、モジュール変数は 1 を表示する。specparam x=6 はモジュール変数 x と衝突せずに宣言できる。 区別: ブロック・関数・タスク・specify が局所のブロック名前空間を持たずモジュール名前空間を共有する誤実装では、x の再宣言がエラーになるか、'named block x=2'・'unnamed block x=3'・'function x=4 task x=5 module x=1' の表示がすべて 1 になる。期待出力の 2/3/4/5/1 という異なる値が、各構文が自分の名前空間と自分の x を持つことを示す。
 
 ### SV2023-3.13-EXTRACT-DEFINITION-NAMES
 

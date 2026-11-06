@@ -1,6 +1,6 @@
 /*
 :name: test_element_and_block_name_spaces
-:description: Each module, interface and package has its own name space for all its kinds of items, and named blocks, unnamed blocks, functions, tasks and specify blocks each have a local name space, so the same names can be declared in each of them (IEEE 1800-2023 Section 3.13)
+:description: Each module, interface and package has its own name space for all its kinds of items, and named blocks, unnamed blocks, functions and tasks each have a local name space, so the same names can be declared in each of them (IEEE 1800-2023 Section 3.13)
 :tags: ch3
 :type: simulation
 :lrm: 1800-2023 3.13
@@ -22,8 +22,13 @@
 // event e, a function f, a task t, a named block blk and, in the modules, an
 // instance u, all with the same names but different values. Each one prints
 // the values it sees. In the test module, the name x is declared in the
-// module, in a named block, in an unnamed block, in a function, in a task
-// and as a specparam of a specify block; each reference sees its own x.
+// module, in a named block, in an unnamed block, in a function and in a task;
+// each reference sees its own x.
+//
+// §3.13 f) also lists specify blocks, which reads as allowing a specparam x in
+// a specify block next to the module's x. As a redefinition, that is rejected
+// by slang, Icarus Verilog 13.0 and Verilator 5.052. The suite accepts either
+// reading, so this test does not declare such a specparam.
 
 package space_pkg;
   parameter int P = 30;
@@ -111,10 +116,6 @@ module test_element_and_block_name_spaces;
     int x = 5;
     o = x;
   endtask
-
-  specify
-    specparam x = 6;
-  endspecify
 
   initial begin
     int r;

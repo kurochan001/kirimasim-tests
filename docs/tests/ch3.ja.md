@@ -59,7 +59,7 @@
 | [`test_unit_scope_shared_state`](../../tests/ch3/test_unit_scope_shared_state.sv) |コンパイルユニットの範囲で宣言された変数とタスクは、各モジュールに対して1つのオブジェクトと1つのサブルーティンである。| 3.12.1 3.13 | Icarus Verilog 13.0 ||
 | [`test_unit_variables`](../../tests/ch3/test_unit_variables.sv) |コンパイルユニットスコープで宣言された変数は静的で、タイム 0 より前の初期化子から始まり、それらを名付けたすべてのモジュールで共有されます。| 3.12.1 6.21 26.3 | Icarus Verilog 13.0 ||
 | [`test_attribute_namespace`](../../tests/ch3/test_attribute_namespace.sv) |属性名は属性インスタンス分離子の名前空間に属するので、同じ属性名をモジュール、変数、ネットで名前の衝突なしに使用でき、属性の値は変わりません。| 3.13 5.12 | Icarus Verilog 13.0 ||
-| [`test_element_and_block_name_spaces`](../../tests/ch3/test_element_and_block_name_spaces.sv) |各モジュール、インタフェース、パッケージはそれぞれの種類のアイテムに対して独自の名前空間を持ち、名前付けブロック、名前なしブロック、関数、タスク、指定ブロックはそれぞれローカルな名前空間を有し、それぞれに同じ名前を宣言できる。| 3.13 |標準のみ||
+| [`test_element_and_block_name_spaces`](../../tests/ch3/test_element_and_block_name_spaces.sv) |各モジュール、インタフェース、パッケージはそれぞれの種類のアイテムに対して独自の名前空間を持ち、名前付けブロック、名前なしブロック、関数、タスクはそれぞれローカルな名前空間を有し、それぞれに同じ名前を宣言できる。| 3.13 |標準のみ||
 | [`test_name_spaces`](../../tests/ch3/test_name_spaces.sv) |同じ識別子はモジュール、パッケージ、テキストマクロ、モジュールの変数、ブロックの変数の名前を付けることができます。| 3.13 26.3 22.5.1 23.6 |標準のみ||
 | [`test_same_class_name_in_two_scopes`](../../tests/ch3/test_same_class_name_in_two_scopes.sv) |2 つのモジュールまたはパッケージで同じ名前を宣言したクラスは異なるクラスです。| 3.13 26.3 8.9 | Verilator 5.052 ||
 | [`test_delay_scaled_by_unit_rounded_by_precision`](../../tests/ch3/test_delay_scaled_by_unit_rounded_by_precision.sv) |同じ遅延リテラルは異なる時間単位を持つモジュールで異なる時間を待ち、遅延はそのモジュールの時間精度に丸められます。#1.26は1ns、12.6nsまたは13nsであり、#0.0237と#0.0251は10nsの精度で20nsと30nsです。| 3.14 3.14.1 3.14.2.2 | Icarus Verilog 13.0 ||

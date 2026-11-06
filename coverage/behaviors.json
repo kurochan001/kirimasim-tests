@@ -3999,9 +3999,9 @@
         {
           "test": "tests/ch3/test_include_text_joins_compilation_unit.sv",
           "observation": "どのスコープにも属さない位置で include したファイルが変数 inc_count=3、enum 型 inc_color_t、関数 inc_double を宣言し、取り込む側のコンパイル単位変数 after_include がその変数から 4 に初期化される。モジュールは $unit::inc_count と $unit::after_include を 3 と 4、取り込んだ型の変数 INC_BLUE=2、関数呼出し 42 として表示する。 区別: include したテキストを取り込む側とは別のコンパイル単位とする誤実装では、$unit::inc_count や after_include の初期化、型名と関数名が解決できずコンパイルエラーとなるか、別の値を表示する。",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a8b24bdc395b85cd9cd146794e67b8006b639adea45d48e959e4572a2a715c18",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "d96efdef4262b97e6c788f23c9e718f1cf0ff966903dd922503bad94a096b00a",
           "evidence": [
             {
               "file": "tests/ch3/test_include_text_joins_compilation_unit.sv",
@@ -4539,33 +4539,7 @@
       "acceptance": "Named and unnamed blocks, specify blocks, functions and tasks introduce a local block namespace for their permitted declarations.",
       "source_note": "IEEE 1800-2023 3.13; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [
-        {
-          "test": "tests/ch3/test_element_and_block_name_spaces.sv",
-          "observation": "test モジュールが名前 x をモジュール直下（1）、名前付きブロック named（2）、無名ブロック（3）、関数 read_x（4）、タスク take_x（5）、specify ブロックの specparam（6）に宣言し、名前付きブロックは 2、無名ブロックは 3、関数は 4、タスクは 5、モジュール変数は 1 を表示する。specparam x=6 はモジュール変数 x と衝突せずに宣言できる。 区別: ブロック・関数・タスク・specify が局所のブロック名前空間を持たずモジュール名前空間を共有する誤実装では、x の再宣言がエラーになるか、'named block x=2'・'unnamed block x=3'・'function x=4 task x=5 module x=1' の表示がすべて 1 になる。期待出力の 2/3/4/5/1 という異なる値が、各構文が自分の名前空間と自分の x を持つことを示す。",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "86f5095c9692159e309b3783c51bf9a945037dfc9b6a90b12875c8e3697a7327",
-          "evidence": [
-            {
-              "file": "tests/ch3/test_element_and_block_name_spaces.sv",
-              "contains": "  specify\n    specparam x = 6;\n  endspecify"
-            },
-            {
-              "file": "tests/ch3/test_element_and_block_name_spaces.sv",
-              "contains": "    begin : named\n      static int x = 2;"
-            },
-            {
-              "file": "tests/ch3/test_element_and_block_name_spaces.expected",
-              "contains": "named block x=2"
-            },
-            {
-              "file": "tests/ch3/test_element_and_block_name_spaces.expected",
-              "contains": "function x=4 task x=5 module x=1"
-            }
-          ]
-        }
-      ],
+      "checks": [],
       "source_spans": [
         {
           "section": "3.13",
@@ -4605,9 +4579,9 @@
         {
           "test": "tests/ch3/test_element_and_block_name_spaces.sv",
           "observation": "module space_a、module space_b、interface space_if、package space_pkg が、それぞれ同じ名前 P（パラメータ）、T（型）、v（変数）、n（ネット）、f（関数）、t（タスク）、blk（名前付きブロック）、module では更にインスタンス u を宣言し、各要素が自分の値（space_a は 10/32bit/11/12/13/14/15、space_b は 20/64bit/21/22/23/24/25、space_if は 40/16bit/41/42/43/44）を表示する。 区別: 各モジュール・インタフェース・パッケージが単一のメンバー名前空間を持たず名前が漏れる誤実装では、同名の P/T/v/n/f/t/u が別要素の宣言と衝突してコンパイルエラーになるか、space_a と space_b の $bits(T)・v・f() が同じ値になる。期待出力の 'space_a: P=10 $bits(T)=32 ... f=14 t=15' と 'space_b: P=20 $bits(T)=64 ...' および 'space_if: ...' の各行が要素ごとに異なることが、要素名前空間の独立を示す。",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "86f5095c9692159e309b3783c51bf9a945037dfc9b6a90b12875c8e3697a7327",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "940bf96ac815ca2ef4374bb29c1de1624912f3e1928a5305c564bc2e407928f2",
           "evidence": [
             {
               "file": "tests/ch3/test_element_and_block_name_spaces.sv",

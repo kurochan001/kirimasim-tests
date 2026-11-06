@@ -32498,7 +32498,6 @@
     "SV2023-3.12.1-EXTRACT-UNIT-SCOPE",
     "SV2023-3.12.1-EXTRACT-UNIT-UPWARD-REFERENCE",
     "SV2023-3.13-EXTRACT-ATTRIBUTE-NAMESPACE",
-    "SV2023-3.13-EXTRACT-BLOCK-NAMESPACE",
     "SV2023-3.13-EXTRACT-ELEMENT-NAMESPACE",
     "SV2023-3.13-EXTRACT-MACRO-NAME-SEPARATION",
     "SV2023-3.13-EXTRACT-MACRO-ORDER",
@@ -43172,5 +43171,5 @@
     "P",
     "Q"
   ],
-  "reason": "Twenty legal tests gained an explicit static or automatic lifetime keyword required by IEEE 1800-2023 6.21 B007 and 13.5.2. The stimuli, observations and expected outputs are unchanged, so the collective witness for 12.5 keeps the same tests."
+  "reason": "Withdraw the block-namespace mapping: the suite accepts either reading of a specparam beside a module item of the same name, so no test observes the specify-block part of this requirement."
 }

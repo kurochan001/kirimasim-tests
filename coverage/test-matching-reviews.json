@@ -56301,6 +56301,32 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch3/test_element_and_block_name_spaces.sv",
+      "inputs_sha256": "940bf96ac815ca2ef4374bb29c1de1624912f3e1928a5305c564bc2e407928f2",
+      "reviewed_on": "2026-11-07",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-3.13-EXTRACT-BLOCK-NAMESPACE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "名前付きブロック、無名ブロック、関数、タスクの局所名前空間は観測する。specifyブロックのspecparamとモジュール項目の同名宣言は実装間で読みが分かれ、スイートはどちらの読みも許容するので観測しない。",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_element_and_block_name_spaces.sv",
+              "contains": "    begin : named\n      static int x = 2;"
+            },
+            {
+              "file": "tests/ch3/test_element_and_block_name_spaces.expected",
+              "contains": "function x=4 task x=5 module x=1"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

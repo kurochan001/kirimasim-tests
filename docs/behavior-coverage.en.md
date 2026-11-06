@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. The requirements table base of all standards (confirmation): design 89.31%, execution 77.57%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. The requirements table base of all standards (confirmation): design 89.30%, execution 77.56%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 89.31%. Requirement execution-confirmation rate: 77.57%. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 89.30%. Requirement execution-confirmation rate: 77.56%. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 10983/12298 ( 89.31% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9539/12298 ( 77.57% ).
-- Registered but not tested: 1315.
+- The requirement coverage (test design) for registered behaviors is 10982/12298 ( 89.30% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9538/12298 ( 77.56% ).
+- Registered but not tested: 1316.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -32,6 +32,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
+- `block-namespace-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-06T16:22:35.529949+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
+- `block-namespace-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T16:22:35.395353+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
+- `block-namespace-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:41.394923+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
+- `block-namespace-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:47.095107+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `ch16-edge-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T15:43:04.210115+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `ch16-edge-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T15:43:15.726452+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
 - `ch16-sim-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T15:42:14.965527+00:00` / 0/12298 execution checked; 12 entries refer to older inputs.
@@ -67,11 +71,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 execution checked; 1 entries refer to older inputs.
 - `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7883/12298 execution checked; 69 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7964/12298 execution checked; 3 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7866/12298 execution checked; 69 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7883/12298 execution checked; 68 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7962/12298 execution checked; 5 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7866/12298 execution checked; 68 entries refer to older inputs.
 - `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 execution checked; 13 entries refer to older inputs.
-- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3795/12298 execution checked; 281 entries refer to older inputs.
+- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3795/12298 execution checked; 280 entries refer to older inputs.
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 execution checked; 14 entries refer to older inputs.
 - `issues-20261031-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:31:59.218896+00:00` / 42/12298 execution checked; 14 entries refer to older inputs.
 - `issues-20261031-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:32:01.484680+00:00` / 42/12298 execution checked; 14 entries refer to older inputs.
@@ -86,14 +90,14 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `quality-persim-20261027-icarus14.json`: `Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)` / `2026-10-27T13:37:34.824763+00:00` / 21/12298 execution checked; 2 entries refer to older inputs.
 - `quality-persim-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.897897+00:00` / 19/12298 execution checked; 2 entries refer to older inputs.
 - `quality-persim-20261027-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.973472+00:00` / 19/12298 execution checked; 2 entries refer to older inputs.
-- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3122/12298 execution checked; 514 entries refer to older inputs.
-- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2637/12298 execution checked; 472 entries refer to older inputs.
-- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 74/12298 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261031-icarus-include.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:25:03.867848+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:23:47.414500+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261031-verilator-include.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:25:05.281874+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261031-verilator-seed1.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:23:57.441797+00:00` / 17/12298 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261031-verilator-seed73.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:24:09.320850+00:00` / 17/12298 execution checked; 0 entries refer to older inputs.
+- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3122/12298 execution checked; 513 entries refer to older inputs.
+- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2637/12298 execution checked; 471 entries refer to older inputs.
+- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 72/12298 execution checked; 1 entries refer to older inputs.
+- `test-fixes-20261031-icarus-include.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:25:03.867848+00:00` / 0/12298 execution checked; 1 entries refer to older inputs.
+- `test-fixes-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:23:47.414500+00:00` / 4/12298 execution checked; 1 entries refer to older inputs.
+- `test-fixes-20261031-verilator-include.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:25:05.281874+00:00` / 0/12298 execution checked; 1 entries refer to older inputs.
+- `test-fixes-20261031-verilator-seed1.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:23:57.441797+00:00` / 17/12298 execution checked; 1 entries refer to older inputs.
+- `test-fixes-20261031-verilator-seed73.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:24:09.320850+00:00` / 17/12298 execution checked; 1 entries refer to older inputs.
 - Not used: associative-count-refinement-20261023-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: associative-count-refinement-20261023-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: associative-count-refinement-20261023-verilator-seed73.json : legacy, unknown, or stale runner provenance.
@@ -240,7 +244,7 @@ The number of items is the investigation status of the article by heading. This 
 
 - 1 Overview: No interpretation reservation 12/12, registration 0, test support 0.
 - 2 Normative references: No reservation of interpretation 1/1, registration 2, test compatibility 0.
-- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 119.
+- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 118.
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 80.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 154, test support 136.
 - 6 Data types: No interpretation reservation 92/92, registration 719, test support 680.
@@ -1616,7 +1620,7 @@ Normative role: `definition`。
 
 ### SV2023-3.13-EXTRACT-BLOCK-NAMESPACE
 
-`3.13` / `normal` / Execution confirmed
+`3.13` / `normal` / No mapped test
 
 Named and unnamed blocks, specify blocks, functions and tasks introduce a local block namespace for their permitted declarations.
 
@@ -1624,7 +1628,6 @@ Acceptance criterion: Named and unnamed blocks, specify blocks, functions and ta
 
 Normative role: `definition`。
 
-- [test_element_and_block_name_spaces.sv](../tests/ch3/test_element_and_block_name_spaces.sv) : The test module declares name x to the module immediately below (1), named block named (2), anonymous block anonymous (3), function read_x (4), task take_x (5), specify block specparam (6), displaying 2 named blocks, 3 anonymous blocks, 4 functions, 5 tasks, and 1 module variables. specparam x = 6 can be declared without colliding with the module variable x. Distinguishing observation: In a incorrect implementation where the block function task specify does not have a local block namespace but shares a module namespace, the re-declaration of x will either fail or the displays of 'named block x=2', 'unnamed block x=3', and 'function x=4 task x=5 module x=1' will all be 1. The different values of the expected output, 2/3/4/5/1, indicate that each syntax has its own namespace and its own x.
 
 ### SV2023-3.13-EXTRACT-DEFINITION-NAMES
 
