@@ -10,10 +10,10 @@
 9,プロセス,N,N,R,M,R,M,M,E2,D,M,M,M,M,M,M,M,R,R,R,R,M,R,R,M,M,M,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 10,代入文,N,N,R,M,R,M,M,R,M,D,M,M,M,M,M,M,R,R,R,R,R,R,M,M,M,M,M,M,R,R,R,R,R,N,M,R,R,R,R,R,R
 11,演算子と式,N,N,R,R,R,M,M,M,M,M,D,M,M,R,R,M,R,M,E2,M,M,R,R,R,R,M,M,R,R,R,R,R,C2,N,R,R,R,R,R,R,R
-12,手続き型プログラミング文,N,N,R,R,R,M,M,M,M,M,M,D,M,R,R,R,R,R,R,R,R,R,R,M,R,R,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
+12,手続き型プログラミング文,N,N,R,R,R,M,M,M,M,M,M,D,M,R,M,R,R,R,R,R,R,R,R,M,R,R,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 13,タスクと関数（サブルーチン）,N,N,R,M,R,M,M,M,M,M,M,M,D,R,M,M,R,R,R,M,M,R,M,M,M,M,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 14,クロッキングブロック,N,N,R,M,R,M,R,R,M,M,R,R,R,D,M,M,R,R,R,R,R,R,R,R,M,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
-15,プロセス間の同期と通信,N,N,R,M,R,M,M,M,M,M,R,R,M,M,D,R,R,R,R,R,R,R,R,M,M,M,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
+15,プロセス間の同期と通信,N,N,R,M,R,M,M,M,M,M,R,M,M,M,D,R,R,R,R,R,R,R,R,M,M,M,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 16,アサーション,N,N,R,M,R,M,R,R,M,M,M,R,M,M,R,D,M,R,R,R,R,R,R,M,M,R,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 17,チェッカー,N,N,R,R,R,R,R,R,R,R,R,R,R,R,R,M,D,R,R,R,R,R,R,R,M,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 18,制約付き乱数値の生成,N,N,R,R,R,R,M,M,R,R,M,R,R,R,R,R,R,D,R,R,R,R,R,R,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R

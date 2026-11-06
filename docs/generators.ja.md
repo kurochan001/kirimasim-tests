@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の97生成器から4,557件のテストを生成しています。
+現在の98生成器から4,593件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -51,6 +51,7 @@
 | [`interaction_edge`](../generators/interaction_edge.py) | 9 | 64 | 両背景で初期イベントを除外し、更新直後の値と次時刻の3カウンタを観測して、X/Z遷移、式の変化、ベクタのLSB規則、状態変換、NBAの更新時点を確認する。 |
 | [`interaction_event_rebind`](../generators/interaction_event_rebind.py) | 15 | 27 | 静的イベントをタスク呼出し前・待機登録前・登録後に再結合し、inputのコピーとref/直接参照、登録済み待機の保持、複数待機者、後着待機者、別名の独立性とActive/NBAの観測値を照合する。 |
 | [`interaction_event_task`](../generators/interaction_event_task.py) | 15 | 13 | module/interfaceの別インスタンスまたはpackageの2イベントをinput/refで渡し、1/2/3待機者の時刻・回数・値を観測する。待機前のトリガの不保持、通常/NBA起床の値の可視性、トリガ経路、逆順での再待機、noiseと完了後の余計な起動を区別する。 |
+| [`interaction_eventflow`](../generators/interaction_eventflow.py) | 15 | 36 | 名前付きイベントを読むforループでbreak/continueと待機開始順を交差し、受信と保持の履歴を照合する。同じタイムスロットのtriggeredとエッジ待機、NBA発火、別イベントの独立性と取消し後の再待機を観測する。 |
 | [`interaction_eventlife`](../generators/interaction_eventlife.py) | 15 | 18 | 自動タスク復帰後の構造体内イベントの同一性・別名解放・遅延した待機登録と、別呼出しの独立性・全体コピー後のpayload・起床時刻を照合する。 |
 | [`interaction_expr`](../generators/interaction_expr.py) | 11 | 51 | 4組の入力で加減乗算の結果を確認する。演算前の符号・ゼロ拡張、代入先からの幅の伝播、キャリー、最終的な切り捨てを組み合わせる。 |
 | [`interaction_gendisable`](../generators/interaction_gendisable.py) | 16 | 18 | generate内でのdefault disable iffの継承・上書き・名前解決・宣言位置と、明示条件・ゼロによる取消しを照合する。二つの実体を独立に無効化し、開始前・クロック間・終了クロックのNBAで、無効化と成功・失敗の回数を対照と比較する。 |

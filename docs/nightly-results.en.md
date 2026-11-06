@@ -17,6 +17,12 @@
 
 ## Latest verified checkpoint (2026-11-06 JST)
 
+[Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
+[Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. These new 36 cases are outside both runs.
+[The record](../coverage/interaction-qualification/handoff-ci-67321079-20261106.json) covers workflow/job conclusions only. Per-test inputs, simulator versions and fixed/random artifact hashes remain to be checked.
+
+### Earlier artifact-reviewed details
+
 [Check on suite `9c39d865`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42051092628) passed all pinned Icarus, Verilator and readme jobs.
 Its [verification record](../coverage/interaction-qualification/check-9c39d865-20261106.json) covers pinned comparisons/static checks for the preceding 86-model suite, separately from native Nightly.
 [Nightly on suite `19cd790a5f639348ad67fd63959dce9811d3ab56`](https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616) also passed all five simulators and publish.
@@ -26,10 +32,12 @@ The [Nightly record](../coverage/interaction-qualification/formal-ci-19cd790a-20
 - Finite selection: the preceding 82 models / 3,028 cases recorded 2,495 pass / 529 unsupported / four config failures. Every input fingerprint/status matches cross82; 119 pairs and 55 full-selection-pass models.
 - Random comparisons: all 96 cases across thirteen profiles are valid passes. Seed `41941310616` is the workflow run ID; the separately refreshed/built core revision is `50a897dee62af605c02f5ddcee10f25645abc77d`, binary SHA-256 `666c1f8cf1432a5789b32090e7d40d934b0a9a72801d50233024337dbf2b737a`. These do not enter fixed counts.
 
-The newest local addition is [36 package-query cases](interaction-verification.en.md#package-array-query-scope), totaling 88 models / 3,244 cases.
-The [single run](../coverage/interaction-results/cross88-kirimasim-6f5c6984-pkgquery.json) on freshly fetched/built `6f5c69841228` records 2,711 pass / 529 unsupported / four fail.
-All 36 additions pass; preceding 3,208 inputs/statuses are unchanged. These new cases have not run in formal Check/Nightly.
-The 216 cases added since generated loops lie outside the verified 82-model formal Nightly above. Records below describe earlier checkpoints.
+### Latest local addition
+
+The newest local addition is [36 event-loop cases](interaction-verification.en.md#named-event-loop-transfer), totaling 89 models / 3,280 cases.
+The [single run](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json) on freshly fetched/built `6f5c69841228` records 2,747 pass / 529 unsupported / four fail.
+All 36 additions pass; preceding 3,244 inputs/statuses are unchanged. These new cases have not run in formal Check/Nightly.
+The 252 cases added since generated loops lie outside the verified 82-model formal Nightly above. Records below describe earlier checkpoints.
 
 <a id="checkpoint-9926160a"></a>
 

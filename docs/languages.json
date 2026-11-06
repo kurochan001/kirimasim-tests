@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "997347e034652ba8122cdffac06d7e31c5f9d9ff20d6211102130f3dc1221c3e",
-        "ja": "d0f9eabdce21750dd7eec040079b6ad67b5601915346ad9f946fa3e1e77548f5"
+        "en": "b5bc34a5a5ac701e0edea0d2155eb4c6f6c8849a0c204c43d580cd533e542e7c",
+        "ja": "b91cbba85e50429431fc1bac7de437ea85a4e079c9a5760d648e16a421650cb9"
       }
     },
     {
@@ -31,8 +31,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "7e8fc478c9d29731b45aebdb042a8535d7d80f021e80cd9b631946062fc17a51",
-        "ja": "662f0f5e11b367ac04fcbaafbca5f17f860dc32c79c2f57e35bbbe5fc7b572b5"
+        "en": "9fdbbd1e69f58e54df9d5377022cab83d1a17985f63aa5a34500832dbd460b30",
+        "ja": "0103680a24ae35552605ab23eb36bf71fea6f206c5e4042dafad6f9c0414aa2b"
       }
     },
     {
@@ -74,8 +74,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "a99e71184dc1eaa50835a77b8673a9026022d4f692beb45f637b34317e7eab9e",
-        "ja": "8e583d98291c0368d70681440bd47425ac2a71cd7de98460bdf5a666dc736470"
+        "en": "ae9544f18a1664b94f584dc986850e04ec5de42e5e9fceaafef838402a174410",
+        "ja": "48fecaab8c147daf40c830d0743d500121a5448922acb8de2a8b5dae06f252e4"
       }
     },
     {
@@ -176,8 +176,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "f81b0511f1e2b75489dade7db58b22d6e47ee5d3e4c6ab6ac79af309c9be8592",
-        "ja": "0bc0fb05c3022f589041bc0e8de632a76d810de5c4314adcf81cf585a19d9761"
+        "en": "279fde96ac6b0a8b918be528e4576a4b51c99c838a076bc6901613dbe4eef8e4",
+        "ja": "3cbe18b2615ea30f5a513f9e30b7e700cb290603b22d06835e2609275adacd66"
       }
     },
     {
@@ -392,8 +392,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "0c0f792716573563b816e514ac18132a28e76bea9bafb57a16c6b4a8e37a5abf",
-        "ja": "b823af95dba6e3227f9a486ed9dbc74a0b258940b9f865c282a999534641af01"
+        "en": "679f0a4a80670be958fca41395595af35330263ea75ef65f63c9220ffd750d86",
+        "ja": "3b9e0d4051521bf816f6c24698048de8a42ff7111ffb6af9b80a0bb612604349"
       }
     },
     {
@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "50b3c8c4c06fc93ace3022e7781cbc287d553b3d181fdec2916dfe1d6b64011e",
-        "ja": "622990bae2c9676ff58d556a2de02f65d6914441ac6ab619f8f02095bae7e7d9"
+        "en": "b43413bf5dc23831763ec9f1af86ca0ca06be89c3520774bdb09d5cb29dcfd1f",
+        "ja": "9112abab4f5b66205253b7d83f3e733d7ce58e426e125d31d9068d2b59d39911"
       }
     },
     {
@@ -454,8 +454,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "a6e3f64d8f2c14e65968b7a4a2c94033f43c13ea3554d6f05e271d1ba82777b4",
-        "ja": "0af2de430ca63135c0b56916e98598b579087cdcbe4b06f9fd39748a26960908"
+        "en": "3589d3d7cc2805807d4b29b2e396a9d174e9ddeb7b2d08b522dfd9fccc999247",
+        "ja": "b6901ebf1aef4701ba19aa81f63ac3409a9f44b06e598b1867071ad7f6f31b2d"
       }
     },
     {
@@ -509,8 +509,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "74e3bc2518245eba3fc4246f5a59647058b52f1418bf9ef61ee11dd00e2fc80a",
-        "ja": "85954a9b1a8f36d706c757dd769bb5472f27f3ca5929fc1a7d459948e2daeb09"
+        "en": "0acb67ed582ee2f3e1b9d324d5745cb4bf42d69004ce7f198df211843e0f61b7",
+        "ja": "63613e3f0a3d8b547f0ef3264594742f50e8e2f944d40bd68d7cb38b3ecd6d37"
       }
     },
     {
@@ -637,8 +637,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "11252c5fa61b14b273897f4f4c128d813763c105c34efdb89bc1c0a025b7a187",
-        "ja": "b3e976903c9c1cf22a469f85d08664734d6c85cc5288dad91490154f6803e027"
+        "en": "84370c6f1df048583bbe09511a6d0184d5dd11a7a556d2762491a02c3d676dda",
+        "ja": "6dac1f07c18a94170bc00998f252f78b2310ffcf68f4339ecaa166bede6db2d3"
       }
     },
     {
@@ -1069,6 +1069,17 @@
       "sha256": {
         "en": "983a524f036b111b66fe16dfac42ae81a807499c6169390fb5cff6bc8e560695",
         "ja": "46ad80d1acf704d364b40195aacfcc016cbcefbeae70803917ead5bbf01968eb"
+      }
+    },
+    {
+      "en": "docs/codex-handoff-20261106.en.md",
+      "ja": "docs/codex-handoff-20261106.md",
+      "source": "docs/codex-handoff-20261106.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "6a7a96d34a5e25f798de8db65058b222e516d2ba9fc3be3694993dbdc8e38fd8",
+        "ja": "0e99e825891a2526816e0813390ebb74446836943df713de7c772efbd5d81005"
       }
     }
   ]

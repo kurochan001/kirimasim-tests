@@ -14,6 +14,12 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-06 event-loop addition brings totals to **89 models / 3,280 cases / 132 chapter pairs**.
+The [single run](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json) on freshly fetched/built `6f5c69841228` records
+**2,747 pass / 529 unsupported / four existing config failures**. All 36 additions parse/pass; preceding 3,244 inputs/statuses are unchanged.
+There are 62 full-selection-pass models. See [named events and loop transfers](#named-event-loop-transfer) for independent checks and pinned comparisons.
+Check and Nightly workflows on baseline 67321079 succeeded; Nightly artifacts remain uninspected and these new 36 cases are outside both runs. See [verification scope](nightly-results.en.md#latest-verified-checkpoint). Records below describe each addition’s checkpoint.
+
 The 2026-11-06 package-query addition brings totals to **88 models / 3,244 cases / 131 chapter pairs**.
 The [single run](../coverage/interaction-results/cross88-kirimasim-6f5c6984-pkgquery.json) on freshly fetched/built `6f5c69841228` records
 **2,711 pass / 529 unsupported / four existing config failures**. All 36 additions parse/pass; preceding 3,208 inputs/statuses are unchanged.
@@ -3740,4 +3746,91 @@ python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin -j 4 \
   --json my-results/pkgquery-icarus-new.json tests/gen/ch26/test_gen_cross_pkgquery_*.sv
 python3 tools/run_verilator.py --all --seed 1 -j 3 \
   --json my-results/pkgquery-verilator-new.json tests/gen/ch26/test_gen_cross_pkgquery_*.sv
+```
+
+<a id="named-event-loop-transfer"></a>
+
+## Named events and loop transfers (2026-11-06)
+
+[`interaction_eventflow.py`](../generators/interaction_eventflow.py) defines `named_event_loop_transfer@1`.
+Map the 24 skip/stop cases to 12×15. Full-model success requires all 36, including twelve all-flow controls, together in one saved run.
+See [named events and triggered](glossary.en.md#9-クロステストで使う言語機能).
+
+### Factors and scope
+
+Cross widths 1/32/33/64/65/129, bit/logic, known/X/Z, edge/triggered waiting, registration before/after the trigger statement,
+blocking/NBA triggers, all/continue/break, and first/middle/last receive indices.
+Of 2,592 Cartesian rows, canonicalize the unused all-flow pivot to middle, removing 576 duplicates. Select 36 of 2,016 legal rows.
+Retain all 223 pair targets, 140 priority triple targets and six anchors: 98.21% fewer representative cases, separate from elapsed-time savings.
+Priority groups are width×state×value, waiting×arm×trigger, flow×pivot×waiting, flow×pivot×trigger,
+arm×flow×pivot, width×trigger×flow and state×value×flow. No support-based exclusions apply.
+
+Two static named events trigger at target ticks 2/8/14/20 and control ticks 5/11/17/23, assigning payloads first.
+Event copying/rebinding, null, ref, delayed triggers, simultaneous triggers and garbage collection are outside scope.
+
+### Registration and loop semantics
+
+Late rows create the target child with join_none after the first trigger statement. The child starts in the same tick when its parent suspends.
+An edge wait registered after a blocking trigger misses that notification; `wait(go.triggered)` sees the same-slot persistent state.
+NBA dispatch follows Active registration. Parent-captured `scheduled` is 1 for blocking and 0 for NBA triggers.
+Observations occur two ticks later, when triggered itself has reset to 0.
+
+The for loop attempts four receives. Pivot means **receive order**, not driver pulse number.
+Continue preserves the captured word/time but skips accumulation, retention marking and the tail; break exits the consumer loop.
+Every iteration advances one tick before rearming, preventing repeated consumption of the persistent same-slot state.
+Rearm at trigger+1 and observe at +2; only the parent prints.
+
+In the actual [one-bit case](../tests/gen/ch15/test_gen_cross_eventflow_1_bit_known_edge_early_blocking_all_middle.sv),
+saved target words are 1/0/1/0 at 2/8/14/20. Left-shift high bits truncate in a one-bit accumulator, leaving checksum 0; the control checksum is 1.
+See `b3` in the [expectation](../tests/gen/ch15/test_gen_cross_eventflow_1_bit_known_edge_early_blocking_all_middle.expected).
+
+The [late edge/blocking case](../tests/gen/ch15/test_gen_cross_eventflow_64_logic_known_edge_late_blocking_all_middle.sv) misses its first pulse: at 25, hits=3, armed=4 and done=0.
+Done records whether the for loop exited; waiting for a fourth receive is expected here. Test success depends on matching the saved expectation.
+Cancel remaining children at 26, start fresh one-shot waiters at 28 and check known recovery at 30/33.
+Retain old receive history/checksum/done and observe fresh values/times separately, detecting missed cancellation or erased history.
+Display raw X/Z before conversion even with bit payload storage.
+
+### Independent checks and results
+
+[`qualify_eventflow.py`](../tools/qualify_eventflow.py) reads actual SV types, arrays, for/if, break/continue, forks, waits, triggers, writes and displays.
+Independent typed values, private loop frames, Active/NBA queues, tick-indexed event flags and descendant cancellation interpret all 2,016 programs.
+It does not call primary closed-form reference, payload or waiter helpers. This validates the bounded emitted grammar, not general SystemVerilog or a formal proof.
+[Auxiliary evidence](../coverage/interaction-qualification/eventflow.json) retains six normal controls and nine executable source faults.
+Lost persistence/rearm delay, changed break/continue, wrong payload, missed cancellation, a short loop, lost shift and changed dispatch region
+all exit normally and are detected by output differences. These fifteen auxiliary runs add no fixed-suite passes.
+
+One [complete 3,280-case run](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json) on freshly fetched/configured/built kirimasim `6f5c69841228` records all 36 additions parsing/passing.
+Preceding 3,244 inputs/statuses are unchanged: totals are 2,747 pass / 529 unsupported / four existing config failures.
+The [build record](../coverage/interaction-qualification/eventflow-build.json) identifies revision and immutable binary hashes.
+Totals are 89 models / 132 pairs / 62 full-selection-pass models. This is the version tested then, not a claim about later main revisions.
+
+### Pinned differences and auxiliary controls
+
+[Pinned comparisons](../coverage/interaction-qualification/eventflow-fixed-replays.json) record Icarus 13.0 at 36 known and Verilator 5.052 at 8 pass / 28 known for each seed.
+Only eight known-input matches at both seeds obtain its oracle. Preserve all Icarus build rejections concerning triggered event members and other unsupported syntax.
+Verilator also differs in receive counts for four known-input NBA cases; retain [all Icarus diagnostics and original Verilator outputs](../coverage/interaction-qualification/eventflow-known-replays.json).
+The other 24 X/Z cases cannot qualify four-state behavior through two-state observations.
+
+[Four separate blocking-trigger controls](../coverage/interaction-qualification/eventflow-blocking-controls/) change only `->>` to `->` in saved SV,
+with corresponding expectations independently interpreted for the changed semantics. Original inputs/expectations remain unchanged.
+The separate controls match kirimasim in four runs and Verilator in eight runs across both seeds. They do not count as original NBA-case passes.
+This records that changing dispatch removes the observed difference, without asserting an internal cause or general NBA support. No simulator implementation sources were read.
+
+The suite adds 36 tests, totaling 11,030, including 4,593 generated cases from 98 generators. Requirement bindings/denominators/rates and thirteen random profiles are unchanged.
+These additions have local evidence and have not run in formal Check/Nightly.
+
+### Rerun
+
+Prepare the simulator through [latest-commit fetch/build instructions](../README.md#kirimasim), then use saved SV/expectations and unused evidence output paths.
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_eventflow.py
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest-build/kirimasim -j 8 \
+  --json my-results/eventflow-native-new.json tests/gen/ch15/test_gen_cross_eventflow_*.sv
+python3 tools/qualify_eventflow.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/eventflow-qualification-new.json
+python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin -j 4 \
+  --json my-results/eventflow-icarus-new.json tests/gen/ch15/test_gen_cross_eventflow_*.sv
+python3 tools/run_verilator.py --all --seed 1 -j 3 \
+  --json my-results/eventflow-verilator-new.json tests/gen/ch15/test_gen_cross_eventflow_*.sv
 ```

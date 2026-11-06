@@ -89,6 +89,7 @@ import interaction_genexpr
 import interaction_scansel
 import interaction_progframe
 import interaction_pkgquery
+import interaction_eventflow
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -97,7 +98,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -779,5 +780,12 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_pkgquery.MODEL.select(),
             "関数内のimportと修飾参照が配列問い合わせの対象を決め、開始位置・回数・方向と全幅集計を変える。"
             "非選択packageと同名ローカル配列の更新後も、対象配列の型・全要素・履歴を保持することを照合する。",
+        ),
+        SuiteModel(
+            interaction_eventflow.MODEL,
+            lambda row: "tests/gen/ch15/" + interaction_eventflow.case_name(row) + ".sv",
+            interaction_eventflow.MODEL.select(),
+            "名前付きイベントを読むforループでbreak/continueと待機開始順を交差し、受信と保持の履歴を照合する。"
+            "同じタイムスロットのtriggeredとエッジ待機、NBA発火、別イベントの独立性と取消し後の再待機を観測する。",
         ),
     )

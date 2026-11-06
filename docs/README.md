@@ -152,3 +152,4 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Follow-up review after fixes (2026-10-22) | [English](test-content-review-followup-20261022.en.md) | [日本語](test-content-review-followup-20261022.md) |
 | Triage of 40 test-side failures (2026-10-28) | [English](test-failure-triage-20261028.en.md) | [日本語](test-failure-triage-20261028.md) |
 | Test side failure and fix for Issue #6 - #19 (2026-10-28) | [English](test-side-fixes-20261028.en.md) | [日本語](test-side-fixes-20261028.md) |
+| Handoff to Claude Code (2026-11-06) | [English](codex-handoff-20261106.en.md) | [日本語](codex-handoff-20261106.md) |

@@ -14,6 +14,12 @@
 
 ## 保存実行の概要
 
+2026-11-06のイベント受信ループの追加で、**89モデル・3,280件・132章対**になりました。
+最新取得・ビルドの`6f5c69841228`による[単一実行](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json)は、
+**2,747 pass・529 unsupported・既存configの4 fail**です。追加36件は解析成功・全PASS、従来3,244件の入力・状態分類は不変です。
+全選択ケースPASSは62モデルです。[名前付きイベントとループ制御](#named-event-loop-transfer)に独立検算と固定版比較を記録します。
+基点67321079のCheckとNightlyはworkflow成功を確認しました。Nightlyの個別artifactは未照合で、今回の36件は両実行の対象外です。[確認範囲](nightly-results.md#latest-verified-checkpoint)を参照してください。以下は各追加時点の記録です。
+
 2026-11-06のpackage問い合わせの追加で、**88モデル・3,244件・131章対**になりました。
 最新取得・ビルドの`6f5c69841228`による[単一実行](../coverage/interaction-results/cross88-kirimasim-6f5c6984-pkgquery.json)は、
 **2,711 pass・529 unsupported・既存configの4 fail**です。追加36件は解析成功・全PASS、従来3,208件の入力・状態分類は不変です。
@@ -3716,4 +3722,91 @@ python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin -j 4 \
   --json my-results/pkgquery-icarus-new.json tests/gen/ch26/test_gen_cross_pkgquery_*.sv
 python3 tools/run_verilator.py --all --seed 1 -j 3 \
   --json my-results/pkgquery-verilator-new.json tests/gen/ch26/test_gen_cross_pkgquery_*.sv
+```
+
+<a id="named-event-loop-transfer"></a>
+
+## 名前付きイベントとループ制御（2026-11-06）
+
+[`interaction_eventflow.py`](../generators/interaction_eventflow.py)は`named_event_loop_transfer@1`を定義します。
+第12章×第15章にはskip/stopの24件を対応付けます。allの対照12件も含む全36件が、同じ保存実行で成功して初めてモデル全体のPASSです。
+[名前付きイベントとtriggered](glossary.md#9-クロステストで使う言語機能)も参照してください。
+
+### 因子・対象範囲
+
+幅1/32/33/64/65/129、bit/logic、既知/X/Z、`@`/`wait(triggered)`、発火前/発火文の後の待機開始、
+blocking/NBA発火、all/continue/break、受信の先頭/中間/末尾を交差します。
+直積2,592行のうち、allで使わないpivotをmiddleへ代表化して576行を整理し、2,016合法行から36件を選びます。
+全因子対223目標、重点3因子140目標、必須6件を保持し、代表化後の件数は98.21%削減します。実行時間の削減率とは別です。
+重点群は幅×状態型×入力、待機×開始順×発火、制御×位置×待機、制御×位置×発火、
+開始順×制御×位置、幅×発火×制御、状態型×入力×制御です。未対応による除外はありません。
+
+静的な名前付きイベントを二つ使い、対象は2/8/14/20、対照は5/11/17/23で発火します。
+payloadは発火前に代入します。イベント値のコピー・再結合、null、ref、遅延付き発火、同時発火、GCは対象外です。
+
+### 待機開始とループの意味
+
+lateでは、最初の発火文の後にjoin_noneで対象の待機者を作ります。親が時間待ちへ進むと、子は同じ時刻に開始します。
+blocking発火が済んでからの`@(go)`は最初の通知を受信しません。`wait(go.triggered)`は同じタイムスロットの発火状態を検出します。
+NBA発火はActiveでの待機登録後に処理されます。親が発火文の直後に保存した`scheduled`はblockingで1、NBAで0です。
+各観測は発火の2 tick後なので、その時点の`triggered`自体は0へ戻っています。
+
+forループは受信を四回まで試みます。位置は**受信した順番**であり、ドライバの発火番号ではありません。
+continueでは保存語と受信時刻を残し、集計・保持マスク・後続文を飛ばします。breakでは受信ループを終了します。
+毎回1 tick進めてから再待機するため、triggeredの持続状態を同じ時刻に繰り返し消費しません。
+再待機は発火+1、観測は+2として競合を避けています。出力は親だけが行います。
+
+[幅1の実在ケース](../tests/gen/ch15/test_gen_cross_eventflow_1_bit_known_edge_early_blocking_all_middle.sv)では、
+対象の保存語は順に1/0/1/0、受信時刻は2/8/14/20です。1ビット集計では左シフトの上位が切り詰められ、最後のchecksumは0です。
+対照のchecksumは1です。[期待出力](../tests/gen/ch15/test_gen_cross_eventflow_1_bit_known_edge_early_blocking_all_middle.expected)の`b3`で確認できます。
+
+[late・edge・blockingのケース](../tests/gen/ch15/test_gen_cross_eventflow_64_logic_known_edge_late_blocking_all_middle.sv)は、最初の発火を受けず、25の観測でhits=3、armed=4、done=0です。
+doneはforを抜けたかを示します。この条件では第四の受信を待っている状態が期待どおりです。テストの合否は保存した期待出力との一致で決まります。
+26で残る子を中断し、28で新しい一回限りの待機者を作り、30/33の既知入力で再確認します。
+元の受信履歴・checksum・doneを保持し、freshの値と時刻を別に観測するため、取消し漏れや履歴の消去を検出できます。
+X/Zはbitへの変換前のraw値も表示します。
+
+### 独立検算と実行結果
+
+[`qualify_eventflow.py`](../tools/qualify_eventflow.py)は、実際のSVの型・配列・for/if・break/continue・fork・待機・発火・書込み・表示を読みます。
+独立した型付き値、呼出しフレーム、Active/NBAのキュー、時刻ごとのイベント状態、子プロセスの取消しで全2,016プログラムを解釈します。
+主モデルの閉形式の期待値・payload・waiter生成関数を呼びません。一般的なSystemVerilog実装やフォーマル証明ではなく、この限定文法の検算です。
+[補助証跡](../coverage/interaction-qualification/eventflow.json)には正常対照6件と実行可能な誤り9件を保存しました。
+triggeredからedgeへの誤変更、再待機前の遅延欠落、break/continueの誤変更、payload取り違え、取消し漏れ、
+ループ不足、集計シフト欠落、発火領域の変更を、すべて正常終了後の出力差で検出しました。補助15実行は固定suiteへ加算しません。
+
+実行直前に取得・構成・ビルドしたkirimasim `6f5c69841228`の[単一の全3,280件](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json)では、追加36件が解析成功・全PASSです。
+従来3,244件の入力と状態分類は不変で、全体は2,747 pass・529 unsupported・既存configの4 failです。
+[ビルド記録](../coverage/interaction-qualification/eventflow-build.json)にrevisionと固定バイナリの指紋を保持します。全体は89モデル・132章対・全選択ケースPASSは62モデルです。
+この版は当時の実行版であり、その後のmainの動作を示すものではありません。
+
+### 固定版の差異と補助対照
+
+[固定版比較](../coverage/interaction-qualification/eventflow-fixed-replays.json)はIcarus 13.0が36 known、Verilator 5.052が両seedとも8 pass・28 knownです。
+両seedで一致した既知入力8件だけにoracleを付けました。Icarusの全36件は、eventのtriggeredメンバ等へのビルド拒否として記録しています。
+Verilatorは既知入力のNBA発火4件にも受信数の差があり、[全Icarus診断と元のVerilator出力](../coverage/interaction-qualification/eventflow-known-replays.json)を保存しました。
+残るX/Z入力24件は2状態の一致で4状態の確認に使いません。
+
+[別のblocking発火対照4件](../coverage/interaction-qualification/eventflow-blocking-controls/)は、元のSVの`->>`だけを`->`へ変え、
+変更後の意味に対応する期待値を独立解釈で作ったものです。元の入力・期待値は変更していません。
+この別対照はkirimasimで4件、Verilatorで両seedの計8実行が一致しました。元のNBAケースの成功へは数えません。
+発火方式の変更で差が消えるという観測を記録したもので、シミュレータ内部の原因やNBA機能全般の可否を断定しません。シミュレータの実装ソースは読んでいません。
+
+suiteは36件増えて11,030件、生成4,593件・98生成器です。要求対応・分母・確認率と13ランダムプロファイルは維持しています。
+今回の追加はローカル確認で、正式Check・Nightlyでは未実行です。
+
+### 再実行
+
+本体は[最新コミットの取得・ビルド手順](../README.ja.md#kirimasim)で準備し、保存済みSV・期待値を使います。証跡の出力先には未使用のパスを指定してください。
+
+```sh
+python3 -m unittest discover -s tools -p test_interaction_eventflow.py
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest-build/kirimasim -j 8 \
+  --json my-results/eventflow-native-new.json tests/gen/ch15/test_gen_cross_eventflow_*.sv
+python3 tools/qualify_eventflow.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/eventflow-qualification-new.json
+python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin -j 4 \
+  --json my-results/eventflow-icarus-new.json tests/gen/ch15/test_gen_cross_eventflow_*.sv
+python3 tools/run_verilator.py --all --seed 1 -j 3 \
+  --json my-results/eventflow-verilator-new.json tests/gen/ch15/test_gen_cross_eventflow_*.sv
 ```

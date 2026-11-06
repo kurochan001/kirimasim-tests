@@ -24,7 +24,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 12 | [Procedural programming statements](ch12.md) | 251 | 70 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 381 | 194 |
 | 14 | [Clocking blocks](ch14.md) | 150 | 72 |
-| 15 | [Interprocess synchronization and communication](ch15.md) | 153 | 97 |
+| 15 | [Interprocess synchronization and communication](ch15.md) | 189 | 133 |
 | 16 | [Assertions](ch16.md) | 764 | 103 |
 | 17 | [Checkers](ch17.md) | 108 | 27 |
 | 18 | [Constrained random value generation](ch18.md) | 257 | 57 |

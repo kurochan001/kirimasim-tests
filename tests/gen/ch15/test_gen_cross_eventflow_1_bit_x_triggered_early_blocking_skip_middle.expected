@@ -1,0 +1,196 @@
+h step=before t=1 cancelled=0
+g raw=0 a=0 b=0 a_trig=0 b_trig=0
+c id=0 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 done=0 weight=0 scheduled=0
+v id=0 checksum=0 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=0 slot=0 seen=0 at=-1 kept=0
+d id=0 slot=1 seen=0 at=-1 kept=0
+d id=0 slot=2 seen=0 at=-1 kept=0
+d id=0 slot=3 seen=0 at=-1 kept=0
+c id=1 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 done=0 weight=0 scheduled=0
+v id=1 checksum=0 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=1 slot=0 seen=0 at=-1 kept=0
+d id=1 slot=1 seen=0 at=-1 kept=0
+d id=1 slot=2 seen=0 at=-1 kept=0
+d id=1 slot=3 seen=0 at=-1 kept=0
+h step=a0 t=4 cancelled=0
+g raw=1 a=1 b=0 a_trig=0 b_trig=0
+c id=0 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 done=0 weight=1 scheduled=1
+v id=0 checksum=1 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=-1 kept=0
+d id=0 slot=2 seen=0 at=-1 kept=0
+d id=0 slot=3 seen=0 at=-1 kept=0
+c id=1 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 done=0 weight=0 scheduled=0
+v id=1 checksum=0 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=1 slot=0 seen=0 at=-1 kept=0
+d id=1 slot=1 seen=0 at=-1 kept=0
+d id=1 slot=2 seen=0 at=-1 kept=0
+d id=1 slot=3 seen=0 at=-1 kept=0
+h step=b0 t=7 cancelled=0
+g raw=1 a=1 b=0 a_trig=0 b_trig=0
+c id=0 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 done=0 weight=1 scheduled=1
+v id=0 checksum=1 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=-1 kept=0
+d id=0 slot=2 seen=0 at=-1 kept=0
+d id=0 slot=3 seen=0 at=-1 kept=0
+c id=1 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 done=0 weight=1 scheduled=1
+v id=1 checksum=0 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=1 slot=0 seen=0 at=5 kept=1
+d id=1 slot=1 seen=0 at=-1 kept=0
+d id=1 slot=2 seen=0 at=-1 kept=0
+d id=1 slot=3 seen=0 at=-1 kept=0
+h step=a1 t=10 cancelled=0
+g raw=x a=0 b=0 a_trig=0 b_trig=0
+c id=0 armed=3 hits=2 kept=1 skipped=1 stopped=0 tails=1 done=0 weight=3 scheduled=1
+v id=0 checksum=1 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=8 kept=0
+d id=0 slot=2 seen=0 at=-1 kept=0
+d id=0 slot=3 seen=0 at=-1 kept=0
+c id=1 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 done=0 weight=1 scheduled=1
+v id=1 checksum=0 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=1 slot=0 seen=0 at=5 kept=1
+d id=1 slot=1 seen=0 at=-1 kept=0
+d id=1 slot=2 seen=0 at=-1 kept=0
+d id=1 slot=3 seen=0 at=-1 kept=0
+h step=b1 t=13 cancelled=0
+g raw=x a=0 b=1 a_trig=0 b_trig=0
+c id=0 armed=3 hits=2 kept=1 skipped=1 stopped=0 tails=1 done=0 weight=3 scheduled=1
+v id=0 checksum=1 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=8 kept=0
+d id=0 slot=2 seen=0 at=-1 kept=0
+d id=0 slot=3 seen=0 at=-1 kept=0
+c id=1 armed=3 hits=2 kept=2 skipped=0 stopped=0 tails=2 done=0 weight=3 scheduled=1
+v id=1 checksum=1 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=1 slot=0 seen=0 at=5 kept=1
+d id=1 slot=1 seen=1 at=11 kept=1
+d id=1 slot=2 seen=0 at=-1 kept=0
+d id=1 slot=3 seen=0 at=-1 kept=0
+h step=a2 t=16 cancelled=0
+g raw=x a=0 b=1 a_trig=0 b_trig=0
+c id=0 armed=4 hits=3 kept=2 skipped=1 stopped=0 tails=2 done=0 weight=6 scheduled=1
+v id=0 checksum=0 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=8 kept=0
+d id=0 slot=2 seen=0 at=14 kept=1
+d id=0 slot=3 seen=0 at=-1 kept=0
+c id=1 armed=3 hits=2 kept=2 skipped=0 stopped=0 tails=2 done=0 weight=3 scheduled=1
+v id=1 checksum=1 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=1 slot=0 seen=0 at=5 kept=1
+d id=1 slot=1 seen=1 at=11 kept=1
+d id=1 slot=2 seen=0 at=-1 kept=0
+d id=1 slot=3 seen=0 at=-1 kept=0
+h step=b2 t=19 cancelled=0
+g raw=x a=0 b=0 a_trig=0 b_trig=0
+c id=0 armed=4 hits=3 kept=2 skipped=1 stopped=0 tails=2 done=0 weight=6 scheduled=1
+v id=0 checksum=0 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=8 kept=0
+d id=0 slot=2 seen=0 at=14 kept=1
+d id=0 slot=3 seen=0 at=-1 kept=0
+c id=1 armed=4 hits=3 kept=3 skipped=0 stopped=0 tails=3 done=0 weight=6 scheduled=1
+v id=1 checksum=0 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=1 slot=0 seen=0 at=5 kept=1
+d id=1 slot=1 seen=1 at=11 kept=1
+d id=1 slot=2 seen=0 at=17 kept=1
+d id=1 slot=3 seen=0 at=-1 kept=0
+h step=a3 t=22 cancelled=0
+g raw=0 a=0 b=0 a_trig=0 b_trig=0
+c id=0 armed=4 hits=4 kept=3 skipped=1 stopped=0 tails=3 done=1 weight=10 scheduled=1
+v id=0 checksum=0 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=8 kept=0
+d id=0 slot=2 seen=0 at=14 kept=1
+d id=0 slot=3 seen=0 at=20 kept=1
+c id=1 armed=4 hits=3 kept=3 skipped=0 stopped=0 tails=3 done=0 weight=6 scheduled=1
+v id=1 checksum=0 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=1 slot=0 seen=0 at=5 kept=1
+d id=1 slot=1 seen=1 at=11 kept=1
+d id=1 slot=2 seen=0 at=17 kept=1
+d id=1 slot=3 seen=0 at=-1 kept=0
+h step=b3 t=25 cancelled=0
+g raw=0 a=0 b=1 a_trig=0 b_trig=0
+c id=0 armed=4 hits=4 kept=3 skipped=1 stopped=0 tails=3 done=1 weight=10 scheduled=1
+v id=0 checksum=0 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=8 kept=0
+d id=0 slot=2 seen=0 at=14 kept=1
+d id=0 slot=3 seen=0 at=20 kept=1
+c id=1 armed=4 hits=4 kept=4 skipped=0 stopped=0 tails=4 done=1 weight=10 scheduled=1
+v id=1 checksum=1 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=1 slot=0 seen=0 at=5 kept=1
+d id=1 slot=1 seen=1 at=11 kept=1
+d id=1 slot=2 seen=0 at=17 kept=1
+d id=1 slot=3 seen=1 at=23 kept=1
+h step=cancelled t=27 cancelled=1
+g raw=0 a=0 b=1 a_trig=0 b_trig=0
+c id=0 armed=4 hits=4 kept=3 skipped=1 stopped=0 tails=3 done=1 weight=10 scheduled=1
+v id=0 checksum=0 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=8 kept=0
+d id=0 slot=2 seen=0 at=14 kept=1
+d id=0 slot=3 seen=0 at=20 kept=1
+c id=1 armed=4 hits=4 kept=4 skipped=0 stopped=0 tails=4 done=1 weight=10 scheduled=1
+v id=1 checksum=1 fresh=0 fresh_armed=0 recovered=0 fresh_at=-1
+d id=1 slot=0 seen=0 at=5 kept=1
+d id=1 slot=1 seen=1 at=11 kept=1
+d id=1 slot=2 seen=0 at=17 kept=1
+d id=1 slot=3 seen=1 at=23 kept=1
+h step=rearmed t=29 cancelled=1
+g raw=0 a=0 b=1 a_trig=0 b_trig=0
+c id=0 armed=4 hits=4 kept=3 skipped=1 stopped=0 tails=3 done=1 weight=10 scheduled=1
+v id=0 checksum=0 fresh=0 fresh_armed=1 recovered=0 fresh_at=-1
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=8 kept=0
+d id=0 slot=2 seen=0 at=14 kept=1
+d id=0 slot=3 seen=0 at=20 kept=1
+c id=1 armed=4 hits=4 kept=4 skipped=0 stopped=0 tails=4 done=1 weight=10 scheduled=1
+v id=1 checksum=1 fresh=0 fresh_armed=1 recovered=0 fresh_at=-1
+d id=1 slot=0 seen=0 at=5 kept=1
+d id=1 slot=1 seen=1 at=11 kept=1
+d id=1 slot=2 seen=0 at=17 kept=1
+d id=1 slot=3 seen=1 at=23 kept=1
+h step=fresh_a t=32 cancelled=1
+g raw=1 a=1 b=1 a_trig=0 b_trig=0
+c id=0 armed=4 hits=4 kept=3 skipped=1 stopped=0 tails=3 done=1 weight=10 scheduled=1
+v id=0 checksum=0 fresh=1 fresh_armed=1 recovered=1 fresh_at=30
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=8 kept=0
+d id=0 slot=2 seen=0 at=14 kept=1
+d id=0 slot=3 seen=0 at=20 kept=1
+c id=1 armed=4 hits=4 kept=4 skipped=0 stopped=0 tails=4 done=1 weight=10 scheduled=1
+v id=1 checksum=1 fresh=0 fresh_armed=1 recovered=0 fresh_at=-1
+d id=1 slot=0 seen=0 at=5 kept=1
+d id=1 slot=1 seen=1 at=11 kept=1
+d id=1 slot=2 seen=0 at=17 kept=1
+d id=1 slot=3 seen=1 at=23 kept=1
+h step=fresh_b t=35 cancelled=1
+g raw=1 a=1 b=0 a_trig=0 b_trig=0
+c id=0 armed=4 hits=4 kept=3 skipped=1 stopped=0 tails=3 done=1 weight=10 scheduled=1
+v id=0 checksum=0 fresh=1 fresh_armed=1 recovered=1 fresh_at=30
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=8 kept=0
+d id=0 slot=2 seen=0 at=14 kept=1
+d id=0 slot=3 seen=0 at=20 kept=1
+c id=1 armed=4 hits=4 kept=4 skipped=0 stopped=0 tails=4 done=1 weight=10 scheduled=1
+v id=1 checksum=1 fresh=0 fresh_armed=1 recovered=1 fresh_at=33
+d id=1 slot=0 seen=0 at=5 kept=1
+d id=1 slot=1 seen=1 at=11 kept=1
+d id=1 slot=2 seen=0 at=17 kept=1
+d id=1 slot=3 seen=1 at=23 kept=1
+h step=idle t=37 cancelled=1
+g raw=1 a=1 b=0 a_trig=0 b_trig=0
+c id=0 armed=4 hits=4 kept=3 skipped=1 stopped=0 tails=3 done=1 weight=10 scheduled=1
+v id=0 checksum=0 fresh=1 fresh_armed=1 recovered=1 fresh_at=30
+d id=0 slot=0 seen=1 at=2 kept=1
+d id=0 slot=1 seen=0 at=8 kept=0
+d id=0 slot=2 seen=0 at=14 kept=1
+d id=0 slot=3 seen=0 at=20 kept=1
+c id=1 armed=4 hits=4 kept=4 skipped=0 stopped=0 tails=4 done=1 weight=10 scheduled=1
+v id=1 checksum=1 fresh=0 fresh_armed=1 recovered=1 fresh_at=33
+d id=1 slot=0 seen=0 at=5 kept=1
+d id=1 slot=1 seen=1 at=11 kept=1
+d id=1 slot=2 seen=0 at=17 kept=1
+d id=1 slot=3 seen=1 at=23 kept=1

@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-11-06T13:26:28.824830+00:00",
+  "scope": "Workflow and job conclusions only for baseline 67321079. Native/random artifacts, per-test outcomes, input hashes and simulator binaries have not been inspected for these runs. The uncommitted event-loop additions are outside both runs. Preserve earlier artifact-reviewed detailed records separately.",
+  "runs": [
+    {
+      "databaseId": 42120289584,
+      "headSha": "673210797a4e131a47f75524b4662f93de866206",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584",
+      "createdAt": "2026-11-05T22:17:58Z",
+      "updatedAt": "2026-11-05T22:47:42Z",
+      "workflowName": "Check",
+      "jobs": [
+        {
+          "name": "icarus",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584/job/127570841136"
+        },
+        {
+          "name": "verilator",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584/job/127570841442"
+        },
+        {
+          "name": "readme",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584/job/127570841531"
+        }
+      ]
+    },
+    {
+      "databaseId": 42136599265,
+      "headSha": "673210797a4e131a47f75524b4662f93de866206",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265",
+      "createdAt": "2026-11-06T00:24:34Z",
+      "updatedAt": "2026-11-06T05:08:02Z",
+      "workflowName": "Nightly",
+      "jobs": [
+        {
+          "name": "icarus",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265/job/127626217118"
+        },
+        {
+          "name": "verilator",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265/job/127626217425"
+        },
+        {
+          "name": "ghost",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265/job/127626217467"
+        },
+        {
+          "name": "lyra",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265/job/127626217510"
+        },
+        {
+          "name": "kirimasim",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265/job/127626217660"
+        },
+        {
+          "name": "publish",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265/job/127723361034"
+        }
+      ]
+    }
+  ]
+}

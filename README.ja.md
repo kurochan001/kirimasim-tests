@@ -13,9 +13,9 @@ IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認す�
 このREADMEには現時点の情報だけを載せます。以前の作業の記録や測定は[履歴](docs/history.ja.md)にあります。
 [資料一覧](docs/README.ja.md)から、ガイド・生成レポート・過去の記録の日英両版を辿れます。
 2026-11-06（日本時間）に確認した[最新の検証状況](docs/nightly-results.md#latest-verified-checkpoint)では、
-`9c39d865`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/42051092628)と、
-`19cd790a`の[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/41941310616)が成功しています。
-開発を引き継ぐ場合は、現行ガイドと、当時の状態を記録した[2026-11-02の引き継ぎ資料](docs/codex-handoff-20261102.md)を参照してください。
+`67321079`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)と、
+`67321079`の[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)が成功しています。
+開発を引き継ぐ場合は、現行ガイドと、当時の状態を記録した[2026-11-06の引き継ぎ資料](docs/codex-handoff-20261106.md)を参照してください。
 
 各シミュレーションテストは、期待結果を持つ小さな独立した設計です。規格上正しいコードは、正規化した標準出力が
 期待出力に一致し、指定された終了コード・診断の検査にも通れば合格です。
@@ -55,15 +55,15 @@ Icarus Verilog、Verilator、kirimasim、
 以下は収録本数と確認元の内訳で、現在のシミュレータのPASS数ではありません。[`:lrm:`と`:oracle:`が記録すること](docs/faq.md#q4-are-expected-outputs-copied-from-a-simulator)を参照してください。
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**10994本のテスト**があります。 うち4557本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
+スイートには38章にわたり**11030本のテスト**があります。 うち4593本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
 | Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 5815 |
-| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 2009 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3170 |
+| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 2017 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3198 |
 
-2672本はx/z値に依存します（`:fourstate: yes`）。685本にはCコードがあり、内訳はDPIが190本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1931本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。34本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定40本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+2696本はx/z値に依存します（`:fourstate: yes`）。685本にはCコードがあり、内訳はDPIが190本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1931本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。34本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定40本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -79,7 +79,7 @@ Icarus Verilog、Verilator、kirimasim、
 | 12 | 手続き型プログラミング文 | 251 | 169 | 33 | 49 |
 | 13 | タスクと関数（サブルーチン） | 381 | 226 | 92 | 63 |
 | 14 | クロッキングブロック | 150 | 4 | 88 | 58 |
-| 15 | プロセス間の同期と通信 | 153 | 2 | 50 | 101 |
+| 15 | プロセス間の同期と通信 | 189 | 2 | 58 | 129 |
 | 16 | アサーション | 764 | 104 | 121 | 539 |
 | 17 | チェッカー | 108 |  | 47 | 61 |
 | 18 | 制約付き乱数値の生成 | 257 | 25 | 127 | 105 |
@@ -161,20 +161,24 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 
 [機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
 重点的に確認する高次因子群と必須の境界ケースを併用します。短時間実行用の選択は
-**88モデル・3,244件**です。値・型の変換、スケジューリング、引数・参照の結合先、
+**89モデル・3,280件**です。値・型の変換、スケジューリング、引数・参照の結合先、
 スコープ・階層、状態保持、I/Oなどの相互作用を扱います。通常の全件実行では既存テストを
 すべて保持し、規格要求の分母は変更しません。
 
 実行直前に上流mainを取得・構成・ビルドした**kirimasim `6f5c69841228`**の
-[最新の全クロス保存実行](coverage/interaction-results/cross88-kirimasim-6f5c6984-pkgquery.json)は、
-**2,711 pass・529 unsupported・4 fail**です。package問い合わせの追加36件が全PASSし、
-従来3,208件の入力ハッシュ・状態分類は不変です。
-[基点9c39d865のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42051092628)は成功し、前回までの86モデルの固定版比較・静的検査を確認済みです。
-[確認済み正式Nightly](docs/nightly-results.md#latest-verified-checkpoint)は19cd790aの82モデルが対象で、今回の36件はCheck・Nightlyの両方で未実行です。
+[最新の全クロス保存実行](coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json)は、
+**2,747 pass・529 unsupported・4 fail**です。イベント受信ループの追加36件が全PASSし、
+従来3,244件の入力ハッシュ・状態分類は不変です。
+[基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
+[同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。今回の36件は両実行の対象外です。
 入力と元の期待値を保持し、残る4件は固定版slangへ
 切り分けたconfigのパラメータリセットです。11→9→4の履歴、全出力の再現、未対応19機構の内訳、
 章対の精査は[不一致対応と次の優先順位](docs/cross-verification-followup.md)に記録しています。
-章間CSVの出典は単一の全クロスローカル実行cross88とし、正式実行による確認は別に記録しています。
+章間CSVの出典は単一の全クロスローカル実行cross89とし、正式実行による確認は別に記録しています。
+
+名前付きイベントとループ制御（第12章×第15章）は、代表化後の合法2,016通りから36件を選びます。
+同じタイムスロットでの待機開始、blocking/NBA発火、break/continueによる受信・保持・終了を照合します。
+最新kirimasimは全36件PASSです。[設計・具体例・固定版の差異](docs/interaction-verification.md#named-event-loop-transfer)を参照してください。
 
 packageの配列問い合わせと名前解決（第20章×第26章）は、合法3,456通りから36件を選びます。
 関数内のimportと修飾参照で問い合わせ先を決め、幅・境界・向きが実際の走査と全幅集計に反映されるかを確認します。

@@ -967,3 +967,13 @@ Pinned Verilator 5.052 records 12 pass / 24 known at seed 1 and 13 pass / 23 kno
 Only twelve known-input cases matching both seeds obtain its oracle; seed 73's incidental bit/X match does not qualify four-state behavior.
 Latest kirimasim matches standard expectations for all 36. See [model scope](interaction-verification.en.md#package-array-query-scope)
 and [all Icarus diagnostics plus representative outputs at both seeds](../coverage/interaction-qualification/pkgquery-known-replays.json).
+
+<a id="named-event-loop-differences"></a>
+
+## Named-event consumer loops (2026-11-06)
+
+Pinned Icarus 13.0 rejects all 36 builds. Pinned Verilator 5.052 records 8 pass / 28 known for each seed, including receive-count differences in four known-input NBA cases.
+Retain [all original Icarus diagnostics and Verilator outputs](../coverage/interaction-qualification/eventflow-known-replays.json).
+Four separate controls change only `->>` to `->`, independently interpreting expectations for the changed semantics; both Verilator seeds match.
+These auxiliary matches do not count as original NBA passes or establish an internal cause/general NBA support.
+Tested kirimasim `6f5c69841228` matches standard expectations for all 36 originals. See [scope and examples](interaction-verification.en.md#named-event-loop-transfer).

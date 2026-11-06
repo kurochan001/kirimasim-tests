@@ -10,10 +10,11 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-06 JST)
 
-The selection now contains 88 models / 3,244 cases; see [package-query qualification](#package-query-qualification).
+The selection now contains 89 models / 3,280 cases; see [event-loop qualification](#event-loop-qualification).
+[`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json) records successful Check/Nightly workflows and all jobs on baseline 67321079. Individual artifacts remain uninspected; retain the older detailed checkpoints below separately.
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json) confirms Check’s pinned comparisons/static checks for the preceding 86-model suite.
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
-The new 36 cases have not run in Check/Nightly. The 216 cases added since generated loops remain outside this verified formal Nightly.
+The new 36 cases have not run in Check/Nightly. The 252 cases added since generated loops remain outside this earlier artifact-reviewed Nightly.
 
 <a id="checkpoint-9926160a"></a>
 
@@ -484,3 +485,15 @@ All additions pass and preceding 3,208 inputs/statuses are unchanged: totals are
 [Pinned comparisons](pkgquery-fixed-replays.json) record Icarus at 36 known, Verilator seed 1 at 12 pass / 24 known and seed 73 at 13 pass / 23 known.
 Retain [all thirty-six Icarus diagnostics and representative X/Z outputs at both seeds](pkgquery-known-replays.json); an incidental bit/X match does not qualify four-state behavior.
 Totals are 88 models / 131 chapter pairs / 61 full-selection-pass models. See [design, limits and reruns](../../docs/interaction-verification.en.md#package-array-query-scope).
+
+<a id="event-loop-qualification"></a>
+
+## Event-loop qualification
+
+[`eventflow.json`](eventflow.json) interprets all 2,016 actual programs with independent Active/NBA queues, loop transfers, waiting and cancellation.
+Six normal controls and nine faulty SV programs exit normally; every fault is detected by output difference.
+The [build record](eventflow-build.json) identifies one complete 3,280-case run on `6f5c69841228`: 2,747 pass / 529 unsupported / four existing failures.
+All 36 additions pass and preceding 3,244 inputs/statuses are unchanged. Totals: 89 models / 132 chapter pairs / 62 full-selection-pass models.
+[Pinned comparisons](eventflow-fixed-replays.json) record Icarus at 36 known and Verilator at 8 pass / 28 known for both seeds.
+Retain [original diagnostics/outputs](eventflow-known-replays.json) and [four separate blocking-trigger controls](eventflow-blocking-controls/).
+Their eight Verilator matches do not qualify original NBA cases. See [design and reruns](../../docs/interaction-verification.en.md#named-event-loop-transfer).

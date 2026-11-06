@@ -21129,6 +21129,20 @@
     "export・動的配列・符号付き演算・task・時間制御・並行呼出しは対象外。": "Export, dynamic arrays, signed arithmetic, tasks, timing and concurrent calls are outside scope.",
     "関数内のimportと修飾参照が配列問い合わせの対象を決め、開始位置・回数・方向と全幅集計を変える。": "Function-local imports and qualified references select query operands, determining scan start, count, direction and full-width accumulation.",
     "非選択packageと同名ローカル配列の更新後も、対象配列の型・全要素・履歴を保持することを照合する。": "Check target array types, every element and history after updating the unselected package and local namesakes.",
-    "関数内の明示・ワイルドカードimportまたは修飾参照が、配列問い合わせの幅・境界・向きを決め、その結果で走査した全幅集計と呼出し履歴を照合する。": "Explicit/wildcard imports or qualified references inside functions determine array-query widths, bounds and directions; check the resulting full-width scan accumulation and call history."
+    "関数内の明示・ワイルドカードimportまたは修飾参照が、配列問い合わせの幅・境界・向きを決め、その結果で走査した全幅集計と呼出し履歴を照合する。": "Explicit/wildcard imports or qualified references inside functions determine array-query widths, bounds and directions; check the resulting full-width scan accumulation and call history.",
+    "全 ZXQPH0QXZ 行のうちallで使わないpivotをmiddleに代表させ、 ZXQPH1QXZ 行を整理して ZXQPH2QXZ 合法行とする。": "Represent the unused pivot by middle in all rows: remove ZXQPH1QXZ duplicates from ZXQPH0QXZ Cartesian rows, leaving ZXQPH2QXZ legal rows.",
+    "静的な二つの名前付きイベントを使い、イベント値のコピーや再結合は行わない。": "Use two static named events without copying or rebinding event values.",
+    "対象は時刻 ZXQPH0QXZ 、対照は ZXQPH1QXZ で発火する。": "Trigger the target at ZXQPH0QXZ and the control at ZXQPH1QXZ.",
+    "payloadは発火前に代入する。": "Assign the payload before triggering.",
+    "lateでは最初の発火文の後に ZXQPH0QXZ で待機者を作り、親の時間待ちで同じ時刻に開始する。": "For late rows, create the waiter with ZXQPH0QXZ after the first trigger statement; the parent’s timed suspension starts it in the same tick.",
+    "@待機は過去の発火を保持せず、triggered待機は同じタイムスロットの発火を検出する。": "An edge wait does not retain past triggers; a triggered wait detects a trigger in the same time slot.",
+    "四回までのforループで一回だけcontinueまたはbreakし、再待機前には必ず ZXQPH0QXZ tick進める。": "A bounded four-iteration for loop continues or breaks once, advancing ZXQPH0QXZ tick before rearming.",
+    "各発火の ZXQPH0QXZ tick後に観測し、子プロセスの再待機と同時刻の観測を避ける。": "Observe ZXQPH0QXZ ticks after each trigger, avoiding same-tick observation and child rearming.",
+    "ZXQPH0QXZ で残る子を終了し、 ZXQPH1QXZ で新しい待機者を作り、 ZXQPH2QXZ の既知入力で再確認する。": "Cancel remaining children at ZXQPH0QXZ, create fresh waiters at ZXQPH1QXZ, and check known recovery inputs at ZXQPH2QXZ.",
+    "全保存語・受信時刻・保持マスク・集計値・回数を保持し、 ZXQPH0QXZ への変換前のX/Zも表示する。": "Retain every saved word, receive time, retention mask, accumulator and count, displaying X/Z before conversion into ZXQPH0QXZ too.",
+    "動的イベント・null・ref・遅延付き発火・同時発火・ ZXQPH0QXZ は対象外。": "Dynamic events, null, ref, delayed triggers, simultaneous triggers and ZXQPH0QXZ are outside scope.",
+    "名前付きイベントを読むforループでbreak/continueと待機開始順を交差し、受信と保持の履歴を照合する。": "Cross break/continue with registration order in event-consuming for loops, checking receive and retention history.",
+    "同じタイムスロットのtriggeredとエッジ待機、 ZXQPH0QXZ 発火、別イベントの独立性と取消し後の再待機を観測する。": "Observe same-slot triggered versus edge waiting, ZXQPH0QXZ dispatch, independent events and rearming after cancellation.",
+    "continueは次のイベント待機へ進み、breakは受信ループを終了することを、待機方式・開始順・発火領域と交差し、取得した語・受信時刻・保持マスク・回数で区別する。": "Cross waiting mode, registration order and dispatch region to distinguish continue advancing to the next event wait from break leaving the consumer loop through captured words, receive times, retention masks and counts."
   }
 }

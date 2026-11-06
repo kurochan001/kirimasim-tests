@@ -310,3 +310,12 @@ clause 37.
   Only twelve known-input matches at both seeds obtain its oracle; accidental bit/X agreement does not qualify four-state behavior.
 - Suite totals: 10,994, including 4,557 generated cases from 97 generators. Existing inputs/expectations/evidence/requirement bindings and thirteen random profiles are unchanged.
   These 36 cases have not run in formal Check/Nightly. See [design and evidence](interaction-verification.en.md#package-array-query-scope).
+
+### 2026-11-06 (event-loop addition)
+
+- Added Chapter 12×15, selecting 36 of 2,016 legal representative rows and independently interpreting saved SV with six normal controls and nine source faults.
+- One complete 3,280-case run on `6f5c69841228` records 2,747 pass / 529 unsupported / four existing config failures. All additions pass; preceding 3,244 inputs/statuses are unchanged.
+- Totals: 89 models / 132 pairs / 62 full-selection-pass models; triage M132/E3/C2/N117/R566.
+  Pinned Icarus records 36 known; Verilator records 8 pass / 28 known at both seeds. Separate blocking-control matches do not count as original NBA passes.
+- Suite totals: 11,030, including 4,593 generated cases from 98 generators. Requirement coverage and thirteen random profiles are unchanged; 1,068 tool tests pass.
+  These additions have not run in formal Check/Nightly. See [design and evidence](interaction-verification.en.md#named-event-loop-transfer).

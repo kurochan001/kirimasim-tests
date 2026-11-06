@@ -1,0 +1,185 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch15/test_gen_cross_eventflow_129_bit_known_edge_late_blocking_skip_last": {
+   "status": "pass",
+   "inputs_sha256": "3ff6b8ed3d62e171494f47c2ea9cb43d87d7208048a27738aec0d7e8571b12f0"
+  },
+  "gen/ch15/test_gen_cross_eventflow_129_bit_x_triggered_early_nba_stop_middle": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'c id=0 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 ...', expected 'c id=0 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 ...'",
+   "inputs_sha256": "96374a707287db20945b8c5b954ee47cc4b6b9cc6f081e7bb3eef3611841800b"
+  },
+  "gen/ch15/test_gen_cross_eventflow_129_bit_z_edge_early_blocking_stop_first": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'g raw=010101010101010101010101010101010101010101010101010...', expected 'g raw=010101010101010101010101010101010101010101010101010...'",
+   "inputs_sha256": "84ed040db819ddeb691f5a892690d27e7216babdfe0f5cf1846e87f607bbe5e3"
+  },
+  "gen/ch15/test_gen_cross_eventflow_129_logic_known_edge_early_nba_all_middle": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'c id=0 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 ...', expected 'c id=0 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 ...'",
+   "inputs_sha256": "17709854c126fee787bc2bfeaa02d6a87487e11f27ccbd0380e300bb950cce52"
+  },
+  "gen/ch15/test_gen_cross_eventflow_129_logic_x_edge_early_blocking_all_middle": {
+   "status": "known",
+   "reason": "output differs: line 44 is 'g raw=001010101010101010101010101010101010101010101010101...', expected 'g raw=x01010101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "8ee209d7e3be6e7d2f7ccbdb7355a4aecc03f135b376ef0b95bc5b995d9c06a4"
+  },
+  "gen/ch15/test_gen_cross_eventflow_129_logic_z_triggered_late_nba_skip_first": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'g raw=010101010101010101010101010101010101010101010101010...', expected 'g raw=010101010101010101010101010101010101010101010101010...'",
+   "inputs_sha256": "8d4cec6e3718090721dc02abb851ec10b67918cef1d990ef77e6fbadfd67922b"
+  },
+  "gen/ch15/test_gen_cross_eventflow_1_bit_known_edge_early_blocking_all_middle": {
+   "status": "pass",
+   "inputs_sha256": "a1c7d07d576e0a299605f99f1886ba3bc071c5e638eb23641f15f3549f1e93fd"
+  },
+  "gen/ch15/test_gen_cross_eventflow_1_bit_x_triggered_early_blocking_skip_middle": {
+   "status": "known",
+   "reason": "output differs: line 44 is 'g raw=1 a=1 b=0 a_trig=0 b_trig=0', expected 'g raw=x a=0 b=0 a_trig=0 b_trig=0'",
+   "inputs_sha256": "61402cdfca83719dddabffa5291e7527cfc083d1186bda28b7ac1e4bc658b786"
+  },
+  "gen/ch15/test_gen_cross_eventflow_1_bit_z_edge_late_nba_skip_first": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'g raw=1 a=0 b=0 a_trig=0 b_trig=0', expected 'g raw=1 a=1 b=0 a_trig=0 b_trig=0'",
+   "inputs_sha256": "a3c03eb9273bed052e013841ee7c38fc99adcc859ae5d01fc4da1a207c874dec"
+  },
+  "gen/ch15/test_gen_cross_eventflow_1_logic_known_edge_early_blocking_stop_first": {
+   "status": "pass",
+   "inputs_sha256": "55bbde4a2e7aa0409fa34fb3e7bfbf4c000e2a9696c1b9f1e0a258510675c684"
+  },
+  "gen/ch15/test_gen_cross_eventflow_1_logic_x_edge_early_nba_all_middle": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'c id=0 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 ...', expected 'c id=0 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 ...'",
+   "inputs_sha256": "f47b45f31a0f5fa47e07012c1c3b45e6171b1e53cea41dfc57ba9b82e70ebbe4"
+  },
+  "gen/ch15/test_gen_cross_eventflow_1_logic_z_edge_early_nba_stop_last": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'g raw=1 a=0 b=0 a_trig=0 b_trig=0', expected 'g raw=1 a=1 b=0 a_trig=0 b_trig=0'",
+   "inputs_sha256": "204263045b10ae16904c9e61cd3fde485b55da847fb4357bbf968388678e3e77"
+  },
+  "gen/ch15/test_gen_cross_eventflow_32_bit_known_triggered_early_blocking_stop_last": {
+   "status": "pass",
+   "inputs_sha256": "a3d1dfd488194c3059ce15c7eb967ad25cdb4aefb21927596f2984b68b27bf8d"
+  },
+  "gen/ch15/test_gen_cross_eventflow_32_bit_x_edge_early_blocking_all_middle": {
+   "status": "known",
+   "reason": "output differs: line 44 is 'g raw=10101010101010101010101010101010 a=1010101010101010...', expected 'g raw=x010101010101010101010101010101x a=0010101010101010...'",
+   "inputs_sha256": "9ea34c4e1b2fd75874a6f04a9df3eba46ff7c0b52511709a668452695b7e2bf6"
+  },
+  "gen/ch15/test_gen_cross_eventflow_32_bit_z_edge_early_blocking_skip_first": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'g raw=01010101010101010101010101010001 a=0000000000000000...', expected 'g raw=01010101010101010101010101010001 a=0101010101010101...'",
+   "inputs_sha256": "569513fa00fcb1ded3de57957d701a518cb230f070c1f8221f6867f1d22b44af"
+  },
+  "gen/ch15/test_gen_cross_eventflow_32_logic_known_edge_late_nba_skip_middle": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'c id=0 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 ...', expected 'c id=0 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 ...'",
+   "inputs_sha256": "8c97cd0f858cd298eda6d1ec52bcc99bbd41825e7e612505acaa476f6742a41a"
+  },
+  "gen/ch15/test_gen_cross_eventflow_32_logic_x_edge_early_nba_all_middle": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'c id=0 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 ...', expected 'c id=0 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 ...'",
+   "inputs_sha256": "0eef51f0b6c56a3a1eb7bcf50594f6184121a7329b517d4004fb41dcb0c1a7f8"
+  },
+  "gen/ch15/test_gen_cross_eventflow_32_logic_z_edge_early_nba_stop_first": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'g raw=01010101010101010101010101010001 a=0000000000000000...', expected 'g raw=01010101010101010101010101010001 a=0101010101010101...'",
+   "inputs_sha256": "45956c8b067ec4aebdec0a6318756ecbc3ceccfd831f9536a7edcbab5cb4c143"
+  },
+  "gen/ch15/test_gen_cross_eventflow_33_bit_known_edge_early_nba_skip_last": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'c id=0 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 ...', expected 'c id=0 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 ...'",
+   "inputs_sha256": "0539416b7d31504089676f7866030a8c77de4c5084a072ea7c34d61460f05fff"
+  },
+  "gen/ch15/test_gen_cross_eventflow_33_bit_x_edge_early_nba_all_middle": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'c id=0 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 ...', expected 'c id=0 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 ...'",
+   "inputs_sha256": "21981891ed2339fd1b68fe195c1036875ab5f14c112b5992316f5289c22f8843"
+  },
+  "gen/ch15/test_gen_cross_eventflow_33_bit_z_triggered_late_blocking_stop_first": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'g raw=010101010101010101010101010101001 a=000000000000000...', expected 'g raw=010101010101010101010101010101001 a=010101010101010...'",
+   "inputs_sha256": "68ce31f7eabb46749bc763e97cd6b02e42c47d9aebb22989218efcfcdcea0155"
+  },
+  "gen/ch15/test_gen_cross_eventflow_33_logic_known_edge_early_nba_stop_first": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'c id=0 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 ...', expected 'c id=0 armed=1 hits=1 kept=0 skipped=0 stopped=1 tails=0 ...'",
+   "inputs_sha256": "a9ba9f53a91c09b3af6c6c6901dedd73713dcd43bb96646a12b0f91959e82dea"
+  },
+  "gen/ch15/test_gen_cross_eventflow_33_logic_x_edge_early_blocking_skip_first": {
+   "status": "known",
+   "reason": "output differs: line 44 is 'g raw=101010101010101010101010101010011 a=101010101010101...', expected 'g raw=x0101010101010101010101010101001x a=x01010101010101...'",
+   "inputs_sha256": "5f589a01d545d3f094139d40d3d33facd088bb1b6ea5f215a21511f67667d628"
+  },
+  "gen/ch15/test_gen_cross_eventflow_33_logic_z_edge_early_blocking_all_middle": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'g raw=010101010101010101010101010101001 a=000000000000000...', expected 'g raw=010101010101010101010101010101001 a=010101010101010...'",
+   "inputs_sha256": "fa946eeb176f50f5f5e3734ed43028b8ce2335e3964b76d96bd9caffcc79ab87"
+  },
+  "gen/ch15/test_gen_cross_eventflow_64_bit_known_edge_early_blocking_skip_first": {
+   "status": "pass",
+   "inputs_sha256": "b2cff1cc984b6e9fabd463961a33d3d13890beb958154e35838c0a50f3252fe2"
+  },
+  "gen/ch15/test_gen_cross_eventflow_64_bit_x_triggered_early_nba_skip_last": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'c id=0 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 ...', expected 'c id=0 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 ...'",
+   "inputs_sha256": "b649d6d1438c9e126485254afcb9a8b1a50b927a64639ea9f62a4fe8dd6c688e"
+  },
+  "gen/ch15/test_gen_cross_eventflow_64_bit_z_edge_early_blocking_stop_first": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'g raw=010101010101010101010101010101010101010101010101010...', expected 'g raw=010101010101010101010101010101010101010101010101010...'",
+   "inputs_sha256": "b04f11a304b9f6cd228288acd1a140313aead4514ac33ce64a1967ab60458016"
+  },
+  "gen/ch15/test_gen_cross_eventflow_64_logic_known_edge_late_blocking_all_middle": {
+   "status": "pass",
+   "inputs_sha256": "6a3b0c69d3e419b7cafe57b228b36188c9f6210c52e2aec1b782b65682d44f2a"
+  },
+  "gen/ch15/test_gen_cross_eventflow_64_logic_x_edge_early_nba_all_middle": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'c id=0 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 ...', expected 'c id=0 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 ...'",
+   "inputs_sha256": "0670a04b8ea77018a8afaf2320eaf564bfa201874a1504afec4b3d4fbe404490"
+  },
+  "gen/ch15/test_gen_cross_eventflow_64_logic_z_edge_early_nba_stop_first": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'g raw=010101010101010101010101010101010101010101010101010...', expected 'g raw=010101010101010101010101010101010101010101010101010...'",
+   "inputs_sha256": "52d02f541f8182b9e350e876732be065eac78fbe3d07cfe31635215134a3474b"
+  },
+  "gen/ch15/test_gen_cross_eventflow_65_bit_known_edge_early_blocking_skip_first": {
+   "status": "pass",
+   "inputs_sha256": "3d70b1d6ac7abceb9a57fbe289a37ef8cc4eb89b032637989b1ae7a2e2117bbb"
+  },
+  "gen/ch15/test_gen_cross_eventflow_65_bit_x_edge_late_nba_stop_last": {
+   "status": "known",
+   "reason": "output differs: line 17 is 'c id=0 armed=1 hits=0 kept=0 skipped=0 stopped=0 tails=0 ...', expected 'c id=0 armed=2 hits=1 kept=1 skipped=0 stopped=0 tails=1 ...'",
+   "inputs_sha256": "cb17ba5886593de02bae9576c6c23f6de9c31258a82a24cdff4c792f9b684c89"
+  },
+  "gen/ch15/test_gen_cross_eventflow_65_bit_z_triggered_early_nba_all_middle": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'g raw=010101010101010101010101010101010101010101010101010...', expected 'g raw=010101010101010101010101010101010101010101010101010...'",
+   "inputs_sha256": "5e39e50b896538db786856a955d0e1774f628918e2fa35f5ede6e70dd1f0dd40"
+  },
+  "gen/ch15/test_gen_cross_eventflow_65_logic_known_edge_early_blocking_all_middle": {
+   "status": "pass",
+   "inputs_sha256": "b5930a039d103b35ce1061fbcb629ac6eba3e5e284556468c5ba429901adaf82"
+  },
+  "gen/ch15/test_gen_cross_eventflow_65_logic_x_edge_late_blocking_stop_middle": {
+   "status": "known",
+   "reason": "output differs: line 44 is 'g raw=001010101010101010101010101010101010101010101010101...', expected 'g raw=x01010101010101010101010101010101010101010101010101...'",
+   "inputs_sha256": "f6909e3624e136540d1af12a6cafe8b9731105ab575b46bb8c74d04ecf8690b9"
+  },
+  "gen/ch15/test_gen_cross_eventflow_65_logic_z_edge_early_nba_skip_first": {
+   "status": "known",
+   "reason": "output differs: line 16 is 'g raw=010101010101010101010101010101010101010101010101010...', expected 'g raw=010101010101010101010101010101010101010101010101010...'",
+   "inputs_sha256": "303d80c6c723c84ee2340f264ebd96f1405bf91c57a4d5edb2a6c551d38beca4"
+  }
+ },
+ "generated_at": "2026-11-05T22:35:57.582561+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

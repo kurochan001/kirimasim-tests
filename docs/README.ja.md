@@ -152,3 +152,4 @@
 | 修正後の再レビュー（2026-10-22） | [日本語](test-content-review-followup-20261022.md) | [English](test-content-review-followup-20261022.en.md) |
 | テスト側失敗 40 本のトリアージ（2026-10-28） | [日本語](test-failure-triage-20261028.md) | [English](test-failure-triage-20261028.en.md) |
 | テスト側の失敗と Issue #6–#19 の修正（2026-10-28） | [日本語](test-side-fixes-20261028.md) | [English](test-side-fixes-20261028.en.md) |
+| Claude Codeへの引き継ぎ（2026-11-06） | [日本語](codex-handoff-20261106.md) | [English](codex-handoff-20261106.en.md) |

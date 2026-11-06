@@ -1,0 +1,69 @@
+{
+  "model": "named_event_loop_transfer",
+  "scope": "Pinned releases execute identical saved event-loop SV and standard expectations. Only known-input cases matching both Verilator seeds receive its oracle. Icarus build rejections and Verilator delivery differences remain known; two-state observations never qualify raw X/Z.",
+  "versions_and_runs": [
+    {
+      "simulator": "icarus",
+      "run": "coverage/interaction-results/cross89-eventflow-icarus13.json",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "configuration": {},
+      "counts": {
+        "known": 36
+      },
+      "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46"
+    },
+    {
+      "simulator": "verilator",
+      "run": "coverage/interaction-results/cross89-eventflow-verilator5052-seed1.json",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "configuration": {
+        "seed": 1
+      },
+      "counts": {
+        "pass": 8,
+        "known": 28
+      },
+      "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf"
+    },
+    {
+      "simulator": "verilator",
+      "run": "coverage/interaction-results/cross89-eventflow-verilator5052-seed73.json",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "configuration": {
+        "seed": 73
+      },
+      "counts": {
+        "pass": 8,
+        "known": 28
+      },
+      "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf"
+    }
+  ],
+  "executables_sha256": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "verilator_driver": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+    "verilator_binary": "f2ba0ba23efcc197d00b785e9562fc6ae99b6dd7b009f14fefc83c187ed0c15d"
+  },
+  "diagnostic_redaction": {
+    "field": "tests.*.reason",
+    "note": "Display-only temporary paths are made portable; statuses, input/runner hashes and expectations are unchanged. Original raw artifacts are retained locally.",
+    "runs": [
+      {
+        "run": "coverage/interaction-results/cross89-eventflow-icarus13.json",
+        "raw_artifact_sha256": "b1ecaba7143e3ac56e64010d048ec371ebbcbca084f7fa014cdde41eb887d71a",
+        "fields_redacted": 0
+      },
+      {
+        "run": "coverage/interaction-results/cross89-eventflow-verilator5052-seed1.json",
+        "raw_artifact_sha256": "322318521cbfa3c854056e9f58906dbc8eaf3d2f0d6c0f97a71dabd93a316d06",
+        "fields_redacted": 0
+      },
+      {
+        "run": "coverage/interaction-results/cross89-eventflow-verilator5052-seed73.json",
+        "raw_artifact_sha256": "24d93c211ecc08bb24874ee09bfd8ff48b72c4cd01dc7e25cadb2cb7c87fe4f9",
+        "fields_redacted": 0
+      }
+    ]
+  }
+}

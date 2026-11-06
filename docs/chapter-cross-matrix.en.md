@@ -38,12 +38,14 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The 2026-11-06 mapping contains 88 models and 3,244 selected cases across 131 unordered off-diagonal pairs. The [complete kirimasim 6f5c69841228 local run](../coverage/interaction-results/cross88-kirimasim-6f5c6984-pkgquery.json) records 2,711 pass, 529 unsupported and four failures; 61 models passed their entire selection.
+The 2026-11-06 mapping contains 89 models and 3,280 selected cases across 132 unordered off-diagonal pairs. The [complete kirimasim 6f5c69841228 local run](../coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json) records 2,747 pass, 529 unsupported and four failures; 62 models passed their entire selection.
 
-[Check on baseline 9c39d865](https://github.com/kurochan001/kirimasim-tests/actions/runs/42051092628) passed pinned-release comparisons and static checks for the preceding 86-model suite.
-The [verified formal Nightly](nightly-results.en.md#latest-verified-checkpoint) covers 82 models on 19cd790a; the new 36 cases have not run in either Check or Nightly.
-The CSVs use the complete 3,244-case local cross88 run; partial successes from different runs are not combined.
+[Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
+[Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. These new 36 cases are outside both runs.
+The CSVs use the complete 3,280-case local cross89 run; partial successes from different runs are not combined.
 The thirteen random profiles and their 96 Nightly passes do not enter these matrices.
+
+- **12×15, event-loop transfers:** map the 24 skip/stop cases, adding one registered and one full-selection-pass model. Full-model success requires all 36, including twelve all-flow controls, in one saved run. See [design and independent evidence](interaction-verification.en.md#named-event-loop-transfer).
 
 - **20×26, package queries:** map all 36 cases, adding one registered model and one full-selection-pass model. Full-model success requires all 36 in the same saved run. See [design and independent evidence](interaction-verification.en.md#package-array-query-scope).
 

@@ -284,3 +284,12 @@
   両seedで一致した既知入力12件だけにoracleを登録し、bit/Xの偶然の一致は4状態の確認へ流用しません。
 - suiteは10,994件、生成4,557件・97生成器です。既存の入力・期待値・証跡・要求対応と13ランダムプロファイルは維持しました。
   今回の36件は正式Check・Nightlyでは未実行です。[設計と証跡](interaction-verification.md#package-array-query-scope)を参照してください。
+
+### 2026-11-06（イベント受信ループの追加）
+
+- 第12章×第15章を追加しました。代表化後の合法2,016行から36件を選び、独立SV解釈・正常対照6件・誤ったSVの9件を確認しました。
+- `6f5c69841228`の単一の全3,280件は2,747 pass・529 unsupported・既存configの4 failです。追加36件は全PASS、従来3,244件の入力・分類は不変です。
+- 全体は89モデル・132章対・全選択ケースPASSは62モデル、仕分けはM132/E3/C2/N117/R566です。
+  固定Icarusは36 known、Verilatorは両seedとも8 pass・28 knownです。別のblocking発火対照の成功は元のNBAケースへ加算しません。
+- suiteは11,030件、生成4,593件・98生成器です。要求カバレッジと13ランダムプロファイルを維持し、ツール回帰1,068件がPASSしました。
+  今回の追加は正式Check・Nightlyでは未実行です。[設計・証跡](interaction-verification.md#named-event-loop-transfer)を参照してください。

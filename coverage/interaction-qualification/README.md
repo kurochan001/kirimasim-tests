@@ -10,10 +10,11 @@
 
 ## 最新証跡の確認（2026-11-06 日本時間）
 
-現行は88モデル・3,244件で、[package問い合わせの独立確認](#package-query-qualification)を参照してください。
+現行は89モデル・3,280件で、[イベント受信ループの独立確認](#event-loop-qualification)を参照してください。
+[`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json)は、基点67321079のCheck/Nightlyと全ジョブの成功を記録します。個別artifactは未照合です。以下の旧基点は詳細照合の範囲を区別して保持します。
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json)は前回までの86モデルの固定版比較・静的検査のCheck成功を確認します。
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は82モデルを対象にした正式Nightly・publish・ランダム96 PASSの記録であり、実行を混同しません。
-今回の36件はCheck・Nightlyでは未実行です。生成ループ以降の216件は、この確認済み正式Nightlyの範囲外です。
+今回の36件はCheck・Nightlyでは未実行です。生成ループ以降の252件は、この個別artifactまで照合済みの旧Nightlyの範囲外です。
 
 <a id="checkpoint-9926160a"></a>
 
@@ -483,3 +484,15 @@ Zのビルド診断、Icarusの拒否を保持します。2値の観測でX/Zの
 [固定版比較](pkgquery-fixed-replays.json)はIcarus 36 known、Verilator seed 1が12 pass・24 known、seed 73が13 pass・23 knownです。
 [全36件のIcarus診断と代表的な両seedのX/Z出力](pkgquery-known-replays.json)を保持し、偶然一致したbit/Xを4状態の確認へ流用しません。
 全体は88モデル・131章対・全選択ケースPASSは61モデルです。[設計・制約・再実行](../../docs/interaction-verification.md#package-array-query-scope)を参照してください。
+
+<a id="event-loop-qualification"></a>
+
+## イベント受信ループの独立確認
+
+[`eventflow.json`](eventflow.json)は全2,016行を独立したActive/NBAキューとループ・待機・取消しの解釈で照合します。
+正常対照6件・誤ったSVの9件は正常終了し、誤りはすべて出力差で検出しました。
+[ビルド記録](eventflow-build.json)は`6f5c69841228`の全3,280件（2,747 pass・529 unsupported・既存4 fail）を識別します。
+追加36件は全PASS、従来3,244件の入力・分類は不変です。89モデル・132章対・全選択ケースPASSは62モデルです。
+[固定版比較](eventflow-fixed-replays.json)はIcarus 36 known、Verilator両seedとも8 pass・28 knownです。
+[元の診断・出力](eventflow-known-replays.json)と[別のblocking発火対照4件](eventflow-blocking-controls/)を保存しました。
+後者のVerilator両seed計8一致を元のNBAケースのPASSへ数えません。[設計と再実行](../../docs/interaction-verification.md#named-event-loop-transfer)を参照してください。

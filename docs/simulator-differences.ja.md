@@ -966,3 +966,13 @@ Verilator両seedは各3 pass・33 knownで、既知値2件だけにoracleを登�
 両seedで一致した既知入力12件だけにoracleを登録し、seed 73だけのbit/Xの一致は4状態の確認に使いません。
 最新kirimasimは全36件で規格期待値と一致しました。[モデルの範囲](interaction-verification.md#package-array-query-scope)と
 [全Icarus診断・両seedの代表出力](../coverage/interaction-qualification/pkgquery-known-replays.json)を参照してください。
+
+<a id="named-event-loop-differences"></a>
+
+## 名前付きイベントの受信ループ（2026-11-06）
+
+固定Icarus 13.0は36件をビルド時に拒否します。固定Verilator 5.052は両seedとも8 pass・28 knownで、既知入力のNBA発火4件にも受信数の差があります。
+[元の全Icarus診断とVerilator出力](../coverage/interaction-qualification/eventflow-known-replays.json)を保存しました。
+元の`->>`だけを`->`へ変え、変更後の期待値を独立解釈した別対照4件は、Verilator両seedで一致します。
+この補助結果を元のNBAケースの成功へ加算せず、内部原因やNBA機能全般の可否は断定しません。
+kirimasimの実測版`6f5c69841228`は元の全36件で規格期待値と一致しました。[範囲と具体例](interaction-verification.md#named-event-loop-transfer)を参照してください。
