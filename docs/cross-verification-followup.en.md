@@ -159,5 +159,52 @@ Requirement bindings, thirteen random profiles, existing regressions and core so
 - Chapters 3 and 5, which had no model, now have [time-scope](interaction-verification.en.md#time-scope-delay) and [literal](interaction-verification.en.md#literal-context-extension) models. [Gate arrays](interaction-verification.en.md#gate-array-connection) also review chapters 7, 11, 23 and 4 x 28.
 - 19 chapter pairs moved from R to M: chapter 3 x 5, 9, 10, 13, 20, 21, 22, 23, 25 and 26; chapter 5 x 6, 10, 11, 20 and 22; chapters 4, 7, 11 and 23 x 28.
 - One complete 3,445-case run on kirimasim `60c26d7c8113` records 2,912 pass, 529 unsupported and four existing config failures. All 165 additions pass. Totals: 92 models, 151 chapter pairs, 65 full-selection-pass models.
-- Class-property NBAs and `$assertoff` were candidates too, but kirimasim has not implemented them and the pinned releases give no comparison, so they were left out. Chapter 8 x 10 and 16 x 20 stay under review.
+- Class-property NBAs and `$assertoff` were candidates too, but kirimasim has not implemented them and the pinned releases give no comparison, so they were left out. Chapter 8 x 10 and 16 x 20 stay under review. See [candidates waiting for kirimasim](#models-waiting-for-kirimasim).
 - The literal expectation was wrong once; a run of all legal rows revealed it and it was corrected from the clause. See the [history](interaction-verification.en.md#literal-context-extension).
+
+<a id="models-waiting-for-kirimasim"></a>
+
+## Candidates waiting for kirimasim
+
+The three items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
+When a full cross run uses a new kirimasim build, try the programs below. When one no longer reports `not implemented yet`, add the model or observation.
+The 529 existing unsupported cases are not listed: they have tests, and their results change once the feature is implemented.
+Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `60c26d7c8113` on 2026-11-07.
+
+Take expectations from the standard, and check them by [running every legal row once](interaction-verification-method.en.md#run-every-legal-row-once).
+
+### Nonblocking assignment to a class property (new model, chapter 8 x 10)
+
+10.4.2 evaluates a class handle or index in the left side together with the right side, so the update goes to the object chosen at scheduling.
+After scheduling, reassign or null the handle and change an index, include intra-assignment delays, and read both objects before and after the update.
+Pinned Verilator 5.052 rejects it as an automatic variable, and pinned Icarus 13.0 rejected an indexed property in a probe.
+
+```systemverilog
+class C; logic [7:0] x; endclass
+module top;
+  C h = new;
+  initial begin h.x <= 8'h5a; #1 $display("%h", h.x); $finish; end
+endmodule
+```
+
+### Assertion control (new model, chapter 16 x 20)
+
+In 20.11, Off leaves queued reports of deferred assertions, and Kill removes them. Lock stops later changes, and PassOff and FailOff stop action blocks.
+Cross the control type, the assertion kind (simple, observed deferred, final deferred), scope and level, and the order of the control against a queued report.
+Pinned Icarus 13.0 does not support deferred assertions. Pinned Verilator 5.052 has not been tried.
+
+```systemverilog
+module top;
+  initial begin $assertoff(0, top); a: assert (0); $asserton(0, top); $display("end"); $finish; end
+endmodule
+```
+
+### `$printtimescale` in a package (added observation for `time_scope_delay`)
+
+20.4.2 defines printing the unit and precision of the current scope.
+Print it in the task of [`interaction_timescope.py`](../generators/interaction_timescope.py), raise `VERSION` and refresh the evidence. The selected inputs change, so a full cross rerun is needed too.
+
+```systemverilog
+package pk; timeunit 1ns / 1ps; task automatic t; $printtimescale; endtask endpackage
+module top; timeunit 1ns / 1ps; initial begin pk::t; $finish; end endmodule
+```

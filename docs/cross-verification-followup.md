@@ -154,5 +154,52 @@ Icarusは31入力に一致し、repeat回数1の5件は拒否を保持して、�
 - これまでモデルのなかった第3章と第5章に、[時間スコープ](interaction-verification.md#time-scope-delay)と[リテラル](interaction-verification.md#literal-context-extension)のモデルを追加しました。[ゲート配列](interaction-verification.md#gate-array-connection)で第7・11・23・4章×第28章も精査しました。
 - 第3章×第5・9・10・13・20・21・22・23・25・26章、第5章×第6・10・11・20・22章、第4・7・11・23章×第28章の19章対をRからMへ移しました。
 - kirimasim `60c26d7c8113`の単一の全3,445件は2,912 pass・529 unsupported・既存configの4 failです。追加165件は全PASSです。92モデル・151章対・全選択ケースPASSは65モデルです。
-- クラスのNBAと`$assertoff`も候補に調べましたが、kirimasimが未実装で固定版とも比較できないので見送りました。第8×10章と第16×20章は要精査のまま残ります。
+- クラスのNBAと`$assertoff`も候補に調べましたが、kirimasimが未実装で固定版とも比較できないので見送りました。第8×10章と第16×20章は要精査のまま残ります。[実装を待つ候補](#models-waiting-for-kirimasim)に記録しました。
 - リテラルの期待値を一度誤り、全合法行の実行で気づいて条文から直しました。[経緯](interaction-verification.md#literal-context-extension)を参照してください。
+
+<a id="models-waiting-for-kirimasim"></a>
+
+## kirimasimの実装を待つ候補
+
+次の3件は、kirimasimが未実装なので見送りました。テストがまだないので、実装されても結果は変わらず、確認しなければ気づけません。
+kirimasimの新しいビルドで全クロスを実行するときに下のプログラムを試し、`not implemented yet`が出なくなったらモデルや観測を追加します。
+既存の未対応529件はテストがあり、実装されれば結果が変わるので、この一覧には入れません。
+同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-07のkirimasim `60c26d7c8113`のものです。
+
+期待値は規格から求め、[全合法行を一度実行](interaction-verification-method.md#run-every-legal-row-once)して確かめます。
+
+### クラスプロパティへのNBA（第8×10章の新モデル）
+
+10.4.2は、左辺のクラスハンドルと添字を右辺と同時に評価すると定めるので、更新先は予約時のオブジェクトです。
+予約後にハンドルの付替えやnull代入、添字の変更を行い、代入内遅延も交えて、更新の前後で両方のオブジェクトを読みます。
+固定Verilator 5.052は自動変数として拒否し、固定Icarus 13.0は試作で添字付きのプロパティを拒否しました。
+
+```systemverilog
+class C; logic [7:0] x; endclass
+module top;
+  C h = new;
+  initial begin h.x <= 8'h5a; #1 $display("%h", h.x); $finish; end
+endmodule
+```
+
+### アサーション制御（第16×20章の新モデル）
+
+20.11のOffは待ち行列にある遅延アサーションの報告を残し、Killは消します。Lockは以後の変更を止め、PassOffとFailOffはアクションブロックを止めます。
+制御の種類、アサーションの種類（単純、observed遅延、final遅延）、スコープと階層、待ち行列の報告に対する制御の順序を交差します。
+固定Icarus 13.0は遅延アサーションを未対応とします。固定Verilator 5.052は未確認です。
+
+```systemverilog
+module top;
+  initial begin $assertoff(0, top); a: assert (0); $asserton(0, top); $display("end"); $finish; end
+endmodule
+```
+
+### packageの`$printtimescale`（`time_scope_delay`への観測の追加）
+
+20.4.2は、現在のスコープの単位と精度の表示を定めています。
+[`interaction_timescope.py`](../generators/interaction_timescope.py)のtaskで表示し、`VERSION`を上げて証跡を更新します。選択ケースの入力が変わるので、全クロスの再実行も必要です。
+
+```systemverilog
+package pk; timeunit 1ns / 1ps; task automatic t; $printtimescale; endtask endpackage
+module top; timeunit 1ns / 1ps; initial begin pk::t; $finish; end endmodule
+```
