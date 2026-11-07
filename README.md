@@ -464,6 +464,7 @@ tools/normalize_output.py       normalizes a simulator's output before it is com
 tools/suite_results.py          the JSON form of a runner's results (--json)
 tools/results_history.py        keeps the nightly history and draws its charts
 tools/results_ratchet.py        lists the tests that matched in the previous run and differ now
+tools/differences_status.py     reports the tests of docs/simulator-differences.md on the latest master
 tools/suite_stats.py            counts the tests and keeps both README language versions' tables
 tools/suite_catalog.py          writes the catalog of the tests, docs/tests/
 tools/coverage_depth.py         writes docs/coverage-depth.md, the depth report
@@ -984,7 +985,10 @@ as additional gates. It has six jobs:
 - **publish** collects the `--json` results of the jobs that finished, adds
   them to the history on the `results` branch with
   `tools/results_history.py update`, measures behavioral coverage using only
-  that run's result files, and pushes the branch. The summary of the run
+  that run's result files, writes `differences-on-master.md`, the result on
+  the latest `master` of each test that
+  [docs/simulator-differences.md](docs/simulator-differences.md) names
+  (`tools/differences_status.py`), and pushes the branch. The summary of the run
   lists each simulator's counts, tests whose result changed and behavioral
   coverage. Publishing waits for all five simulator jobs to finish, including
   failed jobs; a successful publish is what updates the chart and report.

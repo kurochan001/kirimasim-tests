@@ -410,6 +410,7 @@ tools/normalize_output.py       比較前の出力正規化
 tools/suite_results.py          実行結果のJSON形式（--json）
 tools/results_history.py        Nightlyの履歴とグラフ生成
 tools/results_ratchet.py        前回一致して今回不一致のテストの一覧
+tools/differences_status.py     差異一覧のテストの最新masterでの結果
 tools/suite_stats.py            テスト集計と両言語のREADMEの表の更新
 tools/suite_catalog.py          docs/tests/のカタログ生成
 tools/coverage_depth.py         docs/coverage-depth.mdの生成
@@ -828,7 +829,9 @@ GitHubが混雑していると数時間遅れることがあります。実行�
   取得先と実行プロファイルはSecretsから読みます。公開するのは仮名・ビルドのハッシュ・テスト結果で、
   ソースやビルド出力はランナー内に留めます。
 - **publish**：完了したジョブの`--json`結果を集め、`tools/results_history.py update`で
-  `results`ブランチの履歴に追加し、その実行の結果ファイルだけで要求カバレッジを測定してpushします。
+  `results`ブランチの履歴に追加し、その実行の結果ファイルだけで要求カバレッジを測定し、
+  [差異一覧](docs/simulator-differences.ja.md)が挙げる各テストの最新`master`での結果を
+  `differences-on-master.ja.md`に書いて（`tools/differences_status.py`）、pushします。
   実行の要約には、各シミュレータの件数、結果が変わったテスト、要求カバレッジを載せます。
   失敗したものも含めて5シミュレータすべての完了を待ち、publish成功時にグラフとレポートが更新されます。
   公開するのは`main`の実行だけです。別ブランチでの手動実行は、シミュレータを動かして結果を

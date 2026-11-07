@@ -8,7 +8,7 @@
 
 リリースがまったく対応せず、エラー、"sorry"、"unsupported"のメッセージで停止する構文は列挙していない。それらは、コンパイルできない既知の差異として表示される。Verilator の2状態シミュレータとしてのx，zおよび強度の欠如もリストされていない。構文未対応だけを理由にリリースが拒否する規格違反の設計も、同様に列挙しない。そのエラーがテストで指定した行にあればランナーは拒否として数えるが、`:oracle:`にそのリリースを記録しない理由を、テストのコメントに記述する。
 
-これらはプロジェクトに報告されていない。[ナイトリーレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)は両方の最新バージョン`master`を実行しており、開発バージョンが現在一致している既知の差異は、Icarus Verilogのための`NOW MATCHES`または新しい一致として表示されます。
+これらはプロジェクトに報告していない。報告する前に、現在の開発版で確かめること。[ナイトリーレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)は両方の最新の`master`を実行しており、[差異一覧のテストの最新masterでの結果](https://github.com/kurochan001/kirimasim-tests/blob/results/differences-on-master.ja.md)は、ここに挙げた各テストについて、その実行でまだ異なるか、一致したかを、実行した版と時刻とともに示す。そこで一致しても、この一覧は変わらない。人が確かめてから項目を直す。
 
 新しいテストでそのような場所を見つけたら、ここに追加し、テストのコメントにも言ってください。[相互作用ガイド](interaction-verification.md)には、2026-10-30の複合シフトとmembership追加に対する出典の節、独立した検算、および保持した未対応ケースを記載している。その[保存された実行の要約](interaction-verification.md#保存実行の概要)は、それらの実行をCIおよびNightlyから分けている。固定リリースの観察は 後の開発ビルドについての主張ではありません
 

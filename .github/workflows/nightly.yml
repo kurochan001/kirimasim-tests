@@ -538,6 +538,21 @@ jobs:
             "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" \
             "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" >> "$GITHUB_STEP_SUMMARY"
 
+      # For each test that docs/simulator-differences.md names, the result of
+      # the latest run of the same simulator (tools/differences_status.py).
+      # Only a report: a failure here leaves a warning and publishing goes on.
+      - name: Report the listed differences on master
+        run: |
+          if python3 tools/differences_status.py --icarus history/latest/icarus.json \
+               --verilator history/latest/verilator.json --output history \
+               --source-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/$GITHUB_SHA"; then
+            printf '\nListed differences on master / 差異一覧のテストの最新masterでの結果: [English](%s/%s/blob/results/differences-on-master.md) / [日本語](%s/%s/blob/results/differences-on-master.ja.md)\n' \
+              "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" \
+              "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning::The report of the listed differences on master was not written."
+          fi
+
       - name: Push the results branch
         working-directory: history
         run: |
