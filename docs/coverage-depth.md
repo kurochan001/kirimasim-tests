@@ -26,8 +26,8 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 807 |
-| Icarus Verilog 13.0 only | 5590 |
+| both releases | 808 |
+| Icarus Verilog 13.0 only | 5589 |
 | Verilator 5.052 only | 2129 |
 | standard only | 3247 |
 

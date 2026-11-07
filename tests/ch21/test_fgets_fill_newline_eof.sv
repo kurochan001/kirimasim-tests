@@ -23,6 +23,8 @@
 // Only the whole bytes of the 28-bit str are printed. The file is created in
 // the current directory. The 5.052 release of Verilator counts the partial
 // byte and reads "efg" and the newline into the 28-bit str (n=4).
+// shown() builds its result with string concatenation (Table 6-9), not with ?:
+// between a string literal and a string, whose type 11.4.11 leaves in doubt.
 
 module test_fgets_fill_newline_eof;
   int fd, fw, n;
@@ -32,7 +34,12 @@ module test_fgets_fill_newline_eof;
 
   function automatic string shown(string t);
     string r = "";
-    for (int i = 0; i < t.len(); i++) r = {r, t[i] == "\n" ? "<nl>" : string'(t[i])};
+    for (int i = 0; i < t.len(); i++) begin
+      byte c;
+      c = t[i];
+      if (c == "\n") r = {r, "<nl>"};
+      else r = {r, string'(c)};
+    end
     return r;
   endfunction
 

@@ -214296,9 +214296,9 @@
         {
           "test": "tests/ch21/test_fgets_fill_newline_eof.sv",
           "observation": "$fgets の戻り値を各呼び出しで表示する。読んだ文字数として 4,3,1,3,2 を返し、EOF で何も読めないとき 0、書き込み専用で開いた記述子から読もうとする誤りでも 0 を返す。 区別: 戻り値が読んだ文字数でない(改行を数えない、容量を返す等)実装では n= の値が変わり、誤り時に -1 や非0を返す実装では at the end や write-only descriptor の行が変わる。$ferror は許可であり値を規定しないため観測しない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c24018ab9f67cf7e2acd8fb648804e75784cc3931da4fa67f005fac86aaa6819",
+          "reviewed_on": "2026-11-08",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "390c6cb91c1f4b01a2282a93d0dd3d726160061815efa44d208fec5c07553fa1",
           "evidence": [
             {
               "file": "tests/ch21/test_fgets_fill_newline_eof.sv",
@@ -214344,9 +214344,9 @@
         {
           "test": "tests/ch21/test_fgets_fill_newline_eof.sv",
           "observation": "\"abcdefg\\nhi\\nxy\" のファイルを読む。32ビット変数は満杯で止まり abcd(n=4)、28ビット変数は上位の部分バイトを数えず3文字 efg(n=3)で止まり改行を読まない。続く string は単独の改行(n=1)、改行を含む hi<nl>(n=3)、EOF までの xy(n=2) を読む。 区別: 満杯で止まらない実装では32ビット行が、部分バイトを容量に数える実装では28ビット行が n=4 に、改行で止まらない・改行を落とす実装では string の行が変わる。EOF で止まる場合は xy(n=2) で確認する。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c24018ab9f67cf7e2acd8fb648804e75784cc3931da4fa67f005fac86aaa6819",
+          "reviewed_on": "2026-11-08",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "390c6cb91c1f4b01a2282a93d0dd3d726160061815efa44d208fec5c07553fa1",
           "evidence": [
             {
               "file": "tests/ch21/test_fgets_fill_newline_eof.sv",

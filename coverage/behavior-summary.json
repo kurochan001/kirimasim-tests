@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "c7eeb0dc2663441a50aedf5c6dfc84d090eed875ecb08acf94bdb16c0935f603",
+  "registry_sha256": "05e52998d45f4c7498d0bce312e3976f9e1fe0510fa50fce336d29a844626d0d",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -25,14 +25,14 @@
   "denominator_reviewed": true,
   "extraction_progress_percent": 100.0,
   "unmapped": 1318,
-  "executed": 9537,
+  "executed": 9535,
   "whole_standard_percent": 89.28281021304277,
-  "whole_standard_executed_percent": 77.54919499105546,
+  "whole_standard_executed_percent": 77.53293218409497,
   "registered_percent": 89.28281021304277,
   "metric_policy_version": 3,
   "whole_standard_status": "confirmed",
   "provisional_design_percent": 89.28281021304277,
-  "provisional_execution_percent": 77.54919499105546,
+  "provisional_execution_percent": 77.53293218409497,
   "denominator": {
     "count": 12298,
     "unit": "registered_requirement_condition_or_observation",
@@ -48,8 +48,8 @@
   },
   "collective_requirement_count": 652,
   "requirement_status_counts": {
-    "pass": 9537,
-    "mapped_without_pass": 1443,
+    "pass": 9535,
+    "mapped_without_pass": 1445,
     "unmapped": 1318,
     "interpretation_pending": 0
   },
@@ -259,9 +259,9 @@
       "title": "Input/output system tasks and system functions",
       "registered": 383,
       "mapped": 347,
-      "executed": 333,
+      "executed": 331,
       "design_percent": 90.60052219321149,
-      "execution_percent": 86.94516971279373,
+      "execution_percent": 86.42297650130548,
       "interpretation_pending": 0
     },
     {
@@ -3770,8 +3770,6 @@
           "SV2023-21.3.4-EXTRACT-FILE-READ-SYNTAX",
           "SV2023-21.3.4.1-EXTRACT-FGETC",
           "SV2023-21.3.4.1-EXTRACT-UNGETC",
-          "SV2023-21.3.4.2-EXTRACT-FGETS-RESULT",
-          "SV2023-21.3.4.2-EXTRACT-FGETS-TERMINATION",
           "SV2023-21.3.4.3-EXTRACT-FSCANF-SOURCE",
           "SV2023-21.3.4.3-EXTRACT-SCAN-ARG-COUNT",
           "SV2023-21.3.4.3-EXTRACT-SCAN-BINARY",
@@ -10034,14 +10032,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 102,
+        "stale_links": 104,
         "status_counts": {
-          "pass": 7882,
+          "pass": 7880,
           "fail": 1454,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1274,
-          "stale": 80,
+          "stale": 82,
           "not_run": 290,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -11681,8 +11679,6 @@
           "SV2023-21.3.4-EXTRACT-FILE-READ-SYNTAX",
           "SV2023-21.3.4.1-EXTRACT-FGETC",
           "SV2023-21.3.4.1-EXTRACT-UNGETC",
-          "SV2023-21.3.4.2-EXTRACT-FGETS-RESULT",
-          "SV2023-21.3.4.2-EXTRACT-FGETS-TERMINATION",
           "SV2023-21.3.4.3-EXTRACT-FSCANF-SOURCE",
           "SV2023-21.3.4.3-EXTRACT-SCAN-ARG-COUNT",
           "SV2023-21.3.4.3-EXTRACT-SCAN-BINARY",
@@ -18015,14 +18011,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 39,
+        "stale_links": 41,
         "status_counts": {
-          "pass": 7961,
+          "pass": 7959,
           "fail": 1434,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1274,
-          "stale": 21,
+          "stale": 23,
           "not_run": 290,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -19635,8 +19631,6 @@
           "SV2023-21.3.4-EXTRACT-FILE-READ-SYNTAX",
           "SV2023-21.3.4.1-EXTRACT-FGETC",
           "SV2023-21.3.4.1-EXTRACT-UNGETC",
-          "SV2023-21.3.4.2-EXTRACT-FGETS-RESULT",
-          "SV2023-21.3.4.2-EXTRACT-FGETS-TERMINATION",
           "SV2023-21.3.4.3-EXTRACT-FSCANF-SOURCE",
           "SV2023-21.3.4.3-EXTRACT-SCAN-ARG-COUNT",
           "SV2023-21.3.4.3-EXTRACT-SCAN-BINARY",
@@ -25900,14 +25894,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 102,
+        "stale_links": 104,
         "status_counts": {
-          "pass": 7865,
+          "pass": 7863,
           "fail": 1552,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1193,
-          "stale": 80,
+          "stale": 82,
           "not_run": 290,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -29735,14 +29729,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 308,
+        "stale_links": 310,
         "status_counts": {
           "pass": 3793,
           "fail": 0,
-          "known": 5955,
+          "known": 5953,
           "unsupported": 0,
           "unreviewed_oracle": 668,
-          "stale": 272,
+          "stale": 274,
           "not_run": 292,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -31038,8 +31032,6 @@
           "SV2023-21.3.3-EXTRACT-SFORMATF-RESULT",
           "SV2023-21.3.4.1-EXTRACT-FGETC",
           "SV2023-21.3.4.1-EXTRACT-UNGETC",
-          "SV2023-21.3.4.2-EXTRACT-FGETS-RESULT",
-          "SV2023-21.3.4.2-EXTRACT-FGETS-TERMINATION",
           "SV2023-21.3.4.3-EXTRACT-FSCANF-SOURCE",
           "SV2023-21.3.4.3-EXTRACT-SCAN-ARG-COUNT",
           "SV2023-21.3.4.3-EXTRACT-SCAN-BINARY",
@@ -33490,14 +33482,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 540,
+        "stale_links": 542,
         "status_counts": {
-          "pass": 3118,
+          "pass": 3116,
           "fail": 0,
           "known": 7096,
           "unsupported": 0,
           "unreviewed_oracle": 158,
-          "stale": 489,
+          "stale": 491,
           "not_run": 119,
           "unmapped": 1318,
           "interpretation_pending": 0

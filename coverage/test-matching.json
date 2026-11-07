@@ -8901,7 +8901,7 @@
     },
     {
       "test": "tests/ch11/test_A_extra_specparam_range.sv",
-      "inputs_sha256": "aaddfd057126382a70ae5ab3868383cd1e7e3c6b66a3236a518eef11caf0c100",
+      "inputs_sha256": "610abd5f64af12f518035bc970a21f4f56e22761bbd83961ca00b9a39054e58e",
       "cited_clauses": [
         "11.2.1",
         "6.20.5",
@@ -135541,7 +135541,7 @@
     },
     {
       "test": "tests/ch21/test_fgets_fill_newline_eof.sv",
-      "inputs_sha256": "c24018ab9f67cf7e2acd8fb648804e75784cc3931da4fa67f005fac86aaa6819",
+      "inputs_sha256": "390c6cb91c1f4b01a2282a93d0dd3d726160061815efa44d208fec5c07553fa1",
       "cited_clauses": [
         "21.3.4.2",
         "21.3.1",
@@ -910971,7 +910971,7 @@
     "oracle_issue": 249,
     "partial_observation": 2136
   },
-  "registry_sha256": "c7eeb0dc2663441a50aedf5c6dfc84d090eed875ecb08acf94bdb16c0935f603",
+  "registry_sha256": "05e52998d45f4c7498d0bce312e3976f9e1fe0510fa50fce336d29a844626d0d",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
   "review_ledger_sha256": "efca1ea7694d507cd61cda11f8e000325e15f1feb16427a2d9ec1f26b90b51fb"
 }

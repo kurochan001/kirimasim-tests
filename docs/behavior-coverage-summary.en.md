@@ -13,7 +13,7 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 ## Value for all standards in the required table
 
 - Requirement coverage (test design): 89.28% ( 10980/12298 ).
-- The execution confirmation rate is 77.55% ( 9537/12298 ). Union of successes across environments.
+- The execution confirmation rate is 77.53% ( 9535/12298 ). Union of successes across environments.
 - The denominator includes pending interpretations and items without test mappings. We do not exclude non-implemented and non-supported.
 - The registration unit is the occurrence point, condition, and observation case of the requirement, and the duplication of meaning is integrated by the review of the denominator. This is neither the fraction of all program/input combinations tested nor a single simulator's standard conformance rate.
 
@@ -32,7 +32,7 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 ## Definite value
 
 - Requirement coverage (test design): 89.28%.
-- Requirement execution-confirmation rate: 77.55%.
+- Requirement execution-confirmation rate: 77.53%.
 - Approval of denominator: Approval. The measured state is `confirmed`.
 - The method was confirmed after document verification, resolution of the reservation interpretation, duplication of the requirement unit, and review of the denominator.
 
@@ -40,8 +40,8 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 ## Remains
 
-- There is a record of the path result corresponding to the current input: 9537 line.
-- No record of passed/passout results: 1443 line.
+- There is a record of the path result corresponding to the current input: 9535 line.
+- No record of passed/passout results: 1445 line.
 - Test compatibility not confirmed (except for interpretation reservation): 1318 line.
 - Interpretation reservation: 0 line.
 
@@ -92,11 +92,11 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` : 2/12298 ( 0.02% )。 Measurement source: `2026-10-28T22:47:59.529525+00:00` / `coverage-tests-20261029-icarus13.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 10977; stale evidence 1; unapproved judgment evidence for illegal-design tests 0 rows.
 - `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 2/12298 ( 0.02% )。 Measurement source: `2026-10-28T22:46:15.799172+00:00` / `coverage-tests-20261029-verilator.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 10978; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
 - `sby` / `unknown SBY version` : 290/12298 ( 2.36% )。 Measurement source: `2026-10-27T13:59:10.011684+00:00` / `formal-20261027-sby.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 10690; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
-- `ghost` / `private build 7ed5e63eedf9` : 7882/12298 ( 64.09% )。 Measurement source: `2026-10-31T10:33:23.126942+00:00` / `ghost-local-20261031-strict.json` 。 Failures 1454; known mismatches 0; unsupported 0; not run 290; stale evidence 80; unapproved judgment evidence for illegal-design tests 1274 rows.
-- `ghost` / `private build be060962f878` : 7961/12298 ( 64.73% )。 Measurement source: `2026-10-31T13:37:26.206441+00:00` / `ghost-local-20261031-strict2.json` 。 Failures 1434; known mismatches 0; unsupported 0; not run 290; stale evidence 21; unapproved judgment evidence for illegal-design tests 1274 rows.
-- `ghost` / `private build 88d08d9c3441` : 7865/12298 ( 63.95% )。 Measurement source: `2026-10-31T08:07:21.082572+00:00` / `ghost-local-20261031.json` 。 Failures 1552; known mismatches 0; unsupported 0; not run 290; stale evidence 80; unapproved judgment evidence for illegal-design tests 1193 rows.
+- `ghost` / `private build 7ed5e63eedf9` : 7880/12298 ( 64.08% )。 Measurement source: `2026-10-31T10:33:23.126942+00:00` / `ghost-local-20261031-strict.json` 。 Failures 1454; known mismatches 0; unsupported 0; not run 290; stale evidence 82; unapproved judgment evidence for illegal-design tests 1274 rows.
+- `ghost` / `private build be060962f878` : 7959/12298 ( 64.72% )。 Measurement source: `2026-10-31T13:37:26.206441+00:00` / `ghost-local-20261031-strict2.json` 。 Failures 1434; known mismatches 0; unsupported 0; not run 290; stale evidence 23; unapproved judgment evidence for illegal-design tests 1274 rows.
+- `ghost` / `private build 88d08d9c3441` : 7863/12298 ( 63.94% )。 Measurement source: `2026-10-31T08:07:21.082572+00:00` / `ghost-local-20261031.json` 。 Failures 1552; known mismatches 0; unsupported 0; not run 290; stale evidence 82; unapproved judgment evidence for illegal-design tests 1193 rows.
 - `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` : 2/12298 ( 0.02% )。 Measurement source: `2026-10-28T13:33:20.979624+00:00` / `issues-20261028-icarus13.json` 。 Failures 0; known mismatches 75; unsupported 0; not run 10891; stale evidence 12; unapproved judgment evidence for illegal-design tests 0 rows.
-- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 3793/12298 ( 30.84% )。 Measurement source: `2026-10-28T13:45:50.335531+00:00` / `issues-20261028-verilator.json` 。 Failures 0; known mismatches 5955; unsupported 0; not run 292; stale evidence 272; unapproved judgment evidence for illegal-design tests 668 rows.
+- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 3793/12298 ( 30.84% )。 Measurement source: `2026-10-28T13:45:50.335531+00:00` / `issues-20261028-verilator.json` 。 Failures 0; known mismatches 5953; unsupported 0; not run 292; stale evidence 274; unapproved judgment evidence for illegal-design tests 668 rows.
 - `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` : 13/12298 ( 0.11% )。 Measurement source: `2026-10-30T20:31:55.476769+00:00` / `issues-20261031-icarus13.json` 。 Failures 0; known mismatches 162; unsupported 0; not run 10776; stale evidence 19; unapproved judgment evidence for illegal-design tests 10 rows.
 - `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 42/12298 ( 0.34% )。 Measurement source: `2026-10-30T20:31:59.218896+00:00` / `issues-20261031-verilator-seed1.json` 。 Failures 0; known mismatches 122; unsupported 0; not run 10789; stale evidence 19; unapproved judgment evidence for illegal-design tests 8 rows.
 - `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 42/12298 ( 0.34% )。 Measurement source: `2026-10-30T20:32:01.484680+00:00` / `issues-20261031-verilator-seed73.json` 。 Failures 0; known mismatches 122; unsupported 0; not run 10789; stale evidence 19; unapproved judgment evidence for illegal-design tests 8 rows.
@@ -119,7 +119,7 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)` : 21/12298 ( 0.17% )。 Measurement source: `2026-10-27T13:37:34.824763+00:00` / `quality-persim-20261027-icarus14.json` 。 Failures 0; known mismatches 35; unsupported 0; not run 10923; stale evidence 1; unapproved judgment evidence for illegal-design tests 0 rows.
 - `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 19/12298 ( 0.15% )。 Measurement source: `2026-10-27T13:37:34.897897+00:00` / `quality-persim-20261027-verilator-seed1.json` 。 Failures 0; known mismatches 32; unsupported 0; not run 10927; stale evidence 2; unapproved judgment evidence for illegal-design tests 0 rows.
 - `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 19/12298 ( 0.15% )。 Measurement source: `2026-10-27T13:37:34.973472+00:00` / `quality-persim-20261027-verilator-seed73.json` 。 Failures 0; known mismatches 32; unsupported 0; not run 10927; stale evidence 2; unapproved judgment evidence for illegal-design tests 0 rows.
-- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 3118/12298 ( 25.35% )。 Measurement source: `2026-10-27T14:45:42.063155+00:00` / `refresh-20261027-icarus13.json` 。 Failures 0; known mismatches 7096; unsupported 0; not run 119; stale evidence 489; unapproved judgment evidence for illegal-design tests 158 rows.
+- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 3116/12298 ( 25.34% )。 Measurement source: `2026-10-27T14:45:42.063155+00:00` / `refresh-20261027-icarus13.json` 。 Failures 0; known mismatches 7096; unsupported 0; not run 119; stale evidence 491; unapproved judgment evidence for illegal-design tests 158 rows.
 - `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 2636/12298 ( 21.43% )。 Measurement source: `2026-10-27T14:43:38.130423+00:00` / `refresh-20261027-verilator-seed1.json` 。 Failures 0; known mismatches 4676; unsupported 0; not run 3130; stale evidence 454; unapproved judgment evidence for illegal-design tests 84 rows.
 - `ghost` / `private build 9ba2e0575dcb` : 72/12298 ( 0.59% )。 Measurement source: `2026-10-31T12:31:48.317872+00:00` / `test-fixes-20261031-ghost.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 10907; stale evidence 1; unapproved judgment evidence for illegal-design tests 0 rows.
 - `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` : 0/12298 ( 0.00% )。 Measurement source: `2026-10-31T12:25:03.867848+00:00` / `test-fixes-20261031-icarus-include.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 10979; stale evidence 1; unapproved judgment evidence for illegal-design tests 0 rows.
@@ -153,7 +153,7 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - 18 Constrained random value generation: test compatible 300/320 ( 93.75% ), execution confirmation 239/320 ( 74.69% ), interpretation reserve 0 rows.
 - 19 Functional coverage: test compatible 232/271 ( 85.61% ), execution confirmation 121/271 ( 44.65% ), interpretation reserve 0 rows.
 - 20 Utility system tasks and system functions: test support 285/316 ( 90.19% ), execution confirmation 229/316 ( 72.47% ), interpretation reserve 0.
-- 21 Input/output system tasks and system functions: test support 347/383 ( 90.60% ), execution confirmation 333/383 ( 86.95% ), interpretation reserve 0.
+- 21 Input/output system tasks and system functions: test support 347/383 ( 90.60% ), execution confirmation 331/383 ( 86.42% ), interpretation reserve 0.
 - 22 Compiler directives: Test-ready 345/361 ( 95.57% ), execution-confirm 339/361 ( 93.91% ), interpretation-reserved 0 lines.
 - 23 Modules and hierarchy: Test-ready 251/260 ( 96.54% ), execution-confirm 162/260 ( 62.31% ), interpretation-reserved 0 rows.
 - 24 Programs: Test-ready 16/29 ( 55.17% ), execution-confirm 15/29 ( 51.72% ), interpretation-reserved 0 lines.
