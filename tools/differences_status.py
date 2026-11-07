@@ -19,8 +19,9 @@ upstream is for a person to check.
 
 A test counts for a simulator when the nearest heading above it that names a
 simulator names only that one, or "both releases"; else when its line names
-only one of them; else when the test's :oracle: leaves out that simulator's
-release. After a full name, a short form such as `_08` stands for the name with
+only one of them, by name or by the number of the release (13.0, 5.052, but
+not iverilog@13.0); else when the test's :oracle: leaves out that
+simulator's release. After a full name, a short form such as `_08` stands for the name with
 as many of its last parts replaced. A name with * or {a,b} is a pattern,
 reported as a group with the number of matching tests in each state; the text
 of the item may narrow the group. The report also lists names that are not
@@ -41,12 +42,12 @@ LIST_JA = "docs/simulator-differences.ja.md"
 REPORT = "differences-on-master.md"
 REPORT_JA = "differences-on-master.ja.md"
 SOURCE_URL = "https://github.com/kurochan001/kirimasim-tests/blob/main"
-# The simulators of the list: the word that names each in a heading or a line,
-# its name in the report, and the release that :oracle: names when the
-# expected output is that release's.
+# The simulators of the list: the words that name each in a heading or a line
+# (the list also writes "the 5.052 release"), its name in the report, and the
+# release that :oracle: names when the expected output is that release's.
 SIMULATORS = {
-    "icarus": ("Icarus", "Icarus Verilog", "iverilog@13.0"),
-    "verilator": ("Verilator", "Verilator", "verilator@5.052"),
+    "icarus": (("Icarus", "13.0"), "Icarus Verilog", "iverilog@13.0"),
+    "verilator": (("Verilator", "5.052"), "Verilator", "verilator@5.052"),
 }
 TOKEN = re.compile(r"\[[^\]\n]*\]\(([^)\s]+)\)|`([^`\n]+)`")
 NAME = re.compile(r"(?<![\w/])((?:gen/|imported/)?ch\d+/test_[A-Za-z0-9_*{},]+)")
@@ -68,7 +69,8 @@ def slugs(headings: list[str]) -> list[str]:
 
 def named(text: str) -> set[str]:
     """The simulators that a heading or a line names alone, or both."""
-    found = {key for key, (word, _, _) in SIMULATORS.items() if word in text}
+    found = {key for key, (words, _, _) in SIMULATORS.items()
+             if any(re.search(rf"(?<![\w.@]){re.escape(w)}(?![\w.])", text) for w in words)}
     if not found and "both releases" in text.lower():
         return set(SIMULATORS)
     return found
@@ -282,8 +284,10 @@ def render(language: str, found: dict, runs: dict, headings: list[tuple[str, str
     oracle_rows = [(t, key, h) for key in runs for t, h in found["simulators"][key]["oracle"].items()]
     lines += ["", f"### {tr('Named for a release that the test’s :oracle: lists', 'テストの :oracle: が挙げる版について挙げたもの')}"
               f" ({len(oracle_rows)})", "",
-              tr("The expected output of such a test is that release's, so the item may be out of date.",
-                 "このテストの期待出力はその版のものなので、項目が古くなっている可能性があります。"), ""]
+              tr("The expected output of such a test is that release's, so the test does not show the "
+                 "difference on that release: the item may be out of date, or the test may work around it.",
+                 "このテストの期待出力はその版のものなので、テストはその版での差を示しません。"
+                 "項目が古いか、テストが差を避けている可能性があります。"), ""]
     if oracle_rows:
         lines += ["| " + tr("Test | Simulator | Result of the run | Item of the list",
                             "テスト | シミュレータ | 実行の結果 | 一覧の項目") + " |", "| --- | --- | --- | --- |"]

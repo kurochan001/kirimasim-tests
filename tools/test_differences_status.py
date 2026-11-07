@@ -34,6 +34,9 @@ Intro that names Icarus Verilog 13.0 and Verilator 5.052 and `ch1/test_intro`.
 ## 2026-11-03: dated additions
 
 - Verilator 5.052 alone: `ch1/test_dated_v`.
+- The 5.052 release alone, by its number: `ch1/test_dated_n`.
+- The 13.0 release alone, by its number: `ch1/test_dated_i`.
+- Its :oracle: lists `iverilog@13.0`, which names no simulator: `ch1/test_dated_at`.
 - Icarus 13.0 and Verilator 5.052 both: `ch1/test_dated_both`.
 - Neither named: `ch1/test_dated_none`.
 
@@ -56,6 +59,9 @@ ORACLES = {
     "ch1/test_both_oracles": "spec iverilog@13.0 verilator@5.052",
     "ch1/test_ver": "spec iverilog@13.0",
     "ch1/test_dated_v": "spec",
+    "ch1/test_dated_n": "spec",
+    "ch1/test_dated_i": "spec",
+    "ch1/test_dated_at": "spec iverilog@13.0",
     "ch1/test_dated_both": "spec iverilog@13.0",
     "ch1/test_dated_none": "spec verilator@5.052",
     "ch1/test_history": "spec",
@@ -66,9 +72,10 @@ ICARUS = {"ch1/test_ica": "pass", "ch1/test_icb": "known", "gen/ch2/test_gen_con
           "gen/ch2/test_gen_cond_08": "pass", "gen/ch2/test_gen_fam_one_a": "pass",
           "gen/ch2/test_gen_fam_two_b": "known", "ch1/test_both_oracles": "pass",
           "ch1/test_dated_none": "pass", "ch1/test_history": "known",
-          "ch1/test_dated_v": "known"}
+          "ch1/test_dated_v": "known", "ch1/test_dated_n": "known", "ch1/test_dated_i": "known"}
 VERILATOR = {"ch1/test_ver": "pass", "ch1/test_dated_v": "known", "ch1/test_dated_both": "known",
-             "ch1/test_history": "pass"}
+             "ch1/test_history": "pass", "ch1/test_dated_n": "known", "ch1/test_dated_at": "known",
+             "ch1/test_dated_i": "known"}
 
 
 class Report(unittest.TestCase):
@@ -93,9 +100,11 @@ class Report(unittest.TestCase):
         _, found = self.found()
         icarus, verilator = found["simulators"]["icarus"], found["simulators"]["verilator"]
         self.assertEqual(sorted(icarus["match"]), ["ch1/test_dated_none", "ch1/test_ica", "gen/ch2/test_gen_cond_08"])
-        self.assertEqual(sorted(icarus["differ"]), ["ch1/test_history", "ch1/test_icb", "gen/ch2/test_gen_cond_07"])
+        self.assertEqual(sorted(icarus["differ"]),
+                         ["ch1/test_dated_i", "ch1/test_history", "ch1/test_icb", "gen/ch2/test_gen_cond_07"])
         self.assertEqual(sorted(verilator["match"]), ["ch1/test_history", "ch1/test_ver"])
-        self.assertEqual(sorted(verilator["differ"]), ["ch1/test_dated_both", "ch1/test_dated_v"])
+        self.assertEqual(sorted(verilator["differ"]),
+                         ["ch1/test_dated_at", "ch1/test_dated_both", "ch1/test_dated_n", "ch1/test_dated_v"])
 
     def test_the_title_and_unnamed_lines_go_by_oracle(self):
         _, found = self.found()
@@ -145,7 +154,7 @@ class Report(unittest.TestCase):
         english = (self.root / "out" / status.REPORT).read_text(encoding="utf-8")
         japanese = (self.root / "out" / status.REPORT_JA).read_text(encoding="utf-8")
         self.assertIn("| Icarus Verilog | icarus devel | 2026-11-07 06:16 | [`0123456`]"
-                      "(https://example.org/r/commit/0123456789abcdef) | 6 | 3 | 3 | 0 |", english)
+                      "(https://example.org/r/commit/0123456789abcdef) | 7 | 4 | 3 | 0 |", english)
         self.assertIn("### Now match (3)", english)
         self.assertIn("(https://example.org/r/blob/abc/docs/simulator-differences.md#results)", english)
         self.assertIn("| `gen/ch2/test_gen_fam_{one,two}_*` |", english)
