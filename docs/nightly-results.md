@@ -36,7 +36,10 @@ suite `19cd790a5f639348ad67fd63959dce9811d3ab56`の[Nightly](https://github.com/
 
 ### 直近のローカル追加
 
-最新のローカル追加は[時間スコープ](interaction-verification.md#time-scope-delay)・[リテラル](interaction-verification.md#literal-context-extension)・[ゲート配列](interaction-verification.md#gate-array-connection)の165件で、92モデル・3,445件です。
+最新のローカル追加は[マクロ展開](interaction-verification.md#macro-expansion-context)・[force/release](interaction-verification.md#force-release-visibility)・[暗黙の感度](interaction-verification.md#implicit-sensitivity-update)の247件で、95モデル・3,692件です。
+最新のmainをビルドした`97d5b0001e7c`による[単一実行](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json)は3,159 pass・529 unsupported・4 failです。追加247件は全PASS、従来3,445件の入力・分類は不変です。今回の247件は正式Check・Nightlyでは未実行です。
+
+その前のローカル追加は[時間スコープ](interaction-verification.md#time-scope-delay)・[リテラル](interaction-verification.md#literal-context-extension)・[ゲート配列](interaction-verification.md#gate-array-connection)の165件で、92モデル・3,445件です。
 最新のmainをビルドした`60c26d7c8113`による[単一実行](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json)は2,912 pass・529 unsupported・4 failです。追加165件は全PASS、従来3,280件の入力・分類は不変です。今回の165件は正式Check・Nightlyでは未実行です。
 
 その前のローカル追加は[イベント受信ループの36件](interaction-verification.md#named-event-loop-transfer)で、89モデル・3,280件です。

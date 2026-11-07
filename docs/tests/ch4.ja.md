@@ -4,7 +4,7 @@
 
 [English](ch4.md) / [日本語](ch4.ja.md)
 
-[すべての章](README.ja.md) .412 325 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .473 386 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -97,6 +97,76 @@
 | [`test_pli_pre_active_next_and_start_time`](../../tests/ch4/test_pli_pre_active_next_and_start_time.sv) |cbNextSimTimeとcbAtStartOfSimTimeのコールバックは Pre-Active 領域で実行され、そのタイムステップのデザインイベントの前に実行され、書き込んだ値はそのステップのデザインプロセスに見られ、それを待っているプロセスを起動させます。| 4.10 4.4.3.2 38.36.2 38.34 | Icarus Verilog 13.0 | VPI |
 | [`test_pli_read_write_synch_before_reactive`](../../tests/ch4/test_pli_read_write_synch_before_reactive.sv) |cbReadWriteSynch 回のコールバックは Pre-NBA または Post-NBA 領域で実行され、そのタイムステップのアクティブとインアクティブイベントの後、Reactive 領域のプログラムプロセスの前に実行され、書き込んだ値は同じタイムステップで処理されます。| 4.10 4.4.3.3 4.4.3.4 38.36.2 24.3.1 |標準のみ| VPI |
 | [`test_pli_region_callbacks`](../../tests/ch4/test_pli_region_callbacks.sv) |1タイムステップのシミュレーション時刻コールバックは、設計のイベントを挟むPLI領域で実行される。cbAtStartOfSimTimeはActive領域より前、cbAtEndOfSimTimeはNBA領域より後、cbReadOnlySynchは最後となる| 4.10 4.4.3 38.36.2 | Icarus Verilog 13.0 | VPI |
+
+<a id="generated-by-generatorsinteraction_sensepy"></a>
+
+## 生成者: `generators/interaction_sense.py`
+
+61 テスト;見て "Generated tests" のスイートの README。
+
+|テスト|チェックするもの|条項|予期した出力を記録|ノート|
+| --- | --- | --- | --- | --- |
+| [`test_gen_cross_sense_assign_concat_same_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_concat_same_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 11.4.12 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_assign_cond_same_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_cond_same_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 11.4.11 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_assign_element_unread_nba`](../../tests/gen/ch4/test_gen_cross_sense_assign_element_unread_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 7.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_assign_fnarg_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_fnarg_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 13.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_assign_fnglobal_read_task`](../../tests/gen/ch4/test_gen_cross_sense_assign_fnglobal_read_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 13.4 |標準のみ||
+| [`test_gen_cross_sense_assign_index_index_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_index_index_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 7.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_assign_index_same_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_index_same_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 7.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_assign_member_second_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_member_second_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 7.2 | Verilator 5.052 ||
+| [`test_gen_cross_sense_assign_packed_same_task`](../../tests/gen/ch4/test_gen_cross_sense_assign_packed_same_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 7.2.1 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_assign_part_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_part_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 11.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_assign_plain_second_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_plain_second_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 6.8 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_comb_concat_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_concat_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 11.4.12 |標準のみ||
+| [`test_gen_cross_sense_comb_cond_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_cond_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 11.4.11 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_comb_element_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_element_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 7.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_comb_fnarg_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_fnarg_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 13.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_comb_fnglobal_same_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_fnglobal_same_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 13.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_comb_fnglobal_second_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_fnglobal_second_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 13.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_comb_fnglobal_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_fnglobal_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 13.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_comb_index_index_task`](../../tests/gen/ch4/test_gen_cross_sense_comb_index_index_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 7.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_comb_index_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_index_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 7.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_comb_member_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_member_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 7.2 |標準のみ||
+| [`test_gen_cross_sense_comb_packed_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_packed_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 7.2.1 |標準のみ||
+| [`test_gen_cross_sense_comb_part_same_nba`](../../tests/gen/ch4/test_gen_cross_sense_comb_part_same_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 11.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_comb_part_second_task`](../../tests/gen/ch4/test_gen_cross_sense_comb_part_second_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 11.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_comb_part_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_part_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 11.5.1 |標準のみ||
+| [`test_gen_cross_sense_comb_plain_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_plain_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 6.8 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_comb_plain_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_plain_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 6.8 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_latch_concat_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_concat_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 11.4.12 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_latch_cond_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_cond_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 11.4.11 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_latch_cond_second_task`](../../tests/gen/ch4/test_gen_cross_sense_latch_cond_second_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 11.4.11 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_latch_element_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_element_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_latch_element_same_blocking`](../../tests/gen/ch4/test_gen_cross_sense_latch_element_same_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_latch_fnarg_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_fnarg_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 13.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_latch_fnglobal_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_fnglobal_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 13.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_latch_index_index_blocking`](../../tests/gen/ch4/test_gen_cross_sense_latch_index_index_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_latch_index_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_index_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_latch_member_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_member_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.2 |標準のみ||
+| [`test_gen_cross_sense_latch_member_unread_task`](../../tests/gen/ch4/test_gen_cross_sense_latch_member_unread_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.2 |標準のみ||
+| [`test_gen_cross_sense_latch_packed_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_packed_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.2.1 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_latch_part_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_part_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 11.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_latch_plain_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_plain_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 6.8 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_netdecl_concat_second_blocking`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_concat_second_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 11.4.12 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_netdecl_cond_index_blocking`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_cond_index_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 11.4.11 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_netdecl_element_second_task`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_element_second_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 7.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_netdecl_fnarg_same_task`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_fnarg_same_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 13.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_netdecl_fnglobal_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_fnglobal_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 13.4 |標準のみ||
+| [`test_gen_cross_sense_netdecl_index_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_index_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 7.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_netdecl_member_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_member_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 7.2 | Verilator 5.052 ||
+| [`test_gen_cross_sense_netdecl_packed_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_packed_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 7.2.1 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_netdecl_part_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_part_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 11.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_netdecl_plain_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_plain_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 6.8 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_sense_star_concat_unread_task`](../../tests/gen/ch4/test_gen_cross_sense_star_concat_unread_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 11.4.12 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_sense_star_cond_index_nba`](../../tests/gen/ch4/test_gen_cross_sense_star_cond_index_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 11.4.11 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_sense_star_element_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_star_element_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 7.4 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_sense_star_fnarg_second_blocking`](../../tests/gen/ch4/test_gen_cross_sense_star_fnarg_second_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 13.4 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_sense_star_fnglobal_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_star_fnglobal_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 13.4 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_sense_star_index_second_nba`](../../tests/gen/ch4/test_gen_cross_sense_star_index_second_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 7.4 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_sense_star_member_same_blocking`](../../tests/gen/ch4/test_gen_cross_sense_star_member_same_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 7.2 |標準のみ| x/z |
+| [`test_gen_cross_sense_star_packed_second_blocking`](../../tests/gen/ch4/test_gen_cross_sense_star_packed_second_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 7.2.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_sense_star_part_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_star_part_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_sense_star_plain_same_task`](../../tests/gen/ch4/test_gen_cross_sense_star_plain_same_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 6.8 | Icarus Verilog 13.0 | x/z |
 
 <a id="generated-by-generatorsschedulingpy"></a>
 

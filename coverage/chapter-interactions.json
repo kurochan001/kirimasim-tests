@@ -2329,6 +2329,247 @@
           "reason": "遅延付きゲートの出力が、入力の変化から立上り・立下り・ターンオフの表の時間の後に更新されることを、重ならない時刻で読む。"
         }
       ]
+    },
+    {
+      "id": "macro_expansion_context",
+      "primary_chapter": 22,
+      "pairs": [
+        {
+          "chapters": [
+            10,
+            22
+          ],
+          "when": {
+            "context": [
+              "assign"
+            ]
+          },
+          "reason": "連続代入の右辺でマクロを展開し、外側の演算子との結合を値で確かめる。"
+        },
+        {
+          "chapters": [
+            11,
+            22
+          ],
+          "reason": "本体と実引数が文字として置かれるので、優先順位の低い演算子の結合が展開の形で変わることを確かめる。"
+        },
+        {
+          "chapters": [
+            12,
+            22
+          ],
+          "when": {
+            "context": [
+              "case"
+            ]
+          },
+          "reason": "case項目の式でマクロを展開し、三項演算子のコロンと項目のコロンを混同しないことを確かめる。"
+        },
+        {
+          "chapters": [
+            13,
+            22
+          ],
+          "when": {
+            "context": [
+              "func"
+            ]
+          },
+          "reason": "関数の本体でマクロを展開し、コンパイル単位の定義が関数の中でも使えることを確かめる。"
+        },
+        {
+          "chapters": [
+            21,
+            22
+          ],
+          "when": {
+            "context": [
+              "show"
+            ]
+          },
+          "reason": "$displayの引数でマクロを展開し、文字列化した実引数の置換も表示で確かめる。"
+        },
+        {
+          "chapters": [
+            22,
+            26
+          ],
+          "when": {
+            "context": [
+              "pkg"
+            ]
+          },
+          "reason": "パッケージのパラメータでマクロを展開し、定義がパッケージの外の位置からも届くことを確かめる。"
+        },
+        {
+          "chapters": [
+            22,
+            25
+          ],
+          "when": {
+            "context": [
+              "ifc"
+            ]
+          },
+          "reason": "インタフェースの連続代入でマクロを展開し、インスタンスから値を読む。"
+        },
+        {
+          "chapters": [
+            22,
+            27
+          ],
+          "when": {
+            "context": [
+              "gen"
+            ]
+          },
+          "reason": "生成ブロックの条件と中の定数でマクロを展開し、展開の結果でブロックの有無が決まることを確かめる。"
+        },
+        {
+          "chapters": [
+            8,
+            22
+          ],
+          "when": {
+            "context": [
+              "cls"
+            ]
+          },
+          "reason": "クラスの静的メソッドの本体でマクロを展開し、定義がクラスの外の位置からも届くことを確かめる。"
+        },
+        {
+          "chapters": [
+            9,
+            22
+          ],
+          "when": {
+            "context": [
+              "fork"
+            ]
+          },
+          "reason": "forkの中の代入でマクロを展開する。"
+        },
+        {
+          "chapters": [
+            20,
+            22
+          ],
+          "when": {
+            "context": [
+              "dim"
+            ]
+          },
+          "reason": "定数の幅の式でマクロを展開し、$bitsで結果を確かめる。"
+        },
+        {
+          "chapters": [
+            7,
+            22
+          ],
+          "when": {
+            "context": [
+              "member"
+            ]
+          },
+          "reason": "構造体の代入パターンの要素でマクロを展開し、カンマを含む実引数とメンバの区切りを混同しないことを確かめる。"
+        }
+      ]
+    },
+    {
+      "id": "force_release_visibility",
+      "primary_chapter": 10,
+      "pairs": [
+        {
+          "chapters": [
+            10,
+            21
+          ],
+          "when": {
+            "observer": [
+              "strobe",
+              "monitor"
+            ]
+          },
+          "reason": "forceとreleaseの結果を$strobeと$monitorで読み、時間ステップの最後の値と、値が変わったときだけの表示を確かめる。"
+        },
+        {
+          "chapters": [
+            10,
+            20
+          ],
+          "when": {
+            "observer": [
+              "query"
+            ]
+          },
+          "reason": "forceした値を$countones・$isunknown・$bitsで読み、X/Zを含む値と部分選択の幅を確かめる。"
+        },
+        {
+          "chapters": [
+            4,
+            6
+          ],
+          "when": {
+            "target": [
+              "cont",
+              "pca",
+              "net",
+              "part",
+              "wor",
+              "ncat"
+            ]
+          },
+          "reason": "releaseの後に網は直ちにドライバの値を持ち、連続代入のある変数は再評価で戻るという、データの種類による更新の違いを確かめる。"
+        }
+      ]
+    },
+    {
+      "id": "implicit_sensitivity_update",
+      "primary_chapter": 4,
+      "pairs": [
+        {
+          "chapters": [
+            4,
+            7
+          ],
+          "when": {
+            "read": [
+              "element",
+              "index",
+              "member",
+              "packed"
+            ]
+          },
+          "reason": "配列の要素や構造体のメンバへの更新が、最長静的接頭辞の重なる読み手だけを起こすことを、再評価の回数で確かめる。"
+        },
+        {
+          "chapters": [
+            4,
+            11
+          ],
+          "when": {
+            "read": [
+              "part",
+              "cond",
+              "concat"
+            ]
+          },
+          "reason": "部分選択・条件演算子・連結のオペランドの更新で右辺を再評価し、読まない部分や同じ値の書込みでは再評価しないことを確かめる。"
+        },
+        {
+          "chapters": [
+            4,
+            6
+          ],
+          "when": {
+            "process": [
+              "assign",
+              "netdecl"
+            ]
+          },
+          "reason": "変数への連続代入と網の宣言代入で、オペランドの変化だけが左辺を更新することを確かめる。"
+        }
+      ]
     }
   ]
 }

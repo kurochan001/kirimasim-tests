@@ -1,0 +1,157 @@
+{
+  "generated_at": "2026-11-07T07:21:32.227029+00:00",
+  "scope": "One run of every legal row, outside the selected witnesses, to look for expectations that the model and its independent interpretation share in error. The rows are not fixed-suite tests and do not enter any count. Rows are compiled from generator output in a temporary directory.",
+  "kirimasim": {
+    "version": "kirimasim 0.0.0 (commit 97d5b0001e7c), built with AppleClang 21.0.0.21000401",
+    "binary_sha256": "5a11f983510ebabdb681210d7613e641095d194f33bcab6d213088b3a9755bee"
+  },
+  "icarus": {
+    "version": "Icarus Verilog version 13.0 (stable) (v13_0)"
+  },
+  "correction": null,
+  "models": {
+    "macro_expansion_context": {
+      "legal_rows": 7679,
+      "selected": 114,
+      "kirimasim_differences": 0,
+      "icarus": {
+        "match": 5537,
+        "differ": 27,
+        "reject": 2115
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "form": {
+          "function": 168,
+          "object": 276,
+          "omit": 438,
+          "empty": 438,
+          "second": 276,
+          "late": 168,
+          "actual": 168,
+          "lines": 168,
+          "paste": 42
+        },
+        "body": {
+          "bare": 714,
+          "wrap": 714,
+          "twice": 714
+        },
+        "actual": {
+          "simple": 486,
+          "low": 444,
+          "brace": 768,
+          "cond": 444
+        },
+        "context": {
+          "cls": 693,
+          "member": 693,
+          "assign": 84,
+          "case": 84,
+          "func": 84,
+          "show": 84,
+          "pkg": 84,
+          "ifc": 84,
+          "gen": 84,
+          "fork": 84,
+          "dim": 84
+        },
+        "arrange": {
+          "unit": 252,
+          "other": 252,
+          "same": 252,
+          "redefine": 630,
+          "undef": 252,
+          "elsif": 252,
+          "ifndef": 252
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "13e8da8f1c76e66f35cc0921a36bfeafb6b8dd565c8ca98abba7725bb922076d"
+    },
+    "force_release_visibility": {
+      "legal_rows": 2160,
+      "selected": 72,
+      "kirimasim_differences": 0,
+      "icarus": {
+        "match": 1392,
+        "differ": 408,
+        "reject": 360
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "target": {
+          "var": 54,
+          "cont": 102,
+          "pca": 108,
+          "net": 18,
+          "part": 90,
+          "vcat": 198,
+          "ncat": 198
+        },
+        "rhs": {
+          "const": 202,
+          "unknown": 202,
+          "expr": 364
+        },
+        "during": {
+          "hold": 246,
+          "driver": 276,
+          "source": 246
+        },
+        "write": {
+          "blocking": 384,
+          "nba": 384
+        },
+        "observer": {
+          "monitor": 282,
+          "display": 72,
+          "strobe": 144,
+          "event": 126,
+          "query": 144
+        },
+        "site": {
+          "direct": 228,
+          "task": 312,
+          "hier": 228
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "12bf81e31a9fbbe9b9bee5261a8ba7695015ab7ad7f2afce8f9f8af97fac1fda"
+    },
+    "implicit_sensitivity_update": {
+      "legal_rows": 630,
+      "selected": 61,
+      "kirimasim_differences": 0,
+      "icarus": {
+        "match": 546,
+        "differ": 24,
+        "reject": 60
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "process": {
+          "comb": 21,
+          "latch": 21,
+          "star": 12,
+          "assign": 15,
+          "netdecl": 15
+        },
+        "read": {
+          "member": 60,
+          "packed": 6,
+          "part": 6,
+          "concat": 6,
+          "fnglobal": 6
+        },
+        "change": {
+          "read": 21,
+          "unread": 33,
+          "same": 15,
+          "second": 15
+        },
+        "writer": {
+          "blocking": 28,
+          "nba": 28,
+          "task": 28
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "0dd342fd5a59a597ccc6f54708b059495a562d95a8f4fb0d93ffe99e973ed43d"
+    }
+  }
+}

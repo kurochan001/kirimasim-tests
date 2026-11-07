@@ -10,7 +10,7 @@
 
 ## 最新証跡の確認（2026-11-06 日本時間）
 
-現行は92モデル・3,445件で、[時間スコープ・リテラル・ゲート配列の独立確認](#time-literal-gate-qualification)を参照してください。
+現行は95モデル・3,692件で、[マクロ展開・force/release・暗黙の感度の独立確認](#macro-force-sense-qualification)を参照してください。
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json)は、基点67321079のCheck/Nightlyと全ジョブの成功を記録します。個別artifactは未照合です。以下の旧基点は詳細照合の範囲を区別して保持します。
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json)は前回までの86モデルの固定版比較・静的検査のCheck成功を確認します。
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は82モデルを対象にした正式Nightly・publish・ランダム96 PASSの記録であり、実行を混同しません。
@@ -509,3 +509,16 @@ Zのビルド診断、Icarusの拒否を保持します。2値の観測でX/Zの
 [全Icarusの差とVerilatorの代表出力](timelitgate-known-replays.json)を保存しました。
 [全行の記録](timelitgate-all-rows.json)は全19,080行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。リテラルの期待値を直した経緯も記録します。
 [設計と再実行](../../docs/interaction-verification.md#time-scope-delay)を参照してください。
+
+<a id="macro-force-sense-qualification"></a>
+
+## マクロ展開・force/release・暗黙の感度の独立確認
+
+[`macro.json`](macro.json)は全7,679行、[`force.json`](force.json)は全2,160行、[`sense.json`](sense.json)は全630行を独立した解釈で照合します。
+正常対照は順に9件・8件・9件、誤ったSVは順に10件・10件・9件で、誤りはすべて正常終了後の出力差で検出しました。
+[ビルド記録](macroforcesense-build.json)は`97d5b0001e7c`の全3,692件（3,159 pass・529 unsupported・既存4 fail）を識別します。
+追加247件は全PASS、従来3,445件の入力・分類は不変です。95モデル・168章対・全選択ケースPASSは68モデルです。
+[固定版比較](macroforcesense-fixed-replays.json)はIcarus 192 pass・55 known、Verilator両seedとも179 pass・68 knownです。
+[全Icarusの差とVerilatorの代表出力](macroforcesense-known-replays.json)を保存しました。
+[全行の記録](macroforcesense-all-rows.json)は全10,469行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。kirimasimの差は0件です。
+[設計と再実行](../../docs/interaction-verification.md#macro-expansion-context)を参照してください。

@@ -994,3 +994,17 @@ Tested kirimasim `6f5c69841228` matches standard expectations for all 36 origina
 
 See [all Icarus differences and representative outputs](../coverage/interaction-qualification/timelitgate-known-replays.json). kirimasim `60c26d7c8113` matches the standard's expectations on all 19,080 rows of the three models.
 See the [scope](interaction-verification.en.md#time-scope-delay).
+
+<a id="macro-force-sense-differences"></a>
+
+## Macro expansion, force and release, implicit sensitivity (2026-11-07)
+
+- **Icarus 13.0 macros:** a redefined macro does not take new formals or defaults. If the old definition had arguments, a use of a new definition without them is rejected, and a new default is ignored (27 rows give other values over all rows). A comma inside the braces of a default splits it, and the design is rejected. Redefining a macro with a default for a later argument stops `iverilog` itself.
+- **Icarus 13.0 unsupported forms:** unpacked structures, and an expression calling a static class method as `class_name::`.
+- **Icarus 13.0 force:** forcing an expression on a concatenation stops `iverilog` itself. An expression cannot be forced on a part-select of a net. `$monitor` displays on a write or release that changes no value. A variable under `assign` does not get its value back on release. A concatenation cannot be passed to `$strobe` or `$monitor`. `$countones` and `$isunknown` of a forced concatenation give other values.
+- **Icarus 13.0 sensitivity:** `always_comb` and `always_latch` reading a part-select or concatenation also wake on a write of a part not read. A continuous assignment reading a function without arguments does not use the new value of what the function reads (`16`, not `3c`).
+- **Verilator 5.052 force:** many constants with X or Z are unsupported tristate forms (20 cases). The others show no X, being two-state. Forcing an expression on `wor` changes the value at time 0.
+- **Verilator 5.052 sensitivity:** a `$display` in the body of `always_comb` or `always_latch` never prints after time 0, though the output values are right. `always @*` runs at time 0 without waiting for a change. A continuous assignment of a function reading something other than its arguments reevaluates when that changes.
+
+See [all Icarus differences and representative outputs](../coverage/interaction-qualification/macroforcesense-known-replays.json). kirimasim `97d5b0001e7c` matches the standard's expectations on all 10,469 rows of the three models.
+See the [scope](interaction-verification.en.md#macro-expansion-context).

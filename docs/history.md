@@ -335,3 +335,12 @@ clause 37.
 - Five of the ten issues were mistakes in the tests and were fixed; the other five change no test. A script search found the mistake of #56 in seven more illegal-design tests.
 - Design coverage stays at 10,980/12,298 and execution at 9,537/12,298. One requirement left the execution count until Ghost runs its changed test, and the time-format requirement joined it. The suite stays at 11,193 tests.
   These fixes have not yet run in Nightly. See the [decisions](issues-48-57-review-20261107.en.md).
+
+### 2026-11-07 (macro, force/release and implicit-sensitivity addition)
+
+- Added models for macro expansion, force and release, and implicit sensitivity. 247 cases come from 10,469 legal rows, and 17 chapter pairs moved from R to M.
+- One complete 3,692-case run on `97d5b0001e7c`, built from the latest main, records 3,159 pass / 529 unsupported / four existing config failures. All 247 additions pass; preceding 3,445 inputs/statuses are unchanged.
+- Totals: 95 models, 168 chapter pairs, 68 full-selection-pass models; triage M168/E3/C2/N117/R530.
+  Pinned Icarus has 192 pass / 55 known and Verilator 179 pass / 68 known at both seeds.
+- The suite has 11,440 tests, 5,005 generated from 104 generators. Requirement coverage and thirteen random profiles are unchanged.
+  This addition has not run in formal Check/Nightly. See the [design and evidence](interaction-verification.en.md#macro-expansion-context).

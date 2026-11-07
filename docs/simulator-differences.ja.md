@@ -993,3 +993,17 @@ kirimasimの実測版`6f5c69841228`は元の全36件で規格期待値と一致�
 
 [全Icarusの差と代表出力](../coverage/interaction-qualification/timelitgate-known-replays.json)を保存しました。kirimasim `60c26d7c8113`は3モデルの全19,080行で規格の期待値と一致しました。
 [範囲](interaction-verification.md#time-scope-delay)を参照してください。
+
+<a id="macro-force-sense-differences"></a>
+
+## マクロ展開・force/release・暗黙の感度（2026-11-07）
+
+- **Icarus 13.0のマクロ：** 再定義したマクロの仮引数と既定値を取り直しません。古い定義に引数があると、新しい定義の引数なしの使用を拒否し、新しい既定値を無視します（全行で27行が異なる値）。既定値の波括弧の中のカンマで区切り、拒否します。後ろの引数の既定値を再定義すると`iverilog`自体が停止します。
+- **Icarus 13.0の未対応：** 非パックド構造体と、クラスの静的メソッドを`クラス名::`で呼ぶ式を受理しません。
+- **Icarus 13.0のforce：** 連結へ式をforceすると`iverilog`自体が停止します。網の部分選択へ式をforceできません。`$monitor`は値が変わらない書込みやreleaseでも表示します。`assign`のある変数はreleaseで値が戻りません。連結を`$strobe`と`$monitor`に渡せません。forceした連結への`$countones`と`$isunknown`は値が異なります。
+- **Icarus 13.0の感度：** 部分選択や連結を読む`always_comb`と`always_latch`は読まない部分への書込みでも起きます。引数のない関数を読む連続代入は、関数が読む変数の更新後の値を使いません（`3c`ではなく`16`）。
+- **Verilator 5.052のforce：** X/Zを含む定数の多くを三状態の未対応とします（20件）。残りは二状態のためXを表せません。`wor`への式のforceは時刻0の値を変えます。
+- **Verilator 5.052の感度：** `always_comb`と`always_latch`の本体の`$display`が時刻0より後に一度も表示しません。出力の値は正しいです。`always @*`は変化を待たずに時刻0に動きます。引数以外を読む関数の連続代入は、関数が読む変数の変更で再評価します。
+
+[全Icarusの差と代表出力](../coverage/interaction-qualification/macroforcesense-known-replays.json)を保存しました。kirimasim `97d5b0001e7c`は3モデルの全10,469行で規格の期待値と一致しました。
+[範囲](interaction-verification.md#macro-expansion-context)を参照してください。

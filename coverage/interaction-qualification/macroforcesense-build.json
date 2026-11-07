@@ -1,0 +1,35 @@
+{
+  "models": [
+    "macro_expansion_context",
+    "force_release_visibility",
+    "implicit_sensitivity_update"
+  ],
+  "generated_at": "2026-11-07T07:20:41.388128+00:00",
+  "scope": "Final headers with pinned-release oracles. The latest main was cloned to a separate directory, configured and built before one complete finite-cross run, so the shared checkout stayed untouched. An identical immutable binary snapshot ran. Formal CI is separate.",
+  "base_revision": "97d5b0001e7ca759ae8f928c6217690a119d1700",
+  "upstream_main_revision": "97d5b0001e7ca759ae8f928c6217690a119d1700",
+  "tracked_worktree_clean_at_build": true,
+  "binary_sha256": "5a11f983510ebabdb681210d7613e641095d194f33bcab6d213088b3a9755bee",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit 97d5b0001e7c), built with AppleClang 21.0.0.21000401",
+  "run": "coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json",
+  "counts": {
+    "pass": 3159,
+    "unsupported": 529,
+    "fail": 4
+  },
+  "new_cases": 247,
+  "new_cases_by_model": {
+    "force": 72,
+    "macro": 114,
+    "sense": 61
+  },
+  "previous_cases": 3445,
+  "previous_run": "coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json",
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "new_case_statuses": {
+    "pass": 247
+  }
+}

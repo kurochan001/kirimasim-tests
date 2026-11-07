@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の101生成器から4,758件のテストを生成しています。
+現在の104生成器から5,005件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -54,6 +54,7 @@
 | [`interaction_eventflow`](../generators/interaction_eventflow.py) | 15 | 36 | 名前付きイベントを読むforループでbreak/continueと待機開始順を交差し、受信と保持の履歴を照合する。同じタイムスロットのtriggeredとエッジ待機、NBA発火、別イベントの独立性と取消し後の再待機を観測する。 |
 | [`interaction_eventlife`](../generators/interaction_eventlife.py) | 15 | 18 | 自動タスク復帰後の構造体内イベントの同一性・別名解放・遅延した待機登録と、別呼出しの独立性・全体コピー後のpayload・起床時刻を照合する。 |
 | [`interaction_expr`](../generators/interaction_expr.py) | 11 | 51 | 4組の入力で加減乗算の結果を確認する。演算前の符号・ゼロ拡張、代入先からの幅の伝播、キャリー、最終的な切り捨てを組み合わせる。 |
+| [`interaction_force`](../generators/interaction_force.py) | 10 | 72 | 変数・連続代入・assign・網・部分選択・wor・連結をforceし、その間と後にドライバと右辺の信号を変える。各段階の値を$display・$strobe・$monitor・@・ビット問い合わせ関数で読む。 |
 | [`interaction_gatearray`](../generators/interaction_gatearray.py) | 28 | 51 | 4個のゲートの配列へ昇順・降順のベクタ、部分選択、連結、スカラをつなぎ、ビットの対応を調べる。既知値・X/Z・既知値の変化で、各出力の真理値表と立上り・立下り・ターンオフの遅延を半時刻で読む。 |
 | [`interaction_gendisable`](../generators/interaction_gendisable.py) | 16 | 18 | generate内でのdefault disable iffの継承・上書き・名前解決・宣言位置と、明示条件・ゼロによる取消しを照合する。二つの実体を独立に無効化し、開始前・クロック間・終了クロックのNBAで、無効化と成功・失敗の回数を対照と比較する。 |
 | [`interaction_genenum`](../generators/interaction_genenum.py) | 6 | 36 | generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言順・巡回数とnext/prevの観測へ反映される。二初期状態と別要素の操作後・アイドル時の読出しで、値と保持したコピーの独立性も照合する。 |
@@ -71,6 +72,7 @@
 | [`interaction_literal`](../generators/interaction_literal.py) | 5 | 66 | 基数・符号・桁数・先頭桁を変えたリテラルを、直接・localparam・マクロの字句・continuous assignで運ぶ。左への詰めと切り捨て、式の文脈による拡張、代入先の幅とbitへの変換を全ビットで観測する。 |
 | [`interaction_logic`](../generators/interaction_logic.py) | 11 | 70 | 各行で全6リダクションと論理否定の入力・実際の式・結果を観測し、支配値とX/Z、演算前後の状態変換、1ビットunsigned結果の拡張、入力の自己決定幅を確認する。 |
 | [`interaction_loop_nba`](../generators/interaction_loop_nba.py) | 10 | 36 | for/while/repeat内の複数代入で、途中結果を使うblockingと旧値からNBAを予約する動作を区別する。A/B/A呼出しの各反復の値・添字、ActiveとNBA後の全要素・カウンタ・ガードを観測し、書込み順序、状態変換、module/interfaceの独立した格納先を確認する。 |
+| [`interaction_macro`](../generators/interaction_macro.py) | 22 | 114 | マクロの定義の形・本体の括弧・実引数を、11の文脈とコンパイル単位の中の定義の置き方で交差する。文字として展開されるので、外側の演算子や優先順位の低い実引数の結合を値で確かめる。 |
 | [`interaction_mailbox`](../generators/interaction_mailbox.py) | 15 | 36 | classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量制限・nullメッセージと取得前後の双方向のメンバ更新を確認する。別mailboxの保持と後の更新、空の非ブロッキング戻り値も観測する。 |
 | [`interaction_memfile`](../generators/interaction_memfile.py) | 21 | 36 | bit/logicと列挙型のメモリファイルを出力し、元配列の変更後に別の添字範囲へ読み込む。独立に用意した入力も読み込み、要素の値・範囲外の保持・宣言方向と読込み順・上書きを照合する。 |
 | [`interaction_method`](../generators/interaction_method.py) | 7 | 72 | 固定長配列・動的配列・キューの集計を2組の背景値で観測し、with式による要素の型変換、戻り値の幅、オーバーフロー、X/Z伝播と呼出し後の拡張を確認する。 |
@@ -95,6 +97,7 @@
 | [`interaction_scansel`](../generators/interaction_scansel.py) | 21 | 36 | 文字列の読取りが途中で止まる位置と成功した書込みだけを、戻り値・全語・部分選択外の保持で照合する。$bitsを使う実行時書式、文字数としてのフィールド幅、既知ASCIIのX/Z数字と格納時の変換を観測する。 |
 | [`interaction_sdfpath`](../generators/interaction_sdfpath.py) | 32 | 18 | SDFの条件・注釈範囲・置換/加算と、立上り/立下りの遅延を照合する。兄弟インスタンスと別出力を対照とし、値・変化回数・最終変化時刻を観測する。 |
 | [`interaction_select`](../generators/interaction_select.py) | 11 | 36 | 部分選択への書き込み前後にベクタ全体と選択範囲を表示し、添字方向・選択方向・X/Z変換に加え、選択していないビットの保持も確認する。 |
+| [`interaction_sense`](../generators/interaction_sense.py) | 4 | 61 | always_comb・always_latch・@*・連続代入で読む式の形を変え、読む部分と読まない部分へ書き込む。再評価の回数と出力の値で、最長静的接頭辞と関数の中の読出しの扱いを確かめる。 |
 | [`interaction_shift`](../generators/interaction_shift.py) | 11 | 56 | シフト前の値・シフト量・結果を表示し、代入先から伝わる幅、符号付きの埋め込み、X/Zの移動、未知のシフト量、最後の2状態変換を確認する。 |
 | [`interaction_shortcircuit`](../generators/interaction_shortcircuit.py) | 11 | 92 | 4演算ごとに左右の関数の呼出し回数・観測値・独立した副作用を表示し、短絡による右辺の評価抑止、未知値の真偽変換、結果と最終格納先の状態変換を確認する。 |
 | [`interaction_stream`](../generators/interaction_stream.py) | 11 | 36 | 入力ストリームと結果を比較し、ブロック順、端数ブロック、複数項目の連結、packとunpackの逆変換、2状態の格納先への変換を確認する。 |

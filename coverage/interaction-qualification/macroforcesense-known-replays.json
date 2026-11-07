@@ -1,0 +1,996 @@
+{
+  "models": [
+    "macro_expansion_context",
+    "force_release_visibility",
+    "implicit_sensitivity_update"
+  ],
+  "generated_at": "2026-11-07T07:21:32.194987+00:00",
+  "scope": "All 55 Icarus differences and rejections, and one representative of each form of the known-input Verilator differences at both seeds. The first differing line of every known result is in the run records. Nothing here changes an expectation or counts as a pass. No simulator implementation source was read.",
+  "icarus_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "icarus_originals": [
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_cont_expr_driver_blocking_monitor_task.sv",
+      "input_sha256": "3ad4ea0817c59d515f716ce1c54fb3c130aa579a0cc65734178921c093b040a4",
+      "reason": "compile failed: tests/gen/ch10/test_gen_cross_force_cont_expr_driver_blocking_monitor_task.sv:29: error: Variable 't' cannot be driven by a continuous assignment/module or continuous assignment with non-default strength.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch10/test_gen_cross_force_cont_expr_driver_blocking_monitor_task.sv:29: error: Variable 't' cannot be driven by a continuous assignment/module or continuous assignment with non-default strength.\n1 error(s) during elaboration.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_ncat_const_hold_blocking_strobe_direct.sv",
+      "input_sha256": "2d7788db5e1cdd236d437399847c803174882844df52a163e19b01c84fd44bfa",
+      "reason": "output differs: line 1 is 'SORRY: tests/gen/ch10/test_gen_cross_force_ncat_const_hol...', expected '0 0001'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "SORRY: tests/gen/ch10/test_gen_cross_force_ncat_const_hold_blocking_strobe_direct.sv:33: currently only simple signals or constant expressions may be passed to $strobe.\nNOTE: You can work around this by assigning the desired expression to an\n      intermediate net (using a continuous assignment) and passing that net\n      to $strobe.\nSORRY: tests/gen/ch10/test_gen_cross_force_ncat_const_hold_blocking_strobe_direct.sv:37: currently only simple signals or constant expressions may be passed to $strobe.\nSORRY: tests/gen/ch10/test_gen_cross_force_ncat_const_hold_blocking_strobe_direct.sv:40: currently only simple signals or constant expressions may be passed to $strobe.\nSORRY: tests/gen/ch10/test_gen_cross_force_ncat_const_hold_blocking_strobe_direct.sv:44: currently only simple signals or constant expressions may be passed to $strobe.\nSORRY: tests/gen/ch10/test_gen_cross_force_ncat_const_hold_blocking_strobe_direct.sv:48: currently only simple signals or constant expressions may be passed to $strobe.\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_ncat_const_source_blocking_query_direct.sv",
+      "input_sha256": "d1e9e3503ef2cc80c26aa2143875bdf9638cbd1c32261f41a15b1b51e379baa8",
+      "reason": "output differs: line 2 is '3 3 1 4', expected '3 2 0 4'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "1 1 0 4\n3 3 1 4\n5 3 1 4\n7 2 1 4\n9 3 1 4\ntests/gen/ch10/test_gen_cross_force_ncat_const_source_blocking_query_direct.sv:52: $finish called at 10 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_ncat_expr_driver_blocking_display_direct.sv",
+      "input_sha256": "901cb8ff088cfac6419a391c2245e37fe5ffdda5f7802fca56b1dfc01f109248",
+      "reason": "compile failed: Assertion failed: (ivl_stmt_lvals(net) == 1), function force_link_rval, file vvp_process.c, line 991.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "Assertion failed: (ivl_stmt_lvals(net) == 1), function force_link_rval, file vvp_process.c, line 991.\nsh: line 1: 15614 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg2fa3c464\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlgfa3c464\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlifa3c464\"\n     15615 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlhfa3c464\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_ncat_expr_hold_blocking_display_direct.sv",
+      "input_sha256": "f41bd05448608d9c000c48c86d6b4d16fe69039bbd6761c1c9568fc54a7c1252",
+      "reason": "compile failed: Assertion failed: (ivl_stmt_lvals(net) == 1), function force_link_rval, file vvp_process.c, line 991.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "Assertion failed: (ivl_stmt_lvals(net) == 1), function force_link_rval, file vvp_process.c, line 991.\nsh: line 1: 15620 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg2fa54e4e\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlgfa54e4e\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlifa54e4e\"\n     15622 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlhfa54e4e\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_ncat_expr_source_blocking_event_direct.sv",
+      "input_sha256": "7809c51732f9ca0a93d4f80d63e5ed24aea6167994ed59b6e17e533e63c77f61",
+      "reason": "compile failed: Assertion failed: (ivl_stmt_lvals(net) == 1), function force_link_rval, file vvp_process.c, line 991.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "Assertion failed: (ivl_stmt_lvals(net) == 1), function force_link_rval, file vvp_process.c, line 991.\nsh: line 1: 15628 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg2fa719df\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlgfa719df\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlifa719df\"\n     15629 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlhfa719df\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_ncat_unknown_hold_nba_monitor_task.sv",
+      "input_sha256": "6d6f64284f137e0ebc5830e25487d2cbee7d995000557c2653bd5bbc52e9f872",
+      "reason": "output differs: line 1 is 'SORRY: tests/gen/ch10/test_gen_cross_force_ncat_unknown_h...', expected '0 0001'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "SORRY: tests/gen/ch10/test_gen_cross_force_ncat_unknown_hold_nba_monitor_task.sv:37: currently only simple signals or constant expressions may be passed to $monitor.\nNOTE: You can work around this by assigning the desired expression to an\n      intermediate net (using a continuous assignment) and passing that net\n      to $monitor.\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_net_const_driver_blocking_monitor_direct.sv",
+      "input_sha256": "a1a252178a6db41dea71539c21df8c864e12765267d3a61b3359c8a1c5b9f16e",
+      "reason": "output differs: line 3 is '4 1010', expected '6 0011'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "0 0001\n2 1010\n4 1010\n6 0011\n8 1100\ntests/gen/ch10/test_gen_cross_force_net_const_driver_blocking_monitor_direct.sv:48: $finish called at 10 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_part_expr_driver_blocking_display_direct.sv",
+      "input_sha256": "6d24685c79fa603ac514f965d2db11cedb60035bbf0dccb020589f6113f0a9e0",
+      "reason": "compile failed: tests/gen/ch10/test_gen_cross_force_part_expr_driver_blocking_display_direct.sv:36: vvp.tgt sorry: cannot %force signal to a part select (t[5:2]).",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch10/test_gen_cross_force_part_expr_driver_blocking_display_direct.sv:36: vvp.tgt sorry: cannot %force signal to a part select (t[5:2]).\nerror: Code generation had 1 error(s).\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_part_expr_hold_blocking_display_direct.sv",
+      "input_sha256": "a6f3447459aa8c6ea3d420fcfaa64991750f61d00aac09de4653ab6dc632f249",
+      "reason": "compile failed: tests/gen/ch10/test_gen_cross_force_part_expr_hold_blocking_display_direct.sv:36: vvp.tgt sorry: cannot %force signal to a part select (t[5:2]).",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch10/test_gen_cross_force_part_expr_hold_blocking_display_direct.sv:36: vvp.tgt sorry: cannot %force signal to a part select (t[5:2]).\nerror: Code generation had 1 error(s).\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_part_expr_source_blocking_display_direct.sv",
+      "input_sha256": "314c508ccd90ddec904b6d26f829e9392c44b2217b7fa016afa502b7b8895744",
+      "reason": "compile failed: tests/gen/ch10/test_gen_cross_force_part_expr_source_blocking_display_direct.sv:36: vvp.tgt sorry: cannot %force signal to a part select (t[5:2]).",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch10/test_gen_cross_force_part_expr_source_blocking_display_direct.sv:36: vvp.tgt sorry: cannot %force signal to a part select (t[5:2]).\nerror: Code generation had 1 error(s).\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_pca_const_source_blocking_monitor_hier.sv",
+      "input_sha256": "dd18d2562be2cff9a8a88c1eaf9a5eed3b0b840aa3399dbb9bc50686417110e6",
+      "reason": "output differs: line 3 is '8 1100', expected '6 0001'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "0 0001\n2 1010\n8 1100\n12 0101\ntests/gen/ch10/test_gen_cross_force_pca_const_source_blocking_monitor_hier.sv:57: $finish called at 14 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_pca_expr_hold_blocking_event_direct.sv",
+      "input_sha256": "65fdb263eeceed0a8bd808d6788119ad5cc54f5e262ccf6e0f357528a9850742",
+      "reason": "output differs: line 2 is '8 1100', expected '6 0001'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "2 1001\n8 1100\n12 0101\ntests/gen/ch10/test_gen_cross_force_pca_expr_hold_blocking_event_direct.sv:53: $finish called at 14 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_var_const_hold_blocking_monitor_direct.sv",
+      "input_sha256": "43d5602b128af52c1b1271d6d3a5f2aa70ae415258562374e736a67412fabd4e",
+      "reason": "output differs: line 3 is '6 1010', expected '8 1100'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "0 0001\n2 1010\n6 1010\n8 1100\ntests/gen/ch10/test_gen_cross_force_var_const_hold_blocking_monitor_direct.sv:45: $finish called at 10 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_vcat_const_driver_blocking_strobe_task.sv",
+      "input_sha256": "45500047e024ebecbd61ce4868938c61c16655fc8a02cf09ce15fd73682dfdfb",
+      "reason": "output differs: line 1 is 'SORRY: tests/gen/ch10/test_gen_cross_force_vcat_const_dri...', expected '0 0001'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "SORRY: tests/gen/ch10/test_gen_cross_force_vcat_const_driver_blocking_strobe_task.sv:37: currently only simple signals or constant expressions may be passed to $strobe.\nNOTE: You can work around this by assigning the desired expression to an\n      intermediate net (using a continuous assignment) and passing that net\n      to $strobe.\nSORRY: tests/gen/ch10/test_gen_cross_force_vcat_const_driver_blocking_strobe_task.sv:41: currently only simple signals or constant expressions may be passed to $strobe.\nSORRY: tests/gen/ch10/test_gen_cross_force_vcat_const_driver_blocking_strobe_task.sv:45: currently only simple signals or constant expressions may be passed to $strobe.\nSORRY: tests/gen/ch10/test_gen_cross_force_vcat_const_driver_blocking_strobe_task.sv:49: currently only simple signals or constant expressions may be passed to $strobe.\nSORRY: tests/gen/ch10/test_gen_cross_force_vcat_const_driver_blocking_strobe_task.sv:53: currently only simple signals or constant expressions may be passed to $strobe.\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_vcat_const_source_blocking_query_direct.sv",
+      "input_sha256": "83c3f24b0674236dcf1e2f015ceb29dd8f9a78e7125dfb88255fec0cc3bccc74",
+      "reason": "output differs: line 2 is '3 3 1 4', expected '3 2 0 4'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "1 1 0 4\n3 3 1 4\n5 3 1 4\n7 3 1 4\n9 3 1 4\ntests/gen/ch10/test_gen_cross_force_vcat_const_source_blocking_query_direct.sv:50: $finish called at 10 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_vcat_expr_driver_blocking_display_direct.sv",
+      "input_sha256": "ff10b780578cb6a7e61c70ff0972a41d2e20bca16d4bf9c882559e84382dbabe",
+      "reason": "compile failed: Assertion failed: (ivl_stmt_lvals(net) == 1), function force_link_rval, file vvp_process.c, line 991.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "Assertion failed: (ivl_stmt_lvals(net) == 1), function force_link_rval, file vvp_process.c, line 991.\nsh: line 1: 15694 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg2fb84894\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlgfb84894\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlifb84894\"\n     15695 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlhfb84894\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_vcat_expr_hold_blocking_display_direct.sv",
+      "input_sha256": "0954daff4280690575c7fdf6a8397d80a12eaaf9907d0b5e6532fb9677937580",
+      "reason": "compile failed: Assertion failed: (ivl_stmt_lvals(net) == 1), function force_link_rval, file vvp_process.c, line 991.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "Assertion failed: (ivl_stmt_lvals(net) == 1), function force_link_rval, file vvp_process.c, line 991.\nsh: line 1: 15700 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg2fb9d27e\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlgfb9d27e\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlifb9d27e\"\n     15701 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlhfb9d27e\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_vcat_expr_source_blocking_display_hier.sv",
+      "input_sha256": "122cf1e72d998b76e8e7adf3c80f10f34b1774a0f9c81665de281c6a346d7679",
+      "reason": "compile failed: Assertion failed: (ivl_stmt_lvals(net) == 1), function force_link_rval, file vvp_process.c, line 991.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "Assertion failed: (ivl_stmt_lvals(net) == 1), function force_link_rval, file vvp_process.c, line 991.\nsh: line 1: 15706 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg2fbb5c68\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlgfbb5c68\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlifbb5c68\"\n     15707 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlhfbb5c68\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_vcat_unknown_hold_nba_monitor_direct.sv",
+      "input_sha256": "d32b7f59178338c804d904f6d101eae0e6deb7937830539877b1029ed336f18e",
+      "reason": "output differs: line 1 is 'SORRY: tests/gen/ch10/test_gen_cross_force_vcat_unknown_h...', expected '0 0001'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "SORRY: tests/gen/ch10/test_gen_cross_force_vcat_unknown_hold_nba_monitor_direct.sv:29: currently only simple signals or constant expressions may be passed to $monitor.\nNOTE: You can work around this by assigning the desired expression to an\n      intermediate net (using a continuous assignment) and passing that net\n      to $monitor.\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_actual_bare_simple_cls_unit.sv",
+      "input_sha256": "ba63ab0fde975ac56dfe1516910c51025c56464fb7bcd9ec225dbe3867fbff38",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_actual_bare_simple_cls_unit.sv:33: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_actual_bare_simple_cls_unit.sv:33: syntax error\ntests/gen/ch22/test_gen_cross_macro_actual_bare_simple_cls_unit.sv:33: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_actual_wrap_brace_member_unit.sv",
+      "input_sha256": "8bf551a5462e1591fb901699360ffb6a95638768be142242101f17b76239758d",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_actual_wrap_brace_member_unit.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_actual_wrap_brace_member_unit.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch22/test_gen_cross_macro_actual_wrap_brace_member_unit.sv:29: syntax error\ntests/gen/ch22/test_gen_cross_macro_actual_wrap_brace_member_unit.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_empty_bare_brace_assign_unit.sv",
+      "input_sha256": "d46b2fe98a1641a570c06f315048f029d8a481cf07ecb5c5055f299f0c9afdc5",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_empty_bare_brace_assign_unit.sv:25: error: malformed `define directive ('2').",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_empty_bare_brace_assign_unit.sv:25: error: malformed `define directive ('2').\ntests/gen/ch22/test_gen_cross_macro_empty_bare_brace_assign_unit.sv:28: warning: macro M undefined (and assumed null) at this point.\ntests/gen/ch22/test_gen_cross_macro_empty_bare_brace_assign_unit.sv:28: syntax error\ntests/gen/ch22/test_gen_cross_macro_empty_bare_brace_assign_unit.sv:28: error: Syntax error in continuous assignment\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_empty_bare_simple_cls_elsif.sv",
+      "input_sha256": "fd5450b9627c5890c7a4f573d6ecf74c9632ac192790984d9dae21de762f3586",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_empty_bare_simple_cls_elsif.sv:39: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_empty_bare_simple_cls_elsif.sv:39: syntax error\ntests/gen/ch22/test_gen_cross_macro_empty_bare_simple_cls_elsif.sv:39: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_empty_bare_simple_member_same.sv",
+      "input_sha256": "a915add853dfb2e5b125c0dd83cf71c105616a8f4bd370279a2dd0eacb3a2d2d",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_empty_bare_simple_member_same.sv:27: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_empty_bare_simple_member_same.sv:27: sorry: Unpacked structs not supported.\ntests/gen/ch22/test_gen_cross_macro_empty_bare_simple_member_same.sv:28: syntax error\ntests/gen/ch22/test_gen_cross_macro_empty_bare_simple_member_same.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_empty_twice_brace_func_redefine.sv",
+      "input_sha256": "fedb6be443dcb0e3c74563d4604de879743be6b2dab3199c1144999a50827820",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_empty_twice_brace_func_redefine.sv:26: error: malformed `define directive ('2').",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_empty_twice_brace_func_redefine.sv:26: error: malformed `define directive ('2').\ntests/gen/ch22/test_gen_cross_macro_empty_twice_brace_func_redefine.sv:29: error: too many arguments for `M\ntests/gen/ch22/test_gen_cross_macro_empty_twice_brace_func_redefine.sv:29: syntax error\ntests/gen/ch22/test_gen_cross_macro_empty_twice_brace_func_redefine.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_function_bare_cond_member_elsif.sv",
+      "input_sha256": "0d4c905503e92dd0dfb223a286d467286a55067b0b23a13c610fa38989ae02bc",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_function_bare_cond_member_elsif.sv:34: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_function_bare_cond_member_elsif.sv:34: sorry: Unpacked structs not supported.\ntests/gen/ch22/test_gen_cross_macro_function_bare_cond_member_elsif.sv:35: syntax error\ntests/gen/ch22/test_gen_cross_macro_function_bare_cond_member_elsif.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_function_bare_simple_cls_other.sv",
+      "input_sha256": "3b079e45e63c652b6fb8179876fe34e5854cbc87ef90f445d9221bec011c643c",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_function_bare_simple_cls_other.sv:35: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_function_bare_simple_cls_other.sv:35: syntax error\ntests/gen/ch22/test_gen_cross_macro_function_bare_simple_cls_other.sv:35: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_late_bare_simple_member_unit.sv",
+      "input_sha256": "9d4b51acf1611c8a737eb35c4d20920e13db2b9ddd5daf4c430d2908ab731e3d",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_late_bare_simple_member_unit.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_late_bare_simple_member_unit.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch22/test_gen_cross_macro_late_bare_simple_member_unit.sv:29: syntax error\ntests/gen/ch22/test_gen_cross_macro_late_bare_simple_member_unit.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_late_twice_brace_cls_unit.sv",
+      "input_sha256": "59721bb2535bc25bfc5e5716bee19a462e2113345d04412b12ac0c9e24974990",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_late_twice_brace_cls_unit.sv:33: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_late_twice_brace_cls_unit.sv:33: syntax error\ntests/gen/ch22/test_gen_cross_macro_late_twice_brace_cls_unit.sv:33: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_lines_bare_low_cls_same.sv",
+      "input_sha256": "29575be5adce48f2d725bef98ee3df05a673e6f005fbe7dd3ad493a9edb72b80",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_lines_bare_low_cls_same.sv:33: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_lines_bare_low_cls_same.sv:33: syntax error\ntests/gen/ch22/test_gen_cross_macro_lines_bare_low_cls_same.sv:33: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_lines_twice_simple_member_redefine.sv",
+      "input_sha256": "1a040fee5529befe511d0275de9fa2f2e7a9275b000ae81e0ee173fccb1d9aea",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_lines_twice_simple_member_redefine.sv:29: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_lines_twice_simple_member_redefine.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch22/test_gen_cross_macro_lines_twice_simple_member_redefine.sv:30: syntax error\ntests/gen/ch22/test_gen_cross_macro_lines_twice_simple_member_redefine.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_object_bare_low_member_other.sv",
+      "input_sha256": "ed524f705d1f7a341d11687bd1bb0f1d837023c8ec3d14077d4b63cb23be77ac",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_object_bare_low_member_other.sv:31: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_object_bare_low_member_other.sv:31: sorry: Unpacked structs not supported.\ntests/gen/ch22/test_gen_cross_macro_object_bare_low_member_other.sv:32: syntax error\ntests/gen/ch22/test_gen_cross_macro_object_bare_low_member_other.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_object_bare_simple_cls_undef.sv",
+      "input_sha256": "8983ecd00f72b9e66bbc83920356f2308c652d031f0e4a7b5098411e3ae7e145",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_object_bare_simple_cls_undef.sv:39: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_object_bare_simple_cls_undef.sv:39: syntax error\ntests/gen/ch22/test_gen_cross_macro_object_bare_simple_cls_undef.sv:39: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_object_bare_simple_fork_redefine.sv",
+      "input_sha256": "40a14c09b936bd91a3afd9dfafe9e4591af262d5a8d4ee382ad4d1d16834c816",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_object_bare_simple_fork_redefine.sv:32: error: missing argument list for `M.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_object_bare_simple_fork_redefine.sv:32: error: missing argument list for `M.\ntests/gen/ch22/test_gen_cross_macro_object_bare_simple_fork_redefine.sv:32: syntax error\ntests/gen/ch22/test_gen_cross_macro_object_bare_simple_fork_redefine.sv:32: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_object_wrap_cond_assign_redefine.sv",
+      "input_sha256": "3552cd0937d613e4e8c7129916a9ab60116bdf03edb13302595e5306cbf960d3",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_object_wrap_cond_assign_redefine.sv:30: error: missing argument list for `M.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_object_wrap_cond_assign_redefine.sv:30: error: missing argument list for `M.\ntests/gen/ch22/test_gen_cross_macro_object_wrap_cond_assign_redefine.sv:30: syntax error\ntests/gen/ch22/test_gen_cross_macro_object_wrap_cond_assign_redefine.sv:30: error: Syntax error in continuous assignment\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_omit_bare_cond_cls_redefine.sv",
+      "input_sha256": "c13c268a3d0f3fb1355d98cefd1e0fa96ae5007dc69956d93091fc961006dc61",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_omit_bare_cond_cls_redefine.sv:33: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_omit_bare_cond_cls_redefine.sv:33: syntax error\ntests/gen/ch22/test_gen_cross_macro_omit_bare_cond_cls_redefine.sv:33: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_omit_bare_simple_member_ifndef.sv",
+      "input_sha256": "21191762cf4bd796c63cefd97df2eed539814bf9be96ccd82c442ecdb15d1dbd",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_omit_bare_simple_member_ifndef.sv:33: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_omit_bare_simple_member_ifndef.sv:33: sorry: Unpacked structs not supported.\ntests/gen/ch22/test_gen_cross_macro_omit_bare_simple_member_ifndef.sv:34: syntax error\ntests/gen/ch22/test_gen_cross_macro_omit_bare_simple_member_ifndef.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_omit_wrap_brace_pkg_other.sv",
+      "input_sha256": "56d361d46625c5ffac2e72369336a572f8ebfa0b7e4928e82988cb2d1e6d2383",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_omit_wrap_brace_pkg_other.sv:27: error: malformed `define directive ('2').",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_omit_wrap_brace_pkg_other.sv:27: error: malformed `define directive ('2').\ntests/gen/ch22/test_gen_cross_macro_omit_wrap_brace_pkg_other.sv:30: warning: macro M undefined (and assumed null) at this point.\ntests/gen/ch22/test_gen_cross_macro_omit_wrap_brace_pkg_other.sv:30: syntax error\nI give up.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_paste_bare_simple_member_undef.sv",
+      "input_sha256": "1005678e7f8c38bbb96ef2ddb3a141327d1b75e6976a798000242a0179e7f94a",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_paste_bare_simple_member_undef.sv:34: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_paste_bare_simple_member_undef.sv:34: sorry: Unpacked structs not supported.\ntests/gen/ch22/test_gen_cross_macro_paste_bare_simple_member_undef.sv:35: syntax error\ntests/gen/ch22/test_gen_cross_macro_paste_bare_simple_member_undef.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_paste_wrap_simple_cls_ifndef.sv",
+      "input_sha256": "2e658575b46f151b1fe450745cd5b491760a72b2f98a92eb65ae19cc09680f84",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_paste_wrap_simple_cls_ifndef.sv:39: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_paste_wrap_simple_cls_ifndef.sv:39: syntax error\ntests/gen/ch22/test_gen_cross_macro_paste_wrap_simple_cls_ifndef.sv:39: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_second_bare_simple_cls_unit.sv",
+      "input_sha256": "aa4b7cc464b1c8c36007f09ab8cb7c5808b64b39a4b384e1b7063bd695f0d70b",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_second_bare_simple_cls_unit.sv:32: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_second_bare_simple_cls_unit.sv:32: syntax error\ntests/gen/ch22/test_gen_cross_macro_second_bare_simple_cls_unit.sv:32: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_second_bare_simple_member_unit.sv",
+      "input_sha256": "90dba4469bb43ecddfedbd6ef5b9a0b194087389bcf70f5058297affc909c0f1",
+      "reason": "compile failed: tests/gen/ch22/test_gen_cross_macro_second_bare_simple_member_unit.sv:27: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch22/test_gen_cross_macro_second_bare_simple_member_unit.sv:27: sorry: Unpacked structs not supported.\ntests/gen/ch22/test_gen_cross_macro_second_bare_simple_member_unit.sv:28: syntax error\ntests/gen/ch22/test_gen_cross_macro_second_bare_simple_member_unit.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch22/test_gen_cross_macro_second_bare_simple_show_redefine.sv",
+      "input_sha256": "398c98a9d0447a6cafa8c016c677b8c203ba57c102fd737ce5ad8989d0cce727",
+      "reason": "compile failed: Assertion failed: (arg < def_argc), function expand_using_args, file lexor.lex, line 1725.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "Assertion failed: (arg < def_argc), function expand_using_args, file lexor.lex, line 1725.\ntests/gen/ch22/test_gen_cross_macro_second_bare_simple_show_redefine.sv:28: syntax error\nI give up.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_assign_fnglobal_read_task.sv",
+      "input_sha256": "5e8e59b8df9cdcc4d3d2d2483553d798082e1e8e535e1ec78cf39faff153b21f",
+      "reason": "output differs: line 4 is '7 o=16', expected '7 o=3c'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "1 o=03\n3 o=0c\n5 o=0c\n7 o=16\ntests/gen/ch4/test_gen_cross_sense_assign_fnglobal_read_task.sv:58: $finish called at 7 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_assign_member_second_blocking.sv",
+      "input_sha256": "1d87beeca74519ce46d6c58af4a8d7a242cba44fe29a5fa59c002138affb59e7",
+      "reason": "compile failed: tests/gen/ch4/test_gen_cross_sense_assign_member_second_blocking.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch4/test_gen_cross_sense_assign_member_second_blocking.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch4/test_gen_cross_sense_assign_member_second_blocking.sv:29: syntax error\ntests/gen/ch4/test_gen_cross_sense_assign_member_second_blocking.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_comb_concat_unread_blocking.sv",
+      "input_sha256": "5200b2e16c8e80e332d5fe0f3af61db1e09071c72c89facff628940dccf14e5b",
+      "reason": "output differs: line 4 is '4 eval', expected '5 o=33'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": "tests/gen/ch4/test_gen_cross_sense_comb_concat_unread_blocking.sv:32: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'a[7:0]').\ntests/gen/ch4/test_gen_cross_sense_comb_concat_unread_blocking.sv:32: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[7:0]').\ntests/gen/ch4/test_gen_cross_sense_comb_concat_unread_blocking.sv:33: warning: System task ($display) cannot be synthesized in an always_comb process.\n"
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "1 o=2a\n2 eval\n3 o=33\n4 eval\n5 o=33\n6 eval\n7 o=3d\ntests/gen/ch4/test_gen_cross_sense_comb_concat_unread_blocking.sv:50: $finish called at 7 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_comb_member_unread_blocking.sv",
+      "input_sha256": "2d4e6ca624a074e7dba0ae701e0d487f386f657059777614d758a750299fded8",
+      "reason": "compile failed: tests/gen/ch4/test_gen_cross_sense_comb_member_unread_blocking.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch4/test_gen_cross_sense_comb_member_unread_blocking.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch4/test_gen_cross_sense_comb_member_unread_blocking.sv:29: syntax error\ntests/gen/ch4/test_gen_cross_sense_comb_member_unread_blocking.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_comb_packed_unread_blocking.sv",
+      "input_sha256": "24c1bc835e50c7b3836513e109ecc781918aa5d71df50d7210f9f6062e32dbf0",
+      "reason": "output differs: line 4 is '4 eval', expected '5 o=0c'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ":0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 's[15:0]').\ntests/gen/ch4/test_gen_cross_sense_comb_packed_unread_blocking.sv:33: warning: System task ($display) cannot be synthesized in an always_comb process.\n"
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "1 o=03\n2 eval\n3 o=0c\n4 eval\n5 o=0c\n6 eval\n7 o=16\ntests/gen/ch4/test_gen_cross_sense_comb_packed_unread_blocking.sv:50: $finish called at 7 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_comb_part_unread_blocking.sv",
+      "input_sha256": "2d976e49bc04e1d7230da42466aaf5ccecc674447448947fc07ac13156b5d243",
+      "reason": "output differs: line 4 is '4 eval', expected '5 o=0c'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": "tests/gen/ch4/test_gen_cross_sense_comb_part_unread_blocking.sv:31: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'v[15:0]').\ntests/gen/ch4/test_gen_cross_sense_comb_part_unread_blocking.sv:32: warning: System task ($display) cannot be synthesized in an always_comb process.\n"
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "1 o=03\n2 eval\n3 o=0c\n4 eval\n5 o=0c\n6 eval\n7 o=16\ntests/gen/ch4/test_gen_cross_sense_comb_part_unread_blocking.sv:49: $finish called at 7 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_latch_member_read_nba.sv",
+      "input_sha256": "80b0b33e24142ef010802b6397311b35d2fc4e076541ab56c0b3336c408aea45",
+      "reason": "compile failed: tests/gen/ch4/test_gen_cross_sense_latch_member_read_nba.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch4/test_gen_cross_sense_latch_member_read_nba.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch4/test_gen_cross_sense_latch_member_read_nba.sv:29: syntax error\ntests/gen/ch4/test_gen_cross_sense_latch_member_read_nba.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_latch_member_unread_task.sv",
+      "input_sha256": "72d31826fb0c2da5eb2231661099a4fd06b26fd72da2a2c8bc5247741e6fd148",
+      "reason": "compile failed: tests/gen/ch4/test_gen_cross_sense_latch_member_unread_task.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch4/test_gen_cross_sense_latch_member_unread_task.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch4/test_gen_cross_sense_latch_member_unread_task.sv:29: syntax error\ntests/gen/ch4/test_gen_cross_sense_latch_member_unread_task.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_netdecl_fnglobal_read_nba.sv",
+      "input_sha256": "201b8170cbbf0780b4f183f4aa36b488cb6aa3c9b17e0ffd29a1409e44b3ce5a",
+      "reason": "output differs: line 4 is '7 o=16', expected '7 o=3c'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "1 o=03\n3 o=0c\n5 o=0c\n7 o=16\ntests/gen/ch4/test_gen_cross_sense_netdecl_fnglobal_read_nba.sv:48: $finish called at 7 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_netdecl_member_read_blocking.sv",
+      "input_sha256": "243b282a2ecd549b6ce21e4f9a217bb057b72f27c13590cc4106067328ab58a3",
+      "reason": "compile failed: tests/gen/ch4/test_gen_cross_sense_netdecl_member_read_blocking.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch4/test_gen_cross_sense_netdecl_member_read_blocking.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch4/test_gen_cross_sense_netdecl_member_read_blocking.sv:29: syntax error\ntests/gen/ch4/test_gen_cross_sense_netdecl_member_read_blocking.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_star_member_same_blocking.sv",
+      "input_sha256": "0f003bc945f168a95f79aaf12504390b04943093e574c6b31eabe4bb3af15ea3",
+      "reason": "compile failed: tests/gen/ch4/test_gen_cross_sense_star_member_same_blocking.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 3,
+          "stderr": "tests/gen/ch4/test_gen_cross_sense_star_member_same_blocking.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch4/test_gen_cross_sense_star_member_same_blocking.sv:29: syntax error\ntests/gen/ch4/test_gen_cross_sense_star_member_same_blocking.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    }
+  ],
+  "verilator_originals": [
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_pca_const_source_blocking_monitor_hier.sv",
+      "seed": 1,
+      "input_sha256": "dd18d2562be2cff9a8a88c1eaf9a5eed3b0b840aa3399dbb9bc50686417110e6",
+      "reason": "output differs: line 2 is '1 0001', expected '2 1010'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-IEEEMAYDEPRECATE: tests/gen/ch10/test_gen_cross_force_pca_const_source_blocking_monitor_hier.sv:35:5: Feature may be deprecated in future IEEE standard",
+            "%Warning-IEEEMAYDEPRECATE: tests/gen/ch10/test_gen_cross_force_pca_const_source_blocking_monitor_hier.sv:51:5: Feature may be deprecated in future IEEE standard"
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "0 0001\n1 0001\n1 0001\n2 1010\n2 1010\n3 1010\n3 1010\n4 1010\n4 1010\n5 1010\n5 1010\n6 0001\n6 0001\n7 0001\n7 0001\n8 1100\n8 1100\n9 1100\n9 1100\n10 1100\n10 1100\n11 1100\n11 1100\n12 0101\n12 0101\n13 0101\n13 0101\n- tests/gen/ch10/test_gen_cross_force_pca_const_source_blocking_monitor_hier.sv:57: Verilog $finish\n14 0101\n14 0101\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 14ps; walltime 0.000 s; speed 94.595 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_pca_const_source_blocking_monitor_hier.sv",
+      "seed": 73,
+      "input_sha256": "dd18d2562be2cff9a8a88c1eaf9a5eed3b0b840aa3399dbb9bc50686417110e6",
+      "reason": "output differs: line 2 is '1 0001', expected '2 1010'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-IEEEMAYDEPRECATE: tests/gen/ch10/test_gen_cross_force_pca_const_source_blocking_monitor_hier.sv:35:5: Feature may be deprecated in future IEEE standard",
+            "%Warning-IEEEMAYDEPRECATE: tests/gen/ch10/test_gen_cross_force_pca_const_source_blocking_monitor_hier.sv:51:5: Feature may be deprecated in future IEEE standard"
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "0 0001\n1 0001\n1 0001\n2 1010\n2 1010\n3 1010\n3 1010\n4 1010\n4 1010\n5 1010\n5 1010\n6 0001\n6 0001\n7 0001\n7 0001\n8 1100\n8 1100\n9 1100\n9 1100\n10 1100\n10 1100\n11 1100\n11 1100\n12 0101\n12 0101\n13 0101\n13 0101\n- tests/gen/ch10/test_gen_cross_force_pca_const_source_blocking_monitor_hier.sv:57: Verilog $finish\n14 0101\n14 0101\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 14ps; walltime 0.000 s; speed 85.890 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_wor_expr_hold_nba_strobe_hier.sv",
+      "seed": 1,
+      "input_sha256": "cff3ea5a6b2d20f5fa8a261495c158eea7e91f24289128bae1bec5f5b60f8bfb",
+      "reason": "output differs: line 1 is '0 1011', expected '0 0011'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "0 1011\n2 1001\n4 1001\n6 0011\n8 1110\n- tests/gen/ch10/test_gen_cross_force_wor_expr_hold_nba_strobe_hier.sv:56: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 10ps; walltime 0.005 s; speed 2.044 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_cross_force_wor_expr_hold_nba_strobe_hier.sv",
+      "seed": 73,
+      "input_sha256": "cff3ea5a6b2d20f5fa8a261495c158eea7e91f24289128bae1bec5f5b60f8bfb",
+      "reason": "output differs: line 1 is '0 0010', expected '0 0011'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "0 0010\n2 1001\n4 1001\n6 0011\n8 1110\n- tests/gen/ch10/test_gen_cross_force_wor_expr_hold_nba_strobe_hier.sv:56: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 10ps; walltime 0.000 s; speed 62.500 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_assign_fnglobal_read_task.sv",
+      "seed": 1,
+      "input_sha256": "5e8e59b8df9cdcc4d3d2d2483553d798082e1e8e535e1ec78cf39faff153b21f",
+      "reason": "output differs: line 3 is '5 o=32', expected '5 o=0c'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 o=03\n3 o=0c\n5 o=32\n7 o=3c\n- tests/gen/ch4/test_gen_cross_sense_assign_fnglobal_read_task.sv:58: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 7ps; walltime 0.000 s; speed 30.973 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_assign_fnglobal_read_task.sv",
+      "seed": 73,
+      "input_sha256": "5e8e59b8df9cdcc4d3d2d2483553d798082e1e8e535e1ec78cf39faff153b21f",
+      "reason": "output differs: line 3 is '5 o=32', expected '5 o=0c'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 o=03\n3 o=0c\n5 o=32\n7 o=3c\n- tests/gen/ch4/test_gen_cross_sense_assign_fnglobal_read_task.sv:58: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 7ps; walltime 0.000 s; speed 40.000 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_comb_concat_unread_blocking.sv",
+      "seed": 1,
+      "input_sha256": "5200b2e16c8e80e332d5fe0f3af61db1e09071c72c89facff628940dccf14e5b",
+      "reason": "output differs: line 2 is '3 o=33', expected '2 eval'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 o=2a\n3 o=33\n5 o=33\n7 o=3d\n- tests/gen/ch4/test_gen_cross_sense_comb_concat_unread_blocking.sv:50: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 7ps; walltime 0.000 s; speed 39.106 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_comb_concat_unread_blocking.sv",
+      "seed": 73,
+      "input_sha256": "5200b2e16c8e80e332d5fe0f3af61db1e09071c72c89facff628940dccf14e5b",
+      "reason": "output differs: line 2 is '3 o=33', expected '2 eval'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 o=2a\n3 o=33\n5 o=33\n7 o=3d\n- tests/gen/ch4/test_gen_cross_sense_comb_concat_unread_blocking.sv:50: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 7ps; walltime 0.000 s; speed 46.358 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_latch_concat_read_nba.sv",
+      "seed": 1,
+      "input_sha256": "629b70144e1519b1f95dc7cce575646d4cbc98e65576cbe182a51ab997af1cdc",
+      "reason": "output differs: line 2 is '3 o=33', expected '2 eval'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 o=2a\n3 o=33\n5 o=d3\n7 o=dd\n- tests/gen/ch4/test_gen_cross_sense_latch_concat_read_nba.sv:51: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 7ps; walltime 0.000 s; speed 47.297 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_latch_concat_read_nba.sv",
+      "seed": 73,
+      "input_sha256": "629b70144e1519b1f95dc7cce575646d4cbc98e65576cbe182a51ab997af1cdc",
+      "reason": "output differs: line 2 is '3 o=33', expected '2 eval'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 o=2a\n3 o=33\n5 o=d3\n7 o=dd\n- tests/gen/ch4/test_gen_cross_sense_latch_concat_read_nba.sv:51: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 7ps; walltime 0.000 s; speed 52.239 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_netdecl_fnglobal_read_nba.sv",
+      "seed": 1,
+      "input_sha256": "201b8170cbbf0780b4f183f4aa36b488cb6aa3c9b17e0ffd29a1409e44b3ce5a",
+      "reason": "output differs: line 3 is '5 o=32', expected '5 o=0c'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 o=03\n3 o=0c\n5 o=32\n7 o=3c\n- tests/gen/ch4/test_gen_cross_sense_netdecl_fnglobal_read_nba.sv:48: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 7ps; walltime 0.000 s; speed 43.478 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch4/test_gen_cross_sense_netdecl_fnglobal_read_nba.sv",
+      "seed": 73,
+      "input_sha256": "201b8170cbbf0780b4f183f4aa36b488cb6aa3c9b17e0ffd29a1409e44b3ce5a",
+      "reason": "output differs: line 3 is '5 o=32', expected '5 o=0c'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 o=03\n3 o=0c\n5 o=32\n7 o=3c\n- tests/gen/ch4/test_gen_cross_sense_netdecl_fnglobal_read_nba.sv:48: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 7ps; walltime 0.000 s; speed 43.750 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    }
+  ],
+  "runner_sha256": {
+    "icarus": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+    "verilator": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+    "kirimasim": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb"
+  },
+  "executables_sha256": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "verilator_driver": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581"
+  }
+}

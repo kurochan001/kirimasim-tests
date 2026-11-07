@@ -34,7 +34,10 @@ The [Nightly record](../coverage/interaction-qualification/formal-ci-19cd790a-20
 
 ### Latest local addition
 
-The newest local addition is 165 cases for [time scopes](interaction-verification.en.md#time-scope-delay), [literals](interaction-verification.en.md#literal-context-extension) and [gate arrays](interaction-verification.en.md#gate-array-connection), totaling 92 models / 3,445 cases.
+The newest local addition is 247 cases for [macro expansion](interaction-verification.en.md#macro-expansion-context), [force and release](interaction-verification.en.md#force-release-visibility) and [implicit sensitivity](interaction-verification.en.md#implicit-sensitivity-update), totaling 95 models / 3,692 cases.
+The [single run](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json) on `97d5b0001e7c`, built from the latest main, records 3,159 pass / 529 unsupported / four fail. All 247 additions pass; preceding 3,445 inputs/statuses are unchanged. These 247 cases have not run in formal Check/Nightly.
+
+The addition before it is 165 cases for [time scopes](interaction-verification.en.md#time-scope-delay), [literals](interaction-verification.en.md#literal-context-extension) and [gate arrays](interaction-verification.en.md#gate-array-connection), totaling 92 models / 3,445 cases.
 The [single run](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json) on `60c26d7c8113`, built from the latest main, records 2,912 pass / 529 unsupported / four fail. All 165 additions pass; preceding 3,280 inputs/statuses are unchanged. These 165 cases have not run in formal Check/Nightly.
 
 The addition before it is [36 event-loop cases](interaction-verification.en.md#named-event-loop-transfer), totaling 89 models / 3,280 cases.

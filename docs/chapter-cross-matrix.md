@@ -65,13 +65,13 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 
 ## 実行結果の扱い
 
-2026-11-07の更新では92モデル・3,445選択ケースを、対角線以外の151組の章対に対応付けています。
-CSVに使用した結果は[kirimasim 60c26d7c8113の全92モデルのローカル保存実行](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json)で、
-2,912 pass・529 unsupported・4 fail、全選択ケースPASSは65モデルです。
+2026-11-07の更新では95モデル・3,692選択ケースを、対角線以外の168組の章対に対応付けています。
+CSVに使用した結果は[kirimasim 97d5b0001e7cの全95モデルのローカル保存実行](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json)で、
+3,159 pass・529 unsupported・4 fail、全選択ケースPASSは68モデルです。
 
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
-[同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。イベント受信ループの36件と今回の165件は両実行の対象外です。
-CSVの出典は全3,445件の単一ローカル実行cross92とし、別の実行の部分成功を合成しません。
+[同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。その後の追加は両実行の対象外です。
+CSVの出典は全3,692件の単一ローカル実行cross95とし、別の実行の部分成功を合成しません。
 13プロファイルのランダム比較や、そのNightlyの96 PASSも章間表へ加算しません。
 
 第12章×第15章にskip/stopの24件を対応付け、登録1モデル・全選択ケースPASS 1モデルを追加します。モデルの成功にはallの対照12件も含め、同じ保存実行で全36件の成功が必要です。[設計と独立証跡](interaction-verification.md#named-event-loop-transfer)を参照してください。

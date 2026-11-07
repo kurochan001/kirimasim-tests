@@ -13,13 +13,13 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | Clause | Title | Tests | Generated |
 | ---: | --- | ---: | ---: |
 | 3 | [Design and verification building blocks](ch3.md) | 136 | 48 |
-| 4 | [Scheduling semantics](ch4.md) | 412 | 325 |
+| 4 | [Scheduling semantics](ch4.md) | 473 | 386 |
 | 5 | [Lexical conventions](ch5.md) | 412 | 314 |
 | 6 | [Data types](ch6.md) | 681 | 79 |
 | 7 | [Aggregate data types](ch7.md) | 772 | 304 |
 | 8 | [Classes](ch8.md) | 411 | 90 |
 | 9 | [Processes](ch9.md) | 383 | 173 |
-| 10 | [Assignment statements](ch10.md) | 353 | 149 |
+| 10 | [Assignment statements](ch10.md) | 425 | 221 |
 | 11 | [Operators and expressions](ch11.md) | 1644 | 1122 |
 | 12 | [Procedural programming statements](ch12.md) | 251 | 70 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 381 | 194 |
@@ -31,7 +31,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 19 | [Functional coverage](ch19.md) | 190 | 33 |
 | 20 | [Utility system tasks and system functions](ch20.md) | 367 | 97 |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 339 | 126 |
-| 22 | [Compiler directives](ch22.md) | 398 | 288 |
+| 22 | [Compiler directives](ch22.md) | 512 | 402 |
 | 23 | [Modules and hierarchy](ch23.md) | 331 | 75 |
 | 24 | [Programs](ch24.md) | 160 | 117 |
 | 25 | [Interfaces](ch25.md) | 204 | 85 |

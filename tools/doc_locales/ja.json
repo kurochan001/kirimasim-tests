@@ -24538,6 +24538,9 @@
     "that update does not decide what it prints.": "その更新は表示内容を左右しない。",
     "An array of gate instances maps terminal bits by position and keeps per- ZXQPH0QXZ delays": "ゲートインスタンスの配列は端子のビットを位置で割り当て、 ZXQPH0QXZ ごとの遅延を保つ",
     "A time scope decides how a task delay scales, rounds and reads back": "時間スコープがtaskの遅延の換算・丸め・読出しを決める",
-    "A literal keeps its bits and sign through carriers and expression context": "リテラルは運び方と式の文脈を通じてビットと符号を保つ"
+    "A literal keeps its bits and sign through carriers and expression context": "リテラルは運び方と式の文脈を通じてビットと符号を保つ",
+    "A force overrides every other assignment until release, and a release restores by kind": "forceはreleaseまで他の代入をすべて上書きし、releaseは対象の種類に応じて値を戻す",
+    "A text macro expands as text where it is used, so its operands bind by position": "テキストマクロは使う場所で文字として展開されるので、オペランドは置かれた位置で結合する",
+    "An update wakes only what reads the changed bits, by the implicit sensitivity of each form": "更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす"
   }
 }

@@ -14,6 +14,13 @@
 
 ## 保存実行の概要
 
+2026-11-07のマクロ展開・force/release・暗黙の感度の追加で、**95モデル・3,692件・168章対**になりました。
+最新のmainをビルドしたkirimasim `97d5b0001e7c`の[単一実行](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json)は、
+**3,159 pass・529 unsupported・既存configの4 fail**です。追加247件は全PASSで、従来3,445件の入力・状態分類は不変です。
+全選択ケースPASSは68モデルです。
+[マクロ展開と文脈](#macro-expansion-context)、[forceとrelease](#force-release-visibility)、[暗黙の感度](#implicit-sensitivity-update)に独立検算と固定版比較を記録します。
+追加247件は正式Check・Nightlyでは未実行です。
+
 2026-11-07の時間スコープ・リテラル・ゲート配列の追加で、**92モデル・3,445件・151章対**になりました。
 最新のmainをビルドしたkirimasim `60c26d7c8113`の[単一実行](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json)は、
 **2,912 pass・529 unsupported・既存configの4 fail**です。追加165件は全PASSで、従来3,280件の入力・状態分類は不変です。
@@ -3955,3 +3962,107 @@ python3 tools/qualify_literal.py --kirimasim /path/to/latest-build/kirimasim \
 python3 tools/qualify_gatearray.py --kirimasim /path/to/latest-build/kirimasim \
   --output my-results/gatearray-qualification-new.json
 ```
+
+<a id="macro-expansion-context"></a>
+
+## マクロ展開と文脈（2026-11-07）
+
+[`interaction_macro.py`](../generators/interaction_macro.py)は`macro_expansion_context@1`を定義します。
+第11章×第22章は全114件に対応し、第7・8・9・10・12・13・20・21・25・26・27章×第22章は、その文脈の行だけに対応します。
+全114件が同じ保存実行で成功して初めてモデル全体のPASSです。
+
+### 因子・対象範囲
+
+定義の形（引数あり、引数なし、既定値で省略、空の実引数で既定値、後ろの引数の既定値、後で定義する内側のマクロ、実引数の中のマクロ、複数行と注釈、トークンの連結、文字列化、引用符のエスケープ）、
+本体（括弧なし、括弧あり、仮引数を二度使う）、実引数（単純、優先順位の低い式、波括弧の中のカンマ、条件演算）、
+文脈（連続代入、case項目、関数、`$display`、パッケージ、インタフェース、生成ブロック、クラス、fork、幅の式、構造体の代入パターン）、
+定義の置き方（コンパイル単位の先頭、別のモジュール、使う要素の中、再定義、`` `undef ``、`` `elsif ``、`` `ifndef ``）を交差します。
+合法7,679行から114件を選びます。全因子対463目標、必須9件を保持します。`` `__LINE__ ``と`` `__FILE__ ``は対象外です。
+
+### 何を区別するか
+
+マクロは文字として置かれるので、外側の演算子と実引数は置かれた位置で結合します（22.5.1）。全件で外側に`* 3`を付けます。
+[括弧なしの本体](../tests/gen/ch22/test_gen_cross_macro_function_bare_low_show_unit.sv)に`1 | 6`を渡すと`1 | 6 + 1 * 3`で9、[括弧ありの本体](../tests/gen/ch22/test_gen_cross_macro_function_wrap_low_show_unit.sv)では24です。
+仮引数を二度使うと`1 | 6 + 1 + 1 | 6 * 3`で27です。条件演算の実引数は括弧がなければ残りをすべて取り込むので2です。
+
+内側のマクロは外側より後に定義し、定義時ではなく使う時点で展開されることを確かめます。再定義では最後の定義が使われ、別のモジュールの中の定義はコンパイル単位の残りへ届きます。
+選ばれない枝には未定義のマクロと対応しないキーワードを置き、コンパイルされないことを確かめます。case項目の条件演算のコロンや、代入パターンの中のカンマも文脈ごとに確かめます。
+
+### 独立検算と実行結果
+
+[`qualify_macro.py`](../tools/qualify_macro.py)は小さなプリプロセッサで実際のSVを展開し、演算子の優先順位から値を求めます。主モデルの本体や値の表を呼ばず、全7,679プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/macro.json)には正常対照9件と実行可能な誤り10件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `97d5b0001e7c`の[単一の全3,692件](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json)で追加114件は全PASSです。[全行の記録](../coverage/interaction-qualification/macroforcesense-all-rows.json)では全7,679行でkirimasimの差は0件です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross95-macroforcesense-icarus13.json)は90 pass・24 knownです。全行では5,537行が一致し、2,115行を拒否し、27行が異なります。[固定Verilator 5.052](../coverage/interaction-results/cross95-macroforcesense-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross95-macroforcesense-verilator5052-seed73.json)でも114 passです。
+内訳は[シミュレータ差異](simulator-differences.ja.md#macro-force-sense-differences)を参照してください。
+
+<a id="force-release-visibility"></a>
+
+## forceとrelease（2026-11-07）
+
+[`interaction_force.py`](../generators/interaction_force.py)は`force_release_visibility@1`を定義します。
+第10章×第21章は`$strobe`と`$monitor`の行、第10章×第20章はビット問い合わせの行、第4章×第6章は網と駆動のある変数の行に対応します。
+
+### 因子・対象範囲
+
+左辺（変数、連続代入のある変数、`assign`が有効な変数、網、網の部分選択、`wor`、変数の連結、網の連結）、右辺（定数、X/Zを含む定数、式）、
+forceの間の動作（なし、ドライバの書込み、右辺の信号の書込み）、書込みの形（ブロッキング、ノンブロッキング）、観測（`$display`、`$strobe`、`$monitor`、`@`、`$countones`・`$isunknown`・`$bits`）、場所（直接、task、階層参照）を交差します。
+合法2,160行から72件を選びます。全因子対228目標、重点3因子72目標、必須8件を保持します。変数のビット選択・部分選択は10.6.2で禁じられているので使いません。
+
+### 何を区別するか
+
+forceはすべての代入とドライバを上書きし、式のforceは右辺の変化に追従します。releaseの後は対象の種類で分かれます（10.6.2）。
+網は直ちにドライバの値を持ち、連続代入や`assign`のある変数は再評価で値が戻り、それ以外の変数は次の代入まで値を保ちます。
+[`assign`の例](../tests/gen/ch10/test_gen_cross_force_pca_const_driver_nba_strobe_direct.sv)では、forceの間にドライバを書き、releaseで`0011`へ戻ります。`deassign`の後も値は残り、次の手続き代入で変わります。
+
+再評価の結果が定まらない、release直後の同じ時刻の読出しは行いません。読むのは規格が結果を定める網と駆動のない変数だけです。
+`$monitor`の最初の表示は規格が明示しないので、開始と同じ時刻に値を変えて必ず表示が出る形にしました。値が変わらなければ`$monitor`と`@`は反応しないことも確かめます。
+
+### 独立検算と実行結果
+
+[`qualify_force.py`](../tools/qualify_force.py)は宣言をビットごとの状態にし、force・`assign`・ドライバの順に読み値を決めます。全2,160プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/force.json)には正常対照8件と実行可能な誤り10件を保存しました。単一の全実行で追加72件は全PASS、全2,160行でkirimasimの差は0件です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross95-macroforcesense-icarus13.json)は52 pass・20 knownです。全行では1,392行が一致し、360行を拒否し、408行が異なります。[固定Verilator 5.052](../coverage/interaction-results/cross95-macroforcesense-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross95-macroforcesense-verilator5052-seed73.json)でも46 pass・26 knownです。
+内訳は[シミュレータ差異](simulator-differences.ja.md#macro-force-sense-differences)を参照してください。
+
+<a id="implicit-sensitivity-update"></a>
+
+## 暗黙の感度と更新（2026-11-07）
+
+[`interaction_sense.py`](../generators/interaction_sense.py)は`implicit_sensitivity_update@1`を定義します。
+第4章×第7章は配列の要素と構造体のメンバの行、第4章×第11章は部分選択・条件演算・連結の行、第4章×第6章は連続代入の行に対応します。
+
+### 因子・対象範囲
+
+プロセス（`always_comb`、`always_latch`、`always @*`、連続代入、網の宣言代入）、読む式（単純、定数添字の要素、変数添字の要素、構造体メンバ、パックド構造体メンバ、部分選択、引数を読む関数、引数以外を読む関数、条件演算、連結）、
+書込み（読む部分、読まない部分、同じ値、もう一方のオペランド、添字または選択）、書込みの形（ブロッキング、ノンブロッキング、task）を交差します。
+合法630行から61件を選びます。全因子対177目標、必須25件を保持します。読む式ごとに`always_comb`の読まない部分への書込みを必須にしました。
+
+### 何を区別するか
+
+`always_comb`と`always_latch`は読む式の最長静的接頭辞で起きます（9.2.2.2.1、11.5.3）。別の要素・メンバ・部分への書込みでは起きず、変数添字では接頭辞が配列全体になるので起きます。
+本体の`$display`で評価の回数を、別の時刻の読出しで値を観測します。同じ値の書込みは更新ではないので、どの形でも起きません。
+
+関数の中で読む変数に反応するのは`always_comb`と`always_latch`だけで、`always @*`と連続代入は実引数にしか反応しません（9.2.2.2.2、10.3.2）。
+[連続代入の例](../tests/gen/ch4/test_gen_cross_sense_assign_fnglobal_read_task.sv)では、関数が読む`a`を変えても出力は古いままで、次に`b`が変わると全体を評価して`3c`になります。
+
+時刻0の競合を避けるため、初期値は宣言の初期化で与え、各段階の書込みは一つにしました。`always @*`は最初の変化を待つので、最初の読出しはXです。
+
+### 独立検算と実行結果
+
+[`qualify_sense.py`](../tools/qualify_sense.py)は右辺の文字列から依存先を求め、書込みが重なるかで起床を決めます。全630プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/sense.json)には正常対照9件と実行可能な誤り9件を保存しました。単一の全実行で追加61件は全PASS、全630行でkirimasimの差は0件です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross95-macroforcesense-icarus13.json)は50 pass・11 knownです。全行では546行が一致し、60行を拒否し、24行が異なります。[固定Verilator 5.052](../coverage/interaction-results/cross95-macroforcesense-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross95-macroforcesense-verilator5052-seed73.json)でも19 pass・42 knownです。
+内訳は[シミュレータ差異](simulator-differences.ja.md#macro-force-sense-differences)を参照してください。
+
+kirimasim、Icarus、Verilatorの[ビルドと固定版の記録](../coverage/interaction-qualification/macroforcesense-build.json)と[差異の再生](../coverage/interaction-qualification/macroforcesense-known-replays.json)を保存しました。

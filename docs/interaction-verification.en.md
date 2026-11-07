@@ -14,6 +14,13 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-07 macro, force/release and implicit-sensitivity additions bring totals to **95 models / 3,692 cases / 168 chapter pairs**.
+The [single run](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json) on kirimasim `97d5b0001e7c`, built from the latest main, records
+**3,159 pass / 529 unsupported / four existing config failures**. All 247 additions pass; preceding 3,445 inputs/statuses are unchanged.
+68 models pass their entire selection.
+See [macro expansion and context](#macro-expansion-context), [force and release](#force-release-visibility) and [implicit sensitivity](#implicit-sensitivity-update) for the independent checks and pinned comparisons.
+The 247 additions have not run in formal Check/Nightly.
+
 The 2026-11-07 time-scope, literal and gate-array additions bring totals to **92 models / 3,445 cases / 151 chapter pairs**.
 The [single run](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json) on kirimasim `60c26d7c8113`, built from the latest main, records
 **2,912 pass / 529 unsupported / four existing config failures**. All 165 additions pass; preceding 3,280 inputs/statuses are unchanged.
@@ -3979,3 +3986,107 @@ python3 tools/qualify_literal.py --kirimasim /path/to/latest-build/kirimasim \
 python3 tools/qualify_gatearray.py --kirimasim /path/to/latest-build/kirimasim \
   --output my-results/gatearray-qualification-new.json
 ```
+
+<a id="macro-expansion-context"></a>
+
+## Macro expansion and context (2026-11-07)
+
+[`interaction_macro.py`](../generators/interaction_macro.py) defines `macro_expansion_context@1`.
+Chapter 11 x 22 maps to all 114 cases, and chapters 7, 8, 9, 10, 12, 13, 20, 21, 25, 26 and 27 x 22 map to the rows of their context.
+The model passes only when all 114 succeed in one saved run.
+
+### Factors and scope
+
+Definition form (arguments, no arguments, an omitted default, an empty actual taking the default, a default for a later argument, an inner macro defined later, a macro inside an actual, several lines with comments, token pasting, stringification, an escaped quote);
+body (no parentheses, parentheses, the formal used twice); actual argument (simple, a low-precedence expression, a comma inside braces, a conditional);
+context (continuous assignment, case item, function, `$display`, package, interface, generate block, class, fork, width expression, structure assignment pattern);
+and where the definition sits (top of the compilation unit, another module, the element using it, redefinition, `` `undef ``, `` `elsif ``, `` `ifndef ``).
+114 cases come from 7,679 legal rows, with 463 factor-pair targets and nine mandatory rows. `` `__LINE__ `` and `` `__FILE__ `` are out of scope.
+
+### What it distinguishes
+
+A macro is placed as text, so an outer operator and an actual argument bind where they land (22.5.1). Every case has `* 3` outside the macro.
+With `1 | 6` as the actual, a [body without parentheses](../tests/gen/ch22/test_gen_cross_macro_function_bare_low_show_unit.sv) gives `1 | 6 + 1 * 3`, which is 9, and a [body with parentheses](../tests/gen/ch22/test_gen_cross_macro_function_wrap_low_show_unit.sv) gives 24.
+A formal used twice gives `1 | 6 + 1 + 1 | 6 * 3`, which is 27. A conditional actual without parentheses takes in all the rest, which gives 2.
+
+An inner macro is defined after the outer one, to show that expansion happens at the point of use and not at the definition. In a redefinition the last definition is used, and a definition inside another module reaches the rest of the compilation unit.
+A branch that is not chosen holds an undefined macro and an unmatched keyword, to show that it is not compiled. Each context also checks its own punctuation, such as the colon of a conditional in a case item and a comma in an assignment pattern.
+
+### Independent check and execution
+
+[`qualify_macro.py`](../tools/qualify_macro.py) expands the actual SV with a small preprocessor and evaluates by operator precedence. It calls no body or value table of the main model, and all 7,679 programs match.
+[Auxiliary evidence](../coverage/interaction-qualification/macro.json) keeps nine normal controls and ten executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 3,692-case run](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json) on kirimasim `97d5b0001e7c`, all 114 additions pass. The [all-row record](../coverage/interaction-qualification/macroforcesense-all-rows.json) shows no kirimasim difference over all 7,679 rows.
+
+### Pinned differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross95-macroforcesense-icarus13.json) has 90 pass / 24 known. Over all rows, 5,537 match, 2,115 are rejected and 27 differ. [Pinned Verilator 5.052](../coverage/interaction-results/cross95-macroforcesense-verilator5052-seed1.json) has 114 pass, also at [seed 73](../coverage/interaction-results/cross95-macroforcesense-verilator5052-seed73.json).
+See the [simulator differences](simulator-differences.md#macro-force-sense-differences).
+
+<a id="force-release-visibility"></a>
+
+## Force and release (2026-11-07)
+
+[`interaction_force.py`](../generators/interaction_force.py) defines `force_release_visibility@1`.
+Chapter 10 x 21 maps to the `$strobe` and `$monitor` rows, chapter 10 x 20 to the bit query rows, and chapter 4 x 6 to the rows of nets and driven variables.
+
+### Factors and scope
+
+Left-hand side (a variable, a variable with a continuous assignment, a variable under `assign`, a net, a part-select of a net, `wor`, a concatenation of variables, a concatenation of nets); right-hand side (a constant, a constant with X and Z, an expression);
+action during the force (none, a driver write, a write of the right-hand signal); write form (blocking, nonblocking); observer (`$display`, `$strobe`, `$monitor`, `@`, `$countones` with `$isunknown` and `$bits`); site (direct, task, hierarchical).
+72 cases come from 2,160 legal rows, with 228 factor-pair targets, 72 focused three-factor targets and eight mandatory rows. A bit-select or part-select of a variable is not used, because 10.6.2 forbids it.
+
+### What it distinguishes
+
+A force overrides every assignment and driver, and a forced expression follows its operands. After a release the result depends on the target (10.6.2).
+A net takes its drivers at once, a variable with a continuous assignment or `assign` gets its value back by a reevaluation, and any other variable keeps its value until the next assignment.
+In the [`assign` example](../tests/gen/ch10/test_gen_cross_force_pca_const_driver_nba_strobe_direct.sv), the driver is written during the force, and the release returns the value `0011`. After `deassign` the value stays until the next procedural assignment.
+
+No read happens in the time step of a release whose reevaluation is only scheduled. Reads right after a release are limited to nets and undriven variables, where the standard gives the result.
+The standard does not say whether `$monitor` displays when it starts, so a value changes at that time and a display is certain. `$monitor` and `@` also have to stay silent when the value does not change.
+
+### Independent check and execution
+
+[`qualify_force.py`](../tools/qualify_force.py) turns declarations into state per bit and reads through the force, then `assign`, then the drivers. All 2,160 programs match.
+[Auxiliary evidence](../coverage/interaction-qualification/force.json) keeps eight normal controls and ten executable faults. In the single complete run all 72 additions pass, and there is no kirimasim difference over all 2,160 rows.
+
+### Pinned differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross95-macroforcesense-icarus13.json) has 52 pass / 20 known. Over all rows, 1,392 match, 360 are rejected and 408 differ. [Pinned Verilator 5.052](../coverage/interaction-results/cross95-macroforcesense-verilator5052-seed1.json) has 46 pass / 26 known, also at [seed 73](../coverage/interaction-results/cross95-macroforcesense-verilator5052-seed73.json).
+See the [simulator differences](simulator-differences.md#macro-force-sense-differences).
+
+<a id="implicit-sensitivity-update"></a>
+
+## Implicit sensitivity and updates (2026-11-07)
+
+[`interaction_sense.py`](../generators/interaction_sense.py) defines `implicit_sensitivity_update@1`.
+Chapter 4 x 7 maps to the rows of array elements and structure members, chapter 4 x 11 to part-selects, conditionals and concatenations, and chapter 4 x 6 to the continuous assignments.
+
+### Factors and scope
+
+Process (`always_comb`, `always_latch`, `always @*`, a continuous assignment, a net declaration assignment); what is read (a plain variable, an element by a constant index, an element by a variable index, a structure member, a packed structure member, a part-select, a function reading its argument, a function reading something else, a conditional, a concatenation);
+write (the part read, a part not read, the same value, the other operand, the index or select); write form (blocking, nonblocking, task).
+61 cases come from 630 legal rows, with 177 factor-pair targets and 25 mandatory rows. Each form read has a mandatory `always_comb` row that writes a part not read.
+
+### What it distinguishes
+
+`always_comb` and `always_latch` wake on the longest static prefix of what they read (9.2.2.2.1, 11.5.3). A write to another element, member or part does not wake them, unless a variable index makes the prefix the whole array.
+A `$display` in the body counts the evaluations, and reads at other times show the value. A write of the same value is no update, so it wakes nothing.
+
+Only `always_comb` and `always_latch` react to what a function reads; `always @*` and a continuous assignment react only to its arguments (9.2.2.2.2, 10.3.2).
+In the [continuous assignment example](../tests/gen/ch4/test_gen_cross_sense_assign_fnglobal_read_task.sv), a change of `a`, read by the function, leaves the output old, and the next change of `b` evaluates everything and gives `3c`.
+
+To avoid races at time 0, initial values come from declaration initializers and each step has one write. `always @*` waits for the first change, so its first read is X.
+
+### Independent check and execution
+
+[`qualify_sense.py`](../tools/qualify_sense.py) finds the dependencies from the text of the right-hand side and wakes by the overlap with a write. All 630 programs match.
+[Auxiliary evidence](../coverage/interaction-qualification/sense.json) keeps nine normal controls and nine executable faults. In the single complete run all 61 additions pass, and there is no kirimasim difference over all 630 rows.
+
+### Pinned differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross95-macroforcesense-icarus13.json) has 50 pass / 11 known. Over all rows, 546 match, 60 are rejected and 24 differ. [Pinned Verilator 5.052](../coverage/interaction-results/cross95-macroforcesense-verilator5052-seed1.json) has 19 pass / 42 known, also at [seed 73](../coverage/interaction-results/cross95-macroforcesense-verilator5052-seed73.json).
+See the [simulator differences](simulator-differences.md#macro-force-sense-differences).
+
+The [build and pinned records](../coverage/interaction-qualification/macroforcesense-build.json) and the [replays of the differences](../coverage/interaction-qualification/macroforcesense-known-replays.json) are kept.

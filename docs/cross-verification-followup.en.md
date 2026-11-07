@@ -6,12 +6,12 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json) has 92 models and 3,445 cases, run on kirimasim `60c26d7c8113`, built from the latest main:
-2,912 pass, 529 unsupported and four config failures. All 165 additions pass. Against the [previous complete run on `1e840ea322cc`](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json), preceding 3,280 inputs and statuses are unchanged.
-The 36 event-loop cases and these 165 have not run in formal Check/Nightly.
+The current [complete local selection](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json) has 95 models and 3,692 cases, run on kirimasim `97d5b0001e7c`, built from the latest main:
+3,159 pass, 529 unsupported and four config failures. All 247 additions pass. Against the [previous complete run on `60c26d7c8113`](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json), preceding 3,445 inputs and statuses are unchanged.
+These 247 cases have not run in formal Check/Nightly.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
-[Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. These new 36 cases are outside both runs.
+[Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.
 The historical uncommitted builds below explain the repair process; they do not describe the current upstream state.
 One successful kirimasim-tests Nightly is separate from the core repository's seven-consecutive-Nightly condition.
 
@@ -99,7 +99,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M151, E3, C2, N117 and R547. See the
+The current triage is M168, E3, C2, N117 and R530. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -169,7 +169,7 @@ Requirement bindings, thirteen random profiles, existing regressions and core so
 The three items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
 When a full cross run uses a new kirimasim build, try the programs below. When one no longer reports `not implemented yet`, add the model or observation.
 The 529 existing unsupported cases are not listed: they have tests, and their results change once the feature is implemented.
-Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `60c26d7c8113` on 2026-11-07.
+Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `97d5b0001e7c` on 2026-11-07.
 
 Take expectations from the standard, and check them by [running every legal row once](interaction-verification-method.en.md#run-every-legal-row-once).
 
@@ -208,3 +208,11 @@ Print it in the task of [`interaction_timescope.py`](../generators/interaction_t
 package pk; timeunit 1ns / 1ps; task automatic t; $printtimescale; endtask endpackage
 module top; timeunit 1ns / 1ps; initial begin pk::t; $finish; end endmodule
 ```
+
+## Macro expansion, force and release, implicit sensitivity (2026-11-07)
+
+- Added models for [macro expansion](interaction-verification.en.md#macro-expansion-context), [force and release](interaction-verification.en.md#force-release-visibility) and [implicit sensitivity](interaction-verification.en.md#implicit-sensitivity-update).
+- 17 chapter pairs moved from R to M: chapters 7, 8, 9, 10, 11, 12, 13, 20, 21, 25, 26 and 27 x 22; chapter 10 x 20 and 21; chapter 4 x 6, 7 and 11.
+- One complete 3,692-case run on kirimasim `97d5b0001e7c` records 3,159 pass, 529 unsupported and four existing config failures. All 247 additions pass. Totals: 95 models, 168 chapter pairs, 68 full-selection-pass models.
+- Over all 10,469 legal rows there is no kirimasim difference, and no expectation changed. Each difference from Icarus was judged against the clause to be on the Icarus side.
+- What `final` sees after `$finish` (chapter 9 x 20) was left out, because the standard does not define pending NBAs or other processes at that time. This is not a matter of kirimasim's implementation.

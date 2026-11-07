@@ -93,6 +93,9 @@ import interaction_eventflow
 import interaction_timescope
 import interaction_literal
 import interaction_gatearray
+import interaction_macro
+import interaction_force
+import interaction_sense
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -101,7 +104,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -811,5 +814,26 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_gatearray.MODEL.select(),
             "4個のゲートの配列へ昇順・降順のベクタ、部分選択、連結、スカラをつなぎ、ビットの対応を調べる。"
             "既知値・X/Z・既知値の変化で、各出力の真理値表と立上り・立下り・ターンオフの遅延を半時刻で読む。",
+        ),
+        SuiteModel(
+            interaction_macro.MODEL,
+            lambda row: "tests/gen/ch22/" + interaction_macro.case_name(row) + ".sv",
+            interaction_macro.MODEL.select(),
+            "マクロの定義の形・本体の括弧・実引数を、11の文脈とコンパイル単位の中の定義の置き方で交差する。"
+            "文字として展開されるので、外側の演算子や優先順位の低い実引数の結合を値で確かめる。",
+        ),
+        SuiteModel(
+            interaction_force.MODEL,
+            lambda row: "tests/gen/ch10/" + interaction_force.case_name(row) + ".sv",
+            interaction_force.MODEL.select(),
+            "変数・連続代入・assign・網・部分選択・wor・連結をforceし、その間と後にドライバと右辺の信号を変える。"
+            "各段階の値を$display・$strobe・$monitor・@・ビット問い合わせ関数で読む。",
+        ),
+        SuiteModel(
+            interaction_sense.MODEL,
+            lambda row: "tests/gen/ch4/" + interaction_sense.case_name(row) + ".sv",
+            interaction_sense.MODEL.select(),
+            "always_comb・always_latch・@*・連続代入で読む式の形を変え、読む部分と読まない部分へ書き込む。"
+            "再評価の回数と出力の値で、最長静的接頭辞と関数の中の読出しの扱いを確かめる。",
         ),
     )

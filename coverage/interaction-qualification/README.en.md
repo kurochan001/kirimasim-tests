@@ -10,7 +10,7 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-06 JST)
 
-The selection now contains 92 models / 3,445 cases; see [time-scope, literal and gate-array qualification](#time-literal-gate-qualification).
+The selection now contains 95 models / 3,692 cases; see [macro, force/release and implicit-sensitivity qualification](#macro-force-sense-qualification).
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json) records successful Check/Nightly workflows and all jobs on baseline 67321079. Individual artifacts remain uninspected; retain the older detailed checkpoints below separately.
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json) confirms Check’s pinned comparisons/static checks for the preceding 86-model suite.
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
@@ -510,3 +510,16 @@ All 165 additions pass and preceding 3,280 inputs/statuses are unchanged. Totals
 [All Icarus differences and representative Verilator outputs](timelitgate-known-replays.json) are retained.
 The [all-row record](timelitgate-all-rows.json) is one run of all 19,080 rows and enters neither the fixed suite nor requirement coverage. It also records the correction of the literal expectation.
 See the [design and rerun](../../docs/interaction-verification.en.md#time-scope-delay).
+
+<a id="macro-force-sense-qualification"></a>
+
+## Macro, force/release and implicit-sensitivity qualification
+
+[`macro.json`](macro.json) checks all 7,679 rows, [`force.json`](force.json) all 2,160 and [`sense.json`](sense.json) all 630 by independent interpretation.
+Normal controls are nine, eight and nine; faulty SV programs are ten, ten and nine, all detected by an output difference after a normal exit.
+The [build record](macroforcesense-build.json) identifies one complete 3,692-case run on `97d5b0001e7c`: 3,159 pass / 529 unsupported / four existing failures.
+All 247 additions pass and preceding 3,445 inputs/statuses are unchanged. Totals: 95 models / 168 chapter pairs / 68 full-selection-pass models.
+[Pinned comparisons](macroforcesense-fixed-replays.json) record Icarus 192 pass / 55 known and Verilator 179 pass / 68 known at both seeds.
+[All Icarus differences and representative Verilator outputs](macroforcesense-known-replays.json) are retained.
+The [all-row record](macroforcesense-all-rows.json) is one run of all 10,469 rows and enters neither the fixed suite nor requirement coverage. kirimasim has no difference.
+See the [design and rerun](../../docs/interaction-verification.en.md#macro-expansion-context).

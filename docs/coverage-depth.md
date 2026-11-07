@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 11193 |
+| Tests | 11440 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
@@ -27,9 +27,9 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 807 |
-| Icarus Verilog 13.0 only | 5153 |
-| Verilator 5.052 only | 2014 |
-| standard only | 3219 |
+| Icarus Verilog 13.0 only | 5345 |
+| Verilator 5.052 only | 2057 |
+| standard only | 3231 |
 
 <a id="章別"></a>
 
@@ -38,13 +38,13 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | Chapter | Title | Tests | In scope | Tests/clause | One test | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 136 | 16 | 8.5 | 0 | 14 |
-| 4 | Scheduling semantics | 412 | 27 | 15.3 | 0 | 15 |
+| 4 | Scheduling semantics | 473 | 27 | 17.5 | 0 | 24 |
 | 5 | Lexical conventions | 412 | 16 | 25.8 | 0 | 7 |
 | 6 | Data types | 681 | 76 | 9.0 | 0 | 123 |
 | 7 | Aggregate data types | 772 | 49 | 15.8 | 0 | 201 |
 | 8 | Classes | 411 | 43 | 9.6 | 0 | 109 |
 | 9 | Processes | 383 | 25 | 15.3 | 0 | 56 |
-| 10 | Assignment statements | 353 | 18 | 19.6 | 0 | 44 |
+| 10 | Assignment statements | 425 | 18 | 23.6 | 0 | 47 |
 | 11 | Operators and expressions | 1644 | 42 | 39.1 | 0 | 250 |
 | 12 | Procedural programming statements | 251 | 19 | 13.2 | 0 | 49 |
 | 13 | Tasks and functions (subroutines) | 381 | 15 | 25.4 | 0 | 63 |
@@ -56,7 +56,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 19 | Functional coverage | 190 | 24 | 7.9 | 0 | 127 |
 | 20 | Utility system tasks and system functions | 367 | 31 | 11.8 | 0 | 92 |
 | 21 | Input/output system tasks and system functions | 339 | 47 | 7.2 | 0 | 94 |
-| 22 | Compiler directives | 398 | 21 | 19.0 | 0 | 36 |
+| 22 | Compiler directives | 512 | 21 | 24.4 | 0 | 36 |
 | 23 | Modules and hierarchy | 331 | 33 | 10.0 | 0 | 71 |
 | 24 | Programs | 160 | 7 | 22.9 | 0 | 110 |
 | 25 | Interfaces | 204 | 12 | 17.0 | 0 | 31 |
