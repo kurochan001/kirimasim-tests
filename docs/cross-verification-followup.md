@@ -5,9 +5,9 @@
 2026-11-06（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json)は98モデル・3,887件で、最新のmainをビルドしたkirimasim `6e32b04ed6ec`で実行しました。
-3,404 pass・479 unsupported・configの4 failです。追加195件は全PASSです。[`97d5b0001e7c`の前回の全実行](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json)と比べて従来3,692件の入力は不変で、`inside`・範囲・`case inside`の50件がunsupportedからPASSになりました。
-前回の247件は[`6a0f260c`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42352682135)で固定版比較が成功しました。今回の195件は正式Check・Nightlyでは未実行です。
+現在の[全クロスのローカル選択](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json)は101モデル・4,023件で、最新のmainをビルドしたkirimasim `eee8cd16ba1d`で実行しました。
+3,536 pass・479 unsupported・8 failです。failはconfigの4件と、`defparam`の型と範囲を取り違える追加の4件です。[`6e32b04ed6ec`の前回の全実行](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json)と比べて従来3,887件の入力と状態は不変です。
+前回の195件は[`b81077b0`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42377388671)で固定版比較が成功しました。今回の136件は正式Check・Nightlyでは未実行です。
 
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
 [同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。その後の追加は両実行の対象外です。
@@ -95,7 +95,7 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
   演算・条件式を将来の独立因子として検討します。合法な式と正の寸法の確定、
   既知のconfigリセット不一致の修正を先に行います。
 
-現在の仕分けはM173・E3・C2・N117・R525です。
+現在の仕分けはM177・E3・C2・N117・R521です。
 [章対の根拠と指紋](chapter-cross-triage.md)を参照してください。
 既存の回帰matrixを先に活用し、原因が確定した機構に境界・操作列・故障対照を追加します。
 同じ目的の別runnerや、ランダム結果を固定要求カバレッジへ加算する仕組みは追加していません。
@@ -161,10 +161,10 @@ Icarusは31入力に一致し、repeat回数1の5件は拒否を保持して、�
 
 ## kirimasimの実装を待つ候補
 
-次の3件は、kirimasimが未実装なので見送りました。テストがまだないので、実装されても結果は変わらず、確認しなければ気づけません。
+次の4件は、kirimasimが未実装なので見送りました。テストがまだないので、実装されても結果は変わらず、確認しなければ気づけません。
 kirimasimの新しいビルドで全クロスを実行するときに下のプログラムを試し、`not implemented yet`が出なくなったらモデルや観測を追加します。
 既存の未対応529件はテストがあり、実装されれば結果が変わるので、この一覧には入れません。
-同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-07のkirimasim `6e32b04ed6ec`のものです。
+同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-07のkirimasim `eee8cd16ba1d`のものです。
 
 期待値は規格から求め、[全合法行を一度実行](interaction-verification-method.md#run-every-legal-row-once)して確かめます。
 
@@ -204,6 +204,20 @@ package pk; timeunit 1ns / 1ps; task automatic t; $printtimescale; endtask endpa
 module top; timeunit 1ns / 1ps; initial begin pk::t; $finish; end endmodule
 ```
 
+### 並行アサーション（`assertion_vector_query`への種類の追加）
+
+`assert property`は、kirimasimが`statement 'ConcurrentAssertion'`を未実装とします。既存の`cross_assert`の36件も未対応です。
+実装されたら、[`interaction_assertquery.py`](../generators/interaction_assertquery.py)のアサーションの種類に並行アサーションを加え、`VERSION`を上げて証跡を更新します。
+固定Icarus 13.0は並行アサーションを未対応とし、固定Verilator 5.052は二値なのでxとzの行を比べられません。
+
+```systemverilog
+module top;
+  logic [3:0] v = 4'b01x0; bit clk;
+  a: assert property (@(posedge clk) $onehot(v)) $display("pass"); else $display("fail");
+  initial begin #1 clk = 1; #1 $finish; end
+endmodule
+```
+
 ## マクロ展開・force/release・暗黙の感度（2026-11-07）
 
 - [マクロ展開](interaction-verification.md#macro-expansion-context)、[force/release](interaction-verification.md#force-release-visibility)、[暗黙の感度](interaction-verification.md#implicit-sensitivity-update)のモデルを追加しました。
@@ -220,3 +234,14 @@ module top; timeunit 1ns / 1ps; initial begin pk::t; $finish; end endmodule
 - 従来3,692件の入力は不変です。kirimasimの`inside`・範囲・`case inside`の実装で50件がunsupportedからPASSになり、`membership_container`・`membership_range`・`case_inside_selection`は全選択ケースPASSになりました。
 - 全合法行4,883行でkirimasimの差は0件で、期待値の修正はありません。IcarusとVerilatorとの差は、すべて条文に照らして各シミュレータ側の問題と判断しました。
 - [kirimasimの実装を待つ候補](#models-waiting-for-kirimasim)の3件は、`6e32b04ed6ec`でもまだ`not implemented yet`です。
+
+## パラメータの上書き・アサーションのビットベクタ関数・リテラルの引数（2026-11-07）
+
+- [パラメータの上書きと型](interaction-verification.md#parameter-override-type)、[アサーションの中のビットベクタ関数](interaction-verification.md#assertion-vector-query)、[リテラルの引数と変換](interaction-verification.md#literal-argument-conversion)のモデルを追加しました。
+- 第11×23・7×23・16×20・5×13章の4章対をRからMへ移しました。
+- kirimasim `eee8cd16ba1d`の単一の全4,023件は3,536 pass・479 unsupported・8 failです。追加136件のうち132件がPASSです。101モデル・177章対・全選択ケースPASSは76モデルです。
+- 新しいfail 4件は、型も範囲もないか`signed`だけのパラメータを`defparam`で上書きする行です。kirimasimは型と範囲を`defparam`の前の値のまま残し、値を切り詰めます。
+  全行では252行のうち24行で、固定Icarusは20行、固定Verilatorは`#()`と併用しない12行で規格どおりの期待値と一致します。期待値は変更していません。
+- アサーションとリテラルの引数の全922行で、kirimasimの差は0件です。
+- 並行アサーションはkirimasimが未実装なので、[実装を待つ候補](#models-waiting-for-kirimasim)に加えました。ほかの3件も`eee8cd16ba1d`でまだ未実装です。
+- `eee8cd16ba1d`はシミュレータのソースが`6e32b04ed6ec`と同じで、従来3,887件の入力と状態は変わりません。

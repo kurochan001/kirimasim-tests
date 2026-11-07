@@ -1,0 +1,680 @@
+{
+  "models": [
+    "parameter_override_type",
+    "assertion_vector_query",
+    "literal_argument_conversion"
+  ],
+  "generated_at": "2026-11-07T14:52:05.849630+00:00",
+  "scope": "All 25 Icarus differences and rejections, and one representative of each form of the known-input Verilator differences at both seeds. The first differing line of every known result is in the run records. Nothing here changes an expectation or counts as a pass. No simulator implementation source was read.",
+  "icarus_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "icarus_originals": [
+    {
+      "test": "tests/gen/ch13/test_gen_cross_litarg_exp_slogic12_default_escaped.sv",
+      "input_sha256": "f4c45b4cd44a315b11a459262f6b3e8c5189a30bfe60f3359dbbb585e54250b2",
+      "reason": "compile failed: Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.\nsh: line 1: 18864 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg212e53e82\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg12e53e82\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli12e53e82\"\n     18865 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh12e53e82\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_cross_litarg_fill1_byte_default_escaped.sv",
+      "input_sha256": "d3ada929c11971b267fe9de1b123727a5879cab4fa83ec30c28e6e95403435b9",
+      "reason": "output differs: line 1 is '1 01', expected '-1 ff'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "1 01\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_cross_litarg_fillx_bit8_default_plain.sv",
+      "input_sha256": "2aa07208513dfb919493192e757c795dc960318b72753b2a4ef3a5dc315577fc",
+      "reason": "output differs: line 1 is 'X 0X', expected '0 00'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "X 0X\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_cross_litarg_negreal_logic12_default_escaped.sv",
+      "input_sha256": "ca2dd44f03ece0dd8ddcf0806f55b75f621f6b7bb2d4a9dcdab963fee19504ef",
+      "reason": "compile failed: Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.\nsh: line 1: 18882 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg212e99a99\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg12e99a99\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli12e99a99\"\n     18883 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh12e99a99\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_cross_litarg_real_int_default_plain.sv",
+      "input_sha256": "c1988fb2d06693a15b676f75acca1520c7d2723cef357776ef79ab0fadb1cea4",
+      "reason": "compile failed: Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.\nsh: line 1: 18887 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg212eb2483\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg12eb2483\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli12eb2483\"\n     18888 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh12eb2483\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_countones_two_observed_initial_settled.sv",
+      "input_sha256": "c28689ce63591002313f57b829eee91eb9b0ea98b9731dd8d827f8b55fdc9f27",
+      "reason": "compile failed: tests/gen/ch16/test_gen_cross_assertquery_countones_two_observed_initial_settled.sv:30: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch16/test_gen_cross_assertquery_countones_two_observed_initial_settled.sv:30: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_countones_zero_final_comb_settled.sv",
+      "input_sha256": "7ea1e8f016feddce1ef467ef7ffb59a7b27528ded68735b4965923f91f307f99",
+      "reason": "compile failed: tests/gen/ch16/test_gen_cross_assertquery_countones_zero_final_comb_settled.sv:28: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch16/test_gen_cross_assertquery_countones_zero_final_comb_settled.sv:28: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_countzero_xall_observed_clocked_settled.sv",
+      "input_sha256": "6ff6fc8f0ea187b4fdd204a1192722a292c2186719813eefa57c34941f8407ad",
+      "reason": "compile failed: tests/gen/ch16/test_gen_cross_assertquery_countzero_xall_observed_clocked_settled.sv:29: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch16/test_gen_cross_assertquery_countzero_xall_observed_clocked_settled.sv:29: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_countzero_zone_final_comb_glitch.sv",
+      "input_sha256": "26c57158ff64ce2179fad845a5b99ec34321d17cb487eb34cbccea4285ef29d0",
+      "reason": "compile failed: tests/gen/ch16/test_gen_cross_assertquery_countzero_zone_final_comb_glitch.sv:28: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch16/test_gen_cross_assertquery_countzero_zone_final_comb_glitch.sv:28: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_known_one_final_initial_settled.sv",
+      "input_sha256": "0cfe7bd91834245e412d7feeddac4599b012b84c1a5a405206f2e77716379dd0",
+      "reason": "compile failed: tests/gen/ch16/test_gen_cross_assertquery_known_one_final_initial_settled.sv:30: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch16/test_gen_cross_assertquery_known_one_final_initial_settled.sv:30: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_known_zero_observed_clocked_glitch.sv",
+      "input_sha256": "900a3d62f34a5f0092f64dc940b44aa223089dad6f331ba00edd462e152d3b35",
+      "reason": "compile failed: tests/gen/ch16/test_gen_cross_assertquery_known_zero_observed_clocked_glitch.sv:29: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch16/test_gen_cross_assertquery_known_zero_observed_clocked_glitch.sv:29: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_onehot0_one_observed_comb_settled.sv",
+      "input_sha256": "b30c2c4b32ca52cdc8ca7e63a7ecbb7ef37101e571aae181a97e018d0d17959d",
+      "reason": "compile failed: tests/gen/ch16/test_gen_cross_assertquery_onehot0_one_observed_comb_settled.sv:28: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch16/test_gen_cross_assertquery_onehot0_one_observed_comb_settled.sv:28: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_onehot0_xall_final_clocked_glitch.sv",
+      "input_sha256": "54fe447c4fdce6777ad344d94eca40d2511fea473715cca255d2fb1f298d80c3",
+      "reason": "compile failed: tests/gen/ch16/test_gen_cross_assertquery_onehot0_xall_final_clocked_glitch.sv:29: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch16/test_gen_cross_assertquery_onehot0_xall_final_clocked_glitch.sv:29: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_onehot0_xone_final_clocked_settled.sv",
+      "input_sha256": "3879156ad26b231f8408ae028f1d957f816ca801db0110c6ff10ba48296d426f",
+      "reason": "compile failed: tests/gen/ch16/test_gen_cross_assertquery_onehot0_xone_final_clocked_settled.sv:29: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch16/test_gen_cross_assertquery_onehot0_xone_final_clocked_settled.sv:29: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_onehot0_zone_observed_initial_settled.sv",
+      "input_sha256": "d1da17cbcea5e8bd434a7e62ce8d97a0b6f0a1476b3ca93091f71c0cefe64f9f",
+      "reason": "compile failed: tests/gen/ch16/test_gen_cross_assertquery_onehot0_zone_observed_initial_settled.sv:30: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch16/test_gen_cross_assertquery_onehot0_zone_observed_initial_settled.sv:30: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_onehot_two_final_comb_glitch.sv",
+      "input_sha256": "2b30cf5bb87ec2a98d915394520618a21e609105df852c43fb741faf7ecd1e83",
+      "reason": "compile failed: tests/gen/ch16/test_gen_cross_assertquery_onehot_two_final_comb_glitch.sv:28: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch16/test_gen_cross_assertquery_onehot_two_final_comb_glitch.sv:28: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_onehot_xone_observed_comb_glitch.sv",
+      "input_sha256": "416a85001e3b97cfc57e3971e1ba776bd69db661d07479dbb81dc96e1f47da80",
+      "reason": "compile failed: tests/gen/ch16/test_gen_cross_assertquery_onehot_xone_observed_comb_glitch.sv:28: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch16/test_gen_cross_assertquery_onehot_xone_observed_comb_glitch.sv:28: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_signed_sum_local.sv",
+      "input_sha256": "156f027f47a151df9c7e048d93db84f6a3136da4df8508bafa281b1e9e86a3d3",
+      "reason": "output differs: line 1 is 'P=35 bits=9 neg=0', expected 'P=35 bits=8 neg=0'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "P=35 bits=9 neg=0\ntests/gen/ch23/test_gen_cross_paramtype_signed_sum_local.sv:34: $finish called at 2 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_struct_concat_both.sv",
+      "input_sha256": "6364ed852f319bec8850954e1d676b7167ea84a73072b829d552ed48f0a35598",
+      "reason": "compile failed: tests/gen/ch23/test_gen_cross_paramtype_struct_concat_both.sv:30: error: Parameter name P can't have member names (hi).",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_concat_both.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18954 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg212fc5338\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg12fc5338\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli12fc5338\"\n     18955 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh12fc5338\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_struct_narrow_ordered.sv",
+      "input_sha256": "ae880d0648b1207317edea798e576772c178c05e1516c869e95b6ef83b1f8acc",
+      "reason": "compile failed: tests/gen/ch23/test_gen_cross_paramtype_struct_narrow_ordered.sv:30: error: Parameter name P can't have member names (hi).",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_narrow_ordered.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18961 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg212fddd22\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg12fddd22\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli12fddd22\"\n     18962 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh12fddd22\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_struct_sized_defparam.sv",
+      "input_sha256": "affb199af63878d6669f68c93e47f9e71543c3e3b176d133a5d99446b56dcf54",
+      "reason": "compile failed: tests/gen/ch23/test_gen_cross_paramtype_struct_sized_defparam.sv:30: error: Parameter name P can't have member names (hi).",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_sized_defparam.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18967 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg212ffa8b3\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg12ffa8b3\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli12ffa8b3\"\n     18968 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh12ffa8b3\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_struct_ssized_local.sv",
+      "input_sha256": "a55cedc225a54cee2fa0b31003c005c25214704b50d027cee99ffb37e35df9d3",
+      "reason": "compile failed: tests/gen/ch23/test_gen_cross_paramtype_struct_ssized_local.sv:30: error: Parameter name P can't have member names (hi).",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_ssized_local.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18973 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg21300f0f6\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg1300f0f6\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli1300f0f6\"\n     18974 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh1300f0f6\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_struct_sum_default.sv",
+      "input_sha256": "e17775b0050425a41f0b3dcb60352c494d269f335d5793c21ab2e898350600a2",
+      "reason": "compile failed: tests/gen/ch23/test_gen_cross_paramtype_struct_sum_default.sv:30: error: Parameter name P can't have member names (hi).",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_sum_default.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18979 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg21302bc87\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg1302bc87\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli1302bc87\"\n     18980 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh1302bc87\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_struct_wide_named.sv",
+      "input_sha256": "9d60925b1b41154f3d4c4964fb577d7f0499c1e1df7ef3345c2c70542c529891",
+      "reason": "compile failed: tests/gen/ch23/test_gen_cross_paramtype_struct_wide_named.sv:30: error: Parameter name P can't have member names (hi).",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_wide_named.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18986 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg213048818\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg13048818\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli13048818\"\n     18987 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh13048818\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_untyped_sum_named.sv",
+      "input_sha256": "fed142d72aa5975cb1fed83c77a6b5610846420152a0d26805632804e8243111",
+      "reason": "output differs: line 1 is 'P=35 bits=9 neg=0', expected 'P=35 bits=8 neg=0'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "P=35 bits=9 neg=0\ntests/gen/ch23/test_gen_cross_paramtype_untyped_sum_named.sv:33: $finish called at 2 (1s)\n",
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "verilator_originals": [
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_countones_zero_final_comb_settled.sv",
+      "seed": 1,
+      "input_sha256": "7ea1e8f016feddce1ef467ef7ffb59a7b27528ded68735b4965923f91f307f99",
+      "reason": "output differs: line 3 is extra: '1 fail'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "0 fail\n1 fail\n1 fail\n- tests/gen/ch16/test_gen_cross_assertquery_countones_zero_final_comb_settled.sv:37: Verilog $finish\n5 fail\n5 fail\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 5ps; walltime 0.000 s; speed 35.211 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_countones_zero_final_comb_settled.sv",
+      "seed": 73,
+      "input_sha256": "7ea1e8f016feddce1ef467ef7ffb59a7b27528ded68735b4965923f91f307f99",
+      "reason": "output differs: line 3 is extra: '1 fail'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "0 fail\n1 fail\n1 fail\n- tests/gen/ch16/test_gen_cross_assertquery_countones_zero_final_comb_settled.sv:37: Verilog $finish\n5 fail\n5 fail\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 5ps; walltime 0.000 s; speed 37.879 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_onehot0_one_observed_comb_settled.sv",
+      "seed": 1,
+      "input_sha256": "b30c2c4b32ca52cdc8ca7e63a7ecbb7ef37101e571aae181a97e018d0d17959d",
+      "reason": "output differs: line 3 is extra: '1 pass'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "0 fail\n1 pass\n1 pass\n- tests/gen/ch16/test_gen_cross_assertquery_onehot0_one_observed_comb_settled.sv:37: Verilog $finish\n5 pass\n5 pass\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 5ps; walltime 0.000 s; speed 30.120 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_onehot0_one_observed_comb_settled.sv",
+      "seed": 73,
+      "input_sha256": "b30c2c4b32ca52cdc8ca7e63a7ecbb7ef37101e571aae181a97e018d0d17959d",
+      "reason": "output differs: line 3 is extra: '1 pass'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "0 fail\n1 pass\n1 pass\n- tests/gen/ch16/test_gen_cross_assertquery_onehot0_one_observed_comb_settled.sv:37: Verilog $finish\n5 pass\n5 pass\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 5ps; walltime 0.000 s; speed 25.907 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_onehot_two_final_comb_glitch.sv",
+      "seed": 1,
+      "input_sha256": "2b30cf5bb87ec2a98d915394520618a21e609105df852c43fb741faf7ecd1e83",
+      "reason": "output differs: line 3 is extra: '5 fail'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "0 fail\n1 fail\n- tests/gen/ch16/test_gen_cross_assertquery_onehot_two_final_comb_glitch.sv:39: Verilog $finish\n5 fail\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 5ps; walltime 0.000 s; speed 33.784 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch16/test_gen_cross_assertquery_onehot_two_final_comb_glitch.sv",
+      "seed": 73,
+      "input_sha256": "2b30cf5bb87ec2a98d915394520618a21e609105df852c43fb741faf7ecd1e83",
+      "reason": "output differs: line 3 is extra: '5 fail'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "0 fail\n1 fail\n- tests/gen/ch16/test_gen_cross_assertquery_onehot_two_final_comb_glitch.sv:39: Verilog $finish\n5 fail\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 5ps; walltime 0.000 s; speed 31.250 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_int_narrow_both.sv",
+      "seed": 1,
+      "input_sha256": "43c3ec6316b67a101b24c22fc651c5378460b49ff6a2ca11cf4bc22765dd522e",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_int_narrow_both.sv:33:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_int_narrow_both.sv:33:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_int_narrow_both.sv",
+      "seed": 73,
+      "input_sha256": "43c3ec6316b67a101b24c22fc651c5378460b49ff6a2ca11cf4bc22765dd522e",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_int_narrow_both.sv:33:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_int_narrow_both.sv:33:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_logic_wide_both.sv",
+      "seed": 1,
+      "input_sha256": "c3420ec6fe202a727273fa6426516bf044d43827be465420049c313f6982cd0e",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_logic_wide_both.sv:33:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_logic_wide_both.sv:33:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_logic_wide_both.sv",
+      "seed": 73,
+      "input_sha256": "c3420ec6fe202a727273fa6426516bf044d43827be465420049c313f6982cd0e",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_logic_wide_both.sv:33:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_logic_wide_both.sv:33:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_range_sum_both.sv",
+      "seed": 1,
+      "input_sha256": "3b4375ec33e296b8353850810426dcb591db1cec74087a70906fce1006787251",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_range_sum_both.sv:33:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_range_sum_both.sv:33:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_range_sum_both.sv",
+      "seed": 73,
+      "input_sha256": "3b4375ec33e296b8353850810426dcb591db1cec74087a70906fce1006787251",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_range_sum_both.sv:33:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_range_sum_both.sv:33:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_signed_concat_both.sv",
+      "seed": 1,
+      "input_sha256": "ab68601e23e4be6e20012ecb29d45b0760e2fdd86a4a6e9ddf708f316d7b7861",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_signed_concat_both.sv:33:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_signed_concat_both.sv:33:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_signed_concat_both.sv",
+      "seed": 73,
+      "input_sha256": "ab68601e23e4be6e20012ecb29d45b0760e2fdd86a4a6e9ddf708f316d7b7861",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_signed_concat_both.sv:33:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_signed_concat_both.sv:33:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_srange_sized_both.sv",
+      "seed": 1,
+      "input_sha256": "ee9546697487dc408be69bbcfe5787a702c6d8988ac7f7ac1f1482e0bee9a2f8",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_srange_sized_both.sv:33:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_srange_sized_both.sv:33:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_srange_sized_both.sv",
+      "seed": 73,
+      "input_sha256": "ee9546697487dc408be69bbcfe5787a702c6d8988ac7f7ac1f1482e0bee9a2f8",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_srange_sized_both.sv:33:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_srange_sized_both.sv:33:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_struct_concat_both.sv",
+      "seed": 1,
+      "input_sha256": "6364ed852f319bec8850954e1d676b7167ea84a73072b829d552ed48f0a35598",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_struct_concat_both.sv:35:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_struct_concat_both.sv:35:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_struct_concat_both.sv",
+      "seed": 73,
+      "input_sha256": "6364ed852f319bec8850954e1d676b7167ea84a73072b829d552ed48f0a35598",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_struct_concat_both.sv:35:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_struct_concat_both.sv:35:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_untyped_ssized_both.sv",
+      "seed": 1,
+      "input_sha256": "7f6a673d9d9244f84e572e6e85949d979e63677e93e6f0af62502467a6450d26",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_untyped_ssized_both.sv:33:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_untyped_ssized_both.sv:33:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_paramtype_untyped_ssized_both.sv",
+      "seed": 73,
+      "input_sha256": "7f6a673d9d9244f84e572e6e85949d979e63677e93e6f0af62502467a6450d26",
+      "reason": "build failed: %Error: tests/gen/ch23/test_gen_cross_paramtype_untyped_ssized_both.sv:33:16: Duplicate parameter connection: 'P'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch23/test_gen_cross_paramtype_untyped_ssized_both.sv:33:16: Duplicate parameter connection: 'P'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    }
+  ],
+  "runner_sha256": {
+    "icarus": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+    "verilator": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+    "kirimasim": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb"
+  },
+  "executables_sha256": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "verilator_driver": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581"
+  }
+}

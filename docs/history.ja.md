@@ -327,3 +327,12 @@
   固定Icarusは134 pass・61 known、Verilatorは両seedとも188 pass・7 knownです。
 - suiteは11,635件、生成5,200件・107生成器です。要求カバレッジと13ランダムプロファイルを維持しました。
   今回の追加は正式Check・Nightlyでは未実行です。[設計・証跡](interaction-verification.md#interface-member-expression)を参照してください。
+
+### 2026-11-07（パラメータの上書き・アサーションのビットベクタ関数・リテラルの引数の追加）
+
+- パラメータの上書きと型、アサーションの中のビットベクタ関数、リテラルの引数と変換のモデルを追加しました。合法1,174行から136件を選び、4章対をRからMへ移しました。
+- 最新のmainをビルドした`eee8cd16ba1d`の単一の全4,023件は3,536 pass・479 unsupported・8 failです。追加136件のうち`defparam`の型と範囲を取り違える4件がfailで、従来3,887件の入力と状態は不変です。
+- 全体は101モデル・177章対・全選択ケースPASSは76モデル、仕分けはM177/E3/C2/N117/R521です。
+  固定Icarusは111 pass・25 known、Verilatorは両seedとも111 pass・25 knownです。
+- suiteは11,771件、生成5,336件・110生成器です。要求カバレッジと13ランダムプロファイルを維持しました。
+  並行アサーションを[kirimasimの実装を待つ候補](cross-verification-followup.md#models-waiting-for-kirimasim)に加えました。今回の追加は正式Check・Nightlyでは未実行です。[設計・証跡](interaction-verification.md#parameter-override-type)を参照してください。

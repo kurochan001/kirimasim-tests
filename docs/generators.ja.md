@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の107生成器から5,200件のテストを生成しています。
+現在の110生成器から5,336件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -18,6 +18,7 @@
 | [`combination_nba`](../generators/combination_nba.py) | 10, 13 | 16 | 境界条件16件。`ref static`経由の遅延・イベント制御付きNBA、値と添字の確定、文字列の文字要素、配列スライスのコピーアウトを確認 |
 | [`interaction_array`](../generators/interaction_array.py) | 7 | 36 | 2組の入力を配列全体／スライスへコピーし、宣言順の対応、非選択要素の保持、コピー元変更後の独立性と、読み出した要素の符号拡張を確認する。 |
 | [`interaction_assertion`](../generators/interaction_assertion.py) | 16 | 36 | 更新前後の既知値とX/Zで、assertionのpass/fail回数、サンプル値と1ビットの式の値、Reactiveのライブ値と最終値を観測する。型、式、エッジ、blocking/NBA、更新時点、module/interfaceを組み合わせ、サンプリング時点とaction実行時点を区別する。 |
+| [`interaction_assertquery`](../generators/interaction_assertquery.py) | 16 | 30 | x・zを含む値に$onehot・$onehot0・$countones・$isunknown・$countbitsを使い、即時・#0・finalのアサーションで判定する。always_combの途中の値による遅延アサーションの報告の取消しと、クロックの立上りと同時のNBAを確かめる。 |
 | [`interaction_assocquery`](../generators/interaction_assocquery.py) | 20 | 18 | 連想配列の挿入・上書き・削除・再利用で、添字型の範囲と割当て済みの範囲、問い合わせのinteger変換とfirst/lastの幅・符号、要素数と全キー/値を照合する。 |
 | [`interaction_binding`](../generators/interaction_binding.py) | 13 | 36 | 呼出し後に添字を同値・次要素・-1へ変更し、実引数と仮引数の複数時刻の値を観測して、元の要素への結合、inputの値コピー、refの双方向の可視性、const refのライブな読取り、復帰時の書戻しや隣接要素の破壊がないことを確認する。 |
 | [`interaction_case`](../generators/interaction_case.py) | 12 | 36 | セレクタと項目値を表示し、重複項目とフォールバック項目の2回の分岐結果から、幅・符号の統一、X/Zの扱い、最初に一致した項目の優先を確認する。 |
@@ -70,6 +71,7 @@
 | [`interaction_import`](../generators/interaction_import.py) | 23 | 39 | packageのwildcard/明示import、局所宣言、.*・.name・明示接続で入力の接続先と既定値を区別する。既定値0/全1の2子と独立した対照スコープを観測し、ライブ値の追従・隠蔽・型変換を確認する。 |
 | [`interaction_index`](../generators/interaction_index.py) | 11 | 44 | 可変インデックスのビット列と書き込み前後の全ビットを観測し、添字の符号、範囲の始点と向き、無効な読み取りの既定値、無効な書き込み時の保持を確認する。 |
 | [`interaction_inside`](../generators/interaction_inside.py) | 11 | 46 | 個別列挙・固定配列・動的配列・キューの要素とサイズ、異なる幅・符号の入力、生の判定値・拡張・bit変換・逆順リストを観測し、片側ワイルドカードとORを確認する。 |
+| [`interaction_litarg`](../generators/interaction_litarg.py) | 13 | 62 | 符号付き・無サイズ・unbased unsized・実数・文字列のリテラルを、型の違う仮引数・既定値・戻り値へ渡す。代入と同じ変換と、エスケープした識別子の名前による結合を確かめる。 |
 | [`interaction_literal`](../generators/interaction_literal.py) | 5 | 66 | 基数・符号・桁数・先頭桁を変えたリテラルを、直接・localparam・マクロの字句・continuous assignで運ぶ。左への詰めと切り捨て、式の文脈による拡張、代入先の幅とbitへの変換を全ビットで観測する。 |
 | [`interaction_litfmt`](../generators/interaction_litfmt.py) | 21 | 91 | x・zの詰め、?、下線、unbased unsized、符号、否定、エスケープを含むリテラルを各書式で表示する。自動の桁数・幅0・幅指定と、localparam・マクロ・連結、書式のない表示タスクの扱いを確かめる。 |
 | [`interaction_logic`](../generators/interaction_logic.py) | 11 | 70 | 各行で全6リダクションと論理否定の入力・実際の式・結果を観測し、支配値とX/Z、演算前後の状態変換、1ビットunsigned結果の拡張、入力の自己決定幅を確認する。 |
@@ -81,6 +83,7 @@
 | [`interaction_method`](../generators/interaction_method.py) | 7 | 72 | 固定長配列・動的配列・キューの集計を2組の背景値で観測し、with式による要素の型変換、戻り値の幅、オーバーフロー、X/Z伝播と呼出し後の拡張を確認する。 |
 | [`interaction_nba`](../generators/interaction_nba.py) | 10 | 36 | 代入直後・刺激変更後・時刻1・最終結果の出力で、値と代入先の確定、隣接要素の保持、Active領域とNBA領域の順序、automaticタスクからの復帰後の更新を確認する。 |
 | [`interaction_nettype`](../generators/interaction_nettype.py) | 22 | 40 | ANSI/非ANSIのポート宣言でnet型を省略し、default_nettypeによるvectorとscalarの解決値・幅を親子で照合する。vectorだけの明示wireによる上書きと、指示解除後の別moduleを同じ刺激で比較し、既定型の適用範囲を確認する。 |
+| [`interaction_paramtype`](../generators/interaction_paramtype.py) | 23 | 44 | 型なし・範囲・符号付き範囲・signedだけ・int・logic・パック構造体のパラメータを、宣言・#()・defparamで上書きする。最終的な値・幅・符号と、defparamが#()より優先して型も決めることを確かめる。 |
 | [`interaction_pkgnba`](../generators/interaction_pkgnba.py) | 26 | 36 | 二つのモジュールから同じpackage変数へ順にNBAを予約し、参照方法・配列添字・遅延・状態型を交差する。値と代入先の取得、予約順序、別名での読出し、隣接要素と別packageの保持をActiveとNBA後で照合する。 |
 | [`interaction_pkgquery`](../generators/interaction_pkgquery.py) | 26 | 36 | 関数内のimportと修飾参照が配列問い合わせの対象を決め、開始位置・回数・方向と全幅集計を変える。非選択packageと同名ローカル配列の更新後も、対象配列の型・全要素・履歴を保持することを照合する。 |
 | [`interaction_pkgwatch`](../generators/interaction_pkgwatch.py) | 26 | 36 | 同じpackage変数への複数のイベント待機とwait、関数内の外部参照を読むalways_combを照合する。全体と最下位ビットの感度、条件のX、再書込み・隣接要素・別packageの通知と起床履歴を観測する。 |

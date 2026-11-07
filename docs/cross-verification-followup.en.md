@@ -6,9 +6,9 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json) has 98 models and 3,887 cases, run on kirimasim `6e32b04ed6ec`, built from the latest main:
-3,404 pass, 479 unsupported and four config failures. All 195 additions pass. Against the [previous complete run on `97d5b0001e7c`](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json), preceding 3,692 inputs are unchanged, and 50 `inside`, range and `case inside` cases moved from unsupported to pass.
-The previous 247 cases passed the pinned comparisons in [Check on `6a0f260c`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42352682135). These 195 cases have not run in formal Check/Nightly.
+The current [complete local selection](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json) has 101 models and 4,023 cases, run on kirimasim `eee8cd16ba1d`, built from the latest main:
+3,536 pass, 479 unsupported and eight failures: the four config failures and four additions where `defparam` gets the type and range wrong. Against the [previous complete run on `6e32b04ed6ec`](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json), preceding 3,887 inputs and statuses are unchanged.
+The previous 195 cases passed the pinned comparisons in [Check on `b81077b0`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42377388671). These 136 cases have not run in formal Check/Nightly.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.
@@ -99,7 +99,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M173, E3, C2, N117 and R525. See the
+The current triage is M177, E3, C2, N117 and R521. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -166,10 +166,10 @@ Requirement bindings, thirteen random profiles, existing regressions and core so
 
 ## Candidates waiting for kirimasim
 
-The three items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
+The four items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
 When a full cross run uses a new kirimasim build, try the programs below. When one no longer reports `not implemented yet`, add the model or observation.
 The 529 existing unsupported cases are not listed: they have tests, and their results change once the feature is implemented.
-Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `6e32b04ed6ec` on 2026-11-07.
+Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `eee8cd16ba1d` on 2026-11-07.
 
 Take expectations from the standard, and check them by [running every legal row once](interaction-verification-method.en.md#run-every-legal-row-once).
 
@@ -209,6 +209,20 @@ package pk; timeunit 1ns / 1ps; task automatic t; $printtimescale; endtask endpa
 module top; timeunit 1ns / 1ps; initial begin pk::t; $finish; end endmodule
 ```
 
+### Concurrent assertions (added kind for `assertion_vector_query`)
+
+kirimasim reports `statement 'ConcurrentAssertion'` as not implemented for `assert property`. The 36 existing `cross_assert` cases are unsupported too.
+Once it is implemented, add concurrent assertions to the assertion kinds of [`interaction_assertquery.py`](../generators/interaction_assertquery.py), raise `VERSION` and refresh the evidence.
+Pinned Icarus 13.0 does not support concurrent assertions, and pinned Verilator 5.052 cannot compare the x and z rows, being two-state.
+
+```systemverilog
+module top;
+  logic [3:0] v = 4'b01x0; bit clk;
+  a: assert property (@(posedge clk) $onehot(v)) $display("pass"); else $display("fail");
+  initial begin #1 clk = 1; #1 $finish; end
+endmodule
+```
+
 ## Macro expansion, force and release, implicit sensitivity (2026-11-07)
 
 - Added models for [macro expansion](interaction-verification.en.md#macro-expansion-context), [force and release](interaction-verification.en.md#force-release-visibility) and [implicit sensitivity](interaction-verification.en.md#implicit-sensitivity-update).
@@ -225,3 +239,14 @@ module top; timeunit 1ns / 1ps; initial begin pk::t; $finish; end endmodule
 - Preceding 3,692 inputs are unchanged. kirimasim's implementation of `inside`, ranges and `case inside` moved 50 cases from unsupported to pass, and `membership_container`, `membership_range` and `case_inside_selection` now pass their entire selection.
 - Over all 4,883 legal rows there is no kirimasim difference, and no expectation changed. Each difference from Icarus and Verilator was judged against the clause to be on that simulator's side.
 - The three [candidates waiting for kirimasim](#models-waiting-for-kirimasim) still report `not implemented yet` on `6e32b04ed6ec`.
+
+## Parameter overrides, bit vector functions in assertions, literal arguments (2026-11-07)
+
+- Added models for [parameter overrides and types](interaction-verification.en.md#parameter-override-type), [bit vector functions in assertions](interaction-verification.en.md#assertion-vector-query) and [literal arguments and conversion](interaction-verification.en.md#literal-argument-conversion).
+- Four chapter pairs moved from R to M: 11 x 23, 7 x 23, 16 x 20 and 5 x 13.
+- One complete 4,023-case run on kirimasim `eee8cd16ba1d` records 3,536 pass, 479 unsupported and eight failures. 132 of the 136 additions pass. Totals: 101 models, 177 chapter pairs, 76 full-selection-pass models.
+- The four new failures override a parameter without a type or range, or with `signed` alone, by `defparam`. kirimasim keeps the type and range of the value before the `defparam` and cuts the value to them.
+  Over all rows 24 of 252 rows differ; pinned Icarus matches the standard's expectations on 20 of them, and pinned Verilator on the 12 without `#()`. No expectation changed.
+- kirimasim has no difference on all 922 rows of the assertion and literal-argument models.
+- Concurrent assertions are not implemented in kirimasim, so they were added to the [candidates waiting for kirimasim](#models-waiting-for-kirimasim). The other three are still unimplemented on `eee8cd16ba1d`.
+- The simulator sources of `eee8cd16ba1d` are the same as those of `6e32b04ed6ec`, and preceding 3,887 inputs and statuses do not change.

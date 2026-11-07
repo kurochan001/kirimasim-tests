@@ -353,3 +353,12 @@ clause 37.
   Pinned Icarus has 134 pass / 61 known and Verilator 188 pass / 7 known at both seeds.
 - The suite has 11,635 tests, 5,200 generated from 107 generators. Requirement coverage and thirteen random profiles are unchanged.
   This addition has not run in formal Check/Nightly. See the [design and evidence](interaction-verification.en.md#interface-member-expression).
+
+### 2026-11-07 (parameter-override, assertion-query and literal-argument addition)
+
+- Added models for parameter overrides and types, bit vector functions in assertions, and literal arguments and conversion. 136 cases come from 1,174 legal rows, and four chapter pairs moved from R to M.
+- One complete 4,023-case run on `eee8cd16ba1d`, built from the latest main, records 3,536 pass / 479 unsupported / eight fail. Of the 136 additions, the four where `defparam` gets the type and range wrong fail; preceding 3,887 inputs and statuses are unchanged.
+- Totals: 101 models, 177 chapter pairs, 76 full-selection-pass models; triage M177/E3/C2/N117/R521.
+  Pinned Icarus has 111 pass / 25 known and Verilator 111 pass / 25 known at both seeds.
+- The suite has 11,771 tests, 5,336 generated from 110 generators. Requirement coverage and thirteen random profiles are unchanged.
+  Concurrent assertions were added to the [candidates waiting for kirimasim](cross-verification-followup.en.md#models-waiting-for-kirimasim). This addition has not run in formal Check/Nightly. See the [design and evidence](interaction-verification.en.md#parameter-override-type).

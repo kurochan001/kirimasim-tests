@@ -14,12 +14,19 @@
 
 ## 保存実行の概要
 
+2026-11-07のパラメータの上書き・アサーションのビットベクタ関数・リテラルの引数の追加で、**101モデル・4,023件・177章対**になりました。
+最新のmainをビルドしたkirimasim `eee8cd16ba1d`の[単一実行](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json)は、
+**3,536 pass・479 unsupported・8 fail**です。failは既存configの4件と、`defparam`の型と範囲を取り違える追加の4件です。
+追加136件のうち132件がPASSで、従来3,887件の入力と状態は不変です。全選択ケースPASSは76モデルです。
+[パラメータの上書きと型](#parameter-override-type)、[アサーションの中のビットベクタ関数](#assertion-vector-query)、[リテラルの引数と変換](#literal-argument-conversion)に独立検算と固定版比較を記録します。
+追加136件は正式Check・Nightlyでは未実行です。
+
 2026-11-07のインタフェースの式・ループの制御・リテラルの表示の追加で、**98モデル・3,887件・173章対**になりました。
 最新のmainをビルドしたkirimasim `6e32b04ed6ec`の[単一実行](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json)は、
 **3,404 pass・479 unsupported・既存configの4 fail**です。追加195件は全PASSです。従来3,692件の入力は不変で、
 `inside`・範囲・`case inside`の50件がunsupportedからPASSになりました。全選択ケースPASSは74モデルです。
 [インタフェースのメンバ](#interface-member-expression)、[ループの制御とスケジューリング領域](#loop-control-scheduling)、[リテラルと表示の書式](#literal-format-display)に独立検算と固定版比較を記録します。
-追加195件は正式Check・Nightlyでは未実行です。
+追加195件は[`b81077b0`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42377388671)で固定版比較が成功しました。Nightlyでは未実行です。
 
 2026-11-07のマクロ展開・force/release・暗黙の感度の追加で、**95モデル・3,692件・168章対**になりました。
 最新のmainをビルドしたkirimasim `97d5b0001e7c`の[単一実行](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json)は、
@@ -4191,3 +4198,106 @@ kirimasim `6e32b04ed6ec`の[単一の全3,887件](../coverage/interaction-result
 
 [固定Icarus 13.0](../coverage/interaction-results/cross98-ifexprloopfmt-icarus13.json)は79 pass・12 knownです。全行では1,555行が一致し、223行が異なります。
 [固定Verilator 5.052](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed73.json)でも91 passですが、X/Zを含む行は比較相手にしません。
+
+<a id="parameter-override-type"></a>
+
+## パラメータの上書きと型（2026-11-07）
+
+[`interaction_paramtype.py`](../generators/interaction_paramtype.py)は`parameter_override_type@1`を定義します。
+第6章×第23章は全44件に対応し、第11章×第23章は上書きの値が式（単項マイナス・連結・加算）の行、第7章×第23章はパック構造体のパラメータの行に対応します。
+
+### 因子・対象範囲
+
+宣言（型なし、`[7:0]`、`signed [7:0]`、`signed`だけ、`int`、`logic [3:0]`、パック構造体）、
+値（`8'd200`、`-8'sd3`、`4'b1010`、`12'hf0f`、連結、加算）、
+上書きの方法（宣言の既定値、`#()`の位置指定、名前指定、`defparam`、`#()`と`defparam`の両方、親の`localparam`経由）を交差します。
+合法252行から44件を選びます。全因子対120目標、必須8件を保持します。
+
+### 何を区別するか
+
+型も範囲もないパラメータは、最終的な上書きの値の型と範囲になります（6.20.2、23.10）。範囲だけなら符号なしで宣言の幅、`signed`だけなら値の範囲で符号付き、型と範囲があればその両方へ変換します。
+`defparam`は同じインスタンスの`#()`より優先し、そのときも型と範囲は`defparam`の値から決まります。
+[型なしの`defparam`](../tests/gen/ch23/test_gen_cross_paramtype_untyped_wide_defparam.sv)は`12'hf0f`で3855・12ビット、[`signed`だけの両方](../tests/gen/ch23/test_gen_cross_paramtype_signed_concat_both.sv)は4ビットの連結で-3・4ビットです。
+上書きの式は、それ自身の幅で評価しても、パラメータの幅で評価しても同じ値になるものだけを使います。規格はどちらで評価するかを定めないからです。
+
+### 独立検算と実行結果
+
+[`qualify_paramtype.py`](../tools/qualify_paramtype.py)は実際のSVから宣言・`#()`・`defparam`・`localparam`を読み、値を字句から計算して宣言の規則で変換します。全252プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/paramtype.json)には正常対照8件と実行可能な誤り8件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `eee8cd16ba1d`の[単一の全4,023件](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json)で、追加44件のうち40件がPASS、4件がfailです。
+全行では252行のうち24行が異なります。型なしか`signed`だけのパラメータを`defparam`で上書きすると、型と範囲が`defparam`の前の値（既定値か`#()`の値）のまま残り、値も切り詰められます。
+固定Icarus 13.0はこの24行のうち20行で期待値と一致し、残る加算の4行はIcarusが加算を9ビットとする別の差だけが異なります。固定Verilator 5.052は`#()`と併用しない`defparam`の12行で一致します。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross101-paramassertlit-icarus13.json)は36 pass・8 knownです。[固定Verilator 5.052](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed73.json)でも37 pass・7 knownです。
+内訳は[シミュレータ差異](simulator-differences.ja.md#param-assert-literal-differences)を参照してください。
+
+<a id="assertion-vector-query"></a>
+
+## アサーションの中のビットベクタ関数（2026-11-07）
+
+[`interaction_assertquery.py`](../generators/interaction_assertquery.py)は`assertion_vector_query@1`を定義します。
+第16章×第20章は全30件に対応し、第4章×第16章は遅延アサーションの行、第9章×第16章は`always_comb`の行に対応します。
+
+### 因子・対象範囲
+
+関数（`$onehot`、`$onehot0`、`$countones(v) == 2`、`!$isunknown`、`$countbits(v, '0) == 2`）、
+値（`0100`、`0000`、`0110`、`01x0`、`xxxx`、`1z00`）、アサーション（即時、`#0`、`final`）、
+場所（initial、`always_comb`、`always @(posedge clk)`）、タイミング（確定済み、途中の値または立上りと同時のNBA）を交差します。
+合法450行から30件を選びます。種類・場所・タイミングの3因子群を含む153目標、必須6件を保持します。
+
+### 何を区別するか
+
+`$onehot`・`$onehot0`・`$countones`は1のビットだけを、`$countbits`は指定した値のビットだけを数え、xとzは数えません（20.9）。
+`01x0`は`$onehot`が真、`xxxx`は`$onehot0`が真です。`$isunknown`はxかzがあれば1です。
+`always_comb`は時刻0に一度評価します。途中の値`0011`で再評価すると、[`#0`の報告](../tests/gen/ch16/test_gen_cross_assertquery_onehot_xone_observed_comb_glitch.sv)は取り消されて最後の値だけが残り、[即時アサーション](../tests/gen/ch16/test_gen_cross_assertquery_known_xall_simple_comb_glitch.sv)は両方を報告します（16.4.2）。
+立上りと同時のNBAは、その立上りで評価する値を変えません。
+
+### 独立検算と実行結果
+
+[`qualify_assertquery.py`](../tools/qualify_assertquery.py)は4値のビットから関数を計算し、Active・Inactive・NBA・Observed・Postponedの領域を持つスケジューラで実行します。
+同じプロセスの再実行で、遅延アサーションの待ち行列を空にします。同時に動けるプロセスの全順序で同じ出力になることも確かめ、全450プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/assertquery.json)には正常対照6件と実行可能な誤り6件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `eee8cd16ba1d`の[単一の全4,023件](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json)で追加30件は全PASSです。全450行でkirimasimの差は0件です。
+並行アサーションはkirimasimが未実装なので、このモデルに含めず、[実装を待つ候補](cross-verification-followup.md#models-waiting-for-kirimasim)に加えました。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross101-paramassertlit-icarus13.json)は18 pass・12 knownです。全行では即時アサーションの150行が一致し、遅延アサーションの300行を拒否します。
+[固定Verilator 5.052](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed73.json)でも17 pass・13 knownです。
+
+<a id="literal-argument-conversion"></a>
+
+## リテラルの引数と変換（2026-11-07）
+
+[`interaction_litarg.py`](../generators/interaction_litarg.py)は`literal_argument_conversion@1`を定義します。
+第5章×第13章は全62件に対応し、第6章×第13章は二値の型・`real`・`string`の仮引数の行に対応します。
+
+### 因子・対象範囲
+
+リテラル（`-3`、`'1`、`'x`、`4'sb1010`、`4'b1010`、`'hff`、`2.5`、`1.5e1`、`-2.5`、`"AB"`）、
+仮引数の型（`bit [7:0]`、`byte`、`logic [11:0]`、`logic signed [11:0]`、`int`、`real`、`string`）、
+渡し方（位置指定、名前指定、既定値、`return`）、名前（通常の識別子、エスケープした識別子）を交差します。
+合法472行から62件を選びます。全因子対169目標、必須8件を保持します。
+
+### 何を区別するか
+
+実引数・既定値・戻り値は、どれも代入と同じ規則で仮引数の型へ変換します（13.5、10.7）。
+unbased unsizedは整数型の仮引数の幅いっぱいに広がり、[既定値の`'1`](../tests/gen/ch13/test_gen_cross_litarg_fill1_byte_default_escaped.sv)は`byte`で-1です。二値の型ではxが0になります。
+実数は0.5を0から離れる向きに丸め、[`-2.5`を返す関数](../tests/gen/ch13/test_gen_cross_litarg_negreal_bit8_return_plain.sv)は`bit [7:0]`で253です。文字列リテラルは8ビットの文字を並べた符号なしの整数です。
+エスケープした識別子は空白で終わるので、`\a+v `のように名前の後に空白を置きます（5.6.1）。
+
+### 独立検算と実行結果
+
+[`qualify_litarg.py`](../tools/qualify_litarg.py)は実際のSVからtask・function・仮引数・既定値を読み、リテラルを字句から値にして、代入の変換と表示の書式を適用します。全472プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/litarg.json)には正常対照8件と実行可能な誤り8件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `eee8cd16ba1d`の[単一の全4,023件](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json)で追加62件は全PASSです。全472行でkirimasimの差は0件です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross101-paramassertlit-icarus13.json)は57 pass・5 knownです。全行では422行が一致し、20行が異なり、30行を拒否します。差はすべて既定値の行です。
+[固定Verilator 5.052](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed73.json)でも57 pass・5 knownです。

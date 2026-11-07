@@ -97,6 +97,9 @@ import interaction_macro
 import interaction_force
 import interaction_sense
 import interaction_ifexpr
+import interaction_paramtype
+import interaction_assertquery
+import interaction_litarg
 import interaction_loopsched
 import interaction_litfmt
 import interaction_compound
@@ -107,7 +110,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_paramtype, interaction_assertquery, interaction_litarg, interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -859,5 +862,26 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_litfmt.MODEL.select(),
             "x・zの詰め、?、下線、unbased unsized、符号、否定、エスケープを含むリテラルを各書式で表示する。"
             "自動の桁数・幅0・幅指定と、localparam・マクロ・連結、書式のない表示タスクの扱いを確かめる。",
+        ),
+        SuiteModel(
+            interaction_paramtype.MODEL,
+            lambda row: "tests/gen/ch23/" + interaction_paramtype.case_name(row) + ".sv",
+            interaction_paramtype.MODEL.select(),
+            "型なし・範囲・符号付き範囲・signedだけ・int・logic・パック構造体のパラメータを、宣言・#()・defparamで上書きする。"
+            "最終的な値・幅・符号と、defparamが#()より優先して型も決めることを確かめる。",
+        ),
+        SuiteModel(
+            interaction_assertquery.MODEL,
+            lambda row: "tests/gen/ch16/" + interaction_assertquery.case_name(row) + ".sv",
+            interaction_assertquery.MODEL.select(),
+            "x・zを含む値に$onehot・$onehot0・$countones・$isunknown・$countbitsを使い、即時・#0・finalのアサーションで判定する。"
+            "always_combの途中の値による遅延アサーションの報告の取消しと、クロックの立上りと同時のNBAを確かめる。",
+        ),
+        SuiteModel(
+            interaction_litarg.MODEL,
+            lambda row: "tests/gen/ch13/" + interaction_litarg.case_name(row) + ".sv",
+            interaction_litarg.MODEL.select(),
+            "符号付き・無サイズ・unbased unsized・実数・文字列のリテラルを、型の違う仮引数・既定値・戻り値へ渡す。"
+            "代入と同じ変換と、エスケープした識別子の名前による結合を確かめる。",
         ),
     )

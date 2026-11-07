@@ -14,12 +14,19 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-07 parameter-override, assertion-query and literal-argument additions bring totals to **101 models / 4,023 cases / 177 chapter pairs**.
+The [single run](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json) on kirimasim `eee8cd16ba1d`, built from the latest main, records
+**3,536 pass / 479 unsupported / eight fail**: the four existing config failures and four additions where `defparam` gets the type and range wrong.
+132 of the 136 additions pass, and preceding 3,887 inputs and statuses are unchanged. 76 models pass their entire selection.
+See [parameter overrides and types](#parameter-override-type), [bit vector functions in assertions](#assertion-vector-query) and [literal arguments and conversion](#literal-argument-conversion) for the independent checks and pinned comparisons.
+The 136 additions have not run in formal Check/Nightly.
+
 The 2026-11-07 interface-expression, loop-control and literal-format additions bring totals to **98 models / 3,887 cases / 173 chapter pairs**.
 The [single run](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json) on kirimasim `6e32b04ed6ec`, built from the latest main, records
 **3,404 pass / 479 unsupported / four existing config failures**. All 195 additions pass. Preceding 3,692 inputs are unchanged,
 and 50 `inside`, range and `case inside` cases moved from unsupported to pass. 74 models pass their entire selection.
 See [interface members](#interface-member-expression), [loop control and scheduling regions](#loop-control-scheduling) and [literal forms and display formats](#literal-format-display) for the independent checks and pinned comparisons.
-The 195 additions have not run in formal Check/Nightly.
+The 195 additions passed the pinned comparisons in [Check on `b81077b0`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42377388671); they have not run in Nightly.
 
 The 2026-11-07 macro, force/release and implicit-sensitivity additions bring totals to **95 models / 3,692 cases / 168 chapter pairs**.
 The [single run](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json) on kirimasim `97d5b0001e7c`, built from the latest main, records
@@ -4215,3 +4222,106 @@ In the [single complete 3,887-case run](../coverage/interaction-results/cross98-
 
 [Pinned Icarus 13.0](../coverage/interaction-results/cross98-ifexprloopfmt-icarus13.json) has 79 pass / 12 known. Over all rows it matches 1,555 and differs on 223.
 [Pinned Verilator 5.052](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed1.json) passes 91 also at [seed 73](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed73.json), but is not a comparator for rows with X or Z.
+
+<a id="parameter-override-type"></a>
+
+## Parameter overrides and types (2026-11-07)
+
+[`interaction_paramtype.py`](../generators/interaction_paramtype.py) defines `parameter_override_type@1`.
+Chapters 6 x 23 map to all 44 cases; chapters 11 x 23 map to rows whose override is an expression (unary minus, concatenation, addition), and chapters 7 x 23 to rows with a packed-structure parameter.
+
+### Factors and scope
+
+The declaration (untyped, `[7:0]`, `signed [7:0]`, `signed` alone, `int`, `logic [3:0]`, a packed structure),
+the value (`8'd200`, `-8'sd3`, `4'b1010`, `12'hf0f`, a concatenation, an addition)
+and the override (the declared default, `#()` by order, by name, `defparam`, both `#()` and `defparam`, through a `localparam` of the parent) are crossed.
+44 cases come from 252 legal rows, covering 120 pair targets and keeping eight mandatory witnesses.
+
+### What it distinguishes
+
+A parameter without a type or range takes the type and range of the final override value (6.20.2, 23.10). A range alone is unsigned with the declared width, `signed` alone is signed with the range of the value, and a type with a range converts to both.
+A `defparam` wins over `#()` of the same instance, and then the type and range also come from the `defparam` value.
+[An untyped `defparam`](../tests/gen/ch23/test_gen_cross_paramtype_untyped_wide_defparam.sv) of `12'hf0f` gives 3855 in 12 bits, and [`signed` alone with both](../tests/gen/ch23/test_gen_cross_paramtype_signed_concat_both.sv) gives -3 in 4 bits from a four-bit concatenation.
+Only override expressions that give the same value at their own width and at the width of the parameter are used, because the standard does not say which width evaluates them.
+
+### Independent check and runs
+
+[`qualify_paramtype.py`](../tools/qualify_paramtype.py) reads the declaration, `#()`, `defparam` and `localparam` from the actual SV, computes each value from its tokens and converts it by the rules of the declaration. All 252 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/paramtype.json) keeps eight normal controls and eight executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 4,023-case run](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json) on kirimasim `eee8cd16ba1d`, 40 of the 44 additions pass and four fail.
+Over all rows, 24 of 252 differ. When a `defparam` overrides a parameter without a type or range, or with `signed` alone, kirimasim keeps the type and range of the value before the `defparam` (the default or the `#()` value), and the value is cut to it.
+Pinned Icarus 13.0 matches the expectations on 20 of these 24 rows; the four addition rows differ only by its separate nine-bit width of the addition. Pinned Verilator 5.052 matches the 12 `defparam` rows without `#()`.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross101-paramassertlit-icarus13.json) has 36 pass / 8 known. [Pinned Verilator 5.052](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed1.json) has 37 pass / 7 known also at [seed 73](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed73.json).
+See the [simulator differences](simulator-differences.md#param-assert-literal-differences).
+
+<a id="assertion-vector-query"></a>
+
+## Bit vector functions in assertions (2026-11-07)
+
+[`interaction_assertquery.py`](../generators/interaction_assertquery.py) defines `assertion_vector_query@1`.
+Chapters 16 x 20 map to all 30 cases; chapters 4 x 16 map to deferred-assertion rows, and chapters 9 x 16 to `always_comb` rows.
+
+### Factors and scope
+
+The function (`$onehot`, `$onehot0`, `$countones(v) == 2`, `!$isunknown`, `$countbits(v, '0) == 2`),
+the value (`0100`, `0000`, `0110`, `01x0`, `xxxx`, `1z00`), the assertion (immediate, `#0`, `final`),
+the site (initial, `always_comb`, `always @(posedge clk)`) and the timing (settled, or a value in between or an NBA at the rising edge) are crossed.
+30 cases come from 450 legal rows, covering 153 targets including the kind, site and timing group and keeping six mandatory witnesses.
+
+### What it distinguishes
+
+`$onehot`, `$onehot0` and `$countones` count only the 1 bits, `$countbits` only the bits equal to its controls, and x and z are not counted (20.9).
+`$onehot` holds for `01x0`, and `$onehot0` for `xxxx`. `$isunknown` is 1 when a bit is x or z.
+`always_comb` evaluates once at time 0. When it runs again for the value `0011` in between, [the `#0` report](../tests/gen/ch16/test_gen_cross_assertquery_onehot_xone_observed_comb_glitch.sv) is flushed and only the last value reports, while [an immediate assertion](../tests/gen/ch16/test_gen_cross_assertquery_known_xall_simple_comb_glitch.sv) reports both (16.4.2).
+An NBA at a rising edge does not change the value evaluated at that edge.
+
+### Independent check and runs
+
+[`qualify_assertquery.py`](../tools/qualify_assertquery.py) computes the functions from four-state bits and runs a scheduler with active, inactive, NBA, observed and postponed regions.
+A rerun of the same process empties its queue of deferred reports. It also checks that every order of the processes ready together gives the same output, and all 450 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/assertquery.json) keeps six normal controls and six executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 4,023-case run](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json) on kirimasim `eee8cd16ba1d`, all 30 additions pass. kirimasim has no difference on all 450 rows.
+kirimasim has not implemented concurrent assertions, so they are left out of this model and added to the [candidates waiting for kirimasim](cross-verification-followup.en.md#models-waiting-for-kirimasim).
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross101-paramassertlit-icarus13.json) has 18 pass / 12 known. Over all rows it matches the 150 immediate-assertion rows and rejects the 300 deferred ones.
+[Pinned Verilator 5.052](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed1.json) has 17 pass / 13 known also at [seed 73](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed73.json).
+
+<a id="literal-argument-conversion"></a>
+
+## Literal arguments and conversion (2026-11-07)
+
+[`interaction_litarg.py`](../generators/interaction_litarg.py) defines `literal_argument_conversion@1`.
+Chapters 5 x 13 map to all 62 cases; chapters 6 x 13 map to rows with a two-state, `real` or `string` formal.
+
+### Factors and scope
+
+The literal (`-3`, `'1`, `'x`, `4'sb1010`, `4'b1010`, `'hff`, `2.5`, `1.5e1`, `-2.5`, `"AB"`),
+the type of the formal (`bit [7:0]`, `byte`, `logic [11:0]`, `logic signed [11:0]`, `int`, `real`, `string`),
+the passing (by position, by name, a default, `return`) and the name (an ordinary or an escaped identifier) are crossed.
+62 cases come from 472 legal rows, covering 169 pair targets and keeping eight mandatory witnesses.
+
+### What it distinguishes
+
+An actual argument, a default and a return value are each converted to the type of the formal by the rules of an assignment (13.5, 10.7).
+An unbased unsized literal fills the whole width of an integral formal, so [a default of `'1`](../tests/gen/ch13/test_gen_cross_litarg_fill1_byte_default_escaped.sv) is -1 in a `byte`. A two-state type turns x into 0.
+A real rounds a half away from zero, so [a function returning `-2.5`](../tests/gen/ch13/test_gen_cross_litarg_negreal_bit8_return_plain.sv) gives 253 in a `bit [7:0]`. A string literal is an unsigned integer of eight-bit characters.
+An escaped identifier ends at white space, so a name such as `\a+v ` is followed by a space (5.6.1).
+
+### Independent check and runs
+
+[`qualify_litarg.py`](../tools/qualify_litarg.py) reads the task, function, formal and default from the actual SV, turns each literal into a value from its text, and applies the conversion of an assignment and the display format. All 472 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/litarg.json) keeps eight normal controls and eight executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 4,023-case run](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json) on kirimasim `eee8cd16ba1d`, all 62 additions pass. kirimasim has no difference on all 472 rows.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross101-paramassertlit-icarus13.json) has 57 pass / 5 known. Over all rows it matches 422, differs on 20 and rejects 30, all of them default-argument rows.
+[Pinned Verilator 5.052](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed1.json) has 57 pass / 5 known also at [seed 73](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed73.json).

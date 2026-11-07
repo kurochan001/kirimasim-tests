@@ -1,0 +1,44 @@
+{
+  "models": [
+    "parameter_override_type",
+    "assertion_vector_query",
+    "literal_argument_conversion"
+  ],
+  "generated_at": "2026-11-07T14:51:38.946151+00:00",
+  "scope": "Final headers with pinned-release oracles. The latest main was cloned to a separate directory, configured and built before one complete finite-cross run, so the shared checkout stayed untouched. An identical immutable binary snapshot ran. Every earlier input and status is unchanged. The simulator sources are the same as at 6e32b04ed6ec; only the version text differs. Formal CI is separate.",
+  "base_revision": "eee8cd16ba1d06444a6aae3ea6563c1d42b14c4b",
+  "upstream_main_revision": "6105901aecf94190768923681b47c003a08c9972",
+  "tracked_worktree_clean_at_build": true,
+  "binary_sha256": "ce6e83a0aae78fea8f7bc757c8bc718338edd14f46bff2c99468bf56bdad63c0",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit eee8cd16ba1d), built with AppleClang 21.0.0.21000401",
+  "run": "coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json",
+  "counts": {
+    "pass": 3536,
+    "unsupported": 479,
+    "fail": 8
+  },
+  "new_cases": 136,
+  "new_cases_by_model": {
+    "litarg": 62,
+    "assertquery": 30,
+    "paramtype": 44
+  },
+  "previous_cases": 3887,
+  "previous_run": "coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json",
+  "previous_version": "kirimasim 0.0.0 (commit 6e32b04ed6ec), built with AppleClang 21.0.0.21000401",
+  "previous_inputs_changed": [],
+  "previous_status_changes": {},
+  "new_case_statuses": {
+    "pass": 132,
+    "fail": 4
+  },
+  "new_case_failures": {
+    "gen/ch23/test_gen_cross_paramtype_signed_concat_both": "output differs: line 1 is 'P=-3 bits=16 neg=1', expected 'P=-3 bits=4 neg=1'",
+    "gen/ch23/test_gen_cross_paramtype_signed_ssized_defparam": "output differs: line 1 is 'P=-1 bits=1 neg=1', expected 'P=-3 bits=8 neg=1'",
+    "gen/ch23/test_gen_cross_paramtype_untyped_ssized_both": "output differs: line 1 is 'P=65533 bits=16 neg=0', expected 'P=-3 bits=8 neg=1'",
+    "gen/ch23/test_gen_cross_paramtype_untyped_wide_defparam": "output differs: line 1 is 'P=1 bits=1 neg=0', expected 'P=3855 bits=12 neg=0'"
+  },
+  "new_case_failure_note": "A defparam of a parameter without a type or range, or with signed alone, keeps the type and range fixed before the defparam instead of taking those of the defparam value (IEEE 1800-2023 6.20.2 and 23.10). Icarus 13.0 matches these expectations."
+}

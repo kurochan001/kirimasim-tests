@@ -10,7 +10,7 @@
 
 ## 最新証跡の確認（2026-11-06 日本時間）
 
-現行は98モデル・3,887件で、[インタフェースの式・ループの制御・リテラルの表示の独立確認](#interface-loop-literal-qualification)を参照してください。
+現行は101モデル・4,023件で、[パラメータの上書き・アサーションのビットベクタ関数・リテラルの引数の独立確認](#param-assert-literal-qualification)を参照してください。
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json)は、基点67321079のCheck/Nightlyと全ジョブの成功を記録します。個別artifactは未照合です。以下の旧基点は詳細照合の範囲を区別して保持します。
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json)は前回までの86モデルの固定版比較・静的検査のCheck成功を確認します。
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は82モデルを対象にした正式Nightly・publish・ランダム96 PASSの記録であり、実行を混同しません。
@@ -536,3 +536,18 @@ Zのビルド診断、Icarusの拒否を保持します。2値の観測でX/Zの
 [全行の記録](ifexprloopfmt-all-rows.json)は全4,883行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。kirimasimの差は0件です。
 Icarusがインタフェースのポートを解析できないので、インタフェースとループのモデルの全行はVerilatorでも一度実行しました。
 [設計と再実行](../../docs/interaction-verification.md#interface-member-expression)を参照してください。
+
+<a id="param-assert-literal-qualification"></a>
+
+## パラメータの上書き・アサーションのビットベクタ関数・リテラルの引数の独立確認
+
+[`paramtype.json`](paramtype.json)は全252行、[`assertquery.json`](assertquery.json)は全450行、[`litarg.json`](litarg.json)は全472行を独立した解釈で照合します。
+正常対照は順に8件・6件・8件、誤ったSVは順に8件・6件・8件で、誤りはすべて正常終了後の出力差で検出しました。
+パラメータの正常対照は、kirimasimが取り違える`defparam`の行を避けて選びました。その行は選択ケースのfailとして現れます。
+[ビルド記録](paramassertlit-build.json)は`eee8cd16ba1d`の全4,023件（3,536 pass・479 unsupported・8 fail）を識別し、追加のfail 4件の理由も保存します。
+従来3,887件の入力と状態は不変です。101モデル・177章対・全選択ケースPASSは76モデルです。
+[固定版比較](paramassertlit-fixed-replays.json)はIcarus 111 pass・25 known、Verilator両seedとも111 pass・25 knownです。
+[全Icarusの差とVerilatorの代表出力](paramassertlit-known-replays.json)を保存しました。
+[全行の記録](paramassertlit-all-rows.json)は全1,174行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。kirimasimの差はパラメータの24行だけです。
+Icarusが受理しない行を補うため、パラメータとリテラルの引数のモデルの全行はVerilatorでも一度実行しました。
+[設計と再実行](../../docs/interaction-verification.md#parameter-override-type)を参照してください。

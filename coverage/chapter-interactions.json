@@ -2691,6 +2691,112 @@
           "reason": "連結がリテラルを符号なしにし、%dの桁数と符号の表示が変わることを確かめる。"
         }
       ]
+    },
+    {
+      "id": "parameter_override_type",
+      "primary_chapter": 23,
+      "pairs": [
+        {
+          "chapters": [
+            11,
+            23
+          ],
+          "when": {
+            "value": [
+              "ssized",
+              "concat",
+              "sum"
+            ]
+          },
+          "reason": "上書きの値の式（単項マイナス・連結・加算）が、宣言の型と範囲へ変換されて、パラメータの値・幅・符号を決めることを確かめる。"
+        },
+        {
+          "chapters": [
+            6,
+            23
+          ],
+          "reason": "型なし・範囲・符号付き範囲・signedだけ・int・logicの値パラメータの型と範囲が、宣言と最終的な上書きの値から決まることを確かめる。"
+        },
+        {
+          "chapters": [
+            7,
+            23
+          ],
+          "when": {
+            "decl": [
+              "struct"
+            ]
+          },
+          "reason": "パック構造体のパラメータを上書きし、符号付きのメンバと符号なしのメンバを読む。"
+        }
+      ]
+    },
+    {
+      "id": "assertion_vector_query",
+      "primary_chapter": 16,
+      "pairs": [
+        {
+          "chapters": [
+            16,
+            20
+          ],
+          "reason": "$onehot・$onehot0・$countones・$isunknown・$countbitsが、x・zを含む値で1と0のビットだけを数えることを、アサーションの成否で確かめる。"
+        },
+        {
+          "chapters": [
+            4,
+            16
+          ],
+          "when": {
+            "kind": [
+              "observed",
+              "final"
+            ]
+          },
+          "reason": "遅延アサーションの報告がObserved領域とPostponed領域で出て、同じタイムスロットの再評価で取り消されることを確かめる。"
+        },
+        {
+          "chapters": [
+            9,
+            16
+          ],
+          "when": {
+            "site": [
+              "comb"
+            ]
+          },
+          "reason": "always_combの時刻0の評価と、途中の値による再実行が、アサーションの報告の数を変えることを確かめる。"
+        }
+      ]
+    },
+    {
+      "id": "literal_argument_conversion",
+      "primary_chapter": 13,
+      "pairs": [
+        {
+          "chapters": [
+            5,
+            13
+          ],
+          "reason": "リテラルの字句（無サイズ・unbased unsized・符号付き・実数・文字列）とエスケープした識別子が、仮引数・既定値・戻り値への変換と名前による結合を決めることを確かめる。"
+        },
+        {
+          "chapters": [
+            6,
+            13
+          ],
+          "when": {
+            "formal": [
+              "bit8",
+              "byte",
+              "int",
+              "real",
+              "string"
+            ]
+          },
+          "reason": "二値の型・real・stringの仮引数へ渡すと、xが0になり、実数が丸められ、文字列が文字のまま渡ることを確かめる。"
+        }
+      ]
     }
   ]
 }

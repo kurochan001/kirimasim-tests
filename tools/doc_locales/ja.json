@@ -24544,6 +24544,9 @@
     "An update wakes only what reads the changed bits, by the implicit sensitivity of each form": "更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす",
     "A loop reads its control when its form says, and sees a write by its region": "ループは形が定める時点で制御を読み、別のプロセスの書込みを領域に従って見る",
     "A literal keeps its size, sign and unknown digits to the formatted output": "リテラルは幅・符号・不定の桁を、書式化した出力まで保つ",
-    "An interface member keeps its type on every path, and statements share it": "インタフェースのメンバはどの経路でも型を保ち、文はその値を共有する"
+    "An interface member keeps its type on every path, and statements share it": "インタフェースのメンバはどの経路でも型を保ち、文はその値を共有する",
+    "A value parameter takes its type and range from its declaration or the final override": "値パラメータの型と範囲は、宣言か最終的な上書きで決まる",
+    "Bit vector functions count only the bits they name, inside immediate and deferred assertions": "ビットベクタ関数は、即時・遅延アサーションの中でも指定したビットだけを数える",
+    "A literal passed to a subroutine is converted to the type of the formal": "サブルーチンに渡したリテラルは、仮引数の型へ変換される"
   }
 }

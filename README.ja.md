@@ -55,15 +55,15 @@ Icarus Verilog、Verilator、kirimasim、
 以下は収録本数と確認元の内訳で、現在のシミュレータのPASS数ではありません。[`:lrm:`と`:oracle:`が記録すること](docs/faq.md#q4-are-expected-outputs-copied-from-a-simulator)を参照してください。
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**11635本のテスト**があります。 うち5200本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
+スイートには38章にわたり**11771本のテスト**があります。 うち5336本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
-| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 6286 |
-| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 2114 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3235 |
+| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 6397 |
+| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 2128 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3246 |
 
-2843本はx/z値に依存します（`:fourstate: yes`）。684本にはCコードがあり、内訳はDPIが189本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1930本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。33本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定54本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+2863本はx/z値に依存します（`:fourstate: yes`）。684本にはCコードがあり、内訳はDPIが189本（`:dpi_c:`）、VPIが495本（`:vpi_c:`）です。1930本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。33本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定54本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -77,17 +77,17 @@ Icarus Verilog、Verilator、kirimasim、
 | 10 | 代入文 | 425 | 314 | 64 | 47 |
 | 11 | 演算子と式 | 1644 | 1262 | 132 | 250 |
 | 12 | 手続き型プログラミング文 | 306 | 224 | 33 | 49 |
-| 13 | タスクと関数（サブルーチン） | 381 | 226 | 92 | 63 |
+| 13 | タスクと関数（サブルーチン） | 443 | 283 | 96 | 64 |
 | 14 | クロッキングブロック | 150 | 4 | 88 | 58 |
 | 15 | プロセス間の同期と通信 | 189 | 2 | 58 | 129 |
-| 16 | アサーション | 764 | 104 | 121 | 539 |
+| 16 | アサーション | 794 | 122 | 124 | 548 |
 | 17 | チェッカー | 108 |  | 47 | 61 |
 | 18 | 制約付き乱数値の生成 | 257 | 25 | 127 | 105 |
 | 19 | 機能カバレッジ | 190 | 2 | 61 | 127 |
 | 20 | ユーティリティ用システムタスク・関数 | 367 | 239 | 36 | 92 |
 | 21 | 入出力用システムタスク・関数 | 430 | 308 | 24 | 98 |
 | 22 | コンパイラ指令 | 512 | 439 | 37 | 36 |
-| 23 | モジュールと階層 | 331 | 215 | 45 | 71 |
+| 23 | モジュールと階層 | 375 | 251 | 52 | 72 |
 | 24 | プログラム | 160 | 27 | 23 | 110 |
 | 25 | インターフェース | 253 | 103 | 119 | 31 |
 | 26 | パッケージ | 225 | 53 | 70 | 102 |
@@ -161,18 +161,18 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 
 [機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
 重点的に確認する高次因子群と必須の境界ケースを併用します。短時間実行用の選択は
-**98モデル・3,887件**です。値・型の変換、スケジューリング、引数・参照の結合先、
+**101モデル・4,023件**です。値・型の変換、スケジューリング、引数・参照の結合先、
 スコープ・階層、状態保持、I/Oなどの相互作用を扱います。通常の全件実行では既存テストを
 すべて保持し、規格要求の分母は変更しません。
 
-最新のmainをビルドした**kirimasim `6e32b04ed6ec`**による
-[最新の全クロス保存実行](coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json)は、
-**3,404 pass・479 unsupported・4 fail**です。インタフェースの式・ループの制御・リテラルの表示の追加195件は全PASSです。
-`97d5b0001e7c`の[前回の全実行](coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json)と比べて従来3,692件の入力は不変で、50件がunsupportedからpassになりました。
+最新のmainをビルドした**kirimasim `eee8cd16ba1d`**による
+[最新の全クロス保存実行](coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json)は、
+**3,536 pass・479 unsupported・8 fail**です。パラメータの上書き・アサーションのビットベクタ関数・リテラルの引数の追加136件のうち、`defparam`の型と範囲を取り違える4件がfailです。
+`6e32b04ed6ec`の[前回の全実行](coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json)と比べて、従来3,887件の状態と入力は不変です。
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
 [同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。その後の追加は両実行の対象外です。
-入力と元の期待値を保持し、残る4件は固定版slangへ
-切り分けたconfigのパラメータリセットです。11→9→4の履歴、全出力の再現、未対応19機構の内訳、
+入力と元の期待値を保持し、failのうち4件は固定版slangへ
+切り分けたconfigのパラメータリセット、4件は[`defparam`の型と範囲](docs/interaction-verification.md#parameter-override-type)の不一致です。11→9→4の履歴、全出力の再現、未対応19機構の内訳、
 章対の精査は[不一致対応と次の優先順位](docs/cross-verification-followup.md)に記録しています。
 章間CSVの出典は単一の全クロスローカル実行cross89とし、正式実行による確認は別に記録しています。
 

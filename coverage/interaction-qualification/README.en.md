@@ -10,7 +10,7 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-06 JST)
 
-The selection now contains 98 models / 3,887 cases; see [interface-expression, loop-control and literal-format qualification](#interface-loop-literal-qualification).
+The selection now contains 101 models / 4,023 cases; see [parameter-override, assertion-query and literal-argument qualification](#param-assert-literal-qualification).
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json) records successful Check/Nightly workflows and all jobs on baseline 67321079. Individual artifacts remain uninspected; retain the older detailed checkpoints below separately.
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json) confirms Check’s pinned comparisons/static checks for the preceding 86-model suite.
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
@@ -537,3 +537,18 @@ All 195 additions pass, preceding 3,692 inputs are unchanged, and 50 cases moved
 The [all-row record](ifexprloopfmt-all-rows.json) is one run of all 4,883 rows and enters neither the fixed suite nor requirement coverage. kirimasim has no difference.
 Icarus cannot parse interface ports, so all rows of the interface and loop models also ran once on Verilator.
 See the [design and rerun](../../docs/interaction-verification.en.md#interface-member-expression).
+
+<a id="param-assert-literal-qualification"></a>
+
+## Parameter-override, assertion-query and literal-argument qualification
+
+[`paramtype.json`](paramtype.json) checks all 252 rows, [`assertquery.json`](assertquery.json) all 450 and [`litarg.json`](litarg.json) all 472 by independent interpretation.
+Normal controls are eight, six and eight; faulty SV programs are eight, six and eight, all detected by an output difference after a normal exit.
+The parameter controls avoid the `defparam` rows that kirimasim gets wrong; those rows appear as failures of selected cases.
+The [build record](paramassertlit-build.json) identifies one complete 4,023-case run on `eee8cd16ba1d` (3,536 pass / 479 unsupported / eight fail) and keeps the reasons of the four new failures.
+Preceding 3,887 inputs and statuses are unchanged. Totals: 101 models / 177 chapter pairs / 76 full-selection-pass models.
+[Pinned comparisons](paramassertlit-fixed-replays.json) record Icarus 111 pass / 25 known and Verilator 111 pass / 25 known at both seeds.
+[All Icarus differences and representative Verilator outputs](paramassertlit-known-replays.json) are retained.
+The [all-row record](paramassertlit-all-rows.json) is one run of all 1,174 rows and enters neither the fixed suite nor requirement coverage. kirimasim differs only on the 24 parameter rows.
+To cover rows that Icarus does not accept, all rows of the parameter and literal-argument models also ran once on Verilator.
+See the [design and rerun](../../docs/interaction-verification.en.md#parameter-override-type).

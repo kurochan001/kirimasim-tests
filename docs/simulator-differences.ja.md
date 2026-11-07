@@ -1021,3 +1021,18 @@ kirimasimの実測版`6f5c69841228`は元の全36件で規格期待値と一致�
 
 [全Icarusの差とVerilatorの代表出力](../coverage/interaction-qualification/ifexprloopfmt-known-replays.json)を保存しました。kirimasim `6e32b04ed6ec`は3モデルの全4,883行で規格の期待値と一致しました。
 [範囲](interaction-verification.md#interface-member-expression)を参照してください。
+
+<a id="param-assert-literal-differences"></a>
+
+## パラメータの上書き・アサーションのビットベクタ関数・リテラルの引数（2026-11-07）
+
+- **Icarus 13.0のパラメータ：** パック構造体のパラメータのメンバを参照すると、メンバの名前を持てないというエラーになります（全行で36行）。
+  パラメータの値の`8'd25 + 8'sd10`を9ビットとします（12行）。8ビット同士の加算の幅は8ビットです（11.6.1）。
+- **Icarus 13.0の遅延アサーション：** `assert #0`と`assert final`を未対応とし、全行で300行を拒否します。即時アサーションの150行はすべて一致します。
+- **Icarus 13.0の既定の引数：** unbased unsizedの`'1`と`'x`の既定値を1ビットとして扱います（20行）。実数の既定値では`iverilog`自体が内部のassertで停止します（30行）。
+- **Verilator 5.052のパラメータ：** 同じインスタンスに`#()`と`defparam`を与えると、接続の重複として拒否します（42行）。規格では`defparam`が優先します（23.10）。
+- **Verilator 5.052の`'x`：** `'x`を渡すと、二値の仮引数でも0ではなく乱数になります。全行で`'x`の40行が異なり、そのうち24行が二値の仮引数です。
+- **Verilator 5.052のアサーション：** xとzを乱数にするほか、`always_comb`を規格より多く評価して報告が増えます（選択の13件）。
+
+[全Icarusの差とVerilatorの代表出力](../coverage/interaction-qualification/paramassertlit-known-replays.json)を保存しました。
+kirimasim `eee8cd16ba1d`は、アサーションとリテラルの引数の全922行で規格の期待値と一致しました。パラメータの24行の差は[範囲](interaction-verification.md#parameter-override-type)に記録しています。

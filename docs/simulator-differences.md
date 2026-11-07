@@ -1022,3 +1022,18 @@ See the [scope](interaction-verification.en.md#macro-expansion-context).
 
 See [all Icarus differences and representative Verilator outputs](../coverage/interaction-qualification/ifexprloopfmt-known-replays.json). kirimasim `6e32b04ed6ec` matches the standard's expectations on all 4,883 rows of the three models.
 See the [scope](interaction-verification.en.md#interface-member-expression).
+
+<a id="param-assert-literal-differences"></a>
+
+## Parameter overrides, bit vector functions in assertions, literal arguments (2026-11-07)
+
+- **Icarus 13.0 parameters:** a reference to a member of a packed-structure parameter is an error saying the parameter cannot have member names (36 rows over all rows).
+  It makes the parameter value `8'd25 + 8'sd10` nine bits wide (12 rows). An addition of two eight-bit operands is eight bits wide (11.6.1).
+- **Icarus 13.0 deferred assertions:** `assert #0` and `assert final` are unsupported, and 300 rows are rejected. All 150 immediate-assertion rows match.
+- **Icarus 13.0 default arguments:** a default of the unbased unsized `'1` or `'x` is taken as one bit (20 rows). A real default stops `iverilog` itself on an internal assertion (30 rows).
+- **Verilator 5.052 parameters:** `#()` and a `defparam` on the same instance are rejected as a duplicate connection (42 rows). The standard lets the `defparam` win (23.10).
+- **Verilator 5.052 `'x`:** passing `'x` gives a random value instead of 0 even for a two-state formal. 40 `'x` rows differ over all rows, 24 of them with a two-state formal.
+- **Verilator 5.052 assertions:** besides making x and z random, it evaluates `always_comb` more often than the standard and reports more (13 selected cases).
+
+See [all Icarus differences and representative Verilator outputs](../coverage/interaction-qualification/paramassertlit-known-replays.json).
+kirimasim `eee8cd16ba1d` matches the standard's expectations on all 922 rows of the assertion and literal-argument models. The 24 parameter rows that differ are recorded in the [scope](interaction-verification.en.md#parameter-override-type).

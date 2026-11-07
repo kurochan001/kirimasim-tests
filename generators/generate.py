@@ -103,6 +103,9 @@ import interaction_macro
 import interaction_force
 import interaction_sense
 import interaction_ifexpr
+import interaction_paramtype
+import interaction_assertquery
+import interaction_litarg
 import interaction_loopsched
 import interaction_litfmt
 import interaction_compound
@@ -121,7 +124,7 @@ import wide_paths
 import width_sign
 import xz_propagation
 
-GENERATORS = [interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, width_sign, xz_propagation, strength, wide_paths, keywords,
+GENERATORS = [interaction_paramtype, interaction_assertquery, interaction_litarg, interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, width_sign, xz_propagation, strength, wide_paths, keywords,
               interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
