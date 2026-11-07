@@ -1,0 +1,237 @@
+{
+  "models": [
+    "interface_member_expression",
+    "loop_control_scheduling",
+    "literal_format_display"
+  ],
+  "generated_at": "2026-11-07T12:59:50.389941+00:00",
+  "scope": "Final headers with pinned-release oracles. The latest main was cloned to a separate directory, configured and built before one complete finite-cross run, so the shared checkout stayed untouched. An identical immutable binary snapshot ran. Every earlier input is unchanged; each status change of an earlier case comes from the newer kirimasim. Formal CI is separate.",
+  "base_revision": "6e32b04ed6ec1d8fea642b88c9be345921be6c80",
+  "upstream_main_revision": "eee8cd16ba1d06444a6aae3ea6563c1d42b14c4b",
+  "tracked_worktree_clean_at_build": true,
+  "binary_sha256": "4d49fdb5de99378c156245b7af96af42f1138f7c36b9d8351c53e893a106c9a5",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit 6e32b04ed6ec), built with AppleClang 21.0.0.21000401",
+  "run": "coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json",
+  "counts": {
+    "pass": 3404,
+    "unsupported": 479,
+    "fail": 4
+  },
+  "new_cases": 195,
+  "new_cases_by_model": {
+    "loopsched": 55,
+    "litfmt": 91,
+    "ifexpr": 49
+  },
+  "previous_cases": 3692,
+  "previous_run": "coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json",
+  "previous_version": "kirimasim 0.0.0 (commit 97d5b0001e7c), built with AppleClang 21.0.0.21000401",
+  "previous_inputs_changed": [],
+  "previous_status_changes": {
+    "gen/ch11/test_gen_cross_inside_w129_n_us_b_queue_n1_both_unknown": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w129_n_uu_b_dynamic_n0_known": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w129_n_uu_l_dynamic_n3_rhs_z": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w129_w_ss_l_dynamic_n3_both_unknown": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w1_s_ss_l_queue_n0_lhs_x": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w1_s_uu_b_dynamic_n1_lhs_x": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w1_s_uu_b_dynamic_n3_known": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w1_s_uu_b_queue_n1_known": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w1_s_uu_b_queue_n1_lhs_x": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w1_s_uu_b_queue_n3_lhs_x": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w1_s_uu_l_queue_n3_rhs_x": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w1_s_uu_l_queue_n3_rhs_z": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w1_w_uu_l_dynamic_n1_rhs_x": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w32_n_uu_l_queue_n3_both_unknown": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w32_w_su_l_dynamic_n3_lhs_x": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w32_w_uu_b_dynamic_n0_lhs_x": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w33_n_su_b_queue_n0_lhs_x": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w33_n_uu_b_queue_n1_rhs_x": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w33_s_ss_b_dynamic_n1_rhs_z": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w33_w_su_l_dynamic_n1_known": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w64_n_uu_b_dynamic_n3_rhs_x": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w64_s_su_b_queue_n0_known": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w65_n_su_b_queue_n1_rhs_z": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w65_s_uu_b_dynamic_n1_both_unknown": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w65_w_su_b_dynamic_n0_known": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_inside_w65_w_us_l_queue_n3_known": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w129_s_ss_l_abs_tol_bound_x_m": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w129_s_us_l_rel_tol_bound_z_m": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w129_w_us_b_abs_tol_known_s": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w1_s_uu_b_rel_tol_lhs_x_m": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w1_s_uu_l_abs_tol_bound_z_m": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w1_s_uu_l_abs_tol_lhs_x_m": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w1_s_uu_l_rel_tol_bound_x_m": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w32_n_su_b_abs_tol_bound_x_s": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w32_w_us_b_rel_tol_bound_z_s": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w33_s_uu_b_abs_tol_lhs_x_s": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w33_w_su_b_rel_tol_bound_x_s": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w64_n_uu_l_rel_tol_lhs_x_s": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w64_w_uu_b_abs_tol_bound_z_s": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w65_n_ss_l_rel_tol_known_s": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w65_n_us_l_abs_tol_known_m": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch11/test_gen_cross_range_w65_s_su_b_rel_tol_known_m": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch12/test_gen_cross_caseinside_w129_w_ss_b_list_expr_x_uc": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch12/test_gen_cross_caseinside_w1_s_ss_b_array_item_z_pc": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch12/test_gen_cross_caseinside_w1_s_uu_b_list_known_pc": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch12/test_gen_cross_caseinside_w32_n_ss_b_array_expr_x_uc": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch12/test_gen_cross_caseinside_w32_s_uu_l_value_expr_x_pc": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch12/test_gen_cross_caseinside_w33_w_su_b_value_item_z_uc": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch12/test_gen_cross_caseinside_w64_s_uu_l_range_item_x_pc": [
+      "unsupported",
+      "pass"
+    ],
+    "gen/ch12/test_gen_cross_caseinside_w65_w_us_l_range_known_uc": [
+      "unsupported",
+      "pass"
+    ]
+  },
+  "new_case_statuses": {
+    "pass": 195
+  }
+}

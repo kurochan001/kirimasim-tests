@@ -1007,3 +1007,17 @@ kirimasimの実測版`6f5c69841228`は元の全36件で規格期待値と一致�
 
 [全Icarusの差と代表出力](../coverage/interaction-qualification/macroforcesense-known-replays.json)を保存しました。kirimasim `97d5b0001e7c`は3モデルの全10,469行で規格の期待値と一致しました。
 [範囲](interaction-verification.md#macro-expansion-context)を参照してください。
+
+<a id="interface-loop-literal-differences"></a>
+
+## インタフェースの式・ループの制御・リテラルの表示（2026-11-07）
+
+- **Icarus 13.0のインタフェース：** モジュールのポートにインタフェースを書くと構文エラーになり、modportの`import`も未対応です。インタフェースのモデルの全2,940行を解析で拒否するので、比較相手はVerilatorです。
+- **Icarus 13.0の幅を指定した16進：** `%8h`は、自動の桁数で表した値を空白で左に詰めます（`000000c8`ではなく`      c8`）。規格は16進を0で詰めます（21.2.1.2の例では`%3h`の`32'h5`が`005`）。全行で195行です。
+- **Icarus 13.0の文字列：** 文字列リテラルを`%o`で表示すると、`vvp`が内部のassertで停止します（20行）。
+  文字列で初期化した型のない`localparam`と、文字列リテラルの連結を書式なしで渡すと、数ではなく文字`AA`を表示します（8行）。パラメータはlogicベクタで（6.20.2）、連結は式です。
+- **Verilator 5.052の`$strobe`：** 同じタイムスロットにループの中から何度呼んでも、1行しか表示しません。
+- **Verilator 5.052の`$monitor`：** タイムスロットの途中の値でも表示し、同じ時刻に何行も出します。規格はPostponed領域で一度表示します（21.2.3）。ループのモデルの全行で、この2つにより70行が異なります。
+
+[全Icarusの差とVerilatorの代表出力](../coverage/interaction-qualification/ifexprloopfmt-known-replays.json)を保存しました。kirimasim `6e32b04ed6ec`は3モデルの全4,883行で規格の期待値と一致しました。
+[範囲](interaction-verification.md#interface-member-expression)を参照してください。

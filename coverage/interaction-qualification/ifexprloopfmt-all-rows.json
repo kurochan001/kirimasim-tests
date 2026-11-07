@@ -1,0 +1,165 @@
+{
+  "generated_at": "2026-11-07T13:00:32.100868+00:00",
+  "scope": "One run of every legal row, outside the selected witnesses, to look for expectations that the model and its independent interpretation share in error. The rows are not fixed-suite tests and do not enter any count. Rows are compiled from generator output in a temporary directory.",
+  "kirimasim": {
+    "version": "kirimasim 0.0.0 (commit 6e32b04ed6ec), built with AppleClang 21.0.0.21000401",
+    "binary_sha256": "4d49fdb5de99378c156245b7af96af42f1138f7c36b9d8351c53e893a106c9a5"
+  },
+  "icarus": {
+    "version": "Icarus Verilog version 13.0 (stable) (v13_0)"
+  },
+  "verilator": {
+    "version": "Verilator 5.052 2026-09-05",
+    "seed": 1,
+    "models": [
+      "interface_member_expression",
+      "loop_control_scheduling"
+    ],
+    "note": "Icarus 13.0 cannot read an interface port, so every legal row of interface_member_expression also ran once on Verilator."
+  },
+  "correction": null,
+  "models": {
+    "interface_member_expression": {
+      "legal_rows": 2940,
+      "selected": 49,
+      "kirimasim_differences": 0,
+      "icarus": {
+        "match": 0,
+        "differ": 0,
+        "reject": 2940
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "path": {
+          "port": 588,
+          "modport": 588,
+          "generic": 588,
+          "element": 588,
+          "hier": 588
+        },
+        "decl": {
+          "s8": 980,
+          "u8": 980,
+          "s4": 980
+        },
+        "expr": {
+          "div": 420,
+          "shift": 420,
+          "mixed": 420,
+          "part": 420,
+          "cmp": 420,
+          "neg": 420,
+          "mul": 420
+        },
+        "stmt": {
+          "if": 420,
+          "case": 420,
+          "repeat": 420,
+          "while": 420,
+          "for": 420,
+          "do": 420,
+          "foreach": 420
+        },
+        "update": {
+          "direct": 735,
+          "compound": 735,
+          "task": 735,
+          "inside": 735
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "02145190e0bf8ccb1a5b979a0611dcb83d4fc346a73c933c886bf773eb1be001",
+      "verilator": {
+        "match": 2940,
+        "differ": 0,
+        "reject": 0,
+        "nonmatching_rows_by_factor": {}
+      }
+    },
+    "loop_control_scheduling": {
+      "legal_rows": 165,
+      "selected": 55,
+      "kirimasim_differences": 0,
+      "icarus": {
+        "match": 165,
+        "differ": 0,
+        "reject": 0
+      },
+      "icarus_nonmatching_rows_by_factor": {},
+      "icarus_nonmatching_rows_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verilator": {
+        "match": 95,
+        "differ": 70,
+        "reject": 0,
+        "nonmatching_rows_by_factor": {
+          "loop": {
+            "repeat": 14,
+            "while": 14,
+            "for": 14,
+            "do": 14,
+            "forever": 14
+          },
+          "wait": {
+            "none": 30,
+            "zero": 30,
+            "delay": 10
+          },
+          "change": {
+            "nba": 25,
+            "zero": 15,
+            "later": 15,
+            "self": 15
+          },
+          "observer": {
+            "strobe": 35,
+            "monitor": 35
+          }
+        }
+      }
+    },
+    "literal_format_display": {
+      "legal_rows": 1778,
+      "selected": 91,
+      "kirimasim_differences": 0,
+      "icarus": {
+        "match": 1555,
+        "differ": 223,
+        "reject": 0
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "literal": {
+          "sized": 20,
+          "xpad": 20,
+          "zpad": 20,
+          "qmark": 20,
+          "octal": 20,
+          "under": 20,
+          "fill": 15,
+          "negate": 20,
+          "signed": 20,
+          "string": 48
+        },
+        "form": {
+          "wh": 195,
+          "d": 2,
+          "h": 2,
+          "o": 22,
+          "b": 2
+        },
+        "route": {
+          "display": 43,
+          "write": 43,
+          "sformatf": 43,
+          "swrite": 43,
+          "fdisplay": 43,
+          "default": 8
+        },
+        "carrier": {
+          "direct": 55,
+          "param": 59,
+          "macro": 55,
+          "concat": 54
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "020007f2dad2b18409959bdb3fc74117ce7e971815ed27e334989fd225e20b21"
+    }
+  }
+}

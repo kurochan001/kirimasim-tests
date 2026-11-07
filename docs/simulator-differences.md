@@ -1008,3 +1008,17 @@ See the [scope](interaction-verification.en.md#time-scope-delay).
 
 See [all Icarus differences and representative outputs](../coverage/interaction-qualification/macroforcesense-known-replays.json). kirimasim `97d5b0001e7c` matches the standard's expectations on all 10,469 rows of the three models.
 See the [scope](interaction-verification.en.md#macro-expansion-context).
+
+<a id="interface-loop-literal-differences"></a>
+
+## Interface expressions, loop control, literal display (2026-11-07)
+
+- **Icarus 13.0 interfaces:** an interface in a module port is a syntax error, and modport `import` is not supported. All 2,940 rows of the interface model are rejected at parsing, so Verilator is the comparator.
+- **Icarus 13.0 hexadecimal with a given width:** `%8h` pads the value, written at its automatic width, with spaces on the left (`      c8`, not `000000c8`). The standard pads hexadecimal with zeros (in the example of 21.2.1.2, `%3h` of `32'h5` is `005`). 195 rows over all rows.
+- **Icarus 13.0 strings:** displaying a string literal with `%o` stops `vvp` on an internal assertion (20 rows).
+  An untyped `localparam` initialized by a string, and a concatenation of a string literal, passed without a format, show the characters `AA` instead of a number (8 rows). A parameter is a logic vector (6.20.2), and a concatenation is an expression.
+- **Verilator 5.052 `$strobe`:** called many times in one time slot from a loop, it prints only one line.
+- **Verilator 5.052 `$monitor`:** it also prints values in the middle of a time slot, several lines at one time. The standard prints once, in the postponed region (21.2.3). These two make 70 rows of the loop model differ.
+
+See [all Icarus differences and representative Verilator outputs](../coverage/interaction-qualification/ifexprloopfmt-known-replays.json). kirimasim `6e32b04ed6ec` matches the standard's expectations on all 4,883 rows of the three models.
+See the [scope](interaction-verification.en.md#interface-member-expression).

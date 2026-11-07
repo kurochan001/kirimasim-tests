@@ -5,9 +5,9 @@
 2026-11-06（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json)は95モデル・3,692件で、最新のmainをビルドしたkirimasim `97d5b0001e7c`で実行しました。
-3,159 pass・529 unsupported・configの4 failです。追加247件は全PASSです。[`60c26d7c8113`の前回の全実行](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json)と比べて従来3,445件の入力・状態は不変です。
-今回の247件は正式Check・Nightlyでは未実行です。
+現在の[全クロスのローカル選択](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json)は98モデル・3,887件で、最新のmainをビルドしたkirimasim `6e32b04ed6ec`で実行しました。
+3,404 pass・479 unsupported・configの4 failです。追加195件は全PASSです。[`97d5b0001e7c`の前回の全実行](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json)と比べて従来3,692件の入力は不変で、`inside`・範囲・`case inside`の50件がunsupportedからPASSになりました。
+前回の247件は[`6a0f260c`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42352682135)で固定版比較が成功しました。今回の195件は正式Check・Nightlyでは未実行です。
 
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
 [同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。その後の追加は両実行の対象外です。
@@ -95,7 +95,7 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
   演算・条件式を将来の独立因子として検討します。合法な式と正の寸法の確定、
   既知のconfigリセット不一致の修正を先に行います。
 
-現在の仕分けはM168・E3・C2・N117・R530です。
+現在の仕分けはM173・E3・C2・N117・R525です。
 [章対の根拠と指紋](chapter-cross-triage.md)を参照してください。
 既存の回帰matrixを先に活用し、原因が確定した機構に境界・操作列・故障対照を追加します。
 同じ目的の別runnerや、ランダム結果を固定要求カバレッジへ加算する仕組みは追加していません。
@@ -164,7 +164,7 @@ Icarusは31入力に一致し、repeat回数1の5件は拒否を保持して、�
 次の3件は、kirimasimが未実装なので見送りました。テストがまだないので、実装されても結果は変わらず、確認しなければ気づけません。
 kirimasimの新しいビルドで全クロスを実行するときに下のプログラムを試し、`not implemented yet`が出なくなったらモデルや観測を追加します。
 既存の未対応529件はテストがあり、実装されれば結果が変わるので、この一覧には入れません。
-同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-07のkirimasim `97d5b0001e7c`のものです。
+同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-07のkirimasim `6e32b04ed6ec`のものです。
 
 期待値は規格から求め、[全合法行を一度実行](interaction-verification-method.md#run-every-legal-row-once)して確かめます。
 
@@ -211,3 +211,12 @@ module top; timeunit 1ns / 1ps; initial begin pk::t; $finish; end endmodule
 - kirimasim `97d5b0001e7c`の単一の全3,692件は3,159 pass・529 unsupported・既存configの4 failです。追加247件は全PASSです。95モデル・168章対・全選択ケースPASSは68モデルです。
 - 全合法行10,469行でkirimasimの差は0件で、期待値の修正はありません。Icarusとの差はすべて条文に照らしてIcarus側の問題と判断しました。
 - `$finish`後の`final`の見え方（第9×20章）は、保留中のNBAや同じ時刻の他のプロセスを規格が定めないので見送りました。kirimasimの未実装が理由ではありません。
+
+## インタフェースの式・ループの制御・リテラルの表示（2026-11-07）
+
+- [インタフェースのメンバ](interaction-verification.md#interface-member-expression)、[ループの制御とスケジューリング領域](interaction-verification.md#loop-control-scheduling)、[リテラルと表示の書式](interaction-verification.md#literal-format-display)のモデルを追加しました。
+- 第11×25・12×25・4×12・12×21・5×21章の5章対をRからMへ移しました。
+- kirimasim `6e32b04ed6ec`の単一の全3,887件は3,404 pass・479 unsupported・既存configの4 failです。追加195件は全PASSです。98モデル・173章対・全選択ケースPASSは74モデルです。
+- 従来3,692件の入力は不変です。kirimasimの`inside`・範囲・`case inside`の実装で50件がunsupportedからPASSになり、`membership_container`・`membership_range`・`case_inside_selection`は全選択ケースPASSになりました。
+- 全合法行4,883行でkirimasimの差は0件で、期待値の修正はありません。IcarusとVerilatorとの差は、すべて条文に照らして各シミュレータ側の問題と判断しました。
+- [kirimasimの実装を待つ候補](#models-waiting-for-kirimasim)の3件は、`6e32b04ed6ec`でもまだ`not implemented yet`です。

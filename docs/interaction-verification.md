@@ -14,12 +14,19 @@
 
 ## 保存実行の概要
 
+2026-11-07のインタフェースの式・ループの制御・リテラルの表示の追加で、**98モデル・3,887件・173章対**になりました。
+最新のmainをビルドしたkirimasim `6e32b04ed6ec`の[単一実行](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json)は、
+**3,404 pass・479 unsupported・既存configの4 fail**です。追加195件は全PASSです。従来3,692件の入力は不変で、
+`inside`・範囲・`case inside`の50件がunsupportedからPASSになりました。全選択ケースPASSは74モデルです。
+[インタフェースのメンバ](#interface-member-expression)、[ループの制御とスケジューリング領域](#loop-control-scheduling)、[リテラルと表示の書式](#literal-format-display)に独立検算と固定版比較を記録します。
+追加195件は正式Check・Nightlyでは未実行です。
+
 2026-11-07のマクロ展開・force/release・暗黙の感度の追加で、**95モデル・3,692件・168章対**になりました。
 最新のmainをビルドしたkirimasim `97d5b0001e7c`の[単一実行](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json)は、
 **3,159 pass・529 unsupported・既存configの4 fail**です。追加247件は全PASSで、従来3,445件の入力・状態分類は不変です。
 全選択ケースPASSは68モデルです。
 [マクロ展開と文脈](#macro-expansion-context)、[forceとrelease](#force-release-visibility)、[暗黙の感度](#implicit-sensitivity-update)に独立検算と固定版比較を記録します。
-追加247件は正式Check・Nightlyでは未実行です。
+追加247件は[`6a0f260c`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42352682135)で固定版比較が成功しました。Nightlyでは未実行です。
 
 2026-11-07の時間スコープ・リテラル・ゲート配列の追加で、**92モデル・3,445件・151章対**になりました。
 最新のmainをビルドしたkirimasim `60c26d7c8113`の[単一実行](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json)は、
@@ -4066,3 +4073,121 @@ forceはすべての代入とドライバを上書きし、式のforceは右辺�
 内訳は[シミュレータ差異](simulator-differences.ja.md#macro-force-sense-differences)を参照してください。
 
 kirimasim、Icarus、Verilatorの[ビルドと固定版の記録](../coverage/interaction-qualification/macroforcesense-build.json)と[差異の再生](../coverage/interaction-qualification/macroforcesense-known-replays.json)を保存しました。
+
+<a id="interface-member-expression"></a>
+
+## インタフェースのメンバと式・文（2026-11-07）
+
+[`interaction_ifexpr.py`](../generators/interaction_ifexpr.py)は`interface_member_expression@1`を定義します。
+第11章×第25章と第12章×第25章は全49件に対応し、第13章×第25章はmodportでimportしたtaskで更新する行だけに対応します。
+全49件が同じ保存実行で成功して初めてモデル全体のPASSです。
+
+### 因子・対象範囲
+
+アクセス経路（インタフェースのポート、modportのポート、総称インタフェースのポート、インタフェース配列の要素、階層名）、
+メンバ`v`の宣言（符号付き8ビット、符号なし8ビット、符号付き4ビット。ビットはすべて`fa`または`a`）、
+式（4での除算、2ビットの算術右シフト、`1'b0`との加算、`[3:0]`の部分選択、0との比較、単項マイナス、`2'sb11`との乗算）、
+文（if、case、repeat、while、for、do、foreach）、更新（直接代入、複合代入、値を渡すimportしたtask、インタフェースの中で式を計算するtask）を交差します。
+合法2,940行から49件を選びます。全因子対264目標、必須7件を保持します。
+
+### 何を区別するか
+
+経路が変わっても、メンバの型は宣言のままです。式の幅と符号は11.6と11.8の規則で決まります。
+符号付きの`v`（-6）を4で割ると-1、算術シフトは-2で、符号なし（250）ではどちらも62です。
+`1'b0`を加えると式全体が符号なしになるので、4ビットのメンバは10になります。部分選択は宣言にかかわらず符号なしです。
+`2'sb11`は符号付きの式では-1、符号なしの式では3なので、[符号なしの乗算](../tests/gen/ch25/test_gen_cross_ifexpr_modport_u8_mul_repeat_task.sv)は1回で750です。
+
+文の制御はインタフェースの`n`を経路から読み、更新のたびに`n`が1減ります。repeatは回数を一度だけ評価するので3回、whileとforは2回、doは1回です。
+[配列の要素への接続](../tests/gen/ch25/test_gen_cross_ifexpr_element_s8_shift_while_compound.sv)では、他方の要素の値が変わらないことも確かめます。
+
+### 独立検算と実行結果
+
+[`qualify_ifexpr.py`](../tools/qualify_ifexpr.py)は実際のSVを字句に分け、宣言とmodportから記憶域と許される方向を作ります。
+式は各オペランドの自己決定の幅と符号を求め、代入や比較の文脈を下へ伝えてから値を計算します。主モデルの値の表は使いません。
+modportにない名前への書込みやimportしていないtaskの呼出しは誤りとして止めます。全2,940プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/ifexpr.json)には正常対照7件と実行可能な誤り7件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `6e32b04ed6ec`の[単一の全3,887件](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json)で追加49件は全PASSです。[全行の記録](../coverage/interaction-qualification/ifexprloopfmt-all-rows.json)では全2,940行でkirimasimの差は0件です。
+Icarus 13.0はインタフェースのポートとmodportのimportを受理しないので、全行をVerilator 5.052でも一度実行し、2,940行がすべて一致しました。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross98-ifexprloopfmt-icarus13.json)は49件とも解析で拒否します（known）。[固定Verilator 5.052](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed73.json)でも49 passで、比較相手はVerilatorです。
+内訳は[シミュレータ差異](simulator-differences.ja.md#interface-loop-literal-differences)を参照してください。
+
+<a id="loop-control-scheduling"></a>
+
+## ループの制御とスケジューリング領域（2026-11-07）
+
+[`interaction_loopsched.py`](../generators/interaction_loopsched.py)は`loop_control_scheduling@1`を定義します。
+第4章×第12章は全55件に対応し、第12章×第21章は`$strobe`と`$monitor`の行、第9章×第12章は本体が`#0`か`#2`で待つ行に対応します。
+
+### 因子・対象範囲
+
+ループ（repeat、while、for、do、`break`付きのforever）、本体の待ち（なし、`#0`、`#2`）、
+制御変数`n`の変更（別のプロセスの時刻1のNBA、時刻1の`#0`の後のブロッキング代入、時刻2のブロッキング代入、本体での減算）、
+観測（`$display`、`$strobe`、ループの前に始める`$monitor`）を交差します。
+合法165行から55件を選びます。ループ・待ち・変更の3因子群を含む137目標、必須6件を保持します。
+
+### 何を区別するか
+
+repeatは回数を入口で一度だけ評価し（12.7.2）、while・for・foreverは毎回の前に、doは本体の後に条件を評価します。
+`n`は3から5に変わります。待たない本体と`#0`だけで待つ本体は、NBA領域より前に同じタイムスロットでループを終えるので、古い3を読みます。
+`#2`で待つ本体は次の時刻に5を読みます。[repeat](../tests/gen/ch12/test_gen_cross_loopsched_repeat_delay_nba_display.sv)は3回、[while](../tests/gen/ch12/test_gen_cross_loopsched_while_delay_nba_display.sv)は5回です。
+
+`$display`は呼んだ時点の値を、`$strobe`と`$monitor`はタイムスロットの最後（Postponed領域）の値を表示します。
+[ループの中の`$strobe`](../tests/gen/ch12/test_gen_cross_loopsched_do_zero_nba_strobe.sv)はループが3を読んだ後でも、NBAの後の5を3回表示します。
+本体の`#0`と別のプロセスの`#0`の後の書込みは同じInactive領域に並び、順序が決まらないので除外します。
+
+### 独立検算と実行結果
+
+[`qualify_loopsched.py`](../tools/qualify_loopsched.py)は各initialを文の木に分け、Active・Inactive・NBA・Postponedの領域を持つ小さなスケジューラで実行します。
+同時に動けるプロセスの全順序で同じ出力になることを確かめるので、除外した競合は検出されます。全165プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/loopsched.json)には正常対照6件と実行可能な誤り6件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `6e32b04ed6ec`の[単一の全3,887件](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json)で追加55件は全PASSです。全165行でkirimasimの差は0件、Icarusも全行一致です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross98-ifexprloopfmt-icarus13.json)は55 passです。[固定Verilator 5.052](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed73.json)でも48 pass・7 knownです。
+全行ではVerilatorは95行が一致し、70行が異なります。差はすべて`$strobe`と`$monitor`の行です。
+
+<a id="literal-format-display"></a>
+
+## リテラルの字句と表示の書式（2026-11-07）
+
+[`interaction_litfmt.py`](../generators/interaction_litfmt.py)は`literal_format_display@1`を定義します。
+第5章×第21章は全91件に対応し、第6章×第21章は`localparam`、第21章×第22章はマクロ、第11章×第21章は連結で運ぶ行に対応します。
+
+### 因子・対象範囲
+
+リテラル（無サイズの10進、サイズ付き10進、xで左へ詰める16進、zで左へ詰める16進、`?`と下線を含む2進、xの桁を含む8進、下線を含む16進、`'1`、
+否定したサイズ付き10進、符号付き16進、16進と8進のエスケープを含む文字列）、
+書式（`%d`、`%0d`、`%h`、`%0h`、`%o`、`%b`、`%8d`、`%8h`、`%s`）、
+経路（`$display`、`$write`、`$sformatf`、`$swrite`、標準出力への`$fdisplay`、書式なしの`$display`・`$displayh`・`$displayo`・`$displayb`）、
+運び方（そのまま、型のない`localparam`、マクロ、連結）を交差します。
+合法1,778行から91件を選びます。全因子対301目標、必須9件を保持します。
+
+### 何を区別するか
+
+字句が幅・符号・各ビットを決めます。`12'hx5`は左をxで詰め、`?`はzです（5.7.1）。
+16進と8進は桁ごとに、全部x・zなら小文字、一部なら大文字です。10進は一文字で、全幅の桁数に右詰めします（21.2.1.3）。
+全幅の桁数は最大値から決まり、幅0は先頭の0を省き、幅を指定すると16進は0で、10進は空白で左を詰めます（21.2.1.2）。
+[xを含む値の`%8h`](../tests/gen/ch21/test_gen_cross_litfmt_xpad_wh_display_direct.sv)は`00000xx5`です。
+
+`localparam`とマクロはリテラルの型を保ち、連結は符号なしにします。書式のない引数の文字列リテラルは書式の文字列として表示されるので、
+[そのまま渡すと](../tests/gen/ch21/test_gen_cross_litfmt_string_d_default_direct.sv)`AA`です。型のないパラメータは同じ幅のlogicベクタなので（6.20.2）、[パラメータで渡すと](../tests/gen/ch21/test_gen_cross_litfmt_string_h_default_param.sv)`4141`です。
+無サイズ数の全幅の桁数は「少なくとも32ビット」で定まらず、符号付きの値の`%d`の全幅は読み方が分かれるので除外します。
+
+### 独立検算と実行結果
+
+[`qualify_litfmt.py`](../tools/qualify_litfmt.py)は実際のSVのリテラルを字句からビットの列にし、マクロを文字として展開してから、書式を一桁ずつ適用します。
+主モデルのリテラルの表や書式の関数は使わず、全1,778プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/litfmt.json)には正常対照9件と実行可能な誤り9件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `6e32b04ed6ec`の[単一の全3,887件](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json)で追加91件は全PASSです。全1,778行でkirimasimの差は0件です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross98-ifexprloopfmt-icarus13.json)は79 pass・12 knownです。全行では1,555行が一致し、223行が異なります。
+[固定Verilator 5.052](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed73.json)でも91 passですが、X/Zを含む行は比較相手にしません。

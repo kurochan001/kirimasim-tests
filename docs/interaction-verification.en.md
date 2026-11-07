@@ -14,12 +14,19 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-07 interface-expression, loop-control and literal-format additions bring totals to **98 models / 3,887 cases / 173 chapter pairs**.
+The [single run](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json) on kirimasim `6e32b04ed6ec`, built from the latest main, records
+**3,404 pass / 479 unsupported / four existing config failures**. All 195 additions pass. Preceding 3,692 inputs are unchanged,
+and 50 `inside`, range and `case inside` cases moved from unsupported to pass. 74 models pass their entire selection.
+See [interface members](#interface-member-expression), [loop control and scheduling regions](#loop-control-scheduling) and [literal forms and display formats](#literal-format-display) for the independent checks and pinned comparisons.
+The 195 additions have not run in formal Check/Nightly.
+
 The 2026-11-07 macro, force/release and implicit-sensitivity additions bring totals to **95 models / 3,692 cases / 168 chapter pairs**.
 The [single run](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json) on kirimasim `97d5b0001e7c`, built from the latest main, records
 **3,159 pass / 529 unsupported / four existing config failures**. All 247 additions pass; preceding 3,445 inputs/statuses are unchanged.
 68 models pass their entire selection.
 See [macro expansion and context](#macro-expansion-context), [force and release](#force-release-visibility) and [implicit sensitivity](#implicit-sensitivity-update) for the independent checks and pinned comparisons.
-The 247 additions have not run in formal Check/Nightly.
+The 247 additions passed the pinned comparisons in [Check on `6a0f260c`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42352682135); they have not run in Nightly.
 
 The 2026-11-07 time-scope, literal and gate-array additions bring totals to **92 models / 3,445 cases / 151 chapter pairs**.
 The [single run](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json) on kirimasim `60c26d7c8113`, built from the latest main, records
@@ -4090,3 +4097,121 @@ To avoid races at time 0, initial values come from declaration initializers and 
 See the [simulator differences](simulator-differences.md#macro-force-sense-differences).
 
 The [build and pinned records](../coverage/interaction-qualification/macroforcesense-build.json) and the [replays of the differences](../coverage/interaction-qualification/macroforcesense-known-replays.json) are kept.
+
+<a id="interface-member-expression"></a>
+
+## Interface members in expressions and statements (2026-11-07)
+
+[`interaction_ifexpr.py`](../generators/interaction_ifexpr.py) defines `interface_member_expression@1`.
+Chapters 11 x 25 and 12 x 25 map to all 49 cases; chapters 13 x 25 map only to rows that update through tasks the modport imports.
+The model passes as a whole only when all 49 cases pass in the same saved run.
+
+### Factors and scope
+
+The access path (an interface port, a modport port, a generic interface port, an element of an array of interfaces, a hierarchical name),
+the declaration of the member `v` (signed 8 bits, unsigned 8 bits, signed 4 bits, all with the bits `fa` or `a`),
+the expression (division by 4, an arithmetic right shift by 2, adding `1'b0`, the part-select `[3:0]`, a comparison with 0, unary minus, multiplying by `2'sb11`),
+the statement (if, case, repeat, while, for, do, foreach) and the update (direct assignment, compound assignment, an imported task taking the value, a task computing the expression inside the interface) are crossed.
+49 cases come from 2,940 legal rows, covering 264 pair targets and keeping seven mandatory witnesses.
+
+### What it distinguishes
+
+The type of a member stays as declared whatever the path, and the rules of 11.6 and 11.8 decide the width and sign of an expression.
+The signed `v` (-6) divided by 4 is -1 and shifted arithmetically is -2; unsigned (250), both are 62.
+Adding `1'b0` makes the whole expression unsigned, so the four-bit member gives 10. A part-select is unsigned whatever the declaration.
+`2'sb11` is -1 in a signed expression and 3 in an unsigned one, so the [unsigned multiplication](../tests/gen/ch25/test_gen_cross_ifexpr_modport_u8_mul_repeat_task.sv) gives 750 per update.
+
+The control of each statement reads `n` of the interface through the path, and every update decrements it. repeat evaluates its count once and runs three times, while and for run twice and do once.
+[Connecting an array element](../tests/gen/ch25/test_gen_cross_ifexpr_element_s8_shift_while_compound.sv) also checks that the other element keeps its values.
+
+### Independent check and runs
+
+[`qualify_ifexpr.py`](../tools/qualify_ifexpr.py) tokenizes the actual SV and builds storage and allowed directions from the declarations and the modport.
+For each expression it finds the self-determined width and sign of every operand, pushes the context of the assignment or comparison down, and then computes the value; it does not use the value table of the model.
+A write to a name outside the modport, or a call of a task it does not import, stops it with an error. All 2,940 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/ifexpr.json) keeps seven normal controls and seven executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 3,887-case run](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json) on kirimasim `6e32b04ed6ec`, all 49 additions pass. The [all-row record](../coverage/interaction-qualification/ifexprloopfmt-all-rows.json) shows no kirimasim difference on all 2,940 rows.
+Icarus 13.0 does not accept interface ports or modport imports, so all rows also ran once on Verilator 5.052, and all 2,940 match.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross98-ifexprloopfmt-icarus13.json) rejects all 49 at parsing (known). [Pinned Verilator 5.052](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed1.json) passes 49 also at [seed 73](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed73.json), and is the comparator.
+See the [simulator differences](simulator-differences.md#interface-loop-literal-differences).
+
+<a id="loop-control-scheduling"></a>
+
+## Loop control and scheduling regions (2026-11-07)
+
+[`interaction_loopsched.py`](../generators/interaction_loopsched.py) defines `loop_control_scheduling@1`.
+Chapters 4 x 12 map to all 55 cases; chapters 12 x 21 map to the `$strobe` and `$monitor` rows, and chapters 9 x 12 to rows whose body waits `#0` or `#2`.
+
+### Factors and scope
+
+The loop (repeat, while, for, do, forever with `break`), the wait in the body (none, `#0`, `#2`),
+the change of the control variable `n` (a nonblocking assignment by another process at time 1, a blocking assignment after `#0` at time 1, a blocking assignment at time 2, a decrement in the body)
+and the observer (`$display`, `$strobe`, `$monitor` started before the loop) are crossed.
+55 cases come from 165 legal rows, covering 137 targets including the loop, wait and change group and keeping six mandatory witnesses.
+
+### What it distinguishes
+
+repeat evaluates its count once at entry (12.7.2); while, for and forever test the condition before each pass, and do after the body.
+`n` changes from 3 to 5. A body that does not wait or waits only `#0` finishes the loop in the same time slot, before the NBA region, so it reads the old 3.
+A body that waits `#2` reads 5 at the next time: [repeat](../tests/gen/ch12/test_gen_cross_loopsched_repeat_delay_nba_display.sv) runs three times and [while](../tests/gen/ch12/test_gen_cross_loopsched_while_delay_nba_display.sv) five.
+
+`$display` shows the value at the call, `$strobe` and `$monitor` the value at the end of the time slot, in the postponed region.
+[`$strobe` in the loop](../tests/gen/ch12/test_gen_cross_loopsched_do_zero_nba_strobe.sv) shows the 5 after the NBA three times, though the loop read 3.
+A `#0` in the body and a write after `#0` in another process wait in the same inactive region in either order, so that combination is left out.
+
+### Independent check and runs
+
+[`qualify_loopsched.py`](../tools/qualify_loopsched.py) parses each initial block into a statement tree and runs it on a small scheduler with active, inactive, NBA and postponed regions.
+It checks that every order of the processes ready together gives the same output, so the excluded race is found. All 165 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/loopsched.json) keeps six normal controls and six executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 3,887-case run](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json) on kirimasim `6e32b04ed6ec`, all 55 additions pass. kirimasim has no difference on all 165 rows, and Icarus matches them all.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross98-ifexprloopfmt-icarus13.json) passes 55. [Pinned Verilator 5.052](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed1.json) has 48 pass / 7 known also at [seed 73](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed73.json).
+Over all rows Verilator matches 95 and differs on 70, all of them `$strobe` and `$monitor` rows.
+
+<a id="literal-format-display"></a>
+
+## Literal forms and display formats (2026-11-07)
+
+[`interaction_litfmt.py`](../generators/interaction_litfmt.py) defines `literal_format_display@1`.
+Chapters 5 x 21 map to all 91 cases; chapters 6 x 21 map to rows carrying the literal by `localparam`, 21 x 22 by a macro and 11 x 21 by a concatenation.
+
+### Factors and scope
+
+The literal (an unsized decimal, a sized decimal, hexadecimal padded on the left with x, hexadecimal padded with z, binary with `?` and underscores, octal with an x digit, hexadecimal with underscores, `'1`,
+a negated sized decimal, a signed hexadecimal, a string with hexadecimal and octal escapes),
+the format (`%d`, `%0d`, `%h`, `%0h`, `%o`, `%b`, `%8d`, `%8h`, `%s`),
+the route (`$display`, `$write`, `$sformatf`, `$swrite`, `$fdisplay` to standard output, `$display`, `$displayh`, `$displayo` or `$displayb` without a format)
+and the carrier (as written, an untyped `localparam`, a macro, a concatenation) are crossed.
+91 cases come from 1,778 legal rows, covering 301 pair targets and keeping nine mandatory witnesses.
+
+### What it distinguishes
+
+The text fixes the width, the sign and every bit. `12'hx5` is padded on the left with x, and `?` is z (5.7.1).
+A hexadecimal or octal digit is a lowercase x or z when its whole group is, and uppercase for a part; a decimal value shows one character, right-justified in the full width (21.2.1.3).
+The full width comes from the largest value, a width of 0 drops the leading zeros, and a given width pads hexadecimal with zeros and decimal with spaces (21.2.1.2).
+[`%8h` of a value with x](../tests/gen/ch21/test_gen_cross_litfmt_xpad_wh_display_direct.sv) is `00000xx5`.
+
+A `localparam` and a macro keep the type of the literal, and a concatenation makes it unsigned. A string literal argument without a format is format text,
+so [passing it as written](../tests/gen/ch21/test_gen_cross_litfmt_string_d_default_direct.sv) shows `AA`. An untyped parameter is a logic vector of the same width (6.20.2), so [passing it as a parameter](../tests/gen/ch21/test_gen_cross_litfmt_string_h_default_param.sv) shows `4141`.
+The full width of an unsized number is only "at least 32 bits", and the full `%d` width of a signed value is read in two ways, so both are left out.
+
+### Independent check and runs
+
+[`qualify_litfmt.py`](../tools/qualify_litfmt.py) turns each literal of the actual SV into a list of bits from its text, expands macros as text, and applies each format one digit at a time.
+It uses neither the literal table nor the formatting functions of the model, and all 1,778 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/litfmt.json) keeps nine normal controls and nine executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 3,887-case run](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json) on kirimasim `6e32b04ed6ec`, all 91 additions pass. kirimasim has no difference on all 1,778 rows.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross98-ifexprloopfmt-icarus13.json) has 79 pass / 12 known. Over all rows it matches 1,555 and differs on 223.
+[Pinned Verilator 5.052](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed1.json) passes 91 also at [seed 73](../coverage/interaction-results/cross98-ifexprloopfmt-verilator5052-seed73.json), but is not a comparator for rows with X or Z.

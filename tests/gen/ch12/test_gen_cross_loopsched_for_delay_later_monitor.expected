@@ -1,0 +1,7 @@
+1 mon count=1 n=3
+2 mon count=1 n=5
+3 mon count=2 n=5
+5 mon count=3 n=5
+7 mon count=4 n=5
+9 mon count=5 n=5
+11 done count=5 n=5

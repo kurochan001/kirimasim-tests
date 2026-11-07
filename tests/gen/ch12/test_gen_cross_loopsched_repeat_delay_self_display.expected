@@ -1,0 +1,4 @@
+1 it count=1 n=2
+3 it count=2 n=1
+5 it count=3 n=0
+7 done count=3 n=0

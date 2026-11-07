@@ -2570,6 +2570,127 @@
           "reason": "変数への連続代入と網の宣言代入で、オペランドの変化だけが左辺を更新することを確かめる。"
         }
       ]
+    },
+    {
+      "id": "interface_member_expression",
+      "primary_chapter": 25,
+      "pairs": [
+        {
+          "chapters": [
+            11,
+            25
+          ],
+          "reason": "インタフェースのメンバの宣言の型が、ポート・modport・総称ポート・配列の要素・階層名のどこから読んでも、除算・算術シフト・比較・単項マイナス・乗算の結果を決めることを確かめる。"
+        },
+        {
+          "chapters": [
+            12,
+            25
+          ],
+          "reason": "if・case・repeat・while・for・do・foreachの制御がインタフェースのnを経路から読み、更新のたびに共有の値が減ることを、回数と最終値で確かめる。"
+        },
+        {
+          "chapters": [
+            13,
+            25
+          ],
+          "when": {
+            "update": [
+              "task",
+              "inside"
+            ]
+          },
+          "reason": "modportでimportしたtaskへ値を渡す更新と、インタフェースの中で式を計算するtaskの更新が、直接代入と同じ結果になることを確かめる。"
+        }
+      ]
+    },
+    {
+      "id": "loop_control_scheduling",
+      "primary_chapter": 12,
+      "pairs": [
+        {
+          "chapters": [
+            4,
+            12
+          ],
+          "reason": "ループの制御式を評価する時点と、別のプロセスのNBA・#0の後・後の時刻の書込みが見える領域の関係を、回数と表示で確かめる。"
+        },
+        {
+          "chapters": [
+            12,
+            21
+          ],
+          "when": {
+            "observer": [
+              "strobe",
+              "monitor"
+            ]
+          },
+          "reason": "ループの中の$strobeと、ループの前に始めた$monitorが、タイムスロットの最後の値を表示することを確かめる。"
+        },
+        {
+          "chapters": [
+            9,
+            12
+          ],
+          "when": {
+            "wait": [
+              "zero",
+              "delay"
+            ]
+          },
+          "reason": "ループ本体の#0と#2の遅延制御が、制御式を読む時刻と見える値を変えることを確かめる。"
+        }
+      ]
+    },
+    {
+      "id": "literal_format_display",
+      "primary_chapter": 21,
+      "pairs": [
+        {
+          "chapters": [
+            5,
+            21
+          ],
+          "reason": "リテラルの字句（x・zの左詰め、?、下線、unbased unsized、符号、否定、文字列のエスケープ）が、表示の桁数と各桁の文字を決めることを確かめる。"
+        },
+        {
+          "chapters": [
+            21,
+            22
+          ],
+          "when": {
+            "carrier": [
+              "macro"
+            ]
+          },
+          "reason": "マクロで運んだリテラルも同じ値で表示され、文字列リテラルに展開されたマクロは書式の文字列として扱われることを確かめる。"
+        },
+        {
+          "chapters": [
+            6,
+            21
+          ],
+          "when": {
+            "carrier": [
+              "param"
+            ]
+          },
+          "reason": "型のないlocalparamがリテラルの幅と符号を保ち、文字列で初期化した場合も整数として表示されることを確かめる。"
+        },
+        {
+          "chapters": [
+            11,
+            21
+          ],
+          "when": {
+            "carrier": [
+              "concat"
+            ]
+          },
+          "reason": "連結がリテラルを符号なしにし、%dの桁数と符号の表示が変わることを確かめる。"
+        }
+      ]
     }
   ]
 }

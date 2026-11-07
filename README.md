@@ -65,15 +65,15 @@ For a first test, [walk through 24 real lines](docs/faq.en.md#q49-read-a-real-te
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **11440 tests** in 38 chapters. 5005 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **11635 tests** in 38 chapters. 5200 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6152 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2057 |
-| The standard only, with no fixed-release simulator oracle recorded | 3231 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6286 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2114 |
+| The standard only, with no fixed-release simulator oracle recorded | 3235 |
 
-2811 tests depend on x or z values (`:fourstate: yes`). 684 tests come with C code: 189 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1930 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 54 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+2843 tests depend on x or z values (`:fourstate: yes`). 684 tests come with C code: 189 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1930 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 54 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -86,7 +86,7 @@ The suite has **11440 tests** in 38 chapters. 5005 of them are generated. The [g
 | 9 | Processes | 383 | 279 | 48 | 56 |
 | 10 | Assignment statements | 425 | 314 | 64 | 47 |
 | 11 | Operators and expressions | 1644 | 1262 | 132 | 250 |
-| 12 | Procedural programming statements | 251 | 169 | 33 | 49 |
+| 12 | Procedural programming statements | 306 | 224 | 33 | 49 |
 | 13 | Tasks and functions (subroutines) | 381 | 226 | 92 | 63 |
 | 14 | Clocking blocks | 150 | 4 | 88 | 58 |
 | 15 | Interprocess synchronization and communication | 189 | 2 | 58 | 129 |
@@ -95,11 +95,11 @@ The suite has **11440 tests** in 38 chapters. 5005 of them are generated. The [g
 | 18 | Constrained random value generation | 257 | 25 | 127 | 105 |
 | 19 | Functional coverage | 190 | 2 | 61 | 127 |
 | 20 | Utility system tasks and system functions | 367 | 239 | 36 | 92 |
-| 21 | Input/output system tasks and system functions | 339 | 229 | 16 | 94 |
+| 21 | Input/output system tasks and system functions | 430 | 308 | 24 | 98 |
 | 22 | Compiler directives | 512 | 439 | 37 | 36 |
 | 23 | Modules and hierarchy | 331 | 215 | 45 | 71 |
 | 24 | Programs | 160 | 27 | 23 | 110 |
-| 25 | Interfaces | 204 | 103 | 70 | 31 |
+| 25 | Interfaces | 253 | 103 | 119 | 31 |
 | 26 | Packages | 225 | 53 | 70 | 102 |
 | 27 | Generate constructs | 283 | 232 | 20 | 31 |
 | 28 | Gate-level and switch-level modeling | 296 | 228 | 3 | 65 |
@@ -182,15 +182,15 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.en.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
-The focused selection contains **3,692 tests across 95 models**; the normal full-suite
+The focused selection contains **3,887 tests across 98 models**; the normal full-suite
 run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [latest complete local cross run](coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json),
-on kirimasim **`97d5b0001e7c`**, built from the latest main, records
-**3,159 pass, 529 unsupported and four fail**. All 247 additions for macro expansion, force and release, and implicit sensitivity pass.
-Compared with the [previous complete run](coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json) on `60c26d7c8113`, no status or input of the preceding 3,445 cases changed.
+The [latest complete local cross run](coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json),
+on kirimasim **`6e32b04ed6ec`**, built from the latest main, records
+**3,404 pass, 479 unsupported and four fail**. All 195 additions for interface expressions, loop control and literal display pass.
+Compared with the [previous complete run](coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json) on `97d5b0001e7c`, no input of the preceding 3,692 cases changed, and 50 moved from unsupported to pass.
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.
 All inputs retain their original expectations; the remaining failures are config parameter resets localized to pinned slang. The

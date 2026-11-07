@@ -1,0 +1,1012 @@
+{
+  "models": [
+    "interface_member_expression",
+    "loop_control_scheduling",
+    "literal_format_display"
+  ],
+  "generated_at": "2026-11-07T13:00:32.070212+00:00",
+  "scope": "All 61 Icarus differences and rejections, and one representative of each form of the known-input Verilator differences at both seeds. The first differing line of every known result is in the run records. Nothing here changes an expectation or counts as a pass. No simulator implementation source was read.",
+  "icarus_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "icarus_originals": [
+    {
+      "test": "tests/gen/ch21/test_gen_cross_litfmt_fill_wh_fdisplay_macro.sv",
+      "input_sha256": "1a93b6bce7d582d16167281d92df8fce6ec705400b3c91291e3dfcf494e9d4fc",
+      "reason": "output differs: line 1 is ':       1:', expected ':00000001:'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": ":       1:\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_litfmt_negate_wh_swrite_macro.sv",
+      "input_sha256": "01032792ee37fbf84bbd5a45b54aace49616106939f5c85755686cdd7ee9a653",
+      "reason": "output differs: line 1 is ':      fb:', expected ':000000fb:'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": ":      fb:\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_litfmt_octal_wh_write_param.sv",
+      "input_sha256": "2aa3ac970659f1a3efd2127f6e018ffb6814f71bdafecc263106ef73135301eb",
+      "reason": "output differs: line 1 is ':     1XX:', expected ':000001XX:'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": ":     1XX:\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_litfmt_qmark_wh_display_direct.sv",
+      "input_sha256": "3bad22d49571271aee9bcfe1c0473f2fc7a28da2610e5ce7b0d474ffad3f7d85",
+      "reason": "output differs: line 1 is ':      ZZ:', expected ':000000ZZ:'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": ":      ZZ:\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_litfmt_signed_wh_display_direct.sv",
+      "input_sha256": "4d7b90be5f4589df23ccc3f308cfde6ea4288adc88d43b1fc1f9564dd8eb1849",
+      "reason": "output differs: line 1 is ':       f:', expected ':0000000f:'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": ":       f:\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_litfmt_sized_wh_display_direct.sv",
+      "input_sha256": "8912b1bbff912bf753d98a857b27c9265a871d78c701f3c5e73027f8808048d6",
+      "reason": "output differs: line 1 is ':      c8:', expected ':000000c8:'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": ":      c8:\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_litfmt_string_h_default_param.sv",
+      "input_sha256": "60475e2b4c504b9e915ab388bc432b3219b31ac6855bdaa527bcfc18ead704b3",
+      "reason": "output differs: line 1 is ':AA:', expected ':4141:'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": ":AA:\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_litfmt_string_o_display_direct.sv",
+      "input_sha256": "cae5065bde60a31c58cc9dfdd67f1d34a2b942238683eb758e661ec8869aa61a",
+      "reason": "output differs: line 1 is missing, expected ':040501:'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": -6,
+          "stdout": "",
+          "stderr": "ERROR (vpi_const.cc): %o display of constant strings not yet implemented\nAssertion failed: (0), function vpi_get_value, file vpi_const.cc, line 203.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_litfmt_string_wh_sformatf_concat.sv",
+      "input_sha256": "f72c1e7c1cef27a327e6393a3833383a2f0e542b9a64261dffe2b60928ea5fad",
+      "reason": "output differs: line 1 is ':    4141:', expected ':00004141:'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": ":    4141:\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_litfmt_under_wh_display_direct.sv",
+      "input_sha256": "5300df44e9866f3c48ec5a6f8ac2bfaf64b20b8fa3d5e0263f2c39ab50693d92",
+      "reason": "output differs: line 1 is ':    abcd:', expected ':0000abcd:'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": ":    abcd:\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_litfmt_xpad_wh_display_direct.sv",
+      "input_sha256": "7f78adf9a72d909ee4ec5a487ea1fd55cce9885d31ce58bc7eb277195cccac28",
+      "reason": "output differs: line 1 is ':     xx5:', expected ':00000xx5:'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": ":     xx5:\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_litfmt_zpad_wh_display_direct.sv",
+      "input_sha256": "95bd8858a4557bd43f2249b12998739ba0626aa5fe6b57c2b77e2651758c5090",
+      "reason": "output differs: line 1 is ':     zz3:', expected ':00000zz3:'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": ":     zz3:\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_element_s4_cmp_for_task.sv",
+      "input_sha256": "a4e998bfcc6d91a479f80022237d1d445b61e5346d8085c9391c7dd49e88d266",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_s4_cmp_for_task.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_element_s4_cmp_for_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_s4_cmp_for_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_s4_cmp_for_task.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_element_s4_cmp_for_task.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_element_s4_mul_case_direct.sv",
+      "input_sha256": "b937ada21cf5addef89b7fe016763beecca3bc914374d4f71a49099402f21ca3",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_s4_mul_case_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_element_s4_mul_case_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_s4_mul_case_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_s4_mul_case_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_element_s4_mul_case_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct.sv",
+      "input_sha256": "f9f8a5bcf3ea856e148c63dfad1fe499187dca3555e64fcb0cce7fb3b7dcad28",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 9,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct.sv:41: Errors in port declarations.\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct.sv:44: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct.sv:45: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct.sv:47: Syntax in assignment statement l-value.\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct.sv:51: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct.sv:53: error: Invalid module item.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_element_s8_part_repeat_compound.sv",
+      "input_sha256": "42f3b3dc77ae5a2a2474ddcde77f3890a34d2be557b6a8711685d87cacf9da74",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_s8_part_repeat_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_element_s8_part_repeat_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_part_repeat_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_part_repeat_compound.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_part_repeat_compound.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_element_s8_shift_while_compound.sv",
+      "input_sha256": "2d60e308b8e22d62286f691c4060e859157aa3d828642de80f266cb25c04650b",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_s8_shift_while_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_element_s8_shift_while_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_shift_while_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_shift_while_compound.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_element_s8_shift_while_compound.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_element_u8_div_do_inside.sv",
+      "input_sha256": "b35d7c1e330b7296ef03e98a092338834fcb9702931ddbf1eba98af9cc361732",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_u8_div_do_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_element_u8_div_do_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_u8_div_do_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_u8_div_do_inside.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_element_u8_div_do_inside.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_element_u8_mixed_if_task.sv",
+      "input_sha256": "6ead13ff2a484a31c6aa2a8229a9282df3fe835878fc3573353a4a918a0a5504",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_u8_mixed_if_task.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_element_u8_mixed_if_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_u8_mixed_if_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_element_u8_mixed_if_task.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_element_u8_mixed_if_task.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside.sv",
+      "input_sha256": "e5ef115a7e40d7a744fdbf99ea63e38f2f79212b7d193c4781be19c22a006a4b",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 9,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside.sv:41: Errors in port declarations.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside.sv:44: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside.sv:45: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside.sv:47: error: Malformed statement\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside.sv:50: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside.sv:52: error: Invalid module item.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_cmp_repeat_direct.sv",
+      "input_sha256": "b4c852e17d6f55f868e02656beff2ce688725bfc8116f0238f2e1fb306cc7698",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_cmp_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_cmp_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s8_cmp_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s8_cmp_repeat_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s8_cmp_repeat_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_mul_while_compound.sv",
+      "input_sha256": "b6eb556adcb88c3b98d13c5518f3f9e7faae317338736f18e55718fa5650c9ab",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_mul_while_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_mul_while_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s8_mul_while_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s8_mul_while_compound.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s8_mul_while_compound.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_neg_do_compound.sv",
+      "input_sha256": "34bca0f219deda3d7f011f09ab526fb12b950055f5a06c34785f0cb6dc4ea3ec",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_neg_do_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_neg_do_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s8_neg_do_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s8_neg_do_compound.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s8_neg_do_compound.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_part_if_inside.sv",
+      "input_sha256": "ab709f8c46fd5a5c92bdd61830d740f7613792efbada1170a813c599525cd038",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_part_if_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_part_if_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s8_part_if_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s8_part_if_inside.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_generic_s8_part_if_inside.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_generic_u8_div_for_direct.sv",
+      "input_sha256": "fdc11cce7b7d448725816f830b0947b239c20b178805b0984966419b32ee8f9f",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_u8_div_for_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_generic_u8_div_for_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_u8_div_for_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_u8_div_for_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_generic_u8_div_for_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_generic_u8_shift_case_task.sv",
+      "input_sha256": "d1d587c7faf9fbf92846a49fbdbd68db4225b19c2bb7be9ff60cf5def0e0f344",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_u8_shift_case_task.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_generic_u8_shift_case_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_u8_shift_case_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_generic_u8_shift_case_task.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_generic_u8_shift_case_task.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_hier_s4_shift_repeat_inside.sv",
+      "input_sha256": "f8307fcb12f6bdef9a4184e948058c2f76d88bb76ab494dd23991162eaa0bbbe",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_s4_shift_repeat_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_hier_s4_shift_repeat_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_hier_s4_shift_repeat_inside.sv:31: sorry: modport task/function ports are not yet supported.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_cmp_while_inside.sv",
+      "input_sha256": "2588ee049985285e1f8dd7c115a45e1e58ebe1cdeeb8a6e2dc914427b4766070",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_cmp_while_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_cmp_while_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_hier_s8_cmp_while_inside.sv:31: sorry: modport task/function ports are not yet supported.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_div_foreach_task.sv",
+      "input_sha256": "70952c877ff26e9b8dc89dbc39dafb930f2a566988338d8badb2c90039f7ad4a",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_div_foreach_task.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 9,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_div_foreach_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_hier_s8_div_foreach_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_hier_s8_div_foreach_task.sv:45: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_hier_s8_div_foreach_task.sv:46: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_hier_s8_div_foreach_task.sv:48: error: Malformed statement\ntests/gen/ch25/test_gen_cross_ifexpr_hier_s8_div_foreach_task.sv:51: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_hier_s8_div_foreach_task.sv:51: error: Invalid module item.\ntests/gen/ch25/test_gen_cross_ifexpr_hier_s8_div_foreach_task.sv:54: syntax error\nI give up.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_mixed_case_compound.sv",
+      "input_sha256": "6c0c285b3bae42edcfadc4855cbde02decc7dc256346c35f572fc7b213d45560",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_mixed_case_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_mixed_case_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_hier_s8_mixed_case_compound.sv:31: sorry: modport task/function ports are not yet supported.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_mul_do_direct.sv",
+      "input_sha256": "95f4487526c386b35b10a890f7e0854cb099ab61956b86d84fba86e7f0f9832c",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_mul_do_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_mul_do_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_hier_s8_mul_do_direct.sv:31: sorry: modport task/function ports are not yet supported.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_part_for_compound.sv",
+      "input_sha256": "56bbc11d79637840b9c27781f6b6f035051855cb39a7e011a0683cd05b0c848f",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_part_for_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_part_for_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_hier_s8_part_for_compound.sv:31: sorry: modport task/function ports are not yet supported.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_hier_u8_neg_if_direct.sv",
+      "input_sha256": "4ec1e67f10c79572e84983f17e977078efa61ed6caa7b72ecfa448a1d09ea989",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_u8_neg_if_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_hier_u8_neg_if_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_hier_u8_neg_if_direct.sv:31: sorry: modport task/function ports are not yet supported.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_modport_s4_div_if_compound.sv",
+      "input_sha256": "cba91afe3320643bf5ab636b40a9b2107dcf2498d13f9f2f9133fa7cb9b14e10",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_s4_div_if_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_modport_s4_div_if_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s4_div_if_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s4_div_if_compound.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s4_div_if_compound.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_cmp_case_inside.sv",
+      "input_sha256": "4091238f797d9fa1b26a4780d0cbf94ca53b031b621e7d5b474c003af8479c85",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_cmp_case_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_cmp_case_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_cmp_case_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_cmp_case_inside.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_cmp_case_inside.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_mixed_while_direct.sv",
+      "input_sha256": "3313207fd0b13d53e086e7850a0d594e27d72582c062706e5cf51a1f1b3eaa73",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_mixed_while_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_mixed_while_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_mixed_while_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_mixed_while_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_mixed_while_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_neg_for_inside.sv",
+      "input_sha256": "57e50726cdbd913a0981d70e6f8f4079e57b1e088e3eff1c3dccec9ac7c4ec4a",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_neg_for_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_neg_for_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_neg_for_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_neg_for_inside.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_neg_for_inside.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_do_direct.sv",
+      "input_sha256": "2aa8de02c3fc591a98b696b00210d0c41f864ed13187da07497ddcacbe4c0eb0",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_do_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_do_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_do_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_do_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_do_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct.sv",
+      "input_sha256": "4347ddc5fccc80de2d6d8f62a5ca1abc7ca8b11166d299952196847c69047fa7",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 9,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct.sv:41: Errors in port declarations.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct.sv:44: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct.sv:45: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct.sv:47: Syntax in assignment statement l-value.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct.sv:51: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct.sv:53: error: Invalid module item.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_modport_u8_mul_repeat_task.sv",
+      "input_sha256": "adf93ec1519da248df884e4bbad5b1b585d408a4a6bc7892eb3c946bc33a35fc",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_u8_mul_repeat_task.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_modport_u8_mul_repeat_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_u8_mul_repeat_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_u8_mul_repeat_task.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_modport_u8_mul_repeat_task.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_modport_u8_part_while_direct.sv",
+      "input_sha256": "9c42397c38dd668a4e9966e2e50a08a634f0557ef1135c5a889ef8ecbdc89a7e",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_u8_part_while_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_modport_u8_part_while_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_u8_part_while_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_modport_u8_part_while_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_modport_u8_part_while_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s4_neg_while_task.sv",
+      "input_sha256": "46007ca3e1d2a5fab20e85f068aaa39db0eef41ed6852ba85fd6e04500954b7c",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s4_neg_while_task.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s4_neg_while_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s4_neg_while_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s4_neg_while_task.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s4_neg_while_task.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s4_part_do_task.sv",
+      "input_sha256": "032525314c192f76a128dd7b0df6bb1710e231289cf7a1364d09c72b1c95becc",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s4_part_do_task.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s4_part_do_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s4_part_do_task.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s4_part_do_task.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s4_part_do_task.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_do_direct.sv",
+      "input_sha256": "2fd9c59feb309e3336980d2b7d78a41ca34c34058b914ff97ca462dacfa32cf0",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_do_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_do_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_do_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_do_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_do_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_if_direct.sv",
+      "input_sha256": "89a9a68074e21d1448d231e8005ab2c9306b11faf9e9318419357dd817bd9afa",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_if_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_if_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_if_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_if_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_if_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_case_direct.sv",
+      "input_sha256": "2ad5672df6f70db08ee0b329588865ed3c146f85c3244e5832ca3835b86e5724",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_case_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_case_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_case_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_case_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_case_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_repeat_direct.sv",
+      "input_sha256": "b01d39c45692282e0f1d7666e9cec512c70b1a1bec0cb8bab6eefaa2d61ef0ad",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_repeat_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_repeat_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_while_direct.sv",
+      "input_sha256": "309e6a02f5a35bb65d730155c5ca1133914e925f556360206b9e035c57aff228",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_while_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_while_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_while_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_while_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_while_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_do_direct.sv",
+      "input_sha256": "60a8b0e6235279129d99f7be5118fe1b994bc42f079d0aca090e318bff29a214",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_do_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_do_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_do_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_do_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_do_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_for_direct.sv",
+      "input_sha256": "2b6c874a24132e956b25956728329c05a388231f2262fc9d6b16cca9345c82d4",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_for_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_for_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_for_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_for_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_for_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_repeat_direct.sv",
+      "input_sha256": "1326a9e22d8e4b6583dc4973388edd7a1645122ee961b9bac232e04fad15effa",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_repeat_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_repeat_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_for_direct.sv",
+      "input_sha256": "14122bd38bd1139d4bde34bff2658eda263c407f6c4e63e2910a62b88e014d9d",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_for_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_for_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_for_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_for_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_for_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct.sv",
+      "input_sha256": "f234681eec81ecc98ae31831d812b9fae6442c0ab08eab632b08a33a004ec3ac",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 9,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct.sv:41: Errors in port declarations.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct.sv:44: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct.sv:45: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct.sv:47: Syntax in assignment statement l-value.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct.sv:51: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct.sv:53: error: Invalid module item.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_if_inside.sv",
+      "input_sha256": "cdfaf1302d7950d3afc2bea4d84fa8135d84d0822f409733beafbc8166716aad",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_if_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_if_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_if_inside.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_if_inside.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_if_inside.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_case_direct.sv",
+      "input_sha256": "033918b9e99c64f8f918bf1015327544d989e60896eab56c9bf05b5c37d3cdc5",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_case_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_case_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_case_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_case_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_case_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_repeat_direct.sv",
+      "input_sha256": "d900ad3d559be5dcb3783dc7a6e899d2d301121415e86654ff09e796c7346461",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_repeat_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_repeat_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_case_direct.sv",
+      "input_sha256": "ed2d6eda77d495d7679ad97c980d1ec4f84032a3e68f8228b71693a636b11056",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_case_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_case_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_case_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_case_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_case_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct.sv",
+      "input_sha256": "61beef2e683de63aa408f44e5d0f939019d17cafb46c24c6c36ad642c2402a6a",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 9,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct.sv:41: Errors in port declarations.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct.sv:44: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct.sv:45: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct.sv:47: Syntax in assignment statement l-value.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct.sv:51: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct.sv:53: error: Invalid module item.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_for_direct.sv",
+      "input_sha256": "6b25c655da6be8a4d46519c03fc9e0af1db3f29e7db46d63b0fab7c3a34dbc1c",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_for_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_for_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_for_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_for_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_for_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_if_direct.sv",
+      "input_sha256": "d9df935f57279380f5bc7f1a7115c3bc355af817a5a8d8003e2e5a4af1337a8e",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_if_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_if_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_if_direct.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_if_direct.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_if_direct.sv:41: Errors in port declarations.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound.sv",
+      "input_sha256": "79beda225866fc7a19f9685e286184085e8453c6852b496fb3f6f515418da709",
+      "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 9,
+          "stderr": "tests/gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound.sv:31: sorry: modport task/function ports are not yet supported.\ntests/gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound.sv:41: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound.sv:41: Errors in port declarations.\ntests/gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound.sv:44: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound.sv:45: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound.sv:47: error: Malformed statement\ntests/gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound.sv:51: syntax error\ntests/gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound.sv:53: error: Invalid module item.\n"
+        }
+      ]
+    }
+  ],
+  "verilator_originals": [
+    {
+      "test": "tests/gen/ch12/test_gen_cross_loopsched_do_zero_nba_strobe.sv",
+      "seed": 1,
+      "input_sha256": "070d2313dfab0aa7fdab7ed609ead75a5778b4fd37c2c11ff94e5b9f9c16cf58",
+      "reason": "output differs: line 3 is missing, expected '1 st count=3 n=5'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 done count=3 n=3\n1 st count=3 n=5\n- tests/gen/ch12/test_gen_cross_loopsched_do_zero_nba_strobe.sv:41: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 40ps; walltime 0.000 s; speed 279.720 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch12/test_gen_cross_loopsched_do_zero_nba_strobe.sv",
+      "seed": 73,
+      "input_sha256": "070d2313dfab0aa7fdab7ed609ead75a5778b4fd37c2c11ff94e5b9f9c16cf58",
+      "reason": "output differs: line 3 is missing, expected '1 st count=3 n=5'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 done count=3 n=3\n1 st count=3 n=5\n- tests/gen/ch12/test_gen_cross_loopsched_do_zero_nba_strobe.sv:41: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 40ps; walltime 0.000 s; speed 289.855 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch12/test_gen_cross_loopsched_for_none_nba_strobe.sv",
+      "seed": 1,
+      "input_sha256": "c05bda84340c3bd75e757e027f5ce70640ab8ee0d1b453ddca5dcd30fd4d46ad",
+      "reason": "output differs: line 3 is missing, expected '1 st count=3 n=5'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 done count=3 n=3\n1 st count=3 n=5\n- tests/gen/ch12/test_gen_cross_loopsched_for_none_nba_strobe.sv:41: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 40ps; walltime 0.000 s; speed 279.720 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch12/test_gen_cross_loopsched_for_none_nba_strobe.sv",
+      "seed": 73,
+      "input_sha256": "c05bda84340c3bd75e757e027f5ce70640ab8ee0d1b453ddca5dcd30fd4d46ad",
+      "reason": "output differs: line 3 is missing, expected '1 st count=3 n=5'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 done count=3 n=3\n1 st count=3 n=5\n- tests/gen/ch12/test_gen_cross_loopsched_for_none_nba_strobe.sv:41: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 40ps; walltime 0.000 s; speed 272.109 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch12/test_gen_cross_loopsched_forever_none_zero_monitor.sv",
+      "seed": 1,
+      "input_sha256": "8be03e3a15abfcbcdecaf49a648773d35466b1b64eb1bbade6a44a6408b11453",
+      "reason": "output differs: line 2 is '1 mon count=3 n=3', expected '1 mon count=3 n=5'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 done count=3 n=3\n1 mon count=3 n=3\n1 mon count=3 n=5\n- tests/gen/ch12/test_gen_cross_loopsched_forever_none_zero_monitor.sv:42: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 40ps; walltime 0.000 s; speed 240.964 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch12/test_gen_cross_loopsched_forever_none_zero_monitor.sv",
+      "seed": 73,
+      "input_sha256": "8be03e3a15abfcbcdecaf49a648773d35466b1b64eb1bbade6a44a6408b11453",
+      "reason": "output differs: line 2 is '1 mon count=3 n=3', expected '1 mon count=3 n=5'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 done count=3 n=3\n1 mon count=3 n=3\n1 mon count=3 n=5\n- tests/gen/ch12/test_gen_cross_loopsched_forever_none_zero_monitor.sv:42: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 40ps; walltime 0.000 s; speed 285.714 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch12/test_gen_cross_loopsched_repeat_none_self_strobe.sv",
+      "seed": 1,
+      "input_sha256": "cdb6f634646fc5fa2c0945f67aa48d8e529a112f6a134b1ff46527a10f680e96",
+      "reason": "output differs: line 3 is missing, expected '1 st count=3 n=0'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-WIDTHEXPAND: tests/gen/ch12/test_gen_cross_loopsched_repeat_none_self_strobe.sv:30:5: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's VARREF 'n' generates 8 bits."
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 done count=3 n=0\n1 st count=3 n=0\n- tests/gen/ch12/test_gen_cross_loopsched_repeat_none_self_strobe.sv:37: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 40ps; walltime 0.000 s; speed 273.973 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch12/test_gen_cross_loopsched_repeat_none_self_strobe.sv",
+      "seed": 73,
+      "input_sha256": "cdb6f634646fc5fa2c0945f67aa48d8e529a112f6a134b1ff46527a10f680e96",
+      "reason": "output differs: line 3 is missing, expected '1 st count=3 n=0'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-WIDTHEXPAND: tests/gen/ch12/test_gen_cross_loopsched_repeat_none_self_strobe.sv:30:5: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's VARREF 'n' generates 8 bits."
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 done count=3 n=0\n1 st count=3 n=0\n- tests/gen/ch12/test_gen_cross_loopsched_repeat_none_self_strobe.sv:37: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 40ps; walltime 0.000 s; speed 245.399 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch12/test_gen_cross_loopsched_while_zero_self_monitor.sv",
+      "seed": 1,
+      "input_sha256": "4aa8f3de8ec1beade879e82a98d3392f000460a5b80f2a0d51c87367c77e9c8b",
+      "reason": "output differs: line 1 is '1 mon count=1 n=2', expected '1 done count=2 n=1'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 mon count=1 n=2\n1 mon count=2 n=1\n1 done count=2 n=1\n- tests/gen/ch12/test_gen_cross_loopsched_while_zero_self_monitor.sv:38: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 40ps; walltime 0.000 s; speed 245.399 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch12/test_gen_cross_loopsched_while_zero_self_monitor.sv",
+      "seed": 73,
+      "input_sha256": "4aa8f3de8ec1beade879e82a98d3392f000460a5b80f2a0d51c87367c77e9c8b",
+      "reason": "output differs: line 1 is '1 mon count=1 n=2', expected '1 done count=2 n=1'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "1 mon count=1 n=2\n1 mon count=2 n=1\n1 done count=2 n=1\n- tests/gen/ch12/test_gen_cross_loopsched_while_zero_self_monitor.sv:38: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 40ps; walltime 0.000 s; speed 314.961 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    }
+  ],
+  "runner_sha256": {
+    "icarus": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+    "verilator": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+    "kirimasim": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb"
+  },
+  "executables_sha256": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "verilator_driver": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581"
+  }
+}

@@ -38,11 +38,11 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 ## Execution policy
 
-The 2026-11-07 mapping contains 95 models and 3,692 selected cases across 168 unordered off-diagonal pairs. The [complete kirimasim 97d5b0001e7c local run](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json) records 3,159 pass, 529 unsupported and four failures; 68 models passed their entire selection.
+The 2026-11-07 mapping contains 98 models and 3,887 selected cases across 173 unordered off-diagonal pairs. The [complete kirimasim 6e32b04ed6ec local run](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json) records 3,404 pass, 479 unsupported and four failures; 74 models passed their entire selection.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.
-The CSVs use the complete 3,692-case local cross95 run; partial successes from different runs are not combined.
+The CSVs use the complete 3,887-case local cross98 run; partial successes from different runs are not combined.
 The thirteen random profiles and their 96 Nightly passes do not enter these matrices.
 
 - **12×15, event-loop transfers:** map the 24 skip/stop cases, adding one registered and one full-selection-pass model. Full-model success requires all 36, including twelve all-flow controls, in one saved run. See [design and independent evidence](interaction-verification.en.md#named-event-loop-transfer).

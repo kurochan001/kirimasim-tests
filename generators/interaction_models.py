@@ -96,6 +96,9 @@ import interaction_gatearray
 import interaction_macro
 import interaction_force
 import interaction_sense
+import interaction_ifexpr
+import interaction_loopsched
+import interaction_litfmt
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -104,7 +107,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -835,5 +838,26 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_sense.MODEL.select(),
             "always_comb・always_latch・@*・連続代入で読む式の形を変え、読む部分と読まない部分へ書き込む。"
             "再評価の回数と出力の値で、最長静的接頭辞と関数の中の読出しの扱いを確かめる。",
+        ),
+        SuiteModel(
+            interaction_ifexpr.MODEL,
+            lambda row: "tests/gen/ch25/" + interaction_ifexpr.case_name(row) + ".sv",
+            interaction_ifexpr.MODEL.select(),
+            "符号付き8・符号なし8・符号付き4ビットのメンバを、ポート・modport・総称ポート・配列の要素・階層名から読む。"
+            "除算・算術シフト・比較・単項マイナス・乗算と、文の制御・importしたtaskによる共有の更新を確かめる。",
+        ),
+        SuiteModel(
+            interaction_loopsched.MODEL,
+            lambda row: "tests/gen/ch12/" + interaction_loopsched.case_name(row) + ".sv",
+            interaction_loopsched.MODEL.select(),
+            "repeat・while・for・do・foreverの制御変数を、別プロセスがNBA・#0の後・後の時刻に変える。"
+            "待ちのない本体・#0・#2で、回数と$display・$strobe・$monitorが示す値を確かめる。",
+        ),
+        SuiteModel(
+            interaction_litfmt.MODEL,
+            lambda row: "tests/gen/ch21/" + interaction_litfmt.case_name(row) + ".sv",
+            interaction_litfmt.MODEL.select(),
+            "x・zの詰め、?、下線、unbased unsized、符号、否定、エスケープを含むリテラルを各書式で表示する。"
+            "自動の桁数・幅0・幅指定と、localparam・マクロ・連結、書式のない表示タスクの扱いを確かめる。",
         ),
     )

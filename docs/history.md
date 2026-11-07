@@ -344,3 +344,12 @@ clause 37.
   Pinned Icarus has 192 pass / 55 known and Verilator 179 pass / 68 known at both seeds.
 - The suite has 11,440 tests, 5,005 generated from 104 generators. Requirement coverage and thirteen random profiles are unchanged.
   This addition has not run in formal Check/Nightly. See the [design and evidence](interaction-verification.en.md#macro-expansion-context).
+
+### 2026-11-07 (interface-expression, loop-control and literal-format addition)
+
+- Added models for interface members, loop control and scheduling regions, and literal forms and display formats. 195 cases come from 4,883 legal rows, and five chapter pairs moved from R to M.
+- One complete 3,887-case run on `6e32b04ed6ec`, built from the latest main, records 3,404 pass / 479 unsupported / four existing config failures. All 195 additions pass; preceding 3,692 inputs are unchanged, and 50 cases moved from unsupported to pass.
+- Totals: 98 models, 173 chapter pairs, 74 full-selection-pass models; triage M173/E3/C2/N117/R525.
+  Pinned Icarus has 134 pass / 61 known and Verilator 188 pass / 7 known at both seeds.
+- The suite has 11,635 tests, 5,200 generated from 107 generators. Requirement coverage and thirteen random profiles are unchanged.
+  This addition has not run in formal Check/Nightly. See the [design and evidence](interaction-verification.en.md#interface-member-expression).

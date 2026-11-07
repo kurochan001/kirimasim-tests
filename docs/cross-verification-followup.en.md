@@ -6,9 +6,9 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json) has 95 models and 3,692 cases, run on kirimasim `97d5b0001e7c`, built from the latest main:
-3,159 pass, 529 unsupported and four config failures. All 247 additions pass. Against the [previous complete run on `60c26d7c8113`](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json), preceding 3,445 inputs and statuses are unchanged.
-These 247 cases have not run in formal Check/Nightly.
+The current [complete local selection](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json) has 98 models and 3,887 cases, run on kirimasim `6e32b04ed6ec`, built from the latest main:
+3,404 pass, 479 unsupported and four config failures. All 195 additions pass. Against the [previous complete run on `97d5b0001e7c`](../coverage/interaction-results/cross95-kirimasim-97d5b000-macroforcesense.json), preceding 3,692 inputs are unchanged, and 50 `inside`, range and `case inside` cases moved from unsupported to pass.
+The previous 247 cases passed the pinned comparisons in [Check on `6a0f260c`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42352682135). These 195 cases have not run in formal Check/Nightly.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.
@@ -99,7 +99,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M168, E3, C2, N117 and R530. See the
+The current triage is M173, E3, C2, N117 and R525. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -169,7 +169,7 @@ Requirement bindings, thirteen random profiles, existing regressions and core so
 The three items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
 When a full cross run uses a new kirimasim build, try the programs below. When one no longer reports `not implemented yet`, add the model or observation.
 The 529 existing unsupported cases are not listed: they have tests, and their results change once the feature is implemented.
-Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `97d5b0001e7c` on 2026-11-07.
+Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `6e32b04ed6ec` on 2026-11-07.
 
 Take expectations from the standard, and check them by [running every legal row once](interaction-verification-method.en.md#run-every-legal-row-once).
 
@@ -216,3 +216,12 @@ module top; timeunit 1ns / 1ps; initial begin pk::t; $finish; end endmodule
 - One complete 3,692-case run on kirimasim `97d5b0001e7c` records 3,159 pass, 529 unsupported and four existing config failures. All 247 additions pass. Totals: 95 models, 168 chapter pairs, 68 full-selection-pass models.
 - Over all 10,469 legal rows there is no kirimasim difference, and no expectation changed. Each difference from Icarus was judged against the clause to be on the Icarus side.
 - What `final` sees after `$finish` (chapter 9 x 20) was left out, because the standard does not define pending NBAs or other processes at that time. This is not a matter of kirimasim's implementation.
+
+## Interface expressions, loop control, literal display (2026-11-07)
+
+- Added models for [interface members](interaction-verification.en.md#interface-member-expression), [loop control and scheduling regions](interaction-verification.en.md#loop-control-scheduling) and [literal forms and display formats](interaction-verification.en.md#literal-format-display).
+- Five chapter pairs moved from R to M: 11 x 25, 12 x 25, 4 x 12, 12 x 21 and 5 x 21.
+- One complete 3,887-case run on kirimasim `6e32b04ed6ec` records 3,404 pass, 479 unsupported and four existing config failures. All 195 additions pass. Totals: 98 models, 173 chapter pairs, 74 full-selection-pass models.
+- Preceding 3,692 inputs are unchanged. kirimasim's implementation of `inside`, ranges and `case inside` moved 50 cases from unsupported to pass, and `membership_container`, `membership_range` and `case_inside_selection` now pass their entire selection.
+- Over all 4,883 legal rows there is no kirimasim difference, and no expectation changed. Each difference from Icarus and Verilator was judged against the clause to be on that simulator's side.
+- The three [candidates waiting for kirimasim](#models-waiting-for-kirimasim) still report `not implemented yet` on `6e32b04ed6ec`.

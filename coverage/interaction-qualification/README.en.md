@@ -10,7 +10,7 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-06 JST)
 
-The selection now contains 95 models / 3,692 cases; see [macro, force/release and implicit-sensitivity qualification](#macro-force-sense-qualification).
+The selection now contains 98 models / 3,887 cases; see [interface-expression, loop-control and literal-format qualification](#interface-loop-literal-qualification).
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json) records successful Check/Nightly workflows and all jobs on baseline 67321079. Individual artifacts remain uninspected; retain the older detailed checkpoints below separately.
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json) confirms Check’s pinned comparisons/static checks for the preceding 86-model suite.
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
@@ -523,3 +523,17 @@ All 247 additions pass and preceding 3,445 inputs/statuses are unchanged. Totals
 [All Icarus differences and representative Verilator outputs](macroforcesense-known-replays.json) are retained.
 The [all-row record](macroforcesense-all-rows.json) is one run of all 10,469 rows and enters neither the fixed suite nor requirement coverage. kirimasim has no difference.
 See the [design and rerun](../../docs/interaction-verification.en.md#macro-expansion-context).
+
+<a id="interface-loop-literal-qualification"></a>
+
+## Interface-expression, loop-control and literal-format qualification
+
+[`ifexpr.json`](ifexpr.json) checks all 2,940 rows, [`loopsched.json`](loopsched.json) all 165 and [`litfmt.json`](litfmt.json) all 1,778 by independent interpretation.
+Normal controls are seven, six and nine; faulty SV programs are seven, six and nine, all detected by an output difference after a normal exit.
+The [build record](ifexprloopfmt-build.json) identifies one complete 3,887-case run on `6e32b04ed6ec`: 3,404 pass / 479 unsupported / four existing failures.
+All 195 additions pass, preceding 3,692 inputs are unchanged, and 50 cases moved from unsupported to pass. Totals: 98 models / 173 chapter pairs / 74 full-selection-pass models.
+[Pinned comparisons](ifexprloopfmt-fixed-replays.json) record Icarus 134 pass / 61 known and Verilator 188 pass / 7 known at both seeds.
+[All Icarus differences and representative Verilator outputs](ifexprloopfmt-known-replays.json) are retained.
+The [all-row record](ifexprloopfmt-all-rows.json) is one run of all 4,883 rows and enters neither the fixed suite nor requirement coverage. kirimasim has no difference.
+Icarus cannot parse interface ports, so all rows of the interface and loop models also ran once on Verilator.
+See the [design and rerun](../../docs/interaction-verification.en.md#interface-member-expression).

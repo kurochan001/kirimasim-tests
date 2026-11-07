@@ -1,0 +1,852 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "gen/ch12/test_gen_cross_loopsched_do_delay_later_display": {
+   "status": "pass",
+   "inputs_sha256": "febf863ad3e09a4d451c6c02a372d53c889373ed454ae59d6646cf042d78c9a2"
+  },
+  "gen/ch12/test_gen_cross_loopsched_do_delay_nba_display": {
+   "status": "pass",
+   "inputs_sha256": "9b1dd1c1d890b8edd3342c8537c7714a5972707d25ab3270a278f66aeedcfafc"
+  },
+  "gen/ch12/test_gen_cross_loopsched_do_delay_self_monitor": {
+   "status": "pass",
+   "inputs_sha256": "94ee8ceb9af98412323fce9d54436f3e4acf07497fc0f887330a4ba8c66ecda0"
+  },
+  "gen/ch12/test_gen_cross_loopsched_do_delay_zero_display": {
+   "status": "pass",
+   "inputs_sha256": "1bee96cbe9b5215282927eaf3f04ebdf2c5c452f606e4ce6ea89263aa9091718"
+  },
+  "gen/ch12/test_gen_cross_loopsched_do_none_later_display": {
+   "status": "pass",
+   "inputs_sha256": "c9881279d4388466ded7e17e74cf692ec2b69c2aa1df6337e1685525617a7408"
+  },
+  "gen/ch12/test_gen_cross_loopsched_do_none_nba_display": {
+   "status": "pass",
+   "inputs_sha256": "43457c5388abb93df7dedc298b3d70c37d2ddabaac0770a16f43fafe823d3752"
+  },
+  "gen/ch12/test_gen_cross_loopsched_do_none_self_display": {
+   "status": "pass",
+   "inputs_sha256": "9e92e8164a32e939a76f9933bcf3af6889be1518d77142b6e6e2c1c14e0cf2e2"
+  },
+  "gen/ch12/test_gen_cross_loopsched_do_none_zero_display": {
+   "status": "pass",
+   "inputs_sha256": "a073393b15549f8b0df45eab1a0e17418069fe69afa7fb089821c79d6e0713d3"
+  },
+  "gen/ch12/test_gen_cross_loopsched_do_zero_later_display": {
+   "status": "pass",
+   "inputs_sha256": "65746c415773d615332165944388aef7f9b49988d501cd620e007acfed6a9040"
+  },
+  "gen/ch12/test_gen_cross_loopsched_do_zero_nba_strobe": {
+   "status": "pass",
+   "inputs_sha256": "070d2313dfab0aa7fdab7ed609ead75a5778b4fd37c2c11ff94e5b9f9c16cf58"
+  },
+  "gen/ch12/test_gen_cross_loopsched_do_zero_self_display": {
+   "status": "pass",
+   "inputs_sha256": "e77a327f674c56891781704927b230498c6d21a16e4745c13cb8e8743cf69caf"
+  },
+  "gen/ch12/test_gen_cross_loopsched_for_delay_later_monitor": {
+   "status": "pass",
+   "inputs_sha256": "680b50e924a3bb445cd91a1bcd4baa7b555b6d0788b690571ed9eb5e9fbcd901"
+  },
+  "gen/ch12/test_gen_cross_loopsched_for_delay_nba_display": {
+   "status": "pass",
+   "inputs_sha256": "15898efd51d04bc7f5f5a8e32c0027ddab3d9a9213d32b015590d2df7be0dfb2"
+  },
+  "gen/ch12/test_gen_cross_loopsched_for_delay_self_display": {
+   "status": "pass",
+   "inputs_sha256": "0609eca9a57e22a84ac0092c3542d2509e567beed1ad94c3657589b24e393340"
+  },
+  "gen/ch12/test_gen_cross_loopsched_for_delay_zero_display": {
+   "status": "pass",
+   "inputs_sha256": "a573c10a3c73d5f6930aa848bcae0ef3dfc454c42dc4b2fe4bc1094a65f50f11"
+  },
+  "gen/ch12/test_gen_cross_loopsched_for_none_later_display": {
+   "status": "pass",
+   "inputs_sha256": "09fed97eca78a74cfe4b6888faa22253a091d13a4b941220bb1b90c8f21aec5a"
+  },
+  "gen/ch12/test_gen_cross_loopsched_for_none_nba_strobe": {
+   "status": "pass",
+   "inputs_sha256": "c05bda84340c3bd75e757e027f5ce70640ab8ee0d1b453ddca5dcd30fd4d46ad"
+  },
+  "gen/ch12/test_gen_cross_loopsched_for_none_self_display": {
+   "status": "pass",
+   "inputs_sha256": "fa71f280c2692eda3f6671a9e9b1515bf49c65e0432b6721d46fd372bbf49375"
+  },
+  "gen/ch12/test_gen_cross_loopsched_for_none_zero_display": {
+   "status": "pass",
+   "inputs_sha256": "bcf5424ddd0183763657b3197a67e6cbb16bb24b4f56f794d0152a8966ebbd2f"
+  },
+  "gen/ch12/test_gen_cross_loopsched_for_zero_later_display": {
+   "status": "pass",
+   "inputs_sha256": "d3f5a2ebf9df4ce848a6d7e800a87604c87c12e809a965e5ec655ec509c40ad9"
+  },
+  "gen/ch12/test_gen_cross_loopsched_for_zero_nba_display": {
+   "status": "pass",
+   "inputs_sha256": "98fa6ff8fed28a838d9195606d7cfe6f8df54c32fc0faa5d82b0762e33b5060f"
+  },
+  "gen/ch12/test_gen_cross_loopsched_for_zero_self_display": {
+   "status": "pass",
+   "inputs_sha256": "e2c4d0039eaad14ce784b2755a9336531eb1f8d18eec40efb49b8ddcf8f355b0"
+  },
+  "gen/ch12/test_gen_cross_loopsched_forever_delay_later_display": {
+   "status": "pass",
+   "inputs_sha256": "f845614eac46354e90b84cd6fa198e767557c8c9b6ea1c27667d8740ffd3c0b0"
+  },
+  "gen/ch12/test_gen_cross_loopsched_forever_delay_nba_display": {
+   "status": "pass",
+   "inputs_sha256": "fa9aab945f7a1f397c9e1b72967887caee56192c9ae9e5609e24c96900188112"
+  },
+  "gen/ch12/test_gen_cross_loopsched_forever_delay_self_display": {
+   "status": "pass",
+   "inputs_sha256": "ab3fcdf6f91f7af1ffcdf08b2cddb2534e91882f954d6ce2dd73c73e73f5e780"
+  },
+  "gen/ch12/test_gen_cross_loopsched_forever_delay_zero_display": {
+   "status": "pass",
+   "inputs_sha256": "648b95858738b3c5ca0780be0a089e74e0dd88bee261602379f51bbfa278db73"
+  },
+  "gen/ch12/test_gen_cross_loopsched_forever_none_later_display": {
+   "status": "pass",
+   "inputs_sha256": "61cb8eab978ec1140472865f9a9268599852abc4234686d885bcd16dea8fc32f"
+  },
+  "gen/ch12/test_gen_cross_loopsched_forever_none_nba_display": {
+   "status": "pass",
+   "inputs_sha256": "a95327bdc9eee22f6c873ecddf2eb2ddc52e41e31987c8358523825c90c6eafb"
+  },
+  "gen/ch12/test_gen_cross_loopsched_forever_none_self_display": {
+   "status": "pass",
+   "inputs_sha256": "706b531fe050376e3b8e4eed4efc5b28aa55c6ef82078a3e0225df17167a931d"
+  },
+  "gen/ch12/test_gen_cross_loopsched_forever_none_zero_monitor": {
+   "status": "pass",
+   "inputs_sha256": "8be03e3a15abfcbcdecaf49a648773d35466b1b64eb1bbade6a44a6408b11453"
+  },
+  "gen/ch12/test_gen_cross_loopsched_forever_zero_later_strobe": {
+   "status": "pass",
+   "inputs_sha256": "026b2205e82e73aff32817625a16a29742d29e6e02bd5fed32b0ac45fccd7a6d"
+  },
+  "gen/ch12/test_gen_cross_loopsched_forever_zero_nba_display": {
+   "status": "pass",
+   "inputs_sha256": "a75ba6a90c5d4755d21c7a4186144aa1afa3892593b91a549790315597a71e03"
+  },
+  "gen/ch12/test_gen_cross_loopsched_forever_zero_self_display": {
+   "status": "pass",
+   "inputs_sha256": "a58c739b175f05ba029208b0084d4ec41c3312b3d2f317192e7ec1b1472aaeff"
+  },
+  "gen/ch12/test_gen_cross_loopsched_repeat_delay_later_display": {
+   "status": "pass",
+   "inputs_sha256": "62caff44d44bbc868380a8116a1c0a8f2b28963d3a2557e693a5758ae9dcedfe"
+  },
+  "gen/ch12/test_gen_cross_loopsched_repeat_delay_nba_display": {
+   "status": "pass",
+   "inputs_sha256": "3a05d0722f73ed536ab6ef066c8263bad62b712508bdff867148c4bf591f1638"
+  },
+  "gen/ch12/test_gen_cross_loopsched_repeat_delay_self_display": {
+   "status": "pass",
+   "inputs_sha256": "4965d5250acd0154b81963b7e5aac7a2c25ad4bd7b4c44c4f99d03935ac0fdcc"
+  },
+  "gen/ch12/test_gen_cross_loopsched_repeat_delay_zero_display": {
+   "status": "pass",
+   "inputs_sha256": "64ffc786fb9952318b0ac5076ae32ab14549668d5370e94f68f1c687abf141ca"
+  },
+  "gen/ch12/test_gen_cross_loopsched_repeat_none_later_display": {
+   "status": "pass",
+   "inputs_sha256": "12d2ff48f0b6077ecbd3fbe8c61dbca127effe079025d7ef3c31007e112812e9"
+  },
+  "gen/ch12/test_gen_cross_loopsched_repeat_none_nba_display": {
+   "status": "pass",
+   "inputs_sha256": "a817b0a6c60734c184fbdfe261e34b52b0ce6c5f449e9f98d44522935b61f261"
+  },
+  "gen/ch12/test_gen_cross_loopsched_repeat_none_self_strobe": {
+   "status": "pass",
+   "inputs_sha256": "cdb6f634646fc5fa2c0945f67aa48d8e529a112f6a134b1ff46527a10f680e96"
+  },
+  "gen/ch12/test_gen_cross_loopsched_repeat_none_zero_display": {
+   "status": "pass",
+   "inputs_sha256": "246b01ed5d8ff1905b2c3ffef9d583b0d5844dc502c05cba6815b74693b65f31"
+  },
+  "gen/ch12/test_gen_cross_loopsched_repeat_zero_later_display": {
+   "status": "pass",
+   "inputs_sha256": "6da4e022165cfe2e791f5ad570ff7cddb99d2d41937ee133382f62f12e09a95c"
+  },
+  "gen/ch12/test_gen_cross_loopsched_repeat_zero_nba_monitor": {
+   "status": "pass",
+   "inputs_sha256": "7fc19f9d4081de1f56ae935886da5675b8cd9780526985cafa6bcfbe575e8667"
+  },
+  "gen/ch12/test_gen_cross_loopsched_repeat_zero_self_display": {
+   "status": "pass",
+   "inputs_sha256": "9fda71a61029bd2cf12ae32eb18fc82921b3141b4dba336a3d65427e95fdde0d"
+  },
+  "gen/ch12/test_gen_cross_loopsched_while_delay_later_display": {
+   "status": "pass",
+   "inputs_sha256": "6b3e353e52ee962311b426b57d9e922396fc8f13a409e8d846dfdc21be4f10dc"
+  },
+  "gen/ch12/test_gen_cross_loopsched_while_delay_nba_display": {
+   "status": "pass",
+   "inputs_sha256": "0cd9096dab2ba3e061dc50cb3b513c3d842de3a9e2ce3fe1a17ab0ce45b4264d"
+  },
+  "gen/ch12/test_gen_cross_loopsched_while_delay_self_display": {
+   "status": "pass",
+   "inputs_sha256": "8f9441f7b1e6079997d7f0bbe2ff2c3fac24f39093225556a9c79f742e7f9616"
+  },
+  "gen/ch12/test_gen_cross_loopsched_while_delay_zero_strobe": {
+   "status": "pass",
+   "inputs_sha256": "5901b6900847520033638e083c3bf24c52dd1310f38ca1aa657e6c592c177e41"
+  },
+  "gen/ch12/test_gen_cross_loopsched_while_none_later_display": {
+   "status": "pass",
+   "inputs_sha256": "a87e57dd302be424e3a3c3e13e5b0c134583d1c88a6d3395ec0a51634493eca7"
+  },
+  "gen/ch12/test_gen_cross_loopsched_while_none_nba_display": {
+   "status": "pass",
+   "inputs_sha256": "0a71d8dabc1b8c2390ad27b516c4f6d05b12124efc76fb1f83203bc6f4ebfa23"
+  },
+  "gen/ch12/test_gen_cross_loopsched_while_none_self_display": {
+   "status": "pass",
+   "inputs_sha256": "95fc4764d3e0efbf536a4854de2503e9683b0f7ec72d929f18733926563a9c08"
+  },
+  "gen/ch12/test_gen_cross_loopsched_while_none_zero_display": {
+   "status": "pass",
+   "inputs_sha256": "e0a4a4b46675250925f80b8c33b32f71228482cfd26050d134632ccbd3da105b"
+  },
+  "gen/ch12/test_gen_cross_loopsched_while_zero_later_display": {
+   "status": "pass",
+   "inputs_sha256": "735f1038231be94b246bc3492998fb56a5ffe197fe572f8406a51de8a5e67969"
+  },
+  "gen/ch12/test_gen_cross_loopsched_while_zero_nba_display": {
+   "status": "pass",
+   "inputs_sha256": "0f8352ce173ccf0cc7483468ce2517bebacd87410f9651ffb3a0c4d0a729dbd0"
+  },
+  "gen/ch12/test_gen_cross_loopsched_while_zero_self_monitor": {
+   "status": "pass",
+   "inputs_sha256": "4aa8f3de8ec1beade879e82a98d3392f000460a5b80f2a0d51c87367c77e9c8b"
+  },
+  "gen/ch21/test_gen_cross_litfmt_fill_0d_write_direct": {
+   "status": "pass",
+   "inputs_sha256": "8dea7871cf89e04d5738b81cc742a5ba23e268b09842bd5b04ddfdbba46da7d1"
+  },
+  "gen/ch21/test_gen_cross_litfmt_fill_0h_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "581d6c9e55b8f096cd0d1390abee44cbbc0b37150adbbad6d29672d317696b79"
+  },
+  "gen/ch21/test_gen_cross_litfmt_fill_b_display_param": {
+   "status": "pass",
+   "inputs_sha256": "7845e4058c6f0ba3e83c8c3b8e870e827eff987b824ceb8e532c0abfb4c96070"
+  },
+  "gen/ch21/test_gen_cross_litfmt_fill_d_sformatf_direct": {
+   "status": "pass",
+   "inputs_sha256": "6ca09c8d1e9540ca5e723be2267bd4c047d3b1bfe94bdf637fc981a4e5ef23d0"
+  },
+  "gen/ch21/test_gen_cross_litfmt_fill_h_swrite_direct": {
+   "status": "pass",
+   "inputs_sha256": "4f24ba12162458ac34cbd991356e2f944d1f407d51ce45ae6ee49d01884d213f"
+  },
+  "gen/ch21/test_gen_cross_litfmt_fill_o_default_direct": {
+   "status": "pass",
+   "inputs_sha256": "88f9a94f03e578a6b221419cefca6a3a89ed51c02e76b8751af342765adfb1a8"
+  },
+  "gen/ch21/test_gen_cross_litfmt_fill_wd_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "0f21ea8135655e6ba6e45c2cc82d92c76e5e25e79c29c95f5263709a125aae04"
+  },
+  "gen/ch21/test_gen_cross_litfmt_fill_wh_fdisplay_macro": {
+   "status": "known",
+   "reason": "output differs: line 1 is ':       1:', expected ':00000001:'",
+   "inputs_sha256": "1a93b6bce7d582d16167281d92df8fce6ec705400b3c91291e3dfcf494e9d4fc"
+  },
+  "gen/ch21/test_gen_cross_litfmt_negate_0d_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "324ea5cee8768228cf9e69cb6b3680b06a775594a9eb9fab7c54aabc3763f902"
+  },
+  "gen/ch21/test_gen_cross_litfmt_negate_0h_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "1d4c415825a73349cc9e3505518cb6189caa1218d7e1a109724b36b4cd25fce8"
+  },
+  "gen/ch21/test_gen_cross_litfmt_negate_b_fdisplay_param": {
+   "status": "pass",
+   "inputs_sha256": "fc60f4669b65b04dc1d521cad18ae08b7ed32c8027016df63e2f1736f3e83f7e"
+  },
+  "gen/ch21/test_gen_cross_litfmt_negate_d_default_direct": {
+   "status": "pass",
+   "inputs_sha256": "349438364f71e90075fd2eb1bd7f75afd006523ebbf6112e9ed456effe1a8e1a"
+  },
+  "gen/ch21/test_gen_cross_litfmt_negate_d_sformatf_direct": {
+   "status": "pass",
+   "inputs_sha256": "9e61cb55ba25ca839fbcc80549bf947144d668d2842c9654722fdda820619936"
+  },
+  "gen/ch21/test_gen_cross_litfmt_negate_h_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "b47bccc90b630ee1fa4967b2d381d3122425763f9c94c0af453b9dc0db9bb854"
+  },
+  "gen/ch21/test_gen_cross_litfmt_negate_o_write_concat": {
+   "status": "pass",
+   "inputs_sha256": "1aba129baedfe41aafcc4a2483e88185461f446806b2e1114c0c00810fa12d38"
+  },
+  "gen/ch21/test_gen_cross_litfmt_negate_wd_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "eebf268b4e333ccacfbe057d8a1dd7a3100f3cc619d6291cdcd19f243e2fc2d1"
+  },
+  "gen/ch21/test_gen_cross_litfmt_negate_wh_swrite_macro": {
+   "status": "known",
+   "reason": "output differs: line 1 is ':      fb:', expected ':000000fb:'",
+   "inputs_sha256": "01032792ee37fbf84bbd5a45b54aace49616106939f5c85755686cdd7ee9a653"
+  },
+  "gen/ch21/test_gen_cross_litfmt_octal_0d_fdisplay_direct": {
+   "status": "pass",
+   "inputs_sha256": "0b1b1c172c013259ddfd61ecddd3b1af0bb0d80795dfb70187ea78dc14b05eeb"
+  },
+  "gen/ch21/test_gen_cross_litfmt_octal_0h_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "01d3f93f93786563be26b53ce6cd6bdf1b25b1f5f8cd1c0cdae7ddb7b89c1d50"
+  },
+  "gen/ch21/test_gen_cross_litfmt_octal_b_sformatf_concat": {
+   "status": "pass",
+   "inputs_sha256": "4debc55734bfd7be1e6153522cb02d35f5d6c59c1ea77b790c5d691fc39a4632"
+  },
+  "gen/ch21/test_gen_cross_litfmt_octal_d_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "615ebdc236de90fc5ac1e8b2071f98a9d01cb6a86db96a0d94bf2381a9350d5a"
+  },
+  "gen/ch21/test_gen_cross_litfmt_octal_h_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "84e55972fa16a84b7dda4befa37f2575db0d14f8fc752d56ffc0ed2f3687aa19"
+  },
+  "gen/ch21/test_gen_cross_litfmt_octal_o_default_macro": {
+   "status": "pass",
+   "inputs_sha256": "a11e95c948072ffce13e2a30e55d746367bbeb3eaaaedd2c19c9f2ca1b1fccb1"
+  },
+  "gen/ch21/test_gen_cross_litfmt_octal_wd_swrite_direct": {
+   "status": "pass",
+   "inputs_sha256": "f74149eff56fc1f82abbbe8e63271c0a993b540117f4b4d08e4a3b964b0bd02d"
+  },
+  "gen/ch21/test_gen_cross_litfmt_octal_wh_write_param": {
+   "status": "known",
+   "reason": "output differs: line 1 is ':     1XX:', expected ':000001XX:'",
+   "inputs_sha256": "2aa3ac970659f1a3efd2127f6e018ffb6814f71bdafecc263106ef73135301eb"
+  },
+  "gen/ch21/test_gen_cross_litfmt_qmark_0d_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "3cc8ff01d895b6db2f9e25a09a12bb5654aefc4789682bb6d74ed91f494cb10f"
+  },
+  "gen/ch21/test_gen_cross_litfmt_qmark_0h_sformatf_param": {
+   "status": "pass",
+   "inputs_sha256": "b426f992dc0995d5905ea200e87473ad3e15bd1c956307afc8cd4a107a256560"
+  },
+  "gen/ch21/test_gen_cross_litfmt_qmark_b_swrite_macro": {
+   "status": "pass",
+   "inputs_sha256": "103fcb3c1691e1829787923c72ae6f1d81dfee7646070dfbf3f1cd5d6e227b16"
+  },
+  "gen/ch21/test_gen_cross_litfmt_qmark_d_write_direct": {
+   "status": "pass",
+   "inputs_sha256": "e0209fd12411c03943e965b9dbba7cd733498a6980d906167122f40033f9d884"
+  },
+  "gen/ch21/test_gen_cross_litfmt_qmark_h_default_direct": {
+   "status": "pass",
+   "inputs_sha256": "fafc686249f61fbd68daba3ee0305119d6f593d9cf93cb6b3ccf390185b0975f"
+  },
+  "gen/ch21/test_gen_cross_litfmt_qmark_o_fdisplay_direct": {
+   "status": "pass",
+   "inputs_sha256": "5ab0a26308ab94cbb68701be5d8ead231c6c642faa605a950c39b4aea79d1874"
+  },
+  "gen/ch21/test_gen_cross_litfmt_qmark_wd_display_concat": {
+   "status": "pass",
+   "inputs_sha256": "1bdae1fec383c71607959e44f8c1022f66bb2af93ebbe7816d712034539eb522"
+  },
+  "gen/ch21/test_gen_cross_litfmt_qmark_wh_display_direct": {
+   "status": "known",
+   "reason": "output differs: line 1 is ':      ZZ:', expected ':000000ZZ:'",
+   "inputs_sha256": "3bad22d49571271aee9bcfe1c0473f2fc7a28da2610e5ce7b0d474ffad3f7d85"
+  },
+  "gen/ch21/test_gen_cross_litfmt_signed_0d_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "23fa3824531650d7db4143bd285f0c9598cbd246250d87accac3f32aa501aef4"
+  },
+  "gen/ch21/test_gen_cross_litfmt_signed_0h_write_direct": {
+   "status": "pass",
+   "inputs_sha256": "f3a05a2b27827e76b52bf3159eb428189b23c6edd6fd14c12fb70ae7685b24a8"
+  },
+  "gen/ch21/test_gen_cross_litfmt_signed_b_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "4e070167a176222ed5b72c6e56a290095a97ecd4ded4b9c6825c6e07b348ca48"
+  },
+  "gen/ch21/test_gen_cross_litfmt_signed_d_swrite_concat": {
+   "status": "pass",
+   "inputs_sha256": "42a15c8a9579b8dbe48b20e176d4805e4dcea8d7ed398baeada72ad2e3395982"
+  },
+  "gen/ch21/test_gen_cross_litfmt_signed_h_default_direct": {
+   "status": "pass",
+   "inputs_sha256": "12d57aed9534f426da6676bff288ae8c02a940c0beef296a3ff64aaa80fb47a3"
+  },
+  "gen/ch21/test_gen_cross_litfmt_signed_o_sformatf_param": {
+   "status": "pass",
+   "inputs_sha256": "73ce857af217f4b55077b7122cc94068dc3304f9aee9df19d06ff3880ac6f031"
+  },
+  "gen/ch21/test_gen_cross_litfmt_signed_wd_fdisplay_macro": {
+   "status": "pass",
+   "inputs_sha256": "71c23cb2dbad03aecd180f51a2819ac994a12f8a0717a131d4f634912ca3f952"
+  },
+  "gen/ch21/test_gen_cross_litfmt_signed_wh_display_direct": {
+   "status": "known",
+   "reason": "output differs: line 1 is ':       f:', expected ':0000000f:'",
+   "inputs_sha256": "4d7b90be5f4589df23ccc3f308cfde6ea4288adc88d43b1fc1f9564dd8eb1849"
+  },
+  "gen/ch21/test_gen_cross_litfmt_sized_0d_sformatf_direct": {
+   "status": "pass",
+   "inputs_sha256": "7d8b2c8440a564ba0f910ed2c8cadbcff1d5b9958c6e9a7c12ac48c9ce683ccd"
+  },
+  "gen/ch21/test_gen_cross_litfmt_sized_0h_swrite_direct": {
+   "status": "pass",
+   "inputs_sha256": "53527943db3547ec32032ddcb8208513c8aa9a88e63d7a4ff7c490240afd2bb8"
+  },
+  "gen/ch21/test_gen_cross_litfmt_sized_b_default_concat": {
+   "status": "pass",
+   "inputs_sha256": "8ff3874b6a31d1a60833794850f8fdb227b9fa4c89ebc8e5a7724c36abae60f6"
+  },
+  "gen/ch21/test_gen_cross_litfmt_sized_d_write_macro": {
+   "status": "pass",
+   "inputs_sha256": "f1f2fc2f42923a80a590d6b5f485750334a005f65b5af7668aecde0f3899be54"
+  },
+  "gen/ch21/test_gen_cross_litfmt_sized_h_fdisplay_concat": {
+   "status": "pass",
+   "inputs_sha256": "282b75d3ede71e284d19fc301b856bdd8a2209c6e6a42a5a57a90db9f1b02890"
+  },
+  "gen/ch21/test_gen_cross_litfmt_sized_o_display_param": {
+   "status": "pass",
+   "inputs_sha256": "8878068a12f5c67d84fdae890dde77412ae32483835a0796d9cff9aad8a6fbc3"
+  },
+  "gen/ch21/test_gen_cross_litfmt_sized_wd_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "87e50ff06f6a6d4830a791a7717b225e5f8f1ae7207b01767f81dc04eabe3478"
+  },
+  "gen/ch21/test_gen_cross_litfmt_sized_wh_display_direct": {
+   "status": "known",
+   "reason": "output differs: line 1 is ':      c8:', expected ':000000c8:'",
+   "inputs_sha256": "8912b1bbff912bf753d98a857b27c9265a871d78c701f3c5e73027f8808048d6"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_0d_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "02c155e44d9243257812f9ef98649fde48956fd9b98f8a259d10b74956b62170"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_0h_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "d054a0fd2c3eb2a9188c9f1e602151cb682c70b2e277ab42d0e27a269f77959c"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_b_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "870d9ffa4857fa307ae32ad26bd02a8d4ff3a02b846a78f28c836986212c15fb"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_d_default_direct": {
+   "status": "pass",
+   "inputs_sha256": "03c7a9dd941dfc1ed40ae2900b5b408795a2451f14b900ff8e09328314b011c6"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_h_default_param": {
+   "status": "known",
+   "reason": "output differs: line 1 is ':AA:', expected ':4141:'",
+   "inputs_sha256": "60475e2b4c504b9e915ab388bc432b3219b31ac6855bdaa527bcfc18ead704b3"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_o_display_direct": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected ':040501:'",
+   "inputs_sha256": "cae5065bde60a31c58cc9dfdd67f1d34a2b942238683eb758e661ec8869aa61a"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_s_display_macro": {
+   "status": "pass",
+   "inputs_sha256": "d3e39d25f69a7ae359db5c0a4d1dd67b7c2ec1ca77e1a0a244d2bb0a69f900bc"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_s_fdisplay_concat": {
+   "status": "pass",
+   "inputs_sha256": "acc99e1be03cf7d825369d46f6fc5f4217b52c7f60157c93d89392f38104fb94"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_s_sformatf_direct": {
+   "status": "pass",
+   "inputs_sha256": "65e8b07eb4de0c9f9228e2c9143db97b99e1bc80f7822b72a1af59d6f0f33684"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_s_swrite_param": {
+   "status": "pass",
+   "inputs_sha256": "971635c683632f14c4b2494e35d5cdf29922b6b16c9b07760667bfad2af8ef7a"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_s_write_direct": {
+   "status": "pass",
+   "inputs_sha256": "21e161e719447fa2641803e055df3a9864b8d252c40060e231233e52d47a3ffe"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_wd_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "97a30ac3787947f95b145d998b38271fe3ed9a74e059c49fd24027eb6f0373d0"
+  },
+  "gen/ch21/test_gen_cross_litfmt_string_wh_sformatf_concat": {
+   "status": "known",
+   "reason": "output differs: line 1 is ':    4141:', expected ':00004141:'",
+   "inputs_sha256": "f72c1e7c1cef27a327e6393a3833383a2f0e542b9a64261dffe2b60928ea5fad"
+  },
+  "gen/ch21/test_gen_cross_litfmt_under_0d_fdisplay_param": {
+   "status": "pass",
+   "inputs_sha256": "9d59f9192a9ac23c4ef40fb0ddb1224e314d8bef8a7cdd162b0651ff66090777"
+  },
+  "gen/ch21/test_gen_cross_litfmt_under_0h_display_concat": {
+   "status": "pass",
+   "inputs_sha256": "66930a72d99846cabeaf29a42ccd1a02e3cfa029d7724d9a4d20d8f26c653e5a"
+  },
+  "gen/ch21/test_gen_cross_litfmt_under_b_write_direct": {
+   "status": "pass",
+   "inputs_sha256": "3a9881f6644cd289bc6526b80d96c583984382735f210f0a2c3b75d6bce2b908"
+  },
+  "gen/ch21/test_gen_cross_litfmt_under_d_default_direct": {
+   "status": "pass",
+   "inputs_sha256": "f7433c08f7edcb64af9b312c585499cd322be8fdd73639512ee6edee88befdc5"
+  },
+  "gen/ch21/test_gen_cross_litfmt_under_h_swrite_direct": {
+   "status": "pass",
+   "inputs_sha256": "7d5bccae9c277e3eafa53ef14dbd78d1bb38f01e6c72301d145b0632c6ca28c5"
+  },
+  "gen/ch21/test_gen_cross_litfmt_under_o_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "d9734fd6aa57155822c52c3ba09f3c05a1610c591cc58d71ca40d7ce6e72919f"
+  },
+  "gen/ch21/test_gen_cross_litfmt_under_wd_sformatf_macro": {
+   "status": "pass",
+   "inputs_sha256": "22836dc6ee9a61ad871641321698202269a3b29dd3ec18d347035be19ed45118"
+  },
+  "gen/ch21/test_gen_cross_litfmt_under_wh_display_direct": {
+   "status": "known",
+   "reason": "output differs: line 1 is ':    abcd:', expected ':0000abcd:'",
+   "inputs_sha256": "5300df44e9866f3c48ec5a6f8ac2bfaf64b20b8fa3d5e0263f2c39ab50693d92"
+  },
+  "gen/ch21/test_gen_cross_litfmt_unsized_0d_display_macro": {
+   "status": "pass",
+   "inputs_sha256": "ad5b1f7930f8d8435d0760af95cde0ad1bbd99b2b470ee7ff1d27f16ebb57efe"
+  },
+  "gen/ch21/test_gen_cross_litfmt_unsized_0d_fdisplay_direct": {
+   "status": "pass",
+   "inputs_sha256": "9bf37f18cc19118a307434bf3cf3a18dbd342f39fba049b80f57dfe3102b75be"
+  },
+  "gen/ch21/test_gen_cross_litfmt_unsized_0h_swrite_direct": {
+   "status": "pass",
+   "inputs_sha256": "398ed4d87f2dc31fd1e9d143414e66357389b487748a1f106af86372bc255d73"
+  },
+  "gen/ch21/test_gen_cross_litfmt_unsized_wd_write_param": {
+   "status": "pass",
+   "inputs_sha256": "4cc24612d5fb9ea36b668a7ac67385657b0c842c047320f7e07feefe2a6acf9b"
+  },
+  "gen/ch21/test_gen_cross_litfmt_unsized_wh_sformatf_direct": {
+   "status": "pass",
+   "inputs_sha256": "225a5d830c145600a8a9af0bcb0e827b88cc1cda379e51bf1fbcb2d7dc04246f"
+  },
+  "gen/ch21/test_gen_cross_litfmt_xpad_0d_write_concat": {
+   "status": "pass",
+   "inputs_sha256": "520f8dfe765df4c5ff83bcc28e83462c89a3f0b13e48305a0268fc1e91ccf2be"
+  },
+  "gen/ch21/test_gen_cross_litfmt_xpad_0h_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "858284460a78b73ecaea5f833417a47248b6a8298df09fac12d38072c3b764da"
+  },
+  "gen/ch21/test_gen_cross_litfmt_xpad_b_default_direct": {
+   "status": "pass",
+   "inputs_sha256": "4429495bda8342cf08cb6749da13bfe13707b5f692d40d2c92f9f0b53d3c3867"
+  },
+  "gen/ch21/test_gen_cross_litfmt_xpad_d_fdisplay_param": {
+   "status": "pass",
+   "inputs_sha256": "2076046ea7cc367340d8e414e4291669ef93d406745a4976c441420910ab3eff"
+  },
+  "gen/ch21/test_gen_cross_litfmt_xpad_h_sformatf_macro": {
+   "status": "pass",
+   "inputs_sha256": "7347f2c0b44d086784323584b76e45daed2b801b3435165025863979ed46c3a2"
+  },
+  "gen/ch21/test_gen_cross_litfmt_xpad_o_swrite_direct": {
+   "status": "pass",
+   "inputs_sha256": "4d8e4baea81928add0a9ddd801dff90c32c1fb23de5e0704cf9df3e89514c04d"
+  },
+  "gen/ch21/test_gen_cross_litfmt_xpad_wd_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "7909e8814ba95deff67954975b99dfb87c66a7a4a7e2d5769fe9329f21ffb808"
+  },
+  "gen/ch21/test_gen_cross_litfmt_xpad_wh_display_direct": {
+   "status": "known",
+   "reason": "output differs: line 1 is ':     xx5:', expected ':00000xx5:'",
+   "inputs_sha256": "7f78adf9a72d909ee4ec5a487ea1fd55cce9885d31ce58bc7eb277195cccac28"
+  },
+  "gen/ch21/test_gen_cross_litfmt_zpad_0d_swrite_param": {
+   "status": "pass",
+   "inputs_sha256": "5208db571d3673ecbaead16da3188757a7dc5aaa944b2d997625bf7200327009"
+  },
+  "gen/ch21/test_gen_cross_litfmt_zpad_0h_fdisplay_macro": {
+   "status": "pass",
+   "inputs_sha256": "8ddcffe53a118e365074d53b88792068f30c05161be78cb86b991b92a9e386e8"
+  },
+  "gen/ch21/test_gen_cross_litfmt_zpad_b_default_direct": {
+   "status": "pass",
+   "inputs_sha256": "073bfe81c6e218869dbd789558c4d4745c1475433d96fbc81499b1a7ee394c18"
+  },
+  "gen/ch21/test_gen_cross_litfmt_zpad_d_display_concat": {
+   "status": "pass",
+   "inputs_sha256": "8f1eece3ab1fa34bdb3db384b3b75b72f860cae39939a56c2c3ca95197a25b96"
+  },
+  "gen/ch21/test_gen_cross_litfmt_zpad_h_write_direct": {
+   "status": "pass",
+   "inputs_sha256": "9179a85ef64326214f7e1dc4f652ff8f2c37633de95233cdcafd6276eeeb33f2"
+  },
+  "gen/ch21/test_gen_cross_litfmt_zpad_o_sformatf_direct": {
+   "status": "pass",
+   "inputs_sha256": "f993c58d9ed026bc461e69395b5b93d21db0f90f675b8b6117d3984212c4b982"
+  },
+  "gen/ch21/test_gen_cross_litfmt_zpad_wd_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "b12831ec10c17437ef78fa9980f301ace38ed759bfa15311f1d66662ded59e5c"
+  },
+  "gen/ch21/test_gen_cross_litfmt_zpad_wh_display_direct": {
+   "status": "known",
+   "reason": "output differs: line 1 is ':     zz3:', expected ':00000zz3:'",
+   "inputs_sha256": "95bd8858a4557bd43f2249b12998739ba0626aa5fe6b57c2b77e2651758c5090"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_element_s4_cmp_for_task": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_s4_cmp_for_task.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "a4e998bfcc6d91a479f80022237d1d445b61e5346d8085c9391c7dd49e88d266"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_element_s4_mul_case_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_s4_mul_case_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "b937ada21cf5addef89b7fe016763beecca3bc914374d4f71a49099402f21ca3"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_s8_neg_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "f9f8a5bcf3ea856e148c63dfad1fe499187dca3555e64fcb0cce7fb3b7dcad28"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_element_s8_part_repeat_compound": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_s8_part_repeat_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "42f3b3dc77ae5a2a2474ddcde77f3890a34d2be557b6a8711685d87cacf9da74"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_element_s8_shift_while_compound": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_s8_shift_while_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "2d60e308b8e22d62286f691c4060e859157aa3d828642de80f266cb25c04650b"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_element_u8_div_do_inside": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_u8_div_do_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "b35d7c1e330b7296ef03e98a092338834fcb9702931ddbf1eba98af9cc361732"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_element_u8_mixed_if_task": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_element_u8_mixed_if_task.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "6ead13ff2a484a31c6aa2a8229a9282df3fe835878fc3573353a4a918a0a5504"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_s4_mixed_foreach_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "e5ef115a7e40d7a744fdbf99ea63e38f2f79212b7d193c4781be19c22a006a4b"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_generic_s8_cmp_repeat_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_cmp_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "b4c852e17d6f55f868e02656beff2ce688725bfc8116f0238f2e1fb306cc7698"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_generic_s8_mul_while_compound": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_mul_while_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "b6eb556adcb88c3b98d13c5518f3f9e7faae317338736f18e55718fa5650c9ab"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_generic_s8_neg_do_compound": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_neg_do_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "34bca0f219deda3d7f011f09ab526fb12b950055f5a06c34785f0cb6dc4ea3ec"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_generic_s8_part_if_inside": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_s8_part_if_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "ab709f8c46fd5a5c92bdd61830d740f7613792efbada1170a813c599525cd038"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_generic_u8_div_for_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_u8_div_for_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "fdc11cce7b7d448725816f830b0947b239c20b178805b0984966419b32ee8f9f"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_generic_u8_shift_case_task": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_generic_u8_shift_case_task.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "d1d587c7faf9fbf92846a49fbdbd68db4225b19c2bb7be9ff60cf5def0e0f344"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_hier_s4_shift_repeat_inside": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_s4_shift_repeat_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "f8307fcb12f6bdef9a4184e948058c2f76d88bb76ab494dd23991162eaa0bbbe"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_hier_s8_cmp_while_inside": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_cmp_while_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "2588ee049985285e1f8dd7c115a45e1e58ebe1cdeeb8a6e2dc914427b4766070"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_hier_s8_div_foreach_task": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_div_foreach_task.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "70952c877ff26e9b8dc89dbc39dafb930f2a566988338d8badb2c90039f7ad4a"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_hier_s8_mixed_case_compound": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_mixed_case_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "6c0c285b3bae42edcfadc4855cbde02decc7dc256346c35f572fc7b213d45560"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_hier_s8_mul_do_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_mul_do_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "95f4487526c386b35b10a890f7e0854cb099ab61956b86d84fba86e7f0f9832c"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_hier_s8_part_for_compound": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_s8_part_for_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "56bbc11d79637840b9c27781f6b6f035051855cb39a7e011a0683cd05b0c848f"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_hier_u8_neg_if_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_hier_u8_neg_if_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "4ec1e67f10c79572e84983f17e977078efa61ed6caa7b72ecfa448a1d09ea989"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_modport_s4_div_if_compound": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_s4_div_if_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "cba91afe3320643bf5ab636b40a9b2107dcf2498d13f9f2f9133fa7cb9b14e10"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_modport_s8_cmp_case_inside": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_cmp_case_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "4091238f797d9fa1b26a4780d0cbf94ca53b031b621e7d5b474c003af8479c85"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_modport_s8_mixed_while_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_mixed_while_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "3313207fd0b13d53e086e7850a0d594e27d72582c062706e5cf51a1f1b3eaa73"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_modport_s8_neg_for_inside": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_neg_for_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "57e50726cdbd913a0981d70e6f8f4079e57b1e088e3eff1c3dccec9ac7c4ec4a"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_do_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_do_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "2aa8de02c3fc591a98b696b00210d0c41f864ed13187da07497ddcacbe4c0eb0"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_s8_shift_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "4347ddc5fccc80de2d6d8f62a5ca1abc7ca8b11166d299952196847c69047fa7"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_modport_u8_mul_repeat_task": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_u8_mul_repeat_task.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "adf93ec1519da248df884e4bbad5b1b585d408a4a6bc7892eb3c946bc33a35fc"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_modport_u8_part_while_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_modport_u8_part_while_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "9c42397c38dd668a4e9966e2e50a08a634f0557ef1135c5a889ef8ecbdc89a7e"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s4_neg_while_task": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s4_neg_while_task.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "46007ca3e1d2a5fab20e85f068aaa39db0eef41ed6852ba85fd6e04500954b7c"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s4_part_do_task": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s4_part_do_task.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "032525314c192f76a128dd7b0df6bb1710e231289cf7a1364d09c72b1c95becc"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_do_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_do_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "2fd9c59feb309e3336980d2b7d78a41ca34c34058b914ff97ca462dacfa32cf0"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_if_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_cmp_if_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "89a9a68074e21d1448d231e8005ab2c9306b11faf9e9318419357dd817bd9afa"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_div_case_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_case_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "2ad5672df6f70db08ee0b329588865ed3c146f85c3244e5832ca3835b86e5724"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_div_repeat_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "b01d39c45692282e0f1d7666e9cec512c70b1a1bec0cb8bab6eefaa2d61ef0ad"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_div_while_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_div_while_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "309e6a02f5a35bb65d730155c5ca1133914e925f556360206b9e035c57aff228"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_do_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_do_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "60a8b0e6235279129d99f7be5118fe1b994bc42f079d0aca090e318bff29a214"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_for_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_for_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "2b6c874a24132e956b25956728329c05a388231f2262fc9d6b16cca9345c82d4"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_repeat_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mixed_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "1326a9e22d8e4b6583dc4973388edd7a1645122ee961b9bac232e04fad15effa"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_mul_for_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_for_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "14122bd38bd1139d4bde34bff2658eda263c407f6c4e63e2910a62b88e014d9d"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "f234681eec81ecc98ae31831d812b9fae6442c0ab08eab632b08a33a004ec3ac"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_mul_if_inside": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_mul_if_inside.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "cdfaf1302d7950d3afc2bea4d84fa8135d84d0822f409733beafbc8166716aad"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_neg_case_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_case_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "033918b9e99c64f8f918bf1015327544d989e60896eab56c9bf05b5c37d3cdc5"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_neg_repeat_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_neg_repeat_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "d900ad3d559be5dcb3783dc7a6e899d2d301121415e86654ff09e796c7346461"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_part_case_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_case_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "ed2d6eda77d495d7679ad97c980d1ec4f84032a3e68f8228b71693a636b11056"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_part_foreach_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "61beef2e683de63aa408f44e5d0f939019d17cafb46c24c6c36ad642c2402a6a"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_shift_for_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_for_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "6b25c655da6be8a4d46519c03fc9e0af1db3f29e7db46d63b0fab7c3a34dbc1c"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_s8_shift_if_direct": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_s8_shift_if_direct.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "d9df935f57279380f5bc7f1a7115c3bc355af817a5a8d8003e2e5a4af1337a8e"
+  },
+  "gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch25/test_gen_cross_ifexpr_port_u8_cmp_foreach_compound.sv:31: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "79beda225866fc7a19f9685e286184085e8453c6852b496fb3f6f515418da709"
+  }
+ },
+ "generated_at": "2026-11-07T12:54:50.696445+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

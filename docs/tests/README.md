@@ -21,7 +21,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 9 | [Processes](ch9.md) | 383 | 173 |
 | 10 | [Assignment statements](ch10.md) | 425 | 221 |
 | 11 | [Operators and expressions](ch11.md) | 1644 | 1122 |
-| 12 | [Procedural programming statements](ch12.md) | 251 | 70 |
+| 12 | [Procedural programming statements](ch12.md) | 306 | 125 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 381 | 194 |
 | 14 | [Clocking blocks](ch14.md) | 150 | 72 |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 189 | 133 |
@@ -30,11 +30,11 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 18 | [Constrained random value generation](ch18.md) | 257 | 57 |
 | 19 | [Functional coverage](ch19.md) | 190 | 33 |
 | 20 | [Utility system tasks and system functions](ch20.md) | 367 | 97 |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 339 | 126 |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 430 | 217 |
 | 22 | [Compiler directives](ch22.md) | 512 | 402 |
 | 23 | [Modules and hierarchy](ch23.md) | 331 | 75 |
 | 24 | [Programs](ch24.md) | 160 | 117 |
-| 25 | [Interfaces](ch25.md) | 204 | 85 |
+| 25 | [Interfaces](ch25.md) | 253 | 134 |
 | 26 | [Packages](ch26.md) | 225 | 142 |
 | 27 | [Generate constructs](ch27.md) | 283 | 180 |
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 296 | 187 |

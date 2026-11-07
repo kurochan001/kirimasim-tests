@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の104生成器から5,005件のテストを生成しています。
+現在の107生成器から5,200件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -62,6 +62,7 @@
 | [`interaction_genexpr`](../generators/interaction_genexpr.py) | 27 | 36 | 定数式のオペランド符号・代入文脈の幅・結果の宣言符号を分離し、生成分岐・個数・幅を照合する。$bitsによる形状、各生成要素の全幅データ、別実体の保持、X/Zと既知値への回復を観測する。 |
 | [`interaction_genloop`](../generators/interaction_genloop.py) | 27 | 36 | 生成プロセスごとの配列走査とbreak/continueを、訪問数・保持数・重み・全幅の結果で照合する。一スコープの入力変更、別guardの更新、立上りでの再起動、立下りと待機中の状態保持を観測する。 |
 | [`interaction_gensub`](../generators/interaction_gensub.py) | 27 | 36 | 生成スコープごとに異なる型・範囲の配列とサブルーチンを宣言し、既定引数の結合先と再評価を照合する。function/taskの入出力変換、呼出し順序、外部更新後の再呼出し、隣接要素と別スコープの状態保持を観測する。 |
+| [`interaction_ifexpr`](../generators/interaction_ifexpr.py) | 25 | 49 | 符号付き8・符号なし8・符号付き4ビットのメンバを、ポート・modport・総称ポート・配列の要素・階層名から読む。除算・算術シフト・比較・単項マイナス・乗算と、文の制御・importしたtaskによる共有の更新を確かめる。 |
 | [`interaction_iff`](../generators/interaction_iff.py) | 9 | 27 | 独立した左右のイベント数と条件付きORの起床数、条件だけを変えた後の保持を観測し、iffの項ごとの結合、orとカンマの同義性、名前付きイベントの再発火、X/Zを含む条件の真偽、ブロッキング/NBAの更新時点を確認する。 |
 | [`interaction_ifgenerate`](../generators/interaction_ifgenerate.py) | 27 | 36 | generate要素ごとに幅の違うinterfaceを2個置き、if/caseで選択した側をwhole/modportのwriter/readerへ接続する。bit/logicへの格納前の反転、非選択側の対照、実際の幅・識別タグ・接続先と全要素の独立性を観測する。 |
 | [`interaction_ifimport`](../generators/interaction_ifimport.py) | 25 | 36 | interfaceヘッダのimportでパラメータ既定値・型・package関数を結合し、targetだけの幅/タグ変更をguardと比較する。同名の呼出し側宣言を対照に、bit/logicの仮引数変換がpackage関数の演算前に行われる順序と実際の幅・中間値を照合する。 |
@@ -70,8 +71,10 @@
 | [`interaction_index`](../generators/interaction_index.py) | 11 | 44 | 可変インデックスのビット列と書き込み前後の全ビットを観測し、添字の符号、範囲の始点と向き、無効な読み取りの既定値、無効な書き込み時の保持を確認する。 |
 | [`interaction_inside`](../generators/interaction_inside.py) | 11 | 46 | 個別列挙・固定配列・動的配列・キューの要素とサイズ、異なる幅・符号の入力、生の判定値・拡張・bit変換・逆順リストを観測し、片側ワイルドカードとORを確認する。 |
 | [`interaction_literal`](../generators/interaction_literal.py) | 5 | 66 | 基数・符号・桁数・先頭桁を変えたリテラルを、直接・localparam・マクロの字句・continuous assignで運ぶ。左への詰めと切り捨て、式の文脈による拡張、代入先の幅とbitへの変換を全ビットで観測する。 |
+| [`interaction_litfmt`](../generators/interaction_litfmt.py) | 21 | 91 | x・zの詰め、?、下線、unbased unsized、符号、否定、エスケープを含むリテラルを各書式で表示する。自動の桁数・幅0・幅指定と、localparam・マクロ・連結、書式のない表示タスクの扱いを確かめる。 |
 | [`interaction_logic`](../generators/interaction_logic.py) | 11 | 70 | 各行で全6リダクションと論理否定の入力・実際の式・結果を観測し、支配値とX/Z、演算前後の状態変換、1ビットunsigned結果の拡張、入力の自己決定幅を確認する。 |
 | [`interaction_loop_nba`](../generators/interaction_loop_nba.py) | 10 | 36 | for/while/repeat内の複数代入で、途中結果を使うblockingと旧値からNBAを予約する動作を区別する。A/B/A呼出しの各反復の値・添字、ActiveとNBA後の全要素・カウンタ・ガードを観測し、書込み順序、状態変換、module/interfaceの独立した格納先を確認する。 |
+| [`interaction_loopsched`](../generators/interaction_loopsched.py) | 12 | 55 | repeat・while・for・do・foreverの制御変数を、別プロセスがNBA・#0の後・後の時刻に変える。待ちのない本体・#0・#2で、回数と$display・$strobe・$monitorが示す値を確かめる。 |
 | [`interaction_macro`](../generators/interaction_macro.py) | 22 | 114 | マクロの定義の形・本体の括弧・実引数を、11の文脈とコンパイル単位の中の定義の置き方で交差する。文字として展開されるので、外側の演算子や優先順位の低い実引数の結合を値で確かめる。 |
 | [`interaction_mailbox`](../generators/interaction_mailbox.py) | 15 | 36 | classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量制限・nullメッセージと取得前後の双方向のメンバ更新を確認する。別mailboxの保持と後の更新、空の非ブロッキング戻り値も観測する。 |
 | [`interaction_memfile`](../generators/interaction_memfile.py) | 21 | 36 | bit/logicと列挙型のメモリファイルを出力し、元配列の変更後に別の添字範囲へ読み込む。独立に用意した入力も読み込み、要素の値・範囲外の保持・宣言方向と読込み順・上書きを照合する。 |

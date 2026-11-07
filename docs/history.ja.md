@@ -318,3 +318,12 @@
   固定Icarusは192 pass・55 known、Verilatorは両seedとも179 pass・68 knownです。
 - suiteは11,440件、生成5,005件・104生成器です。要求カバレッジと13ランダムプロファイルを維持しました。
   今回の追加は正式Check・Nightlyでは未実行です。[設計・証跡](interaction-verification.md#macro-expansion-context)を参照してください。
+
+### 2026-11-07（インタフェースの式・ループの制御・リテラルの表示の追加）
+
+- インタフェースのメンバ、ループの制御とスケジューリング領域、リテラルと表示の書式のモデルを追加しました。合法4,883行から195件を選び、5章対をRからMへ移しました。
+- 最新のmainをビルドした`6e32b04ed6ec`の単一の全3,887件は3,404 pass・479 unsupported・既存configの4 failです。追加195件は全PASS、従来3,692件の入力は不変で、50件がunsupportedからPASSになりました。
+- 全体は98モデル・173章対・全選択ケースPASSは74モデル、仕分けはM173/E3/C2/N117/R525です。
+  固定Icarusは134 pass・61 known、Verilatorは両seedとも188 pass・7 knownです。
+- suiteは11,635件、生成5,200件・107生成器です。要求カバレッジと13ランダムプロファイルを維持しました。
+  今回の追加は正式Check・Nightlyでは未実行です。[設計・証跡](interaction-verification.md#interface-member-expression)を参照してください。
