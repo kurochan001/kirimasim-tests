@@ -410,7 +410,7 @@ Icarus Verilog 13.0安定版（v13_0-dirty）は、連想配列またはunpacked
 | 8.23 |独自の非virtual `f`を宣言した派生クラスで、`base_c::f()`の呼出しがbase_cのメソッド（和124）ではなく、派生側の`f`（和224）を実行します。`base_c::pv` , `base_c::pub`と`base_c::ps`は正しくベースメンバを選択した。| `ch8/test_class_scope_base_members_from_derived` |
 | 11.4.6 |異なるオブジェクトを指す2つのハンドル（interface classのハンドル`i1 !=? i3`、通常のclass `b1 !=? b2`でも同様）および異なる2つのchandle（`c1 !=? c2`）の`!=?`が、0になります。class、interface class、chandleのオペランドでは、ワイルドカード演算子は==と!=と同じasであるため、結果は1となる。| `ch11/test_equality_class_interface_chandle_handles` |
 | 11.4.12.1 |繰り返し回数がゼロの複製ではオペランドを評価しません。Z = 0の`{{Z{next()}}, 4'hf}`でも、呼出し回数は0のままです。複製のオペランドは、繰り返し回数がゼロでも、厳密に1回評価します。| `ch11/test_concatenation_pattern_string_operand_and_replication_once` |
-| 11.2.1, 20.4.1, 20.5 |localparam内の`$shortrealtobits(0.5)`は00000000を返し、同じ位置の`$bitstoshortreal`は0.0を返す。| `ch11/test_constant_system_function_calls_at_elaboration` |
+| 11.2.1, 20.4.1, 20.5 |localparam内の`$shortrealtobits(0.5)`は00000000を返し、同じ位置の`$bitstoshortreal`は0.0を返す。| `ch20/test_conversion_functions_constant_expressions` |
 | 20.2 |`$finish(0)`の後も呼出し元の手続きが続行し、実行終了前に`10: after $finish`を出力する。| `ch20/test_finish_ends_simulation` |
 | 20.2, 24.7 |最初のprogramからの`$exit()`は、呼出し元の手続きの残りを実行した後（`5: p_first after $exit`）、シミュレーション全体を直ちに終了する（5）。| `ch20/test_exit_waits_for_programs` |
 |19.5 19.5.2 19.7 (`ch19/test_cg_at_least` には既にリストされています)|`at_least`が無視され、各ビンは最初のヒットでカバー済みとなる（`value bin after 0, 1, 2: 100`）。| `ch19/test_cg_bin_hit_counts` |
